@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.*;
 import net.minecraft.client.model.ModelBase;
@@ -21,7 +22,7 @@ import java.util.stream.Collectors;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ItemGrenade extends Item implements
-PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContainer, Updatable, IModernCrafting {
+PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContainer, Updatable, IModernCraftingRecipe {
 
     public static final int DEFAULT_FUSE_TIMEOUT = 3000;
     public static final float DEFAULT_EXPLOSION_STRENTH = 2f;
@@ -45,8 +46,8 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
     }
 
     @Override
-    public Item getItem() {
-        return this;
+    public ItemStack getItemStack() {
+        return new ItemStack(this);
     }
 
     @Override

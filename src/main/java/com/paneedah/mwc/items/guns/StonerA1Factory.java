@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class StonerA1Factory {
 
@@ -35,21 +34,12 @@ public class StonerA1Factory {
         .withUnloadSound("mg42_unload")
         .withInspectSound("inspection")
         .withDrawSound("mg42_draw")
-//        .withDrawSound("mg42_reload")
         .withReloadingTime(45)
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.15f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Light Machine Gun",
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "100rnd 5.56x45mm Stoner Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 
@@ -92,27 +82,17 @@ public class StonerA1Factory {
              GL11.glScaled(0F, 0F, 0F);
          })
         .withCompatibleAttachment(AuxiliaryAttachments.M249Action, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.StonerHATCH, true, (model) -> {
             if(model instanceof StonerA1HATCH) {
-//            	GL11.glTranslatef(-0F, 2.45F, 3.8F);
-//                GL11.glRotatef(90F, 1f, 0f, 0f);
             } else if(model instanceof M27rearsight) {
                 GL11.glTranslatef(0f, -1.05f, 5.8f);
                 GL11.glScaled(0F, 0F, 0F);
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.StonerBELT, true, (model) -> {
-//            GL11.glTranslatef(0.3F, 0.1F, 0F);
-//          GL11.glRotatef(-15F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(Magazines.StonerMag, (model) -> {
-//            GL11.glTranslatef(0.3F, 0.1F, 0F);
-//            GL11.glRotatef(-15F, 0f, 0f, 1f);
-            
-//            GL11.glTranslatef(0.15F, 0.9F, 0F);
-//            GL11.glRotatef(10F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M4Rail, true, (model) -> {
             if(model instanceof AKRail) {
@@ -370,12 +350,9 @@ public class StonerA1Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new StonerA1())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -432,7 +409,6 @@ public class StonerA1Factory {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {
                     GL11.glTranslatef(-0.5F, -0.4F, 0F);
                     GL11.glRotatef(40F, 0f, 0f, 1f);
-//                    GL11.glRotatef(30F, 1f, 0f, 0f);
                 }
             })
             
@@ -1584,8 +1560,6 @@ public class StonerA1Factory {
                          GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(35.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(-0.425000f, -1.199999f, 0.075000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
                      }, 
                      (renderContext) -> {
                          GL11.glScalef(4f, 4f, 4f);
@@ -2698,4 +2672,3 @@ public class StonerA1Factory {
         .build(MWC.modContext);
     }
 }
-

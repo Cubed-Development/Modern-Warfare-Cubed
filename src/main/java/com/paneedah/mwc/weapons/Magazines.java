@@ -43,9 +43,8 @@ public class Magazines {
     public static ItemMagazine M9Mag30;
     public static ItemMagazine M9DrumMag;
     public static ItemMagazine MP443Mag;
-    public static ItemMagazine M45A1Mag;
-    public static ItemMagazine M45A1Mag14;
-    public static ItemMagazine M1911_44Mag;
+    public static ItemMagazine M1911Mag;
+    public static ItemMagazine M1911Mag15;
     public static ItemMagazine M17Mag;
     public static ItemMagazine MakarovMag;
     public static ItemMagazine USP45Mag;
@@ -66,7 +65,8 @@ public class Magazines {
     public static ItemMagazine L96A1Mag;
     public static ItemMagazine DSR1Mag;
     public static ItemMagazine DSR1MagExt;
-    public static ItemMagazine InterventionMag;
+	public static ItemMagazine InterventionMag;
+	public static ItemMagazine InterventionMagExtend;
     public static ItemMagazine M110Mag;
     public static ItemMagazine Z10Mag;
     public static ItemMagazine M1928Mag;
@@ -100,6 +100,7 @@ public class Magazines {
     public static ItemMagazine P90TerminatorMag;
     public static ItemMagazine G11Mag;
     public static ItemMagazine SaigaMag;
+	public static ItemMagazine SaigaMagExtended;
     public static ItemMagazine Origin12Mag;
     public static ItemMagazine Origin12DrumMag;
     public static ItemMagazine ScarHMag;
@@ -113,13 +114,17 @@ public class Magazines {
     public static ItemMagazine JohnsonMAG;
     public static ItemMagazine SV98Mag;
     public static ItemMagazine UziMag;
+    public static ItemMagazine UziMag45;
+    public static ItemMagazine UziDrumMag;
     public static ItemMagazine VP70Mag;
     public static ItemMagazine HoneyBadgerMag;
     public static ItemMagazine VectorMag;
     public static ItemMagazine VectorDrumMag;
+    public static ItemMagazine PP1901Mag;
     public static ItemMagazine DesertEagleMag;
     public static ItemMagazine M60Mag;
     public static ItemMagazine M249Mag;
+    public static ItemMagazine PKMMag;
     public static ItemMagazine StonerMag;
     public static ItemMagazine M134Mag;
     public static ItemMagazine FuelCell;
@@ -196,7 +201,7 @@ public class Magazines {
                 .withRotationPoint(-0.16000000476837162F, -0.16000000476837162F, -1.5200000452995304F)
                 .withModel(new M4A1Mag(), "M4A1Magazine.png")
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver,
-                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard, Attachments.M4AsiimovStock,
+                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
                         Attachments.ScarLReceiver, Attachments.SIG556Grip)
                 .withMaxStackSize(6)
@@ -227,7 +232,7 @@ public class Magazines {
                 .withName("BeowulfMag")
                 .withModel(new Beowulf50CalMagazine(), "Beowulf50CalMagazine.png")
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver,
-                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard, Attachments.M4AsiimovStock,
+                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.Beowulf50CalReceiver)
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);
@@ -254,7 +259,7 @@ public class Magazines {
                 .build(ItemMagazine.class);
 
         Magazines.M134Mag = new ItemMagazine.Builder().withCapacity(1000).withCompatibleBullet(Bullets.Bullet762x51).withName("M134Mag")
-                .withModel(new M134Mag(), "gun.png")
+                .withModel(new M134Mag(), "m134.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
@@ -276,6 +281,18 @@ public class Magazines {
                 .withRotationPoint(0.8812000082910061F, 0.8648000418066975F, -1.40640004143715F)
                 .withModel(new M249Mag(), "m249.png")
                 .withMaxStackSize(6)
+                .withCrafting(CraftingComplexity.MEDIUM,
+                        MWCItems.steelIngot,
+                        MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+
+        Magazines.PKMMag = new ItemMagazine.Builder()
+                .withCapacity(120)
+                .withCompatibleBullet(Bullets.Bullet762x54)
+                .withName("PKMMag")
+                .withRotationPoint(0.8812000082910061F, 0.8648000418066975F, -1.40640004143715F)
+                .withModel(new PKMMag(), "pkm.png")
+                .withMaxStackSize(2)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
@@ -374,7 +391,7 @@ public class Magazines {
                 .withCompatibleBullet(Bullets.Bullet556x45)
                 .withName("Stanag100")
                 .withRotationPoint(-0.16000000476837162F, -0.16000000476837162F, -1.5200000452995304F)
-                .withModel(new NATODrum100(), "drum100rndmag.png")
+                .withModel(new NATODrum100(), "betacmag.png")
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver,
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
@@ -517,12 +534,18 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
-        Magazines.SaigaMag = new ItemMagazine.Builder().withCapacity(5).withCompatibleBullet(Bullets.Shotgun12Guage).withName("SaigaMag_2")
-                .withModel(new Saiga12mag(), "gun.png")
+        Magazines.SaigaMag = new ItemMagazine.Builder()
+		        .withCapacity(5).withCompatibleBullet(Bullets.Shotgun12Guage)
+				.withName("SaigaMag_2")
+                .withModel(new Saiga12Mag(), "gun.png")
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+				
+        Magazines.SaigaMagExtended = new ItemMagazine.Builder()
+		        .withCapacity(12).withCompatibleBullet(Bullets.Shotgun12Guage)
+		        .withName("SaigaMag_3")
+                .withModel(new Saiga12ExtenMag(), "gun.png")
+                .withMaxStackSize(3)
                 .build(ItemMagazine.class);
 
         Magazines.Origin12Mag = new ItemMagazine.Builder()
@@ -587,12 +610,19 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
+	    Magazines.PP1901Mag = new ItemMagazine.Builder()
+                .withCapacity(30).withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withName("PP1901Mag")
+                .withModel(new PP1901Mag(), "pp1901.png")
+                .withMaxStackSize(6)
+                .build(ItemMagazine.class);
+				
         Magazines.DesertEagleMag = new ItemMagazine.Builder()
                 .withCapacity(7)
                 .withCompatibleBullet(Bullets.Bullet50AE)
                 .withName("DesertEagleMag")
                 .withRotationPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
-                .withModel(new DesertEagleMag(), "deagle.png")
+                .withModel(new DesertEagleMag(), "gun.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
@@ -618,33 +648,17 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
-        Magazines.M45A1Mag = new ItemMagazine.Builder().withCapacity(7).withCompatibleBullet(Bullets.Bullet45ACP).withName("M45A1Mag_2")
-                .withModel(new GlockMagazine(), "gun.png")
-                .withRequiredAttachments(Attachments.M1911Body)
+        Magazines.M1911Mag = new ItemMagazine.Builder().withCapacity(7).withCompatibleBullet(Bullets.Bullet45ACP).withName("M1911Mag")
+                .withModel(new M1911Mag(), "m1911.png")
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
+                .withRotationPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
                 .build(ItemMagazine.class);
 
-        Magazines.M1911_44Mag = new ItemMagazine.Builder().withCapacity(7).withCompatibleBullet(Bullets.Bullet44).withName("M1911_44Mag")
-                .withRequiredAttachments(Attachments.M191144MagBody)
-                .withModel(new GlockMagazine(), "gun.png")
+        Magazines.M1911Mag15 = new ItemMagazine.Builder().withCapacity(15).withCompatibleBullet(Bullets.Bullet45ACP).withName("M1911Mag_2")
+                .withModel(new M1911Mag15(), "m1911.png")
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
+                .withRotationPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
                 .build(ItemMagazine.class);
-
-        Magazines.M45A1Mag14 = new ItemMagazine.Builder().withCapacity(14).withCompatibleBullet(Bullets.Bullet45ACP).withName("M45A1Mag14")
-                .withModel(new M9Mag30(), "gun.png")
-                .withRequiredAttachments(Attachments.M1911Body)
-                .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
-                .build(ItemMagazine.class);
-
 
         Magazines.M17Mag = new ItemMagazine.Builder()
                 .withCapacity(17)
@@ -659,7 +673,7 @@ public class Magazines {
                 .withCompatibleBullet(Bullets.Bullet9x18mm)
                 .withName("MakarovMag")
                 .withRequiredAttachments(Attachments.MakarovSlide, Attachments.MakarovPBBody)
-                .withModel(new MakarovMag(), "makarovmag.png")
+                .withModel(new MakarovMag(), "makarovpm.png")
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
@@ -783,12 +797,18 @@ public class Magazines {
                 .withCapacity(7)
                 .withCompatibleBullet(Bullets.Bullet408CT)
                 .withName("InterventionMag")
-                .withModel(new InterventionMag(), "Intervention.png")
+                .withModel(new InterventionMag(), "intervention.png")
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
                 .build(ItemMagazine.class);
+
+		Magazines.InterventionMagExtend = new ItemMagazine.Builder()
+               .withCapacity(10)
+               .withCompatibleBullet(Bullets.Bullet408CT)
+               .withName("InterventionMagExtend")
+               .withModel(new InterventionMagExtend(), "intervention.png")
+               .withMaxStackSize(3)
+               .build(ItemMagazine.class);
+
 
         Magazines.M40A6Mag = new ItemMagazine.Builder()
                 .withCapacity(7)
@@ -799,6 +819,15 @@ public class Magazines {
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+
+        Magazines.AX50Mag = new ItemMagazine.Builder()
+                .withCapacity(5)
+                .withCompatibleBullet(Bullets.Bullet50BMG)
+                .withName("AX50Mag")
+                .withRotationPoint(-0.12000000357627871F, 0.40000001192092904F, -2.4800000739097605F)
+                .withModel(new AX50Mag(), "ax50.png")
+                .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
         Magazines.R700Mag = new ItemMagazine.Builder().withCapacity(5).withCompatibleBullet(Bullets.Bullet762x54).withName("R700Mag")
@@ -822,6 +851,17 @@ public class Magazines {
                 .withCompatibleBullet(Bullets.Bullet308Winchester)
                 .withName("SSG08Mag")
                 .withModel(new SSG08Magazine(), "gun.png")
+                .withMaxStackSize(6)
+                .withCrafting(CraftingComplexity.MEDIUM,
+                        MWCItems.steelIngot,
+                        MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+
+		 Magazines.HecateIIMag = new ItemMagazine.Builder()
+                .withCapacity(7)
+                .withCompatibleBullet(Bullets.Bullet50BMG)
+                .withName("HecateIIMag")
+                .withModel(new PGMHecateIIMag(), "pgmhecateii.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
@@ -1141,12 +1181,37 @@ public class Magazines {
                 .withCompatibleBullet(Bullets.Bullet9x19mm)
                 .withName("UziMag_2")
                 .withRotationPoint(-0.040000001192092904F, 0.7200000214576723F, -0.40000001192092904F)
-                .withModel(new UziMag(), "gun.png")
+                .withModel(new UziMag(), "uzi.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
                 .build(ItemMagazine.class);
+
+        Magazines.UziMag45 = new ItemMagazine.Builder()
+                .withCapacity(45)
+                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withName("UziMag_3")
+                .withRotationPoint(-0.040000001192092904F, 0.7200000214576723F, -0.40000001192092904F)
+                .withModel(new UziMag45(), "uzi.png")
+                .withMaxStackSize(4)
+                .withCrafting(CraftingComplexity.MEDIUM,
+                        MWCItems.steelIngot,
+                        MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+
+        Magazines.UziDrumMag = new ItemMagazine.Builder()
+                .withCapacity(60)
+                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withName("UziMag_4")
+                .withRotationPoint(-0.040000001192092904F, 0.7200000214576723F, -0.40000001192092904F)
+                .withModel(new UziDrumMag(), "uzi.png")
+                .withMaxStackSize(3)
+                .withCrafting(CraftingComplexity.MEDIUM,
+                        MWCItems.steelIngot,
+                        MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+
 
         Magazines.VP70Mag = new ItemMagazine.Builder()
                 .withCapacity(18)

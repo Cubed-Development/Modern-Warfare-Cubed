@@ -9,6 +9,7 @@ import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
+import com.paneedah.weaponlib.config.VMWModConfigGUI;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import net.minecraft.block.BlockDoor;

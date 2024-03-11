@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class KS23Factory implements GunFactory {
 
@@ -23,14 +22,12 @@ public class KS23Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("ks23")
-//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(4)
         .withMaxBulletsPerReload(3)
-        .withFireRate(0.5f)
+        .withFireRate(0.1f)
         .withEjectRoundRequired()
         .withIteratedLoad()
         .withEjectSpentRoundSound("ks23_pump_action")
-        .withFireRate(0.1f)
         .withRecoil(9f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SHOTGUN)
@@ -51,13 +48,6 @@ public class KS23Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.05f)
         .withFlashOffsetY(() -> 0.09f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Carbine/Shotgun",
-        "Damage per Pellet: 7.5",
-        "Pellets per Shot: 10", 
-        "Cartridge: 4 Gauge Shotgun Shell",
-        "Fire Rate: PUMP ACTION",
-        "Rate of Fire: 10/100"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 
@@ -68,7 +58,6 @@ public class KS23Factory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
         
         .withCompatibleAttachment(AuxiliaryAttachments.KS23pump, true, (model) -> {
-//        	GL11.glTranslatef(-0F, -0F, 0.8F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Shotgun4Gauge, true, (model) -> {
             GL11.glTranslatef(-0.12F, -0.08F, -1F);
@@ -147,12 +136,9 @@ public class KS23Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new KS23())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -179,11 +165,6 @@ public class KS23Factory implements GunFactory {
                 GL11.glRotatef(5F, 0f, 0f, 1f);
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(-0.150000f, 0.350000f, -1.225000f);
-                
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glRotatef(5F, 0f, 0f, 1f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glTranslatef(-0.150000f, 0.350000f, -1.825000f);
             })
             
         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -219,8 +200,7 @@ public class KS23Factory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                     //System.out.println("Position me for Holo");
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -228,15 +208,12 @@ public class KS23Factory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.KS23pump.getRenderablePart(), (renderContext) -> {
-//              GL11.glTranslatef(0F, 0F, 1F);
                 })
                 
             .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.KS23pump.getRenderablePart(), (renderContext) -> {
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.Shotgun4Gauge.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0.07F, 1.15F, -0.3F);
-//                GL11.glRotatef(-70F, 1f, 0f, 0f);
                 })
                 
             .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.Shotgun4Gauge.getRenderablePart(), (renderContext) -> {
@@ -721,8 +698,7 @@ public class KS23Factory implements GunFactory {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                 GL11.glTranslatef(0.250000f, 0.17f, -1.1f);
-                
-//              // Holo Zoom
+
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                     //System.out.println("Position me for Holo");
                 } 
@@ -756,8 +732,6 @@ public class KS23Factory implements GunFactory {
              }) 
             .withFirstPersonHandPositioning(
                      (renderContext) -> {
-//                    	 GL11.glScalef(3.5f, 3.5f, 3.5f);
-                    	 
                     	 GL11.glScalef(3.5f, 3.5f, 3.5f);
                     	 GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
                     	 GL11.glRotatef(-45.000000f, 0f, 1f, 0f);

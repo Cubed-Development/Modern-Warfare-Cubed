@@ -59,20 +59,22 @@ public final class StaticModelSourceRenderer extends ModelSourceRenderer {
                 break;
         }
 
-        if (itemStack.getItem() instanceof IModelSource)
+        if (itemStack.getItem() instanceof IModelSource) {
             renderModel();
-        else if (itemStack.getItem() instanceof IEquipmentModelSource)
+        } else if (itemStack.getItem() instanceof IEquipmentModelSource) {
             renderEquipmentModel();
+        }
     }
 
     private void renderModel() {
         final IModelSource iModelSource = (IModelSource) itemStack.getItem();
 
         for (final TexturedModel texturedModel : iModelSource.getTexturedModels()) {
-            if (texturedModel.getTextureName().startsWith("customskin_"))
-                MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getTextureName().toLowerCase().replace("customskin_", "").replace(".png", "")));
-            else
+            if (texturedModel.getTextureName().startsWith("customskin_")) {
+                MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getTextureName().replace("customskin_", "")));
+            } else {
                 MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getTextureName()));
+            }
 
             final ModelBase model = texturedModel.getModel();
 

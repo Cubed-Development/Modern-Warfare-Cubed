@@ -5,11 +5,14 @@ import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.ModernConfigManager;
+import com.paneedah.weaponlib.particle.ParticleFancyRain;
+import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.DepthTexture;
 import com.paneedah.weaponlib.render.HDRFramebuffer;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.bgl.weather.ModernWeatherRenderer;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.particle.ParticleRain;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
@@ -18,6 +21,7 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.shader.Framebuffer;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.biome.Biome;
@@ -29,7 +33,6 @@ import org.lwjgl.util.glu.Project;
 import org.lwjgl.util.vector.Matrix4f;
 
 import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
@@ -47,10 +50,10 @@ public class PostProcessPipeline {
 	private static int height = -1;
 
 	// Textures
-	public static final ResourceLocation HEAT_DISTORTION = new ResourceLocation(ID + "textures/maps/heatdistortion.png");
-	public static final ResourceLocation CLOUD_SPRITE = new ResourceLocation(ID + "textures/maps/cloudsprite.png");
-	public static final ResourceLocation RAIN_DROP_TEXTURE = new ResourceLocation(ID + "textures/maps/raindrop.png");
-	public static final ResourceLocation SNOW_FLAKE_TEXTURE = new ResourceLocation(ID + "textures/maps/snowflake.png");
+	public static final ResourceLocation HEAT_DISTORTION = new ResourceLocation(ID, "textures/maps/heatdistortion.png");
+	public static final ResourceLocation CLOUD_SPRITE = new ResourceLocation(ID, "textures/maps/cloudsprite.png");
+	public static final ResourceLocation RAIN_DROP_TEXTURE = new ResourceLocation(ID, "textures/maps/raindrop.png");
+	public static final ResourceLocation SNOW_FLAKE_TEXTURE = new ResourceLocation(ID, "textures/maps/snowflake.png");
 
 	// Float buffers
 	private static final FloatBuffer projectionBuffer = BufferUtils.createFloatBuffer(16);
@@ -80,14 +83,10 @@ public class PostProcessPipeline {
 	
 	private static DepthTexture scopeDepthTexture;
 	private static DepthTexture normalDepthTexture;
-
-	
-	// Tells us if the player has flipped the configuration option
-	private static boolean persistenceWeatherStatus = false;
-	private static boolean swappedWeatherRenderer = false;
 	
 	// Gives us the original weather renderer to swap back to
-	private static IRenderHandler originalWeatherRenderer;
+	private static IRenderHandler originalWeatherRenderer = null;
+	private static boolean isOriginalWeatherRendererDirty = true;
 	
 	
 	private static final ModernWeatherRenderer modernWeatherRenderer = new ModernWeatherRenderer();
@@ -96,7 +95,7 @@ public class PostProcessPipeline {
 
 	// Constants
 	private static final int MAX_RAINDROPS_ON_SCREEN = 16;
-	private static final float BASE_FOG_INTENSITY = 0.6f;
+	private static final float BASE_FOG_INTENSITY = 0.2f;
 	private static final float[] BASE_FOG_COLOR = new float[] { 0.6f, 0.6f, 0.6f };
 
 	/**
@@ -191,20 +190,19 @@ public class PostProcessPipeline {
 	 * Static method that changes the world's weather renderer
 	 */
 	public static void setWorldElements() {
-		if(!swappedWeatherRenderer || (ModernConfigManager.enableFancyRainAndSnow != persistenceWeatherStatus)) {
-			persistenceWeatherStatus = ModernConfigManager.enableFancyRainAndSnow;
+		final IRenderHandler currentWeatherRenderer = MC.world.provider.getWeatherRenderer();
 
-			if(persistenceWeatherStatus) {
-				if(!swappedWeatherRenderer)
-					originalWeatherRenderer = MC.world.provider.getWeatherRenderer();
+		if (isOriginalWeatherRendererDirty || (currentWeatherRenderer != modernWeatherRenderer && currentWeatherRenderer != originalWeatherRenderer)) {
+			originalWeatherRenderer = currentWeatherRenderer;
+			isOriginalWeatherRendererDirty = false;
+		}
 
-				MC.world.provider.setWeatherRenderer(modernWeatherRenderer);
-
-			} else {
-				MC.world.provider.setWeatherRenderer(originalWeatherRenderer);
-			}
-			
-			swappedWeatherRenderer = true;
+		if (ModernConfigManager.enableFancyRainAndSnow) {
+			MC.world.provider.setWeatherRenderer(modernWeatherRenderer);
+			MC.effectRenderer.registerParticle(EnumParticleTypes.WATER_DROP.getParticleID(), new ParticleFancyRain.Factory());
+		} else {
+			MC.world.provider.setWeatherRenderer(originalWeatherRenderer);
+			MC.effectRenderer.registerParticle(EnumParticleTypes.WATER_DROP.getParticleID(), new ParticleRain.Factory());
 		}
 	}
 
@@ -244,8 +242,7 @@ public class PostProcessPipeline {
 	
 	
 	public static boolean shouldDoFog() {
-		return false;
-		//return ModernConfigManager.enableAllShaders && ModernConfigManager.enableWorldShaders && getFogIntensity() != 0;
+		return ModernConfigManager.enableAllShaders && ModernConfigManager.enableWorldShaders && getFogIntensity() != 0;
 	}
 	
 	
@@ -411,14 +408,6 @@ public class PostProcessPipeline {
 		height = MC.displayHeight;
 
 		recreateDepthFramebuffer();
-		
-		// Create color attachment
-		if (fauxColorTexture == -1)
-			fauxColorTexture = GL11.glGenTextures();
-		GlStateManager.bindTexture(fauxColorTexture);
-		GlStateManager.glTexImage2D(3553, 0, 32856, width, height, 0, 6408, 5121, (IntBuffer) null);
-		OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_COLOR_ATTACHMENT0,
-				GL11.GL_TEXTURE_2D, fauxColorTexture, 0);
 
 		if (distortionBuffer != null)
 			distortionBuffer.deleteFramebuffer();
@@ -588,12 +577,6 @@ public class PostProcessPipeline {
 		if(!ModernConfigManager.enableWorldShaders)
 			return;
 
-		if(ModernConfigManager.enableAllShaders && ModernConfigManager.onScreenRainAndSnow)
-			drawRainBuffer();
-
-		if(true) // I don't know why Jim did this, but removing it renders a white screen.
-			 return;
-
 		//Shaders.postWorld = ShaderLoader.loadVMWShader("postworld");
 
 		// Check if buffers need to be remade
@@ -650,6 +633,8 @@ public class PostProcessPipeline {
 
 		// Rebind the MC Framebuffer
 		MC.getFramebuffer().bindFramebuffer(false);
+
+		GL11.glEnable(GL11.GL_DEPTH_TEST);
 
 		if(ModernConfigManager.enableAllShaders && ModernConfigManager.onScreenRainAndSnow)
 			drawRainBuffer();
@@ -896,6 +881,9 @@ public class PostProcessPipeline {
 	public static void doPostProcess() {
 		if (!ModernConfigManager.enableScreenShaders)
 			return;
+
+		if(ModernConfigManager.bloomEffect)
+			Bloom.doBloom();
 		
 		// if(true) return;
 
@@ -950,6 +938,11 @@ public class PostProcessPipeline {
 		Shaders.post.boolean1b("enableFilmGrain", ModernConfigManager.filmGrain);
 		Shaders.post.uniform1f("mdf", (float) ModernConfigManager.filmGrainIntensity);
 		Shaders.post.boolean1b("onScreenLiquids", ModernConfigManager.onScreenRainAndSnow);
+
+		// Draw full-screen triangle in order to ensure the fragment shader
+		// runs for every pixel on screen
+		Framebuffer boof = MC.getFramebuffer();
+		Bloom.renderFboTriangle(boof, boof.framebufferWidth, boof.framebufferHeight);
 
 		Shaders.post.release();
 

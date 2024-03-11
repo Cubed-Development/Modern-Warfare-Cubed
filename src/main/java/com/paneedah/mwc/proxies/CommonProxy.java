@@ -8,7 +8,7 @@ import com.paneedah.mwc.items.melee.BaseballBatFactory;
 import com.paneedah.mwc.items.melee.BaseballBatNailsFactory;
 import com.paneedah.mwc.items.melee.NightStickFactory;
 import com.paneedah.mwc.items.melee.TacticalTomahawkFactory;
-import com.paneedah.mwc.skins.GunSkins;
+import com.paneedah.mwc.skins.Skins;
 import com.paneedah.mwc.tileentities.TileEntities;
 import com.paneedah.mwc.vehicle.Vehicles;
 import com.paneedah.mwc.weapons.*;
@@ -68,7 +68,7 @@ public class CommonProxy {
         Armors.init(mod, MWC.modContext);
         Attachments.init();
         AuxiliaryAttachments.init();
-        GunSkins.init();
+        Skins.init();
         Bullets.init();
         Magazines.init(mod);
         Guns.init(mod, this);

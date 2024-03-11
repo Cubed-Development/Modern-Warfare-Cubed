@@ -158,11 +158,7 @@ public class MainCommand extends CommandBase {
             	String toPrint = "> " + stack.getCount() + "x " + TextFormatting.WHITE + I18n.format(stack.getItem().getTranslationKey() + ".name");
             	
             	// Appends the disassembly to the end of the string
-            	if(stack.getItem() instanceof ManufacturingItemBase) {
-                    ManufacturingItemBase craftingItem = (ManufacturingItemBase) stack.getItem();
-            		System.out.println(craftingItem.getRecoveryChance());
-            		toPrint += " -> " + (stack.getCount()*craftingItem.getRecoveryChance()) + "x " + I18n.format(craftingItem.getRegistryName() + ".name");
-            	}
+                toPrint += " -> " + (stack.getCount()*stack.getYield()) + "x " + I18n.format(stack.getItem().getRegistryName() + ".name");
 
                 MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + toPrint));
                  

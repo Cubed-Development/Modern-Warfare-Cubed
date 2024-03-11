@@ -42,10 +42,12 @@ public class ModernWeatherRenderer extends IRenderHandler {
 	//private int previousThirdPerson;
 	
 	// Textures
-	public static final ResourceLocation RAIN_LIGHT = new ResourceLocation(ID + ":textures/environment/lightrain.png");
-	public static final ResourceLocation RAIN_MEDIUM = new ResourceLocation(ID + ":textures/environment/mediumrain.png");
-	public static final ResourceLocation RAIN_HEAVY = new ResourceLocation(ID + ":textures/environment/heavyrain.png");
-	public static final ResourceLocation RAIN_INSANE = new ResourceLocation(ID + ":textures/environment/insanerain.png");
+	// Todo: Actually use the different rain textures - Luna Lage (Desoroxxx) 2023-12-21
+	public static final ResourceLocation RAIN_LIGHT = new ResourceLocation(ID, "textures/environment/lightrain.png");
+	public static final ResourceLocation RAIN_MEDIUM = new ResourceLocation(ID, "textures/environment/mediumrain.png");
+	public static final ResourceLocation RAIN_HEAVY = new ResourceLocation(ID, "textures/environment/heavyrain.png");
+	public static final ResourceLocation RAIN_INSANE = new ResourceLocation(ID, "textures/environment/insanerain.png");
+
 	
 	/**
 	 * Check if it is raining or snowing

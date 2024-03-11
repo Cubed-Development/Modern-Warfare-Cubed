@@ -1,12 +1,11 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Predicate;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -14,6 +13,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -25,7 +25,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class HighIQSpawnEgg extends Item implements IModernCrafting {
+public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
 	private CraftingEntry[] modernRecipe;
 	private CraftingGroup craftGroup;
@@ -173,8 +173,8 @@ public class HighIQSpawnEgg extends Item implements IModernCrafting {
 	}
 
 	@Override
-	public Item getItem() {
-		return this;
+	public ItemStack getItemStack() {
+		return new ItemStack(this);
 	}
 
 	@Override

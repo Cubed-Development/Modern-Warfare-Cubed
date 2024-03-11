@@ -24,7 +24,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetratesGlass
   - explosionBreak
   - penetrableBlocks
-  - knockbackOnHit
+  - hipFireSpread
   - ammoCounterX 
   - ammoCounterY
   - ammoCounterSize
@@ -43,6 +43,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Translations for Chinese, Spanish, and Turkish languages
 - GitHub URL in `MCmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
+- Added new fancy rain splash to go with the fancy rain
+- Added remaining time for the craft in the ammunition press
 - Custom death Messages when shot with a gun
 - Added status messages for `No ammunition`, `No magazine`, `Tracking`, `Firearm mode`, `Zoom` and `Explodes in`
 - Added the .277 FURY bullet for the NGSW-R
@@ -71,11 +73,120 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Server Rack Left (ALT 3)
   - Scarecrow
   - Propane Tank
+- Added Hardness values to props
+- Added Groovyscript support plugin for workbench and ammo press recipes
+- **Weapons:**
+  - Accuracy International AX50 (AI AX50)
+  - Pulemyot-Kalashnikov Machine Gun (PKM)
+  - PP-19-01 Vityaz
+  - PGM Hécate II
+- **Modifications:**
+  - HK G36C:
+    - G36K Handguard
+    - G36C Stock
+    - G36CMG Stock
+    - G36KV Stock
+  - Uzi:
+    - Uzi MLOK Handguard
+    - Uzi Sight Rail *(Which allows sights attachments)*
+    - Uzi Folding Stock (Open)
+    - Uzi Folding Stock (Closed)
+    - Uzi Wood Stock
+  - Colt M1911
+    - M1911 Body
+    - M1911 Slide
+    - M45A1 CQB Body *(Which allows laser attachments)*
+    - M45A1 CQB Slide
+  - M200 Intervention
+    - Intervention Handguard
+    - Intervention Rail System Handguard
+    - Intervention QTD-Rifle Handguard
+    - Intervention Carry Handle
+    - Intervention Keys Tone Carry Handle
+    - Intervention Stock
+    - Intervention Kilo TaC Stock
+    - Intervention FJX-LUX Stock
+- **Attachments:**
+  - Leupold DeltaPoint Pro
+  - S&B 5-25x56 PM II
+  - Grip (Tan)
+  - Foregrip (Tan)
+  - Angled Grip (Tan)
+  - Juny Grip (Tan)
+  - Stuby Grip (Tan)
+  - Juno Grip (Tan)
+- **Magazines:**
+  - 120rnd 7.62x54mm Magazine
+  - 12rnd 12 Gauge Magazine
+  - 30rnd 9x19mm Magazine
+  - 7rnd .45 ACP Magazine
+  - 15rnd .45 ACP Magazine
+  - 10rnd .408 CT Magazine
+  - 5rnd .50 BMG Magazine
+  - 7rnd .50 BMG Magazine
+  - 45rnd 9x19mm Magazine
+  - 60rnd 9x19mm Drum Magazine
 
 ### Changed
 
-- Overhauled the textures of the AAC Honey Badger, Bushmaster ACR, Beowulf, AUG, Remington 870, AS-50, S7-10, M79, HK 417, M16A1, FN F2000, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
-- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, OKP-7 Sight, and Eotech Hybrid HHS™ II Sight
+- **Overhauled Models:**
+  - Weapons:
+    - Remington ACR
+    - Steyr AUG A1
+    - IMI Desert Eagle
+    - FN FAL
+    - HK G36C
+    - HK 417
+    - M200 Intervention
+    - M134 Minigun
+    - Colt M1911
+    - M60E4
+    - M79 GL
+    - Makarov PM
+    - Uzi
+    - Saiga 12
+    - AAC Honey Badger
+  - Modifications:
+    - VLTOR Receiver
+  - Attachments:
+    - Bipod
+    - Grip
+    - Foregrip
+    - Angled Grip
+    - Juno Grip
+    - Stubby Grip
+    - Silencer/Suppressor
+    - Elcan Specter SFOV4-A1 Sight
+    - - EOTech EXPS3-0 (Tan)
+  - Magazines:
+    - 100rnd 5.56x45mm NATO STANAG Drum Magazine
+- **Overhauled Textures:**
+  - Weapons:
+    - Remington ACR
+    - Steyr AUG A1
+    - IMI Desert Eagle
+    - FN FAL
+    - HK G36C
+    - HK 417
+    - M200 Intervention
+    - M134 Minigun
+    - Colt M1911
+    - M60E4
+    - M79 GL
+    - Makarov PM
+    - Uzi
+  - Modifications:
+    - VLTOR Receiver
+  - Attachments:
+    - Bipod
+    - Grip
+    - Foregrip
+    - Angled Grip
+    - Juno Grip
+    - Stubby Grip
+    - EOTech EXPS3-0 (Tan)
+  - Magazines:
+    - 100rnd 5.56x45mm NATO STANAG Drum Magazine
 - Overhauled animations and sound effects of the M40A6 and Uzi
 - Sidearms can now be carried in backpacks
 - Added keybindings to switching cameras on the tablet
@@ -106,8 +217,14 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - OptiFine configuration `Fast Render` is now forced to be off
 - Changed categories of some weapons
 - Magazines are created empty
-- Shells life go increased 1606% no performance impact in extreme cases
+- Shells life go increased 1606% no performance impact in extreme cases // Todo: This is not supposed to be percent iirc - Luna Lage (Desoroxxx) 2023-12-22
 - The position of the bullet when shooting is now centered when aiming
+- - Explosive projectiles are now linked to the player who launched them meaning that the kill message will say who killed whom
+- Crafting stations (Workbench, Ammunition Press etc...) now display the remaining time with millisecond precision
+- Changed default `filmGrain` config from `0.025` to `0.03`
+- Changed default `onScreenRainAndSnow` config from `false` to `true`
+- Changed default `enableFancyRainAndSnow` config from `false` to `true`
+- Changed base fog density from `0.6` to `0.2`
 - Explosive projectiles are now linked to the player who launched them, meaning that the kill message will say who killed whom
 - Renamed `Armor` creative tab to `Equipment`
 - Renamed `Ammunition` creative tab to `Ammunition & Magazines`
@@ -123,6 +240,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Moved the turret base from the `Props` creative tab to `Blocks & Ingots` creative tab
 - Changed the icon of the `Props` creative tab to the barrel
 - Made naming of props consistent
+- Moved recipe registration from server starting to Registryevent<IRecipes>
+- Renamed the `NGSW-R` to `XM7`
 
 ### Fixed
 
@@ -202,6 +321,27 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Fridge (Closed)
   - Artillery
   - Supply Drop
+- Fixed unused variable in shader `postflat.frag` causing a crash
+- Fixed custom skin system not using the Minecraft missing texture
+- Fixed multiple `ResourceLocation`  in the `PostProcessPipeline` being incorrect leading to missing textures
+- Fixed fog rendering ignoring if fog should render
+- Fixed depth testing being disabled in the world post processing causing issue with first person hand rendering
+- Fixed the issue where fog was hardcoded to be disabled
+- Fixed world post processing never rendering due to bandage fix
+- Fixed world post processing causing a white screen
+- Fixed `onScreenRainAndSnow` missing lang entries
+- Fixed `enableFancyRainAndSnow` missing lang entries
+- Fixed `enableFancyRainAndSnow` having the lang entries for `onScreenRainAndSnow`
+- Fixed fancy rain and snow never replacing vanilla rain and snow
+- Fixed entities not having a prefix causing collisions with other mods
+- Fixed ammunition press animating even when it wasn't actively crafting
+- Fixed ammunition press setting the ammunition of the magazines after they where crafted when this isn't necessary anymore
+- Fixed tooltip formatting in the ammunition press
+- Fixed workbench and ammunition press handling their inventory stack by stack instead of all at once
+- Fixed crafting stations GUI not updating after clicking craft showing outdated information
+- Fixed crafting stations buttons playing sounds even when disabled
+- Fixed crafting stations craft button being enabled even when no crafting recipe was selected
+- Fixed crash because of using bad `Pair`
 - Fixed position of the backpacks in inventory
 - Fixed the client ticker "corruption" state
 - Fixed melee attack and heavy melee attack being switched
@@ -230,6 +370,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed rotated camera prop not being rotated
 - Fixed barrel & variants prop positioning
 - Fixed barrel & variants prop sizing
+- Fixed some sights cursors being too low and/or cutoff
 
 ### Removed
 
