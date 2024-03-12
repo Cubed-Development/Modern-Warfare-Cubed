@@ -177,15 +177,6 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
             if(grenadeInstance.getState() == GrenadeState.STRIKER_LEVER_RELEASED
                     && grenadeInstance.getWeapon().getType() == Type.REGULAR
                     && System.currentTimeMillis() > grenadeInstance.getLastSafetyPinAlertTimestamp() + SAFETY_IN_ALERT_TIMEOUT) {
-                long remainingTimeUntilExplosion = grenadeInstance.getWeapon().getExplosionTimeout() - (
-                                System.currentTimeMillis() - grenadeInstance.getActivationTimestamp());
-
-                if(remainingTimeUntilExplosion < 0) {
-                    remainingTimeUntilExplosion = 0;
-                }
-
-                if (grenadeInstance.getPlayer() instanceof EntityPlayer)
-                    ((EntityPlayer) grenadeInstance.getPlayer()).sendStatusMessage(new TextComponentString("§e" + I18n.format("gui.grenadeExplodes", Math.round(remainingTimeUntilExplosion / 1000F))), true);
 
                 grenadeInstance.setLastSafetyPinAlertTimestamp(System.currentTimeMillis());
             }
