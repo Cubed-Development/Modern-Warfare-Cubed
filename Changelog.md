@@ -56,7 +56,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added non-rotated versions of the forklift prop and its variants (Existing forklifts will become non-rotated)
 - Added non-rotated versions of the duel floodlight prop (Existing duel floodlight will become non-rotated)
 - Added non-rotated versions of the floodlight prop (Existing floodlight will become non-rotated)
-- Added non-rotated versions of the camera prop (Existing floodlight will become non-rotated)
+- Added non-rotated versions of the camera prop (Existing camera will become non-rotated)
+- Added non-rotated versions of the trash bin prop (Existing trash bin will become non-rotated)
 - Added icons for the following props:
   - Gravestone
   - Gravestone Skull
@@ -303,7 +304,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Office Chair 2
   - White Desk Middle
   - Medical Create
-  - Camera Rotated
   - Barrel
   - Explosive Barrel
   - Weapon Case
@@ -321,6 +321,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Fridge (Closed)
   - Artillery
   - Supply Drop
+  - Trash Bin
+  - Trash Bin (Rotated)
 - Fixed unused variable in shader `postflat.frag` causing a crash
 - Fixed custom skin system not using the Minecraft missing texture
 - Fixed multiple `ResourceLocation`  in the `PostProcessPipeline` being incorrect leading to missing textures

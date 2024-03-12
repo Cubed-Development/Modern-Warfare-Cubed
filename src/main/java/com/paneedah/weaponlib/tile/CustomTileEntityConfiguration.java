@@ -28,7 +28,7 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class CustomTileEntityConfiguration<T extends CustomTileEntityConfiguration<T>> {
 
-    @Getter private boolean modern;
+    @Getter private boolean modern; // True if the model is correctly positioned and does not need an offset
     @Getter private boolean prop = true;
 
     private Transform transform = Transform.ZERO.duplicate();
@@ -39,6 +39,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
     private CreativeTabs creativeTab;
     private float hardness = 6f;
     private float resistance = 600000f;
+    private ModelBase model;
     private String modelClassName;
     private AtomicInteger counter = new AtomicInteger(10000);
     private Supplier<Integer> entityIdSupplier = () -> counter.incrementAndGet();
@@ -59,7 +60,8 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         this.name = name;
         return safeCast(this);
     }
-    
+
+    @Deprecated
     public T withTextureName(String textureName) {
         this.textureName = textureName + ".png";
         return safeCast(this);
@@ -79,7 +81,14 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         this.resistance = resistance;
         return safeCast(this);
     }
-    
+
+    public T withModel(ModelBase model, String textureName) {
+        this.model = model;
+        this.textureName = textureName + ".png";
+        return safeCast(this);
+    }
+
+    @Deprecated
     public T withModelClassName(String modelClassName) {
         this.modelClassName = modelClassName;
         return safeCast(this);
@@ -160,14 +169,14 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         modContext.registerRenderableItem(tileEntityBlock.getRegistryName(), itemBlock, null);
         
         if(FMLCommonHandler.instance().getSide().isClient())
-            RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, prop ? "com.paneedah.mwc.models.props." + modelClassName : modelClassName, textureResource, positioning, tileEntityBlock, modern, transform);
+            RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, "com.paneedah.mwc.models.props." + modelClassName, textureResource, positioning, tileEntityBlock, modern, transform, model);
     }
     
     private static class RendererRegistration {
         /*
          * This method is wrapped into a static class to facilitate conditional client-side only loading
          */
-        private static <T extends CustomTileEntityConfiguration<T>> void registerRenderableEntity(ModContext context, String name, Class<? extends TileEntity> tileEntityClass, String modelClassName, ResourceLocation textureResource, Consumer<TileEntity> positioning, CustomTileEntityBlock tileEntityBlock, boolean modern, Transform transform) {
+        private static <T extends CustomTileEntityConfiguration<T>> void registerRenderableEntity(ModContext context, String name, Class<? extends TileEntity> tileEntityClass, String modelClassName, ResourceLocation textureResource, Consumer<TileEntity> positioning, CustomTileEntityBlock tileEntityBlock, boolean modern, Transform transform, ModelBase model) {
             try {
 
 //                MC.getRenderItem().getItemModelMesher()
@@ -176,9 +185,8 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
                 
 //                ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(ID + ":" + name, "inventory");
 //                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(tileEntityBlock), 0, itemModelResourceLocation);
-                
-                ModelBase model = (ModelBase) Class.forName(modelClassName).newInstance();
-                ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass, (TileEntitySpecialRenderer)new CustomTileEntityRenderer(model, textureResource, positioning, modern, transform));
+
+                ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass, (TileEntitySpecialRenderer)new CustomTileEntityRenderer(model != null ? model : (ModelBase) Class.forName(modelClassName).newInstance(), textureResource, positioning, modern, transform));
                 
             } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
                 e.printStackTrace();

@@ -25,7 +25,8 @@ public final class TrashBin extends ModelBase implements IModernModel {
         textureHeight = 128;
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(0.0F, 20.1678F, -10.9023F);
+        bone.setRotationPoint(0.0F, 20.1678F, 11.0977F);
+        setRotationAngle(bone, 0.0F, 3.1416F, 0.0F);
         bone.cubeList.add(new ModelBox(bone, 0, 0, -6.0F, -12.1678F, 8.9023F, 12, 16, 8, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -7.0F, -12.1678F, 9.9023F, 14, 16, 6, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -5.5F, -16.1678F, 11.9023F, 4, 4, 4, 0.0F, true));

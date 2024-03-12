@@ -59,6 +59,8 @@ public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tile
             GL11.glTranslatef(0F, -0.5F, 0F);
 
             positioning.accept(tileEntity);
+
+            transform.applyTransformations();
         }
 
         model.render(null, 0F, 0F, 0F, 0F, 0F, 0.0625F);

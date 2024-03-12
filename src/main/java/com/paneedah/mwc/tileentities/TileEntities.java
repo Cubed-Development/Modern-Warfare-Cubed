@@ -1,6 +1,7 @@
 package com.paneedah.mwc.tileentities;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.models.props.TrashBin;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
 import dev.redstudio.redcore.utils.AABBUtil;
@@ -214,6 +215,7 @@ public class TileEntities {
                 .withModelClassName("electronics.PC")
                 .withTextureName("electronics/pc")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.7f, 0.25f, 0.6f);
@@ -239,6 +241,7 @@ public class TileEntities {
                 .withModelClassName("electronics.Monitor")
                 .withTextureName("electronics/pc")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.7f, 0.25f, 0.6f);
@@ -251,6 +254,7 @@ public class TileEntities {
                 .withModelClassName("FilingCabinet")
                 .withTextureName("filingcabinetopened")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -264,6 +268,7 @@ public class TileEntities {
                 .withModelClassName("FilingCabinetOpened")
                 .withTextureName("filingcabinetopened")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -277,6 +282,7 @@ public class TileEntities {
                 .withModelClassName("shelves.ShelfRight")
                 .withTextureName("shelf")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -290,6 +296,7 @@ public class TileEntities {
                 .withModelClassName("shelves.ShelfLeft")
                 .withTextureName("shelf")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -331,6 +338,7 @@ public class TileEntities {
                 .withModelClassName("electronics.CeilingTV")
                 .withTextureName("electronics/ceilingtv")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0.4f, 0.5f);
@@ -344,6 +352,7 @@ public class TileEntities {
                 .withModelClassName("electronics.CeilingTV")
                 .withTextureName("electronics/ceilingtv")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0.4f, 0.5f);
@@ -383,6 +392,7 @@ public class TileEntities {
                 .withName("desk_corner")
                 .withModelClassName("desks.DeskCorner")
                 .withTextureName("desks/desk")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.07f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -395,6 +405,7 @@ public class TileEntities {
                 .withName("desk_corner_alt1")
                 .withModelClassName("desks.DeskCornerAlt1")
                 .withTextureName("desks/desk")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.07f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -407,6 +418,7 @@ public class TileEntities {
                 .withName("desk_left")
                 .withModelClassName("desks.DeskLeft")
                 .withTextureName("desks/desk")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -419,6 +431,7 @@ public class TileEntities {
                 .withName("desk_left_alt1")
                 .withModelClassName("desks.DeskLeftAlt1")
                 .withTextureName("desks/desk")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -431,6 +444,7 @@ public class TileEntities {
                 .withName("desk_middle")
                 .withModelClassName("desks.DeskMiddle")
                 .withTextureName("desks/desk")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -443,6 +457,7 @@ public class TileEntities {
                 .withName("desk_middle_alt1")
                 .withModelClassName("desks.DeskMiddleAlt1")
                 .withTextureName("desks/deskmiddlealt1")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -455,6 +470,7 @@ public class TileEntities {
                 .withName("desk_right")
                 .withModelClassName("desks.DeskRight")
                 .withTextureName("desks/desk")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -467,6 +483,7 @@ public class TileEntities {
                 .withName("desk_right_alt1")
                 .withModelClassName("desks.DeskRightAlt1")
                 .withTextureName("desks/desk")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -492,6 +509,7 @@ public class TileEntities {
                 .withName("desk_shelf_alt1")
                 .withModelClassName("desks.DeskShelfAlt1")
                 .withTextureName("desks/deskshelfalt1")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -517,6 +535,7 @@ public class TileEntities {
                 .withName("desk_shelf_alt3")
                 .withModelClassName("desks.DeskShelfAlt4")
                 .withTextureName("desks/deskshelfalt4")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -529,6 +548,7 @@ public class TileEntities {
                 .withName("barrier")
                 .withModelClassName("Barrier")
                 .withTextureName("barrier")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.1f, 1.2f, 1f);
                     GL11.glTranslatef(0.42f, -0.25f, 0.5f);
@@ -540,6 +560,7 @@ public class TileEntities {
                 .withName("barrier_rotated")
                 .withModelClassName("Barrier")
                 .withTextureName("barrier")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.1f, 1.2f, 1.1f);
                     GL11.glTranslatef(0.42f, -0.25f, 0.5f);
@@ -552,6 +573,7 @@ public class TileEntities {
                 .withName("body_bag")
                 .withModelClassName("BodyBag")
                 .withTextureName("bodybag")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.4f, 0.17F, 0.555f);
@@ -590,7 +612,7 @@ public class TileEntities {
                 .withName("dumpster")
                 .withModelClassName("Dumpster")
                 .withTextureName("dumpster")
-                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-1, 0, 0, 1, 1, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-1.01, 0, 0.1, 1.01, 1.3, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.6f, 0.2f, 0.5f);
@@ -603,6 +625,7 @@ public class TileEntities {
                 .withName("wooden_crate")
                 .withModelClassName("WoodenCrate")
                 .withTextureName("woodencrate")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 0.95f, 1f);
                     GL11.glTranslatef(0.5f, 0.085f, 0.5f);
@@ -615,6 +638,7 @@ public class TileEntities {
                 .withName("wooden_crate_opened")
                 .withModelClassName("WoodenCrateOpened")
                 .withTextureName("woodencrateopened")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -653,6 +677,7 @@ public class TileEntities {
                 .withName("forklift")
                 .withModelClassName("Forklift")
                 .withTextureName("forklift")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.5f, 1.5f, 1.5f);
                     GL11.glTranslatef(0.5f, -0.5f, 0.5f);
@@ -665,6 +690,7 @@ public class TileEntities {
                 .withName("forklift_rotated")
                 .withModelClassName("Forklift")
                 .withTextureName("forklift")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.5f, 1.5f, 1.5f);
                     GL11.glTranslatef(0.5f, -0.5f, 0.5f);
@@ -677,6 +703,7 @@ public class TileEntities {
                 .withName("forklift_alt")
                 .withModelClassName("ForkLiftAlt")
                 .withTextureName("forkliftalt")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -689,6 +716,7 @@ public class TileEntities {
                 .withName("forklift_alt_rotated")
                 .withModelClassName("ForkLiftAlt")
                 .withTextureName("forkliftalt")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -727,6 +755,7 @@ public class TileEntities {
                 .withName("ceiling_lamp_alt")
                 .withModelClassName("lights.CeilingLampAlt")
                 .withTextureName("lights/ceilinglampalt")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, -0.2f, 0.5f);
@@ -739,6 +768,7 @@ public class TileEntities {
                 .withName("vent")
                 .withModelClassName("vents.Vent")
                 .withTextureName("vent")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -751,6 +781,7 @@ public class TileEntities {
                 .withName("vent_rotated")
                 .withModelClassName("vents.Vent")
                 .withTextureName("vent")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1f, 1.5f);
@@ -763,6 +794,7 @@ public class TileEntities {
                 .withName("vent_corner")
                 .withModelClassName("vents.VentCorner")
                 .withTextureName("vent")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -775,6 +807,7 @@ public class TileEntities {
                 .withName("vent_corner_rotated")
                 .withModelClassName("vents.VentCorner")
                 .withTextureName("vent")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1f, 1.5f);
@@ -787,6 +820,7 @@ public class TileEntities {
                 .withName("vent_corner_rotated_alt")
                 .withModelClassName("vents.VentCorner")
                 .withTextureName("vent")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1f, -0.5f);
@@ -799,6 +833,7 @@ public class TileEntities {
                 .withName("vent_intersection")
                 .withModelClassName("vents.VentIntersection")
                 .withTextureName("vent")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -811,6 +846,7 @@ public class TileEntities {
                 .withName("vent_end")
                 .withModelClassName("vents.VentEnd")
                 .withTextureName("vent")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -823,6 +859,7 @@ public class TileEntities {
                 .withName("white_desk_left")
                 .withModelClassName("desks.WhiteDeskLeft")
                 .withTextureName("shelf")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -848,6 +885,7 @@ public class TileEntities {
                 .withName("white_desk_right")
                 .withModelClassName("desks.WhiteDeskRight")
                 .withTextureName("shelf")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -858,13 +896,20 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withHardness(22.5F)
                 .withName("trash_bin")
-                .withModelClassName("TrashBin")
-                .withTextureName("trashbin")
-                .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                }));
+                .withModel(new TrashBin(), "trashbin")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.075, 0, 0.13, 0.94, 1.25, 0.63)))
+                .modern());
+
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withHardness(22.5F)
+                .withName("trash_bin_rotated")
+                .withModel(new TrashBin(), "trashbin")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.15, 0, 0, 1, 1.25, 0.87)))
+                .withTransform(Transform.getZero()
+                        .withRotation(0F, 45F, 0F)
+                )
+                .modern());
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -872,6 +917,7 @@ public class TileEntities {
                 .withName("caution_sign")
                 .withModelClassName("CautionSign")
                 .withTextureName("cautionsign")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.6f, 0.45f, 0.6f);
@@ -884,6 +930,7 @@ public class TileEntities {
                 .withName("electric_box")
                 .withModelClassName("electronics.ElectricBox")
                 .withTextureName("electronics/electricbox")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0.8f, 0.5f);
@@ -896,6 +943,7 @@ public class TileEntities {
                 .withName("electric_box_opened")
                 .withModelClassName("electronics.ElectricBoxOpened")
                 .withTextureName("electronics/electricboxopened")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0.8f, 0.5f);
@@ -973,6 +1021,7 @@ public class TileEntities {
                 .withName("ServerRackLeft")
                 .withModelClassName("servers.ServerRackLeft")
                 .withTextureName("servers/serverrackleft")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -985,6 +1034,7 @@ public class TileEntities {
                 .withName("ServerRackEmptyLeft")
                 .withModelClassName("servers.ServerRackEmptyLeft")
                 .withTextureName("servers/serverrackemptyright")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -997,6 +1047,7 @@ public class TileEntities {
                 .withName("ServerRackLeftAlt")
                 .withModelClassName("servers.ServerRackLeftAlt")
                 .withTextureName("servers/serverrackleftalt")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1009,6 +1060,7 @@ public class TileEntities {
                 .withName("ServerRackLeftAlt2")
                 .withModelClassName("servers.ServerRackLeftAlt2")
                 .withTextureName("servers/serverrackleftalt2")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1021,6 +1073,7 @@ public class TileEntities {
                 .withName("ServerRackLeftAlt3")
                 .withModelClassName("servers.ServerRackLeftAlt3")
                 .withTextureName("servers/serverrackleftalt3")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1033,6 +1086,7 @@ public class TileEntities {
                 .withName("ServerRackEmptyRight")
                 .withModelClassName("servers.ServerRackEmptyRight")
                 .withTextureName("servers/serverrackemptyright")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1045,6 +1099,7 @@ public class TileEntities {
                 .withName("ServerRackRight")
                 .withModelClassName("servers.ServerRackRight")
                 .withTextureName("servers/serverrackright")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1057,6 +1112,7 @@ public class TileEntities {
                 .withName("ServerRackRightAlt")
                 .withModelClassName("servers.ServerRackRightAlt")
                 .withTextureName("servers/serverrackrightalt")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1145,6 +1201,7 @@ public class TileEntities {
                 .withName("Radio_rotated")
                 .withModelClassName("electronics.Radio")
                 .withTextureName("electronics/radio")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
                     GL11.glTranslatef(0.65f, 0.58f, 0.7f);
@@ -1169,7 +1226,7 @@ public class TileEntities {
                 .withName("camera")
                 .withModelClassName("electronics.Camera")
                 .withTextureName("electronics/camera")
-                .withBoundingBox(0, 0, 0, 1, 0.8, 1)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .modern());
 
         props.add(new LootBoxConfiguration()
@@ -1178,7 +1235,7 @@ public class TileEntities {
                 .withName("camera_rotated")
                 .withModelClassName("electronics.Camera")
                 .withTextureName("electronics/camera")
-                .withBoundingBox(0, 0, 0, 1, 0.8, 1)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> GL11.glRotatef(-45F, 0F, 1F, 0F))
                 .withTransform(Transform.getZero()
                         .withRotation(0F, -45F, 0F)
@@ -1191,6 +1248,7 @@ public class TileEntities {
                 .withName("propanetank")
                 .withModelClassName("PropaneTank")
                 .withTextureName("propanetank")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.85f, 1f, 0.85f);
@@ -1203,6 +1261,7 @@ public class TileEntities {
                 .withName("towablefloodlight")
                 .withModelClassName("lights.TowableFloodLight")
                 .withTextureName("lights/towablefloodlight")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.3f, 0f, 0.5f);
@@ -1226,6 +1285,7 @@ public class TileEntities {
                 .withName("sandbagwall")
                 .withModelClassName("SandbagWall")
                 .withTextureName("sandbag")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1238,6 +1298,7 @@ public class TileEntities {
                 .withName("crossgravestone")
                 .withModelClassName("gravestones.CrossGravestone")
                 .withTextureName("gravestone/crossgravestone")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1250,6 +1311,7 @@ public class TileEntities {
                 .withName("crossgravestone2")
                 .withModelClassName("gravestones.CrossGravestone2")
                 .withTextureName("gravestone/crossgravestone2")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1262,6 +1324,7 @@ public class TileEntities {
                 .withName("crossgravestone3")
                 .withModelClassName("gravestones.CrossGravestone3")
                 .withTextureName("gravestone/crossgravestone3")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1274,6 +1337,7 @@ public class TileEntities {
                 .withName("gravestoneskull")
                 .withModelClassName("gravestones.GravestoneSkull")
                 .withTextureName("gravestone/gravestoneskull")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1286,6 +1350,7 @@ public class TileEntities {
                 .withName("gravestone")
                 .withModelClassName("gravestones.Gravestone")
                 .withTextureName("gravestone/gravestone")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1298,7 +1363,7 @@ public class TileEntities {
                 .withName("scarecrow")
                 .withModelClassName("Scarecrow")
                 .withTextureName("scarecrow")
-                .withBoundingBox(0.3, 0, 0.3, 0.7, 3.5, 0.7)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1310,6 +1375,7 @@ public class TileEntities {
                 .withName("spookyghost")
                 .withModelClassName("SpookyGhost")
                 .withTextureName("ghost/spookyghost")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1.05f, 0.5f);
@@ -1321,6 +1387,7 @@ public class TileEntities {
                 .withName("spookyghost2")
                 .withModelClassName("SpookyGhost")
                 .withTextureName("ghost/spookyghost2")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1.05f, 0.5f);
@@ -1332,6 +1399,7 @@ public class TileEntities {
                 .withName("spookyghost3")
                 .withModelClassName("SpookyGhost")
                 .withTextureName("ghost/spookyghost3")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1.05f, 0.5f);
@@ -1344,8 +1412,8 @@ public class TileEntities {
                 .withName("swat_truck")
                 .withModelClassName("SwatTruck")
                 .withTextureName("swat_truck")
-                .withTransform(Transform.getZero()
-                        .withScale(1.5F, 1.5F, 1.5F))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1, 1)))
+                .withTransform(Transform.getZero().withScale(1.5F, 1.5F, 1.5F))
                 .modern());
 
         final ProgressManager.ProgressBar propsProgressBar = ProgressManager.push("Building Props", props.size());
