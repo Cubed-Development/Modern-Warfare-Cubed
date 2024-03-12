@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.render.bgl;
 
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -882,6 +881,12 @@ public class PostProcessPipeline {
 		if (!ModernConfigManager.enableScreenShaders)
 			return;
 
+		// Checks to see if the framebuffers
+		// should be remade in the case of
+		// a screen resize
+		if (shouldRecreateFramebuffer())
+			recreateFramebuffers();
+
 		if(ModernConfigManager.bloomEffect)
 			Bloom.doBloom();
 		
@@ -889,12 +894,6 @@ public class PostProcessPipeline {
 
 		if (AnimationModeProcessor.getInstance().getFPSMode())
 			return;
-
-		// Checks to see if the framebuffers
-		// should be remade in the case of
-		// a screen resize
-		if (shouldRecreateFramebuffer())
-			recreateFramebuffers();
 
 		// MC.player.world.play
 		// Draws rain droplets

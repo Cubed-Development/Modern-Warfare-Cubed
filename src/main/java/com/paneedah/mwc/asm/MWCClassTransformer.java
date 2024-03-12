@@ -297,24 +297,6 @@ public class MWCClassTransformer implements IClassTransformer {
         }
     }
 
-    private static class SetupViewBobbingMethodVisitor extends MethodVisitor {
-
-        public SetupViewBobbingMethodVisitor(MethodVisitor mv) {
-            super(Opcodes.ASM4, mv);
-        }
-
-        @Override
-        public void visitJumpInsn(int opcode, Label label) {
-            super.visitJumpInsn(opcode, label);
-            if (opcode == Opcodes.IFEQ) {
-                mv.visitVarInsn(Opcodes.FLOAD, 1);
-                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "setupViewBobbing", "(F)Z", false);
-                mv.visitJumpInsn(Opcodes.IFEQ, label);
-            }
-        }
-    }
-
-
     private static class SoundInterceptorMethodVistor extends MethodVisitor {
 
         private boolean visited;
@@ -668,8 +650,6 @@ public class MWCClassTransformer implements IClassTransformer {
 
             if (entityRendererClassInfo.methodMatches("setupCameraTransform", "(FI)V", classname, name, desc)) {
                 return new SetupCameraTransformMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if (entityRendererClassInfo.methodMatches("setupViewBobbing", "(F)V", classname, name, desc)) {
-                return new SetupViewBobbingMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
             } else if (entityRendererClassInfo.methodMatches("hurtCameraEffect", "(F)V", classname, name, desc)) {
 
                 return new HurtCameraEffectMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));

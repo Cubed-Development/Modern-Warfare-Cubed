@@ -13,7 +13,6 @@ public class ClassInfoProvider {
                 new ClassInfo("net/minecraft/client/renderer/EntityRenderer", "buq")
                 .addMethodInfo("hurtCameraEffect", "(F)V", "d")
                 .addMethodInfo("setupCameraTransform", "(FI)V", "a")
-                .addMethodInfo("setupViewBobbing", "applyBobbing", "(F)V", "e")
                 .addMethodInfo2("updateCameraAndRender", "(FJ)V", "a", "(FJ)V")
                 );
                 
