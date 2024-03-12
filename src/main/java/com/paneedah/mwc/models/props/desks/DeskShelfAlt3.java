@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
  * @author Developer: Desoroxx
  */
 @SuppressWarnings({"FieldCanBeLocal", "NullableProblems"})
-public final class DeskShelfAlt4 extends ModelBase implements IModernModel {
+public final class DeskShelfAlt3 extends ModelBase implements IModernModel {
 
     private final ModelRenderer shelf;
     private final ModelRenderer shelf13_r1;
@@ -21,7 +21,7 @@ public final class DeskShelfAlt4 extends ModelBase implements IModernModel {
     private final ModelRenderer shelf6_r1;
     private final ModelRenderer shelf4_r1;
 
-    public DeskShelfAlt4() {
+    public DeskShelfAlt3() {
         textureWidth = 256;
         textureHeight = 256;
 

@@ -323,6 +323,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Supply Drop
   - Trash Bin
   - Trash Bin (Rotated)
+  - Wooden Crate
+  - Wooden Crate (Opened)
 - Fixed unused variable in shader `postflat.frag` causing a crash
 - Fixed custom skin system not using the Minecraft missing texture
 - Fixed multiple `ResourceLocation`  in the `PostProcessPipeline` being incorrect leading to missing textures

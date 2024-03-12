@@ -1,9 +1,11 @@
 package com.paneedah.weaponlib.tile;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.rendering.renderer.CustomTileEntityRenderer;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ModContext;
+import dev.redstudio.redcore.utils.Case;
 import lombok.Getter;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
@@ -29,7 +31,7 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 public class CustomTileEntityConfiguration<T extends CustomTileEntityConfiguration<T>> {
 
     @Getter private boolean modern; // True if the model is correctly positioned and does not need an offset
-    @Getter private boolean prop = true;
+    @Getter private boolean prop = true; // If true the props tab will be automatically used and creativeTab will be ignored
 
     private Transform transform = Transform.ZERO.duplicate();
 
@@ -57,7 +59,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
     }
     
     public T withName(String name) {
-        this.name = name;
+        this.name = Case.LOWER_SNAKE_CASE.enforce(name);
         return safeCast(this);
     }
 
@@ -147,7 +149,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         tileEntityBlock.setTranslationKey(ID + "_" + name);
         tileEntityBlock.setHardness(hardness);
         tileEntityBlock.setResistance(resistance);
-        tileEntityBlock.setCreativeTab(creativeTab);
+        tileEntityBlock.setCreativeTab(prop ? MWC.PROPS_TAB : creativeTab);
         tileEntityBlock.setBoundingBox(boundingBox);
         ResourceLocation textureResource = new ResourceLocation(ID, prop ? "textures/models/props/" + textureName : textureName);
         ResourceLocation tileEntity = new ResourceLocation(ID, "tile" + name);
