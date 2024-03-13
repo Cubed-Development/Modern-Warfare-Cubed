@@ -84,7 +84,9 @@ public class CraftingEntry {
     }
 
     public boolean isOreDictionary() {
-        return this.oreDictionary != null && !this.oreDictionary.isEmpty();
+        //return this.oreDictionary != null && !this.oreDictionary.isEmpty(); // Commented out as currently nothing is truly oredict capable
+        // TODO: Add oredict compat to the mod, search `TODO: OREDICT` to find places where changes are needed.
+        return false;
     }
 
     @Override
