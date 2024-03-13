@@ -8,11 +8,9 @@ import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.grenade.ItemGrenade.Type;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.StateManager;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.text.TextComponentString;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -27,9 +25,6 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
  * On a client side this class is used from within a separate client "ticker" thread
  */
 public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeInstance> {
-
-    
-    private static final long ALERT_TIMEOUT = 300;
 
     private Predicate<PlayerGrenadeInstance> hasSafetyPin = instance -> instance.getWeapon().hasSafetyPin();
 
@@ -174,12 +169,6 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     void onUpdate(EntityPlayer player) {
         PlayerGrenadeInstance grenadeInstance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerGrenadeInstance.class);
         if(grenadeInstance != null) {
-            if(grenadeInstance.getState() == GrenadeState.STRIKER_LEVER_RELEASED
-                    && grenadeInstance.getWeapon().getType() == Type.REGULAR
-                    && System.currentTimeMillis() > grenadeInstance.getLastSafetyPinAlertTimestamp() + SAFETY_IN_ALERT_TIMEOUT) {
-
-                grenadeInstance.setLastSafetyPinAlertTimestamp(System.currentTimeMillis());
-            }
             stateManager.changeStateFromAnyOf(this, grenadeInstance, allowedUpdateFromStates);
         }
     }
