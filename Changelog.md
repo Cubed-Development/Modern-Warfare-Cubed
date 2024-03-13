@@ -243,6 +243,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Made naming of props consistent
 - Moved recipe registration from server starting to Registryevent<IRecipes>
 - Renamed the `NGSW-R` to `XM7`
+- Made props id's consistent
 
 ### Fixed
 
@@ -375,6 +376,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed barrel & variants prop positioning
 - Fixed barrel & variants prop sizing
 - Fixed some sights cursors being too low and/or cutoff
+- Fixed being able to interact with props
 
 ### Removed
 

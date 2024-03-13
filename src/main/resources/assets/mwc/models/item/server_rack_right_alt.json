@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/props/servers/server_rackrightalt"
+        "layer0": "mwc:items/props/servers/server_rack_right_alt"
     },
     "display": {
 		"thirdperson_righthand": {

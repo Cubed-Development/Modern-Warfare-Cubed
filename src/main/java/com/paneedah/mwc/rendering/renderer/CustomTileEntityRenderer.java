@@ -3,13 +3,14 @@ package com.paneedah.mwc.rendering.renderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.tile.CustomTileEntity;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import java.util.function.Consumer;
 
-public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer<CustomTileEntity<?>> {
+public class CustomTileEntityRenderer extends TileEntitySpecialRenderer<CustomTileEntity> {
 
     private boolean modern;
 
@@ -28,7 +29,7 @@ public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tile
     }
 
     @Override
-    public void render(CustomTileEntity<?> tileEntity, double posX, double posY, double posZ, float partialTicks, int destroyStage, float alpha) {
+    public void render(CustomTileEntity tileEntity, double posX, double posY, double posZ, float partialTicks, int destroyStage, float alpha) {
         GL11.glPushMatrix();
 
         bindTexture(textureResource);

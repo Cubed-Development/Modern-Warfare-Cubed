@@ -13,7 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -80,21 +79,8 @@ public class CustomTileEntityBlock extends BlockContainer {
     }
     
     @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        CustomTileEntity<?> entity = (CustomTileEntity<?>)world.getTileEntity(pos);
-        
-        if(entity != null) {
-            entity.onEntityBlockActivated(world, pos, player);
-        }
-
-        world.markBlockRangeForRenderUpdate(pos.getX(), pos.getY(), pos.getZ(), pos.getX(), pos.getY(), pos.getZ());
-        
-        return true;
-    }
-    
-    @Override
     public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
-        CustomTileEntity<?> entity = (CustomTileEntity<?>)world.getTileEntity(pos);
+        CustomTileEntity entity = (CustomTileEntity)world.getTileEntity(pos);
         if(entity != null) {
             int side = MathHelper.floor(player.rotationYaw/90f + 0.5) & 3;
             entity.setSide(side);
