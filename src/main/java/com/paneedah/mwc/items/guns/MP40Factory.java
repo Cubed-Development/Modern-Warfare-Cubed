@@ -11,6 +11,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -26,6 +27,7 @@ public class MP40Factory {
         .withRecoil(1.5f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SMG)
+        .withShellType(Type.PISTOL)
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
         .withShootSound("mp40")
@@ -43,7 +45,7 @@ public class MP40Factory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.13f)
         .withInaccuracy(2f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Sub Machine Gun",
         "Damage: 5", 
@@ -62,11 +64,6 @@ public class MP40Factory {
             GL11.glTranslatef(0F, 0F, 1F);
         })
         .withCompatibleAttachment(Magazines.MP40Mag, (model) -> {
-            GL11.glTranslatef(-0.365F, 0.42F, -1.52F);
-            GL11.glScaled(1.2F, 1F, 1F);
-            
-//            GL11.glTranslatef(-0.365F, 0.8F, -1.52F);
-//            GL11.glScaled(1.2F, 1F, 1F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
@@ -115,9 +112,6 @@ public class MP40Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new MP40())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);

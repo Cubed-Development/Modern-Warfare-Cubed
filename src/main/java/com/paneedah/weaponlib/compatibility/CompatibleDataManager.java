@@ -41,7 +41,7 @@ public class CompatibleDataManager {
         this.dataManager = dataManager;
     }
 
-    @SuppressWarnings("unchecked")
+    
     public <T> void register(Key key, T value) {
         dataManager.register((DataParameter<T>)key.key, (T)value);  
     }
@@ -59,12 +59,12 @@ public class CompatibleDataManager {
         return key;
     }
 
-    @SuppressWarnings("unchecked")
+    
     public <T> Value<T> get(Key key) {
         return new Value<>((DataParameter<T>)key.key);
     }
 
-    @SuppressWarnings("unchecked")
+    
     public <T> void set(Key key, T value) {
         dataManager.set((DataParameter<T>)key.key, value);
     }

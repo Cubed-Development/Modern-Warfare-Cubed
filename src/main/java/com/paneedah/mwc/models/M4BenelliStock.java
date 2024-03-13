@@ -1733,8 +1733,8 @@ public class M4BenelliStock extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		Maingun.render(f5);
-//		Pump.render(f5);
+//		Maingun.renderer(f5);
+//		Pump.renderer(f5);
 		Stock.render(f5);
 	}
 

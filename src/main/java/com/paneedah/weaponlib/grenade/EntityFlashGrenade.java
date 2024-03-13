@@ -1,10 +1,12 @@
 package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.mwc.utils.MWCUtil;
+import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.LightExposure;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import io.netty.buffer.ByteBuf;
+import io.redstudioragnarok.redcore.utils.MathUtil;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -23,7 +25,6 @@ import java.util.function.BiPredicate;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityFlashGrenade extends AbstractEntityGrenade {
-
 
     public static int MAX_EFFECTIVE_DISTANCE = 15;
     private long explosionTimeout;
@@ -65,7 +66,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
             this.explosionStrength = explosionStrength;
             return this;
         }
-        
+
         public Builder withEffectiveDistance(int effectiveDistance) {
             this.effectiveDistance = effectiveDistance > MAX_EFFECTIVE_DISTANCE ? MAX_EFFECTIVE_DISTANCE : effectiveDistance;
             return this;
@@ -90,7 +91,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
             this.rotationSlowdownFactor = rotationSlowdownFactor;
             return this;
         }
-        
+
         public Builder withDestroyingBlocks(boolean isDestroyingBlocks) {
             this.isDestroyingBlocks = isDestroyingBlocks;
             return this;
@@ -139,17 +140,14 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onGrenadeUpdate() {
-        if (!world.isRemote && explosionTimeout > 0
-                && System.currentTimeMillis() > activationTimestamp + explosionTimeout) {
+        if (!world.isRemote && explosionTimeout > 0 && System.currentTimeMillis() > (activationTimestamp + explosionTimeout))
             explode();
-            return;
-        }
     }
 
     @Override
     public void onBounce(RayTraceResult movingobjectposition) {
 //        System.out.println("Bounce");
-        if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !world.isRemote) {
+        if (explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !world.isRemote) {
             explode();
         } else {
             super.onBounce(movingobjectposition);
@@ -157,215 +155,215 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
     }
 
     private void explode() {
-        LOG.debug("Exploding {}", this);
-        
-        explosionStrength = 0.1f;
-        //Explosion.createServerSideExplosion(modContext, compatibility.world(this), this,
-        //        this.posX, this.posY, this.posZ, explosionStrength, false, true, false, 1f, 1f, 1.5f, 1f, null, null,
-        //        modContext.getFlashExplosionSound());
+        LOG.debug("Exploding flashbang {}", this);
 
+        explosionStrength = 0.3F;
 
-        List<?> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this,
-                this.getEntityBoundingBox().expand(effectiveDistance, effectiveDistance, effectiveDistance));
+        Explosion.createOldServerSideExplosion(world, getThrower(), this, new Vector3D(posX, posY, posZ), explosionStrength, false, true, false, 1F, 0.75F, 1.5F, 0.3F, null, null, modContext.getFlashExplosionSound());
 
-        for(Object nearbyEntityObject: nearbyEntities) {
-            Entity nearbyEntity = (Entity)nearbyEntityObject;
-            if(nearbyEntity instanceof EntityPlayer) {
-                float dose = getMaxDose(nearbyEntity);
-                
-                if(dose < 0) {
-                    dose = 0f;
-                }
-                LightExposure exposure = CompatibleExposureCapability.getExposure(nearbyEntity, LightExposure.class);
-                if(exposure == null) {
-//                    System.out.println("Entity " + nearbyEntity + " exposed to light dose " + dose);
-                    exposure = new LightExposure(nearbyEntity.world.getTotalWorldTime(), 4000, dose, 0.99f);
-                    CompatibleExposureCapability.updateExposure(nearbyEntity, exposure);
-                } else {
-                    float totalDose = exposure.getTotalDose() + dose;
-                    if(totalDose > 1f) {
-                        totalDose = 1f;
-                    }
-//                    System.out.println("Entity " + nearbyEntity + " exposed to light dose " + totalDose);
-                    exposure.setTotalDose(totalDose);
-                    CompatibleExposureCapability.updateExposure(nearbyEntity, exposure);
-                }
+        final List<Entity> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().expand(effectiveDistance, effectiveDistance, effectiveDistance).expand(-effectiveDistance, -effectiveDistance, -effectiveDistance));
+        for (Entity nearbyEntity : nearbyEntities) {
+            if (!(nearbyEntity instanceof  EntityPlayer))
+                continue;
+
+            final RayTraceResult rayTraceResult = getEntityBoundingBox().calculateIntercept(getPositionVector().add(0, 0.5, 0), nearbyEntity.getPositionVector());
+
+            if (rayTraceResult != null)
+                continue;
+
+            final float dose = MathUtil.clampMinFirst(getMaxDose(nearbyEntity), 0, 1);
+
+            LightExposure exposure = CompatibleExposureCapability.getExposure(nearbyEntity, LightExposure.class);
+
+            if (exposure == null) {
+                LOG.debug("Entity {} exposed to light dose {}", nearbyEntity, dose);
+
+                exposure = new LightExposure(nearbyEntity.world.getTotalWorldTime(), 4000, dose, 0.99f);
+            } else {
+                final float totalDose = MathUtil.clampMaxFirst(exposure.getTotalDose() + dose, 0, 1);
+
+                LOG.debug("Entity {} exposed to light dose {}", nearbyEntity, totalDose);
+
+                exposure.setTotalDose(totalDose);
             }
+
+            CompatibleExposureCapability.updateExposure(nearbyEntity, exposure);
         }
-        
-        this.setDead();
+
+        setDead();
     }
 
     float offset = 0.3f;
-    float[][] offsets = new float [][] {
-        {0, 0, 0},
-        {offset, 0, 0},
-        {-offset, 0, 0},
-        {0, offset, 0},
-        {0, -offset, 0},
-        {0, 0, offset},
-        {0, 0, -offset},
+    float[][] offsets = new float[][]{
+            {0, 0, 0},
+            {offset, 0, 0},
+            {-offset, 0, 0},
+            {0, offset, 0},
+            {0, -offset, 0},
+            {0, 0, offset},
+            {0, 0, -offset},
     };
-    
+
     private float getMaxDose(Entity nearbyEntity) {
         float dose = 0f;
-        for(int i = 0; i < offsets.length; i++) {
+        for (int i = 0; i < offsets.length; i++) {
             float offsetDose = getDoseWithOffset(nearbyEntity, offsets[i][0], offsets[i][1], offsets[i][2]);
             float coefficient = (offset * 3f - Math.abs(offsets[i][0]) - Math.abs(offsets[i][1]) - Math.abs(offsets[i][2])) / (offset * 3f);
             offsetDose *= coefficient;
-            if(offsetDose > dose) {
+            if (offsetDose > dose) {
                 dose = offsetDose;
             }
-            if(dose > 0.97f) {
+            if (dose > 0.97f) {
                 break;
             }
         }
         return dose;
     }
-    
+
     private float getDoseWithOffset(Entity nearbyEntity, double xOffset, double yOffset, double zOffset) {
         double posX = this.posX + xOffset;
         double posY = this.posY + yOffset;
         double posZ = this.posZ + zOffset;
         final Vector3D grenadePos = new Vector3D(posX, posY, posZ);
 //        BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> block != Blocks.GLASS && block != Blocks.GLASS_PANE && compatibility.canCollideCheck(block, blockMetadata, false);
-            
-        BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> !isTransparentBlock(block) &&  block.canCollideCheck(blockMetadata, false);;
-        
+
+        BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> !isTransparentBlock(block) && block.canCollideCheck(blockMetadata, false);
+        ;
+
         EntityPlayer player = (EntityPlayer) nearbyEntity;
         Vec3d playerLookVec = player.getLook(1f);
         Vec3d playerEyePosition = player.getPositionEyes(1f);
         Vec3d playerGrenadeVector = playerEyePosition.subtractReverse(new Vec3d(posX, posY, posZ));
-        
+
         double dotProduct = playerLookVec.dotProduct(playerGrenadeVector);
         double cos = dotProduct / (MathHelper.sqrt(playerLookVec.lengthSquared()) * MathHelper.sqrt(playerGrenadeVector.lengthSquared()));
-                
-        float exposureFactor = (float) ((cos + 1f)/ 2f);
+
+        float exposureFactor = (float) ((cos + 1f) / 2f);
         exposureFactor *= exposureFactor;
-                
+
         final Vector3D compatiblePlayerEyePos = new Vector3D(playerEyePosition.x, playerEyePosition.y, playerEyePosition.z);
         RayTraceResult rayTraceResult = MWCUtil.rayTraceBlocks(world, grenadePos, compatiblePlayerEyePos, isCollidable);
 
         float dose = 0f;
-        if(rayTraceResult == null) {
-            dose = exposureFactor * (1f - (float)playerGrenadeVector.lengthSquared() / (effectiveDistance * effectiveDistance)); 
+        if (rayTraceResult == null) {
+            dose = exposureFactor * (1f - (float) playerGrenadeVector.lengthSquared() / (effectiveDistance * effectiveDistance));
         }
-        
+
         return dose;
     }
 
     public ItemGrenade getItemGrenade() {
         return itemGrenade;
     }
-    
+
     private boolean isTransparentBlock(Block block) {
-    	return block == Blocks.SAPLING
-        || block == Blocks.LEAVES
-        || block == Blocks.LEAVES2
-        || block == Blocks.GLASS
-        || block == Blocks.BED
-        || block == Blocks.GOLDEN_RAIL
-        || block == Blocks.DETECTOR_RAIL
-        || block == Blocks.WEB
-        || block == Blocks.TALLGRASS
-        || block == Blocks.DEADBUSH
-        || block == Blocks.PISTON_HEAD
-        || block == Blocks.PISTON_EXTENSION
-        || block == Blocks.YELLOW_FLOWER
-        || block == Blocks.RED_FLOWER
-        || block == Blocks.BROWN_MUSHROOM
-        || block == Blocks.RED_MUSHROOM
-        || block == Blocks.STONE_SLAB
-        || block == Blocks.TORCH
-        || block == Blocks.FIRE
-        || block == Blocks.MOB_SPAWNER
-        || block == Blocks.OAK_STAIRS
-        || block == Blocks.REDSTONE_WIRE
-        || block == Blocks.WHEAT
-        || block == Blocks.STANDING_SIGN
-        || block == Blocks.LADDER
-        || block == Blocks.RAIL
-        || block == Blocks.STONE_STAIRS
-        || block == Blocks.WALL_SIGN
-        || block == Blocks.LEVER
-        || block == Blocks.STONE_PRESSURE_PLATE
-        || block == Blocks.WOODEN_PRESSURE_PLATE
-        || block == Blocks.UNLIT_REDSTONE_TORCH
-        || block == Blocks.REDSTONE_TORCH
-        || block == Blocks.STONE_BUTTON
-        || block == Blocks.SNOW_LAYER
-        || block == Blocks.REEDS
-        || block == Blocks.OAK_FENCE
-        || block == Blocks.SPRUCE_FENCE
-        || block == Blocks.BIRCH_FENCE
-        || block == Blocks.JUNGLE_FENCE
-        || block == Blocks.DARK_OAK_FENCE
-        || block == Blocks.ACACIA_FENCE
-        || block == Blocks.PORTAL
-        || block == Blocks.CAKE
-        || block == Blocks.UNPOWERED_REPEATER
-        || block == Blocks.POWERED_REPEATER
-        || block == Blocks.MONSTER_EGG
-        || block == Blocks.IRON_BARS
-        || block == Blocks.GLASS_PANE
-        || block == Blocks.PUMPKIN_STEM
-        || block == Blocks.MELON_STEM
-        || block == Blocks.VINE
-        || block == Blocks.OAK_FENCE_GATE
-        || block == Blocks.SPRUCE_FENCE_GATE
-        || block == Blocks.BIRCH_FENCE_GATE
-        || block == Blocks.JUNGLE_FENCE_GATE
-        || block == Blocks.DARK_OAK_FENCE_GATE
-        || block == Blocks.ACACIA_FENCE_GATE
-        || block == Blocks.BRICK_STAIRS
-        || block == Blocks.STONE_BRICK_STAIRS
-        || block == Blocks.WATERLILY
-        || block == Blocks.NETHER_BRICK_FENCE
-        || block == Blocks.NETHER_BRICK_STAIRS
-        || block == Blocks.NETHER_WART
-        || block == Blocks.ENCHANTING_TABLE
-        || block == Blocks.BREWING_STAND
-        || block == Blocks.DRAGON_EGG
-        || block == Blocks.REDSTONE_LAMP
-        || block == Blocks.LIT_REDSTONE_LAMP
-        || block == Blocks.WOODEN_SLAB
-        || block == Blocks.COCOA
-        || block == Blocks.SANDSTONE_STAIRS
-        || block == Blocks.TRIPWIRE_HOOK
-        || block == Blocks.TRIPWIRE
-        || block == Blocks.SPRUCE_STAIRS
-        || block == Blocks.BIRCH_STAIRS
-        || block == Blocks.JUNGLE_STAIRS
-        || block == Blocks.FLOWER_POT
-        || block == Blocks.CARROTS
-        || block == Blocks.POTATOES
-        || block == Blocks.WOODEN_BUTTON
-        || block == Blocks.SKULL
-        || block == Blocks.ANVIL
-        || block == Blocks.LIGHT_WEIGHTED_PRESSURE_PLATE
-        || block == Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE
-        || block == Blocks.UNPOWERED_COMPARATOR
-        || block == Blocks.POWERED_COMPARATOR
-        || block == Blocks.DAYLIGHT_DETECTOR
-        || block == Blocks.DAYLIGHT_DETECTOR_INVERTED
-        || block == Blocks.HOPPER
-        || block == Blocks.QUARTZ_STAIRS
-        || block == Blocks.ACTIVATOR_RAIL
-        || block == Blocks.DROPPER
-        || block == Blocks.BARRIER
-        || block == Blocks.CARPET
-        || block == Blocks.ACACIA_STAIRS
-        || block == Blocks.DARK_OAK_STAIRS
-        || block == Blocks.DOUBLE_PLANT
-        || block == Blocks.STAINED_GLASS
-        || block == Blocks.STAINED_GLASS_PANE
-        || block == Blocks.STANDING_BANNER
-        || block == Blocks.WALL_BANNER
-        || block == Blocks.RED_SANDSTONE_STAIRS
-        || block == Blocks.STONE_SLAB2
-        || block == Blocks.END_ROD
-        || block == Blocks.BEETROOTS
-        || block == Blocks.STRUCTURE_VOID
-        || block == Blocks.STRUCTURE_BLOCK;
+        return block == Blocks.SAPLING
+                || block == Blocks.LEAVES
+                || block == Blocks.LEAVES2
+                || block == Blocks.GLASS
+                || block == Blocks.BED
+                || block == Blocks.GOLDEN_RAIL
+                || block == Blocks.DETECTOR_RAIL
+                || block == Blocks.WEB
+                || block == Blocks.TALLGRASS
+                || block == Blocks.DEADBUSH
+                || block == Blocks.PISTON_HEAD
+                || block == Blocks.PISTON_EXTENSION
+                || block == Blocks.YELLOW_FLOWER
+                || block == Blocks.RED_FLOWER
+                || block == Blocks.BROWN_MUSHROOM
+                || block == Blocks.RED_MUSHROOM
+                || block == Blocks.STONE_SLAB
+                || block == Blocks.TORCH
+                || block == Blocks.FIRE
+                || block == Blocks.MOB_SPAWNER
+                || block == Blocks.OAK_STAIRS
+                || block == Blocks.REDSTONE_WIRE
+                || block == Blocks.WHEAT
+                || block == Blocks.STANDING_SIGN
+                || block == Blocks.LADDER
+                || block == Blocks.RAIL
+                || block == Blocks.STONE_STAIRS
+                || block == Blocks.WALL_SIGN
+                || block == Blocks.LEVER
+                || block == Blocks.STONE_PRESSURE_PLATE
+                || block == Blocks.WOODEN_PRESSURE_PLATE
+                || block == Blocks.UNLIT_REDSTONE_TORCH
+                || block == Blocks.REDSTONE_TORCH
+                || block == Blocks.STONE_BUTTON
+                || block == Blocks.SNOW_LAYER
+                || block == Blocks.REEDS
+                || block == Blocks.OAK_FENCE
+                || block == Blocks.SPRUCE_FENCE
+                || block == Blocks.BIRCH_FENCE
+                || block == Blocks.JUNGLE_FENCE
+                || block == Blocks.DARK_OAK_FENCE
+                || block == Blocks.ACACIA_FENCE
+                || block == Blocks.PORTAL
+                || block == Blocks.CAKE
+                || block == Blocks.UNPOWERED_REPEATER
+                || block == Blocks.POWERED_REPEATER
+                || block == Blocks.MONSTER_EGG
+                || block == Blocks.IRON_BARS
+                || block == Blocks.GLASS_PANE
+                || block == Blocks.PUMPKIN_STEM
+                || block == Blocks.MELON_STEM
+                || block == Blocks.VINE
+                || block == Blocks.OAK_FENCE_GATE
+                || block == Blocks.SPRUCE_FENCE_GATE
+                || block == Blocks.BIRCH_FENCE_GATE
+                || block == Blocks.JUNGLE_FENCE_GATE
+                || block == Blocks.DARK_OAK_FENCE_GATE
+                || block == Blocks.ACACIA_FENCE_GATE
+                || block == Blocks.BRICK_STAIRS
+                || block == Blocks.STONE_BRICK_STAIRS
+                || block == Blocks.WATERLILY
+                || block == Blocks.NETHER_BRICK_FENCE
+                || block == Blocks.NETHER_BRICK_STAIRS
+                || block == Blocks.NETHER_WART
+                || block == Blocks.ENCHANTING_TABLE
+                || block == Blocks.BREWING_STAND
+                || block == Blocks.DRAGON_EGG
+                || block == Blocks.REDSTONE_LAMP
+                || block == Blocks.LIT_REDSTONE_LAMP
+                || block == Blocks.WOODEN_SLAB
+                || block == Blocks.COCOA
+                || block == Blocks.SANDSTONE_STAIRS
+                || block == Blocks.TRIPWIRE_HOOK
+                || block == Blocks.TRIPWIRE
+                || block == Blocks.SPRUCE_STAIRS
+                || block == Blocks.BIRCH_STAIRS
+                || block == Blocks.JUNGLE_STAIRS
+                || block == Blocks.FLOWER_POT
+                || block == Blocks.CARROTS
+                || block == Blocks.POTATOES
+                || block == Blocks.WOODEN_BUTTON
+                || block == Blocks.SKULL
+                || block == Blocks.ANVIL
+                || block == Blocks.LIGHT_WEIGHTED_PRESSURE_PLATE
+                || block == Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE
+                || block == Blocks.UNPOWERED_COMPARATOR
+                || block == Blocks.POWERED_COMPARATOR
+                || block == Blocks.DAYLIGHT_DETECTOR
+                || block == Blocks.DAYLIGHT_DETECTOR_INVERTED
+                || block == Blocks.HOPPER
+                || block == Blocks.QUARTZ_STAIRS
+                || block == Blocks.ACTIVATOR_RAIL
+                || block == Blocks.DROPPER
+                || block == Blocks.BARRIER
+                || block == Blocks.CARPET
+                || block == Blocks.ACACIA_STAIRS
+                || block == Blocks.DARK_OAK_STAIRS
+                || block == Blocks.DOUBLE_PLANT
+                || block == Blocks.STAINED_GLASS
+                || block == Blocks.STAINED_GLASS_PANE
+                || block == Blocks.STANDING_BANNER
+                || block == Blocks.WALL_BANNER
+                || block == Blocks.RED_SANDSTONE_STAIRS
+                || block == Blocks.STONE_SLAB2
+                || block == Blocks.END_ROD
+                || block == Blocks.BEETROOTS
+                || block == Blocks.STRUCTURE_VOID
+                || block == Blocks.STRUCTURE_BLOCK;
     }
 }

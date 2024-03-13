@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class DynamicShaderGroupManager {
@@ -120,7 +120,7 @@ public class DynamicShaderGroupManager {
 
         if (OpenGlHelper.isFramebufferEnabled()) {
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
-            GlStateManager.viewport(0, 0, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
+            GlStateManager.viewport(0, 0, MC.getFramebuffer().framebufferWidth, MC.getFramebuffer().framebufferHeight);
         }
 
         return l != null ? l.group : null;
@@ -128,13 +128,13 @@ public class DynamicShaderGroupManager {
 
     private DynamicShaderGroup createShaderGroup(DynamicShaderContext context, DynamicShaderGroupSource source, ResourceLocation resourceLocation) {
 
-        IResourceManager resourceManager = new TransformingResourceManager(mc.getResourceManager(), DynamicShaderGroupManager::modifyResourceLocation);
+        IResourceManager resourceManager = new TransformingResourceManager(MC.getResourceManager(), DynamicShaderGroupManager::modifyResourceLocation);
 
-        TextureManager textureManager = new TransformingTextureManager(mc.getTextureManager(), DynamicShaderGroupManager::modifyResourceLocation);
+        TextureManager textureManager = new TransformingTextureManager(MC.getTextureManager(), DynamicShaderGroupManager::modifyResourceLocation);
 
         try {
             DynamicShaderGroup group = new DynamicShaderGroup(textureManager, resourceManager, context.getMainFramebuffer(), resourceLocation);
-            group.createBindFramebuffers(mc.displayWidth, mc.displayHeight);
+            group.createBindFramebuffers(MC.displayWidth, MC.displayHeight);
             return group;
         } catch (JsonSyntaxException | IOException e) {
             LOG.error("Failed to create shader due to " + e, e);

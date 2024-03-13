@@ -5,7 +5,7 @@ import com.paneedah.mwc.models.ChiappaRhino;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -18,7 +18,7 @@ import java.util.Arrays;
 
 public class ChiappaRhinoFactory implements GunFactory {
 
-    @SuppressWarnings("unchecked")
+    
 	public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 
@@ -46,7 +46,7 @@ public class ChiappaRhinoFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.15f)
         .withInaccuracy(3)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         
         .withInformationProvider(stack -> Arrays.asList(
                 "Type: Revolver",

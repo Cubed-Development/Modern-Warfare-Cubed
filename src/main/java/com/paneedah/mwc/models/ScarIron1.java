@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class ScarIron1 extends ModelBase {
-	private final QRenderer sight;
+	private final ModelRenderer sight;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -50,7 +50,7 @@ public class ScarIron1 extends ModelBase {
 		textureWidth = 64;
 		textureHeight = 64;
 
-		sight = new QRenderer(this);
+		sight = new ModelRenderer(this);
 		sight.setRotationPoint(0.0F, 24.0F, 0.0F);
 		sight.cubeList.add(new ModelBox(sight, 0, 0, -2.5F, -19.25F, -7.0F, 8, 2, 7, 0.0F, false));
 		sight.cubeList.add(new ModelBox(sight, 24, 17, -2.5F, -18.25F, -8.0F, 8, 1, 1, 0.0F, false));

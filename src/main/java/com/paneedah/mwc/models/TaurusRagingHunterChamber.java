@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class TaurusRagingHunterChamber extends ModelWithAttachments {
-	private final QRenderer chamber;
+	private final ModelRenderer chamber;
 	private final ModelRenderer gun100_r2;
 	private final ModelRenderer gun273_r1;
 	private final ModelRenderer cube_r1;
@@ -65,7 +65,7 @@ public class TaurusRagingHunterChamber extends ModelWithAttachments {
 		textureWidth = 128;
 		textureHeight = 128;
 		
-		chamber = new QRenderer(this);
+		chamber = new ModelRenderer(this);
 		chamber.setRotationPoint(0.0F, 24.0F, 0.0F);
 		chamber.cubeList.add(new ModelBox(chamber, 50, 43, -1.2F, -36.0F, -21.5F, 1, 4, 3, 0.0F, false));
 		chamber.cubeList.add(new ModelBox(chamber, 90, 73, -4.2F, -36.0F, -18.3F, 2, 2, 5, -0.002F, false));

@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class DragunovStock extends ModelWithAttachments {
-	private final QRenderer gripstock;
+	private final ModelRenderer gripstock;
 	private final ModelRenderer grip5_r1;
 	private final ModelRenderer grip4_r1;
 	private final ModelRenderer grip5_r2;
@@ -49,7 +49,7 @@ public class DragunovStock extends ModelWithAttachments {
 		textureWidth = 350;
 		textureHeight = 350;
 
-		gripstock = new QRenderer(this);
+		gripstock = new ModelRenderer(this);
 		gripstock.setRotationPoint(0.0F, 24.0F, 0.0F);
 		gripstock.cubeList.add(new ModelBox(gripstock, 71, 0, -3.5F, -30.5F, -6.0F, 4, 4, 5, 0.001F, false));
 		gripstock.cubeList.add(new ModelBox(gripstock, 92, 102, -3.0F, -35.55F, 2.2F, 3, 2, 4, -0.1F, false));

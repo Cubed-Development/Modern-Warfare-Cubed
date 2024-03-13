@@ -1,12 +1,13 @@
 package com.paneedah.mwc.bases;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 
 import java.util.Random;
+
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class OreBase extends BlockOre {
 
@@ -21,7 +22,7 @@ public class OreBase extends BlockOre {
         setHardness(6F);
         setResistance(15F);
         setHarvestLevel("pickaxe", harvestLevel);
-        setCreativeTab(MWC.BLOCKS_TAB);
+        setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
     }
 
     @Override
@@ -29,7 +30,7 @@ public class OreBase extends BlockOre {
         itemBlock = Item.getItemFromBlock(this);
         //If the block is smelt-able (i.e like gold or iron) then drop the block itself, otherwise drop the designated drop.
         if(this.smelt) {
-            if(this.drop != null) ModReference.LOG.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
+            if(this.drop != null) LOG.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
             return itemBlock;
         } else {
             return this.drop;

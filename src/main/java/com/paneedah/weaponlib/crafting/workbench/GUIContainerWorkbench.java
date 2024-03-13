@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.crafting.workbench;
 
+import com.paneedah.mwc.network.messages.WorkbenchServerMessage;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.base.GUIContainerStation;
-import com.paneedah.weaponlib.network.packets.StationPacket;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,16 +17,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 
 /**
  * GUI class for the Workbench Block
- * 
+ * <p>
  * Crafting Modes:
  * 1.) Guns
  * 2.) Attachments (normal ones)
  * 3.) Modification mode attachments
- * 
- * Features (plus the features of it's parent class {@link GUIContainerStation})
+ * <p>
+ * Features (plus the features of its parent class {@link GUIContainerStation})
  * 1. Player has three categories to choose from weapons, attachments, and modification attachments
  * 2. If the player has the materials to craft an item, they can craft it
  * 3. 3D weapon rendering into the GUI
@@ -40,43 +41,41 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	// Buttons & Search box
 	private GUIButtonCustom assaultSelector, attachSelector, modSelector, gearSelector;
 
-	public GUIContainerWorkbench(EntityPlayer player, InventoryPlayer inventory,
-			TileEntityWorkbench tileEntityWorkbench) {
+	public GUIContainerWorkbench(EntityPlayer player, InventoryPlayer inventory, TileEntityWorkbench tileEntityWorkbench) {
 		super(tileEntityWorkbench, new ContainerWorkbench(player, inventory, tileEntityWorkbench));
 	}
-	
 
 	@Override
 	public void initGui() {
 		super.initGui();
-		
-		assaultSelector = new GUIButtonCustom(GUI_TEX, 3, this.guiLeft + 92, this.guiTop + 29, 19, 20, 480, 370, "")
+
+		this.assaultSelector = new GUIButtonCustom(GUI_TEX, 3, this.guiLeft + 92, this.guiTop + 29, 19, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 0, 291).withHoveredState(0xFFFFFF, 19, 291)
 				.withToggledState(0xFFFFFF, 38, 291).withPageRestriction(2).makeToggleButton();
 
-		attachSelector = new GUIButtonCustom(GUI_TEX, 4, this.guiLeft + 115, this.guiTop + 29, 19, 20, 480, 370, "")
+		this.attachSelector = new GUIButtonCustom(GUI_TEX, 4, this.guiLeft + 115, this.guiTop + 29, 19, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 0, 311).withHoveredState(0xFFFFFF, 19, 311)
 				.withToggledState(0xFFFFFF, 38, 311).withPageRestriction(2).makeToggleButton();
 
-		modSelector = new GUIButtonCustom(GUI_TEX, 5, this.guiLeft + 138, this.guiTop + 29, 19, 20, 480, 370, "")
+		this.modSelector = new GUIButtonCustom(GUI_TEX, 5, this.guiLeft + 138, this.guiTop + 29, 19, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 0, 331)
 				.withHoveredState(0xFFFFFF, 19, 331)
 				.withToggledState(0xFFFFFF, 38, 331)
 				.withPageRestriction(2).makeToggleButton();
-		
-		gearSelector = new GUIButtonCustom(GUI_TEX, 6, this.guiLeft + 161, this.guiTop + 29, 19, 20, 480, 370, "")
+
+		this.gearSelector = new GUIButtonCustom(GUI_TEX, 6, this.guiLeft + 161, this.guiTop + 29, 19, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 57, 331)
 				.withHoveredState(0xFFFFFF, 76, 331)
 				.withToggledState(0xFFFFFF, 95, 331)
 				.withPageRestriction(2).makeToggleButton();
-		
-		
-		assaultSelector.toggleOn();
 
-		addButton(assaultSelector);
-		addButton(attachSelector);
-		addButton(modSelector);
-		addButton(gearSelector);
+
+		this.assaultSelector.toggleOn();
+
+		addButton(this.assaultSelector);
+		addButton(this.attachSelector);
+		addButton(this.modSelector);
+		addButton(this.gearSelector);
 		
 		setPage(1);
 	}
@@ -84,7 +83,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	@Override
 	public void fillFilteredList() {
 		filteredCraftingList.clear();
-		if(getCraftingMode() == CraftingGroup.GUN.getID()) {
+		if (getCraftingMode() == CraftingGroup.GUN.getID()) {
 			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.GUN));
 		} else if(getCraftingMode() == CraftingGroup.ATTACHMENT_NORMAL.getID()) {
 			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.ATTACHMENT_NORMAL));
@@ -104,13 +103,11 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		super.actionPerformed(button);
-		if (button == craftButton) {
-			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1) {
-				modContext.getChannel()
-						.sendToServer(new StationPacket(StationPacket.CRAFT, tileEntity.getPos(), 0, getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME,
-								CraftingGroup.getValue(getCraftingMode()),
-								getSelectedCraftingPiece().getItem().getTranslationKey()));
 
+		if (button == craftButton) {
+			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1 && !this.craftButton.isDisabled()) {
+				final int craftingTime = getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME;
+				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, craftingTime, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItemStack().getTranslationKey()));
 			}
 
 		} else if (button == assaultSelector) {
@@ -118,29 +115,31 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 			modSelector.toggleOff();
 			attachSelector.toggleOff();
 			gearSelector.toggleOff();
+
 			setCraftingMode(1);
-
 			setSelectedCraftingPiece(null);
-
 			fillFilteredList();
+
 		} else if (button == attachSelector) {
 			((GUIButtonCustom) button).toggleOn();
 			modSelector.toggleOff();
 			assaultSelector.toggleOff();
 			gearSelector.toggleOff();
+
 			setCraftingMode(2);
-
 			setSelectedCraftingPiece(null);
-
 			fillFilteredList();
+
 		} else if (button == modSelector) {
 			((GUIButtonCustom) button).toggleOn();
 			attachSelector.toggleOff();
 			assaultSelector.toggleOff();
 			gearSelector.toggleOff();
+
 			setCraftingMode(3);
 			setSelectedCraftingPiece(null);
 			fillFilteredList();
+
 		} else if(button == gearSelector) {
 			((GUIButtonCustom) button).toggleOn();
 			attachSelector.toggleOff();
@@ -150,22 +149,18 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 			setCraftingMode(CraftingGroup.GEAR.getID());
 			setSelectedCraftingPiece(null);
 			fillFilteredList();
-			
-			
 		}
 	}
-
-
 
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
-		if (!this.craftButton.isDisabled() && tileEntity.getProgress() != 0) {
+
+		if (!this.craftButton.isDisabled() && tileEntity.getProgress() != 0)
 			this.craftButton.setErrored(true);
-		}
-		if(hasSelectedCraftingPiece() && hasRequiredItems() && tileEntity.getProgress() == 0) {
+
+		if (hasSelectedCraftingPiece() && hasRequiredItems() && tileEntity.getProgress() == 0)
 			this.craftButton.setErrored(false);
-		}
 	}
 	
 	/**
@@ -180,9 +175,8 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	
 	@Override
 	public void addCraftingInformationToTooltip(ArrayList<String> tooltip) {
-		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + I18n.format(tileEntity.craftingTargetName + ".name"));
-
 		final int remainingTicks = tileEntity.craftingDuration - tileEntity.craftingTimer;
+		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + I18n.format(tileEntity.craftingTargetName + ".name"));
 		tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", remainingTicks / 20F) + "s");
 	}
 
@@ -197,18 +191,15 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	
 	@Override
 	public void doCraftingModeOneRender(float partialTicks, int mouseX, int mouseY) {
-		
 		// This is just a backup check. This should only ever run if we are dealing
 		// with crafting mode one, so it will always be a weapon.
-		if(!(getSelectedCraftingPiece().getItem() instanceof Weapon)) return;
+		if (!(getSelectedCraftingPiece().getItemStack().getItem() instanceof Weapon))
+			return;
 	
-		Weapon weapon = (Weapon) getSelectedCraftingPiece().getItem();
+		final Weapon weapon = (Weapon) getSelectedCraftingPiece().getItemStack().getItem();
         GuiRenderUtil.drawScaledString(fontRenderer, format(weapon.getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 1.2, 0xFDF17C);
         GuiRenderUtil.drawScaledString(fontRenderer, weapon.builder.getWeaponType(), this.guiLeft + 214, this.guiTop + 43, 0.75, 0xC8C49C);
         
         render3DItemInGUI(weapon, this.guiLeft + 300, this.guiTop + 55, mouseX, mouseY);
-        
-        
 	}
-
 }

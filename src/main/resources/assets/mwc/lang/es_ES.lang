@@ -2,7 +2,7 @@ item.m40gasmask_helmet.name=Máscara antigás M40
 item.JPNVG18_helmet.name=Casco de visión nocturna GPNVG-18
 
 item.audis4.name=Audi S4
-item.mclaren_senna.name=Mclaren Senna
+item.MClaren_senna.name=Mclaren Senna
 item.ae86trueno.name=Toyota AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
@@ -67,29 +67,21 @@ item.SCPGuard_boots.name=SCP Guard Boots
 item.Dclass_chest.name=D-Class Chestpiece
 item.Dclass_boots.name=D-Class Boots
 
-item.mwc_tactical_push_backpack.name=Tactical Push Pack
-
-item.mwc_combat_sustainment_backpack.name=Mochila de mantenimiento de combate
+item.mwc_combat_sustainment_backpack_tan.name=Mochila de mantenimiento de combate (Bronceado)
 item.mwc_combat_sustainment_backpack_black.name=Mochila de mantenimiento de combate (Negro)
 item.mwc_combat_sustainment_backpack_forest.name=Mochila de mantenimiento de combate (Forest)
 
-item.mwc_assault_backpack.name=Mochila de asalto
+item.mwc_assault_backpack_tan.name=Mochila de asalto (Bronceado)
 item.mwc_assault_backpack_black.name=Mochila de asalto (Negro)
 item.mwc_assault_backpack_forest.name=Mochila de asalto (Forest)
 
-item.mwc_tru_spec_cordura_backpack.name=Mochila Cordura Tru-Spec
+item.mwc_tru_spec_cordura_backpack_tan.name=Mochila Cordura Tru-Spec (Bronceado)
 item.mwc_tru_spec_cordura_backpack_black.name=Mochila Cordura Tru-Spec (Negro)
 item.mwc_tru_spec_cordura_backpack_forest.name=Mochila Cordura Tru-Spec (Forest)
 
+item.mwc_f5_switchblade_backpack.name=Mochila F5 Switchblade
+
 item.mwc_duffle_bag.name=Bolsa de lona
-
-item.mwc_pilgrim_backpack.name=Pilgrim Backpack
-
-item.mwc_f4m_terminator_backpack.name=Mochila Terminator F4M
-
-item.mwc_bergen_backpack.name=Mochila Bergen
-
-item.mwc_g2_gunslinger2_backpack.name=Mochila G2 Pistolero II
 
 item.mwc_flyye_field_compact_plate_carrier.name=Portador de placa Molle
 item.mwc_molle_black.name=Portador de placa Molle(Negro)
@@ -98,10 +90,10 @@ item.mwc_molle_urban.name=Portador de placa Moller (Urbano)
 
 item.mwc_fort_armor.name=6B43 6A Chaleco antibalas
 
-item.mwc_usmc_vest.name=Chaleco Force Recon
-item.mwc_usmc_vest_black.name=Chaleco Force Recon (Negro)
-item.mwc_usmc_vest_green.name=Chaleco Force Recon (Verde)
-item.mwc_usmc_vest_urban.name=Chaleco Force Recon (Urbano)
+item.mwc_usMC_vest.name=Chaleco Force Recon
+item.mwc_usMC_vest_black.name=Chaleco Force Recon (Negro)
+item.mwc_usMC_vest_green.name=Chaleco Force Recon (Verde)
+item.mwc_usMC_vest_urban.name=Chaleco Force Recon (Urbano)
 
 item.mwc_juggernaut_body_armor.name=Arnadura Juggernaut 
 
@@ -254,7 +246,7 @@ item.g2_contender.name=G2 Contender
 item.beowulf_50_cal.name=Beowulf .50 Cal
 item.hk_417.name=HK 417
 item.ar15.name=AR-15
-item.sig_mcx.name=SIG MCX
+item.sig_MCx.name=SIG MCX
 item.mas_21.name=MAS-21
 item.mp443.name=MP443
 item.ump_45.name=UMP45
@@ -444,8 +436,8 @@ item.baseball_bat_nails.name=Bate de béisbol con clavos
 item.night_stick.name=Night Stick
 
 item.gas_can.name=Bidón de gasolina (PROP)
-item.mwc_wcam.name=MWC Camera
-item.mwc_tablet.name=MWC Tablet
+item.mwc_wcam.name=Camera
+item.mwc_tablet.name=Tablet
 
 
 item.mwc_M67Frag.name=Granada de fragmentación M67
@@ -1030,16 +1022,13 @@ tile.mwc_spookyghost2.name=Spooky Ghost 2
 tile.mwc_spookyghost3.name=Spooky Ghost 3
 tile.mwc_swat_truck.name=SWAT Truck
 
-itemGroup.guns_tab=MWC Resources
-itemGroup.AssaultRifles_tab=MWC Armas
-itemGroup.props_tab=MWC Props (Creative Use Only)
-itemGroup.AmmoTab=MWC Munición
-itemGroup.AttachmentsTab=MWC Accesorios
-itemGroup.ArmorTab=MWC Armadura
-itemGroup.GrenadesTab=MWC granadas
-itemGroup.SpartanTab=MWC Spartan Armors Tab
-itemGroup.GadgetsTab=MWC Artilugios
-itemGroup.BlocksTab=MWC Bloques y Lingotes
+itemGroup.weapons=Armas
+itemGroup.props=Props (Creative Use Only)
+itemGroup.ammunitionAndMagazines=Municiones y Revistas
+itemGroup.attachments=Accesorios
+itemGroup.equipment=Equipos
+itemGroup.throwables=Tirables
+itemGroup.blocksAndIngots=Bloques y Lingotes
 
 key.categories.weaponlib=Modern Warfare
 key.texture_change=Cambiar la skin del arma

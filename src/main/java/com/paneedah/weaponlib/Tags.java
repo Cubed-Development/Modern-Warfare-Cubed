@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.item.ItemStack;
@@ -59,7 +59,7 @@ public final class Tags {
 
 		byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG);
 		if(bytes != null && bytes.length > 0) {
-			return TypeRegistry.getInstance().fromBytes(Unpooled.wrappedBuffer(bytes));
+			return TypeRegistry.getINSTANCE().fromBytes(Unpooled.wrappedBuffer(bytes));
 		}
 		return null;
 	}
@@ -70,7 +70,7 @@ public final class Tags {
 		byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG);
 		if(bytes != null && bytes.length > 0) {
 			try {
-				return targetClass.cast(TypeRegistry.getInstance().fromBytes(Unpooled.wrappedBuffer(bytes)));
+				return targetClass.cast(TypeRegistry.getINSTANCE().fromBytes(Unpooled.wrappedBuffer(bytes)));
 			} catch(RuntimeException e) {
 				return null;
 			}
@@ -87,7 +87,7 @@ public final class Tags {
 
 		ByteBuf buf = Unpooled.buffer();
 		if(instance != null) {
-			TypeRegistry.getInstance().toBytes(instance, buf);
+			TypeRegistry.getINSTANCE().toBytes(instance, buf);
 			NBTTagCompound tagCompound = itemStack.getTagCompound();
             tagCompound.setByteArray(INSTANCE_TAG, buf.array());
 

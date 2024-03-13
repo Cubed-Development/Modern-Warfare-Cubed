@@ -42,7 +42,7 @@ public class G11Factory {
         .withFlashOffsetX(() -> 0.14f)
         .withFlashOffsetY(() -> 0.18f)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
 		.withRecoilParam(new RecoilParam(
 				// The weapon power

@@ -33,8 +33,8 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 			} else if(getTextureName() == null) {
 				this.textureName = textureVariants.get(0);
 			}
-			if(inventoryPositioning == null) {
-				withInventoryPositioning((itemStack) -> {
+			if(transforms.getInventoryPositioning() == null) {
+				withInventoryPositioning(() -> {
 					
 					/*
 					GlStateManager.scale(0.5, 0.5, 0.5);

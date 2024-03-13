@@ -19,12 +19,13 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.Color;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class VehicleCustomGUI extends Gui {
 	
 	// SCALED RESOLUTION
-	public static final ScaledResolution SCALE_RES = new ScaledResolution(mc);
+	public static final ScaledResolution SCALE_RES = new ScaledResolution(MC);
 	
 	// LOCK & KEY MODELS
 	public static ModelBase keyModel;
@@ -84,7 +85,7 @@ public class VehicleCustomGUI extends Gui {
 		GlStateManager.color(1.0f, 1.0f, 1.0f);
 		
 		
-		double interpolatedAng = prevAngle + (angle-prevAngle)*mc.getRenderPartialTicks();
+		double interpolatedAng = prevAngle + (angle-prevAngle)*MC.getRenderPartialTicks();
 		
 		GlStateManager.translate(x, y, 0.0);
 		GlStateManager.rotate((float) interpolatedAng, 0, 0, 1);
@@ -211,13 +212,13 @@ public class VehicleCustomGUI extends Gui {
 		
 		Vec3d oN = pattern.doAnimation(transmission.shiftTimer, transmission.maxShiftTime, transmission.startGear, transmission.targetGear).scale(30.25);
 		
-		oN = GearShiftPattern.interpVec3d(on2, oN, mc.getRenderPartialTicks());
+		oN = GearShiftPattern.interpVec3d(on2, oN, MC.getRenderPartialTicks());
 		double nX = oN.z;
 		double nZ = -oN.x;
 		
 		
 		
-		// render pattern
+		// renderer pattern
 		
 		GL11.glPushMatrix();
 		GlStateManager.disableTexture2D();
@@ -234,9 +235,9 @@ public class VehicleCustomGUI extends Gui {
 		
 		// enmd
 		
-		// render knob
-		ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/gui/caricons.png");
-		mc.getTextureManager().bindTexture(loc);
+		// renderer knob
+		ResourceLocation loc = new ResourceLocation(ID + ":textures/gui/caricons.png");
+		MC.getTextureManager().bindTexture(loc);
 		GlStateManager.color(1.0f, 1.0f, 1.0f);
 		GL11.glTranslated(x+nX, y+nZ, 0);
 		GL11.glScaled(0.8, 0.8, 0.8);
@@ -254,7 +255,7 @@ public class VehicleCustomGUI extends Gui {
 	
 	public void drawSpeedometer(EntityVehicle vehicle, double x, double y, int maxRPM, int gear, double rpm, double speed, double ratio) {
 		GL11.glPushMatrix();
-		double scale = (new ScaledResolution(mc)).getScaledWidth()/640.0;
+		double scale = (new ScaledResolution(MC)).getScaledWidth()/640.0;
 		//GL11.glScaled(scale, scale, scale);
 		//x /= scale;
 		//y /= scale;
@@ -269,8 +270,8 @@ public class VehicleCustomGUI extends Gui {
 		}
 		
 		
-		if(mc.gameSettings.thirdPersonView != oldPOV) {
-			oldPOV = mc.gameSettings.thirdPersonView;
+		if(MC.gameSettings.thirdPersonView != oldPOV) {
+			oldPOV = MC.gameSettings.thirdPersonView;
 			if(sat.isComplete()) sat.reset();
 		}
 		
@@ -296,7 +297,7 @@ public class VehicleCustomGUI extends Gui {
 		
 		float prevRPMAngle = (float) (0.0 + ((maxAng+45)-0.0)*(vehicle.solver.getPreviousRPM()/(double) maxRPM));
 		
-		//float rpmAng = prevRPMAngle + (newRPMAngle-prevRPMAngle)*mc.getRenderPartialTicks();
+		//float rpmAng = prevRPMAngle + (newRPMAngle-prevRPMAngle)*MC.getRenderPartialTicks();
 
 		
 		
@@ -332,7 +333,7 @@ public class VehicleCustomGUI extends Gui {
 				color = 0xc0392b;
 			}
 			
-			drawCenteredString(mc.fontRenderer, "" + n, (int) cos, (int) sin-4, color);
+			drawCenteredString(MC.fontRenderer, "" + n, (int) cos, (int) sin-4, color);
 		}
 		
 		GL11.glPopMatrix();
@@ -384,16 +385,16 @@ public class VehicleCustomGUI extends Gui {
 		
 		
 		if(transmission.isReverseGear) {
-			drawCenteredString(mc.fontRenderer, "R", 0, -4, 0x10ac84);
+			drawCenteredString(MC.fontRenderer, "R", 0, -4, 0x10ac84);
 		} else if(transmission.inNeutral()){
-			drawCenteredString(mc.fontRenderer, "N", 0, -4, 0xc8d6e5);
+			drawCenteredString(MC.fontRenderer, "N", 0, -4, 0xc8d6e5);
 			
 		} else {
-				drawCenteredString(mc.fontRenderer, "" + gear, 0, -4, 0x4cd137);
+				drawCenteredString(MC.fontRenderer, "" + gear, 0, -4, 0x4cd137);
 				
 		}
 		double valie = Math.floor(vehicle.getSolver().rearAxel.leftWheel.wheelAngularVelocity);
-		//drawCenteredString(mc.fontRenderer, "" + valie, 0, -48, 0x4cd137);
+		//drawCenteredString(MC.fontRenderer, "" + valie, 0, -48, 0x4cd137);
 		
 		
 		GL11.glPopMatrix();
@@ -403,11 +404,11 @@ public class VehicleCustomGUI extends Gui {
 		GL11.glTranslated(x, y, 0);
 		GL11.glScaled(2.0, 2.0, 2.0);
 		int fixedSpeed = (int) Math.round(speed*3.6);
-		drawCenteredString(mc.fontRenderer, "" + fixedSpeed, 20, 2, 0xc8d6e5);
+		drawCenteredString(MC.fontRenderer, "" + fixedSpeed, 20, 2, 0xc8d6e5);
 		
 		GL11.glPushMatrix();
 		GL11.glScaled(0.4, 0.4, 0.4);
-		drawCenteredString(mc.fontRenderer, "km/h", 53, 25, 0xc8d6e5);
+		drawCenteredString(MC.fontRenderer, "km/h", 53, 25, 0xc8d6e5);
 		
 		GL11.glPopMatrix();
 		
@@ -433,7 +434,7 @@ public class VehicleCustomGUI extends Gui {
 
 		double pM = Math.sin(vehicle.ticksExisted/2)*3;
 		double ppM = Math.sin((vehicle.ticksExisted-1)/2)*3;
-		double iPM = InterpolationKit.interpolateValue(ppM, pM, mc.getRenderPartialTicks());
+		double iPM = InterpolationKit.interpolateValue(ppM, pM, MC.getRenderPartialTicks());
 		
 		
 
@@ -480,7 +481,7 @@ public class VehicleCustomGUI extends Gui {
 		
 		
 		
-		//GuiInventory.drawEntityOnScreen(320, 169, 30, 30, 30, mc.player);
+		//GuiInventory.drawEntityOnScreen(320, 169, 30, 30, 30, MC.player);
 		
 		GL11.glPopMatrix();
 	}
@@ -488,7 +489,7 @@ public class VehicleCustomGUI extends Gui {
 	
 	public void renderGUI(EntityVehicle vehicle) {
 		
-		ScaledResolution sr = new ScaledResolution(mc);
+		ScaledResolution sr = new ScaledResolution(MC);
 		
 		
 		double width = sr.getScaledWidth();
@@ -522,7 +523,7 @@ public class VehicleCustomGUI extends Gui {
 		
 		if(!vehicle.isVehicleRunning()) {
 			
-			drawCenteredString(mc.fontRenderer, "Press " + KeyBindings.vehicleTurnOff.getDisplayName(), (int) x-80, (int) y-78, 0xc8d6e5);
+			drawCenteredString(MC.fontRenderer, "Press " + KeyBindings.vehicleTurnOff.getDisplayName(), (int) x-80, (int) y-78, 0xc8d6e5);
 			
 		}
 		

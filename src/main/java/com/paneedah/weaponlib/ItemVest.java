@@ -1,14 +1,16 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.renderer.ModelSourceTransforms;
+import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
+import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
-import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.render.IHasModel;
 import com.paneedah.weaponlib.render.modelrepo.ServerGearModelHookRegistry;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,302 +26,262 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCrafting, IHasModel {
-        
-    
-	public static class Builder {
-                
+import static com.paneedah.mwc.utils.ModReference.ID;
+
+public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCraftingRecipe, IHasModel {
+
+
+    public static class Builder {
+
         private String name;
         private CreativeTabs tab;
         private ModelBase model;
         private String textureName;
-        
+        private ModelSourceTransforms transforms = ModelSourceTransforms.builder()
+                .entityPositioning(() -> new Transform()
+                        .withPosition(-0.5F, -1.75F, 0.5F)
+                        .withScale(1, 1, 1)
+                        .doGLDirect())
+                .inventoryPositioning(() -> new Transform()
+                        .withPosition(-0.15, -4.15, 0.35)
+                        .withRotation(18, -50, 0)
+                        .withScale(2.9, 2.9, 2.9)
+                        .doGLDirect())
+                .build();
+
         private String modelFileString;
         private String properTextureName;
-        
+
         private int durability;
         private int damageReduceAmount;
         private double percentDamageBlocked;
-        
-        
-        
-        private Consumer<ItemStack> entityPositioning;
-        private Consumer<ItemStack> inventoryPositioning;
-        private BiConsumer<EntityPlayer, ItemStack> thirdPersonPositioning;
-        private BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning;
-        private BiConsumer<EntityPlayer, ItemStack> firstPersonPositioning;
-        private BiConsumer<ModelBase, ItemStack> firstPersonModelPositioning;
-        private BiConsumer<ModelBase, ItemStack> thirdPersonModelPositioning;
-        private BiConsumer<ModelBase, ItemStack> inventoryModelPositioning;
-        private BiConsumer<ModelBase, ItemStack> entityModelPositioning;
-        private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioning;
-        private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioning;
-        
+
         public Builder withName(String name) {
             this.name = name;
             return this;
         }
-        
+
         public Builder withDamageReduceAmount(int damageReduceAmount) {
             this.damageReduceAmount = damageReduceAmount;
             return this;
         }
-        
+
         public Builder withPercentDamageBlocked(double ratio) {
-        	this.percentDamageBlocked = ratio;
-        	return this;
+            this.percentDamageBlocked = ratio;
+            return this;
         }
-        
+
         public Builder withDurability(int durability) {
             this.durability = durability;
             return this;
         }
-        
+
         public Builder withTab(CreativeTabs tab) {
             this.tab = tab;
             return this;
         }
-        
-        
+
+
         public Builder withProperModel(String elModel, String properTextureName) {
-        	
-        	modelFileString = elModel;
-        	this.properTextureName = properTextureName;
-        	
-        	
-    
-        	return this;
+
+            modelFileString = elModel;
+            this.properTextureName = properTextureName;
+
+
+            return this;
         }
-        
+
         public Builder withModel(ModelBase model) {
             this.model = model;
             return this;
         }
-        
+
 //        public Builder withGuiTextureName(String guiTextureName) {
 //            this.guiTextureName = guiTextureName;
 //            return this;
 //        }
-        
+
 //        public Builder withGuiTextureWidth(int guiTextureWidth) {
 //            this.guiTextureWidth = guiTextureWidth;
 //            return this;
 //        }
-        
+
         public Builder withModelTextureName(String textureName) {
             this.textureName = textureName;
             return this;
         }
-        
-        public Builder withEntityPositioning(Consumer<ItemStack> entityPositioning) {
-            this.entityPositioning = entityPositioning;
+
+        public Builder withEntityPositioning(Runnable entityPositioning) {
+            transforms.setEntityPositioning(entityPositioning);
             return this;
         }
 
-        public Builder withInventoryPositioning(Consumer<ItemStack> inventoryPositioning) {
-            this.inventoryPositioning = inventoryPositioning;
+        public Builder withInventoryPositioning(Runnable inventoryPositioning) {
+            transforms.setInventoryPositioning(inventoryPositioning);
             return this;
         }
 
-        public  Builder withThirdPersonPositioning(BiConsumer<EntityPlayer, ItemStack> thirdPersonPositioning) {
-            this.thirdPersonPositioning = thirdPersonPositioning;
-            return this;
-        }
-        
-        public  Builder withCustomEquippedPositioning(BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning) {
-            this.customEquippedPositioning = customEquippedPositioning;
+        public Builder withThirdPersonPositioning(Runnable thirdPersonPositioning) {
+            transforms.setThirdPersonPositioning(thirdPersonPositioning);
             return this;
         }
 
-        public Builder withFirstPersonPositioning(BiConsumer<EntityPlayer, ItemStack> firstPersonPositioning) {
-            this.firstPersonPositioning = firstPersonPositioning;
+        public Builder withCustomEquippedPositioning(Runnable customEquippedPositioning) {
+            transforms.setCustomEquippedPositioning(customEquippedPositioning);
             return this;
         }
 
-        public Builder withFirstPersonModelPositioning(BiConsumer<ModelBase, ItemStack> firstPersonModelPositioning) {
-            this.firstPersonModelPositioning = firstPersonModelPositioning;
+        public Builder withFirstPersonPositioning(Runnable firstPersonPositioning) {
+            transforms.setFirstPersonPositioning(firstPersonPositioning);
             return this;
         }
 
-        public Builder withEntityModelPositioning(BiConsumer<ModelBase, ItemStack> entityModelPositioning) {
-            this.entityModelPositioning = entityModelPositioning;
+        public Builder withFirstPersonModelPositioning(Consumer<ModelBase> firstPersonModelPositioning) {
+            transforms.setFirstPersonModelPositioning(firstPersonModelPositioning);
             return this;
         }
 
-        public Builder withInventoryModelPositioning(BiConsumer<ModelBase, ItemStack> inventoryModelPositioning) {
-            this.inventoryModelPositioning = inventoryModelPositioning;
+        public Builder withEntityModelPositioning(Consumer<ModelBase> entityModelPositioning) {
+            transforms.setEntityModelPositioning(entityModelPositioning);
             return this;
         }
 
-        public Builder withThirdPersonModelPositioning(BiConsumer<ModelBase, ItemStack> thirdPersonModelPositioning) {
-            this.thirdPersonModelPositioning = thirdPersonModelPositioning;
+        public Builder withInventoryModelPositioning(Consumer<ModelBase> inventoryModelPositioning) {
+            transforms.setInventoryModelPositioning(inventoryModelPositioning);
             return this;
         }
 
-        public Builder withFirstPersonHandPositioning(
-                Consumer<RenderContext<RenderableState>> leftHand,
-                Consumer<RenderContext<RenderableState>> rightHand)
-        {
-            this.firstPersonLeftHandPositioning = leftHand;
-            this.firstPersonRightHandPositioning = rightHand;
+        public Builder withThirdPersonModelPositioning(Consumer<ModelBase> thirdPersonModelPositioning) {
+            transforms.setThirdPersonModelPositioning(thirdPersonModelPositioning);
             return this;
         }
 
-        private static class RendererRegistrationHelper {
-            private static Object registerRenderer(Builder builder, ModContext modContext) {
-                return new StaticModelSourceRenderer.Builder()
-                .withHiddenInventory(builder.tab == null)
-                .withEntityPositioning(builder.entityPositioning)
-                .withFirstPersonPositioning(builder.firstPersonPositioning)
-                .withThirdPersonPositioning(builder.thirdPersonPositioning)
-                .withCustomEquippedPositioning(builder.customEquippedPositioning)
-                .withInventoryPositioning(builder.inventoryPositioning)
-                .withEntityModelPositioning(builder.entityModelPositioning)
-                .withFirstPersonModelPositioning(builder.firstPersonModelPositioning)
-                .withThirdPersonModelPositioning(builder.thirdPersonModelPositioning)
-                .withInventoryModelPositioning(builder.inventoryModelPositioning)
-                .withFirstPersonHandPositioning(builder.firstPersonLeftHandPositioning, builder.firstPersonRightHandPositioning)
-                .withModContext(modContext)
-                .build();
-            }
+        public Builder withFirstPersonHandPositioning(Runnable leftHand, Runnable rightHand) {
+            transforms.setFirstPersonLeftHandPositioning(leftHand);
+            transforms.setFirstPersonRightHandPositioning(rightHand);
+            return this;
         }
-       
+
         public ItemVest build(ModContext modContext) {
-            if(name == null) {
-                throw new IllegalStateException("ItemStorage name not set");
+            if (name == null) {
+                throw new IllegalStateException("ItemBackpack name not set");
             }
-            
+
 //            if(size <= 0) {
-//                throw new IllegalStateException("ItemStorage size must be greater than 0");
+//                throw new IllegalStateException("ItemBackpack size must be greater than 0");
 //            }
-            
+
 //            if(guiTextureName == null) {
-//                throw new IllegalStateException("ItemStorage gui texture not set");
+//                throw new IllegalStateException("ItemBackpack gui texture not set");
 //            }
 //            
 //            if(!guiTextureName.startsWith("textures/gui/")) {
 //                guiTextureName = "textures/gui/" + guiTextureName;
 //            }
 //            ResourceLocation guiTextureLocation = new ResourceLocation(addFileExtension(guiTextureName, ".png"));
-            
-            
-            
-            
+
+
             ItemVest item = new ItemVest(modContext, percentDamageBlocked, durability);
-            
-            
-            
+
+
             ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
-            
+
             item.modelFileString = this.modelFileString;
-            item.properTextureName = this.properTextureName;
-            item.setTranslationKey(ModReference.ID + "_" + name);
-            
+            item.textureName = this.properTextureName;
+            item.setTranslationKey(ID + "_" + name);
+
             // Register hook
             CraftingRegistry.registerHook(item);
-            
-            
-            
-            if(this.modelFileString != null && !VMWHooksHandler.isOnServer()) {
-            	
-            	try {
-            		//System.out.println("FOR ITEM: " + item.getRegistryName() + " | ");
-					ModelBase base = (ModelBase) Class.forName(this.modelFileString).newInstance();
-					item.texturedModels.add(new Tuple<>(base, addFileExtension(this.properTextureName, ".png")));
-					
-					
-				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-            	
-            	
+
+
+            if (this.modelFileString != null && !FMLCommonHandler.instance().getSide().isServer()) {
+
+                try {
+                    //System.out.println("FOR ITEM: " + item.getRegistryName() + " | ");
+                    ModelBase base = (ModelBase) Class.forName(this.modelFileString).newInstance();
+                    item.texturedModels.add(new Tuple<>(base, addFileExtension(this.properTextureName, ".png")));
+
+
+                } catch (InstantiationException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+
             }
-            
-            if(model != null) {
+
+            if (model != null) {
                 item.texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
             }
-            
-           
-            if(tab != null) {
-                item.setCreativeTab(tab);
-                
-                
-            }
-            
-          
-           // lientEventHandler.ITEM_REG.add(item);
-           
-            
-            item.customEquippedPositioning = customEquippedPositioning;
 
-            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? RendererRegistrationHelper.registerRenderer(this, modContext) :null);
-            
+
+            if (tab != null) {
+                item.setCreativeTab(tab);
+
+
+            }
+
+            // lientEventHandler.ITEM_REG.add(item);
+
+            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+
             return item;
         }
     }
-    
-    
+
+
     private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
     private int size;
     private final int damageReduceAmount;
-    
+
     private int durability;
     private double percentDamageBlocked;
-    public BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning;
-    
-    
-    
-    
- // Modern crafting setup
+
+
+    // Modern crafting setup
     private CraftingEntry[] modernRecipe;
-	private CraftingGroup craftGroup;
+    private CraftingGroup craftGroup;
 
-    
-    public BiConsumer<EntityPlayer, ItemStack> getCustomEquippedPositioning() {
-    	return customEquippedPositioning;
-    }
 
-    
-    private String modelFileString;
-    private String properTextureName;
-    
+    public ModelBiped model;
+    public String modelFileString;
+    public String textureName;
+
     public String getModelFileString() {
-    	return this.modelFileString;
+        return this.modelFileString;
     }
-    
-    public String getProperTextureName() {
-    	return this.properTextureName;
+
+    public String getTextureName() {
+        return this.textureName;
     }
-    
-    
+
+
     public ItemVest(ModContext context, double percentDamageBlocked, int durability) {
         this.percentDamageBlocked = percentDamageBlocked;
         this.damageReduceAmount = 1;
         this.durability = durability;
     }
-    
+
     @Override
     public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-    	super.addInformation(itemStack, worldIn, tooltip, flagIn);
-    	double formattedDouble = Math.round(this.percentDamageBlocked * 10000) / 100.0;
-    	tooltip.add(String.format("%sDamage Blocked: %s%s%%", TextFormatting.GREEN, TextFormatting.GRAY, formattedDouble));
+        super.addInformation(itemStack, worldIn, tooltip, flagIn);
+        double formattedDouble = Math.round(this.percentDamageBlocked * 10000) / 100.0;
+        tooltip.add(String.format("%sDamage Blocked: %s%s%%", TextFormatting.GREEN, TextFormatting.GRAY, formattedDouble));
     }
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
         return 1; // return any value greater than zero
     }
-    
+
     @Override
     public List<Tuple<ModelBase, String>> getTexturedModels() {
         return texturedModels;
@@ -333,77 +295,72 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
     public double getDamageBlocked() {
         return this.percentDamageBlocked;
     }
-    
+
     public int getSize() {
         return size;
     }
-    
+
 //    public ResourceLocation getGuiTextureLocation() {
 //        return guiTextureLocation;
 //    }
-    
+
     private static String addFileExtension(String s, String ext) {
         return s != null && !s.endsWith(ext) ? s + ext : s;
     }
 
     @Override
     public ArmorProperties getProperties(EntityLivingBase player, ItemStack vestStack, DamageSource source, double damage, int slot) {
-    	//this.percentDamageBlocked = 1.0;
+        //this.percentDamageBlocked = 1.0;
         return new ArmorProperties(0, this.percentDamageBlocked, 2000);
     }
 
     @Override
     public int getArmorDisplay(EntityPlayer player, ItemStack armor, int slot) {
 
-        return (int) (this.percentDamageBlocked*10);
+        return (int) (this.percentDamageBlocked * 10);
     }
 
     @Override
     public void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage, int slot) {
-      
-    	//double absorb = damage * percentDamageBlocked;
+
+        //double absorb = damage * percentDamageBlocked;
         //int itemDamage = (int)(absorb / 25.0 < 1 ? 1 : absorb / 25.0);
         //stack.damageItem(itemDamage, entity);
     }
 
 
-
-	@Override
-	public CraftingEntry[] getModernRecipe() {
-		return this.modernRecipe;
-	}
-
+    @Override
+    public CraftingEntry[] getModernRecipe() {
+        return this.modernRecipe;
+    }
 
 
-	@Override
-	public Item getItem() {
-		return this;
-	}
+    @Override
+    public ItemStack getItemStack() {
+        return new ItemStack(this);
+    }
 
 
-
-	@Override
-	public CraftingGroup getCraftingGroup() {
-		return this.craftGroup;
-	}
-
+    @Override
+    public CraftingGroup getCraftingGroup() {
+        return this.craftGroup;
+    }
 
 
-	@Override
-	public void setCraftingRecipe(CraftingEntry[] recipe) {
-		this.modernRecipe = recipe;
-	}
+    @Override
+    public void setCraftingRecipe(CraftingEntry[] recipe) {
+        this.modernRecipe = recipe;
+    }
 
 
+    @Override
+    public void setCraftingGroup(CraftingGroup group) {
+        this.craftGroup = group;
+    }
 
-	@Override
-	public void setCraftingGroup(CraftingGroup group) {
-		this.craftGroup = group;
-	}
-	
-	@Override
-	public void registerModels() {
-		
-		
-	}
+    @Override
+    public void registerModels() {
+
+
+    }
 }

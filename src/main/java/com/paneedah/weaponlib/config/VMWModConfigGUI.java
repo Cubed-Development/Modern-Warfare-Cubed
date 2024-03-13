@@ -17,6 +17,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class VMWModConfigGUI extends GuiConfig {
 	
 	private static final HierarchialTree<IConfigElement> configTree = new HierarchialTree<>();
@@ -24,7 +26,7 @@ public class VMWModConfigGUI extends GuiConfig {
 	private static boolean shouldUpdateCache = true;
 	
 	public VMWModConfigGUI(GuiScreen parentScreen) {
-		super(parentScreen, getElements(), ModReference.ID, false, false, "Finally... a config!");
+		super(parentScreen, getElements(), ID, false, false, "Finally... a config!");
 	}
 
 	public static ConfigGuiType getGUITypeFromFieldType(Field f) {

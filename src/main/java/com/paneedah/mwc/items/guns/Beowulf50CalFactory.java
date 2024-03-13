@@ -49,7 +49,7 @@ public class Beowulf50CalFactory implements GunFactory {
 		.withShellCasingForwardOffset(0.05f)
 		.withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -111,7 +111,7 @@ public class Beowulf50CalFactory implements GunFactory {
             GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
         .withCompatibleAttachment(Attachments.M16Stock, (model) -> {
-            GL11.glTranslatef(0f, -0.28f, -0.55f);
+            GL11.glTranslatef(0f, -0f, -0.04f);
             GL11.glScaled(1F, 1F, 0.85F);
         })
         .withCompatibleAttachment(Attachments.MagpulCTRStockTan, (model) -> {

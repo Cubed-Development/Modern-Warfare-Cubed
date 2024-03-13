@@ -1785,10 +1785,10 @@ public class JohnsonRifle extends ModelWithAttachments
     Main24.render(f5);
     Main27.render(f5);
     Main28.render(f5);
-//    Main39Action.render(f5);
-//    Main41Action.render(f5);
-//    Main42Action.render(f5);
-//    Main43Action.render(f5);
+//    Main39Action.renderer(f5);
+//    Main41Action.renderer(f5);
+//    Main42Action.renderer(f5);
+//    Main43Action.renderer(f5);
     Main44.render(f5);
     Main45.render(f5);
     Main46.render(f5);

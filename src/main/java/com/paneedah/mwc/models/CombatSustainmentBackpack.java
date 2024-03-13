@@ -200,13 +200,13 @@ public class CombatSustainmentBackpack extends ModelBiped {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.render(entity, f, f1, f2, f3, f4, f5);
-//		backpack.render(f5);
-//		head.render(f5);
-//		body.render(f5);
-//		rightarm.render(f5);
-//		leftarm.render(f5);
-//		rightleg.render(f5);
-//		leftleg.render(f5);
+//		backpack.renderer(f5);
+//		head.renderer(f5);
+//		body.renderer(f5);
+//		rightarm.renderer(f5);
+//		leftarm.renderer(f5);
+//		rightleg.renderer(f5);
+//		leftleg.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

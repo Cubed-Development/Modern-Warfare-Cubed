@@ -6,7 +6,7 @@ import com.paneedah.mwc.models.SW500Magnum;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
@@ -47,7 +47,7 @@ public class SW500MagnumFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.2f)
         .withInaccuracy(2)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
                 "Type: Revolver",
                 "Damage: 7",

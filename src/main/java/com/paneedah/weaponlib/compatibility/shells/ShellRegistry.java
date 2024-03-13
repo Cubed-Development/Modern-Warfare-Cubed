@@ -10,6 +10,8 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.HashMap;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 /**
  * This class was created in case that in the future more shell types will be added.
  * The reason that only a couple shell types are used is because it is good for optimization,
@@ -48,7 +50,8 @@ public class ShellRegistry {
 	 * @param textureName
 	 */
 	public static void addShellToRegistry(Type type, String modelName, String textureName) {
-		shellRegistrar.put(type, new Pair<WavefrontModel, ResourceLocation>(WavefrontLoader.loadSubModel(modelName, "casing"), new ResourceLocation(ModReference.ID + ":textures/models/" + textureName + ".png")));
+		shellRegistrar.put(type, new Pair<WavefrontModel, ResourceLocation>(WavefrontLoader.loadSubModel(modelName, "casing"),
+				new ResourceLocation(ID + ":textures/models/" + textureName + ".png")));
 	}
 	
 	public static HashMap<Shell.Type, Pair<WavefrontModel, ResourceLocation>> getShellMappings() {

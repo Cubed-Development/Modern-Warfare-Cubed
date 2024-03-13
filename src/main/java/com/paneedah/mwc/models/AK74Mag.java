@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class AK74Mag extends ModelBase {
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer bone5;
 	private final ModelRenderer bone7;
 	private final ModelRenderer bone8;
@@ -22,7 +22,7 @@ public class AK74Mag extends ModelBase {
 		textureWidth = 64;
 		textureHeight = 64;
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(0.0F, 23.7F, 0.1F);
 		
 

@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class AK74Stock extends ModelBase {
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer gun365_r1;
 	private final ModelRenderer gun349_r1;
 	private final ModelRenderer gun245_r1;
@@ -31,7 +31,7 @@ public class AK74Stock extends ModelBase {
 		textureWidth = 85;
 		textureHeight = 85;
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.0F, 24.0F, 0.0F);
 		stock.cubeList.add(new ModelBox(stock, 10, 17, -3.501F, -32.3F, 10.5F, 4, 2, 3, 0.0F, false));
 

@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class AKRail extends ModelBase {
-	private final QRenderer rail;
+	private final ModelRenderer rail;
 	private final ModelRenderer Rail5;
 	private final ModelRenderer Rail87;
 	private final ModelRenderer Rail86;
@@ -85,7 +85,7 @@ public class AKRail extends ModelBase {
 		textureWidth = 80;
 		textureHeight = 50;
 
-		rail = new QRenderer(this);
+		rail = new ModelRenderer(this);
 		rail.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 

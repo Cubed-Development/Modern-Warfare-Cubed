@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class SIG556 extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer grip9_r1;
 	private final ModelRenderer grip12_r1;
 	private final ModelRenderer grip6_r2;
@@ -73,7 +73,7 @@ public class SIG556 extends ModelWithAttachments {
 	private final ModelRenderer rail2;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer cube_r3;
 	private final ModelRenderer cube_r4;
 	private final ModelRenderer cube_r5;
@@ -96,7 +96,7 @@ public class SIG556 extends ModelWithAttachments {
 		textureWidth = 350;
 		textureHeight = 350;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, 0.0F);
 		gun.cubeList.add(new ModelBox(gun, 23, 0, -3.65F, -35.25F, -21.25F, 1, 4, 10, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 30, 78, -3.45F, -37.55F, 2.55F, 4, 5, 2, -0.05F, false));
@@ -589,7 +589,7 @@ public class SIG556 extends ModelWithAttachments {
 		cube_r2.cubeList.add(new ModelBox(cube_r2, 59, 131, -0.8F, -0.8F, 7.3F, 1, 1, 1, -0.202F, false));
 		cube_r2.cubeList.add(new ModelBox(cube_r2, 189, 115, -0.9F, -0.9F, -0.45F, 1, 1, 26, -0.3F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.0F, -12.25F, 1.7F);
 		stock.cubeList.add(new ModelBox(stock, 103, 94, -0.1F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
 		stock.cubeList.add(new ModelBox(stock, 65, 103, -0.1F, -1.65F, 0.0F, 1, 1, 3, 0.0F, false));

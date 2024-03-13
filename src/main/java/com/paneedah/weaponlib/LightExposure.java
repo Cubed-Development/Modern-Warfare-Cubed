@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.network.UniversalObject;
+import com.paneedah.mwc.network.UniversalObject;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
@@ -43,17 +43,17 @@ public class LightExposure extends UniversalObject implements Exposure {
     }
     
     @Override
-    public void serialize(ByteBuf buf) {
-        super.serialize(buf);
-        buf.writeLong(lastExposureTimestamp);
-        buf.writeFloat(totalDose);
+    public void write(ByteBuf byteBuf) {
+        super.write(byteBuf);
+        byteBuf.writeLong(lastExposureTimestamp);
+        byteBuf.writeFloat(totalDose);
     }
     
     @Override
-    public void init(ByteBuf buf) {
-        super.init(buf);
-        lastExposureTimestamp = buf.readLong();
-        totalDose = buf.readFloat();
+    public void read(ByteBuf byteBuf) {
+        super.read(byteBuf);
+        lastExposureTimestamp = byteBuf.readLong();
+        totalDose = byteBuf.readFloat();
     }
 
 

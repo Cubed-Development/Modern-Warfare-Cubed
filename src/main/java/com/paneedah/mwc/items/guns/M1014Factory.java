@@ -5,13 +5,14 @@ import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -34,6 +35,7 @@ public class M1014Factory implements GunFactory {
         .withRecoil(8f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SHOTGUN)
+        .withShellType(Type.SHOTGUN)
         .withMaxShots(1)
         .withShootSound("m1014")
         .withSilencedShootSound("ShotgunSilenced")
@@ -55,7 +57,7 @@ public class M1014Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.11f)
         .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
         .withShellCasingModelTexture("shotgun12gauge")
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Shotgun",
         "Damage per Pellet: 6",

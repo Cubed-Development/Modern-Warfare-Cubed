@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.*;
@@ -20,8 +19,10 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class ItemGrenade extends Item implements
-PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContainer, Updatable, IModernCrafting {
+PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContainer, Updatable, IModernCraftingRecipe {
 
     public static final int DEFAULT_FUSE_TIMEOUT = 3000;
     public static final float DEFAULT_EXPLOSION_STRENTH = 2f;
@@ -45,8 +46,8 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
     }
 
     @Override
-    public Item getItem() {
-        return this;
+    public ItemStack getItemStack() {
+        return new ItemStack(this);
     }
 
     @Override
@@ -342,7 +343,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
 
         public ItemGrenade build(ModContext modContext) {
             ItemGrenade grenade = new ItemGrenade(this, modContext);
-            grenade.setTranslationKey(ModReference.ID + "_" + name);
+            grenade.setTranslationKey(ID + "_" + name);
             grenade.setCreativeTab(tab);
             grenade.maxStackSize = maxStackSize;
 
@@ -389,9 +390,9 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
                 ItemStack itemStack = new ItemStack(grenade);
                 itemStack.setCount(craftingCount);
                 if(optionsMetadata.hasOres()) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             } else {
                 //throw new IllegalStateException("No recipe defined for attachment " + name);

@@ -43,7 +43,7 @@ public class L96A1Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.08f)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Sniper Rifle",
         "Damage: 14", 

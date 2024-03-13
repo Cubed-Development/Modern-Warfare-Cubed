@@ -9,6 +9,7 @@ import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -25,6 +26,7 @@ public class M1928ThompsonFactory {
         .withRecoil(1.8f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SMG)
+        .withShellType(Type.PISTOL)
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
         .withShootSound("m1a1_thompson")
@@ -42,7 +44,7 @@ public class M1928ThompsonFactory {
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.12f)
         .withInaccuracy(2f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Sub Machine Gun",
         "Damage: 5.3", 

@@ -17,7 +17,8 @@ import net.minecraft.util.text.TextFormatting;
 
 import java.util.*;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class MainCommand extends CommandBase {
 
@@ -32,12 +33,12 @@ public class MainCommand extends CommandBase {
 
     public MainCommand(ModContext modContext) {
         this.modContext = modContext;
-        this.mainCommandName = ModReference.ID;
+        this.mainCommandName = ID;
     }
 
     @Override
     public String getName() {
-        return ModReference.ID;
+        return ID;
     }
 
     @Override
@@ -62,16 +63,16 @@ public class MainCommand extends CommandBase {
             if(ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
                 processShowSubCommand(args);
             } else {
-                mc.player.sendMessage(new TextComponentString(getUsage(sender)));
+                MC.player.sendMessage(new TextComponentString(getUsage(sender)));
             }
         } else {
-            mc.player.sendMessage(new TextComponentString(getUsage(sender)));
+            MC.player.sendMessage(new TextComponentString(getUsage(sender)));
         }
     }
 
     private void processShowSubCommand(String[] args) {
         if(args.length < 2) {
-            mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
+            MC.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
             return;
         }
 
@@ -84,12 +85,12 @@ public class MainCommand extends CommandBase {
             }
             showAttachments(page);
         } else {
-            mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
+            MC.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
         }
     }
 
     private void showAttachments(int page) {
-        ItemStack itemStack = mc.player.getHeldItemMainhand();
+        ItemStack itemStack = MC.player.getHeldItemMainhand();
         if(itemStack != null) {
             Item item = itemStack.getItem();
             if(item instanceof AttachmentContainer) {
@@ -107,12 +108,12 @@ public class MainCommand extends CommandBase {
                 int pageSize = 8;
                 int offset = pageSize * (page - 1);
                 if(page < 1) {
-                    mc.player.sendMessage(new TextComponentString("Invalid page"));
+                    MC.player.sendMessage(new TextComponentString("Invalid page"));
                 } else if(sorted.size() == 0) {
-                    mc.player.sendMessage(new TextComponentString("No attachments found for "
+                    MC.player.sendMessage(new TextComponentString("No attachments found for "
                             + item.getItemStackDisplayName(itemStack)));
                 } else if(offset < sorted.size()) {
-                    mc.player.sendMessage(new TextComponentString("Attachments for "
+                    MC.player.sendMessage(new TextComponentString("Attachments for "
                             + item.getItemStackDisplayName(itemStack) + ", page " + page + " of "
                             + (int)Math.ceil((double)sorted.size() / pageSize)));
 
@@ -120,11 +121,11 @@ public class MainCommand extends CommandBase {
                         if(i < 0 || i >= sorted.size()) {
                             break;
                         }
-                        mc.player.sendMessage(new TextComponentString(" - "
+                        MC.player.sendMessage(new TextComponentString(" - "
                                 + sorted.get(i).getAttachment().getItemStackDisplayName(null)));
                     }
                 } else {
-                    mc.player.sendMessage(new TextComponentString("Invalid page"));
+                    MC.player.sendMessage(new TextComponentString("Invalid page"));
                 }
             }
         }
@@ -136,7 +137,7 @@ public class MainCommand extends CommandBase {
     }
 
     private void showRecipe() {
-        ItemStack itemStack = mc.player.getHeldItemMainhand();
+        ItemStack itemStack = MC.player.getHeldItemMainhand();
         if(itemStack != null) {
             Item item = itemStack.getItem();
             showRecipe(item);
@@ -145,7 +146,7 @@ public class MainCommand extends CommandBase {
 
     private void showRecipe(Item item) {
         if(item != null && (item instanceof Weapon)) {
-            mc.player.sendMessage(new TextComponentString(TextFormatting.GOLD + "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--"));
+            MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--"));
            
             CraftingEntry[] modernRecipe = ((Weapon) item).getModernRecipe();
             if(modernRecipe == null) {
@@ -157,13 +158,9 @@ public class MainCommand extends CommandBase {
             	String toPrint = "> " + stack.getCount() + "x " + TextFormatting.WHITE + I18n.format(stack.getItem().getTranslationKey() + ".name");
             	
             	// Appends the disassembly to the end of the string
-            	if(stack.getItem() instanceof ManufacturingItemBase) {
-                    ManufacturingItemBase craftingItem = (ManufacturingItemBase) stack.getItem();
-            		System.out.println(craftingItem.getRecoveryChance());
-            		toPrint += " -> " + (stack.getCount()*craftingItem.getRecoveryChance()) + "x " + I18n.format(craftingItem.getRegistryName() + ".name");
-            	}
+                toPrint += " -> " + (stack.getCount()*stack.getYield()) + "x " + I18n.format(stack.getItem().getRegistryName() + ".name");
 
-                mc.player.sendMessage(new TextComponentString(TextFormatting.GOLD + toPrint));
+                MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + toPrint));
                  
             }
              
@@ -172,7 +169,7 @@ public class MainCommand extends CommandBase {
             if(recipe != null) {
                 formatRecipe(recipe);
             } else {
-                compatibility.addChatMessage(mc.player,
+                compatibility.addChatMessage(MC.player,
                         "Recipe for " + item.getItemStackDisplayName(null) + " not found");
             }*/
         }
@@ -202,7 +199,7 @@ public class MainCommand extends CommandBase {
             }
         }
 
-        mc.player.sendMessage(new TextComponentString(""));
+        MC.player.sendMessage(new TextComponentString(""));
 
         for(int i = 0; i < recipe.size(); i++) {
             Object element = recipe.get(i);
@@ -212,7 +209,7 @@ public class MainCommand extends CommandBase {
                     Object decoded = decoder.get(c);
                     builder.append(String.format("[%.20s] ", decoded != null ? decoded : "*"));
                 }
-                mc.player.sendMessage(new TextComponentString(
+                MC.player.sendMessage(new TextComponentString(
                         "" + builder.toString()));
             } else {
                 break;

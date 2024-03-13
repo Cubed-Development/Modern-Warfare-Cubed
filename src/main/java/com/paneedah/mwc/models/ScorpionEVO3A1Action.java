@@ -3418,13 +3418,13 @@ public class ScorpionEVO3A1Action extends ModelBase{
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		receiver_upper.render(f5);
-//		receiver_lower.render(f5);
-//		handguard_short.render(f5);
-//		handguard_long.render(f5);
-//		receiver_stock_connector.render(f5);
-//		stock.render(f5);
-//		magazine.render(f5);
+//		receiver_upper.renderer(f5);
+//		receiver_lower.renderer(f5);
+//		handguard_short.renderer(f5);
+//		handguard_long.renderer(f5);
+//		receiver_stock_connector.renderer(f5);
+//		stock.renderer(f5);
+//		magazine.renderer(f5);
 		action.render(f5);
 	}
 

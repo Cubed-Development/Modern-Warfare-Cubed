@@ -1,6 +1,6 @@
 package com.paneedah.mwc.creativetab;
 
-import com.paneedah.mwc.wearables.Armors;
+import com.paneedah.mwc.equipment.Armors;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;

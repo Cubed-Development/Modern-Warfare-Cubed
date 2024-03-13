@@ -1,9 +1,11 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.network.messages.BlockHitMessage;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,6 +21,8 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
 import java.util.List;
+
+import static com.paneedah.mwc.MWC.CHANNEL;
 
 public abstract class EntityProjectile extends Entity implements IProjectile, IEntityAdditionalSpawnData {
 
@@ -48,8 +52,6 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 
     private double aimTan;
 
-    public Vec3d origin;
-
     protected long maxLifetime = DEFAULT_MAX_LIFETIME;
 
     public EntityProjectile(World world) {
@@ -69,61 +71,31 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 //        if(thrower != null) {
 //            RayTraceResult rayTraceResult = thrower.rayTrace(50, 0);
 //            if(rayTraceResult != null && rayTraceResult.hitVec != null) {
-//                double dx = mc.player.posX - rayTraceResult.hitVec.x;
-//                double dy = mc.player.posY - rayTraceResult.hitVec.y;
-//                double dz = mc.player.posZ - rayTraceResult.hitVec.z;
+//                double dx = MC.player.posX - rayTraceResult.hitVec.x;
+//                double dy = MC.player.posY - rayTraceResult.hitVec.y;
+//                double dz = MC.player.posZ - rayTraceResult.hitVec.z;
 //                double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 //                this.aimTan = 0.4 / distance;
 //            }
 //        }
     }
 
-    public void setPositionAndDirection(boolean isAim) {
-        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(), thrower.posZ, thrower.rotationYaw, thrower.rotationPitch);
-        
-        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0F : 0.16F));
-        this.posY -= (isAim ? 0D : 0.10000000149011612D);
-        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0F : 0.16F));
-        this.setPosition(this.posX, this.posY, this.posZ);
+    public void setPositionAndDirection(boolean isAiming) {
+        double x = thrower.posX;
+        double y = thrower.posY + thrower.getEyeHeight();
+        double z = thrower.posZ;
 
+        x -= Math.cos(thrower.rotationYaw / 180 *  Math.PI) * (isAiming ? 0 : 0.16);
+        y -= (isAiming ? 0 : 0.1);
+        z -= Math.sin(thrower.rotationYaw / 180 *  Math.PI) * (isAiming ? 0 : 0.16);
 
-        this.origin = new Vec3d(this.posX, this.posY, this.posZ);
+        setPositionAndRotation(x, y, z, thrower.rotationYaw, thrower.rotationPitch);
 
-        //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
-        float f = velocity; //0.4F;
-        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
-    }
+        motionX = -Math.sin(rotationYaw / 180 *  Math.PI) * Math.cos(rotationPitch / 180 *  Math.PI);
+        motionY = -Math.sin(rotationPitch / 180 *  Math.PI);
+        motionZ = Math.cos(rotationYaw / 180 *  Math.PI) * Math.cos(rotationPitch / 180 *  Math.PI);
 
-    public void setPositionAndDirection(double x, double y, double z, float rotationYaw, float rotationPitch) {
-
-        this.setLocationAndAngles(x, y + (double) thrower.getEyeHeight(), z, rotationYaw, rotationPitch);
-
-        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
-        this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
-        this.setPosition(this.posX, this.posY, this.posZ);
-
-        //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
-        float f = velocity; //0.4F;
-        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
-    }
-
-    public EntityProjectile(World world, double posX, double posY, double posZ) {
-        super(world);
-        //this.ticksInGround = 0;
-        this.setSize(0.25F, 0.25F);
-        this.setPosition(posX, posY, posZ);
-        //this.yOffset = 0.0F; // TODO: verify how it works in 1.7.10
-    }
-
-    protected float getPitchOffset() {
-        return 0.0F;
+        setThrowableHeading(motionX, motionY, motionZ, velocity, inaccuracy);
     }
 
     /**
@@ -232,12 +204,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
                      if(ModernConfigManager.bulletBreakGlass)
                          this.world.destroyBlock(rtr.getBlockPos(), true);
 
-
-                     ModContext context = CommonModContext.getContext();
-                     if (context == null)
-                         return;
-
-                     context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
+                     CHANNEL.sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), new Vector3F(rtr.hitVec), rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
                  }
             }
         }
@@ -324,7 +291,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
                 AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand((double) f1, (double) f1, (double) f1);
                 RayTraceResult movingobjectposition = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
                 AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand((double) f2, (double) f2, (double) f2);
-                RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
+                RayTraceResult movingobjectposition1 = axisalignedbb1.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
 
                 if (movingobjectposition != null) {
                     double d1 = vec3.distanceTo(new Vector3D(movingobjectposition.hitVec));
@@ -432,7 +399,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
     }
 
     /**
-     * Checks if the entity is in range to render by using the past in distance
+     * Checks if the entity is in range to renderer by using the past in distance
      * and comparing it to its average edge length * 64 * renderDistanceWeight
      * Args: distance
      */

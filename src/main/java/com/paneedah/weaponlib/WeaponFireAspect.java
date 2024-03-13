@@ -1,23 +1,26 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
+import com.paneedah.mwc.network.messages.MuzzleFlashMessage;
+import com.paneedah.mwc.network.messages.ShellMessageClient;
+import com.paneedah.mwc.network.messages.TryFireMessage;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
-import com.paneedah.weaponlib.network.packets.BulletShellClient;
-import com.paneedah.weaponlib.network.packets.GunFXPacket;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.paneedah.weaponlib.state.Aspect;
-import com.paneedah.weaponlib.state.PermitManager;
 import com.paneedah.weaponlib.state.StateManager;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.client.audio.PositionedSoundRecord;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -29,7 +32,8 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.CHANNEL;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
@@ -102,7 +106,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     }
 
     @Override
-    public void setPermitManager(PermitManager permitManager) {}
+    public void setPermitManager(NetworkPermitManager permitManager) {}
 
     @Override
     public void setStateManager(StateManager<WeaponState, ? super PlayerWeaponInstance> stateManager) {
@@ -203,25 +207,25 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     }
 
     private void cannotFire(PlayerWeaponInstance weaponInstance) {
-  
-        if(weaponInstance.getAmmo() == 0 || Tags.getAmmo(weaponInstance.getItemStack()) == 0) {
+        if (weaponInstance.getAmmo() == 0 || Tags.getAmmo(weaponInstance.getItemStack()) == 0) {
             String message;
-            if(weaponInstance.getWeapon().getAmmoCapacity() == 0
-                    && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
-                message = I18n.translateToLocalFormatted("gui.noMagazine");
-            } else {
-                message = I18n.translateToLocalFormatted("gui.noAmmo");
-            }
-            modContext.getStatusMessageCenter().addAlertMessage(message, 3, 250, 200);
-            if(weaponInstance.getPlayer() instanceof EntityPlayer) {
+
+            if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null)
+                message = I18n.format("gui.noMagazine");
+            else
+                message = I18n.format("gui.noAmmo");
+
+            if (weaponInstance.getPlayer() instanceof EntityPlayer)
+                ((EntityPlayer) weaponInstance.getPlayer()).sendStatusMessage(new TextComponentString(message), true);
+
+            if(weaponInstance.getPlayer() instanceof EntityPlayer)
                 weaponInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);
-            }
         }
     }
 
     @SideOnly(Side.CLIENT)
     private void playShootSound(PositionedSoundRecord psr) {
-    	mc.getSoundHandler().playSound(psr);
+    	MC.getSoundHandler().playSound(psr);
     }
     
     
@@ -234,14 +238,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         Weapon weapon = (Weapon) weaponInstance.getItem();
         Random random = player.getRNG();
 
-        
-       
-        //System.out.println(weaponInstance.getWeapon().getName());
-        
-        
-        //if(true) return;
-        modContext.getChannel().sendToServer(new TryFireMessage(true, 
-                oneClickBurstEnabled.test(weaponInstance) && weaponInstance.getSeriesShotCount() ==  0, weaponInstance.isAimed()));
+        CHANNEL.sendToServer(new TryFireMessage(oneClickBurstEnabled.test(weaponInstance) && weaponInstance.getSeriesShotCount() ==  0, weaponInstance.isAimed()));
 
         
     	
@@ -284,28 +281,28 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	
         	// Should prevent sound from being one sided
         
-        	if(!VMWHooksHandler.isOnServer()) {
+        	if(!FMLCommonHandler.instance().getSide().isServer()) {
         		
         		//
-        		PositionedSoundRecord psr = new PositionedSoundRecord(shootSound, SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1.0F, mc.player.getPosition().up(5));
+        		PositionedSoundRecord psr = new PositionedSoundRecord(shootSound, SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1.0F, MC.player.getPosition().up(5));
             	playShootSound(psr);
-        		//mc.getSoundHandler().playSound(psr);
+        		//MC.getSoundHandler().playSound(psr);
         	}
         	
         	
         	
         	
-        	//mc.getSoundHandler().playSound(new PositionedSoundRecord(shootSound.getSound(), SoundCategory.PLAYERS,silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1f, mc.player.getPosition()));
+        	//MC.getSoundHandler().playSound(new PositionedSoundRecord(shootSound.getSound(), SoundCategory.PLAYERS,silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1f, MC.player.getPosition()));
             /*
         	player.playSound(shootSound, silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1);
                     */
         }
         
         int currentAmmo = weaponInstance.getAmmo();
-        if(currentAmmo == 1 && weapon.getEndOfShootSound() != null && !VMWHooksHandler.isOnServer()) {
-        	PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
+        if(currentAmmo == 1 && weapon.getEndOfShootSound() != null && !FMLCommonHandler.instance().getSide().isServer()) {
+        	PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, MC.player.getPosition().up(5));
         	playShootSound(psr);
-        	//mc.getSoundHandler().playSound(psr);
+        	//MC.getSoundHandler().playSound(psr);
         }
 
         if(currentAmmo == 1)
@@ -339,11 +336,11 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
         if(weapon.isShellCasingEjectEnabled())  {
 
-        	float fovMult = mc.gameSettings.fovSetting < 70f ? (mc.gameSettings.fovSetting/50) : -(mc.gameSettings.fovSetting/200f);
+        	float fovMult = MC.gameSettings.fovSetting < 70f ? (MC.gameSettings.fovSetting/50) : -(MC.gameSettings.fovSetting/200f);
 
             // Panda: Replaced this with the above line, undo if it breaks anything for whatever reason.
-        	//if (mc.gameSettings.fovSetting < 70f) fovMult = (mc.gameSettings.fovSetting/50);
-        	//else fovMult = -(mc.gameSettings.fovSetting/200f);
+        	//if (MC.gameSettings.fovSetting < 70f) fovMult = (MC.gameSettings.fovSetting/50);
+        	//else fovMult = -(MC.gameSettings.fovSetting/200f);
         	
         	Vec3d pos = player.getPositionEyes(1.0f);
         	Vec3d weaponDir = new Vec3d(0, -0.1, 1.0 + fovMult).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw));
@@ -363,12 +360,12 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	// Calculate the final position of the bullet spawn point
         	// by changing it's position along its own vector
         	double distance = 0.5;
-			Vec3d eyePos = mc.player.getPositionEyes(1.0f);
+			Vec3d eyePos = MC.player.getPositionEyes(1.0f);
 			Vec3d finalPosition = rawPosition.subtract(eyePos).normalize().scale(distance).add(eyePos);
 			
         	// Calculate velocity as 90 degrees to player
 			Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
-    		velocity = velocity.rotateYaw((float) Math.toRadians(-mc.player.rotationYaw));
+    		velocity = velocity.rotateYaw((float) Math.toRadians(-MC.player.rotationYaw));
     		
     		// Spawn in shell
     		Shell shell = new Shell(weaponInstance.getWeapon().getShellType(), new Vec3d(finalPosition.x, finalPosition.y, finalPosition.z), new Vec3d(90, 0, 90), velocity);
@@ -395,8 +392,8 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     }
 
     //(weapon, player) 
-    public void serverFire(EntityLivingBase player, ItemStack itemStack, boolean isBurst, boolean isAimed) {
-        serverFire(player, itemStack, null, isBurst, isAimed, 1.0f);
+    public void serverFire(EntityLivingBase player, boolean isBurst, boolean isAimed) {
+        serverFire(player, player.getHeldItemMainhand(), null, isBurst, isAimed, 1.0f);
     }
     
     public void serverFire(EntityLivingBase player, ItemStack itemStack, BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith, boolean isBurst, boolean isAimed, float damageMultiplier) {
@@ -405,7 +402,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
         
         TargetPoint tp = new TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 100);
-        modContext.getChannel().sendToAllAround(new GunFXPacket(player.getEntityId()), tp);
+        CHANNEL.sendToAllAround(new MuzzleFlashMessage(player.getEntityId()), tp);
         
 
         Weapon weapon = (Weapon) itemStack.getItem();
@@ -475,13 +472,12 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         PlayerWeaponInstance playerWeaponInstance = Tags.getInstance(itemStack, PlayerWeaponInstance.class);
 
         if(playerWeaponInstance != null) {
-        	
-        	Vec3d pos = player.getPositionEyes(1.0f);
+            Vec3d pos = new Vec3d(player.posX, player.posY + player.getEyeHeight(), player.posZ);
         	Vec3d weaponDir = new Vec3d(0, -0.1, 1).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw));
         	
         	Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
     		velocity = velocity.rotateYaw((float) Math.toRadians(-player.rotationYaw));
-        	modContext.getChannel().sendToAllAround(new BulletShellClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), pos.add(weaponDir), velocity), tp);
+        	CHANNEL.sendToAllAround(new ShellMessageClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), new Vector3D(pos.add(weaponDir)), new Vector3D(velocity)), tp);
         }
 
 

@@ -2,7 +2,10 @@ version: "1.0"
 linter: jetbrains/qodana-jvm-community:2023.3
 profile:
   name: qodana.recommended
+fixesStrategy: cleanup
 include:
+  - name: VulnerableLibrariesGlobal
+  - name: CheckDependencyLicenses
   - name: DuplicateBranchesInSwitch
   - name: CommentedOutCode
   - name: UnnecessaryModifier
@@ -31,6 +34,8 @@ include:
   - name: ManualMinMaxCalculation
   - name: FinalStaticMethod
 exclude:
+  - name: QodanaSanity
+  - name: JavadocReference
   - name: All
     paths:
       - src/main/java/com/paneedah/mwc/models

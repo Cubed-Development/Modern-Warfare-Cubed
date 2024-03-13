@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.crafting.ammopress;
 import com.paneedah.weaponlib.ItemBullet;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.item.Item;
@@ -41,12 +41,12 @@ public class TileEntityAmmoPress extends TileEntityStation {
 	}
 	
 	public int getCraftingDurationForItem(Item item) {
-		if(!(item instanceof IModernCrafting)) return 0;
-		return getDismantlingTime((IModernCrafting) item);
+		if(!(item instanceof IModernCraftingRecipe)) return 0;
+		return getDismantlingTime((IModernCraftingRecipe) item);
 	}
 	
 	@Override
-	public int getDismantlingTime(IModernCrafting crafting) {
+	public int getDismantlingTime(IModernCraftingRecipe crafting) {
 		CraftingGroup group = crafting.getCraftingGroup();
 		if (Objects.requireNonNull(group) == CraftingGroup.BULLET)
 			return BULLET_CRAFT_DURATION;
@@ -139,7 +139,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
 		if(hasStack()) {
 			boolean canCraftNextItem = true;
 
-			for(CraftingEntry entry : ((IModernCrafting) getLatestStackInQueue().getItem()).getModernRecipe()) {
+			for(CraftingEntry entry : ((IModernCraftingRecipe) getLatestStackInQueue().getItem()).getModernRecipe()) {
 				if(inventoryContainsEnoughItems(entry.getItem(), entry.getCount(), 22, 49))
 					continue;
 
@@ -162,7 +162,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
 				crafting = false;
 				ItemStack stack = getLatestStackInQueue();
 				
-				IModernCrafting craftingRecipe = (IModernCrafting)stack.getItem();
+				IModernCraftingRecipe craftingRecipe = (IModernCraftingRecipe)stack.getItem();
 				for (CraftingEntry ingredient : craftingRecipe.getModernRecipe())
 					consumeFromInventory(ingredient.getItem(), ingredient.getCount(), 22, 49);
 				

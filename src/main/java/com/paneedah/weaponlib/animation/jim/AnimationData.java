@@ -334,7 +334,7 @@ public class AnimationData {
 	 * GL11.glRotated(0f, 1, 0, 0);
 	 */
 
-	@SuppressWarnings("unchecked")
+	
 	public List<Transition<RenderContext<RenderableState>>> getTransitionList() {
 		
 		List<Transition<RenderContext<RenderableState>>> transitionList = new ArrayList<>();
@@ -397,12 +397,12 @@ public class AnimationData {
 		return transitionList;
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	public List<Transition<RenderContext<RenderableState>>> getTransitionList(Transform initial, double divisor) {
 		return getTransitionList(initial, divisor, true);
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	public List<Transition<RenderContext<RenderableState>>> getTransitionList(Transform initial, double divisor, boolean applySwap) {
 		List<Transition<RenderContext<RenderableState>>> transitionList = new ArrayList<>();
 		

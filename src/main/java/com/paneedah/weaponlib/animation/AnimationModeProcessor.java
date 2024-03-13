@@ -23,7 +23,7 @@ import java.nio.FloatBuffer;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class AnimationModeProcessor {
 
@@ -92,7 +92,7 @@ public class AnimationModeProcessor {
 	public boolean queryRender(AttachmentCategory category) {
 		if(!shouldRender.containsKey(category)) {
 			// If we should not concern ourselves with
-			// it, just render it.
+			// it, just renderer it.
 			return true;
 		}
 		return shouldRender.get(category);
@@ -134,11 +134,11 @@ public class AnimationModeProcessor {
 		
 		// currentPartMatrix = DebugPositioner.rotationMatrix();
 		if(OpenGLSelectionHelper.selectID > 0 && OpenGLSelectionHelper.selectID < 5) {
-			ScaledResolution scaledresolution = new ScaledResolution(mc);
+			ScaledResolution scaledresolution = new ScaledResolution(MC);
 	        final int scaledWidth = scaledresolution.getScaledWidth();
 	        final int scaledHeight = scaledresolution.getScaledHeight();
-	        int mouseX = Mouse.getX() * scaledWidth / mc.displayWidth;
-	        int mouseY = scaledHeight - Mouse.getY() * scaledHeight / mc.displayHeight - 1;
+	        int mouseX = Mouse.getX() * scaledWidth / MC.displayWidth;
+	        int mouseY = scaledHeight - Mouse.getY() * scaledHeight / MC.displayHeight - 1;
 			atGrab = getTransformFromSelected().copy();
 			Arcball.grab(mouseX, mouseY);
 		}
@@ -222,7 +222,7 @@ public class AnimationModeProcessor {
 		//this.transformMode = 1;
 		
 		
-		//mc.player.world.setWorldTime(6000);
+		//MC.player.world.setWorldTime(6000);
 		
 		if(ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
 			if(this.pwi == null || pwi != ClientModContext.getContext().getMainHeldWeapon()) {
@@ -273,9 +273,9 @@ public class AnimationModeProcessor {
 		if (permissionToDrag && colorSelected == -1) {
 
 			if (Mouse.isButtonDown(0)) {
-				// System.out.println(mc.mouseHelper.deltaX);
-				// double x = mc.mouseHelper.deltaX/1.0;
-				// double y = mc.mouseHelper.deltaY/300.0;
+				// System.out.println(MC.mouseHelper.deltaX);
+				// double x = MC.mouseHelper.deltaX/1.0;
+				// double y = MC.mouseHelper.deltaY/300.0;
 
 				
 				
@@ -398,11 +398,11 @@ public class AnimationModeProcessor {
 				boolean modernMode = true;
 				
 				
-				 ScaledResolution scaledresolution = new ScaledResolution(mc);
+				 ScaledResolution scaledresolution = new ScaledResolution(MC);
 			        final int scaledWidth = scaledresolution.getScaledWidth();
 			        final int scaledHeight = scaledresolution.getScaledHeight();
-			        int mouseX = Mouse.getX() * scaledWidth / mc.displayWidth;
-			        int mouseY = scaledHeight - Mouse.getY() * scaledHeight / mc.displayHeight - 1;
+			        int mouseX = Mouse.getX() * scaledWidth / MC.displayWidth;
+			        int mouseY = scaledHeight - Mouse.getY() * scaledHeight / MC.displayHeight - 1;
 			    
 					Quaternion quat = Arcball.runArcBall(mouseX, mouseY);
 					double[] quangles = MatrixHelper.toEulerAngles(quat);
@@ -536,8 +536,8 @@ public class AnimationModeProcessor {
 			double x = dx / 10f;
 			double y = dy / 10f;
 
-			// double x = mc.mouseHelper.deltaX/120.0;
-			// double y = mc.mouseHelper.deltaY/120.0;
+			// double x = MC.mouseHelper.deltaX/120.0;
+			// double y = MC.mouseHelper.deltaY/120.0;
 			pan = pan.add(-x, -y, 0);
 		}
 
@@ -609,7 +609,7 @@ public class AnimationModeProcessor {
            renderRotAxis(scalar);
 		} else {
 			//OpenGLSelectionHelper.ballBuf.framebufferClear();
-		//	mc.getFramebuffer().bindFramebuffer(false);
+		//	MC.getFramebuffer().bindFramebuffer(false);
 			//OpenGLSelectionHelper.ballBuf.bindFramebuffer(false);
 		
 			renderCross();
@@ -725,7 +725,7 @@ public class AnimationModeProcessor {
 		renderAxisRing(Vec3d.ZERO, Color.BLUE, size, innerSize, (colorSelected == -1 || colorSelected == 3), false);
 		renderAxisRing(new Vec3d(0, 1, 0), Color.GREEN, size, innerSize, (colorSelected == -1 || colorSelected == 2), false);
 		
-		mc.getFramebuffer().bindFramebuffer(false);
+		MC.getFramebuffer().bindFramebuffer(false);
 		
 		//GlStateManager.disableDepth();
 		GL11.glLineWidth(1.5f);
@@ -871,7 +871,7 @@ public class AnimationModeProcessor {
 		GL11.glLineWidth((float) Math.abs(1 / pan.z) * 15);
 		
 		
-		mc.getFramebuffer().bindFramebuffer(false);
+		MC.getFramebuffer().bindFramebuffer(false);
 		//if(1+1==2) return;
 	//	GlStateManager.disableDepth();
 		//GlStateManager.disableDepth();

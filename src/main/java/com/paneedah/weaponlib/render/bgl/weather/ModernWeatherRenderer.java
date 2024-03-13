@@ -19,7 +19,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 @SideOnly(Side.CLIENT)
 public class ModernWeatherRenderer extends IRenderHandler {
@@ -41,11 +42,12 @@ public class ModernWeatherRenderer extends IRenderHandler {
 	//private int previousThirdPerson;
 	
 	// Textures
-	// Todo: Actually use the different rain textures
-	public static final ResourceLocation RAIN_LIGHT = new ResourceLocation(ModReference.ID + ":textures/environment/lightrain.png");
-	public static final ResourceLocation RAIN_MEDIUM = new ResourceLocation(ModReference.ID + ":textures/environment/mediumrain.png");
-	public static final ResourceLocation RAIN_HEAVY = new ResourceLocation(ModReference.ID + ":textures/environment/heavyrain.png");
-	public static final ResourceLocation RAIN_INSANE = new ResourceLocation(ModReference.ID + ":textures/environment/insanerain.png");
+	// Todo: Actually use the different rain textures - Luna Lage (Desoroxxx) 2023-12-21
+	public static final ResourceLocation RAIN_LIGHT = new ResourceLocation(ID, "textures/environment/lightrain.png");
+	public static final ResourceLocation RAIN_MEDIUM = new ResourceLocation(ID, "textures/environment/mediumrain.png");
+	public static final ResourceLocation RAIN_HEAVY = new ResourceLocation(ID, "textures/environment/heavyrain.png");
+	public static final ResourceLocation RAIN_INSANE = new ResourceLocation(ID, "textures/environment/insanerain.png");
+
 	
 	/**
 	 * Check if it is raining or snowing
@@ -55,9 +57,9 @@ public class ModernWeatherRenderer extends IRenderHandler {
 	 * @return True if raining, false if snowing
 	 */
 	public static boolean isRainingOrSnowing(BlockPos pos) {
-		float f2 = mc.world.getBiome(pos).getTemperature(pos);
-		int j2 = mc.world.getPrecipitationHeight(pos).getY();
-		if (mc.world.getBiomeProvider().getTemperatureAtHeight(f2, j2) >= 0.15F) {
+		float f2 = MC.world.getBiome(pos).getTemperature(pos);
+		int j2 = MC.world.getPrecipitationHeight(pos).getY();
+		if (MC.world.getBiomeProvider().getTemperatureAtHeight(f2, j2) >= 0.15F) {
         	return true;
         } else return false;
 	}
@@ -74,7 +76,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 	public boolean shouldRecalculateRainVectors(EntityPlayer player) {
 		
 		// If it's not raining, don't recalculate the vectors
-		if(player.world.getRainStrength(mc.getRenderPartialTicks()) == 0.0) return false;
+		if(player.world.getRainStrength(MC.getRenderPartialTicks()) == 0.0) return false;
 		
 		if(previousPosition == null) {
 			previousPosition = player.getPositionVector();
@@ -94,8 +96,8 @@ public class ModernWeatherRenderer extends IRenderHandler {
 		
 
 		/*
-		boolean thirdPersonFlag = mc.gameSettings.thirdPersonView != previousThirdPerson;
-		if(thirdPersonFlag) previousThirdPerson = mc.gameSettings.thirdPersonView;
+		boolean thirdPersonFlag = MC.gameSettings.thirdPersonView != previousThirdPerson;
+		if(thirdPersonFlag) previousThirdPerson = MC.gameSettings.thirdPersonView;
 		*/
 		
 		return positionFlag;
@@ -117,7 +119,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 				boolean rainStatus = isRainingOrSnowing(rainPosition);
 				
 				// If it can't snow or rain, don't put it there
-				Biome biome = mc.world.getBiome(rainPosition);
+				Biome biome = MC.world.getBiome(rainPosition);
 				if((rainStatus && !biome.canRain()) || (!rainStatus && !biome.getEnableSnow())) {
 					rainPositions[count] = new float[] { 0.0f, 0f, 0f, 0f, 0f};
 					return;
@@ -125,7 +127,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 					
 				
 						
-				int worldPos = mc.world.getHeight(rainPosition.getX(), rainPosition.getZ());
+				int worldPos = MC.world.getHeight(rainPosition.getX(), rainPosition.getZ());
 				rainPositions[count] = new float[] { 1.0f, (float) rainPosition.getX() + 1, (float) worldPos, rainPosition.getZ(), rainStatus ? 1 : 0};
 				count++;
 				
@@ -136,7 +138,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 		/*
 		if(true) return;
 		Vec3d direction = new Vec3d(0, 0, 1);
-		if(mc.gameSettings.thirdPersonView == 1) direction = new Vec3d(0, 0, -1);
+		if(MC.gameSettings.thirdPersonView == 1) direction = new Vec3d(0, 0, -1);
 		
 		
 		double delta = -20;
@@ -153,7 +155,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 				}
 				
 				BlockPos rainPosition = new BlockPos(interpolatedPosition.x + lookVector.x*length, player.getPositionVector().y, interpolatedPosition.z + lookVector.z*length);
-				int worldPos = mc.world.getHeight(rainPosition.getX(), rainPosition.getZ());
+				int worldPos = MC.world.getHeight(rainPosition.getX(), rainPosition.getZ());
 				rainPositions[i] = new float[] { 1.0f, (float) rainPosition.getX() + 1, (float) (rainPosition.getY() + (worldPos - player.getPosition().getY())), rainPosition.getZ()};
 
 		}
@@ -169,17 +171,17 @@ public class ModernWeatherRenderer extends IRenderHandler {
 	}
 	
 	public double getTrueHeight(BlockPos pos) {
-		return mc.world.getHeight(pos).getY();
+		return MC.world.getHeight(pos).getY();
 		
 	}
 
 	@Override
-	public void render(float partialTicks, WorldClient world, Minecraft mc) {
+	public void render(float partialTicks, WorldClient world, Minecraft MC) {
 		
 		
-		float rainStrength = mc.world.getRainStrength(mc.getRenderPartialTicks());
+		float rainStrength = MC.world.getRainStrength(MC.getRenderPartialTicks());
 		if(rainStrength == 0.0) return;
-		// Rain render size
+		// Rain renderer size
 		double lateralSize = 1.0;
 		double thinness = 5.0;
 		double verticalSize = 64;
@@ -218,7 +220,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 		
 		
 		// Rain pass
-		mc.getTextureManager().bindTexture(RAIN_HEAVY);
+		MC.getTextureManager().bindTexture(RAIN_HEAVY);
 		timer = -ClientValueRepo.TICKER.getLerpedFloat()/3f;
 		BufferBuilder bb = t.getBuffer();
 		bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
@@ -240,7 +242,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 		
 		
 		// Snow pass
-		mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.ID + ":textures/environment/christmassnow.png"));
+		MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/environment/christmassnow.png"));
 		timer = -ClientValueRepo.TICKER.getLerpedFloat()/25f;
 		bb = t.getBuffer();
 		bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);

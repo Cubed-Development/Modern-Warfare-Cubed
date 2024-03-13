@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.network.UniversalObject;
+import com.paneedah.mwc.network.UniversalObject;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -183,27 +183,27 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
     }
 
     @Override
-    public void init(ByteBuf buf) {
-        super.init(buf);
-        firstExposureImpactDelay = buf.readLong();
-        firstExposureTimestamp = buf.readLong();
-        totalDose = buf.readFloat();
-        lastDose = buf.readFloat();
-        colorImpairmentR = buf.readFloat();
-        colorImpairmentG = buf.readFloat();
-        colorImpairmentB = buf.readFloat();
+    public void read(ByteBuf byteBuf) {
+        super.read(byteBuf);
+        firstExposureImpactDelay = byteBuf.readLong();
+        firstExposureTimestamp = byteBuf.readLong();
+        totalDose = byteBuf.readFloat();
+        lastDose = byteBuf.readFloat();
+        colorImpairmentR = byteBuf.readFloat();
+        colorImpairmentG = byteBuf.readFloat();
+        colorImpairmentB = byteBuf.readFloat();
     }
     
     @Override
-    public void serialize(ByteBuf buf) {
-        super.serialize(buf);
-        buf.writeLong(firstExposureImpactDelay);
-        buf.writeLong(firstExposureTimestamp);
-        buf.writeFloat(totalDose);
-        buf.writeFloat(lastDose);
-        buf.writeFloat(colorImpairmentR);
-        buf.writeFloat(colorImpairmentG);
-        buf.writeFloat(colorImpairmentB);
+    public void write(ByteBuf byteBuf) {
+        super.write(byteBuf);
+        byteBuf.writeLong(firstExposureImpactDelay);
+        byteBuf.writeLong(firstExposureTimestamp);
+        byteBuf.writeFloat(totalDose);
+        byteBuf.writeFloat(lastDose);
+        byteBuf.writeFloat(colorImpairmentR);
+        byteBuf.writeFloat(colorImpairmentG);
+        byteBuf.writeFloat(colorImpairmentB);
     }
 
     public void update(Entity entity) {

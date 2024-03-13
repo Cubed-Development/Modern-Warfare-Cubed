@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class FiveSevenSlide extends ModelWithAttachments {
-	private final QRenderer slide;
+	private final ModelRenderer slide;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -47,7 +47,7 @@ public class FiveSevenSlide extends ModelWithAttachments {
 		textureWidth = 128;
 		textureHeight = 128;
 
-		slide = new QRenderer(this);
+		slide = new ModelRenderer(this);
 		slide.setRotationPoint(-4.1F, -11.0F, 0.0F);
 		slide.cubeList.add(new ModelBox(slide, 58, 46, 0.0F, -1.5F, -9.5F, 1, 2, 13, 0.0F, false));
 		slide.cubeList.add(new ModelBox(slide, 50, 62, -0.01F, -0.25F, -5.0F, 1, 1, 8, 0.0F, false));

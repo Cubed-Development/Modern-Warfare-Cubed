@@ -1299,9 +1299,9 @@ public class M16A1 extends ModelWithAttachments {
 		receiver.render(f5);
 		barrel.render(f5);
 		gun.render(f5);
-//		handguard.render(f5);
-//		scopemount.render(f5);
-//		handguardrail.render(f5);
+//		handguard.renderer(f5);
+//		scopemount.renderer(f5);
+//		handguardrail.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

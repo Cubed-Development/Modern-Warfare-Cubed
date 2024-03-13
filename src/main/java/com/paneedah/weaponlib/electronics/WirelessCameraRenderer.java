@@ -7,12 +7,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class WirelessCameraRenderer extends Render<Entity> {
 
     public WirelessCameraRenderer() {
-        super(mc.getRenderManager());
+        super(MC.getRenderManager());
     }
 
     @Override
@@ -26,7 +27,7 @@ public class WirelessCameraRenderer extends Render<Entity> {
         if(model != null) {
             String textureName = camera.getTextureName();
             ResourceLocation textureLocation = textureName != null ?
-                    new ResourceLocation(ModReference.ID + ":textures/models/" + textureName) : null;
+                    new ResourceLocation(ID + ":textures/models/" + textureName) : null;
             //System.out.println("Rendering entity at " + x + ", " + y + ", " + z);
             if(model != null) {
                 GL11.glPushMatrix();
@@ -46,7 +47,7 @@ public class WirelessCameraRenderer extends Render<Entity> {
         EntityWirelessCamera camera = (EntityWirelessCamera) entity;
         ItemWirelessCamera item = camera.getItem();
         if(item != null) {
-            return new ResourceLocation(ModReference.ID + ":textures/models/" + item.getTextureName());
+            return new ResourceLocation(ID + ":textures/models/" + item.getTextureName());
         } else {
             return null;
         }

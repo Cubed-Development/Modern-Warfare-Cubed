@@ -1,16 +1,16 @@
 package com.paneedah.weaponlib.animation;
 
 import com.paneedah.weaponlib.Pair;
+import com.paneedah.mwc.asm.Interceptors;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.PlayerWeaponInstance;
-import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.numerical.LerpedValue;
 import com.paneedah.weaponlib.numerical.RandomVector;
 import com.paneedah.weaponlib.numerical.SpringValue;
 import net.minecraft.entity.player.EntityPlayer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /**
  * Stores a bunch of values that need to update on an interval, and typically
@@ -156,7 +156,7 @@ public class ClientValueRepo {
 		slidePumpValue.dampen(0.0001);
 		
 		
-		EntityPlayer player = mc.player;
+		EntityPlayer player = MC.player;
 
 		PlayerWeaponInstance pwi = context.getMainHeldWeapon();
 
@@ -167,8 +167,8 @@ public class ClientValueRepo {
 		
 		if(!player.capabilities.isFlying && player.onGround) {
 			// Update movement values
-			if (!mc.player.onGround)
-				jumpingSpring.velocity += mc.player.motionY * JUMP_VELOCITY_MULTIPLIER;
+			if (!MC.player.onGround)
+				jumpingSpring.velocity += MC.player.motionY * JUMP_VELOCITY_MULTIPLIER;
 			if (player.moveForward < 0) {
 				strafe.add(player.moveForward * FORWARD_MOVEMENT_DIVISOR);
 			} else if(!player.isElytraFlying() && !player.capabilities.isFlying) {

@@ -1,11 +1,10 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
-import com.paneedah.weaponlib.compatibility.ModelSourceRenderer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -33,10 +32,11 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel {
+public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
 	private static final float DEFAULT_RANDOMIZING_RATE = 0.33f;
 
@@ -582,7 +582,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 
 	private GrenadeRenderer(Builder builder) {
 		this.builder = builder;
-		this.textureManager = mc.getTextureManager();
+		this.textureManager = MC.getTextureManager();
 		this.pair = Pair.of((IBakedModel) this, null);
 		this.builder = builder;
 		this.firstPersonStateManagers = new HashMap<>();
@@ -864,7 +864,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 			Positioner<Part, RenderContext<RenderableState>> positioner) {
 
 		if(builder.getTextureName() != null) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + builder.getTextureName()));
+			MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + builder.getTextureName()));
 		} else {
 			String textureName = null;
 
@@ -873,7 +873,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 				textureName = weapon.getTextureName();
 			}
 
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + textureName));
+			MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + textureName));
 		}
 
 		//limbSwing, float flimbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale
@@ -934,7 +934,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 	    }
 
 	    for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-	        mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + texturedModel.getV()));
+	        MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
 	        GL11.glPushMatrix();
 	        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
 	        if(compatibleAttachment.getModelPositioning() != null) {
@@ -952,7 +952,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 	        GL11.glPopMatrix();
 	    }
 
-	    @SuppressWarnings("unchecked")
+	    
 	    CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) compatibleAttachment.getAttachment().getPostRenderer();
 	    if(postRenderer != null) {
 	        GL11.glPushMatrix();
@@ -1045,7 +1045,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 	public void renderItem() {
 		GL11.glPushMatrix();
 
-		RenderContext<RenderableState> renderContext = new RenderContext<>(getClientModContext(), player, itemStack);
+		RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
 
 		//float limbSwing, float flimbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale
 		//0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
@@ -1154,7 +1154,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 
 	@Override
 	public TextureAtlasSprite getParticleTexture() {
-		return mc.getTextureMapBlocks().getMissingSprite();
+		return MC.getTextureMapBlocks().getMissingSprite();
 	}
 
 	@Override

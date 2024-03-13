@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.vehicle.network;
 
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializer;
@@ -72,9 +73,8 @@ public class VehicleDataSerializer {
 			/*
 			 * Le entity
 			 */
-			
-			NetworkUtil.writeVec3d(buf, v.getPositionVector());
-			//System.out.println(v.getPositionVector());
+
+			new Vector3D(v.getPositionVector()).write(buf);
 			buf.writeDouble(v.throttle);
 			buf.writeDouble(v.driftTuner);
 			buf.writeBoolean(v.isBraking);
@@ -82,19 +82,17 @@ public class VehicleDataSerializer {
 			buf.writeDouble(v.sideLean);
 			buf.writeDouble(v.wheelRotationAngle);
 			buf.writeDouble(v.steerangle);
-			
-			
-			
-			
-			
 		}
 
 		@Override
 		public VehicleDataSerializer read(PacketBuffer buf) throws IOException {
-
 			VehicleDataSerializer ds = new VehicleDataSerializer();
-			
-			ds.position = NetworkUtil.readVec3d(buf);
+
+			Vector3D vector = new Vector3D();
+			vector.read(buf);
+			ds.position = vector.toVec3d();
+			vector.read(buf);
+			ds.position = vector.toVec3d();
 			ds.throttle = buf.readDouble();
 			ds.driftTuner = buf.readDouble();
 			ds.isBraking = buf.readBoolean();

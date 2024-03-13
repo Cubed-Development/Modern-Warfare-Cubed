@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class Mac10stockwithrail extends ModelBase {
-	private final QRenderer railplusstock;
+	private final ModelRenderer railplusstock;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -32,7 +32,7 @@ public class Mac10stockwithrail extends ModelBase {
 		textureWidth = 90;
 		textureHeight = 90;
 
-		railplusstock = new QRenderer(this);
+		railplusstock = new ModelRenderer(this);
 		railplusstock.setRotationPoint(-4.0F, -12.25F, 12.5F);
 		railplusstock.cubeList.add(new ModelBox(railplusstock, 42, 39, -1.0F, -1.0F, -1.0F, 7, 6, 2, 0.0F, false));
 		railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 16, 1.0F, -6.9F, -16.0F, 3, 1, 11, 0.01F, false));

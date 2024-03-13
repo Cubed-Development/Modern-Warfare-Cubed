@@ -1,13 +1,12 @@
 package com.paneedah.weaponlib.crafting.ammopress;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ItemBullet;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.base.GUIContainerStation;
 import com.paneedah.weaponlib.crafting.workbench.CustomSearchTextField;
 import com.paneedah.weaponlib.crafting.workbench.GUIButtonCustom;
-import com.paneedah.weaponlib.network.packets.StationPacket;
+import com.paneedah.mwc.network.messages.WorkbenchServerMessage;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import io.redstudioragnarok.redcore.utils.MathUtil;
 import net.minecraft.client.gui.GuiButton;
@@ -22,6 +21,11 @@ import org.lwjgl.input.Keyboard;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+
+import static com.paneedah.mwc.MWC.CHANNEL;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
+import static net.minecraft.util.text.TextFormatting.WHITE;
 
 /**
  * GUIContainer for the Workbench Block
@@ -41,7 +45,7 @@ import java.util.LinkedList;
 public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPress> {
 	
 	// Ammo press texture location
-	private static final ResourceLocation AMMO_PRESS_TEX = new ResourceLocation(ModReference.ID + ":textures/gui/ammosheet.png");
+	private static final ResourceLocation AMMO_PRESS_TEX = new ResourceLocation(ID + ":textures/gui/ammosheet.png");
 
 	// Selectors & Quantity Box
 	private GUIButtonCustom bulletSelector, magazineSelector, grenadeSelector;
@@ -125,7 +129,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 		if (button == craftButton && !craftButton.isDisabled()) {
 			if (hasSelectedCraftingPiece() && quantityBox.getText().length() != 0) {
 				int quantity = Integer.parseInt(quantityBox.getText());
-				modContext.getChannel().sendToServer(new StationPacket(StationPacket.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItem().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
+				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItemStack().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
 			}
 
 		}  else if (button == bulletSelector) {
@@ -197,7 +201,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			}
 		}
 		
-		if(hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItem() instanceof ItemBullet && 
+		if(hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItemStack().getItem() instanceof ItemBullet &&
 				GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 268, this.guiTop + 201, 20, 20)) {
 			
 			tooltip.add(String.format("Amount %d will make %d bullets", getCurrentAmountInQuantityBox(), getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
@@ -219,7 +223,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			LinkedList<ItemStack> queue = tileEntity.getCraftingQueue();
 			GlStateManager.enableBlend();
 			for(int i = 0; i < queue.size(); ++i) {
-				mc.getTextureManager().bindTexture(AMMO_PRESS_TEX);
+				MC.getTextureManager().bindTexture(AMMO_PRESS_TEX);
 				if(GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 200 + i*20, this.guiTop, 20, 20)) {
 					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 20, 80, 20, 20, 256, 256);
 				} else {
@@ -229,7 +233,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			
 			for(int i = 0; i < queue.size(); ++i) {
 				ItemStack stack = queue.get(i);
-				mc.getRenderItem().renderItemIntoGUI(stack, this.guiLeft + 202 + i*20, this.guiTop + 2);
+				MC.getRenderItem().renderItemIntoGUI(stack, this.guiLeft + 202 + i*20, this.guiTop + 2);
 			}
 			
 			for(int i = 0; i < queue.size(); ++i) {
@@ -237,7 +241,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 				GUIRenderHelper.drawScaledString("x" + stack.getCount(), this.guiLeft + 212 + i*20, this.guiTop + 16, 0.7, GOLD);
 			}
 
-			if(hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItem() instanceof ItemBullet) {
+			if(hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItemStack().getItem() instanceof ItemBullet) {
 				GUIRenderHelper.drawScaledString("x" + (getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS),
 						this.guiLeft + 268, this.guiTop + 201, 0.7, GREEN);
 			}
@@ -260,12 +264,12 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			if (mouseY >= this.guiTop && mouseY <= this.guiTop + 20) {
 				int id = (mouseX - (this.guiLeft + 200))/20;
 				if(id >= 0 && tileEntity.getCraftingQueue().size() - 1 >= id)
-					modContext.getChannel().sendToServer(new StationPacket(StationPacket.POP_FROM_QUEUE, tileEntity.getPos(), mc.player.getEntityId(), id));
+					CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.POP_FROM_QUEUE, tileEntity.getPos(), MC.player.getEntityId(), id));
 			}
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	protected void keyTyped(char typedChar, int keyCode) throws IOException {
 		boolean cancelationForQuantity = this.quantityBox.getText().length() == 0 && keyCode == Keyboard.KEY_BACK;

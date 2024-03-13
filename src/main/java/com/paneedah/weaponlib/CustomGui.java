@@ -1,17 +1,11 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.proxies.ClientProxy;
-import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.StatusMessageCenter.Message;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
-import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
-import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.jim.util.LangTools;
-import com.paneedah.weaponlib.jim.util.VectorTools;
 import com.paneedah.weaponlib.jim.util.color.FlatUIColors;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
@@ -29,6 +23,7 @@ import net.minecraft.client.renderer.GlStateManager.DestFactor;
 import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -39,13 +34,13 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType.*;
 
 public class CustomGui extends Gui {
@@ -60,15 +55,15 @@ public class CustomGui extends Gui {
 	private final String statusBarPosition;
 	
 	public static VehicleCustomGUI vehicleGUIOverlay = new VehicleCustomGUI();
-	
-	public static final ResourceLocation AMMO_COUNTER_TEXTURES = new ResourceLocation(ModReference.ID + ":textures/hud/ammoiconsheet.png");
+
+	public static final ResourceLocation AMMO_COUNTER_TEXTURES = new ResourceLocation(ID + ":textures/hud/ammoiconsheet.png");
 
 	private static FontRenderer FONT_RENDERER = null;
 	
 	
 	
 	
-	public CustomGui(Minecraft mc, ModContext modContext, WeaponAttachmentAspect attachmentAspect) {
+	public CustomGui(Minecraft MC, ModContext modContext, WeaponAttachmentAspect attachmentAspect) {
 		this.modContext = modContext;
 		this.attachmentAspect = attachmentAspect;
 		this.statusBarPosition = ModernConfigManager.statusBarPosition;
@@ -76,7 +71,7 @@ public class CustomGui extends Gui {
 	}
 	
 	public static FontRenderer getFontRenderer() {
-		if(FONT_RENDERER == null) FONT_RENDERER = ClientProxy.mc.fontRenderer;
+		if(FONT_RENDERER == null) FONT_RENDERER = MC.fontRenderer;
 		return FONT_RENDERER;
 	}
 
@@ -91,7 +86,7 @@ public class CustomGui extends Gui {
 		
 		
 		if(modContext.getMainHeldWeapon() != null) {
-			ScaledResolution scaledResolution = new ScaledResolution(mc);
+			ScaledResolution scaledResolution = new ScaledResolution(MC);
 			double width = scaledResolution.getScaledWidth_double();
 			double height = scaledResolution.getScaledHeight_double();
 			
@@ -118,7 +113,7 @@ public class CustomGui extends Gui {
 					
 					if(AnimationGUI.getInstance().titleSafe.isState()) {
 						DebugRenderer.setupBasicRender();
-						ScaledResolution sr = new ScaledResolution(mc);
+						ScaledResolution sr = new ScaledResolution(MC);
 						DebugRenderer.renderPoint(new Vec3d(sr.getScaledWidth_double()/2, sr.getScaledHeight_double()/2, 0), new Vec3d(1, 0, 0));
 						
 						DebugRenderer.destructBasicRender();
@@ -134,8 +129,8 @@ public class CustomGui extends Gui {
 		
 		
 
-		if(mc.player.isRiding() && mc.player.getRidingEntity() instanceof EntityVehicle) {
-			EntityVehicle v = (EntityVehicle) mc.player.getRidingEntity();
+		if(MC.player.isRiding() && MC.player.getRidingEntity() instanceof EntityVehicle) {
+			EntityVehicle v = (EntityVehicle) MC.player.getRidingEntity();
 			
 			
 			
@@ -154,11 +149,11 @@ public class CustomGui extends Gui {
 		}
 	    
 		
-		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET && mc.player.isRiding() && mc.player.getRidingEntity() instanceof EntityVehicle) {
+		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET && MC.player.isRiding() && MC.player.getRidingEntity() instanceof EntityVehicle) {
 			
 			
 			
-			EntityVehicle vehicle = (EntityVehicle) mc.player.getRidingEntity();
+			EntityVehicle vehicle = (EntityVehicle) MC.player.getRidingEntity();
 			vehicleGUIOverlay.renderGUI(vehicle);
 		}
 	}
@@ -166,8 +161,8 @@ public class CustomGui extends Gui {
 	public void handleHelmetHUD(RenderGameOverlayEvent.Pre event) {
 		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET) {
 	        
-			ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-			if(helmetStack != null && mc.gameSettings.thirdPersonView == 0 && helmetStack.getItem() instanceof CustomArmor) {
+			ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+			if(helmetStack != null && MC.gameSettings.thirdPersonView == 0 && helmetStack.getItem() instanceof CustomArmor) {
 			    	            
 				// Texture must be Width: 427, height: 240
 				String hudTexture = ((CustomArmor)helmetStack.getItem()).getHudTexture();
@@ -176,8 +171,8 @@ public class CustomGui extends Gui {
 	                int screenWidth = scaledResolution.getScaledWidth();
 	                int screenHeight = scaledResolution.getScaledHeight();
 
-	                ItemStack chestStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-	                ItemStack feetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+	                ItemStack chestStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+	                ItemStack feetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 
 				    if (chestStack != null && helmetStack != null && feetStack != null
 	                        && chestStack.getItem() instanceof CustomArmor
@@ -203,7 +198,7 @@ public class CustomGui extends Gui {
 					GL11.glEnable(GL11.GL_BLEND);
 
 
-					mc.renderEngine.bindTexture(new ResourceLocation(hudTexture));
+					MC.renderEngine.bindTexture(new ResourceLocation(hudTexture));
 
 					drawTexturedQuadFit(0, 0, screenWidth, screenHeight, -100);
 
@@ -240,7 +235,7 @@ public class CustomGui extends Gui {
 	
 	// Ammo counter spec
 	public static final int AMMO_COUNTER_WIDTH = 256;
-	public static final int AMMO_COUNTER_HEIGHT = 53;
+	public static final int AMMO_COUNTER_HEIGHT = 52;
 	//public static final double AMMO_COUNTER_SCALE = 0.50;
 	
 	// Weapon name
@@ -278,7 +273,6 @@ public class CustomGui extends Gui {
 	public static final double TOTAL_AMMO_STRING_SCALE = 6.625;
 	
 	public void handleAmmoCounter(RenderGameOverlayEvent.Pre event, PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {
-		//If moved up, the game needs to be restarted every time there is a change
 		final int AMMO_COUNTER_X_POS = 256 + ModernConfigManager.ammoCounterX;
 		final int AMMO_COUNTER_Y_POS = 128 + ModernConfigManager.ammoCounterY;
 		final double AMMO_COUNTER_SIZE = ModernConfigManager.ammoCounterSize;
@@ -289,7 +283,7 @@ public class CustomGui extends Gui {
 		
 		GlStateManager.translate((scaledWidth - AMMO_COUNTER_X_POS * AMMO_COUNTER_SIZE), (scaledHeight - AMMO_COUNTER_Y_POS * AMMO_COUNTER_SIZE), 0);
 		GlStateManager.scale(AMMO_COUNTER_SIZE, AMMO_COUNTER_SIZE, AMMO_COUNTER_SIZE);
-		mc.getTextureManager().bindTexture(AMMO_COUNTER_TEXTURES);
+		MC.getTextureManager().bindTexture(AMMO_COUNTER_TEXTURES);
 		
 		// Figure out the firemode, and assign it an ID
 		int firemode = 0;
@@ -414,7 +408,7 @@ public class CustomGui extends Gui {
 	public void handleOpenDoorHUD(RenderGameOverlayEvent.Pre event, double scaledWidth, double scaledHeight) {
 
 		 if(ModernConfigManager.enableOpenDoorDisplay) {
-         	EntityPlayer player = mc.player;
+         	EntityPlayer player = MC.player;
 
          	if(shouldRenderDoorOverlay) {
          		int openDoorX = (int) (scaledWidth * OPEN_DOOR_PERCENT_WIDTH_POS);
@@ -424,9 +418,7 @@ public class CustomGui extends Gui {
                 drawCenteredString(FONT_RENDERER, LangTools.formatName(OPENDOOR_TEXT_LANG_KEY), openDoorX, openDoorY + OPEN_DOOR_KEY_Y_OFFSET, FlatUIColors.WHITE);
      		}
          	
-         	if(VectorTools.vectorsEqual(cachedPlayerPosition, player.getPositionVector())
-         			&& cachedPlayerEyeHeight == player.getEyeHeight()
-         			&& VectorTools.vectorsEqual(cachedLookVector, player.getLookVec())) {
+         	if(cachedPlayerPosition.equals(player.getPositionVector()) && cachedPlayerEyeHeight == player.getEyeHeight() && cachedLookVector.equals(player.getLookVec())) {
          		return;
          	}
          		
@@ -453,13 +445,13 @@ public class CustomGui extends Gui {
 	@SubscribeEvent
 	public final void onRenderCrosshair(RenderGameOverlayEvent.Pre event) {
 		
-		if (event.getType() != RenderGameOverlayEvent.ElementType.CROSSHAIRS ) {
+		if (event.getType() != RenderGameOverlayEvent.ElementType.CROSSHAIRS || MC.player.isSpectator()) {
 			return;
 		}
 		
 		
 
-		ItemStack itemStack = mc.player.getHeldItemMainhand();
+		ItemStack itemStack = MC.player.getHeldItemMainhand();
 
 		if(itemStack == null) {
 			return;
@@ -468,7 +460,7 @@ public class CustomGui extends Gui {
 		ScaledResolution scaledResolution = event.getResolution();
         int width = scaledResolution.getScaledWidth();
         int height = scaledResolution.getScaledHeight();
-        FontRenderer fontRender = mc.fontRenderer;
+        FontRenderer fontRender = MC.fontRenderer;
 
 		PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
 
@@ -481,17 +473,17 @@ public class CustomGui extends Gui {
 
 			String crosshair = weaponItem != null ? weaponItem.getCrosshair(weaponInstance) : null;
 			if(crosshair != null) {
-				
 
 
-				mc.entityRenderer.setupOverlayRendering();
+
+				MC.entityRenderer.setupOverlayRendering();
 
 				GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 				GlStateManager.disableLighting();
 				GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
 				GlStateManager.disableBlend();
-                
-                mc.renderEngine.bindTexture(new ResourceLocation(crosshair));
+
+				MC.renderEngine.bindTexture(new ResourceLocation(crosshair));
 
                    
                 handleModificationHUD(event, modContext.getMainHeldWeapon(), width, height);
@@ -501,75 +493,18 @@ public class CustomGui extends Gui {
 			}
 		} else if(itemStack.getItem() instanceof ItemMagazine) {
 
-			mc.entityRenderer.setupOverlayRendering();
+			MC.entityRenderer.setupOverlayRendering();
 			int color = 0xFFFFFF;
 
-			Message message = modContext.getStatusMessageCenter().nextMessage();
 			String messageText;
-			if(message != null) {
-				messageText = message.getMessage();
-				if(message.isAlert()) {
-					color = 0xFF0000;
-				}
-			} else {
-				messageText = getDefaultMagazineMessage(itemStack);
-			}
+			messageText = getDefaultMagazineMessage(itemStack);
 
 			int x = getStatusBarXPosition(width, messageText, fontRender);
 			int y = getStatusBarYPosition(height);
 
 			fontRender.drawStringWithShadow(messageText, x, y, color);
 			event.setCanceled(true);
-		} else if(itemStack.getItem() instanceof ItemWirelessCamera) {
-            mc.entityRenderer.setupOverlayRendering();
-            int color = 0xFFFFFF;
-
-            Message message = modContext.getStatusMessageCenter().nextMessage();
-            String messageText;
-            if(message != null) {
-                messageText = message.getMessage();
-                if(message.isAlert()) {
-                    color = 0xFF0000;
-                }
-
-                int x = getStatusBarXPosition(width, messageText, fontRender);
-                int y = getStatusBarYPosition(height);
-
-                int stringWidth = fontRender.getStringWidth(messageText);
-                if(stringWidth > 80 ) {
-                    x = width - stringWidth - 5;
-                }
-
-                fontRender.drawStringWithShadow(messageText, x, y, color);
-                event.setCanceled(true);
-            }
-		} else if(itemStack.getItem() instanceof ItemGrenade) {
-		    
-            mc.entityRenderer.setupOverlayRendering();
-            int color = 0xFFFFFF;
-
-            Message message = modContext.getStatusMessageCenter().nextMessage();
-            String messageText;
-            if(message != null) {
-                messageText = message.getMessage();
-                if(message.isAlert()) {
-                    color = 0xFFFF00;
-                }
-
-                int x = getStatusBarXPosition(width, messageText, fontRender);
-                int y = getStatusBarYPosition(height);
-
-                int stringWidth = fontRender.getStringWidth(messageText);
-                if(stringWidth > 80 ) {
-                    x = width - stringWidth - 5;
-                }
-
-                fontRender.drawStringWithShadow(messageText, x, y, color);
-                event.setCanceled(true);
-            }
 		}
-		
-		
 	}
 	
 	
@@ -590,7 +525,7 @@ public class CustomGui extends Gui {
 	}
 
     private void drawShieldIndicator(CustomArmor armor, double capacity, double screenWidth, double screenHeight) {
-		Framebuffer framebuffer = mc.getFramebuffer();
+		Framebuffer framebuffer = MC.getFramebuffer();
         if(!framebuffer.isStencilEnabled()) {
 			framebuffer.enableStencil();
         }
@@ -611,8 +546,8 @@ public class CustomGui extends Gui {
         GL11.glColorMask(false, false, false, false);
         GL11.glDepthMask(false);
         GL11.glClear(GL11.GL_STENCIL_BUFFER_BIT); // Clear stencil buffer (0 by default)
-        
-        mc.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorMaskTextureName()));
+
+		MC.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorMaskTextureName()));
         
         // 640:328 
         // 427:240
@@ -630,8 +565,8 @@ public class CustomGui extends Gui {
         GL11.glDisable(GL11.GL_LIGHTING);
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         GL11.glEnable(GL11.GL_BLEND);
-        
-        mc.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorProgressBarTextureName()));
+
+		MC.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorProgressBarTextureName()));
 
         drawTexturedQuadFit((armor.getShieldIndicatorPositionX() - 1) * (screenWidth / 640.0), armor.getShieldIndicatorPositionY() * (screenHeight / 328.0), 
                 ((armor.getShieldIndicatorWidth() + 2) * (screenWidth / 640.0)) * capacity, (armor.getShieldIndicatorHeight() + 1) * (screenHeight / 328.0), -101);
@@ -678,13 +613,12 @@ public class CustomGui extends Gui {
 		
 		ItemMagazine magazine = (ItemMagazine) itemStack.getItem();
 
-		String ammoCounterMessage = I18n.translateToLocalFormatted("gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getCapacity());
+		String ammoCounterMessage = I18n.format("gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getCapacity());
 		return ammoCounterMessage;
 	}
 
 
 	private String getDefaultWeaponMessage(PlayerWeaponInstance weaponInstance) {
-		@SuppressWarnings("static-access")
 		ItemMagazine magazine = (ItemMagazine) attachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 		int totalCapacity;
 		if(magazine != null) {
@@ -695,10 +629,10 @@ public class CustomGui extends Gui {
 
 		String text;
 		if(weaponInstance.getWeapon().getAmmoCapacity() == 0 && totalCapacity == 0) {
-			text = I18n.translateToLocalFormatted("gui.noMagazine");
+			text = I18n.format("gui.noMagazine");
 		} else {
-			text = I18n.translateToLocalFormatted(
-	                "gui.ammoCounter", weaponInstance.getWeapon().getCurrentAmmo(mc.player) + "/" + totalCapacity);
+			text = I18n.format(
+	                "gui.ammoCounter", weaponInstance.getWeapon().getCurrentAmmo(MC.player) + "/" + totalCapacity);
 		}
 		return text;
 	}

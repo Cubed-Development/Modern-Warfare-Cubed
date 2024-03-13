@@ -5,7 +5,7 @@ import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -45,7 +45,7 @@ public class M1941JohnsonRifleFactory {
         .withFlashOffsetY(() -> 0.12f)
 //        .withShellCasingSideOffset(0f)
         .withShellCasingVerticalOffset(-0.1f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Semi-Automatic Rifle",
         "Damage: 15", 

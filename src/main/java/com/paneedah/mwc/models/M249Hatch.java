@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class M249Hatch extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer Main154;
 	private final ModelRenderer Barrel20;
 	private final ModelRenderer Barrel19;
@@ -143,13 +143,13 @@ public class M249Hatch extends ModelWithAttachments {
 	private final ModelRenderer Barrel3;
 	private final ModelRenderer Barrel2;
 	private final ModelRenderer Barrel1;
-	private final QRenderer ironsight;
+	private final ModelRenderer ironsight;
 	private final ModelRenderer IronSight5;
 	private final ModelRenderer IronSight4;
 	private final ModelRenderer IronSight3;
 	private final ModelRenderer IronSight2;
 	private final ModelRenderer IronSight1;
-	private final QRenderer belt;
+	private final ModelRenderer belt;
 	private final ModelRenderer Belt11;
 	private final ModelRenderer Belt10;
 	private final ModelRenderer Belt9;
@@ -162,7 +162,7 @@ public class M249Hatch extends ModelWithAttachments {
 	private final ModelRenderer Belt3;
 	private final ModelRenderer Belt2;
 	private final ModelRenderer Belt1;
-	private final QRenderer hatch;
+	private final ModelRenderer hatch;
 	private final ModelRenderer Hatch39;
 	private final ModelRenderer Hatch38;
 	private final ModelRenderer Hatch37;
@@ -201,7 +201,7 @@ public class M249Hatch extends ModelWithAttachments {
 	private final ModelRenderer Hatch3;
 	private final ModelRenderer Hatch2;
 	private final ModelRenderer Hatch1;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer Stock12;
 	private final ModelRenderer Stock11;
 	private final ModelRenderer Stock10;
@@ -214,7 +214,7 @@ public class M249Hatch extends ModelWithAttachments {
 	private final ModelRenderer Stock3;
 	private final ModelRenderer Stock2;
 	private final ModelRenderer Stock1;
-	private final QRenderer mk48para_stock;
+	private final ModelRenderer mk48para_stock;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -228,11 +228,11 @@ public class M249Hatch extends ModelWithAttachments {
 	private final ModelRenderer cube_r11;
 	private final ModelRenderer cube_r12;
 	private final ModelRenderer cube_r13;
-	private final QRenderer stockadapter;
+	private final ModelRenderer stockadapter;
 	private final ModelRenderer cube_r14;
 	private final ModelRenderer cube_r15;
 	private final ModelRenderer cube_r16;
-	private final QRenderer upperhandguard;
+	private final ModelRenderer upperhandguard;
 	private final ModelRenderer Main153;
 	private final ModelRenderer Main152;
 	private final ModelRenderer Main151;
@@ -260,11 +260,11 @@ public class M249Hatch extends ModelWithAttachments {
 	private final ModelRenderer Main54;
 	private final ModelRenderer Main53;
 	private final ModelRenderer Main8;
-	private final QRenderer mk48upperguard;
+	private final ModelRenderer mk48upperguard;
 	private final ModelRenderer Main11_r1;
 	private final ModelRenderer Main13_r1;
 	private final ModelRenderer Main12_r1;
-	private final QRenderer lowerhandguard;
+	private final ModelRenderer lowerhandguard;
 	private final ModelRenderer Handguard20;
 	private final ModelRenderer Handguard19;
 	private final ModelRenderer Handguard18;
@@ -283,10 +283,10 @@ public class M249Hatch extends ModelWithAttachments {
 	private final ModelRenderer Handguard3;
 	private final ModelRenderer Handguard2;
 	private final ModelRenderer Handguard1;
-	private final QRenderer mk48lowerguard;
+	private final ModelRenderer mk48lowerguard;
 	private final ModelRenderer Main15_r1;
 	private final ModelRenderer Main14_r1;
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer Action9;
 	private final ModelRenderer Action8;
 	private final ModelRenderer Action7;
@@ -296,7 +296,7 @@ public class M249Hatch extends ModelWithAttachments {
 	private final ModelRenderer Action3;
 	private final ModelRenderer Action2;
 	private final ModelRenderer Action1;
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer Mag5;
 	private final ModelRenderer Mag4;
 	private final ModelRenderer Mag3;
@@ -307,7 +307,7 @@ public class M249Hatch extends ModelWithAttachments {
 		textureWidth = 350;
 		textureHeight = 350;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -1022,7 +1022,7 @@ public class M249Hatch extends ModelWithAttachments {
 		gun.addChild(Barrel1);
 		Barrel1.cubeList.add(new ModelBox(Barrel1, 207, 129, -2.0F, -10.9F, -69.0F, 1, 1, 63, 0.0F, false));
 
-		ironsight = new QRenderer(this);
+		ironsight = new ModelRenderer(this);
 		ironsight.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -1052,7 +1052,7 @@ public class M249Hatch extends ModelWithAttachments {
 		ironsight.addChild(IronSight1);
 		IronSight1.cubeList.add(new ModelBox(IronSight1, 52, 69, -2.0F, -9.6F, -69.0F, 1, 6, 1, 0.0F, false));
 
-		belt = new QRenderer(this);
+		belt = new ModelRenderer(this);
 		belt.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -1153,7 +1153,7 @@ public class M249Hatch extends ModelWithAttachments {
 		Belt1.cubeList.add(new ModelBox(Belt1, 25, 63, -1.4441F, 9.6992F, -66.0F, 1, 1, 3, 0.1F, false));
 		Belt1.cubeList.add(new ModelBox(Belt1, 0, 0, -1.4441F, 8.4992F, -66.0F, 1, 6, 3, -0.2F, false));
 
-		hatch = new QRenderer(this);
+		hatch = new ModelRenderer(this);
 		hatch.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -1367,7 +1367,7 @@ public class M249Hatch extends ModelWithAttachments {
 		hatch.addChild(Hatch1);
 		Hatch1.cubeList.add(new ModelBox(Hatch1, 65, 204, -2.0F, -9.6F, -69.0F, 1, 3, 24, 0.0F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -1441,7 +1441,7 @@ public class M249Hatch extends ModelWithAttachments {
 		setRotationAngle(Stock1, -0.6002F, 0.0F, 0.0F);
 		Stock1.cubeList.add(new ModelBox(Stock1, 111, 115, -2.0F, 31.0513F, -62.3616F, 4, 3, 6, 0.0F, false));
 
-		mk48para_stock = new QRenderer(this);
+		mk48para_stock = new ModelRenderer(this);
 		mk48para_stock.setRotationPoint(3.0F, 4.25F, 81.0F);
 		mk48para_stock.cubeList.add(new ModelBox(mk48para_stock, 0, 55, -7.499F, -16.85F, -69.0F, 6, 3, 8, 0.0F, false));
 		mk48para_stock.cubeList.add(new ModelBox(mk48para_stock, 78, 0, -5.499F, -20.85F, -69.002F, 2, 11, 8, 0.0F, false));
@@ -1531,7 +1531,7 @@ public class M249Hatch extends ModelWithAttachments {
 		setRotationAngle(cube_r13, -0.2269F, 0.0F, 0.0F);
 		cube_r13.cubeList.add(new ModelBox(cube_r13, 130, 64, -5.0F, -1.0F, -1.0F, 5, 1, 1, 0.0F, false));
 
-		stockadapter = new QRenderer(this);
+		stockadapter = new ModelRenderer(this);
 		stockadapter.setRotationPoint(3.0F, 4.25F, 81.0F);
 		
 
@@ -1556,7 +1556,7 @@ public class M249Hatch extends ModelWithAttachments {
 		setRotationAngle(cube_r16, -0.2269F, 0.0F, 0.0F);
 		cube_r16.cubeList.add(new ModelBox(cube_r16, 121, 29, -5.0F, -1.0F, -1.0F, 5, 1, 1, 0.0F, false));
 
-		upperhandguard = new QRenderer(this);
+		upperhandguard = new ModelRenderer(this);
 		upperhandguard.setRotationPoint(0.0F, 23.0F, 0.0F);
 		
 
@@ -1717,7 +1717,7 @@ public class M249Hatch extends ModelWithAttachments {
 		upperhandguard.addChild(Main8);
 		Main8.cubeList.add(new ModelBox(Main8, 130, 263, -2.0F, -9.6F, -69.0F, 1, 2, 22, 0.0F, false));
 
-		mk48upperguard = new QRenderer(this);
+		mk48upperguard = new ModelRenderer(this);
 		mk48upperguard.setRotationPoint(0.0F, 24.0F, 0.0F);
 		mk48upperguard.cubeList.add(new ModelBox(mk48upperguard, 154, 261, 1.1F, -39.1F, -57.0F, 1, 2, 18, 0.0F, false));
 		mk48upperguard.cubeList.add(new ModelBox(mk48upperguard, 272, 84, 1.101F, -37.6F, -56.999F, 1, 1, 18, 0.0F, false));
@@ -1778,7 +1778,7 @@ public class M249Hatch extends ModelWithAttachments {
 		Main12_r1.cubeList.add(new ModelBox(Main12_r1, 23, 112, -1.0F, -3.0F, 4.001F, 1, 3, 1, 0.0F, false));
 		Main12_r1.cubeList.add(new ModelBox(Main12_r1, 43, 69, -1.0F, -3.0F, 0.001F, 1, 3, 2, 0.0F, false));
 
-		lowerhandguard = new QRenderer(this);
+		lowerhandguard = new ModelRenderer(this);
 		lowerhandguard.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -1879,7 +1879,7 @@ public class M249Hatch extends ModelWithAttachments {
 		lowerhandguard.addChild(Handguard1);
 		Handguard1.cubeList.add(new ModelBox(Handguard1, 228, 91, -2.0F, -9.6F, -69.0F, 1, 2, 20, 0.0F, false));
 
-		mk48lowerguard = new QRenderer(this);
+		mk48lowerguard = new ModelRenderer(this);
 		mk48lowerguard.setRotationPoint(0.0F, 24.0F, 0.0F);
 		mk48lowerguard.cubeList.add(new ModelBox(mk48lowerguard, 110, 0, 1.351F, -36.4F, -48.999F, 1, 3, 1, 0.0F, false));
 		mk48lowerguard.cubeList.add(new ModelBox(mk48lowerguard, 78, 34, -5.351F, -36.4F, -48.999F, 1, 3, 1, 0.0F, false));
@@ -1936,7 +1936,7 @@ public class M249Hatch extends ModelWithAttachments {
 		Main14_r1.cubeList.add(new ModelBox(Main14_r1, 65, 102, -1.0F, 0.0F, 2.25F, 1, 3, 1, 0.0F, false));
 		Main14_r1.cubeList.add(new ModelBox(Main14_r1, 6, 109, -1.0F, 0.0F, -0.5F, 1, 3, 1, 0.0F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(0.0F, 24.0F, -3.0F);
 		
 
@@ -1990,7 +1990,7 @@ public class M249Hatch extends ModelWithAttachments {
 		action.addChild(Action1);
 		Action1.cubeList.add(new ModelBox(Action1, 20, 55, -2.0F, -9.6F, -69.0F, 1, 2, 5, 0.0F, false));
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -2023,19 +2023,19 @@ public class M249Hatch extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		ironsight.render(f5);
-//		belt.render(f5);
+//		gun.renderer(f5);
+//		ironsight.renderer(f5);
+//		belt.renderer(f5);
 		hatch.render(f5);
-//		stock.render(f5);
-//		mk48para_stock.render(f5);
-//		stockadapter.render(f5);
-//		upperhandguard.render(f5);
-//		mk48upperguard.render(f5);
-//		lowerhandguard.render(f5);
-//		mk48lowerguard.render(f5);
-//		action.render(f5);
-//		mag.render(f5);
+//		stock.renderer(f5);
+//		mk48para_stock.renderer(f5);
+//		stockadapter.renderer(f5);
+//		upperhandguard.renderer(f5);
+//		mk48upperguard.renderer(f5);
+//		lowerhandguard.renderer(f5);
+//		mk48lowerguard.renderer(f5);
+//		action.renderer(f5);
+//		mag.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

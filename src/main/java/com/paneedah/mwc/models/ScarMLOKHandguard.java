@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class ScarMLOKHandguard extends ModelBase {
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -30,7 +30,7 @@ public class ScarMLOKHandguard extends ModelBase {
 	private final ModelRenderer bone5;
 	private final ModelRenderer cube_r13;
 	private final ModelRenderer cube_r14;
-	private final QRenderer handguard_midwest_industries;
+	private final ModelRenderer handguard_midwest_industries;
 	private final ModelRenderer cube_r15;
 	private final ModelRenderer cube_r16;
 	private final ModelRenderer cube_r17;
@@ -49,7 +49,7 @@ public class ScarMLOKHandguard extends ModelBase {
 	private final ModelRenderer bone11;
 	private final ModelRenderer cube_r27;
 	private final ModelRenderer cube_r28;
-	private final QRenderer handguard_mlok;
+	private final ModelRenderer handguard_mlok;
 	private final ModelRenderer cube_r29;
 	private final ModelRenderer cube_r30;
 	private final ModelRenderer cube_r31;
@@ -65,7 +65,7 @@ public class ScarMLOKHandguard extends ModelBase {
 		textureWidth = 360;
 		textureHeight = 360;
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(-3.8F, -11.2F, -49.0F);
 		handguard.cubeList.add(new ModelBox(handguard, 53, 0, 2.5F, -0.6F, 0.0F, 1, 2, 22, 0.001F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 0, 78, 3.5F, -1.0F, 0.0F, 1, 1, 22, -0.001F, false));
@@ -303,7 +303,7 @@ public class ScarMLOKHandguard extends ModelBase {
 		cube_r14.cubeList.add(new ModelBox(cube_r14, 16, 152, -9.0105F, 10.68F, 3.3F, 1, 1, 1, -0.198F, false));
 		cube_r14.cubeList.add(new ModelBox(cube_r14, 24, 152, -9.0105F, 10.68F, 2.05F, 1, 1, 1, -0.198F, false));
 
-		handguard_midwest_industries = new QRenderer(this);
+		handguard_midwest_industries = new ModelRenderer(this);
 		handguard_midwest_industries.setRotationPoint(-3.8F, -11.2F, -65.0F);
 		handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 208, 100, 2.5F, -0.6F, 0.0F, 1, 2, 38, 0.001F, false));
 		handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 0, 246, 3.5F, -1.0F, 0.0F, 1, 1, 38, -0.001F, false));
@@ -693,7 +693,7 @@ public class ScarMLOKHandguard extends ModelBase {
 		cube_r28.cubeList.add(new ModelBox(cube_r28, 147, 47, -9.0105F, 10.68F, 3.3F, 1, 1, 1, -0.198F, false));
 		cube_r28.cubeList.add(new ModelBox(cube_r28, 147, 58, -9.0105F, 10.68F, 2.05F, 1, 1, 1, -0.198F, false));
 
-		handguard_mlok = new QRenderer(this);
+		handguard_mlok = new ModelRenderer(this);
 		handguard_mlok.setRotationPoint(1.1F, -14.0F, -68.0F);
 		handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 248, 88, -1.0F, 0.0F, 3.0F, 1, 1, 33, 0.0F, false));
 		handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 108, 29, -2.4F, -2.1F, 3.0F, 1, 1, 6, -0.001F, false));
@@ -807,8 +807,8 @@ public class ScarMLOKHandguard extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		handguard.render(f5);
-//		handguard_midwest_industries.render(f5);
+//		handguard.renderer(f5);
+//		handguard_midwest_industries.renderer(f5);
 		handguard_mlok.render(f5);
 	}
 

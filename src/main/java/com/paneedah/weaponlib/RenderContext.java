@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.animation.PartPositionProvider;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -25,21 +26,15 @@ public class RenderContext<RS> implements PartPositionProvider {
 	private ItemCameraTransforms.TransformType transformType;
 	private RS fromState;
 	private RS toState;
-	private ModContext modContext;
 	private PlayerItemInstance<?> playerItemInstance;
 	private boolean cancelBeizer;
 
 	private Map<Part, Matrix4f> attachablePartPositions;
 
-	public RenderContext(ModContext modContext, EntityLivingBase player, ItemStack itemStack) {
-		this.modContext = modContext;
+	public RenderContext(EntityLivingBase player, ItemStack itemStack) {
 		this.player = player;
 		this.itemStack = itemStack;
 		this.attachablePartPositions = new HashMap<>();
-	}
-
-	public ModContext getModContext() {
-		return modContext;
 	}
 	
 	public void setCancelBeizer() {
@@ -158,7 +153,7 @@ public class RenderContext<RS> implements PartPositionProvider {
 		if(playerItemInstance instanceof PlayerWeaponInstance) {
 			return (PlayerWeaponInstance) playerItemInstance;
 		}
-		PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry()
+		PlayerItemInstance<?> itemInstance = MWC.modContext.getPlayerItemInstanceRegistry()
 				.getItemInstance(player, itemStack);
 		if(itemInstance instanceof PlayerWeaponInstance) {
 			return (PlayerWeaponInstance) itemInstance;

@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.crafting.ammopress;
 
+import com.paneedah.mwc.network.messages.WorkbenchClientMessage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.base.BlockStation;
 import com.paneedah.weaponlib.inventory.GuiHandler;
-import com.paneedah.weaponlib.network.packets.StationClientPacket;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -18,6 +18,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.List;
+
+import static com.paneedah.mwc.MWC.CHANNEL;
 
 public class BlockAmmoPress extends BlockStation {
 	
@@ -38,7 +40,7 @@ public class BlockAmmoPress extends BlockStation {
 		addCollisionBoxToList(pos, entityBox, collidingBoxes, COLLISION_BOX_BOTTOM);
 		addCollisionBoxToList(pos, entityBox, collidingBoxes, COLLISION_BOX_TOP);
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
 			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
@@ -49,7 +51,7 @@ public class BlockAmmoPress extends BlockStation {
 			playerIn.swingArm(hand);
 			
 			if(!worldIn.isRemote) {
-				modContext.getChannel().sendTo(new StationClientPacket(worldIn, pos), (EntityPlayerMP) playerIn);
+				CHANNEL.sendTo(new WorkbenchClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
 			}
 		}
 		

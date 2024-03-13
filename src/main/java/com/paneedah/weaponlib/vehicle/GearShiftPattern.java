@@ -14,7 +14,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class GearShiftPattern {
 	
@@ -98,8 +98,8 @@ public class GearShiftPattern {
 			Vec3d bG = b.bottomGear.pos;
 			Vec3d m = b.median;
 			
-			drawCenteredString(mc.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x, 0xffdd59, 0.5);
-			drawCenteredString(mc.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x, 0xffdd59, 0.5);
+			drawCenteredString(MC.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x, 0xffdd59, 0.5);
+			drawCenteredString(MC.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x, 0xffdd59, 0.5);
 			
 		}*/
 		
@@ -112,13 +112,13 @@ public class GearShiftPattern {
 			Vec3d bG = b.bottomGear.pos;
 			Vec3d m = b.median;
 			
-			drawCenteredString(mc.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x*1.5, 0xffdd59, 0.02);
-			drawCenteredString(mc.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x*1.1, 0xffdd59, 0.02);
+			drawCenteredString(MC.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x*1.5, 0xffdd59, 0.02);
+			drawCenteredString(MC.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x*1.1, 0xffdd59, 0.02);
 			
-			//drawCenteredString(mc.fontRenderer, "1", 20, -5, 0xffdd59, 0.05);\
+			//drawCenteredString(MC.fontRenderer, "1", 20, -5, 0xffdd59, 0.05);\
 			/*
-			drawCenteredString(mc.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x, 0xffdd59, 0.5);
-			drawCenteredString(mc.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x, 0xffdd59, 0.5);
+			drawCenteredString(MC.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x, 0xffdd59, 0.5);
+			drawCenteredString(MC.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x, 0xffdd59, 0.5);
 			*/
 		}
 		//GlStateManager.disableAlpha();

@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.model;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class Bullet556 extends ModelBase {
-	private final QRenderer casing;
+	private final ModelRenderer casing;
 	private final ModelRenderer bullet_r1;
 	private final ModelRenderer bullet_r2;
 	private final ModelRenderer bullet_r3;
@@ -108,7 +108,7 @@ public class Bullet556 extends ModelBase {
 		textureWidth = 64;
 		textureHeight = 64;
 
-		casing = new QRenderer(this);
+		casing = new ModelRenderer(this);
 		casing.setRotationPoint(-0.0511F, 1.91F, 0.5218F);
 		casing.cubeList.add(new ModelBox(casing, 16, 30, 1.0055F, -15.8737F, 1.2994F, 1, 6, 1, -0.2F, false));
 		casing.cubeList.add(new ModelBox(casing, 28, 30, 0.2949F, -15.8737F, 0.5888F, 1, 6, 1, -0.2F, false));
@@ -665,7 +665,7 @@ public class Bullet556 extends ModelBase {
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		casing.render(f5);
 		
-		//bullet556.render(f5);
+		//bullet556.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

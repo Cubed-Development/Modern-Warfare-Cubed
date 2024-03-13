@@ -108,7 +108,7 @@ public class RevolverSpeedloaderBullets extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		speedloader.render(f5);
+//		speedloader.renderer(f5);
 		speedloaderbullets.render(f5);
 	}
 

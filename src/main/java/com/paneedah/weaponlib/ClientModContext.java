@@ -28,26 +28,18 @@ import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ClientModContext extends CommonModContext {
 
     protected static ClientModContext currentContext;
     private ClientEventHandler clientEventHandler;
-    private Lock mainLoopLock = new ReentrantLock();
     private CompatibleRenderingRegistry rendererRegistry;
-
-    private SafeGlobals safeGlobals = new SafeGlobals();
-
-    private StatusMessageCenter statusMessageCenter;
 
     private PerspectiveManager viewManager;
 
@@ -66,46 +58,35 @@ public class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public void preInit(Object mod, SimpleNetworkWrapper channel) {
-        super.preInit(mod, channel);
+    public void preInit(Object mod) {
+        super.preInit(mod);
 
         currentContext = new ClientModContext();
 
-        aspectRatio = (float) mc.displayWidth / mc.displayHeight;
+        aspectRatio = (float) MC.displayWidth / MC.displayHeight;
 
         ClientCommandHandler.instance.registerCommand(new DebugCommand());
 
         ClientCommandHandler.instance.registerCommand(new MainCommand(this));
 
-
-        this.statusMessageCenter = new StatusMessageCenter();
-
         rendererRegistry = new CompatibleRenderingRegistry();
 
         rendererRegistry.preInit();
 
-        List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(
-                Minecraft.class, mc, "defaultResourcePacks", "field_110449_ao");
+        List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(Minecraft.class, MC, "field_110449_ao");
         WeaponResourcePack weaponResourcePack = new WeaponResourcePack();
         defaultResourcePacks.add(weaponResourcePack);
-        IResourceManager resourceManager = mc.getResourceManager();
+        IResourceManager resourceManager = MC.getResourceManager();
         if (resourceManager instanceof IReloadableResourceManager) {
             ((SimpleReloadableResourceManager) resourceManager).reloadResourcePack(weaponResourcePack);
         }
 
-        MinecraftForge.EVENT_BUS.register(new CustomGui(mc, this, weaponAttachmentAspect));
-        MinecraftForge.EVENT_BUS.register(new WeaponEventHandler(this, safeGlobals));
+        MinecraftForge.EVENT_BUS.register(new CustomGui(MC, this, weaponAttachmentAspect));
+        MinecraftForge.EVENT_BUS.register(new WeaponEventHandler(this));
 
         KeyBindings.init();
 
-        ClientWeaponTicker clientWeaponTicker = new ClientWeaponTicker(this);
-
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            clientWeaponTicker.shutdown();
-        }));
-
-        clientWeaponTicker.start();
-        clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals);
+        clientEventHandler = new ClientEventHandler(this);
         MinecraftForge.EVENT_BUS.register(clientEventHandler);
 
         MinecraftForge.EVENT_BUS.register(InventoryTabs.getInstance());
@@ -153,10 +134,6 @@ public class ClientModContext extends CommonModContext {
         return viewManager;
     }
 
-    public SafeGlobals getSafeGlobals() {
-        return safeGlobals;
-    }
-
     @Override
     public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
         super.registerWeapon(name, weapon, renderer);
@@ -178,17 +155,7 @@ public class ClientModContext extends CommonModContext {
 
     @Override
     protected EntityPlayer getPlayer(MessageContext ctx) {
-        return mc.player;
-    }
-
-    @Override
-    public void runSyncTick(Runnable runnable) {
-        mainLoopLock.lock();
-        try {
-            runnable.run();
-        } finally {
-            mainLoopLock.unlock();
-        }
+        return MC.player;
     }
 
     @Override
@@ -202,17 +169,12 @@ public class ClientModContext extends CommonModContext {
 
     @Override
     public PlayerWeaponInstance getMainHeldWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player,
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player,
                 PlayerWeaponInstance.class);
     }
 
-    @Override
-    public StatusMessageCenter getStatusMessageCenter() {
-        return statusMessageCenter;
-    }
-
     public PlayerMeleeInstance getMainHeldMeleeWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player,
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player,
                 PlayerMeleeInstance.class);
     }
 

@@ -11,7 +11,7 @@ public class MultipartTransition<Part, Context> {
 
     private static final Consumer<?> DEFAULT_POSITION = c -> {};
 
-    @SuppressWarnings("unchecked")
+    
     public static <Context> Consumer<Context> anchoredPosition() {
         return (Consumer<Context>) DEFAULT_POSITION;
     }

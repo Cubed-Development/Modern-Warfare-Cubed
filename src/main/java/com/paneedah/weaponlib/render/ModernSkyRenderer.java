@@ -23,7 +23,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ModernSkyRenderer extends IRenderHandler {
 	
@@ -68,7 +69,7 @@ public class ModernSkyRenderer extends IRenderHandler {
 		    1.0f,-1.0f, 1.0f
 		};
 	
-	private static final String str = ModReference.ID + ":textures/sky/hd/";
+	private static final String str = ID + ":textures/sky/hd/";
 	
 	public static ByteBuffer readByteBuffer3(BufferedImage image) {
     	
@@ -103,7 +104,7 @@ public class ModernSkyRenderer extends IRenderHandler {
 	public ByteBuffer readImageFromFile(ResourceLocation location) {
 		IResource resource = null;
 		try {
-			resource = (IResource) mc.getResourceManager().getResource(location);
+			resource = (IResource) MC.getResourceManager().getResource(location);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -164,7 +165,7 @@ public class ModernSkyRenderer extends IRenderHandler {
 
 
 	@Override
-	public void render(float partialTicks, WorldClient world, Minecraft mc) {
+	public void render(float partialTicks, WorldClient world, Minecraft MC) {
 		//if(1+1==2) return;
 		//skyShader = ShaderLoader.loadVMWShader("sky");
 		if(1+1==2) return;
@@ -193,9 +194,9 @@ GlStateManager.disableCull();
 		skyShader.use();
 		
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/crosshairs/okp.png");
+		ResourceLocation loc = new ResourceLocation(ID + ":textures/crosshairs/okp.png");
 	
-		mc.getTextureManager().bindTexture(loc);
+		MC.getTextureManager().bindTexture(loc);
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 		
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+5);

@@ -1,9 +1,8 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.util.ITooltipFlag;
@@ -18,7 +17,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-public class ItemAttachment<T> extends Item implements ModelSource, IModernCrafting {
+import static com.paneedah.mwc.utils.ModReference.ID;
+
+public class ItemAttachment<T> extends Item implements ModelSource, IModernCraftingRecipe {
 
 	private AttachmentCategory category;
 	private String crosshair;
@@ -69,7 +70,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 //			this.texturedModels.add(new Tuple<ModelBase, String>(model, textureName));
 //		}
 		this.textureName = textureName.toLowerCase();
-		this.crosshair = crosshair != null ? ModReference.ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
+		this.crosshair = crosshair != null ? ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}
@@ -77,7 +78,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 	protected ItemAttachment(AttachmentCategory category, String crosshair,
 			ApplyHandler<T> apply, ApplyHandler<T> remove) {
 		this.category = category;
-		this.crosshair = crosshair != null ? ModReference.ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
+		this.crosshair = crosshair != null ? ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}
@@ -246,10 +247,10 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 		this.postRenderer = postRenderer2;
 		
 	}
-	
+
 	@Override
-	public Item getItem() {
-		return this;
+	public ItemStack getItemStack() {
+		return new ItemStack(this);
 	}
 
 	@Override

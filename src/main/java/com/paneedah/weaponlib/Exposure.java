@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.network.UniversallySerializable;
+import com.paneedah.mwc.network.ISerializable;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-public interface Exposure extends UniversallySerializable {
+public interface Exposure extends ISerializable {
 
     public boolean isEffective(World world);
     

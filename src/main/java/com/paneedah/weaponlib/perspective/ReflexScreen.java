@@ -4,7 +4,6 @@
 package com.paneedah.weaponlib.perspective;
 
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.CustomRenderer;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
@@ -23,8 +22,6 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -32,9 +29,8 @@ import org.lwjgl.opengl.GL12;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 
-import java.util.function.BiConsumer;
-
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ReflexScreen extends ModelBase implements CustomRenderer<RenderableState>{
 	
@@ -45,7 +41,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 
 	
 	// The positioning for the reticle screen
-	public BiConsumer<EntityLivingBase, ItemStack> positioning;
+	public Runnable positioning;
 	
 	// For scopes that are circular.
 	public float radius;
@@ -56,7 +52,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 	
 
 	
-	public ReflexScreen(BiConsumer<EntityLivingBase, ItemStack> pos, float radius, CyclicList<Reticle> reticles) {
+	public ReflexScreen(Runnable pos, float radius, CyclicList<Reticle> reticles) {
 		textureWidth = 16;
 		textureHeight = 16;
 		
@@ -84,9 +80,9 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		//reflexReticle.use();
 		
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/crosshairs/okp.png");
+		ResourceLocation loc = new ResourceLocation(ID + ":textures/crosshairs/okp.png");
 	
-		mc.getTextureManager().bindTexture(loc);
+		MC.getTextureManager().bindTexture(loc);
 		
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
@@ -151,13 +147,13 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		Shaders.reflexReticle.use();
 		
 		
-		//mc.getFramebuffer().bindFramebuffer(true);
+		//MC.getFramebuffer().bindFramebuffer(true);
 
 		// upload uniforms
 		
 		// upload texture
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		mc.getTextureManager().bindTexture(currentReticle.getReticleTexture());		
+		MC.getTextureManager().bindTexture(currentReticle.getReticleTexture());
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
@@ -172,7 +168,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		//glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, gAlbedoSpec, 0);
 		
 		GlStateManager.pushMatrix();
-		positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
+		positioning.run();
 		bb_main.render(0.065f);
 		
 		
@@ -192,14 +188,14 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		//renderReticle(renderContext, true);
 		
 		if(ModernConfigManager.enableAllShaders && ModernConfigManager.enableReticleShaders) {
-		//	mc.getFramebuffer().bindFramebuffer(true);
+		//	MC.getFramebuffer().bindFramebuffer(true);
 			renderReticle(renderContext, false);
 		} else {
 			
 			
 			
 			//GlStateManager.disableTexture2D();
-			mc.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
+			MC.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
 			
 			GlStateManager.pushMatrix();
 			GlStateManager.enableCull();
@@ -207,7 +203,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 			
 		
 		//	GlStateManager.translate(0, -3, 0);
-			positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
+			positioning.run();
 			
 
 			/*
@@ -218,7 +214,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 			bb2.setRotationPoint(0.0F, 24.0F, 0.0F);
 			bb2.cubeList.add(new ModelBox(bb2, 0, 0, -3.0F, -2.0F, 0.0F, 5, 4, 0, 0.0F, false));
 			
-			bb2.render(0.065f);
+			bb2.renderer(0.065f);
 			*/
 			
 			Tessellator t = Tessellator.getInstance();
@@ -244,9 +240,9 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 			/*
 			GlStateManager.disableTexture2D();
 			GlStateManager.enableBlend();
-			mc.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
+			MC.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
 			positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
-			//bb_main.render(0.065f);
+			//bb_main.renderer(0.065f);
 			//GlStateManager.disableTexture2D();
 			Tessellator t = Tessellator.getInstance();
 			BufferBuilder bb = t.getBuffer();
@@ -275,6 +271,6 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		
 		
 
-		//reflexReticle = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":shaders/reflex"));
+		//reflexReticle = ShaderLoader.loadShader(new ResourceLocation(ID + ":shaders/reflex"));
 	}
 }

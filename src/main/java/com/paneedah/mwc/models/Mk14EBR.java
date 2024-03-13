@@ -2718,22 +2718,22 @@ public class Mk14EBR extends ModelWithAttachments
     gun423.render(f5);
     gun424.render(f5);
     gun425.render(f5);
-//    action1.render(f5);
-//    action3.render(f5);
-//    action4.render(f5);
-//    action5.render(f5);
-//    action6.render(f5);
-//    action7.render(f5);
-//    action8.render(f5);
-//    action9.render(f5);
-//    action10.render(f5);
-//    action11.render(f5);
-//    action12.render(f5);
-//    action13.render(f5);
-//    mag1.render(f5);
-//    mag2.render(f5);
-//    mag3.render(f5);
-//    mag4.render(f5);
+//    action1.renderer(f5);
+//    action3.renderer(f5);
+//    action4.renderer(f5);
+//    action5.renderer(f5);
+//    action6.renderer(f5);
+//    action7.renderer(f5);
+//    action8.renderer(f5);
+//    action9.renderer(f5);
+//    action10.renderer(f5);
+//    action11.renderer(f5);
+//    action12.renderer(f5);
+//    action13.renderer(f5);
+//    mag1.renderer(f5);
+//    mag2.renderer(f5);
+//    mag3.renderer(f5);
+//    mag4.renderer(f5);
   }
 
 }

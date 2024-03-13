@@ -44,7 +44,7 @@ public class DP28Factory {
         .withFlashOffsetX(() -> 0.09f)
         .withFlashOffsetY(() -> 0.14f)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Light Machine Gun",
         "Damage: 14", 

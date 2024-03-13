@@ -6,7 +6,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import net.minecraft.client.multiplayer.WorldClient;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class PerspectiveManager {
@@ -62,15 +62,15 @@ public class PerspectiveManager {
 
     CompatibleWorldRenderer getEntityRenderer() {
         if(entityRenderer == null) {
-            entityRenderer = new CompatibleWorldRenderer(mc,
-                    mc.getResourceManager());
+            entityRenderer = new CompatibleWorldRenderer(MC,
+                    MC.getResourceManager());
         }
         return entityRenderer;
     }
 
     MWCParticleManager getEffectRenderer() {
         if(effectRenderer == null) {
-            WorldClient world = (WorldClient) mc.player.world;
+            WorldClient world = (WorldClient) MC.player.world;
             effectRenderer = MWCParticleManager.getParticleManager();
         }
         return effectRenderer;

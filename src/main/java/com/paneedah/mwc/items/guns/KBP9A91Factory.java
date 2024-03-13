@@ -51,7 +51,7 @@ public class KBP9A91Factory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.15f)
         .withInaccuracy(2f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -328,7 +328,7 @@ public class KBP9A91Factory {
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
                     //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(-0.015F, 0.22f, 0.25f);
+                    GL11.glTranslatef(-0.015F, 0.2f, 0.0f);
                 } 
                 
                 // Everything else

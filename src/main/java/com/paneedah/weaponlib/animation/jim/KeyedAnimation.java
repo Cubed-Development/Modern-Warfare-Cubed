@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class KeyedAnimation {
 
@@ -56,7 +56,7 @@ public class KeyedAnimation {
 		if(magnitude == 0.0) return;
 		
 		// Add speed to timer
-		float time = prevTimer + (timer-prevTimer)*mc.getRenderPartialTicks();
+		float time = prevTimer + (timer-prevTimer)*MC.getRenderPartialTicks();
 		
 		
 
@@ -107,7 +107,7 @@ public class KeyedAnimation {
 		rotation = new Vec3d(Math.toDegrees(rawArray[2]), Math.toDegrees(rawArray[1]), Math.toDegrees(rawArray[0]));
 		*/
 		
-		//rotation = new Vec3d(mc.player.ticksExisted%45, 0, 0);
+		//rotation = new Vec3d(MC.player.ticksExisted%45, 0, 0);
 				
 		translation = translation.scale(magnitude);
 		rotation = rotation.scale(magnitude);

@@ -1,12 +1,11 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Predicate;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -14,6 +13,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -23,7 +23,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.storage.AnvilChunkLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-public class HighIQSpawnEgg extends Item implements IModernCrafting {
+import static com.paneedah.mwc.utils.ModReference.ID;
+
+public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
 	private CraftingEntry[] modernRecipe;
 	private CraftingGroup craftGroup;
@@ -64,7 +66,7 @@ public class HighIQSpawnEgg extends Item implements IModernCrafting {
 			egg.setEntitySpawnName(this.entitySpawnName);
 			egg.setCreativeTab(this.creativeTab);
 			egg.setTranslationKey(this.registryName);
-			egg.setRegistryName(ModReference.ID, this.registryName);
+			egg.setRegistryName(ID, this.registryName);
 			egg.setID(this.id);
 
 			SecondaryEntityRegistry.pickupMap.put(this.id, egg);
@@ -138,7 +140,7 @@ public class HighIQSpawnEgg extends Item implements IModernCrafting {
 					// SecondaryEntityRegistry.map.get(getEntitySpawnName()).getConstructor(World.class).newInstance(worldIn);
 
 					NBTTagCompound btc = new NBTTagCompound();
-					btc.setString("id", ModReference.ID + ":" + getEntitySpawnName());
+					btc.setString("id", ID + ":" + getEntitySpawnName());
 					Entity entity = AnvilChunkLoader.readWorldEntityPos(btc, worldIn, pos.getX() + 0.5, pos.up().getY(),
 							pos.getZ() + 0.5, true);
 
@@ -171,8 +173,8 @@ public class HighIQSpawnEgg extends Item implements IModernCrafting {
 	}
 
 	@Override
-	public Item getItem() {
-		return this;
+	public ItemStack getItemStack() {
+		return new ItemStack(this);
 	}
 
 	@Override

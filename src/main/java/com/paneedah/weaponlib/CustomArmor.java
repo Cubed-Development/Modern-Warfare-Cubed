@@ -1,10 +1,9 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.model.ModelBaseRendererWrapper;
 import com.paneedah.weaponlib.model.WrappableModel;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -33,9 +32,10 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class CustomArmor extends ItemArmor implements ExposureProtection , ISpecialArmor, IModernCrafting {
+public class CustomArmor extends ItemArmor implements ExposureProtection , ISpecialArmor, IModernCraftingRecipe {
 
     private static final String ACTIVE_ATTACHMENT_TAG = "ActiveAttachments";
 
@@ -110,7 +110,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
         }
 
         private String textureName;
-        @SuppressWarnings("unused")
+        
         private String iconName;
         private ArmorMaterial material;
         private String unlocalizedName;
@@ -231,7 +231,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 
         public void build(boolean isClient) {
 
-//            if(isClient) {
+//            if(FMLCommonHandler.instance().getSide().isClient()) {
 //              try {
 //                  chestModel = (ModelBiped) Class.forName(modelClassName).newInstance();
 //              } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
@@ -252,7 +252,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorHelmet.setCreativeTab(creativeTab);
 
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
-            armorHelmet.setRegistryName(ModReference.ID, unlocalizedHelmetName.toLowerCase()); // temporary hack
+            armorHelmet.setRegistryName(ID, unlocalizedHelmetName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorHelmet);
 
             String unlocalizedChestName = unlocalizedName + "_chest";
@@ -262,7 +262,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorChest.setCreativeTab(creativeTab);
             }
             armorChest.setTranslationKey(unlocalizedChestName);
-            armorChest.setRegistryName(ModReference.ID, unlocalizedChestName.toLowerCase()); // temporary hack
+            armorChest.setRegistryName(ID, unlocalizedChestName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorChest);
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
@@ -273,7 +273,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorBoots.setCreativeTab(creativeTab);
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
-            armorBoots.setRegistryName(ModReference.ID, unlocalizedBootsName.toLowerCase()); // temporary hack
+            armorBoots.setRegistryName(ID, unlocalizedBootsName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorBoots);
 
             armorHelmet.maxShieldCapacity = maxShieldCapacity;
@@ -325,7 +325,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             armorHelmet.exposureReductionFactor = this.exposureReductionFactor;
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
             armorHelmet.breathingSound = context.registerSound(breathingSound);
-            armorHelmet.setRegistryName(ModReference.ID, unlocalizedHelmetName.toLowerCase()); // temporary hack
+            armorHelmet.setRegistryName(ID, unlocalizedHelmetName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorHelmet);
 
             if (creativeTab != null)
@@ -351,7 +351,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorChest.setCreativeTab(creativeTab);
 
             armorChest.setTranslationKey(unlocalizedChestName);
-            armorChest.setRegistryName(ModReference.ID, unlocalizedChestName.toLowerCase()); // temporary hack
+            armorChest.setRegistryName(ID, unlocalizedChestName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorChest);
 
             armorChest.maxShieldCapacity = maxShieldCapacity;
@@ -382,7 +382,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorBoots.setCreativeTab(creativeTab);
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
-            armorBoots.setRegistryName(ModReference.ID, unlocalizedBootsName.toLowerCase()); // temporary hack
+            armorBoots.setRegistryName(ID, unlocalizedBootsName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorBoots);
 
 //            armorBoots.maxShieldCapacity = maxShieldCapacity;
@@ -402,7 +402,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
     private boolean hasNightVision;
     private boolean vignetteEnabled;
     private float exposureReductionFactor;
-    @SuppressWarnings("unused")
+    
     private SoundEvent breathingSound;
     private EntityEquipmentSlot compatibleEquipmentType;
     
@@ -451,20 +451,22 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorModel.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
                 armorModel.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
 
-                armorModel.bipedRightLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
-                armorModel.bipedLeftLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
-
-                armorModel.isSneak = entityLiving.isSneaking();
-                armorModel.isRiding = entityLiving.isRiding();
-                armorModel.isChild = entityLiving.isChild();
+//                armorModel.bipedRightLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
+//                armorModel.bipedLeftLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
 
                 if (entityLiving instanceof EntityPlayer) {
-
-                    Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager().getEntityRenderObject((AbstractClientPlayer) entityLiving);
+                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject((AbstractClientPlayer) entityLiving);
                     RenderPlayer renderPlayer = (RenderPlayer) entityRenderObject;
-                    armorModel.leftArmPose = renderPlayer.getMainModel().leftArmPose;
-                    armorModel.rightArmPose = renderPlayer.getMainModel().rightArmPose;
+                    ModelBiped playerModel = renderPlayer.getMainModel();
+
+                    armorModel.setModelAttributes(playerModel);
+                    armorModel.setLivingAnimations(entityLiving, entityLiving.limbSwing, entityLiving.limbSwingAmount, MC.getRenderPartialTicks());
+                } else {
+                    armorModel.isSneak = entityLiving.isSneaking();
+                    armorModel.isRiding = entityLiving.isRiding();
+                    armorModel.isChild = entityLiving.isChild();
                 }
+
                 return armorModel;
             }
         }
@@ -475,27 +477,27 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
         if(hudTextureName == null)
             return null;
 
-        return ModReference.ID + ":textures/hud/" + hudTextureName + ".png";
+        return ID + ":textures/hud/" + hudTextureName + ".png";
     }
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-        return ModReference.ID + ":textures/models/" + textureName + ".png";
+        return ID + ":textures/models/" + textureName + ".png";
     }
 
     public String getShieldIndicatorMaskTextureName() {
-        return ModReference.ID + ":textures/hud/" + shieldIndicatorMaskTextureName + ".png";
+        return ID + ":textures/hud/" + shieldIndicatorMaskTextureName + ".png";
     }
 
     public String getShieldIndicatorProgressBarTextureName() {
-        return ModReference.ID + ":textures/hud/" + shieldIndicatorProgressBarTextureName + ".png";
+        return ID + ":textures/hud/" + shieldIndicatorProgressBarTextureName + ".png";
     }
 
     public String getUnlocalizedArmorSetName() {
         return unlocalizedArmorSetName;
     }
 
-    @SuppressWarnings("unchecked")
+    
     public void changeAttachment(AttachmentCategory attachmentCategory, ItemStack itemStack, EntityPlayer player) {
         if (itemStack.getTagCompound() == null)
             itemStack.setTagCompound(new NBTTagCompound());
@@ -780,8 +782,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 	}
 
 	@Override
-	public Item getItem() {
-		return this;
+	public ItemStack getItemStack() {
+		return new ItemStack(this);
 	}
 
 	@Override

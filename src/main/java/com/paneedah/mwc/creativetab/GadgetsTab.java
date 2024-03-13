@@ -1,6 +1,6 @@
 package com.paneedah.mwc.creativetab;
 
-import com.paneedah.mwc.Electronics;
+import com.paneedah.mwc.equipment.Electronics;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;

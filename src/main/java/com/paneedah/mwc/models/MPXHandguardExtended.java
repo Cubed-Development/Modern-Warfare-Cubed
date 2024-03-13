@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class MPXHandguardExtended extends ModelWithAttachments {
-	private final QRenderer mpx_handguard3;
+	private final ModelRenderer mpx_handguard3;
 	private final ModelRenderer mpx_handguard_left_r49;
 	private final ModelRenderer mpx_handguard_left_r50;
 	private final ModelRenderer receiver_upper_r74;
@@ -84,7 +84,7 @@ public class MPXHandguardExtended extends ModelWithAttachments {
 		textureWidth = 256;
 		textureHeight = 256;
 
-		mpx_handguard3 = new QRenderer(this);
+		mpx_handguard3 = new ModelRenderer(this);
 		mpx_handguard3.setRotationPoint(0.0F, 24.0F, 0.0F);
 		mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 70, 74, 1.0F, -40.0F, -69.5F, 1, 3, 2, 0.0F, false));
 		mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 0, 142, 1.0F, -40.0F, -67.5F, 1, 1, 38, 0.0F, false));

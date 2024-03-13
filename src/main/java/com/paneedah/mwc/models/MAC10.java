@@ -975,21 +975,21 @@ public class MAC10 extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		grip.render(f5);
-//		body.render(f5);
-//		stock.render(f5);
-//		action.render(f5);
-//		mag.render(f5);
+//		grip.renderer(f5);
+//		body.renderer(f5);
+//		stock.renderer(f5);
+//		action.renderer(f5);
+//		mag.renderer(f5);
 		
-//		extendedmag.render(f5);
-//		ARstockAdapter.render(f5);
-//		M10_45_body.render(f5);
-//		M10_45_Action.render(f5);
-//		MAX10_Mk2_Grip.render(f5);
-//		MPA_30_body.render(f5);
-//		MAX11_body.render(f5);
-//		MAX11_action.render(f5);
-//		MAX11_stock.render(f5);
+//		extendedmag.renderer(f5);
+//		ARstockAdapter.renderer(f5);
+//		M10_45_body.renderer(f5);
+//		M10_45_Action.renderer(f5);
+//		MAX10_Mk2_Grip.renderer(f5);
+//		MPA_30_body.renderer(f5);
+//		MAX11_body.renderer(f5);
+//		MAX11_action.renderer(f5);
+//		MAX11_stock.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
