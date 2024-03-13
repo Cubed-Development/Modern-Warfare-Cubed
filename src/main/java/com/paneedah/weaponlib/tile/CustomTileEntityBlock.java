@@ -13,7 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -28,7 +27,7 @@ public class CustomTileEntityBlock extends BlockContainer {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
     private Class<? extends TileEntity> tileEntityClass;
-    private Function<IBlockState, AxisAlignedBB> customBoundingBox;
+    private Function<EnumFacing, AxisAlignedBB> customBoundingBox;
     
     protected CustomTileEntityBlock(Material material, Class<? extends TileEntity> tileEntityClass) {
         super(material);
@@ -40,14 +39,14 @@ public class CustomTileEntityBlock extends BlockContainer {
         return new BlockStateContainer(this, new IProperty[] {FACING});
     }
     
-    public void setBoundingBox(Function<IBlockState, AxisAlignedBB> customBoundingBox) {
+    public void setBoundingBox(Function<EnumFacing, AxisAlignedBB> customBoundingBox) {
 		this.customBoundingBox = customBoundingBox;
 	}
     
     
 	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-    	return customBoundingBox != null ? customBoundingBox.apply(state) : super.getBoundingBox(state, source, pos);
+    	return customBoundingBox != null ? customBoundingBox.apply(state.getValue(CustomTileEntityBlock.FACING)) : super.getBoundingBox(state, source, pos);
     }
     
     @Override
@@ -80,21 +79,8 @@ public class CustomTileEntityBlock extends BlockContainer {
     }
     
     @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        CustomTileEntity<?> entity = (CustomTileEntity<?>)world.getTileEntity(pos);
-        
-        if(entity != null) {
-            entity.onEntityBlockActivated(world, pos, player);
-        }
-
-        world.markBlockRangeForRenderUpdate(pos.getX(), pos.getY(), pos.getZ(), pos.getX(), pos.getY(), pos.getZ());
-        
-        return true;
-    }
-    
-    @Override
     public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
-        CustomTileEntity<?> entity = (CustomTileEntity<?>)world.getTileEntity(pos);
+        CustomTileEntity entity = (CustomTileEntity)world.getTileEntity(pos);
         if(entity != null) {
             int side = MathHelper.floor(player.rotationYaw/90f + 0.5) & 3;
             entity.setSide(side);

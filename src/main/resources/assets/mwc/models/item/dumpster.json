@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/dumpster"
+        "layer0": "mwc:items/props/dumpster"
     },
     "display": {
 		"thirdperson_righthand": {

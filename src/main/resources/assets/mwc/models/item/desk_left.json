@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/desk_left"
+        "layer0": "mwc:items/props/desks/desk_left"
     },
     "display": {
 		"thirdperson_righthand": {

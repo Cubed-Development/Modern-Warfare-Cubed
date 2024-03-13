@@ -19,6 +19,10 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
  */
 public final class Transform {
 
+    /**
+     * @deprecated This is very error prone, and doesn't have any benefits at all, use the new getter instead.
+     */
+    @Deprecated // Todo: Make private and convert every existing use
     public static final Transform ZERO = new Transform().withScale(1, 1, 1);
 
     /**
@@ -233,5 +237,14 @@ public final class Transform {
                 String.format("%n.withScale(%ff, %ff, %ff)", scale.x, scale.y, scale.z);
 
         LOG.info(result);
+    }
+
+    /**
+     * Get a duplicate of the ZERO transform.
+     *
+     * @return New duplicate of the ZERO transform.
+     */
+    public static Transform getZero() {
+        return ZERO.duplicate();
     }
 }

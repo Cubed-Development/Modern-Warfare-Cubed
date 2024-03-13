@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/operating_table_alt"
+        "layer0": "mwc:items/props/operating_table_alt"
     },
     "display": {
 		"thirdperson_righthand": {

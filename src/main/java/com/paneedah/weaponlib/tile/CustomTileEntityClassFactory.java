@@ -37,12 +37,10 @@ public class CustomTileEntityClassFactory implements Opcodes {
         return instance;
     }
         
-    private Map<Class<?>, CustomTileEntityConfiguration<?>> entityConfigurations = new HashMap<>();
+    private Map<Class<?>, CustomTileEntityConfiguration> entityConfigurations = new HashMap<>();
     
     
-    public <T extends TileEntity> Class<? extends T> generateEntitySubclass(Class<T> baseEntityClass,
-            int entityId,
-            CustomTileEntityConfiguration<?> configuration) {
+    public <T extends TileEntity> Class<? extends T> generateEntitySubclass(Class<T> baseEntityClass, int entityId, CustomTileEntityConfiguration configuration) {
         String generatedClassName = baseEntityClass.getName() + entityId;
         Class<? extends T> generatedClass;
         try {
@@ -56,7 +54,7 @@ public class CustomTileEntityClassFactory implements Opcodes {
         return generatedClass;
     }
     
-    public CustomTileEntityConfiguration<?> getConfiguration(Class<?> entityClass) {
+    public CustomTileEntityConfiguration getConfiguration(Class<?> entityClass) {
         return entityConfigurations.get(entityClass);
     }
 

@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/floodlight"
+        "layer0": "mwc:items/props/lights/floodlight"
     },
     "display": {
 		"thirdperson_righthand": {

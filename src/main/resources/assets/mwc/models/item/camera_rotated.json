@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/camera_rotated"
+        "layer0": "mwc:items/props/electronics/camera_rotated"
     },
     "display": {
 		"thirdperson_righthand": {

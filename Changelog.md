@@ -52,6 +52,28 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added `reconcileAmmunition` & `reconcileAttachments` gamerules, they are true by default and should only be used for debugging purposes, for example, when you have weapons that appear to "desync" / glitch out
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
+- Added loading bar for props building
+- Added non-rotated versions of the forklift prop and its variants (Existing forklifts will become non-rotated)
+- Added non-rotated versions of the duel floodlight prop (Existing duel floodlight will become non-rotated)
+- Added non-rotated versions of the floodlight prop (Existing floodlight will become non-rotated)
+- Added non-rotated versions of the camera prop (Existing camera will become non-rotated)
+- Added non-rotated versions of the trash bin prop (Existing trash bin will become non-rotated)
+- Added icons for the following props:
+  - Gravestone
+  - Gravestone Skull
+  - Gravestone Cross
+  - Gravestone Cross (ALT 1)
+  - Gravestone Cross (ALT 2)
+  - Sandbag
+  - Sandbag Wall
+  - Spooky Ghost
+  - Spooky Ghost (ALT 1)
+  - Spooky Ghost (ALT 2)
+  - Towable Floodlight
+  - Swat Truck
+  - Server Rack Left (ALT 3)
+  - Scarecrow
+  - Propane Tank
 - Added Hardness values to props
 - Added Groovyscript support plugin for workbench and ammo press recipes
 - **Weapons:**
@@ -216,8 +238,12 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - The weapon stats in the modification GUI are now updated instantly
 - Terrorist spawns are now lower by default
 - Flashbangs do not flash trough walls anymore
+- Moved the turret base from the `Props` creative tab to `Blocks & Ingots` creative tab
+- Changed the icon of the `Props` creative tab to the barrel
+- Made naming of props consistent
 - Moved recipe registration from server starting to Registryevent<IRecipes>
 - Renamed the `NGSW-R` to `XM7`
+- Made props id's consistent
 
 ### Fixed
 
@@ -268,18 +294,38 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Duel Floodlight
   - Single Floodlight
   - Shelf Top
-  - Server Rack Top (left/right)
+  - Server Rack Top Left
+  - Server Rack Top Right
   - Laptop
   - Desk Shelf
-  - Desk Shelf (Alt2)
+  - Desk Shelf (ALT 2)
   - Impaled Body
   - Hanging Body
   - Office Chair
   - Office Chair 2
-  - Home Chair
   - White Desk Middle
   - Medical Create
-  - Camera Rotated
+  - Barrel
+  - Explosive Barrel
+  - Weapon Case
+  - Operating Table
+  - Operating Table (ALT 1)
+  - Trusses
+  - Ceiling Lamp
+  - Outdoor Chair
+  - Outdoor Chair (Rotated)
+  - Home Chair
+  - Home Chair (Rotated)
+  - Vending Machine
+  - Weapons Locker
+  - Fridge (Open)
+  - Fridge (Closed)
+  - Artillery
+  - Supply Drop
+  - Trash Bin
+  - Trash Bin (Rotated)
+  - Wooden Crate
+  - Wooden Crate (Opened)
 - Fixed unused variable in shader `postflat.frag` causing a crash
 - Fixed custom skin system not using the Minecraft missing texture
 - Fixed multiple `ResourceLocation`  in the `PostProcessPipeline` being incorrect leading to missing textures
@@ -316,7 +362,21 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed the spawning position of the shells
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
 - Fixed compatibility with Forge `Emissive Item Rendering`
+- Fixed props registration
+- Fixed rotated version of the ceiling tv prop being rotated the wrong way
+- Fixed duel floodlight prop not being centered
+- Fixed floodlight prop not being centered
+- Fixed body bag prop positioning
+- Fixed rotated version of the radio prop being rotated the wrong way
+- Fixed radio prop being rotated the wrong way
+- Fixed radio prop positioning
+- Fixed swat truck prop being rotated the wrong way
+- Fixed swat truck prop positioning
+- Fixed rotated camera prop not being rotated
+- Fixed barrel & variants prop positioning
+- Fixed barrel & variants prop sizing
 - Fixed some sights cursors being too low and/or cutoff
+- Fixed being able to interact with props
 
 ### Removed
 
@@ -341,6 +401,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
 - Overhauled the networking, MWC as a whole should be more responsive and use less bandwidth
 - Optimized a majority of the models as a result,the jar size decreased (27.57MB -> 21.55MB)
+- Optimized all props models
 
 ### Internal
 
@@ -358,6 +419,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Overhauled the internal process of item and block creation
 - Changed name and mod id
 - Overhauled the networking
+- Separated props models from the rest of the models
+- Separated props textures from the rest of the textures
+- Cleaned up props models
+- Generally organized the project structure
 
 ### Balance Pack
 

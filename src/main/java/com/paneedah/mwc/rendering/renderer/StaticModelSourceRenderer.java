@@ -81,7 +81,6 @@ public final class StaticModelSourceRenderer extends ModelSourceRenderer {
             model.render(MC.player, 0, 0, 0, 0, 0, 0.08F);
         }
 
-
         final CustomRenderer<RenderableState> postRenderer = iModelSource.getPostRenderer();
 
         if (postRenderer != null) {

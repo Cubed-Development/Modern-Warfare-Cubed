@@ -1,33 +1,25 @@
 package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.Configurable;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
-public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extends TileEntity implements Configurable<T> {
+public class CustomTileEntity extends TileEntity implements Configurable<CustomTileEntityConfiguration> {
     
     private static final String TAG_SIDE = "side";
 
-    protected CustomTileEntityConfiguration<?> configuration;
+    protected CustomTileEntityConfiguration configuration;
     
     private int side;
-    
-    
-    private T safeCast(Object input) {
-        return (T)input;
-    }
-    
+
     @Override
-    public T getConfiguration() {
+    public CustomTileEntityConfiguration getConfiguration() {
         if(configuration == null) {
             configuration = CustomTileEntityClassFactory.getInstance().getConfiguration(getClass());
         }
-        return safeCast(configuration);
+        return configuration;
     }
     
     protected void setSide(int side) {
@@ -36,9 +28,6 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
     
     public int getSide() {
         return side;
-    }
-
-    public void onEntityBlockActivated(World world, BlockPos pos, EntityPlayer player) {
     }
     
     @Override
