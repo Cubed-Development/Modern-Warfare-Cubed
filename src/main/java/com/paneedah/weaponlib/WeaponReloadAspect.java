@@ -1,5 +1,8 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.capabilities.EquipmentCapability;
+import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
+import com.paneedah.mwc.equipment.inventory.carryable.backpack.BackpackInventory;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.mwc.utils.MWCUtil;
@@ -18,6 +21,7 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.BELT_SLOT;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
@@ -503,12 +507,29 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         if (player.isCreative() && !player.isSneaking())
             return (ItemAttachment<Weapon>) compatibleMagazines.stream().map(ItemMagazine::create).max(comparator).orElse(null).getItem();
 
-        ItemStack maxStack = null;
         int maxItemIndex = -1;
-        for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
-            if (player.inventory.getStackInSlot(i) != null && compatibleMagazines.contains(player.inventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
-                maxStack = player.inventory.getStackInSlot(i);
-                maxItemIndex = i;
+        ItemStack maxStack = null;
+
+        EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(player);
+        if(equipmentInventory != null) {
+            ItemStack beltStack = equipmentInventory.getStackInSlot(BELT_SLOT);
+            if(beltStack != null) {
+                BackpackInventory beltInventory = new BackpackInventory(beltStack);
+                for (int i = 0; i < beltInventory.getSizeInventory(); ++i) {
+                    if (beltInventory.getStackInSlot(i) != null && compatibleMagazines.contains(beltInventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(beltInventory.getStackInSlot(i), maxStack) > 0)) {
+                        maxStack = beltInventory.getStackInSlot(i);
+                        maxItemIndex = i;
+                    }
+                }
+            }
+        }
+
+        if (maxItemIndex < 0) {
+            for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
+                if (player.inventory.getStackInSlot(i) != null && compatibleMagazines.contains(player.inventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
+                    maxStack = player.inventory.getStackInSlot(i);
+                    maxItemIndex = i;
+                }
             }
         }
         
@@ -540,12 +561,29 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         if (player.isCreative() && !player.isSneaking())
             return compatibleMagazines.stream().map(ItemMagazine::create).max(comparator).orElse(null);
 
-        ItemStack maxStack = null;
         int maxItemIndex = -1;
-        for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
-            if (player.inventory.getStackInSlot(i) != null && compatibleMagazines.contains(player.inventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
-                maxStack = player.inventory.getStackInSlot(i);
-                maxItemIndex = i;
+        ItemStack maxStack = null;
+
+        EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(player);
+        if(equipmentInventory != null) {
+            ItemStack beltStack = equipmentInventory.getStackInSlot(BELT_SLOT);
+            if(beltStack != null) {
+                BackpackInventory beltInventory = new BackpackInventory(beltStack);
+                for (int i = 0; i < beltInventory.getSizeInventory(); ++i) {
+                    if (beltInventory.getStackInSlot(i) != null && compatibleMagazines.contains(beltInventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(beltInventory.getStackInSlot(i), maxStack) > 0)) {
+                        maxStack = beltInventory.getStackInSlot(i);
+                        maxItemIndex = i;
+                    }
+                }
+            }
+        }
+
+        if (maxItemIndex < 0) {
+            for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
+                if (player.inventory.getStackInSlot(i) != null && compatibleMagazines.contains(player.inventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
+                    maxStack = player.inventory.getStackInSlot(i);
+                    maxItemIndex = i;
+                }
             }
         }
 

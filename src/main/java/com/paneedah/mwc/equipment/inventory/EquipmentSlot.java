@@ -1,6 +1,7 @@
 package com.paneedah.mwc.equipment.inventory;
 
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
+import com.paneedah.mwc.items.equipment.carryable.ItemBelt;
 import com.paneedah.weaponlib.ItemVest;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -14,8 +15,9 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class EquipmentSlot extends Slot {
 
-    private static final ResourceLocation emptyBackpackSlotTexture = new ResourceLocation(ID, "gui/inventory/empty_backpack_slot");
-    private static final ResourceLocation emptyVestSlotTexture = new ResourceLocation(ID, "gui/inventory/empty_vest_slot");
+    public static final ResourceLocation EMPTY_BACKPACK_SLOT_TEXTURE = new ResourceLocation(ID, "gui/inventory/empty_backpack_slot");
+    public static final ResourceLocation EMPTY_BELT_SLOT_TEXTURE = new ResourceLocation(ID, "gui/inventory/empty_belt_slot");
+    public static final ResourceLocation EMPTY_VEST_SLOT_TEXTURE = new ResourceLocation(ID, "gui/inventory/empty_vest_slot");
     
     private final Class<?> itemClass;
     
@@ -41,9 +43,11 @@ public class EquipmentSlot extends Slot {
     @SideOnly(Side.CLIENT)
     public String getSlotTexture() {
         if (itemClass.equals(ItemBackpack.class))
-            return emptyBackpackSlotTexture.toString();
+            return EMPTY_BACKPACK_SLOT_TEXTURE.toString();
+        else if (itemClass.equals(ItemBelt.class))
+            return EMPTY_BELT_SLOT_TEXTURE.toString();
         else if (itemClass.equals(ItemVest.class))
-            return emptyVestSlotTexture.toString();
+            return EMPTY_VEST_SLOT_TEXTURE.toString();
         else
             return backgroundName;
     }

@@ -17,16 +17,20 @@ import static com.paneedah.mwc.MWC.CHANNEL;
 
 public class EquipmentInventory implements IInventory, Contextual {
 
+    public static final int BACKPACK_SLOT = 0;
+    public static final int BELT_SLOT = 1;
+    public static final int VEST_SLOT = 2;
+
+    private static final int INV_SIZE = 3;
+
+    /** The key used to store and retrieve the inventory from NBT */
+    private static final String TAG_NAME = "equipmentInventory";
+
     /**
      * The name your custom inventory will display in the GUI, possibly just
      * "Inventory"
      */
     private final String name = "Equipment Inventory";
-
-    /** The key used to store and retrieve the inventory from NBT */
-    private static final String tagName = "equipmentInventory";
-
-    private static final int INV_SIZE = 3;
 
     private ItemStack[] inventory;
 
@@ -158,13 +162,13 @@ public class EquipmentInventory implements IInventory, Contextual {
         }
 
         // We're storing our items in a custom tag list using our 'tagName' from above to prevent potential conflicts
-        compound.setTag(tagName, items);
+        compound.setTag(TAG_NAME, items);
     }
 
     public void readFromNBT(NBTTagCompound compound) {
         // now you must include the NBTBase type ID when getting the list;
         // NBTTagCompound's ID is 10
-        NBTTagList tagList = compound.getTagList(tagName, compound.getId());
+        NBTTagList tagList = compound.getTagList(TAG_NAME, compound.getId());
 
         for (int i = 0; i < tagList.tagCount(); ++i) {
             // tagAt(int) has changed to getCompoundTagAt(int)
