@@ -9,6 +9,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Warning
 
+[**MWC 0.1 NOW REQUIRE RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRE MIXINBOOTER  AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
 **BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
 
 ### Added
