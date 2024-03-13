@@ -818,6 +818,15 @@
       }
     ]
   },
+    "bullet_14_snow": {
+    "category": "master",
+    "sounds": [
+      {
+       "name": "mwc:bullet_14_snow",
+       "stream": false
+      }
+    ]
+  },
   "mg42": {
     "category": "master",
     "sounds": [

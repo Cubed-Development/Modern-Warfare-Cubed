@@ -54,6 +54,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added the gold and dark color variants of the Desert Eagle
 - Added Hardness values to props
 - Added Groovyscript support plugin for workbench and ammo press recipes
+- Added a new sound effect when shooting Snow. 
 
 ### Changed
 
