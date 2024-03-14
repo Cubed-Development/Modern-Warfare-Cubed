@@ -421,8 +421,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             float rotationPitchAdjustment = 20f;
             this.rotationPitch -= rotationPitchAdjustment;
             PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) Tags.getInstance(itemStack);
-            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance,
-                    System.currentTimeMillis() + 2000L);
+            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance);
             this.rotationPitch += rotationPitchAdjustment;
         }
     }
@@ -444,8 +443,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             float rotationPitchAdjustment = 20f;
             this.rotationPitch -= rotationPitchAdjustment;
             PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) Tags.getInstance(secondaryEquipment);
-            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance,
-                    System.currentTimeMillis() + 2000L);
+            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance);
             this.rotationPitch += rotationPitchAdjustment;
         }
     }
