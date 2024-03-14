@@ -252,7 +252,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
 
     public ModelBiped model;
-    private String modelFileString;
+    public String modelFileString;
     public String textureName;
 
     public String getModelFileString() {

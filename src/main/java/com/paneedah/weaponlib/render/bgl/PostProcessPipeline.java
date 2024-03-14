@@ -86,6 +86,7 @@ public class PostProcessPipeline {
 	
 	// Gives us the original weather renderer to swap back to
 	private static IRenderHandler originalWeatherRenderer = null;
+	private static boolean isOriginalWeatherRendererDirty = true;
 	
 	
 	private static final ModernWeatherRenderer modernWeatherRenderer = new ModernWeatherRenderer();
@@ -191,8 +192,10 @@ public class PostProcessPipeline {
 	public static void setWorldElements() {
 		final IRenderHandler currentWeatherRenderer = MC.world.provider.getWeatherRenderer();
 
-		if (originalWeatherRenderer == null)
+		if (isOriginalWeatherRendererDirty || (currentWeatherRenderer != modernWeatherRenderer && currentWeatherRenderer != originalWeatherRenderer)) {
 			originalWeatherRenderer = currentWeatherRenderer;
+			isOriginalWeatherRendererDirty = false;
+		}
 
 		if (ModernConfigManager.enableFancyRainAndSnow) {
 			MC.world.provider.setWeatherRenderer(modernWeatherRenderer);

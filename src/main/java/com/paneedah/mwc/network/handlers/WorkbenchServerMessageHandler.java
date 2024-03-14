@@ -24,9 +24,12 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import java.util.HashMap;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 @NoArgsConstructor
 public final class WorkbenchServerMessageHandler implements IMessageHandler<WorkbenchServerMessage, IMessage> {
+
+    // TODO: OREDICT needs to take be remade for oredict support
 
     @Override
     public IMessage onMessage(final WorkbenchServerMessage workbenchServerMessage, final MessageContext messageContext) {
@@ -96,6 +99,9 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                             final Item stackItem = stack.getItem();
                             if (!itemRemovalList.containsKey(stackItem) || itemRemovalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum() < stack.getCount())
                                 return;
+                        } else {
+                            LOG.error("Could not verify that items are available in the inventory.");
+                            return;
                         }
                     }
 

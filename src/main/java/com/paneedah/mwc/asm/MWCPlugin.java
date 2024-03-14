@@ -8,6 +8,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import static com.paneedah.mwc.utils.ModReference.NAME;
+
+@IFMLLoadingPlugin.MCVersion("1.12.2")
+@IFMLLoadingPlugin.Name(NAME + " Plugin")
+@IFMLLoadingPlugin.TransformerExclusions("com.paneedah.mwc.asm")
 public class MWCPlugin implements IFMLLoadingPlugin, IEarlyMixinLoader {
 
     @Override

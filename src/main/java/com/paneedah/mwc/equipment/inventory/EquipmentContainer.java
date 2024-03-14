@@ -1,6 +1,7 @@
 package com.paneedah.mwc.equipment.inventory;
 
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
+import com.paneedah.mwc.items.equipment.carryable.ItemBelt;
 import com.paneedah.weaponlib.ItemVest;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -66,7 +67,7 @@ public class EquipmentContainer extends Container {
     protected List<Slot> createCustomSlots(EquipmentInventory inventoryCustom) {
         return Arrays.asList(
                 new EquipmentSlot(ItemBackpack.class, inventoryCustom, 0, 80, 8),
-                new EquipmentSlot(ItemBackpack.class, inventoryCustom, 1, 80, 26),
+                new EquipmentSlot(ItemBelt.class, inventoryCustom, 1, 80, 26),
                 new EquipmentSlot(ItemVest.class, inventoryCustom, 2, 80, 44)
         );
     }
