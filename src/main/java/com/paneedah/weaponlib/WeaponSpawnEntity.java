@@ -92,7 +92,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
             //PostProcessPipeline.createDistortionPoint((float) position.hitVec.x,(float)  position.hitVec.y, (float) position.hitVec.z, 2f, 3000);
             Explosion.createServerSideExplosion(world, this.getThrower(), this, position.hitVec.x, position.hitVec.y, position.hitVec.z, explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), weapon.getModContext().getRegisteredTexture(smokeParticleTextureId), weapon.getModContext().getExplosionSound());
         } else if (position.entityHit != null) {
-            position.entityHit.attackEntityFrom(new ProjectileDamageSource(this, this.getThrower()), damage);
+            position.entityHit.attackEntityFrom(new ProjectileDamageSource(this, null), damage);
 
             position.entityHit.hurtResistantTime = 0;
             position.entityHit.prevRotationYaw -= 0.3;
@@ -192,13 +192,16 @@ public class WeaponSpawnEntity extends EntityProjectile {
     }
 
     public static class ProjectileDamageSource extends EntityDamageSourceIndirect {
-        public ProjectileDamageSource(Entity projectile, @Nonnull Entity shooter) {
+        public ProjectileDamageSource(Entity projectile, Entity shooter) {
             super("gun", projectile, shooter);
             this.setProjectile();
         }
 
         @Override
         public ITextComponent getDeathMessage(EntityLivingBase entityLivingBaseIn) {
+            if (this.getTrueSource() == null) {
+                return new TextComponentTranslation("death.attack.arrow", entityLivingBaseIn.getDisplayName());
+            }
             ITextComponent itextcomponent = getTrueSource().getDisplayName();
             ItemStack itemstack = getTrueSource() instanceof EntityLivingBase ? ((EntityLivingBase) getTrueSource()).getHeldItemMainhand() : ItemStack.EMPTY;
             String s = "death.attack.arrow.item";
