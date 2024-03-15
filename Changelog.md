@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project follows to [Ragnarök Versioning Convention](https://gist.github.com/JustDesoroxxx/5d4a45785ce19a6653ba99f72325c703).
 
+## Modern Warfare Cubed Version 0.1.3 Changelog - 2024-03-15
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+### Fixed
+
+- Fixed the potential fix to a rare crash causing rare crash
+
 ## Modern Warfare Cubed Version 0.1.2 Changelog - 2024-03-15
 
 ### Warning
