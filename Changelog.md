@@ -19,6 +19,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 - Fixed crash when shooting certain things or in certain conditions (e.g., shooting an entity from Scape and Run: Parasites or shooting with certain plugins)
 - Fixed incompatibility with certain mods and plugins (i.e., plugins protecting areas not being able to correctly detect bullets)
+- Potentially fixed a rare crash
 
 ## Modern Warfare Cubed Version 0.1.1 Changelog - 2024-03-13
 
