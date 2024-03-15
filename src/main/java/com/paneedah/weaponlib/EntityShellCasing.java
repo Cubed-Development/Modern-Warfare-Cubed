@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.Weapon.ShellCasingEjectDirection;
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

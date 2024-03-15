@@ -1,13 +1,11 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.handlers.NightVisionToggleMessageHandler;
-import com.paneedah.mwc.network.messages.EntityControlServerMessage;
 import com.paneedah.mwc.network.messages.NightVisionToggleMessage;
 import com.paneedah.mwc.network.messages.OpenCustomPlayerInventoryGuiMessage;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.render.ModificationGUI;

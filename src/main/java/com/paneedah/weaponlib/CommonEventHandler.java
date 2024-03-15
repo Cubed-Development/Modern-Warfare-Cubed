@@ -5,12 +5,10 @@ import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import com.paneedah.mwc.network.messages.*;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
-import com.paneedah.mwc.network.messages.EntityInventorySyncMessage;
 import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import net.minecraft.entity.Entity;
@@ -152,7 +150,6 @@ public class CommonEventHandler {
             if (tracker != null)
                 CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, null), (EntityPlayerMP)entity);
 
-            CHANNEL.sendTo(new EntityControlServerMessage(player, CompatibleExtraEntityFlags.getFlags(player)), (EntityPlayerMP)entity);
             CHANNEL.sendToAll(new EntityInventorySyncMessage(entity, false, EquipmentCapability.getInventory(player)));
         }
     }
@@ -171,10 +168,6 @@ public class CommonEventHandler {
         if (tracker != null && tracker.updateTrackableEntity(event.getTarget())) {
             LOG.debug("Player {} started tracking {} with uuid {}", event.getEntityPlayer(), event.getTarget(), event.getTarget().getUniqueID());
             CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, null), (EntityPlayerMP) event.getEntityPlayer());
-
-            final EntityPlayer player = (EntityPlayer) event.getEntity();
-
-            CHANNEL.sendTo(new EntityControlServerMessage(player, CompatibleExtraEntityFlags.getFlags(player)), (EntityPlayerMP) event.getEntity());
         }
     }
 
@@ -271,7 +264,6 @@ public class CommonEventHandler {
     public void attachCapability(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof EntityPlayer) {
             event.addCapability(new ResourceLocation(ID, "PLAYER_ENTITY_TRACKER"), new CompatiblePlayerEntityTrackerProvider());
-            event.addCapability(new ResourceLocation(ID, "PLAYER_ENTITY_FLAGS"), new CompatibleExtraEntityFlags());
             event.addCapability(new ResourceLocation(ID, "PLAYER_CUSTOM_INVENTORY"), new EquipmentCapability());
         }
 

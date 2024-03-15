@@ -1,6 +1,5 @@
 package com.paneedah.mwc.utils;
 
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;

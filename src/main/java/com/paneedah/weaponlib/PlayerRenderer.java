@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -14,7 +12,6 @@ import net.minecraft.util.EnumHandSide;
 import org.lwjgl.opengl.GL11;
 
 import java.nio.FloatBuffer;
-import java.util.List;
 
 public class PlayerRenderer {
 
@@ -115,13 +112,8 @@ public class PlayerRenderer {
     }
 
     public void renderModel(ModelBiped modelPlayer, EntityPlayer player, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-    	newFlags = CompatibleExtraEntityFlags.getFlags(player);
-        if (newFlags != currentFlags)
-            renderingStartTimestamp = System.currentTimeMillis();
-
         currentPositioner.remove();
         renderBipedModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-
         currentFlags = newFlags;
     }
     
@@ -329,10 +321,10 @@ public class PlayerRenderer {
         FloatBuffer preBuf = MatrixHelper.getModelViewMatrixBuffer();
         positioner.position(Part.HEAD, renderContext);
         FloatBuffer postBuf = MatrixHelper.getModelViewMatrixBuffer();
-        if(!preBuf.equals(postBuf)) {
+//        if(!preBuf.equals(postBuf)) {
 //            modelPlayer.bipedHead.rotateAngleX = modelPlayer.bipedHead.rotateAngleY = 
 //                    modelPlayer.bipedHead.rotateAngleZ = 0f;
-        }
+//        }
         modelPlayer.bipedHead.render(renderContext.getScale());
         
         if(modelPlayer instanceof ModelPlayer)

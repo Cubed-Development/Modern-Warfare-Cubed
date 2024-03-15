@@ -6,7 +6,6 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
 import com.paneedah.weaponlib.render.NewScreenshakingManager;
@@ -692,7 +691,7 @@ public class Interceptors {
             ModelPlayer modelPlayer = (ModelPlayer) modelBase;
             EntityPlayer player = (EntityPlayer) entityIn;
 
-            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn, e -> new PlayerRenderer((EntityPlayer) entityIn, ClientModContext.getContext()));
+            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn, e -> new PlayerRenderer());
             
             playerRenderer.renderModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 

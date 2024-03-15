@@ -18,19 +18,19 @@ import io.redstudioragnarok.redcore.RedCore;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.NAME;
-import static com.paneedah.mwc.utils.ModReference.VERSION;
+import static com.paneedah.mwc.utils.ModReference.*;
 
 //   /$$      /$$                 /$$                                     /$$      /$$                      /$$$$$$                                     /$$$$$$            /$$                       /$$
 //  | $$$    /$$$                | $$                                    | $$  /$ | $$                     /$$__  $$                                   /$$__  $$          | $$                      | $$
@@ -116,14 +116,12 @@ public final class MWC {
         CHANNEL.registerMessage(new VehicleClientMessageHandler(), VehicleClientMessage.class, -13, Side.CLIENT);
         CHANNEL.registerMessage(new EntityInventorySyncMessageClientHandler(modContext), EntityInventorySyncMessage.class, -14, Side.CLIENT);
         CHANNEL.registerMessage(new ExposureMessageHandler(), ExposureMessage.class, -15, Side.CLIENT);
-        CHANNEL.registerMessage(new EntityControlClientMessageHandler(), EntityControlClientMessage.class, -16, Side.CLIENT);
 
         CHANNEL.registerMessage(new TryFireMessageHandler(modContext.getWeaponFireAspect()), TryFireMessage.class, 1, Side.SERVER);
         CHANNEL.registerMessage(new PermitMessageServerHandler((CommonModContext) modContext), PermitMessage.class, 2, Side.SERVER);
         CHANNEL.registerMessage(new MeleeAttackMessageHandler(modContext.getMeleeAttackAspect()), MeleeAttackMessage.class, 3, Side.SERVER);
         CHANNEL.registerMessage(new GrenadeMessageHandler(modContext.getGrenadeAttackAspect()), GrenadeMessage.class, 4, Side.SERVER);
         CHANNEL.registerMessage(new NightVisionToggleMessageHandler(), NightVisionToggleMessage.class, 5, Side.SERVER);
-        CHANNEL.registerMessage(new EntityControlServerMessageHandler(), EntityControlServerMessage.class, 6, Side.SERVER);
         CHANNEL.registerMessage(new EntityInventorySyncMessageServerHandler(modContext), EntityInventorySyncMessage.class, 7, Side.SERVER);
         CHANNEL.registerMessage(new OpenCustomPlayerInventoryGuiMessageHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 8, Side.SERVER);
         CHANNEL.registerMessage(new VehicleControlMessageHandler(), VehicleControlMessage.class, 9, Side.SERVER);
