@@ -609,9 +609,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 						long currentUnixTimeSeconds = System.currentTimeMillis() / 1000;
 
 						if(currentUnixTimeSeconds-lastUnixTimeSeconds>=1){
-							itemindex++;
-							if(itemindex>=itemStacks.length)
-								itemindex=0;
+							itemindex = itemindex+1>=itemStacks.length? 0:itemindex+1;
 							lastUnixTimeSeconds = currentUnixTimeSeconds;
 						}
 
