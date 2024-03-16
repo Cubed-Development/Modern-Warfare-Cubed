@@ -86,7 +86,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		for (CraftingEntry entry : recipe) {
 			JsonObject jsonEntry = new JsonObject();
 
-			String itemName = entry.getItem().getRegistryName().toString();
+			String itemName = entry.getItem().toString();
 
 			jsonEntry.addProperty(ENTRY_ITEM_NAME_KEY, !entry.isOreDictionary() ? itemName : entry.getOreDictionaryEntry());
 			jsonEntry.addProperty(ORE_DICTIONARY_BOOLEAN_KEY, false);

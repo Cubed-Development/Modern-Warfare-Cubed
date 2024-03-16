@@ -3,6 +3,8 @@ package com.paneedah.weaponlib.crafting;
 import com.paneedah.mwc.bases.ManufacturingItemBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
 
 /**
  * CraftingEntry class stores an item, the count, and an optional OreDictionary name.
@@ -17,57 +19,63 @@ import net.minecraft.item.Item;
  */
 public class CraftingEntry {
 
-    private Item item;
+    private Ingredient item;
     private int count;
     private String oreDictionary;
 
     private double yield = 1;
 
     public CraftingEntry(Item i, int c) {
-        this.item = i;
+        this.item = Ingredient.fromItem(i);
         this.count = c;
     }
 
     public CraftingEntry(Block i, int c) {
-        this.item = Item.getItemFromBlock(i);
+        this.item = Ingredient.fromItem(Item.getItemFromBlock(i));
         this.count = c;
     }
 
     public CraftingEntry(Item dismantle, String oreDictionary, int count) {
-        this.item = dismantle;
+        this.item = Ingredient.fromItem(dismantle);
         this.oreDictionary = oreDictionary;
         this.count = count;
     }
 
     public CraftingEntry(Block dismantle, String oreDictionary, int count) {
-        this.item = Item.getItemFromBlock(dismantle);
+        this.item = Ingredient.fromItem(Item.getItemFromBlock(dismantle));
         this.oreDictionary = oreDictionary;
         this.count = count;
     }
 
     public CraftingEntry(Item i, int c, double yield) {
-        this.item = i;
+        this.item = Ingredient.fromItem(i);
         this.count = c;
         this.yield = yield;
     }
 
     public CraftingEntry(Block i, int c, double yield) {
-        this.item = Item.getItemFromBlock(i);
+        this.item = Ingredient.fromItem(Item.getItemFromBlock(i));
         this.count = c;
         this.yield = yield;
     }
 
     public CraftingEntry(Item dismantle, String oreDictionary, int count, double yield) {
-        this.item = dismantle;
+        this.item = Ingredient.fromItem(dismantle);
         this.oreDictionary = oreDictionary;
         this.count = count;
         this.yield = yield;
     }
 
     public CraftingEntry(Block dismantle, String oreDictionary, int count, double yield) {
-        this.item = Item.getItemFromBlock(dismantle);
+        this.item = Ingredient.fromItem(Item.getItemFromBlock(dismantle));
         this.oreDictionary = oreDictionary;
         this.count = count;
+        this.yield = yield;
+    }
+
+    public CraftingEntry(Ingredient mcIngredient, int amount, Double yield) {
+        this.item = mcIngredient;
+        this.count = amount;
         this.yield = yield;
     }
 
@@ -75,7 +83,7 @@ public class CraftingEntry {
         return this.count;
     }
 
-    public Item getItem() {
+    public Ingredient getItem() {
         return this.item;
     }
 
@@ -92,15 +100,15 @@ public class CraftingEntry {
     @Override
     public String toString() {
         if (isOreDictionary())
-            return "(" + this.oreDictionary + "[" + this.item.getRegistryName().toString() + "], " + getCount() + ")";
+            return "(" + this.oreDictionary + "[" + this.item.toString() + "], " + getCount() + ")";
         else
-            return "(" + this.item.getRegistryName().toString() + ", " + getCount() + ")";
+            return "(" + this.item.toString() + ", " + getCount() + ")";
     }
 
     public double getYield() {
-        if (this.item instanceof ManufacturingItemBase && this.yield == 1)
-            return ((ManufacturingItemBase) this.item).getRecoveryChance();
-        else
-            return this.yield;
+        for(ItemStack stack:this.item.getMatchingStacks())
+            if(stack.getItem() instanceof ManufacturingItemBase && this.yield == 1)
+                return ((ManufacturingItemBase) stack.getItem()).getRecoveryChance();
+        return this.yield;
     }
 }

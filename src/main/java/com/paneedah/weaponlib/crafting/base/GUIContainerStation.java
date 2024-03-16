@@ -20,6 +20,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
@@ -56,6 +57,10 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 	protected static final int GREEN = 0x97E394;
 	protected static final int LIGHT_GREY = 0xDADADA;
 
+	// Item Scroll
+	private long lastUnixTimeSeconds = 0;
+	private int itemindex = 0;
+
 	// Generic buttons & search box
 	protected GUIButtonCustom craftButton, leftArrow, rightArrow, dismantleButton;
 	protected CustomSearchTextField searchBox;
@@ -74,7 +79,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 	// Tells us if we can craft the currently selected item
 	private boolean hasRequiredItems = false;
-	protected HashMap<Item, Boolean> hasAvailableMaterials = new HashMap<>();
+	protected HashMap<Ingredient, Boolean> hasAvailableMaterials = new HashMap<>();
 
 	private int craftingMode = 1;
 
@@ -197,18 +202,17 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 	public void onSelectNewCrafting(IModernCraftingRecipe crafting) {
 		final CraftingEntry[] modernRecipe = crafting.getModernRecipe();
-		final HashMap<Item, Integer> counter = new HashMap<>();
+		final HashMap<ItemStack, Integer> counter = new HashMap<>();
 
 		for (int i = 22; i < tileEntity.mainInventory.getSlots(); ++i) {
 			final ItemStack stack = tileEntity.mainInventory.getStackInSlot(i);
 			if (stack.isEmpty())
 				continue;
 
-			final Item item = stack.getItem();
-			if (!counter.containsKey(item)) {
-				counter.put(item, stack.getCount());
+            if (!counter.containsKey(stack)) {
+				counter.put(stack, stack.getCount());
 			} else {
-				counter.put(item, counter.get(item) + stack.getCount());
+				counter.put(stack, counter.get(stack) + stack.getCount());
 			}
 		}
 
@@ -218,7 +222,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 				final NonNullList<ItemStack> list = OreDictionary.getOres(is.getOreDictionaryEntry());
 				boolean foundSomething = false;
 				for (ItemStack toTest : list) {
-					if(counter.containsKey(toTest.getItem()) && toTest.getCount() <= counter.get(toTest.getItem())) {
+					if(counter.containsKey(toTest) && toTest.getCount() <= counter.get(toTest)) {
 						foundSomething = true;
 						hasAvailableMaterials.put(is.getItem(), true);
 						break;
@@ -227,15 +231,12 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 					}
 				}
 
-				if (!foundSomething || is.getCount() > counter.get(is.getItem())) {
+				if (!foundSomething || notEnoughIngredients(is, counter)) {
 					hasRequiredItems = false;
 					hasAvailableMaterials.put(is.getItem(), false);
 				}
 			} else {
-				if (!counter.containsKey(is.getItem())) {
-					hasRequiredItems = false;
-					hasAvailableMaterials.put(is.getItem(), false);
-				} else if (is.getCount() > counter.get(is.getItem())) {
+				if (notEnoughIngredients(is, counter)) {
 					hasRequiredItems = false;
 					hasAvailableMaterials.put(is.getItem(), false);
 				} else {
@@ -249,6 +250,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		} else {
 			this.craftButton.setErrored(false);
 		}
+	}
+
+	public static boolean notEnoughIngredients(CraftingEntry ingredient, HashMap<ItemStack, Integer> counter){
+		int finalcount = 0;
+		for(ItemStack stack:counter.keySet())
+			if(ingredient.getItem().test(stack))
+				finalcount+=counter.get(stack);
+		return ingredient.getCount() > finalcount;
 	}
 
 	public static void setModContext(ModContext context) {
@@ -291,7 +300,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 	public void drawTooltips(int mouseX, int mouseY, float partialTicks) {
 		renderHoveredToolTip(mouseX, mouseY);
 
-		if (tooltipRenderItem != null && !tooltipRenderItem.isEmpty())
+		if (!tooltipRenderItem.isEmpty())
 			drawHoveringText(tooltipRenderItem, mouseX, mouseY);
 
 		final ArrayList<String> strings = new ArrayList<>();
@@ -321,7 +330,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 					strings.add(TextFormatting.BLUE + "Products:");
 
 					for (CraftingEntry s : ((IModernCraftingRecipe) item).getModernRecipe())
-						strings.add(TextFormatting.GOLD + String.valueOf((int)Math.round(s.getCount() * s.getYield())) + "x " + TextFormatting.WHITE + format(s.getItem().getTranslationKey()));
+						strings.add(TextFormatting.GOLD + String.valueOf((int)Math.round(s.getCount() * s.getYield())) + "x " + TextFormatting.WHITE + format(s.getItem().getMatchingStacks()[0].getItem().getTranslationKey()));
 				}
 			}
 		}
@@ -368,7 +377,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 	@Override
 	protected void keyTyped(char typedChar, int keyCode) throws IOException {
-		final boolean cancellationFlag = this.searchBox.getText().length() == 0 && keyCode == Keyboard.KEY_BACK;
+		final boolean cancellationFlag = this.searchBox.getText().isEmpty() && keyCode == Keyboard.KEY_BACK;
 
 		// This 'if' statement prevents the GUI from closing when we hit "E" (or whatever
 		// the inventory key is!)
@@ -392,8 +401,10 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		if (stack.isEmpty())
 			return;
 
+		Item item = stack.getItem();
+
 		this.tooltipRenderItem.clear();
-		this.tooltipRenderItem.add(format(stack.getItem().getTranslationKey()));
+		this.tooltipRenderItem.add(item.getItemStackDisplayName(stack));
 		final ITooltipFlag flag = MC.gameSettings.advancedItemTooltips ? ITooltipFlag.TooltipFlags.ADVANCED : ITooltipFlag.TooltipFlags.NORMAL;
 		stack.getItem().addInformation(stack, this.tileEntity.getWorld(), this.tooltipRenderItem, flag);
 
@@ -582,7 +593,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 			GuiRenderUtil.drawScaledString(fontRenderer, "Progress", this.guiLeft + 326, this.guiTop + 175, 0.8, 0xFFFFFF);
 			GuiRenderUtil.drawScaledString(fontRenderer, "Output", this.guiLeft + 7, this.guiTop + 223, 0.9, 0xFFFFFF);
 			GuiRenderUtil.drawScaledString(fontRenderer, "CRAFT", this.guiLeft + 222, this.guiTop + 184, 1.0, 0xB06061);
-			GuiRenderUtil.drawScaledString(fontRenderer, "Results: " + TextFormatting.YELLOW + "" + filteredCraftingList.size(), this.guiLeft + 12, this.guiTop + 191, 0.8, 0xFFFFFF);
+			GuiRenderUtil.drawScaledString(fontRenderer, "Results: " + TextFormatting.YELLOW + filteredCraftingList.size(), this.guiLeft + 12, this.guiTop + 191, 0.8, 0xFFFFFF);
 
 			if (hasSelectedCraftingPiece()) {
 				final IModernCraftingRecipe weapon = getSelectedCraftingPiece();
@@ -594,7 +605,17 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 							continue;
 						}
 
-						final ItemStack itemStack = new ItemStack(stack.getItem());
+						final ItemStack[] itemStacks = stack.getItem().getMatchingStacks();
+						long currentUnixTimeSeconds = System.currentTimeMillis() / 1000;
+
+						if(currentUnixTimeSeconds-lastUnixTimeSeconds>=0){
+							itemindex++;
+							if(itemindex>=itemStacks.length)
+								itemindex=0;
+						}
+						lastUnixTimeSeconds = currentUnixTimeSeconds;
+
+						final ItemStack itemStack = itemStacks[itemindex];
 						final boolean hasItem = this.hasAvailableMaterials.get(stack.getItem());
 						final int x = this.guiLeft + 210 + (c * 20);
 						final int y = this.guiTop + 122;
@@ -602,7 +623,6 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 						MC.getTextureManager().bindTexture(GUI_TEX);
 
 						if (GUIRenderHelper.checkInBox(mouseX, mouseY, x, y, 15, 15)) {
-							final Item item = stack.getItem();
 							final TextFormatting formatColor;
 							final int percentage = ((int) Math.round(stack.getYield() * 100));
 

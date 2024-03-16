@@ -153,15 +153,11 @@ public class MainCommand extends CommandBase {
             	return;
             }
             for(CraftingEntry stack : modernRecipe) {
-            	
-            	
-            	String toPrint = "> " + stack.getCount() + "x " + TextFormatting.WHITE + I18n.format(stack.getItem().getTranslationKey() + ".name");
-            	
+            	String toPrint = "> " + stack.getCount() + "x " + TextFormatting.WHITE + I18n.format(stack.getItem().toString() + ".name");
             	// Appends the disassembly to the end of the string
-                toPrint += " -> " + (stack.getCount()*stack.getYield()) + "x " + I18n.format(stack.getItem().getRegistryName() + ".name");
+                toPrint += " -> " + (stack.getCount()*stack.getYield()) + "x " + I18n.format(stack.getItem().toString() + ".name");
 
                 MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + toPrint));
-                 
             }
              
             /*
