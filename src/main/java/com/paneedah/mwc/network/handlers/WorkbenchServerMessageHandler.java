@@ -12,7 +12,6 @@ import io.redstudioragnarok.redcore.utils.MathUtil;
 import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tileentity.TileEntity;
@@ -70,7 +69,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
 
                     // Calculate the itemstacks to remove
                     for (CraftingEntry stack : modernRecipe) {
-                        final Ingredient stackItem = stack.getItem();
+                        final Ingredient stackItem = stack.getIngredient();
                         final int requiredCount = stack.getCount();
 
                         itemRemovalList.computeIfAbsent(stackItem, k -> new HashMap<>());
@@ -97,7 +96,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     // Verify
                     for (CraftingEntry stack : modernRecipe) {
                         if (!stack.isOreDictionary()) {
-                            final Ingredient stackItem = stack.getItem();
+                            final Ingredient stackItem = stack.getIngredient();
                             if (!itemRemovalList.containsKey(stackItem) || itemRemovalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum() < stack.getCount())
                                 return;
                         } else {

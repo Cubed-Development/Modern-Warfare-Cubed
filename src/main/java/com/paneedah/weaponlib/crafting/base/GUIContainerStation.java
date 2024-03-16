@@ -224,7 +224,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 				for (ItemStack toTest : list) {
 					if(counter.containsKey(toTest) && toTest.getCount() <= counter.get(toTest)) {
 						foundSomething = true;
-						hasAvailableMaterials.put(is.getItem(), true);
+						hasAvailableMaterials.put(is.getIngredient(), true);
 						break;
 					} else {
 						hasRequiredItems = false;
@@ -233,14 +233,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 				if (!foundSomething || notEnoughIngredients(is, counter)) {
 					hasRequiredItems = false;
-					hasAvailableMaterials.put(is.getItem(), false);
+					hasAvailableMaterials.put(is.getIngredient(), false);
 				}
 			} else {
 				if (notEnoughIngredients(is, counter)) {
 					hasRequiredItems = false;
-					hasAvailableMaterials.put(is.getItem(), false);
+					hasAvailableMaterials.put(is.getIngredient(), false);
 				} else {
-					hasAvailableMaterials.put(is.getItem(), true);
+					hasAvailableMaterials.put(is.getIngredient(), true);
 				}
 			}
 		}
@@ -255,7 +255,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 	public static boolean notEnoughIngredients(CraftingEntry ingredient, HashMap<ItemStack, Integer> counter){
 		int finalcount = 0;
 		for(ItemStack stack:counter.keySet())
-			if(ingredient.getItem().test(stack))
+			if(ingredient.getIngredient().test(stack))
 				finalcount+=counter.get(stack);
 		return ingredient.getCount() > finalcount;
 	}
@@ -330,7 +330,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 					strings.add(TextFormatting.BLUE + "Products:");
 
 					for (CraftingEntry s : ((IModernCraftingRecipe) item).getModernRecipe())
-						strings.add(TextFormatting.GOLD + String.valueOf((int)Math.round(s.getCount() * s.getYield())) + "x " + TextFormatting.WHITE + format(s.getItem().getMatchingStacks()[0].getItem().getTranslationKey()));
+						strings.add(TextFormatting.GOLD + String.valueOf((int)Math.round(s.getCount() * s.getYield())) + "x " + TextFormatting.WHITE + format(s.getIngredient().getMatchingStacks()[0].getItem().getTranslationKey()));
 				}
 			}
 		}
@@ -600,12 +600,12 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 				if (weapon.getModernRecipe() != null && weapon.getModernRecipe().length != 0) {
 					int c = 0;
 					for (CraftingEntry stack : weapon.getModernRecipe()) {
-						if (stack.getItem() == null) {
+						if (stack.getIngredient() == null) {
 							LOG.warn("Skipped resource");
 							continue;
 						}
 
-						final ItemStack[] itemStacks = stack.getItem().getMatchingStacks();
+						final ItemStack[] itemStacks = stack.getIngredient().getMatchingStacks();
 						long currentUnixTimeSeconds = System.currentTimeMillis() / 1000;
 
 						if(currentUnixTimeSeconds-lastUnixTimeSeconds>=1){
@@ -614,7 +614,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 						}
 
 						final ItemStack itemStack = itemStacks[itemindex];
-						final boolean hasItem = this.hasAvailableMaterials.get(stack.getItem());
+						final boolean hasItem = this.hasAvailableMaterials.get(stack.getIngredient());
 						final int x = this.guiLeft + 210 + (c * 20);
 						final int y = this.guiTop + 122;
 

@@ -6,7 +6,6 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.NBTTagCompound;
@@ -156,7 +155,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 
 					if (!world.isRemote) {
 						for (CraftingEntry stack : modernRecipe) {
-							final ItemStack itemStack = stack.getItem().getMatchingStacks()[0].copy();
+							final ItemStack itemStack = stack.getIngredient().getMatchingStacks()[0].copy();
 							itemStack.setCount((int) Math.round(stack.getCount() * stack.getYield()));
 							addStackToInventoryRange(itemStack, 13, 22);
 						}

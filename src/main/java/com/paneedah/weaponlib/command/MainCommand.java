@@ -1,7 +1,5 @@
 package com.paneedah.weaponlib.command;
 
-import com.paneedah.mwc.bases.ManufacturingItemBase;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.block.Block;
@@ -153,9 +151,9 @@ public class MainCommand extends CommandBase {
             	return;
             }
             for(CraftingEntry stack : modernRecipe) {
-            	String toPrint = "> " + stack.getCount() + "x " + TextFormatting.WHITE + I18n.format(stack.getItem().toString() + ".name");
+            	String toPrint = "> " + stack.getCount() + "x " + TextFormatting.WHITE + I18n.format(stack.getIngredient().toString() + ".name");
             	// Appends the disassembly to the end of the string
-                toPrint += " -> " + (stack.getCount()*stack.getYield()) + "x " + I18n.format(stack.getItem().toString() + ".name");
+                toPrint += " -> " + (stack.getCount()*stack.getYield()) + "x " + I18n.format(stack.getIngredient().toString() + ".name");
 
                 MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + toPrint));
             }

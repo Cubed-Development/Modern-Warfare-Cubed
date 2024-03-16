@@ -19,62 +19,62 @@ import net.minecraft.item.crafting.Ingredient;
  */
 public class CraftingEntry {
 
-    private Ingredient item;
+    private Ingredient ingredient;
     private int count;
     private String oreDictionary;
 
     private double yield = 1;
 
     public CraftingEntry(Item i, int c) {
-        this.item = Ingredient.fromItem(i);
+        this.ingredient = Ingredient.fromItem(i);
         this.count = c;
     }
 
     public CraftingEntry(Block i, int c) {
-        this.item = Ingredient.fromItem(Item.getItemFromBlock(i));
+        this.ingredient = Ingredient.fromItem(Item.getItemFromBlock(i));
         this.count = c;
     }
 
     public CraftingEntry(Item dismantle, String oreDictionary, int count) {
-        this.item = Ingredient.fromItem(dismantle);
+        this.ingredient = Ingredient.fromItem(dismantle);
         this.oreDictionary = oreDictionary;
         this.count = count;
     }
 
     public CraftingEntry(Block dismantle, String oreDictionary, int count) {
-        this.item = Ingredient.fromItem(Item.getItemFromBlock(dismantle));
+        this.ingredient = Ingredient.fromItem(Item.getItemFromBlock(dismantle));
         this.oreDictionary = oreDictionary;
         this.count = count;
     }
 
     public CraftingEntry(Item i, int c, double yield) {
-        this.item = Ingredient.fromItem(i);
+        this.ingredient = Ingredient.fromItem(i);
         this.count = c;
         this.yield = yield;
     }
 
     public CraftingEntry(Block i, int c, double yield) {
-        this.item = Ingredient.fromItem(Item.getItemFromBlock(i));
+        this.ingredient = Ingredient.fromItem(Item.getItemFromBlock(i));
         this.count = c;
         this.yield = yield;
     }
 
     public CraftingEntry(Item dismantle, String oreDictionary, int count, double yield) {
-        this.item = Ingredient.fromItem(dismantle);
+        this.ingredient = Ingredient.fromItem(dismantle);
         this.oreDictionary = oreDictionary;
         this.count = count;
         this.yield = yield;
     }
 
     public CraftingEntry(Block dismantle, String oreDictionary, int count, double yield) {
-        this.item = Ingredient.fromItem(Item.getItemFromBlock(dismantle));
+        this.ingredient = Ingredient.fromItem(Item.getItemFromBlock(dismantle));
         this.oreDictionary = oreDictionary;
         this.count = count;
         this.yield = yield;
     }
 
     public CraftingEntry(Ingredient mcIngredient, int amount, Double yield) {
-        this.item = mcIngredient;
+        this.ingredient = mcIngredient;
         this.count = amount;
         this.yield = yield;
     }
@@ -83,8 +83,8 @@ public class CraftingEntry {
         return this.count;
     }
 
-    public Ingredient getItem() {
-        return this.item;
+    public Ingredient getIngredient() {
+        return this.ingredient;
     }
 
     public String getOreDictionaryEntry() {
@@ -100,13 +100,13 @@ public class CraftingEntry {
     @Override
     public String toString() {
         if (isOreDictionary())
-            return "(" + this.oreDictionary + "[" + this.item.toString() + "], " + getCount() + ")";
+            return "(" + this.oreDictionary + "[" + this.ingredient.toString() + "], " + getCount() + ")";
         else
-            return "(" + this.item.toString() + ", " + getCount() + ")";
+            return "(" + this.ingredient.toString() + ", " + getCount() + ")";
     }
 
     public double getYield() {
-        for(ItemStack stack:this.item.getMatchingStacks())
+        for(ItemStack stack:this.ingredient.getMatchingStacks())
             if(stack.getItem() instanceof ManufacturingItemBase && this.yield == 1)
                 return ((ManufacturingItemBase) stack.getItem()).getRecoveryChance();
         return this.yield;
