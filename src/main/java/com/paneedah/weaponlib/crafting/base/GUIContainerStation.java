@@ -600,22 +600,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 				final IModernCraftingRecipe weapon = getSelectedCraftingPiece();
 				if (weapon.getModernRecipe() != null && weapon.getModernRecipe().length != 0) {
 					int c = 0;
-					for (CraftingEntry stack : weapon.getModernRecipe()) {
-						if (stack.getIngredient() == null) {
+					for (CraftingEntry entry : weapon.getModernRecipe()) {
+						if (entry.getIngredient() == null) {
 							LOG.warn("Skipped resource");
 							continue;
 						}
 
-						final ItemStack[] itemStacks = stack.getIngredient().getMatchingStacks();
-						long currentUnixTimeSeconds = System.currentTimeMillis() / 1000;
-
-						if(currentUnixTimeSeconds-lastUnixTimeSeconds>=1){
-							itemindex = itemindex+1>=itemStacks.length? 0:itemindex+1;
-							lastUnixTimeSeconds = currentUnixTimeSeconds;
-						}
-
-						final ItemStack itemStack = itemStacks[itemindex];
-						final boolean hasItem = this.hasAvailableMaterials.get(stack.getIngredient());
+						final ItemStack itemStack = updateandGetStacktoRender(entry);
+						final boolean hasItem = this.hasAvailableMaterials.get(entry.getIngredient());
 						final int x = this.guiLeft + 210 + (c * 20);
 						final int y = this.guiTop + 122;
 
@@ -623,7 +615,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 						if (GUIRenderHelper.checkInBox(mouseX, mouseY, x, y, 15, 15)) {
 							final TextFormatting formatColor;
-							final int percentage = ((int) Math.round(stack.getYield() * 100));
+							final int percentage = ((int) Math.round(entry.getYield() * 100));
 
 							if (percentage <= 25) {
 								formatColor = TextFormatting.RED;
@@ -659,7 +651,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 						MC.getRenderItem().renderItemIntoGUI(itemStack, x, y);
 
-						GUIRenderHelper.drawScaledString("x" + stack.getCount(), x + 8, y + 12, 0.6, hasItem ? GREEN : RED);
+						GUIRenderHelper.drawScaledString("x" + entry.getCount(), x + 8, y + 12, 0.6, hasItem ? GREEN : RED);
 						c += 1;
 					}
 				}
@@ -698,4 +690,17 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 			GlStateManager.popMatrix();
 		}
 	}
+
+	private ItemStack updateandGetStacktoRender(CraftingEntry entry){
+		final ItemStack[] itemStacks = entry.getIngredient().getMatchingStacks();
+		long currentUnixTimeSeconds = System.currentTimeMillis() / 1000;
+
+		if(currentUnixTimeSeconds-lastUnixTimeSeconds>=1){
+			itemindex = itemindex+1>=itemStacks.length? 0:itemindex+1;
+			lastUnixTimeSeconds = currentUnixTimeSeconds;
+		}
+
+		return itemStacks[itemindex];
+	}
+
 }
