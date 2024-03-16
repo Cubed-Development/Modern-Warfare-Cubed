@@ -608,12 +608,12 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 						final ItemStack[] itemStacks = stack.getItem().getMatchingStacks();
 						long currentUnixTimeSeconds = System.currentTimeMillis() / 1000;
 
-						if(currentUnixTimeSeconds-lastUnixTimeSeconds>=0){
+						if(currentUnixTimeSeconds-lastUnixTimeSeconds>=1){
 							itemindex++;
 							if(itemindex>=itemStacks.length)
 								itemindex=0;
+							lastUnixTimeSeconds = currentUnixTimeSeconds;
 						}
-						lastUnixTimeSeconds = currentUnixTimeSeconds;
 
 						final ItemStack itemStack = itemStacks[itemindex];
 						final boolean hasItem = this.hasAvailableMaterials.get(stack.getItem());
