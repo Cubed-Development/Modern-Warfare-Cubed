@@ -209,10 +209,11 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 			if (stack.isEmpty())
 				continue;
 
-            if (!counter.containsKey(stack)) {
+            if (!counter.containsKey(stack))
 				counter.put(stack, stack.getCount());
-			} else {
-				counter.put(stack, counter.get(stack) + stack.getCount());
+			else {
+				int existingcount = counter.get(stack);
+				counter.put(stack, existingcount + stack.getCount());
 			}
 		}
 
