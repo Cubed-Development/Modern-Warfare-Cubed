@@ -2,7 +2,6 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
@@ -11,7 +10,10 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.event.*;
+import net.minecraftforge.client.event.FOVUpdateEvent;
+import net.minecraftforge.client.event.MouseEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -65,16 +67,16 @@ public class WeaponEventHandler {
 			//fov = instance.isAimed() ? instance.getZoom() : 1f;
 			//fov = compatibility.isFlying(MC.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
 
-		ModReference.LOG.warn("CURRENT STATE: " + instance.state.toString());
+		final WeaponState state = instance.state;
 
 		if (instance.isAimed()
 				&& ClientProxy.renderingPhase == null
-				&& instance.state != WeaponState.TACTICAL_RELOAD
-				&& instance.state != WeaponState.COMPOUND_RELOAD
-				&& instance.state != WeaponState.COMPOUND_RELOAD_EMPTY
-				&& instance.state != WeaponState.COMPOUND_RELOAD_UNLOAD
-				&& instance.state != WeaponState.UNLOAD_PREPARING
-				&& instance.state != WeaponState.LOAD)
+				&& !(state == WeaponState.TACTICAL_RELOAD
+					|| state == WeaponState.COMPOUND_RELOAD
+					|| state == WeaponState.COMPOUND_RELOAD_EMPTY
+					|| state == WeaponState.COMPOUND_RELOAD_UNLOAD
+					|| state == WeaponState.UNLOAD_PREPARING
+					|| state == WeaponState.LOAD))
 			fov = 0.7f;
 
 		if (MC.player.isSprinting())
