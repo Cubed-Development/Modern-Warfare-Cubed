@@ -19,6 +19,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 - Fixed fog obscuring vision too much in optical scopes
 
+### Internal
+
+- Added logging to try and locate CCS
+
 ## Modern Warfare Cubed Version 0.1.3 Changelog - 2024-03-15
 
 ### Warning
