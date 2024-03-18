@@ -627,7 +627,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         else if (attachment instanceof ItemMagazine && !player.isCreative()) {
             ItemStack attachmentItemStack = ((ItemMagazine) attachment).create(originalAmmo);
             if (!player.inventory.addItemStackToInventory(attachmentItemStack))
-                LOG.error("Cannot add attachment " + attachment + " for " + instance + "back to the inventory");
+                player.dropItem(attachmentItemStack, false);
             p.setStatus(Status.GRANTED);
         }
     }
@@ -739,7 +739,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 previousMagazine = attachment;
                 ItemStack attachmentItemStack = ((ItemMagazine) attachment).create(Tags.getAmmo(weaponItemStack));
                 if (!player.inventory.addItemStackToInventory(attachmentItemStack))
-                    LOG.error("Cannot add attachment " + attachment + " for " + weaponInstance + "back to the inventory");
+                    player.dropItem(attachmentItemStack, false);
             }
 
             Tags.setAmmo(weaponItemStack, 0);
