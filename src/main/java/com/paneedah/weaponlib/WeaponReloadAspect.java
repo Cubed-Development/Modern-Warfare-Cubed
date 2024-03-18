@@ -11,11 +11,9 @@ import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
 import com.paneedah.weaponlib.state.StateManager;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.text.TextComponentString;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -318,7 +316,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 .in(this)
                 .prepare((c, f, t) -> { prepareUnload(c); }, unloadAnimationCompleted)
                 .change(WeaponState.READY).to(WeaponState.UNLOAD)
-                .when(magazineAttached.and(inventoryHasFreeSlots))
+                .when(magazineAttached)
                 .withPermit((s, c) -> new UnloadPermit(s), modContext.getPlayerItemInstanceRegistry()::update, permitManager)
                 .withAction((c, f, t, p) -> completeClientUnload(c, (UnloadPermit) p))
                 .manual()
@@ -327,12 +325,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 .change(WeaponState.UNLOAD).to(WeaponState.READY)
                 .when(loadAfterUnloadEnabled.negate().or(unloadTimeoutExpired))
                 .automatic()
-
-                .in(this)
-                .change(WeaponState.READY).to(WeaponState.ALERT)
-                .when(inventoryHasFreeSlots.negate())
-                .withAction(this::inventoryFullAlert)
-                .manual()
 
                 .in(this).change(WeaponState.ALERT).to(WeaponState.READY)
                 .when(alertTimeoutExpired)
@@ -778,11 +770,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             stateManager.changeState(this, weaponInstance, WeaponState.LOAD, WeaponState.ALERT);
             weaponInstance.setLoadAfterUnloadEnabled(false);
         }
-    }
-
-    public void inventoryFullAlert(PlayerWeaponInstance weaponInstance) {
-        if (weaponInstance.getPlayer() instanceof EntityPlayer)
-            ((EntityPlayer) weaponInstance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.inventoryFull")), true);
     }
 
     public void inspect(PlayerWeaponInstance weaponInstance) {

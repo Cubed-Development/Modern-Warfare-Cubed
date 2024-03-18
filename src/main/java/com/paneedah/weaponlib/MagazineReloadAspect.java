@@ -225,6 +225,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
         if(!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
             return;
         }
+
         ItemStack magazineStack = magazineInstance.getItemStack();
 
         Status status = Status.DENIED;
