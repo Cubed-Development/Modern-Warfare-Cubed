@@ -140,9 +140,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         }
     };
 
-
-    private Predicate<PlayerWeaponInstance> inventoryHasFreeSlots = weaponInstance -> weaponInstance.getPlayer() instanceof EntityPlayer && !(((EntityPlayer) weaponInstance.getPlayer()).inventory.getFirstEmptyStack() == -1);
-
     private static Predicate<PlayerWeaponInstance> alertTimeoutExpired = instance -> System.currentTimeMillis() >= ALERT_TIMEOUT + instance.getStateUpdateTimestamp();
 
     private static Predicate<PlayerWeaponInstance> inspectTimeoutExpired = instance -> System.currentTimeMillis() >= INSPECT_TIMEOUT + instance.getStateUpdateTimestamp();
