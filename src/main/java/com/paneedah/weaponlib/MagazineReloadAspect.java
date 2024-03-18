@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
 
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+
 public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazineInstance> {
 
     static {
@@ -143,11 +145,11 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     
     private void evaluateUnload(UnloadPermit p, PlayerMagazineInstance magazineInstance) {
 
-    	
-    	
         if(!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
+            LOGGER.warning("Player is not an instance of EntityPlayer - MagazineReloadAspect unload");
             return;
         }
+
         ItemStack magazineStack = magazineInstance.getItemStack();
 
         Status status = Status.DENIED;
@@ -223,8 +225,10 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     private void evaluateLoad(LoadPermit p, PlayerMagazineInstance magazineInstance) {
 
         if(!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
+            LOGGER.warning("Player is not an instance of EntityPlayer - MagazineReloadAspect load");
             return;
         }
+
         ItemStack magazineStack = magazineInstance.getItemStack();
 
         Status status = Status.DENIED;
