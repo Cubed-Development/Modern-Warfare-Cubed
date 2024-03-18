@@ -513,7 +513,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(player);
         if(equipmentInventory != null) {
             ItemStack beltStack = equipmentInventory.getStackInSlot(BELT_SLOT);
-            if(beltStack != null) {
+            if(!beltStack.isEmpty()) {
                 BackpackInventory beltInventory = new BackpackInventory(beltStack);
                 for (int i = 0; i < beltInventory.getSizeInventory(); ++i) {
                     if (beltInventory.getStackInSlot(i) != null && compatibleMagazines.contains(beltInventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(beltInventory.getStackInSlot(i), maxStack) > 0)) {
@@ -567,7 +567,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(player);
         if(equipmentInventory != null) {
             ItemStack beltStack = equipmentInventory.getStackInSlot(BELT_SLOT);
-            if(beltStack != null) {
+            if(!beltStack.isEmpty()) {
                 BackpackInventory beltInventory = new BackpackInventory(beltStack);
                 for (int i = 0; i < beltInventory.getSizeInventory(); ++i) {
                     if (beltInventory.getStackInSlot(i) != null && compatibleMagazines.contains(beltInventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(beltInventory.getStackInSlot(i), maxStack) > 0)) {

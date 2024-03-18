@@ -203,12 +203,12 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
         @Override
         public Entity getTrueSource() {
-            return this.projectile;
+            return this.shooter;
         }
 
         @Override
         public Entity getImmediateSource() {
-            return this.shooter;
+            return this.projectile;
         }
 
         @Override
