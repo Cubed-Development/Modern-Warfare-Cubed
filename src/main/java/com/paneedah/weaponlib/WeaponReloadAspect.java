@@ -421,10 +421,8 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             } else {
                 if (WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, instance) == null) {
                     ItemStack nextAttachment = getNextBestMagazineStack(instance);
-                    if (instance.getWeapon().getRenderer().getBuilder().isHasLoadEmpty() && nextAttachment != null && Tags.getAmmo(nextAttachment) == 0) {
-                        instance.setAimed(false);
+                    if (instance.getWeapon().getRenderer().getBuilder().isHasLoadEmpty() && nextAttachment != null && Tags.getAmmo(nextAttachment) == 0)
                         instance.getWeapon().getRenderer().setShouldDoEmptyVariant(true);
-                    }
 
                     stateManager.changeState(this, instance, WeaponState.AWAIT_FURTHER_LOAD_INSTRUCTIONS, WeaponState.READY);
                 } else {
@@ -435,22 +433,19 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
                     instance.markReloadDirt();
                     instance.markMagSwapReady();
-
                     if (instance.getAmmo() == 0) {
                         if (nextAttachment != null)
                             instance.getWeapon().getRenderer().setMagicMag(instance, nextAttachment, WeaponState.COMPOUND_RELOAD_EMPTY);
+
                         else
 							return;
 
-                        instance.setAimed(false);
                         stateManager.changeState(this, instance, WeaponState.COMPOUND_RELOAD_EMPTY);
                     } else {
                         if (nextAttachment != null)
                             instance.getWeapon().getRenderer().setMagicMag(instance, nextAttachment, WeaponState.COMPOUND_RELOAD);
                         else
 							return;
-
-                        instance.setAimed(false);
                         instance.setIsAwaitingCompoundInstructions(true);
                         stateManager.changeState(this, instance, WeaponState.COMPOUND_REQUESTED, WeaponState.READY);
                     }
@@ -467,11 +462,10 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             instance.getWeapon().getRenderer().compoundReload = false;
             instance.setLoadAfterUnloadEnabled(false);
 
+
             ItemAttachment<Weapon> currentMagazine = modContext.getAttachmentAspect().getActiveAttachment(instance, AttachmentCategory.MAGAZINE);
-            if (instance.getWeapon().getRenderer().getBuilder().isHasUnloadEmpty() && currentMagazine != null && instance.getAmmo() == 0) {
-                instance.setAimed(false);
+            if (instance.getWeapon().getRenderer().getBuilder().isHasUnloadEmpty() && currentMagazine != null && instance.getAmmo() == 0)
                 instance.getWeapon().getRenderer().setShouldDoEmptyVariant(true);
-            }
 
             stateManager.changeState(this, instance, WeaponState.UNLOAD, WeaponState.ALERT);
         }
@@ -640,7 +634,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             p.setStatus(Status.DENIED);
         else if (attachment instanceof ItemMagazine && !player.isCreative()) {
             ItemStack attachmentItemStack = ((ItemMagazine) attachment).create(originalAmmo);
-            instance.setAimed(false);
             if (!player.inventory.addItemStackToInventory(attachmentItemStack))
                 LOG.error("Cannot add attachment " + attachment + " for " + instance + "back to the inventory");
             p.setStatus(Status.GRANTED);
@@ -682,7 +675,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         }
 
         if (!compatibleMagazines.isEmpty()) {
-            weaponInstance.setAimed(false);
             ItemAttachment<Weapon> existingMagazine = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
             int ammo = Tags.getAmmo(weaponItemStack);
             if (existingMagazine == null) {
@@ -702,7 +694,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, ReloadMessage.Type.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
             weaponInstance.setAmmo(ammo);
         } else if (!compatibleBullets.isEmpty() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(compatibleBullets, Math.min(weapon.getMaxBulletsPerReload(), weapon.getAmmoCapacity() - weaponInstance.getAmmo()), player)) != 0) {
-            weaponInstance.setAimed(false);
             int ammo = weaponInstance.getAmmo() + consumedAmount;
             Tags.setAmmo(weaponItemStack, ammo);
             // Update permit instead CHANNEL.sendTo(new ReloadMessage(weapon, ammo), (EntityPlayerMP) player);
@@ -711,7 +702,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 weaponInstance.setLoadIterationCount(consumedAmount);
             player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
         } else if (consumed) {
-            weaponInstance.setAimed(false);
             Tags.setAmmo(weaponItemStack, weapon.builder.ammoCapacity);
             // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, weapon.builder.ammoCapacity), (EntityPlayerMP) player);
             weaponInstance.setAmmo(weapon.builder.ammoCapacity);
