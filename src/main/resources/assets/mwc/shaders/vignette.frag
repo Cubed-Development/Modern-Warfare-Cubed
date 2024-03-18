@@ -89,7 +89,7 @@ float linearize_depth(float d,float zNear,float zFar)
 * [https://iquilezles.org/articles/fog/]
 */
 vec4 applyFog(vec4 color, vec2 tex_coord) {
-  float linearizedDepth = linearize_depth(texture2D(depthTex, tex_coord).r, 0.01, 100);
+  float linearizedDepth = linearize_depth(texture2D(depthTex, tex_coord).r, 0.004, 100);
   float fogAmount = 1.0 - exp( -linearizedDepth*fogIntensity );
   vec4  fogColor  = vec4(baseFogColor, 1.0);
   return mix( color, fogColor, fogAmount );
