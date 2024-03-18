@@ -691,7 +691,7 @@ public class Interceptors {
             ModelPlayer modelPlayer = (ModelPlayer) modelBase;
             EntityPlayer player = (EntityPlayer) entityIn;
 
-            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn, e -> new PlayerRenderer());
+            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn, e -> new PlayerRenderer((EntityPlayer) entityIn, ClientModContext.getContext()));
             
             playerRenderer.renderModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 

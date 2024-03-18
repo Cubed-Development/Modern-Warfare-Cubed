@@ -122,14 +122,14 @@ public final class MWC {
         CHANNEL.registerMessage(new MeleeAttackMessageHandler(modContext.getMeleeAttackAspect()), MeleeAttackMessage.class, 3, Side.SERVER);
         CHANNEL.registerMessage(new GrenadeMessageHandler(modContext.getGrenadeAttackAspect()), GrenadeMessage.class, 4, Side.SERVER);
         CHANNEL.registerMessage(new NightVisionToggleMessageHandler(), NightVisionToggleMessage.class, 5, Side.SERVER);
-        CHANNEL.registerMessage(new EntityInventorySyncMessageServerHandler(modContext), EntityInventorySyncMessage.class, 7, Side.SERVER);
-        CHANNEL.registerMessage(new OpenCustomPlayerInventoryGuiMessageHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 8, Side.SERVER);
-        CHANNEL.registerMessage(new VehicleControlMessageHandler(), VehicleControlMessage.class, 9, Side.SERVER);
-        CHANNEL.registerMessage(new VehicleInteractMessageHandler(), VehicleInteractMessage.class, 10, Side.SERVER);
-        CHANNEL.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 11, Side.SERVER);
-        CHANNEL.registerMessage(new WorkbenchServerMessageHandler(), WorkbenchServerMessage.class, 12, Side.SERVER);
-        CHANNEL.registerMessage(new CraftingServerMessageHandler(), CraftingServerMessage.class, 13, Side.SERVER);
-        CHANNEL.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 14, Side.SERVER);
+        CHANNEL.registerMessage(new EntityInventorySyncMessageServerHandler(modContext), EntityInventorySyncMessage.class, 6, Side.SERVER);
+        CHANNEL.registerMessage(new OpenCustomPlayerInventoryGuiMessageHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 7, Side.SERVER);
+        CHANNEL.registerMessage(new VehicleControlMessageHandler(), VehicleControlMessage.class, 8, Side.SERVER);
+        CHANNEL.registerMessage(new VehicleInteractMessageHandler(), VehicleInteractMessage.class, 9, Side.SERVER);
+        CHANNEL.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 10, Side.SERVER);
+        CHANNEL.registerMessage(new WorkbenchServerMessageHandler(), WorkbenchServerMessage.class, 11, Side.SERVER);
+        CHANNEL.registerMessage(new CraftingServerMessageHandler(), CraftingServerMessage.class, 12, Side.SERVER);
+        CHANNEL.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 13, Side.SERVER);
     }
 
     @Mod.EventHandler
