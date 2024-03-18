@@ -19,7 +19,6 @@ public class KeyBindings {
 
 	public static KeyBinding laserSwitchKey;
 	public static KeyBinding nightVisionSwitchKey;
-	public static KeyBinding proningSwitchKey;
 	/*
 	 * public static KeyBinding laserAttachmentKey; public static KeyBinding
 	 * periodKey;
@@ -93,8 +92,6 @@ public class KeyBindings {
 
 		fireModeKey = new KeyBinding("key.fire_mode", Keyboard.KEY_B, "key.categories.weaponlib");
 
-		proningSwitchKey = new KeyBinding("key.proning", Keyboard.KEY_Z, "key.categories.weaponlib");
-
 		/*
 		 * laserAttachmentKey = new KeyBinding("key.attach_laser", Keyboard.KEY_RSHIFT,
 		 * "key.categories.weaponlib");
@@ -141,7 +138,6 @@ public class KeyBindings {
 		ClientRegistry.registerKeyBinding(addKey);
 		ClientRegistry.registerKeyBinding(subtractKey);
 		ClientRegistry.registerKeyBinding(fireModeKey);
-		ClientRegistry.registerKeyBinding(proningSwitchKey);
 		ClientRegistry.registerKeyBinding(freecamLock);
 		ClientRegistry.registerKeyBinding(freecamRotate);
 		/*

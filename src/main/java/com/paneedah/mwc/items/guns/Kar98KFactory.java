@@ -312,21 +312,6 @@ public class Kar98KFactory implements GunFactory {
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-                GL11.glRotatef(15F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.1f, 0.7f, 0.6f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-                GL11.glRotatef(15F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.12f, 0.7f, 0.8f);
-                GL11.glRotatef(1F, 0f, 0f, 1f);
-                })
-                
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.Kar98Kaction.getRenderablePart(), (renderContext) -> {
                 })
                 
@@ -1344,28 +1329,6 @@ public class Kar98KFactory implements GunFactory {
 //                         GL11.glRotatef(45.000000f, 0f, 1f, 0f);
 //                         GL11.glRotatef(-75.000000f, 0f, 0f, 1f);
 //                         GL11.glTranslatef(0.065000f, 0.130000f, -0.105000f);
-                     })
-                     
-            .withFirstPersonHandPositioningProning(
-                     (renderContext) -> {
-                         GL11.glScalef(3.5f, 3.5f, 3.5f);
-                         GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-                         GL11.glRotatef(-5.000000f, 0f, 1f, 0f);
-                         GL11.glRotatef(25.000000f, 0f, 0f, 1f);
-                         GL11.glTranslatef(0.125000f, 0.050000f, 0.175000f);
-                     }, 
-                     (renderContext) -> {
-                         GL11.glScalef(3f, 3f, 3f);
-                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                         GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-                         GL11.glRotatef(-70.000000f, 0f, 0f, 1f);
-                         GL11.glTranslatef(0.250000f, -0.350000f, 0.025000f);
-                         
-//                         GL11.glScalef(3f, 3f, 3f);
-//                         GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.03f, -0.07f, -0.03f);
                      })
                      
             .withFirstPersonHandPositioningZooming(

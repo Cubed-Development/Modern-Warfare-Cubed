@@ -6,7 +6,6 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
 import com.paneedah.weaponlib.render.NewScreenshakingManager;
@@ -731,16 +730,9 @@ public class Interceptors {
 //        GL11.glScalef(0.8f, 0.8f, 0.8f);
 //        GL11.glTranslatef(-0.02f, 0.69f, -0.35f);
 //        GL11.glRotatef(180f, 0, 0, 1);
-//        if(isProning(player)) {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(-0.02f, -3f, -0.35f);
-//            GL11.glRotatef(180f, 0, 0, 1);
-//        } else {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(-0.02f, 0.69f, -0.35f);
-//            GL11.glRotatef(180f, 0, 0, 1);
-//        }
-        
+//        GL11.glScalef(0.8f, 0.8f, 0.8f);
+//        GL11.glTranslatef(-0.02f, 0.69f, -0.35f);
+//        GL11.glRotatef(180f, 0, 0, 1);
     }
 
     public static void renderArmorLayer(ModelBase modelBase, Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
@@ -853,20 +845,7 @@ public class Interceptors {
         	}
         }
     }
-    
-    public static boolean isProning(EntityPlayer player) {
-        return (CompatibleExtraEntityFlags.getFlags(player) & CompatibleExtraEntityFlags.PRONING) != 0;
-    }
-    
-    public static float adjustCameraPosition(EntityLivingBase player, float position) {
-    
-        return player instanceof EntityPlayer && isProning((EntityPlayer) player) 
-                && MC.gameSettings.thirdPersonView == 0 ? position 
-                + player.getEyeHeight() * 1.6f : position;
-    }
-    
 
-    
     public static void turn(EntityPlayer player, float yawDelta, float pitchDelta) {
     	//if(1+1==2) return;'
     	

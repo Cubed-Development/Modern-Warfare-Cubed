@@ -253,21 +253,6 @@ public class SV98Factory implements GunFactory {
                 GL11.glRotatef(-2f, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(10f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.25f, 0.95f, -0.025000f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(15f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.24f, 0.95f, 0.1f);
-                GL11.glRotatef(0.5F, 1f, 0f, 0f);
-                })
-                
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.SV98BoltAction.getRenderablePart(), (renderContext) -> {
                 })
                 
@@ -1061,22 +1046,6 @@ public class SV98Factory implements GunFactory {
                          
 //                         GL11.glScalef(3f, 3f, 3f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                    	GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(50.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.490000f, -0.125000f, 0.055000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.400000f, -0.500000f, 0.200000f);
-                    })
                      
             .withFirstPersonHandPositioningZooming(
                     (renderContext) -> {

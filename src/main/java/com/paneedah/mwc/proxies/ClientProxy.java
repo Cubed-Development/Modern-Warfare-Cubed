@@ -1,11 +1,11 @@
 package com.paneedah.mwc.proxies;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
 import com.paneedah.mwc.renderer.EquipmentRenderer;
+import com.paneedah.weaponlib.PlayerTransitionProvider;
 import com.paneedah.weaponlib.RenderingPhase;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
@@ -55,7 +55,7 @@ public class ClientProxy extends CommonProxy {
     public void init(final MWC mod) {
         super.init(mod);
 
-        PlayerAnimations.init(mod);
+        MWC.modContext.setPlayerTransitionProvider(new PlayerTransitionProvider());
 
         final ItemModelMesher modelMesher = MC.getRenderItem().getItemModelMesher();
 

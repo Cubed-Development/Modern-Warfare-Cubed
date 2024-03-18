@@ -117,7 +117,7 @@ public class WeaponEventHandler {
 			            .getItemInstance(player, itemStack);
 			    if(instance instanceof PlayerWeaponInstance) {
 			        PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) instance;
-					if (!MWCUtil.isProning(player) && (weaponInstance.isAimed() || weaponInstance.getState() == WeaponState.FIRING || weaponInstance.getState() == WeaponState.RECOILED || weaponInstance.getState() == WeaponState.PAUSED)) {
+					if (weaponInstance.isAimed() || weaponInstance.getState() == WeaponState.FIRING || weaponInstance.getState() == WeaponState.RECOILED || weaponInstance.getState() == WeaponState.PAUSED) {
 						rp.getMainModel().leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
 						rp.getMainModel().rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
 					} else {

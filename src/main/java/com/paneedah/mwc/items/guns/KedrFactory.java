@@ -117,21 +117,6 @@ public class KedrFactory {
                 GL11.glTranslatef(-0.150000f, 0.850000f, -0.825000f);
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(-2.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.3f, 0.6f, -0.85f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(-2.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.3f, 0.6f, -0.8f);
-                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
-                })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.KedrAction.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 1.2f);

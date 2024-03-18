@@ -3,7 +3,6 @@ package com.paneedah.weaponlib;
 import com.google.common.collect.Maps;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.mwc.skins.CustomSkin;
-import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
@@ -101,13 +100,13 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 	private static final Map<String, ResourceLocation> ARMOR_TEXTURE_RES_MAP = Maps.<String, ResourceLocation>newHashMap();
 
-	private org.apache.commons.lang3.tuple.Pair<? extends IBakedModel, Matrix4f> pair;
+	private final org.apache.commons.lang3.tuple.Pair<? extends IBakedModel, Matrix4f> pair;
 
 	public static class StateDescriptor implements MultipartRenderStateDescriptor<RenderableState, Part, RenderContext<RenderableState>> {
 		protected MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager;
 		protected float rate;
 		protected float amplitude = 0.04f;
-		private PlayerWeaponInstance instance;
+		private final PlayerWeaponInstance instance;
 
 		public StateDescriptor(PlayerWeaponInstance instance, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager, float rate, float amplitude) {
 			this.instance = instance;
@@ -141,21 +140,20 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 		}
 
 		@Override
-		public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world,
-										   EntityLivingBase entity) {
+		public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
 			WeaponRenderer.this.itemStack = stack;
 			WeaponRenderer.this.player = entity;
 			return super.handleItemState(originalModel, stack, world, entity);
 		}
 	}
 
-	private ItemOverrideList itemOverrideList = new WeaponItemOverrideList(Collections.emptyList());
+	private final ItemOverrideList itemOverrideList = new WeaponItemOverrideList(Collections.emptyList());
 
 	ItemCameraTransforms.TransformType transformType;
 
 	public static class Builder {
 	    
-        private Random random = new Random();
+        private final Random random = new Random();
         
         public boolean threePointOh;
         
@@ -169,47 +167,36 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 		private Consumer<RenderContext<RenderableState>> thirdPersonPositioning;
 
 		public Consumer<RenderContext<RenderableState>> firstPersonPositioning;
-		private Consumer<RenderContext<RenderableState>> firstPersonPositioningProning;
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningZooming;
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningRunning;
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningModifying;
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningModifyingAlt;
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningRecoiled;
-		private Consumer<RenderContext<RenderableState>> firstPersonPositioningProningRecoiled;
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningShooting;
-	    private Consumer<RenderContext<RenderableState>> firstPersonPositioningProningShooting;
 
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningZoomingRecoiled;
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningZoomingShooting;
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningLoadIterationCompleted;
 
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioning;
-		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningProning;
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningZooming;
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningRunning;
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningModifying;
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningModifyingAlt;
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningRecoiled;
-		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningProningRecoiled;
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningShooting;
-		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningProningShooting;
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningLoadIterationCompleted;
 
 		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioning;
-		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningProning;
 		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningZooming;
 		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningRunning;
 		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningModifying;
 		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningModifyingAlt;
 		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningRecoiled;
-		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningProningRecoiled;
 		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningShooting;
-	    private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningProningShooting;
 
 	    private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningLoadIterationCompleted;
 
-	    
-	 
 		private List<Transition<RenderContext<RenderableState>>> firstPersonPositioningReloading;
 	    private List<Transition<RenderContext<RenderableState>>> firstPersonLeftHandPositioningReloading;
 		private List<Transition<RenderContext<RenderableState>>> firstPersonRightHandPositioningReloading;
@@ -282,7 +269,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 		private float firingRandomizingAmplitude = DEFAULT_FIRING_RANDOMIZING_AMPLITUDE;
 
 		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioning = new LinkedHashMap<>();
-	    private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningProning = new LinkedHashMap<>();
 
 		private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningUnloading = new LinkedHashMap<>();
 		private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningReloading = new LinkedHashMap<>();
@@ -298,7 +284,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningDrawing = new LinkedHashMap<>();
 
 		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningRecoiled = new LinkedHashMap<>();
-		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningProningRecoiled = new LinkedHashMap<>();
         private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZoomingRecoiled = new LinkedHashMap<>();
 		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZoomingShooting = new LinkedHashMap<>();
 	    private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningLoadIterationCompleted = new LinkedHashMap<>();
@@ -316,9 +301,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningEjectSpentRoundAimed = new LinkedHashMap<>();
 
 		private boolean hasRecoilPositioningDefined;
-		
-		
-		
+
 		public Transform firstPersonTransform;
 		public Transform firstPersonLeftHandTransform;
 		public Transform firstPersonRightHandTransform;
@@ -326,12 +309,11 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 		public Transform firstPersonZoomingTransform;
 		public Transform firstPersonLeftHandZoomingTransform;
 		public Transform firstPersonRightHandZoomingTransform;
-		
-		
 
 		private boolean compoundReloadUsesTactical;
 		private boolean compoundReloadEmptyUsesTactical;
 		private boolean hasTacticalReload;
+
 		public boolean isHasTacticalReload() {
 			return hasTacticalReload;
 		}
@@ -404,7 +386,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			this.hasInspect = hasInspect;
 		}
 
-
 		private boolean hasUnloadEmpty;
 		private boolean hasLoadEmpty;
 		private boolean hasCompoundReloadEmpty;
@@ -415,8 +396,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 		private boolean hasInspect; 
 		private boolean hasEjectSpentRound;
 		private boolean hasEjectSpentRoundAimed;
-		
-		
 
 		protected ItemAttachment<Weapon>[] actionPiece; 
 		protected Transform actionPieceTransform;
@@ -437,6 +416,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			this.model = model;
 			return this;
 		}
+
 		public Builder withBakedModel(WavefrontModel bakedModel) {
 			this.bakedModel = bakedModel;
 			return this;
@@ -467,12 +447,12 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             this.prepareFirstLoadIterationAnimationDuration = prepareFirstLoadIterationAnimationDuration;
             return this;
         }
+
 		@Deprecated
         public Builder withAllLoadIterationAnimationsCompletedDuration(int allLoadIterationAnimationsCompletedDuration) {
             this.allLoadIterationAnimationsCompletedDuration = allLoadIterationAnimationsCompletedDuration;
             return this;
         }
-
 
 		public Builder withNormalRandomizingRate(float normalRandomizingRate) {
 			this.normalRandomizingRate = normalRandomizingRate;
@@ -546,15 +526,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			this.firstPersonPositioning = firstPersonPositioning;
 			return this;
 		}
-		
-		
-		
-		
-		
-		public Builder withFirstPersonPositioningProning(Consumer<RenderContext<RenderableState>> firstPersonPositioningProning) {
-		    this.firstPersonPositioningProning = firstPersonPositioningProning;
-		    return this;
-		}
 
 		@Deprecated
 		public Builder withFirstPersonPositioningRunning(Consumer<RenderContext<RenderableState>> firstPersonPositioningRunning) {
@@ -573,21 +544,10 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			//this.firstPersonPositioningRecoiled = firstPersonPositioningRecoiled;
 			return this;
 		}
-		
-		@Deprecated
-		public Builder withFirstPersonPositioningProningRecoiled(Consumer<RenderContext<RenderableState>> firstPersonPositioningProningRecoiled) {
-		   // this.firstPersonPositioningProningRecoiled = firstPersonPositioningProningRecoiled;
-		    return this;
-		}
 
 		public Builder withFirstPersonPositioningShooting(Consumer<RenderContext<RenderableState>> firstPersonPositioningShooting) {
 			this.firstPersonPositioningShooting = firstPersonPositioningShooting;
 			return this;
-		}
-
-		public Builder withFirstPersonPositioningProningShooting(Consumer<RenderContext<RenderableState>> firstPersonPositioningProningShooting) {
-		    this.firstPersonPositioningProningShooting = firstPersonPositioningProningShooting;
-		    return this;
 		}
 
 		@Deprecated
@@ -605,9 +565,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             this.firstPersonPositioningLoadIterationCompleted = firstPersonPositioningLoadIterationCompleted;
             return this;
         }
-		
+
 		public final Builder withFirstPersonPositioningReloadingNew(List<Transition<RenderContext<RenderableState>>> transitions) {
-			
+
 			this.firstPersonPositioningReloading = transitions;
 			return this;
 		}
@@ -694,85 +654,39 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         }
 
 
-		public Builder withFirstPersonHandPositioning(
-				Consumer<RenderContext<RenderableState>> leftHand,
-				Consumer<RenderContext<RenderableState>> rightHand)
-		{
+		public Builder withFirstPersonHandPositioning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
 			this.firstPersonLeftHandPositioning = leftHand;
 			this.firstPersonRightHandPositioning = rightHand;
 			return this;
 		}
-		
-		public Builder withFirstPersonHandPositioningProning(
-		        Consumer<RenderContext<RenderableState>> leftHand,
-		        Consumer<RenderContext<RenderableState>> rightHand)
-		{
-		    this.firstPersonLeftHandPositioningProning = leftHand;
-		    this.firstPersonRightHandPositioningProning = rightHand;
-		    return this;
-		}
 
 		@Deprecated
-		public Builder withFirstPersonHandPositioningRunning(
-				Consumer<RenderContext<RenderableState>> leftHand,
-				Consumer<RenderContext<RenderableState>> rightHand)
-		{
+		public Builder withFirstPersonHandPositioningRunning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
 			//this.firstPersonLeftHandPositioningRunning = leftHand;
 			//this.firstPersonRightHandPositioningRunning = rightHand;
 			return this;
 		}
 
-		public Builder withFirstPersonHandPositioningZooming(
-				Consumer<RenderContext<RenderableState>> leftHand,
-				Consumer<RenderContext<RenderableState>> rightHand)
-		{
+		public Builder withFirstPersonHandPositioningZooming(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
 			this.firstPersonLeftHandPositioningZooming = leftHand;
 			this.firstPersonRightHandPositioningZooming = rightHand;
 			return this;
 		}
 
 		@Deprecated
-		public Builder withFirstPersonHandPositioningRecoiled(
-				Consumer<RenderContext<RenderableState>> leftHand,
-				Consumer<RenderContext<RenderableState>> rightHand)
-		{
+		public Builder withFirstPersonHandPositioningRecoiled(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
 			//this.firstPersonLeftHandPositioningRecoiled = leftHand;
 			//this.firstPersonRightHandPositioningRecoiled = rightHand;
 			return this;
 		}
-		
-		@Deprecated
-		public Builder withFirstPersonHandPositioningProningRecoiled(
-		        Consumer<RenderContext<RenderableState>> leftHand,
-		        Consumer<RenderContext<RenderableState>> rightHand)
-		{
-		  //  this.firstPersonLeftHandPositioningProningRecoiled = leftHand;
-		  //  this.firstPersonRightHandPositioningProningRecoiled = rightHand;
-		    return this;
-		}
 
-		public Builder withFirstPersonHandPositioningShooting(
-				Consumer<RenderContext<RenderableState>> leftHand,
-				Consumer<RenderContext<RenderableState>> rightHand)
-		{
+		public Builder withFirstPersonHandPositioningShooting(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
 			this.firstPersonLeftHandPositioningShooting = leftHand;
 			this.firstPersonRightHandPositioningShooting = rightHand;
 			return this;
 		}
 		
-		public Builder withFirstPersonHandPositioningProningShooting(
-		        Consumer<RenderContext<RenderableState>> leftHand,
-		        Consumer<RenderContext<RenderableState>> rightHand)
-		{
-		    this.firstPersonLeftHandPositioningProningShooting = leftHand;
-		    this.firstPersonRightHandPositioningProningShooting = rightHand;
-		    return this;
-		}
-		
-		public Builder withFirstPersonHandPositioningLoadIterationCompleted(
-                Consumer<RenderContext<RenderableState>> leftHand,
-                Consumer<RenderContext<RenderableState>> rightHand)
-        {
+		public Builder withFirstPersonHandPositioningLoadIterationCompleted(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
             this.firstPersonLeftHandPositioningLoadIterationCompleted = leftHand;
             this.firstPersonRightHandPositioningLoadIterationCompleted = rightHand;
             return this;
@@ -782,8 +696,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			this.firstPersonLeftHandPositioningReloading = transitions;
 			return this;
 		}
-
-		
 		
 		@SafeVarargs
 		public final Builder withFirstPersonLeftHandPositioningReloading(Transition<RenderContext<RenderableState>> ...transitions) {
@@ -956,16 +868,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			return this;
 		}
 		
-		public Builder withFirstPersonCustomPositioningProning(Part part, Consumer<RenderContext<RenderableState>> positioning) {
-		    if(part instanceof DefaultPart) {
-		        throw new IllegalArgumentException("Part " + part + " is not custom");
-		    }
-		    if(this.firstPersonCustomPositioningProning.put(part, positioning) != null) {
-		        throw new IllegalArgumentException("Part " + part + " already added");
-		    }
-		    return this;
-		}
-		
 		public Builder withFirstPersonCustomPositioningZooming(Part part, Consumer<RenderContext<RenderableState>> positioning) {
             if(part instanceof DefaultPart) {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
@@ -986,18 +888,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				throw new IllegalArgumentException("Part " + part + " already added");
 			}*/
 			return this;
-		}
-		
-		@Deprecated
-		public Builder withFirstPersonPositioningCustomProningRecoiled(Part part, Consumer<RenderContext<RenderableState>> positioning) {
-		    /*
-			if(part instanceof DefaultPart) {
-		        throw new IllegalArgumentException("Part " + part + " is not custom");
-		    }
-		    if(this.firstPersonCustomPositioningProningRecoiled.put(part, positioning) != null) {
-		        throw new IllegalArgumentException("Part " + part + " already added");
-		    }*/
-		    return this;
 		}
 
 		public Builder withFirstPersonPositioningCustomZoomingShooting(Part part, Consumer<RenderContext<RenderableState>> positioning) {
@@ -1870,9 +1760,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				};
 			}
 			*/
-			if(firstPersonPositioningProning == null) {
-			    firstPersonPositioningProning = firstPersonPositioning;
-			}
 
 			if(firstPersonPositioningZooming == null) {
 				firstPersonPositioningZooming = firstPersonPositioning;
@@ -1968,10 +1855,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 		            firstPersonPositioningRecoiledOrig.accept(renderContext);
 			    };
 			}
-			
-			if(firstPersonPositioningProningRecoiled == null) {
-			    firstPersonPositioningProningRecoiled = firstPersonPositioningRecoiled;
-			}
 
 			if(firstPersonPositioningRunning == null) {
 				
@@ -1999,10 +1882,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			if(firstPersonPositioningShooting == null) {
 				firstPersonPositioningShooting = firstPersonPositioning;
 			}
-			
-			if(firstPersonPositioningProningShooting == null) {
-			    firstPersonPositioningProningShooting = firstPersonPositioningProning;
-			}
 
 			if(firstPersonPositioningZoomingRecoiled == null) {
 				firstPersonPositioningZoomingRecoiled = firstPersonPositioningZooming;
@@ -2029,10 +1908,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			if(firstPersonLeftHandPositioning == null) {
 				firstPersonLeftHandPositioning = (context) -> {};
 			}
-			
-			if(firstPersonLeftHandPositioningProning == null) {
-                firstPersonLeftHandPositioningProning = firstPersonLeftHandPositioning;
-            }
 
 			if(firstPersonLeftHandPositioningReloading == null) {
 				firstPersonLeftHandPositioningReloading = firstPersonPositioningReloading.stream().map(
@@ -2077,17 +1952,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			if(firstPersonLeftHandPositioningRecoiled == null) {
 				firstPersonLeftHandPositioningRecoiled = firstPersonLeftHandPositioning;
 			}
-			
-			if(firstPersonLeftHandPositioningProningRecoiled == null) {
-			    firstPersonLeftHandPositioningProningRecoiled = firstPersonLeftHandPositioningProning;
-            }
 
 			if(firstPersonLeftHandPositioningShooting == null) {
 				firstPersonLeftHandPositioningShooting = firstPersonLeftHandPositioning;
-			}
-			
-			if(firstPersonLeftHandPositioningProningShooting == null) {
-			    firstPersonLeftHandPositioningProningShooting = firstPersonLeftHandPositioningProning;
 			}
 
 			if(firstPersonLeftHandPositioningZooming == null) {
@@ -2114,10 +1981,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 			if(firstPersonRightHandPositioning == null) {
 				firstPersonRightHandPositioning = (context) -> {};
-			}
-			
-			if(firstPersonRightHandPositioningProning == null) {
-			    firstPersonRightHandPositioningProning = firstPersonRightHandPositioning;
 			}
 
 			if(firstPersonRightHandPositioningReloading == null) {
@@ -2177,17 +2040,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			if(firstPersonRightHandPositioningRecoiled == null) {
 				firstPersonRightHandPositioningRecoiled = firstPersonRightHandPositioning;
 			}
-			
-			if(firstPersonRightHandPositioningProningRecoiled == null) {
-			    firstPersonRightHandPositioningProningRecoiled = firstPersonRightHandPositioningProning;
-            }
 
 			if(firstPersonRightHandPositioningShooting == null) {
 				firstPersonRightHandPositioningShooting = firstPersonRightHandPositioning;
-			}
-			
-			if(firstPersonRightHandPositioningProningShooting == null) {
-			    firstPersonRightHandPositioningProningShooting = firstPersonRightHandPositioningProning;
 			}
 
 			if(firstPersonRightHandPositioningZooming == null) {
@@ -2219,12 +2074,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				});
 			}
 			
-			if(!firstPersonCustomPositioning.isEmpty() && firstPersonCustomPositioningProning.isEmpty()) {
-                firstPersonCustomPositioning.forEach((part, pos) -> {
-                    firstPersonCustomPositioningProning.put(part, pos);
-                });
-             }
-			
 			if(!firstPersonCustomPositioning.isEmpty() && firstPersonCustomPositioningZooming.isEmpty()) {
 			    firstPersonCustomPositioning.forEach((part, pos) -> {
 			        firstPersonCustomPositioningZooming.put(part, pos);
@@ -2236,12 +2085,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 					firstPersonCustomPositioningZoomingRecoiled.put(part, pos);
 				});
 			}
-			
-			if(!firstPersonCustomPositioning.isEmpty() && firstPersonCustomPositioningProningRecoiled.isEmpty()) {
-			    firstPersonCustomPositioningRecoiled.forEach((part, pos) -> {
-                    firstPersonCustomPositioningProningRecoiled.put(part, pos);
-                });
-            }
 
 			if(!firstPersonCustomPositioning.isEmpty() && firstPersonCustomPositioningZoomingShooting.isEmpty()) {
 				firstPersonCustomPositioning.forEach((part, pos) -> {
@@ -2644,30 +2487,8 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			//log.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
 		}
 
-		if(currentState == null) {
-			
+		if (currentState == null)
 			currentState = RenderableState.NORMAL;
-		}
-		
-        
-        if(player instanceof EntityPlayer && MWCUtil.isProning((EntityPlayer) player)) {
-            switch(currentState) {
-            case NORMAL:
-                currentState = RenderableState.PRONING;
-                break;
-            case RECOILED:
-                currentState = RenderableState.PRONING_RECOILED;
-                break;
-            case SHOOTING:
-                currentState = RenderableState.PRONING_SHOOTING;
-                break;
-            default:
-                break;
-            }
-        }
-
-        
-      
 
 		MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager = firstPersonStateManagers.get(player);
 		if(stateManager == null) {
@@ -2675,7 +2496,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			firstPersonStateManagers.put(player, stateManager);
 		} else {
 			stateManager.setState(currentState, true, currentState == RenderableState.SHOOTING
-			        || currentState == RenderableState.PRONING_SHOOTING
 					|| currentState == RenderableState.ZOOMING_SHOOTING
 					|| currentState == RenderableState.RUNNING
 					|| currentState == RenderableState.ZOOMING
@@ -3001,158 +2821,137 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 		@Override
 		public List<MultipartTransition<Part, RenderContext<RenderableState>>> getTransitions(RenderableState state) {
-			
-		
 			switch(state) {
-			case MODIFYING:
-				return getSimpleTransition(getBuilder().firstPersonPositioningModifying,
+				case MODIFYING:
+					return getSimpleTransition(getBuilder().firstPersonPositioningModifying,
 						getBuilder().firstPersonLeftHandPositioningModifying,
 						getBuilder().firstPersonRightHandPositioningModifying,
-						getBuilder().firstPersonCustomPositioning,
-						DEFAULT_ANIMATION_DURATION);
-			case MODIFYING_ALT:
-                return getSimpleTransition(getBuilder().firstPersonPositioningModifyingAlt,
+						getBuilder().firstPersonCustomPositioning, DEFAULT_ANIMATION_DURATION);
+
+				case MODIFYING_ALT:
+               		 return getSimpleTransition(getBuilder().firstPersonPositioningModifyingAlt,
                         getBuilder().firstPersonLeftHandPositioningModifyingAlt,
                         getBuilder().firstPersonRightHandPositioningModifyingAlt,
-                        getBuilder().firstPersonCustomPositioning,
-                        DEFAULT_ANIMATION_DURATION);
-			case RUNNING:
-				return
-						getSimpleTransition(getBuilder().firstPersonPositioningRunning,
+                        getBuilder().firstPersonCustomPositioning, DEFAULT_ANIMATION_DURATION);
+
+				case RUNNING:
+					return getSimpleTransition(getBuilder().firstPersonPositioningRunning,
 						getBuilder().firstPersonLeftHandPositioningRunning,
 						getBuilder().firstPersonRightHandPositioningRunning,
-						getBuilder().firstPersonCustomPositioning,
-						325, Interpolation.ACCELERATION);
-			case UNLOAD_EMPTY:
-				return getComplexTransition(getBuilder().unloadEmptyContainer);
-			case LOAD_EMPTY:
-				return getComplexTransition(getBuilder().loadEmptyContainer);
-			case TACTICAL_RELOAD:
-				
-				
-				return getComplexTransition(getBuilder().tacticalReloadContainer);
-			case UNLOADING:
-				return getComplexTransition(getBuilder().firstPersonPositioningUnloading,
+						getBuilder().firstPersonCustomPositioning, 325, Interpolation.ACCELERATION);
+
+				case UNLOAD_EMPTY:
+					return getComplexTransition(getBuilder().unloadEmptyContainer);
+
+				case LOAD_EMPTY:
+					return getComplexTransition(getBuilder().loadEmptyContainer);
+
+				case TACTICAL_RELOAD:
+					return getComplexTransition(getBuilder().tacticalReloadContainer);
+
+				case UNLOADING:
+					return getComplexTransition(getBuilder().firstPersonPositioningUnloading,
 						getBuilder().firstPersonLeftHandPositioningUnloading,
 						getBuilder().firstPersonRightHandPositioningUnloading,
-						getBuilder().firstPersonCustomPositioningUnloading
-						);
-			case RELOADING:
-				return getComplexTransition(getBuilder().firstPersonPositioningReloading,
+						getBuilder().firstPersonCustomPositioningUnloading);
+
+				case RELOADING:
+					return getComplexTransition(getBuilder().firstPersonPositioningReloading,
 						getBuilder().firstPersonLeftHandPositioningReloading,
 						getBuilder().firstPersonRightHandPositioningReloading,
-						getBuilder().firstPersonCustomPositioningReloading
-						);
-			case COMPOUND_RELOAD:
-				
-				return getComplexTransition(getBuilder().compoundReloadContainer);
-			case COMPOUND_RELOAD_EMPTY:
-				
-				
-				
-				return getComplexTransition(getBuilder().compoundReloadEmptyContainer);
-			case LOAD_ITERATION:
-                return getComplexTransition(getBuilder().firstPersonPositioningLoadIteration,
+						getBuilder().firstPersonCustomPositioningReloading);
+
+				case COMPOUND_RELOAD:
+					return getComplexTransition(getBuilder().compoundReloadContainer);
+
+				case COMPOUND_RELOAD_EMPTY:
+					return getComplexTransition(getBuilder().compoundReloadEmptyContainer);
+
+				case LOAD_ITERATION:
+            	    return getComplexTransition(getBuilder().firstPersonPositioningLoadIteration,
                         getBuilder().firstPersonLeftHandPositioningLoadIteration,
                         getBuilder().firstPersonRightHandPositioningLoadIteration,
-                        getBuilder().firstPersonCustomPositioningLoadIteration
-                        );
-			case INSPECTING:
-				
-                return getComplexTransition(getBuilder().firstPersonPositioningInspecting,
+                        getBuilder().firstPersonCustomPositioningLoadIteration);
+
+				case INSPECTING:
+           		    return getComplexTransition(getBuilder().firstPersonPositioningInspecting,
                         getBuilder().firstPersonLeftHandPositioningInspecting,
                         getBuilder().firstPersonRightHandPositioningInspecting,
-                        getBuilder().firstPersonCustomPositioningInspecting
-                        );
-            case DRAWING:
-                return getComplexTransition(getBuilder().firstPersonPositioningDrawing,
+                        getBuilder().firstPersonCustomPositioningInspecting);
+
+            	case DRAWING:
+            	    return getComplexTransition(getBuilder().firstPersonPositioningDrawing,
                         getBuilder().firstPersonLeftHandPositioningDrawing,
                         getBuilder().firstPersonRightHandPositioningDrawing,
-                        getBuilder().firstPersonCustomPositioningDrawing
-                        );
-			case LOAD_ITERATION_COMPLETED:
-                return getSimpleTransition(getBuilder().firstPersonPositioningLoadIterationCompleted,
+                        getBuilder().firstPersonCustomPositioningDrawing);
+
+				case LOAD_ITERATION_COMPLETED:
+            	    return getSimpleTransition(getBuilder().firstPersonPositioningLoadIterationCompleted,
                         getBuilder().firstPersonLeftHandPositioningLoadIterationCompleted,
                         getBuilder().firstPersonRightHandPositioningLoadIterationCompleted,
                         getBuilder().firstPersonCustomPositioningLoadIterationCompleted,
                         getBuilder().loadIterationCompletedAnimationDuration);
-			case ALL_LOAD_ITERATIONS_COMPLETED:
-                return getComplexTransition(getBuilder().firstPersonPositioningAllLoadIterationsCompleted,
+
+				case ALL_LOAD_ITERATIONS_COMPLETED:
+            	    return getComplexTransition(getBuilder().firstPersonPositioningAllLoadIterationsCompleted,
                         getBuilder().firstPersonLeftHandPositioningAllLoadIterationsCompleted,
                         getBuilder().firstPersonRightHandPositioningAllLoadIterationsCompleted,
-                        getBuilder().firstPersonCustomPositioningLoadIterationsCompleted
-                        );
-			case RECOILED:
-				return getSimpleTransition(getBuilder().firstPersonPositioningRecoiled,
+                        getBuilder().firstPersonCustomPositioningLoadIterationsCompleted);
+
+				case RECOILED:
+					return getSimpleTransition(getBuilder().firstPersonPositioningRecoiled,
 						getBuilder().firstPersonLeftHandPositioningRecoiled,
 						getBuilder().firstPersonRightHandPositioningRecoiled,
 						getBuilder().firstPersonCustomPositioningRecoiled,
 						getBuilder().recoilAnimationDuration);
-            case PRONING_RECOILED:
-                return getSimpleTransition(getBuilder().firstPersonPositioningProningRecoiled,
-                        getBuilder().firstPersonLeftHandPositioningProningRecoiled,
-                        getBuilder().firstPersonRightHandPositioningProningRecoiled,
-                        getBuilder().firstPersonCustomPositioningProningRecoiled,
-                        getBuilder().recoilAnimationDuration);
-			case SHOOTING:
-				return getSimpleTransition(getBuilder().firstPersonPositioningShooting,
+
+				case SHOOTING:
+					return getSimpleTransition(getBuilder().firstPersonPositioningShooting,
 						getBuilder().firstPersonLeftHandPositioningShooting,
 						getBuilder().firstPersonRightHandPositioningShooting,
 						getBuilder().firstPersonCustomPositioning,
 						getBuilder().shootingAnimationDuration);
-            case PRONING_SHOOTING:
-                return getSimpleTransition(getBuilder().firstPersonPositioningProningShooting,
-                        getBuilder().firstPersonLeftHandPositioningProningShooting,
-                        getBuilder().firstPersonRightHandPositioningProningShooting,
-                        getBuilder().firstPersonCustomPositioning,
-                        getBuilder().shootingAnimationDuration);
-			case EJECT_SPENT_ROUND:
-				return getComplexTransition(getBuilder().firstPersonPositioningEjectSpentRound,
+
+				case EJECT_SPENT_ROUND:
+					return getComplexTransition(getBuilder().firstPersonPositioningEjectSpentRound,
 						getBuilder().firstPersonLeftHandPositioningEjectSpentRound,
 						getBuilder().firstPersonRightHandPositioningEjectSpentRound,
-						getBuilder().firstPersonCustomPositioningEjectSpentRound
-						);
-			case EJECT_SPENT_ROUND_AIMED:
-                return getComplexTransition(getBuilder().firstPersonPositioningEjectSpentRoundAimed,
+						getBuilder().firstPersonCustomPositioningEjectSpentRound);
+
+				case EJECT_SPENT_ROUND_AIMED:
+           		    return getComplexTransition(getBuilder().firstPersonPositioningEjectSpentRoundAimed,
                         getBuilder().firstPersonLeftHandPositioningEjectSpentRoundAimed,
                         getBuilder().firstPersonRightHandPositioningEjectSpentRoundAimed,
-                        getBuilder().firstPersonCustomPositioningEjectSpentRoundAimed
-                        );
-			case NORMAL:
-				return getSimpleTransitionBeizer(getBuilder().firstPersonPositioning,
+                        getBuilder().firstPersonCustomPositioningEjectSpentRoundAimed);
+
+				case NORMAL:
+					return getSimpleTransitionBeizer(getBuilder().firstPersonPositioning,
 						getBuilder().firstPersonLeftHandPositioning,
 						getBuilder().firstPersonRightHandPositioning,
 						getBuilder().firstPersonCustomPositioning,
 						DEFAULT_ANIMATION_DURATION, getBuilder().beizer);
-            case PRONING:
-                return getSimpleTransition(getBuilder().firstPersonPositioningProning,
-                        getBuilder().firstPersonLeftHandPositioningProning,
-                        getBuilder().firstPersonRightHandPositioningProning,
-                        getBuilder().firstPersonCustomPositioningProning,
-                        DEFAULT_ANIMATION_DURATION);
-			case ZOOMING:
-				
-				
-				return getSimpleTransitionBeizer(getBuilder().firstPersonPositioningZooming,
+
+				case ZOOMING:
+					return getSimpleTransitionBeizer(getBuilder().firstPersonPositioningZooming,
 						getBuilder().firstPersonLeftHandPositioningZooming,
 						getBuilder().firstPersonRightHandPositioningZooming,
 						getBuilder().firstPersonCustomPositioningZooming,
 						DEFAULT_ANIMATION_DURATION, getBuilder().beizer);
 				
-			case ZOOMING_SHOOTING:
-				return getSimpleTransition(getBuilder().firstPersonPositioningZoomingShooting,
+				case ZOOMING_SHOOTING:
+					return getSimpleTransition(getBuilder().firstPersonPositioningZoomingShooting,
 						getBuilder().firstPersonLeftHandPositioningZooming,
 						getBuilder().firstPersonRightHandPositioningZooming,
 						getBuilder().firstPersonCustomPositioningZoomingShooting,
 						60);
-			case ZOOMING_RECOILED:
-				return getSimpleTransition(getBuilder().firstPersonPositioningZoomingRecoiled,
+				case ZOOMING_RECOILED:
+					return getSimpleTransition(getBuilder().firstPersonPositioningZoomingRecoiled,
 						getBuilder().firstPersonLeftHandPositioningZooming,
 						getBuilder().firstPersonRightHandPositioningZooming,
 						getBuilder().firstPersonCustomPositioningZoomingRecoiled,
 						60);
-			default:
-				break;
+				default:
+					break;
 			}
 			return null;
 		}
@@ -4171,13 +3970,12 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				GL11.glRotatef(110F, 1f, 0f, 0f);
 				GL11.glRotatef(135F, 0f, 1f, 0f);
 				GL11.glRotatef(-180F, 0f, 0f, 1f);
-				if (player instanceof EntityPlayer && !MWCUtil.isProning((EntityPlayer) player)) {
+				if (player instanceof EntityPlayer) {
 					StateDescriptor thirdPersonStateDescriptor = getThirdPersonStateDescriptor(player, itemStack);
 
 					renderContext.setPlayerItemInstance(thirdPersonStateDescriptor.instance);
 
-					MultipartPositioning<Part, RenderContext<RenderableState>> thirdPersonMultipartPositioning = thirdPersonStateDescriptor.stateManager
-							.nextPositioning();
+					MultipartPositioning<Part, RenderContext<RenderableState>> thirdPersonMultipartPositioning = thirdPersonStateDescriptor.stateManager.nextPositioning();
 
 					renderContext.setTransitionProgress(thirdPersonMultipartPositioning.getProgress());
 
@@ -5624,9 +5422,8 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			domain = texture.substring(0, idx);
 			texture = texture.substring(idx + 1);
 		}
-		String s1 = String.format("%s:textures/models/armor/%s_layer_%d%s.png", domain, texture,
-				(isLegSlot(slot) ? 2 : 1), type == null ? "" : String.format("_%s", type));
 
+		String s1 = String.format("%s:textures/models/armor/%s_layer_%d%s.png", domain, texture, (isLegSlot(slot) ? 2 : 1), type == null ? "" : String.format("_%s", type));
 		s1 = net.minecraftforge.client.ForgeHooksClient.getArmorTexture(entity, stack, s1, slot, type);
 		ResourceLocation resourcelocation = (ResourceLocation) ARMOR_TEXTURE_RES_MAP.get(s1);
 
