@@ -287,14 +287,6 @@ public class CommonEventHandler {
     }
 
     @SubscribeEvent
-    public final void onPlayerTickEvent(TickEvent.PlayerTickEvent event) {
-        // We check the phase to see if it is at "Phase.END" as we
-        // do not want this running twice.
-        //if (event.phase != TickEvent.Phase.END)
-        //    return;
-    }
-
-    @SubscribeEvent
     public final void onEntityJoinedEvent(EntityJoinWorldEvent event) {
         // We are only interested in the player. We also only want to deal with this if the server and the client
         // are operating off of DIFFERENT file systems (hence the dedicated server check!).

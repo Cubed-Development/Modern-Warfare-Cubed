@@ -178,7 +178,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningZoomingShooting;
 		private Consumer<RenderContext<RenderableState>> firstPersonPositioningLoadIterationCompleted;
 
-		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioning;;
+		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioning;
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningZooming;
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningRunning;
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningModifying;
@@ -2495,7 +2495,11 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			stateManager = new MultipartRenderStateManager<>(currentState, firstPersonTransitionProvider);
 			firstPersonStateManagers.put(player, stateManager);
 		} else {
-			stateManager.setState(currentState, true, currentState == RenderableState.SHOOTING || currentState == RenderableState.ZOOMING_SHOOTING || currentState == RenderableState.RUNNING || currentState == RenderableState.ZOOMING || currentState == RenderableState.DRAWING);
+			stateManager.setState(currentState, true, currentState == RenderableState.SHOOTING
+					|| currentState == RenderableState.ZOOMING_SHOOTING
+					|| currentState == RenderableState.RUNNING
+					|| currentState == RenderableState.ZOOMING
+					|| currentState == RenderableState.DRAWING);
 		}
 
 		return new StateDescriptor(playerWeaponInstance, stateManager, rate, amplitude);
