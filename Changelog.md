@@ -19,6 +19,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 - Fixed fog obscuring vision too much in optical scopes
 - Fixed compatibility with bad bukkit implementation (Bukkit should still fix that, if anyone is reading that)
+- Fixed fov not being reset while reloading when ads
 
 ### Internal
 
