@@ -14,6 +14,7 @@ public class BlockBase extends Block {
         super(Material.ROCK);
         setRegistryName(registryName);
         setTranslationKey(registryName);
+        setTickRandomly(false);
 
         setHardness(6F);
         setResistance(15F);
