@@ -143,7 +143,6 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
 
     
     private void evaluateUnload(UnloadPermit p, PlayerMagazineInstance magazineInstance) {
-
         if(!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
             ModReference.LOG.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect unload");
             return;
@@ -176,7 +175,9 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             
             ItemStack stack = new ItemStack(compatibleBullets.get(0));
             stack.setCount(currentAmmo);
-            player.addItemStackToInventory(stack);
+
+            if (!player.addItemStackToInventory(stack))
+                player.dropItem(stack, false);
             
             if(originalFlag) {
             	 Tags.setAmmo(magazineStack, 0);
