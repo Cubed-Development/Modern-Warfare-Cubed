@@ -24,6 +24,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed fog obscuring vision too much in optical scopes
 - Fixed weapons destroying magazine when unloading with a full inventory
 - Fixed magazines destroying bullets when unloading with a full inventory
+- Fixed attachments destroying themselves when removing them with a full inventory
 
 ## Modern Warfare Cubed Version 0.1.3 Changelog - 2024-03-15
 
