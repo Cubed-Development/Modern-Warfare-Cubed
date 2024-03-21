@@ -59,7 +59,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 	// Item Scroll
 	private long lastUnixTimeSeconds = 0;
-	private int itemindex = 0;
+	private int itemIndex = 0;
 
 	// Generic buttons & search box
 	protected GUIButtonCustom craftButton, leftArrow, rightArrow, dismantleButton;
@@ -696,11 +696,11 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		long currentUnixTimeSeconds = System.currentTimeMillis() / 1000;
 
 		if(currentUnixTimeSeconds-lastUnixTimeSeconds>=1){
-			itemindex = itemindex+1>=itemStacks.length? 0:itemindex+1;
+			itemIndex = itemIndex +1>=itemStacks.length? 0: itemIndex +1;
 			lastUnixTimeSeconds = currentUnixTimeSeconds;
 		}
 
-		return itemStacks[itemindex];
+		return itemStacks[itemIndex];
 	}
 
 }
