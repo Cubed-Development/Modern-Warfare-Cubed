@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project follows to [Ragnarök Versioning Convention](https://gist.github.com/JustDesoroxxx/5d4a45785ce19a6653ba99f72325c703).
 
+## [UNRELEASED] Modern Warfare Cubed Version 0.2 Changelog
+
+### Changed
+
+- Press [B] to change fire mode now only appears when the weapon has multiple fire modes
+- Magazines now show bullet count in the magazine the same way guns do, instead of a white text in the top-right corner
+- Crosshair will now appear when holding a magazine
+
 ## Modern Warfare Cubed Version 0.1.4 Changelog - 2024-03-18
 
 ### Warning
