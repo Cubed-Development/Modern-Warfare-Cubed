@@ -699,21 +699,21 @@ public class Interceptors {
             EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(player);
             if(equipmentInventory != null) {
                 ItemStack backpackStack = equipmentInventory.getStackInSlot(BACKPACK_SLOT);
-                if(backpackStack != null) {
+                if(!backpackStack.isEmpty()) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
                     MC.getItemRenderer().renderItem(player, backpackStack, null);
                     GL11.glPopMatrix();
                 }
                 ItemStack beltStack = equipmentInventory.getStackInSlot(BELT_SLOT);
-                if(beltStack != null) {
+                if(!beltStack.isEmpty()) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
                     MC.getItemRenderer().renderItem(player, beltStack, null);
                     GL11.glPopMatrix();
                 }
                 ItemStack vestStack = equipmentInventory.getStackInSlot(VEST_SLOT);
-                if(vestStack != null) {
+                if(!vestStack.isEmpty()) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
                     MC.getItemRenderer().renderItem(player, vestStack, null);
