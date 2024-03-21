@@ -1093,7 +1093,6 @@ gui.firearmMode=枪支模式: %s
 gui.firearmMode.semi=半自动
 gui.firearmMode.auto=全自动
 gui.firearmMode.burst=连发
-gui.inventoryFull=背包已满
 gui.currentZoom=缩放: %s%%
 gui.grenadeExplodes=将于%s秒后爆炸
 gui.coolingDown=冷却中...

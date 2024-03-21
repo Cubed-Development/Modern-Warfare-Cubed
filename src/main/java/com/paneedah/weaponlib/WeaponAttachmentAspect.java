@@ -467,7 +467,8 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 			// Item must be added to the same spot the next attachment comes from or to any
 			// spot if there is no next attachment
 			if (lookupResult.index == -1) {
-				player.inventory.addItemStackToInventory(new ItemStack(currentAttachment));
+				if (!player.inventory.addItemStackToInventory(new ItemStack(currentAttachment)))
+					player.dropItem(new ItemStack(currentAttachment), false);
 			} else if (player.inventory.mainInventory.get(lookupResult.index) == null || player.inventory.mainInventory.get(lookupResult.index).getItem() == Items.AIR) {
 				player.inventory.mainInventory.set(lookupResult.index, new ItemStack(currentAttachment));
 			}
@@ -699,8 +700,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 	 * @param player
 	 * @return
 	 */
-	ItemAttachment<Weapon> removeAttachment(AttachmentCategory attachmentCategory,
-			PlayerWeaponInstance weaponInstance) {
+	ItemAttachment<Weapon> removeAttachment(AttachmentCategory attachmentCategory, PlayerWeaponInstance weaponInstance) {
 
 		int[] activeAttachmentIds = weaponInstance.getActiveAttachmentIds();
 		int activeAttachmentIdForThisCategory = activeAttachmentIds[attachmentCategory.ordinal()];
@@ -714,8 +714,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 		}
 
 		if (currentAttachment != null && currentAttachment.getRemove() != null) {
-			currentAttachment.getRemove().apply(currentAttachment, weaponInstance.getWeapon(),
-					weaponInstance.getPlayer());
+			currentAttachment.getRemove().apply(currentAttachment, weaponInstance.getWeapon(), weaponInstance.getPlayer());
 		}
 
 		if (currentAttachment != null) {

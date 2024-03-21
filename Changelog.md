@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project follows to [Ragnarök Versioning Convention](https://gist.github.com/JustDesoroxxx/5d4a45785ce19a6653ba99f72325c703).
+and this project follows the [Ragnarök Versioning Convention](https://gist.github.com/JustDesoroxxx/5d4a45785ce19a6653ba99f72325c703).
 
 ## Modern Warfare Cubed Version 0.1.4 Changelog - 2024-03-18
 
@@ -15,9 +15,22 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 **BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
 
+### Changed
+
+- Weapons will not prevent you from unloading with a full inventory anymore, instead they will drop their magazines on the ground
+
 ### Fixed
 
 - Fixed fog obscuring vision too much in optical scopes
+- Fixed compatibility with bad bukkit implementation (Bukkit should still fix that, if anyone is reading that)
+- Fixed fov not being reset while reloading when ads
+- Fixed weapons destroying magazine when unloading with a full inventory
+- Fixed magazines destroying bullets when unloading with a full inventory
+- Fixed attachments destroying themselves when removing them with a full inventory
+
+### Internal
+
+- Added logging to try and locate CCS
 
 ## Modern Warfare Cubed Version 0.1.3 Changelog - 2024-03-15
 
