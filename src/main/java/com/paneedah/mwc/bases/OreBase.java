@@ -18,6 +18,7 @@ public class OreBase extends BlockOre {
     public OreBase(String registryName) {
         setRegistryName(registryName);
         setTranslationKey(registryName);
+        setTickRandomly(false);
 
         setHardness(6F);
         setResistance(15F);
