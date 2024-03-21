@@ -22,9 +22,15 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 ### Fixed
 
 - Fixed fog obscuring vision too much in optical scopes
+- Fixed compatibility with bad bukkit implementation (Bukkit should still fix that, if anyone is reading that)
+- Fixed fov not being reset while reloading when ads
 - Fixed weapons destroying magazine when unloading with a full inventory
 - Fixed magazines destroying bullets when unloading with a full inventory
 - Fixed attachments destroying themselves when removing them with a full inventory
+
+### Internal
+
+- Added logging to try and locate CCS
 
 ## Modern Warfare Cubed Version 0.1.3 Changelog - 2024-03-15
 

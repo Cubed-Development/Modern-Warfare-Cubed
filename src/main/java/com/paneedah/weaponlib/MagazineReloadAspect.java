@@ -3,6 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.network.TypeRegistry;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
@@ -143,6 +144,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     
     private void evaluateUnload(UnloadPermit p, PlayerMagazineInstance magazineInstance) {
         if(!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
+            ModReference.LOG.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect unload");
             return;
         }
 
@@ -223,8 +225,10 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     private void evaluateLoad(LoadPermit p, PlayerMagazineInstance magazineInstance) {
 
         if(!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
+            ModReference.LOG.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect load");
             return;
         }
+
         ItemStack magazineStack = magazineInstance.getItemStack();
 
         Status status = Status.DENIED;

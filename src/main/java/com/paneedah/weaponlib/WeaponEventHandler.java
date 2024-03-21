@@ -10,7 +10,10 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.event.*;
+import net.minecraftforge.client.event.FOVUpdateEvent;
+import net.minecraftforge.client.event.MouseEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -28,9 +31,6 @@ public class WeaponEventHandler {
 
 	@SubscribeEvent
 	public void zoom(FOVUpdateEvent event) {
-		
-		
-		
 		/*
 		 * TODO: if optical zoom is on then
 		 * 			if rendering phase is "renderer viewfinder" then
@@ -40,52 +40,50 @@ public class WeaponEventHandler {
 		 *       else if optical zoom is off
 		 *       	setNewFov(getZoom())
 		 */
-		
-		
-		
 
 		//ItemStack stack = compatibility.getHeldItemMainHand(compatibility.getEntity(event));
 		//ClientModContext modContext = ClientModContext.getContext();
 		PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
 		EntityPlayer clientPlayer = MC.player;
-		if (instance != null) {
-		   
-		    float fov;
-		    if(instance.isAttachmentZoomEnabled()) {
-		    	fov = instance.getWeapon().getADSZoom();
-		    	 if(ClientProxy.renderingPhase == RenderingPhase.RENDER_PERSPECTIVE) {
-		           
-		        	fov = instance.getZoom();
-		        } else {
-		        	
-		            fov = clientPlayer.capabilities.isFlying ? 1.1f : 1.0f;
-		        }
-		    } else {
-		    	 fov = MC.player.capabilities.isFlying ? 1.1f : 1.0f;
-		    	//fov = instance.isAimed() ? instance.getZoom() : 1f;
-		       // fov = compatibility.isFlying(MC.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
-		    }
 
-		   RenderingPhase phase = ClientProxy.renderingPhase;
-		 
-		     if(instance.isAimed() && phase == null) {
-		    	fov = 0.7f;
-		    }
-		     
-		    if(MC.player.isSprinting()) {
-		    	fov *= 1.2;
-		    }
-		    
-		    //fov = 0.3f;
-			event.setNewfov(fov);
-		} else {
-		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
-            if(spreadableExposure != null && spreadableExposure.getTotalDose() > 0f) {
-                float fov = MC.player.capabilities.isFlying ? 1.1f : 1.0f;
+		if (instance == null) {
+			SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
+			if (spreadableExposure != null && spreadableExposure.getTotalDose() > 0f) {
+				float fov = MC.player.capabilities.isFlying ? 1.1f : 1.0f;
 				event.setNewfov(fov);
-            }
+			}
+			return;
 		}
-		
+
+		float fov;
+		if (instance.isAttachmentZoomEnabled()) {
+			if (ClientProxy.renderingPhase == RenderingPhase.RENDER_PERSPECTIVE)
+				fov = instance.getZoom();
+			else
+				fov = clientPlayer.capabilities.isFlying ? 1.1f : 1.0f;
+
+		} else
+			fov = MC.player.capabilities.isFlying ? 1.1f : 1.0f;
+			//fov = instance.isAimed() ? instance.getZoom() : 1f;
+			//fov = compatibility.isFlying(MC.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
+
+		final WeaponState state = instance.state;
+
+		if (instance.isAimed()
+				&& ClientProxy.renderingPhase == null
+				&& !(state == WeaponState.TACTICAL_RELOAD
+					|| state == WeaponState.COMPOUND_RELOAD
+					|| state == WeaponState.COMPOUND_RELOAD_EMPTY
+					|| state == WeaponState.COMPOUND_RELOAD_UNLOAD
+					|| state == WeaponState.UNLOAD_PREPARING
+					|| state == WeaponState.LOAD))
+			fov = 0.7f;
+
+		if (MC.player.isSprinting())
+			fov *= 1.2f;
+
+		//fov = 0.3f;
+		event.setNewfov(fov);
 	}
 
 	@SubscribeEvent
