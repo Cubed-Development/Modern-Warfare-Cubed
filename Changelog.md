@@ -15,9 +15,15 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 **BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
 
+### Changed
+
+- Weapons will not prevent you from unloading with a full inventory anymore, instead they will drop their magazines on the ground
+
 ### Fixed
 
 - Fixed fog obscuring vision too much in optical scopes
+- Fixed weapons destroying magazine when unloading with a full inventory
+- Fixed magazines destroying bullets when unloading with a full inventory
 
 ## Modern Warfare Cubed Version 0.1.3 Changelog - 2024-03-15
 
