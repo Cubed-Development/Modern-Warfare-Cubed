@@ -1068,7 +1068,6 @@ gui.firearmMode=Firearm mode: %s
 gui.firearmMode.semi=Semi
 gui.firearmMode.auto=Auto
 gui.firearmMode.burst=Burst
-gui.inventoryFull=Inventory full
 gui.currentZoom=Zoom: %s%%
 gui.grenadeExplodes=Explodes in %s sec
 gui.coolingDown=Cooling down...
