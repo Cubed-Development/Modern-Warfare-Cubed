@@ -53,7 +53,7 @@ repositories {
 dependencies {
     implementation("dev.redstudio", "Red-Core", redCoreVersion)
 
-    compileOnly("com.cleanroommc:groovyscript:0.8.0") {
+    compileOnly("com.cleanroommc:groovyscript:1.0.0") {
         isTransitive = false
     }
 
