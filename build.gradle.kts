@@ -42,9 +42,11 @@ repositories {
         url = uri("https://repo.cleanroommc.com/releases")
     }
 
-    maven {
-        name = "Red Studio"
-        url = uri("https://repo.redstudio.dev/dev")
+    listOf("release", "beta", "dev").forEach { repoType ->
+        maven {
+            name = "Red Studio - ${repoType.capitalize()}"
+            url = uri("https://repo.redstudio.dev/$repoType")
+        }
     }
 }
 
