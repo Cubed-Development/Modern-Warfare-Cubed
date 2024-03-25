@@ -13,7 +13,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 
 [**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
 
-**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACK UP YOUR WORLDS, THINGS WILL DISAPPEAR**
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
 
 ### Changed
 
@@ -27,6 +27,10 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 - Fixed weapons destroying magazine when unloading with a full inventory
 - Fixed magazines destroying bullets when unloading with a full inventory
 - Fixed attachments destroying themselves when removing them with a full inventory
+- **GroovyScript integration:**
+  - Fixed rare crashes when using `removeAll`
+  - Fixed recipes not working when ore dictionary is used
+  - Fixed names not correctly displaying in certain conditions
 
 ### Internal
 
@@ -280,7 +284,6 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 - Fixed the exposure decreasing on the client side even when the game is paused
 - Fixed spectators being able to shoot weapons
 - Fixed the spawning position of the shells
-- Fixed OreDict support for crafting system
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
 
 ### Removed
