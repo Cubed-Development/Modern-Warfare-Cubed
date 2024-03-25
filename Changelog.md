@@ -27,7 +27,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 - Fixed weapons destroying magazine when unloading with a full inventory
 - Fixed magazines destroying bullets when unloading with a full inventory
 - Fixed attachments destroying themselves when removing them with a full inventory
-- Fixed terrorist weapons dropping weapons with stupid amounts of bullets
+- Fixed terrorist dropping weapons with stupid amounts of bullets
 
 ### Internal
 
