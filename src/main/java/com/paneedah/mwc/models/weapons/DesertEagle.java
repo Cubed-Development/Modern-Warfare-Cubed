@@ -5,17 +5,17 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 4.9.3
+// Made with Blockbench 4.9.4
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
 public class DesertEagle extends ModelWithAttachments {
+	private final ModelRenderer maingun;
 	private final ModelRenderer Hammer;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer Grip;
-	private final ModelRenderer cube_r21_r1;
 	private final ModelRenderer cubes;
 	private final ModelRenderer cube_r3;
 	private final ModelRenderer cube_r4;
@@ -36,9 +36,12 @@ public class DesertEagle extends ModelWithAttachments {
 	private final ModelRenderer cube_r18;
 	private final ModelRenderer cube_r19;
 	private final ModelRenderer gripitself;
+	private final ModelRenderer gripitself_r1;
+	private final ModelRenderer gripitself_r2;
 	private final ModelRenderer cube_r20;
 	private final ModelRenderer cube_r21;
 	private final ModelRenderer cube_r22;
+	private final ModelRenderer cube_r22_r1;
 	private final ModelRenderer cube_r23;
 	private final ModelRenderer cube_r24;
 	private final ModelRenderer cube_r25;
@@ -79,8 +82,13 @@ public class DesertEagle extends ModelWithAttachments {
 		textureWidth = 128;
 		textureHeight = 128;
 
+		maingun = new ModelRenderer(this);
+		maingun.setRotationPoint(0.0F, 24.0F, 0.0F);
+		
+
 		Hammer = new ModelRenderer(this);
-		Hammer.setRotationPoint(-1.5F, -10.5F, 3.9F);
+		Hammer.setRotationPoint(-1.5F, -35.0F, 4.7F);
+		maingun.addChild(Hammer);
 		setRotationAngle(Hammer, -1.0908F, 0.0F, 0.0F);
 		Hammer.cubeList.add(new ModelBox(Hammer, 19, 17, -0.4F, -3.5F, 0.4F, 1, 4, 1, 0.0F, false));
 
@@ -88,23 +96,18 @@ public class DesertEagle extends ModelWithAttachments {
 		cube_r1.setRotationPoint(-0.4F, 0.5F, 1.4F);
 		Hammer.addChild(cube_r1);
 		setRotationAngle(cube_r1, -0.0524F, 0.0F, 0.0F);
-		cube_r1.cubeList.add(new ModelBox(cube_r1, 41, 25, 0.0F, -4.5F, -1.6F, 1, 1, 2, 0.0F, false));
+		cube_r1.cubeList.add(new ModelBox(cube_r1, 41, 25, 0.0F, -4.5576F, -1.2441F, 1, 1, 2, 0.0F, false));
 
 		cube_r2 = new ModelRenderer(this);
 		cube_r2.setRotationPoint(-0.4F, 0.5F, 1.4F);
 		Hammer.addChild(cube_r2);
 		setRotationAngle(cube_r2, -0.576F, 0.0F, 0.0F);
-		cube_r2.cubeList.add(new ModelBox(cube_r2, 35, 25, 0.0F, -4.5F, -2.0F, 1, 3, 1, -0.002F, false));
+		cube_r2.cubeList.add(new ModelBox(cube_r2, 35, 25, 0.0F, -4.2278F, -1.9206F, 1, 3, 1, -0.002F, false));
 
 		Grip = new ModelRenderer(this);
-		Grip.setRotationPoint(-1.475F, -2.0F, -1.7F);
-		Grip.cubeList.add(new ModelBox(Grip, 25, 38, -0.925F, -14.0F, 4.1F, 2, 5, 1, 0.0F, false));
-
-		cube_r21_r1 = new ModelRenderer(this);
-		cube_r21_r1.setRotationPoint(-26.3708F, 15.6256F, 1.7F);
-		Grip.addChild(cube_r21_r1);
-		setRotationAngle(cube_r21_r1, 0.0F, 0.0F, 0.7854F);
-		cube_r21_r1.cubeList.add(new ModelBox(cube_r21_r1, 25, 78, -1.9F, -39.3F, 2.8F, 1, 1, 1, -0.1F, false));
+		Grip.setRotationPoint(-1.475F, -26.0F, -1.7F);
+		maingun.addChild(Grip);
+		
 
 		cubes = new ModelRenderer(this);
 		cubes.setRotationPoint(0.6F, 0.0F, 0.0F);
@@ -261,18 +264,28 @@ public class DesertEagle extends ModelWithAttachments {
 		gripitself = new ModelRenderer(this);
 		gripitself.setRotationPoint(0.0F, 0.0F, 0.0F);
 		Grip.addChild(gripitself);
-		gripitself.cubeList.add(new ModelBox(gripitself, 35, 25, 1.95F, -6.2F, -2.8F, 1, 4, 4, -0.003F, false));
+		gripitself.cubeList.add(new ModelBox(gripitself, 35, 25, 1.95F, -6.2F, -2.8F, 1, 4, 4, 0.0F, false));
 		gripitself.cubeList.add(new ModelBox(gripitself, 25, 13, 1.95F, -7.5F, 1.2F, 1, 5, 2, -0.001F, false));
-		gripitself.cubeList.add(new ModelBox(gripitself, 50, 23, 1.95F, 8.0F, -1.2F, 1, 1, 9, -0.001F, false));
 		gripitself.cubeList.add(new ModelBox(gripitself, 83, 45, 1.95F, 7.0F, 7.1F, 1, 2, 1, 0.0F, false));
 		gripitself.cubeList.add(new ModelBox(gripitself, 25, 25, 1.95F, 3.6F, -1.2F, 1, 5, 8, -0.002F, false));
 		gripitself.cubeList.add(new ModelBox(gripitself, 60, 81, -2.7F, 6.6F, 6.8F, 1, 2, 1, -0.002F, false));
 		gripitself.cubeList.add(new ModelBox(gripitself, 52, 81, 1.95F, 6.6F, 6.8F, 1, 2, 1, -0.03F, false));
 		gripitself.cubeList.add(new ModelBox(gripitself, 25, 0, -2.7F, -7.5F, 1.2F, 1, 5, 2, -0.001F, false));
 		gripitself.cubeList.add(new ModelBox(gripitself, 25, 0, -2.7F, 3.6F, -1.2F, 1, 5, 8, -0.002F, false));
-		gripitself.cubeList.add(new ModelBox(gripitself, 0, 50, -2.7F, 8.0F, -1.2F, 1, 1, 9, -0.001F, false));
 		gripitself.cubeList.add(new ModelBox(gripitself, 81, 11, -2.7F, 7.0F, 7.1F, 1, 2, 1, 0.0F, false));
 		gripitself.cubeList.add(new ModelBox(gripitself, 11, 50, -2.7F, -6.2F, -2.8F, 1, 3, 4, 0.0F, false));
+
+		gripitself_r1 = new ModelRenderer(this);
+		gripitself_r1.setRotationPoint(-2.2F, 8.5F, 3.3F);
+		gripitself.addChild(gripitself_r1);
+		setRotationAngle(gripitself_r1, 0.0F, 0.0F, 0.2094F);
+		gripitself_r1.cubeList.add(new ModelBox(gripitself_r1, 0, 50, -0.6F, -0.5F, -4.5F, 1, 1, 9, -0.001F, false));
+
+		gripitself_r2 = new ModelRenderer(this);
+		gripitself_r2.setRotationPoint(2.5485F, 8.4826F, 3.3F);
+		gripitself.addChild(gripitself_r2);
+		setRotationAngle(gripitself_r2, 0.0F, 0.0F, -0.2094F);
+		gripitself_r2.cubeList.add(new ModelBox(gripitself_r2, 50, 23, -0.5F, -0.5F, -4.5F, 1, 1, 9, -0.001F, false));
 
 		cube_r20 = new ModelRenderer(this);
 		cube_r20.setRotationPoint(0.8F, 0.0F, 0.0F);
@@ -302,9 +315,13 @@ public class DesertEagle extends ModelWithAttachments {
 		cube_r22.cubeList.add(new ModelBox(cube_r22, 92, 81, -3.5F, -6.625F, -2.55F, 1, 1, 1, 0.0F, false));
 		cube_r22.cubeList.add(new ModelBox(cube_r22, 93, 84, -3.5F, -6.625F, -2.7F, 1, 1, 1, 0.0F, false));
 		cube_r22.cubeList.add(new ModelBox(cube_r22, 34, 38, -3.5F, -6.3F, -2.7F, 1, 4, 2, -0.002F, false));
-		cube_r22.cubeList.add(new ModelBox(cube_r22, 25, 25, 1.15F, -6.3F, -2.7F, 1, 5, 2, -0.001F, false));
-		cube_r22.cubeList.add(new ModelBox(cube_r22, 94, 14, 1.15F, -6.625F, -2.7F, 1, 1, 1, 0.0F, false));
-		cube_r22.cubeList.add(new ModelBox(cube_r22, 18, 94, 1.15F, -6.625F, -2.55F, 1, 1, 1, 0.0F, false));
+		cube_r22.cubeList.add(new ModelBox(cube_r22, 25, 25, 1.15F, -6.3F, -2.7F, 1, 5, 2, -0.0015F, false));
+
+		cube_r22_r1 = new ModelRenderer(this);
+		cube_r22_r1.setRotationPoint(1.65F, -6.125F, -2.1F);
+		cube_r22.addChild(cube_r22_r1);
+		setRotationAngle(cube_r22_r1, 0.2793F, 0.0F, 0.0F);
+		cube_r22_r1.cubeList.add(new ModelBox(cube_r22_r1, 94, 14, -0.5F, -0.3F, -0.4F, 1, 1, 1, -0.0025F, false));
 
 		cube_r23 = new ModelRenderer(this);
 		cube_r23.setRotationPoint(0.8F, 0.0F, 0.0F);
@@ -312,7 +329,7 @@ public class DesertEagle extends ModelWithAttachments {
 		setRotationAngle(cube_r23, 1.1868F, 0.0F, 0.0F);
 		cube_r23.cubeList.add(new ModelBox(cube_r23, 0, 94, -3.5F, -3.8F, 1.55F, 1, 1, 1, -0.002F, false));
 		cube_r23.cubeList.add(new ModelBox(cube_r23, 4, 94, -3.5F, -3.0F, 0.6F, 1, 1, 1, 0.0F, false));
-		cube_r23.cubeList.add(new ModelBox(cube_r23, 11, 0, -2.2F, -1.4F, -7.5F, 3, 4, 3, 0.0F, false));
+		cube_r23.cubeList.add(new ModelBox(cube_r23, 11, 0, -2.2F, -1.4F, -7.5F, 3, 4, 3, -0.001F, false));
 		cube_r23.cubeList.add(new ModelBox(cube_r23, 11, 25, -2.2F, -3.4F, -4.5F, 3, 4, 3, 0.0F, false));
 
 		cube_r24 = new ModelRenderer(this);
@@ -329,7 +346,7 @@ public class DesertEagle extends ModelWithAttachments {
 		cube_r25.cubeList.add(new ModelBox(cube_r25, 102, 81, -2.75F, 9.15F, 6.525F, 4, 1, 1, 0.0F, false));
 		cube_r25.cubeList.add(new ModelBox(cube_r25, 99, 98, -2.75F, 7.65F, 6.525F, 4, 2, 1, 0.0F, false));
 		cube_r25.cubeList.add(new ModelBox(cube_r25, 94, 7, 1.15F, 9.15F, 6.275F, 1, 1, 1, 0.0F, false));
-		cube_r25.cubeList.add(new ModelBox(cube_r25, 66, 81, 1.15F, 7.65F, 6.275F, 1, 2, 1, 0.0F, false));
+		cube_r25.cubeList.add(new ModelBox(cube_r25, 66, 81, 1.15F, 7.65F, 6.275F, 1, 2, 1, 0.0F, true));
 		cube_r25.cubeList.add(new ModelBox(cube_r25, 26, 94, -3.5F, 9.15F, 6.225F, 1, 1, 1, 0.0F, false));
 
 		cube_r26 = new ModelRenderer(this);
@@ -346,7 +363,7 @@ public class DesertEagle extends ModelWithAttachments {
 		cube_r27.setRotationPoint(-0.55F, 0.0F, 0.0F);
 		gripitself.addChild(cube_r27);
 		setRotationAngle(cube_r27, 0.6371F, 0.8542F, 0.509F);
-		cube_r27.cubeList.add(new ModelBox(cube_r27, 67, 52, 3.875F, -2.7F, -0.45F, 1, 10, 1, 0.0F, false));
+		cube_r27.cubeList.add(new ModelBox(cube_r27, 67, 52, 3.875F, -2.7F, -0.45F, 1, 10, 1, -0.001F, false));
 		cube_r27.cubeList.add(new ModelBox(cube_r27, 89, 102, 3.875F, -2.7F, -0.15F, 1, 10, 1, 0.0F, false));
 
 		details = new ModelRenderer(this);
@@ -393,7 +410,8 @@ public class DesertEagle extends ModelWithAttachments {
 		cube_r30.cubeList.add(new ModelBox(cube_r30, 79, 78, -2.35F, -0.8F, -5.7F, 5, 2, 2, 0.0F, false));
 
 		Barrel = new ModelRenderer(this);
-		Barrel.setRotationPoint(-1.5F, -14.0F, -12.7F);
+		Barrel.setRotationPoint(-1.5F, -38.0F, -12.7F);
+		maingun.addChild(Barrel);
 		Barrel.cubeList.add(new ModelBox(Barrel, 100, 0, -0.45F, -2.4F, -2.5F, 1, 1, 6, 0.0F, false));
 		Barrel.cubeList.add(new ModelBox(Barrel, 79, 66, -1.4F, -1.6F, -19.475F, 3, 1, 17, 0.0F, false));
 		Barrel.cubeList.add(new ModelBox(Barrel, 61, 71, -0.9F, -2.25F, -23.575F, 2, 1, 4, 0.0F, false));
@@ -594,9 +612,7 @@ public class DesertEagle extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		Hammer.render(f5);
-		Grip.render(f5);
-		Barrel.render(f5);
+		maingun.render(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
