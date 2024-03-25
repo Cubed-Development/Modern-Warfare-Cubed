@@ -138,7 +138,7 @@ public class M1911Factory implements GunFactory {
 
 
                                 new Transform()
-                                        .withPosition(-0.420000f, 0.360000f, 2.040000f)
+                                        .withPosition(-0.470000f, 0.360000f, 2.040000f)
                                         .withBBRotation(10.0931F, 10.9576F, -10.0294F)
                                         .withScale(3.5F, 3.5F, 4F)
                                         .withPivotPoint(0, 0, 0)
