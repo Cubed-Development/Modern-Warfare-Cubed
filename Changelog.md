@@ -32,6 +32,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
   - Fixed rare crashes when using `removeAll`
   - Fixed recipes not working when ore dictionary is used
   - Fixed names not correctly displaying in certain conditions
+- Fixed crash with Techguns when rendering weapons in certain conditions
 
 ### Internal
 

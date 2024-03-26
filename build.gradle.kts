@@ -48,11 +48,25 @@ repositories {
             url = uri("https://repo.redstudio.dev/$repoType")
         }
     }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Curse Maven"
+                url = uri("https://cursemaven.com")
+            }
+        }
+        filter {
+            includeGroup("curse.maven")
+        }
+    }
 }
 
 dependencies {
     implementation("dev.redstudio", "Red-Core", redCoreVersion)
 
+
+    compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
     compileOnly("com.cleanroommc:groovyscript:1.0.0") {
         isTransitive = false
     }
