@@ -11,6 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.function.Predicate;
 
+import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 /**
@@ -40,6 +41,8 @@ public class ItemBelt extends ItemCarryable {
             CraftingRegistry.registerHook(itemBelt);
 
             MWC.modContext.registerRenderableItem(name, itemBelt, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+
+            COOKING_QUEUE.add(itemBelt);
 
             return itemBelt;
         }

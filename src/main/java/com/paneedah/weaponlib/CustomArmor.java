@@ -32,6 +32,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
@@ -331,6 +332,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
 
+            COOKING_QUEUE.add(armorHelmet);
+
             return armorHelmet;
         }
 
@@ -365,6 +368,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             armorChest.shieldIndicatorMaskTextureName = shieldIndicatorMaskTextureName;
             armorChest.shieldIndicatorProgressBarTextureName = shieldIndicatorProgressBarTextureName;
 
+            COOKING_QUEUE.add(armorChest);
+
             return armorChest;
         }
 
@@ -388,6 +393,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 //            armorBoots.maxShieldCapacity = maxShieldCapacity;
 //            armorBoots.shieldRegenerationRate = shieldRegenerationRate;
 //            armorBoots.shieldRegenerationTimeout = shieldRegenerationTimeout;
+
+            COOKING_QUEUE.add(armorBoots);
 
             return armorBoots;
         }

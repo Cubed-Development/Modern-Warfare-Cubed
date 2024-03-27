@@ -11,6 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.function.Predicate;
 
+import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ItemBackpack extends ItemCarryable {
@@ -36,6 +37,8 @@ public class ItemBackpack extends ItemCarryable {
             CraftingRegistry.registerHook(itemBackpack);
 
             MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+
+            COOKING_QUEUE.add(itemBackpack);
 
             return itemBackpack;
         }
