@@ -18,7 +18,7 @@ val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
 val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-3"
 
-val groovyScriptVersion = "0.8.0"
+val groovyScriptVersion = "1.0.0"
 val mixinBooterVersion = "8.6"
 
 minecraft {
