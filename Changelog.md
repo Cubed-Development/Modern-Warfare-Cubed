@@ -33,6 +33,8 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
   - Fixed recipes not working when ore dictionary is used
   - Fixed names not correctly displaying in certain conditions
 - Fixed crash with Techguns when rendering weapons in certain conditions
+- Fixed freeze when first rendering a weapon
+- Fixed film grain becoming lines after the game has been running for a while
 
 ### Internal
 
