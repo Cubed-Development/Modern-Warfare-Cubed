@@ -38,7 +38,8 @@ public class ItemBackpack extends ItemCarryable {
 
             MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
-            COOKING_QUEUE.add(itemBackpack);
+            if (FMLCommonHandler.instance().getSide().isClient())
+                COOKING_QUEUE.add(itemBackpack);
 
             return itemBackpack;
         }
