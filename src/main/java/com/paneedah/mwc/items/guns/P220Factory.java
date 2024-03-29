@@ -4,10 +4,8 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
-import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -39,25 +37,8 @@ public class P220Factory implements GunFactory {
 		.withFlashOffsetY(() -> 0.1f)
 		.withConfigGroup(GunConfigurationGroup.RIFLES)
 		.withCreativeTab(MWC.WEAPONS_TAB)
-    	.withRecoilParam(new RecoilParam( // Recoil param
-                        // The weapon power
-                        15.0,
-                        // Muzzle climb divisor
-                        15.75,
-                        // "Stock Length"
-                        50.0,
-                        // Recovery rate from initial shot
-                        0.4,
-                        // Recovery rate @ "stock"
-                        0.3125,
-                        // Recoil rotation (Y)
-                        0.0,
-                        // Recoil rotation (Z)
-                        0.0,
-                        // Ads similarity divisor
-                        1.0
-                ))
-		.withCompatibleAttachment(Magazines.M9Mag30, (model) -> {
+
+		.withCompatibleAttachment(Magazines.M9A1Mag, (model) -> {
 			GL11.glTranslatef(0F, 0F, 0.1F);
 			})
 		.withCompatibleAttachment(Attachments.Laser, (p, s) -> {
@@ -69,7 +50,7 @@ public class P220Factory implements GunFactory {
 			GL11.glTranslatef(-0.25F, -1.2F, -4.6F);
 			GL11.glScaled(1.5F, 1.5F, 1.5F);
 		})
-		.withTextureNames("P225", "Electric")
+		.withTextureNames("p225")
 		.withRenderer(new WeaponRenderer.Builder()
 			.withModel(new P220())
 			.withEntityPositioning(itemStack -> {
@@ -91,9 +72,7 @@ public class P220Factory implements GunFactory {
 				GL11.glTranslatef(-1.1F, -0.76F, 1.5F);
 				})
 
-			//.withFirstPersonCustomRecoiled(CommonProxy.Glock21Mag, (p, itemStack) -> {})
-
-			.withFirstPersonCustomPositioning(Magazines.M9Mag30, (renderContext) -> {})
+			.withFirstPersonCustomPositioning(Magazines.M9A1Mag, (renderContext) -> {})
 
 			.withFirstPersonCustomPositioning(Attachments.P225Top.getRenderablePart(), (renderContext) -> {
 				if(renderContext.getWeaponInstance().getAmmo() == 0) {
@@ -155,7 +134,7 @@ public class P220Factory implements GunFactory {
 				}, 150, 50)
 			)
 
-			.withFirstPersonCustomPositioningUnloading(Magazines.M9Mag30,
+			.withFirstPersonCustomPositioningUnloading(Magazines.M9A1Mag,
 				new Transition((renderContext) -> {
 //					GL11.glTranslatef(0.2F, 0.5F, -0.2F);
 //					GL11.glRotatef(-20F, 1f, 0f, 0f);
@@ -170,7 +149,7 @@ public class P220Factory implements GunFactory {
 				}, 250, 1000)
 					)
 
-			.withFirstPersonCustomPositioningReloading(Magazines.M9Mag30,
+			.withFirstPersonCustomPositioningReloading(Magazines.M9A1Mag,
 				new Transition((renderContext) -> {
 					GL11.glTranslatef(0.05F, 1.3F, 0.4F);
 //					GL11.glRotatef(0F, 0f, 1f, 0f);
@@ -390,7 +369,6 @@ public class P220Factory implements GunFactory {
 			.build())
 		.withSpawnEntityDamage(5f)
 		.withSpawnEntityGravityVelocity(0.016f)
-
 
 		.build(MWC.modContext);
 	}
