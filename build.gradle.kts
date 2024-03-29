@@ -67,7 +67,7 @@ dependencies {
 
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
-    compileOnly("com.cleanroommc:groovyscript:1.0.0") {
+    compileOnly("com.cleanroommc:groovyscript:1.0.1") {
         isTransitive = false
     }
 
