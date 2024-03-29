@@ -529,6 +529,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> RPKBarrel;
     public static ItemAttachment<Weapon> AKIron;
     public static ItemAttachment<Weapon> AK12Iron;
+    public static ItemAttachment<Weapon> P225Top;
     public static ItemAttachment<Weapon> Remington870Pump;
     public static ItemAttachment<Weapon> Remington870PoliceMagnumPump;
     public static ItemAttachment<Weapon> Remington870MagpulPump;
@@ -17487,6 +17488,46 @@ public class Attachments {
                 })
                 .withRenderablePart()
                 .withName("USPMatchCompensator").withTextureName("Dummy.png")
+                .build(MWC.modContext);
+
+        P225Top = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
+                .withRenderablePart()
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.USPMatchCompensator(), "gun.png")
+                .withApply((a, i) -> {
+                    i.setRecoil(i.getWeapon().getRecoil() * 0.4f);
+                }).withFirstPersonModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.P225Top) {
+                        GL11.glTranslatef(0.7F, -1.1F, 0.5F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    }
+
+                }).withThirdPersonModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.P225Top) {
+                        GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    }
+                }).withInventoryModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.P225Top) {
+                        GL11.glTranslatef(0.6F, 0.6F, -3.7F);
+                        // GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-180F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(1.3F, 1.3F, 1.3f);
+
+                    }
+                }).withEntityModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.P225Top) {
+                        GL11.glTranslatef(0.1F, 0.2F, 0.4F);
+                        GL11.glRotatef(90F, 0f, 0f, 1f);
+                        GL11.glScaled(0.6F, 0.6F, 0.6F);
+                    }
+                })
+                .withRenderablePart()
+                .withName("P225Top").withTextureName("Dummy.png")
                 .build(MWC.modContext);
 
     }
