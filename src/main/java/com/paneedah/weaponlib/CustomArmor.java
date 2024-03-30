@@ -24,6 +24,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -332,7 +333,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
 
-            COOKING_QUEUE.add(armorHelmet);
+            if (FMLCommonHandler.instance().getSide().isClient())
+                COOKING_QUEUE.add(armorHelmet);
 
             return armorHelmet;
         }
@@ -368,7 +370,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             armorChest.shieldIndicatorMaskTextureName = shieldIndicatorMaskTextureName;
             armorChest.shieldIndicatorProgressBarTextureName = shieldIndicatorProgressBarTextureName;
 
-            COOKING_QUEUE.add(armorChest);
+            if (FMLCommonHandler.instance().getSide().isClient())
+                COOKING_QUEUE.add(armorChest);
 
             return armorChest;
         }
@@ -394,7 +397,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 //            armorBoots.shieldRegenerationRate = shieldRegenerationRate;
 //            armorBoots.shieldRegenerationTimeout = shieldRegenerationTimeout;
 
-            COOKING_QUEUE.add(armorBoots);
+            if (FMLCommonHandler.instance().getSide().isClient())
+                COOKING_QUEUE.add(armorBoots);
 
             return armorBoots;
         }

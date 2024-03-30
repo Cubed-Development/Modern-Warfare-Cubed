@@ -323,7 +323,8 @@ public class AttachmentBuilder<T> {
             //System.err.println("!!!No recipe defined for attachment " + name);
         }
 
-        COOKING_QUEUE.add(attachment);
+        if (modContext.isClient())
+            COOKING_QUEUE.add(attachment);
 
         return attachment;
     }
@@ -340,7 +341,8 @@ public class AttachmentBuilder<T> {
     public <V extends ItemAttachment<T>> V build(ModContext modContext, Class<V> target) {
         final V attachment = target.cast(build(modContext));
 
-        COOKING_QUEUE.add(attachment);
+        if (modContext.isClient())
+            COOKING_QUEUE.add(attachment);
 
         return attachment;
     }

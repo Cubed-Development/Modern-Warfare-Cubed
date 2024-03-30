@@ -1053,7 +1053,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             // have a crafting recipe.
             CraftingRegistry.registerHook(weapon);
 
-            COOKING_QUEUE.add(weapon);
+            if (FMLCommonHandler.instance().getSide().isClient())
+                COOKING_QUEUE.add(weapon);
 
             return weapon;
         }
