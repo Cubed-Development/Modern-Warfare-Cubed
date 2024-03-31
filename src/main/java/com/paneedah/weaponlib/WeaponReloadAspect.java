@@ -273,8 +273,15 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
                 .in(this)
                 .change(WeaponState.COMPOUND_RELOAD_FINISH).to(WeaponState.COMPOUND_RELOAD_FINISHED)
+                .when(magazineAttached)
                 .withPermit((s, es) -> new CompoundPermit(s), modContext.getPlayerItemInstanceRegistry()::update, permitManager)
                 .manual()
+
+                .in(this)
+                .change(WeaponState.COMPOUND_RELOAD_FINISH).to(WeaponState.READY)
+                .when(weaponInstance -> WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance) == null)
+                .withAction(this::rollbackMagazine)
+                .automatic()
 
                 .in(this)
                 .change(WeaponState.COMPOUND_RELOAD_FINISHED).to(WeaponState.READY)
@@ -592,10 +599,8 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         Weapon weapon = instance.getWeapon();
 
         List<ItemMagazine> compatibleMagazines = weapon.getCompatibleMagazines().stream().filter(compatibleMagazine -> WeaponAttachmentAspect.hasRequiredAttachments(compatibleMagazine, instance)).collect(Collectors.toList());
-        
-        // Unload weapon
 
-        ItemAttachment<Weapon> attachment = modContext.getAttachmentAspect().removeAttachment(AttachmentCategory.MAGAZINE, instance);
+        previousMagazine = modContext.getAttachmentAspect().removeAttachment(AttachmentCategory.MAGAZINE, instance);
         
         //	processUnloadPermit(new UnloadPermit(p.getState()), instance);
 
@@ -616,13 +621,13 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         Tags.setAmmo(weaponItemStack, ammo);
         WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineStack.getItem(), instance);
         instance.setAmmo(ammo);
-        
+
         p.setStatus(Status.GRANTED);
 
-        if (attachment == null)
+        if (previousMagazine == null)
             p.setStatus(Status.DENIED);
-        else if (attachment instanceof ItemMagazine && !player.isCreative()) {
-            ItemStack attachmentItemStack = ((ItemMagazine) attachment).create(originalAmmo);
+        else if (previousMagazine instanceof ItemMagazine && !player.isCreative()) {
+            ItemStack attachmentItemStack = ((ItemMagazine) previousMagazine).create(originalAmmo);
             if (!player.inventory.addItemStackToInventory(attachmentItemStack))
                 player.dropItem(attachmentItemStack, false);
             p.setStatus(Status.GRANTED);
@@ -815,5 +820,9 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     public void furtherLoadInstructionsReceived(PlayerWeaponInstance weaponInstance) {
         weaponInstance.setLoadAfterUnloadEnabled(true);
         stateManager.changeState(this, weaponInstance, WeaponState.UNLOAD, WeaponState.LOAD, WeaponState.ALERT);
+    }
+
+    public void rollbackMagazine(PlayerWeaponInstance weaponInstance) {
+        WeaponAttachmentAspect.addAttachment(previousMagazine, weaponInstance);
     }
 }
