@@ -12,9 +12,9 @@ import static com.paneedah.mwc.utils.ModReference.RED_LOG;
 @SideOnly(Side.CLIENT)
 public final class EquipmentModelPools {
 
-    private static final HashMap<String, ModelBiped> modelPool = new HashMap<>();
-    private static final HashMap<String, ModelBiped> equippedPool = new HashMap<>();
-    private static final HashMap<String, ModelBiped> equippedArmorPool = new HashMap<>();
+    private static final HashMap<String, ModelBiped> modelPool = new HashMap<>(); // Pool for normal models, that shows when dropped etc...
+    private static final HashMap<String, ModelBiped> equippedPool = new HashMap<>(); // Pool for equipped models, that shows on the entity
+    private static final HashMap<String, ModelBiped> equippedArmorPool = new HashMap<>(); // Pool for equipped armor models, that shows on the entity
 
     public static ModelBiped get(final String name) {
         return get(name, modelPool);

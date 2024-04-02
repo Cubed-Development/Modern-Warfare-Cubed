@@ -221,7 +221,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
         for (Tuple<ModelBase, String> texturedModel : modelSource.getTexturedModels()) {
             if (texturedModel.getV().startsWith("customskin_")) {
-                MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV().toLowerCase().replace("customskin_", "").replace(".png", "")));
+                MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV().replace("customskin_", "")));
             } else {
                 MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
             }

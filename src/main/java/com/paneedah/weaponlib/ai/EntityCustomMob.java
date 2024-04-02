@@ -232,7 +232,9 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
                 maxAmmo = weaponInstance.getWeapon().getAmmoCapacity();
             }
             if (maxAmmo > 0) {
-                weaponInstance.setAmmo(rand.nextInt(maxAmmo));
+                int ammo = rand.nextInt(maxAmmo);
+                weaponInstance.setAmmo(ammo);
+                Tags.setAmmo(itemStack, ammo);
                 Tags.setInstance(itemStack, weaponInstance);
             }
         }

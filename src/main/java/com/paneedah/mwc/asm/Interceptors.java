@@ -52,6 +52,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.BACKPACK_SLOT;
+import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.BELT_SLOT;
+import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.VEST_SLOT;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 
@@ -689,25 +692,28 @@ public class Interceptors {
             ModelPlayer modelPlayer = (ModelPlayer) modelBase;
             EntityPlayer player = (EntityPlayer) entityIn;
 
-            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn, 
-                    e -> new PlayerRenderer((EntityPlayer) entityIn, ClientModContext.getContext()));
-            
+            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn, e -> new PlayerRenderer((EntityPlayer) entityIn, ClientModContext.getContext()));
             
             playerRenderer.renderModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 
-
-
             EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(player);
             if(equipmentInventory != null) {
-                ItemStack backpackStack = equipmentInventory.getStackInSlot(0); // TODO: replace 0 with constant for backpack slot
-                if(backpackStack != null) {
+                ItemStack backpackStack = equipmentInventory.getStackInSlot(BACKPACK_SLOT);
+                if(!backpackStack.isEmpty()) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
                     MC.getItemRenderer().renderItem(player, backpackStack, null);
                     GL11.glPopMatrix();
                 }
-                ItemStack vestStack = equipmentInventory.getStackInSlot(1); // TODO: replace 0 with constant for backpack slot
-                if(vestStack != null) {
+                ItemStack beltStack = equipmentInventory.getStackInSlot(BELT_SLOT);
+                if(!beltStack.isEmpty()) {
+                    GL11.glPushMatrix();
+                    adjustBodyWearablePosition(player);
+                    MC.getItemRenderer().renderItem(player, beltStack, null);
+                    GL11.glPopMatrix();
+                }
+                ItemStack vestStack = equipmentInventory.getStackInSlot(VEST_SLOT);
+                if(!vestStack.isEmpty()) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
                     MC.getItemRenderer().renderItem(player, vestStack, null);

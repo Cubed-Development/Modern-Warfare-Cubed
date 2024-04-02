@@ -14,38 +14,42 @@ import java.util.function.Predicate;
 import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class ItemBackpack extends ItemCarryable {
+/**
+ * @author Luna Lage (Desoroxxx)
+ * @since
+ */
+public class ItemBelt extends ItemCarryable {
 
-    public static class Builder extends ItemCarryable.Builder<Builder> {
+    public static class Builder extends ItemCarryable.Builder<ItemBelt.Builder> {
 
         @Override
-        protected Builder self() {
+        protected ItemBelt.Builder self() {
             return this;
         }
 
         @Override
-        public ItemBackpack build() {
+        public ItemBelt build() {
             validateInput();
 
             ResourceLocation guiTexture = new ResourceLocation(ID, "textures/gui/inventory/carryable/" + size + "slots.png");
 
-            ItemBackpack itemBackpack = new ItemBackpack(size, validItemPredicate, guiTexture, this.guiTextureWidth, modelName, textureName);
+            ItemBelt itemBelt = new ItemBelt(size, validItemPredicate, guiTexture, this.guiTextureWidth, modelName, textureName);
 
-            itemBackpack.setTranslationKey(LangUtil.format(name)).setCreativeTab(MWC.EQUIPMENT_TAB);
+            itemBelt.setTranslationKey(LangUtil.format(name)).setCreativeTab(MWC.EQUIPMENT_TAB);
 
             // Register hook
-            CraftingRegistry.registerHook(itemBackpack);
+            CraftingRegistry.registerHook(itemBelt);
 
-            MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+            MWC.modContext.registerRenderableItem(name, itemBelt, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
             if (FMLCommonHandler.instance().getSide().isClient())
-                COOKING_QUEUE.add(itemBackpack);
+                COOKING_QUEUE.add(itemBelt);
 
-            return itemBackpack;
+            return itemBelt;
         }
     }
 
-    public ItemBackpack(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, String modelName, String textureName) {
+    public ItemBelt(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, String modelName, String textureName) {
         super(size, validItemPredicate, guiTextureLocation, guiTextureWidth, modelName, textureName);
     }
 }

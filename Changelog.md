@@ -3,19 +3,112 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project follows to [Ragnarök Versioning Convention](https://gist.github.com/JustDesoroxxx/5d4a45785ce19a6653ba99f72325c703).
+and this project follows the [Ragnarök Versioning Convention](https://gist.github.com/JustDesoroxxx/5d4a45785ce19a6653ba99f72325c703).
 
-## [Unreleased] Modern Warfare Cubed Version 0.1 Changelog
+## Modern Warfare Cubed Version 0.1.5 Changelog - 2024-04-02
 
-## Warning
+### Warning
 
-**If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Version 0.1-Dev-6 or under all Modern Warfare related items, blocks weapons, etc... will disappear from your save either back up your world or start a new one.**
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
 
-**When updating to this version from an existing world all tan variants of every back as well as the F5 Switchblade will disappear, they aren't being removed then just changed internally**
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
 
-**When updating to this version from an existing world all equipment placed in the equipment inventory will disappear**
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
 
-### Highlight
+### Fixed
+
+- Fixed sideness checks missing causing crashes on dedicated servers
+- Fixed compatibility with GroovyScript above version 0.8
+
+## Modern Warfare Cubed Version 0.1.4 Changelog - 2024-03-27
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+### Changed
+
+- Weapons will not prevent you from unloading with a full inventory anymore, instead they will drop their magazines on the ground
+
+### Fixed
+
+- Fixed fog obscuring vision too much in optical scopes
+- Fixed compatibility with bad bukkit implementation (Bukkit should still fix that, if anyone is reading that)
+- Fixed fov not being reset while reloading when ads
+- Fixed weapons destroying magazine when unloading with a full inventory
+- Fixed magazines destroying bullets when unloading with a full inventory
+- Fixed attachments destroying themselves when removing them with a full inventory
+- Fixed terrorist dropping weapons with stupid amounts of bullets
+- **GroovyScript integration:**
+  - Fixed rare crashes when using `removeAll`
+  - Fixed recipes not working when ore dictionary is used
+  - Fixed names not correctly displaying in certain conditions
+- Fixed crash with Techguns when rendering weapons in certain conditions
+- Fixed freeze when first rendering a weapon
+- Fixed film grain becoming lines after the game has been running for a while
+
+### Internal
+
+- Added logging to try and locate CCS
+
+## Modern Warfare Cubed Version 0.1.3 Changelog - 2024-03-15
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+### Fixed
+
+- Fixed the potential fix to a rare crash causing rare crash
+
+## Modern Warfare Cubed Version 0.1.2 Changelog - 2024-03-15
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+### Fixed
+
+- Fixed crash when shooting certain things or in certain conditions (e.g., shooting an entity from Scape and Run: Parasites or shooting with certain plugins)
+- Fixed incompatibility with certain mods and plugins (i.e., plugins protecting areas not being able to correctly detect bullets)
+- Potentially fixed a rare crash
+
+## Modern Warfare Cubed Version 0.1.1 Changelog - 2024-03-13
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+### Fixed
+
+- Fixed crash when reloading
+- Fixed custom skins not working
+
+## Modern Warfare Cubed Version 0.1 Changelog - 2024-03-13
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
 
 ### Added
 
@@ -39,10 +132,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Crafting recipes for the APC9, M1014, Supernova and tactical night vision goggles
 - Crafting of grenades (excluding gas grenade) in the ammo press (Once overhauled, they will be moved on the workbench)
 - Weapon system version to weapon tooltips
-- Added the Workbench and the Ammo Press to the Creative Tab
+- Added crafting stations to the Creative Tab
 - Translations for Chinese, Spanish, and Turkish languages
 - GitHub URL in `MCmod.info`
-- Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
+- Proning in single player mode (**Note: Currently unanimated; player will appear standing, will be removed in 0.2**)
 - Added new fancy rain splash to go with the fancy rain
 - Added remaining time for the craft in the ammunition press
 - Custom death Messages when shot with a gun
@@ -53,7 +146,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
 - Added Hardness values to props
-- Added Groovyscript support plugin for workbench and ammo press recipes
+- Added GroovyScript support plugin for workbench and ammo press recipes
+- Added icons for empty slot in the equipment inventory
+- Added belt slot currently unused
 
 ### Changed
 
@@ -68,7 +163,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Temporarily nerfed all vests as a part of vest problem mitigation
 - Nerfed XP gains from smelting ores
 - Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
-- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines), this can be bypassed by sneaking
+- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines) this can be bypassed by sneaking
 - Grenades in creative mode are now infinite 
 - Weapons are now rendered in 3D in the inventory. This means there will be a small freeze when opening the Creative Menu. This will be improved over time as we optimize rendering.
 - Reduced the stack size of M202 rockets and RPG7 rockets to 4 and 2, respectively
@@ -186,7 +281,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed `enableFancyRainAndSnow` missing lang entries
 - Fixed `enableFancyRainAndSnow` having the lang entries for `onScreenRainAndSnow`
 - Fixed fancy rain and snow never replacing vanilla rain and snow
-- Fixed entities not having a prefix causing collisions with other mods
+- Fixed entities missing a prefix causing collisions with other mods
 - Fixed ammunition press animating even when it wasn't actively crafting
 - Fixed ammunition press setting the ammunition of the magazines after they where crafted when this isn't necessary anymore
 - Fixed tooltip formatting in the ammunition press
@@ -260,19 +355,21 @@ The new balance pack manager version is `1.3`.
 
 ##### Credits
 
-*Order based on [contributors](https://github.com/Cubed-Development/Modern-Warfare-Cubed/graphs/contributors?from=2023-02-19&to=2023-05-28&type=a)*
+*Order based on [contributors](https://github.com/Cubed-Development/Modern-Warfare-Cubed/graphs/contributors)*
 
 The whole official Modern Warfare Dev Team:
 - [Desoroxxx](https://github.com/Desoroxxx)
-- [Paneedah](https://github.com/Paneedah)
 - [Stick](https://github.com/SticksDeveloper)
-- [Azurae](https://github.com/azuraerae)
+- [Paneedah](https://github.com/Paneedah)
 - [Koud_Wind](https://github.com/Koud-Wind)
+- [Azurae](https://github.com/azuraerae)
 
 And the people who contributed to Modern Warfare Cubed:
-- [AhmedKrm](https://github.com/AhmedKrm) for Turkish translation ([#107](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/107))
-- [Braiam23](https://github.com/Braiam23) for revamping textures, Spanish translation, fix various visual bugs & model optimization ([#100](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/100), [#110](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/110), [#222](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/222), [#239](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/239)),
-- [strubium](https://github.com/strubium) for adding recipes & nerfs & crafting improvements & revamping textures ([#117](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/117), [#109](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/109), [#116](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/116), [#92](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/92), [#115](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/115), [#97](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/97))
-- [Skyy](https://github.com/BurnhamR) for losslessly compressing assets & major refactors ([#53](https://github.com/Paneedah/paneedah-modern-warfare/pull/53), [#55](https://github.com/Paneedah/paneedah-modern-warfare/pull/55), [#59](https://github.com/Paneedah/paneedah-modern-warfare/pull/59), [#58](https://github.com/Paneedah/paneedah-modern-warfare/pull/58))
-- [notdeadpool456](https://github.com/notdeadpool456) for adding the .277 FURY bullet, crafting recipes & nerfs ([#75](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/75), [#76](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/76))
-- [333mhz](https://github.com/333mhz) for corrections in the English translation & adding blocks to the creative tab & cleanup
+- [strubium](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=strubium&since=2023-02-19&until=2023-05-28)
+- [yor42](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=yor42)
+- [notdeadpool567](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=notdeadpool567&since=2023-02-19&until=2023-05-28)
+- [notdeadpool456](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=notdeadpool456&since=2023-02-19&until=2023-05-28)
+- [333mhz](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=333mhz)
+- [AhmedKrm](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=AhmedKrm&since=2023-02-19&until=2023-05-28)
+- [jbredwards](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=jbredwards)
+- [Nogard-00](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=Nogard-00)

@@ -3,6 +3,8 @@ package com.paneedah.weaponlib.crafting;
 import com.paneedah.mwc.bases.ManufacturingItemBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
 
 /**
  * CraftingEntry class stores an item, the count, and an optional OreDictionary name.
@@ -17,57 +19,63 @@ import net.minecraft.item.Item;
  */
 public class CraftingEntry {
 
-    private Item item;
+    private Ingredient ingredient;
     private int count;
     private String oreDictionary;
 
     private double yield = 1;
 
     public CraftingEntry(Item i, int c) {
-        this.item = i;
+        this.ingredient = Ingredient.fromItem(i);
         this.count = c;
     }
 
     public CraftingEntry(Block i, int c) {
-        this.item = Item.getItemFromBlock(i);
+        this.ingredient = Ingredient.fromItem(Item.getItemFromBlock(i));
         this.count = c;
     }
 
     public CraftingEntry(Item dismantle, String oreDictionary, int count) {
-        this.item = dismantle;
+        this.ingredient = Ingredient.fromItem(dismantle);
         this.oreDictionary = oreDictionary;
         this.count = count;
     }
 
     public CraftingEntry(Block dismantle, String oreDictionary, int count) {
-        this.item = Item.getItemFromBlock(dismantle);
+        this.ingredient = Ingredient.fromItem(Item.getItemFromBlock(dismantle));
         this.oreDictionary = oreDictionary;
         this.count = count;
     }
 
     public CraftingEntry(Item i, int c, double yield) {
-        this.item = i;
+        this.ingredient = Ingredient.fromItem(i);
         this.count = c;
         this.yield = yield;
     }
 
     public CraftingEntry(Block i, int c, double yield) {
-        this.item = Item.getItemFromBlock(i);
+        this.ingredient = Ingredient.fromItem(Item.getItemFromBlock(i));
         this.count = c;
         this.yield = yield;
     }
 
     public CraftingEntry(Item dismantle, String oreDictionary, int count, double yield) {
-        this.item = dismantle;
+        this.ingredient = Ingredient.fromItem(dismantle);
         this.oreDictionary = oreDictionary;
         this.count = count;
         this.yield = yield;
     }
 
     public CraftingEntry(Block dismantle, String oreDictionary, int count, double yield) {
-        this.item = Item.getItemFromBlock(dismantle);
+        this.ingredient = Ingredient.fromItem(Item.getItemFromBlock(dismantle));
         this.oreDictionary = oreDictionary;
         this.count = count;
+        this.yield = yield;
+    }
+
+    public CraftingEntry(Ingredient mcIngredient, int amount, Double yield) {
+        this.ingredient = mcIngredient;
+        this.count = amount;
         this.yield = yield;
     }
 
@@ -75,8 +83,8 @@ public class CraftingEntry {
         return this.count;
     }
 
-    public Item getItem() {
-        return this.item;
+    public Ingredient getIngredient() {
+        return this.ingredient;
     }
 
     public String getOreDictionaryEntry() {
@@ -84,21 +92,23 @@ public class CraftingEntry {
     }
 
     public boolean isOreDictionary() {
-        return this.oreDictionary != null && !this.oreDictionary.isEmpty();
+        //return this.oreDictionary != null && !this.oreDictionary.isEmpty(); // Commented out as currently nothing is truly oredict capable
+        // TODO: Add oredict compat to the mod, search `TODO: OREDICT` to find places where changes are needed.
+        return false;
     }
 
     @Override
     public String toString() {
         if (isOreDictionary())
-            return "(" + this.oreDictionary + "[" + this.item.getRegistryName().toString() + "], " + getCount() + ")";
+            return "(" + this.oreDictionary + "[" + this.ingredient.toString() + "], " + getCount() + ")";
         else
-            return "(" + this.item.getRegistryName().toString() + ", " + getCount() + ")";
+            return "(" + this.ingredient.toString() + ", " + getCount() + ")";
     }
 
     public double getYield() {
-        if (this.item instanceof ManufacturingItemBase && this.yield == 1)
-            return ((ManufacturingItemBase) this.item).getRecoveryChance();
-        else
-            return this.yield;
+        for(ItemStack stack:this.ingredient.getMatchingStacks())
+            if(stack.getItem() instanceof ManufacturingItemBase && this.yield == 1)
+                return ((ManufacturingItemBase) stack.getItem()).getRecoveryChance();
+        return this.yield;
     }
 }

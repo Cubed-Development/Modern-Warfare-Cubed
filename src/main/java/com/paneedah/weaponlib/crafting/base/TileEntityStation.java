@@ -6,8 +6,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -155,7 +155,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 
 					if (!world.isRemote) {
 						for (CraftingEntry stack : modernRecipe) {
-							final ItemStack itemStack = new ItemStack(stack.getItem());
+							final ItemStack itemStack = stack.getIngredient().getMatchingStacks()[0].copy();
 							itemStack.setCount((int) Math.round(stack.getCount() * stack.getYield()));
 							addStackToInventoryRange(itemStack, 13, 22);
 						}
@@ -182,12 +182,12 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 		//System.out.println(mainInventory.serializeNBT());
 	}
 
-	public boolean inventoryContainsEnoughItems(Item item, int quantity, int start, int end) {
+	public boolean inventoryContainsEnoughItems(Ingredient item, int quantity, int start, int end) {
 		int count = 0;
 		for (int i = start; i <= end; ++i) {
 			final ItemStack slotStack = mainInventory.getStackInSlot(i);
 
-			if (slotStack.getItem() == item) {
+			if (item.test(slotStack)) {
 				count += slotStack.getCount();
 				if (count >= quantity)
 					return true;
@@ -197,14 +197,14 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 		return count >= quantity;
 	}
 	
-	public boolean consumeFromInventory(Item item, int quantity, int start, int end) {
+	public boolean consumeFromInventory(Ingredient item, int quantity, int start, int end) {
 		final LinkedList<ItemStack> stackQueue = new LinkedList<>();
 		int consumedSimulated = 0;
 
 		for (int i = start; i <= end; ++i) {
 			final ItemStack slotStack = mainInventory.getStackInSlot(i);
 			
-			if (slotStack.getItem() == item) {
+			if (item.test(slotStack)) {
 				stackQueue.add(slotStack);
 				consumedSimulated += slotStack.getCount();
 				if (consumedSimulated >= quantity)
