@@ -1069,7 +1069,6 @@ gui.firearmMode.auto=자동
 gui.firearmMode.burst=점사
 gui.inventoryFull=인벤토리 가득 참
 gui.currentZoom=배율: %s%%
-gui.grenadeExplodes=폭발까지 %s 초
 gui.coolingDown=냉각 중...
 
 config.category.ores.name=Ores
