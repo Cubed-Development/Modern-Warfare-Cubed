@@ -1067,7 +1067,6 @@ gui.firearmMode.semi=Semi
 gui.firearmMode.auto=Auto
 gui.firearmMode.burst=Rajada
 gui.currentZoom=Zoom: %s%%
-gui.grenadeExplodes=Explodindo em %s seg
 gui.coolingDown=Cooling down...
 
 config.category.ores.name=Ores Config
