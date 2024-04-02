@@ -18,7 +18,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 ### Fixed
 
 - Fixed sideness checks missing causing crashes on dedicated servers
-- Fixed compatibility with GroovyScript above version 0.8 
+- Fixed compatibility with GroovyScript above version 0.8
 
 ## Modern Warfare Cubed Version 0.1.4 Changelog - 2024-03-27
 
