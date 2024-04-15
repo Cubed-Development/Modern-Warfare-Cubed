@@ -7,6 +7,10 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 
 ## [UNRELEASED] Modern Warfare Cubed Version 0.2 Changelog
 
+### Added
+
+- Added German translation
+
 ### Removed
 
 - Removed unused warning about the grenade exploding in X amount of seconds
