@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/vent"
+        "layer0": "mwc:items/props/vents/vent"
     },
     "display": {
 		"thirdperson_righthand": {

@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/ceiling_lamp_alt"
+        "layer0": "mwc:items/props/lights/ceiling_lamp_alt"
     },
     "display": {
 		"thirdperson_righthand": {

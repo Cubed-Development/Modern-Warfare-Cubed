@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/trash_bin"
+        "layer0": "mwc:items/props/trash_bin"
     },
     "display": {
 		"thirdperson_righthand": {

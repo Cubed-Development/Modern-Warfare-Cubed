@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/supply_drop"
+        "layer0": "mwc:items/props/supply_drop"
     },
     "display": {
 		"thirdperson_righthand": {

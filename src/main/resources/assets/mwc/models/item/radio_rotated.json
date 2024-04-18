@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/radio_rotated"
+        "layer0": "mwc:items/props/electronics/radio_rotated"
     },
     "display": {
 		"thirdperson_righthand": {

@@ -75,7 +75,7 @@ public class CommonProxy {
         Electronics.init();
         Grenades.init(mod, this);
         CustomSpawnEggs.init(mod, this);
-        TileEntities.init(this);
+        TileEntities.init();
 
         new TacticalTomahawkFactory().createMelee(this);
         new BaseballBatFactory().createMelee(this);

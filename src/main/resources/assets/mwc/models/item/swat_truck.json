@@ -2,7 +2,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/barrel"
+        "layer0": "mwc:items/props/swat_truck"
     },
    "display": {
 		"thirdperson_righthand": {

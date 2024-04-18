@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/monitor"
+        "layer0": "mwc:items/props/electronics/monitor"
     },
     "display": {
 		"thirdperson_righthand": {

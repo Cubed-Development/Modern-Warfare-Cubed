@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/forklift"
+        "layer0": "mwc:items/props/forklift"
     },
     "display": {
 		"thirdperson_righthand": {

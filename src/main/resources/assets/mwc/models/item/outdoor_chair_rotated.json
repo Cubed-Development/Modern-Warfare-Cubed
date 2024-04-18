@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/outdoor_chair_rotated"
+        "layer0": "mwc:items/props/outdoor_chair_rotated"
     },
     "display": {
 		"thirdperson_righthand": {

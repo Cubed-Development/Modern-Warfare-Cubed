@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/fridge_open"
+        "layer0": "mwc:items/props/fridge_open"
     },
     "display": {
 		"thirdperson_righthand": {

@@ -10,10 +10,108 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 ### Added
 
 - Added German translation
+- Added loading bar for props building
+- Added non-rotated versions of the forklift prop and its variants (Existing forklifts will become non-rotated)
+- Added non-rotated versions of the duel floodlight prop (Existing duel floodlight will become non-rotated)
+- Added non-rotated versions of the floodlight prop (Existing floodlight will become non-rotated)
+- Added non-rotated versions of the camera prop (Existing camera will become non-rotated)
+- Added non-rotated versions of the trash bin prop (Existing trash bin will become non-rotated)
+- Added icons for the following props:
+  - Gravestone
+  - Gravestone Skull
+  - Gravestone Cross
+  - Gravestone Cross (ALT 1)
+  - Gravestone Cross (ALT 2)
+  - Sandbag
+  - Sandbag Wall
+  - Spooky Ghost
+  - Spooky Ghost (ALT 1)
+  - Spooky Ghost (ALT 2)
+  - Towable Floodlight
+  - Swat Truck
+  - Server Rack Left (ALT 3)
+  - Scarecrow
+  - Propane Tank
+
+### Changed
+
+- Moved the turret base from the `Props` creative tab to `Blocks & Ingots` creative tab
+- Changed the icon of the `Props` creative tab to the barrel
+- Made naming of props consistent
+
+### Fixed
+
+- Fixed prop hitboxes not lining up with their models:
+  - Fridge (open/closed)
+  - Locker
+  - SCP Locker
+  - Dumpster
+  - Sandbag
+  - Duel Floodlight
+  - Single Floodlight
+  - Shelf Top
+  - Server Rack Top Left
+  - Server Rack Top Right
+  - Laptop
+  - Desk Shelf
+  - Desk Shelf (ALT 2)
+  - Impaled Body
+  - Hanging Body
+  - Office Chair
+  - Office Chair 2
+  - White Desk Middle
+  - Medical Create
+  - Barrel
+  - Explosive Barrel
+  - Weapon Case
+  - Operating Table
+  - Operating Table (ALT 1)
+  - Trusses
+  - Ceiling Lamp
+  - Outdoor Chair
+  - Outdoor Chair (Rotated)
+  - Home Chair
+  - Home Chair (Rotated)
+  - Vending Machine
+  - Weapons Locker
+  - Fridge (Open)
+  - Fridge (Closed)
+  - Artillery
+  - Supply Drop
+  - Trash Bin
+  - Trash Bin (Rotated)
+  - Wooden Crate
+  - Wooden Crate (Opened)
+- Fixed props registration
+- Fixed rotated version of the ceiling tv prop being rotated the wrong way
+- Fixed duel floodlight prop not being centered
+- Fixed floodlight prop not being centered
+- Fixed body bag prop positioning
+- Fixed rotated version of the radio prop being rotated the wrong way
+- Fixed radio prop being rotated the wrong way
+- Fixed radio prop positioning
+- Fixed swat truck prop being rotated the wrong way
+- Fixed swat truck prop positioning
+- Fixed rotated camera prop not being rotated
+- Fixed barrel & variants prop positioning
+- Fixed barrel & variants prop sizing
+- Fixed being able to interact with props
 
 ### Removed
 
 - Removed unused warning about the grenade exploding in X amount of seconds
+
+### Optimization
+
+- Optimized all props models
+
+### Internal
+
+- Separated props models from the rest of the models
+- Separated props textures from the rest of the textures
+- Cleaned up props models
+- Generally organized the project structure
+- Made props id's consistent
 
 ## Modern Warfare Cubed Version 0.1.5 Changelog - 2024-04-02
 
@@ -128,7 +226,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
   - explosionBreak
   - penetrableBlocks
   - hipFireSpread
-  - ammoCounterX 
+  - ammoCounterX
   - ammoCounterY
   - ammoCounterSize
   - ammoCounterBackgroundReverse
@@ -151,7 +249,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 - Custom death Messages when shot with a gun
 - Added status messages for `No ammunition`, `No magazine`, `Tracking`, `Firearm mode`, `Zoom` and `Explodes in`
 - Added the .277 FURY bullet for the NGSW-R
-- Browning Auto 5 now ejects shotgun shells 
+- Browning Auto 5 now ejects shotgun shells
 - Added `reconcileAmmunition` & `reconcileAttachments` gamerules, they are true by default and should only be used for debugging purposes, for example, when you have weapons that appear to "desync" / glitch out
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
@@ -174,7 +272,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 - Nerfed XP gains from smelting ores
 - Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
 - Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines) this can be bypassed by sneaking
-- Grenades in creative mode are now infinite 
+- Grenades in creative mode are now infinite
 - Weapons are now rendered in 3D in the inventory. This means there will be a small freeze when opening the Creative Menu. This will be improved over time as we optimize rendering.
 - Reduced the stack size of M202 rockets and RPG7 rockets to 4 and 2, respectively
 - Increased magazine capacity of bandits on Hard difficulty
@@ -358,7 +456,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 
 ### Balance Pack
 
-The new balance pack manager version is `1.3`. 
+The new balance pack manager version is `1.3`.
 
 - Added `inaccuracy`
 - Removed `headshotMultiplier`
@@ -383,3 +481,4 @@ And the people who contributed to Modern Warfare Cubed:
 - [AhmedKrm](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=AhmedKrm&since=2023-02-19&until=2023-05-28)
 - [jbredwards](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=jbredwards)
 - [Nogard-00](https://github.com/Cubed-Development/Modern-Warfare-Cubed/commits?author=Nogard-00)
+- 
