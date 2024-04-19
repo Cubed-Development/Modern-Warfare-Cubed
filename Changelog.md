@@ -15,6 +15,10 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 
 - Removed unused warning about the grenade exploding in X amount of seconds
 
+### Internal
+
+- Made client sided mixins client side only
+
 ## Modern Warfare Cubed Version 0.1.5 Changelog - 2024-04-02
 
 ### Warning
