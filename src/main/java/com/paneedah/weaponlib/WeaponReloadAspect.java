@@ -11,11 +11,9 @@ import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
 import com.paneedah.weaponlib.state.StateManager;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.text.TextComponentString;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -141,9 +139,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             return System.currentTimeMillis() >= weaponInstance.getReloadTimestamp() + maxTime;
         }
     };
-
-
-    private Predicate<PlayerWeaponInstance> inventoryHasFreeSlots = weaponInstance -> weaponInstance.getPlayer() instanceof EntityPlayer && !(((EntityPlayer) weaponInstance.getPlayer()).inventory.getFirstEmptyStack() == -1);
 
     private static Predicate<PlayerWeaponInstance> alertTimeoutExpired = instance -> System.currentTimeMillis() >= ALERT_TIMEOUT + instance.getStateUpdateTimestamp();
 
@@ -318,7 +313,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 .in(this)
                 .prepare((c, f, t) -> { prepareUnload(c); }, unloadAnimationCompleted)
                 .change(WeaponState.READY).to(WeaponState.UNLOAD)
-                .when(magazineAttached.and(inventoryHasFreeSlots))
+                .when(magazineAttached)
                 .withPermit((s, c) -> new UnloadPermit(s), modContext.getPlayerItemInstanceRegistry()::update, permitManager)
                 .withAction((c, f, t, p) -> completeClientUnload(c, (UnloadPermit) p))
                 .manual()
@@ -327,12 +322,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 .change(WeaponState.UNLOAD).to(WeaponState.READY)
                 .when(loadAfterUnloadEnabled.negate().or(unloadTimeoutExpired))
                 .automatic()
-
-                .in(this)
-                .change(WeaponState.READY).to(WeaponState.ALERT)
-                .when(inventoryHasFreeSlots.negate())
-                .withAction(this::inventoryFullAlert)
-                .manual()
 
                 .in(this).change(WeaponState.ALERT).to(WeaponState.READY)
                 .when(alertTimeoutExpired)
@@ -635,7 +624,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         else if (attachment instanceof ItemMagazine && !player.isCreative()) {
             ItemStack attachmentItemStack = ((ItemMagazine) attachment).create(originalAmmo);
             if (!player.inventory.addItemStackToInventory(attachmentItemStack))
-                LOG.error("Cannot add attachment " + attachment + " for " + instance + "back to the inventory");
+                player.dropItem(attachmentItemStack, false);
             p.setStatus(Status.GRANTED);
         }
     }
@@ -747,7 +736,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 previousMagazine = attachment;
                 ItemStack attachmentItemStack = ((ItemMagazine) attachment).create(Tags.getAmmo(weaponItemStack));
                 if (!player.inventory.addItemStackToInventory(attachmentItemStack))
-                    LOG.error("Cannot add attachment " + attachment + " for " + weaponInstance + "back to the inventory");
+                    player.dropItem(attachmentItemStack, false);
             }
 
             Tags.setAmmo(weaponItemStack, 0);
@@ -778,11 +767,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             stateManager.changeState(this, weaponInstance, WeaponState.LOAD, WeaponState.ALERT);
             weaponInstance.setLoadAfterUnloadEnabled(false);
         }
-    }
-
-    public void inventoryFullAlert(PlayerWeaponInstance weaponInstance) {
-        if (weaponInstance.getPlayer() instanceof EntityPlayer)
-            ((EntityPlayer) weaponInstance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.inventoryFull")), true);
     }
 
     public void inspect(PlayerWeaponInstance weaponInstance) {

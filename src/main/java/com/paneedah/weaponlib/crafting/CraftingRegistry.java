@@ -120,6 +120,15 @@ public class CraftingRegistry {
 		categoricalLookup.get(crafting.getCraftingGroup()).remove(crafting.getItemStack().getTranslationKey());
 	}
 
+	public static void clearRecipeRegistry() {
+		hookMap.clear();
+
+		for(CraftingGroup group: craftingMap.keySet()) {
+			craftingMap.get(group).clear();
+			categoricalLookup.get(group).clear();
+		}
+	}
+
 	public static void registerRecipe(Item item, CraftingGroup group, CraftingEntry[] entry) {
 		IModernCraftingRecipe crafting = getHook(item);
 		

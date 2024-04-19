@@ -17,7 +17,7 @@ public class MWCGroovyPlugin implements GroovyPlugin {
     }
 
     @Override
-    public String getModName() {
+    public String getContainerName() {
         return NAME;
     }
 
