@@ -1,9 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.Pair;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
-import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
@@ -130,14 +127,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         public long reloadingTimeout = Weapon.DEFAULT_RELOADING_TIMEOUT_TICKS;
         long loadIterationTimeout = Weapon.DEFAULT_LOAD_ITERATION_TIMEOUT_TICKS;
 
-        
 
-
-        boolean crosshairFullScreen = false;
-        boolean crosshairZoomedFullScreen = false;
-
-        
-        
         Map<ItemAttachment<Weapon>, CompatibleAttachment<Weapon>> compatibleAttachments = new HashMap<>();
         ModelBase ammoModel;
         String ammoModelTextureName;
@@ -391,32 +381,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
-        public Builder withCrosshair(String crosshair) {
-            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
-            return this;
-        }
-
-        public Builder withCrosshair(String crosshair, boolean fullScreen) {
-            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
-            this.crosshairFullScreen = fullScreen;
-            return this;
-        }
-
-        public Builder withCrosshairRunning(String crosshairRunning) {
-            this.crosshairRunning = ID + ":textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
-            return this;
-        }
-
-        public Builder withCrosshairZoomed(String crosshairZoomed) {
-            return withCrosshairZoomed(crosshairZoomed, true);
-        }
-
-        public Builder withCrosshairZoomed(String crosshairZoomed, boolean fullScreen) {
-            this.crosshairZoomed = ID + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
-            this.crosshairZoomedFullScreen = fullScreen;
-            return this;
-        }
-        
         public Builder withMuzzlePosition(Vec3d pos) {
             this.muzzlePosition = pos;
             return this;
@@ -578,22 +542,22 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, ItemAttachment.ApplyHandler2<Weapon> applyHandler,
-                ItemAttachment.ApplyHandler2<Weapon> removeHandler) {
+                                                ItemAttachment.ApplyHandler2<Weapon> removeHandler) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, applyHandler, removeHandler));
             return this;
         }
 
-        public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
+        public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, Runnable positioning, Consumer<ModelBase> modelPositioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, false));
             return this;
         }
-        
+
         public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, Consumer<RenderContext<RenderableState>> positioning, Consumer<ModelBase> modelPositioning, boolean isDefault, boolean isPermanent) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, isDefault, isPermanent));
             return this;
         }
 
-        public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, BiConsumer<EntityLivingBase, ItemStack> positioning) {
+        public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, Runnable positioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, null, false));
             return this;
         }
@@ -604,19 +568,19 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, boolean isDefault,
-                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
+                                                Runnable positioning, Consumer<ModelBase> modelPositioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, isDefault));
             return this;
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, boolean isDefault, boolean isPermanent,
-                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
+                                                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, isDefault, isPermanent));
             return this;
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, boolean isDefault,
-                Consumer<ModelBase> positioner) {
+                                                Consumer<ModelBase> positioner) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioner, isDefault));
             return this;
         }
@@ -1229,23 +1193,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         Collection<CompatibleAttachment<Weapon>> c = builder.compatibleAttachments.values();
         List<AttachmentCategory> inputCategoryList = Arrays.asList(categories);
         return c.stream().filter(e -> inputCategoryList.contains(e.getAttachment().getCategory())).collect(Collectors.toList());
-    }
-
-    String getCrosshair(PlayerWeaponInstance weaponInstance) {
-        if(weaponInstance.isAimed()) {
-            String crosshair = null;
-            ItemAttachment<Weapon> scopeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.SCOPE, weaponInstance);
-            if(scopeAttachment != null) {
-                crosshair = scopeAttachment.getCrosshair();
-            }
-            if(crosshair == null) {
-                crosshair = builder.crosshairZoomed;
-            }
-            return crosshair;
-        } else if(weaponInstance.getPlayer().isSprinting()){
-            return builder.crosshairRunning;
-        }
-        return builder.crosshair;
     }
 
     public static boolean isActiveAttachment(PlayerWeaponInstance weaponInstance, ItemAttachment<Weapon> attachment) {

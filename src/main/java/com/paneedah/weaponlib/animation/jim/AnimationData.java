@@ -3,12 +3,12 @@ package com.paneedah.weaponlib.animation.jim;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.MatrixHelper;
-import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.EulerAngle;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.Format;
@@ -546,26 +546,26 @@ public class AnimationData {
 				double mul = 1 / tesla;
 				
 				// Original object positioning
-				GlStateManager.translate(t.getPositionX(), t.getPositionY(), t.getPositionZ());
+				GlStateManager.translate(t.position.x, t.position.y, t.position.z);
 
 				// Animation translation
 				GL11.glTranslated(translation.x * mul, -translation.y * mul, translation.z * mul);
 				
 				// Offset rotation point
-				GlStateManager.translate(t.getRotationPointX(), t.getRotationPointY(), t.getRotationPointZ());
+				GlStateManager.translate(t.pivotPoint.x, t.pivotPoint.y, t.pivotPoint.z);
 				
 				// Original object rotation (+Z, -Y, -X)
-				GL11.glRotated(t.getRotationZ(), 0, 0, 1);
+				GL11.glRotated(t.rotation.z, 0, 0, 1);
 				GL11.glRotated(rotation.z*rotZMult, 0, 0, 1);
 				
-				GL11.glRotated(t.getRotationY(), 0, 1, 0);
+				GL11.glRotated(t.rotation.y, 0, 1, 0);
 				GL11.glRotated(rotation.y*rotYMult, 0, 1, 0);
 				
-				GL11.glRotated(t.getRotationX(), 1, 0, 0);
+				GL11.glRotated(t.rotation.x, 1, 0, 0);
 				GL11.glRotated(rotation.x*rotXMult, 1, 0, 0);
 
-				GlStateManager.translate(-t.getRotationPointX(), -t.getRotationPointY(), -t.getRotationPointZ());
-				GlStateManager.scale(t.getScaleX(), t.getScaleY(), t.getScaleZ());
+				GlStateManager.translate(-t.pivotPoint.x, -t.pivotPoint.y, -t.pivotPoint.z);
+				GlStateManager.scale(t.scale.x, t.scale.y, t.scale.z);
 
 					
 					
@@ -629,25 +629,25 @@ public class AnimationData {
 				//if(divisor == 5) mul = 0.0000000;
 				
 				// Original object positioning
-				GlStateManager.translate(t.getPositionX(), t.getPositionY(), t.getPositionZ());
+				GlStateManager.translate(t.position.x, t.position.y, t.position.z);
 
 				// Animation translation
 				GL11.glTranslated(translation.x * mul, -translation.y * mul, translation.z * mul);
 				
 				// Offset rotation point
-				GlStateManager.translate(t.getRotationPointX(), t.getRotationPointY(), t.getRotationPointZ());
+				GlStateManager.translate(t.pivotPoint.x, t.pivotPoint.y, t.pivotPoint.z);
 
 				
 			
 				
 				// Original object rotation (+Z, -Y, -X)
-				GL11.glRotated(t.getRotationZ(), 0, 0, 1);
+				GL11.glRotated(t.rotation.z, 0, 0, 1);
 				GL11.glRotated(rotation.z*rotZMult, 0, 0, 1);
 				
-				GL11.glRotated(t.getRotationY(), 0, 1, 0);
+				GL11.glRotated(t.rotation.y, 0, 1, 0);
 				GL11.glRotated(rotation.y*rotYMult, 0, 1, 0);
 				
-				GL11.glRotated(t.getRotationX(), 1, 0, 0);
+				GL11.glRotated(t.rotation.x, 1, 0, 0);
 				GL11.glRotated(rotation.x*rotXMult, 1, 0, 0);
 				
 
@@ -661,13 +661,13 @@ public class AnimationData {
 				
 
 				// Revert rotation point
-				GlStateManager.translate(-t.getRotationPointX(), -t.getRotationPointY(), -t.getRotationPointZ());
+				GlStateManager.translate(-t.pivotPoint.x, -t.pivotPoint.y, -t.pivotPoint.z);
 
 				
 				
 				
 				// Original object scale
-					GlStateManager.scale(t.getScaleX(), t.getScaleY(), t.getScaleZ());
+					GlStateManager.scale(t.scale.x, t.scale.y, t.scale.z);
 
 					
 					

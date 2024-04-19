@@ -18,12 +18,12 @@ public class Belts {
 //                .withEntityPositioning(() -> new Transform()
 //                        .withPosition(-0.5F, -1.95F, 0.5F)
 //                        .withScale(1, 1, 1)
-//                        .doGLDirect())
+//                        .applyTransformations())
 //                .withInventoryPositioning(() -> new Transform()
 //                        .withPosition(-0.15, -5.1, 0.35)
 //                        .withRotation(18, -50, 0)
 //                        .withScale(3.1, 3.1, 3.1)
-//                        .doGLDirect())
+//                        .applyTransformations())
 //                .build();
     }
 }

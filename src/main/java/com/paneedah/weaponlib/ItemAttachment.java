@@ -69,7 +69,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 //		if(model != null) {
 //			this.texturedModels.add(new Tuple<ModelBase, String>(model, textureName));
 //		}
-		this.textureName = textureName.toLowerCase();
+		this.textureName = textureName;
 		this.crosshair = crosshair != null ? ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;

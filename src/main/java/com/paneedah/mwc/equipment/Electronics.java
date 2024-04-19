@@ -77,7 +77,7 @@ public class Electronics {
                 .withName("tablet")
         
                 .withTextureName("Dummy.png")
-                .build(MWC.modContext);
+                .build();
 
         new ItemWirelessCamera.Builder()
 
@@ -205,6 +205,6 @@ public class Electronics {
         .withName("gas-detector")
 
         .withTextureName("Dummy.png")
-        .build(MWC.modContext);
+        .build();
     }
 }

@@ -38,10 +38,7 @@ public class SupernovaFactory implements GunFactory {
         .withDrawSound("noaction_draw")
         .withAllReloadIterationsCompletedSound("drawweapon")
         .withReloadingTime(15)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")    
         .withShellCasingEjectEnabled(false)
-        .withCrosshairZoomed("Sight")
         .withInaccuracy(15)
         .withPellets(10)
         .withFlashIntensity(0.5f)
@@ -83,7 +80,7 @@ public class SupernovaFactory implements GunFactory {
             GL11.glTranslatef(0.017F, 0F, 0F);
             GL11.glScaled(1.15F, 1F, 1F);
         })
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.17F, -0.73F, -1.3F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -92,7 +89,7 @@ public class SupernovaFactory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.25F, -0.7F, -0.2F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -105,7 +102,7 @@ public class SupernovaFactory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
             GL11.glTranslatef(-0.14F, -0.45F, -0.6F);
             GL11.glScaled(0.4F, 0.4F, 0.4F);
         },(model) -> {
@@ -114,7 +111,7 @@ public class SupernovaFactory implements GunFactory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
                 GL11.glTranslatef(-0.02F, -0.55F, -0.7F);
                 GL11.glScaled(0.45F, 0.45F, 0.45F);
         },(model) -> {
@@ -123,7 +120,7 @@ public class SupernovaFactory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroReflex, () -> {
             GL11.glTranslatef(-0.11F, -1.25F, -0.4F);
             GL11.glScaled(0.35F, 0.35F, 0.35F);
             },(model) -> {
@@ -133,7 +130,7 @@ public class SupernovaFactory implements GunFactory {
                 } else if (model instanceof SightMount) {
                 }
             })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, () -> {
                 GL11.glTranslatef(-0F, -0.58F, -0.5F);
                 GL11.glScaled(0.65F, 0.65F, 0.65F);
             },(model) -> {
@@ -142,7 +139,7 @@ public class SupernovaFactory implements GunFactory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
             GL11.glTranslatef(-0F, -0.58F, -0.5F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -151,7 +148,7 @@ public class SupernovaFactory implements GunFactory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
        	 GL11.glTranslatef(-0F, -0.58F, -0.5F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
 		 },(model) -> {
@@ -164,7 +161,7 @@ public class SupernovaFactory implements GunFactory {
 		         GL11.glScaled(0.05F, 0.05F, 0.05F);
 		     }
 		 })
-        .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.VortexRedux, () -> {
                 GL11.glTranslatef(-0.24F, -0.74F, -0.9F);
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
             },(model) -> {
@@ -173,7 +170,7 @@ public class SupernovaFactory implements GunFactory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, () -> {
                 GL11.glTranslatef(-0F, -0.58F, -0.4F);
                 GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -182,7 +179,7 @@ public class SupernovaFactory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraGen3, () -> {
             GL11.glTranslatef(-0F, -0.58F, -0.4F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
 	     },(model) -> {
@@ -191,7 +188,7 @@ public class SupernovaFactory implements GunFactory {
 	             GL11.glScaled(0.15F, 0.15F, 0.15F);
 	         }
 	     })
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, () -> {
                 GL11.glTranslatef(-0.14F, -0.75F, -0.5F);
                 GL11.glScaled(0.38F, 0.38F, 0.38F);
             },(model) -> {
@@ -200,7 +197,7 @@ public class SupernovaFactory implements GunFactory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
             GL11.glTranslatef(-0.14F, -0.75F, -0.5F);
             GL11.glScaled(0.38F, 0.38F, 0.38F);
         },(model) -> {

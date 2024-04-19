@@ -1,9 +1,10 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.weapons.Python;
+import com.paneedah.mwc.models.Python;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.*;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;

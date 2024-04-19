@@ -35,7 +35,7 @@ public class FuseGrenadeFactory implements GrenadeFactory {
                 .withEffectiveRadius(20f)
                 .withFragmentCount(3000)
                 .withFragmentDamage(500f)
-                .withCompatibleAttachment(Grenades.GrenadeSafetyPin, (p, s) -> {})
+                .withCompatibleAttachment(Grenades.GrenadeSafetyPin, () -> {})
                 .withVelocity(() -> 0.8f)
                 .withFarVelocity(() -> 1.3f)
                 .withGravityVelocity(() -> 0.06f)

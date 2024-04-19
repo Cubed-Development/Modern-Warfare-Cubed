@@ -12,6 +12,7 @@ import com.paneedah.mwc.skins.GunSkins;
 import com.paneedah.mwc.tileentities.TileEntities;
 import com.paneedah.mwc.vehicle.Vehicles;
 import com.paneedah.mwc.weapons.*;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
@@ -66,8 +67,8 @@ public class CommonProxy {
         Belts.init();
         Vests.init(mod);
         Armors.init(mod, MWC.modContext);
-        Attachments.init(mod);
-        AuxiliaryAttachments.init(mod);
+        Attachments.init();
+        AuxiliaryAttachments.init();
         GunSkins.init(mod);
         Bullets.init(mod);
         Magazines.init(mod);

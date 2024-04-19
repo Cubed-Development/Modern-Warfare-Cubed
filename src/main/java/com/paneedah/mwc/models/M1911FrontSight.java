@@ -15,7 +15,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class M1911frontsight extends ModelBase
+public class M1911FrontSight extends ModelBase
 {
   //fields
     ModelRenderer sight1;
@@ -23,7 +23,7 @@ public class M1911frontsight extends ModelBase
     ModelRenderer sight6;
     ModelRenderer sight7;
   
-  public M1911frontsight()
+  public M1911FrontSight()
   {
     textureWidth = 128;
     textureHeight = 64;

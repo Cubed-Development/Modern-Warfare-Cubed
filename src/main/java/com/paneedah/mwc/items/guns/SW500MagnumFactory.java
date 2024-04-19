@@ -37,9 +37,6 @@ public class SW500MagnumFactory implements GunFactory {
         .withReloadIterationSound("revolverbullet")
         .withAllReloadIterationsCompletedSound("revolver_load_complete")
         .withReloadingTime(25)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.4f)
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.1f)
@@ -70,7 +67,7 @@ public class SW500MagnumFactory implements GunFactory {
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoaderBullets, true, (model) -> {
 			GL11.glTranslatef(0f, 0f, 0.001f);
 		})
-          .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+          .withCompatibleAttachment(Attachments.RMR, () -> {
               GL11.glTranslatef(0.14F, -2.2F, -1.3F);
               GL11.glScaled(0.36F, 0.36F, 0.36F);
       },(model) -> {
@@ -79,7 +76,7 @@ public class SW500MagnumFactory implements GunFactory {
               GL11.glScaled(0.2F, 0.2F, 0.2F);
           }
       })
-      .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+      .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
           GL11.glTranslatef(0.27F, -1.95F, -1.5F);
           GL11.glScaled(0.55F, 0.55F, 0.55F);
       },(model) -> {

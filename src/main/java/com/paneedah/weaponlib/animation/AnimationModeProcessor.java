@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.animation;
 
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
@@ -139,7 +140,7 @@ public class AnimationModeProcessor {
 	        final int scaledHeight = scaledresolution.getScaledHeight();
 	        int mouseX = Mouse.getX() * scaledWidth / MC.displayWidth;
 	        int mouseY = scaledHeight - Mouse.getY() * scaledHeight / MC.displayHeight - 1;
-			atGrab = getTransformFromSelected().copy();
+			atGrab.copy(getTransformFromSelected());
 			Arcball.grab(mouseX, mouseY);
 		}
 		
@@ -193,7 +194,7 @@ public class AnimationModeProcessor {
 		return ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder();
 	}
 	
-	public Transform slideTransform = Transform.NULL.copy();
+	public Transform slideTransform = Transform.getZero();
 	
 	public Transform getTransformFromSelected() {
 		int i = OpenGLSelectionHelper.selectID;
@@ -229,9 +230,9 @@ public class AnimationModeProcessor {
 				Builder builder = getCurrentWeaponRenderBuilder();
 				pwi = ClientModContext.getContext().getMainHeldWeapon();
 				//System.out.println("BUILDER: " + builder + " | PWI: " + pwi);
-				backupFP = builder.firstPersonTransform.copy();
-				backupFPL = builder.firstPersonLeftHandTransform.copy();
-				backupFPR = builder.firstPersonRightHandTransform.copy();
+				backupFP.copy(builder.firstPersonTransform);
+				backupFPL.copy(builder.firstPersonLeftHandTransform);
+				backupFPR.copy(builder.firstPersonRightHandTransform);
 			}
 		}
 
@@ -331,15 +332,15 @@ public class AnimationModeProcessor {
 						Transform t = getTransformFromSelected();
 						
 						
-						t.withPosition(t.getPositionX() + vec.x*m, t.getPositionY() + vec.y*m, t.getPositionZ() + vec.z*m);
+						t.withPosition((float) (t.position.x + vec.x*m), (float) (t.position.y + vec.y*m), (float) (t.position.z + vec.z*m));
 						
-						if(AnimationGUI.getInstance().leftDrag.isState()) t.withRotation(t.getRotationX(), t.getRotationY()-vec.x*0.4, t.getRotationZ());
+						if(AnimationGUI.getInstance().leftDrag.isState()) t.withRotation(t.rotation.x, (float) (t.rotation.y-vec.x*0.4), t.rotation.z);
 						
 					} else {
 						Transform t = getTransformFromSelected();
 						
 						
-						t.withRotationPoint(t.getRotationPointX() + vec.x*m, t.getRotationPointY() + vec.y*m, t.getRotationPointZ() + vec.z*m);
+						t.withPivotPoint((float) (t.pivotPoint.x + vec.x*m), (float) (t.pivotPoint.y + vec.y*m), (float) (t.pivotPoint.z + vec.z*m));
 						
 					}
 					
@@ -424,9 +425,9 @@ public class AnimationModeProcessor {
 					
 					
 				if(atGrab != null)	{
-					t.withRotation(atGrab.getRotationX() + Math.toDegrees(quangles[0])*vec.x, atGrab.getRotationY() + Math.toDegrees(quangles[1])*vec.y, atGrab.getRotationZ() + -Math.toDegrees(quangles[2])*vec.z);
+					t.withRotation((float) (atGrab.rotation.x + Math.toDegrees(quangles[0])*vec.x), (float) (atGrab.rotation.y + Math.toDegrees(quangles[1])*vec.y), (float) (atGrab.rotation.z + -Math.toDegrees(quangles[2])*vec.z));
 				}
-				t.printTransform();
+				t.printTransformCreationCode();
 					//t.withRotation(t.getRotationX() + vec.x*m*0.1, t.getRotationY() + vec.y*m*0.1, t.getRotationZ() + vec.z*m*0.1);
 					
 				}
@@ -577,7 +578,7 @@ public class AnimationModeProcessor {
 				
 				
 				GlStateManager.pushMatrix();
-				GlStateManager.translate(t.getRotationPointX()+t.getPositionX(), t.getRotationPointY()+t.getPositionY(), t.getRotationPointZ()+t.getPositionZ());
+				GlStateManager.translate(t.pivotPoint.x+t.position.x, t.pivotPoint.y+t.position.y, t.pivotPoint.z+t.position.z);
 				GlStateManager.scale(3, 3, 3);
 				renderAtlas(scalar*5);
 				

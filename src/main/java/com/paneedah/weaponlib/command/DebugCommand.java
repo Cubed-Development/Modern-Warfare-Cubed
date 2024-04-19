@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.command;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
-import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
@@ -219,7 +219,7 @@ public class DebugCommand extends CommandBase {
                     double x = Double.parseDouble(args[3]);
                     double y = Double.parseDouble(args[4]);
                     double z = Double.parseDouble(args[5]);
-                    debugSlideTransform.withPosition(x, y, z);
+                    debugSlideTransform.withPosition((float) x, (float) y, (float) z);
                 }
                 break;
             case "shake":
@@ -291,7 +291,7 @@ public class DebugCommand extends CommandBase {
                 final double x = Double.parseDouble(args[2]);
                 final double y = Double.parseDouble(args[3]);
                 final double z = Double.parseDouble(args[4]);
-                ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder().firstPersonLeftHandTransform.withScale(x, y, z);
+                ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder().firstPersonLeftHandTransform.withScale((float) x, (float) y, (float) z);
                 break;
         }
      }

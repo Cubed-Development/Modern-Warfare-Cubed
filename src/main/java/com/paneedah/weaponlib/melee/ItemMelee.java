@@ -150,13 +150,13 @@ public class ItemMelee extends Item implements
             return this;
         }
 
-        public Builder withCompatibleAttachment(ItemAttachment<ItemMelee> attachment, BiConsumer<EntityLivingBase, ItemStack> positioning) {
+        public Builder withCompatibleAttachment(ItemAttachment<ItemMelee> attachment, Runnable positioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, null, false));
             return this;
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<ItemMelee> attachment, boolean isDefault,
-                                                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
+                                                Runnable positioning, Consumer<ModelBase> modelPositioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, isDefault));
             return this;
         }

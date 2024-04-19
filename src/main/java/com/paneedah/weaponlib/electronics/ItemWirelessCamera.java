@@ -2,8 +2,8 @@ package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
@@ -38,13 +38,13 @@ public class ItemWirelessCamera extends Item implements ModelSource {
         protected String textureName;
         protected ModelSourceTransforms transforms = ModelSourceTransforms.builder()
                 .entityPositioning(() -> new Transform()
-                        .withPosition(-0.5, -0.55, 0.5)
-                        .withScale(0.5, 0.5, 0.5)
-                        .doGLDirect())
+                        .withPosition(-0.5F, -0.55F, 0.5F)
+                        .withScale(0.5F, 0.5F, 0.5F)
+                        .applyTransformations())
                 .inventoryPositioning(() -> new Transform()
-                        .withScale(2.25, 2.25, 2.25)
-                        .withPosition(-0.80, -0.7, 0)
-                        .doGLDirect())
+                        .withScale(2.25F, 2.25F, 2.25F)
+                        .withPosition(-0.80F, -0.7F, 0)
+                        .applyTransformations())
                 .build();
         protected CreativeTabs tab;
         protected AttachmentCategory attachmentCategory;

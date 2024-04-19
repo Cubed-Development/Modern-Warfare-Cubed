@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.equipment.carryable;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -32,14 +32,14 @@ public class ItemCarryable extends Item implements IModernCraftingRecipe {
         protected String textureName;
         protected ModelSourceTransforms transforms = ModelSourceTransforms.builder()
                 .entityPositioning(() -> new Transform()
-                        .withPosition(-0.5, -1.75, 0.4)
+                        .withPosition(-0.5F, -1.75F, 0.4F)
                         .withScale(1, 1, 1)
-                        .doGLDirect())
+                        .applyTransformations())
                 .inventoryPositioning(() -> new Transform()
-                        .withPosition(-0.15, -4.15, 0.35)
+                        .withPosition(-0.15F, -4.15F, 0.35F)
                         .withRotation(18, -50, 0)
-                        .withScale(2.9, 2.9, 2.9)
-                        .doGLDirect())
+                        .withScale(2.9F, 2.9F, 2.9F)
+                        .applyTransformations())
                 .build();
 
         protected int size;

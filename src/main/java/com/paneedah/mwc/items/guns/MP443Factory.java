@@ -2,9 +2,10 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.weapons.MP443;
+import com.paneedah.mwc.models.MP443;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.*;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;

@@ -125,7 +125,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
         }
 
         @Override
-        public ItemAttachment<Weapon> build(ModContext modContext) {
+        public ItemAttachment<Weapon> build() {
             this.apply2 = (a, instance) -> {
                 float zoom = minZoom + (maxZoom - minZoom) / 2f;
                 instance.setZoom(zoom);
@@ -133,7 +133,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
             this.remove2 = (a, instance) -> {
                 instance.setZoom(1);
             };
-            return super.build(modContext);
+            return super.build();
         }
     }
 

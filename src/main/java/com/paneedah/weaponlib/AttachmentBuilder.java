@@ -1,10 +1,11 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
-import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.*;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
@@ -31,9 +32,9 @@ public class AttachmentBuilder<T> {
     protected String textureName;
     protected ModelSourceTransforms transforms = ModelSourceTransforms.builder()
             .entityPositioning(() -> new Transform()
-                    .withScale(0.17, 0.17, 0.17)
-                    .withPosition(-0.5, -0.5, 0.6)
-                    .doGLDirect())
+                    .withScale(0.17F, 0.17F, 0.17F)
+                    .withPosition(-0.5F, -0.5F, 0.6F)
+                    .applyTransformations())
             .build();
 
     protected Vec3d rotationPoint;
@@ -47,6 +48,7 @@ public class AttachmentBuilder<T> {
     private String crosshair;
     private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
     private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    private List<Tuple<ModelBase, String>> onWeaponTexturedModels = new ArrayList<>();
     private boolean isRenderablePart;
     private int maxStackSize = 1;
     private Function<ItemStack, String> informationProvider;
@@ -180,6 +182,14 @@ public class AttachmentBuilder<T> {
         return this;
     }
 
+    /**
+     * OnWeaponModel's are models that will only be rendered when the attachment is on a weapons.
+     */
+    public AttachmentBuilder<T> withOnWeaponModel(ModelBase model, String textureName) {
+        this.onWeaponTexturedModels.add(new Tuple<>(model, textureName.toLowerCase()));
+        return this;
+    }
+
     public AttachmentBuilder<T> withRenderablePart() {
         this.isRenderablePart = true;
         return this;
@@ -240,7 +250,9 @@ public class AttachmentBuilder<T> {
         return new ItemAttachment<T>(attachmentCategory, crosshair, apply, remove);
     }
 
-    public ItemAttachment<T> build(ModContext modContext) {
+    public ItemAttachment<T> build() {
+        final ModContext modContext = MWC.modContext;
+
         ItemAttachment<T> attachment = createAttachment(modContext);
         attachment.setTranslationKey(ID + "_" + name);
         attachment.setCreativeTab(tab);
@@ -280,10 +292,11 @@ public class AttachmentBuilder<T> {
         }
 
         texturedModels.forEach(tm -> attachment.addModel(tm.getU(), addFileExtension(tm.getV(), ".png")));
+        onWeaponTexturedModels.forEach(tm -> attachment.addModel(tm.getU(), addFileExtension(tm.getV(), ".png")));
 
         compatibleAttachments.values().forEach(a -> attachment.addCompatibleAttachment(a));
 
-        if ((getModel() != null || !texturedModels.isEmpty())) {
+        if ((getModel() != null || !texturedModels.isEmpty() || !onWeaponTexturedModels.isEmpty())) {
             modContext.registerRenderableItem(name, attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
         }
 
@@ -338,10 +351,10 @@ public class AttachmentBuilder<T> {
         return str.endsWith(extension) ? str.substring(0, str.length() - extension.length()) : str;
     }
 
-    public <V extends ItemAttachment<T>> V build(ModContext modContext, Class<V> target) {
-        final V attachment = target.cast(build(modContext));
+    public <V extends ItemAttachment<T>> V build(Class<V> target) {
+        final V attachment = target.cast(build());
 
-        if (modContext.isClient())
+        if (MWC.modContext.isClient())
             COOKING_QUEUE.add(attachment);
 
         return attachment;

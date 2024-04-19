@@ -1,7 +1,7 @@
 package com.paneedah.mwc.weapons;
 
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.weapons.*;
+import com.paneedah.mwc.models.*;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 

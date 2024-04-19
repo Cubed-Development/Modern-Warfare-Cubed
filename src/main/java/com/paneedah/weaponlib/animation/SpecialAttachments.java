@@ -18,7 +18,7 @@ public class SpecialAttachments {
 	            
 	            .withName("magazine_extra")
 	            .withRenderablePart()
-	            .withTextureName("Dummy.png").build(context);
+	            .withTextureName("Dummy.png").build();
 		
 		
 		

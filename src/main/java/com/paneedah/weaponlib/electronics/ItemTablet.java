@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,13 +18,13 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
         {
             transforms = ModelSourceTransforms.builder()
                     .entityPositioning(() -> new Transform()
-                            .withScale(0.3, 0.3, 0.3)
-                            .withPosition(-0.5, -0.5, 0.5)
-                            .doGLDirect())
+                            .withScale(0.3F, 0.3F, 0.3F)
+                            .withPosition(-0.5F, -0.5F, 0.5F)
+                            .applyTransformations())
                     .inventoryPositioning(() -> new Transform()
                             .withScale(1, 1, 1)
-                            .withPosition(-0.24, 0.24, 0)
-                            .doGLDirect())
+                            .withPosition(-0.24F, 0.24F, 0)
+                            .applyTransformations())
                     .build();
         }
         
@@ -52,8 +52,8 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
         }
         
         @Override
-        public ItemAttachment<T> build(ModContext modContext) {
-            return super.build(modContext);
+        public ItemAttachment<T> build() {
+            return super.build();
         }
     }
 

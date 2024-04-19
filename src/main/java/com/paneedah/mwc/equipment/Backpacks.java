@@ -1,7 +1,7 @@
 package com.paneedah.mwc.equipment;
 
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import net.minecraft.item.Item;
 
 public class Backpacks {
@@ -30,15 +30,15 @@ public class Backpacks {
                 .withModel("CombatSustainmentBackpack")
                 .withTexture("equipment/carryable/backpacks/combat_sustainment_backpack_tan")
                 .withInventoryPositioning(() -> new Transform()
-                        .withPosition(-0.15, -4.6, 0.35)
+                        .withPosition(-0.15F, -4.6F, 0.35F)
                         .withRotation(18, -50, 0)
-                        .withScale(3.3, 3.3, 3.3)
-                        .doGLDirect())
+                        .withScale(3.3F, 3.3F, 3.3F)
+                        .applyTransformations())
                 .withFirstPersonModelPositioning(modelBase -> new Transform()
-                        .withPosition(-64, -0.20, -1.25)
+                        .withPosition(-64, -0.20F, -1.25F)
                         .withRotation(0, 0, 0)
                         .withScale(16, 16, 16)
-                        .doGLDirect())
+                        .applyTransformations())
                 .build();
 
         combatSustainmentBackpackBlack = new ItemBackpack.Builder()
@@ -47,10 +47,10 @@ public class Backpacks {
                 .withModel("CombatSustainmentBackpack")
                 .withTexture("equipment/carryable/backpacks/combat_sustainment_backpack_black")
                 .withInventoryPositioning(() -> new Transform()
-                        .withPosition(-0.15, -4.6, 0.35)
+                        .withPosition(-0.15F, -4.6F, 0.35F)
                         .withRotation(18, -50, 0)
-                        .withScale(3.3, 3.3, 3.3)
-                        .doGLDirect())
+                        .withScale(3.3F, 3.3F, 3.3F)
+                        .applyTransformations())
                 .build();
 
         combatSustainmentBackpackForest = new ItemBackpack.Builder()
@@ -59,10 +59,10 @@ public class Backpacks {
                 .withModel("CombatSustainmentBackpack")
                 .withTexture("equipment/carryable/backpacks/combat_sustainment_backpack_forest")
                 .withInventoryPositioning(() -> new Transform()
-                        .withPosition(-0.15, -4.6, 0.35)
+                        .withPosition(-0.15F, -4.6F, 0.35F)
                         .withRotation(18, -50, 0)
-                        .withScale(3.3, 3.3, 3.3)
-                        .doGLDirect())
+                        .withScale(3.3F, 3.3F, 3.3F)
+                        .applyTransformations())
                 .build();
 
         assaultBackpackTan = new ItemBackpack.Builder()
@@ -122,12 +122,12 @@ public class Backpacks {
                 .withEntityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.9F, 0.5F)
                         .withScale(1, 1, 1)
-                        .doGLDirect())
+                        .applyTransformations())
                 .withInventoryPositioning(() -> new Transform()
-                        .withPosition(-0.15, -3.65, 0.35)
+                        .withPosition(-0.15F, -3.65F, 0.35F)
                         .withRotation(18, -50, 0)
-                        .withScale(2.4, 2.4, 2.4)
-                        .doGLDirect())
+                        .withScale(2.4F, 2.4F, 2.4F)
+                        .applyTransformations())
                 .build();
     }
 }

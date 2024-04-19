@@ -131,6 +131,11 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 ### Removed
 
 - Removed unused warning about the grenade exploding in X amount of seconds
+- Removed unused holographic scope texture
+
+### Optimization
+
+- Rewrote crosshair handling, instead of drawing an empty texture to hide the crosshair we simply don't render it
 
 ## Modern Warfare Cubed Version 0.1.5 Changelog - 2024-04-02
 

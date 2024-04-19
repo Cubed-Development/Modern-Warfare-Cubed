@@ -31,7 +31,7 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
 		}
 		
 		@Override
-		public <V extends ItemAttachment<ItemMelee>> V build(ModContext modContext, Class<V> target) {
+		public <V extends ItemAttachment<ItemMelee>> V build(Class<V> target) {
 			this.model = new FlatModel();
 			if(textureVariants.isEmpty()) {
 				textureVariants.add(getTextureName());
@@ -47,7 +47,7 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
 					GL11.glScaled(15F, 15F, 15f);
 				});
 			}
-			return super.build(modContext, target);
+			return super.build(target);
 		}
 	}
 	

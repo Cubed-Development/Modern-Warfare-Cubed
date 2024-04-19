@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import net.minecraft.client.model.ModelBase;
 
 import java.util.ArrayList;
@@ -14,9 +14,9 @@ public class ItemBullet extends ItemAttachment<Weapon> {
         {
             transforms = ModelSourceTransforms.builder()
                     .entityPositioning(() -> new Transform()
-                            .withScale(0.17, 0.17, 0.17)
-                            .withPosition(-0.5, -0.7, 0.5)
-                            .doGLDirect())
+                            .withScale(0.17F, 0.17F, 0.17F)
+                            .withPosition(-0.5F, -0.7F, 0.5F)
+                            .applyTransformations())
                     .build();
         }
 

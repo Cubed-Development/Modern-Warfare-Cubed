@@ -39,8 +39,8 @@ implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Upd
         }
         
         @Override
-        public ItemAttachment<T> build(ModContext modContext) {
-            return super.build(modContext);
+        public ItemAttachment<T> build() {
+            return super.build();
         }
     }
     

@@ -51,7 +51,7 @@ public class TransitionContainer {
 		if (leftHand == null) {
 			leftHand = firstPerson.stream().map(t -> new Transition<RenderContext<RenderableState>>(c -> {
 				
-				wr.firstPersonLeftHandTransform.doGLDirect();
+				wr.firstPersonLeftHandTransform.applyTransformations();
 				
 			}, 0)).collect(Collectors.toList());
 		}
@@ -62,7 +62,7 @@ public class TransitionContainer {
 		if (rightHand == null) {
 			rightHand = firstPerson.stream().map(t -> new Transition<RenderContext<RenderableState>>(c -> {
 				
-				wr.firstPersonRightHandTransform.doGLDirect();
+				wr.firstPersonRightHandTransform.applyTransformations();
 				
 			}, 0)).collect(Collectors.toList());
 		}

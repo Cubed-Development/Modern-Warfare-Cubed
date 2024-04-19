@@ -1,4 +1,4 @@
-package com.paneedah.mwc.models.weapons;
+package com.paneedah.mwc.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
