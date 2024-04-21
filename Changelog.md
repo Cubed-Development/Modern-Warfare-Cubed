@@ -11,6 +11,12 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 
 - Added German translation
 
+### Changed
+
+- Fire mode hint ("Press [B] to change fire mode") now only appears when the weapon has multiple fire modes
+- Magazines now use the same ammunition counter as weapons, instead of a white text in the top-right corner
+- The crosshair will now appear when holding a magazine
+
 ### Removed
 
 - Removed unused warning about the grenade exploding in X amount of seconds
