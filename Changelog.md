@@ -21,6 +21,9 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 - Updated the author list in the mod menu
 - Updated the credits in the mod menu
 - Updated the url in the mod menu
+- Updated dependencies:
+  - Requires Red Core 0.5 and up
+  - Requires MixinBooter 0.5 and up
 
 ### Removed
 
