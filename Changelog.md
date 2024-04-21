@@ -10,12 +10,17 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 ### Added
 
 - Added German translation
+- Added the logo to the mod menu
 
 ### Changed
 
 - Fire mode hint ("Press [B] to change fire mode") now only appears when the weapon has multiple fire modes
 - Magazines now use the same ammunition counter as weapons, instead of a white text in the top-right corner
 - The crosshair will now appear when holding a magazine
+- Updated the description in the mod menu
+- Updated the author list in the mod menu
+- Updated the credits in the mod menu
+- Updated the url in the mod menu
 
 ### Removed
 
@@ -24,6 +29,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 ### Internal
 
 - Made client sided mixins client side only
+- Cleaned up the `mcmod.info` file
 
 ## Modern Warfare Cubed Version 0.1.5 Changelog - 2024-04-02
 
