@@ -30,6 +30,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 
 - Made client sided mixins client side only
 - Cleaned up the `mcmod.info` file
+- Switched to [CurseUpdate](https://forge.curseupdate.com/) for update checking
 
 ## Modern Warfare Cubed Version 0.1.5 Changelog - 2024-04-02
 
