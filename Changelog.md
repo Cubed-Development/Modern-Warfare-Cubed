@@ -13,9 +13,9 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 
 ### Changed
 
-- Press [B] to change fire mode now only appears when the weapon has multiple fire modes
-- Magazines now show bullet count in the magazine the same way guns do, instead of a white text in the top-right corner
-- Crosshair will now appear when holding a magazine
+- Fire mode hint ("Press [B] to change fire mode") now only appears when the weapon has multiple fire modes
+- Magazines now use the same ammunition counter as weapons, instead of a white text in the top-right corner
+- The crosshair will now appear when holding a magazine
 
 ### Removed
 
