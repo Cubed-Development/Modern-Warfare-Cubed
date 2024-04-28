@@ -337,8 +337,8 @@ public class APC9Factory implements GunFactory {
 
                         .withFirstPersonPositioning(
                                 new Transform()
-                                        .withPosition(-1.425000f, 4.545000f, -3.725000f)
-                                        .withRotation(0.000000f, 1.000000f, 6.300000f)
+                                        .withPosition(-1.425000f, 4.405000f, -3.725000f)
+                                        .withRotation(0.000000f, 1.000000f, 4.80000f)
                                         .withRotationPoint(-0.350000f, -0.940000f, 0.060000f)
                                         .withScale(3.0, 3.0, 3.0)
                         )
