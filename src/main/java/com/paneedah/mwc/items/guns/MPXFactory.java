@@ -389,8 +389,8 @@ public class MPXFactory implements GunFactory {
 				
 			.withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.585000f, 4.865000f, -3.685000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.585000f, 4.685000f, -3.785000f)
+					.withRotation(0.0f, 0f, 4.70f)
 					.withRotationPoint(-0.350000f, -2.940000f, 0.020000f)
                     .withScale(3.0, 3.0, 3.0)
                 )
