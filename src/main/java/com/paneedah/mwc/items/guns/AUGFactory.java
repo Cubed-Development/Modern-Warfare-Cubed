@@ -527,8 +527,8 @@ public class AUGFactory implements GunFactory {
                 
            .withFirstPersonPositioning(
 					new Transform()
-                    .withPosition(-1.425000f, 3.325000f, -4.725000f)
-                    .withRotation(0.000000f, 1.000000f, 6.300000f)
+                    .withPosition(-1.425000f, 3.225000f, -4.725000f)
+                    .withRotation(0.000000f, 1.0f, 0.0f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

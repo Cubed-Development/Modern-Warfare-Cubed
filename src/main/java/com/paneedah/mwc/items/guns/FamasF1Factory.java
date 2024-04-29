@@ -323,8 +323,8 @@ public class FamasF1Factory {
             })
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.425000f, 5.185000f, -4.205000f)
-					.withRotation(0.000000f, 1.000000f, 6.821898f)
+					.withPosition(-1.425000f, 4.995000f, -4.205000f)
+					.withRotation(0.000000f, 0f, 0.021898f)
 					.withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

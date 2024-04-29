@@ -341,8 +341,8 @@ public class MalyukFactory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.425000f, 3.985000f, -4.965000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.425000f, 3.715000f, -4.785000f)
+					.withRotation(0.0f, 1.0f, 1.5f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

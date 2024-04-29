@@ -22,7 +22,8 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Arrays;
 
-public class F2000Factory {
+public class
+F2000Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -398,7 +399,7 @@ public class F2000Factory {
             .withFirstPersonPositioning(
 					new Transform()
 					.withPosition(-1.425000f, 1.905000f, -5.685000f)
-					.withRotation(0.000000f, 1.000000f, 3.924788f)
+					.withRotation(0.0f, 1.0f, 0.224788f)
 					.withRotationPoint(0.050000f, -0.460000f, 1.780000f)
                     .withScale(3.0, 3.0, 3.0)
                 )
