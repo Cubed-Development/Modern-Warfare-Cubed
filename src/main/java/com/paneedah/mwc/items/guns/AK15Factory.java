@@ -435,8 +435,8 @@ public class AK15Factory {
                 
                 .withFirstPersonPositioning(
     					new Transform()
-    					.withPosition(-1.225000f, 3.705000f, -2.525000f)
-    					.withRotation(0.000000f, 1.000000f, 6.300000f)
+    					.withPosition(-1.225000f, 3.40000f, -2.025000f)
+    					.withRotation(0.000000f, 0f, 1.0f)
                         .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                         .withScale(3.0, 3.0, 3.0)
                     )

@@ -356,8 +356,8 @@ public class AK12Factory {
                 
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.225000f, 3.505000f, -2.165000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.225000f, 3.385000f, -2.165000f)
+					.withRotation(0.000000f, 0f, 1f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )
