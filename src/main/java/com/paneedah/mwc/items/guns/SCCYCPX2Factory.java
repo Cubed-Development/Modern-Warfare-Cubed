@@ -177,7 +177,7 @@ public class SCCYCPX2Factory implements GunFactory {
             .withFirstPersonPositioning(
 					new Transform()
 					.withPosition(-0.945000f, 3.865000f, -6.965000f)
-					.withRotation(0.000000f, 1.000000f, 10.681469f)
+					.withRotation(0.000000f, 1.000000f, 17.881469f)
 					.withRotationPoint(-0.12000000357627871, -0.36000001072883614, 0.040000001192092904)
                     .withScale(3.0, 3.0, 3.0)
                 )

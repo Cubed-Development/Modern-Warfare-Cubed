@@ -617,8 +617,8 @@ public class HK417Factory implements GunFactory {
 				
 			.withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.425000f, 3.825000f, -2.525000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.3250f, 3.6250f, -2.5250f)
+					.withRotation(0.0f, 1f, 2f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

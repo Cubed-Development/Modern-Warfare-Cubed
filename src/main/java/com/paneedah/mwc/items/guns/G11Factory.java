@@ -250,8 +250,8 @@ public class G11Factory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.425000f, 5.545000f, -5.765000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.425000f, 5.275000f, -5.665000f)
+					.withRotation(0f, 1.0f, 1f)
 					.withRotationPoint(-0.350000f, -3.460000f, -0.580000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

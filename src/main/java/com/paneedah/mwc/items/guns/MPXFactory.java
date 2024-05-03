@@ -390,7 +390,7 @@ public class MPXFactory implements GunFactory {
 			.withFirstPersonPositioning(
 					new Transform()
 					.withPosition(-1.585000f, 4.685000f, -3.785000f)
-					.withRotation(0.0f, 0f, 4.70f)
+					.withRotation(0.0f, 0f, 6.70f)
 					.withRotationPoint(-0.350000f, -2.940000f, 0.020000f)
                     .withScale(3.0, 3.0, 3.0)
                 )
@@ -399,7 +399,7 @@ public class MPXFactory implements GunFactory {
                         
                         // Left hand
                         new Transform()
-                        .withPosition(1.170000f, 0.025000f, -0.380000f)
+                        .withPosition(1.070000f, 0.025000f, -0.380000f)
                         .withBBRotation(-8.1997, -23.6991, 57.7232)
                         .withScale(2.6, 2.6, 4.0)
                         .withRotationPoint(0, 0, 0),

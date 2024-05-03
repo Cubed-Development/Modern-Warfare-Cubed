@@ -577,7 +577,7 @@ public class SIGMCXFactory implements GunFactory {
 				
 			.withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.265000f, 4.495000f, -2.595000f)
+					.withPosition(-1.265000f, 4.495000f, -2.455000f)
 					.withRotation(0f, 1.0f, 1.615748f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)

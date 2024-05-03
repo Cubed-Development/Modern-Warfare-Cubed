@@ -366,9 +366,6 @@ public class G3Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new G3())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -387,8 +384,8 @@ public class G3Factory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.425000f, 3.865000f, -2.725000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.425000f, 3.585000f, -2.625000f)
+					.withRotation(0.0f, 1f, 1f)
 					.withRotationPoint(-0.230000f, -1.740000f, 0.140000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

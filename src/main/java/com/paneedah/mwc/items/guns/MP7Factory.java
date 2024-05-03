@@ -319,9 +319,7 @@ public class MP7Factory {
     
             .withModel(new MP7())
             .withADSBeizer(new Vec3d(0.2, 1.7, -3))
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
+
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -340,8 +338,8 @@ public class MP7Factory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.105000f, 2.785000f, -5.045000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.1050f, 2.4850f, -4.9050f)
+					.withRotation(0.0f, 1.0f, 3.6f)
 					.withRotationPoint(-0.350000f, -0.900000f, 0.700000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

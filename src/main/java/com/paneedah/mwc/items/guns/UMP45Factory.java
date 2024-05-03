@@ -331,8 +331,8 @@ public class UMP45Factory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.625000f, 4.745000f, -4.245000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.655000f, 4.4750f, -4.1650f)
+					.withRotation(0.0f, 1f, 4.7f)
 					.withRotationPoint(-0.350000f, -0.940000f, 0.060000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

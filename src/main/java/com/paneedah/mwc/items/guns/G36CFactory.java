@@ -327,10 +327,10 @@ public class G36CFactory implements GunFactory {
 
                         .withFirstPersonPositioning(
                                 new Transform()
-                                        .withPosition(-1.425000f, 4.545000f, -3.725000f)
-                                        .withRotation(0.000000f, 1.000000f, 6.300000f)
+                                        .withPosition(-1.4250f, 4.2750f, -3.6050f)
+                                        .withRotation(0.0f, 1f, 1f)
                                         .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.000000f, 3.000000f, 3.000000f)
+                                        .withScale(3.0f, 3.0f, 3.0f)
                         )
 
                         .withFirstPersonHandPositioning(
