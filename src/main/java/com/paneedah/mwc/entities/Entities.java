@@ -43,9 +43,9 @@ public class Entities {
                 .withStepSound("step")
                 .withLookHeightMulitplier(3)
                 .withAiTask(1, e -> new EntityAISwimming(e))
-                .withAiTask(3, e -> new EntityAIAvoidEntity<>(  e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
+                .withAiTask(3, e -> new EntityAIAvoidEntity<>(e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
                 .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob) e, 1.0D, 10, 30.0F))
-                .withAiTask(5, e -> new EntityAIWander(  e, 1.0D))
+                .withAiTask(5, e -> new EntityAIWander(e, 1.0D))
                 .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
                 .withAiTask(6, e -> new EntityAILookIdle(e))
 
@@ -72,7 +72,6 @@ public class Entities {
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>( e, EntityVindicator.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>( e, EntityWitch.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>( e, EntityZombieVillager.class, true))
-                .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "tyke", true))
                 .register(MWC.modContext);
 
         new EntityConfiguration.Builder()
@@ -102,7 +101,7 @@ public class Entities {
                 .withAiTask(1, e -> new EntityAISwimming(e))
                 .withAiTask(3, e -> new EntityAIAvoidEntity<>(e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
                 .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob) e, 1.0D, 10, 30.0F))
-                .withAiTask(5, e -> new EntityAIWander(  e, 1.0D))
+                .withAiTask(5, e -> new EntityAIWander(e, 1.0D))
                 .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
                 .withAiTask(6, e -> new EntityAILookIdle(e))
                 .withAiTask(7, e -> new EntityAIBreakDoor(e))
@@ -130,7 +129,6 @@ public class Entities {
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>( e, EntityWitch.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>( e, EntityZombieVillager.class, true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "terrorist", true))
-                .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "tyke", true))
                 .register(MWC.modContext);
 
         new EntityConfiguration.Builder()
@@ -177,7 +175,6 @@ public class Entities {
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>( e, EntityZombieVillager.class, true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "soldier", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "terrorist", true))
-                .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "tyke", true))
                 .register(MWC.modContext);
         new EntityConfiguration.Builder()
                 .withName("turretupgraded")
@@ -223,7 +220,6 @@ public class Entities {
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>( e, EntityZombieVillager.class, true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "soldier", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "terrorist", true))
-                .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "tyke", true))
                 .register(MWC.modContext);
 
         new EntityConfiguration.Builder()
@@ -270,7 +266,6 @@ public class Entities {
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>( e, EntityZombieVillager.class, true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "soldier", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "terrorist", true))
-                .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>( e, EntityCustomMob.class, "tyke", true))
                 .register(MWC.modContext);
     }
 }
