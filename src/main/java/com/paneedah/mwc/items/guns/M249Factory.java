@@ -367,8 +367,8 @@ public class M249Factory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.825000f, 5.665000f, -5.605000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.825000f, 5.305000f, -5.605000f)
+					.withRotation(0.0f, 1.0f, 2f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

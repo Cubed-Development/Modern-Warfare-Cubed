@@ -165,8 +165,8 @@ public class MakarovPMFactory implements GunFactory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-0.945000f, 4.065000f, -7.845000f)
-					.withRotation(0.000000f, 1.000000f, 10.681469f)
+					.withPosition(-0.945000f, 4.065f, -6.945f)
+					.withRotation(0.0f, 1.0f, 17.681469f)
 					.withRotationPoint(-0.12000000357627871, -0.36000001072883614, 0.040000001192092904)
                     .withScale(3.0, 3.0, 3.0)
                 )

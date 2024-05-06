@@ -663,7 +663,7 @@ public class ACRFactory implements GunFactory {
             .withFirstPersonPositioning(
 					new Transform()
 					.withPosition(-1.425000f, 4.625000f, -2.845000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withRotation(0.000000f, 1.0f, 3f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

@@ -381,8 +381,8 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 			
 			.withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.465000f, 5.105000f, -3.685000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.465000f, 4.705000f, -3.685000f)
+					.withRotation(0.000000f, 1f, 3f)
 					.withRotationPoint(-0.350000f, -2.140000f, -0.700000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

@@ -386,8 +386,8 @@ public class P90Factory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.865000f, 5.585000f, -6.525000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.865000f, 5.545000f, -7.025000f)
+					.withRotation(0.0f, 1f, 1f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

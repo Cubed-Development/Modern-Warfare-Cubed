@@ -647,8 +647,8 @@ public class Beowulf50CalFactory implements GunFactory {
 				
 			.withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.425000f, 3.825000f, -2.525000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.225000f, 3.625000f, -2.325000f)
+					.withRotation(0f, 1.0f, 1f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

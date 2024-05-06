@@ -376,8 +376,8 @@ public class FNFALFactory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.225000f, 4.065000f, -2.845000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.225000f, 3.835000f, -2.745000f)
+					.withRotation(0.000000f, 1f, 1f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )
@@ -386,7 +386,7 @@ public class FNFALFactory {
                         
                         // Left hand
                         new Transform()
-                        .withPosition(1.210000f, 0.105000f, -0.820000f)
+                        .withPosition(1.210000f, 0.105000f, -0.720000f)
                         .withBBRotation(-7.1415, -27.3003, 52.6433)
                         .withScale(2.8, 2.8, 4.0)
                         .withRotationPoint(0, 0, 0),
