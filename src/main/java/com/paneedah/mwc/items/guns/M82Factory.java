@@ -299,7 +299,7 @@ public class M82Factory implements GunFactory {
             .withFirstPersonPositioning(
 					new Transform()
 					.withPosition(-1.705000f, 4.705000f, -3.445000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withRotation(0.000000f, 1.0f, 1f)
 					.withRotationPoint(-0.230000f, -1.740000f, 0.140000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

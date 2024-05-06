@@ -135,8 +135,8 @@ public class MP443Factory implements GunFactory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-0.865000f, 4.065000f, -7.845000f)
-					.withRotation(0.000000f, 1.000000f, 10.681469f)
+					.withPosition(-0.8650f, 4.0650f, -6.9450f)
+					.withRotation(0.000000f, 1.0f, 17.681469f)
 					.withRotationPoint(-0.400000f, -1.240000f, 0.040000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

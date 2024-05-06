@@ -298,8 +298,8 @@ public class M40A6Factory implements GunFactory {
                 
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-2.265000f, 5.905000f, -5.005000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-2.265000f, 5.405000f, -5.005000f)
+					.withRotation(0.000000f, 1.0f, 1f)
 					.withRotationPoint(0.610000f, -2.780000f, 3.300000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

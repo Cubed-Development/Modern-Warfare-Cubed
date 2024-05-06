@@ -382,8 +382,8 @@ public class ARX160Factory implements GunFactory {
                 
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.425000f, 5.705000f, -3.005000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
+					.withPosition(-1.425000f, 5.405000f, -3.005000f)
+					.withRotation(0.000000f, 1.0f, 1f)
 					.withRotationPoint(-0.350000f, -3.460000f, -0.580000f)
                     .withScale(3.0, 3.0, 3.0)
                 )
