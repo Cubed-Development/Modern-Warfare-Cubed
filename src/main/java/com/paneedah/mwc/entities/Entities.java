@@ -84,6 +84,7 @@ public class Entities {
                 .withEquipmentOption(Guns.M110, EnumDifficulty.EASY, 0.1f, Magazines.M110Mag)
                 .withEquipmentOption(Guns.M16A1, EnumDifficulty.NORMAL, 0.2f, Magazines.M4A1Mag)
                 .withEquipmentOption(Guns.FNFAL, EnumDifficulty.NORMAL, 0.1f, Magazines.FNFALMag)
+                .withEquipmentOption(Guns.M4A1, EnumDifficulty.HARD, 0.2f, Magazines.Stanag100)
                 .withEquipmentOption(Guns.M249, EnumDifficulty.HARD, 0.1f, Magazines.M249Mag)
                 .withSecondaryEquipmentOption(Guns.Glock18C,  EnumDifficulty.NORMAL, 0.1f, Magazines.M9A1Mag)
                 .withSecondaryEquipmentOption(Guns.DesertEagle,  EnumDifficulty.HARD, 0.1f, Magazines.DesertEagleMag)
