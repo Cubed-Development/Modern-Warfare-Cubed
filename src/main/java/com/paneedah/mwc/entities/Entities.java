@@ -32,7 +32,7 @@ public class Entities {
                 .withSecondaryEquipmentOption(Guns.Python, EnumDifficulty.NORMAL, 0.1f)
                 .withPrimaryEquipmentDropChance(0.4f)
                 .withMaxAmmo(1000)
-                .withSpawn(10, 0, 15,  BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.HILLS)
+                .withSpawn(10, 0, 8,  BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.HILLS)
                 .withMaxTolerableLightBrightness(1f)
                 .withSpawnEgg(0xFF808000, 0xFF556B2F)
                 .withTexturedModelVariant("com.paneedah.mwc.models.BanditNew", "banditnew.png")
