@@ -29,7 +29,6 @@ public class Entities {
                 .withEquipmentOption(Guns.AK47, EnumDifficulty.NORMAL, 0.07f, Magazines.AK47Mag)
                 .withEquipmentOption(Guns.VSSVintorez, EnumDifficulty.HARD, 0.1f, Magazines.ASValMag)
                 .withEquipmentOption(Guns.HS12, EnumDifficulty.HARD, 0.1f)
-                .withSecondaryEquipmentOption(Guns.Remington870, EnumDifficulty.EASY, 0.07f)
                 .withSecondaryEquipmentOption(Guns.Python, EnumDifficulty.NORMAL, 0.1f)
                 .withPrimaryEquipmentDropChance(0.4f)
                 .withSpawn(10, 0, 15,  BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.HILLS)
