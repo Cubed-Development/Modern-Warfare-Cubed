@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import org.lwjgl.opengl.GL11;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 
 public class Attachments {
 
@@ -34,7 +35,13 @@ public class Attachments {
     public static ItemAttachment<Weapon> AX50Scope;
     public static ItemAttachment<Weapon> NightRaider;
     public static ItemAttachment<Weapon> M2A1sight;
+
+    public static ItemAttachment<Weapon> F2000Handguard;
+    public static ItemAttachment<Weapon> F2000TRHandguard;
     public static ItemAttachment<Weapon> F2000Scope;
+    public static ItemAttachment<Weapon> F2000RearSight;
+    public static ItemAttachment<Weapon> F2000FrontSight;
+
     public static ItemAttachment<Weapon> Silencer556x45;
     public static ItemAttachment<Weapon> Silencer762x39;
     public static ItemAttachment<Weapon> Silencer556x39;
@@ -14274,67 +14281,54 @@ public class Attachments {
                 })
                 .withName("m2a1_sight").withTextureName("Dummy.png")
                 .build(MWC.modContext);
-        
-        F2000Scope = new ItemScope.Builder()
-                .withOpticalZoom()
-                .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning(() -> {
-                    GL11.glScalef(0.54f, 0.56f, 0.55f);
-                    GL11.glTranslatef(-0.125f, -0.923f, 1.621f);
-//                    GL11.glRotatef(30F, 1f, 0f, 0f);
-                })
-                .withCreativeTab(MWC.ATTACHMENTS_TAB).withCrosshair("HP")
-                .withModel(new com.paneedah.mwc.models.F2000Scope(), "f2000.png")
-                .withModel(new com.paneedah.mwc.models.F2000Scope2(), "gun.png")
-                .withModel(new com.paneedah.mwc.models.F2000Reticle(), "black.png")
-                .withFirstPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.F2000Scope) {
-                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
-                        GL11.glRotatef(30F, 0f, 1f, 0f);
-                        GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Reticle) {
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Scope2) {
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
 
-                }).withThirdPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.F2000Scope) {
-                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
-                        GL11.glRotatef(-50F, 0f, 1f, 0f);
-                        GL11.glRotatef(80F, 1f, 0f, 0f);
-                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Reticle) {
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Scope2) {
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
-                }).withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.F2000Scope) {
-                        GL11.glTranslatef(-0.6F, -0F, 0.45F);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glRotatef(-190F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(0.85F, 0.85F, 0.85f);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Reticle) {
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Scope2) {
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
-                }).withEntityModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.F2000Scope) {
-                        GL11.glTranslatef(0.1F, 0.2F, 0.4F);
-                        GL11.glRotatef(90F, 0f, 0f, 1f);
-                        GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Reticle) {
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Scope2) {
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
+        F2000Handguard = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.GUARD)
+                .withModel(new F2000Handguard(), "f2000.png")
+                .withName("F2000Handguard")
+                .withRenderablePart()
+                .build(MWC.modContext);
+
+        F2000TRHandguard = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.GUARD)
+                .withModel(new F2000TRHandguard(), "f2000.png")
+                .withName("F2000TRHandguard")
+                .withRenderablePart()
+                .build(MWC.modContext);
+
+        F2000Scope = new ItemScope.Builder()
+                .withSniperReticle(Reticles.RETICLE_F2000)
+                .withOpticalZoom()
+                .withZoomRange(0.22f, 0.0125f)
+                .withViewfinderPositioning(() -> {
+                    GL11.glScalef(1.52f+ (float)ModernConfigManager.posX1, 1.52f+ (float)ModernConfigManager.posY1, 1.52f+ (float)ModernConfigManager.posZ1);
+                    GL11.glTranslatef(0.038f+ (float)ModernConfigManager.posX, 0.485f+ (float)ModernConfigManager.posY, 0.37f+ (float)ModernConfigManager.posZ);
+                    GL11.glRotatef(0F+ (float)ModernConfigManager.posX2,0F+ (float)ModernConfigManager.posY2,0F+ (float)ModernConfigManager.posZ2,0F+ (float)ModernConfigManager.posX3);
                 })
+                .withRenderablePart()
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new F2000Scope(), "f2000.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_NORMAL,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 4),
+                        new CraftingEntry(MWCItems.steelIngot, 3))
                 .withName("F2000Scope")
-                
+
                 .withTextureName("Dummy.png")
+                .build(MWC.modContext);
+
+        F2000FrontSight = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.FRONTSIGHT)
+                .withModel(new F2000FrontSight(), "gun.png")
+                .withName("F2000FrontSight")
+                .withRenderablePart()
+                .build(MWC.modContext);
+
+        F2000RearSight = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.SCOPE)
+                .withModel(new F2000RearSight(), "gun.png")
+                .withName("F2000RearSight")
+                .withRenderablePart()
                 .build(MWC.modContext);
         
         M202scope = new ItemScope.Builder()
@@ -14377,16 +14371,16 @@ public class Attachments {
                 .build(MWC.modContext);
         
         AUGscope = new ItemScope.Builder()
+                .withSniperReticle(Reticles.RETICLE_AUG)
                 .withOpticalZoom()
-                .withZoomRange(0.22f, 0.02f)
+                .withZoomRange(0.22F, 0.02F)
                 .withViewfinderPositioning(() -> {
-                    GL11.glScalef(1.05f, 1.05f, 1.05f);
-                    GL11.glTranslatef(-0.23f, -0.77f, 0.65f);
+                    GL11.glScalef(1.05F, 1.05F, 1.05F);
+                    GL11.glTranslatef(-0.23F, -0.77F, 0.65F);
                 })
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withCrosshair("HP")
                 .withModel(new com.paneedah.mwc.models.AUGScope_scope(), "gun.png")
-                .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
                 .withModel(new com.paneedah.mwc.models.AUGScope(), "gun.png")
                 .withRequiredAttachments(AUGA1handguard)
                 .withFirstPersonModelPositioning(model -> {
@@ -14394,10 +14388,6 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.AUGScope) {
-                        GL11.glScaled(0F, 0F, 0F);
                     }
 
                 }).withThirdPersonModelPositioning(model -> {
