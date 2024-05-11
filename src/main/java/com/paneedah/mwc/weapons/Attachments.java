@@ -35,7 +35,13 @@ public class Attachments {
     public static ItemAttachment<Weapon> PMII525x56P4FLScope;
     public static ItemAttachment<Weapon> NightRaider;
     public static ItemAttachment<Weapon> M2A1sight;
+
+    public static ItemAttachment<Weapon> F2000Handguard;
+    public static ItemAttachment<Weapon> F2000TRHandguard;
     public static ItemAttachment<Weapon> F2000Scope;
+    public static ItemAttachment<Weapon> F2000RearSight;
+    public static ItemAttachment<Weapon> F2000FrontSight;
+
     public static ItemAttachment<Weapon> Silencer556x45;
     public static ItemAttachment<Weapon> Silencer762x39;
     public static ItemAttachment<Weapon> Silencer556x39;
@@ -4008,18 +4014,51 @@ public class Attachments {
                 .withName("m2a1_sight")
                 .build();
 
+        F2000Handguard = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.GUARD)
+                .withModel(new F2000Handguard(), "f2000.png")
+                .withName("F2000Handguard")
+                .withRenderablePart()
+                .build();
+
+        F2000TRHandguard = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.GUARD)
+                .withModel(new F2000TRHandguard(), "f2000.png")
+                .withName("F2000TRHandguard")
+                .withRenderablePart()
+                .build();
+
         F2000Scope = new ItemScope.Builder()
                 .withOpticalZoom()
-                .withZoomRange(0.22F, 0.02F)
+                .withZoomRange(0.22f, 0.0125f)
                 .withViewfinderPositioning(() -> {
-                    GL11.glScalef(0.54F, 0.56F, 0.55F);
-                    GL11.glTranslatef(-0.125F, -0.923F, 1.621F);
-//                    GL11.glRotatef(30, 1, 0, 0);
-                }).withCrosshair("HP")
+                    GL11.glScalef(1.25f, 1.25f, 1.25f);
+                    GL11.glTranslatef(-0.118f, -0.485f, 0.202f);
+                    GL11.glRotatef(0F, 0F, 0F, 0F);
+                })
+                .withRenderablePart()
                 .withModel(new F2000Scope(), "f2000.png")
-                .withOnWeaponModel(new F2000Scope2(), "gun.png")
-                .withOnWeaponModel(new F2000Reticle(), "black.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_NORMAL,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 4),
+                        new CraftingEntry(MWCItems.steelIngot, 3))
                 .withName("F2000Scope")
+
+                .withTextureName("Dummy.png")
+                .build();
+
+        F2000FrontSight = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.FRONTSIGHT)
+                .withModel(new F2000FrontSight(), "gun.png")
+                .withName("F2000FrontSight")
+                .withRenderablePart()
+                .build();
+
+        F2000RearSight = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.SCOPE)
+                .withModel(new F2000RearSight(), "gun.png")
+                .withName("F2000RearSight")
+                .withRenderablePart()
                 .build();
 
         M202scope = new ItemScope.Builder()
@@ -4531,7 +4570,8 @@ public class Attachments {
                         MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, NGSWRRail, K2C1Handguard, G3HandguardRailed,
                         ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, M45A1CQBPBody, PP1901HandGuardB10)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, M45A1CQBPBody, PP1901HandGuardB10,
+                        F2000TRHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
@@ -4559,7 +4599,8 @@ public class Attachments {
                         HK416HandGuardBlackAndTan, ScarHandGuard, ScarMidWestIndustriesHandGuard,
                         Z10Handguard, SIGMCXHandguard, SIGMCXHandguardShort, NGSWRRail, K2C1Handguard, G3HandguardRailed,
                         ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, B50PKMHandguard, B50PKPHandguard, PP1901HandGuardB10)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, B50PKMHandguard, B50PKPHandguard, PP1901HandGuardB10,
+                        F2000TRHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
@@ -4639,7 +4680,7 @@ public class Attachments {
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
                         SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, B50PKMHandguard,
-                        B50PKPHandguard, PP1901HandGuardB10)
+                        B50PKPHandguard, PP1901HandGuardB10, F2000TRHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4670,7 +4711,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, PP1901HandGuardB10)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, PP1901HandGuardB10, F2000TRHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4818,7 +4859,8 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10,
+                        F2000TRHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4853,7 +4895,8 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10,
+                        F2000TRHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4883,7 +4926,8 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10,
+                        F2000TRHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4914,7 +4958,8 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10,
+                        F2000TRHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
