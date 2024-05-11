@@ -312,7 +312,7 @@ public class Magazines {
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver, 
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard, Attachments.M4AsiimovStock,
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
-                        Attachments.ScarLReceiver, Attachments.SIG556Grip)
+                        Attachments.ScarLReceiver, Attachments.SIG556Grip, Attachments.F2000Handguard, Attachments.F2000TRHandguard)
                 .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -617,11 +617,10 @@ public class Magazines {
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.M38Mag(), "M38Mag.png")
-                .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver, 
-                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
-                        Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver,
-                        Attachments.HK416Receiver, Attachments.ScarLReceiver, 
-                        Attachments.SIGMCXHandguardShort, Attachments.SIG556Grip)
+                .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver,
+                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard, Attachments.M4AsiimovStock,
+                        Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
+                        Attachments.ScarLReceiver, Attachments.SIG556Grip, Attachments.F2000Handguard, Attachments.F2000TRHandguard)
                 .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -651,7 +650,7 @@ public class Magazines {
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver, 
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard, Attachments.C8SFWReceiver, 
                         Attachments.HK416Receiver, Attachments.ScarLReceiver,
-                        Attachments.SIGMCXHandguardShort, Attachments.SIG556Grip)
+                        Attachments.SIGMCXHandguardShort, Attachments.SIG556Grip,  Attachments.F2000Handguard, Attachments.F2000TRHandguard)
                 .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
