@@ -69,7 +69,7 @@ public class ModernConfigManager {
 	
 	@RangeDouble(min = 0.0, max = 1.0)
 	@ConfigSync(category = CATEGORY_RENDERING_SCREENSHADERS, comment = "Configures the intensity of the film grain effect")
-	public static double filmGrainIntensity = 0.03;
+	public static double filmGrainIntensity = 0.025;
 	
 	@ConfigSync(category = CATEGORY_RENDERING_SCREENSHADERS, comment = "Enables glow around bright objects (bloom)")
 	public static boolean bloomEffect = true;
@@ -80,14 +80,14 @@ public class ModernConfigManager {
 	public static int bloomLayers = 3;
 	
 	@ConfigSync(category = CATEGORY_RENDERING_SCREENSHADERS, comment = "Enable on-screen rain/snow VFX")
-	public static boolean onScreenRainAndSnow = true;
+	public static boolean onScreenRainAndSnow = false;
 	
 	@RequiresMcRestart
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the HDR framebuffer, requires restart. The HDR is the cause of a lot of shader incompat")
 	public static boolean enableHDRFramebuffer = true;
 	
-	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy MWC snow/rain")
-	public static boolean enableFancyRainAndSnow = true;
+	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy MWC snow/rain (BROKEN - CRASHES GAME IF ENABLED)")
+	public static boolean enableFancyRainAndSnow = false;
 	
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the ammo counter")
 	public static boolean enableAmmoCounter = true;
@@ -124,6 +124,9 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "A list of blocks that will be penetrable by bullets.")
 	public static String penetrableBlocks = "minecraft:glass, minecraft:glass_pane, minecraft:stained_glass, minecraft:stained_glass_pane";
 
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Whether entities should have knockback applied to them when shot.")
+	public static boolean knockbackOnHit = true;
+
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables muzzle effects.")
 	public static boolean enableMuzzleEffects = true;
 
@@ -143,6 +146,32 @@ public class ModernConfigManager {
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Where should the status bar be located?")
 	public static String statusBarPosition = "TOP_RIGHT";
+
+	// It is temporary and should be deleted
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posX = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posY = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posZ = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posX1 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posY1 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posZ1 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posX2 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posY2 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posZ2 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posX3 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posY3 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posZ3 = 0.0;
 
 
 	@RequiresMcRestart
@@ -165,7 +194,7 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should soldiers spawn?")
 	public static double soldierSpawn = 0.0;
 
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "What equipment should the terrorists have?")
+	@ConfigSync(category = CATEGORY_ENTITIES, comment = "What equipments should the terrorists have?")
 	public static String terroristEquipmentConfiguration = "m4a1:1.0:M4A1Mag_2, m16a1:1.0:M4A1Mag_2, Remington870:1.0";
 
 	private static Configuration config = null;
