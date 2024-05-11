@@ -23,4 +23,8 @@ public class Reticles {
 	public static final Reticle RETICLE_HOLO = new Reticle("holo_scope");
 	public static final Reticle RETICLE_PSO1 = new Reticle("pso1");
 	public static final Reticle RETICLE_NIGHTRAIDER = new Reticle("nightraider");
+
+	public static final Reticle RETICLE_F2000 = new Reticle("f2000");
+	public static final Reticle RETICLE_AUG = new Reticle("aug");
+	;
 }
