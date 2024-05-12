@@ -33,7 +33,7 @@ public class AttachmentBuilder<T> {
             .entityPositioning(() -> new Transform()
                     .withScale(0.17, 0.17, 0.17)
                     .withPosition(-0.5, -0.5, 0.6)
-                    .doGLDirect())
+                    .applyTransformations())
             .build();
 
     protected Vec3d rotationPoint;

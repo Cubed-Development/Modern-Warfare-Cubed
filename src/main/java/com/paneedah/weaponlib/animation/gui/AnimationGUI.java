@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.animation.gui;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
@@ -312,7 +311,7 @@ public class AnimationGUI {
 			b.firstPersonLeftHandTransform.set(amp.backupFPL);
 			b.firstPersonRightHandTransform.set(amp.backupFPR);
 			
-			AnimationModeProcessor.getInstance().slideTransform.withPosition(0, 0, 0).withRotation(0, 0, 0).withRotationPoint(0, 0, 0);
+			AnimationModeProcessor.getInstance().slideTransform.withPosition(0, 0, 0).withRotation(0, 0, 0).withPivotPoint(0, 0, 0);
 			
 			DebugPositioner.reset();
 		} else if(id == forceSteveArms) {

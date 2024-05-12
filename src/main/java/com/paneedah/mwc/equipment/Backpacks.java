@@ -33,12 +33,12 @@ public class Backpacks {
                         .withPosition(-0.15, -4.6, 0.35)
                         .withRotation(18, -50, 0)
                         .withScale(3.3, 3.3, 3.3)
-                        .doGLDirect())
+                        .applyTransformations())
                 .withFirstPersonModelPositioning(modelBase -> new Transform()
                         .withPosition(-64, -0.20, -1.25)
                         .withRotation(0, 0, 0)
                         .withScale(16, 16, 16)
-                        .doGLDirect())
+                        .applyTransformations())
                 .build();
 
         combatSustainmentBackpackBlack = new ItemBackpack.Builder()
@@ -50,7 +50,7 @@ public class Backpacks {
                         .withPosition(-0.15, -4.6, 0.35)
                         .withRotation(18, -50, 0)
                         .withScale(3.3, 3.3, 3.3)
-                        .doGLDirect())
+                        .applyTransformations())
                 .build();
 
         combatSustainmentBackpackForest = new ItemBackpack.Builder()
@@ -62,7 +62,7 @@ public class Backpacks {
                         .withPosition(-0.15, -4.6, 0.35)
                         .withRotation(18, -50, 0)
                         .withScale(3.3, 3.3, 3.3)
-                        .doGLDirect())
+                        .applyTransformations())
                 .build();
 
         assaultBackpackTan = new ItemBackpack.Builder()
@@ -122,12 +122,12 @@ public class Backpacks {
                 .withEntityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.9F, 0.5F)
                         .withScale(1, 1, 1)
-                        .doGLDirect())
+                        .applyTransformations())
                 .withInventoryPositioning(() -> new Transform()
                         .withPosition(-0.15, -3.65, 0.35)
                         .withRotation(18, -50, 0)
                         .withScale(2.4, 2.4, 2.4)
-                        .doGLDirect())
+                        .applyTransformations())
                 .build();
     }
 }

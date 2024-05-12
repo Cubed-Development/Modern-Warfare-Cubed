@@ -16,7 +16,7 @@ public class ItemBullet extends ItemAttachment<Weapon> {
                     .entityPositioning(() -> new Transform()
                             .withScale(0.17, 0.17, 0.17)
                             .withPosition(-0.5, -0.7, 0.5)
-                            .doGLDirect())
+                            .applyTransformations())
                     .build();
         }
 

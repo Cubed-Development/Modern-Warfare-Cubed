@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class G2ContenderFactory implements GunFactory {
 
@@ -34,22 +33,13 @@ public class G2ContenderFactory implements GunFactory {
         .withReloadSound("g2contender_reload")
         .withDrawSound("noaction_draw")
         .withReloadingTime(15)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")    
         .withShellCasingEjectEnabled(false)
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.09f)
         .withFlashOffsetY(() -> 0.09f)
         
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Break-Action",
-        "Damage: 6.5", 
-        "Cartridge: .45-70 Government",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
@@ -61,7 +51,6 @@ public class G2ContenderFactory implements GunFactory {
         .withCompatibleAttachment(Attachments.G2ContenderBarrelShort, true, (model) -> {
             if(model instanceof G2ContenderBarrelShort) {
             	GL11.glTranslatef(0F, -0F, 0f);
-//                GL11.glScaled(0F, 0F, 0F);
             } else if(model instanceof AK47iron) {
             	GL11.glTranslatef(-0.175F, -0.9F, -0.3f);
                 GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -74,7 +63,6 @@ public class G2ContenderFactory implements GunFactory {
         .withCompatibleAttachment(Attachments.G2ContenderBarrelLong, (model) -> {
             if(model instanceof G2ContenderBarrelShort) {
             	GL11.glTranslatef(0F, -0F, 0f);
-//                GL11.glScaled(0F, 0F, 0F);
             } else if(model instanceof AK47iron) {
             	GL11.glTranslatef(-0.175F, -0.9F, -0.3f);
                 GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -85,15 +73,12 @@ public class G2ContenderFactory implements GunFactory {
             } else if(model instanceof AKRail) {
             	GL11.glTranslatef(-0.16F, -0.65F, -2f);
             	GL11.glScaled(0.6F, 0.6F, 0.6F);
-//                GL11.glRotatef(180F, 0f, 0f, 1f);
             }   
         })
         .withCompatibleAttachment(Attachments.G2ContenderGrip, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
           GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.G2ContenderStock, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
           GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.BulletSmall, true, (model) -> {
@@ -101,7 +86,7 @@ public class G2ContenderFactory implements GunFactory {
         	GL11.glRotatef(90F, 1f, 0f, 0f);
           GL11.glScaled(0.5F, 0.5F, 0.5F);
         })
-        .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, itemStack) -> {
         	GL11.glTranslatef(-0.115F, -0.57F, -2F);
             GL11.glScaled(0.48F, 0.48F, 0.48F);
 		},(model) -> {
@@ -115,12 +100,9 @@ public class G2ContenderFactory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
 
             .withModel(new G2Contender())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -135,10 +117,6 @@ public class G2ContenderFactory implements GunFactory {
                 })
                 
             .withFirstPersonPositioning((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glRotatef(5F, 0f, 0f, 1f);
-//                GL11.glScalef(2.500000f, 2.500000f, 2.500000f);
-//                GL11.glTranslatef(-0.150000f, 0.335000f, -1.049999f);
                 
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(12F, 0f, 0f, 1f);
@@ -155,9 +133,6 @@ public class G2ContenderFactory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(Attachments.G2ContenderBarrelShort.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(0f, -0.1f, 0f);
-//                GL11.glRotatef(35F, 1f, 0f, 0f);
-//                GL11.glScalef(1f, 1f, 1f);
                 })
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.BulletSmall.getRenderablePart(), (renderContext) -> {
@@ -187,7 +162,6 @@ public class G2ContenderFactory implements GunFactory {
                 })
                 
             .withFirstPersonPositioningReloading(
-            		
             		// left hand grabs double-barrel
                     
                 new Transition((renderContext) -> { // Reload position
@@ -1048,8 +1022,7 @@ public class G2ContenderFactory implements GunFactory {
                     //System.out.println("Position me for Holo");
                 	GL11.glTranslatef(0f, 0.27f, 1f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -1061,7 +1034,6 @@ public class G2ContenderFactory implements GunFactory {
                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                 GL11.glTranslatef(0.25f, 0.23f, -0.4f);
                 GL11.glRotatef(-5F, 1f, 0f, 1f);
-//                GL11.glRotatef(-2.5F, 0f, 1f, 0f);
                 
 //              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
@@ -1366,7 +1338,6 @@ public class G2ContenderFactory implements GunFactory {
             
             .withFirstPersonRightHandPositioningReloading(
             		// left hand grabs double-barrel
-                    
                     new Transition((renderContext) -> { // Reload position
                     	 GL11.glScalef(3.5f, 3.5f, 3.5f);
                     	 GL11.glRotatef(-80.000000f, 1f, 0f, 0f);

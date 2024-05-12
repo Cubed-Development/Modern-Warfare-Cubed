@@ -20,11 +20,11 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
                     .entityPositioning(() -> new Transform()
                             .withScale(0.3, 0.3, 0.3)
                             .withPosition(-0.5, -0.5, 0.5)
-                            .doGLDirect())
+                            .applyTransformations())
                     .inventoryPositioning(() -> new Transform()
                             .withScale(1, 1, 1)
                             .withPosition(-0.24, 0.24, 0)
-                            .doGLDirect())
+                            .applyTransformations())
                     .build();
         }
         

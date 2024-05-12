@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -12,7 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class L96A1Factory implements GunFactory {
 
@@ -35,24 +34,13 @@ public class L96A1Factory implements GunFactory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(40)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.08f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sniper Rifle",
-        "Damage: 14", 
-        "Cartridge: 7.62x54mm",
-        "Fire Rate: BOLT ACTION",
-        "Rate of Fire: 16/100",
-        "Magazines:",
-        "10rnd 7.62x54mm LAPUA Magazine"))
-        
+
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
                 2f, // y
@@ -98,7 +86,7 @@ public class L96A1Factory implements GunFactory {
 	                GL11.glScaled(0.4F, 0.4F, 0.4F);
 	           }
 	       })
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, (player, itemStack) -> {
             GL11.glTranslatef(-0.21F, -1.45F, -2.2F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -107,7 +95,7 @@ public class L96A1Factory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-         .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.ACOG, (player, itemStack) -> {
             GL11.glTranslatef(-0.327F, -1.47F, -1.4F);
             GL11.glScaled(0.88F, 0.88F, 0.88F);
         },(model) -> {
@@ -120,7 +108,7 @@ public class L96A1Factory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, (player, itemStack) -> {
             GL11.glTranslatef(-0.19F, -1.15F, -1.6F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
         },(model) -> {
@@ -129,7 +117,7 @@ public class L96A1Factory implements GunFactory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, itemStack) -> {
         	GL11.glTranslatef(-0.153F, -1.3F, -2.5F);
             GL11.glScaled(0.48F, 0.48F, 0.48F);
 		},(model) -> {
@@ -138,7 +126,7 @@ public class L96A1Factory implements GunFactory {
 		        GL11.glScaled(0.04F, 0.04F, 0.04F);
 		    }
 		})
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, (player, itemStack) -> {
                 GL11.glTranslatef(-0.058F, -1.25F, -2F);
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
         },(model) -> {
@@ -147,7 +135,7 @@ public class L96A1Factory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, (player, itemStack) -> {
             GL11.glTranslatef(-0.066F, -1.25F, -1.7F);
             GL11.glScaled(0.48F, 0.48F, 0.48F);
         },(model) -> {
@@ -156,7 +144,7 @@ public class L96A1Factory implements GunFactory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, (player, itemStack) -> {
             GL11.glTranslatef(-0.035F, -1.3F, -2F);
                 GL11.glScaled(0.7F, 0.7F, 0.7F);
             },(model) -> {
@@ -165,7 +153,7 @@ public class L96A1Factory implements GunFactory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, (player, itemStack) -> {
             GL11.glTranslatef(-0.035F, -1.3F, -2F);
                 GL11.glScaled(0.7F, 0.7F, 0.7F);
             },(model) -> {
@@ -174,7 +162,7 @@ public class L96A1Factory implements GunFactory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.VortexRedux, (player, itemStack) -> {
             GL11.glTranslatef(-0.3F, -1.49F, -2.1F);
                 GL11.glScaled(0.45F, 0.45F, 0.45F);
             },(model) -> {
@@ -183,7 +171,7 @@ public class L96A1Factory implements GunFactory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, (player, itemStack) -> {
             GL11.glTranslatef(-0.035F, -1.3F, -1.7F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -192,7 +180,7 @@ public class L96A1Factory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, (player, itemStack) -> {
             GL11.glTranslatef(-0.19F, -1.5F, -1.7F);
                 GL11.glScaled(0.45F, 0.45F, 0.45F);
             },(model) -> {
@@ -201,7 +189,7 @@ public class L96A1Factory implements GunFactory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, itemStack) -> {
             GL11.glTranslatef(-0.19F, -1.5F, -1.7F);
                 GL11.glScaled(0.45F, 0.45F, 0.45F);
             },(model) -> {
@@ -241,12 +229,6 @@ public class L96A1Factory implements GunFactory {
                 GL11.glScaled(0.6F, 0.6F, 0.8F);
                 GL11.glTranslatef(-0.3F, -1.6F, -2.2F);
                 GL11.glRotatef(90f, 1f, 0f, 0f);
-                
-                
-//                GL11.glScaled(0.4F, 0.4F, 0.6F);
-//                GL11.glTranslatef(-0.95F, -3.1F, -3.5F);
-//                GL11.glRotatef(70f, 1f, 0f, 0f);
-//                GL11.glRotatef(5f, 0f, 1f, 0f);
             }
         })
 //        .withCompatibleAttachment(Attachments.Silencer762x54, (model) -> {
@@ -257,12 +239,9 @@ public class L96A1Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new L96())
-            //.withTextureName("AWP")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -281,12 +260,6 @@ public class L96A1Factory implements GunFactory {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(7f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.350000f, 1.274999f, -0.525000f);
-                
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(42F, 0f, 1f, 0f);
-//                GL11.glRotatef(-2f, 0f, 0f, 1f);
-//                GL11.glRotatef(2f, 1f, 0f, 0f);
-//                GL11.glTranslatef(-0.40000f, 1.274999f, -0.525000f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -313,12 +286,9 @@ public class L96A1Factory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.L115Bolt1.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(0F, 0F, 1.05F);
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.L115Bolt2.getRenderablePart(), (renderContext) -> {
-//            	GL11.glRotatef(50F, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.85F, 0.5F, 1.05F);
                 })
                 
             .withFirstPersonPositioningEjectSpentRound(

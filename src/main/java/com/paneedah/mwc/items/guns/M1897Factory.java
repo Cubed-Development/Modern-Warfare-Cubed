@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M1897Factory implements GunFactory {
 
@@ -22,7 +21,6 @@ public class M1897Factory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("M1897")
-//		.withCapacity(CommonProxy.Remington870Mag)
 		.withAmmoCapacity(5)
 		.withMaxBulletsPerReload(4)
 		.withFireRate(0.5f)
@@ -43,10 +41,7 @@ public class M1897Factory implements GunFactory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
 		.withReloadingTime(15)
-		.withCrosshair("gun")
-		.withCrosshairRunning("Running")	
 		.withShellCasingEjectEnabled(false)
-		.withCrosshairZoomed("Sight")
 		.withInaccuracy(18)
 		.withPellets(10)
 		.withFlashIntensity(0.4f)
@@ -61,13 +56,7 @@ public class M1897Factory implements GunFactory {
 	                10f) // z
 		 
 	        .withCreativeTab(MWC.WEAPONS_TAB)
-	        .withInformationProvider(stack -> Arrays.asList(
-	        "Type: Shotgun",
-	        "Damage per Pellet: 6",
-	        "Pellets per Shot: 10", 
-	        "Cartridge: 12 Gauge Shotgun Shell",
-	        "Fire Rate: PUMP ACTION",
-	        "Rate of Fire: 50/100"))
+
 	        .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
 	            if(model instanceof AKMiron1) {
 	                GL11.glTranslatef(0.125F, -1.8F, -0.5F);
@@ -127,12 +116,9 @@ public class M1897Factory implements GunFactory {
 		.withRenderer(new WeaponRenderer.Builder()
 			
 			.withModel(new M1897())
-			//.withTextureName("Remington900")
-			//.withWeaponProximity(0.99F)
-			//.withYOffsetZoom(5F)
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);
-				GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
 			})
 			.withInventoryPositioning(itemStack -> {
 				GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -159,12 +145,6 @@ public class M1897Factory implements GunFactory {
                 GL11.glRotatef(5F, 0f, 0f, 1f);
                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                 GL11.glTranslatef(-0.18f, 0.45f, -1.3f);
-                
-//                GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-//                GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(40.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.575000f, 0.125000f, -1.349999f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -180,7 +160,6 @@ public class M1897Factory implements GunFactory {
                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                 GL11.glTranslatef(0.250000f, 0.100000f, -0.8f);
                 GL11.glRotatef(-3F, 1f, 0f, 0f);
-//                GL11.glRotatef(-2.5F, 0f, 1f, 0f);
                 
 //              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
@@ -201,9 +180,6 @@ public class M1897Factory implements GunFactory {
                 })
 			
 			.withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
-//              GL11.glTranslatef(-0.01F, 0F, 0F);
-//              GL11.glRotatef(-20F, 1f, 0f, 0f);
-//              GL11.glRotatef(5F, 0f, 1f, 0f);
               })
               
           .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
@@ -486,7 +462,6 @@ public class M1897Factory implements GunFactory {
             
                 
             .withFirstPersonPositioningReloading(
-                    
                 new Transition((renderContext) -> { // Reload position
                 	GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                     GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
@@ -717,13 +692,11 @@ public class M1897Factory implements GunFactory {
 				GL11.glRotatef(45F, 0f, 1f, 0f);
 				GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
 				GL11.glTranslatef(0.250000f, 0.17f, -1.3f);
-				
-//				// Holo Zoom
+
 				if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
 					//System.out.println("Position me for Holo");
 				} 
-				
-				// Everything else
+
 				else {
 				}
 				
@@ -759,12 +732,6 @@ public class M1897Factory implements GunFactory {
                          GL11.glTranslatef(0.275000f, -0.400000f, 0.275000f);
                      }, 
                      (renderContext) -> {
-//                         GL11.glScalef(3f, 3f, 3f);
-//                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.557000f, -0.851000f, 0.200000f);
-                         
                          GL11.glScalef(3f, 3f, 3f);
                          GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(25.000000f, 0f, 1f, 0f);

@@ -44,12 +44,12 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
                 .entityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.75F, 0.5F)
                         .withScale(1, 1, 1)
-                        .doGLDirect())
+                        .applyTransformations())
                 .inventoryPositioning(() -> new Transform()
                         .withPosition(-0.15, -4.15, 0.35)
                         .withRotation(18, -50, 0)
                         .withScale(2.9, 2.9, 2.9)
-                        .doGLDirect())
+                        .applyTransformations())
                 .build();
 
         private String modelFileString;

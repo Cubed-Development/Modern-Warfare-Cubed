@@ -92,7 +92,7 @@ public class SpawnEntityRenderer extends Render<Entity> {
 				.withRotation(90 - entity.rotationPitch, entity.rotationYaw, 0)
 				.withPosition(x, y, z)
 				.withScale(1, 1, 1)
-				.doGLDirect();
+				.applyTransformations();
 
 
 				model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);

@@ -2,6 +2,7 @@ package com.paneedah.mwc.equipment;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.GasDetector;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.electronics.ItemTablet;
@@ -41,21 +42,21 @@ public class Electronics {
                         GL11.glScaled(1F, 1F, 1F);
                     }
                 }).withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.HP) {
+                    if (model instanceof HP) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.65F, 0.65F, 0.65f);
-                    } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+                    } else if (model instanceof LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.HP) {
+                    if (model instanceof HP) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+                    } else if (model instanceof LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -99,21 +100,21 @@ public class Electronics {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
             }
         }).withInventoryModelPositioning(model -> {
-            if (model instanceof com.paneedah.mwc.models.HP) {
+            if (model instanceof HP) {
                 GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                 GL11.glRotatef(10F, 1f, 0f, 0f);
                 GL11.glRotatef(-190F, 0f, 1f, 0f);
                 GL11.glRotatef(0F, 0f, 0f, 1f);
                 GL11.glScaled(0.65F, 0.65F, 0.65f);
-            } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+            } else if (model instanceof LPscope) {
                 GL11.glScaled(0F, 0F, 0F);
             }
         }).withEntityModelPositioning(model -> {
-            if (model instanceof com.paneedah.mwc.models.HP) {
+            if (model instanceof HP) {
                 GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                 GL11.glRotatef(90F, 0f, 0f, 1f);
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-            } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+            } else if (model instanceof LPscope) {
                 GL11.glScaled(0F, 0F, 0F);
             }
         })
@@ -168,21 +169,21 @@ public class Electronics {
                 GL11.glScaled(0.6F, 0.6F, 0.6F);
             }
         }).withInventoryModelPositioning(model -> {
-            if (model instanceof com.paneedah.mwc.models.HP) {
+            if (model instanceof HP) {
                 GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                 GL11.glRotatef(10F, 1f, 0f, 0f);
                 GL11.glRotatef(-190F, 0f, 1f, 0f);
                 GL11.glRotatef(0F, 0f, 0f, 1f);
                 GL11.glScaled(0.65F, 0.65F, 0.65f);
-            } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+            } else if (model instanceof LPscope) {
                 GL11.glScaled(0F, 0F, 0F);
             }
         }).withEntityModelPositioning(model -> {
-            if (model instanceof com.paneedah.mwc.models.HP) {
+            if (model instanceof HP) {
                 GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                 GL11.glRotatef(90F, 0f, 0f, 1f);
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-            } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+            } else if (model instanceof LPscope) {
                 GL11.glScaled(0F, 0F, 0F);
             }
         })

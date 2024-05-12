@@ -66,10 +66,10 @@ public class CommonProxy {
         Belts.init();
         Vests.init(mod);
         Armors.init(mod, MWC.modContext);
-        Attachments.init(mod);
-        AuxiliaryAttachments.init(mod);
+        Attachments.init();
+        AuxiliaryAttachments.init();
         GunSkins.init(mod);
-        Bullets.init(mod);
+        Bullets.init();
         Magazines.init(mod);
         Guns.init(mod, this);
         Electronics.init();
