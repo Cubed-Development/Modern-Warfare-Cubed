@@ -542,7 +542,7 @@ public class KrissVectorFactory {
              
              .withFirstPersonPositioning(
  					new Transform()
- 					.withPosition(-1.705000f, 3.825000f, -4.845000f)
+ 					.withPosition(-1.805000f, 3.825000f, -4.845000f)
  					.withRotation(0.000000f, 1f, 1f)
  					.withRotationPoint(-0.190000f, -1.220000f, -0.060000f)
                     .withScale(3.0, 3.0, 3.0)

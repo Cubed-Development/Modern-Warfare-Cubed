@@ -658,11 +658,11 @@ public class ACRFactory implements GunFactory {
                 GL11.glTranslatef(-1.7F, -0.8F, 1.9F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
-                }9
+                })
 
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.385000f, 4.525000f, -2.445000f)
+					.withPosition(-1.385000f, 4.35000f, -2.445000f)
 					.withRotation(0.000000f, 1.0f, 3f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
