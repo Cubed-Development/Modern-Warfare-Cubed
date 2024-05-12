@@ -28,7 +28,7 @@ public class Backpacks {
                 .withName("combat_sustainment_backpack_tan")
                 .withSize(10)
                 .withModel("CombatSustainmentBackpack")
-                .withTexture("equipment/carryable/backpacks/combat_sustainment_backpack_tan")
+                .withTexture("equipment/backpacks/combat_sustainment_backpack_tan")
                 .withInventoryPositioning(() -> new Transform()
                         .withPosition(-0.15, -4.6, 0.35)
                         .withRotation(18, -50, 0)
@@ -45,7 +45,7 @@ public class Backpacks {
                 .withName("combat_sustainment_backpack_black")
                 .withSize(10)
                 .withModel("CombatSustainmentBackpack")
-                .withTexture("equipment/carryable/backpacks/combat_sustainment_backpack_black")
+                .withTexture("equipment/backpacks/combat_sustainment_backpack_black")
                 .withInventoryPositioning(() -> new Transform()
                         .withPosition(-0.15, -4.6, 0.35)
                         .withRotation(18, -50, 0)
@@ -57,7 +57,7 @@ public class Backpacks {
                 .withName("combat_sustainment_backpack_forest")
                 .withSize(10)
                 .withModel("CombatSustainmentBackpack")
-                .withTexture("equipment/carryable/backpacks/combat_sustainment_backpack_forest")
+                .withTexture("equipment/backpacks/combat_sustainment_backpack_forest")
                 .withInventoryPositioning(() -> new Transform()
                         .withPosition(-0.15, -4.6, 0.35)
                         .withRotation(18, -50, 0)
@@ -69,56 +69,56 @@ public class Backpacks {
                 .withName("assault_backpack_tan")
                 .withSize(16)
                 .withModel("AssaultBackpack")
-                .withTexture("equipment/carryable/backpacks/assault_backpack_tan")
+                .withTexture("equipment/backpacks/assault_backpack_tan")
                 .build();
 
         assaultBackpackBlack = new ItemBackpack.Builder()
                 .withName("assault_backpack_black")
                 .withSize(16)
                 .withModel("AssaultBackpack")
-                .withTexture("equipment/carryable/backpacks/assault_backpack_black")
+                .withTexture("equipment/backpacks/assault_backpack_black")
                 .build();
 
         assaultBackpackForest = new ItemBackpack.Builder()
                 .withName("assault_backpack_forest")
                 .withSize(16)
                 .withModel("AssaultBackpack")
-                .withTexture("equipment/carryable/backpacks/assault_backpack_forest")
+                .withTexture("equipment/backpacks/assault_backpack_forest")
                 .build();
 
         truSpecCorduraBackpackTan = new ItemBackpack.Builder()
                 .withName("tru_spec_cordura_backpack_tan")
                 .withSize(20)
                 .withModel("TruSpecCorduraBackpack")
-                .withTexture("equipment/carryable/backpacks/tru_spec_cordura_backpack_tan")
+                .withTexture("equipment/backpacks/tru_spec_cordura_backpack_tan")
                 .build();
 
         truSpecCorduraBackpackBlack = new ItemBackpack.Builder()
                 .withName("tru_spec_cordura_backpack_black")
                 .withSize(20)
                 .withModel("TruSpecCorduraBackpack")
-                .withTexture("equipment/carryable/backpacks/tru_spec_cordura_backpack_black")
+                .withTexture("equipment/backpacks/tru_spec_cordura_backpack_black")
                 .build();
 
         truSpecCorduraBackpackForest = new ItemBackpack.Builder()
                 .withName("tru_spec_cordura_backpack_forest")
                 .withSize(20)
                 .withModel("TruSpecCorduraBackpack")
-                .withTexture("equipment/carryable/backpacks/tru_spec_cordura_backpack_forest")
+                .withTexture("equipment/backpacks/tru_spec_cordura_backpack_forest")
                 .build();
 
         f5SwitchbladeBackpack = new ItemBackpack.Builder()
                 .withName("f5_switchblade_backpack")
                 .withSize(16)
                 .withModel("F5SwitchbladeBackpack")
-                .withTexture("equipment/carryable/backpacks/f5_switchblade_backpack")
+                .withTexture("equipment/backpacks/f5_switchblade_backpack")
                 .build();
 
         duffleBag = new ItemBackpack.Builder()
                 .withName("duffle_bag")
                 .withSize(24)
-                .withModel("Dufflebag")
-                .withTexture("equipment/carryable/backpacks/duffle_bag")
+                .withModel("DuffleBag")
+                .withTexture("equipment/backpacks/duffle_bag")
                 .withEntityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.9F, 0.5F)
                         .withScale(1, 1, 1)

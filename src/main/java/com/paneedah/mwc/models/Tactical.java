@@ -9,7 +9,7 @@
 
 
 
-package com.paneedah.mwc.models.weapons;
+package com.paneedah.mwc.models;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;

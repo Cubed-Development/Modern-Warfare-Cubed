@@ -301,6 +301,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
             }
         }
 
+        System.out.println("\n\n\n - " + itemCarryable.modelName);
         model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
     }
 

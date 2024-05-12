@@ -27,7 +27,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
@@ -150,7 +149,7 @@ public class CustomGui extends Gui {
 		}
 	    
 		
-		if(event.getType() == HELMET && MC.player.isRiding() && MC.player.getRidingEntity() instanceof EntityVehicle) {
+		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET && MC.player.isRiding() && MC.player.getRidingEntity() instanceof EntityVehicle) {
 			
 			
 			
@@ -160,7 +159,7 @@ public class CustomGui extends Gui {
 	}
 	
 	public void handleHelmetHUD(RenderGameOverlayEvent.Pre event) {
-		if(event.getType() == HELMET) {
+		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET) {
 	        
 			ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 			if(helmetStack != null && MC.gameSettings.thirdPersonView == 0 && helmetStack.getItem() instanceof CustomArmor) {
@@ -208,6 +207,29 @@ public class CustomGui extends Gui {
 			}
 		}
 	}
+
+	
+	public void handleModificationHUD(PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {
+		if (isInAltModifyingState(weaponInstance) || isInModifyingState(weaponInstance)) {
+			//GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
+			ModificationGUI.getInstance().render(modContext);
+			//GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1f);
+			//GlStateManager.enableBlend();
+			//GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
+			//GUIRenderHelper.drawColoredRectangle(20, 200, 128, 125, 0.05, ColorPalette.BLACK);
+
+		} else {
+			if(ModernConfigManager.enableAmmoCounter) {
+				ModernConfigManager.enableOpenDoorDisplay = true;
+			} else {
+				ModernConfigManager.enableOpenDoorDisplay = false;
+			}
+
+			if(ModernConfigManager.enableAmmoCounter) {
+				handleAmmoCounter(weaponInstance, scaledWidth, scaledHeight);
+			}
+		}
+	}
 	
 	// Ammo counter spec
 	public static final int AMMO_COUNTER_WIDTH = 256;
@@ -247,7 +269,122 @@ public class CustomGui extends Gui {
 	public static final double KEY_NAME_OFFSET_FIREMODE_INDICATOR_MULTIPLIER = 1.75;
 	public static final double CURRENT_AMMO_WIDTH_MULTIPLIER = 2.0;
 	public static final double TOTAL_AMMO_STRING_SCALE = 6.625;
+	
+	public void handleAmmoCounter(PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {
+		final int AMMO_COUNTER_X_POS = 256 + ModernConfigManager.ammoCounterX;
+		final int AMMO_COUNTER_Y_POS = 128 + ModernConfigManager.ammoCounterY;
+		final double AMMO_COUNTER_SIZE = ModernConfigManager.ammoCounterSize;
 
+		
+		GlStateManager.enableBlend();
+		GlStateManager.pushMatrix();
+		
+		GlStateManager.translate((scaledWidth - AMMO_COUNTER_X_POS * AMMO_COUNTER_SIZE), (scaledHeight - AMMO_COUNTER_Y_POS * AMMO_COUNTER_SIZE), 0);
+		GlStateManager.scale(AMMO_COUNTER_SIZE, AMMO_COUNTER_SIZE, AMMO_COUNTER_SIZE);
+		MC.getTextureManager().bindTexture(AMMO_COUNTER_TEXTURES);
+		
+		// Figure out the firemode, and assign it an ID
+		int firemode = 0;
+		switch(weaponInstance.getMaxShots()) {
+			case Integer.MAX_VALUE:
+				firemode = Weapon.FIREMODE_AUTO;
+				break;
+			case 1:
+				firemode = Weapon.FIREMODE_SINGLE;
+				break;
+			default:
+				firemode = Weapon.FIREMODE_BURST;
+				break;
+		}
+		
+		// Check the total capacity, this allows us to differentiate b/w
+		// cartridge based weapons, and allows us to tell if a weapons has no
+		// magazine in it.
+		ItemMagazine magazine = (ItemMagazine) WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
+		int totalCapacity;
+		if(magazine != null) {
+			totalCapacity = magazine.getCapacity();
+		} else {
+			totalCapacity = weaponInstance.getWeapon().getAmmoCapacity();
+		}
+		
+		// If there is no magazine, display two "-"
+		String totalCapaString, currentAmmo;
+		if(weaponInstance.getWeapon().getAmmoCapacity() == 0 && totalCapacity == 0) {
+			totalCapaString = "-";
+			currentAmmo = "-";
+		} else {
+			currentAmmo = String.valueOf(weaponInstance.getAmmo());
+			totalCapaString = String.valueOf(totalCapacity);
+		}
+	
+		String keyNameString = String.format(BRACKET_FORMATTER, KeyBindings.fireModeKey.getDisplayName());
+		double keyNameOffset = getFontRenderer().getStringWidth(keyNameString);
+		
+		// Render main ammo counter body
+		if(ModernConfigManager.enableAmmoCounterBackground) {
+			if(ModernConfigManager.ammoCounterBackgroundReverse) {
+				GlStateManager.enableBlend();
+				GlStateManager.pushMatrix();
+				GlStateManager.scale(-1, 1, 1);
+				drawTexturedModalRect(-90, 0, 0, 0, -AMMO_COUNTER_WIDTH, AMMO_COUNTER_HEIGHT);
+				GlStateManager.popMatrix();
+			} else
+				drawTexturedModalRect(0, 0, 0, 0, AMMO_COUNTER_WIDTH, AMMO_COUNTER_HEIGHT);
+		}
+		
+		// Draw the firemode indicator
+
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(AMMO_COUNTER_WIDTH - FIREMODE_INDICATOR_X_OFFSET - (keyNameOffset * KEY_NAME_OFFSET_FIREMODE_INDICATOR_MULTIPLIER), FIREMODE_INDICATOR_Y_OFFSET, 0);
+		GlStateManager.scale(FIREMODE_INDICATOR_SCALE, FIREMODE_INDICATOR_SCALE, FIREMODE_INDICATOR_SCALE);
+		GlStateManager.enableBlend();
+		drawTexturedModalRect(0, 0,
+				FIREMODE_INDICATOR_U_OFFSET + FIREMODE_INDICATOR_U_WIDTH * (Weapon.FIREMODE_AUTO - firemode),
+				FIREMODE_INDICATOR_V_HEIGHT, FIREMODE_INDICATOR_U_WIDTH, FIREMODE_INDICATOR_U_WIDTH);
+		GlStateManager.popMatrix();
+		
+		// Get the weapons name from the localization file
+		String weaponName = new TextComponentTranslation(LangTools.formatName(weaponInstance.getWeapon().getTranslationKey())).getFormattedText();
+
+		
+		
+		String bottomString = String.format("  %s  | %s%s", TextFormatting.GRAY, TextFormatting.WHITE, totalCapaString);
+		
+		
+
+		double totalLength = 0;
+		// Fixes length in cases of minigun		
+		if(bottomString.length() > AMMO_COUNTER_WEAPON_NAME_DOWNSCALE_THRESHOLD) {
+			int adjLength = bottomString.length() - AMMO_COUNTER_WEAPON_NAME_DOWNSCALE_THRESHOLD;
+			totalLength = adjLength * WEAPON_NAME_DOWNSCALE_MULTIPLIER;
+		}
+		
+
+		
+		// Draw strings
+		
+		
+		drawScaledString(FONT_RENDERER, weaponName, WEAPON_STRING_X_OFFSET - FONT_RENDERER.getStringWidth(weaponName), - FONT_RENDERER.FONT_HEIGHT, WEAPON_STRING_SCALE, FlatUIColors.BRIGHT_YARROW);
+		if(!BalancePackManager.isWeaponDisabled(weaponInstance.getWeapon())) {
+			drawScaledString(FONT_RENDERER, currentAmmo, TOTAL_AMMO_COUNT_STRING_X_OFFSET - FONT_RENDERER.getStringWidth(currentAmmo) * CURRENT_AMMO_WIDTH_MULTIPLIER  - totalLength, CURRENT_AMMO_STRING_Y_OFFSET, CURRENT_AMMO_STRING_SCALE, FlatUIColors.BRIGHT_YARROW);
+			drawScaledString(FONT_RENDERER, bottomString, CURRENT_AMMO_COUNT_STRING_X_OFFSET - totalLength, TOTAL_AMMO_STRING_SCALE, AMMO_TOTAL_STRING_SCALE);
+			
+			
+		} else {
+			
+			GUIRenderHelper.drawScaledString("Disabled", DISABLED_STRING_X_OFFSET - totalLength, DISABLED_STRING_Y_OFFSET, DISABLED_STRING_SCALE, FlatUIColors.POMEGRANATE);
+			
+		}
+		
+		drawScaledString(FONT_RENDERER, keyNameString, FIREMODE_KEY_X_STRING_OFFSET - keyNameOffset, FIREMODE_KEY_Y_STRING_OFFSET, FIREMODE_KEY_SCALE, FlatUIColors.BRIGHT_YARROW);
+		
+		
+		
+
+		GlStateManager.popMatrix();
+	}
+	
 	public Vec3d cachedPlayerPosition = Vec3d.ZERO;
 	public double cachedPlayerEyeHeight;
 	public Vec3d cachedLookVector = Vec3d.ZERO;
@@ -266,7 +403,7 @@ public class CustomGui extends Gui {
 	public static  final String BRACKET_FORMATTER = "[%s]";
 	
 	
-	public void handleOpenDoorHUD(RenderGameOverlayEvent.Pre event, double scaledWidth, double scaledHeight) {
+	public void handleOpenDoorHUD(double scaledWidth, double scaledHeight) {
 
 		 if(ModernConfigManager.enableOpenDoorDisplay) {
          	EntityPlayer player = MC.player;
@@ -302,162 +439,47 @@ public class CustomGui extends Gui {
          }
 	}
 
-
 	@SubscribeEvent
-	public final void onRenderCrosshair(RenderGameOverlayEvent.Pre event) {
-		if (event.getType() != CROSSHAIRS || MC.player.isSpectator()) {
+	public final void onRenderCrosshair(RenderGameOverlayEvent.Pre renderGameOverlayEvent) {
+		if (renderGameOverlayEvent.getType() != CROSSHAIRS || MC.player.isSpectator())
 			return;
-		}
 
-		ItemStack itemStack = MC.player.getHeldItemMainhand();
-
-		if (itemStack == null) {
-			return;
-		}
-		
-		ScaledResolution scaledResolution = event.getResolution();
-        int width = scaledResolution.getScaledWidth();
-        int height = scaledResolution.getScaledHeight();
-        FontRenderer fontRender = MC.fontRenderer;
-
-		PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
-
-		if(weaponInstance != null) {
-			Weapon weaponItem = (Weapon) itemStack.getItem();
-			String crosshair = weaponItem != null ? weaponItem.getCrosshair(weaponInstance) : null;
-
-			if(crosshair != null) {
-				MC.entityRenderer.setupOverlayRendering();
-
-				GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-				GlStateManager.disableLighting();
-				GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
-				GlStateManager.disableBlend();
-
-				MC.renderEngine.bindTexture(new ResourceLocation(crosshair));
-
-				if (isInAltModifyingState(weaponInstance) || isInModifyingState(weaponInstance)) {
-					//GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
-					ModificationGUI.getInstance().render(modContext);
-					//GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1f);
-					//GlStateManager.enableBlend();
-					//GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
-					//GUIRenderHelper.drawColoredRectangle(20, 200, 128, 125, 0.05, ColorPalette.BLACK);
-
-				} else {
-					ModernConfigManager.enableOpenDoorDisplay = ModernConfigManager.enableAmmoCounter;
-					drawAmmoCounter(fontRender, width, height, itemStack.getItem());
-				}
-
-                handleOpenDoorHUD(event, width, height);
-				event.setCanceled(true);
-			}
-
-		} else if(itemStack.getItem() instanceof ItemMagazine) {
-			drawAmmoCounter(fontRender, width, height, itemStack.getItem());
-		}
+		if (modContext.getMainHeldWeapon() != null)
+			renderGameOverlayEvent.setCanceled(true);
 	}
 
-	public void drawAmmoCounter(FontRenderer fr, int width, int height, Item item) {
-		if (!ModernConfigManager.enableAmmoCounter) return;
+	@SubscribeEvent
+	public final void onRenderHotbar(final RenderGameOverlayEvent.Pre renderGameOverlayEvent) {
+		if (renderGameOverlayEvent.getType() != HOTBAR || MC.player.isSpectator())
+			return;
 
-		getFontRenderer();
+		final ScaledResolution scaledResolution = renderGameOverlayEvent.getResolution();
+		final int width = scaledResolution.getScaledWidth();
+		final int height = scaledResolution.getScaledHeight();
 
-		GlStateManager.enableBlend();
-		GlStateManager.pushMatrix();
+		if (modContext.getMainHeldWeapon() != null) {
+			MC.entityRenderer.setupOverlayRendering();
 
-		final int AMMO_COUNTER_X_POS = 256 + ModernConfigManager.ammoCounterX;
-		final int AMMO_COUNTER_Y_POS = 128 + ModernConfigManager.ammoCounterY;
-		final double AMMO_COUNTER_SIZE = ModernConfigManager.ammoCounterSize;
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GlStateManager.disableLighting();
+			GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
+			GlStateManager.disableBlend();
 
-		GlStateManager.translate((width - AMMO_COUNTER_X_POS * AMMO_COUNTER_SIZE), (height - AMMO_COUNTER_Y_POS * AMMO_COUNTER_SIZE), 0);
-		GlStateManager.scale(AMMO_COUNTER_SIZE, AMMO_COUNTER_SIZE, AMMO_COUNTER_SIZE);
-		MC.getTextureManager().bindTexture(AMMO_COUNTER_TEXTURES);
+			handleModificationHUD(modContext.getMainHeldWeapon(), width, height);
+			handleOpenDoorHUD(width, height);
+		} else if (MC.player.getHeldItemMainhand().getItem() instanceof ItemMagazine) {
+			MC.entityRenderer.setupOverlayRendering();
 
-		if (ModernConfigManager.enableAmmoCounterBackground) {
-			if (ModernConfigManager.ammoCounterBackgroundReverse) {
-				GlStateManager.enableBlend();
-				GlStateManager.pushMatrix();
-				GlStateManager.scale(-1, 1, 1);
-				drawTexturedModalRect(-90, 0, 0, 0, -AMMO_COUNTER_WIDTH, AMMO_COUNTER_HEIGHT);
-				GlStateManager.popMatrix();
-			} else
-				drawTexturedModalRect(0, 0, 0, 0, AMMO_COUNTER_WIDTH, AMMO_COUNTER_HEIGHT);
+			final FontRenderer fontRenderer = MC.fontRenderer;
+
+			final String messageText = getDefaultMagazineMessage(MC.player.getHeldItemMainhand());
+
+			fontRenderer.drawStringWithShadow(messageText, getStatusBarXPosition(width, messageText, fontRenderer), getStatusBarYPosition(height), 0xFFFFFF);
 		}
-
-		String totalCapacityString, currentAmmoString;
-		int firemode;
-		int totalCapacity = 0;
-		int currentAmmo = 0;
-
-		if (item instanceof ItemMagazine) {
-			totalCapacity = ((ItemMagazine) item).getCapacity();
-			currentAmmo = Tags.getAmmo(MC.player.getHeldItemMainhand());
-
-		} else if (item instanceof Weapon) {
-			final PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
-			final ItemMagazine magazine = (ItemMagazine) WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
-			final String keyNameString = String.format(BRACKET_FORMATTER, KeyBindings.fireModeKey.getDisplayName());
-			final double keyNameOffset = getFontRenderer().getStringWidth(keyNameString);
-
-			switch (weaponInstance.getMaxShots()) {
-				case Integer.MAX_VALUE:
-					firemode = Weapon.FIREMODE_AUTO;
-					break;
-				case 1:
-					firemode = Weapon.FIREMODE_SINGLE;
-					break;
-				default:
-					firemode = Weapon.FIREMODE_BURST;
-					break;
-			}
-
-			totalCapacity = magazine != null ? magazine.getCapacity() : weaponInstance.getWeapon().getAmmoCapacity();
-			currentAmmo = weaponInstance.getAmmo();
-
-			GlStateManager.pushMatrix();
-			GlStateManager.translate(AMMO_COUNTER_WIDTH - FIREMODE_INDICATOR_X_OFFSET - (keyNameOffset * KEY_NAME_OFFSET_FIREMODE_INDICATOR_MULTIPLIER), FIREMODE_INDICATOR_Y_OFFSET, 0);
-			GlStateManager.scale(FIREMODE_INDICATOR_SCALE, FIREMODE_INDICATOR_SCALE, FIREMODE_INDICATOR_SCALE);
-			GlStateManager.enableBlend();
-			drawTexturedModalRect(0, 0, FIREMODE_INDICATOR_U_OFFSET + FIREMODE_INDICATOR_U_WIDTH * (Weapon.FIREMODE_AUTO - firemode), FIREMODE_INDICATOR_V_HEIGHT, FIREMODE_INDICATOR_U_WIDTH, FIREMODE_INDICATOR_U_WIDTH);
-			GlStateManager.popMatrix();
-
-			if (((Weapon)item).builder.getMaxShots().size() > 1)
-				drawScaledString(FONT_RENDERER, keyNameString, FIREMODE_KEY_X_STRING_OFFSET - keyNameOffset, FIREMODE_KEY_Y_STRING_OFFSET, FIREMODE_KEY_SCALE, FlatUIColors.BRIGHT_YARROW);
-		}
-
-		if (totalCapacity == 0) {
-			totalCapacityString = "-";
-			currentAmmoString = "-";
-		} else {
-			totalCapacityString = String.valueOf(totalCapacity);
-			currentAmmoString = String.valueOf((currentAmmo == 0 && item instanceof Weapon ? "-" : currentAmmo));
-		}
-
-		final String weaponName = new TextComponentTranslation(LangTools.formatName(item.getTranslationKey())).getFormattedText();
-		final String bottomString = String.format("  %s  | %s%s", TextFormatting.GRAY, TextFormatting.WHITE, totalCapacityString);
-
-		double totalLength = 0;
-		if (bottomString.length() > AMMO_COUNTER_WEAPON_NAME_DOWNSCALE_THRESHOLD) {
-			final int adjLength = bottomString.length() - AMMO_COUNTER_WEAPON_NAME_DOWNSCALE_THRESHOLD;
-			totalLength = adjLength * WEAPON_NAME_DOWNSCALE_MULTIPLIER;
-		}
-
-		drawScaledString(FONT_RENDERER, weaponName, WEAPON_STRING_X_OFFSET - FONT_RENDERER.getStringWidth(weaponName), - FONT_RENDERER.FONT_HEIGHT, WEAPON_STRING_SCALE, FlatUIColors.BRIGHT_YARROW);
-
-		if(item instanceof Weapon && BalancePackManager.isWeaponDisabled((Weapon)item)) {
-			GUIRenderHelper.drawScaledString("Disabled", DISABLED_STRING_X_OFFSET - totalLength, DISABLED_STRING_Y_OFFSET, DISABLED_STRING_SCALE, FlatUIColors.POMEGRANATE);
-		} else {
-			drawScaledString(fr, weaponName, WEAPON_STRING_X_OFFSET - fr.getStringWidth(weaponName), - fr.FONT_HEIGHT, WEAPON_STRING_SCALE, FlatUIColors.BRIGHT_YARROW);
-			drawScaledString(fr, currentAmmoString, TOTAL_AMMO_COUNT_STRING_X_OFFSET - fr.getStringWidth(currentAmmoString) * CURRENT_AMMO_WIDTH_MULTIPLIER, CURRENT_AMMO_STRING_Y_OFFSET, CURRENT_AMMO_STRING_SCALE, FlatUIColors.BRIGHT_YARROW);
-			drawScaledString(fr, bottomString, CURRENT_AMMO_COUNT_STRING_X_OFFSET, TOTAL_AMMO_STRING_SCALE, AMMO_TOTAL_STRING_SCALE);
-		}
-
-		GlStateManager.popMatrix();
 	}
 
 	public void drawScaledString(FontRenderer fr, String str, double x, double y, double scale, int color) {
-		
+
 		GlStateManager.pushMatrix();
 		
 		GlStateManager.translate(x, y, 0);
