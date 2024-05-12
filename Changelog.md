@@ -9,6 +9,7 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 
 ### Added
 
+1
 - Added German translation
 - **Weapons:**
   - Accuracy International AX50 (AI AX50)
