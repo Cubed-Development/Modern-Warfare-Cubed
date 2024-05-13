@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import org.lwjgl.opengl.GL11;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -23,6 +24,19 @@ import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class AttachmentBuilder<T> {
+
+    private static final Consumer<ModelBase> defaultInventoryModelPositioning = model -> {
+        GL11.glTranslatef(0.1F, 0.2F, 0F);
+        GL11.glScaled(0.5F, 0.5F, 0.5f);
+    };
+    private static final Consumer<ModelBase> defaultFirstPersonModelPositioning = model -> {
+        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+        GL11.glScaled(0.5F, 0.5F, 0.5F);
+    };
+    private static final Consumer<ModelBase> defaultThirdPersonModelPositioning = model -> {
+        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+        GL11.glScaled(0.5F, 0.5F, 0.5F);
+    };
 
     public static int noRecipe = 0;
 
@@ -63,6 +77,12 @@ public class AttachmentBuilder<T> {
 
     private CraftingEntry[] modernRecipe;
     private CraftingGroup craftingGroup;
+
+    public AttachmentBuilder() {
+        transforms.setFirstPersonModelPositioning(defaultFirstPersonModelPositioning);
+        transforms.setThirdPersonModelPositioning(defaultThirdPersonModelPositioning);
+        transforms.setInventoryModelPositioning(defaultInventoryModelPositioning);
+    }
 
     public AttachmentBuilder<T> withCategory(AttachmentCategory attachmentCategory) {
         this.attachmentCategory = attachmentCategory;

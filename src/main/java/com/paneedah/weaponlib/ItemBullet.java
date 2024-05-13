@@ -47,6 +47,5 @@ public class ItemBullet extends ItemAttachment<Weapon> {
                       com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
                       com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
         super(category, model, textureName, crosshair, apply, remove);
-        setCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB);
     }
 }

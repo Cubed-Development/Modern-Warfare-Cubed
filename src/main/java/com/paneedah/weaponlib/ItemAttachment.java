@@ -74,7 +74,6 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 		this.crosshair = crosshair != null ? ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
-		setCreativeTab(MWC.ATTACHMENTS_TAB);
 	}
 
 	protected ItemAttachment(AttachmentCategory category, String crosshair,
