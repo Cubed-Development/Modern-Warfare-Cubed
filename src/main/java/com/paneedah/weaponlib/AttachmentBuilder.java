@@ -243,7 +243,7 @@ public class AttachmentBuilder<T> {
     public ItemAttachment<T> build(ModContext modContext) {
         ItemAttachment<T> attachment = createAttachment(modContext);
         attachment.setTranslationKey(ID + "_" + name);
-        attachment.setCreativeTab(tab);
+
         attachment.setPostRenderer(postRenderer);
         attachment.setName(name);
         attachment.apply2 = apply2;
@@ -254,6 +254,9 @@ public class AttachmentBuilder<T> {
 
         // Do not register things if they do not have recipes.
         CraftingRegistry.registerHook(attachment);
+
+        if (tab != null)
+            attachment.setCreativeTab(tab);
 
         if (rotationPoint != null) attachment.rotationPoint = rotationPoint;
 

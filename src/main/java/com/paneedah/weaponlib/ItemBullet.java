@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.weaponlib.animation.Transform;
 import net.minecraft.client.model.ModelBase;
@@ -46,5 +47,6 @@ public class ItemBullet extends ItemAttachment<Weapon> {
                       com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
                       com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
         super(category, model, textureName, crosshair, apply, remove);
+        setCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB);
     }
 }
