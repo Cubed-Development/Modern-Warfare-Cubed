@@ -317,8 +317,8 @@ public class MAC10Factory {
             
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-2.065000f, 5.145000f, -6.925000f)
-					.withRotation(0.00000f, 1.0f, 10.681469f)
+					.withPosition(-2.065000f, 4.845000f, -6.925000f)
+					.withRotation(0.00000f, 1.0f, 6.681469f)
 					.withRotationPoint(-0.280000f, -1.600000f, 0.040000f)
                     .withScale(3.0, 3.0, 3.0)
                 )

@@ -415,7 +415,7 @@ public class K2C1Factory implements GunFactory {
 				
 			.withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.425000f, 4.005000f, -3.925000f)
+					.withPosition(-1.425000f, 4.405000f, -3.925000f)
 					.withRotation(0.000000f, 1.0f, 1f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
