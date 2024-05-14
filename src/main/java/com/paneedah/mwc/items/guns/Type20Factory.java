@@ -359,8 +359,8 @@ public class Type20Factory implements GunFactory {
 
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-1.395000f, 3.965000f, -2.985000f)
-					.withRotation(0.000000f, 0.5f, 3f)
+					.withPosition(-1.3950f, 3.9650f, -2.8850f)
+					.withRotation(0.000000f, 1f, 3f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0, 3.0, 3.0)
                 )
