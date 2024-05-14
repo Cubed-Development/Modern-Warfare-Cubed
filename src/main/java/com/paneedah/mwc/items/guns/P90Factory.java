@@ -368,7 +368,7 @@ public class P90Factory {
                                 new Transform()
                                         .withPosition(-1.865000f, 5.585000f, -6.525000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
-                                        .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                        .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                                         .withScale(3.0F, 3.0F, 3.0F)
                         )
 
@@ -379,14 +379,14 @@ public class P90Factory {
                                         .withPosition(1.250000f, 0.505000f, 0.420000f)
                                         .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
                                         .withScale(2.6F, 2.6F, 4.0F)
-                                        .withPivotPoint(0, 0, 0),
+                                        .withRotationPoint(0, 0, 0),
 
 
                                 new Transform()
                                         .withPosition(-0.320000f, 0.100000f, 2.000000f)
                                         .withBBRotation(5.4338F, 7.7671F, -1.3845F)
                                         .withScale(3.5F, 3.5F, 3.5F)
-                                        .withPivotPoint(0, 0, 0)
+                                        .withRotationPoint(0, 0, 0)
 
                         )
 
@@ -494,17 +494,17 @@ public class P90Factory {
                             new Transform()
                                     .withPosition(-1.865000f, 5.585000f, -8.445000f)
                                     .withRotation(0.000000f, -29.415550f, -14.392556f)
-                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(3.000000f, 3.000000f, 3.000000f)
-                                    .applyTransformations();
+                                    .doGLDirect();
                         })
                         .withFirstPersonPositioningModifyingAlt((renderContext) -> {
                             new Transform()
                                     .withPosition(-2.185000f, 5.585000f, -8.885000f)
                                     .withRotation(0.000000f, -43.522828f, -18.018118f)
-                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(3.000000f, 3.000000f, 3.000000f)
-                                    .applyTransformations();
+                                    .doGLDirect();
                         })
 
                         .withFirstPersonHandPositioningModifying(
@@ -513,16 +513,16 @@ public class P90Factory {
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
                                             .withScale(2.6F, 2.6F, 4.0F)
-                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .applyTransformations();
+                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .doGLDirect();
                                 },
                                 (renderContext) -> {
                                     new Transform()
                                             .withPosition(-0.2F, 0.1F, 2)
                                             .withRotation(-5.4027F, -4.7805F, -1.6694F)
                                             .withScale(3.5F, 3.5F, 3.5F)
-                                            .withPivotPoint(0, 0, 0)
-                                            .applyTransformations();
+                                            .withRotationPoint(0, 0, 0)
+                                            .doGLDirect();
                                 })
 
                         .withFirstPersonHandPositioningModifyingAlt(
@@ -531,16 +531,16 @@ public class P90Factory {
                                             .withPosition(2.450000f, -0.335000f, -0.660000f)
                                             .withRotation(93.766422f, 50.841130f, 4.679372f)
                                             .withScale(2.600000f, 2.600000f, 4.000000f)
-                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .applyTransformations();
+                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .doGLDirect();
                                 },
                                 (renderContext) -> {
                                     new Transform()
                                             .withPosition(-0.2F, 0.1F, 2)
                                             .withRotation(-5.4027F, -4.7805F, -1.6694F)
                                             .withScale(3.5F, 3.5F, 3.5F)
-                                            .withPivotPoint(0, 0, 0)
-                                            .applyTransformations();
+                                            .withRotationPoint(0, 0, 0)
+                                            .doGLDirect();
                                 })
 
                         .withThirdPersonLeftHandPositioningReloading(

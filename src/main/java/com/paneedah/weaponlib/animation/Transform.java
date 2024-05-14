@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 
 public class Transform {
 	
-	public static final Transform NULL = new Transform().withPosition(0, 0, 0).withRotation(0, 0, 0).withPivotPoint(0, 0, 0).withScale(1, 1, 1);
+	public static final Transform NULL = new Transform().withPosition(0, 0, 0).withRotation(0, 0, 0).withRotationPoint(0, 0, 0).withScale(1, 1, 1);
 	
 	private double[] scale = new double[3];
 	private double[] rotation = new double[3];
@@ -71,7 +71,7 @@ public class Transform {
 	}
 	
 	
-	public Transform withPivotPoint(double x, double y, double z) {
+	public Transform withRotationPoint(double x, double y, double z) {
 		rotationPoint[0] = x;
 		rotationPoint[1] = y;
 		rotationPoint[2] = z;
@@ -174,7 +174,7 @@ public class Transform {
 	
 	public Consumer<RenderContext<RenderableState>> getAsPosition() {
 		return (renderContext) -> {
-			applyTransformations();
+			doGLDirect();
 			/*
 			GL11.glTranslated(getPositionX(), getPositionY(), getPositionZ());
 			GL11.glTranslated(getRotationPointX(), getRotationPointY(), getRotationPointZ());
@@ -187,7 +187,7 @@ public class Transform {
 		};
 		
 	}
-	public void applyTransformations() {
+	public void doGLDirect() {
 		GL11.glTranslated(getPositionX(), getPositionY(), getPositionZ());
 		GL11.glTranslated(getRotationPointX(), getRotationPointY(), getRotationPointZ());
 		GL11.glRotated(getRotationZ(), 0, 0, 1);

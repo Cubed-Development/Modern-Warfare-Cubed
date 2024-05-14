@@ -1229,41 +1229,41 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				
 				if(hasUnloadEmpty) {
 					withUnloadEmptyCustom(p, BBLoader.getAnimation(animationFile, BBLoader.KEY_UNLOAD_EMPTY, BBLoader.KEY_MAGAZINE)
-							.getTransitionList(Transform.NULL.copy().withPivotPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
+							.getTransitionList(Transform.NULL.copy().withRotationPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
 				}
 				
 				if(hasLoadEmpty) {
 					withLoadEmptyCustom(p, BBLoader.getAnimation(animationFile, BBLoader.KEY_LOAD_EMPTY, BBLoader.KEY_MAGAZINE)
-							.getTransitionList(Transform.NULL.copy().withPivotPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
+							.getTransitionList(Transform.NULL.copy().withRotationPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
 					
 				}
 				
 				if(hasTacticalReload) {
 					withTacticalReloadCustom(p, BBLoader.getAnimation(animationFile, BBLoader.KEY_TACTICAL_RELOAD, BBLoader.KEY_MAGAZINE)
-							.getTransitionList(Transform.NULL.copy().withPivotPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
+							.getTransitionList(Transform.NULL.copy().withRotationPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
 					
 				}
 				
 				if(hasLoad) {
 					withFirstPersonCustomPositioningReloading(p, BBLoader.getAnimation(animationFile, BBLoader.KEY_LOAD, BBLoader.KEY_MAGAZINE)
-							.getTransitionList(Transform.NULL.copy().withPivotPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
+							.getTransitionList(Transform.NULL.copy().withRotationPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
 					
 				}
 				if(hasUnload) {
 					withFirstPersonCustomPositioningUnloading(p, BBLoader.getAnimation(animationFile, BBLoader.KEY_UNLOAD, BBLoader.KEY_MAGAZINE)
-							.getTransitionList(Transform.NULL.copy().withPivotPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
+							.getTransitionList(Transform.NULL.copy().withRotationPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
 					
 				}
 				
 				if(hasCompoundReload) {
 					withFirstPersonCustomPositioningCompoundReloading(p, BBLoader.getAnimation(animationFile, BBLoader.KEY_COMPOUND_RELOAD, BBLoader.KEY_MAGAZINE)
-							.getTransitionList(Transform.NULL.copy().withPivotPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
+							.getTransitionList(Transform.NULL.copy().withRotationPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
 					
 				}
 				
 				if(hasCompoundReloadEmpty) {
 					withFPSCustomCompoundReloadingEmpty(p, BBLoader.getAnimation(animationFile, BBLoader.KEY_COMPOUND_RELOAD_EMPTY, BBLoader.KEY_MAGAZINE)
-							.getTransitionList(Transform.NULL.copy().withPivotPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
+							.getTransitionList(Transform.NULL.copy().withRotationPoint(r.x, r.y, r.z), BBLoader.HANDDIVISOR));
 				
 				}
 				
@@ -1470,12 +1470,12 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 			if(hasEjectSpentRound && set.getSingleAnimation(BBLoader.KEY_EJECT_SPENT_ROUND).hasBone(partKey)) {
 				withFirstPersonCustomPositioningUnloading(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_EJECT_SPENT_ROUND, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			if(hasEjectSpentRoundAimed && set.getSingleAnimation(BBLoader.KEY_EJECT_SPENT_ROUND_AIMED).hasBone(partKey)) {
 				withFirstPersonCustomPositioningUnloading(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_EJECT_SPENT_ROUND_AIMED, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			return this;
@@ -1496,50 +1496,50 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			
 			if(hasLoadEmpty && set.getSingleAnimation(BBLoader.KEY_LOAD_EMPTY).hasBone(partKey)) {
 				withLoadEmptyCustom(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_LOAD_EMPTY, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			
 			if(hasUnloadEmpty && set.getSingleAnimation(BBLoader.KEY_UNLOAD_EMPTY).hasBone(partKey)) {
 				withUnloadEmptyCustom(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_UNLOAD_EMPTY, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			
 			if(hasCompoundReload && set.getSingleAnimation(BBLoader.KEY_COMPOUND_RELOAD).hasBone(partKey)) {
 				withFirstPersonCustomPositioningCompoundReloading(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_COMPOUND_RELOAD, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			if(hasCompoundReloadEmpty && set.getSingleAnimation(BBLoader.KEY_COMPOUND_RELOAD_EMPTY).hasBone(partKey)) {
 				withFPSCustomCompoundReloadingEmpty(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_COMPOUND_RELOAD_EMPTY, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			if(hasTacticalReload && set.getSingleAnimation(BBLoader.KEY_TACTICAL_RELOAD).hasBone(partKey)) {
 				withTacticalReloadCustom(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_TACTICAL_RELOAD, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			if(hasDraw && set.getSingleAnimation(BBLoader.KEY_DRAW).hasBone(partKey)) {
 				withFirstPersonCustomPositioningDrawing(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_DRAW, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			if(hasInspect && set.getSingleAnimation(BBLoader.KEY_INSPECT).hasBone(partKey)) {
 				withFirstPersonCustomPositioningInspecting(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_INSPECT, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			if(hasLoad && set.getSingleAnimation(BBLoader.KEY_LOAD).hasBone(partKey)) {
 				withFirstPersonCustomPositioningReloading(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_LOAD, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			
 			if(hasUnload && set.getSingleAnimation(BBLoader.KEY_UNLOAD).hasBone(partKey)) {
 				withFirstPersonCustomPositioningUnloading(aR15Action, BBLoader.getAnimation(animationFile, BBLoader.KEY_UNLOAD, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR));
 			}
 			
 			
@@ -1548,7 +1548,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				
 				
 				List<Transition<RenderContext<RenderableState>>> list = BBLoader.getAnimation(animationFile, BBLoader.KEY_EJECT_SPENT_ROUND, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR);
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR);
 				
 				
 				withFirstPersonCustomPositioningEjectSpentRound(aR15Action, list);
@@ -1558,7 +1558,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			if(hasEjectSpentRoundAimed && set.getSingleAnimation(BBLoader.KEY_EJECT_SPENT_ROUND_AIMED).hasBone(partKey)) {
 				
 				List<Transition<RenderContext<RenderableState>>> list = BBLoader.getAnimation(animationFile, BBLoader.KEY_EJECT_SPENT_ROUND_AIMED, partKey)
-						.getTransitionList(Transform.NULL.copy().withPivotPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR);
+						.getTransitionList(Transform.NULL.copy().withRotationPoint(rotPoint.x, rotPoint.y, rotPoint.z), BBLoader.HANDDIVISOR);
 				
 				withFirstPersonCustomPositioningEjectSpentRoundAimed(aR15Action, list);
 			}
@@ -1978,10 +1978,10 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				
 				firstPersonPositioningRunning = (rc) -> {
 					if(rc.getWeaponInstance().getWeapon().builder.isUsingNewSystem()) { 
-						new Transform().withPosition(-0.5, 0, 0.5).withRotation(15, -5, 15).withScale(1, 1, 1).applyTransformations();
+						new Transform().withPosition(-0.5, 0, 0.5).withRotation(15, -5, 15).withScale(1, 1, 1).doGLDirect();
 						
 					} else {
-						new Transform().withPosition(-0.5, 0, 0.5).withRotation(15, -5, 15).withScale(1, 1, 1).applyTransformations();
+						new Transform().withPosition(-0.5, 0, 0.5).withRotation(15, -5, 15).withScale(1, 1, 1).doGLDirect();
 						
 					}
 					
@@ -3467,7 +3467,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 					BBLoader.getAnimation(getBuilder().getAnimationFileName(), BBLoader.KEY_TACTICAL_RELOAD, BBLoader.KEY_MAGIC_MAGAZINE)
 					.getTransitionList(Transform.NULL
 							
-							.withPivotPoint(magRotationPoint.x, magRotationPoint.y, magRotationPoint.z)
+							.withRotationPoint(magRotationPoint.x, magRotationPoint.y, magRotationPoint.z)
 							.copy(), BBLoader.HANDDIVISOR));
 			
 			
@@ -3480,7 +3480,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 					BBLoader.getAnimation(getBuilder().getAnimationFileName(), BBLoader.KEY_COMPOUND_RELOAD_EMPTY, BBLoader.KEY_MAGIC_MAGAZINE)
 					.getTransitionList(Transform.NULL
 							
-							.withPivotPoint(magRotationPoint.x, magRotationPoint.y, magRotationPoint.z)
+							.withRotationPoint(magRotationPoint.x, magRotationPoint.y, magRotationPoint.z)
 							.copy(), BBLoader.HANDDIVISOR));
 		} else if(isCompoundReloadTactical() && nextState == WeaponState.COMPOUND_RELOAD) {
 			
@@ -3490,7 +3490,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			getWeaponRendererBuilder().compoundReloadContainer.getCustom().put(SpecialAttachments.MagicMag.getRenderablePart(),
 					BBLoader.getAnimation(getBuilder().getAnimationFileName(), BBLoader.KEY_COMPOUND_RELOAD, BBLoader.KEY_MAGIC_MAGAZINE)
 					.getTransitionList(Transform.NULL
-							.withPivotPoint(magRotationPoint.x, magRotationPoint.y, magRotationPoint.z)
+							.withRotationPoint(magRotationPoint.x, magRotationPoint.y, magRotationPoint.z)
 							.copy(), BBLoader.HANDDIVISOR));
 		} 
 	}
@@ -3684,7 +3684,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				
 				if(AnimationModeProcessor.getInstance().getFPSMode()) {
 					
-					AnimationModeProcessor.getInstance().slideTransform.applyTransformations();
+					AnimationModeProcessor.getInstance().slideTransform.doGLDirect();
 
 					WeaponRenderer.captureAtlasPosition();
 				}
@@ -4140,7 +4140,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 						.withPosition(75, -85, 0)
 						.withRotation(20, 130, 120)
 						.withScale(inventoryScale, inventoryScale, inventoryScale)
-						.applyTransformations();
+						.doGLDirect();
 			{
 				StateDescriptor thirdPersonStateDescriptor = getThirdPersonStateDescriptor(player, itemStack);
 				renderContext.setPlayerItemInstance(thirdPersonStateDescriptor.instance);

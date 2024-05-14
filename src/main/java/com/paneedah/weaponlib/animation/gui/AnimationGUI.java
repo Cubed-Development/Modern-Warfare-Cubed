@@ -311,7 +311,7 @@ public class AnimationGUI {
 			b.firstPersonLeftHandTransform.set(amp.backupFPL);
 			b.firstPersonRightHandTransform.set(amp.backupFPR);
 			
-			AnimationModeProcessor.getInstance().slideTransform.withPosition(0, 0, 0).withRotation(0, 0, 0).withPivotPoint(0, 0, 0);
+			AnimationModeProcessor.getInstance().slideTransform.withPosition(0, 0, 0).withRotation(0, 0, 0).withRotationPoint(0, 0, 0);
 			
 			DebugPositioner.reset();
 		} else if(id == forceSteveArms) {

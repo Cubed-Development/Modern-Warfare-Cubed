@@ -34,12 +34,12 @@ public class ItemCarryable extends Item implements IModernCraftingRecipe {
                 .entityPositioning(() -> new Transform()
                         .withPosition(-0.5, -1.75, 0.4)
                         .withScale(1, 1, 1)
-                        .applyTransformations())
+                        .doGLDirect())
                 .inventoryPositioning(() -> new Transform()
                         .withPosition(-0.15, -4.15, 0.35)
                         .withRotation(18, -50, 0)
                         .withScale(2.9, 2.9, 2.9)
-                        .applyTransformations())
+                        .doGLDirect())
                 .build();
 
         protected int size;

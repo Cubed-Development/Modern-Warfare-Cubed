@@ -122,7 +122,7 @@ public class MP40Factory {
                                 new Transform()
                                         .withPosition(-1.425000f, 3.745000f, -3.325000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
-                                        .withPivotPoint(-0.350000f, -0.940000f, 0.060000f)
+                                        .withRotationPoint(-0.350000f, -0.940000f, 0.060000f)
                                         .withScale(3.0F, 3.0F, 3.0F)
                         )
 
@@ -133,14 +133,14 @@ public class MP40Factory {
                                         .withPosition(1.210000f, 0.265000f, -0.260000f)
                                         .withBBRotation(-10.558F, -28.6459F, 58.5348F)
                                         .withScale(2.6F, 2.6F, 4.0F)
-                                        .withPivotPoint(0, 0, 0),
+                                        .withRotationPoint(0, 0, 0),
 
 
                                 new Transform()
                                         .withPosition(-0.200000f, 0.260000f, 1.680000f)
                                         .withRotation(-5.4027F, -4.7805F, -1.6694F)
                                         .withScale(3.0F, 3.0F, 3.0F)
-                                        .withPivotPoint(0, 0, 0)
+                                        .withRotationPoint(0, 0, 0)
 
                         )
 

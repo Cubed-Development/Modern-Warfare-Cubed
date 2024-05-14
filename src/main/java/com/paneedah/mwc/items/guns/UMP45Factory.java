@@ -307,7 +307,7 @@ public class UMP45Factory {
                                 new Transform()
                                         .withPosition(-1.625000f, 4.745000f, -4.245000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
-                                        .withPivotPoint(-0.350000f, -0.940000f, 0.060000f)
+                                        .withRotationPoint(-0.350000f, -0.940000f, 0.060000f)
                                         .withScale(3.0F, 3.0F, 3.0F)
                         )
 
@@ -318,14 +318,14 @@ public class UMP45Factory {
                                         .withPosition(1.370000f, 0.345000f, -0.380000f)
                                         .withBBRotation(-10.558F, -28.6459F, 58.5348F)
                                         .withScale(2.6F, 2.6F, 4.0F)
-                                        .withPivotPoint(0, 0, 0),
+                                        .withRotationPoint(0, 0, 0),
 
 
                                 new Transform()
                                         .withPosition(-0.200000f, 0.140000f, 1.680000f)
                                         .withRotation(-5.4027F, -4.7805F, -1.6694F)
                                         .withScale(3.0F, 3.0F, 3.0F)
-                                        .withPivotPoint(0, 0, 0)
+                                        .withRotationPoint(0, 0, 0)
 
                         )
 
@@ -434,17 +434,17 @@ public class UMP45Factory {
                             new Transform()
                                     .withPosition(-1.625000f, 4.825000f, -5.805000f)
                                     .withRotation(0.000000f, -27.844225f, -13.566792f)
-                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(3.000000f, 3.000000f, 3.000000f)
-                                    .applyTransformations();
+                                    .doGLDirect();
                         })
                         .withFirstPersonPositioningModifyingAlt((renderContext) -> {
                             new Transform()
                                     .withPosition(-1.625000f, 4.825000f, -6.965000f)
                                     .withRotation(1.439132f, -36.985926f, -13.566792f)
-                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(3.000000f, 3.000000f, 3.000000f)
-                                    .applyTransformations();
+                                    .doGLDirect();
                         })
 
                         .withFirstPersonHandPositioningModifying(
@@ -453,16 +453,16 @@ public class UMP45Factory {
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
                                             .withScale(2.6F, 2.6F, 4.0F)
-                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .applyTransformations();
+                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .doGLDirect();
                                 },
                                 (renderContext) -> {
                                     new Transform()
                                             .withPosition(-0.2F, 0.1F, 2)
                                             .withRotation(-5.4027F, -4.7805F, -1.6694F)
                                             .withScale(3.5F, 3.5F, 3.5F)
-                                            .withPivotPoint(0, 0, 0)
-                                            .applyTransformations();
+                                            .withRotationPoint(0, 0, 0)
+                                            .doGLDirect();
                                 })
 
                         .withFirstPersonHandPositioningModifyingAlt(
@@ -471,16 +471,16 @@ public class UMP45Factory {
                                             .withPosition(2.450000f, -0.335000f, -0.660000f)
                                             .withRotation(93.766422f, 50.841130f, 4.679372f)
                                             .withScale(2.600000f, 2.600000f, 4.000000f)
-                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .applyTransformations();
+                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .doGLDirect();
                                 },
                                 (renderContext) -> {
                                     new Transform()
                                             .withPosition(-0.600000f, 0.340000f, 1.880000f)
                                             .withRotation(-12.193518f, -4.7805F, 1.399459f)
                                             .withScale(3.5F, 3.5F, 3.5F)
-                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .applyTransformations();
+                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .doGLDirect();
                                 })
 
                         .withThirdPersonLeftHandPositioningReloading(

@@ -339,7 +339,7 @@ public class AnimationModeProcessor {
 						Transform t = getTransformFromSelected();
 						
 						
-						t.withPivotPoint(t.getRotationPointX() + vec.x*m, t.getRotationPointY() + vec.y*m, t.getRotationPointZ() + vec.z*m);
+						t.withRotationPoint(t.getRotationPointX() + vec.x*m, t.getRotationPointY() + vec.y*m, t.getRotationPointZ() + vec.z*m);
 						
 					}
 					

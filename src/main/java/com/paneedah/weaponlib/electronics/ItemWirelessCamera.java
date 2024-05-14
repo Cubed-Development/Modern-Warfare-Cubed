@@ -40,11 +40,11 @@ public class ItemWirelessCamera extends Item implements ModelSource {
                 .entityPositioning(() -> new Transform()
                         .withPosition(-0.5, -0.55, 0.5)
                         .withScale(0.5, 0.5, 0.5)
-                        .applyTransformations())
+                        .doGLDirect())
                 .inventoryPositioning(() -> new Transform()
                         .withScale(2.25, 2.25, 2.25)
                         .withPosition(-0.80, -0.7, 0)
-                        .applyTransformations())
+                        .doGLDirect())
                 .build();
         protected CreativeTabs tab;
         protected AttachmentCategory attachmentCategory;

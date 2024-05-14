@@ -276,7 +276,7 @@ public class M200InterventionFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(-2.265000f, 5.405000f, -5.455000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
-                                        .withPivotPoint(0.610000f, -2.780000f, 3.300000f)
+                                        .withRotationPoint(0.610000f, -2.780000f, 3.300000f)
                                         .withScale(3.0f, 3.0f, 3.0f)
                         )
 
@@ -286,14 +286,14 @@ public class M200InterventionFactory implements GunFactory {
                                         .withPosition(1.410000f, -0.175000f, 0.580000f)
                                         .withBBRotation(-8.1997f, -23.6991f, 57.7232f)
                                         .withScale(2.6f, 2.6f, 4.0f)
-                                        .withPivotPoint(0, 0, 0),
+                                        .withRotationPoint(0, 0, 0),
 
 
                                 new Transform()
                                         .withPosition(-0.10000f, -0.60000f, 3.020000f)
                                         .withRotation(-5.4027f, -4.7805f, -1.6694f)
                                         .withScale(3f, 3f, 3.5f)
-                                        .withPivotPoint(0, 0, 0)
+                                        .withRotationPoint(0, 0, 0)
 
                         )
 
@@ -434,32 +434,32 @@ public class M200InterventionFactory implements GunFactory {
                             new Transform()
                                     .withPosition(-1.905000f, 4.065000f, -3.645000f)
                                     .withRotation(0.000000f, -30.514396f, -26.062789f)
-                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(2.300000f, 2.300000f, 2.300000f)
-                                    .applyTransformations();
+                                    .doGLDirect();
                         })
                         .withFirstPersonPositioningModifyingAlt((renderContext) -> {
                             new Transform()
                                     .withPosition(-1.425000f, 3.545000f, -5.685000f)
                                     .withRotation(-0.187566f, -46.164037f, -11.869230f)
-                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(2.300000f, 2.300000f, 2.300000f)
-                                    .applyTransformations();
+                                    .doGLDirect();
                         })
                         .withFirstPersonHandPositioningModifying((renderContext) -> {
                             new Transform()
                                     .withPosition(1.730000f, 0.065000f, -0.980000f)
                                     .withRotation(93.414678f, 23.699100f, 15.553163f)
                                     .withScale(2.6f, 2.6f, 4.0f)
-                                    .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
-                                    .applyTransformations();
+                                    .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
+                                    .doGLDirect();
                         }, (renderContext) -> {
                             new Transform()
                                     .withPosition(-0.2f, 0.1f, 2f)
                                     .withRotation(-5.4027f, -4.7805f, -1.6694f)
                                     .withScale(3.5f, 3.5f, 3.5f)
-                                    .withPivotPoint(0f, 0f, 0f)
-                                    .applyTransformations();
+                                    .withRotationPoint(0f, 0f, 0f)
+                                    .doGLDirect();
                         })
 
                         .withFirstPersonHandPositioningModifyingAlt(
@@ -468,15 +468,15 @@ public class M200InterventionFactory implements GunFactory {
                                             .withPosition(2.450000f, -0.335000f, -0.660000f)
                                             .withRotation(93.766422f, 50.841130f, 4.679372f)
                                             .withScale(2.600000f, 2.600000f, 4.000000f)
-                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .applyTransformations();
+                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .doGLDirect();
                                 }, (renderContext) -> {
                                     new Transform()
                                             .withPosition(-0.600000f, 0.340000f, 1.880000f)
                                             .withRotation(-12.193518f, -4.780500f, 1.399459f)
                                             .withScale(3.5f, 3.5f, 3.5f)
-                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .applyTransformations();
+                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .doGLDirect();
                                 }
                         )
 

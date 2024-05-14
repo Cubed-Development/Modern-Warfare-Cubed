@@ -314,7 +314,7 @@ public class PKMFactory {
                                 new Transform()
                                         .withPosition(-1.825000f, 5.665000f, -5.005000f)
                                         .withRotation(0.000000f, -0.500000f, 0.500000f)
-                                        .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                        .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                                         .withScale(3.5F, 3.5F, 3.5F)
                         )
 
@@ -325,14 +325,14 @@ public class PKMFactory {
                                         .withPosition(1.68f, 0.665f, -0.9464f)
                                         .withBBRotation(-15.4928F, -45.7685F, 66.3639F)
                                         .withScale(2.6F, 2.6F, 4.0F)
-                                        .withPivotPoint(0, 0, 0),
+                                        .withRotationPoint(0, 0, 0),
 
 
                                 new Transform()
                                         .withPosition(-0.05F, -0.2F, 1.8F)
                                         .withRotation(5.4027F, 4.7805F, -1.6694F)
                                         .withScale(3.0F, 3.0F, 3.0F)
-                                        .withPivotPoint(0, 0, 0)
+                                        .withRotationPoint(0, 0, 0)
 
                         )
 
@@ -400,18 +400,18 @@ public class PKMFactory {
                             new Transform()
                                     .withPosition(-1.905000f, 4.065000f, -3.645000f)
                                     .withRotation(0.000000f, -30.514396f, -26.062789f)
-                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(2.500000f, 2.500000f, 2.500000f)
-                                    .applyTransformations();
+                                    .doGLDirect();
                         })
 
                         .withFirstPersonPositioningModifyingAlt((renderContext) -> {
                             new Transform()
                                     .withPosition(-1.425000f, 3.545000f, -5.685000f)
                                     .withRotation(-0.187566f, -46.164037f, -11.869230f)
-                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(2.500000f, 2.500000f, 2.500000f)
-                                    .applyTransformations();
+                                    .doGLDirect();
                         })
                         .withFirstPersonHandPositioningModifying(
                                 (renderContext) -> {

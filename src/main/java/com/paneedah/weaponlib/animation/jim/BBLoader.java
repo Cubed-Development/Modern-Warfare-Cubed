@@ -58,7 +58,7 @@ public class BBLoader {
 			.withPosition(-2, 3, -2)
 			.withRotation(0, 0, -0)
 			.withScale(3.0, 3.0, 3.0)
-			.withPivotPoint(-0.1, 1.0, 0.0);
+			.withRotationPoint(-0.1, 1.0, 0.0);
 	
 	
 	private static String animationSuffix = ".animation.json";
