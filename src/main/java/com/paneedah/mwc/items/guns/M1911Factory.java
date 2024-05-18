@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M1911Factory implements GunFactory {
 
@@ -46,17 +45,7 @@ public class M1911Factory implements GunFactory {
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Pistol", 
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "7rnd .45 ACP Magazine",
-        "14rnd .45 ACP Magazine",
-        "7rnd .44 1911 Magazine (with .44 Mag conversion kit)"))
-         
+
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
                  0.1f, // y

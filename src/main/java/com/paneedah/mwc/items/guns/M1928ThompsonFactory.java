@@ -13,8 +13,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1928ThompsonFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -45,15 +43,6 @@ public class M1928ThompsonFactory {
         .withFlashOffsetY(() -> 0.12f)
         .withInaccuracy(2f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sub Machine Gun",
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "30rnd .45 ACP Magazine (M1A1)",
-        "50rnd .45 ACP Magazine (M1928)"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 

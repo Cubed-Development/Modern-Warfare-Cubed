@@ -22,7 +22,6 @@ import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Glock19Factory implements GunFactory {
 
@@ -73,16 +72,7 @@ public class Glock19Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 99/100",
-        "Magazines:",
-        "13rnd 9x19mm Glock Magazine",
-        "20rnd 9x19mm Magazine",
-        "50rnd 9x19mm Drum Magazine"))
+
         .withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 7), new
         		CraftingEntry(MWCItems.gunmetalPlate, 3), new

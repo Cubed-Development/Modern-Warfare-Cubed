@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-public class G11Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()

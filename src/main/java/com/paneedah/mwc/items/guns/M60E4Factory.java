@@ -12,7 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M60E4Factory {
 
@@ -43,14 +42,6 @@ public class M60E4Factory {
         .withFlashOffsetY(() -> 0.16f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: General-Purpose Machine Gun",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "100rnd 7.62x51mm Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 

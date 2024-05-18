@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class SW500MagnumFactory implements GunFactory {
 
@@ -48,12 +47,6 @@ public class SW500MagnumFactory implements GunFactory {
         .withInaccuracy(2)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-                "Type: Revolver",
-                "Damage: 7",
-                "Cartridge: .500 Magnum Bullet", 
-                "Fire Rate: Semi",
-                "Rate of Fire: 20/100"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 8f, // x 

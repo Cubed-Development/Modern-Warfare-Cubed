@@ -21,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class MP7Factory {
 
@@ -73,14 +72,6 @@ public class MP7Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sub Machine Gun/ Personal Defense Weapon/ Machine Pistol",
-        "Damage: 5.5", 
-        "Cartridge: 4.6x30mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 80/100",
-        "Magazines:",
-        "40rnd 4.6x30mm HK Magazine"))
         
         .withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 7), new

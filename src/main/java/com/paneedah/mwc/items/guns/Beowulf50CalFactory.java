@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Beowulf50CalFactory implements GunFactory {
 
@@ -69,14 +68,6 @@ public class Beowulf50CalFactory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: .50 Beowulf Rifle", 
-		"Damage: 7",
-		"Cartridge: .50 Beowulf",
-		"Fire Rate: SEMI",
-		"Rate of Fire: 30/100",
-		"Magazines:",
-        "10rnd .50 Beowulf Magazine"))
 		
 		.withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 10), new

@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M1941JohnsonFactory {
 
@@ -45,14 +44,6 @@ public class M1941JohnsonFactory {
 //        .withShellCasingSideOffset(0f)
         .withShellCasingVerticalOffset(-0.1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Light Machine Gun",
-        "Damage: 15", 
-        "Cartridge: .30-06 Springfield",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "20rnd .30-06 Springfield Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 

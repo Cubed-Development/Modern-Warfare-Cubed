@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class BrowningAuto5Factory implements GunFactory {
 
@@ -49,13 +48,6 @@ public class BrowningAuto5Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 20/100"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 

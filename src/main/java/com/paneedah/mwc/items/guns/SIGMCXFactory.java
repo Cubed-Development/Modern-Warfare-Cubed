@@ -17,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class SIGMCXFactory implements GunFactory {
 
@@ -70,18 +69,6 @@ public class SIGMCXFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Carbine", 
-		"Damage: 6", 
-		"Cartridge: 5.56x45mm NATO",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 75/100",
-		"Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                1f, // x 

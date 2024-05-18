@@ -19,8 +19,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MakarovPMFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -69,14 +67,6 @@ public class MakarovPMFactory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Soviet Semi-Automatic Pistol", 
-        "Damage: 4.5", 
-        "Cartridge: 9x18mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100",
-        "Magazines:",
-        "8rnd 9x18mm PM Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 

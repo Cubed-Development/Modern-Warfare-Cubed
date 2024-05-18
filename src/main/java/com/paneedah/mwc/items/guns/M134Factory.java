@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M134Factory implements GunFactory {
 
@@ -46,14 +45,6 @@ public class M134Factory implements GunFactory {
         .withShellCasingVerticalOffset(-0.05f)
         .withBleedingCoefficient(7f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Minigun", 
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm NATO",
-        "Fire Rate: AUTO",
-        "Rate of Fire: Excuse me?",
-        "Magazines:",
-        "1000rnd 7.62x51mm Box Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  1f, // x 

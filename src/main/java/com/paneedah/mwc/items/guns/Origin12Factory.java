@@ -17,7 +17,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Origin12Factory {
 
@@ -71,17 +70,6 @@ public class Origin12Factory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Tactical Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100",
-        "Inaccuracy Rating: Moderately High",
-        "Magazines:",
-        "5rnd 12 Gauge Origin Magazine",
-        "20rnd 12 Gauge Drum Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 

@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class ChiappaRhinoFactory implements GunFactory {
 
     
@@ -47,13 +45,6 @@ public class ChiappaRhinoFactory implements GunFactory {
         .withInaccuracy(3)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        
-        .withInformationProvider(stack -> Arrays.asList(
-                "Type: Revolver",
-                "Damage: 5.4",
-                "Cartridge: .357 Bullet", 
-                "Fire Rate: Semi",
-                "Rate of Fire: 20/100"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 4f, // x 

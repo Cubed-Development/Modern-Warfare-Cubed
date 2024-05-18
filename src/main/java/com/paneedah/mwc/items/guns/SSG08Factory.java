@@ -12,7 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class SSG08Factory implements GunFactory {
 
@@ -45,14 +44,6 @@ public class SSG08Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.08f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Precision Sniper Rifle",
-        "Damage: 27", 
-        "Cartridge: .308 Winchester",
-        "Fire Rate: BOLT ACTION",
-        "Rate of Fire: 16/100",
-        "Magazines:",
-        "8rnd .308 Winchester Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  4f, // x 

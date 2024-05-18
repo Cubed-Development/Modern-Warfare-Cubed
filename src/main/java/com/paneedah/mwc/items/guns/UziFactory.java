@@ -18,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class UziFactory implements GunFactory {
 
@@ -69,14 +68,6 @@ public class UziFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Submachine Gun", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 70/100",
-        "Magazines:",
-        "32rnd 9x19mm Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 

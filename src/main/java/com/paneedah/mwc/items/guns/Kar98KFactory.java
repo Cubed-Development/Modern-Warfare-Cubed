@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Kar98KFactory implements GunFactory {
 
@@ -51,12 +50,6 @@ public class Kar98KFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.16f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Bolt-action rifle",
-        "Damage: 13.5",
-        "Cartridge: 7.92x57mm", 
-        "Fire Rate: Bolt Action",
-        "Rate of Fire: 16/100"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 

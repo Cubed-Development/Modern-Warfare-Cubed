@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class BrenMkIIFactory {
 
@@ -43,14 +42,6 @@ public class BrenMkIIFactory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Light Machine Gun",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "30rnd 7.62x51mm Bren Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2f, // x 

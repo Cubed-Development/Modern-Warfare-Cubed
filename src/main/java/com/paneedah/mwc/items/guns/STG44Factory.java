@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class STG44Factory {
 
@@ -44,14 +43,6 @@ public class STG44Factory {
         .withFlashOffsetY(() -> 0.14f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault rifle",
-        "Damage: 7.7", 
-        "Cartridge: 7.92x33mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "30rnd 7.92x33mm Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 

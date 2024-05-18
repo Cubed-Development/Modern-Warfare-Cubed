@@ -20,7 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Glock18CFactory implements GunFactory {
 
@@ -71,16 +70,6 @@ public class Glock18CFactory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Machine Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 95/100",
-        "Magazines:",
-        "13rnd 9x19mm Glock Magazine",
-        "20rnd 9x19mm Magazine",
-        "50rnd 9x19mm Drum Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 

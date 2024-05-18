@@ -18,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class FNFALFactory {
 
@@ -67,14 +66,6 @@ public class FNFALFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Battle rifle",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "20rnd 7.62x51mm Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2f, // x 

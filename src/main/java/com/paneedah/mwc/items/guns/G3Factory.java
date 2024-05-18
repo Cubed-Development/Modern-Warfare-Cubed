@@ -19,7 +19,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class G3Factory {
 
@@ -67,14 +66,6 @@ public class G3Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Battle Rifle",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "20rnd 7.62x51mm HK G3 Magazine"))
         
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 

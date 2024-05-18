@@ -21,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class KBP9A91Factory {
 
@@ -71,14 +70,6 @@ public class KBP9A91Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Carbine",
-        "Damage: 7", 
-        "Cartridge: 9x39mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 70/100",
-        "Magazines:",
-        "20rnd 9x39mm KBP Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2f, // x 

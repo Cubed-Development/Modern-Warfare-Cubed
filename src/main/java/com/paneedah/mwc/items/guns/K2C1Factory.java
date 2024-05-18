@@ -20,7 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class K2C1Factory implements GunFactory {
 
@@ -74,18 +73,6 @@ public class K2C1Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Assault Rifle", 
-		"Damage: 6", 
-		"Cartridge: 5.56x45mm NATO",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 75/100",
-		"Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                1f, // x 

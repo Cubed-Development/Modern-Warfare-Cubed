@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class DP28Factory {
 
@@ -45,14 +44,6 @@ public class DP28Factory {
         .withFlashOffsetY(() -> 0.14f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Light Machine Gun",
-        "Damage: 14", 
-        "Cartridge: 7.62x54mmR",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "47rnd 7.62x54mmR Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 

@@ -17,7 +17,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class MPXFactory implements GunFactory {
 
@@ -71,14 +70,6 @@ public class MPXFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Submachine Gun", 
-		"Damage: 5", 
-		"Cartridge: 9x19mm",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 85/100",
-		"Magazines:",
-        "30rnd 9x19mm MPX Magazine"))
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 

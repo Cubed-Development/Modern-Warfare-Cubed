@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M200InterventionFactory implements GunFactory {
 
@@ -47,14 +46,6 @@ public class M200InterventionFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.11f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sniper Rifle",
-        "Damage: 20", 
-        "Cartridge: .408 Cheyenne Tactical",
-        "Fire Rate: BOLT ACTION",
-        "Rate of Fire: 16/100",
-        "Magazines:",
-        "7rnd .408 CT Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 4f, // x 

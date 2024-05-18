@@ -21,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class P90Factory {
 
@@ -72,15 +71,6 @@ public class P90Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Personal Defense Weapon",
-        "Damage: 5.5", 
-        "Cartridge: 5.7x28mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 80/100",
-        "Magazines:",
-        "50rnd 5.7x28mm Magazine",
-        "65rnd 5.7x28mm Terminator Magazine (w/ Terminator conversion kit)"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 

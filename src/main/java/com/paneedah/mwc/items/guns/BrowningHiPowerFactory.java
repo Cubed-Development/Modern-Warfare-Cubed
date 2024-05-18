@@ -19,7 +19,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class BrowningHiPowerFactory implements GunFactory {
 
@@ -50,14 +49,6 @@ public class BrowningHiPowerFactory implements GunFactory {
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Single Action Semi-Automatic Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 65/100",
-        "Magazines:",
-        "13rnd 9x19mm Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  4f, // x 

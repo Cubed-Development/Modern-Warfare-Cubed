@@ -17,7 +17,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class CZ805BrenFactory implements GunFactory {
 
@@ -70,19 +69,7 @@ public class CZ805BrenFactory implements GunFactory {
         .withCrafting(CraftingComplexity.MEDIUM,
                 MWCItems.gunmetalIngot,
                 MWCItems.gunmetalPlate)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault Rifle/Carbine", 
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm NATO",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 80/100",
-        "Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "60rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "100rnd 5.56x45mm NATO STANAG Drum Magazine"))
-        
+
         .withScreenShaking(RenderableState.SHOOTING, 
                 1f, // x 
                 1f, // y

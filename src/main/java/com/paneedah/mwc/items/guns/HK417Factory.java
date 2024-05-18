@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class HK417Factory implements GunFactory {
 
@@ -67,15 +66,7 @@ public class HK417Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Battle Rifle/Designated Marksmen Rifle", 
-		"Damage: 10", 
-		"Cartridge: 7.62x51mm",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 75/100",
-		"Magazines:",
-        "20rnd 7.62x51mm 417 Magazine"))
-		 
+
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                2f, // x 
 	                2f, // y

@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class KS23Factory implements GunFactory {
 
@@ -54,13 +53,6 @@ public class KS23Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.05f)
         .withFlashOffsetY(() -> 0.09f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Carbine/Shotgun",
-        "Damage per Pellet: 7.5",
-        "Pellets per Shot: 10", 
-        "Cartridge: 4 Gauge Shotgun Shell",
-        "Fire Rate: PUMP ACTION",
-        "Rate of Fire: 10/100"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 

@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M1897Factory implements GunFactory {
 
@@ -61,13 +60,7 @@ public class M1897Factory implements GunFactory {
 	                10f) // z
 		 
 	        .withCreativeTab(MWC.WEAPONS_TAB)
-	        .withInformationProvider(stack -> Arrays.asList(
-	        "Type: Shotgun",
-	        "Damage per Pellet: 6",
-	        "Pellets per Shot: 10", 
-	        "Cartridge: 12 Gauge Shotgun Shell",
-	        "Fire Rate: PUMP ACTION",
-	        "Rate of Fire: 50/100"))
+
 	        .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
 	            if(model instanceof AKMiron1) {
 	                GL11.glTranslatef(0.125F, -1.8F, -0.5F);

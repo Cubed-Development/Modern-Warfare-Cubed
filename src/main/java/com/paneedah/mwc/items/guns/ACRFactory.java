@@ -20,9 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-// IMPORT LIST END
-
 
 public class ACRFactory implements GunFactory {
 
@@ -72,18 +69,6 @@ public class ACRFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList( // Information provider
-        "Type: Modular Assault Rifle", // Information
-        "Damage: 6", // Damage in Item Description
-        "Cartridge: 5.56x45mm NATO", // Cartridge in Item Description
-        "Fire Rate: SEMI, BURST, AUTO", // Fire Rate in Item Description
-        "Rate of Fire: 65/100",// Rate of Fire in Item Description
-        "Magazines:", // Magazines in Item Description
-        "30rnd 5.56x45mm NATO STANAG Magazine",  // Magazines Tyoes in Item Description
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING,  // Screen shaking 
                 1f, // x 

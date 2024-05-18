@@ -18,7 +18,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class UMP45Factory {
 
@@ -69,15 +68,6 @@ public class UMP45Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Universal Machine Pistol",
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "25rnd .45 ACP HK Magazine",
-        "30rnd 9x19mm HK UMP Magazine (w/ UMP-9 Receiver)"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 

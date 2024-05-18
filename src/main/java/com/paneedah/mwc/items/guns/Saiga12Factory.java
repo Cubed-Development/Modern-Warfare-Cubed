@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Saiga12Factory {
 
@@ -56,15 +55,7 @@ public class Saiga12Factory {
                  10f) // z
          
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Carbine/Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 40/100",
-        "Magazines:",
-        "5rnd 12G Magazine"))
+
         .withCompatibleAttachment(AuxiliaryAttachments.Saiga12action, true, (model) -> {
         })
         .withCompatibleAttachment(Magazines.SaigaMag, (model) -> {
