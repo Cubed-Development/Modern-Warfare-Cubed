@@ -7,6 +7,14 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 
 ## Modern Warfare Cubed Version 0.1.6 Changelog - 2024-05-21
 
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
 ### Fixed
 
 - Fixed the GroovyScript integration for GroovyScript versions above 1.0.0
