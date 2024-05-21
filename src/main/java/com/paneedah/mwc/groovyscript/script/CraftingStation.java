@@ -2,8 +2,6 @@ package com.paneedah.mwc.groovyscript.script;
 
 import com.cleanroommc.groovyscript.api.GroovyLog;
 import com.cleanroommc.groovyscript.api.IIngredient;
-import com.cleanroommc.groovyscript.helper.ingredient.ItemsIngredient;
-import com.cleanroommc.groovyscript.helper.ingredient.OreDictIngredient;
 import com.cleanroommc.groovyscript.helper.recipe.AbstractRecipeBuilder;
 import com.cleanroommc.groovyscript.registry.VirtualizedRegistry;
 import com.paneedah.mwc.groovyscript.recipes.GSCrafting;
