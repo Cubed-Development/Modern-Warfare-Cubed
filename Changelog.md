@@ -10,6 +10,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 ### Fixed
 
 - Fixed the GroovyScript integration for GroovyScript versions above 1.0.0
+- Fixed shader compilation crash with Mesa (and potentially others) drivers
 
 ## Modern Warfare Cubed Version 0.1.5 Changelog - 2024-04-02
 
