@@ -23,6 +23,6 @@ public class MWCGroovyPlugin implements GroovyPlugin {
 
     @Override
     public void onCompatLoaded(GroovyContainer<?> groovyContainer) {
-        groovyContainer.getVirtualizedRegistrar().addFieldsOf(this);
+        groovyContainer.getRegistrar().addFieldsOf(this);
     }
 }
