@@ -130,7 +130,7 @@ float isPointInCone(float baseRadius, vec3 position, vec3 source, vec3 direction
 		float orth_distance = length((position - source) - cone_dist * direction);
 
 		if(orth_distance > cone_radius) {
-			return -1;
+			return -1.0;
 		} else {
 			return orth_distance - cone_radius;
 		}
