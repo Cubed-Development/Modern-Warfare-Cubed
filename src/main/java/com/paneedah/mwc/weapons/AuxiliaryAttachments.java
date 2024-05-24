@@ -1193,7 +1193,7 @@ public class AuxiliaryAttachments {
         Makarov_Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new com.paneedah.mwc.models.MakarovSlide(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.MakarovPMSlide(), "makarovpm.png")
                 .withModel(new com.paneedah.mwc.models.makarovrearsight(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.makarovfrontsight(), "gun.png")
                 .withName("Makarov_Slide")

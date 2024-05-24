@@ -1661,7 +1661,7 @@ public class Magazines {
         		.withName("MakarovMag")
         		.withRequiredAttachments(Attachments.MakarovSlide, Attachments.MakarovPBBody)
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
-                .withModel(new com.paneedah.mwc.models.MakarovMag(), "makarovmag.png")
+                .withModel(new com.paneedah.mwc.models.MakarovMag(), "makarovpm.png")
                 .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
