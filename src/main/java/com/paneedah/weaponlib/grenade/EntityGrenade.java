@@ -192,7 +192,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
                 Entity nearbyEntity = (Entity)nearbyEntityObject;
                 if (nearbyEntity.canBeCollidedWith()) {
                     float f = 0.5f;
-                    AxisAlignedBB axisalignedbb = nearbyEntity.getEntityBoundingBox().expand((double) f, (double) f, (double) f);
+                    AxisAlignedBB axisalignedbb = nearbyEntity.getEntityBoundingBox().expand(f, f, f);
                     RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(cvec10.toVec3d(), cvec2.toVec3d());
 
                     if (movingobjectposition1 != null) {

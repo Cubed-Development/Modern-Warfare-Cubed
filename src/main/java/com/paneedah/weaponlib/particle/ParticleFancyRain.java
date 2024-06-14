@@ -7,6 +7,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 /**
  * @author Luna Lage (Desoroxxx)
  * @since 0.1
@@ -31,6 +33,7 @@ public class ParticleFancyRain extends ParticleRain {
     }
 
     @SideOnly(Side.CLIENT)
+    @ParametersAreNonnullByDefault
     public static class Factory implements IParticleFactory
     {
         public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_)

@@ -83,17 +83,17 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
 
         .in(this)
         .change(GrenadeState.READY).to(GrenadeState.SAFETY_PING_OFF)
-        .withAction(i -> takeSafetyPinOff(i))
+        .withAction(this::takeSafetyPinOff)
         .when(hasSafetyPin)
         .manual()
 
         .in(this).change(GrenadeState.SAFETY_PING_OFF).to(GrenadeState.STRIKER_LEVER_RELEASED)
-        .withAction(i -> releaseStrikerLever(i))
+        .withAction(this::releaseStrikerLever)
         //.when(takingOffSafetyPinCompleted)
         .manual()
 
         .in(this).change(GrenadeState.STRIKER_LEVER_RELEASED).to(GrenadeState.EXPLODED_IN_HANDS)
-        .withAction(i -> explode(i))
+        .withAction(this::explode)
         .when(explosionTimeoutExpired.and(i -> i.getWeapon().getType() == Type.REGULAR))
         .automatic()
 
@@ -102,7 +102,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         .manual()
 
         .in(this).change(GrenadeState.THROWING).to(GrenadeState.THROWN)
-        .withAction(i -> throwIt(i))
+        .withAction(this::throwIt)
         .when(throwingCompleted)
         .automatic()
 
@@ -110,12 +110,12 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         .manual()
 
         .in(this).change(GrenadeState.THROWN).to(GrenadeState.READY)
-        .withAction(i -> reequip(i))
+        .withAction(this::reequip)
         .when(reequipTimeoutExpired)
         .automatic()
 
         .in(this).change(GrenadeState.EXPLODED_IN_HANDS).to(GrenadeState.READY)
-        .withAction(i -> reequip(i))
+        .withAction(this::reequip)
         .when(reequipTimeoutExpired)
         .automatic()
         ;
