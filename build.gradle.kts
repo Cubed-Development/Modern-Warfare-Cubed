@@ -44,7 +44,7 @@ repositories {
 
     listOf("release", "beta", "dev").forEach { repoType ->
         maven {
-            name = "Red Studio - ${repoType.capitalize()}"
+            name = "Red Studio - ${repoType.replaceFirstChar { it.uppercase() }}"
             url = uri("https://repo.redstudio.dev/$repoType")
         }
     }
