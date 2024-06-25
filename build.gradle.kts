@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "com.paneedah"
-version = "0.1.6" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
+version = "0.2-Dev-1" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
 
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
@@ -44,7 +44,7 @@ repositories {
 
     listOf("release", "beta", "dev").forEach { repoType ->
         maven {
-            name = "Red Studio - ${repoType.capitalize()}"
+            name = "Red Studio - ${repoType.replaceFirstChar { it.uppercase() }}"
             url = uri("https://repo.redstudio.dev/$repoType")
         }
     }
@@ -67,7 +67,7 @@ dependencies {
 
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
-    compileOnly("com.cleanroommc:groovyscript:1.0.1") {
+    compileOnly("com.cleanroommc:groovyscript:1.1.0") {
         isTransitive = false
     }
 
