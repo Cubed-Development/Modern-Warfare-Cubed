@@ -35,7 +35,6 @@ public class Magazines {
     public static ItemMagazine DragunovMag;
     public static ItemMagazine AK50Mag;
     public static ItemMagazine AK75Mag;
-    public static ItemMagazine AK100Mag;
     public static ItemMagazine M9A1Mag;
     public static ItemMagazine FiveSevenMag;
     public static ItemMagazine SamuraiEdgeMag;
@@ -126,7 +125,6 @@ public class Magazines {
     public static ItemMagazine M60Mag;
     public static ItemMagazine M249Mag;
     public static ItemMagazine PKMMag;
-    public static ItemMagazine StonerMag;
     public static ItemMagazine M134Mag;
     public static ItemMagazine FuelCell;
     public static ItemMagazine NinthSinMag;
@@ -589,36 +587,6 @@ public class Magazines {
                 .withName("PKMMag")
                 .withRotationPoint(0.8812000082910061F, 0.8648000418066975F, -1.40640004143715F)
                 .withModel(new PKMMag(), "pkm.png")
-                .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
-                .build(MWC.modContext, ItemMagazine.class);
-
-        Magazines.StonerMag = new ItemMagazine.Builder()
-                .withCapacity(100)
-                .withCompatibleBullet(Bullets.Bullet556x45)
-                .withFirstPersonModelPositioning(model -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                })
-                .withThirdPersonModelPositioning(model -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                })
-                .withInventoryModelPositioning(model -> {
-                    GL11.glTranslatef(0.3F, -2.2F, 3.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
-                })
-                .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
-                .withName("StonerMag")
-                .withModel(new StonerA1MAG(), "m249.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
@@ -1202,34 +1170,6 @@ public class Magazines {
                 .withName("AK75Mag")
                 .withRotationPoint(-0.12000000357627871F, 0.28000000834465033F, -1.8800000560283665F)
                 .withModel(new Mag75rnd(), "gun.png")
-                .withMaxStackSize(6)
-                .build(MWC.modContext, ItemMagazine.class);
-
-        Magazines.AK100Mag = new ItemMagazine.Builder()
-                .withCapacity(100)
-                .withCompatibleBullet(Bullets.Bullet762x39)
-                .withFirstPersonModelPositioning(model -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                })
-                .withThirdPersonModelPositioning(model -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                })
-                .withInventoryModelPositioning(model -> {
-                    GL11.glTranslatef(0.3F, 0.6f, -2.4F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
-                })
-                .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
-                .withName("AK100Mag")
-                .withRotationPoint(-0.12000000357627871F, 0.28000000834465033F, -1.8800000560283665F)
-                .withModel(new AKDrum100(), "gun.png")
                 .withMaxStackSize(6)
                 .build(MWC.modContext, ItemMagazine.class);
 

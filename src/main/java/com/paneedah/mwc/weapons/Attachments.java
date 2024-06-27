@@ -249,7 +249,6 @@ public class Attachments {
     public static ItemAttachment<Weapon> AUGA3handguard;
     public static ItemAttachment<Weapon> AUGA3extGuard;
 
-    public static ItemAttachment<Weapon> StonerHANDGUARD;
 
     public static ItemAttachment<Weapon> AR57Handguard;
 
@@ -496,8 +495,6 @@ public class Attachments {
     public static ItemAttachment<Weapon> SamuraiEdgeMount;
     public static ItemAttachment<Weapon> DesertEagleBody;
     public static ItemAttachment<Weapon> DesertEagleSlide;
-    public static ItemAttachment<Weapon> DesertEagleBodyGolden;
-    public static ItemAttachment<Weapon> DesertEagleSlideGolden;
     public static ItemAttachment<Weapon> Glock19Body;
     //    public static ItemAttachment<Weapon> Glock18CBody;
     public static ItemAttachment<Weapon> Glock19XBody;
@@ -2685,46 +2682,6 @@ public class Attachments {
                 })
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("Mk48UpperHandGuard")
-                .build(MWC.modContext);
-
-        StonerHANDGUARD = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.GUARD)
-                .withModel(new StonerHANDGUARD(), "gun.png")
-                .withModel(new AKRail(), "akrail.png")
-                .withModel(new AKRail2(), "akrail.png")
-                .withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.StonerHANDGUARD) {
-                        GL11.glTranslatef(-0.6F, -0.4F, 1.1F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.7F, 0.7F, 0.7f);
-                    } else {
-                        GL11.glScalef(0f, 0f, 0f);
-                    }
-                })
-                .withFirstPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.StonerHANDGUARD) {
-                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
-                        GL11.glRotatef(30F, 0f, 1f, 0f);
-                        GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else {
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
-
-                })
-                .withThirdPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.StonerHANDGUARD) {
-                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
-                        GL11.glRotatef(-50F, 0f, 1f, 0f);
-                        GL11.glRotatef(80F, 1f, 0f, 0f);
-                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else {
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
-                })
-                .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withName("StonerHANDGUARD")
                 .build(MWC.modContext);
 
         AUGA1handguard = new AttachmentBuilder<Weapon>()
@@ -5830,84 +5787,6 @@ public class Attachments {
                 })
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("DesertEagleBody")
-                .withRenderablePart()
-                .build(MWC.modContext);
-
-        DesertEagleBodyGolden = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.BACKGRIP)
-                .withModel(new DesertEagle(), "deaglegolden.png")
-                .withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.DesertEagle) {
-                        GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.9F, 0.9F, 0.9f);
-                    } else {
-                        GL11.glScalef(0f, 0f, 0f);
-                    }
-                })
-                .withFirstPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.DesertEagle) {
-                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
-                        GL11.glRotatef(30F, 0f, 1f, 0f);
-                        GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else {
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
-
-                })
-                .withThirdPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.DesertEagle) {
-                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
-                        GL11.glRotatef(-50F, 0f, 1f, 0f);
-                        GL11.glRotatef(80F, 1f, 0f, 0f);
-                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else {
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
-                })
-                .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withName("DesertEagleBodyGolden")
-                .withRenderablePart()
-                .build(MWC.modContext);
-
-        DesertEagleSlideGolden = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.FRONTSIGHT)
-                .withModel(new DesertEagleSlide(), "deaglegolden.png")
-                .withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.DesertEagleSlide) {
-                        GL11.glTranslatef(-0.6F, 0.2F, -0.4F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.9F, 0.9F, 0.9f);
-                    } else {
-                        GL11.glScalef(0f, 0f, 0f);
-                    }
-                })
-                .withFirstPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.DesertEagleSlide) {
-                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
-                        GL11.glRotatef(30F, 0f, 1f, 0f);
-                        GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else {
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
-
-                })
-                .withThirdPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.DesertEagleSlide) {
-                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
-                        GL11.glRotatef(-50F, 0f, 1f, 0f);
-                        GL11.glRotatef(80F, 1f, 0f, 0f);
-                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else {
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
-                })
-                .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withName("DesertEagleSlideGolden")
                 .withRenderablePart()
                 .build(MWC.modContext);
 
@@ -13338,7 +13217,7 @@ public class Attachments {
                 .withModel(new FALIron(), "gun.png")
                 .withModel(new AKMiron2(), "gun.png")
                 .withRequiredAttachments(M38HandGuard, LVOAVHandGuard, Mk18HandGuard,
-                        StonerHANDGUARD, AR57Handguard, HK417Handguard, HK417HandguardTan,
+                        AR57Handguard, HK417Handguard, HK417HandguardTan,
                         HK416HandGuardBlackAndTan)
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.weapons.AK47iron) {
@@ -13382,7 +13261,7 @@ public class Attachments {
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withRequiredAttachments(M38HandGuard, LVOAVHandGuard, Mk18HandGuard,
-                        StonerHANDGUARD, AR57Handguard, M16A4HandGuard, M4CarbineHandGuard,
+                        AR57Handguard, M16A4HandGuard, M4CarbineHandGuard,
                         ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
                         ACRPrecisionHandGuardTan,
                         ACRSBRHandGuardTan, ACRPolymerHandGuardTan,
@@ -13433,7 +13312,7 @@ public class Attachments {
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withRequiredAttachments(M38HandGuard, LVOAVHandGuard, Mk18HandGuard,
-                        StonerHANDGUARD, AR57Handguard, M16A4HandGuard, M4CarbineHandGuard,
+                        AR57Handguard, M16A4HandGuard, M4CarbineHandGuard,
                         ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
                         ACRPrecisionHandGuardTan,
                         ACRSBRHandGuardTan, ACRPolymerHandGuardTan,
@@ -13810,7 +13689,7 @@ public class Attachments {
                         MIMP5TRRail, MIMP5MRail, ShotgunRail, FABDefenseMount,
                         Placeholder, Kar98Krail, M60Mk43Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, Attachments.EF88Handguard, KrissVectorReceiver,
-                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideGolden, M1CarbineScoutHandguard,
+                        Vector556Handguard, DesertEagleSlide, M1CarbineScoutHandguard,
                         Origin12Grip, HKS20Grip, HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis, SA58DustCover,
                         M16A1ScopeMount, UMP45Receiver, UMP9Receiver, G2ContenderBarrelLong, S710Receiver,
@@ -14644,7 +14523,7 @@ public class Attachments {
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
-                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
+                        Vector556Handguard, DesertEagleSlide, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, MAS21Mount, APC9Placeholder,
                         MAC21Stock, VSSMDustCover, Dragunov98DustCover)
                 .withFirstPersonModelPositioning(model -> {
@@ -14710,7 +14589,7 @@ public class Attachments {
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
-                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
+                        Vector556Handguard, DesertEagleSlide, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, MAS21Mount, APC9Placeholder,
                         MAC21Stock, VSSMDustCover, Dragunov98DustCover)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -17843,7 +17722,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.LASER)
                 .withRequiredAttachments(M4CarbineHandGuard, M38HandGuard, UTGTriRailHandGuard, PistolPlaceholder,
                         FABDefenseMount, LaserPlaceholder, Mk18HandGuard, M60MK43Handguard,
-                        P90Swordfish, AUGA3extGuard, StonerHANDGUARD, M9A1Body, SamuraiEdgeBody,
+                        P90Swordfish, AUGA3extGuard, M9A1Body, SamuraiEdgeBody,
                         M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         HoneyBadgerMatrixArmsHandguard,
                         UMP45Receiver, UMP9Receiver, ScorpionHandguardShort, APC9Placeholder, ARX160Chassis,
@@ -17918,7 +17797,7 @@ public class Attachments {
                 .withModel(new Laser3(), "laser2.png")
                 .withRequiredAttachments(M4CarbineHandGuard, M38HandGuard, UTGTriRailHandGuard, PistolPlaceholder,
                         LaserPlaceholder, Mk18HandGuard, M60MK43Handguard, P90Swordfish,
-                        AUGA3extGuard, StonerHANDGUARD, AR57Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
+                        AUGA3extGuard, AR57Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         HoneyBadgerMatrixArmsHandguard, AR10SuperSASSHandguard,
                         UMP45Receiver, UMP9Receiver, ScorpionHandguardShort, APC9Placeholder, ARX160Chassis, FamasF1PicatinnyRail,
                         HK417Handguard, HK417HandguardTan, AK12BHandguard, CZ805BrenReceiver, Block2SOCOMHandguard,
@@ -18181,7 +18060,7 @@ public class Attachments {
                         AK15HandleGuard, M4CarbineHandGuard, LVOAVHandGuard,
                         M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
                         Mk18HandGuard, M60MK43Handguard, P90Swordfish, AUGA3extGuard,
-                        AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
+                        AR57Handguard, RPK16Handguard, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard,
                         ACRHandGuardBlack, ACRWEMSKHandGuardTan,
@@ -18249,7 +18128,7 @@ public class Attachments {
                         AK15HandleGuard, M4CarbineHandGuard, LVOAVHandGuard,
                         M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
                         Mk18HandGuard, M60MK43Handguard, P90Swordfish, AUGA3extGuard,
-                        AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
+                        AR57Handguard, RPK16Handguard, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard,
                         ACRHandGuardBlack, ACRWEMSKHandGuardTan,
@@ -18458,7 +18337,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard,
                         LVOAVHandGuard, M38HandGuard, GripPlaceholder, UTGTriRailHandGuard, Mk18HandGuard,
                         M60MK43Handguard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
-                        StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard,
+                        KrissVectorReceiver, Vector556Handguard,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, FNFALPARAHandguard, M16A1PicatinnyRail,
@@ -18522,7 +18401,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard,
                         LVOAVHandGuard, M38HandGuard, GripPlaceholder, UTGTriRailHandGuard, Mk18HandGuard,
                         M60MK43Handguard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
-                        StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard,
+                        KrissVectorReceiver, Vector556Handguard,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, FNFALPARAHandguard, M16A1PicatinnyRail,
@@ -18553,7 +18432,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard, M60MK43Handguard, P90Swordfish, AUGA3extGuard,
-                        AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
+                        AR57Handguard, RPK16Handguard, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody,
@@ -18624,7 +18503,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard, M60MK43Handguard, P90Swordfish, AUGA3extGuard,
-                        AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
+                        AR57Handguard, RPK16Handguard, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody,
@@ -18656,7 +18535,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard,
-                        M60MK43Handguard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
+                        M60MK43Handguard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard,
                         KrissVectorReceiver, Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan, B50PKMHandguard, B50PKPHandguard,
@@ -18724,7 +18603,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard,
-                        M60MK43Handguard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
+                        M60MK43Handguard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard,
                         KrissVectorReceiver, Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan, B50PKMHandguard, B50PKPHandguard,
@@ -18756,8 +18635,8 @@ public class Attachments {
                 .withModel(new Bipod(), "bipod.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
-                        Mk18HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
-                        StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard, M16A4HandGuard, ACRHandGuard,
+                        Mk18HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
+                        KrissVectorReceiver, Vector556Handguard, M16A4HandGuard, ACRHandGuard,
                         ACRPrecisionHandGuardTan, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis,
                         FNFALPARAHandguard, M16A1PicatinnyRail, K2C1Handguard, AR10SuperSASSHandguard, ARX160Chassis,

@@ -166,8 +166,6 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> M1GarandMag;
     public static ItemAttachment<Weapon> G11Action;
     public static ItemAttachment<Weapon> AUGAction;
-    public static ItemAttachment<Weapon> StonerHATCH;
-    public static ItemAttachment<Weapon> StonerBELT;
     public static ItemAttachment<Weapon> JohnsonACTION;
     public static ItemAttachment<Weapon> NTW20Barrel;
     public static ItemAttachment<Weapon> NTW20Action;
@@ -192,9 +190,6 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> ScorpionAction;
     public static ItemAttachment<Weapon> APC9Action;
     public static ItemAttachment<Weapon> ARX160Action;
-    public static ItemAttachment<Weapon> MAS21Slide;
-    public static ItemAttachment<Weapon> MAS21Part;
-    public static ItemAttachment<Weapon> MAS21Barrel;
     public static ItemAttachment<Weapon> PanelUpper;
     public static ItemAttachment<Weapon> PanelLower;
     public static ItemAttachment<Weapon> RegulatorUpper;
@@ -409,38 +404,6 @@ public class AuxiliaryAttachments {
                 .withModel(new AUGaction(), "aug.png")
                 .withName("AUGAction")
                 .withRenderablePart()
-                .build(MWC.modContext);;
-
-        MAS21Slide = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA)
-                // .withCreativeTab(MWC.gunsTab)
-                .withModel(new MAS21Slide(), "MAS21.png")
-                .withModel(new P226rearsight(), "p226rearsight.png")
-                .withModel(new P226frontsight(), "p226frontsight.png")
-                .withName("MAS21Slide")
-                .withRenderablePart()
-
-
-                .build(MWC.modContext);;
-
-        MAS21Barrel = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA2)
-                // .withCreativeTab(MWC.gunsTab)
-                .withModel(new MAS21Barrel(), "MAS21.png")
-                .withName("MAS21Barrel")
-                .withRenderablePart()
-
-
-                .build(MWC.modContext);;
-
-        MAS21Part = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA3)
-                // .withCreativeTab(MWC.gunsTab)
-                .withModel(new MAS21Part(), "MAS21.png")
-                .withName("MAS21Part")
-                .withRenderablePart()
-
-
                 .build(MWC.modContext);;
 
         M32Main1B = new AttachmentBuilder<Weapon>()
@@ -890,25 +853,6 @@ public class AuxiliaryAttachments {
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new M60Belt(), "m60.png")
                 .withName("M60Belt")
-                .withRenderablePart()
-
-                .build(MWC.modContext);;
-
-        StonerHATCH = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA3)
-                // .withCreativeTab(MWC.gunsTab)
-                .withModel(new StonerA1HATCH(), "gun.png")
-                .withModel(new M27rearsight(), "gun.png")
-                .withName("StonerHATCH")
-                .withRenderablePart()
-
-                .build(MWC.modContext);;
-
-        StonerBELT = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA2)
-                // .withCreativeTab(MWC.gunsTab)
-                .withModel(new StonerA1BELT(), "gun.png")
-                .withName("StonerBELT")
                 .withRenderablePart()
 
                 .build(MWC.modContext);;

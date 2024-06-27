@@ -62,10 +62,6 @@ public class DesertEagleFactory implements GunFactory {
                 })
                 .withCompatibleAttachment(Magazines.DesertEagleMag, (model) -> {
                 })
-                .withCompatibleAttachment(Attachments.DesertEagleBodyGolden, (model) -> {
-                })
-                .withCompatibleAttachment(Attachments.DesertEagleSlideGolden, (model) -> {
-                })
 
                 .withCompatibleAttachment(Attachments.RMR, (player, itemStack) -> {
                     GL11.glTranslatef(-0.19F, -1.5F, -1.25F);
@@ -106,8 +102,7 @@ public class DesertEagleFactory implements GunFactory {
                 .withRenderer(new WeaponRenderer.Builder()
                         .withModel(new Glock18C())
                         .withActionPiece(
-                                Attachments.DesertEagleSlide,
-                                Attachments.DesertEagleSlideGolden)
+                                Attachments.DesertEagleSlide)
                         .withActionTransform(new Transform().withPosition(0F, 0F, 0.6F))
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.4F, 0.4F, 0.4F);
@@ -154,14 +149,8 @@ public class DesertEagleFactory implements GunFactory {
 
                         .setupModernAnimations("deagle", Attachments.DesertEagleSlide)
                         .setupModernMagazineAnimations("deagle", Magazines.DesertEagleMag)
-                        .setupCustomKeyedPart(Attachments.DesertEagleSlideGolden, "deagle", BBLoader.KEY_ACTION)
 
                         .withFirstPersonCustomPositioning(Attachments.DesertEagleSlide.getRenderablePart(), (renderContext) -> {
-                            if (renderContext.getWeaponInstance().getAmmo() == 0) {
-                                GL11.glTranslatef(0F, 0F, 0.6F);
-                            }
-                        })
-                        .withFirstPersonCustomPositioning(Attachments.DesertEagleSlideGolden.getRenderablePart(), (renderContext) -> {
                             if (renderContext.getWeaponInstance().getAmmo() == 0) {
                                 GL11.glTranslatef(0F, 0F, 0.6F);
                             }

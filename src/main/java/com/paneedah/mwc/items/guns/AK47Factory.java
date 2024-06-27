@@ -194,10 +194,6 @@ public class AK47Factory {
                     GL11.glTranslatef(0f, 0.35f, 0.35f);
                     GL11.glScaled(1.2F, 1.2F, 1.2F);
                 })
-                .withCompatibleAttachment(Magazines.AK100Mag, (model) -> {
-                    GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
-                    GL11.glTranslatef(0f, 0.35f, -0.21f);
-                })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, itemStack) -> {
                     GL11.glTranslatef(-0.21F, -1.4F, -2.1F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
@@ -506,8 +502,7 @@ public class AK47Factory {
                                 Magazines.AK15Mag,
                                 Magazines.AK47PMAGTan,
                                 Magazines.AK50Mag,
-                                Magazines.AK75Mag,
-                                Magazines.AK100Mag)
+                                Magazines.AK75Mag)
 
                         .withThirdPersonPositioningReloading(
                                 new Transition((renderContext) -> {

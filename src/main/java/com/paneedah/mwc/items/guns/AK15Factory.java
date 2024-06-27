@@ -127,10 +127,6 @@ public class AK15Factory {
                     GL11.glTranslatef(0f, 0.35f, 0.35f);
                     GL11.glScaled(1.2F, 1.2F, 1.2F);
                 })
-                .withCompatibleAttachment(Magazines.AK100Mag, (model) -> {
-                    GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
-                    GL11.glTranslatef(0f, 0.35f, -0.21f);
-                })
                 .withCompatibleAttachment(Attachments.Silencer762x39, (model) -> {
                     GL11.glTranslatef(-0.2F, -1.06F, -7.55F);
                     GL11.glScaled(1F, 1F, 1F);
@@ -421,8 +417,7 @@ public class AK15Factory {
                                 Magazines.AK15Mag,
                                 Magazines.AK47PMAGTan,
                                 Magazines.AK50Mag,
-                                Magazines.AK75Mag,
-                                Magazines.AK100Mag)
+                                Magazines.AK75Mag)
 
                         .withThirdPersonPositioningReloading(
                                 new Transition((renderContext) -> {

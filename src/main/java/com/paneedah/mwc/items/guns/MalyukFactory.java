@@ -86,10 +86,6 @@ public class MalyukFactory {
                     GL11.glTranslatef(0f, 0.1f, 3.0f);
                     GL11.glScaled(1.2F, 1.2F, 1.2F);
                 })
-                .withCompatibleAttachment(Magazines.AK100Mag, (model) -> {
-                    GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
-                    GL11.glTranslatef(0f, -0.2f, 3.0f);
-                })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, itemStack) -> {
                     GL11.glTranslatef(-0.21F, -1.4F, -1.2F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
@@ -338,8 +334,7 @@ public class MalyukFactory {
                                 Magazines.AK15Mag,
                                 Magazines.AK47PMAGTan,
                                 Magazines.AK50Mag,
-                                Magazines.AK75Mag,
-                                Magazines.AK100Mag)
+                                Magazines.AK75Mag)
 
                         .withThirdPersonPositioningReloading(
                                 new Transition((renderContext) -> {
