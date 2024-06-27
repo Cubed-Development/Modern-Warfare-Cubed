@@ -112,7 +112,7 @@ public class M82Factory implements GunFactory {
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, itemStack) -> {
+                .withCompatibleAttachment(Attachments.LeupoldRailScope, true, (model) -> {
                     GL11.glTranslatef(-0.155F, -1.4F, -2.2F);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
                 }, (model) -> {

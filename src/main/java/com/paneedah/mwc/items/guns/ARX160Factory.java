@@ -90,10 +90,6 @@ public class ARX160Factory implements GunFactory {
                     GL11.glRotatef(-10F, 1f, 0f, 0f);
                     GL11.glTranslatef(0F, -0.1F, -0.3F);
                 })
-                .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
-                    GL11.glTranslatef(-0.35F, 0.3F, -1.4F);
-                    GL11.glScaled(1.15F, 1.2F, 1.15F);
-                })
                 .withCompatibleAttachment(AuxiliaryAttachments.ARX160Action, true, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.MBUSFrontSight, renderContext -> {
@@ -384,7 +380,6 @@ public class ARX160Factory implements GunFactory {
                         .setupModernMagazineAnimations("arx160",
                                 Magazines.M4A1Mag,
                                 Magazines.M38Mag,
-                                Magazines.Stanag100,
                                 Magazines.Stanag50,
                                 Magazines.Stanag60,
                                 Magazines.SOCOM_Mag)

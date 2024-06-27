@@ -22,7 +22,6 @@ public class Magazines {
     public static ItemMagazine C8Mag;
     public static ItemMagazine Stanag50;
     public static ItemMagazine Stanag60;
-    public static ItemMagazine Stanag100;
     public static ItemMagazine AK101Mag;
     public static ItemMagazine AK74Mag;
     public static ItemMagazine AK74Mag60;
@@ -584,7 +583,7 @@ public class Magazines {
                 .build(MWC.modContext, ItemMagazine.class);
 
         Magazines.PKMMag = new ItemMagazine.Builder()
-                .withCapacity(120)
+                .withCapacity(100)
                 .withCompatibleBullet(Bullets.Bullet762x54)
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("PKMMag")
@@ -835,38 +834,6 @@ public class Magazines {
                 .withName("Stanag60")
                 .withRotationPoint(-0.16000000476837162F, -0.16000000476837162F, -1.5200000452995304F)
                 .withModel(new Stanag60(), "gun.png")
-                .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver,
-                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
-                        Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
-                        Attachments.ScarLReceiver, Attachments.SIG556Grip)
-                .withMaxStackSize(6)
-                .build(MWC.modContext, ItemMagazine.class);
-
-        Magazines.Stanag100 = new ItemMagazine.Builder()
-                .withCapacity(100)
-                .withCompatibleBullet(Bullets.Bullet556x45)
-                .withFirstPersonModelPositioning(model -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                })
-                .withThirdPersonModelPositioning(model -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                })
-                .withInventoryModelPositioning(model -> {
-                    GL11.glTranslatef(0.3F, 1.2F, -0.6F);
-                    GL11.glRotatef(-160F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.2F, 1.2F, 1.2f);
-                })
-                .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
-                .withName("Stanag100")
-                .withRotationPoint(-0.16000000476837162F, -0.16000000476837162F, -1.5200000452995304F)
-                .withModel(new NATODrum100(), "betacmag.png")
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver,
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,

@@ -96,31 +96,6 @@ public class M200InterventionFactory implements GunFactory {
                 })
                 .withCompatibleAttachment(Attachments.InterventionKeystoneHandle, (model) -> {
                 })
-                .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
-                    PlayerWeaponInstance instance = renderContext.getWeaponInstance();
-                    if (instance != null) {
-                        ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
-                        if (activeAttachment == Attachments.InterventionHandguard) {
-                            GL11.glTranslatef(0.23F, -0.18F, -0.63F);
-                            GL11.glScaled(1F, 1F, 1F);
-                        } else {
-                            GL11.glTranslatef(0.23F, -0.18F, -2.23F);
-                            GL11.glScaled(1F, 1F, 1F);
-                        }
-                    }
-                }, (model) -> {
-                    if (model instanceof G95_upright_frontsights) {
-                        GL11.glTranslatef(-0.155F, -1.95F, -0.5F);
-                        GL11.glScaled(0.32F, 0.32F, 0.32F);
-                    }
-                }, true, false)
-                .withCompatibleAttachment(Attachments.HK416RearSights, true, (model) -> {
-                    if (model instanceof G95_upright_rearsights) {
-                        GL11.glTranslatef(0.08F, -2.09F, 0.2F);
-                        GL11.glScaled(0.33F, 0.33F, 0.33F);
-                    }
-                })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, itemStack) -> {
                     GL11.glTranslatef(0.03F, -1.98F, -1.5F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);

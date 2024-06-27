@@ -119,11 +119,6 @@ public class AUGFactory implements GunFactory {
                     GL11.glScaled(1.1F, 1.1F, 1.1F);
                     GL11.glRotatef(-10F, 1f, 0f, 0f);
                 })
-                .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
-                    GL11.glTranslatef(-0.335F, 0.9F, 1.2F);
-                    GL11.glScaled(1.1F, 1.3F, 1.3F);
-                    GL11.glRotatef(-5F, 1f, 0f, 0f);
-                })
                 .withCompatibleAttachment(AuxiliaryAttachments.AUGAction, true, (model) -> {
                     GL11.glTranslatef(-0.02F, 0.03F, 0.3F);
                     GL11.glScaled(1F, 1F, 1F);
@@ -541,7 +536,6 @@ public class AUGFactory implements GunFactory {
                         .setupModernMagazineAnimations("aug",
                                 Magazines.M4A1Mag,
                                 Magazines.M38Mag,
-                                Magazines.Stanag100,
                                 Magazines.Stanag50,
                                 Magazines.Stanag60,
                                 Magazines.SOCOM_Mag,

@@ -118,10 +118,6 @@ public class ScarLFactory implements GunFactory {
                     GL11.glRotatef(-10F, 1f, 0f, 0f);
                     GL11.glTranslatef(0F, 0.25F, -0.16F);
                 })
-                .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
-                    GL11.glTranslatef(-0.35F, 0.69F, -1.4F);
-                    GL11.glScaled(1.15F, 1.2F, 1.15F);
-                })
                 .withCompatibleAttachment(AuxiliaryAttachments.ScarAction, true, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.AKMIron, true, (model) -> {
@@ -433,7 +429,6 @@ public class ScarLFactory implements GunFactory {
                         .setupModernMagazineAnimations("scar",
                                 Magazines.M4A1Mag,
                                 Magazines.M38Mag,
-                                Magazines.Stanag100,
                                 Magazines.Stanag50,
                                 Magazines.Stanag60,
                                 Magazines.SOCOM_Mag)
