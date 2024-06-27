@@ -1467,7 +1467,7 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("DesertEagleMag")
                 .withRotationPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
-                .withModel(new DesertEagleMag(), "gun.png")
+                .withModel(new DesertEagleMag(), "deagle.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,

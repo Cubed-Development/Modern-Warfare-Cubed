@@ -1196,24 +1196,6 @@
       }
     ]
   },
-  "csa16": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:csa16",
-       "stream": false
-      }
-    ]
-  },
-  "csa16_pump_action": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:csa16_pump_action",
-       "stream": false
-      }
-    ]
-  },
   "gpca1": {
     "category": "master",
     "sounds": [
@@ -1367,15 +1349,6 @@
       }
     ]
   },
-  "har27": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:har27",
-       "stream": false
-      }
-    ]
-  },
   "acr": {
     "category": "master",
     "sounds": [
@@ -1390,24 +1363,6 @@
     "sounds": [
       {
        "name": "mwc:acr_draw",
-       "stream": false
-      }
-    ]
-  },
-  "sl8": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:sl8",
-       "stream": false
-      }
-    ]
-  },
-  "dl44": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:dl44",
        "stream": false
       }
     ]
@@ -2123,15 +2078,6 @@
       }
     ]
   },
-  "c8_sfw": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:c8_sfw",
-       "stream": false
-      }
-    ]
-  },
   "ax50_boltaction": {
     "category": "master",
     "sounds": [
@@ -2164,15 +2110,6 @@
     "sounds": [
       {
        "name": "mwc:m14dmr",
-       "stream": false
-      }
-    ]
-  },
-  "g36k": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:g36k",
        "stream": false
       }
     ]
