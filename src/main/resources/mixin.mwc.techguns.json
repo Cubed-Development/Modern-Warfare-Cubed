@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.paneedah.mwc.mixin.techguns",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "mixins.mwc.refmap.json",
+  "client": [
+    "ItemRenderHackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

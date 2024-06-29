@@ -17,12 +17,12 @@ public class MWCGroovyPlugin implements GroovyPlugin {
     }
 
     @Override
-    public String getModName() {
+    public String getContainerName() {
         return NAME;
     }
 
     @Override
     public void onCompatLoaded(GroovyContainer<?> groovyContainer) {
-        groovyContainer.getVirtualizedRegistrar().addFieldsOf(this);
+        groovyContainer.getRegistrar().addRegistry(craftingStation);
     }
 }

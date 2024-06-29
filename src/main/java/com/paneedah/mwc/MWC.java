@@ -40,7 +40,7 @@ import static com.paneedah.mwc.utils.ModReference.*;
 //  | $$\  $ | $$| $$  | $$| $$  | $$| $$_____/| $$      | $$  | $$      | $$$/ \  $$$ /$$__  $$| $$      | $$     /$$__  $$| $$      | $$_____/      | $$    $$| $$  | $$| $$  | $$| $$_____/| $$  | $$
 //  | $$ \/  | $$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$  | $$      | $$/   \  $$|  $$$$$$$| $$      | $$    |  $$$$$$$| $$      |  $$$$$$$      |  $$$$$$/|  $$$$$$/| $$$$$$$/|  $$$$$$$|  $$$$$$$
 //  |__/     |__/ \______/  \_______/ \_______/|__/      |__/  |__/      |__/     \__/ \_______/|__/      |__/     \_______/|__/       \_______/       \______/  \______/ |_______/  \_______/ \_______/
-@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:redcore@[0.4,);", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/master/update.json")
+@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:mixinbooter@[8.6,);required-after:redcore@[0.5,)", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://forge.curseupdate.com/836353/modern-warfare-cubed")
 public final class MWC {
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
@@ -97,8 +97,9 @@ public final class MWC {
         modContext.setMaterialImpactSounds(Material.GRASS, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.GROUND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.SAND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.IRON, 1.5f, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
+	modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_14_snow");
+	modContext.setMaterialImpactSounds(Material.CRAFTED_SNOW, 1.5f, "bullet_14_snow");
 
         // Register channels for networking
         CHANNEL.registerMessage(new PermitMessageClientHandler((CommonModContext) modContext), PermitMessage.class, -1, Side.CLIENT);

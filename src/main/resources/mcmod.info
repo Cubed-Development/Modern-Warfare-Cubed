@@ -2,14 +2,11 @@
   {
     "modid": "${id}",
     "name": "Modern Warfare Cubed",
-    "description": "Modern Warfare Cubed, a fork of Vic's Modern Warfare",
+    "description": "Modern Warfare Cubed is a fork of the popular Vic's Modern Warfare Mod which is now discontinued aiming to improve and expand upon the experience.",
     "version": "${version}",
-    "MCversion": "1.12.2",
-    "url": "https://github.com/Paneedah/Modern-Warfare-Cubed",
-    "authorList": ["Paneedah, Desoroxxx"],
-    "credits": "DavidRoseLincs, SticksDev, Skyy, Vic4Games, Vic4GamesTeam",
-    "logoFile": "",
-    "screenshots": [],
-    "dependencies": []
+    "url": "https://github.com/Cubed-Development/Modern-Warfare-Cubed",
+    "authorList": ["Cubed-Development"],
+    "credits": "Paneedah, BurnhamR, Luna Lage (Desoroxxx), SticksDev, Koud-Wind, Azurae, Braiam23, Medico, papudinho, .StarKnight, Vic4Games, Vic4GamesTeam",
+    "logoFile": "logo.png"
   }
 ]

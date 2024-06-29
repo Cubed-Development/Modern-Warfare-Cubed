@@ -11,14 +11,14 @@ plugins {
 }
 
 group = "com.paneedah"
-version = "0.1.3" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
+version = "0.2-Dev-1" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
 
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
 val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-3"
 
-val groovyScriptVersion = "0.8.0"
+val groovyScriptVersion = "1.0.0"
 val mixinBooterVersion = "8.6"
 
 minecraft {
@@ -42,16 +42,32 @@ repositories {
         url = uri("https://repo.cleanroommc.com/releases")
     }
 
-    maven {
-        name = "Red Studio"
-        url = uri("https://repo.redstudio.dev/dev")
+    listOf("release", "beta", "dev").forEach { repoType ->
+        maven {
+            name = "Red Studio - ${repoType.replaceFirstChar { it.uppercase() }}"
+            url = uri("https://repo.redstudio.dev/$repoType")
+        }
+    }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Curse Maven"
+                url = uri("https://cursemaven.com")
+            }
+        }
+        filter {
+            includeGroup("curse.maven")
+        }
     }
 }
 
 dependencies {
     implementation("dev.redstudio", "Red-Core", redCoreVersion)
 
-    compileOnly("com.cleanroommc:groovyscript:0.8.0") {
+
+    compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
+    compileOnly("com.cleanroommc:groovyscript:1.1.0") {
         isTransitive = false
     }
 

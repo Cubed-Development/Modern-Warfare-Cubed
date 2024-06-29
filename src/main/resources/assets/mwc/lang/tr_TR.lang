@@ -1055,9 +1055,7 @@ gui.firearmMode=Silah modu: %s
 gui.firearmMode.semi=Yarı otomatik
 gui.firearmMode.auto=Tam otomatik
 gui.firearmMode.burst=Atışlı
-gui.inventoryFull=Envanter dolu
 gui.currentZoom=Yakınlaştırma: %s%%
-gui.grenadeExplodes= %s saniye içinde patlar
 gui.coolingDown=Soğuma...
 
 config.category.ores.name=Madencilik Ayarları

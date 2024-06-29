@@ -2,16 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project follows to [Ragnarök Versioning Convention](https://gist.github.com/JustDesoroxxx/5d4a45785ce19a6653ba99f72325c703).
+The format is based on [Keep a Changelog](https://keepachangelog.com),
+and this project follows the [Ragnarök Versioning Convention](https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md).
 
 ## [UNRELEASED] Modern Warfare Cubed Version 0.2 Changelog
 
+### Added
+
+- Added German translation
+- Added the logo to the mod menu
+- Added Ukrainian translation
+- Added a new sound effect when shooting snow
+
+### Changed
+
+- Fire mode hint ("Press [B] to change fire mode") now only appears when the weapon has multiple fire modes
+- Magazines now use the same ammunition counter as weapons, instead of a white text in the top-right corner
+- The crosshair will now appear when holding a magazine
+- Updated the description in the mod menu
+- Updated the author list in the mod menu
+- Updated the credits in the mod menu
+- Updated the url in the mod menu
+- Updated dependencies:
+  - Requires Red Core 0.5 and up
+  - Requires MixinBooter 0.5 and up
+- Updated Korean translation
+
 ### Removed
 
+- Removed unused warning about the grenade exploding in X amount of seconds
 - Removed proning
 
-## Modern Warfare Cubed Version 0.1.4 Changelog - 2024-03-18
+### Internal
+
+- Made client sided mixins client side only
+- Cleaned up the `mcmod.info` file
+- Switched to [CurseUpdate](https://forge.curseupdate.com/) for update checking
+
+## Modern Warfare Cubed Version 0.1.6 Changelog - 2024-05-21
 
 ### Warning
 
@@ -23,7 +51,58 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Fixed
 
+- Fixed the GroovyScript integration for GroovyScript versions above 1.0.0
+- Fixed shader compilation crash with Mesa (and potentially others) drivers
+
+## Modern Warfare Cubed Version 0.1.5 Changelog - 2024-04-02
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+### Fixed
+
+- Fixed sideness checks missing causing crashes on dedicated servers
+- Fixed compatibility with GroovyScript above version 0.8
+
+## Modern Warfare Cubed Version 0.1.4 Changelog - 2024-03-27
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+### Changed
+
+- Weapons will not prevent you from unloading with a full inventory anymore, instead they will drop their magazines on the ground
+
+### Fixed
+
 - Fixed fog obscuring vision too much in optical scopes
+- Fixed compatibility with bad bukkit implementation (Bukkit should still fix that, if anyone is reading that)
+- Fixed fov not being reset while reloading when ads
+- Fixed weapons destroying magazine when unloading with a full inventory
+- Fixed magazines destroying bullets when unloading with a full inventory
+- Fixed attachments destroying themselves when removing them with a full inventory
+- Fixed terrorist dropping weapons with stupid amounts of bullets
+- **GroovyScript integration:**
+  - Fixed rare crashes when using `removeAll`
+  - Fixed recipes not working when ore dictionary is used
+  - Fixed names not correctly displaying in certain conditions
+- Fixed crash with Techguns when rendering weapons in certain conditions
+- Fixed freeze when first rendering a weapon
+- Fixed film grain becoming lines after the game has been running for a while
+
+### Internal
+
+- Added logging to try and locate CCS
 
 ## Modern Warfare Cubed Version 0.1.3 Changelog - 2024-03-15
 

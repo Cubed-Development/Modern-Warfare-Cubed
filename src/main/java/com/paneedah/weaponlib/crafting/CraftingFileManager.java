@@ -4,7 +4,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.JSONDatabaseManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -86,7 +85,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		for (CraftingEntry entry : recipe) {
 			JsonObject jsonEntry = new JsonObject();
 
-			String itemName = entry.getItem().getRegistryName().toString();
+			String itemName = entry.getIngredient().toString();
 
 			jsonEntry.addProperty(ENTRY_ITEM_NAME_KEY, !entry.isOreDictionary() ? itemName : entry.getOreDictionaryEntry());
 			jsonEntry.addProperty(ORE_DICTIONARY_BOOLEAN_KEY, false);
