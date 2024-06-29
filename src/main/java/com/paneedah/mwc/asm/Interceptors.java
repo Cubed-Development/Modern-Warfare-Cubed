@@ -1,7 +1,5 @@
 package com.paneedah.mwc.asm;
 
-import com.paneedah.mwc.capabilities.EquipmentCapability;
-import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
@@ -18,9 +16,7 @@ import com.paneedah.weaponlib.vehicle.jimphysics.stability.InertialStabilizer;
 import com.paneedah.weaponlib.vehicle.smoothlib.QPTI;
 import com.paneedah.weaponlib.vehicle.smoothlib.VehicleRFCam;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
@@ -51,9 +47,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.BACKPACK_SLOT;
-import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.BELT_SLOT;
-import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.VEST_SLOT;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 
@@ -663,91 +656,7 @@ public class Interceptors {
         //rendererUpdateCount++;
         return allowDefaultEffect;
     }
-    
 
-    private static Map<Entity, PlayerRenderer> renderers = new HashMap<>();
-    
-    public static PlayerRenderer getPlayerRenderer(Entity entity) {
-    	
-        return renderers.get(entity);
-    }
-    
-    public static void render2(ModelBase modelBase, Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-    	//if(1+1==2) return;
-    	
-    	
-    	
-    	if(entityIn instanceof EntityPlayer) {
-    		EntityPlayer player = (EntityPlayer) entityIn;
-    		if(player.isRiding() && player.getRidingEntity() instanceof EntityVehicle) {
-    			double b = ((EntityPlayer) entityIn).limbSwing;
-    			if(b != 39.0) return;    			
-    		}
-    	}
-    	
-    	
-        if(entityIn instanceof EntityPlayer && modelBase instanceof ModelPlayer) {
-            
-            ModelPlayer modelPlayer = (ModelPlayer) modelBase;
-            EntityPlayer player = (EntityPlayer) entityIn;
-
-            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn, e -> new PlayerRenderer((EntityPlayer) entityIn, ClientModContext.getContext()));
-            
-            playerRenderer.renderModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-
-            EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(player);
-            if(equipmentInventory != null) {
-                ItemStack backpackStack = equipmentInventory.getStackInSlot(BACKPACK_SLOT);
-                if(!backpackStack.isEmpty()) {
-                    GL11.glPushMatrix();
-                    adjustBodyWearablePosition(player);
-                    MC.getItemRenderer().renderItem(player, backpackStack, null);
-                    GL11.glPopMatrix();
-                }
-                ItemStack beltStack = equipmentInventory.getStackInSlot(BELT_SLOT);
-                if(!beltStack.isEmpty()) {
-                    GL11.glPushMatrix();
-                    adjustBodyWearablePosition(player);
-                    MC.getItemRenderer().renderItem(player, beltStack, null);
-                    GL11.glPopMatrix();
-                }
-                ItemStack vestStack = equipmentInventory.getStackInSlot(VEST_SLOT);
-                if(!vestStack.isEmpty()) {
-                    GL11.glPushMatrix();
-                    adjustBodyWearablePosition(player);
-                    MC.getItemRenderer().renderItem(player, vestStack, null);
-                    GL11.glPopMatrix();
-                }
-            }
-        } else {
-            modelBase.render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        }
-        
-        
-    }
-    
-    private static void adjustBodyWearablePosition(EntityPlayer player) {
-//        GL11.glScalef(0.8f, 0.8f, 0.8f);
-//        GL11.glTranslatef(-0.02f, 0.69f, -0.35f);
-//        GL11.glRotatef(180f, 0, 0, 1);
-//        GL11.glScalef(0.8f, 0.8f, 0.8f);
-//        GL11.glTranslatef(-0.02f, 0.69f, -0.35f);
-//        GL11.glRotatef(180f, 0, 0, 1);
-    }
-
-    public static void renderArmorLayer(ModelBase modelBase, Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-       
-        if(entityIn instanceof EntityPlayer) { 
-            PlayerRenderer playerRenderer = renderers.get(entityIn);
-            EntityPlayer player = (EntityPlayer) entityIn;
-            if(playerRenderer == null || !playerRenderer.renderArmor((ModelBiped) modelBase, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale)) {
-                modelBase.render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-            }
-        } else {
-            modelBase.render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        }
-    }
-    
     public static boolean layerRendererHookSetup = false;
     public static Field layerRendererField;
     public static Method translateItemField;
@@ -791,12 +700,8 @@ public class Interceptors {
             ItemStack itemStack, TransformType transformType, EnumHandSide handSide) {
     	
     	
-        if(entity instanceof EntityPlayer /* && isProning((EntityPlayer) entity)*/) { 
-            PlayerRenderer playerRenderer = renderers.get(entity);
-            EntityPlayer player = (EntityPlayer) entity;
-            if(playerRenderer == null || !playerRenderer.positionItemSide(player, itemStack, transformType, handSide)) {
-                ((ModelBiped)livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
-            }
+        if(entity instanceof EntityPlayer /* && isProning((EntityPlayer) entity)*/) {
+	        ((ModelBiped)livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
         } else {
         	
         	/*

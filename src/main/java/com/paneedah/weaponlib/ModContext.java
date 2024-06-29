@@ -95,8 +95,6 @@ public interface ModContext {
 
 	void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer);
 
-	void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider);
-
 	void init(Object mod);
 
 	MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity);
