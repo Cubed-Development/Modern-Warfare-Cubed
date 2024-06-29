@@ -700,7 +700,7 @@ public class Interceptors {
             ItemStack itemStack, TransformType transformType, EnumHandSide handSide) {
     	
     	
-        if(entity instanceof EntityPlayer /* && isProning((EntityPlayer) entity)*/) {
+        if(entity instanceof EntityPlayer) {
 	        ((ModelBiped)livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
         } else {
         	
