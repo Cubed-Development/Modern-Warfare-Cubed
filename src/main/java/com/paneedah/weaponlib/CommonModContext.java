@@ -521,9 +521,6 @@ public class CommonModContext implements ModContext {
     public void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer) {}
 
     @Override
-    public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider) {}
-
-    @Override
     public CommonModContext setMaterialImpactSound(String sound, float volume, Material material) {
         MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(volume));
         materialImpactSound.addSound(registerSound(sound.toLowerCase()));
