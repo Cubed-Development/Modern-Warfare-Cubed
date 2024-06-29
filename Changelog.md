@@ -12,6 +12,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 - Added German translation
 - Added the logo to the mod menu
 - Added Ukrainian translation
+- Added a new sound effect when shooting snow
 
 ### Changed
 
