@@ -232,7 +232,9 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
                 maxAmmo = weaponInstance.getWeapon().getAmmoCapacity();
             }
             if (maxAmmo > 0) {
-                weaponInstance.setAmmo(rand.nextInt(maxAmmo));
+                int ammo = rand.nextInt(maxAmmo);
+                weaponInstance.setAmmo(ammo);
+                Tags.setAmmo(itemStack, ammo);
                 Tags.setInstance(itemStack, weaponInstance);
             }
         }
@@ -421,8 +423,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             float rotationPitchAdjustment = 20f;
             this.rotationPitch -= rotationPitchAdjustment;
             PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) Tags.getInstance(itemStack);
-            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance,
-                    System.currentTimeMillis() + 2000L);
+            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance);
             this.rotationPitch += rotationPitchAdjustment;
         }
     }
@@ -444,8 +445,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             float rotationPitchAdjustment = 20f;
             this.rotationPitch -= rotationPitchAdjustment;
             PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) Tags.getInstance(secondaryEquipment);
-            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance,
-                    System.currentTimeMillis() + 2000L);
+            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance);
             this.rotationPitch += rotationPitchAdjustment;
         }
     }

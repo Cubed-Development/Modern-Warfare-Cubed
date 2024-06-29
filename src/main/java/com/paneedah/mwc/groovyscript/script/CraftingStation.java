@@ -2,10 +2,10 @@ package com.paneedah.mwc.groovyscript.script;
 
 import com.cleanroommc.groovyscript.api.GroovyLog;
 import com.cleanroommc.groovyscript.api.IIngredient;
-import com.cleanroommc.groovyscript.helper.ingredient.OreDictIngredient;
 import com.cleanroommc.groovyscript.helper.recipe.AbstractRecipeBuilder;
 import com.cleanroommc.groovyscript.registry.VirtualizedRegistry;
 import com.paneedah.mwc.groovyscript.recipes.GSCrafting;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -31,10 +31,10 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
     public void removeAll() {
         for (ArrayList<IModernCraftingRecipe> list : craftingMap.values()) {
             for (IModernCraftingRecipe recipe : list) {
-                deleteRecipeRegistry(recipe);
                 this.addBackup(recipe);
             }
         }
+        clearRecipeRegistry();
     }
 
     /**
@@ -62,7 +62,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
         clearGroup(CraftingGroup.valueOf(group));
     }
 
-    public void removeinGroup(IIngredient ingredient, CraftingGroup group) {
+    public void removeInGroup(IIngredient ingredient, CraftingGroup group) {
         for (IModernCraftingRecipe recipe : craftingMap.get(group)) {
             if (ingredient.test(recipe.getItemStack())) {
                 deleteRecipeRegistry(recipe);
@@ -71,8 +71,8 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
         }
     }
 
-    public void removeinGroup(IIngredient ingredient, String group) {
-        removeinGroup(ingredient, CraftingGroup.valueOf(group));
+    public void removeInGroup(IIngredient ingredient, String group) {
+        removeInGroup(ingredient, CraftingGroup.valueOf(group));
     }
 
     public void addRecipe(IModernCraftingRecipe crafting) {
@@ -91,12 +91,12 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
 
         @Override
         public String getErrorMsg() {
-            return "Error adding Modern Warefare Cubed Workbench Recipe: "+this.name;
+            return "Error adding " + ModReference.NAME + " Workbench Recipe: " + name;
         }
 
         @Override
         public void validate(GroovyLog.Msg msg) {
-            //max input == container size of crafting station.
+            // max input == container size of crafting station.
             this.validateItems(msg, 1, 27,1,1);
         }
 
@@ -131,7 +131,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
         /**
          * Set Category of Recipe
          *
-         * @param group: name of the Group. valid values = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE"
+         * @param group name of the Group. valid values = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE"
          * @return this RecipeBuilder
          */
         public RecipeBuilder setGroup(String group) {
@@ -149,19 +149,14 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
             if (!this.validate())
                 return null;
 
-            ArrayList<CraftingEntry> entries = new ArrayList<>();
+            final ArrayList<CraftingEntry> entries = new ArrayList<>();
 
-            for(int i = 0; i < this.input.size(); i++){
-                IIngredient ingredient = this.input.get(i);
-                if (ingredient instanceof OreDictIngredient) {
-                    OreDictIngredient dict = (OreDictIngredient) ingredient;
-                    entries.add(new CraftingEntry(dict.getFirst().getItem(), dict.getOreDict(), dict.getAmount(), this.yields.get(i)));
-                } else {
-                    entries.add(new CraftingEntry(ingredient.getMatchingStacks()[0].getItem(), ingredient.getAmount(), this.yields.get(i)));
-                }
+            for (int i = 0; i < this.input.size(); i++) {
+                final IIngredient ingredient = this.input.get(i);
+                entries.add(new CraftingEntry(ingredient.toMcIngredient(), ingredient.getAmount(), this.yields.get(i)));
             }
 
-            GSCrafting recipe = new GSCrafting(this.output.get(0), this.group, entries.toArray(new CraftingEntry[0]));
+            final GSCrafting recipe = new GSCrafting(this.output.get(0), this.group, entries.toArray(new CraftingEntry[0]));
             craftingStation.addRecipe(recipe);
             return recipe;
         }

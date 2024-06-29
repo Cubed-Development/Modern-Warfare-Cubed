@@ -140,7 +140,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
 			boolean canCraftNextItem = true;
 
 			for(CraftingEntry entry : ((IModernCraftingRecipe) getLatestStackInQueue().getItem()).getModernRecipe()) {
-				if(inventoryContainsEnoughItems(entry.getItem(), entry.getCount(), 22, 49))
+				if(inventoryContainsEnoughItems(entry.getIngredient(), entry.getCount(), 22, 49))
 					continue;
 
 				canCraftNextItem = false;
@@ -164,7 +164,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
 				
 				IModernCraftingRecipe craftingRecipe = (IModernCraftingRecipe)stack.getItem();
 				for (CraftingEntry ingredient : craftingRecipe.getModernRecipe())
-					consumeFromInventory(ingredient.getItem(), ingredient.getCount(), 22, 49);
+					consumeFromInventory(ingredient.getIngredient(), ingredient.getCount(), 22, 49);
 				
 				ItemStack splitOff = stack.splitStack(1);
 				

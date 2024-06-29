@@ -48,6 +48,7 @@ import java.util.function.*;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
+import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -1051,6 +1052,9 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             // Do not register weapons to the registry if they do not
             // have a crafting recipe.
             CraftingRegistry.registerHook(weapon);
+
+            if (FMLCommonHandler.instance().getSide().isClient())
+                COOKING_QUEUE.add(weapon);
 
             return weapon;
         }

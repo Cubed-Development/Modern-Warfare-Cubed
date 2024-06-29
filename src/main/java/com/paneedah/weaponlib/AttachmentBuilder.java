@@ -19,6 +19,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class AttachmentBuilder<T> {
@@ -322,6 +323,8 @@ public class AttachmentBuilder<T> {
             //System.err.println("!!!No recipe defined for attachment " + name);
         }
 
+        if (modContext.isClient())
+            COOKING_QUEUE.add(attachment);
 
         return attachment;
     }
@@ -336,7 +339,12 @@ public class AttachmentBuilder<T> {
     }
 
     public <V extends ItemAttachment<T>> V build(ModContext modContext, Class<V> target) {
-        return target.cast(build(modContext));
+        final V attachment = target.cast(build(modContext));
+
+        if (modContext.isClient())
+            COOKING_QUEUE.add(attachment);
+
+        return attachment;
     }
 
     public ModelBase getModel() {

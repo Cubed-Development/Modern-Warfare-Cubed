@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
+import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCraftingRecipe, IHasModel {
@@ -233,6 +234,9 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
             modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
+            if (FMLCommonHandler.instance().getSide().isClient())
+                COOKING_QUEUE.add(item);
+
             return item;
         }
     }
@@ -252,7 +256,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
 
     public ModelBiped model;
-    private String modelFileString;
+    public String modelFileString;
     public String textureName;
 
     public String getModelFileString() {

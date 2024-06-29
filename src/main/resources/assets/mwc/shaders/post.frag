@@ -49,7 +49,8 @@ uniform bool enableFilmGrain;
 *  the basis for the changes
 */
 vec4 applyFilmGrain(vec4 color) {
-	 float noise = (fract(sin(dot(tex_coord, vec2(12.9898,78.233)*(2.0+timer))) * 43758.5453));
+	 float modTimer = mod(timer, 100.0);
+	 float noise = (fract(sin(dot(tex_coord, vec2(12.9898,78.233)*(2.0+modTimer))) * 43758.5453));
 	 color -= noise*mdf;
 	 color.a = 1;
 	 return color;
