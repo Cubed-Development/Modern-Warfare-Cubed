@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemAmmo extends Item {
+
+	// ! TODO: A relic of the past? anyway remove this
 	
 	private List<Weapon> compatibleWeapons = new ArrayList<>();
 
