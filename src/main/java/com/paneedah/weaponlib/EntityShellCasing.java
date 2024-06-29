@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.Weapon.ShellCasingEjectDirection;
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -53,13 +52,11 @@ public class EntityShellCasing extends EntityProjectile {
     @Override
     public void setPositionAndDirection(boolean isAiming) {
         this.setSize(0.001f, 0.001f);
-        float forwardOffset = 0.1F
-                + weapon.getShellCasingForwardOffset(); // 0.1f;
+        float forwardOffset = 0.1F + weapon.getShellCasingForwardOffset(); // 0.1f;
 
         float sideOffset;
         if (weapon.getShellCasingEjectDirection() == ShellCasingEjectDirection.RIGHT) {
-            sideOffset = weaponInstance.isAimed() ? weapon.getShellCasingSideOffsetAimed()
-                    : weapon.getShellCasingSideOffset();
+            sideOffset = weaponInstance.isAimed() ? weapon.getShellCasingSideOffsetAimed() : weapon.getShellCasingSideOffset();
         } else {
             sideOffset = weaponInstance.isAimed() ? -0.1f : 0f;
         }
@@ -67,25 +64,18 @@ public class EntityShellCasing extends EntityProjectile {
         float yOffset = weapon.getShellCasingVerticalOffset();
         if (thrower.isSneaking()) {
             yOffset -= 0.1f;
-        } else if (thrower instanceof EntityPlayer && 
-                (CompatibleExtraEntityFlags.getFlags(thrower) & CompatibleExtraEntityFlags.PRONING) != 0) {
+        } else if (thrower instanceof EntityPlayer) {
             yOffset -= 0.0f;
         }
 
-        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight() + yOffset, thrower.posZ,
-                thrower.rotationYaw, thrower.rotationPitch);
+        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight() + yOffset, thrower.posZ, thrower.rotationYaw, thrower.rotationPitch);
 
-        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset)
-                + MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
-                        * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
+        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset) + MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
 
         // float verticalOffset = ;
-        this.posY += (double) (-MathHelper.sin((this.rotationPitch) / 180.0F * (float) Math.PI)
-                * forwardOffset);
+        this.posY += (double) (-MathHelper.sin((this.rotationPitch) / 180.0F * (float) Math.PI) * forwardOffset);
 
-        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset)
-                - MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
-                        * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
+        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset) - MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
 
         this.setPosition(this.posX, this.posY, this.posZ);
 

@@ -150,21 +150,6 @@ public class MP40Factory {
                 GL11.glTranslatef(-0.175000f, 0.800000f, -0.175000f);
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(8.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.25f, 0.7f, -0.7f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(8.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.25f, 0.7f, -0.6f);
-                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
-                })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MP40action.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, -1f);
@@ -841,22 +826,6 @@ public class MP40Factory {
                          GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.350000f, -0.450000f, 0.250000f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-40.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(60.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.450000f, -0.375000f, 0.115000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.350000f, -0.450000f, 0.250000f);
-                    })
                      
             .withFirstPersonHandPositioningZooming(
                      (renderContext) -> {

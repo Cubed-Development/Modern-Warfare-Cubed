@@ -503,8 +503,7 @@ public class MWCClassTransformer implements IClassTransformer {
                     //String notchFieldType = layerHeldItemClassInfo.getNotchFieldType(mcpFieldName);
                 }
 
-                mv.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/renderer/entity/layers/LayerHeldItem",
-                        fieldName, "Lnet/minecraft/client/renderer/entity/RenderLivingBase;");
+                mv.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/renderer/entity/layers/LayerHeldItem", fieldName, "Lnet/minecraft/client/renderer/entity/RenderLivingBase;");
                 mv.visitVarInsn(Opcodes.ALOAD, 1);
                 mv.visitVarInsn(Opcodes.ALOAD, 2);
                 mv.visitVarInsn(Opcodes.ALOAD, 3);
@@ -521,57 +520,6 @@ public class MWCClassTransformer implements IClassTransformer {
         }
     }
 
-    private static class IsSneakingMethodVisitor extends MethodVisitor {
-
-        public IsSneakingMethodVisitor(MethodVisitor mv) {
-            super(Opcodes.ASM4, mv);
-        }
-
-        @Override
-        public void visitJumpInsn(int opcode, Label label) {
-            mv.visitJumpInsn(opcode, label);
-            if (opcode == Opcodes.IFNE) {
-                mv.visitVarInsn(Opcodes.ALOAD, 0);
-                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "isProning", "(Lnet/minecraft/entity/player/EntityPlayer;)Z", false);
-                mv.visitJumpInsn(Opcodes.IFNE, label);
-            }
-        }
-    }
-
-    private static class UpdateEntityActionStateMethodVisitor extends MethodVisitor {
-
-        public UpdateEntityActionStateMethodVisitor(MethodVisitor mv) {
-            super(Opcodes.ASM4, mv);
-        }
-
-        @Override
-        public void visitFieldInsn(int opcode, String owner, String name, String desc) {
-
-            super.visitFieldInsn(opcode, owner, name, desc);
-
-            // This was always broken, current priority is definitely not on proning so it will do for now - Luna Lage (Desoroxxx) 2023-12-21
-
-//            if(opcode == Opcodes.GETFIELD && (owner.equals("bnl") || owner.equals("net/minecraft/util/MovementInput"))
-//                    && (name.equals("jump") || name.equals("g"))) {
-//
-//
-//                Label l6 = new Label();
-//                mv.visitJumpInsn(Opcodes.IFEQ, l6);
-//                mv.visitVarInsn(Opcodes.ALOAD, 0);
-//                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "isProning", "(Lnet/minecraft/entity/player/EntityPlayer;)Z", false);
-//                mv.visitJumpInsn(Opcodes.IFNE, l6);
-//                mv.visitInsn(Opcodes.ICONST_1);
-//                Label l7 = new Label();
-//                mv.visitJumpInsn(Opcodes.GOTO, l7);
-//                mv.visitLabel(l6);
-//                mv.visitFrame(Opcodes.F_SAME1, 0, null, 1, new Object[] {owner});
-//                mv.visitInsn(Opcodes.ICONST_0);
-//                mv.visitLabel(l7);
-//                mv.visitFrame(Opcodes.F_FULL, 1, new Object[] {owner}, 2, new Object[] {owner, Opcodes.INTEGER});
-//            }
-        }
-    }
-
     private static class AttackEntityFromMethodVisitor extends MethodVisitor {
 
         public AttackEntityFromMethodVisitor(MethodVisitor mv) {
@@ -585,28 +533,6 @@ public class MWCClassTransformer implements IClassTransformer {
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/ServerInterceptors", "getKnockback", "(Lnet/minecraft/util/DamageSource;)F", false);
             } else {
                 super.visitLdcInsn(cst);
-            }
-        }
-
-        @Override
-        public void visitFieldInsn(int opcode, String owner, String name, String desc) {
-
-            super.visitFieldInsn(opcode, owner, name, desc);
-            if (opcode == Opcodes.GETFIELD && (owner.equals("bnl") || owner.equals("net/minecraft/util/MovementInput"))
-                    && (name.equals("jump") || name.equals("g"))) {
-                Label l6 = new Label();
-                mv.visitJumpInsn(Opcodes.IFEQ, l6);
-                mv.visitVarInsn(Opcodes.ALOAD, 0);
-                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "isProning", "(Lnet/minecraft/entity/player/EntityPlayer;)Z", false);
-                mv.visitJumpInsn(Opcodes.IFNE, l6);
-                mv.visitInsn(Opcodes.ICONST_1);
-                Label l7 = new Label();
-                mv.visitJumpInsn(Opcodes.GOTO, l7);
-                mv.visitLabel(l6);
-                mv.visitFrame(Opcodes.F_SAME1, 0, null, 1, new Object[]{owner});
-                mv.visitInsn(Opcodes.ICONST_0);
-                mv.visitLabel(l7);
-                mv.visitFrame(Opcodes.F_FULL, 1, new Object[]{owner}, 2, new Object[]{owner, Opcodes.INTEGER});
             }
         }
     }
@@ -697,12 +623,6 @@ public class MWCClassTransformer implements IClassTransformer {
                     && layerHeldItemClassInfo.methodMatches("renderHeldItem", "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType;Lnet/minecraft/util/EnumHandSide;)V", classname, name, desc)) {
                 return new RenderHeldItemMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions),
                         !name.equals("renderHeldItem"));
-            } else if (entityPlayerSPClassInfo != null
-                    && entityPlayerSPClassInfo.methodMatches("isSneaking", "()Z", classname, name, desc)) {
-                return new IsSneakingMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if (entityPlayerSPClassInfo != null
-                    && entityPlayerSPClassInfo.methodMatches("updateEntityActionState", "()V", classname, name, desc)) {
-                return new UpdateEntityActionStateMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
             } else if (entityLivingBaseClassInfo != null
                     && entityLivingBaseClassInfo.methodMatches("attackEntityFrom", "(Lnet/minecraft/util/DamageSource;F)Z", classname, name, desc)) {
                 return new AttackEntityFromMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));

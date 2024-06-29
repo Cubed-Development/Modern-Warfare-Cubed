@@ -197,21 +197,6 @@ public class KS23Factory implements GunFactory {
                     GL11.glRotatef(-2F, 1f, 0f, 0f);
             })
                 
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(13F, 0f, 0f, 1f);
-                GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-                GL11.glTranslatef(-0.15f, 0.25f, -1.5f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(13F, 0f, 0f, 1f);
-                GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-                GL11.glTranslatef(-0.15f, 0.25f, -1.3f);
-                GL11.glRotatef(1F, 0f, 0f, 1f);
-                })
-                
             .withFirstPersonPositioningZoomingRecoiled((renderContext) -> {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
@@ -766,22 +751,6 @@ public class KS23Factory implements GunFactory {
                     	 GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
                     	 GL11.glRotatef(55.000000f, 0f, 0f, 1f);
                     	 GL11.glTranslatef(0.325000f, -0.550000f, 0.175000f);
-                     }, 
-                     (renderContext) -> {
-                    	 GL11.glScalef(3.5f, 3.5f, 3.5f);
-                    	 GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                    	 GL11.glRotatef(25.000000f, 0f, 1f, 0f);
-                    	 GL11.glRotatef(-65.000000f, 0f, 0f, 1f);
-                    	 GL11.glTranslatef(0.600000f, -0.925000f, 0.200000f);
-                     })
-                     
-            .withFirstPersonHandPositioningProning(
-                     (renderContext) -> {
-                         GL11.glScalef(3.5f, 3.5f, 3.5f);
-                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
-                         GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-                         GL11.glTranslatef(0.230000f, -0.455000f, 0.245000f);
                      }, 
                      (renderContext) -> {
                     	 GL11.glScalef(3.5f, 3.5f, 3.5f);

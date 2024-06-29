@@ -161,22 +161,7 @@ public class M712Factory implements GunFactory {
                 GL11.glTranslatef(-0.3f, 0.7f, -1.1f);
                 GL11.glRotatef(-6F, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glScaled(2F, 2F, 2F);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(15F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.8f, 1.1f, -3f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glScaled(2F, 2F, 2F);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(15F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.8f, 1.1f, -2.6f);
-                GL11.glRotatef(-6F, 1f, 0f, 0f);    
-                })
-                
+
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M712action.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.5F);
 //              GL11.glRotatef(45F, 0f, 1f, 0f);
@@ -740,21 +725,7 @@ public class M712Factory implements GunFactory {
                        GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
                        GL11.glTranslatef(0.420000f, -0.450000f, 0.140000f);
                    })
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        GL11.glScalef(6f, 6f, 6f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(15.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(25.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.050000f, -0.875000f, 0.075000f);
-                  }, 
-                  (renderContext) -> {
-                      GL11.glScalef(6f, 6f, 6f);
-                      GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-                      GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                      GL11.glRotatef(-40.000000f, 0f, 0f, 1f);
-                      GL11.glTranslatef(0.375000f, -0.500000f, 0.200000f);
-                  })
+
             .withFirstPersonHandPositioningModifying(
                     (renderContext) -> {
                         GL11.glScalef(6f, 6f, 6f);

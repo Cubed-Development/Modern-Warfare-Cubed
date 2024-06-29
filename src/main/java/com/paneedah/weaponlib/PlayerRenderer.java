@@ -2,7 +2,6 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -22,18 +21,18 @@ public class PlayerRenderer {
         protected float rate;
         protected float amplitude = 0.04f;
         public StateDescriptor(MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager,
-                float rate, float amplitude) {
+                               float rate, float amplitude) {
             this.stateManager = stateManager;
             this.rate = rate;
             this.amplitude = amplitude;
         }
-        
+
         @Override
         public MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> getStateManager() {
             return stateManager;
         }
     }
-    
+
     private static class EquippedPlayerTransitionProvider extends PlayerTransitionProvider {
 
         private PlayerTransitionProvider delegate;
@@ -52,9 +51,9 @@ public class PlayerRenderer {
             return delegate.getTransitions(state);
         }
     }
-     
+
     private PlayerTransitionProvider transitionProvider;// = new PlayerTransitionProvider();
-    
+
     private class PositionerDescriptor {
         Positioner<Part, RenderContext<RenderableState>> positioner;
 
@@ -65,54 +64,44 @@ public class PlayerRenderer {
             this.positioner = positioner;
         }
     }
-    
+
     private ThreadLocal<PositionerDescriptor> currentPositioner = new ThreadLocal<>();
 
 //    private ThreadLocal<Positioner<Part, RenderContext<RenderableState>>> currentPositioner = new ThreadLocal<>();
-    
+
     private int currentFlags;
     private int newFlags;
     private long renderingStartTimestamp;
     private long playerStopMovingTimestamp;
     private ClientModContext clientModContext;
-    
+
     private MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> generalPlayerStateManager;
-    
+
     public PlayerRenderer(EntityPlayer player, ClientModContext clientModContext) {
         this.clientModContext = clientModContext;
         this.transitionProvider = new EquippedPlayerTransitionProvider(
                 player,
                 clientModContext.getPlayerTransitionProvider());
     }
-    
+
     public Positioner<Part, RenderContext<RenderableState>> getCurrentPositioner() {
         PositionerDescriptor descriptor = currentPositioner.get();
         return descriptor != null ? descriptor.positioner : null;
     }
-    
+
     private MultipartRenderStateDescriptor<RenderableState, Part, RenderContext<RenderableState>> getStateDescriptor(EntityPlayer player) {
-        
+
         if(currentFlags != newFlags) {
             generalPlayerStateManager = null;
         }
-        
-        boolean isProning = (newFlags & CompatibleExtraEntityFlags.PRONING) != 0;
-                
-        
+
         if(generalPlayerStateManager == null) {
             //log.trace("Creating state manager");
             generalPlayerStateManager = new MultipartRenderStateManager<>(RenderableState.NORMAL, transitionProvider,
-                  () -> currentTime(player));
-        } else if(isProning && player.distanceWalkedModified == player.prevDistanceWalkedModified
-                /*|| player.motionX == 0 || player.motionZ == 0*/) {
-            //log.trace("Setting aiming state");
-            generalPlayerStateManager.setState(RenderableState.PRONING_AIMING, true, true, true);
-        } else if(isProning) {
-            //log.trace("Setting proning state");
-            generalPlayerStateManager.setCycleState(RenderableState.PRONING, false);
+                    () -> currentTime(player));
         } else {
             ItemStack heldStack = player.getHeldItemMainhand();
-            
+
             if(heldStack != null && heldStack.getItem() instanceof Weapon) {
                 /*
                  * if this player is not proning and holds a weapon, get a weapon state descriptor
@@ -120,13 +109,13 @@ public class PlayerRenderer {
                  */
                 return ((Weapon)heldStack.getItem()).getRenderer().getThirdPersonStateDescriptor(player, heldStack);
             }
-            
+
             generalPlayerStateManager.setState(RenderableState.NORMAL, true, false);
         }
 
         return new StateDescriptor(generalPlayerStateManager, 0f, 0f);
     }
-    
+
     private long currentTime(EntityPlayer player) {
         long elapseRenderingStart = System.currentTimeMillis() - renderingStartTimestamp;
         int renderingStartThreshold = 400;
@@ -148,28 +137,17 @@ public class PlayerRenderer {
     }
 
     public void renderModel(ModelBiped modelPlayer, EntityPlayer player, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-     
-    	newFlags = CompatibleExtraEntityFlags.getFlags(player);
-        if(newFlags != currentFlags) {
-            renderingStartTimestamp = System.currentTimeMillis();
-        }
-        
-    
+
         currentPositioner.remove();
-        if(false) { //(newFlags & CompatibleExtraEntityFlags.PRONING) != 0) {
-        	//System.out.println("hi");
-        	renderAnimatedModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        } else {
-            //currentPositioner.remove();
-            renderBipedModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        }
+        //currentPositioner.remove();
+        renderBipedModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         currentFlags = newFlags;
     }
-    
+
     private void renderBipedModel(ModelBiped model, Entity entity, float limbSwing, float limbSwingAmount, float p_78088_4_, float p_78088_5_, float p_78088_6_, float p_78088_7_) {
-        
-    	
-    	model.setRotationAngles(limbSwing, limbSwingAmount, p_78088_4_, p_78088_5_, p_78088_6_, p_78088_7_, entity);
+
+
+        model.setRotationAngles(limbSwing, limbSwingAmount, p_78088_4_, p_78088_5_, p_78088_6_, p_78088_7_, entity);
 //        model.bipedLeftArm.rotateAngleX = 0f;
 //        model.bipedLeftArm.rotateAngleY = 0f;
 //        model.bipedRightArm.rotateAngleZ = 0f;
@@ -207,32 +185,32 @@ public class PlayerRenderer {
         }
     }
 
-    private void renderAnimatedModel(ModelBiped modelPlayer, EntityPlayer player, 
-            float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
-            float headPitch, float scale) {
+    private void renderAnimatedModel(ModelBiped modelPlayer, EntityPlayer player,
+                                     float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
+                                     float headPitch, float scale) {
         MultipartRenderStateDescriptor<RenderableState, Part, RenderContext<RenderableState>> stateDescriptor = getStateDescriptor(player);
         MultipartPositioning<Part, RenderContext<RenderableState>> multipartPositioning = stateDescriptor.getStateManager().nextPositioning();
         Positioner<Part, RenderContext<RenderableState>> positioner = multipartPositioning.getPositioner();
         currentPositioner.set(new PositionerDescriptor(positioner));
-        
+
         GL11.glPushMatrix();
-        
+
         RenderContext<RenderableState> renderContext = new RenderContext<>(player, null);
-        
+
         renderContext.setLimbSwing(limbSwing);
         renderContext.setFlimbSwingAmount(limbSwingAmount);
-        
+
         renderContext.setAgeInTicks(ageInTicks);
         renderContext.setScale(scale);
-        
+
         renderContext.setNetHeadYaw(netHeadYaw);
         renderContext.setHeadPitch(headPitch);
         renderContext.setCompatibleTransformType(ItemCameraTransforms.TransformType.NONE);
-               
+
         positioner.position(Part.MAIN, renderContext);
-        
-        modelPlayer.setRotationAngles(renderContext.getLimbSwing(), renderContext.getFlimbSwingAmount(), 
-                renderContext.getAgeInTicks(), renderContext.getNetHeadYaw(), 
+
+        modelPlayer.setRotationAngles(renderContext.getLimbSwing(), renderContext.getFlimbSwingAmount(),
+                renderContext.getAgeInTicks(), renderContext.getNetHeadYaw(),
                 renderContext.getHeadPitch(), renderContext.getScale(), renderContext.getPlayer());
 
         renderBody(positioner, modelPlayer, renderContext);
@@ -241,10 +219,10 @@ public class PlayerRenderer {
         renderRightArm(positioner, modelPlayer, renderContext);
         renderLeftLeg(positioner, modelPlayer, renderContext);
         renderRightLeg(positioner, modelPlayer, renderContext);
-        
+
         GL11.glPopMatrix();
     }
-    
+
 //    private void setRotationAngles(ModelBiped model, float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity p_78087_7_)
 //    {
 //        model.bipedHead.rotateAngleY = p_78087_4_ / (180F / (float)Math.PI);
@@ -353,37 +331,37 @@ public class PlayerRenderer {
 //            model.bipedLeftArm.rotateAngleX -= MathHelper.sin(p_78087_3_ * 0.067F) * 0.05F;
 //        }
 //    }
-    
-    private void renderBody(Positioner<Part, RenderContext<RenderableState>> positioner, 
-            ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
+
+    private void renderBody(Positioner<Part, RenderContext<RenderableState>> positioner,
+                            ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
         GL11.glPushMatrix();
         modelPlayer.bipedBody.render(renderContext.getScale());
-        
+
         if(modelPlayer instanceof ModelPlayer)
             ((ModelPlayer)modelPlayer).bipedBodyWear.render(renderContext.getScale());
-        
+
         GL11.glPopMatrix();
     }
-    
+
     private void renderHead(Positioner<Part, RenderContext<RenderableState>> positioner, ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
         GL11.glPushMatrix();
         FloatBuffer preBuf = MatrixHelper.getModelViewMatrixBuffer();
         positioner.position(Part.HEAD, renderContext);
         FloatBuffer postBuf = MatrixHelper.getModelViewMatrixBuffer();
         if(!preBuf.equals(postBuf)) {
-//            modelPlayer.bipedHead.rotateAngleX = modelPlayer.bipedHead.rotateAngleY = 
+//            modelPlayer.bipedHead.rotateAngleX = modelPlayer.bipedHead.rotateAngleY =
 //                    modelPlayer.bipedHead.rotateAngleZ = 0f;
         }
         modelPlayer.bipedHead.render(renderContext.getScale());
-        
+
         if(modelPlayer instanceof ModelPlayer)
             modelPlayer.bipedHeadwear.render(renderContext.getScale());
-        
+
         GL11.glPopMatrix();
     }
 
     private void renderRightArm(Positioner<Part, RenderContext<RenderableState>> positioner,
-            ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
+                                ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
         GL11.glPushMatrix();
         FloatBuffer preBuf = MatrixHelper.getModelViewMatrixBuffer();
         positioner.position(Part.RIGHT_HAND, renderContext);
@@ -395,7 +373,7 @@ public class PlayerRenderer {
 //            modelPlayer.bipedRightArm.rotateAngleX  = -0.27882767f;
 //            modelPlayer.bipedRightArm.rotateAngleY = 0f;
 //            modelPlayer.bipedRightArm.rotateAngleZ  = -0.014263712f;
-            modelPlayer.bipedRightArm.rotateAngleX = modelPlayer.bipedRightArm.rotateAngleY = 
+            modelPlayer.bipedRightArm.rotateAngleX = modelPlayer.bipedRightArm.rotateAngleY =
                     modelPlayer.bipedRightArm.rotateAngleZ = 0f;
             currentPositioner.get().rightHandPositioned = true;
         }
@@ -403,12 +381,12 @@ public class PlayerRenderer {
 
         if(modelPlayer instanceof ModelPlayer)
             ((ModelPlayer)modelPlayer).bipedRightArmwear.render(renderContext.getScale());
-        
+
         GL11.glPopMatrix();
     }
 
     private void renderLeftArm(Positioner<Part, RenderContext<RenderableState>> positioner,
-            ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
+                               ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
         GL11.glPushMatrix();
         FloatBuffer preBuf = MatrixHelper.getModelViewMatrixBuffer();
         positioner.position(Part.LEFT_HAND, renderContext);
@@ -420,7 +398,7 @@ public class PlayerRenderer {
 //            modelPlayer.bipedLeftArm.rotateAngleX = 0.038862526f;
 //            modelPlayer.bipedLeftArm.rotateAngleY = 0f;
 //            modelPlayer.bipedLeftArm.rotateAngleZ = -0.09030269f;
-            modelPlayer.bipedLeftArm.rotateAngleX = modelPlayer.bipedLeftArm.rotateAngleY = 
+            modelPlayer.bipedLeftArm.rotateAngleX = modelPlayer.bipedLeftArm.rotateAngleY =
                     modelPlayer.bipedLeftArm.rotateAngleZ = 0f;
             currentPositioner.get().leftHandPositioned = true;
         }
@@ -431,15 +409,15 @@ public class PlayerRenderer {
 
         GL11.glPopMatrix();
     }
-    
+
     private void renderRightLeg(Positioner<Part, RenderContext<RenderableState>> positioner,
-            ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
+                                ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
         GL11.glPushMatrix();
         FloatBuffer preBuf = MatrixHelper.getModelViewMatrixBuffer();
         positioner.position(Part.RIGHT_LEG, renderContext);
         FloatBuffer postBuf = MatrixHelper.getModelViewMatrixBuffer();
         if(!preBuf.equals(postBuf)) {
-            modelPlayer.bipedRightLeg.rotateAngleX = modelPlayer.bipedRightLeg.rotateAngleY = 
+            modelPlayer.bipedRightLeg.rotateAngleX = modelPlayer.bipedRightLeg.rotateAngleY =
                     modelPlayer.bipedRightLeg.rotateAngleZ = 0f;
         }
         modelPlayer.bipedRightLeg.render(renderContext.getScale());
@@ -451,14 +429,14 @@ public class PlayerRenderer {
     }
 
     private void renderLeftLeg(Positioner<Part, RenderContext<RenderableState>> positioner,
-            ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
+                               ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
         GL11.glPushMatrix();
 //        GL11.glScalef(1.01f, 1.01f, 1.01f);
         FloatBuffer preBuf = MatrixHelper.getModelViewMatrixBuffer();
         positioner.position(Part.LEFT_LEG, renderContext);
         FloatBuffer postBuf = MatrixHelper.getModelViewMatrixBuffer();
         if(!preBuf.equals(postBuf)) {
-            modelPlayer.bipedLeftLeg.rotateAngleX = modelPlayer.bipedLeftLeg.rotateAngleY = 
+            modelPlayer.bipedLeftLeg.rotateAngleX = modelPlayer.bipedLeftLeg.rotateAngleY =
                     modelPlayer.bipedLeftLeg.rotateAngleZ = 0f;
         }
         modelPlayer.bipedLeftLeg.render(renderContext.getScale());
@@ -477,18 +455,18 @@ public class PlayerRenderer {
 //        }
 //    }
 
-    public boolean renderArmor(ModelBiped modelPlayer, EntityPlayer player, float limbSwing, float limbSwingAmount, 
-            float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        
-    	
-    	
+    public boolean renderArmor(ModelBiped modelPlayer, EntityPlayer player, float limbSwing, float limbSwingAmount,
+                               float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+
+
+
         PositionerDescriptor descriptor = currentPositioner.get();
-        
+
         if(descriptor != null) {
             Positioner<Part, RenderContext<RenderableState>> positioner = descriptor.positioner;
 
             GL11.glPushMatrix();
-            
+
             RenderContext<RenderableState> renderContext = new RenderContext<>(player, null);
 
             renderContext.setAgeInTicks(ageInTicks);
@@ -498,20 +476,20 @@ public class PlayerRenderer {
             renderContext.setNetHeadYaw(netHeadYaw);
             renderContext.setHeadPitch(headPitch);
             renderContext.setCompatibleTransformType(ItemCameraTransforms.TransformType.NONE);
-            
-            modelPlayer.setRotationAngles(renderContext.getLimbSwing(), renderContext.getFlimbSwingAmount(), 
-                    renderContext.getAgeInTicks(), renderContext.getNetHeadYaw(), 
+
+            modelPlayer.setRotationAngles(renderContext.getLimbSwing(), renderContext.getFlimbSwingAmount(),
+                    renderContext.getAgeInTicks(), renderContext.getNetHeadYaw(),
                     renderContext.getHeadPitch(), renderContext.getScale(), renderContext.getPlayer());
 
             positioner.position(Part.MAIN, renderContext);
-            
+
             renderBody(positioner, modelPlayer, renderContext);
             renderHead(positioner, modelPlayer, renderContext);
             renderLeftArm(positioner, modelPlayer, renderContext);
             renderRightArm(positioner, modelPlayer, renderContext);
             renderLeftLeg(positioner, modelPlayer, renderContext);
             renderRightLeg(positioner, modelPlayer, renderContext);
-            
+
             GL11.glPopMatrix();
         }
         return descriptor != null;
@@ -520,17 +498,17 @@ public class PlayerRenderer {
     public boolean positionItemSide(EntityPlayer player, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, EnumHandSide handSide) {
         PositionerDescriptor descriptor = currentPositioner.get();
         if(descriptor != null) {
-            
+
             if((handSide == null || handSide == EnumHandSide.RIGHT)
                     && !descriptor.rightHandPositioned) {
                 return false;
             }
-            
+
             if(handSide == EnumHandSide.LEFT && !descriptor.leftHandPositioned) {
                 return false;
             }
 
-            
+
             Positioner<Part, RenderContext<RenderableState>> positioner = descriptor.positioner;
 
             RenderContext<RenderableState> renderContext = new RenderContext<>(player, null);
@@ -546,7 +524,7 @@ public class PlayerRenderer {
                 positioner.position(Part.RIGHT_HAND, renderContext);
 //                GL11.glRotatef(-5f, 1f, 0f, 0f);
             }
-            
+
             GL11.glTranslatef(-0.35f, 0.1f, -0f);
             GL11.glRotatef(-378f, 1f, 0f, 0f);
             GL11.glRotatef(360f, 0f, 1f, 0f);

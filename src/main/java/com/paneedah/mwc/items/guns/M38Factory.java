@@ -577,14 +577,6 @@ public class M38Factory implements GunFactory {
                 GL11.glTranslatef(-0.2f, 1.23f, -0.3f);
                 GL11.glRotatef(-0.5F, 1f, 0f, 0f); 
                 })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-            	GL11.glScalef(3.00000f, 3.00000f, 3.00000f);
-            	GL11.glRotatef(45F, 0f, 1f, 0f);
-            	GL11.glRotatef(5.000000f, 0f, 0f, 1f);
-            	GL11.glTranslatef(-0.225000f, 1.050000f, -0.450000f);
-                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
-                })
 		
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M4EjectorAction.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 0.7f);

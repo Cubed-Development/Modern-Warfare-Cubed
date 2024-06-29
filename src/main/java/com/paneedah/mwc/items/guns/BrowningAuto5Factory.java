@@ -117,21 +117,6 @@ public class BrowningAuto5Factory implements GunFactory {
                 GL11.glRotatef(-4F, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProning((renderContext) -> {
-            	GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(8F, 0f, 0f, 1f);
-                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-                GL11.glTranslatef(-0.675000f, 0.150000f, -2.400001f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-            	GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(8F, 0f, 0f, 1f);
-                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-                GL11.glTranslatef(-0.675000f, 0.150000f, -2.200001f);
-                GL11.glRotatef(1F, 0f, 0f, 1f);
-                })
-                
             .withFirstPersonPositioningZoomingRecoiled((renderContext) -> {
             	GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
@@ -383,22 +368,6 @@ public class BrowningAuto5Factory implements GunFactory {
                     	 
 //                    	 GL11.glScalef(4f, 4f, 4f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.050000f, -0.600000f, 0.125000f);
-                    }, 
-                    (renderContext) -> {
-                   	 GL11.glScalef(4f, 4f, 4f);
-                   	 GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
-                   	 GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-                   	 GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-                   	 GL11.glTranslatef(0.700000f, -1.100000f, 0.225000f);
-                    })
                      
             .withFirstPersonHandPositioningLoadIterationCompleted(
                      (renderContext) -> {

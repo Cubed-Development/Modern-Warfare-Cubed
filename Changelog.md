@@ -31,6 +31,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 ### Removed
 
 - Removed unused warning about the grenade exploding in X amount of seconds
+- Removed proning
 
 ### Internal
 
