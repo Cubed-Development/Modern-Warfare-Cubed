@@ -22,6 +22,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
     }
 
+    protected S previousState;
     protected S state;
     protected long stateUpdateTimestamp = System.currentTimeMillis();
     @Getter private long updateId;
@@ -93,6 +94,8 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
     @Override
     public boolean setState(S state) {
+        previousState = this.state;
+
         this.state = state;
         stateUpdateTimestamp = System.currentTimeMillis();
 
@@ -112,7 +115,23 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         return false;
     }
 
+    // ! This is made by me to try and potentially fix CCS (GitHub issue #248), this is an implementation based on the little context I have and I sadly have no way to test this properly
+    // ! Best case scenario it fixes everything, worse case scenario, who knows?
+    // ! Only one way to see, let's try it!
+    // ! TODO: Monitor this
     protected void rollback() {
+        if (previousState == null) {
+            LOG.error("Attempted to rollback weapon state, but no previous state was available");
+            return;
+        }
+
+        LOG.debug("Rolling back weapon state from {} to {}", getState(), previousState);
+
+        setState(previousState);
+
+        preparedState = null;
+
+        LOG.debug("Weapon state rollback complete, state: {}", getState());
     }
 
     /**
