@@ -25,7 +25,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 - Updated the url in the mod menu
 - Updated dependencies:
   - Requires Red Core 0.5 and up
-  - Requires MixinBooter 0.5 and up
+  - Requires MixinBooter 8.6 and up
 - Updated Korean translation
 
 ### Removed
