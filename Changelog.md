@@ -18,6 +18,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 ### Fixed
 
 - Fixed log spam caused by unnecessary logging
+- Fixed `PlayerWeaponInstance#reconcile` setting `PlayerItemInstance#updateTimestamp` even though nothing was done 
 
 ## Modern Warfare Cubed Version 0.1.6 Changelog - 2024-05-21
 
