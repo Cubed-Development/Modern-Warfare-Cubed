@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class DSR1Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -47,15 +45,7 @@ public class DSR1Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.08f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sniper Rifle",
-        "Damage: 14", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: BOLT ACTION",
-        "Rate of Fire: 16/100",
-        "Magazines:",
-        "5rnd 7.62x51mm DSR-1 Magazine",
-        "10rnd 7.62x51mm DSR-1 Magazine"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 

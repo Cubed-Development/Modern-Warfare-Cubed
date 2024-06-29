@@ -13,8 +13,6 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class NinthSinFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -46,15 +44,7 @@ public class NinthSinFactory implements GunFactory {
         .withShellCasingEjectEnabled(false)
         .withPellets(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Vacuum Combat Sidearm", 
-        "Damage: 4", 
-        "Cartridge: Unknown",
-        "Fire Rate: AUTO",
-        "Rate of Fire: 9999",
-        "Mode of Fire: 3 shots per trigger-pull",
-        "Ammunition Intake:",
-        "XI-57809 VCS Battery"))
+
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 

@@ -23,8 +23,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class APSFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -73,14 +71,7 @@ public class APSFactory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Machine Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "20rnd 9x19mm Magazine (APS)"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 

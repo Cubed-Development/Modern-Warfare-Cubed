@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class StonerA1Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -45,14 +43,7 @@ public class StonerA1Factory {
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.15f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Light Machine Gun",
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "100rnd 5.56x45mm Stoner Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 

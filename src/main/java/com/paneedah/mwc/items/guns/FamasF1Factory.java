@@ -19,8 +19,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class FamasF1Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -68,14 +66,7 @@ public class FamasF1Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Bullpup Assault Rifle",
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm NATO",
-        "Fire Rate: SEMI, BURST",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "20rnd 7.62x51mm Magazine"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 

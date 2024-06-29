@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class SV98Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -47,14 +45,7 @@ public class SV98Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.09f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sniper Rifle",
-        "Damage: 14", 
-        "Cartridge: 7.62x54mmR",
-        "Fire Rate: BOLT ACTION",
-        "Rate of Fire: 16/100",
-        "Magazines:",
-        "10rnd 7.62x54mmR Izhmash Magazine"))
+
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 

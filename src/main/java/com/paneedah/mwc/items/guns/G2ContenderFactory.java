@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class G2ContenderFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -44,12 +42,7 @@ public class G2ContenderFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.09f)
         
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Break-Action",
-        "Damage: 6.5", 
-        "Cartridge: .45-70 Government",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 

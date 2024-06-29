@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M712Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -46,14 +44,7 @@ public class M712Factory implements GunFactory {
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(1)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Machine Pistol", 
-        "Damage: 5.4", 
-        "Cartridge: 7.63x25mm Mauser",
-        "Fire Rate: AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "20rnd 7.63x25mm Mauser Magazine"))
+
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  1.5f, // x 

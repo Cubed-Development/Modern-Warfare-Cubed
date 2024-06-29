@@ -21,8 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MAC10Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -72,14 +70,7 @@ public class MAC10Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Machine Pistol / Submachine Gun",
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 99/100",
-        "Magazines:",
-        "30rnd .45 ACP Magazine"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2f, // x 

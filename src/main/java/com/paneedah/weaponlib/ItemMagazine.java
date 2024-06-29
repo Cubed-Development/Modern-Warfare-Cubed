@@ -54,7 +54,7 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
 
 			magazine.modContext = modContext;
 
-			withInformationProvider((stack) -> TextFormatting.RED + "Ammo: " + TextFormatting.GRAY + Tags.getAmmo(stack) + "/" + capacity);
+			informationProvider = stack -> TextFormatting.GREEN + "Ammunition: " + TextFormatting.GRAY + Tags.getAmmo(stack) + "/" + capacity;
 
 			return magazine;
 		}

@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MP40Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -46,14 +44,7 @@ public class MP40Factory {
         .withFlashOffsetY(() -> 0.13f)
         .withInaccuracy(2f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sub Machine Gun",
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "32rnd 9x19mm MP Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 

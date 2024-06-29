@@ -19,8 +19,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class ScarHFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -69,16 +67,7 @@ public class ScarHFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Battle Rifle", 
-        "Damage: 8", 
-        "Cartridge: 7.62x51mm NATO",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 55/100",
-        "Magazines:",
-        "20rnd 7.62x51mm NATO CQC Magazine",
-        "40rnd 7.62x51mm NATO CQC Magazine",
-        "60rnd 7.62x51mm NATO CQC Magazine"))
+        
         
         .withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 8), new

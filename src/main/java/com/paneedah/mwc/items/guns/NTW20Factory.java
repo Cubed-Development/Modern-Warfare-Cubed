@@ -17,8 +17,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class NTW20Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -48,14 +46,7 @@ public class NTW20Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.13f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Anti-Materiel Sniper Rifle",
-        "Damage: 35", 
-        "Cartridge: 20x82mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 10/100",
-        "Magazines:",
-        "3rnd 20x82mm Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 

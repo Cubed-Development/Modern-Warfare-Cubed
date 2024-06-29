@@ -2,6 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
+import com.paneedah.mwc.utils.DecimalUtils;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -276,9 +277,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
     @Override
     public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        super.addInformation(itemStack, worldIn, tooltip, flagIn);
-        double formattedDouble = Math.round(this.percentDamageBlocked * 10000) / 100.0;
-        tooltip.add(String.format("%sDamage Blocked: %s%s%%", TextFormatting.GREEN, TextFormatting.GRAY, formattedDouble));
+        tooltip.add(TextFormatting.GREEN + "Damage Blocked: " + TextFormatting.GRAY + Math.round(percentDamageBlocked * 100) + "%");
     }
 
     @Override

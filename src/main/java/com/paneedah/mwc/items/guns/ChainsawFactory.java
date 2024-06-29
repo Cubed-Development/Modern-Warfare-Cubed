@@ -13,8 +13,6 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class ChainsawFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -55,8 +53,7 @@ public class ChainsawFactory implements GunFactory {
                 1f, // y
                 2f) // z
         
-        .withInformationProvider(stack -> Arrays.asList(
-                "Intake: (Chainsaw) Fuel Capsule"))
+        
          .withCompatibleAttachment(Magazines.FuelCell, (model) -> {
              GL11.glScaled(0F, 0F, 0F);
          })

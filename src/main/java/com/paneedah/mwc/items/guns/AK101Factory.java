@@ -15,13 +15,10 @@ import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
-
-import java.util.Arrays;
 
 public class AK101Factory {
 
@@ -73,15 +70,7 @@ public class AK101Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault Rifle",
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "30rnd 5.56x45mm Magazine",
-        "60rnd 5.56x45mm Magazine"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 1.5f, // x 

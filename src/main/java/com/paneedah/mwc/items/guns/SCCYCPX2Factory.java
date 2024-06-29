@@ -22,8 +22,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class SCCYCPX2Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -72,16 +70,7 @@ public class SCCYCPX2Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "10rnd 9x19mm Magazine",
-        "30rnd 9x19mm Magazine",
-        "65rnd 9x19mm Drum Magazine"))
+        
         
         .withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 7), new

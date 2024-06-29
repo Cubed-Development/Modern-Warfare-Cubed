@@ -21,8 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class FMG9Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
@@ -77,14 +75,7 @@ public class FMG9Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Assault Rifle", 
-		"Damage: 6", 
-		"Cartridge: 5.56x45mm NATO",
-		"Fire Rate: SEMI, BURST",
-		"Rate of Fire: 80/100",
-		"Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine"))
+		
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                1f, // x 

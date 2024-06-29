@@ -12,8 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class SupernovaFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -52,13 +50,7 @@ public class SupernovaFactory implements GunFactory {
         .withFlashOffsetX(() -> 0.05f)
         .withFlashOffsetY(() -> 0.12f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: PUMP ACTION",
-        "Rate of Fire: 30/100"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 

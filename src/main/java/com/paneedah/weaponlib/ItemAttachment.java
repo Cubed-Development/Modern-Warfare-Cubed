@@ -5,11 +5,13 @@ import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -179,13 +181,34 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 
 	@Override
     public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		if(tooltip != null && informationProvider != null) {
+		if (informationProvider != null) {
 			tooltip.add(informationProvider.apply(itemStack));
+			return;
 		}
-		
-//		if(getCategory() == AttachmentCategory.GRIP) {
-			//tooltip.add("Here: " + this.getApply().apply(itemAttachment, target, player);)
-		//}
+
+		final TextFormatting green = TextFormatting.GREEN;
+		final TextFormatting grey = TextFormatting.GRAY;
+
+		final ArrayList<String> tooltipLines = new ArrayList<>();
+
+		// Info
+		if (category != null)
+			tooltipLines.add(green + "Type: " + grey + category);
+
+		// Compatible weapons and attachments
+		if (category != AttachmentCategory.SKIN) {
+			if (!compatibleWeapons.isEmpty()) {
+				tooltipLines.add(green + "Compatible Weapons:");
+				compatibleWeapons.forEach(weapon -> tooltipLines.add(grey + (I18n.format(weapon.getTranslationKey() + ".name"))));
+			}
+
+			if (!attachments.isEmpty()) {
+				tooltipLines.add(green + "Attachments:");
+				attachments.forEach(compatibleAttachment -> tooltipLines.add(grey + (I18n.format(compatibleAttachment.getAttachment().getTranslationKey() + ".name"))));
+			}
+		}
+
+		tooltip.addAll(tooltipLines);
 	}
 
 	public void setName(String name) {

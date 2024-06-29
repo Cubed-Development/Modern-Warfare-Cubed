@@ -20,8 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class VSSVintorezFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -70,14 +68,7 @@ public class VSSVintorezFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Special Sniper Rifle",
-        "Damage: 7", 
-        "Cartridge: 9x39mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 70/100",
-        "Magazines:",
-        "20rnd 9x39mm Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
