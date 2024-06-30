@@ -593,42 +593,35 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         Weapon weapon = instance.getWeapon();
 
         List<ItemMagazine> compatibleMagazines = weapon.getCompatibleMagazines().stream().filter(compatibleMagazine -> WeaponAttachmentAspect.hasRequiredAttachments(compatibleMagazine, instance)).collect(Collectors.toList());
-
-        previousMagazine = modContext.getAttachmentAspect().removeAttachment(AttachmentCategory.MAGAZINE, instance);
-        
-        //	processUnloadPermit(new UnloadPermit(p.getState()), instance);
-
-        int originalAmmo = instance.getAmmo();
-        
-        // Mag list is empty
-
         if (compatibleMagazines.isEmpty())
             return;
 
+        previousMagazine = modContext.getAttachmentAspect().removeAttachment(AttachmentCategory.MAGAZINE, instance);
+        if (previousMagazine == null) {
+            p.setStatus(Status.DENIED);
+            return;
+        }
+        
+        //	processUnloadPermit(new UnloadPermit(p.getState()), instance);
+        int originalAmmo = instance.getAmmo();
+
         ItemStack magazineStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, Comparator.comparingInt(Tags::getAmmo), player);
-
-        if (magazineStack == null) {
-            Tags.setAmmo(weaponItemStack, 0);
-            instance.setAmmo(0);
-            player.addItemStackToInventory(previousMagazine.getItemStack());
-        } else {
-
+        if (magazineStack != null) {
             //ItemStack magazineStack = ItemStack.EMPTY;
             int ammo = Tags.getAmmo(magazineStack);
             Tags.setAmmo(weaponItemStack, ammo);
-            WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineStack.getItem(), instance);
             instance.setAmmo(ammo);
-
+            WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineStack.getItem(), instance);
             p.setStatus(Status.GRANTED);
+        } else {
+            Tags.setAmmo(weaponItemStack, 0);
+            instance.setAmmo(0);
         }
 
-        if (previousMagazine == null)
-            p.setStatus(Status.DENIED);
-        else if (previousMagazine instanceof ItemMagazine && !player.isCreative()) {
+        if (previousMagazine instanceof ItemMagazine && !player.isCreative()) {
             ItemStack attachmentItemStack = ((ItemMagazine) previousMagazine).create(originalAmmo);
             if (!player.inventory.addItemStackToInventory(attachmentItemStack))
                 player.dropItem(attachmentItemStack, false);
-            p.setStatus(Status.GRANTED);
         }
     }
     
