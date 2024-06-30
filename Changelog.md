@@ -41,6 +41,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 - Updated [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) to version 1.4.0
 - Updated to [Gradle](https://gradle.org) 8.9-rc-1
 - Added minimum JVM version for the Gradle daemon
+- Updated the `gradle.properties` to the new Red Studio standard one
 
 ## Modern Warfare Cubed Version 0.1.6 Changelog - 2024-05-21
 
