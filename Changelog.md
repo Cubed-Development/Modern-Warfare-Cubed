@@ -7,12 +7,47 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 
 ## [UNRELEASED] Modern Warfare Cubed Version 0.2 Changelog
 
+### Highlight
+
+#### Tooltips Rework
+
+In this update we reworked tooltips.
+Now they give you more info than ever, 
+and they also give you info in better ways!
+
+Take a look at this loaded AK-47 with attachments, modifications and a skin:
+
+AK-47 Before:
+
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/ba5ab893-44e3-47ce-8df3-04b079dc7b3f" alt="Before" width="256">
+
+AK-47 After:
+
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/6fcfc3ba-e464-4f69-a71f-e09ece635891" alt="Before" height="256">
+
+This was just an example, 
+but we reworked every tooltip.
+Some things in the mod did not have custom tooltips at all, so we changed that, check it out:
+
+Attachments New Tooltips:
+
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/6ad9be3f-99ac-48ab-aa7d-6a165ab1260f" alt="Before" width="256">
+
+Melee Weapons New Tooltips:
+
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/c8a799ee-5ca1-4e82-8cd9-923f4715bd32" alt="Before" height="256">
+
+This should really help in a lot of situations,
+like knowing which weapon is better or whether an attachment will be useful to you.
+
 ### Added
 
 - Added German translation
 - Added the logo to the mod menu
 - Added Ukrainian translation
 - Added a new sound effect when shooting snow
+- Added tooltips to melee weapons
+- Added tooltips to attachments
 
 ### Changed
 
@@ -27,6 +62,9 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
   - Requires Red Core 0.5 and up
   - Requires MixinBooter 8.6 and up
 - Updated Korean translation
+- Reworked weapons tooltips
+- Reworked magazines tooltips
+- Reworked vests tooltips
 
 ### Removed
 
