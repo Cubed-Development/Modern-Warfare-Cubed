@@ -16,8 +16,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MP43EFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -48,13 +46,7 @@ public class MP43EFactory implements GunFactory {
         .withFlashOffsetX(() -> 0.09f)
         .withFlashOffsetY(() -> 0.09f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI ACTION",
-        "Rate of Fire: 30/100"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 

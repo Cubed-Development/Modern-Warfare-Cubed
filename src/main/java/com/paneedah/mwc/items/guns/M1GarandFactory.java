@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1GarandFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -45,12 +43,7 @@ public class M1GarandFactory implements GunFactory {
         .withShellCasingForwardOffset(0.05f)
         .withShellCasingVerticalOffset(-0.03f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Rifle", 
-        "Damage: 15", 
-        "Cartridge: .30-06 Springfield Bullet",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 20/100"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 

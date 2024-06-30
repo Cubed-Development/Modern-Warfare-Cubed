@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1941JohnsonRifleFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -46,14 +44,7 @@ public class M1941JohnsonRifleFactory {
 //        .withShellCasingSideOffset(0f)
         .withShellCasingVerticalOffset(-0.1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Rifle",
-        "Damage: 15", 
-        "Cartridge: .30-06 Springfield",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Cartridge:",
-        ".30-06 Springfield"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 

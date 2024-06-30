@@ -13,8 +13,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MAS21Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -44,17 +42,7 @@ public class MAS21Factory implements GunFactory {
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Experimental Handgun", 
-        "Damage: 5.5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "15rnd 9x19mm Magazine",
-        "30rnd 9x19mm Magazine",
-        "65rnd 9x19mm Drum Magazine",
-        "15rnd .40 S&W Samurai Edge Magazine (w/ Samurai Edge kit)"))
+
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 

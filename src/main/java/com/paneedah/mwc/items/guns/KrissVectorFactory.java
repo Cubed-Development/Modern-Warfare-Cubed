@@ -18,8 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class KrissVectorFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -69,19 +67,7 @@ public class KrissVectorFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Submachine Gun",
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 99/100",
-        "Magazines:",
-        "25rnd .45 ACP Vector Magazine",
-        "30rnd 5.56x45mm NATO STANAG Magazine (w/ Vector 5.56 Handguard)",
-        "30rnd 5.56x45mm NATO PMAG Magazine (w/ Vector 5.56 Handguard)",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine (w/ Vector 5.56 Handguard)",
-        "60rnd 5.56x45mm NATO STANAG Drum Magazine (w/ Vector 5.56 Handguard)",
-        "100rnd 5.56x45mm NATO STANAG Drum Magazine (w/ Vector 5.56 Handguard)"))
+        
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
         
         

@@ -20,8 +20,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class G36CFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -71,15 +69,7 @@ public class G36CFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-                .withInformationProvider(stack -> Arrays.asList(
-                        "Type: Assault Rifle",
-                        "Damage: 6",
-                        "Cartridge: 5.56x45mm NATO",
-                        "Fire Rate: SEMI, AUTO",
-                        "Rate of Fire: 75/100",
-                        "Magazines:",
-                        "30rnd 5.56x45mm NATO HK Magazine",
-                        "100rnd 5.56x45mm NATO STANAG Drum Magazine"))
+                
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.gunmetalIngot,
                         MWCItems.gunmetalPlate)

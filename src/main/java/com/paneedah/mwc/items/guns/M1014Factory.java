@@ -16,8 +16,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1014Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -58,13 +56,7 @@ public class M1014Factory implements GunFactory {
         .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
         .withShellCasingModelTexture("shotgun12gauge")
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 

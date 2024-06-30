@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MG34Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -45,14 +43,7 @@ public class MG34Factory {
         .withFlashOffsetY(() -> 0.14f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: General-Purpose Machine Gun",
-        "Damage: 13.5", 
-        "Cartridge: 7.92x57mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "50rnd 7.92x57mm MG Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 

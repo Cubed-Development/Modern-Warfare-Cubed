@@ -12,8 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1CarbineFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -41,14 +39,7 @@ public class M1CarbineFactory {
         .withFlashOffsetY(() -> 0.1f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Rifle",
-        "Damage: 6", 
-        "Cartridge: .30 Carbine",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 55/100",
-        "Magazines:",
-        "15rnd .30 Carbine Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  1f, // x 
