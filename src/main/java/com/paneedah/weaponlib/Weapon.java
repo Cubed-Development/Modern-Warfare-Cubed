@@ -1302,20 +1302,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         final float firerate = BalancePackManager.getFirerate(this) * 100;
         tooltipLines.add(green + "Base Firerate: " + grey + Math.round(firerate) + "/100" + " (" + ((int) firerate * 12) + "RPM)");
 
-        // Compatible cartridge or magazines
-        final ItemBullet compatibleCartridge = getCompatibleAttachments(AttachmentCategory.BULLET).stream().findFirst().map(attachment -> (ItemBullet) attachment.getAttachment()).orElse(null);
-        if (compatibleCartridge == null) {
-            tooltipLines.add(green + "Compatible Magazines:");
-            final ArrayList<ItemMagazine> compatibleMagazines = new ArrayList<>();
-            getCompatibleAttachments(AttachmentCategory.MAGAZINE).forEach(compatibleAttachment -> compatibleMagazines.add((ItemMagazine) compatibleAttachment.getAttachment()));
-
-            compatibleMagazines.sort(Comparator.comparingInt(ItemMagazine::getCapacity));
-
-            compatibleMagazines.forEach(magazine -> tooltipLines.add(grey + (I18n.format(magazine.getTranslationKey() + ".name"))));
-        } else {
-            tooltipLines.add(green + "Compatible Cartridge: " + grey + (I18n.format(compatibleCartridge.getTranslationKey() + ".name")));
-        }
-
         // Current attachments, modifications, cartridge or magazine and skin
         if (itemStack != null) {
             ArrayList<ItemAttachment> modifications = new ArrayList<>();
@@ -1379,13 +1365,31 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 tooltipLines.add(green + "Skin: " + grey + (I18n.format(skin.getTranslationKey() + ".name")));
         }
 
+        // Compatible cartridge or magazines
+        final ItemBullet compatibleCartridge = getCompatibleAttachments(AttachmentCategory.BULLET).stream().findFirst().map(attachment -> (ItemBullet) attachment.getAttachment()).orElse(null);
+        if (compatibleCartridge == null) {
+            if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+                tooltipLines.add(green + "Compatible Magazines:");
+                final ArrayList<ItemMagazine> compatibleMagazines = new ArrayList<>();
+                getCompatibleAttachments(AttachmentCategory.MAGAZINE).forEach(compatibleAttachment -> compatibleMagazines.add((ItemMagazine) compatibleAttachment.getAttachment()));
+
+                compatibleMagazines.sort(Comparator.comparingInt(ItemMagazine::getCapacity));
+
+                compatibleMagazines.forEach(magazine -> tooltipLines.add(grey + (I18n.format(magazine.getTranslationKey() + ".name"))));
+            } else {
+                tooltipLines.add(yellow + "Press left shift to see compatible magazines");
+            }
+        } else {
+            tooltipLines.add(green + "Compatible Cartridge: " + grey + (I18n.format(compatibleCartridge.getTranslationKey() + ".name")));
+        }
+
         // Debug
         if (flagIn.isAdvanced() && playerWeaponInstance != null && itemStack.getTagCompound() != null) {
-            if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-                tooltipLines.add(red + "Logging NBT data, release left shift to stop");
+            if (Keyboard.isKeyDown(Keyboard.KEY_LCONTROL)) {
+                tooltipLines.add(red + "Logging NBT data, release left control to stop");
                 LOG.info("{} NBT Data (Size {}): {}", playerWeaponInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
             } else {
-                tooltipLines.add(yellow + "Press left shift to log NBT data");
+                tooltipLines.add(yellow + "Press left control to log NBT data");
             }
         }
 
