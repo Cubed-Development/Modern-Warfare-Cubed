@@ -13,6 +13,7 @@ plugins {
 group = "com.paneedah"
 version = "0.2-Dev-1" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
 
+val name = "Modern Warfare Cubed"
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
@@ -88,11 +89,11 @@ dependencies {
 //buildConfig {
 //    packageName("${project.group}.${id}")
 //    className("ProjectConstants")
-//    documentation.set("This class defines constants for Modern Warfare Cubed.\n<p>\nThey are automatically updated by Gradle")
+//    documentation.set("This class defines constants for ${name}.\n<p>\nThey are automatically updated by Gradle")
 //
 //    useJavaOutput()
 //    buildConfigField("String", "ID", provider { """"${id}"""" })
-//    buildConfigField("String", "NAME", "\"Modern Warfare Cubed\"")
+//    buildConfigField("String", "NAME", provider { """"${name}"""" })
 //    buildConfigField("String", "VERSION", provider { """"${project.version}"""" })
 //    buildConfigField("org.apache.logging.log4j.Logger", "LOGGER", "org.apache.logging.log4j.LogManager.getLogger(NAME)")
 //    buildConfigField("dev.redstudio.redcore.logging.RedLogger", "RED_LOGGER", """new RedLogger(NAME, "https://linkify.cz/MWCBugReport", LOGGER)""")

@@ -42,6 +42,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 - Updated to [Gradle](https://gradle.org) 8.9-rc-1
 - Added minimum JVM version for the Gradle daemon
 - Updated the `gradle.properties` to the new Red Studio standard one
+- Cleaned up the buildscript
 
 ## Modern Warfare Cubed Version 0.1.6 Changelog - 2024-05-21
 
