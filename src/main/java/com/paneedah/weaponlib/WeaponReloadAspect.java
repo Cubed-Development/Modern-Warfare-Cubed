@@ -278,9 +278,8 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 .manual()
 
                 .in(this)
-                .change(WeaponState.COMPOUND_RELOAD_FINISH).to(WeaponState.READY)
+                .change(WeaponState.COMPOUND_RELOAD_FINISH).to(WeaponState.PAUSED)
                 .when(weaponInstance -> WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance) == null)
-                .withAction(this::rollbackMagazine)
                 .automatic()
 
                 .in(this)
@@ -409,43 +408,38 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
     public void reloadMainHeldItem(EntityPlayer player) {
         PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+        if (instance == null)
+            return;
 
-        if (instance != null) {
-            if (AnimationModeProcessor.getInstance().isLegacyMode()) {
-                furtherLoadInstructionsReceived(instance);
-                stateManager.changeState(this, instance, WeaponState.READY);
+        if (AnimationModeProcessor.getInstance().isLegacyMode()) {
+            furtherLoadInstructionsReceived(instance);
+            stateManager.changeState(this, instance, WeaponState.READY);
+            return;
+        }
+
+        if (WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, instance) == null) {
+            ItemStack nextAttachment = getNextBestMagazineStack(instance);
+            if (instance.getWeapon().getRenderer().getBuilder().isHasLoadEmpty() && nextAttachment != null && Tags.getAmmo(nextAttachment) == 0)
+                instance.getWeapon().getRenderer().setShouldDoEmptyVariant(true);
+
+            stateManager.changeState(this, instance, WeaponState.AWAIT_FURTHER_LOAD_INSTRUCTIONS, WeaponState.READY);
+        } else {
+            if (instance.getState() != WeaponState.READY && instance.getState() != WeaponState.COMPOUND_REQUESTED)
+                return;
+
+            ItemAttachment<Weapon> nextAttachment = getNextMagazine(instance);
+            if (nextAttachment == null)
+                return;
+
+            instance.markReloadDirt();
+            instance.markMagSwapReady();
+            if (instance.getAmmo() == 0) {
+                instance.getWeapon().getRenderer().setMagicMag(instance, nextAttachment, WeaponState.COMPOUND_RELOAD_EMPTY);
+                stateManager.changeState(this, instance, WeaponState.COMPOUND_RELOAD_EMPTY);
             } else {
-                if (WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, instance) == null) {
-                    ItemStack nextAttachment = getNextBestMagazineStack(instance);
-                    if (instance.getWeapon().getRenderer().getBuilder().isHasLoadEmpty() && nextAttachment != null && Tags.getAmmo(nextAttachment) == 0)
-                        instance.getWeapon().getRenderer().setShouldDoEmptyVariant(true);
-
-                    stateManager.changeState(this, instance, WeaponState.AWAIT_FURTHER_LOAD_INSTRUCTIONS, WeaponState.READY);
-                } else {
-                    if (instance.getState() != WeaponState.READY && instance.getState() != WeaponState.COMPOUND_REQUESTED)
-                        return;
-
-                    ItemAttachment<Weapon> nextAttachment = getNextMagazine(instance);
-
-                    instance.markReloadDirt();
-                    instance.markMagSwapReady();
-                    if (instance.getAmmo() == 0) {
-                        if (nextAttachment != null)
-                            instance.getWeapon().getRenderer().setMagicMag(instance, nextAttachment, WeaponState.COMPOUND_RELOAD_EMPTY);
-
-                        else
-							return;
-
-                        stateManager.changeState(this, instance, WeaponState.COMPOUND_RELOAD_EMPTY);
-                    } else {
-                        if (nextAttachment != null)
-                            instance.getWeapon().getRenderer().setMagicMag(instance, nextAttachment, WeaponState.COMPOUND_RELOAD);
-                        else
-							return;
-                        instance.setIsAwaitingCompoundInstructions(true);
-                        stateManager.changeState(this, instance, WeaponState.COMPOUND_REQUESTED, WeaponState.READY);
-                    }
-                }
+                instance.getWeapon().getRenderer().setMagicMag(instance, nextAttachment, WeaponState.COMPOUND_RELOAD);
+                instance.setIsAwaitingCompoundInstructions(true);
+                stateManager.changeState(this, instance, WeaponState.COMPOUND_REQUESTED, WeaponState.READY);
             }
         }
     }
@@ -611,10 +605,13 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         if (compatibleMagazines.isEmpty())
             return;
 
-        ItemStack magazineStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
+        ItemStack magazineStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, Comparator.comparingInt(Tags::getAmmo), player);
 
-        if (magazineStack == null)
+        if (magazineStack == null) {
+            Tags.setAmmo(weaponItemStack, 0);
+            instance.setAmmo(0);
             return;
+        }
 
         //ItemStack magazineStack = ItemStack.EMPTY;
         int ammo = Tags.getAmmo(magazineStack);
@@ -820,9 +817,5 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     public void furtherLoadInstructionsReceived(PlayerWeaponInstance weaponInstance) {
         weaponInstance.setLoadAfterUnloadEnabled(true);
         stateManager.changeState(this, weaponInstance, WeaponState.UNLOAD, WeaponState.LOAD, WeaponState.ALERT);
-    }
-
-    public void rollbackMagazine(PlayerWeaponInstance weaponInstance) {
-        WeaponAttachmentAspect.addAttachment(previousMagazine, weaponInstance);
     }
 }
