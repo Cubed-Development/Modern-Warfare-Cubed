@@ -38,6 +38,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 - Made client sided mixins client side only
 - Cleaned up the `mcmod.info` file
 - Switched to [CurseUpdate](https://forge.curseupdate.com/) for update checking
+- Updated [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) to version 1.4.0
 
 ## Modern Warfare Cubed Version 0.1.6 Changelog - 2024-05-21
 

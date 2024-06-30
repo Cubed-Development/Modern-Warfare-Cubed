@@ -4,7 +4,7 @@ import org.jetbrains.gradle.ext.runConfigurations
 import org.jetbrains.gradle.ext.settings
 
 plugins {
-    id("com.gtnewhorizons.retrofuturagradle") version "1.3.33"
+    id("com.gtnewhorizons.retrofuturagradle") version "1.4.0"
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.8"
     id("com.github.gmazzo.buildconfig") version "5.3.5"
     id("io.freefair.lombok") version "8.6"
