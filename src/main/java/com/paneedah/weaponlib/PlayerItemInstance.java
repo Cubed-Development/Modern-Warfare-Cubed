@@ -22,6 +22,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
     }
 
+    protected S previousState;
     protected S state;
     protected long stateUpdateTimestamp = System.currentTimeMillis();
     @Getter private long updateId;
@@ -93,6 +94,8 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
     @Override
     public boolean setState(S state) {
+        previousState = this.state;
+
         this.state = state;
         stateUpdateTimestamp = System.currentTimeMillis();
 
@@ -107,14 +110,28 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
             }
 
             preparedState = null;
-        } else
-            LOG.warn("Prepared state is null for PlayerItemInstance: {}", this);
+        }
 
         return false;
     }
 
+    // ! This is made by me to try and potentially fix CCS (GitHub issue #248), this is an implementation based on the little context I have and I sadly have no way to test this properly
+    // ! Best case scenario it fixes everything, worse case scenario, who knows?
+    // ! Only one way to see, let's try it!
+    // ! TODO: Monitor this
     protected void rollback() {
-        LOG.warn("Attempted rolling back, but this method is empty. State: {}, Prepared State: {}, Prepared State State: {}, Prepared State State Commit Phase: {}", state, preparedState, preparedState.getState(), preparedState.getState().commitPhase());
+        if (previousState == null) {
+            LOG.error("Attempted to rollback weapon state, but no previous state was available");
+            return;
+        }
+
+        LOG.debug("Rolling back weapon state from {} to {}", getState(), previousState);
+
+        setState(previousState);
+
+        preparedState = null;
+
+        LOG.debug("Weapon state rollback complete, state: {}", getState());
     }
 
     /**
@@ -180,7 +197,8 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     }
 
     protected void reconcile() {
-        LOG.warn("Reconciling PlayerItemInstance: {}, but this method is empty", this);
+        // Currently no op in this class, mainly meant to be implemented in subclasses
+        // Meant to be used to reconcile instances between server and client
     }
 
 //    public View<?> createView() {

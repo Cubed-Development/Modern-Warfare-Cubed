@@ -82,6 +82,22 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated the `gradle.properties` to the new Red Studio standard one
 - Cleaned up the buildscript
 
+## Modern Warfare Cubed Version 0.1.7 Changelog - 2024-06-29
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+### Fixed
+
+- Fixed log spam caused by unnecessary logging
+- Fixed `PlayerWeaponInstance#reconcile` setting `PlayerItemInstance#updateTimestamp` even though nothing was done 
+- Experimental fix for CCS ([#248](https://github.com/Cubed-Development/Modern-Warfare-Cubed/issues/248))
+
 ## Modern Warfare Cubed Version 0.1.6 Changelog - 2024-05-21
 
 ### Warning

@@ -36,6 +36,10 @@ Simply press your Left and Right arrow keys to navigate between cameras!
 
 ![Camera Showcase](https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/main/assets/showcase/Camera%20Showcase.gif)
 
+## Documentation
+
+We now have documentation, it is still early, so not everything might be there, you can check it out [here](https://cubed-development.github.io/Modern-Warfare-Cubed-Documentation)!
+
 ---
 
 [![BisectHostingPromoBanner](https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/45b8a32b-be1f-4d45-a4c6-08a1c3e2019b)](https://bisecthosting.com/mwc?r=MWC+GitHub)
@@ -85,9 +89,9 @@ We wouldn't be where we are now without the support from you all!
 
 ### Official Development Team
 
+- [Luna Lage (Desoroxxx)](https://github.com/JustDesoroxxx) - Head Developer
 - [Paneedah](https://github.com/Paneedah) - Lead Developer
 - [BurnhamR](https://github.com/BurnhamR) - Lead Developer
-- [Luna Lage (Desoroxxx)](https://github.com/JustDesoroxxx) - Head Developer
 - [SticksDev](https://github.com/SticksDeveloper) - Developer
 - [Koud-Wind](https://github.com/Koud-Wind) - Developer
 - [Azurae](https://github.com/azuraerae) - Developer
@@ -101,4 +105,4 @@ We wouldn't be where we are now without the support from you all!
 
 ### Our Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=Paneedah/Modern-Warfare-Cubed)](https://github.com/Paneedah/Modern-Warfare-Cubed/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=Cubed-Development/Modern-Warfare-Cubed)](https://github.com/Cubed-Development/Modern-Warfare-Cubed/graphs/contributors)
