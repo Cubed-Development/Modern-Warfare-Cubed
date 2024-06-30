@@ -16,8 +16,6 @@ import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
-
-import java.util.Arrays;
 // IMPORT LIST END
 
 
@@ -70,15 +68,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-                .withInformationProvider(stack -> Arrays.asList( // Information provider
-                        "Type: Personal Defense Weapon",  // Information
-                        "Damage: 5.4", // Damage in Item Description
-                        "Cartridge: 7.62x35mm", // Cartridge in Item Description
-                        "Fire Rate: SEMI, AUTO", // Fire Rate in Item Description
-                        "Rate of Fire: 70/100", // Rate of Fire in Item Description
-                        "Magazines:", // Magazines in Item Description
-                        "30rnd 7.62x35mm Honeybadger Magazine" // Magazines Tyoes in Item Description
-                ))
+                
 
                 .withScreenShaking(RenderableState.SHOOTING,  // Screen shaking
                         1.5f, // x

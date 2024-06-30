@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.Pair;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
-import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
+import com.paneedah.mwc.utils.DecimalUtils;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
@@ -12,6 +10,7 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.*;
+import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
@@ -27,6 +26,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -40,15 +40,19 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import org.lwjgl.input.Keyboard;
 
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.*;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -180,8 +184,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         public int maxBulletsPerReload;
 
-        private Function<ItemStack, List<String>> informationProvider;
-
         private CraftingComplexity craftingComplexity;
 
         private Object[] craftingMaterials;
@@ -296,12 +298,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         public Builder withEjectRoundRequired() {
             this.ejectSpentRoundRequired = true;
-            return this;
-        }
-
-        @Deprecated
-        public Builder withInformationProvider(Function<ItemStack, List<String>> informationProvider) {
-            //this.informationProvider = informationProvider;
             return this;
         }
 
@@ -1006,49 +1002,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             
             weapon.modernRecipe = modernCraftingRecipe;
             
-            this.informationProvider = (stack) -> {
-            	TextFormatting plate = TextFormatting.GREEN;
-            	TextFormatting plain = TextFormatting.GRAY;
-            	
-            	ArrayList<String> descriptionBuilder = new ArrayList<>();
-            	
-            	
-            	descriptionBuilder.add(plate + "Type: " + plain + this.gunType);
-            	descriptionBuilder.add(plate + "Damage: " + plain + String.format("%.1f" , (BalancePackManager.getNetGunDamage(weapon))));
-            	descriptionBuilder.add(plate + "Firerate: " + plain + Math.round(BalancePackManager.getFirerate(weapon)*100) + "/100");
-            	
-                
-            	boolean cartridgeDriven = false;
-            	String catridgeName = "";
-            	for(Entry<ItemAttachment<Weapon>, CompatibleAttachment<Weapon>> i : compatibleAttachments.entrySet()) {
-            		if(i.getValue().getAttachment().getCategory() == AttachmentCategory.BULLET) {
-            			cartridgeDriven = true;
-            			catridgeName = new TextComponentTranslation(i.getValue().getAttachment().getTranslationKey() + ".name").getFormattedText();
-            		}
-            	}
-            	
-            	if(!cartridgeDriven) {
-            		descriptionBuilder.add(plate + "Magazines:");
-            		ArrayList<ItemMagazine> mags = new ArrayList<>();
-                    weapon.getCompatibleAttachments(AttachmentCategory.MAGAZINE).forEach(c -> mags.add((ItemMagazine) c.getAttachment()));
-                    mags.sort((a, b) -> a.getCapacity()-b.getCapacity());
-                  
-                    mags.forEach(c -> descriptionBuilder.add(plain + (I18n.format(c.getTranslationKey() + ".name"))));
-                } else {
-                    descriptionBuilder.add(plate + "Cartridge: " + plain + catridgeName);
-                }
-
-
-                //mags.sort((a, b) -> a
-                 
-                 
-              // descriptionBuilder.add(plain + (I18n.format(ca.getAttachment().getTranslationKey() + ".name")));
-
-
-                return descriptionBuilder;
-            };
-
-            
             // Do not register weapons to the registry if they do not
             // have a crafting recipe.
             CraftingRegistry.registerHook(weapon);
@@ -1329,13 +1282,114 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
     
     @Override
-    public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if (tooltip != null) {
-            tooltip.add((builder.newSys ? "§aWeapon System Version: §72" : "§aWeapon System Version: §c1"));
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) { // TODO: Cleanup
+        final TextFormatting green = TextFormatting.GREEN;
+        final TextFormatting grey = TextFormatting.GRAY;
+        final TextFormatting red = TextFormatting.RED;
+        final TextFormatting yellow = TextFormatting.YELLOW;
 
-            if(builder.informationProvider != null)
-                tooltip.addAll(builder.informationProvider.apply(itemStack));
+        final PlayerWeaponInstance playerWeaponInstance = Tags.getInstance(itemStack, PlayerWeaponInstance.class);
+
+        final ArrayList<String> tooltipLines = new ArrayList<>();
+
+        // Info
+        tooltipLines.add(green + "Weapon System Version: " + grey + (builder.newSys ? "2" : "1"));
+        tooltipLines.add(green + "Type: " + grey + builder.gunType);
+
+        // Stats
+        tooltipLines.add(green + "Base Damage: " + grey + DecimalUtils.truncateDecimalPlaces(BalancePackManager.getNetGunDamage(this), 2));
+        final float firerate = BalancePackManager.getFirerate(this) * 100;
+        tooltipLines.add(green + "Base Firerate: " + grey + Math.round(firerate) + "/100" + " (" + ((int) firerate * 12) + "RPM)");
+
+        // Compatible cartridge or magazines
+        final ItemBullet compatibleCartridge = getCompatibleAttachments(AttachmentCategory.BULLET).stream().findFirst().map(attachment -> (ItemBullet) attachment.getAttachment()).orElse(null);
+        if (compatibleCartridge == null) {
+            tooltipLines.add(green + "Compatible Magazines:");
+            final ArrayList<ItemMagazine> compatibleMagazines = new ArrayList<>();
+            getCompatibleAttachments(AttachmentCategory.MAGAZINE).forEach(compatibleAttachment -> compatibleMagazines.add((ItemMagazine) compatibleAttachment.getAttachment()));
+
+            compatibleMagazines.sort(Comparator.comparingInt(ItemMagazine::getCapacity));
+
+            compatibleMagazines.forEach(magazine -> tooltipLines.add(grey + (I18n.format(magazine.getTranslationKey() + ".name"))));
+        } else {
+            tooltipLines.add(green + "Compatible Cartridge: " + grey + (I18n.format(compatibleCartridge.getTranslationKey() + ".name")));
         }
+
+        // Current attachments, modifications, cartridge or magazine and skin
+        if (itemStack != null) {
+            ArrayList<ItemAttachment> modifications = new ArrayList<>();
+            ArrayList<ItemAttachment> attachments = new ArrayList<>();
+            AtomicReference<ItemBullet> cartridgeRef = new AtomicReference<>();
+            AtomicReference<ItemMagazine> magazineRef = new AtomicReference<>();
+            AtomicReference<ItemSkin> skinRef = new AtomicReference<>();
+
+            this.getActiveAttachments(MC.player, itemStack).forEach(compatibleAttachment -> {
+                final ItemAttachment attachment = compatibleAttachment.getAttachment();
+
+                if (compatibleAttachment.isDefault())
+                    return;
+
+                if (attachment instanceof ItemBullet) {
+                    cartridgeRef.set((ItemBullet) attachment);
+                    return;
+                }
+
+                if (attachment instanceof ItemMagazine) {
+                    magazineRef.set((ItemMagazine) attachment);
+                    return;
+                }
+
+                if (attachment instanceof ItemSkin) {
+                    skinRef.set((ItemSkin) attachment);
+                    return;
+                }
+
+                final AttachmentCategory category = attachment.getCategory();
+
+                if (category == AttachmentCategory.SCOPE || category == AttachmentCategory.SILENCER || category == AttachmentCategory.LASER || category == AttachmentCategory.GRIP) {
+                    attachments.add(attachment);
+                    return;
+                }
+
+                modifications.add(attachment);
+            });
+
+
+            if (!modifications.isEmpty()) {
+                tooltipLines.add(green + "Modifications:");
+                modifications.forEach(c -> tooltipLines.add(grey + (I18n.format(c.getTranslationKey() + ".name"))));
+            }
+
+            if (!attachments.isEmpty()) {
+                tooltipLines.add(green + "Attachments:");
+                attachments.forEach(c -> tooltipLines.add(grey + (I18n.format(c.getTranslationKey() + ".name"))));
+            }
+
+            final ItemBullet cartridge = cartridgeRef.get();
+            final ItemMagazine magazine = magazineRef.get();
+            if (cartridge != null) {
+                tooltipLines.add(green + "Cartridge: " + grey + (I18n.format(cartridge.getTranslationKey() + ".name")) + " (" + playerWeaponInstance.getAmmo() + "/" + playerWeaponInstance.getWeapon().getAmmoCapacity() + ")");
+            } else if (magazine != null) {
+                tooltipLines.add(green + "Magazine: " + grey + (I18n.format(magazine.getTranslationKey() + ".name")) + " (" + playerWeaponInstance.getAmmo() + "/" + magazine.getCapacity() + ")");
+            }
+
+            final ItemAttachment skin = skinRef.get();
+            if (skin != null)
+                tooltipLines.add(green + "Skin: " + grey + (I18n.format(skin.getTranslationKey() + ".name")));
+        }
+
+        // Debug
+        if (flagIn.isAdvanced() && playerWeaponInstance != null && itemStack.getTagCompound() != null) {
+            if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+                tooltipLines.add(red + "Logging NBT data, release left shift to stop");
+                LOG.info("{} NBT Data (Size {}): {}", playerWeaponInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
+            } else {
+                tooltipLines.add(yellow + "Press left shift to log NBT data");
+            }
+        }
+
+        tooltip.addAll(tooltipLines);
     }
 
     @Override

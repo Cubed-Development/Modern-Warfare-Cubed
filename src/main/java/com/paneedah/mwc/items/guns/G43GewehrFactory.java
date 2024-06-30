@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class G43GewehrFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -43,14 +41,7 @@ public class G43GewehrFactory {
         .withFlashOffsetY(() -> 0.13f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Rifle",
-        "Damage: 13.5", 
-        "Cartridge: 7.92x57mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 25/100",
-        "Magazines:",
-        "10rnd 7.92x57mm Gewehr Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 

@@ -20,8 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class AK12_kalFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -71,19 +69,7 @@ public class AK12_kalFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault rifle",
-        "Damage: 6.6", 
-        "Cartridge: 7.62x39mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "30rnd 7.62x39mm Magazine",
-        "30rnd 7.62x39mm PMAG Magazine",
-        "30rnd 7.62x39mm PMAG Magazine (Tan)",
-        "50rnd 7.62x39mm Drum Magazine",
-        "75rnd 7.62x39mm Drum Magazine",
-        "100rnd 7.62x39mm Drum Magazine"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 1.5f, // x 

@@ -17,8 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M110Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -69,14 +67,7 @@ public class M110Factory implements GunFactory {
         		1.0
         ))
 //        .withRecoilParam(new RecoilParam(2, 80, 1, 1, 0))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Sniper System", 
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 65/100",
-        "Magazines:",
-        "10rnd 7.62x51mm NATO Magazine"))
+        
         
         .withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 6), new

@@ -20,8 +20,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MP443Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -70,14 +68,7 @@ public class MP443Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Military Service Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "18rnd 9x19mm 443 Magazine"))
+        
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 
                  0.1f, // y

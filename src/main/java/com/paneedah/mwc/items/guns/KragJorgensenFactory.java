@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class KragJorgensenFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -57,12 +55,7 @@ public class KragJorgensenFactory implements GunFactory {
                 7f) // z
         
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Repeating Bolt-action rifle",
-        "Damage: 13.8",
-        "Cartridge: 8x58mmR", 
-        "Fire Rate: Bolt Action",
-        "Rate of Fire: 16/100"))
+        
         .withCompatibleAttachment(AuxiliaryAttachments.KragAction1, true, (model) -> {
             if(model instanceof KragJorgensenAction1) {
 //                GL11.glTranslatef(-1.38F, -1.05F, 0.59F);

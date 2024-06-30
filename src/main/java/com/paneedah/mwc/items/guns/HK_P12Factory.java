@@ -18,8 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class HK_P12Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -69,14 +67,7 @@ public class HK_P12Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Service Pistol", 
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100",
-        "Magazines:",
-        "8rnd .45 ACP HK Magazine"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
