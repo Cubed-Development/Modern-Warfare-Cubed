@@ -610,16 +610,17 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         if (magazineStack == null) {
             Tags.setAmmo(weaponItemStack, 0);
             instance.setAmmo(0);
-            return;
+            player.addItemStackToInventory(previousMagazine.getItemStack());
+        } else {
+
+            //ItemStack magazineStack = ItemStack.EMPTY;
+            int ammo = Tags.getAmmo(magazineStack);
+            Tags.setAmmo(weaponItemStack, ammo);
+            WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineStack.getItem(), instance);
+            instance.setAmmo(ammo);
+
+            p.setStatus(Status.GRANTED);
         }
-
-        //ItemStack magazineStack = ItemStack.EMPTY;
-        int ammo = Tags.getAmmo(magazineStack);
-        Tags.setAmmo(weaponItemStack, ammo);
-        WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineStack.getItem(), instance);
-        instance.setAmmo(ammo);
-
-        p.setStatus(Status.GRANTED);
 
         if (previousMagazine == null)
             p.setStatus(Status.DENIED);
