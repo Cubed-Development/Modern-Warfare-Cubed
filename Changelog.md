@@ -66,6 +66,10 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Reworked magazines tooltips
 - Reworked vests tooltips
 
+### Fixed
+
+- Fixed the position of the RPG-7 and M202 proyectiles
+
 ### Removed
 
 - Removed unused warning about the grenade exploding in X amount of seconds
