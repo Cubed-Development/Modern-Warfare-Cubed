@@ -8070,6 +8070,24 @@
       ]
     },
     {
+      "entryName": "mwc:f5_switchblade_backpack",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "ingotSteel",
+          "defaultItem": "mwc:steel_ingot",
+          "isOreDictionary": true,
+          "count": 1
+        },
+        {
+          "entryName": "plastic",
+          "defaultItem": "mwc:synthetic_plastic",
+          "isOreDictionary": true,
+          "count": 6
+        }
+      ]
+    },
+    {
       "entryName": "mwc:tru_spec_cordura_backpack_tan",
       "craftingGroup": "GEAR",
       "recipe": [
