@@ -4,15 +4,16 @@ import org.jetbrains.gradle.ext.runConfigurations
 import org.jetbrains.gradle.ext.settings
 
 plugins {
-    id("com.gtnewhorizons.retrofuturagradle") version "1.3.33"
+    id("com.gtnewhorizons.retrofuturagradle") version "1.4.0"
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.8"
     id("com.github.gmazzo.buildconfig") version "5.3.5"
     id("io.freefair.lombok") version "8.6"
 }
 
 group = "com.paneedah"
-version = "0.1.6" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
+version = "0.2-Dev-2" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
 
+val name = "Modern Warfare Cubed"
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
@@ -44,7 +45,7 @@ repositories {
 
     listOf("release", "beta", "dev").forEach { repoType ->
         maven {
-            name = "Red Studio - ${repoType.capitalize()}"
+            name = "Red Studio - ${repoType.replaceFirstChar { it.uppercase() }}"
             url = uri("https://repo.redstudio.dev/$repoType")
         }
     }
@@ -67,7 +68,7 @@ dependencies {
 
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
-    compileOnly("com.cleanroommc:groovyscript:1.0.1") {
+    compileOnly("com.cleanroommc:groovyscript:1.1.0") {
         isTransitive = false
     }
 
@@ -88,11 +89,11 @@ dependencies {
 //buildConfig {
 //    packageName("${project.group}.${id}")
 //    className("ProjectConstants")
-//    documentation.set("This class defines constants for Modern Warfare Cubed.\n<p>\nThey are automatically updated by Gradle")
+//    documentation.set("This class defines constants for ${name}.\n<p>\nThey are automatically updated by Gradle")
 //
 //    useJavaOutput()
 //    buildConfigField("String", "ID", provider { """"${id}"""" })
-//    buildConfigField("String", "NAME", "\"Modern Warfare Cubed\"")
+//    buildConfigField("String", "NAME", provider { """"${name}"""" })
 //    buildConfigField("String", "VERSION", provider { """"${project.version}"""" })
 //    buildConfigField("org.apache.logging.log4j.Logger", "LOGGER", "org.apache.logging.log4j.LogManager.getLogger(NAME)")
 //    buildConfigField("dev.redstudio.redcore.logging.RedLogger", "RED_LOGGER", """new RedLogger(NAME, "https://linkify.cz/MWCBugReport", LOGGER)""")

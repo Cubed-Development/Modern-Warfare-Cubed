@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class BrowningAuto5Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -49,13 +47,7 @@ public class BrowningAuto5Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 20/100"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 
@@ -115,21 +107,6 @@ public class BrowningAuto5Factory implements GunFactory {
                 GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                 GL11.glTranslatef(-0.575000f, 0.350000f, -1.800001f);
                 GL11.glRotatef(-4F, 1f, 0f, 0f);
-                })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-            	GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(8F, 0f, 0f, 1f);
-                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-                GL11.glTranslatef(-0.675000f, 0.150000f, -2.400001f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-            	GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(8F, 0f, 0f, 1f);
-                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-                GL11.glTranslatef(-0.675000f, 0.150000f, -2.200001f);
-                GL11.glRotatef(1F, 0f, 0f, 1f);
                 })
                 
             .withFirstPersonPositioningZoomingRecoiled((renderContext) -> {
@@ -383,22 +360,6 @@ public class BrowningAuto5Factory implements GunFactory {
                     	 
 //                    	 GL11.glScalef(4f, 4f, 4f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.050000f, -0.600000f, 0.125000f);
-                    }, 
-                    (renderContext) -> {
-                   	 GL11.glScalef(4f, 4f, 4f);
-                   	 GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
-                   	 GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-                   	 GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-                   	 GL11.glTranslatef(0.700000f, -1.100000f, 0.225000f);
-                    })
                      
             .withFirstPersonHandPositioningLoadIterationCompleted(
                      (renderContext) -> {

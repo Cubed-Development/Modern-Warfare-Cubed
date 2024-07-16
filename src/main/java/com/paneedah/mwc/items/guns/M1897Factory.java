@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1897Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
@@ -61,13 +59,7 @@ public class M1897Factory implements GunFactory {
 	                10f) // z
 		 
 	        .withCreativeTab(MWC.WEAPONS_TAB)
-	        .withInformationProvider(stack -> Arrays.asList(
-	        "Type: Shotgun",
-	        "Damage per Pellet: 6",
-	        "Pellets per Shot: 10", 
-	        "Cartridge: 12 Gauge Shotgun Shell",
-	        "Fire Rate: PUMP ACTION",
-	        "Rate of Fire: 50/100"))
+	        
 	        .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
 	            if(model instanceof AKMiron1) {
 	                GL11.glTranslatef(0.125F, -1.8F, -0.5F);
@@ -770,22 +762,6 @@ public class M1897Factory implements GunFactory {
                          GL11.glRotatef(25.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-75.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.700000f, -0.875000f, 0.200000f);
-                     })
-                     
-            .withFirstPersonHandPositioningProning(
-                     (renderContext) -> {
-                         GL11.glScalef(4f, 4f, 4f);
-                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                         GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-                         GL11.glRotatef(35.000000f, 0f, 0f, 1f);
-                         GL11.glTranslatef(0.275000f, -0.400000f, 0.275000f);
-                     }, 
-                     (renderContext) -> {
-                         GL11.glScalef(3f, 3f, 3f);
-                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                         GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                         GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-                         GL11.glTranslatef(0.557000f, -0.851000f, 0.200000f);
                      })
                      
             .withFirstPersonHandPositioningLoadIterationCompleted(

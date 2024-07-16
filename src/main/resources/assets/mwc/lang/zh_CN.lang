@@ -1069,7 +1069,6 @@ key.categories.futuristicarsenal=现代战争方块化
 key.laser=开关激光指示器
 key.add=瞄准镜放大
 key.subtract=瞄准镜缩小
-key.proning=匍匐
 key.opendoor=开门
 key.custom_inventory=自定义物品栏
 key.inspect=检视枪械
@@ -1094,7 +1093,6 @@ gui.firearmMode.semi=半自动
 gui.firearmMode.auto=全自动
 gui.firearmMode.burst=连发
 gui.currentZoom=缩放: %s%%
-gui.grenadeExplodes=将于%s秒后爆炸
 gui.coolingDown=冷却中...
 
 config.category.ores.name=矿物设定

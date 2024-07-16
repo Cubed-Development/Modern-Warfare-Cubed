@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1941JohnsonRifleFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -46,14 +44,7 @@ public class M1941JohnsonRifleFactory {
 //        .withShellCasingSideOffset(0f)
         .withShellCasingVerticalOffset(-0.1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Rifle",
-        "Damage: 15", 
-        "Cartridge: .30-06 Springfield",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Cartridge:",
-        ".30-06 Springfield"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
@@ -152,20 +143,6 @@ public class M1941JohnsonRifleFactory {
                 GL11.glRotatef(9.000000f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.500000f, -0.2f, -2.999999f);
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
-                })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.775000f, -0.025000f, -3.000001f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.775000f, -0.025000f, -2.600001f);
                 })
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.StripperClipBullets.getRenderablePart(), (renderContext) -> {
@@ -547,26 +524,6 @@ public class M1941JohnsonRifleFactory {
                          
 //                         GL11.glScalef(4f, 4f, 4f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-0.050000f, -0.975000f, 0.225000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.680000f, -1.140000f, 0.510000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
-                    })
                      
             .withFirstPersonHandPositioningZooming(
                     (renderContext) -> {

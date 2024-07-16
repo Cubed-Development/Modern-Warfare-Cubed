@@ -17,8 +17,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class NTW20Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -48,14 +46,7 @@ public class NTW20Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.13f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Anti-Materiel Sniper Rifle",
-        "Damage: 35", 
-        "Cartridge: 20x82mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 10/100",
-        "Magazines:",
-        "3rnd 20x82mm Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
@@ -121,21 +112,7 @@ public class NTW20Factory implements GunFactory {
                 GL11.glTranslatef(-0.400000f, 0.100000f, -3.5599999f);
                 GL11.glRotatef(-1.000000f, 1f, 0f, 0f);
                 })
-                
-             .withFirstPersonPositioningProning((renderContext) -> {
-                 GL11.glScalef(2.5f, 2.5f, 2.5f);
-                 GL11.glRotatef(45F, 0f, 1f, 0f);
-                 GL11.glRotatef(10.000000f, 0f, 0f, 1f);
-                 GL11.glTranslatef(-0.500000f, 0.100000f, -3.499999f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glScalef(2.5f, 2.5f, 2.5f);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(10.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.500000f, 0.100000f, -2.899999f);
-                })
-                
+
              .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.NTW20Action.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 1f);
                 })
@@ -944,22 +921,6 @@ public class NTW20Factory implements GunFactory {
                          GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.750000f, -1.349999f, 0.450000f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-55.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(25.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-0.225000f, -1.125000f, 0.125000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(5.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.750000f, -1.349999f, 0.450000f);
-                    })
                      
             .withFirstPersonHandPositioningZooming(
                     (renderContext) -> {

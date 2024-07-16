@@ -239,8 +239,7 @@ public class ItemCarryable extends Item implements IModernCraftingRecipe {
 
     @Override
     public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        super.addInformation(itemStack, worldIn, tooltip, flagIn);
-        tooltip.add(String.format("%sSize:%s %d", TextFormatting.GREEN, TextFormatting.GRAY, this.size));
+        tooltip.add(TextFormatting.GREEN + "Size: " + TextFormatting.GRAY + size);
     }
 
     public ResourceLocation getGuiTextureLocation() {

@@ -1044,7 +1044,6 @@ key.subtract=Zoom Out
 key.inspect=Inspect
 key.nightVision=Toggle Night Vision
 key.opendoor=Open Door
-key.proning=Prone
 key.unload=Unload
 
 key.categories.vehicle=Modern Warfare Cubed (Vehicle)
@@ -1069,7 +1068,6 @@ gui.firearmMode.semi=Semi
 gui.firearmMode.auto=Auto
 gui.firearmMode.burst=Burst
 gui.currentZoom=Zoom: %s%%
-gui.grenadeExplodes=Explodes in %s sec
 gui.coolingDown=Cooling down...
 
 config.category.ores.name=Ores

@@ -20,8 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M82Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -70,14 +68,7 @@ public class M82Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Anti-Materiel Sniper Rifle",
-        "Damage: 25", 
-        "Cartridge: .50 BMG",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 10/100",
-        "Magazines:",
-        "10rnd .50 BMG NATO Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  6f, // x 

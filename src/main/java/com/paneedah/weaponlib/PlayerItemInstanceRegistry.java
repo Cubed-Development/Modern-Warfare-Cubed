@@ -58,8 +58,8 @@ public class PlayerItemInstanceRegistry {
         }
 	    return getItemInstance((EntityPlayer) player, ((EntityPlayer) player).inventory.currentItem);
 	}
-	
-	public PlayerItemInstance<?> getItemInstance(EntityPlayer player, int slot) {
+
+	public PlayerItemInstance<?> getItemInstance(EntityPlayer player, int slot) { // ! TODO: This needs urgent care, causes problems - Luna Lage (Desoroxxx)
 		Map<Integer, PlayerItemInstance<?>> slotInstances = registry.computeIfAbsent(player.getPersistentID(), p -> new HashMap<>());
 		PlayerItemInstance<?> result = slotInstances.get(slot);
 		//log.debug("Slot {} contains {}", slot, result);
@@ -178,7 +178,7 @@ public class PlayerItemInstanceRegistry {
 	 * @param itemStack
 	 * @return
 	 */
-	public PlayerItemInstance<?> getItemInstance(EntityLivingBase player, ItemStack itemStack) {
+	public PlayerItemInstance<?> getItemInstance(EntityLivingBase player, ItemStack itemStack) { // ! TODO: This method is suspiscious as fuck - Luna Lage (Desoroxxx)
 		Optional<PlayerItemInstance<?>> result = Optional.empty();
 		try {
 			result = itemStackInstanceCache.get(itemStack, () -> {

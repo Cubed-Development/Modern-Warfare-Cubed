@@ -1,7 +1,6 @@
 package com.paneedah.mwc.proxies;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
@@ -54,8 +53,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(final MWC mod) {
         super.init(mod);
-
-        PlayerAnimations.init(mod);
 
         final ItemModelMesher modelMesher = MC.getRenderItem().getItemModelMesher();
 

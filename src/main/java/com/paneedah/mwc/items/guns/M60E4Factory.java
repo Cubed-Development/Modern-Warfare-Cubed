@@ -12,8 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M60E4Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -43,14 +41,7 @@ public class M60E4Factory {
         .withFlashOffsetY(() -> 0.16f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: General-Purpose Machine Gun",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "100rnd 7.62x51mm Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
@@ -347,20 +338,6 @@ public class M60E4Factory {
                 GL11.glScalef(2f, 2f, 2f);
                 GL11.glRotatef(8.000000f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.500000f, -0.200000f, -4.674998f);
-                })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.500000f, -0.400000f, -5.074998f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.500000f, -0.400000f, -4.774998f);
                 })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M60Belt.getRenderablePart(), (renderContext) -> {
@@ -4119,22 +4096,6 @@ public class M60E4Factory {
                          GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.790000f, -1.435000f, 0.710000f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-55.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.100000f, -1.100000f, 0.275000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.790000f, -1.435000f, 0.710000f);
-                    })
                      
             .withFirstPersonHandPositioningZooming(
                     (renderContext) -> {

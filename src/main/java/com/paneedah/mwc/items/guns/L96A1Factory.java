@@ -12,8 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class L96A1Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -44,14 +42,7 @@ public class L96A1Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.08f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sniper Rifle",
-        "Damage: 14", 
-        "Cartridge: 7.62x54mm",
-        "Fire Rate: BOLT ACTION",
-        "Rate of Fire: 16/100",
-        "Magazines:",
-        "10rnd 7.62x54mm LAPUA Magazine"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
@@ -295,21 +286,6 @@ public class L96A1Factory implements GunFactory {
                 GL11.glRotatef(7f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.350000f, 1.274999f, -0.025000f);
                 GL11.glRotatef(-1f, 1f, 0f, 0f);
-                })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(8f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.4f, 1.05f, -0.4f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-            	 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                 GL11.glRotatef(45F, 0f, 1f, 0f);
-                 GL11.glRotatef(8f, 0f, 0f, 1f);
-                 GL11.glTranslatef(-0.4f, 1.05f, -0f);
-                GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.L115Bolt1.getRenderablePart(), (renderContext) -> {
@@ -1347,22 +1323,6 @@ public class L96A1Factory implements GunFactory {
 //                         GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
 //                         GL11.glTranslatef(0.375000f, -0.475000f, 0.250000f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-25.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(20.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.100000f, 0.075000f, 0.150000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.400000f, -0.500000f, 0.200000f);
-                    })
                      
             .withFirstPersonHandPositioningZooming(
                     (renderContext) -> {

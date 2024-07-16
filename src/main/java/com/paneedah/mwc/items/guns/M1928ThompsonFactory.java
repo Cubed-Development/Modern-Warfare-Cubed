@@ -13,8 +13,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1928ThompsonFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -45,15 +43,7 @@ public class M1928ThompsonFactory {
         .withFlashOffsetY(() -> 0.12f)
         .withInaccuracy(2f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sub Machine Gun",
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "30rnd .45 ACP Magazine (M1A1)",
-        "50rnd .45 ACP Magazine (M1928)"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
@@ -158,21 +148,6 @@ public class M1928ThompsonFactory {
                 GL11.glRotatef(7.000000f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.200000f, 0.450000f, -1.794999f);
                 GL11.glRotatef(-0.3F, 1f, 0f, 0f);
-                })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.25f, 0.6f, -1.7f);
-                })
-            
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.25f, 0.6f, -1.1f);
-                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.M1928ThompsonAction.getRenderablePart(), (renderContext) -> {
@@ -741,33 +716,6 @@ public class M1928ThompsonFactory {
                          GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.450000f, -0.650000f, 0.200000f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        RenderContext<?> rc = (RenderContext<?>) renderContext;
-                        ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GRIP, rc.getWeaponInstance());
-                        if(activeAttachment == Attachments.M1928Grip) {
-                            GL11.glScalef(4f, 4f, 4f);
-                            GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                            GL11.glRotatef(-40.000000f, 0f, 1f, 0f);
-                            GL11.glRotatef(35.000000f, 0f, 0f, 1f);
-                            GL11.glTranslatef(0.175000f, -0.375000f, 0.225000f);
-                        } else {
-                            GL11.glScalef(4f, 4f, 4f);
-                            GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-                            GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-                            GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-                            GL11.glTranslatef(0.175000f, -0.450000f, 0.300000f);
-                        }
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 5f);
-                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.450000f, -0.650000f, 0.200000f);
-                    })
                      
             .withFirstPersonHandPositioningZooming(
                      (renderContext) -> {

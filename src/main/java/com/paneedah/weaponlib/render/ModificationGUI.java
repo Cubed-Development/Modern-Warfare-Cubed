@@ -28,6 +28,8 @@ import static com.paneedah.mwc.utils.ModReference.ID;
  */
 public class ModificationGUI {
 
+	// ! TODO: The difference between attachements, modifications, and skins are not really a thing right now and it creates a real mess, create a real separation - Luna Lage (Desoroxxx) 2024-05-23
+
 	// Static variables
 	public static ModificationGUI instance = new ModificationGUI();
 	

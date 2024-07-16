@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class G43GewehrFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -43,14 +41,7 @@ public class G43GewehrFactory {
         .withFlashOffsetY(() -> 0.13f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Rifle",
-        "Damage: 13.5", 
-        "Cartridge: 7.92x57mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 25/100",
-        "Magazines:",
-        "10rnd 7.92x57mm Gewehr Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
@@ -142,31 +133,12 @@ public class G43GewehrFactory {
                 GL11.glTranslatef(-0.150000f, 0.375000f, -0.650000f);
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.5f, 2.5f, 2.5f);
-                GL11.glRotatef(14.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.250000f, 0.275000f, -1.150000f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.5f, 2.5f, 2.5f);
-                GL11.glRotatef(14.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.250000f, 0.275000f, -0.650000f);
-                GL11.glRotatef(-1F, 1f, 0f, 0f);
-                })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.G43GewehrAction.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 0.9f);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.G43GewehrAction.getRenderablePart(), (renderContext) -> {
-                GL11.glTranslatef(0f, 0f, 0.9f);
-                })
-            
-            .withFirstPersonPositioningCustomProningRecoiled(AuxiliaryAttachments.G43GewehrAction.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 0.9f);
                 })
             
@@ -519,22 +491,6 @@ public class G43GewehrFactory {
                          GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.550000f, -0.850000f, 0.125000f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-                        GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(25.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.225000f, -0.325000f, 0.425000f);
-                }, 
-                (renderContext) -> {
-                    GL11.glScalef(0f, 0f, 0f);
-                    GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                    GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                    GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-                    GL11.glTranslatef(0.550000f, -0.850000f, 0.125000f);
-                })
                      
             .withFirstPersonHandPositioningZooming(
                     (renderContext) -> {

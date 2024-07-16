@@ -18,8 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class SVDDragunovFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -67,14 +65,7 @@ public class SVDDragunovFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sniper Rifle",
-        "Damage: 14", 
-        "Cartridge: 7.62x54mmR",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "30rnd 7.62x39mm Magazine"))
+        
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 1.5f, // x 

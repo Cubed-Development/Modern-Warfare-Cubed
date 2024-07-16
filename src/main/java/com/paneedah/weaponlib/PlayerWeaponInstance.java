@@ -629,6 +629,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 		            LOG.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
 
 		            ammo = expectedStackAmmo;
+
+			        updateTimestamp = System.currentTimeMillis();
 		        }
 	        }
 
@@ -639,10 +641,10 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 			        LOG.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
 
 		            activeAttachmentIds = expectedAttachmentIds;
+
+			        updateTimestamp = System.currentTimeMillis();
 		        }
 	        }
-
-	        updateTimestamp = System.currentTimeMillis();
         }
    	}
 

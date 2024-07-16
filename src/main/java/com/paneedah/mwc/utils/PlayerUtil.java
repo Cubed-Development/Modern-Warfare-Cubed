@@ -1,6 +1,5 @@
 package com.paneedah.mwc.utils;
 
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,10 +15,6 @@ public final class PlayerUtil {
     public static void slowPlayerDown(final EntityPlayer entityPlayer, final AttributeModifier modifier) {
         if (entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(modifier.getID()) == null)
             entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).applyModifier(modifier);
-    }
-
-    public static boolean isProning(final EntityPlayer player) {
-        return (CompatibleExtraEntityFlags.getFlags(player) & CompatibleExtraEntityFlags.PRONING) != 0;
     }
 
     public static void setSize(final EntityPlayer entityPlayer, final float height) {

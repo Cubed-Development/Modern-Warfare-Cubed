@@ -34,11 +34,6 @@ public class ClassInfoProvider {
                 .addMethodInfo2("getMainModel", "()Lnet/minecraft/client/model/ModelBase;", "b", "()Lbqf;")
                 );
         
-        classInfoMap.put("net/minecraft/client/model/ModelBase", 
-                new ClassInfo("net/minecraft/client/model/ModelBase", "bqf")
-                .addMethodInfo2("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", "a", "(Lvg;FFFFFF)V")
-                );
-        
         classInfoMap.put("net/minecraft/client/renderer/entity/layers/LayerArmorBase", 
                 new ClassInfo("net/minecraft/client/renderer/entity/layers/LayerArmorBase", "cbp")
                 .addMethodInfo2("renderArmorLayer", "(Lnet/minecraft/entity/EntityLivingBase;FFFFFFFLnet/minecraft/inventory/EntityEquipmentSlot;)V", "a", "(Lvp;FFFFFFFLvl;)V")

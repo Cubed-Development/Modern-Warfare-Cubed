@@ -12,8 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class SupernovaFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -52,13 +50,7 @@ public class SupernovaFactory implements GunFactory {
         .withFlashOffsetX(() -> 0.05f)
         .withFlashOffsetY(() -> 0.12f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: PUMP ACTION",
-        "Rate of Fire: 30/100"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 
@@ -275,21 +267,6 @@ public class SupernovaFactory implements GunFactory {
                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                 GL11.glTranslatef(-0.205000f, 0.535000f, -1.00f);
                 GL11.glRotatef(-2F, 1f, 0f, 0f);
-                })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-            	 GL11.glRotatef(45F, 0f, 1f, 0f);
-                 GL11.glRotatef(12F, 0f, 0f, 1f);
-                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-                 GL11.glTranslatef(-0.205000f, 0.515000f, -1.199999f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-            	 GL11.glRotatef(45F, 0f, 1f, 0f);
-                 GL11.glRotatef(12F, 0f, 0f, 1f);
-                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-                 GL11.glTranslatef(-0.205000f, 0.515000f, -0.699999f);
-                GL11.glRotatef(-2F, 0f, 0f, 1f);
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
@@ -1094,22 +1071,6 @@ public class SupernovaFactory implements GunFactory {
                          GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.525000f, -0.825000f, 0.300000f);
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-                        GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(50.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.220000f, -0.540000f, 0.245000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(3f, 3f, 3f);
-                        GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.525000f, -0.825000f, 0.300000f);
-                    })
                      
             .withFirstPersonHandPositioningLoadIterationCompleted(
                     (renderContext) -> {

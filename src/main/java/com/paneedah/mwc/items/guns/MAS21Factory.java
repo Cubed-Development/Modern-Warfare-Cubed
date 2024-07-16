@@ -13,8 +13,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MAS21Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -44,17 +42,7 @@ public class MAS21Factory implements GunFactory {
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Experimental Handgun", 
-        "Damage: 5.5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "15rnd 9x19mm Magazine",
-        "30rnd 9x19mm Magazine",
-        "65rnd 9x19mm Drum Magazine",
-        "15rnd .40 S&W Samurai Edge Magazine (w/ Samurai Edge kit)"))
+
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 
@@ -178,23 +166,6 @@ public class MAS21Factory implements GunFactory {
 	                GL11.glRotatef(10F, 0f, 0f, 1f);
 	                GL11.glTranslatef(-0.150000f, 0.645000f, -0.925000f);
                     GL11.glRotatef(-5F, 1f, 0f, 0f);
-                })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glScaled(2F, 2F, 2F);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(14F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.15f, 0.45f, -2f);
-                
-//                GL11.glScaled(2F, 2F, 2F);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glScaled(2F, 2F, 2F);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(18F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.15f, 0.45f, -1.8f);
-                GL11.glRotatef(-3F, 1f, 0f, 0f);    
                 })
                 
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MAS21Slide.getRenderablePart(), (renderContext) -> {
@@ -1662,21 +1633,7 @@ public class MAS21Factory implements GunFactory {
                        GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
                        GL11.glTranslatef(0.370000f, -0.465000f, 0.175000f);
                    })
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-                        GL11.glScalef(4.00000f, 4.00000f, 4.00000f);
-                        GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-55.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(25.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-0.075000f, -0.800000f, 0.075000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.370000f, -0.465000f, 0.175000f);
-                    })
+
             .withFirstPersonHandPositioningRunning(
             		(renderContext) -> {
                         GL11.glScalef(4.00000f, 4.00000f, 4.00000f);

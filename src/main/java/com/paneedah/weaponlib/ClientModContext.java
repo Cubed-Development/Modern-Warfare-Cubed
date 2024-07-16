@@ -51,7 +51,6 @@ public class ClientModContext extends CommonModContext {
     private EffectManager effectManager;
 
     private ScreenShakingAnimationManager playerRawPitchAnimationManager;
-    private PlayerTransitionProvider playerTransitionProvider;
 
     public static ClientModContext getContext() {
         return currentContext;
@@ -223,12 +222,4 @@ public class ClientModContext extends CommonModContext {
         rendererRegistry.registerEntityRenderingHandler(entityClass, renderer);
     }
 
-    PlayerTransitionProvider getPlayerTransitionProvider() {
-        return playerTransitionProvider;
-    }
-
-    @Override
-    public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider) {
-        this.playerTransitionProvider = playerTransitionProvider;
-    }
 }

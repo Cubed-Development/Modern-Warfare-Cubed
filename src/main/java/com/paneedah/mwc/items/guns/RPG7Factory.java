@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class RPG7Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -48,8 +46,7 @@ public class RPG7Factory implements GunFactory {
                 1f, // y
                 8f) // z
         
-        .withInformationProvider(stack -> Arrays.asList("Type: Rocket Launcher", 
-        "Cartridge: RPG-7 Rocket", "Fire Rate: Semi"))
+        
         .withCompatibleAttachment(Bullets.RPGRocket, (model) -> {})
         .withCompatibleAttachment(AuxiliaryAttachments.RPG7rocket, true, (model) -> {
         })

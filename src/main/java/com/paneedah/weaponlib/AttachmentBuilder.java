@@ -49,7 +49,7 @@ public class AttachmentBuilder<T> {
     private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
     private boolean isRenderablePart;
     private int maxStackSize = 1;
-    private Function<ItemStack, String> informationProvider;
+    protected Function<ItemStack, String> informationProvider;
 
     private CraftingComplexity craftingComplexity;
 
@@ -208,11 +208,6 @@ public class AttachmentBuilder<T> {
 
     public AttachmentBuilder<T> withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
         return withCrafting(1, craftingComplexity, craftingMaterials);
-    }
-
-    public AttachmentBuilder<T> withInformationProvider(Function<ItemStack, String> informationProvider) {
-        this.informationProvider = informationProvider;
-        return this;
     }
 
     public AttachmentBuilder<T> withCrafting(int craftingCount, CraftingComplexity craftingComplexity, Object... craftingMaterials) {

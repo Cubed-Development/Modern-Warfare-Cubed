@@ -12,8 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1CarbineFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -41,14 +39,7 @@ public class M1CarbineFactory {
         .withFlashOffsetY(() -> 0.1f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Rifle",
-        "Damage: 6", 
-        "Cartridge: .30 Carbine",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 55/100",
-        "Magazines:",
-        "15rnd .30 Carbine Magazine"))
+        
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  1f, // x 
@@ -312,31 +303,12 @@ public class M1CarbineFactory {
                     GL11.glRotatef(-1F, 1f, 0f, 0f);
                 }
                 })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.5f, 2.5f, 2.5f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.225000f, 0.675000f, 0.055000f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.5f, 2.5f, 2.5f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.225000f, 0.675000f, 0.455000f);
-                GL11.glRotatef(-1F, 1f, 0f, 0f);
-                })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M1CarbineAction.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 0.5f);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.M1CarbineAction.getRenderablePart(), (renderContext) -> {
-                GL11.glTranslatef(0f, 0f, 0.5f);
-                })
-            
-            .withFirstPersonPositioningCustomProningRecoiled(AuxiliaryAttachments.M1CarbineAction.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 0.5f);
                 })
             
@@ -838,33 +810,6 @@ public class M1CarbineFactory {
                              GL11.glTranslatef(0.450000f, -0.600000f, 0.050000f);
                          }
                      })
-                     
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(35.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.400000f, -0.125000f, 0.250000f);
-                }, 
-                (renderContext) -> {
-                    RenderContext<?> rc = (RenderContext<?>) renderContext;
-                    ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                            AttachmentCategory.STOCK, rc.getWeaponInstance());
-                    if(activeAttachment == Attachments.M1A1CarbineBody) {
-                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-                        GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(15.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.400000f, -0.450000f, 0.150000f);
-                    } else {
-                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-                        GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-70.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.450000f, -0.600000f, 0.050000f);
-                    }
-                })
                      
             .withFirstPersonHandPositioningZooming(
                     (renderContext) -> {

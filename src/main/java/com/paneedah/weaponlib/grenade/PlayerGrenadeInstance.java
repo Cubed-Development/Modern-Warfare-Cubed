@@ -29,8 +29,6 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 	private int[] activeAttachmentIds = new int[0];
 	private byte[] selectedAttachmentIndexes = new byte[0];
 
-    private long lastSafetyPinAlertTimestamp;
-
     private boolean throwingFar;
 
 	public PlayerGrenadeInstance() {
@@ -220,14 +218,6 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
     @Override
     public String toString() {
         return getWeapon().builder.name + "[" + getUuid() + "]";
-    }
-
-    public long getLastSafetyPinAlertTimestamp() {
-        return lastSafetyPinAlertTimestamp;
-    }
-
-    public void setLastSafetyPinAlertTimestamp(long lastSafetyPinAlertTimestamp) {
-        this.lastSafetyPinAlertTimestamp = lastSafetyPinAlertTimestamp;
     }
 
     public void setThrowingFar(boolean throwingFar) {

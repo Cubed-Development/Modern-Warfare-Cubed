@@ -13,8 +13,6 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class NinthSinFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -46,15 +44,7 @@ public class NinthSinFactory implements GunFactory {
         .withShellCasingEjectEnabled(false)
         .withPellets(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Vacuum Combat Sidearm", 
-        "Damage: 4", 
-        "Cartridge: Unknown",
-        "Fire Rate: AUTO",
-        "Rate of Fire: 9999",
-        "Mode of Fire: 3 shots per trigger-pull",
-        "Ammunition Intake:",
-        "XI-57809 VCS Battery"))
+
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
@@ -162,21 +152,6 @@ public class NinthSinFactory implements GunFactory {
                 GL11.glRotatef(8.000000f, 0f, 0f, 1f);
                 GL11.glRotatef(-5.000000f, 1f, 0f, 0f);
                 GL11.glTranslatef(-0.700000f, -0.505000f, -1.449999f);
-                })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(10.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.13f, 0.6f, -0.2f);
-                })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.15f, 0.6f, -0.1f);
-                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
                 })
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.RegulatorUpper.getRenderablePart(), (renderContext) -> {
@@ -1659,21 +1634,6 @@ public class NinthSinFactory implements GunFactory {
                          GL11.glRotatef(-30.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.473000f, -0.430000f, 0.270000f);
                      })
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-                   	 GL11.glScalef(3.8f, 3.8f, 3.8f);
-                   	 GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-                   	 GL11.glRotatef(5.000000f, 0f, 1f, 0f);
-                   	 GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
-                   	 GL11.glTranslatef(0.500000f, 0.075000f, 0.825000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(3.8f, 3.8f, 3.8f);
-                        GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-5.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-30.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.473000f, -0.430000f, 0.270000f);
-                    })
                      
             .withFirstPersonHandPositioningModifying(
             		(renderContext) -> {
