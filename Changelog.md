@@ -66,6 +66,10 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Reworked magazines tooltips
 - Reworked vests tooltips
 
+### Fixed
+- Fixed the default craftingmappings.json referencing items that were renamed.
+  - This also technically readds the tan backpacks to the bench
+
 ### Removed
 
 - Removed unused warning about the grenade exploding in X amount of seconds
