@@ -48,7 +48,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 	protected static class StateDescriptor {
 		protected MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager;
 		protected float rate;
-		protected float amplitude;
+		protected float amplitude = 0.04f;
 		private PlayerMeleeInstance instance;
 		public StateDescriptor(PlayerMeleeInstance instance, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager,
 							   float rate, float amplitude) {

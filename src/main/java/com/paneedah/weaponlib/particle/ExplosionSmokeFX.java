@@ -11,8 +11,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ExplosionSmokeFX extends Particle {
@@ -54,12 +52,12 @@ public class ExplosionSmokeFX extends Particle {
 
     private static final TriFunction<Float, Integer, Integer, Float> EXPLOSION_ALPHA_UPDATE_FUNCTION = (currentAlpha, ticks, maxTicks) -> {
         double alphaRadians = Math.PI / 4f + Math.PI * (float) ticks / (float) maxTicks;
-        return 0.3f * (float) Math.sin(Math.min(alphaRadians, Math.PI));
+        return 0.3f * (float) Math.sin(alphaRadians > Math.PI ? Math.PI : alphaRadians);
     };
 
     private static final TriFunction<Float, Integer, Integer, Float> SMOKE_GRENADE_ALPHA_UPDATE_FUNCTION = (currentAlpha, ticks, maxTicks) -> {
         double alphaRadians = Math.PI / 4f + Math.PI * (float) ticks / (float) maxTicks;
-        return 0.3f * (float) Math.sin(Math.min(alphaRadians, Math.PI));
+        return 0.3f * (float) Math.sin(alphaRadians > Math.PI ? Math.PI : alphaRadians);
     };
 
     private String particleTexture;
@@ -119,7 +117,6 @@ public class ExplosionSmokeFX extends Particle {
     }
 
     @Override
-    @ParametersAreNonnullByDefault
     public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
         MC.getTextureManager().bindTexture(new ResourceLocation(particleTexture));
 
@@ -177,7 +174,7 @@ public class ExplosionSmokeFX extends Particle {
         GL11.glPopMatrix();
     }
 
-    public enum Behavior {
+    public static enum Behavior {
 
         EXPLOSION(EXPLOSION_SCALE_UPDATE_FUNCTION, EXPLOSION_ALPHA_UPDATE_FUNCTION),
 
@@ -186,7 +183,7 @@ public class ExplosionSmokeFX extends Particle {
         private TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction;
         private TriFunction<Float, Integer, Integer, Float> alphaUpdateFunction;
 
-        Behavior(TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction,
+        private Behavior(TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction,
                          TriFunction<Float, Integer, Integer, Float> alphaUpdateFunction) {
             this.scaleUpdateFunction = scaleUpdateFunction;
             this.alphaUpdateFunction = alphaUpdateFunction;

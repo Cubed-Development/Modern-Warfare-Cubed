@@ -21,10 +21,12 @@ public class Arcball {
 		
 		Vec3d grabPoint = project(grabX, grabY);
 		Vec3d current = project(mouseX, mouseY);
-
-
-		//System.out.println(quat);
-				return fromBetweenVectors(grabPoint, current);
+		
+		
+		Quaternion quat = fromBetweenVectors(grabPoint, current);
+				
+				//System.out.println(quat);
+				return quat;
 	}
 	
 	public static Vec3d project(int mouseX, int mouseY) {
@@ -39,7 +41,7 @@ public class Arcball {
 		
 		
 		double radius = 0.5;
-		double z;
+		double z = 0;
 		
 		if(pX*pX + pY*pY <= radius*radius/2) {
 			z = Math.sqrt(radius*radius - pX*pX + pY*pY);

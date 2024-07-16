@@ -5,7 +5,6 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
-import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -731,7 +730,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 		if((Consumer<?>)weaponPositionFunction == Transition.anchoredPosition()) {
 		    return MultipartTransition.anchoredPosition();
 		} else if(weaponPositionFunction != null) {
-			return weaponPositionFunction;
+			return context -> weaponPositionFunction.accept(context);
 		}
 
 		return context -> {};
@@ -743,7 +742,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 	    if((Consumer<?>)weaponPositionFunction == Transition.anchoredPosition()) {
             return MultipartTransition.anchoredPosition();
         } else if(weaponPositionFunction != null) {
-			return weaponPositionFunction;
+			return context -> weaponPositionFunction.accept(context);
 		}
 		return context -> {};
 

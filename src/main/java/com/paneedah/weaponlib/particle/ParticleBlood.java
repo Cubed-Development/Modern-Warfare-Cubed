@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.particle;
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -11,7 +12,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
@@ -76,7 +76,6 @@ public class ParticleBlood extends Particle {
 	/**
 	 * Renders the particle
 	 */
-	@ParametersAreNonnullByDefault
 	public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX,
 			float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
 		
@@ -138,17 +137,17 @@ public class ParticleBlood extends Particle {
 		int i = this.getBrightnessForRender(partialTicks);
 		int j = i >> 16 & 65535;
 		int k = i & 65535;
-		buffer.pos(f5 - rotationX * f4 - rotationXY * f4, f6 - rotationZ * f4,
-						f7 - rotationYZ * f4 - rotationXZ * f4).tex(f, f3)
+		buffer.pos((double) (f5 - rotationX * f4 - rotationXY * f4), (double) (f6 - rotationZ * f4),
+				(double) (f7 - rotationYZ * f4 - rotationXZ * f4)).tex((double) f, (double) f3)
 				.color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
-		buffer.pos(f5 - rotationX * f4 + rotationXY * f4, f6 + rotationZ * f4,
-						f7 - rotationYZ * f4 + rotationXZ * f4).tex(f, f2)
+		buffer.pos((double) (f5 - rotationX * f4 + rotationXY * f4), (double) (f6 + rotationZ * f4),
+				(double) (f7 - rotationYZ * f4 + rotationXZ * f4)).tex((double) f, (double) f2)
 				.color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
-		buffer.pos(f5 + rotationX * f4 + rotationXY * f4, f6 + rotationZ * f4,
-						f7 + rotationYZ * f4 + rotationXZ * f4).tex(f1, f2)
+		buffer.pos((double) (f5 + rotationX * f4 + rotationXY * f4), (double) (f6 + rotationZ * f4),
+				(double) (f7 + rotationYZ * f4 + rotationXZ * f4)).tex((double) f1, (double) f2)
 				.color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
-		buffer.pos(f5 + rotationX * f4 - rotationXY * f4, f6 - rotationZ * f4,
-						f7 + rotationYZ * f4 - rotationXZ * f4).tex(f1, f3)
+		buffer.pos((double) (f5 + rotationX * f4 - rotationXY * f4), (double) (f6 - rotationZ * f4),
+				(double) (f7 + rotationYZ * f4 - rotationXZ * f4)).tex((double) f1, (double) f3)
 				.color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
 	}
 
@@ -157,7 +156,6 @@ public class ParticleBlood extends Particle {
 	}
 
 	@SideOnly(Side.CLIENT)
-	@ParametersAreNonnullByDefault
 	public static class Factory implements IParticleFactory {
 		public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_) {
 			return (new ParticleBlood(worldIn, xCoordIn, yCoordIn, zCoordIn));

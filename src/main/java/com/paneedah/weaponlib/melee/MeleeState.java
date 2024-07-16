@@ -36,17 +36,17 @@ public enum MeleeState implements ManagedState<MeleeState> {
 	
 	private boolean isTransient;
 	
-	private int priority;
+	private int priority = DEFAULT_PRIORITY;
 	
-	MeleeState() {
+	private MeleeState() {
 		this(null, null, null, true);
 	}
 	
-	MeleeState(int priority) {
+	private MeleeState(int priority) {
 		this(priority, null, null, null, true);
 	}
 	
-	MeleeState(boolean isTransient) {
+	private MeleeState(boolean isTransient) {
 		this(null, null, null, isTransient);
 	}
 	
@@ -54,11 +54,11 @@ public enum MeleeState implements ManagedState<MeleeState> {
 //		this(permitRequestedState, transactionFinalState, true);
 //	}
 	
-	MeleeState(MeleeState preparingPhase, MeleeState permitRequestedState, MeleeState transactionFinalState, boolean isTransient) {
+	private MeleeState(MeleeState preparingPhase, MeleeState permitRequestedState, MeleeState transactionFinalState, boolean isTransient) {
 		this(DEFAULT_PRIORITY, preparingPhase, permitRequestedState, transactionFinalState, isTransient);
 	}
 	
-	MeleeState(int priority, MeleeState preparingPhase, MeleeState permitRequestedState, MeleeState transactionFinalState, boolean isTransient) {
+	private MeleeState(int priority, MeleeState preparingPhase, MeleeState permitRequestedState, MeleeState transactionFinalState, boolean isTransient) {
 		this.priority = priority;
 		this.preparingPhase = preparingPhase;
 		this.permitRequestedPhase = permitRequestedState;

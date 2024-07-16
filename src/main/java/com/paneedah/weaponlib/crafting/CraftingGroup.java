@@ -9,8 +9,6 @@ package com.paneedah.weaponlib.crafting;
  * ATTACHMENT_MODIFICATION = 3
  * BULLET = 4
  * MAGAZINE = 5
- * GRENADE = 6
- * GEAR = 7
  * 
  * @author Homer Riva-Cambrin
  * @version September 23rd, 2022
