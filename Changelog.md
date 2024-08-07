@@ -83,6 +83,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Cleaned up the buildscript
 - Updated [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) dependency to 1.1.2
 - Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 5.4.0
+- Updated to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.4.0
 
 ## Modern Warfare Cubed Version 0.1.7 Changelog - 2024-06-29
 
