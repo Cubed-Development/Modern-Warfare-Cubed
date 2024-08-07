@@ -23,7 +23,7 @@ AK-47 Before:
 
 AK-47 After:
 
-<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/6fcfc3ba-e464-4f69-a71f-e09ece635891" alt="Before" height="256">
+<img src="https://github.com/user-attachments/assets/808851a8-2b08-47f1-9c0b-73a3ec9013c4" alt="After" width="364">
 
 This was just an example, 
 but we reworked every tooltip.
