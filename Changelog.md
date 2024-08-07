@@ -81,7 +81,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Set a minimum Gradle Daemon JVM version requirement
 - Updated the `gradle.properties` to the new Red Studio standard one
 - Cleaned up the buildscript
-- Updated GroovyScript dependency to 1.1.2
+- Updated [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) dependency to 1.1.2
 
 ## Modern Warfare Cubed Version 0.1.7 Changelog - 2024-06-29
 
