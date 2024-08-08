@@ -7,6 +7,8 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 
 ## [UNRELEASED] Modern Warfare Cubed Version 0.2 Changelog
 
+[**MWC 0.1 NOW REQUIRES RED CORE 0.6 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
 ### Highlight
 
 #### Tooltips Rework
@@ -59,7 +61,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated the credits in the mod menu
 - Updated the url in the mod menu
 - Updated dependencies:
-  - Requires Red Core 0.5 and up
+  - Requires Red Core 0.6 and up
   - Requires MixinBooter 8.6 and up
 - Updated Korean translation
 - Reworked weapons tooltips

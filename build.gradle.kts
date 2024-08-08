@@ -17,7 +17,7 @@ val name = "Modern Warfare Cubed"
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
-val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-3"
+val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-6"
 
 val groovyScriptVersion = "1.0.0"
 val mixinBooterVersion = "8.6"
