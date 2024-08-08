@@ -77,7 +77,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Cleaned up the `mcmod.info` file
 - Switched to [CurseUpdate](https://forge.curseupdate.com/) for update checking
 - Updated [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) to version 1.4.0
-- Updated to [Gradle](https://gradle.org) 8.9
+- Updated to [Gradle](https://gradle.org) 8.8
 - Set a minimum Gradle Daemon JVM version requirement
 - Updated the `gradle.properties` to the new Red Studio standard one
 - Cleaned up the buildscript
