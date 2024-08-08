@@ -69,7 +69,9 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Reworked vests tooltips
 
 ### Fixed
+
 - Fixed the default craftingmappings.json
+- Fixed the position of the RPG-7 and M202 projectiles
 
 ### Removed
 
