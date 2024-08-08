@@ -7,6 +7,8 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 
 ## [UNRELEASED] Modern Warfare Cubed Version 0.2 Changelog
 
+[**MWC 0.1 NOW REQUIRES RED CORE 0.6 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
 ### Highlight
 
 #### Tooltips Rework
@@ -23,7 +25,7 @@ AK-47 Before:
 
 AK-47 After:
 
-<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/6fcfc3ba-e464-4f69-a71f-e09ece635891" alt="Before" height="256">
+<img src="https://github.com/user-attachments/assets/808851a8-2b08-47f1-9c0b-73a3ec9013c4" alt="After" width="364">
 
 This was just an example, 
 but we reworked every tooltip.
@@ -59,7 +61,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated the credits in the mod menu
 - Updated the url in the mod menu
 - Updated dependencies:
-  - Requires Red Core 0.5 and up
+  - Requires Red Core 0.6 and up
   - Requires MixinBooter 8.6 and up
 - Updated Korean translation
 - Reworked weapons tooltips
@@ -68,12 +70,14 @@ like knowing which weapon is better or whether an attachment will be useful to y
 
 ### Fixed
 
+- Fixed the default craftingmappings.json
 - Fixed the position of the RPG-7 and M202 projectiles
 
 ### Removed
 
 - Removed unused warning about the grenade exploding in X amount of seconds
 - Removed proning
+- Removed unused `ItemAmmo`
 
 ### Internal
 
@@ -81,10 +85,15 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Cleaned up the `mcmod.info` file
 - Switched to [CurseUpdate](https://forge.curseupdate.com/) for update checking
 - Updated [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) to version 1.4.0
-- Updated to [Gradle](https://gradle.org) 8.9-rc-1
-- Added minimum JVM version for the Gradle daemon
+- Updated to [Gradle](https://gradle.org) 8.8
+- Set a minimum Gradle Daemon JVM version requirement
 - Updated the `gradle.properties` to the new Red Studio standard one
 - Cleaned up the buildscript
+- Updated [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) dependency to 1.1.2
+- Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 5.4.0
+- Updated to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.4.0
+- Switched to the new standard `gradle.properties`
+- General cleanup
 
 ## Modern Warfare Cubed Version 0.1.7 Changelog - 2024-06-29
 

@@ -4,9 +4,9 @@ import org.jetbrains.gradle.ext.runConfigurations
 import org.jetbrains.gradle.ext.settings
 
 plugins {
-    id("com.gtnewhorizons.retrofuturagradle") version "1.4.0"
+    id("com.gtnewhorizons.retrofuturagradle") version "1.4.1"
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.8"
-    id("com.github.gmazzo.buildconfig") version "5.3.5"
+    id("com.github.gmazzo.buildconfig") version "5.4.0"
     id("io.freefair.lombok") version "8.6"
 }
 
@@ -17,7 +17,7 @@ val name = "Modern Warfare Cubed"
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
-val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-3"
+val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-6"
 
 val groovyScriptVersion = "1.0.0"
 val mixinBooterVersion = "8.6"
@@ -68,7 +68,7 @@ dependencies {
 
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
-    compileOnly("com.cleanroommc:groovyscript:1.1.0") {
+    compileOnly("com.cleanroommc:groovyscript:1.1.2") {
         isTransitive = false
     }
 

@@ -654,15 +654,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
         boolean consumed = false;
 
-        for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
-            ItemStack itemstack = player.inventory.getStackInSlot(i);
-
-            if (itemstack.getItem() == weapon.builder.ammo) {
-                itemstack.shrink(1);
-                consumed = true;
-            }
-        }
-
         if (!compatibleMagazines.isEmpty()) {
             ItemAttachment<Weapon> existingMagazine = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
             int ammo = Tags.getAmmo(weaponItemStack);
