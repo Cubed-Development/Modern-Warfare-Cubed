@@ -72,6 +72,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 
 - Removed unused warning about the grenade exploding in X amount of seconds
 - Removed proning
+- Removed unused `ItemAmmo`
 
 ### Internal
 
@@ -87,6 +88,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 5.4.0
 - Updated to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.4.0
 - Switched to the new standard `gradle.properties`
+- General cleanup
 
 ## Modern Warfare Cubed Version 0.1.7 Changelog - 2024-06-29
 

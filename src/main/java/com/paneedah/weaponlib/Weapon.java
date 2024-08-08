@@ -107,7 +107,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         
         private String exceededMaxShotsSound;
-        ItemAmmo ammo;
         float fireRate = Weapon.DEFAULT_FIRE_RATE;
         private CreativeTabs creativeTab;
         private WeaponRenderer renderer;
@@ -343,10 +342,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
-        public Builder withAmmo(ItemAmmo ammo) {
-            this.ammo = ammo;
-            return this;
-        }
         
 
 
@@ -955,9 +950,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
             weapon.setCreativeTab(creativeTab);
             weapon.setTranslationKey(name);
-            if (ammo != null) {
-                ammo.addCompatibleWeapon(weapon);
-            }
 
             // Add the magic mag
             withCompatibleAttachment(SpecialAttachments.MagicMag, true, (model) -> {});
