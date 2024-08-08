@@ -217,7 +217,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 			Item item = Item.getByNameOrId(recipeName);
 			if (item == null) {
-				LOG.error("Could not find item with name: " + recipeName);
+				LOG.error("Error Reading JSON, could not find item with name: " + recipeName);
 				continue;
 			}
 
