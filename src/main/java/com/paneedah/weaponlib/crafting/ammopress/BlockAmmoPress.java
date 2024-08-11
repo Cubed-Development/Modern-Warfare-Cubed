@@ -22,52 +22,52 @@ import java.util.List;
 import static com.paneedah.mwc.MWC.CHANNEL;
 
 public class BlockAmmoPress extends BlockStation {
-	
-	// The actual bounding box for the ammo-press
-	public static AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
-	
-	// The two bounding boxes added to the collision box list for highlighting
-	public static AxisAlignedBB COLLISION_BOX_BOTTOM = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.2D, 0.9D);
-	public static AxisAlignedBB COLLISION_BOX_TOP = new AxisAlignedBB(0.2D, 0.0D, 0.2D, 0.8D, 0.8D, 0.8D);
 
-	public BlockAmmoPress(ModContext context, String name, Material materialIn) {
-		super(context, name, materialIn);
-	}
-	
-	@Override
-	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox,
-			List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_) {
-		addCollisionBoxToList(pos, entityBox, collidingBoxes, COLLISION_BOX_BOTTOM);
-		addCollisionBoxToList(pos, entityBox, collidingBoxes, COLLISION_BOX_TOP);
-	}
+    // The actual bounding box for the ammo-press
+    public static AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
 
-	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		playerIn.openGui(modContext.getMod(), GuiHandler.AMMOPRESS_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
-		
-		if(hand == EnumHand.MAIN_HAND) {
-			
-			playerIn.swingArm(hand);
-			
-			if(!worldIn.isRemote) {
-				CHANNEL.sendTo(new WorkbenchClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
-			}
-		}
-		
-		return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
-		
-	}
-	
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return BOUNDING_BOX;
-	}
-	
-	@Override
-	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new TileEntityAmmoPress();
-	}
+    // The two bounding boxes added to the collision box list for highlighting
+    public static AxisAlignedBB COLLISION_BOX_BOTTOM = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.2D, 0.9D);
+    public static AxisAlignedBB COLLISION_BOX_TOP = new AxisAlignedBB(0.2D, 0.0D, 0.2D, 0.8D, 0.8D, 0.8D);
+
+    public BlockAmmoPress(ModContext context, String name, Material materialIn) {
+        super(context, name, materialIn);
+    }
+
+    @Override
+    public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox,
+                                      List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_) {
+        addCollisionBoxToList(pos, entityBox, collidingBoxes, COLLISION_BOX_BOTTOM);
+        addCollisionBoxToList(pos, entityBox, collidingBoxes, COLLISION_BOX_TOP);
+    }
+
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+                                    EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        playerIn.openGui(modContext.getMod(), GuiHandler.AMMOPRESS_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+
+        if (hand == EnumHand.MAIN_HAND) {
+
+            playerIn.swingArm(hand);
+
+            if (!worldIn.isRemote) {
+                CHANNEL.sendTo(new WorkbenchClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
+            }
+        }
+
+        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+
+    }
+
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        return BOUNDING_BOX;
+    }
+
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state) {
+        return new TileEntityAmmoPress();
+    }
 
 
 }

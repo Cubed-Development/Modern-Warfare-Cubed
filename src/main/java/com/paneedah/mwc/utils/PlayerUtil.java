@@ -8,18 +8,21 @@ import net.minecraft.util.math.AxisAlignedBB;
 public final class PlayerUtil {
 
     public static void restorePlayerSpeed(final EntityPlayer entityPlayer, final AttributeModifier modifier) {
-        if (entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(modifier.getID()) != null)
+        if (entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(modifier.getID()) != null) {
             entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).removeModifier(modifier);
+        }
     }
 
     public static void slowPlayerDown(final EntityPlayer entityPlayer, final AttributeModifier modifier) {
-        if (entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(modifier.getID()) == null)
+        if (entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(modifier.getID()) == null) {
             entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).applyModifier(modifier);
+        }
     }
 
     public static void setSize(final EntityPlayer entityPlayer, final float height) {
-        if (height == entityPlayer.height)
+        if (height == entityPlayer.height) {
             return;
+        }
 
         entityPlayer.height = height;
 

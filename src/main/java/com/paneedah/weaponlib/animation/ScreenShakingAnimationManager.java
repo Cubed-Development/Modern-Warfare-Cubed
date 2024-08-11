@@ -11,30 +11,31 @@ import java.util.Map;
 import java.util.UUID;
 
 public class ScreenShakingAnimationManager {
-    
-    public static enum State { 
+
+    public static enum State {
         SHOOTING(0, 0.1f), RELOADING(-5, 0f), AIMING(-10, 0f), DEFAULT(Integer.MIN_VALUE, 0f);
-        
+
         private int priority;
         private float stepAdjustement;
+
         State(int priority, float stepAdjustement) {
             this.priority = priority;
         }
-        
+
         int getPriority() {
             return priority;
         }
-        
+
         public float getStepAdjustement() {
             return stepAdjustement;
         }
     }
-    
+
     private static class Key {
         UUID playerId;
         State state;
         Weapon weapon;
-        
+
         public Key(EntityPlayer player, State state, Weapon weapon) {
             this.playerId = player.getPersistentID();
             this.state = state;
@@ -53,29 +54,37 @@ public class ScreenShakingAnimationManager {
 
         @Override
         public boolean equals(Object obj) {
-            if (this == obj)
+            if (this == obj) {
                 return true;
-            if (obj == null)
+            }
+            if (obj == null) {
                 return false;
-            if (getClass() != obj.getClass())
+            }
+            if (getClass() != obj.getClass()) {
                 return false;
+            }
             Key other = (Key) obj;
             if (playerId == null) {
-                if (other.playerId != null)
+                if (other.playerId != null) {
                     return false;
-            } else if (!playerId.equals(other.playerId))
+                }
+            } else if (!playerId.equals(other.playerId)) {
                 return false;
-            if (state != other.state)
+            }
+            if (state != other.state) {
                 return false;
+            }
             if (weapon == null) {
-                if (other.weapon != null)
+                if (other.weapon != null) {
                     return false;
-            } else if (!weapon.equals(other.weapon))
+                }
+            } else if (!weapon.equals(other.weapon)) {
                 return false;
+            }
             return true;
         }
-        
-        
+
+
     }
 
     private Map<Key, PlayerAnimation> allPlayerAnimations = new HashMap<>();
@@ -84,7 +93,7 @@ public class ScreenShakingAnimationManager {
     private float maxPitch = 2f;
     private long transitionDuration = 2000;
     private State lastTargetState;
-    
+
     public ScreenShakingAnimationManager setMaxYaw(float maxYaw) {
         this.maxYaw = maxYaw;
         return this;
@@ -99,39 +108,39 @@ public class ScreenShakingAnimationManager {
         this.transitionDuration = transitionDuration;
         return this;
     }
-    
+
     public void update(EntityPlayer player, PlayerWeaponInstance weaponInstance, RenderableState weaponState) {
         State targetState = toManagedState(weaponState);
-        
+
 //        System.out.println("Target state: " + targetState + ", renderer state: " + weaponState);
         PlayerAnimation activeAnimation = activeAnimations.get(player);
 //        activeAnimations.clear();
 //        allPlayerAnimations.clear();
         boolean fadeOut = true;
-        if(activeAnimation == null) {
+        if (activeAnimation == null) {
             activeAnimation = getAnimationForManagedState(player, weaponInstance, targetState);
             activeAnimations.put(player, activeAnimation);
         } else {
             State currentAnimationState = activeAnimation.getState();
 //            System.out.println("Current state: " + currentState);
-            
-           // System.out.println(currentAnimationState.getPriority() + " | " + targetState.getPriority());
-            
-           
-            if(currentAnimationState == targetState) {
-            	
-                if(targetState != lastTargetState) {
+
+            // System.out.println(currentAnimationState.getPriority() + " | " + targetState.getPriority());
+
+
+            if (currentAnimationState == targetState) {
+
+                if (targetState != lastTargetState) {
 //                    System.out.println("Target state: " + targetState + ", last: " + lastTargetState + ", resetting...");
                     activeAnimation.reset(player, false);
                 }
-            }  else if(currentAnimationState.getPriority() < targetState.getPriority() || activeAnimation.isCompleted()) {
-                
-            	activeAnimation = getAnimationForManagedState(player, weaponInstance, targetState);
+            } else if (currentAnimationState.getPriority() < targetState.getPriority() || activeAnimation.isCompleted()) {
+
+                activeAnimation = getAnimationForManagedState(player, weaponInstance, targetState);
                 activeAnimation.reset(player, true);
                 activeAnimations.put(player, activeAnimation);
             }
         }
-        
+
         activeAnimation.update(player, fadeOut);
         lastTargetState = targetState;
     }
@@ -140,41 +149,42 @@ public class ScreenShakingAnimationManager {
 //        PlayerAnimation activeAnimation = getActiveAnimation(player, weaponState);
 //        activeAnimation.reset(player);
     }
-    
+
     public static State toManagedState(RenderableState weaponState) {
-        if(weaponState == null) {
+        if (weaponState == null) {
             return State.DEFAULT;
         }
         State managedState;
-        switch(weaponState) {
-        case SHOOTING: case ZOOMING_SHOOTING: //case RECOILED: case ZOOMING_RECOILED:
-            managedState = State.SHOOTING;
-            break;
-        case RELOADING:
-            managedState = State.RELOADING;
-            break;
-        case ZOOMING:
-            managedState = State.AIMING;
-            break;
-        default:
-            managedState = State.DEFAULT;
+        switch (weaponState) {
+            case SHOOTING:
+            case ZOOMING_SHOOTING: //case RECOILED: case ZOOMING_RECOILED:
+                managedState = State.SHOOTING;
+                break;
+            case RELOADING:
+                managedState = State.RELOADING;
+                break;
+            case ZOOMING:
+                managedState = State.AIMING;
+                break;
+            default:
+                managedState = State.DEFAULT;
         }
         return managedState;
     }
-    
+
     private PlayerAnimation createAnimationForManagedState(EntityPlayer player, State managedState, Weapon weapon) {
-    	
-    	PlayerAnimation animation;
-        switch(managedState) {
-        case AIMING:
-            animation = new PlayerRawPitchAnimation(managedState)
-                    .setMaxPitch(maxPitch)
-                    .setMaxYaw(maxYaw)
-                    .setPlayer(player)
-                    .setTransitionDuration(transitionDuration);
-            break;
-        case SHOOTING:
-            Builder builder = weapon.getScreenShakeAnimationBuilder(RenderableState.SHOOTING);
+
+        PlayerAnimation animation;
+        switch (managedState) {
+            case AIMING:
+                animation = new PlayerRawPitchAnimation(managedState)
+                        .setMaxPitch(maxPitch)
+                        .setMaxYaw(maxYaw)
+                        .setPlayer(player)
+                        .setTransitionDuration(transitionDuration);
+                break;
+            case SHOOTING:
+                Builder builder = weapon.getScreenShakeAnimationBuilder(RenderableState.SHOOTING);
 //            ScreenShaking weaponScreenShaking = weapon.getScreenShaking(RenderableState.SHOOTING);
 //            animation = new ScreenShakeAnimation.Builder()
 //                    .withState(managedState)
@@ -183,17 +193,18 @@ public class ScreenShakingAnimationManager {
 //                    .withZRotationCoefficient(weaponScreenShaking != null ? weaponScreenShaking.getZRotationCoefficient(): 2f)
 //                    .withTransitionDuration(50)
 //                    .build();
-            animation = builder.build();
-            break;
-        case DEFAULT: default:
-            animation = PlayerAnimation.NO_ANIMATION;
-            break;
+                animation = builder.build();
+                break;
+            case DEFAULT:
+            default:
+                animation = PlayerAnimation.NO_ANIMATION;
+                break;
         }
         return animation;
     }
 
     private PlayerAnimation getAnimationForManagedState(EntityPlayer player, PlayerWeaponInstance instance, State managedState) {
-        return allPlayerAnimations.computeIfAbsent(new Key(player, managedState, instance.getWeapon()), 
+        return allPlayerAnimations.computeIfAbsent(new Key(player, managedState, instance.getWeapon()),
                 k -> createAnimationForManagedState(player, k.state, instance.getWeapon()));
     }
 

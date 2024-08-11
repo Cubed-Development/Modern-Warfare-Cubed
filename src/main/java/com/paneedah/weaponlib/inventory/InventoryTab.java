@@ -19,11 +19,11 @@ public class InventoryTab extends GuiButton {
         super(id, posX, posY, 28, 32, "");
         this.itemStack = itemStack;
     }
-    
+
     public InventoryTab(int id, int posX, int posY) {
         super(id, posX, posY, 28, 32, "");
     }
-    
+
     protected ItemStack getItemStack() {
         return itemStack;
     }

@@ -8,7 +8,7 @@ import net.minecraft.init.Items;
 import org.lwjgl.opengl.GL11;
 
 public class Bullets {
-    
+
     public static ItemBullet Bullet20x82mm;
     public static ItemBullet Bullet50BMG;
     public static ItemBullet Bullet408CT;
@@ -74,7 +74,7 @@ public class Bullets {
                     GL11.glScaled(2F, 2F, 2f);
                 }).withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         M202Rocket = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("m202rocket").withMaxStackSize(4)
                 .withModel(new com.paneedah.mwc.models.M202Rocket(), "gun.png")
@@ -96,7 +96,7 @@ public class Bullets {
                     GL11.glScaled(0.4F, 0.4F, 0.4f);
                 }).withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         RPGRocket = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("rpg7_rocket").withMaxStackSize(2)
                 .withModel(new com.paneedah.mwc.models.RPG7rocketPROJECTILE(), "rpg7.png")
@@ -118,7 +118,7 @@ public class Bullets {
                     GL11.glScaled(0.4F, 0.4F, 0.4f);
                 }).withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         EnergyCase = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("EnergyCase")
                 .withModel(new com.paneedah.mwc.models.EnergyCase(), "gun.png")
@@ -140,7 +140,7 @@ public class Bullets {
                     GL11.glRotatef(20F, 0f, 0f, 1f);
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
                 }).withTextureName("Dummy.png").build(MWC.modContext, ItemBullet.class);
-        
+
         PlasmaCapsule = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("PlasmaCapsule")
                 .withModel(new com.paneedah.mwc.models.ChainsawFuel(), "PlasmaCapsule.png")
@@ -163,7 +163,7 @@ public class Bullets {
                     GL11.glScaled(1F, 1F, 1f);
                 })
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet3006Springfield = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -187,7 +187,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet8x58 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -211,7 +211,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet792x33Kurz = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -235,7 +235,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet50BMG = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -259,7 +259,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet20x82mm = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -283,7 +283,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet408CT = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -307,7 +307,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet308Winchester = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -331,7 +331,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet277 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -355,7 +355,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet792x57 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -379,7 +379,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet762x54 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -403,7 +403,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet762x51 = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet762x51")
@@ -426,7 +426,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Shotgun12Guage = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Shotgun12Gauge")
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge(), "Shotgun12Gauge.png")
@@ -446,7 +446,7 @@ public class Bullets {
                     GL11.glRotatef(0F, 0f, 0f, 1f);
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
                 }).withTextureName("Dummy.png").build(MWC.modContext, ItemBullet.class);
-        
+
         Shotgun4G = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Shotgun4G")
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge(), "Shotgun4Gauge.png")
@@ -466,7 +466,7 @@ public class Bullets {
                     GL11.glRotatef(0F, 0f, 0f, 1f);
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
                 }).withTextureName("Dummy.png").build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet762x35 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -490,7 +490,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet765x21 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -514,7 +514,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet762x39 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -562,7 +562,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet65 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -586,7 +586,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet545x39 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -610,7 +610,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet4570 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -634,7 +634,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet4440 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -658,31 +658,31 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-    
+
         Bullet45ACP = new ItemBullet.Builder()
-        	
-            .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
-            .withName("Bullet45ACP")
-            .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-            .withFirstPersonPositioning(() -> {
-                GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                GL11.glRotatef(30F, 0f, 1f, 0f);
-                GL11.glScaled(0.55F, 0.55F, 0.55F);
-            }).withThirdPersonPositioning(() -> {
-                GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                GL11.glRotatef(-50F, 0f, 1f, 0f);
-                GL11.glRotatef(80F, 1f, 0f, 0f);
-                GL11.glScaled(0.45F, 0.45F, 0.45F);
-            }).withInventoryPositioning(() -> {
-                GL11.glTranslatef(-0.8F, -4F, 0.7F);
-                GL11.glRotatef(10F, 0f, 1f, 0f);
-                GL11.glRotatef(2F, 1f, 0f, 0f);
-                GL11.glRotatef(0F, 0f, 0f, 1f);
-                GL11.glScaled(2.4F, 2.4F, 2.4f);
-            })
-            .withTextureName("Dummy.png")
-            .build(MWC.modContext, ItemBullet.class);
-        
+
+                .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
+                .withName("Bullet45ACP")
+                .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
+                .withFirstPersonPositioning(() -> {
+                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
+                    GL11.glRotatef(30F, 0f, 1f, 0f);
+                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                }).withThirdPersonPositioning(() -> {
+                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
+                    GL11.glRotatef(-50F, 0f, 1f, 0f);
+                    GL11.glRotatef(80F, 1f, 0f, 0f);
+                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                }).withInventoryPositioning(() -> {
+                    GL11.glTranslatef(-0.8F, -4F, 0.7F);
+                    GL11.glRotatef(10F, 0f, 1f, 0f);
+                    GL11.glRotatef(2F, 1f, 0f, 0f);
+                    GL11.glRotatef(0F, 0f, 0f, 1f);
+                    GL11.glScaled(2.4F, 2.4F, 2.4f);
+                })
+                .withTextureName("Dummy.png")
+                .build(MWC.modContext, ItemBullet.class);
+
         Bullet357 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -706,7 +706,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet44 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -730,7 +730,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet40SW = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -754,7 +754,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet50AE = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -778,7 +778,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet50Beowulf = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -802,7 +802,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet500 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -826,7 +826,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet380ACP = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -850,7 +850,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet763x25 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -873,7 +873,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 2.4F, 2.4f);
                 }).withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet9x39mm = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -897,7 +897,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet9x19mm = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -921,7 +921,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet9x18mm = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -945,7 +945,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet57x28mm = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet57x28mm")
@@ -968,7 +968,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet46x30mm = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -992,7 +992,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet10mm = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -1016,7 +1016,7 @@ public class Bullets {
                 })
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
-        
+
         Bullet473x33mm = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)

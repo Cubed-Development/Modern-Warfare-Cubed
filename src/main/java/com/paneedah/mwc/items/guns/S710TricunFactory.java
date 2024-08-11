@@ -64,7 +64,7 @@ public class S710TricunFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-                
+
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         2f, // x

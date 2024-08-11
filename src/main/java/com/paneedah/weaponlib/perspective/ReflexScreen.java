@@ -32,178 +32,180 @@ import org.lwjgl.opengl.GL20;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class ReflexScreen extends ModelBase implements CustomRenderer<RenderableState>{
-	
-	
-	public static final Reticle DEFAULT_RETICLE = new Reticle("holo", 0.05f);
-	
-	private final ModelRenderer bb_main;
+public class ReflexScreen extends ModelBase implements CustomRenderer<RenderableState> {
 
-	
-	// The positioning for the reticle screen
-	public Runnable positioning;
-	
-	// For scopes that are circular.
-	public float radius;
-	
-	// List of reticles
-	public CyclicList<Reticle> reticleList = new CyclicList<>();
-	
-	
 
-	
-	public ReflexScreen(Runnable pos, float radius, CyclicList<Reticle> reticles) {
-		textureWidth = 16;
-		textureHeight = 16;
-		
-		this.reticleList = reticles;
-		this.radius = radius;
-		this.positioning = pos;
+    public static final Reticle DEFAULT_RETICLE = new Reticle("holo", 0.05f);
 
-		bb_main = new ModelRenderer(this);
-		bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
-		bb_main.cubeList.add(new ModelBox(bb_main, 0, 0, -3.0F, -2.0F, 0.0F, 5, 4, 0, 0.0F, false));
-	}
+    private final ModelRenderer bb_main;
 
-	//https://vazgriz.com/158/reflex-sight-shader-in-unity3d/
-	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-	
-		if(1+1==2) return;
-		
-		Shader reflexReticle = null;
-		
-		
-		GlStateManager.disableTexture2D();
-		GlStateManager.enableBlend();
-		//GlStateManager.enableAlpha();
-		//reflexReticle.use();
-		
-		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		ResourceLocation loc = new ResourceLocation(ID + ":textures/crosshairs/okp.png");
-	
-		MC.getTextureManager().bindTexture(loc);
-		
-		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
-		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
-		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
-		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
-		GL20.glUniform1i(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "ret"), 4);
-		
-		GL20.glUniform1f(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "texScale"), 0.08f);
-		GL20.glUniform1f(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "radius"), 0.1f);
-		
-		
-		Vec3d bg = new Vec3d(0.0, 0.7, 0.5);
-		GL20.glUniform3f(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "background"), (float) bg.x, (float) bg.y, (float) bg.z);
-		
-		GlStateManager.enableCull();
+
+    // The positioning for the reticle screen
+    public Runnable positioning;
+
+    // For scopes that are circular.
+    public float radius;
+
+    // List of reticles
+    public CyclicList<Reticle> reticleList = new CyclicList<>();
+
+
+    public ReflexScreen(Runnable pos, float radius, CyclicList<Reticle> reticles) {
+        textureWidth = 16;
+        textureHeight = 16;
+
+        this.reticleList = reticles;
+        this.radius = radius;
+        this.positioning = pos;
+
+        bb_main = new ModelRenderer(this);
+        bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
+        bb_main.cubeList.add(new ModelBox(bb_main, 0, 0, -3.0F, -2.0F, 0.0F, 5, 4, 0, 0.0F, false));
+    }
+
+    //https://vazgriz.com/158/reflex-sight-shader-in-unity3d/
+    @Override
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+
+        if (1 + 1 == 2) {
+            return;
+        }
+
+        Shader reflexReticle = null;
+
+
+        GlStateManager.disableTexture2D();
+        GlStateManager.enableBlend();
+        //GlStateManager.enableAlpha();
+        //reflexReticle.use();
+
+        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
+        ResourceLocation loc = new ResourceLocation(ID + ":textures/crosshairs/okp.png");
+
+        MC.getTextureManager().bindTexture(loc);
+
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
+        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
+        GL20.glUniform1i(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "ret"), 4);
+
+        GL20.glUniform1f(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "texScale"), 0.08f);
+        GL20.glUniform1f(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "radius"), 0.1f);
+
+
+        Vec3d bg = new Vec3d(0.0, 0.7, 0.5);
+        GL20.glUniform3f(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "background"), (float) bg.x, (float) bg.y, (float) bg.z);
+
+        GlStateManager.enableCull();
 		
 		/* eo tech
 		bb_main.offsetY = -2.5f;
 		bb_main.offsetX = -0.075f;
 		bb_main.offsetZ = 0.275f;
 		*/
-		GlStateManager.pushMatrix();
+        GlStateManager.pushMatrix();
 		
 		/* reflex
 		bb_main.offsetY = -2.60f;
 		bb_main.offsetX = -0.05f;
 		bb_main.offsetZ = 0.0f;
 		*/
-		
-		
-		GlStateManager.translate(0.25, -5.05, -0.1);
-		GlStateManager.scale(2.0, 2.0, 1.2);
-		bb_main.render(f5);
-		
-		
-		GlStateManager.popMatrix();
-		reflexReticle.release();
-		GlStateManager.disableBlend();
-		GlStateManager.enableTexture2D();
-	}
 
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
-	}
-	
-	public void renderReticle(RenderContext<RenderableState> renderContext, boolean bloom) {
 
- 		//if(true) return;
-		Reticle currentReticle = reticleList.current();
-		
-		if(currentReticle == null) currentReticle = DEFAULT_RETICLE;
-		
-		//Shaders.reflexReticle = ShaderLoader.loadVMWShader("reflex");
+        GlStateManager.translate(0.25, -5.05, -0.1);
+        GlStateManager.scale(2.0, 2.0, 1.2);
+        bb_main.render(f5);
 
-		if(renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND)
-			return;
 
-		GlStateManager.disableTexture2D();
-		GlStateManager.enableBlend();
-		Shaders.reflexReticle.use();
-		
-		
-		//MC.getFramebuffer().bindFramebuffer(true);
+        GlStateManager.popMatrix();
+        reflexReticle.release();
+        GlStateManager.disableBlend();
+        GlStateManager.enableTexture2D();
+    }
 
-		// upload uniforms
-		
-		// upload texture
-		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		MC.getTextureManager().bindTexture(currentReticle.getReticleTexture());
-		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
-		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
-		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
-		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
-		GL20.glUniform1i(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "ret"), 4);
-		GL20.glUniform1i(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "isBloom"), bloom ? 1 : 0);
-		GL20.glUniform1f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "texScale"), currentReticle.getTextureScale());
-		GL20.glUniform1f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "radius"), this.radius);
-		GL20.glUniform3f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "background"), (float) currentReticle.getBackgroundColor().x, (float) currentReticle.getBackgroundColor().y, (float) currentReticle.getBackgroundColor().z);
-		GlStateManager.enableCull();
-		
-		//glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, gAlbedoSpec, 0);
-		
-		GlStateManager.pushMatrix();
-		positioning.run();
-		bb_main.render(0.065f);
-		
-		
-		GlStateManager.popMatrix();
-		Shaders.reflexReticle.release();
-		GlStateManager.disableCull();
-		//GlStateManager.disableBlend();
-		GlStateManager.enableTexture2D();
-		
-		//GL20.glDrawBuffers(GL30.GL_COLOR_ATTACHMENT0);
-		
-	}
-	private static ScreenModel screenModel = new ScreenModel();
+    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+        modelRenderer.rotateAngleX = x;
+        modelRenderer.rotateAngleY = y;
+        modelRenderer.rotateAngleZ = z;
+    }
 
-	@Override
-	public void render(RenderContext<RenderableState> renderContext) {
-		//renderReticle(renderContext, true);
-		
-		if(ModernConfigManager.enableAllShaders && ModernConfigManager.enableReticleShaders) {
-		//	MC.getFramebuffer().bindFramebuffer(true);
-			renderReticle(renderContext, false);
-		} else {
-			
-			
-			
-			//GlStateManager.disableTexture2D();
-			MC.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
-			
-			GlStateManager.pushMatrix();
-			GlStateManager.enableCull();
-			
-			
-		
-		//	GlStateManager.translate(0, -3, 0);
-			positioning.run();
+    public void renderReticle(RenderContext<RenderableState> renderContext, boolean bloom) {
+
+        //if(true) return;
+        Reticle currentReticle = reticleList.current();
+
+        if (currentReticle == null) {
+            currentReticle = DEFAULT_RETICLE;
+        }
+
+        //Shaders.reflexReticle = ShaderLoader.loadVMWShader("reflex");
+
+        if (renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND) {
+            return;
+        }
+
+        GlStateManager.disableTexture2D();
+        GlStateManager.enableBlend();
+        Shaders.reflexReticle.use();
+
+
+        //MC.getFramebuffer().bindFramebuffer(true);
+
+        // upload uniforms
+
+        // upload texture
+        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
+        MC.getTextureManager().bindTexture(currentReticle.getReticleTexture());
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
+        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
+        GL20.glUniform1i(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "ret"), 4);
+        GL20.glUniform1i(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "isBloom"), bloom ? 1 : 0);
+        GL20.glUniform1f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "texScale"), currentReticle.getTextureScale());
+        GL20.glUniform1f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "radius"), this.radius);
+        GL20.glUniform3f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "background"), (float) currentReticle.getBackgroundColor().x, (float) currentReticle.getBackgroundColor().y, (float) currentReticle.getBackgroundColor().z);
+        GlStateManager.enableCull();
+
+        //glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, gAlbedoSpec, 0);
+
+        GlStateManager.pushMatrix();
+        positioning.run();
+        bb_main.render(0.065f);
+
+
+        GlStateManager.popMatrix();
+        Shaders.reflexReticle.release();
+        GlStateManager.disableCull();
+        //GlStateManager.disableBlend();
+        GlStateManager.enableTexture2D();
+
+        //GL20.glDrawBuffers(GL30.GL_COLOR_ATTACHMENT0);
+
+    }
+
+    private static ScreenModel screenModel = new ScreenModel();
+
+    @Override
+    public void render(RenderContext<RenderableState> renderContext) {
+        //renderReticle(renderContext, true);
+
+        if (ModernConfigManager.enableAllShaders && ModernConfigManager.enableReticleShaders) {
+            //	MC.getFramebuffer().bindFramebuffer(true);
+            renderReticle(renderContext, false);
+        } else {
+
+
+            //GlStateManager.disableTexture2D();
+            MC.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
+
+            GlStateManager.pushMatrix();
+            GlStateManager.enableCull();
+
+
+            //	GlStateManager.translate(0, -3, 0);
+            positioning.run();
 			
 
 			/*
@@ -216,25 +218,25 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 			
 			bb2.renderer(0.065f);
 			*/
-			
-			Tessellator t = Tessellator.getInstance();
-			BufferBuilder bb = t.getBuffer();
-			bb.begin(GL11.GL_QUADS, DefaultVertexFormats.OLDMODEL_POSITION_TEX_NORMAL);
-			
-			double scaleW = 1.0 * reticleList.current().getTextureScale();
-			double scaleH = scaleW;
-			double x = -0.03, y = 1.56;
-			
-			bb.pos(-1*scaleW + x, -1*scaleH + y, 0).tex(0, 0).normal(0, 0, 1).endVertex();
-			bb.pos(1*scaleW + x, -1*scaleH + y, 0).tex(1, 0).normal(0, 0, 1).endVertex();
-			bb.pos(1*scaleW + x, 1*scaleH + y, 0).tex(1, 1).normal(0, 0, 1).endVertex();
-			
-			bb.pos(-1*scaleW + x, 1*scaleH + y, 0).tex(0, 1).normal(0, 0, 1).endVertex();
-			
-			t.draw();
-		
-			
-			GlStateManager.popMatrix();
+
+            Tessellator t = Tessellator.getInstance();
+            BufferBuilder bb = t.getBuffer();
+            bb.begin(GL11.GL_QUADS, DefaultVertexFormats.OLDMODEL_POSITION_TEX_NORMAL);
+
+            double scaleW = 1.0 * reticleList.current().getTextureScale();
+            double scaleH = scaleW;
+            double x = -0.03, y = 1.56;
+
+            bb.pos(-1 * scaleW + x, -1 * scaleH + y, 0).tex(0, 0).normal(0, 0, 1).endVertex();
+            bb.pos(1 * scaleW + x, -1 * scaleH + y, 0).tex(1, 0).normal(0, 0, 1).endVertex();
+            bb.pos(1 * scaleW + x, 1 * scaleH + y, 0).tex(1, 1).normal(0, 0, 1).endVertex();
+
+            bb.pos(-1 * scaleW + x, 1 * scaleH + y, 0).tex(0, 1).normal(0, 0, 1).endVertex();
+
+            t.draw();
+
+
+            GlStateManager.popMatrix();
 			
 			
 			/*
@@ -265,12 +267,10 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 			
 			t.draw();
 			*/
-			
-		}
-		
-		
-		
 
-		//reflexReticle = ShaderLoader.loadShader(new ResourceLocation(ID + ":shaders/reflex"));
-	}
+        }
+
+
+        //reflexReticle = ShaderLoader.loadShader(new ResourceLocation(ID + ":shaders/reflex"));
+    }
 }

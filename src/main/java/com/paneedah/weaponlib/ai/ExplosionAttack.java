@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.ai;
 import net.minecraft.entity.Entity;
 
 public class ExplosionAttack implements CustomMobAttack, Timeable {
-    
+
     private float explosionRadius;
     private boolean isSmokeEnabled;
     private int duration;

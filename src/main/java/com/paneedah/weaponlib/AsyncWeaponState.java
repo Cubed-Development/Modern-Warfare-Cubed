@@ -2,38 +2,38 @@ package com.paneedah.weaponlib;
 
 public class AsyncWeaponState {
 
-	private WeaponState state;
-	private long timestamp;
-	private long duration;
-	private boolean isInfinite;
-	
-	public AsyncWeaponState(WeaponState state, long timestamp) {
-		this.state = state;
-		this.timestamp = timestamp;
-		this.duration = Integer.MAX_VALUE;
-		this.isInfinite = true;
-	}
+    private WeaponState state;
+    private long timestamp;
+    private long duration;
+    private boolean isInfinite;
 
-	public AsyncWeaponState(WeaponState state, long timestamp, long duration) {
-		this.state = state;
-		this.timestamp = timestamp;
-		this.duration = duration;
-	}
+    public AsyncWeaponState(WeaponState state, long timestamp) {
+        this.state = state;
+        this.timestamp = timestamp;
+        this.duration = Integer.MAX_VALUE;
+        this.isInfinite = true;
+    }
 
-	public WeaponState getState() {
-		return state;
-	}
+    public AsyncWeaponState(WeaponState state, long timestamp, long duration) {
+        this.state = state;
+        this.timestamp = timestamp;
+        this.duration = duration;
+    }
 
-	public long getTimestamp() {
-		return timestamp;
-	}
+    public WeaponState getState() {
+        return state;
+    }
 
-	public long getDuration() {
-		return duration;
-	}
+    public long getTimestamp() {
+        return timestamp;
+    }
 
-	public boolean isInfinite() {
-		return isInfinite;
-	}
+    public long getDuration() {
+        return duration;
+    }
+
+    public boolean isInfinite() {
+        return isInfinite;
+    }
 
 }

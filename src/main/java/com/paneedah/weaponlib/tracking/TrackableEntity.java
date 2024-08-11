@@ -36,7 +36,7 @@ public class TrackableEntity {
     }
 
     public UUID getUuid() {
-        if(uuid != null) {
+        if (uuid != null) {
             return uuid;
         }
         Entity entity = getEntity();
@@ -50,12 +50,12 @@ public class TrackableEntity {
     }
 
     public Entity getEntity() {
-        if(entityRef == null || entityRef.get() == null) {
+        if (entityRef == null || entityRef.get() == null) {
             Entity entity = entitySupplier.get();
-            if(entity != null) {
-                if(entity instanceof EntityPlayer) {
+            if (entity != null) {
+                if (entity instanceof EntityPlayer) {
                     displayName = ((EntityPlayer) entity).getDisplayNameString();
-                } else if(entity instanceof EntityLivingBase) {
+                } else if (entity instanceof EntityLivingBase) {
                     displayName = EntityList.getEntityString(entity);
                 }
                 entityId = entity.getEntityId();
@@ -80,19 +80,19 @@ public class TrackableEntity {
 
         startTimestamp = buf.readLong();
         trackingDuration = buf.readLong();
-        
+
         World world = worldSupplier.get();
-        if(world != null) {
+        if (world != null) {
             // This is the correction for older versions using milliseconds
-            if(startTimestamp > world.getWorldTime() + 1000) {
+            if (startTimestamp > world.getWorldTime() + 1000) {
                 startTimestamp = world.getWorldTime();
                 trackingDuration /= 50;
             }
         }
-        
+
         entitySupplier = () -> {
             World w = worldSupplier.get();
-            if(w.isRemote) {
+            if (w.isRemote) {
                 return w.getEntityByID(entityId);
             }
             return w.getPlayerEntityByUUID(uuid);
@@ -104,7 +104,7 @@ public class TrackableEntity {
         buf.writeLong(uuid.getLeastSignificantBits());
         Entity entity = getEntity();
         int entityId = -1;
-        if(entity != null) {
+        if (entity != null) {
             entityId = entity.getEntityId();
         }
         LOG.debug("Serializing server entity uuid {}, id {}", uuid, entityId);
@@ -115,7 +115,7 @@ public class TrackableEntity {
     }
 
     public boolean isExpired() {
-        if(worldSupplier == null) {
+        if (worldSupplier == null) {
             return true;
         }
         //Entity entity = getEntity();

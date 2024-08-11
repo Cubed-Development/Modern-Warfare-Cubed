@@ -14,7 +14,7 @@ public class Grenades {
     public static ItemGrenade SmokeGrenade;
     public static ItemGrenade GasGrenade;
     public static ItemGrenade FlashGrenade;
-    
+
     public static ItemAttachment<ItemGrenade> GrenadeSafetyPin;
 
 

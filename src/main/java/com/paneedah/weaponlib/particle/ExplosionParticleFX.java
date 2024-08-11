@@ -28,8 +28,9 @@ public class ExplosionParticleFX extends Particle {
         this.motionY = motionY;
         this.motionZ = motionZ;
 
-        if (motionX == 0.0F)
+        if (motionX == 0.0F) {
             motionX = 1.0F;
+        }
 
         this.particleTextureIndexX = 0;
         this.particleTextureIndexY = 0;
@@ -53,7 +54,9 @@ public class ExplosionParticleFX extends Particle {
         this.prevPosZ = this.posZ;
 
         if (this.particleAge++ >= particleMaxAge) //this.particleMaxAge)
+        {
             this.setExpired();
+        }
 
         //this.setParticleTextureIndex(7 - this.particleAge * 8 / this.particleMaxAge);
         this.motionY += 0.004D;

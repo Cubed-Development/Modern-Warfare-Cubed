@@ -9,9 +9,9 @@ public class Positioners {
     }
 
     public static void position(
-            float posX, float posY, float posZ, 
+            float posX, float posY, float posZ,
             float rotationX, float rotationY, float rotationZ,
-            float rOffsetX, float rOffsetY, float rOffsetZ, 
+            float rOffsetX, float rOffsetY, float rOffsetZ,
             float scaleX, float scaleY, float scaleZ) {
 
         GL11.glScalef(scaleX, scaleY, scaleZ);

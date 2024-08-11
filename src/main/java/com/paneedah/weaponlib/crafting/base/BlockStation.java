@@ -24,123 +24,127 @@ import net.minecraft.world.World;
 
 public abstract class BlockStation extends Block {
 
-	protected ModContext modContext;
-	public static final PropertyDirection FACING = BlockHorizontal.FACING;
+    protected ModContext modContext;
+    public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
-	public BlockStation(ModContext context, String name, Material materialIn) {
-		super(materialIn);
-		this.modContext = context;
-		
-		if (context.isClient())
-			ClientEventHandler.BLANKMAPPED_LIST.add(this);
+    public BlockStation(ModContext context, String name, Material materialIn) {
+        super(materialIn);
+        this.modContext = context;
 
-		setHardness(2.0f);
-		setTranslationKey(name);
-		setRegistryName(name);
-		setCreativeTab(CreativeTabs.MISC);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-	}
-	
-	/**
+        if (context.isClient()) {
+            ClientEventHandler.BLANKMAPPED_LIST.add(this);
+        }
+
+        setHardness(2.0f);
+        setTranslationKey(name);
+        setRegistryName(name);
+        setCreativeTab(CreativeTabs.MISC);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+    }
+
+    /**
      * Called after the block is set in the Chunk data, but before the Tile Entity is set
      */
-	@Override
+    @Override
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
         this.setDefaultFacing(worldIn, pos, state);
     }
 
     private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state) {
-        if (worldIn.isRemote)
+        if (worldIn.isRemote) {
             return;
+        }
 
-		final IBlockState iblockstate = worldIn.getBlockState(pos.north());
-		final IBlockState iblockstate1 = worldIn.getBlockState(pos.south());
-		final IBlockState iblockstate2 = worldIn.getBlockState(pos.west());
-		final IBlockState iblockstate3 = worldIn.getBlockState(pos.east());
-		EnumFacing enumfacing = state.getValue(FACING);
+        final IBlockState iblockstate = worldIn.getBlockState(pos.north());
+        final IBlockState iblockstate1 = worldIn.getBlockState(pos.south());
+        final IBlockState iblockstate2 = worldIn.getBlockState(pos.west());
+        final IBlockState iblockstate3 = worldIn.getBlockState(pos.east());
+        EnumFacing enumfacing = state.getValue(FACING);
 
-		if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock()) {
-			enumfacing = EnumFacing.SOUTH;
-		} else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock()) {
-			enumfacing = EnumFacing.NORTH;
-		} else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock()) {
-			enumfacing = EnumFacing.EAST;
-		} else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock()) {
-			enumfacing = EnumFacing.WEST;
-		}
+        if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock()) {
+            enumfacing = EnumFacing.SOUTH;
+        } else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock()) {
+            enumfacing = EnumFacing.NORTH;
+        } else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock()) {
+            enumfacing = EnumFacing.EAST;
+        } else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock()) {
+            enumfacing = EnumFacing.WEST;
+        }
 
-		worldIn.setBlockState(pos, state.withProperty(FACING, enumfacing), 2);
+        worldIn.setBlockState(pos, state.withProperty(FACING, enumfacing), 2);
     }
 
-	@Override
-	public abstract TileEntity createTileEntity(World world, IBlockState state);
-	
-	@Override
-	public boolean hasTileEntity(IBlockState state) {
-		return true;
-	}
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		EnumFacing enumfacing = EnumFacing.byIndex(meta);
-        if (enumfacing.getAxis() == EnumFacing.Axis.Y)
+    @Override
+    public abstract TileEntity createTileEntity(World world, IBlockState state);
+
+    @Override
+    public boolean hasTileEntity(IBlockState state) {
+        return true;
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        EnumFacing enumfacing = EnumFacing.byIndex(meta);
+        if (enumfacing.getAxis() == EnumFacing.Axis.Y) {
             enumfacing = EnumFacing.NORTH;
+        }
 
         return this.getDefaultState().withProperty(FACING, enumfacing);
-	}
-	
-	@Override
-	public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player) {
-		if (worldIn.isRemote) {
-			super.onBlockHarvested(worldIn, pos, state, player);
-			return;
-		}
-		
-		final TileEntityStation station = (TileEntityStation) worldIn.getTileEntity(pos);
+    }
 
-		// Panda: Quick null check even though it shouldn't be possible to get a crash here.
-		if (station == null)
-			return;
+    @Override
+    public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player) {
+        if (worldIn.isRemote) {
+            super.onBlockHarvested(worldIn, pos, state, player);
+            return;
+        }
 
-		for (int i = 0; i < station.mainInventory.getSlots(); ++i) {
-			ItemStack stack = station.mainInventory.getStackInSlot(i);
-			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), stack));
-		}
-		
-		super.onBlockHarvested(worldIn, pos, state, player);
-	}
+        final TileEntityStation station = (TileEntityStation) worldIn.getTileEntity(pos);
 
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		return ((EnumFacing)state.getValue(FACING)).getIndex();
-	}
-	
-	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
-	}
+        // Panda: Quick null check even though it shouldn't be possible to get a crash here.
+        if (station == null) {
+            return;
+        }
 
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state) {
-		return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
-	}
-	
-	@Override
-	public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
-		return false;
-	}
-	
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
-	}
+        for (int i = 0; i < station.mainInventory.getSlots(); ++i) {
+            ItemStack stack = station.mainInventory.getStackInSlot(i);
+            worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), stack));
+        }
 
-	@Override
-	public boolean isFullCube(IBlockState state) {
-		return false;
-	}
-	
-	protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] {FACING});
+        super.onBlockHarvested(worldIn, pos, state, player);
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return ((EnumFacing) state.getValue(FACING)).getIndex();
+    }
+
+    @Override
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+        return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+    }
+
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state) {
+        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
+    }
+
+    @Override
+    public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return false;
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
+    }
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, new IProperty[]{FACING});
     }
 }

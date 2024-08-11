@@ -5,19 +5,14 @@
 // - ZeuX
 
 
-
-
-
-
 package com.paneedah.mwc.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class DanWessonLaser extends ModelBase
-{
-  //fields
+public class DanWessonLaser extends ModelBase {
+    //fields
     ModelRenderer laser1;
     ModelRenderer laser2;
     ModelRenderer laser3;
@@ -45,219 +40,215 @@ public class DanWessonLaser extends ModelBase
     ModelRenderer laser25;
     ModelRenderer laser26;
     ModelRenderer laser27;
-  
-  public DanWessonLaser()
-  {
-    textureWidth = 256;
-    textureHeight = 256;
-    
-      laser1 = new ModelRenderer(this, 0, 0);
-      laser1.addBox(0F, 0F, 0F, 5, 5, 5);
-      laser1.setRotationPoint(0F, 0F, 0F);
-      laser1.setTextureSize(256, 256);
-      laser1.mirror = true;
-      setRotation(laser1, 0F, 0F, 0F);
-      laser2 = new ModelRenderer(this, 0, 0);
-      laser2.addBox(0F, 0F, 0F, 3, 1, 5);
-      laser2.setRotationPoint(1F, -0.5F, 0F);
-      laser2.setTextureSize(256, 256);
-      laser2.mirror = true;
-      setRotation(laser2, 0F, 0F, 0F);
-      laser3 = new ModelRenderer(this, 0, 0);
-      laser3.addBox(0F, 0F, 0F, 3, 1, 5);
-      laser3.setRotationPoint(1F, 4.5F, 0F);
-      laser3.setTextureSize(256, 256);
-      laser3.mirror = true;
-      setRotation(laser3, 0F, 0F, 0F);
-      laser4 = new ModelRenderer(this, 0, 0);
-      laser4.addBox(0F, 0F, 0F, 1, 3, 5);
-      laser4.setRotationPoint(-0.5F, 1F, 0F);
-      laser4.setTextureSize(256, 256);
-      laser4.mirror = true;
-      setRotation(laser4, 0F, 0F, 0F);
-      laser5 = new ModelRenderer(this, 0, 0);
-      laser5.addBox(0F, 0F, 0F, 1, 3, 5);
-      laser5.setRotationPoint(4.5F, 1F, 0F);
-      laser5.setTextureSize(256, 256);
-      laser5.mirror = true;
-      setRotation(laser5, 0F, 0F, 0F);
-      laser6 = new ModelRenderer(this, 0, 50);
-      laser6.addBox(0F, 0F, 0F, 4, 7, 9);
-      laser6.setRotationPoint(0.5F, -1.2F, 5F);
-      laser6.setTextureSize(256, 256);
-      laser6.mirror = true;
-      setRotation(laser6, 0F, 0F, 0F);
-      laser7 = new ModelRenderer(this, 0, 50);
-      laser7.addBox(0F, 0F, 0F, 7, 2, 11);
-      laser7.setRotationPoint(-1F, 1F, 5F);
-      laser7.setTextureSize(256, 256);
-      laser7.mirror = true;
-      setRotation(laser7, 0F, 0F, 0F);
-      laser8 = new ModelRenderer(this, 0, 50);
-      laser8.addBox(0F, 0F, 0F, 2, 2, 11);
-      laser8.setRotationPoint(-1F, 1F, 5F);
-      laser8.setTextureSize(256, 256);
-      laser8.mirror = true;
-      setRotation(laser8, 0F, 0F, -1.115358F);
-      laser9 = new ModelRenderer(this, 0, 50);
-      laser9.addBox(-2F, 0F, 0F, 2, 2, 11);
-      laser9.setRotationPoint(6F, 1F, 5F);
-      laser9.setTextureSize(256, 256);
-      laser9.mirror = true;
-      setRotation(laser9, 0F, 0F, 1.115353F);
-      laser10 = new ModelRenderer(this, 0, 50);
-      laser10.addBox(0F, -2F, 0F, 3, 2, 9);
-      laser10.setRotationPoint(-1F, 3F, 5F);
-      laser10.setTextureSize(256, 256);
-      laser10.mirror = true;
-      setRotation(laser10, 0F, 0F, 1.115353F);
-      laser11 = new ModelRenderer(this, 0, 50);
-      laser11.addBox(-3F, -2F, 0F, 3, 2, 9);
-      laser11.setRotationPoint(6F, 3F, 5F);
-      laser11.setTextureSize(256, 256);
-      laser11.mirror = true;
-      setRotation(laser11, 0F, 0F, -1.115353F);
-      laser12 = new ModelRenderer(this, 0, 50);
-      laser12.addBox(-4F, 0F, 0F, 2, 3, 7);
-      laser12.setRotationPoint(6F, 1F, 5F);
-      laser12.setTextureSize(256, 256);
-      laser12.mirror = true;
-      setRotation(laser12, 0F, 0F, 1.115353F);
-      laser13 = new ModelRenderer(this, 0, 50);
-      laser13.addBox(2F, 0F, 0F, 2, 2, 7);
-      laser13.setRotationPoint(-1F, 1F, 5F);
-      laser13.setTextureSize(256, 256);
-      laser13.mirror = true;
-      setRotation(laser13, 0F, 0F, -1.115353F);
-      laser14 = new ModelRenderer(this, 0, 50);
-      laser14.addBox(0F, 0F, 0F, 3, 3, 4);
-      laser14.setRotationPoint(1F, 2.5F, 13.5F);
-      laser14.setTextureSize(256, 256);
-      laser14.mirror = true;
-      setRotation(laser14, 0F, 0F, 0F);
-      laser15 = new ModelRenderer(this, 0, 50);
-      laser15.addBox(0F, 0F, 0F, 4, 6, 2);
-      laser15.setRotationPoint(0.5F, -1.2F, 14F);
-      laser15.setTextureSize(256, 256);
-      laser15.mirror = true;
-      setRotation(laser15, 0F, 0F, 0F);
-      laser16 = new ModelRenderer(this, 0, 50);
-      laser16.addBox(0F, 0F, 0F, 2, 2, 2);
-      laser16.setRotationPoint(-1F, 3F, 14F);
-      laser16.setTextureSize(256, 256);
-      laser16.mirror = true;
-      setRotation(laser16, 0F, 0F, -0.7853982F);
-      laser17 = new ModelRenderer(this, 0, 50);
-      laser17.addBox(-2F, 0F, 0F, 2, 2, 2);
-      laser17.setRotationPoint(6F, 3F, 14F);
-      laser17.setTextureSize(256, 256);
-      laser17.mirror = true;
-      setRotation(laser17, 0F, 0F, 0.7853982F);
-      laser18 = new ModelRenderer(this, 0, 50);
-      laser18.addBox(0F, 0F, 0F, 4, 4, 2);
-      laser18.setRotationPoint(0.5F, -0.2F, 16F);
-      laser18.setTextureSize(256, 256);
-      laser18.mirror = true;
-      setRotation(laser18, 0F, 0F, 0F);
-      laser19 = new ModelRenderer(this, 0, 50);
-      laser19.addBox(0F, 0F, 0F, 5, 2, 3);
-      laser19.setRotationPoint(0F, 0.8F, 15.5F);
-      laser19.setTextureSize(256, 256);
-      laser19.mirror = true;
-      setRotation(laser19, 0F, 0F, 0F);
-      laser20 = new ModelRenderer(this, 0, 50);
-      laser20.addBox(0F, 0F, 0F, 3, 1, 2);
-      laser20.setRotationPoint(1F, -0.5F, 16F);
-      laser20.setTextureSize(256, 256);
-      laser20.mirror = true;
-      setRotation(laser20, 0F, 0F, 0F);
-      laser21 = new ModelRenderer(this, 0, 50);
-      laser21.addBox(0F, 0F, 0F, 3, 1, 2);
-      laser21.setRotationPoint(1F, 3.1F, 16F);
-      laser21.setTextureSize(256, 256);
-      laser21.mirror = true;
-      setRotation(laser21, 0F, 0F, 0F);
-      laser22 = new ModelRenderer(this, 0, 50);
-      laser22.addBox(-4F, 0F, 0F, 3, 1, 4);
-      laser22.setRotationPoint(6.1F, 1F, 5.5F);
-      laser22.setTextureSize(256, 256);
-      laser22.mirror = true;
-      setRotation(laser22, 0F, 0F, 1.18971F);
-      laser23 = new ModelRenderer(this, 0, 50);
-      laser23.addBox(1F, 0F, 0F, 3, 1, 4);
-      laser23.setRotationPoint(-1.1F, 1F, 5.5F);
-      laser23.setTextureSize(256, 256);
-      laser23.mirror = true;
-      setRotation(laser23, 0F, 0F, -1.189704F);
-      laser24 = new ModelRenderer(this, 0, 50);
-      laser24.addBox(-3F, -2F, 0F, 3, 2, 2);
-      laser24.setRotationPoint(5.8F, 4.5F, 5.5F);
-      laser24.setTextureSize(256, 256);
-      laser24.mirror = true;
-      setRotation(laser24, 0F, 0F, 0F);
-      laser25 = new ModelRenderer(this, 0, 50);
-      laser25.addBox(-3F, -2F, 0F, 3, 2, 2);
-      laser25.setRotationPoint(2.2F, 4.5F, 5.5F);
-      laser25.setTextureSize(256, 256);
-      laser25.mirror = true;
-      setRotation(laser25, 0F, 0F, 0F);
-      laser26 = new ModelRenderer(this, 0, 50);
-      laser26.addBox(-3F, -2F, 0F, 3, 2, 2);
-      laser26.setRotationPoint(2.2F, 4.5F, 11.5F);
-      laser26.setTextureSize(256, 256);
-      laser26.mirror = true;
-      setRotation(laser26, 0F, 0F, 0F);
-      laser27 = new ModelRenderer(this, 0, 50);
-      laser27.addBox(-3F, -2F, 0F, 3, 2, 2);
-      laser27.setRotationPoint(5.8F, 4.5F, 11.5F);
-      laser27.setTextureSize(256, 256);
-      laser27.mirror = true;
-      setRotation(laser27, 0F, 0F, 0F);
-  }
-  
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    laser1.render(f5);
-    laser2.render(f5);
-    laser3.render(f5);
-    laser4.render(f5);
-    laser5.render(f5);
-    laser6.render(f5);
-    laser7.render(f5);
-    laser8.render(f5);
-    laser9.render(f5);
-    laser10.render(f5);
-    laser11.render(f5);
-    laser12.render(f5);
-    laser13.render(f5);
-    laser14.render(f5);
-    laser15.render(f5);
-    laser16.render(f5);
-    laser17.render(f5);
-    laser18.render(f5);
-    laser19.render(f5);
-    laser20.render(f5);
-    laser21.render(f5);
-    laser22.render(f5);
-    laser23.render(f5);
-    laser24.render(f5);
-    laser25.render(f5);
-    laser26.render(f5);
-    laser27.render(f5);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
-  }
-  
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
-  {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-  }
+
+    public DanWessonLaser() {
+        textureWidth = 256;
+        textureHeight = 256;
+
+        laser1 = new ModelRenderer(this, 0, 0);
+        laser1.addBox(0F, 0F, 0F, 5, 5, 5);
+        laser1.setRotationPoint(0F, 0F, 0F);
+        laser1.setTextureSize(256, 256);
+        laser1.mirror = true;
+        setRotation(laser1, 0F, 0F, 0F);
+        laser2 = new ModelRenderer(this, 0, 0);
+        laser2.addBox(0F, 0F, 0F, 3, 1, 5);
+        laser2.setRotationPoint(1F, -0.5F, 0F);
+        laser2.setTextureSize(256, 256);
+        laser2.mirror = true;
+        setRotation(laser2, 0F, 0F, 0F);
+        laser3 = new ModelRenderer(this, 0, 0);
+        laser3.addBox(0F, 0F, 0F, 3, 1, 5);
+        laser3.setRotationPoint(1F, 4.5F, 0F);
+        laser3.setTextureSize(256, 256);
+        laser3.mirror = true;
+        setRotation(laser3, 0F, 0F, 0F);
+        laser4 = new ModelRenderer(this, 0, 0);
+        laser4.addBox(0F, 0F, 0F, 1, 3, 5);
+        laser4.setRotationPoint(-0.5F, 1F, 0F);
+        laser4.setTextureSize(256, 256);
+        laser4.mirror = true;
+        setRotation(laser4, 0F, 0F, 0F);
+        laser5 = new ModelRenderer(this, 0, 0);
+        laser5.addBox(0F, 0F, 0F, 1, 3, 5);
+        laser5.setRotationPoint(4.5F, 1F, 0F);
+        laser5.setTextureSize(256, 256);
+        laser5.mirror = true;
+        setRotation(laser5, 0F, 0F, 0F);
+        laser6 = new ModelRenderer(this, 0, 50);
+        laser6.addBox(0F, 0F, 0F, 4, 7, 9);
+        laser6.setRotationPoint(0.5F, -1.2F, 5F);
+        laser6.setTextureSize(256, 256);
+        laser6.mirror = true;
+        setRotation(laser6, 0F, 0F, 0F);
+        laser7 = new ModelRenderer(this, 0, 50);
+        laser7.addBox(0F, 0F, 0F, 7, 2, 11);
+        laser7.setRotationPoint(-1F, 1F, 5F);
+        laser7.setTextureSize(256, 256);
+        laser7.mirror = true;
+        setRotation(laser7, 0F, 0F, 0F);
+        laser8 = new ModelRenderer(this, 0, 50);
+        laser8.addBox(0F, 0F, 0F, 2, 2, 11);
+        laser8.setRotationPoint(-1F, 1F, 5F);
+        laser8.setTextureSize(256, 256);
+        laser8.mirror = true;
+        setRotation(laser8, 0F, 0F, -1.115358F);
+        laser9 = new ModelRenderer(this, 0, 50);
+        laser9.addBox(-2F, 0F, 0F, 2, 2, 11);
+        laser9.setRotationPoint(6F, 1F, 5F);
+        laser9.setTextureSize(256, 256);
+        laser9.mirror = true;
+        setRotation(laser9, 0F, 0F, 1.115353F);
+        laser10 = new ModelRenderer(this, 0, 50);
+        laser10.addBox(0F, -2F, 0F, 3, 2, 9);
+        laser10.setRotationPoint(-1F, 3F, 5F);
+        laser10.setTextureSize(256, 256);
+        laser10.mirror = true;
+        setRotation(laser10, 0F, 0F, 1.115353F);
+        laser11 = new ModelRenderer(this, 0, 50);
+        laser11.addBox(-3F, -2F, 0F, 3, 2, 9);
+        laser11.setRotationPoint(6F, 3F, 5F);
+        laser11.setTextureSize(256, 256);
+        laser11.mirror = true;
+        setRotation(laser11, 0F, 0F, -1.115353F);
+        laser12 = new ModelRenderer(this, 0, 50);
+        laser12.addBox(-4F, 0F, 0F, 2, 3, 7);
+        laser12.setRotationPoint(6F, 1F, 5F);
+        laser12.setTextureSize(256, 256);
+        laser12.mirror = true;
+        setRotation(laser12, 0F, 0F, 1.115353F);
+        laser13 = new ModelRenderer(this, 0, 50);
+        laser13.addBox(2F, 0F, 0F, 2, 2, 7);
+        laser13.setRotationPoint(-1F, 1F, 5F);
+        laser13.setTextureSize(256, 256);
+        laser13.mirror = true;
+        setRotation(laser13, 0F, 0F, -1.115353F);
+        laser14 = new ModelRenderer(this, 0, 50);
+        laser14.addBox(0F, 0F, 0F, 3, 3, 4);
+        laser14.setRotationPoint(1F, 2.5F, 13.5F);
+        laser14.setTextureSize(256, 256);
+        laser14.mirror = true;
+        setRotation(laser14, 0F, 0F, 0F);
+        laser15 = new ModelRenderer(this, 0, 50);
+        laser15.addBox(0F, 0F, 0F, 4, 6, 2);
+        laser15.setRotationPoint(0.5F, -1.2F, 14F);
+        laser15.setTextureSize(256, 256);
+        laser15.mirror = true;
+        setRotation(laser15, 0F, 0F, 0F);
+        laser16 = new ModelRenderer(this, 0, 50);
+        laser16.addBox(0F, 0F, 0F, 2, 2, 2);
+        laser16.setRotationPoint(-1F, 3F, 14F);
+        laser16.setTextureSize(256, 256);
+        laser16.mirror = true;
+        setRotation(laser16, 0F, 0F, -0.7853982F);
+        laser17 = new ModelRenderer(this, 0, 50);
+        laser17.addBox(-2F, 0F, 0F, 2, 2, 2);
+        laser17.setRotationPoint(6F, 3F, 14F);
+        laser17.setTextureSize(256, 256);
+        laser17.mirror = true;
+        setRotation(laser17, 0F, 0F, 0.7853982F);
+        laser18 = new ModelRenderer(this, 0, 50);
+        laser18.addBox(0F, 0F, 0F, 4, 4, 2);
+        laser18.setRotationPoint(0.5F, -0.2F, 16F);
+        laser18.setTextureSize(256, 256);
+        laser18.mirror = true;
+        setRotation(laser18, 0F, 0F, 0F);
+        laser19 = new ModelRenderer(this, 0, 50);
+        laser19.addBox(0F, 0F, 0F, 5, 2, 3);
+        laser19.setRotationPoint(0F, 0.8F, 15.5F);
+        laser19.setTextureSize(256, 256);
+        laser19.mirror = true;
+        setRotation(laser19, 0F, 0F, 0F);
+        laser20 = new ModelRenderer(this, 0, 50);
+        laser20.addBox(0F, 0F, 0F, 3, 1, 2);
+        laser20.setRotationPoint(1F, -0.5F, 16F);
+        laser20.setTextureSize(256, 256);
+        laser20.mirror = true;
+        setRotation(laser20, 0F, 0F, 0F);
+        laser21 = new ModelRenderer(this, 0, 50);
+        laser21.addBox(0F, 0F, 0F, 3, 1, 2);
+        laser21.setRotationPoint(1F, 3.1F, 16F);
+        laser21.setTextureSize(256, 256);
+        laser21.mirror = true;
+        setRotation(laser21, 0F, 0F, 0F);
+        laser22 = new ModelRenderer(this, 0, 50);
+        laser22.addBox(-4F, 0F, 0F, 3, 1, 4);
+        laser22.setRotationPoint(6.1F, 1F, 5.5F);
+        laser22.setTextureSize(256, 256);
+        laser22.mirror = true;
+        setRotation(laser22, 0F, 0F, 1.18971F);
+        laser23 = new ModelRenderer(this, 0, 50);
+        laser23.addBox(1F, 0F, 0F, 3, 1, 4);
+        laser23.setRotationPoint(-1.1F, 1F, 5.5F);
+        laser23.setTextureSize(256, 256);
+        laser23.mirror = true;
+        setRotation(laser23, 0F, 0F, -1.189704F);
+        laser24 = new ModelRenderer(this, 0, 50);
+        laser24.addBox(-3F, -2F, 0F, 3, 2, 2);
+        laser24.setRotationPoint(5.8F, 4.5F, 5.5F);
+        laser24.setTextureSize(256, 256);
+        laser24.mirror = true;
+        setRotation(laser24, 0F, 0F, 0F);
+        laser25 = new ModelRenderer(this, 0, 50);
+        laser25.addBox(-3F, -2F, 0F, 3, 2, 2);
+        laser25.setRotationPoint(2.2F, 4.5F, 5.5F);
+        laser25.setTextureSize(256, 256);
+        laser25.mirror = true;
+        setRotation(laser25, 0F, 0F, 0F);
+        laser26 = new ModelRenderer(this, 0, 50);
+        laser26.addBox(-3F, -2F, 0F, 3, 2, 2);
+        laser26.setRotationPoint(2.2F, 4.5F, 11.5F);
+        laser26.setTextureSize(256, 256);
+        laser26.mirror = true;
+        setRotation(laser26, 0F, 0F, 0F);
+        laser27 = new ModelRenderer(this, 0, 50);
+        laser27.addBox(-3F, -2F, 0F, 3, 2, 2);
+        laser27.setRotationPoint(5.8F, 4.5F, 11.5F);
+        laser27.setTextureSize(256, 256);
+        laser27.mirror = true;
+        setRotation(laser27, 0F, 0F, 0F);
+    }
+
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        laser1.render(f5);
+        laser2.render(f5);
+        laser3.render(f5);
+        laser4.render(f5);
+        laser5.render(f5);
+        laser6.render(f5);
+        laser7.render(f5);
+        laser8.render(f5);
+        laser9.render(f5);
+        laser10.render(f5);
+        laser11.render(f5);
+        laser12.render(f5);
+        laser13.render(f5);
+        laser14.render(f5);
+        laser15.render(f5);
+        laser16.render(f5);
+        laser17.render(f5);
+        laser18.render(f5);
+        laser19.render(f5);
+        laser20.render(f5);
+        laser21.render(f5);
+        laser22.render(f5);
+        laser23.render(f5);
+        laser24.render(f5);
+        laser25.render(f5);
+        laser26.render(f5);
+        laser27.render(f5);
+    }
+
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    }
 
 }

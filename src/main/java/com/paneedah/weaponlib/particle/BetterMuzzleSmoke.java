@@ -123,8 +123,9 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
         this.prevPosY = this.posY;
         this.prevPosZ = this.posZ;
 
-        if (this.particleAge++ >= this.particleMaxAge)
+        if (this.particleAge++ >= this.particleMaxAge) {
             this.setExpired();
+        }
 
         this.particleTextureIndexX = this.particleAge * 7 / this.particleMaxAge;
 

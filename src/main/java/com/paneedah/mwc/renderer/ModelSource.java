@@ -12,5 +12,5 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public abstract class ModelSource implements IBakedModel {
 
-	private ModelResourceLocation modelResourceLocation;
+    private ModelResourceLocation modelResourceLocation;
 }

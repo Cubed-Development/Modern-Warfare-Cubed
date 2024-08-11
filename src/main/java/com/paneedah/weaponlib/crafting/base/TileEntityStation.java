@@ -20,259 +20,267 @@ import java.util.LinkedList;
 
 /**
  * Parent class for the workbench and ammo press tile entities.
- * 
+ * <p>
  * Features:
  * 1. 50 slot inventory (contents of which are described above the variable)
  * 2. Writing/reading inventory data to/from NBT
  * 3. Dismantling up to four items at once
  * 4. A crafting timer (despite differences in crafting b/w ammo presses & workbenches, the timer IS universal)
  * 5. Methods allowing stations to work nicely with hoppers!
- * 
+ *
  * @author Homer Riva-Cambrin
  * @version September 23rd, 2022
  */
 public class TileEntityStation extends TileEntity implements ITickable, ISidedInventory {
-	
-	/*
-	 * |---------------------------|
-	 * | Contents:                 |
-	 * |-------------------------- |
-	 * | 9 for crafting output     |
-	 * | 4 for dismantling slots   |
-	 * | 10 dismantling inventory  |
-	 * | 27 for main inventory (+) |
-	 * |-------------------------- |
-	 * 50 slots total
-	 */
-	public ItemStackHandler mainInventory = new ItemStackHandler(50);
 
-	// T
-	
-	// For client interp purposes
-	public int[] previousDismantleStatus = new int[] { -1, -1, -1, -1 };
-	public int[] dismantleStatus = new int[] { -1, -1, -1, -1 };
-	public int[] dismantleDuration = new int[] { -1, -1, -1, -1 };
-	
-	public int prevCraftingTimer = -1;
-	public int craftingTimer = -1;
-	public int craftingDuration = -1;
-	
-	public boolean pushInventoryRefresh = false;
-	private boolean shouldUpdate = false;
-	
-	private EnumFacing facing = null;
-	
-	public TileEntityStation() {}
-	
-	public void sendUpdate() {
-		this.shouldUpdate = true;
-	}
-	
-	public double getProgress() {
-		if (craftingTimer == -1 || craftingDuration == -1)
-			return 0.0;
+    /*
+     * |---------------------------|
+     * | Contents:                 |
+     * |-------------------------- |
+     * | 9 for crafting output     |
+     * | 4 for dismantling slots   |
+     * | 10 dismantling inventory  |
+     * | 27 for main inventory (+) |
+     * |-------------------------- |
+     * 50 slots total
+     */
+    public ItemStackHandler mainInventory = new ItemStackHandler(50);
 
-		return craftingTimer / (double) craftingDuration;
-	}
-	
-	public void syncChanges() {
-		world.markBlockRangeForRenderUpdate(pos, pos);
-		world.notifyBlockUpdate(pos, getState(), getState(), 3);
-		world.scheduleBlockUpdate(pos, getBlockType(), 0, 0);
-		markDirty();
-	}
+    // T
 
-	@Override
-	public NBTTagCompound getUpdateTag() {
-		return this.writeToNBT(new NBTTagCompound());
-	}
-	
-	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() {
-		return new SPacketUpdateTileEntity(pos, 3, getUpdateTag());
-	}
-	
-	public IBlockState getState() {
-		return world.getBlockState(pos);
-	}
-	
-	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-		super.onDataPacket(net, pkt);
-	}
+    // For client interp purposes
+    public int[] previousDismantleStatus = new int[]{-1, -1, -1, -1};
+    public int[] dismantleStatus = new int[]{-1, -1, -1, -1};
+    public int[] dismantleDuration = new int[]{-1, -1, -1, -1};
 
-	public EnumFacing getFacing() {
-		if (facing == null)
-			facing = getWorld().getBlockState(getPos()).getValue(BlockStation.FACING);
+    public int prevCraftingTimer = -1;
+    public int craftingTimer = -1;
+    public int craftingDuration = -1;
 
-		return facing;
-	}
+    public boolean pushInventoryRefresh = false;
+    private boolean shouldUpdate = false;
 
-	public int getDismantlingTime(IModernCraftingRecipe crafting) {
-		return 0;
-	}
+    private EnumFacing facing = null;
 
-	public void setDismantling(int[] instant, int[] lengths) {
-		this.previousDismantleStatus = instant.clone();
-		this.dismantleStatus = instant;
-		this.dismantleDuration = lengths;
-	}
+    public TileEntityStation() {}
 
-	@Override
-	public void update() {
-		prevCraftingTimer = craftingTimer;
-		
-		for (int i = 0; i < dismantleStatus.length; ++i) {
-			if (dismantleStatus[i] == -1 || dismantleDuration[i] == -1)
-				continue;
+    public void sendUpdate() {
+        this.shouldUpdate = true;
+    }
 
-			previousDismantleStatus[i] = dismantleStatus[i];
-			dismantleStatus[i]++;
+    public double getProgress() {
+        if (craftingTimer == -1 || craftingDuration == -1) {
+            return 0.0;
+        }
 
-			if (mainInventory.getStackInSlot(i + 9).isEmpty()) {
-				previousDismantleStatus[i] = -1;
-				dismantleStatus[i] = -1;
-				dismantleDuration[i] = -1;
-			}
+        return craftingTimer / (double) craftingDuration;
+    }
 
-			if (dismantleStatus[i] > dismantleDuration[i]) {
-				final ItemStack stackToDismantle = mainInventory.getStackInSlot(i + 9);
+    public void syncChanges() {
+        world.markBlockRangeForRenderUpdate(pos, pos);
+        world.notifyBlockUpdate(pos, getState(), getState(), 3);
+        world.scheduleBlockUpdate(pos, getBlockType(), 0, 0);
+        markDirty();
+    }
 
-				if (stackToDismantle.getItem() instanceof IModernCraftingRecipe) {
-					final CraftingEntry[] modernRecipe = ((IModernCraftingRecipe) stackToDismantle.getItem()).getModernRecipe();
+    @Override
+    public NBTTagCompound getUpdateTag() {
+        return this.writeToNBT(new NBTTagCompound());
+    }
 
-					if (!world.isRemote)
-						stackToDismantle.shrink(1);
+    @Override
+    public SPacketUpdateTileEntity getUpdatePacket() {
+        return new SPacketUpdateTileEntity(pos, 3, getUpdateTag());
+    }
 
-					if ((!world.isRemote && stackToDismantle.getCount() != 0) || (world.isRemote && stackToDismantle.getCount() >= 1)) {
-						previousDismantleStatus[i] = 0;
-						dismantleStatus[i] = 0;
-					} else {
-						previousDismantleStatus[i] = -1;
-						dismantleStatus[i] = -1;
-						dismantleDuration[i] = -1;
-					}
+    public IBlockState getState() {
+        return world.getBlockState(pos);
+    }
 
-					if (!world.isRemote) {
-						for (CraftingEntry stack : modernRecipe) {
-							final ItemStack itemStack = stack.getIngredient().getMatchingStacks()[0].copy();
-							itemStack.setCount((int) Math.round(stack.getCount() * stack.getYield()));
-							addStackToInventoryRange(itemStack, 13, 22);
-						}
+    @Override
+    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+        super.onDataPacket(net, pkt);
+    }
 
-						sendUpdate();
-					}
-				}
-			}
-		}
-		
-		// System.out.println(this.world.isRemote + " | " + this.mainInventory.serializeNBT());
+    public EnumFacing getFacing() {
+        if (facing == null) {
+            facing = getWorld().getBlockState(getPos()).getValue(BlockStation.FACING);
+        }
 
-		//if(!world.isRemote) System.out.println(mainInventory.serializeNBT());
-		
-		if (shouldUpdate) {
-			syncChanges();
-			shouldUpdate = false;
-		}
-		
-		//if(!world.isRemote) {
-			//System.out.println("yo");
-			//mainInventory.setStackInSlot(24, new ItemStack(Items.GOLD_INGOT, 24));
-		//}
-		//System.out.println(mainInventory.serializeNBT());
-	}
+        return facing;
+    }
 
-	public boolean inventoryContainsEnoughItems(Ingredient item, int quantity, int start, int end) {
-		int count = 0;
-		for (int i = start; i <= end; ++i) {
-			final ItemStack slotStack = mainInventory.getStackInSlot(i);
+    public int getDismantlingTime(IModernCraftingRecipe crafting) {
+        return 0;
+    }
 
-			if (item.test(slotStack)) {
-				count += slotStack.getCount();
-				if (count >= quantity)
-					return true;
-			}
-		}
+    public void setDismantling(int[] instant, int[] lengths) {
+        this.previousDismantleStatus = instant.clone();
+        this.dismantleStatus = instant;
+        this.dismantleDuration = lengths;
+    }
 
-		return count >= quantity;
-	}
-	
-	public boolean consumeFromInventory(Ingredient item, int quantity, int start, int end) {
-		final LinkedList<ItemStack> stackQueue = new LinkedList<>();
-		int consumedSimulated = 0;
+    @Override
+    public void update() {
+        prevCraftingTimer = craftingTimer;
 
-		for (int i = start; i <= end; ++i) {
-			final ItemStack slotStack = mainInventory.getStackInSlot(i);
-			
-			if (item.test(slotStack)) {
-				stackQueue.add(slotStack);
-				consumedSimulated += slotStack.getCount();
-				if (consumedSimulated >= quantity)
-					break;
-			}
-		}
-		
-		if (consumedSimulated >= quantity) {
-			for (ItemStack s : stackQueue) {
-				final int toConsume = Math.min(quantity, s.getCount());
-				s.shrink(toConsume);
-				quantity -= toConsume;
+        for (int i = 0; i < dismantleStatus.length; ++i) {
+            if (dismantleStatus[i] == -1 || dismantleDuration[i] == -1) {
+                continue;
+            }
 
-				if (quantity == 0)
-					return true;
-			}
-			
-		} else {
-			// Failed
-			return false;
-		}
+            previousDismantleStatus[i] = dismantleStatus[i];
+            dismantleStatus[i]++;
 
-		return tileEntityInvalid;
-	}
-	
-	public void addStackToInventoryRange(ItemStack stack, int start, int end) {
-		for (int i = start; i <= end; ++i) {
-			if (ItemStack.areItemsEqual(mainInventory.getStackInSlot(i), stack)) {
-				ItemStack inInventory = mainInventory.getStackInSlot(i);
-				if (inInventory.getCount() + stack.getCount() <= inInventory.getMaxStackSize()) {
-					inInventory.grow(stack.getCount());
-					stack.shrink(stack.getCount());
-					continue;
-				}
+            if (mainInventory.getStackInSlot(i + 9).isEmpty()) {
+                previousDismantleStatus[i] = -1;
+                dismantleStatus[i] = -1;
+                dismantleDuration[i] = -1;
+            }
 
-				if ((inInventory.getCount() <= inInventory.getMaxStackSize()) && inInventory.getCount() * 2 >= inInventory.getMaxStackSize()) {
-					int difference = inInventory.getMaxStackSize() - inInventory.getCount();
-					inInventory.grow(difference);
-					stack.shrink(difference);
-				}
-			}
-		}
+            if (dismantleStatus[i] > dismantleDuration[i]) {
+                final ItemStack stackToDismantle = mainInventory.getStackInSlot(i + 9);
 
-		if (stack.getCount() > 0) {
-			for (int i = start; i <= end; ++i) {
-				if (mainInventory.getStackInSlot(i).isEmpty()) {
-					mainInventory.setStackInSlot(i, stack);
-					break;
-				}
-			}
-		}
-	}
-	
-	
-	/**
-	 * Happens on the client
-	 * 
-	 * @param buf
-	 */
-	public void readBytesFromClientSync(ByteBuf buf) {
-		this.craftingTimer = buf.readInt();
-		this.craftingDuration = buf.readInt();
-		for(int i = 0; i < dismantleStatus.length; ++i) {
-			int time = buf.readInt();
-			previousDismantleStatus[i] = time;
-			dismantleStatus[i] = time;
-		}
-		for(int i = 0; i < dismantleDuration.length; ++i) dismantleDuration[i] = buf.readInt();
+                if (stackToDismantle.getItem() instanceof IModernCraftingRecipe) {
+                    final CraftingEntry[] modernRecipe = ((IModernCraftingRecipe) stackToDismantle.getItem()).getModernRecipe();
+
+                    if (!world.isRemote) {
+                        stackToDismantle.shrink(1);
+                    }
+
+                    if ((!world.isRemote && stackToDismantle.getCount() != 0) || (world.isRemote && stackToDismantle.getCount() >= 1)) {
+                        previousDismantleStatus[i] = 0;
+                        dismantleStatus[i] = 0;
+                    } else {
+                        previousDismantleStatus[i] = -1;
+                        dismantleStatus[i] = -1;
+                        dismantleDuration[i] = -1;
+                    }
+
+                    if (!world.isRemote) {
+                        for (CraftingEntry stack : modernRecipe) {
+                            final ItemStack itemStack = stack.getIngredient().getMatchingStacks()[0].copy();
+                            itemStack.setCount((int) Math.round(stack.getCount() * stack.getYield()));
+                            addStackToInventoryRange(itemStack, 13, 22);
+                        }
+
+                        sendUpdate();
+                    }
+                }
+            }
+        }
+
+        // System.out.println(this.world.isRemote + " | " + this.mainInventory.serializeNBT());
+
+        //if(!world.isRemote) System.out.println(mainInventory.serializeNBT());
+
+        if (shouldUpdate) {
+            syncChanges();
+            shouldUpdate = false;
+        }
+
+        //if(!world.isRemote) {
+        //System.out.println("yo");
+        //mainInventory.setStackInSlot(24, new ItemStack(Items.GOLD_INGOT, 24));
+        //}
+        //System.out.println(mainInventory.serializeNBT());
+    }
+
+    public boolean inventoryContainsEnoughItems(Ingredient item, int quantity, int start, int end) {
+        int count = 0;
+        for (int i = start; i <= end; ++i) {
+            final ItemStack slotStack = mainInventory.getStackInSlot(i);
+
+            if (item.test(slotStack)) {
+                count += slotStack.getCount();
+                if (count >= quantity) {
+                    return true;
+                }
+            }
+        }
+
+        return count >= quantity;
+    }
+
+    public boolean consumeFromInventory(Ingredient item, int quantity, int start, int end) {
+        final LinkedList<ItemStack> stackQueue = new LinkedList<>();
+        int consumedSimulated = 0;
+
+        for (int i = start; i <= end; ++i) {
+            final ItemStack slotStack = mainInventory.getStackInSlot(i);
+
+            if (item.test(slotStack)) {
+                stackQueue.add(slotStack);
+                consumedSimulated += slotStack.getCount();
+                if (consumedSimulated >= quantity) {
+                    break;
+                }
+            }
+        }
+
+        if (consumedSimulated >= quantity) {
+            for (ItemStack s : stackQueue) {
+                final int toConsume = Math.min(quantity, s.getCount());
+                s.shrink(toConsume);
+                quantity -= toConsume;
+
+                if (quantity == 0) {
+                    return true;
+                }
+            }
+
+        } else {
+            // Failed
+            return false;
+        }
+
+        return tileEntityInvalid;
+    }
+
+    public void addStackToInventoryRange(ItemStack stack, int start, int end) {
+        for (int i = start; i <= end; ++i) {
+            if (ItemStack.areItemsEqual(mainInventory.getStackInSlot(i), stack)) {
+                ItemStack inInventory = mainInventory.getStackInSlot(i);
+                if (inInventory.getCount() + stack.getCount() <= inInventory.getMaxStackSize()) {
+                    inInventory.grow(stack.getCount());
+                    stack.shrink(stack.getCount());
+                    continue;
+                }
+
+                if ((inInventory.getCount() <= inInventory.getMaxStackSize()) && inInventory.getCount() * 2 >= inInventory.getMaxStackSize()) {
+                    int difference = inInventory.getMaxStackSize() - inInventory.getCount();
+                    inInventory.grow(difference);
+                    stack.shrink(difference);
+                }
+            }
+        }
+
+        if (stack.getCount() > 0) {
+            for (int i = start; i <= end; ++i) {
+                if (mainInventory.getStackInSlot(i).isEmpty()) {
+                    mainInventory.setStackInSlot(i, stack);
+                    break;
+                }
+            }
+        }
+    }
+
+
+    /**
+     * Happens on the client
+     *
+     * @param buf
+     */
+    public void readBytesFromClientSync(ByteBuf buf) {
+        this.craftingTimer = buf.readInt();
+        this.craftingDuration = buf.readInt();
+        for (int i = 0; i < dismantleStatus.length; ++i) {
+            int time = buf.readInt();
+            previousDismantleStatus[i] = time;
+            dismantleStatus[i] = time;
+        }
+        for (int i = 0; i < dismantleDuration.length; ++i)
+            dismantleDuration[i] = buf.readInt();
 		
 		/*
 		int inventorySize = buf.readInt();
@@ -280,169 +288,170 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 		
 		System.out.println("ON CLIENT: " + mainInventory.serializeNBT().toString());
 		*/
-		
-	}
 
-	/**
-	 * Happens server-side
-	 * 
-	 * @param buf
-	 */
-	public void writeBytesForClientSync(ByteBuf buf) {
-		buf.writeInt(this.craftingTimer);
-		buf.writeInt(this.craftingDuration);
-		for(int i = 0; i < dismantleStatus.length; ++i) buf.writeInt(dismantleStatus[i]);
-		for(int i = 0; i < dismantleDuration.length; ++i) buf.writeInt(dismantleDuration[i]);
-		
-		// Write inventory
+    }
+
+    /**
+     * Happens server-side
+     *
+     * @param buf
+     */
+    public void writeBytesForClientSync(ByteBuf buf) {
+        buf.writeInt(this.craftingTimer);
+        buf.writeInt(this.craftingDuration);
+        for (int i = 0; i < dismantleStatus.length; ++i)
+            buf.writeInt(dismantleStatus[i]);
+        for (int i = 0; i < dismantleDuration.length; ++i)
+            buf.writeInt(dismantleDuration[i]);
+
+        // Write inventory
 		/*
 		buf.writeInt(mainInventory.getSlots());
 		for(int i = 0; i < mainInventory.getSlots(); ++i) {
 			ByteBufUtils.writeItemStack(buf, mainInventory.getStackInSlot(i));
 		}*/
-		
-		
-	}
-	
-	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-		super.writeToNBT(compound);
-		compound.setTag("mainInventory", mainInventory.serializeNBT());
-		compound.setInteger("craftingTimer", craftingTimer);
-		compound.setInteger("craftingDuration", craftingDuration);
-		return compound;
-	}
-	
-	@Override
-	public void readFromNBT(NBTTagCompound compound) {
-		super.readFromNBT(compound);
-		if (compound.hasKey("mainInventory"))
-			this.mainInventory.deserializeNBT((NBTTagCompound) compound.getTag("mainInventory"));
-		if(compound.hasKey("craftingTimer") && compound.hasKey("craftingDuration")) {
-			this.craftingTimer = compound.getInteger("craftingTimer");
-			this.craftingDuration = compound.getInteger("craftingDuration");
-		}
-		
-	}
-	
-	/*
-	 *  Sided inventory
-	 * 
-	 */
 
-	@Override
-	public int getSizeInventory() {
-		return mainInventory.getSlots();
-	}
 
-	@Override
-	public boolean isEmpty() {
-		return true;
-	}
+    }
 
-	@Override
-	public ItemStack getStackInSlot(int index) {
-		return mainInventory.getStackInSlot(index);
-	}
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        super.writeToNBT(compound);
+        compound.setTag("mainInventory", mainInventory.serializeNBT());
+        compound.setInteger("craftingTimer", craftingTimer);
+        compound.setInteger("craftingDuration", craftingDuration);
+        return compound;
+    }
 
-	@Override
-	public ItemStack decrStackSize(int index, int count) {
-		ItemStack s = mainInventory.getStackInSlot(index);
-		s.shrink(count);
-		return s;
-	}
+    @Override
+    public void readFromNBT(NBTTagCompound compound) {
+        super.readFromNBT(compound);
+        if (compound.hasKey("mainInventory")) {
+            this.mainInventory.deserializeNBT((NBTTagCompound) compound.getTag("mainInventory"));
+        }
+        if (compound.hasKey("craftingTimer") && compound.hasKey("craftingDuration")) {
+            this.craftingTimer = compound.getInteger("craftingTimer");
+            this.craftingDuration = compound.getInteger("craftingDuration");
+        }
 
-	@Override
-	public ItemStack removeStackFromSlot(int index) {
-		return mainInventory.extractItem(index, mainInventory.getStackInSlot(index).getCount(), false);
-	}
+    }
 
-	@Override
-	public void setInventorySlotContents(int index, ItemStack stack) {
-		mainInventory.setStackInSlot(index, stack);
-	}
+    /*
+     *  Sided inventory
+     *
+     */
 
-	@Override
-	public int getInventoryStackLimit() {
-		return 64;
-	}
+    @Override
+    public int getSizeInventory() {
+        return mainInventory.getSlots();
+    }
 
-	@Override
-	public boolean isUsableByPlayer(EntityPlayer player) {
-		return false;
-	}
+    @Override
+    public boolean isEmpty() {
+        return true;
+    }
 
-	@Override
-	public void openInventory(EntityPlayer player) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public ItemStack getStackInSlot(int index) {
+        return mainInventory.getStackInSlot(index);
+    }
 
-	@Override
-	public void closeInventory(EntityPlayer player) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public ItemStack decrStackSize(int index, int count) {
+        ItemStack s = mainInventory.getStackInSlot(index);
+        s.shrink(count);
+        return s;
+    }
 
-	@Override
-	public boolean isItemValidForSlot(int index, ItemStack stack) {
-		return true;
-	}
+    @Override
+    public ItemStack removeStackFromSlot(int index) {
+        return mainInventory.extractItem(index, mainInventory.getStackInSlot(index).getCount(), false);
+    }
 
-	@Override
-	public int getField(int id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public void setInventorySlotContents(int index, ItemStack stack) {
+        mainInventory.setStackInSlot(index, stack);
+    }
 
-	@Override
-	public void setField(int id, int value) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public int getInventoryStackLimit() {
+        return 64;
+    }
 
-	@Override
-	public int getFieldCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public boolean isUsableByPlayer(EntityPlayer player) {
+        return false;
+    }
 
-	@Override
-	public void clear() {
-		
-	}
+    @Override
+    public void openInventory(EntityPlayer player) {
+        // TODO Auto-generated method stub
 
-	@Override
-	public String getName() {
-		return null;
-	}
+    }
 
-	@Override
-	public boolean hasCustomName() {
-		return false;
-	}
+    @Override
+    public void closeInventory(EntityPlayer player) {
+        // TODO Auto-generated method stub
 
-	@Override
-	public int[] getSlotsForFace(EnumFacing side) {
-		if(side == EnumFacing.DOWN) {
-			return new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-		} else {
-			return new int[] { 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 };
-		}
- 		
-	}
+    }
 
-	@Override
-	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
-		return true;
-	}
+    @Override
+    public boolean isItemValidForSlot(int index, ItemStack stack) {
+        return true;
+    }
 
-	@Override
-	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
-		return true;
-	}
-	
-	
-	
+    @Override
+    public int getField(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public int getFieldCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public boolean hasCustomName() {
+        return false;
+    }
+
+    @Override
+    public int[] getSlotsForFace(EnumFacing side) {
+        if (side == EnumFacing.DOWN) {
+            return new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+        } else {
+            return new int[]{23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49};
+        }
+
+    }
+
+    @Override
+    public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+        return true;
+    }
+
+    @Override
+    public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+        return true;
+    }
+
 
 }

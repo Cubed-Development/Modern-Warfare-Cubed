@@ -14,24 +14,24 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @AllArgsConstructor
 public final class ShellMessageClient implements IMessage {
 
-	private int shooter;
-	private Shell.Type type;
-	private Vector3D position = new Vector3D();
-	private Vector3D velocity = new Vector3D();
+    private int shooter;
+    private Shell.Type type;
+    private Vector3D position = new Vector3D();
+    private Vector3D velocity = new Vector3D();
 
-	@Override
-	public void fromBytes(final ByteBuf byteBuf) {
-		shooter = byteBuf.readInt();
-		type = Shell.Type.valueOf(ByteBufUtils.readUTF8String(byteBuf));
-		position.read(byteBuf);
-		velocity.read(byteBuf);
-	}
+    @Override
+    public void fromBytes(final ByteBuf byteBuf) {
+        shooter = byteBuf.readInt();
+        type = Shell.Type.valueOf(ByteBufUtils.readUTF8String(byteBuf));
+        position.read(byteBuf);
+        velocity.read(byteBuf);
+    }
 
-	@Override
-	public void toBytes(final ByteBuf byteBuf) {
-		byteBuf.writeInt(shooter);
-		ByteBufUtils.writeUTF8String(byteBuf, type.toString());
-		position.write(byteBuf);
-		velocity.write(byteBuf);
-	}
+    @Override
+    public void toBytes(final ByteBuf byteBuf) {
+        byteBuf.writeInt(shooter);
+        ByteBufUtils.writeUTF8String(byteBuf, type.toString());
+        position.write(byteBuf);
+        velocity.write(byteBuf);
+    }
 }

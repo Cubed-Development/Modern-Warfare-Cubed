@@ -18,7 +18,7 @@ public class InventoryTabs {
     private ArrayList<InventoryTab> tabList = new ArrayList<InventoryTab>();
 
     private static InventoryTabs instance = new InventoryTabs();
-    
+
     private InventoryTabs() {}
 
     public static InventoryTabs getInstance() {
@@ -72,14 +72,14 @@ public class InventoryTabs {
         }
     }
 
-    
+
     public void addTabsToList(List<?> buttonList) {
         for (InventoryTab tab : tabList) {
             if (tab.shouldAddToList()) {
-                ((List<Object>)buttonList).add((Object)tab);
+                ((List<Object>) buttonList).add((Object) tab);
             }
         }
     }
 
-    
+
 }

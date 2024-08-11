@@ -31,14 +31,17 @@ public class FlashFX extends Particle {
         this.motionY = motionY;
         this.motionZ = motionZ;
 
-        if (motionX == 0.0F)
+        if (motionX == 0.0F) {
             motionX = 0.01F;
+        }
 
-        if (motionZ == 0.0F)
+        if (motionZ == 0.0F) {
             motionZ = 0.01F;
+        }
 
-        if (motionY == 0.0F)
+        if (motionY == 0.0F) {
             motionY = 0.01F;
+        }
 
         this.particleTextureIndexX = 0;
         this.particleTextureIndexY = 0;
@@ -61,8 +64,9 @@ public class FlashFX extends Particle {
         this.prevPosY = this.posY;
         this.prevPosZ = this.posZ;
 
-        if (this.particleAge++ >= this.particleMaxAge)
+        if (this.particleAge++ >= this.particleMaxAge) {
             this.setExpired();
+        }
 
         this.move(this.motionX, this.motionY, this.motionZ);
 

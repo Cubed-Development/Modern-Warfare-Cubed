@@ -107,9 +107,11 @@ public class ClientProxy extends CommonProxy {
         // Todo: Actually remove this once fixed.
 
         try {
-            if (ForgeModContainer.allowEmissiveItems)
+            if (ForgeModContainer.allowEmissiveItems) {
                 ForgeModContainer.allowEmissiveItems = false;
-        } catch (NoSuchFieldError ignored) {}
+            }
+        } catch (NoSuchFieldError ignored) {
+        }
 
         MC.getRenderManager().getSkinMap().forEach((model, playerRenderer) -> playerRenderer.addLayer(new EquipmentRenderer(playerRenderer)));
     }

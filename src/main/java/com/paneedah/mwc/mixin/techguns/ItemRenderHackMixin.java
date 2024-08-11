@@ -24,7 +24,8 @@ public final class ItemRenderHackMixin {
 
     @Inject(method = "renderItem", at = @At(value = "HEAD"), remap = false, cancellable = true)
     private static void fixRenderItem(final ItemStack itemStack, final EntityLivingBase entityLivingBase, final ItemCameraTransforms.TransformType transform, final boolean leftHanded, final CallbackInfoReturnable<Boolean> callbackInfo) {
-        if (entityLivingBase == null)
+        if (entityLivingBase == null) {
             callbackInfo.setReturnValue(Boolean.FALSE);
+        }
     }
 }

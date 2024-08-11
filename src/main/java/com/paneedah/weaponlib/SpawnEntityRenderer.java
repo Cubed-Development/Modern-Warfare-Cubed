@@ -12,30 +12,30 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class SpawnEntityRenderer extends Render<Entity> {
 
-	protected SpawnEntityRenderer() {
-		super(MC.getRenderManager());
-	}
+    protected SpawnEntityRenderer() {
+        super(MC.getRenderManager());
+    }
 
-	@Override
-	public void doRender(Entity entity, double x, double y, double z, float yaw, float tick) {
-		
-	//	if(/*entity.distanceWalkedModified < 1.5f */entity.ticksExisted < 2) {
-	    //    return;
-	    //}
-		
-		
-    		WeaponSpawnEntity weaponSpawnEntity = (WeaponSpawnEntity) entity;
-    		
-    		//System.out.println("Rendering entity with aim tan: " + weaponSpawnEntity.getAimTan());
-    		Weapon weapon = weaponSpawnEntity.getWeapon();
-    		if(weapon == null) {
-        		return;
-        	}
-        	ModelBase model = weapon.getAmmoModel();
+    @Override
+    public void doRender(Entity entity, double x, double y, double z, float yaw, float tick) {
+
+        //	if(/*entity.distanceWalkedModified < 1.5f */entity.ticksExisted < 2) {
+        //    return;
+        //}
+
+
+        WeaponSpawnEntity weaponSpawnEntity = (WeaponSpawnEntity) entity;
+
+        //System.out.println("Rendering entity with aim tan: " + weaponSpawnEntity.getAimTan());
+        Weapon weapon = weaponSpawnEntity.getWeapon();
+        if (weapon == null) {
+            return;
+        }
+        ModelBase model = weapon.getAmmoModel();
         //	System.out.println("Tick: " + entity.ticksExisted);
-        	if(model != null) {
-        		String ammoModelTextureName = weapon.getAmmoModelTextureName();
-    			ResourceLocation textureLocation = ammoModelTextureName != null ? new ResourceLocation(ammoModelTextureName) : null;
+        if (model != null) {
+            String ammoModelTextureName = weapon.getAmmoModelTextureName();
+            ResourceLocation textureLocation = ammoModelTextureName != null ? new ResourceLocation(ammoModelTextureName) : null;
             	/*
 				GL11.glPushMatrix();
 				if(textureLocation != null) {
@@ -60,51 +60,52 @@ public class SpawnEntityRenderer extends Render<Entity> {
 				GL11.glPopMatrix();
 				*/
 
-				if(textureLocation != null)
-					bindTexture(textureLocation);
+            if (textureLocation != null) {
+                bindTexture(textureLocation);
+            }
 
-				// Panda: I don't know why this is here, but we don't need this.
-				//double xxofset = 0.4 - entity.distanceWalkedModified * weaponSpawnEntity.getAimTan();
-				//double angle = Math.atan(weaponSpawnEntity.getAimTan());
-				//double zOffset = xxofset * Math.cos(entity.rotationYaw / 180.0F * (float) Math.PI);
-				//double xOffset = xxofset * Math.sin(entity.rotationYaw / 180.0F * (float) Math.PI);
+            // Panda: I don't know why this is here, but we don't need this.
+            //double xxofset = 0.4 - entity.distanceWalkedModified * weaponSpawnEntity.getAimTan();
+            //double angle = Math.atan(weaponSpawnEntity.getAimTan());
+            //double zOffset = xxofset * Math.cos(entity.rotationYaw / 180.0F * (float) Math.PI);
+            //double xOffset = xxofset * Math.sin(entity.rotationYaw / 180.0F * (float) Math.PI);
 
-				if(weaponSpawnEntity.world.isRemote && weaponSpawnEntity.spawnRocketParticles) {
-					BetterMuzzleSmoke smokeParticle = new BetterMuzzleSmoke(
-							weaponSpawnEntity.world,
-							weaponSpawnEntity.posX,
-							weaponSpawnEntity.posY,
-							weaponSpawnEntity.posZ,
-							1,
-						  (float)0,
-						  (float)0,
-						  (int)0);
+            if (weaponSpawnEntity.world.isRemote && weaponSpawnEntity.spawnRocketParticles) {
+                BetterMuzzleSmoke smokeParticle = new BetterMuzzleSmoke(
+                        weaponSpawnEntity.world,
+                        weaponSpawnEntity.posX,
+                        weaponSpawnEntity.posY,
+                        weaponSpawnEntity.posZ,
+                        1,
+                        (float) 0,
+                        (float) 0,
+                        (int) 0);
 
-					MC.effectRenderer.addEffect(smokeParticle);
-				}
-
-
-				//weaponSpawnEntity.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, true, weaponSpawnEntity.posX + xOffset, weaponSpawnEntity.posY, weaponSpawnEntity.posZ + zOffset, 0, 0, 0, new int[] {});
+                MC.effectRenderer.addEffect(smokeParticle);
+            }
 
 
-				GlStateManager.pushMatrix();
-				new Transform()
-				.withRotation(90 - entity.rotationPitch, entity.rotationYaw, 0)
-				.withPosition(x, y, z)
-				.withScale(1, 1, 1)
-				.doGLDirect();
+            //weaponSpawnEntity.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, true, weaponSpawnEntity.posX + xOffset, weaponSpawnEntity.posY, weaponSpawnEntity.posZ + zOffset, 0, 0, 0, new int[] {});
 
 
-				model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
+            GlStateManager.pushMatrix();
+            new Transform()
+                    .withRotation(90 - entity.rotationPitch, entity.rotationYaw, 0)
+                    .withPosition(x, y, z)
+                    .withScale(1, 1, 1)
+                    .doGLDirect();
 
-				GlStateManager.popMatrix();
-			}
-	}
 
-	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
+            model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
+
+            GlStateManager.popMatrix();
+        }
+    }
+
+    @Override
+    protected ResourceLocation getEntityTexture(Entity entity) {
         return new ResourceLocation(((WeaponSpawnEntity) entity).getWeapon().getAmmoModelTextureName());
-	}
+    }
 
 
 }

@@ -14,7 +14,7 @@ import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.groovyscript.MWCGroovyPlugin.craftingStation;
-import static com.paneedah.weaponlib.crafting.CraftingGroup.*;
+import static com.paneedah.weaponlib.crafting.CraftingGroup.GUN;
 import static com.paneedah.weaponlib.crafting.CraftingRegistry.*;
 
 public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> {
@@ -97,7 +97,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
         @Override
         public void validate(GroovyLog.Msg msg) {
             // max input == container size of crafting station.
-            this.validateItems(msg, 1, 27,1,1);
+            this.validateItems(msg, 1, 27, 1, 1);
         }
 
         private final ArrayList<Double> yields = new ArrayList<>();
@@ -109,6 +109,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
          * Add Ingredient of recipe With ItemStack
          *
          * @param ingredient crafting ingredient
+         *
          * @return AbstractRecipeBuilder
          */
         @Override
@@ -121,6 +122,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
          * Set return Yield of upcoming Ingredient.
          *
          * @param yield return Yield of upcoming ingredients
+         *
          * @return this RecipeBuilder
          */
         public RecipeBuilder setYield(double yield) {
@@ -132,6 +134,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
          * Set Category of Recipe
          *
          * @param group name of the Group. valid values = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE"
+         *
          * @return this RecipeBuilder
          */
         public RecipeBuilder setGroup(String group) {
@@ -146,8 +149,9 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
          */
         @Override
         public GSCrafting register() {
-            if (!this.validate())
+            if (!this.validate()) {
                 return null;
+            }
 
             final ArrayList<CraftingEntry> entries = new ArrayList<>();
 

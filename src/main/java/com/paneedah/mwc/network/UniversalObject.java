@@ -21,8 +21,9 @@ public abstract class UniversalObject implements ISerializable {
     }
 
     public UUID getUuid() {
-        if (readUUID == null)
+        if (readUUID == null) {
             return uuid;
+        }
 
         return readUUID;
     }
@@ -41,7 +42,7 @@ public abstract class UniversalObject implements ISerializable {
     public void write(final ByteBuf byteBuf) {
         byteBuf.writeInt(getSerialVersion());
 
-        final UUID uuid =  readUUID == null ? this.uuid : readUUID;
+        final UUID uuid = readUUID == null ? this.uuid : readUUID;
 
         byteBuf.writeLong(uuid.getMostSignificantBits());
         byteBuf.writeLong(uuid.getLeastSignificantBits());
@@ -49,29 +50,33 @@ public abstract class UniversalObject implements ISerializable {
 
     @Override
     public int hashCode() {
-        final UUID uuid =  readUUID == null ? this.uuid : readUUID;
-        
+        final UUID uuid = readUUID == null ? this.uuid : readUUID;
+
         return 31 + ((uuid == null) ? 0 : uuid.hashCode());
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
-        if (obj == null)
+        if (obj == null) {
             return false;
+        }
 
-        if (getClass() != obj.getClass())
+        if (getClass() != obj.getClass()) {
             return false;
+        }
 
         final UniversalObject other = (UniversalObject) obj;
 
-        final UUID uuid =  readUUID == null ? this.uuid : readUUID;
+        final UUID uuid = readUUID == null ? this.uuid : readUUID;
 
-        if (uuid == null)
+        if (uuid == null) {
             return other.uuid == null;
-
-        else return uuid.equals(other.uuid);
+        } else {
+            return uuid.equals(other.uuid);
+        }
     }
 }

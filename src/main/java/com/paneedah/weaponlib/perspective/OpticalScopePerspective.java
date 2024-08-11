@@ -17,17 +17,17 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
     private static final int DEFAULT_HEIGHT = 200;
 
     public OpticalScopePerspective() {
-    	
+
         this.width = DEFAULT_WIDTH;
         this.height = DEFAULT_HEIGHT;
     }
-    
+
     @Override
     public void activate(ClientModContext modContext, PerspectiveManager manager) {
         PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
-        if(instance != null) {
+        if (instance != null) {
             ItemScope scope = instance.getScope();
-            if(scope.isOptical()) {
+            if (scope.isOptical()) {
                 setSize(scope.getWidth(), scope.getHeight());
             }
         }
@@ -36,21 +36,21 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
 
     @Override
     public float getBrightness(RenderContext<RenderableState> renderContext) {
-     // if(1+1==2) return 1f;
-    	
-    	float brightness = 0f;
+        // if(1+1==2) return 1f;
+
+        float brightness = 0f;
         PlayerWeaponInstance instance = renderContext.getWeaponInstance();
-        if(instance == null) {
+        if (instance == null) {
             return 0f;
         }
         boolean aimed = instance != null && instance.isAimed();
         float progress = Math.min(1f, renderContext.getTransitionProgress());
 
-        if(isAimingState(renderContext.getFromState()) && isAimingState(renderContext.getToState())) {
+        if (isAimingState(renderContext.getFromState()) && isAimingState(renderContext.getToState())) {
             brightness = 1f;
-        } else if(progress > 0f && aimed && isAimingState(renderContext.getToState())) {
+        } else if (progress > 0f && aimed && isAimingState(renderContext.getToState())) {
             brightness = progress;
-        } else if(isAimingState(renderContext.getFromState()) && progress > 0f && !aimed) {
+        } else if (isAimingState(renderContext.getFromState()) && progress > 0f && !aimed) {
             brightness = Math.max(1 - progress, 0f);
         }
         return brightness;
@@ -65,52 +65,49 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
 
     @Override
     public void update(TickEvent.RenderTickEvent event) {
-    	
-         PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
-        if(instance != null && instance.isAimed()) {
-            ItemScope scope = instance.getScope();
-            
-            
-            		
-           
-            if(scope.isOptical()) {
-            	//setSize(1920, DEFAULT_HEIGHT);
 
-               setSize(scope.getWidth(), scope.getHeight());
-              
+        PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
+        if (instance != null && instance.isAimed()) {
+            ItemScope scope = instance.getScope();
+
+
+            if (scope.isOptical()) {
+                //setSize(1920, DEFAULT_HEIGHT);
+
+                setSize(scope.getWidth(), scope.getHeight());
+
             }
-            
+
             super.update(event);
         }
     }
-    
+
     public static final FloatBuffer AUX_GL_BUFFER = GLAllocation.createDirectFloatBuffer(16);
-    
-    
+
+
     public static final Uniform PROJECTION_MATRIX = shader -> {
-		GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX, AUX_GL_BUFFER);
-		AUX_GL_BUFFER.rewind();
-		
-		GL20.glUniformMatrix4(GL20.glGetUniformLocation(shader, "projection"), false, AUX_GL_BUFFER);
-		
-	};
-	
-	public static Shader scope = ShaderLoader.loadShader("vignette").withUniforms(PROJECTION_MATRIX);
-   
-    
-    
+        GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX, AUX_GL_BUFFER);
+        AUX_GL_BUFFER.rewind();
+
+        GL20.glUniformMatrix4(GL20.glGetUniformLocation(shader, "projection"), false, AUX_GL_BUFFER);
+
+    };
+
+    public static Shader scope = ShaderLoader.loadShader("vignette").withUniforms(PROJECTION_MATRIX);
+
+
     @Override
     protected void prepareRenderWorld(TickEvent.RenderTickEvent event) {
-    	
-    	boolean reload = false;
-    	if(reload) {
-    		//System.out.println("yo");
-    		//System.out.println("yo");
-    		scope = ShaderLoader.loadShader("vignette");
-    	}
-    	
-    	//GlStateManager.enableAlpha();
-    	//scope.use();
+
+        boolean reload = false;
+        if (reload) {
+            //System.out.println("yo");
+            //System.out.println("yo");
+            scope = ShaderLoader.loadShader("vignette");
+        }
+
+        //GlStateManager.enableAlpha();
+        //scope.use();
     	/*
         DynamicShaderContext shaderContext = new DynamicShaderContext(
                 DynamicShaderPhase.POST_WORLD_OPTICAL_SCOPE_RENDER,
@@ -122,12 +119,12 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
        // shaderGroupManager.
         
         */
-        
+
     }
 
     @Override
     protected void postRenderWorld(TickEvent.RenderTickEvent event) {
-    	//scope.release();
+        //scope.release();
     	/*
         DynamicShaderContext shaderContext = new DynamicShaderContext(
                 DynamicShaderPhase.POST_WORLD_OPTICAL_SCOPE_RENDER,

@@ -9,86 +9,67 @@ import net.minecraft.util.math.Vec3d;
 
 public class EntityBetterTargetAI extends EntityAINearestAttackableTarget {
 
-	public Vec3d lastSeen;
-	public long lastSeenTimestamp;
-	public long targetUnseenTicks;
-	
-	public EntityBetterTargetAI(EntityCreature creature, Class classTarget, boolean checkSight, boolean onlyNearby) {
-		super(creature, classTarget, checkSight, onlyNearby);
-	}
+    public Vec3d lastSeen;
+    public long lastSeenTimestamp;
+    public long targetUnseenTicks;
 
-	@Override
-	public boolean shouldExecute() {
-		// TODO Auto-generated method stub
-		return super.shouldExecute();
-	}
-	
-	@Override
-	public boolean shouldContinueExecuting() {
-		EntityLivingBase entitylivingbase = this.taskOwner.getAttackTarget();
+    public EntityBetterTargetAI(EntityCreature creature, Class classTarget, boolean checkSight, boolean onlyNearby) {
+        super(creature, classTarget, checkSight, onlyNearby);
+    }
 
-        if (entitylivingbase == null)
-        {
+    @Override
+    public boolean shouldExecute() {
+        // TODO Auto-generated method stub
+        return super.shouldExecute();
+    }
+
+    @Override
+    public boolean shouldContinueExecuting() {
+        EntityLivingBase entitylivingbase = this.taskOwner.getAttackTarget();
+
+        if (entitylivingbase == null) {
             entitylivingbase = this.target;
         }
 
-        if (entitylivingbase == null)
-        {
+        if (entitylivingbase == null) {
             return false;
-        }
-        else if (!entitylivingbase.isEntityAlive())
-        {
+        } else if (!entitylivingbase.isEntityAlive()) {
             return false;
-        }
-        else
-        {
+        } else {
             Team team = this.taskOwner.getTeam();
             Team team1 = entitylivingbase.getTeam();
 
-            if (team != null && team1 == team)
-            {
+            if (team != null && team1 == team) {
                 return false;
-            }
-            else
-            {
+            } else {
                 double d0 = this.getTargetDistance();
 
-                if (this.taskOwner.getDistanceSq(entitylivingbase) > d0 * d0)
-                {
+                if (this.taskOwner.getDistanceSq(entitylivingbase) > d0 * d0) {
                     return false;
-                }
-                else
-                {
-                    if (this.shouldCheckSight)
-                    {
-                        if (this.taskOwner.getEntitySenses().canSee(entitylivingbase))
-                        {
+                } else {
+                    if (this.shouldCheckSight) {
+                        if (this.taskOwner.getEntitySenses().canSee(entitylivingbase)) {
                             this.targetUnseenTicks = 0;
-                        }
-                        else if (++this.targetUnseenTicks > this.unseenMemoryTicks)
-                        {
+                        } else if (++this.targetUnseenTicks > this.unseenMemoryTicks) {
                             return false;
                         }
                     }
 
-                    if (entitylivingbase instanceof EntityPlayer && ((EntityPlayer)entitylivingbase).capabilities.disableDamage)
-                    {
+                    if (entitylivingbase instanceof EntityPlayer && ((EntityPlayer) entitylivingbase).capabilities.disableDamage) {
                         return false;
-                    }
-                    else
-                    {
+                    } else {
                         this.taskOwner.setAttackTarget(entitylivingbase);
                         return true;
                     }
                 }
             }
         }
-	}
-	
-	@Override
-	public void updateTask() {
-		// TODO Auto-generated method stub
-		super.updateTask();
-	}
+    }
+
+    @Override
+    public void updateTask() {
+        // TODO Auto-generated method stub
+        super.updateTask();
+    }
 
 }

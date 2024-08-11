@@ -62,8 +62,9 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     }
 
                     final CraftingEntry[] modernRecipe = CraftingRegistry.getModernCrafting(workbenchServerMessage.getCraftingGroup(), workbenchServerMessage.getCraftingName()).getModernRecipe();
-                    if (modernRecipe == null)
+                    if (modernRecipe == null) {
                         return;
+                    }
 
                     final HashMap<Ingredient, HashMap<ItemStack, Integer>> itemRemovalList = new HashMap<>();
 
@@ -76,12 +77,14 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
 
                         for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
                             final ItemStack iS = station.mainInventory.getStackInSlot(i);
-                            if (!stackItem.test(iS))
+                            if (!stackItem.test(iS)) {
                                 continue;
+                            }
 
                             final int existingCount = itemRemovalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum();
-                            if (existingCount >= requiredCount)
+                            if (existingCount >= requiredCount) {
                                 break;
+                            }
 
                             final int iSCount = iS.getCount();
                             if (existingCount + iSCount >= requiredCount) {
@@ -97,8 +100,9 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     for (CraftingEntry stack : modernRecipe) {
                         if (!stack.isOreDictionary()) {
                             final Ingredient stackItem = stack.getIngredient();
-                            if (!itemRemovalList.containsKey(stackItem) || itemRemovalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum() < stack.getCount())
+                            if (!itemRemovalList.containsKey(stackItem) || itemRemovalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum() < stack.getCount()) {
                                 return;
+                            }
                         } else {
                             LOG.error("Could not verify that items are available in the inventory.");
                             return;
@@ -121,8 +125,9 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     CHANNEL.sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 20));
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.DISMANTLE) {
                     for (int i = 9; i < 13; ++i) {
-                        if (station.mainInventory.getStackInSlot(i).isEmpty())
+                        if (station.mainInventory.getStackInSlot(i).isEmpty()) {
                             continue;
+                        }
 
                         final ItemStack stack = station.mainInventory.getStackInSlot(i);
                         if (stack.getItem() instanceof IModernCraftingRecipe && ((IModernCraftingRecipe) stack.getItem()).getModernRecipe() != null && (station.dismantleStatus[i - 9] == -1 || station.dismantleStatus[i - 9] > station.dismantleDuration[i - 9])) {
@@ -134,12 +139,14 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.MOVE_OUTPUT) {
                     ((EntityPlayer) world.getEntityByID(workbenchServerMessage.getPlayerID())).addItemStackToInventory(station.mainInventory.getStackInSlot(workbenchServerMessage.getSlotToMove()));
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.POP_FROM_QUEUE) {
-                    if (!(tileEntity instanceof TileEntityAmmoPress))
+                    if (!(tileEntity instanceof TileEntityAmmoPress)) {
                         return;
+                    }
 
                     final TileEntityAmmoPress teAmmoPress = (TileEntityAmmoPress) tileEntity;
-                    if (teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > workbenchServerMessage.getSlotToMove())
+                    if (teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > workbenchServerMessage.getSlotToMove()) {
                         teAmmoPress.getCraftingQueue().remove(workbenchServerMessage.getSlotToMove());
+                    }
                     CHANNEL.sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 25));
                 }
             }

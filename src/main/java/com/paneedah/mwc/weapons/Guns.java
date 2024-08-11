@@ -26,11 +26,11 @@ public class Guns {
     public static Item FiveSeven;
     public static Item M9A1;
     public static Item MAS21;
-    
+
     public static Item turretgun;
     public static Item turretgunupgraded;
     public static Item turretgunsilenced;
-    
+
     public static Item MP443;
     //public static Item AK12_kal;
     public static Item AK15;
@@ -39,7 +39,7 @@ public class Guns {
     public static Item VSSVintorez;
     public static Item KS23;
     public static Item SV98;
-    
+
     public static Item MP5A5;
     public static Item MP7;
     public static Item UMP45;
@@ -124,7 +124,7 @@ public class Guns {
     public static Item M200Intervention;
     public static Item AS50;
     public static Item M82;
-//    public static Item NTW20;
+    //    public static Item NTW20;
     public static Item GL06;
     public static Item M79;
     public static Item M32MGL;
@@ -132,40 +132,40 @@ public class Guns {
     public static Item M202;
     public static Item M134;
 //    public static Item NinthSin;
-    
-    
+
+
     // TDM
-    
+
     // Marine Assault
     public static Item M17;
-    
+
     public static Item AsiimovM4A1;
-    
+
     // German Assault
     public static Item HK_P12;
-    
+
     // UK Light Support
-    
+
     // French Light
-    
+
     // Canada Heavy CQB
-    
+
     // Russian Assault
     public static Item Kalashnikov_AK12;
-    
+
     // UK Heavy Long Range
 
     // and an L131A1
-    
+
     // Soviet Assault
-    
+
     // Remington-700
     public static Item Remington700;
-    
+
     public static Item Chainsaw;
-    
+
     public static void init(Object mod, CommonProxy proxy) {
-     // Try not to change the order of the guns to ensure stable recipes
+        // Try not to change the order of the guns to ensure stable recipes
         //AR2
         M4A1 = new M4A1Factory().createGun(proxy);
         AR15 = new AR15Factory().createGun(proxy);

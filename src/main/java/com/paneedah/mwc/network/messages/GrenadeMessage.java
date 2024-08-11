@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network.messages;
 
-import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
 import com.paneedah.mwc.network.TypeRegistry;
+import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
 import io.netty.buffer.ByteBuf;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

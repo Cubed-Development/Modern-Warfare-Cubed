@@ -4,7 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 
 public class EntityAIDelayedAttack extends EntityAIBase {
-    
+
     private EntityCustomMob entityCustomMob;
     private EntityLivingBase targetEntity;
 
@@ -12,10 +12,10 @@ public class EntityAIDelayedAttack extends EntityAIBase {
         this.entityCustomMob = entityCustomMob;
         this.setMutexBits(1);
     }
-    
+
     public boolean shouldExecute() {
         EntityLivingBase entitylivingbase = this.entityCustomMob.getAttackTarget();
-        return entityCustomMob.getDelayedAttackTimerIncrement() > 0 || entitylivingbase != null 
+        return entityCustomMob.getDelayedAttackTimerIncrement() > 0 || entitylivingbase != null
                 && this.entityCustomMob.getDistanceSq(entitylivingbase) < 9.0D;
     }
 
@@ -45,6 +45,5 @@ public class EntityAIDelayedAttack extends EntityAIBase {
         return (shouldExecute() || !entityCustomMob.getNavigator().noPath());
     }
 
-   
 
 }

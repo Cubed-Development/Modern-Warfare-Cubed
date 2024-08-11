@@ -32,7 +32,7 @@ public class PlayerRawPitchAnimation implements PlayerAnimation {
 
     private boolean forceResetYawPitch;
     private State state;
-    
+
     public PlayerRawPitchAnimation(State state) {
         this.state = state;
     }
@@ -58,16 +58,16 @@ public class PlayerRawPitchAnimation implements PlayerAnimation {
     }
 
     public void update(EntityPlayer player, boolean fadeOut) {
-        float progress = (float)(System.currentTimeMillis() - startTime) / transitionDuration;
+        float progress = (float) (System.currentTimeMillis() - startTime) / transitionDuration;
 
-        if(forceResetYawPitch || rotationPitchChanged(clientPlayer)) {
+        if (forceResetYawPitch || rotationPitchChanged(clientPlayer)) {
             anchoredYaw = clientPlayer.rotationYaw;
             anchoredPitch = clientPlayer.rotationPitch;
             forceResetYawPitch = true;
             attenuation = 1f;
         }
 
-        if(forceResetYawPitch || progress > 1f) {
+        if (forceResetYawPitch || progress > 1f) {
             progress = 0f;
             startTime = System.currentTimeMillis();
 
@@ -79,12 +79,12 @@ public class PlayerRawPitchAnimation implements PlayerAnimation {
             targetPitch = anchoredPitch + (rand.nextFloat() - 0.5f) * 2f * maxPitch * attenuation;
 
             attenuation *= ATTENUATION_COEFFICIENT;
-            if(attenuation < 0.1f) {
+            if (attenuation < 0.1f) {
                 attenuation = 0.1f;
             }
         }
 
-        if(forceResetYawPitch) {
+        if (forceResetYawPitch) {
             forceResetYawPitch = false;
         }
 
@@ -96,11 +96,11 @@ public class PlayerRawPitchAnimation implements PlayerAnimation {
     }
 
     public void reset(EntityPlayer player, boolean force) {
-        if(force) {
+        if (force) {
             forceResetYawPitch = true;
         }
     }
-    
+
     @Override
     public boolean isCompleted() {
         // TODO Auto-generated method stub

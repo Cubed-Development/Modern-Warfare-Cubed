@@ -234,8 +234,9 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
             modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
-            if (FMLCommonHandler.instance().getSide().isClient())
+            if (FMLCommonHandler.instance().getSide().isClient()) {
                 COOKING_QUEUE.add(item);
+            }
 
             return item;
         }

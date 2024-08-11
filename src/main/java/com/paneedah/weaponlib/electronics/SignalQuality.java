@@ -26,7 +26,7 @@ public class SignalQuality {
     public static SignalQuality getQuality(int currentDistance, int maxDistance) {
         double allowedRange = (double) currentDistance / maxDistance;
         double adjustedAllowedRange = 1.0 - allowedRange * allowedRange * allowedRange;
-        if(adjustedAllowedRange > 0.97) {
+        if (adjustedAllowedRange > 0.97) {
             adjustedAllowedRange = 1.0;
         }
         double r = random.nextDouble();

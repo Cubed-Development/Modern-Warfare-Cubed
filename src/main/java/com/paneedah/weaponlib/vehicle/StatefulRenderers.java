@@ -25,21 +25,21 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class StatefulRenderers {
 
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public static <State> StatefulRenderer<State> createLeftHandRenderer(ModelBiped model, Function<PartRenderContext<State>, Entity> entitySupplier) {
         return new LeftHandRenderer<>(model, entitySupplier);
     }
-    
-	@SideOnly(Side.CLIENT)
+
+    @SideOnly(Side.CLIENT)
     public static <State> StatefulRenderer<State> createRightHandRenderer(ModelBiped model, Function<PartRenderContext<State>, Entity> entitySupplier) {
         return new RightHandRenderer<>(model, entitySupplier);
     }
-    
+
     private static class LeftHandRenderer<State> implements StatefulRenderer<State> {
-        
+
         //private ModelBiped model;
         private Function<PartRenderContext<State>, Entity> entitySupplier;
-        
+
         public LeftHandRenderer(ModelBiped model, Function<PartRenderContext<State>, Entity> entitySupplier) {
             //this.model = model;
             this.entitySupplier = entitySupplier;
@@ -48,54 +48,53 @@ public class StatefulRenderers {
         @Override
         public void render(PartRenderContext<State> context) {
             Entity entity = entitySupplier.apply(context);
-            if(entity != null && entity instanceof EntityPlayer) {
+            if (entity != null && entity instanceof EntityPlayer) {
                 Minecraft minecraft = MC;
-                if(minecraft.gameSettings.thirdPersonView == 0) {
-                	
-                
-                	
+                if (minecraft.gameSettings.thirdPersonView == 0) {
+
+
                     minecraft.getTextureManager().bindTexture(((AbstractClientPlayer) entity).getLocationSkin());
 
-                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
+                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject((AbstractClientPlayer) entity);
                     RenderPlayer render = (RenderPlayer) entityRenderObject;
 
                     ModelBiped model = render.getMainModel();
 
                     GL11.glColor3f(1F, 1F, 1F);
-                    
-                   
+
+
                     model.isSneak = false;
 //                    model.onGround = 0.0F;
                     model.setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, entity);
                     model.bipedLeftArm.rotateAngleX = model.bipedLeftArm.rotateAngleY = model.bipedLeftArm.rotateAngleZ = 0f;
                     model.bipedLeftArm.render(0.0625F);
-                    
-                 // start armor renderer
+
+                    // start armor renderer
                     GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
                     EntityPlayer player = (EntityPlayer) entity;
                     ItemStack itemstack = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
                     if (itemstack != null && itemstack.getItem() instanceof ItemArmor) {
                         render.bindTexture(WeaponRenderer.getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
-                        
+
                         ModelBiped armorModel = WeaponRenderer.getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
-                        if(armorModel != null) {
-                        	
-                        	armorModel.bipedLeftArm.rotateAngleX = armorModel.bipedLeftArm.rotateAngleY = armorModel.bipedLeftArm.rotateAngleZ = 0f;
-                            WeaponRenderer.renderLeftVehicleArm(armorModel,(AbstractClientPlayer) player);
+                        if (armorModel != null) {
+
+                            armorModel.bipedLeftArm.rotateAngleX = armorModel.bipedLeftArm.rotateAngleY = armorModel.bipedLeftArm.rotateAngleZ = 0f;
+                            WeaponRenderer.renderLeftVehicleArm(armorModel, (AbstractClientPlayer) player);
                         }
                     }
-                    
-                    
+
+
                 }
             }
         }
     }
-    
+
     private static class RightHandRenderer<State> implements StatefulRenderer<State> {
-        
+
         //private ModelBiped model;
         private Function<PartRenderContext<State>, Entity> entitySupplier;
-        
+
         public RightHandRenderer(ModelBiped model, Function<PartRenderContext<State>, Entity> entitySupplier) {
             //this.model = model;
             this.entitySupplier = entitySupplier;
@@ -104,20 +103,19 @@ public class StatefulRenderers {
         @Override
         public void render(PartRenderContext<State> context) {
             Entity entity = entitySupplier.apply(context);
-            if(entity != null && entity instanceof EntityPlayer) {
+            if (entity != null && entity instanceof EntityPlayer) {
                 Minecraft minecraft = MC;
-                if(minecraft.gameSettings.thirdPersonView == 0) {
+                if (minecraft.gameSettings.thirdPersonView == 0) {
                     minecraft.getTextureManager().bindTexture(((AbstractClientPlayer) entity).getLocationSkin());
 
-                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
+                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject((AbstractClientPlayer) entity);
                     RenderPlayer render = (RenderPlayer) entityRenderObject;
 
                     ModelBiped model = render.getMainModel();
-                    
+
                     GL11.glColor3f(1F, 1F, 1F);
-                    
-                   
-                    
+
+
                     model.isRiding = false;
                     model.isSneak = false;
 //                    model.onGround = 0.0F;
@@ -126,11 +124,8 @@ public class StatefulRenderers {
                     model.setRotationAngles(0.0F, 0.3F, 0.0F, 0.0F, 0.0F, 0.0625F, entity);
                     model.bipedRightArm.rotateAngleX = model.bipedRightArm.rotateAngleY = model.bipedRightArm.rotateAngleZ = 0f;
                     model.bipedRightArm.render(0.0625F);
-                    
-                   
-                    
-                    
-                    
+
+
                     // start armor renderer
                     GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
                     EntityPlayer player = (EntityPlayer) entity;
@@ -138,14 +133,14 @@ public class StatefulRenderers {
                     if (itemstack != null && itemstack.getItem() instanceof ItemArmor) {
                         render.bindTexture(WeaponRenderer.getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
                         ModelBiped armorModel = WeaponRenderer.getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
-                        if(armorModel != null) {
-                        	armorModel.bipedRightArm.rotateAngleX = armorModel.bipedRightArm.rotateAngleY = armorModel.bipedRightArm.rotateAngleZ = 0f;
-                            WeaponRenderer.renderVehicleRightArm(armorModel,(AbstractClientPlayer) player);
+                        if (armorModel != null) {
+                            armorModel.bipedRightArm.rotateAngleX = armorModel.bipedRightArm.rotateAngleY = armorModel.bipedRightArm.rotateAngleZ = 0f;
+                            WeaponRenderer.renderVehicleRightArm(armorModel, (AbstractClientPlayer) player);
                         }
                     }
                     // finish armor rendering
-                    
-                    
+
+
                 }
             }
         }

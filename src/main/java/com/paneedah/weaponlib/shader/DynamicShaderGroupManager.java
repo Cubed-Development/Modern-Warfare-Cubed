@@ -46,7 +46,7 @@ public class DynamicShaderGroupManager {
     public boolean hasActiveGroups() {
         return loaded.size() > 0;
     }
- 
+
 //    public void applyShader(DynamicShaderContext shaderContext, DynamicShaderGroupSourceProvider shaderSourceProvider) {
 //        DynamicShaderGroupSource source = shaderSourceProvider.getShaderSource(shaderContext.getPhase());
 //        if(source != null) {
@@ -55,12 +55,12 @@ public class DynamicShaderGroupManager {
 //    }
 
     public void applyShader(DynamicShaderContext shaderContext, ItemStack itemStack) {
-        if(itemStack != null) {
+        if (itemStack != null) {
             Item item = itemStack.getItem();
-            if(item instanceof DynamicShaderGroupSourceProvider) {
-                DynamicShaderGroupSourceProvider shaderSourceProvider = (DynamicShaderGroupSourceProvider)item;
+            if (item instanceof DynamicShaderGroupSourceProvider) {
+                DynamicShaderGroupSourceProvider shaderSourceProvider = (DynamicShaderGroupSourceProvider) item;
                 DynamicShaderGroupSource source = shaderSourceProvider.getShaderSource(shaderContext.getPhase());
-                if(source != null) {
+                if (source != null) {
                     loadFromSource(shaderContext, source);
                 }
             }
@@ -69,17 +69,17 @@ public class DynamicShaderGroupManager {
 
     public void applyShader(DynamicShaderContext shaderContext, PlayerItemInstance<?> instance) {
         DynamicShaderGroupSourceProvider shaderSourceProvider = null;
-        if(instance != null) {
-            if(instance instanceof DynamicShaderGroupSourceProvider) {
-                shaderSourceProvider = (DynamicShaderGroupSourceProvider)instance;
-            } else if(instance.getItem() instanceof DynamicShaderGroupSourceProvider) {
-                shaderSourceProvider = (DynamicShaderGroupSourceProvider)instance.getItem();
+        if (instance != null) {
+            if (instance instanceof DynamicShaderGroupSourceProvider) {
+                shaderSourceProvider = (DynamicShaderGroupSourceProvider) instance;
+            } else if (instance.getItem() instanceof DynamicShaderGroupSourceProvider) {
+                shaderSourceProvider = (DynamicShaderGroupSourceProvider) instance.getItem();
             }
         }
 
-        if(shaderSourceProvider != null) {
+        if (shaderSourceProvider != null) {
             DynamicShaderGroupSource source = shaderSourceProvider.getShaderSource(shaderContext.getPhase());
-            if(source != null) {
+            if (source != null) {
                 loadFromSource(shaderContext, source);
             }
         }
@@ -89,10 +89,10 @@ public class DynamicShaderGroupManager {
         int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
 
         // Remove all other shaders of the same phase but different source or different framebuffer
-        for(Iterator<Entry<UUID, LoadedShaderGroup>> it = loaded.entrySet().iterator(); it.hasNext();) {
+        for (Iterator<Entry<UUID, LoadedShaderGroup>> it = loaded.entrySet().iterator(); it.hasNext(); ) {
             Entry<UUID, LoadedShaderGroup> e = it.next();
             LoadedShaderGroup loaded = e.getValue();
-            if(loaded.phase == context.getPhase() &&
+            if (loaded.phase == context.getPhase() &&
                     (!source.getSourceId().equals(e.getKey()) || context.getMainFramebuffer() != loaded.mainFrambuffer)) {
                 loaded.phase.remove(context, e.getValue().group);
                 it.remove();
@@ -100,7 +100,7 @@ public class DynamicShaderGroupManager {
         }
 
         LoadedShaderGroup l = loaded.compute(source.getSourceId(), (s, currentLoaded) -> {
-            if(currentLoaded != null && !currentLoaded.group.isDeleted()) {
+            if (currentLoaded != null && !currentLoaded.group.isDeleted()) {
                 currentLoaded.confirmed = true;
                 return currentLoaded;
             } else {
@@ -112,8 +112,8 @@ public class DynamicShaderGroupManager {
                 return v;
             }
         });
-        if(l != null && l.group != null) {
-        	
+        if (l != null && l.group != null) {
+
             source.getUniforms(context).forEach(u -> {l.group.setUniform(u.getU(), u.getV().apply(context));});
             context.getPhase().apply(context, l.group);
         }
@@ -143,13 +143,13 @@ public class DynamicShaderGroupManager {
     }
 
     public void removeStaleShaders(DynamicShaderContext context) {
-        for(Iterator<Entry<UUID, LoadedShaderGroup>> it = loaded.entrySet().iterator(); it.hasNext();) {
+        for (Iterator<Entry<UUID, LoadedShaderGroup>> it = loaded.entrySet().iterator(); it.hasNext(); ) {
             Entry<UUID, LoadedShaderGroup> e = it.next();
 
             LoadedShaderGroup loaded = e.getValue();
-            if(!loaded.confirmed) {
+            if (!loaded.confirmed) {
                 it.remove();
-                if(e.getValue().group != null) {
+                if (e.getValue().group != null) {
                     loaded.phase.remove(context, e.getValue().group);
                 }
             } else {
@@ -159,10 +159,10 @@ public class DynamicShaderGroupManager {
     }
 
     public void removeAllShaders(DynamicShaderContext context) {
-        for(Iterator<Entry<UUID, LoadedShaderGroup>> it = loaded.entrySet().iterator(); it.hasNext();) {
+        for (Iterator<Entry<UUID, LoadedShaderGroup>> it = loaded.entrySet().iterator(); it.hasNext(); ) {
             Entry<UUID, LoadedShaderGroup> e = it.next();
             LoadedShaderGroup loaded = e.getValue();
-            if(e.getValue().group != null) {
+            if (e.getValue().group != null) {
                 loaded.phase.remove(context, e.getValue().group);
             }
             it.remove();
@@ -173,24 +173,24 @@ public class DynamicShaderGroupManager {
         ResourceLocation result;
 
         switch (resourceLocation.getNamespace()) {
-        case RESOURCE_DOMAIN_WEAPONLIB:
-            if(resourceLocation.getPath().startsWith("shaders/program/")) {
-                result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_SHADER_PROGRAMS 
-                        + resourceLocation.getPath().substring(16));
-            } else {
+            case RESOURCE_DOMAIN_WEAPONLIB:
+                if (resourceLocation.getPath().startsWith("shaders/program/")) {
+                    result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_SHADER_PROGRAMS
+                            + resourceLocation.getPath().substring(16));
+                } else {
+                    result = resourceLocation;
+                }
+
+                break;
+            case RESOURCE_DOMAIN_SHADERS_PROGRAM_WEAPONLIB:
+                result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_SHADER_PROGRAMS
+                        + resourceLocation.getPath());
+                break;
+            case RESOURCE_DOMAIN_TEXTURES_EFFECT_WEAPONLIB:
+                result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_RESOURCES + resourceLocation.getPath());
+                break;
+            default:
                 result = resourceLocation;
-            }
-            
-            break;
-        case RESOURCE_DOMAIN_SHADERS_PROGRAM_WEAPONLIB:
-            result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_SHADER_PROGRAMS
-                    + resourceLocation.getPath());
-            break;
-        case RESOURCE_DOMAIN_TEXTURES_EFFECT_WEAPONLIB:
-            result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_RESOURCES + resourceLocation.getPath());
-            break;
-        default:
-            result = resourceLocation;
         }
 
         return result;

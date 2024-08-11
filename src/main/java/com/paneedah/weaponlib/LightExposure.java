@@ -6,15 +6,15 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class LightExposure extends UniversalObject implements Exposure {
-    
+
     private long lastExposureTimestamp;
     private long maxDuration;
     private float totalDose = 1f;
     private float decayFactor = 0.995f;
-    
+
     public LightExposure() {}
-    
-    
+
+
     public LightExposure(long lastExposureTimestamp, long maxDuration, float dose, float decayFactor) {
         this.lastExposureTimestamp = lastExposureTimestamp;
         this.maxDuration = maxDuration;
@@ -25,7 +25,7 @@ public class LightExposure extends UniversalObject implements Exposure {
     public float getTotalDose() {
         return totalDose;
     }
-    
+
     public void setTotalDose(float totalDose) {
         this.totalDose = totalDose;
     }
@@ -41,14 +41,14 @@ public class LightExposure extends UniversalObject implements Exposure {
     public void update(Entity entity) {
         totalDose *= decayFactor;
     }
-    
+
     @Override
     public void write(ByteBuf byteBuf) {
         super.write(byteBuf);
         byteBuf.writeLong(lastExposureTimestamp);
         byteBuf.writeFloat(totalDose);
     }
-    
+
     @Override
     public void read(ByteBuf byteBuf) {
         super.read(byteBuf);
@@ -59,8 +59,8 @@ public class LightExposure extends UniversalObject implements Exposure {
 
     @Override
     public void updateFrom(Exposure otherExposure) {
-        if(otherExposure instanceof LightExposure) {
-            LightExposure other = (LightExposure)otherExposure;
+        if (otherExposure instanceof LightExposure) {
+            LightExposure other = (LightExposure) otherExposure;
             this.lastExposureTimestamp = other.lastExposureTimestamp;
             this.totalDose = other.totalDose;
         }

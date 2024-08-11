@@ -24,21 +24,21 @@ public class PerspectiveManager {
 
     public Perspective<?> getPerspective(PlayerItemInstance<?> currentInstance, boolean init) {
 
-        if(currentInstance == null || (currentPerspective == null && !init)) {
+        if (currentInstance == null || (currentPerspective == null && !init)) {
             return null;
         }
 
         Class<? extends Perspective<?>> perspectiveClass = currentInstance.getRequiredPerspectiveType();
 
         if (perspectiveClass != null) {
-            if(currentPerspective == null) {
+            if (currentPerspective == null) {
                 currentPerspective = createActivePerspective(perspectiveClass);
-            } else if(!perspectiveClass.isInstance(currentPerspective)) {
+            } else if (!perspectiveClass.isInstance(currentPerspective)) {
                 currentPerspective.deactivate(clientModContext);
                 currentPerspective = createActivePerspective(perspectiveClass);
             }
         } else if (currentPerspective != null) {
-            if(init) {
+            if (init) {
                 currentPerspective.deactivate(clientModContext);
                 currentPerspective = null;
             }
@@ -61,7 +61,7 @@ public class PerspectiveManager {
     }
 
     CompatibleWorldRenderer getEntityRenderer() {
-        if(entityRenderer == null) {
+        if (entityRenderer == null) {
             entityRenderer = new CompatibleWorldRenderer(MC,
                     MC.getResourceManager());
         }
@@ -69,7 +69,7 @@ public class PerspectiveManager {
     }
 
     MWCParticleManager getEffectRenderer() {
-        if(effectRenderer == null) {
+        if (effectRenderer == null) {
             WorldClient world = (WorldClient) MC.player.world;
             effectRenderer = MWCParticleManager.getParticleManager();
         }

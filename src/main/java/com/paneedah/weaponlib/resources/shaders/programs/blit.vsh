@@ -9,7 +9,7 @@ varying vec2 texCoord;
 varying vec4 outPos;
 varying float zzz;
 
-void main(){
+void main() {
     outPos = ProjMat * vec4(Position.xyz, 1.0);
     zzz = Position.z;
     gl_Position = vec4(outPos.xy, 0.2, 1.0);

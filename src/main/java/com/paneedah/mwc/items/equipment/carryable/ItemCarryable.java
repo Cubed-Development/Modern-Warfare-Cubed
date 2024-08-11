@@ -100,6 +100,7 @@ public class ItemCarryable extends Item implements IModernCraftingRecipe {
          * This method is particularly useful when there's a need to strictly control the types or specific items in an inventory.
          *
          * @param validItemPredicate The Predicate function that defines the criteria for item validity
+         *
          * @return Returns the Builder instance for method chaining
          */
         public T withValidItemPredicate(Predicate<Item> validItemPredicate) {

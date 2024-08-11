@@ -77,6 +77,7 @@ public class EntityConfiguration {
         private static class EquipmentValue {
             Equipment equipment;
             float weight;
+
             public EquipmentValue(Equipment equipment, float weight) {
                 this.equipment = equipment;
                 this.weight = weight;
@@ -107,22 +108,29 @@ public class EntityConfiguration {
 
             @Override
             public boolean equals(Object obj) {
-                if (this == obj)
+                if (this == obj) {
                     return true;
-                if (obj == null)
+                }
+                if (obj == null) {
                     return false;
-                if (getClass() != obj.getClass())
+                }
+                if (getClass() != obj.getClass()) {
                     return false;
+                }
                 EquipmentKey other = (EquipmentKey) obj;
-                if (!Arrays.equals(attachments, other.attachments))
+                if (!Arrays.equals(attachments, other.attachments)) {
                     return false;
-                if (difficulty != other.difficulty)
+                }
+                if (difficulty != other.difficulty) {
                     return false;
+                }
                 if (item == null) {
-                    if (other.item != null)
+                    if (other.item != null) {
                         return false;
-                } else if (!item.equals(other.item))
+                    }
+                } else if (!item.equals(other.item)) {
                     return false;
+                }
                 return true;
             }
 
@@ -224,12 +232,12 @@ public class EntityConfiguration {
             return this;
         }
 
-        public Builder withEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>...attachments) {
+        public Builder withEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
             withEquipmentOption(equipmentOptions, item, difficultyLevel, weight, attachments);
             return this;
         }
 
-        public Builder withSecondaryEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>...attachments) {
+        public Builder withSecondaryEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
             withEquipmentOption(secondaryEquipmentOptions, item, difficultyLevel, weight, attachments);
             return this;
         }
@@ -246,7 +254,7 @@ public class EntityConfiguration {
         }
 
         private Builder withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
-            if(item == null) {
+            if (item == null) {
                 LOG.warn("Attempted to configure entity equipment with null item");
                 return this;
             }
@@ -254,7 +262,7 @@ public class EntityConfiguration {
             equipment.item = item;
             equipment.attachments = Arrays.asList(attachments);
             EnumDifficulty[] difficultyValues = EnumDifficulty.values();
-            for(int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
+            for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
                 equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, attachments),
                         new EquipmentValue(equipment, weight));
             }
@@ -538,23 +546,23 @@ public class EntityConfiguration {
 
             net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, ID + "_" + entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
-            if(spawnEgg)
+            if (spawnEgg) {
                 EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
+            }
 
-            for(Spawn spawn: spawns) {
+            for (Spawn spawn : spawns) {
                 int weightedProb = spawn.weightedProb;
                 //int weightedProb = (int)(entityConfig.getSpawn());
 
-                if(entityName.equals("terrorist")) {
+                if (entityName.equals("terrorist")) {
                     weightedProb = (int) (spawn.weightedProb * ModernConfigManager.terroristSpawn);
                     configuration.maxHealth = ModernConfigManager.terroristHealth * maxHealth;
-                }
-                else if(entityName.equals("soldier")) {
+                } else if (entityName.equals("soldier")) {
                     weightedProb = (int) (spawn.weightedProb * ModernConfigManager.soldierSpawn);
                     configuration.maxHealth = ModernConfigManager.soldierHealth * maxHealth;
                 }
 
-                if(weightedProb > 0) {
+                if (weightedProb > 0) {
                     Set<Biome> biomes = new HashSet<>();
 
                     for (BiomeDictionary.Type biomeType : spawn.biomeTypes) {
@@ -566,8 +574,8 @@ public class EntityConfiguration {
                 }
             }
 
-            if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-                for(TexturedModel tmv: texturedModelVariants) {
+            if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+                for (TexturedModel tmv : texturedModelVariants) {
                     tmv.textureResource = new ResourceLocation(ID, "textures/entity/" + tmv.textureName);
                     try {
                         tmv.model = (ModelBiped) Class.forName(tmv.modelClassName).newInstance();
@@ -595,7 +603,7 @@ public class EntityConfiguration {
             }
         }
 
-        
+
         private Class<? extends EntityLiving> safeCast(Class<? extends Entity> entityClass) {
             return (Class<? extends EntityLiving>) entityClass;
         }

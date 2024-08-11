@@ -25,14 +25,14 @@ public class DynamicShaderContext {
     }
 
     public DynamicShaderContext withProperty(String name, Object value) {
-        if(properties == null) {
+        if (properties == null) {
             properties = new HashMap<>();
         }
         properties.put(name, value);
         return this;
     }
 
-    
+
     public <T> T getProperty(String name) {
         return (T) properties.get(name);
     }

@@ -29,12 +29,12 @@ public class BackpackInventoryTab extends InventoryTab {
         final ItemStack stackInSlot = getBackpackStackInSlot();
         return stackInSlot != null && stackInSlot.getItem() instanceof ItemBackpack;
     }
-    
+
     @Override
     protected ItemStack getItemStack() {
         return getBackpackStackInSlot();
     }
-    
+
     protected static ItemStack getBackpackStackInSlot() {
         EquipmentInventory customInventory = EquipmentCapability.getInventory(FMLClientHandler.instance().getClientPlayerEntity());
         return customInventory != null ? customInventory.getStackInSlot(0) : null;

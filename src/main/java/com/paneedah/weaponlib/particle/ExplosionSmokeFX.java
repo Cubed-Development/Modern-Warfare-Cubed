@@ -21,31 +21,33 @@ public class ExplosionSmokeFX extends Particle {
     private static final int rowCount = 4;
 
     private static final TriFunction<Float, Integer, Integer, Float> EXPLOSION_SCALE_UPDATE_FUNCTION = (currentScale, ticks, maxTicks) -> {
-        if (currentScale > 25)
+        if (currentScale > 25) {
             currentScale *= 1.0008f;
-        else if (currentScale > 20)
+        } else if (currentScale > 20) {
             currentScale *= 1.002f;
-        else if (currentScale > 15)
+        } else if (currentScale > 15) {
             currentScale *= 1.004f;
-        else if (currentScale > 10)
+        } else if (currentScale > 10) {
             currentScale *= 1.05f;
-        else
+        } else {
             currentScale *= 3f;
+        }
 
         return currentScale;
     };
 
     private static final TriFunction<Float, Integer, Integer, Float> SMOKE_GRENADE_SCALE_UPDATE_FUNCTION = (currentScale, ticks, maxTicks) -> {
-        if (currentScale > 25)
+        if (currentScale > 25) {
             currentScale *= 1.0008f;
-        else if (currentScale > 20)
+        } else if (currentScale > 20) {
             currentScale *= 1.002f;
-        else if (currentScale > 15)
+        } else if (currentScale > 15) {
             currentScale *= 1.004f;
-        else if (currentScale > 5)
+        } else if (currentScale > 5) {
             currentScale *= 1.05f;
-        else
+        } else {
             currentScale *= 2f;
+        }
 
         return currentScale;
     };
@@ -72,8 +74,9 @@ public class ExplosionSmokeFX extends Particle {
         this.motionY = motionY;
         this.motionZ = motionZ;
 
-        if (motionX == 0.0F)
+        if (motionX == 0.0F) {
             motionX = 1.0F;
+        }
 
         this.behavior = behavior;
 
@@ -96,8 +99,9 @@ public class ExplosionSmokeFX extends Particle {
         this.prevPosY = this.posY;
         this.prevPosZ = this.posZ;
 
-        if (this.particleAge++ >= this.particleMaxAge)
+        if (this.particleAge++ >= this.particleMaxAge) {
             this.setExpired();
+        }
 
         this.motionY += 0.00001D; //this.motionY += 0.0005D;
         this.move(this.motionX, this.motionY, this.motionZ);

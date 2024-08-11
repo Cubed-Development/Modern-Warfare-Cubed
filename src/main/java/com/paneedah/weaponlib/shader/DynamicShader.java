@@ -19,46 +19,46 @@ class DynamicShader extends Shader {
 
     @Override
     public void render(float partialTicks) {
-    	
+
         shaderGroup.getUniforms().forEach((name, value) -> {
-        
+
             ShaderUniform uniform = getShaderManager().getShaderUniform(name);
-            if(uniform != null) {
-                if(value instanceof Float) {
+            if (uniform != null) {
+                if (value instanceof Float) {
                     uniform.set((float) value);
-                } else if(value instanceof float[]) {
+                } else if (value instanceof float[]) {
                     float values[] = (float[]) value;
-                    if(values.length == 1) {
+                    if (values.length == 1) {
                         uniform.set(values[0]);
-                    } else if(values.length == 2) {
+                    } else if (values.length == 2) {
                         uniform.set(values[0], values[1]);
-                    } else if(values.length == 3) {
+                    } else if (values.length == 3) {
                         uniform.set(values[0], values[1], values[2]);
-                    } else if(values.length == 4) {
+                    } else if (values.length == 4) {
                         uniform.set(values[0], values[1], values[2], values[3]);
                     }
-                } else if(value instanceof Float[]) {
+                } else if (value instanceof Float[]) {
                     Float values[] = (Float[]) value;
-                    if(values.length == 1) {
+                    if (values.length == 1) {
                         uniform.set(values[0]);
-                    } else if(values.length == 2) {
+                    } else if (values.length == 2) {
                         uniform.set(values[0], values[1]);
-                    } else if(values.length == 3) {
+                    } else if (values.length == 3) {
                         uniform.set(values[0], values[1], values[2]);
-                    } else if(values.length == 4) {
+                    } else if (values.length == 4) {
                         uniform.set(values[0], values[1], values[2], values[3]);
                     }
                 } else {
-                	
+
                 }
-               
+
             }
         });
 
         super.render(partialTicks);
     }
-    
+
     public int getShaderId() {
-    	return this.getShaderManager().getProgram();
+        return this.getShaderManager().getProgram();
     }
 }

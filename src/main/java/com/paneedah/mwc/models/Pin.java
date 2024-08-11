@@ -5,19 +5,14 @@
 // - ZeuX
 
 
-
-
-
-
 package com.paneedah.mwc.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class Pin extends ModelBase
-{
-  //fields
+public class Pin extends ModelBase {
+    //fields
     ModelRenderer Pin1;
     ModelRenderer Pin2;
     ModelRenderer Pin3;
@@ -31,116 +26,113 @@ public class Pin extends ModelBase
     ModelRenderer Pin11;
     ModelRenderer Pin12;
     ModelRenderer Pin13;
-  
-  public Pin()
-  {
-    textureWidth = 256;
-    textureHeight = 128;
-    
-      Pin1 = new ModelRenderer(this, 0, 0);
-      Pin1.addBox(0F, 0F, 0F, 4, 1, 1);
-      Pin1.setRotationPoint(-2.5F, -20F, 5.8F);
-      Pin1.setTextureSize(64, 32);
-      Pin1.mirror = true;
-      setRotation(Pin1, 0F, 0F, 0F);
-      Pin2 = new ModelRenderer(this, 0, 0);
-      Pin2.addBox(0F, 0F, 0F, 1, 1, 2);
-      Pin2.setRotationPoint(1.2F, -20.3F, 5.3F);
-      Pin2.setTextureSize(64, 32);
-      Pin2.mirror = true;
-      setRotation(Pin2, 0F, 0F, 0F);
-      Pin3 = new ModelRenderer(this, 0, 0);
-      Pin3.addBox(0F, 0F, 0F, 1, 2, 1);
-      Pin3.setRotationPoint(1.2F, -17.8F, 8.8F);
-      Pin3.setTextureSize(64, 32);
-      Pin3.mirror = true;
-      setRotation(Pin3, 0F, 0F, 0F);
-      Pin4 = new ModelRenderer(this, 0, 0);
-      Pin4.addBox(0F, 0F, 0F, 1, 2, 1);
-      Pin4.setRotationPoint(1.2F, -17.8F, 2.8F);
-      Pin4.setTextureSize(64, 32);
-      Pin4.mirror = true;
-      setRotation(Pin4, 0F, 0F, 0F);
-      Pin5 = new ModelRenderer(this, 0, 0);
-      Pin5.addBox(0F, 0F, 0F, 1, 1, 2);
-      Pin5.setRotationPoint(1.2F, -14.3F, 5.3F);
-      Pin5.setTextureSize(64, 32);
-      Pin5.mirror = true;
-      setRotation(Pin5, 0F, 0F, 0F);
-      Pin6 = new ModelRenderer(this, 0, 0);
-      Pin6.addBox(0F, 0F, 0F, 1, 2, 1);
-      Pin6.setRotationPoint(1.2F, -17.8F, 9.8F);
-      Pin6.setTextureSize(64, 32);
-      Pin6.mirror = true;
-      setRotation(Pin6, -2.528146F, 0F, 0F);
-      Pin7 = new ModelRenderer(this, 0, 0);
-      Pin7.addBox(0F, 0F, 0F, 1, 1, 2);
-      Pin7.setRotationPoint(1.2F, -20.3F, 7.3F);
-      Pin7.setTextureSize(64, 32);
-      Pin7.mirror = true;
-      setRotation(Pin7, -0.6320364F, 0F, 0F);
-      Pin8 = new ModelRenderer(this, 0, 0);
-      Pin8.addBox(0F, 0F, 0F, 1, 2, 1);
-      Pin8.setRotationPoint(1.2F, -20.3F, 5.3F);
-      Pin8.setTextureSize(64, 32);
-      Pin8.mirror = true;
-      setRotation(Pin8, -1.021276F, 0F, 0F);
-      Pin9 = new ModelRenderer(this, 0, 0);
-      Pin9.addBox(0F, 0F, 0F, 1, 1, 2);
-      Pin9.setRotationPoint(1.2F, -17.8F, 2.8F);
-      Pin9.setTextureSize(64, 32);
-      Pin9.mirror = true;
-      setRotation(Pin9, 1.041001F, 0F, 0F);
-      Pin10 = new ModelRenderer(this, 0, 0);
-      Pin10.addBox(0F, 0F, 0F, 1, 2, 1);
-      Pin10.setRotationPoint(1.2F, -15.8F, 2.8F);
-      Pin10.setTextureSize(64, 32);
-      Pin10.mirror = true;
-      setRotation(Pin10, 0.5205006F, 0F, 0F);
-      Pin11 = new ModelRenderer(this, 0, 0);
-      Pin11.addBox(0F, 0F, 0F, 1, 1, 2);
-      Pin11.setRotationPoint(1.2F, -13.3F, 5.3F);
-      Pin11.setTextureSize(64, 32);
-      Pin11.mirror = true;
-      setRotation(Pin11, 2.639681F, 0F, 0F);
-      Pin12 = new ModelRenderer(this, 0, 0);
-      Pin12.addBox(0F, 0F, 0F, 1, 2, 1);
-      Pin12.setRotationPoint(1.2F, -13.3F, 7.3F);
-      Pin12.setTextureSize(64, 32);
-      Pin12.mirror = true;
-      setRotation(Pin12, 2.082002F, 0F, 0F);
-      Pin13 = new ModelRenderer(this, 0, 0);
-      Pin13.addBox(0F, 0F, 0F, 1, 1, 2);
-      Pin13.setRotationPoint(1.2F, -15.8F, 9.8F);
-      Pin13.setTextureSize(64, 32);
-      Pin13.mirror = true;
-      setRotation(Pin13, -2.082002F, 0F, 0F);
-  }
-  
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    Pin1.render(f5);
-    Pin2.render(f5);
-    Pin3.render(f5);
-    Pin4.render(f5);
-    Pin5.render(f5);
-    Pin6.render(f5);
-    Pin7.render(f5);
-    Pin8.render(f5);
-    Pin9.render(f5);
-    Pin10.render(f5);
-    Pin11.render(f5);
-    Pin12.render(f5);
-    Pin13.render(f5);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
-  }
+
+    public Pin() {
+        textureWidth = 256;
+        textureHeight = 128;
+
+        Pin1 = new ModelRenderer(this, 0, 0);
+        Pin1.addBox(0F, 0F, 0F, 4, 1, 1);
+        Pin1.setRotationPoint(-2.5F, -20F, 5.8F);
+        Pin1.setTextureSize(64, 32);
+        Pin1.mirror = true;
+        setRotation(Pin1, 0F, 0F, 0F);
+        Pin2 = new ModelRenderer(this, 0, 0);
+        Pin2.addBox(0F, 0F, 0F, 1, 1, 2);
+        Pin2.setRotationPoint(1.2F, -20.3F, 5.3F);
+        Pin2.setTextureSize(64, 32);
+        Pin2.mirror = true;
+        setRotation(Pin2, 0F, 0F, 0F);
+        Pin3 = new ModelRenderer(this, 0, 0);
+        Pin3.addBox(0F, 0F, 0F, 1, 2, 1);
+        Pin3.setRotationPoint(1.2F, -17.8F, 8.8F);
+        Pin3.setTextureSize(64, 32);
+        Pin3.mirror = true;
+        setRotation(Pin3, 0F, 0F, 0F);
+        Pin4 = new ModelRenderer(this, 0, 0);
+        Pin4.addBox(0F, 0F, 0F, 1, 2, 1);
+        Pin4.setRotationPoint(1.2F, -17.8F, 2.8F);
+        Pin4.setTextureSize(64, 32);
+        Pin4.mirror = true;
+        setRotation(Pin4, 0F, 0F, 0F);
+        Pin5 = new ModelRenderer(this, 0, 0);
+        Pin5.addBox(0F, 0F, 0F, 1, 1, 2);
+        Pin5.setRotationPoint(1.2F, -14.3F, 5.3F);
+        Pin5.setTextureSize(64, 32);
+        Pin5.mirror = true;
+        setRotation(Pin5, 0F, 0F, 0F);
+        Pin6 = new ModelRenderer(this, 0, 0);
+        Pin6.addBox(0F, 0F, 0F, 1, 2, 1);
+        Pin6.setRotationPoint(1.2F, -17.8F, 9.8F);
+        Pin6.setTextureSize(64, 32);
+        Pin6.mirror = true;
+        setRotation(Pin6, -2.528146F, 0F, 0F);
+        Pin7 = new ModelRenderer(this, 0, 0);
+        Pin7.addBox(0F, 0F, 0F, 1, 1, 2);
+        Pin7.setRotationPoint(1.2F, -20.3F, 7.3F);
+        Pin7.setTextureSize(64, 32);
+        Pin7.mirror = true;
+        setRotation(Pin7, -0.6320364F, 0F, 0F);
+        Pin8 = new ModelRenderer(this, 0, 0);
+        Pin8.addBox(0F, 0F, 0F, 1, 2, 1);
+        Pin8.setRotationPoint(1.2F, -20.3F, 5.3F);
+        Pin8.setTextureSize(64, 32);
+        Pin8.mirror = true;
+        setRotation(Pin8, -1.021276F, 0F, 0F);
+        Pin9 = new ModelRenderer(this, 0, 0);
+        Pin9.addBox(0F, 0F, 0F, 1, 1, 2);
+        Pin9.setRotationPoint(1.2F, -17.8F, 2.8F);
+        Pin9.setTextureSize(64, 32);
+        Pin9.mirror = true;
+        setRotation(Pin9, 1.041001F, 0F, 0F);
+        Pin10 = new ModelRenderer(this, 0, 0);
+        Pin10.addBox(0F, 0F, 0F, 1, 2, 1);
+        Pin10.setRotationPoint(1.2F, -15.8F, 2.8F);
+        Pin10.setTextureSize(64, 32);
+        Pin10.mirror = true;
+        setRotation(Pin10, 0.5205006F, 0F, 0F);
+        Pin11 = new ModelRenderer(this, 0, 0);
+        Pin11.addBox(0F, 0F, 0F, 1, 1, 2);
+        Pin11.setRotationPoint(1.2F, -13.3F, 5.3F);
+        Pin11.setTextureSize(64, 32);
+        Pin11.mirror = true;
+        setRotation(Pin11, 2.639681F, 0F, 0F);
+        Pin12 = new ModelRenderer(this, 0, 0);
+        Pin12.addBox(0F, 0F, 0F, 1, 2, 1);
+        Pin12.setRotationPoint(1.2F, -13.3F, 7.3F);
+        Pin12.setTextureSize(64, 32);
+        Pin12.mirror = true;
+        setRotation(Pin12, 2.082002F, 0F, 0F);
+        Pin13 = new ModelRenderer(this, 0, 0);
+        Pin13.addBox(0F, 0F, 0F, 1, 1, 2);
+        Pin13.setRotationPoint(1.2F, -15.8F, 9.8F);
+        Pin13.setTextureSize(64, 32);
+        Pin13.mirror = true;
+        setRotation(Pin13, -2.082002F, 0F, 0F);
+    }
+
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        Pin1.render(f5);
+        Pin2.render(f5);
+        Pin3.render(f5);
+        Pin4.render(f5);
+        Pin5.render(f5);
+        Pin6.render(f5);
+        Pin7.render(f5);
+        Pin8.render(f5);
+        Pin9.render(f5);
+        Pin10.render(f5);
+        Pin11.render(f5);
+        Pin12.render(f5);
+        Pin13.render(f5);
+    }
+
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
 
 }

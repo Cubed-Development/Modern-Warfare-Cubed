@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ItemGrenade extends Item implements
-PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContainer, Updatable, IModernCraftingRecipe {
+        PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContainer, Updatable, IModernCraftingRecipe {
 
     public static final int DEFAULT_FUSE_TIMEOUT = 3000;
     public static final float DEFAULT_EXPLOSION_STRENTH = 2f;
@@ -124,7 +124,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
         private CraftingEntry[] modernRecipe;
         private CraftingGroup craftingGroup;
 
-        public Builder withModernRecipe(CraftingGroup group, CraftingEntry...is) {
+        public Builder withModernRecipe(CraftingGroup group, CraftingEntry... is) {
             this.modernRecipe = is;
             this.craftingGroup = group;
             return this;
@@ -179,7 +179,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
             this.explosionTimeout = EXPLODE_ON_IMPACT;
             return this;
         }
-        
+
         public Builder withDestroyingBlocks(boolean isDestroyingBlocks) {
             this.isDestroyingBlocks = isDestroyingBlocks;
             return this;
@@ -189,7 +189,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
 //            this.smokeOnly = true;
 //            return this;
 //        }
-        
+
         public Builder withType(Type type) {
             this.type = type;
             return this;
@@ -222,7 +222,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
             return this;
         }
 
-        public  Builder withThirdPersonPositioning(BiConsumer<EntityLivingBase, ItemStack> thirdPersonPositioning) {
+        public Builder withThirdPersonPositioning(BiConsumer<EntityLivingBase, ItemStack> thirdPersonPositioning) {
             this.thirdPersonPositioning = thirdPersonPositioning;
             return this;
         }
@@ -254,8 +254,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
 
         public Builder withFirstPersonHandPositioning(
                 Consumer<RenderContext<RenderableState>> leftHand,
-                Consumer<RenderContext<RenderableState>> rightHand)
-        {
+                Consumer<RenderContext<RenderableState>> rightHand) {
             this.firstPersonLeftHandPositioning = leftHand;
             this.firstPersonRightHandPositioning = rightHand;
             return this;
@@ -266,18 +265,18 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
             return this;
         }
 
-        public Builder withCrafting(CraftingComplexity craftingComplexity, Object...craftingMaterials) {
+        public Builder withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
             return withCrafting(1, craftingComplexity, craftingMaterials);
         }
 
-        public Builder withCrafting(int craftingCount, CraftingComplexity craftingComplexity, Object...craftingMaterials) {
-            if(craftingComplexity == null) {
+        public Builder withCrafting(int craftingCount, CraftingComplexity craftingComplexity, Object... craftingMaterials) {
+            if (craftingComplexity == null) {
                 throw new IllegalArgumentException("Crafting complexity not set");
             }
-            if(craftingMaterials.length < 2) {
+            if (craftingMaterials.length < 2) {
                 throw new IllegalArgumentException("2 or more materials required for crafting");
             }
-            if(craftingCount == 0) {
+            if (craftingCount == 0) {
                 throw new IllegalArgumentException("Invalid item count");
             }
             this.craftingComplexity = craftingComplexity;
@@ -286,7 +285,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
             return this;
         }
 
-        public Builder withCraftingRecipe(Object...craftingRecipe) {
+        public Builder withCraftingRecipe(Object... craftingRecipe) {
             this.craftingRecipe = craftingRecipe;
             return this;
         }
@@ -352,44 +351,44 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
 
             CraftingRegistry.registerHook(grenade);
 
-            if(this.bounceHardSound != null) {
+            if (this.bounceHardSound != null) {
                 grenade.bounceHardSound = modContext.registerSound(this.bounceHardSound);
             }
 
-            if(this.bounceSoftSound != null) {
+            if (this.bounceSoftSound != null) {
                 grenade.bounceSoftSound = modContext.registerSound(this.bounceSoftSound);
             }
 
-            if(this.explosionSound != null) {
+            if (this.explosionSound != null) {
                 grenade.explosionSound = modContext.registerSound(this.explosionSound);
             }
 
-            if(this.safetyPinOffSound != null) {
+            if (this.safetyPinOffSound != null) {
                 grenade.safetyPinOffSound = modContext.registerSound(this.safetyPinOffSound);
             }
 
-            if(this.throwSound != null) {
+            if (this.throwSound != null) {
                 grenade.throwSound = modContext.registerSound(this.throwSound);
             }
 
-            if(this.stopAfterThrowingSound != null) {
+            if (this.stopAfterThrowingSound != null) {
                 grenade.stopAfterThrowingSound = modContext.registerSound(this.stopAfterThrowingSound);
             }
 
             modContext.registerGrenadeWeapon(name, grenade, renderer);
 
-            if(craftingRecipe != null && craftingRecipe.length >= 2) {
+            if (craftingRecipe != null && craftingRecipe.length >= 2) {
                 modContext.getRecipeManager().registerShapedRecipe(grenade, craftingRecipe);
-            } else if(craftingComplexity != null) {
+            } else if (craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
-                    .withSlotCount(9)
-                    .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
+                        .withSlotCount(9)
+                        .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
 
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(grenade, name, optionsMetadata);
 
                 ItemStack itemStack = new ItemStack(grenade);
                 itemStack.setCount(craftingCount);
-                if(optionsMetadata.hasOres()) {
+                if (optionsMetadata.hasOres()) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
@@ -441,7 +440,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
     }
 
     public List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player,
-            ItemStack itemStack) {
+                                                                                          ItemStack itemStack) {
         return new ArrayList<>(builder.compatibleAttachments.values());
     }
 
@@ -553,7 +552,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
     public boolean isDestroyingBlocks() {
         return builder.isDestroyingBlocks;
     }
-    
+
     public Type getType() {
         return builder.type;
     }

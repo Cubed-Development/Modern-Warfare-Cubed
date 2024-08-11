@@ -138,8 +138,9 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
      * Commits pending state
      */
     protected void updateWith(PlayerItemInstance<S> otherState, boolean updateManagedState) {
-        if (updateManagedState)
+        if (updateManagedState) {
             setState(otherState.getState());
+        }
     }
 
     @Override

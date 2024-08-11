@@ -45,14 +45,14 @@ public class WeaponKeyInputHandler {
         EntityPlayer player = entityPlayerSupplier.apply(null);
         ItemStack itemStack = player.getHeldItemMainhand();
 
-	    boolean altMode = false;
-	    if(DebugPositioner.isDebugModeEnabled()) {
-	        altMode = Keyboard.isKeyDown(KeyBindings.altModeDebugKey.getKeyCode());
-	    }
-	    
-	   
+        boolean altMode = false;
+        if (DebugPositioner.isDebugModeEnabled()) {
+            altMode = Keyboard.isKeyDown(KeyBindings.altModeDebugKey.getKeyCode());
+        }
+
+
 //	    System.out.println("Alt mode: " + altMode);
-	    
+
 //	    if(DebugPositioner.isDebugModeEnabled()) {
 //	        KeyBindings.bindDebugKeys();
 //        }
@@ -87,43 +87,43 @@ public class WeaponKeyInputHandler {
 	    
    		*/
 
-	    if(AnimationModeProcessor.getInstance().getFPSMode()) {
-	    	if(Keyboard.isKeyDown(Keyboard.KEY_COMMA)) {
-	    		System.out.println("hello");
-	    		AnimationModeProcessor.getInstance().transformMode = 1;
-	    	} else if(Keyboard.isKeyDown(Keyboard.KEY_PERIOD)) {
-	    		System.out.println("hello");
-	    		AnimationModeProcessor.getInstance().transformMode = 2;
-	    	} else if(Keyboard.isKeyDown(Keyboard.KEY_END)) {
-	    		OpenGLSelectionHelper.ballBuf.framebufferClear();
-	    		AnimationModeProcessor.getInstance().transformMode = 3;
-	    	}
-	    
-	    }
-	    
-	    
-	    if(KeyBindings.openDoor.isPressed() && itemStack != null && !itemStack.isEmpty() && itemStack.getItem() instanceof Weapon) {
-	    	
-	    	Vec3d origin = player.getPositionVector().add(0, player.getEyeHeight(), 0);
-	    	Vec3d direction = player.getLookVec().scale(5);
-	    	
-			RayTraceResult rtr = player.world.rayTraceBlocks(origin, origin.add(direction), false, true, false);
-	 		if(rtr != null) {
-	 			IBlockState state = player.world.getBlockState(rtr.getBlockPos());
-	 			if(state.getBlock() instanceof BlockDoor) {
-	 				
-	 				MC.playerController.processRightClickBlock(MC.player, MC.world, rtr.getBlockPos(), rtr.sideHit, rtr.hitVec, EnumHand.MAIN_HAND);
-	 				//CHANNEL.sendToServer(new OpenDoorMessage(rtr.getBlockPos()));
+        if (AnimationModeProcessor.getInstance().getFPSMode()) {
+            if (Keyboard.isKeyDown(Keyboard.KEY_COMMA)) {
+                System.out.println("hello");
+                AnimationModeProcessor.getInstance().transformMode = 1;
+            } else if (Keyboard.isKeyDown(Keyboard.KEY_PERIOD)) {
+                System.out.println("hello");
+                AnimationModeProcessor.getInstance().transformMode = 2;
+            } else if (Keyboard.isKeyDown(Keyboard.KEY_END)) {
+                OpenGLSelectionHelper.ballBuf.framebufferClear();
+                AnimationModeProcessor.getInstance().transformMode = 3;
+            }
+
+        }
+
+
+        if (KeyBindings.openDoor.isPressed() && itemStack != null && !itemStack.isEmpty() && itemStack.getItem() instanceof Weapon) {
+
+            Vec3d origin = player.getPositionVector().add(0, player.getEyeHeight(), 0);
+            Vec3d direction = player.getLookVec().scale(5);
+
+            RayTraceResult rtr = player.world.rayTraceBlocks(origin, origin.add(direction), false, true, false);
+            if (rtr != null) {
+                IBlockState state = player.world.getBlockState(rtr.getBlockPos());
+                if (state.getBlock() instanceof BlockDoor) {
+
+                    MC.playerController.processRightClickBlock(MC.player, MC.world, rtr.getBlockPos(), rtr.sideHit, rtr.hitVec, EnumHand.MAIN_HAND);
+                    //CHANNEL.sendToServer(new OpenDoorMessage(rtr.getBlockPos()));
 	 				
 	 				
 	 				/*
 	 				BlockDoor door = (BlockDoor) state.getBlock();
 	 				door.onBlockActivated(player.world, rtr.getBlockPos(), state, player, EnumHand.MAIN_HAND, EnumFacing.NORTH, (float) rtr.hitVec.x, (float) rtr.hitVec.y, (float) rtr.hitVec.z);
 	 				*/
-	 			}
-	 		
-	 		}
-	    }
+                }
+
+            }
+        }
 	    
 	    
 	    /*
@@ -172,39 +172,34 @@ public class WeaponKeyInputHandler {
 	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, 0, -0.1);
 	    	}
 	    }*/
-	    
-	     
 
-         if(KeyBindings.reloadKey.isPressed()) {
-            if(itemStack != null) {
-           
-            	
-            	//modContext.getMainHeldWeapon().setIsAwaitingCompoundInstructions(true);
-            	
+
+        if (KeyBindings.reloadKey.isPressed()) {
+            if (itemStack != null) {
+
+
+                //modContext.getMainHeldWeapon().setIsAwaitingCompoundInstructions(true);
+
                 Item item = itemStack.getItem();
-                if(item instanceof Reloadable) {
+                if (item instanceof Reloadable) {
                     ((Reloadable) item).reloadMainHeldItemForPlayer(player);
                 }
             }
-        }
-        
-        else if(KeyBindings.unloadKey.isPressed()) {
-            if(itemStack != null) {
+        } else if (KeyBindings.unloadKey.isPressed()) {
+            if (itemStack != null) {
                 Item item = itemStack.getItem();
-                if(item instanceof Reloadable) {
+                if (item instanceof Reloadable) {
                     ((Reloadable) item).unloadMainHeldItemForPlayer(player);
                 }
             }
-        }
-        
-        else if(KeyBindings.inspectKey.isPressed()) {
+        } else if (KeyBindings.inspectKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-            if(itemStack != null) {
+            if (itemStack != null) {
                 Item item = itemStack.getItem();
-                if(item instanceof Inspectable) {
+                if (item instanceof Inspectable) {
                     ((Inspectable) item).inspectMainHeldItemForPlayer(player);
                 }
-              
+
             }
             /*
             if(instance != null && instance.getState() == WeaponState.MODIFYING) {
@@ -216,53 +211,45 @@ public class WeaponKeyInputHandler {
                 }
             }
             */
-        }
-
-        else if(KeyBindings.laserSwitchKey.isPressed()) {
+        } else if (KeyBindings.laserSwitchKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-            if(instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.MODIFYING)) {
+            if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.MODIFYING)) {
                 instance.setLaserOn(!instance.isLaserOn());
             }
-        }
-
-        else if(KeyBindings.nightVisionSwitchKey.isPressed()) {
+        } else if (KeyBindings.nightVisionSwitchKey.isPressed()) {
             ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-            if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor 
-                    && ((CustomArmor)helmetStack.getItem()).hasNightVision()){
+            if (helmetStack != null && helmetStack.getItem() instanceof CustomArmor
+                    && ((CustomArmor) helmetStack.getItem()).hasNightVision()) {
                 CHANNEL.sendToServer(new NightVisionToggleMessage());
                 NBTTagCompound tagCompound = helmetStack.getTagCompound();
                 boolean nightVisionOn = tagCompound != null && tagCompound.getBoolean(NightVisionToggleMessageHandler.TAG_NIGHT_VISION_STATE);
                 MC.player.playSound(nightVisionOn ? modContext.getNightVisionOffSound() : modContext.getNightVisionOnSound(), 1, 1);
             } else {
                 PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-                if(instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.MODIFYING || instance.getState() == WeaponState.EJECT_REQUIRED)) {
+                if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.MODIFYING || instance.getState() == WeaponState.EJECT_REQUIRED)) {
                     instance.setNightVisionOn(!instance.isNightVisionOn());
                 }
             }
-        }
+        } else if (KeyBindings.attachmentKey.isPressed()) {
 
-        else if(KeyBindings.attachmentKey.isPressed()) {
-        	
-            if(itemStack != null && itemStack.getItem() instanceof Modifiable /* && itemStack.getItem() instanceof Weapon*/) {
+            if (itemStack != null && itemStack.getItem() instanceof Modifiable /* && itemStack.getItem() instanceof Weapon*/) {
                 ((Modifiable) itemStack.getItem()).toggleClientAttachmentSelectionMode(player);
-                
-                if(modContext.getMainHeldWeapon() != null) {
-                	if((modContext.getMainHeldWeapon() .getState() == WeaponState.MODIFYING)
-            				|| modContext.getMainHeldWeapon() .getState() == WeaponState.MODIFYING_REQUESTED
-            				|| modContext.getMainHeldWeapon() .getState() == WeaponState.NEXT_ATTACHMENT
-            				|| modContext.getMainHeldWeapon() .getState() == WeaponState.NEXT_ATTACHMENT_REQUESTED) {
-                		ModificationGUI.getInstance().setupForWeapon(modContext.getMainHeldWeapon());
-                	}
+
+                if (modContext.getMainHeldWeapon() != null) {
+                    if ((modContext.getMainHeldWeapon().getState() == WeaponState.MODIFYING)
+                            || modContext.getMainHeldWeapon().getState() == WeaponState.MODIFYING_REQUESTED
+                            || modContext.getMainHeldWeapon().getState() == WeaponState.NEXT_ATTACHMENT
+                            || modContext.getMainHeldWeapon().getState() == WeaponState.NEXT_ATTACHMENT_REQUESTED) {
+                        ModificationGUI.getInstance().setupForWeapon(modContext.getMainHeldWeapon());
+                    }
                 }
-                
-               if(!MC.inGameHasFocus) {
-            	   MC.setIngameFocus();
-               }
-                
+
+                if (!MC.inGameHasFocus) {
+                    MC.setIngameFocus();
+                }
+
             }
-        }
-        
-        else if(KeyBindings.customInventoryKey.isPressed()) {
+        } else if (KeyBindings.customInventoryKey.isPressed()) {
             CHANNEL.sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
         }
 
@@ -329,40 +316,33 @@ public class WeaponKeyInputHandler {
             }
         }*/
 
-         else if (KeyBindings.leftArrowKey.isPressed()) {
-             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
-             if (instance instanceof PlayerTabletInstance) {
-                 PlayerTabletInstance playerTabletInstance = (PlayerTabletInstance) instance;
-                 playerTabletInstance.previousActiveWatchIndex();
-             }
-         }
-
-         else if (KeyBindings.rightArrowKey.isPressed()) {
-             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
-             if (instance instanceof PlayerTabletInstance) {
-                 PlayerTabletInstance playerTabletInstance = (PlayerTabletInstance) instance;
-                 playerTabletInstance.nextActiveWatchIndex();
-             }
-         }
-
-        else if (KeyBindings.fireModeKey.isPressed()) {
+        else if (KeyBindings.leftArrowKey.isPressed()) {
+            PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
+            if (instance instanceof PlayerTabletInstance) {
+                PlayerTabletInstance playerTabletInstance = (PlayerTabletInstance) instance;
+                playerTabletInstance.previousActiveWatchIndex();
+            }
+        } else if (KeyBindings.rightArrowKey.isPressed()) {
+            PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
+            if (instance instanceof PlayerTabletInstance) {
+                PlayerTabletInstance playerTabletInstance = (PlayerTabletInstance) instance;
+                playerTabletInstance.nextActiveWatchIndex();
+            }
+        } else if (KeyBindings.fireModeKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-            if(instance != null && instance.getState() == WeaponState.READY) {
+            if (instance != null && instance.getState() == WeaponState.READY) {
                 instance.getWeapon().changeFireMode(instance);
             }
-        }
-
-        else if(KeyBindings.addKey.isPressed()) {
+        } else if (KeyBindings.addKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-            if(instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED)) {
+            if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED)) {
                 instance.getWeapon().incrementZoom(instance);
             }
-        }
-
-        else if(KeyBindings.subtractKey.isPressed()) {
+        } else if (KeyBindings.subtractKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-            if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED))
+            if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED)) {
                 instance.getWeapon().decrementZoom(instance);
+            }
         }
     }
 }

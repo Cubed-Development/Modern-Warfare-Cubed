@@ -21,7 +21,7 @@ public interface DynamicShaderPhase {
 
         @Override
         public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {
-        	
+
             if (OpenGlHelper.shadersSupported) {
                 int originalMatrixMode = GL11.glGetInteger(GL11.GL_MATRIX_MODE);
 
@@ -56,11 +56,11 @@ public interface DynamicShaderPhase {
         @Override
         public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {
             Object target = context.getTarget();
-            
-            if(target instanceof EntityRenderer) {
+
+            if (target instanceof EntityRenderer) {
                 EntityRenderer entityRenderer = (EntityRenderer) target;
                 ShaderGroup currentShaderGroup = entityRenderer.getShaderGroup();
-                if(currentShaderGroup != shaderGroup) {
+                if (currentShaderGroup != shaderGroup) {
                     remove(context, null);
                     ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, shaderGroup, "shaderGroup", "field_147707_d");
                     setUseShader(entityRenderer, true);
@@ -71,10 +71,10 @@ public interface DynamicShaderPhase {
         @Override
         public void remove(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {
             Object target = context.getTarget();
-            if(target instanceof EntityRenderer) {
+            if (target instanceof EntityRenderer) {
                 EntityRenderer entityRenderer = (EntityRenderer) target;
                 ShaderGroup currentShaderGroup = entityRenderer.getShaderGroup();
-                if(currentShaderGroup instanceof DynamicShaderGroup) {
+                if (currentShaderGroup instanceof DynamicShaderGroup) {
                     currentShaderGroup.deleteShaderGroup();
                     ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, null, "shaderGroup", "field_147707_d");
                 }
@@ -84,7 +84,7 @@ public interface DynamicShaderPhase {
 
         private static void setUseShader(EntityRenderer entityRenderer, boolean value) {
             ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, value, "useShader", "field_175083_ad");
-            
+
         }
 
     }
@@ -99,17 +99,16 @@ public interface DynamicShaderPhase {
 
         @Override
         public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {
-           
-        	
-        	
-        	Object target = context.getTarget();
-            if(target instanceof CompatibleWorldRenderer) {
+
+
+            Object target = context.getTarget();
+            if (target instanceof CompatibleWorldRenderer) {
                 CompatibleWorldRenderer entityRenderer = (CompatibleWorldRenderer) target;
                 ShaderGroup currentShaderGroup = entityRenderer.getShaderGroup();
-                if(currentShaderGroup != shaderGroup) {
+                if (currentShaderGroup != shaderGroup) {
                     //remove(context, null);
-                	
-                	entityRenderer.setShaderGroup(shaderGroup);
+
+                    entityRenderer.setShaderGroup(shaderGroup);
                     entityRenderer.useShader(true);
                 }
             }
@@ -118,10 +117,10 @@ public interface DynamicShaderPhase {
         @Override
         public void remove(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {
             Object target = context.getTarget();
-            if(target instanceof CompatibleWorldRenderer) {
+            if (target instanceof CompatibleWorldRenderer) {
                 CompatibleWorldRenderer entityRenderer = (CompatibleWorldRenderer) target;
                 ShaderGroup currentShaderGroup = entityRenderer.getShaderGroup();
-                if(currentShaderGroup instanceof DynamicShaderGroup) {
+                if (currentShaderGroup instanceof DynamicShaderGroup) {
                     currentShaderGroup.deleteShaderGroup();
                     entityRenderer.setShaderGroup(null);
                 }

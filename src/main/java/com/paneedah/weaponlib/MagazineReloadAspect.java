@@ -39,22 +39,22 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             super(state);
         }
     }
-    
+
     public static class UnloadPermit extends Permit<MagazineState> {
-    	
-    	public UnloadPermit() {}
-    	
-    	public UnloadPermit(MagazineState state) {
-    		super(state);
-    	}
-    	
+
+        public UnloadPermit() {}
+
+        public UnloadPermit(MagazineState state) {
+            super(state);
+        }
+
     }
 
     private static long reloadAnimationDuration = 1000;
 
 
     private static Predicate<PlayerMagazineInstance> reloadAnimationCompleted = es ->
-        System.currentTimeMillis() >= es.getStateUpdateTimestamp() + reloadAnimationDuration; // TODO: read reload animation duration from the state itself
+            System.currentTimeMillis() >= es.getStateUpdateTimestamp() + reloadAnimationDuration; // TODO: read reload animation duration from the state itself
 
     private ModContext modContext;
 
@@ -66,7 +66,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
         boolean result = Tags.getAmmo(instance.getItemStack()) < instance.getMagazine().getCapacity();
         return result;
     };
-    
+
     private Predicate<PlayerMagazineInstance> notEmpty = instance -> {
         boolean result = Tags.getAmmo(instance.getItemStack()) != 0;
         return result;
@@ -79,56 +79,56 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     @Override
     public void setStateManager(StateManager<MagazineState, ? super PlayerMagazineInstance> stateManager) {
 
-        if(permitManager == null) {
+        if (permitManager == null) {
             throw new IllegalStateException("Permit manager not initialized");
         }
 
         this.stateManager = stateManager
 
-        .in(this)
-            .change(MagazineState.READY).to(MagazineState.LOAD)
-            .when(notFull)
-            .withPermit((s, es) -> new LoadPermit(s),
-                    modContext.getPlayerItemInstanceRegistry()::update,
-                    permitManager)
-            .withAction((c, f, t, p) -> doPermittedLoad(c, (LoadPermit)p))
-            .manual()
+                .in(this)
+                .change(MagazineState.READY).to(MagazineState.LOAD)
+                .when(notFull)
+                .withPermit((s, es) -> new LoadPermit(s),
+                        modContext.getPlayerItemInstanceRegistry()::update,
+                        permitManager)
+                .withAction((c, f, t, p) -> doPermittedLoad(c, (LoadPermit) p))
+                .manual()
 
-        .in(this)
-            .change(MagazineState.LOAD).to(MagazineState.READY)
-            .when(reloadAnimationCompleted)
-            .automatic()
-            
-         .in(this)
-            .change(MagazineState.READY).to(MagazineState.UNLOAD)
-            .when(notEmpty)
-            .withPermit((s, es) -> new UnloadPermit(s),
-                    modContext.getPlayerItemInstanceRegistry()::update,
-                    permitManager)
-            .withAction((c, f, t, p) -> doPermittedUnload(c, (UnloadPermit)p))
-            .manual()
-            
-         .in(this)
-            .change(MagazineState.UNLOAD).to(MagazineState.READY)
-            .when(reloadAnimationCompleted)
-            .automatic()
-            
+                .in(this)
+                .change(MagazineState.LOAD).to(MagazineState.READY)
+                .when(reloadAnimationCompleted)
+                .automatic()
+
+                .in(this)
+                .change(MagazineState.READY).to(MagazineState.UNLOAD)
+                .when(notEmpty)
+                .withPermit((s, es) -> new UnloadPermit(s),
+                        modContext.getPlayerItemInstanceRegistry()::update,
+                        permitManager)
+                .withAction((c, f, t, p) -> doPermittedUnload(c, (UnloadPermit) p))
+                .manual()
+
+                .in(this)
+                .change(MagazineState.UNLOAD).to(MagazineState.READY)
+                .when(reloadAnimationCompleted)
+                .automatic()
+
         ;
     }
 
     @Override
     public void setPermitManager(NetworkPermitManager permitManager) {
         this.permitManager = permitManager;
-        permitManager.registerEvaluator(LoadPermit.class, PlayerMagazineInstance.class, (p, c) -> { evaluateLoad(p, c); });
-        permitManager.registerEvaluator(UnloadPermit.class, PlayerMagazineInstance.class, (p, c) -> { evaluateUnload(p, c); });
-        
+        permitManager.registerEvaluator(LoadPermit.class, PlayerMagazineInstance.class, (p, c) -> {evaluateLoad(p, c);});
+        permitManager.registerEvaluator(UnloadPermit.class, PlayerMagazineInstance.class, (p, c) -> {evaluateUnload(p, c);});
+
     }
 
     public void reloadMainHeldItem(EntityPlayer player) {
         PlayerMagazineInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMagazineInstance.class);
         stateManager.changeState(this, instance, MagazineState.LOAD);
     }
-    
+
     public void unloadMainHeldItem(EntityPlayer player) {
         PlayerMagazineInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMagazineInstance.class);
         stateManager.changeState(this, instance, MagazineState.UNLOAD);
@@ -136,14 +136,14 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
 
     void updateMainHeldItem(EntityPlayer player) {
         PlayerMagazineInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMagazineInstance.class);
-        if(instance != null) {
+        if (instance != null) {
             stateManager.changeStateFromAnyOf(this, instance, allowedUpdateFromStates); // no target state specified, will trigger auto-transitions
         }
     }
 
-    
+
     private void evaluateUnload(UnloadPermit p, PlayerMagazineInstance magazineInstance) {
-        if(!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
+        if (!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
             ModReference.LOG.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect unload");
             return;
         }
@@ -151,45 +151,47 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
         ItemStack magazineStack = magazineInstance.getItemStack();
 
         Status status = Status.DENIED;
-        if(magazineStack.getItem() instanceof ItemMagazine) {
+        if (magazineStack.getItem() instanceof ItemMagazine) {
             ItemStack magazineItemStack = magazineStack;
-            
+
             EntityPlayer player = (EntityPlayer) magazineInstance.getPlayer();
             boolean originalFlag = true;
-            if(magazineItemStack.getCount() > 1) {
+            if (magazineItemStack.getCount() > 1) {
                 magazineItemStack.shrink(1);
 
                 ItemStack copyOfStack = magazineItemStack.copy();
                 copyOfStack.setCount(1);
-             
+
                 magazineItemStack = copyOfStack;
                 originalFlag = false;
             }
-            
-            
-            
+
+
             ItemMagazine magazine = (ItemMagazine) magazineItemStack.getItem();
             List<ItemBullet> compatibleBullets = magazine.getCompatibleBullets();
             int currentAmmo = originalFlag ? Tags.getAmmo(magazineStack) : Tags.getAmmo(magazineItemStack);
-            
-            
+
+
             ItemStack stack = new ItemStack(compatibleBullets.get(0));
             stack.setCount(currentAmmo);
 
-            if (!player.addItemStackToInventory(stack))
+            if (!player.addItemStackToInventory(stack)) {
                 player.dropItem(stack, false);
-            
-            if(originalFlag) {
-            	 Tags.setAmmo(magazineStack, 0);
-            } else {
-            	 Tags.setAmmo(magazineItemStack, 0);
             }
-           
-            
-            if(!originalFlag) player.inventory.addItemStackToInventory(magazineItemStack);
-            
-            
-            if(magazine.getUnloadSound() != null) {
+
+            if (originalFlag) {
+                Tags.setAmmo(magazineStack, 0);
+            } else {
+                Tags.setAmmo(magazineItemStack, 0);
+            }
+
+
+            if (!originalFlag) {
+                player.inventory.addItemStackToInventory(magazineItemStack);
+            }
+
+
+            if (magazine.getUnloadSound() != null) {
                 magazineInstance.getPlayer().playSound(magazine.getUnloadSound(), 1, 1);
             }
 
@@ -219,12 +221,11 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
 
         p.setStatus(status);
     }
-    
-    
-    
+
+
     private void evaluateLoad(LoadPermit p, PlayerMagazineInstance magazineInstance) {
 
-        if(!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
+        if (!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
             ModReference.LOG.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect load");
             return;
         }
@@ -232,38 +233,38 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
         ItemStack magazineStack = magazineInstance.getItemStack();
 
         Status status = Status.DENIED;
-        if(magazineStack.getItem() instanceof ItemMagazine) {
+        if (magazineStack.getItem() instanceof ItemMagazine) {
             ItemStack magazineItemStack = magazineStack;
-            
+
             EntityPlayer player = (EntityPlayer) magazineInstance.getPlayer();
-            
+
             boolean shouldSplitStack = false;
-            if(magazineItemStack.getCount() > 1) {
+            if (magazineItemStack.getCount() > 1) {
                 shouldSplitStack = true;
-                if(player.inventory.getFirstEmptyStack() < 0) {
+                if (player.inventory.getFirstEmptyStack() < 0) {
                     p.setStatus(status);
                     return;
                 }
             }
-            
+
             ItemMagazine magazine = (ItemMagazine) magazineItemStack.getItem();
             List<ItemBullet> bullets = magazine.getCompatibleBullets();
             int currentAmmo = Tags.getAmmo(magazineStack);
             int consumedAmount;
             if (currentAmmo < magazine.getCapacity() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(bullets, magazine.getCapacity() - currentAmmo, (EntityPlayer) magazineInstance.getPlayer())) != 0) {
-                
+
                 ItemStack remainingStack = null;
-                if(shouldSplitStack) {
+                if (shouldSplitStack) {
                     remainingStack = magazineStack.splitStack(magazineStack.getCount() - 1);
                 }
-                
+
                 Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + consumedAmount);
-                
-                if(remainingStack != null) {
+
+                if (remainingStack != null) {
                     player.inventory.addItemStackToInventory(remainingStack);
                 }
-                
-                if(magazine.getReloadSound() != null) {
+
+                if (magazine.getReloadSound() != null) {
                     magazineInstance.getPlayer().playSound(magazine.getReloadSound(), 1, 1);
                 }
                 status = Status.GRANTED;
@@ -272,9 +273,9 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
 
         p.setStatus(status);
     }
-    
+
     private void doPermittedUnload(PlayerMagazineInstance weaponInstance, UnloadPermit permit) {
-        if(permit == null) {
+        if (permit == null) {
             System.err.println("Permit is null, something went wrong");
             return;
         }
@@ -284,7 +285,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     }
 
     private void doPermittedLoad(PlayerMagazineInstance weaponInstance, LoadPermit permit) {
-        if(permit == null) {
+        if (permit == null) {
             System.err.println("Permit is null, something went wrong");
             return;
         }

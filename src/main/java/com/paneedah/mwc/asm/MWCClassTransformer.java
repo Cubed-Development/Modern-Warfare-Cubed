@@ -575,8 +575,7 @@ public class MWCClassTransformer implements IClassTransformer {
             } */ /*else if(modelPlayerClassInfo != null
                     && modelPlayerClassInfo.methodMatches("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", classname, name, desc)) {
                 return new RenderMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } */
-            else if (layerHeldItemClassInfo != null
+            } */ else if (layerHeldItemClassInfo != null
                     && layerHeldItemClassInfo.methodMatches("renderHeldItem", "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType;Lnet/minecraft/util/EnumHandSide;)V", classname, name, desc)) {
                 return new RenderHeldItemMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions),
                         !name.equals("renderHeldItem"));

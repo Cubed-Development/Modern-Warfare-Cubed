@@ -397,10 +397,11 @@ public class ItemMelee extends Item implements
     }
 
     public void attack(final EntityPlayer player, final boolean heavy) {
-        if (heavy)
+        if (heavy) {
             modContext.getMeleeAttackAspect().onHeavyAttackButtonClick(player);
-        else
+        } else {
             modContext.getMeleeAttackAspect().onAttackButtonClick(player);
+        }
     }
 
 //    public Multimap getItemAttributeModifiers() {

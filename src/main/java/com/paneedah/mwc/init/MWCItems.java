@@ -13,7 +13,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-@Mod.EventBusSubscriber(modid =ID)
+@Mod.EventBusSubscriber(modid = ID)
 public class MWCItems {
 
     //Ingots
@@ -94,7 +94,7 @@ public class MWCItems {
 
         vestRender = (ItemBase) new ItemBase("vest_render").setCreativeTab(null);
 
-        items = new ItemBase[] {
+        items = new ItemBase[]{
                 copperIngot,
                 tinIngot,
                 leadIngot,
@@ -126,12 +126,13 @@ public class MWCItems {
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
     }
 
-    static void registerOreDictionaryKeys(ItemBase[] items){
+    static void registerOreDictionaryKeys(ItemBase[] items) {
         for (ItemBase item : items) {
             String[] oreDictKeys = item.getOreDictKeys();
 
-            if(oreDictKeys == null)
+            if (oreDictKeys == null) {
                 continue;
+            }
 
             for (String oreDictKey : oreDictKeys)
                 OreDictionary.registerOre(oreDictKey, item);
