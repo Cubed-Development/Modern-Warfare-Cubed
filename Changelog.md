@@ -67,6 +67,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Reworked weapons tooltips
 - Reworked magazines tooltips
 - Reworked vests tooltips
+- Updated Chinese translation
 
 ### Fixed
 
