@@ -18,6 +18,8 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 ### Fixed
 
 - Fixed potential NullPointerException when connecting to a server
+- Fixed StackOverflowError when pressing R rapidly
+- Improved the experimental fix for CCS ([#248](https://github.com/Cubed-Development/Modern-Warfare-Cubed/issues/248))
 
 ## Modern Warfare Cubed Version 0.1.7 Changelog - 2024-06-29
 
