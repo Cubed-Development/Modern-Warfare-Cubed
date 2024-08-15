@@ -51,7 +51,6 @@ like knowing which weapon is better or whether an attachment will be useful to y
 
 ### Changed
 
-- zh_CN update
 - Fire mode hint ("Press [B] to change fire mode") now only appears when the weapon has multiple fire modes
 - Magazines now use the same ammunition counter as weapons, instead of a white text in the top-right corner
 - The crosshair will now appear when holding a magazine
@@ -66,6 +65,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Reworked weapons tooltips
 - Reworked magazines tooltips
 - Reworked vests tooltips
+- Updated Chinese translation
 
 ### Removed
 
