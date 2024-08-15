@@ -357,8 +357,13 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		// we don't have a custom hash.
 		if(!CACHE_DIR.exists())
 			return false;
+
+		final File[] files = CACHE_DIR.listFiles();
+
+		if (files == null)
+			return false;
 		
-		for(File f : CACHE_DIR.listFiles()) {
+		for(File f : files) {
 			
 			byte[] checkHash = getDigest(f);
 
