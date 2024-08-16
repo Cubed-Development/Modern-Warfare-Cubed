@@ -28,9 +28,9 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
     Randomizer randomizer;
 
-    private Supplier<Long> currentTimeProvider; // = System::currentTimeMillis;
+    private final Supplier<Long> currentTimeProvider; // = System::currentTimeMillis;
 
-    private Function<Context, Float> currentProgressProvider;
+    private final Function<Context, Float> currentProgressProvider;
 
     WeakHashMap<Part, Matrix4f> lastApplied = new WeakHashMap<>(); // TODO: replace with cache?
 
@@ -41,7 +41,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
             Part attachedTo;
         }
 
-        private Map<Part, PartData> partDataMap = new HashMap<>();
+        private final Map<Part, PartData> partDataMap = new HashMap<>();
 
         private Long startTime;
         private long totalDuration;
@@ -53,14 +53,14 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
         private long currentStartTime;
         private boolean expired;
 
-        private int segmentCount;
+        private final int segmentCount;
 
-        private List<MultipartTransition<Part, Context>> fromPositioning;
-        private List<MultipartTransition<Part, Context>> toPositioning;
+        private final List<MultipartTransition<Part, Context>> fromPositioning;
+        private final List<MultipartTransition<Part, Context>> toPositioning;
 
-        private State fromState;
-        private State toState;
-        private boolean fromAnchored;
+        private final State fromState;
+        private final State toState;
+        private final boolean fromAnchored;
 
         TransitionedPositioning(State fromState, State toState, boolean fromAnchored) {
             this.fromState = fromState;
@@ -759,13 +759,13 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
         }
     }
 
-    private String name;
+    private final String name;
 
     private StateContainer<State> currentStateContainer;
 
     MultipartTransitionProvider<State, Part, Context> transitionProvider;
 
-    private Deque<MultipartPositioning<Part, Context>> positioningQueue;
+    private final Deque<MultipartPositioning<Part, Context>> positioningQueue;
 
     public MultipartRenderStateManager(State initialState, MultipartTransitionProvider<State, Part, Context> transitionProvider) {
         this(initialState, transitionProvider, System::currentTimeMillis);

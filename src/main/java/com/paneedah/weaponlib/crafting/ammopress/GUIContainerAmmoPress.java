@@ -254,7 +254,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
             return 0;
         }
 
-        return (int) MathUtil.clampMaxFirst(Integer.parseInt(quantityBox.getText()), 1, 999);
+        return MathUtil.clampMaxFirst(Integer.parseInt(quantityBox.getText()), 1, 999);
     }
 
     @Override

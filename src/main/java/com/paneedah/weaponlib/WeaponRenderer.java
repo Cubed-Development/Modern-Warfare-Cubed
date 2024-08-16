@@ -98,7 +98,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     private static final int INVENTORY_TEXTURE_WIDTH = 128;
     private static final int INVENTORY_TEXTURE_HEIGHT = 128;
 
-    private static final Map<String, ResourceLocation> ARMOR_TEXTURE_RES_MAP = Maps.<String, ResourceLocation>newHashMap();
+    private static final Map<String, ResourceLocation> ARMOR_TEXTURE_RES_MAP = Maps.newHashMap();
 
     private final org.apache.commons.lang3.tuple.Pair<? extends IBakedModel, Matrix4f> pair;
 
@@ -213,15 +213,15 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         private List<Transition<RenderContext<RenderableState>>> firstPersonRightHandPositioningInspecting;
 
 
-        private TransitionContainer compoundReloadContainer = new TransitionContainer();
-        private TransitionContainer compoundReloadEmptyContainer = new TransitionContainer();
-        private TransitionContainer loadEmptyContainer = new TransitionContainer();
-        private TransitionContainer unloadEmptyContainer = new TransitionContainer();
+        private final TransitionContainer compoundReloadContainer = new TransitionContainer();
+        private final TransitionContainer compoundReloadEmptyContainer = new TransitionContainer();
+        private final TransitionContainer loadEmptyContainer = new TransitionContainer();
+        private final TransitionContainer unloadEmptyContainer = new TransitionContainer();
         public TransitionContainer tacticalReloadContainer = new TransitionContainer();
 
 
         // ADS animations
-        private TransitionContainer compoundReloadADSContainer = new TransitionContainer();
+        private final TransitionContainer compoundReloadADSContainer = new TransitionContainer();
 
         private List<Transition<RenderContext<RenderableState>>> firstPersonPositioningDrawing;
         private List<Transition<RenderContext<RenderableState>>> firstPersonLeftHandPositioningDrawing;
@@ -255,7 +255,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         private int recoilAnimationDuration = DEFAULT_RECOIL_ANIMATION_DURATION;
         private int shootingAnimationDuration = DEFAULT_SHOOTING_ANIMATION_DURATION;
-        private int loadIterationCompletedAnimationDuration = DEFAULT_ITERATION_COMPLETED_ANIMATION_DURATION;
+        private final int loadIterationCompletedAnimationDuration = DEFAULT_ITERATION_COMPLETED_ANIMATION_DURATION;
         private int prepareFirstLoadIterationAnimationDuration = DEFAULT_PREPARE_FIRST_LOAD_ITERATION_ANIMATION_DURATION;
         private int allLoadIterationAnimationsCompletedDuration = DEFAULT_ALL_LOAD_ITERATION_ANIMATIONS_COMPLETED_DURATION;
 
@@ -263,41 +263,41 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         private float firingRandomizingRate = DEFAULT_RANDOMIZING_FIRING_RATE; // movements per second, e.g. 20 = 20 movements per second = 1 movement in 50 ms
         private float zoomRandomizingRate = DEFAULT_RANDOMIZING_ZOOM_RATE;
 
-        private float normalRandomizingAmplitude = DEFAULT_NORMAL_RANDOMIZING_AMPLITUDE;
+        private final float normalRandomizingAmplitude = DEFAULT_NORMAL_RANDOMIZING_AMPLITUDE;
         private float zoomRandomizingAmplitude = DEFAULT_ZOOM_RANDOMIZING_AMPLITUDE;
         private float firingRandomizingAmplitude = DEFAULT_FIRING_RANDOMIZING_AMPLITUDE;
 
-        private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioning = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioning = new LinkedHashMap<>();
 
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningUnloading = new LinkedHashMap<>();
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningReloading = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningUnloading = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningReloading = new LinkedHashMap<>();
 
         @Deprecated
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> thirdPersonCustomPositioningUnloading = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> thirdPersonCustomPositioningUnloading = new LinkedHashMap<>();
         @Deprecated
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> thirdPersonCustomPositioningReloading = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> thirdPersonCustomPositioningReloading = new LinkedHashMap<>();
 
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningLoadIteration = new LinkedHashMap<>();
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningLoadIterationsCompleted = new LinkedHashMap<>();
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningInspecting = new LinkedHashMap<>();
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningDrawing = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningLoadIteration = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningLoadIterationsCompleted = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningInspecting = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningDrawing = new LinkedHashMap<>();
 
-        private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningRecoiled = new LinkedHashMap<>();
-        private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZoomingRecoiled = new LinkedHashMap<>();
-        private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZoomingShooting = new LinkedHashMap<>();
-        private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningLoadIterationCompleted = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningRecoiled = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZoomingRecoiled = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZoomingShooting = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningLoadIterationCompleted = new LinkedHashMap<>();
 
-        private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZooming = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZooming = new LinkedHashMap<>();
 
         private List<Transition<RenderContext<RenderableState>>> firstPersonPositioningEjectSpentRound;
         private List<Transition<RenderContext<RenderableState>>> firstPersonLeftHandPositioningEjectSpentRound;
         private List<Transition<RenderContext<RenderableState>>> firstPersonRightHandPositioningEjectSpentRound;
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningEjectSpentRound = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningEjectSpentRound = new LinkedHashMap<>();
 
         private List<Transition<RenderContext<RenderableState>>> firstPersonPositioningEjectSpentRoundAimed;
         private List<Transition<RenderContext<RenderableState>>> firstPersonLeftHandPositioningEjectSpentRoundAimed;
         private List<Transition<RenderContext<RenderableState>>> firstPersonRightHandPositioningEjectSpentRoundAimed;
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningEjectSpentRoundAimed = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningEjectSpentRoundAimed = new LinkedHashMap<>();
 
         private boolean hasRecoilPositioningDefined;
 
@@ -2178,9 +2178,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         public void buildCustomTransitionList(LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> lhm) {
             lhm.forEach((p, t) -> {
-                if (((List<Transition<RenderContext<RenderableState>>>) t).size() != lhm.size()) {
+                if (t.size() != lhm.size()) {
                     throw new IllegalStateException("Custom reloading transition number mismatch. Expected " + lhm.size()
-                            + ", actual: " + ((List<Transition<RenderContext<RenderableState>>>) t).size());
+                            + ", actual: " + t.size());
                 }
             });
         }
@@ -2220,14 +2220,14 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
     private Builder builder;
 
-    private Map<EntityLivingBase, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>>> firstPersonStateManagers;
-    private Map<EntityLivingBase, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>>> thirdPersonStateManagers;
+    private final Map<EntityLivingBase, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>>> firstPersonStateManagers;
+    private final Map<EntityLivingBase, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>>> thirdPersonStateManagers;
 
-    private MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> firstPersonTransitionProvider;
-    private MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> thirdPersonTransitionProvider;
+    private final MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> firstPersonTransitionProvider;
+    private final MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> thirdPersonTransitionProvider;
 
     // Deferred renderer list
-    private ArrayList<Pair<FloatBuffer, CustomRenderer<RenderableState>>> deferredPost = new ArrayList<>();
+    private final ArrayList<Pair<FloatBuffer, CustomRenderer<RenderableState>>> deferredPost = new ArrayList<>();
 
 
     private long magicAnimationTimer;
@@ -3274,7 +3274,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         magicAnimationTimer = System.currentTimeMillis();
 
-        Vec3d magRotationPoint = ((ItemMagazine) weapon).rotationPoint;
+        Vec3d magRotationPoint = weapon.rotationPoint;
 
         if (getBuilder().isHasTacticalReload() && nextState == WeaponState.TACTICAL_RELOAD) {
             getWeaponRendererBuilder().tacticalReloadContainer.getCustom().put(SpecialAttachments.MagicMag.getRenderablePart(),
@@ -3528,12 +3528,12 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
                 ItemAttachment<Weapon>[] possibleActionList = renderContext.getWeaponInstance().getWeapon().getRenderer().getBuilder().actionPiece;
 
-                if (possibleActionList != null && possibleActionList.length > 0) {
+                if (possibleActionList != null) {
                     for (ItemAttachment<Weapon> part : possibleActionList) {
                         if (compatibleAttachment.getAttachment() == part) {
 
 
-                            float mu = (float) ClientValueRepo.slidePumpValue.getLerpedFloat();
+                            float mu = ClientValueRepo.slidePumpValue.getLerpedFloat();
 
 
                             mu = Math.min(mu, 1.0f);
@@ -4449,7 +4449,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             }
             // System.out.println(OpenGLSelectionHelper.selectID);
             Shaders.selectedge.uniform1i("idSelected", OpenGLSelectionHelper.selectID);
-            Shaders.selectedge.uniform2f("fragSize", (float) 1.0f / MC.displayWidth, (float) 1.0f / MC.displayHeight);
+            Shaders.selectedge.uniform2f("fragSize", 1.0f / MC.displayWidth, 1.0f / MC.displayHeight);
             GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 
 
@@ -4693,7 +4693,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
         Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager()
-                .getEntityRenderObject((AbstractClientPlayer) player);
+                .getEntityRenderObject(player);
         RenderPlayer render = (RenderPlayer) entityRenderObject;
         MC.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
@@ -4751,7 +4751,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                                          Positioner<Part, RenderContext<T>> positioner) {
 
         Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager()
-                .getEntityRenderObject((AbstractClientPlayer) player);
+                .getEntityRenderObject(player);
         RenderPlayer render = (RenderPlayer) entityRenderObject;
         MC.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
@@ -4854,7 +4854,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         //if(true) return;
 
         Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager()
-                .getEntityRenderObject((AbstractClientPlayer) player);
+                .getEntityRenderObject(player);
         RenderPlayer render = (RenderPlayer) entityRenderObject;
         MC.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
@@ -4999,9 +4999,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                 ((ModelPlayer) modelplayer).bipedRightArmwear.rotateAngleX = 0.0F;
                 ((ModelPlayer) modelplayer).bipedRightArmwear.rotateAngleX = -0.3F;
             } else {
-                ((ModelPlayer) modelplayer).bipedRightArm.rotateAngleX = 0f;
-                ((ModelPlayer) modelplayer).bipedRightArm.rotateAngleY = 0f;
-                ((ModelPlayer) modelplayer).bipedRightArm.rotateAngleZ = 0f;
+                modelplayer.bipedRightArm.rotateAngleX = 0f;
+                modelplayer.bipedRightArm.rotateAngleY = 0f;
+                modelplayer.bipedRightArm.rotateAngleZ = 0f;
             }
             // ((ModelPlayer) modelplayer).bipedRightArmwear.renderer(0.0625F);
         }
@@ -5356,7 +5356,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         String s1 = String.format("%s:textures/models/armor/%s_layer_%d%s.png", domain, texture, (isLegSlot(slot) ? 2 : 1), type == null ? "" : String.format("_%s", type));
         s1 = net.minecraftforge.client.ForgeHooksClient.getArmorTexture(entity, stack, s1, slot, type);
-        ResourceLocation resourcelocation = (ResourceLocation) ARMOR_TEXTURE_RES_MAP.get(s1);
+        ResourceLocation resourcelocation = ARMOR_TEXTURE_RES_MAP.get(s1);
 
         if (resourcelocation == null) {
             resourcelocation = new ResourceLocation(s1);

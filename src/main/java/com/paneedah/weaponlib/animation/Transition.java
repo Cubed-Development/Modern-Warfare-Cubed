@@ -14,10 +14,10 @@ public class Transition<Context> {
         return (Consumer<T>) ANCHORED_POSITION;
     }
 
-    private Consumer<Context> itemPositioning;
+    private final Consumer<Context> itemPositioning;
     private long duration;
-    private long pause;
-    private Part attachedTo;
+    private final long pause;
+    private final Part attachedTo;
     private boolean animated;
 
     private SoundEvent evt;

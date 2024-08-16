@@ -9,8 +9,8 @@ public class Engine {
     private int redlineRPM = 0;
     private int idleRPM = 0;
 
-    private String engineName;
-    private String engineBrand;
+    private final String engineName;
+    private final String engineBrand;
 
     public LinkedHashMap<Double, Double> torqueCurve = new LinkedHashMap<Double, Double>();
 
@@ -60,7 +60,7 @@ public class Engine {
         double t2 = torqueCurve.get(secondBound);
 
         // Calculate step
-        double tStep = (((double) rpm) - firstBound) / (secondBound - firstBound);
+        double tStep = (rpm - firstBound) / (secondBound - firstBound);
         double stepped = t1 + (t2 - t1) * tStep;
         //	System.out.println("F: " + firstBound + " | S: " + secondBound + " | tS: " + tStep + " | T1: " + t1 + " | T2: " + t2 + " | st: " + stepped);
 

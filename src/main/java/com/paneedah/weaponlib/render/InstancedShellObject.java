@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class InstancedShellObject extends ModelInstancedObject<ShellManager> {
-    private Type type;
+    private final Type type;
 
     public InstancedShellObject(Shell.Type type, String shader, WavefrontModel model, int renderMode, int maxCopies, InstancedAttribute... attribs) {
         super(shader, model, renderMode, maxCopies, attribs);
@@ -70,9 +70,9 @@ public class InstancedShellObject extends ModelInstancedObject<ShellManager> {
             float iY = (float) MatrixHelper.solveLerp(sh.prevPos.y, sh.pos.y, MC.getRenderPartialTicks());
             float iZ = (float) MatrixHelper.solveLerp(sh.prevPos.z, sh.pos.z, MC.getRenderPartialTicks());
 
-            data[arrayPointer++] = (float) iX;
-            data[arrayPointer++] = (float) iY;
-            data[arrayPointer++] = (float) iZ;
+            data[arrayPointer++] = iX;
+            data[arrayPointer++] = iY;
+            data[arrayPointer++] = iZ;
 
             double rX = MatrixHelper.solveLerp(sh.prevRot.x, sh.rot.x, MC.getRenderPartialTicks());
             double rY = MatrixHelper.solveLerp(sh.prevRot.y, sh.rot.y, MC.getRenderPartialTicks());

@@ -123,7 +123,7 @@ public class BasicStateAnimator {
     }
 
 
-    public static interface ITransitionable {
+    public interface ITransitionable {
 
 
     }

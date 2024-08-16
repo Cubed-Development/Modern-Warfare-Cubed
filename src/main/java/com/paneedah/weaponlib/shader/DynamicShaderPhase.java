@@ -9,15 +9,15 @@ import org.lwjgl.opengl.GL11;
 
 public interface DynamicShaderPhase {
 
-    public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup);
+    void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup);
 
-    public void remove(DynamicShaderContext context, DynamicShaderGroup shaderGroup);
+    void remove(DynamicShaderContext context, DynamicShaderGroup shaderGroup);
 
-    public static final DynamicShaderPhase POST_WORLD_RENDER = new DynamicShaderPhase.EntityRendererTarget();
+    DynamicShaderPhase POST_WORLD_RENDER = new DynamicShaderPhase.EntityRendererTarget();
 
-    public static final DynamicShaderPhase POST_WORLD_OPTICAL_SCOPE_RENDER = new DynamicShaderPhase.CompatibleWorldRendererTarget();
+    DynamicShaderPhase POST_WORLD_OPTICAL_SCOPE_RENDER = new DynamicShaderPhase.CompatibleWorldRendererTarget();
 
-    public static final DynamicShaderPhase PRE_ITEM_RENDER = new DynamicShaderPhase() {
+    DynamicShaderPhase PRE_ITEM_RENDER = new DynamicShaderPhase() {
 
         @Override
         public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {
@@ -45,7 +45,7 @@ public interface DynamicShaderPhase {
 
     };
 
-    public static class EntityRendererTarget implements DynamicShaderPhase {
+    class EntityRendererTarget implements DynamicShaderPhase {
 
 //        private Supplier<EntityRenderer> entityRendererSupplier;
 //
@@ -89,7 +89,7 @@ public interface DynamicShaderPhase {
 
     }
 
-    public static class CompatibleWorldRendererTarget implements DynamicShaderPhase {
+    class CompatibleWorldRendererTarget implements DynamicShaderPhase {
 
         //private Supplier<CompatibleWorldRenderer> entityRendererSupplier;
 

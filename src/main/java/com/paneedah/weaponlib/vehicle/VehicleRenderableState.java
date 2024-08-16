@@ -5,9 +5,9 @@ public enum VehicleRenderableState implements RenderState {
     //TURN_LEFT(true), TURN_RIGHT(true)
     ;
 
-    private boolean continous;
+    private final boolean continous;
 
-    private VehicleRenderableState(boolean continous) {
+    VehicleRenderableState(boolean continous) {
         this.continous = continous;
     }
 

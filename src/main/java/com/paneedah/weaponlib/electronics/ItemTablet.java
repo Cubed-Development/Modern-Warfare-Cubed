@@ -59,7 +59,7 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
 
 
     private ModContext modContext;
-    private Builder<T> builder;
+    private final Builder<T> builder;
 
     private ItemTablet(Builder<T> builder) {
         super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null, null, null);

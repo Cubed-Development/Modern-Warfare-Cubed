@@ -12,7 +12,7 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
 public class PerspectiveManager {
 
     private Perspective<?> currentPerspective;
-    private ClientModContext clientModContext;
+    private final ClientModContext clientModContext;
     private CompatibleWorldRenderer entityRenderer;
     private MWCParticleManager effectRenderer;
     //private DynamicShaderGroupManager shaderGroupManager;

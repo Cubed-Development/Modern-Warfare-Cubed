@@ -15,9 +15,9 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class RecipeManager {
 
-    private RecipeGenerator recipeGenerator = new RecipeGenerator();
+    private final RecipeGenerator recipeGenerator = new RecipeGenerator();
 
-    private Map<Item, List<Object>> recipes = new HashMap<>();
+    private final Map<Item, List<Object>> recipes = new HashMap<>();
 
     public List<Object> createShapedRecipe(Item item, String name, OptionsMetadata optionsMetadata) {
         List<Object> recipe = recipeGenerator.createShapedRecipe(name, optionsMetadata);

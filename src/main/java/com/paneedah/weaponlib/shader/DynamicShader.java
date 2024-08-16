@@ -10,9 +10,9 @@ import java.io.IOException;
 
 class DynamicShader extends Shader {
 
-    private DynamicShaderGroup shaderGroup;
+    private final DynamicShaderGroup shaderGroup;
 
-    public DynamicShader(IResourceManager resourceManager, String programName, Framebuffer framebufferInIn, Framebuffer framebufferOutIn, DynamicShaderGroup shaderGroup) throws JsonException, IOException {
+    public DynamicShader(IResourceManager resourceManager, String programName, Framebuffer framebufferInIn, Framebuffer framebufferOutIn, DynamicShaderGroup shaderGroup) throws IOException {
         super(resourceManager, programName, framebufferInIn, framebufferOutIn);
         this.shaderGroup = shaderGroup;
     }
@@ -27,7 +27,7 @@ class DynamicShader extends Shader {
                 if (value instanceof Float) {
                     uniform.set((float) value);
                 } else if (value instanceof float[]) {
-                    float values[] = (float[]) value;
+                    float[] values = (float[]) value;
                     if (values.length == 1) {
                         uniform.set(values[0]);
                     } else if (values.length == 2) {
@@ -38,7 +38,7 @@ class DynamicShader extends Shader {
                         uniform.set(values[0], values[1], values[2], values[3]);
                     }
                 } else if (value instanceof Float[]) {
-                    Float values[] = (Float[]) value;
+                    Float[] values = (Float[]) value;
                     if (values.length == 1) {
                         uniform.set(values[0]);
                     } else if (values.length == 2) {

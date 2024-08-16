@@ -104,7 +104,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
      * from the queue. Elements with the same priority are not removed.
      * This ensures the queue is always sorted by priority, lowest (head) to highest (tail).
      */
-    private Deque<AsyncWeaponState> filteredStateQueue = new LinkedBlockingDeque<>();
+    private final Deque<AsyncWeaponState> filteredStateQueue = new LinkedBlockingDeque<>();
     private int[] activeAttachmentIds = new int[0];
     private byte[] selectedAttachmentIndexes = new byte[0];
 
@@ -279,14 +279,14 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         byteBuf.writeBoolean(altModificationModeEnabled);
     }
 
-    private static void serializeIntArray(ByteBuf buf, int a[]) {
+    private static void serializeIntArray(ByteBuf buf, int[] a) {
         buf.writeByte(a.length);
         for (int j : a) {
             buf.writeInt(j);
         }
     }
 
-    private static void serializeByteArray(ByteBuf buf, byte a[]) {
+    private static void serializeByteArray(ByteBuf buf, byte[] a) {
         buf.writeByte(a.length);
         for (int i = 0; i < a.length; i++) {
             buf.writeByte(a[i]);
@@ -295,7 +295,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     private static int[] initIntArray(ByteBuf buf) {
         int length = buf.readByte();
-        int a[] = new int[length];
+        int[] a = new int[length];
         for (int i = 0; i < length; i++) {
             a[i] = buf.readInt();
         }
@@ -304,7 +304,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     private static byte[] initByteArray(ByteBuf buf) {
         int length = buf.readByte();
-        byte a[] = new byte[length];
+        byte[] a = new byte[length];
         for (int i = 0; i < length; i++) {
             a[i] = buf.readByte();
         }

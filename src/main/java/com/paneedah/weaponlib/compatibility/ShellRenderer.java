@@ -28,10 +28,10 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ShellRenderer {
 
-    private static HashMap<Shell.Type, InstancedShellObject> shellObjMap = new HashMap<>();
-    private static Shader legacyShader = ShaderLoader.loadShader("shells");
+    private static final HashMap<Shell.Type, InstancedShellObject> shellObjMap = new HashMap<>();
+    private static final Shader legacyShader = ShaderLoader.loadShader("shells");
 
-    private static int shadowDisplayList = -1;
+    private static final int shadowDisplayList = -1;
 
     // CREDIT: http://www.opengl-tutorial.org/beginners-tutorials/tutorial-4-a-colored-cube/
     public static final float[] g_vertex_buffer_data = {

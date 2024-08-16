@@ -305,7 +305,7 @@ public class BalancePackManager {
         public static GunBalanceConfiguration fromJSONObject(JsonObject obj) {
 
             String name = obj.get("name").getAsString();
-            boolean enabled = obj.has("enabled") ? obj.get("enabled").getAsBoolean() : true;
+            boolean enabled = !obj.has("enabled") || obj.get("enabled").getAsBoolean();
             double damage = obj.has("damage") ? obj.get("damage").getAsDouble() : -1;
             double recoil = obj.has("recoil") ? obj.get("recoil").getAsDouble() : -1;
             float fireRate = obj.has("firerate") ? obj.get("firerate").getAsFloat() : -1;
@@ -867,11 +867,8 @@ public class BalancePackManager {
     }
 
     public static boolean shouldChangeWeaponDamage(Weapon weapon) {
-        if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
-                || getActiveBalancePack().getWeaponBalancing(weapon.getName()).getDamage() < 0) {
-            return false;
-        }
-        return true;
+        return hasActiveBalancePack() && balancePackAddressesWeapon(weapon)
+                && !(getActiveBalancePack().getWeaponBalancing(weapon.getName()).getDamage() < 0);
     }
 
     public static boolean firemodePropertiesAltered(Weapon weapon) {
@@ -906,11 +903,8 @@ public class BalancePackManager {
     }
 
     public static boolean shouldChangeWeaponRecoil(Weapon weapon) {
-        if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
-                || getActiveBalancePack().getWeaponBalancing(weapon.getName()).getRecoil() < 0) {
-            return false;
-        }
-        return true;
+        return hasActiveBalancePack() && balancePackAddressesWeapon(weapon)
+                && !(getActiveBalancePack().getWeaponBalancing(weapon.getName()).getRecoil() < 0);
     }
 
     public static double getNewWeaponRecoil(Weapon weapon) {

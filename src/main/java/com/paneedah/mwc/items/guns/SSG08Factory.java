@@ -1269,7 +1269,7 @@ public class SSG08Factory implements GunFactory {
                         })
                         .withFirstPersonHandPositioning(
                                 (renderContext) -> {
-                                    RenderContext<?> rc = (RenderContext<?>) renderContext;
+                                    RenderContext<?> rc = renderContext;
                                     ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                             AttachmentCategory.GRIP, rc.getWeaponInstance());
                                     if (activeAttachment == Attachments.Bipod) {

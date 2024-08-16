@@ -13,8 +13,8 @@ public class CustomTileEntityClassFactory implements Opcodes {
 
     private static class EntityClassLoader extends ClassLoader {
 
-        private byte[] rawClassBytes;
-        private String className;
+        private final byte[] rawClassBytes;
+        private final String className;
 
         public EntityClassLoader(String className, byte[] classBytes, ClassLoader parentClassLoader) {
             super(parentClassLoader);
@@ -31,13 +31,13 @@ public class CustomTileEntityClassFactory implements Opcodes {
         }
     }
 
-    private static CustomTileEntityClassFactory instance = new CustomTileEntityClassFactory();
+    private static final CustomTileEntityClassFactory instance = new CustomTileEntityClassFactory();
 
     public static CustomTileEntityClassFactory getInstance() {
         return instance;
     }
 
-    private Map<Class<?>, CustomTileEntityConfiguration<?>> entityConfigurations = new HashMap<>();
+    private final Map<Class<?>, CustomTileEntityConfiguration<?>> entityConfigurations = new HashMap<>();
 
 
     public <T extends TileEntity> Class<? extends T> generateEntitySubclass(Class<T> baseEntityClass,

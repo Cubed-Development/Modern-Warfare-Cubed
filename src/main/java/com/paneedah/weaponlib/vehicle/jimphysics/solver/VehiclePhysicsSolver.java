@@ -681,7 +681,7 @@ public class VehiclePhysicsSolver {
         double mass = configuration.vehicleMass;
 
 
-        Vec3d lForce = rearAxel.getLongitudinalForce()/*.rotatePitch((float) Math.toRadians(vehicle.rotationPitch))*/.rotateYaw((float) ((float) Math.toRadians(-vehicle.rotationYaw + vehicle.driftTuner)));
+        Vec3d lForce = rearAxel.getLongitudinalForce()/*.rotatePitch((float) Math.toRadians(vehicle.rotationPitch))*/.rotateYaw((float) Math.toRadians(-vehicle.rotationYaw + vehicle.driftTuner));
         Vec3d latForce = rearAxel.adjLateralForce().add(frontAxel.adjLateralForce().scale(Math.cos(vehicle.steerangle)));
         Vec3d destructive = calculateResistiveForces(velocity);
 
@@ -699,7 +699,6 @@ public class VehiclePhysicsSolver {
 
         Vec3d net = (lForce).add(latForce).add(destructive).add(vertForce);
         Vec3d acceleration = new Vec3d(net.x / mass, net.y / mass, net.z / mass);
-        ;
 
         //System.out.println(acceleration);
 

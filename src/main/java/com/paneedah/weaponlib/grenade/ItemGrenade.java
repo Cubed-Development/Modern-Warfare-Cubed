@@ -65,7 +65,7 @@ public class ItemGrenade extends Item implements
         this.craftGroup = group;
     }
 
-    public static enum Type {
+    public enum Type {
         REGULAR, SMOKE, GAS, FLASH
     }
 
@@ -412,7 +412,7 @@ public class ItemGrenade extends Item implements
     }
 
     Builder builder;
-    private ModContext modContext;
+    private final ModContext modContext;
     private SoundEvent bounceHardSound;
     private SoundEvent bounceSoftSound;
     private SoundEvent explosionSound;

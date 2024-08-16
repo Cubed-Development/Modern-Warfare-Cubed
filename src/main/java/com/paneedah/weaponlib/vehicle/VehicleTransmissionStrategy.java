@@ -13,7 +13,7 @@ public abstract class VehicleTransmissionStrategy {
 
     public static class Builder {
 
-        private List<DefaultTransmissionStrategy.Gear> gears = new ArrayList<>();
+        private final List<DefaultTransmissionStrategy.Gear> gears = new ArrayList<>();
         private EntityVehicle entity;
 
         public Builder withGear(double minSpeed, SoundEvent sound) {

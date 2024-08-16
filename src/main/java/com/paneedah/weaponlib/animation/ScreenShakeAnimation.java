@@ -10,11 +10,11 @@ public class ScreenShakeAnimation implements PlayerAnimation {
 
     static class CirclePointGenerator {
 
-        private float startingRadius;
+        private final float startingRadius;
         private float nextRadius;
-        private float alpha;
+        private final float alpha;
         private float nextAngle;
-        private float attenuation;
+        private final float attenuation;
         private float cumulativeAttenuation = 1f;
 
         public CirclePointGenerator(float radius, float startAngle, float alpha, float attenuation) {

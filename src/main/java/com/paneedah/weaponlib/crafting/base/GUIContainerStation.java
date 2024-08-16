@@ -300,8 +300,6 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
     public void addCustomTooltipInformation(int mouseX, int mouseY, ArrayList<String> tooltip) {}
 
-    ;
-
     public abstract void addCraftingInformationToTooltip(ArrayList<String> tooltip);
 
     public void drawTooltips(int mouseX, int mouseY, float partialTicks) {

@@ -6,21 +6,20 @@ import org.lwjgl.opengl.GL20;
 
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
 public class Shader {
-    private int shader;
-    private List<Uniform> uniforms = new ArrayList<>(2);
+    private final int shader;
+    private final List<Uniform> uniforms = new ArrayList<>(2);
 
     public Shader(int shader) {
         this.shader = shader;
     }
 
     public Shader withUniforms(Uniform... uniforms) {
-        for (Uniform u : uniforms) {
-            this.uniforms.add(u);
-        }
+        Collections.addAll(this.uniforms, uniforms);
         return this;
     }
 

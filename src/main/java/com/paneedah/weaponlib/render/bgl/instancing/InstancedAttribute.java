@@ -2,11 +2,11 @@ package com.paneedah.weaponlib.render.bgl.instancing;
 
 public class InstancedAttribute {
 
-    private int attribID;
-    private Type attributeType;
-    private String attribName;
+    private final int attribID;
+    private final Type attributeType;
+    private final String attribName;
 
-    public static enum Type {
+    public enum Type {
         VEC4(4),
         VEC3(3),
         VEC2(2),
@@ -14,10 +14,10 @@ public class InstancedAttribute {
         INTEGER(1),
         BOOLEAN(1);
 
-        private int size;
+        private final int size;
 
 
-        private Type(int num) {
+        Type(int num) {
             this.size = num;
         }
 

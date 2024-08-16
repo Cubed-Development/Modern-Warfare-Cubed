@@ -70,7 +70,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public class EntityVehicle extends Entity implements Configurable<EntityVehicleConfiguration>,
         ExtendedState<VehicleState>, IDynamicCollision, Contextual {
 
-    private static enum DriverInteractionEvent {
+    private enum DriverInteractionEvent {
         NONE, ENTER, EXIT, DRIVING, OUT
     }
 
@@ -82,7 +82,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     private EntityVehicleConfiguration configuration;
     private VehicleState vehicleState = VehicleState.IDLE;
     private VehicleDrivingAspect drivingAspect = new VehicleDrivingAspect();
-    private DriverInteractionEvent driverInteractionEvent = DriverInteractionEvent.NONE;
+    private final DriverInteractionEvent driverInteractionEvent = DriverInteractionEvent.NONE;
     private long stateUpdateTimestamp;
     private Randomizer randomizer;
     public float outOfControlTicks = 0.0F;
@@ -111,10 +111,10 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
      * SOUND DECLARATIONS/VARIABLES
      */
 
-    private Supplier<Vector3D> soundPositionProvider = () -> new Vector3D(posX, posY, posZ);
-    private Supplier<Boolean> donePlayingSoundProvider = () -> isDead;
-    private Supplier<Boolean> isDorifto = () -> !getSolver().isDrifting;
-    private Supplier<Float> doriftoSoundProvider = () -> 1.0f;
+    private final Supplier<Vector3D> soundPositionProvider = () -> new Vector3D(posX, posY, posZ);
+    private final Supplier<Boolean> donePlayingSoundProvider = () -> isDead;
+    private final Supplier<Boolean> isDorifto = () -> !getSolver().isDrifting;
+    private final Supplier<Float> doriftoSoundProvider = () -> 1.0f;
 
     /*
      * Key Inputs
@@ -186,7 +186,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
     public int clutchTimer = 0;
 
-    public List<Entity> riddenByEntities = Lists.<Entity>newArrayList();
+    public List<Entity> riddenByEntities = Lists.newArrayList();
 
     public EntityVehicle(World worldIn) {
         super(worldIn);
@@ -311,7 +311,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     @Nullable
     public Entity getControllingPassenger() {
         List<Entity> list = this.getPassengers();
-        return list.isEmpty() ? null : (Entity) list.get(0);
+        return list.isEmpty() ? null : list.get(0);
     }
 
     /*
@@ -354,7 +354,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             }
 
             // Vec3d vec3d = Vec3d.ZERO;
-            Vec3d vec3d = (new Vec3d((double) f, 0.0D, 0.0D))
+            Vec3d vec3d = (new Vec3d(f, 0.0D, 0.0D))
                     .rotateYaw(-this.rotationYaw * 0.017453292F - ((float) Math.PI / 2F));
 
             /*
@@ -522,7 +522,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         AxisAlignedBB bb = AABBTool.createAABB(corDim.scale(-0.5), corDim.scale(0.5));
         bb = bb.offset(0.5, 1.0, 0.0).grow(0.0, -0.2, 0.0);
-        this.oreintedBoundingBox = this.oreintedBoundingBox.fromAABB(bb, getPositionVector());
+        this.oreintedBoundingBox = OreintedBB.fromAABB(bb, getPositionVector());
         //System.out.println(bb);
         //	System.out.println("con");
         //this.oreintedBoundingBox = this.oreintedBoundingBox.fromAABB(bb);
@@ -569,8 +569,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         this.boatPitch = x;
         this.lerpY = y;
         this.lerpZ = z;
-        this.boatYaw = (double) yaw;
-        this.lerpXRot = (double) pitch;
+        this.boatYaw = yaw;
+        this.lerpXRot = pitch;
         this.lerpSteps = 10;
     }
 
@@ -640,11 +640,11 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         float pitch = driver.rotationPitch;
 
         float f = 1.0f;
-        double motionX = (double) (-MathHelper.sin(yaw / 180.0F * (float) Math.PI)
-                * MathHelper.cos(pitch / 180.0F * (float) Math.PI) * f);
-        double motionZ = (double) (MathHelper.cos(yaw / 180.0F * (float) Math.PI)
-                * MathHelper.cos(pitch / 180.0F * (float) Math.PI) * f);
-        double motionY = (double) (-MathHelper.sin((pitch) / 180.0F * (float) Math.PI) * f);
+        double motionX = -MathHelper.sin(yaw / 180.0F * (float) Math.PI)
+                * MathHelper.cos(pitch / 180.0F * (float) Math.PI) * f;
+        double motionZ = MathHelper.cos(yaw / 180.0F * (float) Math.PI)
+                * MathHelper.cos(pitch / 180.0F * (float) Math.PI) * f;
+        double motionY = -MathHelper.sin((pitch) / 180.0F * (float) Math.PI) * f;
         Vec3d dirVec = new Vec3d(motionX, 0, motionZ);
         Vec3d oreintVec = Vec3d.fromPitchYaw(this.rotationPitch, this.rotationYaw);
 
@@ -1125,7 +1125,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             if ((type == MoverType.SELF || type == MoverType.PLAYER) && this.onGround && this.isSneaking()) {
                 for (double d5 = 0.05D; x != 0.0D && this.world
                         .getCollisionBoxes(this,
-                                this.getEntityBoundingBox().offset(x, (double) (-this.stepHeight), 0.0D))
+                                this.getEntityBoundingBox().offset(x, -this.stepHeight, 0.0D))
                         .isEmpty(); d2 = x) {
                     if (x < 0.05D && x >= -0.05D) {
                         x = 0.0D;
@@ -1138,7 +1138,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
                 for (; z != 0.0D && this.world
                         .getCollisionBoxes(this,
-                                this.getEntityBoundingBox().offset(0.0D, (double) (-this.stepHeight), z))
+                                this.getEntityBoundingBox().offset(0.0D, -this.stepHeight, z))
                         .isEmpty(); d4 = z) {
                     if (z < 0.05D && z >= -0.05D) {
                         z = 0.0D;
@@ -1153,7 +1153,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 for (; x != 0.0D && z != 0.0D
                         && this.world
                         .getCollisionBoxes(this,
-                                this.getEntityBoundingBox().offset(x, (double) (-this.stepHeight), z))
+                                this.getEntityBoundingBox().offset(x, -this.stepHeight, z))
                         .isEmpty(); d4 = z) {
                     if (x < 0.05D && x >= -0.05D) {
                         x = 0.0D;
@@ -1223,7 +1223,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int k = 0;
 
                 for (int l = list1.size(); k < l; ++k) {
-                    y = ((AxisAlignedBB) list1.get(k)).calculateYOffset(this.getEntityBoundingBox(), y);
+                    y = list1.get(k).calculateYOffset(this.getEntityBoundingBox(), y);
                 }
 
                 this.setEntityBoundingBox(this.getEntityBoundingBox().offset(0.0D, y, 0.0D));
@@ -1233,7 +1233,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int j5 = 0;
 
                 for (int l5 = list1.size(); j5 < l5; ++j5) {
-                    x = ((AxisAlignedBB) list1.get(j5)).calculateXOffset(this.getEntityBoundingBox(), x);
+                    x = list1.get(j5).calculateXOffset(this.getEntityBoundingBox(), x);
                 }
 
                 if (x != 0.0D) {
@@ -1245,7 +1245,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int k5 = 0;
 
                 for (int i6 = list1.size(); k5 < i6; ++k5) {
-                    z = ((AxisAlignedBB) list1.get(k5)).calculateZOffset(this.getEntityBoundingBox(), z);
+                    z = list1.get(k5).calculateZOffset(this.getEntityBoundingBox(), z);
                 }
 
                 if (z != 0.0D) {
@@ -1262,7 +1262,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 double d7 = z;
                 AxisAlignedBB axisalignedbb1 = this.getEntityBoundingBox();
                 this.setEntityBoundingBox(axisalignedbb);
-                y = (double) this.stepHeight;
+                y = this.stepHeight;
                 List<AxisAlignedBB> list = this.world.getCollisionBoxes(this,
                         this.getEntityBoundingBox().expand(d2, y, d4));
                 AxisAlignedBB axisalignedbb2 = this.getEntityBoundingBox();
@@ -1271,7 +1271,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int j1 = 0;
 
                 for (int k1 = list.size(); j1 < k1; ++j1) {
-                    d8 = ((AxisAlignedBB) list.get(j1)).calculateYOffset(axisalignedbb3, d8);
+                    d8 = list.get(j1).calculateYOffset(axisalignedbb3, d8);
                 }
 
                 axisalignedbb2 = axisalignedbb2.offset(0.0D, d8, 0.0D);
@@ -1279,7 +1279,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int l1 = 0;
 
                 for (int i2 = list.size(); l1 < i2; ++l1) {
-                    d18 = ((AxisAlignedBB) list.get(l1)).calculateXOffset(axisalignedbb2, d18);
+                    d18 = list.get(l1).calculateXOffset(axisalignedbb2, d18);
                 }
 
                 axisalignedbb2 = axisalignedbb2.offset(d18, 0.0D, 0.0D);
@@ -1287,7 +1287,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int j2 = 0;
 
                 for (int k2 = list.size(); j2 < k2; ++j2) {
-                    d19 = ((AxisAlignedBB) list.get(j2)).calculateZOffset(axisalignedbb2, d19);
+                    d19 = list.get(j2).calculateZOffset(axisalignedbb2, d19);
                 }
 
                 axisalignedbb2 = axisalignedbb2.offset(0.0D, 0.0D, d19);
@@ -1296,7 +1296,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int l2 = 0;
 
                 for (int i3 = list.size(); l2 < i3; ++l2) {
-                    d20 = ((AxisAlignedBB) list.get(l2)).calculateYOffset(axisalignedbb4, d20);
+                    d20 = list.get(l2).calculateYOffset(axisalignedbb4, d20);
                 }
 
                 axisalignedbb4 = axisalignedbb4.offset(0.0D, d20, 0.0D);
@@ -1304,7 +1304,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int j3 = 0;
 
                 for (int k3 = list.size(); j3 < k3; ++j3) {
-                    d21 = ((AxisAlignedBB) list.get(j3)).calculateXOffset(axisalignedbb4, d21);
+                    d21 = list.get(j3).calculateXOffset(axisalignedbb4, d21);
                 }
 
                 axisalignedbb4 = axisalignedbb4.offset(d21, 0.0D, 0.0D);
@@ -1312,7 +1312,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int l3 = 0;
 
                 for (int i4 = list.size(); l3 < i4; ++l3) {
-                    d22 = ((AxisAlignedBB) list.get(l3)).calculateZOffset(axisalignedbb4, d22);
+                    d22 = list.get(l3).calculateZOffset(axisalignedbb4, d22);
                 }
 
                 axisalignedbb4 = axisalignedbb4.offset(0.0D, 0.0D, d22);
@@ -1334,7 +1334,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int j4 = 0;
 
                 for (int k4 = list.size(); j4 < k4; ++j4) {
-                    y = ((AxisAlignedBB) list.get(j4)).calculateYOffset(this.getEntityBoundingBox(), y);
+                    y = list.get(j4).calculateYOffset(this.getEntityBoundingBox(), y);
                 }
 
                 this.setEntityBoundingBox(this.getEntityBoundingBox().offset(0.0D, y, 0.0D));
@@ -1405,7 +1405,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 this.distanceWalkedOnStepModified = (float) ((double) this.distanceWalkedOnStepModified
                         + (double) MathHelper.sqrt(d15 * d15 + d16 * d16 + d17 * d17) * 0.6D);
 
-                if (this.distanceWalkedOnStepModified > (float) this.nextStepDistance
+                if (this.distanceWalkedOnStepModified > this.nextStepDistance
                         && iblockstate.getMaterial() != Material.AIR) {
                     this.nextStepDistance = (int) this.distanceWalkedOnStepModified + 1;
 
@@ -1471,8 +1471,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     }
 
     public float getInterpolatedLiftOffset() {
-        return (float) InterpolationKit.interpolateValue((double) prevLiftOffset, (double) liftOffset,
-                (double) MC.getRenderPartialTicks());
+        return (float) InterpolationKit.interpolateValue(prevLiftOffset, liftOffset,
+                MC.getRenderPartialTicks());
     }
 
     public void oldHC() {
@@ -1923,11 +1923,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             baseReach += 3;
         }
 
-        boolean flagOne = false;
-        if (isBraking || getSolver().getVelocityVector().length() < 0.3
-                || (throttle == 0 && getSolver().getVelocityVector().length() < 25)) {
-            flagOne = true;
-        }
+        boolean flagOne = isBraking || getSolver().getVelocityVector().length() < 0.3
+                || (throttle == 0 && getSolver().getVelocityVector().length() < 25);
         //System.out.println(flagOne);
 
 
@@ -2203,7 +2200,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 if (getBlockAt(r4.getBlockPos()) instanceof BlockCarpet) {
                     return;
                 }
-                move(MoverType.SELF, -1 * boost, 0.0, 1.0 * boost);
+                move(MoverType.SELF, -1 * boost, 0.0, boost);
             }
 
             if (r5 != null) {
@@ -2854,7 +2851,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             }
         } catch (Exception e) {
         }
-        ;
 
     }
 

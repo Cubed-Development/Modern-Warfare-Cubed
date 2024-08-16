@@ -46,14 +46,14 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
     protected EntityLivingBase player;
 
-    private ItemOverrideList itemOverrideList = new WeaponItemOverrideList(Collections.emptyList());
+    private final ItemOverrideList itemOverrideList = new WeaponItemOverrideList(Collections.emptyList());
 
     protected ItemStack itemStack;
     ItemCameraTransforms.TransformType transformType;
 
     protected TextureManager textureManager;
 
-    private Pair<? extends IBakedModel, Matrix4f> pair;
+    private final Pair<? extends IBakedModel, Matrix4f> pair;
 
     private class WeaponItemOverrideList extends ItemOverrideList {
 
@@ -73,7 +73,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         protected MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager;
         protected float rate;
         protected float amplitude = 0.04f;
-        private PlayerGrenadeInstance instance;
+        private final PlayerGrenadeInstance instance;
 
         public StateDescriptor(PlayerGrenadeInstance instance, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager, float rate, float amplitude) {
             this.instance = instance;
@@ -106,39 +106,39 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         private Consumer<RenderContext<RenderableState>> firstPersonPositioning;
         private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioning;
         private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioning;
-        private LinkedHashMap<Part, SimplePositioning> firstPersonCustomPositioning = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, SimplePositioning> firstPersonCustomPositioning = new LinkedHashMap<>();
 
         private Consumer<RenderContext<RenderableState>> firstPersonPositioningRunning;
         private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningRunning;
         private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningRunning;
-        private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningRunning = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningRunning = new LinkedHashMap<>();
 
         private List<Transition<RenderContext<RenderableState>>> firstPersonPositioningSafetyPinOff;
         private List<Transition<RenderContext<RenderableState>>> firstPersonLeftHandPositioningSafetyPinOff;
         private List<Transition<RenderContext<RenderableState>>> firstPersonRightHandPositioningSafetyPinOff;
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningSafetyPinOff = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningSafetyPinOff = new LinkedHashMap<>();
 
         private Consumer<RenderContext<RenderableState>> firstPersonPositioningStrikerLeverOff;
         private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningStrikerLeverOff;
         private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningStrikerLeverOff;
-        private LinkedHashMap<Part, SimplePositioning> firstPersonCustomPositioningStrikerLeverOff = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, SimplePositioning> firstPersonCustomPositioningStrikerLeverOff = new LinkedHashMap<>();
 
         private List<Transition<RenderContext<RenderableState>>> firstPersonPositioningThrowing;
         private List<Transition<RenderContext<RenderableState>>> firstPersonLeftHandPositioningThrowing;
         private List<Transition<RenderContext<RenderableState>>> firstPersonRightHandPositioningThrowing;
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningThrowing = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningThrowing = new LinkedHashMap<>();
 
         private Consumer<RenderContext<RenderableState>> firstPersonPositioningThrown;
         private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioningThrown;
         private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioningThrown;
-        private LinkedHashMap<Part, SimplePositioning> firstPersonCustomPositioningThrown = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, SimplePositioning> firstPersonCustomPositioningThrown = new LinkedHashMap<>();
 
         private long totalTakingPinOffDuration;
         private long totalThrowingDuration;
 
 
         private float normalRandomizingRate = DEFAULT_RANDOMIZING_RATE; // movements per second, e.g. 0.25 = 0.25 movements per second = 1 movement in 3 minutes
-        private float normalRandomizingAmplitude = DEFAULT_NORMAL_RANDOMIZING_AMPLITUDE;
+        private final float normalRandomizingAmplitude = DEFAULT_NORMAL_RANDOMIZING_AMPLITUDE;
         public int animationDuration = DEFAULT_ANIMATION_DURATION;
         private Supplier<Float> xCenterOffset = () -> 0f;
         private Supplier<Float> yCenterOffset = () -> 0f;
@@ -572,9 +572,9 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
     private Builder builder;
 
-    private Map<StateManagerKey, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>>> firstPersonStateManagers;
+    private final Map<StateManagerKey, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>>> firstPersonStateManagers;
 
-    private MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> weaponTransitionProvider;
+    private final MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> weaponTransitionProvider;
 
     protected ClientModContext clientModContext;
 
@@ -641,10 +641,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             } else if (!player.equals(other.player)) {
                 return false;
             }
-            if (slot != other.slot) {
-                return false;
-            }
-            return true;
+            return slot == other.slot;
         }
 
     }
@@ -929,7 +926,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             if (itemAttachment instanceof Part) {
                 positioner.position((Part) itemAttachment, renderContext);
                 if (DebugPositioner.isDebugModeEnabled()) {
-                    DebugPositioner.position((Part) itemAttachment, renderContext);
+                    DebugPositioner.position(itemAttachment, renderContext);
                 }
             } else if (itemAttachment.getRenderablePart() != null) {
                 positioner.position(itemAttachment.getRenderablePart(), renderContext);

@@ -3,8 +3,8 @@ package com.paneedah.weaponlib.shader.jim;
 public class Attribute {
     //bindAttribute(shader.getShaderId(), 0, "pos");
 
-    private int attribID;
-    private String attribName;
+    private final int attribID;
+    private final String attribName;
 
     public Attribute(String name, int id) {
         this.attribName = name;

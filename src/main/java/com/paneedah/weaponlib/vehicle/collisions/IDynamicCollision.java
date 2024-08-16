@@ -2,10 +2,10 @@ package com.paneedah.weaponlib.vehicle.collisions;
 
 public interface IDynamicCollision {
 
-    public OreintedBB getOreintedBoundingBox();
+    OreintedBB getOreintedBoundingBox();
 
-    public void updateOBB();
+    void updateOBB();
 
-    public void doOBBCollision();
+    void doOBBCollision();
 
 }

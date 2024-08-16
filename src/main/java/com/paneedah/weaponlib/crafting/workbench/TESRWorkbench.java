@@ -63,7 +63,7 @@ public class TESRWorkbench extends TESRStation<TileEntityWorkbench> {
         GlStateManager.scale(MODEL_RESCALE_VALUE, MODEL_RESCALE_VALUE, MODEL_RESCALE_VALUE);
 
         // Render the actual model
-        model.render((Entity) null, 0f, 0f, 0f, 0f, 0f, MODEL_RENDER_SCALE);
+        model.render(null, 0f, 0f, 0f, 0f, 0f, MODEL_RENDER_SCALE);
 
         // Undo block state
         GlStateManager.disableRescaleNormal();

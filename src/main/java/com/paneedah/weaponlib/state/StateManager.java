@@ -16,7 +16,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 
         private static final long DEFAULT_REQUEST_TIMEOUT = 10000L;
 
-        private Aspect<S, EE> aspect;
+        private final Aspect<S, EE> aspect;
         private S fromState;
         private S toState;
         private VoidAction<S, EE> prepareAction;
@@ -26,7 +26,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
         private BiFunction<S, EE, Boolean> stateUpdater;
         private NetworkPermitManager permitManager;
         private Predicate<EE> preparePredicate;
-        private long requestTimeout = DEFAULT_REQUEST_TIMEOUT;
+        private final long requestTimeout = DEFAULT_REQUEST_TIMEOUT;
         private boolean isPermitRequired;
 
         public RuleBuilder(Aspect<S, EE> aspect) {
@@ -161,7 +161,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
                 aspectRules.add(prepareRule);
 
                 effectiveFromState = toState.preparingPhase();
-                effectivePredicate = (s, e) -> preparePredicate != null ? preparePredicate.test(safeCast(e)) : true; //e -> System.currentTimeMillis() > e.getStateUpdateTimestamp() + prepareDuration;
+                effectivePredicate = (s, e) -> preparePredicate == null || preparePredicate.test(safeCast(e)); //e -> System.currentTimeMillis() > e.getStateUpdateTimestamp() + prepareDuration;
                 isRequestRuleAutoTransitioned = true; // prepare -> request transition must be automatic
             } else {
                 effectiveFromState = fromState;
@@ -218,13 +218,13 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
     }
 
 
-    public static interface StateComparator<S extends ManagedState<S>> {
-        public boolean compare(S state1, S state2);
+    public interface StateComparator<S extends ManagedState<S>> {
+        boolean compare(S state1, S state2);
     }
 
     public class Result {
-        private boolean stateChanged;
-        private S state;
+        private final boolean stateChanged;
+        private final S state;
         protected Object actionResult;
 
         private Result(boolean stateChanged, S targetState) {
@@ -245,20 +245,20 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
         }
     }
 
-    public static interface PostAction<S extends ManagedState<S>, EE> {
-        public Object execute(EE extendedState, S fromState, S toState, Permit<S> permit);
+    public interface PostAction<S extends ManagedState<S>, EE> {
+        Object execute(EE extendedState, S fromState, S toState, Permit<S> permit);
     }
 
-    public static interface VoidPostAction<S extends ManagedState<S>, EE> {
-        public void execute(EE extendedState, S fromState, S toState, Permit<S> permit);
+    public interface VoidPostAction<S extends ManagedState<S>, EE> {
+        void execute(EE extendedState, S fromState, S toState, Permit<S> permit);
     }
 
-    public static interface VoidAction<S extends ManagedState<S>, EE> {
-        public void execute(EE extendedState, S fromState, S toState);
+    public interface VoidAction<S extends ManagedState<S>, EE> {
+        void execute(EE extendedState, S fromState, S toState);
     }
 
-    public static interface VoidAction2<EE> {
-        public void execute(EE extendedState);
+    public interface VoidAction2<EE> {
+        void execute(EE extendedState);
     }
 
 
@@ -313,8 +313,8 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
         }
     }
 
-    private StateComparator<S> stateComparator;
-    private Map<Aspect<S, ? extends E>, LinkedHashSet<TransitionRule<S, E>>> contextRules = new HashMap<>();
+    private final StateComparator<S> stateComparator;
+    private final Map<Aspect<S, ? extends E>, LinkedHashSet<TransitionRule<S, E>>> contextRules = new HashMap<>();
 
     public StateManager(StateComparator<S> stateComparator) {
         this.stateComparator = stateComparator;
@@ -360,7 +360,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 
         TransitionRule<S, E> newStateRule;
         S s = currentState;
-        S ts[] = targetStates;
+        S[] ts = targetStates;
         while ((newStateRule = findNextStateRule(aspect, extendedState, s, ts)) != null) {
             extendedState.setState(newStateRule.toState);
             LOG.debug("Changed state of {} to {}", extendedState, newStateRule.toState);

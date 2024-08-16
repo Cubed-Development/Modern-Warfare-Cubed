@@ -24,7 +24,7 @@ public class ShellParticleSimulator {
 
     public static class Shell {
 
-        public static enum Type {
+        public enum Type {
             SHOTGUN,
             ASSAULT,
             PISTOL

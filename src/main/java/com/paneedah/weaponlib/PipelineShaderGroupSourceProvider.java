@@ -71,7 +71,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
 //        System.out.println("Day brightness: " + dayBrightness + ", time: " + (worldTime % 24000));
         if (lightExposure != null && lightExposure.getTotalDose() > 0.0003f) { //lightExposure.isEffective(compatibility.world(MC.player))) {
             flashEnabled = true;
-            float dayBrightness = (MathHelper.sin((float) Math.PI * 2 * (float) (worldTime % 24000 - 24000f) / 24000f) + 1f) / 2f;
+            float dayBrightness = (MathHelper.sin((float) Math.PI * 2 * (worldTime % 24000 - 24000f) / 24000f) + 1f) / 2f;
 //            dayBrightness *= dayBrightness;
             brightness = 1f + (100f + (1 - dayBrightness) * 100f) * lightExposure.getTotalDose();
 //            System.out.println("Brightness: " + brightness);

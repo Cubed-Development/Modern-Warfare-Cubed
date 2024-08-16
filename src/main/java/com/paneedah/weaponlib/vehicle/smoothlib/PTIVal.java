@@ -11,8 +11,6 @@ public class PTIVal {
 
     public PTIVal() {}
 
-    ;
-
     public void updatePrev() {
         this.prev = cur;
     }

@@ -289,18 +289,11 @@ public class Transmission {
 
 
         if (markedForUpshift || markedForDownshift) {
-            if (engineRPM > uShift && (this.getCurrentGear()) != highestGear && vehicle.throttle > 0.1 /*&& !launchControl*/) {
-                markedForUpshift = true;
-            } else {
+            /*&& !launchControl*/
+            markedForUpshift = engineRPM > uShift && (this.getCurrentGear()) != highestGear && vehicle.throttle > 0.1;
 
-                markedForUpshift = false;
-            }
-
-            if (engineRPM < dShift && this.getCurrentGear() != 1 /*&& vehicle.throttle < 0.5*/) {
-                markedForDownshift = true;
-            } else {
-                markedForDownshift = false;
-            }
+            /*&& vehicle.throttle < 0.5*/
+            markedForDownshift = engineRPM < dShift && this.getCurrentGear() != 1;
         }
 
         //System.out.println(markedForUpshift);

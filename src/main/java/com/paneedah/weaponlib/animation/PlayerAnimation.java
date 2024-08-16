@@ -12,13 +12,13 @@ public interface PlayerAnimation {
      *
      * @return
      */
-    public void update(EntityPlayer player, boolean fadeOut);
+    void update(EntityPlayer player, boolean fadeOut);
 
-    public void reset(EntityPlayer player, boolean force);
+    void reset(EntityPlayer player, boolean force);
 
-    public boolean isCompleted();
+    boolean isCompleted();
 
-    public static PlayerAnimation NO_ANIMATION = new PlayerAnimation() {
+    PlayerAnimation NO_ANIMATION = new PlayerAnimation() {
 
         @Override
         public void update(EntityPlayer player, boolean fadeOut) {
@@ -40,6 +40,6 @@ public interface PlayerAnimation {
         }
     };
 
-    public State getState();
+    State getState();
 
 }

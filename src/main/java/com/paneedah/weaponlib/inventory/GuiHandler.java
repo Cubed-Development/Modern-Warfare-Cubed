@@ -60,7 +60,7 @@ public class GuiHandler implements IGuiHandler {
             case STORAGE_ITEM_INVENTORY_GUI_ID:
                 EquipmentInventory customInventory = EquipmentCapability.getInventory(FMLClientHandler.instance().getClientPlayerEntity());
                 if (customInventory != null && customInventory.getStackInSlot(0) != null) {
-                    guiContainer = new GuiBackpack((BackpackContainer) new BackpackContainer(player,
+                    guiContainer = new GuiBackpack(new BackpackContainer(player,
                             player.inventory, new BackpackInventory(customInventory.getStackInSlot(0))));
                 }
                 break;

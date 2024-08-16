@@ -27,19 +27,21 @@ import java.util.Map.Entry;
  */
 public abstract class TidyCompatibleCommand extends CommandBase {
 
-    private String name, usage, displayName;
+    private final String name;
+    private String usage;
+    private final String displayName;
     private String[] help;
 
     private static final TextFormatting ERROR_COLOR = TextFormatting.RED;
 
     protected static final String HELP_KEY = "help";
 
-    private TextFormatting primaryColor = TextFormatting.GOLD;
-    private TextFormatting secondaryColor = TextFormatting.GRAY;
-    private TextFormatting displayColor = TextFormatting.YELLOW;
+    private final TextFormatting primaryColor = TextFormatting.GOLD;
+    private final TextFormatting secondaryColor = TextFormatting.GRAY;
+    private final TextFormatting displayColor = TextFormatting.YELLOW;
 
 
-    private HashMap<String, Pair<CommandInfo, ArrayList<Pair<String, CommandInfo>>>> tree = new HashMap<>();
+    private final HashMap<String, Pair<CommandInfo, ArrayList<Pair<String, CommandInfo>>>> tree = new HashMap<>();
 
 
     private static class CommandInfo {

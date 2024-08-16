@@ -657,7 +657,7 @@ public class AnimationData {
                 GlStateManager.scale(t.getScaleX(), t.getScaleY(), t.getScaleZ());
 
 
-            }, (int) Math.round(timestamp));
+            }, Math.round(timestamp));
 
 
             //System.out.println("Hello?! Brother! " + sound);

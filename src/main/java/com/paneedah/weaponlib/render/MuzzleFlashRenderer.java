@@ -50,6 +50,7 @@ public class MuzzleFlashRenderer {
         for (CompatibleAttachment<? extends AttachmentContainer> c : weapon.getActiveAttachments(player, weaponItemStack)) {
             if (c.getAttachment().getCategory() == AttachmentCategory.SILENCER) {
                 isSuppressedFlash = true;
+                break;
             }
         }
 

@@ -12,11 +12,11 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class Slider implements IElement {
 
-    private String name;
+    private final String name;
 
-    private double mapStart;
-    private double mapEnd;
-    private boolean centered;
+    private final double mapStart;
+    private final double mapEnd;
+    private final boolean centered;
     private double progress;
 
     private double verticalOffset = 0;

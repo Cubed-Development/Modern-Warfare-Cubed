@@ -150,7 +150,7 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
                     if (entity instanceof EntityLiving) {
                         ((EntityLiving) entity).onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(entity)),
-                                (IEntityLivingData) null);
+                                null);
                     }
 
                 }

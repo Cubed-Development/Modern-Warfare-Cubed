@@ -18,7 +18,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class GearShiftPattern {
 
-    private LinkedList<Branch> pattern = new LinkedList<>();
+    private final LinkedList<Branch> pattern = new LinkedList<>();
 
     public GearShiftPattern() {
 
@@ -132,7 +132,7 @@ public class GearShiftPattern {
         //System.out.println("CURVAL: " + curVal + " | MAX: " + maxVal + " | SG: " + startGear + " | TG: " + targetGear);
 
         ArrayList<Vec3d> transitions = getTransitions(startGear, targetGear);
-        double globalStep = (double) curVal;
+        double globalStep = curVal;
 
         double timePerTransiton = maxVal / ((double) transitions.size() - 1);
 
@@ -222,10 +222,7 @@ public class GearShiftPattern {
     public ArrayList<Vec3d> getTransitions(int startGear, int endGear) {
         ArrayList<Vec3d> transitions = new ArrayList<>();
 
-        boolean shouldReverse = false;
-        if (startGear > endGear) {
-            shouldReverse = true;
-        }
+        boolean shouldReverse = startGear > endGear;
         if (shouldReverse) {
             int tempGear = startGear;
             startGear = endGear;
@@ -272,11 +269,7 @@ public class GearShiftPattern {
         }
 
         public boolean containsGear(int g) {
-            if (topGear.gear == g || bottomGear.gear == g) {
-                return true;
-            } else {
-                return false;
-            }
+            return topGear.gear == g || bottomGear.gear == g;
         }
 
         public Vec3d getGearPos(int g) {

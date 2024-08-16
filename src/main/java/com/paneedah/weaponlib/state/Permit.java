@@ -12,8 +12,6 @@ public class Permit<S extends ManagedState<S>> extends UniversalObject {
 
     public enum Status {REQUESTED, GRANTED, DENIED, UNKNOWN}
 
-    ;
-
     protected S state;
     protected Status status;
     protected long timestamp;

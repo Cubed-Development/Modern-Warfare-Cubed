@@ -13,7 +13,7 @@ public class SingleAnimation {
     private HashMap<String, AnimationData> dataMap = new HashMap<>();
     private int timestampCount = 0;
     private ArrayList<Float> timestamps;
-    private HashMap<Float, String> sounds = new HashMap<>();
+    private final HashMap<Float, String> sounds = new HashMap<>();
 
     private float duration;
 

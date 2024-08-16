@@ -23,7 +23,7 @@ public class DebugPositioner {
 
     private static Object currentPart;
 
-    private static Set<Object> debugParts = new HashSet<>();
+    private static final Set<Object> debugParts = new HashSet<>();
 
     private static Entity watchableEntity;
 
@@ -68,9 +68,9 @@ public class DebugPositioner {
         private long lastAutorotationTimestamp = System.currentTimeMillis();
     }
 
-    private static Map<Object, Position> partPositions = new HashMap<>();
+    private static final Map<Object, Position> partPositions = new HashMap<>();
 
-    private static Map<Integer, TransitionConfiguration> transitionConfigurations = new HashMap<>();
+    private static final Map<Integer, TransitionConfiguration> transitionConfigurations = new HashMap<>();
 
     public static Position getCurrentPartPosition() {
         return partPositions.get(currentPart);
@@ -416,13 +416,12 @@ public class DebugPositioner {
     }
 
     public static String formatMatrix(Matrix4f m) {
-        StringBuilder buf = new StringBuilder();
-        buf.append("\n");
-        buf.append(String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m00, m.m10, m.m20, m.m30));
-        buf.append(String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m01, m.m11, m.m21, m.m31));
-        buf.append(String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m02, m.m12, m.m22, m.m32));
-        buf.append(String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m03, m.m13, m.m23, m.m33));
-        return buf.toString();
+        String buf = "\n" +
+                String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m00, m.m10, m.m20, m.m30) +
+                String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m01, m.m11, m.m21, m.m31) +
+                String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m02, m.m12, m.m22, m.m32) +
+                String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m03, m.m13, m.m23, m.m33);
+        return buf;
     }
 
     public static void setAutorotate(float xrpm, float yrpm, float zrpm) {

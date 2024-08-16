@@ -48,7 +48,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
                 .build();
         protected CreativeTabs tab;
         protected AttachmentCategory attachmentCategory;
-        private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+        private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
         private int maxStackSize = 1;
 
         private CraftingComplexity craftingComplexity;
@@ -212,9 +212,9 @@ public class ItemWirelessCamera extends Item implements ModelSource {
         }
     }
 
-    private Builder builder;
-    private ModContext modContext;
-    private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    private final Builder builder;
+    private final ModContext modContext;
+    private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
 
     public ItemWirelessCamera(Builder builder, ModContext modContext) {
         this.builder = builder;

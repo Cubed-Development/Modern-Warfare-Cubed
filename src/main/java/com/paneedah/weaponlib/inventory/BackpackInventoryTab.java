@@ -12,7 +12,7 @@ import static com.paneedah.mwc.MWC.CHANNEL;
 
 public class BackpackInventoryTab extends InventoryTab {
 
-    private ModContext clientModContext;
+    private final ModContext clientModContext;
 
     public BackpackInventoryTab(ModContext clientModContext) {
         super(0, 0, 0);

@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class ModernWeatherManager {
 
-    public static enum WeatherSeverity {
+    public enum WeatherSeverity {
         LIGHT,
         MEDIUM,
         HEAVY,
-        INSANITY;
+        INSANITY
     }
 
 
-    private static ArrayList<IWeatherListener> listeners = new ArrayList<>();
+    private static final ArrayList<IWeatherListener> listeners = new ArrayList<>();
     private static WeatherSeverity severity = WeatherSeverity.LIGHT;
 
     public static void registerListener(IWeatherListener listener) {

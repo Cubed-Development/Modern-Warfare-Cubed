@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerAmmoPress extends ContainerStation {
 
-    private TileEntityAmmoPress tileEntityWorkbench;
+    private final TileEntityAmmoPress tileEntityWorkbench;
 
     public ContainerAmmoPress(EntityPlayer player, InventoryPlayer inventory, TileEntityAmmoPress workbenchTileEntity) {
         this.tileEntityWorkbench = workbenchTileEntity;

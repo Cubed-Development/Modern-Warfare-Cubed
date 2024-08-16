@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Random;
 
 public class MaterialImpactSound {
-    private List<SoundEvent> sounds = new ArrayList<>();
-    private float volume;
-    private Random rand = new Random();
+    private final List<SoundEvent> sounds = new ArrayList<>();
+    private final float volume;
+    private final Random rand = new Random();
 
     public MaterialImpactSound(float volume) {
         this.volume = volume;

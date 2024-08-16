@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 
 public class ModelInstancedObject<K> extends BasicInstancedObject<K> {
 
-    private WavefrontModel model;
+    private final WavefrontModel model;
 
     public ModelInstancedObject(String shader, WavefrontModel model, int renderMode, int maxCopies, InstancedAttribute... attribs) {
         super(shader, renderMode, maxCopies, attribs);

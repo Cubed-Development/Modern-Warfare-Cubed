@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 
 public class FlatModel extends ModelBase {
 
-    private ModelRenderer gun1;
+    private final ModelRenderer gun1;
 
     public FlatModel() {
         textureWidth = 1;

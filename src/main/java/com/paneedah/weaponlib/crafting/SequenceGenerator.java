@@ -13,9 +13,9 @@ class SequenceGenerator {
 
     private static final String ALG_NAME = "SHA1PRNG";
 
-    private Map<List<Object>, Object> uniqueSequenceMap;
-    private SecureRandom random;
-    private int slotCount;
+    private final Map<List<Object>, Object> uniqueSequenceMap;
+    private final SecureRandom random;
+    private final int slotCount;
 
     SequenceGenerator(int slotCount) {
         this.slotCount = slotCount;
@@ -42,7 +42,7 @@ class SequenceGenerator {
 
     private List<Object> generateSequence(OptionMetadata[] optionMetadata) {
         Object[] slotValues = new Object[slotCount];
-        int optionDistribution[] = new int[optionMetadata.length];
+        int[] optionDistribution = new int[optionMetadata.length];
         do {
             Arrays.fill(optionDistribution, 0);
             Arrays.fill(slotValues, 0);
@@ -55,7 +55,7 @@ class SequenceGenerator {
         return Arrays.asList(slotValues);
     }
 
-    private boolean hasSufficientDistribution(int slotDistribution[], OptionMetadata[] optionMetadata) {
+    private boolean hasSufficientDistribution(int[] slotDistribution, OptionMetadata[] optionMetadata) {
         boolean result = true;
         for (int i = 0; i < slotDistribution.length; i++) {
             if (slotDistribution[i] < optionMetadata[i].getMinOccurs()

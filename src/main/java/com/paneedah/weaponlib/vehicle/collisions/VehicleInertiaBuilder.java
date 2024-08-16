@@ -17,9 +17,9 @@ import java.util.ArrayList;
  */
 public class VehicleInertiaBuilder {
 
-    private Matrix3f tensor = new Matrix3f();
+    private final Matrix3f tensor = new Matrix3f();
     private double vehicleMass = 0;
-    private ArrayList<InertiaObject> inertiaObjectList = new ArrayList<>();
+    private final ArrayList<InertiaObject> inertiaObjectList = new ArrayList<>();
 
     public VehicleInertiaBuilder(double mass) {
         this.vehicleMass = mass;
@@ -78,7 +78,7 @@ public class VehicleInertiaBuilder {
         c *= rd.length;
 
         addCube(new Vec3d(0, 0, d), new Dimensions(d, w, a), 1.0);
-        addCube(new Vec3d(0, 0, -c), new Dimensions(c, w, (1.0 * rd.height)), 1.0);
+        addCube(new Vec3d(0, 0, -c), new Dimensions(c, w, (rd.height)), 1.0);
         return this;
     }
 
@@ -96,7 +96,7 @@ public class VehicleInertiaBuilder {
         // VEC3D (height, width, length)
 
         addCube(new Vec3d(0, 0, d + (c / 2)), new Dimensions(d, w, a), 1.0);
-        addCube(Vec3d.ZERO, new Dimensions(c, w, (1.0 * rd.height)), 1.0);
+        addCube(Vec3d.ZERO, new Dimensions(c, w, (rd.height)), 1.0);
         addCube(new Vec3d(0, 0, (-d) - (c / 2)), new Dimensions(e, w, b), 1.0);
         return this;
     }

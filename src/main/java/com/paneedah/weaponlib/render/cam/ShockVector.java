@@ -5,7 +5,9 @@ import net.minecraft.util.math.Vec3d;
 
 public class ShockVector {
 
-    private SpringValue x, y, z;
+    private final SpringValue x;
+    private final SpringValue y;
+    private final SpringValue z;
 
 
     public ShockVector() {

@@ -22,18 +22,18 @@ import java.util.List;
 
 public class EquipmentContainer extends Container {
 
-    private EquipmentInventory equipmentInventory;
+    private final EquipmentInventory equipmentInventory;
 
-    private int customSlotStartIndex;
-    private int customSlotEndIndex;
-    private int armorSlotStartIndex;
-    private int armorSlotEndIndex;
-    private int standardInventorySlotStartIndex;
-    private int standardInventorySlotEndIndex;
-    private int hotbarSlotStartIndex;
-    private int hotbarSlotEndIndex;
+    private final int customSlotStartIndex;
+    private final int customSlotEndIndex;
+    private final int armorSlotStartIndex;
+    private final int armorSlotEndIndex;
+    private final int standardInventorySlotStartIndex;
+    private final int standardInventorySlotEndIndex;
+    private final int hotbarSlotStartIndex;
+    private final int hotbarSlotEndIndex;
 
-    private List<Slot> customSlots;
+    private final List<Slot> customSlots;
 
     public EquipmentContainer(EntityPlayer player, InventoryPlayer inventoryPlayer, EquipmentInventory equipmentInventory) {
 
@@ -118,7 +118,7 @@ public class EquipmentContainer extends Container {
                  */
                 public boolean canTakeStack(EntityPlayer playerIn) {
                     ItemStack itemstack = this.getStack();
-                    return !itemstack.isEmpty() && !playerIn.isCreative() && EnchantmentHelper.hasBindingCurse(itemstack) ? false : super.canTakeStack(playerIn);
+                    return (itemstack.isEmpty() || playerIn.isCreative() || !EnchantmentHelper.hasBindingCurse(itemstack)) && super.canTakeStack(playerIn);
                 }
 
                 @Nullable
@@ -151,7 +151,7 @@ public class EquipmentContainer extends Container {
         try {
 
 
-            Slot slot = (Slot) this.inventorySlots.get(slotIndex);
+            Slot slot = this.inventorySlots.get(slotIndex);
 
             if (slot != null && slot.getHasStack()) {
 

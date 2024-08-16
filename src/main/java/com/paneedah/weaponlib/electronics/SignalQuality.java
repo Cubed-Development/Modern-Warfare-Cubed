@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class SignalQuality {
 
-    private int quality;
+    private final int quality;
 
-    private boolean interrupted;
+    private final boolean interrupted;
 
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     public SignalQuality(int quality, boolean interrupted) {
         this.quality = quality;

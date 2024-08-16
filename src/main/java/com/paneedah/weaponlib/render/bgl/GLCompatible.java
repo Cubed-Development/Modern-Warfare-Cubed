@@ -102,7 +102,6 @@ public class GLCompatible {
                 GL30.glDeleteVertexArrays(arg0);
                 break;
         }
-        return;
     }
 
 
@@ -121,7 +120,6 @@ public class GLCompatible {
                 GL33.glVertexAttribDivisor(arg0, arg1);
                 break;
         }
-        return;
     }
 
     /*
@@ -140,7 +138,6 @@ public class GLCompatible {
                 GL31.glDrawElementsInstanced(arg0, arg1, arg2, arg3, arg4);
                 break;
         }
-        return;
     }
 
 

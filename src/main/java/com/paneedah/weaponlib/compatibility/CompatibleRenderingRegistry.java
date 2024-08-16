@@ -33,9 +33,9 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 @SideOnly(Side.CLIENT)
 public class CompatibleRenderingRegistry implements ICustomModelLoader {
 
-    private List<ModelSource> renderers = new ArrayList<>();
-    private Set<String> modelSourceLocations = new HashSet<>();
-    private List<Consumer<RenderItem>> delayedRegistrations = new ArrayList<>();
+    private final List<ModelSource> renderers = new ArrayList<>();
+    private final Set<String> modelSourceLocations = new HashSet<>();
+    private final List<Consumer<RenderItem>> delayedRegistrations = new ArrayList<>();
 
     public CompatibleRenderingRegistry() {
 //		ModelLoaderRegistry.registerLoader(this);

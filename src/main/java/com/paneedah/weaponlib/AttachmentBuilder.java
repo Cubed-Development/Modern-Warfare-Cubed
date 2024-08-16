@@ -45,8 +45,8 @@ public class AttachmentBuilder<T> {
     protected ApplyHandler2<T> apply2;
     protected ApplyHandler2<T> remove2;
     private String crosshair;
-    private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
-    private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    private final List<CustomRenderer<?>> postRenderer = new ArrayList<>();
+    private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
     private boolean isRenderablePart;
     private int maxStackSize = 1;
     protected Function<ItemStack, String> informationProvider;
@@ -59,7 +59,7 @@ public class AttachmentBuilder<T> {
     private int craftingCount = 1;
     private Object[] craftingRecipe;
 
-    private List<ItemAttachment<T>> requiredAttachments = new ArrayList<>();
+    private final List<ItemAttachment<T>> requiredAttachments = new ArrayList<>();
 
     private CraftingEntry[] modernRecipe;
     private CraftingGroup craftingGroup;
@@ -97,9 +97,7 @@ public class AttachmentBuilder<T> {
 
     @SafeVarargs
     public final AttachmentBuilder<T> withRequiredAttachments(ItemAttachment<T>... requiredAttachments) {
-        for (int i = 0; i < requiredAttachments.length; i++) {
-            this.requiredAttachments.add(requiredAttachments[i]);
-        }
+        Collections.addAll(this.requiredAttachments, requiredAttachments);
         return this;
     }
 

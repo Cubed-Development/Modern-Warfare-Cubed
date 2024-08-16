@@ -70,14 +70,14 @@ public class PostProcessPipeline {
     public static Framebuffer rainBuffer;
     public static Framebuffer secondaryWorldBuffer;
 
-    private static ArrayList<DistortionPoint> distortionList = new ArrayList<>();
+    private static final ArrayList<DistortionPoint> distortionList = new ArrayList<>();
 
 	/*
 	private static int depthBuffer = -1;
 	private static int depthTexture = -1;
 	*/
 
-    private static int fauxColorTexture = -1;
+    private static final int fauxColorTexture = -1;
 
 
     private static DepthTexture scopeDepthTexture;
@@ -105,9 +105,13 @@ public class PostProcessPipeline {
      * @version September 28th, 2022
      */
     public static class DistortionPoint {
-        private float x, y, z;
-        private float size, life, alpha;
-        private long creationTime;
+        private final float x;
+        private final float y;
+        private final float z;
+        private final float size;
+        private final float life;
+        private float alpha;
+        private final long creationTime;
 
         public DistortionPoint(float x, float y, float z, float size, float life) {
             this.x = x;
@@ -730,7 +734,7 @@ public class PostProcessPipeline {
                     }
 
                     rainDrops[i] = new float[]{(float) Math.random() * 600f, (float) Math.random() * 250f, 0f,
-                            (float) velocity, 0f, (float) Math.random() * 25f + 30f, 0f, (float) Math.random() * 10f,
+                            velocity, 0f, (float) Math.random() * 25f + 30f, 0f, (float) Math.random() * 10f,
                             0f, isRain ? 1 : 0};
 
                 }
@@ -863,7 +867,6 @@ public class PostProcessPipeline {
         float fpt = MC.entityRenderer.farPlaneDistance;
 
         float fovModValue = MC.entityRenderer.getFOVModifier(MC.getRenderPartialTicks(), false);
-        ;
 
         Project.gluPerspective(fovModValue, (float) MC.displayWidth / (float) MC.displayHeight, 0.05F, fpt * 2.0F);
 

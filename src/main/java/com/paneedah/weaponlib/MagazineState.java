@@ -14,25 +14,25 @@ public enum MagazineState implements ManagedState<MagazineState> {
 
     private static final int DEFAULT_PRIORITY = 0;
 
-    private MagazineState preparingPhase;
+    private final MagazineState preparingPhase;
 
-    private MagazineState permitRequestedPhase;
+    private final MagazineState permitRequestedPhase;
 
-    private MagazineState commitPhase;
+    private final MagazineState commitPhase;
 
-    private boolean isTransient;
+    private final boolean isTransient;
 
     private int priority = DEFAULT_PRIORITY;
 
-    private MagazineState() {
+    MagazineState() {
         this(null, null, null, true);
     }
 
-    private MagazineState(int priority) {
+    MagazineState(int priority) {
         this(priority, null, null, null, true);
     }
 
-    private MagazineState(boolean isTransient) {
+    MagazineState(boolean isTransient) {
         this(null, null, null, isTransient);
     }
 
@@ -40,11 +40,11 @@ public enum MagazineState implements ManagedState<MagazineState> {
 //		this(permitRequestedState, transactionFinalState, true);
 //	}
 
-    private MagazineState(MagazineState preparingPhase, MagazineState permitRequestedState, MagazineState transactionFinalState, boolean isTransient) {
+    MagazineState(MagazineState preparingPhase, MagazineState permitRequestedState, MagazineState transactionFinalState, boolean isTransient) {
         this(DEFAULT_PRIORITY, preparingPhase, permitRequestedState, transactionFinalState, isTransient);
     }
 
-    private MagazineState(int priority, MagazineState preparingPhase, MagazineState permitRequestedState, MagazineState transactionFinalState, boolean isTransient) {
+    MagazineState(int priority, MagazineState preparingPhase, MagazineState permitRequestedState, MagazineState transactionFinalState, boolean isTransient) {
         this.priority = priority;
         this.preparingPhase = preparingPhase;
         this.permitRequestedPhase = permitRequestedState;

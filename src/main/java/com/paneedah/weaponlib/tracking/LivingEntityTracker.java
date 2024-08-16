@@ -20,7 +20,7 @@ public class LivingEntityTracker {
     }
 
     private Supplier<World> world;
-    private Map<UUID, TrackableEntity> trackableEntities = new LinkedHashMap<>();
+    private final Map<UUID, TrackableEntity> trackableEntities = new LinkedHashMap<>();
 
     public LivingEntityTracker(Supplier<World> world) {
         this.world = world;

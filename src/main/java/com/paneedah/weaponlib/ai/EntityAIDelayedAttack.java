@@ -5,7 +5,7 @@ import net.minecraft.entity.ai.EntityAIBase;
 
 public class EntityAIDelayedAttack extends EntityAIBase {
 
-    private EntityCustomMob entityCustomMob;
+    private final EntityCustomMob entityCustomMob;
     private EntityLivingBase targetEntity;
 
     public EntityAIDelayedAttack(EntityCustomMob entityCustomMob) {

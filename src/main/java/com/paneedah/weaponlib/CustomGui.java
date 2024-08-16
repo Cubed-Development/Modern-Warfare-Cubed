@@ -565,7 +565,7 @@ public class CustomGui extends Gui {
 
 
     private String getDefaultWeaponMessage(PlayerWeaponInstance weaponInstance) {
-        ItemMagazine magazine = (ItemMagazine) attachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
+        ItemMagazine magazine = (ItemMagazine) WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
         int totalCapacity;
         if (magazine != null) {
             totalCapacity = magazine.getCapacity();

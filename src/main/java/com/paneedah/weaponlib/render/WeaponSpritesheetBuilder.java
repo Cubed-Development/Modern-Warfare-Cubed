@@ -17,9 +17,9 @@ public class WeaponSpritesheetBuilder {
 
     private static ClientModContext modContext;
     private static int lastInt = 0;
-    private static HashMap<String, Integer> weaponSprites = new HashMap<>();
+    private static final HashMap<String, Integer> weaponSprites = new HashMap<>();
 
-    private static HashMap<Object, BufferedImage> imageMappings = new HashMap<>();
+    private static final HashMap<Object, BufferedImage> imageMappings = new HashMap<>();
 
 
     public static void provideModContext(ClientModContext context) {
@@ -69,7 +69,7 @@ public class WeaponSpritesheetBuilder {
 
         Map<Object, Integer> mappings = modContext.getInventoryTextureMap();
 
-        int bestSize = (int) Math.round(Math.sqrt((double) mappings.size()));
+        int bestSize = (int) Math.round(Math.sqrt(mappings.size()));
         BufferedImage master = new BufferedImage(bestSize * 128, bestSize * 128, BufferedImage.TYPE_INT_ARGB);
         Graphics2D masterGraphics = (Graphics2D) master.getGraphics();
 

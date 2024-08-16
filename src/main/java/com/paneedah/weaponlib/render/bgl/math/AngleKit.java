@@ -13,13 +13,16 @@ import org.lwjgl.util.vector.Quaternion;
  */
 public class AngleKit {
 
-    public static enum Format {
+    public enum Format {
         DEGREES, RADIANS
     }
 
     public static class AxisAngle {
-        private Format format;
-        private double angle, x, y, z;
+        private final Format format;
+        private final double angle;
+        private final double x;
+        private final double y;
+        private final double z;
 
         public AxisAngle(Format format, double angle, double x, double y, double z) {
             this.format = format;
@@ -79,8 +82,10 @@ public class AngleKit {
     }
 
     public static class EulerAngle {
-        private Format format;
-        private double x, y, z;
+        private final Format format;
+        private final double x;
+        private final double y;
+        private final double z;
 
         public EulerAngle(Format format, double x, double y, double z) {
             this.format = format;
@@ -247,7 +252,7 @@ public class AngleKit {
     }
 
     public static Quaternion quatFromEuler(float yaw, float pitch, float roll, Format format) {
-        return quatFromEuler((double) yaw, (double) pitch, (double) roll, format);
+        return quatFromEuler(yaw, pitch, (double) roll, format);
     }
 
     /**

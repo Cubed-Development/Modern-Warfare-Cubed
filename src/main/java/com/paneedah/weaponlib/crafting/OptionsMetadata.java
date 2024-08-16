@@ -16,7 +16,7 @@ public class OptionsMetadata {
         }
 
         private int maxOccurs;
-        private Object option;
+        private final Object option;
 
 
         protected int getMinOccurs() {
@@ -102,15 +102,15 @@ public class OptionsMetadata {
                 throw new IllegalStateException("Total max occurs exceeds the number of slots");
             }
 
-            OptionMetadata[] metadata = (OptionMetadata[]) optionMetadata.entrySet().stream().map(e -> new OptionMetadata(e.getKey(),
+            OptionMetadata[] metadata = optionMetadata.entrySet().stream().map(e -> new OptionMetadata(e.getKey(),
                     e.getValue().minOccurs, e.getValue().maxOccurs)).toArray(size -> new OptionMetadata[size]);
 
             return new OptionsMetadata(metadata, hasOres);
         }
     }
 
-    private OptionMetadata[] metadata;
-    private boolean hasOres;
+    private final OptionMetadata[] metadata;
+    private final boolean hasOres;
 
     private OptionsMetadata(OptionMetadata[] metadata, boolean hasOres) {
         this.metadata = metadata;

@@ -8,7 +8,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class MWCParticleManager extends ParticleManager {
 
-    private static MWCParticleManager mwcParticleManager = new MWCParticleManager(MC.player.world, MC.getTextureManager());
+    private static final MWCParticleManager mwcParticleManager = new MWCParticleManager(MC.player.world, MC.getTextureManager());
 
     public MWCParticleManager(World worldIn, TextureManager rendererIn) {
         super(worldIn, rendererIn);

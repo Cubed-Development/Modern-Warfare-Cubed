@@ -15,7 +15,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ScopePerspective extends PerspectiveRenderer {
 
-    private Reticle reticle;
+    private final Reticle reticle;
 
     public ScopePerspective(Runnable positioning, Reticle reticle) {
         super(positioning);

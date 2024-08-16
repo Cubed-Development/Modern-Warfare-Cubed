@@ -54,28 +54,28 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 //        };
 //    }
 
-    private static Predicate<PlayerWeaponInstance> readyToShootAccordingToFireRate = instance ->
+    private static final Predicate<PlayerWeaponInstance> readyToShootAccordingToFireRate = instance ->
             System.currentTimeMillis() - instance.getLastFireTimestamp() >= 50f / BalancePackManager.getFirerate(instance.getWeapon());
 
     //System.currentTimeMillis() - instance.getLastFireTimestamp() >= 50f / instance.getWeapon().builder.fireRate;
 
-    private static Predicate<PlayerWeaponInstance> postBurstTimeoutExpired = instance ->
+    private static final Predicate<PlayerWeaponInstance> postBurstTimeoutExpired = instance ->
             System.currentTimeMillis() - instance.getLastBurstEndTimestamp()
                     >= instance.getWeapon().builder.burstTimeoutMilliseconds;
 
-    private static Predicate<PlayerWeaponInstance> readyToShootAccordingToFireMode =
+    private static final Predicate<PlayerWeaponInstance> readyToShootAccordingToFireMode =
             instance -> instance.getSeriesShotCount() < instance.getMaxShots();
 
-    private static Predicate<PlayerWeaponInstance> oneClickBurstEnabled = PlayerWeaponInstance::isOneClickBurstAllowed;
+    private static final Predicate<PlayerWeaponInstance> oneClickBurstEnabled = PlayerWeaponInstance::isOneClickBurstAllowed;
 
-    private static Predicate<PlayerWeaponInstance> seriesResetAllowed = PlayerWeaponInstance::isSeriesResetAllowed;
+    private static final Predicate<PlayerWeaponInstance> seriesResetAllowed = PlayerWeaponInstance::isSeriesResetAllowed;
 
-    private static Predicate<PlayerWeaponInstance> hasAmmo = instance -> instance.getAmmo() > 0
+    private static final Predicate<PlayerWeaponInstance> hasAmmo = instance -> instance.getAmmo() > 0
             && Tags.getAmmo(instance.getItemStack()) > 0;
 
-    private static Predicate<PlayerWeaponInstance> ejectSpentRoundRequired = instance -> instance.getWeapon().ejectSpentRoundRequired();
+    private static final Predicate<PlayerWeaponInstance> ejectSpentRoundRequired = instance -> instance.getWeapon().ejectSpentRoundRequired();
 
-    private static Predicate<PlayerWeaponInstance> ejectSpentRoundTimeoutExpired = instance -> {
+    private static final Predicate<PlayerWeaponInstance> ejectSpentRoundTimeoutExpired = instance -> {
 
         boolean time = System.currentTimeMillis() >= instance.getWeapon().builder.pumpTimeoutMilliseconds + instance.getStateUpdateTimestamp();
 
@@ -85,10 +85,10 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
     };
 
-    private static Predicate<PlayerWeaponInstance> alertTimeoutExpired = instance ->
+    private static final Predicate<PlayerWeaponInstance> alertTimeoutExpired = instance ->
             System.currentTimeMillis() >= ALERT_TIMEOUT + instance.getStateUpdateTimestamp();
 
-    private static Predicate<PlayerWeaponInstance> sprinting = instance -> instance.getPlayer().isSprinting();
+    private static final Predicate<PlayerWeaponInstance> sprinting = instance -> instance.getPlayer().isSprinting();
 
     private static final Set<WeaponState> allowedFireOrEjectFromStates = new HashSet<>(
             Arrays.asList(WeaponState.READY, WeaponState.PAUSED, WeaponState.EJECT_REQUIRED));
@@ -97,7 +97,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             Arrays.asList(WeaponState.EJECTING, WeaponState.PAUSED, WeaponState.FIRING,
                     WeaponState.RECOILED, WeaponState.PAUSED, WeaponState.ALERT));
 
-    private ModContext modContext;
+    private final ModContext modContext;
 
     private StateManager<WeaponState, ? super PlayerWeaponInstance> stateManager;
 

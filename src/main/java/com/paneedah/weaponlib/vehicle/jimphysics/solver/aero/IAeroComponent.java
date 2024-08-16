@@ -2,8 +2,8 @@ package com.paneedah.weaponlib.vehicle.jimphysics.solver.aero;
 
 public interface IAeroComponent {
 
-    public double getLiftCoefficient();
+    double getLiftCoefficient();
 
-    public double getAreaOfWing();
+    double getAreaOfWing();
 
 }

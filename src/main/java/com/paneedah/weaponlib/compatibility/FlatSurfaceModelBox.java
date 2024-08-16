@@ -59,7 +59,7 @@ public class FlatSurfaceModelBox extends ModelBox {
 
             for (int i = 0; i < 4; ++i) {
                 PositionTextureVertex positiontexturevertex = this.vertexPositions[i];
-                renderer.pos(positiontexturevertex.vector3D.x * (double) scale, positiontexturevertex.vector3D.y * (double) scale, positiontexturevertex.vector3D.z * (double) scale).tex((double) positiontexturevertex.texturePositionX, (double) positiontexturevertex.texturePositionY).normal(f, f1, f2).endVertex();
+                renderer.pos(positiontexturevertex.vector3D.x * (double) scale, positiontexturevertex.vector3D.y * (double) scale, positiontexturevertex.vector3D.z * (double) scale).tex(positiontexturevertex.texturePositionX, positiontexturevertex.texturePositionY).normal(f, f1, f2).endVertex();
             }
 
             Tessellator.getInstance().draw();
@@ -69,12 +69,12 @@ public class FlatSurfaceModelBox extends ModelBox {
     /**
      * The (x,y,z) vertex positions and (u,v) texture coordinates for each of the 8 points on a cube
      */
-    private PositionTextureVertex[] vertexPositions;
+    private final PositionTextureVertex[] vertexPositions;
 
     /**
      * An array of 6 TexturedQuads, one for each face of a cube
      */
-    private TexturedQuad quad;
+    private final TexturedQuad quad;
 
     public FlatSurfaceModelBox(ModelRenderer renderer, int par2, int par3,
                                float posX1, float posY1, float posZ1,

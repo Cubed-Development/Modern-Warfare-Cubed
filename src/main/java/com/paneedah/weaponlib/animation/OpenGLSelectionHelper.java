@@ -52,7 +52,6 @@ public class OpenGLSelectionHelper {
             ballBuf = new Framebuffer(MC.displayWidth, MC.displayHeight, true);
         }
         ballBuf.bindFramebuffer(false);
-        ;
     }
 
     public static void bindSelectBuffer() {

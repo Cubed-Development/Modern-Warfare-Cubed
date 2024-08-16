@@ -20,7 +20,7 @@ public class ItemBullet extends ItemAttachment<Weapon> {
                     .build();
         }
 
-        private List<ItemMagazine> compatibleMagazines = new ArrayList<>();
+        private final List<ItemMagazine> compatibleMagazines = new ArrayList<>();
 
         public Builder() {
             withMaxStackSize(64);

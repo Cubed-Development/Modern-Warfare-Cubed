@@ -23,7 +23,7 @@ public class WeightedOptions<Category, T> {
 
     public static class Builder<Category, T> {
 
-        private List<Option<Category, T>> options = new ArrayList<>();
+        private final List<Option<Category, T>> options = new ArrayList<>();
 
         public Builder<Category, T> withOption(T item, Category category, float weight) {
             Option<Category, T> o = new Option<>();
@@ -48,8 +48,8 @@ public class WeightedOptions<Category, T> {
         }
     }
 
-    private Map<Category, OptionsByCategory<Category, T>> optionsByCategory;
-    private Random random = new Random();
+    private final Map<Category, OptionsByCategory<Category, T>> optionsByCategory;
+    private final Random random = new Random();
 
     private WeightedOptions(Map<Category, OptionsByCategory<Category, T>> optionsByCategory) {
         this.optionsByCategory = optionsByCategory;

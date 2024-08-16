@@ -12,10 +12,10 @@ import java.util.UUID;
 
 public class ScreenShakingAnimationManager {
 
-    public static enum State {
+    public enum State {
         SHOOTING(0, 0.1f), RELOADING(-5, 0f), AIMING(-10, 0f), DEFAULT(Integer.MIN_VALUE, 0f);
 
-        private int priority;
+        private final int priority;
         private float stepAdjustement;
 
         State(int priority, float stepAdjustement) {
@@ -75,20 +75,16 @@ public class ScreenShakingAnimationManager {
                 return false;
             }
             if (weapon == null) {
-                if (other.weapon != null) {
-                    return false;
-                }
-            } else if (!weapon.equals(other.weapon)) {
-                return false;
-            }
-            return true;
+                return other.weapon == null;
+            } else
+                return weapon.equals(other.weapon);
         }
 
 
     }
 
-    private Map<Key, PlayerAnimation> allPlayerAnimations = new HashMap<>();
-    private Map<EntityPlayer, PlayerAnimation> activeAnimations = new HashMap<>();
+    private final Map<Key, PlayerAnimation> allPlayerAnimations = new HashMap<>();
+    private final Map<EntityPlayer, PlayerAnimation> activeAnimations = new HashMap<>();
     private float maxYaw = 2f;
     private float maxPitch = 2f;
     private long transitionDuration = 2000;

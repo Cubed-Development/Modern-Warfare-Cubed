@@ -21,11 +21,11 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class AmmoPress extends ModelBase {
 
-    private Bullet bulletModel = new Bullet();
-    private ResourceLocation bulletTexture = new ResourceLocation(ID + ":textures/blocks/bullet.png");
+    private final Bullet bulletModel = new Bullet();
+    private final ResourceLocation bulletTexture = new ResourceLocation(ID + ":textures/blocks/bullet.png");
 
-    private Gunpowder gunpowderModel = new Gunpowder();
-    private ResourceLocation powderTexture = new ResourceLocation(ID + ":textures/blocks/gunpowder.png");
+    private final Gunpowder gunpowderModel = new Gunpowder();
+    private final ResourceLocation powderTexture = new ResourceLocation(ID + ":textures/blocks/gunpowder.png");
 
 
     private final ModelRenderer bone13;
@@ -368,7 +368,7 @@ public class AmmoPress extends ModelBase {
         for (float i = 0; i < 2 * Math.PI; i += Math.PI / 6.0f) {
 
             // Calculate angle to renderer bullet at
-            float totalAngle = (float) (i - BottomRotor.rotateAngleY);
+            float totalAngle = i - BottomRotor.rotateAngleY;
             float wrappedAngle = (float) Math.toRadians(MathHelper.wrapDegrees(Math.toDegrees(totalAngle)));
 
 

@@ -17,23 +17,23 @@ public class RadarChart {
 
     private static final double TWO_PI = 2 * Math.PI;
 
-    private String name;
+    private final String name;
 
     private String[] titleList;
 
-    private float[] color;
-    private float radius;
+    private final float[] color;
+    private final float radius;
 
-    private int sides;
-    private double increment;
-    private double rotation;
+    private final int sides;
+    private final double increment;
+    private final double rotation;
 
 
     private long textTypeTimestamp = System.currentTimeMillis();
     private boolean textLock = false;
 
     private long lastStateStamp = System.nanoTime();
-    private LinkedList<float[]> states = new LinkedList<>();
+    private final LinkedList<float[]> states = new LinkedList<>();
     private double mu = 1.0;
 
     public RadarChart(String name, int chartColor, float chartAlpha, float radius, int sides) {

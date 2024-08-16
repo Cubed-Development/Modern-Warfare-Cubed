@@ -16945,7 +16945,7 @@ public class Attachments {
                 .withRenderablePart()
                 .withCreativeTab(MWC.ATTACHMENTS_TAB).withModel(new com.paneedah.mwc.models.M1A1Grip(), "m1a1thompson.png")
                 .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 1.0f);
+                    i.setRecoil(i.getWeapon().getRecoil());
                 }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1A1Grip) {
                         GL11.glTranslatef(0.7F, -1.2F, 0.5F);

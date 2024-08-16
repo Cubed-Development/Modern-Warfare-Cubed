@@ -24,7 +24,7 @@ import static com.paneedah.mwc.utils.ModReference.ID;
  */
 public class ShellRegistry {
 
-    private static HashMap<Shell.Type, Pair<WavefrontModel, ResourceLocation>> shellRegistrar = new HashMap<>();
+    private static final HashMap<Shell.Type, Pair<WavefrontModel, ResourceLocation>> shellRegistrar = new HashMap<>();
 
 
     static {

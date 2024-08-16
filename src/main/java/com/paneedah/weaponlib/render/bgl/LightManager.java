@@ -16,7 +16,7 @@ public class LightManager {
 
     public static final int MAX_POINT_LIGHTS = 32;
 
-    private ArrayList<PointLight> lights = new ArrayList<>();
+    private final ArrayList<PointLight> lights = new ArrayList<>();
 
     public static class PointLight {
         private boolean tempLight;
@@ -24,7 +24,9 @@ public class LightManager {
         private double life;
 
 
-        private float constant, linear, quadratic;
+        private final float constant;
+        private final float linear;
+        private final float quadratic;
         private float[] position = new float[3];
         private float[] color = new float[3];
 

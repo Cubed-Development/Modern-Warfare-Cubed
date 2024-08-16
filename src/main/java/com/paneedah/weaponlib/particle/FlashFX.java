@@ -21,8 +21,8 @@ public class FlashFX extends Particle {
 
     private static final String FLASH_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/flashes.png";
     private static final int imagesPerRow = 8;
-    private int imageIndex;
-    private String texture;
+    private final int imageIndex;
+    private final String texture;
 
     public FlashFX(World par1World, double positionX, double positionY, double positionZ, float scale, float alpha, float motionX, float motionY, float motionZ, String texture) {
         super(par1World, positionX, positionY, positionZ, 0.0D, 0.0D, 0.0D);

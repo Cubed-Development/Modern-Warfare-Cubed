@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class UniversalSoundLookup {
 
-    private static HashMap<String, SoundEvent> registry = new HashMap<>();
+    private static final HashMap<String, SoundEvent> registry = new HashMap<>();
 
 
     public static void initialize(ModContext context) {

@@ -8,10 +8,10 @@ import java.util.Queue;
 
 class StaticPositioning<State, Part, Context extends PartPositionProvider> implements MultipartPositioning<Part, Context> {
 
-    private State state;
-    private Randomizer randomizer;
-    private MultipartTransitionProvider<State, Part, Context> transitionProvider;
-    private Map<Part, Matrix4f> lastApplied;
+    private final State state;
+    private final Randomizer randomizer;
+    private final MultipartTransitionProvider<State, Part, Context> transitionProvider;
+    private final Map<Part, Matrix4f> lastApplied;
 
     public StaticPositioning(MultipartTransitionProvider<State, Part, Context> transitionProvider,
                              Randomizer randomizer, State state, Map<Part, Matrix4f> lastApplied) {

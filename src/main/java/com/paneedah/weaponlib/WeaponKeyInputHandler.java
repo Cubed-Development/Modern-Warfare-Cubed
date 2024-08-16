@@ -31,8 +31,8 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WeaponKeyInputHandler {
 
-    private Function<MessageContext, EntityPlayer> entityPlayerSupplier;
-    private ModContext modContext;
+    private final Function<MessageContext, EntityPlayer> entityPlayerSupplier;
+    private final ModContext modContext;
 
     public WeaponKeyInputHandler(ModContext modContext, Function<MessageContext, EntityPlayer> entityPlayerSupplier, WeaponAttachmentAspect attachmentAspect) {
         this.modContext = modContext;

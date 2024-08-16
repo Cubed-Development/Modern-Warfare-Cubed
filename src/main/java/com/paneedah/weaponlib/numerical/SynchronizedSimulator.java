@@ -2,10 +2,10 @@ package com.paneedah.weaponlib.numerical;
 
 public class SynchronizedSimulator {
 
-    private ISimulator simulator;
+    private final ISimulator simulator;
     private long previousFrameTime = System.currentTimeMillis();
     private double accumulator;
-    private double dt;
+    private final double dt;
 
     private double remainder;
 

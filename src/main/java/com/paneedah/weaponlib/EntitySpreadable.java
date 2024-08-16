@@ -27,7 +27,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
 
     private static final float DEFAULT_CONCENTRATION_DECAY_FACTOR = 0.99f; // 
 
-    private Map<BlockPos, Float> spreadMap = new HashMap<>();
+    private final Map<BlockPos, Float> spreadMap = new HashMap<>();
     private List<BlockPos> currentSpread;
 
     /*
@@ -36,7 +36,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
      */
     //private Map<UUID, Long> entityUpdateTimestamps = new HashMap<>();
 
-    private float initialConcentration = 1f;
+    private final float initialConcentration = 1f;
 
     private float concentrationSpreadUpFactor = DEFAULT_CONCENTRATION_SPREAD_FACTOR;
     private float concentrationSpreadDownFactor = DEFAULT_CONCENTRATION_SPREAD_FACTOR;

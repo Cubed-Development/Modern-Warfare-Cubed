@@ -10,7 +10,7 @@ final class RecipeGenerator {
 
     private static final int SLOT_COUNT = 9;
 
-    private SequenceGenerator sequenceGenerator = new SequenceGenerator(SLOT_COUNT);
+    private final SequenceGenerator sequenceGenerator = new SequenceGenerator(SLOT_COUNT);
 
     public List<Object> createShapedRecipe(String name, OptionsMetadata metadata) {
         List<Object> sequence = sequenceGenerator.generate(name, createSeed(name, metadata), metadata);

@@ -56,11 +56,9 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public enum ShellCasingEjectDirection {LEFT, RIGHT}
 
-    ;
-
     public static class ScreenShaking {
 
-        private float zRotationCoefficient;
+        private final float zRotationCoefficient;
 
         public ScreenShaking(float zRotationCoefficient) {
             this.zRotationCoefficient = zRotationCoefficient;
@@ -210,9 +208,9 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         private com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type shellType = Type.ASSAULT;
 
-        private Set<AttachmentCategory> unremovableAttachmentCategories = new HashSet<>();
+        private final Set<AttachmentCategory> unremovableAttachmentCategories = new HashSet<>();
         //        private Map<RenderableState, ScreenShaking> screenShakings = new HashMap<>();
-        private Map<RenderableState, ScreenShakeAnimation.Builder> screenShakingBuilders = new HashMap<>();
+        private final Map<RenderableState, ScreenShakeAnimation.Builder> screenShakingBuilders = new HashMap<>();
 
         private float zoom;
 
@@ -554,9 +552,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withUnremovableAttachmentCategories(AttachmentCategory... categories) {
-            for (AttachmentCategory category : categories) {
-                unremovableAttachmentCategories.add(category);
-            }
+            Collections.addAll(unremovableAttachmentCategories, categories);
             return this;
         }
 
@@ -1023,7 +1019,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public Builder builder;
 
-    private ModContext modContext;
+    private final ModContext modContext;
 
     private Vec3d muzzlePosition;
 
@@ -1042,9 +1038,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     private SoundEvent burstShootSound;
     private SoundEvent silencedBurstShootSound;
 
-    public static enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
-
-    ;
+    public enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
 
     Weapon(Builder builder, ModContext modContext) {
         this.builder = builder;
@@ -1186,7 +1180,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     public static boolean isActiveAttachment(PlayerWeaponInstance weaponInstance, ItemAttachment<Weapon> attachment) {
-        return weaponInstance != null ? WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance) : false;
+        return weaponInstance != null && WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance);
     }
 
     @Override

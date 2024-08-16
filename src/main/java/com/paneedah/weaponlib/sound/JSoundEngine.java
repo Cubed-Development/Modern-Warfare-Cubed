@@ -224,7 +224,7 @@ public class JSoundEngine {
         }
 
         for (int i : removal) {
-            toDim.remove(toDim.indexOf(i));
+            toDim.remove((Integer) i);
         }
 
 
@@ -268,7 +268,7 @@ public class JSoundEngine {
             source.position(position + 1);
         } else {
             for (int x = 0; x < source.capacity() / 2; ++x) {
-                toDim.remove(toDim.indexOf(x));
+                toDim.remove((Integer) x);
                 AL10.alDeleteSources(source.get(x));
             }
             source.position(0);
@@ -391,7 +391,6 @@ public class JSoundEngine {
                 // case '2': ALC10.alcProcessContext(); break;
 
             }
-            ;
 
         }
 

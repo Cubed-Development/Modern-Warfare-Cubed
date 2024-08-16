@@ -41,7 +41,7 @@ public class DynamicShaderGroupManager {
 
     }
 
-    private Map<UUID, LoadedShaderGroup> loaded = new LinkedHashMap<>();
+    private final Map<UUID, LoadedShaderGroup> loaded = new LinkedHashMap<>();
 
     public boolean hasActiveGroups() {
         return loaded.size() > 0;

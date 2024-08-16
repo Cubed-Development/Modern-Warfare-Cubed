@@ -17,10 +17,10 @@ import java.util.Map;
 
 public class DynamicShaderGroup extends ShaderGroup {
 
-    private Map<String, Object> uniforms = new HashMap<>();
+    private final Map<String, Object> uniforms = new HashMap<>();
     private boolean deleted;
 
-    public DynamicShaderGroup(TextureManager textureManager, IResourceManager resourceManager, Framebuffer mainFramebufferIn, ResourceLocation resourceLocation) throws JsonException, IOException, JsonSyntaxException {
+    public DynamicShaderGroup(TextureManager textureManager, IResourceManager resourceManager, Framebuffer mainFramebufferIn, ResourceLocation resourceLocation) throws IOException, JsonSyntaxException {
         super(textureManager, resourceManager, mainFramebufferIn, resourceLocation);
     }
 

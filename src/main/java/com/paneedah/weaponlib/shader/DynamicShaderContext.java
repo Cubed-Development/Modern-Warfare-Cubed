@@ -7,11 +7,11 @@ import java.util.Map;
 
 public class DynamicShaderContext {
 
-    private float partialTicks;
-    private DynamicShaderPhase phase;
+    private final float partialTicks;
+    private final DynamicShaderPhase phase;
     private Map<String, Object> properties;
-    private Framebuffer mainFramebuffer;
-    private Object target;
+    private final Framebuffer mainFramebuffer;
+    private final Object target;
 
     public DynamicShaderContext(DynamicShaderPhase phase, Object target, Framebuffer mainFramebuffer, float partialTicks) {
         this.partialTicks = partialTicks;

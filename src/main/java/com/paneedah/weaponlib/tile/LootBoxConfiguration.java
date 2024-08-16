@@ -34,7 +34,7 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
     private static class EquipmentKey {
         EnumDifficulty difficulty;
         Item item;
-        ItemAttachment<?> attachments[];
+        ItemAttachment<?>[] attachments;
         int stackSize;
 
         public EquipmentKey(EnumDifficulty difficulty, Item item, ItemAttachment<?>[] attachments) {
@@ -86,14 +86,11 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
             } else if (!item.equals(other.item)) {
                 return false;
             }
-            if (stackSize != other.stackSize) {
-                return false;
-            }
-            return true;
+            return stackSize == other.stackSize;
         }
     }
 
-    private Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
+    private final Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
 
     private WeightedOptions<EnumDifficulty, Equipment> builtEquipmentOptions;
 

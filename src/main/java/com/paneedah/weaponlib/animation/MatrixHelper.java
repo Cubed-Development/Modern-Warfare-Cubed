@@ -465,7 +465,7 @@ public class MatrixHelper {
      */
 
     public static Quaternion fromEulerAngles(double roll, double pitch, double yaw) {
-        double q[] = new double[4];
+        double[] q = new double[4];
 
         // Apply Euler angle transformations
         // Derivation from www.euclideanspace.com

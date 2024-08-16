@@ -28,7 +28,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public class AnimationModeProcessor {
 
 
-    private static HashMap<Integer, AttachmentCategory> extraIDRegistry = new HashMap<>();
+    private static final HashMap<Integer, AttachmentCategory> extraIDRegistry = new HashMap<>();
 
 
     static {
@@ -36,11 +36,11 @@ public class AnimationModeProcessor {
     }
 
 
-    private HashMap<AttachmentCategory, Boolean> shouldRender = new HashMap<>();
+    private final HashMap<AttachmentCategory, Boolean> shouldRender = new HashMap<>();
     private AttachmentCategory activeCategory;
     private AttachmentCategory exclusionCategory;
 
-    private static AnimationModeProcessor instance = new AnimationModeProcessor();
+    private static final AnimationModeProcessor instance = new AnimationModeProcessor();
 
     public boolean legacyMode = false;
 
@@ -638,8 +638,8 @@ public class AnimationModeProcessor {
         GlStateManager.disableTexture2D();
         GlStateManager.disableLighting();
 
-        float size = (float) ((float) 0.08f * pan.z);
-        float innerSize = (float) ((float) size - (AnimationModeProcessor.instance.pan.z) * 0.01);
+        float size = (float) (0.08f * pan.z);
+        float innerSize = (float) (size - (AnimationModeProcessor.instance.pan.z) * 0.01);
 
         GlStateManager.pushMatrix();
         //GlStateManager.disableDepth();

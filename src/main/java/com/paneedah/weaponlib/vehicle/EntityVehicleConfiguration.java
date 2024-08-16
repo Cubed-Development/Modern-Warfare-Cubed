@@ -100,11 +100,11 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
         private double inWaterDecceleration = DEFAULT_IN_WATER_DECCELERATION;
 
 */
-        private int trackingRange = DEFAULT_TRACKING_RANGE;
-        private int updateFrequency = DEFAULT_UPDATE_FREQUENCY;
-        private boolean sendVelocityUpdates = true;
+        private final int trackingRange = DEFAULT_TRACKING_RANGE;
+        private final int updateFrequency = DEFAULT_UPDATE_FREQUENCY;
+        private final boolean sendVelocityUpdates = true;
 
-        private Function<Double, Double> speedThreshold = s -> 1.5 * s + 0.07;
+        private final Function<Double, Double> speedThreshold = s -> 1.5 * s + 0.07;
 
         /*
         private double handlingFactor = 5.0;
@@ -112,11 +112,11 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
         private Function<Double, Double> offGroundHandling = s -> 0.015 * s * s * handlingFactor + 0.016 * s * handlingFactor;
 
 */
-        private List<Seat> seats = new ArrayList<>();
+        private final List<Seat> seats = new ArrayList<>();
 
-        private List<VehiclePart> installedParts = new ArrayList<>();
+        private final List<VehiclePart> installedParts = new ArrayList<>();
 
-        private VehicleSuspensionStrategy suspensionStrategy = new VehicleSuspensionStrategy.StepSuspensionStrategy(
+        private final VehicleSuspensionStrategy suspensionStrategy = new VehicleSuspensionStrategy.StepSuspensionStrategy(
                 0.01f, 10f, 0.01f,
                 0.1f, 7f, 0.01f,
                 0.3f, 5f, 0.05f);
@@ -415,7 +415,7 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
     private double obbWidth;
     private double obbHeight;
 
-    private Builder builder;
+    private final Builder builder;
 
     private PhysicsConfiguration physicsConfig;
 

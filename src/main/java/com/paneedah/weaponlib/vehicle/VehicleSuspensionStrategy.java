@@ -17,7 +17,7 @@ public abstract class VehicleSuspensionStrategy {
             }
         }
 
-        private Threshold[] thresholds;
+        private final Threshold[] thresholds;
 
         public StepSuspensionStrategy(float... data) {
             if (data.length % 3 != 0) {

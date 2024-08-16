@@ -18,10 +18,10 @@ public class MultipartTransition<Part, Context> {
 
     public Context cont;
 
-    private Map<Part, Consumer<Context>> multipartPositionFunctions = new HashMap<>();
-    private Map<Part, Part> attachedTo = new HashMap<>();
-    private long duration;
-    private long pause;
+    private final Map<Part, Consumer<Context>> multipartPositionFunctions = new HashMap<>();
+    private final Map<Part, Part> attachedTo = new HashMap<>();
+    private final long duration;
+    private final long pause;
 
     public SoundEvent sound;
 

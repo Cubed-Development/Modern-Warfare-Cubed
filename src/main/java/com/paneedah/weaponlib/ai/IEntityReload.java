@@ -2,16 +2,16 @@ package com.paneedah.weaponlib.ai;
 
 public interface IEntityReload {
 
-    public int getAmmo();
+    int getAmmo();
 
-    public int getMaxAmmo();
+    int getMaxAmmo();
 
-    public void setAmmo(int ammo);
+    void setAmmo(int ammo);
 
-    public void setMaxAmmo(int maximumAmmo);
+    void setMaxAmmo(int maximumAmmo);
 
-    public int getReloadTime();
+    int getReloadTime();
 
-    public void setReloadTime(int time);
+    void setReloadTime(int time);
 
 }

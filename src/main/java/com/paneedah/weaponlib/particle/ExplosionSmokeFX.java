@@ -62,10 +62,10 @@ public class ExplosionSmokeFX extends Particle {
         return 0.3f * (float) Math.sin(alphaRadians > Math.PI ? Math.PI : alphaRadians);
     };
 
-    private String particleTexture;
-    private float scale;
-    private int imageIndex;
-    private Behavior behavior;
+    private final String particleTexture;
+    private final float scale;
+    private final int imageIndex;
+    private final Behavior behavior;
 
     public ExplosionSmokeFX(World par1World, double positionX, double positionY, double positionZ, float scale, float motionX, float motionY, float motionZ, int particleMaxAge, Behavior behavior, String particleTexture) {
         super(par1World, positionX, positionY, positionZ, 0.0D, 0.0D, 0.0D);
@@ -178,17 +178,17 @@ public class ExplosionSmokeFX extends Particle {
         GL11.glPopMatrix();
     }
 
-    public static enum Behavior {
+    public enum Behavior {
 
         EXPLOSION(EXPLOSION_SCALE_UPDATE_FUNCTION, EXPLOSION_ALPHA_UPDATE_FUNCTION),
 
         SMOKE_GRENADE(SMOKE_GRENADE_SCALE_UPDATE_FUNCTION, SMOKE_GRENADE_ALPHA_UPDATE_FUNCTION);
 
-        private TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction;
-        private TriFunction<Float, Integer, Integer, Float> alphaUpdateFunction;
+        private final TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction;
+        private final TriFunction<Float, Integer, Integer, Float> alphaUpdateFunction;
 
-        private Behavior(TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction,
-                         TriFunction<Float, Integer, Integer, Float> alphaUpdateFunction) {
+        Behavior(TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction,
+                 TriFunction<Float, Integer, Integer, Float> alphaUpdateFunction) {
             this.scaleUpdateFunction = scaleUpdateFunction;
             this.alphaUpdateFunction = alphaUpdateFunction;
         }

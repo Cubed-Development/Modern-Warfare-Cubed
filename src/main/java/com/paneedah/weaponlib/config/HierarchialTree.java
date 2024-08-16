@@ -28,14 +28,14 @@ public class HierarchialTree<K> {
      */
     public static class Branch<K> {
 
-        private Branch<K> parent;
+        private final Branch<K> parent;
 
-        private String key;
+        private final String key;
 
         /**
          * Map of all the subbranches
          */
-        private HashMap<String, Branch<K>> subBranches = new HashMap<>();
+        private final HashMap<String, Branch<K>> subBranches = new HashMap<>();
 
         /**
          * List of all the subbranches

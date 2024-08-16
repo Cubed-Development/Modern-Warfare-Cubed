@@ -14,7 +14,7 @@ import java.util.List;
 public class MeleeSkin extends ItemAttachment<ItemMelee> {
 
     public static final class Builder extends AttachmentBuilder<ItemMelee> {
-        private List<String> textureVariants = new ArrayList<>();
+        private final List<String> textureVariants = new ArrayList<>();
 
         public Builder withTextureVariant(String... textureVariantNames) {
             for (String s : textureVariantNames) {

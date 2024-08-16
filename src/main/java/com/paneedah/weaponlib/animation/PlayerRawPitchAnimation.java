@@ -22,7 +22,7 @@ public class PlayerRawPitchAnimation implements PlayerAnimation {
 
     private float attenuation = ATTENUATION_COEFFICIENT;
 
-    private Random rand = new Random();
+    private final Random rand = new Random();
 
     private long transitionDuration = 2000;
 
@@ -31,7 +31,7 @@ public class PlayerRawPitchAnimation implements PlayerAnimation {
     private EntityPlayer clientPlayer;
 
     private boolean forceResetYawPitch;
-    private State state;
+    private final State state;
 
     public PlayerRawPitchAnimation(State state) {
         this.state = state;

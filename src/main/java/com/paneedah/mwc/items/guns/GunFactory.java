@@ -5,5 +5,5 @@ import net.minecraft.item.Item;
 
 public interface GunFactory {
 
-    public Item createGun(CommonProxy commonProxy);
+    Item createGun(CommonProxy commonProxy);
 }

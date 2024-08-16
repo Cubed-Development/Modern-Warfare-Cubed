@@ -231,7 +231,6 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 //        BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> block != Blocks.GLASS && block != Blocks.GLASS_PANE && compatibility.canCollideCheck(block, blockMetadata, false);
 
         BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> !isTransparentBlock(block) && block.canCollideCheck(blockMetadata, false);
-        ;
 
         EntityPlayer player = (EntityPlayer) nearbyEntity;
         Vec3d playerLookVec = player.getLook(1f);

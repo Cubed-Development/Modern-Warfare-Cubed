@@ -46,7 +46,7 @@ public class ItemHandheld<T> extends ItemAttachment<T>
 
 
     private ModContext modContext;
-    private Builder<T> builder;
+    private final Builder<T> builder;
 
     private ItemHandheld(Builder<T> builder) {
         super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null,

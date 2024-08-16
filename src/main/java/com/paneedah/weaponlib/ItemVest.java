@@ -40,7 +40,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
         private CreativeTabs tab;
         private ModelBase model;
         private String textureName;
-        private ModelSourceTransforms transforms = ModelSourceTransforms.builder()
+        private final ModelSourceTransforms transforms = ModelSourceTransforms.builder()
                 .entityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.75F, 0.5F)
                         .withScale(1, 1, 1)
@@ -243,12 +243,12 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
     }
 
 
-    private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
     private int size;
     private final int damageReduceAmount;
 
-    private int durability;
-    private double percentDamageBlocked;
+    private final int durability;
+    private final double percentDamageBlocked;
 
 
     // Modern crafting setup

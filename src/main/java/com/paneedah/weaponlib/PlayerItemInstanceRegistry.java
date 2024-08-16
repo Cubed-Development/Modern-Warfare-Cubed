@@ -21,11 +21,11 @@ public class PlayerItemInstanceRegistry {
 
     private static final int CACHE_EXPIRATION_TIMEOUT_SECONDS = 5;
 
-    private Map<UUID, Map<Integer, PlayerItemInstance<?>>> registry = new HashMap<>();
+    private final Map<UUID, Map<Integer, PlayerItemInstance<?>>> registry = new HashMap<>();
 
-    private SyncManager<?> syncManager;
+    private final SyncManager<?> syncManager;
 
-    private Cache<ItemStack, Optional<PlayerItemInstance<?>>> itemStackInstanceCache;
+    private final Cache<ItemStack, Optional<PlayerItemInstance<?>>> itemStackInstanceCache;
 
     public PlayerItemInstanceRegistry(SyncManager<?> syncManager) {
         this.syncManager = syncManager;
@@ -240,7 +240,7 @@ public class PlayerItemInstanceRegistry {
                 if (slotStack == null || slotStack.getItem() != e.getValue().getItem()
                         || !e.getValue().getUuid().equals(Tags.getInstanceUuid(slotStack))) {
                     LOG.debug("Removing {} from slot {}", e.getValue(), e.getKey());
-                    syncManager.unwatch((PlayerItemInstance) e.getValue());
+                    syncManager.unwatch(e.getValue());
                     it.remove();
                 }
             }

@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 
 public class CompatibleAttachment<T> {
 
-    private ItemAttachment<T> attachment;
+    private final ItemAttachment<T> attachment;
     private Consumer<ModelBase> modelPositioning;
     //	private BiConsumer<EntityLivingBase, ItemStack> positioning;
     private Object positioning;

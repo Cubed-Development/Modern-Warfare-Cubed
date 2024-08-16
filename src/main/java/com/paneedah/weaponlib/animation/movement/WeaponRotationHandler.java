@@ -187,10 +187,10 @@ public class WeaponRotationHandler {
          */
 
         // Apply movement animations
-        STRAFING_ANIMATION.doPositioning((float) strafeMagnitude, MOVEMENT_ANIMATION_ROTATION_POINT);
-        WALKING_ANIMATION.doPositioning((float) Math.max(forwardMagnitude - runningMagnitude, 0),
+        STRAFING_ANIMATION.doPositioning(strafeMagnitude, MOVEMENT_ANIMATION_ROTATION_POINT);
+        WALKING_ANIMATION.doPositioning(Math.max(forwardMagnitude - runningMagnitude, 0),
                 MOVEMENT_ANIMATION_ROTATION_POINT);
-        RUNNING_ANIMATION.doPositioning((float) Math.max(runningMagnitude, 0), MOVEMENT_ANIMATION_ROTATION_POINT);
+        RUNNING_ANIMATION.doPositioning(Math.max(runningMagnitude, 0), MOVEMENT_ANIMATION_ROTATION_POINT);
 
         // Apply sway animations
         GlStateManager.translate(walkSwayY, walkSwayX, 0);

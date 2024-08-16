@@ -101,7 +101,7 @@ public class ModernSkyRenderer extends IRenderHandler {
     public ByteBuffer readImageFromFile(ResourceLocation location) {
         IResource resource = null;
         try {
-            resource = (IResource) MC.getResourceManager().getResource(location);
+            resource = MC.getResourceManager().getResource(location);
         } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

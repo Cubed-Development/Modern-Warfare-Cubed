@@ -49,7 +49,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                         if (press.hasStack()) {
                             final ItemStack topQueue = press.getCraftingQueue().getLast();
                             if (ItemStack.areItemsEqualIgnoreDurability(topQueue, newStack)) {
-                                topQueue.setCount((int) MathUtil.clampMaxFirst(topQueue.getCount() + workbenchServerMessage.getQuantity(), 1, 999));
+                                topQueue.setCount(MathUtil.clampMaxFirst(topQueue.getCount() + workbenchServerMessage.getQuantity(), 1, 999));
                             } else {
                                 press.addStack(newStack);
                             }

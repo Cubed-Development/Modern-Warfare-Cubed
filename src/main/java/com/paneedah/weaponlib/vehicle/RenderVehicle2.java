@@ -36,11 +36,11 @@ public class RenderVehicle2 extends Render<Entity> {
     public static final ResourceLocation VEHICLE_SHADOW = new ResourceLocation(ID + ":textures/entity/vehicleshadow.png");
 
 
-    private static ThreadLocal<Matrix4f> cameraTransformMatrix = new ThreadLocal<>();
+    private static final ThreadLocal<Matrix4f> cameraTransformMatrix = new ThreadLocal<>();
 
     private static ResourceLocation field_110782_f;
 
-    private StatefulRenderer<VehicleRenderableState> mainRenderer;
+    private final StatefulRenderer<VehicleRenderableState> mainRenderer;
 
     private VehicleRenderableState currentRenderableState;
 
@@ -472,7 +472,7 @@ public class RenderVehicle2 extends Render<Entity> {
          * THIS SHOULD BE DONE LATER ON!!!
          */
         if (entityVehicle.isBraking) {
-            if (gameView == 0 && isRidingVehicle && (EntityVehicle) player.getRidingEntity() == entityVehicle) {
+            if (gameView == 0 && isRidingVehicle && player.getRidingEntity() == entityVehicle) {
 
             } else {
                 GlStateManager.enableBlend();
@@ -768,11 +768,11 @@ public class RenderVehicle2 extends Render<Entity> {
                 Vec3d p = e.getPositionVector();
                 //Vec3d p = new Vec3d(pos.getX(), pos.getY(), pos.getZ());
 
-                double d1 = (double) p.x + axisalignedbb.minX + p_188299_11_;
-                double d2 = (double) p.x + axisalignedbb.maxX + p_188299_11_;
-                double d3 = (double) p.y + axisalignedbb.minY + p_188299_13_ + 0.015625D;
-                double d4 = (double) p.z + axisalignedbb.minZ + p_188299_15_;
-                double d5 = (double) p.z + axisalignedbb.maxZ + p_188299_15_;
+                double d1 = p.x + axisalignedbb.minX + p_188299_11_;
+                double d2 = p.x + axisalignedbb.maxX + p_188299_11_;
+                double d3 = p.y + axisalignedbb.minY + p_188299_13_ + 0.015625D;
+                double d4 = p.z + axisalignedbb.minZ + p_188299_15_;
+                double d5 = p.z + axisalignedbb.maxZ + p_188299_15_;
 
 
 
@@ -799,10 +799,10 @@ public class RenderVehicle2 extends Render<Entity> {
                 // GL11.glRotated(30, 0.0, 1, 0.0);
                 // System.out.println(p_188299_11_ + " | " + p_188299_13_ + " | " + p_188299_15_);
 
-                bufferbuilder.pos(d1, d3, d4).tex((double) f, (double) f2).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d1, d3, d5).tex((double) f, (double) f3).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d2, d3, d5).tex((double) f1, (double) f3).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d2, d3, d4).tex((double) f1, (double) f2).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
+                bufferbuilder.pos(d1, d3, d4).tex(f, f2).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
+                bufferbuilder.pos(d1, d3, d5).tex(f, f3).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
+                bufferbuilder.pos(d2, d3, d5).tex(f1, f3).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
+                bufferbuilder.pos(d2, d3, d4).tex(f1, f2).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
 
                 GL11.glTranslated(pos.getX(), pos.getY(), pos.getZ());
                 GL11.glTranslated(p_188299_11_, p_188299_13_, p_188299_15_);

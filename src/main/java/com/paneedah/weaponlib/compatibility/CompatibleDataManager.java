@@ -12,7 +12,7 @@ public class CompatibleDataManager {
 //    private static final DataParameter<Boolean> SWINGING_ARMS = EntityDataManager.<Boolean>createKey(EntityCustomMob.class, DataSerializers.BOOLEAN);
 
     public static class Key {
-        private DataParameter<?> key;
+        private final DataParameter<?> key;
 
         public Key(DataParameter<?> key) {
             this.key = key;
@@ -36,7 +36,7 @@ public class CompatibleDataManager {
         }
     }
 
-    private EntityDataManager dataManager;
+    private final EntityDataManager dataManager;
 
     public CompatibleDataManager(EntityDataManager dataManager) {
         this.dataManager = dataManager;
@@ -44,15 +44,15 @@ public class CompatibleDataManager {
 
 
     public <T> void register(Key key, T value) {
-        dataManager.register((DataParameter<T>) key.key, (T) value);
+        dataManager.register((DataParameter<T>) key.key, value);
     }
 
     public static Key createKey(Class<? extends Entity> entityClass, Class<?> valueType) {
         Key key;
         if (valueType == int.class) {
-            key = new Key(EntityDataManager.<Integer>createKey(entityClass, DataSerializers.VARINT));
+            key = new Key(EntityDataManager.createKey(entityClass, DataSerializers.VARINT));
         } else if (valueType == boolean.class) {
-            key = new Key(EntityDataManager.<Boolean>createKey(entityClass, DataSerializers.BOOLEAN));
+            key = new Key(EntityDataManager.createKey(entityClass, DataSerializers.BOOLEAN));
         } else {
             throw new IllegalArgumentException("Value type " + valueType + " not supported");
         }

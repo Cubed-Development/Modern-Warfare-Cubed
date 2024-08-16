@@ -149,9 +149,7 @@ public class Transform {
 
     private double[] copyArray(double[] array) {
         double[] newArray = new double[array.length];
-        for (int i = 0; i < array.length; ++i) {
-            newArray[i] = array[i];
-        }
+        System.arraycopy(array, 0, newArray, 0, array.length);
         return newArray;
     }
 
@@ -204,16 +202,13 @@ public class Transform {
     public void printTransform() {
 
 
-        StringBuilder result = new StringBuilder();
-        result.append(String.format("new Transform()"));
-        result.append(String.format("\n.withPosition(%ff, %ff, %ff)", getPositionX(), getPositionY(),
-                getPositionZ()));
-        result.append(String.format("\n.withRotation(%ff, %ff, %ff)", getRotationX(), getRotationY(),
-                getRotationZ()));
-
-
-        result.append(String.format("\n.withRotationPoint(%ff, %ff, %ff)", getRotationPointX(), getRotationPointY(), getRotationPointZ()));
-        result.append(String.format("\n.withScale(%ff, %ff, %ff)", getScaleX(), getScaleY(), getScaleZ()));
+        String result = "new Transform()" +
+                String.format("\n.withPosition(%ff, %ff, %ff)", getPositionX(), getPositionY(),
+                        getPositionZ()) +
+                String.format("\n.withRotation(%ff, %ff, %ff)", getRotationX(), getRotationY(),
+                        getRotationZ()) +
+                String.format("\n.withRotationPoint(%ff, %ff, %ff)", getRotationPointX(), getRotationPointY(), getRotationPointZ()) +
+                String.format("\n.withScale(%ff, %ff, %ff)", getScaleX(), getScaleY(), getScaleZ());
 
         System.out.println("\n" + result);
     }

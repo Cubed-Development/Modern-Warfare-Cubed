@@ -63,7 +63,7 @@ public class ModelRenderTool {
                 vertices.add(tri.p3.pos);
             }
 
-            texCoords[i * 6 + 0] = tri.p1.texX;
+            texCoords[i * 6] = tri.p1.texX;
             texCoords[i * 6 + 1] = tri.p1.texY;
             texCoords[i * 6 + 2] = tri.p2.texX;
             texCoords[i * 6 + 3] = tri.p2.texY;

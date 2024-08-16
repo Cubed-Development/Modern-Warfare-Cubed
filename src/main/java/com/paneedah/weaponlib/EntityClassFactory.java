@@ -13,8 +13,8 @@ public class EntityClassFactory implements Opcodes {
 
     private static class EntityClassLoader extends ClassLoader {
 
-        private byte[] rawClassBytes;
-        private String className;
+        private final byte[] rawClassBytes;
+        private final String className;
 
         public EntityClassLoader(String className, byte[] classBytes, ClassLoader parentClassLoader) {
             super(parentClassLoader);
@@ -31,13 +31,13 @@ public class EntityClassFactory implements Opcodes {
         }
     }
 
-    private static EntityClassFactory instance = new EntityClassFactory();
+    private static final EntityClassFactory instance = new EntityClassFactory();
 
     public static EntityClassFactory getInstance() {
         return instance;
     }
 
-    private Map<Class<?>, EntityConfiguration> entityConfigurations = new HashMap<>();
+    private final Map<Class<?>, EntityConfiguration> entityConfigurations = new HashMap<>();
 
 
     public <T extends Entity> Class<? extends T> generateEntitySubclass(Class<T> baseEntityClass,

@@ -17,12 +17,12 @@ public class VehicleRendererBuilder extends HierarchicalRendererBuilder<VehicleP
     private boolean shiftRight = false;
 
 
-    private static List<VehiclePart> allParts = Arrays.asList(VehiclePart.MAIN, VehiclePart.WINDOWS,
+    private static final List<VehiclePart> allParts = Arrays.asList(VehiclePart.MAIN, VehiclePart.WINDOWS,
             VehiclePart.STEERING_WHEEL, VehiclePart.LEFT_HAND, VehiclePart.RIGHT_HAND,
             VehiclePart.FRONT_LEFT_CONTROL_ARM, VehiclePart.FRONT_RIGHT_CONTROL_ARM, VehiclePart.FRONT_LEFT_WHEEL,
             VehiclePart.FRONT_RIGHT_WHEEL, VehiclePart.REAR_LEFT_WHEEL, VehiclePart.REAR_RIGHT_WHEEL);
 
-    private static BiConsumer<MultipartRenderStateManager<VehicleRenderableState, SinglePart, PartRenderContext<VehicleRenderableState>>, PartRenderContext<VehicleRenderableState>> DEFAULT_CONTINOUS_STATE_SETTER = (
+    private static final BiConsumer<MultipartRenderStateManager<VehicleRenderableState, SinglePart, PartRenderContext<VehicleRenderableState>>, PartRenderContext<VehicleRenderableState>> DEFAULT_CONTINOUS_STATE_SETTER = (
             stateManager, renderContext) -> {
         stateManager.setContinousState(renderContext.getState(), true, false, false);
     };
@@ -31,10 +31,10 @@ public class VehicleRendererBuilder extends HierarchicalRendererBuilder<VehicleP
 			+ (float) ((EntityVehicle) context.getEntity()).getLastYawDelta() / 20f;
 */
 
-    private static Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_TURN_PROGRESS_PROVIDER = context -> ((EntityVehicle) context.getEntity()).getInterpolatedYawDelta();
+    private static final Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_TURN_PROGRESS_PROVIDER = context -> ((EntityVehicle) context.getEntity()).getInterpolatedYawDelta();
 
 
-    private static Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_WHEEL_TURN_PROGRESS_PROVIDER = context -> (float) ((EntityVehicle) context.getEntity()).getInterpolatedWheelRotation();
+    private static final Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_WHEEL_TURN_PROGRESS_PROVIDER = context -> (float) ((EntityVehicle) context.getEntity()).getInterpolatedWheelRotation();
 	
 	/*
 	private static Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_WHEEL_TURN_PROGRESS_PROVIDER = context -> (float) Math

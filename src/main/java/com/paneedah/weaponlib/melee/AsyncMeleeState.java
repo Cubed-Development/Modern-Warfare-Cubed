@@ -2,9 +2,9 @@ package com.paneedah.weaponlib.melee;
 
 public class AsyncMeleeState {
 
-    private MeleeState state;
-    private long timestamp;
-    private long duration;
+    private final MeleeState state;
+    private final long timestamp;
+    private final long duration;
     private boolean isInfinite;
 
     public AsyncMeleeState(MeleeState state, long timestamp) {

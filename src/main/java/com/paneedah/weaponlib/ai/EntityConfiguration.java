@@ -64,9 +64,9 @@ public class EntityConfiguration {
             int weightedProb;
             int min;
             int max;
-            BiomeDictionary.Type biomeTypes[];
+            BiomeDictionary.Type[] biomeTypes;
 
-            public Spawn(int weightedProb, int min, int max, BiomeDictionary.Type biomeTypes[]) {
+            public Spawn(int weightedProb, int min, int max, BiomeDictionary.Type[] biomeTypes) {
                 this.weightedProb = weightedProb;
                 this.min = min;
                 this.max = max;
@@ -88,7 +88,7 @@ public class EntityConfiguration {
         private static class EquipmentKey {
             EnumDifficulty difficulty;
             Item item;
-            ItemAttachment<?> attachments[];
+            ItemAttachment<?>[] attachments;
 
             public EquipmentKey(EnumDifficulty difficulty, Item item, ItemAttachment<?>[] attachments) {
                 this.difficulty = difficulty;
@@ -125,33 +125,29 @@ public class EntityConfiguration {
                     return false;
                 }
                 if (item == null) {
-                    if (other.item != null) {
-                        return false;
-                    }
-                } else if (!item.equals(other.item)) {
-                    return false;
-                }
-                return true;
+                    return other.item == null;
+                } else
+                    return item.equals(other.item);
             }
 
         }
 
-        private int trackingRange = DEFAULT_TRACKING_RANGE;
-        private int updateFrequency = DEFAULT_UPDATE_FREQUENCY;
-        private boolean sendVelocityUpdates = true;
+        private final int trackingRange = DEFAULT_TRACKING_RANGE;
+        private final int updateFrequency = DEFAULT_UPDATE_FREQUENCY;
+        private final boolean sendVelocityUpdates = true;
 
         private Supplier<Integer> entityIdSupplier;
-        private Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
-        private Map<EquipmentKey, EquipmentValue> secondaryEquipmentOptions = new HashMap<>();
+        private final Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
+        private final Map<EquipmentKey, EquipmentValue> secondaryEquipmentOptions = new HashMap<>();
 
 
         private Class<? extends Entity> baseClass;
-        private List<Spawn> spawns = new ArrayList<>();
+        private final List<Spawn> spawns = new ArrayList<>();
 
-        private List<AiTask> aiTasks = new ArrayList<>();
-        private List<AiTask> aiTargetTasks = new ArrayList<>();
+        private final List<AiTask> aiTasks = new ArrayList<>();
+        private final List<AiTask> aiTargetTasks = new ArrayList<>();
 
-        private List<TexturedModel> texturedModelVariants = new ArrayList<>();
+        private final List<TexturedModel> texturedModelVariants = new ArrayList<>();
 
         private String name;
         private String ambientSound;
@@ -182,7 +178,7 @@ public class EntityConfiguration {
         private boolean spawnEgg;
         private int primaryEggColor;
         private int secondaryEggColor;
-        private Map<EntityEquipmentSlot, CustomArmor> armor = new HashMap<>();
+        private final Map<EntityEquipmentSlot, CustomArmor> armor = new HashMap<>();
 
         private float primaryEquipmentDropChance = DEFAULT_PRIMARY_EQUIPMENT_DROP_CHANCE;
         private float secondaryEquipmentDropChance = DEFAULT_SECONDARY_EQUIPMENT_DROP_CHANCE;

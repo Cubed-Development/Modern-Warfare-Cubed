@@ -16,11 +16,11 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class LaserBeamRenderer implements CustomRenderer {
 
-    private float xOffset = 0.5f;
-    private float yOffset = -1.3f;
-    private float zOffset = -1.7f;
+    private final float xOffset = 0.5f;
+    private final float yOffset = -1.3f;
+    private final float zOffset = -1.7f;
 
-    private BiConsumer<EntityLivingBase, ItemStack> positioning;
+    private final BiConsumer<EntityLivingBase, ItemStack> positioning;
 
     public LaserBeamRenderer(BiConsumer<EntityLivingBase, ItemStack> positioning) {
         this.positioning = positioning;

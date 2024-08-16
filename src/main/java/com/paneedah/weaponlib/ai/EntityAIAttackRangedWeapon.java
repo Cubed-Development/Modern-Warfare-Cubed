@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.EnumHand;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,15 +13,15 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
 
     private final EntityCustomMob entity;
     private final double moveSpeedAmp;
-    private int attackCooldown;
+    private final int attackCooldown;
     private final float maxAttackDistanceSquared;
     private int attackTime = -1;
     private int seeTime;
     private boolean strafingClockwise;
     private boolean strafingBackwards;
     private int strafingTime = -1;
-    private Set<Class<?>> attackWithItemType;
-    private float secondaryEquipmentUseChance;
+    private final Set<Class<?>> attackWithItemType;
+    private final float secondaryEquipmentUseChance;
 
     private float lookHeightMultiplier;
 
@@ -35,9 +36,7 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
                                       double speedAmplifier, int delay, float maxDistance, float secondaryEquipmentUseChance,
                                       Class<?>... attackWithItemType) {
         this.attackWithItemType = new HashSet<>();
-        for (Class<?> c : attackWithItemType) {
-            this.attackWithItemType.add(c);
-        }
+        Collections.addAll(this.attackWithItemType, attackWithItemType);
 
         this.entity = customMob;
         this.moveSpeedAmp = speedAmplifier;

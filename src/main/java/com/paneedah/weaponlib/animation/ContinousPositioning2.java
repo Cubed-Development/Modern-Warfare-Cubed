@@ -75,16 +75,16 @@ class ContinousPositioning2<State, Part, Context extends PartPositionProvider> i
     }
 
 
-    private Function<Context, Float> currentProgressProvider;
-    private Randomizer randomizer;
+    private final Function<Context, Float> currentProgressProvider;
+    private final Randomizer randomizer;
 
     private long totalDuration;
 
-    private List<MultipartTransition<Part, Context>> toPositioning;
+    private final List<MultipartTransition<Part, Context>> toPositioning;
 
-    private State fromState;
-    private State toState;
-    private boolean fromAnchored;
+    private final State fromState;
+    private final State toState;
+    private final boolean fromAnchored;
 
     ContinousPositioning2(MultipartTransitionProvider<State, Part, Context> transitionProvider,
                           Function<Context, Float> currentProgressProvider, Randomizer randomizer,

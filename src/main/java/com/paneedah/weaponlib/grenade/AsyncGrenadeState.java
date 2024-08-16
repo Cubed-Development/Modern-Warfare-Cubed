@@ -2,9 +2,9 @@ package com.paneedah.weaponlib.grenade;
 
 public class AsyncGrenadeState {
 
-    private GrenadeState state;
-    private long timestamp;
-    private long duration;
+    private final GrenadeState state;
+    private final long timestamp;
+    private final long duration;
     private boolean isInfinite;
 
     public AsyncGrenadeState(GrenadeState state, long timestamp) {

@@ -19,7 +19,7 @@ public class NaturalCamera {
     private Matrix4f currentMatrix;
     private Matrix4f previousMatrix;
 
-    private static LinkedList<Matrix4f> matrixStack = new LinkedList<>();
+    private static final LinkedList<Matrix4f> matrixStack = new LinkedList<>();
 
     public void addToMatrixStack(Matrix4f mat) {
 

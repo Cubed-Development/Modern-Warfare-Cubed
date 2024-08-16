@@ -379,7 +379,6 @@ public class OBBCollider {
         System.out.println("Failed");
         result.status = GJKResult.Status.FAILED;
 
-        return;
     }
 
 

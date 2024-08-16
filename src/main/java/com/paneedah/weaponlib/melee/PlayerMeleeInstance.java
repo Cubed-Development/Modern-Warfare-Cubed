@@ -27,7 +27,7 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
     private long lastFireTimestamp;
     private byte activeTextureIndex;
 
-    private Deque<AsyncMeleeState> filteredStateQueue = new LinkedBlockingDeque<>();
+    private final Deque<AsyncMeleeState> filteredStateQueue = new LinkedBlockingDeque<>();
     private int[] activeAttachmentIds = new int[0];
     private byte[] selectedAttachmentIndexes = new byte[0];
 
@@ -120,14 +120,14 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
         byteBuf.writeByte(activeTextureIndex);
     }
 
-    private static void serializeIntArray(ByteBuf buf, int a[]) {
+    private static void serializeIntArray(ByteBuf buf, int[] a) {
         buf.writeByte(a.length);
         for (int i = 0; i < a.length; i++) {
             buf.writeInt(a[i]);
         }
     }
 
-    private static void serializeByteArray(ByteBuf buf, byte a[]) {
+    private static void serializeByteArray(ByteBuf buf, byte[] a) {
         buf.writeByte(a.length);
         for (int i = 0; i < a.length; i++) {
             buf.writeByte(a[i]);
@@ -136,7 +136,7 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
     private static int[] initIntArray(ByteBuf buf) {
         int length = buf.readByte();
-        int a[] = new int[length];
+        int[] a = new int[length];
         for (int i = 0; i < length; i++) {
             a[i] = buf.readInt();
         }
@@ -145,7 +145,7 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
     private static byte[] initByteArray(ByteBuf buf) {
         int length = buf.readByte();
-        byte a[] = new byte[length];
+        byte[] a = new byte[length];
         for (int i = 0; i < length; i++) {
             a[i] = buf.readByte();
         }

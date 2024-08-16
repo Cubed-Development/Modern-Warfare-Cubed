@@ -54,11 +54,11 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     private float zRotationChange;
 
     private float rotationSlowdownFactor = 0.99f;
-    private float maxRotationChange = 20f;
+    private final float maxRotationChange = 20f;
 
     protected boolean stopped;
 
-    private Queue<Double> velocityHistory = new ArrayDeque<>(VELOCITY_HISTORY_SIZE);
+    private final Queue<Double> velocityHistory = new ArrayDeque<>(VELOCITY_HISTORY_SIZE);
 
     public EntityBounceable(ModContext modContext, World world, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
         super(world);
@@ -69,15 +69,15 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         this.setSize(0.3F, 0.3F);
         this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(), thrower.posZ,
                 thrower.rotationYaw, thrower.rotationPitch);
-        this.posX -= (double) (FastMath.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posX -= FastMath.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (FastMath.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posZ -= FastMath.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
         this.setPosition(this.posX, this.posY, this.posZ);
         //this.yOffset = 0.0F;
         float f = 0.4F;
-        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + 0 /*this.func_70183_g()*/) / 180.0F * (float) Math.PI) * f);
+        this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f;
+        this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f;
+        this.motionY = -MathHelper.sin((this.rotationPitch + 0 /*this.func_70183_g()*/) / 180.0F * (float) Math.PI) * f;
 
         this.initialYaw = this.rotationYaw;
         this.initialPitch = this.rotationPitch;
@@ -91,21 +91,21 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
     public void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
         float f2 = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
-        motionX /= (double) f2;
-        motionY /= (double) f2;
-        motionZ /= (double) f2;
+        motionX /= f2;
+        motionY /= f2;
+        motionZ /= f2;
         motionX += this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
         motionY += this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
         motionZ += this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
-        motionX *= (double) velocity;
-        motionY *= (double) velocity;
-        motionZ *= (double) velocity;
+        motionX *= velocity;
+        motionY *= velocity;
+        motionZ *= velocity;
         this.motionX = motionX;
         this.motionY = motionY;
         this.motionZ = motionZ;
         float f3 = MathHelper.sqrt(motionX * motionX + motionZ * motionZ);
         this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(motionX, motionZ) * 180.0D / Math.PI);
-        this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(motionY, (double) f3) * 180.0D / Math.PI);
+        this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(motionY, f3) * 180.0D / Math.PI);
     }
 
     public EntityBounceable(World world) {
@@ -275,8 +275,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
         this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
-        for (this.rotationPitch = (float) (Math.atan2(this.motionY, (double) motionSquared) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
-            ;
+        for (this.rotationPitch = (float) (Math.atan2(this.motionY, motionSquared) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
         }
 
         while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
@@ -314,9 +313,9 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
             rotationSlowdownFactor = rotationSlowdownFactor * (slowdownFactor * 1.5f);
         }
 
-        this.motionX *= (double) f2;
-        this.motionY *= (double) f2;
-        this.motionZ *= (double) f2;
+        this.motionX *= f2;
+        this.motionY *= f2;
+        this.motionZ *= f2;
 
         recordVelocityHistory();
 
@@ -326,7 +325,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
             LOG.trace("Stopping {}", this);
             onStop();
         } else {
-            this.motionY -= (double) currentGravityVelocity;
+            this.motionY -= currentGravityVelocity;
         }
 
         LOG.trace("Set position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
@@ -383,7 +382,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         double dZ = Math.signum(motionZ) * 0.01;
 
         float f = 0.3F;
-        AxisAlignedBB axisalignedbb = movingobjectposition.entityHit.getEntityBoundingBox().expand((double) f, (double) f, (double) f);
+        AxisAlignedBB axisalignedbb = movingobjectposition.entityHit.getEntityBoundingBox().expand(f, f, f);
         RayTraceResult intercept = movingobjectposition;
         for (int i = 0; i < 10; i++) {
             Vector3D currentPos = new Vector3D(this.posX + dX * i, this.posY + dY * i, this.posZ + dY * i);

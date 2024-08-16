@@ -122,7 +122,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         private String modelClassName;
         private String hudTextureName;
         //private Function<Integer, ModelBiped> modelFactory;
-        private Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
+        private final Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
         private CreativeTabs creativeTab;
         private boolean nightVision;
         private boolean vignetteEnabled;
@@ -416,7 +416,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
     }
 
-    private Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
+    private final Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
 
     //private EntityEquipmentSlot slot;
     private boolean hasNightVision;
@@ -424,13 +424,13 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     private float exposureReductionFactor;
 
     private SoundEvent breathingSound;
-    private EntityEquipmentSlot compatibleEquipmentType;
+    private final EntityEquipmentSlot compatibleEquipmentType;
 
     //private boolean shieldEnabled;
     private long shieldRegenerationTimeout = 1000;
     private double shieldRegenerationRate = 1.0; // restored shield capacity per sec
     private double maxShieldCapacity;
-    private String unlocalizedArmorSetName;
+    private final String unlocalizedArmorSetName;
     private double shieldIndicatorPositionX;
     private double shieldIndicatorPositionY;
     private double shieldIndicatorWidth;
@@ -475,7 +475,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 //                armorModel.bipedLeftLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
 
                 if (entityLiving instanceof EntityPlayer) {
-                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject((AbstractClientPlayer) entityLiving);
+                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject(entityLiving);
                     RenderPlayer renderPlayer = (RenderPlayer) entityRenderObject;
                     ModelBiped playerModel = renderPlayer.getMainModel();
 
@@ -542,7 +542,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         }
 
         activeAttachmentsIds[attachmentCategory.ordinal()] = Item.getIdFromItem(nextAttachment);
-        ;
 
         itemStack.getTagCompound().setIntArray(ACTIVE_ATTACHMENT_TAG, activeAttachmentsIds);
     }
@@ -625,7 +624,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     }
 
     private int[] ensureActiveAttachments(ItemStack itemStack) {
-        int activeAttachmentsIds[] = itemStack.getTagCompound().getIntArray(ACTIVE_ATTACHMENT_TAG);
+        int[] activeAttachmentsIds = itemStack.getTagCompound().getIntArray(ACTIVE_ATTACHMENT_TAG);
 
         if (activeAttachmentsIds == null || activeAttachmentsIds.length != AttachmentCategory.values.length) {
             activeAttachmentsIds = new int[AttachmentCategory.values.length];

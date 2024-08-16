@@ -79,7 +79,7 @@ public class SpawnEntityRenderer extends Render<Entity> {
                         1,
                         (float) 0,
                         (float) 0,
-                        (int) 0);
+                        0);
 
                 MC.effectRenderer.addEffect(smokeParticle);
             }

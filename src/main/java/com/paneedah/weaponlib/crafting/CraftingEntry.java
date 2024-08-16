@@ -19,8 +19,8 @@ import net.minecraft.item.crafting.Ingredient;
  */
 public class CraftingEntry {
 
-    private Ingredient ingredient;
-    private int count;
+    private final Ingredient ingredient;
+    private final int count;
     private String oreDictionary;
 
     private double yield = 1;

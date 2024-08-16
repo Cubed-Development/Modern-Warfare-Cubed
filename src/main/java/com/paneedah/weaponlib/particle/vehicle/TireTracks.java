@@ -70,10 +70,10 @@ public class TireTracks extends ParticleFootStep {
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         buffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
-        buffer.pos((double) (f3 - a), (double) f4, (double) (f5 + a)).tex(0.0D, 1.0D).color(f6, f6, f6, f1).endVertex();
-        buffer.pos((double) (f3 + a), (double) f4, (double) (f5 + a)).tex(1.0D, 1.0D).color(f6, f6, f6, f1).endVertex();
-        buffer.pos((double) (f3 + a), (double) f4, (double) (f5 - a)).tex(1.0D, 0.0D).color(f6, f6, f6, f1).endVertex();
-        buffer.pos((double) (f3 - a), (double) f4, (double) (f5 - a)).tex(0.0D, 0.0D).color(f6, f6, f6, f1).endVertex();
+        buffer.pos(f3 - a, f4, f5 + a).tex(0.0D, 1.0D).color(f6, f6, f6, f1).endVertex();
+        buffer.pos(f3 + a, f4, f5 + a).tex(1.0D, 1.0D).color(f6, f6, f6, f1).endVertex();
+        buffer.pos(f3 + a, f4, f5 - a).tex(1.0D, 0.0D).color(f6, f6, f6, f1).endVertex();
+        buffer.pos(f3 - a, f4, f5 - a).tex(0.0D, 0.0D).color(f6, f6, f6, f1).endVertex();
         Tessellator.getInstance().draw();
         GlStateManager.disableBlend();
         GlStateManager.enableLighting();

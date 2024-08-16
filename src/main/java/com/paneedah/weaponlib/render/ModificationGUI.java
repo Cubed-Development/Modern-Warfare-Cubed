@@ -34,7 +34,7 @@ public class ModificationGUI {
     public static ModificationGUI instance = new ModificationGUI();
 
     // Tabs are constant b/w weapons
-    private static ArrayList<ModificationTab> tabList = new ArrayList<>();
+    private static final ArrayList<ModificationTab> tabList = new ArrayList<>();
 
 
     // Texture for gui
@@ -183,7 +183,7 @@ public class ModificationGUI {
      * Modification group enumerable, serves
      * to provide easy string formatting capabilities
      */
-    public static enum ModificationGroup {
+    public enum ModificationGroup {
         ATTACHMENT, MODIFICATION, CUSTOMIZATION;
 
         /**
@@ -236,7 +236,7 @@ public class ModificationGUI {
      * @author homer
      */
     public static class TooltipBuilder {
-        private StringBuilder sb = new StringBuilder();
+        private final StringBuilder sb = new StringBuilder();
         private int color;
 
         /**
@@ -300,7 +300,15 @@ public class ModificationGUI {
      * Textured rect drawing and selection class
      */
     private static class TexturedRect {
-        private double x, y, u, v, textureWidth, textureHeight, width, height, scale;
+        private final double x;
+        private final double y;
+        private final double u;
+        private final double v;
+        private final double textureWidth;
+        private final double textureHeight;
+        private final double width;
+        private final double height;
+        private final double scale;
 
 
         // Alternate texture UV for the selected version
@@ -374,18 +382,18 @@ public class ModificationGUI {
     }
 
     public static class ModificationTab {
-        private String title;
-        private AttachmentCategory category;
+        private final String title;
+        private final AttachmentCategory category;
         private double x, y;
 
 
         private boolean isDropDownOpen = false;
         private int page;
-        private int id;
+        private final int id;
 
         private boolean hidden = false;
 
-        private ModificationGroup group;
+        private final ModificationGroup group;
 
 
         public ModificationTab(int id, String title, AttachmentCategory category, double x, double y, ModificationGroup group) {
@@ -449,7 +457,7 @@ public class ModificationGUI {
     /**
      * Allows the class to update things like alpha without losing track of the initial color
      */
-    private float[] persistentColorState = new float[]{1.0f, 1.0f, 1.0f, 1.0f};
+    private final float[] persistentColorState = new float[]{1.0f, 1.0f, 1.0f, 1.0f};
 
     private void setRGB(float r, float g, float b) {
         persistentColorState[0] = r;
@@ -502,7 +510,7 @@ public class ModificationGUI {
             }
         }
         sb.append("}");
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 
 
@@ -516,11 +524,7 @@ public class ModificationGUI {
             tab.setPos(guiPositions[tab.id][0], guiPositions[tab.id][1]);
 
             // Hide empty categories
-            if (pwi.getWeapon().getCompatibleAttachments(tab.category).isEmpty()) {
-                tab.hidden = true;
-            } else {
-                tab.hidden = false;
-            }
+            tab.hidden = pwi.getWeapon().getCompatibleAttachments(tab.category).isEmpty();
 
         }
 
@@ -902,12 +906,9 @@ public class ModificationGUI {
 
         setAlpha(guiTransparency);
         if (activeTab == tab) {
-            dropdownCancel = false;
 
 
-            if (tab.isDropDownOpen && DROPDOWN_SAFE_BOX.checkBounding(x, y, mouseX, mouseY, scale)) {
-                dropdownCancel = true;
-            }
+            dropdownCancel = tab.isDropDownOpen && DROPDOWN_SAFE_BOX.checkBounding(x, y, mouseX, mouseY, scale);
         }
 
         if (tab.isDropDownOpen) {

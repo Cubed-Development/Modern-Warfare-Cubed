@@ -20,25 +20,25 @@ public enum HandheldState implements ManagedState<HandheldState> {
 
     private static final int DEFAULT_PRIORITY = 0;
 
-    private HandheldState preparingPhase;
+    private final HandheldState preparingPhase;
 
-    private HandheldState permitRequestedPhase;
+    private final HandheldState permitRequestedPhase;
 
-    private HandheldState commitPhase;
+    private final HandheldState commitPhase;
 
-    private boolean isTransient;
+    private final boolean isTransient;
 
     private int priority = DEFAULT_PRIORITY;
 
-    private HandheldState() {
+    HandheldState() {
         this(null, null, null, true);
     }
 
-    private HandheldState(int priority) {
+    HandheldState(int priority) {
         this(priority, null, null, null, true);
     }
 
-    private HandheldState(boolean isTransient) {
+    HandheldState(boolean isTransient) {
         this(null, null, null, isTransient);
     }
 
@@ -46,11 +46,11 @@ public enum HandheldState implements ManagedState<HandheldState> {
 //		this(permitRequestedState, transactionFinalState, true);
 //	}
 
-    private HandheldState(HandheldState preparingPhase, HandheldState permitRequestedState, HandheldState transactionFinalState, boolean isTransient) {
+    HandheldState(HandheldState preparingPhase, HandheldState permitRequestedState, HandheldState transactionFinalState, boolean isTransient) {
         this(DEFAULT_PRIORITY, preparingPhase, permitRequestedState, transactionFinalState, isTransient);
     }
 
-    private HandheldState(int priority, HandheldState preparingPhase, HandheldState permitRequestedState, HandheldState transactionFinalState, boolean isTransient) {
+    HandheldState(int priority, HandheldState preparingPhase, HandheldState permitRequestedState, HandheldState transactionFinalState, boolean isTransient) {
         this.priority = priority;
         this.preparingPhase = preparingPhase;
         this.permitRequestedPhase = permitRequestedState;

@@ -49,7 +49,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         protected MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager;
         protected float rate;
         protected float amplitude = 0.04f;
-        private PlayerMeleeInstance instance;
+        private final PlayerMeleeInstance instance;
 
         public StateDescriptor(PlayerMeleeInstance instance, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager,
                                float rate, float amplitude) {
@@ -79,7 +79,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         }
     }
 
-    private ItemOverrideList itemOverrideList = new WeaponItemOverrideList(Collections.emptyList());
+    private final ItemOverrideList itemOverrideList = new WeaponItemOverrideList(Collections.emptyList());
 
     ItemCameraTransforms.TransformType transformType;
 
@@ -87,7 +87,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
     protected TextureManager textureManager;
 
-    private Pair<? extends IBakedModel, Matrix4f> pair;
+    private final Pair<? extends IBakedModel, Matrix4f> pair;
 
     public static class Builder {
 
@@ -127,19 +127,19 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
         private float normalRandomizingRate = DEFAULT_RANDOMIZING_RATE; // movements per second, e.g. 0.25 = 0.25 movements per second = 1 movement in 3 minutes
 
-        private float normalRandomizingAmplitude = DEFAULT_NORMAL_RANDOMIZING_AMPLITUDE;
+        private final float normalRandomizingAmplitude = DEFAULT_NORMAL_RANDOMIZING_AMPLITUDE;
 
-        private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioning = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioning = new LinkedHashMap<>();
         //private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningUnloading = new LinkedHashMap<>();
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningAttacking = new LinkedHashMap<>();
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningHeavyAttacking = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningAttacking = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningHeavyAttacking = new LinkedHashMap<>();
 
 
 //		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningRecoiled = new LinkedHashMap<>();
 //		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZoomingRecoiled = new LinkedHashMap<>();
 //		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZoomingShooting = new LinkedHashMap<>();
 
-        private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningEjectSpentRound = new LinkedHashMap<>();
+        private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningEjectSpentRound = new LinkedHashMap<>();
         private boolean hasRecoilPositioningDefined;
         public int animationDuration = DEFAULT_ANIMATION_DURATION;
 
@@ -486,11 +486,11 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         }
     }
 
-    private Builder builder;
+    private final Builder builder;
 
-    private Map<EntityPlayer, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>>> firstPersonStateManagers;
+    private final Map<EntityPlayer, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>>> firstPersonStateManagers;
 
-    private MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> weaponTransitionProvider;
+    private final MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> weaponTransitionProvider;
 
     protected ClientModContext clientModContext;
 

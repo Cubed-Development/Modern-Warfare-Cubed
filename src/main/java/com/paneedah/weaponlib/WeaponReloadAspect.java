@@ -88,19 +88,19 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         }
     }
 
-    private static Predicate<PlayerWeaponInstance> hasNextLoadIteration = weaponInstance -> weaponInstance.getWeapon().hasIteratedLoad() && weaponInstance.getLoadIterationCount() > 0;
+    private static final Predicate<PlayerWeaponInstance> hasNextLoadIteration = weaponInstance -> weaponInstance.getWeapon().hasIteratedLoad() && weaponInstance.getLoadIterationCount() > 0;
 
-    private static Predicate<PlayerWeaponInstance> supportsDirectBulletLoad = weaponInstance -> weaponInstance.getWeapon().getAmmoCapacity() > 0;
+    private static final Predicate<PlayerWeaponInstance> supportsDirectBulletLoad = weaponInstance -> weaponInstance.getWeapon().getAmmoCapacity() > 0;
 
-    private static Predicate<PlayerWeaponInstance> magazineAttached = weaponInstance -> WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance) != null;
+    private static final Predicate<PlayerWeaponInstance> magazineAttached = weaponInstance -> WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance) != null;
 
-    private static Predicate<PlayerWeaponInstance> hasAmmo = (i) -> i.getAmmo() != 0;
+    private static final Predicate<PlayerWeaponInstance> hasAmmo = (i) -> i.getAmmo() != 0;
 
-    private static Predicate<PlayerWeaponInstance> loadIterationCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + Math.max(weaponInstance.getWeapon().builder.loadIterationTimeout, weaponInstance.getWeapon().getTotalLoadIterationDuration() + 250);
+    private static final Predicate<PlayerWeaponInstance> loadIterationCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + Math.max(weaponInstance.getWeapon().builder.loadIterationTimeout, weaponInstance.getWeapon().getTotalLoadIterationDuration() + 250);
 
-    private static Predicate<PlayerWeaponInstance> allLoadIterationsCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + weaponInstance.getWeapon().getAllLoadIterationAnimationsCompletedDuration();
+    private static final Predicate<PlayerWeaponInstance> allLoadIterationsCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + weaponInstance.getWeapon().getAllLoadIterationAnimationsCompletedDuration();
 
-    private static Predicate<PlayerWeaponInstance> reloadAnimationCompleted = weaponInstance -> {
+    private static final Predicate<PlayerWeaponInstance> reloadAnimationCompleted = weaponInstance -> {
         long maxTime = weaponInstance.getAnimationDuration();
 		
 		/*
@@ -116,21 +116,21 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     };
 
 
-    private static Predicate<PlayerWeaponInstance> magSwapCompleted = weaponInstance -> weaponInstance.isMagSwapDone();
+    private static final Predicate<PlayerWeaponInstance> magSwapCompleted = weaponInstance -> weaponInstance.isMagSwapDone();
 
-    private static Predicate<PlayerWeaponInstance> reloadMidpoint = weaponInstance -> Math.abs((System.currentTimeMillis() - (weaponInstance.getReloadTimestamp())) / ((double) weaponInstance.getWeapon().getTotalReloadingDuration() * 0.5) - 0.5) < 0.01;
+    private static final Predicate<PlayerWeaponInstance> reloadMidpoint = weaponInstance -> Math.abs((System.currentTimeMillis() - (weaponInstance.getReloadTimestamp())) / ((double) weaponInstance.getWeapon().getTotalReloadingDuration() * 0.5) - 0.5) < 0.01;
 
-    private static Predicate<PlayerWeaponInstance> unloadTimeoutExpired = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + UNLOAD_TIMEOUT;
+    private static final Predicate<PlayerWeaponInstance> unloadTimeoutExpired = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + UNLOAD_TIMEOUT;
 
-    private static Predicate<PlayerWeaponInstance> awaitFurtherLoadInstructionCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + 295;
+    private static final Predicate<PlayerWeaponInstance> awaitFurtherLoadInstructionCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + 295;
 
-    private static Predicate<PlayerWeaponInstance> loadAfterUnloadEnabled = PlayerWeaponInstance::isLoadAfterUnloadEnabled;
+    private static final Predicate<PlayerWeaponInstance> loadAfterUnloadEnabled = PlayerWeaponInstance::isLoadAfterUnloadEnabled;
 
-    private static Predicate<PlayerWeaponInstance> unloadAnimationCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + weaponInstance.getWeapon().getTotalUnloadingDuration() * 1.1;
+    private static final Predicate<PlayerWeaponInstance> unloadAnimationCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + weaponInstance.getWeapon().getTotalUnloadingDuration() * 1.1;
 
-    private static Predicate<PlayerWeaponInstance> prepareFirstLoadIterationAnimationCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + weaponInstance.getWeapon().getPrepareFirstLoadIterationAnimationDuration() * 1.1;
+    private static final Predicate<PlayerWeaponInstance> prepareFirstLoadIterationAnimationCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + weaponInstance.getWeapon().getPrepareFirstLoadIterationAnimationDuration() * 1.1;
 
-    private static Predicate<PlayerWeaponInstance> shouldFinishCompoundReload = weaponInstance -> {
+    private static final Predicate<PlayerWeaponInstance> shouldFinishCompoundReload = weaponInstance -> {
         if (weaponInstance.isDelayCompoundEnd()) {
             return true;
         } else {
@@ -140,13 +140,13 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         }
     };
 
-    private static Predicate<PlayerWeaponInstance> alertTimeoutExpired = instance -> System.currentTimeMillis() >= ALERT_TIMEOUT + instance.getStateUpdateTimestamp();
+    private static final Predicate<PlayerWeaponInstance> alertTimeoutExpired = instance -> System.currentTimeMillis() >= ALERT_TIMEOUT + instance.getStateUpdateTimestamp();
 
-    private static Predicate<PlayerWeaponInstance> inspectTimeoutExpired = instance -> System.currentTimeMillis() >= INSPECT_TIMEOUT + instance.getStateUpdateTimestamp();
+    private static final Predicate<PlayerWeaponInstance> inspectTimeoutExpired = instance -> System.currentTimeMillis() >= INSPECT_TIMEOUT + instance.getStateUpdateTimestamp();
 
-    private static Predicate<PlayerWeaponInstance> drawingAnimationCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + weaponInstance.getWeapon().getTotalDrawingDuration() * 1.0;
+    private static final Predicate<PlayerWeaponInstance> drawingAnimationCompleted = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + weaponInstance.getWeapon().getTotalDrawingDuration() * 1.0;
 
-    private ModContext modContext;
+    private final ModContext modContext;
 
     private NetworkPermitManager permitManager;
 
@@ -688,7 +688,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                     Tags.setAmmo(weaponItemStack, ammo);
                     LOG.debug("Setting server side ammo for {} to {}", weaponInstance, ammo);
                     WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineItemStack.getItem(), weaponInstance);
-                    player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0f, 1.0F);
+                    player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0f, 1.0F);
                 } else {
                     status = Status.DENIED;
                 }
@@ -703,12 +703,12 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             if (weapon.hasIteratedLoad()) {
                 weaponInstance.setLoadIterationCount(consumedAmount);
             }
-            player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
+            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
         } else if (consumed) {
             Tags.setAmmo(weaponItemStack, weapon.builder.ammoCapacity);
             // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, weapon.builder.ammoCapacity), (EntityPlayerMP) player);
             weaponInstance.setAmmo(weapon.builder.ammoCapacity);
-            player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
+            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
         } else {
             LOG.debug("No suitable ammo found for {}. Permit denied.", weaponInstance);
             //Tags.setAmmo(weaponItemStack, 0);
@@ -757,7 +757,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
             Tags.setAmmo(weaponItemStack, 0);
             weaponInstance.setAmmo(0);
-            player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, weapon.getUnloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
+            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getUnloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
 
             p.setStatus(Status.GRANTED);
         } else {
@@ -821,7 +821,8 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             return;
         }
 
-        weaponInstance.getWeapon().getRenderer().setMagicMag(weaponInstance, weaponInstance.getWeapon().getRenderer().magicMagReplacement, WeaponState.TACTICAL_RELOAD);
+        weaponInstance.getWeapon().getRenderer();
+        weaponInstance.getWeapon().getRenderer().setMagicMag(weaponInstance, WeaponRenderer.magicMagReplacement, WeaponState.TACTICAL_RELOAD);
 
         stateManager.changeState(this, weaponInstance, WeaponState.TACTICAL_RELOAD);
     }

@@ -26,8 +26,8 @@ public class MainCommand extends CommandBase {
 
     private static final String ARG_SHOW = "show";
 
-    private String mainCommandName;
-    private ModContext modContext;
+    private final String mainCommandName;
+    private final ModContext modContext;
 
     public MainCommand(ModContext modContext) {
         this.modContext = modContext;
@@ -170,7 +170,7 @@ public class MainCommand extends CommandBase {
     }
 
     private String formatRecipe(List<Object> recipe) {
-        StringBuilder output = new StringBuilder();
+        String output = "";
         Map<Character, Object> decoder = new HashMap<>();
 
         boolean inRow = true;
@@ -204,12 +204,12 @@ public class MainCommand extends CommandBase {
                     builder.append(String.format("[%.20s] ", decoded != null ? decoded : "*"));
                 }
                 MC.player.sendMessage(new TextComponentString(
-                        "" + builder.toString()));
+                        String.valueOf(builder)));
             } else {
                 break;
             }
         }
 
-        return output.toString();
+        return output;
     }
 }

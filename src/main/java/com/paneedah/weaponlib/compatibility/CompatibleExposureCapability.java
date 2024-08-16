@@ -28,17 +28,17 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
                 ExposureContainerImpl.class);
     }
 
-    public static interface ExposureContainer {
+    public interface ExposureContainer {
 
-        public Map<Class<?>, Exposure> getExposures();
+        Map<Class<?>, Exposure> getExposures();
 
-        public long getLastSyncTimestmap();
+        long getLastSyncTimestmap();
 
-        public void setLastSyncTimestamp(long lastSyncTimestamp);
+        void setLastSyncTimestamp(long lastSyncTimestamp);
 
-        public long getLastUpdateTimestamp();
+        long getLastUpdateTimestamp();
 
-        public void setLastUpdateTimestamp(long lastUpdateTimestamp);
+        void setLastUpdateTimestamp(long lastUpdateTimestamp);
     }
 
     public static class ExposureContainerImpl implements ExposureContainer {
@@ -112,7 +112,7 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
     @CapabilityInject(ExposureContainer.class)
     static Capability<ExposureContainer> capabilityContainer = null;
 
-    private ExposureContainer instance = capabilityContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
+    private final ExposureContainer instance = capabilityContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
 
     public static <T extends Exposure> T getExposure(Entity entity, Class<T> targetClass) {
         if (entity == null) {

@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -24,9 +25,9 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
  */
 public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeInstance> {
 
-    private Predicate<PlayerGrenadeInstance> hasSafetyPin = instance -> instance.getWeapon().hasSafetyPin();
+    private final Predicate<PlayerGrenadeInstance> hasSafetyPin = instance -> instance.getWeapon().hasSafetyPin();
 
-    private static Predicate<PlayerGrenadeInstance> reequipTimeoutExpired =
+    private static final Predicate<PlayerGrenadeInstance> reequipTimeoutExpired =
             instance -> System.currentTimeMillis() > instance.getStateUpdateTimestamp()
                     + instance.getWeapon().getReequipTimeout();
 
@@ -37,7 +38,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
 //            System.currentTimeMillis() >= instance.getStateUpdateTimestamp()
 //                + instance.getWeapon().getTotalTakeSafetyPinOffDuration() * 1.1;
 
-    private static Predicate<PlayerGrenadeInstance> throwingCompleted = instance ->
+    private static final Predicate<PlayerGrenadeInstance> throwingCompleted = instance ->
             System.currentTimeMillis() >= instance.getStateUpdateTimestamp()
                     + instance.getWeapon().getTotalThrowingDuration() * 1.1;
 
@@ -45,12 +46,12 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
             Arrays.asList(GrenadeState.READY, GrenadeState.STRIKER_LEVER_RELEASED));
 
     private static final Set<GrenadeState> allowedPinOffFromStates = new HashSet<>(
-            Arrays.asList(GrenadeState.SAFETY_PING_OFF));
+            Collections.singletonList(GrenadeState.SAFETY_PING_OFF));
 
     private static final Set<GrenadeState> allowedUpdateFromStates = new HashSet<>(
             Arrays.asList(GrenadeState.STRIKER_LEVER_RELEASED, GrenadeState.THROWING, GrenadeState.THROWN));
 
-    private ModContext modContext;
+    private final ModContext modContext;
 
     private StateManager<GrenadeState, ? super PlayerGrenadeInstance> stateManager;
 

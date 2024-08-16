@@ -21,16 +21,16 @@ public class InstancedRender {
 
     private static final FloatBuffer buffer = BufferUtils.createFloatBuffer(MAX_INSTANCES * INSTANCE_DATA_LENGTH);
 
-    private static Shader shad = ShaderLoader.loadShader("instanced");
+    private static final Shader shad = ShaderLoader.loadShader("instanced");
 
-    private int vbo;
-    private VAOData vao;
-    private VAOLoader loader = new VAOLoader();
+    private final int vbo;
+    private final VAOData vao;
+    private final VAOLoader loader = new VAOLoader();
     private int pointer = 0;
 
     public InstancedRender() {
         this.vbo = loader.createEmptyVBO(INSTANCE_DATA_LENGTH * MAX_INSTANCES);
-        this.vao = loader.loadToVAO(VERTICES);
+        this.vao = VAOLoader.loadToVAO(VERTICES);
         loader.addInstancedAttribute(vao.getVaoID(), vbo, 1, 4, INSTANCE_DATA_LENGTH, 0);
         loader.addInstancedAttribute(vao.getVaoID(), vbo, 2, 4, INSTANCE_DATA_LENGTH, 4);
         loader.addInstancedAttribute(vao.getVaoID(), vbo, 3, 4, INSTANCE_DATA_LENGTH, 8);
@@ -85,7 +85,7 @@ public class InstancedRender {
             vboData[pointer++] = 0.0f;
             vboData[pointer++] = 0.0f;
         }
-        loader.updateVBO(vbo, vboData, buffer);
+        VAOLoader.updateVBO(vbo, vboData, buffer);
 
 
     }

@@ -33,8 +33,8 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
     private float hardness = 6f;
     private float resistance = 600000f;
     private String modelClassName;
-    private AtomicInteger counter = new AtomicInteger(10000);
-    private Supplier<Integer> entityIdSupplier = () -> counter.incrementAndGet();
+    private final AtomicInteger counter = new AtomicInteger(10000);
+    private final Supplier<Integer> entityIdSupplier = () -> counter.incrementAndGet();
     private Consumer<TileEntity> positioning = tileEntity -> {};
     private Function<IBlockState, AxisAlignedBB> boundingBox;
 

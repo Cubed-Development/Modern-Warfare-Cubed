@@ -185,7 +185,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 
     }
 
-    private static ScreenModel screenModel = new ScreenModel();
+    private static final ScreenModel screenModel = new ScreenModel();
 
     @Override
     public void render(RenderContext<RenderableState> renderContext) {

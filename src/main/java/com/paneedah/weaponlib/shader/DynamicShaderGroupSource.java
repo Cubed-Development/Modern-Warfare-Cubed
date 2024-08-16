@@ -11,12 +11,12 @@ import java.util.function.Function;
 
 public class DynamicShaderGroupSource {
 
-    private ResourceLocation shaderLocation;
+    private final ResourceLocation shaderLocation;
 
-    private List<AdvUniform> advUniforms;
+    private final List<AdvUniform> advUniforms;
 
-    private List<Tuple<String, Function<DynamicShaderContext, Object>>> uniforms;
-    private UUID sourceId;
+    private final List<Tuple<String, Function<DynamicShaderContext, Object>>> uniforms;
+    private final UUID sourceId;
 
     public DynamicShaderGroupSource(UUID sourceId, ResourceLocation location) {
         this.sourceId = sourceId;
@@ -47,7 +47,7 @@ public class DynamicShaderGroupSource {
         return Collections.unmodifiableList(uniforms);
     }
 
-    public static interface AdvUniform {
-        public void apply(DynamicShaderGroupSource src);
+    public interface AdvUniform {
+        void apply(DynamicShaderGroupSource src);
     }
 }

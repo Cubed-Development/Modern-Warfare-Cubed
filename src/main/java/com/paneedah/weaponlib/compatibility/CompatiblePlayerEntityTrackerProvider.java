@@ -22,15 +22,15 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
                 PlayerEntityTrackerContainerImpl.class);
     }
 
-    public static interface PlayerEntityTrackerContainer {
+    public interface PlayerEntityTrackerContainer {
 
-        public byte[] toByteArray();
+        byte[] toByteArray();
 
-        public void setInitializer(Function<World, LivingEntityTracker> initializer);
+        void setInitializer(Function<World, LivingEntityTracker> initializer);
 
-        public void setBytes(byte[] bytes);
+        void setBytes(byte[] bytes);
 
-        public LivingEntityTracker getTracker(World world);
+        LivingEntityTracker getTracker(World world);
     }
 
     public static class PlayerEntityTrackerContainerImpl implements PlayerEntityTrackerContainer {
@@ -88,7 +88,7 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
     @CapabilityInject(PlayerEntityTrackerContainer.class)
     static Capability<PlayerEntityTrackerContainer> playerEntityTrackerContainer = null;
 
-    private PlayerEntityTrackerContainer instance = playerEntityTrackerContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
+    private final PlayerEntityTrackerContainer instance = playerEntityTrackerContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
 
 
     public static LivingEntityTracker getTracker(EntityLivingBase player) {

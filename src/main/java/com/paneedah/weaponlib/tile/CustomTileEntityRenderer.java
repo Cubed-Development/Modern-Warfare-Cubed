@@ -10,9 +10,9 @@ import java.util.function.Consumer;
 
 public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer<CustomTileEntity<?>> {
 
-    private ModelBase model;
-    private ResourceLocation textureResource;
-    private Consumer<TileEntity> positioning;
+    private final ModelBase model;
+    private final ResourceLocation textureResource;
+    private final Consumer<TileEntity> positioning;
 
     public CustomTileEntityRenderer(ModelBase model, ResourceLocation textureResource,
                                     Consumer<TileEntity> positioning) {
@@ -42,7 +42,7 @@ public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tile
 //        GL11.glRotatef(-90f * ((CustomTileEntity<?>) tileEntity).getSide(), 0, 1f, 0);
         positioning.accept(tileEntity);
         //GL11.glEnable(GL11.GL_CULL_FACE);
-        model.render((Entity) null, 0f, 0f, 0f, 0f, 0f, 0.0625f);
+        model.render(null, 0f, 0f, 0f, 0f, 0f, 0.0625f);
 
         //  GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         GL11.glPopMatrix();

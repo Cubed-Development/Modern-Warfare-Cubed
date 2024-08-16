@@ -81,11 +81,7 @@ public class WavefrontLoader {
 
                 if (line.startsWith("o")) {
                     String objectName = line.split(" ")[1];
-                    if (objectNames.contains(objectName)) {
-                        startRead = true;
-                    } else {
-                        startRead = false;
-                    }
+                    startRead = objectNames.contains(objectName);
                 }
                 if (startRead) {
                     lines.add(line);

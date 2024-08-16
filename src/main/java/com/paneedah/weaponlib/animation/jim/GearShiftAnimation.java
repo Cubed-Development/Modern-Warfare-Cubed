@@ -9,15 +9,15 @@ import java.util.TreeMap;
 public class GearShiftAnimation {
 
 
-    private TreeMap<Double, Vec3d> transitionMap = new TreeMap<>();
+    private final TreeMap<Double, Vec3d> transitionMap = new TreeMap<>();
     private ArrayList<Vec3d> transitions = new ArrayList<>();
-    private GearShiftPattern pat;
+    private final GearShiftPattern pat;
 
 
-    private int duration;
+    private final int duration;
     private int progress = 0;
-    private int startGear;
-    private int targetGear;
+    private final int startGear;
+    private final int targetGear;
 
 
     private int posInAnim;

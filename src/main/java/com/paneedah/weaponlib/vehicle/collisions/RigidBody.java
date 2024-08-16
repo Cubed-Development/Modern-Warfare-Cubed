@@ -6,6 +6,7 @@ import net.minecraft.world.World;
 
 import javax.vecmath.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RigidBody {
@@ -18,59 +19,32 @@ public class RigidBody {
     public static final RigidBody DUMMY = new RigidBody(null) {
         public void solveContacts(float dt) {}
 
-        ;
-
         public void impulse(Vec3d force, Vec3d position) {}
-
-        ;
 
         public void updateOrientation() {}
 
-        ;
-
         public void updateGlobalCentroidFromPosition() {}
-
-        ;
 
         public void updatePositionFromGlobalCentroid() {}
 
-        ;
-
         public void doTimeStep(float dt) {}
-
-        ;
 
         public void addColliders(OreintedBB... collide) {}
 
-        ;
-
         public Vec3d globalToLocalPos(Vec3d pos) {return pos;}
-
-        ;
 
         public Vec3d localToGlobalPos(Vec3d pos) {return pos;}
 
-        ;
-
         public Vec3d globalToLocalVec(Vec3d vec) {return vec;}
-
-        ;
 
         public Vec3d localToGlobalVec(Vec3d vec) {return vec;}
 
-        ;
-
         public void addLinearVelocity(Vec3d v) {}
-
-        ;
 
         public void addAngularVelocity(Vec3d v) {}
 
-        ;
-
         public void addContact(Contact c) {}
 
-        ;
     };
 
     static {
@@ -310,9 +284,7 @@ public class RigidBody {
     }
 
     public void addColliders(OreintedBB... collide) {
-        for (OreintedBB c : collide) {
-            colliders.add(c);
-        }
+        Collections.addAll(colliders, collide);
         localCentroid = new Vec3d(0, 0, 0);
         mass = 0;
         for (OreintedBB c : colliders) {

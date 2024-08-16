@@ -28,7 +28,7 @@ public class ModernUtil {
         //GL11.glEnable(GL15.GL_ARRAY_BUFFER);
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vbo);
         GLCompatible.glBindVertexArray(vao);
-        GL20.glVertexAttribPointer(attribute, dataSize, GL11.GL_FLOAT, false, instancedDataLength * 4, offset * 4);
+        GL20.glVertexAttribPointer(attribute, dataSize, GL11.GL_FLOAT, false, instancedDataLength * 4, offset * 4L);
         GLCompatible.glVertexAttribDivisor(attribute, 1);
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
         GLCompatible.glBindVertexArray(0);
@@ -37,7 +37,7 @@ public class ModernUtil {
     public static int createEmptyVBO(int floatCount) {
         int vbo = GL15.glGenBuffers();
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vbo);
-        GL15.glBufferData(GL15.GL_ARRAY_BUFFER, floatCount * 4, GL15.GL_STREAM_DRAW);
+        GL15.glBufferData(GL15.GL_ARRAY_BUFFER, floatCount * 4L, GL15.GL_STREAM_DRAW);
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
         return vbo;
     }

@@ -12,10 +12,10 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class ShellManager {
 
-    private ShellParticleSimulator shellParticleSimulator = new ShellParticleSimulator();
+    private final ShellParticleSimulator shellParticleSimulator = new ShellParticleSimulator();
 
-    private ArrayList<Shell> shells = new ArrayList<Shell>();
-    private LinkedBlockingQueue<Shell> shellQueue = new LinkedBlockingQueue<Shell>();
+    private final ArrayList<Shell> shells = new ArrayList<Shell>();
+    private final LinkedBlockingQueue<Shell> shellQueue = new LinkedBlockingQueue<Shell>();
 
     public void enqueueShell(Shell shell) {
 

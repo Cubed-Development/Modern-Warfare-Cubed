@@ -25,7 +25,7 @@ public class GLModelBuilder {
         int vbo = GL15.glGenBuffers();
         // bind vbo
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vbo);
-        GL15.glBufferData(GL15.GL_ARRAY_BUFFER, floatCount * 4, GL15.GL_STATIC_DRAW);
+        GL15.glBufferData(GL15.GL_ARRAY_BUFFER, floatCount * 4L, GL15.GL_STATIC_DRAW);
         // unbind vbo
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
         return vbo;
@@ -34,7 +34,7 @@ public class GLModelBuilder {
     public static int createElementBuffer(int floatcount) {
         int ebo = GL15.glGenBuffers();
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, ebo);
-        GL15.glBufferData(GL15.GL_ELEMENT_ARRAY_BUFFER, floatcount * INT_SIZE, GL15.GL_STATIC_DRAW);
+        GL15.glBufferData(GL15.GL_ELEMENT_ARRAY_BUFFER, (long) floatcount * INT_SIZE, GL15.GL_STATIC_DRAW);
 
         return ebo;
     }

@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 public class ContainerWorkbench extends ContainerStation {
 
     // Panda: Does this have to be here? There's no getters or setters for this. Couldn't we just not set this here and just utilize workbenchTileEntity that's passed?
-    private TileEntityWorkbench tileEntityWorkbench;
+    private final TileEntityWorkbench tileEntityWorkbench;
 
     public ContainerWorkbench(EntityPlayer player, InventoryPlayer inventory, TileEntityWorkbench workbenchTileEntity) {
         this.tileEntityWorkbench = workbenchTileEntity;

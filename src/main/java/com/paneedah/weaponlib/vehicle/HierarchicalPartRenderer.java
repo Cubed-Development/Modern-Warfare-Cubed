@@ -20,30 +20,30 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<State> {
 
-    static enum SinglePart {MAIN}
+    enum SinglePart {MAIN}
 
-    private StatefulRenderer<State> modelRenderer;
-    private ResourceLocation textureResource;
+    private final StatefulRenderer<State> modelRenderer;
+    private final ResourceLocation textureResource;
 
-    private Part part;
+    private final Part part;
 
-    protected Map<Part, HierarchicalPartRenderer<Part, State>> partRenderers;
+    private Map<Part, HierarchicalPartRenderer<Part, State>> partRenderers;
 
-    protected Supplier<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagerSupplier;
+    private Supplier<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagerSupplier;
 
-    private BiConsumer<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>, PartRenderContext<State>> stateSetter;
+    private final BiConsumer<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>, PartRenderContext<State>> stateSetter;
 
-    private Function<PartRenderContext<State>, Float> currentProgressProvider;
+    private final Function<PartRenderContext<State>, Float> currentProgressProvider;
 
-    private Map<Entity, MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagers = new HashMap<>();
+    private final Map<Entity, MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagers = new HashMap<>();
 
-    protected HierarchicalPartRenderer(Part part,
-                                       StatefulRenderer<State> modelRenderer,
-                                       ResourceLocation textureResource,
-                                       Map<Part, HierarchicalPartRenderer<Part, State>> partRenderers,
-                                       Supplier<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagerSupplier,
-                                       BiConsumer<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>, PartRenderContext<State>> stateSetter,
-                                       Function<PartRenderContext<State>, Float> currentProgressProvider) {
+    HierarchicalPartRenderer(Part part,
+                             StatefulRenderer<State> modelRenderer,
+                             ResourceLocation textureResource,
+                             Map<Part, HierarchicalPartRenderer<Part, State>> partRenderers,
+                             Supplier<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagerSupplier,
+                             BiConsumer<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>, PartRenderContext<State>> stateSetter,
+                             Function<PartRenderContext<State>, Float> currentProgressProvider) {
         this.part = part;
         this.modelRenderer = modelRenderer;
         this.textureResource = textureResource;

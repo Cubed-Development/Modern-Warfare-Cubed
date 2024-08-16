@@ -414,7 +414,7 @@ public class AnimationGUI {
 
         NetworkPlayerInfo npi = null;
         try {
-            npi = (NetworkPlayerInfo) f.invoke((AbstractClientPlayer) MC.player, (Object) null);
+            npi = (NetworkPlayerInfo) f.invoke(MC.player, (Object) null);
         } catch (Exception e) {
             e.printStackTrace();
         }

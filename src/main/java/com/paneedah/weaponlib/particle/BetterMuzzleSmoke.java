@@ -25,7 +25,7 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
     public BetterMuzzleSmoke(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double p_i1221_8_, double p_i1221_10_, double p_i1221_12_, int indexY) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, p_i1221_8_, p_i1221_10_, p_i1221_12_, indexY);
 
-        this.particleMaxAge = (int) (6 + ((int) 4 * Math.random()));
+        this.particleMaxAge = (int) (6 + (4 * Math.random()));
         double sub = 5;
         this.motionX = (Math.random() - 0.5) / sub;
         this.motionY = (Math.random() - 0.5) / (sub * 3);
@@ -96,7 +96,7 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
 
-        Vec3d[] avec3d = new Vec3d[]{new Vec3d((double) (-rotationX * scale - rotationXY * scale), (double) (-rotationZ * scale), (double) (-rotationYZ * scale - rotationXZ * scale)), new Vec3d((double) (-rotationX * scale + rotationXY * scale), (double) (rotationZ * scale), (double) (-rotationYZ * scale + rotationXZ * scale)), new Vec3d((double) (rotationX * scale + rotationXY * scale), (double) (rotationZ * scale), (double) (rotationYZ * scale + rotationXZ * scale)), new Vec3d((double) (rotationX * scale - rotationXY * scale), (double) (-rotationZ * scale), (double) (rotationYZ * scale - rotationXZ * scale))};
+        Vec3d[] avec3d = new Vec3d[]{new Vec3d(-rotationX * scale - rotationXY * scale, -rotationZ * scale, -rotationYZ * scale - rotationXZ * scale), new Vec3d(-rotationX * scale + rotationXY * scale, rotationZ * scale, -rotationYZ * scale + rotationXZ * scale), new Vec3d(rotationX * scale + rotationXY * scale, rotationZ * scale, rotationYZ * scale + rotationXZ * scale), new Vec3d(rotationX * scale - rotationXY * scale, -rotationZ * scale, rotationYZ * scale - rotationXZ * scale)};
 
         if (this.particleAngle != 0.0F) {
             float f8 = this.particleAngle + (this.particleAngle - this.prevParticleAngle) * partialTicks;
@@ -107,7 +107,7 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
             Vec3d vec3d = new Vec3d(f10, f11, f12);
 
             for (int n = 0; n < 4; ++n) {
-                avec3d[n] = vec3d.scale(2.0D * avec3d[n].dotProduct(vec3d)).add(avec3d[n].scale((double) (f9 * f9) - vec3d.dotProduct(vec3d))).add(vec3d.crossProduct(avec3d[n]).scale((double) (2.0F * f9)));
+                avec3d[n] = vec3d.scale(2.0D * avec3d[n].dotProduct(vec3d)).add(avec3d[n].scale((double) (f9 * f9) - vec3d.dotProduct(vec3d))).add(vec3d.crossProduct(avec3d[n]).scale(2.0F * f9));
             }
         }
 

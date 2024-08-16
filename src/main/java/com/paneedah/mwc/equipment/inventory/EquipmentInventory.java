@@ -34,7 +34,7 @@ public class EquipmentInventory implements IInventory, Contextual {
      */
     private final String name = "Equipment Inventory";
 
-    private ItemStack[] inventory;
+    private final ItemStack[] inventory;
 
     private ModContext modContext;
 
@@ -178,7 +178,6 @@ public class EquipmentInventory implements IInventory, Contextual {
             byte slot = item.getByte("Slot");
             if (slot >= 0 && slot < getSizeInventory()) {
                 inventory[slot] = new ItemStack(item);
-                ;
             } else {
 //                System.out.println("Could not find slot " + slot);
             }

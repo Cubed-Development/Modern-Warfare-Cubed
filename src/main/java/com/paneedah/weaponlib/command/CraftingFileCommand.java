@@ -41,7 +41,6 @@ public class CraftingFileCommand extends TidyCompatibleCommand {
                 sendNormalMessage(sender, getSecondaryColor() + "Using custom recipes: " + getDisplayColor() + (load != -1 ? (load == 2 ? "CUSTOM" : "DEFAULT") : ""));
 
 
-                return;
         }
 
     }

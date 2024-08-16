@@ -9,7 +9,7 @@ import java.util.Random;
 
 public final class Randomizer {
 
-    private Random random = new Random();
+    private final Random random = new Random();
 
     private Matrix4f beforeMatrix;
     private Matrix4f afterMatrix;
@@ -19,9 +19,9 @@ public final class Randomizer {
     private float amplitude = 0.04f;
 
     // Valid bias range: from
-    private float xbias = 0f;
-    private float ybias = 0f;
-    private float zbias = 0f;
+    private final float xbias = 0f;
+    private final float ybias = 0f;
+    private final float zbias = 0f;
 
     public Randomizer() {
         this.currentMatrix = getMatrixForPositioning(() -> {});

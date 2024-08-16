@@ -75,7 +75,7 @@ public class TESRAmmoPress extends TESRStation<TileEntityAmmoPress> {
 
         // Render the actual model
         double interp = InterpolationKit.interpolateValue(te.getPreviousWheelRotation(), te.getCurrentWheelRotation(), MC.getRenderPartialTicks());
-        model.render((Entity) null, (float) interp, 0f, 0f, 0f, 0f, MODEL_RENDER_SCALE);
+        model.render(null, (float) interp, 0f, 0f, 0f, 0f, MODEL_RENDER_SCALE);
 
         // Undo block state
         GlStateManager.disableRescaleNormal();

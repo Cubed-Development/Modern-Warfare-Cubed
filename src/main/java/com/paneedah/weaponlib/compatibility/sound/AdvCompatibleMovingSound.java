@@ -11,8 +11,8 @@ import java.util.function.Supplier;
 
 @SideOnly(Side.CLIENT)
 public class AdvCompatibleMovingSound extends MovingSound {
-    private Supplier<Vector3D> positionProvider;
-    private Supplier<Boolean> donePlayingProvider;
+    private final Supplier<Vector3D> positionProvider;
+    private final Supplier<Boolean> donePlayingProvider;
 
 
     public boolean shouldFade;
@@ -20,7 +20,7 @@ public class AdvCompatibleMovingSound extends MovingSound {
     private int type = -1;
 
     private int fadeOutTime = 40;
-    private int fadeInTime = 40;
+    private final int fadeInTime = 40;
 
     private int fadeTimer = 0;
     private boolean isFadeIn = false;

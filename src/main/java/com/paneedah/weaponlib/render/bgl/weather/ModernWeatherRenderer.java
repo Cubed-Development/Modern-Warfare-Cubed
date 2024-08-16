@@ -34,7 +34,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
      *  Type = 1 if rain; type = 0 if snow.
      *
      */
-    private float[][] rainPositions = new float[(2 * RAIN_SEARCH_AREA) * (2 * RAIN_SEARCH_AREA)][5];
+    private final float[][] rainPositions = new float[(2 * RAIN_SEARCH_AREA) * (2 * RAIN_SEARCH_AREA)][5];
 
     //private float previousRotation;
     private Vec3d previousPosition;
@@ -59,11 +59,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
     public static boolean isRainingOrSnowing(BlockPos pos) {
         float f2 = MC.world.getBiome(pos).getTemperature(pos);
         int j2 = MC.world.getPrecipitationHeight(pos).getY();
-        if (MC.world.getBiomeProvider().getTemperatureAtHeight(f2, j2) >= 0.15F) {
-            return true;
-        } else {
-            return false;
-        }
+        return MC.world.getBiomeProvider().getTemperatureAtHeight(f2, j2) >= 0.15F;
     }
 
     /**

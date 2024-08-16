@@ -14,9 +14,9 @@ public class Panel {
 
     private ArrayList<Button> buttonList = new ArrayList<>();
 
-    private ArrayList<IElement> elements = new ArrayList<>();
+    private final ArrayList<IElement> elements = new ArrayList<>();
 
-    private String title;
+    private final String title;
     private AnimationGUI gui;
 
     private double positionX;

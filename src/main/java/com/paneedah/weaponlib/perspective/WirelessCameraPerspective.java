@@ -34,7 +34,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
     private int badSignalTickCounter;
     private int imageIndex;
 
-    private Random random = new Random();
+    private final Random random = new Random();
 
     private int totalTrackableEntities;
 
@@ -88,7 +88,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         Entity realEntity = watchableEntity == null ? null : watchableEntity.world
                 .getEntityByID(watchableEntity.getEntityId());
         if (realEntity != null && realEntity != watchableEntity) {
-            watchableEntity = (EntityLivingBase) realEntity;
+            watchableEntity = realEntity;
         }
 
 //        if(watchableEntity != null && watchableEntity.isDead) {

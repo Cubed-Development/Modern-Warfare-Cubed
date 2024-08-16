@@ -23,16 +23,14 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
 
     public enum BlackoutPhase {NONE, ENTER, DARK, EXIT}
 
-    ;
-
     public class Blackout {
 
         private long duration = 2000;
-        private long enterDuration = 1000;
+        private final long enterDuration = 1000;
         private long exitDuration = 500;
         private long startTime;
-        private long minIntervalBetweenBlackouts = 10000;
-        private Random random = new Random();
+        private final long minIntervalBetweenBlackouts = 10000;
+        private final Random random = new Random();
 
         public float getProgress() {
             return MiscUtils.clamp((float) (System.currentTimeMillis() - startTime) / duration, 0f, 1f);
@@ -78,22 +76,22 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
     private long firstExposureTimestamp;
     private float totalDose;
     private float lastDose;
-    private Map<UUID, Float> cycleDoseMap = new HashMap<>();
+    private final Map<UUID, Float> cycleDoseMap = new HashMap<>();
     private long firstExposureImpactDelay = DEFAULT_IMPACT_DELAY;
 
-    private float decayFactor = DEFAULT_DECAY_FACTOR;
+    private final float decayFactor = DEFAULT_DECAY_FACTOR;
 
     private long startCycleTimestamp;
     private long lastSyncTimestamp;
     private long lastApplyTimestamp;
-    private float entityImpactRate = 0.5f;
-    private long cycleLengthMillis = 10; //500;
+    private final float entityImpactRate = 0.5f;
+    private final long cycleLengthMillis = 10; //500;
     private int tickCount;
-    private Function<Float, Float> absorbFunction = dose -> dose * Math.min(0.2f, 0.2f / totalDose);
+    private final Function<Float, Float> absorbFunction = dose -> dose * Math.min(0.2f, 0.2f / totalDose);
 
-    private Blackout blackout = new Blackout();
+    private final Blackout blackout = new Blackout();
 
-    private Collection<Listener> listeners = new LinkedHashSet<>();
+    private final Collection<Listener> listeners = new LinkedHashSet<>();
 
     private float colorImpairmentR = 1.2f;
     private float colorImpairmentG = 1.0f;
@@ -152,7 +150,6 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
         Function<Float, Float> absorbFunction = null;
         if (entity instanceof EntityLivingBase) {
             ItemStack helmet = ((EntityLivingBase) entity).getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-            ;
             if (helmet != null && helmet.getItem() instanceof ExposureProtection) {
                 absorbFunction = ((ExposureProtection) helmet.getItem()).getAbsorbFunction(spreadable);
             }
