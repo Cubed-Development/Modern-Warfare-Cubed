@@ -62,7 +62,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated the url in the mod menu
 - Updated dependencies:
   - Requires Red Core 0.6 and up
-  - Requires MixinBooter 8.6 and up
+  - Requires MixinBooter 8.8 and up
 - Updated Korean translation
 - Reworked weapons tooltips
 - Reworked magazines tooltips
@@ -96,6 +96,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Switched to the new standard `gradle.properties`
 - General cleanup
 - Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 8.7.1
+- Remade the build script
 
 ## Modern Warfare Cubed Version 0.1.8 Changelog - 2024-08-16
 
