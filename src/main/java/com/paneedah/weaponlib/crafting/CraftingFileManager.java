@@ -91,9 +91,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
             jsonEntry.addProperty(ORE_DICTIONARY_BOOLEAN_KEY, false);
             jsonEntry.addProperty(COUNT_KEY, entry.getCount());
 
-            if (entry.isOreDictionary()) {
+            if (entry.isOreDictionary())
                 jsonEntry.addProperty(ORE_DICTIONARY_DEFAULT_ITEM, itemName);
-            }
 
             recipeArray.add(jsonEntry);
         }
@@ -102,9 +101,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
     }
 
     public ByteArrayOutputStream getCurrentFileBAOS() {
-        if (loadingStatus == -1) {
+        if (loadingStatus == -1)
             return null;
-        }
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
         try {
@@ -139,9 +137,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
     public byte[] getDefaultFileHash() {
         // If we already have it, return it.
-        if (defaultFileHash != null) {
+        if (defaultFileHash != null)
             return defaultFileHash;
-        }
 
         // If not, get it, store it, return it.
         defaultFileHash = getDigest(getDefaultFileStream());
@@ -220,9 +217,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
             }
 
             // Allows us to skip the recipe if there are problems
-            if (cancellationFlag) {
+            if (cancellationFlag)
                 continue;
-            }
 
             Item item = Item.getByNameOrId(recipeName);
             if (item == null) {
@@ -249,9 +245,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
             throw new JsonIOException("Failed to copy array into bytes!");
         }
 
-        if (array == null) {
+        if (array == null)
             throw new JsonIOException("Failed to copy array into bytes!");
-        }
 
         ByteArrayInputStream hashStream = new ByteArrayInputStream(array);
         ByteArrayInputStream readStream = new ByteArrayInputStream(array);
@@ -368,11 +363,15 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
         // If we don't have a cache directory, obviously
         // we don't have a custom hash.
-        if (!CACHE_DIR.exists()) {
+        if (!CACHE_DIR.exists())
             return false;
-        }
 
-        for (File f : CACHE_DIR.listFiles()) {
+        final File[] files = CACHE_DIR.listFiles();
+
+        if (files == null)
+            return false;
+
+        for (File f : files) {
 
             byte[] checkHash = getDigest(f);
 
@@ -402,9 +401,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
     public void saveCacheAndLoad(ByteArrayOutputStream baos) {
         // If we are in single player, cancel this.
         // We have alternate loading mechanisms for this.
-        if (MC.isIntegratedServerRunning()) {
+        if (MC.isIntegratedServerRunning())
             return;
-        }
 
         // Get the server IP
         String serverIP = MC.getCurrentServerData().serverIP;
