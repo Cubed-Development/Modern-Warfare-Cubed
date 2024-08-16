@@ -22,6 +22,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 - Improved the experimental fix for CCS ([#248](https://github.com/Cubed-Development/Modern-Warfare-Cubed/issues/248))
 - Fixed crash when looking at the night vision googles in the workbench
 - Fixed crash when shift clicking the last 4 slots of the hotbar when in the equipment tab
+- Fixed potential crash when shift clicking in the equipment tab
 
 ## Modern Warfare Cubed Version 0.1.7 Changelog - 2024-06-29
 

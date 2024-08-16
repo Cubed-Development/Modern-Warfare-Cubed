@@ -233,7 +233,7 @@ public class EquipmentContainer extends Container {
                 }
 
                 if (itemstack1.getCount() == itemstack.getCount()) {
-                    return null;
+                    return ItemStack.EMPTY;
                 }
 
                 slot.onTake(player, itemstack1);
