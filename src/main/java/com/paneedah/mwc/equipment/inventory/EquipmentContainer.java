@@ -46,7 +46,7 @@ public class EquipmentContainer extends Container {
         this.customSlotEndIndex = customSlotStartIndex + customSlots.size() - 1;
 
         List<Slot> armorSlots = createArmorSlots(player, inventoryPlayer);
-        // armorSlots.forEach(slot -> addSlotToContainer(slot));
+        armorSlots.forEach(slot -> addSlotToContainer(slot));
 
         this.armorSlotStartIndex = equipmentInventory.getSizeInventory();
         this.armorSlotEndIndex = armorSlotStartIndex + armorSlots.size() - 1;
@@ -95,7 +95,7 @@ public class EquipmentContainer extends Container {
         int i;
         for (i = 0; i < 4; ++i) {
             final EntityEquipmentSlot entityequipmentslot = new EntityEquipmentSlot[]{EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET}[i];
-            this.addSlotToContainer(new Slot(inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i - 1,
+            slots.add(new Slot(inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i - 1,
                     8, 8 + i * 18) {
                 /**
                  * Returns the maximum stack size for a given slot (usually the same as getInventoryStackLimit(), but 1
