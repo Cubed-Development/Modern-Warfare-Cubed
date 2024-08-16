@@ -20,9 +20,8 @@ public final class LivingEntityTrackerMessage implements IMessage {
     public void fromBytes(final ByteBuf byteBuf) {
         playerEntityTracker = LivingEntityTracker.read(byteBuf);
 
-        if (!byteBuf.readBoolean()) {
+        if (!byteBuf.readBoolean())
             return;
-        }
 
         byte[] bytes = new byte[byteBuf.readInt()];
         for (int i = 0; i < bytes.length; ++i)
@@ -36,9 +35,8 @@ public final class LivingEntityTrackerMessage implements IMessage {
         playerEntityTracker.write(byteBuf);
 
         byteBuf.writeBoolean(statusMessage != null);
-        if (statusMessage == null) {
+        if (statusMessage == null)
             return;
-        }
 
         final byte[] bytes = CompressionUtil.compressString(statusMessage);
         byteBuf.writeInt(bytes.length);

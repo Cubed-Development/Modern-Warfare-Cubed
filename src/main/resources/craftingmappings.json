@@ -1886,6 +1886,24 @@
       ]
     },
     {
+      "entryName": "mwc:ACRWEMSKHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "ingotGunmetal",
+          "defaultItem": "mwc:gunmetal_ingot",
+          "isOreDictionary": true,
+          "count": 2
+        },
+        {
+          "entryName": "ingotSteel",
+          "defaultItem": "mwc:steel_ingot",
+          "isOreDictionary": true,
+          "count": 1
+        }
+      ]
+    },
+    {
       "entryName": "mwc:ACRWEMSKHandguardTan",
       "craftingGroup": "ATTACHMENT_MODIFICATION",
       "recipe": [
@@ -1904,7 +1922,31 @@
       ]
     },
     {
+      "entryName": "mwc:ACRPrecisionHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "ingotGunmetal",
+          "defaultItem": "mwc:gunmetal_ingot",
+          "isOreDictionary": true,
+          "count": 3
+        }
+      ]
+    },
+    {
       "entryName": "mwc:ACRPrecisionHandGuardTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "ingotGunmetal",
+          "defaultItem": "mwc:gunmetal_ingot",
+          "isOreDictionary": true,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:ACRSBRHandGuard",
       "craftingGroup": "ATTACHMENT_MODIFICATION",
       "recipe": [
         {
@@ -1928,7 +1970,31 @@
       ]
     },
     {
+      "entryName": "mwc:ACRPolymerHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "ingotGunmetal",
+          "defaultItem": "mwc:gunmetal_ingot",
+          "isOreDictionary": true,
+          "count": 3
+        }
+      ]
+    },
+    {
       "entryName": "mwc:ACRPolymerHandguardTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "ingotGunmetal",
+          "defaultItem": "mwc:gunmetal_ingot",
+          "isOreDictionary": true,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:ACRSquareDropHandguard",
       "craftingGroup": "ATTACHMENT_MODIFICATION",
       "recipe": [
         {
@@ -2342,7 +2408,31 @@
       ]
     },
     {
+      "entryName": "mwc:ACRFixedStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "ingotGunmetal",
+          "defaultItem": "mwc:gunmetal_ingot",
+          "isOreDictionary": true,
+          "count": 3
+        }
+      ]
+    },
+    {
       "entryName": "mwc:ACRFixedStockTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "ingotGunmetal",
+          "defaultItem": "mwc:gunmetal_ingot",
+          "isOreDictionary": true,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:ACRPRSStock",
       "craftingGroup": "ATTACHMENT_MODIFICATION",
       "recipe": [
         {
@@ -7962,7 +8052,7 @@
       ]
     },
     {
-      "entryName": "mwc:combat_sustainment_backpack_tan",
+      "entryName": "mwc:combat_sustainment_backpack",
       "craftingGroup": "GEAR",
       "recipe": [
         {
@@ -8016,7 +8106,7 @@
       ]
     },
     {
-      "entryName": "mwc:assault_backpack_tan",
+      "entryName": "mwc:assault_backpack",
       "craftingGroup": "GEAR",
       "recipe": [
         {
@@ -8070,7 +8160,7 @@
       ]
     },
     {
-      "entryName": "mwc:f5_switchblade_backpack",
+      "entryName": "mwc:f5switchbladebackpack",
       "craftingGroup": "GEAR",
       "recipe": [
         {
@@ -8088,7 +8178,7 @@
       ]
     },
     {
-      "entryName": "mwc:tru_spec_cordura_backpack_tan",
+      "entryName": "mwc:tru_spec_cordura_backpack",
       "craftingGroup": "GEAR",
       "recipe": [
         {

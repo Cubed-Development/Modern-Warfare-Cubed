@@ -6,52 +6,52 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
 public class PlayerMagazineInstance extends PlayerItemInstance<MagazineState> {
-
-    static {
-        TypeRegistry.getINSTANCE().register(PlayerMagazineInstance.class);
-    }
-
+	
+	static {
+		TypeRegistry.getINSTANCE().register(PlayerMagazineInstance.class);
+	}
+	
 //	private int ammo;
+		
 
+	public PlayerMagazineInstance() {
+		super();
+	}
 
-    public PlayerMagazineInstance() {
-        super();
-    }
+	@Override
+	public boolean shouldHaveInstanceTags() {
+		return false;
+	}
+	
+	
+	public PlayerMagazineInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
+		super(itemInventoryIndex, player, itemStack);
+	}
 
-    @Override
-    public boolean shouldHaveInstanceTags() {
-        return false;
-    }
-
-
-    public PlayerMagazineInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
-        super(itemInventoryIndex, player, itemStack);
-    }
-
-    public PlayerMagazineInstance(int itemInventoryIndex, EntityLivingBase player) {
-        super(itemInventoryIndex, player);
-    }
-
-    @Override
-    public void read(ByteBuf byteBuf) {
-        super.read(byteBuf);
+	public PlayerMagazineInstance(int itemInventoryIndex, EntityLivingBase player) {
+		super(itemInventoryIndex, player);
+	}
+	
+	@Override
+	public void read(ByteBuf byteBuf) {
+		super.read(byteBuf);
 //		ammo = buf.readInt();
-    }
-
-    @Override
-    public void write(ByteBuf byteBuf) {
-        super.write(byteBuf);
+	}
+	
+	@Override
+	public void write(ByteBuf byteBuf) {
+		super.write(byteBuf);
 //		buf.writeInt(ammo);
-    }
-
-    @Override
-    protected void updateWith(PlayerItemInstance<MagazineState> otherItemInstance, boolean updateManagedState) {
-        super.updateWith(otherItemInstance, updateManagedState);
+	}
+	
+	@Override
+	protected void updateWith(PlayerItemInstance<MagazineState> otherItemInstance, boolean updateManagedState) {
+		super.updateWith(otherItemInstance, updateManagedState);
 //		PlayerMagazineInstance otherMagazineInstance = (PlayerMagazineInstance) otherItemInstance;
 //		setAmmo(otherMagazineInstance.ammo);
-    }
+	}
 
-    public ItemMagazine getMagazine() {
-        return (ItemMagazine) item;
-    }
+	public ItemMagazine getMagazine() {
+		return (ItemMagazine)item;
+	}
 }

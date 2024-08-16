@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.util.vector.Matrix4f;
 
 public class PartRenderContext<State> implements PartPositionProvider {
-
+    
     private float limbSwing;
     private float flimbSwingAmount;
     private float ageInTicks;
@@ -16,7 +16,7 @@ public class PartRenderContext<State> implements PartPositionProvider {
     private Entity entity;
     private State state;
     private float progress;
-
+    
     /**
      * ALTERNATE TEX RENDERINGS
      */
@@ -25,33 +25,33 @@ public class PartRenderContext<State> implements PartPositionProvider {
 
     @Override
     public Matrix4f getPartPosition(Object part) {
-
+    	
         // TODO Auto-generated method stub
         return null;
     }
-
-
+    
+    
     public void renderAlternateTexture(ResourceLocation loc) {
-        this.alternateTexture = loc;
-        this.shouldAlternateTexture = true;
+    	this.alternateTexture = loc;
+    	this.shouldAlternateTexture = true;
     }
-
+    
     public boolean shouldRenderAlternateTexture() {
-        return this.shouldAlternateTexture;
+    	return this.shouldAlternateTexture;
     }
-
+    
     public ResourceLocation getAlternateTexture() {
-        return this.alternateTexture;
+    	return this.alternateTexture;
     }
-
+    
     public void setState(State state) {
         this.state = state;
     }
-
+    
     public State getState() {
         return state;
     }
-
+    
     public float getLimbSwing() {
         return limbSwing;
     }
@@ -103,20 +103,20 @@ public class PartRenderContext<State> implements PartPositionProvider {
     public Entity getEntity() {
         return entity;
     }
-
+    
     public void setEntity(Entity entity) {
         this.entity = entity;
     }
-
+    
     public void setProgress(float progress) {
 //        System.out.println("Progress: " + progress);
         this.progress = progress;
     }
-
+    
     public float getProgress() {
         return progress;
     }
-
+    
     public float getSymmetricProgress() {
         return (progress * 2f) - 1f;
     }

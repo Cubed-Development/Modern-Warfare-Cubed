@@ -67,9 +67,8 @@ public final class WorkbenchServerMessage implements IMessage {
         } else if (opCode == MOVE_OUTPUT || opCode == POP_FROM_QUEUE) {
             playerID = byteBuf.readInt();
             slotToMove = byteBuf.readInt();
-        } else if (opCode == DISMANTLE) {
+        } else if (opCode == DISMANTLE)
             craftingDuration = byteBuf.readInt();
-        }
     }
 
     @Override
@@ -88,8 +87,7 @@ public final class WorkbenchServerMessage implements IMessage {
         } else if (opCode == MOVE_OUTPUT || opCode == POP_FROM_QUEUE) {
             byteBuf.writeInt(playerID);
             byteBuf.writeInt(slotToMove);
-        } else if (opCode == DISMANTLE) {
+        } else if (opCode == DISMANTLE)
             byteBuf.writeInt(craftingDuration);
-        }
     }
 }

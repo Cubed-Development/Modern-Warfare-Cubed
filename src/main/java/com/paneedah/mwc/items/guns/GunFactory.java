@@ -4,6 +4,6 @@ import com.paneedah.mwc.proxies.CommonProxy;
 import net.minecraft.item.Item;
 
 public interface GunFactory {
-
-    Item createGun(CommonProxy commonProxy);
+	
+	public Item createGun(CommonProxy commonProxy);
 }

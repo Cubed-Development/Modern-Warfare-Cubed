@@ -16,17 +16,14 @@ public final class VehicleInteractMessageHandler implements IMessageHandler<Vehi
             final EntityVehicle vehicle = (EntityVehicle) messageContext.getServerHandler().player.world.getEntityByID(vehicleInteractMessage.getVehicleID());
             final EntityPlayer player = (EntityPlayer) messageContext.getServerHandler().player.world.getEntityByID(vehicleInteractMessage.getPlayerID());
 
-            if (vehicle == null || player == null) {
+            if (vehicle == null || player == null)
                 return;
-            }
 
             if (vehicleInteractMessage.isRight()) {
-                if (vehicle.canFitPassenger(player)) {
+                if (vehicle.canFitPassenger(player))
                     player.startRiding(vehicle);
-                }
-            } else {
+            } else
                 vehicle.setDead();
-            }
         });
 
         return null;

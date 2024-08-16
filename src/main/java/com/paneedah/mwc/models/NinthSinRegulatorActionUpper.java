@@ -11,27 +11,27 @@ import net.minecraft.entity.Entity;
 
 
 public class NinthSinRegulatorActionUpper extends ModelWithAttachments {
-    private final ModelRenderer regulatorlower_upper_EXTRA6;
+	private final ModelRenderer regulatorlower_upper_EXTRA6;
 
-    public NinthSinRegulatorActionUpper() {
-        textureWidth = 128;
-        textureHeight = 128;
+	public NinthSinRegulatorActionUpper() {
+		textureWidth = 128;
+		textureHeight = 128;
 
-        regulatorlower_upper_EXTRA6 = new ModelRenderer(this);
-        regulatorlower_upper_EXTRA6.setRotationPoint(7.0F, 10.1F, -18.5F);
-        setRotationAngle(regulatorlower_upper_EXTRA6, 0.6632F, 0.0F, 0.0F);
-        regulatorlower_upper_EXTRA6.cubeList.add(new ModelBox(regulatorlower_upper_EXTRA6, 64, 103, -1.0F, -1.0F, 0.0F, 1, 1, 4, -0.1F, false));
-        regulatorlower_upper_EXTRA6.cubeList.add(new ModelBox(regulatorlower_upper_EXTRA6, 0, 102, -1.0F, -2.0F, 0.0F, 1, 1, 4, -0.1F, false));
-    }
+		regulatorlower_upper_EXTRA6 = new ModelRenderer(this);
+		regulatorlower_upper_EXTRA6.setRotationPoint(7.0F, 10.1F, -18.5F);
+		setRotationAngle(regulatorlower_upper_EXTRA6, 0.6632F, 0.0F, 0.0F);
+		regulatorlower_upper_EXTRA6.cubeList.add(new ModelBox(regulatorlower_upper_EXTRA6, 64, 103, -1.0F, -1.0F, 0.0F, 1, 1, 4, -0.1F, false));
+		regulatorlower_upper_EXTRA6.cubeList.add(new ModelBox(regulatorlower_upper_EXTRA6, 0, 102, -1.0F, -2.0F, 0.0F, 1, 1, 4, -0.1F, false));
+	}
 
-    @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        regulatorlower_upper_EXTRA6.render(f5);
-    }
+	@Override
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+		regulatorlower_upper_EXTRA6.render(f5);
+	}
 
-    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.rotateAngleX = x;
-        modelRenderer.rotateAngleY = y;
-        modelRenderer.rotateAngleZ = z;
-    }
+	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+		modelRenderer.rotateAngleX = x;
+		modelRenderer.rotateAngleY = y;
+		modelRenderer.rotateAngleZ = z;
+	}
 }

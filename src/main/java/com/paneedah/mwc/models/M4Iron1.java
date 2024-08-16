@@ -5,14 +5,19 @@
 // - ZeuX
 
 
+
+
+
+
 package com.paneedah.mwc.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class M4Iron1 extends ModelBase {
-    //fields
+public class M4Iron1 extends ModelBase
+{
+  //fields
     ModelRenderer sight1;
     ModelRenderer sight2;
     ModelRenderer sight3;
@@ -33,162 +38,165 @@ public class M4Iron1 extends ModelBase {
     ModelRenderer sight18;
     ModelRenderer sight19;
     ModelRenderer sight20;
+  
+  public M4Iron1()
+  {
+    textureWidth = 128;
+    textureHeight = 64;
+    
+      sight1 = new ModelRenderer(this, 0, 20);
+      sight1.addBox(0F, 0F, 0F, 4, 3, 1);
+      sight1.setRotationPoint(0F, -2F, 0F);
+      sight1.setTextureSize(128, 64);
+      sight1.mirror = true;
+      setRotation(sight1, 0F, 0F, 0F);
+      sight2 = new ModelRenderer(this, 0, 20);
+      sight2.addBox(0F, 0F, 0F, 1, 6, 1);
+      sight2.setRotationPoint(-1F, -5F, 0F);
+      sight2.setTextureSize(128, 64);
+      sight2.mirror = true;
+      setRotation(sight2, 0F, 0F, 0F);
+      sight3 = new ModelRenderer(this, 0, 20);
+      sight3.addBox(0F, 0F, 0F, 1, 6, 1);
+      sight3.setRotationPoint(3F, -5F, 0F);
+      sight3.setTextureSize(128, 64);
+      sight3.mirror = true;
+      setRotation(sight3, 0F, 0F, 0F);
+      sight4 = new ModelRenderer(this, 0, 20);
+      sight4.addBox(0F, 0F, 0F, 3, 1, 1);
+      sight4.setRotationPoint(0F, -6F, 0F);
+      sight4.setTextureSize(128, 64);
+      sight4.mirror = true;
+      setRotation(sight4, 0F, 0F, 0F);
+      sight5 = new ModelRenderer(this, 0, 20);
+      sight5.addBox(0F, 0F, 0F, 1, 1, 1);
+      sight5.setRotationPoint(-0.5F, -5.5F, 0F);
+      sight5.setTextureSize(128, 64);
+      sight5.mirror = true;
+      setRotation(sight5, 0F, 0F, 0F);
+      sight6 = new ModelRenderer(this, 0, 20);
+      sight6.addBox(0F, 0F, 0F, 1, 1, 1);
+      sight6.setRotationPoint(2.5F, -5.5F, 0F);
+      sight6.setTextureSize(128, 64);
+      sight6.mirror = true;
+      setRotation(sight6, 0F, 0F, 0F);
+      sight7 = new ModelRenderer(this, 0, 0);
+      sight7.addBox(0F, 0F, 0F, 1, 4, 4);
+      sight7.setRotationPoint(4.5F, -3F, -2F);
+      sight7.setTextureSize(128, 64);
+      sight7.mirror = true;
+      setRotation(sight7, 0F, 0F, 0F);
+      sight8 = new ModelRenderer(this, 0, 0);
+      sight8.addBox(0F, 0F, 0F, 1, 4, 4);
+      sight8.setRotationPoint(-2.5F, -3F, -2F);
+      sight8.setTextureSize(128, 64);
+      sight8.mirror = true;
+      setRotation(sight8, 0F, 0F, 0F);
+      sight9 = new ModelRenderer(this, 0, 0);
+      sight9.addBox(0F, 0F, 0F, 6, 1, 4);
+      sight9.setRotationPoint(-1.5F, 0F, -2F);
+      sight9.setTextureSize(128, 64);
+      sight9.mirror = true;
+      setRotation(sight9, 0F, 0F, 0F);
+      sight10 = new ModelRenderer(this, 0, 20);
+      sight10.addBox(0F, 0F, 0F, 3, 2, 1);
+      sight10.setRotationPoint(0F, -1F, 0F);
+      sight10.setTextureSize(128, 64);
+      sight10.mirror = true;
+      setRotation(sight10, 0.7807508F, 0F, 0F);
+      sight11 = new ModelRenderer(this, 0, 20);
+      sight11.addBox(0F, 0F, 0F, 3, 2, 2);
+      sight11.setRotationPoint(0F, -1.5F, -2F);
+      sight11.setTextureSize(128, 64);
+      sight11.mirror = true;
+      setRotation(sight11, 0F, 0F, 0F);
+      sight12 = new ModelRenderer(this, 0, 0);
+      sight12.addBox(0F, 0F, 0F, 6, 1, 4);
+      sight12.setRotationPoint(-1.5F, 1F, -2F);
+      sight12.setTextureSize(128, 64);
+      sight12.mirror = true;
+      setRotation(sight12, 0F, 0F, 0F);
+      sight13 = new ModelRenderer(this, 0, 0);
+      sight13.addBox(0F, 0F, 0F, 4, 3, 4);
+      sight13.setRotationPoint(-0.5F, 2F, -2F);
+      sight13.setTextureSize(128, 64);
+      sight13.mirror = true;
+      setRotation(sight13, 0F, 0F, 0F);
+      sight14 = new ModelRenderer(this, 0, 0);
+      sight14.addBox(0F, 0F, 0F, 4, 1, 4);
+      sight14.setRotationPoint(5.5F, 1F, -2F);
+      sight14.setTextureSize(128, 64);
+      sight14.mirror = true;
+      setRotation(sight14, 0F, 0F, 2.324799F);
+      sight15 = new ModelRenderer(this, 0, 0);
+      sight15.addBox(0F, 0F, 0F, 1, 4, 4);
+      sight15.setRotationPoint(-2.5F, 1F, -2F);
+      sight15.setTextureSize(128, 64);
+      sight15.mirror = true;
+      setRotation(sight15, 0F, 0F, -0.7435722F);
+      sight16 = new ModelRenderer(this, 0, 0);
+      sight16.addBox(0F, 0F, 0F, 1, 2, 3);
+      sight16.setRotationPoint(4.5F, -5F, -2F);
+      sight16.setTextureSize(128, 64);
+      sight16.mirror = true;
+      setRotation(sight16, 0F, 0F, 0F);
+      sight17 = new ModelRenderer(this, 0, 0);
+      sight17.addBox(0F, 0F, 0F, 1, 2, 3);
+      sight17.setRotationPoint(-2.5F, -5F, -2F);
+      sight17.setTextureSize(128, 64);
+      sight17.mirror = true;
+      setRotation(sight17, 0F, 0F, 0F);
+      sight18 = new ModelRenderer(this, 0, 20);
+      sight18.addBox(0F, 0F, 0F, 1, 2, 2);
+      sight18.setRotationPoint(5.5F, -3F, 0F);
+      sight18.setTextureSize(128, 64);
+      sight18.mirror = true;
+      setRotation(sight18, -0.7807508F, 0F, 0F);
+      sight19 = new ModelRenderer(this, 0, 0);
+      sight19.addBox(0F, 0F, 0F, 6, 2, 7);
+      sight19.setRotationPoint(-1.5F, 5F, -2F);
+      sight19.setTextureSize(128, 64);
+      sight19.mirror = true;
+      setRotation(sight19, 0F, 0F, 0F);
+      sight20 = new ModelRenderer(this, 0, 0);
+      sight20.addBox(0F, 0F, 0F, 4, 2, 3);
+      sight20.setRotationPoint(-0.5F, 4F, 2F);
+      sight20.setTextureSize(128, 64);
+      sight20.mirror = true;
+      setRotation(sight20, -0.2602503F, 0F, 0F);
+  }
+  
+  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+  {
+    super.render(entity, f, f1, f2, f3, f4, f5);
+    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    sight1.render(f5);
+    sight2.render(f5);
+    sight3.render(f5);
+    sight4.render(f5);
+    sight5.render(f5);
+    sight6.render(f5);
+    sight7.render(f5);
+    sight8.render(f5);
+    sight9.render(f5);
+    sight10.render(f5);
+    sight11.render(f5);
+    sight12.render(f5);
+    sight13.render(f5);
+    sight14.render(f5);
+    sight15.render(f5);
+    sight16.render(f5);
+    sight17.render(f5);
+    sight18.render(f5);
+    sight19.render(f5);
+    sight20.render(f5);
+  }
 
-    public M4Iron1() {
-        textureWidth = 128;
-        textureHeight = 64;
-
-        sight1 = new ModelRenderer(this, 0, 20);
-        sight1.addBox(0F, 0F, 0F, 4, 3, 1);
-        sight1.setRotationPoint(0F, -2F, 0F);
-        sight1.setTextureSize(128, 64);
-        sight1.mirror = true;
-        setRotation(sight1, 0F, 0F, 0F);
-        sight2 = new ModelRenderer(this, 0, 20);
-        sight2.addBox(0F, 0F, 0F, 1, 6, 1);
-        sight2.setRotationPoint(-1F, -5F, 0F);
-        sight2.setTextureSize(128, 64);
-        sight2.mirror = true;
-        setRotation(sight2, 0F, 0F, 0F);
-        sight3 = new ModelRenderer(this, 0, 20);
-        sight3.addBox(0F, 0F, 0F, 1, 6, 1);
-        sight3.setRotationPoint(3F, -5F, 0F);
-        sight3.setTextureSize(128, 64);
-        sight3.mirror = true;
-        setRotation(sight3, 0F, 0F, 0F);
-        sight4 = new ModelRenderer(this, 0, 20);
-        sight4.addBox(0F, 0F, 0F, 3, 1, 1);
-        sight4.setRotationPoint(0F, -6F, 0F);
-        sight4.setTextureSize(128, 64);
-        sight4.mirror = true;
-        setRotation(sight4, 0F, 0F, 0F);
-        sight5 = new ModelRenderer(this, 0, 20);
-        sight5.addBox(0F, 0F, 0F, 1, 1, 1);
-        sight5.setRotationPoint(-0.5F, -5.5F, 0F);
-        sight5.setTextureSize(128, 64);
-        sight5.mirror = true;
-        setRotation(sight5, 0F, 0F, 0F);
-        sight6 = new ModelRenderer(this, 0, 20);
-        sight6.addBox(0F, 0F, 0F, 1, 1, 1);
-        sight6.setRotationPoint(2.5F, -5.5F, 0F);
-        sight6.setTextureSize(128, 64);
-        sight6.mirror = true;
-        setRotation(sight6, 0F, 0F, 0F);
-        sight7 = new ModelRenderer(this, 0, 0);
-        sight7.addBox(0F, 0F, 0F, 1, 4, 4);
-        sight7.setRotationPoint(4.5F, -3F, -2F);
-        sight7.setTextureSize(128, 64);
-        sight7.mirror = true;
-        setRotation(sight7, 0F, 0F, 0F);
-        sight8 = new ModelRenderer(this, 0, 0);
-        sight8.addBox(0F, 0F, 0F, 1, 4, 4);
-        sight8.setRotationPoint(-2.5F, -3F, -2F);
-        sight8.setTextureSize(128, 64);
-        sight8.mirror = true;
-        setRotation(sight8, 0F, 0F, 0F);
-        sight9 = new ModelRenderer(this, 0, 0);
-        sight9.addBox(0F, 0F, 0F, 6, 1, 4);
-        sight9.setRotationPoint(-1.5F, 0F, -2F);
-        sight9.setTextureSize(128, 64);
-        sight9.mirror = true;
-        setRotation(sight9, 0F, 0F, 0F);
-        sight10 = new ModelRenderer(this, 0, 20);
-        sight10.addBox(0F, 0F, 0F, 3, 2, 1);
-        sight10.setRotationPoint(0F, -1F, 0F);
-        sight10.setTextureSize(128, 64);
-        sight10.mirror = true;
-        setRotation(sight10, 0.7807508F, 0F, 0F);
-        sight11 = new ModelRenderer(this, 0, 20);
-        sight11.addBox(0F, 0F, 0F, 3, 2, 2);
-        sight11.setRotationPoint(0F, -1.5F, -2F);
-        sight11.setTextureSize(128, 64);
-        sight11.mirror = true;
-        setRotation(sight11, 0F, 0F, 0F);
-        sight12 = new ModelRenderer(this, 0, 0);
-        sight12.addBox(0F, 0F, 0F, 6, 1, 4);
-        sight12.setRotationPoint(-1.5F, 1F, -2F);
-        sight12.setTextureSize(128, 64);
-        sight12.mirror = true;
-        setRotation(sight12, 0F, 0F, 0F);
-        sight13 = new ModelRenderer(this, 0, 0);
-        sight13.addBox(0F, 0F, 0F, 4, 3, 4);
-        sight13.setRotationPoint(-0.5F, 2F, -2F);
-        sight13.setTextureSize(128, 64);
-        sight13.mirror = true;
-        setRotation(sight13, 0F, 0F, 0F);
-        sight14 = new ModelRenderer(this, 0, 0);
-        sight14.addBox(0F, 0F, 0F, 4, 1, 4);
-        sight14.setRotationPoint(5.5F, 1F, -2F);
-        sight14.setTextureSize(128, 64);
-        sight14.mirror = true;
-        setRotation(sight14, 0F, 0F, 2.324799F);
-        sight15 = new ModelRenderer(this, 0, 0);
-        sight15.addBox(0F, 0F, 0F, 1, 4, 4);
-        sight15.setRotationPoint(-2.5F, 1F, -2F);
-        sight15.setTextureSize(128, 64);
-        sight15.mirror = true;
-        setRotation(sight15, 0F, 0F, -0.7435722F);
-        sight16 = new ModelRenderer(this, 0, 0);
-        sight16.addBox(0F, 0F, 0F, 1, 2, 3);
-        sight16.setRotationPoint(4.5F, -5F, -2F);
-        sight16.setTextureSize(128, 64);
-        sight16.mirror = true;
-        setRotation(sight16, 0F, 0F, 0F);
-        sight17 = new ModelRenderer(this, 0, 0);
-        sight17.addBox(0F, 0F, 0F, 1, 2, 3);
-        sight17.setRotationPoint(-2.5F, -5F, -2F);
-        sight17.setTextureSize(128, 64);
-        sight17.mirror = true;
-        setRotation(sight17, 0F, 0F, 0F);
-        sight18 = new ModelRenderer(this, 0, 20);
-        sight18.addBox(0F, 0F, 0F, 1, 2, 2);
-        sight18.setRotationPoint(5.5F, -3F, 0F);
-        sight18.setTextureSize(128, 64);
-        sight18.mirror = true;
-        setRotation(sight18, -0.7807508F, 0F, 0F);
-        sight19 = new ModelRenderer(this, 0, 0);
-        sight19.addBox(0F, 0F, 0F, 6, 2, 7);
-        sight19.setRotationPoint(-1.5F, 5F, -2F);
-        sight19.setTextureSize(128, 64);
-        sight19.mirror = true;
-        setRotation(sight19, 0F, 0F, 0F);
-        sight20 = new ModelRenderer(this, 0, 0);
-        sight20.addBox(0F, 0F, 0F, 4, 2, 3);
-        sight20.setRotationPoint(-0.5F, 4F, 2F);
-        sight20.setTextureSize(128, 64);
-        sight20.mirror = true;
-        setRotation(sight20, -0.2602503F, 0F, 0F);
-    }
-
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        sight1.render(f5);
-        sight2.render(f5);
-        sight3.render(f5);
-        sight4.render(f5);
-        sight5.render(f5);
-        sight6.render(f5);
-        sight7.render(f5);
-        sight8.render(f5);
-        sight9.render(f5);
-        sight10.render(f5);
-        sight11.render(f5);
-        sight12.render(f5);
-        sight13.render(f5);
-        sight14.render(f5);
-        sight15.render(f5);
-        sight16.render(f5);
-        sight17.render(f5);
-        sight18.render(f5);
-        sight19.render(f5);
-        sight20.render(f5);
-    }
-
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.rotateAngleX = x;
-        model.rotateAngleY = y;
-        model.rotateAngleZ = z;
-    }
-
+  private void setRotation(ModelRenderer model, float x, float y, float z)
+  {
+    model.rotateAngleX = x;
+    model.rotateAngleY = y;
+    model.rotateAngleZ = z;
+  }
+  
 }

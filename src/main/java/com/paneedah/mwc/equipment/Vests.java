@@ -141,10 +141,10 @@ public class Vests {
 //            GL11.glTranslatef(0f, 0f, 0f);
 //            GL11.glRotatef(0F, 0f, 0f, 1f);
 //        })
-                .withEntityPositioning(() -> new Transform()
-                        .withPosition(-0.5F, -1.9F, 0.5F)
-                        .withScale(1, 1, 1)
-                        .doGLDirect())
+		        .withEntityPositioning(() -> new Transform()
+				        .withPosition(-0.5F, -1.9F, 0.5F)
+				        .withScale(1, 1, 1)
+				        .doGLDirect())
                 .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -3.6, -0.25)

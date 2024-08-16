@@ -25,7 +25,7 @@ public class EntityGrenadeRenderer extends Render<Entity> {
         AbstractEntityGrenade entityGrenade = (AbstractEntityGrenade) entity;
         ItemGrenade itemGrenade = entityGrenade.getItemGrenade();
 
-        if (itemGrenade == null) {
+        if(itemGrenade == null) {
             return;
         }
 
@@ -33,7 +33,7 @@ public class EntityGrenadeRenderer extends Render<Entity> {
 
         MC.renderEngine.bindTexture(
                 new ResourceLocation(ID, // TODO: init entity with mod context
-                        "textures/models/" + itemGrenade.getTextureName()));
+                "textures/models/" + itemGrenade.getTextureName()));
 
         ModelBase model = renderer.getModel();
         GL11.glPushMatrix();
@@ -53,9 +53,9 @@ public class EntityGrenadeRenderer extends Render<Entity> {
         renderer.getThrownEntityPositioning().run();
 
         GlStateManager.disableCull();
-        model.render(entity, 0.0F, 0.3F, 0.0F, 0.0F, 0.0F, 0.08F);
-
-        GL11.glPopMatrix();
+       model.render(entity, 0.0F, 0.3F, 0.0F, 0.0F, 0.0F, 0.08F);
+       
+       GL11.glPopMatrix();
     }
 
     @Override

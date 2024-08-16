@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.compatibility;
 
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.Exposure;
 import com.paneedah.weaponlib.ModContext;
+import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.entity.Entity;
@@ -24,25 +24,25 @@ import java.util.stream.Collectors;
 public class CompatibleExposureCapability implements ICapabilitySerializable<NBTBase> {
 
     public static void register(ModContext modContext) {
-        CapabilityManager.INSTANCE.register(ExposureContainer.class, new ExposureContainerStorage(),
+        CapabilityManager.INSTANCE.register(ExposureContainer.class, new ExposureContainerStorage(), 
                 ExposureContainerImpl.class);
     }
 
-    public interface ExposureContainer {
-
-        Map<Class<?>, Exposure> getExposures();
-
-        long getLastSyncTimestmap();
-
-        void setLastSyncTimestamp(long lastSyncTimestamp);
-
-        long getLastUpdateTimestamp();
-
-        void setLastUpdateTimestamp(long lastUpdateTimestamp);
+    public static interface ExposureContainer {
+        
+        public Map<Class<?>, Exposure> getExposures();
+        
+        public long getLastSyncTimestmap();
+        
+        public void setLastSyncTimestamp(long lastSyncTimestamp);
+        
+        public long getLastUpdateTimestamp();
+        
+        public void setLastUpdateTimestamp(long lastUpdateTimestamp);
     }
-
+    
     public static class ExposureContainerImpl implements ExposureContainer {
-
+        
         Map<Class<?>, Exposure> exposures = new HashMap<>();
         long lastSyncTimestamp;
         long lastUpdateTimestamp;
@@ -56,7 +56,7 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
         public long getLastSyncTimestmap() {
             return lastSyncTimestamp;
         }
-
+        
         @Override
         public void setLastSyncTimestamp(long lastSyncTimestamp) {
             this.lastSyncTimestamp = lastSyncTimestamp;
@@ -70,7 +70,7 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
             this.lastUpdateTimestamp = lastUpdateTimestamp;
         }
     }
-
+    
     public static class ExposureContainerStorage implements IStorage<ExposureContainer> {
 
         private static final String TAG_EXPOSURES = "exposures";
@@ -81,7 +81,7 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
         public NBTBase writeNBT(Capability<ExposureContainer> capability, ExposureContainer instance, EnumFacing side) {
             NBTTagCompound tagCompound = new NBTTagCompound();
             NBTTagList exposureTags = new NBTTagList();
-            for (Exposure exposure : instance.getExposures().values()) {
+            for(Exposure exposure: instance.getExposures().values()) {
                 ByteBuf buf = Unpooled.buffer();
                 TypeRegistry.getINSTANCE().toBytes(exposure, buf);
                 exposureTags.appendTag(new NBTTagByteArray(buf.array()));
@@ -94,10 +94,10 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
 
         @Override
         public void readNBT(Capability<ExposureContainer> capability, ExposureContainer instance, EnumFacing side, NBTBase nbt) {
-            if (nbt instanceof NBTTagCompound) {
+            if(nbt instanceof NBTTagCompound) {
                 NBTTagCompound tagCompound = (NBTTagCompound) nbt;
                 NBTTagList exposureTags = (NBTTagList) tagCompound.getTag(TAG_EXPOSURES);
-                for (int i = 0; i < exposureTags.tagCount(); i++) {
+                for(int i = 0; i < exposureTags.tagCount(); i++) {
                     NBTTagByteArray byteArray = (NBTTagByteArray) exposureTags.get(i);
                     ByteBuf buf = Unpooled.wrappedBuffer(byteArray.getByteArray());
                     Exposure exposure = TypeRegistry.getINSTANCE().fromBytes(buf);
@@ -108,72 +108,64 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
             }
         }
     }
-
+    
     @CapabilityInject(ExposureContainer.class)
     static Capability<ExposureContainer> capabilityContainer = null;
-
-    private final ExposureContainer instance = capabilityContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
+    
+    private ExposureContainer instance = capabilityContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
 
     public static <T extends Exposure> T getExposure(Entity entity, Class<T> targetClass) {
-        if (entity == null) {
-            return null;
-        }
+        if(entity == null) return null;
         ExposureContainer container = entity.getCapability(capabilityContainer, null);
         return container != null ? targetClass.cast(container.getExposures().get(targetClass)) : null;
     }
-
+    
     public static Collection<? extends Exposure> getExposures(Entity entity) {
-        if (entity == null) {
-            return null;
-        }
+        if(entity == null) return null;
         ExposureContainer container = entity.getCapability(capabilityContainer, null);
         return container != null ? container.getExposures().values() : null;
     }
 
     public static <T extends Exposure> T removeExposure(Entity entity, Class<T> targetClass) {
-        if (entity == null) {
-            return null;
-        }
+        if(entity == null) return null;
         ExposureContainer container = entity.getCapability(capabilityContainer, null);
-        if (container != null) {
+        if(container != null) {
             container.setLastUpdateTimestamp(entity.world.getTotalWorldTime());
             return targetClass.cast(container.getExposures().remove(targetClass));
         }
         return null;
     }
-
+    
     public static void updateExposure(Entity entity, Exposure exposure) {
-        if (entity == null) {
-            return;
-        }
+        if(entity == null) return ;
         ExposureContainer container = entity.getCapability(capabilityContainer, null);
-        if (container != null) {
+        if(container != null) {
             container.getExposures().put(exposure.getClass(), exposure);
             container.setLastUpdateTimestamp(entity.world.getTotalWorldTime());
         }
     }
-
+    
     public static void updateExposures(Entity entity, Collection<? extends Exposure> updatedExposures) {
-        if (updatedExposures == null) {
+        if(updatedExposures == null) {
             return;
         }
         ExposureContainer container = entity.getCapability(capabilityContainer, null);
-        if (container != null) {
+        if(container != null) {
             Map<Class<?>, Exposure> currentExposures = container.getExposures();
-
+            
             // Remove current entries that not in updatedExposure list
             Set<?> updatedClasses = updatedExposures.stream().map(e -> e.getClass()).collect(Collectors.toSet());
-            for (Iterator<Entry<Class<?>, Exposure>> it = currentExposures.entrySet().iterator(); it.hasNext(); ) {
+            for(Iterator<Entry<Class<?>, Exposure>> it = currentExposures.entrySet().iterator(); it.hasNext();) {
                 Entry<Class<?>, Exposure> currentEntry = it.next();
-                if (!updatedClasses.contains(currentEntry.getKey())) {
+                if(!updatedClasses.contains(currentEntry.getKey())) {
                     it.remove();
                 }
             }
-
+            
             // Update existing or add new exposures
-            for (Exposure updatedExposure : updatedExposures) {
+            for(Exposure updatedExposure: updatedExposures) {
                 Exposure currentExposure = currentExposures.get(updatedExposure.getClass());
-                if (currentExposure != null) {
+                if(currentExposure != null) {
                     currentExposure.updateFrom(updatedExposure);
                 } else {
                     currentExposures.put(updatedExposure.getClass(), updatedExposure);
@@ -182,24 +174,24 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
             container.setLastUpdateTimestamp(entity.world.getTotalWorldTime());
         }
     }
-
+    
     public static long getLastSyncTimestamp(Entity entity) {
         ExposureContainer container = entity.getCapability(capabilityContainer, null);
         return container != null ? container.getLastSyncTimestmap() : 0;
     }
-
+    
     public static void setLastSyncTimestamp(Entity entity, long lastSyncTimestamp) {
         ExposureContainer container = entity.getCapability(capabilityContainer, null);
-        if (container != null) {
+        if(container != null) {
             container.setLastSyncTimestamp(lastSyncTimestamp);
         }
     }
-
+    
     public static long getLastUpdateTimestamp(Entity entity) {
         ExposureContainer container = entity.getCapability(capabilityContainer, null);
         return container != null ? container.getLastUpdateTimestamp() : 0;
     }
-
+    
     @Override
     public final boolean hasCapability(Capability<?> capability, EnumFacing facing) {
         return capability == capabilityContainer; //hasCapability(new CompatibleCapability<>(capability), CompatibleEnumFacing.valueOf(facing));

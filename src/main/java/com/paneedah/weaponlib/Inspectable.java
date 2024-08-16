@@ -4,5 +4,5 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public interface Inspectable {
 
-    void inspectMainHeldItemForPlayer(EntityPlayer player);
+	public void inspectMainHeldItemForPlayer(EntityPlayer player);
 }

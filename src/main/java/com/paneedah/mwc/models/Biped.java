@@ -5,6 +5,10 @@
 // - ZeuX
 
 
+
+
+
+
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ai.EntityCustomMob;
@@ -18,7 +22,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.math.MathHelper;
 
-public class Biped extends ModelBiped {
+public class Biped extends ModelBiped
+{
     //fields
     ModelRenderer head;
     ModelRenderer body;
@@ -27,7 +32,8 @@ public class Biped extends ModelBiped {
     ModelRenderer rightleg;
     ModelRenderer leftleg;
 
-    public Biped() {
+    public Biped()
+    {
         textureWidth = 64;
         textureHeight = 32;
 
@@ -75,27 +81,29 @@ public class Biped extends ModelBiped {
 //        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 //    }
 
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
+    private void setRotation(ModelRenderer model, float x, float y, float z)
+    {
         model.rotateAngleX = x;
         model.rotateAngleY = y;
         model.rotateAngleZ = z;
     }
-
+    
     @Override
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-        ItemStack itemstack = ((EntityLivingBase) entityIn).getHeldItemMainhand();
-        EntityCustomMob entityCustomMob = (EntityCustomMob) entityIn;
+        ItemStack itemstack = ((EntityLivingBase)entityIn).getHeldItemMainhand();
+        EntityCustomMob entityCustomMob = (EntityCustomMob)entityIn;
 
-        if (entityCustomMob.isSwingingArms() && (itemstack == null || itemstack.getItem() != Items.BOW)) {
-            float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
-            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
+        if (entityCustomMob.isSwingingArms() && (itemstack == null || itemstack.getItem() != Items.BOW))
+        {
+            float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
+            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
             this.bipedRightArm.rotateAngleZ = 0.0F;
             this.bipedLeftArm.rotateAngleZ = 0.0F;
             this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
             this.bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
-            this.bipedRightArm.rotateAngleX = -((float) Math.PI / 2F);
-            this.bipedLeftArm.rotateAngleX = -((float) Math.PI / 2F);
+            this.bipedRightArm.rotateAngleX = -((float)Math.PI / 2F);
+            this.bipedLeftArm.rotateAngleX = -((float)Math.PI / 2F);
             this.bipedRightArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
             this.bipedLeftArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
             this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
@@ -107,7 +115,7 @@ public class Biped extends ModelBiped {
 
     @Override
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float p_78086_2_, float p_78086_3_,
-                                    float partialTickTime) {
+            float partialTickTime) {
         this.rightArmPose = ModelBiped.ArmPose.EMPTY;
         this.leftArmPose = ModelBiped.ArmPose.EMPTY;
         ItemStack itemstack = entitylivingbaseIn.getHeldItem(EnumHand.MAIN_HAND);

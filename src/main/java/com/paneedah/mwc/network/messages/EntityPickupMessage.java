@@ -11,18 +11,18 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @AllArgsConstructor
 public final class EntityPickupMessage implements IMessage {
 
-    private int playerID;
-    private int entityID;
+	private int playerID;
+	private int entityID;
 
-    @Override
-    public void fromBytes(final ByteBuf byteBuf) {
-        playerID = byteBuf.readInt();
+	@Override
+	public void fromBytes(final ByteBuf byteBuf) {
+		playerID = byteBuf.readInt();
         entityID = byteBuf.readInt();
-    }
+	}
 
-    @Override
-    public void toBytes(final ByteBuf byteBuf) {
-        byteBuf.writeInt(playerID);
+	@Override
+	public void toBytes(final ByteBuf byteBuf) {
+		byteBuf.writeInt(playerID);
         byteBuf.writeInt(entityID);
-    }
+	}
 }

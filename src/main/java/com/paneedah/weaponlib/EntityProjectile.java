@@ -85,15 +85,15 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         double y = thrower.posY + thrower.getEyeHeight();
         double z = thrower.posZ;
 
-        x -= Math.cos(thrower.rotationYaw / 180 * Math.PI) * (isAiming ? 0 : 0.16);
+        x -= Math.cos(thrower.rotationYaw / 180 *  Math.PI) * (isAiming ? 0 : 0.16);
         y -= (isAiming ? 0 : 0.1);
-        z -= Math.sin(thrower.rotationYaw / 180 * Math.PI) * (isAiming ? 0 : 0.16);
+        z -= Math.sin(thrower.rotationYaw / 180 *  Math.PI) * (isAiming ? 0 : 0.16);
 
         setPositionAndRotation(x, y, z, thrower.rotationYaw, thrower.rotationPitch);
 
-        motionX = -Math.sin(rotationYaw / 180 * Math.PI) * Math.cos(rotationPitch / 180 * Math.PI);
-        motionY = -Math.sin(rotationPitch / 180 * Math.PI);
-        motionZ = Math.cos(rotationYaw / 180 * Math.PI) * Math.cos(rotationPitch / 180 * Math.PI);
+        motionX = -Math.sin(rotationYaw / 180 *  Math.PI) * Math.cos(rotationPitch / 180 *  Math.PI);
+        motionY = -Math.sin(rotationPitch / 180 *  Math.PI);
+        motionZ = Math.cos(rotationYaw / 180 *  Math.PI) * Math.cos(rotationPitch / 180 *  Math.PI);
 
         setThrowableHeading(motionX, motionY, motionZ, velocity, inaccuracy);
     }
@@ -104,21 +104,21 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
      */
     public void setThrowableHeading(double x, double y, double z, float velocity, float inaccuracy) {
         float f2 = MathHelper.sqrt(x * x + y * y + z * z);
-        x /= f2;
-        y /= f2;
-        z /= f2;
+        x /= (double) f2;
+        y /= (double) f2;
+        z /= (double) f2;
         x += this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
         y += this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
         z += this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
-        x *= velocity;
-        y *= velocity;
-        z *= velocity;
+        x *= (double) velocity;
+        y *= (double) velocity;
+        z *= (double) velocity;
         this.motionX = x;
         this.motionY = y;
         this.motionZ = z;
         float f3 = MathHelper.sqrt(x * x + z * z);
         this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(x, z) * 180.0D / Math.PI);
-        this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(y, f3) * 180.0D / Math.PI);
+        this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(y, (double) f3) * 180.0D / Math.PI);
         //this.ticksInGround = 0;
     }
 
@@ -134,7 +134,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
             float f = MathHelper.sqrt(mX * mX + mZ * mZ);
             this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(mX, mZ) * 180.0D / Math.PI);
-            this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(mY, f) * 180.0D
+            this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(mY, (double) f) * 180.0D
                     / Math.PI);
         }
     }
@@ -143,9 +143,8 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
      * Called to update the entity's position/logic.
      */
     public void onUpdate() {
-        if (ticksExisted > MAX_TICKS) {
+        if(ticksExisted > MAX_TICKS)
             return;
-        }
 
         this.lastTickPosX = this.posX;
         this.lastTickPosY = this.posY;
@@ -171,9 +170,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
             */
 
             this.inGround = false;
-            this.motionX *= this.rand.nextFloat() * 0.2F;
-            this.motionY *= this.rand.nextFloat() * 0.2F;
-            this.motionZ *= this.rand.nextFloat() * 0.2F;
+            this.motionX *= (double) (this.rand.nextFloat() * 0.2F);
+            this.motionY *= (double) (this.rand.nextFloat() * 0.2F);
+            this.motionZ *= (double) (this.rand.nextFloat() * 0.2F);
             //this.ticksInGround = 0;
             this.ticksInAir = 0;
 
@@ -193,42 +192,38 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
          *  GLASS BREAK CHECK
          */
 
-        if (ModernConfigManager.bulletBreakGlass && !world.isRemote) {
-            Vec3d motion = new Vec3d(this.motionX, this.motionY, this.motionZ);
-            Vec3d start = new Vec3d(this.prevPosX, this.prevPosY, this.prevPosZ);
-            Vec3d end = new Vec3d(this.posX, this.posY, this.posZ).add(motion);
+        if(ModernConfigManager.bulletBreakGlass && !world.isRemote) {
+        	 Vec3d motion = new Vec3d(this.motionX, this.motionY, this.motionZ);
+             Vec3d start = new Vec3d(this.prevPosX, this.prevPosY, this.prevPosZ);
+             Vec3d end = new Vec3d(this.posX, this.posY, this.posZ).add(motion);
 
-            RayTraceResult rtr = world.rayTraceBlocks(start, end, false, true, false);
-            if (rtr != null) {
-                IBlockState state = world.getBlockState(rtr.getBlockPos());
-                if (state.getMaterial() == Material.GLASS) {
-                    if (ModernConfigManager.bulletBreakGlass) {
-                        this.world.destroyBlock(rtr.getBlockPos(), true);
-                    }
+             RayTraceResult rtr = world.rayTraceBlocks(start, end, false, true, false);
+             if(rtr != null) {
+                 IBlockState state = world.getBlockState(rtr.getBlockPos());
+                 if(state.getMaterial() == Material.GLASS) {
+                     if(ModernConfigManager.bulletBreakGlass)
+                         this.world.destroyBlock(rtr.getBlockPos(), true);
 
-                    CHANNEL.sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), new Vector3F(rtr.hitVec), rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
-                }
+                     CHANNEL.sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), new Vector3F(rtr.hitVec), rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
+                 }
             }
         }
 
         vec3 = new Vector3D(this.posX, this.posY, this.posZ);
         vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
-        if (movingobjectposition != null) {
+        if (movingobjectposition != null)
             vec31 = new Vector3D(movingobjectposition.hitVec);
-        }
 
         if (!world.isRemote) {
             Entity entity = getRayTraceEntities(vec3, vec31);
 
-            if (entity != null) {
-                movingobjectposition = new RayTraceResult(entity);
-            }
+            if (entity != null)
+               movingobjectposition = new RayTraceResult(entity);
         }
 
-        if (movingobjectposition != null) {
+        if (movingobjectposition != null)
             this.onImpact(movingobjectposition);
-        }
 
         this.posX += this.motionX;
         this.posY += this.motionY;
@@ -236,9 +231,8 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
         this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
-        for (this.rotationPitch = (float) (Math.atan2(this.motionY, f1) * 180.0D / Math.PI);
-             this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F)
-            ;
+        for (this.rotationPitch = (float) (Math.atan2(this.motionY, (double) f1) * 180.0D / Math.PI);
+             this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
 
         while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
             this.prevRotationPitch += 360.0F;
@@ -261,18 +255,17 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
             for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
                 EnumParticleTypes particleType = EnumParticleTypes.getByName("bubble");
-                if (particleType != null) {
+                if (particleType != null)
                     world.spawnParticle(particleType, this.posX - this.motionX * (double) f4, this.posY - this.motionY * (double) f4, this.posZ - this.motionZ * (double) f4, this.motionX, this.motionY, this.motionZ);
-                }
             }
 
             f2 = 0.8F;
         }
 
-        this.motionX *= f2;
-        this.motionY *= f2;
-        this.motionZ *= f2;
-        this.motionY -= f3;
+        this.motionX *= (double) f2;
+        this.motionY *= (double) f2;
+        this.motionZ *= (double) f2;
+        this.motionY -= (double) f3;
         this.setPosition(this.posX, this.posY, this.posZ);
     }
 
@@ -295,9 +288,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 
             if (flag && entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                 float f1 = 0.15F, f2 = -0.15f;
-                AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand(f1, f1, f1);
+                AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand((double) f1, (double) f1, (double) f1);
                 RayTraceResult movingobjectposition = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
-                AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand(f2, f2, f2);
+                AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand((double) f2, (double) f2, (double) f2);
                 RayTraceResult movingobjectposition1 = axisalignedbb1.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
 
                 if (movingobjectposition != null) {
@@ -339,7 +332,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 
         if ((this.throwerName == null || this.throwerName.length() == 0) && this.thrower != null
                 && this.thrower instanceof EntityPlayer) {
-            this.throwerName = this.thrower.getName();
+            this.throwerName = ((EntityPlayer)this.thrower).getName();
         }
 
         tagCompound.setString("ownerName", this.throwerName == null ? "" : this.throwerName);
@@ -367,7 +360,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         this.timestamp = tagCompound.getLong("timestamp");
         this.aimTan = tagCompound.getDouble("aimTan");
 
-        if (System.currentTimeMillis() > timestamp + maxLifetime) {
+        if(System.currentTimeMillis() > timestamp + maxLifetime) {
             setDead();
         }
     }

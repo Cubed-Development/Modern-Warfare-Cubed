@@ -7,7 +7,8 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 
-public class SampleVehicleControlArm extends ModelBase implements VehicleModel {
+public class SampleVehicleControlArm extends ModelBase implements VehicleModel
+{
     public ModelRenderer Wheel1;
     public ModelRenderer Wheel2;
     public ModelRenderer Wheel3;
@@ -21,12 +22,13 @@ public class SampleVehicleControlArm extends ModelBase implements VehicleModel {
     public ModelRenderer WheelSwingArm3;
     public ModelRenderer WheelSwingArm4;
 
-    public SampleVehicleControlArm() {
+    public SampleVehicleControlArm()
+    {
         textureWidth = 200;
         textureHeight = 200;
 
         Wheel1 = new ModelRenderer(this, 0, 150);
-
+        
 //        Wheel1.flip = true;
         Wheel1.setRotationPoint(9.5F, 2F, -18F);
 //        Wheel1.addCylinder(0F, 0F, 0F, 9, 8, 40);
@@ -112,7 +114,8 @@ public class SampleVehicleControlArm extends ModelBase implements VehicleModel {
         WheelSwingArm4.mirror = false;
     }
 
-    public void render(EntityVehicle entity, float f5) {
+    public void render(EntityVehicle entity, float f5)
+    {
 //        Wheel1.rotateAngleX = Wheel1.rotateAngleY = Wheel1.rotateAngleZ = 0f;
 //        //Wheel1.rotateAngleY = entity.getRotateWheelSpeed();
 //        //System.out.println("Rotate angle y: " + Wheel1.rotateAngleY);
@@ -135,13 +138,15 @@ public class SampleVehicleControlArm extends ModelBase implements VehicleModel {
     }
 
     @Override
-    public void render(Entity entity, float par2, float par3, float par4, float par5, float par6, float par7) {
+    public void render(Entity entity, float par2, float par3, float par4, float par5, float par6, float par7)
+    {
         super.render(entity, par2, par3, par4, par5, par6, par7);
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
         this.renderModel(par7);
     }
 
-    private void renderModel(float f5) {
+    private void renderModel(float f5)
+    {
 //        Wheel1.renderer(f5);
 //        Wheel2.renderer(f5);
 //        Wheel3.renderer(f5);

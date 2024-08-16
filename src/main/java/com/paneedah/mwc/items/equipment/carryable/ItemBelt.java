@@ -42,9 +42,8 @@ public class ItemBelt extends ItemCarryable {
 
             MWC.modContext.registerRenderableItem(name, itemBelt, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
-            if (FMLCommonHandler.instance().getSide().isClient()) {
+            if (FMLCommonHandler.instance().getSide().isClient())
                 COOKING_QUEUE.add(itemBelt);
-            }
 
             return itemBelt;
         }

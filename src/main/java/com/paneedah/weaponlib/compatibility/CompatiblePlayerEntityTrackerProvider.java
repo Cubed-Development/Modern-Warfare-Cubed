@@ -22,15 +22,15 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
                 PlayerEntityTrackerContainerImpl.class);
     }
 
-    public interface PlayerEntityTrackerContainer {
+    public static interface PlayerEntityTrackerContainer {
 
-        byte[] toByteArray();
+        public byte[] toByteArray();
 
-        void setInitializer(Function<World, LivingEntityTracker> initializer);
+        public void setInitializer(Function<World, LivingEntityTracker> initializer);
 
-        void setBytes(byte[] bytes);
+        public void setBytes(byte[] bytes);
 
-        LivingEntityTracker getTracker(World world);
+        public LivingEntityTracker getTracker(World world);
     }
 
     public static class PlayerEntityTrackerContainerImpl implements PlayerEntityTrackerContainer {
@@ -51,13 +51,13 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
 
         @Override
         public void setInitializer(Function<World, LivingEntityTracker> initializer) {
-            this.initializer = initializer;
-            this.resolved = null;
+           this.initializer = initializer;
+           this.resolved = null;
         }
 
         @Override
         public LivingEntityTracker getTracker(World world) {
-            if (resolved == null) {
+            if(resolved == null) {
                 resolved = initializer != null ? initializer.apply(world) : new LivingEntityTracker(() -> world);
             }
             return resolved;
@@ -69,16 +69,16 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
 
         @Override
         public NBTBase writeNBT(Capability<PlayerEntityTrackerContainer> capability,
-                                PlayerEntityTrackerContainer instance, EnumFacing side) {
+                PlayerEntityTrackerContainer instance, EnumFacing side) {
             return new NBTTagByteArray(instance.toByteArray());
         }
 
         @Override
         public void readNBT(Capability<PlayerEntityTrackerContainer> capability, PlayerEntityTrackerContainer instance,
-                            EnumFacing side, NBTBase nbt) {
+                EnumFacing side, NBTBase nbt) {
             NBTTagByteArray content = (NBTTagByteArray) nbt;
             byte[] bytes = content.getByteArray();
-            if (bytes != null) {
+            if(bytes != null) {
                 instance.setBytes(bytes);
                 instance.setInitializer(w -> LivingEntityTracker.fromByteArray(bytes, () -> w));
             }
@@ -88,16 +88,14 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
     @CapabilityInject(PlayerEntityTrackerContainer.class)
     static Capability<PlayerEntityTrackerContainer> playerEntityTrackerContainer = null;
 
-    private final PlayerEntityTrackerContainer instance = playerEntityTrackerContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
+    private PlayerEntityTrackerContainer instance = playerEntityTrackerContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
 
 
     public static LivingEntityTracker getTracker(EntityLivingBase player) {
-        if (player == null) {
-            return null;
-        }
+        if(player == null) return null;
         PlayerEntityTrackerContainer container = player.getCapability(playerEntityTrackerContainer, null);
         LivingEntityTracker result;
-        if (container != null) {
+        if(container != null) {
             result = container.getTracker(player.world);
         } else {
             result = null;
@@ -108,7 +106,7 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
 
     public static void setTracker(EntityLivingBase player, LivingEntityTracker tracker) {
         PlayerEntityTrackerContainer container = player.getCapability(playerEntityTrackerContainer, null);
-        if (container != null) {
+        if(container != null) {
             container.setInitializer(w -> tracker);
         }
     }

@@ -23,14 +23,12 @@ public final class SpreadableExposureMessageHandler implements IMessageHandler<S
             if (spreadableExposure != null) {
                 final SpreadableExposure currentExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
 
-                if (currentExposure != null) {
+                if (currentExposure != null)
                     currentExposure.updateFrom(spreadableExposure);
-                } else {
+                else
                     CompatibleExposureCapability.updateExposure(MC.player, spreadableExposure);
-                }
-            } else {
+            } else
                 CompatibleExposureCapability.removeExposure(MC.player, SpreadableExposure.class); // Todo: remove hardcoded class
-            }
         });
 
         return null;

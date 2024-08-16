@@ -5,9 +5,8 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ConfigSync {
-
-    String category();
-
-    String comment();
+	
+	String category();
+	String comment();
 
 }

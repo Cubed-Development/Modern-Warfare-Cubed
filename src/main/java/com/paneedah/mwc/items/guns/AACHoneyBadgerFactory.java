@@ -16,6 +16,8 @@ import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
+
+import java.util.Arrays;
 // IMPORT LIST END
 
 
@@ -23,7 +25,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-
+                
                 .withName("aac_honey_badger") // Name of the item and model
                 .withFireRate(0.80f) // Fire rate in rounds per minute
                 .withRecoil(3f) // Recoil in degrees
@@ -68,7 +70,15 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-
+                .withInformationProvider(stack -> Arrays.asList( // Information provider
+                        "Type: Personal Defense Weapon",  // Information
+                        "Damage: 5.4", // Damage in Item Description
+                        "Cartridge: 7.62x35mm", // Cartridge in Item Description
+                        "Fire Rate: SEMI, AUTO", // Fire Rate in Item Description
+                        "Rate of Fire: 70/100", // Rate of Fire in Item Description
+                        "Magazines:", // Magazines in Item Description
+                        "30rnd 7.62x35mm Honeybadger Magazine" // Magazines Tyoes in Item Description
+                ))
 
                 .withScreenShaking(RenderableState.SHOOTING,  // Screen shaking
                         1.5f, // x
@@ -91,7 +101,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger handguard
                 .withCompatibleAttachment(Attachments.HoneyBadgerHandguard, true, (model) -> {
-                    if (model instanceof AKRail) {
+                    if(model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.32F, -3.4f);
                         GL11.glScaled(0.6F, 0.8F, 0.65F);
                     }
@@ -99,14 +109,14 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger Matrix Arms handguard
                 .withCompatibleAttachment(Attachments.HoneyBadgerMatrixArmsHandguard, (model) -> {
-                    if (model instanceof AKRail) {
+                    if(model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.325F, -3.8f);
                         GL11.glScaled(0.6F, 0.8F, 0.6F);
-                    } else if (model instanceof AKRail2) {
+                    } else if(model instanceof AKRail2) {
                         GL11.glTranslatef(0.15F, -1.16F, -3.5f);
                         GL11.glScaled(0.6F, 0.8F, 0.65F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if(model instanceof AKRail3) {
                         GL11.glTranslatef(-0.03F, -0.81F, -4.03F);
                         GL11.glScaled(0.6F, 0.6F, 0.88F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
@@ -125,7 +135,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger Reciever
                 .withCompatibleAttachment(Attachments.HoneyBadgerReceiver, true, (model) -> {
-                    if (model instanceof AKRail) {
+                    if(model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
@@ -133,7 +143,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger Reciever Black
                 .withCompatibleAttachment(Attachments.HoneyBadgerReceiverBlack, (model) -> {
-                    if (model instanceof AKRail) {
+                    if(model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
@@ -141,7 +151,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger Knights Reciever
                 .withCompatibleAttachment(Attachments.HoneyBadgerKnightsReceiver, (model) -> {
-                    if (model instanceof AKRail) {
+                    if(model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
@@ -149,7 +159,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger Knights Reciever Black
                 .withCompatibleAttachment(Attachments.HoneyBadgerKnightsReceiverBlack, (model) -> {
-                    if (model instanceof AKRail) {
+                    if(model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
@@ -185,10 +195,10 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 // Compatible attachment honeybadger FrontSights
                 .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
-                    if (instance != null) {
+                    if(instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                 AttachmentCategory.GUARD, instance);
-                        if (activeAttachment == Attachments.HoneyBadgerMatrixArmsHandguard) {
+                        if(activeAttachment == Attachments.HoneyBadgerMatrixArmsHandguard) {
                             GL11.glTranslatef(0F, 0F, -0.35F);
                             GL11.glScaled(1F, 1F, 1F);
                         } else {
@@ -196,8 +206,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                             GL11.glScaled(1F, 1F, 1F);
                         }
                     }
-                }, (model) -> {
-                    if (model instanceof G95_upright_frontsights) {
+                },(model) -> {
+                    if(model instanceof G95_upright_frontsights) {
                         GL11.glTranslatef(-0.155F, -1.55F, -2.8F);
                         GL11.glScaled(0.32F, 0.32F, 0.32F);
                     }
@@ -206,10 +216,10 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 // Compatible attachment honeybadger MBUSFrontSight
                 .withCompatibleAttachment(Attachments.MBUSFrontSight, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
-                    if (instance != null) {
+                    if(instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                 AttachmentCategory.GUARD, instance);
-                        if (activeAttachment == Attachments.HoneyBadgerMatrixArmsHandguard) {
+                        if(activeAttachment == Attachments.HoneyBadgerMatrixArmsHandguard) {
                             GL11.glTranslatef(0F, 0F, -0.3F);
                             GL11.glScaled(1F, 1F, 1F);
                         } else {
@@ -217,8 +227,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                             GL11.glScaled(1F, 1F, 1F);
                         }
                     }
-                }, (model) -> {
-                    if (model instanceof MBUSFrontSight) {
+                },(model) -> {
+                    if(model instanceof MBUSFrontSight) {
                         GL11.glTranslatef(-0.16F, -1.5F, -3F);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
                     }
@@ -226,7 +236,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger tritium RearSights
                 .withCompatibleAttachment(Attachments.TritiumRearSights, (model) -> {
-                    if (model instanceof TritiumRearSights) {
+                    if(model instanceof TritiumRearSights) {
                         GL11.glTranslatef(-0.16F, -1.5F, -0.3F);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
                     }
@@ -234,7 +244,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger HK416RearSights
                 .withCompatibleAttachment(Attachments.HK416RearSights, (model) -> {
-                    if (model instanceof G95_upright_rearsights) {
+                    if(model instanceof G95_upright_rearsights) {
                         GL11.glTranslatef(-0.158F, -1.53F, -0.2F);
                         GL11.glScaled(0.32F, 0.32F, 0.32F);
                     }
@@ -242,7 +252,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger MBUSRearSights
                 .withCompatibleAttachment(Attachments.MBUSRearSights, true, (model) -> {
-                    if (model instanceof MBUSRearSight) {
+                    if(model instanceof MBUSRearSight) {
                         GL11.glTranslatef(-0.16F, -1.5F, -0.3F);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
                     }
@@ -250,49 +260,49 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger AKM IronSights
                 .withCompatibleAttachment(Attachments.AKMIron, (model) -> {
-                    if (model instanceof M4Iron1) {
+                    if(model instanceof M4Iron1) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if(model instanceof M4Iron2) {
                         GL11.glTranslatef(0.255F, -1.55F, -2.25F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if(model instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron1) {
+                    } else if(model instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if(model instanceof AKMiron2) {
                         GL11.glTranslatef(0.13F, -1.55F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if(model instanceof AK47iron) {
                         GL11.glTranslatef(0.092F, -1.91F, -0.9F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
+                    } else if(model instanceof G36CIron1) {
                         GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
+                    } else if(model instanceof G36CIron2) {
                         GL11.glTranslatef(-0.205F, -1.9F, -3.15F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if(model instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if(model instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if(model instanceof FALIron) {
                         GL11.glTranslatef(0.127F, -1.77F, -2.22F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M14Iron) {
+                    } else if(model instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if(model instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M27rearsight) {
+                    } else if(model instanceof M27rearsight) {
                         GL11.glTranslatef(-0.16F, -1.5F, -0.3F);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
-                    } else if (model instanceof MBUSiron) {
+                    } else if(model instanceof MBUSiron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -300,19 +310,19 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger AR15 IronSights
                 .withCompatibleAttachment(AuxiliaryAttachments.AR15Iron, (model) -> {
-                    if (model instanceof M4Iron1) {
+                    if(model instanceof M4Iron1) {
                         GL11.glTranslatef(-0.145F, -1.55F, -0.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if(model instanceof M4Iron2) {
                         GL11.glTranslatef(-0.055F, -1.35F, -4.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if(model instanceof FALIron) {
                         GL11.glTranslatef(-0.185F, -1.53F, -4.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ARCarryHandle) {
+                    } else if(model instanceof ARCarryHandle) {
                         GL11.glTranslatef(-0.1425F, -1.534F, -0.12F);
                         GL11.glScaled(0.29F, 0.29F, 0.29F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if(model instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -322,8 +332,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
                     GL11.glTranslatef(-0.21F, -1.4F, -1.8F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
-                }, (model) -> {
-                    if (model instanceof JPUreticle) {
+                },(model) -> {
+                    if(model instanceof JPUreticle) {
                         GL11.glTranslatef(0.12F, -0.2F, 2.49F);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -333,11 +343,12 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
                     GL11.glTranslatef(-0.28F, -1.41F, -0.5F);
                     GL11.glScaled(0.7F, 0.7F, 0.7F);
-                }, (model) -> {
-                    if (model instanceof AcogScope2) {
+                },(model) -> {
+                    if(model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    }
+                    else if(model instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -347,8 +358,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
                     GL11.glTranslatef(-0.18F, -1.1F, -0.7F);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
-                }, (model) -> {
-                    if (model instanceof Acog2) {
+                },(model) -> {
+                    if(model instanceof Acog2) {
                         GL11.glTranslatef(0.15F, -1.035F, 1.513F);
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
@@ -358,8 +369,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
                     GL11.glTranslatef(-0.151F, -1.25F, -1.2F);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
-                }, (model) -> {
-                    if (model instanceof JPUreticle) {
+                },(model) -> {
+                    if(model instanceof JPUreticle) {
                         GL11.glTranslatef(0.076F, -0.67F, 4.0251F);
                         GL11.glScaled(0.04F, 0.04F, 0.04F);
                     }
@@ -369,8 +380,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
                     GL11.glTranslatef(-0.15F, -1.93F, -1F);
                     GL11.glScaled(0.35F, 0.35F, 0.35F);
-                }, (model) -> {
-                    if (model instanceof Reflex2) {
+                },(model) -> {
+                    if(model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     } else if (model instanceof SightMount) {
@@ -383,8 +394,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
                     GL11.glTranslatef(-0.066F, -1.21F, -0.9F);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }, (model) -> {
-                    if (model instanceof Reflex2) {
+                },(model) -> {
+                    if(model instanceof Reflex2) {
                         GL11.glTranslatef(-0.125F, -0.7F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
@@ -394,8 +405,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
                     GL11.glTranslatef(-0.062F, -1.2F, -1F);
                     GL11.glScaled(0.48F, 0.48F, 0.48F);
-                }, (model) -> {
-                    if (model instanceof Reflex2) {
+                },(model) -> {
+                    if(model instanceof Reflex2) {
                         GL11.glTranslatef(-0.125F, -0.68F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
@@ -405,8 +416,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
                     GL11.glTranslatef(-0.041F, -1.25F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
-                }, (model) -> {
-                    if (model instanceof Holo2) {
+                },(model) -> {
+                    if(model instanceof Holo2) {
                         GL11.glTranslatef(-0.125F, -0.5F, -0.1F);
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
@@ -417,8 +428,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
                     GL11.glTranslatef(-0.041F, -1.25F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
-                }, (model) -> {
-                    if (model instanceof Holo2) {
+                },(model) -> {
+                    if(model instanceof Holo2) {
                         GL11.glTranslatef(-0.125F, -0.5F, -0.1F);
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
@@ -428,12 +439,12 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
                     GL11.glTranslatef(-0.041F, -1.25F, -1.3F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
-                }, (model) -> {
-                    if (model instanceof EotechScopeRing) {
+                },(model) -> {
+                    if(model instanceof EotechScopeRing) {
                         GL11.glTranslatef(-0.2F, -0.41F, 1.8F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                    if (model instanceof Holo2) {
+                    if(model instanceof Holo2) {
                         GL11.glTranslatef(-0.118F, -0.535F, 1.9F);
                         GL11.glScaled(0.05F, 0.05F, 0.05F);
                     }
@@ -443,8 +454,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
                     GL11.glTranslatef(-0.3F, -1.45F, -1.1F);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }, (model) -> {
-                    if (model instanceof Holo2) {
+                },(model) -> {
+                    if(model instanceof Holo2) {
                         GL11.glTranslatef(0.395F, -0.33F, -0.1F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
@@ -454,8 +465,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
                     GL11.glTranslatef(-0.041F, -1.26F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
-                }, (model) -> {
-                    if (model instanceof Reflex2) {
+                },(model) -> {
+                    if(model instanceof Reflex2) {
                         GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
@@ -464,10 +475,10 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 // Compatible attachment honeybadger KobraGen3
                 .withCompatibleAttachment(Attachments.KobraGen3, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
-                    if (instance != null) {
+                    if(instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                 AttachmentCategory.GUARD, instance);
-                        if (activeAttachment == Attachments.AR57Handguard) {
+                        if(activeAttachment == Attachments.AR57Handguard) {
                             GL11.glTranslatef(-0.041F, -1.37F, -0.7F);
                             GL11.glScaled(0.65F, 0.65F, 0.65F);
                         } else {
@@ -475,8 +486,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                             GL11.glScaled(0.65F, 0.65F, 0.65F);
                         }
                     }
-                }, (model) -> {
-                    if (model instanceof Reflex2) {
+                },(model) -> {
+                    if(model instanceof Reflex2) {
                         GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
@@ -486,8 +497,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
                     GL11.glTranslatef(-0.18F, -1.45F, -1F);
                     GL11.glScaled(0.38F, 0.38F, 0.38F);
-                }, (model) -> {
-                    if (model instanceof Reflex2) {
+                },(model) -> {
+                    if(model instanceof Reflex2) {
                         GL11.glTranslatef(0.155F, -0.4F, -0.5F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
@@ -497,8 +508,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
                     GL11.glTranslatef(-0.18F, -1.45F, -1F);
                     GL11.glScaled(0.38F, 0.38F, 0.38F);
-                }, (model) -> {
-                    if (model instanceof Reflex2) {
+                },(model) -> {
+                    if(model instanceof Reflex2) {
                         GL11.glTranslatef(0.155F, -0.4F, -0.5F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
@@ -551,10 +562,10 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 .withCompatibleAttachment(Attachments.HoneyBadgerSilencer, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
-                    if (instance != null) {
+                    if(instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                 AttachmentCategory.GUARD, instance);
-                        if (activeAttachment == Attachments.HoneyBadgerMatrixArmsHandguard) {
+                        if(activeAttachment == Attachments.HoneyBadgerMatrixArmsHandguard) {
                             GL11.glTranslatef(0F, 0F, -0.5F);
                             GL11.glScaled(1F, 1F, 1F);
                         } else {
@@ -562,8 +573,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                             GL11.glScaled(1F, 1F, 1F);
                         }
                     }
-                }, (model) -> {
-                    if (model instanceof AACHoneyBadgerSilencer) {
+                },(model) -> {
+                    if(model instanceof AACHoneyBadgerSilencer) {
 //            	GL11.glTranslatef(-0.16F, -1.5F, -3F);
 //                GL11.glScaled(0.35F, 0.35F, 0.35F);
                     }
@@ -572,7 +583,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 // BUILDS THE GUN
                 .withTextureNames("aachoneybadger")
                 .withRenderer(new WeaponRenderer.Builder()
-
+                
                         .withModel(new AACHoneyBadger())
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.5F, 0.5F, 0.5F);
@@ -609,6 +620,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                                         .withRotationPoint(0, 0, 0),
 
 
+
                                 // Right hand
                                 new Transform()
                                         .withPosition(-0.2, 0.1, 2)
@@ -621,6 +633,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         .setupModernAnimations("honeybadger", AuxiliaryAttachments.ScarAction)
                         .setupModernMagazineAnimations("honeybadger",
                                 Magazines.HoneyBadgerMag)
+
 
 
                         .withThirdPersonPositioningReloading(
@@ -693,97 +706,97 @@ public class AACHoneyBadgerFactory implements GunFactory {
                             GL11.glTranslatef(0.14f, 1.05f, -0.3f);
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron)) {
                                 GL11.glTranslatef(0F, 0.028f, -0.3f);
                             }
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
                                 GL11.glTranslatef(0F, 0f, 0f);
                             }
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
                                 GL11.glTranslatef(0F, 0.03f, 0f);
                             }
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                                 GL11.glTranslatef(0F, 0.035f, 0f);
                             }
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
                                 GL11.glTranslatef(0F, 0.025f, 0f);
                             }
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
                                 GL11.glTranslatef(0F, 0f, 0f);
                             }
 
                             // ACOG Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                                 GL11.glTranslatef(-0.01F, 0.03f, 0.3f);
                             }
 
                             // ACOG Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
                                 GL11.glTranslatef(-0.003F, -0.05f, 0.2f);
                             }
 
                             // HP Zoomw
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                                 GL11.glTranslatef(0.001F, -0.027f, -0.2f);
                             }
 
                             // Reflex Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
                                 GL11.glTranslatef(0F, -0.015f, 0.1f);
                             }
 
                             // Reflex Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                                 GL11.glTranslatef(0F, -0.01f, 0f);
                             }
 
                             // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
                                 GL11.glTranslatef(0F, 0.03f, 0f);
                             }
 
                             // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
                                 GL11.glTranslatef(0F, 0.03f, 0f);
                             }
 
                             // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
                                 GL11.glTranslatef(-0.004F, 0.025f, 0.25f);
                             }
 
                             // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
                                 GL11.glTranslatef(0F, 0.06f, 0f);
                             }
 
                             // Reflex Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
                                 GL11.glTranslatef(0F, 0.035f, 0f);
                             }
 
                             // Reflex Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
                                 GL11.glTranslatef(0F, 0.035f, 0f);
                             }
 
                             // Reflex Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
                                 GL11.glTranslatef(0F, 0.055f, 0.3f);
                             }
 
                             // Reflex Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                                 GL11.glTranslatef(0F, 0.055f, 0.3f);
                             }
 

@@ -79,13 +79,11 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
     @Override
     protected void onImpact(final RayTraceResult position) {
-        if (position.typeOfHit == RayTraceResult.Type.BLOCK) {
+        if (position.typeOfHit == RayTraceResult.Type.BLOCK)
             weapon.onSpawnEntityBlockImpact(world, null, this, position);
-        }
 
-        if (world.isRemote || weapon == null) {
+        if (world.isRemote || weapon == null)
             return;
-        }
 
         if (explosionRadius > 0) {
             //PostProcessPipeline.createDistortionPoint((float) position.hitVec.x,(float)  position.hitVec.y, (float) position.hitVec.z, 2f, 3000);
@@ -105,9 +103,8 @@ public class WeaponSpawnEntity extends EntityProjectile {
             if (bleedingCoefficient > 0) {
                 final RayTraceResult rayTraceResult = HitUtil.traceProjectilehit(this, position.entityHit);
 
-                if (rayTraceResult != null && rayTraceResult.typeOfHit == Type.BLOCK) {
+                if (rayTraceResult != null && rayTraceResult.typeOfHit == Type.BLOCK)
                     CHANNEL.sendToAllAround(new BloodClientMessage(new Vector3F(rayTraceResult.hitVec), new Vector3F((float) motionX, (float) motionY, (float) motionZ)), point);
-                }
             }
         }
 
@@ -206,9 +203,8 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
         @Override
         public ITextComponent getDeathMessage(EntityLivingBase entityLivingBaseIn) {
-            if (this.getTrueSource() == null) {
+            if (this.getTrueSource() == null)
                 return new TextComponentTranslation("death.attack.gun.noshooter", entityLivingBaseIn.getDisplayName(), this.gunName);
-            }
 
             return new TextComponentTranslation("death.attack.gun", entityLivingBaseIn.getDisplayName(), this.getTrueSource().getDisplayName(), this.gunName);
         }

@@ -8,13 +8,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class AssaultRiflesTab extends CreativeTabs {
 
-    public AssaultRiflesTab(int par1, String par2Str) {
-        super(par1, par2Str);
-    }
+	public AssaultRiflesTab(int par1, String par2Str) {
+		super(par1, par2Str);
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public ItemStack createIcon() {
-        return new ItemStack(Guns.M16A4);
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public ItemStack createIcon() {
+		return new ItemStack(Guns.M16A4);
+	}
 }

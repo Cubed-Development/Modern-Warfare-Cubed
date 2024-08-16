@@ -21,33 +21,31 @@ public class ExplosionSmokeFX extends Particle {
     private static final int rowCount = 4;
 
     private static final TriFunction<Float, Integer, Integer, Float> EXPLOSION_SCALE_UPDATE_FUNCTION = (currentScale, ticks, maxTicks) -> {
-        if (currentScale > 25) {
+        if (currentScale > 25)
             currentScale *= 1.0008f;
-        } else if (currentScale > 20) {
+        else if (currentScale > 20)
             currentScale *= 1.002f;
-        } else if (currentScale > 15) {
+        else if (currentScale > 15)
             currentScale *= 1.004f;
-        } else if (currentScale > 10) {
+        else if (currentScale > 10)
             currentScale *= 1.05f;
-        } else {
+        else
             currentScale *= 3f;
-        }
 
         return currentScale;
     };
 
     private static final TriFunction<Float, Integer, Integer, Float> SMOKE_GRENADE_SCALE_UPDATE_FUNCTION = (currentScale, ticks, maxTicks) -> {
-        if (currentScale > 25) {
+        if (currentScale > 25)
             currentScale *= 1.0008f;
-        } else if (currentScale > 20) {
+        else if (currentScale > 20)
             currentScale *= 1.002f;
-        } else if (currentScale > 15) {
+        else if (currentScale > 15)
             currentScale *= 1.004f;
-        } else if (currentScale > 5) {
+        else if (currentScale > 5)
             currentScale *= 1.05f;
-        } else {
+        else
             currentScale *= 2f;
-        }
 
         return currentScale;
     };
@@ -62,10 +60,10 @@ public class ExplosionSmokeFX extends Particle {
         return 0.3f * (float) Math.sin(alphaRadians > Math.PI ? Math.PI : alphaRadians);
     };
 
-    private final String particleTexture;
-    private final float scale;
-    private final int imageIndex;
-    private final Behavior behavior;
+    private String particleTexture;
+    private float scale;
+    private int imageIndex;
+    private Behavior behavior;
 
     public ExplosionSmokeFX(World par1World, double positionX, double positionY, double positionZ, float scale, float motionX, float motionY, float motionZ, int particleMaxAge, Behavior behavior, String particleTexture) {
         super(par1World, positionX, positionY, positionZ, 0.0D, 0.0D, 0.0D);
@@ -74,9 +72,8 @@ public class ExplosionSmokeFX extends Particle {
         this.motionY = motionY;
         this.motionZ = motionZ;
 
-        if (motionX == 0.0F) {
+        if (motionX == 0.0F)
             motionX = 1.0F;
-        }
 
         this.behavior = behavior;
 
@@ -99,9 +96,8 @@ public class ExplosionSmokeFX extends Particle {
         this.prevPosY = this.posY;
         this.prevPosZ = this.posZ;
 
-        if (this.particleAge++ >= this.particleMaxAge) {
+        if (this.particleAge++ >= this.particleMaxAge)
             this.setExpired();
-        }
 
         this.motionY += 0.00001D; //this.motionY += 0.0005D;
         this.move(this.motionX, this.motionY, this.motionZ);
@@ -178,17 +174,17 @@ public class ExplosionSmokeFX extends Particle {
         GL11.glPopMatrix();
     }
 
-    public enum Behavior {
+    public static enum Behavior {
 
         EXPLOSION(EXPLOSION_SCALE_UPDATE_FUNCTION, EXPLOSION_ALPHA_UPDATE_FUNCTION),
 
         SMOKE_GRENADE(SMOKE_GRENADE_SCALE_UPDATE_FUNCTION, SMOKE_GRENADE_ALPHA_UPDATE_FUNCTION);
 
-        private final TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction;
-        private final TriFunction<Float, Integer, Integer, Float> alphaUpdateFunction;
+        private TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction;
+        private TriFunction<Float, Integer, Integer, Float> alphaUpdateFunction;
 
-        Behavior(TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction,
-                 TriFunction<Float, Integer, Integer, Float> alphaUpdateFunction) {
+        private Behavior(TriFunction<Float, Integer, Integer, Float> scaleUpdateFunction,
+                         TriFunction<Float, Integer, Integer, Float> alphaUpdateFunction) {
             this.scaleUpdateFunction = scaleUpdateFunction;
             this.alphaUpdateFunction = alphaUpdateFunction;
         }

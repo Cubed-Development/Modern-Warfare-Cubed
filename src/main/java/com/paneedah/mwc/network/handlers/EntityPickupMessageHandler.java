@@ -21,9 +21,8 @@ public final class EntityPickupMessageHandler implements IMessageHandler<EntityP
             final EntityPlayerMP targetPlayer = (EntityPlayerMP) messageContext.getServerHandler().player.getEntityWorld().getEntityByID(entityPickupMessage.getPlayerID());
             final Entity targetEntity = messageContext.getServerHandler().player.world.getEntityByID(entityPickupMessage.getEntityID());
 
-            if (targetPlayer == null || !(targetEntity instanceof EntityCustomMob)) {
+            if (targetPlayer == null || !(targetEntity instanceof EntityCustomMob))
                 return;
-            }
 
             final HighIQSpawnEgg highIQSpawnEgg = (HighIQSpawnEgg) SecondaryEntityRegistry.pickupMap.get(((EntityCustomMob) targetEntity).getConfiguration().getPickupItemID());
 

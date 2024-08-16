@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface AttachmentContainer {
     List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase entityPlayer,
-                                                                                   ItemStack itemStack);
+            ItemStack itemStack);
 
-    Collection<CompatibleAttachment<? extends AttachmentContainer>> getCompatibleAttachments(AttachmentCategory... category);
+    Collection<CompatibleAttachment<? extends AttachmentContainer>> getCompatibleAttachments(AttachmentCategory...category);
 }

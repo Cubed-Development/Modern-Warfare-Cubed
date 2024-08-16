@@ -19,9 +19,8 @@ public final class BalancePackClientMessage implements IMessage {
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        if (!byteBuf.readBoolean()) {
+        if (!byteBuf.readBoolean())
             return;
-        }
 
         byte[] bytes = new byte[byteBuf.readInt()];
         for (int i = 0; i < bytes.length; ++i)
@@ -33,9 +32,8 @@ public final class BalancePackClientMessage implements IMessage {
     @Override
     public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeBoolean(balancePack != null);
-        if (balancePack == null) {
+        if (balancePack == null)
             return;
-        }
 
         final byte[] bytes = CompressionUtil.compressString(balancePack.toJSONObject().toString());
         byteBuf.writeInt(bytes.length);

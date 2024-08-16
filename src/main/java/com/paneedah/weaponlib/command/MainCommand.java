@@ -26,8 +26,8 @@ public class MainCommand extends CommandBase {
 
     private static final String ARG_SHOW = "show";
 
-    private final String mainCommandName;
-    private final ModContext modContext;
+    private String mainCommandName;
+    private ModContext modContext;
 
     public MainCommand(ModContext modContext) {
         this.modContext = modContext;
@@ -50,15 +50,15 @@ public class MainCommand extends CommandBase {
 
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-
-
-        if (args[0].equals("nosway")) {
+    	
+    	
+    	if(args[0].equals("nosway")) {
             ClientEventHandler.cancelSway = !ClientEventHandler.cancelSway;
-
-        }
-
+    		
+    	}
+    	
         if (args.length > 0) {
-            if (ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
+            if(ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
                 processShowSubCommand(args);
             } else {
                 MC.player.sendMessage(new TextComponentString(getUsage(sender)));
@@ -69,16 +69,16 @@ public class MainCommand extends CommandBase {
     }
 
     private void processShowSubCommand(String[] args) {
-        if (args.length < 2) {
+        if(args.length < 2) {
             MC.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
             return;
         }
 
-        if (SHOW_OPTION_RECIPE.indexOf(args[1].toLowerCase()) == 0) {
+        if(SHOW_OPTION_RECIPE.indexOf(args[1].toLowerCase()) == 0) {
             showRecipe();
-        } else if (SHOW_OPTION_ATTACHMENTS.indexOf(args[1].toLowerCase()) == 0) {
+        } else if(SHOW_OPTION_ATTACHMENTS.indexOf(args[1].toLowerCase()) == 0) {
             int page = 1;
-            if (args.length == 3) {
+            if(args.length == 3) {
                 page = Integer.parseInt(args[2]);
             }
             showAttachments(page);
@@ -89,9 +89,9 @@ public class MainCommand extends CommandBase {
 
     private void showAttachments(int page) {
         ItemStack itemStack = MC.player.getHeldItemMainhand();
-        if (itemStack != null) {
+        if(itemStack != null) {
             Item item = itemStack.getItem();
-            if (item instanceof AttachmentContainer) {
+            if(item instanceof AttachmentContainer) {
 
                 AttachmentContainer container = (AttachmentContainer) item;
                 Collection<CompatibleAttachment<? extends AttachmentContainer>> compatibleAttachments = container.getCompatibleAttachments(
@@ -105,18 +105,18 @@ public class MainCommand extends CommandBase {
                 sorted.sort((c1, c2) -> c1.getAttachment().getTranslationKey().compareTo(c2.getAttachment().getTranslationKey()));
                 int pageSize = 8;
                 int offset = pageSize * (page - 1);
-                if (page < 1) {
+                if(page < 1) {
                     MC.player.sendMessage(new TextComponentString("Invalid page"));
-                } else if (sorted.size() == 0) {
+                } else if(sorted.size() == 0) {
                     MC.player.sendMessage(new TextComponentString("No attachments found for "
                             + item.getItemStackDisplayName(itemStack)));
-                } else if (offset < sorted.size()) {
+                } else if(offset < sorted.size()) {
                     MC.player.sendMessage(new TextComponentString("Attachments for "
                             + item.getItemStackDisplayName(itemStack) + ", page " + page + " of "
-                            + (int) Math.ceil((double) sorted.size() / pageSize)));
+                            + (int)Math.ceil((double)sorted.size() / pageSize)));
 
-                    for (int i = offset; i < offset + pageSize; i++) {
-                        if (i < 0 || i >= sorted.size()) {
+                    for(int i = offset; i < offset + pageSize; i++) {
+                        if(i < 0 || i >= sorted.size()) {
                             break;
                         }
                         MC.player.sendMessage(new TextComponentString(" - "
@@ -136,24 +136,24 @@ public class MainCommand extends CommandBase {
 
     private void showRecipe() {
         ItemStack itemStack = MC.player.getHeldItemMainhand();
-        if (itemStack != null) {
+        if(itemStack != null) {
             Item item = itemStack.getItem();
             showRecipe(item);
         }
     }
 
     private void showRecipe(Item item) {
-        if (item != null && (item instanceof Weapon)) {
-            MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + "-- Recipe for " + TextFormatting.GRAY + item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--"));
-
+        if(item != null && (item instanceof Weapon)) {
+            MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--"));
+           
             CraftingEntry[] modernRecipe = ((Weapon) item).getModernRecipe();
-            if (modernRecipe == null) {
-                return;
+            if(modernRecipe == null) {
+            	return;
             }
-            for (CraftingEntry stack : modernRecipe) {
-                String toPrint = "> " + stack.getCount() + "x " + TextFormatting.WHITE + I18n.format(stack.getIngredient().toString() + ".name");
-                // Appends the disassembly to the end of the string
-                toPrint += " -> " + (stack.getCount() * stack.getYield()) + "x " + I18n.format(stack.getIngredient().toString() + ".name");
+            for(CraftingEntry stack : modernRecipe) {
+            	String toPrint = "> " + stack.getCount() + "x " + TextFormatting.WHITE + I18n.format(stack.getIngredient().toString() + ".name");
+            	// Appends the disassembly to the end of the string
+                toPrint += " -> " + (stack.getCount()*stack.getYield()) + "x " + I18n.format(stack.getIngredient().toString() + ".name");
 
                 MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + toPrint));
             }
@@ -170,24 +170,24 @@ public class MainCommand extends CommandBase {
     }
 
     private String formatRecipe(List<Object> recipe) {
-        String output = "";
+        StringBuilder output = new StringBuilder();
         Map<Character, Object> decoder = new HashMap<>();
 
         boolean inRow = true;
-        for (int i = 0; i < recipe.size(); i++) {
+        for(int i = 0; i < recipe.size(); i++) {
             Object element = recipe.get(i);
-            if (inRow && !(element instanceof String)) {
+            if(inRow && !(element instanceof String)) {
                 inRow = false;
             }
-            if (!inRow) {
-                if (element instanceof Character && recipe.size() > i + 1) {
+            if(!inRow) {
+                if(element instanceof Character && recipe.size() > i + 1) {
                     Object value = recipe.get(i + 1);
-                    if (value instanceof Item) {
-                        value = ((Item) value).getItemStackDisplayName(null);
-                    } else if (value instanceof Block) {
-                        value = ((Block) value).getLocalizedName();
+                    if(value instanceof Item) {
+                        value = ((Item)value).getItemStackDisplayName(null);
+                    } else if(value instanceof Block) {
+                        value = ((Block)value).getLocalizedName();
                     }
-                    decoder.put((Character) element, value);
+                    decoder.put((Character)element, value);
                     i++;
                 }
             }
@@ -195,21 +195,21 @@ public class MainCommand extends CommandBase {
 
         MC.player.sendMessage(new TextComponentString(""));
 
-        for (int i = 0; i < recipe.size(); i++) {
+        for(int i = 0; i < recipe.size(); i++) {
             Object element = recipe.get(i);
-            if (element instanceof String) {
+            if(element instanceof String) {
                 StringBuilder builder = new StringBuilder();
-                for (Character c : ((String) element).toCharArray()) {
+                for(Character c: ((String) element).toCharArray()) {
                     Object decoded = decoder.get(c);
                     builder.append(String.format("[%.20s] ", decoded != null ? decoded : "*"));
                 }
                 MC.player.sendMessage(new TextComponentString(
-                        String.valueOf(builder)));
+                        "" + builder.toString()));
             } else {
                 break;
             }
         }
 
-        return output;
+        return output.toString();
     }
 }

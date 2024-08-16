@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.shader.jim;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.compress.utils.IOUtils;
@@ -27,13 +28,11 @@ public class ShaderLoader {
      *
      * @param name The name of the shader file to load (without the extension)
      * @param attributes A list of Attribute objects to bind to the shader (optional)
-     *
      * @return A Shader object containing the compiled shader
      */
     public static Shader loadShader(String name, Attribute... attributes) {
-        if (!enableShaders) {
+        if (!enableShaders)
             return new Shader(0);
-        }
 
         ResourceLocation file = new ResourceLocation(ID + ":shaders/" + name);
 
@@ -89,9 +88,7 @@ public class ShaderLoader {
      * Reads in the contents of a file and returns it as a ByteBuffer.
      *
      * @param file The location of the file to read in
-     *
      * @return A ByteBuffer containing the contents of the file
-     *
      * @throws IOException If there is an error reading the file
      */
     private static ByteBuffer readFileToBuf(ResourceLocation file) throws IOException {

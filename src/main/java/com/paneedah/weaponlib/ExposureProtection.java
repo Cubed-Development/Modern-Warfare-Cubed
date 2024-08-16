@@ -4,5 +4,5 @@ import java.util.function.Function;
 
 public interface ExposureProtection {
 
-    Function<Float, Float> getAbsorbFunction(Spreadable spreadable);
+    public Function<Float, Float> getAbsorbFunction(Spreadable spreadable);
 }

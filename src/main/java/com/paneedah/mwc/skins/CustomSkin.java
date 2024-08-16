@@ -25,9 +25,8 @@ public class CustomSkin {
     }
 
     public static ResourceLocation getCustomSkinResource(final String skinName) {
-        if (!GunSkins.customSkins.containsKey(skinName)) {
+        if (!GunSkins.customSkins.containsKey(skinName))
             GunSkins.customSkins.put(skinName, new CustomSkin(skinName, new File("./config/mwc/skins/" + skinName)));
-        }
 
         return GunSkins.customSkins.get(skinName).resourceLocation;
     }

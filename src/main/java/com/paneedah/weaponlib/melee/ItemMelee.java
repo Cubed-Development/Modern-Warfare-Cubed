@@ -14,15 +14,14 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.ShapedOreRecipe;
-import org.lwjgl.input.Keyboard;
 
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -53,6 +52,8 @@ public class ItemMelee extends Item implements
         private Class<? extends WeaponSpawnEntity> spawnEntityClass;
         ImpactHandler blockImpactHandler;
 
+        private Function<ItemStack, List<String>> informationProvider;
+
         private CraftingComplexity craftingComplexity;
 
         private Object[] craftingMaterials;
@@ -65,6 +66,11 @@ public class ItemMelee extends Item implements
         public Supplier<Integer> heavyAttackCooldownTimeout = () -> DEFAULT_HEAVY_ATTACK_COOLDOWN_TIMEOUT;
 
         private Object[] craftingRecipe;
+
+        public Builder withInformationProvider(Function<ItemStack, List<String>> informationProvider) {
+            this.informationProvider = informationProvider;
+            return this;
+        }
 
         public Builder withPrepareStubTimeout(Supplier<Integer> prepareStubTimeout) {
             this.prepareStubTimeout = prepareStubTimeout;
@@ -234,7 +240,7 @@ public class ItemMelee extends Item implements
 
     Builder builder;
 
-    private final ModContext modContext;
+    private ModContext modContext;
 
     private SoundEvent attackSound;
     private SoundEvent silencedShootSound;
@@ -242,7 +248,9 @@ public class ItemMelee extends Item implements
     private SoundEvent unloadSound;
     private SoundEvent ejectSpentRoundSound;
 
-    public enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
+    public static enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
+
+    ;
 
     ItemMelee(Builder builder, ModContext modContext) {
         this.builder = builder;
@@ -290,7 +298,8 @@ public class ItemMelee extends Item implements
 
 
     public static boolean isActiveAttachment(PlayerMeleeInstance weaponInstance, ItemAttachment<ItemMelee> attachment) {
-        return weaponInstance != null && MeleeAttachmentAspect.isActiveAttachment(attachment, weaponInstance);
+        return weaponInstance != null ?
+                MeleeAttachmentAspect.isActiveAttachment(attachment, weaponInstance) : false;
     }
 
     @Override
@@ -316,30 +325,9 @@ public class ItemMelee extends Item implements
 
     @Override
     public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        final TextFormatting green = TextFormatting.GREEN;
-        final TextFormatting grey = TextFormatting.GRAY;
-        final TextFormatting red = TextFormatting.RED;
-        final TextFormatting yellow = TextFormatting.YELLOW;
-
-        final PlayerMeleeInstance playerMeleeInstance = Tags.getInstance(itemStack, PlayerMeleeInstance.class);
-
-        final ArrayList<String> tooltipLines = new ArrayList<>();
-
-        // Stats
-        tooltipLines.add(green + "Damage: " + grey + builder.attackDamage);
-        tooltipLines.add(green + "Damage (Heavy): " + grey + builder.heavyAttackDamage);
-
-        // Debug
-        if (flagIn.isAdvanced() && playerMeleeInstance != null && itemStack.getTagCompound() != null) {
-            if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-                tooltipLines.add(red + "Logging NBT data, release left shift to stop");
-                LOG.info("{} NBT Data (Size {}): {}", playerMeleeInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
-            } else {
-                tooltipLines.add(yellow + "Press left shift to log NBT data");
-            }
+        if (tooltip != null && builder.informationProvider != null) {
+            tooltip.addAll(builder.informationProvider.apply(itemStack));
         }
-
-        tooltip.addAll(tooltipLines);
     }
 
     @Override
@@ -394,11 +382,10 @@ public class ItemMelee extends Item implements
     }
 
     public void attack(final EntityPlayer player, final boolean heavy) {
-        if (heavy) {
+        if (heavy)
             modContext.getMeleeAttackAspect().onHeavyAttackButtonClick(player);
-        } else {
+        else
             modContext.getMeleeAttackAspect().onAttackButtonClick(player);
-        }
     }
 
 //    public Multimap getItemAttributeModifiers() {

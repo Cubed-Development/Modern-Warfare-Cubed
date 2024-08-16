@@ -18,12 +18,10 @@ import io.redstudioragnarok.redcore.RedCore;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
@@ -42,18 +40,18 @@ import static com.paneedah.mwc.utils.ModReference.VERSION;
 //  | $$\  $ | $$| $$  | $$| $$  | $$| $$_____/| $$      | $$  | $$      | $$$/ \  $$$ /$$__  $$| $$      | $$     /$$__  $$| $$      | $$_____/      | $$    $$| $$  | $$| $$  | $$| $$_____/| $$  | $$
 //  | $$ \/  | $$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$  | $$      | $$/   \  $$|  $$$$$$$| $$      | $$    |  $$$$$$$| $$      |  $$$$$$$      |  $$$$$$/|  $$$$$$/| $$$$$$$/|  $$$$$$$|  $$$$$$$
 //  |__/     |__/ \______/  \_______/ \_______/|__/      |__/  |__/      |__/     \__/ \_______/|__/      |__/     \_______/|__/       \_______/       \______/  \______/ |_______/  \_______/ \_______/
-@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:mixinbooter@[8.6,);required-after:redcore@[0.6,)", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://forge.curseupdate.com/836353/mwc")
+@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:redcore@[0.4,);", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/master/update.json")
 public final class MWC {
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
 
     public static final CreativeTabs EQUIPMENT_TAB = new ArmorTab(CreativeTabs.getNextID(), "equipment");
-    public static final CreativeTabs WEAPONS_TAB = new AssaultRiflesTab(CreativeTabs.getNextID(), "weapons");
-    public static final CreativeTabs AMMUNITION_AND_MAGAZINES_TAB = new AmmoTab(CreativeTabs.getNextID(), "ammunitionAndMagazines");
-    public static final CreativeTabs ATTACHMENTS_TAB = new AttachmentsTab(CreativeTabs.getNextID(), "attachments");
-    public static final CreativeTabs THROWABLES_TAB = new GrenadesTab(CreativeTabs.getNextID(), "throwables");
-    public static final CreativeTabs PROPS_TAB = new PropsTab(CreativeTabs.getNextID(), "props");
-    public static final CreativeTabs BLOCKS_AND_INGOTS_TAB = new BlocksTab(CreativeTabs.getNextID(), "blocksAndIngots");
+	public static final CreativeTabs WEAPONS_TAB = new AssaultRiflesTab(CreativeTabs.getNextID(), "weapons");
+	public static final CreativeTabs AMMUNITION_AND_MAGAZINES_TAB = new AmmoTab(CreativeTabs.getNextID(), "ammunitionAndMagazines");
+	public static final CreativeTabs ATTACHMENTS_TAB = new AttachmentsTab(CreativeTabs.getNextID(), "attachments");
+	public static final CreativeTabs THROWABLES_TAB = new GrenadesTab(CreativeTabs.getNextID(), "throwables");
+	public static final CreativeTabs PROPS_TAB = new PropsTab(CreativeTabs.getNextID(), "props");
+	public static final CreativeTabs BLOCKS_AND_INGOTS_TAB = new BlocksTab(CreativeTabs.getNextID(), "blocksAndIngots");
 
     // Todo: Make this configurable via the future YAML config system from FBP, or Valkyrie integration, the later would be best.
     public static int bulletHitParticleMult = 6;
@@ -66,9 +64,8 @@ public final class MWC {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
-        if (preInitializationEvent.getSide().isClient()) {
+        if (preInitializationEvent.getSide().isClient())
             MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
-        }
 
         commonProxy.preInit(this);
     }
@@ -100,9 +97,8 @@ public final class MWC {
         modContext.setMaterialImpactSounds(Material.GRASS, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.GROUND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.SAND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.IRON, 1.5f, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
-        modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_14_snow");
-        modContext.setMaterialImpactSounds(Material.CRAFTED_SNOW, 1.5f, "bullet_14_snow");
 
         // Register channels for networking
         CHANNEL.registerMessage(new PermitMessageClientHandler((CommonModContext) modContext), PermitMessage.class, -1, Side.CLIENT);
@@ -110,7 +106,7 @@ public final class MWC {
         CHANNEL.registerMessage(new SpawnParticleMessageHandler(modContext), SpawnParticleMessage.class, -3, Side.CLIENT);
         CHANNEL.registerMessage(new BlockHitMessageHandler(), BlockHitMessage.class, -4, Side.CLIENT);
         CHANNEL.registerMessage(new ExplosionMessageHandler(), ExplosionMessage.class, -5, Side.CLIENT);
-        CHANNEL.registerMessage(new SpreadableExposureMessageHandler(), SpreadableExposureMessage.class, -6, Side.CLIENT);
+        CHANNEL.registerMessage(new SpreadableExposureMessageHandler(),	SpreadableExposureMessage.class, -6, Side.CLIENT);
         CHANNEL.registerMessage(new WorkbenchClientMessageHandler(), WorkbenchClientMessage.class, -7, Side.CLIENT);
         CHANNEL.registerMessage(new CraftingClientMessageHandler(), CraftingClientMessage.class, -8, Side.CLIENT);
         CHANNEL.registerMessage(new MuzzleFlashMessageHandler(), MuzzleFlashMessage.class, -9, Side.CLIENT);
@@ -120,20 +116,22 @@ public final class MWC {
         CHANNEL.registerMessage(new VehicleClientMessageHandler(), VehicleClientMessage.class, -13, Side.CLIENT);
         CHANNEL.registerMessage(new EntityInventorySyncMessageClientHandler(modContext), EntityInventorySyncMessage.class, -14, Side.CLIENT);
         CHANNEL.registerMessage(new ExposureMessageHandler(), ExposureMessage.class, -15, Side.CLIENT);
+        CHANNEL.registerMessage(new EntityControlClientMessageHandler(), EntityControlClientMessage.class, -16, Side.CLIENT);
 
         CHANNEL.registerMessage(new TryFireMessageHandler(modContext.getWeaponFireAspect()), TryFireMessage.class, 1, Side.SERVER);
         CHANNEL.registerMessage(new PermitMessageServerHandler((CommonModContext) modContext), PermitMessage.class, 2, Side.SERVER);
         CHANNEL.registerMessage(new MeleeAttackMessageHandler(modContext.getMeleeAttackAspect()), MeleeAttackMessage.class, 3, Side.SERVER);
         CHANNEL.registerMessage(new GrenadeMessageHandler(modContext.getGrenadeAttackAspect()), GrenadeMessage.class, 4, Side.SERVER);
         CHANNEL.registerMessage(new NightVisionToggleMessageHandler(), NightVisionToggleMessage.class, 5, Side.SERVER);
-        CHANNEL.registerMessage(new EntityInventorySyncMessageServerHandler(modContext), EntityInventorySyncMessage.class, 6, Side.SERVER);
-        CHANNEL.registerMessage(new OpenCustomPlayerInventoryGuiMessageHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 7, Side.SERVER);
-        CHANNEL.registerMessage(new VehicleControlMessageHandler(), VehicleControlMessage.class, 8, Side.SERVER);
-        CHANNEL.registerMessage(new VehicleInteractMessageHandler(), VehicleInteractMessage.class, 9, Side.SERVER);
-        CHANNEL.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 10, Side.SERVER);
-        CHANNEL.registerMessage(new WorkbenchServerMessageHandler(), WorkbenchServerMessage.class, 11, Side.SERVER);
-        CHANNEL.registerMessage(new CraftingServerMessageHandler(), CraftingServerMessage.class, 12, Side.SERVER);
-        CHANNEL.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 13, Side.SERVER);
+        CHANNEL.registerMessage(new EntityControlServerMessageHandler(), EntityControlServerMessage.class, 6, Side.SERVER);
+        CHANNEL.registerMessage(new EntityInventorySyncMessageServerHandler(modContext), EntityInventorySyncMessage.class, 7, Side.SERVER);
+        CHANNEL.registerMessage(new OpenCustomPlayerInventoryGuiMessageHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 8, Side.SERVER);
+        CHANNEL.registerMessage(new VehicleControlMessageHandler(), VehicleControlMessage.class, 9, Side.SERVER);
+        CHANNEL.registerMessage(new VehicleInteractMessageHandler(), VehicleInteractMessage.class, 10, Side.SERVER);
+        CHANNEL.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 11, Side.SERVER);
+        CHANNEL.registerMessage(new WorkbenchServerMessageHandler(), WorkbenchServerMessage.class, 12, Side.SERVER);
+        CHANNEL.registerMessage(new CraftingServerMessageHandler(), CraftingServerMessage.class, 13, Side.SERVER);
+        CHANNEL.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 14, Side.SERVER);
     }
 
     @Mod.EventHandler
@@ -155,10 +153,9 @@ public final class MWC {
     }
 
     public static void updateDebugHandler() {
-        if (DebugCommand.debugF3 || FMLLaunchHandler.isDeobfuscatedEnvironment()) {
+        if (DebugCommand.debugF3 || FMLLaunchHandler.isDeobfuscatedEnvironment())
             MinecraftForge.EVENT_BUS.register(DebugHandler.class);
-        } else {
+        else
             MinecraftForge.EVENT_BUS.unregister(DebugHandler.class);
-        }
     }
 }

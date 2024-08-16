@@ -4,6 +4,6 @@ import com.paneedah.mwc.proxies.CommonProxy;
 import net.minecraft.item.Item;
 
 public interface MeleeFactory {
-
-    Item createMelee(CommonProxy commonProxy);
+	
+	public Item createMelee(CommonProxy commonProxy);
 }

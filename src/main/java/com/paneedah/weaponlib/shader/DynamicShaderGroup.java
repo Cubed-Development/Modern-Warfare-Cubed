@@ -17,10 +17,10 @@ import java.util.Map;
 
 public class DynamicShaderGroup extends ShaderGroup {
 
-    private final Map<String, Object> uniforms = new HashMap<>();
+    private Map<String, Object> uniforms = new HashMap<>();
     private boolean deleted;
 
-    public DynamicShaderGroup(TextureManager textureManager, IResourceManager resourceManager, Framebuffer mainFramebufferIn, ResourceLocation resourceLocation) throws IOException, JsonSyntaxException {
+    public DynamicShaderGroup(TextureManager textureManager, IResourceManager resourceManager, Framebuffer mainFramebufferIn, ResourceLocation resourceLocation) throws JsonException, IOException, JsonSyntaxException {
         super(textureManager, resourceManager, mainFramebufferIn, resourceLocation);
     }
 
@@ -36,16 +36,16 @@ public class DynamicShaderGroup extends ShaderGroup {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        
         return shader;
     }
-
+    
     @Override
     public void deleteShaderGroup() {
         super.deleteShaderGroup();
         deleted = true;
     }
-
+    
     public boolean isDeleted() {
         return deleted;
     }
@@ -58,11 +58,11 @@ public class DynamicShaderGroup extends ShaderGroup {
         return uniforms;
     }
 
-    private static IResourceManager getResourceManager(ShaderGroup shaderGroup) {
+    private static IResourceManager getResourceManager(ShaderGroup shaderGroup){
         return ObfuscationReflectionHelper.getPrivateValue(ShaderGroup.class, shaderGroup, "resourceManager", "field_148033_b");
     }
 
-    private static List<Shader> getShaders(ShaderGroup shaderGroup) {
+    private static List<Shader> getShaders(ShaderGroup shaderGroup){
         return ObfuscationReflectionHelper.getPrivateValue(ShaderGroup.class, shaderGroup, "listShaders", "field_148031_d");
     }
 }

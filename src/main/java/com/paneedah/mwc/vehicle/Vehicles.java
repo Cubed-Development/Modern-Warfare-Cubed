@@ -9,21 +9,21 @@ import com.paneedah.weaponlib.vehicle.AccessibleVehicleGUI;
 import com.paneedah.weaponlib.vehicle.GeneralVehicleSounds;
 
 public class Vehicles {
+	
+	public static void init(CommonProxy commonProxy) {
 
-    public static void init(CommonProxy commonProxy) {
+		// Panda: Is this still the case? I don't think so.
 
-        // Panda: Is this still the case? I don't think so.
-
-        // due to the fact that advanced warfare cannot be accessed from
-        // weaponlib, here are things that need to be set from this end.
-        GeneralVehicleSounds.setup(MWC.modContext);
-        AccessibleVehicleGUI.remotelySetModels(new VehicleKey(), new VehicleLock(),
-                QRL.quickLoc("gui", "vehiclekey"), QRL.quickLoc("gui", "keylock"));
-
-        //new SampleVehicleFactory().createVehicle(MWC.modContext);
-        new AudiS4Factory().createVehicle(MWC.modContext);
-        new McLarenSennaFactory().createVehicle(MWC.modContext);
-        new AE86TruenoFactory().createVehicle(MWC.modContext);
-        new ATVFactory().createVehicle(MWC.modContext);
-    }
+		// due to the fact that advanced warfare cannot be accessed from
+		// weaponlib, here are things that need to be set from this end.
+		GeneralVehicleSounds.setup(MWC.modContext);
+		AccessibleVehicleGUI.remotelySetModels(new VehicleKey(), new VehicleLock(),
+				QRL.quickLoc("gui", "vehiclekey"), QRL.quickLoc("gui", "keylock"));
+		
+		//new SampleVehicleFactory().createVehicle(MWC.modContext);
+		new AudiS4Factory().createVehicle(MWC.modContext);
+		new McLarenSennaFactory().createVehicle(MWC.modContext);
+		new AE86TruenoFactory().createVehicle(MWC.modContext);
+		new ATVFactory().createVehicle(MWC.modContext);
+	}
 }

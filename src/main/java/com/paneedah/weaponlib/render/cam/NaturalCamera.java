@@ -12,45 +12,43 @@ import java.util.LinkedList;
 
 public class NaturalCamera {
 
-    private double x, y, z, xr, yr, zr;
+	private double x, y, z, xr, yr, zr;
 
-    private ShockVector shockVector = new ShockVector();
+	private ShockVector shockVector = new ShockVector();
 
-    private Matrix4f currentMatrix;
-    private Matrix4f previousMatrix;
+	private Matrix4f currentMatrix;
+	private Matrix4f previousMatrix;
 
-    private static final LinkedList<Matrix4f> matrixStack = new LinkedList<>();
+	private static LinkedList<Matrix4f> matrixStack = new LinkedList<>();
 
-    public void addToMatrixStack(Matrix4f mat) {
+	public void addToMatrixStack(Matrix4f mat) {
 
-        matrixStack.push(mat);
+		matrixStack.push(mat);
 
-        // matrixStack.add(mat);
-    }
+		// matrixStack.add(mat);
+	}
 
-    public void sendQuaternionData(Quaternion a, Quaternion b) {
-        // MatrixHelper.toEulerAngles(q)
-    }
+	public void sendQuaternionData(Quaternion a, Quaternion b) {
+		// MatrixHelper.toEulerAngles(q)
+	}
 
-    public void feedMatrix(Matrix4f food) {
-        this.previousMatrix = this.currentMatrix;
-        this.currentMatrix = food;
-        // System.out.println("Received " + food);
-    }
+	public void feedMatrix(Matrix4f food) {
+		this.previousMatrix = this.currentMatrix;
+		this.currentMatrix = food;
+		// System.out.println("Received " + food);
+	}
 
-    public NaturalCamera() {
+	public NaturalCamera() {
 
-    }
+	}
 
-    public void update() {
-        if (true) {
-            return;
-        }
-        if (Double.isNaN(shockVector.getShockVector().x)) {
-            shockVector = new ShockVector();
-        }
-        // shockVector = new ShockVector();
-        if (matrixStack.size() > 1) {
+	public void update() {
+		if(true) return;
+		if (Double.isNaN(shockVector.getShockVector().x)) {
+			shockVector = new ShockVector();
+		}
+		// shockVector = new ShockVector();
+		if (matrixStack.size() > 1) {
 			/*
 			Matrix4f previous = matrixStack.pop();
 			Matrix4f current = matrixStack.pop();
@@ -83,67 +81,67 @@ public class NaturalCamera {
 
 			shockVector.applyForce(forceX, forceY, forceZ);
 			*/
+			
+			Matrix4f previous = matrixStack.pop();
+			Matrix4f current = matrixStack.pop();
+			double forceX = 0;
+			double forceY = 0;
+			double forceZ = 0;
+			
 
-            Matrix4f previous = matrixStack.pop();
-            Matrix4f current = matrixStack.pop();
-            double forceX = 0;
-            double forceY = 0;
-            double forceZ = 0;
+			double scale = -1.0;
+			double thres = 0.0;
+			if (Math.abs( current.m30 - previous.m30) > thres) {
+				forceX = (current.m30 - previous.m30)*scale;
+			}
+			if (Math.abs( current.m31 - previous.m31) > thres) {
+				forceY = (current.m31 - previous.m31)*scale;
+			}
+			if (Math.abs( current.m32 - previous.m32) > thres) {
+				forceZ = (current.m31 - previous.m31)*scale;
+			}
+			shockVector.applyForce(forceX, forceY, forceZ);
+			
+		}
 
+		shockVector.configure(500, 800, 50);
+		shockVector.update(0.05);
+		Vec3d sv = shockVector.getShockVector();
+		// System.out.println(sv);
 
-            double scale = -1.0;
-            double thres = 0.0;
-            if (Math.abs(current.m30 - previous.m30) > thres) {
-                forceX = (current.m30 - previous.m30) * scale;
-            }
-            if (Math.abs(current.m31 - previous.m31) > thres) {
-                forceY = (current.m31 - previous.m31) * scale;
-            }
-            if (Math.abs(current.m32 - previous.m32) > thres) {
-                forceZ = (current.m31 - previous.m31) * scale;
-            }
-            shockVector.applyForce(forceX, forceY, forceZ);
+		
+		GlStateManager.rotate((float) sv.y, 0, 1, 0);
+		GlStateManager.rotate((float) sv.z, 0, 0, 1);
+		GlStateManager.rotate((float) sv.x, 1, 0, 0);
+		// GlStateManager.translate(sv.x, sv.y, sv.z);
 
-        }
+		// zr *= 0.9;
+		// GlStateManager.translate(zr, 0, 0);
 
-        shockVector.configure(500, 800, 50);
-        shockVector.update(0.05);
-        Vec3d sv = shockVector.getShockVector();
-        // System.out.println(sv);
+		// System.out.println(matrixStack.poll());
 
+		// System.out.println(matrixStack.poll());
 
-        GlStateManager.rotate((float) sv.y, 0, 1, 0);
-        GlStateManager.rotate((float) sv.z, 0, 0, 1);
-        GlStateManager.rotate((float) sv.x, 1, 0, 0);
-        // GlStateManager.translate(sv.x, sv.y, sv.z);
+		// System.out.println(currentMatrix.m03);
 
-        // zr *= 0.9;
-        // GlStateManager.translate(zr, 0, 0);
+		// xr = 0.01;
+		if (ClientModContext.getContext().getMainHeldWeapon().getState() == WeaponState.READY) {
+			yr *= 0.98;
+		} else {
+			yr += 0.01;
+			yr = Math.min(yr, 1.0);
+		}
+		xr += 0.01;
 
-        // System.out.println(matrixStack.poll());
+		// System.out.println("hi-> " + currentMatrix);
 
-        // System.out.println(matrixStack.poll());
-
-        // System.out.println(currentMatrix.m03);
-
-        // xr = 0.01;
-        if (ClientModContext.getContext().getMainHeldWeapon().getState() == WeaponState.READY) {
-            yr *= 0.98;
-        } else {
-            yr += 0.01;
-            yr = Math.min(yr, 1.0);
-        }
-        xr += 0.01;
-
-        // System.out.println("hi-> " + currentMatrix);
-
-        x = LissajousCurve.getXOffsetOnCurve(yr * 0.5, 0.5, 0, 0, xr * 2);
-        y = LissajousCurve.getYOffsetOnCurve(yr * 0.5, 0.5, Math.PI / 2, 0, xr * 2);
-        GlStateManager.rotate((float) x, 1, 0, 0);
-        GlStateManager.rotate((float) y, 0, 0, 1);
-        // GlStateManager.rotate(45f, 1, 0, 0);
-        // GlStateManager.rotate((float) x, 1, 0, 0);
-        // GlStateManager.translate(x, y, z);
-    }
+		x = LissajousCurve.getXOffsetOnCurve(yr * 0.5, 0.5, 0, 0, xr * 2);
+		y = LissajousCurve.getYOffsetOnCurve(yr * 0.5, 0.5, Math.PI / 2, 0, xr * 2);
+		GlStateManager.rotate((float) x, 1, 0, 0);
+		GlStateManager.rotate((float) y, 0, 0, 1);
+		// GlStateManager.rotate(45f, 1, 0, 0);
+		// GlStateManager.rotate((float) x, 1, 0, 0);
+		// GlStateManager.translate(x, y, z);
+	}
 
 }

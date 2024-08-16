@@ -1,6 +1,7 @@
 package com.paneedah.mwc.proxies;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
@@ -53,6 +54,8 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(final MWC mod) {
         super.init(mod);
+
+        PlayerAnimations.init(mod);
 
         final ItemModelMesher modelMesher = MC.getRenderItem().getItemModelMesher();
 
@@ -107,11 +110,9 @@ public class ClientProxy extends CommonProxy {
         // Todo: Actually remove this once fixed.
 
         try {
-            if (ForgeModContainer.allowEmissiveItems) {
+            if (ForgeModContainer.allowEmissiveItems)
                 ForgeModContainer.allowEmissiveItems = false;
-            }
-        } catch (NoSuchFieldError ignored) {
-        }
+        } catch (NoSuchFieldError ignored) {}
 
         MC.getRenderManager().getSkinMap().forEach((model, playerRenderer) -> playerRenderer.addLayer(new EquipmentRenderer(playerRenderer)));
     }

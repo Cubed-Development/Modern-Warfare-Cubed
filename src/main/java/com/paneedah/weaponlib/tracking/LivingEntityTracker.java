@@ -20,7 +20,7 @@ public class LivingEntityTracker {
     }
 
     private Supplier<World> world;
-    private final Map<UUID, TrackableEntity> trackableEntities = new LinkedHashMap<>();
+    private Map<UUID, TrackableEntity> trackableEntities = new LinkedHashMap<>();
 
     public LivingEntityTracker(Supplier<World> world) {
         this.world = world;
@@ -40,7 +40,7 @@ public class LivingEntityTracker {
     public boolean updateTrackableEntity(Entity entity) {
         update();
         TrackableEntity te = trackableEntities.get(entity.getPersistentID());
-        if (te != null) {
+        if(te != null) {
             te.setEntitySupplier(() -> entity);
             return true;
         }
@@ -53,9 +53,9 @@ public class LivingEntityTracker {
     }
 
     public void update() {
-        for (Iterator<TrackableEntity> it = trackableEntities.values().iterator(); it.hasNext(); ) {
+        for(Iterator<TrackableEntity> it = trackableEntities.values().iterator(); it.hasNext();) {
             TrackableEntity te = it.next();
-            if (te.isExpired()) {
+            if(te.isExpired()) {
                 it.remove();
             }
         }
@@ -65,9 +65,9 @@ public class LivingEntityTracker {
         Collection<TrackableEntity> values = trackableEntities.values();
         int i = 0;
         TrackableEntity result = null;
-        for (Iterator<TrackableEntity> it = values.iterator(); it.hasNext(); i++) {
+        for(Iterator<TrackableEntity> it = values.iterator(); it.hasNext(); i++) {
             TrackableEntity te = it.next();
-            if (i == index) {
+            if(i == index) {
                 result = te;
                 break;
             }
@@ -78,18 +78,18 @@ public class LivingEntityTracker {
     public void write(ByteBuf buf) {
         update();
         buf.writeInt(trackableEntities.size());
-        for (TrackableEntity te : trackableEntities.values()) {
+        for(TrackableEntity te: trackableEntities.values()) {
             te.serialize(buf, world);
         }
     }
 
     private void init(ByteBuf buf) {
         int trackableEntitiesSize = buf.readInt();
-        for (int i = 0; i < trackableEntitiesSize; i++) {
+        for(int i = 0; i < trackableEntitiesSize; i++) {
             try {
                 TrackableEntity te = TrackableEntity.fromBuf(buf, world);
                 trackableEntities.put(te.getUuid(), te);
-            } catch (RuntimeException e) {
+            } catch(RuntimeException e) {
                 LOG.error("Failed to deserialize trackable entity {}", e.toString(), e);
             }
         }
@@ -104,7 +104,7 @@ public class LivingEntityTracker {
     public static LivingEntityTracker fromByteArray(byte[] bytes, Supplier<World> world) {
         ByteBuf buf = Unpooled.wrappedBuffer(bytes);
         LivingEntityTracker tracker = new LivingEntityTracker(world);
-        if (bytes != null && bytes.length > 0) {
+        if(bytes != null && bytes.length > 0) {
             tracker.init(buf);
         } else {
             LOG.warn("Cannot deserialize tracker from empty byte array");

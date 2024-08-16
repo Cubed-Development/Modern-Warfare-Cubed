@@ -13,7 +13,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class ParticleFancyRain extends ParticleRain {
 
-    protected ParticleFancyRain(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn) {
+    protected ParticleFancyRain(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn)
+    {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn);
         this.motionX *= 0.30000001192092896D;
         this.motionY = Math.random() * 0.20000000298023224D + 0.10000000149011612D;
@@ -26,12 +27,14 @@ public class ParticleFancyRain extends ParticleRain {
         this.setParticleTextureIndex(19 + this.rand.nextInt(4));
         this.setSize(0.01F, 0.01F);
         this.particleGravity = 0.06F;
-        this.particleMaxAge = (int) (8.0D / (Math.random() * 0.8D + 0.2D));
+        this.particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D));
     }
 
     @SideOnly(Side.CLIENT)
-    public static class Factory implements IParticleFactory {
-        public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_) {
+    public static class Factory implements IParticleFactory
+    {
+        public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_)
+        {
             return new ParticleFancyRain(worldIn, xCoordIn, yCoordIn, zCoordIn);
         }
     }

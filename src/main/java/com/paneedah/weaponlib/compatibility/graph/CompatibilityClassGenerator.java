@@ -10,221 +10,214 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 
 /**
  * Make sure to enable
- * <p>
+ * 
  * https://stackoverflow.com/questions/31129331/how-can-i-get-the-parameter-name-in-java-at-run-time
- *
  * @author Jim Holden, 2022
+ *
  */
 public class CompatibilityClassGenerator {
+	
+	private boolean loaded = false;
+	private ArrayList<Class<?>> classes = new ArrayList<>();
+	private ArrayList<Class<?>> glClasses = new ArrayList<>();
+	
+	public CompatibilityClassGenerator() {
+		
+	}
+	
+	public void setup() {
+		if(loaded) return;
+		loaded = true;
+		
+		
+		try {
+			ImmutableSet<ClassInfo> i = ClassPath.from(ClassLoader.getSystemClassLoader()).getTopLevelClasses("org.lwjgl.opengl");
+			for(ClassInfo classInfo : i) {
+				String classInformationString = classInfo.toString();
+				// Find OpenGL class
+				Class<?> clazz = null;
+				try {
+					
+					
+					clazz = Class.forName(classInformationString);
+				} catch(Error e) {
+					continue;
+				}
+				
+				if(isGLClass(clazz)) {
+					glClasses.add(clazz);
+				} else {
+					classes.add(clazz);
+				}
+				
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean isGLClass(Class<?> clazz) {
+		String simpleName = clazz.getSimpleName();
+		if(simpleName.length() > 2 && Character.isDigit(simpleName.charAt(3))) {
+			return true;
+		}
+		return false;
+		
+	}
+	
+	
+	public ArrayList<StringBuilder> findMethods(String methodSearch) {
+		return null;
+		
+		
+	}
+	
+	public ArrayList<Pair<Class<?>, Method>> findStandardOpenGLMethod(String searchTerm) {
 
-    private boolean loaded = false;
-    private final ArrayList<Class<?>> classes = new ArrayList<>();
-    private final ArrayList<Class<?>> glClasses = new ArrayList<>();
-
-    public CompatibilityClassGenerator() {
-
-    }
-
-    public void setup() {
-        if (loaded) {
-            return;
-        }
-        loaded = true;
-
-
-        try {
-            ImmutableSet<ClassInfo> i = ClassPath.from(ClassLoader.getSystemClassLoader()).getTopLevelClasses("org.lwjgl.opengl");
-            for (ClassInfo classInfo : i) {
-                String classInformationString = classInfo.toString();
-                // Find OpenGL class
-                Class<?> clazz = null;
-                try {
-
-
-                    clazz = Class.forName(classInformationString);
-                } catch (Error e) {
-                    continue;
-                }
-
-                if (isGLClass(clazz)) {
-                    glClasses.add(clazz);
-                } else {
-                    classes.add(clazz);
-                }
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean isGLClass(Class<?> clazz) {
-        String simpleName = clazz.getSimpleName();
-        return simpleName.length() > 2 && Character.isDigit(simpleName.charAt(3));
-
-    }
-
-
-    public ArrayList<StringBuilder> findMethods(String methodSearch) {
-        return null;
-
-
-    }
-
-    public ArrayList<Pair<Class<?>, Method>> findStandardOpenGLMethod(String searchTerm) {
-
-        ArrayList<Pair<Class<?>, Method>> array = new ArrayList<>();
-        array.clear();
-        for (Class<?> clazz : glClasses) {
-            for (Method m : clazz.getMethods()) {
-                if (m.getName().contains(searchTerm)) {
-                    array.add(new Pair<Class<?>, Method>(clazz, m));
-                }
-            }
-        }
-
-        return array;
-    }
-
-    public StringBuilder getIfStatementChecks(String name, String caseName) {
-        String[] args = name.split("(?=\\p{Upper})");
-        for (int i = 0; i < args.length; ++i) {
-            args[i] = args[i].toLowerCase();
-        }
-        ArrayList<String> argList = (ArrayList<String>) Arrays.asList(args);
-        Collections.addAll(argList, args);
-
-
-        Field[] fields = GLContext.getCapabilities().getClass().getFields();
-        for (Field f : fields) {
-            boolean shouldBreak = false;
-            for (int i = 2; i < args.length; ++i) {
-                if (f.getName().contains(argList.get(i))) {
-                    System.out.println("hi " + f.getName());
-                    shouldBreak = true;
-                }
-            }
-            if (shouldBreak) {
-                break;
-            }
-            System.out.println(f);
-            //System.out.println(f.getName());
-        }
-
-        return null;
-
-    }
-
-    public StringBuilder buildOutMethod(Pair<Class<?>, Method> original, String searchTerm) {
-        HashMap<String, Pair<String, String>> methodNameMap = new HashMap<>();
-
-        StringBuilder builder = new StringBuilder();
-        builder.append("public static " + original.getSecond().getReturnType().getSimpleName() + " " + original.getSecond().getName());
-        builder.append("(");
-
-        StringBuilder parameterBuilder = new StringBuilder();
-
-        parameterBuilder.append("(");
-        java.lang.reflect.Parameter[] parameters = original.getSecond().getParameters();
-        for (int i = 0; i < parameters.length; ++i) {
-
-            if (i == 0) {
-                builder.append(parameters[i].getType().getSimpleName() + " " + parameters[i].getName());
-                parameterBuilder.append(parameters[i].getName());
-
-            } else {
-                builder.append(", " + parameters[i].getType().getSimpleName() + " " + parameters[i].getName());
-                parameterBuilder.append(", " + parameters[i].getName());
-            }
-        }
-
-
-        ArrayList<Pair<Class<?>, Method>> methods = getExtensions(original, searchTerm);
-        methods.add(original);
-
-
-        parameterBuilder.append(")");
-        builder.append(") {\n");
-        builder.append("\tswitch(case) {");
-
-        for (Pair<Class<?>, Method> pair : methods) {
-            String genericName = pair.getFirst().getSimpleName();
-            builder.append("\n\t\tcase ");
-
-            if (genericName.contains("ARB")) {
-                builder.append("ARB:");
-            } else if (genericName.contains("EXT")) {
-                builder.append("EXT:");
-            } else if (genericName.contains("APPLE")) {
-                builder.append("APPLE:");
-            } else {
-                builder.append("NORMAL:");
-            }
-
-            if (!original.getSecond().getReturnType().toString().equals("void")) {
-                builder.append("\n\t\t\treturn " + genericName + "." + pair.getSecond().getName() + parameterBuilder + ";");
-            } else {
-                builder.append("\n\t\t\t" + genericName + "." + pair.getSecond().getName() + parameterBuilder + ";");
-                builder.append("\n\t\t\tbreak;");
-            }
-
-        }
-
-
-        builder.append("\n\t}");
-        if (original.getSecond().getReturnType().toString().equals("int")) {
-            builder.append("\n\treturn 0;");
-        } else if (original.getSecond().getReturnType().toString().equals("boolean")) {
-            builder.append("\n\treturn false;");
-        } else {
-            builder.append("\n\treturn;");
-        }
-
-        builder.append("\n}");
-        return builder;
-    }
-
-    public boolean isMethodEquivalent(Method a, Method b) {
-        if (!a.getReturnType().toString().equals(b.getReturnType().toString())) {
-            return false;
-        }
-        if (a.getParameterCount() != b.getParameterCount()) {
-            return false;
-        }
-
-        for (int i = 0; i < a.getParameterCount(); ++i) {
-            if (!a.getParameters()[i].toString().equals(b.getParameters()[i].toString())) {
-                return false;
-            }
-        }
-
-        return true;
-
-    }
-
-    public ArrayList<Pair<Class<?>, Method>> getExtensions(Pair<Class<?>, Method> original, String search) {
-        ArrayList<Pair<Class<?>, Method>> extensionsList = new ArrayList<>();
-        for (Class<?> clazz : this.classes) {
-            for (Method m : clazz.getMethods()) {
-                if (m.getName().contains(search)) {
-
-                    if (!isMethodEquivalent(m, original.getSecond())) {
-                        continue;
-                    }
-                    extensionsList.add(new Pair<Class<?>, Method>(clazz, m));
-                }
-
-            }
-        }
-
-        return extensionsList;
-
-    }
+		ArrayList<Pair<Class<?>, Method>> array = new ArrayList<>();
+		array.clear();
+		for(Class<?> clazz : glClasses) {
+			for(Method m : clazz.getMethods()) {
+				if(m.getName().contains(searchTerm)) {
+					array.add(new Pair<Class<?>, Method>(clazz, m));
+				}
+			}
+		}
+		
+		return array;
+	}
+	
+	public StringBuilder getIfStatementChecks(String name, String caseName) {
+		String[] args = name.split("(?=\\p{Upper})");
+		for(int i = 0; i < args.length; ++i) {
+			args[i] = args[i].toLowerCase();
+		}
+		ArrayList<String> argList = (ArrayList<String>) Arrays.asList(args);
+		for(String s : args) {
+			argList.add(s);
+		}
+		
+		
+		Field[] fields = GLContext.getCapabilities().getClass().getFields();
+		for(Field f : fields) {
+			boolean shouldBreak = false;
+			for(int i = 2; i < args.length; ++i) {
+				if(f.getName().contains(argList.get(i))) {
+					System.out.println("hi " + f.getName());
+					shouldBreak = true;
+				}
+			}
+			if(shouldBreak) break;
+			System.out.println(f);
+			//System.out.println(f.getName());
+		}
+		
+		return null;
+		
+	}
+	 
+	public StringBuilder buildOutMethod(Pair<Class<?>, Method> original, String searchTerm) {
+		HashMap<String, Pair<String, String>> methodNameMap = new HashMap<>();
+		
+		StringBuilder builder = new StringBuilder();
+		builder.append("public static " + original.getSecond().getReturnType().getSimpleName() + " " + original.getSecond().getName());
+		builder.append("(");
+		
+		StringBuilder parameterBuilder = new StringBuilder();
+		
+		parameterBuilder.append("(");
+		java.lang.reflect.Parameter[] parameters = original.getSecond().getParameters();
+		for(int i = 0; i < parameters.length; ++i) {
+			
+			if(i == 0) {
+				builder.append(parameters[i].getType().getSimpleName() + " " + parameters[i].getName());
+				parameterBuilder.append(parameters[i].getName());
+				
+			} else {
+				builder.append(", " + parameters[i].getType().getSimpleName() + " " + parameters[i].getName());
+				parameterBuilder.append(", " + parameters[i].getName());
+			}
+		}
+		
+		
+		
+		ArrayList<Pair<Class<?>, Method>> methods = getExtensions(original, searchTerm);
+		methods.add(original);
+	
+		
+		parameterBuilder.append(")");
+		builder.append(") {\n");
+		builder.append("\tswitch(case) {");
+		
+		for(Pair<Class<?>, Method> pair : methods) {
+			String genericName = pair.getFirst().getSimpleName();
+			builder.append("\n\t\tcase ");
+			
+			if(genericName.contains("ARB")) {
+				builder.append("ARB:");
+			} else if(genericName.contains("EXT")) {
+				builder.append("EXT:");
+			} else if(genericName.contains("APPLE")) {
+				builder.append("APPLE:");
+			} else {
+				builder.append("NORMAL:");
+			}
+			
+			if(!original.getSecond().getReturnType().toString().equals("void")) {
+				builder.append("\n\t\t\treturn " + genericName + "." + pair.getSecond().getName() + parameterBuilder.toString() + ";");
+			} else {
+				builder.append("\n\t\t\t" + genericName + "." + pair.getSecond().getName() + parameterBuilder.toString() + ";");
+				builder.append("\n\t\t\tbreak;");
+			}
+			
+		}
+		
+		
+		builder.append("\n\t}");
+		if(original.getSecond().getReturnType().toString().equals("int")) {
+			builder.append("\n\treturn 0;");
+		} else if(original.getSecond().getReturnType().toString().equals("boolean")) {
+			builder.append("\n\treturn false;");
+		} else {
+			builder.append("\n\treturn;");
+		}
+		
+		builder.append("\n}");
+		return builder;
+	}
+	
+	public boolean isMethodEquivalent(Method a, Method b) {
+		if(!a.getReturnType().toString().equals(b.getReturnType().toString())) return false;
+		if(a.getParameterCount() != b.getParameterCount()) return false;
+		
+		for(int i = 0; i < a.getParameterCount(); ++i) {
+			if(!a.getParameters()[i].toString().equals(b.getParameters()[i].toString())) return false;
+		}
+		
+		return true;
+		
+	}
+	
+	public ArrayList<Pair<Class<?>, Method>> getExtensions(Pair<Class<?>, Method> original, String search) {
+		ArrayList<Pair<Class<?>, Method>> extensionsList = new ArrayList<>();
+ 		for(Class<?> clazz : this.classes) {
+			for(Method m : clazz.getMethods()) {
+				if(m.getName().contains(search)) {
+				
+					if(!isMethodEquivalent(m, original.getSecond())) continue;
+					extensionsList.add(new Pair<Class<?>, Method>(clazz, m));
+				}
+			
+			}
+		}
+		
+		return extensionsList;
+		
+	}
 	
 	/*
 	public void search() {
@@ -367,6 +360,9 @@ public class CompatibilityClassGenerator {
 		
 	}
 	*/
-
+	
+	
+	
+	
 
 }

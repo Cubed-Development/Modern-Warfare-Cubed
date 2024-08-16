@@ -8,19 +8,19 @@ import java.util.List;
 
 public class ModernConfigCategory extends DummyCategoryElement {
 
-    private final String registryKey;
-
-    public ModernConfigCategory(String name, String registryKey, List<IConfigElement> childElements) {
-        super(name, registryKey, childElements);
-        this.registryKey = registryKey + ".name";
-    }
-
-    public String getCategoryName() {
-        return this.name;
-    }
-
-    @Override
-    public String getName() {
-        return I18n.format(registryKey);
-    }
+	private final String registryKey;
+	
+	public ModernConfigCategory(String name, String registryKey, List<IConfigElement> childElements) {
+		super(name, registryKey, childElements);
+		this.registryKey = registryKey + ".name";
+	}
+	
+	public String getCategoryName() {
+		return this.name;
+	}
+	
+	@Override
+	public String getName() {
+		return I18n.format(registryKey);
+	}
 }

@@ -18,8 +18,8 @@ public class ExplosionParticleFX extends Particle {
     private static final String DEFAULT_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/explosion-particles.png";
     private static final int columnCount = 5;
     private static final int rowCount = 5; //4;
-    private final int imageIndex;
-    private final String particleTexture;
+    private int imageIndex;
+    private String particleTexture;
 
     public ExplosionParticleFX(World par1World, double positionX, double positionY, double positionZ, float scale, double motionX, double motionY, double motionZ, int particleMaxAge, String particleTexture) {
         super(par1World, positionX, positionY, positionZ, 0.0D, 0.0D, 0.0D);
@@ -28,9 +28,8 @@ public class ExplosionParticleFX extends Particle {
         this.motionY = motionY;
         this.motionZ = motionZ;
 
-        if (motionX == 0.0F) {
+        if (motionX == 0.0F)
             motionX = 1.0F;
-        }
 
         this.particleTextureIndexX = 0;
         this.particleTextureIndexY = 0;
@@ -54,9 +53,7 @@ public class ExplosionParticleFX extends Particle {
         this.prevPosZ = this.posZ;
 
         if (this.particleAge++ >= particleMaxAge) //this.particleMaxAge)
-        {
             this.setExpired();
-        }
 
         //this.setParticleTextureIndex(7 - this.particleAge * 8 / this.particleMaxAge);
         this.motionY += 0.004D;

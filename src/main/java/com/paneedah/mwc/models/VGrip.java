@@ -5,14 +5,19 @@
 // - ZeuX
 
 
+
+
+
+
 package com.paneedah.mwc.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class VGrip extends ModelBase {
-    //fields
+public class VGrip extends ModelBase
+{
+  //fields
     ModelRenderer gun2;
     ModelRenderer gun4;
     ModelRenderer gun6;
@@ -23,92 +28,95 @@ public class VGrip extends ModelBase {
     ModelRenderer gun15;
     ModelRenderer gun16;
     ModelRenderer gun17;
-
-    public VGrip() {
-        textureWidth = 256;
-        textureHeight = 128;
-
-        gun2 = new ModelRenderer(this, 0, 0);
-        gun2.addBox(0F, 0F, 0F, 3, 1, 2);
-        gun2.setRotationPoint(-0.5F, -6.5F, 2F);
-        gun2.setTextureSize(64, 32);
-        gun2.mirror = true;
-        setRotation(gun2, 0F, 0F, 0F);
-        gun4 = new ModelRenderer(this, 0, 0);
-        gun4.addBox(0F, 0F, 0F, 3, 1, 2);
-        gun4.setRotationPoint(-0.5F, -6.5F, -4F);
-        gun4.setTextureSize(64, 32);
-        gun4.mirror = true;
-        setRotation(gun4, 0F, 0F, 0F);
-        gun6 = new ModelRenderer(this, 0, 0);
-        gun6.addBox(0F, 0F, 0F, 2, 9, 3);
-        gun6.setRotationPoint(0F, -3.5F, -2.5F);
-        gun6.setTextureSize(64, 32);
-        gun6.mirror = true;
-        setRotation(gun6, 0F, 0F, 0F);
-        gun11 = new ModelRenderer(this, 0, 0);
-        gun11.addBox(0F, 0F, 0F, 3, 11, 2);
-        gun11.setRotationPoint(-0.5F, -4F, -2F);
-        gun11.setTextureSize(64, 32);
-        gun11.mirror = true;
-        setRotation(gun11, 0F, 0F, 0F);
-        gun12 = new ModelRenderer(this, 0, 0);
-        gun12.addBox(0F, 0F, 0F, 2, 4, 2);
-        gun12.setRotationPoint(0F, 3.5F, -2.5F);
-        gun12.setTextureSize(64, 32);
-        gun12.mirror = true;
-        setRotation(gun12, 0F, 0F, 0F);
-        gun13 = new ModelRenderer(this, 0, 0);
-        gun13.addBox(0F, 0F, 0F, 2, 6, 1);
-        gun13.setRotationPoint(0F, -2.5F, -3F);
-        gun13.setTextureSize(64, 32);
-        gun13.mirror = true;
-        setRotation(gun13, 0F, 0F, 0F);
-        gun14 = new ModelRenderer(this, 0, 0);
-        gun14.addBox(0F, 0F, 0F, 2, 1, 4);
-        gun14.setRotationPoint(0F, -4.5F, -3F);
-        gun14.setTextureSize(64, 32);
-        gun14.mirror = true;
-        setRotation(gun14, 0F, 0F, 0F);
-        gun15 = new ModelRenderer(this, 0, 0);
-        gun15.addBox(0F, 0F, 0F, 3, 1, 7);
-        gun15.setRotationPoint(-0.5F, -5.5F, -3.5F);
-        gun15.setTextureSize(64, 32);
-        gun15.mirror = true;
-        setRotation(gun15, 0F, 0F, 0F);
-        gun16 = new ModelRenderer(this, 0, 0);
-        gun16.addBox(0F, 0F, 0F, 2, 1, 6);
-        gun16.setRotationPoint(0F, -6.5F, -2F);
-        gun16.setTextureSize(64, 32);
-        gun16.mirror = true;
-        setRotation(gun16, 0F, 0F, 0F);
-        gun17 = new ModelRenderer(this, 0, 0);
-        gun17.addBox(0F, 0F, 0F, 4, 1, 1);
-        gun17.setRotationPoint(-1F, -3.5F, -1.5F);
-        gun17.setTextureSize(64, 32);
-        gun17.mirror = true;
-        setRotation(gun17, 0F, 0F, 0F);
-    }
-
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        gun2.render(f5);
-        gun4.render(f5);
-        gun6.render(f5);
-        gun11.render(f5);
-        gun12.render(f5);
-        gun13.render(f5);
-        gun14.render(f5);
-        gun15.render(f5);
-        gun16.render(f5);
-        gun17.render(f5);
-    }
-
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.rotateAngleX = x;
-        model.rotateAngleY = y;
-        model.rotateAngleZ = z;
-    }
+  
+  public VGrip()
+  {
+    textureWidth = 256;
+    textureHeight = 128;
+    
+      gun2 = new ModelRenderer(this, 0, 0);
+      gun2.addBox(0F, 0F, 0F, 3, 1, 2);
+      gun2.setRotationPoint(-0.5F, -6.5F, 2F);
+      gun2.setTextureSize(64, 32);
+      gun2.mirror = true;
+      setRotation(gun2, 0F, 0F, 0F);
+      gun4 = new ModelRenderer(this, 0, 0);
+      gun4.addBox(0F, 0F, 0F, 3, 1, 2);
+      gun4.setRotationPoint(-0.5F, -6.5F, -4F);
+      gun4.setTextureSize(64, 32);
+      gun4.mirror = true;
+      setRotation(gun4, 0F, 0F, 0F);
+      gun6 = new ModelRenderer(this, 0, 0);
+      gun6.addBox(0F, 0F, 0F, 2, 9, 3);
+      gun6.setRotationPoint(0F, -3.5F, -2.5F);
+      gun6.setTextureSize(64, 32);
+      gun6.mirror = true;
+      setRotation(gun6, 0F, 0F, 0F);
+      gun11 = new ModelRenderer(this, 0, 0);
+      gun11.addBox(0F, 0F, 0F, 3, 11, 2);
+      gun11.setRotationPoint(-0.5F, -4F, -2F);
+      gun11.setTextureSize(64, 32);
+      gun11.mirror = true;
+      setRotation(gun11, 0F, 0F, 0F);
+      gun12 = new ModelRenderer(this, 0, 0);
+      gun12.addBox(0F, 0F, 0F, 2, 4, 2);
+      gun12.setRotationPoint(0F, 3.5F, -2.5F);
+      gun12.setTextureSize(64, 32);
+      gun12.mirror = true;
+      setRotation(gun12, 0F, 0F, 0F);
+      gun13 = new ModelRenderer(this, 0, 0);
+      gun13.addBox(0F, 0F, 0F, 2, 6, 1);
+      gun13.setRotationPoint(0F, -2.5F, -3F);
+      gun13.setTextureSize(64, 32);
+      gun13.mirror = true;
+      setRotation(gun13, 0F, 0F, 0F);
+      gun14 = new ModelRenderer(this, 0, 0);
+      gun14.addBox(0F, 0F, 0F, 2, 1, 4);
+      gun14.setRotationPoint(0F, -4.5F, -3F);
+      gun14.setTextureSize(64, 32);
+      gun14.mirror = true;
+      setRotation(gun14, 0F, 0F, 0F);
+      gun15 = new ModelRenderer(this, 0, 0);
+      gun15.addBox(0F, 0F, 0F, 3, 1, 7);
+      gun15.setRotationPoint(-0.5F, -5.5F, -3.5F);
+      gun15.setTextureSize(64, 32);
+      gun15.mirror = true;
+      setRotation(gun15, 0F, 0F, 0F);
+      gun16 = new ModelRenderer(this, 0, 0);
+      gun16.addBox(0F, 0F, 0F, 2, 1, 6);
+      gun16.setRotationPoint(0F, -6.5F, -2F);
+      gun16.setTextureSize(64, 32);
+      gun16.mirror = true;
+      setRotation(gun16, 0F, 0F, 0F);
+      gun17 = new ModelRenderer(this, 0, 0);
+      gun17.addBox(0F, 0F, 0F, 4, 1, 1);
+      gun17.setRotationPoint(-1F, -3.5F, -1.5F);
+      gun17.setTextureSize(64, 32);
+      gun17.mirror = true;
+      setRotation(gun17, 0F, 0F, 0F);
+  }
+  
+  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+  {
+    super.render(entity, f, f1, f2, f3, f4, f5);
+    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    gun2.render(f5);
+    gun4.render(f5);
+    gun6.render(f5);
+    gun11.render(f5);
+    gun12.render(f5);
+    gun13.render(f5);
+    gun14.render(f5);
+    gun15.render(f5);
+    gun16.render(f5);
+    gun17.render(f5);
+  }
+  
+  private void setRotation(ModelRenderer model, float x, float y, float z)
+  {
+    model.rotateAngleX = x;
+    model.rotateAngleY = y;
+    model.rotateAngleZ = z;
+  }
 
 }

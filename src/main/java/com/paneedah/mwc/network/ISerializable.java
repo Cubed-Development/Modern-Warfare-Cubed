@@ -4,7 +4,7 @@ import io.netty.buffer.ByteBuf;
 
 public interface ISerializable {
 
-    void read(ByteBuf byteBuf);
-
-    void write(ByteBuf byteBuf);
+	void read(ByteBuf byteBuf);
+	
+	void write(ByteBuf byteBuf);
 }

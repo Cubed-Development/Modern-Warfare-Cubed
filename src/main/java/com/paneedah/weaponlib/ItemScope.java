@@ -24,10 +24,10 @@ public class ItemScope extends ItemAttachment<Weapon> {
         private Runnable viewfinderPositioning;
         private int width = DEFAULT_WIDTH;
         private int height = DEFAULT_HEIGHT;
-
-
+        
+        
         public Reticle sniperReticle = new Reticle("holo");
-
+        		
         public CyclicList<Reticle> reticles = new CyclicList<>();
         public ReflexScreen screen;
         private float radialCut = 20f;
@@ -40,55 +40,60 @@ public class ItemScope extends ItemAttachment<Weapon> {
         */
         private Runnable reticlePositioning;
 
-
+        
+        
+        
         public Builder withZoomRange(float minZoom, float maxZoom) {
             this.minZoom = minZoom;
             this.maxZoom = maxZoom;
             return this;
         }
-
+        
         public Builder withRadialCut(float radius) {
-            this.radialCut = radius;
-            return this;
+        	this.radialCut = radius;
+        	return this;
         }
-
+        
         public Builder withSniperReticle(Reticle ret) {
-            this.sniperReticle = ret;
-            return this;
+        	this.sniperReticle = ret;
+        	return this;
         }
 
         public Builder withOpticalZoom() {
             this.isOpticalZoom = true;
             return this;
         }
-
+        
         public Builder withViewfinderSize(int width, int height) {
             this.width = width;
             this.height = height;
             return this;
         }
-
+        
         public Builder withNightVision() {
             this.hasNightVision = true;
             return this;
         }
-
+        
         public Builder withWhitePhosphor() {
-            this.usesWhitePhosphor = true;
-            return this;
+        	this.usesWhitePhosphor = true;
+        	return this;
         }
-
+        
         // reticle
-
-        public Builder withHolographicReticles(Reticle... reticles) {
-            this.reticles.addAll(Arrays.asList(reticles));
-            return this;
+        
+        public Builder withHolographicReticles(Reticle...reticles) {
+        	this.reticles.addAll(Arrays.asList(reticles));
+        	return this;
         }
-
-
+        
+        
+        
+     
+        
         public Builder withReticlePositioning(Runnable reticlePositioning) {
-            this.reticlePositioning = reticlePositioning;
-            return this;
+        	this.reticlePositioning = reticlePositioning;
+        	return this;
         }
 
         public Builder withViewfinderPositioning(Runnable viewfinderPositioning) {
@@ -98,8 +103,8 @@ public class ItemScope extends ItemAttachment<Weapon> {
 
         @Override
         protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
-            if (isOpticalZoom) {
-                if (viewfinderPositioning == null) {
+            if(isOpticalZoom) {
+                if(viewfinderPositioning == null) {
                     viewfinderPositioning = () -> {
                         GL11.glScalef(1.1f, 1.1f, 1.1f);
                         GL11.glTranslatef(0.1f, 0.4f, 0.6f);
@@ -107,10 +112,10 @@ public class ItemScope extends ItemAttachment<Weapon> {
                 }
                 withPostRender(new ScopePerspective(viewfinderPositioning, sniperReticle));
             }
-
-            if (!reticles.isEmpty()) {
-                this.screen = new ReflexScreen(reticlePositioning, radialCut, reticles);
-                withPostRender(this.screen);
+            
+            if(!reticles.isEmpty()) {
+            	this.screen = new ReflexScreen(reticlePositioning, radialCut, reticles);
+            	withPostRender(this.screen);
             }
 
             ItemScope itemScope = new ItemScope(this);
@@ -132,9 +137,9 @@ public class ItemScope extends ItemAttachment<Weapon> {
         }
     }
 
-
+    
     private ModContext modContext;
-    private final Builder builder;
+    private Builder builder;
 
     private ItemScope(Builder builder) {
         super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null,
@@ -145,10 +150,11 @@ public class ItemScope extends ItemAttachment<Weapon> {
     }
 
     public boolean hasReticle() {
-        return !builder.reticles.isEmpty();
+    	return !builder.reticles.isEmpty();
     }
-
-
+    
+   
+    
     public float getMinZoom() {
         return builder.minZoom;
     }
@@ -162,9 +168,9 @@ public class ItemScope extends ItemAttachment<Weapon> {
     }
 
     public boolean usesWhitePhosphor() {
-        return builder.usesWhitePhosphor;
+    	return builder.usesWhitePhosphor;
     }
-
+    
     public boolean hasNightVision() {
         return builder.hasNightVision;
     }
@@ -172,11 +178,11 @@ public class ItemScope extends ItemAttachment<Weapon> {
     public int getWidth() {
         return builder.width;
     }
-
+    
     public void switchReticle() {
-        builder.screen.reticleList.next();
+    	builder.screen.reticleList.next();
     }
-
+    
     public int getHeight() {
         return builder.height;
     }

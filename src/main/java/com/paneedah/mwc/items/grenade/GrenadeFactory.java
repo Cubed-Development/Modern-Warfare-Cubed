@@ -5,5 +5,5 @@ import com.paneedah.weaponlib.grenade.ItemGrenade;
 
 public interface GrenadeFactory {
 
-    ItemGrenade createGrenade(CommonProxy commonProxy);
+	public ItemGrenade createGrenade(CommonProxy commonProxy);
 }

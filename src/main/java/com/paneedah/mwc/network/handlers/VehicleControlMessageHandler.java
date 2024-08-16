@@ -25,15 +25,12 @@ public final class VehicleControlMessageHandler implements IMessageHandler<Vehic
 
             vehicleDataContainer.vehicle = vehicle;
 
-            if (vehicle == null) {
+            if (vehicle == null)
                 return;
-            }
 
             for (EntityPlayer currentPlayer : messageContext.getServerHandler().player.world.playerEntities)
                 if (!(vehicle.getPassengers().isEmpty() || vehicle.getPassengers().get(0) == currentPlayer)) // Check if the current player is a passenger of the vehicle
-                {
                     CHANNEL.sendTo(new VehicleClientMessage(vehicleDataContainer), (EntityPlayerMP) currentPlayer);
-                }
         });
 
         return null;

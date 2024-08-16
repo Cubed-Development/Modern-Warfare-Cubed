@@ -20,9 +20,8 @@ public final class NightVisionToggleMessageHandler implements IMessageHandler<Ni
             final ItemStack helmetStack = messageContext.getServerHandler().player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 
             if (helmetStack.getItem() instanceof CustomArmor && ((CustomArmor) helmetStack.getItem()).hasNightVision()) {
-                if (helmetStack.getTagCompound() == null) {
+                if (helmetStack.getTagCompound() == null)
                     helmetStack.setTagCompound(new NBTTagCompound());
-                }
 
                 final NBTTagCompound tagCompound = helmetStack.getTagCompound();
 

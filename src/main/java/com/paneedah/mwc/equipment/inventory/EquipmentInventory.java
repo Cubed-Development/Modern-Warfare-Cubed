@@ -1,8 +1,8 @@
 package com.paneedah.mwc.equipment.inventory;
 
-import com.paneedah.mwc.network.messages.EntityInventorySyncMessage;
 import com.paneedah.weaponlib.Contextual;
 import com.paneedah.weaponlib.ModContext;
+import com.paneedah.mwc.network.messages.EntityInventorySyncMessage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
@@ -23,9 +23,7 @@ public class EquipmentInventory implements IInventory, Contextual {
 
     private static final int INV_SIZE = 3;
 
-    /**
-     * The key used to store and retrieve the inventory from NBT
-     */
+    /** The key used to store and retrieve the inventory from NBT */
     private static final String TAG_NAME = "equipmentInventory";
 
     /**
@@ -34,19 +32,19 @@ public class EquipmentInventory implements IInventory, Contextual {
      */
     private final String name = "Equipment Inventory";
 
-    private final ItemStack[] inventory;
+    private ItemStack[] inventory;
 
     private ModContext modContext;
-
+    
     private EntityPlayer owner;
 
     public EquipmentInventory() {
         inventory = new ItemStack[INV_SIZE];
-        for (int i = 0; i < inventory.length; i++) {
+        for(int i = 0; i < inventory.length; i++) {
             inventory[i] = new ItemStack(Items.AIR);
         }
     }
-
+    
     public void setOwner(EntityPlayer player) {
         this.owner = player;
     }
@@ -74,7 +72,7 @@ public class EquipmentInventory implements IInventory, Contextual {
         }
         return stack;
     }
-
+    
     @Override
     public boolean hasCustomName() {
         return true;
@@ -120,15 +118,15 @@ public class EquipmentInventory implements IInventory, Contextual {
                 inventory[i] = new ItemStack(Items.AIR);
             }
         }
-
-        if (modContext != null && owner != null && owner.world.isRemote) {
+        
+        if(modContext != null && owner != null && owner.world.isRemote) {
             CHANNEL.sendToServer(new EntityInventorySyncMessage(owner,
                     true, this));
 //            CHANNEL.sendToAll(
 //                    new EntityInventorySyncMessage(owner, this, true));
         }
     }
-
+    
     @Override
     public boolean isUsableByPlayer(EntityPlayer player) {
         return true;
@@ -177,7 +175,7 @@ public class EquipmentInventory implements IInventory, Contextual {
             NBTTagCompound item = tagList.getCompoundTagAt(i);
             byte slot = item.getByte("Slot");
             if (slot >= 0 && slot < getSizeInventory()) {
-                inventory[slot] = new ItemStack(item);
+                inventory[slot] = new ItemStack(item);;
             } else {
 //                System.out.println("Could not find slot " + slot);
             }

@@ -53,21 +53,21 @@ public enum WeaponState implements ManagedState<WeaponState> {
 
     private static final int DEFAULT_PRIORITY = 0;
 
-    private final WeaponState preparingPhase;
-    private final WeaponState permitRequestedPhase;
-    private final WeaponState commitPhase;
-    private final boolean isTransient;
+    private WeaponState preparingPhase;
+    private WeaponState permitRequestedPhase;
+    private WeaponState commitPhase;
+    private boolean isTransient;
     private int priority = DEFAULT_PRIORITY;
 
-    WeaponState() {
+    private WeaponState() {
         this(null, null, null, true);
     }
 
-    WeaponState(int priority) {
+    private WeaponState(int priority) {
         this(priority, null, null, null, true);
     }
 
-    WeaponState(boolean isTransient) {
+    private WeaponState(boolean isTransient) {
         this(null, null, null, isTransient);
     }
 

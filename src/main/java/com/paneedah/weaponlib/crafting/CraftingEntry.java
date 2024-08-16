@@ -19,8 +19,8 @@ import net.minecraft.item.crafting.Ingredient;
  */
 public class CraftingEntry {
 
-    private final Ingredient ingredient;
-    private final int count;
+    private Ingredient ingredient;
+    private int count;
     private String oreDictionary;
 
     private double yield = 1;
@@ -99,18 +99,16 @@ public class CraftingEntry {
 
     @Override
     public String toString() {
-        if (isOreDictionary()) {
+        if (isOreDictionary())
             return "(" + this.oreDictionary + "[" + this.ingredient.toString() + "], " + getCount() + ")";
-        } else {
+        else
             return "(" + this.ingredient.toString() + ", " + getCount() + ")";
-        }
     }
 
     public double getYield() {
-        for (ItemStack stack : this.ingredient.getMatchingStacks())
-            if (stack.getItem() instanceof ManufacturingItemBase && this.yield == 1) {
+        for(ItemStack stack:this.ingredient.getMatchingStacks())
+            if(stack.getItem() instanceof ManufacturingItemBase && this.yield == 1)
                 return ((ManufacturingItemBase) stack.getItem()).getRecoveryChance();
-            }
         return this.yield;
     }
 }

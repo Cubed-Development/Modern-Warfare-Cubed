@@ -15,10 +15,10 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class InventoryTabs {
 
-    private final ArrayList<InventoryTab> tabList = new ArrayList<InventoryTab>();
+    private ArrayList<InventoryTab> tabList = new ArrayList<InventoryTab>();
 
-    private static final InventoryTabs instance = new InventoryTabs();
-
+    private static InventoryTabs instance = new InventoryTabs();
+    
     private InventoryTabs() {}
 
     public static InventoryTabs getInstance() {
@@ -72,14 +72,14 @@ public class InventoryTabs {
         }
     }
 
-
+    
     public void addTabsToList(List<?> buttonList) {
         for (InventoryTab tab : tabList) {
             if (tab.shouldAddToList()) {
-                ((List<Object>) buttonList).add(tab);
+                ((List<Object>)buttonList).add((Object)tab);
             }
         }
     }
 
-
+    
 }

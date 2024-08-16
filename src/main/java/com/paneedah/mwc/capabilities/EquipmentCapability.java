@@ -59,15 +59,13 @@ public class EquipmentCapability implements ICapabilitySerializable<NBTBase> {
 
 
     public static void setInventory(EntityLivingBase entity, EquipmentInventory inventory) {
-        if (entity == null) {
+        if (entity == null)
             return;
-        }
 
         InventoryContainer container = entity.getCapability(capabilityContainer, null);
 
-        if (container != null) {
+        if (container != null)
             container.setInventory(inventory);
-        }
     }
 
     public static void register() {
@@ -75,9 +73,8 @@ public class EquipmentCapability implements ICapabilitySerializable<NBTBase> {
     }
 
     public static EquipmentInventory getInventory(EntityLivingBase entity) {
-        if (entity == null) {
+        if (entity == null)
             return null;
-        }
 
         InventoryContainer container = entity.getCapability(capabilityContainer, null);
         return container != null ? container.getInventory() : null;

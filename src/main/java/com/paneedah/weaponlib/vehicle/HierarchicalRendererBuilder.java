@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.MultipartRenderStateManager;
 import com.paneedah.weaponlib.animation.MultipartTransition;
@@ -43,17 +44,17 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
         protected BiConsumer<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>, PartRenderContext<State>> stateSetter =
                 (stateManager, renderContext) -> {
                     State state = renderContext.getState();
-                    if (state.isContinous()) {
+                    if(state.isContinous()) {
                         stateManager.setContinousState(state, true, false, false);
                     } else {
                         stateManager.setState(state, true, false, true);
                     }
                 };
 
-        //protected Map<State, List<MultipartTransition<SinglePart, PartRenderContext<State>>>> transitions = new HashMap<>();
-        protected Map<State, List<TransitionDescriptor>> transitionDescriptors = new HashMap<>();
+                //protected Map<State, List<MultipartTransition<SinglePart, PartRenderContext<State>>>> transitions = new HashMap<>();
+                protected Map<State, List<TransitionDescriptor>> transitionDescriptors = new HashMap<>();
 
-        protected String textureName = "unknown";
+                protected String textureName = "unknown";        
     }
 
     protected Map<Part, PartConfiguration> partConfigurations = new HashMap<>();
@@ -71,11 +72,10 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
         partConfiguration.modelRenderer = new StatefulRenderer<State>() {
             @Override
             public void render(PartRenderContext<State> context) {
-                model.render(context.getEntity(), context.getLimbSwing(), context.getFlimbSwingAmount(), context.getAgeInTicks(),
+                model.render(context.getEntity(), context.getLimbSwing(), context.getFlimbSwingAmount(), context.getAgeInTicks(), 
                         context.getNetHeadYaw(), context.getHeadPitch(), context.getScale());
-            }
-        };
-        return this;
+            }};
+            return this;
     }
 
     public HierarchicalRendererBuilder<Part, State> withPartModelProvider(Part part, Supplier<ModelBase> modelProvider) {
@@ -113,13 +113,13 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
     public HierarchicalRendererBuilder<Part, State> withContinousStateSetter(State initialState) {
         this.initialState = initialState;
         return this;
-    }
+    } 
 
     public HierarchicalRendererBuilder<Part, State> withPartStateSetter(Part part, BiConsumer<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>, PartRenderContext<State>> stateSetter) {
         PartConfiguration partConfiguration = partConfigurations.computeIfAbsent(part, p -> new PartConfiguration());
         partConfiguration.stateSetter = stateSetter;
         return this;
-    }
+    } 
 
     public HierarchicalRendererBuilder<Part, State> withInitialState(Part part, State initialState) {
         PartConfiguration partConfiguration = partConfigurations.computeIfAbsent(part, p -> new PartConfiguration());
@@ -140,20 +140,21 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
         PartConfiguration partConfiguration = partConfigurations.computeIfAbsent(part, p -> new PartConfiguration());
         List<HierarchicalRendererBuilder<Part, State>.TransitionDescriptor> partStateDescriptors = partConfiguration.transitionDescriptors.computeIfAbsent(state, s -> new ArrayList<>());
         partStateDescriptors.add(new TransitionDescriptor(positionFunction, duration));
-
+        
         //        List<MultipartTransition<SinglePart, PartRenderContext<State>>> singleStateTransitions = partConfiguration.transitions.computeIfAbsent(state, s -> new ArrayList<>());
         //        MultipartTransition<SinglePart, PartRenderContext<State>> mt = new MultipartTransition<>(duration);
         //        mt.withPartPositionFunction(SinglePart.MAIN, positionFunction);
         //        singleStateTransitions.add(mt);
         return this;
     }
+    
+    
 
-
-    public HierarchicalRendererBuilder<Part, State> withPartPosition(Part part,
-                                                                     Consumer<PartRenderContext<State>> positionFunction,
-                                                                     State... states) {
-
-        for (State state : states) {
+    public HierarchicalRendererBuilder<Part, State> withPartPosition( Part part, 
+            Consumer<PartRenderContext<State>> positionFunction, 
+             State...states)  {
+    	
+        for(State state: states) {
             withPartPosition(part, state, positionFunction, DEFAULT_DURATION);
         }
         return this;
@@ -161,11 +162,11 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
 
     protected void prebuild() {}
 
-
+    
     public StatefulRenderer<State> build(ModContext modContext, Part mainPart) {
 
         prebuild();
-
+        
         Map<Part, HierarchicalPartRenderer<Part, State>> partRenderers = new HashMap<>();
 
         partConfigurations.forEach((part, partConfiguration) -> {
@@ -174,10 +175,10 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
 
             partConfiguration.transitionDescriptors.forEach((state, partStateDescriptors) -> {
                 List<MultipartTransition<SinglePart, PartRenderContext<State>>> singleStateTransitions = new ArrayList<>();
-                for (HierarchicalRendererBuilder<Part, State>.TransitionDescriptor descriptor : partStateDescriptors) {
+                for(HierarchicalRendererBuilder<Part, State>.TransitionDescriptor descriptor: partStateDescriptors) {
                     MultipartTransition<SinglePart, PartRenderContext<State>> mt = new MultipartTransition<>(descriptor.duration);
                     mt.withPartPositionFunction(SinglePart.MAIN, descriptor.positionFunction);
-                    singleStateTransitions.add(mt);
+                    singleStateTransitions.add(mt);                    
                 }
                 transitions.put(state, singleStateTransitions);
             });
@@ -189,26 +190,27 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
                     return transitions.get(state);
                 }
             };
-
+            
+            
 
             ResourceLocation textureResource = new ResourceLocation(ID,
-                    "textures/entity/" + partConfiguration.textureName + (partConfiguration.textureName.endsWith(".png") ? "" : ".png"));
+                    "textures/entity/" + partConfiguration.textureName + ( partConfiguration.textureName.endsWith(".png") ? "" : ".png"));
 
-            Supplier<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagerSupplier =
+            Supplier<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagerSupplier = 
                     () -> new MultipartRenderStateManager<>(
                             part.toString(),
-                            partConfiguration.initialState != null ? partConfiguration.initialState : initialState,
-                            transitionProvider,
-                            partConfiguration.currentTimeProvider,
-                            partConfiguration.currentProgressProvider);
+                            partConfiguration.initialState != null ? partConfiguration.initialState : initialState, 
+                                    transitionProvider, 
+                                    partConfiguration.currentTimeProvider, 
+                                    partConfiguration.currentProgressProvider);
 
-            HierarchicalPartRenderer<Part, State> renderer = new HierarchicalPartRenderer<>(part,
-                    partConfiguration.modelRenderer,
-                    textureResource, partRenderers,
-                    stateManagerSupplier,
-                    partConfiguration.stateSetter,
-                    partConfiguration.currentProgressProvider);
-            partRenderers.put(part, renderer);
+                    HierarchicalPartRenderer<Part, State> renderer = new HierarchicalPartRenderer<>(part, 
+                            partConfiguration.modelRenderer, 
+                            textureResource, partRenderers, 
+                            stateManagerSupplier, 
+                            partConfiguration.stateSetter,
+                            partConfiguration.currentProgressProvider);
+                    partRenderers.put(part, renderer);
         });
 
         return partRenderers.get(mainPart);

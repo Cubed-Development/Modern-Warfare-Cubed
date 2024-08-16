@@ -44,11 +44,10 @@ public final class TypeRegistry {
 
         byteBuf.writeLong(uuid.getMostSignificantBits());
         byteBuf.writeLong(uuid.getLeastSignificantBits());
-        if (object.getClass().isEnum()) {
+        if (object.getClass().isEnum())
             byteBuf.writeInt(((Enum<?>) object).ordinal());
-        } else {
+        else
             object.write(byteBuf);
-        }
     }
 
     public <T extends ISerializable> T fromBytes(final ByteBuf byteBuf) {

@@ -31,11 +31,10 @@ public final class PermitMessageServerHandler implements IMessageHandler<PermitM
             playerItemInstance.setPlayer(messageContext.getServerHandler().player);
 
             final BiConsumer<Permit<?>, PlayerItemInstance<?>> evaluator = commonModContext.getPermitManager().getPermitEvaluators().get(permit.getClass());
-            if (evaluator != null) {
+            if (evaluator != null)
                 evaluator.accept(permit, playerItemInstance);
-            } else {
+            else
                 LOG.warn("No evaluator registered for permit {}", permit);
-            }
 
             final PermitMessage message = new PermitMessage(permit, playerItemInstance);
             CHANNEL.sendTo(message, messageContext.getServerHandler().player);

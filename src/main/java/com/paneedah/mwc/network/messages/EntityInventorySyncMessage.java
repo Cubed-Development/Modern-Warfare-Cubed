@@ -21,7 +21,7 @@ public final class EntityInventorySyncMessage implements IMessage {
     private int entityId;
     private boolean excludeEntity;
     private NBTTagCompound inventoryCompound = new NBTTagCompound();
-
+    
     public EntityInventorySyncMessage(final Entity entity, final boolean excludeEntity, final EquipmentInventory inventory) {
         this.entityId = entity.getEntityId();
         this.excludeEntity = excludeEntity;
@@ -35,9 +35,9 @@ public final class EntityInventorySyncMessage implements IMessage {
         entityId = packetBuf.readInt();
         excludeEntity = packetBuf.readBoolean();
         try {
-            inventoryCompound = packetBuf.readCompoundTag();
+            inventoryCompound  = packetBuf.readCompoundTag();
         } catch (IOException ioException) {
-            RED_LOG.printFramedError("Networking", "Failed to read equipment inventory from message", "Equipment inventory won't be synced", ioException.getMessage());
+            RED_LOG.printFramedError("Networking","Failed to read equipment inventory from message", "Equipment inventory won't be synced", ioException.getMessage());
         }
     }
 
@@ -49,17 +49,16 @@ public final class EntityInventorySyncMessage implements IMessage {
         packetBuf.writeBoolean(excludeEntity);
         packetBuf.writeCompoundTag(inventoryCompound);
     }
-
+    
     public EquipmentInventory getInventory() {
         EquipmentInventory inventory = new EquipmentInventory();
 
-        if (inventoryCompound != null) {
+        if(inventoryCompound != null)
             inventory.readFromNBT(inventoryCompound);
-        }
 
         return inventory;
     }
-
+    
     public Entity getEntity(World world) {
         return world.getEntityByID(entityId);
     }

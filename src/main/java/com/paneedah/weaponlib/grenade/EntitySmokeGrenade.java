@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.weaponlib.ModContext;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage.ParticleType;
-import com.paneedah.weaponlib.ModContext;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.entity.EntityLivingBase;
@@ -137,18 +137,18 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onGrenadeUpdate() {
-        if (modContext == null) {
+        if(modContext == null) {
             return;
         }
         long timeRemaining = activationTimestamp + activationDelay + activeDuration - System.currentTimeMillis();
-        if (activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
+        if(activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
             // Do nothing
         } else if (timeRemaining < 0) {
             setDead();
-        } else if (!world.isRemote && timeRemaining <= activeDuration) {
+        } else if(!world.isRemote && timeRemaining <= activeDuration ) {
 
-            double f = 0.4 + Math.sin(Math.PI * (1 - (double) timeRemaining / activeDuration)) * 0.3;
-            if (rand.nextDouble() <= f) {
+            double f = 0.4 + Math.sin(Math.PI * (1 - (double)timeRemaining / activeDuration)) * 0.3;
+            if(rand.nextDouble() <= f) {
                 for (Object o : world.playerEntities) {
                     EntityPlayer player = (EntityPlayer) o;
                     if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
@@ -163,7 +163,7 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onBounce(RayTraceResult movingobjectposition) {
-        if (activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
+        if(activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
             activationDelay = 0;
             activationTimestamp = System.currentTimeMillis();
         } else {
@@ -173,7 +173,7 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onStop() {
-        if (!world.isRemote && itemGrenade != null) {
+        if(!world.isRemote && itemGrenade != null) {
             world.playSound(null, posX, posY, posZ, itemGrenade.getStopAfterThrowingSound(), SoundCategory.BLOCKS, 2f,
                     (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
         }

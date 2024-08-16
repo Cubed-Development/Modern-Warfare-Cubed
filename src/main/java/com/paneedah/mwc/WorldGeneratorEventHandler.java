@@ -20,9 +20,8 @@ public class WorldGeneratorEventHandler implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if (world.provider.getDimension() != 0) {
+        if (world.provider.getDimension() != 0)
             return;
-        }
 
         int x = chunkX * 16;
         int z = chunkZ * 16;

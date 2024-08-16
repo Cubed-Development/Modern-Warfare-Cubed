@@ -29,10 +29,8 @@ public class OreBase extends BlockOre {
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         itemBlock = Item.getItemFromBlock(this);
         //If the block is smelt-able (i.e like gold or iron) then drop the block itself, otherwise drop the designated drop.
-        if (this.smelt) {
-            if (this.drop != null) {
-                LOG.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
-            }
+        if(this.smelt) {
+            if(this.drop != null) LOG.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
             return itemBlock;
         } else {
             return this.drop;
@@ -42,9 +40,7 @@ public class OreBase extends BlockOre {
     @Override
     public int quantityDropped(Random random) {
         int i = 0;
-        if (this.maxDrop - this.minDrop > 0) {
-            i = random.nextInt(this.maxDrop - this.minDrop);
-        }
+        if(this.maxDrop - this.minDrop > 0) i = random.nextInt(this.maxDrop - this.minDrop);
         return this.smelt ? 1 : this.minDrop + i;
     }
 
@@ -56,18 +52,18 @@ public class OreBase extends BlockOre {
         this.drop = item;
     }
 
-    public void isSmeltable(boolean smeltable) {
+    public void isSmeltable(boolean smeltable)  {
         this.smelt = smeltable;
     }
 
     // Random chance between minDrop and maxDrop amounts
-    public void setDropAmount(int minDrop, int maxDrop) {
+    public void setDropAmount(int minDrop, int maxDrop){
         this.minDrop = minDrop;
         this.maxDrop = maxDrop;
     }
 
     //Set amount of dropped items.
-    public void setDropAmount(int dropChance) {
+    public void setDropAmount(int dropChance){
         this.minDrop = dropChance;
         this.maxDrop = dropChance;
     }

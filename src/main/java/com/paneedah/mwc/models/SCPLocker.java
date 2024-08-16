@@ -5,14 +5,19 @@
 // - ZeuX
 
 
+
+
+
+
 package com.paneedah.mwc.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class SCPLocker extends ModelBase {
-    //fields
+public class SCPLocker extends ModelBase
+{
+  //fields
     ModelRenderer locker1;
     ModelRenderer locker2;
     ModelRenderer locker3;
@@ -35,180 +40,184 @@ public class SCPLocker extends ModelBase {
     ModelRenderer locker20;
     ModelRenderer locker21;
     ModelRenderer locker22;
-
-    public SCPLocker() {
-        textureWidth = 256;
-        textureHeight = 256;
-
-        locker1 = new ModelRenderer(this, 0, 0);
-        locker1.addBox(0F, 0F, 0F, 1, 45, 14);
-        locker1.setRotationPoint(-6.5F, -21F, -7F);
-        locker1.setTextureSize(256, 256);
-        locker1.mirror = true;
-        setRotation(locker1, 0F, 0F, 0F);
-        locker2 = new ModelRenderer(this, 0, 0);
-        locker2.addBox(0F, 0F, 0F, 9, 32, 1);
-        locker2.setRotationPoint(-5.5F, -11F, -7.3F);
-        locker2.setTextureSize(256, 256);
-        locker2.mirror = true;
-        setRotation(locker2, 0F, 0F, 0F);
-        locker3 = new ModelRenderer(this, 0, 0);
-        locker3.addBox(0F, 0F, 0F, 1, 9, 1);
-        locker3.setRotationPoint(-5.5F, -20F, -7.3F);
-        locker3.setTextureSize(256, 256);
-        locker3.mirror = true;
-        setRotation(locker3, 0F, 0F, 0F);
-        locker4 = new ModelRenderer(this, 0, 0);
-        locker4.addBox(0F, 0F, 0F, 1, 9, 1);
-        locker4.setRotationPoint(4.5F, -20F, -7.3F);
-        locker4.setTextureSize(256, 256);
-        locker4.mirror = true;
-        setRotation(locker4, 0F, 0F, 0F);
-        locker5 = new ModelRenderer(this, 0, 0);
-        locker5.addBox(0F, 0F, 0F, 9, 1, 1);
-        locker5.setRotationPoint(-4.5F, -20F, -7.3F);
-        locker5.setTextureSize(256, 256);
-        locker5.mirror = true;
-        setRotation(locker5, 0F, 0F, 0F);
-        locker6 = new ModelRenderer(this, 0, 0);
-        locker6.addBox(0F, 0F, 0F, 9, 1, 1);
-        locker6.setRotationPoint(-4.5F, -15.5F, -7.2F);
-        locker6.setTextureSize(256, 256);
-        locker6.mirror = true;
-        setRotation(locker6, 0F, 0F, 0F);
-        locker7 = new ModelRenderer(this, 0, 0);
-        locker7.addBox(0F, 0F, 0F, 1, 45, 14);
-        locker7.setRotationPoint(5.5F, -21F, -7F);
-        locker7.setTextureSize(256, 256);
-        locker7.mirror = true;
-        setRotation(locker7, 0F, 0F, 0F);
-        locker8 = new ModelRenderer(this, 0, 0);
-        locker8.addBox(0F, 0F, 0F, 12, 45, 1);
-        locker8.setRotationPoint(-6.5F, -21F, 6F);
-        locker8.setTextureSize(256, 256);
-        locker8.mirror = true;
-        setRotation(locker8, 0F, 0F, 0F);
-        locker9 = new ModelRenderer(this, 0, 0);
-        locker9.addBox(0F, 0F, 0F, 11, 2, 13);
-        locker9.setRotationPoint(-5.5F, -21.4F, -7F);
-        locker9.setTextureSize(256, 256);
-        locker9.mirror = true;
-        setRotation(locker9, 0F, 0F, 0F);
-        locker10 = new ModelRenderer(this, 0, 0);
-        locker10.addBox(0F, 0F, 0F, 1, 4, 1);
-        locker10.setRotationPoint(-4.5F, -14.5F, -7.2F);
-        locker10.setTextureSize(256, 256);
-        locker10.mirror = true;
-        setRotation(locker10, 0F, 0F, 0F);
-        locker11 = new ModelRenderer(this, 0, 0);
-        locker11.addBox(0F, 0F, 0F, 1, 4, 1);
-        locker11.setRotationPoint(3.5F, -14.5F, -7.2F);
-        locker11.setTextureSize(256, 256);
-        locker11.mirror = true;
-        setRotation(locker11, 0F, 0F, 0F);
-        locker12 = new ModelRenderer(this, 0, 0);
-        locker12.addBox(0F, 0F, 0F, 5, 1, 1);
-        locker12.setRotationPoint(-4.5F, -15.5F, -7.2F);
-        locker12.setTextureSize(256, 256);
-        locker12.mirror = true;
-        setRotation(locker12, 0F, 0F, -1.003822F);
-        locker13 = new ModelRenderer(this, 0, 0);
-        locker13.addBox(-5F, 0F, 0F, 5, 1, 1);
-        locker13.setRotationPoint(4.5F, -15.5F, -7.2F);
-        locker13.setTextureSize(256, 256);
-        locker13.mirror = true;
-        setRotation(locker13, 0F, 0F, 1.003826F);
-        locker14 = new ModelRenderer(this, 0, 0);
-        locker14.addBox(0F, 0F, 0F, 4, 1, 1);
-        locker14.setRotationPoint(-2F, -19.2F, -7.2F);
-        locker14.setTextureSize(256, 256);
-        locker14.mirror = true;
-        setRotation(locker14, 0F, 0F, 0F);
-        locker15 = new ModelRenderer(this, 0, 0);
-        locker15.addBox(0F, 0F, 0F, 11, 3, 1);
-        locker15.setRotationPoint(-5.5F, 21F, -7F);
-        locker15.setTextureSize(256, 256);
-        locker15.mirror = true;
-        setRotation(locker15, 0F, 0F, 0F);
-        locker16 = new ModelRenderer(this, 0, 0);
-        locker16.addBox(0F, 0F, 0F, 2, 11, 1);
-        locker16.setRotationPoint(3.5F, -11F, -7.3F);
-        locker16.setTextureSize(256, 256);
-        locker16.mirror = true;
-        setRotation(locker16, 0F, 0F, 0F);
-        locker17 = new ModelRenderer(this, 0, 0);
-        locker17.addBox(0F, 0F, 0F, 2, 15, 1);
-        locker17.setRotationPoint(3.5F, 6F, -7.3F);
-        locker17.setTextureSize(256, 256);
-        locker17.mirror = true;
-        setRotation(locker17, 0F, 0F, 0F);
-        locker18 = new ModelRenderer(this, 0, 0);
-        locker18.addBox(0F, 0F, 0F, 2, 6, 1);
-        locker18.setRotationPoint(3.5F, 0F, -7.1F);
-        locker18.setTextureSize(256, 256);
-        locker18.mirror = true;
-        setRotation(locker18, 0F, 0F, 0F);
-        locker19 = new ModelRenderer(this, 0, 0);
-        locker19.addBox(0F, 0F, 0F, 1, 1, 1);
-        locker19.setRotationPoint(4F, 0.5F, -7.3F);
-        locker19.setTextureSize(256, 256);
-        locker19.mirror = true;
-        setRotation(locker19, 0F, 0F, 0F);
-        locker20 = new ModelRenderer(this, 0, 70);
-        locker20.addBox(0F, 0F, 0F, 1, 1, 1);
-        locker20.setRotationPoint(4F, 2.5F, -7.2F);
-        locker20.setTextureSize(256, 256);
-        locker20.mirror = true;
-        setRotation(locker20, 0F, 0F, 0F);
-        locker21 = new ModelRenderer(this, 0, 80);
-        locker21.addBox(0F, 0F, 0F, 1, 1, 1);
-        locker21.setRotationPoint(4F, 4.5F, -7.2F);
-        locker21.setTextureSize(256, 256);
-        locker21.mirror = true;
-        setRotation(locker21, 0F, 0F, 0F);
-        locker22 = new ModelRenderer(this, 0, 90);
-        locker22.addBox(0F, 0F, 0F, 9, 8, 1);
-        locker22.setRotationPoint(-4.5F, -19F, -6.3F);
-        locker22.setTextureSize(256, 256);
-        locker22.mirror = true;
-        setRotation(locker22, 0F, 0F, 0F);
-    }
-
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        locker1.render(f5);
-        locker2.render(f5);
-        locker3.render(f5);
-        locker4.render(f5);
-        locker5.render(f5);
-        locker6.render(f5);
-        locker7.render(f5);
-        locker8.render(f5);
-        locker9.render(f5);
-        locker10.render(f5);
-        locker11.render(f5);
-        locker12.render(f5);
-        locker13.render(f5);
-        locker14.render(f5);
-        locker15.render(f5);
-        locker16.render(f5);
-        locker17.render(f5);
-        locker18.render(f5);
-        locker19.render(f5);
-        locker20.render(f5);
-        locker21.render(f5);
-        locker22.render(f5);
-    }
-
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.rotateAngleX = x;
-        model.rotateAngleY = y;
-        model.rotateAngleZ = z;
-    }
-
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    }
+  
+  public SCPLocker()
+  {
+    textureWidth = 256;
+    textureHeight = 256;
+    
+      locker1 = new ModelRenderer(this, 0, 0);
+      locker1.addBox(0F, 0F, 0F, 1, 45, 14);
+      locker1.setRotationPoint(-6.5F, -21F, -7F);
+      locker1.setTextureSize(256, 256);
+      locker1.mirror = true;
+      setRotation(locker1, 0F, 0F, 0F);
+      locker2 = new ModelRenderer(this, 0, 0);
+      locker2.addBox(0F, 0F, 0F, 9, 32, 1);
+      locker2.setRotationPoint(-5.5F, -11F, -7.3F);
+      locker2.setTextureSize(256, 256);
+      locker2.mirror = true;
+      setRotation(locker2, 0F, 0F, 0F);
+      locker3 = new ModelRenderer(this, 0, 0);
+      locker3.addBox(0F, 0F, 0F, 1, 9, 1);
+      locker3.setRotationPoint(-5.5F, -20F, -7.3F);
+      locker3.setTextureSize(256, 256);
+      locker3.mirror = true;
+      setRotation(locker3, 0F, 0F, 0F);
+      locker4 = new ModelRenderer(this, 0, 0);
+      locker4.addBox(0F, 0F, 0F, 1, 9, 1);
+      locker4.setRotationPoint(4.5F, -20F, -7.3F);
+      locker4.setTextureSize(256, 256);
+      locker4.mirror = true;
+      setRotation(locker4, 0F, 0F, 0F);
+      locker5 = new ModelRenderer(this, 0, 0);
+      locker5.addBox(0F, 0F, 0F, 9, 1, 1);
+      locker5.setRotationPoint(-4.5F, -20F, -7.3F);
+      locker5.setTextureSize(256, 256);
+      locker5.mirror = true;
+      setRotation(locker5, 0F, 0F, 0F);
+      locker6 = new ModelRenderer(this, 0, 0);
+      locker6.addBox(0F, 0F, 0F, 9, 1, 1);
+      locker6.setRotationPoint(-4.5F, -15.5F, -7.2F);
+      locker6.setTextureSize(256, 256);
+      locker6.mirror = true;
+      setRotation(locker6, 0F, 0F, 0F);
+      locker7 = new ModelRenderer(this, 0, 0);
+      locker7.addBox(0F, 0F, 0F, 1, 45, 14);
+      locker7.setRotationPoint(5.5F, -21F, -7F);
+      locker7.setTextureSize(256, 256);
+      locker7.mirror = true;
+      setRotation(locker7, 0F, 0F, 0F);
+      locker8 = new ModelRenderer(this, 0, 0);
+      locker8.addBox(0F, 0F, 0F, 12, 45, 1);
+      locker8.setRotationPoint(-6.5F, -21F, 6F);
+      locker8.setTextureSize(256, 256);
+      locker8.mirror = true;
+      setRotation(locker8, 0F, 0F, 0F);
+      locker9 = new ModelRenderer(this, 0, 0);
+      locker9.addBox(0F, 0F, 0F, 11, 2, 13);
+      locker9.setRotationPoint(-5.5F, -21.4F, -7F);
+      locker9.setTextureSize(256, 256);
+      locker9.mirror = true;
+      setRotation(locker9, 0F, 0F, 0F);
+      locker10 = new ModelRenderer(this, 0, 0);
+      locker10.addBox(0F, 0F, 0F, 1, 4, 1);
+      locker10.setRotationPoint(-4.5F, -14.5F, -7.2F);
+      locker10.setTextureSize(256, 256);
+      locker10.mirror = true;
+      setRotation(locker10, 0F, 0F, 0F);
+      locker11 = new ModelRenderer(this, 0, 0);
+      locker11.addBox(0F, 0F, 0F, 1, 4, 1);
+      locker11.setRotationPoint(3.5F, -14.5F, -7.2F);
+      locker11.setTextureSize(256, 256);
+      locker11.mirror = true;
+      setRotation(locker11, 0F, 0F, 0F);
+      locker12 = new ModelRenderer(this, 0, 0);
+      locker12.addBox(0F, 0F, 0F, 5, 1, 1);
+      locker12.setRotationPoint(-4.5F, -15.5F, -7.2F);
+      locker12.setTextureSize(256, 256);
+      locker12.mirror = true;
+      setRotation(locker12, 0F, 0F, -1.003822F);
+      locker13 = new ModelRenderer(this, 0, 0);
+      locker13.addBox(-5F, 0F, 0F, 5, 1, 1);
+      locker13.setRotationPoint(4.5F, -15.5F, -7.2F);
+      locker13.setTextureSize(256, 256);
+      locker13.mirror = true;
+      setRotation(locker13, 0F, 0F, 1.003826F);
+      locker14 = new ModelRenderer(this, 0, 0);
+      locker14.addBox(0F, 0F, 0F, 4, 1, 1);
+      locker14.setRotationPoint(-2F, -19.2F, -7.2F);
+      locker14.setTextureSize(256, 256);
+      locker14.mirror = true;
+      setRotation(locker14, 0F, 0F, 0F);
+      locker15 = new ModelRenderer(this, 0, 0);
+      locker15.addBox(0F, 0F, 0F, 11, 3, 1);
+      locker15.setRotationPoint(-5.5F, 21F, -7F);
+      locker15.setTextureSize(256, 256);
+      locker15.mirror = true;
+      setRotation(locker15, 0F, 0F, 0F);
+      locker16 = new ModelRenderer(this, 0, 0);
+      locker16.addBox(0F, 0F, 0F, 2, 11, 1);
+      locker16.setRotationPoint(3.5F, -11F, -7.3F);
+      locker16.setTextureSize(256, 256);
+      locker16.mirror = true;
+      setRotation(locker16, 0F, 0F, 0F);
+      locker17 = new ModelRenderer(this, 0, 0);
+      locker17.addBox(0F, 0F, 0F, 2, 15, 1);
+      locker17.setRotationPoint(3.5F, 6F, -7.3F);
+      locker17.setTextureSize(256, 256);
+      locker17.mirror = true;
+      setRotation(locker17, 0F, 0F, 0F);
+      locker18 = new ModelRenderer(this, 0, 0);
+      locker18.addBox(0F, 0F, 0F, 2, 6, 1);
+      locker18.setRotationPoint(3.5F, 0F, -7.1F);
+      locker18.setTextureSize(256, 256);
+      locker18.mirror = true;
+      setRotation(locker18, 0F, 0F, 0F);
+      locker19 = new ModelRenderer(this, 0, 0);
+      locker19.addBox(0F, 0F, 0F, 1, 1, 1);
+      locker19.setRotationPoint(4F, 0.5F, -7.3F);
+      locker19.setTextureSize(256, 256);
+      locker19.mirror = true;
+      setRotation(locker19, 0F, 0F, 0F);
+      locker20 = new ModelRenderer(this, 0, 70);
+      locker20.addBox(0F, 0F, 0F, 1, 1, 1);
+      locker20.setRotationPoint(4F, 2.5F, -7.2F);
+      locker20.setTextureSize(256, 256);
+      locker20.mirror = true;
+      setRotation(locker20, 0F, 0F, 0F);
+      locker21 = new ModelRenderer(this, 0, 80);
+      locker21.addBox(0F, 0F, 0F, 1, 1, 1);
+      locker21.setRotationPoint(4F, 4.5F, -7.2F);
+      locker21.setTextureSize(256, 256);
+      locker21.mirror = true;
+      setRotation(locker21, 0F, 0F, 0F);
+      locker22 = new ModelRenderer(this, 0, 90);
+      locker22.addBox(0F, 0F, 0F, 9, 8, 1);
+      locker22.setRotationPoint(-4.5F, -19F, -6.3F);
+      locker22.setTextureSize(256, 256);
+      locker22.mirror = true;
+      setRotation(locker22, 0F, 0F, 0F);
+  }
+  
+  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+  {
+    super.render(entity, f, f1, f2, f3, f4, f5);
+    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    locker1.render(f5);
+    locker2.render(f5);
+    locker3.render(f5);
+    locker4.render(f5);
+    locker5.render(f5);
+    locker6.render(f5);
+    locker7.render(f5);
+    locker8.render(f5);
+    locker9.render(f5);
+    locker10.render(f5);
+    locker11.render(f5);
+    locker12.render(f5);
+    locker13.render(f5);
+    locker14.render(f5);
+    locker15.render(f5);
+    locker16.render(f5);
+    locker17.render(f5);
+    locker18.render(f5);
+    locker19.render(f5);
+    locker20.render(f5);
+    locker21.render(f5);
+    locker22.render(f5);
+  }
+  
+  private void setRotation(ModelRenderer model, float x, float y, float z)
+  {
+    model.rotateAngleX = x;
+    model.rotateAngleY = y;
+    model.rotateAngleZ = z;
+  }
+  
+  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
+  {
+    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+  }
 
 }

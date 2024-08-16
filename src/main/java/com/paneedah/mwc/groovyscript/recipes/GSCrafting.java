@@ -11,12 +11,12 @@ public class GSCrafting implements IModernCraftingRecipe {
     private CraftingEntry[] recipe;
     private CraftingGroup group;
 
-    public GSCrafting(ItemStack output, CraftingGroup group, CraftingEntry... recipe) {
+    public GSCrafting(ItemStack output, CraftingGroup group, CraftingEntry... recipe){
         this.output = output;
         this.group = group;
         this.recipe = recipe;
     }
-
+    
     @Override
     public CraftingEntry[] getModernRecipe() {
         return this.recipe;

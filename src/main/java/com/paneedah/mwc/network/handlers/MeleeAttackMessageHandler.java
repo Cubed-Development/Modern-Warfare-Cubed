@@ -22,9 +22,8 @@ public final class MeleeAttackMessageHandler implements IMessageHandler<MeleeAtt
         NetworkUtil.processMessage(messageContext, () -> {
             final EntityPlayer player = messageContext.getServerHandler().player;
 
-            if (player.getHeldItemMainhand().getItem() instanceof ItemMelee) {
+            if (player.getHeldItemMainhand().getItem() instanceof ItemMelee)
                 meleeAttackAspect.serverAttack(player, meleeAttackMessage.getInstance(), player.world.getEntityByID(meleeAttackMessage.getEntityId()), meleeAttackMessage.isHeavyAttack());
-            }
         });
 
         return null;

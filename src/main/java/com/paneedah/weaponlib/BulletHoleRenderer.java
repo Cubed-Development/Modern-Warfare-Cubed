@@ -22,11 +22,11 @@ public class BulletHoleRenderer {
     private final ArrayList<BulletHole> bulletHoles = new ArrayList<>();
 
     public static class BulletHole {
-        private final Vector3D pos;
+        private Vector3D pos;
         private boolean shouldDie;
-        private final EnumFacing direction;
-        private final double size;
-        private final long timeExisted;
+        private EnumFacing direction;
+        private double size;
+        private long timeExisted;
 
         public BulletHole(Vector3D pos, EnumFacing direction, double size) {
             this.pos = pos;
@@ -56,7 +56,7 @@ public class BulletHoleRenderer {
         BufferBuilder buffer = tessellator.getBuffer();
         GlStateManager.disableCull();
 
-        MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/entity/bullethole.png"));
+         MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/entity/bullethole.png"));
 
         //GL14.glBlendEquation(GL14.GL_FUNC_ADD);
         GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -67,9 +67,8 @@ public class BulletHoleRenderer {
         buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
 
         for (BulletHole hole : holeQueue) {
-            if (System.currentTimeMillis() - hole.timeExisted > 2000) {
+            if (System.currentTimeMillis() - hole.timeExisted > 2000)
                 hole.shouldDie = true;
-            }
 
             switch (hole.direction) {
                 case UP:

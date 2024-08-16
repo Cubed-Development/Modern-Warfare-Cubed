@@ -21,9 +21,8 @@ public class DebugHandler {
             debugScreenLeft.remove(4);
             debugScreenLeft.add(4, "T: " + MC.world.getDebugLoadedEntities());
 
-            if (!debugScreenLeft.get(debugScreenLeft.size() - 1).equals("")) {
+            if (!debugScreenLeft.get(debugScreenLeft.size() - 1).equals(""))
                 debugScreenLeft.add("");
-            }
 
             debugScreenLeft.add(String.format("%s<MWC>%s Modern Warfare Cubed version is %s.", TextFormatting.GOLD, TextFormatting.RESET, VERSION));
             debugScreenLeft.add("");

@@ -11,8 +11,8 @@ import java.util.function.UnaryOperator;
 
 public class TransformingTextureManager extends TextureManager {
 
-    private final TextureManager delegate;
-    private final UnaryOperator<ResourceLocation> locationTransformer;
+    private TextureManager delegate;
+    private UnaryOperator<ResourceLocation> locationTransformer;
 
     public TransformingTextureManager(TextureManager delegate, UnaryOperator<ResourceLocation> locationTransformer) {
         super(null);

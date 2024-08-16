@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BackpackInventory implements IInventory {
-
+    
     private static final String TAG_SLOT_INDEX = "Slot";
     private static final String TAG_SIZE = "size";
 
@@ -31,19 +31,19 @@ public class BackpackInventory implements IInventory {
         this.owner = owner;
         this.name = null;
 
-        final int size = ((ItemBackpack) owner.getItem()).getSize();
+        final int size = ((ItemBackpack)owner.getItem()).getSize();
 
         inventory = new ItemStack[size];
 
-        for (int i = 0; i < inventory.length; i++)
+        for(int i = 0; i < inventory.length; i++)
             inventory[i] = new ItemStack(Items.AIR);
-
+        
         if (!owner.hasTagCompound()) {
             NBTTagCompound storageCompound = new NBTTagCompound();
             storageCompound.setInteger(TAG_SIZE, size);
             owner.setTagCompound(storageCompound);
         }
-
+        
         deserialize(owner.getTagCompound());
     }
 
@@ -68,9 +68,8 @@ public class BackpackInventory implements IInventory {
         if (stack.getCount() > amount) {
             stack = stack.splitStack(amount);
             markDirty(); // Don't forget this line or your inventory will not be saved!
-        } else {
+        } else
             setInventorySlotContents(slot, new ItemStack(Items.AIR)); // This method also calls markDirty, so we don't need to call it again
-        }
 
         return stack;
     }
@@ -79,13 +78,12 @@ public class BackpackInventory implements IInventory {
     public void setInventorySlotContents(int slot, ItemStack stack) {
         inventory[slot] = stack;
 
-        if (stack.getCount() > getInventoryStackLimit()) {
+        if (stack.getCount() > getInventoryStackLimit())
             stack.setCount(getInventoryStackLimit());
-        }
 
         markDirty(); // Don't forget this line or your inventory will not be saved!
     }
-
+    
     @Override
     public String getName() {
         return hasCustomName() ? name : "Inventory Item";
@@ -109,9 +107,8 @@ public class BackpackInventory implements IInventory {
     @Override
     public void markDirty() {
         for (int i = 0; i < getSizeInventory(); ++i)
-            if (getStackInSlot(i).getCount() == 0) {
+            if (getStackInSlot(i).getCount() == 0)
                 inventory[i] = new ItemStack(Items.AIR);
-            }
 
         serialize(owner.getTagCompound());
     }
@@ -130,26 +127,26 @@ public class BackpackInventory implements IInventory {
         NBTTagList items = compound.getTagList("ItemInventory", Constants.NBT.TAG_COMPOUND);
 
         int size = compound.getInteger(TAG_SIZE);
-        if (size >= 0 && items.tagCount() >= 0) {
+        if(size >= 0 && items.tagCount() >= 0) {
             inventory = new ItemStack[size];
-            for (int i = 0; i < size; i++) {
+            for(int i = 0; i < size; i++) {
                 inventory[i] = new ItemStack(Items.AIR);
             }
             for (int i = 0; i < size && i < items.tagCount(); ++i) {
-                NBTTagCompound item = items.getCompoundTagAt(i);
+                NBTTagCompound item = (NBTTagCompound) items.getCompoundTagAt(i);
                 int slot = item.getInteger(TAG_SLOT_INDEX);
 
                 if (slot >= 0 && slot < size) {
-                    inventory[slot] = new ItemStack(item);
+                    inventory[slot] = new ItemStack(item);;
                 }
             }
         }
     }
 
     private void serialize(NBTTagCompound tagcompound) {
-
+        
         tagcompound.setInteger(TAG_SIZE, inventory.length);
-
+        
         NBTTagList items = new NBTTagList();
 
         List<ItemStack> stackInSlots = new ArrayList<>();
@@ -166,7 +163,7 @@ public class BackpackInventory implements IInventory {
                 stackInSlot.writeToNBT(item);
 
                 items.appendTag(item);
-
+                
                 stackInSlots.add(stackInSlot);
             }
         }

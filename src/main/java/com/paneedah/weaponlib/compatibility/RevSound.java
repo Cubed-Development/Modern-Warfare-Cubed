@@ -12,8 +12,8 @@ import java.util.function.Supplier;
 
 @SideOnly(Side.CLIENT)
 public class RevSound extends PositionedSound {
-    private final Supplier<Vector3D> positionProvider;
-    private final EntityVehicle vehicle;
+    private Supplier<Vector3D> positionProvider;
+    private EntityVehicle vehicle;
 
     public RevSound(SoundEvent sound, Supplier<Vector3D> positionProvider, EntityVehicle vehicle) {
         super(sound, SoundCategory.BLOCKS);

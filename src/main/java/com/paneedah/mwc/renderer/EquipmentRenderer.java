@@ -35,9 +35,8 @@ public final class EquipmentRenderer implements LayerRenderer<EntityPlayer> {
     public void doRenderLayer(final @Nonnull EntityPlayer player, final float limbSwing, final float limbSwingAmount, final float partialTicks, final float ageInTicks, final float netHeadYaw, final float headPitch, final float scale) {
         EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(player);
 
-        if (equipmentInventory == null) {
+        if (equipmentInventory == null)
             return;
-        }
 
         final ItemStack backpackSlot = equipmentInventory.getStackInSlot(BACKPACK_SLOT);
         final ItemStack beltSlot = equipmentInventory.getStackInSlot(BELT_SLOT);

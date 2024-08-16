@@ -10,44 +10,39 @@ import net.minecraftforge.items.ItemStackHandler;
 import java.lang.reflect.Method;
 
 public class forjosh {
-
-    public static ItemStackHandler getVMWSlots(EntityPlayer player) {
+	
+	public static ItemStackHandler getVMWSlots(EntityPlayer player)
+    {
         Method m = null;
         try {
             m = ReflectionHelper.findMethod(Class.forName("com.paneedah.mwc.capabilities.EquipmentCapability"), "getInventory", null, EntityLivingBase.class);
-        } catch (Exception e) {
-            return null;
-        }
+        } catch (Exception e) { return null; }
         Object inventory = null;
         try {
             inventory = m.invoke(null, player);
-        } catch (Exception e) {
-            return null;
-        }
+        } catch (Exception e) { return null; }
         ItemStack[] backpack = null;
-        if (inventory != null) {
+        if(inventory != null){
             try {
                 backpack = (ItemStack[]) ReflectionHelper.findField(Class.forName("com.paneedah.mwc.equipment.inventory.EquipmentInventory"), "inventory").get(inventory);
-            } catch (Exception e) {
-                return null;
-            }
+            } catch (Exception e) { return null; }
         }
         ItemStackHandler handler = new ItemStackHandler(2);
         handler.setStackInSlot(0, backpack[0]);
         handler.setStackInSlot(1, backpack[1]);
         return handler;
     }
+	
+	public static byte[] getBytes(ItemStackHandler handler) {
+		ItemStack one = handler.getStackInSlot(0);
+		ItemStack two = handler.getStackInSlot(1);
 
-    public static byte[] getBytes(ItemStackHandler handler) {
-        ItemStack one = handler.getStackInSlot(0);
-        ItemStack two = handler.getStackInSlot(1);
-
-        NBTTagCompound comp = new NBTTagCompound();
-        comp.setTag("firstItem", one.getTagCompound());
-        comp.setTag("secondItem", two.getTagCompound());
-
-        return comp.toString().getBytes();
-    }
-
+		NBTTagCompound comp = new NBTTagCompound();
+		comp.setTag("firstItem", one.getTagCompound());
+		comp.setTag("secondItem", two.getTagCompound());
+		
+		return comp.toString().getBytes();
+	}
+	
 
 }

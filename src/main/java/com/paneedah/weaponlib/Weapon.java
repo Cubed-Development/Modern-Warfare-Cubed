@@ -1,6 +1,9 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.weaponlib.Pair;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
+import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
@@ -12,7 +15,6 @@ import com.paneedah.weaponlib.crafting.*;
 import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
-import dev.redstudio.redcore.utils.DecimalUtils;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -31,42 +33,37 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.ShapedOreRecipe;
-import org.lwjgl.input.Keyboard;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import java.util.Map.Entry;
+import java.util.function.*;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraftingRecipe {
 
-    public enum ShellCasingEjectDirection {LEFT, RIGHT}
-
+    public enum ShellCasingEjectDirection { LEFT, RIGHT };
+    
     public static class ScreenShaking {
-
-        private final float zRotationCoefficient;
+        
+        private float zRotationCoefficient;
 
         public ScreenShaking(float zRotationCoefficient) {
             this.zRotationCoefficient = zRotationCoefficient;
         }
-
+        
         public float getZRotationCoefficient() {
             return zRotationCoefficient;
         }
@@ -82,7 +79,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private static final float DEFAULT_SHELL_CASING_VELOCITY = 0.1f;
         private static final float DEFAULT_SHELL_CASING_GRAVITY_VELOCITY = 0.05f;
         private static final float DEFAULT_SHELL_CASING_INACCURACY = 20f;
-
+       
 
         String name;
         List<String> textureNames = new ArrayList<>();
@@ -90,7 +87,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         float recoil = 1.0F;
 
         private boolean hasFlashPedals = false;
-
+        
         private String shootSound;
         private String silencedShootSound;
         private String reloadSound;
@@ -103,13 +100,14 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private String endOfShootSound;
         private String burstShootSound;
         private String silencedBurstShootSound;
-
+        
         private GunConfigurationGroup configGroup = GunConfigurationGroup.NONE;
-
+        
         private Vec3d muzzlePosition = new Vec3d(-.3, -1.0, -5.3);
 
-
+        
         private String exceededMaxShotsSound;
+        ItemAmmo ammo;
         float fireRate = Weapon.DEFAULT_FIRE_RATE;
         private CreativeTabs creativeTab;
         private WeaponRenderer renderer;
@@ -132,11 +130,14 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         public long reloadingTimeout = Weapon.DEFAULT_RELOADING_TIMEOUT_TICKS;
         long loadIterationTimeout = Weapon.DEFAULT_LOAD_ITERATION_TIMEOUT_TICKS;
 
+        
+
 
         boolean crosshairFullScreen = false;
         boolean crosshairZoomedFullScreen = false;
 
-
+        
+        
         Map<ItemAttachment<Weapon>, CompatibleAttachment<Weapon>> compatibleAttachments = new HashMap<>();
         ModelBase ammoModel;
         String ammoModelTextureName;
@@ -152,13 +153,13 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private float inaccuracy = DEFAULT_INACCURACY;
 
         int pellets = 1;
-
+        
         boolean smokeEnabled = true;
-
+        
         float bleedingCoefficient = 1f;
-
+        
         String explosionParticleTexture;
-
+        
         String smokeParticleTexture;
 
         float flashIntensity = 0.2f;
@@ -179,10 +180,12 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         public int maxBulletsPerReload;
 
+        private Function<ItemStack, List<String>> informationProvider;
+
         private CraftingComplexity craftingComplexity;
 
         private Object[] craftingMaterials;
-
+        
         private String gunType = "LAUNCHER";
 
         private float shellCasingForwardOffset = Weapon.DEFAULT_SHELL_CASING_FORWARD_OFFSET;
@@ -194,9 +197,9 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private float shellCasingSideOffsetAimed = Weapon.DEFAULT_SHELL_CASING_SIDE_OFFSET_AIMED;
 
         public boolean shellCasingEjectEnabled = true;
-
+        
         public RecoilParam recoilParam = new RecoilParam();
-
+        
         private boolean hasIteratedLoad;
 
         private ShellCasingEjectDirection shellCasingEjectDirection = ShellCasingEjectDirection.RIGHT;
@@ -207,63 +210,63 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private CraftingEntry[] modernCraftingRecipe;
         public boolean isOneClickBurstAllowed;
         String flashTexture;
-
-
+        
+        
         private com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type shellType = Type.ASSAULT;
-
-        private final Set<AttachmentCategory> unremovableAttachmentCategories = new HashSet<>();
-        //        private Map<RenderableState, ScreenShaking> screenShakings = new HashMap<>();
-        private final Map<RenderableState, ScreenShakeAnimation.Builder> screenShakingBuilders = new HashMap<>();
-
+        
+        private Set<AttachmentCategory> unremovableAttachmentCategories = new HashSet<>();
+//        private Map<RenderableState, ScreenShaking> screenShakings = new HashMap<>();
+        private Map<RenderableState, ScreenShakeAnimation.Builder> screenShakingBuilders = new HashMap<>();
+        
         private float zoom;
-
-
+        
+        
         protected Pair<Double, Double> screenShakingParameters = new Pair<Double, Double>(100.0, 1.0);
-
+        
         private boolean newSys = false;
-
-        private int[][] guiPositions = new int[][]{{-43, 86}, {97, 96}, {92, 34}, {14, -55}, {164, -26}, {145, 67}, {60, 110}, {0, -50}, {-100, -50}, {-29, 44}, {50, 100}};
+        
+        private int[][] guiPositions = new int[][] {{-43, 86},{97, 96},{92, 34},{14, -55},{164, -26},{145, 67},{60, 110},{0, -50},{-100, -50},{-29, 44},{50, 100}};
 
 
         public Builder() {
             ScreenShakeAnimation.Builder defaultShootingStateScreenShakingBuilder = new ScreenShakeAnimation.Builder()
-                    .withState(ScreenShakingAnimationManager.State.SHOOTING)
-                    .withRotationAttenuation(0.5f)
-                    .withTranslationAttenuation(0.05f)
-                    .withZRotationCoefficient(2f)
-                    .withTransitionDuration(50);
+                .withState(ScreenShakingAnimationManager.State.SHOOTING)
+                .withRotationAttenuation(0.5f)
+                .withTranslationAttenuation(0.05f)
+                .withZRotationCoefficient(2f)
+                .withTransitionDuration(50);
             screenShakingBuilders.put(RenderableState.SHOOTING, defaultShootingStateScreenShakingBuilder);
         }
-
+        
         public Builder withConfigGroup(GunConfigurationGroup group) {
             this.gunType = String.valueOf(group);
-            this.configGroup = group;
-            return this;
+        	this.configGroup = group;
+			return this;
         }
-
+        
         public Builder withWeaponType(String type) {
             this.gunType = type;
             return this;
         }
-
+        
         public String getWeaponType() {
             return this.gunType;
         }
-
-
+        
+        
         public Builder hasGUIPositions(int[][] gp) {
             this.guiPositions = gp;
             return this;
         }
-
+        
         public List<Integer> getMaxShots() {
             return this.maxShots;
         }
-
+        
         public int[][] getGUIPositions() {
             return this.guiPositions;
         }
-
+        
         public float getFirerate() {
             return this.fireRate;
         }
@@ -271,28 +274,34 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         public float getInaccuracy() {
             return this.inaccuracy;
         }
-
+        
         public Builder hasFlashPedals() {
             this.hasFlashPedals = true;
             return this;
         }
-
+        
         public Builder useNewSystem() {
             this.newSys = true;
             return this;
         }
-
+        
         public Builder withShellType(Type type) {
             this.shellType = type;
             return this;
         }
-
+        
         public boolean isUsingNewSystem() {
             return this.newSys;
         }
 
         public Builder withEjectRoundRequired() {
             this.ejectSpentRoundRequired = true;
+            return this;
+        }
+
+        @Deprecated
+        public Builder withInformationProvider(Function<ItemStack, List<String>> informationProvider) {
+            //this.informationProvider = informationProvider;
             return this;
         }
 
@@ -310,7 +319,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.name = name;
             return this;
         }
-
+        
         public Builder withRecoilParam(RecoilParam param) {
             this.recoilParam = param;
             return this;
@@ -325,7 +334,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.maxBulletsPerReload = maxBulletsPerReload;
             return this;
         }
-
+        
         public Builder withIteratedLoad() {
             this.hasIteratedLoad = true;
             return this;
@@ -336,25 +345,32 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
-
+        
         public Builder withZoom(float zoom) {
             this.zoom = zoom;
             return this;
         }
 
+        public Builder withAmmo(ItemAmmo ammo) {
+            this.ammo = ammo;
+            return this;
+        }
+        
 
+
+ 
         public Builder withMaxShots(int... maxShots) {
-            for (int m : maxShots) {
+            for(int m: maxShots) {
                 this.maxShots.add(m);
             }
             return this;
         }
-
+        
         public Builder withOneClickBurst() {
             this.isOneClickBurstAllowed = true;
             return this;
         }
-
+        
         public Builder withBurstTimeout(long burstTimeoutMilliseconds) {
             this.burstTimeoutMilliseconds = burstTimeoutMilliseconds;
             return this;
@@ -400,7 +416,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.crosshairZoomedFullScreen = fullScreen;
             return this;
         }
-
+        
         public Builder withMuzzlePosition(Vec3d pos) {
             this.muzzlePosition = pos;
             return this;
@@ -410,7 +426,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.shootSound = shootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
-
+        
         public Builder withEndOfShootSound(String endOfShootSound) {
             this.endOfShootSound = endOfShootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
@@ -425,12 +441,12 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.silencedShootSound = silencedShootSound.toLowerCase();
             return this;
         }
-
+        
         public Builder withBurstShootSound(String burstShootSound) {
             this.burstShootSound = burstShootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
-
+        
         public Builder withSilencedBurstShootSound(String silencedBurstShootSound) {
             this.silencedBurstShootSound = silencedBurstShootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
@@ -440,22 +456,22 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.reloadSound = reloadSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
-
+        
         public Builder withReloadIterationSound(String reloadIterationSound) {
             this.reloadIterationSound = reloadIterationSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
-
+        
         public Builder withInspectSound(String inspectSound) {
             this.inspectSound = inspectSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
-
+        
         public Builder withDrawSound(String drawSound) {
             this.drawSound = drawSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
-
+        
         public Builder withAllReloadIterationsCompletedSound(String allReloadIterationCompletedSound) {
             this.allReloadIterationsCompletedSound = allReloadIterationCompletedSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
@@ -486,12 +502,12 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
-
+        
         public Builder withSpawnEntityRocketParticles() {
             this.spawnEntityRocketParticles = true;
             return this;
         }
-
+        
         public Builder withSpawnEntityDamage(float spawnEntityDamage) {
             this.spawnEntityDamage = spawnEntityDamage;
             return this;
@@ -506,7 +522,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.spawnEntityExplosionRadius = spawnEntityExplosionRadius;
             return this;
         }
-
+        
         public Builder withDestroyingBlocks(boolean isDestroyingBlocks) {
             this.isDestroyingBlocks = isDestroyingBlocks;
             return this;
@@ -516,22 +532,22 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.spawnEntityGravityVelocity = spawnEntityGravityVelocity;
             return this;
         }
-
+        
         public Builder withSpawnEntityParticleAgeCoefficient(float spawnEntityParticleAgeCoefficient) {
             this.spawnEntityParticleAgeCoefficient = spawnEntityParticleAgeCoefficient;
             return this;
         }
-
+        
         public Builder withSpawnEntitySmokeParticleAgeCoefficient(float spawnEntitySmokeParticleAgeCoefficient) {
             this.spawnEntitySmokeParticleAgeCoefficient = spawnEntitySmokeParticleAgeCoefficient;
             return this;
         }
-
+        
         public Builder withSpawnEntityExplosionParticleScaleCoefficient(float spawnEntityExplosionParticleScaleCoefficient) {
             this.spawnEntityExplosionParticleScaleCoefficient = spawnEntityExplosionParticleScaleCoefficient;
             return this;
         }
-
+        
         public Builder withSpawnEntitySmokeParticleScaleCoefficient(float spawnEntitySmokeParticleScaleCoefficient) {
             this.spawnEntitySmokeParticleScaleCoefficient = spawnEntitySmokeParticleScaleCoefficient;
             return this;
@@ -542,7 +558,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
-
+        
         public Builder withRenderer(WeaponRenderer renderer) {
             //if(FMLCommonHandler.instance().getSide().isServer()) return this;
             this.renderer = renderer;
@@ -553,14 +569,16 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             compatibleAttachments.put(bullet, new CompatibleAttachment<>(bullet, positioner));
             return this;
         }
-
-        public Builder withUnremovableAttachmentCategories(AttachmentCategory... categories) {
-            Collections.addAll(unremovableAttachmentCategories, categories);
+        
+        public Builder withUnremovableAttachmentCategories(AttachmentCategory...categories) {
+            for(AttachmentCategory category: categories) {
+                unremovableAttachmentCategories.add(category);
+            }
             return this;
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, ItemAttachment.ApplyHandler2<Weapon> applyHandler,
-                                                ItemAttachment.ApplyHandler2<Weapon> removeHandler) {
+                ItemAttachment.ApplyHandler2<Weapon> removeHandler) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, applyHandler, removeHandler));
             return this;
         }
@@ -569,7 +587,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, false));
             return this;
         }
-
+        
         public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, Consumer<RenderContext<RenderableState>> positioning, Consumer<ModelBase> modelPositioning, boolean isDefault, boolean isPermanent) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, isDefault, isPermanent));
             return this;
@@ -586,19 +604,19 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, boolean isDefault,
-                                                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
+                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, isDefault));
             return this;
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, boolean isDefault, boolean isPermanent,
-                                                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
+                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, isDefault, isPermanent));
             return this;
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<Weapon> attachment, boolean isDefault,
-                                                Consumer<ModelBase> positioner) {
+                Consumer<ModelBase> positioner) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioner, isDefault));
             return this;
         }
@@ -670,7 +688,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.pellets = pellets;
             return this;
         }
-
+        
         public Builder withSmoke(boolean smokeEnabled) {
             this.smokeEnabled = smokeEnabled;
             return this;
@@ -698,7 +716,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.flashOffsetY = flashOffsetY;
             return this;
         }
-
+        
         public Builder withFlashTexture(String flashTexture) {
             this.flashTexture = ID + ":textures/particle/" + flashTexture.toLowerCase() + ".png";
             return this;
@@ -714,57 +732,58 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
-
+        
         @Deprecated
-        public Builder withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
-            if (craftingComplexity == null) {
+        public Builder withCrafting(CraftingComplexity craftingComplexity, Object...craftingMaterials) {
+            if(craftingComplexity == null) {
                 throw new IllegalArgumentException("Crafting complexity not set");
             }
-            if (craftingMaterials.length < 2) {
+            if(craftingMaterials.length < 2) {
                 throw new IllegalArgumentException("2 or more materials required for crafting");
             }
             this.craftingComplexity = craftingComplexity;
             this.craftingMaterials = craftingMaterials;
             return this;
         }
-
-
+        
+        
+        
         public Builder withTest() {
             return this;
         }
-
-
-        public Builder withModernRecipe(CraftingEntry... itemStacks) {
+        
+        
+        public Builder withModernRecipe(CraftingEntry...itemStacks) {
             this.modernCraftingRecipe = itemStacks;
             return this;
         }
 
-        public Builder withCraftingRecipe(Object... craftingRecipe) {
+        public Builder withCraftingRecipe(Object...craftingRecipe) {
             this.craftingRecipe = craftingRecipe;
             return this;
         }
-
+        
         public Builder withBleedingCoefficient(float bleedingCoefficient) {
             this.bleedingCoefficient = bleedingCoefficient;
             return this;
         }
-
+        
         public Builder withExplosionParticleTexture(String explosionParticleTexture) {
-            if (explosionParticleTexture.endsWith(".png") && explosionParticleTexture.length() > 4) {
+            if(explosionParticleTexture.endsWith(".png") && explosionParticleTexture.length() > 4) {
                 explosionParticleTexture = explosionParticleTexture.substring(0, explosionParticleTexture.length() - 4);
             }
             this.explosionParticleTexture = ID + ":textures/particle/" + explosionParticleTexture.toLowerCase() + ".png";
             return this;
         }
-
+        
         public Builder withSmokeParticleTexture(String smokeParticleTexture) {
-            if (smokeParticleTexture.endsWith(".png") && smokeParticleTexture.length() > 4) {
+            if(smokeParticleTexture.endsWith(".png") && smokeParticleTexture.length() > 4) {
                 smokeParticleTexture = smokeParticleTexture.substring(0, smokeParticleTexture.length() - 4);
             }
             this.smokeParticleTexture = ID + ":textures/particle/" + smokeParticleTexture.toLowerCase() + ".png";
             return this;
         }
-
+        
         public Builder withScreenShaking(RenderableState state, float zRotationCoefficient) {
             ScreenShakeAnimation.Builder defaultShootingStateScreenShakingBuilder = new ScreenShakeAnimation.Builder()
                     .withState(state)
@@ -775,12 +794,12 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             screenShakingBuilders.put(RenderableState.SHOOTING, defaultShootingStateScreenShakingBuilder);
             return this;
         }
-
+        
         public Builder withModernScreenShaking(double intensity, double speedModifier) {
             this.screenShakingParameters = new Pair<Double, Double>(intensity, speedModifier);
             return this;
         }
-
+        
         public Builder withScreenShaking(RenderableState state, float xRotationCoefficient, float yRotationCoefficient, float zRotationCoefficient) {
             ScreenShakeAnimation.Builder defaultShootingStateScreenShakingBuilder = new ScreenShakeAnimation.Builder()
                     .withState(state)
@@ -820,33 +839,34 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 spawnEntityClass = WeaponSpawnEntity.class;
             }
 
-
-            for (ItemSkin skin : CommonRegistry.gunSkins) {
+            
+            for(ItemSkin skin : CommonRegistry.gunSkins) {
                 withCompatibleAttachment(skin, (c) -> {});
             }
-
-
+            
+           
+            
             if (spawnEntityWith == null) {
-
+                
 
                 int explosionParticleTextureId = modContext.registerTexture(explosionParticleTexture);
                 int smokeParticleTextureId = modContext.registerTexture(smokeParticleTexture);
-
-
+                
+               
+                
+                
                 spawnEntityWith = (weapon, player) -> {
 
 
                     double damage = spawnEntityDamage;
-                    if (BalancePackManager.hasActiveBalancePack()) {
-                        if (BalancePackManager.shouldChangeWeaponDamage(weapon)) {
-                            damage = BalancePackManager.getNewWeaponDamage(weapon);
-                        }
-                        damage *= BalancePackManager.getGroupDamageMultiplier(weapon.getConfigurationGroup());
-                        damage *= BalancePackManager.getGlobalDamageMultiplier();
-                    }
+                     if(BalancePackManager.hasActiveBalancePack()) {
+                         if(BalancePackManager.shouldChangeWeaponDamage(weapon)) damage = BalancePackManager.getNewWeaponDamage(weapon);
+                         damage *= BalancePackManager.getGroupDamageMultiplier(weapon.getConfigurationGroup());
+                         damage *= BalancePackManager.getGlobalDamageMultiplier();
+                     }
 
                     // System.out.println(weapon.getName() + " | " + spawnEntityRocketParticles);
-
+                     
                     WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, player.world, player, spawnEntitySpeed,
                             spawnEntityGravityVelocity, inaccuracy, (float) damage, spawnEntityExplosionRadius,
                             isDestroyingBlocks, spawnEntityRocketParticles, spawnEntityParticleAgeCoefficient, spawnEntitySmokeParticleAgeCoefficient,
@@ -863,17 +883,18 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 WeaponSpritesheetBuilder.registerSprite(this.name);
                 this.renderer.name = this.name;
             }
+            
+           
 
-
-            if (shellCasingModel == null) {
+            if(shellCasingModel == null) {
                 shellCasingModel = new Shell();
             }
 
-            if (shellCasingModelTextureName == null) {
+            if(shellCasingModelTextureName == null) {
                 shellCasingModelTextureName = DEFAULT_SHELL_CASING_TEXTURE_NAME;
             }
 
-            if (spawnShellWith == null) {
+            if(spawnShellWith == null) {
                 spawnShellWith = (weaponInstance, player) -> {
                     EntityShellCasing shell = new EntityShellCasing(weaponInstance, player.world, player,
                             DEFAULT_SHELL_CASING_VELOCITY, DEFAULT_SHELL_CASING_GRAVITY_VELOCITY, DEFAULT_SHELL_CASING_INACCURACY);
@@ -898,32 +919,32 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                         world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), true);
                     } else {
                         CHANNEL.sendToAllAround(new BlockHitMessage(position.getBlockPos(), new Vector3F(position.hitVec), position.sideHit), new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100));
-
+                        
                         MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(iBlockState, entity);
-                        if (materialImpactSound != null) {
+                        if(materialImpactSound != null) {
                             world.playSound(null, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), materialImpactSound.getSound(), SoundCategory.BLOCKS, materialImpactSound.getVolume(), 1f);
                         }
                     }
                 };
             }
 
-            if (maxBulletsPerReload == 0) {
+            if(maxBulletsPerReload == 0) {
                 maxBulletsPerReload = ammoCapacity;
             }
 
-            if (maxShots.isEmpty()) {
+            if(maxShots.isEmpty()) {
                 maxShots.add(Integer.MAX_VALUE);
             }
 
             Weapon weapon = new Weapon(this, modContext);
 
             weapon.shootSound = modContext.registerSound(this.shootSound);
-            if (this.endOfShootSound != null) {
+            if(this.endOfShootSound != null) {
                 weapon.endOfShootSound = modContext.registerSound(this.endOfShootSound);
             }
-
+            
             weapon.muzzlePosition = this.muzzlePosition;
-
+            
             weapon.burstShootSound = modContext.registerSound(this.burstShootSound);
             weapon.silencedBurstShootSound = modContext.registerSound(this.silencedBurstShootSound);
 
@@ -936,16 +957,19 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             weapon.unloadSound = modContext.registerSound(this.unloadSound);
             weapon.silencedShootSound = modContext.registerSound(this.silencedShootSound);
 
-            if (ejectSpentRoundSound != null) {
+            if(ejectSpentRoundSound != null) {
                 weapon.ejectSpentRoundSound = modContext.registerSound(this.ejectSpentRoundSound);
             }
 
             weapon.setCreativeTab(creativeTab);
             weapon.setTranslationKey(name);
+            if (ammo != null) {
+                ammo.addCompatibleWeapon(weapon);
+            }
 
             // Add the magic mag
             withCompatibleAttachment(SpecialAttachments.MagicMag, true, (model) -> {});
-
+            
             for (ItemAttachment<Weapon> attachment : this.compatibleAttachments.keySet()) {
 
                 attachment.addCompatibleWeapon(weapon);
@@ -953,23 +977,23 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
             modContext.registerWeapon(name, weapon, renderer);
 
-            if (craftingRecipe != null && craftingRecipe.length >= 2) {
+            if(craftingRecipe != null && craftingRecipe.length >= 2) {
                 ItemStack itemStack = new ItemStack(weapon);
                 List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(weapon, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
-                if (hasOres) {
+                if(hasOres) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
-            } else if (craftingComplexity != null) {
+            } else if(craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                         .withSlotCount(9)
                         .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
 
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(weapon, weapon.getName(), optionsMetadata);
 
-                if (optionsMetadata.hasOres()) {
+                if(optionsMetadata.hasOres()) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
                 } else {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
@@ -979,23 +1003,65 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 noRecipe += 1;
                 //System.err.println("!!!No recipe defined for weapon " + name);
             }
-
+            
             weapon.modernRecipe = modernCraftingRecipe;
+            
+            this.informationProvider = (stack) -> {
+            	TextFormatting plate = TextFormatting.GREEN;
+            	TextFormatting plain = TextFormatting.GRAY;
+            	
+            	ArrayList<String> descriptionBuilder = new ArrayList<>();
+            	
+            	
+            	descriptionBuilder.add(plate + "Type: " + plain + this.gunType);
+            	descriptionBuilder.add(plate + "Damage: " + plain + String.format("%.1f" , (BalancePackManager.getNetGunDamage(weapon))));
+            	descriptionBuilder.add(plate + "Firerate: " + plain + Math.round(BalancePackManager.getFirerate(weapon)*100) + "/100");
+            	
+                
+            	boolean cartridgeDriven = false;
+            	String catridgeName = "";
+            	for(Entry<ItemAttachment<Weapon>, CompatibleAttachment<Weapon>> i : compatibleAttachments.entrySet()) {
+            		if(i.getValue().getAttachment().getCategory() == AttachmentCategory.BULLET) {
+            			cartridgeDriven = true;
+            			catridgeName = new TextComponentTranslation(i.getValue().getAttachment().getTranslationKey() + ".name").getFormattedText();
+            		}
+            	}
+            	
+            	if(!cartridgeDriven) {
+            		descriptionBuilder.add(plate + "Magazines:");
+            		ArrayList<ItemMagazine> mags = new ArrayList<>();
+                    weapon.getCompatibleAttachments(AttachmentCategory.MAGAZINE).forEach(c -> mags.add((ItemMagazine) c.getAttachment()));
+                    mags.sort((a, b) -> a.getCapacity()-b.getCapacity());
+                  
+                    mags.forEach(c -> descriptionBuilder.add(plain + (I18n.format(c.getTranslationKey() + ".name"))));
+                } else {
+                    descriptionBuilder.add(plate + "Cartridge: " + plain + catridgeName);
+                }
 
+
+                //mags.sort((a, b) -> a
+                 
+                 
+              // descriptionBuilder.add(plain + (I18n.format(ca.getAttachment().getTranslationKey() + ".name")));
+
+
+                return descriptionBuilder;
+            };
+
+            
             // Do not register weapons to the registry if they do not
             // have a crafting recipe.
             CraftingRegistry.registerHook(weapon);
 
-            if (FMLCommonHandler.instance().getSide().isClient()) {
+            if (FMLCommonHandler.instance().getSide().isClient())
                 COOKING_QUEUE.add(weapon);
-            }
 
             return weapon;
         }
     }
-
+    
     private CraftingGroup craftingGroup = CraftingGroup.GUN;
-
+    
     public static final int FIREMODE_AUTO = 2;
     public static final int FIREMODE_SINGLE = 0;
     public static final int FIREMODE_BURST = 1;
@@ -1003,10 +1069,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     private static final long DEFAULT_RELOADING_TIMEOUT_TICKS = 10;
     private static final long DEFAULT_UNLOADING_TIMEOUT_TICKS = 10;
     private static final long DEFAULT_LOAD_ITERATION_TIMEOUT_TICKS = 10;
-
+    
     static final long MAX_RELOAD_TIMEOUT_TICKS = 60;
     static final long MAX_UNLOAD_TIMEOUT_TICKS = 60;
-
+    
     private static final long DEFAULT_BURST_TIMEOUT_MILLISECONDS = 150;
 
     public static final float DEFAULT_SHELL_CASING_FORWARD_OFFSET = 0.1f;
@@ -1022,12 +1088,12 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public Builder builder;
 
-    private final ModContext modContext;
+    private ModContext modContext;
 
     private Vec3d muzzlePosition;
-
+    
     private CraftingEntry[] modernRecipe;
-
+    
     private SoundEvent shootSound;
     private SoundEvent endOfShootSound;
     private SoundEvent silencedShootSound;
@@ -1041,7 +1107,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     private SoundEvent burstShootSound;
     private SoundEvent silencedBurstShootSound;
 
-    public enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
+    public static enum State { READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND};
 
     Weapon(Builder builder, ModContext modContext) {
         this.builder = builder;
@@ -1052,8 +1118,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public String getName() {
         return builder.name;
     }
-
-
+    
+    
     @Override
     public CraftingGroup getCraftingGroup() {
         return this.craftingGroup;
@@ -1069,20 +1135,20 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return this.modernRecipe;
         //return CraftingRegistry.getDatabaseRecipe(this);
     }
-
-
+    
+    
     public SoundEvent getShootSound() {
         return shootSound;
     }
-
+    
     public SoundEvent getBurstShootSound() {
         return burstShootSound;
     }
-
+    
     public SoundEvent getSilencedBurstShootSound() {
         return silencedBurstShootSound;
     }
-
+    
     public SoundEvent getEndOfShootSound() {
         return endOfShootSound;
     }
@@ -1094,20 +1160,20 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public SoundEvent getReloadSound() {
         return reloadSound;
     }
-
+    
 
     public SoundEvent getReloadIterationSound() {
         return reloadIterationSound;
     }
-
+    
     public SoundEvent getInspectSound() {
         return inspectSound;
     }
-
+    
     public SoundEvent getDrawSound() {
         return drawSound;
     }
-
+    
     public SoundEvent getAllReloadIterationsCompletedSound() {
         return allReloadIterationsCompletedSound;
     }
@@ -1119,7 +1185,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public SoundEvent getEjectSpentRoundSound() {
         return ejectSpentRoundSound;
     }
-
+    
     public Vec3d getMuzzlePosition() {
         return this.muzzlePosition;
     }
@@ -1132,12 +1198,12 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public void toggleAiming() {
 
         PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
-
-        if (mainHandHeldWeaponInstance != null
+        
+        if(mainHandHeldWeaponInstance != null
                 && (mainHandHeldWeaponInstance.getState() == WeaponState.READY
                 || mainHandHeldWeaponInstance.getState() == WeaponState.PAUSED
                 || mainHandHeldWeaponInstance.getState() == WeaponState.EJECT_REQUIRED)
-        ) {
+                ) {
             mainHandHeldWeaponInstance.setAimed(!mainHandHeldWeaponInstance.isAimed());
         }
     }
@@ -1148,7 +1214,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public void changeRecoil(EntityLivingBase player, float factor) {
         PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
-        if (instance != null) {
+        if(instance != null) {
             float recoil = instance.getWeapon().builder.recoil * factor;
             LOG.debug("Changing recoil to {} for instance {}", recoil, instance);
             instance.setRecoil(recoil);
@@ -1159,31 +1225,31 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return builder.compatibleAttachments;
     }
 
-    public Collection<CompatibleAttachment<? extends AttachmentContainer>> getCompatibleAttachments(AttachmentCategory... categories) {
+    public Collection<CompatibleAttachment<? extends AttachmentContainer>> getCompatibleAttachments(AttachmentCategory...categories) {
         Collection<CompatibleAttachment<Weapon>> c = builder.compatibleAttachments.values();
         List<AttachmentCategory> inputCategoryList = Arrays.asList(categories);
         return c.stream().filter(e -> inputCategoryList.contains(e.getAttachment().getCategory())).collect(Collectors.toList());
     }
 
     String getCrosshair(PlayerWeaponInstance weaponInstance) {
-        if (weaponInstance.isAimed()) {
+        if(weaponInstance.isAimed()) {
             String crosshair = null;
             ItemAttachment<Weapon> scopeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.SCOPE, weaponInstance);
-            if (scopeAttachment != null) {
+            if(scopeAttachment != null) {
                 crosshair = scopeAttachment.getCrosshair();
             }
-            if (crosshair == null) {
+            if(crosshair == null) {
                 crosshair = builder.crosshairZoomed;
             }
             return crosshair;
-        } else if (weaponInstance.getPlayer().isSprinting()) {
+        } else if(weaponInstance.getPlayer().isSprinting()){
             return builder.crosshairRunning;
         }
         return builder.crosshair;
     }
 
     public static boolean isActiveAttachment(PlayerWeaponInstance weaponInstance, ItemAttachment<Weapon> attachment) {
-        return weaponInstance != null && WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance);
+        return weaponInstance != null ? WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance) : false;
     }
 
     @Override
@@ -1227,9 +1293,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 //        if(world.isRemote)
 //            ClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vector3D(position.hitVec.x, position.hitVec.y, position.hitVec.z), position.sideHit, 0.05));
 
-        if (!world.isRemote && builder.blockImpactHandler != null) {
+        if (!world.isRemote && builder.blockImpactHandler != null)
             builder.blockImpactHandler.onImpact(world, player, entity, position);
-        }
     }
 
     @Override
@@ -1248,7 +1313,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public List<ItemMagazine> getCompatibleMagazines() {
         return builder.compatibleAttachments.keySet().stream()
                 .filter(a -> a instanceof ItemMagazine)
-                .map(a -> (ItemMagazine) a)
+                .map(a -> (ItemMagazine)a)
                 .collect(Collectors.toList());
     }
 
@@ -1262,141 +1327,34 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 .map(e -> e.getKey())
                 .collect(Collectors.toList());
     }
-
+    
     @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) { // TODO: Cleanup
-        final TextFormatting green = TextFormatting.GREEN;
-        final TextFormatting grey = TextFormatting.GRAY;
-        final TextFormatting red = TextFormatting.RED;
-        final TextFormatting yellow = TextFormatting.YELLOW;
+    public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        if (tooltip != null) {
+            tooltip.add((builder.newSys ? "§aWeapon System Version: §72" : "§aWeapon System Version: §c1"));
 
-        final PlayerWeaponInstance playerWeaponInstance = Tags.getInstance(itemStack, PlayerWeaponInstance.class);
-
-        final ArrayList<String> tooltipLines = new ArrayList<>();
-
-        // Info
-        tooltipLines.add(green + "Weapon System Version: " + grey + (builder.newSys ? "2" : red + "1"));
-        tooltipLines.add(green + "Type: " + grey + builder.gunType);
-
-        // Stats
-        tooltipLines.add(green + "Base Damage: " + grey + DecimalUtils.truncateDecimalPlaces(BalancePackManager.getNetGunDamage(this), 2));
-        final float firerate = BalancePackManager.getFirerate(this) * 100;
-        tooltipLines.add(green + "Base Firerate: " + grey + Math.round(firerate) + "/100" + " (" + ((int) firerate * 12) + "RPM)");
-
-        // Current attachments, modifications, cartridge or magazine and skin
-        if (itemStack != null) {
-            ArrayList<ItemAttachment> modifications = new ArrayList<>();
-            ArrayList<ItemAttachment> attachments = new ArrayList<>();
-            AtomicReference<ItemBullet> cartridgeRef = new AtomicReference<>();
-            AtomicReference<ItemMagazine> magazineRef = new AtomicReference<>();
-            AtomicReference<ItemSkin> skinRef = new AtomicReference<>();
-
-            this.getActiveAttachments(MC.player, itemStack).forEach(compatibleAttachment -> {
-                final ItemAttachment attachment = compatibleAttachment.getAttachment();
-
-                if (compatibleAttachment.isDefault()) {
-                    return;
-                }
-
-                if (attachment instanceof ItemBullet) {
-                    cartridgeRef.set((ItemBullet) attachment);
-                    return;
-                }
-
-                if (attachment instanceof ItemMagazine) {
-                    magazineRef.set((ItemMagazine) attachment);
-                    return;
-                }
-
-                if (attachment instanceof ItemSkin) {
-                    skinRef.set((ItemSkin) attachment);
-                    return;
-                }
-
-                final AttachmentCategory category = attachment.getCategory();
-
-                if (category == AttachmentCategory.SCOPE || category == AttachmentCategory.SILENCER || category == AttachmentCategory.LASER || category == AttachmentCategory.GRIP) {
-                    attachments.add(attachment);
-                    return;
-                }
-
-                modifications.add(attachment);
-            });
-
-
-            if (!modifications.isEmpty()) {
-                tooltipLines.add(green + "Modifications:");
-                modifications.forEach(c -> tooltipLines.add(grey + (I18n.format(c.getTranslationKey() + ".name"))));
-            }
-
-            if (!attachments.isEmpty()) {
-                tooltipLines.add(green + "Attachments:");
-                attachments.forEach(c -> tooltipLines.add(grey + (I18n.format(c.getTranslationKey() + ".name"))));
-            }
-
-            final ItemBullet cartridge = cartridgeRef.get();
-            final ItemMagazine magazine = magazineRef.get();
-            if (cartridge != null) {
-                tooltipLines.add(green + "Cartridge: " + grey + (I18n.format(cartridge.getTranslationKey() + ".name")) + " (" + playerWeaponInstance.getAmmo() + "/" + playerWeaponInstance.getWeapon().getAmmoCapacity() + ")");
-            } else if (magazine != null) {
-                tooltipLines.add(green + "Magazine: " + grey + (I18n.format(magazine.getTranslationKey() + ".name")) + " (" + playerWeaponInstance.getAmmo() + "/" + magazine.getCapacity() + ")");
-            }
-
-            final ItemAttachment skin = skinRef.get();
-            if (skin != null) {
-                tooltipLines.add(green + "Skin: " + grey + (I18n.format(skin.getTranslationKey() + ".name")));
-            }
+            if(builder.informationProvider != null)
+                tooltip.addAll(builder.informationProvider.apply(itemStack));
         }
-
-        // Compatible cartridge or magazines
-        final ItemBullet compatibleCartridge = getCompatibleAttachments(AttachmentCategory.BULLET).stream().findFirst().map(attachment -> (ItemBullet) attachment.getAttachment()).orElse(null);
-        if (compatibleCartridge == null) {
-            if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-                tooltipLines.add(green + "Compatible Magazines:");
-                final ArrayList<ItemMagazine> compatibleMagazines = new ArrayList<>();
-                getCompatibleAttachments(AttachmentCategory.MAGAZINE).forEach(compatibleAttachment -> compatibleMagazines.add((ItemMagazine) compatibleAttachment.getAttachment()));
-
-                compatibleMagazines.sort(Comparator.comparingInt(ItemMagazine::getCapacity));
-
-                compatibleMagazines.forEach(magazine -> tooltipLines.add(grey + (I18n.format(magazine.getTranslationKey() + ".name"))));
-            } else {
-                tooltipLines.add(yellow + "Press left shift to see compatible magazines");
-            }
-        } else {
-            tooltipLines.add(green + "Compatible Cartridge: " + grey + (I18n.format(compatibleCartridge.getTranslationKey() + ".name")));
-        }
-
-        // Debug
-        if (flagIn.isAdvanced() && playerWeaponInstance != null && itemStack.getTagCompound() != null) {
-            if (Keyboard.isKeyDown(Keyboard.KEY_LCONTROL)) {
-                tooltipLines.add(red + "Logging NBT data, release left control to stop");
-                LOG.info("{} NBT Data (Size {}): {}", playerWeaponInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
-            } else {
-                tooltipLines.add(yellow + "Press left control to log NBT data");
-            }
-        }
-
-        tooltip.addAll(tooltipLines);
     }
 
     @Override
     public void reloadMainHeldItemForPlayer(EntityPlayer player) {
         modContext.getWeaponReloadAspect().reloadMainHeldItem(player);
     }
-
+    
     @Override
     public void unloadMainHeldItemForPlayer(EntityPlayer player) {
         modContext.getWeaponReloadAspect().unloadMainHeldItem(player);
     }
-
+    
     @Override
     public void inspectMainHeldItemForPlayer(EntityPlayer player) {
         modContext.getWeaponReloadAspect().inspectMainHeldItem(player);
     }
 
     @Override
-    public void update(EntityPlayer player) {
+    public void update(EntityPlayer player) {        
         modContext.getWeaponReloadAspect().updateMainHeldItem(player);
         modContext.getWeaponFireAspect().onUpdate(player);
         modContext.getAttachmentAspect().updateMainHeldItem(player);
@@ -1411,17 +1369,17 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     @Override
-    public PlayerWeaponInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
+    public PlayerWeaponInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot){
         PlayerWeaponInstance instance = new PlayerWeaponInstance(slot, player, itemStack);
         //state.setAmmo(Tags.getAmmo(itemStack)); // TODO: get ammo properly
         instance.setState(WeaponState.READY);
-
+    
         instance.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(instance.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(instance.getWeapon()) : builder.recoil);
         instance.setMaxShots(builder.maxShots.get(0));
 
-        for (CompatibleAttachment<Weapon> compatibleAttachment : ((Weapon) itemStack.getItem()).getCompatibleAttachments().values()) {
+        for(CompatibleAttachment<Weapon> compatibleAttachment: ((Weapon) itemStack.getItem()).getCompatibleAttachments().values()) {
             ItemAttachment<Weapon> attachment = compatibleAttachment.getAttachment();
-            if (compatibleAttachment.isDefault() && attachment.getApply2() != null) {
+            if(compatibleAttachment.isDefault() && attachment.getApply2() != null) {
                 attachment.apply2.apply(attachment, instance);
             }
         }
@@ -1442,19 +1400,19 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     void changeFireMode(PlayerWeaponInstance instance) {
         int result;
-
-
+        
+        
         List<Integer> maxShotsList = BalancePackManager.getFiremodeListForWeapon(instance.getWeapon());
-
+        
         Iterator<Integer> it = maxShotsList.iterator();
-        //  Iterator<Integer> it = builder.maxShots.iterator();
-        while (it.hasNext()) {
-            if (instance.getMaxShots() == it.next()) {
+      //  Iterator<Integer> it = builder.maxShots.iterator();
+        while(it.hasNext()) {
+            if(instance.getMaxShots() == it.next()) {
                 break;
             }
         }
-
-        if (it.hasNext()) {
+       
+        if(it.hasNext()) {
             result = it.next();
         } else {
             result = maxShotsList.get(0);
@@ -1462,38 +1420,38 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         instance.setMaxShots(result);
         String message;
-        if (result == 1) {
+        if(result == 1) {
             message = I18n.format("gui.firearmMode.semi");
-        } else if (result == Integer.MAX_VALUE) {
+        } else if(result == Integer.MAX_VALUE) {
             message = I18n.format("gui.firearmMode.auto");
         } else {
             message = I18n.format("gui.firearmMode.burst");
         }
         LOG.debug("Changed fire mode of {} to {}", instance, result);
 
-        if (instance.getPlayer() instanceof EntityPlayer) {
+        if (instance.getPlayer() instanceof EntityPlayer)
             ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.firearmMode", message)), true);
-        }
 
         instance.getPlayer().playSound(modContext.getChangeFireModeSound(), 1, 1);
     }
-
+    
+   
 
     public long getTotalReloadingDuration() {
 
         return builder.renderer.getTotalReloadingDuration();
         //log.debug("Total load duration " + builder.renderer.getTotalReloadingDuration());
-
+        
     }
-
+    
     public long getPrepareFirstLoadIterationAnimationDuration() {
         return builder.renderer.getPrepareFirstLoadIterationAnimationDuration();
     }
-
+    
     public long getAllLoadIterationAnimationsCompletedDuration() {
         return builder.renderer.getAllLoadIterationAnimationsCompletedDuration();
     }
-
+    
     public long getTotalLoadIterationDuration() {
         return builder.renderer.getTotalLoadIterationDuration();
     }
@@ -1501,7 +1459,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public long getTotalUnloadingDuration() {
         return builder.renderer.getTotalUnloadingDuration();
     }
-
+    
     public long getTotalDrawingDuration() {
         return builder.renderer.getTotalDrawingDuration();
     }
@@ -1509,31 +1467,29 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public boolean hasRecoilPositioning() {
         return builder.renderer.hasRecoilPositioning();
     }
-
+    
     /**
      * Only for debugging purposes
-     *
      * @param param
-     *
      * @return
      */
     public void setRecoilParameters(RecoilParam param) {
         this.builder.recoilParam = param;
     }
-
+    
     public RecoilParam getRecoilParameters() {
         return builder.recoilParam;
     }
 
     void incrementZoom(PlayerWeaponInstance instance) {
         Item scopeItem = instance.getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
-        if (scopeItem instanceof ItemScope && ((ItemScope) scopeItem).isOptical()) {
+        if(scopeItem instanceof ItemScope && ((ItemScope) scopeItem).isOptical()) {
             float minZoom = ((ItemScope) scopeItem).getMinZoom();
             float maxZoom = ((ItemScope) scopeItem).getMaxZoom();
             float increment = (minZoom - maxZoom) / 7.5f;
             float zoom = instance.getZoom();
 
-            if (zoom > maxZoom) {
+            if(zoom > maxZoom) {
                 zoom = Math.max(zoom - increment, maxZoom);
             }
 
@@ -1541,9 +1497,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
-            if (instance.getPlayer() instanceof EntityPlayer) {
+            if (instance.getPlayer() instanceof EntityPlayer)
                 ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
-            }
 
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
             LOG.debug("Changed optical zoom to {}", instance.getZoom());
@@ -1554,22 +1509,21 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     void decrementZoom(PlayerWeaponInstance instance) {
         Item scopeItem = instance.getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
-        if (scopeItem instanceof ItemScope && ((ItemScope) scopeItem).isOptical()) {
+        if(scopeItem instanceof ItemScope && ((ItemScope) scopeItem).isOptical()) {
             float minZoom = ((ItemScope) scopeItem).getMinZoom();
             float maxZoom = ((ItemScope) scopeItem).getMaxZoom();
             float increment = (minZoom - maxZoom) / 7.5f;
             float zoom = instance.getZoom();
 
-            if (zoom < minZoom) {
+            if(zoom < minZoom) {
                 zoom = Math.min(zoom + increment, minZoom);
             }
             instance.setZoom(zoom);
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
-            if (instance.getPlayer() instanceof EntityPlayer) {
+            if (instance.getPlayer() instanceof EntityPlayer)
                 ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
-            }
 
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
             LOG.debug("Changed optical zoom to {}", zoom);
@@ -1580,17 +1534,17 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public ItemAttachment.ApplyHandler2<Weapon> getEquivalentHandler(AttachmentCategory attachmentCategory) {
         ItemAttachment.ApplyHandler2<Weapon> handler = (a, i) -> {};
-        switch (attachmentCategory) {
-            case SCOPE:
-                //handler = (a, i) -> {
-                //    //i.setZoom(builder.zoom);
-                //};
-                break;
-            case GRIP:
-                handler = (a, i) -> {
-                    i.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(i.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(i.getWeapon()) : builder.recoil);
-                };
-                break;
+        switch(attachmentCategory) {
+        case SCOPE:
+            //handler = (a, i) -> {
+            //    //i.setZoom(builder.zoom);
+            //};
+            break;
+        case GRIP:
+            handler = (a, i) -> {
+                i.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(i.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(i.getWeapon()) : builder.recoil);
+            };
+            break;
         }
         return handler;
     }
@@ -1614,7 +1568,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public float getShellCasingForwardOffset() {
         return builder.shellCasingForwardOffset;
     }
-
+    
     public Type getShellType() {
         return builder.shellType;
     }
@@ -1642,11 +1596,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public float getShootSoundVolume() {
         return builder.shootSoundVolume;
     }
-
+    
     public boolean hasFlashPedals() {
         return builder.hasFlashPedals;
     }
-
+    
     public GunConfigurationGroup getConfigurationGroup() {
         return builder.configGroup;
     }
@@ -1654,11 +1608,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public boolean hasIteratedLoad() {
         return builder.hasIteratedLoad;
     }
-
+    
     public float getSpawnEntityVelocity() {
         return builder.spawnEntitySpeed;
     }
-
+    
     public float getSpawnEntityGravityVelocity() {
         return builder.spawnEntityGravityVelocity;
     }
@@ -1666,11 +1620,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public float getSpawnEntityDamage() {
         return builder.spawnEntityDamage;
     }
-
+    
     public float getSpawnEntityExplosionRadius() {
         return builder.spawnEntityExplosionRadius;
     }
-
+    
     public float getInaccuracy() {
         return builder.inaccuracy;
     }
@@ -1678,7 +1632,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public boolean isCategoryRemovable(AttachmentCategory category) {
         return !builder.unremovableAttachmentCategories.contains(category);
     }
-
+    
     public float getADSZoom() {
         return builder.zoom;
     }
@@ -1686,23 +1640,23 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public boolean isDestroyingBlocks() {
         return builder.isDestroyingBlocks;
     }
-
+    
     public float getSmokeParticleAgeCoefficient() {
         return builder.spawnEntitySmokeParticleAgeCoefficient;
     }
-
+    
     public float getSmokeParticleScaleCoefficient() {
         return builder.spawnEntitySmokeParticleScaleCoefficient;
     }
-
+    
     public float getParticleAgeCoefficient() {
         return builder.spawnEntityParticleAgeCoefficient;
     }
-
+    
     public float getExplosionScaleCoefficient() {
         return builder.spawnEntityExplosionParticleScaleCoefficient;
     }
-
+    
     public boolean isSmokeEnabled() {
         return builder.smokeEnabled;
     }
@@ -1710,19 +1664,19 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public float getBleedingCoefficient() {
         return builder.bleedingCoefficient;
     }
-
+    
     public boolean hasRocketParticles() {
         return builder.spawnEntityRocketParticles;
     }
-
+    
 //    public ScreenShaking getScreenShaking(RenderableState state) {
 //        return builder.screenShakings.get(state);
 //    }
-
+    
     public Pair<Double, Double> getModernScreenShakeParameters() {
         return this.builder.screenShakingParameters;
     }
-
+    
     public ScreenShakeAnimation.Builder getScreenShakeAnimationBuilder(RenderableState renderableState) {
         return builder.screenShakingBuilders.get(renderableState);
     }

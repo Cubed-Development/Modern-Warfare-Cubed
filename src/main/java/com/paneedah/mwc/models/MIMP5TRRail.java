@@ -5,14 +5,19 @@
 // - ZeuX
 
 
+
+
+
+
 package com.paneedah.mwc.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class MIMP5TRRail extends ModelBase {
-    //fields
+public class MIMP5TRRail extends ModelBase
+{
+  //fields
     ModelRenderer rail1;
     ModelRenderer rail2;
     ModelRenderer rail3;
@@ -36,187 +41,191 @@ public class MIMP5TRRail extends ModelBase {
     ModelRenderer rail21;
     ModelRenderer rail22;
     ModelRenderer rail23;
-
-    public MIMP5TRRail() {
-        textureWidth = 256;
-        textureHeight = 256;
-
-        rail1 = new ModelRenderer(this, 0, 0);
-        rail1.addBox(0F, 0F, 0F, 2, 2, 18);
-        rail1.setRotationPoint(-2.6F, -16.4F, -26F);
-        rail1.setTextureSize(256, 256);
-        rail1.mirror = true;
-        setRotation(rail1, 0F, 0F, 0F);
-        rail2 = new ModelRenderer(this, 0, 0);
-        rail2.addBox(0F, 0F, 0F, 1, 2, 18);
-        rail2.setRotationPoint(-1.4F, -16.4F, -26F);
-        rail2.setTextureSize(256, 256);
-        rail2.mirror = true;
-        setRotation(rail2, 0F, 0F, 0F);
-        rail3 = new ModelRenderer(this, 0, 0);
-        rail3.addBox(0F, 0F, 0F, 1, 1, 18);
-        rail3.setRotationPoint(0.2F, -15.6F, -26F);
-        rail3.setTextureSize(256, 256);
-        rail3.mirror = true;
-        setRotation(rail3, 0F, 0F, 2.082003F);
-        rail4 = new ModelRenderer(this, 0, 0);
-        rail4.addBox(-1F, 0F, 0F, 1, 1, 18);
-        rail4.setRotationPoint(-3.2F, -15.6F, -26F);
-        rail4.setTextureSize(256, 256);
-        rail4.mirror = true;
-        setRotation(rail4, 0F, 0F, -2.082002F);
-        rail5 = new ModelRenderer(this, 0, 0);
-        rail5.addBox(0F, 0F, 0F, 1, 1, 18);
-        rail5.setRotationPoint(-0.8F, -15.6F, -26F);
-        rail5.setTextureSize(256, 256);
-        rail5.mirror = true;
-        setRotation(rail5, 0F, 0F, 0F);
-        rail6 = new ModelRenderer(this, 0, 0);
-        rail6.addBox(0F, 0F, 0F, 1, 1, 7);
-        rail6.setRotationPoint(-3.2F, -15.6F, -26F);
-        rail6.setTextureSize(256, 256);
-        rail6.mirror = true;
-        setRotation(rail6, 0F, 0F, 0F);
-        rail7 = new ModelRenderer(this, 0, 0);
-        rail7.addBox(0F, 0F, 0F, 1, 1, 5);
-        rail7.setRotationPoint(-3.2F, -15.6F, -13F);
-        rail7.setTextureSize(256, 256);
-        rail7.mirror = true;
-        setRotation(rail7, 0F, 0F, 0F);
-        rail8 = new ModelRenderer(this, 0, 0);
-        rail8.addBox(-1F, -0.5F, 0F, 1, 1, 2);
-        rail8.setRotationPoint(-3.2F, -15.6F, -13.5F);
-        rail8.setTextureSize(256, 256);
-        rail8.mirror = true;
-        setRotation(rail8, 0F, 0F, -2.082002F);
-        rail9 = new ModelRenderer(this, 0, 0);
-        rail9.addBox(-1F, -0.5F, 0F, 1, 1, 2);
-        rail9.setRotationPoint(-3.2F, -15.6F, -20.5F);
-        rail9.setTextureSize(256, 256);
-        rail9.mirror = true;
-        setRotation(rail9, 0F, 0F, -2.082002F);
-        rail10 = new ModelRenderer(this, 0, 0);
-        rail10.addBox(0F, 0F, 0F, 1, 1, 6);
-        rail10.setRotationPoint(-3.2F, -15.6F, -19F);
-        rail10.setTextureSize(256, 256);
-        rail10.mirror = true;
-        setRotation(rail10, 0F, 0F, -0.3346075F);
-        rail11 = new ModelRenderer(this, 0, 0);
-        rail11.addBox(0F, -0.5F, 0F, 1, 1, 2);
-        rail11.setRotationPoint(0.2F, -15.6F, -20.5F);
-        rail11.setTextureSize(256, 256);
-        rail11.mirror = true;
-        setRotation(rail11, 0F, 0F, 2.082003F);
-        rail12 = new ModelRenderer(this, 0, 0);
-        rail12.addBox(0F, -0.5F, 0F, 1, 1, 2);
-        rail12.setRotationPoint(0.2F, -15.6F, -13.5F);
-        rail12.setTextureSize(256, 256);
-        rail12.mirror = true;
-        setRotation(rail12, 0F, 0F, 2.082003F);
-        rail13 = new ModelRenderer(this, 0, 0);
-        rail13.addBox(0F, 0F, 0F, 1, 2, 2);
-        rail13.setRotationPoint(-3.65F, -15.35F, -13.5F);
-        rail13.setTextureSize(256, 256);
-        rail13.mirror = true;
-        setRotation(rail13, 0F, 0F, 0F);
-        rail14 = new ModelRenderer(this, 0, 0);
-        rail14.addBox(0F, 0F, 0F, 1, 2, 2);
-        rail14.setRotationPoint(-3.65F, -15.35F, -20.5F);
-        rail14.setTextureSize(256, 256);
-        rail14.mirror = true;
-        setRotation(rail14, 0F, 0F, 0F);
-        rail15 = new ModelRenderer(this, 0, 0);
-        rail15.addBox(0F, 0F, 0F, 1, 2, 2);
-        rail15.setRotationPoint(-0.35F, -15.35F, -20.5F);
-        rail15.setTextureSize(256, 256);
-        rail15.mirror = true;
-        setRotation(rail15, 0F, 0F, 0F);
-        rail16 = new ModelRenderer(this, 0, 0);
-        rail16.addBox(0F, 0F, 0F, 1, 2, 2);
-        rail16.setRotationPoint(-0.35F, -15.35F, -13.5F);
-        rail16.setTextureSize(256, 256);
-        rail16.mirror = true;
-        setRotation(rail16, 0F, 0F, 0F);
-        rail17 = new ModelRenderer(this, 0, 0);
-        rail17.addBox(0F, 0F, 0F, 2, 1, 16);
-        rail17.setRotationPoint(-2.5F, -16.4F, -42F);
-        rail17.setTextureSize(256, 256);
-        rail17.mirror = true;
-        setRotation(rail17, 0F, 0F, 0F);
-        rail18 = new ModelRenderer(this, 0, 0);
-        rail18.addBox(0F, 0F, 0F, 3, 1, 1);
-        rail18.setRotationPoint(-3F, -16.4F, -43F);
-        rail18.setTextureSize(256, 256);
-        rail18.mirror = true;
-        setRotation(rail18, 0F, 0F, 0F);
-        rail19 = new ModelRenderer(this, 0, 0);
-        rail19.addBox(0F, 0F, 0F, 1, 1, 1);
-        rail19.setRotationPoint(-3F, -16.4F, -42F);
-        rail19.setTextureSize(256, 256);
-        rail19.mirror = true;
-        setRotation(rail19, 0F, 0.7853982F, 0F);
-        rail20 = new ModelRenderer(this, 0, 0);
-        rail20.addBox(-1F, 0F, 0F, 1, 1, 1);
-        rail20.setRotationPoint(0F, -16.4F, -42F);
-        rail20.setTextureSize(256, 256);
-        rail20.mirror = true;
-        setRotation(rail20, 0F, -0.7853982F, 0F);
-        rail21 = new ModelRenderer(this, 0, 0);
-        rail21.addBox(0F, 0F, 0F, 1, 1, 4);
-        rail21.setRotationPoint(-2F, -16.5F, -40.5F);
-        rail21.setTextureSize(256, 256);
-        rail21.mirror = true;
-        setRotation(rail21, 0F, 0F, 0F);
-        rail22 = new ModelRenderer(this, 0, 0);
-        rail22.addBox(0F, 0F, 0F, 1, 1, 4);
-        rail22.setRotationPoint(-2F, -16.5F, -35.5F);
-        rail22.setTextureSize(256, 256);
-        rail22.mirror = true;
-        setRotation(rail22, 0F, 0F, 0F);
-        rail23 = new ModelRenderer(this, 0, 0);
-        rail23.addBox(0F, 0F, 0F, 1, 1, 2);
-        rail23.setRotationPoint(-2F, -16.5F, -30.5F);
-        rail23.setTextureSize(256, 256);
-        rail23.mirror = true;
-        setRotation(rail23, 0F, 0F, 0F);
-    }
-
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        rail1.render(f5);
-        rail2.render(f5);
-        rail3.render(f5);
-        rail4.render(f5);
-        rail5.render(f5);
-        rail6.render(f5);
-        rail7.render(f5);
-        rail8.render(f5);
-        rail9.render(f5);
-        rail10.render(f5);
-        rail11.render(f5);
-        rail12.render(f5);
-        rail13.render(f5);
-        rail14.render(f5);
-        rail15.render(f5);
-        rail16.render(f5);
-        rail17.render(f5);
-        rail18.render(f5);
-        rail19.render(f5);
-        rail20.render(f5);
-        rail21.render(f5);
-        rail22.render(f5);
-        rail23.render(f5);
-    }
-
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.rotateAngleX = x;
-        model.rotateAngleY = y;
-        model.rotateAngleZ = z;
-    }
-
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    }
+  
+  public MIMP5TRRail()
+  {
+    textureWidth = 256;
+    textureHeight = 256;
+    
+      rail1 = new ModelRenderer(this, 0, 0);
+      rail1.addBox(0F, 0F, 0F, 2, 2, 18);
+      rail1.setRotationPoint(-2.6F, -16.4F, -26F);
+      rail1.setTextureSize(256, 256);
+      rail1.mirror = true;
+      setRotation(rail1, 0F, 0F, 0F);
+      rail2 = new ModelRenderer(this, 0, 0);
+      rail2.addBox(0F, 0F, 0F, 1, 2, 18);
+      rail2.setRotationPoint(-1.4F, -16.4F, -26F);
+      rail2.setTextureSize(256, 256);
+      rail2.mirror = true;
+      setRotation(rail2, 0F, 0F, 0F);
+      rail3 = new ModelRenderer(this, 0, 0);
+      rail3.addBox(0F, 0F, 0F, 1, 1, 18);
+      rail3.setRotationPoint(0.2F, -15.6F, -26F);
+      rail3.setTextureSize(256, 256);
+      rail3.mirror = true;
+      setRotation(rail3, 0F, 0F, 2.082003F);
+      rail4 = new ModelRenderer(this, 0, 0);
+      rail4.addBox(-1F, 0F, 0F, 1, 1, 18);
+      rail4.setRotationPoint(-3.2F, -15.6F, -26F);
+      rail4.setTextureSize(256, 256);
+      rail4.mirror = true;
+      setRotation(rail4, 0F, 0F, -2.082002F);
+      rail5 = new ModelRenderer(this, 0, 0);
+      rail5.addBox(0F, 0F, 0F, 1, 1, 18);
+      rail5.setRotationPoint(-0.8F, -15.6F, -26F);
+      rail5.setTextureSize(256, 256);
+      rail5.mirror = true;
+      setRotation(rail5, 0F, 0F, 0F);
+      rail6 = new ModelRenderer(this, 0, 0);
+      rail6.addBox(0F, 0F, 0F, 1, 1, 7);
+      rail6.setRotationPoint(-3.2F, -15.6F, -26F);
+      rail6.setTextureSize(256, 256);
+      rail6.mirror = true;
+      setRotation(rail6, 0F, 0F, 0F);
+      rail7 = new ModelRenderer(this, 0, 0);
+      rail7.addBox(0F, 0F, 0F, 1, 1, 5);
+      rail7.setRotationPoint(-3.2F, -15.6F, -13F);
+      rail7.setTextureSize(256, 256);
+      rail7.mirror = true;
+      setRotation(rail7, 0F, 0F, 0F);
+      rail8 = new ModelRenderer(this, 0, 0);
+      rail8.addBox(-1F, -0.5F, 0F, 1, 1, 2);
+      rail8.setRotationPoint(-3.2F, -15.6F, -13.5F);
+      rail8.setTextureSize(256, 256);
+      rail8.mirror = true;
+      setRotation(rail8, 0F, 0F, -2.082002F);
+      rail9 = new ModelRenderer(this, 0, 0);
+      rail9.addBox(-1F, -0.5F, 0F, 1, 1, 2);
+      rail9.setRotationPoint(-3.2F, -15.6F, -20.5F);
+      rail9.setTextureSize(256, 256);
+      rail9.mirror = true;
+      setRotation(rail9, 0F, 0F, -2.082002F);
+      rail10 = new ModelRenderer(this, 0, 0);
+      rail10.addBox(0F, 0F, 0F, 1, 1, 6);
+      rail10.setRotationPoint(-3.2F, -15.6F, -19F);
+      rail10.setTextureSize(256, 256);
+      rail10.mirror = true;
+      setRotation(rail10, 0F, 0F, -0.3346075F);
+      rail11 = new ModelRenderer(this, 0, 0);
+      rail11.addBox(0F, -0.5F, 0F, 1, 1, 2);
+      rail11.setRotationPoint(0.2F, -15.6F, -20.5F);
+      rail11.setTextureSize(256, 256);
+      rail11.mirror = true;
+      setRotation(rail11, 0F, 0F, 2.082003F);
+      rail12 = new ModelRenderer(this, 0, 0);
+      rail12.addBox(0F, -0.5F, 0F, 1, 1, 2);
+      rail12.setRotationPoint(0.2F, -15.6F, -13.5F);
+      rail12.setTextureSize(256, 256);
+      rail12.mirror = true;
+      setRotation(rail12, 0F, 0F, 2.082003F);
+      rail13 = new ModelRenderer(this, 0, 0);
+      rail13.addBox(0F, 0F, 0F, 1, 2, 2);
+      rail13.setRotationPoint(-3.65F, -15.35F, -13.5F);
+      rail13.setTextureSize(256, 256);
+      rail13.mirror = true;
+      setRotation(rail13, 0F, 0F, 0F);
+      rail14 = new ModelRenderer(this, 0, 0);
+      rail14.addBox(0F, 0F, 0F, 1, 2, 2);
+      rail14.setRotationPoint(-3.65F, -15.35F, -20.5F);
+      rail14.setTextureSize(256, 256);
+      rail14.mirror = true;
+      setRotation(rail14, 0F, 0F, 0F);
+      rail15 = new ModelRenderer(this, 0, 0);
+      rail15.addBox(0F, 0F, 0F, 1, 2, 2);
+      rail15.setRotationPoint(-0.35F, -15.35F, -20.5F);
+      rail15.setTextureSize(256, 256);
+      rail15.mirror = true;
+      setRotation(rail15, 0F, 0F, 0F);
+      rail16 = new ModelRenderer(this, 0, 0);
+      rail16.addBox(0F, 0F, 0F, 1, 2, 2);
+      rail16.setRotationPoint(-0.35F, -15.35F, -13.5F);
+      rail16.setTextureSize(256, 256);
+      rail16.mirror = true;
+      setRotation(rail16, 0F, 0F, 0F);
+      rail17 = new ModelRenderer(this, 0, 0);
+      rail17.addBox(0F, 0F, 0F, 2, 1, 16);
+      rail17.setRotationPoint(-2.5F, -16.4F, -42F);
+      rail17.setTextureSize(256, 256);
+      rail17.mirror = true;
+      setRotation(rail17, 0F, 0F, 0F);
+      rail18 = new ModelRenderer(this, 0, 0);
+      rail18.addBox(0F, 0F, 0F, 3, 1, 1);
+      rail18.setRotationPoint(-3F, -16.4F, -43F);
+      rail18.setTextureSize(256, 256);
+      rail18.mirror = true;
+      setRotation(rail18, 0F, 0F, 0F);
+      rail19 = new ModelRenderer(this, 0, 0);
+      rail19.addBox(0F, 0F, 0F, 1, 1, 1);
+      rail19.setRotationPoint(-3F, -16.4F, -42F);
+      rail19.setTextureSize(256, 256);
+      rail19.mirror = true;
+      setRotation(rail19, 0F, 0.7853982F, 0F);
+      rail20 = new ModelRenderer(this, 0, 0);
+      rail20.addBox(-1F, 0F, 0F, 1, 1, 1);
+      rail20.setRotationPoint(0F, -16.4F, -42F);
+      rail20.setTextureSize(256, 256);
+      rail20.mirror = true;
+      setRotation(rail20, 0F, -0.7853982F, 0F);
+      rail21 = new ModelRenderer(this, 0, 0);
+      rail21.addBox(0F, 0F, 0F, 1, 1, 4);
+      rail21.setRotationPoint(-2F, -16.5F, -40.5F);
+      rail21.setTextureSize(256, 256);
+      rail21.mirror = true;
+      setRotation(rail21, 0F, 0F, 0F);
+      rail22 = new ModelRenderer(this, 0, 0);
+      rail22.addBox(0F, 0F, 0F, 1, 1, 4);
+      rail22.setRotationPoint(-2F, -16.5F, -35.5F);
+      rail22.setTextureSize(256, 256);
+      rail22.mirror = true;
+      setRotation(rail22, 0F, 0F, 0F);
+      rail23 = new ModelRenderer(this, 0, 0);
+      rail23.addBox(0F, 0F, 0F, 1, 1, 2);
+      rail23.setRotationPoint(-2F, -16.5F, -30.5F);
+      rail23.setTextureSize(256, 256);
+      rail23.mirror = true;
+      setRotation(rail23, 0F, 0F, 0F);
+  }
+  
+  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+  {
+    super.render(entity, f, f1, f2, f3, f4, f5);
+    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    rail1.render(f5);
+    rail2.render(f5);
+    rail3.render(f5);
+    rail4.render(f5);
+    rail5.render(f5);
+    rail6.render(f5);
+    rail7.render(f5);
+    rail8.render(f5);
+    rail9.render(f5);
+    rail10.render(f5);
+    rail11.render(f5);
+    rail12.render(f5);
+    rail13.render(f5);
+    rail14.render(f5);
+    rail15.render(f5);
+    rail16.render(f5);
+    rail17.render(f5);
+    rail18.render(f5);
+    rail19.render(f5);
+    rail20.render(f5);
+    rail21.render(f5);
+    rail22.render(f5);
+    rail23.render(f5);
+  }
+  
+  private void setRotation(ModelRenderer model, float x, float y, float z)
+  {
+    model.rotateAngleX = x;
+    model.rotateAngleY = y;
+    model.rotateAngleZ = z;
+  }
+  
+  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
+  {
+    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+  }
 
 }

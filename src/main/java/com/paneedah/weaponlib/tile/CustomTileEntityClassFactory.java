@@ -13,8 +13,8 @@ public class CustomTileEntityClassFactory implements Opcodes {
 
     private static class EntityClassLoader extends ClassLoader {
 
-        private final byte[] rawClassBytes;
-        private final String className;
+        private byte[] rawClassBytes;
+        private String className;
 
         public EntityClassLoader(String className, byte[] classBytes, ClassLoader parentClassLoader) {
             super(parentClassLoader);
@@ -31,22 +31,22 @@ public class CustomTileEntityClassFactory implements Opcodes {
         }
     }
 
-    private static final CustomTileEntityClassFactory instance = new CustomTileEntityClassFactory();
-
+    private static CustomTileEntityClassFactory instance = new CustomTileEntityClassFactory();
+    
     public static CustomTileEntityClassFactory getInstance() {
         return instance;
     }
-
-    private final Map<Class<?>, CustomTileEntityConfiguration<?>> entityConfigurations = new HashMap<>();
-
-
+        
+    private Map<Class<?>, CustomTileEntityConfiguration<?>> entityConfigurations = new HashMap<>();
+    
+    
     public <T extends TileEntity> Class<? extends T> generateEntitySubclass(Class<T> baseEntityClass,
-                                                                            int entityId,
-                                                                            CustomTileEntityConfiguration<?> configuration) {
+            int entityId,
+            CustomTileEntityConfiguration<?> configuration) {
         String generatedClassName = baseEntityClass.getName() + entityId;
         Class<? extends T> generatedClass;
         try {
-            generatedClass = (Class<? extends T>) new EntityClassLoader(generatedClassName,
+            generatedClass = (Class<? extends T>) new EntityClassLoader(generatedClassName, 
                     generateClassBytecode(generatedClassName, baseEntityClass),
                     baseEntityClass.getClassLoader()).loadClass(generatedClassName);
         } catch (ClassNotFoundException e) {
@@ -55,7 +55,7 @@ public class CustomTileEntityClassFactory implements Opcodes {
         entityConfigurations.put(generatedClass, configuration);
         return generatedClass;
     }
-
+    
     public CustomTileEntityConfiguration<?> getConfiguration(Class<?> entityClass) {
         return entityConfigurations.get(entityClass);
     }

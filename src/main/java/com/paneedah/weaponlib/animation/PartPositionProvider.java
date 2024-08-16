@@ -4,12 +4,12 @@ import org.lwjgl.util.vector.Matrix4f;
 
 public interface PartPositionProvider {
 
-    Matrix4f getPartPosition(Object part);
-
-    default void setProgress(float progress) {
+    public Matrix4f getPartPosition(Object part);
+    
+    public default void setProgress(float progress) {
     }
 
-    default float getProgress() {
+    public default float getProgress() {
         return 0f;
     }
 }

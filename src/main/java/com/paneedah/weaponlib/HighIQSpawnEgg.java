@@ -10,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -26,170 +27,168 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
-    private CraftingEntry[] modernRecipe;
-    private CraftingGroup craftGroup;
+	private CraftingEntry[] modernRecipe;
+	private CraftingGroup craftGroup;
 
-    public static class Builder {
+	public static class Builder {
 
-        private String entitySpawnName;
-        private Predicate<Block> blockPredicate;
-        private String registryName;
-        private CreativeTabs creativeTab;
-        private int id;
+		private String entitySpawnName;
+		private Predicate<Block> blockPredicate;
+		private String registryName;
+		private CreativeTabs creativeTab;
+		private int id;
 
-        public Builder withEntitySpawnName(String name) {
-            this.entitySpawnName = name;
-            return this;
-        }
+		public Builder withEntitySpawnName(String name) {
+			this.entitySpawnName = name;
+			return this;
+		}
 
-        public Builder withBlockPredicate(Predicate<Block> predicate) {
-            this.blockPredicate = predicate;
-            return this;
-        }
+		public Builder withBlockPredicate(Predicate<Block> predicate) {
+			this.blockPredicate = predicate;
+			return this;
+		}
 
-        public Builder withItemName(String name) {
-            this.registryName = name;
-            return this;
-        }
+		public Builder withItemName(String name) {
+			this.registryName = name;
+			return this;
+		}
 
-        public Builder withCreativeTab(CreativeTabs tab) {
-            this.creativeTab = tab;
-            return this;
-        }
+		public Builder withCreativeTab(CreativeTabs tab) {
+			this.creativeTab = tab;
+			return this;
+		}
 
-        public HighIQSpawnEgg build() {
+		public HighIQSpawnEgg build() {
 
-            HighIQSpawnEgg egg = new HighIQSpawnEgg();
+			HighIQSpawnEgg egg = new HighIQSpawnEgg();
 
-            egg.setBlockPredicate(this.blockPredicate);
-            egg.setEntitySpawnName(this.entitySpawnName);
-            egg.setCreativeTab(this.creativeTab);
-            egg.setTranslationKey(this.registryName);
-            egg.setRegistryName(ID, this.registryName);
-            egg.setID(this.id);
+			egg.setBlockPredicate(this.blockPredicate);
+			egg.setEntitySpawnName(this.entitySpawnName);
+			egg.setCreativeTab(this.creativeTab);
+			egg.setTranslationKey(this.registryName);
+			egg.setRegistryName(ID, this.registryName);
+			egg.setID(this.id);
 
-            SecondaryEntityRegistry.pickupMap.put(this.id, egg);
+			SecondaryEntityRegistry.pickupMap.put(this.id, egg);
 
-            CraftingRegistry.registerHook(egg);
+			CraftingRegistry.registerHook(egg);
 
-            ForgeRegistries.ITEMS.register(egg);
+			ForgeRegistries.ITEMS.register(egg);
+			
+			ModelRegistryServerInterchange.ITEM_MODEL_REG.add(egg);
 
-            ModelRegistryServerInterchange.ITEM_MODEL_REG.add(egg);
+			return egg;
+		}
 
-            return egg;
-        }
+		public Builder withID(int i) {
+			this.id = i;
+			return this;
+		}
 
-        public Builder withID(int i) {
-            this.id = i;
-            return this;
-        }
+	}
 
-    }
+	private String entitySpawnName;
+	private Predicate<Block> blockPredicate;
+	private int spawnID;
 
-    private String entitySpawnName;
-    private Predicate<Block> blockPredicate;
-    private int spawnID;
+	public HighIQSpawnEgg() {
 
-    public HighIQSpawnEgg() {
+	}
 
-    }
+	public int getID() {
+		return this.spawnID;
+	}
 
-    public int getID() {
-        return this.spawnID;
-    }
+	public void setID(int i) {
+		this.spawnID = i;
+	}
 
-    public void setID(int i) {
-        this.spawnID = i;
-    }
+	public String getEntitySpawnName() {
+		return entitySpawnName;
+	}
 
-    public String getEntitySpawnName() {
-        return entitySpawnName;
-    }
+	public void setEntitySpawnName(String entitySpawnName) {
+		this.entitySpawnName = entitySpawnName;
+	}
 
-    public void setEntitySpawnName(String entitySpawnName) {
-        this.entitySpawnName = entitySpawnName;
-    }
+	public Predicate<Block> getBlockPredicate() {
+		return blockPredicate;
+	}
 
-    public Predicate<Block> getBlockPredicate() {
-        return blockPredicate;
-    }
+	public void setBlockPredicate(Predicate<Block> blockPredicate) {
+		this.blockPredicate = blockPredicate;
+	}
 
-    public void setBlockPredicate(Predicate<Block> blockPredicate) {
-        this.blockPredicate = blockPredicate;
-    }
-
-    @Override
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
-                                      EnumFacing facing, float hitX, float hitY, float hitZ) {
+	@Override
+	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
+			EnumFacing facing, float hitX, float hitY, float hitZ) {
 
 
-        if (hand == EnumHand.OFF_HAND) {
-            return EnumActionResult.FAIL;
-        }
+		if (hand == EnumHand.OFF_HAND)
+			return EnumActionResult.FAIL;
 
-        try {
+		try {
+			
+			//System.out.println(worldIn.getBlockState(pos).getBlock());
+			
+			if (!blockPredicate.test(worldIn.getBlockState(pos).getBlock()))
+				return EnumActionResult.FAIL;
 
-            //System.out.println(worldIn.getBlockState(pos).getBlock());
+			try {
+				if (!worldIn.isRemote) {
+					// Entity entity =
+					// SecondaryEntityRegistry.map.get(getEntitySpawnName()).getConstructor(World.class).newInstance(worldIn);
 
-            if (!blockPredicate.test(worldIn.getBlockState(pos).getBlock())) {
-                return EnumActionResult.FAIL;
-            }
+					NBTTagCompound btc = new NBTTagCompound();
+					btc.setString("id", ID + ":" + getEntitySpawnName());
+					Entity entity = AnvilChunkLoader.readWorldEntityPos(btc, worldIn, pos.getX() + 0.5, pos.up().getY(),
+							pos.getZ() + 0.5, true);
 
-            try {
-                if (!worldIn.isRemote) {
-                    // Entity entity =
-                    // SecondaryEntityRegistry.map.get(getEntitySpawnName()).getConstructor(World.class).newInstance(worldIn);
+					entity.setPosition(pos.getX() + 0.5, pos.up().getY(), pos.getZ() + 0.5);
+					
+					if (entity instanceof EntityLiving) {
+						((EntityLiving) entity).onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(entity)),
+								(IEntityLivingData) null);
+					}
 
-                    NBTTagCompound btc = new NBTTagCompound();
-                    btc.setString("id", ID + ":" + getEntitySpawnName());
-                    Entity entity = AnvilChunkLoader.readWorldEntityPos(btc, worldIn, pos.getX() + 0.5, pos.up().getY(),
-                            pos.getZ() + 0.5, true);
+				}
+				player.getHeldItemMainhand().shrink(1);
 
-                    entity.setPosition(pos.getX() + 0.5, pos.up().getY(), pos.getZ() + 0.5);
+				return EnumActionResult.SUCCESS;
+			} catch (Exception e) {
+				System.err.println("Unable to spawn entity with name: " + getEntitySpawnName());
+			}
 
-                    if (entity instanceof EntityLiving) {
-                        ((EntityLiving) entity).onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(entity)),
-                                null);
-                    }
+			return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return EnumActionResult.PASS;
+		}
 
-                }
-                player.getHeldItemMainhand().shrink(1);
+	}
 
-                return EnumActionResult.SUCCESS;
-            } catch (Exception e) {
-                System.err.println("Unable to spawn entity with name: " + getEntitySpawnName());
-            }
+	@Override
+	public CraftingEntry[] getModernRecipe() {
+		return this.modernRecipe;
+	}
 
-            return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return EnumActionResult.PASS;
-        }
+	@Override
+	public ItemStack getItemStack() {
+		return new ItemStack(this);
+	}
 
-    }
+	@Override
+	public CraftingGroup getCraftingGroup() {
+		return this.craftGroup;
+	}
 
-    @Override
-    public CraftingEntry[] getModernRecipe() {
-        return this.modernRecipe;
-    }
+	@Override
+	public void setCraftingRecipe(CraftingEntry[] recipe) {
+		this.modernRecipe = recipe;
+	}
 
-    @Override
-    public ItemStack getItemStack() {
-        return new ItemStack(this);
-    }
-
-    @Override
-    public CraftingGroup getCraftingGroup() {
-        return this.craftGroup;
-    }
-
-    @Override
-    public void setCraftingRecipe(CraftingEntry[] recipe) {
-        this.modernRecipe = recipe;
-    }
-
-    @Override
-    public void setCraftingGroup(CraftingGroup group) {
-        this.craftGroup = group;
-    }
+	@Override
+	public void setCraftingGroup(CraftingGroup group) {
+		this.craftGroup = group;
+	}
 }

@@ -24,7 +24,7 @@ public class GuiEquipment extends InventoryEffectRenderer {
         super(new EquipmentContainer(player, inventoryPlayer, inventoryCustom));
         allowUserInput = true;
     }
-
+    
     @Override
     public void initGui() {
         buttonList.clear();
@@ -32,7 +32,7 @@ public class GuiEquipment extends InventoryEffectRenderer {
         super.initGui();
 
         guiLeft = (width - xSize) / 2;
-
+        
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
         inventoryTabs.updateTabValues(guiLeft, guiTop, CustomPlayerInventoryTab.class);
@@ -41,7 +41,7 @@ public class GuiEquipment extends InventoryEffectRenderer {
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-        drawDefaultBackground();
+    	drawDefaultBackground();
 
         super.drawScreen(mouseX, mouseY, partialTicks);
 

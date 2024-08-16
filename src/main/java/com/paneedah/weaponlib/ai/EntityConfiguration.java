@@ -64,9 +64,9 @@ public class EntityConfiguration {
             int weightedProb;
             int min;
             int max;
-            BiomeDictionary.Type[] biomeTypes;
+            BiomeDictionary.Type biomeTypes[];
 
-            public Spawn(int weightedProb, int min, int max, BiomeDictionary.Type[] biomeTypes) {
+            public Spawn(int weightedProb, int min, int max, BiomeDictionary.Type biomeTypes[]) {
                 this.weightedProb = weightedProb;
                 this.min = min;
                 this.max = max;
@@ -77,7 +77,6 @@ public class EntityConfiguration {
         private static class EquipmentValue {
             Equipment equipment;
             float weight;
-
             public EquipmentValue(Equipment equipment, float weight) {
                 this.equipment = equipment;
                 this.weight = weight;
@@ -88,7 +87,7 @@ public class EntityConfiguration {
         private static class EquipmentKey {
             EnumDifficulty difficulty;
             Item item;
-            ItemAttachment<?>[] attachments;
+            ItemAttachment<?> attachments[];
 
             public EquipmentKey(EnumDifficulty difficulty, Item item, ItemAttachment<?>[] attachments) {
                 this.difficulty = difficulty;
@@ -108,46 +107,43 @@ public class EntityConfiguration {
 
             @Override
             public boolean equals(Object obj) {
-                if (this == obj) {
+                if (this == obj)
                     return true;
-                }
-                if (obj == null) {
+                if (obj == null)
                     return false;
-                }
-                if (getClass() != obj.getClass()) {
+                if (getClass() != obj.getClass())
                     return false;
-                }
                 EquipmentKey other = (EquipmentKey) obj;
-                if (!Arrays.equals(attachments, other.attachments)) {
+                if (!Arrays.equals(attachments, other.attachments))
                     return false;
-                }
-                if (difficulty != other.difficulty) {
+                if (difficulty != other.difficulty)
                     return false;
-                }
                 if (item == null) {
-                    return other.item == null;
-                } else
-                    return item.equals(other.item);
+                    if (other.item != null)
+                        return false;
+                } else if (!item.equals(other.item))
+                    return false;
+                return true;
             }
 
         }
 
-        private final int trackingRange = DEFAULT_TRACKING_RANGE;
-        private final int updateFrequency = DEFAULT_UPDATE_FREQUENCY;
-        private final boolean sendVelocityUpdates = true;
+        private int trackingRange = DEFAULT_TRACKING_RANGE;
+        private int updateFrequency = DEFAULT_UPDATE_FREQUENCY;
+        private boolean sendVelocityUpdates = true;
 
         private Supplier<Integer> entityIdSupplier;
-        private final Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
-        private final Map<EquipmentKey, EquipmentValue> secondaryEquipmentOptions = new HashMap<>();
+        private Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
+        private Map<EquipmentKey, EquipmentValue> secondaryEquipmentOptions = new HashMap<>();
 
 
         private Class<? extends Entity> baseClass;
-        private final List<Spawn> spawns = new ArrayList<>();
+        private List<Spawn> spawns = new ArrayList<>();
 
-        private final List<AiTask> aiTasks = new ArrayList<>();
-        private final List<AiTask> aiTargetTasks = new ArrayList<>();
+        private List<AiTask> aiTasks = new ArrayList<>();
+        private List<AiTask> aiTargetTasks = new ArrayList<>();
 
-        private final List<TexturedModel> texturedModelVariants = new ArrayList<>();
+        private List<TexturedModel> texturedModelVariants = new ArrayList<>();
 
         private String name;
         private String ambientSound;
@@ -178,7 +174,7 @@ public class EntityConfiguration {
         private boolean spawnEgg;
         private int primaryEggColor;
         private int secondaryEggColor;
-        private final Map<EntityEquipmentSlot, CustomArmor> armor = new HashMap<>();
+        private Map<EntityEquipmentSlot, CustomArmor> armor = new HashMap<>();
 
         private float primaryEquipmentDropChance = DEFAULT_PRIMARY_EQUIPMENT_DROP_CHANCE;
         private float secondaryEquipmentDropChance = DEFAULT_SECONDARY_EQUIPMENT_DROP_CHANCE;
@@ -228,12 +224,12 @@ public class EntityConfiguration {
             return this;
         }
 
-        public Builder withEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
+        public Builder withEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>...attachments) {
             withEquipmentOption(equipmentOptions, item, difficultyLevel, weight, attachments);
             return this;
         }
 
-        public Builder withSecondaryEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
+        public Builder withSecondaryEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>...attachments) {
             withEquipmentOption(secondaryEquipmentOptions, item, difficultyLevel, weight, attachments);
             return this;
         }
@@ -250,7 +246,7 @@ public class EntityConfiguration {
         }
 
         private Builder withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
-            if (item == null) {
+            if(item == null) {
                 LOG.warn("Attempted to configure entity equipment with null item");
                 return this;
             }
@@ -258,7 +254,7 @@ public class EntityConfiguration {
             equipment.item = item;
             equipment.attachments = Arrays.asList(attachments);
             EnumDifficulty[] difficultyValues = EnumDifficulty.values();
-            for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
+            for(int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
                 equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, attachments),
                         new EquipmentValue(equipment, weight));
             }
@@ -542,23 +538,23 @@ public class EntityConfiguration {
 
             net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, ID + "_" + entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
-            if (spawnEgg) {
+            if(spawnEgg)
                 EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
-            }
 
-            for (Spawn spawn : spawns) {
+            for(Spawn spawn: spawns) {
                 int weightedProb = spawn.weightedProb;
                 //int weightedProb = (int)(entityConfig.getSpawn());
 
-                if (entityName.equals("terrorist")) {
+                if(entityName.equals("terrorist")) {
                     weightedProb = (int) (spawn.weightedProb * ModernConfigManager.terroristSpawn);
                     configuration.maxHealth = ModernConfigManager.terroristHealth * maxHealth;
-                } else if (entityName.equals("soldier")) {
+                }
+                else if(entityName.equals("soldier")) {
                     weightedProb = (int) (spawn.weightedProb * ModernConfigManager.soldierSpawn);
                     configuration.maxHealth = ModernConfigManager.soldierHealth * maxHealth;
                 }
 
-                if (weightedProb > 0) {
+                if(weightedProb > 0) {
                     Set<Biome> biomes = new HashSet<>();
 
                     for (BiomeDictionary.Type biomeType : spawn.biomeTypes) {
@@ -570,8 +566,8 @@ public class EntityConfiguration {
                 }
             }
 
-            if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-                for (TexturedModel tmv : texturedModelVariants) {
+            if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+                for(TexturedModel tmv: texturedModelVariants) {
                     tmv.textureResource = new ResourceLocation(ID, "textures/entity/" + tmv.textureName);
                     try {
                         tmv.model = (ModelBiped) Class.forName(tmv.modelClassName).newInstance();
@@ -599,7 +595,7 @@ public class EntityConfiguration {
             }
         }
 
-
+        
         private Class<? extends EntityLiving> safeCast(Class<? extends Entity> entityClass) {
             return (Class<? extends EntityLiving>) entityClass;
         }

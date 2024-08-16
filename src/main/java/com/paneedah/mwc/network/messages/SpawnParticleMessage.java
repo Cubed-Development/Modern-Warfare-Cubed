@@ -14,7 +14,7 @@ public final class SpawnParticleMessage implements IMessage {
 
     public enum ParticleType {
         SMOKE_GRENADE_SMOKE,
-        SMOKE_GRENADE_YELLOW_SMOKE
+        SMOKE_GRENADE_YELLOW_SMOKE;
     }
 
     private ParticleType type;
