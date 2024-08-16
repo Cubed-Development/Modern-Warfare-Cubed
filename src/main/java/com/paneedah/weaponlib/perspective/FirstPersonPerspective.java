@@ -17,7 +17,7 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
         this.width = MC.displayWidth;
         this.height = MC.displayHeight;
     }
-    
+
     protected void setSize(int width, int height) {
         this.width = width;
         this.height = height;
@@ -26,7 +26,7 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
     @Override
     public void update(TickEvent.RenderTickEvent event) {
         ClientProxy.renderingPhase = RenderingPhase.RENDER_PERSPECTIVE;
-        long p_78471_2_ = this.renderEndNanoTime + (long)(1000000000 / 60);
+        long p_78471_2_ = this.renderEndNanoTime + (long) (1000000000 / 60);
         int origDisplayWidth = MC.displayWidth;
         int origDisplayHeight = MC.displayHeight;
 
@@ -35,8 +35,7 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
 
         framebuffer.bindFramebuffer(true);
 
-        
-       
+
         MC.displayWidth = width;
         MC.displayHeight = height;
 
@@ -48,29 +47,26 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
         this.entityRenderer.setPrepareTerrain(false);
         this.entityRenderer.updateRenderer();
 
-        
-       
-        
-        prepareRenderWorld(event);
-       
-        
-       
-        this.entityRenderer.renderWorld(event.renderTickTime, p_78471_2_);
-     
-        if(PostProcessPipeline.shouldDoFog()) {
-        	// Blits onto custom scope depth texture
-        	// TO-DO: Just use a depth-texture compatible framebuffer w/ the scope. more efficient.
-        	PostProcessPipeline.blitScopeDepthTexture(framebuffer);
-        }
-        
-        
-//PostProcessPipeline.blitDepth();
-		
-	//	PostProcessPipeline.setupDistortionBufferEffects();
 
-		//PostProcessPipeline.doWorldProcessing();
-		
-        
+        prepareRenderWorld(event);
+
+
+        this.entityRenderer.renderWorld(event.renderTickTime, p_78471_2_);
+
+        if (PostProcessPipeline.shouldDoFog()) {
+            // Blits onto custom scope depth texture
+            // TO-DO: Just use a depth-texture compatible framebuffer w/ the scope. more efficient.
+            PostProcessPipeline.blitScopeDepthTexture(framebuffer);
+        }
+
+
+//PostProcessPipeline.blitDepth();
+
+        //	PostProcessPipeline.setupDistortionBufferEffects();
+
+        //PostProcessPipeline.doWorldProcessing();
+
+
         postRenderWorld(event);
         
         
@@ -101,7 +97,7 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
         t.draw();
         GlStateManager.popMatrix();
         */
-        
+
         //MC.renderGlobal = origRenderGlobal;
         //MC.effectRenderer = origEffectRenderer;
         MC.entityRenderer = origEntityRenderer;
@@ -110,7 +106,6 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
         MC.displayWidth = origDisplayWidth;
         MC.displayHeight = origDisplayHeight;
         this.renderEndNanoTime = System.nanoTime();
-
 
 
         ClientProxy.renderingPhase = RenderingPhase.NORMAL;

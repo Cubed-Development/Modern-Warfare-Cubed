@@ -32,7 +32,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
     public void readEntityFromNBT(NBTTagCompound tagCompound) {
         super.readEntityFromNBT(tagCompound);
         Item item = Item.getItemById(tagCompound.getInteger(TAG_ENTITY_ITEM));
-        if(item instanceof ItemGrenade) {
+        if (item instanceof ItemGrenade) {
             itemGrenade = (ItemGrenade) item;
         }
     }
@@ -53,7 +53,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
     public void readSpawnData(ByteBuf buffer) {
         super.readSpawnData(buffer);
         Item item = Item.getItemById(buffer.readInt());
-        if(item instanceof ItemGrenade) {
+        if (item instanceof ItemGrenade) {
             itemGrenade = (ItemGrenade) item;
         }
     }
@@ -68,24 +68,24 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
 
     @Override
     public void onBounce(RayTraceResult movingobjectposition) {
-    	
-        if(movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK && itemGrenade != null) {
+
+        if (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK && itemGrenade != null) {
             SoundEvent bounceHardSound = itemGrenade.getBounceHardSound();
-            if(bounceHardSound != null) {
+            if (bounceHardSound != null) {
                 IBlockState iBlockState = world.getBlockState(new BlockPos(movingobjectposition.getBlockPos().getX(), movingobjectposition.getBlockPos().getY(), movingobjectposition.getBlockPos().getZ()));
                 Material material = iBlockState.getMaterial();
 
-                if(material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
+                if (material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
                     this.playSound(bounceHardSound, 2.0f / (bounceCount + 1f), 1.0f);
                 }
             }
 
             SoundEvent bounceSoftSound = itemGrenade.getBounceSoftSound();
-            if(bounceSoftSound != null) {
+            if (bounceSoftSound != null) {
                 IBlockState iBlockState = world.getBlockState(new BlockPos(movingobjectposition.getBlockPos().getX(), movingobjectposition.getBlockPos().getY(), movingobjectposition.getBlockPos().getZ()));
                 Material material = iBlockState.getMaterial();
 
-                if(material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
+                if (material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
                     this.playSound(bounceHardSound, 1.0f / (bounceCount + 1f), 1.0f);
                 }
             }

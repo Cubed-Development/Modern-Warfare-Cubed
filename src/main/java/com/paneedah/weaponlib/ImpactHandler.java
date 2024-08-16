@@ -7,5 +7,5 @@ import net.minecraft.world.World;
 @FunctionalInterface
 public interface ImpactHandler {
 
-	void onImpact(World world, EntityPlayer player, WeaponSpawnEntity entity, RayTraceResult position);
+    void onImpact(World world, EntityPlayer player, WeaponSpawnEntity entity, RayTraceResult position);
 }

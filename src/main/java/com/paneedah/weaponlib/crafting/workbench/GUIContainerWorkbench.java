@@ -31,175 +31,178 @@ import static com.paneedah.mwc.MWC.CHANNEL;
  * 1. Player has three categories to choose from weapons, attachments, and modification attachments
  * 2. If the player has the materials to craft an item, they can craft it
  * 3. 3D weapon rendering into the GUI
- * 
+ *
  * @author Homer Riva-Cambrin, 2022
  * @version September 23rd, 2022
  */
 @SideOnly(Side.CLIENT)
 public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkbench> {
 
-	// Buttons & Search box
-	private GUIButtonCustom assaultSelector, attachSelector, modSelector, gearSelector;
+    // Buttons & Search box
+    private GUIButtonCustom assaultSelector, attachSelector, modSelector, gearSelector;
 
-	public GUIContainerWorkbench(EntityPlayer player, InventoryPlayer inventory, TileEntityWorkbench tileEntityWorkbench) {
-		super(tileEntityWorkbench, new ContainerWorkbench(player, inventory, tileEntityWorkbench));
-	}
+    public GUIContainerWorkbench(EntityPlayer player, InventoryPlayer inventory, TileEntityWorkbench tileEntityWorkbench) {
+        super(tileEntityWorkbench, new ContainerWorkbench(player, inventory, tileEntityWorkbench));
+    }
 
-	@Override
-	public void initGui() {
-		super.initGui();
+    @Override
+    public void initGui() {
+        super.initGui();
 
-		this.assaultSelector = new GUIButtonCustom(GUI_TEX, 3, this.guiLeft + 92, this.guiTop + 29, 19, 20, 480, 370, "")
-				.withStandardState(0xFFFFFF, 0, 291).withHoveredState(0xFFFFFF, 19, 291)
-				.withToggledState(0xFFFFFF, 38, 291).withPageRestriction(2).makeToggleButton();
+        this.assaultSelector = new GUIButtonCustom(GUI_TEX, 3, this.guiLeft + 92, this.guiTop + 29, 19, 20, 480, 370, "")
+                .withStandardState(0xFFFFFF, 0, 291).withHoveredState(0xFFFFFF, 19, 291)
+                .withToggledState(0xFFFFFF, 38, 291).withPageRestriction(2).makeToggleButton();
 
-		this.attachSelector = new GUIButtonCustom(GUI_TEX, 4, this.guiLeft + 115, this.guiTop + 29, 19, 20, 480, 370, "")
-				.withStandardState(0xFFFFFF, 0, 311).withHoveredState(0xFFFFFF, 19, 311)
-				.withToggledState(0xFFFFFF, 38, 311).withPageRestriction(2).makeToggleButton();
+        this.attachSelector = new GUIButtonCustom(GUI_TEX, 4, this.guiLeft + 115, this.guiTop + 29, 19, 20, 480, 370, "")
+                .withStandardState(0xFFFFFF, 0, 311).withHoveredState(0xFFFFFF, 19, 311)
+                .withToggledState(0xFFFFFF, 38, 311).withPageRestriction(2).makeToggleButton();
 
-		this.modSelector = new GUIButtonCustom(GUI_TEX, 5, this.guiLeft + 138, this.guiTop + 29, 19, 20, 480, 370, "")
-				.withStandardState(0xFFFFFF, 0, 331)
-				.withHoveredState(0xFFFFFF, 19, 331)
-				.withToggledState(0xFFFFFF, 38, 331)
-				.withPageRestriction(2).makeToggleButton();
+        this.modSelector = new GUIButtonCustom(GUI_TEX, 5, this.guiLeft + 138, this.guiTop + 29, 19, 20, 480, 370, "")
+                .withStandardState(0xFFFFFF, 0, 331)
+                .withHoveredState(0xFFFFFF, 19, 331)
+                .withToggledState(0xFFFFFF, 38, 331)
+                .withPageRestriction(2).makeToggleButton();
 
-		this.gearSelector = new GUIButtonCustom(GUI_TEX, 6, this.guiLeft + 161, this.guiTop + 29, 19, 20, 480, 370, "")
-				.withStandardState(0xFFFFFF, 57, 331)
-				.withHoveredState(0xFFFFFF, 76, 331)
-				.withToggledState(0xFFFFFF, 95, 331)
-				.withPageRestriction(2).makeToggleButton();
+        this.gearSelector = new GUIButtonCustom(GUI_TEX, 6, this.guiLeft + 161, this.guiTop + 29, 19, 20, 480, 370, "")
+                .withStandardState(0xFFFFFF, 57, 331)
+                .withHoveredState(0xFFFFFF, 76, 331)
+                .withToggledState(0xFFFFFF, 95, 331)
+                .withPageRestriction(2).makeToggleButton();
 
 
-		this.assaultSelector.toggleOn();
+        this.assaultSelector.toggleOn();
 
-		addButton(this.assaultSelector);
-		addButton(this.attachSelector);
-		addButton(this.modSelector);
-		addButton(this.gearSelector);
-		
-		setPage(1);
-	}
-	
-	@Override
-	public void fillFilteredList() {
-		filteredCraftingList.clear();
-		if (getCraftingMode() == CraftingGroup.GUN.getID()) {
-			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.GUN));
-		} else if(getCraftingMode() == CraftingGroup.ATTACHMENT_NORMAL.getID()) {
-			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.ATTACHMENT_NORMAL));
-		} else if(getCraftingMode() == CraftingGroup.ATTACHMENT_MODIFICATION.getID()){
-			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.ATTACHMENT_MODIFICATION));
-		} else if(getCraftingMode() == CraftingGroup.GEAR.getID()){
-			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.GEAR));
-		}
-  	}
-	
-	@Override
-	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		super.drawScreen(mouseX, mouseY, partialTicks);
-		drawTooltips(mouseX, mouseY, partialTicks);
-	}
-	
-	@Override
-	protected void actionPerformed(GuiButton button) throws IOException {
-		super.actionPerformed(button);
+        addButton(this.assaultSelector);
+        addButton(this.attachSelector);
+        addButton(this.modSelector);
+        addButton(this.gearSelector);
 
-		if (button == craftButton) {
-			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1 && !this.craftButton.isDisabled()) {
-				final int craftingTime = getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME;
-				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, craftingTime, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItemStack().getTranslationKey()));
-			}
+        setPage(1);
+    }
 
-		} else if (button == assaultSelector) {
-			((GUIButtonCustom) button).toggleOn();
-			modSelector.toggleOff();
-			attachSelector.toggleOff();
-			gearSelector.toggleOff();
+    @Override
+    public void fillFilteredList() {
+        filteredCraftingList.clear();
+        if (getCraftingMode() == CraftingGroup.GUN.getID()) {
+            filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.GUN));
+        } else if (getCraftingMode() == CraftingGroup.ATTACHMENT_NORMAL.getID()) {
+            filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.ATTACHMENT_NORMAL));
+        } else if (getCraftingMode() == CraftingGroup.ATTACHMENT_MODIFICATION.getID()) {
+            filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.ATTACHMENT_MODIFICATION));
+        } else if (getCraftingMode() == CraftingGroup.GEAR.getID()) {
+            filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.GEAR));
+        }
+    }
 
-			setCraftingMode(1);
-			setSelectedCraftingPiece(null);
-			fillFilteredList();
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        super.drawScreen(mouseX, mouseY, partialTicks);
+        drawTooltips(mouseX, mouseY, partialTicks);
+    }
 
-		} else if (button == attachSelector) {
-			((GUIButtonCustom) button).toggleOn();
-			modSelector.toggleOff();
-			assaultSelector.toggleOff();
-			gearSelector.toggleOff();
+    @Override
+    protected void actionPerformed(GuiButton button) throws IOException {
+        super.actionPerformed(button);
 
-			setCraftingMode(2);
-			setSelectedCraftingPiece(null);
-			fillFilteredList();
+        if (button == craftButton) {
+            if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1 && !this.craftButton.isDisabled()) {
+                final int craftingTime = getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME;
+                CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, craftingTime, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItemStack().getTranslationKey()));
+            }
 
-		} else if (button == modSelector) {
-			((GUIButtonCustom) button).toggleOn();
-			attachSelector.toggleOff();
-			assaultSelector.toggleOff();
-			gearSelector.toggleOff();
+        } else if (button == assaultSelector) {
+            ((GUIButtonCustom) button).toggleOn();
+            modSelector.toggleOff();
+            attachSelector.toggleOff();
+            gearSelector.toggleOff();
 
-			setCraftingMode(3);
-			setSelectedCraftingPiece(null);
-			fillFilteredList();
+            setCraftingMode(1);
+            setSelectedCraftingPiece(null);
+            fillFilteredList();
 
-		} else if(button == gearSelector) {
-			((GUIButtonCustom) button).toggleOn();
-			attachSelector.toggleOff();
-			assaultSelector.toggleOff();
-			modSelector.toggleOff();
-			
-			setCraftingMode(CraftingGroup.GEAR.getID());
-			setSelectedCraftingPiece(null);
-			fillFilteredList();
-		}
-	}
+        } else if (button == attachSelector) {
+            ((GUIButtonCustom) button).toggleOn();
+            modSelector.toggleOff();
+            assaultSelector.toggleOff();
+            gearSelector.toggleOff();
 
-	@Override
-	public void updateScreen() {
-		super.updateScreen();
+            setCraftingMode(2);
+            setSelectedCraftingPiece(null);
+            fillFilteredList();
 
-		if (!this.craftButton.isDisabled() && tileEntity.getProgress() != 0)
-			this.craftButton.setErrored(true);
+        } else if (button == modSelector) {
+            ((GUIButtonCustom) button).toggleOn();
+            attachSelector.toggleOff();
+            assaultSelector.toggleOff();
+            gearSelector.toggleOff();
 
-		if (hasSelectedCraftingPiece() && hasRequiredItems() && tileEntity.getProgress() == 0)
-			this.craftButton.setErrored(false);
-	}
-	
-	/**
-	 * Since weapon crafting is not queued, we need to block
-	 * the player from initiating a craft should they not have
-	 * the materials.
-	 */
-	@Override
-	public boolean requiresMaterialsToSubmitCraftRequest() {
-		return true;
-	}
-	
-	@Override
-	public void addCraftingInformationToTooltip(ArrayList<String> tooltip) {
-		final int remainingTicks = tileEntity.craftingDuration - tileEntity.craftingTimer;
-		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + I18n.format(tileEntity.craftingTargetName + ".name"));
-		tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", remainingTicks / 20F) + "s");
-	}
+            setCraftingMode(3);
+            setSelectedCraftingPiece(null);
+            fillFilteredList();
 
-	/**
-	 * Rendering the weapons into the GUI requires a special
-	 * consideration as we want them to be displayed as 3D models.
-	 */
-	@Override
-	public boolean shouldOverrideCraftingModeOneRender() {
-		return true;
-	}
-	
-	@Override
-	public void doCraftingModeOneRender(float partialTicks, int mouseX, int mouseY) {
-		// This is just a backup check. This should only ever run if we are dealing
-		// with crafting mode one, so it will always be a weapon.
-		if (!(getSelectedCraftingPiece().getItemStack().getItem() instanceof Weapon))
-			return;
-	
-		final Weapon weapon = (Weapon) getSelectedCraftingPiece().getItemStack().getItem();
+        } else if (button == gearSelector) {
+            ((GUIButtonCustom) button).toggleOn();
+            attachSelector.toggleOff();
+            assaultSelector.toggleOff();
+            modSelector.toggleOff();
+
+            setCraftingMode(CraftingGroup.GEAR.getID());
+            setSelectedCraftingPiece(null);
+            fillFilteredList();
+        }
+    }
+
+    @Override
+    public void updateScreen() {
+        super.updateScreen();
+
+        if (!this.craftButton.isDisabled() && tileEntity.getProgress() != 0) {
+            this.craftButton.setErrored(true);
+        }
+
+        if (hasSelectedCraftingPiece() && hasRequiredItems() && tileEntity.getProgress() == 0) {
+            this.craftButton.setErrored(false);
+        }
+    }
+
+    /**
+     * Since weapon crafting is not queued, we need to block
+     * the player from initiating a craft should they not have
+     * the materials.
+     */
+    @Override
+    public boolean requiresMaterialsToSubmitCraftRequest() {
+        return true;
+    }
+
+    @Override
+    public void addCraftingInformationToTooltip(ArrayList<String> tooltip) {
+        final int remainingTicks = tileEntity.craftingDuration - tileEntity.craftingTimer;
+        tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + I18n.format(tileEntity.craftingTargetName + ".name"));
+        tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", remainingTicks / 20F) + "s");
+    }
+
+    /**
+     * Rendering the weapons into the GUI requires a special
+     * consideration as we want them to be displayed as 3D models.
+     */
+    @Override
+    public boolean shouldOverrideCraftingModeOneRender() {
+        return true;
+    }
+
+    @Override
+    public void doCraftingModeOneRender(float partialTicks, int mouseX, int mouseY) {
+        // This is just a backup check. This should only ever run if we are dealing
+        // with crafting mode one, so it will always be a weapon.
+        if (!(getSelectedCraftingPiece().getItemStack().getItem() instanceof Weapon)) {
+            return;
+        }
+
+        final Weapon weapon = (Weapon) getSelectedCraftingPiece().getItemStack().getItem();
         GuiRenderUtil.drawScaledString(fontRenderer, format(weapon.getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 1.2, 0xFDF17C);
         GuiRenderUtil.drawScaledString(fontRenderer, weapon.builder.getWeaponType(), this.guiLeft + 214, this.guiTop + 43, 0.75, 0xC8C49C);
-        
+
         render3DItemInGUI(weapon, this.guiLeft + 300, this.guiTop + 55, mouseX, mouseY);
-	}
+    }
 }

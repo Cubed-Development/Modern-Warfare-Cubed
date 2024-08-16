@@ -11,7 +11,6 @@ import com.paneedah.weaponlib.WeaponAttachmentAspect.ExitAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.CompoundPermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.UnloadPermit;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.RecipeManager;
@@ -78,12 +77,12 @@ public class CommonModContext implements ModContext {
     }
 
     static class BulletImpactSoundKey {
-        private Material material;
+        private final Material material;
 
         public BulletImpactSoundKey(Material material) {
             this.material = material;
         }
-        
+
         @Override
         public int hashCode() {
             final int prime = 31;
@@ -91,94 +90,98 @@ public class CommonModContext implements ModContext {
             result = prime * result + ((material == null) ? 0 : material.hashCode());
             return result;
         }
+
         @Override
         public boolean equals(Object obj) {
-            if (this == obj)
+            if (this == obj) {
                 return true;
+            }
 
-            if (obj == null || getClass() != obj.getClass())
+            if (obj == null || getClass() != obj.getClass()) {
                 return false;
+            }
 
             BulletImpactSoundKey other = (BulletImpactSoundKey) obj;
 
-            if (material == null)
+            if (material == null) {
                 return other.material == null;
+            }
 
             return material.equals(other.material);
         }
     }
 
-	protected Object mod;
+    protected Object mod;
 
     protected WeaponReloadAspect weaponReloadAspect;
-	protected WeaponAttachmentAspect weaponAttachmentAspect;
-	protected WeaponFireAspect weaponFireAspect;
+    protected WeaponAttachmentAspect weaponAttachmentAspect;
+    protected WeaponFireAspect weaponFireAspect;
 
-	protected MeleeAttachmentAspect meleeAttachmentAspect;
+    protected MeleeAttachmentAspect meleeAttachmentAspect;
     protected MeleeAttackAspect meleeAttackAspect;
 
     protected SyncManager<?> syncManager;
 
-	protected MagazineReloadAspect magazineReloadAspect;
+    protected MagazineReloadAspect magazineReloadAspect;
 
-	@Getter protected NetworkPermitManager permitManager;
+    @Getter protected NetworkPermitManager permitManager;
 
-	protected PlayerItemInstanceRegistry playerItemInstanceRegistry;
+    protected PlayerItemInstanceRegistry playerItemInstanceRegistry;
 
-	private Map<ResourceLocation, SoundEvent> registeredSounds = new HashMap<>();
+    private final Map<ResourceLocation, SoundEvent> registeredSounds = new HashMap<>();
 
-	private RecipeManager recipeManager;
+    private RecipeManager recipeManager;
 
-	private SoundEvent changeZoomSound;
+    private SoundEvent changeZoomSound;
 
-	private SoundEvent changeFireModeSound;
+    private SoundEvent changeFireModeSound;
 
-	private SoundEvent noAmmoSound;
-	
+    private SoundEvent noAmmoSound;
+
     private SoundEvent explosionSound;
-    
-    private SoundEvent flashExplosionSound;
-    
-    private SoundEvent nightVisionOnSound;
-    
-    private SoundEvent nightVisionOffSound;
-    
-    private Map<BulletImpactSoundKey, MaterialImpactSound> bulletImpactSoundEntries = new HashMap<>();
 
-	private int modEntityID = 256;
+    private SoundEvent flashExplosionSound;
+
+    private SoundEvent nightVisionOnSound;
+
+    private SoundEvent nightVisionOffSound;
+
+    private final Map<BulletImpactSoundKey, MaterialImpactSound> bulletImpactSoundEntries = new HashMap<>();
+
+    private int modEntityID = 256;
 
     private GrenadeAttackAspect grenadeAttackAspect;
-    
-    private Map<Integer, String> registeredTextureNames = new HashMap<>();
-    
+
+    private final Map<Integer, String> registeredTextureNames = new HashMap<>();
+
     private int registeredTextureCounter;
-    
+
     protected static ModContext currentContext;
 
 
-	@Override
+    @Override
     public void preInit(Object mod) {
-		this.mod = mod;
+        this.mod = mod;
 
         this.weaponReloadAspect = new WeaponReloadAspect(this);
-		this.magazineReloadAspect = new MagazineReloadAspect(this);
-		this.weaponFireAspect = new WeaponFireAspect(this);
-		this.weaponAttachmentAspect = new WeaponAttachmentAspect(this);
+        this.magazineReloadAspect = new MagazineReloadAspect(this);
+        this.weaponFireAspect = new WeaponFireAspect(this);
+        this.weaponAttachmentAspect = new WeaponAttachmentAspect(this);
 
-		this.meleeAttackAspect = new MeleeAttackAspect(this);
+        this.meleeAttackAspect = new MeleeAttackAspect(this);
         this.meleeAttachmentAspect = new MeleeAttachmentAspect(this);
 
         this.grenadeAttackAspect = new GrenadeAttackAspect(this);
         StateManager<GrenadeState, PlayerGrenadeInstance> grenadeStateManager = new StateManager<>((s1, s2) -> s1 == s2);
         grenadeAttackAspect.setStateManager(grenadeStateManager);
 
-		this.permitManager = new NetworkPermitManager();
+        this.permitManager = new NetworkPermitManager();
 
-		this.syncManager = new SyncManager<>(permitManager);
+        this.syncManager = new SyncManager<>(permitManager);
 
         this.playerItemInstanceRegistry = new PlayerItemInstanceRegistry(syncManager);
 
-		StateManager<WeaponState, PlayerWeaponInstance> weaponStateManager = new StateManager<>((s1, s2) -> s1 == s2);
+        StateManager<WeaponState, PlayerWeaponInstance> weaponStateManager = new StateManager<>((s1, s2) -> s1 == s2);
         weaponReloadAspect.setPermitManager(permitManager);
         weaponReloadAspect.setStateManager(weaponStateManager);
 
@@ -198,22 +201,21 @@ public class CommonModContext implements ModContext {
         magazineReloadAspect.setPermitManager(permitManager);
         magazineReloadAspect.setStateManager(magazineStateManager);
 
-		this.recipeManager = new RecipeManager();
+        this.recipeManager = new RecipeManager();
 
-		// Initiate config
-		ModernConfigManager.init();
+        // Initiate config
+        ModernConfigManager.init();
 
-		CommonEventHandler serverHandler = new CommonEventHandler(this);
+        CommonEventHandler serverHandler = new CommonEventHandler(this);
         MinecraftForge.EVENT_BUS.register(serverHandler);
         MinecraftForge.EVENT_BUS.register(serverHandler);
 
-		MinecraftForge.EVENT_BUS.register(new WeaponKeyInputHandler(this, this::getPlayer, weaponAttachmentAspect));
+        MinecraftForge.EVENT_BUS.register(new WeaponKeyInputHandler(this, this::getPlayer, weaponAttachmentAspect));
 
-		CompatiblePlayerEntityTrackerProvider.register(this);
-		//CompatibleEntityPropertyProvider.register(this);
-		CompatibleExposureCapability.register(this);
-		CompatibleExtraEntityFlags.register(this);
-		EquipmentCapability.register();
+        CompatiblePlayerEntityTrackerProvider.register(this);
+        //CompatibleEntityPropertyProvider.register(this);
+        CompatibleExposureCapability.register(this);
+        EquipmentCapability.register();
 
         net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
         net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "wcam" + modEntityID), EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
@@ -231,7 +233,7 @@ public class CommonModContext implements ModContext {
 //
 //        EntityRegistry.addSpawn(EntityCustomMob.class, 1, 1, 3, EnumCreatureType.MONSTER, 
 //                BiomeDictionary.getBiomesForType(Type.PLAINS));
-        
+
 //        Instance inventoryChangeTriggerInstance = new InventoryChangeTrigger.Instance(
 //                MinMaxBounds.UNBOUNDED, 
 //                MinMaxBounds.UNBOUNDED, 
@@ -247,23 +249,20 @@ public class CommonModContext implements ModContext {
 //
 //        CriteriaTriggers.INVENTORY_CHANGED.addListener(
 //                null, new ICriterionTrigger.Listener(inventoryChangeTriggerInstance, null, "Custom inventory change"));
-        
-     //   File missionsDir = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mwc"), "missions");
-       // File entityMissionFile = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mwc"), "entity_mission_offerings.json");
 
-        
-       
-        
-     
-       // compatibility.registerBlock(this, new WorkbenchBlock("workbench", Material.ROCK), "workbench");
-        
-       // this.missionManager = new MissionManager(missionsDir, entityMissionFile);
-	}
-	
-	@Override
-	public void preInitEnd(Object mod) {
+        //   File missionsDir = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mwc"), "missions");
+        // File entityMissionFile = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mwc"), "entity_mission_offerings.json");
+
+
+        // compatibility.registerBlock(this, new WorkbenchBlock("workbench", Material.ROCK), "workbench");
+
+        // this.missionManager = new MissionManager(missionsDir, entityMissionFile);
+    }
+
+    @Override
+    public void preInitEnd(Object mod) {
         // Workbench
-		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ID + ":tileworkbench");
+        GameRegistry.registerTileEntity(TileEntityWorkbench.class, ID + ":tileworkbench");
         Block workbenchblock = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
         if (workbenchblock.getRegistryName() == null) {
             if (workbenchblock.getTranslationKey().length() < ID.length() + 2 + 5) {
@@ -279,7 +278,7 @@ public class CommonModContext implements ModContext {
         this.registerRenderableItem(workbenchblock.getRegistryName(), workbenchItemBlock, null);
 
         // Ammo press
-		GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ID + ":tileammopress");
+        GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ID + ":tileammopress");
         Block ammopressblock = new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
 
         if (ammopressblock.getRegistryName() == null) {
@@ -301,163 +300,163 @@ public class CommonModContext implements ModContext {
 
         NetworkRegistry.INSTANCE.registerGuiHandler(mod, new GuiHandler());
     }
-    
+
     public static ModContext getContext() {
         return currentContext;
     }
-	
-	@Override
-	public boolean isClient() {
-	    return false;
-	}
-
-	public void registerServerSideOnly() {
-
-	}
-
-	@Override
-	public SoundEvent registerSound(String sound) {
-	    if(sound == null) {
-	        return null;
-	    }
-		ResourceLocation soundResourceLocation = new ResourceLocation(ID, sound);
-		return registerSound(soundResourceLocation);
-	}
-
-	protected SoundEvent registerSound(ResourceLocation soundResourceLocation) {
-        SoundEvent result = registeredSounds.get(soundResourceLocation);
-		if(result == null) {
-			result = new SoundEvent(soundResourceLocation);
-			registeredSounds.put(soundResourceLocation, result);
-            result.setRegistryName(soundResourceLocation);
-            ForgeRegistries.SOUND_EVENTS.register(result);
-		}
-		return result;
-	}
-
-	@Override
-	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
-        weapon.setRegistryName(ID, name); // temporary hack
-        ForgeRegistries.ITEMS.register(weapon);
-	}
-
-	private EntityPlayer getServerPlayer(MessageContext ctx) {
-		return ctx != null ? ctx.getServerHandler().player : null;
-	}
-
-	protected EntityPlayer getPlayer(MessageContext ctx) {
-		return getServerPlayer(ctx);
-	}
 
     @Override
-	public void registerRenderableItem(String name, Item item, Object renderer) {
+    public boolean isClient() {
+        return false;
+    }
+
+    public void registerServerSideOnly() {
+
+    }
+
+    @Override
+    public SoundEvent registerSound(String sound) {
+        if (sound == null) {
+            return null;
+        }
+        ResourceLocation soundResourceLocation = new ResourceLocation(ID, sound);
+        return registerSound(soundResourceLocation);
+    }
+
+    protected SoundEvent registerSound(ResourceLocation soundResourceLocation) {
+        SoundEvent result = registeredSounds.get(soundResourceLocation);
+        if (result == null) {
+            result = new SoundEvent(soundResourceLocation);
+            registeredSounds.put(soundResourceLocation, result);
+            result.setRegistryName(soundResourceLocation);
+            ForgeRegistries.SOUND_EVENTS.register(result);
+        }
+        return result;
+    }
+
+    @Override
+    public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
+        weapon.setRegistryName(ID, name); // temporary hack
+        ForgeRegistries.ITEMS.register(weapon);
+    }
+
+    private EntityPlayer getServerPlayer(MessageContext ctx) {
+        return ctx != null ? ctx.getServerHandler().player : null;
+    }
+
+    protected EntityPlayer getPlayer(MessageContext ctx) {
+        return getServerPlayer(ctx);
+    }
+
+    @Override
+    public void registerRenderableItem(String name, Item item, Object renderer) {
         item.setRegistryName(ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(item);
-	}
-	
-	@Override
+    }
+
+    @Override
     public void registerRenderableItem(ResourceLocation name, Item item, Object renderer) {
         item.setRegistryName(name); // temporary hack
         ForgeRegistries.ITEMS.register(item);
     }
 
-	@Override
-	public PlayerItemInstanceRegistry getPlayerItemInstanceRegistry() {
+    @Override
+    public PlayerItemInstanceRegistry getPlayerItemInstanceRegistry() {
         return playerItemInstanceRegistry;
     }
 
-	@Override
-	public WeaponReloadAspect getWeaponReloadAspect() {
-		return weaponReloadAspect;
-	}
+    @Override
+    public WeaponReloadAspect getWeaponReloadAspect() {
+        return weaponReloadAspect;
+    }
 
-	@Override
-	public WeaponFireAspect getWeaponFireAspect() {
-		return weaponFireAspect;
-	}
+    @Override
+    public WeaponFireAspect getWeaponFireAspect() {
+        return weaponFireAspect;
+    }
 
-	@Override
-	public WeaponAttachmentAspect getAttachmentAspect() {
-		return weaponAttachmentAspect;
-	}
+    @Override
+    public WeaponAttachmentAspect getAttachmentAspect() {
+        return weaponAttachmentAspect;
+    }
 
-	@Override
-	public MagazineReloadAspect getMagazineReloadAspect() {
-		return magazineReloadAspect;
-	}
+    @Override
+    public MagazineReloadAspect getMagazineReloadAspect() {
+        return magazineReloadAspect;
+    }
 
-	@Override
-	public MeleeAttackAspect getMeleeAttackAspect() {
-	    return meleeAttackAspect;
-	}
+    @Override
+    public MeleeAttackAspect getMeleeAttackAspect() {
+        return meleeAttackAspect;
+    }
 
-	@Override
-	public MeleeAttachmentAspect getMeleeAttachmentAspect() {
-	    return meleeAttachmentAspect;
-	}
+    @Override
+    public MeleeAttachmentAspect getMeleeAttachmentAspect() {
+        return meleeAttachmentAspect;
+    }
 
-	@Override
-	public PlayerWeaponInstance getMainHeldWeapon() {
-		throw new IllegalStateException();
-	}
+    @Override
+    public PlayerWeaponInstance getMainHeldWeapon() {
+        throw new IllegalStateException();
+    }
 
 
     @Override
-	public RecipeManager getRecipeManager() {
-		return recipeManager;
-	}
+    public RecipeManager getRecipeManager() {
+        return recipeManager;
+    }
 
-	@Override
-	public void setChangeZoomSound(String sound) {
-		this.changeZoomSound = registerSound(sound.toLowerCase());
-	}
+    @Override
+    public void setChangeZoomSound(String sound) {
+        this.changeZoomSound = registerSound(sound.toLowerCase());
+    }
 
-	@Override
-	public SoundEvent getZoomSound() {
-		return changeZoomSound;
-	}
+    @Override
+    public SoundEvent getZoomSound() {
+        return changeZoomSound;
+    }
 
-	@Override
-	public SoundEvent getChangeFireModeSound() {
-		return changeFireModeSound;
-	}
+    @Override
+    public SoundEvent getChangeFireModeSound() {
+        return changeFireModeSound;
+    }
 
-	@Override
-	public void setChangeFireModeSound(String sound) {
-		this.changeFireModeSound = registerSound(sound.toLowerCase());
-	}
+    @Override
+    public void setChangeFireModeSound(String sound) {
+        this.changeFireModeSound = registerSound(sound.toLowerCase());
+    }
 
-	@Override
-	public void setNoAmmoSound(String sound) {
-		this.noAmmoSound = registerSound(sound.toLowerCase());
-	}
+    @Override
+    public void setNoAmmoSound(String sound) {
+        this.noAmmoSound = registerSound(sound.toLowerCase());
+    }
 
-	@Override
-	public SoundEvent getNoAmmoSound() {
-		return noAmmoSound;
-	}
+    @Override
+    public SoundEvent getNoAmmoSound() {
+        return noAmmoSound;
+    }
 
-	@Override
-	public void setExplosionSound(String sound) {
-	    this.explosionSound = registerSound(sound.toLowerCase());
-	}
+    @Override
+    public void setExplosionSound(String sound) {
+        this.explosionSound = registerSound(sound.toLowerCase());
+    }
 
-	@Override
-	public SoundEvent getExplosionSound() {
-	    return explosionSound;
-	}
-	
-	@Override
-	public SoundEvent getFlashExplosionSound() {
-	    return flashExplosionSound;
-	}
-	
-	@Override
-	public void setFlashExplosionSound(String sound) {
-	    this.flashExplosionSound = registerSound(sound);
-	}
-	
-	@Override
+    @Override
+    public SoundEvent getExplosionSound() {
+        return explosionSound;
+    }
+
+    @Override
+    public SoundEvent getFlashExplosionSound() {
+        return flashExplosionSound;
+    }
+
+    @Override
+    public void setFlashExplosionSound(String sound) {
+        this.flashExplosionSound = registerSound(sound);
+    }
+
+    @Override
     public void setNightVisionOnSound(String sound) {
         this.nightVisionOnSound = registerSound(sound.toLowerCase());
     }
@@ -466,7 +465,7 @@ public class CommonModContext implements ModContext {
     public SoundEvent getNightVisionOnSound() {
         return nightVisionOnSound;
     }
-    
+
     @Override
     public void setNightVisionOffSound(String sound) {
         this.nightVisionOffSound = registerSound(sound.toLowerCase());
@@ -508,7 +507,7 @@ public class CommonModContext implements ModContext {
     public GrenadeAttackAspect getGrenadeAttackAspect() {
         return grenadeAttackAspect;
     }
-    
+
     @Override
     public Object getMod() {
         return mod;
@@ -523,27 +522,24 @@ public class CommonModContext implements ModContext {
     public void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer) {}
 
     @Override
-    public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider) {}
-
-    @Override
     public CommonModContext setMaterialImpactSound(String sound, float volume, Material material) {
         MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(volume));
         materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         return this;
     }
-    
+
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, float volume, Material...materials) {
-        for(Material material: materials) {
+    public CommonModContext setMaterialsImpactSound(String sound, float volume, Material... materials) {
+        for (Material material : materials) {
             MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(volume));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
     }
-    
+
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, Material...materials) {
-        for(Material material: materials) {
+    public CommonModContext setMaterialsImpactSound(String sound, Material... materials) {
+        for (Material material : materials) {
             MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(1f));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
@@ -558,7 +554,7 @@ public class CommonModContext implements ModContext {
 
     @Override
     public CommonModContext setMaterialImpactSounds(Material material, float volume, String... sounds) {
-        for(String sound: sounds) {
+        for (String sound : sounds) {
             setMaterialImpactSound(sound, volume, material);
         }
         return this;
@@ -566,7 +562,7 @@ public class CommonModContext implements ModContext {
 
     @Override
     public int getRegisteredTextureId(String textureName) {
-        if(textureName == null) {
+        if (textureName == null) {
             return -1;
         }
         Optional<Entry<Integer, String>> existingEntry = registeredTextureNames
@@ -584,19 +580,19 @@ public class CommonModContext implements ModContext {
 
     @Override
     public int registerTexture(String textureName) {
-        if(textureName == null) {
+        if (textureName == null) {
             return -1;
         }
         Optional<Entry<Integer, String>> existingEntry = registeredTextureNames.entrySet().stream().filter(e -> textureName.equals(e.getValue()))
-            .findFirst();
+                .findFirst();
         int id;
-        if(existingEntry.isPresent()) {
+        if (existingEntry.isPresent()) {
             id = existingEntry.get().getKey();
         } else {
             id = registeredTextureCounter++;
             registeredTextureNames.put(id, textureName);
         }
-        
+
         return id;
     }
 }

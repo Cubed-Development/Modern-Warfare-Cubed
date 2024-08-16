@@ -12,9 +12,9 @@ import java.util.function.Supplier;
 @Deprecated
 @SideOnly(Side.CLIENT)
 public class CompatibleMovingSound extends MovingSound {
-    private Supplier<Vector3D> positionProvider;
-    private Supplier<Float> volumeProvider;
-    private Supplier<Boolean> donePlayingProvider;
+    private final Supplier<Vector3D> positionProvider;
+    private final Supplier<Float> volumeProvider;
+    private final Supplier<Boolean> donePlayingProvider;
 
     public CompatibleMovingSound(SoundEvent sound, Supplier<Vector3D> positionProvider, Supplier<Float> volumeProvider, Supplier<Boolean> donePlayingProvider) {
         super(sound, SoundCategory.BLOCKS);

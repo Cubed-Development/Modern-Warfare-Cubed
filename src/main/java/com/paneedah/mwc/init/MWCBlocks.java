@@ -2,7 +2,6 @@ package com.paneedah.mwc.init;
 
 import com.paneedah.mwc.bases.BlockBase;
 import com.paneedah.mwc.bases.OreBase;
-import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -72,8 +71,10 @@ public class MWCBlocks {
 
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent modelRegistryEvent) {
-        for (Block block : blocks){
-            if(block instanceof BlockBase || block instanceof OreBase) ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName().toString(), "inventory"));
+        for (Block block : blocks) {
+            if (block instanceof BlockBase || block instanceof OreBase) {
+                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName().toString(), "inventory"));
+            }
         }
     }
 }

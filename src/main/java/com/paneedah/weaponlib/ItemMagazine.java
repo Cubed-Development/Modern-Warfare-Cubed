@@ -13,136 +13,138 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemInstanceFactory<PlayerMagazineInstance, MagazineState>, Reloadable, Updatable, Part {
-	
-	public static final class Builder extends AttachmentBuilder<Weapon> {
-		private int capacity;
-		private final List<ItemBullet> compatibleBullets = new ArrayList<>();
-		private String reloadSound;
-		private String unloadSound;
-		
-		public Builder withCapacity(int capacity) {
-			this.capacity = capacity;
-			return this;
-		}
 
-		public Builder withCompatibleBullet(ItemBullet compatibleBullet) {
-			this.compatibleBullets.add(compatibleBullet);
-			return this;
-		}
+    public static final class Builder extends AttachmentBuilder<Weapon> {
+        private int capacity;
+        private final List<ItemBullet> compatibleBullets = new ArrayList<>();
+        private String reloadSound;
+        private String unloadSound;
 
-		public Builder withUnloadSound(String unloadSound) {
-			this.unloadSound = unloadSound;
-			return this;
-		}
-		
-		public Builder withReloadSound(String reloadSound) {
-			this.reloadSound = reloadSound;
-			return this;
-		}
-		
-		@Override
-		protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
-			final ItemMagazine magazine = new ItemMagazine(getModel(), getTextureName(), capacity);
+        public Builder withCapacity(int capacity) {
+            this.capacity = capacity;
+            return this;
+        }
 
-			magazine.compatibleBullets = compatibleBullets;
+        public Builder withCompatibleBullet(ItemBullet compatibleBullet) {
+            this.compatibleBullets.add(compatibleBullet);
+            return this;
+        }
 
-			if(reloadSound != null)
-				magazine.reloadSound = modContext.registerSound(reloadSound);
+        public Builder withUnloadSound(String unloadSound) {
+            this.unloadSound = unloadSound;
+            return this;
+        }
 
-			if (unloadSound!= null)
-				magazine.unloadSound = modContext.registerSound(unloadSound);
+        public Builder withReloadSound(String reloadSound) {
+            this.reloadSound = reloadSound;
+            return this;
+        }
 
-			magazine.modContext = modContext;
+        @Override
+        protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
+            final ItemMagazine magazine = new ItemMagazine(getModel(), getTextureName(), capacity);
 
-			withInformationProvider((stack) -> TextFormatting.RED + "Ammo: " + TextFormatting.GRAY + Tags.getAmmo(stack) + "/" + capacity);
+            magazine.compatibleBullets = compatibleBullets;
 
-			return magazine;
-		}
-	}
+            if (reloadSound != null) {
+                magazine.reloadSound = modContext.registerSound(reloadSound);
+            }
 
-	private ModContext modContext;
+            if (unloadSound != null) {
+                magazine.unloadSound = modContext.registerSound(unloadSound);
+            }
 
-	private final int capacity;
-	private List<ItemBullet> compatibleBullets;
-	private SoundEvent reloadSound;
-	private SoundEvent unloadSound;
+            magazine.modContext = modContext;
 
-	ItemMagazine(ModelBase model, String textureName, int capacity) {
-		this(model, textureName, capacity, null, null);
-	}
+            informationProvider = stack -> TextFormatting.GREEN + "Ammunition: " + TextFormatting.GRAY + Tags.getAmmo(stack) + "/" + capacity;
 
-	ItemMagazine(ModelBase model, String textureName, int capacity, ApplyHandler<Weapon> apply, ApplyHandler<Weapon> remove) {
-		super(AttachmentCategory.MAGAZINE, model, textureName, null, apply, remove);
-		this.capacity = capacity;
-		setMaxStackSize(1);
-	}
+            return magazine;
+        }
+    }
 
-	public ItemStack create(int ammunition) {
-		final ItemStack itemStack = new ItemStack(this);
+    private ModContext modContext;
 
-		initializeTag(itemStack, ammunition);
+    private final int capacity;
+    private List<ItemBullet> compatibleBullets;
+    private SoundEvent reloadSound;
+    private SoundEvent unloadSound;
 
-		return itemStack;
-	}
+    ItemMagazine(ModelBase model, String textureName, int capacity) {
+        this(model, textureName, capacity, null, null);
+    }
 
-	public ItemStack create() {
-		return this.create(capacity);
-	}
+    ItemMagazine(ModelBase model, String textureName, int capacity, ApplyHandler<Weapon> apply, ApplyHandler<Weapon> remove) {
+        super(AttachmentCategory.MAGAZINE, model, textureName, null, apply, remove);
+        this.capacity = capacity;
+        setMaxStackSize(1);
+    }
 
-	private void initializeTag(ItemStack itemStack, int initialAmmo) {
-		if (itemStack.getTagCompound() == null) {
-			itemStack.setTagCompound(new NBTTagCompound());
-			Tags.setAmmo(itemStack, initialAmmo);
-		}
-	}
-	
-	@Override
-	public void onCreated(ItemStack stack, World world, EntityPlayer player) {
-		initializeTag(stack, 0);
-	}
+    public ItemStack create(int ammunition) {
+        final ItemStack itemStack = new ItemStack(this);
 
-	public List<ItemBullet> getCompatibleBullets() {
-		return compatibleBullets;
-	}
+        initializeTag(itemStack, ammunition);
 
-	public int getCapacity() {
-		return capacity;
-	}
+        return itemStack;
+    }
 
-	public SoundEvent getReloadSound() {
-		return reloadSound;
-	}
-	
-	public SoundEvent getUnloadSound() {
-		return unloadSound;
-	}
+    public ItemStack create() {
+        return this.create(capacity);
+    }
 
-	@Override
-	public Part getRenderablePart() {
-		return this;
-	}
+    private void initializeTag(ItemStack itemStack, int initialAmmo) {
+        if (itemStack.getTagCompound() == null) {
+            itemStack.setTagCompound(new NBTTagCompound());
+            Tags.setAmmo(itemStack, initialAmmo);
+        }
+    }
 
-	@Override
-	public PlayerMagazineInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
-		final PlayerMagazineInstance instance = new PlayerMagazineInstance(slot, player, itemStack);
+    @Override
+    public void onCreated(ItemStack stack, World world, EntityPlayer player) {
+        initializeTag(stack, 0);
+    }
 
-		instance.setState(MagazineState.READY);
+    public List<ItemBullet> getCompatibleBullets() {
+        return compatibleBullets;
+    }
 
-		return instance;
-	}
+    public int getCapacity() {
+        return capacity;
+    }
 
-	@Override
-	public void update(EntityPlayer player) {
-		modContext.getMagazineReloadAspect().updateMainHeldItem(player);
-	}
+    public SoundEvent getReloadSound() {
+        return reloadSound;
+    }
 
-	@Override
-	public void reloadMainHeldItemForPlayer(EntityPlayer player) {
-		modContext.getMagazineReloadAspect().reloadMainHeldItem(player);
-	}
+    public SoundEvent getUnloadSound() {
+        return unloadSound;
+    }
+
+    @Override
+    public Part getRenderablePart() {
+        return this;
+    }
+
+    @Override
+    public PlayerMagazineInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
+        final PlayerMagazineInstance instance = new PlayerMagazineInstance(slot, player, itemStack);
+
+        instance.setState(MagazineState.READY);
+
+        return instance;
+    }
+
+    @Override
+    public void update(EntityPlayer player) {
+        modContext.getMagazineReloadAspect().updateMainHeldItem(player);
+    }
+
+    @Override
+    public void reloadMainHeldItemForPlayer(EntityPlayer player) {
+        modContext.getMagazineReloadAspect().reloadMainHeldItem(player);
+    }
 
     @Override
     public void unloadMainHeldItemForPlayer(EntityPlayer player) {
-    	modContext.getMagazineReloadAspect().unloadMainHeldItem(player);
+        modContext.getMagazineReloadAspect().unloadMainHeldItem(player);
     }
 }

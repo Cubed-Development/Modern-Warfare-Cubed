@@ -28,14 +28,14 @@ public abstract class Perspective<S> {
 
     public void activate(ClientModContext modContext, PerspectiveManager manager) {
         this.modContext = modContext;
-        if(framebuffer == null) {
+        if (framebuffer == null) {
             framebuffer = new Framebuffer(width, height, true);
             framebuffer.setFramebufferColor(0.0F, 0.0F, 0.0F, 0.0F);
         }
         this.entityRenderer = manager.getEntityRenderer();
         this.effectRenderer = manager.getEffectRenderer();
         this.shaderGroupManager = new DynamicShaderGroupManager(); //manager.getShaderGroupManager();
-        if(this.shaderGroupManager.hasActiveGroups()) {
+        if (this.shaderGroupManager.hasActiveGroups()) {
             System.err.println("!!! Active shader groups found !!!");
         }
     }

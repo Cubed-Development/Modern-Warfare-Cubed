@@ -43,18 +43,18 @@ public class SampleVehicleSteeringWheel extends ModelBase implements VehicleMode
         SteeringWheel1.setRotationPoint(0f, 0f, 0f);
         SteeringWheel2.setRotationPoint(0f, 0f, 0f);
         SteeringWheel3.setRotationPoint(0f, 0f, 0f);
-        
+
 //        SteeringWheel1.setRotationPoint(0F, -15.3F, -13F);
 //        SteeringWheel2.setRotationPoint(0F, -15.3F, -13F);
 //        SteeringWheel3.setRotationPoint(0F, -15.3F, -13F);
-        
+
         SteeringWheel1.rotateAngleX = 0f; //-0.733038286F;
         SteeringWheel1.rotateAngleZ = 0f; //-0.733038286F;
         SteeringWheel2.rotateAngleX = 0f; //-0.733038286F;
         SteeringWheel2.rotateAngleZ = 0f; //0.087266463F;
         SteeringWheel3.rotateAngleX = 0f; //-0.733038286F;
         SteeringWheel3.rotateAngleZ = 0f; //-0.087266463F;
-        
+
         renderModel(f5);
     }
 

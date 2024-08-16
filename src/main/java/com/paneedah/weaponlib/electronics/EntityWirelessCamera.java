@@ -39,21 +39,21 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
     public EntityWirelessCamera(ModContext modContext, World world, EntityPlayer player, ItemWirelessCamera itemWirelessCamera, long duration) {
         super(world, player);
         this.timestamp = world.getWorldTime(); //System.currentTimeMillis();
-        this.duration = (long)((float)duration / 50f);
+        this.duration = (long) ((float) duration / 50f);
         this.modContext = modContext;
         this.itemWirelessCamera = itemWirelessCamera;
 
         this.setSize(0.25F, 0.25F);
-        this.setLocationAndAngles(player.posX, player.posY + (double)player.getEyeHeight(), player.posZ, player.rotationYaw, player.rotationPitch);
-        this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
+        this.setLocationAndAngles(player.posX, player.posY + (double) player.getEyeHeight(), player.posZ, player.rotationYaw, player.rotationPitch);
+        this.posX -= MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double)(MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
+        this.posZ -= MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
         this.setPosition(this.posX, this.posY, this.posZ);
         float f = 0.4F;
-        this.motionX = (double)(-MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
-        this.motionZ = (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
+        this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f;
+        this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f;
         float pitchOffset = 0f;
-        this.motionY = (double)(-MathHelper.sin((this.rotationPitch + pitchOffset) / 180.0F * (float)Math.PI) * f);
+        this.motionY = -MathHelper.sin((this.rotationPitch + pitchOffset) / 180.0F * (float) Math.PI) * f;
         this.shoot(this.motionX, this.motionY, this.motionZ, 1.5f, 0);
 
     }
@@ -74,27 +74,28 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
         boolean hit = false;
         if (entityHit != null && getThrower() instanceof EntityPlayer) {
             String displayName = "";
-            if(entityHit instanceof EntityPlayer) {
+            if (entityHit instanceof EntityPlayer) {
                 displayName = ((EntityPlayer) entityHit).getDisplayNameString();
-            } else if(entityHit instanceof EntityLivingBase) {
+            } else if (entityHit instanceof EntityLivingBase) {
                 displayName = EntityList.getEntityString(entityHit);
             }
 
             if (!world.isRemote) {
                 LOG.debug("Server hit entity uuid {}", rayTraceResult.entityHit.getPersistentID());
-                LivingEntityTracker tracker = LivingEntityTracker.getTracker((EntityPlayer) getThrower());
-                if(tracker != null) {
+                LivingEntityTracker tracker = LivingEntityTracker.getTracker(getThrower());
+                if (tracker != null) {
                     hit = true;
                     tracker.addTrackableEntity(new TrackableEntity(entityHit, timestamp, duration));
-                    CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, "Tracking " + displayName), (EntityPlayerMP)getThrower());
+                    CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, "Tracking " + displayName), (EntityPlayerMP) getThrower());
                 }
                 entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), 0.001f);
             }
         }
 
         if (!world.isRemote) {
-            if(!hit && (thrower instanceof EntityPlayer && !((EntityPlayer) thrower).isCreative()))
+            if (!hit && (thrower instanceof EntityPlayer && !((EntityPlayer) thrower).isCreative())) {
                 dropItem(itemWirelessCamera, 1);
+            }
 
             this.setDead();
         }
@@ -115,7 +116,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
     @Override
     public void readSpawnData(ByteBuf buffer) {
         Item item = Item.getItemById(buffer.readInt());
-        if(item instanceof ItemWirelessCamera) {
+        if (item instanceof ItemWirelessCamera) {
             itemWirelessCamera = (ItemWirelessCamera) item;
         }
         timestamp = buffer.readLong();
@@ -124,21 +125,21 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
 
     protected void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
         float f2 = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
-        motionX /= (double) f2;
-        motionY /= (double) f2;
-        motionZ /= (double) f2;
+        motionX /= f2;
+        motionY /= f2;
+        motionZ /= f2;
         motionX += this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
         motionY += this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
         motionZ += this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
-        motionX *= (double) velocity;
-        motionY *= (double) velocity;
-        motionZ *= (double) velocity;
+        motionX *= velocity;
+        motionY *= velocity;
+        motionZ *= velocity;
         this.motionX = motionX;
         this.motionY = motionY;
         this.motionZ = motionZ;
         float f3 = MathHelper.sqrt(motionX * motionX + motionZ * motionZ);
         this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(motionX, motionZ) * 180.0D / Math.PI);
-        this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(motionY, (double) f3) * 180.0D / Math.PI);
+        this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(motionY, f3) * 180.0D / Math.PI);
 
     }
 
@@ -152,13 +153,11 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
         this.lastTickPosY = this.posY;
         this.lastTickPosZ = this.posZ;
 
-        if (this.throwableShake > 0)
-        {
+        if (this.throwableShake > 0) {
             --this.throwableShake;
         }
 
-        if (this.inGround)
-        {
+        if (this.inGround) {
             /*if (this.world.getBlockState(new BlockPos(this.xTile, this.yTile, this.zTile)).getBlock() == this.inTile)
             {
                 ++this.ticksInGround;
@@ -177,9 +176,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
             this.motionZ *= (double)(this.rand.nextFloat() * 0.2F);
             this.ticksInGround = 0;
             this.ticksInAir = 0;*/
-        }
-        else
-        {
+        } else {
             ++this.ticksInAir;
         }
 
@@ -189,35 +186,29 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
         vec3 = new Vec3d(this.posX, this.posY, this.posZ);
         vec31 = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
-        if (movingobjectposition != null)
-        {
+        if (movingobjectposition != null) {
             vec31 = new Vec3d(movingobjectposition.hitVec.x, movingobjectposition.hitVec.y, movingobjectposition.hitVec.z);
         }
 
-        if (!this.world.isRemote)
-        {
+        if (!this.world.isRemote) {
             Entity entity = null;
             List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox()
                     .expand(this.motionX, this.motionY, this.motionZ).grow(1.0D));
             double d0 = 0.0D;
             EntityLivingBase entitylivingbase = this.getThrower();
 
-            for (int j = 0; j < list.size(); ++j)
-            {
-                Entity entity1 = (Entity)list.get(j);
+            for (int j = 0; j < list.size(); ++j) {
+                Entity entity1 = list.get(j);
 
-                if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5))
-                {
+                if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                     float f = 0.3F;
-                    net.minecraft.util.math.AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand((double)f, (double)f, (double)f);
+                    net.minecraft.util.math.AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand(f, f, f);
                     RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
 
-                    if (movingobjectposition1 != null)
-                    {
+                    if (movingobjectposition1 != null) {
                         double d1 = vec3.squareDistanceTo(movingobjectposition1.hitVec);
 
-                        if (d1 < d0 || d0 == 0.0D)
-                        {
+                        if (d1 < d0 || d0 == 0.0D) {
                             entity = entity1;
                             d0 = d1;
                         }
@@ -227,20 +218,15 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
                 }
             }
 
-            if (entity != null)
-            {
+            if (entity != null) {
                 movingobjectposition = new RayTraceResult(entity);
             }
         }
 
-        if (movingobjectposition != null)
-        {
-            if (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK && this.world.getBlockState(movingobjectposition.getBlockPos()).getBlock() == Blocks.PORTAL)
-            {
+        if (movingobjectposition != null) {
+            if (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK && this.world.getBlockState(movingobjectposition.getBlockPos()).getBlock() == Blocks.PORTAL) {
                 this.setPortal(movingobjectposition.getBlockPos());
-            }
-            else
-            {
+            } else {
                 this.onImpact(movingobjectposition);
             }
         }
@@ -249,25 +235,20 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
         this.posY += this.motionY;
         this.posZ += this.motionZ;
         float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
-        this.rotationYaw = (float)(MathHelper.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
+        this.rotationYaw = (float) (MathHelper.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
-        for (this.rotationPitch = (float)(MathHelper.atan2(this.motionY, (double)f1) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F)
-        {
-            ;
+        for (this.rotationPitch = (float) (MathHelper.atan2(this.motionY, f1) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
         }
 
-        while (this.rotationPitch - this.prevRotationPitch >= 180.0F)
-        {
+        while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
             this.prevRotationPitch += 360.0F;
         }
 
-        while (this.rotationYaw - this.prevRotationYaw < -180.0F)
-        {
+        while (this.rotationYaw - this.prevRotationYaw < -180.0F) {
             this.prevRotationYaw -= 360.0F;
         }
 
-        while (this.rotationYaw - this.prevRotationYaw >= 180.0F)
-        {
+        while (this.rotationYaw - this.prevRotationYaw >= 180.0F) {
             this.prevRotationYaw += 360.0F;
         }
 
@@ -276,21 +257,19 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
         float f2 = 0.99F;
         float f3 = this.getGravityVelocity();
 
-        if (this.isInWater())
-        {
-            for (int i = 0; i < 4; ++i)
-            {
+        if (this.isInWater()) {
+            for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
-                this.world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ, new int[0]);
+                this.world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * (double) f4, this.posY - this.motionY * (double) f4, this.posZ - this.motionZ * (double) f4, this.motionX, this.motionY, this.motionZ);
             }
 
             f2 = 0.8F;
         }
 
-        this.motionX *= (double)f2;
-        this.motionY *= (double)f2;
-        this.motionZ *= (double)f2;
-        this.motionY -= (double)f3;
+        this.motionX *= f2;
+        this.motionY *= f2;
+        this.motionZ *= f2;
+        this.motionY -= f3;
         this.setPosition(this.posX, this.posY, this.posZ);
     }
 }

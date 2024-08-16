@@ -34,7 +34,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
     private int badSignalTickCounter;
     private int imageIndex;
 
-    private Random random = new Random();
+    private final Random random = new Random();
 
     private int totalTrackableEntities;
 
@@ -45,8 +45,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
     @Override
     protected void updateWatchablePlayer() {
 
-    	
-    		
+
 //        this.watchablePlayer.setEntityLiving(null);
 //        if(true) return;
 
@@ -54,7 +53,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
                 .getMainHandItemInstance(entityPlayer);
 
-        if(!(instance instanceof PlayerTabletInstance)) {
+        if (!(instance instanceof PlayerTabletInstance)) {
             return;
         }
 
@@ -62,7 +61,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
         LivingEntityTracker playerEntityTracker = LivingEntityTracker.getTracker(entityPlayer);
 
-        if(playerEntityTracker == null) {
+        if (playerEntityTracker == null) {
             return;
         }
 
@@ -71,17 +70,17 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         TrackableEntity te = totalTrackableEntities > 0 ? playerEntityTracker.getTrackableEntity(activeWatchIndex) : null;
 
         Entity watchableEntity = null;
-        if(te == null) {
+        if (te == null) {
             displayName = "";
             batteryLevel = null;
         } else {
             displayName = te.getDisplayName();
             watchableEntity = te.getEntity();
-            batteryLevel = 1f - ((float)(entityPlayer.world.getWorldTime()
+            batteryLevel = 1f - ((float) (entityPlayer.world.getWorldTime()
                     - te.getStartTimestamp()) / te.getTrackingDuration());
-            if(batteryLevel > 1f) {
+            if (batteryLevel > 1f) {
                 batteryLevel = 1f;
-            } else if(batteryLevel < 0f) {
+            } else if (batteryLevel < 0f) {
                 batteryLevel = 0f;
             }
         }
@@ -89,64 +88,64 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         Entity realEntity = watchableEntity == null ? null : watchableEntity.world
                 .getEntityByID(watchableEntity.getEntityId());
         if (realEntity != null && realEntity != watchableEntity) {
-            watchableEntity = (EntityLivingBase) realEntity;
+            watchableEntity = realEntity;
         }
 
 //        if(watchableEntity != null && watchableEntity.isDead) {
 //            watchableEntity = null;
 //        }
 
-        if(tickCounter++ %50 == 0) {
+        if (tickCounter++ % 50 == 0) {
             LOG.trace("Using entity tracker {}", playerEntityTracker);
-            if(watchableEntity != null) {
+            if (watchableEntity != null) {
                 LOG.debug("Watching {} with uuid {}, distance: {}  ", watchableEntity, watchableEntity.getUniqueID(), Math.sqrt(Math.pow(watchableEntity.posX - FMLClientHandler.instance().getClientPlayerEntity().posX, 2) + Math.pow(watchableEntity.posZ - FMLClientHandler.instance().getClientPlayerEntity().posZ, 2)));
             }
         }
 
 
-        if(watchableEntity == null || watchableEntity instanceof EntityLivingBase) {
+        if (watchableEntity == null || watchableEntity instanceof EntityLivingBase) {
             this.watchablePlayer.setEntityLiving((EntityLivingBase) watchableEntity);
         }
     }
 
     @Override
     protected void renderOverlay() {
-    	
-    	
+
+
         super.renderOverlay();
         framebuffer.bindFramebuffer(true);
         int maxDistance = 120;
         int displayCameraIndex = activeWatchIndex + 1;
         String message = "Cam " + displayCameraIndex + "/" + totalTrackableEntities + ": " + displayName;
         EntityLivingBase watchableEntity = watchablePlayer.getEntityLiving();
-        int color =  0xFFFF00;
-        if(watchableEntity != null) {
+        int color = 0xFFFF00;
+        if (watchableEntity != null) {
             EntityPlayer origPlayer = MC.player;
             //origPlayer.getDistanceToEntity(watchableEntity);
             double distance = Math.pow(watchableEntity.posX - origPlayer.posX, 2)
                     + Math.pow(watchableEntity.posY - origPlayer.posY, 2)
                     + Math.pow(watchableEntity.posZ - origPlayer.posZ, 2);
-            SignalQuality quality = SignalQuality.getQuality((int)Math.sqrt(distance), maxDistance);
-            if(watchableEntity.isDead || quality.isInterrupted() || (badSignalTickCounter > 0 && badSignalTickCounter < 5) || watchableEntity.isDead) {
-                if(badSignalTickCounter == 0) {
+            SignalQuality quality = SignalQuality.getQuality((int) Math.sqrt(distance), maxDistance);
+            if (watchableEntity.isDead || quality.isInterrupted() || (badSignalTickCounter > 0 && badSignalTickCounter < 5) || watchableEntity.isDead) {
+                if (badSignalTickCounter == 0) {
                     framebuffer.framebufferClear();
                     framebuffer.bindFramebuffer(true);
                 }
 
-                color =  0xFFFF00;
-                message = "Cam " + displayCameraIndex  + "/" + totalTrackableEntities + ": no signal";
+                color = 0xFFFF00;
+                message = "Cam " + displayCameraIndex + "/" + totalTrackableEntities + ": no signal";
                 drawStatic();
                 badSignalTickCounter++;
             }
-            if(badSignalTickCounter == 5) {
+            if (badSignalTickCounter == 5) {
                 badSignalTickCounter = 0;
             }
-        } else if(totalTrackableEntities == 0) {
+        } else if (totalTrackableEntities == 0) {
             framebuffer.framebufferClear();
             framebuffer.bindFramebuffer(true);
             MC.getTextureManager().bindTexture(new ResourceLocation(DARK_SCREEN_TEXTURE));
             drawTexturedQuadFit(0, 0, width, height, 0);
-            color =  0xFF0000;
+            color = 0xFF0000;
             message = "No Cameras Available";
         } else {
             framebuffer.framebufferClear();
@@ -160,10 +159,10 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         float scale = 2f;
         GL11.glScalef(scale, scale, scale);
 
-        fontRender.drawString(message, (int)(40f/ scale), (int)((this.height - 30) / scale), color, false);
+        fontRender.drawString(message, (int) (40f / scale), (int) ((this.height - 30) / scale), color, false);
 
-        if(totalTrackableEntities > 0 && batteryLevel != null) {
-            fontRender.drawString("Battery: " + (int)(batteryLevel * 100) + "%", (int)((this.width - 150f)/ scale), (int)((this.height - 30) / scale), color, false);
+        if (totalTrackableEntities > 0 && batteryLevel != null) {
+            fontRender.drawString("Battery: " + (int) (batteryLevel * 100) + "%", (int) ((this.width - 150f) / scale), (int) ((this.height - 30) / scale), color, false);
         }
     }
 
@@ -182,7 +181,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         float uWidth = 1f / STATIC_IMAGES_PER_ROW;
 
         float aU = (imageIndex + 1) * uWidth; // imageIndex = 0, imagesPerRow = 2, aU = 0.5; imageIndex = 1, aU = 1
-            // imagesPerRow = 4; imageIndex = 1; aU = 2/4 = 0.5
+        // imagesPerRow = 4; imageIndex = 1; aU = 2/4 = 0.5
         float aV = 1f;
 
         float bU = (imageIndex + 1) * uWidth;
@@ -213,7 +212,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         tessellator.draw();
     }
 
-    private static void drawTexturedQuadFit(double x, double y, double width, double height, double zLevel){
+    private static void drawTexturedQuadFit(double x, double y, double width, double height, double zLevel) {
         final Tessellator tessellator = Tessellator.getInstance();
         final BufferBuilder buffer = tessellator.getBuffer();
 

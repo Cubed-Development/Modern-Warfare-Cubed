@@ -21,7 +21,7 @@ public class GuiBackpack extends GuiContainer {
 
         final int columns = inventory.getSizeInventory() / 4;
 
-        xSize += (columns > 5 ? ((columns * 3) +1) : 0);
+        xSize += (columns > 5 ? ((columns * 3) + 1) : 0);
     }
 
     @Override

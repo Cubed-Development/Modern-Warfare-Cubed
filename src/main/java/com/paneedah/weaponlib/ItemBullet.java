@@ -20,7 +20,7 @@ public class ItemBullet extends ItemAttachment<Weapon> {
                     .build();
         }
 
-        private List<ItemMagazine> compatibleMagazines = new ArrayList<>();
+        private final List<ItemMagazine> compatibleMagazines = new ArrayList<>();
 
         public Builder() {
             withMaxStackSize(64);
@@ -39,7 +39,7 @@ public class ItemBullet extends ItemAttachment<Weapon> {
         }
     }
 
-    
+
     private List<ItemMagazine> compatibleMagazines = new ArrayList<>();
 
     public ItemBullet(AttachmentCategory category, ModelBase model, String textureName, String crosshair,

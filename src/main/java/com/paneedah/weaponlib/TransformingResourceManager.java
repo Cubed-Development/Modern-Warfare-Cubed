@@ -11,8 +11,8 @@ import java.util.function.UnaryOperator;
 
 public class TransformingResourceManager implements IResourceManager {
 
-    private IResourceManager delegate;
-    private UnaryOperator<ResourceLocation> locationTransformer;
+    private final IResourceManager delegate;
+    private final UnaryOperator<ResourceLocation> locationTransformer;
 
     public TransformingResourceManager(IResourceManager delegate, UnaryOperator<ResourceLocation> locationTransformer) {
         this.delegate = delegate;

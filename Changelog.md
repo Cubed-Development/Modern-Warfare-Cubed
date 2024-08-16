@@ -5,6 +5,98 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com),
 and this project follows the [Ragnarök Versioning Convention](https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md).
 
+## [UNRELEASED] Modern Warfare Cubed Version 0.2 Changelog
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.6 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+### Highlight
+
+#### Tooltips Rework
+
+In this update we reworked tooltips.
+Now they give you more info than ever, 
+and they also give you info in better ways!
+
+Take a look at this loaded AK-47 with attachments, modifications and a skin:
+
+AK-47 Before:
+
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/ba5ab893-44e3-47ce-8df3-04b079dc7b3f" alt="Before" width="256">
+
+AK-47 After:
+
+<img src="https://github.com/user-attachments/assets/808851a8-2b08-47f1-9c0b-73a3ec9013c4" alt="After" width="364">
+
+This was just an example, 
+but we reworked every tooltip.
+Some things in the mod did not have custom tooltips at all, so we changed that, check it out:
+
+Attachments New Tooltips:
+
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/6ad9be3f-99ac-48ab-aa7d-6a165ab1260f" alt="Before" width="256">
+
+Melee Weapons New Tooltips:
+
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/c8a799ee-5ca1-4e82-8cd9-923f4715bd32" alt="Before" height="256">
+
+This should really help in a lot of situations,
+like knowing which weapon is better or whether an attachment will be useful to you.
+
+### Added
+
+- Added German translation
+- Added the logo to the mod menu
+- Added Ukrainian translation
+- Added a new sound effect when shooting snow
+- Added tooltips to melee weapons
+- Added tooltips to attachments
+
+### Changed
+
+- Fire mode hint ("Press [B] to change fire mode") now only appears when the weapon has multiple fire modes
+- Magazines now use the same ammunition counter as weapons, instead of a white text in the top-right corner
+- The crosshair will now appear when holding a magazine
+- Updated the description in the mod menu
+- Updated the author list in the mod menu
+- Updated the credits in the mod menu
+- Updated the url in the mod menu
+- Updated dependencies:
+  - Requires Red Core 0.6 and up
+  - Requires MixinBooter 8.6 and up
+- Updated Korean translation
+- Reworked weapons tooltips
+- Reworked magazines tooltips
+- Reworked vests tooltips
+- Updated Chinese translation
+
+### Fixed
+
+- Fixed the default craftingmappings.json
+- Fixed the position of the RPG-7 and M202 projectiles
+
+### Removed
+
+- Removed unused warning about the grenade exploding in X amount of seconds
+- Removed proning
+- Removed unused `ItemAmmo`
+
+### Internal
+
+- Made client sided mixins client side only
+- Cleaned up the `mcmod.info` file
+- Switched to [CurseUpdate](https://forge.curseupdate.com/) for update checking
+- Updated [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) to version 1.4.0
+- Updated to [Gradle](https://gradle.org) 8.8
+- Set a minimum Gradle Daemon JVM version requirement
+- Updated the `gradle.properties` to the new Red Studio standard one
+- Cleaned up the buildscript
+- Updated [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) dependency to 1.1.2
+- Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 5.4.0
+- Updated to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.4.0
+- Switched to the new standard `gradle.properties`
+- General cleanup
+- Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 8.7.1
+
 ## Modern Warfare Cubed Version 0.1.8 Changelog - 2024-08-16
 
 ### Warning

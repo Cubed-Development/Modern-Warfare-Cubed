@@ -11,49 +11,46 @@ import java.io.PrintWriter;
 
 public class MWCClassTransformer implements IClassTransformer {
 
-    private static ClassInfo playSoundClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo playSoundClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("paulscode.sound.libraries.SourceLWJGLOpenAL");
 
-    private static ClassInfo entityRendererClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo entityRendererClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/renderer/EntityRenderer");
 
-    private static ClassInfo renderBipedClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo renderBipedClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/renderer/entity/RenderBiped");
 
-    private static ClassInfo modelBipedClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo modelBipedClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/model/ModelBiped");
 
-    private static ClassInfo modelPlayerClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo modelPlayerClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/model/ModelPlayer");
 
-    private static ClassInfo renderLivingBaseClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo renderLivingBaseClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/renderer/entity/RenderLivingBase");
 
-    private static ClassInfo modelBaseClassInfo = ClassInfoProvider.getInstance()
-            .getClassInfo("net/minecraft/client/model/ModelBase");
-
-    private static ClassInfo layerArmorBaseClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo layerArmorBaseClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/renderer/entity/layers/LayerArmorBase");
 
-    private static ClassInfo layerHeldItemClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo layerHeldItemClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/renderer/entity/layers/LayerHeldItem");
 
-    private static ClassInfo entityPlayerSPClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo entityPlayerSPClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/entity/EntityPlayerSP");
 
-    private static ClassInfo entityPlayerMPClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo entityPlayerMPClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/entity/player/EntityPlayerMP");
 
-    private static ClassInfo inventoryChangeTriggerClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo inventoryChangeTriggerClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/advancements/critereon/InventoryChangeTrigger");
 
-    private static ClassInfo entityPlayerClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo entityPlayerClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/entity/player/EntityPlayer");
 
-    private static ClassInfo entityLivingBaseClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo entityLivingBaseClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/entity/EntityLivingBase");
 
-    private static ClassInfo modelRendererClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo modelRendererClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/model/ModelRenderer");
 
     private static class UpdateCameraAndRenderMethodVisitor extends MethodVisitor {
@@ -403,7 +400,7 @@ public class MWCClassTransformer implements IClassTransformer {
 
     private static class RenderEquippedItemsMethodVisitor extends MethodVisitor {
 
-        private String itemBlockClassName = ItemBlock.class.getName().replace('.', '/');
+        private final String itemBlockClassName = ItemBlock.class.getName().replace('.', '/');
 
         public RenderEquippedItemsMethodVisitor(MethodVisitor mv) {
             super(Opcodes.ASM4, mv);
@@ -452,41 +449,9 @@ public class MWCClassTransformer implements IClassTransformer {
         }
     }
 
-    private static class RenderModelMethodVisitor extends MethodVisitor {
-
-        public RenderModelMethodVisitor(MethodVisitor mv) {
-            super(Opcodes.ASM4, mv);
-        }
-
-        @Override
-        public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
-            if (modelBaseClassInfo.methodMatches("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", owner, name, desc)) {
-                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "render2", "(Lnet/minecraft/client/model/ModelBase;Lnet/minecraft/entity/Entity;FFFFFF)V", false);
-            } else {
-                super.visitMethodInsn(opcode, owner, name, desc, itf);
-            }
-        }
-    }
-
-    private static class RenderArmorLayerMethodVisitor extends MethodVisitor {
-
-        public RenderArmorLayerMethodVisitor(MethodVisitor mv) {
-            super(Opcodes.ASM4, mv);
-        }
-
-        @Override
-        public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
-            if (modelBaseClassInfo.methodMatches("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", owner, name, desc)) {
-                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "renderArmorLayer", "(Lnet/minecraft/client/model/ModelBase;Lnet/minecraft/entity/Entity;FFFFFF)V", false);
-            } else {
-                super.visitMethodInsn(opcode, owner, name, desc, itf);
-            }
-        }
-    }
-
     private static class RenderHeldItemMethodVisitor extends MethodVisitor {
 
-        private boolean notchMode;
+        private final boolean notchMode;
 
         public RenderHeldItemMethodVisitor(MethodVisitor mv, boolean notchMode) {
             super(Opcodes.ASM4, mv);
@@ -503,8 +468,7 @@ public class MWCClassTransformer implements IClassTransformer {
                     //String notchFieldType = layerHeldItemClassInfo.getNotchFieldType(mcpFieldName);
                 }
 
-                mv.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/renderer/entity/layers/LayerHeldItem",
-                        fieldName, "Lnet/minecraft/client/renderer/entity/RenderLivingBase;");
+                mv.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/renderer/entity/layers/LayerHeldItem", fieldName, "Lnet/minecraft/client/renderer/entity/RenderLivingBase;");
                 mv.visitVarInsn(Opcodes.ALOAD, 1);
                 mv.visitVarInsn(Opcodes.ALOAD, 2);
                 mv.visitVarInsn(Opcodes.ALOAD, 3);
@@ -521,57 +485,6 @@ public class MWCClassTransformer implements IClassTransformer {
         }
     }
 
-    private static class IsSneakingMethodVisitor extends MethodVisitor {
-
-        public IsSneakingMethodVisitor(MethodVisitor mv) {
-            super(Opcodes.ASM4, mv);
-        }
-
-        @Override
-        public void visitJumpInsn(int opcode, Label label) {
-            mv.visitJumpInsn(opcode, label);
-            if (opcode == Opcodes.IFNE) {
-                mv.visitVarInsn(Opcodes.ALOAD, 0);
-                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "isProning", "(Lnet/minecraft/entity/player/EntityPlayer;)Z", false);
-                mv.visitJumpInsn(Opcodes.IFNE, label);
-            }
-        }
-    }
-
-    private static class UpdateEntityActionStateMethodVisitor extends MethodVisitor {
-
-        public UpdateEntityActionStateMethodVisitor(MethodVisitor mv) {
-            super(Opcodes.ASM4, mv);
-        }
-
-        @Override
-        public void visitFieldInsn(int opcode, String owner, String name, String desc) {
-
-            super.visitFieldInsn(opcode, owner, name, desc);
-
-            // This was always broken, current priority is definitely not on proning so it will do for now - Luna Lage (Desoroxxx) 2023-12-21
-
-//            if(opcode == Opcodes.GETFIELD && (owner.equals("bnl") || owner.equals("net/minecraft/util/MovementInput"))
-//                    && (name.equals("jump") || name.equals("g"))) {
-//
-//
-//                Label l6 = new Label();
-//                mv.visitJumpInsn(Opcodes.IFEQ, l6);
-//                mv.visitVarInsn(Opcodes.ALOAD, 0);
-//                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "isProning", "(Lnet/minecraft/entity/player/EntityPlayer;)Z", false);
-//                mv.visitJumpInsn(Opcodes.IFNE, l6);
-//                mv.visitInsn(Opcodes.ICONST_1);
-//                Label l7 = new Label();
-//                mv.visitJumpInsn(Opcodes.GOTO, l7);
-//                mv.visitLabel(l6);
-//                mv.visitFrame(Opcodes.F_SAME1, 0, null, 1, new Object[] {owner});
-//                mv.visitInsn(Opcodes.ICONST_0);
-//                mv.visitLabel(l7);
-//                mv.visitFrame(Opcodes.F_FULL, 1, new Object[] {owner}, 2, new Object[] {owner, Opcodes.INTEGER});
-//            }
-        }
-    }
-
     private static class AttackEntityFromMethodVisitor extends MethodVisitor {
 
         public AttackEntityFromMethodVisitor(MethodVisitor mv) {
@@ -585,28 +498,6 @@ public class MWCClassTransformer implements IClassTransformer {
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/ServerInterceptors", "getKnockback", "(Lnet/minecraft/util/DamageSource;)F", false);
             } else {
                 super.visitLdcInsn(cst);
-            }
-        }
-
-        @Override
-        public void visitFieldInsn(int opcode, String owner, String name, String desc) {
-
-            super.visitFieldInsn(opcode, owner, name, desc);
-            if (opcode == Opcodes.GETFIELD && (owner.equals("bnl") || owner.equals("net/minecraft/util/MovementInput"))
-                    && (name.equals("jump") || name.equals("g"))) {
-                Label l6 = new Label();
-                mv.visitJumpInsn(Opcodes.IFEQ, l6);
-                mv.visitVarInsn(Opcodes.ALOAD, 0);
-                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "isProning", "(Lnet/minecraft/entity/player/EntityPlayer;)Z", false);
-                mv.visitJumpInsn(Opcodes.IFNE, l6);
-                mv.visitInsn(Opcodes.ICONST_1);
-                Label l7 = new Label();
-                mv.visitJumpInsn(Opcodes.GOTO, l7);
-                mv.visitLabel(l6);
-                mv.visitFrame(Opcodes.F_SAME1, 0, null, 1, new Object[]{owner});
-                mv.visitInsn(Opcodes.ICONST_0);
-                mv.visitLabel(l7);
-                mv.visitFrame(Opcodes.F_FULL, 1, new Object[]{owner}, 2, new Object[]{owner, Opcodes.INTEGER});
             }
         }
     }
@@ -684,25 +575,10 @@ public class MWCClassTransformer implements IClassTransformer {
             } */ /*else if(modelPlayerClassInfo != null
                     && modelPlayerClassInfo.methodMatches("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", classname, name, desc)) {
                 return new RenderMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } */
-            /*
-            else if(renderLivingBaseClassInfo != null
-                    && renderLivingBaseClassInfo.methodMatches("renderModel", "(Lnet/minecraft/entity/EntityLivingBase;FFFFFF)V", classname, name, desc)) {
-                return new RenderModelMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(layerArmorBaseClassInfo != null
-                    && layerArmorBaseClassInfo.methodMatches("renderArmorLayer", "(Lnet/minecraft/entity/EntityLivingBase;FFFFFFFLnet/minecraft/inventory/EntityEquipmentSlot;)V", classname, name, desc)) {
-                return new RenderArmorLayerMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } */
-            else if (layerHeldItemClassInfo != null
+            } */ else if (layerHeldItemClassInfo != null
                     && layerHeldItemClassInfo.methodMatches("renderHeldItem", "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType;Lnet/minecraft/util/EnumHandSide;)V", classname, name, desc)) {
                 return new RenderHeldItemMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions),
                         !name.equals("renderHeldItem"));
-            } else if (entityPlayerSPClassInfo != null
-                    && entityPlayerSPClassInfo.methodMatches("isSneaking", "()Z", classname, name, desc)) {
-                return new IsSneakingMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if (entityPlayerSPClassInfo != null
-                    && entityPlayerSPClassInfo.methodMatches("updateEntityActionState", "()V", classname, name, desc)) {
-                return new UpdateEntityActionStateMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
             } else if (entityLivingBaseClassInfo != null
                     && entityLivingBaseClassInfo.methodMatches("attackEntityFrom", "(Lnet/minecraft/util/DamageSource;F)Z", classname, name, desc)) {
                 return new AttackEntityFromMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));

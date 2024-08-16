@@ -21,12 +21,12 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 
         @Override
         public int getTexture(RenderContext<RenderableState> context) {
-        	
-            if(textureId == null) {
+
+            if (textureId == null) {
                 ResourceLocation textureResource = new ResourceLocation(WirelessCameraPerspective.DARK_SCREEN_TEXTURE);
                 MC.getTextureManager().bindTexture(textureResource);
                 ITextureObject textureObject = MC.getTextureManager().getTexture(textureResource);
-                if(textureObject != null) {
+                if (textureObject != null) {
                     textureId = textureObject.getGlTextureId();
                 }
             }
@@ -42,68 +42,61 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 
     protected static Perspective<RenderableState> STATIC_TEXTURE_PERSPECTIVE = new StaticTexturePerspective();
 
-	protected ViewfinderModel model = new ViewfinderModel();
-	protected Runnable positioning;
+    protected ViewfinderModel model = new ViewfinderModel();
+    protected Runnable positioning;
 
 
-	public PerspectiveRenderer(Runnable positioning) {
-		this.positioning = positioning;
-	}
+    public PerspectiveRenderer(Runnable positioning) {
+        this.positioning = positioning;
+    }
 
-	@Override
-	public void render(RenderContext<RenderableState> renderContext) {
+    @Override
+    public void render(RenderContext<RenderableState> renderContext) {
 
-		if(renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND && renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND) {
-			return;
-		}
+        if (renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND && renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND) {
+            return;
+        }
 
-		ClientModContext clientModContext = (ClientModContext) MWC.modContext;
+        ClientModContext clientModContext = (ClientModContext) MWC.modContext;
 
-		
+
         Perspective<RenderableState> perspective = (Perspective<RenderableState>) clientModContext.getViewManager().getPerspective(renderContext.getPlayerItemInstance(), false);
-		if(perspective == null) {
-		    perspective = STATIC_TEXTURE_PERSPECTIVE;
-		}
+        if (perspective == null) {
+            perspective = STATIC_TEXTURE_PERSPECTIVE;
+        }
 
-		float brightness = perspective.getBrightness(renderContext);
-		GL11.glPushMatrix();
-		GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
+        float brightness = perspective.getBrightness(renderContext);
+        GL11.glPushMatrix();
+        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
 
-		
 
-		
-		positioning.run();
-		
-		
-		
-		//GL11.glBindTexture(GL11.GL_TEXTURE_2D, framebuffer.framebufferTexture);
-		GL11.glBindTexture(GL11.GL_TEXTURE_2D, perspective.getTexture(renderContext));
-		MC.entityRenderer.disableLightmap();
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
-		//GL11.glDepthMask(true);
-		GL11.glDisable(GL11.GL_LIGHTING);
-		GL11.glDisable(GL11.GL_ALPHA_TEST);
-		GL11.glDisable(GL11.GL_BLEND);
+        positioning.run();
 
-		
-		
-	
-		
-		
-		GL11.glColor4f(brightness, brightness, brightness, 1f);
-		
-	
-		model.render(renderContext.getPlayer(),
-				renderContext.getLimbSwing(),
-				renderContext.getFlimbSwingAmount(),
-				renderContext.getAgeInTicks(),
-				renderContext.getNetHeadYaw(),
-				renderContext.getHeadPitch(),
-				renderContext.getScale());
+
+        //GL11.glBindTexture(GL11.GL_TEXTURE_2D, framebuffer.framebufferTexture);
+        GL11.glBindTexture(GL11.GL_TEXTURE_2D, perspective.getTexture(renderContext));
+        MC.entityRenderer.disableLightmap();
+        GL11.glEnable(GL11.GL_DEPTH_TEST);
+        //GL11.glDepthMask(true);
+        GL11.glDisable(GL11.GL_LIGHTING);
+        GL11.glDisable(GL11.GL_ALPHA_TEST);
+        GL11.glDisable(GL11.GL_BLEND);
+
+
+        GL11.glColor4f(brightness, brightness, brightness, 1f);
+
+
+        model.render(renderContext.getPlayer(),
+                renderContext.getLimbSwing(),
+                renderContext.getFlimbSwingAmount(),
+                renderContext.getAgeInTicks(),
+                renderContext.getNetHeadYaw(),
+                renderContext.getHeadPitch(),
+                renderContext.getScale());
 
 
         MC.entityRenderer.enableLightmap();
-		GL11.glPopAttrib();
-		GL11.glPopMatrix();
-	}
+        GL11.glPopAttrib();
+        GL11.glPopMatrix();
+    }
 }

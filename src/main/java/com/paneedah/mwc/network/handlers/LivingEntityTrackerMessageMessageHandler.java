@@ -22,8 +22,9 @@ public final class LivingEntityTrackerMessageMessageHandler implements IMessageH
         NetworkUtil.processMessage(messageContext, () -> {
             CompatiblePlayerEntityTrackerProvider.setTracker(MC.player, livingEntityTrackerMessage.getPlayerEntityTracker());
 
-            if (livingEntityTrackerMessage.getStatusMessage() != null)
+            if (livingEntityTrackerMessage.getStatusMessage() != null) {
                 MC.player.sendStatusMessage(new TextComponentString(livingEntityTrackerMessage.getStatusMessage()), true);
+            }
         });
 
         return null;

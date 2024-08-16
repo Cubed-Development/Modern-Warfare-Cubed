@@ -18,21 +18,21 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
 
     @Override
     public void update(TickEvent.RenderTickEvent event) {
-    	//if(true) return;
+        //if(true) return;
         int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
-        
+
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
         //MC.entityRenderer.disableLightmap();
         enable2DRenderingMode(427, 240);
-        
+
         framebuffer.framebufferClear();
         framebuffer.bindFramebuffer(true);
-        
+
         drawScreen();
 
         restoreRenderingMode();
-  
+
         //MC.entityRenderer.enableLightmap();
         GL11.glPopAttrib();
         GL11.glPopMatrix();
@@ -45,7 +45,7 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
 
     protected abstract void drawScreen();
 
-    
+
     private void enable2DRenderingMode(double projectionWidth, double projectionHeight) {
         //GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
         GL11.glMatrixMode(GL11.GL_PROJECTION);
@@ -60,7 +60,7 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
 
     private void restoreRenderingMode() {
         GL11.glMatrixMode(GL11.GL_PROJECTION);
-        GL11.glPopMatrix();   
+        GL11.glPopMatrix();
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
         GL11.glPopMatrix();
 

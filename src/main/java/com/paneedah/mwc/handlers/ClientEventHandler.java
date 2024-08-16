@@ -46,17 +46,20 @@ public class ClientEventHandler {
 
     @SubscribeEvent
     public static void onRenderGameOverlayEvent(RenderGameOverlayEvent.Pre renderGameOverlayEvent) {
-        if (cooked)
+        if (cooked) {
             return;
+        }
 
-        if (COOKING_QUEUE.isEmpty())
+        if (COOKING_QUEUE.isEmpty()) {
             cooked = true;
+        }
 
         for (int i = 0; i < 32 && !COOKING_QUEUE.isEmpty(); i++) { // We are limiting to 32 per frame to reduce "Minecraft is not responding"
             final Item item = COOKING_QUEUE.poll();
 
-            if (item != null)
+            if (item != null) {
                 MC.getRenderItem().renderItem(new ItemStack(item), ItemCameraTransforms.TransformType.GUI);
+            }
         }
     }
 }

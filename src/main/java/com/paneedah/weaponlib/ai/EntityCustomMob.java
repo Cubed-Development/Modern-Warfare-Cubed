@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.ai;
 
+import com.paneedah.mwc.network.messages.EntityPickupMessage;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.ai.EntityConfiguration.Equipment;
 import com.paneedah.weaponlib.ai.EntityConfiguration.TexturedModel;
@@ -7,7 +8,6 @@ import com.paneedah.weaponlib.compatibility.CompatibleDataManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
-import com.paneedah.mwc.network.messages.EntityPickupMessage;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.*;
@@ -61,19 +61,19 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     public EntityCustomMob(World worldIn) {
         super(worldIn);
         setSize(getConfiguration().getSizeWidth(), getConfiguration().getSizeHeight());
-        
+
         //this.setSize(0.6F, 1.99F);
-      
+
     }
-    
+
     @Override
     public Vec3d getPositionEyes(float partialTicks) {
-    	// TODO Auto-generated method stub
-    	return super.getPositionEyes(partialTicks);
+        // TODO Auto-generated method stub
+        return super.getPositionEyes(partialTicks);
     }
-    
+
     public String getMobName() {
-    	return configuration.getMobName();
+        return configuration.getMobName();
     }
 
     @Override
@@ -83,31 +83,31 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         }
         return configuration;
     }
-    
-    
+
+
     @Override
     public AxisAlignedBB getCollisionBoundingBox() {
-    	// TODO Auto-generated method stub
-    	return super.getCollisionBoundingBox();
+        // TODO Auto-generated method stub
+        return super.getCollisionBoundingBox();
     }
-    
+
     @Override
     public AxisAlignedBB getEntityBoundingBox() {
-    	// TODO Auto-generated method stub
-    	return super.getEntityBoundingBox();
+        // TODO Auto-generated method stub
+        return super.getEntityBoundingBox();
     }
-    
+
     @Override
     public void setEntityBoundingBox(AxisAlignedBB bb) {
-    	// TODO Auto-generated method stub
-    	super.setEntityBoundingBox(bb);
+        // TODO Auto-generated method stub
+        super.setEntityBoundingBox(bb);
     }
-    
+
 
     @Override
     protected void initEntityAI() {
-    //	System.out.println("A la verga: " + getConfiguration().getSizeWidth() + " | " + getConfiguration().getSizeHeight());
-    	setSize(getConfiguration().getSizeWidth(), getConfiguration().getSizeHeight());
+        //	System.out.println("A la verga: " + getConfiguration().getSizeWidth() + " | " + getConfiguration().getSizeHeight());
+        setSize(getConfiguration().getSizeWidth(), getConfiguration().getSizeHeight());
         getConfiguration().addAiTasks(this, this.tasks);
         getConfiguration().addAiTargetTasks(this, this.targetTasks);
     }
@@ -120,7 +120,6 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(getConfiguration().getMaxHealth());
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(getConfiguration().getCollisionAttackDamage());
     }
-    
 
 
     protected void entityInit() {
@@ -164,8 +163,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
      */
     public void onLivingUpdate() {
 
-    	
-    	
+
         if (this.isEntityAlive() && getConfiguration().getDelayedAttack() != null) {
 
             if (isDelayedAttackStarted()) {
@@ -277,23 +275,19 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     }
 
     @Override
-    public void setActiveHand(EnumHand hand)
-    {
+    public void setActiveHand(EnumHand hand) {
         ItemStack itemstack = this.getHeldItem(hand);
 
-        if (itemstack != null && !this.isHandActive())
-        {
+        if (itemstack != null && !this.isHandActive()) {
             // int duration = net.minecraftforge.event.ForgeEventFactory.onItemUseStart(this, itemstack, itemstack.getMaxItemUseDuration());
             // if (duration <= 0) return;
             this.activeItemStack = itemstack;
             this.activeItemStackUseCount = 100;
 
-            if (!this.world.isRemote)
-            {
+            if (!this.world.isRemote) {
                 int i = 1;
 
-                if (hand == EnumHand.OFF_HAND)
-                {
+                if (hand == EnumHand.OFF_HAND) {
                     i |= 2;
                 }
 
@@ -319,7 +313,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         }
     }
 
-    
+
     private void initWeaponWithAttachments(Equipment equipment, ItemStack itemStack) {
         if (equipment.attachments != null && equipment.item instanceof Weapon
                 && equipment.item instanceof PlayerItemInstanceFactory) {
@@ -383,10 +377,9 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     /**
      * Attack the specified entity using a ranged attack.
-     * 
-     * @param distanceFactor
-     *            How far the target is, normalized and clamped between 0.1 and
-     *            1.0
+     *
+     * @param distanceFactor How far the target is, normalized and clamped between 0.1 and
+     * 1.0
      */
     public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
         if (modContext == null) {
@@ -405,11 +398,11 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith = (weapon, player) -> {
                 int difficultyId = world.getDifficulty().getId();
                 float inaccuracy = weapon.getInaccuracy() + (3f - difficultyId) * 0.5f; // *
-                                                                                        // 2
-                                                                                        // +
-                                                                                        // distanceFactor
-                                                                                        // *
-                                                                                        // 3f;
+                // 2
+                // +
+                // distanceFactor
+                // *
+                // 3f;
                 WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, world, player,
                         weapon.getSpawnEntityVelocity(), weapon.getSpawnEntityGravityVelocity(), inaccuracy,
                         weapon.getSpawnEntityDamage() * 0.01f * 0.2f, weapon.getSpawnEntityExplosionRadius(), false, false, 1f, 1f, 1.5f, 1f,
@@ -423,8 +416,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             float rotationPitchAdjustment = 20f;
             this.rotationPitch -= rotationPitchAdjustment;
             PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) Tags.getInstance(itemStack);
-            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance,
-                    System.currentTimeMillis() + 2000L);
+            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance);
             this.rotationPitch += rotationPitchAdjustment;
         }
     }
@@ -435,10 +427,10 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         }
 
         if (secondaryEquipment == null
-        /*
-         * || this.rand.nextFloat() >=
-         * getConfiguration().getSecondaryEquipmentUseChance()
-         */) {
+            /*
+             * || this.rand.nextFloat() >=
+             * getConfiguration().getSecondaryEquipmentUseChance()
+             */) {
             return;
         }
 
@@ -446,8 +438,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             float rotationPitchAdjustment = 20f;
             this.rotationPitch -= rotationPitchAdjustment;
             PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) Tags.getInstance(secondaryEquipment);
-            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance,
-                    System.currentTimeMillis() + 2000L);
+            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance);
             this.rotationPitch += rotationPitchAdjustment;
         }
     }
@@ -461,7 +452,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
         NBTTagCompound secondaryNbt = compound.getCompoundTag("Secondary");
         if (secondaryNbt != null) {
-            this.secondaryEquipment = new ItemStack(secondaryNbt);;
+            this.secondaryEquipment = new ItemStack(secondaryNbt);
         }
     }
 
@@ -477,8 +468,8 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     @Override
     public float getEyeHeight() {
-    	return super.getEyeHeight();
-       // return 1.74F;
+        return super.getEyeHeight();
+        // return 1.74F;
     }
 
     /**
@@ -515,50 +506,54 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     public float getBlockPathWeight(BlockPos pos) {
         return getConfiguration().getMaxTolerableLightBrightness() - world.getLightBrightness(pos);
     }
-    
+
     @Override
     protected boolean canDespawn() {
         return getConfiguration().isDespawnable();
     }
-    
+
     @Override
     public void applyEntityCollision(Entity entityIn) {
-    	if(canBePushed()) super.applyEntityCollision(entityIn);
+        if (canBePushed()) {
+            super.applyEntityCollision(entityIn);
+        }
     }
-    
+
     @Override
     protected void collideWithEntity(Entity entityIn) {
-    	// TODO Auto-generated method stub
-    	if(canBePushed()) super.collideWithEntity(entityIn);
-    	//System.out.println("fuck");
+        // TODO Auto-generated method stub
+        if (canBePushed()) {
+            super.collideWithEntity(entityIn);
+        }
+        //System.out.println("fuck");
     }
-    
+
     @Override
     public void onCollideWithPlayer(EntityPlayer entityIn) {
-    	// TODO Auto-generated method stub
-    	super.onCollideWithPlayer(entityIn);
+        // TODO Auto-generated method stub
+        super.onCollideWithPlayer(entityIn);
     }
-    
-    
-    
-    
+
+
     @Override
     public EnumPushReaction getPushReaction() {
-    	if(canBePushed()) {
-    		return super.getPushReaction();
-    	} else return EnumPushReaction.IGNORE;	
+        if (canBePushed()) {
+            return super.getPushReaction();
+        } else {
+            return EnumPushReaction.IGNORE;
+        }
     }
-    
+
     @Override
     public boolean canBePushed() {
         return getConfiguration().isPushable();
     }
-    
+
     @Override
     public boolean isEntityInvulnerable(DamageSource source) {
         return getConfiguration().isInvulnerable() || super.isEntityInvulnerable(source);
     }
-    
+
     @Override
     public boolean canBeCollidedWith() {
         return getConfiguration().isCollidable() || super.canBeCollidedWith();
@@ -602,17 +597,15 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         ItemStack itemstack = player.getHeldItem(hand);
         boolean flag = itemstack.getItem() == Items.NAME_TAG;
 
-        
-        if(configuration.getPickupItemID() != -1) {
-        	
-        
-        	
-    
-        	CHANNEL.sendToServer(new EntityPickupMessage(player.getEntityId(), getEntityId()));
-        	
-        	return true;
+
+        if (configuration.getPickupItemID() != -1) {
+
+
+            CHANNEL.sendToServer(new EntityPickupMessage(player.getEntityId(), getEntityId()));
+
+            return true;
         }
-        
+
         if (flag) {
             itemstack.interactWithEntity(player, this, hand);
             return true;
@@ -638,7 +631,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
             return true;
             */
-        	return false;
+            return false;
         } else {
             return super.processInteract(player, hand);
         }

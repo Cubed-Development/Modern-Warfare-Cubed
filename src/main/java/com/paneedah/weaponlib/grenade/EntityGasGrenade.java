@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.weaponlib.EntitySpreadable;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage.ParticleType;
+import com.paneedah.weaponlib.EntitySpreadable;
+import com.paneedah.weaponlib.ModContext;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.entity.Entity;
@@ -139,18 +139,18 @@ public class EntityGasGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onGrenadeUpdate() {
-        if(modContext == null) {
+        if (modContext == null) {
             return;
         }
         long timeRemaining = activationTimestamp + activationDelay + activeDuration - System.currentTimeMillis();
-        if(activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
+        if (activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
             // Do nothing
         } else if (timeRemaining < 0) {
             setDead();
-        } else if(!world.isRemote && timeRemaining <= activeDuration && stopped) {
+        } else if (!world.isRemote && timeRemaining <= activeDuration && stopped) {
 
-            double f = 0.1 + Math.sin(Math.PI * (1 - (double)timeRemaining / activeDuration)) * 0.1;
-            if(rand.nextDouble() <= f) {
+            double f = 0.1 + Math.sin(Math.PI * (1 - (double) timeRemaining / activeDuration)) * 0.1;
+            if (rand.nextDouble() <= f) {
                 for (Object o : world.playerEntities) {
                     EntityPlayer player = (EntityPlayer) o;
                     if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
@@ -165,7 +165,7 @@ public class EntityGasGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onBounce(RayTraceResult movingobjectposition) {
-        if(activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
+        if (activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
             activationDelay = 0;
             activationTimestamp = System.currentTimeMillis();
         } else {
@@ -175,18 +175,19 @@ public class EntityGasGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onStop() {
-        if(!world.isRemote && itemGrenade != null) {
+        if (!world.isRemote && itemGrenade != null) {
             world.playSound(null, posX, posY, posZ, itemGrenade.getStopAfterThrowingSound(), SoundCategory.BLOCKS, 2f,
                     (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
             Entity gasEntity = new EntitySpreadable(world);
             gasEntity.posX = posX;
             gasEntity.posY = posY;
             gasEntity.posZ = posZ;
-            if(this.getThrower() != null) {
+            if (this.getThrower() != null) {
                 EntityLivingBase player = this.getThrower();
 
-                if(player != null)
+                if (player != null) {
                     player.world.spawnEntity(gasEntity);
+                }
             }
         }
 

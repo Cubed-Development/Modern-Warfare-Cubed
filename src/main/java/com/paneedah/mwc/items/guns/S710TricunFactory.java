@@ -15,8 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class S710TricunFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -66,14 +64,7 @@ public class S710TricunFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-                .withInformationProvider(stack -> Arrays.asList(
-                        "Type: Submachine Gun",
-                        "Damage: 5.4",
-                        "Cartridge: 10mm",
-                        "Fire Rate: SEMI, AUTO",
-                        "Rate of Fire: 80/100",
-                        "Magazines:",
-                        "30rnd 10mm Magazine"))
+
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         2f, // x

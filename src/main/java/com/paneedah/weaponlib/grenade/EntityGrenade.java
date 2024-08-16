@@ -79,7 +79,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
             this.rotationSlowdownFactor = rotationSlowdownFactor;
             return this;
         }
-        
+
         public Builder withDestroyingBlocks(boolean isDestroyingBlocks) {
             this.isDestroyingBlocks = isDestroyingBlocks;
             return this;
@@ -101,7 +101,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
 
     private EntityGrenade(ModContext modContext, ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
         super(modContext, itemGrenade, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
-        
+
     }
 
     public EntityGrenade(World world) {
@@ -128,18 +128,17 @@ public class EntityGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onGrenadeUpdate() {
-    	  
+
         if (!world.isRemote && explosionTimeout > 0
                 && System.currentTimeMillis() > activationTimestamp + explosionTimeout) {
-        
-          explode();
-            return;
+
+            explode();
         }
     }
 
     @Override
     public void onBounce(RayTraceResult movingobjectposition) {
-        if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !world.isRemote) {
+        if (explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !world.isRemote) {
             explode();
         } else {
             super.onBounce(movingobjectposition);
@@ -152,26 +151,26 @@ public class EntityGrenade extends AbstractEntityGrenade {
         Explosion.createServerSideExplosion(world, this.getThrower(), this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null,
                 modContext.getExplosionSound());
-        
+
         List<?> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this,
                 this.getEntityBoundingBox().expand(5, 5, 5));
 
-        float damageCoefficient = (float)ModernConfigManager.explosionDamage;
+        float damageCoefficient = (float) ModernConfigManager.explosionDamage;
         float effectiveRadius = itemGrenade.getEffectiveRadius() * damageCoefficient; // 5 block sphere with this entity as a center
         float fragmentDamage = itemGrenade.getFragmentDamage();
 
         float configuredFragmentCount = itemGrenade.getFragmentCount() * damageCoefficient;
-        for(int i = 0; i < configuredFragmentCount; i++) {
+        for (int i = 0; i < configuredFragmentCount; i++) {
             double x = (rand.nextDouble() - 0.5) * 2;
             double y = (rand.nextDouble() - 0.5) * 2;
             double z = (rand.nextDouble() - 0.5) * 2;
-            
+
             double d2 = x * x + y * y + z * z;
-            if(d2 == 0) {
+            if (d2 == 0) {
                 LOG.debug("Ignoring zero distance index {}", i);
                 continue;
             }
-            double k = Math.sqrt(effectiveRadius * effectiveRadius  / d2);
+            double k = Math.sqrt(effectiveRadius * effectiveRadius / d2);
 
             double k2 = 0.1;
             final Vector3D cvec1 = new Vector3D(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
@@ -184,21 +183,21 @@ public class EntityGrenade extends AbstractEntityGrenade {
             BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> block.canCollideCheck(blockMetadata, false);
             RayTraceResult rayTraceResult = MWCUtil.rayTraceBlocks(world, cvec1, cvec2, isCollidable);
 
-            if(rayTraceResult != null) {
+            if (rayTraceResult != null) {
                 cvec2 = new Vector3D(rayTraceResult.hitVec);
             }
 
-            for(Object nearbyEntityObject: nearbyEntities) {
-                Entity nearbyEntity = (Entity)nearbyEntityObject;
+            for (Object nearbyEntityObject : nearbyEntities) {
+                Entity nearbyEntity = (Entity) nearbyEntityObject;
                 if (nearbyEntity.canBeCollidedWith()) {
                     float f = 0.5f;
-                    AxisAlignedBB axisalignedbb = nearbyEntity.getEntityBoundingBox().expand((double) f, (double) f, (double) f);
+                    AxisAlignedBB axisalignedbb = nearbyEntity.getEntityBoundingBox().expand(f, f, f);
                     RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(cvec10.toVec3d(), cvec2.toVec3d());
 
                     if (movingobjectposition1 != null) {
 
                         double distanceToEntity = cvec10.distanceTo(new Vector3D(movingobjectposition1.hitVec));
-                        float damageDistanceReductionFactor = (float)Math.abs(1 - distanceToEntity / effectiveRadius);
+                        float damageDistanceReductionFactor = (float) Math.abs(1 - distanceToEntity / effectiveRadius);
 
                         LOG.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,
                                 damageDistanceReductionFactor);

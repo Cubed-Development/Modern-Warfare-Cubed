@@ -33,14 +33,14 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
     @Override
     public void update(TickEvent.RenderTickEvent event) {
-        
-        if(MC.isGamePaused()) {
+
+        if (MC.isGamePaused()) {
             return;
         }
 
         EntityPlayerSP origPlayer = MC.player;
 
-        if(origPlayer == null) {
+        if (origPlayer == null) {
             return;
         }
 

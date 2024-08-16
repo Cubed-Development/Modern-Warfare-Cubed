@@ -80,18 +80,21 @@ public class Explosion {
         explosion.doExplosionA();
         explosion.doExplosionB(true, isDestroyingBlocks);
 
-        if (!isSmoking)
+        if (!isSmoking) {
             explosion.affectedBlockPositions.clear();
+        }
 
         for (EntityPlayer currentPlayer : world.playerEntities) {
-            if (currentPlayer == null)
+            if (currentPlayer == null) {
                 return;
+            }
 
             if (currentPlayer.getDistanceSq(position.x, position.y, position.z) < 4096) {
                 final Vector3D velocity = explosion.getPlayerKnockbackMap().get(currentPlayer);
 
-                if (velocity == null)
+                if (velocity == null) {
                     continue;
+                }
 
                 CHANNEL.sendTo(new ExplosionMessage(velocity, explosionStrength), (EntityPlayerMP) currentPlayer);
             }
@@ -191,8 +194,9 @@ public class Explosion {
 
                                     Vector3D sampledVec = new Vector3D(posX + offsetX, posY, posZ + offsetZ);
 
-                                    if (MWCUtil.rayTraceBlocks(world, sampledVec, vec3d, this::canCollideWithBlock) == null)
+                                    if (MWCUtil.rayTraceBlocks(world, sampledVec, vec3d, this::canCollideWithBlock) == null) {
                                         collidableCount++;
+                                    }
 
                                     totalSampleCount++;
                                 }
@@ -206,8 +210,9 @@ public class Explosion {
                         if (entity instanceof EntityPlayer) {
                             EntityPlayer entityplayer = (EntityPlayer) entity;
 
-                            if (!entityplayer.isSpectator())
+                            if (!entityplayer.isSpectator()) {
                                 this.playerKnockbackMap.put(entityplayer, new Vector3D(d5 * d10, d7 * d10, d9 * d10));
+                            }
                         }
                     }
                 }
@@ -223,15 +228,17 @@ public class Explosion {
      * Does the second part of the explosion (sound, particles, drop spawn)
      */
     public void doExplosionB(boolean spawnParticles, boolean destroyBlocks) {
-        if (!world.isRemote && explosionSound != null)
+        if (!world.isRemote && explosionSound != null) {
             world.playSound(null, position.x, position.y, position.z, explosionSound, SoundCategory.BLOCKS, 4f, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
+        }
 
         if (this.isSmoking) {
             int counter = 0;
             for (BlockPos blockpos : this.affectedBlockPositions) {
 
-                if (counter++ % 2 != 0)
+                if (counter++ % 2 != 0) {
                     continue;
+                }
 
                 IBlockState blockState = world.getBlockState(blockpos);
 
@@ -291,8 +298,9 @@ public class Explosion {
 //                }
 
                 if (destroyBlocks && blockState.getBlock() != Blocks.AIR) {
-                    if (blockState.getBlock().canDropFromExplosion(new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true)))
+                    if (blockState.getBlock().canDropFromExplosion(new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true))) {
                         blockState.getBlock().dropBlockAsItemWithChance(this.world, blockpos, blockState, (float) ModernConfigManager.explodedBlockDropChance * (1.0F / this.explosionStrength), 0);
+                    }
 
                     blockState.getBlock().onBlockExploded(this.world, blockpos, new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true));
                 }
@@ -313,9 +321,11 @@ public class Explosion {
             }
         }
 
-        if (this.isFlaming && destroyBlocks)
+        if (this.isFlaming && destroyBlocks) {
             for (BlockPos blockpos1 : this.affectedBlockPositions)
-                if (world.isAirBlock(blockpos1) && world.getBlockState(blockpos1.down()).isFullBlock() && this.explosionRNG.nextInt(3) == 0)
+                if (world.isAirBlock(blockpos1) && world.getBlockState(blockpos1.down()).isFullBlock() && this.explosionRNG.nextInt(3) == 0) {
                     world.setBlockState(blockpos1, Blocks.FIRE.getDefaultState());
+                }
+        }
     }
 }

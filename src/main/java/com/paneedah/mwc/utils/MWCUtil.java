@@ -1,7 +1,6 @@
 package com.paneedah.mwc.utils;
 
 import com.paneedah.weaponlib.ItemMagazine;
-import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.jafama.FastMath;
@@ -63,8 +62,9 @@ public class MWCUtil {
      * @author Desoroxx
      */
     public static boolean isPenetrableByBullets(IBlockState blockState) {
-        if (PENETRABLE_MATERIALS.contains(blockState.getMaterial()) || PENETRABLE_BLOCKS.contains(blockState.getBlock()) || (!ModernConfigManager.penetrableBlocks.isEmpty() && ModernConfigManager.penetrableBlocks.contains(blockState.getBlock().getRegistryName().toString())))
+        if (PENETRABLE_MATERIALS.contains(blockState.getMaterial()) || PENETRABLE_BLOCKS.contains(blockState.getBlock()) || (!ModernConfigManager.penetrableBlocks.isEmpty() && ModernConfigManager.penetrableBlocks.contains(blockState.getBlock().getRegistryName().toString()))) {
             return true;
+        }
 
         return ModernConfigManager.bulletBreakGlass && blockState.getMaterial() == Material.GLASS;
     }
@@ -81,11 +81,13 @@ public class MWCUtil {
      * @author Desoroxx
      */
     public static int consumeItemsFromPlayerInventory(final List<? extends Item> items, final int amount, final EntityPlayer player) {
-        if (amount <= 0)
+        if (amount <= 0) {
             return 0;
+        }
 
-        if (player.isCreative() && !player.isSneaking())
+        if (player.isCreative() && !player.isSneaking()) {
             return amount;
+        }
 
         int consumedAmount = 0;
 
@@ -100,8 +102,9 @@ public class MWCUtil {
                     stackInSlot.shrink(itemsToConsume);
                     consumedAmount += itemsToConsume;
 
-                    if (consumedAmount >= amount)
+                    if (consumedAmount >= amount) {
                         break outerloop;
+                    }
                 }
             }
         }
@@ -126,15 +129,18 @@ public class MWCUtil {
     public static ItemStack consumeItemsFromPlayerInventory(final List<? extends ItemMagazine> items, final Comparator<ItemStack> comparator, final EntityPlayer player) {
         ItemStack maxStack = null;
 
-        if (player.isCreative() && !player.isSneaking())
+        if (player.isCreative() && !player.isSneaking()) {
             return items.stream().map(ItemMagazine::create).max(comparator).orElse(null);
+        }
 
         for (final ItemStack currentStack : player.inventory.mainInventory)
-            if (items.contains(currentStack.getItem()) && (maxStack == null || comparator.compare(currentStack, maxStack) > 0))
+            if (items.contains(currentStack.getItem()) && (maxStack == null || comparator.compare(currentStack, maxStack) > 0)) {
                 maxStack = currentStack;
+            }
 
-        if (maxStack == null || maxStack.isEmpty())
+        if (maxStack == null || maxStack.isEmpty()) {
             return null;
+        }
 
         return maxStack.splitStack(1);
     }
@@ -165,8 +171,9 @@ public class MWCUtil {
         IBlockState iBlockState;
 
         for (int i = 0; i < 256; i++) {
-            if (startX == endX && startY == endY && startZ == endZ)
+            if (startX == endX && startY == endY && startZ == endZ) {
                 return null;
+            }
 
             final double nextX = endX > startX ? startX + 1 : endX < startX ? startX : 999;
             final double nextY = endY > startY ? startY + 1 : endY < startY ? startY : 999;
@@ -190,25 +197,32 @@ public class MWCUtil {
                 direction = endX > startX ? EnumFacing.WEST : EnumFacing.EAST;
                 startPos.set(nextX, startPos.y + diffY * factorX, startPos.z + diffZ * factorX);
                 startX = FastMath.floorToInt(startPos.x);
-                if (direction == EnumFacing.EAST) startX--;
+                if (direction == EnumFacing.EAST) {
+                    startX--;
+                }
             } else if (factorY < factorZ) {
                 direction = endY > startY ? EnumFacing.DOWN : EnumFacing.UP;
                 startPos.set(startPos.x + diffX * factorY, nextY, startPos.z + diffZ * factorY);
                 startY = FastMath.floorToInt(startPos.y);
-                if (direction == EnumFacing.UP) startY--;
+                if (direction == EnumFacing.UP) {
+                    startY--;
+                }
             } else {
                 direction = endZ > startZ ? EnumFacing.NORTH : EnumFacing.SOUTH;
                 startPos.set(startPos.x + diffX * factorZ, startPos.y + diffY * factorZ, nextZ);
                 startZ = FastMath.floorToInt(startPos.z);
-                if (direction == EnumFacing.SOUTH) startZ--;
+                if (direction == EnumFacing.SOUTH) {
+                    startZ--;
+                }
             }
 
             blockPos.setPos(startX, startY, startZ);
             iBlockState = world.getBlockState(blockPos);
             if (isCollidable.test(iBlockState.getBlock(), iBlockState)) {
                 final RayTraceResult rayTraceResult = iBlockState.collisionRayTrace(world, blockPos, startPos.toVec3d(), endPos.toVec3d());
-                if (rayTraceResult != null)
+                if (rayTraceResult != null) {
                     return rayTraceResult;
+                }
             }
         }
         return null;
@@ -230,9 +244,5 @@ public class MWCUtil {
         final double interpolatedZ = (player.posZ - player.prevPosZ) * renderPartialTicks + player.prevPosZ;
 
         return new Vec3d(interpolatedX, interpolatedY, interpolatedZ);
-    }
-
-    public static boolean isProning(EntityPlayer player) {
-        return (CompatibleExtraEntityFlags.getFlags(player) & CompatibleExtraEntityFlags.PRONING) != 0;
     }
 }

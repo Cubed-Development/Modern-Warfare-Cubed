@@ -24,8 +24,9 @@ public final class VehicleClientMessageHandler implements IMessageHandler<Vehicl
 
             VehiclePacketLatencyTracker.push(vehicle);
 
-            if (vehicle != null)
+            if (vehicle != null) {
                 vehicle.smoothShell.upload(vehicleData);
+            }
         });
 
         return null;

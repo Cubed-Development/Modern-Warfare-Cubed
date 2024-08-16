@@ -34,10 +34,11 @@ public final class PermitMessageClientHandler implements IMessageHandler<PermitM
             playerItemInstance.setPlayer(MC.player);
 
             final BiConsumer<Permit<?>, PlayerItemInstance<?>> callback = commonModContext.getPermitManager().getPermitCallbacks().remove(permit.getUuid());
-            if (callback != null)
+            if (callback != null) {
                 callback.accept(permit, playerItemInstance);
-            else
+            } else {
                 LOG.warn("No callback registered for permit {}", permit);
+            }
         });
 
         return null;

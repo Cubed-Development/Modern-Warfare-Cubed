@@ -17,8 +17,9 @@ public final class MuzzleFlashMessageHandler implements IMessageHandler<MuzzleFl
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final MuzzleFlashMessage muzzleFlashMessage, final MessageContext messageContext) {
         NetworkUtil.processMessage(messageContext, () -> {
-            if (MC.player.getEntityId() == muzzleFlashMessage.getEntityID())
+            if (MC.player.getEntityId() == muzzleFlashMessage.getEntityID()) {
                 return;
+            }
 
             ClientEventHandler.uploadFlash(muzzleFlashMessage.getEntityID());
         });

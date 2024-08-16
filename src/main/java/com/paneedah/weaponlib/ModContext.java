@@ -17,102 +17,100 @@ import net.minecraft.util.SoundEvent;
 
 public interface ModContext {
 
-	boolean isClient();
-	
-	void preInitEnd(Object mod);
+    boolean isClient();
 
-	void preInit(Object mod);
+    void preInitEnd(Object mod);
 
-	void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
+    void preInit(Object mod);
 
-	void registerRenderableItem(String name, Item weapon, Object renderer);
+    void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
 
-	void registerRenderableItem(ResourceLocation name, Item weapon, Object renderer);
+    void registerRenderableItem(String name, Item weapon, Object renderer);
 
-	SoundEvent registerSound(String sound);
+    void registerRenderableItem(ResourceLocation name, Item weapon, Object renderer);
 
-	PlayerItemInstanceRegistry getPlayerItemInstanceRegistry();
+    SoundEvent registerSound(String sound);
 
-	WeaponReloadAspect getWeaponReloadAspect();
+    PlayerItemInstanceRegistry getPlayerItemInstanceRegistry();
 
-	WeaponFireAspect getWeaponFireAspect();
+    WeaponReloadAspect getWeaponReloadAspect();
 
-	WeaponAttachmentAspect getAttachmentAspect();
+    WeaponFireAspect getWeaponFireAspect();
 
-	MagazineReloadAspect getMagazineReloadAspect();
+    WeaponAttachmentAspect getAttachmentAspect();
 
-	PlayerWeaponInstance getMainHeldWeapon();
+    MagazineReloadAspect getMagazineReloadAspect();
 
-	RecipeManager getRecipeManager();
+    PlayerWeaponInstance getMainHeldWeapon();
 
-	SoundEvent getZoomSound();
+    RecipeManager getRecipeManager();
 
-	void setChangeZoomSound(String sound);
+    SoundEvent getZoomSound();
 
-	SoundEvent getChangeFireModeSound();
+    void setChangeZoomSound(String sound);
 
-	void setChangeFireModeSound(String sound);
+    SoundEvent getChangeFireModeSound();
 
-	SoundEvent getNoAmmoSound();
+    void setChangeFireModeSound(String sound);
 
-	void setNoAmmoSound(String sound);
+    SoundEvent getNoAmmoSound();
 
-	SoundEvent getExplosionSound();
+    void setNoAmmoSound(String sound);
 
-	void setExplosionSound(String sound);
+    SoundEvent getExplosionSound();
 
-	SoundEvent getFlashExplosionSound();
+    void setExplosionSound(String sound);
 
-	void setFlashExplosionSound(String sound);
+    SoundEvent getFlashExplosionSound();
 
-	void setNightVisionOnSound(String sound);
+    void setFlashExplosionSound(String sound);
 
-	SoundEvent getNightVisionOnSound();
+    void setNightVisionOnSound(String sound);
 
-	void setNightVisionOffSound(String sound);
+    SoundEvent getNightVisionOnSound();
 
-	SoundEvent getNightVisionOffSound();
+    void setNightVisionOffSound(String sound);
 
-	void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer);
+    SoundEvent getNightVisionOffSound();
 
-	void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer);
+    void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer);
 
-	MeleeAttackAspect getMeleeAttackAspect();
+    void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer);
 
-	MeleeAttachmentAspect getMeleeAttachmentAspect();
+    MeleeAttackAspect getMeleeAttackAspect();
 
-	AttachmentContainer getGrenadeAttachmentAspect();
+    MeleeAttachmentAspect getMeleeAttachmentAspect();
 
-	ResourceLocation getNamedResource(String name);
+    AttachmentContainer getGrenadeAttachmentAspect();
 
-	float getAspectRatio();
+    ResourceLocation getNamedResource(String name);
 
-	GrenadeAttackAspect getGrenadeAttackAspect();
+    float getAspectRatio();
 
-	EffectManager getEffectManager();
+    GrenadeAttackAspect getGrenadeAttackAspect();
 
-	Object getMod();
+    EffectManager getEffectManager();
 
-	void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer);
+    Object getMod();
 
-	void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider);
+    void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer);
 
-	void init(Object mod);
+    void init(Object mod);
 
-	MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity);
+    MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity);
 
-	CommonModContext setMaterialImpactSound(String sound, float volume, Material material);
+    CommonModContext setMaterialImpactSound(String sound, float volume, Material material);
 
-	CommonModContext setMaterialsImpactSound(String sound, float volume, Material... materials);
+    CommonModContext setMaterialsImpactSound(String sound, float volume, Material... materials);
 
-	CommonModContext setMaterialsImpactSound(String sound, Material... materials);
+    CommonModContext setMaterialsImpactSound(String sound, Material... materials);
 
-	CommonModContext setMaterialImpactSounds(Material material, float volume, String... sounds);
+    CommonModContext setMaterialImpactSounds(Material material, float volume, String... sounds);
 
-	int getRegisteredTextureId(String textureName);
+    int getRegisteredTextureId(String textureName);
 
-	int registerTexture(String explosionParticleTextureName);
+    int registerTexture(String explosionParticleTextureName);
 
-	String getRegisteredTexture(int particleTextureId);
+    String getRegisteredTexture(int particleTextureId);
 
 }

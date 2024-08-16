@@ -24,10 +24,10 @@ public class ItemBase extends Item {
     }
 
     /*
-    *  OreDictionary Keys (compatibility)
-    *  https://MCreator.net/wiki/ore-dictionary-names-list for commonly used OreDict names
-    *  Don't hesitate to use this :D
-    */
+     *  OreDictionary Keys (compatibility)
+     *  https://MCreator.net/wiki/ore-dictionary-names-list for commonly used OreDict names
+     *  Don't hesitate to use this :D
+     */
     public void setOreDict(String[] oreDictKeys) {
         this.oreDictKeys = oreDictKeys;
     }

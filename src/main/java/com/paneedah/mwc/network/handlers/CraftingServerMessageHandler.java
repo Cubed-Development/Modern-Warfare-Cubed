@@ -22,8 +22,9 @@ public final class CraftingServerMessageHandler implements IMessageHandler<Craft
             final EntityPlayerMP target = (EntityPlayerMP) messageContext.getServerHandler().player.getEntityWorld().getEntityByID(craftingServerMessage.getPlayerId());
 
             // If the player doesn't exist or the Crafting Manager hasn't loaded properly, cancel.
-            if (target == null || CraftingFileManager.getInstance().getLoadingStatus() == -1)
+            if (target == null || CraftingFileManager.getInstance().getLoadingStatus() == -1) {
                 return;
+            }
 
             CHANNEL.sendTo(new CraftingClientMessage(RECEIVE_FILESTREAM, CraftingFileManager.getInstance().getCurrentFileBAOS()), target);
         });
