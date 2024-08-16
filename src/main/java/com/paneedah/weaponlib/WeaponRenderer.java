@@ -2327,7 +2327,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 						rate = getBuilder().firingRandomizingRate;
 						amplitude = getBuilder().zoomRandomizingAmplitude;
 					} else {
-						currentState = RenderableState.NORMAL;
+						currentState = RenderableState.RECOILED;
 						rate = getBuilder().firingRandomizingRate;
 						amplitude = getBuilder().firingRandomizingAmplitude;
 					}
@@ -2354,7 +2354,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 						}
 						amplitude = getBuilder().zoomRandomizingAmplitude;
 					} else {
-						currentState = RenderableState.NORMAL;
+						currentState = RenderableState.SHOOTING;
 						if(!isLongPaused) {
 							rate = getBuilder().firingRandomizingRate;
 							amplitude = getBuilder().firingRandomizingAmplitude;
@@ -2533,7 +2533,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                         rate = getBuilder().firingRandomizingRate;
                         amplitude = getBuilder().zoomRandomizingAmplitude;
                     } else {
-                        currentState = RenderableState.NORMAL;
+                        currentState = RenderableState.RECOILED;
                         rate = getBuilder().firingRandomizingRate;
                         amplitude = getBuilder().firingRandomizingAmplitude;
                     }
@@ -2559,7 +2559,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                         }
                         amplitude = getBuilder().zoomRandomizingAmplitude;
                     } else {
-                        currentState = RenderableState.NORMAL;
+                        currentState = RenderableState.SHOOTING;
                         if(!isLongPaused) {
                             rate = getBuilder().firingRandomizingRate;
                             amplitude = getBuilder().firingRandomizingAmplitude;
