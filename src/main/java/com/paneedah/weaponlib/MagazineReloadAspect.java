@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.NetworkPermitManager;
-import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.network.TypeRegistry;
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;

@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.electronics;
 
-import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.mwc.network.TypeRegistry;
+import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.perspective.Perspective;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;

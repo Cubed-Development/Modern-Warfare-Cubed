@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.Exposure;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.entity.Entity;

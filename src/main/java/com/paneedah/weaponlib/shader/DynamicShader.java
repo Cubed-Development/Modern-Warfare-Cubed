@@ -4,7 +4,6 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.client.shader.Shader;
 import net.minecraft.client.shader.ShaderUniform;
-import net.minecraft.client.util.JsonException;
 
 import java.io.IOException;
 

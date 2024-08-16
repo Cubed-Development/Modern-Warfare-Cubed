@@ -3,7 +3,6 @@ package com.paneedah.weaponlib.crafting.workbench;
 import com.paneedah.weaponlib.crafting.base.TESRStation;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 

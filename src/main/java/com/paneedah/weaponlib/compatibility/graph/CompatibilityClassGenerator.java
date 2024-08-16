@@ -10,6 +10,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -22,8 +23,8 @@ import java.util.HashMap;
 public class CompatibilityClassGenerator {
 
     private boolean loaded = false;
-    private ArrayList<Class<?>> classes = new ArrayList<>();
-    private ArrayList<Class<?>> glClasses = new ArrayList<>();
+    private final ArrayList<Class<?>> classes = new ArrayList<>();
+    private final ArrayList<Class<?>> glClasses = new ArrayList<>();
 
     public CompatibilityClassGenerator() {
 
@@ -64,10 +65,7 @@ public class CompatibilityClassGenerator {
 
     public boolean isGLClass(Class<?> clazz) {
         String simpleName = clazz.getSimpleName();
-        if (simpleName.length() > 2 && Character.isDigit(simpleName.charAt(3))) {
-            return true;
-        }
-        return false;
+        return simpleName.length() > 2 && Character.isDigit(simpleName.charAt(3));
 
     }
 
@@ -99,9 +97,7 @@ public class CompatibilityClassGenerator {
             args[i] = args[i].toLowerCase();
         }
         ArrayList<String> argList = (ArrayList<String>) Arrays.asList(args);
-        for (String s : args) {
-            argList.add(s);
-        }
+        Collections.addAll(argList, args);
 
 
         Field[] fields = GLContext.getCapabilities().getClass().getFields();
@@ -171,9 +167,9 @@ public class CompatibilityClassGenerator {
             }
 
             if (!original.getSecond().getReturnType().toString().equals("void")) {
-                builder.append("\n\t\t\treturn " + genericName + "." + pair.getSecond().getName() + parameterBuilder.toString() + ";");
+                builder.append("\n\t\t\treturn " + genericName + "." + pair.getSecond().getName() + parameterBuilder + ";");
             } else {
-                builder.append("\n\t\t\t" + genericName + "." + pair.getSecond().getName() + parameterBuilder.toString() + ";");
+                builder.append("\n\t\t\t" + genericName + "." + pair.getSecond().getName() + parameterBuilder + ";");
                 builder.append("\n\t\t\tbreak;");
             }
 

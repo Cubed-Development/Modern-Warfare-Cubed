@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.compatibility.shells;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.render.WavefrontLoader;
 import com.paneedah.weaponlib.render.WavefrontModel;

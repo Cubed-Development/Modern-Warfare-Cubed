@@ -6,8 +6,6 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.client.shader.Framebuffer;
 
-import java.nio.IntBuffer;
-
 public class HDRFramebuffer extends Framebuffer {
 
     public HDRFramebuffer(int width, int height, boolean useDepthIn) {

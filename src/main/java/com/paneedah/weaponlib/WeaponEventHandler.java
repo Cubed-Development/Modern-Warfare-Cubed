@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.proxies.ClientProxy;
-import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;

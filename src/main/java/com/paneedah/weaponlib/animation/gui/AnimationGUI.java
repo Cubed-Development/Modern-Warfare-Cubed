@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.animation.gui;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
@@ -9,6 +8,7 @@ import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.DebugPositioner.Position;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.network.NetworkPlayerInfo;
@@ -23,7 +23,7 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import java.awt.Color;
+import java.awt.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.time.LocalDateTime;
@@ -35,7 +35,7 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class AnimationGUI {
 
-    private static AnimationGUI instance = new AnimationGUI();
+    private static final AnimationGUI instance = new AnimationGUI();
 
 
     public static final ResourceLocation TEXTURES = new ResourceLocation(ID + ":textures/hud/animguio.png");
@@ -219,7 +219,7 @@ public class AnimationGUI {
         GlStateManager.enableTexture2D();
         String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("h:mm a"));
         renderScaledString(time, sr.getScaledWidth_double() - 40, 5, 1);
-        String fps = "FPS: " + MC.getDebugFPS();
+        String fps = "FPS: " + Minecraft.getDebugFPS();
         renderScaledString(fps, sr.getScaledWidth_double() - 45, 15, 1);
 
 
@@ -355,26 +355,25 @@ public class AnimationGUI {
             instance.getWeapon().setRecoilParameters(getRecoilParams());
 
             if (!isPanelClosed("Recoil")) {
-                StringBuilder builder = new StringBuilder();
-                builder.append("\n.withRecoilParam(new RecoilParam(\n");
-                builder.append("\t\t// The weapon power\n");
-                builder.append("\t\t" + weaponPower.getValue() + ",\n");
-                builder.append("\t\t// Muzzle climb divisor\n");
-                builder.append("\t\t" + muzzleClimbDivisor.getValue() + ",\n");
-                builder.append("\t\t// \"Stock Length\"\n");
-                builder.append("\t\t" + stockLength.getValue() + ",\n");
-                builder.append("\t\t// Recovery rate from initial shot\n");
-                builder.append("\t\t" + powerRecoveryNormalRate.getValue() + ",\n");
-                builder.append("\t\t// Recovery rate @ \"stock\"\n");
-                builder.append("\t\t" + powerRecoveryStockRate.getValue() + ",\n");
-                builder.append("\t\t// Recoil rotation (Y)\n");
-                builder.append("\t\t" + weaponRotationX.getValue() + ",\n");
-                builder.append("\t\t// Recoil rotation (Z)\n");
-                builder.append("\t\t" + weaponRotationY.getValue() + ",\n");
-                builder.append("\t\t// Ads similarity divisor\n");
-                builder.append("\t\t" + adsSimilarity.getValue() + "\n");
-                builder.append("))");
-                System.out.println(builder.toString());
+                String builder = "\n.withRecoilParam(new RecoilParam(\n" +
+                        "\t\t// The weapon power\n" +
+                        "\t\t" + weaponPower.getValue() + ",\n" +
+                        "\t\t// Muzzle climb divisor\n" +
+                        "\t\t" + muzzleClimbDivisor.getValue() + ",\n" +
+                        "\t\t// \"Stock Length\"\n" +
+                        "\t\t" + stockLength.getValue() + ",\n" +
+                        "\t\t// Recovery rate from initial shot\n" +
+                        "\t\t" + powerRecoveryNormalRate.getValue() + ",\n" +
+                        "\t\t// Recovery rate @ \"stock\"\n" +
+                        "\t\t" + powerRecoveryStockRate.getValue() + ",\n" +
+                        "\t\t// Recoil rotation (Y)\n" +
+                        "\t\t" + weaponRotationX.getValue() + ",\n" +
+                        "\t\t// Recoil rotation (Z)\n" +
+                        "\t\t" + weaponRotationY.getValue() + ",\n" +
+                        "\t\t// Ads similarity divisor\n" +
+                        "\t\t" + adsSimilarity.getValue() + "\n" +
+                        "))";
+                System.out.println(builder);
             }
 
         } else if (id == switchScopes) {
@@ -386,22 +385,13 @@ public class AnimationGUI {
                 moveForward.setState(false);
             }
         } else if (id == forceFlash) {
-            if (forceFlash.isState()) {
-                ClientEventHandler.muzzlePositioner = true;
-
-            } else {
-                ClientEventHandler.muzzlePositioner = false;
-            }
+            ClientEventHandler.muzzlePositioner = forceFlash.isState();
         } else if (id == magEdit) {
             DebugPositioner.setDebugMode(true);
         } else if (id == forceADS) {
             PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerWeaponInstance.class);
 
-            if (id.isState()) {
-                instance.setAimed(true);
-            } else {
-                instance.setAimed(false);
-            }
+            instance.setAimed(id.isState());
 
         }
 

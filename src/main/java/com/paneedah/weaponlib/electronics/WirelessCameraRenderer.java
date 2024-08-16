@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.electronics;
 
-import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;

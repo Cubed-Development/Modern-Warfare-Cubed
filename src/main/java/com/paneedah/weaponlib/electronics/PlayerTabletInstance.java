@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.electronics;
 
-import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.mwc.network.TypeRegistry;
+import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.WirelessCameraPerspective;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;

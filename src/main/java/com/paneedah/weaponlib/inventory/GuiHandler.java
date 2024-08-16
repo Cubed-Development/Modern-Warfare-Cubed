@@ -1,10 +1,12 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.mwc.equipment.inventory.*;
+import com.paneedah.mwc.capabilities.EquipmentCapability;
+import com.paneedah.mwc.equipment.inventory.EquipmentContainer;
+import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
+import com.paneedah.mwc.equipment.inventory.GuiEquipment;
 import com.paneedah.mwc.equipment.inventory.carryable.backpack.BackpackContainer;
 import com.paneedah.mwc.equipment.inventory.carryable.backpack.BackpackInventory;
 import com.paneedah.mwc.equipment.inventory.carryable.backpack.GuiBackpack;
-import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.weaponlib.crafting.ammopress.ContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;

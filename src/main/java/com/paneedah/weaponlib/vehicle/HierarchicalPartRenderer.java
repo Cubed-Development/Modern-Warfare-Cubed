@@ -27,9 +27,9 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
 
     private final Part part;
 
-    private Map<Part, HierarchicalPartRenderer<Part, State>> partRenderers;
+    private final Map<Part, HierarchicalPartRenderer<Part, State>> partRenderers;
 
-    private Supplier<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagerSupplier;
+    private final Supplier<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagerSupplier;
 
     private final BiConsumer<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>, PartRenderContext<State>> stateSetter;
 

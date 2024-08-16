@@ -43,7 +43,10 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.*;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.MWC.CHANNEL;

@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.ClientEventHandler.MuzzleFlash;
 import com.paneedah.weaponlib.particle.BetterMuzzleSmoke;
 import com.paneedah.weaponlib.particle.ExplosionParticleFX;

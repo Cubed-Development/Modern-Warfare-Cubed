@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.FlatSurfaceModelBox;
 import com.paneedah.weaponlib.config.ModernConfigManager;
