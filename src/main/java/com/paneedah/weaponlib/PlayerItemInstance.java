@@ -22,7 +22,6 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
     }
 
-    protected S previousState;
     protected S state;
     protected long stateUpdateTimestamp = System.currentTimeMillis();
     @Getter private long updateId;
@@ -92,46 +91,25 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         TypeRegistry.getINSTANCE().toBytes(state, byteBuf);
     }
 
+    // ! This in the past was weirder, and I never really got how it worked,
+    // ! https://github.com/Cubed-Development/Modern-Warfare-Cubed/blob/d3ddec618657e42a20e7bee8768ca2d60ae231d3/src/main/java/com/paneedah/weaponlib/PlayerItemInstance.java#L101-L110
+    // ! it caused problems so I just nuked it,
+    // ! it seems to work fine still so ¯\_(ツ)_/¯ - Luna Lage 2024-08-15
     @Override
     public boolean setState(S state) {
-        previousState = this.state;
-
         this.state = state;
         stateUpdateTimestamp = System.currentTimeMillis();
 
         markDirty();
 
-        if (preparedState != null) { // TODO: use comparator or equals?
-            if (preparedState.getState().commitPhase() == state) {
-                LOG.debug("Committing state {} to {}", preparedState.getState(), preparedState.getState().commitPhase());
-                updateWith(preparedState, false);
-            } else {
-                rollback();
-            }
+        if (preparedState != null) {
+            LOG.debug("Committing state {} to {}", preparedState.getState(), preparedState.getState().commitPhase());
+            updateWith(preparedState, false);
 
             preparedState = null;
         }
 
         return false;
-    }
-
-    // ! This is made by me to try and potentially fix CCS (GitHub issue #248), this is an implementation based on the little context I have and I sadly have no way to test this properly
-    // ! Best case scenario it fixes everything, worse case scenario, who knows?
-    // ! Only one way to see, let's try it!
-    // ! TODO: Monitor this
-    protected void rollback() {
-        if (previousState == null) {
-            LOG.error("Attempted to rollback weapon state, but no previous state was available");
-            return;
-        }
-
-        LOG.debug("Rolling back weapon state from {} to {}", getState(), previousState);
-
-        setState(previousState);
-
-        preparedState = null;
-
-        LOG.debug("Weapon state rollback complete, state: {}", getState());
     }
 
     /**

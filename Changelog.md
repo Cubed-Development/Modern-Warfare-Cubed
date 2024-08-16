@@ -95,6 +95,27 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.4.0
 - Switched to the new standard `gradle.properties`
 - General cleanup
+- Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 8.7.1
+
+## Modern Warfare Cubed Version 0.1.8 Changelog - 2024-08-16
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+### Fixed
+
+- Fixed potential NullPointerException when connecting to a server
+- Fixed StackOverflowError when pressing R rapidly
+- Improved the experimental fix for CCS ([#248](https://github.com/Cubed-Development/Modern-Warfare-Cubed/issues/248))
+- Fixed crash when looking at the night vision googles in the workbench
+- Fixed crash when shift clicking the last 4 slots of the hotbar when in the equipment tab
+- Fixed potential crash when shift clicking in the equipment tab
+- Fixed potential deletion of items when shift clicking in the equipment tab
 
 ## Modern Warfare Cubed Version 0.1.7 Changelog - 2024-06-29
 

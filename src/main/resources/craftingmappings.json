@@ -8171,7 +8171,7 @@
         },
         {
           "entryName": "ingotGold",
-          "defaultItem": "minecraft:gold",
+          "defaultItem": "minecraft:gold_ingot",
           "isOreDictionary": true,
           "count": 2
         }
