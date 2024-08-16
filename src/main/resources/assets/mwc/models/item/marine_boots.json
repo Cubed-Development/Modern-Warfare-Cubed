@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/marine_boots"
+        "layer0": "${id}:items/marine_boots"
     },
     "display": {
 		"thirdperson_righthand": {

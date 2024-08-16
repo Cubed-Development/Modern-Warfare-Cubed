@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/urban_chest"
+        "layer0": "${id}:items/urban_chest"
     },
     "display": {
 		"thirdperson_righthand": {

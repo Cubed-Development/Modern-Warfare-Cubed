@@ -1,1 +1,1 @@
-{"parent":"block/cube_all","textures":{"all":"mwc:blocks/lead_ore"}}
+{"parent":"block/cube_all","textures":{"all":"${id}:blocks/lead_ore"}}

@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/vest_render"
+        "layer0": "${id}:items/vest_render"
     },
     "display": {
         "thirdperson": {

@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/ghillie_helmet"
+        "layer0": "${id}:items/ghillie_helmet"
     },
     "display": {
 		"thirdperson_righthand": {

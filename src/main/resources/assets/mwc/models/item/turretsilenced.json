@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/turretsilenced"
+        "layer0": "${id}:items/turretsilenced"
     },
     "display": {
 		"thirdperson_righthand": {

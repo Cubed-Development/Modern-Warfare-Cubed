@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/carbon_composite"
+        "layer0": "${id}:items/carbon_composite"
     },
 "display": {
 		"thirdperson_righthand": {

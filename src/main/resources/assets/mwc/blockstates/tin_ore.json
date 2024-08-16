@@ -1,1 +1,1 @@
-{"variants":{"normal":{"model":"mwc:tin_ore"}}}
+{"variants":{"normal":{"model":"${id}:tin_ore"}}}

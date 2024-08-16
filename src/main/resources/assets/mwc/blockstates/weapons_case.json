@@ -1,1 +1,1 @@
-{"variants":{"normal":{"model":"mwc:weapons_case"}}}
+{"variants":{"normal":{"model":"${id}:weapons_case"}}}

@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/nazisanta_chest"
+        "layer0": "${id}:items/nazisanta_chest"
     },
     "display": {
 		"thirdperson_righthand": {

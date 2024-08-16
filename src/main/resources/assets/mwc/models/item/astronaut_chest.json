@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/astronaut_chest"
+        "layer0": "${id}:items/astronaut_chest"
     },
     "display": {
 		"thirdperson_righthand": {

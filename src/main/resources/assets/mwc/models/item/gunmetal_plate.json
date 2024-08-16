@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/gunmetal_plate"
+        "layer0": "${id}:items/gunmetal_plate"
     },
     "display": {
 		"thirdperson_righthand": {

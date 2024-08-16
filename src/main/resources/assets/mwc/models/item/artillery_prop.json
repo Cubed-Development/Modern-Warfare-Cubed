@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/artillery_PROP"
+        "layer0": "${id}:items/artillery_PROP"
     },
     "display": {
 		"thirdperson_righthand": {

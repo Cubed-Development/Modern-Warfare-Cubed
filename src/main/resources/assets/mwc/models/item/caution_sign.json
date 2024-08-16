@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/caution_sign"
+        "layer0": "${id}:items/caution_sign"
     },
     "display": {
 		"thirdperson_righthand": {

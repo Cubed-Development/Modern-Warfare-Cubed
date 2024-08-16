@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/swat_boots"
+        "layer0": "${id}:items/swat_boots"
     },
     "display": {
 		"thirdperson_righthand": {

@@ -1,8 +1,8 @@
 [
   {
     "modid": "${id}",
-    "name": "Modern Warfare Cubed",
-    "description": "Modern Warfare Cubed is a fork of the popular Vic's Modern Warfare Mod which is now discontinued aiming to improve and expand upon the experience.",
+    "name": "${name}",
+    "description": "${name} is a fork of the popular Vic's Modern Warfare Mod which is now discontinued aiming to improve and expand upon the experience.",
     "version": "${version}",
     "url": "https://github.com/Cubed-Development/Modern-Warfare-Cubed",
     "authorList": ["Cubed-Development"],

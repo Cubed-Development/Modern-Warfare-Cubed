@@ -6,10 +6,10 @@
   ],
   "key": {
     "X": {
-      "item": "mwc:synthetic_polymer_composite"
+      "item": "${id}:synthetic_polymer_composite"
     },
     "F": {
-      "item": "mwc:synthetic_plastic"
+      "item": "${id}:synthetic_plastic"
     },
     "A": {
       "type": "forge:ore_dict",
@@ -17,7 +17,7 @@
     }
   },
   "result": {
-    "item": "mwc:carbon_fiber",
+    "item": "${id}:carbon_fiber",
     "count": 6
   }
 }

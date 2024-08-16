@@ -16,7 +16,7 @@
     }
   },
   "result": {
-    "item": "mwc:steel_dust",
+    "item": "${id}:steel_dust",
     "count": 2
   }
 }

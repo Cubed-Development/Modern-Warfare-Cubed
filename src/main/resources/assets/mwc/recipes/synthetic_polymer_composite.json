@@ -6,11 +6,11 @@
   ],
   "key": {
     "X": {
-      "item": "mwc:carbon_composite"
+      "item": "${id}:carbon_composite"
     }
   },
   "result": {
-    "item": "mwc:synthetic_polymer_composite",
+    "item": "${id}:synthetic_polymer_composite",
     "count": 3
   }
 }

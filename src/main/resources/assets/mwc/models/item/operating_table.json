@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/operating_table"
+        "layer0": "${id}:items/operating_table"
     },
     "display": {
 		"thirdperson_righthand": {

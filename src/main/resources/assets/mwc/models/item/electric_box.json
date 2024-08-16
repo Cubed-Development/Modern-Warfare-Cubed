@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/electric_box"
+        "layer0": "${id}:items/electric_box"
     },
     "display": {
 		"thirdperson_righthand": {

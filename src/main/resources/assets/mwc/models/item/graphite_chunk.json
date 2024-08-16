@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/graphite_chunk"
+        "layer0": "${id}:items/graphite_chunk"
     },
     "display": {
 		"thirdperson_righthand": {

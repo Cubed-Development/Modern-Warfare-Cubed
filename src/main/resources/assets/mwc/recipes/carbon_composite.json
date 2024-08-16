@@ -7,11 +7,11 @@
   ],
   "key": {
     "X": {
-      "item": "mwc:graphite_chunk"
+      "item": "${id}:graphite_chunk"
     }
   },
   "result": {
-    "item": "mwc:carbon_composite",
+    "item": "${id}:carbon_composite",
     "count": 3
   }
 }

@@ -1,1 +1,1 @@
-{"parent":"block/cube_all","textures":{"all":"mwc:blocks/tin_ore"}}
+{"parent":"block/cube_all","textures":{"all":"${id}:blocks/tin_ore"}}

@@ -13,7 +13,7 @@
     }
   },
   "result":{
-    "item":"mwc:weapon_workbench",
+    "item":"${id}:weapon_workbench",
     "count":1
   }
 }

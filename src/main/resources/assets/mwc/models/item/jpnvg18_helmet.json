@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/jpnvg18_helmet"
+        "layer0": "${id}:items/jpnvg18_helmet"
     },
     "display": {
 		"thirdperson_righthand": {

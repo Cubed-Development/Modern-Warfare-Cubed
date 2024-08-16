@@ -6,11 +6,11 @@
   ],
   "key": {
     "X": {
-      "item": "mwc:gunmetal_ingot"
+      "item": "${id}:gunmetal_ingot"
     }
   },
   "result": {
-    "item": "mwc:gunmetal_plate",
+    "item": "${id}:gunmetal_plate",
     "count": 2
   }
 }

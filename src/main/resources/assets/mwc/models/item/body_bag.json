@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/body_bag"
+        "layer0": "${id}:items/body_bag"
     },
     "display": {
 		"thirdperson_righthand": {

@@ -1,1 +1,1 @@
-{"variants":{"normal":{"model":"mwc:copper_ore"}}}
+{"variants":{"normal":{"model":"${id}:copper_ore"}}}

@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/spec_ops_chest"
+        "layer0": "${id}:items/spec_ops_chest"
     },
   "display": {
 		"thirdperson_righthand": {

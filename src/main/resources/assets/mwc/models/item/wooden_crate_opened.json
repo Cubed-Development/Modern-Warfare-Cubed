@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/wooden_crate_opened"
+        "layer0": "${id}:items/wooden_crate_opened"
     },
    "display": {
 		"thirdperson_righthand": {

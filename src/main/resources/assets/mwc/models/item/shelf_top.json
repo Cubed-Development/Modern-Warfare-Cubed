@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/shelf_top"
+        "layer0": "${id}:items/shelf_top"
     },
     "display": {
 		"thirdperson_righthand": {

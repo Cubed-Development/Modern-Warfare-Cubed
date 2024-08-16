@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/juggernaut_helmet"
+        "layer0": "${id}:items/juggernaut_helmet"
     },
     "display": {
 		"thirdperson_righthand": {

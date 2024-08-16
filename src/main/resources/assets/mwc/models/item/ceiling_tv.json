@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/ceiling_tv"
+        "layer0": "${id}:items/ceiling_tv"
     },
     "display": {
 		"thirdperson_righthand": {

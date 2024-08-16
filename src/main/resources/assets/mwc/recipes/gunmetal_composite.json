@@ -15,7 +15,7 @@
     }
   },
   "result": {
-    "item": "mwc:gunmetal_composite",
+    "item": "${id}:gunmetal_composite",
     "count": 6
   }
 }

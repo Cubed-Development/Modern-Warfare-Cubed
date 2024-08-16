@@ -1,1 +1,1 @@
-{"variants":{"normal":{"model":"mwc:sulfur_ore"}}}
+{"variants":{"normal":{"model":"${id}:sulfur_ore"}}}

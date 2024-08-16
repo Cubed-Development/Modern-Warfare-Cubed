@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/steel_dust"
+        "layer0": "${id}:items/steel_dust"
     },
     "display": {
 		"thirdperson_righthand": {

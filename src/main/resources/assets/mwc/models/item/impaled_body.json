@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/impaled_body"
+        "layer0": "${id}:items/impaled_body"
     },
     "display": {
 		"thirdperson_righthand": {

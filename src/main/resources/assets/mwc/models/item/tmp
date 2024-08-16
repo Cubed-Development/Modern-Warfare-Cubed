@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/hp"
+        "layer0": "${id}:items/hp"
     },
     "display": {
         "thirdperson": {

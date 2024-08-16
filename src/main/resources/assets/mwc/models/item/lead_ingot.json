@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/lead_ingot"
+        "layer0": "${id}:items/lead_ingot"
     },
     "display": {
 		"thirdperson_righthand": {

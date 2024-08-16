@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/tv"
+        "layer0": "${id}:items/tv"
     },
     "display": {
 		"thirdperson_righthand": {

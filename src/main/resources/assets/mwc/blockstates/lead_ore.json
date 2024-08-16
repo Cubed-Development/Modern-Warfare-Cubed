@@ -1,1 +1,1 @@
-{"variants":{"normal":{"model":"mwc:lead_ore"}}}
+{"variants":{"normal":{"model":"${id}:lead_ore"}}}

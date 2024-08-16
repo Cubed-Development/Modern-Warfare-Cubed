@@ -13,7 +13,7 @@
     }
   },
   "result":{
-    "item":"mwc:turret_base",
+    "item":"${id}:turret_base",
     "count":1
   }
 }

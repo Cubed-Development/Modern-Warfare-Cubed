@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/barrel"
+        "layer0": "${id}:items/barrel"
     },
     "display": {
 		"thirdperson_righthand": {

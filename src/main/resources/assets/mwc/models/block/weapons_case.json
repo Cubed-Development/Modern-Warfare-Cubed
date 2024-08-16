@@ -1,1 +1,1 @@
-{"parent":"block/cube_all","textures":{"all":"mwc:blocks/weapons_case"}}
+{"parent":"block/cube_all","textures":{"all":"${id}:blocks/weapons_case"}}
