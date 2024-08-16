@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.utils.ModReference.RED_LOG;
+import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 
 public class ItemCarryable extends Item implements IModernCraftingRecipe {
 
@@ -171,12 +171,12 @@ public class ItemCarryable extends Item implements IModernCraftingRecipe {
 
         protected void validateInput() {
             if (name == null) {
-                RED_LOG.printFramedError("Carryable Item", "Carryable Item has no name set", "Non critical exception falling back to 'missing_name'", "At:" + new Throwable().getStackTrace()[3].toString());
+                RED_LOGGER.printFramedError("Carryable Item", "Carryable Item has no name set", "Non critical exception falling back to 'missing_name'", "At:" + new Throwable().getStackTrace()[3].toString());
                 name = "missing_name";
             }
 
             if (size <= 0) {
-                RED_LOG.printFramedError("Carryable Item", name + " size was not greater than 0", "Non critical exception falling back to a size of 8", "At:" + new Throwable().getStackTrace()[3].toString());
+                RED_LOGGER.printFramedError("Carryable Item", name + " size was not greater than 0", "Non critical exception falling back to a size of 8", "At:" + new Throwable().getStackTrace()[3].toString());
                 size = 8;
             }
         }

@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -37,7 +37,7 @@ public final class PermitMessageClientHandler implements IMessageHandler<PermitM
             if (callback != null) {
                 callback.accept(permit, playerItemInstance);
             } else {
-                LOG.warn("No callback registered for permit {}", permit);
+                LOGGER.warn("No callback registered for permit {}", permit);
             }
         });
 

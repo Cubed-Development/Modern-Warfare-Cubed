@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.Random;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
 

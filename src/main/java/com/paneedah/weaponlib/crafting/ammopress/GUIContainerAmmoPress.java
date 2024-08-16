@@ -24,7 +24,7 @@ import java.util.LinkedList;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 /**
  * GUIContainer for the Workbench Block

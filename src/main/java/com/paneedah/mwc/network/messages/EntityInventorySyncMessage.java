@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 import java.io.IOException;
 
-import static com.paneedah.mwc.utils.ModReference.RED_LOG;
+import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 
 @Getter
 @NoArgsConstructor
@@ -37,7 +37,7 @@ public final class EntityInventorySyncMessage implements IMessage {
         try {
             inventoryCompound = packetBuf.readCompoundTag();
         } catch (IOException ioException) {
-            RED_LOG.printFramedError("Networking", "Failed to read equipment inventory from message", "Equipment inventory won't be synced", ioException.getMessage());
+            RED_LOGGER.printFramedError("Networking", "Failed to read equipment inventory from message", "Equipment inventory won't be synced", ioException.getMessage());
         }
     }
 

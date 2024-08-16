@@ -17,7 +17,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class HierarchicalRendererBuilder<Part, State extends RenderState> {
 

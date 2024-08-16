@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static com.paneedah.mwc.utils.ModReference.NAME;
+import static com.paneedah.mwc.ProjectConstants.NAME;
 
 @IFMLLoadingPlugin.MCVersion("1.12.2")
 @IFMLLoadingPlugin.Name(NAME + " Plugin")

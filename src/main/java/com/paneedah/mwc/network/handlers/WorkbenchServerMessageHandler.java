@@ -24,7 +24,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import java.util.HashMap;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 @NoArgsConstructor
 public final class WorkbenchServerMessageHandler implements IMessageHandler<WorkbenchServerMessage, IMessage> {
@@ -104,7 +104,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                                 return;
                             }
                         } else {
-                            LOG.error("Could not verify that items are available in the inventory.");
+                            LOGGER.error("Could not verify that items are available in the inventory.");
                             return;
                         }
                     }

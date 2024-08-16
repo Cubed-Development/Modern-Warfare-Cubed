@@ -7,7 +7,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
-import static com.paneedah.mwc.utils.ModReference.RED_LOG;
+import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 
 @SideOnly(Side.CLIENT)
 public final class EquipmentModelPools {
@@ -45,7 +45,7 @@ public final class EquipmentModelPools {
             try {
                 pool.put(name, (ModelBiped) Class.forName(name).getDeclaredConstructor().newInstance());
             } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException exception) {
-                RED_LOG.printFramedError("Equipment Pool", "Failed to load equipment model: " + name, "Non critical exception, model will not be loaded", exception.getMessage());
+                RED_LOGGER.printFramedError("Equipment Pool", "Failed to load equipment model: " + name, "Non critical exception, model will not be loaded", exception.getMessage());
             }
         }
 

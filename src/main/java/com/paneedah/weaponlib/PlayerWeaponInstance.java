@@ -30,8 +30,8 @@ import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 
 public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implements DynamicShaderGroupSourceProvider {
@@ -170,7 +170,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
         // Give the old animations
         if (!getWeapon().builder.isUsingNewSystem()) {
-            LOG.debug("Weapon is using the old system, returning standard value");
+            LOGGER.debug("Weapon is using the old system, returning standard value");
             return getWeapon().getTotalReloadingDuration();
         }
 
@@ -628,7 +628,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
                 final int expectedStackAmmo = Tags.getAmmo(itemStack);
 
                 if (ammo != expectedStackAmmo) {
-                    LOG.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
+                    LOGGER.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
 
                     ammo = expectedStackAmmo;
 
@@ -640,7 +640,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
                 final int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
 
                 if (!Arrays.equals(expectedAttachmentIds, activeAttachmentIds)) {
-                    LOG.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
+                    LOGGER.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
 
                     activeAttachmentIds = expectedAttachmentIds;
 

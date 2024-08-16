@@ -13,7 +13,7 @@ import java.util.UUID;
 import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 @NoArgsConstructor
 public final class NetworkPermitManager {
@@ -28,7 +28,7 @@ public final class NetworkPermitManager {
 
     public <S extends ManagedState<S>, P extends Permit<S>, E extends ExtendedState<S>> void registerEvaluator(Class<? extends P> permitClass, Class<? extends E> esClass, BiConsumer<P, E> evaluator) {
         permitEvaluators.put(permitClass, (permit, playerItemInstance) -> {
-            LOG.debug("Processing permit {} for instance {}", permit, playerItemInstance);
+            LOGGER.debug("Processing permit {} for instance {}", permit, playerItemInstance);
             evaluator.accept(permitClass.cast(permit), esClass.cast(playerItemInstance));
         });
     }

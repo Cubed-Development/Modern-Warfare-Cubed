@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCraftingRecipe, IHasModel {
 

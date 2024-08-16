@@ -55,8 +55,8 @@ import java.util.*;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 /**
  * Handles the client events, and apparently was my testing playground?
@@ -517,7 +517,7 @@ public class ClientEventHandler {
         try {
             EVENT_DWHEEL_FIELD.set(null, 0);
         } catch (Exception e) {
-            LOG.error("Could not assign value to EVENT_DWHEEL_FIELD!");
+            LOGGER.error("Could not assign value to EVENT_DWHEEL_FIELD!");
             e.printStackTrace();
         }
     }

@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import static com.paneedah.mwc.utils.ModReference.RED_LOG;
+import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 
 @Getter
 @NoArgsConstructor
@@ -25,7 +25,7 @@ public final class CraftingClientMessage implements IMessage {
         try {
             byteBuf.readBytes(fileStream, size);
         } catch (IOException ioException) {
-            RED_LOG.printFramedError("Networking", "Failed to read file stream for craft mappings", "Bad things will happen", ioException.getMessage());
+            RED_LOGGER.printFramedError("Networking", "Failed to read file stream for craft mappings", "Bad things will happen", ioException.getMessage());
         }
     }
 

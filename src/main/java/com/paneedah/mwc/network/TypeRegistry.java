@@ -9,7 +9,7 @@ import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.UUID;
 
-import static com.paneedah.mwc.utils.ModReference.RED_LOG;
+import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 
 @NoArgsConstructor
 public final class TypeRegistry {
@@ -28,7 +28,7 @@ public final class TypeRegistry {
             secureRandom.setSeed(aClass.getName().getBytes());
             return new UUID(secureRandom.nextLong(), secureRandom.nextLong());
         } catch (NoSuchAlgorithmException noSuchAlgorithmException) {
-            RED_LOG.printFramedError("Networking", "Failed to create a secure random", "", noSuchAlgorithmException.getMessage());
+            RED_LOGGER.printFramedError("Networking", "Failed to create a secure random", "", noSuchAlgorithmException.getMessage());
             throw new RuntimeException(noSuchAlgorithmException);
         }
 
@@ -38,7 +38,7 @@ public final class TypeRegistry {
         final UUID uuid = getUuid(object.getClass());
 
         if (!typeRegistry.containsKey(uuid)) {
-            RED_LOG.printFramedError("Networking", "Failed to write object because its class is not registered", "", "Object: " + object, "Class: " + object.getClass());
+            RED_LOGGER.printFramedError("Networking", "Failed to write object because its class is not registered", "", "Object: " + object, "Class: " + object.getClass());
             throw new RuntimeException();
         }
 
@@ -60,7 +60,7 @@ public final class TypeRegistry {
         Class<T> targetClass = (Class<T>) typeRegistry.get(typeUuid);
 
         if (targetClass == null) {
-            RED_LOG.printFramedError("Networking", "Failed to deserialize object.\nDid you forget to register type?", "");
+            RED_LOGGER.printFramedError("Networking", "Failed to deserialize object.\nDid you forget to register type?", "");
             throw new RuntimeException();
         }
 
@@ -72,7 +72,7 @@ public final class TypeRegistry {
             try {
                 instance = targetClass.newInstance();
             } catch (InstantiationException | IllegalAccessException exception) {
-                RED_LOG.printFramedError("Networking", "Failed to create instance", "", exception.getMessage(), exception.getStackTrace()[3].toString());
+                RED_LOGGER.printFramedError("Networking", "Failed to create instance", "", exception.getMessage(), exception.getStackTrace()[3].toString());
                 throw new RuntimeException();
             }
 

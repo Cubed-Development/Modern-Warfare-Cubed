@@ -35,7 +35,7 @@ import java.util.function.Function;
 
 import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class CustomArmor extends ItemArmor implements ExposureProtection, ISpecialArmor, IModernCraftingRecipe {
 

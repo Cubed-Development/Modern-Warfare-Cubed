@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 import java.util.Random;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class OreBase extends BlockOre {
 
@@ -31,7 +31,7 @@ public class OreBase extends BlockOre {
         //If the block is smelt-able (i.e like gold or iron) then drop the block itself, otherwise drop the designated drop.
         if (this.smelt) {
             if (this.drop != null) {
-                LOG.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
+                LOGGER.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
             }
             return itemBlock;
         } else {

@@ -97,6 +97,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - General cleanup
 - Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 8.7.1
 - Remade the build script
+- Switched from [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) tags to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin)
 
 ## Modern Warfare Cubed Version 0.1.8 Changelog - 2024-08-16
 

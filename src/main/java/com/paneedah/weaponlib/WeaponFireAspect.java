@@ -34,7 +34,7 @@ import java.util.function.Predicate;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 
 /*
@@ -408,7 +408,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         int currentServerAmmo = Tags.getAmmo(itemStack);
 
         if (currentServerAmmo <= 0) {
-            LOG.error("No server ammo");
+            LOGGER.error("No server ammo");
             return;
         }
 

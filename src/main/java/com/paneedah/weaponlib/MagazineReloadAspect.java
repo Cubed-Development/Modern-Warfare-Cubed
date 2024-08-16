@@ -3,7 +3,6 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
@@ -16,6 +15,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
+
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazineInstance> {
 
@@ -144,7 +145,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
 
     private void evaluateUnload(UnloadPermit p, PlayerMagazineInstance magazineInstance) {
         if (!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
-            ModReference.LOG.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect unload");
+            LOGGER.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect unload");
             return;
         }
 
@@ -226,7 +227,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     private void evaluateLoad(LoadPermit p, PlayerMagazineInstance magazineInstance) {
 
         if (!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
-            ModReference.LOG.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect load");
+            LOGGER.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect load");
             return;
         }
 

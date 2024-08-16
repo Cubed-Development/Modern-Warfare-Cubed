@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.HashMap;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 /**
  * This class was created in case that in the future more shell types will be added.

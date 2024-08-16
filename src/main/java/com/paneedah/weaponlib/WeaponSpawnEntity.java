@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.network.messages.BloodClientMessage;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -24,7 +25,6 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import java.util.List;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class WeaponSpawnEntity extends EntityProjectile {
 
@@ -96,7 +96,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
             position.entityHit.hurtResistantTime = 0;
             position.entityHit.prevRotationYaw -= 0.3;
 
-            LOG.debug("Hit entity {}", position.entityHit);
+            ProjectConstants.LOGGER.debug("Hit entity {}", position.entityHit);
 
             NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(position.entityHit.dimension, this.posX, this.posY, this.posZ, 100);
 

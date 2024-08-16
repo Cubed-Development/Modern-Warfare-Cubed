@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import static com.paneedah.mwc.utils.ModReference.RED_LOG;
+import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 
 public final class CompressionUtil {
 
@@ -16,21 +16,21 @@ public final class CompressionUtil {
         try {
             gzipOutputStream = new GZIPOutputStream(byteArrayOutputStream);
         } catch (IOException ioException) {
-            RED_LOG.printFramedError("Networking", "Failed to create compression output stream.", "", ioException.getMessage());
+            RED_LOGGER.printFramedError("Networking", "Failed to create compression output stream.", "", ioException.getMessage());
             return new byte[0];
         }
 
         try {
             gzipOutputStream.write(string.getBytes());
         } catch (IOException ioException) {
-            RED_LOG.printFramedError("Networking", "Failed to compress string.", "", ioException.getMessage());
+            RED_LOGGER.printFramedError("Networking", "Failed to compress string.", "", ioException.getMessage());
         }
 
         try {
             byteArrayOutputStream.close();
             gzipOutputStream.close();
         } catch (IOException ioException) {
-            RED_LOG.printFramedError("Networking", "Failed to close output stream.", "", ioException.getMessage());
+            RED_LOGGER.printFramedError("Networking", "Failed to close output stream.", "", ioException.getMessage());
         }
 
         return byteArrayOutputStream.toByteArray();
@@ -45,7 +45,7 @@ public final class CompressionUtil {
         try {
             gzipInputStream = new GZIPInputStream(byteArrayInputStream);
         } catch (IOException ioException) {
-            RED_LOG.printFramedError("Networking", "Failed to create compression input stream.", "", ioException.getMessage());
+            RED_LOGGER.printFramedError("Networking", "Failed to create compression input stream.", "", ioException.getMessage());
             return "";
         }
 
@@ -55,7 +55,7 @@ public final class CompressionUtil {
             while (bufferedReader.ready())
                 line.append(bufferedReader.readLine());
         } catch (IOException ioException) {
-            RED_LOG.printFramedError("Networking", "Failed to read lines from compression stream.", "", ioException.getMessage());
+            RED_LOGGER.printFramedError("Networking", "Failed to read lines from compression stream.", "", ioException.getMessage());
         }
 
         try {
@@ -63,7 +63,7 @@ public final class CompressionUtil {
             gzipInputStream.close();
             bufferedReader.close();
         } catch (IOException ioException) {
-            RED_LOG.printFramedError("Networking", "Failed to close input stream.", "", ioException.getMessage());
+            RED_LOGGER.printFramedError("Networking", "Failed to close input stream.", "", ioException.getMessage());
         }
 
         return line.toString();

@@ -19,7 +19,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.Random;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
@@ -96,9 +96,9 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 //        }
 
         if (tickCounter++ % 50 == 0) {
-            LOG.trace("Using entity tracker {}", playerEntityTracker);
+            LOGGER.trace("Using entity tracker {}", playerEntityTracker);
             if (watchableEntity != null) {
-                LOG.debug("Watching {} with uuid {}, distance: {}  ", watchableEntity, watchableEntity.getUniqueID(), Math.sqrt(Math.pow(watchableEntity.posX - FMLClientHandler.instance().getClientPlayerEntity().posX, 2) + Math.pow(watchableEntity.posZ - FMLClientHandler.instance().getClientPlayerEntity().posZ, 2)));
+                LOGGER.debug("Watching {} with uuid {}, distance: {}  ", watchableEntity, watchableEntity.getUniqueID(), Math.sqrt(Math.pow(watchableEntity.posX - FMLClientHandler.instance().getClientPlayerEntity().posX, 2) + Math.pow(watchableEntity.posZ - FMLClientHandler.instance().getClientPlayerEntity().posZ, 2)));
             }
         }
 

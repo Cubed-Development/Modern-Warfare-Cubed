@@ -18,7 +18,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import java.util.*;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMeleeInstance> {
 
@@ -159,7 +159,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 
 
     private void enterAttachmentSelectionMode(EnterAttachmentModePermit permit, PlayerMeleeInstance weaponInstance) {
-        LOG.debug("Entering attachment mode");
+        LOGGER.debug("Entering attachment mode");
         byte[] selectedAttachmentIndexes = new byte[AttachmentCategory.values.length];
         Arrays.fill(selectedAttachmentIndexes, (byte) -1);
         weaponInstance.setSelectedAttachmentIndexes(selectedAttachmentIndexes);
@@ -168,7 +168,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
     }
 
     private void exitAttachmentSelectionMode(ExitAttachmentModePermit permit, PlayerMeleeInstance weaponInstance) {
-        LOG.debug("Exiting attachment mode");
+        LOGGER.debug("Exiting attachment mode");
         weaponInstance.setSelectedAttachmentIndexes(new byte[0]);
 
         permit.setStatus(Status.GRANTED);
@@ -347,7 +347,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
                 currentIndex -= 37;
             }
 
-            LOG.debug("Searching for an attachment in slot {}", currentIndex);
+            LOGGER.debug("Searching for an attachment in slot {}", currentIndex);
 
             if (currentIndex == -1) {
                 result.index = -1;

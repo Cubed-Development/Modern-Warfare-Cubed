@@ -9,7 +9,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 
@@ -46,7 +46,7 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 
     public void setActiveWatchIndex(int activeWatchIndex) {
         if (this.activeWatchIndex != activeWatchIndex) {
-            LOG.debug("Changing active watch index to {}", activeWatchIndex);
+            LOGGER.debug("Changing active watch index to {}", activeWatchIndex);
             this.activeWatchIndex = activeWatchIndex;
             markDirty();
         }

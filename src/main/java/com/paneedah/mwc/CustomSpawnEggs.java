@@ -3,7 +3,7 @@ package com.paneedah.mwc;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.HighIQSpawnEgg;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class CustomSpawnEggs {
 

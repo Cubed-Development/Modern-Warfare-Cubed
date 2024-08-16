@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 
 /*
@@ -99,7 +99,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     private void throwIt(PlayerGrenadeInstance instance) {
-        LOG.debug("Throwing with state " + instance.getState());
+        LOGGER.debug("Throwing with state " + instance.getState());
         long activationTimestamp;
         if (instance.getWeapon().getExplosionTimeout() > 0) {
             activationTimestamp = instance.getActivationTimestamp();
@@ -111,16 +111,16 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     private void reequip(PlayerGrenadeInstance instance) {
-        LOG.debug("Reequipping");
+        LOGGER.debug("Reequipping");
     }
 
     private void takeSafetyPinOff(PlayerGrenadeInstance instance) {
         instance.getPlayer().playSound(instance.getWeapon().getSafetyPinOffSound(), 1, 1);
-        LOG.debug("Taking safety pin off");
+        LOGGER.debug("Taking safety pin off");
     }
 
     private void releaseStrikerLever(PlayerGrenadeInstance instance) {
-        LOG.debug("Safety pin is off");
+        LOGGER.debug("Safety pin is off");
         instance.setActivationTimestamp(System.currentTimeMillis());
     }
 
@@ -149,7 +149,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     public void serverThrowGrenade(EntityPlayer player, PlayerGrenadeInstance instance, long activationTimestamp) {
-        LOG.debug("Throwing grenade");
+        LOGGER.debug("Throwing grenade");
 
         //boolean isSmokeGrenade = instance.getWeapon().isSmokeOnly();
 
@@ -181,7 +181,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withGravityVelocity(instance.getWeapon().getGravityVelocity())
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
-            LOG.debug("Throwing velocity {} ", velocity);
+            LOGGER.debug("Throwing velocity {} ", velocity);
             if (player != null) {
                 player.world.spawnEntity(entityGrenade);
             }
@@ -198,7 +198,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withGravityVelocity(instance.getWeapon().getGravityVelocity())
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
-            LOG.debug("Throwing velocity {} ", velocity);
+            LOGGER.debug("Throwing velocity {} ", velocity);
             if (player != null) {
                 player.world.spawnEntity(entityGrenade);
             }
@@ -215,7 +215,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .withDestroyingBlocks(false)
                     .build(modContext);
-            LOG.debug("Throwing velocity {} ", velocity);
+            LOGGER.debug("Throwing velocity {} ", velocity);
             if (player != null) {
                 player.world.spawnEntity(entityGrenade);
             }
@@ -232,7 +232,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .withDestroyingBlocks(instance.getWeapon().isDestroyingBlocks())
                     .build(modContext);
-            LOG.debug("Throwing velocity {} ", velocity);
+            LOGGER.debug("Throwing velocity {} ", velocity);
             if (player != null) {
                 player.world.spawnEntity(entityGrenade);
             }

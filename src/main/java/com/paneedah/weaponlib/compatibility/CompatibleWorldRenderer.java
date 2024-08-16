@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.compatibility;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.gson.JsonSyntaxException;
+import com.paneedah.mwc.ProjectConstants;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -59,7 +60,6 @@ import java.util.List;
 import java.util.Random;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.LOG;
 
 @Deprecated
 @SideOnly(Side.CLIENT)
@@ -261,11 +261,11 @@ public class CompatibleWorldRenderer extends EntityRenderer {
             this.shaderGroup.createBindFramebuffers(MC.displayWidth, MC.displayHeight);
             this.useShader = true;
         } catch (IOException ioexception) {
-            LOG.warn("Failed to load shader: {}", resourceLocationIn, ioexception);
+            ProjectConstants.LOGGER.warn("Failed to load shader: {}", resourceLocationIn, ioexception);
             this.shaderIndex = SHADER_COUNT;
             this.useShader = false;
         } catch (JsonSyntaxException jsonsyntaxexception) {
-            LOG.warn("Failed to load shader: {}", resourceLocationIn, jsonsyntaxexception);
+            ProjectConstants.LOGGER.warn("Failed to load shader: {}", resourceLocationIn, jsonsyntaxexception);
             this.shaderIndex = SHADER_COUNT;
             this.useShader = false;
         }

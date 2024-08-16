@@ -12,7 +12,7 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class ModernConfigManager {
 
@@ -180,7 +180,7 @@ public class ModernConfigManager {
             // fields are static.
             f.set(null, value);
         } catch (IllegalArgumentException | IllegalAccessException e) {
-            LOG.error("Could not set field for field name: {}, please report this to developers.", f.getName());
+            LOGGER.error("Could not set field for field name: {}, please report this to developers.", f.getName());
             e.printStackTrace();
         }
 

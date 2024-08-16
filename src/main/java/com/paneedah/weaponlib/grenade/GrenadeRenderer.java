@@ -33,8 +33,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
@@ -657,7 +657,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         PlayerGrenadeInstance playerGrenadeInstance = null;
         if (playerItemInstance == null || !(playerItemInstance instanceof PlayerGrenadeInstance)
                 || playerItemInstance.getItem() != itemStack.getItem()) {
-            LOG.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
+            LOGGER.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
         } else {
             playerGrenadeInstance = (PlayerGrenadeInstance) playerItemInstance;
         }
@@ -689,7 +689,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
                     }
             }
 
-            LOG.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
+            LOGGER.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
         }
 
         if (currentState == null) {
@@ -781,7 +781,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
                 if (partTransitions != null && partTransitions.size() > i) {
                     partTransition = partTransitions.get(i);
                 } else {
-                    LOG.warn("Transition not defined for part {}", custom);
+                    LOGGER.warn("Transition not defined for part {}", custom);
                 }
                 t.withPartPositionFunction(e.getKey(), partTransition.getAttachedTo(), createWeaponPartPositionFunction(partTransition));
             }

@@ -52,8 +52,8 @@ import java.util.stream.Collectors;
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraftingRecipe {
 
@@ -1150,7 +1150,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
         if (instance != null) {
             float recoil = instance.getWeapon().builder.recoil * factor;
-            LOG.debug("Changing recoil to {} for instance {}", recoil, instance);
+            LOGGER.debug("Changing recoil to {} for instance {}", recoil, instance);
             instance.setRecoil(recoil);
         }
     }
@@ -1371,7 +1371,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         if (flagIn.isAdvanced() && playerWeaponInstance != null && itemStack.getTagCompound() != null) {
             if (Keyboard.isKeyDown(Keyboard.KEY_LCONTROL)) {
                 tooltipLines.add(red + "Logging NBT data, release left control to stop");
-                LOG.info("{} NBT Data (Size {}): {}", playerWeaponInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
+                LOGGER.info("{} NBT Data (Size {}): {}", playerWeaponInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
             } else {
                 tooltipLines.add(yellow + "Press left control to log NBT data");
             }
@@ -1469,7 +1469,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         } else {
             message = I18n.format("gui.firearmMode.burst");
         }
-        LOG.debug("Changed fire mode of {} to {}", instance, result);
+        LOGGER.debug("Changed fire mode of {} to {}", instance, result);
 
         if (instance.getPlayer() instanceof EntityPlayer) {
             ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.firearmMode", message)), true);
@@ -1546,9 +1546,9 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             }
 
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
-            LOG.debug("Changed optical zoom to {}", instance.getZoom());
+            LOGGER.debug("Changed optical zoom to {}", instance.getZoom());
         } else {
-            LOG.debug("Cannot change non-optical zoom");
+            LOGGER.debug("Cannot change non-optical zoom");
         }
     }
 
@@ -1572,9 +1572,9 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             }
 
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
-            LOG.debug("Changed optical zoom to {}", zoom);
+            LOGGER.debug("Changed optical zoom to {}", zoom);
         } else {
-            LOG.debug("Cannot change non-optical zoom");
+            LOGGER.debug("Cannot change non-optical zoom");
         }
     }
 

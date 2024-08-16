@@ -5,7 +5,6 @@ import com.cleanroommc.groovyscript.api.IIngredient;
 import com.cleanroommc.groovyscript.helper.recipe.AbstractRecipeBuilder;
 import com.cleanroommc.groovyscript.registry.VirtualizedRegistry;
 import com.paneedah.mwc.groovyscript.recipes.GSCrafting;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -13,6 +12,7 @@ import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 
 import java.util.ArrayList;
 
+import static com.paneedah.mwc.ProjectConstants.NAME;
 import static com.paneedah.mwc.groovyscript.MWCGroovyPlugin.craftingStation;
 import static com.paneedah.weaponlib.crafting.CraftingGroup.GUN;
 import static com.paneedah.weaponlib.crafting.CraftingRegistry.*;
@@ -91,7 +91,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
 
         @Override
         public String getErrorMsg() {
-            return "Error adding " + ModReference.NAME + " Workbench Recipe: " + name;
+            return "Error adding " + NAME + " Workbench Recipe: " + name;
         }
 
         @Override

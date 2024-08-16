@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,7 +34,7 @@ public final class PermitMessageServerHandler implements IMessageHandler<PermitM
             if (evaluator != null) {
                 evaluator.accept(permit, playerItemInstance);
             } else {
-                LOG.warn("No evaluator registered for permit {}", permit);
+                LOGGER.warn("No evaluator registered for permit {}", permit);
             }
 
             final PermitMessage message = new PermitMessage(permit, playerItemInstance);

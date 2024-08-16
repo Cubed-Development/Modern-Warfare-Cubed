@@ -40,8 +40,8 @@ import java.util.Iterator;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.network.handlers.CraftingClientMessageHandler.RECEIVE_HASH;
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 /**
  * Handles server events
@@ -148,7 +148,7 @@ public class CommonEventHandler {
         }
 
         if (entity instanceof EntityPlayerMP && !event.getWorld().isRemote) {
-            LOG.debug("Player {} joined the world", event.getEntity());
+            LOGGER.debug("Player {} joined the world", event.getEntity());
 
             final EntityPlayer player = (EntityPlayer) entity;
             final LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
@@ -174,7 +174,7 @@ public class CommonEventHandler {
 
         LivingEntityTracker tracker = LivingEntityTracker.getTracker((EntityPlayer) event.getEntity());
         if (tracker != null && tracker.updateTrackableEntity(event.getTarget())) {
-            LOG.debug("Player {} started tracking {} with uuid {}", event.getEntityPlayer(), event.getTarget(), event.getTarget().getUniqueID());
+            LOGGER.debug("Player {} started tracking {} with uuid {}", event.getEntityPlayer(), event.getTarget(), event.getTarget().getUniqueID());
             CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, null), (EntityPlayerMP) event.getEntityPlayer());
         }
     }

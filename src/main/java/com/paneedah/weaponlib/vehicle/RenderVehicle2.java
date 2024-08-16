@@ -29,7 +29,7 @@ import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3d;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class RenderVehicle2 extends Render<Entity> {
 

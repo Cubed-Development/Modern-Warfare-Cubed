@@ -8,7 +8,7 @@ import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>> {
 
@@ -206,7 +206,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
         private void applyPermit(Permit<S> processedPermit, E updatedState) {
             // This is a permit granted callback which sets state to the final toState
             S updateToState = processedPermit.getStatus() == Status.GRANTED ? toState : fromState;
-            LOG.debug("Applying permit with status {} to {}, changing state to {}", processedPermit.getStatus(), updatedState, toState);
+            LOGGER.debug("Applying permit with status {} to {}, changing state to {}", processedPermit.getStatus(), updatedState, toState);
 
             if (Boolean.TRUE.equals(stateUpdater.apply(updateToState, safeCast(updatedState)))) {
                 action.execute(safeCast(updatedState), fromState, toState, processedPermit);
@@ -363,7 +363,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
         S[] ts = targetStates;
         while ((newStateRule = findNextStateRule(aspect, extendedState, s, ts)) != null) {
             extendedState.setState(newStateRule.toState);
-            LOG.debug("Changed state of {} to {}", extendedState, newStateRule.toState);
+            LOGGER.debug("Changed state of {} to {}", extendedState, newStateRule.toState);
             result = new Result(true, newStateRule.toState);
             if (newStateRule.action != null) {
                 result.actionResult = newStateRule.action.execute(extendedState, s, newStateRule.toState, permit);

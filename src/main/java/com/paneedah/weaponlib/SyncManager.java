@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class SyncManager<S extends ManagedState<S>> {
 
@@ -27,17 +27,17 @@ public class SyncManager<S extends ManagedState<S>> {
     }
 
     private void syncOnServer(Permit<S> permit, PlayerItemInstance<S> instance) {
-        LOG.debug("Syncing {} in state {} on server", instance, instance.getState());
+        LOGGER.debug("Syncing {} in state {} on server", instance, instance.getState());
         ItemStack itemStack = instance.getItemStack();
         if (itemStack != null) {
             if (instance.getItem() == itemStack.getItem()) {
-                LOG.debug("Stored instance {} of {} in stack {}", instance, instance.getItem(), itemStack);
+                LOGGER.debug("Stored instance {} of {} in stack {}", instance, instance.getItem(), itemStack);
                 instance.reconcile();
                 if (instance.shouldHaveInstanceTags()) {
                     Tags.setInstance(itemStack, instance);
                 }
             } else {
-                LOG.debug("Item mismatch, expected: {}, actual: {}", instance.getItem().getTranslationKey(),
+                LOGGER.debug("Item mismatch, expected: {}, actual: {}", instance.getItem().getTranslationKey(),
                         itemStack.getItem().getTranslationKey());
             }
         }
@@ -58,14 +58,14 @@ public class SyncManager<S extends ManagedState<S>> {
 
 
     private void sync(PlayerItemInstance<?> watchable) {
-        LOG.debug("Syncing {} in state {} with update id {} to server", watchable, watchable.getState(), watchable.getUpdateId());
+        LOGGER.debug("Syncing {} in state {} with update id {} to server", watchable, watchable.getState(), watchable.getUpdateId());
         long updateId = watchable.getUpdateId(); // capturing update id
         watchable.setSyncStartTimestamp(System.currentTimeMillis());
         permitManager.request(new Permit<>((S) watchable.getState()), (PlayerItemInstance<S>) watchable, (p, e) -> {
             // During sync, the watchable.getUpdateId() can change, so using the original update id
             watchables.put(watchable, updateId);
             watchable.setSyncStartTimestamp(0);
-            LOG.debug("Completed syncing {} with update id {}", watchable, updateId);
+            LOGGER.debug("Completed syncing {} with update id {}", watchable, updateId);
         });
     }
 }

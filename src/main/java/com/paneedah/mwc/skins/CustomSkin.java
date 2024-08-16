@@ -7,8 +7,8 @@ import javax.imageio.ImageIO;
 import java.io.File;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.RED_LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 
 public class CustomSkin {
 
@@ -20,7 +20,7 @@ public class CustomSkin {
             MC.getTextureManager().loadTexture(resourceLocation, new DynamicTexture(ImageIO.read(file)));
             MC.getTextureManager().bindTexture(resourceLocation);
         } catch (Exception e) {
-            RED_LOG.printFramedError("Load Custom Skin", "Failed to load custom skin: " + name + " from file: " + file.getAbsolutePath(), "Skin will not be loaded.");
+            RED_LOGGER.printFramedError("Load Custom Skin", "Failed to load custom skin: " + name + " from file: " + file.getAbsolutePath(), "Skin will not be loaded.");
         }
     }
 

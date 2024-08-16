@@ -4,8 +4,8 @@ import com.cleanroommc.groovyscript.api.GroovyPlugin;
 import com.cleanroommc.groovyscript.compat.mods.GroovyContainer;
 import com.paneedah.mwc.groovyscript.script.CraftingStation;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.NAME;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.NAME;
 
 public class MWCGroovyPlugin implements GroovyPlugin {
 

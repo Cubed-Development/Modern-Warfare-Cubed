@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.render;
 
 import net.minecraft.util.ResourceLocation;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class QRL {
 

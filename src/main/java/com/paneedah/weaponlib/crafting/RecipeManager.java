@@ -10,8 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class RecipeManager {
 
@@ -22,7 +22,7 @@ public class RecipeManager {
     public List<Object> createShapedRecipe(Item item, String name, OptionsMetadata optionsMetadata) {
         List<Object> recipe = recipeGenerator.createShapedRecipe(name, optionsMetadata);
         if (recipes.put(item, recipe) != null) {
-            LOG.warn("Duplicate recipe registered for item {}", item);
+            LOGGER.warn("Duplicate recipe registered for item {}", item);
         }
         return recipe;
     }
@@ -48,7 +48,7 @@ public class RecipeManager {
         }
 
         if (recipes.put(itemStack.getItem(), recipeAslist) != null) {
-            LOG.warn("Duplicate recipe registered for item {}", itemStack.getItem());
+            LOGGER.warn("Duplicate recipe registered for item {}", itemStack.getItem());
         }
         return recipeAslist;
     }

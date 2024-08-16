@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.crafting.base;
 
+import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.network.messages.WorkbenchServerMessage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
@@ -36,8 +37,7 @@ import java.util.concurrent.TimeUnit;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 public abstract class GUIContainerStation<T extends TileEntityStation> extends GuiContainer {
 
@@ -625,7 +625,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                     int c = 0;
                     for (CraftingEntry entry : weapon.getModernRecipe()) {
                         if (entry.getIngredient() == null) {
-                            LOG.warn("Skipped resource");
+                            ProjectConstants.LOGGER.warn("Skipped resource");
                             continue;
                         }
 

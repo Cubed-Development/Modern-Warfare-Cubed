@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.VERSION;
+import static com.paneedah.mwc.ProjectConstants.VERSION;
 
 public class DebugHandler {
 

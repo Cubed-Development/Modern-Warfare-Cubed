@@ -35,7 +35,7 @@ import java.nio.FloatBuffer;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 /**
  * Post-processing pipeline enabling modern post effects to be applied in

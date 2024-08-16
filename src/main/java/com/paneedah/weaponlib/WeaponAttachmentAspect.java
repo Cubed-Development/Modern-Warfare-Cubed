@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.network.ByteBufUtils;
 import java.util.*;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
 
@@ -177,7 +177,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
     }
 
     private void enterAttachmentSelectionMode(EnterAttachmentModePermit permit, PlayerWeaponInstance weaponInstance) {
-        LOG.debug("Entering attachment mode");
+        LOGGER.debug("Entering attachment mode");
         byte[] selectedAttachmentIndexes = new byte[AttachmentCategory.values.length];
         Arrays.fill(selectedAttachmentIndexes, (byte) -1);
         weaponInstance.setSelectedAttachmentIndexes(selectedAttachmentIndexes);
@@ -186,7 +186,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
     }
 
     private void exitAttachmentSelectionMode(ExitAttachmentModePermit permit, PlayerWeaponInstance weaponInstance) {
-        LOG.debug("Exiting attachment mode");
+        LOGGER.debug("Exiting attachment mode");
         weaponInstance.setSelectedAttachmentIndexes(new byte[0]);
 
         permit.setStatus(Status.GRANTED);
@@ -583,7 +583,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
                 currentIndex -= INVENTORY_SIZE + (isCategoryRemovable ? 1 : 0);
             }
 
-            LOG.debug("Searching for an attachment in slot {}", currentIndex);
+            LOGGER.debug("Searching for an attachment in slot {}", currentIndex);
 
             if (currentIndex == -1) {
                 result.index = -1;

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
@@ -17,8 +18,6 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.function.BiPredicate;
-
-import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityGrenade extends AbstractEntityGrenade {
 
@@ -146,7 +145,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
     }
 
     private void explode() {
-        LOG.debug("Exploding {}", this);
+        ProjectConstants.LOGGER.debug("Exploding {}", this);
 
         Explosion.createServerSideExplosion(world, this.getThrower(), this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null,
@@ -167,7 +166,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
 
             double d2 = x * x + y * y + z * z;
             if (d2 == 0) {
-                LOG.debug("Ignoring zero distance index {}", i);
+                ProjectConstants.LOGGER.debug("Ignoring zero distance index {}", i);
                 continue;
             }
             double k = Math.sqrt(effectiveRadius * effectiveRadius / d2);
@@ -199,7 +198,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
                         double distanceToEntity = cvec10.distanceTo(new Vector3D(movingobjectposition1.hitVec));
                         float damageDistanceReductionFactor = (float) Math.abs(1 - distanceToEntity / effectiveRadius);
 
-                        LOG.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,
+                        ProjectConstants.LOGGER.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,
                                 damageDistanceReductionFactor);
 
                         nearbyEntity.attackEntityFrom(

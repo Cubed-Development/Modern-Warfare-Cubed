@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class PlayerItemInstanceRegistry {
 
@@ -97,11 +97,11 @@ public class PlayerItemInstanceRegistry {
                 }
             }
             if (result != null && result.getItemInventoryIndex() != slot) {
-                LOG.warn("Invalid instance slot id, correcting...");
+                LOGGER.warn("Invalid instance slot id, correcting...");
                 result.setItemInventoryIndex(slot);
             }
             if (result != null && result.getPlayer() != player) {
-                LOG.warn("Invalid player " + result.getPlayer()
+                LOGGER.warn("Invalid player " + result.getPlayer()
                         + " associated with instance in slot, changing to {}", player);
                 result.setPlayer(player);
             }
@@ -155,14 +155,14 @@ public class PlayerItemInstanceRegistry {
         PlayerItemInstance<?> result = null;
         if (itemStack != null && itemStack.getItem() instanceof PlayerItemInstanceFactory) {
             try {
-                LOG.debug("Deserializing instance for slot {} from stack {}", slot, itemStack);
+                LOGGER.debug("Deserializing instance for slot {} from stack {}", slot, itemStack);
                 result = Tags.getInstance(itemStack);
-                LOG.debug("Deserialized instance {} for slot {} from stack {}", result, slot, itemStack);
+                LOGGER.debug("Deserialized instance {} for slot {} from stack {}", result, slot, itemStack);
             } catch (RuntimeException e) {
-                LOG.debug("Failed to deserialize instance from {}", itemStack);
+                LOGGER.debug("Failed to deserialize instance from {}", itemStack);
             }
             if (result == null) {
-                LOG.debug("Creating instance for slot {} from stack {}", slot, itemStack);
+                LOGGER.debug("Creating instance for slot {} from stack {}", slot, itemStack);
                 result = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(player, itemStack, slot);
                 result.markClean();
             }
@@ -186,7 +186,7 @@ public class PlayerItemInstanceRegistry {
         Optional<PlayerItemInstance<?>> result = Optional.empty();
         try {
             result = itemStackInstanceCache.get(itemStack, () -> {
-                LOG.debug("ItemStack {} not found in cache, initializing...", itemStack);
+                LOGGER.debug("ItemStack {} not found in cache, initializing...", itemStack);
                 PlayerItemInstance<?> instance = null;
                 int slot = -1;
                 if (MC.player == player) {
@@ -200,20 +200,20 @@ public class PlayerItemInstanceRegistry {
 
                 if (slot >= 0) {
                     instance = getItemInstance((EntityPlayer) player, slot);
-                    LOG.debug("Resolved item stack instance {} in slot {}", instance, slot);
+                    LOGGER.debug("Resolved item stack instance {} in slot {}", instance, slot);
                 }
 
                 if (instance == null || instance.getItem() != itemStack.getItem()) {
                     try {
                         instance = Tags.getInstance(itemStack);
                     } catch (RuntimeException e) {
-                        LOG.error("Failed to deserialize instance from stack {}: {}", itemStack, e.toString());
+                        LOGGER.error("Failed to deserialize instance from stack {}: {}", itemStack, e.toString());
                     }
                 }
 
                 if ((instance == null || instance.getItem() != itemStack.getItem())
                         && itemStack.getItem() instanceof PlayerItemInstanceFactory) {
-                    LOG.debug("Creating temporary item stack instance {}", instance);
+                    LOGGER.debug("Creating temporary item stack instance {}", instance);
                     instance = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(player, itemStack, -1);
                     instance.setPlayer(player);
                 }
@@ -221,7 +221,7 @@ public class PlayerItemInstanceRegistry {
                 return Optional.ofNullable(instance);
             });
         } catch (UncheckedExecutionException | ExecutionException e) {
-            LOG.error("Failed to initialize cache instance from {}", itemStack, e.getCause());
+            LOGGER.error("Failed to initialize cache instance from {}", itemStack, e.getCause());
         }
         return result.orElse(null);
     }
@@ -239,7 +239,7 @@ public class PlayerItemInstanceRegistry {
                 //log.debug("Slot {} contains item {} stack {}", e.getKey(), e.getValue(), System.identityHashCode(slotStack));
                 if (slotStack == null || slotStack.getItem() != e.getValue().getItem()
                         || !e.getValue().getUuid().equals(Tags.getInstanceUuid(slotStack))) {
-                    LOG.debug("Removing {} from slot {}", e.getValue(), e.getKey());
+                    LOGGER.debug("Removing {} from slot {}", e.getValue(), e.getKey());
                     syncManager.unwatch(e.getValue());
                     it.remove();
                 }

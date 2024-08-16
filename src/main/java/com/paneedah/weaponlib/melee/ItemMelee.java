@@ -26,8 +26,8 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class ItemMelee extends Item implements
         PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer, Modifiable, Updatable {
@@ -333,7 +333,7 @@ public class ItemMelee extends Item implements
         if (flagIn.isAdvanced() && playerMeleeInstance != null && itemStack.getTagCompound() != null) {
             if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
                 tooltipLines.add(red + "Logging NBT data, release left shift to stop");
-                LOG.info("{} NBT Data (Size {}): {}", playerMeleeInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
+                LOGGER.info("{} NBT Data (Size {}): {}", playerMeleeInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
             } else {
                 tooltipLines.add(yellow + "Press left shift to log NBT data");
             }
@@ -413,7 +413,7 @@ public class ItemMelee extends Item implements
         //target.attackEntityFrom(DamageSource.fall, builder.damage);
         PlayerItemInstance<?> instance = Tags.getInstance(stack);
         if (instance instanceof PlayerMeleeInstance) {
-            LOG.debug("Player {} hits {} with {} in state {}", player, target, instance, instance.getState());
+            LOGGER.debug("Player {} hits {} with {} in state {}", player, target, instance, instance.getState());
         }
         return true;
     }

@@ -9,7 +9,7 @@ import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public abstract class JSONDatabaseManager {
 
@@ -20,8 +20,8 @@ public abstract class JSONDatabaseManager {
         try {
             SHA_256_DIGEST = MessageDigest.getInstance("SHA-256");
         } catch (NoSuchAlgorithmException e) {
-            LOG.error("Failed to create SHA-256 digester!");
-            LOG.catching(e);
+            LOGGER.error("Failed to create SHA-256 digester!");
+            LOGGER.catching(e);
         }
     }
 
@@ -47,11 +47,11 @@ public abstract class JSONDatabaseManager {
         try (InputStream is = new FileInputStream(f)) {
             return getDigest(is);
         } catch (FileNotFoundException e) {
-            LOG.error("Could not find file {}", f);
-            LOG.catching(e);
+            LOGGER.error("Could not find file {}", f);
+            LOGGER.catching(e);
         } catch (IOException e) {
-            LOG.error("Could not read file {}", f);
-            LOG.catching(e);
+            LOGGER.error("Could not read file {}", f);
+            LOGGER.catching(e);
         }
 
         return null;
@@ -64,8 +64,8 @@ public abstract class JSONDatabaseManager {
             is.read(byteArray);
             return byteArray;
         } catch (IOException e) {
-            LOG.error("Could not create SHA-256 digest for {}", is.toString());
-            LOG.catching(e);
+            LOGGER.error("Could not create SHA-256 digest for {}", is.toString());
+            LOGGER.catching(e);
         }
         return null;
     }

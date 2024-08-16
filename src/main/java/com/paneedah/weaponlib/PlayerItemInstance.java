@@ -13,7 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S> {
 
@@ -103,7 +103,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         markDirty();
 
         if (preparedState != null) {
-            LOG.debug("Committing state {} to {}", preparedState.getState(), preparedState.getState().commitPhase());
+            LOGGER.debug("Committing state {} to {}", preparedState.getState(), preparedState.getState().commitPhase());
             updateWith(preparedState, false);
 
             preparedState = null;

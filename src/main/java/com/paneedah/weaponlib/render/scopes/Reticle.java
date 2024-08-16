@@ -5,7 +5,7 @@ import net.minecraft.util.math.Vec3d;
 
 import java.awt.*;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class Reticle {
 

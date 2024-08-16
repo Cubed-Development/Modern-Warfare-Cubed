@@ -20,7 +20,7 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class DebugCommand extends CommandBase {
 

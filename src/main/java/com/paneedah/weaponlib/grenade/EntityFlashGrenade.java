@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.LightExposure;
@@ -21,8 +22,6 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.function.BiPredicate;
-
-import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityFlashGrenade extends AbstractEntityGrenade {
 
@@ -156,7 +155,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
     }
 
     private void explode() {
-        LOG.debug("Exploding flashbang {}", this);
+        ProjectConstants.LOGGER.debug("Exploding flashbang {}", this);
 
         explosionStrength = 0.3F;
 
@@ -179,13 +178,13 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
             LightExposure exposure = CompatibleExposureCapability.getExposure(nearbyEntity, LightExposure.class);
 
             if (exposure == null) {
-                LOG.debug("Entity {} exposed to light dose {}", nearbyEntity, dose);
+                ProjectConstants.LOGGER.debug("Entity {} exposed to light dose {}", nearbyEntity, dose);
 
                 exposure = new LightExposure(nearbyEntity.world.getTotalWorldTime(), 4000, dose, 0.99f);
             } else {
                 final float totalDose = MathUtil.clampMaxFirst(exposure.getTotalDose() + dose, 0, 1);
 
-                LOG.debug("Entity {} exposed to light dose {}", nearbyEntity, totalDose);
+                ProjectConstants.LOGGER.debug("Entity {} exposed to light dose {}", nearbyEntity, totalDose);
 
                 exposure.setTotalDose(totalDose);
             }

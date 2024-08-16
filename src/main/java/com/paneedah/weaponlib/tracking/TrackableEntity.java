@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference;
 import java.util.UUID;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class TrackableEntity {
 
@@ -76,7 +76,7 @@ public class TrackableEntity {
         this.worldSupplier = worldSupplier;
         uuid = new UUID(buf.readLong(), buf.readLong());
         entityId = buf.readInt();
-        LOG.debug("Deserializing entity uuid {}, id {}", uuid, entityId);
+        LOGGER.debug("Deserializing entity uuid {}, id {}", uuid, entityId);
 
         startTimestamp = buf.readLong();
         trackingDuration = buf.readLong();
@@ -107,7 +107,7 @@ public class TrackableEntity {
         if (entity != null) {
             entityId = entity.getEntityId();
         }
-        LOG.debug("Serializing server entity uuid {}, id {}", uuid, entityId);
+        LOGGER.debug("Serializing server entity uuid {}, id {}", uuid, entityId);
 
         buf.writeInt(entityId);
         buf.writeLong(startTimestamp);

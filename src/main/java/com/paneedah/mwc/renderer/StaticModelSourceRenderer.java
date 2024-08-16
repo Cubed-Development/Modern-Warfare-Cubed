@@ -29,7 +29,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.ProjectConstants.ID;
 
 @SideOnly(Side.CLIENT)
 public class StaticModelSourceRenderer extends ModelSource implements IBakedModel {

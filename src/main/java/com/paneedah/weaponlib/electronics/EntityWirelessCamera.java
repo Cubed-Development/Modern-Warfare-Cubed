@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.electronics;
 
+import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.network.messages.LivingEntityTrackerMessage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
@@ -24,7 +25,6 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import java.util.List;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityWirelessCamera extends EntityThrowable implements IEntityAdditionalSpawnData {
 
@@ -69,7 +69,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
     @Override
     protected void onImpact(RayTraceResult rayTraceResult) {
         Entity entityHit = rayTraceResult.entityHit;
-        LOG.debug("Player {} hit entity {}", getThrower(), rayTraceResult.entityHit);
+        ProjectConstants.LOGGER.debug("Player {} hit entity {}", getThrower(), rayTraceResult.entityHit);
 
         boolean hit = false;
         if (entityHit != null && getThrower() instanceof EntityPlayer) {
@@ -81,7 +81,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
             }
 
             if (!world.isRemote) {
-                LOG.debug("Server hit entity uuid {}", rayTraceResult.entityHit.getPersistentID());
+                ProjectConstants.LOGGER.debug("Server hit entity uuid {}", rayTraceResult.entityHit.getPersistentID());
                 LivingEntityTracker tracker = LivingEntityTracker.getTracker(getThrower());
                 if (tracker != null) {
                     hit = true;

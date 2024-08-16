@@ -22,8 +22,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class EntityConfiguration {
 
@@ -251,7 +251,7 @@ public class EntityConfiguration {
 
         private Builder withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
             if (item == null) {
-                LOG.warn("Attempted to configure entity equipment with null item");
+                LOGGER.warn("Attempted to configure entity equipment with null item");
                 return this;
             }
             Equipment equipment = new Equipment();
@@ -445,7 +445,7 @@ public class EntityConfiguration {
                 for (String attachment : attachments) {
                     String[] parts = attachment.split(":");
                     if (parts.length < 2) {
-                        LOG.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
+                        LOGGER.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
                         continue;
                     }
 
@@ -454,13 +454,13 @@ public class EntityConfiguration {
                     try {
                         weight = Double.parseDouble(parts[1]);
                     } catch (NumberFormatException e) {
-                        LOG.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
+                        LOGGER.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
                         continue;
                     }
 
                     Item gun = Item.REGISTRY.getObject(new ResourceLocation(ID, gunId));
                     if (gun == null) {
-                        LOG.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
+                        LOGGER.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
                         continue;
                     }
 
@@ -484,7 +484,7 @@ public class EntityConfiguration {
                         for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
                             Item att = Item.REGISTRY.getObject(new ResourceLocation(ID, attachmentId));
                             if (!(att instanceof ItemAttachment)) {
-                                LOG.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
+                                LOGGER.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
                                 continue;
                             }
 

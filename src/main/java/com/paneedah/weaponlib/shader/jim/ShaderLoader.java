@@ -12,8 +12,8 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.ID;
-import static com.paneedah.mwc.utils.ModReference.LOG;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 /**
  * This class is responsible for loading and compiling vertex and fragment shaders for use in rendering.
@@ -45,14 +45,14 @@ public class ShaderLoader {
             GL20.glShaderSource(vertexShaderId, readFileToBuf(new ResourceLocation(file.getNamespace(), file.getPath() + ".vert")));
             GL20.glCompileShader(vertexShaderId);
             if (GL20.glGetShaderi(vertexShaderId, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
-                LOG.error(GL20.glGetShaderInfoLog(vertexShaderId, GL20.GL_INFO_LOG_LENGTH));
+                LOGGER.error(GL20.glGetShaderInfoLog(vertexShaderId, GL20.GL_INFO_LOG_LENGTH));
                 throw new RuntimeException("Error creating vertex shader: " + file);
             }
 
             GL20.glShaderSource(fragmentShaderId, readFileToBuf(new ResourceLocation(file.getNamespace(), file.getPath() + ".frag")));
             GL20.glCompileShader(fragmentShaderId);
             if (GL20.glGetShaderi(fragmentShaderId, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
-                LOG.error(GL20.glGetShaderInfoLog(fragmentShaderId, GL20.GL_INFO_LOG_LENGTH));
+                LOGGER.error(GL20.glGetShaderInfoLog(fragmentShaderId, GL20.GL_INFO_LOG_LENGTH));
                 throw new RuntimeException("Error creating fragment shader: " + file);
             }
 
@@ -67,16 +67,16 @@ public class ShaderLoader {
 
             GL20.glLinkProgram(programId);
             if (GL20.glGetProgrami(programId, GL20.GL_LINK_STATUS) == GL11.GL_FALSE) {
-                LOG.error(GL20.glGetProgramInfoLog(programId, GL20.GL_INFO_LOG_LENGTH));
+                LOGGER.error(GL20.glGetProgramInfoLog(programId, GL20.GL_INFO_LOG_LENGTH));
                 throw new RuntimeException("Error creating fragment shader: " + file);
             }
 
-            LOG.debug("Loaded shader successfully for " + file);
+            LOGGER.debug("Loaded shader successfully for " + file);
 
             return new Shader(programId);
         } catch (IOException ioException) {
             GL20.glDeleteProgram(programId);
-            LOG.error("Failed loading shader for " + ioException);
+            LOGGER.error("Failed loading shader for " + ioException);
         } finally {
             GL20.glDeleteShader(vertexShaderId);
             GL20.glDeleteShader(fragmentShaderId);

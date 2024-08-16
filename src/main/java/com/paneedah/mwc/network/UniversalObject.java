@@ -4,7 +4,7 @@ import io.netty.buffer.ByteBuf;
 
 import java.util.UUID;
 
-import static com.paneedah.mwc.utils.ModReference.RED_LOG;
+import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 
 //Todo: Finish cleaning this up, maybe two separate uuid are not necessary. Pausing this to working on removing the multithreading
 public abstract class UniversalObject implements ISerializable {
@@ -31,7 +31,7 @@ public abstract class UniversalObject implements ISerializable {
     @Override
     public void read(final ByteBuf byteBuf) {
         if (getSerialVersion() != byteBuf.readInt()) {
-            RED_LOG.printFramedError("Networking", "Serial version mismatch", "", "Serial version: " + getSerialVersion(), "ByteBuf version: " + byteBuf.readInt());
+            RED_LOGGER.printFramedError("Networking", "Serial version mismatch", "", "Serial version: " + getSerialVersion(), "ByteBuf version: " + byteBuf.readInt());
             throw new IndexOutOfBoundsException();
         }
 
