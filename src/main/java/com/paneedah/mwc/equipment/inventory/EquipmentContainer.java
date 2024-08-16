@@ -243,6 +243,6 @@ public class EquipmentContainer extends Container {
             e.printStackTrace();
         }
 
-        return itemstack != null ? itemstack : new ItemStack(Items.AIR);
+        return itemstack != null ? itemstack : ItemStack.EMPTY;
     }
 }
