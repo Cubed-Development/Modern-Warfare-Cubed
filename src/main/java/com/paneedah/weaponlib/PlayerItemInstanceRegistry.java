@@ -14,8 +14,8 @@ import java.util.Map.Entry;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class PlayerItemInstanceRegistry {
 
@@ -68,7 +68,7 @@ public class PlayerItemInstanceRegistry {
             result = createItemInstance(player, slot);
             if (result != null) {
                 ItemStack slotItemStack = player.inventory.getStackInSlot(slot);
-                if (slotItemStack != null && result.shouldHaveInstanceTags()) {
+                if (result.shouldHaveInstanceTags()) {
                     Tags.setInstanceUuid(slotItemStack, result.getUuid());
                 }
                 slotInstances.put(slot, result);
@@ -79,10 +79,10 @@ public class PlayerItemInstanceRegistry {
             }
         } else {
             ItemStack slotItemStack = player.inventory.getStackInSlot(slot);
-            if (slotItemStack != null && (
+            if (
                     slotItemStack.getItem() != result.getItem()
                             || !result.getUuid().equals(Tags.getInstanceUuid(slotItemStack))
-            )) {
+            ) {
                 syncManager.unwatch(result);
                 result = createItemInstance(player, slot);
                 if (result != null) {
@@ -153,7 +153,7 @@ public class PlayerItemInstanceRegistry {
         ItemStack itemStack = player.inventory.getStackInSlot(slot);
 
         PlayerItemInstance<?> result = null;
-        if (itemStack != null && itemStack.getItem() instanceof PlayerItemInstanceFactory) {
+        if (itemStack.getItem() instanceof PlayerItemInstanceFactory) {
             try {
                 LOGGER.debug("Deserializing instance for slot {} from stack {}", slot, itemStack);
                 result = Tags.getInstance(itemStack);

@@ -147,7 +147,7 @@ public class EquipmentContainer extends Container {
      * them
      */
     public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
-        ItemStack itemstack = null;
+        ItemStack itemstack = ItemStack.EMPTY;
         try {
 
 
@@ -243,6 +243,6 @@ public class EquipmentContainer extends Container {
             e.printStackTrace();
         }
 
-        return itemstack != null ? itemstack : ItemStack.EMPTY;
+        return itemstack;
     }
 }

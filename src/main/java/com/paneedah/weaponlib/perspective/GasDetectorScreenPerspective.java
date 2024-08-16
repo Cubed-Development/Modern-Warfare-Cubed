@@ -24,11 +24,9 @@ public class GasDetectorScreenPerspective extends ScreenPerspective {
     private String getMessage() {
         float dose = 0f;
         ItemStack itemStack = MC.player.getHeldItemMainhand();
-        if (itemStack != null) {
-            NBTTagCompound nbt = itemStack.getTagCompound();
-            if (nbt != null) {
-                dose = nbt.getFloat("dose");
-            }
+        NBTTagCompound nbt = itemStack.getTagCompound();
+        if (nbt != null) {
+            dose = nbt.getFloat("dose");
         }
         String message = String.format("%5.3f", dose);
         if (message.length() > 6) {

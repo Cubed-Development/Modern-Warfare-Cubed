@@ -205,7 +205,7 @@ public class BanditNew5 extends ModelBiped {
         ItemStack itemstack = ((EntityLivingBase) entityIn).getHeldItemMainhand();
         EntityCustomMob entityCustomMob = (EntityCustomMob) entityIn;
 
-        if (entityCustomMob.isSwingingArms() && (itemstack == null || itemstack.getItem() != Items.BOW)) {
+        if (entityCustomMob.isSwingingArms() && itemstack.getItem() != Items.BOW) {
             float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
             float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
             this.bipedRightArm.rotateAngleZ = 0.0F;
@@ -230,7 +230,7 @@ public class BanditNew5 extends ModelBiped {
         this.leftArmPose = ModelBiped.ArmPose.EMPTY;
         ItemStack itemstack = entitylivingbaseIn.getHeldItem(EnumHand.MAIN_HAND);
 
-        if (itemstack != null && itemstack.getItem() == Items.BOW
+        if (itemstack.getItem() == Items.BOW
                 && ((EntityCustomMob) entitylivingbaseIn).isSwingingArms()) {
             if (entitylivingbaseIn.getPrimaryHand() == EnumHandSide.RIGHT) {
                 this.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;

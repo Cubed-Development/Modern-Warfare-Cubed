@@ -55,14 +55,12 @@ public class DynamicShaderGroupManager {
 //    }
 
     public void applyShader(DynamicShaderContext shaderContext, ItemStack itemStack) {
-        if (itemStack != null) {
-            Item item = itemStack.getItem();
-            if (item instanceof DynamicShaderGroupSourceProvider) {
-                DynamicShaderGroupSourceProvider shaderSourceProvider = (DynamicShaderGroupSourceProvider) item;
-                DynamicShaderGroupSource source = shaderSourceProvider.getShaderSource(shaderContext.getPhase());
-                if (source != null) {
-                    loadFromSource(shaderContext, source);
-                }
+        Item item = itemStack.getItem();
+        if (item instanceof DynamicShaderGroupSourceProvider) {
+            DynamicShaderGroupSourceProvider shaderSourceProvider = (DynamicShaderGroupSourceProvider) item;
+            DynamicShaderGroupSource source = shaderSourceProvider.getShaderSource(shaderContext.getPhase());
+            if (source != null) {
+                loadFromSource(shaderContext, source);
             }
         }
     }

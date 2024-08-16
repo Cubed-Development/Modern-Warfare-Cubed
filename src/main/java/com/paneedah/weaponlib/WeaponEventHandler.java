@@ -110,22 +110,20 @@ public class WeaponEventHandler {
         }
 
         ItemStack itemStack = event.getEntity().getHeldItemMainhand();
-        if (itemStack != null && itemStack.getItem() instanceof Weapon) {
+        if (itemStack.getItem() instanceof Weapon) {
             RenderPlayer rp = (RenderPlayer) event.getRenderer();
 
-            if (itemStack != null) {
-                EntityPlayer player = (EntityPlayer) event.getEntity();
-                PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
-                        .getItemInstance(player, itemStack);
-                if (instance instanceof PlayerWeaponInstance) {
-                    PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) instance;
-                    if (weaponInstance.isAimed() || weaponInstance.getState() == WeaponState.FIRING || weaponInstance.getState() == WeaponState.RECOILED || weaponInstance.getState() == WeaponState.PAUSED) {
-                        rp.getMainModel().leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
-                        rp.getMainModel().rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
-                    } else {
-                        rp.getMainModel().leftArmPose = ModelBiped.ArmPose.EMPTY;
-                        rp.getMainModel().rightArmPose = ModelBiped.ArmPose.ITEM;
-                    }
+            EntityPlayer player = (EntityPlayer) event.getEntity();
+            PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
+                    .getItemInstance(player, itemStack);
+            if (instance instanceof PlayerWeaponInstance) {
+                PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) instance;
+                if (weaponInstance.isAimed() || weaponInstance.getState() == WeaponState.FIRING || weaponInstance.getState() == WeaponState.RECOILED || weaponInstance.getState() == WeaponState.PAUSED) {
+                    rp.getMainModel().leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+                    rp.getMainModel().rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+                } else {
+                    rp.getMainModel().leftArmPose = ModelBiped.ArmPose.EMPTY;
+                    rp.getMainModel().rightArmPose = ModelBiped.ArmPose.ITEM;
                 }
             }
         }

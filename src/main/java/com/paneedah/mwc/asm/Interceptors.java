@@ -357,13 +357,11 @@ public class Interceptors {
         EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
         ItemStack itemStack = player.getHeldItemMainhand();
         PlayerWeaponInstance weaponInstance = null;
-        if (itemStack != null) {
-            Item item = itemStack.getItem();
-            if (item != null && item instanceof Weapon) {
-                Weapon weapon = (Weapon) item;
-                ClientModContext context = (ClientModContext) weapon.getModContext();
-                weaponInstance = context.getMainHeldWeapon();
-            }
+        Item item = itemStack.getItem();
+        if (item != null && item instanceof Weapon) {
+            Weapon weapon = (Weapon) item;
+            ClientModContext context = (ClientModContext) weapon.getModContext();
+            weaponInstance = context.getMainHeldWeapon();
         }
         return weaponInstance;
     }

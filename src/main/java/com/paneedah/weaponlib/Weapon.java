@@ -1285,68 +1285,66 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         tooltipLines.add(green + "Base Firerate: " + grey + Math.round(firerate) + "/100" + " (" + ((int) firerate * 12) + "RPM)");
 
         // Current attachments, modifications, cartridge or magazine and skin
-        if (itemStack != null) {
-            ArrayList<ItemAttachment> modifications = new ArrayList<>();
-            ArrayList<ItemAttachment> attachments = new ArrayList<>();
-            AtomicReference<ItemBullet> cartridgeRef = new AtomicReference<>();
-            AtomicReference<ItemMagazine> magazineRef = new AtomicReference<>();
-            AtomicReference<ItemSkin> skinRef = new AtomicReference<>();
+        ArrayList<ItemAttachment> modifications = new ArrayList<>();
+        ArrayList<ItemAttachment> attachments = new ArrayList<>();
+        AtomicReference<ItemBullet> cartridgeRef = new AtomicReference<>();
+        AtomicReference<ItemMagazine> magazineRef = new AtomicReference<>();
+        AtomicReference<ItemSkin> skinRef = new AtomicReference<>();
 
-            this.getActiveAttachments(MC.player, itemStack).forEach(compatibleAttachment -> {
-                final ItemAttachment attachment = compatibleAttachment.getAttachment();
+        this.getActiveAttachments(MC.player, itemStack).forEach(compatibleAttachment -> {
+            final ItemAttachment attachment = compatibleAttachment.getAttachment();
 
-                if (compatibleAttachment.isDefault()) {
-                    return;
-                }
-
-                if (attachment instanceof ItemBullet) {
-                    cartridgeRef.set((ItemBullet) attachment);
-                    return;
-                }
-
-                if (attachment instanceof ItemMagazine) {
-                    magazineRef.set((ItemMagazine) attachment);
-                    return;
-                }
-
-                if (attachment instanceof ItemSkin) {
-                    skinRef.set((ItemSkin) attachment);
-                    return;
-                }
-
-                final AttachmentCategory category = attachment.getCategory();
-
-                if (category == AttachmentCategory.SCOPE || category == AttachmentCategory.SILENCER || category == AttachmentCategory.LASER || category == AttachmentCategory.GRIP) {
-                    attachments.add(attachment);
-                    return;
-                }
-
-                modifications.add(attachment);
-            });
-
-
-            if (!modifications.isEmpty()) {
-                tooltipLines.add(green + "Modifications:");
-                modifications.forEach(c -> tooltipLines.add(grey + (I18n.format(c.getTranslationKey() + ".name"))));
+            if (compatibleAttachment.isDefault()) {
+                return;
             }
 
-            if (!attachments.isEmpty()) {
-                tooltipLines.add(green + "Attachments:");
-                attachments.forEach(c -> tooltipLines.add(grey + (I18n.format(c.getTranslationKey() + ".name"))));
+            if (attachment instanceof ItemBullet) {
+                cartridgeRef.set((ItemBullet) attachment);
+                return;
             }
 
-            final ItemBullet cartridge = cartridgeRef.get();
-            final ItemMagazine magazine = magazineRef.get();
-            if (cartridge != null) {
-                tooltipLines.add(green + "Cartridge: " + grey + (I18n.format(cartridge.getTranslationKey() + ".name")) + " (" + playerWeaponInstance.getAmmo() + "/" + playerWeaponInstance.getWeapon().getAmmoCapacity() + ")");
-            } else if (magazine != null) {
-                tooltipLines.add(green + "Magazine: " + grey + (I18n.format(magazine.getTranslationKey() + ".name")) + " (" + playerWeaponInstance.getAmmo() + "/" + magazine.getCapacity() + ")");
+            if (attachment instanceof ItemMagazine) {
+                magazineRef.set((ItemMagazine) attachment);
+                return;
             }
 
-            final ItemAttachment skin = skinRef.get();
-            if (skin != null) {
-                tooltipLines.add(green + "Skin: " + grey + (I18n.format(skin.getTranslationKey() + ".name")));
+            if (attachment instanceof ItemSkin) {
+                skinRef.set((ItemSkin) attachment);
+                return;
             }
+
+            final AttachmentCategory category = attachment.getCategory();
+
+            if (category == AttachmentCategory.SCOPE || category == AttachmentCategory.SILENCER || category == AttachmentCategory.LASER || category == AttachmentCategory.GRIP) {
+                attachments.add(attachment);
+                return;
+            }
+
+            modifications.add(attachment);
+        });
+
+
+        if (!modifications.isEmpty()) {
+            tooltipLines.add(green + "Modifications:");
+            modifications.forEach(c -> tooltipLines.add(grey + (I18n.format(c.getTranslationKey() + ".name"))));
+        }
+
+        if (!attachments.isEmpty()) {
+            tooltipLines.add(green + "Attachments:");
+            attachments.forEach(c -> tooltipLines.add(grey + (I18n.format(c.getTranslationKey() + ".name"))));
+        }
+
+        final ItemBullet currentCartridge = cartridgeRef.get();
+        final ItemMagazine currentMagazine = magazineRef.get();
+        if (currentCartridge != null) {
+            tooltipLines.add(green + "Cartridge: " + grey + (I18n.format(currentCartridge.getTranslationKey() + ".name")) + " (" + playerWeaponInstance.getAmmo() + "/" + playerWeaponInstance.getWeapon().getAmmoCapacity() + ")");
+        } else if (currentMagazine != null) {
+            tooltipLines.add(green + "Magazine: " + grey + (I18n.format(currentMagazine.getTranslationKey() + ".name")) + " (" + playerWeaponInstance.getAmmo() + "/" + currentMagazine.getCapacity() + ")");
+        }
+
+        final ItemAttachment currentSkin = skinRef.get();
+        if (currentSkin != null) {
+            tooltipLines.add(green + "Skin: " + grey + (I18n.format(currentSkin.getTranslationKey() + ".name")));
         }
 
         // Compatible cartridge or magazines

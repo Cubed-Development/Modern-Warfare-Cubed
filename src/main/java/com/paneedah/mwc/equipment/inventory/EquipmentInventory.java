@@ -89,8 +89,8 @@ public class EquipmentInventory implements IInventory, Contextual {
 
     @Override
     public void setInventorySlotContents(int slot, @Nullable ItemStack itemstack) {
-        this.inventory[slot] = itemstack != null ? itemstack : new ItemStack(Items.AIR);
-        if (itemstack != null && itemstack.getCount() > this.getInventoryStackLimit()) {
+        this.inventory[slot] = itemstack;
+        if (itemstack.getCount() > this.getInventoryStackLimit()) {
             /*if (itemstack.getItem() instanceof ItemBackpack) {
                  System.out.println("Setting inventory slot " + slot + " with tag compound "
                          + itemstack.getTagCompound());

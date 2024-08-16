@@ -542,10 +542,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
         ItemStack magazineItemStack = player.inventory.getStackInSlot(i).copy().splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
 
-        if (magazineItemStack == null) {
-            return null;
-        }
-
         return (ItemAttachment<Weapon>) magazineItemStack.getItem();
     }
 
@@ -654,7 +650,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
         ItemStack weaponItemStack = weaponInstance.getItemStack();
 
-        if (weaponItemStack == null || !(weaponInstance.getPlayer() instanceof EntityPlayer)) {
+        if (!(weaponInstance.getPlayer() instanceof EntityPlayer)) {
             // Since reload request was sent for an item, the item was removed from the original slot
             // Also if instance is not owner by entity player , do not allow load
             return;
@@ -683,15 +679,11 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
                 ItemStack magazineItemStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
 
-                if (magazineItemStack != null) {
-                    ammo = Tags.getAmmo(magazineItemStack);
-                    Tags.setAmmo(weaponItemStack, ammo);
-                    LOGGER.debug("Setting server side ammo for {} to {}", weaponInstance, ammo);
-                    WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineItemStack.getItem(), weaponInstance);
-                    player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0f, 1.0F);
-                } else {
-                    status = Status.DENIED;
-                }
+                ammo = Tags.getAmmo(magazineItemStack);
+                Tags.setAmmo(weaponItemStack, ammo);
+                LOGGER.debug("Setting server side ammo for {} to {}", weaponInstance, ammo);
+                WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineItemStack.getItem(), weaponInstance);
+                player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0f, 1.0F);
             }
             // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, ReloadMessage.Type.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
             weaponInstance.setAmmo(ammo);

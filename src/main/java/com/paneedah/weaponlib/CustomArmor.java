@@ -457,38 +457,35 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
         ModelBiped armorModel = null;
 
-        if (itemStack != null) {
+        if (itemStack.getItem() instanceof CustomArmor) {
+            armorModel = model;
+        }
 
-            if (itemStack.getItem() instanceof CustomArmor) {
-                armorModel = model;
-            }
+        if (armorModel != null) {
 
-            if (armorModel != null) {
-
-                armorModel.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                armorModel.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                armorModel.bipedBody.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                armorModel.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
-                armorModel.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
+            armorModel.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+            armorModel.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+            armorModel.bipedBody.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+            armorModel.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
+            armorModel.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
 
 //                armorModel.bipedRightLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
 //                armorModel.bipedLeftLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
 
-                if (entityLiving instanceof EntityPlayer) {
-                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject(entityLiving);
-                    RenderPlayer renderPlayer = (RenderPlayer) entityRenderObject;
-                    ModelBiped playerModel = renderPlayer.getMainModel();
+            if (entityLiving instanceof EntityPlayer) {
+                Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject(entityLiving);
+                RenderPlayer renderPlayer = (RenderPlayer) entityRenderObject;
+                ModelBiped playerModel = renderPlayer.getMainModel();
 
-                    armorModel.setModelAttributes(playerModel);
-                    armorModel.setLivingAnimations(entityLiving, entityLiving.limbSwing, entityLiving.limbSwingAmount, MC.getRenderPartialTicks());
-                } else {
-                    armorModel.isSneak = entityLiving.isSneaking();
-                    armorModel.isRiding = entityLiving.isRiding();
-                    armorModel.isChild = entityLiving.isChild();
-                }
-
-                return armorModel;
+                armorModel.setModelAttributes(playerModel);
+                armorModel.setLivingAnimations(entityLiving, entityLiving.limbSwing, entityLiving.limbSwingAmount, MC.getRenderPartialTicks());
+            } else {
+                armorModel.isSneak = entityLiving.isSneaking();
+                armorModel.isRiding = entityLiving.isRiding();
+                armorModel.isChild = entityLiving.isChild();
             }
+
+            return armorModel;
         }
         return null;
     }
@@ -552,7 +549,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         boolean foundCurrent = false;
         for (int i = 0; i < 36; i++) {
             ItemStack itemStack = player.inventory.getStackInSlot(i);
-            if (itemStack != null && itemStack.getItem() instanceof ItemAttachment) {
+            if (itemStack.getItem() instanceof ItemAttachment) {
                 ItemAttachment<CustomArmor> compatibleAttachment = (ItemAttachment<CustomArmor>) itemStack.getItem();
                 //System.out.println("Found compatible attachment " + compatibleAttachment);
                 if (compatibleAttachment.getCategory() == category) {

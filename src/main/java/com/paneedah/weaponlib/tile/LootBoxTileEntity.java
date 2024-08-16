@@ -37,7 +37,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                 if (equipment != null && equipment.item != null) {
                     System.out.println("Dropping " + equipment.item.getTranslationKey());
                     player.playSound(configuration.getDispenseSound(), 0.15f, 1);
-                    ItemStack equipmentItemStack = null;
+                    ItemStack equipmentItemStack = ItemStack.EMPTY;
                     if (equipment.item instanceof Weapon) {
                         equipmentItemStack = new ItemStack(equipment.item, equipment.stackSize);
                         initWeaponWithAttachments(equipment, equipmentItemStack, player);
@@ -53,12 +53,10 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                     }
                     //compatibility.setItemStackToSlot(player, EntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
 
-                    if (equipmentItemStack != null) {
-                        EntityItem item = new EntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);
-                        item.setNoPickupDelay();
-                        if (player != null) {
-                            player.world.spawnEntity(item);
-                        }
+                    EntityItem item = new EntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);
+                    item.setNoPickupDelay();
+                    if (player != null) {
+                        player.world.spawnEntity(item);
                     }
                 }
             } else {
@@ -69,7 +67,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
 //      if (!this.worldObj.isRemote) {
 //          for (ItemStack itemstack : this.ContainerItemStacks)
 //          {
-//              if (itemstack != null)
+//              if ()
 //              {
 //                  EntityItem item = new EntityItem(this.worldObj, this.xCoord + 0.5, this.yCoord + 0.5, this.zCoord + 0.5, itemstack);
 //                  item.delayBeforeCanPickup = 0;

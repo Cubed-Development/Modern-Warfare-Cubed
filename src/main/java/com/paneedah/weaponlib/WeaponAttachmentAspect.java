@@ -592,7 +592,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 
             ItemStack slotItemStack = ((EntityPlayer) weaponInstance.getPlayer()).inventory
                     .getStackInSlot(currentIndex);
-            if (slotItemStack != null && slotItemStack.getItem() instanceof ItemAttachment) {
+            if (slotItemStack.getItem() instanceof ItemAttachment) {
 
                 ItemAttachment<Weapon> attachmentItemFromInventory = (ItemAttachment<Weapon>) slotItemStack.getItem();
                 CompatibleAttachment<Weapon> compatibleAttachment;

@@ -89,42 +89,40 @@ public class MainCommand extends CommandBase {
 
     private void showAttachments(int page) {
         ItemStack itemStack = MC.player.getHeldItemMainhand();
-        if (itemStack != null) {
-            Item item = itemStack.getItem();
-            if (item instanceof AttachmentContainer) {
+        Item item = itemStack.getItem();
+        if (item instanceof AttachmentContainer) {
 
-                AttachmentContainer container = (AttachmentContainer) item;
-                Collection<CompatibleAttachment<? extends AttachmentContainer>> compatibleAttachments = container.getCompatibleAttachments(
-                        AttachmentCategory.BULLET,
-                        AttachmentCategory.GRIP,
-                        AttachmentCategory.MAGAZINE,
-                        AttachmentCategory.SCOPE,
-                        AttachmentCategory.SILENCER,
-                        AttachmentCategory.SKIN);
-                List<CompatibleAttachment<? extends AttachmentContainer>> sorted = new ArrayList<>(compatibleAttachments);
-                sorted.sort((c1, c2) -> c1.getAttachment().getTranslationKey().compareTo(c2.getAttachment().getTranslationKey()));
-                int pageSize = 8;
-                int offset = pageSize * (page - 1);
-                if (page < 1) {
-                    MC.player.sendMessage(new TextComponentString("Invalid page"));
-                } else if (sorted.size() == 0) {
-                    MC.player.sendMessage(new TextComponentString("No attachments found for "
-                            + item.getItemStackDisplayName(itemStack)));
-                } else if (offset < sorted.size()) {
-                    MC.player.sendMessage(new TextComponentString("Attachments for "
-                            + item.getItemStackDisplayName(itemStack) + ", page " + page + " of "
-                            + (int) Math.ceil((double) sorted.size() / pageSize)));
+            AttachmentContainer container = (AttachmentContainer) item;
+            Collection<CompatibleAttachment<? extends AttachmentContainer>> compatibleAttachments = container.getCompatibleAttachments(
+                    AttachmentCategory.BULLET,
+                    AttachmentCategory.GRIP,
+                    AttachmentCategory.MAGAZINE,
+                    AttachmentCategory.SCOPE,
+                    AttachmentCategory.SILENCER,
+                    AttachmentCategory.SKIN);
+            List<CompatibleAttachment<? extends AttachmentContainer>> sorted = new ArrayList<>(compatibleAttachments);
+            sorted.sort((c1, c2) -> c1.getAttachment().getTranslationKey().compareTo(c2.getAttachment().getTranslationKey()));
+            int pageSize = 8;
+            int offset = pageSize * (page - 1);
+            if (page < 1) {
+                MC.player.sendMessage(new TextComponentString("Invalid page"));
+            } else if (sorted.size() == 0) {
+                MC.player.sendMessage(new TextComponentString("No attachments found for "
+                        + item.getItemStackDisplayName(itemStack)));
+            } else if (offset < sorted.size()) {
+                MC.player.sendMessage(new TextComponentString("Attachments for "
+                        + item.getItemStackDisplayName(itemStack) + ", page " + page + " of "
+                        + (int) Math.ceil((double) sorted.size() / pageSize)));
 
-                    for (int i = offset; i < offset + pageSize; i++) {
-                        if (i < 0 || i >= sorted.size()) {
-                            break;
-                        }
-                        MC.player.sendMessage(new TextComponentString(" - "
-                                + sorted.get(i).getAttachment().getItemStackDisplayName(null)));
+                for (int i = offset; i < offset + pageSize; i++) {
+                    if (i < 0 || i >= sorted.size()) {
+                        break;
                     }
-                } else {
-                    MC.player.sendMessage(new TextComponentString("Invalid page"));
+                    MC.player.sendMessage(new TextComponentString(" - "
+                            + sorted.get(i).getAttachment().getItemStackDisplayName(null)));
                 }
+            } else {
+                MC.player.sendMessage(new TextComponentString("Invalid page"));
             }
         }
     }
@@ -136,10 +134,8 @@ public class MainCommand extends CommandBase {
 
     private void showRecipe() {
         ItemStack itemStack = MC.player.getHeldItemMainhand();
-        if (itemStack != null) {
-            Item item = itemStack.getItem();
-            showRecipe(item);
-        }
+        Item item = itemStack.getItem();
+        showRecipe(item);
     }
 
     private void showRecipe(Item item) {

@@ -76,7 +76,7 @@ public class CommonEventHandler {
             final ItemStack itemStack = livingUpdateEvent.getEntityLiving().getHeldItemMainhand();
 
             NBTTagCompound doseNbt = null;
-            if (itemStack != null && itemStack.getItem() instanceof ItemHandheld) {
+            if (itemStack.getItem() instanceof ItemHandheld) {
                 if (itemStack.getTagCompound() == null) {
                     itemStack.setTagCompound(new NBTTagCompound());
                 }

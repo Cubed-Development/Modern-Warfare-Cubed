@@ -198,7 +198,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     public void onDeath(DamageSource cause) {
         ItemStack itemStack = this.getHeldItemMainhand(); // getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
 
-        if (!world.isRemote && itemStack != null) {
+        if (!world.isRemote) {
             initAmmo(itemStack);
         }
 
@@ -278,7 +278,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     public void setActiveHand(EnumHand hand) {
         ItemStack itemstack = this.getHeldItem(hand);
 
-        if (itemstack != null && !this.isHandActive()) {
+        if (!this.isHandActive()) {
             // int duration = net.minecraftforge.event.ForgeEventFactory.onItemUseStart(this, itemstack, itemstack.getMaxItemUseDuration());
             // if (duration <= 0) return;
             this.activeItemStack = itemstack;
@@ -387,10 +387,6 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         }
 
         ItemStack itemStack = this.getHeldItemMainhand();
-
-        if (itemStack == null) {
-            return;
-        }
 
         if (itemStack.getItem() instanceof Weapon) {
             WeaponFireAspect fireAspect = modContext.getWeaponFireAspect();

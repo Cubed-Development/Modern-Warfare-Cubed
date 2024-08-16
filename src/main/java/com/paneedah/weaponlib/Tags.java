@@ -21,16 +21,13 @@ public final class Tags {
     private static final String INSTANCE_UUID_TAG = "IUuid";
 
     public static int getAmmo(ItemStack itemStack) {
-        if (itemStack == null || itemStack.getTagCompound() == null) {
+        if (itemStack.getTagCompound() == null) {
             return 0;
         }
         return itemStack.getTagCompound().getInteger(AMMO_TAG);
     }
 
     public static void setAmmo(ItemStack itemStack, int ammo) {
-        if (itemStack == null) {
-            return;
-        }
         if (itemStack.getTagCompound() == null) {
             itemStack.setTagCompound(new NBTTagCompound());
         }
@@ -38,16 +35,13 @@ public final class Tags {
     }
 
     public static int[] getAttachmentIds(ItemStack itemStack) {
-        if (itemStack == null || itemStack.getTagCompound() == null) {
+        if (itemStack.getTagCompound() == null) {
             return new int[0];
         }
         return itemStack.getTagCompound().getIntArray(ATTACHMENT_ID_TAG);
     }
 
     public static void setAttachmentIds(ItemStack itemStack, int[] attachmentIds) {
-        if (itemStack == null) {
-            return;
-        }
         if (itemStack.getTagCompound() == null) {
             itemStack.setTagCompound(new NBTTagCompound());
         }
@@ -55,21 +49,21 @@ public final class Tags {
     }
 
     public static long getDefaultTimer(ItemStack itemStack) {
-        if (itemStack == null || itemStack.getTagCompound() == null) {
+        if (itemStack.getTagCompound() == null) {
             return 0;
         }
         return itemStack.getTagCompound().getLong(DEFAULT_TIMER_TAG);
     }
 
     public static void setDefaultTimer(ItemStack itemStack, long ammo) {
-        if (itemStack == null || itemStack.getTagCompound() == null) {
+        if (itemStack.getTagCompound() == null) {
             return;
         }
         itemStack.getTagCompound().setLong(DEFAULT_TIMER_TAG, ammo);
     }
 
     public static PlayerItemInstance<?> getInstance(ItemStack itemStack) {
-        if (itemStack == null || itemStack.getTagCompound() == null) {
+        if (itemStack.getTagCompound() == null) {
             return null;
         }
 
@@ -81,7 +75,7 @@ public final class Tags {
     }
 
     public static <T extends PlayerItemInstance<?>> T getInstance(ItemStack itemStack, Class<T> targetClass) {
-        if (itemStack == null || itemStack.getTagCompound() == null) {
+        if (itemStack.getTagCompound() == null) {
             return null;
         }
 
@@ -97,10 +91,6 @@ public final class Tags {
     }
 
     public static void setInstance(ItemStack itemStack, PlayerItemInstance<?> instance) {
-        if (itemStack == null) {
-            return;
-        }
-
         if (itemStack.getTagCompound() == null) {
             itemStack.setTagCompound(new NBTTagCompound());
         }
@@ -123,9 +113,6 @@ public final class Tags {
     }
 
     public static UUID getInstanceUuid(ItemStack itemStack) {
-        if (itemStack == null) {
-            return null;
-        }
         NBTTagCompound tagCompound = itemStack.getTagCompound();
         if (tagCompound == null) {
             return null;
@@ -138,10 +125,6 @@ public final class Tags {
     }
 
     public static void setInstanceUuid(ItemStack itemStack, UUID uuid) {
-        if (itemStack == null) {
-            return;
-        }
-
         if (itemStack.getTagCompound() == null) {
             itemStack.setTagCompound(new NBTTagCompound());
         }
@@ -153,7 +136,7 @@ public final class Tags {
     }
 
     public static byte[] getInstanceBytes(ItemStack itemStack) {
-        if (itemStack == null || itemStack.getTagCompound() == null) {
+        if (itemStack.getTagCompound() == null) {
             return null;
         }
         return itemStack.getTagCompound().getByteArray(INSTANCE_TAG);

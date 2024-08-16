@@ -623,29 +623,27 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
         final ItemStack itemStack = getItemStack();
 
-        if (itemStack != null) {
-            if (player.world.getGameRules().getBoolean("reconcileAmmunition")) {
-                final int expectedStackAmmo = Tags.getAmmo(itemStack);
+        if (player.world.getGameRules().getBoolean("reconcileAmmunition")) {
+            final int expectedStackAmmo = Tags.getAmmo(itemStack);
 
-                if (ammo != expectedStackAmmo) {
-                    LOGGER.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
+            if (ammo != expectedStackAmmo) {
+                LOGGER.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
 
-                    ammo = expectedStackAmmo;
+                ammo = expectedStackAmmo;
 
-                    updateTimestamp = System.currentTimeMillis();
-                }
+                updateTimestamp = System.currentTimeMillis();
             }
+        }
 
-            if (player.world.getGameRules().getBoolean("reconcileAttachments")) {
-                final int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
+        if (player.world.getGameRules().getBoolean("reconcileAttachments")) {
+            final int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
 
-                if (!Arrays.equals(expectedAttachmentIds, activeAttachmentIds)) {
-                    LOGGER.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
+            if (!Arrays.equals(expectedAttachmentIds, activeAttachmentIds)) {
+                LOGGER.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
 
-                    activeAttachmentIds = expectedAttachmentIds;
+                activeAttachmentIds = expectedAttachmentIds;
 
-                    updateTimestamp = System.currentTimeMillis();
-                }
+                updateTimestamp = System.currentTimeMillis();
             }
         }
     }

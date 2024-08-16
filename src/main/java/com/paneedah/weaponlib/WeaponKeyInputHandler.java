@@ -102,7 +102,7 @@ public class WeaponKeyInputHandler {
         }
 
 
-        if (KeyBindings.openDoor.isPressed() && itemStack != null && !itemStack.isEmpty() && itemStack.getItem() instanceof Weapon) {
+        if (KeyBindings.openDoor.isPressed() && !itemStack.isEmpty() && itemStack.getItem() instanceof Weapon) {
 
             Vec3d origin = player.getPositionVector().add(0, player.getEyeHeight(), 0);
             Vec3d direction = player.getLookVec().scale(5);
@@ -175,36 +175,27 @@ public class WeaponKeyInputHandler {
 
 
         if (KeyBindings.reloadKey.isPressed()) {
-            if (itemStack != null) {
+            //modContext.getMainHeldWeapon().setIsAwaitingCompoundInstructions(true);
 
-
-                //modContext.getMainHeldWeapon().setIsAwaitingCompoundInstructions(true);
-
-                Item item = itemStack.getItem();
-                if (item instanceof Reloadable) {
-                    ((Reloadable) item).reloadMainHeldItemForPlayer(player);
-                }
+            Item item = itemStack.getItem();
+            if (item instanceof Reloadable) {
+                ((Reloadable) item).reloadMainHeldItemForPlayer(player);
             }
         } else if (KeyBindings.unloadKey.isPressed()) {
-            if (itemStack != null) {
-                Item item = itemStack.getItem();
-                if (item instanceof Reloadable) {
-                    ((Reloadable) item).unloadMainHeldItemForPlayer(player);
-                }
+            Item item = itemStack.getItem();
+            if (item instanceof Reloadable) {
+                ((Reloadable) item).unloadMainHeldItemForPlayer(player);
             }
         } else if (KeyBindings.inspectKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-            if (itemStack != null) {
-                Item item = itemStack.getItem();
-                if (item instanceof Inspectable) {
-                    ((Inspectable) item).inspectMainHeldItemForPlayer(player);
-                }
-
+            Item item = itemStack.getItem();
+            if (item instanceof Inspectable) {
+                ((Inspectable) item).inspectMainHeldItemForPlayer(player);
             }
             /*
             if(instance != null && instance.getState() == WeaponState.MODIFYING) {
                 instance.setAltModificationModeEnabled(!instance.isAltMofificationModeEnabled());
-            } else if(itemStack != null) {
+            } else if() {
                 Item item = itemStack.getItem();
                 if(item instanceof Inspectable) {
                     ((Inspectable) item).inspectMainHeldItemForPlayer(player);
@@ -232,7 +223,7 @@ public class WeaponKeyInputHandler {
             }
         } else if (KeyBindings.attachmentKey.isPressed()) {
 
-            if (itemStack != null && itemStack.getItem() instanceof Modifiable /* && itemStack.getItem() instanceof Weapon*/) {
+            if (itemStack.getItem() instanceof Modifiable /* && itemStack.getItem() instanceof Weapon*/) {
                 ((Modifiable) itemStack.getItem()).toggleClientAttachmentSelectionMode(player);
 
                 if (modContext.getMainHeldWeapon() != null) {

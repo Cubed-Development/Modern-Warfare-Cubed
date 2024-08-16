@@ -3815,7 +3815,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         if (transformType == ItemCameraTransforms.TransformType.GUI && DebugCommand.isForceLiveRenderGUI()) {
 
 
-            Object textureMapKey = this; // weaponItemStack != null ? weaponItemStack : this;
+            Object textureMapKey = this; // weapon ? weaponItemStack : this;
             inventoryTexture = getClientModContext().getInventoryTextureMap().get(textureMapKey);
 
             //MC.getFramebuffer()
@@ -4735,7 +4735,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         ItemStack itemstack = getItemStackFromSlot(player, EntityEquipmentSlot.CHEST);
 
-        if (itemstack != null && itemstack.getItem() instanceof ItemArmor) {
+        if (itemstack.getItem() instanceof ItemArmor) {
             // ItemArmor itemarmor = (ItemArmor)itemstack.getItem();
             render.bindTexture(getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
 
@@ -4830,7 +4830,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         ItemStack itemstack = getItemStackFromSlot(player, EntityEquipmentSlot.CHEST);
 
-        if (itemstack != null && itemstack.getItem() instanceof ItemArmor) {
+        if (itemstack.getItem() instanceof ItemArmor) {
             // ItemArmor itemarmor = (ItemArmor)itemstack.getItem();
             render.bindTexture(getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
 
@@ -4941,7 +4941,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         ItemStack itemstack = getItemStackFromSlot(player, EntityEquipmentSlot.CHEST);
 
-        if (itemstack != null && itemstack.getItem() instanceof ItemArmor) {
+        if (itemstack.getItem() instanceof ItemArmor) {
             render.bindTexture(getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
             ModelBiped armorModel = getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
             if (armorModel != null) {
@@ -4952,7 +4952,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 		/*
 		 * 	ItemStack itemstack = getItemStackFromSlot(player, EntityEquipmentSlot.CHEST);
 
-		if (itemstack != null && itemstack.getItem() instanceof ItemArmor) {
+		if ( && itemstack.getItem() instanceof ItemArmor) {
 			// ItemArmor itemarmor = (ItemArmor)itemstack.getItem();
 			renderer.bindTexture(getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
 
@@ -5245,17 +5245,15 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             ModelBiped.ArmPose modelbiped$armpose = ModelBiped.ArmPose.EMPTY;
             ModelBiped.ArmPose modelbiped$armpose1 = ModelBiped.ArmPose.EMPTY;
 
-            if (itemstack != null) {
-                modelbiped$armpose = ModelBiped.ArmPose.ITEM;
+            modelbiped$armpose = ModelBiped.ArmPose.ITEM;
 
-                if (clientPlayer.getItemInUseCount() > 0) {
-                    EnumAction enumaction = itemstack.getItemUseAction();
+            if (clientPlayer.getItemInUseCount() > 0) {
+                EnumAction enumaction = itemstack.getItemUseAction();
 
-                    if (enumaction == EnumAction.BLOCK) {
-                        modelbiped$armpose = ModelBiped.ArmPose.BLOCK;
-                    } else if (enumaction == EnumAction.BOW) {
-                        modelbiped$armpose = ModelBiped.ArmPose.BOW_AND_ARROW;
-                    }
+                if (enumaction == EnumAction.BLOCK) {
+                    modelbiped$armpose = ModelBiped.ArmPose.BLOCK;
+                } else if (enumaction == EnumAction.BOW) {
+                    modelbiped$armpose = ModelBiped.ArmPose.BOW_AND_ARROW;
                 }
             }
 

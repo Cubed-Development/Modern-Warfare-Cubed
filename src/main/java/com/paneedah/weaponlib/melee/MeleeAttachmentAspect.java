@@ -355,7 +355,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
             }
 
             ItemStack slotItemStack = ((EntityPlayer) weaponInstance.getPlayer()).inventory.getStackInSlot(currentIndex);
-            if (slotItemStack != null && slotItemStack.getItem() instanceof ItemAttachment) {
+            if (slotItemStack.getItem() instanceof ItemAttachment) {
 
                 ItemAttachment<ItemMelee> attachmentItemFromInventory = (ItemAttachment<ItemMelee>) slotItemStack.getItem();
                 CompatibleAttachment<ItemMelee> compatibleAttachment;

@@ -304,10 +304,6 @@ public class CustomGui extends Gui {
 
         ItemStack itemStack = MC.player.getHeldItemMainhand();
 
-        if (itemStack == null) {
-            return;
-        }
-
         ScaledResolution scaledResolution = event.getResolution();
         int width = scaledResolution.getScaledWidth();
         int height = scaledResolution.getScaledHeight();

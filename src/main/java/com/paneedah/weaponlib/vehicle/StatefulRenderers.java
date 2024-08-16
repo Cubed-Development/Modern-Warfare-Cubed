@@ -73,7 +73,7 @@ public class StatefulRenderers {
                     GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
                     EntityPlayer player = (EntityPlayer) entity;
                     ItemStack itemstack = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                    if (itemstack != null && itemstack.getItem() instanceof ItemArmor) {
+                    if (itemstack.getItem() instanceof ItemArmor) {
                         render.bindTexture(WeaponRenderer.getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
 
                         ModelBiped armorModel = WeaponRenderer.getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
@@ -130,7 +130,7 @@ public class StatefulRenderers {
                     GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
                     EntityPlayer player = (EntityPlayer) entity;
                     ItemStack itemstack = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                    if (itemstack != null && itemstack.getItem() instanceof ItemArmor) {
+                    if (itemstack.getItem() instanceof ItemArmor) {
                         render.bindTexture(WeaponRenderer.getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
                         ModelBiped armorModel = WeaponRenderer.getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
                         if (armorModel != null) {
