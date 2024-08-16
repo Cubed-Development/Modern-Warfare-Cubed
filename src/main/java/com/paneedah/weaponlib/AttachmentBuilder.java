@@ -45,8 +45,8 @@ public class AttachmentBuilder<T> {
     protected ApplyHandler2<T> apply2;
     protected ApplyHandler2<T> remove2;
     private String crosshair;
-    private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
-    private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    private final List<CustomRenderer<?>> postRenderer = new ArrayList<>();
+    private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
     private boolean isRenderablePart;
     private int maxStackSize = 1;
     protected Function<ItemStack, String> informationProvider;
@@ -59,7 +59,7 @@ public class AttachmentBuilder<T> {
     private int craftingCount = 1;
     private Object[] craftingRecipe;
 
-    private List<ItemAttachment<T>> requiredAttachments = new ArrayList<>();
+    private final List<ItemAttachment<T>> requiredAttachments = new ArrayList<>();
 
     private CraftingEntry[] modernRecipe;
     private CraftingGroup craftingGroup;
@@ -97,9 +97,7 @@ public class AttachmentBuilder<T> {
 
     @SafeVarargs
     public final AttachmentBuilder<T> withRequiredAttachments(ItemAttachment<T>... requiredAttachments) {
-        for (int i = 0; i < requiredAttachments.length; i++) {
-            this.requiredAttachments.add(requiredAttachments[i]);
-        }
+        Collections.addAll(this.requiredAttachments, requiredAttachments);
         return this;
     }
 
@@ -211,14 +209,17 @@ public class AttachmentBuilder<T> {
     }
 
     public AttachmentBuilder<T> withCrafting(int craftingCount, CraftingComplexity craftingComplexity, Object... craftingMaterials) {
-        if (craftingComplexity == null)
+        if (craftingComplexity == null) {
             throw new IllegalArgumentException("Crafting complexity not set");
+        }
 
-        if (craftingMaterials.length < 2)
+        if (craftingMaterials.length < 2) {
             throw new IllegalArgumentException("2 or more materials required for crafting");
+        }
 
-        if (craftingCount == 0)
+        if (craftingCount == 0) {
             throw new IllegalArgumentException("Invalid item count");
+        }
 
         this.craftingComplexity = craftingComplexity;
         this.craftingMaterials = craftingMaterials;
@@ -250,16 +251,20 @@ public class AttachmentBuilder<T> {
         // Do not register things if they do not have recipes.
         CraftingRegistry.registerHook(attachment);
 
-        if (rotationPoint != null) attachment.rotationPoint = rotationPoint;
+        if (rotationPoint != null) {
+            attachment.rotationPoint = rotationPoint;
+        }
 
         attachment.remove2 = remove2;
         attachment.maxStackSize = maxStackSize;
         attachment.setRequiredAttachments(requiredAttachments);
-        if (attachment.getInformationProvider() == null)
+        if (attachment.getInformationProvider() == null) {
             attachment.setInformationProvider(informationProvider);
+        }
 
-        if (getTextureName() != null)
+        if (getTextureName() != null) {
             attachment.setTextureName(ID + ":" + stripFileExtension(getTextureName(), ".png"));
+        }
 
         if (isRenderablePart) {
             attachment.setRenderablePart(new Part() {
@@ -318,8 +323,9 @@ public class AttachmentBuilder<T> {
             //System.err.println("!!!No recipe defined for attachment " + name);
         }
 
-        if (modContext.isClient())
+        if (modContext.isClient()) {
             COOKING_QUEUE.add(attachment);
+        }
 
         return attachment;
     }
@@ -336,8 +342,9 @@ public class AttachmentBuilder<T> {
     public <V extends ItemAttachment<T>> V build(ModContext modContext, Class<V> target) {
         final V attachment = target.cast(build(modContext));
 
-        if (modContext.isClient())
+        if (modContext.isClient()) {
             COOKING_QUEUE.add(attachment);
+        }
 
         return attachment;
     }

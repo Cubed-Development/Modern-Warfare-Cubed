@@ -19,7 +19,7 @@ public class EntityShellCasing extends EntityProjectile {
 
     static final float DEFAULT_INACCURACY = 1f;
 
-    private Random random = new Random();
+    private final Random random = new Random();
 
     private Weapon weapon;
     private PlayerWeaponInstance weaponInstance;
@@ -33,8 +33,8 @@ public class EntityShellCasing extends EntityProjectile {
     private float yRotationChange;
     private float zRotationChange;
 
-    private float rotationSlowdownFactor = 0.95f;
-    private float maxRotationChange = 30f;
+    private final float rotationSlowdownFactor = 0.95f;
+    private final float maxRotationChange = 30f;
 
     public EntityShellCasing(World world) {
         super(world);
@@ -42,9 +42,9 @@ public class EntityShellCasing extends EntityProjectile {
     }
 
     public EntityShellCasing(PlayerWeaponInstance weaponInstance, World world, EntityLivingBase player, float velocity,
-            float gravityVelocity, float inaccuracy) {
+                             float gravityVelocity, float inaccuracy) {
         super(world, player, velocity, gravityVelocity, inaccuracy);
-       
+
         this.weapon = weaponInstance.getWeapon();
         this.weaponInstance = weaponInstance;
     }
@@ -73,7 +73,7 @@ public class EntityShellCasing extends EntityProjectile {
         this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset) + MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
 
         // float verticalOffset = ;
-        this.posY += (double) (-MathHelper.sin((this.rotationPitch) / 180.0F * (float) Math.PI) * forwardOffset);
+        this.posY += -MathHelper.sin((this.rotationPitch) / 180.0F * (float) Math.PI) * forwardOffset;
 
         this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset) - MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
 
@@ -97,7 +97,7 @@ public class EntityShellCasing extends EntityProjectile {
                 * (double) (-MathHelper.sin(adjustedRotationYaw / 180.0F * (float) Math.PI) * f);
 
         this.motionY = 0;
-        
+
         this.motionX *= 0.1;
         this.motionY *= 0.1;
         this.motionZ *= 0.1;

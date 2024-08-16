@@ -21,9 +21,9 @@ public class McLarenSennaFactory implements VehicleFactory {
 
     public void createVehicle(ModContext modContext) {
         StatefulRenderer<VehicleRenderableState> renderer = null;
-    	
-    	if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-    		renderer = new VehicleRendererBuilder()
+
+        if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+            renderer = new VehicleRendererBuilder()
                     .performShiftAnimation(false)
                     .shiftWithRight(true)
                     .withPartTexturedModel(VehiclePart.MAIN, MclarenSenna::new, "MClarensenna")
@@ -37,49 +37,49 @@ public class McLarenSennaFactory implements VehicleFactory {
                     .withPartTexturedModel(VehiclePart.REAR_RIGHT_WHEEL, MclarenSennaWheel::new, "MClarensenna")
 
                     // part positions
-                    
+
                     .withPartPosition(VehiclePart.MAIN, c -> {
-                    	
-                    	EntityVehicle entityVehicle = (EntityVehicle) c.getEntity();
-                    	float forwardLean = (float) entityVehicle.forwardLean;
-                    	float sideLean = (float) entityVehicle.sideLean;
-                    	
+
+                        EntityVehicle entityVehicle = (EntityVehicle) c.getEntity();
+                        float forwardLean = (float) entityVehicle.forwardLean;
+                        float sideLean = (float) entityVehicle.sideLean;
+
                         Positioners.position(
-                                1.0f, (float) (-1.500000f-entityVehicle.rideOffset), -2.700000f,
+                                1.0f, (float) (-1.500000f - entityVehicle.rideOffset), -2.700000f,
                                 0.0f, 0.0f, -0.0f,
                                 0.000000f, 0.000000f, 0.000000f,
                                 1.000000f, 1.000000f, 1.000000f
-                            );
+                        );
                     })
-                    
+
                     .withPartPosition(VehiclePart.WINDOWS, c -> {
                     })
-                   
+
                     .withPartPosition(VehiclePart.STEERING_WHEEL, context -> {
-                    	float steer = (float) -Math.toDegrees(context.getSymmetricProgress()) - 57;
-                    	
-                    	Positioners.position(
-                    		    0.000000f, 0.000000f, 0.000000f,
-                    		    0.000000f, 0.000000f, steer,
-                    		    -1.200000f, 0.150000f, 0.000000f,
-                    		    1.000000f, 1.000000f, 1.000000f
-                    		);
+                        float steer = (float) -Math.toDegrees(context.getSymmetricProgress()) - 57;
+
+                        Positioners.position(
+                                0.000000f, 0.000000f, 0.000000f,
+                                0.000000f, 0.000000f, steer,
+                                -1.200000f, 0.150000f, 0.000000f,
+                                1.000000f, 1.000000f, 1.000000f
+                        );
                     })
 
                     .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.IDLE, context -> {
-                    	GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-                    	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                    	GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                    	GL11.glTranslatef(-1.200000f, -0.100000f, 2.300000f);
+                        GL11.glRotatef(0.000000f, 1f, 0f, 0f);
+                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
+                        GL11.glRotatef(0.000000f, 0f, 0f, 1f);
+                        GL11.glTranslatef(-1.200000f, -0.100000f, 2.300000f);
                     })
 
                     .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.DRIVING, context -> {
-                    	GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                    	GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
-                    	GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                    	GL11.glTranslatef(-1.050000f, -1.975000f, 0.675000f);
+                        GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
+                        GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
+                        GL11.glRotatef(0.000000f, 0f, 0f, 1f);
+                        GL11.glTranslatef(-1.050000f, -1.975000f, 0.675000f);
                     })
-                    
+
 //                    .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.SHIFTING, context -> {
 //                    	EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
 //                		Transmission trans = entityVehicle.solver.transmission;
@@ -97,98 +97,98 @@ public class McLarenSennaFactory implements VehicleFactory {
 //                                1.000000f, 1.000000f, 1.000000f
 //                            );
 //                    }, 50)
-                    
-                    .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.IDLE, context -> {
-                    	GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-                    	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                    	GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                    	GL11.glTranslatef(-1.200000f, -0.100000f, 2.300000f);
-                    })
-                    
-                    .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.DRIVING, context -> {
-                    	GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-                    	GL11.glRotatef(-30.000000f, 0f, 1f, 0f);
-                    	GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
-                    	GL11.glTranslatef(-0.850000f, -2.250000f, 0.550000f);
-                    })
-                    
-                    .withPartPosition(VehiclePart.FRONT_LEFT_CONTROL_ARM, context -> {
-                    	float steer = (float) Math.toDegrees(context.getSymmetricProgress()) + 60;
-                    	
-                    	Positioners.position(
-                    		    0.000000f, 0.000000f, 0.000000f,
-                    		    0.000000f, steer, 0.000000f,
-                    		    -0.05000f, 0.000000f, 0.000000f,
-                    		    1.000000f, 1.000000f, 1.000000f
-                    		);
-                    })
-                    
-                    .withPartPosition(VehiclePart.FRONT_RIGHT_CONTROL_ARM, context -> {
-                    	float steer = (float) Math.toDegrees(context.getSymmetricProgress()) + 60;
-                    	
-                    	Positioners.position(
-                    		    0.050000f, 0.000000f, 0.000000f,
-                    		    0.000000f, steer, 0.000000f,
-                    		    -3.850000f, 0.000000f, 0.000000f,
-                    		    1.000000f, 1.000000f, 1.000000f
-                    		);
-                    })
-                    
-                    .withPartPosition(VehiclePart.FRONT_LEFT_WHEEL, context -> {
-                    	EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
-                    	float vertical = (float) entityVehicle.getSolver().frontAxel.leftWheel.getRenderRideHeight();
-                    	WheelSolver ws = entityVehicle.getSolver().frontAxel.leftWheel;
 
-                    	Positioners.position(
-                    		    0.000000f, -0.000000f, 0.000000f,
-                    		    (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
-                    		    0.000000f, 0.825000f, 0.000000f,
-                    		    1.000000f, 1.000000f, 1.000000f
-                    		);
+                    .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.IDLE, context -> {
+                        GL11.glRotatef(0.000000f, 1f, 0f, 0f);
+                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
+                        GL11.glRotatef(0.000000f, 0f, 0f, 1f);
+                        GL11.glTranslatef(-1.200000f, -0.100000f, 2.300000f);
                     })
-                    
+
+                    .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.DRIVING, context -> {
+                        GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
+                        GL11.glRotatef(-30.000000f, 0f, 1f, 0f);
+                        GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
+                        GL11.glTranslatef(-0.850000f, -2.250000f, 0.550000f);
+                    })
+
+                    .withPartPosition(VehiclePart.FRONT_LEFT_CONTROL_ARM, context -> {
+                        float steer = (float) Math.toDegrees(context.getSymmetricProgress()) + 60;
+
+                        Positioners.position(
+                                0.000000f, 0.000000f, 0.000000f,
+                                0.000000f, steer, 0.000000f,
+                                -0.05000f, 0.000000f, 0.000000f,
+                                1.000000f, 1.000000f, 1.000000f
+                        );
+                    })
+
+                    .withPartPosition(VehiclePart.FRONT_RIGHT_CONTROL_ARM, context -> {
+                        float steer = (float) Math.toDegrees(context.getSymmetricProgress()) + 60;
+
+                        Positioners.position(
+                                0.050000f, 0.000000f, 0.000000f,
+                                0.000000f, steer, 0.000000f,
+                                -3.850000f, 0.000000f, 0.000000f,
+                                1.000000f, 1.000000f, 1.000000f
+                        );
+                    })
+
+                    .withPartPosition(VehiclePart.FRONT_LEFT_WHEEL, context -> {
+                        EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
+                        float vertical = (float) entityVehicle.getSolver().frontAxel.leftWheel.getRenderRideHeight();
+                        WheelSolver ws = entityVehicle.getSolver().frontAxel.leftWheel;
+
+                        Positioners.position(
+                                0.000000f, -0.000000f, 0.000000f,
+                                (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
+                                0.000000f, 0.825000f, 0.000000f,
+                                1.000000f, 1.000000f, 1.000000f
+                        );
+                    })
+
                     .withPartPosition(VehiclePart.FRONT_RIGHT_WHEEL, context -> {
-                    	EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
-                    	WheelSolver ws = entityVehicle.getSolver().frontAxel.rightWheel;
-                    	float vertical = (float) entityVehicle.getSolver().frontAxel.rightWheel.getRenderRideHeight();
-                    	float steer = (float) Math.toDegrees(context.getSymmetricProgress());
-                    	
-                    	Positioners.position(
-                    		    -3.700000f, 0.000000f, 0.000000f,
-                    		    (float) ws.getInterpolatedWheelRotation(), 0f, 0.000000f,
-                    		    0.000000f, 0.800000f, 0.000000f,
-                    		    1.000000f, 1.000000f, 1.000000f
-                    		);
+                        EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
+                        WheelSolver ws = entityVehicle.getSolver().frontAxel.rightWheel;
+                        float vertical = (float) entityVehicle.getSolver().frontAxel.rightWheel.getRenderRideHeight();
+                        float steer = (float) Math.toDegrees(context.getSymmetricProgress());
+
+                        Positioners.position(
+                                -3.700000f, 0.000000f, 0.000000f,
+                                (float) ws.getInterpolatedWheelRotation(), 0f, 0.000000f,
+                                0.000000f, 0.800000f, 0.000000f,
+                                1.000000f, 1.000000f, 1.000000f
+                        );
                     })
 
                     .withPartPosition(VehiclePart.REAR_LEFT_WHEEL, context -> {
-                    	
-                    	EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
-                    	WheelSolver ws = entityVehicle.getSolver().rearAxel.leftWheel;
-                    	float vertical = (float) entityVehicle.getSolver().rearAxel.leftWheel.getRenderRideHeight();
-                    	
-                    	Positioners.position(
-                    		    -0.000000f, -0.100000f, 5.999999f,
-                    		    (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
-                    		    0.000000f, 0.800000f, 0.000000f,
-                    		    1.000000f, 1.000000f, 1.000000f
-                    		);
+
+                        EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
+                        WheelSolver ws = entityVehicle.getSolver().rearAxel.leftWheel;
+                        float vertical = (float) entityVehicle.getSolver().rearAxel.leftWheel.getRenderRideHeight();
+
+                        Positioners.position(
+                                -0.000000f, -0.100000f, 5.999999f,
+                                (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
+                                0.000000f, 0.800000f, 0.000000f,
+                                1.000000f, 1.000000f, 1.000000f
+                        );
                     })
-                    
+
                     .withPartPosition(VehiclePart.REAR_RIGHT_WHEEL, context -> {
-                    	EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
-                    	WheelSolver ws = entityVehicle.getSolver().rearAxel.rightWheel;
-                    	float vertical = (float) ws.getRenderRideHeight();
-                    	
-                    	Positioners.position(
-                    		    -3.680000f, -0.100000f, 6.000000f,
-                    		    (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
-                    		    0.000000f, 0.810000f, 0.000000f,
-                    		    1.000000f, 1.000000f, 1.000000f
-                    		);
-                    	
+                        EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
+                        WheelSolver ws = entityVehicle.getSolver().rearAxel.rightWheel;
+                        float vertical = (float) ws.getRenderRideHeight();
+
+                        Positioners.position(
+                                -3.680000f, -0.100000f, 6.000000f,
+                                (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
+                                0.000000f, 0.810000f, 0.000000f,
+                                1.000000f, 1.000000f, 1.000000f
+                        );
+
                     }).build(modContext, VehiclePart.MAIN);
-    	}
+        }
 
         new EntityVehicleConfiguration.Builder()
                 .withName("MClaren_senna")

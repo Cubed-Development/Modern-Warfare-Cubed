@@ -140,8 +140,9 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onGrenadeUpdate() {
-        if (!world.isRemote && explosionTimeout > 0 && System.currentTimeMillis() > (activationTimestamp + explosionTimeout))
+        if (!world.isRemote && explosionTimeout > 0 && System.currentTimeMillis() > (activationTimestamp + explosionTimeout)) {
             explode();
+        }
     }
 
     @Override
@@ -163,13 +164,15 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 
         final List<Entity> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().expand(effectiveDistance, effectiveDistance, effectiveDistance).expand(-effectiveDistance, -effectiveDistance, -effectiveDistance));
         for (Entity nearbyEntity : nearbyEntities) {
-            if (!(nearbyEntity instanceof  EntityPlayer))
+            if (!(nearbyEntity instanceof EntityPlayer)) {
                 continue;
+            }
 
             final RayTraceResult rayTraceResult = getEntityBoundingBox().calculateIntercept(getPositionVector().add(0, 0.5, 0), nearbyEntity.getPositionVector());
 
-            if (rayTraceResult != null)
+            if (rayTraceResult != null) {
                 continue;
+            }
 
             final float dose = MathUtil.clampMinFirst(getMaxDose(nearbyEntity), 0, 1);
 
@@ -228,7 +231,6 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 //        BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> block != Blocks.GLASS && block != Blocks.GLASS_PANE && compatibility.canCollideCheck(block, blockMetadata, false);
 
         BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> !isTransparentBlock(block) && block.canCollideCheck(blockMetadata, false);
-        ;
 
         EntityPlayer player = (EntityPlayer) nearbyEntity;
         Vec3d playerLookVec = player.getLook(1f);

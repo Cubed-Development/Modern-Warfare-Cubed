@@ -20,15 +20,15 @@ const float SOFTNESS = 0.25;
 void main() {
 
     vec4 texColor = texture2D(DiffuseSampler, texCoord.xy);
-    
-    if(BlurEnabled == 0.0) {
+
+    if (BlurEnabled == 0.0) {
         gl_FragColor = texColor;
         return;
     }
-    
+
     vec4 blurredColor = texColor;
 
-    float dist = distance(texCoord.xy, vec2(0.5,0.5));
+    float dist = distance(texCoord.xy, vec2(0.5, 0.5));
 
     float blurVignette = smoothstep(BlurVignetteRadius, BlurVignetteRadius - SOFTNESS, dist);
 
@@ -37,7 +37,7 @@ void main() {
     float totalAlpha = 0.0;
     float totalSamples = 0.0;
 
-    for(float r = -Radius; r <= Radius; r += 1.0) {
+    for (float r = -Radius; r <= Radius; r += 1.0) {
         vec4 sample4 = texture2D(DiffuseSampler, texCoord + oneTexel * r * BlurDir);
 
         // Accumulate average alpha

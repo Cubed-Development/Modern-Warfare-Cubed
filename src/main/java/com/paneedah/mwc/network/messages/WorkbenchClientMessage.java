@@ -45,7 +45,8 @@ public final class WorkbenchClientMessage implements IMessage {
         byteBuf.writeLong(position.toLong());
 
         final TileEntity tileEntity = world.getTileEntity(position);
-        if (tileEntity instanceof TileEntityStation)
+        if (tileEntity instanceof TileEntityStation) {
             ((TileEntityStation) tileEntity).writeBytesForClientSync(byteBuf);
+        }
     }
 }

@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-@Mod.EventBusSubscriber(modid =ID)
+@Mod.EventBusSubscriber(modid = ID)
 public class MWCRecipes {
     public static void register() {
         // Smelting Recipes not supported by JSON.

@@ -91,8 +91,9 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
             return Collections.emptyList();
         }
 
-        if (itemStack == null)
+        if (itemStack == null) {
             return Collections.emptyList();
+        }
 
         if (transformType == null || transformType == ItemCameraTransforms.TransformType.GROUND
                 || transformType == ItemCameraTransforms.TransformType.GUI
@@ -108,8 +109,9 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
             if (owner != null) {
                 if (transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND) {
 
-                    if (owner.isSneaking())
+                    if (owner.isSneaking()) {
                         GlStateManager.translate(0.0F, -0.2F, 0.0F);
+                    }
                 }
             }
 
@@ -212,8 +214,9 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
             return;
         }
 
-        if (!(itemStack.getItem() instanceof com.paneedah.weaponlib.ModelSource))
+        if (!(itemStack.getItem() instanceof com.paneedah.weaponlib.ModelSource)) {
             throw new IllegalArgumentException();
+        }
 
         GL11.glPushMatrix();
 
@@ -254,7 +257,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
             GL11.glPopMatrix();
         }
 
-        
+
         CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) modelSource.getPostRenderer();
 
         if (postRenderer != null) {

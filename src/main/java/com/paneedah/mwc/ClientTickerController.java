@@ -33,7 +33,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
  */
 @SideOnly(Side.CLIENT)
 public final class ClientTickerController {
-    
+
     private static ScheduledFuture<?> scheduledFuture;
 
     /**
@@ -53,8 +53,9 @@ public final class ClientTickerController {
      * @since 0.1
      */
     public static void stop() {
-        if (scheduledFuture != null)
+        if (scheduledFuture != null) {
             scheduledFuture.cancel(true);
+        }
     }
 
     /**
@@ -97,8 +98,9 @@ public final class ClientTickerController {
          * @since 0.1
          */
         private static void onTick() {
-            if (!Mouse.isCreated() || MC.player == null || MC.player.isSpectator())
+            if (!Mouse.isCreated() || MC.player == null || MC.player.isSpectator()) {
                 return;
+            }
 
             scheduleTask(ClientTicker::tickHeldItem, false);
 
@@ -106,13 +108,15 @@ public final class ClientTickerController {
                 // Value... fresh from my ass:
                 guiCooldown = 30;
                 return;
-            } else if (guiCooldown > 0)
+            } else if (guiCooldown > 0) {
                 guiCooldown--;
+            }
 
-            if (Mouse.isButtonDown(LEFT_MOUSE_BUTTON))
+            if (Mouse.isButtonDown(LEFT_MOUSE_BUTTON)) {
                 scheduleTask(ClientTicker::onLeftMouseButtonDown, true);
-            else
+            } else {
                 scheduleTask(ClientTicker::onLeftMouseButtonReleased, false);
+            }
 
             if (Mouse.isButtonDown(RIGHT_MOUSE_BUTTON)) {
                 if (!rightMouseButtonPressed) {
@@ -137,8 +141,9 @@ public final class ClientTickerController {
          * @since 0.1
          */
         private static void scheduleTask(final Runnable runnable, final boolean blockedByGUICooldown) {
-            if (!blockedByGUICooldown || guiCooldown == 0)
+            if (!blockedByGUICooldown || guiCooldown == 0) {
                 MC.addScheduledTask(runnable);
+            }
         }
 
         /**
@@ -148,21 +153,24 @@ public final class ClientTickerController {
          * @since 0.1
          */
         private static void onLeftMouseButtonDown() {
-            if (AnimationModeProcessor.getInstance().getFPSMode())
+            if (AnimationModeProcessor.getInstance().getFPSMode()) {
                 return;
+            }
 
             final EntityPlayer player = MC.player;
             final Item item = getHeldItemMainHand(player);
 
-            if ((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item))
+            if ((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item)) {
                 return;
+            }
 
-            if (item instanceof Weapon)
+            if (item instanceof Weapon) {
                 ((Weapon) item).tryFire(player);
-            else if (item instanceof ItemMelee)
+            } else if (item instanceof ItemMelee) {
                 ((ItemMelee) item).attack(player, false);
-            else if (item instanceof ItemGrenade)
+            } else if (item instanceof ItemGrenade) {
                 ((ItemGrenade) item).attack(player, true);
+            }
         }
 
 
@@ -173,14 +181,16 @@ public final class ClientTickerController {
          * @since 0.1
          */
         private static void onRightMouseButtonDown() {
-            if (AnimationModeProcessor.getInstance().getFPSMode())
+            if (AnimationModeProcessor.getInstance().getFPSMode()) {
                 return;
+            }
 
             final EntityPlayer player = MC.player;
             final Item item = getHeldItemMainHand(player);
 
-            if ((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item))
+            if ((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item)) {
                 return;
+            }
 
             if (item instanceof Weapon) {
                 if (player.isSprinting()) {
@@ -190,10 +200,11 @@ public final class ClientTickerController {
                     ClientValueRepo.shouldContinueRunning = true;
                 }
                 ((Weapon) item).toggleAiming();
-            } else if (item instanceof ItemMelee)
+            } else if (item instanceof ItemMelee) {
                 ((ItemMelee) item).attack(player, true);
-            else if (item instanceof ItemGrenade)
+            } else if (item instanceof ItemGrenade) {
                 ((ItemGrenade) item).attack(player, false);
+            }
         }
 
         /**
@@ -206,13 +217,15 @@ public final class ClientTickerController {
             final EntityPlayer player = MC.player;
             final Item item = getHeldItemMainHand(player);
 
-            if ((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item))
+            if ((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item)) {
                 return;
+            }
 
-            if (item instanceof Weapon)
+            if (item instanceof Weapon) {
                 ((Weapon) item).tryStopFire(player);
-            else if (item instanceof ItemGrenade)
+            } else if (item instanceof ItemGrenade) {
                 ((ItemGrenade) item).attackUp(player, true);
+            }
         }
 
         /**
@@ -225,8 +238,9 @@ public final class ClientTickerController {
             final EntityPlayer player = MC.player;
             final Item item = getHeldItemMainHand(player);
 
-            if ((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item))
+            if ((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item)) {
                 return;
+            }
 
             final PlayerWeaponInstance mainHandHeldWeaponInstance = MWC.modContext.getMainHeldWeapon();
             if (mainHandHeldWeaponInstance != null && (ModernConfigManager.holdToAim && (item instanceof Weapon && mainHandHeldWeaponInstance.isAimed()))) {
@@ -238,8 +252,9 @@ public final class ClientTickerController {
                 ((Weapon) item).toggleAiming();
             }
 
-            if (item instanceof ItemGrenade)
+            if (item instanceof ItemGrenade) {
                 ((ItemGrenade) item).attackUp(player, false);
+            }
         }
 
         /**
@@ -252,8 +267,9 @@ public final class ClientTickerController {
             final EntityPlayer player = MC.player;
             final Item item = getHeldItemMainHand(player);
 
-            if (item instanceof Updatable)
+            if (item instanceof Updatable) {
                 ((Updatable) item).update(player);
+            }
         }
 
         /**
@@ -267,8 +283,9 @@ public final class ClientTickerController {
          * @since 0.1
          */
         private static Item getHeldItemMainHand(final EntityPlayer player) {
-            if (player == null)
+            if (player == null) {
                 return Items.AIR;
+            }
 
             return player.getHeldItemMainhand().getItem();
         }

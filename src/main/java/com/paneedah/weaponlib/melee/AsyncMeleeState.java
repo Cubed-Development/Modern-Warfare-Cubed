@@ -2,38 +2,38 @@ package com.paneedah.weaponlib.melee;
 
 public class AsyncMeleeState {
 
-	private MeleeState state;
-	private long timestamp;
-	private long duration;
-	private boolean isInfinite;
-	
-	public AsyncMeleeState(MeleeState state, long timestamp) {
-		this.state = state;
-		this.timestamp = timestamp;
-		this.duration = Integer.MAX_VALUE;
-		this.isInfinite = true;
-	}
+    private final MeleeState state;
+    private final long timestamp;
+    private final long duration;
+    private boolean isInfinite;
 
-	public AsyncMeleeState(MeleeState state, long timestamp, long duration) {
-		this.state = state;
-		this.timestamp = timestamp;
-		this.duration = duration;
-	}
+    public AsyncMeleeState(MeleeState state, long timestamp) {
+        this.state = state;
+        this.timestamp = timestamp;
+        this.duration = Integer.MAX_VALUE;
+        this.isInfinite = true;
+    }
 
-	public MeleeState getState() {
-		return state;
-	}
+    public AsyncMeleeState(MeleeState state, long timestamp, long duration) {
+        this.state = state;
+        this.timestamp = timestamp;
+        this.duration = duration;
+    }
 
-	public long getTimestamp() {
-		return timestamp;
-	}
+    public MeleeState getState() {
+        return state;
+    }
 
-	public long getDuration() {
-		return duration;
-	}
+    public long getTimestamp() {
+        return timestamp;
+    }
 
-	public boolean isInfinite() {
-		return isInfinite;
-	}
+    public long getDuration() {
+        return duration;
+    }
+
+    public boolean isInfinite() {
+        return isInfinite;
+    }
 
 }

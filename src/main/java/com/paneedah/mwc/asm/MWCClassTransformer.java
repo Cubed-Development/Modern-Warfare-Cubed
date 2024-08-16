@@ -11,46 +11,46 @@ import java.io.PrintWriter;
 
 public class MWCClassTransformer implements IClassTransformer {
 
-    private static ClassInfo playSoundClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo playSoundClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("paulscode.sound.libraries.SourceLWJGLOpenAL");
 
-    private static ClassInfo entityRendererClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo entityRendererClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/renderer/EntityRenderer");
 
-    private static ClassInfo renderBipedClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo renderBipedClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/renderer/entity/RenderBiped");
 
-    private static ClassInfo modelBipedClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo modelBipedClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/model/ModelBiped");
 
-    private static ClassInfo modelPlayerClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo modelPlayerClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/model/ModelPlayer");
 
-    private static ClassInfo renderLivingBaseClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo renderLivingBaseClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/renderer/entity/RenderLivingBase");
 
-    private static ClassInfo layerArmorBaseClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo layerArmorBaseClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/renderer/entity/layers/LayerArmorBase");
 
-    private static ClassInfo layerHeldItemClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo layerHeldItemClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/renderer/entity/layers/LayerHeldItem");
 
-    private static ClassInfo entityPlayerSPClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo entityPlayerSPClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/entity/EntityPlayerSP");
 
-    private static ClassInfo entityPlayerMPClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo entityPlayerMPClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/entity/player/EntityPlayerMP");
 
-    private static ClassInfo inventoryChangeTriggerClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo inventoryChangeTriggerClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/advancements/critereon/InventoryChangeTrigger");
 
-    private static ClassInfo entityPlayerClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo entityPlayerClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/entity/player/EntityPlayer");
 
-    private static ClassInfo entityLivingBaseClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo entityLivingBaseClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/entity/EntityLivingBase");
 
-    private static ClassInfo modelRendererClassInfo = ClassInfoProvider.getInstance()
+    private static final ClassInfo modelRendererClassInfo = ClassInfoProvider.getInstance()
             .getClassInfo("net/minecraft/client/model/ModelRenderer");
 
     private static class UpdateCameraAndRenderMethodVisitor extends MethodVisitor {
@@ -400,7 +400,7 @@ public class MWCClassTransformer implements IClassTransformer {
 
     private static class RenderEquippedItemsMethodVisitor extends MethodVisitor {
 
-        private String itemBlockClassName = ItemBlock.class.getName().replace('.', '/');
+        private final String itemBlockClassName = ItemBlock.class.getName().replace('.', '/');
 
         public RenderEquippedItemsMethodVisitor(MethodVisitor mv) {
             super(Opcodes.ASM4, mv);
@@ -451,7 +451,7 @@ public class MWCClassTransformer implements IClassTransformer {
 
     private static class RenderHeldItemMethodVisitor extends MethodVisitor {
 
-        private boolean notchMode;
+        private final boolean notchMode;
 
         public RenderHeldItemMethodVisitor(MethodVisitor mv, boolean notchMode) {
             super(Opcodes.ASM4, mv);
@@ -575,8 +575,7 @@ public class MWCClassTransformer implements IClassTransformer {
             } */ /*else if(modelPlayerClassInfo != null
                     && modelPlayerClassInfo.methodMatches("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", classname, name, desc)) {
                 return new RenderMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } */
-            else if (layerHeldItemClassInfo != null
+            } */ else if (layerHeldItemClassInfo != null
                     && layerHeldItemClassInfo.methodMatches("renderHeldItem", "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType;Lnet/minecraft/util/EnumHandSide;)V", classname, name, desc)) {
                 return new RenderHeldItemMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions),
                         !name.equals("renderHeldItem"));

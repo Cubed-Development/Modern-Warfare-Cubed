@@ -91,8 +91,9 @@ public class GunSkins {
         CommonRegistry.gunSkins.add(GunSkins.GoldCamo);
 
         File customSkinsDir = new File("./config/mwc/skins");
-        if (!customSkinsDir.exists())
+        if (!customSkinsDir.exists()) {
             customSkinsDir.mkdirs();
+        }
 
         ClassLoader classLoader = GunSkins.class.getClassLoader();
 
@@ -101,8 +102,9 @@ public class GunSkins {
                 File skinsConfiguration = new File(customSkinsDir, "skins.json");
                 if (!skinsConfiguration.exists()) {
                     URL inputUrl = classLoader.getResource("skins.json");
-                    if (inputUrl == null)
+                    if (inputUrl == null) {
                         throw new FileNotFoundException("Failed to find skins.json");
+                    }
 
                     FileUtils.copyURLToFile(inputUrl, skinsConfiguration);
                 }
@@ -128,8 +130,9 @@ public class GunSkins {
         }
 
         URL imageUrl = classLoader.getResource("assets/mwc/textures/models/oldiepinkcamo.png");
-        if (imageUrl == null)
+        if (imageUrl == null) {
             throw new RuntimeException("Failed to find default custom skin (oldiepinkcamo.png).");
+        }
 
         try {
             FileUtils.copyURLToFile(imageUrl, new File(customSkinsDir, "oldiepinkcamo.png"));
@@ -138,13 +141,15 @@ public class GunSkins {
         }
 
         File[] files = customSkinsDir.listFiles();
-        if (files == null)
+        if (files == null) {
             return;
+        }
 
         for (File f : files) {
             String name = f.getName().toLowerCase();
-            if (!name.endsWith(".png"))
+            if (!name.endsWith(".png")) {
                 continue;
+            }
 
             ItemSkin skin = new ItemSkin.Builder()
                     .withTextureVariant("customskin_" + name.replace(".png", ""))

@@ -8,13 +8,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class AttachmentsTab extends CreativeTabs {
 
-	public AttachmentsTab(int par1, String par2Str) {
-		super(par1, par2Str);
-	}
+    public AttachmentsTab(int par1, String par2Str) {
+        super(par1, par2Str);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public ItemStack createIcon() {
-		return new ItemStack(Attachments.ACOG);
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ItemStack createIcon() {
+        return new ItemStack(Attachments.ACOG);
+    }
 }

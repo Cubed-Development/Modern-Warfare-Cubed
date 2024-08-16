@@ -23,12 +23,12 @@ public class BackpackContainer extends Container {
      */
     public final BackpackInventory inventory;
 
-    private int armorSlotStartIndex;
-    private int armorSlotEndIndex;
-    private int standardInventorySlotStartIndex;
-    private int standardInventorySlotEndIndex;
-    private int hotbarSlotStartIndex;
-    private int hotbarSlotEndIndex;
+    private final int armorSlotStartIndex;
+    private final int armorSlotEndIndex;
+    private final int standardInventorySlotStartIndex;
+    private final int standardInventorySlotEndIndex;
+    private final int hotbarSlotStartIndex;
+    private final int hotbarSlotEndIndex;
 
     public BackpackContainer(EntityPlayer player, InventoryPlayer inventoryPlayer, BackpackInventory inventoryItem) {
         this.inventory = inventoryItem;
@@ -38,33 +38,33 @@ public class BackpackContainer extends Container {
 
         final int customSlotStartIndex = 0;
         final int customSlotEndIndex = customSlotStartIndex + storageSlots.size() - 1;
-        
+
         List<Slot> armorSlots = createArmorSlots(player, inventoryPlayer);
         armorSlots.forEach(slot -> addSlotToContainer(slot));
-        
+
         this.armorSlotStartIndex = customSlotEndIndex + 1;
         this.armorSlotEndIndex = armorSlotStartIndex + armorSlots.size() - 1;
-        
+
         List<Slot> standardInventorySlots = createStandardInventorySlots(inventoryPlayer);
         standardInventorySlots.forEach(slot -> addSlotToContainer(slot));
-        
+
         this.standardInventorySlotStartIndex = armorSlotEndIndex + 1;
         this.standardInventorySlotEndIndex = standardInventorySlotStartIndex + standardInventorySlots.size() - 1;
-        
+
         List<Slot> hotbarSlots = createHotbarSlots(inventoryPlayer);
         hotbarSlots.forEach(slot -> addSlotToContainer(slot));
-        
+
         this.hotbarSlotStartIndex = standardInventorySlotEndIndex + 1;
         this.hotbarSlotEndIndex = hotbarSlotStartIndex + hotbarSlots.size() - 1;
     }
 
     protected List<Slot> createStorageSlots(BackpackInventory inventoryCustom) {
-        
+
         List<Slot> slots = new ArrayList<>();
         for (int i = 0; i < inventoryCustom.getSizeInventory(); ++i) {
-            slots.add(new BackpackSlot(this.inventory, i, 80 + (18 * (int) (i / 4)), 8 + (18 * (i % 4))));
+            slots.add(new BackpackSlot(this.inventory, i, 80 + (18 * (i / 4)), 8 + (18 * (i % 4))));
         }
-        
+
         return slots;
     }
 
@@ -87,48 +87,46 @@ public class BackpackContainer extends Container {
     }
 
     protected List<Slot> createArmorSlots(EntityPlayer player, InventoryPlayer inventoryPlayer) {
-    	List<Slot> slots = new ArrayList<>();
+        List<Slot> slots = new ArrayList<>();
         int i;
         for (i = 0; i < 4; ++i) {
-        	final EntityEquipmentSlot entityequipmentslot = new EntityEquipmentSlot[] {EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET}[i];
+            final EntityEquipmentSlot entityequipmentslot = new EntityEquipmentSlot[]{EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET}[i];
             this.addSlotToContainer(new Slot(inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i - 1,
-                            8, 8 + i * 18)
-            {
+                    8, 8 + i * 18) {
                 /**
                  * Returns the maximum stack size for a given slot (usually the same as getInventoryStackLimit(), but 1
                  * in the case of armor slots)
                  */
-                public int getSlotStackLimit()
-                {
+                public int getSlotStackLimit() {
                     return 1;
                 }
+
                 /**
                  * Check if the stack is allowed to be placed in this slot, used for armor slots as well as furnace
                  * fuel.
                  */
-                public boolean isItemValid(ItemStack stack)
-                {
+                public boolean isItemValid(ItemStack stack) {
                     return stack.getItem().isValidArmor(stack, entityequipmentslot, player);
                 }
+
                 /**
                  * Return whether this slot's stack can be taken from this slot.
                  */
-                public boolean canTakeStack(EntityPlayer playerIn)
-                {
+                public boolean canTakeStack(EntityPlayer playerIn) {
                     ItemStack itemstack = this.getStack();
-                    return !itemstack.isEmpty() && !playerIn.isCreative() && EnchantmentHelper.hasBindingCurse(itemstack) ? false : super.canTakeStack(playerIn);
+                    return (itemstack.isEmpty() || playerIn.isCreative() || !EnchantmentHelper.hasBindingCurse(itemstack)) && super.canTakeStack(playerIn);
                 }
+
                 @Nullable
                 @SideOnly(Side.CLIENT)
-                public String getSlotTexture()
-                {
+                public String getSlotTexture() {
                     return ItemArmor.EMPTY_SLOT_NAMES[entityequipmentslot.getIndex()];
                 }
             });
         }
         return slots;
     }
-    
+
     @Override
     public boolean canInteractWith(EntityPlayer player) {
         return inventory.isUsableByPlayer(player);
@@ -158,24 +156,23 @@ public class BackpackContainer extends Container {
             // Item is in inventory / hotbar, try to place in custom inventory
             // or armor slots
             else {
-            	
-            		if (itemstack1.getItem() instanceof ItemArmor) {
-                    
-                	ItemArmor armor = ((ItemArmor) itemstack1.getItem());
-                	int ordinal = 4 - armor.getEquipmentSlot().getSlotIndex();
-            		if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + ordinal, armorSlotStartIndex + ordinal + 1, false)) {
 
-                        if (!this.mergeItemStack(itemstack1, 0, inventorySlots.size()-1, false))
-                        {
+                if (itemstack1.getItem() instanceof ItemArmor) {
+
+                    ItemArmor armor = ((ItemArmor) itemstack1.getItem());
+                    int ordinal = 4 - armor.getEquipmentSlot().getSlotIndex();
+                    if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + ordinal, armorSlotStartIndex + ordinal + 1, false)) {
+
+                        if (!this.mergeItemStack(itemstack1, 0, inventorySlots.size() - 1, false)) {
                             return ItemStack.EMPTY;
                         }
-            			
-            			return ItemStack.EMPTY;
+
+                        return ItemStack.EMPTY;
                     }
-            	
+
                 }
-            	
-            	
+
+
                 /**
                  * Implementation number 1: Shift-click into your custom
                  * inventory
@@ -194,10 +191,8 @@ public class BackpackContainer extends Container {
                         return new ItemStack(Items.AIR);
                     }
                 }
-                
-                
-                
-                
+
+
                 /**
                  * Implementation number 2: Shift-click items between action bar
                  * and inventory

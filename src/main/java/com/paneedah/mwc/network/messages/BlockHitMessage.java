@@ -14,20 +14,20 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @AllArgsConstructor
 public final class BlockHitMessage implements IMessage {
 
-	private BlockPos blockPos;
+    private BlockPos blockPos;
     private Vector3F position = new Vector3F();
     private EnumFacing enumFacing;
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-    	blockPos = BlockPos.fromLong(byteBuf.readLong());
+        blockPos = BlockPos.fromLong(byteBuf.readLong());
         position.read(byteBuf);
         enumFacing = EnumFacing.byIndex(byteBuf.readInt());
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-    	byteBuf.writeLong(this.blockPos.toLong());
+        byteBuf.writeLong(this.blockPos.toLong());
         position.write(byteBuf);
         byteBuf.writeInt(enumFacing.getIndex());
     }

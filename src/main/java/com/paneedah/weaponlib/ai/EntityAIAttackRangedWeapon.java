@@ -4,44 +4,40 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.EnumHand;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class EntityAIAttackRangedWeapon extends EntityAIBase
-{
+public class EntityAIAttackRangedWeapon extends EntityAIBase {
     private static final float DEFAULT_SECONDARY_EQUIPMENT_USE_CHANCE = 0.25f;
-    
+
     private final EntityCustomMob entity;
     private final double moveSpeedAmp;
-    private int attackCooldown;
+    private final int attackCooldown;
     private final float maxAttackDistanceSquared;
     private int attackTime = -1;
     private int seeTime;
     private boolean strafingClockwise;
     private boolean strafingBackwards;
     private int strafingTime = -1;
-    private Set<Class<?>> attackWithItemType;
-    private float secondaryEquipmentUseChance;
-    
+    private final Set<Class<?>> attackWithItemType;
+    private final float secondaryEquipmentUseChance;
+
     private float lookHeightMultiplier;
-    
+
     public EntityAIAttackRangedWeapon(EntityCustomMob customMob,
-            double speedAmplifier, int delay, float maxDistance,
-            Class<?> ...attackWithItemType) {
+                                      double speedAmplifier, int delay, float maxDistance,
+                                      Class<?>... attackWithItemType) {
         this(customMob, speedAmplifier, delay, maxDistance, DEFAULT_SECONDARY_EQUIPMENT_USE_CHANCE, attackWithItemType);
     }
-    
 
 
     public EntityAIAttackRangedWeapon(EntityCustomMob customMob,
-            double speedAmplifier, int delay, float maxDistance, float secondaryEquipmentUseChance, 
-            Class<?> ...attackWithItemType)
-    {
+                                      double speedAmplifier, int delay, float maxDistance, float secondaryEquipmentUseChance,
+                                      Class<?>... attackWithItemType) {
         this.attackWithItemType = new HashSet<>();
-        for(Class<?> c: attackWithItemType) {
-            this.attackWithItemType.add(c);
-        }
-        
+        Collections.addAll(this.attackWithItemType, attackWithItemType);
+
         this.entity = customMob;
         this.moveSpeedAmp = speedAmplifier;
         this.attackCooldown = delay;
@@ -55,17 +51,17 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
      */
     @Override
     public boolean shouldExecute() {
-        if(entity.getAttackTarget() == null) {
+        if (entity.getAttackTarget() == null) {
             return false;
         }
-        
+
         return isItemTypeInMainHand(); // || entity.getSecondaryEquipment() != null;
     }
 
     protected boolean isItemTypeInMainHand() {
         return entity.getHeldItemMainhand() != null
-                && (attackWithItemType.isEmpty() 
-                        || attackWithItemType.stream().anyMatch(a -> a.isInstance(entity.getHeldItemMainhand().getItem())));
+                && (attackWithItemType.isEmpty()
+                || attackWithItemType.stream().anyMatch(a -> a.isInstance(entity.getHeldItemMainhand().getItem())));
     }
 
     /**
@@ -99,15 +95,14 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
     /**
      * Updates the task
      */
-    public void updateTask()
-    {
+    public void updateTask() {
         EntityLivingBase attackTarget = this.entity.getAttackTarget();
 
         if (attackTarget != null) {
-            
-        	this.entity.getLookHelper().setLookPosition(attackTarget.posX, attackTarget.posY + attackTarget.getEyeHeight() * this.entity.getConfiguration().getLookHeightMultiplier(), attackTarget.posZ, 30f, 30f);
-        	//this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
-        	
+
+            this.entity.getLookHelper().setLookPosition(attackTarget.posX, attackTarget.posY + attackTarget.getEyeHeight() * this.entity.getConfiguration().getLookHeightMultiplier(), attackTarget.posZ, 30f, 30f);
+            //this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
+
             double d0 = this.entity.getDistanceSq(attackTarget.posX, attackTarget.getEntityBoundingBox().minY, attackTarget.posZ);
             boolean canSeeTarget = this.entity.getEntitySenses().canSee(attackTarget);
             boolean flag1 = this.seeTime > 0;
@@ -122,7 +117,7 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
                 --this.seeTime;
             }
 
-            if (d0 <= (double)this.maxAttackDistanceSquared && this.seeTime >= 20) {
+            if (d0 <= (double) this.maxAttackDistanceSquared && this.seeTime >= 20) {
                 this.entity.getNavigator().clearPath();
                 ++this.strafingTime;
             } else {
@@ -130,15 +125,12 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
                 this.strafingTime = -1;
             }
 
-            if (this.strafingTime >= 20)
-            {
-                if ((double)this.entity.getRNG().nextFloat() < 0.3D)
-                {
+            if (this.strafingTime >= 20) {
+                if ((double) this.entity.getRNG().nextFloat() < 0.3D) {
                     this.strafingClockwise = !this.strafingClockwise;
                 }
 
-                if ((double)this.entity.getRNG().nextFloat() < 0.3D)
-                {
+                if ((double) this.entity.getRNG().nextFloat() < 0.3D) {
                     this.strafingBackwards = !this.strafingBackwards;
                 }
 
@@ -146,12 +138,9 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
             }
 
             if (this.strafingTime > -1) {
-                if (d0 > (double)(this.maxAttackDistanceSquared * 0.75F))
-                {
+                if (d0 > (double) (this.maxAttackDistanceSquared * 0.75F)) {
                     this.strafingBackwards = false;
-                }
-                else if (d0 < (double)(this.maxAttackDistanceSquared * 0.25F))
-                {
+                } else if (d0 < (double) (this.maxAttackDistanceSquared * 0.25F)) {
                     this.strafingBackwards = true;
                 }
 
@@ -165,15 +154,15 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
                 if (!canSeeTarget && this.seeTime < -60) {
                     this.entity.resetActiveHand();
                 } else if (canSeeTarget) {
-                    if(Math.abs((-(this.entity.posX - attackTarget.posX) / (this.entity.posZ - attackTarget.posZ)) - Math.tan(this.entity.renderYawOffset / 180f * Math.PI)) < 5.0) {
+                    if (Math.abs((-(this.entity.posX - attackTarget.posX) / (this.entity.posZ - attackTarget.posZ)) - Math.tan(this.entity.renderYawOffset / 180f * Math.PI)) < 5.0) {
                         this.entity.resetActiveHand();
-                        if(entity.getSecondaryEquipment() != null && entity.getRNG().nextFloat() < secondaryEquipmentUseChance) {
+                        if (entity.getSecondaryEquipment() != null && entity.getRNG().nextFloat() < secondaryEquipmentUseChance) {
                             this.entity.attackWithSecondaryEquipment(attackTarget, 0); // TODO: set some distance factor
                         } else {
                             this.entity.attackEntityWithRangedAttack(attackTarget, 0);
                             // TODO: set some distance factor
                         }
-                       this.attackTime = (this.attackCooldown >> 1) + this.entity.getRNG().nextInt(this.attackCooldown << 1);
+                        this.attackTime = (this.attackCooldown >> 1) + this.entity.getRNG().nextInt(this.attackCooldown << 1);
                     }
                 }
             } else if (--this.attackTime <= 0 && this.seeTime >= -60) {

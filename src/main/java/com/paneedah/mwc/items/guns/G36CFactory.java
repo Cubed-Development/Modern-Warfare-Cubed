@@ -69,7 +69,7 @@ public class G36CFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-                
+
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.gunmetalIngot,
                         MWCItems.gunmetalPlate)

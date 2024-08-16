@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class SignalQuality {
 
-    private int quality;
+    private final int quality;
 
-    private boolean interrupted;
+    private final boolean interrupted;
 
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     public SignalQuality(int quality, boolean interrupted) {
         this.quality = quality;
@@ -26,7 +26,7 @@ public class SignalQuality {
     public static SignalQuality getQuality(int currentDistance, int maxDistance) {
         double allowedRange = (double) currentDistance / maxDistance;
         double adjustedAllowedRange = 1.0 - allowedRange * allowedRange * allowedRange;
-        if(adjustedAllowedRange > 0.97) {
+        if (adjustedAllowedRange > 0.97) {
             adjustedAllowedRange = 1.0;
         }
         double r = random.nextDouble();

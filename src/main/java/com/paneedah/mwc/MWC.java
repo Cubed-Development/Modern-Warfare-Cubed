@@ -30,7 +30,9 @@ import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.utils.ModReference.*;
+import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.utils.ModReference.NAME;
+import static com.paneedah.mwc.utils.ModReference.VERSION;
 
 //   /$$      /$$                 /$$                                     /$$      /$$                      /$$$$$$                                     /$$$$$$            /$$                       /$$
 //  | $$$    /$$$                | $$                                    | $$  /$ | $$                     /$$__  $$                                   /$$__  $$          | $$                      | $$
@@ -46,12 +48,12 @@ public final class MWC {
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
 
     public static final CreativeTabs EQUIPMENT_TAB = new ArmorTab(CreativeTabs.getNextID(), "equipment");
-	public static final CreativeTabs WEAPONS_TAB = new AssaultRiflesTab(CreativeTabs.getNextID(), "weapons");
-	public static final CreativeTabs AMMUNITION_AND_MAGAZINES_TAB = new AmmoTab(CreativeTabs.getNextID(), "ammunitionAndMagazines");
-	public static final CreativeTabs ATTACHMENTS_TAB = new AttachmentsTab(CreativeTabs.getNextID(), "attachments");
-	public static final CreativeTabs THROWABLES_TAB = new GrenadesTab(CreativeTabs.getNextID(), "throwables");
-	public static final CreativeTabs PROPS_TAB = new PropsTab(CreativeTabs.getNextID(), "props");
-	public static final CreativeTabs BLOCKS_AND_INGOTS_TAB = new BlocksTab(CreativeTabs.getNextID(), "blocksAndIngots");
+    public static final CreativeTabs WEAPONS_TAB = new AssaultRiflesTab(CreativeTabs.getNextID(), "weapons");
+    public static final CreativeTabs AMMUNITION_AND_MAGAZINES_TAB = new AmmoTab(CreativeTabs.getNextID(), "ammunitionAndMagazines");
+    public static final CreativeTabs ATTACHMENTS_TAB = new AttachmentsTab(CreativeTabs.getNextID(), "attachments");
+    public static final CreativeTabs THROWABLES_TAB = new GrenadesTab(CreativeTabs.getNextID(), "throwables");
+    public static final CreativeTabs PROPS_TAB = new PropsTab(CreativeTabs.getNextID(), "props");
+    public static final CreativeTabs BLOCKS_AND_INGOTS_TAB = new BlocksTab(CreativeTabs.getNextID(), "blocksAndIngots");
 
     // Todo: Make this configurable via the future YAML config system from FBP, or Valkyrie integration, the later would be best.
     public static int bulletHitParticleMult = 6;
@@ -64,8 +66,9 @@ public final class MWC {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
-        if (preInitializationEvent.getSide().isClient())
+        if (preInitializationEvent.getSide().isClient()) {
             MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
+        }
 
         commonProxy.preInit(this);
     }
@@ -98,8 +101,8 @@ public final class MWC {
         modContext.setMaterialImpactSounds(Material.GROUND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.SAND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.IRON, 1.5f, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
-	modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_14_snow");
-	modContext.setMaterialImpactSounds(Material.CRAFTED_SNOW, 1.5f, "bullet_14_snow");
+        modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_14_snow");
+        modContext.setMaterialImpactSounds(Material.CRAFTED_SNOW, 1.5f, "bullet_14_snow");
 
         // Register channels for networking
         CHANNEL.registerMessage(new PermitMessageClientHandler((CommonModContext) modContext), PermitMessage.class, -1, Side.CLIENT);
@@ -107,7 +110,7 @@ public final class MWC {
         CHANNEL.registerMessage(new SpawnParticleMessageHandler(modContext), SpawnParticleMessage.class, -3, Side.CLIENT);
         CHANNEL.registerMessage(new BlockHitMessageHandler(), BlockHitMessage.class, -4, Side.CLIENT);
         CHANNEL.registerMessage(new ExplosionMessageHandler(), ExplosionMessage.class, -5, Side.CLIENT);
-        CHANNEL.registerMessage(new SpreadableExposureMessageHandler(),	SpreadableExposureMessage.class, -6, Side.CLIENT);
+        CHANNEL.registerMessage(new SpreadableExposureMessageHandler(), SpreadableExposureMessage.class, -6, Side.CLIENT);
         CHANNEL.registerMessage(new WorkbenchClientMessageHandler(), WorkbenchClientMessage.class, -7, Side.CLIENT);
         CHANNEL.registerMessage(new CraftingClientMessageHandler(), CraftingClientMessage.class, -8, Side.CLIENT);
         CHANNEL.registerMessage(new MuzzleFlashMessageHandler(), MuzzleFlashMessage.class, -9, Side.CLIENT);
@@ -152,9 +155,10 @@ public final class MWC {
     }
 
     public static void updateDebugHandler() {
-        if (DebugCommand.debugF3 || FMLLaunchHandler.isDeobfuscatedEnvironment())
+        if (DebugCommand.debugF3 || FMLLaunchHandler.isDeobfuscatedEnvironment()) {
             MinecraftForge.EVENT_BUS.register(DebugHandler.class);
-        else
+        } else {
             MinecraftForge.EVENT_BUS.unregister(DebugHandler.class);
+        }
     }
 }

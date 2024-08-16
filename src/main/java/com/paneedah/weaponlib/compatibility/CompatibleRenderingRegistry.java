@@ -33,84 +33,84 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 @SideOnly(Side.CLIENT)
 public class CompatibleRenderingRegistry implements ICustomModelLoader {
 
-	private List<ModelSource> renderers = new ArrayList<>();
-	private Set<String> modelSourceLocations = new HashSet<>();
-	private List<Consumer<RenderItem>> delayedRegistrations = new ArrayList<>();
+    private final List<ModelSource> renderers = new ArrayList<>();
+    private final Set<String> modelSourceLocations = new HashSet<>();
+    private final List<Consumer<RenderItem>> delayedRegistrations = new ArrayList<>();
 
-	public CompatibleRenderingRegistry() {
+    public CompatibleRenderingRegistry() {
 //		ModelLoaderRegistry.registerLoader(this);
 //		{
 //          Not needed anymore
 //		    System.setProperty("fml.reloadResourcesOnStart", "true");
 //		}
-	}
+    }
 
-	@SideOnly(Side.CLIENT)
-	@SubscribeEvent
-	public void bakeModel(ModelBakeEvent event) {
-		for(ModelSource model: renderers) {
-			event.getModelRegistry().putObject(model.getModelResourceLocation(), model);
-		}
-	}
-
-	public void register(Item item, String name, Object renderer) {
-	    if(renderer != null) {
-	        renderers.add((ModelSource) renderer);
-	    }
-		
-		modelSourceLocations.add(ID + ":models/item/" + name);
-		ModelResourceLocation modelID = new ModelResourceLocation(ID + ":" + name, "inventory");
-		if(renderer != null) {
-		    ((ModelSource) renderer).setModelResourceLocation(modelID);
-		}
-		
-		delayedRegistrations.add((renderItem) -> {
-	        ItemModelMesher itemModelMesher = renderItem.getItemModelMesher();
-	        itemModelMesher.register(item, 0, modelID);
-		});
-	}
-	
-	public void register(Item item, ResourceLocation name, Object renderer) {
-	    // TODO: figure out what's going on with this name
-        if(renderer != null) {
-            renderers.add((ModelSource) renderer);
-            modelSourceLocations.add(ID + ":models/item/" + name);
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public void bakeModel(ModelBakeEvent event) {
+        for (ModelSource model : renderers) {
+            event.getModelRegistry().putObject(model.getModelResourceLocation(), model);
         }
-        
-        ModelResourceLocation modelID = new ModelResourceLocation(name, "inventory");
-        if(renderer != null) {
+    }
+
+    public void register(Item item, String name, Object renderer) {
+        if (renderer != null) {
+            renderers.add((ModelSource) renderer);
+        }
+
+        modelSourceLocations.add(ID + ":models/item/" + name);
+        ModelResourceLocation modelID = new ModelResourceLocation(ID + ":" + name, "inventory");
+        if (renderer != null) {
             ((ModelSource) renderer).setModelResourceLocation(modelID);
         }
-        
+
         delayedRegistrations.add((renderItem) -> {
             ItemModelMesher itemModelMesher = renderItem.getItemModelMesher();
             itemModelMesher.register(item, 0, modelID);
         });
     }
 
-	@Override
-	public void onResourceManagerReload(IResourceManager resourceManager) {
-	}
+    public void register(Item item, ResourceLocation name, Object renderer) {
+        // TODO: figure out what's going on with this name
+        if (renderer != null) {
+            renderers.add((ModelSource) renderer);
+            modelSourceLocations.add(ID + ":models/item/" + name);
+        }
 
-	@Override
-	public boolean accepts(ResourceLocation modelLocation) {
-		// Do not accept attachments
-		return ID.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
-	}
+        ModelResourceLocation modelID = new ModelResourceLocation(name, "inventory");
+        if (renderer != null) {
+            ((ModelSource) renderer).setModelResourceLocation(modelID);
+        }
 
-	@Override
-	public IModel loadModel(ResourceLocation modelLocation) throws IOException {
-		return ModelLoaderRegistry.getMissingModel();
-	}
+        delayedRegistrations.add((renderItem) -> {
+            ItemModelMesher itemModelMesher = renderItem.getItemModelMesher();
+            itemModelMesher.register(item, 0, modelID);
+        });
+    }
 
-	public void registerEntityRenderingHandler(Class<? extends Entity> class1,
-	        Object spawnEntityRenderer) {
-		RenderingRegistry.registerEntityRenderingHandler(class1, (Render<? extends Entity>) spawnEntityRenderer);
-	}
-	
-	public void processDelayedRegistrations() {
+    @Override
+    public void onResourceManagerReload(IResourceManager resourceManager) {
+    }
+
+    @Override
+    public boolean accepts(ResourceLocation modelLocation) {
+        // Do not accept attachments
+        return ID.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
+    }
+
+    @Override
+    public IModel loadModel(ResourceLocation modelLocation) throws IOException {
+        return ModelLoaderRegistry.getMissingModel();
+    }
+
+    public void registerEntityRenderingHandler(Class<? extends Entity> class1,
+                                               Object spawnEntityRenderer) {
+        RenderingRegistry.registerEntityRenderingHandler(class1, (Render<? extends Entity>) spawnEntityRenderer);
+    }
+
+    public void processDelayedRegistrations() {
         RenderItem renderItem = MC.getRenderItem();
-        delayedRegistrations.forEach(r -> { r.accept(renderItem);});
+        delayedRegistrations.forEach(r -> {r.accept(renderItem);});
         delayedRegistrations.clear();
     }
 

@@ -15,56 +15,57 @@ import net.minecraft.world.World;
 import java.util.Set;
 
 public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
-    
+
     private static final String TAG_TIME = "T";
     private long lastEquipmentDispenseTimestamp;
-    
+
     @Override
     public void onEntityBlockActivated(World world, BlockPos pos, EntityPlayer player) {
         dropContents(world, pos, player);
     }
-    
+
     public void dropContents(World world, BlockPos pos, EntityPlayer player) {
-        
+
         LootBoxConfiguration configuration = getConfiguration();
-        if(lastEquipmentDispenseTimestamp > world.getWorldTime()) {
+        if (lastEquipmentDispenseTimestamp > world.getWorldTime()) {
             lastEquipmentDispenseTimestamp = 0;
         }
-        if(!world.isRemote) {
-            if(configuration.getEquipmentDispenseTimeoutTicks() < world.getWorldTime() - lastEquipmentDispenseTimestamp) {
+        if (!world.isRemote) {
+            if (configuration.getEquipmentDispenseTimeoutTicks() < world.getWorldTime() - lastEquipmentDispenseTimestamp) {
                 lastEquipmentDispenseTimestamp = world.getWorldTime();
                 Equipment equipment = configuration.getEquipmentOptions().pick(EnumDifficulty.EASY);
                 if (equipment != null && equipment.item != null) {
                     System.out.println("Dropping " + equipment.item.getTranslationKey());
                     player.playSound(configuration.getDispenseSound(), 0.15f, 1);
                     ItemStack equipmentItemStack = null;
-                    if(equipment.item instanceof Weapon) {
+                    if (equipment.item instanceof Weapon) {
                         equipmentItemStack = new ItemStack(equipment.item, equipment.stackSize);
                         initWeaponWithAttachments(equipment, equipmentItemStack, player);
-                    } else if(equipment.item instanceof ItemGrenade) {
+                    } else if (equipment.item instanceof ItemGrenade) {
                         equipmentItemStack = new ItemStack(equipment.item, equipment.stackSize);
                         initGrenade(equipment, equipmentItemStack, player);
-                    } else if(equipment.item instanceof ItemBullet) {
-                        ItemBullet bullet = (ItemBullet)equipment.item;
-                        equipmentItemStack = new ItemStack(equipment.item, 
+                    } else if (equipment.item instanceof ItemBullet) {
+                        ItemBullet bullet = (ItemBullet) equipment.item;
+                        equipmentItemStack = new ItemStack(equipment.item,
                                 Math.min(equipment.stackSize, bullet.getItemStackLimit()));
-                        
+
                         initBullet(equipment, equipmentItemStack, player);
                     }
                     //compatibility.setItemStackToSlot(player, EntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
-                    
-                    if(equipmentItemStack != null) {
+
+                    if (equipmentItemStack != null) {
                         EntityItem item = new EntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);
                         item.setNoPickupDelay();
-                        if(player != null)
+                        if (player != null) {
                             player.world.spawnEntity(item);
+                        }
                     }
                 }
             } else {
                 player.playSound(configuration.getEquipmentNotAvailableSound(), 0.15F, 1);
             }
         }
-        
+
 //      if (!this.worldObj.isRemote) {
 //          for (ItemStack itemstack : this.ContainerItemStacks)
 //          {
@@ -79,11 +80,11 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
 //      this.ContainerItemStacks = new ItemStack[5];
     }
 
-    
+
     private void initWeaponWithAttachments(Equipment equipment, ItemStack itemStack, EntityPlayer player) {
-        if(equipment.attachments != null && equipment.item instanceof Weapon && equipment.item instanceof PlayerItemInstanceFactory) {
-            PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) ((PlayerItemInstanceFactory<?, ?>)equipment.item).createItemInstance(player, new ItemStack(equipment.item), 0);
-            for(ItemAttachment<?> attachment: equipment.attachments) {
+        if (equipment.attachments != null && equipment.item instanceof Weapon && equipment.item instanceof PlayerItemInstanceFactory) {
+            PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) ((PlayerItemInstanceFactory<?, ?>) equipment.item).createItemInstance(player, new ItemStack(equipment.item), 0);
+            for (ItemAttachment<?> attachment : equipment.attachments) {
                 Set<ItemAttachment<Weapon>> compatibleAttachments = weaponInstance.getWeapon().getCompatibleAttachments().keySet();
                 compatibleAttachments.contains(attachment);
                 WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) attachment, weaponInstance);
@@ -92,26 +93,26 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
             //Tags.setAmmo(itemStack, getConfiguration().getMaxAmmo());
         }
     }
-    
+
     private void initGrenade(Equipment equipment, ItemStack itemStack, EntityPlayer player) {
-        if(equipment.item instanceof ItemGrenade) {
-            PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) ((PlayerItemInstanceFactory<?, ?>)equipment.item)
+        if (equipment.item instanceof ItemGrenade) {
+            PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) ((PlayerItemInstanceFactory<?, ?>) equipment.item)
                     .createItemInstance(player, new ItemStack(equipment.item), 0);
             grenadeInstance.setThrowingFar(true);
             Tags.setInstance(itemStack, grenadeInstance);
         }
     }
-    
+
     private void initBullet(Equipment equipment, ItemStack itemStack, EntityPlayer player) {
-        
+
     }
-    
+
     @Override
     public void readFromNBT(NBTTagCompound tagCompound) {
         super.readFromNBT(tagCompound);
         lastEquipmentDispenseTimestamp = tagCompound.getLong(TAG_TIME);
     }
-    
+
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);

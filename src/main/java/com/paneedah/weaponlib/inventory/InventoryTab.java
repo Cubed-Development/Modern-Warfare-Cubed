@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 public class InventoryTab extends GuiButton {
-    private ResourceLocation texture = new ResourceLocation("textures/gui/container/creative_inventory/tabs.png");
+    private final ResourceLocation texture = new ResourceLocation("textures/gui/container/creative_inventory/tabs.png");
     //private ItemStack renderStack;
     private ItemStack itemStack;
     private RenderItem itemRenderer;
@@ -19,11 +19,11 @@ public class InventoryTab extends GuiButton {
         super(id, posX, posY, 28, 32, "");
         this.itemStack = itemStack;
     }
-    
+
     public InventoryTab(int id, int posX, int posY) {
         super(id, posX, posY, 28, 32, "");
     }
-    
+
     protected ItemStack getItemStack() {
         return itemStack;
     }

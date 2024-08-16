@@ -4,6 +4,6 @@ import net.minecraft.entity.Entity;
 
 public interface CustomMobAttack {
 
-    public boolean attackEntity(EntityCustomMob entityMob, Entity target);
+    boolean attackEntity(EntityCustomMob entityMob, Entity target);
 
 }

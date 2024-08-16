@@ -65,8 +65,9 @@ public class CommonEventHandler {
 
     @SubscribeEvent
     public void onTick(TickEvent.ServerTickEvent event) {
-        if (event.phase == TickEvent.Phase.START)
+        if (event.phase == TickEvent.Phase.START) {
             CommonModContext.currentContext = modContext;
+        }
     }
 
     @SubscribeEvent
@@ -76,8 +77,9 @@ public class CommonEventHandler {
 
             NBTTagCompound doseNbt = null;
             if (itemStack != null && itemStack.getItem() instanceof ItemHandheld) {
-                if (itemStack.getTagCompound() == null)
+                if (itemStack.getTagCompound() == null) {
                     itemStack.setTagCompound(new NBTTagCompound());
+                }
 
                 doseNbt = itemStack.getTagCompound();
             }
@@ -89,8 +91,9 @@ public class CommonEventHandler {
 
                 exposure.update(livingUpdateEvent.getEntity());
 
-                if (doseNbt != null && exposure instanceof SpreadableExposure)
+                if (doseNbt != null && exposure instanceof SpreadableExposure) {
                     doseNbt.setFloat("dose", ((SpreadableExposure) exposure).getLastDose());
+                }
 
                 if (!exposure.isEffective(livingUpdateEvent.getEntity().world)) {
                     iterator.remove();
@@ -98,8 +101,9 @@ public class CommonEventHandler {
                 }
             }
 
-            if (effectiveUpdate)
+            if (effectiveUpdate) {
                 CompatibleExposureCapability.updateExposures(livingUpdateEvent.getEntity(), exposures);
+            }
 
             //final long lastExposuresUpdateTimestamp = CompatibleExposureCapability.getLastUpdateTimestamp(livingUpdateEvent.getEntity());
             final long lastSyncTimestamp = CompatibleExposureCapability.getLastSyncTimestamp(livingUpdateEvent.getEntity());
@@ -107,26 +111,27 @@ public class CommonEventHandler {
                 CHANNEL.sendTo(new ExposureMessage(exposures), (EntityPlayerMP) livingUpdateEvent.getEntity());
                 CompatibleExposureCapability.setLastSyncTimestamp(livingUpdateEvent.getEntity(), livingUpdateEvent.getEntity().world.getTotalWorldTime());
             }
-            
+
             SpreadableExposure exposure = CompatibleExposureCapability.getExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
-            if(exposure != null) {
+            if (exposure != null) {
                 boolean stillEffective = exposure.isEffective(livingUpdateEvent.getEntity().world);
                 exposure.update(livingUpdateEvent.getEntity());
-                if(livingUpdateEvent.getEntity() instanceof EntityPlayerMP &&
+                if (livingUpdateEvent.getEntity() instanceof EntityPlayerMP &&
                         System.currentTimeMillis() - exposure.getLastSyncTimestamp() > 500) {
                     CHANNEL.sendTo(
                             new SpreadableExposureMessage(stillEffective ? exposure : null),
                             (EntityPlayerMP) livingUpdateEvent.getEntity());
                     exposure.setLastSyncTimestamp(System.currentTimeMillis());
                 }
-                if(!stillEffective) {
+                if (!stillEffective) {
                     CompatibleExposureCapability.removeExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
                 }
 
                 ItemStack itemStack1 = livingUpdateEvent.getEntityLiving().getHeldItemMainhand();
-                if(itemStack1 != null && itemStack1.getItem() instanceof ItemHandheld) {
-                    if (itemStack1.getTagCompound() == null)
+                if (itemStack1 != null && itemStack1.getItem() instanceof ItemHandheld) {
+                    if (itemStack1.getTagCompound() == null) {
                         itemStack1.setTagCompound(new NBTTagCompound());
+                    }
                     NBTTagCompound nbt = itemStack1.getTagCompound();
                     nbt.setFloat("dose", exposure.getLastDose());
                 }
@@ -138,17 +143,19 @@ public class CommonEventHandler {
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
         final Entity entity = event.getEntity();
 
-        if (entity instanceof Contextual)
-            ((Contextual)entity).setContext(modContext);
+        if (entity instanceof Contextual) {
+            ((Contextual) entity).setContext(modContext);
+        }
 
         if (entity instanceof EntityPlayerMP && !event.getWorld().isRemote) {
             LOG.debug("Player {} joined the world", event.getEntity());
 
-            final EntityPlayer player = (EntityPlayer)entity;
+            final EntityPlayer player = (EntityPlayer) entity;
             final LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
 
-            if (tracker != null)
-                CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, null), (EntityPlayerMP)entity);
+            if (tracker != null) {
+                CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, null), (EntityPlayerMP) entity);
+            }
 
             CHANNEL.sendToAll(new EntityInventorySyncMessage(entity, false, EquipmentCapability.getInventory(player)));
         }
@@ -161,8 +168,9 @@ public class CommonEventHandler {
             return;
         }
 
-        if (event.getTarget() instanceof EntityProjectile || event.getTarget() instanceof EntityBounceable)
+        if (event.getTarget() instanceof EntityProjectile || event.getTarget() instanceof EntityBounceable) {
             return;
+        }
 
         LivingEntityTracker tracker = LivingEntityTracker.getTracker((EntityPlayer) event.getEntity());
         if (tracker != null && tracker.updateTrackableEntity(event.getTarget())) {
@@ -196,7 +204,9 @@ public class CommonEventHandler {
             final EquipmentInventory inventory = EquipmentCapability.getInventory(entity);
             for (int slotIndex = 0; slotIndex < inventory.getSizeInventory(); slotIndex++) {
                 final ItemStack stackInSlot = inventory.getStackInSlot(slotIndex);
-                if (stackInSlot == null) continue;
+                if (stackInSlot == null) {
+                    continue;
+                }
                 ((EntityPlayer) entity).dropItem(stackInSlot, true, false);
                 inventory.setInventorySlotContents(slotIndex, null);
             }
@@ -236,8 +246,9 @@ public class CommonEventHandler {
     protected void onPlayerCloneEvent(PlayerEvent.Clone event) {
         final EquipmentInventory originalInventory = EquipmentCapability.getInventory(event.getOriginal());
 
-        if (originalInventory == null)
+        if (originalInventory == null) {
             return;
+        }
 
         EquipmentCapability.setInventory(event.getEntityPlayer(), originalInventory);
         originalInventory.setContext(modContext);
@@ -274,8 +285,8 @@ public class CommonEventHandler {
      * Sets player size by modifying bounding box
      *
      * @param entityPlayer - player that we want to change hitbox of
-     * @param width        - new width of hitbox
-     * @param height       - new height of hitbox
+     * @param width - new width of hitbox
+     * @param height - new height of hitbox
      */
     protected void setSize(EntityPlayer entityPlayer, float width, float height) {
         if (width != entityPlayer.width || height != entityPlayer.height) {
@@ -290,14 +301,17 @@ public class CommonEventHandler {
     public final void onEntityJoinedEvent(EntityJoinWorldEvent event) {
         // We are only interested in the player. We also only want to deal with this if the server and the client
         // are operating off of DIFFERENT file systems (hence the dedicated server check!).
-        if (!(event.getEntity() instanceof EntityPlayer) || FMLCommonHandler.instance().getMinecraftServerInstance() == null || !FMLCommonHandler.instance().getMinecraftServerInstance().isDedicatedServer())
+        if (!(event.getEntity() instanceof EntityPlayer) || FMLCommonHandler.instance().getMinecraftServerInstance() == null || !FMLCommonHandler.instance().getMinecraftServerInstance().isDedicatedServer()) {
             return;
+        }
 
         final EntityPlayer player = (EntityPlayer) event.getEntity();
 
         // Create a hash stream and make sure it's not null (not errored out)
         final ByteArrayOutputStream baos = ByteArrayUtils.createByteArrayOutputStreamFromBytes(CraftingFileManager.getInstance().getCurrentFileHash());
-        if (baos == null) return;
+        if (baos == null) {
+            return;
+        }
 
         // Send the player the hash
         CHANNEL.sendTo(new CraftingClientMessage(RECEIVE_HASH, baos), (EntityPlayerMP) player);

@@ -17,13 +17,13 @@ public class PlayerCreatureWrapper extends EntityPlayerSP {
 
     private EntityLivingBase entityLiving;
 
-    public PlayerCreatureWrapper (World world) {
+    public PlayerCreatureWrapper(World world) {
         super(MC, world, MC.getConnection(), new StatisticsManager(), new RecipeBookClient());
     }
 
     public void setEntityLiving(EntityLivingBase entityLiving) {
         this.entityLiving = entityLiving;
-        if(entityLiving != null) {
+        if (entityLiving != null) {
             updateCoordinates();
         }
     }

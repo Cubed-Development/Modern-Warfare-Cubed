@@ -4,6 +4,6 @@ import java.util.ArrayList;
 
 public class ServerGearModelHookRegistry {
 
-	public static ArrayList<String> modelArray = new ArrayList<>();
-	
+    public static ArrayList<String> modelArray = new ArrayList<>();
+
 }

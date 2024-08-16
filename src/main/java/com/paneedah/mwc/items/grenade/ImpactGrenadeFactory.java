@@ -19,7 +19,7 @@ public class ImpactGrenadeFactory implements GrenadeFactory {
     @Override
     public ItemGrenade createGrenade(CommonProxy commonProxy) {
         return new ItemGrenade.Builder()
-        
+
                 .withName("ImpactGrenade")
                 .withCreativeTab(MWC.THROWABLES_TAB)
                 .withTextureNames("ImpactGrenade")
@@ -42,10 +42,10 @@ public class ImpactGrenadeFactory implements GrenadeFactory {
                         new CraftingEntry(MWCItems.syntheticPolymerComposite, 4)
                 )
                 .withRenderer(new GrenadeRenderer.Builder()
-                
+
                         .withModel(new ImpactGrenade())
                         .withAnimationDuration(500)
-                         .withThrownEntityPositioning(() -> {
+                        .withThrownEntityPositioning(() -> {
                             GL11.glScalef(0.2f, 0.2f, 0.2f);
                             GL11.glRotatef(180, 0f, 0f, 0f);
                         })
@@ -141,7 +141,7 @@ public class ImpactGrenadeFactory implements GrenadeFactory {
                                     GL11.glTranslatef(-0.225000f, -0.975000f, 0.550000f);
                                 }, 70, 0)
 
-                                )
+                        )
 
                         .withFirstPersonRightHandPositioningThrowing(
                                 new Transition<RenderContext<RenderableState>>(renderContext -> {
@@ -169,7 +169,7 @@ public class ImpactGrenadeFactory implements GrenadeFactory {
                                     //                                    GL11.glTranslatef(0.275000f, -0.400000f, 0.200000f);
                                 }, 70, 0))
 
-                         .withFirstPersonHandPositioningThrown(
+                        .withFirstPersonHandPositioningThrown(
                                 context -> { // left hand
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
