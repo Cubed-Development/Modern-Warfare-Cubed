@@ -35,7 +35,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 - Cleaned up the `mcmod.info` file
 - Switched to [CurseUpdate](https://forge.curseupdate.com/) for update checking
 
-## Modern Warfare Cubed Version 0.1.6 Changelog - 2024-05-21 
+## Modern Warfare Cubed Version 0.1.6 Changelog - 2024-05-21
 
 ### Warning
 
