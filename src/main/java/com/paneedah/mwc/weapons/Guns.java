@@ -25,7 +25,6 @@ public class Guns {
     public static Item P226;
     public static Item FiveSeven;
     public static Item M9A1;
-    public static Item MAS21;
 
     public static Item turretgun;
     public static Item turretgunupgraded;
@@ -312,7 +311,6 @@ public class Guns {
         HK_P12 = new HK_P12Factory().createGun(proxy);
 
         //SIDEARM1
-        MAS21 = new MAS21Factory().createGun(proxy);
         G2Contender = new G2ContenderFactory().createGun(proxy);
         M712 = new M712Factory().createGun(proxy);
         M1911 = new M1911Factory().createGun(proxy);
