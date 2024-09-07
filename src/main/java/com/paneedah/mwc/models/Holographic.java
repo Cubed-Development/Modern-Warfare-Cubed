@@ -5,263 +5,335 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 4.7.4
+// Made with Blockbench 4.10.4
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
 public class Holographic extends ModelBase {
-    private final ModelRenderer Holografics;
-    private final ModelRenderer gun3_r1_r1;
-    private final ModelRenderer gun23_r1_r1;
-    private final ModelRenderer gun26_r1_r1;
-    private final ModelRenderer gun28_r1_r1;
-    private final ModelRenderer gun33_r1_r1;
-    private final ModelRenderer gun43_r1_r1;
-    private final ModelRenderer gun45_r1_r1;
-    private final ModelRenderer gun54_r1_r1;
-    private final ModelRenderer gun55_r1_r1;
-    private final ModelRenderer gun59_r1_r1;
-    private final ModelRenderer gun60_r1_r1;
-    private final ModelRenderer gun65_r1_r1;
-    private final ModelRenderer gun70_r1_r1;
-    private final ModelRenderer gun71_r1_r1;
-    private final ModelRenderer gun72_r1_r1;
-    private final ModelRenderer gun73_r1_r1;
-    private final ModelRenderer gun74_r1_r1;
-    private final ModelRenderer gun75_r1_r1;
-    private final ModelRenderer gun83_r1_r1;
-    private final ModelRenderer gun86_r1_r1;
-    private final ModelRenderer gun86_r1_r2;
-    private final ModelRenderer gun88_r1_r1;
-    private final ModelRenderer gun89_r1_r1;
-    private final ModelRenderer gun103_r1_r1;
+	private final ModelRenderer Holografics;
+	private final ModelRenderer gun103_r1_r1_r1;
+	private final ModelRenderer gun86_r1_r2_r1;
+	private final ModelRenderer gun89_r1_r1_r1;
+	private final ModelRenderer gun88_r1_r1_r1;
+	private final ModelRenderer gun86_r1_r1_r1;
+	private final ModelRenderer gun86_r1_r1_r2;
+	private final ModelRenderer gun86_r1_r1_r3;
+	private final ModelRenderer gun86_r1_r1_r4;
+	private final ModelRenderer gun83_r1_r1_r1;
+	private final ModelRenderer gun83_r1_r1_r2;
+	private final ModelRenderer gun75_r1_r1_r1;
+	private final ModelRenderer gun74_r1_r1_r1;
+	private final ModelRenderer gun73_r1_r1_r1;
+	private final ModelRenderer gun72_r1_r1_r1;
+	private final ModelRenderer gun71_r1_r1_r1;
+	private final ModelRenderer gun70_r1_r1_r1;
+	private final ModelRenderer gun65_r1_r1_r1;
+	private final ModelRenderer gun60_r1_r1_r1;
+	private final ModelRenderer gun59_r1_r1_r1;
+	private final ModelRenderer gun55_r1_r1_r1;
+	private final ModelRenderer gun54_r1_r1_r1;
+	private final ModelRenderer gun45_r1_r1_r1;
+	private final ModelRenderer gun43_r1_r1_r1;
+	private final ModelRenderer gun33_r1_r1_r1;
+	private final ModelRenderer gun33_r1_r1_r2;
+	private final ModelRenderer gun28_r1_r1_r1;
+	private final ModelRenderer gun26_r1_r1_r1;
+	private final ModelRenderer gun23_r1_r1_r1;
+	private final ModelRenderer gun3_r1_r1_r1;
+	private final ModelRenderer Holografics_r1;
+	private final ModelRenderer Holografics_r2;
+	private final ModelRenderer Holografics_r3;
+	private final ModelRenderer Holografics_r4;
+	private final ModelRenderer Holografics_r5;
+	private final ModelRenderer Holografics_r6;
+	private final ModelRenderer Holografics_r7;
 
-    public Holographic() {
-        textureWidth = 100;
-        textureHeight = 100;
+	public Holographic() {
+		textureWidth = 80;
+		textureHeight = 80;
 
-        Holografics = new ModelRenderer(this);
-        Holografics.setRotationPoint(-1.3299F, -3.8086F, 2.6645F);
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 0, -3.1701F, -0.0914F, -14.6645F, 6, 3, 18, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 21, -3.1701F, 2.8086F, -12.3645F, 6, 1, 17, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 53, -3.6701F, -1.1914F, -3.1645F, 1, 5, 8, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 0, 2.3099F, -1.1914F, -3.1645F, 1, 5, 8, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 59, 7, -3.6701F, -5.1914F, -2.6645F, 1, 4, 6, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 48, 42, 2.3299F, 1.8086F, -6.1645F, 1, 2, 4, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 15, 45, -3.6701F, 1.8086F, -6.1645F, 1, 2, 4, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 10, 54, -2.6701F, -6.1914F, -2.6645F, 5, 1, 6, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 45, 0, -3.6701F, 0.8086F, -4.1645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 45, 2.3299F, 0.8086F, -4.1645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 21, 2.3299F, -5.1914F, -2.6645F, 1, 4, 6, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 30, 9, -2.6701F, -6.1914F, 2.8355F, 5, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 45, 0, -3.1701F, -1.1914F, -1.8645F, 6, 1, 6, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 30, 49, -2.1701F, -1.0014F, -14.6645F, 1, 1, 13, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 44, 22, -1.1701F, -1.2914F, -5.6645F, 2, 1, 4, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 29, 30, 3.0299F, 1.3086F, -3.1645F, 1, 2, 2, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 21, -4.3701F, 1.3086F, -3.1645F, 1, 2, 2, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 39, 0.8299F, -0.9814F, -14.6645F, 1, 1, 13, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 33, 35, 0.3299F, -0.9914F, -14.6645F, 1, 1, 13, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 30, 0, -1.6701F, -0.9914F, -14.6645F, 1, 1, 13, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 29, 21, -0.6701F, -0.7914F, -14.4645F, 1, 1, 13, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 30, 0, -3.3701F, -5.1914F, -1.8645F, 1, 4, 5, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 29, 21, 2.0299F, -5.1914F, -1.8645F, 1, 4, 5, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 45, 7, -2.6701F, -5.8914F, -1.8645F, 5, 1, 5, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 29, 35, -3.1701F, 2.8086F, -12.8645F, 6, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 13, 21, -3.6601F, 1.8086F, 4.3355F, 1, 2, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 14, 15, 2.3299F, 1.8086F, 4.3355F, 1, 2, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 30, 11, -2.4701F, 2.1086F, 4.0355F, 4, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 44, 24, 1.1299F, 2.6086F, 4.0355F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 44, 22, -2.4701F, 2.6086F, 4.0355F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 41, 1.1299F, 2.1086F, 4.0355F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 22, 39, -4.3501F, 1.1086F, -2.6645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 15, 39, -4.3501F, 2.5086F, -2.6645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 7, 39, -4.3501F, 1.8086F, -3.3645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 39, -4.3501F, 1.8086F, -1.9645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 38, 32, 3.0199F, 1.1086F, -2.6645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 37, 2, 3.0199F, 2.5086F, -2.6645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 37, 0, 3.0199F, 1.8086F, -3.3645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 36, 24, 3.0199F, 1.8086F, -1.9645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 12, 25, 2.4299F, 2.6086F, 2.0355F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 8, 25, 2.4299F, 2.6086F, -5.9645F, 1, 1, 1, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 4, 2.3499F, 0.6086F, 1.8355F, 1, 1, 3, 0.0F, false));
-        Holografics.cubeList.add(new ModelBox(Holografics, 0, 0, 2.3399F, 0.1086F, 1.8355F, 1, 1, 3, 0.0F, false));
+		Holografics = new ModelRenderer(this);
+		Holografics.setRotationPoint(-1.3299F, -3.8086F, 2.6645F);
+		Holografics.cubeList.add(new ModelBox(Holografics, 0, 18, -3.1701F, -0.0914F, -14.6645F, 6, 3, 12, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 0, 0, -3.1701F, 2.8086F, -12.3645F, 6, 1, 17, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 48, 49, 2.3099F, -1.1914F, -3.1645F, 1, 5, 8, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 34, 56, -3.6701F, -5.1714F, -2.6645F, 1, 4, 6, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 15, 39, 2.3299F, 1.8086F, -6.1645F, 1, 2, 4, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 8, 0, -3.6701F, 1.8086F, -6.1645F, 1, 2, 3, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 56, 0, -2.6701F, -6.1914F, -2.6645F, 5, 1, 6, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 43, 14, -3.6701F, 0.8086F, -3.9645F, 1, 1, 1, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 0, 0, 2.3299F, -5.1914F, -2.6645F, 1, 4, 6, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 0, 27, -2.6701F, -6.1914F, 2.8355F, 5, 1, 1, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 32, 49, -3.1701F, -1.1914F, -1.8645F, 6, 1, 6, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 45, 28, -2.1701F, -1.0014F, -14.6645F, 1, 1, 13, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 7, 33, 3.0299F, 1.3086F, -3.1645F, 1, 2, 2, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 42, 14, 0.8299F, -0.9814F, -14.6645F, 1, 1, 13, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 0, 47, 0.3299F, -0.9714F, -14.6645F, 1, 1, 10, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 44, 0, -1.6701F, -0.9914F, -14.6645F, 1, 1, 10, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 23, 20, -1.6701F, -0.7914F, -14.4645F, 3, 1, 13, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 24, 18, -3.3701F, -5.1914F, -1.8645F, 1, 4, 5, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 0, 18, 2.0299F, -5.1914F, -1.8645F, 1, 4, 5, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 45, 42, -2.6701F, -5.8914F, -1.8645F, 5, 1, 5, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 31, 18, -3.1701F, 2.8086F, -12.8645F, 6, 1, 1, -0.001F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 31, 20, -3.6601F, 1.8086F, 4.3355F, 1, 2, 1, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 29, 6, 2.3299F, 1.8086F, 4.3355F, 1, 2, 1, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 24, 27, -2.4701F, 2.1086F, 4.0355F, 4, 1, 1, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 42, 22, 1.1299F, 2.6086F, 4.0355F, 1, 1, 1, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 21, 41, -2.4701F, 2.6086F, 4.0355F, 1, 1, 1, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 15, 41, 1.1299F, 2.1086F, 4.0355F, 1, 1, 1, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 6, 41, 3.0299F, 1.1086F, -2.6645F, 1, 1, 1, -0.001F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 0, 41, 3.0299F, 2.5086F, -2.6645F, 1, 1, 1, -0.001F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 24, 40, 3.0299F, 1.8086F, -3.3645F, 1, 1, 1, -0.001F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 9, 40, 3.0299F, 1.8086F, -1.9645F, 1, 1, 1, -0.001F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 42, 18, 2.3499F, 0.6086F, 1.8355F, 1, 1, 3, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 35, 41, 2.3399F, 0.1086F, 1.8355F, 1, 1, 3, 0.0F, false));
+		Holografics.cubeList.add(new ModelBox(Holografics, 22, 49, -3.6701F, -1.1914F, -3.1645F, 1, 5, 8, 0.0F, false));
 
-        gun3_r1_r1 = new ModelRenderer(this);
-        gun3_r1_r1.setRotationPoint(1.3299F, 28.0047F, 28.3015F);
-        Holografics.addChild(gun3_r1_r1);
-        setRotationAngle(gun3_r1_r1, 1.1154F, 0.0F, 0.0F);
-        gun3_r1_r1.cubeList.add(new ModelBox(gun3_r1_r1, 30, 14, -4.5F, -49.6244F, 3.6402F, 6, 2, 1, 0.0F, false));
+		gun103_r1_r1_r1 = new ModelRenderer(this);
+		gun103_r1_r1_r1.setRotationPoint(-1.4201F, 1.1186F, 4.5757F);
+		Holografics.addChild(gun103_r1_r1_r1);
+		setRotationAngle(gun103_r1_r1_r1, -1.5615F, 0.0F, 0.0F);
+		gun103_r1_r1_r1.cubeList.add(new ModelBox(gun103_r1_r1_r1, 0, 14, -1.25F, -0.6001F, -0.8123F, 2, 1, 1, -0.38F, false));
+		gun103_r1_r1_r1.cubeList.add(new ModelBox(gun103_r1_r1_r1, 0, 4, -0.75F, -0.6001F, -0.8123F, 2, 1, 1, -0.38F, false));
+		gun103_r1_r1_r1.cubeList.add(new ModelBox(gun103_r1_r1_r1, 36, 0, 1.75F, -0.6001F, -0.8123F, 2, 1, 1, -0.38F, false));
+		gun103_r1_r1_r1.cubeList.add(new ModelBox(gun103_r1_r1_r1, 8, 14, 1.25F, -0.6001F, -0.8123F, 2, 1, 1, -0.38F, false));
 
-        gun23_r1_r1 = new ModelRenderer(this);
-        gun23_r1_r1.setRotationPoint(1.3299F, 37.4375F, 10.8497F);
-        Holografics.addChild(gun23_r1_r1);
-        setRotationAngle(gun23_r1_r1, 0.8179F, 0.0F, 0.0F);
-        gun23_r1_r1.cubeList.add(new ModelBox(gun23_r1_r1, 0, 45, -4.98F, -36.777F, 14.3661F, 1, 2, 4, 0.0F, false));
-        gun23_r1_r1.cubeList.add(new ModelBox(gun23_r1_r1, 48, 35, 0.99F, -36.777F, 14.3661F, 1, 2, 4, 0.0F, false));
+		gun86_r1_r2_r1 = new ModelRenderer(this);
+		gun86_r1_r2_r1.setRotationPoint(-1.4201F, 1.1186F, 4.5757F);
+		Holografics.addChild(gun86_r1_r2_r1);
+		setRotationAngle(gun86_r1_r2_r1, -1.3384F, 0.0F, 0.0F);
+		gun86_r1_r2_r1.cubeList.add(new ModelBox(gun86_r1_r2_r1, 0, 33, -0.75F, -0.3333F, -0.2176F, 1, 1, 1, 0.0F, false));
+		gun86_r1_r2_r1.cubeList.add(new ModelBox(gun86_r1_r2_r1, 29, 9, -0.45F, -0.3345F, -0.2176F, 1, 1, 1, 0.0F, false));
+		gun86_r1_r2_r1.cubeList.add(new ModelBox(gun86_r1_r2_r1, 30, 36, 1.95F, -0.3345F, -0.2176F, 1, 1, 1, 0.0F, false));
+		gun86_r1_r2_r1.cubeList.add(new ModelBox(gun86_r1_r2_r1, 36, 8, 2.25F, -0.3333F, -0.2176F, 1, 1, 1, 0.0F, false));
 
-        gun26_r1_r1 = new ModelRenderer(this);
-        gun26_r1_r1.setRotationPoint(1.3299F, 28.9261F, -2.8747F);
-        Holografics.addChild(gun26_r1_r1);
-        setRotationAngle(gun26_r1_r1, -0.1859F, 0.0F, 0.0F);
-        gun26_r1_r1.cubeList.add(new ModelBox(gun26_r1_r1, 13, 30, 0.98F, -33.5686F, -6.0992F, 1, 5, 1, 0.0F, false));
-        gun26_r1_r1.cubeList.add(new ModelBox(gun26_r1_r1, 0, 31, -4.98F, -33.5686F, -6.0992F, 1, 5, 1, 0.0F, false));
+		gun89_r1_r1_r1 = new ModelRenderer(this);
+		gun89_r1_r1_r1.setRotationPoint(1.9158F, 28.109F, -2.6645F);
+		Holografics.addChild(gun89_r1_r1_r1);
+		setRotationAngle(gun89_r1_r1_r1, 0.0F, 0.0F, 0.2974F);
+		gun89_r1_r1_r1.cubeList.add(new ModelBox(gun89_r1_r1_r1, 15, 35, -8.3933F, -24.5101F, 7.0F, 1, 1, 1, -0.07F, false));
 
-        gun28_r1_r1 = new ModelRenderer(this);
-        gun28_r1_r1.setRotationPoint(1.3299F, 34.1762F, -44.036F);
-        Holografics.addChild(gun28_r1_r1);
-        setRotationAngle(gun28_r1_r1, -1.2269F, 0.0F, 0.0F);
-        gun28_r1_r1.cubeList.add(new ModelBox(gun28_r1_r1, 10, 4, -5.0F, -57.1966F, -19.2078F, 1, 1, 3, 0.0F, false));
-        gun28_r1_r1.cubeList.add(new ModelBox(gun28_r1_r1, 8, 21, 1.0F, -57.1966F, -19.2078F, 1, 1, 3, 0.0F, false));
+		gun88_r1_r1_r1 = new ModelRenderer(this);
+		gun88_r1_r1_r1.setRotationPoint(-1.7448F, 2.8398F, 4.8355F);
+		Holografics.addChild(gun88_r1_r1_r1);
+		setRotationAngle(gun88_r1_r1_r1, 0.0F, 0.0F, -0.4719F);
+		gun88_r1_r1_r1.cubeList.add(new ModelBox(gun88_r1_r1_r1, 36, 6, -0.5F, -0.5F, -0.5F, 1, 1, 1, -0.07F, false));
 
-        gun33_r1_r1 = new ModelRenderer(this);
-        gun33_r1_r1.setRotationPoint(1.3299F, -52.2166F, -59.87F);
-        Holografics.addChild(gun33_r1_r1);
-        setRotationAngle(gun33_r1_r1, -2.2679F, 0.0F, 0.0F);
-        gun33_r1_r1.cubeList.add(new ModelBox(gun33_r1_r1, 35, 30, -4.98F, -82.3682F, -2.4195F, 1, 2, 1, 0.0F, false));
-        gun33_r1_r1.cubeList.add(new ModelBox(gun33_r1_r1, 36, 21, 0.99F, -82.3682F, -2.4195F, 1, 2, 1, 0.0F, false));
+		gun86_r1_r1_r1 = new ModelRenderer(this);
+		gun86_r1_r1_r1.setRotationPoint(1.3299F, 71.6484F, -37.8887F);
+		Holografics.addChild(gun86_r1_r1_r1);
+		setRotationAngle(gun86_r1_r1_r1, -1.3384F, 0.0F, 0.0F);
+		gun86_r1_r1_r1.cubeList.add(new ModelBox(gun86_r1_r1_r1, 8, 10, -0.2F, -57.7771F, -60.7687F, 1, 1, 3, 0.0F, false));
+		gun86_r1_r1_r1.cubeList.add(new ModelBox(gun86_r1_r1_r1, 42, 28, -3.8F, -57.7729F, -60.7687F, 4, 1, 3, 0.0F, false));
 
-        gun43_r1_r1 = new ModelRenderer(this);
-        gun43_r1_r1.setRotationPoint(-63.87F, -39.8918F, -2.6645F);
-        Holografics.addChild(gun43_r1_r1);
-        setRotationAngle(gun43_r1_r1, 0.0F, 0.0F, 2.3213F);
-        gun43_r1_r1.cubeList.add(new ModelBox(gun43_r1_r1, 48, 28, -16.3701F, -75.5748F, -12.0F, 1, 1, 13, 0.0F, false));
-        gun43_r1_r1.cubeList.add(new ModelBox(gun43_r1_r1, 48, 42, -16.3817F, -75.9248F, -12.0F, 1, 1, 13, 0.0F, false));
+		gun86_r1_r1_r2 = new ModelRenderer(this);
+		gun86_r1_r1_r2.setRotationPoint(1.3299F, 71.6254F, -37.7914F);
+		Holografics.addChild(gun86_r1_r1_r2);
+		setRotationAngle(gun86_r1_r1_r2, -1.3384F, 0.0F, 0.0F);
+		gun86_r1_r1_r2.cubeList.add(new ModelBox(gun86_r1_r1_r2, 36, 36, -0.11F, -57.7729F, -60.9687F, 1, 1, 1, -0.1F, false));
+		gun86_r1_r1_r2.cubeList.add(new ModelBox(gun86_r1_r1_r2, 36, 34, -3.89F, -57.76F, -60.9687F, 1, 1, 1, -0.1F, false));
 
-        gun45_r1_r1 = new ModelRenderer(this);
-        gun45_r1_r1.setRotationPoint(59.6472F, -47.2725F, -2.6645F);
-        Holografics.addChild(gun45_r1_r1);
-        setRotationAngle(gun45_r1_r1, 0.0F, 0.0F, -2.3213F);
-        gun45_r1_r1.cubeList.add(new ModelBox(gun45_r1_r1, 15, 40, 7.3358F, -77.7689F, -12.0F, 1, 1, 13, 0.0F, false));
-        gun45_r1_r1.cubeList.add(new ModelBox(gun45_r1_r1, 44, 14, 7.3427F, -78.1189F, -12.0F, 1, 1, 13, 0.0F, false));
+		gun86_r1_r1_r3 = new ModelRenderer(this);
+		gun86_r1_r1_r3.setRotationPoint(-1.9701F, -0.357F, 4.233F);
+		Holografics.addChild(gun86_r1_r1_r3);
+		setRotationAngle(gun86_r1_r1_r3, -1.3686F, -0.1154F, 0.5119F);
+		gun86_r1_r1_r3.cubeList.add(new ModelBox(gun86_r1_r1_r3, 24, 21, -0.5F, -0.5F, -0.5F, 1, 1, 1, -0.2F, false));
 
-        gun54_r1_r1 = new ModelRenderer(this);
-        gun54_r1_r1.setRotationPoint(-11.0966F, 43.5487F, -2.6645F);
-        Holografics.addChild(gun54_r1_r1);
-        setRotationAngle(gun54_r1_r1, 0.0F, 0.0F, 0.7854F);
-        gun54_r1_r1.cubeList.add(new ModelBox(gun54_r1_r1, 44, 30, -29.2132F, -41.13F, 5.5F, 1, 1, 1, 0.0F, false));
-        gun54_r1_r1.cubeList.add(new ModelBox(gun54_r1_r1, 0, 31, -29.2F, -40.63F, 0.0F, 1, 1, 6, 0.0F, false));
-        gun54_r1_r1.cubeList.add(new ModelBox(gun54_r1_r1, 59, 17, -29.2132F, -41.13F, 0.0F, 1, 1, 6, 0.0F, false));
+		gun86_r1_r1_r4 = new ModelRenderer(this);
+		gun86_r1_r1_r4.setRotationPoint(1.7299F, -0.357F, 4.233F);
+		Holografics.addChild(gun86_r1_r1_r4);
+		setRotationAngle(gun86_r1_r1_r4, -1.3686F, -0.1154F, 0.5119F);
+		gun86_r1_r1_r4.cubeList.add(new ModelBox(gun86_r1_r1_r4, 7, 21, -0.5F, -0.5F, -0.5F, 1, 1, 1, -0.2F, false));
 
-        gun55_r1_r1 = new ModelRenderer(this);
-        gun55_r1_r1.setRotationPoint(-13.1676F, 41.4776F, -2.6645F);
-        Holografics.addChild(gun55_r1_r1);
-        setRotationAngle(gun55_r1_r1, 0.0F, 0.0F, 0.7854F);
-        gun55_r1_r1.cubeList.add(new ModelBox(gun55_r1_r1, 44, 28, -22.7487F, -44.6655F, 5.49F, 1, 1, 1, 0.0F, false));
-        gun55_r1_r1.cubeList.add(new ModelBox(gun55_r1_r1, 30, 39, -22.3487F, -44.658F, 0.0F, 1, 1, 6, 0.0F, false));
-        gun55_r1_r1.cubeList.add(new ModelBox(gun55_r1_r1, 26, 55, -22.7487F, -44.666F, 0.0F, 1, 1, 6, 0.0F, false));
+		gun83_r1_r1_r1 = new ModelRenderer(this);
+		gun83_r1_r1_r1.setRotationPoint(-0.1701F, 0.0262F, 4.2473F);
+		Holografics.addChild(gun83_r1_r1_r1);
+		setRotationAngle(gun83_r1_r1_r1, -1.5485F, 0.2307F, -1.3983F);
+		gun83_r1_r1_r1.cubeList.add(new ModelBox(gun83_r1_r1_r1, 15, 33, -0.5F, -0.3741F, -0.5F, 1, 1, 1, 0.0F, false));
 
-        gun59_r1_r1 = new ModelRenderer(this);
-        gun59_r1_r1.setRotationPoint(1.3299F, -53.9559F, -59.3478F);
-        Holografics.addChild(gun59_r1_r1);
-        setRotationAngle(gun59_r1_r1, -2.3051F, 0.0F, 0.0F);
-        gun59_r1_r1.cubeList.add(new ModelBox(gun59_r1_r1, 8, 31, 0.7F, -82.4793F, -3.3707F, 1, 2, 1, 0.0F, false));
-        gun59_r1_r1.cubeList.add(new ModelBox(gun59_r1_r1, 8, 34, -4.7F, -82.4793F, -3.3707F, 1, 2, 1, 0.0F, false));
+		gun83_r1_r1_r2 = new ModelRenderer(this);
+		gun83_r1_r1_r2.setRotationPoint(-0.1716F, 0.0217F, 4.3623F);
+		Holografics.addChild(gun83_r1_r1_r2);
+		setRotationAngle(gun83_r1_r1_r2, -1.5241F, 0.2271F, -1.2908F);
+		gun83_r1_r1_r2.cubeList.add(new ModelBox(gun83_r1_r1_r2, 29, 3, -0.4685F, -0.5031F, -0.5F, 1, 1, 1, -0.12F, false));
 
-        gun60_r1_r1 = new ModelRenderer(this);
-        gun60_r1_r1.setRotationPoint(1.3299F, 22.0825F, -54.7441F);
-        Holografics.addChild(gun60_r1_r1);
-        setRotationAngle(gun60_r1_r1, -1.45F, 0.0F, 0.0F);
-        gun60_r1_r1.cubeList.add(new ModelBox(gun60_r1_r1, 45, 56, -4.5F, -61.2549F, -16.0082F, 6, 1, 4, 0.0F, false));
+		gun75_r1_r1_r1 = new ModelRenderer(this);
+		gun75_r1_r1_r1.setRotationPoint(192.644F, -49.3887F, -2.6645F);
+		Holografics.addChild(gun75_r1_r1_r1);
+		setRotationAngle(gun75_r1_r1_r1, 0.0F, 0.0F, -2.3562F);
+		gun75_r1_r1_r1.cubeList.add(new ModelBox(gun75_r1_r1_r1, 29, 0, 102.6037F, -166.5311F, 0.8F, 1, 1, 5, 0.0F, false));
 
-        gun65_r1_r1 = new ModelRenderer(this);
-        gun65_r1_r1.setRotationPoint(1.3299F, -79.1099F, 14.4682F);
-        Holografics.addChild(gun65_r1_r1);
-        setRotationAngle(gun65_r1_r1, -3.002F, 0.0F, 0.0F);
-        gun65_r1_r1.cubeList.add(new ModelBox(gun65_r1_r1, 29, 21, 1.0F, -78.8604F, 20.3037F, 1, 3, 1, 0.0F, false));
-        gun65_r1_r1.cubeList.add(new ModelBox(gun65_r1_r1, 30, 0, -4.99F, -78.8604F, 20.3037F, 1, 3, 1, 0.0F, false));
+		gun74_r1_r1_r1 = new ModelRenderer(this);
+		gun74_r1_r1_r1.setRotationPoint(-197.2268F, -31.9038F, -2.6645F);
+		Holografics.addChild(gun74_r1_r1_r1);
+		setRotationAngle(gun74_r1_r1_r1, 0.0F, 0.0F, 2.3562F);
+		gun74_r1_r1_r1.cubeList.add(new ModelBox(gun74_r1_r1_r1, 29, 6, -118.9674F, -157.1673F, 0.8F, 1, 1, 5, 0.0F, false));
 
-        gun70_r1_r1 = new ModelRenderer(this);
-        gun70_r1_r1.setRotationPoint(52.994F, -37.3754F, -2.6645F);
-        Holografics.addChild(gun70_r1_r1);
-        setRotationAngle(gun70_r1_r1, 0.0F, 0.0F, -2.3562F);
-        gun70_r1_r1.cubeList.add(new ModelBox(gun70_r1_r1, 44, 14, 9.5321F, -67.4919F, 6.68F, 1, 1, 1, 0.0F, false));
+		gun73_r1_r1_r1 = new ModelRenderer(this);
+		gun73_r1_r1_r1.setRotationPoint(-164.0731F, -50.9476F, -2.6645F);
+		Holografics.addChild(gun73_r1_r1_r1);
+		setRotationAngle(gun73_r1_r1_r1, 0.0F, 0.0F, 2.3562F);
+		gun73_r1_r1_r1.cubeList.add(new ModelBox(gun73_r1_r1_r1, 0, 33, -82.8361F, -153.2007F, 0.8F, 1, 1, 5, 0.0F, false));
 
-        gun71_r1_r1 = new ModelRenderer(this);
-        gun71_r1_r1.setRotationPoint(-57.5768F, -30.1328F, -2.6645F);
-        Holografics.addChild(gun71_r1_r1);
-        setRotationAngle(gun71_r1_r1, 0.0F, 0.0F, 2.3562F);
-        gun71_r1_r1.cubeList.add(new ModelBox(gun71_r1_r1, 38, 43, -18.6534F, -65.3706F, 6.68F, 1, 1, 1, 0.0F, false));
+		gun72_r1_r1_r1 = new ModelRenderer(this);
+		gun72_r1_r1_r1.setRotationPoint(-175.1786F, -24.1368F, -2.6645F);
+		Holografics.addChild(gun72_r1_r1_r1);
+		setRotationAngle(gun72_r1_r1_r1, 0.0F, 0.0F, 2.3562F);
+		gun72_r1_r1_r1.cubeList.add(new ModelBox(gun72_r1_r1_r1, 15, 33, -106.3942F, -138.8426F, 0.8F, 1, 1, 5, 0.0F, false));
 
-        gun72_r1_r1 = new ModelRenderer(this);
-        gun72_r1_r1.setRotationPoint(-76.1662F, -34.7199F, -2.6645F);
-        Holografics.addChild(gun72_r1_r1);
-        setRotationAngle(gun72_r1_r1, 0.0F, 0.0F, 2.3562F);
-        gun72_r1_r1.cubeList.add(new ModelBox(gun72_r1_r1, 44, 28, -28.8981F, -76.3141F, 0.8F, 1, 1, 5, 0.0F, false));
+		gun71_r1_r1_r1 = new ModelRenderer(this);
+		gun71_r1_r1_r1.setRotationPoint(-140.2009F, -29.4507F, -2.6645F);
+		Holografics.addChild(gun71_r1_r1_r1);
+		setRotationAngle(gun71_r1_r1_r1, 0.0F, 0.0F, 2.3562F);
+		gun71_r1_r1_r1.cubeList.add(new ModelBox(gun71_r1_r1_r1, 0, 39, -77.5601F, -123.312F, 6.68F, 1, 1, 1, 0.0F, false));
 
-        gun73_r1_r1 = new ModelRenderer(this);
-        gun73_r1_r1.setRotationPoint(-65.0608F, -45.8253F, -2.6645F);
-        Holografics.addChild(gun73_r1_r1);
-        setRotationAngle(gun73_r1_r1, 0.0F, 0.0F, 2.3562F);
-        gun73_r1_r1.cubeList.add(new ModelBox(gun73_r1_r1, 44, 16, -16.4454F, -79.5668F, 0.8F, 1, 1, 5, 0.0F, false));
+		gun70_r1_r1_r1 = new ModelRenderer(this);
+		gun70_r1_r1_r1.setRotationPoint(135.618F, -46.9359F, -2.6645F);
+		Holografics.addChild(gun70_r1_r1_r1);
+		setRotationAngle(gun70_r1_r1_r1, 0.0F, 0.0F, -2.3562F);
+		gun70_r1_r1_r1.cubeList.add(new ModelBox(gun70_r1_r1_r1, 6, 39, 61.1962F, -132.6759F, 6.68F, 1, 1, 1, 0.0F, false));
 
-        gun74_r1_r1 = new ModelRenderer(this);
-        gun74_r1_r1.setRotationPoint(-85.5817F, -43.1697F, -2.6645F);
-        Holografics.addChild(gun74_r1_r1);
-        setRotationAngle(gun74_r1_r1, 0.0F, 0.0F, 2.3562F);
-        gun74_r1_r1.cubeList.add(new ModelBox(gun74_r1_r1, 15, 39, -32.0558F, -86.189F, 0.8F, 1, 1, 5, 0.0F, false));
+		gun65_r1_r1_r1 = new ModelRenderer(this);
+		gun65_r1_r1_r1.setRotationPoint(1.3299F, -187.3722F, 16.5576F);
+		Holografics.addChild(gun65_r1_r1_r1);
+		setRotationAngle(gun65_r1_r1_r1, -3.002F, 0.0F, 0.0F);
+		gun65_r1_r1_r1.cubeList.add(new ModelBox(gun65_r1_r1_r1, 0, 18, 1.0F, -185.7789F, 37.4364F, 1, 3, 1, 0.0F, false));
+		gun65_r1_r1_r1.cubeList.add(new ModelBox(gun65_r1_r1_r1, 13, 9, -4.99F, -185.7789F, 37.4364F, 1, 3, 1, 0.0F, false));
 
-        gun75_r1_r1 = new ModelRenderer(this);
-        gun75_r1_r1.setRotationPoint(80.999F, -50.4122F, -2.6645F);
-        Holografics.addChild(gun75_r1_r1);
-        setRotationAngle(gun75_r1_r1, 0.0F, 0.0F, -2.3562F);
-        gun75_r1_r1.cubeList.add(new ModelBox(gun75_r1_r1, 0, 39, 22.9346F, -88.3103F, 0.8F, 1, 1, 5, 0.0F, false));
+		gun60_r1_r1_r1 = new ModelRenderer(this);
+		gun60_r1_r1_r1.setRotationPoint(1.3299F, 74.4726F, -54.1527F);
+		Holografics.addChild(gun60_r1_r1_r1);
+		setRotationAngle(gun60_r1_r1_r1, -1.45F, 0.0F, 0.0F);
+		gun60_r1_r1_r1.cubeList.add(new ModelBox(gun60_r1_r1_r1, 57, 11, -4.5F, -66.981F, -68.0878F, 6, 1, 4, 0.0F, false));
 
-        gun83_r1_r1 = new ModelRenderer(this);
-        gun83_r1_r1.setRotationPoint(1.3299F, 21.6485F, -54.088F);
-        Holografics.addChild(gun83_r1_r1);
-        setRotationAngle(gun83_r1_r1, -1.45F, 0.0F, 0.0F);
-        gun83_r1_r1.cubeList.add(new ModelBox(gun83_r1_r1, 22, 41, -2.0F, -61.11F, -14.9352F, 1, 1, 1, 0.0F, false));
-        gun83_r1_r1.cubeList.add(new ModelBox(gun83_r1_r1, 30, 41, -2.1F, -61.1016F, -15.0352F, 1, 1, 1, 0.0F, false));
-        gun83_r1_r1.cubeList.add(new ModelBox(gun83_r1_r1, 38, 41, -1.9F, -61.1016F, -15.0352F, 1, 1, 1, 0.0F, false));
-        gun83_r1_r1.cubeList.add(new ModelBox(gun83_r1_r1, 30, 43, -2.0F, -61.11F, -15.1352F, 1, 1, 1, 0.0F, false));
+		gun59_r1_r1_r1 = new ModelRenderer(this);
+		gun59_r1_r1_r1.setRotationPoint(1.3299F, -66.668F, -158.0232F);
+		Holografics.addChild(gun59_r1_r1_r1);
+		setRotationAngle(gun59_r1_r1_r1, -2.3051F, 0.0F, 0.0F);
+		gun59_r1_r1_r1.cubeList.add(new ModelBox(gun59_r1_r1_r1, 7, 18, 0.7F, -164.2438F, -60.054F, 1, 2, 1, -0.001F, false));
+		gun59_r1_r1_r1.cubeList.add(new ModelBox(gun59_r1_r1_r1, 13, 0, -4.7F, -164.2438F, -60.054F, 1, 2, 1, -0.001F, false));
 
-        gun86_r1_r1 = new ModelRenderer(this);
-        gun86_r1_r1.setRotationPoint(1.3299F, 27.4616F, -47.9899F);
-        Holografics.addChild(gun86_r1_r1);
-        setRotationAngle(gun86_r1_r1, -1.3384F, 0.0F, 0.0F);
-        gun86_r1_r1.cubeList.add(new ModelBox(gun86_r1_r1, 10, 0, -0.2F, -57.4301F, -15.4433F, 1, 1, 3, 0.0F, false));
-        gun86_r1_r1.cubeList.add(new ModelBox(gun86_r1_r1, 7, 41, -0.2F, -57.4259F, -15.6433F, 1, 1, 1, 0.0F, false));
-        gun86_r1_r1.cubeList.add(new ModelBox(gun86_r1_r1, 15, 41, -3.8F, -57.4101F, -15.6433F, 1, 1, 1, 0.0F, false));
-        gun86_r1_r1.cubeList.add(new ModelBox(gun86_r1_r1, 0, 13, -3.8F, -57.4259F, -15.4433F, 4, 1, 3, 0.0F, false));
+		gun55_r1_r1_r1 = new ModelRenderer(this);
+		gun55_r1_r1_r1.setRotationPoint(6.7491F, 42.0635F, -2.6645F);
+		Holografics.addChild(gun55_r1_r1_r1);
+		setRotationAngle(gun55_r1_r1_r1, 0.0F, 0.0F, 0.7854F);
+		gun55_r1_r1_r1.cubeList.add(new ModelBox(gun55_r1_r1_r1, 15, 39, -37.2462F, -30.9965F, 5.49F, 1, 1, 1, 0.0F, false));
+		gun55_r1_r1_r1.cubeList.add(new ModelBox(gun55_r1_r1_r1, 12, 48, -36.8362F, -30.997F, 0.0F, 1, 1, 6, -0.001F, false));
+		gun55_r1_r1_r1.cubeList.add(new ModelBox(gun55_r1_r1_r1, 0, 10, -37.2462F, -30.997F, 0.0F, 1, 1, 6, 0.0F, false));
 
-        gun86_r1_r2 = new ModelRenderer(this);
-        gun86_r1_r2.setRotationPoint(1.3299F, 27.5616F, -47.9899F);
-        Holografics.addChild(gun86_r1_r2);
-        setRotationAngle(gun86_r1_r2, -1.3384F, 0.0F, 0.0F);
-        gun86_r1_r2.cubeList.add(new ModelBox(gun86_r1_r2, 41, 40, -3.2F, -57.5759F, -13.8433F, 1, 1, 1, 0.0F, false));
-        gun86_r1_r2.cubeList.add(new ModelBox(gun86_r1_r2, 42, 36, -0.8F, -57.5771F, -13.8433F, 1, 1, 1, 0.0F, false));
-        gun86_r1_r2.cubeList.add(new ModelBox(gun86_r1_r2, 41, 42, -0.4F, -57.5759F, -13.8433F, 1, 1, 1, 0.0F, false));
-        gun86_r1_r2.cubeList.add(new ModelBox(gun86_r1_r2, 43, 16, -3.6F, -57.5771F, -13.8433F, 1, 1, 1, 0.0F, false));
+		gun54_r1_r1_r1 = new ModelRenderer(this);
+		gun54_r1_r1_r1.setRotationPoint(8.8202F, 41.2057F, -2.6645F);
+		Holografics.addChild(gun54_r1_r1_r1);
+		setRotationAngle(gun54_r1_r1_r1, 0.0F, 0.0F, 0.7854F);
+		gun54_r1_r1_r1.cubeList.add(new ModelBox(gun54_r1_r1_r1, 21, 39, -41.6397F, -25.3899F, 5.5F, 1, 1, 1, 0.0F, false));
+		gun54_r1_r1_r1.cubeList.add(new ModelBox(gun54_r1_r1_r1, 0, 58, -41.6265F, -24.8899F, 0.0F, 1, 1, 6, 0.0F, false));
+		gun54_r1_r1_r1.cubeList.add(new ModelBox(gun54_r1_r1_r1, 57, 16, -41.6397F, -25.3899F, 0.0F, 1, 1, 6, 0.0F, false));
 
-        gun88_r1_r1 = new ModelRenderer(this);
-        gun88_r1_r1.setRotationPoint(2.2915F, 29.8374F, -2.6645F);
-        Holografics.addChild(gun88_r1_r1);
-        setRotationAngle(gun88_r1_r1, 0.0F, 0.0F, -0.2974F);
-        gun88_r1_r1.cubeList.add(new ModelBox(gun88_r1_r1, 38, 39, 3.5521F, -27.4952F, 6.9F, 1, 1, 1, 0.0F, false));
+		gun45_r1_r1_r1 = new ModelRenderer(this);
+		gun45_r1_r1_r1.setRotationPoint(154.3302F, -55.8283F, -2.6645F);
+		Holografics.addChild(gun45_r1_r1_r1);
+		setRotationAngle(gun45_r1_r1_r1, 0.0F, 0.0F, -2.3213F);
+		gun45_r1_r1_r1.cubeList.add(new ModelBox(gun45_r1_r1_r1, 0, 33, 65.6531F, -152.85F, -12.0F, 1, 1, 13, 0.0F, false));
+		gun45_r1_r1_r1.cubeList.add(new ModelBox(gun45_r1_r1_r1, 29, 0, 65.66F, -153.2F, -12.0F, 1, 1, 13, -0.001F, false));
 
-        gun89_r1_r1 = new ModelRenderer(this);
-        gun89_r1_r1.setRotationPoint(0.6201F, 29.9145F, -2.6645F);
-        Holografics.addChild(gun89_r1_r1);
-        setRotationAngle(gun89_r1_r1, 0.0F, 0.0F, 0.2974F);
-        gun89_r1_r1.cubeList.add(new ModelBox(gun89_r1_r1, 30, 39, -7.6835F, -26.616F, 6.9F, 1, 1, 1, 0.0F, false));
+		gun43_r1_r1_r1 = new ModelRenderer(this);
+		gun43_r1_r1_r1.setRotationPoint(-157.8492F, -38.3803F, -2.6645F);
+		Holografics.addChild(gun43_r1_r1_r1);
+		setRotationAngle(gun43_r1_r1_r1, 0.0F, 0.0F, 2.3213F);
+		gun43_r1_r1_r1.cubeList.add(new ModelBox(gun43_r1_r1_r1, 30, 35, -81.57F, -143.2752F, -12.0F, 1, 1, 13, 0.0F, false));
+		gun43_r1_r1_r1.cubeList.add(new ModelBox(gun43_r1_r1_r1, 15, 34, -81.5816F, -143.6252F, -12.0F, 1, 1, 13, -0.001F, false));
 
-        gun103_r1_r1 = new ModelRenderer(this);
-        gun103_r1_r1.setRotationPoint(1.3299F, 14.566F, -59.4593F);
-        Holografics.addChild(gun103_r1_r1);
-        setRotationAngle(gun103_r1_r1, -1.5615F, 0.0F, 0.0F);
-        gun103_r1_r1.cubeList.add(new ModelBox(gun103_r1_r1, 11, 13, -1.3F, -64.3339F, -13.3638F, 2, 1, 1, 0.0F, false));
-        gun103_r1_r1.cubeList.add(new ModelBox(gun103_r1_r1, 0, 25, -3.7F, -64.3339F, -13.3638F, 2, 1, 1, 0.0F, false));
-    }
+		gun33_r1_r1_r1 = new ModelRenderer(this);
+		gun33_r1_r1_r1.setRotationPoint(1.3299F, -59.6688F, -157.875F);
+		Holografics.addChild(gun33_r1_r1_r1);
+		setRotationAngle(gun33_r1_r1_r1, -2.2679F, 0.0F, 0.0F);
+		gun33_r1_r1_r1.cubeList.add(new ModelBox(gun33_r1_r1_r1, 29, 0, -4.99F, -162.3934F, -59.625F, 1, 2, 1, -0.001F, false));
 
-    @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        Holografics.render(f5);
-    }
+		gun33_r1_r1_r2 = new ModelRenderer(this);
+		gun33_r1_r1_r2.setRotationPoint(1.3299F, -59.733F, -157.9516F);
+		Holografics.addChild(gun33_r1_r1_r2);
+		setRotationAngle(gun33_r1_r1_r2, -2.2679F, 0.0F, 0.0F);
+		gun33_r1_r1_r2.cubeList.add(new ModelBox(gun33_r1_r1_r2, 24, 18, 0.99F, -162.4484F, -59.625F, 1, 2, 1, 0.0F, false));
 
-    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.rotateAngleX = x;
-        modelRenderer.rotateAngleY = y;
-        modelRenderer.rotateAngleZ = z;
-    }
+		gun28_r1_r1_r1 = new ModelRenderer(this);
+		gun28_r1_r1_r1.setRotationPoint(1.3299F, 70.9784F, -24.0925F);
+		Holografics.addChild(gun28_r1_r1_r1);
+		setRotationAngle(gun28_r1_r1_r1, -1.2269F, 0.0F, 0.0F);
+		gun28_r1_r1_r1.cubeList.add(new ModelBox(gun28_r1_r1_r1, 22, 34, -5.0F, -50.829F, -60.5793F, 1, 1, 2, -0.002F, false));
+		gun28_r1_r1_r1.cubeList.add(new ModelBox(gun28_r1_r1_r1, 30, 40, 1.0F, -50.829F, -60.5793F, 1, 1, 3, -0.001F, false));
+
+		gun26_r1_r1_r1 = new ModelRenderer(this);
+		gun26_r1_r1_r1.setRotationPoint(1.3299F, 27.8667F, -2.4616F);
+		Holografics.addChild(gun26_r1_r1_r1);
+		setRotationAngle(gun26_r1_r1_r1, -0.1859F, 0.0F, 0.0F);
+		gun26_r1_r1_r1.cubeList.add(new ModelBox(gun26_r1_r1_r1, 45, 34, 0.98F, -32.4511F, -6.3094F, 1, 5, 1, -0.001F, false));
+		gun26_r1_r1_r1.cubeList.add(new ModelBox(gun26_r1_r1_r1, 44, 0, -4.98F, -32.4511F, -6.3094F, 1, 5, 1, 0.0F, false));
+
+		gun23_r1_r1_r1 = new ModelRenderer(this);
+		gun23_r1_r1_r1.setRotationPoint(1.3299F, 40.7152F, -5.417F);
+		Holografics.addChild(gun23_r1_r1_r1);
+		setRotationAngle(gun23_r1_r1_r1, 0.8179F, 0.0F, 0.0F);
+		gun23_r1_r1_r1.cubeList.add(new ModelBox(gun23_r1_r1_r1, 0, 39, -4.98F, -27.1481F, 27.8803F, 1, 2, 4, 0.0F, false));
+		gun23_r1_r1_r1.cubeList.add(new ModelBox(gun23_r1_r1_r1, 30, 34, 0.99F, -27.1481F, 27.8803F, 1, 2, 4, 0.0F, false));
+
+		gun3_r1_r1_r1 = new ModelRenderer(this);
+		gun3_r1_r1_r1.setRotationPoint(1.3299F, 55.7286F, 14.506F);
+		Holografics.addChild(gun3_r1_r1_r1);
+		setRotationAngle(gun3_r1_r1_r1, 1.1154F, 0.0F, 0.0F);
+		gun3_r1_r1_r1.cubeList.add(new ModelBox(gun3_r1_r1_r1, 56, 7, -4.5F, -49.4283F, 34.6062F, 6, 2, 1, -0.001F, false));
+
+		Holografics_r1 = new ModelRenderer(this);
+		Holografics_r1.setRotationPoint(-3.2701F, 3.0086F, -5.3645F);
+		Holografics.addChild(Holografics_r1);
+		setRotationAngle(Holografics_r1, -0.2182F, 0.0F, 0.0F);
+		Holografics_r1.cubeList.add(new ModelBox(Holografics_r1, 0, 35, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
+
+		Holografics_r2 = new ModelRenderer(this);
+		Holografics_r2.setRotationPoint(-3.1701F, 0.922F, -1.5503F);
+		Holografics.addChild(Holografics_r2);
+		setRotationAngle(Holografics_r2, -1.9111F, 0.0F, 0.0F);
+		Holografics_r2.cubeList.add(new ModelBox(Holografics_r2, 0, 0, -0.5F, -1.0F, -1.0F, 1, 2, 2, 0.05F, false));
+
+		Holografics_r3 = new ModelRenderer(this);
+		Holografics_r3.setRotationPoint(-3.1701F, 0.2086F, 3.9355F);
+		Holografics.addChild(Holografics_r3);
+		setRotationAngle(Holografics_r3, -0.9774F, 0.0F, 0.0F);
+		Holografics_r3.cubeList.add(new ModelBox(Holografics_r3, 0, 10, -0.5F, 0.5F, -2.5F, 1, 2, 2, 0.05F, false));
+
+		Holografics_r4 = new ModelRenderer(this);
+		Holografics_r4.setRotationPoint(-3.2701F, 3.0086F, 2.5355F);
+		Holografics.addChild(Holografics_r4);
+		setRotationAngle(Holografics_r4, -1.0908F, 0.0F, 0.0F);
+		Holografics_r4.cubeList.add(new ModelBox(Holografics_r4, 30, 34, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
+
+		Holografics_r5 = new ModelRenderer(this);
+		Holografics_r5.setRotationPoint(2.9299F, 3.0086F, -5.3645F);
+		Holografics.addChild(Holografics_r5);
+		setRotationAngle(Holografics_r5, -0.5236F, 0.0F, 0.0F);
+		Holografics_r5.cubeList.add(new ModelBox(Holografics_r5, 39, 35, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
+
+		Holografics_r6 = new ModelRenderer(this);
+		Holografics_r6.setRotationPoint(2.9299F, 3.0086F, 2.5355F);
+		Holografics.addChild(Holografics_r6);
+		setRotationAngle(Holografics_r6, -0.192F, 0.0F, 0.0F);
+		Holografics_r6.cubeList.add(new ModelBox(Holografics_r6, 39, 39, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
+
+		Holografics_r7 = new ModelRenderer(this);
+		Holografics_r7.setRotationPoint(-0.1701F, -0.4931F, -2.1257F);
+		Holografics.addChild(Holografics_r7);
+		setRotationAngle(Holografics_r7, 0.4276F, 0.0F, 0.0F);
+		Holografics_r7.cubeList.add(new ModelBox(Holografics_r7, 36, 2, -1.0F, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
+	}
+
+	@Override
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+		Holografics.render(f5);
+	}
+
+	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+		modelRenderer.rotateAngleX = x;
+		modelRenderer.rotateAngleY = y;
+		modelRenderer.rotateAngleZ = z;
+	}
 }
