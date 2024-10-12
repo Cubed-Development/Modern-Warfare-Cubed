@@ -7,6 +7,7 @@ import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.HitUtil;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
+import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -53,6 +54,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
     private float explosionParticleScaleCoefficient;
     private float smokeParticleScaleCoefficient;
 
+    @Getter
     private Weapon weapon;
 
     public WeaponSpawnEntity(final World world) {
@@ -74,7 +76,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
         this.smokeParticleTextureId = smokeParticleTextureId;
         this.spawnRocketParticles = spawnRocketParticles;
 
-        this.setSize(0.30F, 0.30F);
+        setSize(0.30F, 0.30F);
     }
 
     @Override
@@ -89,9 +91,9 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
         if (explosionRadius > 0) {
             //PostProcessPipeline.createDistortionPoint((float) position.hitVec.x,(float)  position.hitVec.y, (float) position.hitVec.z, 2f, 3000);
-            Explosion.createServerSideExplosion(world, this.getThrower(), this, position.hitVec.x, position.hitVec.y, position.hitVec.z, explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), weapon.getModContext().getRegisteredTexture(smokeParticleTextureId), weapon.getModContext().getExplosionSound());
+            Explosion.createServerSideExplosion(world, getThrower(), this, position.hitVec.x, position.hitVec.y, position.hitVec.z, explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), weapon.getModContext().getRegisteredTexture(smokeParticleTextureId), weapon.getModContext().getExplosionSound());
         } else if (position.entityHit != null) {
-            position.entityHit.attackEntityFrom(new ProjectileDamageSource("gun", weapon.getName(), this, this.getThrower()), damage); // TODO: Change damage type from `gun` to `bullet` or `weapon`
+            position.entityHit.attackEntityFrom(new ProjectileDamageSource("gun", weapon.getName(), this, getThrower()), damage); // TODO: Change damage type from `gun` to `bullet` or `weapon`
 
             position.entityHit.hurtResistantTime = 0;
             position.entityHit.prevRotationYaw -= 0.3;
@@ -111,7 +113,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
             }
         }
 
-        this.setDead();
+        setDead();
     }
 
     @Override
@@ -187,10 +189,6 @@ public class WeaponSpawnEntity extends EntityProjectile {
     public void shoot(final double x, final double y, final double z, final float velocity, final float inaccuracy) {
     }
 
-    public Weapon getWeapon() {
-        return weapon;
-    }
-
     // TODO: Rename `gunName` to `weaponName`
     // TODO: Rename lang entries to weapon `instead` of `gun`
     // TODO: Format (Remove unecessary ifs)
@@ -206,11 +204,11 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
         @Override
         public ITextComponent getDeathMessage(EntityLivingBase entityLivingBaseIn) {
-            if (this.getTrueSource() == null) {
-                return new TextComponentTranslation("death.attack.gun.noshooter", entityLivingBaseIn.getDisplayName(), this.gunName);
+            if (getTrueSource() == null) {
+                return new TextComponentTranslation("death.attack.gun.noshooter", entityLivingBaseIn.getDisplayName(), gunName);
             }
 
-            return new TextComponentTranslation("death.attack.gun", entityLivingBaseIn.getDisplayName(), this.getTrueSource().getDisplayName(), this.gunName);
+            return new TextComponentTranslation("death.attack.gun", entityLivingBaseIn.getDisplayName(), getTrueSource().getDisplayName(), gunName);
         }
     }
 }

@@ -5,11 +5,9 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ParticleFancyRain;
-import com.paneedah.weaponlib.render.Bloom;
-import com.paneedah.weaponlib.render.DepthTexture;
-import com.paneedah.weaponlib.render.HDRFramebuffer;
-import com.paneedah.weaponlib.render.Shaders;
+import com.paneedah.weaponlib.render.*;
 import com.paneedah.weaponlib.render.bgl.weather.ModernWeatherRenderer;
+import lombok.Getter;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.particle.ParticleRain;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -60,9 +58,14 @@ public class PostProcessPipeline {
 
     private static final FloatBuffer PROJECTION_MATRIX_BUFFER = BufferUtils.createFloatBuffer(16);
     private static final FloatBuffer MODELVIEW_MATRIX_BUFFER = BufferUtils.createFloatBuffer(16);
-    // private static final FloatBuffer INVERSE_VIEW_PROJECTION_BUFFER =
-    // BufferUtils.createFloatBuffer(16);
 
+    /**
+     * -- GETTER --
+     *  Returns the game's light manager, this handles all the dyanmic world lights
+     *
+     * @return light manager
+     */
+    @Getter
     private static final LightManager lightManager = new LightManager();
 
     public static Framebuffer distortionBuffer;
@@ -72,14 +75,10 @@ public class PostProcessPipeline {
 
     private static final ArrayList<DistortionPoint> distortionList = new ArrayList<>();
 
-	/*
-	private static int depthBuffer = -1;
-	private static int depthTexture = -1;
-	*/
-
     private static final int fauxColorTexture = -1;
 
 
+    @Getter
     private static DepthTexture scopeDepthTexture;
     private static DepthTexture normalDepthTexture;
 
@@ -105,11 +104,17 @@ public class PostProcessPipeline {
      * @version September 28th, 2022
      */
     public static class DistortionPoint {
+        @Getter
         private final float x;
+        @Getter
         private final float y;
+        @Getter
         private final float z;
+        @Getter
         private final float size;
+        @Getter
         private final float life;
+        @Getter
         private float alpha;
         private final long creationTime;
 
@@ -119,36 +124,12 @@ public class PostProcessPipeline {
             this.z = z;
             this.size = size;
             this.life = life;
-            this.creationTime = System.currentTimeMillis();
+            creationTime = System.currentTimeMillis();
         }
 
         public void update() {
-            this.alpha = 1.0f - (System.currentTimeMillis() - creationTime) / life;
+            alpha = 1.0f - (System.currentTimeMillis() - creationTime) / life;
 
-        }
-
-        public float getAlpha() {
-            return this.alpha;
-        }
-
-        public float getX() {
-            return this.x;
-        }
-
-        public float getY() {
-            return this.y;
-        }
-
-        public float getZ() {
-            return this.z;
-        }
-
-        public float getSize() {
-            return this.size;
-        }
-
-        public float getLife() {
-            return this.life;
         }
 
         public long getBirthTime() {
@@ -169,15 +150,6 @@ public class PostProcessPipeline {
      */
     public static void createDistortionPoint(float x, float y, float z, float size, float life) {
         distortionList.add(new DistortionPoint(x, y, z, size, life));
-    }
-
-    /**
-     * Returns the game's light manager, this handles all the dyanmic world lights
-     *
-     * @return light manager
-     */
-    public static LightManager getLightManager() {
-        return lightManager;
     }
 
     /**
@@ -255,47 +227,7 @@ public class PostProcessPipeline {
         }
         normalDepthTexture.recreateBuffer(width, height);
 
-		/*
-		Framebuffer buffer = MC.getFramebuffer();
-		
-		if(normalDepthTexture == null) {
-			normalDepthTexture = new DepthTexture(buffer.framebufferWidth, buffer.framebufferHeight);
-		}
-		
-		// Method automatically tests if it should so there
-		// is very little overhead here.
-		normalDepthTexture.recreateBuffer(buffer.framebufferWidth, buffer.framebufferHeight);
-		
-		// Blit the buffer onto the scope's depth texture
-		normalDepthTexture.blitOn(buffer, true);
-		*/
-		
 
-		/*
-		// If there is a depth buffer, delete it
-		if (depthBuffer != -1)
-			OpenGlHelper.glDeleteFramebuffers(depthBuffer);
-
-		// Generate depth texture
-		if (depthTexture == -1)
-			depthTexture = GL11.glGenTextures();
-
-		
-
-		// Depth buffer
-		depthBuffer = OpenGlHelper.glGenFramebuffers();
-		OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, depthBuffer);
-
-		GlStateManager.bindTexture(depthTexture);
-		GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_DEPTH_COMPONENT24, width, height, 0,
-				GL11.GL_DEPTH_COMPONENT, GL11.GL_FLOAT, (FloatBuffer) null);
-		GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
-		GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
-		GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
-		GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
-		OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_DEPTH_ATTACHMENT,
-				GL11.GL_TEXTURE_2D, depthTexture, 0);
-		*/
         // Stupid OpenGL spec requires this
         // for older computers
 
@@ -308,29 +240,6 @@ public class PostProcessPipeline {
         // (new org.apache.logging.log4j.core.log()).setl
 
         // GL30.GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER
-        // System.out.println("Flag 3: " + GL11.glGetError());
-        // int bruh =
-        // OpenGlHelper.glCheckFramebufferStatus(OpenGlHelper.GL_FRAMEBUFFER);
-
-		/*
-		int status = OpenGlHelper.glCheckFramebufferStatus(OpenGlHelper.GL_FRAMEBUFFER);
-
-		if (status != OpenGlHelper.GL_FRAMEBUFFER_COMPLETE) {
-			if (status == OpenGlHelper.GL_FB_INCOMPLETE_ATTACHMENT) {
-				log.error("Depth framebuffer creation returned an incomplete attachment error.");
-			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_MISS_ATTACH) {
-				log.error("Depth framebuffer creation returned a missing attachment error.");
-			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_DRAW_BUFFER) {
-				log.error("Depth framebuffer creation returned an incomplete draw buffer error.");
-			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_READ_BUFFER) {
-				log.error("Depth framebuffer creation returned an incomplete read buffer error.");
-			} else {
-				log.error("Depth framebuffer creation returned an unknown status");
-			}
-		} else {
-			log.debug("Succesfully created depth buffer.");
-		}
-		*/
 
         // GL11.glGetError();
         /*
@@ -356,10 +265,6 @@ public class PostProcessPipeline {
 
     }
 
-    public static DepthTexture getScopeDepthTexture() {
-        return scopeDepthTexture;
-    }
-
     public static void blitDepth() {
 
         Framebuffer buffer = MC.getFramebuffer();
@@ -372,21 +277,6 @@ public class PostProcessPipeline {
         // Blit the buffer onto the main depth texture
         normalDepthTexture.blitOn(buffer, true);
 
-		/*
-		if (depthBuffer == -1)
-			recreateDepthFramebuffer();
-		// recreateDepthFramebuffer();
-		// System.out.println("Core");
-
-		OpenGlHelper.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER,
-				MC.getFramebuffer().framebufferObject);
-		OpenGlHelper.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER, depthBuffer);
-
-		GLCompatible.glBlitFramebuffer(0, 0, width, height, 0, 0, width, height, GL11.GL_DEPTH_BUFFER_BIT,
-				GL11.GL_NEAREST);
-
-		MC.getFramebuffer().bindFramebuffer(false);
-		*/
     }
 
     /**
@@ -438,13 +328,7 @@ public class PostProcessPipeline {
      * @return Transformed vector
      */
     public static Vec3d mat4Transform(Vec3d vec, Matrix4f mat) {
-        if (mat != null) {
-            double x = mat.m00 * vec.x + mat.m10 * vec.y + mat.m20 * vec.z + mat.m30;
-            double y = mat.m01 * vec.x + mat.m11 * vec.y + mat.m21 * vec.z + mat.m31;
-            double z = mat.m02 * vec.x + mat.m12 * vec.y + mat.m22 * vec.z + mat.m32;
-            return new Vec3d(x, y, z);
-        }
-        return vec;
+        return ModelRenderTool.transformViaMatrix(vec, mat);
     }
 
     public static void setupDistortionBufferEffects() {
@@ -456,19 +340,6 @@ public class PostProcessPipeline {
 
         distortionBuffer.framebufferClear();
 
-		/*
-		OpenGlHelper.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER,
-				MC.getFramebuffer().framebufferObject);
-		OpenGlHelper.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER,
-				PostProcessPipeline.distortionBuffer.framebufferObject);
-
-		GLCompatible.glBlitFramebuffer(0, 0, width, height, 0, 0, width, height, GL11.GL_DEPTH_BUFFER_BIT,
-				GL11.GL_NEAREST);
-
-	
-		distortionBuffer.bindFramebuffer(false);
-
-		*/
         distortionList.removeIf((s) -> (System.currentTimeMillis() - s.getBirthTime() > s.getLife()));
 
         for (DistortionPoint dp : distortionList)
@@ -790,12 +661,12 @@ public class PostProcessPipeline {
             }
 
             // Apply friction to velocity
-            raindrop[2] *= 0.9999;
-            raindrop[3] *= 0.992;
+            raindrop[2] *= 0.9999F;
+            raindrop[3] *= 0.992F;
 
             // Semi-implicit euler integration
             float vertical = (float) (raindrop[3] * dt);
-            raindrop[0] += raindrop[2] * dt;
+            raindrop[0] += (float) (raindrop[2] * dt);
             raindrop[1] += vertical;
 
             // System.out.println(vertical);
@@ -869,17 +740,6 @@ public class PostProcessPipeline {
         float fovModValue = MC.entityRenderer.getFOVModifier(MC.getRenderPartialTicks(), false);
 
         Project.gluPerspective(fovModValue, (float) MC.displayWidth / (float) MC.displayHeight, 0.05F, fpt * 2.0F);
-
-        // Project.gluPerspective(fovModValue, (float) MC.displayWidth / (float)
-        // MC.displayHeight, 0.05F, fpt * MathHelper.SQRT_2);
-
-        // Project.gluPerspective(MC.gameSettings.fovSetting, (float) MC.displayWidth /
-        // (float) MC.displayHeight, 0.05F,
-        // fpt * 2.0f);
-
-        // Project.gluPerspective(this.getFOVModifier(partialTicks, true),
-        // (float)this.MC.displayWidth / (float)this.MC.displayHeight, 0.05F,
-        // this.farPlaneDistance * MathHelper.SQRT_2);
 
         GlStateManager.matrixMode(5888);
         GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1f);

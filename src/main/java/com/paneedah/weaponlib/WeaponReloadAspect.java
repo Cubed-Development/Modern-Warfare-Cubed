@@ -102,13 +102,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
     private static final Predicate<PlayerWeaponInstance> reloadAnimationCompleted = weaponInstance -> {
         long maxTime = weaponInstance.getAnimationDuration();
-		
-		/*
-		if (weaponInstance.getState() == WeaponState.COMPOUND_RELOAD)
-			maxTime /= 4;
-		else if (weaponInstance.getState() == WeaponState.COMPOUND_RELOAD_EMPTY)
-			maxTime /= 1.5;
-		*/
 
         //return System.currentTimeMillis() - weaponInstance.getStateUpdateTimestamp() > 2116;
 
@@ -366,9 +359,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     public void processCompoundPermit(CompoundPermit p, PlayerWeaponInstance pwi) {
         processActualCompoundPermit(p, pwi);
 
-        //processUnloadPermit(new UnloadPermit(p.getState()), pwi);
-        //p.setStatus(Status.GRANTED);
-
         previousMagazine = null;
     }
 
@@ -395,10 +385,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         //processUnloadPermit(new UnloadPermit(instance.getState()), instance);
 
         // Send request to the server
-        //permitManager.request(new CompoundPermit(instance.getState()), instance, (a, b) -> {});
-
-        //processUnloadPermit(new UnloadPermit(instance.getState()), instance);
-        //processLoadPermit(new LoadPermit(instance.getState()), instance);
 
         previousMagazine = null;
     }
@@ -594,9 +580,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             return null;
         }
 
-        ItemStack magazineItemStack = player.inventory.getStackInSlot(i).copy().splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
-
-        return magazineItemStack;
+        return player.inventory.getStackInSlot(i).copy().splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
     }
 
     private void processActualCompoundPermit(CompoundPermit p, PlayerWeaponInstance instance) {
@@ -675,10 +659,10 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             ItemAttachment<Weapon> existingMagazine = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
             int ammo = Tags.getAmmo(weaponItemStack);
             if (existingMagazine == null) {
-                ammo = 0;
 
                 ItemStack magazineItemStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
 
+                assert magazineItemStack != null;
                 ammo = Tags.getAmmo(magazineItemStack);
                 Tags.setAmmo(weaponItemStack, ammo);
                 LOGGER.debug("Setting server side ammo for {} to {}", weaponInstance, ammo);
@@ -696,15 +680,8 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 weaponInstance.setLoadIterationCount(consumedAmount);
             }
             player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
-        } else if (consumed) {
-            Tags.setAmmo(weaponItemStack, weapon.builder.ammoCapacity);
-            // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, weapon.builder.ammoCapacity), (EntityPlayerMP) player);
-            weaponInstance.setAmmo(weapon.builder.ammoCapacity);
-            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
         } else {
             LOGGER.debug("No suitable ammo found for {}. Permit denied.", weaponInstance);
-            //Tags.setAmmo(weaponItemStack, 0);
-            //weaponInstance.setAmmo(0);
             status = Status.DENIED;
             // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, 0), (EntityPlayerMP) player);
         }

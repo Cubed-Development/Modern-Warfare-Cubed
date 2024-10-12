@@ -59,7 +59,7 @@ public class ModelInstancedObject<K> extends BasicInstancedObject<K> {
         }
 
 
-        Shader shad = ShaderLoader.loadShader(this.shaderName, array);
+        Shader shad = ShaderLoader.loadShader(shaderName, array);
         setRenderShader(shad);
 
     }

@@ -38,9 +38,9 @@ public class G11Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.14f)
-                .withFlashOffsetY(() -> 0.18f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.14f))
+                .withFlashOffsetY(() -> Float.valueOf(0.18f))
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -69,22 +69,12 @@ public class G11Factory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.G11HandguardK1, (model) -> {
-//             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//             GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.G11HandguardK2, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Magazines.G11Mag, (model) -> {
-//            GL11.glTranslatef(0F, -0.12F, 2F);
-//            GL11.glRotatef(5F, 1f, 0f, 0f);
-//            GL11.glRotatef(-10F, 0f, 1f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.G11Action, true, (model) -> {
-//          GL11.glTranslatef(0F, -0.12F, 2F);
-//          GL11.glRotatef(5F, 1f, 0f, 0f);
-//          GL11.glRotatef(-10F, 0f, 1f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
                     GL11.glTranslatef(-0.16F, -1.67F, -1.55F);
@@ -111,7 +101,7 @@ public class G11Factory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }

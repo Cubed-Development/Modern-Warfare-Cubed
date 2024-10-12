@@ -19,7 +19,7 @@ public final class WorkbenchClientMessage implements IMessage {
     /**
      * This only exists on the server end, this variable will be null on the client end.
      * <p>
-     * Use {@link Minecraft#world} instead.
+     * Use  instead.
      */
     private World world;
 

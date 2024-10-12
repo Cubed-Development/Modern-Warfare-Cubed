@@ -12,13 +12,13 @@ import java.lang.reflect.Method;
 public class forjosh {
 
     public static ItemStackHandler getVMWSlots(EntityPlayer player) {
-        Method m = null;
+        Method m;
         try {
             m = ReflectionHelper.findMethod(Class.forName("com.paneedah.mwc.capabilities.EquipmentCapability"), "getInventory", null, EntityLivingBase.class);
         } catch (Exception e) {
             return null;
         }
-        Object inventory = null;
+        Object inventory;
         try {
             inventory = m.invoke(null, player);
         } catch (Exception e) {
@@ -33,6 +33,7 @@ public class forjosh {
             }
         }
         ItemStackHandler handler = new ItemStackHandler(2);
+        assert backpack != null;
         handler.setStackInSlot(0, backpack[0]);
         handler.setStackInSlot(1, backpack[1]);
         return handler;

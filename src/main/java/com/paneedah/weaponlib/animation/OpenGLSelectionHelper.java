@@ -37,7 +37,6 @@ public class OpenGLSelectionHelper {
     /**
      * Allows you to select obj behind
      *
-     * @return
      */
     public static boolean shouldRender(int id) {
         return true;
@@ -96,9 +95,6 @@ public class OpenGLSelectionHelper {
         int mouseX = Mouse.getX() * width / MC.displayWidth;
         int mouseZ = height - Mouse.getY() * height / MC.displayHeight - 1;
 
-        // System.out.println( + " | " + (Mouse.getY()-boof.get(3)));
-        // System.out.println(mouseX + " | " + mouseZ);
-
         mouseX = (int) Math.round((mouseX / (double) width) * MC.displayWidth);
         mouseZ = (int) Math.round((mouseZ / (double) height) * MC.displayHeight);
 
@@ -117,33 +113,19 @@ public class OpenGLSelectionHelper {
         // System.out.println("Post: " + mouseX + " | " + mouseZ);
 
         // old
-        //ByteBuffer buf = BufferUtils.createByteBuffer(16);
-        //buf.rewind();
 
         resultBuffer.rewind();
 
         GL20.glUseProgram(0);
         // Maybe needed?
-        //GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-        // GlStateManager.enableDepth();
-        // GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-        // GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
         /*
          * GL11.glFlush(); GL11.glFinish();
          */
         // MC.getFramebuffer().unbindFramebufferTexture();
 
         // maybe needed
-        //GL11.glPixelStoref(GL11.GL_UNPACK_ALIGNMENT, 1);
-        //GL11.glReadBuffer(GL30.GL_COLOR_ATTACHMENT0);
 
-        // System.out.println(mouseX + " | " + mouseZ);
-
-        // System.out.println(width + " | " + height);
-
-        // GL11.glReadPixels(mouseX+200, mouseZ+100, 1, 1, GL11.GL_RGBA,
-        // GL11.GL_UNSIGNED_BYTE, buf);
         GL11.glReadPixels(mouseX, mouseZ, 1, 1, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, resultBuffer);
         resultBuffer.rewind();
         // test 2
@@ -211,11 +193,7 @@ public class OpenGLSelectionHelper {
         ByteBuffer buf = readRawColor();
         // System.out.println(buf.get(0) + " | " + buf.get(1) + " | " + buf.get(2) + " |
         // " + buf.get(3));
-        int red = buf.get(0) & 0xFF;
-        currentlyHovering = red;
-
-        // System.out.println(currentlyHovering);
-        // selectID = 20;
+        currentlyHovering = buf.get(0) & 0xFF;
 
         GlStateManager.color(1, 1, 1, 1);
         return 0;

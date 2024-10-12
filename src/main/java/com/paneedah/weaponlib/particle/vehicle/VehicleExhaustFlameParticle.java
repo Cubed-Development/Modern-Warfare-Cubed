@@ -25,16 +25,12 @@ public class VehicleExhaustFlameParticle extends Particle {
         this.motionX *= 2 + (Math.random() * 2.0);
         this.motionZ *= 2 + (Math.random() * 2.0);
 
-        //this.motionX += Math.random()*0.005;
-        //this.motionY += Math.random()*0.005;
-        //this.motionZ += Math.random()*0.005;
-
         this.particleRed = 1.0F;
         this.particleGreen = 1.0F;
         this.particleBlue = 1.0F;
         this.particleScale = this.rand.nextFloat() * 0.5F + 0.05F;
 
-        this.lavaParticleScale = this.particleScale;
+        lavaParticleScale = this.particleScale;
         this.particleMaxAge = (int) (1.0D / (Math.random() * 0.8D + 0.2D));
         setParticleTexture(ClientEventHandler.carParticles);
     }
@@ -64,7 +60,7 @@ public class VehicleExhaustFlameParticle extends Particle {
         float f = ((float) this.particleAge + partialTicks) / (float) this.particleMaxAge;
 
 
-        this.particleScale = ((this.particleAge / (float) this.particleMaxAge)) * this.lavaParticleScale;
+        this.particleScale = ((this.particleAge / (float) this.particleMaxAge)) * lavaParticleScale;
         this.particleAlpha = 1.0f - ((this.particleAge / (float) this.particleMaxAge + 28));
 
 
@@ -73,7 +69,7 @@ public class VehicleExhaustFlameParticle extends Particle {
 
         //this.particleRed = this.particleGreen = this.particleBlue = urandom.nextFloat() * 0.5F + 0.4F;
 
-        int j = this.getBrightnessForRender(partialTicks);
+        int j = getBrightnessForRender(partialTicks);
         int k = j >> 16 & 65535;
         int l = j & 65535;
 
@@ -104,7 +100,7 @@ public class VehicleExhaustFlameParticle extends Particle {
 
 
         if (this.particleAge++ >= this.particleMaxAge) {
-            this.setExpired();
+            setExpired();
         }
 
         float f = (float) this.particleAge / (float) this.particleMaxAge;
@@ -114,10 +110,7 @@ public class VehicleExhaustFlameParticle extends Particle {
         }
 
 
-        this.move(this.motionX, this.motionY, this.motionZ);
-        //this.motionX *= 1.5;
-        // this.motionY *= 0.9990000128746033D;
-        //this.motionZ *= 1.5;
+        move(this.motionX, this.motionY, this.motionZ);
 
         if (this.onGround) {
             this.motionX *= 0.699999988079071D;

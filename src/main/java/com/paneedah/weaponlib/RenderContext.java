@@ -3,6 +3,8 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.animation.PartPositionProvider;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,18 +16,40 @@ import java.util.Map;
 
 public class RenderContext<RS> implements PartPositionProvider {
 
+    @Getter
     private EntityLivingBase player;
     private ItemStack itemStack;
+    @Getter
+    @Setter
     private float limbSwing;
+    @Getter
+    @Setter
     private float flimbSwingAmount;
+    @Getter
+    @Setter
     private float ageInTicks;
+    @Getter
+    @Setter
     private float netHeadYaw;
+    @Getter
+    @Setter
     private float headPitch;
+    @Getter
+    @Setter
     private float scale;
+    @Getter
+    @Setter
     private float transitionProgress;
+    @Getter
     private ItemCameraTransforms.TransformType transformType;
+    @Getter
+    @Setter
     private RS fromState;
+    @Getter
+    @Setter
     private RS toState;
+    @Getter
+    @Setter
     private PlayerItemInstance<?> playerItemInstance;
     private boolean cancelBeizer;
 
@@ -34,7 +58,7 @@ public class RenderContext<RS> implements PartPositionProvider {
     public RenderContext(EntityLivingBase player, ItemStack itemStack) {
         this.player = player;
         this.itemStack = itemStack;
-        this.attachablePartPositions = new HashMap<>();
+        attachablePartPositions = new HashMap<>();
     }
 
     public void setCancelBeizer() {
@@ -45,108 +69,20 @@ public class RenderContext<RS> implements PartPositionProvider {
         return cancelBeizer;
     }
 
-    public float getLimbSwing() {
-        return limbSwing;
-    }
-
-    public void setLimbSwing(float limbSwing) {
-        this.limbSwing = limbSwing;
-    }
-
-    public float getFlimbSwingAmount() {
-        return flimbSwingAmount;
-    }
-
-    public void setFlimbSwingAmount(float flimbSwingAmount) {
-        this.flimbSwingAmount = flimbSwingAmount;
-    }
-
-    public float getAgeInTicks() {
-        return ageInTicks;
-    }
-
-    public void setAgeInTicks(float ageInTicks) {
-        this.ageInTicks = ageInTicks;
-    }
-
-    public float getNetHeadYaw() {
-        return netHeadYaw;
-    }
-
-    public void setNetHeadYaw(float netHeadYaw) {
-        this.netHeadYaw = netHeadYaw;
-    }
-
-    public float getHeadPitch() {
-        return headPitch;
-    }
-
-    public void setHeadPitch(float headPitch) {
-        this.headPitch = headPitch;
-    }
-
-    public float getScale() {
-        return scale;
-    }
-
-    public void setScale(float scale) {
-        this.scale = scale;
-    }
-
     public void setPlayer(EntityPlayer player) {
         this.player = player;
     }
 
     public void setWeapon(ItemStack weapon) {
-        this.itemStack = weapon;
-    }
-
-    public EntityLivingBase getPlayer() {
-        return player;
+        itemStack = weapon;
     }
 
     public ItemStack getWeapon() {
         return itemStack;
     }
 
-    public ItemCameraTransforms.TransformType getTransformType() {
-        return transformType;
-    }
-
     public void setCompatibleTransformType(ItemCameraTransforms.TransformType transformType) {
         this.transformType = transformType;
-    }
-
-    public RS getFromState() {
-        return fromState;
-    }
-
-    public void setFromState(RS fromState) {
-        this.fromState = fromState;
-    }
-
-    public RS getToState() {
-        return toState;
-    }
-
-    public void setToState(RS toState) {
-        this.toState = toState;
-    }
-
-    public float getTransitionProgress() {
-        return transitionProgress;
-    }
-
-    public void setTransitionProgress(float transitionProgress) {
-        this.transitionProgress = transitionProgress;
-    }
-
-    public PlayerItemInstance<?> getPlayerItemInstance() {
-        return playerItemInstance;
-    }
-
-    public void setPlayerItemInstance(PlayerItemInstance<?> playerItemInstance) {
-        this.playerItemInstance = playerItemInstance;
     }
 
     public PlayerWeaponInstance getWeaponInstance() {

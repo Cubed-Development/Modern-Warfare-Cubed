@@ -40,9 +40,6 @@ public class ShellRegistry {
      * <p>
      * The texture is located in textures/models
      *
-     * @param type
-     * @param modelName
-     * @param textureName
      */
     public static void addShellToRegistry(Type type, String modelName, String textureName) {
         shellRegistrar.put(type, new Pair<WavefrontModel, ResourceLocation>(WavefrontLoader.loadSubModel(modelName, "casing"),

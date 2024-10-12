@@ -28,8 +28,8 @@ public class ItemVehicle extends Item {
 //        this.name = name;
         this.entityClass = entityClass;
         this.maxStackSize = 1;
-        this.setCreativeTab(CreativeTabs.TRANSPORTATION);
-        this.setTranslationKey(name);
+        setCreativeTab(CreativeTabs.TRANSPORTATION);
+        setTranslationKey(name);
     }
 
     /**
@@ -106,11 +106,7 @@ public class ItemVehicle extends Item {
                     // throw new RuntimeException(e);
                 }
 
-//                EntityVehicle entityboat = new EntityVehicle(worldIn, raytraceresult.hitVec.x, flag1 ? raytraceresult.hitVec.y - 0.12D : raytraceresult.hitVec.y, raytraceresult.hitVec.z);
-//                entityboat.setBoatType(this.type);
-//                entityboat.rotationYaw = playerIn.rotationYaw;
-
-                if (!worldIn.getCollisionBoxes(entityboat, entityboat.getEntityBoundingBox().grow(-0.1D)).isEmpty()) {
+                if (!worldIn.getCollisionBoxes(null, entityboat.getEntityBoundingBox().grow(-0.1D)).isEmpty()) {
                     return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
                 } else {
                     if (!worldIn.isRemote) {

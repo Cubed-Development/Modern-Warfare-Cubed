@@ -11,18 +11,18 @@ import java.util.ArrayList;
  * Inertia builder based on the paper
  * <p>
  * A Comparison of Moment of Inertia Estimation Techniques for Vehicle Dynamics Simulation,
- * https://www.jstor.org/stable/44731313?read-now=1&seq=4#page_scan_tab_contents
+ * <a href="https://www.jstor.org/stable/44731313?read-now=1&seq=4#page_scan_tab_contents">...</a>
  *
  * @author Jim Holden, 2021
  */
 public class VehicleInertiaBuilder {
 
     private final Matrix3f tensor = new Matrix3f();
-    private double vehicleMass = 0;
+    private double vehicleMass;
     private final ArrayList<InertiaObject> inertiaObjectList = new ArrayList<>();
 
     public VehicleInertiaBuilder(double mass) {
-        this.vehicleMass = mass;
+        vehicleMass = mass;
     }
 
     /*
@@ -60,11 +60,6 @@ public class VehicleInertiaBuilder {
 
     public VehicleInertiaBuilder basicSedanConstruct(Vec3d d, float heightOffGround, float wheelBase, float wheelRadius, float wheelThickness) {
 
-
-        //addBasicBody(new Vec3d(d.x, d.y/2, d.z), heightOffGround, 0.5f, 0.5f, 5.05f);
-        //addTop(new Vec3d(d.x, d.y/2, d.z), heightOffGround, (float) (d.y/2f), 0.5f, 0.2f, 3.03f);
-        //addWheelAssembly(2, heightOffGround, wheelBase, wheelRadius, wheelThickness, (float) d.x, 3.03f);
-        //addPowerLine(d.scale(0.2), wheelBase, heightOffGround, 0.1f);
 
         return this;
     }
@@ -227,10 +222,6 @@ public class VehicleInertiaBuilder {
     /**
      * Adds an inertia cube to the builder
      *
-     * @param offset
-     * @param dimensions (h, w, d)
-     * @param volume
-     * @param density
      */
     public void addCube(Vec3d offset, Dimensions dim, double density) {
         double volume = dim.getVolume();
@@ -255,7 +246,7 @@ public class VehicleInertiaBuilder {
         }
 
         for (InertiaObject iO : inertiaObjectList) {
-            double r = (iO.getMassFactor() / sum) * this.vehicleMass;
+            double r = (iO.getMassFactor() / sum) * vehicleMass;
             iO.setRealMass(r);
 
         }
@@ -292,7 +283,7 @@ public class VehicleInertiaBuilder {
 
             Matrix3f oLocalTensor = (Matrix3f) iO.tensor.clone();
             oLocalTensor.add(tensMat);
-            this.tensor.add(oLocalTensor);
+            tensor.add(oLocalTensor);
 
         }
 
@@ -307,11 +298,10 @@ public class VehicleInertiaBuilder {
      */
 
     public Matrix3f outerProduct(Vec3d one, Vec3d two) {
-        Matrix3f mat = new Matrix3f(
+        return new Matrix3f(
                 (float) (one.x * two.x), (float) (one.x * two.y), (float) (one.x * two.z),
                 (float) (one.y * two.x), (float) (one.y * two.y), (float) (one.y * two.z),
                 (float) (one.z * two.x), (float) (one.z * two.y), (float) (one.z * two.z));
-        return mat;
     }
 
     public double getPosInBetween(double start, double pos, double end) {
@@ -323,18 +313,18 @@ public class VehicleInertiaBuilder {
     }
 
 
-    class InertiaObject {
+    static class InertiaObject {
 
-        public Vec3d pos = Vec3d.ZERO;
-        public double volume = 0;
-        public double density = 0;
-        public Matrix3f tensor = new Matrix3f();
-        public double mass = 0;
+        public Vec3d pos;
+        public double volume;
+        public double density;
+        public Matrix3f tensor;
+        public double mass;
 
         public InertiaObject(Vec3d p, Matrix3f t, double m, double volume, double density) {
-            this.pos = p;
-            this.tensor = t;
-            this.mass = m;
+            pos = p;
+            tensor = t;
+            mass = m;
             this.density = density;
             this.volume = volume;
         }
@@ -344,7 +334,7 @@ public class VehicleInertiaBuilder {
         }
 
         public void setRealMass(double mass) {
-            this.tensor.mul((float) mass);
+            tensor.mul((float) mass);
             this.mass = mass;
         }
 

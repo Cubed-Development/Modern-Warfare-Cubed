@@ -47,9 +47,9 @@ public class MP7Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.16f)
-                .withFlashOffsetY(() -> 0.23f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.16f))
+                .withFlashOffsetY(() -> Float.valueOf(0.23f))
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -94,16 +94,10 @@ public class MP7Factory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MP7Grip, true, (model) -> {
-//             GL11.glTranslatef(0f, -3.7f, 0.5f);
-//        	 GL11.glRotatef(90F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MP7action, true, (model) -> {
-//           GL11.glTranslatef(0f, -3.7f, 0.5f);
-//      	 GL11.glRotatef(90F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.MP7Stock, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.MP7MilSpecStock, (model) -> {
                     if (model instanceof MilSpecStock) {
@@ -112,18 +106,14 @@ public class MP7Factory {
                     }
                 })
                 .withCompatibleAttachment(Magazines.MP7Mag, (model) -> {
-//            GL11.glTranslatef(0.0F, 1.8F, 0.8F);
-//            GL11.glRotatef(15F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Magazines.MP7Mag20, (model) -> {
-//          GL11.glTranslatef(0.0F, 1.8F, 0.8F);
-//          GL11.glRotatef(15F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.MP7IronSights, true, (model) -> {
                     if (model instanceof MP7RearSights) {
                         GL11.glTranslatef(-0.12F, -0.74F, 0.63F);
                         GL11.glScaled(0.2F, 0.2F, 0.2F);
-                    } else if (model instanceof MP7FrontSights) {
+                    } else if (null instanceof MP7FrontSights) {
                         GL11.glTranslatef(-0.12F, -0.74F, -0.8F);
                         GL11.glScaled(0.2F, 0.2F, 0.2F);
                     }
@@ -132,7 +122,7 @@ public class MP7Factory {
                     if (model instanceof MP7RearSightFlipped) {
                         GL11.glTranslatef(-0.12F, -0.74F, 0.63F);
                         GL11.glScaled(0.2F, 0.2F, 0.2F);
-                    } else if (model instanceof MP7FrontSightFlipped) {
+                    } else if (null instanceof MP7FrontSightFlipped) {
                         GL11.glTranslatef(-0.12F, -0.74F, -0.8F);
                         GL11.glScaled(0.2F, 0.2F, 0.2F);
                     }
@@ -153,7 +143,7 @@ public class MP7Factory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -277,9 +267,6 @@ public class MP7Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {

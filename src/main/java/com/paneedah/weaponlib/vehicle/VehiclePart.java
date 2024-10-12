@@ -73,7 +73,7 @@ public interface VehiclePart extends PartContainer<VehiclePart> {
 
     VehiclePart FRONT_LEFT_CONTROL_ARM = new VehiclePart() {
 
-        private final List<VehiclePart> parts = Collections.unmodifiableList(Collections.singletonList(FRONT_LEFT_WHEEL));
+        private final List<VehiclePart> parts = Collections.singletonList(FRONT_LEFT_WHEEL);
 
         @Override
         public List<VehiclePart> getChildParts() {
@@ -87,7 +87,7 @@ public interface VehiclePart extends PartContainer<VehiclePart> {
 
     VehiclePart FRONT_RIGHT_CONTROL_ARM = new VehiclePart() {
 
-        private final List<VehiclePart> parts = Collections.unmodifiableList(Collections.singletonList(FRONT_RIGHT_WHEEL));
+        private final List<VehiclePart> parts = Collections.singletonList(FRONT_RIGHT_WHEEL);
 
         @Override
         public List<VehiclePart> getChildParts() {

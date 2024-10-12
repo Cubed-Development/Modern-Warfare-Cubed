@@ -39,9 +39,9 @@ public class HS12Factory implements GunFactory {
                 .withInaccuracy(8)
                 .withPellets(10)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.09f)
-                .withFlashOffsetY(() -> 0.12f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.09f))
+                .withFlashOffsetY(() -> Float.valueOf(0.12f))
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         5f, // x
@@ -58,13 +58,13 @@ public class HS12Factory implements GunFactory {
                 .withCompatibleAttachment(AuxiliaryAttachments.HS12Barrels, true, (model) -> {
                     if (model instanceof HS12Barrels) {
 //              GL11.glScaled(1F, 0.98F, 1);
-                    } else if (model instanceof AKRail) {
+                    } else if (null instanceof AKRail) {
                         GL11.glTranslatef(-0.148F, -0.75F, -0.91f);
                         GL11.glScaled(0.5F, 0.6F, 0.4F);
-                    } else if (model instanceof M1911frontsight) {
+                    } else if (null instanceof M1911frontsight) {
                         GL11.glTranslatef(-0.1F, -0.71F, -4.3f);
                         GL11.glScaled(0.2F, 0.4F, 0.4F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.01F, -0.1F, -4.4f);
                         GL11.glScaled(0.5F, 0.6F, 0.33F);
                         GL11.glRotatef(180.000000f, 0f, 0f, 1f);
@@ -75,7 +75,7 @@ public class HS12Factory implements GunFactory {
                         GL11.glTranslatef(-0.135F, -0.485F, -0.02F);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                         GL11.glScaled(0.47F, 0.47F, 0.47F);
-                    } else if (model instanceof Shotgun12Gauge2) {
+                    } else if (null instanceof Shotgun12Gauge2) {
                         GL11.glTranslatef(-0.135F, -0.3F, -0.02F);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                         GL11.glScaled(0.47F, 0.47F, 0.47F);
@@ -88,7 +88,7 @@ public class HS12Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
