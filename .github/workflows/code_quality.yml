@@ -7,6 +7,11 @@ jobs:
   qodana:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write
+      pull-requests: write
+      checks: write
+    
     steps:
       - name: Qodana Composite
         uses: Red-Studio-Ragnarok/Qodana-Composite@main
