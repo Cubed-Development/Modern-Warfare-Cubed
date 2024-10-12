@@ -33,6 +33,29 @@ include:
   - name: DanglingJavadoc
   - name: ManualMinMaxCalculation
   - name: FinalStaticMethod
+  - name: TodoComment
+  - name: RedundantSuppression
+  - name: IncorrectFormatting
+  - name: ConfigurationAvoidance
+  - name: DeprecatedConfigurations
+  - name: ObjectEqualsCanBeEquality
+  - name: MapReplaceableByEnumMap
+  - name: SetReplaceableByEnumSet
+  - name: AutoBoxing
+  - name: AutoUnboxing
+  - name: BulkFileAttributesRead
+  - name: DynamicRegexReplaceableByCompiledPattern
+  - name: ExplicitArgumentCanBeLambda
+  - name: QuestionableName
+  - name: UpperCaseFieldNameNotConstant
+  - name: EqualsCalledOnEnumConstant
+  - name: SimplifiableIfStatement
+  - name: UnnecessaryThis
+  - name: UnnecessarySuperQualifier
+  - name: SimplifiableEqualsExpression
+  - name: UnnecessaryBlockStatement
+  - name: UnnecessaryFullyQualifiedName
+  - name: UnnecessaryQualifierForThis
 exclude:
   - name: QodanaSanity
   - name: JavadocReference
