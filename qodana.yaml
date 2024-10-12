@@ -35,7 +35,6 @@ include:
   - name: FinalStaticMethod
   - name: TodoComment
   - name: RedundantSuppression
-  - name: IncorrectFormatting
   - name: ConfigurationAvoidance
   - name: DeprecatedConfigurations
   - name: ObjectEqualsCanBeEquality
