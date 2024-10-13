@@ -3,7 +3,6 @@ package com.paneedah.mwc.equipment.inventory;
 import com.paneedah.mwc.network.messages.EntityInventorySyncMessage;
 import com.paneedah.weaponlib.Contextual;
 import com.paneedah.weaponlib.ModContext;
-import lombok.Setter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
@@ -29,11 +28,16 @@ public class EquipmentInventory implements IInventory, Contextual {
      */
     private static final String TAG_NAME = "equipmentInventory";
 
+    /**
+     * The name your custom inventory will display in the GUI, possibly just
+     * "Inventory"
+     */
+    private final String name = "Equipment Inventory";
+
     private final ItemStack[] inventory;
 
     private ModContext modContext;
 
-    @Setter
     private EntityPlayer owner;
 
     public EquipmentInventory() {
@@ -41,6 +45,10 @@ public class EquipmentInventory implements IInventory, Contextual {
         for (int i = 0; i < inventory.length; i++) {
             inventory[i] = new ItemStack(Items.AIR);
         }
+    }
+
+    public void setOwner(EntityPlayer player) {
+        this.owner = player;
     }
 
     @Override
@@ -72,23 +80,28 @@ public class EquipmentInventory implements IInventory, Contextual {
         return true;
     }
 
+//    @Override
+//    public ItemStack getStackInSlotOnClosing(int slot) {
+//        ItemStack stack = getStackInSlot(slot);
+//        setInventorySlotContents(slot, null);
+//        return stack;
+//    }
+
     @Override
     public void setInventorySlotContents(int slot, @Nullable ItemStack itemstack) {
-        inventory[slot] = itemstack;
-        assert itemstack != null;
-        if (itemstack.getCount() > getInventoryStackLimit()) {
+        this.inventory[slot] = itemstack;
+        if (itemstack.getCount() > this.getInventoryStackLimit()) {
+            /*if (itemstack.getItem() instanceof ItemBackpack) {
+                 System.out.println("Setting inventory slot " + slot + " with tag compound "
+                         + itemstack.getTagCompound());
+            }*/
             itemstack.setCount(getInventoryStackLimit());
         }
-        markDirty();
+        this.markDirty();
     }
 
     @Override
     public String getName() {
-        /**
-         * The name your custom inventory will display in the GUI, possibly just
-         * "Inventory"
-         */
-        String name = "Equipment Inventory";
         return name;
     }
 
@@ -111,6 +124,8 @@ public class EquipmentInventory implements IInventory, Contextual {
         if (modContext != null && owner != null && owner.world.isRemote) {
             CHANNEL.sendToServer(new EntityInventorySyncMessage(owner,
                     true, this));
+//            CHANNEL.sendToAll(
+//                    new EntityInventorySyncMessage(owner, this, true));
         }
     }
 
@@ -139,6 +154,8 @@ public class EquipmentInventory implements IInventory, Contextual {
         for (int i = 0; i < getSizeInventory(); ++i) {
             final ItemStack stackInSlot = getStackInSlot(i);
             if (stackInSlot != null) {
+//                System.out.println("Serializing stack " + stackInSlot
+//                        + " with tag compound: " + stackInSlot.getTagCompound());
                 NBTTagCompound item = new NBTTagCompound();
                 item.setByte("Slot", (byte) i);
                 stackInSlot.writeToNBT(item);
