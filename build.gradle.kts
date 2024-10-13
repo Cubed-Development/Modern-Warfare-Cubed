@@ -18,7 +18,7 @@ val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
 val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-7"
 
-val groovyScriptVersion = "1.1.2"
+val groovyScriptVersion = "1.2.0-hotfix1"
 val mixinBooterVersion = "9.4"
 
 minecraft {
@@ -57,7 +57,7 @@ dependencies {
     implementation("dev.redstudio", "Red-Core", redCoreVersion)
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
-    compileOnly("com.cleanroommc:groovyscript:1.2.0-hotfix1") {
+    compileOnly("com.cleanroommc", "groovyscript", groovyScriptVersion) {
         isTransitive = false
     }
 
