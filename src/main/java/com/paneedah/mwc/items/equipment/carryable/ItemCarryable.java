@@ -7,7 +7,6 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
-import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
@@ -110,7 +109,7 @@ public class ItemCarryable extends Item implements IModernCraftingRecipe {
         }
 
         public T withModel(String model) {
-            modelName = "com.paneedah.mwc.models." + model;
+            this.modelName = "com.paneedah.mwc.models." + model;
             return self();
         }
 
@@ -187,21 +186,20 @@ public class ItemCarryable extends Item implements IModernCraftingRecipe {
         public abstract ItemCarryable build();
     }
 
-    @Getter
     protected int size;
-    @Getter
     protected ResourceLocation guiTextureLocation;
-    @Getter
     protected int guiTextureWidth;
-    @Getter
     protected Predicate<Item> validItemPredicate;
 
-    @Getter
     protected Runnable customEquippedPositioning;
 
     // Modern crafting setup
     protected CraftingEntry[] modernRecipe;
     protected CraftingGroup craftGroup;
+
+    public Runnable getCustomEquippedPositioning() {
+        return customEquippedPositioning;
+    }
 
     public final String modelName;
     public final String textureName;
@@ -221,18 +219,49 @@ public class ItemCarryable extends Item implements IModernCraftingRecipe {
         return 1; // return any value greater than zero
     }
 
+//    protected ItemStack onCompatibleItemRightClick(ItemStack itemStack, World world, EntityPlayer player, boolean mainHand) {
+//        if (!world.isRemote) {
+//            // If player not sneaking, open the inventory gui
+//            if (!player.isSneaking()) {
+//                player.openGui(context.getMod(), GuiHandler.STORAGE_ITEM_INVENTORY_GUI_ID, world, 0, 0, 0);
+//            }
+//        }
+//        return itemStack;
+//    }
+
+//    @SideOnly(Side.CLIENT)
+//    public void registerIcons(IIconRegister iconRegister) {
+//        this.itemIcon = iconRegister.registerIcon(this.getIconString());
+//    }
+
+    public int getSize() {
+        return size;
+    }
+
     @Override
     public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFormatting.GREEN + "Size: " + TextFormatting.GRAY + size);
+    }
+
+    public ResourceLocation getGuiTextureLocation() {
+        return guiTextureLocation;
     }
 
     private static String addFileExtension(String s, String ext) {
         return s != null && !s.endsWith(ext) ? s + ext : s;
     }
 
+    public int getGuiTextureWidth() {
+        return guiTextureWidth;
+    }
+
+    public Predicate<Item> getValidItemPredicate() {
+        return validItemPredicate;
+    }
+
     @Override
     public CraftingEntry[] getModernRecipe() {
-        return modernRecipe;
+        return this.modernRecipe;
     }
 
     @Override
@@ -242,16 +271,16 @@ public class ItemCarryable extends Item implements IModernCraftingRecipe {
 
     @Override
     public CraftingGroup getCraftingGroup() {
-        return craftGroup;
+        return this.craftGroup;
     }
 
     @Override
     public void setCraftingRecipe(CraftingEntry[] recipe) {
-        modernRecipe = recipe;
+        this.modernRecipe = recipe;
     }
 
     @Override
     public void setCraftingGroup(CraftingGroup group) {
-        craftGroup = group;
+        this.craftGroup = group;
     }
 }
