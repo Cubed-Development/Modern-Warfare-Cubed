@@ -2,6 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.Weapon.ShellCasingEjectDirection;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,7 +25,9 @@ public class EntityShellCasing extends EntityProjectile {
     private Weapon weapon;
     private PlayerWeaponInstance weaponInstance;
 
+    @Getter
     private float initialYaw;
+    @Getter
     private float initialPitch;
     private float xRotation;
     private float yRotation;
@@ -32,9 +35,6 @@ public class EntityShellCasing extends EntityProjectile {
     private float xRotationChange;
     private float yRotationChange;
     private float zRotationChange;
-
-    private final float rotationSlowdownFactor = 0.95f;
-    private final float maxRotationChange = 30f;
 
     public EntityShellCasing(World world) {
         super(world);
@@ -45,13 +45,13 @@ public class EntityShellCasing extends EntityProjectile {
                              float gravityVelocity, float inaccuracy) {
         super(world, player, velocity, gravityVelocity, inaccuracy);
 
-        this.weapon = weaponInstance.getWeapon();
+        weapon = weaponInstance.getWeapon();
         this.weaponInstance = weaponInstance;
     }
 
     @Override
     public void setPositionAndDirection(boolean isAiming) {
-        this.setSize(0.001f, 0.001f);
+        setSize(0.001f, 0.001f);
         float forwardOffset = 0.1F + weapon.getShellCasingForwardOffset(); // 0.1f;
 
         float sideOffset;
@@ -68,46 +68,47 @@ public class EntityShellCasing extends EntityProjectile {
             yOffset -= 0.0f;
         }
 
-        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight() + yOffset, thrower.posZ, thrower.rotationYaw, thrower.rotationPitch);
+        setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight() + yOffset, thrower.posZ, thrower.rotationYaw, thrower.rotationPitch);
 
-        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset) + MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
+        posX -= (double) (MathHelper.cos(rotationYaw / 180.0F * (float) Math.PI) * sideOffset) + MathHelper.sin(rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
 
         // float verticalOffset = ;
-        this.posY += -MathHelper.sin((this.rotationPitch) / 180.0F * (float) Math.PI) * forwardOffset;
+        posY += -MathHelper.sin((rotationPitch) / 180.0F * (float) Math.PI) * forwardOffset;
 
-        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset) - MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
+        posZ -= (double) (MathHelper.sin(rotationYaw / 180.0F * (float) Math.PI) * sideOffset) - MathHelper.cos(rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
 
-        this.setPosition(this.posX, this.posY, this.posZ);
+        setPosition(posX, posY, posZ);
 
         float f = velocity;
 
         float adjustedRotationYaw;
         if (weapon.getShellCasingEjectDirection() == ShellCasingEjectDirection.RIGHT) {
-            adjustedRotationYaw = this.rotationYaw + (weaponInstance.isAimed() ? -10f : -30f);
+            adjustedRotationYaw = rotationYaw + (weaponInstance.isAimed() ? -10f : -30f);
         } else {
-            adjustedRotationYaw = this.rotationYaw + 0f;
+            adjustedRotationYaw = rotationYaw + 0f;
         }
 
         int directionSignum = weapon.getShellCasingEjectDirection() == ShellCasingEjectDirection.RIGHT ? 1 : -1;
 
-        this.motionX = directionSignum
+        motionX = directionSignum
                 * -(double) (MathHelper.cos(adjustedRotationYaw / 180.0F * (float) Math.PI) * f);
 
-        this.motionZ = directionSignum
+        motionZ = directionSignum
                 * (double) (-MathHelper.sin(adjustedRotationYaw / 180.0F * (float) Math.PI) * f);
 
-        this.motionY = 0;
+        motionY = 0;
 
-        this.motionX *= 0.1;
-        this.motionY *= 0.1;
-        this.motionZ *= 0.1;
+        motionX *= 0.1;
+        motionY *= 0.1;
+        motionZ *= 0.1;
 
-        this.initialYaw = this.rotationYaw;
-        this.initialPitch = this.rotationPitch;
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
+        initialYaw = rotationYaw;
+        initialPitch = rotationPitch;
+        setThrowableHeading(motionX, motionY, motionZ, velocity, inaccuracy);
     }
 
     private void setRotations() {
+        float maxRotationChange = 30f;
         xRotationChange = maxRotationChange * (float) random.nextGaussian();
         yRotationChange = maxRotationChange * (float) random.nextGaussian();
         zRotationChange = maxRotationChange * (float) random.nextGaussian();
@@ -115,9 +116,6 @@ public class EntityShellCasing extends EntityProjectile {
 
     @Override
     public void onUpdate() {
-//        if(true) {
-//            this.setDead();
-//        }
         super.onUpdate();
         // /*
         // log.trace("Before {} {} {}, velocity: {}, {}, {}, gravity: {}",
@@ -129,6 +127,7 @@ public class EntityShellCasing extends EntityProjectile {
         yRotation += yRotationChange;
         zRotation += zRotationChange;
 
+        float rotationSlowdownFactor = 0.95f;
         xRotationChange *= rotationSlowdownFactor;
         yRotationChange *= rotationSlowdownFactor;
         zRotationChange *= rotationSlowdownFactor;
@@ -142,7 +141,6 @@ public class EntityShellCasing extends EntityProjectile {
     }
 
     /**
-     * @see net.minecraft.entity.projectile.EntityThrowable#onImpact(net.minecraft.util.MovingObjectPosition)
      */
     @Override
     protected void onImpact(RayTraceResult position) {
@@ -188,14 +186,6 @@ public class EntityShellCasing extends EntityProjectile {
 
     boolean isDamageableEntity(Entity entity) {
         return false;
-    }
-
-    public float getInitialYaw() {
-        return initialYaw;
-    }
-
-    public float getInitialPitch() {
-        return initialPitch;
     }
 
     public float getXRotation() {

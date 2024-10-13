@@ -37,9 +37,9 @@ public class AUGFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -636,9 +636,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.55f, 0.5f);
                                 } else {
@@ -647,9 +646,8 @@ public class AUGFactory implements GunFactory {
                             }
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.57f, 0.5f);
                                 } else {
@@ -659,9 +657,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.52f, 0.5f);
                                 } else {
@@ -671,9 +668,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.56f, 0.0f);
                                 } else {
@@ -683,9 +679,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.56f, 0.0f);
                                 } else {
@@ -695,9 +690,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.52f, 0.0f);
                                 } else {
@@ -707,9 +701,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.496f, 0.0f);
                                 } else {
@@ -719,9 +712,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.56f, 0.0f);
                                 } else {
@@ -731,9 +723,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.56f, 0.0f);
                                 } else {
@@ -743,9 +734,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.57f, 0.4f);
                                 } else {
@@ -755,9 +745,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.56f, -0.1f);
                                 } else {
@@ -773,9 +762,8 @@ public class AUGFactory implements GunFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, rc.getWeaponInstance());
+                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.47f, 0.0f);
                                 } else {

@@ -48,9 +48,9 @@ public class KS23Factory implements GunFactory {
                 .withInaccuracy(16)
                 .withPellets(10)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.05f)
-                .withFlashOffsetY(() -> 0.09f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.05f))
+                .withFlashOffsetY(() -> Float.valueOf(0.09f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
 
@@ -175,10 +175,6 @@ public class KS23Factory implements GunFactory {
                             GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(-0.150000f, 0.350000f, -1.225000f);
 
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glRotatef(5F, 0f, 0f, 1f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glTranslatef(-0.150000f, 0.350000f, -1.825000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -196,13 +192,8 @@ public class KS23Factory implements GunFactory {
                             GL11.glRotatef(-1.5F, 1f, 0f, 0f);
 
 //              // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })
@@ -215,8 +206,6 @@ public class KS23Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.Shotgun4Gauge.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0.07F, 1.15F, -0.3F);
-//                GL11.glRotatef(-70F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.Shotgun4Gauge.getRenderablePart(), (renderContext) -> {
@@ -703,13 +692,8 @@ public class KS23Factory implements GunFactory {
                             GL11.glTranslatef(0.250000f, 0.17f, -1.1f);
 
 //              // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })

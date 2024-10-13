@@ -31,13 +31,6 @@ public class ItemScope extends ItemAttachment<Weapon> {
         public CyclicList<Reticle> reticles = new CyclicList<>();
         public ReflexScreen screen;
         private float radialCut = 20f;
-        /*
-        public ResourceLocation reticleTexture;
-        public float texScale = 0.05f;
-        public float reticleCut = 0.1f;
-        private boolean hasReticle = false;
-        public Vec3d background;
-        */
         private Runnable reticlePositioning;
 
 
@@ -48,17 +41,17 @@ public class ItemScope extends ItemAttachment<Weapon> {
         }
 
         public Builder withRadialCut(float radius) {
-            this.radialCut = radius;
+            radialCut = radius;
             return this;
         }
 
         public Builder withSniperReticle(Reticle ret) {
-            this.sniperReticle = ret;
+            sniperReticle = ret;
             return this;
         }
 
         public Builder withOpticalZoom() {
-            this.isOpticalZoom = true;
+            isOpticalZoom = true;
             return this;
         }
 
@@ -69,12 +62,12 @@ public class ItemScope extends ItemAttachment<Weapon> {
         }
 
         public Builder withNightVision() {
-            this.hasNightVision = true;
+            hasNightVision = true;
             return this;
         }
 
         public Builder withWhitePhosphor() {
-            this.usesWhitePhosphor = true;
+            usesWhitePhosphor = true;
             return this;
         }
 
@@ -109,8 +102,8 @@ public class ItemScope extends ItemAttachment<Weapon> {
             }
 
             if (!reticles.isEmpty()) {
-                this.screen = new ReflexScreen(reticlePositioning, radialCut, reticles);
-                withPostRender(this.screen);
+                screen = new ReflexScreen(reticlePositioning, radialCut, reticles);
+                withPostRender(screen);
             }
 
             ItemScope itemScope = new ItemScope(this);
@@ -121,11 +114,11 @@ public class ItemScope extends ItemAttachment<Weapon> {
 
         @Override
         public ItemAttachment<Weapon> build(ModContext modContext) {
-            this.apply2 = (a, instance) -> {
+            apply2 = (a, instance) -> {
                 float zoom = minZoom + (maxZoom - minZoom) / 2f;
                 instance.setZoom(zoom);
             };
-            this.remove2 = (a, instance) -> {
+            remove2 = (a, instance) -> {
                 instance.setZoom(1);
             };
             return super.build(modContext);

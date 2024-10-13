@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.numerical;
 
+import lombok.Getter;
+
 public class SynchronizedSimulator {
 
     private final ISimulator simulator;
@@ -7,6 +9,7 @@ public class SynchronizedSimulator {
     private double accumulator;
     private final double dt;
 
+    @Getter
     private double remainder;
 
     public SynchronizedSimulator(ISimulator simulator, double dt) {
@@ -32,13 +35,9 @@ public class SynchronizedSimulator {
             accumulator -= dt;
         }
 
-        this.remainder = accumulator;
+        remainder = accumulator;
 
 
-    }
-
-    public double getRemainder() {
-        return this.remainder;
     }
 
 

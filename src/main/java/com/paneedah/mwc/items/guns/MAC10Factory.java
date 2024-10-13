@@ -46,9 +46,9 @@ public class MAC10Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.16f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.16f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withInaccuracy(3f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -101,8 +101,6 @@ public class MAC10Factory {
 //          GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Magazines.MAC10Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 2F, 0.2F);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
                 })
 
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
@@ -143,10 +141,9 @@ public class MAC10Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
