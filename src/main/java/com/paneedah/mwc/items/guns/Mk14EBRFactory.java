@@ -41,9 +41,9 @@ public class Mk14EBRFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.10f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.10f))
                 .withInaccuracy(1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -88,8 +88,6 @@ public class Mk14EBRFactory {
                 })
                 .withCompatibleAttachment(Attachments.M14Body, true, (model) -> {
                     if (model instanceof M14Body) {
-//                GL11.glTranslatef(0F, 0F, 0F);
-//                GL11.glScaled(1F, 1F, 1F);
                     } else if (model instanceof FALIron) {
                         GL11.glTranslatef(-0.19F, -1.34F, -8.5F);
                         GL11.glScaled(0F, 0F, 0F);
@@ -148,8 +146,6 @@ public class Mk14EBRFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.M14Cover, true, (model) -> {
-//          GL11.glTranslatef(-0.2F, -1.3F, -9F);
-//          GL11.glScaled(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.M14TriRailCover, (model) -> {
                     if (model instanceof M14TriRailCover) {
@@ -173,8 +169,6 @@ public class Mk14EBRFactory {
                     GL11.glScaled(1.15F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Magazines.Mk14EBRMag, (model) -> {
-//        	GL11.glTranslatef(0F, 0.8F, -0.3F);
-//            GL11.glRotatef(-15F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Magazines.M14Drum50, (model) -> {
                     GL11.glTranslatef(0F, 0.1F, -0.62F);
@@ -321,10 +315,9 @@ public class Mk14EBRFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
                     GL11.glTranslatef(-0.182F, -1.22F, -2F);

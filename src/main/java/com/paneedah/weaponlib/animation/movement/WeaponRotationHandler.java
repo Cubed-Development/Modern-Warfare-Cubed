@@ -15,6 +15,8 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
+import java.util.Objects;
+
 /**
  * Class that handles weapon rotations, handles recoil animations, walking
  * animations, and any other procedural animation involving weapons in the mod.
@@ -32,9 +34,9 @@ public class WeaponRotationHandler {
 
 
     // animations
-    public static final KeyedAnimation WALKING_ANIMATION = new KeyedAnimation(BBLoader.getAnimation("universal", "walkforward", "main"));
-    public static final KeyedAnimation RUNNING_ANIMATION = new KeyedAnimation(BBLoader.getAnimation("universal", "running", "main"));
-    public static final KeyedAnimation STRAFING_ANIMATION = new KeyedAnimation(BBLoader.getAnimation("universal", "walk", "main"));
+    public static final KeyedAnimation WALKING_ANIMATION = new KeyedAnimation(Objects.requireNonNull(BBLoader.getAnimation("universal", "walkforward", "main")));
+    public static final KeyedAnimation RUNNING_ANIMATION = new KeyedAnimation(Objects.requireNonNull(BBLoader.getAnimation("universal", "running", "main")));
+    public static final KeyedAnimation STRAFING_ANIMATION = new KeyedAnimation(Objects.requireNonNull(BBLoader.getAnimation("universal", "walk", "main")));
 
 
     // Rotation points
@@ -70,12 +72,6 @@ public class WeaponRotationHandler {
      * shifting the object by the inverse of that translation and shifting it back.
      * +
      *
-     * @param xOffset
-     * @param yOffset
-     * @param zOffset
-     * @param xRotation
-     * @param yRotation
-     * @param zRotation
      */
     public static void applyRotationAtPoint(float xOffset, float yOffset, float zOffset, float xRotation,
                                             float yRotation, float zRotation) {
@@ -102,8 +98,6 @@ public class WeaponRotationHandler {
      * 4. Apply weapon recovery animations
      * 5. Apply recoil animations + stress vector
      *
-     * @param renderContext
-     * @param stateDescriptor
      */
     public void run(RenderContext<RenderableState> renderContext, StateDescriptor stateDescriptor) {
 
@@ -152,7 +146,7 @@ public class WeaponRotationHandler {
                 walkingSwayAmplitude *= 0.33f;
             }
 
-            divisorMultiplier /= params.getADSSimilarity();
+            divisorMultiplier /= (float) params.getADSSimilarity();
 
             // The spring is more obvious in first person
             // so, by increasing the damping we can make

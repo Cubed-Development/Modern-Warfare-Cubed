@@ -29,19 +29,18 @@ public class ExplosionParticleFX extends Particle {
         this.motionZ = motionZ;
 
         if (motionX == 0.0F) {
-            motionX = 1.0F;
         }
 
-        this.particleTextureIndexX = 0;
-        this.particleTextureIndexY = 0;
-        this.particleRed = 1.0F;
-        this.particleGreen = 1.0F;
-        this.particleBlue = 1.0F;
-        this.particleAlpha = 1.0F;
-        this.particleScale = scale;
+        particleTextureIndexX = 0;
+        particleTextureIndexY = 0;
+        particleRed = 1.0F;
+        particleGreen = 1.0F;
+        particleBlue = 1.0F;
+        particleAlpha = 1.0F;
+        particleScale = scale;
         this.particleMaxAge = particleMaxAge == 0 ? 50 + (int) (rand.nextFloat() * 30) : particleMaxAge;
 
-        this.imageIndex = this.rand.nextInt(columnCount * rowCount); // % columnCount;
+        imageIndex = rand.nextInt(columnCount * rowCount); // % columnCount;
 
         this.particleTexture = particleTexture != null ? particleTexture : DEFAULT_TEXTURE;
     }
@@ -49,34 +48,34 @@ public class ExplosionParticleFX extends Particle {
     @Override
     public void onUpdate() {
 
-        this.prevPosX = this.posX;
-        this.prevPosY = this.posY;
-        this.prevPosZ = this.posZ;
+        prevPosX = posX;
+        prevPosY = posY;
+        prevPosZ = posZ;
 
-        if (this.particleAge++ >= particleMaxAge) //this.particleMaxAge)
+        if (particleAge++ >= particleMaxAge) //this.particleMaxAge)
         {
-            this.setExpired();
+            setExpired();
         }
 
         //this.setParticleTextureIndex(7 - this.particleAge * 8 / this.particleMaxAge);
-        this.motionY += 0.004D;
-        this.move(this.motionX, this.motionY, this.motionZ);
+        motionY += 0.004D;
+        move(motionX, motionY, motionZ);
         //this.moveEntity(this.motionX, this.motionY, this.motionZ);
-        this.motionX *= 0.99; //8999999761581421D;
+        motionX *= 0.99; //8999999761581421D;
         //8999999761581421D;
 
-        this.motionY *= 0.99;
+        motionY *= 0.99;
 
         motionY -= 0.07;
 
-        this.motionZ *= 0.99; //8999999761581421D;
+        motionZ *= 0.99; //8999999761581421D;
 
-        if (this.isExpired) {
-            this.motionX *= 0.699999988079071D;
-            this.motionZ *= 0.699999988079071D;
+        if (isExpired) {
+            motionX *= 0.699999988079071D;
+            motionZ *= 0.699999988079071D;
         }
 
-        this.particleAlpha = particleAge < 9 ? 1 : 1 + 9 / particleMaxAge - (particleAge / particleMaxAge);
+        particleAlpha = particleAge < 9 ? 1 : 1 + (float) 9 / particleMaxAge - ((float) particleAge / particleMaxAge);
 
     }
 
@@ -97,13 +96,13 @@ public class ExplosionParticleFX extends Particle {
 
         buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 
-        float scale = 0.1F * this.particleScale;
+        float scale = 0.1F * particleScale;
 
-        float x = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) partialTicks - interpPosX);
-        float y = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY);
-        float z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ);
+        float x = (float) (prevPosX + (posX - prevPosX) * (double) partialTicks - interpPosX);
+        float y = (float) (prevPosY + (posY - prevPosY) * (double) partialTicks - interpPosY);
+        float z = (float) (prevPosZ + (posZ - prevPosZ) * (double) partialTicks - interpPosZ);
 
-        int brightness = this.getBrightnessForRender(partialTicks); // or simply set it to 200?
+        int brightness = getBrightnessForRender(partialTicks); // or simply set it to 200?
         int skyLight = brightness >> 16 & 65535;
         int blockLight = brightness & 65535;
 
@@ -116,19 +115,14 @@ public class ExplosionParticleFX extends Particle {
         float u1 = (columnIndex + 1) * columnWidth;
         float v1 = (rowIndex + 1) * rowHeight; // 1
 
-        float u2 = u1;
         float v2 = rowIndex * rowHeight; //0f;
 
         float u3 = columnIndex * columnWidth;
-        float v3 = v2;
 
-        float u4 = u3;
-        float v4 = v1;
-
-        ParticleRenderer.renderParticle(buffer, x - rotationX * scale - rotationXY * scale, y - rotationZ * scale, z - rotationYZ * scale - rotationXZ * scale, skyLight, blockLight, u1, v1, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-        ParticleRenderer.renderParticle(buffer, x - rotationX * scale + rotationXY * scale, y + rotationZ * scale, z - rotationYZ * scale + rotationXZ * scale, skyLight, blockLight, u2, v2, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-        ParticleRenderer.renderParticle(buffer, x + rotationX * scale + rotationXY * scale, y + rotationZ * scale, z + rotationYZ * scale + rotationXZ * scale, skyLight, blockLight, u3, v3, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-        ParticleRenderer.renderParticle(buffer, x + rotationX * scale - rotationXY * scale, y - rotationZ * scale, z + rotationYZ * scale - rotationXZ * scale, skyLight, blockLight, u4, v4, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
+        ParticleRenderer.renderParticle(buffer, x - rotationX * scale - rotationXY * scale, y - rotationZ * scale, z - rotationYZ * scale - rotationXZ * scale, skyLight, blockLight, u1, v1, particleRed, particleGreen, particleBlue, particleAlpha);
+        ParticleRenderer.renderParticle(buffer, x - rotationX * scale + rotationXY * scale, y + rotationZ * scale, z - rotationYZ * scale + rotationXZ * scale, skyLight, blockLight, u1, v2, particleRed, particleGreen, particleBlue, particleAlpha);
+        ParticleRenderer.renderParticle(buffer, x + rotationX * scale + rotationXY * scale, y + rotationZ * scale, z + rotationYZ * scale + rotationXZ * scale, skyLight, blockLight, u3, v2, particleRed, particleGreen, particleBlue, particleAlpha);
+        ParticleRenderer.renderParticle(buffer, x + rotationX * scale - rotationXY * scale, y - rotationZ * scale, z + rotationYZ * scale - rotationXZ * scale, skyLight, blockLight, u3, v1, particleRed, particleGreen, particleBlue, particleAlpha);
 
         Tessellator.getInstance().draw();
 

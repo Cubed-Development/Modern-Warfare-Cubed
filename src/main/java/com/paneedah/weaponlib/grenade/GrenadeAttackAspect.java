@@ -31,13 +31,6 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
             instance -> System.currentTimeMillis() > instance.getStateUpdateTimestamp()
                     + instance.getWeapon().getReequipTimeout();
 
-//    private static Predicate<PlayerGrenadeInstance> isSmokeGrenade =
-//                    instance -> instance.getWeapon().isSmokeOnly();
-
-//    private static Predicate<PlayerGrenadeInstance> takingOffSafetyPinCompleted = instance ->
-//            System.currentTimeMillis() >= instance.getStateUpdateTimestamp()
-//                + instance.getWeapon().getTotalTakeSafetyPinOffDuration() * 1.1;
-
     private static final Predicate<PlayerGrenadeInstance> throwingCompleted = instance ->
             System.currentTimeMillis() >= instance.getStateUpdateTimestamp()
                     + instance.getWeapon().getTotalThrowingDuration() * 1.1;
@@ -99,7 +92,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     private void throwIt(PlayerGrenadeInstance instance) {
-        LOGGER.debug("Throwing with state " + instance.getState());
+        LOGGER.debug("Throwing with state {}", instance.getState());
         long activationTimestamp;
         if (instance.getWeapon().getExplosionTimeout() > 0) {
             activationTimestamp = instance.getActivationTimestamp();
@@ -155,9 +148,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
 
         serverThrowGrenade(modContext, player, instance);
 
-        if (player.inventory.getStackInSlot(instance.getItemInventoryIndex()) == null) {
-            return;
-        }
+        player.inventory.getStackInSlot(instance.getItemInventoryIndex());
 
         if (!player.capabilities.isCreativeMode) {
             player.inventory.getStackInSlot(instance.getItemInventoryIndex()).shrink(1);
@@ -181,7 +172,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withGravityVelocity(instance.getWeapon().getGravityVelocity())
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
-            LOGGER.debug("Throwing velocity {} ", velocity);
+            LOGGER.debug("Throwing velocity {} ", Float.valueOf(velocity));
             if (player != null) {
                 player.world.spawnEntity(entityGrenade);
             }
@@ -198,7 +189,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withGravityVelocity(instance.getWeapon().getGravityVelocity())
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
-            LOGGER.debug("Throwing velocity {} ", velocity);
+            LOGGER.debug("Throwing velocity {} ", Float.valueOf(velocity));
             if (player != null) {
                 player.world.spawnEntity(entityGrenade);
             }
@@ -215,7 +206,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .withDestroyingBlocks(false)
                     .build(modContext);
-            LOGGER.debug("Throwing velocity {} ", velocity);
+            LOGGER.debug("Throwing velocity {} ", Float.valueOf(velocity));
             if (player != null) {
                 player.world.spawnEntity(entityGrenade);
             }
@@ -232,7 +223,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .withDestroyingBlocks(instance.getWeapon().isDestroyingBlocks())
                     .build(modContext);
-            LOGGER.debug("Throwing velocity {} ", velocity);
+            LOGGER.debug("Throwing velocity {} ", Float.valueOf(velocity));
             if (player != null) {
                 player.world.spawnEntity(entityGrenade);
             }

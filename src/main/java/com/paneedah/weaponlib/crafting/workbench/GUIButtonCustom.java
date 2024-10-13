@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.crafting.workbench;
 
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
+import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.audio.SoundHandler;
@@ -43,8 +44,15 @@ public class GUIButtonCustom extends GuiButton {
     // not be rendered)
     private Supplier<Boolean> disabledCheck;
 
+    /**
+     * -- GETTER --
+     *  The page ID that this button is isolated to.
+     *
+     * @return this button will renderer only with this page ID, -1 if non-applicable.
+     */
     // The page ID-- buttons have the optionality
     // of being unique to a singular page.
+    @Getter
     private int pageID = -1;
 
     private boolean isToggleButton = false;
@@ -52,9 +60,9 @@ public class GUIButtonCustom extends GuiButton {
 
     public GUIButtonCustom(ResourceLocation resourceLoc, int buttonId, int x, int y, int widthIn, int heightIn, int imgW, int imgH, String buttonText) {
         super(buttonId, x, y, widthIn, heightIn, buttonText);
-        this.loc = resourceLoc;
-        this.texWidth = imgW;
-        this.texHeight = imgH;
+        loc = resourceLoc;
+        texWidth = imgW;
+        texHeight = imgH;
     }
 
     /**
@@ -68,9 +76,9 @@ public class GUIButtonCustom extends GuiButton {
      * @return itself
      */
     public GUIButtonCustom withStandardState(int color, int u, int v) {
-        this.standardStringColor = color;
-        this.standardU = u;
-        this.standardV = v;
+        standardStringColor = color;
+        standardU = u;
+        standardV = v;
         return this;
     }
 
@@ -86,9 +94,9 @@ public class GUIButtonCustom extends GuiButton {
      * @return itself
      */
     public GUIButtonCustom withHoveredState(int color, int u, int v) {
-        this.hoveredStringColor = color;
-        this.hoveredU = u;
-        this.hoveredV = v;
+        hoveredStringColor = color;
+        hoveredU = u;
+        hoveredV = v;
         return this;
     }
 
@@ -103,9 +111,9 @@ public class GUIButtonCustom extends GuiButton {
      * @return itself
      */
     public GUIButtonCustom withToggledState(int color, int u, int v) {
-        this.toggleStringColor = color;
-        this.toggledU = u;
-        this.toggledV = v;
+        toggleStringColor = color;
+        toggledU = u;
+        toggledV = v;
         return this;
     }
 
@@ -120,9 +128,9 @@ public class GUIButtonCustom extends GuiButton {
      * @return itself
      */
     public GUIButtonCustom withErroredState(int color, int u, int v) {
-        this.erroredStringColor = color;
-        this.erroredU = u;
-        this.erroredV = v;
+        erroredStringColor = color;
+        erroredU = u;
+        erroredV = v;
         return this;
     }
 
@@ -137,10 +145,10 @@ public class GUIButtonCustom extends GuiButton {
      * @return itself
      */
     public GUIButtonCustom withDisabledState(int color, int u, int v) {
-        this.hasDisabledState = true;
-        this.disabledStringColor = color;
-        this.disabledU = u;
-        this.disabledV = v;
+        hasDisabledState = true;
+        disabledStringColor = color;
+        disabledU = u;
+        disabledV = v;
         return this;
     }
 
@@ -159,7 +167,7 @@ public class GUIButtonCustom extends GuiButton {
      * @return itself
      */
     public GUIButtonCustom withDisabledCheck(Supplier<Boolean> supplier) {
-        this.disabledCheck = supplier;
+        disabledCheck = supplier;
         return this;
     }
 
@@ -181,7 +189,7 @@ public class GUIButtonCustom extends GuiButton {
      * @return itself
      */
     public GUIButtonCustom makeToggleButton() {
-        this.isToggleButton = true;
+        isToggleButton = true;
         return this;
     }
 
@@ -191,7 +199,7 @@ public class GUIButtonCustom extends GuiButton {
      * @return is the button disabled
      */
     public boolean isDisabled() {
-        return this.isErrored;
+        return isErrored;
     }
 
     /**
@@ -200,74 +208,65 @@ public class GUIButtonCustom extends GuiButton {
      * @param disable button in disabled state
      */
     public void setErrored(boolean disable) {
-        this.isErrored = disable;
-    }
-
-    /**
-     * The page ID that this button is isolated to.
-     *
-     * @return this button will renderer only with this page ID, -1 if non-applicable.
-     */
-    public int getPageID() {
-        return this.pageID;
+        isErrored = disable;
     }
 
     /**
      * Toggle button stuff
      */
     public void toggleOff() {
-        this.isToggled = false;
+        isToggled = false;
     }
 
     public void toggleOn() {
-        this.isToggled = true;
+        isToggled = true;
     }
 
     public void toggle() {
-        this.isToggled = !this.isToggled;
+        isToggled = !isToggled;
     }
 
     public boolean getToggleState() {
-        return this.isToggled;
+        return isToggled;
     }
 
     @Override
     public void drawButton(Minecraft MC, int mouseX, int mouseY, float partialTicks) {
-        if (!visible || (disabledCheck != null && disabledCheck.get() && !hasDisabledState)) {
+        if (!visible || (disabledCheck != null && disabledCheck.get().booleanValue() && !hasDisabledState)) {
             return;
         }
 
-        this.hovered = mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;
+        hovered = mouseX >= x && mouseY >= y && mouseX < x + width && mouseY < y + height;
 
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         GlStateManager.enableTexture2D();
-        MC.getTextureManager().bindTexture(this.loc);
+        MC.getTextureManager().bindTexture(loc);
 
-        int stringColor = 0;
-        if (disabledCheck != null && disabledCheck.get()) {
-            GUIRenderHelper.drawTexturedRect(this.x, this.y, this.disabledU, this.disabledV, this.width, this.height, this.texWidth, this.texHeight);
+        int stringColor;
+        if (disabledCheck != null && disabledCheck.get().booleanValue()) {
+            GUIRenderHelper.drawTexturedRect(x, y, disabledU, disabledV, width, height, texWidth, texHeight);
             stringColor = disabledStringColor;
 
         } else if (isErrored) {
-            GUIRenderHelper.drawTexturedRect(this.x, this.y, this.erroredU, this.erroredV, this.width, this.height, this.texWidth, this.texHeight);
+            GUIRenderHelper.drawTexturedRect(x, y, erroredU, erroredV, width, height, texWidth, texHeight);
             stringColor = erroredStringColor;
 
         } else {
             if (isToggleButton && isToggled) {
-                GUIRenderHelper.drawTexturedRect(this.x, this.y, this.toggledU, this.toggledV, this.width, this.height, this.texWidth, this.texHeight);
+                GUIRenderHelper.drawTexturedRect(x, y, toggledU, toggledV, width, height, texWidth, texHeight);
                 stringColor = toggleStringColor;
 
-            } else if (!this.hovered) {
-                GUIRenderHelper.drawTexturedRect(this.x, this.y, this.standardU, this.standardV, this.width, this.height, this.texWidth, this.texHeight);
+            } else if (!hovered) {
+                GUIRenderHelper.drawTexturedRect(x, y, standardU, standardV, width, height, texWidth, texHeight);
                 stringColor = standardStringColor;
 
             } else {
-                GUIRenderHelper.drawTexturedRect(this.x, this.y, this.hoveredU, this.hoveredV, this.width, this.height, this.texWidth, this.texHeight);
+                GUIRenderHelper.drawTexturedRect(x, y, hoveredU, hoveredV, width, height, texWidth, texHeight);
                 stringColor = hoveredStringColor;
             }
         }
 
-        GUIRenderHelper.drawScaledString(this.displayString, this.x + this.width / 2.0 - MC.fontRenderer.getStringWidth(this.displayString) / 2.0, this.y + this.height / 2.0 - MC.fontRenderer.FONT_HEIGHT / 2.0, 1.0, stringColor);
+        GUIRenderHelper.drawScaledString(displayString, x + width / 2.0 - MC.fontRenderer.getStringWidth(displayString) / 2.0, y + height / 2.0 - MC.fontRenderer.FONT_HEIGHT / 2.0, 1.0, stringColor);
         GlStateManager.color(1, 1, 1);
     }
 
@@ -278,7 +277,7 @@ public class GUIButtonCustom extends GuiButton {
 
     @Override
     public void playPressSound(SoundHandler soundHandlerIn) {
-        if ((disabledCheck != null && disabledCheck.get()) || isErrored) {
+        if ((disabledCheck != null && disabledCheck.get().booleanValue()) || isErrored) {
             return;
         }
 

@@ -49,33 +49,33 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
     public void initGui() {
         super.initGui();
 
-        this.assaultSelector = new GUIButtonCustom(GUI_TEX, 3, this.guiLeft + 92, this.guiTop + 29, 19, 20, 480, 370, "")
+        assaultSelector = new GUIButtonCustom(GUI_TEX, 3, guiLeft + 92, guiTop + 29, 19, 20, 480, 370, "")
                 .withStandardState(0xFFFFFF, 0, 291).withHoveredState(0xFFFFFF, 19, 291)
                 .withToggledState(0xFFFFFF, 38, 291).withPageRestriction(2).makeToggleButton();
 
-        this.attachSelector = new GUIButtonCustom(GUI_TEX, 4, this.guiLeft + 115, this.guiTop + 29, 19, 20, 480, 370, "")
+        attachSelector = new GUIButtonCustom(GUI_TEX, 4, guiLeft + 115, guiTop + 29, 19, 20, 480, 370, "")
                 .withStandardState(0xFFFFFF, 0, 311).withHoveredState(0xFFFFFF, 19, 311)
                 .withToggledState(0xFFFFFF, 38, 311).withPageRestriction(2).makeToggleButton();
 
-        this.modSelector = new GUIButtonCustom(GUI_TEX, 5, this.guiLeft + 138, this.guiTop + 29, 19, 20, 480, 370, "")
+        modSelector = new GUIButtonCustom(GUI_TEX, 5, guiLeft + 138, guiTop + 29, 19, 20, 480, 370, "")
                 .withStandardState(0xFFFFFF, 0, 331)
                 .withHoveredState(0xFFFFFF, 19, 331)
                 .withToggledState(0xFFFFFF, 38, 331)
                 .withPageRestriction(2).makeToggleButton();
 
-        this.gearSelector = new GUIButtonCustom(GUI_TEX, 6, this.guiLeft + 161, this.guiTop + 29, 19, 20, 480, 370, "")
+        gearSelector = new GUIButtonCustom(GUI_TEX, 6, guiLeft + 161, guiTop + 29, 19, 20, 480, 370, "")
                 .withStandardState(0xFFFFFF, 57, 331)
                 .withHoveredState(0xFFFFFF, 76, 331)
                 .withToggledState(0xFFFFFF, 95, 331)
                 .withPageRestriction(2).makeToggleButton();
 
 
-        this.assaultSelector.toggleOn();
+        assaultSelector.toggleOn();
 
-        addButton(this.assaultSelector);
-        addButton(this.attachSelector);
-        addButton(this.modSelector);
-        addButton(this.gearSelector);
+        addButton(assaultSelector);
+        addButton(attachSelector);
+        addButton(modSelector);
+        addButton(gearSelector);
 
         setPage(1);
     }
@@ -105,7 +105,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
         super.actionPerformed(button);
 
         if (button == craftButton) {
-            if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1 && !this.craftButton.isDisabled()) {
+            if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1 && !craftButton.isDisabled()) {
                 final int craftingTime = getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME;
                 CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, craftingTime, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItemStack().getTranslationKey()));
             }
@@ -156,12 +156,12 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
     public void updateScreen() {
         super.updateScreen();
 
-        if (!this.craftButton.isDisabled() && tileEntity.getProgress() != 0) {
-            this.craftButton.setErrored(true);
+        if (!craftButton.isDisabled() && tileEntity.getProgress() != 0) {
+            craftButton.setErrored(true);
         }
 
         if (hasSelectedCraftingPiece() && hasRequiredItems() && tileEntity.getProgress() == 0) {
-            this.craftButton.setErrored(false);
+            craftButton.setErrored(false);
         }
     }
 
@@ -179,7 +179,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
     public void addCraftingInformationToTooltip(ArrayList<String> tooltip) {
         final int remainingTicks = tileEntity.craftingDuration - tileEntity.craftingTimer;
         tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + I18n.format(tileEntity.craftingTargetName + ".name"));
-        tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", remainingTicks / 20F) + "s");
+        tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", Float.valueOf(remainingTicks / 20F)) + "s");
     }
 
     /**
@@ -200,9 +200,9 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
         }
 
         final Weapon weapon = (Weapon) getSelectedCraftingPiece().getItemStack().getItem();
-        GuiRenderUtil.drawScaledString(fontRenderer, format(weapon.getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 1.2, 0xFDF17C);
-        GuiRenderUtil.drawScaledString(fontRenderer, weapon.builder.getWeaponType(), this.guiLeft + 214, this.guiTop + 43, 0.75, 0xC8C49C);
+        GuiRenderUtil.drawScaledString(fontRenderer, format(weapon.getTranslationKey()), guiLeft + 214, guiTop + 31, 1.2, 0xFDF17C);
+        GuiRenderUtil.drawScaledString(fontRenderer, weapon.builder.getWeaponType(), guiLeft + 214, guiTop + 43, 0.75, 0xC8C49C);
 
-        render3DItemInGUI(weapon, this.guiLeft + 300, this.guiTop + 55, mouseX, mouseY);
+        render3DItemInGUI(weapon, guiLeft + 300, guiTop + 55, mouseX, mouseY);
     }
 }

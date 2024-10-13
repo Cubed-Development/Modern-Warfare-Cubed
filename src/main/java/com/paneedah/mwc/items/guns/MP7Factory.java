@@ -47,9 +47,9 @@ public class MP7Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.16f)
-                .withFlashOffsetY(() -> 0.23f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.16f))
+                .withFlashOffsetY(() -> Float.valueOf(0.23f))
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -94,16 +94,10 @@ public class MP7Factory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MP7Grip, true, (model) -> {
-//             GL11.glTranslatef(0f, -3.7f, 0.5f);
-//        	 GL11.glRotatef(90F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MP7action, true, (model) -> {
-//           GL11.glTranslatef(0f, -3.7f, 0.5f);
-//      	 GL11.glRotatef(90F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.MP7Stock, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.MP7MilSpecStock, (model) -> {
                     if (model instanceof MilSpecStock) {
@@ -112,12 +106,8 @@ public class MP7Factory {
                     }
                 })
                 .withCompatibleAttachment(Magazines.MP7Mag, (model) -> {
-//            GL11.glTranslatef(0.0F, 1.8F, 0.8F);
-//            GL11.glRotatef(15F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Magazines.MP7Mag20, (model) -> {
-//          GL11.glTranslatef(0.0F, 1.8F, 0.8F);
-//          GL11.glRotatef(15F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.MP7IronSights, true, (model) -> {
                     if (model instanceof MP7RearSights) {
@@ -277,10 +267,9 @@ public class MP7Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
                     GL11.glTranslatef(-0.165F, -1.1F, -0.3F);

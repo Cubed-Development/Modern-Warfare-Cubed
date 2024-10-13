@@ -42,9 +42,9 @@ public class G3Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.13f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.13f))
+                .withFlashOffsetY(() -> Float.valueOf(0.13f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -83,8 +83,6 @@ public class G3Factory {
                 })
                 .withCompatibleAttachment(Attachments.G3HandguardRailed, (model) -> {
                     if (model instanceof G3HandguardRailed) {
-//                GL11.glTranslatef(0F, -0F, 0F);
-//                GL11.glScaled(1F, 1F, 1F);
                     } else if (model instanceof AKRail) {
                         GL11.glTranslatef(0.12F, -1.02F, -4.7f);
                         GL11.glScaled(0.6F, 0.6F, 0.9F);
@@ -103,8 +101,6 @@ public class G3Factory {
                 })
                 .withCompatibleAttachment(Attachments.MIMP5TRRail, (model) -> {
                     if (model instanceof M4Iron2) {
-//                GL11.glTranslatef(0F, 0F, 0F);
-//                GL11.glScaled(1F, 1F, 1F);
                     } else if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.22F, -1.36F, -2.07f);
                         GL11.glScaled(0.7F, 0.75F, 0.57F);
@@ -112,24 +108,16 @@ public class G3Factory {
                 })
                 .withCompatibleAttachment(Attachments.MIMP5MRail, (model) -> {
                     if (model instanceof M4Iron2) {
-//                GL11.glTranslatef(0F, 0F, 0F);
-//                GL11.glScaled(1F, 1F, 1F);
                     } else if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.22F, -1.36F, -1.93f);
                         GL11.glScaled(0.7F, 0.75F, 0.52F);
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.G3Bolt, true, (model) -> {
-//            GL11.glTranslatef(0.82F, -0.48F, 1.15F);
-//            GL11.glRotatef(-50F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.G3Action, true, (model) -> {
-//          GL11.glTranslatef(0.45F, -0.15F, 0.65F);
-//          GL11.glRotatef(-25F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Magazines.G3Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 0.85F, -0.55F);
-//        	GL11.glRotatef(-25F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
                     if (model instanceof AKMiron1) {
@@ -258,10 +246,9 @@ public class G3Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
                     GL11.glTranslatef(-0.04F, -1.32F, -1.3F);
@@ -409,9 +396,6 @@ public class G3Factory {
 
                         .withFirstPersonCustomPositioning(Magazines.G3Mag, (renderContext) -> {
 
-//            	GL11.glTranslatef(0f, 0.4f, 0f);
-//           	 GL11.glRotatef(-20F, 0f, 1f, 0f);
-//           	 GL11.glRotatef(-10F, 1f, 0f, 0f);
                         })
 
                         .withThirdPersonPositioningReloading(

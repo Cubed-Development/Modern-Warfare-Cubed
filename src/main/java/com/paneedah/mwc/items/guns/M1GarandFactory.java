@@ -37,9 +37,9 @@ public class M1GarandFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.1f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.1f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -133,11 +133,6 @@ public class M1GarandFactory implements GunFactory {
                             GL11.glRotatef(10.000000f, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.175000f, 1.050000f, 0.175000f);
 
-//                GL11.glRotatef(41F, 0f, 1f, 0f);
-//                GL11.glScalef(3.00000f, 3.00000f, 3.00000f);
-//                GL11.glRotatef(11.000000f, 0f, 0f, 1f);
-//                GL11.glRotatef(1.000000f, 1f, 0f, 0f);
-//                GL11.glTranslatef(-0.175000f, 1.150000f, 0.2f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {

@@ -52,7 +52,7 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
         @Override
         public void setInitializer(Function<World, LivingEntityTracker> initializer) {
             this.initializer = initializer;
-            this.resolved = null;
+            resolved = null;
         }
 
         @Override
@@ -78,10 +78,8 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
                             EnumFacing side, NBTBase nbt) {
             NBTTagByteArray content = (NBTTagByteArray) nbt;
             byte[] bytes = content.getByteArray();
-            if (bytes != null) {
-                instance.setBytes(bytes);
-                instance.setInitializer(w -> LivingEntityTracker.fromByteArray(bytes, () -> w));
-            }
+            instance.setBytes(bytes);
+            instance.setInitializer(w -> LivingEntityTracker.fromByteArray(bytes, () -> w));
         }
     }
 

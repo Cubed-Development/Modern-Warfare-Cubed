@@ -22,11 +22,6 @@ public class WavefrontLoader {
     private static final String HEADER_FACE = "f";
     private static final String OBJ_MODEL_LOCATION = ID + ":models/obj/";
 
-	/*
-	public static WavefrontModel loadSubModel(String modelName, String objectName) {
-		ResourceLocation resLoc = new ResourceLocation(OBJ_MODEL_LOCATION + modelName + ".obj");
-	}*/
-
     public static WavefrontModel load(String modelName) {
         return load(new ResourceLocation(OBJ_MODEL_LOCATION + modelName + ".obj"));
     }
@@ -42,17 +37,17 @@ public class WavefrontLoader {
         ArrayList<String> lines = new ArrayList<>();
 
         try {
-            while (br.ready()) {
+            while (true) {
+                assert br != null;
+                if (!br.ready()) break;
                 String line = br.readLine();
 
                 if (line.startsWith("o")) {
                     if (line.split(" ")[1].equals(subModel)) {
-                        startRead = true;
                     } else {
                         break;
                         //	startRead = false;
                     }
-                    startRead = true;
                 }
                 if (startRead) {
                     lines.add(line);
@@ -76,7 +71,9 @@ public class WavefrontLoader {
         ArrayList<String> lines = new ArrayList<>();
 
         try {
-            while (br.ready()) {
+            while (true) {
+                assert br != null;
+                if (!br.ready()) break;
                 String line = br.readLine();
 
                 if (line.startsWith("o")) {
@@ -104,7 +101,9 @@ public class WavefrontLoader {
         ArrayList<String> lines = new ArrayList<>();
 
         try {
-            while (br.ready()) {
+            while (true) {
+                assert br != null;
+                if (!br.ready()) break;
                 lines.add(br.readLine());
             }
         } catch (IOException e) {
@@ -116,7 +115,7 @@ public class WavefrontLoader {
     }
 
     private static BufferedReader createBufferedReader(ResourceLocation loc) {
-        IResource resource = null;
+        IResource resource;
 
         try {
             resource = MC.getResourceManager().getResource(loc);
@@ -136,7 +135,7 @@ public class WavefrontLoader {
 
         for (String rawLine : unprocessed) {
             // We are not interested in blank lines.
-            if (rawLine.length() == 0) {
+            if (rawLine.isEmpty()) {
                 continue;
             }
 

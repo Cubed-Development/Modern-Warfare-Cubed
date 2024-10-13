@@ -36,9 +36,9 @@ public class M60E4Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withInaccuracy(1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -50,8 +50,6 @@ public class M60E4Factory {
 
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withCompatibleAttachment(Attachments.M60HandGuard, true, (model) -> {
-//             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//             GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.M60E4HandGuard, true, (model) -> {
                     if (model instanceof AKRail) {
@@ -69,8 +67,6 @@ public class M60E4Factory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.M60FrontSight, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.M60Rail, (model) -> {
                     GL11.glTranslatef(-0.073f, -0.12f, 2.9f);
@@ -80,18 +76,12 @@ public class M60E4Factory {
 ////            GL11.glTranslatef(0F, 0F, 1F);
 //        })
                 .withCompatibleAttachment(AuxiliaryAttachments.M60Hatch, true, (model) -> {
-//            GL11.glTranslatef(0F, 2.9F, 1.6F);
-//            GL11.glRotatef(70F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M60Belt, true, (model) -> {
 //            GL11.glTranslatef(-0.5F, 0.4F, 0F);
                 })
                 .withCompatibleAttachment(Magazines.M60Mag, (model) -> {
-//            GL11.glTranslatef(0.3F, 0.1F, 0F);
-//            GL11.glRotatef(-15F, 0f, 0f, 1f);
 
-//        	GL11.glTranslatef(0.12F, -0.4F, 0F);
-//        	GL11.glRotatef(-2F, 0f, 1f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
                     if (model instanceof AKMiron1) {
@@ -182,10 +172,9 @@ public class M60E4Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
                     GL11.glTranslatef(0.1F, -0F, 3.3F);
