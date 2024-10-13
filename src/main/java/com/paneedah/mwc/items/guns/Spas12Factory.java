@@ -47,9 +47,9 @@ public class Spas12Factory implements GunFactory {
                 .withInaccuracy(8)
                 .withPellets(10)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.12f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.12f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
 
@@ -86,49 +86,47 @@ public class Spas12Factory implements GunFactory {
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.ShotgunInsertion, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
                     if (model instanceof M4Iron1) {
                         GL11.glTranslatef(0.162F, -1.75F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(-0.055F, -1.35F, -4.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron1) {
+                    } else if (null instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(0.13F, -1.55F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(0.092F, -1.91F, -0.9F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
+                    } else if (null instanceof G36CIron1) {
                         GL11.glTranslatef(-0.04F, -0.635F, -1.378F);
                         GL11.glScaled(0.2F, 0.2F, 0.2F);
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
-                    } else if (model instanceof G36CIron2) {
+                    } else if (null instanceof G36CIron2) {
                         GL11.glTranslatef(-0.205F, -1.9F, -3.15F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if (null instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if (null instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(-0.065F, -0.525F, -4.5F);
                         GL11.glScaled(0.12F, 0.5F, 1F);
                         GL11.glRotatef(-180F, 0f, 0f, 1f);
-                    } else if (model instanceof M14Iron) {
+                    } else if (null instanceof M14Iron) {
                         GL11.glTranslatef(-0.145F, -0.84F, 0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -247,11 +245,6 @@ public class Spas12Factory implements GunFactory {
                             GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(-0.250000f, 0.425000f, -0.875000f);
 
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(165.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.900000f, -0.075000f, -0.150000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -295,8 +288,6 @@ public class Spas12Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunInsertion.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(0F, -0.012F, 0F);
-//                GL11.glRotatef(1F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M1014Action.getRenderablePart(), (renderContext) -> {
@@ -355,13 +346,9 @@ public class Spas12Factory implements GunFactory {
 
                         .withFirstPersonCustomPositioningLoadIteration(AuxiliaryAttachments.ShotgunInsertion.getRenderablePart(),
                                 new Transition((renderContext) -> { // Reload position
-//                  			GL11.glTranslatef(0.06F, -0F, 0.5F);
-//                              GL11.glRotatef(17F, 1f, 0f, 0f);
                                 }, 250, 50),
 
                                 new Transition((renderContext) -> { // Reload position
-//                        	  GL11.glTranslatef(0F, 0.033F, 0F);
-//                              GL11.glRotatef(-6F, 1f, 0f, 0f);
                                 }, 250, 50),
 
                                 new Transition((renderContext) -> { // Reload position
@@ -716,11 +703,6 @@ public class Spas12Factory implements GunFactory {
                                     GL11.glRotatef(35.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.275000f, -0.400000f, 0.275000f);
 
-//                         GL11.glScalef(4f, 4f, 4f);
-//                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(65.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(55.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(-0.325000f, -0.575000f, 0.075000f);
                                 },
                                 (renderContext) -> {
                                     GL11.glScalef(3f, 3f, 3f);

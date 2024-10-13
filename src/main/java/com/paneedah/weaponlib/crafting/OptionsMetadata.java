@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.crafting;
 
+import lombok.Getter;
+
 import java.util.LinkedHashMap;
 
 public class OptionsMetadata {
@@ -55,9 +57,7 @@ public class OptionsMetadata {
             }
             if (option instanceof String) {
                 String stringOption = ((String) option).toLowerCase();
-                if ((stringOption.contains("ore") || stringOption.contains("ingot") || stringOption.contains("dust")) && !stringOption.startsWith(":")) {
-                    //option = ":" + option;
-                }
+                //option = ":" + option;
             }
             OptionMetadata metadata = new OptionMetadata(option, minOccurs, maxOccurs);
             metadata.minOccurs = minOccurs;
@@ -109,16 +109,13 @@ public class OptionsMetadata {
         }
     }
 
+    @Getter
     private final OptionMetadata[] metadata;
     private final boolean hasOres;
 
     private OptionsMetadata(OptionMetadata[] metadata, boolean hasOres) {
         this.metadata = metadata;
         this.hasOres = hasOres;
-    }
-
-    public OptionMetadata[] getMetadata() {
-        return metadata;
     }
 
     public boolean hasOres() {

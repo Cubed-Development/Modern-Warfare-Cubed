@@ -22,6 +22,7 @@ import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehicleSmoothShell;
 import com.paneedah.weaponlib.vehicle.smoothlib.PTIVec;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
+import lombok.Getter;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -113,16 +114,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
     private final Supplier<Vector3D> soundPositionProvider = () -> new Vector3D(posX, posY, posZ);
     private final Supplier<Boolean> donePlayingSoundProvider = () -> isDead;
-    private final Supplier<Boolean> isDorifto = () -> !getSolver().isDrifting;
-    private final Supplier<Float> doriftoSoundProvider = () -> 1.0f;
-
-    /*
-     * Key Inputs
-     */
-    private boolean leftInputDown;
-    private boolean rightInputDown;
-    private boolean forwardInputDown;
-    private boolean backInputDown;
+    private final Supplier<Boolean> isDorifto = () -> Boolean.valueOf(!getSolver().isDrifting);
+    private final Supplier<Float> doriftoSoundProvider = () -> Float.valueOf(1.0f);
 
     /*
      * PHYSICS + COLLISION VARIABLES
@@ -130,12 +123,11 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     public OreintedBB oreintedBoundingBox;
 
     // rot
+    @Getter
     public float wheelRotationAngle;
     public float prevWheelRotationAngle;
 
     public VehiclePhysicsSolver solver;
-    //public double mass = 1352;
-//	public Engine engine = new EvoIVEngine("Evo IV Engine", "Mitsubishi Motors");
     public double steerangle;
     public double throttle = 0;
     public double angularvelocity = 0;
@@ -157,6 +149,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     public float prevRotationRollH = 0.0f;
 
     public double prevLastYawDelta = 0.0;
+    @Getter
     public double lastYawDelta = 0.0;
 
     public boolean isReversing = false;
@@ -194,20 +187,17 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         this.ignoreFrustumCheck = true;
 
-        this.smoothShell = new VehicleSmoothShell(this);
+        smoothShell = new VehicleSmoothShell(this);
         //this.setSize(0.2F, 0.1f);
-        this.setSize(0.2f, 0.5f);
+        setSize(0.2f, 0.5f);
 
-        //this.setSize(0.2F, 0.4f);
-        //this.setSize(1.4F, 1.5f);
-        // this.setSize(1.375F, 0.5625F);
-        this.oreintedBoundingBox = new OreintedBB(getConfiguration().getAABBforOBB());
+        oreintedBoundingBox = new OreintedBB(getConfiguration().getAABBforOBB());
     }
 
 
     public EntityVehicle(World worldIn, double x, double y, double z) {
         this(worldIn);
-        this.setPosition(x, y, z);
+        setPosition(x, y, z);
 
         this.motionX = 0.0D;
         this.motionY = 0.0D;
@@ -236,7 +226,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
      */
 
     public int getCurrentRiders() {
-        return this.getPassengers().size();
+        return getPassengers().size();
     }
 
     public int getCarMaxPersonnel() {
@@ -259,9 +249,9 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     @Override
     public OreintedBB getOreintedBoundingBox() {
         if (oreintedBoundingBox == null) {
-            this.oreintedBoundingBox = new OreintedBB(getConfiguration().getAABBforOBB());
+            oreintedBoundingBox = new OreintedBB(getConfiguration().getAABBforOBB());
         }
-        return this.oreintedBoundingBox;
+        return oreintedBoundingBox;
     }
 
     public float getInterpolatedWheelRotation() {
@@ -269,17 +259,9 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 MC.getRenderPartialTicks());
     }
 
-    public float getWheelRotationAngle() {
-        return this.wheelRotationAngle;
-    }
-
     public float getInterpolatedYawDelta() {
         return (float) InterpolationKit.interpolateValue(prevLastYawDelta, lastYawDelta,
                 MC.getRenderPartialTicks());
-    }
-
-    public double getLastYawDelta() {
-        return this.lastYawDelta;
     }
 
     public double getSpeed() {
@@ -310,7 +292,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
     @Nullable
     public Entity getControllingPassenger() {
-        List<Entity> list = this.getPassengers();
+        List<Entity> list = getPassengers();
         return list.isEmpty() ? null : list.get(0);
     }
 
@@ -322,17 +304,17 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     public void updatePassenger(Entity passenger) {
 
 
-        if (this.isPassenger(passenger)) {
+        if (isPassenger(passenger)) {
 
 
             if (passenger.motionY == 0) {
                 passenger.motionY = 0.00001;
             }
             float f = 0.0F;
-            float f1 = (float) ((this.isDead ? 0.009999999776482582D : this.getMountedYOffset())
+            float f1 = (float) ((this.isDead ? 0.009999999776482582D : getMountedYOffset())
                     + passenger.getYOffset());
 
-            int i = this.getPassengers().indexOf(passenger);
+            int i = getPassengers().indexOf(passenger);
             Vec3d seatOffset = getConfiguration().getSeatAtIndex(i).getSeatPosition();
             //System.out.println(passenger + " | " + i);
             if (i == 1) {
@@ -340,7 +322,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             }
 
 
-            if (this.getPassengers().size() > 1) {
+            if (getPassengers().size() > 1) {
 
                 if (i == 0) {
                     f = 0.2F;
@@ -391,43 +373,18 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             Vec3d apr = new Vec3d(this.posX /* + vec3d.x + seatOffset.x */, this.posY /* + (double)f1 + seatOffset.y */,
                     this.posZ /* + vec3d.z + seatOffset.z */);
 
-            // double iH = 0.3;
-            // double iX = Math.sin(Math.toRadians(rotationPitch))*iH;
-            // double iY = Math.cos(Math.toRadians(rotationPitch))*iH;
-
-            // this.rotationPitch = 10f;
-
-            // this.rotationPitch = (float) (45.0f*((ticksExisted%200)/200.0));
-
             float nin = (float) Math.toRadians(90);
             Vec3d tBro = new Vec3d(seatOffset.x, seatOffset.y, seatOffset.z).rotatePitch((float) Math.toRadians(iPitch))
                     .rotateYaw((float) Math.toRadians(-rotationYaw));
-            // Vec3d tBro = new Vec3d(seatOffset.x, seatOffset.y,
-            // seatOffset.z).rotateYaw(nin).rotatePitch((float)
-            // Math.toRadians(-rotationRoll)).rotateYaw(-nin).rotateYaw((float)
-            // Math.toRadians(-rotationYaw));
-
-            // Vec3d posExhaust = new Vec3d(0, -0.5, 0.0).rotatePitch((float)
-            // Math.toRadians(rotationPitch)).rotateYaw((float)
-            // Math.toRadians(-rotationYaw)).add(getPositionVector());
-
-            // passenger.setPosition(posExhaust.x, posExhaust.y, posExhaust.z);
 
             passenger.setPosition(apr.x + tBro.x, apr.y + tBro.y, apr.z + tBro.z);
 
-            // passenger.setPosition(this.posX + vec3d.x + seatOffset.x+apr.x, this.posY +
-            // (double)f1 + seatOffset.y + apr.y, this.posZ + vec3d.z + seatOffset.z +
-            // apr.x);
+            passenger.rotationYaw += deltaRotation;
+            passenger.setRotationYawHead(passenger.getRotationYawHead() + deltaRotation);
 
-            // passenger.setPosition(this.posX + seatOffset.x, this.posY + seatOffset.y,
-            // this.posZ + seatOffset.z);
+            applyYawToEntity(passenger);
 
-            passenger.rotationYaw += this.deltaRotation;
-            passenger.setRotationYawHead(passenger.getRotationYawHead() + this.deltaRotation);
-
-            this.applyYawToEntity(passenger);
-
-            if (passenger instanceof EntityAnimal && this.getPassengers().size() > 1) {
+            if (passenger instanceof EntityAnimal && getPassengers().size() > 1) {
                 int j = passenger.getEntityId() % 2 == 0 ? 90 : 270;
                 passenger.setRenderYawOffset(((EntityAnimal) passenger).renderYawOffset + (float) j);
                 passenger.setRotationYawHead(passenger.getRotationYawHead() + (float) j);
@@ -457,7 +414,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         Vec3d speed = getSolver().getVelocityVector().scale(0.5);
         double bruh = 0.0;
         if (speed.length() != 0.0) {
-            bruh = 0.3;
         }
         passenger.addVelocity(speed.x, speed.y, speed.z);
 
@@ -471,7 +427,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         if (player.isSneaking()) {
             return false;
         } else {
-            if (!this.world.isRemote && this.outOfControlTicks < 60.0F && canFitPassenger(player)) {
+            if (!this.world.isRemote && outOfControlTicks < 60.0F && canFitPassenger(player)) {
                 player.startRiding(this);
             }
 
@@ -498,10 +454,9 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
     @SideOnly(Side.CLIENT)
     public void updateInputs(boolean left, boolean right, boolean forward, boolean back) {
-        this.leftInputDown = left;
-        this.rightInputDown = right;
-        this.forwardInputDown = forward;
-        this.backInputDown = back;
+        /*
+         * Key Inputs
+         */
     }
 
     @Override
@@ -522,20 +477,11 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         AxisAlignedBB bb = AABBTool.createAABB(corDim.scale(-0.5), corDim.scale(0.5));
         bb = bb.offset(0.5, 1.0, 0.0).grow(0.0, -0.2, 0.0);
-        this.oreintedBoundingBox = OreintedBB.fromAABB(bb, getPositionVector());
-        //System.out.println(bb);
-        //	System.out.println("con");
-        //this.oreintedBoundingBox = this.oreintedBoundingBox.fromAABB(bb);
+        oreintedBoundingBox = OreintedBB.fromAABB(bb, getPositionVector());
 
-        //this.oreintedBoundingBox = this.oreintedBoundingBox.fromAABB(
-        //		AABBTool.createAABB(new Vec3d(-0.75, 0.2, -2.9), new Vec3d(1.90, 1.2, 3.2)), getPositionVector());
-        //System.out.println(AABBTool.createAABB(new Vec3d(-0.75, 0.2, -2.9), new Vec3d(1.90, 1.2, 3.2)));
-        this.oreintedBoundingBox.setPosition(posX, posY, posZ);
-        this.oreintedBoundingBox.setRotation(Math.toRadians(180 - rotationYaw), Math.toRadians(this.rotationPitch),
+        oreintedBoundingBox.setPosition(posX, posY, posZ);
+        oreintedBoundingBox.setRotation(Math.toRadians(180 - rotationYaw), Math.toRadians(this.rotationPitch),
                 Math.toRadians(rotationRoll + rotationRollH));
-
-        //System.out.println(this.oreintedBoundingBox.c);
-        //this.oreintedBoundingBox.axis.setIdentity();
 
     }
 
@@ -550,56 +496,40 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     }
 
     private void tickLerp() {
-        if (this.lerpSteps > 0 && !this.canPassengerSteer()) {
-            double d0 = this.posX + (this.boatPitch - this.posX) / (double) this.lerpSteps;
-            double d1 = this.posY + (this.lerpY - this.posY) / (double) this.lerpSteps;
-            double d2 = this.posZ + (this.lerpZ - this.posZ) / (double) this.lerpSteps;
-            double d3 = MathHelper.wrapDegrees(this.boatYaw - (double) this.rotationYaw);
-            this.rotationYaw = (float) ((double) this.rotationYaw + d3 / (double) this.lerpSteps);
+        if (lerpSteps > 0 && !canPassengerSteer()) {
+            double d0 = this.posX + (boatPitch - this.posX) / (double) lerpSteps;
+            double d1 = this.posY + (lerpY - this.posY) / (double) lerpSteps;
+            double d2 = this.posZ + (lerpZ - this.posZ) / (double) lerpSteps;
+            double d3 = MathHelper.wrapDegrees(boatYaw - (double) this.rotationYaw);
+            this.rotationYaw = (float) ((double) this.rotationYaw + d3 / (double) lerpSteps);
 //            this.rotationPitch = (float)((double)this.rotationPitch + (this.lerpXRot - (double)this.rotationPitch) / (double)this.lerpSteps);
-            --this.lerpSteps;
-            this.setPosition(d0, d1, d2);
-            this.setRotation(this.rotationYaw, this.rotationPitch);
+            --lerpSteps;
+            setPosition(d0, d1, d2);
+            setRotation(this.rotationYaw, this.rotationPitch);
         }
     }
 
     @SideOnly(Side.CLIENT)
     public void setPositionAndRotationDirect(double x, double y, double z, float yaw, float pitch,
                                              int posRotationIncrements, boolean teleport) {
-        this.boatPitch = x;
-        this.lerpY = y;
-        this.lerpZ = z;
-        this.boatYaw = yaw;
-        this.lerpXRot = pitch;
-        this.lerpSteps = 10;
+        boatPitch = x;
+        lerpY = y;
+        lerpZ = z;
+        boatYaw = yaw;
+        lerpXRot = pitch;
+        lerpSteps = 10;
     }
 
     @Override
     protected void addPassenger(Entity passenger) {
         super.addPassenger(passenger);
-		/*
-		if (passenger.getRidingEntity() != this)
-        {
-            throw new IllegalStateException("Use x.startRiding(y), not y.addPassenger(x)");
-        }
-        else
-        {
-            if (!this.world.isRemote && passenger instanceof EntityPlayer && !(this.getControllingPassenger() instanceof EntityPlayer))
-            {
-                this.riddenByEntities.add(0, passenger);
-            }
-            else
-            {
-                this.riddenByEntities.add(passenger);
-            }
-        }*/
-        if (this.canPassengerSteer() && this.lerpSteps > 0) {
-            this.lerpSteps = 0;
-            this.posX = this.boatPitch;
-            this.posY = this.lerpY;
-            this.posZ = this.lerpZ;
-            this.rotationYaw = (float) this.boatYaw;
-            this.rotationPitch = (float) this.lerpXRot;
+        if (canPassengerSteer() && lerpSteps > 0) {
+            lerpSteps = 0;
+            this.posX = boatPitch;
+            this.posY = lerpY;
+            this.posZ = lerpZ;
+            this.rotationYaw = (float) boatYaw;
+            this.rotationPitch = (float) lerpXRot;
         }
     }
 
@@ -662,14 +592,13 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             aT = -45.0F;
         }
         if (aT > 45.0F) {
-            aT = 45.0F;
         }
         steerangle = Math.toRadians(-steeringAngle);
 
     }
 
     public boolean isVehicleRunning() {
-        return this.vehicleIsRunning;
+        return vehicleIsRunning;
     }
 
     /**
@@ -680,32 +609,18 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     public void updateControls() {
 
 
-        //this.solver.activate(this);
-        //	System.out.println(isVehicleRunning());
         Transmission trans = getSolver().transmission;
 
-		/*
-		if(clutchTimer < 60) {
-		//	System.out.println(clutchTimer);
-			if(throttle < 0.3) throttle = 0.3;
-			double step = (1.0-trans.getClutch().engagementPoint)/60;
-			trans.getClutch().removePressure(step);
-		//	System.out.println(trans.getClutch().pedalPressure + " | " + trans.getClutch().getSlippage());
-			clutchTimer++;
-			
-		}
-		
-		*/
         if (KeyBindings.vehicleTurnOff.isPressed()) {
             if (isVehicleRunning()) {
 
                 vehicleIsRunning = false;
-                this.drivingSound = null;
+                drivingSound = null;
                 CustomGui.vehicleGUIOverlay.keyAnimator.removeKey();
             } else {
 
                 vehicleIsRunning = true;
-                this.drivingSound = null;
+                drivingSound = null;
                 CustomGui.vehicleGUIOverlay.keyAnimator.turnKey();
             }
         }
@@ -783,9 +698,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             throttle = 1;
         }
 
-        if (!isVehicleRunning()) {
-            //throttle = 0;
-        }
+        //throttle = 0;
 
         if (isVehicleRunning()) {
             if (KeyBindings.vehicleHandbrake.isKeyDown()) {
@@ -841,7 +754,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         prevWheelRotationAngle = wheelRotationAngle;
         double angVel = getRealSpeed();
-        wheelRotationAngle += angVel % 360; // wheelRotationAngle = 0.0f;
+        wheelRotationAngle += (float) (angVel % 360); // wheelRotationAngle = 0.0f;
         // wheelRotationAngle -= (float) solver.velocity.length();
 
     }
@@ -852,7 +765,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 
     /**
-     * https://research.ncl.ac.uk/game/mastersdegree/gametechnologies/physicstutorials/5collisionresponse/Physics%20-%20Collision%20Response.pdf
+     * <a href="https://research.ncl.ac.uk/game/mastersdegree/gametechnologies/physicstutorials/5collisionresponse/Physics%20-%20Collision%20Response.pdf">...</a>
      */
     @Override
     public void doOBBCollision() {
@@ -861,9 +774,9 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 
         if (Math.abs(rotationPitch) < 0.0000001) {
-            List<AxisAlignedBB> list3 = this.world.getCollisionBoxes(this, this.getEntityBoundingBox().grow(3).expand(1, 1, 1));
+            List<AxisAlignedBB> list3 = this.world.getCollisionBoxes(this, getEntityBoundingBox().grow(3).expand(1, 1, 1));
 
-            OreintedBB bb = this.getOreintedBoundingBox();
+            OreintedBB bb = getOreintedBoundingBox();
             GJKResult bestResult = new GJKResult();
 
             for (AxisAlignedBB aabb : list3) {
@@ -877,7 +790,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
             }
 
-            if (bestResult == null || bestResult.status != GJKResult.Status.COLLIDING) {
+            if (bestResult.status != GJKResult.Status.COLLIDING) {
                 return;
             }
 
@@ -887,14 +800,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
             // PROJECTION
             double a = 1;
-	        
-	        /*
-	        double cD = Math.abs(bestResult.contactPointA.subtract(bestResult.contactPointB).length());
-	        if(Math.abs(bestResult.penetrationDepth) > cD) {
-	        	bestResult.penetrationDepth = cD*Math.signum(bestResult.penetrationDepth);
-	        	
-	        }
-	        System.out.println(bestResult.penetrationDepth);*/
+
             //if(solver.velocity.length() > 15) a = 0.5;
             Vec3d aSep = normal.scale(-bestResult.penetrationDepth * a);
             this.prevPosX = this.posX;
@@ -950,21 +856,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         // DO BLOCK SHIT
         OreintedBB carBound = getOreintedBoundingBox();
 		
-		/*
-		List<AxisAlignedBB> list1 = this.world.getCollisionBoxes(this, this.getEntityBoundingBox().expand(2, 1, 2));
-		for(AxisAlignedBB box : list1) {
-			
-			GJKResult result = OBBCollider.areColliding(carBound, OreintedBB.fromAABB(box));
-			if(result.status == GJKResult.Status.COLLIDING) {
-				Vec3d d = result.separationVector.scale(-result.penetrationDepth);
-				System.out.println(d);
-				move(MoverType.SELF, d.x, d.y, d.z);
-				
-				
-				//getSolver().velocity = getSolver().velocity.add();
-			}
-		}*/
-	
 		/* functional
 		if(Math.abs(rotationPitch) < 0.0000001) {
 			List<AxisAlignedBB> list3 = this.world.getCollisionBoxes(this, this.getEntityBoundingBox().grow(3).expand(1, 1, 1));
@@ -1019,17 +910,13 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 
         /// Vec3d p3 = getPositionVector();
-        // setPosition(p3.x + aSep.x, p3.y + aSep.y, p3.z + aSep.z);
 
 
-        // System.out.println("bruh");
-
-
-        List<Entity> list = this.world.getEntitiesInAABBexcluding(this, this.getEntityBoundingBox().grow(10.0),
+        List<Entity> list = this.world.getEntitiesInAABBexcluding(this, getEntityBoundingBox().grow(10.0),
                 EntitySelectors.IS_ALIVE);
 
 
-        list.removeIf((e) -> this.isPassenger(e));
+        list.removeIf((e) -> isPassenger(e));
 
         for (Entity ent : list) {
 
@@ -1050,11 +937,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 
                         EntityPlayer player = (EntityPlayer) ent;
-
-                        //	MC.getConnection().sendPacket(new CPacketPlayer.PositionRotation(this.motionX, -999.0D, this.motionZ, this.rotationYaw, this.rotationPitch, true));
-                        //player.onGround = true;
-
-                        //player.fallDistance = 0.0f;
 
 
                         if (!player.onGround) {
@@ -1099,8 +981,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 
         if (this.noClip) {
-            this.setEntityBoundingBox(this.getEntityBoundingBox().offset(x, 0.0, z));
-            this.resetPositionToBB();
+            setEntityBoundingBox(getEntityBoundingBox().offset(x, 0.0, z));
+            resetPositionToBB();
         } else {
 
             this.world.profiler.startSection("move");
@@ -1122,10 +1004,10 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             double d3 = y;
             double d4 = z;
 
-            if ((type == MoverType.SELF || type == MoverType.PLAYER) && this.onGround && this.isSneaking()) {
+            if ((type == MoverType.SELF || type == MoverType.PLAYER) && this.onGround && isSneaking()) {
                 for (double d5 = 0.05D; x != 0.0D && this.world
                         .getCollisionBoxes(this,
-                                this.getEntityBoundingBox().offset(x, -this.stepHeight, 0.0D))
+                                getEntityBoundingBox().offset(x, -this.stepHeight, 0.0D))
                         .isEmpty(); d2 = x) {
                     if (x < 0.05D && x >= -0.05D) {
                         x = 0.0D;
@@ -1138,7 +1020,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
                 for (; z != 0.0D && this.world
                         .getCollisionBoxes(this,
-                                this.getEntityBoundingBox().offset(0.0D, -this.stepHeight, z))
+                                getEntityBoundingBox().offset(0.0D, -this.stepHeight, z))
                         .isEmpty(); d4 = z) {
                     if (z < 0.05D && z >= -0.05D) {
                         z = 0.0D;
@@ -1153,7 +1035,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 for (; x != 0.0D && z != 0.0D
                         && this.world
                         .getCollisionBoxes(this,
-                                this.getEntityBoundingBox().offset(x, -this.stepHeight, z))
+                                getEntityBoundingBox().offset(x, -this.stepHeight, z))
                         .isEmpty(); d4 = z) {
                     if (x < 0.05D && x >= -0.05D) {
                         x = 0.0D;
@@ -1175,8 +1057,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 }
             }
 
-            List<AxisAlignedBB> list1 = this.world.getCollisionBoxes(this, this.getEntityBoundingBox().expand(x, y, z));
-            AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
+            List<AxisAlignedBB> list1 = this.world.getCollisionBoxes(this, getEntityBoundingBox().expand(x, y, z));
+            AxisAlignedBB axisalignedbb = getEntityBoundingBox();
 
             /*
              * Le magique
@@ -1194,7 +1076,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 if (state.getBlock() instanceof BlockCarpet /*|| state.getBlock() instanceof BlockSnow*/) {
 
                     IBlockState below = world.getBlockState(getPosition().down());
-                    AxisAlignedBB bb = below.getCollisionBoundingBox(world, getPosition().down());
+                    below.getCollisionBoundingBox(world, getPosition().down());
+                    AxisAlignedBB bb;
                     rList.add(item);
 
 
@@ -1223,21 +1106,21 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int k = 0;
 
                 for (int l = list1.size(); k < l; ++k) {
-                    y = list1.get(k).calculateYOffset(this.getEntityBoundingBox(), y);
+                    y = list1.get(k).calculateYOffset(getEntityBoundingBox(), y);
                 }
 
-                this.setEntityBoundingBox(this.getEntityBoundingBox().offset(0.0D, y, 0.0D));
+                setEntityBoundingBox(getEntityBoundingBox().offset(0.0D, y, 0.0D));
             }
 
             if (x != 0.0D) {
                 int j5 = 0;
 
                 for (int l5 = list1.size(); j5 < l5; ++j5) {
-                    x = list1.get(j5).calculateXOffset(this.getEntityBoundingBox(), x);
+                    x = list1.get(j5).calculateXOffset(getEntityBoundingBox(), x);
                 }
 
                 if (x != 0.0D) {
-                    this.setEntityBoundingBox(this.getEntityBoundingBox().offset(x, 0.0D, 0.0D));
+                    setEntityBoundingBox(getEntityBoundingBox().offset(x, 0.0D, 0.0D));
                 }
             }
 
@@ -1245,11 +1128,11 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 int k5 = 0;
 
                 for (int i6 = list1.size(); k5 < i6; ++k5) {
-                    z = list1.get(k5).calculateZOffset(this.getEntityBoundingBox(), z);
+                    z = list1.get(k5).calculateZOffset(getEntityBoundingBox(), z);
                 }
 
                 if (z != 0.0D) {
-                    this.setEntityBoundingBox(this.getEntityBoundingBox().offset(0.0D, 0.0D, z));
+                    setEntityBoundingBox(getEntityBoundingBox().offset(0.0D, 0.0D, z));
                 }
             }
 
@@ -1260,12 +1143,12 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 double d14 = x;
                 double d6 = y;
                 double d7 = z;
-                AxisAlignedBB axisalignedbb1 = this.getEntityBoundingBox();
-                this.setEntityBoundingBox(axisalignedbb);
+                AxisAlignedBB axisalignedbb1 = getEntityBoundingBox();
+                setEntityBoundingBox(axisalignedbb);
                 y = this.stepHeight;
                 List<AxisAlignedBB> list = this.world.getCollisionBoxes(this,
-                        this.getEntityBoundingBox().expand(d2, y, d4));
-                AxisAlignedBB axisalignedbb2 = this.getEntityBoundingBox();
+                        getEntityBoundingBox().expand(d2, y, d4));
+                AxisAlignedBB axisalignedbb2 = getEntityBoundingBox();
                 AxisAlignedBB axisalignedbb3 = axisalignedbb2.expand(d2, 0.0D, d4);
                 double d8 = y;
                 int j1 = 0;
@@ -1291,7 +1174,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 }
 
                 axisalignedbb2 = axisalignedbb2.offset(0.0D, 0.0D, d19);
-                AxisAlignedBB axisalignedbb4 = this.getEntityBoundingBox();
+                AxisAlignedBB axisalignedbb4 = getEntityBoundingBox();
                 double d20 = y;
                 int l2 = 0;
 
@@ -1323,33 +1206,33 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                     x = d18;
                     z = d19;
                     y = -d8;
-                    this.setEntityBoundingBox(axisalignedbb2);
+                    setEntityBoundingBox(axisalignedbb2);
                 } else {
                     x = d21;
                     z = d22;
                     y = -d20;
-                    this.setEntityBoundingBox(axisalignedbb4);
+                    setEntityBoundingBox(axisalignedbb4);
                 }
 
                 int j4 = 0;
 
                 for (int k4 = list.size(); j4 < k4; ++j4) {
-                    y = list.get(j4).calculateYOffset(this.getEntityBoundingBox(), y);
+                    y = list.get(j4).calculateYOffset(getEntityBoundingBox(), y);
                 }
 
-                this.setEntityBoundingBox(this.getEntityBoundingBox().offset(0.0D, y, 0.0D));
+                setEntityBoundingBox(getEntityBoundingBox().offset(0.0D, y, 0.0D));
 
                 if (d14 * d14 + d7 * d7 >= x * x + z * z) {
                     x = d14;
                     y = d6;
                     z = d7;
-                    this.setEntityBoundingBox(axisalignedbb1);
+                    setEntityBoundingBox(axisalignedbb1);
                 }
             }
 
             this.world.profiler.endSection();
             this.world.profiler.startSection("rest");
-            this.resetPositionToBB();
+            resetPositionToBB();
             this.collidedHorizontally = d2 != x || d4 != z;
             this.collidedVertically = d3 != y;
             this.onGround = this.collidedVertically && d3 < 0.0D;
@@ -1365,13 +1248,13 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 IBlockState iblockstate1 = this.world.getBlockState(blockpos1);
                 Block block1 = iblockstate1.getBlock();
 
-                if (block1 instanceof BlockFence || block1 instanceof BlockWall || block1 instanceof BlockFenceGate) {
+                if (block1 instanceof BlockWall || null instanceof BlockFenceGate) {
                     iblockstate = iblockstate1;
                     blockpos = blockpos1;
                 }
             }
 
-            this.updateFallState(y, this.onGround, iblockstate, blockpos);
+            updateFallState(y, this.onGround, iblockstate, blockpos);
 
             if (d2 != x) {
                 this.motionX = 0.0D;
@@ -1387,7 +1270,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 block.onLanded(this.world, this);
             }
 
-            if (this.canTriggerWalking() && (!this.onGround || !this.isSneaking() || !this.isRiding())) {
+            if (canTriggerWalking() && (!this.onGround || !isSneaking() || !isRiding())) {
                 double d15 = this.posX - d10;
                 double d16 = this.posY - d11;
                 double d17 = this.posZ - d1;
@@ -1405,13 +1288,13 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 this.distanceWalkedOnStepModified = (float) ((double) this.distanceWalkedOnStepModified
                         + (double) MathHelper.sqrt(d15 * d15 + d16 * d16 + d17 * d17) * 0.6D);
 
-                if (this.distanceWalkedOnStepModified > this.nextStepDistance
+                if (this.distanceWalkedOnStepModified > nextStepDistance
                         && iblockstate.getMaterial() != Material.AIR) {
-                    this.nextStepDistance = (int) this.distanceWalkedOnStepModified + 1;
+                    nextStepDistance = (int) this.distanceWalkedOnStepModified + 1;
 
-                    if (this.isInWater()) {
-                        Entity entity = this.isBeingRidden() && this.getControllingPassenger() != null
-                                ? this.getControllingPassenger()
+                    if (isInWater()) {
+                        Entity entity = isBeingRidden() && getControllingPassenger() != null
+                                ? getControllingPassenger()
                                 : this;
                         float f = entity == this ? 0.35F : 0.4F;
                         float f1 = MathHelper.sqrt(
@@ -1423,47 +1306,47 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                             f1 = 1.0F;
                         }
 
-                        this.playSound(this.getSwimSound(), f1,
+                        playSound(getSwimSound(), f1,
                                 1.0F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.4F);
                     } else {
-                        this.playStepSound(blockpos, block);
+                        playStepSound(blockpos, block);
                     }
-                } else if (this.distanceWalkedOnStepModified > this.nextFlap && this.makeFlySound()
+                } else if (this.distanceWalkedOnStepModified > nextFlap && makeFlySound()
                         && iblockstate.getMaterial() == Material.AIR) {
-                    this.nextFlap = this.playFlySound(this.distanceWalkedOnStepModified);
+                    nextFlap = playFlySound(this.distanceWalkedOnStepModified);
                 }
             }
 
             try {
-                this.doBlockCollisions();
+                doBlockCollisions();
             } catch (Throwable throwable) {
                 CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Checking entity block collision");
                 CrashReportCategory crashreportcategory = crashreport
                         .makeCategory("Entity being checked for collision");
-                this.addEntityCrashInfo(crashreportcategory);
+                addEntityCrashInfo(crashreportcategory);
                 throw new ReportedException(crashreport);
             }
 
-            boolean flag1 = this.isWet();
+            boolean flag1 = isWet();
 
-            if (this.world.isFlammableWithin(this.getEntityBoundingBox().shrink(0.001D))) {
-                this.dealFireDamage(1);
+            if (this.world.isFlammableWithin(getEntityBoundingBox().shrink(0.001D))) {
+                dealFireDamage(1);
 
                 if (!flag1) {
-                    ++this.fire;
+                    ++fire;
 
-                    if (this.fire == 0) {
-                        this.setFire(8);
+                    if (fire == 0) {
+                        setFire(8);
                     }
                 }
-            } else if (this.fire <= 0) {
-                this.fire = -this.getFireImmuneTicks();
+            } else if (fire <= 0) {
+                fire = -getFireImmuneTicks();
             }
 
-            if (flag1 && this.isBurning()) {
-                this.playSound(SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, 0.7F,
+            if (flag1 && isBurning()) {
+                playSound(SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, 0.7F,
                         1.6F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.4F);
-                this.fire = -this.getFireImmuneTicks();
+                fire = -getFireImmuneTicks();
             }
 
             this.world.profiler.endSection();
@@ -1489,8 +1372,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         RayTraceResult rayDown = world.rayTraceBlocks(sDown, eDown);
         if (rayDown != null) {
             dist = rayDown.hitVec.subtract(sDown).length();
-            float newPitch = (float) -Math.toDegrees(Math.atan(dist / (2.5)));
-            targetDown = newPitch;
+            targetDown = (float) -Math.toDegrees(Math.atan(dist / (2.5)));
 
         }
 
@@ -1513,7 +1395,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
             double distance = ab.lengthSquared();
 
-            double upMag = 0.0;
+            double upMag;
 
             if (distance > 15.5) {
                 upMag = 0.25;
@@ -1553,11 +1435,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
             if (heightRay != null) {
 
-                opp = heightRay.hitVec.y - getPositionVector().y;
-                adj = heightRay.hitVec.subtract(ray.hitVec).length();
-                // double hyp = Math.sqrt(Math.pow(opp, 2) + Math.pow(opp, 2));
-
-                // System.out.println(opp + " | " + adj);
+                getPositionVector();
+                heightRay.hitVec.subtract(ray.hitVec).length();
 
             }
 
@@ -1566,7 +1445,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             float mu2 = (float) ((1 - Math.cos(t * Math.PI)) / 2f);
             Vec3d lift = new Vec3d(0.0, upMag + 0.2, 0.7 + liftPush).rotateYaw((float) Math.toRadians(-rotationYaw))
                     .scale(mu2);
-            this.move(MoverType.SELF, lift.x, lift.y, lift.z);
+            move(MoverType.SELF, lift.x, lift.y, lift.z);
 
             // test block behind & up
             /*
@@ -1580,8 +1459,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
              * upMag += 0.5; }
              */
 
-            float newPitch = (float) Math.toDegrees(Math.atan(upMag / (2.5)));
-            targetUp = newPitch;
+            targetUp = (float) Math.toDegrees(Math.atan(upMag / (2.5)));
 
             /*
              * double diff = Math.abs(Math.abs(rotationPitch)-Math.abs(newPitch)); //
@@ -1599,7 +1477,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
          * PITCH SMOOTHING
          */
 
-        float adjT = 0.0f;
+        float adjT;
         if (targetDown == 0.0) {
             adjT = targetUp;
         } else if (targetUp == 0.0) {
@@ -1743,8 +1621,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 .add(getPositionVector());
         RayTraceResult rollRB = world.rayTraceBlocks(rollSB, rollEB, false, true, false);
 
-        double rollHA = 0.0;
-        double rollHB = 0.0;
+        double rollHA;
+        double rollHB;
 
         if (rollRA == null) {
             rollHA = 5;
@@ -1768,17 +1646,9 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         double rollDist = Math.abs(rotationRollH) - Math.abs(rollTarget);
 
-        // System.out.println("Roll target: " + rollTarget + " | " + rotationRollH);
-
-        // System.out.println("bruh: " +
-        // getConfiguration().getSeatAtIndex(0).seatPosition);
-
         if (rollDist > 0.5) {
 
-            if (rollTarget == 0.0 || rollTarget < 0) {
-                // rollTarget = -rotationRollH;
-
-            }
+            // rollTarget = -rotationRollH;
 
             /*
              * if(Math.abs(rollTarget-rotationRollH) < 2) {
@@ -1787,14 +1657,14 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
              */
             if (rollTarget < rotationRollH) {
                 // System.out.println("BRUH: " + rotationRollH + " | " + rollDist) ;
-                rotationRollH -= Math.abs(rollDist) * 0.68;
+                rotationRollH -= (float) (Math.abs(rollDist) * 0.68);
 
             } else {
 
                 // System.out.println("DECRERASING " + (rollTarget+rotationRollH));
                 double bruh = rotationRollH + rollTarget;
 
-                rotationRollH += Math.abs(rollTarget + rotationRollH) * 0.9;
+                rotationRollH += (float) (Math.abs(rollTarget + rotationRollH) * 0.9);
             }
         } else {
 
@@ -1812,22 +1682,14 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             if (rollTarget < rotationRollH) {
                 // System.out.println("main");
 
-                rotationRollH -= Math.abs(rollTarget) * 0.03;
+                rotationRollH -= (float) (Math.abs(rollTarget) * 0.03);
             } else {
 
                 // System.out.println("Adjustment: " + bruh + " | " + rollTarget);
-                rotationRollH += Math.abs(rollTarget) * 0.08;
+                rotationRollH += (float) (Math.abs(rollTarget) * 0.08);
             }
         }
 
-
-        // rotationRoll = -35f;
-        // rotationRoll = (float) ((ticksExisted/75.0)*45f);
-        // rotationRoll = (float) (new InterpolationKit()).interpolateValue(-35, 35,
-        // ticksExisted/200.0);
-        // rotationRollH = 0;
-        // rotationRoll = (float) ((ticksExisted/200.0)*35);
-        // rotationRoll = (float) rollTarget;
 
         /*
          * END ROLL HANDLER
@@ -1877,7 +1739,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         if (rayDown2 == null) {
             //	System.out.println("In Freefall");
             rotationPitch *= 1.2;
-            rotationRoll *= 1.2;
+            rotationRoll *= 1.2F;
         } else {
             hB = rayDown2.hitVec.subtract(sDown2).length();
         }
@@ -1901,8 +1763,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 dist = rayDown.hitVec.subtract(sDown).length();
 
                 getSolver().velocity = getSolver().getVelocityVector().scale(1.005);
-                float newPitch = (float) -Math.toDegrees(Math.atan(dist / (wheelbase)));
-                targetDown = newPitch;
+                targetDown = (float) -Math.toDegrees(Math.atan(dist / (wheelbase)));
             }
         }
 
@@ -1947,7 +1808,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             IBlockState b = this.world.getBlockState(ray.getBlockPos().up());
 
 
-            double upMag = 0.0;
+            double upMag;
 			
 			/*
 			if (b.getBlock() instanceof BlockSnow) {
@@ -1987,11 +1848,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 layers = bL.getValue(BlockSnow.LAYERS).intValue();
             }
 
-            // if((below instanceof BlockCarpet || bOfCar.getBlock() instanceof BlockCarpet)
-            // && bL.getBlock() instanceof BlockCarpet) return;
-
-            // System.out.println("HIT: " + bL.getBlock().getLocalizedName());
-
             AxisAlignedBB ablf = bL.getCollisionBoundingBox(world, ray.getBlockPos());
             double blockHeight = (ablf.maxY - ablf.minY);
 
@@ -2006,11 +1862,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
              * }
              */
 
-			/*
-			if (bL.getBlock() instanceof BlockSnow || bL.getBlock() instanceof BlockSnowBlock) {
-				upMag += 0.45;
-			}*/
-
             BlockPos bTC = ray.getBlockPos();
             Vec3d sB = new Vec3d(bTC.getX(), bTC.getY() - 1.0, bTC.getZ());
             Vec3d eB = new Vec3d(bTC.getX(), bTC.getY(), bTC.getZ());
@@ -2021,8 +1872,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             double adj = 0.0;
 
             if (heightRay != null) {
-                opp = heightRay.hitVec.y - getPositionVector().y;
-                adj = heightRay.hitVec.subtract(ray.hitVec).length();
+                getPositionVector();
+                heightRay.hitVec.subtract(ray.hitVec).length();
             }
             float t = 1.0f;
             float mu2 = (float) ((1 - Math.cos(t * Math.PI)) / 2f);
@@ -2030,8 +1881,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             Vec3d lift = new Vec3d(0.0, upMag + 0.55, 0.05 + liftPush).rotateYaw((float) Math.toRadians(-rotationYaw))
                     .scale(mu2);
 
-            // getSolver().velocity = getSolver().getVelocityVector().add(0.0,
-            // lift.y/100, 0.0);
             getSolver().velocity = getSolver().getVelocityVector().scale(0.95);
 
             // System.out.println("lifting");
@@ -2063,15 +1912,15 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 
             if (rotationPitch < 55f) {
-                this.move(MoverType.SELF, lift.x, lift.y, lift.z);
+                move(MoverType.SELF, lift.x, lift.y, lift.z);
 
                 // DEBUG //
-                newPitch += -hillAngle;
+                newPitch += (float) -hillAngle;
                 //newPitch /= 2;
 
                 // snow
                 if (snowFlag) {
-                    newPitch *= 0.2;
+                    newPitch *= 0.2F;
                 }
 
 
@@ -2085,7 +1934,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
          * Calculates the pitch target by blending the up & down targets
          */
 
-        float adjT = 0.0f;
+        float adjT;
         if (targetDown == 0.0) {
             adjT = targetUp;
         } else if (targetUp == 0.0) {
@@ -2093,9 +1942,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         } else {
             adjT = (targetDown + targetUp) / 2.0f;
         }
-
-        // DEBUG //
-        // adjT = (float) -hillAngle;
 
         /*
          * This code actually applies pitch, it ensures the "momentum" of the rotation
@@ -2162,13 +2008,9 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         RayTraceResult r4 = castFromEntity(new Vec3d(1 * mag, 0, -1 * mag));
         RayTraceResult r5 = null;
 
-        if (rotationPitch > 5) {
+        // r5 = castFromEntity(new Vec3d(0, -1*mag, 0));
 
-            // r5 = castFromEntity(new Vec3d(0, -1*mag, 0));
-
-        }
-
-        if (r1 != null || r2 != null || r3 != null || r4 != null || r5 != null) {
+        if (r1 != null || r2 != null || r3 != null || r4 != null) {
 
 
             getSolver().frontAxel.applyBrakingForce(1.0);
@@ -2203,12 +2045,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 move(MoverType.SELF, -1 * boost, 0.0, boost);
             }
 
-            if (r5 != null) {
-                if (getBlockAt(r5.getBlockPos()) instanceof BlockCarpet) {
-                    return;
-                }
-                move(MoverType.SELF, 0, 1 * boost, 0);
-            }
         }
 
         /*
@@ -2260,11 +2096,11 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
                 this.world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, pos.x + rand.nextGaussian(), pos.y + 1.0 + rand.nextGaussian() / 2, pos.z + rand.nextGaussian(),
                         0, 0.3, 0.0,
-                        Block.getStateId(world.getBlockState(this.getPosition())));
+                        Block.getStateId(world.getBlockState(getPosition())));
 
                 this.world.spawnParticle(EnumParticleTypes.BLOCK_DUST, pos.x + rand.nextGaussian(), pos.y + 1.0 + rand.nextGaussian() / 2, pos.z + rand.nextGaussian(),
                         0, 0.3, 0.0,
-                        Block.getStateId(world.getBlockState(this.getPosition())));
+                        Block.getStateId(world.getBlockState(getPosition())));
             }
         }
 
@@ -2287,7 +2123,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     public double getRealSpeed() {
 
 
-        return this.dist * 20.0;
+        return dist * 20.0;
     }
 
     @SideOnly(Side.CLIENT)
@@ -2318,14 +2154,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             MC.getSoundHandler().playSound(ps);
 
             for (int x = 0; x < 20 + (solver.synthAccelFor); ++x) {
-                // Vec3d pE =
-                // posExhaust.subtract(getPositionVector()).scale(1.0f+(Math.random()*0.5)).add(getPositionVector());
-                Vec3d pE = posExhaust;
-                MC.effectRenderer.addEffect(new VehicleExhaustFlameParticle(this.world, pE.x, pE.y, pE.z, partDirExhaust2.x * mult, 0, partDirExhaust2.z * mult));
-
-                // this.world.spawnParticle(EnumParticleTypes.FLAME, posExhaust.x, posExhaust.y,
-                // posExhaust.z, partDirExhaust.x, partDirExhaust.y, partDirExhaust.z,
-                // Block.getStateId(world.getBlockState(this.getPosition().down())));
+                MC.effectRenderer.addEffect(new VehicleExhaustFlameParticle(this.world, posExhaust.x, posExhaust.y, posExhaust.z, partDirExhaust2.x * mult, 0, partDirExhaust2.z * mult));
 
             }
         }
@@ -2347,7 +2176,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         double reducer = 1;
         if (!isDriveWheel) {
-            reducer = 2;
         }
 
         int amount = (int) Math.min((wSolve.wheelAngularVelocity * wSolve.getRadius()) / 8, 8);
@@ -2357,7 +2185,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             this.world.spawnParticle(EnumParticleTypes.BLOCK_DUST, realPos.x + rand.nextGaussian() / (variation * 12),
                     realPos.y + rand.nextGaussian() / variation, realPos.z + rand.nextGaussian() / variation,
                     direction.x, direction.y + 0.1, direction.z,
-                    Block.getStateId(world.getBlockState(this.getPosition().down())));
+                    Block.getStateId(world.getBlockState(getPosition().down())));
         }
 
 
@@ -2368,15 +2196,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
             }
         }
-		
-	
-		/*
-		for (int x = 0; x < 1; ++x) {
-			this.world.spawnParticle(EnumParticleTypes.FOOTSTEP, realPos.x,
-					realPos.y+0.1, realPos.z,
-					0.0, 0.0, 0.0,
-					Block.getStateId(world.getBlockState(this.getPosition().down())));
-		}*/
+
 
         if (!isDriveWheel) {
             return;
@@ -2425,7 +2245,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         for (int x = 0; x < ((int) solver.synthAccelFor); ++x) {
             this.world.spawnParticle(EnumParticleTypes.BLOCK_DUST, posDir.x + rand.nextGaussian() / 2,
                     posDir.y + rand.nextGaussian() / 15, posDir.z + rand.nextGaussian() / 2, partDir.x, partDir.y + 0.1,
-                    partDir.z, Block.getStateId(world.getBlockState(this.getPosition().down())));
+                    partDir.z, Block.getStateId(world.getBlockState(getPosition().down())));
         }
     }
 
@@ -2434,13 +2254,13 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
     public void notifyOfShift(int toGear) {
         this.motionX = 0.0;
-        this.isShifting = true;
-        this.tickShiftAnim = 0;
+        isShifting = true;
+        tickShiftAnim = 0;
         // setState(VehicleState.SHIFTING);
     }
 
     public boolean isInShift() {
-        return this.isShifting;
+        return isShifting;
     }
 
     public void tickShiftAnim() {
@@ -2452,7 +2272,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     public void updateSuspension(WheelSolver solver) {
         Vec3d realPos = solver.relativePosition.rotatePitch((float) Math.toRadians(rotationPitch))
                 .rotateYaw((float) Math.toRadians(-rotationYaw)).add(getPositionVector())
-                .add(0.0, this.rideOffset, 0.0);
+                .add(0.0, rideOffset, 0.0);
         RayTraceResult result = world.rayTraceBlocks(realPos.add(0.0, 3.0, 0.0), realPos.subtract(0.0, 8.0, 0.0));
         // System.out.println(result.hitVec);
 
@@ -2495,57 +2315,14 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     public void onUpdate() {
 
         this.stepHeight = 0.3f;
-        if (!this.world.isRemote) {
+        //System.out.println("fuck");
 
-
-            //System.out.println("fuck");
-			/*
-			EntityPlayerMP player = null;
-			if(!this.world.getMinecraftServer().getPlayerList().getPlayers().isEmpty()) {
-				player = this.world.getMinecraftServer().getPlayerList().getPlayers().get(0);
-				
-			}
-			if(player == null) return;
-			
-			List<EntityPig> i = player.world.getEntitiesWithinAABB(EntityPig.class, 
-	    			new AxisAlignedBB(player.getPosition()).grow(6));
-			
-			if(!i.isEmpty() && this.getPassengers().isEmpty()) {
-				i.get(0).startRiding(this);
-			}*/
-        }
-
-
-        //if(1+1==2) return;
-
-
-        //EntityRegistration er = EntityRegistry.instance().lookupModSpawn(getClass(), true);
-
-        //System.out.println(this.isInRangeToRenderDist(64));
-        //System.out.println(er.getTrackingRange() + " | " + this.getRenderDistanceWeight());
 
         try {
 
-            //this.setSize(0.02F, 0.04f);
-            //this.setSize(1.4F, 1.5f);
-			/*
-			if(this.getPassengers() == null || this.getPassengers().isEmpty()) {
-				if(this.width != 1.4F) {
-					this.setSize(1.4F, 1.5f);
-				}
-			} else if(this.width != 0.2F) {
-				this.setSize(0.2F, 0.4f);
-			}*/
-			
 
-			/*
-			if(getSolver().velocity.length() == 0.0) {
-				setSize(1.5f, 1.4f);
-			} else setSize(0.4f, 0.4f);
-			*/
-
-            this.prevRotationRoll = rotationRoll;
-            this.prevRotationRollH = rotationRollH;
+            prevRotationRoll = rotationRoll;
+            prevRotationRollH = rotationRollH;
 
 
             updateOBB();
@@ -2569,7 +2346,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 
                 // get the controlling passenger
-                if (!this.isBeingRidden()) {
+                if (!isBeingRidden()) {
                     return;
                 }
                 if (!(getControllingPassenger() instanceof EntityPlayer)) {
@@ -2591,13 +2368,13 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                      * DRIVER SIDE
                      */
 
-                    GearShiftPattern pattern = this.getSolver().getPhysConf().getShiftPattern();
+                    GearShiftPattern pattern = getSolver().getPhysConf().getShiftPattern();
 
                     if (!(getState() == VehicleState.STARTING_TO_SHIFT || getState() == VehicleState.SHIFTING || getState() == VehicleState.FINISHING_SHIFT)) {
-                        if (this.smoothShift.get().length() != 0.0) {
-                            this.smoothShift.set(pattern.quickDoAnimation(this.getSolver().transmission).scale(0.3));
+                        if (smoothShift.get().length() != 0.0) {
+                            smoothShift.set(pattern.quickDoAnimation(getSolver().transmission).scale(0.3));
                         }
-                        this.smoothShift.updatePrev();
+                        smoothShift.updatePrev();
 
 
                     }
@@ -2657,22 +2434,20 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
                     Vec3d newPos = getPositionVector();
 
-                    this.prevDist = dist;
+                    prevDist = dist;
 
 
-                    this.dist = newPos.subtract(oldPos).length();
+                    dist = newPos.subtract(oldPos).length();
 
 
-                    this.prevtV = tV;
-                    this.tV = ((dist * 20) - (prevtV * 20)) / 20;
+                    prevtV = tV;
+                    tV = ((dist * 20) - (prevtV * 20)) / 20;
                     //System.out.println(this.dist*20);
 
                     //	getSolver().accelerationValue = ((dist*20)-(prevDist*20))/2.0;
                     // hil
                     handleHillClimbing();
-                    // oldHC();
 
-                    // System.out.println("ID: " + getEntityId());
                     CHANNEL.sendToServer(new VehicleControlMessage(new VehicleDataContainer(this)));
 
                     // doNetworking(false);
@@ -2683,10 +2458,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 
                     // USE SMOOTHSHELL!
-                    this.smoothShell.update();
-
-                    //System.out.println("Last update: " + VehiclePacketLatencyTracker.getLastDelta(this) + "ms");
-                    // doNetworking(true);
+                    smoothShell.update();
 
                 }
 
@@ -2702,11 +2474,11 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                     this.motionX = 0;
                 }
 
-                this.drivingAspect = new VehicleDrivingAspect();
+                drivingAspect = new VehicleDrivingAspect();
 
                 if (this.motionX == 3.0) {
-                    if (this.isShifting) {
-                        this.isShifting = false;
+                    if (isShifting) {
+                        isShifting = false;
                     }
                 }
 
@@ -2722,9 +2494,9 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     public Supplier<Integer> currentMaterial = () -> {
 
         if (current == Material.GRASS || current == Material.GROUND || current == Material.CLAY || current == Material.SAND) {
-            return 0;
+            return Integer.valueOf(0);
         }
-        return 1;
+        return Integer.valueOf(1);
 
     };
 
@@ -2741,53 +2513,31 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 
         // NULLIFY SOUNDS IF THEY ARE DONE
-        if (this.drivingSound != null) {
-            if (this.drivingSound.isDonePlaying() || !this.isVehicleRunning()) {
-                this.drivingSound = null;
+        if (drivingSound != null) {
+            if (drivingSound.isDonePlaying() || !isVehicleRunning()) {
+                drivingSound = null;
             }
         }
-        if (this.driftingSound != null) {
-            if (this.driftingSound.isDonePlaying()) {
-                this.driftingSound = null;
+        if (driftingSound != null) {
+            if (driftingSound.isDonePlaying()) {
+                driftingSound = null;
             }
         }
         if (current != mat) {
-            this.driftingSound = null;
+            driftingSound = null;
         }
 
 
         // INITIATE A DRIVING SOUND
-        if (this.drivingSound == null && this.isVehicleRunning()) {
+        if (drivingSound == null && isVehicleRunning()) {
 
-            this.drivingSound = new EngineMovingSound(getConfiguration().getRunSound(), soundPositionProvider, donePlayingSoundProvider, this, false);
+            drivingSound = new EngineMovingSound(getConfiguration().getRunSound(), soundPositionProvider, donePlayingSoundProvider, this, false);
 
-            MC.getSoundHandler().playSound(this.drivingSound);
+            MC.getSoundHandler().playSound(drivingSound);
         }
 
 
         // INITIATE A DRIFTING SOUND
-        if (this.driftingSound == null) {
-/*
-			int sMat = 0;
-			
-			SoundEvent chosen = null;
-
-			if (mat == Material.GRASS || mat == Material.GROUND || mat == Material.CLAY || mat == Material.SAND) {
-				current = mat;
-				sMat = 0;
-				chosen = GeneralVehicleSounds.driftGround1;
-			} else if (mat == Material.ROCK) {
-				sMat = 1;
-				current = mat;
-				chosen = GeneralVehicleSounds.driftConcrete1;
-			} else {
-				chosen = GeneralVehicleSounds.driftConcrete1;
-			}
-
-			this.driftingSound = new DriftMovingSound(chosen, soundPositionProvider, isDorifto, this, false, sMat, this.currentMaterial);
-			MC.getSoundHandler().playSound(this.driftingSound);
-		*/
-        }
 
     }
     // Anata no haka ni kansei dorifuto
@@ -2825,7 +2575,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
      * th're art so many issues in h're, despite me being a cryptology fanatic! how
      * ironic!
      *
-     * @param slave
      */
     public void doNetworking(boolean slave) {
         try {
@@ -2846,17 +2595,17 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
                 // master please update me
                 getDataManager().get(VEHICLE_DAT).updateVehicle(this);
-                getDataManager().get(SOLVER_DAT).updateSolver(this.solver);
+                getDataManager().get(SOLVER_DAT).updateSolver(solver);
 
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
 
     }
 
     @Override
     public void setContext(ModContext modContext) {
-        this.context = modContext;
+        context = modContext;
 
     }
 
@@ -2864,7 +2613,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     public boolean attackEntityFrom(DamageSource source, float amount) {
 
         if (source.isCreativePlayer()) {
-            this.solver = null;
+            solver = null;
 
             setDead();
 

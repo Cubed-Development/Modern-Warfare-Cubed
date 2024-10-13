@@ -41,7 +41,7 @@ public class SynchronizedConfigElement extends DummyConfigElement {
     @Override
     public void set(Object value) {
         // Sync value with config
-        ModernConfigManager.updateField(this.relatedField, value);
+        ModernConfigManager.updateField(relatedField, value);
 
         this.value = value;
         super.set(value);

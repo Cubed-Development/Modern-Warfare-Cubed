@@ -39,9 +39,9 @@ public class KedrFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.18f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.18f))
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -54,12 +54,8 @@ public class KedrFactory {
                 .withCompatibleAttachment(AuxiliaryAttachments.KedrAction, true, (model) -> {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.KedrStock, true, (model) -> {
-//        	GL11.glTranslatef(0F, -0.7F, 1.55F);
-//        	GL11.glRotatef(100F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Magazines.KedrMag, (model) -> {
-//        	GL11.glTranslatef(0F, 0.25F, 0F);
-//            GL11.glRotatef(5F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
                     GL11.glTranslatef(-0.25F, -1.1F, -4.8F);
@@ -94,11 +90,6 @@ public class KedrFactory {
                             GL11.glRotatef(10.000000f, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.150000f, 0.850000f, -1.125000f);
 
-//                GL11.glScalef(2f, 2f, 2f);
-//                GL11.glRotatef(15.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.575000f, 0.800000f, -0.775000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {

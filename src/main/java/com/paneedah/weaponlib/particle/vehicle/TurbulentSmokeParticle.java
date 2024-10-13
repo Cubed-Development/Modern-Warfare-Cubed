@@ -47,15 +47,12 @@ public class TurbulentSmokeParticle extends ParticleCloud {
                                float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
 
 
-        //rotationX = 0f;
-        //rotationXZ = 30f;
-
         Random urandom = new Random(333);
 
 
         this.particleRed = this.particleGreen = this.particleBlue = urandom.nextFloat() * 0.5F + 0.4F;
 
-        int j = this.getBrightnessForRender(partialTicks);
+        int j = getBrightnessForRender(partialTicks);
         int k = j >> 16 & 65535;
         int l = j & 65535;
 
@@ -86,7 +83,7 @@ public class TurbulentSmokeParticle extends ParticleCloud {
 
 
         if (this.particleAge++ >= this.particleMaxAge) {
-            this.setExpired();
+            setExpired();
         }
 
         this.particleTextureIndexX = this.particleAge * 7 / this.particleMaxAge;
@@ -94,46 +91,7 @@ public class TurbulentSmokeParticle extends ParticleCloud {
 
         Random rand = new Random();
 
-        this.move(this.motionX, this.motionY, this.motionZ);
-        
-       
-        /*
-        try {
-        
-        	 List<Entity> entList = this.world.getLoadedEntityList();
-        	// entList.removeIf((e) -> !(e instanceof EntityVehicle));
-        	 
-        	 for(Entity ent : entList) {
-        		 
-        		 if(ent instanceof EntityVehicle) continue;
-        		 
-        		 EntityVehicle v = (EntityVehicle) ent;
-        		 Vec3d particlePos = new Vec3d(posX, posY, posZ);
-        		 
-        		 double distance = particlePos.subtract(ent.getPositionVector()).length();
-        		 
-        		 if(distance < 1 && v.solver.getVelocityVector().length() > 3) {
-        			 Vec3d sV = ent.getPositionVector().subtract(particlePos).normalize();
-        			 
-        			 this.motionX += sV.x;
-        			 this.motionY += sV.y;
-        			 this.motionZ += sV.z;
-        			 
-        			 
-        		 } else if(distance < 5 && distance > 3 && v.solver.getVelocityVector().length() > 1) {
-        			 Vec3d sV = particlePos.subtract(ent.getPositionVector()).normalize().scale(-v.solver.getVelocityVector().length()*0.005);
-        			 
-        			 this.motionX += sV.x;
-        			 this.motionY += sV.y;
-        			 this.motionZ += sV.z;
-        			 
-        		 }
-        	 }
-        	 
-             
-        } catch(Exception e) {
-        	//e.printStackTrace();
-        };*/
+        move(this.motionX, this.motionY, this.motionZ);
 
 
         this.motionX *= 0.9599999785423279D;
@@ -149,13 +107,13 @@ public class TurbulentSmokeParticle extends ParticleCloud {
             if (this.posY > axisalignedbb.minY) {
                 this.posY += (axisalignedbb.minY - this.posY) * 0.2D;
                 this.motionY += (entityplayer.motionY - this.motionY) * 0.2D;
-                this.setPosition(this.posX, this.posY, this.posZ);
+                setPosition(this.posX, this.posY, this.posZ);
             }
         }
 
 
         if (this.onGround) {
-            this.setExpired();
+            setExpired();
             this.motionX *= 0.699999988079071D;
             this.motionZ *= 0.699999988079071D;
         }

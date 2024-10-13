@@ -88,11 +88,11 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
 
                             final int iSCount = iS.getCount();
                             if (existingCount + iSCount >= requiredCount) {
-                                itemRemovalList.get(stackItem).put(iS, requiredCount - existingCount);
+                                itemRemovalList.get(stackItem).put(iS, Integer.valueOf(requiredCount - existingCount));
                                 break;
                             }
 
-                            itemRemovalList.get(stackItem).put(iS, iSCount);
+                            itemRemovalList.get(stackItem).put(iS, Integer.valueOf(iSCount));
                         }
                     }
 

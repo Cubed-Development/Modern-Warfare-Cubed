@@ -38,9 +38,9 @@ public class S710TricunFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -79,14 +79,14 @@ public class S710TricunFactory implements GunFactory {
                     if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.205F, -1.45F, -2F);
                         GL11.glScaled(0.6F, 0.6F, 0.65F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.205F, -1.45F, -3.27F);
                         GL11.glScaled(0.6F, 0.6F, 0.65F);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail4) {
+                    } else if (null instanceof AKRail4) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -198,11 +198,11 @@ public class S710TricunFactory implements GunFactory {
                     if (model instanceof AKMiron2) {
                         GL11.glTranslatef(-0.18F, -1.5F, -3.73F);
                         GL11.glScaled(0.55F, 0.55F, 1F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(-0.1F, -1.34F, -3.7F);
                         GL11.glScaled(0.1F, 0.9F, 0.3F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.235F, -1.85F, -3.7F);
                         GL11.glScaled(0.75F, 0.95F, 0.3F);
                     }
@@ -267,7 +267,7 @@ public class S710TricunFactory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -300,9 +300,6 @@ public class S710TricunFactory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
 
@@ -554,8 +551,6 @@ public class S710TricunFactory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.18f, -0.028f, 0.6f);
 
 

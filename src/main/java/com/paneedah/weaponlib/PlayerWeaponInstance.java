@@ -13,6 +13,8 @@ import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
 import com.paneedah.weaponlib.shader.DynamicShaderPhase;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -49,8 +51,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     public final DynamicShaderGroupSource BLUR_SOURCE = new DynamicShaderGroupSource(BLUR_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/blur.json"))
-            .withUniform("Radius", context -> hasOpticScope() ? 10f : 5f)
-            .withUniform("Progress", context -> getAimChangeProgress());
+            .withUniform("Radius", context -> Float.valueOf(hasOpticScope() ? 10f : 5f))
+            .withUniform("Progress", context -> Float.valueOf(getAimChangeProgress()));
 
     public final DynamicShaderGroupSource NIGHT_VISION_SOURCE = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/night-vision.json"))
@@ -59,7 +61,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     public final DynamicShaderGroupSource VIGNETTE_SOURCE = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/vignette.json"))
-            .withUniform("Radius", context -> getOpticScopeVignetteRadius(context.getPartialTicks()))
+            .withUniform("Radius", context -> Float.valueOf(getOpticScopeVignetteRadius(context.getPartialTicks())))
             // .withUniform("Velocity", context -> new float[]{ClientEventHandler.scopeVelX, ClientEventHandler.scopeVelY})
             .withUniform("Reticle", context -> {
 
@@ -67,32 +69,53 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
                 MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/reticle1.png"));
                 GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 
-                return 4;
+                return Integer.valueOf(4);
             });
 
 
     private static final long AIM_CHANGE_DURATION = 1200;
 
+    @Getter
     private int ammo;
+    @Getter
     private float recoil;
+    //System.out.println("Series shot count: " + seriesShotCount);
+    @Setter
+    @Getter
     private int seriesShotCount;
+    @Setter
+    @Getter
     private long lastFireTimestamp;
+    @Getter
     private boolean aimed;
+    @Getter
     private int maxShots;
+    @Getter
     private float zoom = 1f;
     private byte activeTextureIndex;
+    @Getter
     private boolean laserOn;
     private long aimChangeTimestamp;
+    @Getter
     private boolean nightVisionOn;
+    @Setter
+    @Getter
     private boolean seriesResetAllowed;
+    @Setter
+    @Getter
     private long lastBurstEndTimestamp;
+    @Setter
     private boolean altModificationModeEnabled;
 
+    @Setter
+    @Getter
     private int loadIterationCount;
+    @Setter
+    @Getter
     private boolean loadAfterUnloadEnabled;
     private boolean isDelayCompoundEnd = true;
 
-    private long stateReloadUpdateTimestamp;
+    @Setter
     private boolean isAwaitingCompoundInstructions = false;
 
 
@@ -154,15 +177,14 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
         if (state == WeaponState.FIRING || state == WeaponState.RECOILED || state == WeaponState.PAUSED) {
             if (isAutomaticModeEnabled() && !getWeapon().hasRecoilPositioning()) {
-                expirationTimeout = (long) (50f / getFireRate());
+                getFireRate();
             } else {
-                expirationTimeout = 500;
             }
             expirationTimeout = 500;
         } else {
             expirationTimeout = Integer.MAX_VALUE;
         }
-        filteredStateQueue.addFirst(new AsyncWeaponState(state, this.stateUpdateTimestamp, expirationTimeout));
+        filteredStateQueue.addFirst(new AsyncWeaponState(state, stateUpdateTimestamp, expirationTimeout));
     }
 
 
@@ -194,8 +216,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             case COMPOUND_RELOAD:
                 return getWeapon().getRenderer().getWeaponRendererBuilder().getCompoundReloadDuration() / 2;
             case COMPOUND_RELOAD_EMPTY:
-                //System.out.println(getWeapon().getRenderer().getWeaponRendererBuilder().getCompoundReloadEmptyDuration());
-                //return getWeapon().getRenderer().getWeaponRendererBuilder().getCompoundReloadEmptyDuration();
                 return getWeapon().getRenderer().getWeaponRendererBuilder().getCompoundReloadEmptyDuration();
             case TACTICAL_RELOAD:
 
@@ -224,16 +244,12 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         return result;
     }
 
-    public int getAmmo() {
-        return ammo;
-    }
-
     public boolean isSlideLocked() {
-        return this.isSlideInLock;
+        return isSlideInLock;
     }
 
     public void setSlideLock(boolean state) {
-        this.isSlideInLock = state;
+        isSlideInLock = state;
     }
 
     public void setAmmo(int ammo) {
@@ -333,10 +349,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         return (Weapon) item;
     }
 
-    public float getRecoil() {
-        return recoil;
-    }
-
     public void setRecoil(float recoil) {
         if (recoil != this.recoil) {
             this.recoil = recoil;
@@ -350,21 +362,9 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     public void setDelayCompoundEnd(boolean bool) {
         if (!bool) {
-            stateReloadUpdateTimestamp = System.currentTimeMillis();
+            long stateReloadUpdateTimestamp = System.currentTimeMillis();
         }
-        this.isDelayCompoundEnd = bool;
-    }
-
-    public boolean isLoadAfterUnloadEnabled() {
-        return loadAfterUnloadEnabled;
-    }
-
-    public void setLoadAfterUnloadEnabled(boolean loadAfterUnloadEnabled) {
-        this.loadAfterUnloadEnabled = loadAfterUnloadEnabled;
-    }
-
-    public int getMaxShots() {
-        return maxShots;
+        isDelayCompoundEnd = bool;
     }
 
     void setMaxShots(int maxShots) {
@@ -374,51 +374,10 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         }
     }
 
-    public int getSeriesShotCount() {
-        //System.out.println("Series shot count: " + seriesShotCount);
-        return seriesShotCount;
-    }
-
-    public void setSeriesShotCount(int seriesShotCount) {
-        this.seriesShotCount = seriesShotCount;
-    }
-
-    public long getLastFireTimestamp() {
-        return lastFireTimestamp;
-    }
-
-    public void setLastFireTimestamp(long lastFireTimestamp) {
-        this.lastFireTimestamp = lastFireTimestamp;
-    }
-
     public void resetCurrentSeries() {
         seriesShotCount = 0;
         seriesResetAllowed = false;
     }
-
-    public void setLastBurstEndTimestamp(long lastBurstEndTimestamp) {
-        this.lastBurstEndTimestamp = lastBurstEndTimestamp;
-    }
-
-    public long getLastBurstEndTimestamp() {
-        return lastBurstEndTimestamp;
-    }
-
-    public void setSeriesResetAllowed(boolean seriesResetAllowed) {
-        this.seriesResetAllowed = seriesResetAllowed;
-    }
-
-    public boolean isSeriesResetAllowed() {
-        return seriesResetAllowed;
-    }
-
-//	public void resetCurrentSeriesEventually() {
-//	    if(isOneClickBurstAllowed()) {
-//	        seriesResetAllowed = true;
-//	    } else {
-//	        seriesShotCount = 0;
-//	    }
-//    }
 
     public float getFireRate() {
         return BalancePackManager.getFirerate(getWeapon());
@@ -436,10 +395,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     public boolean isAutomaticModeEnabled() {
         return maxShots > 1;
-    }
-
-    public boolean isAimed() {
-        return aimed;
     }
 
     public void setAimed(boolean aimed) {
@@ -498,15 +453,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     }
 
     public boolean isAwaitingCompoundInstructions() {
-        return this.isAwaitingCompoundInstructions;
-    }
-
-    public void setIsAwaitingCompoundInstructions(boolean state) {
-        this.isAwaitingCompoundInstructions = state;
-    }
-
-    public float getZoom() {
-        return zoom;
+        return isAwaitingCompoundInstructions;
     }
 
     public void setZoom(float zoom) {
@@ -516,19 +463,11 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         }
     }
 
-    public boolean isLaserOn() {
-        return laserOn;
-    }
-
     public void setLaserOn(boolean laserOn) {
         if (this.laserOn != laserOn) {
             this.laserOn = laserOn;
             markDirty();
         }
-    }
-
-    public boolean isNightVisionOn() {
-        return nightVisionOn;
     }
 
     public void setNightVisionOn(boolean nightVisionOn) {
@@ -578,8 +517,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     private float getOpticScopeVignetteRadius(float partialTicks) {
         //ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
         EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
-//        float f = player.distanceWalkedModified - player.prevDistanceWalkedModified;
-//        float f1 = -(player.distanceWalkedModified + f * partialTicks);
         float f2 = player.prevCameraYaw + (player.cameraYaw - player.prevCameraYaw) * partialTicks;
         // return -2f * f2 + 0.55f;
         return 0.55f;
@@ -605,14 +542,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
         float progress = getAimChangeProgress();
         return ModernConfigManager.enableBlurOnAim && phase == DynamicShaderPhase.PRE_ITEM_RENDER && (isAimed() || (progress > 0f && progress < 1f)) ? BLUR_SOURCE : null;
-    }
-
-    public void setLoadIterationCount(int loadIterationCount) {
-        this.loadIterationCount = loadIterationCount;
-    }
-
-    public int getLoadIterationCount() {
-        return loadIterationCount;
     }
 
     @Override
@@ -658,7 +587,4 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         return altModificationModeEnabled;
     }
 
-    public void setAltModificationModeEnabled(boolean altModificationModeEnabled) {
-        this.altModificationModeEnabled = altModificationModeEnabled;
-    }
 }

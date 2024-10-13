@@ -12,8 +12,8 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public abstract class ScreenPerspective extends Perspective<RenderableState> {
 
     public ScreenPerspective() {
-        this.width = 427; //MC.displayWidth >> 1;
-        this.height = 240; //MC.displayHeight >> 1;
+        width = 427; //MC.displayWidth >> 1;
+        height = 240; //MC.displayHeight >> 1;
     }
 
     @Override
