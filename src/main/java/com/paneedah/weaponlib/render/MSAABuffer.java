@@ -28,22 +28,15 @@ public class MSAABuffer {
         }
 
 
-        this.fbo = GLCompatible.glGenFramebuffers();
-        GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, this.fbo);
-        this.fbo = GL11.glGenTextures();
+        fbo = GLCompatible.glGenFramebuffers();
+        GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, fbo);
+        fbo = GL11.glGenTextures();
 
 
-        GL11.glBindTexture(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, this.fbo);
+        GL11.glBindTexture(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, fbo);
         GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL11.GL_RGBA8, width, height, false);
-        GLCompatible.glFramebufferTexture2D(GLCompatible.GL_FRAMEBUFFER, GLCompatible.GL_COLOR_ATTACHMENT0, GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, this.fbo, 0);
-		
-		/*
-		if(depth) {
-			depth_tex = GL11.glGenTextures();
-			GL11.glBindTexture(GL32.GL_TEXTURE_2D_MULTISAMPLE, depth_tex);
-			GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL14.GL_DEPTH_COMPONENT24, width, height, false);
-		}
-		*/
+        GLCompatible.glFramebufferTexture2D(GLCompatible.GL_FRAMEBUFFER, GLCompatible.GL_COLOR_ATTACHMENT0, GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, fbo, 0);
+
         GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, MC.getFramebuffer().framebufferObject);
 
     }
@@ -56,7 +49,7 @@ public class MSAABuffer {
         GLCompatible.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER, initialFBO);
 
 
-        GLCompatible.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER, this.fbo);
+        GLCompatible.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER, fbo);
         GLCompatible.glBlitFramebuffer(0, 0, width, height, 0, 0, width, height, GL11.GL_COLOR_BUFFER_BIT, GL11.GL_NEAREST);
 
         //  GLCompatible.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, this.fbo);
@@ -64,7 +57,7 @@ public class MSAABuffer {
     }
 
     public void unbindMSAABuffer(int initialFBO) {
-        GLCompatible.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER, this.fbo);
+        GLCompatible.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER, fbo);
         GLCompatible.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER, initialFBO);
         GLCompatible.glBlitFramebuffer(0, 0, width, height, 0, 0, width, height, GL11.GL_COLOR_BUFFER_BIT, GL11.GL_NEAREST);
         GLCompatible.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, initialFBO);

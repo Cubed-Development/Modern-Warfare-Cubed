@@ -45,9 +45,9 @@ public class P90Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.2f)
-                .withFlashOffsetY(() -> 0.27f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.2f))
+                .withFlashOffsetY(() -> Float.valueOf(0.27f))
                 .withShellCasingEjectEnabled(false)
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -258,10 +258,9 @@ public class P90Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
                     GL11.glTranslatef(-0.018F, -2.05F, -1.4F);
@@ -407,10 +406,6 @@ public class P90Factory {
                         .setupModernMagazineAnimations("p90", Magazines.P90TerminatorMag)
 
                         .withFirstPersonCustomPositioning(Magazines.P90TerminatorMag.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(-0.1F, -0.6F, 1.1F);
-//            	GL11.glRotatef(90F, 0f, 1f, 0f);
-//            	GL11.glRotatef(20F, 1f, 0f, 0f);
-//            	GL11.glRotatef(-10F, 0f, 0f, 1f);
                         })
 
                         .withThirdPersonPositioningReloading(

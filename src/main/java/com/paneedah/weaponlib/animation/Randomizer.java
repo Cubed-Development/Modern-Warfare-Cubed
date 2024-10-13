@@ -24,7 +24,7 @@ public final class Randomizer {
     private final float zbias = 0f;
 
     public Randomizer() {
-        this.currentMatrix = getMatrixForPositioning(() -> {});
+        currentMatrix = getMatrixForPositioning(() -> {});
         next();
     }
 

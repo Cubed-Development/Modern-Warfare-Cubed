@@ -38,12 +38,12 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
         this.attackWithItemType = new HashSet<>();
         Collections.addAll(this.attackWithItemType, attackWithItemType);
 
-        this.entity = customMob;
-        this.moveSpeedAmp = speedAmplifier;
-        this.attackCooldown = delay;
-        this.maxAttackDistanceSquared = maxDistance * maxDistance;
+        entity = customMob;
+        moveSpeedAmp = speedAmplifier;
+        attackCooldown = delay;
+        maxAttackDistanceSquared = maxDistance * maxDistance;
         this.secondaryEquipmentUseChance = secondaryEquipmentUseChance;
-        this.setMutexBits(3);
+        setMutexBits(3);
     }
 
     /**
@@ -59,9 +59,8 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
     }
 
     protected boolean isItemTypeInMainHand() {
-        return entity.getHeldItemMainhand() != null
-                && (attackWithItemType.isEmpty()
-                || attackWithItemType.stream().anyMatch(a -> a.isInstance(entity.getHeldItemMainhand().getItem())));
+        entity.getHeldItemMainhand();
+        return attackWithItemType.isEmpty() || attackWithItemType.stream().anyMatch(a -> a.isInstance(entity.getHeldItemMainhand().getItem()));
     }
 
     /**
@@ -69,7 +68,7 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
      */
     @Override
     public boolean shouldContinueExecuting() {
-        return (shouldExecute() || !this.entity.getNavigator().noPath());
+        return (shouldExecute() || !entity.getNavigator().noPath());
     }
 
     /**
@@ -96,77 +95,77 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
      * Updates the task
      */
     public void updateTask() {
-        EntityLivingBase attackTarget = this.entity.getAttackTarget();
+        EntityLivingBase attackTarget = entity.getAttackTarget();
 
         if (attackTarget != null) {
 
-            this.entity.getLookHelper().setLookPosition(attackTarget.posX, attackTarget.posY + attackTarget.getEyeHeight() * this.entity.getConfiguration().getLookHeightMultiplier(), attackTarget.posZ, 30f, 30f);
+            entity.getLookHelper().setLookPosition(attackTarget.posX, attackTarget.posY + attackTarget.getEyeHeight() * entity.getConfiguration().getLookHeightMultiplier(), attackTarget.posZ, 30f, 30f);
             //this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
 
-            double d0 = this.entity.getDistanceSq(attackTarget.posX, attackTarget.getEntityBoundingBox().minY, attackTarget.posZ);
-            boolean canSeeTarget = this.entity.getEntitySenses().canSee(attackTarget);
-            boolean flag1 = this.seeTime > 0;
+            double d0 = entity.getDistanceSq(attackTarget.posX, attackTarget.getEntityBoundingBox().minY, attackTarget.posZ);
+            boolean canSeeTarget = entity.getEntitySenses().canSee(attackTarget);
+            boolean flag1 = seeTime > 0;
 
             if (canSeeTarget != flag1) {
-                this.seeTime = 0;
+                seeTime = 0;
             }
 
             if (canSeeTarget) {
-                ++this.seeTime;
+                ++seeTime;
             } else {
-                --this.seeTime;
+                --seeTime;
             }
 
-            if (d0 <= (double) this.maxAttackDistanceSquared && this.seeTime >= 20) {
-                this.entity.getNavigator().clearPath();
-                ++this.strafingTime;
+            if (d0 <= (double) maxAttackDistanceSquared && seeTime >= 20) {
+                entity.getNavigator().clearPath();
+                ++strafingTime;
             } else {
-                this.entity.getNavigator().tryMoveToEntityLiving(attackTarget, this.moveSpeedAmp);
-                this.strafingTime = -1;
+                entity.getNavigator().tryMoveToEntityLiving(attackTarget, moveSpeedAmp);
+                strafingTime = -1;
             }
 
-            if (this.strafingTime >= 20) {
-                if ((double) this.entity.getRNG().nextFloat() < 0.3D) {
-                    this.strafingClockwise = !this.strafingClockwise;
+            if (strafingTime >= 20) {
+                if ((double) entity.getRNG().nextFloat() < 0.3D) {
+                    strafingClockwise = !strafingClockwise;
                 }
 
-                if ((double) this.entity.getRNG().nextFloat() < 0.3D) {
-                    this.strafingBackwards = !this.strafingBackwards;
+                if ((double) entity.getRNG().nextFloat() < 0.3D) {
+                    strafingBackwards = !strafingBackwards;
                 }
 
-                this.strafingTime = 0;
+                strafingTime = 0;
             }
 
-            if (this.strafingTime > -1) {
-                if (d0 > (double) (this.maxAttackDistanceSquared * 0.75F)) {
-                    this.strafingBackwards = false;
-                } else if (d0 < (double) (this.maxAttackDistanceSquared * 0.25F)) {
-                    this.strafingBackwards = true;
+            if (strafingTime > -1) {
+                if (d0 > (double) (maxAttackDistanceSquared * 0.75F)) {
+                    strafingBackwards = false;
+                } else if (d0 < (double) (maxAttackDistanceSquared * 0.25F)) {
+                    strafingBackwards = true;
                 }
 
-                this.entity.getMoveHelper().strafe(this.strafingBackwards ? -0.5F : 0.5F, this.strafingClockwise ? 0.5F : -0.5F);
-                this.entity.faceEntity(attackTarget, 30.0F, 30.0F);
+                entity.getMoveHelper().strafe(strafingBackwards ? -0.5F : 0.5F, strafingClockwise ? 0.5F : -0.5F);
+                entity.faceEntity(attackTarget, 30.0F, 30.0F);
             } else {
-                this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
+                entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
             }
 
-            if (this.entity.isHandActive()) {
-                if (!canSeeTarget && this.seeTime < -60) {
-                    this.entity.resetActiveHand();
+            if (entity.isHandActive()) {
+                if (!canSeeTarget && seeTime < -60) {
+                    entity.resetActiveHand();
                 } else if (canSeeTarget) {
-                    if (Math.abs((-(this.entity.posX - attackTarget.posX) / (this.entity.posZ - attackTarget.posZ)) - Math.tan(this.entity.renderYawOffset / 180f * Math.PI)) < 5.0) {
-                        this.entity.resetActiveHand();
+                    if (Math.abs((-(entity.posX - attackTarget.posX) / (entity.posZ - attackTarget.posZ)) - Math.tan(entity.renderYawOffset / 180f * Math.PI)) < 5.0) {
+                        entity.resetActiveHand();
                         if (entity.getSecondaryEquipment() != null && entity.getRNG().nextFloat() < secondaryEquipmentUseChance) {
-                            this.entity.attackWithSecondaryEquipment(attackTarget, 0); // TODO: set some distance factor
+                            entity.attackWithSecondaryEquipment(attackTarget, 0); // TODO: set some distance factor
                         } else {
-                            this.entity.attackEntityWithRangedAttack(attackTarget, 0);
+                            entity.attackEntityWithRangedAttack(attackTarget, 0);
                             // TODO: set some distance factor
                         }
-                        this.attackTime = (this.attackCooldown >> 1) + this.entity.getRNG().nextInt(this.attackCooldown << 1);
+                        attackTime = (attackCooldown >> 1) + entity.getRNG().nextInt(attackCooldown << 1);
                     }
                 }
-            } else if (--this.attackTime <= 0 && this.seeTime >= -60) {
-                this.entity.setActiveHand(EnumHand.MAIN_HAND);
+            } else if (--attackTime <= 0 && seeTime >= -60) {
+                entity.setActiveHand(EnumHand.MAIN_HAND);
             }
         }
     }

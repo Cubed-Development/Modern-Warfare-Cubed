@@ -4,6 +4,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
+import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -58,11 +59,11 @@ public class ItemMelee extends Item implements
         private Object[] craftingMaterials;
         public float attackDamage = 1f;
         public float heavyAttackDamage = 2f;
-        public Supplier<Integer> prepareStubTimeout = () -> DEFAULT_PREPARE_STUB_TIMEOUT;
-        public Supplier<Integer> prepareHeavyStubTimeout = () -> DEFAULT_PREPARE_STUB_TIMEOUT;
+        public Supplier<Integer> prepareStubTimeout = () -> Integer.valueOf(DEFAULT_PREPARE_STUB_TIMEOUT);
+        public Supplier<Integer> prepareHeavyStubTimeout = () -> Integer.valueOf(DEFAULT_PREPARE_STUB_TIMEOUT);
 
-        public Supplier<Integer> attackCooldownTimeout = () -> DEFAULT_ATTACK_COOLDOWN_TIMEOUT;
-        public Supplier<Integer> heavyAttackCooldownTimeout = () -> DEFAULT_HEAVY_ATTACK_COOLDOWN_TIMEOUT;
+        public Supplier<Integer> attackCooldownTimeout = () -> Integer.valueOf(DEFAULT_ATTACK_COOLDOWN_TIMEOUT);
+        public Supplier<Integer> heavyAttackCooldownTimeout = () -> Integer.valueOf(DEFAULT_HEAVY_ATTACK_COOLDOWN_TIMEOUT);
 
         private Object[] craftingRecipe;
 
@@ -195,8 +196,8 @@ public class ItemMelee extends Item implements
 
             ItemMelee itemMelee = new ItemMelee(this, modContext);
 
-            itemMelee.attackSound = this.attackSound != null ? modContext.registerSound(this.attackSound) : SoundEvents.AMBIENT_CAVE;
-            itemMelee.heavyAttackSound = this.heavyAttackSound != null ? modContext.registerSound(this.heavyAttackSound) : SoundEvents.AMBIENT_CAVE;
+            itemMelee.attackSound = attackSound != null ? modContext.registerSound(attackSound) : SoundEvents.AMBIENT_CAVE;
+            itemMelee.heavyAttackSound = heavyAttackSound != null ? modContext.registerSound(heavyAttackSound) : SoundEvents.AMBIENT_CAVE;
 
             itemMelee.setCreativeTab(creativeTab);
             itemMelee.setTranslationKey(name);
@@ -207,11 +208,7 @@ public class ItemMelee extends Item implements
                 ItemStack itemStack = new ItemStack(itemMelee);
                 List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(itemMelee, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
-                if (hasOres) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
-                } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
-                }
+                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
             } else if (craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                         .withSlotCount(9)
@@ -222,8 +219,6 @@ public class ItemMelee extends Item implements
                 ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(itemMelee), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(itemMelee).getItem().getTranslationKey() + "_recipe"));
 
             } else {
-                //throw new IllegalStateException("No recipe defined for attachment " + name);
-                //System.err.println("!!!No recipe defined for melee weapon " + name);
             }
             return itemMelee;
         }
@@ -237,9 +232,12 @@ public class ItemMelee extends Item implements
     private final ModContext modContext;
 
     private SoundEvent attackSound;
+    @Getter
     private SoundEvent silencedShootSound;
     private SoundEvent heavyAttackSound;
+    @Getter
     private SoundEvent unloadSound;
+    @Getter
     private SoundEvent ejectSpentRoundSound;
 
     public enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
@@ -258,29 +256,13 @@ public class ItemMelee extends Item implements
         return attackSound;
     }
 
-    public SoundEvent getSilencedShootSound() {
-        return silencedShootSound;
-    }
-
     public SoundEvent getReloadSound() {
         return heavyAttackSound;
-    }
-
-    public SoundEvent getUnloadSound() {
-        return unloadSound;
-    }
-
-    public SoundEvent getEjectSpentRoundSound() {
-        return ejectSpentRoundSound;
     }
 
     @Override
     public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack itemStack) {
         return true;
-    }
-
-    @Override
-    public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean active) {
     }
 
 
@@ -294,11 +276,6 @@ public class ItemMelee extends Item implements
     }
 
     @Override
-    public int getMaxItemUseDuration(ItemStack itemStack) {
-        return 0;
-    }
-
-    @Override
     public List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
         return modContext.getMeleeAttachmentAspect().getActiveAttachments(player, itemStack);
     }
@@ -308,9 +285,8 @@ public class ItemMelee extends Item implements
     }
 
     List<ItemAttachment<ItemMelee>> getCompatibleAttachments(Class<? extends ItemAttachment<ItemMelee>> target) {
-        return builder.compatibleAttachments.entrySet().stream()
-                .filter(e -> target.isInstance(e.getKey()))
-                .map(e -> e.getKey())
+        return builder.compatibleAttachments.keySet().stream()
+                .filter(target::isInstance)
                 .collect(Collectors.toList());
     }
 
@@ -333,7 +309,7 @@ public class ItemMelee extends Item implements
         if (flagIn.isAdvanced() && playerMeleeInstance != null && itemStack.getTagCompound() != null) {
             if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
                 tooltipLines.add(red + "Logging NBT data, release left shift to stop");
-                LOGGER.info("{} NBT Data (Size {}): {}", playerMeleeInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
+                LOGGER.info("{} NBT Data (Size {}): {}", playerMeleeInstance.toString(), Integer.valueOf(itemStack.getTagCompound().getSize()), itemStack.getTagCompound().toString());
             } else {
                 tooltipLines.add(yellow + "Press left shift to log NBT data");
             }
@@ -348,14 +324,6 @@ public class ItemMelee extends Item implements
         modContext.getMeleeAttachmentAspect().onUpdate(player);
 //        modContext.getAttachmentAspect().updateMainHeldItem(player);
     }
-
-//    public void tryFire(EntityPlayer player) {
-//        modContext.getWeaponFireAspect().onFireButtonClick(player);
-//    }
-//
-//    public void tryStopFire(EntityPlayer player) {
-//        modContext.getWeaponFireAspect().onFireButtonRelease(player);
-//    }
 
     @Override
     public PlayerMeleeInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
@@ -377,13 +345,6 @@ public class ItemMelee extends Item implements
         modContext.getMeleeAttachmentAspect().toggleClientAttachmentSelectionMode(player);
     }
 
-//    @Override
-//    public boolean onDroppedByPlayer(ItemStack itemStack, EntityPlayer player) {
-//        // Server side only method
-////        PlayerWeaponInstance instance = (PlayerWeaponInstance) Tags.getInstance(itemStack);
-////        return instance == null || instance.getState() == WeaponState.READY;
-//    }
-
     public String getTextureName() {
         return builder.textureNames.get(0);
     }
@@ -401,13 +362,6 @@ public class ItemMelee extends Item implements
         }
     }
 
-//    public Multimap getItemAttributeModifiers() {
-//        Multimap multimap = super.getItemAttributeModifiers();
-//        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),
-//                new AttributeModifier(field_111210_e, "Weapon modifier", (double)builder.damage, 0));
-//        return multimap;
-//    }
-
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase player) {
         //target.attackEntityFrom(DamageSource.fall, builder.damage);
@@ -423,19 +377,19 @@ public class ItemMelee extends Item implements
     }
 
     public long getPrepareStubTimeout() {
-        return builder.prepareStubTimeout.get();
+        return builder.prepareStubTimeout.get().longValue();
     }
 
     public long getPrepareHeavyStubTimeout() {
-        return builder.prepareHeavyStubTimeout.get();
+        return builder.prepareHeavyStubTimeout.get().longValue();
     }
 
     public long getAttackCooldownTimeout() {
-        return builder.attackCooldownTimeout.get();
+        return builder.attackCooldownTimeout.get().longValue();
     }
 
     public long getHeavyAttackCooldownTimeout() {
-        return builder.heavyAttackCooldownTimeout.get();
+        return builder.heavyAttackCooldownTimeout.get().longValue();
     }
 
     public SoundEvent getHeavyAtackSound() {
