@@ -73,6 +73,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 
 - Fixed the default craftingmappings.json
 - Fixed the position of the RPG-7 and M202 projectiles
+- Fixed compatiblity with GroovyScript 1.2+
 
 ### Removed
 
