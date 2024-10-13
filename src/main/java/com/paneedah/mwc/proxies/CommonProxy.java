@@ -22,29 +22,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 
-    /*
-    public static Item ElectronicCircuitBoard;
-    public static Item OpticGlass;
-    public static Item Cloth;
-    public static Item TanCloth;
-    public static Item GreenCloth;
-    public static Item Inductor;
-    public static Item Transistor;
-    public static Item Resistor;
-    public static Item Diode;
-    public static Item Capacitor;
-    public static Item CopperWiring;
-    public static Item Piston;
-    public static Item LaserPointer;
-    public static Item AluminumPlate;
-    public static Item SteelPlate;
-    public static Item BigSteelPlate;
-    public static Item MiniSteelPlate;
-    public static Item MetalComponents;
-    public static Item Plastic;
-    public static Item Backpack;
-    */
-
 
     // I cannot figure out for the life of me why moving the init classes to the init() instead of the preInit() makes the game die, but I have no choice but to leave it here for now.
     public void preInit(final MWC mod) {

@@ -45,9 +45,9 @@ public class F2000Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.5f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -95,9 +95,6 @@ public class F2000Factory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.F2000Action, true, (model) -> {
-//        	GL11.glTranslatef(-0.55F, 0.5F, 0.1F);
-//            GL11.glRotatef(-70F, 0f, 1f, 0f);
-//            GL11.glRotatef(-35F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
                     GL11.glTranslatef(-0.15F, 1.1F, 1.7F);
@@ -213,8 +210,6 @@ public class F2000Factory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.F2000Scope, true, (player, stack) -> {
-//            GL11.glTranslatef(-0.09F, -0.75F, -1.2F);
-//            GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
                     if (model instanceof F2000Reticle) {
                         GL11.glTranslatef(-0.002F, -0.856F, 0.895F);
@@ -515,8 +510,6 @@ public class F2000Factory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.059f, -0.81f, -0.5f);
 
 

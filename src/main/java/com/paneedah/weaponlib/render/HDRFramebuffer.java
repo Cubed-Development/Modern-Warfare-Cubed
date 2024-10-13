@@ -14,41 +14,41 @@ public class HDRFramebuffer extends Framebuffer {
 
     @Override
     public void createFramebuffer(int width, int height) {
-        this.framebufferWidth = width;
-        this.framebufferHeight = height;
-        this.framebufferTextureWidth = width;
-        this.framebufferTextureHeight = height;
+        framebufferWidth = width;
+        framebufferHeight = height;
+        framebufferTextureWidth = width;
+        framebufferTextureHeight = height;
 
         if (!OpenGlHelper.isFramebufferEnabled()) {
-            this.framebufferClear();
+            framebufferClear();
         } else {
-            this.framebufferObject = OpenGlHelper.glGenFramebuffers();
-            this.framebufferTexture = TextureUtil.glGenTextures();
+            framebufferObject = OpenGlHelper.glGenFramebuffers();
+            framebufferTexture = TextureUtil.glGenTextures();
 
-            if (this.useDepth) {
-                this.depthBuffer = OpenGlHelper.glGenRenderbuffers();
+            if (useDepth) {
+                depthBuffer = OpenGlHelper.glGenRenderbuffers();
             }
 
-            this.setFramebufferFilter(9728);
-            GlStateManager.bindTexture(this.framebufferTexture);
-            GlStateManager.glTexImage2D(3553, 0, GLCompatible.GL_RGBA16F, this.framebufferTextureWidth, this.framebufferTextureHeight, 0, 6408, 5121, null);
-            OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, this.framebufferObject);
-            OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_COLOR_ATTACHMENT0, 3553, this.framebufferTexture, 0);
+            setFramebufferFilter(9728);
+            GlStateManager.bindTexture(framebufferTexture);
+            GlStateManager.glTexImage2D(3553, 0, GLCompatible.GL_RGBA16F, framebufferTextureWidth, framebufferTextureHeight, 0, 6408, 5121, null);
+            OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, framebufferObject);
+            OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_COLOR_ATTACHMENT0, 3553, framebufferTexture, 0);
 
-            if (this.useDepth) {
-                OpenGlHelper.glBindRenderbuffer(OpenGlHelper.GL_RENDERBUFFER, this.depthBuffer);
+            if (useDepth) {
+                OpenGlHelper.glBindRenderbuffer(OpenGlHelper.GL_RENDERBUFFER, depthBuffer);
                 if (!isStencilEnabled()) {
-                    OpenGlHelper.glRenderbufferStorage(OpenGlHelper.GL_RENDERBUFFER, 33190, this.framebufferTextureWidth, this.framebufferTextureHeight);
-                    OpenGlHelper.glFramebufferRenderbuffer(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_DEPTH_ATTACHMENT, OpenGlHelper.GL_RENDERBUFFER, this.depthBuffer);
+                    OpenGlHelper.glRenderbufferStorage(OpenGlHelper.GL_RENDERBUFFER, 33190, framebufferTextureWidth, framebufferTextureHeight);
+                    OpenGlHelper.glFramebufferRenderbuffer(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_DEPTH_ATTACHMENT, OpenGlHelper.GL_RENDERBUFFER, depthBuffer);
                 } else {
-                    OpenGlHelper.glRenderbufferStorage(OpenGlHelper.GL_RENDERBUFFER, org.lwjgl.opengl.EXTPackedDepthStencil.GL_DEPTH24_STENCIL8_EXT, this.framebufferTextureWidth, this.framebufferTextureHeight);
-                    OpenGlHelper.glFramebufferRenderbuffer(OpenGlHelper.GL_FRAMEBUFFER, org.lwjgl.opengl.EXTFramebufferObject.GL_DEPTH_ATTACHMENT_EXT, OpenGlHelper.GL_RENDERBUFFER, this.depthBuffer);
-                    OpenGlHelper.glFramebufferRenderbuffer(OpenGlHelper.GL_FRAMEBUFFER, org.lwjgl.opengl.EXTFramebufferObject.GL_STENCIL_ATTACHMENT_EXT, OpenGlHelper.GL_RENDERBUFFER, this.depthBuffer);
+                    OpenGlHelper.glRenderbufferStorage(OpenGlHelper.GL_RENDERBUFFER, org.lwjgl.opengl.EXTPackedDepthStencil.GL_DEPTH24_STENCIL8_EXT, framebufferTextureWidth, framebufferTextureHeight);
+                    OpenGlHelper.glFramebufferRenderbuffer(OpenGlHelper.GL_FRAMEBUFFER, org.lwjgl.opengl.EXTFramebufferObject.GL_DEPTH_ATTACHMENT_EXT, OpenGlHelper.GL_RENDERBUFFER, depthBuffer);
+                    OpenGlHelper.glFramebufferRenderbuffer(OpenGlHelper.GL_FRAMEBUFFER, org.lwjgl.opengl.EXTFramebufferObject.GL_STENCIL_ATTACHMENT_EXT, OpenGlHelper.GL_RENDERBUFFER, depthBuffer);
                 }
             }
 
-            this.framebufferClear();
-            this.unbindFramebufferTexture();
+            framebufferClear();
+            unbindFramebufferTexture();
         }
     }
 

@@ -1,5 +1,7 @@
 package com.paneedah.mwc.asm;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -92,11 +94,8 @@ public class ClassInfoProvider {
 
     }
 
+    @Getter
     private static final ClassInfoProvider instance = new ClassInfoProvider();
-
-    public static ClassInfoProvider getInstance() {
-        return instance;
-    }
 
     public ClassInfo getClassInfo(String mcpClassName) {
         if (!mcpClassName.equals("paulscode.sound.libraries.SourceLWJGLOpenAL")) {

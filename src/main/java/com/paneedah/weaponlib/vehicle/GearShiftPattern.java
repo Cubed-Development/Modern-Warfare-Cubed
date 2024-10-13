@@ -87,17 +87,6 @@ public class GearShiftPattern {
 
         t.draw();
         GL11.glPopMatrix();
-		
-		/*
-		for(Branch b : pattern) {
-			Vec3d tG = b.topGear.pos;
-			Vec3d bG = b.bottomGear.pos;
-			Vec3d m = b.median;
-			
-			drawCenteredString(MC.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x, 0xffdd59, 0.5);
-			drawCenteredString(MC.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x, 0xffdd59, 0.5);
-			
-		}*/
 
         GlStateManager.enableAlpha();
         GlStateManager.enableTexture2D();
@@ -112,10 +101,6 @@ public class GearShiftPattern {
             drawCenteredString(MC.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x * 1.1, 0xffdd59, 0.02);
 
             //drawCenteredString(MC.fontRenderer, "1", 20, -5, 0xffdd59, 0.05);\
-			/*
-			drawCenteredString(MC.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x, 0xffdd59, 0.5);
-			drawCenteredString(MC.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x, 0xffdd59, 0.5);
-			*/
         }
         //GlStateManager.disableAlpha();
 
@@ -143,14 +128,14 @@ public class GearShiftPattern {
             //realTimeTransitions.add(new Pair<Double, Vec3d>(lastTime+0.1, transitions.get(x)));
 
             if (x != 0) {
-                realTimeTransitions.add(new Pair<Double, Vec3d>(lastTime + (timePerTransiton * x - totalPauseTime), transitions.get(x)));
+                realTimeTransitions.add(new Pair<Double, Vec3d>(Double.valueOf(lastTime + (timePerTransiton * x - totalPauseTime)), transitions.get(x)));
             }
 
-            realTimeTransitions.add(new Pair<Double, Vec3d>(lastTime + (timePerTransiton * x), transitions.get(x)));
+            realTimeTransitions.add(new Pair<Double, Vec3d>(Double.valueOf(lastTime + (timePerTransiton * x)), transitions.get(x)));
 
 
             if (x == 0) {
-                realTimeTransitions.add(new Pair<Double, Vec3d>(lastTime + (timePerTransiton * x + totalPauseTime), transitions.get(x)));
+                realTimeTransitions.add(new Pair<Double, Vec3d>(Double.valueOf(lastTime + (timePerTransiton * x + totalPauseTime)), transitions.get(x)));
             }
 
         }
@@ -164,8 +149,8 @@ public class GearShiftPattern {
 
         for (int x = 0; x < realTimeTransitions.size() - 1; ++x) {
 
-            double firstBound = realTimeTransitions.get(x).getFirst();
-            double secondBound = realTimeTransitions.get(x + 1).getFirst();
+            double firstBound = realTimeTransitions.get(x).getFirst().doubleValue();
+            double secondBound = realTimeTransitions.get(x + 1).getFirst().doubleValue();
             if (globalStep <= secondBound && globalStep >= firstBound) {
                 f = realTimeTransitions.get(x).getSecond();
                 s = realTimeTransitions.get(x + 1).getSecond();
@@ -176,36 +161,11 @@ public class GearShiftPattern {
         }
 
         double step = (globalStep - fB) / (sB - fB);
-        step = step;
 
 
+        assert f != null;
+        assert s != null;
         return interpVec3d(f, s, step);
-		
-		
-		/*
-		
-		
-		Vec3d f = null;
-		Vec3d s = null;
-		double fB = 0;
-		double sB = 0;
-		
-		
-		for(int x = 0; x < transitions.size()-1; ++x) {
-			
-			double firstBound = timePerTransiton*x;
-			double secondBound = timePerTransiton*(x+1);
-			if(globalStep <= secondBound && globalStep >= firstBound) {
-				f = transitions.get(x);
-				s = transitions.get(x+1);
-				fB = firstBound;
-				sB = secondBound;
-				break;
-			}
-		}
-		
-		double step = (globalStep-fB)/(sB-fB);
-		return interpVec3d(f, s, step);*/
 
 
     }
@@ -263,9 +223,9 @@ public class GearShiftPattern {
         Vec3d median;
 
         public Branch(Node t, Node b, int i) {
-            this.topGear = t;
-            this.bottomGear = b;
-            this.median = this.topGear.pos.add(this.bottomGear.pos).scale(0.5);
+            topGear = t;
+            bottomGear = b;
+            median = topGear.pos.add(bottomGear.pos).scale(0.5);
         }
 
         public boolean containsGear(int g) {
@@ -284,7 +244,7 @@ public class GearShiftPattern {
 
     }
 
-    class Node {
+    static class Node {
         Vec3d pos;
         int gear;
 

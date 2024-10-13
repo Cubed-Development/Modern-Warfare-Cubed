@@ -44,9 +44,9 @@ public class VSSVintorezFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.4f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.11f)
+                .withFlashScale(() -> Float.valueOf(0.4f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.11f))
                 .withShootSoundVolume(1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -99,8 +99,6 @@ public class VSSVintorezFactory {
                 .withCompatibleAttachment(Attachments.ASValHandguard, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.VSSVintorezMilspecStock, (player, stack) -> {
-//        	GL11.glTranslatef(-0.212F, -0.486F, 1.27F);
-//            GL11.glScaled(0.017F, 0.017F, 0.017F);
                 }, (model) -> {
                     if (model instanceof MilSpecStock) {
                         GL11.glTranslatef(0F, 0.12F, -0.1F);
@@ -192,10 +190,9 @@ public class VSSVintorezFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
                     GL11.glTranslatef(-0.165F, -1.38F, -0.8F);

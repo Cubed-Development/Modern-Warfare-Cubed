@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.command;
 
 import com.paneedah.weaponlib.Pair;
+import lombok.Getter;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -36,8 +37,11 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 
     protected static final String HELP_KEY = "help";
 
+    @Getter
     private final TextFormatting primaryColor = TextFormatting.GOLD;
+    @Getter
     private final TextFormatting secondaryColor = TextFormatting.GRAY;
+    @Getter
     private final TextFormatting displayColor = TextFormatting.YELLOW;
 
 
@@ -51,7 +55,7 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 
         public CommandInfo(String name, String desc, String... arguments) {
             this.name = name;
-            this.description = desc;
+            description = desc;
             this.arguments = arguments;
         }
 
@@ -63,49 +67,37 @@ public abstract class TidyCompatibleCommand extends CommandBase {
         addMainOption(HELP_KEY, "provides help");
     }
 
-    public TextFormatting getPrimaryColor() {
-        return primaryColor;
-    }
-
-    public TextFormatting getSecondaryColor() {
-        return secondaryColor;
-    }
-
     public TextFormatting getErrorColor() {
         return ERROR_COLOR;
-    }
-
-    public TextFormatting getDisplayColor() {
-        return displayColor;
     }
 
     protected void initCommand() {
 
         // Generate usage
-        this.usage = ERROR_COLOR + "/" + name + " ";
-        if (tree.size() != 0) {
-            this.usage += "<";
+        usage = ERROR_COLOR + "/" + name + " ";
+        if (!tree.isEmpty()) {
+            usage += "<";
             Iterator<String> itr = tree.keySet().iterator();
             while (itr.hasNext()) {
-                this.usage += itr.next();
+                usage += itr.next();
                 if (itr.hasNext()) {
-                    this.usage += ", ";
+                    usage += ", ";
                 }
             }
-            this.usage += ">";
+            usage += ">";
         }
 
         // Generate help
         int index = 0;
-        this.help = new String[tree.size() + 1];
+        help = new String[tree.size() + 1];
         help[index++] = getHeader() + " Options:";
         for (Entry<String, Pair<CommandInfo, ArrayList<Pair<String, CommandInfo>>>> e : tree.entrySet()) {
 
-            help[index] = this.primaryColor + e.getKey();
+            help[index] = primaryColor + e.getKey();
             for (String arg : e.getValue().getFirst().arguments) {
-                help[index] += this.primaryColor + " [" + arg + this.primaryColor + "]";
+                help[index] += primaryColor + " [" + arg + primaryColor + "]";
             }
-            help[index] += " - " + this.secondaryColor + e.getValue().getFirst().description;
+            help[index] += " - " + secondaryColor + e.getValue().getFirst().description;
 
 
             index++;
@@ -145,31 +137,27 @@ public abstract class TidyCompatibleCommand extends CommandBase {
         }
 
 
-        if (args.length > 0) {
-
-
-            if (args.length == 1 && !this.tree.containsKey(args[0])) {
-                sender.sendMessage(new TextComponentString(getUsage(sender)));
-                return;
-            }
-
-
-            if (args[0].equals(HELP_KEY)) {
-                sendHelp(sender);
-                return;
-            }
-
-
-            String[] truncatedArray = null;
-            if (args.length <= 2) {
-                truncatedArray = new String[0];
-            } else {
-                truncatedArray = new String[args.length - 2];
-                System.arraycopy(args, 1, truncatedArray, 0, truncatedArray.length);
-            }
-
-            executeTidyCommand(sender, args[0], args.length > 1 ? args[1] : "", truncatedArray);
+        if (args.length == 1 && !tree.containsKey(args[0])) {
+            sender.sendMessage(new TextComponentString(getUsage(sender)));
+            return;
         }
+
+
+        if (args[0].equals(HELP_KEY)) {
+            sendHelp(sender);
+            return;
+        }
+
+
+        String[] truncatedArray = null;
+        if (args.length <= 2) {
+            truncatedArray = new String[0];
+        } else {
+            truncatedArray = new String[args.length - 2];
+            System.arraycopy(args, 1, truncatedArray, 0, truncatedArray.length);
+        }
+
+        executeTidyCommand(sender, args[0], args.length > 1 ? args[1] : "", truncatedArray);
 
     }
 
@@ -177,25 +165,23 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 
 
     public boolean checkForSecondaryArgument(String arg0, String arg1) {
-        if (!this.tree.containsKey(arg0)) {
-            return false;
-        } else {
+        if (tree.containsKey(arg0)) {
 
-            for (Pair<String, CommandInfo> str : this.tree.get(arg0).getSecond()) {
+            for (Pair<String, CommandInfo> str : tree.get(arg0).getSecond()) {
                 if (str.getFirst().equals(arg1)) {
                     return true;
                 }
             }
-            return false;
         }
+        return false;
     }
 
     public String getHeader() {
-        return primaryColor + "(" + this.displayName + ")" + this.secondaryColor;
+        return primaryColor + "(" + displayName + ")" + secondaryColor;
     }
 
     public void sendHelp(ICommandSender sender) {
-        for (String line : this.help) {
+        for (String line : help) {
             sender.sendMessage(new TextComponentString(line));
         }
     }
@@ -211,17 +197,17 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 
     public void sendOptionHelp(ICommandSender sender, String option) {
 
-        ArrayList<Pair<String, CommandInfo>> result = this.tree.get(option).getSecond();
+        ArrayList<Pair<String, CommandInfo>> result = tree.get(option).getSecond();
         sendFormattedMessage(sender, "For command " + option);
         for (Pair<String, CommandInfo> pair : result) {
 
-            String string = this.primaryColor + pair.getFirst();
+            StringBuilder string = new StringBuilder(primaryColor + pair.getFirst());
             for (String arg : pair.getSecond().arguments) {
-                string += this.primaryColor + " [" + arg + "]";
+                string.append(primaryColor + " [").append(arg).append("]");
             }
-            string += " - " + this.secondaryColor + pair.getSecond().description;
+            string.append(" - " + secondaryColor).append(pair.getSecond().description);
 
-            sender.sendMessage(new TextComponentString(string));
+            sender.sendMessage(new TextComponentString(string.toString()));
         }
 
     }
@@ -229,12 +215,12 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 
     @Override
     public String getName() {
-        return this.name;
+        return name;
     }
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return this.usage;
+        return usage;
     }
 
 }

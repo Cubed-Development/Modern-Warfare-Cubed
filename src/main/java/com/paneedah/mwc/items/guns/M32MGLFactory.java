@@ -40,9 +40,9 @@ public class M32MGLFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0f)
-                .withFlashScale(() -> 0f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.101f)
+                .withFlashScale(() -> Float.valueOf(0f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.101f))
                 .withShellCasingEjectEnabled(false)
                 .withDestroyingBlocks(false)
 
@@ -98,8 +98,6 @@ public class M32MGLFactory implements GunFactory {
                     GL11.glRotatef(-3F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M32Cartridge, true, (model) -> {
-//            GL11.glTranslatef(-0.2F, 0.1f, 0F);
-//            GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M32Main1B, true, (model) -> {
                     if (model instanceof M32Main1B) {
@@ -319,11 +317,6 @@ public class M32MGLFactory implements GunFactory {
                             GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                             GL11.glTranslatef(-0.900000f, 0.715000f, -1.374999f);
 
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glRotatef(-3F, 1f, 0f, 0f);
-//                GL11.glRotatef(4F, 0f, 0f, 1f);
-//                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-//                GL11.glTranslatef(-0.900000f, 0.715000f, -3.174999f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {

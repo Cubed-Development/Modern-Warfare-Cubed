@@ -22,6 +22,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
@@ -88,11 +89,11 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
 
                             final int iSCount = iS.getCount();
                             if (existingCount + iSCount >= requiredCount) {
-                                itemRemovalList.get(stackItem).put(iS, requiredCount - existingCount);
+                                itemRemovalList.get(stackItem).put(iS, Integer.valueOf(requiredCount - existingCount));
                                 break;
                             }
 
-                            itemRemovalList.get(stackItem).put(iS, iSCount);
+                            itemRemovalList.get(stackItem).put(iS, Integer.valueOf(iSCount));
                         }
                     }
 
@@ -112,7 +113,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     // Remove the items
                     for (Ingredient i : itemRemovalList.keySet())
                         for (ItemStack iS : itemRemovalList.get(i).keySet())
-                            iS.shrink(itemRemovalList.get(i).get(iS));
+                            iS.shrink(itemRemovalList.get(i).get(iS).intValue());
 
                     if (station instanceof TileEntityWorkbench) {
                         final TileEntityWorkbench workbench = (TileEntityWorkbench) station;
@@ -137,7 +138,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     }
                     CHANNEL.sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 25));
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.MOVE_OUTPUT) {
-                    ((EntityPlayer) world.getEntityByID(workbenchServerMessage.getPlayerID())).addItemStackToInventory(station.mainInventory.getStackInSlot(workbenchServerMessage.getSlotToMove()));
+                    ((EntityPlayer) Objects.requireNonNull(world.getEntityByID(workbenchServerMessage.getPlayerID()))).addItemStackToInventory(station.mainInventory.getStackInSlot(workbenchServerMessage.getSlotToMove()));
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.POP_FROM_QUEUE) {
                     if (!(tileEntity instanceof TileEntityAmmoPress)) {
                         return;

@@ -14,6 +14,7 @@ import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import dev.redstudio.redcore.utils.DecimalUtils;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
+import lombok.Getter;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -109,11 +110,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private Vec3d muzzlePosition = new Vec3d(-.3, -1.0, -5.3);
 
 
-        private String exceededMaxShotsSound;
         float fireRate = Weapon.DEFAULT_FIRE_RATE;
         private CreativeTabs creativeTab;
         private WeaponRenderer renderer;
         //float zoom = Weapon.DEFAULT_ZOOM;
+        @Getter
         List<Integer> maxShots = new ArrayList<>();
         String crosshair;
         String crosshairRunning;
@@ -149,6 +150,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         long pumpTimeoutMilliseconds;
         long burstTimeoutMilliseconds = Weapon.DEFAULT_BURST_TIMEOUT_MILLISECONDS;
 
+        @Getter
         private float inaccuracy = DEFAULT_INACCURACY;
 
         int pellets = 1;
@@ -163,15 +165,15 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         float flashIntensity = 0.2f;
 
-        Supplier<Float> flashScale = () -> 1f;
+        Supplier<Float> flashScale = () -> Float.valueOf(1f);
 
-        Supplier<Float> flashOffsetX = () -> 0f;
+        Supplier<Float> flashOffsetX = () -> Float.valueOf(0f);
 
-        Supplier<Float> flashOffsetY = () -> 0f;
+        Supplier<Float> flashOffsetY = () -> Float.valueOf(0f);
 
-        Supplier<Float> smokeOffsetX = () -> 0f;
+        Supplier<Float> smokeOffsetX = () -> Float.valueOf(0f);
 
-        Supplier<Float> smokeOffsetY = () -> 0f;
+        Supplier<Float> smokeOffsetY = () -> Float.valueOf(0f);
 
         long unloadingTimeout = Weapon.DEFAULT_UNLOADING_TIMEOUT_TICKS;
 
@@ -218,7 +220,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private float zoom;
 
 
-        protected Pair<Double, Double> screenShakingParameters = new Pair<Double, Double>(100.0, 1.0);
+        protected Pair<Double, Double> screenShakingParameters = new Pair<Double, Double>(Double.valueOf(100.0), Double.valueOf(1.0));
 
         private boolean newSys = false;
 
@@ -236,73 +238,65 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withConfigGroup(GunConfigurationGroup group) {
-            this.gunType = String.valueOf(group);
-            this.configGroup = group;
+            gunType = String.valueOf(group);
+            configGroup = group;
             return this;
         }
 
         public Builder withWeaponType(String type) {
-            this.gunType = type;
+            gunType = type;
             return this;
         }
 
         public String getWeaponType() {
-            return this.gunType;
+            return gunType;
         }
 
 
         public Builder hasGUIPositions(int[][] gp) {
-            this.guiPositions = gp;
+            guiPositions = gp;
             return this;
         }
 
-        public List<Integer> getMaxShots() {
-            return this.maxShots;
-        }
-
         public int[][] getGUIPositions() {
-            return this.guiPositions;
+            return guiPositions;
         }
 
         public float getFirerate() {
-            return this.fireRate;
-        }
-
-        public float getInaccuracy() {
-            return this.inaccuracy;
+            return fireRate;
         }
 
         public Builder hasFlashPedals() {
-            this.hasFlashPedals = true;
+            hasFlashPedals = true;
             return this;
         }
 
         public Builder useNewSystem() {
-            this.newSys = true;
+            newSys = true;
             return this;
         }
 
         public Builder withShellType(Type type) {
-            this.shellType = type;
+            shellType = type;
             return this;
         }
 
         public boolean isUsingNewSystem() {
-            return this.newSys;
+            return newSys;
         }
 
         public Builder withEjectRoundRequired() {
-            this.ejectSpentRoundRequired = true;
+            ejectSpentRoundRequired = true;
             return this;
         }
 
         public Builder withReloadingTime(long reloadingTime) {
-            this.reloadingTimeout = reloadingTime;
+            reloadingTimeout = reloadingTime;
             return this;
         }
 
         public Builder withUnloadingTime(long unloadingTime) {
-            this.unloadingTimeout = unloadingTime;
+            unloadingTimeout = unloadingTime;
             return this;
         }
 
@@ -312,7 +306,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withRecoilParam(RecoilParam param) {
-            this.recoilParam = param;
+            recoilParam = param;
             return this;
         }
 
@@ -327,7 +321,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withIteratedLoad() {
-            this.hasIteratedLoad = true;
+            hasIteratedLoad = true;
             return this;
         }
 
@@ -345,13 +339,13 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         public Builder withMaxShots(int... maxShots) {
             for (int m : maxShots) {
-                this.maxShots.add(m);
+                this.maxShots.add(Integer.valueOf(m));
             }
             return this;
         }
 
         public Builder withOneClickBurst() {
-            this.isOneClickBurstAllowed = true;
+            isOneClickBurstAllowed = true;
             return this;
         }
 
@@ -382,7 +376,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         public Builder withCrosshair(String crosshair, boolean fullScreen) {
             this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
-            this.crosshairFullScreen = fullScreen;
+            crosshairFullScreen = fullScreen;
             return this;
         }
 
@@ -397,12 +391,12 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         public Builder withCrosshairZoomed(String crosshairZoomed, boolean fullScreen) {
             this.crosshairZoomed = ID + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
-            this.crosshairZoomedFullScreen = fullScreen;
+            crosshairZoomedFullScreen = fullScreen;
             return this;
         }
 
         public Builder withMuzzlePosition(Vec3d pos) {
-            this.muzzlePosition = pos;
+            muzzlePosition = pos;
             return this;
         }
 
@@ -457,7 +451,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withAllReloadIterationsCompletedSound(String allReloadIterationCompletedSound) {
-            this.allReloadIterationsCompletedSound = allReloadIterationCompletedSound.toLowerCase(); //ID + ":" + reloadSound;
+            allReloadIterationsCompletedSound = allReloadIterationCompletedSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
 
@@ -467,17 +461,17 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withShootSoundVolume(float volume) {
-            this.shootSoundVolume = volume;
+            shootSoundVolume = volume;
             return this;
         }
 
         public Builder withSilenceShootSoundVolume(float volume) {
-            this.silencedShootSoundVolume = volume;
+            silencedShootSoundVolume = volume;
             return this;
         }
 
         public Builder withExceededMaxShotsSound(String shootSound) {
-            this.exceededMaxShotsSound = shootSound.toLowerCase(); //ID + ":" + shootSound;
+            String exceededMaxShotsSound = shootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
 
@@ -488,7 +482,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
 
         public Builder withSpawnEntityRocketParticles() {
-            this.spawnEntityRocketParticles = true;
+            spawnEntityRocketParticles = true;
             return this;
         }
 
@@ -614,7 +608,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withSpawnEntityBlockImpactHandler(ImpactHandler impactHandler) {
-            this.blockImpactHandler = impactHandler;
+            blockImpactHandler = impactHandler;
             return this;
         }
 
@@ -629,7 +623,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withShellCasingModelTexture(String shellModelTextureName) {
-            this.shellCasingModelTextureName = ID + ":textures/models/" + shellModelTextureName.toLowerCase() + ".png";
+            shellCasingModelTextureName = ID + ":textures/models/" + shellModelTextureName.toLowerCase() + ".png";
             return this;
         }
 
@@ -735,7 +729,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
 
         public Builder withModernRecipe(CraftingEntry... itemStacks) {
-            this.modernCraftingRecipe = itemStacks;
+            modernCraftingRecipe = itemStacks;
             return this;
         }
 
@@ -777,7 +771,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withModernScreenShaking(double intensity, double speedModifier) {
-            this.screenShakingParameters = new Pair<Double, Double>(intensity, speedModifier);
+            screenShakingParameters = new Pair<Double, Double>(Double.valueOf(intensity), Double.valueOf(speedModifier));
             return this;
         }
 
@@ -860,8 +854,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
             if ((FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)) {
                 // Register in spritesheet builder
-                WeaponSpritesheetBuilder.registerSprite(this.name);
-                this.renderer.name = this.name;
+                WeaponSpritesheetBuilder.registerSprite(name);
+                renderer.name = name;
             }
 
 
@@ -912,32 +906,32 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             }
 
             if (maxShots.isEmpty()) {
-                maxShots.add(Integer.MAX_VALUE);
+                maxShots.add(Integer.valueOf(Integer.MAX_VALUE));
             }
 
             Weapon weapon = new Weapon(this, modContext);
 
-            weapon.shootSound = modContext.registerSound(this.shootSound);
-            if (this.endOfShootSound != null) {
-                weapon.endOfShootSound = modContext.registerSound(this.endOfShootSound);
+            weapon.shootSound = modContext.registerSound(shootSound);
+            if (endOfShootSound != null) {
+                weapon.endOfShootSound = modContext.registerSound(endOfShootSound);
             }
 
-            weapon.muzzlePosition = this.muzzlePosition;
+            weapon.muzzlePosition = muzzlePosition;
 
-            weapon.burstShootSound = modContext.registerSound(this.burstShootSound);
-            weapon.silencedBurstShootSound = modContext.registerSound(this.silencedBurstShootSound);
+            weapon.burstShootSound = modContext.registerSound(burstShootSound);
+            weapon.silencedBurstShootSound = modContext.registerSound(silencedBurstShootSound);
 
-            weapon.reloadSound = modContext.registerSound(this.reloadSound);
-            weapon.reloadIterationSound = modContext.registerSound(this.reloadIterationSound);
-            weapon.inspectSound = modContext.registerSound(this.inspectSound);
-            weapon.drawSound = modContext.registerSound(this.drawSound);
+            weapon.reloadSound = modContext.registerSound(reloadSound);
+            weapon.reloadIterationSound = modContext.registerSound(reloadIterationSound);
+            weapon.inspectSound = modContext.registerSound(inspectSound);
+            weapon.drawSound = modContext.registerSound(drawSound);
 
-            weapon.allReloadIterationsCompletedSound = modContext.registerSound(this.allReloadIterationsCompletedSound);
-            weapon.unloadSound = modContext.registerSound(this.unloadSound);
-            weapon.silencedShootSound = modContext.registerSound(this.silencedShootSound);
+            weapon.allReloadIterationsCompletedSound = modContext.registerSound(allReloadIterationsCompletedSound);
+            weapon.unloadSound = modContext.registerSound(unloadSound);
+            weapon.silencedShootSound = modContext.registerSound(silencedShootSound);
 
             if (ejectSpentRoundSound != null) {
-                weapon.ejectSpentRoundSound = modContext.registerSound(this.ejectSpentRoundSound);
+                weapon.ejectSpentRoundSound = modContext.registerSound(ejectSpentRoundSound);
             }
 
             weapon.setCreativeTab(creativeTab);
@@ -946,7 +940,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             // Add the magic mag
             withCompatibleAttachment(SpecialAttachments.MagicMag, true, (model) -> {});
 
-            for (ItemAttachment<Weapon> attachment : this.compatibleAttachments.keySet()) {
+            for (ItemAttachment<Weapon> attachment : compatibleAttachments.keySet()) {
 
                 attachment.addCompatibleWeapon(weapon);
             }
@@ -957,11 +951,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 ItemStack itemStack = new ItemStack(weapon);
                 List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(weapon, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
-                if (hasOres) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
-                } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
-                }
+                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
             } else if (craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                         .withSlotCount(9)
@@ -1022,23 +1012,37 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public Builder builder;
 
+    @Getter
     private final ModContext modContext;
 
+    @Getter
     private Vec3d muzzlePosition;
 
     private CraftingEntry[] modernRecipe;
 
+    @Getter
     private SoundEvent shootSound;
+    @Getter
     private SoundEvent endOfShootSound;
+    @Getter
     private SoundEvent silencedShootSound;
+    @Getter
     private SoundEvent reloadSound;
+    @Getter
     private SoundEvent reloadIterationSound;
+    @Getter
     private SoundEvent inspectSound;
+    @Getter
     private SoundEvent drawSound;
+    @Getter
     private SoundEvent allReloadIterationsCompletedSound;
+    @Getter
     private SoundEvent unloadSound;
+    @Getter
     private SoundEvent ejectSpentRoundSound;
+    @Getter
     private SoundEvent burstShootSound;
+    @Getter
     private SoundEvent silencedBurstShootSound;
 
     public enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
@@ -1056,7 +1060,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     @Override
     public CraftingGroup getCraftingGroup() {
-        return this.craftingGroup;
+        return craftingGroup;
     }
 
     @Override
@@ -1066,63 +1070,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     @Override
     public CraftingEntry[] getModernRecipe() {
-        return this.modernRecipe;
+        return modernRecipe;
         //return CraftingRegistry.getDatabaseRecipe(this);
     }
 
-
-    public SoundEvent getShootSound() {
-        return shootSound;
-    }
-
-    public SoundEvent getBurstShootSound() {
-        return burstShootSound;
-    }
-
-    public SoundEvent getSilencedBurstShootSound() {
-        return silencedBurstShootSound;
-    }
-
-    public SoundEvent getEndOfShootSound() {
-        return endOfShootSound;
-    }
-
-    public SoundEvent getSilencedShootSound() {
-        return silencedShootSound;
-    }
-
-    public SoundEvent getReloadSound() {
-        return reloadSound;
-    }
-
-
-    public SoundEvent getReloadIterationSound() {
-        return reloadIterationSound;
-    }
-
-    public SoundEvent getInspectSound() {
-        return inspectSound;
-    }
-
-    public SoundEvent getDrawSound() {
-        return drawSound;
-    }
-
-    public SoundEvent getAllReloadIterationsCompletedSound() {
-        return allReloadIterationsCompletedSound;
-    }
-
-    public SoundEvent getUnloadSound() {
-        return unloadSound;
-    }
-
-    public SoundEvent getEjectSpentRoundSound() {
-        return ejectSpentRoundSound;
-    }
-
-    public Vec3d getMuzzlePosition() {
-        return this.muzzlePosition;
-    }
 
     @Override
     public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack itemStack) {
@@ -1142,15 +1093,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
     }
 
-    @Override
-    public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean active) {
-    }
-
     public void changeRecoil(EntityLivingBase player, float factor) {
         PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
         if (instance != null) {
             float recoil = instance.getWeapon().builder.recoil * factor;
-            LOGGER.debug("Changing recoil to {} for instance {}", recoil, instance);
+            LOGGER.debug("Changing recoil to {} for instance {}", Float.valueOf(recoil), instance);
             instance.setRecoil(recoil);
         }
     }
@@ -1186,11 +1133,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return weaponInstance != null && WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance);
     }
 
-    @Override
-    public int getMaxItemUseDuration(ItemStack itemStack) {
-        return 0;
-    }
-
     int getCurrentAmmo(EntityPlayer player) {
         PlayerWeaponInstance state = modContext.getMainHeldWeapon();
         return state.getAmmo();
@@ -1224,8 +1166,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     void onSpawnEntityBlockImpact(World world, EntityPlayer player, WeaponSpawnEntity entity, RayTraceResult position) {
 
         // Todo: Add when bullets are actually bullet and not entities
-//        if(world.isRemote)
-//            ClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vector3D(position.hitVec.x, position.hitVec.y, position.hitVec.z), position.sideHit, 0.05));
 
         if (!world.isRemote && builder.blockImpactHandler != null) {
             builder.blockImpactHandler.onImpact(world, player, entity, position);
@@ -1257,9 +1197,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     public List<ItemAttachment<Weapon>> getCompatibleAttachments(Class<? extends ItemAttachment<Weapon>> target) {
-        return builder.compatibleAttachments.entrySet().stream()
-                .filter(e -> target.isInstance(e.getKey()))
-                .map(e -> e.getKey())
+        return builder.compatibleAttachments.keySet().stream()
+                .filter(target::isInstance)
                 .collect(Collectors.toList());
     }
 
@@ -1291,7 +1230,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         AtomicReference<ItemMagazine> magazineRef = new AtomicReference<>();
         AtomicReference<ItemSkin> skinRef = new AtomicReference<>();
 
-        this.getActiveAttachments(MC.player, itemStack).forEach(compatibleAttachment -> {
+        getActiveAttachments(MC.player, itemStack).forEach(compatibleAttachment -> {
             final ItemAttachment attachment = compatibleAttachment.getAttachment();
 
             if (compatibleAttachment.isDefault()) {
@@ -1337,8 +1276,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         final ItemBullet currentCartridge = cartridgeRef.get();
         final ItemMagazine currentMagazine = magazineRef.get();
         if (currentCartridge != null) {
+            assert playerWeaponInstance != null;
             tooltipLines.add(green + "Cartridge: " + grey + (I18n.format(currentCartridge.getTranslationKey() + ".name")) + " (" + playerWeaponInstance.getAmmo() + "/" + playerWeaponInstance.getWeapon().getAmmoCapacity() + ")");
         } else if (currentMagazine != null) {
+            assert playerWeaponInstance != null;
             tooltipLines.add(green + "Magazine: " + grey + (I18n.format(currentMagazine.getTranslationKey() + ".name")) + " (" + playerWeaponInstance.getAmmo() + "/" + currentMagazine.getCapacity() + ")");
         }
 
@@ -1369,7 +1310,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         if (flagIn.isAdvanced() && playerWeaponInstance != null && itemStack.getTagCompound() != null) {
             if (Keyboard.isKeyDown(Keyboard.KEY_LCONTROL)) {
                 tooltipLines.add(red + "Logging NBT data, release left control to stop");
-                LOGGER.info("{} NBT Data (Size {}): {}", playerWeaponInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
+                LOGGER.info("{} NBT Data (Size {}): {}", playerWeaponInstance.toString(), Integer.valueOf(itemStack.getTagCompound().getSize()), itemStack.getTagCompound().toString());
             } else {
                 tooltipLines.add(yellow + "Press left control to log NBT data");
             }
@@ -1415,7 +1356,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         instance.setState(WeaponState.READY);
 
         instance.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(instance.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(instance.getWeapon()) : builder.recoil);
-        instance.setMaxShots(builder.maxShots.get(0));
+        instance.setMaxShots(builder.maxShots.get(0).intValue());
 
         for (CompatibleAttachment<Weapon> compatibleAttachment : ((Weapon) itemStack.getItem()).getCompatibleAttachments().values()) {
             ItemAttachment<Weapon> attachment = compatibleAttachment.getAttachment();
@@ -1447,15 +1388,15 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         Iterator<Integer> it = maxShotsList.iterator();
         //  Iterator<Integer> it = builder.maxShots.iterator();
         while (it.hasNext()) {
-            if (instance.getMaxShots() == it.next()) {
+            if (instance.getMaxShots() == it.next().intValue()) {
                 break;
             }
         }
 
         if (it.hasNext()) {
-            result = it.next();
+            result = it.next().intValue();
         } else {
-            result = maxShotsList.get(0);
+            result = maxShotsList.get(0).intValue();
         }
 
         instance.setMaxShots(result);
@@ -1467,7 +1408,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         } else {
             message = I18n.format("gui.firearmMode.burst");
         }
-        LOGGER.debug("Changed fire mode of {} to {}", instance, result);
+        LOGGER.debug("Changed fire mode of {} to {}", instance, Integer.valueOf(result));
 
         if (instance.getPlayer() instanceof EntityPlayer) {
             ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.firearmMode", message)), true);
@@ -1511,12 +1452,9 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     /**
      * Only for debugging purposes
      *
-     * @param param
-     *
-     * @return
      */
     public void setRecoilParameters(RecoilParam param) {
-        this.builder.recoilParam = param;
+        builder.recoilParam = param;
     }
 
     public RecoilParam getRecoilParameters() {
@@ -1540,11 +1478,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
             if (instance.getPlayer() instanceof EntityPlayer) {
-                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Integer.valueOf(Math.round(ratio * 100)))), true);
             }
 
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
-            LOGGER.debug("Changed optical zoom to {}", instance.getZoom());
+            LOGGER.debug("Changed optical zoom to {}", Float.valueOf(instance.getZoom()));
         } else {
             LOGGER.debug("Cannot change non-optical zoom");
         }
@@ -1566,11 +1504,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
             if (instance.getPlayer() instanceof EntityPlayer) {
-                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Integer.valueOf(Math.round(ratio * 100)))), true);
             }
 
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
-            LOGGER.debug("Changed optical zoom to {}", zoom);
+            LOGGER.debug("Changed optical zoom to {}", Float.valueOf(zoom));
         } else {
             LOGGER.debug("Cannot change non-optical zoom");
         }
@@ -1580,9 +1518,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         ItemAttachment.ApplyHandler2<Weapon> handler = (a, i) -> {};
         switch (attachmentCategory) {
             case SCOPE:
-                //handler = (a, i) -> {
-                //    //i.setZoom(builder.zoom);
-                //};
                 break;
             case GRIP:
                 handler = (a, i) -> {
@@ -1599,10 +1534,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public float getRecoil() {
         return BalancePackManager.shouldChangeWeaponRecoil(this) ? (float) BalancePackManager.getNewWeaponRecoil(this) : builder.recoil;
-    }
-
-    public ModContext getModContext() {
-        return modContext;
     }
 
     public float getShellCasingVerticalOffset() {
@@ -1713,12 +1644,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return builder.spawnEntityRocketParticles;
     }
 
-//    public ScreenShaking getScreenShaking(RenderableState state) {
-//        return builder.screenShakings.get(state);
-//    }
-
     public Pair<Double, Double> getModernScreenShakeParameters() {
-        return this.builder.screenShakingParameters;
+        return builder.screenShakingParameters;
     }
 
     public ScreenShakeAnimation.Builder getScreenShakeAnimationBuilder(RenderableState renderableState) {
@@ -1727,12 +1654,12 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     @Override
     public void setCraftingRecipe(CraftingEntry[] recipe) {
-        this.modernRecipe = recipe;
+        modernRecipe = recipe;
     }
 
     @Override
     public void setCraftingGroup(CraftingGroup group) {
-        this.craftingGroup = group;
+        craftingGroup = group;
     }
 
     // Todo: Remove this method once models are fixed to be at correct height

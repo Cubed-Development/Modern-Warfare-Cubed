@@ -29,7 +29,7 @@ public class PlayerItemInstanceRegistry {
 
     public PlayerItemInstanceRegistry(SyncManager<?> syncManager) {
         this.syncManager = syncManager;
-        this.itemStackInstanceCache = CacheBuilder
+        itemStackInstanceCache = CacheBuilder
                 .newBuilder()
                 .weakKeys()
                 .maximumSize(1000)
@@ -40,13 +40,9 @@ public class PlayerItemInstanceRegistry {
     /**
      * Returns instance of the target class, or null if there is no instance or instance class does not match.
      *
-     * @param player
-     * @param targetClass
-     *
-     * @return
      */
     public <T extends PlayerItemInstance<S>, S extends ManagedState<S>> T getMainHandItemInstance(EntityLivingBase player, Class<T> targetClass) {
-        if (player == null && !(player instanceof EntityPlayer)) {
+        if (player == null) {
             return null;
         }
         PlayerItemInstance<?> instance = getItemInstance((EntityPlayer) player, ((EntityPlayer) player).inventory.currentItem);
@@ -54,7 +50,7 @@ public class PlayerItemInstanceRegistry {
     }
 
     public PlayerItemInstance<?> getMainHandItemInstance(EntityLivingBase player) {
-        if (player == null && !(player instanceof EntityPlayer)) {
+        if (player == null) {
             return null;
         }
         return getItemInstance((EntityPlayer) player, ((EntityPlayer) player).inventory.currentItem);
@@ -62,7 +58,7 @@ public class PlayerItemInstanceRegistry {
 
     public PlayerItemInstance<?> getItemInstance(EntityPlayer player, int slot) { // ! TODO: This needs urgent care, causes problems - Luna Lage (Desoroxxx)
         Map<Integer, PlayerItemInstance<?>> slotInstances = registry.computeIfAbsent(player.getPersistentID(), p -> new HashMap<>());
-        PlayerItemInstance<?> result = slotInstances.get(slot);
+        PlayerItemInstance<?> result = slotInstances.get(Integer.valueOf(slot));
         //log.debug("Slot {} contains {}", slot, result);
         if (result == null) {
             result = createItemInstance(player, slot);
@@ -71,7 +67,7 @@ public class PlayerItemInstanceRegistry {
                 if (result.shouldHaveInstanceTags()) {
                     Tags.setInstanceUuid(slotItemStack, result.getUuid());
                 }
-                slotInstances.put(slot, result);
+                slotInstances.put(Integer.valueOf(slot), result);
                 syncManager.watch(result);
                 if (result.getUpdateId() == 0) { // sync to server if newly created
                     result.markDirty();
@@ -89,7 +85,7 @@ public class PlayerItemInstanceRegistry {
                     if (result.shouldHaveInstanceTags()) {
                         Tags.setInstanceUuid(slotItemStack, result.getUuid());
                     }
-                    slotInstances.put(slot, result);
+                    slotInstances.put(Integer.valueOf(slot), result);
                     syncManager.watch(result);
                     if (result.getUpdateId() == 0) { // sync to server if newly created
                         result.markDirty();
@@ -101,8 +97,7 @@ public class PlayerItemInstanceRegistry {
                 result.setItemInventoryIndex(slot);
             }
             if (result != null && result.getPlayer() != player) {
-                LOGGER.warn("Invalid player " + result.getPlayer()
-                        + " associated with instance in slot, changing to {}", player);
+                LOGGER.warn("Invalid player {} associated with instance in slot, changing to {}", result.getPlayer(), player);
                 result.setPlayer(player);
             }
 
@@ -122,7 +117,7 @@ public class PlayerItemInstanceRegistry {
         boolean result = false;
 
         if (slotContexts != null) {
-            T currentState = (T) slotContexts.get(extendedStateToMerge.getItemInventoryIndex());
+            T currentState = (T) slotContexts.get(Integer.valueOf(extendedStateToMerge.getItemInventoryIndex()));
             if (currentState != null && isSameItem(currentState, extendedStateToMerge)
                 /*&& isSameUpdateId(currentState, extendedStateToMerge)*/) {
                 /*
@@ -155,14 +150,14 @@ public class PlayerItemInstanceRegistry {
         PlayerItemInstance<?> result = null;
         if (itemStack.getItem() instanceof PlayerItemInstanceFactory) {
             try {
-                LOGGER.debug("Deserializing instance for slot {} from stack {}", slot, itemStack);
+                LOGGER.debug("Deserializing instance for slot {} from stack {}", Integer.valueOf(slot), itemStack);
                 result = Tags.getInstance(itemStack);
-                LOGGER.debug("Deserialized instance {} for slot {} from stack {}", result, slot, itemStack);
+                LOGGER.debug("Deserialized instance {} for slot {} from stack {}", result, Integer.valueOf(slot), itemStack);
             } catch (RuntimeException e) {
                 LOGGER.debug("Failed to deserialize instance from {}", itemStack);
             }
             if (result == null) {
-                LOGGER.debug("Creating instance for slot {} from stack {}", slot, itemStack);
+                LOGGER.debug("Creating instance for slot {} from stack {}", Integer.valueOf(slot), itemStack);
                 result = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(player, itemStack, slot);
                 result.markClean();
             }
@@ -177,10 +172,6 @@ public class PlayerItemInstanceRegistry {
      * Maps the item stack to an item instance using the internal cache.
      * This method should be used when rendering only.
      *
-     * @param player
-     * @param itemStack
-     *
-     * @return
      */
     public PlayerItemInstance<?> getItemInstance(EntityLivingBase player, ItemStack itemStack) { // ! TODO: This method is suspiscious as fuck - Luna Lage (Desoroxxx)
         Optional<PlayerItemInstance<?>> result = Optional.empty();
@@ -200,7 +191,7 @@ public class PlayerItemInstanceRegistry {
 
                 if (slot >= 0) {
                     instance = getItemInstance((EntityPlayer) player, slot);
-                    LOGGER.debug("Resolved item stack instance {} in slot {}", instance, slot);
+                    LOGGER.debug("Resolved item stack instance {} in slot {}", instance, Integer.valueOf(slot));
                 }
 
                 if (instance == null || instance.getItem() != itemStack.getItem()) {
@@ -235,10 +226,9 @@ public class PlayerItemInstanceRegistry {
         if (slotContexts != null) {
             for (Iterator<Entry<Integer, PlayerItemInstance<?>>> it = slotContexts.entrySet().iterator(); it.hasNext(); ) {
                 Entry<Integer, PlayerItemInstance<?>> e = it.next();
-                ItemStack slotStack = player.inventory.getStackInSlot(e.getKey());
+                ItemStack slotStack = player.inventory.getStackInSlot(e.getKey().intValue());
                 //log.debug("Slot {} contains item {} stack {}", e.getKey(), e.getValue(), System.identityHashCode(slotStack));
-                if (slotStack == null || slotStack.getItem() != e.getValue().getItem()
-                        || !e.getValue().getUuid().equals(Tags.getInstanceUuid(slotStack))) {
+                if (slotStack.getItem() != e.getValue().getItem() || !e.getValue().getUuid().equals(Tags.getInstanceUuid(slotStack))) {
                     LOGGER.debug("Removing {} from slot {}", e.getValue(), e.getKey());
                     syncManager.unwatch(e.getValue());
                     it.remove();

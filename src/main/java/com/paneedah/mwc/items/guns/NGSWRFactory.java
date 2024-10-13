@@ -41,9 +41,9 @@ public class NGSWRFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -87,8 +87,6 @@ public class NGSWRFactory implements GunFactory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.NGSWRRail, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -172,8 +170,6 @@ public class NGSWRFactory implements GunFactory {
                     GL11.glScaled(0.85F, 0.85F, 0.85F);
                 })
                 .withCompatibleAttachment(Magazines.NGSWRMag, (model) -> {
-//		    GL11.glTranslatef(-0.333F, 0.45F, -1.4F);
-//            GL11.glScaled(1.02F, 1.35F, 1.33F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
                     GL11.glTranslatef(-0.175F, -1.535F, -0.6F);
@@ -252,10 +248,9 @@ public class NGSWRFactory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {

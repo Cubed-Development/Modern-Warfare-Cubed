@@ -44,9 +44,9 @@ public class KragJorgensenFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 1f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(1f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingEjectEnabled(false)
 
                 .withScreenShaking(RenderableState.SHOOTING,
@@ -57,22 +57,16 @@ public class KragJorgensenFactory implements GunFactory {
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
                 .withCompatibleAttachment(AuxiliaryAttachments.KragAction1, true, (model) -> {
-                    if (model instanceof KragJorgensenAction1) {
-//                GL11.glTranslatef(-1.38F, -1.05F, 0.59F);
-//                GL11.glRotatef(90f, 0f, 0f, 1f);
-                    }
+                    //                GL11.glTranslatef(-1.38F, -1.05F, 0.59F);
+                    //                GL11.glRotatef(90f, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.KragAction2, true, (model) -> {
-                    if (model instanceof KragJorgensenAction2) {
-//                GL11.glTranslatef(1F, -0.4F, 0F);
-//                GL11.glRotatef(-45F, 0f, 0f, 1f);
-                    }
+                    //                GL11.glTranslatef(1F, -0.4F, 0F);
+                    //                GL11.glRotatef(-45F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.KragChamber, true, (model) -> {
-                    if (model instanceof KragJorgensenChamber) {
-//              GL11.glTranslatef(0.5F, -1F, 0F);
-//              GL11.glRotatef(-70F, 0f, 0f, 1f);
-                    }
+                    //              GL11.glTranslatef(0.5F, -1F, 0F);
+                    //              GL11.glRotatef(-70F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Bullet, true, (model) -> {
                     if (model instanceof BulletBig) {
@@ -81,10 +75,6 @@ public class KragJorgensenFactory implements GunFactory {
                         GL11.glRotatef(90f, 1f, 0f, 0f);
 
 
-//                GL11.glScaled(0.4F, 0.4F, 0.6F);
-//                GL11.glTranslatef(-0.95F, -3.1F, -3.5F);
-//                GL11.glRotatef(70f, 1f, 0f, 0f);
-//                GL11.glRotatef(5f, 0f, 1f, 0f);
                     }
                 })
                 .withCompatibleBullet(Bullets.Bullet8x58, (model) -> {})
@@ -874,13 +864,8 @@ public class KragJorgensenFactory implements GunFactory {
                             GL11.glTranslatef(0.39f, 0.86f, 0.400000f);
 
                             // Scope Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                //System.out.println("Position me for Scope");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1);//System.out.println("Position me for Scope");
+// Everything else
 
                         })
 
@@ -891,13 +876,8 @@ public class KragJorgensenFactory implements GunFactory {
                             GL11.glRotatef(-1F, 1f, 0f, 0f);
 
                             // Scope Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                //System.out.println("Position me for Scope");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1);//System.out.println("Position me for Scope");
+// Everything else
 
                         })
 
@@ -930,11 +910,6 @@ public class KragJorgensenFactory implements GunFactory {
                                     GL11.glRotatef(-70.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.250000f, -0.350000f, 0.025000f);
 
-//                         GL11.glScalef(3f, 3f, 3f);
-//                         GL11.glRotatef(-75.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-40.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.000000f, -0.250000f, 0.000000f);
                                 })
 
                         .withFirstPersonHandPositioningZooming(

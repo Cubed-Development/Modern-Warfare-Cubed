@@ -2,6 +2,8 @@ package com.paneedah.weaponlib.animation;
 
 import com.paneedah.weaponlib.KeyBindings;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.text.TextComponentString;
 import org.lwjgl.opengl.GL11;
@@ -25,6 +27,7 @@ public class DebugPositioner {
 
     private static final Set<Object> debugParts = new HashSet<>();
 
+    @Getter
     private static Entity watchableEntity;
 
     private static boolean isAdjustRotationMode;
@@ -33,16 +36,11 @@ public class DebugPositioner {
         isAdjustRotationMode = status;
     }
 
+    @Getter
+    @Setter
     public static final class TransitionConfiguration {
         private long pause;
 
-        public long getPause() {
-            return pause;
-        }
-
-        public void setPause(long pause) {
-            this.pause = pause;
-        }
     }
 
     public static class Position {
@@ -87,8 +85,6 @@ public class DebugPositioner {
         if (partPosition == null) {
             return new Matrix4f();
         }
-        // System.out.println(partPosition.xRotation + " | " + partPosition.yRotation +
-        // " | " + partPosition.zRotation);
         return MatrixHelper.yawPitchRollToMatrix(Math.toRadians(partPosition.yRotation),
                 Math.toRadians(partPosition.xRotation), Math.toRadians(partPosition.zRotation));
     }
@@ -101,8 +97,8 @@ public class DebugPositioner {
         }
 
         partPosition.xRotation += increment;
-        LOGGER.debug("Debug rotations: ({}, {}, {}) ", partPosition.xRotation, partPosition.yRotation,
-                partPosition.zRotation);
+        LOGGER.debug("Debug rotations: ({}, {}, {}) ", Float.valueOf(partPosition.xRotation), Float.valueOf(partPosition.yRotation),
+                Float.valueOf(partPosition.zRotation));
     }
 
     public static void incrementYRotation(float increment) {
@@ -112,8 +108,8 @@ public class DebugPositioner {
             return;
         }
         partPosition.yRotation += increment;
-        LOGGER.debug("Debug rotations: ({}, {}, {}) ", partPosition.xRotation, partPosition.yRotation,
-                partPosition.zRotation);
+        LOGGER.debug("Debug rotations: ({}, {}, {}) ", Float.valueOf(partPosition.xRotation), Float.valueOf(partPosition.yRotation),
+                Float.valueOf(partPosition.zRotation));
     }
 
     public static void incrementZRotation(float increment) {
@@ -123,8 +119,8 @@ public class DebugPositioner {
             return;
         }
         partPosition.zRotation += increment;
-        LOGGER.debug("Debug rotations: ({}, {}, {}) ", partPosition.xRotation, partPosition.yRotation,
-                partPosition.zRotation);
+        LOGGER.debug("Debug rotations: ({}, {}, {}) ", Float.valueOf(partPosition.xRotation), Float.valueOf(partPosition.yRotation),
+                Float.valueOf(partPosition.zRotation));
     }
 
     public static void incrementXPosition(float increment, boolean altMode) {
@@ -135,11 +131,11 @@ public class DebugPositioner {
         }
         if (altMode) {
             partPosition.rOffsetX += partPosition.step * increment;
-            LOGGER.debug("Debug roffset: ({}, {}, {}) ", partPosition.rOffsetX, partPosition.rOffsetY,
-                    partPosition.rOffsetZ);
+            LOGGER.debug("Debug roffset: ({}, {}, {}) ", Float.valueOf(partPosition.rOffsetX), Float.valueOf(partPosition.rOffsetY),
+                    Float.valueOf(partPosition.rOffsetZ));
         } else {
             partPosition.x += partPosition.step * increment;
-            LOGGER.debug("Debug position: ({}, {}, {}) ", partPosition.x, partPosition.y, partPosition.z);
+            LOGGER.debug("Debug position: ({}, {}, {}) ", Float.valueOf(partPosition.x), Float.valueOf(partPosition.y), Float.valueOf(partPosition.z));
         }
     }
 
@@ -151,11 +147,11 @@ public class DebugPositioner {
         }
         if (altMode) {
             partPosition.rOffsetY += partPosition.step * increment;
-            LOGGER.debug("Debug roffset: ({}, {}, {}) ", partPosition.rOffsetX, partPosition.rOffsetY,
-                    partPosition.rOffsetZ);
+            LOGGER.debug("Debug roffset: ({}, {}, {}) ", Float.valueOf(partPosition.rOffsetX), Float.valueOf(partPosition.rOffsetY),
+                    Float.valueOf(partPosition.rOffsetZ));
         } else {
             partPosition.y += partPosition.step * increment;
-            LOGGER.debug("Debug position: ({}, {}, {}) ", partPosition.x, partPosition.y, partPosition.z);
+            LOGGER.debug("Debug position: ({}, {}, {}) ", Float.valueOf(partPosition.x), Float.valueOf(partPosition.y), Float.valueOf(partPosition.z));
         }
     }
 
@@ -167,11 +163,11 @@ public class DebugPositioner {
         }
         if (altMode) {
             partPosition.rOffsetZ += partPosition.step * increment;
-            LOGGER.debug("Debug roffset: ({}, {}, {}) ", partPosition.rOffsetX, partPosition.rOffsetY,
-                    partPosition.rOffsetZ);
+            LOGGER.debug("Debug roffset: ({}, {}, {}) ", Float.valueOf(partPosition.rOffsetX), Float.valueOf(partPosition.rOffsetY),
+                    Float.valueOf(partPosition.rOffsetZ));
         } else {
             partPosition.z += partPosition.step * increment;
-            LOGGER.debug("Debug position: ({}, {}, {}) ", partPosition.x, partPosition.y, partPosition.z);
+            LOGGER.debug("Debug position: ({}, {}, {}) ", Float.valueOf(partPosition.x), Float.valueOf(partPosition.y), Float.valueOf(partPosition.z));
         }
     }
 
@@ -182,7 +178,7 @@ public class DebugPositioner {
             return;
         }
         partPosition.scale = scale;
-        LOGGER.debug("Scale set to {}", scale);
+        LOGGER.debug("Scale set to {}", Float.valueOf(scale));
     }
 
     public static void setStep(float step) {
@@ -192,21 +188,21 @@ public class DebugPositioner {
             return;
         }
         partPosition.step = step;
-        LOGGER.debug("Step set to {}", step);
+        LOGGER.debug("Step set to {}", Float.valueOf(step));
     }
 
     public static void setDebugMode(boolean enabled) {
-        debugModeEnabled = enabled;
-        if (debugModeEnabled) {
+        debugModeEnabled = Boolean.valueOf(enabled);
+        if (debugModeEnabled.booleanValue()) {
             KeyBindings.bindDebugKeys();
         }
     }
 
     public static boolean isDebugModeEnabled() {
         if (debugModeEnabled == null) {
-            debugModeEnabled = Boolean.getBoolean(WEAPONLIB_DEBUG_PROPERTY);
+            debugModeEnabled = Boolean.valueOf(Boolean.getBoolean(WEAPONLIB_DEBUG_PROPERTY));
         }
-        return debugModeEnabled;
+        return debugModeEnabled.booleanValue();
     }
 
     public static void reset() {
@@ -237,14 +233,11 @@ public class DebugPositioner {
     }
 
     public static TransitionConfiguration getTransitionConfiguration(int transitionNumber, boolean init) {
-        return transitionConfigurations.computeIfAbsent(transitionNumber,
+        return transitionConfigurations.computeIfAbsent(Integer.valueOf(transitionNumber),
                 k -> init ? new TransitionConfiguration() : null);
     }
 
     public static void position(Object part, Object renderContext) {
-//        if(part != currentPart) {
-//            return;
-//        }
 
 
         boolean legacy = false;
@@ -284,21 +277,9 @@ public class DebugPositioner {
             GL11.glRotatef(partPosition.yRotation, 0f, 1f, 0f);
 
             GL11.glTranslatef(-partPosition.rOffsetX, -partPosition.rOffsetY, -partPosition.rOffsetZ);
-			
-			
-			
-			
-			/*
-			GL11.glTranslatef(partPosition.rOffsetX, partPosition.rOffsetY, partPosition.rOffsetZ);
 
-			
-			GL11.glRotatef(partPosition.xRotation, 1f, 0f, 0f);
 
-			GL11.glRotatef(partPosition.yRotation, 0f, 1f, 0f);
-			GL11.glRotatef(partPosition.zRotation, 0f, 0f, 1f);
-			GL11.glTranslatef(-partPosition.rOffsetX, -partPosition.rOffsetY, -partPosition.rOffsetZ);
-			GL11.glTranslatef(partPosition.x, partPosition.y, partPosition.z);
-			*/
+
 
             /*
              * GL11.glRotatef(partPosition.xRotation, 1f, 0f, 0f);
@@ -345,34 +326,34 @@ public class DebugPositioner {
         if (isAdjustRotationMode) {
             StringBuilder result = new StringBuilder();
             result.append("Positioners.position(\n");
-            result.append(String.format("    %ff, %ff, %ff,\n", partPosition.x, partPosition.y, partPosition.z));
-            result.append(String.format("    %ff, %ff, %ff,\n", partPosition.xRotation, partPosition.yRotation,
-                    partPosition.zRotation));
-            result.append(String.format("    %ff, %ff, %ff,\n", partPosition.rOffsetX, partPosition.rOffsetY,
-                    partPosition.rOffsetZ));
+            result.append(String.format("    %ff, %ff, %ff,\n", Float.valueOf(partPosition.x), Float.valueOf(partPosition.y), Float.valueOf(partPosition.z)));
+            result.append(String.format("    %ff, %ff, %ff,\n", Float.valueOf(partPosition.xRotation), Float.valueOf(partPosition.yRotation),
+                    Float.valueOf(partPosition.zRotation)));
+            result.append(String.format("    %ff, %ff, %ff,\n", Float.valueOf(partPosition.rOffsetX), Float.valueOf(partPosition.rOffsetY),
+                    Float.valueOf(partPosition.rOffsetZ)));
             result.append(
-                    String.format("    %ff, %ff, %ff\n", partPosition.scale, partPosition.scale, partPosition.scale));
+                    String.format("    %ff, %ff, %ff\n", Float.valueOf(partPosition.scale), Float.valueOf(partPosition.scale), Float.valueOf(partPosition.scale)));
             result.append(");\n");
-            LOGGER.debug("Generated positioning code: \n" + result);
+            LOGGER.debug("Generated positioning code: \n{}", result);
             System.out.println("\n" + result);
         } else {
 
             System.out.println(MC.player.getHeldItemMainhand());
 
             StringBuilder result = new StringBuilder();
-            result.append(String.format("GL11.glScalef(%ff, %ff, %ff);\n", partPosition.scale, partPosition.scale,
-                    partPosition.scale));
-            result.append(String.format("GL11.glTranslatef(%ff, %ff, %ff);\n", partPosition.x, partPosition.y,
-                    partPosition.z));
+            result.append(String.format("GL11.glScalef(%ff, %ff, %ff);\n", Float.valueOf(partPosition.scale), Float.valueOf(partPosition.scale),
+                    Float.valueOf(partPosition.scale)));
+            result.append(String.format("GL11.glTranslatef(%ff, %ff, %ff);\n", Float.valueOf(partPosition.x), Float.valueOf(partPosition.y),
+                    Float.valueOf(partPosition.z)));
 
-            result.append(String.format("GL11.glTranslatef(%ff, %ff, %ff);\n", partPosition.rOffsetX,
-                    partPosition.rOffsetY, partPosition.rOffsetZ));
-            result.append(String.format("GL11.glRotatef(%ff, 0f, 0f, 1f);\n", partPosition.zRotation));
-            result.append(String.format("GL11.glRotatef(%ff, 1f, 0f, 0f);\n", partPosition.xRotation));
-            result.append(String.format("GL11.glRotatef(%ff, 0f, 1f, 0f);\n", partPosition.yRotation));
-            result.append(String.format("GL11.glTranslatef(%ff, %ff, %ff);", -partPosition.rOffsetX,
-                    -partPosition.rOffsetY, -partPosition.rOffsetZ));
-            LOGGER.debug("Generated positioning code: \n" + result);
+            result.append(String.format("GL11.glTranslatef(%ff, %ff, %ff);\n", Float.valueOf(partPosition.rOffsetX),
+                    Float.valueOf(partPosition.rOffsetY), Float.valueOf(partPosition.rOffsetZ)));
+            result.append(String.format("GL11.glRotatef(%ff, 0f, 0f, 1f);\n", Float.valueOf(partPosition.zRotation)));
+            result.append(String.format("GL11.glRotatef(%ff, 1f, 0f, 0f);\n", Float.valueOf(partPosition.xRotation)));
+            result.append(String.format("GL11.glRotatef(%ff, 0f, 1f, 0f);\n", Float.valueOf(partPosition.yRotation)));
+            result.append(String.format("GL11.glTranslatef(%ff, %ff, %ff);", Float.valueOf(-partPosition.rOffsetX),
+                    Float.valueOf(-partPosition.rOffsetY), Float.valueOf(-partPosition.rOffsetZ)));
+            LOGGER.debug("Generated positioning code: \n{}", result);
             System.out.println("\n" + result);
 
             /*
@@ -399,10 +380,6 @@ public class DebugPositioner {
         System.out.println("Trackable entities: " + tracker.getTrackableEntitites());
     }
 
-    public static Entity getWatchableEntity() {
-        return watchableEntity;
-    }
-
     public static void showCurrentMatrix(String message) {
         showCurrentMatrix(null, message);
     }
@@ -416,12 +393,11 @@ public class DebugPositioner {
     }
 
     public static String formatMatrix(Matrix4f m) {
-        String buf = "\n" +
+        return "\n" +
                 String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m00, m.m10, m.m20, m.m30) +
                 String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m01, m.m11, m.m21, m.m31) +
                 String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m02, m.m12, m.m22, m.m32) +
                 String.format("%4.2f %4.2f %4.2f %4.2f\n", m.m03, m.m13, m.m23, m.m33);
-        return buf;
     }
 
     public static void setAutorotate(float xrpm, float yrpm, float zrpm) {
