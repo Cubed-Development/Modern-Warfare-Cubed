@@ -39,9 +39,8 @@ public class WeaponResourcePack implements IResourcePack {
     @Override
     public boolean resourceExists(ResourceLocation resourceLocation) {
         String resourcePath = modifyResourcePath(resourceLocation);
-        boolean value = WEAPONLIB_RESOURCE_DOMAIN.equals(resourceLocation.getNamespace())
+        return WEAPONLIB_RESOURCE_DOMAIN.equals(resourceLocation.getNamespace())
                 && getClass().getResource(resourcePath) != null;
-        return value;
     }
 
 

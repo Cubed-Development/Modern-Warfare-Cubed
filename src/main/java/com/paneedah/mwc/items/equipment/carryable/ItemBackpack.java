@@ -29,7 +29,7 @@ public class ItemBackpack extends ItemCarryable {
 
             ResourceLocation guiTexture = new ResourceLocation(ID, "textures/gui/inventory/carryable/" + size + "slots.png");
 
-            ItemBackpack itemBackpack = new ItemBackpack(size, validItemPredicate, guiTexture, this.guiTextureWidth, modelName, textureName);
+            ItemBackpack itemBackpack = new ItemBackpack(size, validItemPredicate, guiTexture, guiTextureWidth, modelName, textureName);
 
             itemBackpack.setTranslationKey(LangUtil.format(name)).setCreativeTab(MWC.EQUIPMENT_TAB);
 

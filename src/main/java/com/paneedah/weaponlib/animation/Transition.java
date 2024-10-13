@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib.animation;
 
 import com.paneedah.weaponlib.Part;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.util.SoundEvent;
 
 import java.util.function.Consumer;
@@ -14,10 +16,16 @@ public class Transition<Context> {
         return (Consumer<T>) ANCHORED_POSITION;
     }
 
+    @Getter
     private final Consumer<Context> itemPositioning;
+    @Setter
+    @Getter
     private long duration;
+    @Getter
     private final long pause;
+    @Getter
     private final Part attachedTo;
+    @Getter
     private boolean animated;
 
     private SoundEvent evt;
@@ -36,7 +44,7 @@ public class Transition<Context> {
     }
 
     public void setSound(SoundEvent event) {
-        this.evt = event;
+        evt = event;
     }
 
     public Transition(Consumer<Context> itemPositioning, long duration, long pause, Part attachedTo) {
@@ -46,31 +54,8 @@ public class Transition<Context> {
         this.attachedTo = attachedTo;
     }
 
-    public Consumer<Context> getItemPositioning() {
-        return itemPositioning;
-    }
-
-    public void setDuration(long newDuration) {
-        this.duration = newDuration;
-    }
-
-    public long getDuration() {
-        return duration;
-    }
-
     public SoundEvent getSound() {
-        return this.evt;
+        return evt;
     }
 
-    public long getPause() {
-        return pause;
-    }
-
-    public Part getAttachedTo() {
-        return attachedTo;
-    }
-
-    public boolean isAnimated() {
-        return animated;
-    }
 }

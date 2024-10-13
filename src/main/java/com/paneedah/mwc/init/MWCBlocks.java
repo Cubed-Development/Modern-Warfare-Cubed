@@ -12,6 +12,8 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import java.util.Objects;
+
 import static com.paneedah.mwc.ProjectConstants.ID;
 
 @Mod.EventBusSubscriber(modid = ID)
@@ -63,7 +65,7 @@ public class MWCBlocks {
 
         for (int i = 0; i < blocks.length; i++) {
             items[i] = new ItemBlock(blocks[i]);
-            items[i].setRegistryName(blocks[i].getRegistryName());
+            items[i].setRegistryName(Objects.requireNonNull(blocks[i].getRegistryName()));
         }
 
         itemRegistryEvent.getRegistry().registerAll(items);
@@ -73,7 +75,7 @@ public class MWCBlocks {
     public static void registerRenders(ModelRegistryEvent modelRegistryEvent) {
         for (Block block : blocks) {
             if (block instanceof BlockBase || block instanceof OreBase) {
-                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName().toString(), "inventory"));
+                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(Objects.requireNonNull(block.getRegistryName()).toString(), "inventory"));
             }
         }
     }

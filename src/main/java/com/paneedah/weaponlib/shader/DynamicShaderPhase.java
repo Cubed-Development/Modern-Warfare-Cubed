@@ -47,12 +47,6 @@ public interface DynamicShaderPhase {
 
     class EntityRendererTarget implements DynamicShaderPhase {
 
-//        private Supplier<EntityRenderer> entityRendererSupplier;
-//
-//        public EntityRendererTarget(Supplier<EntityRenderer> entityRendererSupplier) {
-//            this.entityRendererSupplier = entityRendererSupplier;
-//        }
-
         @Override
         public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {
             Object target = context.getTarget();
@@ -83,19 +77,13 @@ public interface DynamicShaderPhase {
         }
 
         private static void setUseShader(EntityRenderer entityRenderer, boolean value) {
-            ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, value, "useShader", "field_175083_ad");
+            ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, Boolean.valueOf(value), "useShader", "field_175083_ad");
 
         }
 
     }
 
     class CompatibleWorldRendererTarget implements DynamicShaderPhase {
-
-        //private Supplier<CompatibleWorldRenderer> entityRendererSupplier;
-
-//        public CompatibleWorldRendererTarget(Supplier<CompatibleWorldRenderer> entityRendererSupplier) {
-//            this.entityRendererSupplier = entityRendererSupplier;
-//        }
 
         @Override
         public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {

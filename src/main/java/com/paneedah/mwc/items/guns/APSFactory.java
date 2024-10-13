@@ -46,9 +46,9 @@ public class APSFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.19f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.19f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -97,8 +97,6 @@ public class APSFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.APShammer, true, (model) -> {
-//          GL11.glTranslatef(-0F, -0.17F, 0.53F);
-//        	GL11.glRotatef(45F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Magazines.APSMag, (model) -> {
 //            GL11.glTranslatef(0F, 0.2F, 0.12F);
@@ -108,12 +106,8 @@ public class APSFactory implements GunFactory {
                     GL11.glScaled(1.1F, 1.1F, 1.3F);
                 })
                 .withCompatibleAttachment(Attachments.APSStock, (model) -> {
-//            GL11.glTranslatef(-0.215F, -1.05F, -4.52F);
-//            GL11.glScaled(1.1F, 1.1F, 1.3F);
                 })
                 .withCompatibleAttachment(Attachments.APSGrip, true, (model) -> {
-//          GL11.glTranslatef(-0.215F, -1.05F, -4.52F);
-//          GL11.glScaled(1.1F, 1.1F, 1.3F);
                 })
                 .withTextureNames("APS")
                 .withRenderer(new WeaponRenderer.Builder()
@@ -267,13 +261,8 @@ public class APSFactory implements GunFactory {
                             GL11.glScaled(3F, 3F, 3F);
                             GL11.glTranslatef(0.14f, 0.59f, -1.8f);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR);//System.out.println("Position me for Holo");
+// Everything else
 
                         })
 

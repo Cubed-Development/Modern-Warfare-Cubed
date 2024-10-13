@@ -42,10 +42,6 @@ public class VehicleCustomGUI extends Gui {
     /**
      * Sets the lock  & key models
      *
-     * @param key
-     * @param lock
-     * @param keyT
-     * @param lockT
      */
     public static void setLockAndKeyModels(ModelBase key, ModelBase lock, ResourceLocation keyT, ResourceLocation lockT) {
         keyModel = key;
@@ -61,11 +57,6 @@ public class VehicleCustomGUI extends Gui {
      * @param c - The color of the tachometer needle
      * @param x - On-screen x-position
      * @param y - On-screen y-pos
-     * @param length
-     * @param width
-     * @param startAngle
-     * @param angle
-     * @param prevAngle
      */
     public void renderNeedle(Color c, double x, double y, double length, double width, float startAngle, float angle, float prevAngle) {
         float red = c.getRed() / 255.0f;
@@ -90,12 +81,7 @@ public class VehicleCustomGUI extends Gui {
         GlStateManager.rotate((float) interpolatedAng, 0, 0, 1);
         GlStateManager.rotate(startAngle, 0, 0, 1);
         GlStateManager.translate(-12, 0.0, 0.0);
-        //GlStateManager.translate(-x, -y, 0.0);
-        //GlStateManager.rotate(15, 1, 0, 0);
 
-
-        //GlStateManager.translate(10, 0.0, 0.0);
-        //GlStateManager.rotate((float) angle, 0, 0, 1);
 
         Tessellator t = Tessellator.getInstance();
         BufferBuilder bb = t.getBuffer();
@@ -132,13 +118,7 @@ public class VehicleCustomGUI extends Gui {
         GlStateManager.disableDepth();
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
-        //GL11.glBlendFunc(GL11.GL_SRC_ALPHA_SATURATE, GL11.GL_ONE);
 
-        //GL11.glEnable(GL11.GL_POLYGON_SMOOTH);
-		/*
-		GL11.glEnable(GL13.GL_MULTISAMPLE);
-		GL11.glHint(NVMultisampleFilterHint.GL_MULTISAMPLE_FILTER_HINT_NV, GL11.GL_NICEST);
-		System.out.println(GL11.glGetInteger(GL13.GL_SAMPLE_BUFFERS)); */
         GlStateManager.color(1.0f, 1.0f, 1.0f);
         Tessellator t = Tessellator.getInstance();
         BufferBuilder bb = t.getBuffer();
@@ -246,9 +226,6 @@ public class VehicleCustomGUI extends Gui {
     public void drawSpeedometer(EntityVehicle vehicle, double x, double y, int maxRPM, int gear, double rpm, double speed, double ratio) {
         GL11.glPushMatrix();
         double scale = (new ScaledResolution(MC)).getScaledWidth() / 640.0;
-        //GL11.glScaled(scale, scale, scale);
-        //x /= scale;
-        //y /= scale;
 
 
         if (sat == null) {
@@ -306,7 +283,7 @@ public class VehicleCustomGUI extends Gui {
             double actualAngle = bA + (eA - bA) * pA;
             double cos = -Math.cos(Math.toRadians(actualAngle)) * radius;
             double sin = -Math.sin(Math.toRadians(actualAngle)) * radius;
-            int color = 0;
+            int color;
             if (n < 6) {
                 color = 0xFFFFFF;
             } else {
@@ -324,27 +301,7 @@ public class VehicleCustomGUI extends Gui {
         renderHalfCircle(Color.decode("#4cd137"), x, y, 10, 9, 0, sat.smoothInterpDouble(0, 360));
 
         // test
-		/*
-		progess += 1;
-		if(progess > 150) progess = 0;
-		
-		Vec3d oN = Test.STANDARD_SIX_SHIFT.doAnimation(progess, 150, 1, 3).scale(50);
-		
-		double nX = oN.z;
-		double nZ = -oN.x;
-		
-		renderHalfCircle(Color.decode("#4cd137"), x-250+nX, y-50+nZ, 5, 0, 0, sat.smoothInterpDouble(0, 360));
-		*/
         //
-		
-		/*
-		GL11.glPushMatrix();
-		GL11.glScaled(1.0, 1.0, 1.0);
-			GL11.glDisable(GL11.GL_POLYGON_SMOOTH);
-			drawShiftPattern(vehicle, x-125, y);
-			GL11.glEnable(GL11.GL_POLYGON_SMOOTH);
-		GL11.glPopMatrix();
-		*/
 
 
         Transmission transmission = vehicle.solver.transmission;
@@ -402,16 +359,12 @@ public class VehicleCustomGUI extends Gui {
 
         GL11.glPushMatrix();
 
-        double pM = Math.sin(vehicle.ticksExisted / 2) * 3;
-        double ppM = Math.sin((vehicle.ticksExisted - 1) / 2) * 3;
+        double pM = Math.sin((double) vehicle.ticksExisted / 2) * 3;
+        double ppM = Math.sin((double) (vehicle.ticksExisted - 1) / 2) * 3;
         double iPM = InterpolationKit.interpolateValue(ppM, pM, MC.getRenderPartialTicks());
 
 
         keyAnimator.tick();
-
-
-        //kA.transition(new Vec3d(5.0, 0.0, 0.0),
-        //		  new Vec3d(00.0, 0, 30), 200.0);
 
 
         GL11.glTranslated(x, y, 0.0);

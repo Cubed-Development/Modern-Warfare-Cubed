@@ -17,8 +17,6 @@ public class GLModelBuilder {
     /**
      * Creates a static VBO
      *
-     * @param How many floats are you storing?
-     *
      * @return The VBO's identity
      */
     public static int createStaticBuffer(int floatCount) {
@@ -62,9 +60,6 @@ public class GLModelBuilder {
      * <p>
      * It does NOT unbind the VBO.
      *
-     * @param vertexes
-     *
-     * @return
      */
     public static int buildVBO(ArrayList<Vertex> vertexes) {
         int vbo = GL15.glGenBuffers();

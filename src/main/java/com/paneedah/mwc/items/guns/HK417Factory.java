@@ -39,9 +39,9 @@ public class HK417Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -255,8 +255,6 @@ public class HK417Factory implements GunFactory {
                         GL11.glTranslatef(0.162F, -1.75F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
                     } else if (model instanceof M4Iron2) {
-//				GL11.glTranslatef(-0.055F, -1.35F, -4.05F);
-//				GL11.glScaled(0.8F, 0.68F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
                     } else if (model instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
@@ -283,8 +281,6 @@ public class HK417Factory implements GunFactory {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
                     } else if (model instanceof FALIron) {
-//				GL11.glTranslatef(-0.185F, -1.53F, -4.05F);
-//				GL11.glScaled(0.55F, 0.5F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
                     } else if (model instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
@@ -429,10 +425,9 @@ public class HK417Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
@@ -640,8 +635,6 @@ public class HK417Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(Magazines.HK417Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                         })
 
                         .withThirdPersonPositioningReloading(

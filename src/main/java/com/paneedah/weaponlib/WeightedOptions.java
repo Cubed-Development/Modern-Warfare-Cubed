@@ -17,7 +17,7 @@ public class WeightedOptions<Category, T> {
 
     private static class OptionsByCategory<Category, T> {
         NavigableSet<Option<Category, T>> options = new TreeSet<>(
-                (o1, o2) -> ((Float) o1.rangeStart).compareTo(o2.rangeStart));
+                (o1, o2) -> (Float.valueOf(o1.rangeStart)).compareTo(Float.valueOf(o2.rangeStart)));
         float totalWeight;
     }
 
@@ -56,7 +56,7 @@ public class WeightedOptions<Category, T> {
     }
 
     public WeightedOptions() {
-        this.optionsByCategory = new HashMap<>();
+        optionsByCategory = new HashMap<>();
     }
 
     public T pick(Category category) {

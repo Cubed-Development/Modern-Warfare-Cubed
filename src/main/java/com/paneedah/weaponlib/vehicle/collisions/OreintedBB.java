@@ -42,23 +42,23 @@ public class OreintedBB {
 
     public OreintedBB(AxisAlignedBB aabb) {
         //this.e = getExtentFromAABB(aabb);
-        this.axis = new Matrix3d();
-        this.axis.setIdentity();
-        this.c = Vec3d.ZERO;
+        axis = new Matrix3d();
+        axis.setIdentity();
+        c = Vec3d.ZERO;
         this.aabb = aabb;
 
 
     }
 
     public void setupPhysically(double mass) {
-        this.doPhysics = true;
+        doPhysics = true;
         this.mass = mass;
-        AxisAlignedBB box = this.aabb;
-        this.inertiaTensor = InertiaKit.inertiaTensorCube((float) mass, (float) (box.maxX - box.minX), (float) (box.maxY - box.minY), (float) (box.maxZ - box.minZ));
+        AxisAlignedBB box = aabb;
+        inertiaTensor = InertiaKit.inertiaTensorCube((float) mass, (float) (box.maxX - box.minX), (float) (box.maxY - box.minY), (float) (box.maxZ - box.minZ));
     }
 
     public Vec3d getGlobalCentroid() {
-        return this.localCentroid.add(c);
+        return localCentroid.add(c);
     }
 
 
@@ -97,7 +97,7 @@ public class OreintedBB {
     }
 
     public void move(double x, double y, double z) {
-        this.c = this.c.add(x, y, z);
+        c = c.add(x, y, z);
     }
 
     public double qPTI(double a, double b, float t) {
@@ -110,13 +110,10 @@ public class OreintedBB {
 
         GL11.glPushMatrix();
 
-        Vector3d eulerRotations = matrixToEuler(this.axis);
+        Vector3d eulerRotations = matrixToEuler(axis);
 
         // shitty debug line plz remove later
-        //GL11.glTranslated(0.0, -5.0, 0.0);
 
-
-        //GL11.glTranslated(c.x, c.y, c.z);
 
         float t = MC.getRenderPartialTicks();
 
@@ -124,7 +121,7 @@ public class OreintedBB {
         GL11.glRotated(Math.toDegrees(eulerRotations.y), 0, 1, 0);
         GL11.glRotated(Math.toDegrees(eulerRotations.z), 0, 0, 1);
 
-        this.previousEuler = eulerRotations;
+        previousEuler = eulerRotations;
         GL11.glLineWidth(2.0f);
         RenderGlobal.drawBoundingBox(aabb.minX, aabb.minY, aabb.minZ, aabb.maxX, aabb.maxY, aabb.maxZ, 1.0f, 0.0f, 0.0f, 1.0f);
 
@@ -134,20 +131,20 @@ public class OreintedBB {
 
 
     public void setRotation(double yaw, double pitch, double roll) {
-        this.axis.setIdentity();
+        axis.setIdentity();
         rotate(yaw, pitch, roll);
     }
 
     public void rotatePitch(double pitch) {
-        this.axis.rotY(pitch);
+        axis.rotY(pitch);
     }
 
     public void rotateYaw(double yaw) {
-        this.axis.rotZ(yaw);
+        axis.rotZ(yaw);
     }
 
     public void rotateRoll(double roll) {
-        this.axis.rotX(roll);
+        axis.rotX(roll);
     }
 
 
@@ -161,7 +158,7 @@ public class OreintedBB {
         mR.rotZ(roll);
         mR.mul(mP);
         mR.mul(mY);
-        this.axis.mul(mR);
+        axis.mul(mR);
     }
 
     public double cleanVal(double d) {
@@ -204,7 +201,7 @@ public class OreintedBB {
 
 
     public void setPosition(double x, double y, double z) {
-        this.c = new Vec3d(x, y, z);
+        c = new Vec3d(x, y, z);
     }
 
     public Vec3d transformVec3dWithMatrix(Vec3d v, Matrix3d m) {
@@ -214,9 +211,9 @@ public class OreintedBB {
     }
 
     public void updateInverse() {
-        Matrix3d inverseM = (Matrix3d) this.axis.clone();
+        Matrix3d inverseM = (Matrix3d) axis.clone();
         inverseM.invert();
-        this.inverse = inverseM;
+        inverse = inverseM;
     }
 
     public RayTraceResult doRayTrace(Vec3d start, Vec3d end) {
@@ -245,7 +242,7 @@ public class OreintedBB {
 
         // transform direction to local space
 
-        direction = transformVec3dWithMatrix(direction, this.inverse);
+        direction = transformVec3dWithMatrix(direction, inverse);
 
 
         //System.out.println((direction == null) + " | " + (this.inverse == null) + " | " + (this.aabb == null));
@@ -263,14 +260,14 @@ public class OreintedBB {
     public Vec3d transformToLocalSpace(Vec3d v) {
 
         v = v.subtract(c);
-        v = transformVec3dWithMatrix(v, this.inverse);
+        v = transformVec3dWithMatrix(v, inverse);
         //System.out.println("Breh vec: " + v);
 
         return v;
     }
 
     public Vec3d transformBackToWorld(Vec3d v) {
-        v = transformVec3dWithMatrix(v, this.axis);
+        v = transformVec3dWithMatrix(v, axis);
         v = v.add(c);
 
         return v;

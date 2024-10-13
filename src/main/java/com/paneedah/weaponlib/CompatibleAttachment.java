@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.melee.ItemMelee;
+import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -10,15 +11,22 @@ import java.util.function.Consumer;
 
 public class CompatibleAttachment<T> {
 
+    @Getter
     private final ItemAttachment<T> attachment;
+    @Getter
     private Consumer<ModelBase> modelPositioning;
     //	private BiConsumer<EntityLivingBase, ItemStack> positioning;
+    @Getter
     private Object positioning;
     private boolean isDefault;
     private boolean isPermanent;
+    @Getter
     private ItemAttachment.ApplyHandler2<T> applyHandler;
+    @Getter
     private ItemAttachment.ApplyHandler2<T> removeHandler;
+    @Getter
     ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> meleeApplyHandler;
+    @Getter
     ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> meleeRemoveHandler;
 
     public CompatibleAttachment(ItemAttachment<T> attachment,
@@ -68,44 +76,12 @@ public class CompatibleAttachment<T> {
 
     public CompatibleAttachment(ItemAttachment<T> attachment, Consumer<ModelBase> positioning, boolean isDefault) {
         this.attachment = attachment;
-        this.modelPositioning = positioning;
+        modelPositioning = positioning;
         this.isDefault = isDefault;
-    }
-
-    public ItemAttachment<T> getAttachment() {
-        return attachment;
-    }
-
-    public Consumer<ModelBase> getModelPositioning() {
-        return modelPositioning;
-    }
-
-//	public BiConsumer<EntityLivingBase, ItemStack> getPositioning() {
-//		return positioning;
-//	}
-
-    public Object getPositioning() {
-        return positioning;
     }
 
     public boolean isDefault() {
         return isDefault;
-    }
-
-    public ItemAttachment.ApplyHandler2<T> getApplyHandler() {
-        return applyHandler;
-    }
-
-    public ItemAttachment.ApplyHandler2<T> getRemoveHandler() {
-        return removeHandler;
-    }
-
-    public ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> getMeleeApplyHandler() {
-        return meleeApplyHandler;
-    }
-
-    public ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> getMeleeRemoveHandler() {
-        return meleeRemoveHandler;
     }
 
     public boolean isPermanent() {
