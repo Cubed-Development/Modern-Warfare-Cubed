@@ -72,7 +72,7 @@ public class MWCBlocks {
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent modelRegistryEvent) {
         for (Block block : blocks) {
-            if (null instanceof OreBase) {
+            if (block instanceof BlockBase || block instanceof OreBase) {
                 ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName().toString(), "inventory"));
             }
         }
