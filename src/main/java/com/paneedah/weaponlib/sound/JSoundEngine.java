@@ -123,6 +123,7 @@ public class JSoundEngine {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        assert is != null;
         BufferedInputStream bis = new BufferedInputStream(is);
         // http://forum.lwjgl.org/index.php?topic=3890.0
 
@@ -139,29 +140,7 @@ public class JSoundEngine {
             return AL10.AL_FALSE;
         }
 
-        if (1 + 1 == 2) {
-            return AL10.AL_TRUE;
-        }
-		/*
-		
-		// Bind the buffer with the source.
-		AL10.alGenSources(source);
-
-		int er = AL10.alGetError();
-		if (er != AL10.AL_NO_ERROR) {
-			System.out.println(getALErrorString(er));
-			// System.out.println("Error generating source!");
-			return AL10.AL_FALSE;
-		}
-		FloatBuffer sourcesad = BufferUtils.createFloatBuffer(3).put(new float[] { 100.0f, 0.0f, 0.0f });
-
-		AL10.alSourcei(source.get(0), AL10.AL_BUFFER, buffer.get(0));
-		AL10.alSourcef(source.get(0), AL10.AL_PITCH, 1.0f);
-		AL10.alSourcef(source.get(0), AL10.AL_GAIN, 1.0f);
-		AL10.alSource(source.get(0), AL10.AL_POSITION, sourcesad);
-		AL10.alSource(source.get(0), AL10.AL_VELOCITY, sourceVel);
-		
-		*/
+        return AL10.AL_TRUE;
 
         //AL10.alSourcei(source.get(0), AL10.AL_LOOPING, AL10.AL_FALSE);
 
@@ -190,11 +169,6 @@ public class JSoundEngine {
          * AL10.alSourcei(source.get(0), EFX10.AL_DIRECT_FILTER, directFilter0);
          */
         // Do another error check and return.
-        if (AL10.alGetError() == AL10.AL_NO_ERROR) {
-            return AL10.AL_TRUE;
-        }
-
-        return AL10.AL_FALSE;
     }
 
     public HashMap<Integer, Float> volumesMap = new HashMap<>();
@@ -208,28 +182,20 @@ public class JSoundEngine {
         for (int i : toDim) {
 
 
-            if (!volumesMap.containsKey(i)) {
-                volumesMap.put(i, 1.0f);
+            if (!volumesMap.containsKey(Integer.valueOf(i))) {
+                volumesMap.put(Integer.valueOf(i), Float.valueOf(1.0f));
             }
-            volumesMap.put(i, volumesMap.get(i) - 0.05f);
+            volumesMap.put(Integer.valueOf(i), Float.valueOf(volumesMap.get(Integer.valueOf(i)) - 0.05f));
 
-            if (volumesMap.get(i) < 0.0) {
-                volumesMap.remove(i);
+            if (volumesMap.get(Integer.valueOf(i)).doubleValue() < 0.0) {
+                volumesMap.remove(Integer.valueOf(i));
             } else {
 
-                AL10.alSourcef(source.get(i), AL10.AL_GAIN, volumesMap.get(i));
+                AL10.alSourcef(source.get(i), AL10.AL_GAIN, volumesMap.get(Integer.valueOf(i)).floatValue());
 
             }
 
         }
-
-        for (int i : removal) {
-            toDim.remove((Integer) i);
-        }
-
-
-        //System.out.println(AL10.alIsSource(0));
-        // AL10.alSourcef(source.get(0), AL10.AL_PITCH, 1.0f);
 
 
         return 0;
@@ -249,7 +215,7 @@ public class JSoundEngine {
 
         // toDim.clear();
 
-        toDim.add(position - 1);
+        toDim.add(Integer.valueOf(position - 1));
 
 
         AL10.alSourcei(source.get(position), AL10.AL_BUFFER, buffer.get(type));
@@ -268,7 +234,7 @@ public class JSoundEngine {
             source.position(position + 1);
         } else {
             for (int x = 0; x < source.capacity() / 2; ++x) {
-                toDim.remove((Integer) x);
+                toDim.remove(Integer.valueOf(x));
                 AL10.alDeleteSources(source.get(x));
             }
             source.position(0);
@@ -311,21 +277,8 @@ public class JSoundEngine {
         if (!loaded) {
             source.rewind();
             loadALData();
-            //addSource(0);
-            //addSource(1);
             loaded = true;
         }
-		/*
-		if (!loaded) {
-			loaded = true;
-			AL10.alGetError();
-
-			// Load the wav data.
-			if (loadALData() == AL10.AL_FALSE) {
-				System.out.println("Error loading data.");
-				return;
-			}
-		}*/
 
         //setListenerValues();
         addSource(0);
@@ -352,49 +305,8 @@ public class JSoundEngine {
         // checkSupport();
         AL10.alSourcePlay(source.get(0));
 
-        if (1 + 1 == 2) {
-            return;
-        }
+        return;
 
-        System.out.print("MindCode's OpenAL Lesson 1: Single Static Source\n\n");
-        System.out.print("Controls:\n");
-        System.out.print("p) Play\n");
-        System.out.print("s) Stop\n");
-        System.out.print("h) Hold (pause)\n");
-        System.out.print("q) Quit\n\n");
-
-        // Loop.
-        char c = ' ';
-        while (c != 'q') {
-            try {
-                c = (char) System.in.read();
-            } catch (IOException ioe) {
-                c = 'q';
-            }
-
-            switch (c) {
-                // Pressing 'p' will begin playing the sample.
-                case 'p':
-                    AL10.alSourcePlay(source.get(0));
-                    break;
-
-                // Pressing 's' will stop the sample from playing.
-                case 's':
-                    AL10.alSourceStop(source.get(0));
-                    break;
-
-                // Pressing 'h' will pause the sample.
-                case 'h':
-                    AL10.alSourcePause(source.get(0));
-                    break;
-                // case '1': System.out.println("Suspend");ALC10.alcSuspendContext(); break;
-                // case '2': ALC10.alcProcessContext(); break;
-
-            }
-
-        }
-
-        killALData();
     }
 
     public static void checkSupport() {

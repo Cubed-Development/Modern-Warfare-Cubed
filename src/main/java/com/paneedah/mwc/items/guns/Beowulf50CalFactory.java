@@ -41,9 +41,9 @@ public class Beowulf50CalFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -314,17 +314,12 @@ public class Beowulf50CalFactory implements GunFactory {
                     GL11.glScaled(1F, 0.95F, 1F);
                 })
                 .withCompatibleAttachment(Magazines.BeowulfMag, (model) -> {
-//            GL11.glTranslatef(0F, 0.4F, -0F);
-//            GL11.glRotatef(15F, 0f, 0f, 0f);
-//            GL11.glScaled(1.05F, 1.2F, 1F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
                     GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
                     GL11.glScaled(0.7F, 0.4F, 0.7F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.BeowulfAction, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//            GL11.glScaled(0.7F, 0.4F, 0.7F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.AR15Iron, (model) -> {
                     if (model instanceof M4Iron1) {
@@ -461,9 +456,6 @@ public class Beowulf50CalFactory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
 

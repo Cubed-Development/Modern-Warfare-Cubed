@@ -22,16 +22,16 @@ public class ParticleBlood extends Particle {
     public ParticleBlood(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn);
 
-        this.particleGravity = 1;
+        particleGravity = 1;
 
-        this.particleScale /= 2;
+        particleScale /= 2;
 
-        this.particleRed = 0.6F;
-        this.particleGreen = 0.6F;
-        this.particleBlue = 0.6F;
+        particleRed = 0.6F;
+        particleGreen = 0.6F;
+        particleBlue = 0.6F;
 
-        this.particleTextureIndexX = (int) Math.floor(Math.random() * (3));
-        this.particleTextureIndexY = (int) Math.floor(Math.random() * (3));
+        particleTextureIndexX = (int) Math.floor(Math.random() * (3));
+        particleTextureIndexY = (int) Math.floor(Math.random() * (3));
 
         setParticleTexture(MC.getTextureMapBlocks().getAtlasSprite(new ResourceLocation(ID, texture).toString()));
     }
@@ -39,20 +39,20 @@ public class ParticleBlood extends Particle {
     public ParticleBlood(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn);
 
-        this.particleGravity = 1;
+        particleGravity = 1;
 
-        this.motionX = xSpeedIn;
-        this.motionY = ySpeedIn;
-        this.motionZ = zSpeedIn;
+        motionX = xSpeedIn;
+        motionY = ySpeedIn;
+        motionZ = zSpeedIn;
 
-        this.particleScale /= 2;
+        particleScale /= 2;
 
-        this.particleRed = 0.6F;
-        this.particleGreen = 0.6F;
-        this.particleBlue = 0.6F;
+        particleRed = 0.6F;
+        particleGreen = 0.6F;
+        particleBlue = 0.6F;
 
-        this.particleTextureIndexX = (int) Math.floor(Math.random() * (3));
-        this.particleTextureIndexY = (int) Math.floor(Math.random() * (3));
+        particleTextureIndexX = (int) Math.floor(Math.random() * (3));
+        particleTextureIndexY = (int) Math.floor(Math.random() * (3));
 
         setParticleTexture(MC.getTextureMapBlocks().getAtlasSprite(new ResourceLocation(ID, texture).toString()));
     }
@@ -78,71 +78,39 @@ public class ParticleBlood extends Particle {
                                float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
 
         //GlStateManager.disableTexture2D();
-		/*
-		float f = ((float) this.particleTextureIndexX + this.particleTextureJitterX / 4.0F) / 16.0F;
-		float f1 = f + 0.015609375F;
-		float f2 = ((float) this.particleTextureIndexY + this.particleTextureJitterY / 4.0F) / 16.0F;
-		float f3 = f2 + 0.015609375F;
-		*/
-		
-		
-		/*
-		float f = 0.0f;
-		float f1 = f + 150.0f/400.0f;
-		float f2 = 0.0f;
-		float f3 = f2 + 150.0f/400.0f;
-		*/
+
 
         float delta = 100.0f / 400.0f;
 
 
-        //	Sprite sprit = SpriteSheetTools.getSquareSprite(1, this.particleTexture.getMaxU()/4f, this.particleTexture.getMaxU(), this.particleTexture.getMaxV());
-
-        //	System.out.println(this.particleTexture.getMaxV());
-
         float dirac = particleTexture.getMaxU() / 4f;
 
-        float f = this.particleTexture.getMinU() + dirac * ((float) this.particleTextureIndexX);
-        float f1 = this.particleTexture.getMaxU() / 4f + f;
-        float f2 = this.particleTexture.getMinV() + dirac * ((float) this.particleTextureIndexY);
-        float f3 = this.particleTexture.getMaxV() / 4f + f2;
+        float f = particleTexture.getMinU() + dirac * ((float) particleTextureIndexX);
+        float f1 = particleTexture.getMaxU() / 4f + f;
+        float f2 = particleTexture.getMinV() + dirac * ((float) particleTextureIndexY);
+        float f3 = particleTexture.getMaxV() / 4f + f2;
 
-        float f4 = 0.15F * this.particleScale;
+        float f4 = 0.15F * particleScale;
 
 
-        if (this.particleTexture != null) {
-			/*
-			f = 0.0f;
-			f1 = 1.0f;
-			f2 = 0.0f;
-			f3 = 1.0f;
-			*/
-			/*
-			f = this.particleTexture.getInterpolatedU((double) (this.particleTextureJitterX / 4.0F * 16.0F));
-			f1 = this.particleTexture.getInterpolatedU((double) ((this.particleTextureJitterX + 1.0F) / 4.0F * 16.0F));
-			f2 = this.particleTexture.getInterpolatedV((double) (this.particleTextureJitterY / 4.0F * 16.0F));
-			f3 = this.particleTexture.getInterpolatedV((double) ((this.particleTextureJitterY + 1.0F) / 4.0F * 16.0F));
-			*/
-        }
-
-        float f5 = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) partialTicks - interpPosX);
-        float f6 = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY);
-        float f7 = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ);
-        int i = this.getBrightnessForRender(partialTicks);
+        float f5 = (float) (prevPosX + (posX - prevPosX) * (double) partialTicks - interpPosX);
+        float f6 = (float) (prevPosY + (posY - prevPosY) * (double) partialTicks - interpPosY);
+        float f7 = (float) (prevPosZ + (posZ - prevPosZ) * (double) partialTicks - interpPosZ);
+        int i = getBrightnessForRender(partialTicks);
         int j = i >> 16 & 65535;
         int k = i & 65535;
         buffer.pos(f5 - rotationX * f4 - rotationXY * f4, f6 - rotationZ * f4,
                         f7 - rotationYZ * f4 - rotationXZ * f4).tex(f, f3)
-                .color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
+                .color(particleRed, particleGreen, particleBlue, 1.0F).lightmap(j, k).endVertex();
         buffer.pos(f5 - rotationX * f4 + rotationXY * f4, f6 + rotationZ * f4,
                         f7 - rotationYZ * f4 + rotationXZ * f4).tex(f, f2)
-                .color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
+                .color(particleRed, particleGreen, particleBlue, 1.0F).lightmap(j, k).endVertex();
         buffer.pos(f5 + rotationX * f4 + rotationXY * f4, f6 + rotationZ * f4,
                         f7 + rotationYZ * f4 + rotationXZ * f4).tex(f1, f2)
-                .color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
+                .color(particleRed, particleGreen, particleBlue, 1.0F).lightmap(j, k).endVertex();
         buffer.pos(f5 + rotationX * f4 - rotationXY * f4, f6 - rotationZ * f4,
                         f7 + rotationYZ * f4 - rotationXZ * f4).tex(f1, f3)
-                .color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
+                .color(particleRed, particleGreen, particleBlue, 1.0F).lightmap(j, k).endVertex();
     }
 
     public int getBrightnessForRender(float p_189214_1_) {

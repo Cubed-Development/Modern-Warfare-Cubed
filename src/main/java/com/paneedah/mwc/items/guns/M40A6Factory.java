@@ -43,9 +43,9 @@ public class M40A6Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.10f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.10f))
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -84,17 +84,10 @@ public class M40A6Factory implements GunFactory {
 ////            GL11.glRotatef(-30f, 1f, 0f, 0f);
 ////        })
                 .withCompatibleAttachment(Magazines.M40A6Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 1.3F, 0.3F);
-//        	GL11.glRotatef(-10f, 1f, 0f, 0f);
-//        	GL11.glRotatef(-15f, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M40A6BoltAction, true, (model) -> {
-//            GL11.glTranslatef(-1.39f, -1.13f, 1.5f);
-//            GL11.glRotatef(70f, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M40A6BoltActionPrime, true, (model) -> {
-//          GL11.glTranslatef(-1.39f, -1.13f, 1.5f);
-//          GL11.glRotatef(70f, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.MBUSFrontSight, true, (model) -> {
                     GL11.glTranslatef(0.08F, -2.16F, -4.5F);
@@ -152,9 +145,6 @@ public class M40A6Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {

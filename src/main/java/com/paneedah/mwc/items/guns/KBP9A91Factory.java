@@ -45,9 +45,9 @@ public class KBP9A91Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -96,12 +96,8 @@ public class KBP9A91Factory {
 //          GL11.glTranslatef(0F, 0F, 0.33F);
                 })
                 .withCompatibleAttachment(Magazines.KBP9A91Mag, (model) -> {
-//    	   GL11.glTranslatef(-0.4F, 1.5F, 0.2F);
-//           GL11.glRotatef(-15F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.SuppressorKBP9A91, (model) -> {
-//          GL11.glTranslatef(-0.25F, -1.14F, -6.4F);
-//          GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withCompatibleAttachment(Attachments.KobraMount, (player, stack) -> {
                     GL11.glTranslatef(-0.035F, -1.23F, -0.4F);

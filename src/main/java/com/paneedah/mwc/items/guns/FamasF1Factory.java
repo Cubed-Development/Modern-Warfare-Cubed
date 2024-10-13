@@ -43,9 +43,9 @@ public class FamasF1Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.09f)
-                .withFlashOffsetY(() -> 0.2f)
+                .withFlashScale(() -> Float.valueOf(0.5f))
+                .withFlashOffsetX(() -> Float.valueOf(0.09f))
+                .withFlashOffsetY(() -> Float.valueOf(0.2f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -82,15 +82,11 @@ public class FamasF1Factory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
 
                 .withCompatibleAttachment(Attachments.FamasPlaceholder, true, (model) -> {
-//        	GL11.glRotatef(20.000000f, 1f, 0f, 0f);
-//            GL11.glTranslatef(0f, 0f, -0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.FamasF1Action, true, (model) -> {
 //            GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Magazines.FamasF1Mag, (model) -> {
-//        	GL11.glRotatef(20.000000f, 1f, 0f, 0f);
-//            GL11.glTranslatef(0f, 0f, -0f);
                 })
                 .withCompatibleAttachment(Attachments.FamasF1ScopeMount, (model) -> {
                     if (model instanceof AKRail) {
@@ -162,9 +158,6 @@ public class FamasF1Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
 

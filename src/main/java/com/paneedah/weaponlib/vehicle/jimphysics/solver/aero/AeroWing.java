@@ -16,7 +16,7 @@ public class AeroWing implements IAeroComponent {
     @Override
     public double getAreaOfWing() {
         // TODO Auto-generated method stub
-        return this.area;
+        return area;
     }
 
 }

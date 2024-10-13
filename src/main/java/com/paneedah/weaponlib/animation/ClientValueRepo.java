@@ -120,13 +120,13 @@ public class ClientValueRepo {
         double power = params.getWeaponPower();
 
         if (gunPow.currentValue < INITIAL_GUN_POWER_CUTOFF) {
-            Interceptors.nsm.impulse(screenShakeParam.getFirst());
+            Interceptors.nsm.impulse(screenShakeParam.getFirst().doubleValue());
             power *= INITIAL_GUN_POWER_MULTIPLIER;
         } else if (gunPow.currentValue > params.getStockLength()) {
             power *= GUN_POWER_PAST_STOCK_DIVISOR;
-            Interceptors.nsm.impulse(screenShakeParam.getFirst() * GUN_POWER_PAST_STOCK_DIVISOR);
+            Interceptors.nsm.impulse(screenShakeParam.getFirst().doubleValue() * GUN_POWER_PAST_STOCK_DIVISOR);
         } else {
-            Interceptors.nsm.impulse(screenShakeParam.getFirst());
+            Interceptors.nsm.impulse(screenShakeParam.getFirst().doubleValue());
         }
 
         weaponRecovery.velocity += power * WEAPON_RECOVERY_VELOCITY_POWER;
