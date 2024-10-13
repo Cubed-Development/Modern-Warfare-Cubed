@@ -38,10 +38,10 @@ public class FlashGrenadeFactory implements GrenadeFactory {
                 .withFragmentCount(3000)
                 .withFragmentDamage(500f)
                 .withCompatibleAttachment(Grenades.GrenadeSafetyPin, (p, s) -> {})
-                .withVelocity(() -> Float.valueOf(0.8f))
-                .withFarVelocity(() -> Float.valueOf(1.3f))
-                .withGravityVelocity(() -> Float.valueOf(0.06f))
-                .withRotationSlowdownFactor(() -> Float.valueOf(0.99f))
+                .withVelocity(() -> 0.8f)
+                .withFarVelocity(() -> 1.3f)
+                .withGravityVelocity(() -> 0.06f)
+                .withRotationSlowdownFactor(() -> 0.99f)
                 .withDestroyingBlocks(false)
                 .withModernRecipe(
                         CraftingGroup.GRENADE,
@@ -59,7 +59,7 @@ public class FlashGrenadeFactory implements GrenadeFactory {
                                     GL11.glScalef(0.2f, 0.2f, 0.2f);
                                     GL11.glRotatef(180, 0f, 0f, 0f);
                                 })
-                                .withEntityRotationCenterOffsets(() -> Float.valueOf(-0.025f), () -> Float.valueOf(0.2f), () -> Float.valueOf(-0.025f))
+                                .withEntityRotationCenterOffsets(() -> -0.025f, () -> 0.2f, () -> -0.025f)
 
                                 .withInventoryPositioning(itemStack -> {
                                     GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -83,6 +83,11 @@ public class FlashGrenadeFactory implements GrenadeFactory {
 
                                 .withFirstPersonCustomPositioning(Grenades.GrenadeSafetyPin.getRenderablePart(), null,
                                         context -> {
+//                                    //context.attachTo(Part.MAIN_ITEM);
+//                                    GL11.glScalef(1f, 1f, 1f);
+//                                    GL11.glRotatef(25.000000f, 0f, 1f, 0f);
+//                                    GL11.glRotatef(10.000000f, 0f, 0f, 1f);
+//                                    GL11.glTranslatef(f, -0.6f, -2.2f);
                                         })
 
                                 .withFirstPersonHandPositioning(
@@ -249,6 +254,11 @@ public class FlashGrenadeFactory implements GrenadeFactory {
                                         }, 70, 0),
 
                                         new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                            //                                    GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
+                                            //                                    GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
+                                            //                                    GL11.glRotatef(10.000000f, 0f, 1f, 0f);
+                                            //                                    GL11.glRotatef(15.000000f, 0f, 0f, 1f);
+                                            //                                    GL11.glTranslatef(0.275000f, -0.400000f, 0.200000f);
                                         }, 70, 0))
 
                                 .withFirstPersonCustomPositioningThrowing(Grenades.GrenadeSafetyPin.getRenderablePart(),
@@ -332,6 +342,11 @@ public class FlashGrenadeFactory implements GrenadeFactory {
                                         },
 
                                         context -> { // right hand
+                                            //                                  GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
+                                            //                                  GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
+                                            //                                  GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
+                                            //                                  GL11.glRotatef(15.000000f, 0f, 0f, 1f);
+//                                                                      GL11.glTranslatef(0f, 0.8f, 0.7f);
                                         })
 
                                 .build())
