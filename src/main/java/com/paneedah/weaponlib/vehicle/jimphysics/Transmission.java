@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.vehicle.jimphysics;
 
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
+import lombok.Getter;
 
 import java.util.ArrayList;
 
@@ -10,8 +11,9 @@ public class Transmission {
     /**
      * Constant ratios
      */
-    public float differentialRatio = 0.0F;
-    public float reverseGearRatio = 0.0F;
+    @Getter
+    public float differentialRatio;
+    public float reverseGearRatio;
 
 
     /**
@@ -24,8 +26,8 @@ public class Transmission {
     /**
      * Transmission RPM settings
      */
-    public int upshiftRPM = 0;
-    public int downshiftRPM = 0;
+    public int upshiftRPM;
+    public int downshiftRPM;
 
     public int eUShift = 0;
     public int eDShift = 0;
@@ -65,6 +67,7 @@ public class Transmission {
 
     public boolean isNeutral = true;
 
+    @Getter
     public MechanicalClutch clutch = new MechanicalClutch(0.4);
 
 
@@ -86,15 +89,11 @@ public class Transmission {
     }
 
     public boolean inNeutral() {
-        return this.isNeutral;
+        return isNeutral;
     }
 
     public void setNeutral(boolean v) {
-        this.isNeutral = v;
-    }
-
-    public MechanicalClutch getClutch() {
-        return this.clutch;
+        isNeutral = v;
     }
 
 
@@ -128,23 +127,23 @@ public class Transmission {
      * ECO
      */
     public void toggleECO() {
-        this.isOnEcoShift = !this.isOnEcoShift;
+        isOnEcoShift = !isOnEcoShift;
     }
 
     public void setEcoState(boolean state) {
-        this.isOnEcoShift = state;
+        isOnEcoShift = state;
     }
 
     public void ecoOff() {
-        this.isOnEcoShift = false;
+        isOnEcoShift = false;
     }
 
     public void ecoOn() {
-        this.isOnEcoShift = true;
+        isOnEcoShift = true;
     }
 
     public boolean isEcoModeOn() {
-        return this.isOnEcoShift;
+        return isOnEcoShift;
     }
 
     /**
@@ -206,7 +205,6 @@ public class Transmission {
     /**
      * AUTOMATIC TRANSMISSION RUNNER
      *
-     * @param engineRPM
      */
 
     public void runAutomaticTransmission(EntityVehicle vehicle, double engineRPM) {
@@ -222,18 +220,15 @@ public class Transmission {
             setNeutral(true);
         } else if (vehicle.solver.getVelocityVector().length() < 0.1 && vehicle.throttle > 0.5 && inNeutral()) {
             vehicle.solver.engineSolver.rpm += 2000;
-            //System.out.println("sussy");
 
 
-            //vehicle.clutchTimer = 0;
-            //clutch.applyPedalPressure(1.0-getClutch().engagementPoint);
             setNeutral(false);
         } else if (vehicle.solver.getVelocityVector().length() > 0.1 && vehicle.throttle > 0.2 && inNeutral()) {
             setNeutral(false);
         }
 
-        if (this.getClutch().getSlippage() != 1 && this.getClutch().getSlippage() != 0) {
-
+        if (getClutch().getSlippage() != 1) {
+            getClutch().getSlippage();
         }
 
 
@@ -265,35 +260,27 @@ public class Transmission {
         if (isReverseGear || isEngineDeclutched()) {
             return;
         }
-        //System.out.println(vehicle.solver.getLongitudinalSpeed());
-        //System.out.println("conditions: " + (vehicle.solver.getVelocityVector().length() == 0.0 && vehicle.throttle > 0.5));
-        //System.out.println("shawty " + vehicle.throttle + " | " + vehicle.solver.getVelocityVector().length());
 
 
-        //System.out.println(clutch.getSlippage());
-        //System.out.println("Pedal Pressure: " + clutch.pedalPressure);
-        //System.out.println(1.0-pressure);
-
-
-        int uShift = 0;
-        int dShift = 0;
+        int uShift;
+        int dShift;
 
 
         if (!isOnEcoShift) {
-            uShift = this.upshiftRPM;
-            dShift = this.downshiftRPM;
+            uShift = upshiftRPM;
+            dShift = downshiftRPM;
         } else {
-            uShift = this.eUShift;
-            dShift = this.eDShift;
+            uShift = eUShift;
+            dShift = eDShift;
         }
 
 
         if (markedForUpshift || markedForDownshift) {
             /*&& !launchControl*/
-            markedForUpshift = engineRPM > uShift && (this.getCurrentGear()) != highestGear && vehicle.throttle > 0.1;
+            markedForUpshift = engineRPM > uShift && (getCurrentGear()) != highestGear && vehicle.throttle > 0.1;
 
             /*&& vehicle.throttle < 0.5*/
-            markedForDownshift = engineRPM < dShift && this.getCurrentGear() != 1;
+            markedForDownshift = engineRPM < dShift && getCurrentGear() != 1;
         }
 
         //System.out.println(markedForUpshift);
@@ -340,12 +327,12 @@ public class Transmission {
             //System.out.println("Shifted down to gear " + getCurrentGear() + " RPM : " + engineRPM);
         }
 
-        if (engineRPM > uShift && (this.getCurrentGear()) != highestGear && vehicle.throttle > 0.1 /*&& !launchControl*/) {
+        if (engineRPM > uShift && (getCurrentGear()) != highestGear && vehicle.throttle > 0.1 /*&& !launchControl*/) {
 
             markedForUpshift = true;
         }
 
-        if (engineRPM < dShift && this.getCurrentGear() != 1 /*&& vehicle.throttle < 0.5*/) {
+        if (engineRPM < dShift && getCurrentGear() != 1 /*&& vehicle.throttle < 0.5*/) {
             markedForDownshift = true;
         }
 
@@ -363,7 +350,6 @@ public class Transmission {
     /**
      * GET RATIOS
      *
-     * @return
      */
 
     public float getCurrentGearRatio() {
@@ -373,17 +359,13 @@ public class Transmission {
         return vehicleGears.get(currentGear).gearRatio;
     }
 
-    public float getDifferentialRatio() {
-        return differentialRatio;
-    }
-
     /**
      * GEARS
      */
 
 
-    class Gear {
-        public float gearRatio = 0.0F;
+    static class Gear {
+        public float gearRatio;
 
         public Gear(float gR) {
             gearRatio = gR;
@@ -398,8 +380,8 @@ public class Transmission {
     }
 
     public Transmission withEcoShift(int upshift, int downShift) {
-        this.eUShift = upshift;
-        this.eDShift = downShift;
+        eUShift = upshift;
+        eDShift = downShift;
         return this;
     }
 

@@ -11,6 +11,8 @@ import com.paneedah.weaponlib.crafting.workbench.GUIButtonCustom;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -72,21 +74,26 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
     private final ArrayList<String> tooltipRenderItem = new ArrayList<>();
 
     // Mod context
+    @Setter
     protected static ModContext modContext;
 
     // Currently selected crafting piece
+    @Setter
+    @Getter
     private IModernCraftingRecipe selectedCraftingPiece = null;
 
     // Tells us if we can craft the currently selected item
     private boolean hasRequiredItems = false;
     protected HashMap<Ingredient, Boolean> hasAvailableMaterials = new HashMap<>();
 
+    @Getter
     private int craftingMode = 1;
 
     // Currently used crafting list.
     protected ArrayList<IModernCraftingRecipe> filteredCraftingList = new ArrayList<>();
 
     // The page the workbench is on
+    @Getter
     private int page = 1;
     private int minPage, maxPage;
 
@@ -101,8 +108,8 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
         // Sets the GUI size so that the game can display it properly
         // (if it's too small the texture & slots will end up off-screen)
-        this.xSize = GUI_TEXTURE_WIDTH;
-        this.ySize = GUI_TEXTURE_HEIGHT;
+        xSize = GUI_TEXTURE_WIDTH;
+        ySize = GUI_TEXTURE_HEIGHT;
 
         // Default page range is 1 to 2
         setPageRange(1, 2);
@@ -128,14 +135,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 .withStandardState(0xFFFFFF, 99, 304)
                 .withHoveredState(0xFFFFFF, 141, 304)
                 .withDisabledState(0xFFFFFF, 57, 304)
-                .withDisabledCheck(() -> getPage() == 1);
+                .withDisabledCheck(() -> Boolean.valueOf(getPage() == 1));
 
         rightArrow = new GUIButtonCustom(GUI_TEX, 2, guiLeft + 360, guiTop, 42, 20, 480, 370, "")
                 .withStandardState(0xFFFFFF, 99, 284)
                 .withHoveredState(0xFFFFFF, 141, 284)
                 //.withDisabledState(0xFFFFFF, u, v)
                 .withDisabledState(0xFFFFFF, 57, 284)
-                .withDisabledCheck(() -> getPage() == 2);
+                .withDisabledCheck(() -> Boolean.valueOf(getPage() == 2));
 
         dismantleButton = new GUIButtonCustom(GUI_INV_TEX, 6, guiLeft + 286, guiTop + 70, 73, 17, 480, 370, "DISMANTLE")
                 .withStandardState(GRAY, 0, 283).withHoveredState(GOLD, 0, 300)
@@ -180,21 +187,9 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
      */
     public abstract void fillFilteredList();
 
-    public int getCraftingMode() {
-        return this.craftingMode;
-    }
-
     public void setCraftingMode(int mode) {
         craftButton.setErrored(true);
-        this.craftingMode = mode;
-    }
-
-    public IModernCraftingRecipe getSelectedCraftingPiece() {
-        return this.selectedCraftingPiece;
-    }
-
-    public void setSelectedCraftingPiece(IModernCraftingRecipe modernCrafting) {
-        this.selectedCraftingPiece = modernCrafting;
+        craftingMode = mode;
     }
 
     public boolean hasSelectedCraftingPiece() {
@@ -212,10 +207,10 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             }
 
             if (!counter.containsKey(stack)) {
-                counter.put(stack, stack.getCount());
+                counter.put(stack, Integer.valueOf(stack.getCount()));
             } else {
-                int existingcount = counter.get(stack);
-                counter.put(stack, existingcount + stack.getCount());
+                int existingcount = counter.get(stack).intValue();
+                counter.put(stack, Integer.valueOf(existingcount + stack.getCount()));
             }
         }
 
@@ -225,9 +220,9 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 final NonNullList<ItemStack> list = OreDictionary.getOres(is.getOreDictionaryEntry());
                 boolean foundSomething = false;
                 for (ItemStack toTest : list) {
-                    if (counter.containsKey(toTest) && toTest.getCount() <= counter.get(toTest)) {
+                    if (counter.containsKey(toTest) && toTest.getCount() <= counter.get(toTest).intValue()) {
                         foundSomething = true;
-                        hasAvailableMaterials.put(is.getIngredient(), true);
+                        hasAvailableMaterials.put(is.getIngredient(), Boolean.TRUE);
                         break;
                     } else {
                         hasRequiredItems = false;
@@ -236,22 +231,22 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
                 if (!foundSomething || notEnoughIngredients(is, counter)) {
                     hasRequiredItems = false;
-                    hasAvailableMaterials.put(is.getIngredient(), false);
+                    hasAvailableMaterials.put(is.getIngredient(), Boolean.FALSE);
                 }
             } else {
                 if (notEnoughIngredients(is, counter)) {
                     hasRequiredItems = false;
-                    hasAvailableMaterials.put(is.getIngredient(), false);
+                    hasAvailableMaterials.put(is.getIngredient(), Boolean.FALSE);
                 } else {
-                    hasAvailableMaterials.put(is.getIngredient(), true);
+                    hasAvailableMaterials.put(is.getIngredient(), Boolean.TRUE);
                 }
             }
         }
 
         if (requiresMaterialsToSubmitCraftRequest()) {
-            this.craftButton.setErrored(!hasRequiredItems);
+            craftButton.setErrored(!hasRequiredItems);
         } else {
-            this.craftButton.setErrored(false);
+            craftButton.setErrored(false);
         }
     }
 
@@ -259,22 +254,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
         int finalcount = 0;
         for (ItemStack stack : counter.keySet())
             if (ingredient.getIngredient().test(stack)) {
-                finalcount += counter.get(stack);
+                finalcount += counter.get(stack).intValue();
             }
         return ingredient.getCount() > finalcount;
     }
 
-    public static void setModContext(ModContext context) {
-        modContext = context;
-    }
-
     public void setPageRange(int min, int max) {
-        this.minPage = min;
-        this.maxPage = max;
-    }
-
-    public int getPage() {
-        return this.page;
+        minPage = min;
+        maxPage = max;
     }
 
     public String format(String unloc) {
@@ -282,18 +269,18 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
     }
 
     public boolean hasRequiredItems() {
-        return this.hasRequiredItems;
+        return hasRequiredItems;
     }
 
     @Override
     public void updateScreen() {
         //initGui();
         super.updateScreen();
-        this.tooltipRenderItem.clear();
+        tooltipRenderItem.clear();
         if (tileEntity.pushInventoryRefresh) {
             tileEntity.pushInventoryRefresh = false;
-            if (this.selectedCraftingPiece != null) {
-                onSelectNewCrafting(this.selectedCraftingPiece);
+            if (selectedCraftingPiece != null) {
+                onSelectNewCrafting(selectedCraftingPiece);
             }
         }
     }
@@ -315,18 +302,18 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
         addCustomTooltipInformation(mouseX, mouseY, strings);
 
         // Add crafting information to the tooltip
-        if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 304, this.guiTop + 185, 81, 11) && tileEntity.craftingTimer != -1) {
+        if (GUIRenderHelper.checkInBox(mouseX, mouseY, guiLeft + 304, guiTop + 185, 81, 11) && tileEntity.craftingTimer != -1) {
             addCraftingInformationToTooltip(strings);
         }
 
         // Add dismantling info to the tooltip
-        if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 261, this.guiTop + 57, 122, 7)) {
+        if (GUIRenderHelper.checkInBox(mouseX, mouseY, guiLeft + 261, guiTop + 57, 122, 7)) {
             for (int i = 0; i < 4; ++i) {
                 if (tileEntity.dismantleStatus[i] == -1 || tileEntity.dismantleDuration[i] == -1) {
                     continue;
                 }
 
-                if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 261 + i * 31, this.guiTop + 57, 29, 7)) {
+                if (GUIRenderHelper.checkInBox(mouseX, mouseY, guiLeft + 261 + i * 31, guiTop + 57, 29, 7)) {
                     final ItemStack stack = tileEntity.mainInventory.getStackInSlot(i + 9);
                     final Item item = stack.getItem();
                     if (stack.isEmpty()) {
@@ -362,10 +349,10 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
     @Override
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
         super.mouseClicked(mouseX, mouseY, mouseButton);
-        this.searchBox.mouseClicked(mouseX, mouseY, mouseButton);
+        searchBox.mouseClicked(mouseX, mouseY, mouseButton);
 
-        if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40, this.guiTop + 219, 176, 20)) {
-            final int boxId = (mouseX - (this.guiLeft + 40)) / 20;
+        if (GUIRenderHelper.checkInBox(mouseX, mouseY, guiLeft + 40, guiTop + 219, 176, 20)) {
+            final int boxId = (mouseX - (guiLeft + 40)) / 20;
             CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.MOVE_OUTPUT, tileEntity.getPos(), MC.player.getEntityId(), boxId));
         }
 
@@ -376,7 +363,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                     break;
                 }
 
-                boolean selected = GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 22, 22);
+                boolean selected = GUIRenderHelper.checkInBox(mouseX, mouseY, guiLeft + 12 + (x * 23), guiTop + 52 + (y * 23), 22, 22);
                 if (selected) {
                     onSelectNewCrafting(filteredCraftingList.get(c));
                     setSelectedCraftingPiece(filteredCraftingList.get(c));
@@ -389,7 +376,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
     @Override
     protected void keyTyped(char typedChar, int keyCode) throws IOException {
-        final boolean cancellationFlag = this.searchBox.getText().isEmpty() && keyCode == Keyboard.KEY_BACK;
+        final boolean cancellationFlag = searchBox.getText().isEmpty() && keyCode == Keyboard.KEY_BACK;
 
         // This 'if' statement prevents the GUI from closing when we hit "E" (or whatever
         // the inventory key is!)
@@ -397,7 +384,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             super.keyTyped(typedChar, keyCode);
         }
 
-        this.searchBox.textboxKeyTyped(typedChar, keyCode);
+        searchBox.textboxKeyTyped(typedChar, keyCode);
 
         if (!cancellationFlag) {
             if (keyCode == Keyboard.KEY_BACK) {
@@ -418,13 +405,13 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
         Item item = stack.getItem();
 
-        this.tooltipRenderItem.clear();
-        this.tooltipRenderItem.add(item.getItemStackDisplayName(stack));
+        tooltipRenderItem.clear();
+        tooltipRenderItem.add(item.getItemStackDisplayName(stack));
         final ITooltipFlag flag = MC.gameSettings.advancedItemTooltips ? ITooltipFlag.TooltipFlags.ADVANCED : ITooltipFlag.TooltipFlags.NORMAL;
-        stack.getItem().addInformation(stack, this.tileEntity.getWorld(), this.tooltipRenderItem, flag);
+        stack.getItem().addInformation(stack, tileEntity.getWorld(), tooltipRenderItem, flag);
 
         if (strings.length > 0) {
-            this.tooltipRenderItem.addAll(Arrays.asList(strings));
+            tooltipRenderItem.addAll(Arrays.asList(strings));
         }
     }
 
@@ -439,12 +426,12 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             id = maxPage;
         }
 
-        this.scrollBarProgress = 0;
-        this.scrollBarOffset = 0;
-        this.page = id;
-        ((ContainerStation) this.inventorySlots).page = id;
+        scrollBarProgress = 0;
+        scrollBarOffset = 0;
+        page = id;
+        ((ContainerStation) inventorySlots).page = id;
 
-        for (GuiButton b : this.buttonList) {
+        for (GuiButton b : buttonList) {
             if (b instanceof GUIButtonCustom && ((GUIButtonCustom) b).getPageID() != -1) {
                 b.visible = ((GUIButtonCustom) b).getPageID() == id;
             }
@@ -488,7 +475,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
         if (getPage() == 1) {
             MC.getTextureManager().bindTexture(GUI_INV_TEX);
-            drawModalRectWithCustomSizedTexture(this.guiLeft, this.guiTop, 0f, 0f, 402, 232, 480, 370);
+            drawModalRectWithCustomSizedTexture(guiLeft, guiTop, 0f, 0f, 402, 232, 480, 370);
 
             for (int i = 0; i < 4; ++i) {
                 if (tileEntity.dismantleStatus[i] == -1 || tileEntity.dismantleDuration[i] == -1) {
@@ -496,13 +483,13 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 }
 
                 final double progress = InterpolationKit.interpolateValue(tileEntity.previousDismantleStatus[i], tileEntity.dismantleStatus[i], MC.getRenderPartialTicks()) / (double) tileEntity.dismantleDuration[i];
-                drawModalRectWithCustomSizedTexture(this.guiLeft + 261 + i * 31, this.guiTop + 57, 81, 232, 29, 7, 480, 370);
-                drawModalRectWithCustomSizedTexture(this.guiLeft + 261 + i * 31, this.guiTop + 57, 81, 239, (int) (29 * progress), 7, 480, 370);
+                drawModalRectWithCustomSizedTexture(guiLeft + 261 + i * 31, guiTop + 57, 81, 232, 29, 7, 480, 370);
+                drawModalRectWithCustomSizedTexture(guiLeft + 261 + i * 31, guiTop + 57, 81, 239, (int) (29 * progress), 7, 480, 370);
             }
 
-            GUIRenderHelper.drawScaledString("INVENTORY", this.guiLeft + 10, this.guiTop + 5, 1.2, BLUE);
+            GUIRenderHelper.drawScaledString("INVENTORY", guiLeft + 10, guiTop + 5, 1.2, BLUE);
             //GUIRenderHelper.drawScaledString("DISMANTLING", this.guiLeft + 255, this.guiTop + 5, 1.2, BLUE);
-            GUIRenderHelper.drawScaledString("Player Inventory", this.guiLeft + 21, this.guiTop + 115, 1.0, LIGHT_GREY);
+            GUIRenderHelper.drawScaledString("Player Inventory", guiLeft + 21, guiTop + 115, 1.0, LIGHT_GREY);
 
         } else if (getPage() == 2) {
             GlStateManager.color(1f, 1f, 1f, 1f);
@@ -513,9 +500,9 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             GlStateManager.enableBlend();
 
             // Draw background elements
-            drawModalRectWithCustomSizedTexture(this.guiLeft, this.guiTop, 0f, 0f, 192, 210, 480, 370);
-            drawModalRectWithCustomSizedTexture(200 + this.guiLeft, 20 + this.guiTop, 200f, 20f, 202, 190, 480, 370);
-            drawModalRectWithCustomSizedTexture(this.guiLeft, 213 + this.guiTop, 0f, 213f, 241, 27, 480, 370);
+            drawModalRectWithCustomSizedTexture(guiLeft, guiTop, 0f, 0f, 192, 210, 480, 370);
+            drawModalRectWithCustomSizedTexture(200 + guiLeft, 20 + guiTop, 200f, 20f, 202, 190, 480, 370);
+            drawModalRectWithCustomSizedTexture(guiLeft, 213 + guiTop, 0f, 213f, 241, 27, 480, 370);
 
             // Draw progress bar
             // forty notches, therefore 1/40.0 = 0.025
@@ -524,20 +511,20 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             final double intpProgress = InterpolationKit.interpolateValue(prevProgress, currProgress, MC.getRenderPartialTicks());
             final double progress = (0.025) * (Math.round(intpProgress / (0.025)));
 
-            drawModalRectWithCustomSizedTexture(this.guiLeft + 304, this.guiTop + 185, 53f, 240f, 81, 11, 480, 370);
-            drawModalRectWithCustomSizedTexture(this.guiLeft + 304, this.guiTop + 185, 53f, 240f + 11, (int) (81 * progress), 11, 480, 370);
+            drawModalRectWithCustomSizedTexture(guiLeft + 304, guiTop + 185, 53f, 240f, 81, 11, 480, 370);
+            drawModalRectWithCustomSizedTexture(guiLeft + 304, guiTop + 185, 53f, 240f + 11, (int) (81 * progress), 11, 480, 370);
 
             if (!Mouse.isButtonDown(0)) {
                 scrollBarGrabbed = false;
             }
 
             // Handle scroll bar
-            final int scrollBarVertical = this.guiTop + 54 + scrollBarOffset;
+            final int scrollBarVertical = guiTop + 54 + scrollBarOffset;
             final int scrollBarHeight = (int) (138 * Math.min(1.0, 42.0 / filteredCraftingList.size()));
 
-            drawModalRectWithCustomSizedTexture(this.guiLeft + 176, scrollBarVertical, 412, 54, 6, scrollBarHeight, 480, 370);
+            drawModalRectWithCustomSizedTexture(guiLeft + 176, scrollBarVertical, 412, 54, 6, scrollBarHeight, 480, 370);
 
-            if (Mouse.isButtonDown(0) && GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 176, scrollBarVertical, 6, scrollBarHeight) && !scrollBarGrabbed) {
+            if (Mouse.isButtonDown(0) && GUIRenderHelper.checkInBox(mouseX, mouseY, guiLeft + 176, scrollBarVertical, 6, scrollBarHeight) && !scrollBarGrabbed) {
                 scrollBarGrabbed = true;
                 scrollOffsetAtGrab = scrollBarOffset;
                 grabY = mouseY;
@@ -568,22 +555,22 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                         }
 
                         if (filteredCraftingList.get(c) == getSelectedCraftingPiece()) {
-                            drawModalRectWithCustomSizedTexture(this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 97f - 44, 262f, 22, 22, 480, 370);
+                            drawModalRectWithCustomSizedTexture(guiLeft + 12 + (x * 23), guiTop + 52 + (y * 23), 97f - 44, 262f, 22, 22, 480, 370);
 
                         } else {
-                            final boolean selected = GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 22, 22);
+                            final boolean selected = GUIRenderHelper.checkInBox(mouseX, mouseY, guiLeft + 12 + (x * 23), guiTop + 52 + (y * 23), 22, 22);
                             if (!selected) {
-                                drawModalRectWithCustomSizedTexture(this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 97f - 22, 262f, 22, 22, 480, 370);
+                                drawModalRectWithCustomSizedTexture(guiLeft + 12 + (x * 23), guiTop + 52 + (y * 23), 97f - 22, 262f, 22, 22, 480, 370);
 
                             } else {
                                 setItemRenderTooltip(filteredCraftingList.get(c).getItemStack());
-                                drawModalRectWithCustomSizedTexture(this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 97f, 262f, 22, 22, 480, 370);
+                                drawModalRectWithCustomSizedTexture(guiLeft + 12 + (x * 23), guiTop + 52 + (y * 23), 97f, 262f, 22, 22, 480, 370);
                             }
                         }
 
                         RenderHelper.enableGUIStandardItemLighting();
 
-                        MC.getRenderItem().renderItemIntoGUI(filteredCraftingList.get(c).getItemStack(), this.guiLeft + 15 + (x * 23), this.guiTop + 55 + (y * 23));
+                        MC.getRenderItem().renderItemIntoGUI(filteredCraftingList.get(c).getItemStack(), guiLeft + 15 + (x * 23), guiTop + 55 + (y * 23));
                         MC.getTextureManager().bindTexture(GUI_TEX);
 
                         RenderHelper.disableStandardItemLighting();
@@ -599,10 +586,10 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 doCraftingModeOneRender(partialTicks, mouseX, mouseY);
 
             } else if (hasSelectedCraftingPiece()) {
-                GuiRenderUtil.drawScaledString(fontRenderer, format(getSelectedCraftingPiece().getItemStack().getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 0.9, 0xFDF17C);
+                GuiRenderUtil.drawScaledString(fontRenderer, format(getSelectedCraftingPiece().getItemStack().getTranslationKey()), guiLeft + 214, guiTop + 31, 0.9, 0xFDF17C);
                 GlStateManager.pushMatrix();
                 RenderHelper.enableGUIStandardItemLighting();
-                GlStateManager.translate(this.guiLeft + 275, this.guiTop + 45, 0);
+                GlStateManager.translate(guiLeft + 275, guiTop + 45, 0);
                 GlStateManager.scale(3, 3, 3);
 
                 MC.getRenderItem().renderItemIntoGUI(getSelectedCraftingPiece().getItemStack(), 0, 0);
@@ -613,11 +600,11 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             GlStateManager.enableBlend();
 
             // Draw all the text within the GUI
-            GuiRenderUtil.drawScaledString(fontRenderer, "CRAFTING", this.guiLeft + 11, this.guiTop + 5, 1.2, 0x8FC5E3);
-            GuiRenderUtil.drawScaledString(fontRenderer, "Progress", this.guiLeft + 326, this.guiTop + 175, 0.8, 0xFFFFFF);
-            GuiRenderUtil.drawScaledString(fontRenderer, "Output", this.guiLeft + 7, this.guiTop + 223, 0.9, 0xFFFFFF);
-            GuiRenderUtil.drawScaledString(fontRenderer, "CRAFT", this.guiLeft + 222, this.guiTop + 184, 1.0, 0xB06061);
-            GuiRenderUtil.drawScaledString(fontRenderer, "Results: " + TextFormatting.YELLOW + filteredCraftingList.size(), this.guiLeft + 12, this.guiTop + 191, 0.8, 0xFFFFFF);
+            GuiRenderUtil.drawScaledString(fontRenderer, "CRAFTING", guiLeft + 11, guiTop + 5, 1.2, 0x8FC5E3);
+            GuiRenderUtil.drawScaledString(fontRenderer, "Progress", guiLeft + 326, guiTop + 175, 0.8, 0xFFFFFF);
+            GuiRenderUtil.drawScaledString(fontRenderer, "Output", guiLeft + 7, guiTop + 223, 0.9, 0xFFFFFF);
+            GuiRenderUtil.drawScaledString(fontRenderer, "CRAFT", guiLeft + 222, guiTop + 184, 1.0, 0xB06061);
+            GuiRenderUtil.drawScaledString(fontRenderer, "Results: " + TextFormatting.YELLOW + filteredCraftingList.size(), guiLeft + 12, guiTop + 191, 0.8, 0xFFFFFF);
 
             if (hasSelectedCraftingPiece()) {
                 final IModernCraftingRecipe weapon = getSelectedCraftingPiece();
@@ -630,9 +617,9 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                         }
 
                         final ItemStack itemStack = updateandGetStacktoRender(entry);
-                        final boolean hasItem = this.hasAvailableMaterials.get(entry.getIngredient());
-                        final int x = this.guiLeft + 210 + (c * 20);
-                        final int y = this.guiTop + 122;
+                        final boolean hasItem = hasAvailableMaterials.get(entry.getIngredient()).booleanValue();
+                        final int x = guiLeft + 210 + (c * 20);
+                        final int y = guiTop + 122;
 
                         MC.getTextureManager().bindTexture(GUI_TEX);
 
@@ -684,7 +671,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
             boolean playerInventoryFull = MC.player.inventory.getFirstEmptyStack() == -1;
             if (playerInventoryFull) {
-                GUIRenderHelper.drawAlignedString("Inventory Full!", StringAlignment.LEFT, false, this.guiLeft + 245, this.guiTop + 214, 1.0, RED);
+                GUIRenderHelper.drawAlignedString("Inventory Full!", StringAlignment.LEFT, false, guiLeft + 245, guiTop + 214, 1.0, RED);
             }
 
             for (int i = 0; i < 9; ++i) {
@@ -692,13 +679,13 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
                 MC.getTextureManager().bindTexture(GUI_TEX);
 
-                if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40 + (i * 22), this.guiTop + 219, 20, 20)) {
-                    GUIRenderHelper.drawTexturedRect(this.guiLeft + 39 + (i * 22), this.guiTop + 218, playerInventoryFull ? 18 : 0, 351, 18, 18, 480, 370);
+                if (GUIRenderHelper.checkInBox(mouseX, mouseY, guiLeft + 40 + (i * 22), guiTop + 219, 20, 20)) {
+                    GUIRenderHelper.drawTexturedRect(guiLeft + 39 + (i * 22), guiTop + 218, playerInventoryFull ? 18 : 0, 351, 18, 18, 480, 370);
                     setItemRenderTooltip(stack);
                 }
 
                 RenderHelper.enableGUIStandardItemLighting();
-                MC.getRenderItem().renderItemIntoGUI(stack, this.guiLeft + 40 + (i * 22), this.guiTop + 219);
+                MC.getRenderItem().renderItemIntoGUI(stack, guiLeft + 40 + (i * 22), guiTop + 219);
                 RenderHelper.disableStandardItemLighting();
             }
 
@@ -708,7 +695,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             for (int i = 0; i < 9; ++i) {
                 final ItemStack stack = tileEntity.mainInventory.getStackInSlot(i);
                 if (!stack.isEmpty()) {
-                    GUIRenderHelper.drawScaledString(tileEntity.mainInventory.getStackInSlot(i).getCount() + "", this.guiLeft + 50 + (i * 22), this.guiTop + 230, 1, 0xFFFFFF);
+                    GUIRenderHelper.drawScaledString(tileEntity.mainInventory.getStackInSlot(i).getCount() + "", guiLeft + 50 + (i * 22), guiTop + 230, 1, 0xFFFFFF);
                 }
             }
 

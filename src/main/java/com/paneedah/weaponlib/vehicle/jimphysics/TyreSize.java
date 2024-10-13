@@ -27,10 +27,9 @@ public class TyreSize {
     /**
      * Tyre Size
      *
-     * @param Tyre Sizing (ex. 315/30R20)
      */
     public TyreSize(String ss) {
-        this.sizeString = ss;
+        sizeString = ss;
 
         // https://devqa.io/extract-numbers-string-java-regular-expressions/
         numMatcher.reset(sizeString);
@@ -41,18 +40,16 @@ public class TyreSize {
         }
 
         // initialize parameters
-        this.width = p[0];
-        this.sideWall = p[0] * (p[1] / 100.0);
-        this.diameter = (p[2] * 25.4) + (this.sideWall * 2);
-        this.radius = this.diameter / 2;
-        this.circumference = this.diameter * Math.PI;
+        width = p[0];
+        sideWall = p[0] * (p[1] / 100.0);
+        diameter = (p[2] * 25.4) + (sideWall * 2);
+        radius = diameter / 2;
+        circumference = diameter * Math.PI;
 
     }
 
     /**
      * Converts millimeters to meters
-     *
-     * @param Magnitude in millimeters (mm)
      *
      * @return Magnitude in meters (m)
      */
@@ -61,23 +58,23 @@ public class TyreSize {
     }
 
     public double getRadius() {
-        return toM(this.radius);
+        return toM(radius);
     }
 
     public double getDiamter() {
-        return toM(this.diameter);
+        return toM(diameter);
     }
 
     public double getWidth() {
-        return toM(this.width);
+        return toM(width);
     }
 
     public double getCircumference() {
-        return toM(this.circumference);
+        return toM(circumference);
     }
 
     public double getSideWall() {
-        return toM(this.sideWall);
+        return toM(sideWall);
     }
 
 }

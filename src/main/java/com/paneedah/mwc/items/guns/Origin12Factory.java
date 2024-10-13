@@ -42,9 +42,9 @@ public class Origin12Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.8f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.8f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
                 .withShellCasingModelTexture("shotgun12gauge")
                 .withInaccuracy(12f)
@@ -163,12 +163,8 @@ public class Origin12Factory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Origin12Grip, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(Attachments.HKS20Grip, (model) -> {
-//          GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//          GL11.glScaled(1.2F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Origin12Action, true, (model) -> {
 //            GL11.glTranslatef(0f, 0f, 1f);

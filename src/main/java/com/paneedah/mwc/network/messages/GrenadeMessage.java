@@ -18,8 +18,8 @@ public final class GrenadeMessage implements IMessage {
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        this.instance = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
-        this.activationTimestamp = byteBuf.readLong();
+        instance = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
+        activationTimestamp = byteBuf.readLong();
     }
 
     @Override

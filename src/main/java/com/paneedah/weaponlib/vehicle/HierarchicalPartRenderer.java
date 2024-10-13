@@ -65,7 +65,7 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
         Positioner<SinglePart, PartRenderContext<State>> positioner = multipartPositioning.getPositioner();
 
 
-        context.setProgress(currentProgressProvider.apply(context));
+        context.setProgress(currentProgressProvider.apply(context).floatValue());
 
         /*
          * NEXT FEW LINES ARE BY JIM (saying this for debug purposes)
@@ -116,15 +116,13 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
 
 
             } else if (pass == 1 && part == VehiclePart.WINDOWS) {
-                if (part == VehiclePart.WINDOWS) {
-                    GlStateManager.enableBlend();
-                    float transparency = 0.5f;
-                    if (MC.gameSettings.thirdPersonView == 0) {
+                GlStateManager.enableBlend();
+                float transparency = 0.5f;
+                if (MC.gameSettings.thirdPersonView == 0) {
                         transparency = 0.2f;
                     }
-                    GlStateManager.color(0.1f, 0.1f, 0.15f, transparency);
-                }
-                modelRenderer.render(context);
+                GlStateManager.color(0.1f, 0.1f, 0.15f, transparency);
+        modelRenderer.render(context);
             }
 
 

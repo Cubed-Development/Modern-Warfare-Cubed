@@ -42,9 +42,9 @@ public class UziFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 1f)
-                .withFlashOffsetX(() -> 0.17f)
-                .withFlashOffsetY(() -> 0.23f)
+                .withFlashScale(() -> Float.valueOf(1f))
+                .withFlashOffsetX(() -> Float.valueOf(0.17f))
+                .withFlashOffsetY(() -> Float.valueOf(0.23f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -78,9 +78,6 @@ public class UziFactory implements GunFactory {
                     GL11.glTranslatef(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.UziAction, true, (model) -> {
-//            GL11.glTranslatef(0F, 0.2F, 0.12F);
-//            GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//            GL11.glTranslatef(0F, 1F, 0.4F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.UziRelease, true, (model) -> {
 //        	 GL11.glTranslatef(0F, 0F, 0.6F);
@@ -299,13 +296,8 @@ public class UziFactory implements GunFactory {
                             GL11.glScaled(3F, 3F, 3F);
                             GL11.glTranslatef(0.14f, 0.79f, -1.6f);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR);//System.out.println("Position me for Holo");
+// Everything else
 
                         })
 

@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.config;
 
+import lombok.Getter;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -28,13 +30,22 @@ public class HierarchialTree<K> {
      */
     public static class Branch<K> {
 
+        @Getter
         private final Branch<K> parent;
 
+        /**
+         * -- GETTER --
+         *  Name of this branch
+         *
+         * @return name of this branch
+         */
+        @Getter
         private final String key;
 
         /**
          * Map of all the subbranches
          */
+        @Getter
         private final HashMap<String, Branch<K>> subBranches = new HashMap<>();
 
         /**
@@ -42,6 +53,7 @@ public class HierarchialTree<K> {
          */
         private final List<Branch<K>> subBranchList = new ArrayList<>();
 
+        @Getter
         private final List<K> nodes = new ArrayList<>();
 
         public Branch(String key, Branch<K> parent) {
@@ -49,29 +61,8 @@ public class HierarchialTree<K> {
             this.parent = parent;
         }
 
-        public List<K> getNodes() {
-            return this.nodes;
-        }
-
-        public HashMap<String, Branch<K>> getSubBranches() {
-            return this.subBranches;
-        }
-
-        /**
-         * Name of this branch
-         *
-         * @return name of this branch
-         */
-        public String getKey() {
-            return this.key;
-        }
-
         public boolean isRoot() {
             return parent == null;
-        }
-
-        public Branch<K> getParent() {
-            return this.parent;
         }
 
         /**
@@ -100,7 +91,7 @@ public class HierarchialTree<K> {
         }
 
         public Iterator<K> getNodeIterator() {
-            return this.nodes.iterator();
+            return nodes.iterator();
         }
 
         /**
@@ -128,7 +119,7 @@ public class HierarchialTree<K> {
          */
         public int totalBranchesBeneath() {
             int total = 0;
-            for (Entry<String, Branch<K>> branch : this.subBranches.entrySet()) {
+            for (Entry<String, Branch<K>> branch : subBranches.entrySet()) {
                 total += branch.getValue().totalBranchesBeneath() + 1;
             }
             return total;
@@ -142,9 +133,9 @@ public class HierarchialTree<K> {
          */
         public String getPathway() {
             if (parent != null) {
-                return appendPath(this.key);
+                return appendPath(key);
             } else {
-                return this.key;
+                return key;
             }
 
         }
@@ -159,9 +150,9 @@ public class HierarchialTree<K> {
          */
         private String appendPath(String builder) {
             if (parent == null) {
-                return this.key + "." + builder;
+                return key + "." + builder;
             } else {
-                return parent.appendPath(this.key + "." + builder);
+                return parent.appendPath(key + "." + builder);
             }
         }
 
@@ -331,36 +322,23 @@ public class HierarchialTree<K> {
      */
     public int getTotalBranches() {
         int total = 0;
-        for (Entry<String, Branch<K>> entry : this.roots.entrySet())
+        for (Entry<String, Branch<K>> entry : roots.entrySet())
             total += entry.getValue().totalBranchesBeneath() + 1;
 
         return total;
     }
 
     public Iterator<Branch<K>> getRootIterator() {
-        return this.rootsList.iterator();
+        return rootsList.iterator();
     }
 
     public static void main(String[] args) {
         HierarchialTree<String> tree = new HierarchialTree<String>();
-		/*
-		tree.addBranch("root.branchA.branchAA.branchAAa");
-		tree.addBranch("root.branchA.branchAA.branchAAb");
-		tree.addBranch("root.branchA.branchAB.branchABa");
-		tree.addBranch("root.branchA.branchAB.branchABb");
-		tree.addBranch("root2");
-		*/
         tree.addNode("root.branchA.branchAA.branchAAa", "Lemme know");
         tree.addNode("root.branchA.branchAA.branchAAb", "Lemme know");
 
         tree.pruneBranch("root.branchA.branchAA");
         tree.print(System.out);
-		
-		/*
-		System.out.println(tree.addBranch("root.branchA.branchAA.branchAAa").getPathway());
-		
-		System.out.println(tree.fetchNodes("root.branchA.branchAA.branchAAa"));
-		System.out.println(tree.getTotalBranches());
-		*/
+
     }
 }
