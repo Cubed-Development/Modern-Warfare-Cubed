@@ -31,7 +31,7 @@ public class BackpackContainer extends Container {
     private final int hotbarSlotEndIndex;
 
     public BackpackContainer(EntityPlayer player, InventoryPlayer inventoryPlayer, BackpackInventory inventoryItem) {
-        inventory = inventoryItem;
+        this.inventory = inventoryItem;
 
         final List<Slot> storageSlots = createStorageSlots(inventory);
         storageSlots.forEach(slot -> addSlotToContainer(slot));
@@ -42,27 +42,27 @@ public class BackpackContainer extends Container {
         List<Slot> armorSlots = createArmorSlots(player, inventoryPlayer);
         armorSlots.forEach(slot -> addSlotToContainer(slot));
 
-        armorSlotStartIndex = customSlotEndIndex + 1;
-        armorSlotEndIndex = armorSlotStartIndex + armorSlots.size() - 1;
+        this.armorSlotStartIndex = customSlotEndIndex + 1;
+        this.armorSlotEndIndex = armorSlotStartIndex + armorSlots.size() - 1;
 
         List<Slot> standardInventorySlots = createStandardInventorySlots(inventoryPlayer);
         standardInventorySlots.forEach(slot -> addSlotToContainer(slot));
 
-        standardInventorySlotStartIndex = armorSlotEndIndex + 1;
-        standardInventorySlotEndIndex = standardInventorySlotStartIndex + standardInventorySlots.size() - 1;
+        this.standardInventorySlotStartIndex = armorSlotEndIndex + 1;
+        this.standardInventorySlotEndIndex = standardInventorySlotStartIndex + standardInventorySlots.size() - 1;
 
         List<Slot> hotbarSlots = createHotbarSlots(inventoryPlayer);
         hotbarSlots.forEach(slot -> addSlotToContainer(slot));
 
-        hotbarSlotStartIndex = standardInventorySlotEndIndex + 1;
-        hotbarSlotEndIndex = hotbarSlotStartIndex + hotbarSlots.size() - 1;
+        this.hotbarSlotStartIndex = standardInventorySlotEndIndex + 1;
+        this.hotbarSlotEndIndex = hotbarSlotStartIndex + hotbarSlots.size() - 1;
     }
 
     protected List<Slot> createStorageSlots(BackpackInventory inventoryCustom) {
 
         List<Slot> slots = new ArrayList<>();
         for (int i = 0; i < inventoryCustom.getSizeInventory(); ++i) {
-            slots.add(new BackpackSlot(inventory, i, 80 + (18 * (i / 4)), 8 + (18 * (i % 4))));
+            slots.add(new BackpackSlot(this.inventory, i, 80 + (18 * (i / 4)), 8 + (18 * (i % 4))));
         }
 
         return slots;
@@ -91,7 +91,7 @@ public class BackpackContainer extends Container {
         int i;
         for (i = 0; i < 4; ++i) {
             final EntityEquipmentSlot entityequipmentslot = new EntityEquipmentSlot[]{EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET}[i];
-            addSlotToContainer(new Slot(inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i - 1,
+            this.addSlotToContainer(new Slot(inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i - 1,
                     8, 8 + i * 18) {
                 /**
                  * Returns the maximum stack size for a given slot (usually the same as getInventoryStackLimit(), but 1
@@ -113,7 +113,7 @@ public class BackpackContainer extends Container {
                  * Return whether this slot's stack can be taken from this slot.
                  */
                 public boolean canTakeStack(EntityPlayer playerIn) {
-                    ItemStack itemstack = getStack();
+                    ItemStack itemstack = this.getStack();
                     return (itemstack.isEmpty() || playerIn.isCreative() || !EnchantmentHelper.hasBindingCurse(itemstack)) && super.canTakeStack(playerIn);
                 }
 
@@ -147,7 +147,7 @@ public class BackpackContainer extends Container {
             // If item is in our custom Inventory or armor slot
             if (index < standardInventorySlotStartIndex) {
                 // try to place in player inventory / action bar
-                if (!mergeItemStack(itemstack1, standardInventorySlotStartIndex, hotbarSlotEndIndex + 1, true)) {
+                if (!this.mergeItemStack(itemstack1, standardInventorySlotStartIndex, hotbarSlotEndIndex + 1, true)) {
                     return new ItemStack(Items.AIR);
                 }
 
@@ -161,9 +161,9 @@ public class BackpackContainer extends Container {
 
                     ItemArmor armor = ((ItemArmor) itemstack1.getItem());
                     int ordinal = 4 - armor.getEquipmentSlot().getSlotIndex();
-                    if (!mergeItemStack(itemstack1, armorSlotStartIndex + ordinal, armorSlotStartIndex + ordinal + 1, false)) {
+                    if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + ordinal, armorSlotStartIndex + ordinal + 1, false)) {
 
-                        if (!mergeItemStack(itemstack1, 0, inventorySlots.size() - 1, false)) {
+                        if (!this.mergeItemStack(itemstack1, 0, inventorySlots.size() - 1, false)) {
                             return ItemStack.EMPTY;
                         }
 
@@ -173,21 +173,40 @@ public class BackpackContainer extends Container {
                 }
 
 
-                // place in custom inventory
-                if (!mergeItemStack(itemstack1, 0, standardInventorySlotStartIndex, false)) {
+                /**
+                 * Implementation number 1: Shift-click into your custom
+                 * inventory
+                 */
+                if (index >= standardInventorySlotStartIndex) {
+                    // place in custom inventory
+                    if (!this.mergeItemStack(itemstack1, 0, standardInventorySlotStartIndex, false)) {
                         return new ItemStack(Items.AIR);
+                    }
+                }
+
+                // if item is armor
+                else if (index >= armorSlotStartIndex && index <= armorSlotEndIndex) {
+                    EntityEquipmentSlot type = ((ItemArmor) itemstack1.getItem()).armorType;//((ItemArmor) itemstack1.getItem()).armorType;
+                    if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + type.ordinal(), armorSlotStartIndex + type.ordinal() + 1, false)) {
+                        return new ItemStack(Items.AIR);
+                    }
+                }
 
 
-                    // item is in player's inventory, but not in action bar
-                if (index <= standardInventorySlotEndIndex) {
+                /**
+                 * Implementation number 2: Shift-click items between action bar
+                 * and inventory
+                 */
+                // item is in player's inventory, but not in action bar
+                if (index >= standardInventorySlotStartIndex && index <= standardInventorySlotEndIndex) {
                     // place in action bar
-                    if (!mergeItemStack(itemstack1, hotbarSlotStartIndex, hotbarSlotEndIndex + 1, false)) {
+                    if (!this.mergeItemStack(itemstack1, hotbarSlotStartIndex, hotbarSlotEndIndex + 1, false)) {
                         return new ItemStack(Items.AIR);
                     }
                 }
                 // item in action bar - place in player inventory
                 else if (index >= hotbarSlotStartIndex && index <= hotbarSlotEndIndex) {
-                    if (!mergeItemStack(itemstack1, standardInventorySlotStartIndex, standardInventorySlotEndIndex + 1, false)) {
+                    if (!this.mergeItemStack(itemstack1, standardInventorySlotStartIndex, standardInventorySlotEndIndex + 1, false)) {
                         return new ItemStack(Items.AIR);
                     }
                 }
