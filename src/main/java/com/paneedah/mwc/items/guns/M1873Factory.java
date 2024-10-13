@@ -44,9 +44,9 @@ public class M1873Factory implements GunFactory {
                 .withShellCasingEjectEnabled(false)
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.06f)
+                .withFlashScale(() -> Float.valueOf(0.5f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.06f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
 
@@ -99,8 +99,6 @@ public class M1873Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M1873action, true, (model) -> {
-//            GL11.glRotatef(-50f, 1f, 0f, 0f);
-//            GL11.glTranslatef(0f, -0.43f, -0.5f);
                 })
                 .withCompatibleBullet(Bullets.Bullet4440, (model) -> {})
                 .withTextureNames("M1873")
@@ -156,13 +154,8 @@ public class M1873Factory implements GunFactory {
                             GL11.glRotatef(-0.5F, 1f, 0f, 0f);
 
 //              // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })
@@ -432,13 +425,8 @@ public class M1873Factory implements GunFactory {
                             GL11.glTranslatef(0.250000f, 0.17f, -1.1f);
 
 //              // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })

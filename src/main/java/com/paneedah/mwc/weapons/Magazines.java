@@ -156,36 +156,6 @@ public class Magazines {
 //                          MwItems.steelIngot,
 //                          MwItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
-/*
-        Magazines.NinthSinMag = new ItemMagazine.Builder()
-        		.withCapacity(100)
-                .withName("NinthSinMag")
-
-                .withCreativeTab(MWC.AmmoTab)
-                .withModel(new com.paneedah.mwc.models.NinthSinMagazine(), "ninthsin.png")
-
-                .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5F, -0F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
-                })
-                .withMaxStackSize(6)
-//                .withCrafting(CraftingComplexity.MEDIUM,
-//                          MwItems.steelIngot,
-//                          MwItems.gunmetalIngot)
-                .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
-*/
         Magazines.BrenMag = new ItemMagazine.Builder()
                 .withCapacity(30)
                 .withCompatibleBullet(Bullets.Bullet762x51)

@@ -3,6 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 
 public enum MagazineState implements ManagedState<MagazineState> {
 
@@ -22,7 +23,8 @@ public enum MagazineState implements ManagedState<MagazineState> {
 
     private final boolean isTransient;
 
-    private int priority = DEFAULT_PRIORITY;
+    @Getter
+    private int priority;
 
     MagazineState() {
         this(null, null, null, true);
@@ -36,10 +38,6 @@ public enum MagazineState implements ManagedState<MagazineState> {
         this(null, null, null, isTransient);
     }
 
-//	private WeaponState(WeaponState permitRequestedState, WeaponState transactionFinalState) {
-//		this(permitRequestedState, transactionFinalState, true);
-//	}
-
     MagazineState(MagazineState preparingPhase, MagazineState permitRequestedState, MagazineState transactionFinalState, boolean isTransient) {
         this(DEFAULT_PRIORITY, preparingPhase, permitRequestedState, transactionFinalState, isTransient);
     }
@@ -47,8 +45,8 @@ public enum MagazineState implements ManagedState<MagazineState> {
     MagazineState(int priority, MagazineState preparingPhase, MagazineState permitRequestedState, MagazineState transactionFinalState, boolean isTransient) {
         this.priority = priority;
         this.preparingPhase = preparingPhase;
-        this.permitRequestedPhase = permitRequestedState;
-        this.commitPhase = transactionFinalState;
+        permitRequestedPhase = permitRequestedState;
+        commitPhase = transactionFinalState;
         this.isTransient = false; //isTransient; // TODO: make states non-transient, remove flag from constructor
         //this is required to have up-to-date state on server, e.g. preparing, requested;
         // otherwise issus arise, e.g. item toss would not work correctly
@@ -73,10 +71,6 @@ public enum MagazineState implements ManagedState<MagazineState> {
     @Override
     public MagazineState commitPhase() {
         return commitPhase;
-    }
-
-    public int getPriority() {
-        return priority;
     }
 
     @Override

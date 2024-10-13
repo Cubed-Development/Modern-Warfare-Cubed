@@ -185,11 +185,11 @@ public class ModernConfigManager {
         }
 
         if (f.getType() == int.class) {
-            elementMappings.get(f).set((int) value);
+            elementMappings.get(f).set(((Integer) value).intValue());
         } else if (f.getType() == int[].class) {
             elementMappings.get(f).set((int[]) value);
         } else if (f.getType() == boolean.class) {
-            elementMappings.get(f).set((boolean) value);
+            elementMappings.get(f).set(((Boolean) value).booleanValue());
         } else if (f.getType() == boolean[].class) {
             elementMappings.get(f).set((boolean[]) value);
         } else if (f.getType() == String.class) {
@@ -197,11 +197,11 @@ public class ModernConfigManager {
         } else if (f.getType() == String[].class) {
             elementMappings.get(f).set((String[]) value);
         } else if (f.getType() == double.class) {
-            elementMappings.get(f).set((double) value);
+            elementMappings.get(f).set(((Double) value).doubleValue());
         } else if (f.getType() == double[].class) {
             elementMappings.get(f).set((double[]) value);
         } else if (f.getType() == long.class) {
-            elementMappings.get(f).set((long) value);
+            elementMappings.get(f).set(((Long) value).longValue());
         }
     }
 
@@ -213,17 +213,17 @@ public class ModernConfigManager {
                 boolean isRanged = f.isAnnotationPresent(RangeInt.class);
                 if (!isRanged) {
                     property = config.get(annotation.category(), f.getName(), f.getInt(null), annotation.comment());
-                    f.set(null, property.getInt());
+                    f.set(null, Integer.valueOf(property.getInt()));
 
                 } else {
                     RangeInt rangedAnnotation = f.getAnnotation(RangeInt.class);
                     property = config.get(annotation.category(), f.getName(), f.getInt(null), annotation.comment(), rangedAnnotation.min(), rangedAnnotation.max());
-                    f.set(null, property.getInt());
+                    f.set(null, Integer.valueOf(property.getInt()));
                 }
 
             } else if (f.getType() == boolean.class) {
                 property = config.get(annotation.category(), f.getName(), f.getBoolean(null), annotation.comment());
-                f.set(null, property.getBoolean());
+                f.set(null, Boolean.valueOf(property.getBoolean()));
 
             } else if (f.getType() == String.class) {
                 property = config.get(annotation.category(), f.getName(), (String) f.get(null), annotation.comment());
@@ -233,12 +233,12 @@ public class ModernConfigManager {
                 boolean isRanged = f.isAnnotationPresent(RangeDouble.class);
                 if (!isRanged) {
                     property = config.get(annotation.category(), f.getName(), f.getDouble(null), annotation.comment());
-                    f.set(null, property.getDouble());
+                    f.set(null, Double.valueOf(property.getDouble()));
 
                 } else {
                     RangeDouble range = f.getAnnotation(RangeDouble.class);
                     property = config.get(annotation.category(), f.getName(), f.getDouble(null), annotation.comment(), range.min(), range.max());
-                    f.set(null, property.getDouble());
+                    f.set(null, Double.valueOf(property.getDouble()));
                 }
             }
 

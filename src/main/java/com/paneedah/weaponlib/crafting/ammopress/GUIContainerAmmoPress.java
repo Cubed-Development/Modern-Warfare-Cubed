@@ -61,21 +61,21 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
     public void initGui() {
         super.initGui();
 
-        this.quantityBox = new CustomSearchTextField(AMMO_PRESS_TEX, "Amt.", 1, 1, this.fontRenderer, this.guiLeft + 267, this.guiTop + 183, 84, 13);
-        this.quantityBox.setMaxStringLength(3);
-        this.quantityBox.setEnableBackgroundDrawing(true);
-        this.quantityBox.setVisible(true);
-        this.quantityBox.setTextColor(16777215);
+        quantityBox = new CustomSearchTextField(AMMO_PRESS_TEX, "Amt.", 1, 1, fontRenderer, guiLeft + 267, guiTop + 183, 84, 13);
+        quantityBox.setMaxStringLength(3);
+        quantityBox.setEnableBackgroundDrawing(true);
+        quantityBox.setVisible(true);
+        quantityBox.setTextColor(16777215);
 
-        bulletSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 3, this.guiLeft + 107, this.guiTop + 29, 19, 20, 256, 256, "")
+        bulletSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 3, guiLeft + 107, guiTop + 29, 19, 20, 256, 256, "")
                 .withStandardState(0xFFFFFF, 0, 0).withHoveredState(0xFFFFFF, 19, 0)
                 .withToggledState(0xFFFFFF, 38, 0).withPageRestriction(2).makeToggleButton();
 
-        magazineSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 4, this.guiLeft + 130, this.guiTop + 29, 19, 20, 256, 256, "")
+        magazineSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 4, guiLeft + 130, guiTop + 29, 19, 20, 256, 256, "")
                 .withStandardState(0xFFFFFF, 0, 20).withHoveredState(0xFFFFFF, 19, 20)
                 .withToggledState(0xFFFFFF, 38, 20).withPageRestriction(2).makeToggleButton();
 
-        grenadeSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 5, this.guiLeft + 153, this.guiTop + 29, 19, 20, 256, 256, "")
+        grenadeSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 5, guiLeft + 153, guiTop + 29, 19, 20, 256, 256, "")
                 .withStandardState(0xFFFFFF, 0, 40).withHoveredState(0xFFFFFF, 19, 40)
                 .withToggledState(0xFFFFFF, 38, 40).withPageRestriction(2).makeToggleButton();
 
@@ -114,7 +114,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
     @Override
     public void updateScreen() {
         super.updateScreen();
-        if (this.tileEntity.getCraftingQueue().size() > 4) {
+        if (tileEntity.getCraftingQueue().size() > 4) {
             craftButton.setErrored(true);
         } else if (hasSelectedCraftingPiece()) {
             craftButton.setErrored(false);
@@ -126,7 +126,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         super.actionPerformed(button);
 
         if (button == craftButton && !craftButton.isDisabled()) {
-            if (hasSelectedCraftingPiece() && quantityBox.getText().length() != 0) {
+            if (hasSelectedCraftingPiece() && !quantityBox.getText().isEmpty()) {
                 int quantity = Integer.parseInt(quantityBox.getText());
                 CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItemStack().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
             }
@@ -167,7 +167,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + format(stack.getTranslationKey()));
 
         final int remainingTicks = tileEntity.craftingDuration - tileEntity.craftingTimer;
-        tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", remainingTicks / 20F) + "s");
+        tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", Float.valueOf(remainingTicks / 20F)) + "s");
 
         if (stack.getItem() instanceof ItemBullet) {
             tooltip.add(TextFormatting.GOLD + "Quantity: " + TextFormatting.WHITE + stack.getCount() + TextFormatting.GREEN + " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
@@ -181,8 +181,8 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
     public void addCustomTooltipInformation(int mouseX, int mouseY, ArrayList<String> tooltip) {
         super.addCustomTooltipInformation(mouseX, mouseY, tooltip);
         if (tileEntity.hasStack()) {
-            if (mouseY >= this.guiTop && mouseY <= this.guiTop + 20) {
-                int id = (mouseX - (this.guiLeft + 200)) / 20;
+            if (mouseY >= guiTop && mouseY <= guiTop + 20) {
+                int id = (mouseX - (guiLeft + 200)) / 20;
                 if (id >= 0 && tileEntity.getCraftingQueue().size() - 1 >= id) {
 
                     ItemStack stack = tileEntity.getCraftingQueue().get(id);
@@ -201,13 +201,11 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         }
 
         if (hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItemStack().getItem() instanceof ItemBullet &&
-                GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 268, this.guiTop + 201, 20, 20)) {
+                GUIRenderHelper.checkInBox(mouseX, mouseY, guiLeft + 268, guiTop + 201, 20, 20)) {
 
-            tooltip.add(String.format("Amount %d will make %d bullets", getCurrentAmountInQuantityBox(), getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
+            tooltip.add(String.format("Amount %d will make %d bullets", Integer.valueOf(getCurrentAmountInQuantityBox()), Integer.valueOf(getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS)));
         }
 
-        //GUIRenderHelper.drawScaledString("x" + (getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS),
-        //		this.guiLeft + 268, this.guiTop + 201, 0.7, GREEN);
     }
 
     @Override
@@ -215,7 +213,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 
         super.drawScreen(mouseX, mouseY, partialTicks);
         if (getPage() == 2) {
-            this.quantityBox.drawTextBox();
+            quantityBox.drawTextBox();
         }
         drawTooltips(mouseX, mouseY, partialTicks);
 
@@ -225,32 +223,32 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
             GlStateManager.enableBlend();
             for (int i = 0; i < queue.size(); ++i) {
                 MC.getTextureManager().bindTexture(AMMO_PRESS_TEX);
-                if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 200 + i * 20, this.guiTop, 20, 20)) {
-                    GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i * 20, this.guiTop, 20, 80, 20, 20, 256, 256);
+                if (GUIRenderHelper.checkInBox(mouseX, mouseY, guiLeft + 200 + i * 20, guiTop, 20, 20)) {
+                    GUIRenderHelper.drawTexturedRect(guiLeft + 200 + i * 20, guiTop, 20, 80, 20, 20, 256, 256);
                 } else {
-                    GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i * 20, this.guiTop, 0, 80, 20, 20, 256, 256);
+                    GUIRenderHelper.drawTexturedRect(guiLeft + 200 + i * 20, guiTop, 0, 80, 20, 20, 256, 256);
                 }
             }
 
             for (int i = 0; i < queue.size(); ++i) {
                 ItemStack stack = queue.get(i);
-                MC.getRenderItem().renderItemIntoGUI(stack, this.guiLeft + 202 + i * 20, this.guiTop + 2);
+                MC.getRenderItem().renderItemIntoGUI(stack, guiLeft + 202 + i * 20, guiTop + 2);
             }
 
             for (int i = 0; i < queue.size(); ++i) {
                 ItemStack stack = queue.get(i);
-                GUIRenderHelper.drawScaledString("x" + stack.getCount(), this.guiLeft + 212 + i * 20, this.guiTop + 16, 0.7, GOLD);
+                GUIRenderHelper.drawScaledString("x" + stack.getCount(), guiLeft + 212 + i * 20, guiTop + 16, 0.7, GOLD);
             }
 
             if (hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItemStack().getItem() instanceof ItemBullet) {
                 GUIRenderHelper.drawScaledString("x" + (getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS),
-                        this.guiLeft + 268, this.guiTop + 201, 0.7, GREEN);
+                        guiLeft + 268, guiTop + 201, 0.7, GREEN);
             }
         }
     }
 
     private int getCurrentAmountInQuantityBox() {
-        if (quantityBox.getText().length() == 0) {
+        if (quantityBox.getText().isEmpty()) {
             return 0;
         }
 
@@ -260,11 +258,11 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
     @Override
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
         super.mouseClicked(mouseX, mouseY, mouseButton);
-        this.quantityBox.mouseClicked(mouseX, mouseY, mouseButton);
+        quantityBox.mouseClicked(mouseX, mouseY, mouseButton);
 
         if (tileEntity.hasStack()) {
-            if (mouseY >= this.guiTop && mouseY <= this.guiTop + 20) {
-                int id = (mouseX - (this.guiLeft + 200)) / 20;
+            if (mouseY >= guiTop && mouseY <= guiTop + 20) {
+                int id = (mouseX - (guiLeft + 200)) / 20;
                 if (id >= 0 && tileEntity.getCraftingQueue().size() - 1 >= id) {
                     CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.POP_FROM_QUEUE, tileEntity.getPos(), MC.player.getEntityId(), id));
                 }
@@ -275,14 +273,14 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 
     @Override
     protected void keyTyped(char typedChar, int keyCode) throws IOException {
-        boolean cancelationForQuantity = this.quantityBox.getText().length() == 0 && keyCode == Keyboard.KEY_BACK;
+        boolean cancelationForQuantity = quantityBox.getText().isEmpty() && keyCode == Keyboard.KEY_BACK;
 
         super.keyTyped(typedChar, keyCode);
         if (Character.isDigit(typedChar) || keyCode == Keyboard.KEY_BACK) {
-            this.quantityBox.textboxKeyTyped(typedChar, keyCode);
+            quantityBox.textboxKeyTyped(typedChar, keyCode);
         }
 
-        if ((cancelationForQuantity && this.quantityBox.isFocused())) {
+        if ((cancelationForQuantity && quantityBox.isFocused())) {
             return;
         }
 

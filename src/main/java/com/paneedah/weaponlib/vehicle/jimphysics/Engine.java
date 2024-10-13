@@ -1,31 +1,37 @@
 package com.paneedah.weaponlib.vehicle.jimphysics;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class Engine {
 
-    private int maxRPM = 0;
-    private int redlineRPM = 0;
-    private int idleRPM = 0;
+    @Getter
+    private int maxRPM;
+    private int redlineRPM;
+    @Getter
+    private int idleRPM;
 
+    @Getter
     private final String engineName;
+    @Getter
     private final String engineBrand;
 
     public LinkedHashMap<Double, Double> torqueCurve = new LinkedHashMap<Double, Double>();
 
     public Engine(String name, String engineBrand, int maxRPM, int redLine, int idleRPM) {
-        this.engineName = name;
+        engineName = name;
         this.engineBrand = engineBrand;
         this.maxRPM = maxRPM;
-        this.redlineRPM = redLine;
+        redlineRPM = redLine;
         this.idleRPM = idleRPM;
         setupTorqueCurve();
 
     }
 
     public void addPoint(double rpm, double nm) {
-        torqueCurve.put(rpm, nm);
+        torqueCurve.put(Double.valueOf(rpm), Double.valueOf(nm));
     }
 
     public void setupTorqueCurve() {}
@@ -36,18 +42,17 @@ public class Engine {
             return 0;
         }
 
-        if (torqueCurve.containsKey(rpm)) {
-            return torqueCurve.get(rpm);
+        if (torqueCurve.containsKey(Double.valueOf(rpm))) {
+            return torqueCurve.get(Double.valueOf(rpm)).doubleValue();
         }
         double firstBound = 0;
         double secondBound = 0;
 
 
-        ArrayList<Double> keys = new ArrayList<Double>();
-        keys.addAll(torqueCurve.keySet());
+        ArrayList<Double> keys = new ArrayList<Double>(torqueCurve.keySet());
         for (int f = 0; f < keys.size() - 1; ++f) {
-            double min = keys.get(f);
-            double max = keys.get(f + 1);
+            double min = keys.get(f).doubleValue();
+            double max = keys.get(f + 1).doubleValue();
             if (min < rpm && rpm < max) {
                 firstBound = min;
                 secondBound = max;
@@ -56,35 +61,18 @@ public class Engine {
 
 
         // retrieve curve values
-        double t1 = torqueCurve.get(firstBound);
-        double t2 = torqueCurve.get(secondBound);
+        double t1 = torqueCurve.get(Double.valueOf(firstBound)).doubleValue();
+        double t2 = torqueCurve.get(Double.valueOf(secondBound)).doubleValue();
 
         // Calculate step
         double tStep = (rpm - firstBound) / (secondBound - firstBound);
-        double stepped = t1 + (t2 - t1) * tStep;
         //	System.out.println("F: " + firstBound + " | S: " + secondBound + " | tS: " + tStep + " | T1: " + t1 + " | T2: " + t2 + " | st: " + stepped);
 
-        return stepped;
+        return t1 + (t2 - t1) * tStep;
 
-    }
-
-    public int getIdleRPM() {
-        return this.idleRPM;
-    }
-
-    public String getEngineBrand() {
-        return engineBrand;
-    }
-
-    public String getEngineName() {
-        return engineName;
-    }
-
-    public int getMaxRPM() {
-        return this.maxRPM;
     }
 
     public int getRedline() {
-        return this.redlineRPM;
+        return redlineRPM;
     }
 }

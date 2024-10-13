@@ -18,10 +18,10 @@ public class ScreenShakeAnimation implements PlayerAnimation {
         private float cumulativeAttenuation = 1f;
 
         public CirclePointGenerator(float radius, float startAngle, float alpha, float attenuation) {
-            this.startingRadius = radius;
-            this.nextRadius = radius;
+            startingRadius = radius;
+            nextRadius = radius;
             this.alpha = alpha;
-            this.nextAngle = startAngle;
+            nextAngle = startAngle;
             this.attenuation = attenuation;
         }
 
@@ -30,8 +30,8 @@ public class ScreenShakeAnimation implements PlayerAnimation {
             float currentY = nextRadius * MathHelper.sin(nextAngle);
             float currentRadius = nextRadius;
 
-            nextAngle += 2 * Math.PI - 2 * alpha;
-            nextAngle %= 2 * Math.PI;
+            nextAngle += (float) (2 * Math.PI - 2 * alpha);
+            nextAngle %= (float) (2 * Math.PI);
 
             nextRadius *= attenuation;
             cumulativeAttenuation *= attenuation;
@@ -181,12 +181,6 @@ public class ScreenShakeAnimation implements PlayerAnimation {
     public void update(EntityPlayer player, boolean fadeOut) {
 
 
-//       
-
-        //transitionDuration = 50;
-//        xRotationCoefficient = 1f;
-//        yRotationCoefficient = 1f;
-//        zRotationCoefficient = 2f;
         float progress = (float) (System.currentTimeMillis() - startTime) / transitionDuration;
 
         if (progress >= 1f) {
@@ -228,11 +222,6 @@ public class ScreenShakeAnimation implements PlayerAnimation {
             targetY = next[2] * yTranslateCoefficient;
             targetZ = targetZ * rotationAttenuation * zTranslateCoefficient;
 
-//            if(targetRotateZ == 0f) {
-//                targetRotateZ = 1f;
-//            } else {
-//                targetRotateZ = -targetRotateZ * rotationAttenuation;
-//            }
             targetRotateX = -targetRotateX * rotationAttenuation;
             targetRotateY = -targetRotateY * rotationAttenuation;
             targetRotateZ = -targetRotateZ * rotationAttenuation;

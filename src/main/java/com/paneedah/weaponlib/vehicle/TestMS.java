@@ -16,28 +16,28 @@ public class TestMS extends MovingSound {
 
     public TestMS(EntityPlayer playerRiding, EntityVehicle minecart) {
         super(minecart.getConfiguration().getRunSound(), SoundCategory.NEUTRAL);
-        this.player = playerRiding;
+        player = playerRiding;
         this.minecart = minecart;
 
-        this.attenuationType = ISound.AttenuationType.NONE;
-        this.repeat = true;
-        this.repeatDelay = 0;
+        attenuationType = ISound.AttenuationType.NONE;
+        repeat = true;
+        repeatDelay = 0;
     }
 
     /**
      * Like the old updateEntity(), except more generic.
      */
     public void update() {
-        if (!this.minecart.isDead && this.player.isRiding() && this.player.getRidingEntity() == this.minecart) {
-            float f = MathHelper.sqrt(this.minecart.motionX * this.minecart.motionX + this.minecart.motionZ * this.minecart.motionZ);
+        if (!minecart.isDead && player.isRiding() && player.getRidingEntity() == minecart) {
+            float f = MathHelper.sqrt(minecart.motionX * minecart.motionX + minecart.motionZ * minecart.motionZ);
 
             if ((double) f >= 0.01D) {
-                this.volume = 0.0F + MathHelper.clamp(f, 0.0F, 1.0F) * 0.75F;
+                volume = 0.0F + MathHelper.clamp(f, 0.0F, 1.0F) * 0.75F;
             } else {
-                this.volume = 0.0F;
+                volume = 0.0F;
             }
         } else {
-            this.donePlaying = true;
+            donePlaying = true;
         }
     }
 }
