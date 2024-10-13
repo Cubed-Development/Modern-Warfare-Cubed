@@ -34,19 +34,19 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
 
     final DynamicShaderGroupSource source = new DynamicShaderGroupSource(UUID.randomUUID(),
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/post-processing-pipeline.json"))
-            .withUniform("NightVisionEnabled", context -> nightVisionEnabled ? 1.0f : 0.0f)
-            .withUniform("BlurEnabled", context -> blurEnabled ? 1.0f : 0.0f)
-            .withUniform("BlurVignetteRadius", context -> 0.0f)
-            .withUniform("Radius", context -> 10f)
-            .withUniform("sussus", context -> 10f)
-            .withUniform("Progress", context -> spreadableExposureProgress)
-            .withUniform("VignetteEnabled", context -> vignetteEnabled ? 1.0f : 0.0f)
-            .withUniform("VignetteRadius", context -> vignetteRadius)
-            .withUniform("Brightness", context -> brightness)
-            .withUniform("SepiaRatio", context -> sepiaRatio)
+            .withUniform("NightVisionEnabled", context -> Float.valueOf(nightVisionEnabled ? 1.0f : 0.0f))
+            .withUniform("BlurEnabled", context -> Float.valueOf(blurEnabled ? 1.0f : 0.0f))
+            .withUniform("BlurVignetteRadius", context -> Float.valueOf(0.0f))
+            .withUniform("Radius", context -> Float.valueOf(10f))
+            .withUniform("sussus", context -> Float.valueOf(10f))
+            .withUniform("Progress", context -> Float.valueOf(spreadableExposureProgress))
+            .withUniform("VignetteEnabled", context -> Float.valueOf(vignetteEnabled ? 1.0f : 0.0f))
+            .withUniform("VignetteRadius", context -> Float.valueOf(vignetteRadius))
+            .withUniform("Brightness", context -> Float.valueOf(brightness))
+            .withUniform("SepiaRatio", context -> Float.valueOf(sepiaRatio))
             .withUniform("SepiaColor", context -> new float[]{colorImpairmentR, colorImpairmentG, colorImpairmentB})
-            .withUniform("IntensityAdjust", context -> 40f - MC.gameSettings.gammaSetting * 38)
-            .withUniform("NoiseAmplification", context -> 2f + 3f * MC.gameSettings.gammaSetting);
+            .withUniform("IntensityAdjust", context -> Float.valueOf(40f - MC.gameSettings.gammaSetting * 38))
+            .withUniform("NoiseAmplification", context -> Float.valueOf(2f + 3f * MC.gameSettings.gammaSetting));
 
     @Override
     public DynamicShaderGroupSource getShaderSource(DynamicShaderPhase phase) {
@@ -104,7 +104,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     private void updateVignette() {
         vignetteEnabled = nightVisionEnabled;
         ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-        if (nightVisionEnabled && helmetStack != null && helmetStack.getItem() instanceof CustomArmor) {
+        if (nightVisionEnabled && helmetStack.getItem() instanceof CustomArmor) {
             CustomArmor helmet = (CustomArmor) helmetStack.getItem();
             vignetteEnabled = helmet.isVignetteEnabled();
         }
@@ -113,17 +113,12 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
 
     private void updateNightVision() {
         ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-        if (helmetStack != null) {
-            NBTTagCompound tagCompound = helmetStack.getTagCompound();
-            if (tagCompound != null) {
+        NBTTagCompound tagCompound = helmetStack.getTagCompound();
+        if (tagCompound != null) {
                 nightVisionEnabled = tagCompound.getBoolean(NightVisionToggleMessageHandler.TAG_NIGHT_VISION_STATE);
             } else {
                 nightVisionEnabled = false;
-            }
-        } else {
-            nightVisionEnabled = false;
-        }
-    }
+  }
 
     private void updateSepia() {
         sepiaRatio = spreadableExposureProgress;

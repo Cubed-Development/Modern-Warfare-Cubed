@@ -131,7 +131,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
         }
 
         public Builder withModel(ModelBase model, String textureName) {
-            this.texturedModels.add(new Tuple<>(model, textureName.toLowerCase()));
+            texturedModels.add(new Tuple<>(model, textureName.toLowerCase()));
             return this;
         }
 
@@ -165,13 +165,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
             ItemWirelessCamera camera = new ItemWirelessCamera(this, modContext);
             camera.setTranslationKey(ID + "_" + name);
             camera.setCreativeTab(tab);
-//            camera.setPostRenderer(postRenderer);
-//            camera.setName(name);
             camera.maxStackSize = maxStackSize;
-
-//            if(textureName != null) {
-//                camera.textureName = ID + ":" + stripFileExtension(textureName, ".png");
-//            }
 
             texturedModels.forEach(tm -> camera.texturedModels.add(new Tuple<>(tm.getU(), addFileExtension(tm.getV(), ".png"))));
 
@@ -219,7 +213,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
     public ItemWirelessCamera(Builder builder, ModContext modContext) {
         this.builder = builder;
         this.modContext = modContext;
-        this.maxStackSize = 16;
+        maxStackSize = 16;
     }
 
     @Override
@@ -229,9 +223,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
         itemStack.setCount(itemStack.getCount() - 1);
 
         if (!world.isRemote) {
-            if (player != null) {
-                player.world.spawnEntity(new EntityWirelessCamera(modContext, world, player, this, builder.duration));
-            }
+            player.world.spawnEntity(new EntityWirelessCamera(modContext, world, player, this, builder.duration));
         }
 
         return new ActionResult<>(EnumActionResult.SUCCESS, itemStack);

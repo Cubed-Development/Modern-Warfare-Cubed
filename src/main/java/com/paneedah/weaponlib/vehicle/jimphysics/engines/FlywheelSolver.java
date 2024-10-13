@@ -4,9 +4,9 @@ import com.paneedah.weaponlib.vehicle.collisions.InertiaKit;
 
 public class FlywheelSolver {
 
-    public double mass = 0.0;
-    public double radius = 0.0;
-    public double inertia = 0.0;
+    public double mass;
+    public double radius;
+    public double inertia;
 
 
     public double angularVelocity = 0.0;
@@ -15,21 +15,20 @@ public class FlywheelSolver {
     public FlywheelSolver(double mass, double radius, double thickness) {
         this.mass = mass;
         this.radius = radius;
-        this.inertia = InertiaKit.inertiaTensorCylinder((float) mass, (float) radius, (float) thickness).m22;
+        inertia = InertiaKit.inertiaTensorCylinder((float) mass, (float) radius, (float) thickness).m22;
     }
 
     /**
      * Applies torque to the flywheel
      * <p>
-     * SOURCE: https://openstax.org/books/university-physics-volume-1/pages/10-7-newtons-second-law-for-rotation
+     * SOURCE: <a href="https://openstax.org/books/university-physics-volume-1/pages/10-7-newtons-second-law-for-rotation">...</a>
      *
      * @param torque - n/m
      *
-     * @return
      */
     public void applyTorque(double torque) {
         double a = torque / inertia;
-        this.angularAcceleration += a;
+        angularAcceleration += a;
     }
 
     public void determineResistiveForces() {
@@ -37,7 +36,7 @@ public class FlywheelSolver {
         // https://www.researchgate.net/publication/343930266_Analysis_of_Standby_Losses_and_Charging_Cycles_in_Flywheel_Energy_Storage_Systems
 
         // decided to cheese it
-        angularAcceleration += 5000.5 * Math.signum(this.angularVelocity * -1);
+        angularAcceleration += 5000.5 * Math.signum(angularVelocity * -1);
 
     }
 
@@ -45,8 +44,8 @@ public class FlywheelSolver {
 
         determineResistiveForces();
 
-        this.angularVelocity += this.angularAcceleration * dt;
-        this.angularAcceleration = 0;
+        angularVelocity += angularAcceleration * dt;
+        angularAcceleration = 0;
 
     }
 

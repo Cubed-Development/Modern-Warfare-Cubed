@@ -1,9 +1,11 @@
 package com.paneedah.weaponlib.vehicle.collisions;
 
 import com.paneedah.weaponlib.vehicle.collisions.OBBCollider.MKV;
+import lombok.Getter;
 
 public class Simplex {
 
+    @Getter
     public int size = 0;
     public MKV[] points = new MKV[4];
 
@@ -19,26 +21,13 @@ public class Simplex {
         }
         points[0] = point;
         size++;
-		
-		/*
-		for(int i = Math.min(size, 2); i >= 0; i --){
-			points[i+1] = points[i];
-		}
-		points[0] = point;
-		size ++;
-		if(size > 4)
-			size = 4;
-			*/
+
     }
 
 
     public void removePoint(int p) {
         MKV[] newP = new MKV[4];
 
-    }
-
-    public int getSize() {
-        return size;
     }
 
     public void swapPoint(int pos1, int pos2) {

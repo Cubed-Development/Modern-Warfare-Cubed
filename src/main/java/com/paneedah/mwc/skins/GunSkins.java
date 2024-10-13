@@ -17,11 +17,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class GunSkins {
 
+    private static final Pattern PATTERN = Pattern.compile(".png", Pattern.LITERAL);
     public static ItemSkin WoodlandCamo;
     public static ItemSkin PinkCamo;
     public static ItemSkin ArcticCamo;
@@ -118,7 +120,7 @@ public class GunSkins {
                             .withName(skinName)
                             .build(MWC.modContext, ItemSkin.class);
                     CommonRegistry.gunSkins.add(skin);
-                    LOGGER.info("Registered custom gun skin: " + skinName);
+                    LOGGER.info("Registered custom gun skin: {}", skinName);
                 }
 
             } catch (Exception e) {
@@ -152,12 +154,12 @@ public class GunSkins {
             }
 
             ItemSkin skin = new ItemSkin.Builder()
-                    .withTextureVariant("customskin_" + name.replace(".png", ""))
+                    .withTextureVariant("customskin_" + PATTERN.matcher(name).replaceAll(""))
                     .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                    .withName(name.replace(".png", ""))
+                    .withName(PATTERN.matcher(name).replaceAll(""))
                     .build(MWC.modContext, ItemSkin.class);
             CommonRegistry.gunSkins.add(skin);
-            LOGGER.info("Registered custom gun skin: " + name);
+            LOGGER.info("Registered custom gun skin: {}", name);
         }
     }
 }

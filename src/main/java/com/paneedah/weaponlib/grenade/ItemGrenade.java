@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.grenade;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.*;
+import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -42,7 +43,7 @@ public class ItemGrenade extends Item implements
 
     @Override
     public CraftingEntry[] getModernRecipe() {
-        return this.modernRecipe;
+        return modernRecipe;
     }
 
     @Override
@@ -52,17 +53,17 @@ public class ItemGrenade extends Item implements
 
     @Override
     public CraftingGroup getCraftingGroup() {
-        return this.craftGroup;
+        return craftGroup;
     }
 
     @Override
     public void setCraftingRecipe(CraftingEntry[] recipe) {
-        this.modernRecipe = recipe;
+        modernRecipe = recipe;
     }
 
     @Override
     public void setCraftingGroup(CraftingGroup group) {
-        this.craftGroup = group;
+        craftGroup = group;
     }
 
     public enum Type {
@@ -88,9 +89,9 @@ public class ItemGrenade extends Item implements
 
         protected Map<ItemAttachment<ItemGrenade>, CompatibleAttachment<ItemGrenade>> compatibleAttachments = new HashMap<>();
 
-        private Supplier<Float> velocity = () -> DEFAULT_VELOCITY;
-        private Supplier<Float> farVelocity = () -> DEFAULT_FAR_VELOCITY;
-        private Supplier<Float> gravityVelocity = () -> DEFAULT_GRAVITY_VELOCITY;
+        private Supplier<Float> velocity = () -> Float.valueOf(DEFAULT_VELOCITY);
+        private Supplier<Float> farVelocity = () -> Float.valueOf(DEFAULT_FAR_VELOCITY);
+        private Supplier<Float> gravityVelocity = () -> Float.valueOf(DEFAULT_GRAVITY_VELOCITY);
 
         private int maxStackSize = 1;
 
@@ -105,7 +106,7 @@ public class ItemGrenade extends Item implements
 
         private GrenadeRenderer renderer;
         List<String> textureNames = new ArrayList<>();
-        private Supplier<Float> rotationSlowdownFactor = () -> DEFAULT_ROTATION_SLOWDOWN_FACTOR;
+        private Supplier<Float> rotationSlowdownFactor = () -> Float.valueOf(DEFAULT_ROTATION_SLOWDOWN_FACTOR);
 
         private String bounceHardSound;
         private String bounceSoftSound;
@@ -125,8 +126,8 @@ public class ItemGrenade extends Item implements
         private CraftingGroup craftingGroup;
 
         public Builder withModernRecipe(CraftingGroup group, CraftingEntry... is) {
-            this.modernRecipe = is;
-            this.craftingGroup = group;
+            modernRecipe = is;
+            craftingGroup = group;
             return this;
         }
 
@@ -176,7 +177,7 @@ public class ItemGrenade extends Item implements
         }
 
         public Builder withExplosionOnImpact() {
-            this.explosionTimeout = EXPLODE_ON_IMPACT;
+            explosionTimeout = EXPLODE_ON_IMPACT;
             return this;
         }
 
@@ -184,11 +185,6 @@ public class ItemGrenade extends Item implements
             this.isDestroyingBlocks = isDestroyingBlocks;
             return this;
         }
-
-//        public Builder withSmokeOnly() {
-//            this.smokeOnly = true;
-//            return this;
-//        }
 
         public Builder withType(Type type) {
             this.type = type;
@@ -255,8 +251,8 @@ public class ItemGrenade extends Item implements
         public Builder withFirstPersonHandPositioning(
                 Consumer<RenderContext<RenderableState>> leftHand,
                 Consumer<RenderContext<RenderableState>> rightHand) {
-            this.firstPersonLeftHandPositioning = leftHand;
-            this.firstPersonRightHandPositioning = rightHand;
+            firstPersonLeftHandPositioning = leftHand;
+            firstPersonRightHandPositioning = rightHand;
             return this;
         }
 
@@ -291,32 +287,32 @@ public class ItemGrenade extends Item implements
         }
 
         public Builder withBounceHardSound(String sound) {
-            this.bounceHardSound = sound != null ? sound.toLowerCase() : null;
+            bounceHardSound = sound != null ? sound.toLowerCase() : null;
             return this;
         }
 
         public Builder withBounceSoftSound(String sound) {
-            this.bounceSoftSound = sound != null ? sound.toLowerCase() : null;
+            bounceSoftSound = sound != null ? sound.toLowerCase() : null;
             return this;
         }
 
         public Builder withExplosionSound(String sound) {
-            this.explosionSound = sound != null ? sound.toLowerCase() : null;
+            explosionSound = sound != null ? sound.toLowerCase() : null;
             return this;
         }
 
         public Builder withSafetyPinOffSound(String sound) {
-            this.safetyPinOffSound = sound != null ? sound.toLowerCase() : null;
+            safetyPinOffSound = sound != null ? sound.toLowerCase() : null;
             return this;
         }
 
         public Builder withThrowSound(String sound) {
-            this.throwSound = sound != null ? sound.toLowerCase() : null;
+            throwSound = sound != null ? sound.toLowerCase() : null;
             return this;
         }
 
         public Builder withStopAfterThrowingSond(String sound) {
-            this.stopAfterThrowingSound = sound != null ? sound.toLowerCase() : null;
+            stopAfterThrowingSound = sound != null ? sound.toLowerCase() : null;
             return this;
         }
 
@@ -336,7 +332,7 @@ public class ItemGrenade extends Item implements
         }
 
         public Builder withActiveDuration(long duration) {
-            this.activeDuration = duration;
+            activeDuration = duration;
             return this;
         }
 
@@ -351,28 +347,28 @@ public class ItemGrenade extends Item implements
 
             CraftingRegistry.registerHook(grenade);
 
-            if (this.bounceHardSound != null) {
-                grenade.bounceHardSound = modContext.registerSound(this.bounceHardSound);
+            if (bounceHardSound != null) {
+                grenade.bounceHardSound = modContext.registerSound(bounceHardSound);
             }
 
-            if (this.bounceSoftSound != null) {
-                grenade.bounceSoftSound = modContext.registerSound(this.bounceSoftSound);
+            if (bounceSoftSound != null) {
+                grenade.bounceSoftSound = modContext.registerSound(bounceSoftSound);
             }
 
-            if (this.explosionSound != null) {
-                grenade.explosionSound = modContext.registerSound(this.explosionSound);
+            if (explosionSound != null) {
+                grenade.explosionSound = modContext.registerSound(explosionSound);
             }
 
-            if (this.safetyPinOffSound != null) {
-                grenade.safetyPinOffSound = modContext.registerSound(this.safetyPinOffSound);
+            if (safetyPinOffSound != null) {
+                grenade.safetyPinOffSound = modContext.registerSound(safetyPinOffSound);
             }
 
-            if (this.throwSound != null) {
-                grenade.throwSound = modContext.registerSound(this.throwSound);
+            if (throwSound != null) {
+                grenade.throwSound = modContext.registerSound(throwSound);
             }
 
-            if (this.stopAfterThrowingSound != null) {
-                grenade.stopAfterThrowingSound = modContext.registerSound(this.stopAfterThrowingSound);
+            if (stopAfterThrowingSound != null) {
+                grenade.stopAfterThrowingSound = modContext.registerSound(stopAfterThrowingSound);
             }
 
             modContext.registerGrenadeWeapon(name, grenade, renderer);
@@ -394,8 +390,6 @@ public class ItemGrenade extends Item implements
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             } else {
-                //throw new IllegalStateException("No recipe defined for attachment " + name);
-                //System.err.println("!!!No recipe defined for grenade " + name);
             }
 
             return grenade;
@@ -413,17 +407,23 @@ public class ItemGrenade extends Item implements
 
     Builder builder;
     private final ModContext modContext;
+    @Getter
     private SoundEvent bounceHardSound;
+    @Getter
     private SoundEvent bounceSoftSound;
+    @Getter
     private SoundEvent explosionSound;
+    @Getter
     private SoundEvent safetyPinOffSound;
+    @Getter
     private SoundEvent throwSound;
+    @Getter
     private SoundEvent stopAfterThrowingSound;
 
     public ItemGrenade(Builder builder, ModContext modContext) {
         this.builder = builder;
         this.modContext = modContext;
-        this.maxStackSize = 16;
+        maxStackSize = 16;
     }
 
 
@@ -498,43 +498,19 @@ public class ItemGrenade extends Item implements
     }
 
     public float getVelocity() {
-        return builder.velocity.get();
+        return builder.velocity.get().floatValue();
     }
 
     public float getFarVelocity() {
-        return builder.farVelocity.get();
+        return builder.farVelocity.get().floatValue();
     }
 
     public float getGravityVelocity() {
-        return builder.gravityVelocity.get();
+        return builder.gravityVelocity.get().floatValue();
     }
 
     public float getRotationSlowdownFactor() {
-        return builder.rotationSlowdownFactor.get();
-    }
-
-    public SoundEvent getBounceHardSound() {
-        return bounceHardSound;
-    }
-
-    public SoundEvent getBounceSoftSound() {
-        return bounceSoftSound;
-    }
-
-    public SoundEvent getExplosionSound() {
-        return explosionSound;
-    }
-
-    public SoundEvent getSafetyPinOffSound() {
-        return safetyPinOffSound;
-    }
-
-    public SoundEvent getThrowSound() {
-        return throwSound;
-    }
-
-    public SoundEvent getStopAfterThrowingSound() {
-        return stopAfterThrowingSound;
+        return builder.rotationSlowdownFactor.get().floatValue();
     }
 
     public float getEffectiveRadius() {

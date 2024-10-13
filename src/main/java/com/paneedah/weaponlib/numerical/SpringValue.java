@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib.numerical;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
+import lombok.Getter;
+import lombok.Setter;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -18,6 +20,16 @@ public class SpringValue {
      * Integration Series:
      * Waiting Force -> Velocity -> Position
      */
+    @Getter
+    @Getter
+    @Getter
+    @Getter
+    @Getter
+    @Setter
+    @Setter
+    @Setter
+    @Setter
+    @Setter
     public double springConstant, mass, damping, velocity, position, waitingForce;
 
     // For rendering we store the previous
@@ -25,9 +37,9 @@ public class SpringValue {
     public double prevPosition = 0;
 
     public SpringValue(double k, double mass, double damp) {
-        this.springConstant = k;
+        springConstant = k;
         this.mass = mass;
-        this.damping = damp;
+        damping = damp;
     }
 
     /**
@@ -37,7 +49,7 @@ public class SpringValue {
      * @param force - force in Newtons
      */
     public void applyForce(double force) {
-        this.waitingForce = force;
+        waitingForce = force;
     }
 
     /**
@@ -87,51 +99,15 @@ public class SpringValue {
      * if the position goes to NaN or infinity;
      */
     public void resetSpring() {
-        this.velocity = 0;
-        this.position = 0;
-        this.waitingForce = 0;
-    }
-
-    public double getSpringConstant() {
-        return springConstant;
+        velocity = 0;
+        position = 0;
+        waitingForce = 0;
     }
 
     public void configure(double k, double mass, double dampening) {
-        this.springConstant = k;
+        springConstant = k;
         this.mass = mass;
-        this.damping = dampening;
-    }
-
-    public void setSpringConstant(double springConstant) {
-        this.springConstant = springConstant;
-    }
-
-    public double getMass() {
-        return mass;
-    }
-
-    public void setMass(double mass) {
-        this.mass = mass;
-    }
-
-    public double getDamping() {
-        return damping;
-    }
-
-    public void setDamping(double damping) {
-        this.damping = damping;
-    }
-
-    public double getVelocity() {
-        return velocity;
-    }
-
-    public void setVelocity(double velocity) {
-        this.velocity = velocity;
-    }
-
-    public double getPosition() {
-        return position;
+        damping = dampening;
     }
 
     public double getLerpedPosition() {
@@ -139,16 +115,12 @@ public class SpringValue {
     }
 
     public double getLerpedPosition(double mu) {
-        return MatrixHelper.solveLerp((float) this.prevPosition, (float) this.position,
+        return MatrixHelper.solveLerp((float) prevPosition, (float) position,
                 MC.getRenderPartialTicks());
     }
 
     public float getLerpedFloat() {
         return (float) getLerpedPosition();
-    }
-
-    public void setPosition(double position) {
-        this.position = position;
     }
 
 }

@@ -6,6 +6,8 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -38,22 +40,22 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
         private int id;
 
         public Builder withEntitySpawnName(String name) {
-            this.entitySpawnName = name;
+            entitySpawnName = name;
             return this;
         }
 
         public Builder withBlockPredicate(Predicate<Block> predicate) {
-            this.blockPredicate = predicate;
+            blockPredicate = predicate;
             return this;
         }
 
         public Builder withItemName(String name) {
-            this.registryName = name;
+            registryName = name;
             return this;
         }
 
         public Builder withCreativeTab(CreativeTabs tab) {
-            this.creativeTab = tab;
+            creativeTab = tab;
             return this;
         }
 
@@ -61,14 +63,14 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
             HighIQSpawnEgg egg = new HighIQSpawnEgg();
 
-            egg.setBlockPredicate(this.blockPredicate);
-            egg.setEntitySpawnName(this.entitySpawnName);
-            egg.setCreativeTab(this.creativeTab);
-            egg.setTranslationKey(this.registryName);
-            egg.setRegistryName(ID, this.registryName);
-            egg.setID(this.id);
+            egg.setBlockPredicate(blockPredicate);
+            egg.setEntitySpawnName(entitySpawnName);
+            egg.setCreativeTab(creativeTab);
+            egg.setTranslationKey(registryName);
+            egg.setRegistryName(ID, registryName);
+            egg.setID(id);
 
-            SecondaryEntityRegistry.pickupMap.put(this.id, egg);
+            SecondaryEntityRegistry.pickupMap.put(Integer.valueOf(id), egg);
 
             CraftingRegistry.registerHook(egg);
 
@@ -80,13 +82,17 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
         }
 
         public Builder withID(int i) {
-            this.id = i;
+            id = i;
             return this;
         }
 
     }
 
+    @Getter
+    @Setter
     private String entitySpawnName;
+    @Getter
+    @Setter
     private Predicate<Block> blockPredicate;
     private int spawnID;
 
@@ -95,27 +101,11 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
     }
 
     public int getID() {
-        return this.spawnID;
+        return spawnID;
     }
 
     public void setID(int i) {
-        this.spawnID = i;
-    }
-
-    public String getEntitySpawnName() {
-        return entitySpawnName;
-    }
-
-    public void setEntitySpawnName(String entitySpawnName) {
-        this.entitySpawnName = entitySpawnName;
-    }
-
-    public Predicate<Block> getBlockPredicate() {
-        return blockPredicate;
-    }
-
-    public void setBlockPredicate(Predicate<Block> blockPredicate) {
-        this.blockPredicate = blockPredicate;
+        spawnID = i;
     }
 
     @Override
@@ -137,14 +127,13 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
             try {
                 if (!worldIn.isRemote) {
-                    // Entity entity =
-                    // SecondaryEntityRegistry.map.get(getEntitySpawnName()).getConstructor(World.class).newInstance(worldIn);
 
                     NBTTagCompound btc = new NBTTagCompound();
                     btc.setString("id", ID + ":" + getEntitySpawnName());
                     Entity entity = AnvilChunkLoader.readWorldEntityPos(btc, worldIn, pos.getX() + 0.5, pos.up().getY(),
                             pos.getZ() + 0.5, true);
 
+                    assert entity != null;
                     entity.setPosition(pos.getX() + 0.5, pos.up().getY(), pos.getZ() + 0.5);
 
                     if (entity instanceof EntityLiving) {
@@ -170,7 +159,7 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
     @Override
     public CraftingEntry[] getModernRecipe() {
-        return this.modernRecipe;
+        return modernRecipe;
     }
 
     @Override
@@ -180,16 +169,16 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
     @Override
     public CraftingGroup getCraftingGroup() {
-        return this.craftGroup;
+        return craftGroup;
     }
 
     @Override
     public void setCraftingRecipe(CraftingEntry[] recipe) {
-        this.modernRecipe = recipe;
+        modernRecipe = recipe;
     }
 
     @Override
     public void setCraftingGroup(CraftingGroup group) {
-        this.craftGroup = group;
+        craftGroup = group;
     }
 }

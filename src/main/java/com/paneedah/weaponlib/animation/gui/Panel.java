@@ -2,6 +2,8 @@ package com.paneedah.weaponlib.animation.gui;
 
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import io.redstudioragnarok.redcore.vectors.Vector2D;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 
 import java.awt.*;
@@ -12,47 +14,61 @@ public class Panel {
 
     private static final int BUFFER = 5;
 
+    @Getter
+    @Setter
     private ArrayList<Button> buttonList = new ArrayList<>();
 
     private final ArrayList<IElement> elements = new ArrayList<>();
 
+    @Getter
     private final String title;
+    @Getter
+    @Setter
     private AnimationGUI gui;
 
+    @Getter
+    @Setter
     private double positionX;
+    @Getter
+    @Setter
     private double positionY;
+    @Getter
+    @Setter
     private double width;
+    @Getter
     private double height;
     private double actualHeight;
+    @Getter
+    @Setter
     private double buttonSize;
 
+    @Getter
+    @Setter
     private boolean grabbed = false;
+    @Getter
+    @Setter
     private Vector2D originalMouseCoords;
+    @Getter
+    @Setter
     private Vector2D originalPanelCoords;
 
+    @Getter
+    @Setter
     private boolean closed = false;
 
     public Panel(AnimationGUI gui, String title, double x, double y, double buttonSize) {
         this.title = title;
         this.gui = gui;
-        this.positionX = x;
-        this.positionY = y;
+        positionX = x;
+        positionY = y;
         this.buttonSize = buttonSize;
-    }
-
-    public boolean isClosed() {
-        return this.closed;
-    }
-
-    public void setClosed(boolean bool) {
-        this.closed = bool;
     }
 
 
     public void handleButtonClicks(int mouseX, int mouseY) {
 
-        if (mouseX >= this.positionX && mouseX <= this.positionX + this.width && mouseY >= this.positionY && mouseY <= this.positionY + height) {
-            this.gui.guiHoverStatus = true;
+        if (mouseX >= positionX && mouseX <= positionX + width && mouseY >= positionY && mouseY <= positionY + height) {
+            gui.guiHoverStatus = true;
         }
 
         boolean clickedButton = false;
@@ -75,7 +91,7 @@ public class Panel {
 
         if (!clickedButton) {
 
-            if (this.gui.checkIn2DBox(mouseX, mouseY, this.positionX + 2, this.positionY + 2, 6, 6)) {
+            if (gui.checkIn2DBox(mouseX, mouseY, positionX + 2, positionY + 2, 6, 6)) {
 
                 if (!closed) {
                     closed = true;
@@ -84,14 +100,14 @@ public class Panel {
                     closed = false;
                     height = actualHeight;
                 }
-            } else if (mouseX >= this.positionX && mouseX <= this.positionX + this.width && mouseY >= this.positionY && mouseY <= this.positionY + height) {
+            } else if (mouseX >= positionX && mouseX <= positionX + width && mouseY >= positionY && mouseY <= positionY + height) {
                 AnimationModeProcessor.getInstance().permissionToDrag = false;
                 AnimationModeProcessor.getInstance().leftLock = true;
-                this.grabbed = true;
+                grabbed = true;
 
 
-                this.originalMouseCoords = new Vector2D(mouseX, mouseY);
-                this.originalPanelCoords = new Vector2D(positionX, positionY);
+                originalMouseCoords = new Vector2D(mouseX, mouseY);
+                originalPanelCoords = new Vector2D(positionX, positionY);
             }
         }
 
@@ -99,7 +115,7 @@ public class Panel {
     }
 
     public void onMouseReleased(int mouseX, int mouseY) {
-        if (this.grabbed) {
+        if (grabbed) {
 
 
             grabbed = false;
@@ -109,18 +125,18 @@ public class Panel {
 
     public void addButtons(Button... buttons) {
         for (Button b : buttons) {
-            if (b.size > this.height) {
-                this.height = b.size + BUFFER * 3;
+            if (b.size > height) {
+                height = b.size + BUFFER * 3;
             }
 
-            this.width += b.size + BUFFER;
+            width += b.size + BUFFER;
 
             addButton(b);
         }
-        this.width += BUFFER;
+        width += BUFFER;
 
 
-        this.actualHeight = this.height;
+        actualHeight = height;
     }
 
     public void addButton(Button b) {
@@ -137,7 +153,7 @@ public class Panel {
 
     public void render(int mouseX, int mouseY) {
 
-        if (this.grabbed) {
+        if (grabbed) {
 
             positionX = originalPanelCoords.x - (originalMouseCoords.x - mouseX);
             positionY = originalPanelCoords.y - (originalMouseCoords.y - mouseY);
@@ -145,147 +161,48 @@ public class Panel {
         }
 
 
-        if (!this.closed) {
-            AnimationGUI.renderRect(new Color(0x222f3e).darker(), this.positionX, this.positionY, this.width, this.height);
+        if (!closed) {
+            AnimationGUI.renderRect(new Color(0x222f3e).darker(), positionX, positionY, width, height);
 
         } else {
-            AnimationGUI.renderRect(new Color(0x222f3e).darker(), this.positionX, this.positionY, this.width, 10);
+            AnimationGUI.renderRect(new Color(0x222f3e).darker(), positionX, positionY, width, 10);
 
         }
 
         Color button = new Color(0x222f3e).darker().darker();
 
-        if (this.gui.checkIn2DBox(mouseX, mouseY, this.positionX + 2, this.positionY + 2, 6, 6)) {
+        if (gui.checkIn2DBox(mouseX, mouseY, positionX + 2, positionY + 2, 6, 6)) {
             button = button.darker();
         }
 
-        AnimationGUI.renderRect(button, this.positionX + 2, this.positionY + 2, 6, 6);
+        AnimationGUI.renderRect(button, positionX + 2, positionY + 2, 6, 6);
 
 
-        if (!this.closed) {
+        if (!closed) {
             for (Button b : buttonList) {
 
-                b.x = (this.positionX + buttonList.indexOf(b) * 25 + BUFFER);
-                b.y = (this.positionY + BUFFER * 2);
+                b.x = (positionX + buttonList.indexOf(b) * 25 + BUFFER);
+                b.y = (positionY + BUFFER * 2);
                 b.renderButton(mouseX, mouseY);
             }
 
             for (IElement e : elements) {
-                e.render(this.positionX, this.positionY, mouseX, mouseY);
+                e.render(positionX, positionY, mouseX, mouseY);
             }
         }
 
 
         // Render title
         GlStateManager.enableTexture2D();
-        AnimationGUI.renderScaledString(this.title, this.positionX + 10, this.positionY + 2, 0.75);
+        AnimationGUI.renderScaledString(title, positionX + 10, positionY + 2, 0.75);
         GlStateManager.disableTexture2D();
 
-    }
-
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public ArrayList<Button> getButtonList() {
-        return buttonList;
-    }
-
-
-    public void setButtonList(ArrayList<Button> buttonList) {
-        this.buttonList = buttonList;
-    }
-
-
-    public AnimationGUI getGui() {
-        return gui;
-    }
-
-
-    public void setGui(AnimationGUI gui) {
-        this.gui = gui;
-    }
-
-
-    public double getPositionX() {
-        return positionX;
-    }
-
-
-    public void setPositionX(double positionX) {
-        this.positionX = positionX;
-    }
-
-
-    public double getPositionY() {
-        return positionY;
-    }
-
-
-    public void setPositionY(double positionY) {
-        this.positionY = positionY;
-    }
-
-
-    public double getWidth() {
-        return width;
-    }
-
-
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
-
-    public double getHeight() {
-        return height;
     }
 
 
     public void setHeight(double height) {
         actualHeight = height;
         this.height = height;
-    }
-
-
-    public double getButtonSize() {
-        return buttonSize;
-    }
-
-
-    public void setButtonSize(double buttonSize) {
-        this.buttonSize = buttonSize;
-    }
-
-
-    public boolean isGrabbed() {
-        return grabbed;
-    }
-
-
-    public void setGrabbed(boolean grabbed) {
-        this.grabbed = grabbed;
-    }
-
-
-    public Vector2D getOriginalMouseCoords() {
-        return originalMouseCoords;
-    }
-
-
-    public void setOriginalMouseCoords(Vector2D originalMouseCoords) {
-        this.originalMouseCoords = originalMouseCoords;
-    }
-
-
-    public Vector2D getOriginalPanelCoords() {
-        return originalPanelCoords;
-    }
-
-
-    public void setOriginalPanelCoords(Vector2D originalPanelCoords) {
-        this.originalPanelCoords = originalPanelCoords;
     }
 
 

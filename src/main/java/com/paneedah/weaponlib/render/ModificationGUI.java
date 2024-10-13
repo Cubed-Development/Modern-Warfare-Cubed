@@ -7,6 +7,8 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.render.gui.ColorPalette;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,7 +32,12 @@ public class ModificationGUI {
 
     // ! TODO: The difference between attachements, modifications, and skins (customizations) are not really a thing right now and it creates a real mess, create a real separation - Luna Lage (Desoroxxx) 2024-05-23
 
+    /**
+     * -- GETTER --
+     *  Returns instance of the
+     */
     // Static variables
+    @Getter
     public static ModificationGUI instance = new ModificationGUI();
 
     // Tabs are constant b/w weapons
@@ -172,14 +179,6 @@ public class ModificationGUI {
 
 
     /**
-     * Returns instance of the {@link ModificationGUI}
-     */
-    public static ModificationGUI getInstance() {
-        return instance;
-    }
-
-
-    /**
      * Modification group enumerable, serves
      * to provide easy string formatting capabilities
      */
@@ -211,8 +210,6 @@ public class ModificationGUI {
          * faster to just look it up here.
          * (Attachment = 0, Modification = 1, Customization = 2)
          *
-         * @param ID (0-2)
-         *
          * @return String with first letter capatilized
          */
         public static String getName(int id) {
@@ -237,21 +234,24 @@ public class ModificationGUI {
      */
     public static class TooltipBuilder {
         private final StringBuilder sb = new StringBuilder();
-        private int color;
-
         /**
-         * Sets tooltip builder's color
+         * -- SETTER --
+         *  Sets tooltip builder's color
          *
-         * @param Hex color code
+         *
+         * -- GETTER --
+         *  Returns color as hexadecimal integer
+         *
+         @param Hex color code
+          * @return Hex color
          */
-        public void setColor(int color) {
-            this.color = color;
-        }
+        @Getter
+        @Setter
+        private int color;
 
         /**
          * Adds a line with a bullet point in front of it
          *
-         * @param line
          */
         public void addBulletPoint(String text) {
             addLine("� " + text);
@@ -260,19 +260,9 @@ public class ModificationGUI {
         /**
          * Adds a line of text to the tooltip
          *
-         * @param line
          */
         public void addLine(String line) {
-            sb.append(line + "\n");
-        }
-
-        /**
-         * Returns color as hexadecimal integer
-         *
-         * @return Hex color
-         */
-        public int getColor() {
-            return this.color;
+            sb.append(line).append("\n");
         }
 
         /**
@@ -326,7 +316,6 @@ public class ModificationGUI {
          * @param height Height of drawing
          * @param textureWidth Width of image
          * @param textureHeight Height of image
-         * @param scale
          */
         public TexturedRect(double x, double y, double u, double v, double width, double height, double textureWidth,
                             double textureHeight, double scale) {
@@ -347,8 +336,8 @@ public class ModificationGUI {
 
 
         public TexturedRect withSelectedVariant(int u, int v) {
-            this.selectedU = u;
-            this.selectedV = v;
+            selectedU = u;
+            selectedV = v;
             return this;
         }
 
@@ -373,11 +362,10 @@ public class ModificationGUI {
          * @param mouseY Mouse coordinate
          * @param guiScale Scale of the gui
          *
-         * @return
          */
         public boolean checkBounding(double guiX, double guiY, int mouseX, int mouseY, double guiScale) {
-            return GUIRenderHelper.checkInBox(mouseX, mouseY, guiX + this.x * guiScale, guiY + this.y * guiScale,
-                    this.width * scale * guiScale, this.height * scale * guiScale);
+            return GUIRenderHelper.checkInBox(mouseX, mouseY, guiX + x * guiScale, guiY + y * guiScale,
+                    width * scale * guiScale, height * scale * guiScale);
         }
     }
 
@@ -406,7 +394,7 @@ public class ModificationGUI {
         }
 
         public void setDropdown(boolean down) {
-            this.isDropDownOpen = down;
+            isDropDownOpen = down;
         }
 
         public void nextPage(int max) {
@@ -439,8 +427,6 @@ public class ModificationGUI {
 
     /**
      * Translates an unlocalized name via {@link TextComponentTranslation}
-     *
-     * @param Unlocalized item name
      *
      * @return Localized item name
      */
@@ -482,7 +468,7 @@ public class ModificationGUI {
 
 
     public void setGroup(ModificationGroup group) {
-        this.currentGroup = group;
+        currentGroup = group;
     }
 
     private int grabbedX;
@@ -504,7 +490,7 @@ public class ModificationGUI {
         sb.append("{");
         for (int i = 0; i < tabList.size(); ++i) {
             ModificationTab tab = tabList.get(i);
-            sb.append("{" + ((int) tab.x) + ", " + ((int) tab.y) + "}");
+            sb.append("{").append((int) tab.x).append(", ").append((int) tab.y).append("}");
             if (i < tabList.size() - 1) {
                 sb.append(",");
             }
@@ -616,14 +602,14 @@ public class ModificationGUI {
                 TextFormatting.GOLD + translate(weapon.getTranslationKey()),
                 30, 30, 1.0, ColorPalette.WHITE);
         GUIRenderHelper.drawScaledString(
-                "Damage :: " + TextFormatting.GOLD + String.format("%.2f", (BalancePackManager.getNetGunDamage(weapon))),
+                "Damage :: " + TextFormatting.GOLD + String.format("%.2f", Double.valueOf(BalancePackManager.getNetGunDamage(weapon))),
                 30, 60, 1, ColorPalette.WHITE);
-        GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + String.format("%.2f", (weaponInstance.getRecoil())),
+        GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + String.format("%.2f", Float.valueOf(weaponInstance.getRecoil())),
                 30, 75, 1, ColorPalette.WHITE);
         GUIRenderHelper.drawScaledString("Firerate :: " + TextFormatting.GOLD + weaponInstance.getFireRate(), 30, 90, 1,
                 ColorPalette.WHITE);
         GUIRenderHelper.drawScaledString(
-                "Inaccuracy :: " + TextFormatting.GOLD + String.format("%.1f", (weaponInstance.getInaccuracy())), 30,
+                "Inaccuracy :: " + TextFormatting.GOLD + String.format("%.1f", Float.valueOf(weaponInstance.getInaccuracy())), 30,
                 105, 1, ColorPalette.WHITE);
 
         GlStateManager.popMatrix();
@@ -899,7 +885,7 @@ public class ModificationGUI {
         }
 
         //
-        if (inventory.size() > 0) {
+        if (!inventory.isEmpty()) {
             MORE_ITEMS_ALERT_ELEMENT.render();
         }
 
@@ -1001,9 +987,6 @@ public class ModificationGUI {
                 GlStateManager.enableAlpha();
                 MC.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
 
-                // TexturedRect redBlockade = new TexturedRect(i + 11, 150, 0, 300, 89, 89, 512,
-                // 512, 1);
-
                 if (flag.requiresAnyParts()) {
                     TexturedRect redBlockade = new TexturedRect(i + 11, 150, 0, 300, 89, 89, 1);
                     redBlockade.render();
@@ -1087,9 +1070,6 @@ public class ModificationGUI {
             GlStateManager.disableTexture2D();
 
             GUIRenderHelper.drawColoredRectangle(mouseX, mouseY, maxStringWidth, maxStringHeight, 0.5, tooltip.color);
-            //drawTexturedScaledRect(mouseX, mouseY, 89, 300, maxStringWidth, maxStringHeight, sheetSize, sheetSize, 0.5);
-
-            // System.out.println(tooltip.getText());
 
             GlStateManager.enableTexture2D();
             int space = 0;

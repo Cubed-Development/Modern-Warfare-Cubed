@@ -40,9 +40,9 @@ public class DSR1Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.08f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.08f))
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -55,33 +55,21 @@ public class DSR1Factory implements GunFactory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
                 .withCompatibleAttachment(Attachments.DSR1Handguard, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.DSR1HandguardRailed, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.DSR1Barrel, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.DSR1BarrelLong, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Magazines.DSR1Mag, (model) -> {
 //        	GL11.glTranslatef(0F, 0.6F, 0F);
                 })
                 .withCompatibleAttachment(Magazines.DSR1MagExt, (model) -> {
-//          GL11.glScaled(1.55F, 1.6F, 1.6F);
-//          GL11.glTranslatef(-0.28F, 0.51F, -0.97F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.DSR1BoltAction, true, (model) -> {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.DSR1BoltActionMain, true, (model) -> {
-//        	GL11.glRotatef(50F, 0f, 0f, 1f);
-//            GL11.glTranslatef(-0.65F, 0.55F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.HK416FrontSight, true, (model) -> {
                     if (model instanceof G95_upright_frontsights) {
@@ -274,11 +262,6 @@ public class DSR1Factory implements GunFactory {
                             GL11.glRotatef(7f, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.150000f, 0.950000f, -0.625000f);
 
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(-15.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(5.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.500000f, 1.000000f, -1.800000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -294,8 +277,6 @@ public class DSR1Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.DSR1BoltActionMain.getRenderablePart(), (renderContext) -> {
-//            	GL11.glRotatef(50F, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.85F, 0.5F, 1.05F);
                         })
 
                         .withFirstPersonPositioningEjectSpentRound(
@@ -1440,11 +1421,6 @@ public class DSR1Factory implements GunFactory {
                                     GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.400000f, -0.500000f, 0.200000f);
 
-//                         GL11.glScalef(4f, 4f, 4f);
-//                         GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-70.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.350000f, -0.525000f, 0.200000f);
                                 })
 
                         .withFirstPersonHandPositioningZooming(

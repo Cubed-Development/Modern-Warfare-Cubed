@@ -1,11 +1,15 @@
 package com.paneedah.weaponlib.render.bgl.instancing;
 
+import lombok.Getter;
+
 public class InstancedAttribute {
 
     private final int attribID;
+    @Getter
     private final Type attributeType;
     private final String attribName;
 
+    @Getter
     public enum Type {
         VEC4(4),
         VEC3(3),
@@ -18,31 +22,24 @@ public class InstancedAttribute {
 
 
         Type(int num) {
-            this.size = num;
+            size = num;
         }
 
-        public int getSize() {
-            return this.size;
-        }
     }
 
     public InstancedAttribute(String attribName, int attribID, Type type) {
         this.attribName = attribName;
         this.attribID = attribID;
-        this.attributeType = type;
+        attributeType = type;
 
     }
 
     public int getAttributeID() {
-        return this.attribID;
+        return attribID;
     }
 
     public String getAttributeName() {
-        return this.attribName;
-    }
-
-    public Type getAttributeType() {
-        return this.attributeType;
+        return attribName;
     }
 
 

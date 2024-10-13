@@ -55,9 +55,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
 
                     EntityItem item = new EntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);
                     item.setNoPickupDelay();
-                    if (player != null) {
-                        player.world.spawnEntity(item);
-                    }
+                    player.world.spawnEntity(item);
                 }
             } else {
                 player.playSound(configuration.getEquipmentNotAvailableSound(), 0.15F, 1);
@@ -80,7 +78,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
 
 
     private void initWeaponWithAttachments(Equipment equipment, ItemStack itemStack, EntityPlayer player) {
-        if (equipment.attachments != null && equipment.item instanceof Weapon && equipment.item instanceof PlayerItemInstanceFactory) {
+        if (equipment.attachments != null && equipment.item instanceof Weapon) {
             PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) ((PlayerItemInstanceFactory<?, ?>) equipment.item).createItemInstance(player, new ItemStack(equipment.item), 0);
             for (ItemAttachment<?> attachment : equipment.attachments) {
                 Set<ItemAttachment<Weapon>> compatibleAttachments = weaponInstance.getWeapon().getCompatibleAttachments().keySet();
