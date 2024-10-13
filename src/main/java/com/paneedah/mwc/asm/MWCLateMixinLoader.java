@@ -14,11 +14,12 @@ public final class MWCLateMixinLoader implements ILateMixinLoader {
 
     @Override
     public boolean shouldMixinConfigQueue(String mixinConfig) {
-        // This is a switch as we may add more mod specific mixins in the future
-        if (mixinConfig.equals("mixin.mwc.techguns.json")) {
-            return isTechgunsInstalled();
+        switch (mixinConfig) { // This is a switch as we may add more mod specific mixins in the future
+            case "mixin.mwc.techguns.json":
+                return isTechgunsInstalled();
+            default:
+                return true;
         }
-        return true;
     }
 
     private static boolean isTechgunsInstalled() {
