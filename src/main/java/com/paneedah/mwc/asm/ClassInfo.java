@@ -1,7 +1,5 @@
 package com.paneedah.mwc.asm;
 
-import lombok.Getter;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,9 +50,7 @@ public class ClassInfo {
         }
     }
 
-    @Getter
     private final String notchClassName;
-    @Getter
     private final String mcpClassName;
     private final Map<MethodSignature, String> notchMethodInfoMap = new HashMap<>();
     private final Map<MethodSignature, String> notchSignatureMap = new HashMap<>();
@@ -109,8 +105,15 @@ public class ClassInfo {
             String methodOwnerClassName,
             String methodName,
             String methodSignature) {
-
-
+    	
+    
+    	
+    	/*
+    	System.out.println("Checking @ " + methodName + " w/ expected  " + expectedMcpMethodName + " w/ expected sig " + expectedMcpMethodSignature);
+    	System.out.println("Virtual method names & sigs -> " + methodName + " -> " + methodSignature);
+    	System.out.println("MCP Class name: " + mcpClassName + " vs. " + methodOwnerClassName);
+    	System.out.println("Notch class names: " + notchClassName + " vs. " + methodOwnerClassName);
+       	*/
         if (!expectedMcpMethodSignature.equals(methodSignature)
                 && !methodSignature.equals(notchSignatureMap.get(new MethodSignature(expectedMcpMethodName, expectedMcpMethodSignature)))) {
             return false;
@@ -137,6 +140,14 @@ public class ClassInfo {
 
         String notchMethodName = notchMethodInfoMap.get(new MethodSignature(expectedMcpMethodName, expectedMcpMethodSignature));
         return methodName.equals(notchMethodName);
+    }
+
+    public String getNotchClassName() {
+        return notchClassName;
+    }
+
+    public String getMcpClassName() {
+        return mcpClassName;
     }
 
     public String getNotchMethodName(String mcpMethodName, String signature) {
