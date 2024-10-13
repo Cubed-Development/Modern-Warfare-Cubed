@@ -62,7 +62,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated the url in the mod menu
 - Updated dependencies:
   - Requires Red Core 0.6 and up
-  - Requires MixinBooter 8.8 and up
+  - Requires MixinBooter 9.4 and up
 - Updated Korean translation
 - Reworked weapons tooltips
 - Reworked magazines tooltips

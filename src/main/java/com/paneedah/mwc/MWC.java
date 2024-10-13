@@ -42,7 +42,7 @@ import static com.paneedah.mwc.ProjectConstants.VERSION;
 //  | $$\  $ | $$| $$  | $$| $$  | $$| $$_____/| $$      | $$  | $$      | $$$/ \  $$$ /$$__  $$| $$      | $$     /$$__  $$| $$      | $$_____/      | $$    $$| $$  | $$| $$  | $$| $$_____/| $$  | $$
 //  | $$ \/  | $$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$  | $$      | $$/   \  $$|  $$$$$$$| $$      | $$    |  $$$$$$$| $$      |  $$$$$$$      |  $$$$$$/|  $$$$$$/| $$$$$$$/|  $$$$$$$|  $$$$$$$
 //  |__/     |__/ \______/  \_______/ \_______/|__/      |__/  |__/      |__/     \__/ \_______/|__/      |__/     \_______/|__/       \_______/       \______/  \______/ |_______/  \_______/ \_______/
-@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:mixinbooter@[8.8,);required-after:redcore@[0.6,)", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://forge.curseupdate.com/836353/mwc")
+@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:mixinbooter@[9.4,);required-after:redcore@[0.6,)", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://forge.curseupdate.com/836353/mwc")
 public final class MWC {
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
