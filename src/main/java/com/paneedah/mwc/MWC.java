@@ -1,5 +1,6 @@
 package com.paneedah.mwc;
 
+import com.paneedah.mwc.commands.MWCCommand;
 import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.handlers.CommonEventHandler;
@@ -17,6 +18,7 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import io.redstudioragnarok.redcore.RedCore;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -84,6 +86,8 @@ public final class MWC {
             Runtime.getRuntime().addShutdownHook(new Thread(ClientTickerController::stop));
 
             updateDebugHandler();
+
+            ClientCommandHandler.instance.registerCommand(new MWCCommand());
         }
 
         // Set the sounds
