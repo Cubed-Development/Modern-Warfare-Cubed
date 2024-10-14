@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.ItemAttachment.ApplyHandler;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.*;
+import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -27,7 +28,9 @@ public class AttachmentBuilder<T> {
     public static int noRecipe = 0;
 
     protected String name;
+    @Getter
     protected ModelBase model;
+    @Getter
     protected String textureName;
     protected ModelSourceTransforms transforms = ModelSourceTransforms.builder()
             .entityPositioning(() -> new Transform()
@@ -70,8 +73,8 @@ public class AttachmentBuilder<T> {
     }
 
     public AttachmentBuilder<T> withModernRecipe(CraftingGroup group, CraftingEntry... is) {
-        this.modernRecipe = is;
-        this.craftingGroup = group;
+        modernRecipe = is;
+        craftingGroup = group;
         return this;
     }
 
@@ -86,7 +89,7 @@ public class AttachmentBuilder<T> {
     }
 
     public AttachmentBuilder<T> withRotationPoint(double x, double y, double z) {
-        this.rotationPoint = new Vec3d(x, y, z);
+        rotationPoint = new Vec3d(x, y, z);
         return this;
     }
 
@@ -174,12 +177,12 @@ public class AttachmentBuilder<T> {
     }
 
     public AttachmentBuilder<T> withModel(ModelBase model, String textureName) {
-        this.texturedModels.add(new Tuple<>(model, textureName.toLowerCase()));
+        texturedModels.add(new Tuple<>(model, textureName.toLowerCase()));
         return this;
     }
 
     public AttachmentBuilder<T> withRenderablePart() {
-        this.isRenderablePart = true;
+        isRenderablePart = true;
         return this;
     }
 
@@ -195,12 +198,12 @@ public class AttachmentBuilder<T> {
     }
 
     public AttachmentBuilder<T> withApply(ApplyHandler2<T> apply) {
-        this.apply2 = apply;
+        apply2 = apply;
         return this;
     }
 
     public AttachmentBuilder<T> withRemove(ApplyHandler2<T> remove) {
-        this.remove2 = remove;
+        remove2 = remove;
         return this;
     }
 
@@ -290,12 +293,6 @@ public class AttachmentBuilder<T> {
         if (craftingRecipe != null && craftingRecipe.length >= 2) {
 //		    ItemStack itemStack = new ItemStack(attachment);
             modContext.getRecipeManager().registerShapedRecipe(attachment, craftingRecipe);
-//		    boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
-//		    if(hasOres) {
-//                compatibility.addShapedOreRecipe(itemStack, registeredRecipe.toArray());
-//            } else {
-//                compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
-//            }
         } else if (craftingComplexity != null) {
             OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                     .withSlotCount(9)
@@ -349,11 +346,4 @@ public class AttachmentBuilder<T> {
         return attachment;
     }
 
-    public ModelBase getModel() {
-        return model;
-    }
-
-    public String getTextureName() {
-        return textureName;
-    }
 }

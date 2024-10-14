@@ -45,9 +45,9 @@ public class P90Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.2f)
-                .withFlashOffsetY(() -> 0.27f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.2f))
+                .withFlashOffsetY(() -> Float.valueOf(0.27f))
                 .withShellCasingEjectEnabled(false)
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -98,19 +98,19 @@ public class P90Factory {
                         GL11.glTranslatef(0.25F, -2F, -2.8F);
                         GL11.glRotatef(69F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.7F, 0.7F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.57F, -1.8F, -2.8F);
                         GL11.glRotatef(-69F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.7F, 0.7F);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(0.4F, -0.925F, -2.95F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.9F, 0.7F, 0.3F);
-                    } else if (model instanceof AKRail4) {
+                    } else if (null instanceof AKRail4) {
                         GL11.glTranslatef(-0.6F, -0.675F, -2.95F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
                         GL11.glScaled(0.9F, 0.7F, 0.3F);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.26F, -2.12F, -2.8F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -119,13 +119,13 @@ public class P90Factory {
                     if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.25F, -2.12F, -2.47F);
                         GL11.glScaled(0.9F, 0.9F, 0.88F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail4) {
+                    } else if (null instanceof AKRail4) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -140,19 +140,19 @@ public class P90Factory {
                     if (model instanceof M4Iron1) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(0.255F, -1.55F, -2.25F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron1) {
+                    } else if (null instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(0.13F, -1.55F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.31F, -2.55F, -2.3F);
                         GL11.glScaled(1.2F, 0.8F, 0.4F);
                     }
@@ -201,7 +201,7 @@ public class P90Factory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -258,10 +258,9 @@ public class P90Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
                     GL11.glTranslatef(-0.018F, -2.05F, -1.4F);
@@ -407,10 +406,6 @@ public class P90Factory {
                         .setupModernMagazineAnimations("p90", Magazines.P90TerminatorMag)
 
                         .withFirstPersonCustomPositioning(Magazines.P90TerminatorMag.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(-0.1F, -0.6F, 1.1F);
-//            	GL11.glRotatef(90F, 0f, 1f, 0f);
-//            	GL11.glRotatef(20F, 1f, 0f, 0f);
-//            	GL11.glRotatef(-10F, 0f, 0f, 1f);
                         })
 
                         .withThirdPersonPositioningReloading(

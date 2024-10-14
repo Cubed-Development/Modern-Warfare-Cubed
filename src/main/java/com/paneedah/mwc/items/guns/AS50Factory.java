@@ -38,9 +38,9 @@ public class AS50Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.11f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.11f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
 
@@ -60,15 +60,9 @@ public class AS50Factory implements GunFactory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.AS50Action, true, (model) -> {
-//        	GL11.glTranslatef(0f, 0f, 1.5f);
-//            GL11.glTranslatef(0F, 0F, 1.5F);
                 })
                 .withCompatibleAttachment(Magazines.AS50Mag, (model) -> {
-//    	   GL11.glTranslatef(0f, 0.9f, -0.7f);
-//        	 GL11.glRotatef(-20F, 1f, 0f, 0f);
 
-//    	   GL11.glTranslatef(0f, 4f, 2f);
-//      	 GL11.glRotatef(50F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.HK416FrontSight, true, (model) -> {
                     if (model instanceof G95_upright_frontsights) {
@@ -89,7 +83,7 @@ public class AS50Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -119,10 +113,9 @@ public class AS50Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
                     GL11.glTranslatef(0.225F, -2.62F, -1.5F);
@@ -239,18 +232,18 @@ public class AS50Factory implements GunFactory {
                         GL11.glTranslatef(0.55F, -2.25F, -5.5F);
                         GL11.glScaled(1F, 1F, 0.5F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.21F, -1.95F, -5.45F);
                         GL11.glScaled(1F, 1F, 0.5F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.02F, -4F, -4.3F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail4) {
+                    } else if (null instanceof AKRail4) {
                         GL11.glTranslatef(0.044F, -2.75F, -3.47f);
                         GL11.glScaled(0.85F, 0.85F, 1.3F);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(0.044F, -2.75F, -5.3f);
                         GL11.glScaled(0.85F, 0.85F, 1.3F);
                     }
@@ -284,17 +277,6 @@ public class AS50Factory implements GunFactory {
                             GL11.glRotatef(5f, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.600000f, 2.500000f, -0.725000f);
 
-//                GL11.glScalef(2.5f, 2.5f, 2.5f);
-//                GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(25.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(15.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-1.399999f, 2.975002f, 0.675000f);
-
-//                GL11.glScalef(2.5f, 2.5f, 2.5f);
-//                GL11.glRotatef(-3.500000f, 1f, 0f, 0f);
-//                GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(34.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.025000f, 2.874999f, -0.125000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -984,9 +966,6 @@ public class AS50Factory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glTranslatef(0.07f, 2.3f, -0.5f);
 
                             GL11.glScalef(2.5f, 2.5f, 2.5f);
                             GL11.glRotatef(45F, 0f, 1f, 0f);
@@ -1090,10 +1069,6 @@ public class AS50Factory implements GunFactory {
                         })
 
                         .withFirstPersonPositioningZoomingRecoiled((renderContext) -> {
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glTranslatef(-0.2f, 2.3f, -0.45f);
-//                GL11.glRotatef(5F, 0f, 0f, 1f);
 
                             GL11.glScalef(2.5f, 2.5f, 2.5f);
                             GL11.glRotatef(45F, 0f, 1f, 0f);
@@ -1228,11 +1203,6 @@ public class AS50Factory implements GunFactory {
                                     GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.125000f, 0.075000f, 0.025000f);
 
-//                         GL11.glScalef(4.5f, 4.5f, 4.5f);
-//                         GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(-80.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(20.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.500000f, -0.175000f, -0.125000f);
                                 },
                                 (renderContext) -> {
                                     GL11.glScalef(4.5f, 4.5f, 4.5f);

@@ -5,6 +5,8 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -48,7 +50,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
     protected static class StateDescriptor {
         protected MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager;
         protected float rate;
-        protected float amplitude = 0.04f;
+        protected float amplitude;
         private final PlayerMeleeInstance instance;
 
         public StateDescriptor(PlayerMeleeInstance instance, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager,
@@ -73,8 +75,8 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         @Override
         public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world,
                                            EntityLivingBase entity) {
-            MeleeRenderer.this.itemStack = stack;
-            MeleeRenderer.this.player = (EntityPlayer) entity;
+            itemStack = stack;
+            player = (EntityPlayer) entity;
             return super.handleItemState(originalModel, stack, world, entity);
         }
     }
@@ -91,13 +93,18 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
     public static class Builder {
 
+        @Getter
         private ModelBase model;
+        @Getter
         private String textureName;
 
         private BiConsumer<Part, RenderContext<RenderableState>> partDebugPositioning;
 
+        @Getter
         private Consumer<ItemStack> entityPositioning;
+        @Getter
         private Consumer<ItemStack> inventoryPositioning;
+        @Getter
         private Consumer<RenderContext<RenderableState>> thirdPersonPositioning;
 
         private Consumer<RenderContext<RenderableState>> firstPersonPositioning;
@@ -134,10 +141,6 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningAttacking = new LinkedHashMap<>();
         private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningHeavyAttacking = new LinkedHashMap<>();
 
-
-//		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningRecoiled = new LinkedHashMap<>();
-//		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZoomingRecoiled = new LinkedHashMap<>();
-//		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningZoomingShooting = new LinkedHashMap<>();
 
         private final LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningEjectSpentRound = new LinkedHashMap<>();
         private boolean hasRecoilPositioningDefined;
@@ -195,13 +198,13 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
         @SafeVarargs
         public final Builder withFirstPersonPositioningAttacking(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonPositioningAttacking = Arrays.asList(transitions);
+            firstPersonPositioningAttacking = Arrays.asList(transitions);
             return this;
         }
 
         @SafeVarargs
         public final Builder withFirstPersonPositioningHeavyAttacking(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonPositioningHeavyAttacking = Arrays.asList(transitions);
+            firstPersonPositioningHeavyAttacking = Arrays.asList(transitions);
             return this;
         }
 
@@ -214,48 +217,48 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         public Builder withFirstPersonHandPositioning(
                 Consumer<RenderContext<RenderableState>> leftHand,
                 Consumer<RenderContext<RenderableState>> rightHand) {
-            this.firstPersonLeftHandPositioning = leftHand;
-            this.firstPersonRightHandPositioning = rightHand;
+            firstPersonLeftHandPositioning = leftHand;
+            firstPersonRightHandPositioning = rightHand;
             return this;
         }
 
         public Builder withFirstPersonHandPositioningRunning(
                 Consumer<RenderContext<RenderableState>> leftHand,
                 Consumer<RenderContext<RenderableState>> rightHand) {
-            this.firstPersonLeftHandPositioningRunning = leftHand;
-            this.firstPersonRightHandPositioningRunning = rightHand;
+            firstPersonLeftHandPositioningRunning = leftHand;
+            firstPersonRightHandPositioningRunning = rightHand;
             return this;
         }
 
         @SafeVarargs
         public final Builder withFirstPersonLeftHandPositioningAttacking(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonLeftHandPositioningAttacking = Arrays.asList(transitions);
+            firstPersonLeftHandPositioningAttacking = Arrays.asList(transitions);
             return this;
         }
 
         @SafeVarargs
         public final Builder withFirstPersonLeftHandPositioningHeavyAttacking(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonLeftHandPositioningHeavyAttacking = Arrays.asList(transitions);
+            firstPersonLeftHandPositioningHeavyAttacking = Arrays.asList(transitions);
             return this;
         }
 
         @SafeVarargs
         public final Builder withFirstPersonRightHandPositioningHeavyAttacking(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonRightHandPositioningHeavyAttacking = Arrays.asList(transitions);
+            firstPersonRightHandPositioningHeavyAttacking = Arrays.asList(transitions);
             return this;
         }
 
         @SafeVarargs
         public final Builder withFirstPersonRightHandPositioningAttacking(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonRightHandPositioningAttacking = Arrays.asList(transitions);
+            firstPersonRightHandPositioningAttacking = Arrays.asList(transitions);
             return this;
         }
 
         public Builder withFirstPersonHandPositioningModifying(
                 Consumer<RenderContext<RenderableState>> leftHand,
                 Consumer<RenderContext<RenderableState>> rightHand) {
-            this.firstPersonLeftHandPositioningModifying = leftHand;
-            this.firstPersonRightHandPositioningModifying = rightHand;
+            firstPersonLeftHandPositioningModifying = leftHand;
+            firstPersonRightHandPositioningModifying = rightHand;
             return this;
         }
 
@@ -263,21 +266,11 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
             if (part instanceof DefaultPart) {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
             }
-            if (this.firstPersonCustomPositioning.put(part, positioning) != null) {
+            if (firstPersonCustomPositioning.put(part, positioning) != null) {
                 throw new IllegalArgumentException("Part " + part + " already added");
             }
             return this;
         }
-
-//		public Builder withFirstPersonPositioningCustomZoomingRecoiled(Part part, Consumer<RenderContext<RenderableState>> positioning) {
-//			if(part instanceof DefaultPart) {
-//				throw new IllegalArgumentException("Part " + part + " is not custom");
-//			}
-//			if(this.firstPersonCustomPositioningZoomingRecoiled.put(part, positioning) != null) {
-//				throw new IllegalArgumentException("Part " + part + " already added");
-//			}
-//			return this;
-//		}
 
         @SafeVarargs
         public final Builder withFirstPersonCustomPositioningAttacking(Part part, Transition<RenderContext<RenderableState>>... transitions) {
@@ -285,7 +278,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
             }
 
-            this.firstPersonCustomPositioningAttacking.put(part, Arrays.asList(transitions));
+            firstPersonCustomPositioningAttacking.put(part, Arrays.asList(transitions));
             return this;
         }
 
@@ -295,18 +288,9 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
             }
 
-            this.firstPersonCustomPositioningHeavyAttacking.put(part, Arrays.asList(transitions));
+            firstPersonCustomPositioningHeavyAttacking.put(part, Arrays.asList(transitions));
             return this;
         }
-
-//		@SafeVarargs
-//		public final Builder withFirstPersonCustomPositioningUnloading(Part part, Transition<RenderContext<RenderableState>> ...transitions) {
-//			if(part instanceof DefaultPart) {
-//				throw new IllegalArgumentException("Part " + part + " is not custom");
-//			}
-//			this.firstPersonCustomPositioningUnloading.put(part, Arrays.asList(transitions));
-//			return this;
-//		}
 
         @SafeVarargs
         public final Builder withFirstPersonCustomPositioningEjectSpentRound(Part part, Transition<RenderContext<RenderableState>>... transitions) {
@@ -314,7 +298,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
             }
 
-            this.firstPersonCustomPositioningEjectSpentRound.put(part, Arrays.asList(transitions));
+            firstPersonCustomPositioningEjectSpentRound.put(part, Arrays.asList(transitions));
             return this;
         }
 
@@ -413,12 +397,6 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
                         c -> {}, 0)).collect(Collectors.toList());
             }
 
-            if (firstPersonRightHandPositioningHeavyAttacking == null) {
-                //firstPersonRightHandPositioningAttacking = Collections.singletonList(new Transition(firstPersonRightHandPositioning, DEFAULT_ANIMATION_DURATION));
-                firstPersonRightHandPositioningHeavyAttacking = firstPersonPositioningHeavyAttacking.stream().map(t -> new Transition<RenderContext<RenderableState>>(
-                        c -> {}, 0)).collect(Collectors.toList());
-            }
-
             if (firstPersonRightHandPositioningRunning == null) {
                 firstPersonRightHandPositioningRunning = firstPersonRightHandPositioning;
             }
@@ -426,27 +404,6 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
             if (firstPersonRightHandPositioningModifying == null) {
                 firstPersonRightHandPositioningModifying = firstPersonRightHandPositioning;
             }
-
-//			/*
-//			 * If custom positioning for recoil is not set, default it to normal custom positioning
-//			 */
-//			if(!firstPersonCustomPositioning.isEmpty() && firstPersonCustomPositioningRecoiled.isEmpty()) {
-//				firstPersonCustomPositioning.forEach((part, pos) -> {
-//					firstPersonCustomPositioningRecoiled.put(part, pos);
-//				});
-//			}
-//
-//			if(!firstPersonCustomPositioning.isEmpty() && firstPersonCustomPositioningZoomingRecoiled.isEmpty()) {
-//				firstPersonCustomPositioning.forEach((part, pos) -> {
-//					firstPersonCustomPositioningZoomingRecoiled.put(part, pos);
-//				});
-//			}
-//
-//			if(!firstPersonCustomPositioning.isEmpty() && firstPersonCustomPositioningZoomingShooting.isEmpty()) {
-//				firstPersonCustomPositioning.forEach((part, pos) -> {
-//					firstPersonCustomPositioningZoomingShooting.put(part, pos);
-//				});
-//			}
 
             firstPersonCustomPositioningAttacking.forEach((p, t) -> {
                 if (t.size() != firstPersonPositioningAttacking.size()) {
@@ -465,25 +422,6 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
             return renderer;
         }
 
-        public Consumer<ItemStack> getEntityPositioning() {
-            return entityPositioning;
-        }
-
-        public Consumer<ItemStack> getInventoryPositioning() {
-            return inventoryPositioning;
-        }
-
-        public Consumer<RenderContext<RenderableState>> getThirdPersonPositioning() {
-            return thirdPersonPositioning;
-        }
-
-        public String getTextureName() {
-            return textureName;
-        }
-
-        public ModelBase getModel() {
-            return model;
-        }
     }
 
     private final Builder builder;
@@ -492,14 +430,15 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
     private final MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> weaponTransitionProvider;
 
+    @Setter
     protected ClientModContext clientModContext;
 
     private MeleeRenderer(Builder builder) {
         this.builder = builder;
-        this.firstPersonStateManagers = new HashMap<>();
-        this.weaponTransitionProvider = new WeaponPositionProvider();
-        this.textureManager = MC.getTextureManager();
-        this.pair = Pair.of((IBakedModel) this, null);
+        firstPersonStateManagers = new HashMap<>();
+        weaponTransitionProvider = new WeaponPositionProvider();
+        textureManager = MC.getTextureManager();
+        pair = Pair.of((IBakedModel) this, null);
     }
 
     protected long getTotalAttackDuration() {
@@ -514,10 +453,6 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         return clientModContext;
     }
 
-    public void setClientModContext(ClientModContext clientModContext) {
-        this.clientModContext = clientModContext;
-    }
-
     protected StateDescriptor getStateDescriptor(EntityPlayer player, ItemStack itemStack) {
         float amplitude = builder.normalRandomizingAmplitude;
         float rate = builder.normalRandomizingRate;
@@ -527,7 +462,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerMeleeInstance playerMeleeInstance = null;
-        if (playerItemInstance == null || !(playerItemInstance instanceof PlayerMeleeInstance)
+        if (!(playerItemInstance instanceof PlayerMeleeInstance)
                 || playerItemInstance.getItem() != itemStack.getItem()) {
             LOGGER.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
         } else {
@@ -582,10 +517,9 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
     }
 
     private AsyncMeleeState getNextNonExpiredState(PlayerMeleeInstance playerWeaponState) {
-        AsyncMeleeState asyncWeaponState = null;
+        AsyncMeleeState asyncWeaponState;
         while ((asyncWeaponState = playerWeaponState.nextHistoryState()) != null) {
             if (System.currentTimeMillis() > asyncWeaponState.getTimestamp() + asyncWeaponState.getDuration()) {
-                continue;
             } else {
                 break;
             }
@@ -600,7 +534,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         }
         Consumer<RenderContext<RenderableState>> weaponPositionFunction = t.getItemPositioning();
         if (weaponPositionFunction != null) {
-            return context -> weaponPositionFunction.accept(context);
+            return weaponPositionFunction;
         }
 
         return context -> {};
@@ -609,7 +543,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
     private Consumer<RenderContext<RenderableState>> createWeaponPartPositionFunction(Consumer<RenderContext<RenderableState>> weaponPositionFunction) {
         if (weaponPositionFunction != null) {
-            return context -> weaponPositionFunction.accept(context);
+            return weaponPositionFunction;
         }
         return context -> {};
 
@@ -872,7 +806,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
     @Override
     public Pair<? extends IBakedModel, Matrix4f> handlePerspective(ItemCameraTransforms.TransformType cameraTransformType) {
-        this.transformType = cameraTransformType;
+        transformType = cameraTransformType;
         return pair;
     }
 
@@ -919,9 +853,9 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         }
 
         // Reset the dynamic values.
-        this.player = null;
-        this.itemStack = null;
-        this.transformType = null;
+        player = null;
+        itemStack = null;
+        transformType = null;
 
         return Collections.emptyList();
     }

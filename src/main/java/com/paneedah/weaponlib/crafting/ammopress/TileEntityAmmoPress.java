@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -27,14 +28,11 @@ public class TileEntityAmmoPress extends TileEntityStation {
 
     public LinkedList<ItemStack> craftStack = new LinkedList<>();
 
+    @Getter
     private double currentWheelRotation = 0.0;
     private double prevWheelRotation = 0.0;
 
     public TileEntityAmmoPress() {}
-
-    public double getCurrentWheelRotation() {
-        return currentWheelRotation;
-    }
 
     public double getPreviousWheelRotation() {
         return prevWheelRotation;
@@ -59,7 +57,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
 
 
     public ItemStack getLatestStackInQueue() {
-        if (this.craftStack.isEmpty()) {
+        if (craftStack.isEmpty()) {
             return null;
         }
         ItemStack stack = craftStack.peek();
@@ -75,7 +73,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
     public void writeBytesForClientSync(ByteBuf buf) {
         super.writeBytesForClientSync(buf);
 
-        buf.writeInt(this.craftStack.size());
+        buf.writeInt(craftStack.size());
         for (ItemStack stack : craftStack) {
             ByteBufUtils.writeItemStack(buf, stack);
             buf.writeInt(stack.getCount());
@@ -85,28 +83,28 @@ public class TileEntityAmmoPress extends TileEntityStation {
     @Override
     public void readBytesFromClientSync(ByteBuf buf) {
         super.readBytesFromClientSync(buf);
-        this.craftStack.clear();
+        craftStack.clear();
 
         int size = buf.readInt();
         for (int i = 0; i < size; ++i) {
             ItemStack stack = ByteBufUtils.readItemStack(buf);
             stack.setCount(buf.readInt());
-            this.craftStack.offer(stack);
+            craftStack.offer(stack);
         }
 
 
     }
 
     public boolean hasStack() {
-        return !this.craftStack.isEmpty() && getLatestStackInQueue() != null;
+        return !craftStack.isEmpty() && getLatestStackInQueue() != null;
     }
 
     public void addStack(ItemStack stack) {
-        this.craftStack.offer(stack);
+        craftStack.offer(stack);
     }
 
     public LinkedList<ItemStack> getCraftingQueue() {
-        return this.craftStack;
+        return craftStack;
     }
 
 
@@ -115,7 +113,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
         super.writeToNBT(compound);
 
         NBTTagList stackNBTCompound = new NBTTagList();
-        for (ItemStack stack : this.craftStack) {
+        for (ItemStack stack : craftStack) {
             NBTTagCompound element = new NBTTagCompound();
             stack.writeToNBT(element);
             stackNBTCompound.appendTag(element);
@@ -132,7 +130,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
         if (compound.hasKey("craftingStack")) {
             NBTTagList list = compound.getTagList("craftingStack", NBT.TAG_COMPOUND);
             for (int i = 0; i < list.tagCount(); ++i)
-                this.craftStack.offer(new ItemStack(list.getCompoundTagAt(i)));
+                craftStack.offer(new ItemStack(list.getCompoundTagAt(i)));
         }
     }
 

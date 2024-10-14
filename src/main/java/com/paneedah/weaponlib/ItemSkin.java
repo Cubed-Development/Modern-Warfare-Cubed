@@ -14,33 +14,27 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 
         public Builder withTextureVariant(String... textureVariantNames) {
             for (String s : textureVariantNames)
-                this.textureVariants.add(stripFileExtension(s.toLowerCase(), ".png"));
+                textureVariants.add(stripFileExtension(s.toLowerCase(), ".png"));
             return this;
         }
 
         @Override
         protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
             ItemSkin skin = new ItemSkin(AttachmentCategory.SKIN, getModel(), getTextureName(), null, null, null);
-            skin.textureVariants = this.textureVariants;
+            skin.textureVariants = textureVariants;
             return skin;
         }
 
         @Override
         public <V extends ItemAttachment<Weapon>> V build(ModContext modContext, Class<V> target) {
-            this.model = new FlatModel();
+            model = new FlatModel();
             if (textureVariants.isEmpty()) {
                 textureVariants.add(getTextureName());
             } else if (getTextureName() == null) {
-                this.textureName = textureVariants.get(0);
+                textureName = textureVariants.get(0);
             }
             if (transforms.getInventoryPositioning() == null) {
                 withInventoryPositioning(() -> {
-					
-					/*
-					GlStateManager.scale(0.5, 0.5, 0.5);
-					GlStateManager.translate(-0.5, -0.25, 0);
-					GlStateManager.rotate(45f, 1, 0, 0);
-					*/
 
 
                     GL11.glRotatef(30F, 1f, 0f, 0f);

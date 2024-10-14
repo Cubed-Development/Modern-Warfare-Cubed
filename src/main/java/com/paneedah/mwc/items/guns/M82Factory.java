@@ -45,9 +45,9 @@ public class M82Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.08f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.08f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -91,13 +91,9 @@ public class M82Factory implements GunFactory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M82Action, true, (model) -> {
-//        	GL11.glTranslatef(0f, 0f, 0.8f);
 
-//            GL11.glTranslatef(0F, 0F, 1.5F);
                 })
                 .withCompatibleAttachment(Magazines.M82Mag, (model) -> {
-//            GL11.glTranslatef(-0.42F, 0.8F, -1.4F);
-//            GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
 //            GL11.glTranslatef(0f, 0f, 1f);
@@ -124,7 +120,7 @@ public class M82Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -154,10 +150,9 @@ public class M82Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
                     GL11.glTranslatef(-0.045F, -1.35F, -1.5F);
@@ -318,8 +313,6 @@ public class M82Factory implements GunFactory {
                                 Magazines.M82Mag)
 
                         .withFirstPersonCustomPositioning(Magazines.M82Mag, (renderContext) -> {
-//           	 GL11.glTranslatef(0f, 0.8f, -0.3f);
-//           	 GL11.glRotatef(-20F, 1f, 0f, 0f);
                         })
 
                         .withThirdPersonPositioningReloading(

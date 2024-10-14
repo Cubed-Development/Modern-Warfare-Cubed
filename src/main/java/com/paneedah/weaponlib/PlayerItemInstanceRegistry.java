@@ -29,7 +29,7 @@ public class PlayerItemInstanceRegistry {
 
     public PlayerItemInstanceRegistry(SyncManager<?> syncManager) {
         this.syncManager = syncManager;
-        this.itemStackInstanceCache = CacheBuilder
+        itemStackInstanceCache = CacheBuilder
                 .newBuilder()
                 .weakKeys()
                 .maximumSize(1000)
@@ -40,29 +40,18 @@ public class PlayerItemInstanceRegistry {
     /**
      * Returns instance of the target class, or null if there is no instance or instance class does not match.
      *
-     * @param player
-     * @param targetClass
-     *
-     * @return
      */
     public <T extends PlayerItemInstance<S>, S extends ManagedState<S>> T getMainHandItemInstance(EntityLivingBase player, Class<T> targetClass) {
-        if (player == null && !(player instanceof EntityPlayer)) {
-            return null;
-        }
-        PlayerItemInstance<?> instance = getItemInstance((EntityPlayer) player, ((EntityPlayer) player).inventory.currentItem);
-        return targetClass.isInstance(instance) ? targetClass.cast(instance) : null;
+        return null;
     }
 
     public PlayerItemInstance<?> getMainHandItemInstance(EntityLivingBase player) {
-        if (player == null && !(player instanceof EntityPlayer)) {
-            return null;
-        }
-        return getItemInstance((EntityPlayer) player, ((EntityPlayer) player).inventory.currentItem);
+        return null;
     }
 
     public PlayerItemInstance<?> getItemInstance(EntityPlayer player, int slot) { // ! TODO: This needs urgent care, causes problems - Luna Lage (Desoroxxx)
         Map<Integer, PlayerItemInstance<?>> slotInstances = registry.computeIfAbsent(player.getPersistentID(), p -> new HashMap<>());
-        PlayerItemInstance<?> result = slotInstances.get(slot);
+        PlayerItemInstance<?> result = slotInstances.get(Integer.valueOf(slot));
         //log.debug("Slot {} contains {}", slot, result);
         if (result == null) {
             result = createItemInstance(player, slot);
@@ -71,7 +60,7 @@ public class PlayerItemInstanceRegistry {
                 if (result.shouldHaveInstanceTags()) {
                     Tags.setInstanceUuid(slotItemStack, result.getUuid());
                 }
-                slotInstances.put(slot, result);
+                slotInstances.put(Integer.valueOf(slot), result);
                 syncManager.watch(result);
                 if (result.getUpdateId() == 0) { // sync to server if newly created
                     result.markDirty();
@@ -89,7 +78,7 @@ public class PlayerItemInstanceRegistry {
                     if (result.shouldHaveInstanceTags()) {
                         Tags.setInstanceUuid(slotItemStack, result.getUuid());
                     }
-                    slotInstances.put(slot, result);
+                    slotInstances.put(Integer.valueOf(slot), result);
                     syncManager.watch(result);
                     if (result.getUpdateId() == 0) { // sync to server if newly created
                         result.markDirty();
@@ -122,7 +111,7 @@ public class PlayerItemInstanceRegistry {
         boolean result = false;
 
         if (slotContexts != null) {
-            T currentState = (T) slotContexts.get(extendedStateToMerge.getItemInventoryIndex());
+            T currentState = (T) slotContexts.get(Integer.valueOf(extendedStateToMerge.getItemInventoryIndex()));
             if (currentState != null && isSameItem(currentState, extendedStateToMerge)
                 /*&& isSameUpdateId(currentState, extendedStateToMerge)*/) {
                 /*
@@ -177,10 +166,6 @@ public class PlayerItemInstanceRegistry {
      * Maps the item stack to an item instance using the internal cache.
      * This method should be used when rendering only.
      *
-     * @param player
-     * @param itemStack
-     *
-     * @return
      */
     public PlayerItemInstance<?> getItemInstance(EntityLivingBase player, ItemStack itemStack) { // ! TODO: This method is suspiscious as fuck - Luna Lage (Desoroxxx)
         Optional<PlayerItemInstance<?>> result = Optional.empty();

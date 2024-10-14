@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.model.ModelBaseRendererWrapper;
 import com.paneedah.weaponlib.model.WrappableModel;
+import lombok.Getter;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -159,7 +160,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         }
 
         public Builder withModelClass(String modelClass) {
-            this.modelClassName = modelClass;
+            modelClassName = modelClass;
             return this;
         }
 
@@ -170,7 +171,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
         public Builder withNightVision(boolean nightVision) {
             this.nightVision = nightVision;
-            this.vignetteEnabled = nightVision;
+            vignetteEnabled = nightVision;
             return this;
         }
 
@@ -186,14 +187,9 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         }
 
         public Builder withBreathingSound(String sound) {
-            this.breathingSound = sound.toLowerCase();
+            breathingSound = sound.toLowerCase();
             return this;
         }
-        /*
-        public Builder withModelSupplier(Function<Integer, ModelBiped> modelFactory) {
-            this.modelFactory = modelFactory;
-            return this;
-        }*/
 
         public Builder withCompatibleAttachment(AttachmentCategory category, ModelBase attachmentModel, String textureName,
                                                 Consumer<ModelBase> positioner) {
@@ -203,7 +199,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         }
 
         public Builder withShieldCapacity(double capacity) {
-            this.maxShieldCapacity = capacity;
+            maxShieldCapacity = capacity;
             return this;
         }
 
@@ -218,10 +214,10 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         }
 
         public Builder withShieldIndicatorPosition(double x, double y, double width, double height) {
-            this.shieldIndicatorPositionX = x;
-            this.shieldIndicatorPositionY = y;
-            this.shieldIndicatorWidth = width;
-            this.shieldIndicatorHeight = height;
+            shieldIndicatorPositionX = x;
+            shieldIndicatorPositionY = y;
+            shieldIndicatorWidth = width;
+            shieldIndicatorHeight = height;
             return this;
         }
 
@@ -232,20 +228,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         }
 
         public void build(boolean isClient) {
-
-//            if(FMLCommonHandler.instance().getSide().isClient()) {
-//              try {
-//                  chestModel = (ModelBiped) Class.forName(modelClassName).newInstance();
-//              } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-//                  throw new IllegalStateException("Missing chest model", e);
-//              }
-//
-//              try {
-//                  bootsModel = (ModelBiped) Class.forName(modelClassName).newInstance();
-//              } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-//                  throw new IllegalStateException("Missing boots model", e);
-//              }
-//            }
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
             CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.HEAD, unlocalizedHelmetName, textureName, chestModel, hudTextureName);
@@ -272,9 +254,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.FEET,
                     unlocalizedBootsName, textureName, bootsModel, hudTextureName);
 
-            if (armorBoots != null) {
-                armorBoots.setCreativeTab(creativeTab);
-            }
+            armorBoots.setCreativeTab(creativeTab);
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
             armorBoots.setRegistryName(ID, unlocalizedBootsName.toLowerCase()); // temporary hack
@@ -327,7 +307,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
             armorHelmet.hasNightVision = nightVision;
             armorHelmet.vignetteEnabled = vignetteEnabled;
-            armorHelmet.exposureReductionFactor = this.exposureReductionFactor;
+            armorHelmet.exposureReductionFactor = exposureReductionFactor;
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
             armorHelmet.breathingSound = context.registerSound(breathingSound);
             armorHelmet.setRegistryName(ID, unlocalizedHelmetName.toLowerCase()); // temporary hack
@@ -402,10 +382,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             armorBoots.setRegistryName(ID, unlocalizedBootsName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorBoots);
 
-//            armorBoots.maxShieldCapacity = maxShieldCapacity;
-//            armorBoots.shieldRegenerationRate = shieldRegenerationRate;
-//            armorBoots.shieldRegenerationTimeout = shieldRegenerationTimeout;
-
             if (FMLCommonHandler.instance().getSide().isClient()) {
                 COOKING_QUEUE.add(armorBoots);
             }
@@ -420,6 +396,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
     //private EntityEquipmentSlot slot;
     private boolean hasNightVision;
+    @Getter
     private boolean vignetteEnabled;
     private float exposureReductionFactor;
 
@@ -429,11 +406,17 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     //private boolean shieldEnabled;
     private long shieldRegenerationTimeout = 1000;
     private double shieldRegenerationRate = 1.0; // restored shield capacity per sec
+    @Getter
     private double maxShieldCapacity;
+    @Getter
     private final String unlocalizedArmorSetName;
+    @Getter
     private double shieldIndicatorPositionX;
+    @Getter
     private double shieldIndicatorPositionY;
+    @Getter
     private double shieldIndicatorWidth;
+    @Getter
     private double shieldIndicatorHeight;
     private String shieldIndicatorMaskTextureName;
     private String shieldIndicatorProgressBarTextureName;
@@ -448,7 +431,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         this.textureName = textureName;
         this.model = model;
         this.hudTextureName = hudTextureName;
-        this.compatibleEquipmentType = armorType;
+        compatibleEquipmentType = armorType;
         this.unlocalizedArmorSetName = unlocalizedArmorSetName;
     }
 
@@ -468,9 +451,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             armorModel.bipedBody.showModel = armorSlot == EntityEquipmentSlot.CHEST;
             armorModel.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
             armorModel.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
-
-//                armorModel.bipedRightLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
-//                armorModel.bipedLeftLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
 
             if (entityLiving instanceof EntityPlayer) {
                 Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject(entityLiving);
@@ -509,10 +489,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
     public String getShieldIndicatorProgressBarTextureName() {
         return ID + ":textures/hud/" + shieldIndicatorProgressBarTextureName + ".png";
-    }
-
-    public String getUnlocalizedArmorSetName() {
-        return unlocalizedArmorSetName;
     }
 
 
@@ -645,13 +621,9 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         return hasNightVision;
     }
 
-    public boolean isVignetteEnabled() {
-        return vignetteEnabled;
-    }
-
     @Override
     public Function<Float, Float> getAbsorbFunction(Spreadable spreadable) {
-        return dose -> dose * (1f - exposureReductionFactor);
+        return dose -> Float.valueOf(dose * (1f - exposureReductionFactor));
     }
 
     @Override
@@ -676,37 +648,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
                 }
             }
         }
-        /*
-          if(!worldIn.isRemote && entityIn != null) {
-            if (stack.getTagCompound() == null)
-                stack.setTagCompound(new NBTTagCompound());
-
-            NBTTagCompound nbt = stack.getTagCompound();
-            long lastBreathTimestamp = nbt.getLong("LastBreathTimestamp");
-
-            long breathingPeriodMillis;
-            if(entityIn.isSprinting()) {
-                long startRunningTimestamp = nbt.getLong("StartRunningTimestamp");
-                if(startRunningTimestamp == 0) {
-                    nbt.setLong("StartRunningTimestamp", System.currentTimeMillis());
-                }
-                long runningDuration = System.currentTimeMillis() - startRunningTimestamp;
-                float runningProgress = MiscUtils.clamp(((float)runningDuration) / 5000, 0.0f, 1.0f);
-                breathingPeriodMillis = 2000L - (long)(runningProgress * 1500);
-                System.out.println("Breathing period: " + breathingPeriodMillis);
-            } else {
-                nbt.setLong("StartRunningTimestamp", 0L);
-                breathingPeriodMillis = 2000;
-            }
-
-            if(lastBreathTimestamp + breathingPeriodMillis < System.currentTimeMillis()
-                    && entityIn instanceof EntityLivingBase) {
-                //((EntityLivingBase) entityIn).playSound(breathingSound, 1, 1);
-                compatibility.playSoundAtEntity((EntityLivingBase) entityIn, breathingSound, 1.0f, 1.0f);
-                System.out.println("Breathe!");
-                nbt.setLong("LastBreathTimestamp", System.currentTimeMillis());
-            }
-        }*/
     }
 
     public EntityEquipmentSlot getCompatibleEquipmentSlot() {
@@ -784,29 +725,9 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         }
     }
 
-    public double getMaxShieldCapacity() {
-        return maxShieldCapacity;
-    }
-
-    public double getShieldIndicatorPositionX() {
-        return shieldIndicatorPositionX;
-    }
-
-    public double getShieldIndicatorPositionY() {
-        return shieldIndicatorPositionY;
-    }
-
-    public double getShieldIndicatorWidth() {
-        return shieldIndicatorWidth;
-    }
-
-    public double getShieldIndicatorHeight() {
-        return shieldIndicatorHeight;
-    }
-
     @Override
     public CraftingEntry[] getModernRecipe() {
-        return this.modernRecipe;
+        return modernRecipe;
     }
 
     @Override
@@ -816,16 +737,16 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
     @Override
     public CraftingGroup getCraftingGroup() {
-        return this.craftGroup;
+        return craftGroup;
     }
 
     @Override
     public void setCraftingRecipe(CraftingEntry[] recipe) {
-        this.modernRecipe = recipe;
+        modernRecipe = recipe;
     }
 
     @Override
     public void setCraftingGroup(CraftingGroup group) {
-        this.craftGroup = group;
+        craftGroup = group;
     }
 }

@@ -44,9 +44,9 @@ public class Kar98KFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 1f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(1f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -64,10 +64,8 @@ public class Kar98KFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Kar98Kaction, true, (model) -> {
-                    if (model instanceof Kar98Kboltaction) {
-//                GL11.glTranslatef(-1.38F, -1.05F, 0.59F);
-//                GL11.glRotatef(90f, 0f, 0f, 1f);
-                    }
+                    //                GL11.glTranslatef(-1.38F, -1.05F, 0.59F);
+                    //                GL11.glRotatef(90f, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Bullet, true, (model) -> {
                     if (model instanceof BulletBig) {
@@ -76,10 +74,6 @@ public class Kar98KFactory implements GunFactory {
                         GL11.glRotatef(90f, 1f, 0f, 0f);
 
 
-//                GL11.glScaled(0.4F, 0.4F, 0.6F);
-//                GL11.glTranslatef(-0.95F, -3.1F, -3.5F);
-//                GL11.glRotatef(70f, 1f, 0f, 0f);
-//                GL11.glRotatef(5f, 0f, 1f, 0f);
                     }
                 })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
@@ -98,7 +92,7 @@ public class Kar98KFactory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -225,41 +219,41 @@ public class Kar98KFactory implements GunFactory {
                     if (model instanceof M4Iron1) {
                         GL11.glTranslatef(0.17F, -1.42F, 0.43F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(-0.11F, -1.29F, -9.7F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron1) {
+                    } else if (null instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(0.13F, -1.55F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.29F, -1.71F, -3.88F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
+                    } else if (null instanceof G36CIron1) {
                         GL11.glTranslatef(-0.22F, -1.94F, -1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
+                    } else if (null instanceof G36CIron2) {
                         GL11.glTranslatef(-0.21F, -1.37F, -8.65F);
                         GL11.glScaled(0.3F, 0.43F, 1.2F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if (null instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if (null instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(-0.13F, -1.39F, -9.7F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(-180F, 0f, 0f, 1f);
-                    } else if (model instanceof M14Iron) {
+                    } else if (null instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -1316,11 +1310,6 @@ public class Kar98KFactory implements GunFactory {
                                     GL11.glRotatef(-70.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.250000f, -0.350000f, 0.025000f);
 
-//                         GL11.glScalef(3f, 3f, 3f);
-//                         GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-75.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.065000f, 0.130000f, -0.105000f);
                                 })
 
                         .withFirstPersonHandPositioningZooming(

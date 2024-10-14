@@ -32,7 +32,7 @@ public class CustomTileEntityBlock extends BlockContainer {
     protected CustomTileEntityBlock(Material material, Class<? extends TileEntity> tileEntityClass) {
         super(material);
         this.tileEntityClass = tileEntityClass;
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+        setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 
     protected BlockStateContainer createBlockState() {
@@ -101,7 +101,7 @@ public class CustomTileEntityBlock extends BlockContainer {
     }
 
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(FACING, EnumFacing.byHorizontalIndex(meta & 3));
+        return getDefaultState().withProperty(FACING, EnumFacing.byHorizontalIndex(meta & 3));
     }
 
     /**

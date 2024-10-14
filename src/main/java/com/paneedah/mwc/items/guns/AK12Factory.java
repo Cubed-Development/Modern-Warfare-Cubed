@@ -44,9 +44,9 @@ public class AK12Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.13f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingVerticalOffset(-0.05f)
 //        .withShellCasingForwardOffset(-0.2f)
                 .withInaccuracy(1f)
@@ -88,42 +88,26 @@ public class AK12Factory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
 
                 .withCompatibleAttachment(Attachments.AK12DustCover, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.AK12BDustCover, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.AK12Handguard, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.AK12BHandguard, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.AK12Stock, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.AK12ZenitcoStock, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.AK12Grip, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.AK12ErgoGrip, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.AK12Iron, true, (model) -> {
                     if (model instanceof AKiron3) {
                         GL11.glTranslatef(-0.195F, -1.04F, -4.86F);
                         GL11.glScaled(0.9F, 0.55F, 0.5F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(-0.185F, -1.3F, -4.85F);
                         GL11.glScaled(0.55F, 0.55F, 0.68F);
                     }
@@ -162,7 +146,7 @@ public class AK12Factory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -174,10 +158,9 @@ public class AK12Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
                     GL11.glTranslatef(-0.177F, -1.35F, -1F);
@@ -306,7 +289,7 @@ public class AK12Factory {
                     if (model instanceof AK15ironsight) {
                         GL11.glTranslatef(-0.162F, -1.4F, -0.3F);
                         GL11.glScaled(0.52F, 0.52F, 0.6F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(-0.183F, -1.32F, -5F);
                         GL11.glScaled(0F, 0F, 0F);
                     }

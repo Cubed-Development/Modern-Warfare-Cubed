@@ -52,8 +52,6 @@ public class ModernWeatherRenderer extends IRenderHandler {
      * Check if it is raining or snowing
      * at a given block position
      *
-     * @param Position to check
-     *
      * @return True if raining, false if snowing
      */
     public static boolean isRainingOrSnowing(BlockPos pos) {
@@ -68,9 +66,6 @@ public class ModernWeatherRenderer extends IRenderHandler {
      * but it's best this calculation happens as infrequently
      * as possible.
      *
-     * @param player
-     *
-     * @return
      */
     public boolean shouldRecalculateRainVectors(EntityPlayer player) {
 
@@ -83,25 +78,13 @@ public class ModernWeatherRenderer extends IRenderHandler {
             previousPosition = player.getPositionVector();
             return true;
         }
-		
-		/*
-		// Rotation flag
-		boolean rotationFlag = Math.abs(player.rotationYaw - previousRotation) > 10;
-		if(rotationFlag) previousRotation = player.rotationYaw;
-		*/
 
         // Position flag
         boolean positionFlag = player.getPositionVector().x != previousPosition.x || player.getPositionVector().y != previousPosition.y || player.getPositionVector().z != previousPosition.z;
         if (positionFlag) {
             previousPosition = player.getPositionVector();
         }
-		
-		
 
-		/*
-		boolean thirdPersonFlag = MC.gameSettings.thirdPersonView != previousThirdPerson;
-		if(thirdPersonFlag) previousThirdPerson = MC.gameSettings.thirdPersonView;
-		*/
 
         return positionFlag;
     }
@@ -109,8 +92,6 @@ public class ModernWeatherRenderer extends IRenderHandler {
     /**
      * Check all rain in search area [(2*S)^2 blocks, where S is search area]
      *
-     * @param Entity player
-     * @param The interpolated position of the player
      */
     public void recalculateRainVectors(EntityPlayer player, Vec3d interpolatedPosition) {
 
@@ -137,32 +118,6 @@ public class ModernWeatherRenderer extends IRenderHandler {
 
             }
         }
-
-		/*
-		if(true) return;
-		Vec3d direction = new Vec3d(0, 0, 1);
-		if(MC.gameSettings.thirdPersonView == 1) direction = new Vec3d(0, 0, -1);
-		
-		
-		double delta = -20;
-		Vec3d lookVector = direction.rotateYaw((float) Math.toRadians(-player.rotationYaw + (4*delta)));
-		
-		for(int i = 0; i < 24; i++) {
-			
-			
-			float length = (float) (i % 4) * 3f;
-			if(length == 0) length = 1f;
-		
-				if(i % 4 == 0) {
-					lookVector = lookVector.rotateYaw((float) -Math.toRadians(delta));
-				}
-				
-				BlockPos rainPosition = new BlockPos(interpolatedPosition.x + lookVector.x*length, player.getPositionVector().y, interpolatedPosition.z + lookVector.z*length);
-				int worldPos = MC.world.getHeight(rainPosition.getX(), rainPosition.getZ());
-				rainPositions[i] = new float[] { 1.0f, (float) rainPosition.getX() + 1, (float) (rainPosition.getY() + (worldPos - player.getPosition().getY())), rainPosition.getZ()};
-
-		}
-		*/
 
 
     }
@@ -192,7 +147,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 
 
         // Initialize the timer
-        float timer = 0f;
+        float timer;
 
 
         // Culling is not favorable for this

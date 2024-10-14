@@ -1,13 +1,17 @@
 package com.paneedah.mwc.bases;
 
 import com.paneedah.mwc.MWC;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.item.Item;
 
 import java.util.Arrays;
 
 public class ItemBase extends Item {
 
+    @Setter
     int stackSize = 64;
+    @Getter
     String[] oreDictKeys;
 
     public ItemBase(String registryName) {
@@ -17,10 +21,6 @@ public class ItemBase extends Item {
         setMaxStackSize(stackSize);
         // Might want to change that?
         setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
-    }
-
-    public void setStackSize(int stackSize) {
-        this.stackSize = stackSize;
     }
 
     /*
@@ -33,17 +33,14 @@ public class ItemBase extends Item {
     }
 
     public void setOreDict(String oreDictKey) {
-        this.oreDictKeys = new String[]{oreDictKey};
+        oreDictKeys = new String[]{oreDictKey};
     }
 
     public void addOreDictKey(String oreDictKey) {
         // Creating a new array with a larger size to add the new key.
-        String[] newArray = Arrays.copyOf(this.oreDictKeys, this.oreDictKeys.length + 1);
+        String[] newArray = Arrays.copyOf(oreDictKeys, oreDictKeys.length + 1);
         newArray[newArray.length - 1] = oreDictKey;
-        this.oreDictKeys = newArray;
+        oreDictKeys = newArray;
     }
 
-    public String[] getOreDictKeys() {
-        return oreDictKeys;
-    }
 }

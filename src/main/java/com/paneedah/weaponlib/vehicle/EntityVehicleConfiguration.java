@@ -5,6 +5,7 @@ import com.paneedah.weaponlib.EntityConfiguration;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
+import lombok.Getter;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -19,11 +20,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.regex.Pattern;
 
 import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class EntityVehicleConfiguration implements EntityConfiguration {
 
+    @Getter
     public static class Seat {
         Vec3d seatPosition;
 
@@ -31,27 +34,15 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             seatPosition = position;
         }
 
-        public Vec3d getSeatPosition() {
-            return seatPosition;
-        }
-
 
     }
 
-    /*
-        private static final double DEFAULT_BACKWARD_DECCELERATION_FACTOR = 0.94;
-        private static final double DEFAULT_FORWARD_DECCELERATION_FACTOR = 0.96;
-        private static final double DEFAULT_ACCELERATION_INCREMENT = 0.02;
-        private static final double DEFAULT_MIN_VELOCITY_THRESHOLD = 0.01;
-        private static final double DEFAULT_ON_GROUND_FRICTION_FACTOR = 0.97;
-        private static final double DEFAULT_IN_AIR_FRICTION_FACTOR = 0.99;
-        private static final double DEFAULT_UNRIDDEN_DECCELERATION = 0.9;
-        private static final double DEFAULT_IN_WATER_DECCELERATION = 0.95; */
     private static final int DEFAULT_TRACKING_RANGE = 160;
     private static final int DEFAULT_UPDATE_FREQUENCY = 3;
 
     public static class Builder {
 
+        private static final Pattern $ = Pattern.compile("$", Pattern.LITERAL);
         private Class<? extends Entity> baseClass = EntityVehicle.class;
         private String name;
         private Supplier<Integer> entityIdSupplier;
@@ -88,30 +79,8 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
         private String rev5;
         private String rev6;
 
-        /*
-        private double backwardDeccelerationFactor = DEFAULT_BACKWARD_DECCELERATION_FACTOR;
-        private double forwardDeccelerationFactor = DEFAULT_FORWARD_DECCELERATION_FACTOR;
-        private double accelerationIncrement = DEFAULT_ACCELERATION_INCREMENT;
-        private double minVelocityThreshold = DEFAULT_MIN_VELOCITY_THRESHOLD;
-        private double onGroundFrictionFactor = DEFAULT_ON_GROUND_FRICTION_FACTOR;
-        private double inAirFrictionFactor = DEFAULT_IN_AIR_FRICTION_FACTOR;
+        private final Function<Double, Double> speedThreshold = s -> Double.valueOf(1.5 * s + 0.07);
 
-        private double unriddenDecceleration = DEFAULT_UNRIDDEN_DECCELERATION;
-        private double inWaterDecceleration = DEFAULT_IN_WATER_DECCELERATION;
-
-*/
-        private final int trackingRange = DEFAULT_TRACKING_RANGE;
-        private final int updateFrequency = DEFAULT_UPDATE_FREQUENCY;
-        private final boolean sendVelocityUpdates = true;
-
-        private final Function<Double, Double> speedThreshold = s -> 1.5 * s + 0.07;
-
-        /*
-        private double handlingFactor = 5.0;
-        private Function<Double, Double> handling = s -> 0.075 * s * s * handlingFactor + 0.08 * s * handlingFactor;
-        private Function<Double, Double> offGroundHandling = s -> 0.015 * s * s * handlingFactor + 0.016 * s * handlingFactor;
-
-*/
         private final List<Seat> seats = new ArrayList<>();
 
         private final List<VehiclePart> installedParts = new ArrayList<>();
@@ -120,9 +89,6 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
                 0.01f, 10f, 0.01f,
                 0.1f, 7f, 0.01f,
                 0.3f, 5f, 0.05f);
-
-        //     private GearShiftPattern shiftPattern = null;
-        //      private Engine engine;
 
         public PhysicsConfiguration physicsConfig;
 
@@ -134,19 +100,9 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
 
 
         public Builder withPhysicsConfig(PhysicsConfiguration conf) {
-            this.physicsConfig = conf;
+            physicsConfig = conf;
             return this;
         }
-        /*
-        public Builder withEngine(Engine engine) {
-        	this.engine = engine;
-        	return this;
-        }
-        
-        public Builder withGearShiftPattern(GearShiftPattern pattern) {
-        	this.shiftPattern = pattern;
-        	return this;
-        }*/
 
 
         public Builder withBaseClass(Class<? extends Entity> baseClass) {
@@ -175,9 +131,9 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
         }
 
         public Builder withOBBDimensions(double length, double width, double height) {
-            this.obbLength = length;
-            this.obbWidth = width;
-            this.obbHeight = height;
+            obbLength = length;
+            obbWidth = width;
+            obbHeight = height;
             return this;
 
         }
@@ -188,13 +144,13 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
         }
 
         public Builder withConstantRevSound(String constantRev) {
-            this.constantRevSound = constantRev.toLowerCase();
+            constantRevSound = constantRev.toLowerCase();
             return this;
         }
 
         public Builder withShiftSettings(boolean perform, boolean rightHand) {
-            this.doShiftAnim = perform;
-            this.shiftWRight = rightHand;
+            doShiftAnim = perform;
+            shiftWRight = rightHand;
             return this;
         }
 
@@ -204,61 +160,20 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
         }
 
         public Builder withRevSounds(String baseRevString) {
-            this.rev1 = baseRevString.replace("$", "1");
-            this.rev2 = baseRevString.replace("$", "2");
-            this.rev3 = baseRevString.replace("$", "3");
-            this.rev4 = baseRevString.replace("$", "4");
-            this.rev5 = baseRevString.replace("$", "5");
-            this.rev6 = baseRevString.replace("$", "6");
+            rev1 = $.matcher(baseRevString).replaceAll("1");
+            rev2 = $.matcher(baseRevString).replaceAll("2");
+            rev3 = $.matcher(baseRevString).replaceAll("3");
+            rev4 = $.matcher(baseRevString).replaceAll("4");
+            rev5 = $.matcher(baseRevString).replaceAll("5");
+            rev6 = $.matcher(baseRevString).replaceAll("6");
 
             return this;
         }
-        /*
-        public Builder withTransmission(Transmission transmission) {
-        	this.transmission = transmission;
-        	return this;
-        }*/
 
         public Builder withRunSound(String runSound) {
             this.runSound = runSound.toLowerCase();
             return this;
         }
-
-        /*
-        public Builder withHandling(Function<Double, Double> handling) {
-            this.handling = handling;
-            return this;
-        }
-
-        public Builder withOffGroundHandling(Function<Double, Double> offGroundHandling) {
-            this.offGroundHandling = offGroundHandling;
-            return this;
-        }
-
-        public Builder withHandlingFactor(double handlingFactor) {
-            this.handlingFactor = handlingFactor;
-            return this;
-        }
-
-        public Builder withBackwardDeccelerationFactor(double backwardDeccelerationFactor) {
-            this.backwardDeccelerationFactor = backwardDeccelerationFactor;
-            return this;
-        }
-
-        public Builder withForwardDeccelerationFactor(double forwardDeccelerationFactor) {
-            this.forwardDeccelerationFactor = forwardDeccelerationFactor;
-            return this;
-        }
-
-        public Builder withAccelerationIncrement(double accelerationIncrement) {
-            this.accelerationIncrement = accelerationIncrement;
-            return this;
-        }
-
-        public Builder withMinVelocityThreshold(double minVelocityThreshold) {
-            this.minVelocityThreshold = minVelocityThreshold;
-            return this;
-        } */
 
 
         public Builder customBlock() {
@@ -267,45 +182,19 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             return this;
         }
 
-        /*
-        public Builder withOnGroundFrictionFactor(double onGroundFrictionFactor) {
-            this.onGroundFrictionFactor = onGroundFrictionFactor;
-            return this;
-        }
-
-        public Builder withInAirFrictionFactor(double inAirFrictionFactor) {
-            this.inAirFrictionFactor = inAirFrictionFactor;
-            return this;
-        }
-
-        public Builder withUnriddenDecceleration(double unriddenDecceleration) {
-            this.unriddenDecceleration = unriddenDecceleration;
-            return this;
-        }
-
-        public Builder withInWaterDecceleration(double inWaterDecceleration) {
-            this.inWaterDecceleration = inWaterDecceleration;
-            return this;
-        }
-
-        public Builder withSpeedThreshold(Function<Double, Double> speedThreshold) {
-            this.speedThreshold = speedThreshold;
-            return this;
-        } */
-
         public Builder withSeat(Vec3d seatPos) {
-            this.seats.add(new Seat(seatPos));
+            seats.add(new Seat(seatPos));
             return this;
         }
 
 
         public Builder withRenderer(StatefulRenderer<VehicleRenderableState> hierarchicalRenderer) {
-            this.renderer = hierarchicalRenderer;
+            renderer = hierarchicalRenderer;
             return this;
         }
 
         public EntityVehicleConfiguration build(ModContext context) {
-            int modEntityId = entityIdSupplier.get();
+            int modEntityId = entityIdSupplier.get().intValue();
             String entityName = name != null ? name : baseClass.getSimpleName() + "Ext" + modEntityId;
 
             EntityVehicleConfiguration configuration = new EntityVehicleConfiguration(this);
@@ -320,8 +209,8 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             configuration.gearshiftSound = context.registerSound(gearshiftSound);
 
 
-            configuration.shiftRight = this.shiftWRight;
-            configuration.doShiftAnim = this.doShiftAnim;
+            configuration.shiftRight = shiftWRight;
+            configuration.doShiftAnim = doShiftAnim;
 
 
             //  configuration.engine = engine;
@@ -329,9 +218,9 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             configuration.physicsConfig = physicsConfig;
             //  configuration.transmission = transmission;
 
-            configuration.obbLength = this.obbLength;
-            configuration.obbWidth = this.obbWidth;
-            configuration.obbHeight = this.obbHeight;
+            configuration.obbLength = obbLength;
+            configuration.obbWidth = obbWidth;
+            configuration.obbHeight = obbHeight;
 
             configuration.rev1 = context.registerSound(rev1);
             configuration.rev2 = context.registerSound(rev2);
@@ -345,7 +234,8 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance()
                     .generateEntitySubclass(baseClass, modEntityId, configuration);
 
-            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            boolean sendVelocityUpdates = true;
+            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, entityName, modEntityId, context.getMod(), DEFAULT_TRACKING_RANGE, DEFAULT_UPDATE_FREQUENCY, sendVelocityUpdates);
 
             ItemVehicle vehicleItem = new ItemVehicle(entityName, entityClass);
 
@@ -356,12 +246,6 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
 
             // register the item renderer
 
-
-            // System.out.println("VEHICLE REGISTRY NAME: " + vehicleItem.getRegistryName());
-            //
-//            if(spawnEgg) {
-//                compatibility.registerEgg(context, entityClass, entityName, primaryEggColor, secondaryEggColor);
-//            }
 
             if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
                 RendererRegistration.registerRenderableEntity(context, entityClass, renderer);
@@ -389,12 +273,17 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
     //public Transmission transmission;
 
 
+    @Getter
     private SoundEvent enterSound;
+    @Getter
     private SoundEvent exitSound;
+    @Getter
     private SoundEvent idleSound;
+    @Getter
     private SoundEvent runSound;
     private SoundEvent constantRevSound;
 
+    @Getter
     private SoundEvent backfireSound;
     private SoundEvent gearshiftSound;
 
@@ -417,35 +306,19 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
 
     private final Builder builder;
 
+    @Getter
     private PhysicsConfiguration physicsConfig;
-
-//    private GearShiftPattern pattern;
-
-    //   private Engine engine;
 
     public EntityVehicleConfiguration(Builder builder) {
         this.builder = builder;
     }
 
-    public PhysicsConfiguration getPhysicsConfig() {
-        return this.physicsConfig;
-    }
-    
-    /*
-    public GearShiftPattern getPattern() {
-    	return this.pattern;
-    }
-    
-    public Engine getEngine() {
-    	return this.engine;
-    }*/
-
     public boolean performShiftAnimation() {
-        return this.doShiftAnim;
+        return doShiftAnim;
     }
 
     public boolean shiftWithRight() {
-        return this.shiftRight;
+        return shiftRight;
     }
 
     public SoundEvent getRevSound(int id) {
@@ -467,90 +340,17 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
     }
 
     public AxisAlignedBB getAABBforOBB() {
-        return new AxisAlignedBB(-this.obbWidth, -obbHeight, -obbLength, this.obbWidth, obbHeight, obbLength);
-    }
-
-    /*
-    public Transmission getVehicleTransmission() {
-    	return transmission;
-    }*/
-
-    public SoundEvent getEnterSound() {
-        return enterSound;
-    }
-
-    public SoundEvent getExitSound() {
-        return exitSound;
-    }
-
-    public SoundEvent getIdleSound() {
-        return idleSound;
-    }
-
-    public SoundEvent getRunSound() {
-        return runSound;
+        return new AxisAlignedBB(-obbWidth, -obbHeight, -obbLength, obbWidth, obbHeight, obbLength);
     }
 
     public SoundEvent getConstantRev() {
         return constantRevSound;
     }
 
-    public SoundEvent getBackfireSound() {
-        return this.backfireSound;
-    }
-
     public SoundEvent getShiftSound() {
-        return this.gearshiftSound;
+        return gearshiftSound;
     }
 
-    /*
-    public Function<Double, Double> getHandling() {
-        return builder.handling;
-    }
-
-    public Function<Double, Double> getOffGroundHandling() {
-        return builder.offGroundHandling;
-    }
-    
-    
-    
-
-    public double getBackwardDeccelerationFactor() {
-        return builder.backwardDeccelerationFactor;
-    }
-
-    public double getForwardDeccelerationFactor() {
-        return builder.forwardDeccelerationFactor;
-    }
-
-    public double getAccelerationIncrement() {
-        return builder.accelerationIncrement;
-    }
-
-    public double getMinVelocityThreshold() {
-        return builder.minVelocityThreshold;
-    }
-
-    public double getOnGroundFrictionFactor() {
-        return builder.onGroundFrictionFactor;
-    }
-
-    public double getInAirFrictionFactor() {
-        return builder.inAirFrictionFactor;
-    }
-
-    public double getUnriddenDecceleration() {
-        return builder.unriddenDecceleration;
-    }
-
-    public double getInWaterDecceleration() {
-        return builder.inWaterDecceleration;
-    }
-
-    public Function<Double, Double> getSpeedThreshold() {
-        return builder.speedThreshold;
-    }
-*/
     public VehicleSuspensionStrategy getSuspensionStrategy() {
         return builder.suspensionStrategy;
     }

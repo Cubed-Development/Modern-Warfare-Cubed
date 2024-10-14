@@ -13,13 +13,11 @@ import java.util.function.Supplier;
 @SideOnly(Side.CLIENT)
 public class RevSound extends PositionedSound {
     private final Supplier<Vector3D> positionProvider;
-    private final EntityVehicle vehicle;
 
     public RevSound(SoundEvent sound, Supplier<Vector3D> positionProvider, EntityVehicle vehicle) {
         super(sound, SoundCategory.BLOCKS);
         this.repeat = true;
         this.volume = 1.5F;
-        this.vehicle = vehicle;
         this.positionProvider = positionProvider;
     }
 

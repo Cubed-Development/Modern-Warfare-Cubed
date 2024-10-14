@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.melee;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 
 public enum MeleeState implements ManagedState<MeleeState> {
 
@@ -36,7 +37,8 @@ public enum MeleeState implements ManagedState<MeleeState> {
 
     private final boolean isTransient;
 
-    private int priority = DEFAULT_PRIORITY;
+    @Getter
+    private int priority;
 
     MeleeState() {
         this(null, null, null, true);
@@ -50,10 +52,6 @@ public enum MeleeState implements ManagedState<MeleeState> {
         this(null, null, null, isTransient);
     }
 
-//	private WeaponState(WeaponState permitRequestedState, WeaponState transactionFinalState) {
-//		this(permitRequestedState, transactionFinalState, true);
-//	}
-
     MeleeState(MeleeState preparingPhase, MeleeState permitRequestedState, MeleeState transactionFinalState, boolean isTransient) {
         this(DEFAULT_PRIORITY, preparingPhase, permitRequestedState, transactionFinalState, isTransient);
     }
@@ -61,8 +59,8 @@ public enum MeleeState implements ManagedState<MeleeState> {
     MeleeState(int priority, MeleeState preparingPhase, MeleeState permitRequestedState, MeleeState transactionFinalState, boolean isTransient) {
         this.priority = priority;
         this.preparingPhase = preparingPhase;
-        this.permitRequestedPhase = permitRequestedState;
-        this.commitPhase = transactionFinalState;
+        permitRequestedPhase = permitRequestedState;
+        commitPhase = transactionFinalState;
         this.isTransient = false; //isTransient; // TODO: make states non-transient, remove flag from constructor
         //this is required to have up-to-date state on server, e.g. preparing, requested;
         // otherwise issus arise, e.g. item toss would not work correctly
@@ -87,10 +85,6 @@ public enum MeleeState implements ManagedState<MeleeState> {
     @Override
     public MeleeState commitPhase() {
         return commitPhase;
-    }
-
-    public int getPriority() {
-        return priority;
     }
 
     @Override

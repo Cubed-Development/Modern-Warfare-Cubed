@@ -33,9 +33,9 @@ public class ChainsawFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0f)
-                .withFlashScale(() -> 0f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.2f)
+                .withFlashScale(() -> Float.valueOf(0f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.2f))
                 .withBleedingCoefficient(40.0F)
                 .withSmoke(false)
                 .withShellCasingEjectEnabled(false)
@@ -61,8 +61,6 @@ public class ChainsawFactory implements GunFactory {
                     GL11.glScaled(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.ChainA, true, (model) -> {
-//             GL11.glTranslatef(0F, -1.9F, -0.9F);
-//             GL11.glRotatef(45F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.ChainB, true, (model) -> {
                     GL11.glScaled(1F, 1F, 1F);
@@ -107,14 +105,10 @@ public class ChainsawFactory implements GunFactory {
 
                         .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.Chain.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, -0.3F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
                         .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.Chain.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, -0.3F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
                         .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.ChainA.getRenderablePart(), (renderContext) -> {
@@ -246,13 +240,8 @@ public class ChainsawFactory implements GunFactory {
                             GL11.glTranslatef(-0.825000f, 0.925000f, -2.074999f);
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                //System.out.println("Position me for Acog");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider);//System.out.println("Position me for Acog");
+// Everything else
 
 
                         })
@@ -265,13 +254,8 @@ public class ChainsawFactory implements GunFactory {
                             GL11.glTranslatef(-0.825000f, 0.925000f, -1.994999f);
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                //System.out.println("Position me for Acog");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider);//System.out.println("Position me for Acog");
+// Everything else
 
 
                         })

@@ -41,9 +41,9 @@ public class M110Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -83,45 +83,37 @@ public class M110Factory implements GunFactory {
                         GL11.glTranslatef(0.13F, -1.135F, -5.2F);
                         GL11.glScaled(0.6F, 0.6F, 1.25F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.37F, -0.96F, -5.2F);
                         GL11.glScaled(0.6F, 0.6F, 1.25F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.03F, -0.78F, -4.97F);
                         GL11.glScaled(0.6F, 0.6F, 1.1F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.2F, -1.32F, -5.2f);
                         GL11.glScaled(0.6F, 0.8F, 1.3F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.M110Grip, true, (model) -> {
-//             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//             GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.M110Stock, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.M110Receiver, true, (model) -> {
                     if (model instanceof M110Receiver) {
-                    } else if (model instanceof AKRail) {
+                    } else if (null instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.319F, -2f);
                         GL11.glScaled(0.6F, 0.8F, 0.85F);
                     }
                 })
                 .withCompatibleAttachment(Magazines.M110Mag, (model) -> {
-//            GL11.glTranslatef(-0.33F, 0.5F, -1.3F);
-//            GL11.glScaled(1.05F, 1.2F, 1F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M110Action, true, (model) -> {
                     GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
                     GL11.glScaled(0.7F, 0.4F, 0.7F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M110EjectorAction, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//            GL11.glScaled(0.7F, 0.4F, 0.7F);
                 })
                 .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -196,7 +188,7 @@ public class M110Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -229,10 +221,9 @@ public class M110Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                     GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                     GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
@@ -490,8 +481,6 @@ public class M110Factory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//				GL11.glRotatef(45F, 0f, 1f, 0f);
-//				GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.18f, -0.02f, 0.3f);
 
                             // Standard Iron Sight Zoom

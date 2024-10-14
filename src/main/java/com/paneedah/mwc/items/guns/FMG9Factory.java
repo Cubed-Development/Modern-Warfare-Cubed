@@ -48,9 +48,9 @@ public class FMG9Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -116,7 +116,7 @@ public class FMG9Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -139,10 +139,9 @@ public class FMG9Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
@@ -307,8 +306,6 @@ public class FMG9Factory implements GunFactory {
                                 Magazines.GlockMag50)
 
                         .withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                         })
 
                         .withThirdPersonPositioningReloading(

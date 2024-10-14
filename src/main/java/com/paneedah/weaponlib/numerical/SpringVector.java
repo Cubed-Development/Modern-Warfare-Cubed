@@ -51,28 +51,28 @@ public class SpringVector implements ISimulator {
     }
 
     public void setDampening(double d) {
-        this.x.setDamping(d);
-        this.y.setDamping(d);
-        this.z.setDamping(d);
+        x.setDamping(d);
+        y.setDamping(d);
+        z.setDamping(d);
     }
 
     public void setConstant(double k) {
-        this.x.setSpringConstant(k);
-        this.y.setSpringConstant(k);
-        this.z.setSpringConstant(k);
+        x.setSpringConstant(k);
+        y.setSpringConstant(k);
+        z.setSpringConstant(k);
     }
 
     public void setMass(double m) {
-        this.x.setMass(m);
-        this.y.setMass(m);
-        this.z.setMass(m);
+        x.setMass(m);
+        y.setMass(m);
+        z.setMass(m);
     }
 
     @Override
     public void update(double dt) {
-        this.x.update(dt);
-        this.y.update(dt);
-        this.z.update(dt);
+        x.update(dt);
+        y.update(dt);
+        z.update(dt);
     }
 
     public void setPosition(double x, double y, double z) {
