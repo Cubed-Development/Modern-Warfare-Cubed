@@ -216,4 +216,12 @@ public final class PlayerItemInstanceRegistry {
     public long getCacheSize() {
         return itemStackInstanceCache.size();
     }
+
+    public void invalidateCache() {
+        itemStackInstanceCache.invalidateAll();
+    }
+
+    public void clearRegistry() {
+        registry.clear();
+    }
 }
