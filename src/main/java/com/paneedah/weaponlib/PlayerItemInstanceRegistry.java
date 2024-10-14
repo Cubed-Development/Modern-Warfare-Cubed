@@ -212,4 +212,8 @@ public final class PlayerItemInstanceRegistry {
     private boolean itemStackMatchesInstance(final ItemStack itemStack, final PlayerItemInstance<?> instance) {
         return itemStack.getItem() == instance.getItem() && instance.getUuid().equals(Tags.getInstanceUuid(itemStack));
     }
+
+    public long getCacheSize() {
+        return itemStackInstanceCache.size();
+    }
 }
