@@ -130,21 +130,20 @@ public final class PlayerItemInstanceRegistry {
 
                 PlayerItemInstance<?> instance = null;
 
-                int slot = -1;
-                if (MC.player == entityLiving) // For current player, the latest instance is available locally // TODO: Not checking if the player is not null
-                    for (slot = 0; slot < ((EntityPlayer) entityLiving).inventory.getSizeInventory(); slot++)
-                        if (((EntityPlayer) entityLiving).inventory.getStackInSlot(slot) == itemStack)
+                if (MC.player == entityLiving) { // For current player, the latest instance is available locally // TODO: Not checking if the player is not null
+                    for (int slot = 0; slot < ((EntityPlayer) entityLiving).inventory.getSizeInventory(); slot++) {
+                        if (((EntityPlayer) entityLiving).inventory.getStackInSlot(slot) == itemStack) {
+                            instance = getItemInstance((EntityPlayer) entityLiving, slot);
+                            LOGGER.debug("Resolved item stack instance {} in slot {}", instance, slot);
                             break;
-
-                if (slot >= 0) {
-                    instance = getItemInstance((EntityPlayer) entityLiving, slot);
-                    LOGGER.debug("Resolved item stack instance {} in slot {}", instance, slot);
+                        }
+                    }
                 }
 
                 if (instance == null || instance.getItem() != itemStack.getItem()) {
-                    LOGGER.debug("Deserializing instance for slot {} from stack {}", slot, itemStack);
+                    LOGGER.debug("Deserializing instance from stack {}", itemStack);
                     instance = Tags.getInstance(itemStack);
-                    LOGGER.debug("Deserialized instance {} for slot {} from stack {}", instance, slot, itemStack);
+                    LOGGER.debug("Deserialized instance {} from stack {}", instance, itemStack);
 
                     if (itemStack.getItem() instanceof PlayerItemInstanceFactory) {
                         LOGGER.debug("Creating temporary item stack instance {}", instance);
