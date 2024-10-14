@@ -85,6 +85,11 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Removed proning
 - Removed unused `ItemAmmo`
 
+### Optimization
+
+- Clear player item instance registry after rendering every weapon once on first world load
+- Invalidate player item instance registry itemstack instance cache after rendering every weapon once on first world load
+
 ### Internal
 
 - Made client sided mixins client side only
