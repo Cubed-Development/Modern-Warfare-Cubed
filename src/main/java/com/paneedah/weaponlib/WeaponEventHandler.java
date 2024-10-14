@@ -115,7 +115,7 @@ public class WeaponEventHandler {
 
             EntityPlayer player = (EntityPlayer) event.getEntity();
             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
-                    .getItemInstance(player, itemStack);
+                    .getCachedItemInstance(player, itemStack);
             if (instance instanceof PlayerWeaponInstance) {
                 PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) instance;
                 if (weaponInstance.isAimed() || weaponInstance.getState() == WeaponState.FIRING || weaponInstance.getState() == WeaponState.RECOILED || weaponInstance.getState() == WeaponState.PAUSED) {

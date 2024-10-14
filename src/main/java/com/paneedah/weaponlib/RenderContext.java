@@ -154,7 +154,7 @@ public class RenderContext<RS> implements PartPositionProvider {
             return (PlayerWeaponInstance) playerItemInstance;
         }
         PlayerItemInstance<?> itemInstance = MWC.modContext.getPlayerItemInstanceRegistry()
-                .getItemInstance(player, itemStack);
+                .getCachedItemInstance(player, itemStack);
         if (itemInstance instanceof PlayerWeaponInstance) {
             return (PlayerWeaponInstance) itemInstance;
         }
