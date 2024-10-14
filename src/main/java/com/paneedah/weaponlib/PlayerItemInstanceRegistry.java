@@ -25,7 +25,7 @@ public final class PlayerItemInstanceRegistry {
     private final Cache<ItemStack, Optional<PlayerItemInstance<?>>> itemStackInstanceCache = CacheBuilder
             .newBuilder()
             .weakKeys()
-            .maximumSize(512)
+            .maximumSize(1024)
             .build();
 
     private final SyncManager<?> syncManager;
