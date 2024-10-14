@@ -651,7 +651,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         float rate = builder.normalRandomizingRate;
         RenderableState currentState = null;
 
-        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getItemInstance(player, itemStack);
+        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerGrenadeInstance playerGrenadeInstance = null;

@@ -523,7 +523,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         float rate = builder.normalRandomizingRate;
         RenderableState currentState = null;
 
-        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getItemInstance(player, itemStack);
+        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerMeleeInstance playerMeleeInstance = null;
@@ -729,7 +729,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
                     .filter(ca -> ca.getAttachment() instanceof MeleeSkin).findAny().orElse(null);
             if (compatibleSkin != null) {
                 PlayerItemInstance<?> itemInstance = getClientModContext().getPlayerItemInstanceRegistry()
-                        .getItemInstance(renderContext.getPlayer(), weaponItemStack);
+                        .getCachedItemInstance(renderContext.getPlayer(), weaponItemStack);
                 if (itemInstance instanceof PlayerMeleeInstance) {
                     int textureIndex = ((PlayerMeleeInstance) itemInstance).getActiveTextureIndex();
                     if (textureIndex >= 0) {

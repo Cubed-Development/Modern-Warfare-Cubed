@@ -265,7 +265,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
             renderContext.setScale(0.08f);
             renderContext.setCompatibleTransformType(transformType);
 
-            renderContext.setPlayerItemInstance(MWC.modContext.getPlayerItemInstanceRegistry().getItemInstance(renderContext.getPlayer(), itemStack));
+            renderContext.setPlayerItemInstance(MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(renderContext.getPlayer(), itemStack));
 
             GL11.glPushMatrix();
             GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);

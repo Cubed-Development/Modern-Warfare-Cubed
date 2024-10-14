@@ -182,7 +182,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
         List<CompatibleAttachment<? extends AttachmentContainer>> activeAttachments = new ArrayList<>();
 
         PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry()
-                .getItemInstance(player, itemStack);
+                .getCachedItemInstance(player, itemStack);
 
 
         int[] activeAttachmentsIds;

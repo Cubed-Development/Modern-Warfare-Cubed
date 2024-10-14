@@ -199,7 +199,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 
         List<CompatibleAttachment<? extends AttachmentContainer>> activeAttachments = new ArrayList<>();
 
-        PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry().getItemInstance(player,
+        PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player,
                 itemStack);
 
         int[] activeAttachmentsIds;
