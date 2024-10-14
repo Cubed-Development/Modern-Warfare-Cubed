@@ -37,17 +37,17 @@ public final class PlayerItemInstanceRegistry {
     /**
      * Returns instance of the target class, or null if there is no instance or instance class does not match.
      */
-    public <T extends PlayerItemInstance<S>, S extends ManagedState<S>> T getMainHandItemInstance(final EntityLivingBase player, final Class<T> targetClass) {
+    public <T extends PlayerItemInstance<S>, S extends ManagedState<S>> T getMainHandItemInstance(final EntityPlayer player, final Class<T> targetClass) {
         final PlayerItemInstance<?> instance = getMainHandItemInstance(player);
 
         return targetClass.isInstance(instance) ? targetClass.cast(instance) : null;
     }
 
-    public PlayerItemInstance<?> getMainHandItemInstance(final EntityLivingBase player) {
-        if (player == null && !(player instanceof EntityPlayer))
+    public PlayerItemInstance<?> getMainHandItemInstance(final EntityPlayer player) {
+        if (player == null)
             return null;
 
-        return getItemInstance((EntityPlayer) player, ((EntityPlayer) player).inventory.currentItem);
+        return getItemInstance(player, player.inventory.currentItem);
     }
 
     public PlayerItemInstance<?> getItemInstance(final EntityPlayer player, final int slot) { // ! TODO: This needs urgent care, causes problems - Luna Lage (Desoroxxx)
@@ -82,11 +82,8 @@ public final class PlayerItemInstanceRegistry {
         return result;
     }
 
-    private PlayerItemInstance<?> createItemInstance(final EntityLivingBase player, final Map<Integer, PlayerItemInstance<?>> slotInstances, final int slot) {
-        if (!(player instanceof EntityPlayer))
-            return null;
-
-        final ItemStack itemStack = ((EntityPlayer) player).inventory.getStackInSlot(slot);
+    private PlayerItemInstance<?> createItemInstance(final EntityPlayer player, final Map<Integer, PlayerItemInstance<?>> slotInstances, final int slot) {
+        final ItemStack itemStack = player.inventory.getStackInSlot(slot);
         PlayerItemInstance<?> result = null;
 
         if (itemStack.getItem() instanceof PlayerItemInstanceFactory) {
@@ -124,7 +121,7 @@ public final class PlayerItemInstanceRegistry {
      * This method should be used when rendering only.
      */
     @SideOnly(CLIENT)
-    public PlayerItemInstance<?> getCachedItemInstance(final EntityLivingBase player, final ItemStack itemStack) { // ! TODO: This method is suspiscious as fuck - Luna Lage (Desoroxxx)
+    public PlayerItemInstance<?> getCachedItemInstance(final EntityLivingBase entityLiving, final ItemStack itemStack) { // ! TODO: This method is suspiscious as fuck - Luna Lage (Desoroxxx)
         Optional<PlayerItemInstance<?>> result = Optional.empty();
 
         try {
@@ -134,13 +131,13 @@ public final class PlayerItemInstanceRegistry {
                 PlayerItemInstance<?> instance = null;
 
                 int slot = -1;
-                if (MC.player == player) // For current player, the latest instance is available locally // TODO: Not checking if the player is not null
-                    for (slot = 0; slot < ((EntityPlayer) player).inventory.getSizeInventory(); slot++)
-                        if (((EntityPlayer) player).inventory.getStackInSlot(slot) == itemStack)
+                if (MC.player == entityLiving) // For current player, the latest instance is available locally // TODO: Not checking if the player is not null
+                    for (slot = 0; slot < ((EntityPlayer) entityLiving).inventory.getSizeInventory(); slot++)
+                        if (((EntityPlayer) entityLiving).inventory.getStackInSlot(slot) == itemStack)
                             break;
 
                 if (slot >= 0) {
-                    instance = getItemInstance((EntityPlayer) player, slot);
+                    instance = getItemInstance((EntityPlayer) entityLiving, slot);
                     LOGGER.debug("Resolved item stack instance {} in slot {}", instance, slot);
                 }
 
@@ -151,8 +148,8 @@ public final class PlayerItemInstanceRegistry {
 
                     if (itemStack.getItem() instanceof PlayerItemInstanceFactory) {
                         LOGGER.debug("Creating temporary item stack instance {}", instance);
-                        instance = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(player, itemStack, -1);
-                        instance.setPlayer(player);
+                        instance = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(entityLiving, itemStack, -1);
+                        instance.setPlayer(entityLiving);
                     }
                 }
 
