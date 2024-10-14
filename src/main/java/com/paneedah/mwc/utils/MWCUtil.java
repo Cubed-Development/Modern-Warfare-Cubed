@@ -1,6 +1,7 @@
 package com.paneedah.mwc.utils;
 
 import com.paneedah.weaponlib.ItemMagazine;
+import com.paneedah.weaponlib.Tags;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.jafama.FastMath;
@@ -85,7 +86,7 @@ public class MWCUtil {
             return 0;
         }
 
-        if (player.isCreative() && !player.isSneaking()) {
+        if (player.isCreative()) {
             return amount;
         }
 
@@ -129,20 +130,25 @@ public class MWCUtil {
     public static ItemStack consumeItemsFromPlayerInventory(final List<? extends ItemMagazine> items, final Comparator<ItemStack> comparator, final EntityPlayer player) {
         ItemStack maxStack = null;
 
-        if (player.isCreative() && !player.isSneaking()) {
-            return items.stream().map(ItemMagazine::create).max(comparator).orElse(null);
-        }
-
         for (final ItemStack currentStack : player.inventory.mainInventory)
             if (items.contains(currentStack.getItem()) && (maxStack == null || comparator.compare(currentStack, maxStack) > 0)) {
                 maxStack = currentStack;
             }
 
         if (maxStack == null || maxStack.isEmpty()) {
+            if (player.isCreative())
+                return items.stream().map(ItemMagazine::create).max(comparator).orElse(null);
+
             return null;
         }
 
-        return maxStack.splitStack(1);
+        if (!player.isCreative()) {
+            maxStack = maxStack.splitStack(1);
+        } else {
+            Tags.setAmmo(maxStack, ((ItemMagazine) maxStack.getItem()).getCapacity());
+        }
+
+        return maxStack;
     }
 
     /**

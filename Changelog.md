@@ -68,6 +68,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Reworked magazines tooltips
 - Reworked vests tooltips
 - Updated Chinese translation
+- Reworked how reloading works in creative so that it aligns with vanilla behavior
 
 ### Fixed
 
