@@ -130,7 +130,7 @@ public final class PlayerItemInstanceRegistry {
 
                 PlayerItemInstance<?> instance = null;
 
-                if (MC.player == entityLiving) { // For current player, the latest instance is available locally // TODO: Not checking if the player is not null
+                if (MC.player != null && MC.player == entityLiving) { // For current player, the latest instance is available locally
                     for (int slot = 0; slot < ((EntityPlayer) entityLiving).inventory.getSizeInventory(); slot++) {
                         if (((EntityPlayer) entityLiving).inventory.getStackInSlot(slot) == itemStack) {
                             instance = getItemInstance((EntityPlayer) entityLiving, slot);
