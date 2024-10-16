@@ -358,17 +358,18 @@ public class ItemMelee extends Item implements
 //    }
 
     @Override
-    public PlayerMeleeInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
-        PlayerMeleeInstance instance = new PlayerMeleeInstance(slot, player, itemStack);
-        //state.setAmmo(Tags.getAmmo(itemStack)); // TODO: get ammo properly
+    public PlayerMeleeInstance createItemInstance(final EntityLivingBase entityLivingBase, final ItemStack itemStack, final int slot) {
+        final PlayerMeleeInstance instance = new PlayerMeleeInstance(slot, entityLivingBase, itemStack);
+
+//        instance.setAmmo(Tags.getAmmo(itemStack)); // TODO: Get ammo properly
         instance.setState(MeleeState.READY);
 
-        for (CompatibleAttachment<ItemMelee> compatibleAttachment : ((ItemMelee) itemStack.getItem()).getCompatibleAttachments().values()) {
-            ItemAttachment<ItemMelee> attachment = compatibleAttachment.getAttachment();
-            if (compatibleAttachment.isDefault() && attachment.getApply3() != null) {
+        for (final CompatibleAttachment<ItemMelee> compatibleAttachment : ((ItemMelee) itemStack.getItem()).getCompatibleAttachments().values()) {
+            final ItemAttachment<ItemMelee> attachment = compatibleAttachment.getAttachment();
+            if (compatibleAttachment.isDefault() && attachment.getApply3() != null)
                 attachment.getApply3().apply(attachment, instance);
-            }
         }
+
         return instance;
     }
 

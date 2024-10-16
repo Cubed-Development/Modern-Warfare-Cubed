@@ -2,9 +2,11 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
+import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
+@NoArgsConstructor
 public class PlayerMagazineInstance extends PlayerItemInstance<MagazineState> {
 
     static {
@@ -12,11 +14,6 @@ public class PlayerMagazineInstance extends PlayerItemInstance<MagazineState> {
     }
 
 //	private int ammo;
-
-
-    public PlayerMagazineInstance() {
-        super();
-    }
 
     @Override
     public boolean shouldHaveInstanceTags() {

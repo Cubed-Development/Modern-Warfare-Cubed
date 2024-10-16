@@ -118,7 +118,7 @@ public final class PlayerItemInstanceRegistry {
             }
 
             if (result.getPlayer() != player) {
-                LOGGER.warn("Invalid player " + result.getPlayer() + " associated with instance in slot, changing to {}", player);
+                LOGGER.warn("Invalid player {} associated with instance in slot, changing to {}", result.getPlayer(), player);
                 result.setPlayer(player);
             }
         }

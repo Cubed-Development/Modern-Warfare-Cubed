@@ -61,9 +61,11 @@ public class ItemHandheld<T> extends ItemAttachment<T>
     }
 
     @Override
-    public PlayerHandheldInstance createItemInstance(EntityLivingBase player, ItemStack stack, int slot) {
-        PlayerHandheldInstance instance = new PlayerHandheldInstance(slot, player, stack);
+    public PlayerHandheldInstance createItemInstance(final EntityLivingBase entityLivingBase, final ItemStack itemStack, final int slot) {
+        final PlayerHandheldInstance instance = new PlayerHandheldInstance(slot, entityLivingBase, itemStack);
+
         instance.setState(HandheldState.READY);
+
         return instance;
     }
 

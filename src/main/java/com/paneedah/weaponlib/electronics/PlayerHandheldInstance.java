@@ -4,19 +4,17 @@ import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.perspective.Perspective;
 import io.netty.buffer.ByteBuf;
+import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
+@NoArgsConstructor
 public class PlayerHandheldInstance extends PlayerItemInstance<HandheldState> {
 
     private static final int SERIAL_VERSION = 1;
 
     static {
         TypeRegistry.getINSTANCE().register(PlayerHandheldInstance.class);
-    }
-
-    public PlayerHandheldInstance() {
-        super();
     }
 
     public PlayerHandheldInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {

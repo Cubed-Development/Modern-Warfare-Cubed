@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.CompatibleAttachment;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.PlayerItemInstance;
 import io.netty.buffer.ByteBuf;
+import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,7 +15,7 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.concurrent.LinkedBlockingDeque;
 
-
+@NoArgsConstructor
 public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
     private static final int SERIAL_VERSION = 7;
@@ -30,10 +31,6 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
     private final Deque<AsyncMeleeState> filteredStateQueue = new LinkedBlockingDeque<>();
     private int[] activeAttachmentIds = new int[0];
     private byte[] selectedAttachmentIndexes = new byte[0];
-
-    public PlayerMeleeInstance() {
-        super();
-    }
 
     public PlayerMeleeInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);

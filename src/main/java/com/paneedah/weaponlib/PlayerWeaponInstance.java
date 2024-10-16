@@ -13,6 +13,7 @@ import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
 import com.paneedah.weaponlib.shader.DynamicShaderPhase;
 import io.netty.buffer.ByteBuf;
+import lombok.NoArgsConstructor;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +34,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
-
+@NoArgsConstructor
 public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implements DynamicShaderGroupSourceProvider {
 
     private static final int SERIAL_VERSION = 9;
@@ -108,10 +109,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     private final Deque<AsyncWeaponState> filteredStateQueue = new LinkedBlockingDeque<>();
     private int[] activeAttachmentIds = new int[0];
     private byte[] selectedAttachmentIndexes = new byte[0];
-
-    public PlayerWeaponInstance() {
-        super();
-    }
 
     public PlayerWeaponInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);

@@ -7,6 +7,7 @@ import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,41 +16,37 @@ import net.minecraft.item.ItemStack;
 
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
+@NoArgsConstructor
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S> {
 
     static {
         TypeRegistry.getINSTANCE().register(PlayerItemInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
     }
 
-    protected S state;
-    protected long stateUpdateTimestamp = System.currentTimeMillis();
-    @Getter private long updateId;
+    protected boolean compoundMagSwapCompleted = false;
+
+    @Getter @Setter protected int itemInventoryIndex;
+
+    public long syncStartTimestamp; // ? This needs to be 0 for #reconcile to be called by the ClientEventHandler
+    @Getter protected long updateTimestamp;
+    @Getter protected long stateUpdateTimestamp = System.currentTimeMillis();
+    @Getter protected long reloadUpdateTimestamp;
+    @Getter private long updateId; // ? If 0 the instance is newly created and should be synced to the server
+
+    @Getter protected S state;
     @Getter @Setter protected EntityLivingBase player;
     @Getter protected Item item;
-    @Getter @Setter protected int itemInventoryIndex;
     private PlayerItemInstance<S> preparedState;
-    @Getter private long syncStartTimestamp;
-    @Getter protected long updateTimestamp;
-
-    protected long reloadUpdateTimestamp;
-    protected boolean compoundMagSwapCompleted = false;
 
 //	private Set<PlayerItemStateListener<S>> listeners = new HashSet<>();
 
-    public PlayerItemInstance() {}
-
     public PlayerItemInstance(int itemInventoryIndex, EntityLivingBase player) {
-        this.itemInventoryIndex = itemInventoryIndex;
-        this.player = player;
-        ItemStack itemStack = player.getHeldItemMainhand();
-        this.item = itemStack.getItem();
+        this(itemInventoryIndex, player, player.getHeldItemMainhand());
     }
 
     public PlayerItemInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
         this.itemInventoryIndex = itemInventoryIndex;
         this.player = player;
-        //this.itemStack = itemStack;
         this.item = itemStack.getItem();
     }
 
@@ -68,22 +65,26 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     @Override
     public void read(ByteBuf byteBuf) {
         super.read(byteBuf);
+
         item = Item.getItemById(byteBuf.readInt());
         itemInventoryIndex = byteBuf.readInt();
+
         updateId = byteBuf.readLong();
 
-        //state = WeaponState.DRAWING;
+//        state = WeaponState.DRAWING;
+
         state = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
-
-
     }
 
     @Override
     public void write(ByteBuf byteBuf) {
         super.write(byteBuf);
+
         byteBuf.writeInt(Item.getIdFromItem(item));
         byteBuf.writeInt(itemInventoryIndex);
+
         byteBuf.writeLong(updateId);
+
         TypeRegistry.getINSTANCE().toBytes(state, byteBuf);
     }
 
@@ -112,27 +113,12 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
      * Commits pending state
      */
     protected void updateWith(PlayerItemInstance<S> otherState, boolean updateManagedState) {
-        if (updateManagedState) {
+        if (updateManagedState)
             setState(otherState.getState());
-        }
-    }
-
-    @Override
-    public S getState() {
-        return state;
-    }
-
-    @Override
-    public long getStateUpdateTimestamp() {
-        return stateUpdateTimestamp;
     }
 
     public void markReloadDirt() {
         reloadUpdateTimestamp = System.currentTimeMillis();
-    }
-
-    public long getReloadTimestamp() {
-        return this.reloadUpdateTimestamp;
     }
 
     protected void markDirty() {
@@ -161,10 +147,6 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
     public boolean isMagSwapDone() {
         return this.compoundMagSwapCompleted;
-    }
-
-    public void setSyncStartTimestamp(long syncStartTimestamp) {
-        this.syncStartTimestamp = syncStartTimestamp;
     }
 
     public Class<? extends Perspective<?>> getRequiredPerspectiveType() {

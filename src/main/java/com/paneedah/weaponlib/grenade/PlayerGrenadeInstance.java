@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.grenade;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.*;
 import io.netty.buffer.ByteBuf;
+import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,7 +14,7 @@ import java.util.Deque;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingDeque;
 
-
+@NoArgsConstructor
 public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 
     private static final int SERIAL_VERSION = 11;
@@ -30,10 +31,6 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
     private byte[] selectedAttachmentIndexes = new byte[0];
 
     private boolean throwingFar;
-
-    public PlayerGrenadeInstance() {
-        super();
-    }
 
     public PlayerGrenadeInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);
