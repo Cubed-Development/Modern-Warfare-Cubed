@@ -289,6 +289,8 @@ public final class PlayerItemInstanceRegistry {
         return itemStack.getItem() == instance.getItem() && instance.getUuid().equals(Tags.getInstanceUuid(itemStack));
     }
 
+    // region Debug
+
     /**
      * Retrieves the current size of the item stack instance cache.
      *
@@ -311,4 +313,6 @@ public final class PlayerItemInstanceRegistry {
     public void clearRegistry() {
         registry.clear();
     }
+
+    // endregion
 }
