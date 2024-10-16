@@ -18,16 +18,33 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
+/**
+ * A registry that manages {@link PlayerItemInstance} objects associated with players.
+ * <p>
+ * Provides methods to retrieve, create, and update item instances for players based on their inventory slots.
+ *
+ * @author Luna Mira Lage (Desoroxxx)
+ * @since 0.1
+ */
 public final class PlayerItemInstanceRegistry {
 
+    /**
+     * A registry mapping player UUIDs to their inventory slot item instances.
+     */
     private final Map<UUID, Map<Integer, PlayerItemInstance<?>>> registry = new HashMap<>();
 
+    /**
+     * A cache mapping {@link ItemStack}s to their corresponding {@link PlayerItemInstance}s for rendering purposes.
+     */
     private final Cache<ItemStack, Optional<PlayerItemInstance<?>>> itemStackInstanceCache = CacheBuilder
             .newBuilder()
             .weakKeys()
             .maximumSize(1024)
             .build();
 
+    /**
+     * The synchronization manager used to watch and unwatch item instances for state synchronization.
+     */
     private final SyncManager<?> syncManager;
 
     public PlayerItemInstanceRegistry(final SyncManager<?> syncManager) {
@@ -35,7 +52,14 @@ public final class PlayerItemInstanceRegistry {
     }
 
     /**
-     * Returns instance of the target class, or null if there is no instance or instance class does not match.
+     * Retrieves the {@link PlayerItemInstance} held in the player's main hand if it is of the specified target class.
+     *
+     * @param player The player whose main hand item instance is to be retrieved
+     * @param targetClass The class of the item instance to retrieve
+     * @param <T> The type of the item instance
+     * @param <S> The type of the managed state associated with the item instance
+     *
+     * @return The item instance of the specified type in the player's main hand, or {@code null} if not found
      */
     public <T extends PlayerItemInstance<S>, S extends ManagedState<S>> T getMainHandItemInstance(final EntityPlayer player, final Class<T> targetClass) {
         final PlayerItemInstance<?> instance = getMainHandItemInstance(player);
@@ -43,6 +67,13 @@ public final class PlayerItemInstanceRegistry {
         return targetClass.isInstance(instance) ? targetClass.cast(instance) : null;
     }
 
+    /**
+     * Retrieves the {@link PlayerItemInstance} held in the player's main hand
+     *
+     * @param player The player whose main hand item instance is to be retrieved
+     *
+     * @return The item instance in the player's main hand, or {@code null} if not found
+     */
     public PlayerItemInstance<?> getMainHandItemInstance(final EntityPlayer player) {
         if (player == null)
             return null;
@@ -50,6 +81,14 @@ public final class PlayerItemInstanceRegistry {
         return getItemInstance(player, player.inventory.currentItem);
     }
 
+    /**
+     * Retrieves the {@link PlayerItemInstance} for a specific inventory slot of the player.
+     *
+     * @param player The player whose item instance is to be retrieved
+     * @param slot The inventory slot index
+     *
+     * @return The item instance in the specified slot, or {@code null} if not found
+     */
     public PlayerItemInstance<?> getItemInstance(final EntityPlayer player, final int slot) { // ! TODO: This needs urgent care, causes problems - Luna Lage (Desoroxxx)
         final Map<Integer, PlayerItemInstance<?>> slotInstances = registry.computeIfAbsent(player.getPersistentID(), uuid -> new HashMap<>());
         PlayerItemInstance<?> result = slotInstances.get(slot);
@@ -82,6 +121,15 @@ public final class PlayerItemInstanceRegistry {
         return result;
     }
 
+    /**
+     * Creates a new {@link PlayerItemInstance} for the specified player and slot.
+     *
+     * @param player The player for whom the item instance is to be created
+     * @param slotInstances The map of slot indices to item instances for the player
+     * @param slot The inventory slot index
+     *
+     * @return The newly created item instance, or {@code null} if creation failed
+     */
     private PlayerItemInstance<?> createItemInstance(final EntityPlayer player, final Map<Integer, PlayerItemInstance<?>> slotInstances, final int slot) {
         final ItemStack itemStack = player.inventory.getStackInSlot(slot);
         PlayerItemInstance<?> result = null;
@@ -116,9 +164,14 @@ public final class PlayerItemInstanceRegistry {
     }
 
     /**
-     * Maps the item stack to an item instance using the internal cache.
+     * Retrieves a cached {@link PlayerItemInstance} associated with the given {@link ItemStack} for rendering purposes.
      * <p>
-     * This method should be used when rendering only.
+     * This method should be used only on the client side during rendering.
+     *
+     * @param entityLiving The entity holding the item stack
+     * @param itemStack The item stack whose associated item instance is to be retrieved
+     *
+     * @return The cached item instance, or {@code null} if not found
      */
     @SideOnly(CLIENT)
     public PlayerItemInstance<?> getCachedItemInstance(final EntityLivingBase entityLiving, final ItemStack itemStack) { // ! TODO: This method is suspiscious as fuck - Luna Lage (Desoroxxx)
@@ -161,6 +214,16 @@ public final class PlayerItemInstanceRegistry {
         return result.orElse(null);
     }
 
+    /**
+     * Updates an existing {@link PlayerItemInstance} with a new managed state.
+     *
+     * @param newManagedState The new managed state to apply
+     * @param extendedStateToMerge The item instance containing the extended state to merge
+     * @param <S> The type of the managed state
+     * @param <T> The type of the item instance
+     *
+     * @return {@code true} if the update was successful, {@code false} otherwise
+     */
     public <S extends ManagedState<S>, T extends PlayerItemInstance<S>> boolean update(final S newManagedState, final T extendedStateToMerge) {
         final Map<Integer, PlayerItemInstance<?>> slotInstances = registry.get(extendedStateToMerge.getPlayer().getUniqueID());
 
@@ -185,6 +248,11 @@ public final class PlayerItemInstanceRegistry {
         return true;
     }
 
+    /**
+     * Updates the item instances for the specified player, removing any instances that no longer match the items in the player's inventory.
+     *
+     * @param player The player whose item instances are to be updated
+     */
     public void update(final EntityPlayer player) {
         if (player == null)
             return;
@@ -209,18 +277,37 @@ public final class PlayerItemInstanceRegistry {
         }
     }
 
+    /**
+     * Checks whether the given {@link ItemStack} matches the specified {@link PlayerItemInstance}.
+     *
+     * @param itemStack The item stack to check
+     * @param instance The item instance to compare against
+     *
+     * @return {@code true} if the item stack matches the item instance, {@code false} otherwise
+     */
     private boolean itemStackMatchesInstance(final ItemStack itemStack, final PlayerItemInstance<?> instance) {
         return itemStack.getItem() == instance.getItem() && instance.getUuid().equals(Tags.getInstanceUuid(itemStack));
     }
 
+    /**
+     * Retrieves the current size of the item stack instance cache.
+     *
+     * @return The number of entries in the cache.
+     */
     public long getCacheSize() {
         return itemStackInstanceCache.size();
     }
 
+    /**
+     * Invalidates the cache, forcing all cached instances to be re-created next time they are accessed.
+     */
     public void invalidateCache() {
         itemStackInstanceCache.invalidateAll();
     }
 
+    /**
+     * Clears the item instance registry, removing all registered instances, they will be re-created next time they are accessed.
+     */
     public void clearRegistry() {
         registry.clear();
     }
