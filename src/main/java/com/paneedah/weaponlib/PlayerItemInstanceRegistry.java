@@ -89,7 +89,7 @@ public final class PlayerItemInstanceRegistry {
      *
      * @return The item instance in the specified slot, or {@code null} if not found
      */
-    public PlayerItemInstance<?> getItemInstance(final EntityPlayer player, final int slot) { // ! TODO: This needs urgent care, causes problems - Luna Lage (Desoroxxx)
+    public PlayerItemInstance<?> getItemInstance(final EntityPlayer player, final int slot) {
         final Map<Integer, PlayerItemInstance<?>> slotInstances = registry.computeIfAbsent(player.getPersistentID(), uuid -> new HashMap<>());
         PlayerItemInstance<?> result = slotInstances.get(slot);
 
@@ -174,7 +174,7 @@ public final class PlayerItemInstanceRegistry {
      * @return The cached item instance, or {@code null} if not found
      */
     @SideOnly(CLIENT)
-    public PlayerItemInstance<?> getCachedItemInstance(final EntityLivingBase entityLiving, final ItemStack itemStack) { // ! TODO: This method is suspiscious as fuck - Luna Lage (Desoroxxx)
+    public PlayerItemInstance<?> getCachedItemInstance(final EntityLivingBase entityLiving, final ItemStack itemStack) {
         Optional<PlayerItemInstance<?>> result = Optional.empty();
 
         try {
