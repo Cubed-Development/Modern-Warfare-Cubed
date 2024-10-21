@@ -6,8 +6,8 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.jim.util.LangTools;
-import com.paneedah.weaponlib.jim.util.color.FlatUIColors;
 import com.paneedah.weaponlib.render.ModificationGUI;
+import com.paneedah.weaponlib.render.gui.ColorPalette;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.VehicleCustomGUI;
@@ -268,8 +268,8 @@ public class CustomGui extends Gui {
                 int openDoorX = (int) (scaledWidth * OPEN_DOOR_PERCENT_WIDTH_POS);
                 int openDoorY = (int) (scaledHeight * OPEN_DOOR_PERCENT_HEIGHT_POS);
 
-                drawCenteredString(FONT_RENDERER, String.format(BRACKET_FORMATTER, KeyBindings.openDoor.getDisplayName()), openDoorX, openDoorY, FlatUIColors.SUN_FLOWER);
-                drawCenteredString(FONT_RENDERER, LangTools.formatName(OPENDOOR_TEXT_LANG_KEY), openDoorX, openDoorY + OPEN_DOOR_KEY_Y_OFFSET, FlatUIColors.WHITE);
+                drawCenteredString(FONT_RENDERER, String.format(BRACKET_FORMATTER, KeyBindings.openDoor.getDisplayName()), openDoorX, openDoorY, ColorPalette.SUN_FLOWER);
+                drawCenteredString(FONT_RENDERER, LangTools.formatName(OPENDOOR_TEXT_LANG_KEY), openDoorX, openDoorY + OPEN_DOOR_KEY_Y_OFFSET, ColorPalette.WHITE);
             }
 
             if (cachedPlayerPosition.equals(player.getPositionVector()) && cachedPlayerEyeHeight == player.getEyeHeight() && cachedLookVector.equals(player.getLookVec())) {
@@ -415,7 +415,7 @@ public class CustomGui extends Gui {
             GlStateManager.popMatrix();
 
             if (((Weapon) item).builder.getMaxShots().size() > 1) {
-                drawScaledString(FONT_RENDERER, keyNameString, FIREMODE_KEY_X_STRING_OFFSET - keyNameOffset, FIREMODE_KEY_Y_STRING_OFFSET, FIREMODE_KEY_SCALE, FlatUIColors.BRIGHT_YARROW);
+                drawScaledString(FONT_RENDERER, keyNameString, FIREMODE_KEY_X_STRING_OFFSET - keyNameOffset, FIREMODE_KEY_Y_STRING_OFFSET, FIREMODE_KEY_SCALE, ColorPalette.BRIGHT_YARROW);
             }
         }
 
@@ -436,13 +436,13 @@ public class CustomGui extends Gui {
             totalLength = adjLength * WEAPON_NAME_DOWNSCALE_MULTIPLIER;
         }
 
-        drawScaledString(FONT_RENDERER, weaponName, WEAPON_STRING_X_OFFSET - FONT_RENDERER.getStringWidth(weaponName), -FONT_RENDERER.FONT_HEIGHT, WEAPON_STRING_SCALE, FlatUIColors.BRIGHT_YARROW);
+        drawScaledString(FONT_RENDERER, weaponName, WEAPON_STRING_X_OFFSET - FONT_RENDERER.getStringWidth(weaponName), -FONT_RENDERER.FONT_HEIGHT, WEAPON_STRING_SCALE, ColorPalette.BRIGHT_YARROW);
 
         if (item instanceof Weapon && BalancePackManager.isWeaponDisabled((Weapon) item)) {
-            GUIRenderHelper.drawScaledString("Disabled", DISABLED_STRING_X_OFFSET - totalLength, DISABLED_STRING_Y_OFFSET, DISABLED_STRING_SCALE, FlatUIColors.POMEGRANATE);
+            GUIRenderHelper.drawScaledString("Disabled", DISABLED_STRING_X_OFFSET - totalLength, DISABLED_STRING_Y_OFFSET, DISABLED_STRING_SCALE, ColorPalette.POMEGRANATE);
         } else {
-            drawScaledString(fr, weaponName, WEAPON_STRING_X_OFFSET - fr.getStringWidth(weaponName), -fr.FONT_HEIGHT, WEAPON_STRING_SCALE, FlatUIColors.BRIGHT_YARROW);
-            drawScaledString(fr, currentAmmoString, TOTAL_AMMO_COUNT_STRING_X_OFFSET - fr.getStringWidth(currentAmmoString) * CURRENT_AMMO_WIDTH_MULTIPLIER, CURRENT_AMMO_STRING_Y_OFFSET, CURRENT_AMMO_STRING_SCALE, FlatUIColors.BRIGHT_YARROW);
+            drawScaledString(fr, weaponName, WEAPON_STRING_X_OFFSET - fr.getStringWidth(weaponName), -fr.FONT_HEIGHT, WEAPON_STRING_SCALE, ColorPalette.BRIGHT_YARROW);
+            drawScaledString(fr, currentAmmoString, TOTAL_AMMO_COUNT_STRING_X_OFFSET - fr.getStringWidth(currentAmmoString) * CURRENT_AMMO_WIDTH_MULTIPLIER, CURRENT_AMMO_STRING_Y_OFFSET, CURRENT_AMMO_STRING_SCALE, ColorPalette.BRIGHT_YARROW);
             drawScaledString(fr, bottomString, CURRENT_AMMO_COUNT_STRING_X_OFFSET, TOTAL_AMMO_STRING_SCALE, AMMO_TOTAL_STRING_SCALE);
         }
 
