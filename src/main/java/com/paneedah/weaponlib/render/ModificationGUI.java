@@ -54,7 +54,6 @@ public class ModificationGUI {
 
 
     private static final int TOOLTIP_COL_ERROR = 0x702b2b;
-    private static final int TOOLTIP_COL_NORMAL = 0x00000;
 
 
     private static final int[][] DEFAULT_POSITION = new int[][]{{-50, 50}, {120, 75}, {150, 0}, {100, -50},
@@ -846,7 +845,7 @@ public class ModificationGUI {
                 PRIMARY_SELECTOR_ELEMENT.render();
             }
 
-            tooltip.color = TOOLTIP_COL_NORMAL;
+            tooltip.color = ColorPalette.BLACK;
             requiresTooltip = true;
             tooltip.addLine(
                     new TextComponentTranslation(primaryAttachment.getTranslationKey() + ".name").getFormattedText());
@@ -1031,7 +1030,7 @@ public class ModificationGUI {
                         selector.render();
                         GlStateManager.translate(0, 0, -50);
 
-                        tooltip.color = TOOLTIP_COL_NORMAL;
+                        tooltip.color = ColorPalette.BLACK;
                         requiresTooltip = true;
                         tooltip.addLine(
                                 new TextComponentTranslation(flag.getAttachment().getTranslationKey() + ".name")
