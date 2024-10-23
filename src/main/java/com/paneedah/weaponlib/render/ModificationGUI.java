@@ -211,7 +211,7 @@ public class ModificationGUI {
          * faster to just look it up here.
          * (Attachment = 0, Modification = 1, Customization = 2)
          *
-         * @param ID (0-2)
+         * @param id (0-2)
          *
          * @return String with first letter capatilized
          */
@@ -242,7 +242,7 @@ public class ModificationGUI {
         /**
          * Sets tooltip builder's color
          *
-         * @param Hex color code
+         * @param color The color code
          */
         public void setColor(int color) {
             this.color = color;
@@ -251,7 +251,7 @@ public class ModificationGUI {
         /**
          * Adds a line with a bullet point in front of it
          *
-         * @param line
+         * @param text The text to add a bullet point to
          */
         public void addBulletPoint(String text) {
             addLine("� " + text);
