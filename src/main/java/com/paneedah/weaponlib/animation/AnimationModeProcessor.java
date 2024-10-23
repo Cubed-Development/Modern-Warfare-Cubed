@@ -215,321 +215,147 @@ public class AnimationModeProcessor {
     }
 
     public void onTick() {
-
-
-        //this.transformMode = 1;
-
-
-        //MC.player.world.setWorldTime(6000);
-
+        // Check for valid context and main held weapon
         if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
             if (this.pwi == null || pwi != ClientModContext.getContext().getMainHeldWeapon()) {
                 Builder builder = getCurrentWeaponRenderBuilder();
                 pwi = ClientModContext.getContext().getMainHeldWeapon();
-                //System.out.println("BUILDER: " + builder + " | PWI: " + pwi);
                 backupFP = builder.firstPersonTransform.copy();
                 backupFPL = builder.firstPersonLeftHandTransform.copy();
                 backupFPR = builder.firstPersonRightHandTransform.copy();
             }
         }
 
+        // Handle muzzle positioner
         if (ClientEventHandler.muzzlePositioner) {
             DebugPositioner.setDebugPart(Part.NONE);
             OpenGLSelectionHelper.selectID = 4;
             transformMode = 1;
         }
 
-        if (AnimationGUI.getInstance().editRotButton.isState()) {
+        // Manage rotation point editing state
+        editRotationPointMode = AnimationGUI.getInstance().editRotButton.isState();
+        if (editRotationPointMode) {
             transformMode = 1;
-            editRotationPointMode = true;
-        } else {
-            editRotationPointMode = false;
         }
 
+        // Handle mouse input
         if (Mouse.isButtonDown(0) && !mouseStatus) {
             mouseStatus = true;
             onMouseClick();
             leftClickLast = System.currentTimeMillis();
-        } else if ((mouseStatus && !Mouse.isButtonDown(0))) {
+        } else if (mouseStatus && !Mouse.isButtonDown(0)) {
             mouseStatus = false;
             permissionToDrag = false;
             leftLock = false;
         }
 
-
         if (!Mouse.isButtonDown(0)) {
-
             AnimationModeProcessor.getInstance().atGrab = null;
         }
 
-
+        // Handle dragging
         double dx = Mouse.getDX();
         double dy = Mouse.getDY();
-        if (permissionToDrag && colorSelected == -1) {
-
-            if (Mouse.isButtonDown(0)) {
-                // System.out.println(MC.mouseHelper.deltaX);
-                // double x = MC.mouseHelper.deltaX/1.0;
-                // double y = MC.mouseHelper.deltaY/300.0;
-
-
-                double x = dx / 2f;
-                double y = dy / 2f;
-                rot = rot.add(-y, x, 0);
-            }
+        if (permissionToDrag && colorSelected == -1 && Mouse.isButtonDown(0)) {
+            double x = dx / 2f;
+            double y = dy / 2f;
+            rot = rot.add(-y, x, 0);
         }
+
+        // Handle color selection adjustments
         if (colorSelected != -1 && Mouse.isButtonDown(0)) {
-            // transformMode = 2;
-            if (transformMode == 1) {
-                float m = 0.2f;
-
-                if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-                    m /= 10;
-                }
-
-                Vec3d vec = Vec3d.ZERO;
-                switch (colorSelected) {
-                    case 1:
-                        vec = new Vec3d(-dx * m, 0, 0);
-                        // DebugPositioner.incrementXPosition((float) -dx, false);
-                        break;
-                    case 2:
-                        vec = new Vec3d(0, -dy * m, 0);
-                        // DebugPositioner.incrementYPosition((float) -dy, false);
-
-                        break;
-                    case 3:
-                        vec = new Vec3d(0, 0, dx * m);
-                        // DebugPositioner.incrementZPosition((float) dx, false);
-
-                        break;
-                }
-
-
-                boolean modernMode = true;
-
-                if (ClientEventHandler.muzzlePositioner) {
-                    ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(-vec.x * m * 0.1, vec.y * m * 0.1, vec.z * m * 0.1);
-                } else if (!modernMode) {
-                    DebugPositioner.incrementXPosition((float) vec.x * m, false);
-                    DebugPositioner.incrementYPosition((float) vec.y * m, false);
-                    DebugPositioner.incrementZPosition((float) vec.z * m, false);
-                } else if (AnimationGUI.getInstance().magEdit.isState()) {
-
-
-                    ClientEventHandler.magRotPositioner = ClientEventHandler.magRotPositioner.add(vec.x * m, vec.y * m, vec.z * m);
-
-                } else {
-
-                    if (!editRotationPointMode) {
-                        Transform t = getTransformFromSelected();
-
-
-                        t.withPosition(t.getPositionX() + vec.x * m, t.getPositionY() + vec.y * m, t.getPositionZ() + vec.z * m);
-
-                        if (AnimationGUI.getInstance().leftDrag.isState()) {
-                            t.withRotation(t.getRotationX(), t.getRotationY() - vec.x * 0.4, t.getRotationZ());
-                        }
-
-                    } else {
-                        Transform t = getTransformFromSelected();
-
-
-                        t.withRotationPoint(t.getRotationPointX() + vec.x * m, t.getRotationPointY() + vec.y * m, t.getRotationPointZ() + vec.z * m);
-
-                    }
-
-
-                }
-
-
-            } else {
-
-
-                Vec3d vec = Vec3d.ZERO;
-                switch (colorSelected) {
-                    case 1:
-
-                        vec = new Vec3d(0, 1, 0);
-                        // DebugPositioner.incrementYRotation((float) ((float) -dx));
-
-                        // DebugPositioner.incrementXPosition((float) -dx, false);
-                        break;
-                    case 2:
-
-                        vec = new Vec3d(1, 0, 0);
-                        // DebugPositioner.incrementXRotation((float) -dy);
-                        break;
-                    case 3:
-                        vec = new Vec3d(0, 0, 1);
-                        // DebugPositioner.incrementZRotation((float) dy);
-
-                        break;
-                }
-
-                // DebugPositioner.setAutorotate(0, 0, 0);
-                // Matrix4f rotte = DebugPositioner.rotationMatrix();
-                // System.out.println(currentPartMatrix);
-                /*
-                 * Matrix4f rotte = new Matrix4f(DebugPositioner.rotationMatrix());
-                 * //rotte.invert(); rotte.transpose(); float m = (float) -dy*0.5f;
-                 *
-                 *
-                 *
-                 *
-                 * double[] angles = MatrixHelper.MatrixToYawPitchRoll(rotte); Position i =
-                 * DebugPositioner.getCurrentPartPosition(); i.xRotation = (float)
-                 * Math.toDegrees(angles[0]); i.yRotation = (float) Math.toDegrees(angles[1]);
-                 * i.zRotation = (float) Math.toDegrees(angles[2]);
-                 *
-                 */
-
-                // DebugPositioner.setAdjustRotPoint(false);
-
-                float m = (float) -dy * 0.35f;
-
-
-                boolean modernMode = true;
-
-
-                ScaledResolution scaledresolution = new ScaledResolution(MC);
-                final int scaledWidth = scaledresolution.getScaledWidth();
-                final int scaledHeight = scaledresolution.getScaledHeight();
-                int mouseX = Mouse.getX() * scaledWidth / MC.displayWidth;
-                int mouseY = scaledHeight - Mouse.getY() * scaledHeight / MC.displayHeight - 1;
-
-                Quaternion quat = Arcball.runArcBall(mouseX, mouseY);
-                double[] quangles = MatrixHelper.toEulerAngles(quat);
-
-
-                if (!modernMode) {
-                    DebugPositioner.incrementXRotation((float) (vec.x * m));
-                    DebugPositioner.incrementYRotation((float) (vec.y * m));
-                    DebugPositioner.incrementZRotation((float) (vec.z * m));
-
-                } else {
-                    Builder i = ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder();
-                    Transform t = getTransformFromSelected();
-
-
-                    if (atGrab != null) {
-                        t.withRotation(atGrab.getRotationX() + Math.toDegrees(quangles[0]) * vec.x, atGrab.getRotationY() + Math.toDegrees(quangles[1]) * vec.y, atGrab.getRotationZ() + -Math.toDegrees(quangles[2]) * vec.z);
-                    }
-                    t.printTransform();
-                    //t.withRotation(t.getRotationX() + vec.x*m*0.1, t.getRotationY() + vec.y*m*0.1, t.getRotationZ() + vec.z*m*0.1);
-
-                }
-
-
-                // System.out.println(currentPartMatrix);
-
-                // System.out.println(axis);
-
-                /*
-                 * Matrix4f rotte = new Matrix4f(DebugPositioner.rotationMatrix());
-                 *
-                 *
-                 * Matrix4f axisM = currentPartMatrix; Vector3f axis = new Vector3f(axisM.m10,
-                 * axisM.m11, axisM.m12);
-                 *
-                 * //rotte.setIdentity();
-                 *
-                 * //Matrix4f testMa = MatrixHelper.yawPitchRollToMatrix(vec.x*m, vec.y*m,
-                 * vec.z*m); // axis = (Vector3f) axis.scale(-1); axis.normalise();
-                 * System.out.println(axis);
-                 *
-                 * Matrix4f rot = new Matrix4f(); rot.rotate((float) Math.toRadians(2), axis);
-                 *
-                 *
-                 *
-                 * //rot.invert();
-                 *
-                 * Matrix4f.mul(rotte, rot, rotte);
-                 *
-                 * double[] angles = MatrixHelper.MatrixToYawPitchRoll(rotte); Position i =
-                 * DebugPositioner.getCurrentPartPosition(); i.yRotation = (float)
-                 * Math.toDegrees(angles[0]); i.xRotation = (float) Math.toDegrees(angles[1]);
-                 * i.zRotation = (float) Math.toDegrees(angles[2]);
-                 *
-                 */
-
-                // i.zRotation = 45f;
-
-                /*
-                 * i.x = rotte.m30; i.y = rotte.m31; i.z = rotte.m32;
-                 */
-
-                /*
-                 * i.xRotation = 0; i.yRotation = 0; i.zRotation = 0;
-                 *
-                 * i.x = 0; i.y = 0; i.z = 0;
-                 */
-                // Position i = DebugPositioner.getCurrentPartPosition();
-
-                /*
-                 * i.rOffsetY = 0f; i.rOffsetZ = 0f; i.rOffsetX = 0f;
-                 */
-
-                /*
-                 * float m = (float) -dy*0.5f; Position i =
-                 * DebugPositioner.getCurrentPartPosition(); Quaternion quat =
-                 * MatrixHelper.fromEulerAngles(i.z, i.x, i.y);
-                 *
-                 * Quaternion q2 = new Quaternion(); q2.setFromAxisAngle(new Vector4f((float)
-                 * Math.toRadians(120), 1, 120, 0));
-                 *
-                 * Quaternion.mul(quat, q2, quat);
-                 *
-                 * double[] angle = MatrixHelper.toEulerAngles(quat); i.zRotation = (float)
-                 * Math.toDegrees(angle[0]); i.xRotation = (float) Math.toDegrees(angle[1]);
-                 * i.yRotation = (float) Math.toDegrees(angle[2]);
-                 */
-
-                /*
-                 * Matrix4f test = new Matrix4f(); test.m10 = -69; System.out.println(test);
-                 */
-                // System.out.println("yo");
-                // vec = new Vec3d(1, 0, 0);
-
-                /*
-                 * vec = ModelRenderTool.transformViaMatrix(vec, rotte);
-                 *
-                 *
-                 * double[] angles = MatrixHelper.MatrixToYawPitchRoll(rotte); Position i =
-                 * DebugPositioner.getCurrentPartPosition(); i.yRotation = (float)
-                 * Math.toDegrees(angles[0]); i.xRotation = (float) Math.toDegrees(angles[1]);
-                 * i.zRotation = (float) Math.toDegrees(angles[2]);
-                 *
-                 * if(1+1==3) { i.yRotation = 0; i.xRotation = 0; i.zRotation = 0; }
-                 */
-                /*
-                 * Position i = DebugPositioner.getCurrentPartPosition();
-                 *
-                 * if(1+1==2) { i.yRotation = 0; i.xRotation = 0; i.zRotation = 0; }
-                 */
-
-                // DebugPositioner.incrementXRotation((float) (m));
-
-                /*
-                 * DebugPositioner.incrementXRotation((float) (vec.x*m));
-                 * DebugPositioner.incrementYRotation((float) (vec.y*m));
-                 * DebugPositioner.incrementZRotation((float) (vec.z*m));
-                 */
-
+            float m = 0.2f;
+            if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+                m /= 10;
             }
 
+            Vec3d vec = Vec3d.ZERO;
+            switch (colorSelected) {
+                case 1:
+                    vec = new Vec3d(-dx * m, 0, 0);
+                    break;
+                case 2:
+                    vec = new Vec3d(0, -dy * m, 0);
+                    break;
+                case 3:
+                    vec = new Vec3d(0, 0, dx * m);
+                    break;
+            }
+
+            boolean modernMode = true;
+
+            if (ClientEventHandler.muzzlePositioner) {
+                ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(-vec.x * m * 0.1, vec.y * m * 0.1, vec.z * m * 0.1);
+            } else if (!modernMode) {
+                DebugPositioner.incrementXPosition((float) vec.x * m, false);
+                DebugPositioner.incrementYPosition((float) vec.y * m, false);
+                DebugPositioner.incrementZPosition((float) vec.z * m, false);
+            } else if (AnimationGUI.getInstance().magEdit.isState()) {
+                ClientEventHandler.magRotPositioner = ClientEventHandler.magRotPositioner.add(vec.x * m, vec.y * m, vec.z * m);
+            } else {
+                Transform t = getTransformFromSelected();
+                if (!editRotationPointMode) {
+                    t.withPosition(t.getPositionX() + vec.x * m, t.getPositionY() + vec.y * m, t.getPositionZ() + vec.z * m);
+                    if (AnimationGUI.getInstance().leftDrag.isState()) {
+                        t.withRotation(t.getRotationX(), t.getRotationY() - vec.x * 0.4, t.getRotationZ());
+                    }
+                } else {
+                    t.withRotationPoint(t.getRotationPointX() + vec.x * m, t.getRotationPointY() + vec.y * m, t.getRotationPointZ() + vec.z * m);
+                }
+            }
         }
+
+        // Handle rotation adjustments
+        if (colorSelected != -1) {
+            Vec3d vec = Vec3d.ZERO;
+            switch (colorSelected) {
+                case 1:
+                    vec = new Vec3d(0, 1, 0);
+                    break;
+                case 2:
+                    vec = new Vec3d(1, 0, 0);
+                    break;
+                case 3:
+                    vec = new Vec3d(0, 0, 1);
+                    break;
+            }
+
+            float m = (float) -dy * 0.35f;
+            boolean modernMode = true;
+
+            ScaledResolution scaledResolution = new ScaledResolution(MC);
+            final int scaledWidth = scaledResolution.getScaledWidth();
+            final int scaledHeight = scaledResolution.getScaledHeight();
+            int mouseX = Mouse.getX() * scaledWidth / MC.displayWidth;
+            int mouseY = scaledHeight - Mouse.getY() * scaledHeight / MC.displayHeight - 1;
+
+            Quaternion quat = Arcball.runArcBall(mouseX, mouseY);
+            double[] quangles = MatrixHelper.toEulerAngles(quat);
+
+            if (!modernMode) {
+                DebugPositioner.incrementXRotation((float) (vec.x * m));
+                DebugPositioner.incrementYRotation((float) (vec.y * m));
+                DebugPositioner.incrementZRotation((float) (vec.z * m));
+            } else {
+                Transform t = getTransformFromSelected();
+                if (atGrab != null) {
+                    t.withRotation(
+                            atGrab.getRotationX() + Math.toDegrees(quangles[0]) * vec.x,
+                            atGrab.getRotationY() + Math.toDegrees(quangles[1]) * vec.y,
+                            atGrab.getRotationZ() - Math.toDegrees(quangles[2]) * vec.z
+                    );
+                }
+                t.printTransform();
+            }
+        }
+
+        // Handle right mouse button for panning
         if (Mouse.isButtonDown(1)) {
-            // System.out.println(Mouse.getDX());
             double x = dx / 10f;
             double y = dy / 10f;
-
-            // double x = MC.mouseHelper.deltaX/120.0;
-            // double y = MC.mouseHelper.deltaY/120.0;
             pan = pan.add(-x, -y, 0);
         }
-
-        // rot = Vec3d.ZERO;
     }
 
     public int colorSelected = -1;
