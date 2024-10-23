@@ -26,9 +26,6 @@ public interface ManagedState<T extends ManagedState<T>> extends ISerializable {
      * Verifies if the mainState matches this state, preparing phase of this state or permit requested phase
      * of this state.
      *
-     * @param mainState
-     *
-     * @return
      */
     default boolean matches(T mainState) {
         return mainState == this

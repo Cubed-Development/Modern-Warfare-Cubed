@@ -44,9 +44,9 @@ public class Glock18CFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.14f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.14f))
+                .withFlashOffsetY(() -> Float.valueOf(0.14f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -92,25 +92,19 @@ public class Glock18CFactory implements GunFactory {
 ////          GL11.glScaled(0F, 0F, 0F);
 //        })
                 .withCompatibleAttachment(Attachments.Glock19Body, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.Glock19XBody, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.Glock19RazorbackBody, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.Glock18CSlide, true, (model) -> {
                     if (model instanceof Glock19Slide) {
                         GL11.glScaled(1F, 1F, 1F);
 //                GL11.glTranslatef(0F, 0F, 0.5F);
-                    } else if (model instanceof GlockRearSight) {
+                    } else if (null instanceof GlockRearSight) {
                         GL11.glTranslatef(-0.107F, -1.17F, 0F);
                         GL11.glScaled(0.22F, 0.15F, 0.4F);
-                    } else if (model instanceof M1911frontsight) {
+                    } else if (null instanceof M1911frontsight) {
                         GL11.glTranslatef(-0.107F, -1.155F, -2.05F);
                         GL11.glScaled(0.21F, 0.24F, 0.16F);
                     }
@@ -119,10 +113,10 @@ public class Glock18CFactory implements GunFactory {
                     if (model instanceof Glock19Slide) {
                         GL11.glScaled(1F, 1F, 1F);
 //                GL11.glTranslatef(0F, 0F, 0.5F);
-                    } else if (model instanceof GlockRearSight) {
+                    } else if (null instanceof GlockRearSight) {
                         GL11.glTranslatef(-0.107F, -1.17F, 0F);
                         GL11.glScaled(0.22F, 0.15F, 0.4F);
-                    } else if (model instanceof M1911frontsight) {
+                    } else if (null instanceof M1911frontsight) {
                         GL11.glTranslatef(-0.107F, -1.155F, -2.05F);
                         GL11.glScaled(0.21F, 0.24F, 0.16F);
                     }

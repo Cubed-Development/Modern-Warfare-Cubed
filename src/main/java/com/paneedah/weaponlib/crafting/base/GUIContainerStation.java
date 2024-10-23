@@ -11,6 +11,8 @@ import com.paneedah.weaponlib.crafting.workbench.GUIButtonCustom;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -72,21 +74,26 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
     private final ArrayList<String> tooltipRenderItem = new ArrayList<>();
 
     // Mod context
+    @Setter
     protected static ModContext modContext;
 
     // Currently selected crafting piece
+    @Getter
+    @Setter
     private IModernCraftingRecipe selectedCraftingPiece = null;
 
     // Tells us if we can craft the currently selected item
     private boolean hasRequiredItems = false;
     protected HashMap<Ingredient, Boolean> hasAvailableMaterials = new HashMap<>();
 
+    @Getter
     private int craftingMode = 1;
 
     // Currently used crafting list.
     protected ArrayList<IModernCraftingRecipe> filteredCraftingList = new ArrayList<>();
 
     // The page the workbench is on
+    @Getter
     private int page = 1;
     private int minPage, maxPage;
 
@@ -128,14 +135,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 .withStandardState(0xFFFFFF, 99, 304)
                 .withHoveredState(0xFFFFFF, 141, 304)
                 .withDisabledState(0xFFFFFF, 57, 304)
-                .withDisabledCheck(() -> getPage() == 1);
+                .withDisabledCheck(() -> Boolean.valueOf(getPage() == 1));
 
         rightArrow = new GUIButtonCustom(GUI_TEX, 2, guiLeft + 360, guiTop, 42, 20, 480, 370, "")
                 .withStandardState(0xFFFFFF, 99, 284)
                 .withHoveredState(0xFFFFFF, 141, 284)
                 //.withDisabledState(0xFFFFFF, u, v)
                 .withDisabledState(0xFFFFFF, 57, 284)
-                .withDisabledCheck(() -> getPage() == 2);
+                .withDisabledCheck(() -> Boolean.valueOf(getPage() == 2));
 
         dismantleButton = new GUIButtonCustom(GUI_INV_TEX, 6, guiLeft + 286, guiTop + 70, 73, 17, 480, 370, "DISMANTLE")
                 .withStandardState(GRAY, 0, 283).withHoveredState(GOLD, 0, 300)
@@ -180,21 +187,9 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
      */
     public abstract void fillFilteredList();
 
-    public int getCraftingMode() {
-        return this.craftingMode;
-    }
-
     public void setCraftingMode(int mode) {
         craftButton.setErrored(true);
-        this.craftingMode = mode;
-    }
-
-    public IModernCraftingRecipe getSelectedCraftingPiece() {
-        return this.selectedCraftingPiece;
-    }
-
-    public void setSelectedCraftingPiece(IModernCraftingRecipe modernCrafting) {
-        this.selectedCraftingPiece = modernCrafting;
+        craftingMode = mode;
     }
 
     public boolean hasSelectedCraftingPiece() {
@@ -214,7 +209,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             if (!counter.containsKey(stack)) {
                 counter.put(stack, stack.getCount());
             } else {
-                int existingcount = counter.get(stack);
+                int existingcount = counter.get(stack).intValue();
                 counter.put(stack, existingcount + stack.getCount());
             }
         }
@@ -227,7 +222,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 for (ItemStack toTest : list) {
                     if (counter.containsKey(toTest) && toTest.getCount() <= counter.get(toTest)) {
                         foundSomething = true;
-                        hasAvailableMaterials.put(is.getIngredient(), true);
+                        hasAvailableMaterials.put(is.getIngredient(), Boolean.TRUE);
                         break;
                     } else {
                         hasRequiredItems = false;
@@ -236,22 +231,22 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
                 if (!foundSomething || notEnoughIngredients(is, counter)) {
                     hasRequiredItems = false;
-                    hasAvailableMaterials.put(is.getIngredient(), false);
+                    hasAvailableMaterials.put(is.getIngredient(), Boolean.FALSE);
                 }
             } else {
                 if (notEnoughIngredients(is, counter)) {
                     hasRequiredItems = false;
-                    hasAvailableMaterials.put(is.getIngredient(), false);
+                    hasAvailableMaterials.put(is.getIngredient(), Boolean.FALSE);
                 } else {
-                    hasAvailableMaterials.put(is.getIngredient(), true);
+                    hasAvailableMaterials.put(is.getIngredient(), Boolean.TRUE);
                 }
             }
         }
 
         if (requiresMaterialsToSubmitCraftRequest()) {
-            this.craftButton.setErrored(!hasRequiredItems);
+            craftButton.setErrored(!hasRequiredItems);
         } else {
-            this.craftButton.setErrored(false);
+            craftButton.setErrored(false);
         }
     }
 
@@ -259,22 +254,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
         int finalcount = 0;
         for (ItemStack stack : counter.keySet())
             if (ingredient.getIngredient().test(stack)) {
-                finalcount += counter.get(stack);
+                finalcount += counter.get(stack).intValue();
             }
         return ingredient.getCount() > finalcount;
     }
 
-    public static void setModContext(ModContext context) {
-        modContext = context;
-    }
-
     public void setPageRange(int min, int max) {
-        this.minPage = min;
-        this.maxPage = max;
-    }
-
-    public int getPage() {
-        return this.page;
+        minPage = min;
+        maxPage = max;
     }
 
     public String format(String unloc) {
@@ -282,18 +269,18 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
     }
 
     public boolean hasRequiredItems() {
-        return this.hasRequiredItems;
+        return hasRequiredItems;
     }
 
     @Override
     public void updateScreen() {
         //initGui();
         super.updateScreen();
-        this.tooltipRenderItem.clear();
+        tooltipRenderItem.clear();
         if (tileEntity.pushInventoryRefresh) {
             tileEntity.pushInventoryRefresh = false;
-            if (this.selectedCraftingPiece != null) {
-                onSelectNewCrafting(this.selectedCraftingPiece);
+            if (selectedCraftingPiece != null) {
+                onSelectNewCrafting(selectedCraftingPiece);
             }
         }
     }
@@ -362,7 +349,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
     @Override
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
         super.mouseClicked(mouseX, mouseY, mouseButton);
-        this.searchBox.mouseClicked(mouseX, mouseY, mouseButton);
+        searchBox.mouseClicked(mouseX, mouseY, mouseButton);
 
         if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40, this.guiTop + 219, 176, 20)) {
             final int boxId = (mouseX - (this.guiLeft + 40)) / 20;
@@ -389,7 +376,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
     @Override
     protected void keyTyped(char typedChar, int keyCode) throws IOException {
-        final boolean cancellationFlag = this.searchBox.getText().isEmpty() && keyCode == Keyboard.KEY_BACK;
+        final boolean cancellationFlag = searchBox.getText().isEmpty() && keyCode == Keyboard.KEY_BACK;
 
         // This 'if' statement prevents the GUI from closing when we hit "E" (or whatever
         // the inventory key is!)
@@ -397,7 +384,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             super.keyTyped(typedChar, keyCode);
         }
 
-        this.searchBox.textboxKeyTyped(typedChar, keyCode);
+        searchBox.textboxKeyTyped(typedChar, keyCode);
 
         if (!cancellationFlag) {
             if (keyCode == Keyboard.KEY_BACK) {
@@ -418,13 +405,13 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
         Item item = stack.getItem();
 
-        this.tooltipRenderItem.clear();
-        this.tooltipRenderItem.add(item.getItemStackDisplayName(stack));
+        tooltipRenderItem.clear();
+        tooltipRenderItem.add(item.getItemStackDisplayName(stack));
         final ITooltipFlag flag = MC.gameSettings.advancedItemTooltips ? ITooltipFlag.TooltipFlags.ADVANCED : ITooltipFlag.TooltipFlags.NORMAL;
-        stack.getItem().addInformation(stack, this.tileEntity.getWorld(), this.tooltipRenderItem, flag);
+        stack.getItem().addInformation(stack, tileEntity.getWorld(), tooltipRenderItem, flag);
 
         if (strings.length > 0) {
-            this.tooltipRenderItem.addAll(Arrays.asList(strings));
+            tooltipRenderItem.addAll(Arrays.asList(strings));
         }
     }
 
@@ -439,9 +426,9 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             id = maxPage;
         }
 
-        this.scrollBarProgress = 0;
-        this.scrollBarOffset = 0;
-        this.page = id;
+        scrollBarProgress = 0;
+        scrollBarOffset = 0;
+        page = id;
         ((ContainerStation) this.inventorySlots).page = id;
 
         for (GuiButton b : this.buttonList) {
@@ -630,7 +617,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                         }
 
                         final ItemStack itemStack = updateandGetStacktoRender(entry);
-                        final boolean hasItem = this.hasAvailableMaterials.get(entry.getIngredient());
+                        final boolean hasItem = hasAvailableMaterials.get(entry.getIngredient()).booleanValue();
                         final int x = this.guiLeft + 210 + (c * 20);
                         final int y = this.guiTop + 122;
 

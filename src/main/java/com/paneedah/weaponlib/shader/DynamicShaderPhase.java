@@ -47,12 +47,6 @@ public interface DynamicShaderPhase {
 
     class EntityRendererTarget implements DynamicShaderPhase {
 
-//        private Supplier<EntityRenderer> entityRendererSupplier;
-//
-//        public EntityRendererTarget(Supplier<EntityRenderer> entityRendererSupplier) {
-//            this.entityRendererSupplier = entityRendererSupplier;
-//        }
-
         @Override
         public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {
             Object target = context.getTarget();
@@ -90,12 +84,6 @@ public interface DynamicShaderPhase {
     }
 
     class CompatibleWorldRendererTarget implements DynamicShaderPhase {
-
-        //private Supplier<CompatibleWorldRenderer> entityRendererSupplier;
-
-//        public CompatibleWorldRendererTarget(Supplier<CompatibleWorldRenderer> entityRendererSupplier) {
-//            this.entityRendererSupplier = entityRendererSupplier;
-//        }
 
         @Override
         public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {

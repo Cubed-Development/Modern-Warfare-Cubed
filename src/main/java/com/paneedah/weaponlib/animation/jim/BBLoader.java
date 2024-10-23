@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.paneedah.weaponlib.animation.Transform;
+import lombok.Getter;
 import net.minecraft.util.ResourceLocation;
 
 import java.io.BufferedReader;
@@ -19,8 +20,11 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class BBLoader {
 
+    @Getter
     public static String directory = ID + ":animations/";
+    @Getter
     public static Gson gson = (new GsonBuilder()).create();
+    @Getter
     public static String version = "1.8.0";
 
 
@@ -58,9 +62,11 @@ public class BBLoader {
             .withRotationPoint(-0.1, 1.0, 0.0);
 
 
+    @Getter
     private static String animationSuffix = ".animation.json";
 
     // Stores actual animation files
+    @Getter
     private static HashMap<String, AnimationSet> actualAnimations = new HashMap<>();
 
 
@@ -104,10 +110,6 @@ public class BBLoader {
 
             AnimationSet set = actualAnimations.get(animation);
             SingleAnimation single = set.getSingleAnimation(subName);
-            //System.out.println(single.getTimestamps());
-            //System.out.println("START");
-            //single.bake();
-            //System.out.println("END");
             if (single == null) {
                 return null;
             }
@@ -138,7 +140,7 @@ public class BBLoader {
         AnimationSet animationSet = new AnimationSet();
 
         // Initialize our buffered reader object
-        BufferedReader br = null;
+        BufferedReader br;
         try {
             ResourceLocation loc = new ResourceLocation(directory + fileName);
             br = new BufferedReader(new InputStreamReader(MC.getResourceManager().getResource(loc).getInputStream()));
@@ -222,7 +224,7 @@ public class BBLoader {
 
         ResourceLocation loc = new ResourceLocation(directory + fileName);
 
-        BufferedReader br = null;
+        BufferedReader br;
         try {
             br = new BufferedReader(new InputStreamReader(MC.getResourceManager().getResource(loc).getInputStream()));
         } catch (IOException e) {
@@ -230,58 +232,31 @@ public class BBLoader {
             e.printStackTrace();
         }
 
+        assert br != null;
         JsonObject obj = gson.fromJson(br, JsonObject.class);
         JsonObject anims = obj.get("animations").getAsJsonObject();
 
         //String animationName = "animation.HKgrip.reload";
         String boneName = "bones";
 
-        AnimationData dat = new AnimationData(extractPath(anims, animationName, "bones", realBone));
+        return new AnimationData(extractPath(anims, animationName, "bones", realBone));
 
-        return dat;
-        //bbT.showDebugCode();
-        //System.out.println(anims.get(animationName).getAsJsonObject().get(boneName).getAsJsonObject());
-
-        //System.out.println(obj.get(animationName).getAsJsonObject().get(boneName));
-
-        //System.out.println(anims);
-        //System.out.println(obj.get("animations").getAsJsonArray());
-    }
-
-    public static String getDirectory() {
-        return directory;
     }
 
     public static void setDirectory(String directory) {
         BBLoader.directory = directory;
     }
 
-    public static Gson getGson() {
-        return gson;
-    }
-
     public static void setGson(Gson gson) {
         BBLoader.gson = gson;
-    }
-
-    public static String getVersion() {
-        return version;
     }
 
     public static void setVersion(String version) {
         BBLoader.version = version;
     }
 
-    public static String getAnimationSuffix() {
-        return animationSuffix;
-    }
-
     public static void setAnimationSuffix(String animationSuffix) {
         BBLoader.animationSuffix = animationSuffix;
-    }
-
-    public static HashMap<String, AnimationSet> getActualAnimations() {
-        return actualAnimations;
     }
 
     public static void setActualAnimations(HashMap<String, AnimationSet> actualAnimations) {

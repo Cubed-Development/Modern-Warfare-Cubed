@@ -41,9 +41,9 @@ public class M249Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -123,25 +123,16 @@ public class M249Factory {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M249Hatch, true, (model) -> {
                     if (model instanceof M249Hatch) {
-//            	GL11.glTranslatef(-0F, 2.45F, 3.8F);
-//                GL11.glRotatef(90F, 1f, 0f, 0f);
-                    } else if (model instanceof M249RearSight) {
+                    } else if (null instanceof M249RearSight) {
                         GL11.glTranslatef(-0.13f, -1.63f, 0.5f);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
-                    } else if (model instanceof AKRail) {
+                    } else if (null instanceof AKRail) {
                         GL11.glTranslatef(-0.25F, -1.7F, -2.2F);
                         GL11.glScaled(0.9F, 0.9F, 0.9F);
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M249Belt, true, (model) -> {
-//        	GL11.glTranslatef(0.15F, 0.35F, 0F);
-//            GL11.glRotatef(45F, 0f, 0f, 1f);
 
-//        	GL11.glTranslatef(0.2F, -0.25F, 0F);
-//            GL11.glRotatef(50F, 0f, 0f, 1f);
-
-//        	GL11.glTranslatef(0.05F, -0.15F, 0F);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Magazines.M249Mag, (model) -> {
 //            GL11.glTranslatef(0.4F, 0F, 0F);
@@ -150,41 +141,41 @@ public class M249Factory {
                     if (model instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(-0.183F, -1.32F, -5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.25F, -1.65F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron1) {
+                    } else if (null instanceof M4Iron1) {
                         GL11.glTranslatef(0.155F, -1.74F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(0.26F, -1.53F, -2.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
+                    } else if (null instanceof G36CIron1) {
                         GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
+                    } else if (null instanceof G36CIron2) {
                         GL11.glTranslatef(-0.22F, -1.67F, -5.45F);
                         GL11.glScaled(0.5F, 0.5F, 0.8F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if (null instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if (null instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(0.06F, -0.15F, -2.32F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(-180F, 0f, 0f, 1f);
-                    } else if (model instanceof M14Iron) {
+                    } else if (null instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -205,7 +196,7 @@ public class M249Factory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }

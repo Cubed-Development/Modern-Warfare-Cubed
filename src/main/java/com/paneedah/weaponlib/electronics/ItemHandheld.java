@@ -10,8 +10,6 @@ import net.minecraft.item.ItemStack;
 public class ItemHandheld<T> extends ItemAttachment<T>
         implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Updatable {
 
-    private final int DEFAULT_MAX_STACK_SIZE = 1;
-
     public static final class Builder<T> extends AttachmentBuilder<T> {
 
         private Runnable screenPositioning;
@@ -53,6 +51,7 @@ public class ItemHandheld<T> extends ItemAttachment<T>
                 null, null);
         this.builder = builder;
 
+        int DEFAULT_MAX_STACK_SIZE = 1;
         setMaxStackSize(DEFAULT_MAX_STACK_SIZE);
     }
 

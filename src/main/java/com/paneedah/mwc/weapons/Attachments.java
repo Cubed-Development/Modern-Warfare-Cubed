@@ -661,8 +661,6 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.MAS21Mount(), "gun.png")
                 .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0.62F, 1F, 0.5F);
-                    // GL11.glRotatef(30F, 0f, 1f, 0f);
-                    // GL11.glScaled(0.6F, 0.6F, 0.6F);
                 }))
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAS21Mount) {
@@ -5750,43 +5748,6 @@ public class Attachments {
                 .withRenderablePart().withTextureName("Dummy.png")
                 .build(MWC.modContext);
 
-//        Glock18CBody = new AttachmentBuilder<Weapon>()
-//                .withCategory(AttachmentCategory.BACKGRIP)
-//                .withCreativeTab(MWC.AttachmentsTab)
-//                .withModel(new com.paneedah.mwc.models.Glock19(), "glock18c.png")
-//                .withInventoryModelPositioning(model -> {
-//                    if (model instanceof com.paneedah.mwc.models.Glock19) {
-//                        GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
-//                        GL11.glRotatef(10F, 1f, 0f, 0f);
-//                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-//                        GL11.glRotatef(0F, 0f, 0f, 1f);
-//                        GL11.glScaled(0.9F, 0.9F, 0.9f);
-//                    } else {
-//                        GL11.glScalef(0f, 0f, 0f);
-//                    }
-//                }).withFirstPersonModelPositioning(model -> {
-//                    if (model instanceof com.paneedah.mwc.models.Glock19) {
-//                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
-//                        GL11.glRotatef(30F, 0f, 1f, 0f);
-//                        GL11.glScaled(0.7F, 0.7F, 0.7F);
-//                    } else {
-//                        GL11.glScaled(0F, 0F, 0F);
-//                    }
-//
-//                }).withThirdPersonModelPositioning(model -> {
-//                    if (model instanceof com.paneedah.mwc.models.Glock19) {
-//                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
-//                        GL11.glRotatef(-50F, 0f, 1f, 0f);
-//                        GL11.glRotatef(80F, 1f, 0f, 0f);
-//                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                    } else {
-//                        GL11.glScaled(0F, 0F, 0F);
-//                    }
-//                })
-//                .withName("Glock18CBody")
-//                .withRenderablePart().withTextureName("Dummy.png")
-//                .build(MWC.modContext);
-
         Glock19XBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7200,17 +7161,13 @@ public class Attachments {
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5StockAdapter) {
                         GL11.glTranslatef(-0.6F, 0.2F, 1.6F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.9F, 0.9F, 0.9f);
                     } else {
                         GL11.glTranslatef(-0.6F, 0.2F, 1.2F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.9F, 0.9F, 0.9f);
                     }
+                    GL11.glRotatef(10F, 1f, 0f, 0f);
+                    GL11.glRotatef(-190F, 0f, 1f, 0f);
+                    GL11.glRotatef(0F, 0f, 0f, 1f);
+                    GL11.glScaled(0.9F, 0.9F, 0.9f);
                 }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5StockAdapter) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
@@ -9965,17 +9922,13 @@ public class Attachments {
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7MilSpecStock) {
                         GL11.glTranslatef(-0.5F, 0.0F, 1.7F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.8F, 0.8F, 0.8f);
                     } else {
                         GL11.glTranslatef(-0.6F, 0.1F, 1.1F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.8F, 0.8F, 0.8f);
                     }
+                    GL11.glRotatef(10F, 1f, 0f, 0f);
+                    GL11.glRotatef(-190F, 0f, 1f, 0f);
+                    GL11.glRotatef(0F, 0f, 0f, 1f);
+                    GL11.glScaled(0.8F, 0.8F, 0.8f);
                 }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7MilSpecStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
@@ -10405,17 +10358,13 @@ public class Attachments {
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezKulaTacStock) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1.2F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.7F, 0.7F, 0.7f);
                     } else {
                         GL11.glTranslatef(-0.6F, -0.5F, 1F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.7F, 0.7F, 0.7f);
                     }
+                    GL11.glRotatef(10F, 1f, 0f, 0f);
+                    GL11.glRotatef(-190F, 0f, 1f, 0f);
+                    GL11.glRotatef(0F, 0f, 0f, 1f);
+                    GL11.glScaled(0.7F, 0.7F, 0.7f);
                 }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezKulaTacStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
@@ -12699,7 +12648,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -12709,7 +12658,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -12720,7 +12669,7 @@ public class Attachments {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.45F, 0.45F, 0.45f);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -12728,7 +12677,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -12754,9 +12703,9 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.PSO1reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.PSO1reticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.PSO12) {
+                    } else if (null instanceof com.paneedah.mwc.models.PSO12) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -12766,9 +12715,9 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.PSO1reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.PSO1reticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.PSO12) {
+                    } else if (null instanceof com.paneedah.mwc.models.PSO12) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -12779,9 +12728,9 @@ public class Attachments {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.PSO1reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.PSO1reticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.PSO12) {
+                    } else if (null instanceof com.paneedah.mwc.models.PSO12) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -12789,9 +12738,9 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.PSO1reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.PSO1reticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.PSO12) {
+                    } else if (null instanceof com.paneedah.mwc.models.PSO12) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -12818,7 +12767,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.OKP7reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.OKP7reticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -12828,7 +12777,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.3F, 0.3F, 0.3F);
-                    } else if (model instanceof com.paneedah.mwc.models.OKP7reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.OKP7reticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -12838,7 +12787,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.OKP7reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.OKP7reticle) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -12847,7 +12796,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.OKP7reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.OKP7reticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -12868,7 +12817,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -12878,7 +12827,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.3F, 0.3F, 0.3F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -12888,7 +12837,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -12897,7 +12846,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -12937,7 +12886,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -12947,7 +12896,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.3F, 0.3F, 0.3F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -12957,7 +12906,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -12966,7 +12915,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13005,7 +12954,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13015,7 +12964,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.3F, 0.3F, 0.3F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13025,7 +12974,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13034,7 +12983,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13058,8 +13007,6 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 2))
                 .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0F, 2.3F, 1.8F);
-                    // GL11.glRotatef(30F, 0f, 1f, 0f);
-                    // GL11.glScaled(0.6F, 0.6F, 0.6F);
                 }))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
                         MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail,
@@ -13151,9 +13098,9 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 1.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.AcogReticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.AcogReticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.AcogScope2) {
+                    } else if (null instanceof com.paneedah.mwc.models.AcogScope2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13163,9 +13110,9 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.AcogReticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.AcogReticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.AcogScope2) {
+                    } else if (null instanceof com.paneedah.mwc.models.AcogScope2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13175,10 +13122,10 @@ public class Attachments {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.AcogReticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.AcogReticle) {
                         GL11.glScaled(0F, 0F, 0F);
 
-                    } else if (model instanceof com.paneedah.mwc.models.AcogScope2) {
+                    } else if (null instanceof com.paneedah.mwc.models.AcogScope2) {
                         GL11.glScaled(0.55F, 0.55F, 0.55F);
                         GL11.glTranslatef(1F, 0F, -1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13190,9 +13137,9 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.AcogReticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.AcogReticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.AcogScope2) {
+                    } else if (null instanceof com.paneedah.mwc.models.AcogScope2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13236,7 +13183,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
-                    } else if (model instanceof com.paneedah.mwc.models.Acog2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Acog2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13246,7 +13193,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.25F, 0.25F, 0.25F);
-                    } else if (model instanceof com.paneedah.mwc.models.Acog2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Acog2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13256,7 +13203,7 @@ public class Attachments {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.6F, 0.6F, 0.6f);
-                    } else if (model instanceof com.paneedah.mwc.models.Acog2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Acog2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13265,7 +13212,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Acog2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Acog2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13307,7 +13254,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13317,7 +13264,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13327,7 +13274,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13336,7 +13283,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13378,7 +13325,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13388,7 +13335,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13398,7 +13345,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.9F, 0.9F, 0.9f);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13407,7 +13354,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13449,9 +13396,9 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.EotechScopeRing) {
+                    } else if (null instanceof com.paneedah.mwc.models.EotechScopeRing) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13461,9 +13408,9 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.EotechScopeRing) {
+                    } else if (null instanceof com.paneedah.mwc.models.EotechScopeRing) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13473,9 +13420,9 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.EotechScopeRing) {
+                    } else if (null instanceof com.paneedah.mwc.models.EotechScopeRing) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -13483,9 +13430,9 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.EotechScopeRing) {
+                    } else if (null instanceof com.paneedah.mwc.models.EotechScopeRing) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13525,7 +13472,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13535,7 +13482,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13545,7 +13492,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13554,7 +13501,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Holo2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13595,7 +13542,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13605,7 +13552,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13615,7 +13562,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.75F, 0.75F, 0.75f);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13624,7 +13571,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13665,7 +13612,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13675,7 +13622,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13685,7 +13632,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.95F, 0.95F, 0.95f);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13694,7 +13641,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13736,7 +13683,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13746,7 +13693,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13756,7 +13703,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.65F, 0.65F, 0.65f);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13765,7 +13712,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13800,7 +13747,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13810,7 +13757,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13820,7 +13767,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13829,7 +13776,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13870,7 +13817,7 @@ public class Attachments {
                         GL11.glTranslatef(0.4F, -0.8F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13880,7 +13827,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13890,7 +13837,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13899,7 +13846,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13940,7 +13887,7 @@ public class Attachments {
                         GL11.glTranslatef(0.4F, -0.8F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -13950,7 +13897,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -13960,7 +13907,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -13969,7 +13916,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -13996,7 +13943,7 @@ public class Attachments {
                         GL11.glTranslatef(0.4F, -0.8F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14006,7 +13953,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -14016,7 +13963,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1F, 1F, 1f);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
@@ -14025,7 +13972,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
+                    } else if (null instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -14050,7 +13997,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14060,7 +14007,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -14070,7 +14017,7 @@ public class Attachments {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.65F, 0.65F, 0.65f);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -14078,7 +14025,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -14117,7 +14064,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14127,7 +14074,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14138,7 +14085,7 @@ public class Attachments {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.45F, 0.45F, 0.45f);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -14146,7 +14093,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -14185,7 +14132,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14195,7 +14142,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -14205,7 +14152,7 @@ public class Attachments {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.75F, 0.75F, 0.75f);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -14213,7 +14160,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -14240,7 +14187,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.M2A1reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.M2A1reticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14250,7 +14197,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.M2A1reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.M2A1reticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -14260,7 +14207,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
-                    } else if (model instanceof com.paneedah.mwc.models.M2A1reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.M2A1reticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -14268,7 +14215,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.M2A1reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.M2A1reticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -14292,9 +14239,9 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.F2000Reticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Scope2) {
+                    } else if (null instanceof com.paneedah.mwc.models.F2000Scope2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14304,9 +14251,9 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.F2000Reticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Scope2) {
+                    } else if (null instanceof com.paneedah.mwc.models.F2000Scope2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -14316,9 +14263,9 @@ public class Attachments {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.85F, 0.85F, 0.85f);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.F2000Reticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Scope2) {
+                    } else if (null instanceof com.paneedah.mwc.models.F2000Scope2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -14326,9 +14273,9 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Reticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.F2000Reticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.F2000Scope2) {
+                    } else if (null instanceof com.paneedah.mwc.models.F2000Scope2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -14394,9 +14341,9 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.AUGScope) {
+                    } else if (null instanceof com.paneedah.mwc.models.AUGScope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14406,9 +14353,9 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.AUGScope) {
+                    } else if (null instanceof com.paneedah.mwc.models.AUGScope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -14418,9 +14365,9 @@ public class Attachments {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.65F, 0.65F, 0.65f);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.AUGScope) {
+                    } else if (null instanceof com.paneedah.mwc.models.AUGScope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -14428,9 +14375,9 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
+                    } else if (null instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.AUGScope) {
+                    } else if (null instanceof com.paneedah.mwc.models.AUGScope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -14718,7 +14665,7 @@ public class Attachments {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.AKRail) {
+                    } else if (null instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14728,7 +14675,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.AKRail) {
+                    } else if (null instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -14738,7 +14685,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.75F, 0.75F, 0.75f);
-                    } else if (model instanceof com.paneedah.mwc.models.AKRail) {
+                    } else if (null instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -14746,7 +14693,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.AKRail) {
+                    } else if (null instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withName("Remington870FABDefensePump")
@@ -14835,7 +14782,7 @@ public class Attachments {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
+                    } else if (null instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14845,7 +14792,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
+                    } else if (null instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -14855,7 +14802,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
-                    } else if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
+                    } else if (null instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glTranslatef(-0.6F, -0.1F, 1F);
                         GL11.glRotatef(20F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
@@ -14867,7 +14814,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
+                    } else if (null instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withName("Remington870MilSpecStock")
@@ -14884,7 +14831,7 @@ public class Attachments {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.HK416Stock) {
+                    } else if (null instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14894,7 +14841,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.HK416Stock) {
+                    } else if (null instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -14904,7 +14851,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
-                    } else if (model instanceof com.paneedah.mwc.models.HK416Stock) {
+                    } else if (null instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glTranslatef(-0.6F, -0.1F, 1F);
                         GL11.glRotatef(20F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
@@ -14916,7 +14863,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.HK416Stock) {
+                    } else if (null instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withName("Remington870HK416StockStock")
@@ -14969,7 +14916,7 @@ public class Attachments {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.R870part) {
+                    } else if (null instanceof com.paneedah.mwc.models.R870part) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -14979,7 +14926,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.R870part) {
+                    } else if (null instanceof com.paneedah.mwc.models.R870part) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -14989,7 +14936,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.55F, 0.55F, 0.55f);
-                    } else if (model instanceof com.paneedah.mwc.models.R870part) {
+                    } else if (null instanceof com.paneedah.mwc.models.R870part) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -14997,7 +14944,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.R870part) {
+                    } else if (null instanceof com.paneedah.mwc.models.R870part) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withName("Remington870Barrel")
@@ -15014,7 +14961,7 @@ public class Attachments {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
+                    } else if (null instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -15024,7 +14971,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
+                    } else if (null instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -15034,7 +14981,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.55F, 0.55F, 0.55f);
-                    } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
+                    } else if (null instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -15042,7 +14989,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
+                    } else if (null instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withName("Remington870PoliceMagnumBarrel")
@@ -15059,7 +15006,7 @@ public class Attachments {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
-                    } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
+                    } else if (null instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
@@ -15069,7 +15016,7 @@ public class Attachments {
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
+                    } else if (null instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
@@ -15079,7 +15026,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.66F, 0.66F, 0.66f);
-                    } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
+                    } else if (null instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -15087,7 +15034,7 @@ public class Attachments {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
+                    } else if (null instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withName("Remington870SawedBarrel")
@@ -15307,9 +15254,9 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.6F, 0.6F, 0.6f);
-                    } else if (model instanceof com.paneedah.mwc.models.AKiron3) {
+                    } else if (null instanceof com.paneedah.mwc.models.AKiron3) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof com.paneedah.mwc.models.AKMiron2) {
+                    } else if (null instanceof com.paneedah.mwc.models.AKMiron2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -15347,7 +15294,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1.2F, 1.2F, 1.2f);
-                    } else if (model instanceof com.paneedah.mwc.models.AKMiron2) {
+                    } else if (null instanceof com.paneedah.mwc.models.AKMiron2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -15385,7 +15332,7 @@ public class Attachments {
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(1.2F, 1.2F, 1.2f);
-                    } else if (model instanceof com.paneedah.mwc.models.AKMiron2) {
+                    } else if (null instanceof com.paneedah.mwc.models.AKMiron2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -16702,8 +16649,6 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.Laser(), "gun.png")
                 .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0.2F, 1.4F, 1.8F);
-                    // GL11.glRotatef(30F, 0f, 1f, 0f);
-                    // GL11.glScaled(0.6F, 0.6F, 0.6F);
                 }))
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser) {
@@ -16767,8 +16712,6 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0.2F, 1.3F, 1.8F);
-                    // GL11.glRotatef(30F, 0f, 1f, 0f);
-                    // GL11.glScaled(0.6F, 0.6F, 0.6F);
                 })).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser3) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
@@ -16813,8 +16756,6 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0.62F, 0.82F, 0.5F);
-                    // GL11.glRotatef(30F, 0f, 1f, 0f);
-                    // GL11.glScaled(0.6F, 0.6F, 0.6F);
                 }))
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2Laser) {
@@ -16860,8 +16801,6 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.DanWessonLaser(), "DanWessonLaser.png")
                 .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0.2F, 1.4F, 1.8F);
-                    // GL11.glRotatef(30F, 0f, 1f, 0f);
-                    // GL11.glScaled(0.6F, 0.6F, 0.6F);
                 })).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DanWessonLaser) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);

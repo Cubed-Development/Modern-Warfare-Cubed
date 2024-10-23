@@ -42,9 +42,9 @@ public class MakarovPMFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.19f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.19f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -88,22 +88,20 @@ public class MakarovPMFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.MakarovPBBody, (model) -> {
                     if (model instanceof MakarovPBBody) {
                         GL11.glScaled(1F, 1F, 1F);
-                    } else if (model instanceof makarovfrontsight) {
+                    } else if (null instanceof makarovfrontsight) {
                         GL11.glTranslatef(-0.1393F, -1.09F, -1.75F);
                         GL11.glScaled(0.15F, 0.25F, 0.2F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.MakarovBody, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.MakarovSlide, true, (model) -> {
                     if (model instanceof MakarovPMSlide) {
                         GL11.glScaled(1F, 1F, 1F);
-                    } else if (model instanceof makarovrearsight) {
+                    } else if (null instanceof makarovrearsight) {
                         GL11.glTranslatef(-0.149F, -1.07F, -0.13F);
                         GL11.glScaled(0.25F, 0.25F, 0.3F);
-                    } else if (model instanceof makarovfrontsight) {
+                    } else if (null instanceof makarovfrontsight) {
                         GL11.glTranslatef(-0.1393F, -1.06F, -1.7F);
                         GL11.glScaled(0.15F, 0.25F, 0.2F);
                     }
@@ -111,7 +109,7 @@ public class MakarovPMFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.MakarovPBSlide, (model) -> {
                     if (model instanceof MakarovPMSlide) {
                         GL11.glScaled(1F, 1F, 1F);
-                    } else if (model instanceof makarovrearsight) {
+                    } else if (null instanceof makarovrearsight) {
                         GL11.glTranslatef(-0.149F, -1.09F, -0.13F);
                         GL11.glScaled(0.25F, 0.25F, 0.3F);
                     }
@@ -121,8 +119,6 @@ public class MakarovPMFactory implements GunFactory {
                     GL11.glTranslatef(0F, 0F, 0.1F);
                 })
                 .withCompatibleAttachment(Attachments.SilencerPBS, (model) -> {
-//            GL11.glTranslatef(-0.23F, -1.14F, -4.92F);
-//            GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withTextureNames("makarovpm")
                 .withRenderer(new WeaponRenderer.Builder()

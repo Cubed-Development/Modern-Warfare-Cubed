@@ -39,9 +39,9 @@ public class StonerA1Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
 
@@ -59,11 +59,11 @@ public class StonerA1Factory {
                     if (model instanceof AKMiron2) {
                         GL11.glTranslatef(-0.015F, -1.03F, -0.33F);
                         GL11.glScaled(0.55F, 0.55F, 1F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(0.065F, -0.85F, -0.3F);
                         GL11.glScaled(0.1F, 1F, 0.3F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.1F, -1.51F, -0.3F);
                         GL11.glScaled(0.85F, 1.3F, 0.25F);
                     }
@@ -72,10 +72,10 @@ public class StonerA1Factory {
                     if (model instanceof StonerHANDGUARD) {
                         GL11.glTranslatef(0F, 0F, 0F);
                         GL11.glScaled(1F, 1F, 1F);
-                    } else if (model instanceof AKRail) {
+                    } else if (null instanceof AKRail) {
                         GL11.glTranslatef(-0.085F, -0.75F, -0.5F);
                         GL11.glScaled(0.9F, 0.9F, 1.15F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(0.12F, 0.3F, 0.1F);
                         GL11.glScaled(0.6F, 0.6F, 0.7F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
@@ -90,36 +90,28 @@ public class StonerA1Factory {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.StonerHATCH, true, (model) -> {
                     if (model instanceof StonerA1HATCH) {
-//            	GL11.glTranslatef(-0F, 2.45F, 3.8F);
-//                GL11.glRotatef(90F, 1f, 0f, 0f);
-                    } else if (model instanceof M27rearsight) {
+                    } else if (null instanceof M27rearsight) {
                         GL11.glTranslatef(0f, -1.05f, 5.8f);
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.StonerBELT, true, (model) -> {
-//            GL11.glTranslatef(0.3F, 0.1F, 0F);
-//          GL11.glRotatef(-15F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Magazines.StonerMag, (model) -> {
-//            GL11.glTranslatef(0.3F, 0.1F, 0F);
-//            GL11.glRotatef(-15F, 0f, 0f, 1f);
 
-//            GL11.glTranslatef(0.15F, 0.9F, 0F);
-//            GL11.glRotatef(10F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M4Rail, true, (model) -> {
                     if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.085F, -0.86F, 4.1F);
                         GL11.glScaled(0.9F, 0.9F, 0.8F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.085F, -0.75F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail4) {
+                    } else if (null instanceof AKRail4) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -127,40 +119,40 @@ public class StonerA1Factory {
                     if (model instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(-0.183F, -1.32F, -5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.25F, -1.65F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron1) {
+                    } else if (null instanceof M4Iron1) {
                         GL11.glTranslatef(0.155F, -1.74F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(0.26F, -1.53F, -2.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
+                    } else if (null instanceof G36CIron1) {
                         GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
+                    } else if (null instanceof G36CIron2) {
                         GL11.glTranslatef(-0.005F, -0.88F, 0.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if (null instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if (null instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M14Iron) {
+                    } else if (null instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -169,47 +161,47 @@ public class StonerA1Factory {
                     if (model instanceof M4Iron1) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(0.255F, -1.55F, -2.25F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron1) {
+                    } else if (null instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(-0.18F, -1.5F, -3.73F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.22F, -1.85F, -3.7F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
+                    } else if (null instanceof G36CIron1) {
                         GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
+                    } else if (null instanceof G36CIron2) {
                         GL11.glTranslatef(-0.205F, -1.9F, -3.15F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if (null instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if (null instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(-0.1F, -1.34F, -3.7F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof M14Iron) {
+                    } else if (null instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M27rearsight) {
+                    } else if (null instanceof M27rearsight) {
                         GL11.glTranslatef(0f, -1.05f, 5.8f);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
-                    } else if (model instanceof MBUSiron) {
+                    } else if (null instanceof MBUSiron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -230,7 +222,7 @@ public class StonerA1Factory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }

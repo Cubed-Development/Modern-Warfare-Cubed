@@ -19,9 +19,9 @@ class SequenceGenerator {
 
     SequenceGenerator(int slotCount) {
         this.slotCount = slotCount;
-        this.uniqueSequenceMap = new HashMap<>();
+        uniqueSequenceMap = new HashMap<>();
         try {
-            this.random = SecureRandom.getInstance(ALG_NAME);
+            random = SecureRandom.getInstance(ALG_NAME);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("Failed to initialize sequence generator: " + e, e);
         }
@@ -45,7 +45,7 @@ class SequenceGenerator {
         int[] optionDistribution = new int[optionMetadata.length];
         do {
             Arrays.fill(optionDistribution, 0);
-            Arrays.fill(slotValues, 0);
+            Arrays.fill(slotValues, Integer.valueOf(0));
             for (int slot = 0; slot < slotCount; slot++) {
                 int selectedOption = random.nextInt(optionMetadata.length);
                 optionDistribution[selectedOption]++;

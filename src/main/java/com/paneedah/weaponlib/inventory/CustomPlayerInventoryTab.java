@@ -9,11 +9,8 @@ import static com.paneedah.mwc.MWC.CHANNEL;
 
 public class CustomPlayerInventoryTab extends InventoryTab {
 
-    private final ModContext clientModContext;
-
     public CustomPlayerInventoryTab(ModContext clientModContext, Item tabIconItem) {
         super(0, 0, 0, new ItemStack(tabIconItem));
-        this.clientModContext = clientModContext;
     }
 
     @Override

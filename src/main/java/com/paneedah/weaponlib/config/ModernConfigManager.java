@@ -185,11 +185,11 @@ public class ModernConfigManager {
         }
 
         if (f.getType() == int.class) {
-            elementMappings.get(f).set((int) value);
+            elementMappings.get(f).set(((Integer) value).intValue());
         } else if (f.getType() == int[].class) {
             elementMappings.get(f).set((int[]) value);
         } else if (f.getType() == boolean.class) {
-            elementMappings.get(f).set((boolean) value);
+            elementMappings.get(f).set(((Boolean) value).booleanValue());
         } else if (f.getType() == boolean[].class) {
             elementMappings.get(f).set((boolean[]) value);
         } else if (f.getType() == String.class) {
@@ -197,11 +197,11 @@ public class ModernConfigManager {
         } else if (f.getType() == String[].class) {
             elementMappings.get(f).set((String[]) value);
         } else if (f.getType() == double.class) {
-            elementMappings.get(f).set((double) value);
+            elementMappings.get(f).set(((Double) value).doubleValue());
         } else if (f.getType() == double[].class) {
             elementMappings.get(f).set((double[]) value);
         } else if (f.getType() == long.class) {
-            elementMappings.get(f).set((long) value);
+            elementMappings.get(f).set(((Long) value).longValue());
         }
     }
 
