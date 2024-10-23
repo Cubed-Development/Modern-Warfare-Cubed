@@ -44,15 +44,8 @@ public class DynamicShaderGroupManager {
     private final Map<UUID, LoadedShaderGroup> loaded = new LinkedHashMap<>();
 
     public boolean hasActiveGroups() {
-        return loaded.size() > 0;
+        return !loaded.isEmpty();
     }
-
-//    public void applyShader(DynamicShaderContext shaderContext, DynamicShaderGroupSourceProvider shaderSourceProvider) {
-//        DynamicShaderGroupSource source = shaderSourceProvider.getShaderSource(shaderContext.getPhase());
-//        if(source != null) {
-//            loadFromSource(shaderContext, source);
-//        }
-//    }
 
     public void applyShader(DynamicShaderContext shaderContext, ItemStack itemStack) {
         Item item = itemStack.getItem();
@@ -110,7 +103,7 @@ public class DynamicShaderGroupManager {
                 return v;
             }
         });
-        if (l != null && l.group != null) {
+        if (l.group != null) {
 
             source.getUniforms(context).forEach(u -> {l.group.setUniform(u.getU(), u.getV().apply(context));});
             context.getPhase().apply(context, l.group);
@@ -121,7 +114,7 @@ public class DynamicShaderGroupManager {
             GlStateManager.viewport(0, 0, MC.getFramebuffer().framebufferWidth, MC.getFramebuffer().framebufferHeight);
         }
 
-        return l != null ? l.group : null;
+        return l.group;
     }
 
     private DynamicShaderGroup createShaderGroup(DynamicShaderContext context, DynamicShaderGroupSource source, ResourceLocation resourceLocation) {
@@ -171,22 +164,7 @@ public class DynamicShaderGroupManager {
         ResourceLocation result;
 
         switch (resourceLocation.getNamespace()) {
-            case RESOURCE_DOMAIN_WEAPONLIB:
-                if (resourceLocation.getPath().startsWith("shaders/program/")) {
-                    result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_SHADER_PROGRAMS
-                            + resourceLocation.getPath().substring(16));
-                } else {
-                    result = resourceLocation;
-                }
 
-                break;
-            case RESOURCE_DOMAIN_SHADERS_PROGRAM_WEAPONLIB:
-                result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_SHADER_PROGRAMS
-                        + resourceLocation.getPath());
-                break;
-            case RESOURCE_DOMAIN_TEXTURES_EFFECT_WEAPONLIB:
-                result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_RESOURCES + resourceLocation.getPath());
-                break;
             default:
                 result = resourceLocation;
         }

@@ -26,7 +26,7 @@ public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends
     public BetterAINearestAttackableTarget(EntityCreature creature, Class<T> classTarget, String name, boolean checkSight) {
         super(creature, classTarget, checkSight);
         // TODO Auto-generated constructor stub
-        this.enemyName = name;
+        enemyName = name;
     }
 
 
@@ -35,10 +35,10 @@ public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends
         if (targetChance > 0 && this.taskOwner.getRNG().nextInt(targetChance) != 0) {
             return false;
         } else if (this.targetClass != EntityPlayer.class && this.targetClass != EntityPlayerMP.class) {
-            List<T> list = this.taskOwner.world.getEntitiesWithinAABB(this.targetClass, this.getTargetableArea(this.getTargetDistance()), this.targetEntitySelector);
+            List<T> list = this.taskOwner.world.getEntitiesWithinAABB(this.targetClass, getTargetableArea(getTargetDistance()), this.targetEntitySelector);
             list.removeIf(s -> {
                 if (s instanceof EntityCustomMob) {
-                    return ((EntityCustomMob) s).getMobName() != this.enemyName;
+                    return !((EntityCustomMob) s).getMobName().equals(enemyName);
                 } else {
                     return false;
                 }
@@ -53,8 +53,9 @@ public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends
                 return true;
             }
         } else {
-            this.targetEntity = (T) this.taskOwner.world.getNearestAttackablePlayer(this.taskOwner.posX, this.taskOwner.posY + (double) this.taskOwner.getEyeHeight(), this.taskOwner.posZ, this.getTargetDistance(), this.getTargetDistance(), new Function<EntityPlayer, Double>() {
+            this.targetEntity = (T) this.taskOwner.world.getNearestAttackablePlayer(this.taskOwner.posX, this.taskOwner.posY + (double) this.taskOwner.getEyeHeight(), this.taskOwner.posZ, getTargetDistance(), getTargetDistance(), new Function<EntityPlayer, Double>() {
                 public Double apply(@Nullable EntityPlayer p_apply_1_) {
+                    assert p_apply_1_ != null;
                     ItemStack itemstack = p_apply_1_.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 
                     if (itemstack.getItem() == Items.SKULL) {
@@ -64,11 +65,11 @@ public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends
                         boolean flag2 = BetterAINearestAttackableTarget.this.taskOwner instanceof EntityCreeper && i == 4;
 
                         if (flag || flag1 || flag2) {
-                            return 0.5D;
+                            return Double.valueOf(0.5D);
                         }
                     }
 
-                    return 1.0D;
+                    return Double.valueOf(1.0D);
                 }
             }, (Predicate<EntityPlayer>) this.targetEntitySelector);
             return this.targetEntity != null;

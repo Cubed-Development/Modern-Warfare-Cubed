@@ -48,9 +48,9 @@ public class M1897Factory implements GunFactory {
                 .withInaccuracy(18)
                 .withPellets(10)
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.8f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.13f)
+                .withFlashScale(() -> Float.valueOf(0.8f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.13f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
                 .withScreenShaking(RenderableState.SHOOTING,
@@ -64,41 +64,41 @@ public class M1897Factory implements GunFactory {
                     if (model instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(-0.1285F, -0.43F, -4.4F);
                         GL11.glRotatef(-180f, 1f, 0f, 0f);
                         GL11.glScaled(0.4F, 0.5F, 1.1F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.165F, -0.8F, -1.1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron1) {
+                    } else if (null instanceof M4Iron1) {
                         GL11.glTranslatef(0.155F, -1.74F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
+                    } else if (null instanceof G36CIron1) {
                         GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
+                    } else if (null instanceof G36CIron2) {
                         GL11.glTranslatef(-0.205F, -1.9F, -3.15F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if (null instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if (null instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M14Iron) {
+                    } else if (null instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -152,11 +152,6 @@ public class M1897Factory implements GunFactory {
                             GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                             GL11.glTranslatef(-0.18f, 0.45f, -1.3f);
 
-//                GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-//                GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(40.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.575000f, 0.125000f, -1.349999f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -172,16 +167,9 @@ public class M1897Factory implements GunFactory {
                             GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                             GL11.glTranslatef(0.250000f, 0.100000f, -0.8f);
                             GL11.glRotatef(-3F, 1f, 0f, 0f);
-//                GL11.glRotatef(-2.5F, 0f, 1f, 0f);
 
-//              // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })
@@ -193,9 +181,6 @@ public class M1897Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
-//              GL11.glTranslatef(-0.01F, 0F, 0F);
-//              GL11.glRotatef(-20F, 1f, 0f, 0f);
-//              GL11.glRotatef(5F, 0f, 1f, 0f);
                         })
 
                         .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
@@ -710,13 +695,8 @@ public class M1897Factory implements GunFactory {
                             GL11.glTranslatef(0.250000f, 0.17f, -1.3f);
 
 //				// Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })
@@ -750,11 +730,6 @@ public class M1897Factory implements GunFactory {
                                     GL11.glTranslatef(0.275000f, -0.400000f, 0.275000f);
                                 },
                                 (renderContext) -> {
-//                         GL11.glScalef(3f, 3f, 3f);
-//                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.557000f, -0.851000f, 0.200000f);
 
                                     GL11.glScalef(3f, 3f, 3f);
                                     GL11.glRotatef(-85.000000f, 1f, 0f, 0f);

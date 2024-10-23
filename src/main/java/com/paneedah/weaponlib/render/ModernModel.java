@@ -11,7 +11,7 @@ public class ModernModel {
 
     public ModernModel(int vao, int size) {
         this.vao = vao;
-        this.vertices = size;
+        vertices = size;
 
     }
 

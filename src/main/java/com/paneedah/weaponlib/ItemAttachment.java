@@ -4,6 +4,8 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -23,18 +25,31 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class ItemAttachment<T> extends Item implements ModelSource, IModernCraftingRecipe {
 
+    @Getter
     private final AttachmentCategory category;
+    @Getter
     private final String crosshair;
+    @Getter
     private final ApplyHandler<T> apply;
+    @Getter
     private final ApplyHandler<T> remove;
+    @Getter
     protected ApplyHandler2<T> apply2;
     protected ApplyHandler2<T> remove2;
+    @Getter
     protected MeleeWeaponApplyHandler<T> apply3;
+    @Getter
     protected MeleeWeaponApplyHandler<T> remove3;
+    @Getter
     private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    @Setter
     private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
+    @Getter
+    @Setter
     private CustomRenderer<?> preRenderer;
+    @Getter
     private Part renderablePart;
+    @Setter
     private String name;
     private Function<ItemStack, String> informationProvider;
     protected int maxStackSize = 1;
@@ -46,6 +61,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 
     private final List<Weapon> compatibleWeapons = new ArrayList<>();
 
+    @Getter
     private List<ItemAttachment<T>> requiredAttachments = new ArrayList<>();
 
     protected String textureName;
@@ -68,9 +84,6 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
     protected ItemAttachment(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
                              ApplyHandler<T> apply, ApplyHandler<T> remove) {
         this.category = category;
-//		if(model != null) {
-//			this.texturedModels.add(new Tuple<ModelBase, String>(model, textureName));
-//		}
         this.textureName = textureName.toLowerCase();
         this.crosshair = crosshair != null ? ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
         this.apply = apply;
@@ -96,21 +109,17 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 
     @Override
     public CraftingGroup getCraftingGroup() {
-        return this.craftGroup;
+        return craftGroup;
     }
 
     public void setCraftingGroup(CraftingGroup cg) {
-        this.craftGroup = cg;
+        craftGroup = cg;
     }
 
     public void setModernRecipe(CraftingEntry... is) {
-        this.modernRecipe = is;
+        modernRecipe = is;
     }
 
-
-    public Part getRenderablePart() {
-        return renderablePart;
-    }
 
     protected void setRenderablePart(Part renderablePart) {
         this.renderablePart = renderablePart;
@@ -129,10 +138,6 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
         this.requiredAttachments = Collections.unmodifiableList(requiredAttachments);
     }
 
-    public List<ItemAttachment<T>> getRequiredAttachments() {
-        return requiredAttachments;
-    }
-
     @Deprecated
     public ItemAttachment<T> addModel(ModelBase model, String textureName) {
         texturedModels.add(new Tuple<>(model, textureName));
@@ -147,33 +152,12 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
         this(category, attachment, textureName, crosshair, (a, w, p) -> {}, (a, w, p) -> {});
     }
 
-    public AttachmentCategory getCategory() {
-        return category;
-    }
-
-    public List<Tuple<ModelBase, String>> getTexturedModels() {
-        return texturedModels;
-    }
-
     /**
      * For use with the "magic mag"
      *
-     * @param model
      */
     public void setFirstModel(ItemAttachment<Weapon> model) {
         texturedModels.set(0, model.getTexturedModels().get(0));
-    }
-
-    public String getCrosshair() {
-        return crosshair;
-    }
-
-    public ApplyHandler<T> getApply() {
-        return apply;
-    }
-
-    public ApplyHandler<T> getRemove() {
-        return remove;
     }
 
     public void addCompatibleWeapon(Weapon weapon) {
@@ -213,12 +197,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
         tooltip.addAll(tooltipLines);
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setPostRenderers(List<CustomRenderer<?>> postRenderer) {
-        postRenderer = postRenderer;
     }
 
 
@@ -229,14 +208,6 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 
     public List<CustomRenderer<?>> getAllPostRenderers() {
         return postRenderer;
-    }
-
-    public CustomRenderer<?> getPreRenderer() {
-        return preRenderer;
-    }
-
-    public void setPreRenderer(CustomRenderer<?> preRenderer) {
-        this.preRenderer = preRenderer;
     }
 
     protected void addCompatibleAttachment(CompatibleAttachment<T> attachment) {
@@ -252,25 +223,8 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
         return name != null ? "Attachment [" + name + "]" : super.toString();
     }
 
-    public ApplyHandler2<T> getApply2() {
-        return apply2;
-    }
-
     protected ApplyHandler2<T> getRemove2() {
         return remove2;
-    }
-
-    public MeleeWeaponApplyHandler<T> getApply3() {
-        return apply3;
-    }
-
-    public MeleeWeaponApplyHandler<T> getRemove3() {
-        return remove3;
-    }
-
-    public void setPostRenderer(List<CustomRenderer<?>> postRenderer2) {
-        this.postRenderer = postRenderer2;
-
     }
 
     @Override
@@ -280,12 +234,12 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 
     @Override
     public CraftingEntry[] getModernRecipe() {
-        return this.modernRecipe;
+        return modernRecipe;
     }
 
     @Override
     public void setCraftingRecipe(CraftingEntry[] recipe) {
-        this.modernRecipe = recipe;
+        modernRecipe = recipe;
     }
 
     @Override

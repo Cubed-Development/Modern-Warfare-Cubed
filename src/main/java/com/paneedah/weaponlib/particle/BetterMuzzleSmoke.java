@@ -31,7 +31,7 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
         this.motionY = (Math.random() - 0.5) / (sub * 3);
         this.motionZ = (Math.random() - 0.5) / sub;
 
-        this.ran = (int) (2 * Math.random());
+        ran = (int) (2 * Math.random());
         particleScale = 2.5f;
 
         this.particleAngle = (float) (Math.random() * 2 * Math.PI);
@@ -50,7 +50,7 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
 
         this.particleRed = this.particleGreen = this.particleBlue = urandom.nextFloat() * 0.5F + 0.4F;
 
-        int brightness = this.getBrightnessForRender(partialTicks);
+        int brightness = getBrightnessForRender(partialTicks);
         int skyLight = brightness >> 16 & 65535;
         int blockLight = brightness & 65535;
 
@@ -59,33 +59,14 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
         float y = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY);
         float z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ);
 
-        /*
-        int oldInd = (this.particleAge - 1) * 16 / this.particleMaxAge;
-        int ind = this.particleAge * 16 / this.particleMaxAge;
-
-        ind = (int) (oldInd + (ind - oldInd) * MC.getRenderPartialTicks());
-
-        int nR = (int) (ind / 4) * 512;
-
-        int row = (int) ((ind) / (double) (2048 / 512)) * 512;
-        int col = (int) (((ind) % (double) (2048 / 512))) * 512;
-
-        System.out.println("Index: " + ind + " | COL: " + col + " | ROW: " + nR + " | COR:  " + nR);
-
-        double minX = col / 2048.0;
-        double minY = nR / 2048.0;
-        double u = 1 / 4.0;
-        double v = 1 / 4.0;
-        */
-
         int index = MathHelper.clamp((int) (((this.particleAge + partialTicks) / (float) this.particleMaxAge) * 16), 0, 15);
         float size = 1 / 4F;
         float minX = (index % 4) * size;
-        float minY = (index / 4) * size;
+        float minY = ((float) index / 4) * size;
         double u = 1 / 4.0;
         double v = 1 / 4.0;
 
-        if (this.ran == 0) {
+        if (ran == 0) {
             MC.getTextureManager().bindTexture(SMOKE1);
         } else {
             MC.getTextureManager().bindTexture(SMOKE2);
@@ -124,57 +105,19 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
         this.prevPosZ = this.posZ;
 
         if (this.particleAge++ >= this.particleMaxAge) {
-            this.setExpired();
+            setExpired();
         }
 
         this.particleTextureIndexX = this.particleAge * 7 / this.particleMaxAge;
 
-        this.move(this.motionX, this.motionY, this.motionZ);
-
-        /*
-        try {
-        
-             List<Entity> entList = this.world.getLoadedEntityList();
-            // entList.removeIf((e) -> !(e instanceof EntityVehicle));
-
-             for(Entity ent : entList) {
-
-                 if(ent instanceof EntityVehicle) continue;
-
-                 EntityVehicle v = (EntityVehicle) ent;
-                 Vec3d particlePos = new Vec3d(posX, posY, posZ);
-
-                 double distance = particlePos.subtract(ent.getPositionVector()).length();
-
-                 if(distance < 1 && v.solver.getVelocityVector().length() > 3) {
-                     Vec3d sV = ent.getPositionVector().subtract(particlePos).normalize();
-
-                     this.motionX += sV.x;
-                     this.motionY += sV.y;
-                     this.motionZ += sV.z;
-
-
-                 } else if(distance < 5 && distance > 3 && v.solver.getVelocityVector().length() > 1) {
-                     Vec3d sV = particlePos.subtract(ent.getPositionVector()).normalize().scale(-v.solver.getVelocityVector().length()*0.005);
-
-                     this.motionX += sV.x;
-                     this.motionY += sV.y;
-                     this.motionZ += sV.z;
-
-                 }
-             }
-
-
-        } catch(Exception e) {
-            //e.printStackTrace();
-        };*/
+        move(this.motionX, this.motionY, this.motionZ);
 
         this.motionX *= 0.9599999785423279D;
         this.motionY *= 0.9499999785423279D;
         this.motionZ *= 0.9599999785423279D;
 
         if (this.onGround) {
-            this.setExpired();
+            setExpired();
             this.motionX *= 0.699999988079071D;
             this.motionZ *= 0.699999988079071D;
         }

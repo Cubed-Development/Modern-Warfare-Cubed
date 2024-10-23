@@ -21,8 +21,8 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
 
     @Override
     public void onReload() {
-        this.removeScripted().forEach(CraftingRegistry::deleteRecipeRegistry);
-        this.restoreFromBackup().forEach(CraftingRegistry::registerRecipe);
+        removeScripted().forEach(CraftingRegistry::deleteRecipeRegistry);
+        restoreFromBackup().forEach(CraftingRegistry::registerRecipe);
     }
 
     /**
@@ -31,7 +31,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
     public void removeAll() {
         for (ArrayList<IModernCraftingRecipe> list : craftingMap.values()) {
             for (IModernCraftingRecipe recipe : list) {
-                this.addBackup(recipe);
+                addBackup(recipe);
             }
         }
         clearRecipeRegistry();
@@ -47,7 +47,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
             for (IModernCraftingRecipe recipe : list) {
                 if (ingredient.test(recipe.getItemStack())) {
                     deleteRecipeRegistry(recipe);
-                    this.addBackup(recipe);
+                    addBackup(recipe);
                 }
             }
         }
@@ -66,7 +66,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
         for (IModernCraftingRecipe recipe : craftingMap.get(group)) {
             if (ingredient.test(recipe.getItemStack())) {
                 deleteRecipeRegistry(recipe);
-                this.addBackup(recipe);
+                addBackup(recipe);
             }
         }
     }
@@ -77,7 +77,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
 
     public void addRecipe(IModernCraftingRecipe crafting) {
         registerRecipe(crafting);
-        this.addScripted(crafting);
+        addScripted(crafting);
     }
 
     /**
@@ -97,7 +97,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
         @Override
         public void validate(GroovyLog.Msg msg) {
             // max input == container size of crafting station.
-            this.validateItems(msg, 1, 27, 1, 1);
+            validateItems(msg, 1, 27, 1, 1);
         }
 
         private final ArrayList<Double> yields = new ArrayList<>();
@@ -114,7 +114,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
          */
         @Override
         public AbstractRecipeBuilder<GSCrafting> input(IIngredient ingredient) {
-            this.yields.add(this.yield);
+            yields.add(Double.valueOf(yield));
             return super.input(ingredient);
         }
 
@@ -149,18 +149,18 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
          */
         @Override
         public GSCrafting register() {
-            if (!this.validate()) {
+            if (!validate()) {
                 return null;
             }
 
             final ArrayList<CraftingEntry> entries = new ArrayList<>();
 
-            for (int i = 0; i < this.input.size(); i++) {
-                final IIngredient ingredient = this.input.get(i);
-                entries.add(new CraftingEntry(ingredient.toMcIngredient(), ingredient.getAmount(), this.yields.get(i)));
+            for (int i = 0; i < input.size(); i++) {
+                final IIngredient ingredient = input.get(i);
+                entries.add(new CraftingEntry(ingredient.toMcIngredient(), ingredient.getAmount(), yields.get(i)));
             }
 
-            final GSCrafting recipe = new GSCrafting(this.output.get(0), this.group, entries.toArray(new CraftingEntry[0]));
+            final GSCrafting recipe = new GSCrafting(output.get(0), group, entries.toArray(new CraftingEntry[0]));
             craftingStation.addRecipe(recipe);
             return recipe;
         }

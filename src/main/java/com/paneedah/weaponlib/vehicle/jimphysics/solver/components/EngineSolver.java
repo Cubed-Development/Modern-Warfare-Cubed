@@ -78,7 +78,7 @@ public class EngineSolver {
                 rpm = redline;
             }
 
-            double rTorque = engineTemplate.getTorqueAtRPM(this.rpm) * (solver.vehicle.throttle) - 200;
+            double rTorque = engineTemplate.getTorqueAtRPM(rpm) * (solver.vehicle.throttle) - 200;
             rpm += (((rTorque / flywheel.inertia) * solver.timeStep) * 60) / (2 * Math.PI);
 
 
@@ -98,11 +98,8 @@ public class EngineSolver {
             double tTorque = tracTorqueAtAxel / (gearRatio * finalDriveRatio);
 
             // Angular Acceleration -> Ang Velocity (rad/s) -> RPM
-            //double rpmShift = (((rTorque/flywheel.inertia)*solver.timeStep)*60)/(2*Math.PI);
 
-            //System.out.println(clutch.getSlippage() + " | " + solver.vehicle.solver.rearAxel.getWheelAngularVelocity());
-
-            double rTorque = ((engineTemplate.getTorqueAtRPM(this.rpm) * (solver.vehicle.throttle)) * (1 - clutch.getSlippage())) - (tTorque * clutch.getSlippage());
+            double rTorque = ((engineTemplate.getTorqueAtRPM(rpm) * (solver.vehicle.throttle)) * (1 - clutch.getSlippage())) - (tTorque * clutch.getSlippage());
             //System.out.println("RPM CHANGE: " + (((rTorque/flywheel.inertia)*solver.timeStep)*60)/(2*Math.PI));
             rpm += (((rTorque / flywheel.inertia) * solver.timeStep) * 60) / (2 * Math.PI);
 

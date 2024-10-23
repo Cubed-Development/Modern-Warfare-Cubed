@@ -42,9 +42,9 @@ public class SVDDragunovFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.5f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -97,7 +97,7 @@ public class SVDDragunovFactory {
                     if (model instanceof AKMiron2) {
                         GL11.glTranslatef(-0.185F, -1.39F, -10.35F);
                         GL11.glScaled(0.55F, 0.55F, 1.2F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.25F, -1.7F, -3.9F);
                         GL11.glScaled(0.8F, 0.7F, 0.7F);
                     }
@@ -109,8 +109,6 @@ public class SVDDragunovFactory {
 //            GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Magazines.DragunovMag, (model) -> {
-//        	GL11.glTranslatef(0F, 2F, 0.2F);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
                     GL11.glTranslatef(-0.21F, -1.4F, -2.65F);
@@ -128,7 +126,7 @@ public class SVDDragunovFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -161,9 +159,6 @@ public class SVDDragunovFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
 
@@ -270,7 +265,7 @@ public class SVDDragunovFactory {
                     if (model instanceof PSO1reticle) {
                         GL11.glTranslatef(-0.212F, -0.486F, 1.27F);
                         GL11.glScaled(0.017F, 0.017F, 0.017F);
-                    } else if (model instanceof PSO12) {
+                    } else if (null instanceof PSO12) {
                         GL11.glTranslatef(-0.27F, -0.6F, 1.21F);
                         GL11.glScaled(0.8F, 0.8F, 0.8F);
                     }
@@ -477,8 +472,6 @@ public class SVDDragunovFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.18f, -0.20f, 1f);
 
 

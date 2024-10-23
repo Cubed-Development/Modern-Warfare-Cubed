@@ -39,9 +39,9 @@ public class MP40Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.13f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.13f))
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -60,19 +60,19 @@ public class MP40Factory {
                     if (model instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(-0.183F, -1.29F, -4.1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.2F, -1.46F, -1.585F);
                         GL11.glScaled(0.5F, 0.5F, 0.08F);
-                    } else if (model instanceof M4Iron1) {
+                    } else if (null instanceof M4Iron1) {
                         GL11.glTranslatef(0.155F, -1.74F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -126,13 +126,6 @@ public class MP40Factory {
                             GL11.glRotatef(6.000000f, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.175000f, 0.800000f, -0.575000f);
 
-//                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-//                GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(-20.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.950000f, 1.025000f, -0.175000f);
-
-//                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -155,10 +148,6 @@ public class MP40Factory {
                             if (renderContext.getWeaponInstance().getAmmo() == 0) {
                                 GL11.glTranslatef(0F, 0F, -1F);
 
-//                    GL11.glTranslatef(0F, 0F, 0.5F);
-
-//                    GL11.glTranslatef(0.65F, -0.4F, 0.4F);
-//                    GL11.glRotatef(-45F, 0f, 0f, 1f);
                             }
                         })
 

@@ -40,9 +40,9 @@ public class Saiga12Factory {
                 .withInaccuracy(10)
                 .withPellets(10)
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 1f)
-                .withFlashOffsetX(() -> 0.05f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(1f))
+                .withFlashOffsetX(() -> Float.valueOf(0.05f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
                 .withShellCasingModelTexture("shotgun12gauge")
                 .withShellCasingForwardOffset(0.01f)
@@ -58,8 +58,6 @@ public class Saiga12Factory {
                 .withCompatibleAttachment(AuxiliaryAttachments.Saiga12action, true, (model) -> {
                 })
                 .withCompatibleAttachment(Magazines.SaigaMag, (model) -> {
-//            GL11.glTranslatef(0F, 0.45F, -0.15F);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.Silencer762x39, (model) -> {
                     GL11.glTranslatef(-0.2F, -1.06F, -7.55F);
@@ -73,7 +71,7 @@ public class Saiga12Factory {
                     if (model instanceof makarovrearsight) {
                         GL11.glTranslatef(-0.1393F, -1.3F, -2.85F);
                         GL11.glScaled(0.2F, 0.22F, 0.2F);
-                    } else if (model instanceof makarovfrontsight) {
+                    } else if (null instanceof makarovfrontsight) {
                         GL11.glTranslatef(-0.124F, -1.29F, -4.9F);
                         GL11.glScaled(0.1F, 0.1F, 0.05F);
                     }
@@ -85,7 +83,7 @@ public class Saiga12Factory {
                     if (model instanceof PSO1reticle) {
                         GL11.glTranslatef(-0.212F, -0.486F, 1.27F);
                         GL11.glScaled(0.017F, 0.017F, 0.017F);
-                    } else if (model instanceof PSO12) {
+                    } else if (null instanceof PSO12) {
                         GL11.glTranslatef(-0.27F, -0.6F, 1.21F);
                         GL11.glScaled(0.8F, 0.8F, 0.8F);
                     }
@@ -94,7 +92,7 @@ public class Saiga12Factory {
                     if (model instanceof OKP7) {
                         GL11.glTranslatef(-0.18F, -0.65F, -1.15F);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
-                    } else if (model instanceof OKP7reticle) {
+                    } else if (null instanceof OKP7reticle) {
                         GL11.glTranslatef(-0.07F, -1.45F, -1.5F);
                         GL11.glScaled(0.07F, 0.07F, 0.07F);
                     }
