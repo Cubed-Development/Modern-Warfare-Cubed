@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.render.bgl;
 
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.shader.jim.Shader;
+import lombok.Getter;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -12,6 +13,7 @@ import java.util.Stack;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
+@Getter
 public class LightManager {
 
     public static final int MAX_POINT_LIGHTS = 32;
@@ -19,16 +21,13 @@ public class LightManager {
     private final ArrayList<PointLight> lights = new ArrayList<>();
 
     public static class PointLight {
-        private boolean tempLight;
-        private long creationDate;
-        private double life;
 
 
         private final float constant;
         private final float linear;
         private final float quadratic;
-        private float[] position = new float[3];
-        private float[] color = new float[3];
+        private float[] position;
+        private float[] color;
 
 
         public PointLight(float x, float y, float z, float r, float g, float b, float constant, float linear, float quadratic) {
@@ -42,9 +41,8 @@ public class LightManager {
 
         public PointLight(float x, float y, float z, float r, float g, float b, float constant, float linear, float quadratic, double life) {
             this(x, y, z, r, g, b, constant, linear, quadratic);
-            this.tempLight = true;
-            this.creationDate = System.currentTimeMillis();
-            this.life = life;
+            boolean tempLight = true;
+            long creationDate = System.currentTimeMillis();
         }
 
     }
@@ -66,38 +64,31 @@ public class LightManager {
 
     public void addLight(float x, float y, float z, float r, float g, float b, float constant, float linear, float quadratic) {
         lights.clear();
-        if (lights.size() < 1) {
-            //System.out.println("yo");
+        //System.out.println("yo");
 
-            float lightlevel = 0.0f;
+        float lightlevel = 0.0f;
 
-            lightlevel = MC.world.getLight(new BlockPos(x, y, z)) * MC.world.getSunBrightness(1.0f);
-            //System.out.println(lightlevel);
-            if (lightlevel > 8) {
+        lightlevel = MC.world.getLight(new BlockPos(x, y, z)) * MC.world.getSunBrightness(1.0f);
+        //System.out.println(lightlevel);
+        if (lightlevel > 8) {
                 return;
             }
 
-            //float lightlevel = MC.world.getLight(new BlockPos(x, y, z));
-            //	System.out.println(lightlevel);
-            // bad correction maths
+        //float lightlevel = MC.world.getLight(new BlockPos(x, y, z));
+        //	System.out.println(lightlevel);
+        // bad correction maths
 
-            //	System.out.println(lightlevel);
-            float mult = 1.0f / (4 * lightlevel);
-            if (Double.isInfinite(mult)) {
+        //	System.out.println(lightlevel);
+        float mult = 1.0f / (4 * lightlevel);
+        if (Double.isInfinite(mult)) {
                 mult = 1.0f;
             }
-            //System.out.println(lightlevel + " | " + mult);
-            constant /= mult;
+        //System.out.println(lightlevel + " | " + mult);
+        constant /= mult;
 
-            //if(lightlevel != 0.0) constant *= lightlevel*8;
-            lights.add(new PointLight(x, y, z, r, g, b, constant, linear, quadratic));
-        }
-    }
+        //if(lightlevel != 0.0) constant *= lightlevel*8;
+        lights.add(new PointLight(x, y, z, r, g, b, constant, linear, q}
 
-
-    public ArrayList<PointLight> getLights() {
-        return lights;
-    }
 
     public void updateUniforms(Shader shader) {
         shader.uniform1i("totalActiveLights", lights.size());

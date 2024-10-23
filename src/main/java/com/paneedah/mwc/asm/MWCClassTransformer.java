@@ -87,27 +87,6 @@ public class MWCClassTransformer implements IClassTransformer {
         public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
             super.visitMethodInsn(opcode, owner, name, desc, itf);
 
-        	/*
-        	Method other = null;
-			try {
-				other = MWCClassTransformer.class.getDeclaredMethod("collideWithPlayer", Entity.class);
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SecurityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			System.out.println("OTHER: " + other);
-
-
-
-        	mv.visitMethodInsn(Opcodes.INVOKESTATIC,
-        			Type.getInternalName(MWCClassTransformer.class), other.getName(),
-        			Type.getMethodDescriptor(other), false);
-        			*/
-
         }
 
         @Override
@@ -118,16 +97,13 @@ public class MWCClassTransformer implements IClassTransformer {
                 mv.visitInsn(Opcodes.DUP);
                 mv.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/entity/EntityLivingBase", "motionY", "D");
                 //mv.visit
-                mv.visitLdcInsn(0.07);
+                mv.visitLdcInsn(Double.valueOf(0.07));
                 mv.visitInsn(Opcodes.DADD);
                 mv.visitFieldInsn(Opcodes.PUTFIELD, "net/minecraft/entity/EntityLivingBase", "motionY", "D");
                 //mv.visitVarInsn(Opcodes.GOTO, 77);
                 //mv.visitVarInsn(Opcodes.LDC, 0.1);
                 // net/minecraft/entity/EntityLivingBase
 
-                //	mv.visitVarInsn(Opcodes.DUP, 0);
-                //System.out.println("Found line!");
-                //super.visitLineNumber(line, start);
             } else {
                 super.visitLineNumber(line, start);
             }
@@ -148,13 +124,13 @@ public class MWCClassTransformer implements IClassTransformer {
         File f = new File(fileName);
         try {
             f.createNewFile();
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
 
         PrintWriter pw = null;
         try {
             pw = new PrintWriter(f);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
 
         TraceClassVisitor tcv = new TraceClassVisitor(pw);
@@ -168,14 +144,6 @@ public class MWCClassTransformer implements IClassTransformer {
 
         // https://blog.techno.fish/minecraft-forge-coremod-tutorial/
         // https://github.com/CreativeMD/CreativeCore/blob/1.12/src/main/java/com/creativemd/creativecore/transformer/CreativeTransformer.java
-    	/*
-    	if(className.equals("net.minecraft.entity.player.EntityPlayer")) {
-    		ClassReader cr = new ClassReader(bytecode);
-            ClassWriter cw = new ClassWriter(cr, 1);
-            CVTransform cv = new CVTransform(cw);
-            cr.accept(cv, 0);
-
-    	}*/
 
     	/*
     	if(className.equals("net.minecraft.entity.player.EntityPlayer")) {
@@ -246,25 +214,6 @@ public class MWCClassTransformer implements IClassTransformer {
 
     	}*/
 
-    	/*
-    	if(par1.contains("SoundSystemStarterThread")) {
-    		System.out.println("ALERT: " + par1);
-    	}
-    	if(className.contains("SoundSystemStarterThread")) {
-    		System.out.println("ALERT CLASS: " + className);
-    	}
-    	if(className.equals("paulscode.sound.libraries.SourceLWJGLOpenAL") || par1.equals("net.minecraft.client.audio.SoundManager$SoundSystemStarterThread")) {
-    		return SpecialPatcher.transform(par1, className, bytecode);
-    	}
-    	*/
-
-
-    	/*
-    	if(className.equals("paulscode.sound.libraries.SourceLWJGLOpenAL")) {
-    		System.out.println("here's your stupid info: " + playSoundClassInfo);
-    		System.out.println("here's your stupider thing: " + playSoundClassInfo.classMatches(className));
-
-    	}*/
 
         if ("net.minecraft.entity.EntityLivingBase".equals(className) || entityRendererClassInfo.classMatches(className) ||
                 (renderBipedClassInfo != null && renderBipedClassInfo.classMatches(className)) ||
@@ -284,9 +233,7 @@ public class MWCClassTransformer implements IClassTransformer {
             cr.accept(cv, 0);
             byte[] array = cw.toByteArray();
 
-            if (className.equals("net.minecraft.entity.EntityLivingBase")) {
-                //	debugPrint("joe.txt", className, array);
-            }
+            //	debugPrint("joe.txt", className, array);
 
             return array;
         } else {
@@ -383,7 +330,7 @@ public class MWCClassTransformer implements IClassTransformer {
                         "setupCameraTransformAfterHurtCameraEffect", "(F)V");
                 return;
             }
-            this.mv.visitMethodInsn(opcode, owner, name, desc);
+            mv.visitMethodInsn(opcode, owner, name, desc);
         }
 
         @Override
@@ -493,7 +440,7 @@ public class MWCClassTransformer implements IClassTransformer {
 
         @Override
         public void visitLdcInsn(Object cst) {
-            if (cst instanceof Float && cst.equals(0.4f)) {
+            if (cst instanceof Float && cst.equals(Float.valueOf(0.4f))) {
                 mv.visitVarInsn(Opcodes.ALOAD, 1);
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/ServerInterceptors", "getKnockback", "(Lnet/minecraft/util/DamageSource;)F", false);
             } else {
@@ -512,49 +459,16 @@ public class MWCClassTransformer implements IClassTransformer {
 
         public void visit(int version, int access, String name, String signature, String superName,
                           String[] interfaces) {
-            this.classname = name;
-//            if(entityRendererClassInfo.classMatches(name)) {
-//
-//            }
+            classname = name;
 
-            //System.out.println("VISIT LOL");
-
-            this.cv.visit(version, access, name, signature, superName, interfaces);
+            cv.visit(version, access, name, signature, superName, interfaces);
         }
-
-//        public void visit(int version, int access, String name, String signature, String superName,
-//                String[] interfaces) {
-//            this.classname = name;
-//            if (worldServerClassInfo.classMatches(classname)) {
-//                if(interfaces == null) {
-//                    interfaces = new String[] { "com/paneedah/weaponlib/compatibility/CompatibleEntityProvider" };
-//                } else {
-//                    String[] updatedInterfaces = new String[interfaces.length + 1];
-//                    System.arraycopy(interfaces, 0, updatedInterfaces, 0, interfaces.length);
-//                    updatedInterfaces[updatedInterfaces.length - 1] = "com/paneedah/weaponlib/compatibility/CompatibleEntityProvider";
-//                    interfaces = updatedInterfaces;
-//                }
-//            }
-//            cv.visit(version, access, name, signature, superName, interfaces);
-//        }
-//
-//        @Override
-//        public void visitSource(String source, String debug) {
-//            if (modelRendererClassInfo.classMatches(classname)) {
-//                FieldVisitor fv = cv.visitField(Opcodes.ACC_PRIVATE, "maxVolume", "F", null, null);
-//                fv.visitEnd();
-//            }
-//
-//            super.visitSource(source, debug);
-//        }
 
         public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 
             //System.out.println("VISIT LOL 2");
 
-            if (name.equals("travel")) {
-                //	return new TestVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            }
+            //	return new TestVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
 
 
             if (entityRendererClassInfo.methodMatches("setupCameraTransform", "(FI)V", classname, name, desc)) {
@@ -589,7 +503,7 @@ public class MWCClassTransformer implements IClassTransformer {
                 return new SoundInterceptorMethodVistor(cv.visitMethod(access, name, desc, signature, exceptions));
             }*/
 
-            return this.cv.visitMethod(access, name, desc, signature, exceptions);
+            return cv.visitMethod(access, name, desc, signature, exceptions);
         }
     }
 }

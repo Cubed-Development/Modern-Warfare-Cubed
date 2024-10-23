@@ -147,12 +147,12 @@ public class EntityGrenade extends AbstractEntityGrenade {
     private void explode() {
         ProjectConstants.LOGGER.debug("Exploding {}", this);
 
-        Explosion.createServerSideExplosion(world, this.getThrower(), this,
+        Explosion.createServerSideExplosion(world, getThrower(), this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null,
                 modContext.getExplosionSound());
 
         List<?> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this,
-                this.getEntityBoundingBox().expand(5, 5, 5));
+                getEntityBoundingBox().expand(5, 5, 5));
 
         float damageCoefficient = (float) ModernConfigManager.explosionDamage;
         float effectiveRadius = itemGrenade.getEffectiveRadius() * damageCoefficient; // 5 block sphere with this entity as a center
@@ -202,17 +202,14 @@ public class EntityGrenade extends AbstractEntityGrenade {
                                 damageDistanceReductionFactor);
 
                         nearbyEntity.attackEntityFrom(
-                                DamageSource.causeThrownDamage(this, this.getThrower()),
+                                DamageSource.causeThrownDamage(this, getThrower()),
                                 Math.max(0.1f, rand.nextFloat()) * fragmentDamage * damageDistanceReductionFactor);
                     }
                 }
             }
         }
 
-        this.setDead();
+        setDead();
     }
 
-    public ItemGrenade getItemGrenade() {
-        return itemGrenade;
-    }
 }

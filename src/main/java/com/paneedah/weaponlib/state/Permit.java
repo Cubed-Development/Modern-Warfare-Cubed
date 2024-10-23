@@ -3,7 +3,10 @@ package com.paneedah.weaponlib.state;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.mwc.network.UniversalObject;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
 public class Permit<S extends ManagedState<S>> extends UniversalObject {
 
     static {
@@ -13,33 +16,18 @@ public class Permit<S extends ManagedState<S>> extends UniversalObject {
     public enum Status {REQUESTED, GRANTED, DENIED, UNKNOWN}
 
     protected S state;
+    @Setter
     protected Status status;
     protected long timestamp;
 
     public Permit() {
-        this.status = Status.UNKNOWN;
+        status = Status.UNKNOWN;
     }
 
     public Permit(S state) {
         this.state = state;
-        this.status = Status.REQUESTED;
-        this.timestamp = System.currentTimeMillis();
-    }
-
-    public S getState() {
-        return state;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
+        status = Status.REQUESTED;
+        timestamp = System.currentTimeMillis();
     }
 
     @Override

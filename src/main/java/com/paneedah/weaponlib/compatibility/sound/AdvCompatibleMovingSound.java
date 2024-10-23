@@ -20,7 +20,6 @@ public class AdvCompatibleMovingSound extends MovingSound {
     private int type = -1;
 
     private int fadeOutTime = 40;
-    private final int fadeInTime = 40;
 
     private int fadeTimer = 0;
     private boolean isFadeIn = false;
@@ -31,7 +30,7 @@ public class AdvCompatibleMovingSound extends MovingSound {
         this.repeat = true;
         this.volume = 1.5F;
 
-        this.shouldFade = fade;
+        shouldFade = fade;
 
         this.positionProvider = positionProvider;
         this.donePlayingProvider = donePlayingProvider;
@@ -63,6 +62,7 @@ public class AdvCompatibleMovingSound extends MovingSound {
 
             ++fadeTimer;
 
+            int fadeInTime = 40;
             this.volume = (float) (((double) fadeTimer / (double) fadeInTime)) * 1.5F;
 
             if (fadeTimer >= fadeInTime) {
@@ -70,12 +70,6 @@ public class AdvCompatibleMovingSound extends MovingSound {
                 fadeTimer = 0;
                 isFadeIn = false;
             }
-    		/*
-    		if(fadeTimer >= fadeInTime) {
-    			isFade = false;
-    			fadeTimer = 0;
-    		}
-    		*/
 
         } else {
 
@@ -110,8 +104,8 @@ public class AdvCompatibleMovingSound extends MovingSound {
             }
             updateFade();
             if (!isFade) {
-                if (donePlayingProvider.get()) {
-                    this.fadeOutTime = 20;
+                if (donePlayingProvider.get().booleanValue()) {
+                    fadeOutTime = 20;
                     fadeOut();
                 }
             }
@@ -125,12 +119,6 @@ public class AdvCompatibleMovingSound extends MovingSound {
             this.zPosF = (float) position.z;
 
 
-            //this.volume = (float) (vehicle.solver.currentRPM/24000.0F);
-
-
-            // this.pitch = 1.0F + ((float) (vehicle.solver.currentRPM/7000.0F)*0.1F);
-
-            //this.pitch = 1 + this.volume * this.volume;
         }
     }
 }

@@ -42,9 +42,9 @@ public class NTW20Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.8f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.13f)
+                .withFlashScale(() -> Float.valueOf(0.8f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.13f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
 

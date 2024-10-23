@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.render;
 
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
+import lombok.Getter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.shader.Framebuffer;
@@ -18,6 +19,7 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
  * @author Homer Riva-Cambrin
  * @version October 2nd, 2022
  */
+@Getter
 public class DepthTexture {
 
     private int buffer = -1;
@@ -38,8 +40,8 @@ public class DepthTexture {
 
     public void recreateBuffer(int newWidth, int newHeight) {
         if (shouldRecreate(newWidth, newHeight)) {
-            this.width = newWidth;
-            this.height = newHeight;
+            width = newWidth;
+            height = newHeight;
             createDepthTexture();
         }
     }
@@ -60,7 +62,7 @@ public class DepthTexture {
 
         // Bind the scope depth texture to the buffer with appropriate parameters
         GlStateManager.bindTexture(texture);
-        GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_DEPTH_COMPONENT24, this.width, this.height, 0,
+        GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_DEPTH_COMPONENT24, width, height, 0,
                 GL11.GL_DEPTH_COMPONENT, GL11.GL_FLOAT, (FloatBuffer) null);
         GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
         GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
@@ -89,11 +91,6 @@ public class DepthTexture {
         if (OpenGlHelper.isFramebufferEnabled()) {
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, buf);
 
-            /*
-            if (p_147610_1_)
-            {
-                GlStateManager.viewport(0, 0, this.framebufferWidth, this.framebufferHeight);
-            }*/
         }
     }
 
@@ -115,22 +112,6 @@ public class DepthTexture {
         } else {
             LOGGER.debug("Succesfully created depth buffer.");
         }
-    }
-
-    public int getTexture() {
-        return texture;
-    }
-
-    public int getBuffer() {
-        return buffer;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
     }
 
 }

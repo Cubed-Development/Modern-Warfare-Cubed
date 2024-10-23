@@ -42,9 +42,9 @@ public class Origin12Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.8f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.8f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
                 .withShellCasingModelTexture("shotgun12gauge")
                 .withInaccuracy(12f)
@@ -120,10 +120,10 @@ public class Origin12Factory {
                 .withCompatibleAttachment(Attachments.Origin12Handguard, true, (model) -> {
                     if (model instanceof Origin12Handguard) {
 //                GL11.glScaled(1F, 0.98F, 1);
-                    } else if (model instanceof AKRail) {
+                    } else if (null instanceof AKRail) {
                         GL11.glTranslatef(-0.222F, -1.5F, -4.4f);
                         GL11.glScaled(0.72F, 0.72F, 0.8F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.02F, -0.54F, -4.4f);
                         GL11.glScaled(0.72F, 0.72F, 0.8F);
                         GL11.glRotatef(180.000000f, 0f, 0f, 1f);
@@ -132,10 +132,10 @@ public class Origin12Factory {
                 .withCompatibleAttachment(Attachments.HKS20Handguard, (model) -> {
                     if (model instanceof HKS20Handguard) {
 //                GL11.glScaled(1F, 0.98F, 1);
-                    } else if (model instanceof AKRail) {
+                    } else if (null instanceof AKRail) {
                         GL11.glTranslatef(-0.222F, -1.5F, -4.4f);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.02F, -0.54F, -4.4f);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(180.000000f, 0f, 0f, 1f);
@@ -146,29 +146,25 @@ public class Origin12Factory {
                         GL11.glTranslatef(0.11F, -1.1F, -5.8F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.35F, -0.9F, -5.8F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.02F, -0.9F, -4F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail4) {
+                    } else if (null instanceof AKRail4) {
                         GL11.glTranslatef(-0.222F, -1.5F, -2.4f);
                         GL11.glScaled(0.72F, 0.72F, 0.87F);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.187F, -1.3F, -4.26f);
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Origin12Grip, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(Attachments.HKS20Grip, (model) -> {
-//          GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//          GL11.glScaled(1.2F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Origin12Action, true, (model) -> {
 //            GL11.glTranslatef(0f, 0f, 1f);
@@ -233,7 +229,7 @@ public class Origin12Factory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
