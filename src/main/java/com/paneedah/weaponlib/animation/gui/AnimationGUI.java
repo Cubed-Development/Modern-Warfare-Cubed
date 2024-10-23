@@ -37,10 +37,6 @@ public class AnimationGUI {
 
     private static final AnimationGUI instance = new AnimationGUI();
 
-
-    public static final ResourceLocation TEXTURES = new ResourceLocation(ID + ":textures/hud/animguio.png");
-
-
     public ArrayList<Panel> panels = new ArrayList<>();
 
     public boolean mouseStatus = false;
@@ -111,7 +107,6 @@ public class AnimationGUI {
     }
 
     public AnimationGUI() {
-
 
         Panel cameraPanel = new Panel(this, "Functionality", 10, 10, 20);
 

@@ -4,6 +4,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.FlaggedAttachment;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.jim.util.LangTools;
 import com.paneedah.weaponlib.render.gui.ColorPalette;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
@@ -436,24 +437,6 @@ public class ModificationGUI {
 
     }
 
-
-    /**
-     * Translates an unlocalized name via {@link TextComponentTranslation}
-     *
-     * @param Unlocalized item name
-     *
-     * @return Localized item name
-     */
-    public static String translate(String unlocalized) {
-        return new TextComponentTranslation(unlocalized + ".name").getFormattedText();
-    }
-
-    public double getGUIScale() {
-
-        return 0.3;
-    }
-
-
     /**
      * Allows the class to update things like alpha without losing track of the initial color
      */
@@ -613,7 +596,7 @@ public class ModificationGUI {
                 30, 205, 1.0, ColorPalette.WHITE);
 
         GUIRenderHelper.drawScaledString(
-                TextFormatting.GOLD + translate(weapon.getTranslationKey()),
+                TextFormatting.GOLD + LangTools.formatName(weapon.getTranslationKey()),
                 30, 30, 1.0, ColorPalette.WHITE);
         GUIRenderHelper.drawScaledString(
                 "Damage :: " + TextFormatting.GOLD + String.format("%.2f", (BalancePackManager.getNetGunDamage(weapon))),
@@ -856,7 +839,7 @@ public class ModificationGUI {
                         pwi);
                 tooltip.addLine(TextFormatting.BOLD + "Is Required By:");
                 for (ItemAttachment<Weapon> req : requirees)
-                    tooltip.addBulletPoint(translate(req.getTranslationKey()));
+                    tooltip.addBulletPoint(LangTools.formatName(req.getTranslationKey()));
             }
 
             if (isInClick) {
@@ -1013,10 +996,10 @@ public class ModificationGUI {
 
 
                         tooltip.color = TOOLTIP_COL_ERROR;
-                        tooltip.addBulletPoint(translate(flag.getAttachment().getTranslationKey()));
+                        tooltip.addBulletPoint(LangTools.formatName(flag.getAttachment().getTranslationKey()));
                         tooltip.addLine(TextFormatting.BOLD + "Required Mods: ");
                         for (ItemAttachment<Weapon> required : flag.getRequiredParts()) {
-                            tooltip.addBulletPoint(translate(required.getTranslationKey()));
+                            tooltip.addBulletPoint(LangTools.formatName(required.getTranslationKey()));
                         }
                     }
                     // drawTexturedRect(i+11, 150, 0, 300, 89, 89, 512, 512);
