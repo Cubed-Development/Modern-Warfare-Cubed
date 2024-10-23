@@ -104,7 +104,7 @@ public class MuzzleFlashRenderer {
         //isPetalFlash = true;
 
         // Get sprite sheet ID's
-        int mainBodyID = 0;
+        int mainBodyID;
         if (isPetalFlash) {
             mainBodyID = getRandomNumberBetween(0, 2);
         } else {

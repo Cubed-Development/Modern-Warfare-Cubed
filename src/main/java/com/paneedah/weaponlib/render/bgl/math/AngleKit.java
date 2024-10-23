@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render.bgl.math;
 
+import lombok.Getter;
 import org.lwjgl.util.vector.Quaternion;
 
 /**
@@ -7,7 +8,7 @@ import org.lwjgl.util.vector.Quaternion;
  * <p>
  * <p>
  * Euler -> Quaternion -> Euler
- * https://math.stackexchange.com/questions/2975109/how-to-convert-euler-angles-to-quaternions-and-get-the-same-euler-angles-back-fr
+ * <a href="https://math.stackexchange.com/questions/2975109/how-to-convert-euler-angles-to-quaternions-and-get-the-same-euler-angles-back-fr">...</a>
  *
  * @author Cpt. James R. Holden of Rocinante, 2022
  */
@@ -17,6 +18,7 @@ public class AngleKit {
         DEGREES, RADIANS
     }
 
+    @Getter
     public static class AxisAngle {
         private final Format format;
         private final double angle;
@@ -40,10 +42,6 @@ public class AngleKit {
             return format == Format.DEGREES;
         }
 
-        public Format getFormat() {
-            return this.format;
-        }
-
         public AxisAngle toRadians() {
             if (format == Format.RADIANS) {
                 return this;
@@ -58,22 +56,6 @@ public class AngleKit {
             return new AxisAngle(Format.DEGREES, deg(angle), x, y, z);
         }
 
-        public double getAngle() {
-            return this.angle;
-        }
-
-        public double getX() {
-            return this.x;
-        }
-
-        public double getY() {
-            return this.y;
-        }
-
-        public double getZ() {
-            return this.z;
-        }
-
         @Override
         public String toString() {
             return "(" + angle + ", [" + x + ", " + y + ", " + z + "])";
@@ -81,6 +63,7 @@ public class AngleKit {
 
     }
 
+    @Getter
     public static class EulerAngle {
         private final Format format;
         private final double x;
@@ -102,10 +85,6 @@ public class AngleKit {
             return format == Format.DEGREES;
         }
 
-        public Format getFormat() {
-            return this.format;
-        }
-
         public EulerAngle toRadians() {
             if (format == Format.RADIANS) {
                 return this;
@@ -121,27 +100,15 @@ public class AngleKit {
         }
 
         public double getPitch() {
-            return this.x;
+            return x;
         }
 
         public double getRoll() {
-            return this.z;
+            return z;
         }
 
         public double getYaw() {
-            return this.y;
-        }
-
-        public double getX() {
-            return this.x;
-        }
-
-        public double getY() {
-            return this.y;
-        }
-
-        public double getZ() {
-            return this.z;
+            return y;
         }
 
         public EulerAngle slerp(EulerAngle a1, double t) {
@@ -256,13 +223,8 @@ public class AngleKit {
     }
 
     /**
-     * https://www.javatips.net/api/robotutils-master/src/main/java/robotutils/Quaternion.java
+     * <a href="https://www.javatips.net/api/robotutils-master/src/main/java/robotutils/Quaternion.java">...</a>
      *
-     * @param roll
-     * @param pitch
-     * @param yaw
-     *
-     * @return
      */
 
     public static Quaternion quatFromEuler(double yaw, double pitch, double roll, Format format) {
@@ -308,11 +270,6 @@ public class AngleKit {
     /**
      * Thank you Drillgon for donating this method :)
      *
-     * @param v0
-     * @param v1
-     * @param t
-     *
-     * @return
      */
     public static Quaternion slerp(Quaternion v0, Quaternion v1, float t) {
         // Only unit quaternions are valid rotations.
@@ -363,12 +320,6 @@ public class AngleKit {
      * Double format of
      * {@link #convertEulerToAxisAngle(float, float, float, Format)}
      *
-     * @param yaw
-     * @param pitch
-     * @param roll
-     * @param format
-     *
-     * @return
      */
     public static AxisAngle convertEulerToAxisAngle(double yaw, double pitch, double roll, Format format) {
         return convertEulerToAxisAngle((float) yaw, (float) pitch, (float) roll, format);
@@ -376,7 +327,7 @@ public class AngleKit {
 
     /**
      * Converts euler angles to axis angle rotation
-     * https://www.euclideanspace.com/maths/geometry/rotations/conversions/eulerToAngle/
+     * <a href="https://www.euclideanspace.com/maths/geometry/rotations/conversions/eulerToAngle/">...</a>
      *
      * @param yaw (Y)
      * @param pitch (X)
@@ -431,12 +382,8 @@ public class AngleKit {
     }
 
     /**
-     * https://math.stackexchange.com/questions/4383841/quaternion-to-euler-angles
+     * <a href="https://math.stackexchange.com/questions/4383841/quaternion-to-euler-angles">...</a>
      *
-     * @param format
-     * @param q0
-     *
-     * @return
      */
     public static AxisAngle quatToAxisAngle(Format format, Quaternion q0) {
         double angle, x, y, z;

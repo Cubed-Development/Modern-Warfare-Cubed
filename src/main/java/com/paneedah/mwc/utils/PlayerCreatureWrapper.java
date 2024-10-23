@@ -9,6 +9,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Objects;
+
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @Getter
@@ -18,7 +20,7 @@ public class PlayerCreatureWrapper extends EntityPlayerSP {
     private EntityLivingBase entityLiving;
 
     public PlayerCreatureWrapper(World world) {
-        super(MC, world, MC.getConnection(), new StatisticsManager(), new RecipeBookClient());
+        super(MC, world, Objects.requireNonNull(MC.getConnection()), new StatisticsManager(), new RecipeBookClient());
     }
 
     public void setEntityLiving(EntityLivingBase entityLiving) {
@@ -29,42 +31,42 @@ public class PlayerCreatureWrapper extends EntityPlayerSP {
     }
 
     public void updateCoordinates() {
-        this.posX = entityLiving.posX;
-        this.posY = entityLiving.posY;
-        this.posZ = entityLiving.posZ;
+        posX = entityLiving.posX;
+        posY = entityLiving.posY;
+        posZ = entityLiving.posZ;
 
-        this.lastTickPosX = entityLiving.lastTickPosX;
-        this.lastTickPosY = entityLiving.lastTickPosY;
-        this.lastTickPosZ = entityLiving.lastTickPosZ;
+        lastTickPosX = entityLiving.lastTickPosX;
+        lastTickPosY = entityLiving.lastTickPosY;
+        lastTickPosZ = entityLiving.lastTickPosZ;
 
-        this.height = entityLiving.height;
+        height = entityLiving.height;
 
-        this.cameraYaw = entityLiving.rotationYaw;
-        this.cameraPitch = entityLiving.cameraPitch;
+        cameraYaw = entityLiving.rotationYaw;
+        cameraPitch = entityLiving.cameraPitch;
 
-        this.rotationYaw = entityLiving.rotationYaw;
-        this.rotationPitch = entityLiving.rotationPitch;
-        this.rotationYawHead = entityLiving.rotationYawHead;
+        rotationYaw = entityLiving.rotationYaw;
+        rotationPitch = entityLiving.rotationPitch;
+        rotationYawHead = entityLiving.rotationYawHead;
 
-        this.motionX = entityLiving.motionX;
-        this.motionY = entityLiving.motionY;
-        this.motionZ = entityLiving.motionZ;
+        motionX = entityLiving.motionX;
+        motionY = entityLiving.motionY;
+        motionZ = entityLiving.motionZ;
 
-        this.chunkCoordX = entityLiving.chunkCoordX;
-        this.chunkCoordY = entityLiving.chunkCoordY;
-        this.chunkCoordZ = entityLiving.chunkCoordZ;
+        chunkCoordX = entityLiving.chunkCoordX;
+        chunkCoordY = entityLiving.chunkCoordY;
+        chunkCoordZ = entityLiving.chunkCoordZ;
 
-        this.addedToChunk = entityLiving.addedToChunk;
-        this.arrowHitTimer = entityLiving.arrowHitTimer;
-        this.attackedAtYaw = entityLiving.attackedAtYaw;
+        addedToChunk = entityLiving.addedToChunk;
+        arrowHitTimer = entityLiving.arrowHitTimer;
+        attackedAtYaw = entityLiving.attackedAtYaw;
 
-        this.dimension = entityLiving.dimension;
-        this.entityUniqueID = entityLiving.getUniqueID();
-        this.limbSwing = entityLiving.limbSwing;
-        this.limbSwingAmount = entityLiving.limbSwingAmount;
-        this.height = entityLiving.height;
-        this.moveForward = entityLiving.moveForward;
-        this.ticksExisted = entityLiving.ticksExisted;
+        dimension = entityLiving.dimension;
+        entityUniqueID = entityLiving.getUniqueID();
+        limbSwing = entityLiving.limbSwing;
+        limbSwingAmount = entityLiving.limbSwingAmount;
+        height = entityLiving.height;
+        moveForward = entityLiving.moveForward;
+        ticksExisted = entityLiving.ticksExisted;
     }
 
     @Override

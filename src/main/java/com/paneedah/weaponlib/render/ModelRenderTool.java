@@ -127,7 +127,7 @@ public class ModelRenderTool {
                 tris[i++] = new Triangle(v2, v3, v0, tex);
             }
             return tris;
-        } catch (IllegalArgumentException | IllegalAccessException e) {
+        } catch (IllegalArgumentException | IllegalAccessException ignored) {
         }
         throw new RuntimeException("Failed to get quads!");
 

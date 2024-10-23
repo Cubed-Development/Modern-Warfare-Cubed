@@ -17,7 +17,7 @@ public abstract class UniversalObject implements ISerializable {
     }
 
     protected UniversalObject() {
-        this.uuid = UUID.randomUUID();
+        uuid = UUID.randomUUID();
     }
 
     public UUID getUuid() {
@@ -35,7 +35,7 @@ public abstract class UniversalObject implements ISerializable {
             throw new IndexOutOfBoundsException();
         }
 
-        this.readUUID = new UUID(byteBuf.readLong(), byteBuf.readLong());
+        readUUID = new UUID(byteBuf.readLong(), byteBuf.readLong());
     }
 
     @Override

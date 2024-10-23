@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.render.scopes;
 
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
@@ -11,11 +13,17 @@ public class Reticle {
 
     private static final int DEFAULT_TINT = 0x576574;
 
+    @Setter
+    @Getter
     private ResourceLocation reticleTexture;
     private Type reticleType;
 
 
+    @Setter
+    @Getter
     private float textureScale;
+    @Setter
+    @Getter
     private Vec3d backgroundColor;
 
     public enum Type {
@@ -25,19 +33,19 @@ public class Reticle {
 
     public Reticle(String textureName) {
         this(textureName, 1f, DEFAULT_TINT);
-        this.reticleType = Type.SNIPER;
+        reticleType = Type.SNIPER;
     }
 
     public Reticle(String textureName, float textureScale, int background) {
-        this.reticleType = Type.HOLOGRAPHIC;
-        this.reticleTexture = new ResourceLocation(ID + ":textures/crosshairs/" + textureName + ".png");
+        reticleType = Type.HOLOGRAPHIC;
+        reticleTexture = new ResourceLocation(ID + ":textures/crosshairs/" + textureName + ".png");
         this.textureScale = textureScale;
-        this.backgroundColor = extractColorFromHex(background);
+        backgroundColor = extractColorFromHex(background);
     }
 
     public Reticle(String textureName, float textureScale) {
         this(textureName, textureScale, DEFAULT_TINT);
-        this.reticleType = Type.HOLOGRAPHIC;
+        reticleType = Type.HOLOGRAPHIC;
     }
 
     private static Vec3d extractColorFromHex(int color) {
@@ -45,30 +53,6 @@ public class Reticle {
         return new Vec3d(col.getRed() / 255f, col.getBlue() / 255f, col.getGreen() / 255f);
     }
 
-    public ResourceLocation getReticleTexture() {
-        return reticleTexture;
-    }
-
-    public void setReticleTexture(ResourceLocation reticleTexture) {
-        this.reticleTexture = reticleTexture;
-    }
-
-    public float getTextureScale() {
-        return textureScale;
-    }
-
-    public void setTextureScale(float textureScale) {
-        this.textureScale = textureScale;
-    }
-
-
-    public Vec3d getBackgroundColor() {
-        return backgroundColor;
-    }
-
-    public void setBackgroundColor(Vec3d backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
 
     public static int getDefaultTint() {
         return DEFAULT_TINT;

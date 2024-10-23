@@ -26,12 +26,10 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
                 ResourceLocation textureResource = new ResourceLocation(WirelessCameraPerspective.DARK_SCREEN_TEXTURE);
                 MC.getTextureManager().bindTexture(textureResource);
                 ITextureObject textureObject = MC.getTextureManager().getTexture(textureResource);
-                if (textureObject != null) {
-                    textureId = textureObject.getGlTextureId();
-                }
+                textureId = Integer.valueOf(textureObject.getGlTextureId());
             }
 
-            return textureId;
+            return textureId.intValue();
         }
 
         @Override

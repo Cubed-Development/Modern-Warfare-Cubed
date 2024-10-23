@@ -42,9 +42,9 @@ public class MP43EFactory implements GunFactory {
                 .withInaccuracy(10)
                 .withPellets(10)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.09f)
-                .withFlashOffsetY(() -> 0.09f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.09f))
+                .withFlashOffsetY(() -> Float.valueOf(0.09f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
 
@@ -101,11 +101,6 @@ public class MP43EFactory implements GunFactory {
                             GL11.glScalef(2.500000f, 2.500000f, 2.500000f);
                             GL11.glTranslatef(-0.150000f, 0.275000f, -1.249999f);
 
-//                GL11.glScalef(2.500000f, 2.500000f, 2.500000f);
-//                GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.150000f, 0.350000f, -0.950000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -121,23 +116,13 @@ public class MP43EFactory implements GunFactory {
                             GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                             GL11.glTranslatef(0.2f, 0.23f, -0.8f);
                             GL11.glRotatef(-5F, 1f, 0f, 1f);
-//                GL11.glRotatef(-2.5F, 0f, 1f, 0f);
 
-//              // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1);//System.out.println("Position me for Holo");
+// Everything else
 
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.MP43Edoublebarrel.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(0f, -0.1f, 0f);
-//                GL11.glRotatef(35F, 1f, 0f, 0f);
-//                GL11.glScalef(1f, 1f, 1f);
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShellDouble.getRenderablePart(), (renderContext) -> {
@@ -161,9 +146,6 @@ public class MP43EFactory implements GunFactory {
 
                             // being carried by left hand PT 2
 
-//                GL11.glTranslatef(0.35f, -0.15f, 0.5f);
-//                GL11.glRotatef(25F, 1f, 1f, 0f);
-//                GL11.glScalef(1f, 1f, 1f);
                         })
 
                         .withFirstPersonPositioningReloading(
@@ -730,13 +712,8 @@ public class MP43EFactory implements GunFactory {
                             GL11.glTranslatef(0.250000f, 0.23f, -1.5f);
 
 //              // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })

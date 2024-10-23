@@ -42,7 +42,7 @@ public class SyncManager<S extends ManagedState<S>> {
     }
 
     public void watch(PlayerItemInstance<?> watchableInstance) {
-        watchables.put(watchableInstance, watchableInstance.getUpdateId());
+        watchables.put(watchableInstance, Long.valueOf(watchableInstance.getUpdateId()));
     }
 
     public void unwatch(PlayerItemInstance<?> watchableInstance) {
@@ -50,20 +50,20 @@ public class SyncManager<S extends ManagedState<S>> {
     }
 
     public void run() {
-        List<PlayerItemInstance<?>> instancesToUpdate = watchables.entrySet().stream().filter(e -> e.getKey().getUpdateId() != e.getValue() /*&& !e.getKey().getState().isTransient()*/ && e.getKey().getSyncStartTimestamp() + syncTimeout < System.currentTimeMillis()).map(Map.Entry::getKey).collect(Collectors.toList());
+        List<PlayerItemInstance<?>> instancesToUpdate = watchables.entrySet().stream().filter(e -> e.getKey().getUpdateId() != e.getValue().longValue() /*&& !e.getKey().getState().isTransient()*/ && e.getKey().getSyncStartTimestamp() + syncTimeout < System.currentTimeMillis()).map(Map.Entry::getKey).collect(Collectors.toList());
         instancesToUpdate.forEach(this::sync);
     }
 
 
     private void sync(PlayerItemInstance<?> watchable) {
-        LOGGER.debug("Syncing {} in state {} with update id {} to server", watchable, watchable.getState(), watchable.getUpdateId());
+        LOGGER.debug("Syncing {} in state {} with update id {} to server", watchable, watchable.getState(), Long.valueOf(watchable.getUpdateId()));
         long updateId = watchable.getUpdateId(); // capturing update id
         watchable.setSyncStartTimestamp(System.currentTimeMillis());
         permitManager.request(new Permit<>((S) watchable.getState()), (PlayerItemInstance<S>) watchable, (p, e) -> {
             // During sync, the watchable.getUpdateId() can change, so using the original update id
-            watchables.put(watchable, updateId);
+            watchables.put(watchable, Long.valueOf(updateId));
             watchable.setSyncStartTimestamp(0);
-            LOGGER.debug("Completed syncing {} with update id {}", watchable, updateId);
+            LOGGER.debug("Completed syncing {} with update id {}", watchable, Long.valueOf(updateId));
         });
     }
 }

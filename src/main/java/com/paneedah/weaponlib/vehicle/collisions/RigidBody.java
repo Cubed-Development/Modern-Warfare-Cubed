@@ -88,17 +88,17 @@ public class RigidBody {
     public ContactManifold contacts = new ContactManifold();
 
     public RigidBody(World w) {
-        this.world = w;
+        world = w;
         rotation.setIdentity();
     }
 
     public RigidBody(World w, double x, double y, double z) {
         this(w);
-        this.position = new Vec3d(x, y, z);
+        position = new Vec3d(x, y, z);
     }
 
     public void minecraftTimestep() {
-        this.setPrevData();
+        setPrevData();
         int timeStepSubDiv = 8;
         float step = 0.05F / (float) timeStepSubDiv;
         for (int i = 0; i < timeStepSubDiv; i++) {
@@ -111,7 +111,7 @@ public class RigidBody {
         //Do collision detection
         GJKResult bestInfo = null;
         OreintedBB a = null;
-        OreintedBB b = null;
+        OreintedBB b;
         AxisAlignedBB bb = new AxisAlignedBB(-2, -2, -2, 2, 2, 2);
         List<AxisAlignedBB> l = world.getCollisionBoxes(null, bb.offset(position));
         //System.out.println(boundingBox);
@@ -119,9 +119,6 @@ public class RigidBody {
             for (int i = 0; i < colliders.size(); i++) {
 
                 OreintedBB c = colliders.get(i);
-				/*
-				if(!colliderBoundingBoxes.get(i).intersects(box))
-					continue;*/
 
                 b = OreintedBB.fromAABB(box);
                 GJKResult info = OBBCollider.areColliding(c, b);
@@ -133,10 +130,6 @@ public class RigidBody {
             }
         }
 
-        //if(bestInfo != null){
-        //	contacts.addContact(new Contact(this, null, a, b, bestInfo));
-        //}
-
         solveContacts(dt);
         integrateVelocityAndPosition(dt);
 
@@ -144,7 +137,7 @@ public class RigidBody {
         for (OreintedBB ob : colliders) {
             ob.axis = new Matrix3d(rotation);
             ob.inverse = new Matrix3d(inv_rotation);
-            ob.setPosition(this.position.x, this.position.y, this.position.z);
+            ob.setPosition(position.x, position.y, position.z);
 
         }
     }
@@ -175,7 +168,7 @@ public class RigidBody {
     }
 
     public void setPrevData() {
-        this.prevPosition = position;
+        prevPosition = position;
         setFromMat(prevRotation, rotation);
     }
 
@@ -222,7 +215,7 @@ public class RigidBody {
 
     public void impulse(Vec3d force, Vec3d position) {
         this.force = this.force.add(force);
-        this.torque = this.torque.add(position.subtract(globalCentroid).crossProduct(force));
+        torque = torque.add(position.subtract(globalCentroid).crossProduct(force));
     }
 
     public void impulseVelocity(Vec3d force, Vec3d position) {
@@ -288,7 +281,7 @@ public class RigidBody {
         localCentroid = new Vec3d(0, 0, 0);
         mass = 0;
         for (OreintedBB c : colliders) {
-            mass += c.mass;
+            mass += (float) c.mass;
             localCentroid = localCentroid.add(c.localCentroid.scale(c.mass));
         }
         inv_mass = 1F / mass;
@@ -317,12 +310,12 @@ public class RigidBody {
         inv_globalInertiaTensor = new Matrix3f();
         updateOrientation();
         updateGlobalCentroidFromPosition();
-        this.prevPosition = position;
+        prevPosition = position;
         updateAABBs();
     }
 
     public void setRotation(float yaw, float pitch, float roll) {
-        this.rotation.setIdentity();
+        rotation.setIdentity();
         rotate(yaw, pitch, roll);
     }
 
@@ -335,7 +328,7 @@ public class RigidBody {
         mR.rotZ(roll);
         mR.mul(mP);
         mR.mul(mY);
-        this.rotation.mul(mR);
+        rotation.mul(mR);
     }
 
     public static Vector3f getRealVector(Vec3d vec) {
@@ -396,11 +389,10 @@ public class RigidBody {
     }
 
     public Matrix3f outerProduct(Vec3d one, Vec3d two) {
-        Matrix3f mat = new Matrix3f(
+        return new Matrix3f(
                 (float) (one.x * two.x), (float) (one.x * two.y), (float) (one.x * two.z),
                 (float) (one.y * two.x), (float) (one.y * two.y), (float) (one.y * two.z),
                 (float) (one.z * two.x), (float) (one.z * two.y), (float) (one.z * two.z));
-        return mat;
     }
 
     public void solveCollisionWith(RigidBody body) {

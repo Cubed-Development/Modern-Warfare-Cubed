@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.grenade;
 import com.paneedah.weaponlib.EntityBounceable;
 import com.paneedah.weaponlib.ModContext;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,6 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+@Getter
 public abstract class AbstractEntityGrenade extends EntityBounceable {
 
     private static final String TAG_ENTITY_ITEM = "entity_item";
@@ -76,7 +78,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
                 Material material = iBlockState.getMaterial();
 
                 if (material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
-                    this.playSound(bounceHardSound, 2.0f / (bounceCount + 1f), 1.0f);
+                    playSound(bounceHardSound, 2.0f / (bounceCount + 1f), 1.0f);
                 }
             }
 
@@ -86,13 +88,11 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
                 Material material = iBlockState.getMaterial();
 
                 if (material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
-                    this.playSound(bounceHardSound, 1.0f / (bounceCount + 1f), 1.0f);
+                    assert bounceHardSound != null;
+                    playSound(bounceHardSound, 1.0f / (bounceCount + 1f), 1.0f);
                 }
             }
         }
     }
 
-    public ItemGrenade getItemGrenade() {
-        return itemGrenade;
-    }
 }

@@ -8,6 +8,7 @@ import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.DebugPositioner.Position;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
+import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -35,6 +36,8 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class AnimationGUI {
 
+    //instance = new AnimationGUI();
+    @Getter
     private static final AnimationGUI instance = new AnimationGUI();
 
 
@@ -80,13 +83,8 @@ public class AnimationGUI {
     public Slider debugFireRate = new Slider("Debug Fire Rate", false, 1, 25);
 
 
-    public static AnimationGUI getInstance() {
-        //instance = new AnimationGUI();
-        return instance;
-    }
-
     public boolean isPanelClosed(String name) {
-        for (Panel panel : this.panels) {
+        for (Panel panel : panels) {
             if (panel.getTitle().equals(name)) {
                 return panel.isClosed();
             }
@@ -143,11 +141,11 @@ public class AnimationGUI {
         recoilPanel.addElement(debugFireRate);
 
 
-        this.axisToggle.setState(true);
+        axisToggle.setState(true);
 
-        this.panels.add(recoilPanel);
-        this.panels.add(cameraPanel);
-        this.panels.add(renderPanel);
+        panels.add(recoilPanel);
+        panels.add(cameraPanel);
+        panels.add(renderPanel);
 
 
     }
@@ -172,13 +170,6 @@ public class AnimationGUI {
         for (Panel p : panels) {
             p.render(mouseX, mouseY);
         }
-		
-		/*
-		but = null;
-		for(Button b : buttonList) {
-			b.renderButton(mouseX, mouseY);
-		}
-		*/
 
         if (but != null) {
 
@@ -255,7 +246,7 @@ public class AnimationGUI {
 
 
         grabStatus = false;
-        for (Panel p : this.panels) {
+        for (Panel p : panels) {
 
 
             if (checkIn2DBox(mouseX, mouseY, p.getPositionX(), p.getPositionY(), p.getWidth(), p.getHeight())) {
@@ -282,14 +273,14 @@ public class AnimationGUI {
 
     public void onMouseClick(int mouseX, int mouseY) {
 
-        for (Panel panel : this.panels) {
+        for (Panel panel : panels) {
             panel.handleButtonClicks(mouseX, mouseY);
         }
 
     }
 
     public void onMouseReleased(int mouseX, int mouseY) {
-        for (Panel panel : this.panels) {
+        for (Panel panel : panels) {
             panel.onMouseReleased(mouseX, mouseY);
         }
     }

@@ -1,6 +1,7 @@
 package com.paneedah.mwc.bases;
 
 import com.paneedah.mwc.MWC;
+import lombok.Setter;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -12,6 +13,7 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 public class OreBase extends BlockOre {
 
     Item itemBlock, drop;
+    @Setter
     int harvestLevel = 2, minDrop = 1, maxDrop = 1;
     boolean smelt = true;
 
@@ -29,35 +31,31 @@ public class OreBase extends BlockOre {
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         itemBlock = Item.getItemFromBlock(this);
         //If the block is smelt-able (i.e like gold or iron) then drop the block itself, otherwise drop the designated drop.
-        if (this.smelt) {
-            if (this.drop != null) {
-                LOGGER.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
+        if (smelt) {
+            if (drop != null) {
+                LOGGER.warn("Block {} is smeltable but does not drop itself!", getRegistryName());
             }
             return itemBlock;
         } else {
-            return this.drop;
+            return drop;
         }
     }
 
     @Override
     public int quantityDropped(Random random) {
         int i = 0;
-        if (this.maxDrop - this.minDrop > 0) {
-            i = random.nextInt(this.maxDrop - this.minDrop);
+        if (maxDrop - minDrop > 0) {
+            i = random.nextInt(maxDrop - minDrop);
         }
-        return this.smelt ? 1 : this.minDrop + i;
-    }
-
-    public void setHarvestLevel(int harvestLevel) {
-        this.harvestLevel = harvestLevel;
+        return smelt ? 1 : minDrop + i;
     }
 
     public void setItemDropped(Item item) {
-        this.drop = item;
+        drop = item;
     }
 
     public void isSmeltable(boolean smeltable) {
-        this.smelt = smeltable;
+        smelt = smeltable;
     }
 
     // Random chance between minDrop and maxDrop amounts
@@ -68,7 +66,7 @@ public class OreBase extends BlockOre {
 
     //Set amount of dropped items.
     public void setDropAmount(int dropChance) {
-        this.minDrop = dropChance;
-        this.maxDrop = dropChance;
+        minDrop = dropChance;
+        maxDrop = dropChance;
     }
 }
