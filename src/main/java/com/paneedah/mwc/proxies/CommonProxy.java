@@ -10,6 +10,7 @@ import com.paneedah.mwc.items.melee.NightStickFactory;
 import com.paneedah.mwc.items.melee.TacticalTomahawkFactory;
 import com.paneedah.mwc.skins.GunSkins;
 import com.paneedah.mwc.tileentities.TileEntities;
+import com.paneedah.mwc.tileentities.TurretBaseFactory;
 import com.paneedah.mwc.vehicle.Vehicles;
 import com.paneedah.mwc.weapons.*;
 import com.paneedah.weaponlib.UniversalSoundLookup;
@@ -75,7 +76,9 @@ public class CommonProxy {
         Electronics.init();
         Grenades.init(mod, this);
         CustomSpawnEggs.init(mod, this);
-        TileEntities.init(this);
+
+        new TurretBaseFactory().createTileEntity(MWC.modContext);
+        new TileEntities().createTileEntity(MWC.modContext);
 
         new TacticalTomahawkFactory().createMelee(this);
         new BaseballBatFactory().createMelee(this);

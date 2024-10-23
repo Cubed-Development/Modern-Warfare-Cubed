@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.tile;
 
+import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
@@ -35,7 +36,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                 lastEquipmentDispenseTimestamp = world.getWorldTime();
                 Equipment equipment = configuration.getEquipmentOptions().pick(EnumDifficulty.EASY);
                 if (equipment != null && equipment.item != null) {
-                    System.out.println("Dropping " + equipment.item.getTranslationKey());
+                    ProjectConstants.LOGGER.info("Dropping " + equipment.item.getTranslationKey());
                     player.playSound(configuration.getDispenseSound(), 0.15f, 1);
                     ItemStack equipmentItemStack = ItemStack.EMPTY;
                     if (equipment.item instanceof Weapon) {

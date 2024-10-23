@@ -6,14 +6,11 @@ import java.awt.*;
 
 public class Button {
 
-    public double x = 0;
-    public double y = 0;
+    public double x, y;
     public String tooltip;
 
-
     public int id;
-
-    public int size = 0;
+    public int size;
     public boolean state = false;
 
     public boolean isToggle = false;

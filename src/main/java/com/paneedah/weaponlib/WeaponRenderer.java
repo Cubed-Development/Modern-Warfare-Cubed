@@ -130,8 +130,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
     protected ItemStack itemStack;
 
-    protected ModelResourceLocation resourceLocation;
-
     public static FloatBuffer atlasMatrix = BufferUtils.createFloatBuffer(16);
 
     private class WeaponItemOverrideList extends ItemOverrideList {
@@ -4662,17 +4660,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             t.draw();
             GlStateManager.enableTexture2D();
         }
-
-
-
-
-
-
-        /*
-
-         */
-
-
     }
 
     private static void drawTexturedQuadFit(double x, double y, double width, double height, double zLevel) {
@@ -4852,159 +4839,86 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     public static <T> void renderLeftArm(EntityLivingBase player, RenderContext<T> renderContext,
                                          Positioner<Part, RenderContext<T>> positioner) {
 
-        //if(true) return;
-
-        Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager()
-                .getEntityRenderObject(player);
+        Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject(player);
         RenderPlayer render = (RenderPlayer) entityRenderObject;
+
+        // Bind the player skin texture
         MC.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
         GL11.glPushMatrix();
-        if (AnimationModeProcessor.getInstance().isLegacyMode()) {
 
+        // Apply transformations based on the animation mode
+        if (AnimationModeProcessor.getInstance().isLegacyMode()) {
             GL11.glTranslatef(0f, -1f, 0f);
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glRotatef(0F, 0f, 1f, 0f);
             GL11.glRotatef(10F, 0f, 0f, 1f);
         }
 
-        float MCt = 45f * ((MC.player.ticksExisted % 45) / 45f);
-
-
+        // Position the left hand
         positioner.position(Part.LEFT_HAND, renderContext);
+
         if (DebugPositioner.isDebugModeEnabled()) {
             DebugPositioner.position(Part.LEFT_HAND, renderContext);
         }
-		/*
-		AnimationData anm = BBLoader.getAnimation("real", "reload", "lefthand");
-		//AnimationData anm = BBLoader.loadAnimationData("m16.animation.json", "animation.M16.reload", "lefthand");
-		FuckMyLife.instance.bbMap.clear();
-        for(Entry<Float, BlockbenchTransition> tranny : anm.bbTransition.entrySet()) {
-			FuckMyLife.instance.bbMap.put(tranny.getKey(), tranny.getValue());
-		}
-
-      //  System.out.println(anm.bbTransition.get(1.5).directTransform());
-        FuckMyLife.instance.timer = 0f;
-        try {
-        	//FuckMyLife.instance.position(FuckMyLife.instance.timer, 4.0f, true);
-        } catch(Exception e) {
-        	e.printStackTrace();
-        }*/
-        // System.out.println(anm.bbTransition);
-
-
-        /*
-        FuckMyLife.instance.timer += 0.01f;
-        FuckMyLife.instance.timer = 0f;
-        */
-
-
-        //AnimationModeProcessor.getInstance().renderCross();
-
-		/*
-		DebugRenderer.setupBasicRender();
-		DebugRenderer.renderPoint(Vec3d.ZERO, new Vec3d(1, 0, 0));
-		DebugRenderer.destructBasicRender();
-		GlStateManager.color(1, 1, 1);
-        */
-        /*
-   	 GlStateManager.rotate(57.7232f, 0, 0, 1);
-   	 GlStateManager.rotate(26.1991f, 0, 1, 0);
-   	 GlStateManager.rotate(-17.5f, 1, 0, 0);
-        */
-
-
-		/*
-		if (!OpenGLSelectionHelper.isInSelectionPass && AnimationModeProcessor.getInstance().getFPSMode()) {
-
-			if (OpenGLSelectionHelper.selectID == 1) {
-
-				AnimationModeProcessor.getInstance().renderTransformIndicator(0.2f);
-			}
-		}*/
-
 
         renderContext.capturePartPosition(Part.LEFT_HAND);
 
-        //GL11.glTranslated(1, 0, 0);
-        //GlStateManager.rotate(0f, 0, 1, 0);
-
         if (!AnimationModeProcessor.getInstance().isLegacyMode()) {
-
-//			GL11.glTranslatef(-0.38f, -0.12f, -0.13f);
+            // Additional transformations can be applied here if needed
         }
 
-
-        //	armModel = new ArmModel();
-
+        // Render the left arm
         renderLeftArm(render.getMainModel(), (AbstractClientPlayer) player);
 
+        // Check for armor on the chest slot
         ItemStack itemstack = getItemStackFromSlot(player, EntityEquipmentSlot.CHEST);
 
         if (itemstack.getItem() instanceof ItemArmor) {
             render.bindTexture(getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
             ModelBiped armorModel = getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
+
             if (armorModel != null) {
                 renderLeftArm(armorModel, (AbstractClientPlayer) player);
             }
         }
 
-		/*
-		 * 	ItemStack itemstack = getItemStackFromSlot(player, EntityEquipmentSlot.CHEST);
-
-		if ( && itemstack.getItem() instanceof ItemArmor) {
-			// ItemArmor itemarmor = (ItemArmor)itemstack.getItem();
-			renderer.bindTexture(getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
-
-			ModelBiped armorModel = getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
-			if (armorModel != null) {
-				renderRightArm(armorModel, (AbstractClientPlayer) player);
-			}
-		}
-		 */
-
-        // GlStateManager.enableTexture2D();
-
         GL11.glPopMatrix();
-
     }
 
-    public static void renderRightArm(ModelBiped modelplayer, AbstractClientPlayer clientPlayer) {
+    public static void renderRightArm(ModelBiped modelPlayer, AbstractClientPlayer clientPlayer) {
         float f = 1.0F;
-
         GlStateManager.color(f, f, f);
-        // ModelPlayer modelplayer = renderPlayer.getMainModel();
-        // Can ignore private method setModelVisibilities since it was already called
-        // earlier for left hand
-        setModelVisibilities(modelplayer, clientPlayer);
 
+        // Set the model visibilities
+        setModelVisibilities(modelPlayer, clientPlayer);
         GlStateManager.enableBlend();
-        modelplayer.swingProgress = 0.0F;
-        modelplayer.isSneak = false;
-        modelplayer.setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, clientPlayer);
 
+        modelPlayer.swingProgress = 0.0F;
+        modelPlayer.isSneak = false;
+        modelPlayer.setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, clientPlayer);
+
+        // Set right arm rotation angles based on the animation mode
         if (AnimationModeProcessor.getInstance().isLegacyMode()) {
-            modelplayer.bipedRightArm.rotateAngleX = -0.3F;
-            modelplayer.bipedRightArm.rotateAngleY = 0.0F;
+            modelPlayer.bipedRightArm.rotateAngleX = -0.3F;
+            modelPlayer.bipedRightArm.rotateAngleY = 0.0F;
         } else {
-            modelplayer.bipedRightArm.rotateAngleX = (float) Math.toRadians(-90);
-            modelplayer.bipedRightArm.rotateAngleY = 0f;
-            modelplayer.bipedRightArm.rotateAngleZ = 0f;
+            modelPlayer.bipedRightArm.rotateAngleX = (float) Math.toRadians(-90);
+            modelPlayer.bipedRightArm.rotateAngleY = 0f;
+            modelPlayer.bipedRightArm.rotateAngleZ = 0f;
         }
 
+        // Render the right arm
+        modelPlayer.bipedRightArm.render(0.0625F);
 
-        modelplayer.bipedRightArm.render(0.0625F);
-
-        if (modelplayer instanceof ModelPlayer) {
+        if (modelPlayer instanceof ModelPlayer) {
             if (AnimationModeProcessor.getInstance().isLegacyMode()) {
-                ((ModelPlayer) modelplayer).bipedRightArmwear.rotateAngleX = 0.0F;
-                ((ModelPlayer) modelplayer).bipedRightArmwear.rotateAngleX = -0.3F;
+                ((ModelPlayer) modelPlayer).bipedRightArmwear.rotateAngleX = -0.3F;
             } else {
-                modelplayer.bipedRightArm.rotateAngleX = 0f;
-                modelplayer.bipedRightArm.rotateAngleY = 0f;
-                modelplayer.bipedRightArm.rotateAngleZ = 0f;
+                modelPlayer.bipedRightArm.rotateAngleX = 0f;
+                modelPlayer.bipedRightArm.rotateAngleY = 0f;
+                modelPlayer.bipedRightArm.rotateAngleZ = 0f;
             }
-            // ((ModelPlayer) modelplayer).bipedRightArmwear.renderer(0.0625F);
         }
 
         GlStateManager.disableBlend();

@@ -4,8 +4,6 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.event.LootTableLoadEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
 public class TurretBaseFactory implements TileEntityFactory {
@@ -24,11 +22,6 @@ public class TurretBaseFactory implements TileEntityFactory {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
 //            GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build(modContext);
     }
-
-    @SubscribeEvent
-    public void lootLoad(LootTableLoadEvent evt) {
-    }
-
 }
