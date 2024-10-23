@@ -29,6 +29,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     @Getter protected Item item;
     @Getter @Setter protected int itemInventoryIndex;
     private PlayerItemInstance<S> preparedState;
+    @Setter
     @Getter private long syncStartTimestamp;
     @Getter protected long updateTimestamp;
 
@@ -43,14 +44,14 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         this.itemInventoryIndex = itemInventoryIndex;
         this.player = player;
         ItemStack itemStack = player.getHeldItemMainhand();
-        this.item = itemStack.getItem();
+        item = itemStack.getItem();
     }
 
     public PlayerItemInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
         this.itemInventoryIndex = itemInventoryIndex;
         this.player = player;
         //this.itemStack = itemStack;
-        this.item = itemStack.getItem();
+        item = itemStack.getItem();
     }
 
     public ItemStack getItemStack() {
@@ -132,7 +133,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     }
 
     public long getReloadTimestamp() {
-        return this.reloadUpdateTimestamp;
+        return reloadUpdateTimestamp;
     }
 
     protected void markDirty() {
@@ -148,23 +149,19 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     public <E extends ExtendedState<S>> void prepareTransaction(E preparedExtendedState) {
 
         setState(preparedExtendedState.getState());
-        this.preparedState = (PlayerItemInstance<S>) preparedExtendedState;
+        preparedState = (PlayerItemInstance<S>) preparedExtendedState;
     }
 
     public void completeMagSwap() {
-        this.compoundMagSwapCompleted = true;
+        compoundMagSwapCompleted = true;
     }
 
     public void markMagSwapReady() {
-        this.compoundMagSwapCompleted = false;
+        compoundMagSwapCompleted = false;
     }
 
     public boolean isMagSwapDone() {
-        return this.compoundMagSwapCompleted;
-    }
-
-    public void setSyncStartTimestamp(long syncStartTimestamp) {
-        this.syncStartTimestamp = syncStartTimestamp;
+        return compoundMagSwapCompleted;
     }
 
     public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
@@ -176,19 +173,4 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         // Meant to be used to reconcile instances between server and client
     }
 
-//    public View<?> createView() {
-//        return null;
-//    }
-
-//	public void addListener(PlayerItemStateListener<S> listener) {
-//		listeners.add(listener);
-//	}
-//
-//	public void removeListener(PlayerItemStateListener<S> listener) {
-//		listeners.remove(listener);
-//	}
-//
-//	protected void notifyListeners() {
-//		listeners.forEach(l -> l.stateChanged(this));
-//	}
 }

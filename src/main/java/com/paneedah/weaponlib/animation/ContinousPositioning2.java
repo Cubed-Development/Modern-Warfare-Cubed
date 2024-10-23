@@ -17,8 +17,6 @@ class ContinousPositioning2<State, Part, Context extends PartPositionProvider> i
         public void position(Part part, Context context) {
 
             float currentProgress = context.getProgress();
-//            float currentProgress = currentProgressProvider.apply(context);
-//            //System.out.println("Rendering progress: " + currentProgress);
             if (currentProgress > 1f) {
                 currentProgress = 1f;
             } else if (currentProgress < 0) {
@@ -34,7 +32,6 @@ class ContinousPositioning2<State, Part, Context extends PartPositionProvider> i
                 MultipartTransition<Part, Context> transition = toPositioning.get(i);
                 endOfSegment += transition.getDuration() + transition.getPause();
                 if (mark <= endOfSegment) {
-                    segmentIndex = i;
                     targetTransition = transition;
                     break;
                 }
@@ -52,11 +49,7 @@ class ContinousPositioning2<State, Part, Context extends PartPositionProvider> i
              * so it needs to be adjusted back to 1
              */
             if (activePartOfSegmentProgress > 1f) {
-                activePartOfSegmentProgress = 1f;
             }
-
-//            float finalNormalizedSegmentProgress = activePartOfSegmentProgress;
-//            int finalSegmentIndex = segmentIndex;
 
             Consumer<Context> positioning = targetTransition.getPositioning(part);
             //context.setProgress(activePartOfSegmentProgress);
@@ -75,7 +68,6 @@ class ContinousPositioning2<State, Part, Context extends PartPositionProvider> i
     }
 
 
-    private final Function<Context, Float> currentProgressProvider;
     private final Randomizer randomizer;
 
     private long totalDuration;
@@ -84,16 +76,13 @@ class ContinousPositioning2<State, Part, Context extends PartPositionProvider> i
 
     private final State fromState;
     private final State toState;
-    private final boolean fromAnchored;
 
     ContinousPositioning2(MultipartTransitionProvider<State, Part, Context> transitionProvider,
                           Function<Context, Float> currentProgressProvider, Randomizer randomizer,
                           State fromState, State toState, boolean fromAnchored, Map<Part, Matrix4f> lastApplied) {
-        this.currentProgressProvider = currentProgressProvider;
         this.randomizer = randomizer;
         this.fromState = fromState;
         this.toState = toState;
-        this.fromAnchored = fromAnchored;
         toPositioning = transitionProvider.getTransitions(toState);
 
         for (MultipartTransition<Part, Context> t : toPositioning) {

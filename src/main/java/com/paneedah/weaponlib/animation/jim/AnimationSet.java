@@ -1,15 +1,14 @@
 package com.paneedah.weaponlib.animation.jim;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 
+@Getter
 public class AnimationSet {
 
     private final HashMap<String, SingleAnimation> animations = new HashMap<>();
 
-
-    public HashMap<String, SingleAnimation> getAnimations() {
-        return animations;
-    }
 
     public boolean containsKey(String name) {
         return animations.containsKey(name);

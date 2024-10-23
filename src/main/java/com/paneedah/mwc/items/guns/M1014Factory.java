@@ -50,9 +50,9 @@ public class M1014Factory implements GunFactory {
                 .withInaccuracy(10)
                 .withPellets(10)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.05f)
-                .withFlashOffsetY(() -> 0.11f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.05f))
+                .withFlashOffsetY(() -> Float.valueOf(0.11f))
                 .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
                 .withShellCasingModelTexture("shotgun12gauge")
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -168,9 +168,6 @@ public class M1014Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
@@ -301,8 +298,6 @@ public class M1014Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0.07F, 1.15F, -0.3F);
-//                GL11.glRotatef(-70F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
@@ -926,11 +921,6 @@ public class M1014Factory implements GunFactory {
                         })
                         .withFirstPersonHandPositioning(
                                 (renderContext) -> {
-//                         GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(50.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.220000f, -0.540000f, 0.245000f);
 
                                     GL11.glScalef(3.5f, 3.5f, 3.5f);
                                     GL11.glRotatef(-80.000000f, 1f, 0f, 0f);

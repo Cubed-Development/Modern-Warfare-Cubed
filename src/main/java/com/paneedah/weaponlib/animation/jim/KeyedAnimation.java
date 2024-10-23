@@ -16,7 +16,7 @@ public class KeyedAnimation {
     public TreeMap<Float, BlockbenchTransition> bbMap = new TreeMap<>();
     public float prevTimer = 0.0f;
     public float timer = 0.0f;
-    public float max = 2.0f;
+    public float max;
 
 
     public KeyedAnimation(float max) {
@@ -25,11 +25,9 @@ public class KeyedAnimation {
 
     public KeyedAnimation(AnimationData data) {
         // Copy keys
-        for (Entry<Float, BlockbenchTransition> entry : data.bbTransition.entrySet()) {
-            bbMap.put(entry.getKey(), entry.getValue());
-        }
+        bbMap.putAll(data.bbTransition);
 
-        this.max = data.getAppointedDuration();
+        max = data.getAppointedDuration();
     }
 
     public void doPositioning(float speed) {
@@ -37,9 +35,9 @@ public class KeyedAnimation {
     }
 
     public void update(float speed) {
-        this.prevTimer = this.timer;
+        prevTimer = timer;
 
-        this.timer += speed;
+        timer += speed;
 
         if (timer > max) {
             timer = 0;
@@ -61,27 +59,27 @@ public class KeyedAnimation {
 
 
         // Find previous key
-        float bottomKey = bbMap.floorEntry(time).getKey();
+        float bottomKey = bbMap.floorEntry(Float.valueOf(time)).getKey().floatValue();
 
-        float topKey = 0.0f;
+        float topKey;
         try {
-            topKey = bbMap.ceilingKey(time);
+            topKey = bbMap.ceilingKey(Float.valueOf(time)).floatValue();
         } catch (Exception e) {
-            topKey = bbMap.floorKey(time);
+            topKey = bbMap.floorKey(Float.valueOf(time)).floatValue();
         }
 
 
         //System.out.println(time);
-        Vec3d prevTrans = bbMap.floorEntry(time).getValue().getTranslation();
-        Vec3d nextTrans = bbMap.ceilingEntry(time).getValue().getTranslation();
+        Vec3d prevTrans = bbMap.floorEntry(Float.valueOf(time)).getValue().getTranslation();
+        Vec3d nextTrans = bbMap.ceilingEntry(Float.valueOf(time)).getValue().getTranslation();
 
         // If by some weird bug this is null, set them to eachother
         if (nextTrans == null) {
             nextTrans = prevTrans;
         }
 
-        Vec3d prevRot = bbMap.floorEntry(time).getValue().getRotation();
-        Vec3d nextRot = bbMap.ceilingEntry(time).getValue().getRotation();
+        Vec3d prevRot = bbMap.floorEntry(Float.valueOf(time)).getValue().getRotation();
+        Vec3d nextRot = bbMap.ceilingEntry(Float.valueOf(time)).getValue().getRotation();
 
         if (nextRot == null) {
             nextRot = prevRot;
@@ -97,16 +95,6 @@ public class KeyedAnimation {
         Vec3d translation = MatrixHelper.lerpVectors(prevTrans, nextTrans, leDelta);
 
         Vec3d rotation = MatrixHelper.lerpVectors(prevRot, nextRot, leDelta);
-		/*
-		Vec3d rotation = Vec3d.ZERO;
-		
-		Quaternion q1 = MatrixHelper.fromEulerAngles(Math.toRadians(prevRot.z), Math.toRadians(prevRot.x), Math.toRadians(prevRot.y));
-		Quaternion q2 = MatrixHelper.fromEulerAngles(Math.toRadians(nextRot.z), Math.toRadians(nextRot.x), Math.toRadians(nextRot.y));
-		Quaternion q3 = MatrixHelper.slerp(q1, q2, leDelta);
-		
-		double[] rawArray = MatrixHelper.toEulerAngles(q3);
-		rotation = new Vec3d(Math.toDegrees(rawArray[2]), Math.toDegrees(rawArray[1]), Math.toDegrees(rawArray[0]));
-		*/
 
         //rotation = new Vec3d(MC.player.ticksExisted%45, 0, 0);
 

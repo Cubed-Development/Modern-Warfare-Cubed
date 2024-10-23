@@ -40,9 +40,9 @@ public class M200InterventionFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.11f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.11f))
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -60,15 +60,9 @@ public class M200InterventionFactory implements GunFactory {
                 })
                 .withCompatibleAttachment(Magazines.InterventionMag, (model) -> {
 
-//            GL11.glTranslatef(0F, 0.2F, 0.35F);
-//            GL11.glRotatef(20f, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.InterventionBoltAction, true, (model) -> {
-//        	GL11.glTranslatef(-1.41f, -1.15f, 0f);
-//            GL11.glRotatef(70f, 0f, 0f, 1f);
 
-//        	  GL11.glTranslatef(0f, 0f, 0f);
-//              GL11.glRotatef(70f, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
                     GL11.glTranslatef(0.03F, -1.98F, -1.5F);
@@ -134,9 +128,6 @@ public class M200InterventionFactory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
@@ -248,10 +239,6 @@ public class M200InterventionFactory implements GunFactory {
                         GL11.glRotatef(90f, 1f, 0f, 0f);
 
 
-//                GL11.glScaled(0.4F, 0.4F, 0.6F);
-//                GL11.glTranslatef(-0.95F, -3.1F, -3.5F);
-//                GL11.glRotatef(70f, 1f, 0f, 0f);
-//                GL11.glRotatef(5f, 0f, 1f, 0f);
                     }
                 })
 //        .withCompatibleAttachment(Attachments.Silencer762x54, (model) -> {
@@ -287,11 +274,6 @@ public class M200InterventionFactory implements GunFactory {
                             GL11.glRotatef(3f, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.575000f, 1.874999f, -1.799999f);
 
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(75.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.500000f, 1.649999f, -1.000000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -629,28 +611,16 @@ public class M200InterventionFactory implements GunFactory {
 
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
-//                    	GL11.glTranslatef(-0.93f, -0.27f, 0f);
-//                    	GL11.glRotatef(55f, 0f, 0f, 1f);
                                 }, 250, 300),
                                 new Transition((renderContext) -> { // Reload position
-//                    	GL11.glTranslatef(-0.93f, -0.27f, 0f);
-//                    	GL11.glRotatef(55f, 0f, 0f, 1f);
                                 }, 250, 300),
                                 new Transition((renderContext) -> { // Reload position
-//                    	  GL11.glTranslatef(-0.93f, -0.27f, 1.5f);
-//                        	GL11.glRotatef(55f, 0f, 0f, 1f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
-//                    	  GL11.glTranslatef(-0.93f, -0.27f, 1.5f);
-//                      	GL11.glRotatef(55f, 0f, 0f, 1f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
-//                    	  GL11.glTranslatef(-0.93f, -0.27f, 1.5f);
-//                      	GL11.glRotatef(55f, 0f, 0f, 1f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
-//                    	  GL11.glTranslatef(-0.93f, -0.27f, 0f);
-//                      	GL11.glRotatef(55f, 0f, 0f, 1f);
 
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
@@ -1365,12 +1335,6 @@ public class M200InterventionFactory implements GunFactory {
                                     GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(45.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.350000f, -0.225000f, 0.075000f);
-
-//                         GL11.glScalef(4f, 4f, 4f);
-//                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(70.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.125000f, -0.625000f, -0.200000f);
 
                                 },
                                 (renderContext) -> {

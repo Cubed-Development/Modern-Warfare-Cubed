@@ -19,17 +19,17 @@ public class GSCrafting implements IModernCraftingRecipe {
 
     @Override
     public CraftingEntry[] getModernRecipe() {
-        return this.recipe;
+        return recipe;
     }
 
     @Override
     public ItemStack getItemStack() {
-        return this.output;
+        return output;
     }
 
     @Override
     public CraftingGroup getCraftingGroup() {
-        return this.group;
+        return group;
     }
 
     @Override

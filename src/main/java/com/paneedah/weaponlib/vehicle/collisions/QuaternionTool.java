@@ -27,40 +27,7 @@ public class QuaternionTool {
     public static void setFromMat(Quat4f q, float m00, float m01, float m02, float m10,
                                   float m11, float m12, float m20, float m21, float m22) {
 
-        float s;
-        float tr = m00 + m11 + m22;
-        if (tr >= 0.0) {
-            s = (float) Math.sqrt(tr + 1.0);
-            q.w = s * 0.5f;
-            s = 0.5f / s;
-            q.x = (m21 - m12) * s;
-            q.y = (m02 - m20) * s;
-            q.z = (m10 - m01) * s;
-        } else {
-            float max = Math.max(Math.max(m00, m11), m22);
-            if (max == m00) {
-                s = (float) Math.sqrt(m00 - (m11 + m22) + 1.0);
-                q.x = s * 0.5f;
-                s = 0.5f / s;
-                q.y = (m01 + m10) * s;
-                q.z = (m20 + m02) * s;
-                q.w = (m21 - m12) * s;
-            } else if (max == m11) {
-                s = (float) Math.sqrt(m11 - (m22 + m00) + 1.0);
-                q.y = s * 0.5f;
-                s = 0.5f / s;
-                q.z = (m12 + m21) * s;
-                q.x = (m01 + m10) * s;
-                q.w = (m02 - m20) * s;
-            } else {
-                s = (float) Math.sqrt(m22 - (m00 + m11) + 1.0);
-                q.z = s * 0.5f;
-                s = 0.5f / s;
-                q.x = (m20 + m02) * s;
-                q.y = (m12 + m21) * s;
-                q.w = (m10 - m01) * s;
-            }
-        }
+        RigidBody.setFromMat(q, m00, m01, m02, m10, m11, m12, m20, m21, m22);
     }
 
 }

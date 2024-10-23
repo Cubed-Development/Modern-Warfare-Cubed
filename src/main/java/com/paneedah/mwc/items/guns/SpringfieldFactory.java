@@ -44,9 +44,9 @@ public class SpringfieldFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 1f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(1f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingEjectEnabled(false)
 
                 .withScreenShaking(RenderableState.SHOOTING,
@@ -57,10 +57,6 @@ public class SpringfieldFactory implements GunFactory {
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
                 .withCompatibleAttachment(AuxiliaryAttachments.SpringfieldAction, true, (model) -> {
-                    if (model instanceof SpringfieldAction) {
-//                GL11.glTranslatef(-1.38F, -1.05F, 0.5F);
-//                GL11.glRotatef(90f, 0f, 0f, 1f);
-                    }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Bullet, true, (model) -> {
                     if (model instanceof BulletBig) {
@@ -69,10 +65,6 @@ public class SpringfieldFactory implements GunFactory {
                         GL11.glRotatef(90f, 1f, 0f, 0f);
 
 
-//                GL11.glScaled(0.4F, 0.4F, 0.6F);
-//                GL11.glTranslatef(-0.95F, -3.1F, -3.5F);
-//                GL11.glRotatef(70f, 1f, 0f, 0f);
-//                GL11.glRotatef(5f, 0f, 1f, 0f);
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.SpringfieldRearSight, true, (model) -> {
@@ -172,13 +164,8 @@ public class SpringfieldFactory implements GunFactory {
                             GL11.glRotatef(3F, 0f, 0f, 1f);
 
                             // Scope Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                //System.out.println("Position me for Scope");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1);//System.out.println("Position me for Scope");
+// Everything else
 
                         })
 
@@ -891,13 +878,8 @@ public class SpringfieldFactory implements GunFactory {
                             GL11.glTranslatef(0.39f, 0.92f, 1f);
 
                             // Scope Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                //System.out.println("Position me for Scope");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1);//System.out.println("Position me for Scope");
+// Everything else
 
                         })
 

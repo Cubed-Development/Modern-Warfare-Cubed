@@ -36,9 +36,9 @@ public class PythonFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withInaccuracy(2)
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -63,20 +63,11 @@ public class PythonFactory implements GunFactory {
                 ))
 
                 .withCompatibleAttachment(AuxiliaryAttachments.PythonChamber, true, (model) -> {
-//			GL11.glTranslatef(-0.35f, -0.1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoader, true, (model) -> {
-//			GL11.glTranslatef(-0f, -0.1f, 0.7f);
-//			GL11.glRotatef(30F, 0f, 1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoaderBullets, true, (model) -> {
-//			GL11.glTranslatef(0f, 0f, 0.001f);
 
-//			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.DanWessonLaser, (p, s) -> {
                     GL11.glTranslatef(-0.3F, -0.8F, -3.0F);

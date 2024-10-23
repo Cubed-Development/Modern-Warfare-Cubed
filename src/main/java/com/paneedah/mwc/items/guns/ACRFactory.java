@@ -47,9 +47,9 @@ public class ACRFactory implements GunFactory {
                 .withCrosshairRunning("Running") // Running crosshair
                 .withCrosshairZoomed("Sight") // Zoomed crosshair
                 .withFlashIntensity(0.5f) // Flash intensity
-                .withFlashScale(() -> 0.6f) // Flash scale
-                .withFlashOffsetX(() -> 0.14f) // Flash offset X
-                .withFlashOffsetY(() -> 0.16f) // Flash offset Y
+                .withFlashScale(() -> Float.valueOf(0.6f)) // Flash scale
+                .withFlashOffsetX(() -> Float.valueOf(0.14f)) // Flash offset X
+                .withFlashOffsetY(() -> Float.valueOf(0.16f)) // Flash offset Y
                 .withCreativeTab(MWC.WEAPONS_TAB) // Creative tab
                 .useNewSystem() // Use new system
                 .withRecoilParam(new RecoilParam( // Recoil param
@@ -95,38 +95,26 @@ public class ACRFactory implements GunFactory {
 
                 // Compatible ACR attachment ACRStock
                 .withCompatibleAttachment(Attachments.ACRStock, true, (model) -> {
-//            GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
                 })
 
                 // Compatible ACR attachment ACRStockBlack
                 .withCompatibleAttachment(Attachments.ACRStockBlack, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
                 })
 
                 // Compatible ACR attachment ACRPRSStockTan
                 .withCompatibleAttachment(Attachments.ACRPRSStockTan, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
                 })
 
                 // Compatible ACR attachment ACRFixedStockTan
                 .withCompatibleAttachment(Attachments.ACRFixedStockTan, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
                 })
 
                 // Compatible ACR attachment ACRLongRangeStock
                 .withCompatibleAttachment(Attachments.ACRLongRangeStock, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
                 })
 
                 // Compatible ACR attachment ACRPDWStock
                 .withCompatibleAttachment(Attachments.ACRPDWStock, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
                 })
 
                 // Compatible ACR attachment CollapseableMOEStock
@@ -198,20 +186,14 @@ public class ACRFactory implements GunFactory {
 
                 // Compatible ACR attachment ACRPrecisionHandGuardTan
                 .withCompatibleAttachment(Attachments.ACRPrecisionHandGuardTan, (model) -> {
-//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
                 })
 
                 // Compatible ACR attachment ACRPolymerHandGuardTan
                 .withCompatibleAttachment(Attachments.ACRPolymerHandGuardTan, (model) -> {
-//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
                 })
 
                 // Compatible ACR attachment ACRSBRHandGuardTan
                 .withCompatibleAttachment(Attachments.ACRSBRHandGuardTan, (model) -> {
-//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
                 })
 
                 // Compatible ACR attachment ACRSquareDropHandguardTan
@@ -306,9 +288,6 @@ public class ACRFactory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
 
@@ -615,7 +594,6 @@ public class ACRFactory implements GunFactory {
                         GL11.glTranslatef(-0.06F, -1.4F, -2.9F);
                         GL11.glScaled(0.6F, 0.6F, 0.5F);
 //                GL11.glRotatef(20F, 0f, 0f, 1f);
-                    } else if (model instanceof ACRAction2) {
                     }
                 })
 
