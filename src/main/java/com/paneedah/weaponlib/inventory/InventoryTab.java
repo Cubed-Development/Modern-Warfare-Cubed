@@ -13,7 +13,6 @@ public class InventoryTab extends GuiButton {
     private final ResourceLocation texture = new ResourceLocation("textures/gui/container/creative_inventory/tabs.png");
     //private ItemStack renderStack;
     private ItemStack itemStack;
-    private RenderItem itemRenderer;
 
     public InventoryTab(int id, int posX, int posY, ItemStack itemStack) {
         super(id, posX, posY, 28, 32, "");
@@ -38,22 +37,22 @@ public class InventoryTab extends GuiButton {
             int xOffset = this.id == 2 ? 0 : 1;
             int yPos = this.y + (this.enabled ? 3 : 0);
 
-            MC.renderEngine.bindTexture(this.texture);
-            this.drawTexturedModalRect(this.x, yPos, xOffset * 28, yTexPos, 28, ySize);
+            MC.renderEngine.bindTexture(texture);
+            drawTexturedModalRect(this.x, yPos, xOffset * 28, yTexPos, 28, ySize);
 
-            itemRenderer = MC.getRenderItem();
+            RenderItem itemRenderer = MC.getRenderItem();
 
             RenderHelper.enableGUIStandardItemLighting();
             this.zLevel = 100.0F;
-            this.itemRenderer.zLevel = 100.0F;
+            itemRenderer.zLevel = 100.0F;
             GL11.glEnable(GL11.GL_LIGHTING);
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             final ItemStack itemStack = getItemStack();
-            this.itemRenderer.renderItemAndEffectIntoGUI(itemStack, x + 6, y + 8);
-            this.itemRenderer.renderItemOverlays(MC.fontRenderer, itemStack, x + 6, y + 8);
+            itemRenderer.renderItemAndEffectIntoGUI(itemStack, x + 6, y + 8);
+            itemRenderer.renderItemOverlays(MC.fontRenderer, itemStack, x + 6, y + 8);
             GL11.glDisable(GL11.GL_LIGHTING);
             GL11.glEnable(GL11.GL_BLEND);
-            this.itemRenderer.zLevel = 0.0F;
+            itemRenderer.zLevel = 0.0F;
             this.zLevel = 0.0F;
             RenderHelper.disableStandardItemLighting();
         }
@@ -65,7 +64,7 @@ public class InventoryTab extends GuiButton {
                 && mouseX < this.x + this.width && mouseY < this.y + this.height;
 
         if (inWindow) {
-            this.onTabClicked();
+            onTabClicked();
         }
 
         return inWindow;

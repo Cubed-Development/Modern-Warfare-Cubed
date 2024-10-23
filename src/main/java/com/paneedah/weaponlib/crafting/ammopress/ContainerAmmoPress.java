@@ -10,16 +10,13 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerAmmoPress extends ContainerStation {
 
-    private final TileEntityAmmoPress tileEntityWorkbench;
-
     public ContainerAmmoPress(EntityPlayer player, InventoryPlayer inventory, TileEntityAmmoPress workbenchTileEntity) {
-        this.tileEntityWorkbench = workbenchTileEntity;
 
         // Page first
         int id = 0;
         for (int y = 0; y < 3; ++y) {
             for (int x = 0; x < 9; ++x) {
-                addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory,
+                addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, workbenchTileEntity.mainInventory,
                         23 + id, 1, 13 + x * 22, 37 + y * 22));
 
                 id += 1;
@@ -28,14 +25,14 @@ public class ContainerAmmoPress extends ContainerStation {
 
         // Dismantle slots
         for (int i = 0; i < 4; ++i) {
-            addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, 9 + i,
+            addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, workbenchTileEntity.mainInventory, 9 + i,
                     1, 268 + i * 31, 34));
         }
 
         id = 0;
         for (int y = 0; y < 2; ++y) {
             for (int x = 0; x < 5; ++x) {
-                addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory,
+                addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, workbenchTileEntity.mainInventory,
                         13 + (id++), 1, 271 + x * 22, 99 + y * 22));
             }
         }
@@ -56,7 +53,7 @@ public class ContainerAmmoPress extends ContainerStation {
         // 2nd
         // Output slots
         for (int i = 0; i < 9; ++i) {
-            addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, i, 3,
+            addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, workbenchTileEntity.mainInventory, i, 3,
                     40 + i * 22, 219));
         }
 
@@ -68,30 +65,25 @@ public class ContainerAmmoPress extends ContainerStation {
 
         if (index < 27) {
             // Workbench inventory
-            if (!this.mergeItemStack(slot.getStack(), 41, 76, false)) {
+            if (!mergeItemStack(slot.getStack(), 41, 76, false)) {
                 return ItemStack.EMPTY;
             }
         } else if (index >= 41 && index <= 76) {
             // Main inventory & hotbar
-            if (!this.mergeItemStack(slot.getStack(), 0, 26, false)) {
+            if (!mergeItemStack(slot.getStack(), 0, 26, false)) {
                 return ItemStack.EMPTY;
             }
-        } else if (index >= 27 && index <= 30) {
+        } else if (index <= 30) {
 
-            if (!this.mergeItemStack(slot.getStack(), 41, 76, false)) {
+            if (!mergeItemStack(slot.getStack(), 41, 76, false)) {
                 return ItemStack.EMPTY;
             }
-        } else if (index >= 31 && index <= 40) {
-            if (!this.mergeItemStack(slot.getStack(), 41, 76, false)) {
+        } else if (index <= 40) {
+            if (!mergeItemStack(slot.getStack(), 41, 76, false)) {
                 return ItemStack.EMPTY;
             }
         }
         return ItemStack.EMPTY;
-    }
-
-    @Override
-    public boolean canInteractWith(EntityPlayer playerIn) {
-        return true;
     }
 
 }

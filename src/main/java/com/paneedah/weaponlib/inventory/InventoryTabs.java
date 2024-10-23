@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
+import lombok.Getter;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraftforge.client.event.GuiScreenEvent;
@@ -13,24 +14,18 @@ import java.util.List;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
+@Getter
 public class InventoryTabs {
 
     private final ArrayList<InventoryTab> tabList = new ArrayList<InventoryTab>();
 
+    @Getter
     private static final InventoryTabs instance = new InventoryTabs();
 
     private InventoryTabs() {}
 
-    public static InventoryTabs getInstance() {
-        return instance;
-    }
-
     public void registerTab(InventoryTab tab) {
         tabList.add(tab);
-    }
-
-    public ArrayList<InventoryTab> getTabList() {
-        return tabList;
     }
 
 

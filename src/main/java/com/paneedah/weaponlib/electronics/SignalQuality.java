@@ -1,7 +1,10 @@
 package com.paneedah.weaponlib.electronics;
 
+import lombok.Getter;
+
 import java.util.Random;
 
+@Getter
 public class SignalQuality {
 
     private final int quality;
@@ -13,14 +16,6 @@ public class SignalQuality {
     public SignalQuality(int quality, boolean interrupted) {
         this.quality = quality;
         this.interrupted = interrupted;
-    }
-
-    public int getQuality() {
-        return quality;
-    }
-
-    public boolean isInterrupted() {
-        return interrupted;
     }
 
     public static SignalQuality getQuality(int currentDistance, int maxDistance) {

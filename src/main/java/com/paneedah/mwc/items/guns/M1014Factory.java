@@ -50,9 +50,9 @@ public class M1014Factory implements GunFactory {
                 .withInaccuracy(10)
                 .withPellets(10)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.05f)
-                .withFlashOffsetY(() -> 0.11f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.05f))
+                .withFlashOffsetY(() -> Float.valueOf(0.11f))
                 .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
                 .withShellCasingModelTexture("shotgun12gauge")
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -92,18 +92,18 @@ public class M1014Factory implements GunFactory {
                         GL11.glTranslatef(0.1F, -0.25F, -3.85F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.25F, -0.08F, -3.85F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(0.01F, 0.02F, -3.85F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail4) {
+                    } else if (null instanceof AKRail4) {
                         GL11.glTranslatef(-0.17F, -0.62F, -1.1f);
                         GL11.glScaled(0.65F, 0.65F, 0.57F);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.2F, -1.335F, -4.45f);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -129,7 +129,7 @@ public class M1014Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -168,9 +168,6 @@ public class M1014Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
@@ -301,8 +298,6 @@ public class M1014Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0.07F, 1.15F, -0.3F);
-//                GL11.glRotatef(-70F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
@@ -926,11 +921,6 @@ public class M1014Factory implements GunFactory {
                         })
                         .withFirstPersonHandPositioning(
                                 (renderContext) -> {
-//                         GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(50.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.220000f, -0.540000f, 0.245000f);
 
                                     GL11.glScalef(3.5f, 3.5f, 3.5f);
                                     GL11.glRotatef(-80.000000f, 1f, 0f, 0f);

@@ -40,7 +40,7 @@ public class VehicleDataContainer {
     }
 
     public void setData(EntityVehicle v) {
-        this.vehicle = v;
+        vehicle = v;
         setData(v.getEntityId(), v.getPositionVector(), v.throttle, v.driftTuner, v.isBraking, v.forwardLean, v.sideLean, v.wheelRotationAngle, v.steerangle,
                 v.rotationRoll, v.rotationPitch, v.rotationYaw, v.getSolver().synthAccelFor, v.getSolver().velocity);
     }
@@ -61,9 +61,9 @@ public class VehicleDataContainer {
         this.wheelRotationAngle = wheelRotationAngle;
         this.steerangle = steerangle;
 
-        this.rotationRoll = roll;
-        this.rotationPitch = pitch;
-        this.rotationYaw = yaw;
+        rotationRoll = roll;
+        rotationPitch = pitch;
+        rotationYaw = yaw;
 
         this.synthAccelFor = synthAccelFor;
         this.velocity = velocity;
@@ -71,12 +71,12 @@ public class VehicleDataContainer {
 
     public void updateVehicle(EntityVehicle v) {
 
-        v.throttle = this.throttle;
-        v.driftTuner = this.driftTuner;
-        v.forwardLean = this.forwardLean;
-        v.sideLean = this.sideLean;
-        v.wheelRotationAngle = (float) this.wheelRotationAngle;
-        v.steerangle = this.steerangle;
+        v.throttle = throttle;
+        v.driftTuner = driftTuner;
+        v.forwardLean = forwardLean;
+        v.sideLean = sideLean;
+        v.wheelRotationAngle = (float) wheelRotationAngle;
+        v.steerangle = steerangle;
 
 
         v.prevPosX = v.posX;
@@ -84,23 +84,20 @@ public class VehicleDataContainer {
         v.prevPosZ = v.posZ;
 
 
-        v.setPosition(this.position.x, this.position.y, this.position.z);
-        //v.posX = this.position.x;
-        //v.posY = this.position.y;
-        //v.posZ = this.position.z;
+        v.setPosition(position.x, position.y, position.z);
 
         v.prevRotationRoll = v.rotationRoll;
         v.prevRotationPitch = v.rotationPitch;
         v.prevRotationYaw = v.rotationYaw;
 
-        v.rotationRoll = this.rotationRoll;
-        v.rotationPitch = this.rotationPitch;
-        v.rotationYaw = this.rotationYaw;
+        v.rotationRoll = rotationRoll;
+        v.rotationPitch = rotationPitch;
+        v.rotationYaw = rotationYaw;
 
 
         //
-        v.getSolver().synthAccelFor = this.synthAccelFor;
-        v.getSolver().velocity = this.velocity;
+        v.getSolver().synthAccelFor = synthAccelFor;
+        v.getSolver().velocity = velocity;
 
 
     }
@@ -111,12 +108,6 @@ public class VehicleDataContainer {
         EntityVehicle v = value.vehicle;
         VehiclePhysicsSolver solver = v.getSolver();
 
-        if (v == null) {
-            System.out.println("Vehicle is null!");
-            buf.writeInt(-1);
-            return;
-        }
-
 
         /*
          * Le entity
@@ -126,7 +117,7 @@ public class VehicleDataContainer {
         buf.writeInt(1);
 
         new Vector3D(v.getPositionVector()).write(buf);
-        new Vector3D(this.velocity).write(buf);
+        new Vector3D(velocity).write(buf);
 
         //System.out.println(v.getPositionVector());
         buf.writeDouble(v.throttle);
@@ -141,7 +132,7 @@ public class VehicleDataContainer {
         buf.writeFloat(v.rotationPitch);
         buf.writeFloat(v.rotationYaw);
 
-        buf.writeDouble(this.synthAccelFor);
+        buf.writeDouble(synthAccelFor);
 
         buf.writeInt(v.getEntityId());
 

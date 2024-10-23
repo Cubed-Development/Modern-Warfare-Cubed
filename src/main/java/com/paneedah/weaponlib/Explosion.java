@@ -57,15 +57,15 @@ public class Explosion {
     private final SoundEvent explosionSound;
 
     public Explosion(World worldIn, Entity entityIn, Vector3D position, float explosionStrength, boolean flaming, boolean smoking, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, SoundEvent explosionSound) {
-        this.explosionRNG = new Random();
-        this.affectedBlockPositions = Lists.newArrayList();
-        this.playerKnockbackMap = Maps.newHashMap();
-        this.world = worldIn;
-        this.exploder = entityIn;
+        explosionRNG = new Random();
+        affectedBlockPositions = Lists.newArrayList();
+        playerKnockbackMap = Maps.newHashMap();
+        world = worldIn;
+        exploder = entityIn;
         this.explosionStrength = explosionStrength;
         this.position = position;
-        this.isFlaming = flaming;
-        this.isSmoking = smoking;
+        isFlaming = flaming;
+        isSmoking = smoking;
         this.smokeParticleAgeCoefficient = smokeParticleAgeCoefficient;
         this.smokeParticleScaleCoefficient = smokeParticleScaleCoefficient;
         this.smokeParticleTextureName = smokeParticleTextureName;
@@ -122,23 +122,21 @@ public class Explosion {
                         d0 = d0 / d3;
                         d1 = d1 / d3;
                         d2 = d2 / d3;
-                        float f = this.explosionStrength * (0.7F + this.world.rand.nextFloat() * 0.6F);
+                        float f = explosionStrength * (0.7F + world.rand.nextFloat() * 0.6F);
                         double d4 = position.x;
                         double d6 = position.y;
                         double d8 = position.z;
 
                         for (/* f1* = 0.3F */; f > 0.0F; f -= 0.22500001F) {
                             BlockPos blockpos = new BlockPos((int) d4, (int) d6, (int) d8);
-                            // IBlockState iblockstate =
-                            // this.worldObj.getBlockState(blockpos);
                             IBlockState iBlockState = world.getBlockState(blockpos);
 
                             if (!(MWCUtil.isPenetrableByBullets(iBlockState))) {
-                                float f2 = this.exploder != null ? exploder.getExplosionResistance(new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true), this.world, blockpos, iBlockState) : iBlockState.getBlock().getExplosionResistance(null); // (this.world, this.exploder, this, blockpos, iBlockState) : compatibility.getExplosionResistance(world, iBlockState, blockpos, (Entity) null, this);
+                                float f2 = exploder != null ? exploder.getExplosionResistance(new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true), world, blockpos, iBlockState) : iBlockState.getBlock().getExplosionResistance(null); // (this.world, this.exploder, this, blockpos, iBlockState) : compatibility.getExplosionResistance(world, iBlockState, blockpos, (Entity) null, this);
                                 f -= (f2 + 0.3F) * 0.3F;
                             }
 
-                            if (f > 0.0F && (this.exploder == null || exploder.canExplosionDestroyBlock(new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true), this.world, blockpos, iBlockState, f))) { // compatibility.verifyExplosion(this.world, this.exploder, this, blockpos, iBlockState, f))) {
+                            if (f > 0.0F && (exploder == null || exploder.canExplosionDestroyBlock(new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true), world, blockpos, iBlockState, f))) { // compatibility.verifyExplosion(this.world, this.exploder, this, blockpos, iBlockState, f))) {
                                 set.add(blockpos);
                             }
 
@@ -151,12 +149,13 @@ public class Explosion {
             }
         }
 
-        this.affectedBlockPositions.addAll(set);
+        affectedBlockPositions.addAll(set);
 
         // net.minecraftforge.event.ForgeEventFactory.onExplosionDetonate(this.worldObj, this, list, knockbackRange);
         Vector3D vec3d = new Vector3D(position.x, position.y, position.z);
 
         final float knockbackRange = explosionStrength * 2;
+        assert exploder != null;
         final List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(exploder, exploder.getEntityBoundingBox().expand(knockbackRange, knockbackRange, knockbackRange).expand(-knockbackRange, -knockbackRange, -knockbackRange));
         for (Entity entity : list) {
             if (!entity.isImmuneToExplosions()) {
@@ -211,7 +210,7 @@ public class Explosion {
                             EntityPlayer entityplayer = (EntityPlayer) entity;
 
                             if (!entityplayer.isSpectator()) {
-                                this.playerKnockbackMap.put(entityplayer, new Vector3D(d5 * d10, d7 * d10, d9 * d10));
+                                playerKnockbackMap.put(entityplayer, new Vector3D(d5 * d10, d7 * d10, d9 * d10));
                             }
                         }
                     }
@@ -232,9 +231,9 @@ public class Explosion {
             world.playSound(null, position.x, position.y, position.z, explosionSound, SoundCategory.BLOCKS, 4f, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
         }
 
-        if (this.isSmoking) {
+        if (isSmoking) {
             int counter = 0;
-            for (BlockPos blockpos : this.affectedBlockPositions) {
+            for (BlockPos blockpos : affectedBlockPositions) {
 
                 if (counter++ % 2 != 0) {
                     continue;
@@ -242,67 +241,12 @@ public class Explosion {
 
                 IBlockState blockState = world.getBlockState(blockpos);
 
-//                if (spawnParticles) {
-//                    for(int i = 0; i < 1; i++) {
-//                        double d0 = (double) ((float) blockpos.getBlockPosX() + this.world.rand.nextFloat());
-//                        double d1 = (double) ((float) blockpos.getBlockPosY() + this.world.rand.nextFloat());
-//                        double d2 = (double) ((float) blockpos.getBlockPosZ() + this.world.rand.nextFloat());
-//                        double d3 = d0 - this.explosionX;
-//                        double d4 = d1 - this.explosionY;
-//                        double d5 = d2 - this.explosionZ;
-//                        double d6 = (double) MathHelper.sqrt_double(d3 * d3 + d4 * d4 + d5 * d5);
-//                        d3 = d3 / d6;
-//                        d4 = d4 / d6;
-//                        d5 = d5 / d6;
-//                        double d7 = 4D /*0.5D*/ / (d6 / (double) this.explosionSize + 0.1D);
-//                        d7 = d7 * (double) (this.world.rand.nextFloat() * this.world.rand.nextFloat() + 0.3F);
-//                        d3 = d3 * d7;
-//                        d4 = d4 * d7;
-//                        d5 = d5 * d7;
-//
-//
-//                        /*
-//                        if(blockState.getBlockState().getBlock() != Blocks.AIR) {
-//                        	Vec3d posVect = new Vec3d((d0 + this.explosionX) / 2,
-//                                    (d1 + this.explosionY) / 2,
-//                                    (d2 + this.explosionZ) / 2);
-//
-//                            Vec3d directionVector = posVect.subtract(new Vec3d(this.explosionX, this.explosionY, this.explosionZ)).normalize();
-//
-//
-//                            for(int n = 0; n < 5; ++n) {
-//                            	double spread = 0.1;
-//                            	new Vec3d(RandomUtil.getRandomWithNegatives(spread), RandomUtil.getRandomDoubleInclusive(0.0, spread), RandomUtil.getRandomWithNegatives(spread)).add(directionVector);
-//
-//                        		//cdp.setBlockPos(blockpos.getBlockPos());
-//                        	//	MC.effectRenderer.addEffect(cdp);
-//                            }
-//
-//
-//                        }
-//						*/
-//
-//
-//                        /*
-//                        modContext.getEffectManager().spawnExplosionParticle(
-//                                (d0 + this.explosionX) / 2,
-//                                (d1 + this.explosionY) / 2,
-//                                (d2 + this.explosionZ) / 2,
-//                                d3 / 2, d4 * 2, d5 / 2,
-//                                explosionParticleScaleCoefficient * world.rand.nextFloat(),
-//                                (int)((15 + (int)(world.rand.nextFloat() * 10)) * explosionParticleAgeCoefficient),
-//                                explosionParticleTextureName);
-//                        */
-//                    }
-//
-//                }
-
                 if (destroyBlocks && blockState.getBlock() != Blocks.AIR) {
                     if (blockState.getBlock().canDropFromExplosion(new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true))) {
-                        blockState.getBlock().dropBlockAsItemWithChance(this.world, blockpos, blockState, (float) ModernConfigManager.explodedBlockDropChance * (1.0F / this.explosionStrength), 0);
+                        blockState.getBlock().dropBlockAsItemWithChance(world, blockpos, blockState, (float) ModernConfigManager.explodedBlockDropChance * (1.0F / explosionStrength), 0);
                     }
 
-                    blockState.getBlock().onBlockExploded(this.world, blockpos, new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true));
+                    blockState.getBlock().onBlockExploded(world, blockpos, new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true));
                 }
             }
 
@@ -321,9 +265,9 @@ public class Explosion {
             }
         }
 
-        if (this.isFlaming && destroyBlocks) {
-            for (BlockPos blockpos1 : this.affectedBlockPositions)
-                if (world.isAirBlock(blockpos1) && world.getBlockState(blockpos1.down()).isFullBlock() && this.explosionRNG.nextInt(3) == 0) {
+        if (isFlaming && destroyBlocks) {
+            for (BlockPos blockpos1 : affectedBlockPositions)
+                if (world.isAirBlock(blockpos1) && world.getBlockState(blockpos1.down()).isFullBlock() && explosionRNG.nextInt(3) == 0) {
                     world.setBlockState(blockpos1, Blocks.FIRE.getDefaultState());
                 }
         }

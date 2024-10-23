@@ -37,9 +37,9 @@ public class M1GarandFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.1f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.1f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -55,41 +55,41 @@ public class M1GarandFactory implements GunFactory {
                     if (model instanceof M4Iron1) {
                         GL11.glTranslatef(0.162F, -1.75F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(-0.055F, -1.35F, -4.05F);
 //                GL11.glScaled(0.8F, 0.68F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron1) {
+                    } else if (null instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(0.13F, -1.55F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(0.092F, -1.91F, -0.9F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
+                    } else if (null instanceof G36CIron1) {
                         GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
+                    } else if (null instanceof G36CIron2) {
                         GL11.glTranslatef(-0.205F, -1.9F, -3.15F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if (null instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if (null instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(-0.153F, -1.245F, -6.15F);
                         GL11.glScaled(0.3F, 0.3F, 1.2F);
-                    } else if (model instanceof M14Iron) {
+                    } else if (null instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -133,11 +133,6 @@ public class M1GarandFactory implements GunFactory {
                             GL11.glRotatef(10.000000f, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.175000f, 1.050000f, 0.175000f);
 
-//                GL11.glRotatef(41F, 0f, 1f, 0f);
-//                GL11.glScalef(3.00000f, 3.00000f, 3.00000f);
-//                GL11.glRotatef(11.000000f, 0f, 0f, 1f);
-//                GL11.glRotatef(1.000000f, 1f, 0f, 0f);
-//                GL11.glTranslatef(-0.175000f, 1.150000f, 0.2f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {

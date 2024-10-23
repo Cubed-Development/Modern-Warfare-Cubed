@@ -29,7 +29,7 @@ public class BackpackInventory implements IInventory {
      */
     public BackpackInventory(ItemStack owner) {
         this.owner = owner;
-        this.name = null;
+        name = null;
 
         final int size = ((ItemBackpack) owner.getItem()).getSize();
 

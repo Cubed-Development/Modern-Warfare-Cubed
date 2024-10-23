@@ -11,8 +11,6 @@ public enum Interpolation {
 
     public double interpolate(double input) {
         switch (this) {
-            case LINEAR:
-                return input;
             case ACCELERATION:
                 return input * input;
             case DECELERATION:

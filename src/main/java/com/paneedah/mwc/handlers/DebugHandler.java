@@ -21,7 +21,7 @@ public class DebugHandler {
             debugScreenLeft.remove(4);
             debugScreenLeft.add(4, "T: " + MC.world.getDebugLoadedEntities());
 
-            if (!debugScreenLeft.get(debugScreenLeft.size() - 1).equals("")) {
+            if (!debugScreenLeft.get(debugScreenLeft.size() - 1).isEmpty()) {
                 debugScreenLeft.add("");
             }
 

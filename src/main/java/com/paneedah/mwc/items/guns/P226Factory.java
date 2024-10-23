@@ -45,9 +45,9 @@ public class P226Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.13f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.13f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -91,17 +91,15 @@ public class P226Factory implements GunFactory {
                     if (model instanceof P226Slide) {
                         GL11.glScaled(1F, 1F, 1F);
 //                GL11.glTranslatef(0F, 0F, 0.5F);
-                    } else if (model instanceof P226rearsight) {
+                    } else if (null instanceof P226rearsight) {
                         GL11.glTranslatef(-0.15F, -1.175F, -0.15F);
                         GL11.glScaled(0.25F, 0.25F, 0.25F);
-                    } else if (model instanceof P226frontsight) {
+                    } else if (null instanceof P226frontsight) {
                         GL11.glTranslatef(-0.145F, -1.175F, -2.1F);
                         GL11.glScaled(0.22F, 0.22F, 0.22F);
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.P226hammer, true, (model) -> {
-//          GL11.glTranslatef(-0F, -0.17F, 0.53F);
-//        	GL11.glRotatef(45F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Magazines.M9A1Mag, (model) -> {
                     GL11.glTranslatef(0F, 0.02F, 0.02F);
