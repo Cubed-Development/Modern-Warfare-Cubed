@@ -24,7 +24,7 @@ public class TurretBaseFactory implements TileEntityFactory {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
 //            GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build(modContext);
     }
 
     @SubscribeEvent
