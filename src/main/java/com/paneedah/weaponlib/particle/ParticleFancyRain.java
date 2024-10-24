@@ -15,18 +15,18 @@ public class ParticleFancyRain extends ParticleRain {
 
     protected ParticleFancyRain(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn);
-        this.motionX *= 0.30000001192092896D;
-        this.motionY = Math.random() * 0.20000000298023224D + 0.10000000149011612D;
-        this.motionZ *= 0.30000001192092896D;
-        this.particleRed = 1F;
-        this.particleGreen = 1F;
-        this.particleBlue = 0.5F;
-        this.particleScale = (this.rand.nextFloat() * 0.5F + 0.5F);
-        this.particleAlpha = 0.3F;
-        this.setParticleTextureIndex(19 + this.rand.nextInt(4));
-        this.setSize(0.01F, 0.01F);
-        this.particleGravity = 0.06F;
-        this.particleMaxAge = (int) (8.0D / (Math.random() * 0.8D + 0.2D));
+        motionX *= 0.30000001192092896D;
+        motionY = Math.random() * 0.20000000298023224D + 0.10000000149011612D;
+        motionZ *= 0.30000001192092896D;
+        particleRed = 1F;
+        particleGreen = 1F;
+        particleBlue = 0.5F;
+        particleScale = (rand.nextFloat() * 0.5F + 0.5F);
+        particleAlpha = 0.3F;
+        setParticleTextureIndex(19 + rand.nextInt(4));
+        setSize(0.01F, 0.01F);
+        particleGravity = 0.06F;
+        particleMaxAge = (int) (8.0D / (Math.random() * 0.8D + 0.2D));
     }
 
     @SideOnly(Side.CLIENT)

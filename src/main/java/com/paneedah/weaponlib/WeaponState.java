@@ -3,6 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 
 public enum WeaponState implements ManagedState<WeaponState> {
 
@@ -57,7 +58,8 @@ public enum WeaponState implements ManagedState<WeaponState> {
     private final WeaponState permitRequestedPhase;
     private final WeaponState commitPhase;
     private final boolean isTransient;
-    private int priority = DEFAULT_PRIORITY;
+    @Getter
+    private int priority;
 
     WeaponState() {
         this(null, null, null, true);
@@ -78,8 +80,8 @@ public enum WeaponState implements ManagedState<WeaponState> {
     WeaponState(int priority, WeaponState preparingPhase, WeaponState permitRequestedState, WeaponState transactionFinalState, boolean isTransient) {
         this.priority = priority;
         this.preparingPhase = preparingPhase;
-        this.permitRequestedPhase = permitRequestedState;
-        this.commitPhase = transactionFinalState;
+        permitRequestedPhase = permitRequestedState;
+        commitPhase = transactionFinalState;
         this.isTransient = false; // TODO: make states non-transient, remove flag from constructor
         // This is required to have up-to-date state on server, e.g. preparing, requested;
         // Otherwise issues arise, e.g. item toss would not work correctly
@@ -103,10 +105,6 @@ public enum WeaponState implements ManagedState<WeaponState> {
     @Override
     public WeaponState commitPhase() {
         return commitPhase;
-    }
-
-    public int getPriority() {
-        return priority;
     }
 
     @Override

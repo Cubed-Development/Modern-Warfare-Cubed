@@ -23,7 +23,7 @@ final class RecipeGenerator {
             } else {
                 code = startFrom++;
             }
-            encodingMap.put(optionMetadata.getOption(), code);
+            encodingMap.put(optionMetadata.getOption(), Character.valueOf(code));
         }
 
         List<Object> output = new ArrayList<>();

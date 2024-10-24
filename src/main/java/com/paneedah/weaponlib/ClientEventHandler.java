@@ -119,7 +119,7 @@ public class ClientEventHandler {
 
     public ClientEventHandler(ClientModContext modContext /*, ReloadAspect reloadAspect*/) {
         this.modContext = modContext;
-        this.shaderGroupManager = new DynamicShaderGroupManager();
+        shaderGroupManager = new DynamicShaderGroupManager();
         //this.reloadAspect = reloadAspect;
     }
 
@@ -136,13 +136,13 @@ public class ClientEventHandler {
             ima.registerModels();
 
         for (Item i : ModelRegistryServerInterchange.ITEM_MODEL_REG)
-            ModelLoader.setCustomModelResourceLocation(i, 0, new ModelResourceLocation(i.getRegistryName(), "inventory"));
+            ModelLoader.setCustomModelResourceLocation(i, 0, new ModelResourceLocation(Objects.requireNonNull(i.getRegistryName()), "inventory"));
     }
 
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public final void onTick(TickEvent.ClientTickEvent event) {
-        final EntityPlayer player = MC.player;
+        final EntityPlayerSP player = MC.player;
 
         if (event.phase == TickEvent.ClientTickEvent.Phase.START) {
             updateOnStartTick();
@@ -154,22 +154,20 @@ public class ClientEventHandler {
             if (tracker != null) {
                 tracker.update();
             }
-            if (player instanceof EntityPlayerSP && player.getRidingEntity() instanceof EntityVehicle) {
-                final EntityPlayerSP clientPlayer = (EntityPlayerSP) player;
+            if (player != null && player.getRidingEntity() instanceof EntityVehicle) {
+                final EntityPlayerSP clientPlayer = player;
                 final EntityVehicle entityBoat = (EntityVehicle) clientPlayer.getRidingEntity();
                 entityBoat.updateInputs(clientPlayer.movementInput.leftKeyDown, clientPlayer.movementInput.rightKeyDown, clientPlayer.movementInput.forwardKeyDown, clientPlayer.movementInput.backKeyDown);
             }
 
-            if (MC.player != null) {
-                //reloadAspect.updateMainHeldItem(MC.player);
-            }
+            //reloadAspect.updateMainHeldItem(MC.player);
         }
 
         // ModernConfigManager.init();
 
         if (player != null && event.phase == TickEvent.Phase.END) {
             final double yAmount = ClientValueRepo.recoilWoundY * 0.2;
-            player.rotationPitch += yAmount;
+            player.rotationPitch += (float) yAmount;
             ClientValueRepo.recoilWoundY -= yAmount;
 
             //TODO: Make a check to see If the ammo in the gun is greater than the max ammo in the magazine.
@@ -244,7 +242,7 @@ public class ClientEventHandler {
                 PlayerUtil.restorePlayerSpeed(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
             }
 
-            if (mainHandHeldWeaponInstance != null && mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.getSyncStartTimestamp() == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis()) {
+            if (mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.getSyncStartTimestamp() == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis()) {
                 mainHandHeldWeaponInstance.reconcile();
             }
         } else {
@@ -263,16 +261,6 @@ public class ClientEventHandler {
             lightExposure.update(MC.player);
         }
     }
-
-	/*@SubscribeEvent
-	public void onRenderHand(RenderHandEvent event) {
-	    Minecraft minecraft = MC;
-	    if (minecraft.gameSettings.thirdPersonView == 0 & !OptiNotFine.shadersEnabled()) {
-	        PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
-	        DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.PRE_ITEM_RENDER, null, minecraft.getFramebuffer(), event.getPartialTicks()).withProperty("weaponInstance", weaponInstance);
-	        // shaderGroupManager.applyShader(shaderContext, weaponInstance);
-	    }
-	}*/
 
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
@@ -326,7 +314,6 @@ public class ClientEventHandler {
         // Todo: Optimize this
         // Frame-timer syncs to 120
         double divisor = 120 / frameTimer.getFramerate() * 0.05;
-        divisor = Math.min(0.08, divisor);
         Interceptors.nsm.update();
 
         BULLET_HOLE_RENDERER.render();
@@ -399,28 +386,6 @@ public class ClientEventHandler {
             originalRenderViewEntity = event.getRenderer().getRenderManager().renderViewEntity;
             event.getRenderer().getRenderManager().renderViewEntity = event.getEntityPlayer();
         }
-		/*
-		EquipmentInventory capability = EquipmentCapability.getInventory(preRenderPlayerEvent.getPlayer());
-
-        if(capability != null) {
-            ItemStack vestStack = capability.getStackInSlot(1);
-            if(vestStack != null) {
-                compatibility.renderItem(preRenderPlayerEvent.getPlayer(), vestStack);
-                IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(vestStack, null);
-                if(customRenderer instanceof StaticModelSourceRenderer) {
-                    ((StaticModelSourceRenderer) customRenderer).renderCustomEquipped(preRenderPlayerEvent.getPlayer(), vestStack);
-                }
-            }
-            ItemStack backpackStack = capability.getStackInSlot(0); // TODO: replace 0 with constant for backpack slot
-            if(backpackStack != null) {
-                IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(backpackStack, null);
-                if(customRenderer instanceof StaticModelSourceRenderer) {
-                    ((StaticModelSourceRenderer) customRenderer).renderCustomEquipped(preRenderPlayerEvent.getPlayer(), backpackStack);
-                }
-                compatibility.renderItem(preRenderPlayerEvent.getPlayer(), backpackStack);
-            }
-        }
-        */
     }
 
     @SubscribeEvent
@@ -482,8 +447,6 @@ public class ClientEventHandler {
 
             if (boundingBox.doRayTrace(start, endVec) != null) {
                 CHANNEL.sendToServer(new VehicleInteractMessage(false, entityVehicle.getEntityId(), player.getEntityId()));
-                //entityVehicle.onKillCommand();
-                //entityVehicle.setDead();
                 return;
             }
         }
@@ -515,7 +478,7 @@ public class ClientEventHandler {
         }
 
         try {
-            EVENT_DWHEEL_FIELD.set(null, 0);
+            EVENT_DWHEEL_FIELD.set(null, Integer.valueOf(0));
         } catch (Exception e) {
             LOGGER.error("Could not assign value to EVENT_DWHEEL_FIELD!");
             e.printStackTrace();
@@ -567,24 +530,24 @@ public class ClientEventHandler {
     }
 
     public static boolean checkShot(int entityID) {
-        if (muzzleFlashMap.isEmpty() || !muzzleFlashMap.containsKey(entityID) || (muzzleFlashMap.get(entityID).isEmpty())) {
+        if (muzzleFlashMap.isEmpty() || !muzzleFlashMap.containsKey(Integer.valueOf(entityID)) || (muzzleFlashMap.get(Integer.valueOf(entityID)).isEmpty())) {
             return false;
         }
 
-        if (System.currentTimeMillis() - muzzleFlashMap.get(entityID).peek() > 25) {
-            muzzleFlashMap.get(entityID).pop();
+        if (System.currentTimeMillis() - muzzleFlashMap.get(Integer.valueOf(entityID)).peek().longValue() > 25) {
+            muzzleFlashMap.get(Integer.valueOf(entityID)).pop();
         }
 
         return true;
     }
 
     public static void uploadFlash(int entityID) {
-        if (muzzleFlashMap.containsKey(entityID)) {
-            muzzleFlashMap.get(entityID).push(System.currentTimeMillis());
+        if (muzzleFlashMap.containsKey(Integer.valueOf(entityID))) {
+            muzzleFlashMap.get(Integer.valueOf(entityID)).push(Long.valueOf(System.currentTimeMillis()));
         } else {
             Stack<Long> stack = new Stack<>();
-            stack.push(System.currentTimeMillis());
-            muzzleFlashMap.put(entityID, stack);
+            stack.push(Long.valueOf(System.currentTimeMillis()));
+            muzzleFlashMap.put(Integer.valueOf(entityID), stack);
         }
     }
 

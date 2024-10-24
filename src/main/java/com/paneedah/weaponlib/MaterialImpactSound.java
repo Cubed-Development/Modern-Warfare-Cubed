@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import lombok.Getter;
 import net.minecraft.util.SoundEvent;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.Random;
 
 public class MaterialImpactSound {
     private final List<SoundEvent> sounds = new ArrayList<>();
+    @Getter
     private final float volume;
     private final Random rand = new Random();
 
@@ -24,7 +26,4 @@ public class MaterialImpactSound {
         return sounds.get(soundIndex);
     }
 
-    public float getVolume() {
-        return volume;
-    }
 }

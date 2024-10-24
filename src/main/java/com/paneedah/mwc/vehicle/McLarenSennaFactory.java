@@ -192,7 +192,7 @@ public class McLarenSennaFactory implements VehicleFactory {
 
         new EntityVehicleConfiguration.Builder()
                 .withName("MClaren_senna")
-                .withEntityIdSupplier(() -> 10203)
+                .withEntityIdSupplier(() -> Integer.valueOf(10203))
                 .withPhysicsConfig(new PhysicsConfiguration(
                         /* WHEELBASE (m)*/ 2.67,
                         /* FRONT AREA (m^2) */ 2,

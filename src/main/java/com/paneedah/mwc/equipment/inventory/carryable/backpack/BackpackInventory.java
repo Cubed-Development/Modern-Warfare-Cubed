@@ -29,7 +29,7 @@ public class BackpackInventory implements IInventory {
      */
     public BackpackInventory(ItemStack owner) {
         this.owner = owner;
-        this.name = null;
+        name = null;
 
         final int size = ((ItemBackpack) owner.getItem()).getSize();
 
@@ -44,6 +44,7 @@ public class BackpackInventory implements IInventory {
             owner.setTagCompound(storageCompound);
         }
 
+        assert owner.getTagCompound() != null;
         deserialize(owner.getTagCompound());
     }
 
@@ -113,6 +114,7 @@ public class BackpackInventory implements IInventory {
                 inventory[i] = new ItemStack(Items.AIR);
             }
 
+        assert owner.getTagCompound() != null;
         serialize(owner.getTagCompound());
     }
 

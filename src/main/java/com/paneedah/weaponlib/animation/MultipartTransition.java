@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.animation;
 
+import lombok.Getter;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
 
@@ -20,7 +21,9 @@ public class MultipartTransition<Part, Context> {
 
     private final Map<Part, Consumer<Context>> multipartPositionFunctions = new HashMap<>();
     private final Map<Part, Part> attachedTo = new HashMap<>();
+    @Getter
     private final long duration;
+    @Getter
     private final long pause;
 
     public SoundEvent sound;
@@ -56,11 +59,11 @@ public class MultipartTransition<Part, Context> {
     }
 
     public boolean animationUsesBeizer() {
-        return this.beizer != null;
+        return beizer != null;
     }
 
     public Interpolation getInterpolationType() {
-        return this.interp;
+        return interp;
     }
 
     public MultipartTransition(long duration) {
@@ -72,7 +75,7 @@ public class MultipartTransition<Part, Context> {
     }
 
     public MultipartTransition<Part, Context> withPartPositionFunction(Part part, Part attachedTo, Consumer<Context> positionFunction) {
-        this.multipartPositionFunctions.put(part, positionFunction);
+        multipartPositionFunctions.put(part, positionFunction);
         this.attachedTo.put(part, attachedTo);
         return this;
     }
@@ -92,15 +95,7 @@ public class MultipartTransition<Part, Context> {
     }
 
     public Context getContext() {
-        return this.cont;
-    }
-
-    public long getDuration() {
-        return duration;
-    }
-
-    public long getPause() {
-        return pause;
+        return cont;
     }
 
     public Part getAttachedTo(Part part) {

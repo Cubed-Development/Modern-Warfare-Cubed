@@ -27,11 +27,9 @@ public class MainCommand extends CommandBase {
     private static final String ARG_SHOW = "show";
 
     private final String mainCommandName;
-    private final ModContext modContext;
 
     public MainCommand(ModContext modContext) {
-        this.modContext = modContext;
-        this.mainCommandName = ID;
+        mainCommandName = ID;
     }
 
     @Override
@@ -57,12 +55,8 @@ public class MainCommand extends CommandBase {
 
         }
 
-        if (args.length > 0) {
-            if (ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
-                processShowSubCommand(args);
-            } else {
-                MC.player.sendMessage(new TextComponentString(getUsage(sender)));
-            }
+        if (ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
+            processShowSubCommand(args);
         } else {
             MC.player.sendMessage(new TextComponentString(getUsage(sender)));
         }
@@ -106,7 +100,7 @@ public class MainCommand extends CommandBase {
             int offset = pageSize * (page - 1);
             if (page < 1) {
                 MC.player.sendMessage(new TextComponentString("Invalid page"));
-            } else if (sorted.size() == 0) {
+            } else if (sorted.isEmpty()) {
                 MC.player.sendMessage(new TextComponentString("No attachments found for "
                         + item.getItemStackDisplayName(itemStack)));
             } else if (offset < sorted.size()) {
@@ -139,7 +133,7 @@ public class MainCommand extends CommandBase {
     }
 
     private void showRecipe(Item item) {
-        if (item != null && (item instanceof Weapon)) {
+        if ((item instanceof Weapon)) {
             MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + "-- Recipe for " + TextFormatting.GRAY + item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--"));
 
             CraftingEntry[] modernRecipe = ((Weapon) item).getModernRecipe();
@@ -153,15 +147,7 @@ public class MainCommand extends CommandBase {
 
                 MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + toPrint));
             }
-             
-            /*
-            List<Object> recipe = modContext.getRecipeManager().getRecipe(item);
-            if(recipe != null) {
-                formatRecipe(recipe);
-            } else {
-                compatibility.addChatMessage(MC.player,
-                        "Recipe for " + item.getItemStackDisplayName(null) + " not found");
-            }*/
+
         }
     }
 

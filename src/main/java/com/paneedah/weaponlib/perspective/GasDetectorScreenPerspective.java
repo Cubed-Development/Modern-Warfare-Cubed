@@ -18,7 +18,7 @@ public class GasDetectorScreenPerspective extends ScreenPerspective {
         GL11.glScalef(fontScale, fontScale, fontScale);
 
         String message = getMessage();
-        fontRender.drawString(message, 5 + (int) (10f / fontScale), 5 + (int) ((10f) / fontScale), color, false);
+        fontRender.drawString(message, 5 + 0, 5 + 0, color, false);
     }
 
     private String getMessage() {
@@ -28,7 +28,7 @@ public class GasDetectorScreenPerspective extends ScreenPerspective {
         if (nbt != null) {
             dose = nbt.getFloat("dose");
         }
-        String message = String.format("%5.3f", dose);
+        String message = String.format("%5.3f", Float.valueOf(dose));
         if (message.length() > 6) {
             message = message.substring(0, 6);
         }

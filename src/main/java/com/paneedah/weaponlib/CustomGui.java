@@ -51,7 +51,6 @@ public class CustomGui extends Gui {
     private static final int STATUS_BAR_BOTTOM_OFFSET = 15;
     private static final int STATUS_BAR_TOP_OFFSET = 10;
 
-    private final WeaponAttachmentAspect attachmentAspect;
     private final ModContext modContext;
     private final String statusBarPosition;
 
@@ -64,8 +63,7 @@ public class CustomGui extends Gui {
 
     public CustomGui(Minecraft MC, ModContext modContext, WeaponAttachmentAspect attachmentAspect) {
         this.modContext = modContext;
-        this.attachmentAspect = attachmentAspect;
-        this.statusBarPosition = ModernConfigManager.statusBarPosition;
+        statusBarPosition = ModernConfigManager.statusBarPosition;
 
     }
 
@@ -92,9 +90,6 @@ public class CustomGui extends Gui {
             double height = scaledResolution.getScaledHeight_double();
 
 
-            //handleOpenDoorHUD(event, width, height);
-
-            //	handleModificationHUD(event, modContext.getMainHeldWeapon(), width, height);
         }
     }
 
@@ -156,7 +151,7 @@ public class CustomGui extends Gui {
         if (event.getType() == HELMET) {
 
             ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-            if (helmetStack != null && MC.gameSettings.thirdPersonView == 0 && helmetStack.getItem() instanceof CustomArmor) {
+            if (MC.gameSettings.thirdPersonView == 0 && helmetStack.getItem() instanceof CustomArmor) {
 
                 // Texture must be Width: 427, height: 240
                 String hudTexture = ((CustomArmor) helmetStack.getItem()).getHudTexture();
@@ -168,13 +163,8 @@ public class CustomGui extends Gui {
                     ItemStack chestStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
                     ItemStack feetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 
-                    if (chestStack != null && helmetStack != null && feetStack != null
-                            && chestStack.getItem() instanceof CustomArmor
-                            && helmetStack.getItem() instanceof CustomArmor
-                            && feetStack.getItem() instanceof CustomArmor
-                            && ((CustomArmor) chestStack.getItem()).getUnlocalizedArmorSetName()
-                            .equals(((CustomArmor) helmetStack.getItem()).getUnlocalizedArmorSetName())
-                            && ((CustomArmor) chestStack.getItem()).getUnlocalizedArmorSetName()
+                    if (helmetStack != null && chestStack.getItem() instanceof CustomArmor && helmetStack.getItem() instanceof CustomArmor && feetStack.getItem() instanceof CustomArmor && ((CustomArmor) chestStack.getItem()).getUnlocalizedArmorSetName()
+                            .equals(((CustomArmor) helmetStack.getItem()).getUnlocalizedArmorSetName()) && ((CustomArmor) chestStack.getItem()).getUnlocalizedArmorSetName()
                             .equals(((CustomArmor) feetStack.getItem()).getUnlocalizedArmorSetName())
                     ) {
                         CustomArmor armor = (CustomArmor) chestStack.getItem();
@@ -313,7 +303,7 @@ public class CustomGui extends Gui {
 
         if (weaponInstance != null) {
             Weapon weaponItem = (Weapon) itemStack.getItem();
-            String crosshair = weaponItem != null ? weaponItem.getCrosshair(weaponInstance) : null;
+            String crosshair = weaponItem.getCrosshair(weaponInstance);
 
             if (crosshair != null) {
                 MC.entityRenderer.setupOverlayRendering();
@@ -328,10 +318,6 @@ public class CustomGui extends Gui {
                 if (isInAltModifyingState(weaponInstance) || isInModifyingState(weaponInstance)) {
                     //GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
                     ModificationGUI.getInstance().render(modContext);
-                    //GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1f);
-                    //GlStateManager.enableBlend();
-                    //GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
-                    //GUIRenderHelper.drawColoredRectangle(20, 200, 128, 125, 0.05, ColorPalette.BLACK);
 
                 } else {
                     ModernConfigManager.enableOpenDoorDisplay = ModernConfigManager.enableAmmoCounter;
@@ -424,7 +410,7 @@ public class CustomGui extends Gui {
             currentAmmoString = "-";
         } else {
             totalCapacityString = String.valueOf(totalCapacity);
-            currentAmmoString = String.valueOf((currentAmmo == 0 && item instanceof Weapon ? "-" : currentAmmo));
+            currentAmmoString = String.valueOf((currentAmmo == 0 && item instanceof Weapon ? "-" : Integer.valueOf(currentAmmo)));
         }
 
         final String weaponName = new TextComponentTranslation(LangTools.formatName(item.getTranslationKey())).getFormattedText();
@@ -536,10 +522,6 @@ public class CustomGui extends Gui {
     private int getStatusBarYPosition(int height) {
         int yPos;
         switch (statusBarPosition) {
-            case "TOP_RIGHT":
-            case "TOP_LEFT":
-                yPos = STATUS_BAR_TOP_OFFSET;
-                break;
             case "BOTTOM_RIGHT":
             case "BOTTOM_LEFT":
                 yPos = height - STATUS_BAR_BOTTOM_OFFSET;
@@ -555,8 +537,7 @@ public class CustomGui extends Gui {
 
         ItemMagazine magazine = (ItemMagazine) itemStack.getItem();
 
-        String ammoCounterMessage = I18n.format("gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getCapacity());
-        return ammoCounterMessage;
+        return I18n.format("gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getCapacity());
     }
 
 

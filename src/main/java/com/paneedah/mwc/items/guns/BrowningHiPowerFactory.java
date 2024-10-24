@@ -42,9 +42,9 @@ public class BrowningHiPowerFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.12f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.13f))
+                .withFlashOffsetY(() -> Float.valueOf(0.12f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -108,10 +108,6 @@ public class BrowningHiPowerFactory implements GunFactory {
                             GL11.glRotatef(12F, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.100000f, 0.80000f, -2.1f);
 
-//                GL11.glScaled(2F, 2F, 2F);
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glRotatef(13F, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.400000f, 0.750000f, -2.1f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -124,14 +120,10 @@ public class BrowningHiPowerFactory implements GunFactory {
 
                         .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.BrowningHiPowerSlide.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
                         .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.BrowningHiPowerSlide.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
 
