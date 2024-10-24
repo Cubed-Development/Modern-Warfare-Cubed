@@ -1,5 +1,6 @@
 package com.paneedah.mwc.tileentities;
 
+import dev.redstudio.redcore.utils.AABBUtil;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.tile.CustomTileEntityBlock;
@@ -23,24 +24,8 @@ public class TileEntities {
                 .withHardness(3.5f)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0.82, 0, -0.65, 0.18, 0.3, 1.6);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0.81, 0, -0.6, 0.18, 0.3, 1.65);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(-0.58, 0, 0.2, 1.63, 0.3, 0.8);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(-0.65, 0, 0.2, 1.6, 0.3, 0.8);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.58, 0, 0.2, 1.63, 0.3, 0.8));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -58,24 +43,8 @@ public class TileEntities {
                 .withHardness(3.5f)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0.09, 0, 0.09, 0.77, 0.33, 0.93);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0.22, 0, 0.05, 0.92, 0.33, 0.9);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0.1, 0, 0.23, 0.95, 0.33, 0.92);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -93,24 +62,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0.03, 0, -0.43, 0.97, 0.54, 1.47);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0.03, 0, -0.43, 0.97, 0.54, 1.47);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(-0.47, 0, 0.03, 1.44, 0.54, 0.98);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(-0.43, 0, 0.03, 1.46, 0.54, 0.98);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.47, 0, 0.03, 1.44, 0.54, 0.98));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -128,24 +81,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0.35, 0, 0.15, 0.7, 0.5, 0.85);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0.35, 0, 0.15, 0.7, 0.5, 0.85);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -177,24 +114,8 @@ public class TileEntities {
                 .withHardness(22.5f)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -212,24 +133,8 @@ public class TileEntities {
                 .withHardness(22.5f)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -275,24 +180,8 @@ public class TileEntities {
                 .withHardness(3.5f)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -310,24 +199,8 @@ public class TileEntities {
                 .withHardness(22.5f)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -345,24 +218,8 @@ public class TileEntities {
                 .withHardness(22.5f)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -421,24 +278,8 @@ public class TileEntities {
                 .withHardness(5)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -525,24 +366,8 @@ public class TileEntities {
                 .withHardness(2)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.2, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -561,24 +386,8 @@ public class TileEntities {
                 .withHardness(5)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -624,24 +433,8 @@ public class TileEntities {
                 .withHardness(2)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -660,24 +453,8 @@ public class TileEntities {
                 .withHardness(2)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -799,24 +576,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.6, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -847,24 +608,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.6, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -933,24 +678,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, -1, 0, 1, 1, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -968,24 +697,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 3, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1004,24 +717,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 2);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, -1, 1, 1, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(-1, 0, 0, 1, 1, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 2, 1, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(-1, 0, 0, 1, 1, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1260,24 +957,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.5, 0, 1, 1, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1360,24 +1041,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1434,24 +1099,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1573,24 +1222,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1608,24 +1241,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1643,24 +1260,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1.7, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1677,24 +1278,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.75, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1724,24 +1309,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0.09, 0, 0.09, 0.77, 0.33, 0.93);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0.22, 0, 0.05, 0.92, 0.33, 0.9);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0.1, 0, 0.23, 0.95, 0.33, 0.92);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1772,24 +1341,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.9, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.9, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.9, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.9, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.9, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
@@ -1805,28 +1358,6 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.TowableFloodLight")
                 .withTextureName("textures/models/towablefloodlight.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
-                )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.3f, 0f, 0.5f);
@@ -1843,24 +1374,8 @@ public class TileEntities {
                 .withHardness(1)
                 .withBoundingBox(
                         blockState -> {
-                            AxisAlignedBB boundingBox = null;
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
+                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.4, 1));
                         }
                 )
                 .withPositioning(tileEntity -> {
