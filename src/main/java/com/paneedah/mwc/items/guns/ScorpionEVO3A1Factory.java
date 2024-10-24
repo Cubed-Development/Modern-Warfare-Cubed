@@ -42,9 +42,9 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -112,12 +112,8 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                     }
                 }, true, false)
                 .withCompatibleAttachment(Magazines.ScorpionMag, (model) -> {
-//		    GL11.glTranslatef(-0.35F, 0.5F, -1.25F);
-//            GL11.glScaled(1.15F, 1.2F, 1.15F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.ScorpionAction, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.58F, -0.86F);
-//            GL11.glScaled(0.75F, 0.43F, 0.75F);
                 })
 //		.withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
 //            GL11.glTranslatef(-0.175F, -1.58F, -0.86F);
@@ -201,10 +197,9 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
@@ -405,8 +400,6 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(Magazines.ScorpionMag, (renderContext) -> {
-//            	 GL11.glTranslatef(0f, 0.5f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                         })
 
                         .withThirdPersonPositioningReloading(

@@ -28,7 +28,7 @@ public final class EquipmentRenderer implements LayerRenderer<EntityPlayer> {
     private final RenderPlayer renderer;
 
     public EquipmentRenderer(RenderPlayer rendererIn) {
-        this.renderer = rendererIn;
+        renderer = rendererIn;
     }
 
     @Override
@@ -77,7 +77,7 @@ public final class EquipmentRenderer implements LayerRenderer<EntityPlayer> {
 
         MC.getTextureManager().bindTexture(texture);
 
-        model.setModelAttributes(this.renderer.getMainModel());
+        model.setModelAttributes(renderer.getMainModel());
 
         model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 

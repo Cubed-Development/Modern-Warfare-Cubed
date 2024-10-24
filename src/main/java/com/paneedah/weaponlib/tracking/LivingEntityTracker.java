@@ -15,7 +15,7 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class LivingEntityTracker {
 
-    public static final LivingEntityTracker getTracker(EntityLivingBase player) {
+    public static LivingEntityTracker getTracker(EntityLivingBase player) {
         return CompatiblePlayerEntityTrackerProvider.getTracker(player);
     }
 
@@ -104,7 +104,7 @@ public class LivingEntityTracker {
     public static LivingEntityTracker fromByteArray(byte[] bytes, Supplier<World> world) {
         ByteBuf buf = Unpooled.wrappedBuffer(bytes);
         LivingEntityTracker tracker = new LivingEntityTracker(world);
-        if (bytes != null && bytes.length > 0) {
+        if (bytes.length > 0) {
             tracker.init(buf);
         } else {
             LOGGER.warn("Cannot deserialize tracker from empty byte array");

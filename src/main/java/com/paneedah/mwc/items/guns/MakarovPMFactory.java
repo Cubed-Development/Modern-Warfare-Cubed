@@ -42,9 +42,9 @@ public class MakarovPMFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.19f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.19f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -94,8 +94,6 @@ public class MakarovPMFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.MakarovBody, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.MakarovSlide, true, (model) -> {
                     if (model instanceof MakarovPMSlide) {
@@ -121,8 +119,6 @@ public class MakarovPMFactory implements GunFactory {
                     GL11.glTranslatef(0F, 0F, 0.1F);
                 })
                 .withCompatibleAttachment(Attachments.SilencerPBS, (model) -> {
-//            GL11.glTranslatef(-0.23F, -1.14F, -4.92F);
-//            GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withTextureNames("makarovpm")
                 .withRenderer(new WeaponRenderer.Builder()

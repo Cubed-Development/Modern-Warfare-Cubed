@@ -18,8 +18,8 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
 
     public OpticalScopePerspective() {
 
-        this.width = DEFAULT_WIDTH;
-        this.height = DEFAULT_HEIGHT;
+        width = DEFAULT_WIDTH;
+        height = DEFAULT_HEIGHT;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
         if (instance == null) {
             return 0f;
         }
-        boolean aimed = instance != null && instance.isAimed();
+        boolean aimed = instance.isAimed();
         float progress = Math.min(1f, renderContext.getTransitionProgress());
 
         if (isAimingState(renderContext.getFromState()) && isAimingState(renderContext.getToState())) {
@@ -100,38 +100,11 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
     protected void prepareRenderWorld(TickEvent.RenderTickEvent event) {
 
         boolean reload = false;
-        if (reload) {
-            //System.out.println("yo");
-            //System.out.println("yo");
-            scope = ShaderLoader.loadShader("vignette");
-        }
-
-        //GlStateManager.enableAlpha();
-        //scope.use();
-    	/*
-        DynamicShaderContext shaderContext = new DynamicShaderContext(
-                DynamicShaderPhase.POST_WORLD_OPTICAL_SCOPE_RENDER,
-                this.entityRenderer,
-                framebuffer,
-                event.getRenderTickTime());
-        PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
-        shaderGroupManager.applyShader(shaderContext, instance);
-       // shaderGroupManager.
-        
-        */
 
     }
 
     @Override
     protected void postRenderWorld(TickEvent.RenderTickEvent event) {
         //scope.release();
-    	/*
-        DynamicShaderContext shaderContext = new DynamicShaderContext(
-                DynamicShaderPhase.POST_WORLD_OPTICAL_SCOPE_RENDER,
-                this.entityRenderer,
-                framebuffer,
-                event.getRenderTickTime());
-        shaderGroupManager.removeStaleShaders(shaderContext); // this is probably not the right place
-        */
     }
 }

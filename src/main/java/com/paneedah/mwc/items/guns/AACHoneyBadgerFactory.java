@@ -42,9 +42,9 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCrosshairRunning("Running") // Crosshair when running
                 .withCrosshairZoomed("Sight") // Crosshair when zoomed
                 .withFlashIntensity(0.5f) // Flash intensity
-                .withFlashScale(() -> 0.6f) // Flash scale
-                .withFlashOffsetX(() -> 0.13f) // Flash offset X
-                .withFlashOffsetY(() -> 0.17f) // Flash offset Y
+                .withFlashScale(() -> Float.valueOf(0.6f)) // Flash scale
+                .withFlashOffsetX(() -> Float.valueOf(0.13f)) // Flash offset X
+                .withFlashOffsetY(() -> Float.valueOf(0.17f)) // Flash offset Y
 //        .withShootSoundVolume(1f)
                 .withShellCasingForwardOffset(0.1f) // Shell casing forward offset
                 .withShellCasingVerticalOffset(-0.05f) // Shell casing vertical offset
@@ -373,10 +373,9 @@ public class AACHoneyBadgerFactory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                     GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                     GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 // Compatible attachment honeybadger Reflex
@@ -563,10 +562,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         }
                     }
                 }, (model) -> {
-                    if (model instanceof AACHoneyBadgerSilencer) {
-//            	GL11.glTranslatef(-0.16F, -1.5F, -3F);
-//                GL11.glScaled(0.35F, 0.35F, 0.35F);
-                    }
+                    //            	GL11.glTranslatef(-0.16F, -1.5F, -3F);
+                    //                GL11.glScaled(0.35F, 0.35F, 0.35F);
                 }, true, false)
 
                 // BUILDS THE GUN

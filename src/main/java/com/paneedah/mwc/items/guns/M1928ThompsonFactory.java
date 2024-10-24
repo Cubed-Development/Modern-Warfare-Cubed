@@ -38,9 +38,9 @@ public class M1928ThompsonFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.12f)
+                .withFlashScale(() -> Float.valueOf(0.5f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.12f))
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -693,9 +693,8 @@ public class M1928ThompsonFactory {
 
                         .withFirstPersonHandPositioning(
                                 (renderContext) -> {
-                                    RenderContext<?> rc = renderContext;
                                     ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                            AttachmentCategory.GRIP, rc.getWeaponInstance());
+                                            AttachmentCategory.GRIP, renderContext.getWeaponInstance());
                                     if (activeAttachment == Attachments.M1928Grip) {
                                         GL11.glScalef(4f, 4f, 4f);
                                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);

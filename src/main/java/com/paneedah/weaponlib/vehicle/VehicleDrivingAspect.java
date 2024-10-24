@@ -53,7 +53,7 @@ public class VehicleDrivingAspect implements Aspect<VehicleState, EntityVehicle>
 
     public VehicleDrivingAspect(/*CommonModContext modContext*/) {
         //this.modContext = modContext;
-        this.setStateManager(new StateManager<>((s1, s2) -> s1 == s2));
+        setStateManager(new StateManager<>((s1, s2) -> s1 == s2));
     }
 
     public static long timeSinceStateChange(EntityVehicle vehicle) {
@@ -116,9 +116,6 @@ public class VehicleDrivingAspect implements Aspect<VehicleState, EntityVehicle>
     }
 
     void onUpdate(EntityVehicle vehicle) {
-        //System.out.println("BRUH: " + isDoneShifting.test(vehicle));
-        //System.out.println((System.currentTimeMillis() >= 300 + vehicle.getStateUpdateTimestamp()));
-        //System.out.println(!(System.currentTimeMillis() >= 300 + vehicle.getStateUpdateTimestamp()));
         stateManager.changeStateFromAnyOf(this, vehicle, allowedAutoUpdateFromStates); // triggers "auto" state transitions
     }
 }

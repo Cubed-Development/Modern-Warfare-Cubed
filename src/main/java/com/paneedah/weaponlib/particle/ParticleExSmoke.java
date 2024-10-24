@@ -29,36 +29,36 @@ public class ParticleExSmoke extends Particle {
         maxAge = 100 + rand.nextInt(40);
         randomSeed = worldIn.rand.nextInt();
 
-        this.setParticleTexture(ClientEventHandler.carParticles);
+        setParticleTexture(ClientEventHandler.carParticles);
     }
 
     public void setMotion(double x, double y, double z) {
-        this.motionX = x;
-        this.motionY = y;
-        this.motionZ = z;
+        motionX = x;
+        motionY = y;
+        motionZ = z;
     }
 
     @Override
     public void onUpdate() {
 
         //MC.getTextureManager().bindTexture(DriftCloudFX.CAR_PARTICLES);
-        this.prevPosX = this.posX;
-        this.prevPosY = this.posY;
-        this.prevPosZ = this.posZ;
+        prevPosX = posX;
+        prevPosY = posY;
+        prevPosZ = posZ;
 
         particleAlpha = 1 - ((float) age / (float) maxAge);
 
-        ++this.age;
+        ++age;
 
-        if (this.age == this.maxAge) {
-            this.setExpired();
+        if (age == maxAge) {
+            setExpired();
         }
 
-        this.motionX *= 0.7599999785423279D;
-        this.motionY *= 0.7599999785423279D;
-        this.motionZ *= 0.7599999785423279D;
+        motionX *= 0.7599999785423279D;
+        motionY *= 0.7599999785423279D;
+        motionZ *= 0.7599999785423279D;
 
-        this.move(this.motionX, this.motionY, this.motionZ);
+        move(motionX, motionY, motionZ);
     }
 
     @Override
@@ -78,23 +78,23 @@ public class ParticleExSmoke extends Particle {
 
             for (int i = 0; i < 6; i++) {
 
-                this.particleRed = this.particleGreen = this.particleBlue = urandom.nextFloat() * 0.5F + 0.4F;
+                particleRed = particleGreen = particleBlue = urandom.nextFloat() * 0.5F + 0.4F;
 
-                int j = this.getBrightnessForRender(partialTicks);
+                int j = getBrightnessForRender(partialTicks);
                 int k = j >> 16 & 65535;
                 int l = j & 65535;
 
                 float scale = urandom.nextFloat() + 0.5F;
-                float pX = (float) ((this.prevPosX + (this.posX - this.prevPosX) * (double) partialTicks - interpPosX) + (urandom.nextGaussian() - 1D) * 0.75F);
-                float pY = (float) ((this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY) + (urandom.nextGaussian() - 1D) * 0.75F);
-                float pZ = (float) ((this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ) + (urandom.nextGaussian() - 1D) * 0.75F);
+                float pX = (float) ((prevPosX + (posX - prevPosX) * (double) partialTicks - interpPosX) + (urandom.nextGaussian() - 1D) * 0.75F);
+                float pY = (float) ((prevPosY + (posY - prevPosY) * (double) partialTicks - interpPosY) + (urandom.nextGaussian() - 1D) * 0.75F);
+                float pZ = (float) ((prevPosZ + (posZ - prevPosZ) * (double) partialTicks - interpPosZ) + (urandom.nextGaussian() - 1D) * 0.75F);
 
-                buffer.pos(pX - rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ - rotationYZ * scale - rotationXZ * scale).tex(particleTexture.getMaxU(), particleTexture.getMaxV()).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
-                buffer.pos(pX - rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ - rotationYZ * scale + rotationXZ * scale).tex(particleTexture.getMaxU(), particleTexture.getMinV()).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
-                buffer.pos(pX + rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ + rotationYZ * scale + rotationXZ * scale).tex(particleTexture.getMinU(), particleTexture.getMinV()).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
-                buffer.pos(pX + rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ + rotationYZ * scale - rotationXZ * scale).tex(particleTexture.getMinU(), particleTexture.getMaxV()).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
+                buffer.pos(pX - rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ - rotationYZ * scale - rotationXZ * scale).tex(particleTexture.getMaxU(), particleTexture.getMaxV()).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
+                buffer.pos(pX - rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ - rotationYZ * scale + rotationXZ * scale).tex(particleTexture.getMaxU(), particleTexture.getMinV()).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
+                buffer.pos(pX + rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ + rotationYZ * scale + rotationXZ * scale).tex(particleTexture.getMinU(), particleTexture.getMinV()).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
+                buffer.pos(pX + rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ + rotationYZ * scale - rotationXZ * scale).tex(particleTexture.getMinU(), particleTexture.getMaxV()).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
 
     }

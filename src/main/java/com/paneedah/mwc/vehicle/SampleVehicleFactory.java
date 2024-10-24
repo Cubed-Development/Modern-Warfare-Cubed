@@ -42,12 +42,6 @@ public class SampleVehicleFactory implements VehicleFactory {
                             0.000000f, 0.000000f, 0.000000f,
                             1.000000f, 1.000000f, 1.000000f
                     );
-//                    Positioners.position(
-//                            -0.010000f, -1.035001f, -0.690000f,
-//                            0.000000f, context.getSymmetricProgress() * 90f, 0.000000f,
-//                            0.020000f, 0.000000f, 0.110000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                            );
                 })
 
                 .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.IDLE, context -> {
@@ -89,18 +83,6 @@ public class SampleVehicleFactory implements VehicleFactory {
                             0.800000f, 0.000000f, 0.400000f,
                             1.000000f, 1.000000f, 1.000000f
                     );
-//                    Positioners.position(
-//                            -1.600001f, -0.000000f, 2.749997f,
-//                            0.000000f, context.getSymmetricProgress() * 80f - 180f, 0.000000f,
-//                            0.840000f, -0.600000f, -2.430000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                        );
-//                    Positioners.position(
-//                            0.049999f, 0.010000f, 0.000000f,
-//                            0.000000f, context.getSymmetricProgress() * 80f, 0.000000f,
-//                            0.510000f, 0.000000f, -1.169999f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                        );
                 })
 
                 .withPartPosition(VehiclePart.FRONT_RIGHT_CONTROL_ARM, context -> {
@@ -111,12 +93,6 @@ public class SampleVehicleFactory implements VehicleFactory {
                             1.000000f, 1.000000f, 1.000000f
                     );
 
-//                    Positioners.position(
-//                            0.049999f - 1.000f, 0.010000f, 0.200000f,
-//                            0.000000f, context.getSymmetricProgress() * 80f - 180f, 0.000000f,
-//                            0.510000f, 0.000000f, -1.169999f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                        );
                 })
 
                 .withPartPosition(VehiclePart.FRONT_LEFT_WHEEL, context -> {
@@ -127,12 +103,6 @@ public class SampleVehicleFactory implements VehicleFactory {
                             0.000000f, 0.990000f, 0.030000f,
                             1.000000f, 1.000000f, 1.000000f
                     );
-//                    Positioners.position(
-//                            -0.035000f, -0.030000f, 0.055000f,
-//                            context.getProgress() * 360f, 0.000000f, 0.000000f,
-//                            0.660000f, 0.125000f, -1.130000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                            );
                 })
 
                 .withPartPosition(VehiclePart.FRONT_RIGHT_WHEEL, context -> {
@@ -144,19 +114,6 @@ public class SampleVehicleFactory implements VehicleFactory {
                             1.000000f, 1.000000f, 1.000000f
                     );
 
-//                    EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
-//                    Positioners.position(
-//                            1.000000f, 0.140000f, -2.399999f,
-//                            entityVehicle.getWheelRotationAngle() /*-context.getProgress() * 360f*/, 0.000000f, 0.000000f,
-//                            0.000000f, 0.965000f, 0.030000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                        );
-//                    Positioners.position(
-//                            -0.035000f, -0.030000f, 0.055000f,
-//                            -context.getProgress() * 360f, 0.000000f, 0.000000f,
-//                            0.660000f, 0.125000f, -1.130000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                            );
                 })
 
                 .withPartPosition(VehiclePart.REAR_LEFT_WHEEL, context -> {
@@ -167,13 +124,6 @@ public class SampleVehicleFactory implements VehicleFactory {
                             -0.100000f, 0.965000f, 0.025000f,
                             1.000000f, 1.000000f, 1.000000f
                     );
-//                    GL11.glScalef(0f, 0f, 0f);
-//                    Positioners.position(
-//                            -0.090000f, -0.030000f, 2.200000f,
-//                            context.getProgress() * 360f, 0.000000f, 0.000000f,
-//                            -0.110000f, 0.130000f, -1.120000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                            );
                 })
 
                 .withPartPosition(VehiclePart.REAR_RIGHT_WHEEL, context -> {
@@ -184,20 +134,13 @@ public class SampleVehicleFactory implements VehicleFactory {
                             -0.100000f, 0.965000f, 0.025000f,
                             1.000000f, 1.000000f, 1.000000f
                     );
-//                    GL11.glScalef(0f, 0f, 0f);
-//                    Positioners.position(
-//                            0.3000f, -0.030000f, 2.200000f,
-//                            -context.getProgress() * 360f, 180.000000f, 0.000000f,
-//                            -0.110000f, 0.130000f, -1.120000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                            );
                 })
 
                 .build(modContext, VehiclePart.MAIN);
 
         new EntityVehicleConfiguration.Builder()
                 .withName("vehicle")
-                .withEntityIdSupplier(() -> 10201)
+                .withEntityIdSupplier(() -> Integer.valueOf(10201))
                 .withEnterSound("vehicle-enter")
                 .withExitSound("vehicle-exit")
                 .withRunSound("vehicle-driving")
