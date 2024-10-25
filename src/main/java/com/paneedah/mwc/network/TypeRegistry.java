@@ -12,63 +12,54 @@ import com.paneedah.weaponlib.melee.MeleeState;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.state.Permit;
 import io.netty.buffer.ByteBuf;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.nio.charset.StandardCharsets;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.HashMap;
-import java.util.UUID;
 
-import static com.paneedah.mwc.ProjectConstants.LOGGER;
 import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 
-@NoArgsConstructor
 public final class TypeRegistry {
 
-    @Getter private static final TypeRegistry INSTANCE = new TypeRegistry();
-
-    private final HashMap<String, Class<? extends ISerializable>> typeRegistry = new HashMap<>();
+    private static final HashMap<String, Class<? extends ISerializable>> typeRegistry = new HashMap<>();
 
     static {
-        INSTANCE.register(PlayerItemInstance.class);
-        INSTANCE.register(PlayerWeaponInstance.class);
-        INSTANCE.register(PlayerMagazineInstance.class);
-        INSTANCE.register(PlayerMeleeInstance.class);
-        INSTANCE.register(PlayerGrenadeInstance.class);
-        INSTANCE.register(PlayerHandheldInstance.class);
-        INSTANCE.register(PlayerTabletInstance.class);
+        register(PlayerItemInstance.class);
+        register(PlayerWeaponInstance.class);
+        register(PlayerMagazineInstance.class);
+        register(PlayerMeleeInstance.class);
+        register(PlayerGrenadeInstance.class);
+        register(PlayerHandheldInstance.class);
+        register(PlayerTabletInstance.class);
 
-        INSTANCE.register(WeaponState.class);
-        INSTANCE.register(MagazineState.class);
-        INSTANCE.register(MeleeState.class);
-        INSTANCE.register(GrenadeState.class);
-        INSTANCE.register(HandheldState.class);
-        INSTANCE.register(TabletState.class);
+        register(WeaponState.class);
+        register(MagazineState.class);
+        register(MeleeState.class);
+        register(GrenadeState.class);
+        register(HandheldState.class);
+        register(TabletState.class);
 
-        INSTANCE.register(Permit.class);
-        INSTANCE.register(WeaponAttachmentAspect.EnterAttachmentModePermit.class);
-        INSTANCE.register(WeaponAttachmentAspect.ExitAttachmentModePermit.class);
-        INSTANCE.register(WeaponAttachmentAspect.ChangeAttachmentPermit.class);
-        INSTANCE.register(MeleeAttachmentAspect.EnterAttachmentModePermit.class);
-        INSTANCE.register(MeleeAttachmentAspect.ExitAttachmentModePermit.class);
-        INSTANCE.register(MeleeAttachmentAspect.ChangeAttachmentPermit.class);
-        INSTANCE.register(WeaponReloadAspect.LoadPermit.class);
-        INSTANCE.register(WeaponReloadAspect.UnloadPermit.class);
-        INSTANCE.register(WeaponReloadAspect.CompoundPermit.class);
-        INSTANCE.register(MagazineReloadAspect.LoadPermit.class);
-        INSTANCE.register(MagazineReloadAspect.UnloadPermit.class);
+        register(Permit.class);
+        register(WeaponAttachmentAspect.EnterAttachmentModePermit.class);
+        register(WeaponAttachmentAspect.ExitAttachmentModePermit.class);
+        register(WeaponAttachmentAspect.ChangeAttachmentPermit.class);
+        register(MeleeAttachmentAspect.EnterAttachmentModePermit.class);
+        register(MeleeAttachmentAspect.ExitAttachmentModePermit.class);
+        register(MeleeAttachmentAspect.ChangeAttachmentPermit.class);
+        register(WeaponReloadAspect.LoadPermit.class);
+        register(WeaponReloadAspect.UnloadPermit.class);
+        register(WeaponReloadAspect.CompoundPermit.class);
+        register(MagazineReloadAspect.LoadPermit.class);
+        register(MagazineReloadAspect.UnloadPermit.class);
 
-        INSTANCE.register(LightExposure.class);
-        INSTANCE.register(SpreadableExposure.class);
+        register(LightExposure.class);
+        register(SpreadableExposure.class);
     }
 
-    private <T extends ISerializable> void register(Class<T> cls) {
+    private static <T extends ISerializable> void register(Class<T> cls) {
         typeRegistry.put(cls.getName(), cls);
     }
 
-    public <T extends ISerializable> void toBytes(final T object, final ByteBuf byteBuf) {
+    public static <T extends ISerializable> void toBytes(final T object, final ByteBuf byteBuf) {
         final String className = object.getClass().getName();
 
         if (!typeRegistry.containsKey(className)) {
@@ -87,7 +78,7 @@ public final class TypeRegistry {
         }
     }
 
-    public <T extends ISerializable> T fromBytes(final ByteBuf byteBuf) {
+    public static <T extends ISerializable> T fromBytes(final ByteBuf byteBuf) {
         Class<T> targetClass;
 
         final byte[] classNameBytes = new byte[byteBuf.readByte()];
