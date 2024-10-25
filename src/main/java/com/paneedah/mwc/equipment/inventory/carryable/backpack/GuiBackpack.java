@@ -31,7 +31,7 @@ public class GuiBackpack extends GuiContainer {
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
         inventoryTabs.updateTabValues(guiLeft, guiTop, BackpackInventoryTab.class);
-        inventoryTabs.addTabsToList(this.buttonList);
+        inventoryTabs.addTabsToList(buttonList);
     }
 
     @Override

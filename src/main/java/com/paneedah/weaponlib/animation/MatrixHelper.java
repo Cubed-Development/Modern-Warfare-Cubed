@@ -109,28 +109,8 @@ public class MatrixHelper {
         mat.m20 /= (float) scale.z;
         mat.m21 /= (float) scale.z;
         mat.m22 /= (float) scale.z;
-		
-		
-		/*
-		Vec3d a = new Vec3d(mat.m00, mat.m10, mat.m20);
-		Vec3d b = new Vec3d(mat.m01, mat.m11, mat.m21);
-		Vec3d c = new Vec3d(mat.m02, mat.m12, mat.m22);
-		
-		Vec3d scale = new Vec3d(a.length(), b.length(), c.length());
-		
-		
-		mat.m00 /= (float) scale.x;
-		mat.m10 /= (float) scale.x;
-		mat.m20 /= (float) scale.x;
-		
-		mat.m01/= (float) scale.y;
-		mat.m11/= (float) scale.y;
-		mat.m21 /= (float) scale.y;
-		
-		mat.m02/= (float) scale.z;
-		mat.m12 /= (float) scale.z;
-		mat.m22 /= (float) scale.z;
-		*/
+
+
         return scale;
     }
 
@@ -226,11 +206,6 @@ public class MatrixHelper {
     /**
      * Thank you Drillgon for donating this method :)
      *
-     * @param v0
-     * @param v1
-     * @param t
-     *
-     * @return
      */
     public static Quaternion slerp(Quaternion v0, Quaternion v1, float t) {
         // Only unit quaternions are valid rotations.
@@ -373,9 +348,7 @@ public class MatrixHelper {
 
     public static Matrix4f captureMatrix() {
         Matrix4f matrix;
-        FloatBuffer buf = BufferUtils.createFloatBuffer(16);
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, buf);
-        buf.rewind();
+        FloatBuffer buf = getModelViewMatrixBuffer();
         matrix = new Matrix4f();
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
         matrix.load(buf);
@@ -421,13 +394,8 @@ public class MatrixHelper {
         //factor = factor*factor*(3-(2*factor));
 
         factor = (float) interp.interpolate(factor);
-        //factor = factor*factor;
 
 
-        //factor = 1-((1-factor)*(1-factor));
-
-        //	factor = factor;
-        //factor = Math.round(factor);
         Matrix4f result = new Matrix4f();
 
 
@@ -455,13 +423,8 @@ public class MatrixHelper {
     }
 
     /**
-     * https://www.javatips.net/api/robotutils-master/src/main/java/robotutils/Quaternion.java
+     * <a href="https://www.javatips.net/api/robotutils-master/src/main/java/robotutils/Quaternion.java">...</a>
      *
-     * @param roll
-     * @param pitch
-     * @param yaw
-     *
-     * @return
      */
 
     public static Quaternion fromEulerAngles(double roll, double pitch, double yaw) {

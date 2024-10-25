@@ -62,11 +62,6 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
     private static final Predicate<PlayerMeleeInstance> readyToHeavyStab =
             instance -> System.currentTimeMillis() > instance.getStateUpdateTimestamp() + instance.getWeapon().getPrepareHeavyStubTimeout();
 
-//    private static Predicate<PlayerMeleeInstance> alertTimeoutExpired =
-//            instance -> System.currentTimeMillis() >= ALERT_TIMEOUT + instance.getStateUpdateTimestamp();
-
-//    private static Predicate<PlayerMeleeInstance> sprinting = instance -> instance.getPlayer().isSprinting();
-
     private static final Set<MeleeState> allowedAttackFromStates = new HashSet<>(
             Collections.singletonList(MeleeState.READY));
 
@@ -197,7 +192,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     public void serverAttack(EntityPlayer player, PlayerMeleeInstance instance, Entity entity, boolean isHeavyAttack) {
         LOGGER.debug("Player {} hits {} with {} in state {} with damage {}", player, entity, instance, instance.getState(),
-                instance.getWeapon().getDamage(isHeavyAttack));
+                Float.valueOf(instance.getWeapon().getDamage(isHeavyAttack)));
         float damage = instance.getWeapon().getDamage(isHeavyAttack);
         entity.attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
 
@@ -208,7 +203,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         double motionZ = entity.posZ - player.posZ;
 
         int count = getParticleCount(damage);
-        LOGGER.debug("Generating {} particle(s) per damage {}", count, damage);
+        LOGGER.debug("Generating {} particle(s) per damage {}", Integer.valueOf(count), Float.valueOf(damage));
 
         CHANNEL.sendToAllAround(new BloodClientMessage(new Vector3F((float) (entity.posX - motionX / 2), (float) (entity.posY - motionY / 2) + 1, (float) (entity.posZ - motionZ / 2)), new Vector3F((float) motionX / 16, (float) motionY / 16, (float) motionZ / 16)), point);
     }

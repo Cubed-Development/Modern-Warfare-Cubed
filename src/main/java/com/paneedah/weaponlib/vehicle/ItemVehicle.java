@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.Objects;
 
 public class ItemVehicle extends Item {
     //    private String name;
@@ -27,9 +28,9 @@ public class ItemVehicle extends Item {
     public ItemVehicle(String name, Class<? extends Entity> entityClass) {
 //        this.name = name;
         this.entityClass = entityClass;
-        this.maxStackSize = 1;
-        this.setCreativeTab(CreativeTabs.TRANSPORTATION);
-        this.setTranslationKey(name);
+        maxStackSize = 1;
+        setCreativeTab(CreativeTabs.TRANSPORTATION);
+        setTranslationKey(name);
     }
 
     /**
@@ -106,10 +107,7 @@ public class ItemVehicle extends Item {
                     // throw new RuntimeException(e);
                 }
 
-//                EntityVehicle entityboat = new EntityVehicle(worldIn, raytraceresult.hitVec.x, flag1 ? raytraceresult.hitVec.y - 0.12D : raytraceresult.hitVec.y, raytraceresult.hitVec.z);
-//                entityboat.setBoatType(this.type);
-//                entityboat.rotationYaw = playerIn.rotationYaw;
-
+                assert entityboat != null;
                 if (!worldIn.getCollisionBoxes(entityboat, entityboat.getEntityBoundingBox().grow(-0.1D)).isEmpty()) {
                     return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
                 } else {
@@ -121,7 +119,7 @@ public class ItemVehicle extends Item {
                         itemstack.shrink(1);
                     }
 
-                    playerIn.addStat(StatList.getObjectUseStats(this));
+                    playerIn.addStat(Objects.requireNonNull(StatList.getObjectUseStats(this)));
                     return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
                 }
             }

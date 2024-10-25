@@ -11,6 +11,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.Objects;
+
 import static com.paneedah.mwc.ProjectConstants.ID;
 
 @Mod.EventBusSubscriber(modid = ID)
@@ -123,7 +125,7 @@ public class MWCItems {
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent modelRegistryEvent) {
         for (ItemBase item : items)
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Objects.requireNonNull(item.getRegistryName()), "inventory"));
     }
 
     static void registerOreDictionaryKeys(ItemBase[] items) {

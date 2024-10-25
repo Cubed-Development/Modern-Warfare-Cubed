@@ -45,9 +45,9 @@ public class SCCYCPX2Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.18f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.13f))
+                .withFlashOffsetY(() -> Float.valueOf(0.18f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -84,16 +84,10 @@ public class SCCYCPX2Factory implements GunFactory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
                 .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
                 .withCompatibleAttachment(Attachments.SCCYCPX2Body, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.SCCYCPX2BodyTan, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.SCCYCPX2GripTape, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.SCCYCPX2Slide, true, (model) -> {
                     if (model instanceof SCCYCPX2Slide) {
@@ -124,9 +118,6 @@ public class SCCYCPX2Factory implements GunFactory {
                 .withCompatibleAttachment(Magazines.SCCYCPX2MagExt, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.SCCYCPX2Laser, (p, s) -> {
-//            GL11.glTranslatef(0.01F, -0.65F, -2.3F);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
-//            GL11.glRotatef(-90F, 0f, 0f, -4f);
                 })
                 .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
                     GL11.glTranslatef(-0.22F, -1.12F, -4.06F);

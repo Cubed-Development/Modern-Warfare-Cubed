@@ -37,9 +37,9 @@ public class STG44Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.14f))
                 .withInaccuracy(1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -53,12 +53,8 @@ public class STG44Factory {
 //        	 GL11.glTranslatef(0f, 0f, 1.5f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.STG44actionCover, true, (model) -> {
-//       	 GL11.glTranslatef(0.5f, -0.2f, 0f);
-//        	GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Magazines.STG44Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 0.45F, -0.15F);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
                 })
 //        .withCompatibleAttachment(Attachments.Silencer762x39, (model) -> {
 //          GL11.glTranslatef(-0.2F, -1.06F, -7.55F);

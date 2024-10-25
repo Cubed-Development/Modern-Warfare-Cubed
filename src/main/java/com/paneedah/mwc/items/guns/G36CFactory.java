@@ -44,9 +44,9 @@ public class G36CFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.2f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.2f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -101,8 +101,6 @@ public class G36CFactory implements GunFactory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Magazines.G36CMag, (model) -> {
-//            GL11.glTranslatef(-0.37F, 0.8F, -1.7F);
-//            GL11.glScaled(1.25F, 1.7F, 1.7F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.G36CAction, true, (model) -> {
 //            GL11.glTranslatef(0F, 0F, 0.75F);

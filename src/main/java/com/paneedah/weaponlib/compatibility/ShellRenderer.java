@@ -220,9 +220,6 @@ public class ShellRenderer {
             GlStateManager.scale(shellScale, shellScale, shellScale);
 
 
-            //GlStateManager.disableLighting();
-
-            //System.out.println(GL11.glIsEnabled(cap));
             GlStateManager.enableLighting();
             GlStateManager.enableTexture2D();
 

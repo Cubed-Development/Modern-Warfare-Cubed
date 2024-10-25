@@ -40,9 +40,9 @@ public class SV98Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.09f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.09f))
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -59,17 +59,9 @@ public class SV98Factory implements GunFactory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Magazines.SV98Mag, (model) -> {
-//            GL11.glScaled(1.55F, 1.6F, 1.6F);
-//            GL11.glTranslatef(-0.28F, 0.51F, -0.97F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.SV98BoltAction, true, (model) -> {
-//            GL11.glTranslatef(-0.08F, 0.01F, 0.02F);
 
-//            GL11.glRotatef(50F, 0f, 0f, 1f);
-//            GL11.glTranslatef(-0.85F, 0.5F, 0F);
-
-//              GL11.glRotatef(50F, 0f, 0f, 1f);
-//              GL11.glTranslatef(-0.85F, 0.5F, 1.05F);
                 })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
                     GL11.glTranslatef(-0.21F, -1.45F, -2.2F);

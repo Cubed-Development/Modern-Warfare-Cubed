@@ -151,8 +151,8 @@ public class EntityGasGrenade extends AbstractEntityGrenade {
 
             double f = 0.1 + Math.sin(Math.PI * (1 - (double) timeRemaining / activeDuration)) * 0.1;
             if (rand.nextDouble() <= f) {
-                for (Object o : world.playerEntities) {
-                    EntityPlayer player = (EntityPlayer) o;
+                for (EntityPlayer o : world.playerEntities) {
+                    EntityPlayer player = o;
                     if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
                         ParticleType particleType = ParticleType.SMOKE_GRENADE_YELLOW_SMOKE;
                         double movement = bounceCount > 0 ? 0.007 : 0.001;
@@ -182,8 +182,8 @@ public class EntityGasGrenade extends AbstractEntityGrenade {
             gasEntity.posX = posX;
             gasEntity.posY = posY;
             gasEntity.posZ = posZ;
-            if (this.getThrower() != null) {
-                EntityLivingBase player = this.getThrower();
+            if (getThrower() != null) {
+                EntityLivingBase player = getThrower();
 
                 if (player != null) {
                     player.world.spawnEntity(gasEntity);

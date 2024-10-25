@@ -171,46 +171,10 @@ public class Dloom {
     }
 
     public static void renderFboTriangle(Framebuffer buf, int width, int height) {
-        GlStateManager.colorMask(true, true, true, false);
-        GlStateManager.disableDepth();
-        GlStateManager.depthMask(false);
-        GlStateManager.viewport(0, 0, width, height);
-        GlStateManager.enableTexture2D();
-        GlStateManager.disableLighting();
-        GlStateManager.disableAlpha();
-
-        GlStateManager.enableColorMaterial();
-
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        buf.bindFramebufferTexture();
-        Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder bufferbuilder = tessellator.getBuffer();
-        bufferbuilder.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_TEX);
-        bufferbuilder.pos(-1, -1, 0.0D).tex(0, 0).endVertex();
-        bufferbuilder.pos(3, -1, 0.0D).tex(2, 0).endVertex();
-        bufferbuilder.pos(-1, 3, 0.0D).tex(0, 2).endVertex();
-        tessellator.draw();
-        buf.unbindFramebufferTexture();
-        GlStateManager.depthMask(true);
-        GlStateManager.enableDepth();
-        GlStateManager.enableAlpha();
-        GlStateManager.colorMask(true, true, true, true);
+        Bloom.renderFboTriangle(buf, width, height);
     }
 
     public static void downsampleBloomData() {
-		/*
-		bloomBuffers[0].bindFramebuffer(true);
-		Bloom.downsample.use();
-		
-		GL20.glUniform2f(GL20.glGetUniformLocation(Bloom.downsample.getShaderId(), "texel"), 1F/(float) bloomData.framebufferTextureWidth, 1F/(float) bloomData.framebufferTextureHeight);
-		renderFboTriangle(bloomData, bloomBuffers[0].framebufferWidth, bloomBuffers[0].framebufferHeight);
-		for(int i = 1; i < bloomLayers; i++) {
-			bloomBuffers[i].bindFramebuffer(true);
-			GL20.glUniform2f(GL20.glGetUniformLocation(downsample.getShaderId(), "texel"), 1F/(float) bloomBuffers[i-1].framebufferTextureWidth, 1F/(float) buffers[i-1].framebufferTextureHeight);
-			renderFboTriangle(bloomBuffers[i-1], bloomBuffers[i].framebufferWidth, bloomBuffers[i].framebufferHeight);
-		}
-		
-		Bloom.downsample.release();*/
 
         //Bloom.downsample = ShaderLoader.loadShader(new ResourceLocation("mw" + ":" + "shaders/downsample"));
 

@@ -25,10 +25,10 @@ public class EntityBetterTargetAI extends EntityAINearestAttackableTarget {
 
     @Override
     public boolean shouldContinueExecuting() {
-        EntityLivingBase entitylivingbase = this.taskOwner.getAttackTarget();
+        EntityLivingBase entitylivingbase = taskOwner.getAttackTarget();
 
         if (entitylivingbase == null) {
-            entitylivingbase = this.target;
+            entitylivingbase = target;
         }
 
         if (entitylivingbase == null) {
@@ -36,21 +36,21 @@ public class EntityBetterTargetAI extends EntityAINearestAttackableTarget {
         } else if (!entitylivingbase.isEntityAlive()) {
             return false;
         } else {
-            Team team = this.taskOwner.getTeam();
+            Team team = taskOwner.getTeam();
             Team team1 = entitylivingbase.getTeam();
 
             if (team != null && team1 == team) {
                 return false;
             } else {
-                double d0 = this.getTargetDistance();
+                double d0 = getTargetDistance();
 
-                if (this.taskOwner.getDistanceSq(entitylivingbase) > d0 * d0) {
+                if (taskOwner.getDistanceSq(entitylivingbase) > d0 * d0) {
                     return false;
                 } else {
-                    if (this.shouldCheckSight) {
-                        if (this.taskOwner.getEntitySenses().canSee(entitylivingbase)) {
-                            this.targetUnseenTicks = 0;
-                        } else if (++this.targetUnseenTicks > this.unseenMemoryTicks) {
+                    if (shouldCheckSight) {
+                        if (taskOwner.getEntitySenses().canSee(entitylivingbase)) {
+                            targetUnseenTicks = 0;
+                        } else if (++targetUnseenTicks > unseenMemoryTicks) {
                             return false;
                         }
                     }
@@ -58,7 +58,7 @@ public class EntityBetterTargetAI extends EntityAINearestAttackableTarget {
                     if (entitylivingbase instanceof EntityPlayer && ((EntityPlayer) entitylivingbase).capabilities.disableDamage) {
                         return false;
                     } else {
-                        this.taskOwner.setAttackTarget(entitylivingbase);
+                        taskOwner.setAttackTarget(entitylivingbase);
                         return true;
                     }
                 }

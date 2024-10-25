@@ -78,7 +78,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
         @Override
         public float getProgress() {
-            return startTime != null ? (float) (currentTimeProvider.get() - startTime) / totalDuration : 0f;
+            return startTime != null ? (float) (currentTimeProvider.get().longValue() - startTime.longValue()) / totalDuration : 0f;
         }
 
         @Override
@@ -181,7 +181,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
         @Override
         public Positioner<Part, Context> getPositioner() {
 
-            long currentTime = currentTimeProvider.get();
+            long currentTime = currentTimeProvider.get().longValue();
             MultipartTransition<Part, Context> targetState = toPositioning.get(currentIndex);
 
 
@@ -202,27 +202,23 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
 
             if (currentIndex == 0 && startTime == null) {
-                LOGGER.debug("Starting transition {}, duration {}ms, pause {}ms", currentIndex, currentDuration, currentPause);
-                startTime = currentTime;
+                LOGGER.debug("Starting transition {}, duration {}ms, pause {}ms", Integer.valueOf(currentIndex), Long.valueOf(currentDuration), Long.valueOf(currentPause));
+                startTime = Long.valueOf(currentTime);
 
 
             }
 
-
-            if (currentTime - currentStartTime < 10) {
-
-            }
 
             if (currentStartTime == 0) {
 
                 currentStartTime = currentTime;
             } else if (currentTime > currentStartTime + currentDuration + currentPause) {
-                LOGGER.debug("Completed transition {}, duration {}ms, pause {}ms", currentIndex, currentDuration, currentPause);
+                LOGGER.debug("Completed transition {}, duration {}ms, pause {}ms", Integer.valueOf(currentIndex), Long.valueOf(currentDuration), Long.valueOf(currentPause));
                 currentIndex++;
                 if (LOGGER.isDebugEnabled() && currentIndex < toPositioning.size()) {
                     MultipartTransition<Part, Context> multipartTransition = toPositioning.get(currentIndex);
-                    LOGGER.debug("Starting transition {}, duration {}ms, pause {}ms", currentIndex,
-                            multipartTransition.getDuration(), multipartTransition.getPause());
+                    LOGGER.debug("Starting transition {}, duration {}ms, pause {}ms", Integer.valueOf(currentIndex),
+                            Long.valueOf(multipartTransition.getDuration()), Long.valueOf(multipartTransition.getPause()));
                 }
                 currentStartTime = currentTime;
 
@@ -262,7 +258,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
                                 (toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING))) {
 
                             Vec3d beizer = Vec3d.ZERO;
-                            if (targetState != null && targetState.beizer != null) {
+                            if (targetState.beizer != null) {
                                 beizer = revertFlag ? targetState.beizer.scale(1.25) : targetState.beizer;
                             }
 
@@ -326,7 +322,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
                             (toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING))) {
 
                         Vec3d beizer = Vec3d.ZERO;
-                        if (targetState != null && targetState.beizer != null) {
+                        if (targetState.beizer != null) {
                             beizer = revertFlag ? targetState.beizer.scale(1.25) : targetState.beizer;
                         }
 
@@ -407,10 +403,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
             LOGGER.trace("Applying position for part {}", part);
 
-            //progress = 0.0f;
 
-
-            // progress = (float) interp.ACCELERATION.interpolate(progress);
             /*
              *
              * progress = (endTime - startTime) / duration
@@ -437,20 +430,12 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
             Vec3d beezer = new Vec3d(0, 3.5, -1);
 
-            float fastProgress = 0f;
-            if (!accel) {
-                fastProgress = 1 - ((1 - progress) * (1 - progress));
-            } else {
-                fastProgress = 1 - ((1 - progress) * (1 - progress));
-                //fastProgress =  progress*progress*(3-(2*progress));
-            }
+            float fastProgress;
+            fastProgress = 1 - ((1 - progress) * (1 - progress));
 
             float newX = MatrixHelper.solveBeizer(beforeMatrix.m30, (float) beizer.x, afterMatrix.m30, fastProgress);
             float newY = MatrixHelper.solveBeizer(beforeMatrix.m31, (float) beizer.y, afterMatrix.m31, fastProgress);
             float newZ = MatrixHelper.solveBeizer(beforeMatrix.m32, (float) beizer.z, afterMatrix.m32, fastProgress);
-            //  Vec3d trans = MatrixHelper.lerpVectors(new Vec3d(beforeMatrix.m30, beforeMatrix.m31, beforeMatrix.m32),
-            // 									   new Vec3d(afterMatrix.m30, afterMatrix.m31, afterMatrix.m32),
-            // 		progress);
 
             Vec3d trans = new Vec3d(newX, newY, newZ);
 
@@ -478,17 +463,10 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
             auxGLMatrix.put(14, (float) trans.z);
 
 
-            //System.out.println("Jim's Method: " + deltaMatrix);
-
-
-            //	deltaMatrix = Matrix4f.add(m1, m2, null);
-            //System.out.println("Vic's Method: " + deltaMatrix);
-
-
             Matrix4f deltaMatrix = new Matrix4f();
 
             deltaMatrix.load(auxGLMatrix);
-            deltaMatrix = deltaMatrix.rotate((float) Math.toRadians(90), new Vector3f(0, 1, 0));
+            deltaMatrix.rotate((float) Math.toRadians(90), new Vector3f(0, 1, 0));
 
             Matrix4f m1 = MatrixHelper.interpolateMatrix(beforeMatrix, 1 - progress, interp); //start * (1 - progress)
             Matrix4f m2 = MatrixHelper.interpolateMatrix(afterMatrix, progress, interp);
@@ -502,19 +480,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
 
             //deltaMatrix.m30 = 0.0f;
-		    /*
-			Matrix4f m1 = MatrixHelper.interpolateMatrix(beforeMatrix, 1 - progress); //start * (1 - progress)
-			Matrix4f m2 = MatrixHelper.interpolateMatrix(afterMatrix, progress);
 
-			Matrix4f deltaMatrix = Matrix4f.add(m1, m2, null);
-			*/
-
-
-            //Matrix4f deltaMatrix = MatrixHelper.beizerInterpolation(beforeMatrix,
-            //		MatrixHelper.buildTranslation(0.5f, 0.5f, 0), afterMatrix, progress, true);
-
-
-            //Matrix4f deltaMatrix = Matrix4f.add(m1, m2, null);
 
             lastApplied.put(part, deltaMatrix);
 
@@ -617,16 +583,6 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
             LOGGER.trace("Applying position for part {}", part);
 
 
-            // progress = (float) Interpolation.SMOOTHSTEP.interpolate(progress);
-
-            // progress = 0f;
-            // progress = (float) interp.interpolate(progress);
-
-            // boolean log = part == DefaultPart.RIGHT_HAND;
-
-            //  if(log) System.out.println("Before: " + beforeMatrix);
-
-
             Matrix4f currentMatrix = null;
 
             if (attachedTo != null) {
@@ -662,7 +618,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
             // extract scales
 
-            Vec3d scaleBefore = null;
+            Vec3d scaleBefore;
             if (AnimationModeProcessor.getInstance().isLegacyMode()) {
                 scaleBefore = MatrixHelper.extractScaleOld(copiedBefore);
             } else {
@@ -670,7 +626,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
             }
 
 
-            Vec3d scaleAfter = null;
+            Vec3d scaleAfter;
             if (AnimationModeProcessor.getInstance().isLegacyMode()) {
                 scaleAfter = MatrixHelper.extractScaleOld(copiedAfter);
             } else {
@@ -759,8 +715,6 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
         }
     }
 
-    private final String name;
-
     private StateContainer<State> currentStateContainer;
 
     MultipartTransitionProvider<State, Part, Context> transitionProvider;
@@ -773,20 +727,14 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
     public MultipartRenderStateManager(State initialState, MultipartTransitionProvider<State, Part, Context> transitionProvider,
                                        Supplier<Long> currentTimeProvider) {
-//		this.transitionProvider = transitionProvider;
-//		this.positioningQueue = new LinkedList<>();
-//		this.randomizer = new Randomizer();
-//		this.currentTimeProvider = currentTimeProvider;
-//		setState(initialState, false, true);
         this("anonymous", initialState, transitionProvider, currentTimeProvider, null);
     }
 
     public MultipartRenderStateManager(String name, State initialState, MultipartTransitionProvider<State, Part, Context> transitionProvider,
                                        Supplier<Long> currentTimeProvider, Function<Context, Float> currentProgressProvider) {
-        this.name = name;
         this.transitionProvider = transitionProvider;
-        this.positioningQueue = new LinkedList<>();
-        this.randomizer = new Randomizer();
+        positioningQueue = new LinkedList<>();
+        randomizer = new Randomizer();
         this.currentTimeProvider = currentTimeProvider;
         this.currentProgressProvider = currentProgressProvider;
         setState(initialState, false, true);

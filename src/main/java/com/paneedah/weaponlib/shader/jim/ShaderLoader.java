@@ -71,12 +71,12 @@ public class ShaderLoader {
                 throw new RuntimeException("Error creating fragment shader: " + file);
             }
 
-            LOGGER.debug("Loaded shader successfully for " + file);
+            LOGGER.debug("Loaded shader successfully for {}", file);
 
             return new Shader(programId);
         } catch (IOException ioException) {
             GL20.glDeleteProgram(programId);
-            LOGGER.error("Failed loading shader for " + ioException);
+            LOGGER.error("Failed loading shader for {}", String.valueOf(ioException));
         } finally {
             GL20.glDeleteShader(vertexShaderId);
             GL20.glDeleteShader(fragmentShaderId);

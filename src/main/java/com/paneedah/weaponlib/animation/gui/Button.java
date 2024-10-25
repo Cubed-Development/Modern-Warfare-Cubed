@@ -1,19 +1,29 @@
 package com.paneedah.weaponlib.animation.gui;
 
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 
 import java.awt.*;
 
 public class Button {
 
-    public double x = 0;
-    public double y = 0;
+    @Getter
+    public double x;
+    @Getter
+    public double y;
     public String tooltip;
 
 
+    @Setter
+    @Getter
     public int id;
 
-    public int size = 0;
+    @Setter
+    @Getter
+    public int size;
+    @Setter
+    @Getter
     public boolean state = false;
 
     public boolean isToggle = false;
@@ -30,11 +40,11 @@ public class Button {
 
     public Button(String tooltip, boolean toggle, int id, int x, int y, int size) {
         this.tooltip = tooltip;
-        this.iconID = id;
+        iconID = id;
         this.x = x;
         this.y = y;
         this.size = size;
-        this.isToggle = toggle;
+        isToggle = toggle;
     }
 
 
@@ -72,44 +82,12 @@ public class Button {
 
     }
 
-    public double getX() {
-        return x;
-    }
-
     public void setX(int x) {
         this.x = x;
     }
 
-    public double getY() {
-        return y;
-    }
-
     public void setY(int y) {
         this.y = y;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public boolean isState() {
-        return state;
-    }
-
-    public void setState(boolean state) {
-        this.state = state;
     }
 
     public boolean isToggle() {

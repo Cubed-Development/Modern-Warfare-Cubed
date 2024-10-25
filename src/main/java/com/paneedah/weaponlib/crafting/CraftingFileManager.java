@@ -5,6 +5,7 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import com.paneedah.weaponlib.JSONDatabaseManager;
+import lombok.Getter;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Loader;
@@ -36,6 +37,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
     private static final String CACHE_EXTENSION = ".cache";
 
     // Current file hash
+    @Getter
     private byte[] currentFileHash;
     private byte[] defaultFileHash;
 
@@ -51,18 +53,11 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 
     // {-1: Not loaded, 1: Default mappings, 2: Custom Mappings }
+    @Getter
     private int loadingStatus = -1;
 
     public static CraftingFileManager getInstance() {
         return INSTANCE;
-    }
-
-    public byte[] getCurrentFileHash() {
-        return currentFileHash;
-    }
-
-    public int getLoadingStatus() {
-        return this.loadingStatus;
     }
 
     @Override
@@ -88,8 +83,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
             String itemName = entry.getIngredient().toString();
 
             jsonEntry.addProperty(ENTRY_ITEM_NAME_KEY, !entry.isOreDictionary() ? itemName : entry.getOreDictionaryEntry());
-            jsonEntry.addProperty(ORE_DICTIONARY_BOOLEAN_KEY, false);
-            jsonEntry.addProperty(COUNT_KEY, entry.getCount());
+            jsonEntry.addProperty(ORE_DICTIONARY_BOOLEAN_KEY, Boolean.FALSE);
+            jsonEntry.addProperty(COUNT_KEY, Integer.valueOf(entry.getCount()));
 
             if (entry.isOreDictionary())
                 jsonEntry.addProperty(ORE_DICTIONARY_DEFAULT_ITEM, itemName);
@@ -121,8 +116,11 @@ public class CraftingFileManager extends JSONDatabaseManager {
             } else if (loadingStatus == 1) {
                 // Default mode
                 InputStream is = getClass().getClassLoader().getResourceAsStream(DEFAULT_CRAFTING_MAPPINGS);
-                for (int i = 0; i < is.available(); ++i)
+                if (is != null) {
+                    for (int i = 0; i < is.available(); ++i)
                     baos.write(is.read());
+                }
+
                 is.close();
             }
 
@@ -193,7 +191,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
                 // Validate subrecipe
                 // First let's check to see if it has the ESSENTIAL keys
                 if (!subRecipe.has(ENTRY_ITEM_NAME_KEY) || !subRecipe.has(COUNT_KEY)) {
-                    LOGGER.debug("Sub-recipe no. {} for recipe {} missing essential keys.", r, recipeName);
+                    LOGGER.debug("Sub-recipe no. {} for recipe {} missing essential keys.", Integer.valueOf(r), recipeName);
                     cancellationFlag = true;
                     break;
                 }
@@ -202,7 +200,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
                 if (subRecipe.has(ORE_DICTIONARY_BOOLEAN_KEY)) {
                     isOreDictionary = subRecipe.get(ORE_DICTIONARY_BOOLEAN_KEY).getAsBoolean();
                     if (isOreDictionary && !subRecipe.has(ORE_DICTIONARY_DEFAULT_ITEM)) {
-                        LOGGER.debug("Sub-recipe no. {} for recipe {} states it is OreDictionary, but does not provide a default item.", r, recipeName);
+                        LOGGER.debug("Sub-recipe no. {} for recipe {} states it is OreDictionary, but does not provide a default item.", Integer.valueOf(r), recipeName);
                         cancellationFlag = true;
                         break;
                     }
@@ -222,7 +220,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
             Item item = Item.getByNameOrId(recipeName);
             if (item == null) {
-                LOGGER.error("Error Reading JSON, could not find item with name: " + recipeName);
+                LOGGER.error("Error Reading JSON, could not find item with name: {}", recipeName);
                 continue;
             }
 
@@ -405,6 +403,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
             return;
 
         // Get the server IP
+        assert MC.getCurrentServerData() != null;
         String serverIP = MC.getCurrentServerData().serverIP;
 
         // Create the cache directory if it doesn't exist

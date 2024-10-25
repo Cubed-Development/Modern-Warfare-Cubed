@@ -40,9 +40,9 @@ public class Saiga12Factory {
                 .withInaccuracy(10)
                 .withPellets(10)
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 1f)
-                .withFlashOffsetX(() -> 0.05f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(1f))
+                .withFlashOffsetX(() -> Float.valueOf(0.05f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
                 .withShellCasingModelTexture("shotgun12gauge")
                 .withShellCasingForwardOffset(0.01f)
@@ -58,8 +58,6 @@ public class Saiga12Factory {
                 .withCompatibleAttachment(AuxiliaryAttachments.Saiga12action, true, (model) -> {
                 })
                 .withCompatibleAttachment(Magazines.SaigaMag, (model) -> {
-//            GL11.glTranslatef(0F, 0.45F, -0.15F);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.Silencer762x39, (model) -> {
                     GL11.glTranslatef(-0.2F, -1.06F, -7.55F);

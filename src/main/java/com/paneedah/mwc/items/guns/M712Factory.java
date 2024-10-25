@@ -38,9 +38,9 @@ public class M712Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 1f)
-                .withFlashOffsetX(() -> 0.17f)
-                .withFlashOffsetY(() -> 0.18f)
+                .withFlashScale(() -> Float.valueOf(1f))
+                .withFlashOffsetX(() -> Float.valueOf(0.17f))
+                .withFlashOffsetY(() -> Float.valueOf(0.18f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(1)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -58,12 +58,7 @@ public class M712Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Magazines.M712Mag, (model) -> {
-//        	GL11.glTranslatef(0.1f, 1f, -0.1f);
-//        	GL11.glRotatef(-5F, 1f, 0f, 0f);
-//        	GL11.glRotatef(-6F, 0f, 0f, 1f);
 
-//        	GL11.glTranslatef(0f, 0.9f, 0f);
-//        	GL11.glRotatef(2F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
                     if (model instanceof M4Iron1) {
@@ -138,11 +133,6 @@ public class M712Factory implements GunFactory {
                             GL11.glRotatef(14F, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.3f, 0.8f, -2.0f);
 
-//                GL11.glScaled(1F, 1F, 1F);
-//                GL11.glRotatef(-14.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(41.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(3.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.225000f, 0.875000f, -1.849999f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -155,14 +145,10 @@ public class M712Factory implements GunFactory {
 
                         .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M712action.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
                         .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.M712action.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
 
@@ -656,13 +642,8 @@ public class M712Factory implements GunFactory {
                             GL11.glScaled(3F, 3F, 3F);
                             GL11.glTranslatef(0.350000f, 1.34f, -2f);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })
@@ -674,13 +655,8 @@ public class M712Factory implements GunFactory {
                             GL11.glRotatef(-6F, 1f, 0f, 0f);
                             GL11.glRotatef(3F, 0f, 0f, 1f);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })

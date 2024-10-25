@@ -20,7 +20,10 @@ public class NewScreenshakingManager {
     public SpringVector springVector = new SpringVector(1, 2, 2);
 
     private double prevX, prevY, prevZ, prevRotX, prevRotY, prevRotZ;
-    private double x, y, z, rotX, rotY, rotZ;
+    private double y;
+    private double rotX;
+    private double rotY;
+    private double rotZ;
 
 
     private double getRandom(double min, double max) {
@@ -43,14 +46,8 @@ public class NewScreenshakingManager {
         intensity += mag;
 
 
-        //	x = Math.random()*mag - (mag/2);
-        //	y = -Math.random()*mag;
-
-
-        x = -10 * mag;
-        z = 2 * mag;
-        //z = 0;
-        //springVector.addPosition(x, 0, z);
+        double x = -10 * mag;
+        double z = 2 * mag;
         springVector.addVelocity(x, y, z);
 
     }
@@ -64,8 +61,8 @@ public class NewScreenshakingManager {
         if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
 
             Pair<Double, Double> param = ClientModContext.getContext().getMainHeldWeapon().getScreenShakeParameters();
-            springVector.setXSpringParam(2, 3000 * param.getSecond(), 200 * param.getSecond());
-            springVector.setZSpringParam(4, 9000 * param.getSecond(), 75 * param.getSecond());
+            springVector.setXSpringParam(2, 3000 * param.getSecond().doubleValue(), 200 * param.getSecond().doubleValue());
+            springVector.setZSpringParam(4, 9000 * param.getSecond().doubleValue(), 75 * param.getSecond().doubleValue());
         } else {
             springVector.setXSpringParam(2, 3000, 200);
             springVector.setZSpringParam(4, 9000, 75);
@@ -85,26 +82,11 @@ public class NewScreenshakingManager {
 
         float pt = MC.getRenderPartialTicks();
         double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
-		
-		
 
-		
-		
-		/*
-		GlStateManager.translate(i*MatrixHelper.solveLerp(prevX, x, pt),
-				i*MatrixHelper.solveLerp(prevY, y, pt),
-				i*MatrixHelper.solveLerp(prevZ, z, pt));
-		
-		float iRZ = (float) MatrixHelper.solveLerp(prevRotZ, rotZ, pt);
-		//GlStateManager.rotate((float) (5f*i*iRZ), 0, 0, 1);
-		
-		*/
 
-        //System.out.println(intensity);
-        //	GlStateManager.scale(1, 1, 1+(intensity*0.2));
     }
 
-    public double dt = 1 / 20;
+    public double dt = (double) 1 / 20;
     public long currentTime = System.currentTimeMillis();
     public double accumulator;
     public Vec3d interpolated = Vec3d.ZERO;

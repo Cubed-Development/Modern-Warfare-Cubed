@@ -20,7 +20,6 @@ public class AdvCompatibleMovingSound extends MovingSound {
     private int type = -1;
 
     private int fadeOutTime = 40;
-    private final int fadeInTime = 40;
 
     private int fadeTimer = 0;
     private boolean isFadeIn = false;
@@ -28,10 +27,10 @@ public class AdvCompatibleMovingSound extends MovingSound {
 
     public AdvCompatibleMovingSound(SoundEvent sound, Supplier<Vector3D> positionProvider, Supplier<Boolean> donePlayingProvider, boolean fade) {
         super(sound, SoundCategory.BLOCKS);
-        this.repeat = true;
-        this.volume = 1.5F;
+        repeat = true;
+        volume = 1.5F;
 
-        this.shouldFade = fade;
+        shouldFade = fade;
 
         this.positionProvider = positionProvider;
         this.donePlayingProvider = donePlayingProvider;
@@ -40,7 +39,7 @@ public class AdvCompatibleMovingSound extends MovingSound {
     }
 
     public void fadeIn() {
-        this.volume = 0.0F;
+        volume = 0.0F;
         fadeTimer = 0;
         isFadeIn = true;
         isFade = true;
@@ -63,24 +62,19 @@ public class AdvCompatibleMovingSound extends MovingSound {
 
             ++fadeTimer;
 
-            this.volume = (float) (((double) fadeTimer / (double) fadeInTime)) * 1.5F;
+            int fadeInTime = 40;
+            volume = (float) (((double) fadeTimer / (double) fadeInTime)) * 1.5F;
 
             if (fadeTimer >= fadeInTime) {
                 isFade = false;
                 fadeTimer = 0;
                 isFadeIn = false;
             }
-    		/*
-    		if(fadeTimer >= fadeInTime) {
-    			isFade = false;
-    			fadeTimer = 0;
-    		}
-    		*/
 
         } else {
 
             ++fadeTimer;
-            this.volume = 1.5F - ((float) (((double) fadeTimer / (double) fadeOutTime)) * 1.5F);
+            volume = 1.5F - ((float) (((double) fadeTimer / (double) fadeOutTime)) * 1.5F);
 
             if (fadeTimer >= fadeOutTime) {
 
@@ -110,8 +104,8 @@ public class AdvCompatibleMovingSound extends MovingSound {
             }
             updateFade();
             if (!isFade) {
-                if (donePlayingProvider.get()) {
-                    this.fadeOutTime = 20;
+                if (donePlayingProvider.get().booleanValue()) {
+                    fadeOutTime = 20;
                     fadeOut();
                 }
             }
@@ -120,17 +114,11 @@ public class AdvCompatibleMovingSound extends MovingSound {
 
         if (!donePlaying) {
             Vector3D position = positionProvider.get();
-            this.xPosF = (float) position.x;
-            this.yPosF = (float) position.y;
-            this.zPosF = (float) position.z;
+            xPosF = (float) position.x;
+            yPosF = (float) position.y;
+            zPosF = (float) position.z;
 
 
-            //this.volume = (float) (vehicle.solver.currentRPM/24000.0F);
-
-
-            // this.pitch = 1.0F + ((float) (vehicle.solver.currentRPM/7000.0F)*0.1F);
-
-            //this.pitch = 1 + this.volume * this.volume;
         }
     }
 }

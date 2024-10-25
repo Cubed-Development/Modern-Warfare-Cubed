@@ -42,9 +42,9 @@ public class FNFALFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.09f)
-                .withFlashOffsetY(() -> 0.11f)
+                .withFlashScale(() -> Float.valueOf(0.5f))
+                .withFlashOffsetX(() -> Float.valueOf(0.09f))
+                .withFlashOffsetY(() -> Float.valueOf(0.11f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -100,12 +100,8 @@ public class FNFALFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.FNFALStock, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.2f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(Attachments.FNFALGrip, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
                     if (model instanceof AKMiron1) {
@@ -156,9 +152,6 @@ public class FNFALFactory {
 //          GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Magazines.FNFALMag, (model) -> {
-//        	GL11.glRotatef(35.000000f, 1f, 0f, 0f);
-//        	GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
-//            GL11.glTranslatef(0.9f, 3.8f, -3.5f);
                 })
                 .withCompatibleAttachment(Attachments.FNFALRearSights, true, (model) -> {
                     GL11.glScaled(0.3F, 0.3F, 0.3F);
@@ -213,9 +206,6 @@ public class FNFALFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
 

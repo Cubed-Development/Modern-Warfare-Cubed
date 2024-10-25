@@ -38,9 +38,9 @@ public class M1941JohnsonRifleFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.12f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.12f))
 //        .withShellCasingSideOffset(0f)
                 .withShellCasingVerticalOffset(-0.1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -146,14 +146,7 @@ public class M1941JohnsonRifleFactory {
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.StripperClipBullets.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(-0.7F, -0F, 0F);
-//                GL11.glRotatef(-30.000000f, 0f, 0f, 1f);
 
-//                GL11.glTranslatef(-0.9F, -0.1F, 0F);
-//                GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-//                
-//                GL11.glTranslatef(-0.6F, -0F, 0F);
-//                GL11.glRotatef(-66.000000f, 0f, 0f, 1f);
                         })
 
                         .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.JohnsonRifleACTION.getRenderablePart(), (renderContext) -> {

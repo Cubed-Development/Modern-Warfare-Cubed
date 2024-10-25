@@ -51,14 +51,14 @@ public class VMWModConfigGUI extends GuiConfig {
                 if (f.isAnnotationPresent(RangeInt.class)) {
                     // Is ranged
                     RangeInt range = f.getAnnotation(RangeInt.class);
-                    element = new SynchronizedConfigElement(f, f.getName(), propertyTag + ".name", f.get(null), getGUITypeFromFieldType(f), propertyTag, range.min(), range.max());
+                    element = new SynchronizedConfigElement(f, f.getName(), propertyTag + ".name", f.get(null), getGUITypeFromFieldType(f), propertyTag, Integer.valueOf(range.min()), Integer.valueOf(range.max()));
                 }
 
             } else if (f.getType() == double.class) {
                 if (f.isAnnotationPresent(RangeDouble.class)) {
                     // Is ranged
                     RangeDouble range = f.getAnnotation(RangeDouble.class);
-                    element = new SynchronizedConfigElement(f, f.getName(), propertyTag + ".name", f.get(null), getGUITypeFromFieldType(f), propertyTag, range.min(), range.max());
+                    element = new SynchronizedConfigElement(f, f.getName(), propertyTag + ".name", f.get(null), getGUITypeFromFieldType(f), propertyTag, Double.valueOf(range.min()), Double.valueOf(range.max()));
                 }
             }
 

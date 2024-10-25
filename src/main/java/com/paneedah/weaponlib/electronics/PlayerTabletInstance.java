@@ -6,12 +6,14 @@ import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.WirelessCameraPerspective;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
+@Getter
 @NoArgsConstructor
 public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 
@@ -44,14 +46,10 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 
     public void setActiveWatchIndex(int activeWatchIndex) {
         if (this.activeWatchIndex != activeWatchIndex) {
-            LOGGER.debug("Changing active watch index to {}", activeWatchIndex);
+            LOGGER.debug("Changing active watch index to {}", Integer.valueOf(activeWatchIndex));
             this.activeWatchIndex = activeWatchIndex;
             markDirty();
         }
-    }
-
-    public int getActiveWatchIndex() {
-        return activeWatchIndex;
     }
 
     @Override

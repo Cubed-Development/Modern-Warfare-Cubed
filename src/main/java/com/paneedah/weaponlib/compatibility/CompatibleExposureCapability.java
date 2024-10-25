@@ -5,6 +5,8 @@ import com.paneedah.weaponlib.Exposure;
 import com.paneedah.weaponlib.ModContext;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagByteArray;
@@ -45,6 +47,8 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
 
         Map<Class<?>, Exposure> exposures = new HashMap<>();
         long lastSyncTimestamp;
+        @Setter
+        @Getter
         long lastUpdateTimestamp;
 
         @Override
@@ -62,13 +66,6 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
             this.lastSyncTimestamp = lastSyncTimestamp;
         }
 
-        public long getLastUpdateTimestamp() {
-            return lastUpdateTimestamp;
-        }
-
-        public void setLastUpdateTimestamp(long lastUpdateTimestamp) {
-            this.lastUpdateTimestamp = lastUpdateTimestamp;
-        }
     }
 
     public static class ExposureContainerStorage implements IStorage<ExposureContainer> {

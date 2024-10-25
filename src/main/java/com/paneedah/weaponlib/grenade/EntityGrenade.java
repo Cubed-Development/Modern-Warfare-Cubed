@@ -147,12 +147,12 @@ public class EntityGrenade extends AbstractEntityGrenade {
     private void explode() {
         ProjectConstants.LOGGER.debug("Exploding {}", this);
 
-        Explosion.createServerSideExplosion(world, this.getThrower(), this,
-                this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null,
+        Explosion.createServerSideExplosion(world, getThrower(), this,
+                posX, posY, posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null,
                 modContext.getExplosionSound());
 
         List<?> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this,
-                this.getEntityBoundingBox().expand(5, 5, 5));
+                getEntityBoundingBox().expand(5, 5, 5));
 
         float damageCoefficient = (float) ModernConfigManager.explosionDamage;
         float effectiveRadius = itemGrenade.getEffectiveRadius() * damageCoefficient; // 5 block sphere with this entity as a center
@@ -166,18 +166,18 @@ public class EntityGrenade extends AbstractEntityGrenade {
 
             double d2 = x * x + y * y + z * z;
             if (d2 == 0) {
-                ProjectConstants.LOGGER.debug("Ignoring zero distance index {}", i);
+                ProjectConstants.LOGGER.debug("Ignoring zero distance index {}", Integer.valueOf(i));
                 continue;
             }
             double k = Math.sqrt(effectiveRadius * effectiveRadius / d2);
 
             double k2 = 0.1;
-            final Vector3D cvec1 = new Vector3D(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
+            final Vector3D cvec1 = new Vector3D(posX + x * k2, posY + y * k2, posZ + z * k2);
 
             // Vectors are mutable, need to create a copy to preserve the original
-            final Vector3D cvec10 = new Vector3D(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
+            final Vector3D cvec10 = new Vector3D(posX + x * k2, posY + y * k2, posZ + z * k2);
 
-            Vector3D cvec2 = new Vector3D(this.posX + x * k, this.posY + y * k, this.posZ + z * k);
+            Vector3D cvec2 = new Vector3D(posX + x * k, posY + y * k, posZ + z * k);
 
             BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> block.canCollideCheck(blockMetadata, false);
             RayTraceResult rayTraceResult = MWCUtil.rayTraceBlocks(world, cvec1, cvec2, isCollidable);
@@ -198,21 +198,18 @@ public class EntityGrenade extends AbstractEntityGrenade {
                         double distanceToEntity = cvec10.distanceTo(new Vector3D(movingobjectposition1.hitVec));
                         float damageDistanceReductionFactor = (float) Math.abs(1 - distanceToEntity / effectiveRadius);
 
-                        ProjectConstants.LOGGER.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,
-                                damageDistanceReductionFactor);
+                        ProjectConstants.LOGGER.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, Double.valueOf(distanceToEntity),
+                                Float.valueOf(damageDistanceReductionFactor));
 
                         nearbyEntity.attackEntityFrom(
-                                DamageSource.causeThrownDamage(this, this.getThrower()),
+                                DamageSource.causeThrownDamage(this, getThrower()),
                                 Math.max(0.1f, rand.nextFloat()) * fragmentDamage * damageDistanceReductionFactor);
                     }
                 }
             }
         }
 
-        this.setDead();
+        setDead();
     }
 
-    public ItemGrenade getItemGrenade() {
-        return itemGrenade;
-    }
 }

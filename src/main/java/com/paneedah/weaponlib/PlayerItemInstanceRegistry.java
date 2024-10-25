@@ -140,12 +140,12 @@ public final class PlayerItemInstanceRegistry {
         PlayerItemInstance<?> result = null;
 
         if (itemStack.getItem() instanceof PlayerItemInstanceFactory) {
-            LOGGER.debug("Deserializing instance for slot {} from stack {}", slot, itemStack);
+            LOGGER.debug("Deserializing instance for slot {} from stack {}", Integer.valueOf(slot), itemStack);
             result = Tags.getInstance(itemStack);
-            LOGGER.debug("Deserialized instance {} for slot {} from stack {}", result, slot, itemStack);
+            LOGGER.debug("Deserialized instance {} for slot {} from stack {}", result, Integer.valueOf(slot), itemStack);
 
             if (result == null) {
-                LOGGER.debug("Creating instance for slot {} from stack {}", slot, itemStack);
+                LOGGER.debug("Creating instance for slot {} from stack {}", Integer.valueOf(slot), itemStack);
                 result = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(player, itemStack, slot);
                 result.markClean();
 
@@ -192,7 +192,7 @@ public final class PlayerItemInstanceRegistry {
                     for (int slot = 0; slot < ((EntityPlayer) entityLiving).inventory.getSizeInventory(); slot++) {
                         if (((EntityPlayer) entityLiving).inventory.getStackInSlot(slot) == itemStack) {
                             instance = getItemInstance((EntityPlayer) entityLiving, slot);
-                            LOGGER.debug("Resolved item stack instance {} in slot {}", instance, slot);
+                            LOGGER.debug("Resolved item stack instance {} in slot {}", instance, Integer.valueOf(slot));
                             break;
                         }
                     }
@@ -276,7 +276,7 @@ public final class PlayerItemInstanceRegistry {
             if (itemStackMatchesInstance(slotStack, entry.getValue()))
                 continue;
 
-            LOGGER.debug("Removing {} in slot {} from the item instance registry", entry.getValue(), entry.getIntKey());
+            LOGGER.debug("Removing {} in slot {} from the item instance registry", entry.getValue(), Integer.valueOf(entry.getIntKey()));
             syncManager.unwatch(entry.getValue());
             iterator.remove();
         }

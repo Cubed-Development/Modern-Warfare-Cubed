@@ -3,7 +3,9 @@ package com.paneedah.weaponlib.grenade;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.*;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,13 +25,17 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
         TypeRegistry.getINSTANCE().register(PlayerGrenadeInstance.class);
     }
 
+    @Getter
     private int ammo;
+    @Getter
     private long activationTimestamp;
 
     private final Deque<AsyncGrenadeState> filteredStateQueue = new LinkedBlockingDeque<>();
     private int[] activeAttachmentIds = new int[0];
     private byte[] selectedAttachmentIndexes = new byte[0];
 
+    @Setter
+    @Getter
     private boolean throwingFar;
 
     public PlayerGrenadeInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
@@ -58,7 +64,7 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 
         long expirationTimeout = 500;
 
-        filteredStateQueue.addFirst(new AsyncGrenadeState(state, this.stateUpdateTimestamp, expirationTimeout));
+        filteredStateQueue.addFirst(new AsyncGrenadeState(state, stateUpdateTimestamp, expirationTimeout));
     }
 
     @Override
@@ -74,10 +80,6 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
             result = new AsyncGrenadeState(getState(), stateUpdateTimestamp);
         }
         return result;
-    }
-
-    public int getAmmo() {
-        return ammo;
     }
 
     protected void setAmmo(int ammo) {
@@ -149,10 +151,6 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
         return (ItemGrenade) item;
     }
 
-    public long getActivationTimestamp() {
-        return activationTimestamp;
-    }
-
     void setActivationTimestamp(long activationTimestamp) {
         this.activationTimestamp = activationTimestamp;
     }
@@ -219,11 +217,4 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
         return getWeapon().builder.name + "[" + getUuid() + "]";
     }
 
-    public void setThrowingFar(boolean throwingFar) {
-        this.throwingFar = throwingFar;
-    }
-
-    public boolean isThrowingFar() {
-        return throwingFar;
-    }
 }

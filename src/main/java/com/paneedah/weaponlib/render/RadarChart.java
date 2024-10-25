@@ -17,14 +17,11 @@ public class RadarChart {
 
     private static final double TWO_PI = 2 * Math.PI;
 
-    private final String name;
-
     private String[] titleList;
 
     private final float[] color;
     private final float radius;
 
-    private final int sides;
     private final double increment;
     private final double rotation;
 
@@ -37,7 +34,6 @@ public class RadarChart {
     private double mu = 1.0;
 
     public RadarChart(String name, int chartColor, float chartAlpha, float radius, int sides) {
-        this.name = name;
 
         float r = (float) (((chartColor & 0xFF0000) >> 16) / 255.0);
         float g = (float) (((chartColor & 0xFF00) >> 8) / 255.0);
@@ -46,13 +42,12 @@ public class RadarChart {
         color = new float[]{r, g, b, chartAlpha};
 
         this.radius = radius;
-        this.sides = sides;
         increment = TWO_PI / (double) sides;
         rotation = increment * (1.0 / 4.0);
     }
 
     public RadarChart withTitles(String[] list) {
-        this.titleList = list;
+        titleList = list;
         return this;
     }
 
@@ -64,8 +59,6 @@ public class RadarChart {
             states.removeLast();
         }
 
-        //states.clear();
-        //System.out.println(states.size());
         states.add(set);
     }
 
@@ -85,7 +78,7 @@ public class RadarChart {
             index = (int) Math.floor(angle / increment);
         }
 
-        float value = 0f;
+        float value;
         if (states.size() > 1) {
             float current = states.get(1)[index];
             float previous = states.peek()[index];
@@ -211,7 +204,7 @@ public class RadarChart {
 
 
             double angle = a - rotation;
-            double textCenter = MC.fontRenderer.getStringWidth(text) / 2;
+            double textCenter = (double) MC.fontRenderer.getStringWidth(text) / 2;
             double centerHeight = MC.fontRenderer.FONT_HEIGHT / 2.0;
             MC.fontRenderer.drawStringWithShadow(text, (float) (Math.cos(angle) * textRadius + x - textCenter), (float) (Math.sin(angle) * textRadius + y - centerHeight), 0xffffff);
         }

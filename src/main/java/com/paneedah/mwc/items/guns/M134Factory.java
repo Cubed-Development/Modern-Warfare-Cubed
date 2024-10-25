@@ -37,9 +37,9 @@ public class M134Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.7f)
-                .withFlashOffsetX(() -> 0.18f)
-                .withFlashOffsetY(() -> 0.2f)
+                .withFlashScale(() -> Float.valueOf(0.7f))
+                .withFlashOffsetX(() -> Float.valueOf(0.18f))
+                .withFlashOffsetY(() -> Float.valueOf(0.2f))
                 .withShellCasingForwardOffset(-0.02f)
                 .withShellCasingVerticalOffset(-0.05f)
                 .withBleedingCoefficient(7f)
@@ -52,13 +52,9 @@ public class M134Factory implements GunFactory {
                         2f) // z
 
                 .withCompatibleAttachment(Magazines.M134Mag, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.5F, -1.25F);
-//            GL11.glScaled(1.15F, 1.2F, 1.15F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M134Barrels, true, (model) -> {
                     GL11.glTranslatef(0F, 0F, 2.4F);
-//            GL11.glTranslatef(0.4F, 0.4F, 0F);
-//            GL11.glRotatef(90F, 0f, 0f, 1);
                 })
                 .withTextureNames("gun")
                 .withRenderer(new WeaponRenderer.Builder()
@@ -243,15 +239,10 @@ public class M134Factory implements GunFactory {
                                 }, 250, 1000),
                                 new Transition((renderContext) -> {
                                     GL11.glTranslatef(-0.01F, 0F, 0F);
-//                      GL11.glRotatef(0F, 0f, 1f, 0f);
-//                      GL11.glScaled(0.55F, 0.55F, 0.55F);
-//                      GL11.glTranslatef(-0.4F, -0.8F, 0.9F);
                                 }, 250, 1000),
                                 new Transition((renderContext) -> {
                                     GL11.glTranslatef(0.3F, 1.7F, 0.1F);
                                     GL11.glRotatef(-30F, 0f, 0f, 1f);
-//                  GL11.glScaled(0.55F, 0.55F, 0.55F);
-                                    //GL11.glTranslatef(-0.4F, -0.8F, 0.9F);
                                 }, 250, 1000)
                         )
 
@@ -431,13 +422,8 @@ public class M134Factory implements GunFactory {
                             GL11.glTranslatef(-0.400000f, 1.150000f, -0.849999f);
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                //System.out.println("Position me for Acog");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider);//System.out.println("Position me for Acog");
+// Everything else
 
 
                         })
@@ -450,13 +436,8 @@ public class M134Factory implements GunFactory {
                             GL11.glTranslatef(-0.400000f, 1.150000f, -0.749999f);
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                //System.out.println("Position me for Acog");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider);//System.out.println("Position me for Acog");
+// Everything else
 
 
                         })

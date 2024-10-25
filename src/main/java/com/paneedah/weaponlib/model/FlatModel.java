@@ -23,25 +23,6 @@ public class FlatModel extends ModelBase {
 
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 
-		
-	
-		
-		/*
-		GlStateManager.enableTexture2D();
-		
-		Tessellator t = Tessellator.getInstance();
-		BufferBuilder bb = t.getBuffer();
-		bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
-		
-		bb.pos(-1, -1, 0).tex(0, 0).endVertex();
-		bb.pos(1, -1, 0).tex(1, 0).endVertex();
-		bb.pos(1, 1, 0).tex(0, 1).endVertex();
-		bb.pos(-1, 1, 0).tex(1, 1).endVertex();
-		
-		
-		t.draw();
-		*/
-
 
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);

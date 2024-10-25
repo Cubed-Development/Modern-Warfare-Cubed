@@ -149,8 +149,8 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
 
             double f = 0.4 + Math.sin(Math.PI * (1 - (double) timeRemaining / activeDuration)) * 0.3;
             if (rand.nextDouble() <= f) {
-                for (Object o : world.playerEntities) {
-                    EntityPlayer player = (EntityPlayer) o;
+                for (EntityPlayer o : world.playerEntities) {
+                    EntityPlayer player = o;
                     if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
                         ParticleType particleType = ParticleType.SMOKE_GRENADE_SMOKE;
                         double movement = bounceCount > 0 ? 0.1 : 0.005;

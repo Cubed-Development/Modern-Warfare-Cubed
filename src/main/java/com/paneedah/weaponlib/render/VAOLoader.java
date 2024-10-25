@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.render;
 
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
+import com.paneedah.weaponlib.render.bgl.ModernUtil;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
@@ -65,12 +66,7 @@ public class VAOLoader {
     }
 
     public void addInstancedAttribute(int vao, int vbo, int attribute, int dataSize, int instancedDataLength, int offset) {
-        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vbo);
-        GLCompatible.glBindVertexArray(vao);
-        GL20.glVertexAttribPointer(attribute, dataSize, GL11.GL_FLOAT, false, instancedDataLength * 4, offset * 4L);
-        GLCompatible.glVertexAttribDivisor(attribute, 1);
-        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
-        GLCompatible.glBindVertexArray(0);
+        ModernUtil.addInstancedAttribute(vao, vbo, attribute, dataSize, instancedDataLength, offset);
     }
 
 }

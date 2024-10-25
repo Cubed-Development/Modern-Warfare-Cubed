@@ -41,9 +41,9 @@ public class M249Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -123,8 +123,6 @@ public class M249Factory {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M249Hatch, true, (model) -> {
                     if (model instanceof M249Hatch) {
-//            	GL11.glTranslatef(-0F, 2.45F, 3.8F);
-//                GL11.glRotatef(90F, 1f, 0f, 0f);
                     } else if (model instanceof M249RearSight) {
                         GL11.glTranslatef(-0.13f, -1.63f, 0.5f);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -134,14 +132,7 @@ public class M249Factory {
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M249Belt, true, (model) -> {
-//        	GL11.glTranslatef(0.15F, 0.35F, 0F);
-//            GL11.glRotatef(45F, 0f, 0f, 1f);
 
-//        	GL11.glTranslatef(0.2F, -0.25F, 0F);
-//            GL11.glRotatef(50F, 0f, 0f, 1f);
-
-//        	GL11.glTranslatef(0.05F, -0.15F, 0F);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Magazines.M249Mag, (model) -> {
 //            GL11.glTranslatef(0.4F, 0F, 0F);

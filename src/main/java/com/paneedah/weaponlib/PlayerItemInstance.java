@@ -47,7 +47,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     public PlayerItemInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
         this.itemInventoryIndex = itemInventoryIndex;
         this.player = player;
-        this.item = itemStack.getItem();
+        item = itemStack.getItem();
     }
 
     public ItemStack getItemStack() {
@@ -134,19 +134,19 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     public <E extends ExtendedState<S>> void prepareTransaction(E preparedExtendedState) {
 
         setState(preparedExtendedState.getState());
-        this.preparedState = (PlayerItemInstance<S>) preparedExtendedState;
+        preparedState = (PlayerItemInstance<S>) preparedExtendedState;
     }
 
     public void completeMagSwap() {
-        this.compoundMagSwapCompleted = true;
+        compoundMagSwapCompleted = true;
     }
 
     public void markMagSwapReady() {
-        this.compoundMagSwapCompleted = false;
+        compoundMagSwapCompleted = false;
     }
 
     public boolean isMagSwapDone() {
-        return this.compoundMagSwapCompleted;
+        return compoundMagSwapCompleted;
     }
 
     public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
@@ -158,19 +158,4 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         // Meant to be used to reconcile instances between server and client
     }
 
-//    public View<?> createView() {
-//        return null;
-//    }
-
-//	public void addListener(PlayerItemStateListener<S> listener) {
-//		listeners.add(listener);
-//	}
-//
-//	public void removeListener(PlayerItemStateListener<S> listener) {
-//		listeners.remove(listener);
-//	}
-//
-//	protected void notifyListeners() {
-//		listeners.forEach(l -> l.stateChanged(this));
-//	}
 }

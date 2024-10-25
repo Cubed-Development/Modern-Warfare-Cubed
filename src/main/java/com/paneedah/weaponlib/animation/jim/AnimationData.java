@@ -12,6 +12,8 @@ import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.EulerAngle;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.Format;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
@@ -22,10 +24,14 @@ import java.util.Map.Entry;
 
 public class AnimationData {
 
+    @Getter
+    @Setter
     public TreeMap<Float, BlockbenchTransition> bbTransition = new TreeMap<>();
 
     public static final float PACE = 833f;
 
+    @Getter
+    @Setter
     public ArrayList<Float> timestamps = new ArrayList<>();
 
     public TreeMap<Float, Vec3d> rotationKeyframes = new TreeMap<>();
@@ -37,21 +43,15 @@ public class AnimationData {
 
 
     // The **ACTUAL** duration of the animation as designated in the BlockBench file
+    @Getter
+    @Setter
     private float appointedDuration;
 
 
     protected AnimationData(ArrayList<Float> arrayList) {
-        this.isNull = true;
-        this.fakeTransitions = arrayList.size();
-        this.fTLength = (long) (arrayList.get(arrayList.size() - 1) / arrayList.size());
-    }
-
-    public void setAppointedDuration(float f) {
-        this.appointedDuration = f;
-    }
-
-    public float getAppointedDuration() {
-        return this.appointedDuration;
+        isNull = true;
+        fakeTransitions = arrayList.size();
+        fTLength = (long) (arrayList.get(arrayList.size() - 1).floatValue() / arrayList.size());
     }
 
     public AnimationData(JsonObject obj) {
@@ -69,18 +69,18 @@ public class AnimationData {
                 JsonArray ar = i.getValue().getAsJsonArray();
                 float time = Float.parseFloat(i.getKey());
                 Vec3d rotationVector = new Vec3d(ar.get(0).getAsDouble(), ar.get(1).getAsDouble(), ar.get(2).getAsDouble());
-                if (!timestamps.contains(time)) {
-                    timestamps.add(time);
+                if (!timestamps.contains(Float.valueOf(time))) {
+                    timestamps.add(Float.valueOf(time));
                 }
-                rotationKeyframes.put(time, rotationVector);
+                rotationKeyframes.put(Float.valueOf(time), rotationVector);
             }
         } else if (!obj.has("rotation")) {
-            rotationKeyframes.put(0f, Vec3d.ZERO);
+            rotationKeyframes.put(Float.valueOf(0f), Vec3d.ZERO);
         } else if (!obj.get("rotation").isJsonObject()) {
             JsonArray ar = obj.get("rotation").getAsJsonArray();
             Vec3d translationVector = new Vec3d(ar.get(0).getAsDouble(), ar.get(1).getAsDouble(),
                     ar.get(2).getAsDouble());
-            rotationKeyframes.put(0f, translationVector);
+            rotationKeyframes.put(Float.valueOf(0f), translationVector);
         }
 
 
@@ -92,21 +92,21 @@ public class AnimationData {
                 float time = Float.parseFloat(i.getKey());
                 Vec3d translationVector = new Vec3d(ar.get(0).getAsDouble(), ar.get(1).getAsDouble(),
                         ar.get(2).getAsDouble());
-                if (!timestamps.contains(time)) {
-                    timestamps.add(time);
+                if (!timestamps.contains(Float.valueOf(time))) {
+                    timestamps.add(Float.valueOf(time));
                 }
-                translateKeyframes.put(time, translationVector);
+                translateKeyframes.put(Float.valueOf(time), translationVector);
             }
         } else if (!obj.has("position")) {
 
-            translateKeyframes.put(0f, Vec3d.ZERO);
+            translateKeyframes.put(Float.valueOf(0f), Vec3d.ZERO);
 
         } else if (!obj.get("position").isJsonObject()) {
 
             JsonArray ar = obj.get("position").getAsJsonArray();
             Vec3d translationVector = new Vec3d(ar.get(0).getAsDouble(), ar.get(1).getAsDouble(),
                     ar.get(2).getAsDouble());
-            translateKeyframes.put(0f, translationVector);
+            translateKeyframes.put(Float.valueOf(0f), translationVector);
         }
 
 
@@ -118,15 +118,15 @@ public class AnimationData {
 
         // bake
         for (int i = 0; i < timestamps.size(); ++i) {
-            float f = timestamps.get(i);
+            float f = timestamps.get(i).floatValue();
             Vec3d rotationKey = null;
             Vec3d translationKey = null;
 
 
-            float timeDelta = 0;
+            float timeDelta;
             if (i != 0) {
 
-                timeDelta = (f - timestamps.get(i - 1)) * PACE;
+                timeDelta = (f - timestamps.get(i - 1).floatValue()) * PACE;
                 // System.out.println("Delta for " + f + ": " +timeDelta);
             } else {
                 //System.out.println("yo bo");
@@ -137,7 +137,7 @@ public class AnimationData {
 
             // timeDelta = 210f;
             try {
-                if (!rotationKeyframes.containsKey(f)) {
+                if (!rotationKeyframes.containsKey(Float.valueOf(f))) {
 
                     /*
                      * if(rotationKeyframes.ceilingKey(f) == null) { // The other keyframes extend
@@ -155,12 +155,12 @@ public class AnimationData {
                      * alpha); }
                      */
                     rotationKey = buildRotationKeyframe(rotationKeyframes, f);
-                    rotationKeyframes.put(f, rotationKey);
+                    rotationKeyframes.put(Float.valueOf(f), rotationKey);
                 } else {
-                    rotationKey = rotationKeyframes.get(f);
+                    rotationKey = rotationKeyframes.get(Float.valueOf(f));
                 }
 
-                if (!translateKeyframes.containsKey(f)) {
+                if (!translateKeyframes.containsKey(Float.valueOf(f))) {
 
                     /*
                      * if(translateKeyframes.ceilingKey(f) == null) { // The other keyframes extend
@@ -182,27 +182,24 @@ public class AnimationData {
 
 
                     translationKey = buildKeyframe(translateKeyframes, f);
-                    translateKeyframes.put(f, translationKey);
+                    translateKeyframes.put(Float.valueOf(f), translationKey);
                 } else {
 
-                    translationKey = translateKeyframes.get(f);
+                    translationKey = translateKeyframes.get(Float.valueOf(f));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            // System.out.println(f + " | " + new BlockbenchTransition(timeDelta,
-            // rotationKey, translationKey));
 
-
-            this.bbTransition.put(f, new BlockbenchTransition(timeDelta, rotationKey, translationKey));
+            bbTransition.put(Float.valueOf(f), new BlockbenchTransition(timeDelta, rotationKey, translationKey));
 
         }
 
     }
 
     public void setSounds(HashMap<Float, String> map, ArrayList<Float> overflowList) {
-        for (Entry<Float, BlockbenchTransition> set : this.bbTransition.entrySet()) {
+        for (Entry<Float, BlockbenchTransition> set : bbTransition.entrySet()) {
             if (map.containsKey(set.getKey())) {
                 overflowList.remove(set.getKey());
                 set.getValue().setSound(UniversalSoundLookup.lookupSound(map.get(set.getKey())));
@@ -213,11 +210,11 @@ public class AnimationData {
     public float getDelta(TreeMap<Float, Vec3d> map, float f) {
 
 
-        if (map.floorKey(f) != null) {
-            return (f - map.floorKey(f)) * PACE;
-        } else if (map.ceilingKey(f) != null) {
+        if (map.floorKey(Float.valueOf(f)) != null) {
+            return (f - map.floorKey(Float.valueOf(f)).floatValue()) * PACE;
+        } else if (map.ceilingKey(Float.valueOf(f)) != null) {
             //System.out.println("CALLED FOR DELTA!");
-            return (f - map.ceilingKey(f)) * PACE;
+            return (f - map.ceilingKey(Float.valueOf(f)).floatValue()) * PACE;
             //return 2456;
         } else {
 
@@ -232,38 +229,29 @@ public class AnimationData {
         if (keyList.isEmpty()) {
             return Vec3d.ZERO;
         }
-        if (keyList.ceilingKey(timestamp) == null) {
+        if (keyList.ceilingKey(Float.valueOf(timestamp)) == null) {
             // There is no keyframe ahead, so there's nothing to interpolate
             // between. Just grab the last keyframe and use that.
 
-            return keyList.get(keyList.floorKey(timestamp));
-        } else if (keyList.floorKey(timestamp) == null) {
+            return keyList.get(keyList.floorKey(Float.valueOf(timestamp)));
+        } else if (keyList.floorKey(Float.valueOf(timestamp)) == null) {
             // There is no keyframe before this. Just grab the next one and use
             // that.
 
 
-            return keyList.get(keyList.ceilingKey(timestamp));
+            return keyList.get(keyList.ceilingKey(Float.valueOf(timestamp)));
         } else {
             // Otherwise just interpolate a new one
 
-            float fromDelta = keyList.floorKey(timestamp);
-            float toDeltaDelta = keyList.ceilingKey(timestamp);
+            float fromDelta = keyList.floorKey(Float.valueOf(timestamp)).floatValue();
+            float toDeltaDelta = keyList.ceilingKey(Float.valueOf(timestamp)).floatValue();
             float alpha = (timestamp - fromDelta) / (toDeltaDelta - fromDelta);
 
-            Vec3d beforeKey = keyList.floorEntry(timestamp).getValue();
-            Vec3d afterKey = keyList.ceilingEntry(timestamp).getValue();
+            Vec3d beforeKey = keyList.floorEntry(Float.valueOf(timestamp)).getValue();
+            Vec3d afterKey = keyList.ceilingEntry(Float.valueOf(timestamp)).getValue();
             if (afterKey == null) {
                 afterKey = beforeKey;
             }
-					
-					/*
-					Quaternion q1 = MatrixHelper.fromEulerAngles(Math.toRadians(beforeKey.z), Math.toRadians(beforeKey.x), Math.toRadians(beforeKey.y));
-					Quaternion q2 = MatrixHelper.fromEulerAngles(Math.toRadians(afterKey.z), Math.toRadians(afterKey.x), Math.toRadians(afterKey.y));
-					// roll pitch yaw
-					double[] result = MatrixHelper.toEulerAngles(MatrixHelper.slerp(q1, q2, alpha));
-					System.out.println("TEST: " + Arrays.toString(result));
-					//return new Vec3d(Math.toDegrees(result[1]), Math.toDegrees(result[2]), Math.toDegrees(result[0]));
-					*/
 
             EulerAngle beforeAngle = new EulerAngle(Format.DEGREES, beforeKey.x, beforeKey.y, beforeKey.z);
             EulerAngle afterAngle = new EulerAngle(Format.DEGREES, afterKey.x, afterKey.y, afterKey.z);
@@ -282,26 +270,26 @@ public class AnimationData {
         if (keyList.isEmpty()) {
             return Vec3d.ZERO;
         }
-        if (keyList.ceilingKey(timestamp) == null) {
+        if (keyList.ceilingKey(Float.valueOf(timestamp)) == null) {
             // There is no keyframe ahead, so there's nothing to interpolate
             // between. Just grab the last keyframe and use that.
 
-            return keyList.get(keyList.floorKey(timestamp));
-        } else if (keyList.floorKey(timestamp) == null) {
+            return keyList.get(keyList.floorKey(Float.valueOf(timestamp)));
+        } else if (keyList.floorKey(Float.valueOf(timestamp)) == null) {
             // There is no keyframe before this. Just grab the next one and use
             // that.
 
 
-            return keyList.get(keyList.ceilingKey(timestamp));
+            return keyList.get(keyList.ceilingKey(Float.valueOf(timestamp)));
         } else {
             // Otherwise just interpolate a new one
 
-            float fromDelta = keyList.floorKey(timestamp);
-            float toDeltaDelta = keyList.ceilingKey(timestamp);
+            float fromDelta = keyList.floorKey(Float.valueOf(timestamp)).floatValue();
+            float toDeltaDelta = keyList.ceilingKey(Float.valueOf(timestamp)).floatValue();
             float alpha = (timestamp - fromDelta) / (toDeltaDelta - fromDelta);
 
-            Vec3d beforeKey = keyList.floorEntry(timestamp).getValue();
-            Vec3d afterKey = keyList.ceilingEntry(timestamp).getValue();
+            Vec3d beforeKey = keyList.floorEntry(Float.valueOf(timestamp)).getValue();
+            Vec3d afterKey = keyList.ceilingEntry(Float.valueOf(timestamp)).getValue();
             if (afterKey == null) {
                 afterKey = beforeKey;
             }
@@ -320,12 +308,12 @@ public class AnimationData {
 
 
         // Put keyframes in list (for debugging and testing)
-        rotationKeyframes.put(timeStamp, rotation);
-        translateKeyframes.put(timeStamp, translation);
+        rotationKeyframes.put(Float.valueOf(timeStamp), rotation);
+        translateKeyframes.put(Float.valueOf(timeStamp), translation);
 
 
         // Build a new BlockBench transition
-        getBbTransition().put(timeStamp, new BlockbenchTransition(timeDelta, rotation, translation));
+        getBbTransition().put(Float.valueOf(timeStamp), new BlockbenchTransition(timeDelta, rotation, translation));
 
 
     }
@@ -343,7 +331,7 @@ public class AnimationData {
     public List<Transition<RenderContext<RenderableState>>> getTransitionList() {
 
         List<Transition<RenderContext<RenderableState>>> transitionList = new ArrayList<>();
-        for (Entry<Float, BlockbenchTransition> bb : this.bbTransition.entrySet()) {
+        for (Entry<Float, BlockbenchTransition> bb : bbTransition.entrySet()) {
             transitionList.add((Transition<RenderContext<RenderableState>>) bb.getValue().createVMWTransition());
         }
         return transitionList;
@@ -371,11 +359,6 @@ public class AnimationData {
      * Allows for ADS reloads, quite a simple set of logic instructions, basically it'll provide transitions
      * depending on if the player is aiming, quite nice!
      *
-     * @param normal
-     * @param ads
-     * @param divisor
-     *
-     * @return
      */
     public List<Transition<RenderContext<RenderableState>>> getTransitionListDual(Transform normal, Transform ads, double divisor) {
         List<Transition<RenderContext<RenderableState>>> transitionList = new ArrayList<>();
@@ -383,14 +366,14 @@ public class AnimationData {
 
         if (!isNull) {
 
-            for (Entry<Float, BlockbenchTransition> bb : this.bbTransition.entrySet()) {
+            for (Entry<Float, BlockbenchTransition> bb : bbTransition.entrySet()) {
                 transitionList.add((Transition<RenderContext<RenderableState>>) bb.getValue().createVMWTransitionWithADS(normal, ads, divisor));
             }
         } else {
 
-            for (int i = 0; i < this.fakeTransitions; ++i) {
+            for (int i = 0; i < fakeTransitions; ++i) {
                 transitionList.add(new Transition<>(normal.getAsPosition()
-                        , this.fTLength));
+                        , fTLength));
             }
         }
 
@@ -410,24 +393,11 @@ public class AnimationData {
 
     public List<Transition<RenderContext<RenderableState>>> getTransitionList(Transform initial, double divisor, boolean applySwap) {
         List<Transition<RenderContext<RenderableState>>> transitionList = new ArrayList<>();
-		
-		
-		
-		/*
-		transitionList.add((Transition<RenderContext<RenderableState>>) 
-				
-				new Transition<>(new Transform()
-            			.withScale(3, 3, 3)
-            			.withPosition(-0.3f, 4.75f, -2f)
-            			.withRotation(-10, 0, 0)
-            			.getAsPosition(), 10)
-            			);
-            			*/
 
 
         if (!isNull) {
             int count = 0;
-            for (Entry<Float, BlockbenchTransition> bb : this.bbTransition.entrySet()) {
+            for (Entry<Float, BlockbenchTransition> bb : bbTransition.entrySet()) {
                 Transition<RenderContext<RenderableState>> transition = (Transition<RenderContext<RenderableState>>) bb.getValue().createVMWTransition(initial, divisor);
                 if (count == 0) {
                     transition.setDuration(100);
@@ -437,9 +407,9 @@ public class AnimationData {
             }
         } else {
 
-            for (int i = 0; i < this.fakeTransitions; ++i) {
+            for (int i = 0; i < fakeTransitions; ++i) {
                 transitionList.add(new Transition<>(initial.getAsPosition()
-                        , this.fTLength));
+                        , fTLength));
             }
         }
 
@@ -453,19 +423,19 @@ public class AnimationData {
 
 
         //System.out.println("yo");
-		
-		/*
-		System.out.println("---End--");
-		System.out.println("Exporting transition list... " + transitionList.size());
-		*/
+
         return transitionList;
 
     }
 
+    @Setter
     public static class BlockbenchTransition {
 
+        @Getter
         private float timestamp;
+        @Getter
         private Vec3d rotation;
+        @Getter
         private Vec3d translation;
         private SoundEvent sound;
 
@@ -473,10 +443,6 @@ public class AnimationData {
             this.timestamp = timestamp;
             this.rotation = rotation;
             this.translation = translation;
-        }
-
-        public void setSound(SoundEvent sound) {
-            this.sound = sound;
         }
 
         public void directTransform() {
@@ -521,9 +487,6 @@ public class AnimationData {
                  */
 
 
-                Transform t = normal;
-
-
                 double rotXMult = 1.0;
                 double rotYMult = 1.0;
                 double rotZMult = 1.0;
@@ -534,7 +497,7 @@ public class AnimationData {
                     rotZMult = 0.5;
                 }
 
-                double tesla = 0;
+                double tesla;
                 if (divisor == 12.6) {
 
                     tesla = BBLoader.HANDDIVISOR;
@@ -548,26 +511,26 @@ public class AnimationData {
                 double mul = 1 / tesla;
 
                 // Original object positioning
-                GlStateManager.translate(t.getPositionX(), t.getPositionY(), t.getPositionZ());
+                GlStateManager.translate(normal.getPositionX(), normal.getPositionY(), normal.getPositionZ());
 
                 // Animation translation
                 GL11.glTranslated(translation.x * mul, -translation.y * mul, translation.z * mul);
 
                 // Offset rotation point
-                GlStateManager.translate(t.getRotationPointX(), t.getRotationPointY(), t.getRotationPointZ());
+                GlStateManager.translate(normal.getRotationPointX(), normal.getRotationPointY(), normal.getRotationPointZ());
 
                 // Original object rotation (+Z, -Y, -X)
-                GL11.glRotated(t.getRotationZ(), 0, 0, 1);
+                GL11.glRotated(normal.getRotationZ(), 0, 0, 1);
                 GL11.glRotated(rotation.z * rotZMult, 0, 0, 1);
 
-                GL11.glRotated(t.getRotationY(), 0, 1, 0);
+                GL11.glRotated(normal.getRotationY(), 0, 1, 0);
                 GL11.glRotated(rotation.y * rotYMult, 0, 1, 0);
 
-                GL11.glRotated(t.getRotationX(), 1, 0, 0);
+                GL11.glRotated(normal.getRotationX(), 1, 0, 0);
                 GL11.glRotated(rotation.x * rotXMult, 1, 0, 0);
 
-                GlStateManager.translate(-t.getRotationPointX(), -t.getRotationPointY(), -t.getRotationPointZ());
-                GlStateManager.scale(t.getScaleX(), t.getScaleY(), t.getScaleZ());
+                GlStateManager.translate(-normal.getRotationPointX(), -normal.getRotationPointY(), -normal.getRotationPointZ());
+                GlStateManager.scale(normal.getScaleX(), normal.getScaleY(), normal.getScaleZ());
 
 
             }, (int) timestamp);
@@ -598,15 +561,8 @@ public class AnimationData {
                 double rotXMult = 1.0;
                 double rotYMult = 1.0;
                 double rotZMult = 1.0;
-				
-				/*
-				if(ClientModContext.getContext().getMainHeldWeapon().isAimed()) {
-					rotXMult = 0.1;
-					rotYMult = 0.1;
-					rotZMult = 0.5;
-				}*/
 
-                double tesla = 0;
+                double tesla;
                 if (divisor == 12.6) {
 
                     tesla = BBLoader.HANDDIVISOR;
@@ -677,49 +633,9 @@ public class AnimationData {
 
         @Override
         public String toString() {
-            return "[(" + this.timestamp + ") " + this.rotation + " > " + this.translation + "]";
+            return "[(" + timestamp + ") " + rotation + " > " + translation + "]";
         }
 
-        public float getTimestamp() {
-            return timestamp;
-        }
-
-        public void setTimestamp(float timestamp) {
-            this.timestamp = timestamp;
-        }
-
-        public Vec3d getRotation() {
-            return rotation;
-        }
-
-        public void setRotation(Vec3d rotation) {
-            this.rotation = rotation;
-        }
-
-        public Vec3d getTranslation() {
-            return translation;
-        }
-
-        public void setTranslation(Vec3d translation) {
-            this.translation = translation;
-        }
-
-    }
-
-    public TreeMap<Float, BlockbenchTransition> getBbTransition() {
-        return bbTransition;
-    }
-
-    public void setBbTransition(TreeMap<Float, BlockbenchTransition> bbTransition) {
-        this.bbTransition = bbTransition;
-    }
-
-    public ArrayList<Float> getTimestamps() {
-        return timestamps;
-    }
-
-    public void setTimestamps(ArrayList<Float> timestamps) {
-        this.timestamps = timestamps;
     }
 
 }

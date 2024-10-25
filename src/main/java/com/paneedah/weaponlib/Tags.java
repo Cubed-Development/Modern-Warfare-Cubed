@@ -68,7 +68,7 @@ public final class Tags {
         }
 
         byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG);
-        if (bytes != null && bytes.length > 0) {
+        if (bytes.length > 0) {
             return TypeRegistry.getINSTANCE().fromBytes(Unpooled.wrappedBuffer(bytes));
         }
         return null;
@@ -80,7 +80,7 @@ public final class Tags {
         }
 
         byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG);
-        if (bytes != null && bytes.length > 0) {
+        if (bytes.length > 0) {
             try {
                 return targetClass.cast(TypeRegistry.getINSTANCE().fromBytes(Unpooled.wrappedBuffer(bytes)));
             } catch (RuntimeException e) {

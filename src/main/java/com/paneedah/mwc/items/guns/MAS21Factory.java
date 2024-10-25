@@ -36,9 +36,9 @@ public class MAS21Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.13f))
+                .withFlashOffsetY(() -> Float.valueOf(0.14f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -68,9 +68,6 @@ public class MAS21Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MAS21Barrel, true, (model) -> {
-//        	GL11.glTranslatef(0f, 0f, 0.8f);
-//            GL11.glTranslatef(-0.00F, -0F, 0.1F);
-//            GL11.glRotatef(360F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MAS21Part, true, (model) -> {
 //            GL11.glTranslatef(0F, 0F, 0.28F);
@@ -97,8 +94,6 @@ public class MAS21Factory implements GunFactory {
                     GL11.glScaled(1.3F, 1.3F, 1.3F);
                 })
                 .withCompatibleAttachment(Attachments.MAS21Mount, (p, s) -> {
-//            GL11.glTranslatef(-0.23f, -0.53f, -1.9f);
-//            GL11.glScaled(0.7F, 0.6F, 0.7F);
                 })
                 .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
                     GL11.glTranslatef(-0.5F, -0.6F, -1.4F);
@@ -151,11 +146,6 @@ public class MAS21Factory implements GunFactory {
                             GL11.glRotatef(10F, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.150000f, 0.645000f, -1.225000f);
 
-//	                GL11.glScaled(2F, 2F, 2F);
-//	                GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
-//	                GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-//	                GL11.glRotatef(70.000000f, 0f, 0f, 1f);
-//	                GL11.glTranslatef(0.400000f, 1.075000f, -0.625000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -168,14 +158,10 @@ public class MAS21Factory implements GunFactory {
 
                         .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MAS21Slide.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, 0.37F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
                         .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.MAS21Slide.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, 0.37F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.MAS21Slide.getRenderablePart(), (renderContext) -> {
@@ -185,8 +171,6 @@ public class MAS21Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(Magazines.M9A1Mag, (renderContext) -> {
-//          	 GL11.glTranslatef(0.1f, 1f, 0.2f);
-//          	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                         })
 
                         .withFirstPersonPositioningReloading(
@@ -513,91 +497,46 @@ public class MAS21Factory implements GunFactory {
                                 // gun turns to the side
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 200, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // Part moves back
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 80, 0),
 
                                 // Barrel moves back
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 200, 0),
 
                                 // barrel twists 180
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 200, 0),
 
                                 // barrel twists another 180
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 200, 0),
 
                                 // Part moves forward
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 80, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 90, 0)
                         )
 
@@ -687,91 +626,46 @@ public class MAS21Factory implements GunFactory {
 // gun turns to the side
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 200, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // Part moves back
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // Barrel moves back
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 80, 0),
 
                                 // barrel twists 180
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 70, 0),
 
                                 // barrel twists another 180
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 70, 0),
 
                                 // Part moves forward
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 90, 0)
                         )
 
@@ -861,91 +755,46 @@ public class MAS21Factory implements GunFactory {
 // gun turns to the side
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 200, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // Part moves back
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // Barrel moves back
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 80, 0),
 
                                 // barrel twists 180
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 70, 0),
 
                                 // barrel twists another 180
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 70, 0),
 
                                 // Part moves forward
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 90, 0)
                         )
 
@@ -1039,91 +888,46 @@ public class MAS21Factory implements GunFactory {
 // gun turns to the side
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 200, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // Part moves back
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // Barrel moves back
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 80, 0),
 
                                 // barrel twists 180
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 70, 0),
 
                                 // barrel twists another 180
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 70, 0),
 
                                 // Part moves forward
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 60, 0),
 
                                 // jiggle
 
                                 new Transition((renderContext) -> { // Reload position
-//	                   	 GL11.glScaled(2F, 2F, 2F);
-//	                   	 GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
-//	                   	 GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//	                   	 GL11.glRotatef(-8.000000f, 0f, 0f, 1f);
-//	                   	 GL11.glTranslatef(-0.875000f, 0.825000f, -1.624999f);
                                 }, 90, 0)
                         )
 
@@ -1365,8 +1169,6 @@ public class MAS21Factory implements GunFactory {
                                 // Part moves forward
 
                                 new Transition((renderContext) -> { // Reload position
-//                    	GL11.glTranslatef(-0.00F, -0F, 0.1F);
-//                        GL11.glRotatef(360F, 0f, 0f, 1f);
                                 }, 60, 0),
 
                                 // jiggle
@@ -2178,9 +1980,8 @@ public class MAS21Factory implements GunFactory {
                                     GL11.glTranslatef(-0.075000f, -0.800000f, 0.075000f);
                                 },
                                 (renderContext) -> {
-                                    RenderContext<?> rc = renderContext;
                                     ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                            AttachmentCategory.SCOPE, rc.getWeaponInstance());
+                                            AttachmentCategory.SCOPE, renderContext.getWeaponInstance());
                                     if (activeAttachment == Attachments.RMR) {
                                         GL11.glScalef(4f, 4f, 4f);
                                         GL11.glRotatef(-100.000000f, 1f, 0f, 0f);

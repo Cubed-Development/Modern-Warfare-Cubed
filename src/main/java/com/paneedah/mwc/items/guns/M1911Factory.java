@@ -38,9 +38,9 @@ public class M1911Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.12f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.13f))
+                .withFlashOffsetY(() -> Float.valueOf(0.12f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -59,12 +59,8 @@ public class M1911Factory implements GunFactory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.M1911Body, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.M191144MagBody, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.M1911Slide, true, (model) -> {
                     if (model instanceof M1911Slide) {
@@ -127,10 +123,6 @@ public class M1911Factory implements GunFactory {
                         })
 
                         .withFirstPersonPositioning((renderContext) -> {
-//                    GL11.glScaled(2F, 2F, 2F);
-//                    GL11.glRotatef(45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(10F, 0f, 0f, 1f);
-//                    GL11.glTranslatef(-0.200000f, 0.70000f, -2.1f);
 
                             GL11.glScaled(2F, 2F, 2F);
                             GL11.glRotatef(45F, 0f, 1f, 0f);
@@ -139,11 +131,6 @@ public class M1911Factory implements GunFactory {
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
-//                    GL11.glScaled(2F, 2F, 2F);
-//                    GL11.glRotatef(45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(10F, 0f, 0f, 1f);
-//                    GL11.glTranslatef(-0.200000f, 0.730000f, -1.6f);
-//                    GL11.glRotatef(-7F, 1f, 0f, 0f);
 
                             GL11.glScaled(2F, 2F, 2F);
                             GL11.glRotatef(45F, 0f, 1f, 0f);
@@ -154,14 +141,10 @@ public class M1911Factory implements GunFactory {
 
                         .withFirstPersonPositioningCustomRecoiled(Attachments.M1911Slide.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
                         .withFirstPersonPositioningCustomZoomingRecoiled(Attachments.M1911Slide.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
 
@@ -173,14 +156,10 @@ public class M1911Factory implements GunFactory {
 
                         .withFirstPersonPositioningCustomRecoiled(Attachments.M191144MagSlide.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
                         .withFirstPersonPositioningCustomZoomingRecoiled(Attachments.M191144MagSlide.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                         })
 
 
@@ -964,11 +943,6 @@ public class M1911Factory implements GunFactory {
 
                         .withFirstPersonHandPositioning(
                                 (renderContext) -> {
-//                             GL11.glScalef(4.500000f, 4.500000f, 4.500000f);
-//                             GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                             GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-//                             GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-//                             GL11.glTranslatef(0.050000f, -0.025000f, 0.475000f);
 
                                     GL11.glScalef(4f, 4f, 4f);
                                     GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
@@ -977,11 +951,6 @@ public class M1911Factory implements GunFactory {
                                     GL11.glTranslatef(-0.125000f, -0.750000f, 0.075000f);
                                 },
                                 (renderContext) -> {
-//                	   GL11.glScalef(4.5f, 4.5f, 4.5f);
-//                       GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.385000f, -0.500000f, 0.170000f);
 
                                     GL11.glScalef(4f, 4f, 4f);
                                     GL11.glRotatef(-100.000000f, 1f, 0f, 0f);

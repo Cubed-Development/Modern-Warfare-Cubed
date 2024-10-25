@@ -39,33 +39,29 @@ public class DriftCloudFX extends ParticleCloud {
 
         Random urandom = new Random(333);
 
-        this.particleTextureIndexY = 3;
-
-        //this.particleTextureIndexX = (int) Math.floor(8*(this.particleAge/this.particleMaxAge));
-
-        //this.particleAlpha = (float) ((float) 1.0f - ((double) this.particleAge/(double) this.particleMaxAge));
+        particleTextureIndexY = 3;
 
 
-        this.particleRed = this.particleGreen = this.particleBlue = urandom.nextFloat() * 0.5F + 0.4F;
+        particleRed = particleGreen = particleBlue = urandom.nextFloat() * 0.5F + 0.4F;
 
-        int j = this.getBrightnessForRender(partialTicks);
+        int j = getBrightnessForRender(partialTicks);
         int k = j >> 16 & 65535;
         int l = j & 65535;
 
-        float scale = this.particleScale;
-        float pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) partialTicks - interpPosX);
-        float pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY);
-        float pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ);
+        float scale = particleScale;
+        float pX = (float) (prevPosX + (posX - prevPosX) * (double) partialTicks - interpPosX);
+        float pY = (float) (prevPosY + (posY - prevPosY) * (double) partialTicks - interpPosY);
+        float pZ = (float) (prevPosZ + (posZ - prevPosZ) * (double) partialTicks - interpPosZ);
 
         double minX = particleTexture.getMinU() + ((particleTexture.getMaxU() - particleTexture.getMinU()) * (particleTextureIndexX / 8f));
         double minY = particleTexture.getMinV() + ((particleTexture.getMaxV() - particleTexture.getMinV()) * (particleTextureIndexY / 8f));
         double mU = (particleTexture.getMaxU() - particleTexture.getMinU()) / 8;
         double mV = (particleTexture.getMaxV() - particleTexture.getMinV()) / 8;
 
-        buffer.pos(pX - rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ - rotationYZ * scale - rotationXZ * scale).tex(minX + mU, minY + mV).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
-        buffer.pos(pX - rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ - rotationYZ * scale + rotationXZ * scale).tex(minX + mU, minY).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
-        buffer.pos(pX + rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ + rotationYZ * scale + rotationXZ * scale).tex(minX, minY).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
-        buffer.pos(pX + rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ + rotationYZ * scale - rotationXZ * scale).tex(minX, minY + mV).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
+        buffer.pos(pX - rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ - rotationYZ * scale - rotationXZ * scale).tex(minX + mU, minY + mV).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
+        buffer.pos(pX - rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ - rotationYZ * scale + rotationXZ * scale).tex(minX + mU, minY).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
+        buffer.pos(pX + rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ + rotationYZ * scale + rotationXZ * scale).tex(minX, minY).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
+        buffer.pos(pX + rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ + rotationYZ * scale - rotationXZ * scale).tex(minX, minY + mV).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
 
 
     }
@@ -73,38 +69,38 @@ public class DriftCloudFX extends ParticleCloud {
 
     @Override
     public void onUpdate() {
-        this.prevPosX = this.posX;
-        this.prevPosY = this.posY;
-        this.prevPosZ = this.posZ;
+        prevPosX = posX;
+        prevPosY = posY;
+        prevPosZ = posZ;
 
 
-        if (this.particleAge++ >= this.particleMaxAge) {
-            this.setExpired();
+        if (particleAge++ >= particleMaxAge) {
+            setExpired();
         }
 
-        this.particleTextureIndexX = this.particleAge * 7 / this.particleMaxAge;
+        particleTextureIndexX = particleAge * 7 / particleMaxAge;
 
         //this.setParticleTextureIndex(7 - this.particleAge * 8 / this.particleMaxAge);
-        this.move(this.motionX, this.motionY, this.motionZ);
-        this.motionX *= 0.9599999785423279D;
-        this.motionY *= 0.9599999785423279D;
-        this.motionZ *= 0.9599999785423279D;
-        EntityPlayer entityplayer = this.world.getClosestPlayer(this.posX, this.posY, this.posZ, 2.0D, false);
+        move(motionX, motionY, motionZ);
+        motionX *= 0.9599999785423279D;
+        motionY *= 0.9599999785423279D;
+        motionZ *= 0.9599999785423279D;
+        EntityPlayer entityplayer = world.getClosestPlayer(posX, posY, posZ, 2.0D, false);
 
         if (entityplayer != null) {
             AxisAlignedBB axisalignedbb = entityplayer.getEntityBoundingBox();
 
-            if (this.posY > axisalignedbb.minY) {
-                this.posY += (axisalignedbb.minY - this.posY) * 0.2D;
-                this.motionY += (entityplayer.motionY - this.motionY) * 0.2D;
-                this.setPosition(this.posX, this.posY, this.posZ);
+            if (posY > axisalignedbb.minY) {
+                posY += (axisalignedbb.minY - posY) * 0.2D;
+                motionY += (entityplayer.motionY - motionY) * 0.2D;
+                setPosition(posX, posY, posZ);
             }
         }
 
 
-        if (this.onGround) {
-            this.motionX *= 0.699999988079071D;
-            this.motionZ *= 0.699999988079071D;
+        if (onGround) {
+            motionX *= 0.699999988079071D;
+            motionZ *= 0.699999988079071D;
         }
     }
 

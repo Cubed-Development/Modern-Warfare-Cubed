@@ -13,7 +13,6 @@ public class InventoryTab extends GuiButton {
     private final ResourceLocation texture = new ResourceLocation("textures/gui/container/creative_inventory/tabs.png");
     //private ItemStack renderStack;
     private ItemStack itemStack;
-    private RenderItem itemRenderer;
 
     public InventoryTab(int id, int posX, int posY, ItemStack itemStack) {
         super(id, posX, posY, 28, 32, "");
@@ -30,42 +29,42 @@ public class InventoryTab extends GuiButton {
 
     @Override
     public void drawButton(Minecraft MC, int mouseX, int mouseY, float partialTicks) {
-        if (this.visible) {
+        if (visible) {
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
-            int yTexPos = this.enabled ? 3 : 32;
-            int ySize = this.enabled ? 25 : 32;
-            int xOffset = this.id == 2 ? 0 : 1;
-            int yPos = this.y + (this.enabled ? 3 : 0);
+            int yTexPos = enabled ? 3 : 32;
+            int ySize = enabled ? 25 : 32;
+            int xOffset = id == 2 ? 0 : 1;
+            int yPos = y + (enabled ? 3 : 0);
 
-            MC.renderEngine.bindTexture(this.texture);
-            this.drawTexturedModalRect(this.x, yPos, xOffset * 28, yTexPos, 28, ySize);
+            MC.renderEngine.bindTexture(texture);
+            drawTexturedModalRect(x, yPos, xOffset * 28, yTexPos, 28, ySize);
 
-            itemRenderer = MC.getRenderItem();
+            RenderItem itemRenderer = MC.getRenderItem();
 
             RenderHelper.enableGUIStandardItemLighting();
-            this.zLevel = 100.0F;
-            this.itemRenderer.zLevel = 100.0F;
+            zLevel = 100.0F;
+            itemRenderer.zLevel = 100.0F;
             GL11.glEnable(GL11.GL_LIGHTING);
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             final ItemStack itemStack = getItemStack();
-            this.itemRenderer.renderItemAndEffectIntoGUI(itemStack, x + 6, y + 8);
-            this.itemRenderer.renderItemOverlays(MC.fontRenderer, itemStack, x + 6, y + 8);
+            itemRenderer.renderItemAndEffectIntoGUI(itemStack, x + 6, y + 8);
+            itemRenderer.renderItemOverlays(MC.fontRenderer, itemStack, x + 6, y + 8);
             GL11.glDisable(GL11.GL_LIGHTING);
             GL11.glEnable(GL11.GL_BLEND);
-            this.itemRenderer.zLevel = 0.0F;
-            this.zLevel = 0.0F;
+            itemRenderer.zLevel = 0.0F;
+            zLevel = 0.0F;
             RenderHelper.disableStandardItemLighting();
         }
     }
 
     @Override
     public boolean mousePressed(Minecraft MC, int mouseX, int mouseY) {
-        boolean inWindow = this.enabled && this.visible && mouseX >= this.x && mouseY >= this.y
-                && mouseX < this.x + this.width && mouseY < this.y + this.height;
+        boolean inWindow = enabled && visible && mouseX >= x && mouseY >= y
+                && mouseX < x + width && mouseY < y + height;
 
         if (inWindow) {
-            this.onTabClicked();
+            onTabClicked();
         }
 
         return inWindow;
