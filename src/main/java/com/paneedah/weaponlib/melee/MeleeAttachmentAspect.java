@@ -22,12 +22,6 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMeleeInstance> {
 
-    static {
-        TypeRegistry.getINSTANCE().register(EnterAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ExitAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ChangeAttachmentPermit.class);
-    }
-
     private static class AttachmentLookupResult {
         CompatibleAttachment<ItemMelee> compatibleAttachment;
         int index = -1;

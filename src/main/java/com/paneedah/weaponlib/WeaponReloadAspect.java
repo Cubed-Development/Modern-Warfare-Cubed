@@ -28,13 +28,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     private static final long INSPECT_TIMEOUT = 500;
     private static final long UNLOAD_TIMEOUT = 1000;
 
-    static {
-        TypeRegistry.getINSTANCE().register(CompoundPermit.class);
-        TypeRegistry.getINSTANCE().register(UnloadPermit.class);
-        TypeRegistry.getINSTANCE().register(LoadPermit.class);
-        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class); // TODO: move it out
-    }
-
     private static final Set<WeaponState> ALLOWED_UPDATE_FROM_STATES = new HashSet<>(Arrays.asList(
             WeaponState.AWAIT_FURTHER_LOAD_INSTRUCTIONS,
             WeaponState.COMPOUND_REQUESTED,

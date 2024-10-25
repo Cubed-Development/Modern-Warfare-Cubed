@@ -9,10 +9,6 @@ import net.minecraft.item.ItemStack;
 @NoArgsConstructor
 public class PlayerMagazineInstance extends PlayerItemInstance<MagazineState> {
 
-    static {
-        TypeRegistry.getINSTANCE().register(PlayerMagazineInstance.class);
-    }
-
 //	private int ammo;
 
     @Override

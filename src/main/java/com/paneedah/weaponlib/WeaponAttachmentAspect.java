@@ -23,12 +23,6 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
 
-    static {
-        TypeRegistry.getINSTANCE().register(EnterAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ExitAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ChangeAttachmentPermit.class);
-    }
-
     private static class AttachmentLookupResult {
         CompatibleAttachment<Weapon> compatibleAttachment;
         int index = -1;

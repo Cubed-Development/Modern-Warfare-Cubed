@@ -19,10 +19,6 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 @NoArgsConstructor
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S> {
 
-    static {
-        TypeRegistry.getINSTANCE().register(PlayerItemInstance.class);
-    }
-
     protected boolean compoundMagSwapCompleted = false;
 
     @Getter @Setter protected int itemInventoryIndex;

@@ -17,10 +17,6 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 
     private static final int SERIAL_VERSION = 1;
 
-    static {
-        TypeRegistry.getINSTANCE().register(PlayerTabletInstance.class);
-    }
-
     private int activeWatchIndex;
 
     public PlayerTabletInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {

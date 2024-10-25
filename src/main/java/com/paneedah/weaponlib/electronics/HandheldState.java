@@ -94,10 +94,4 @@ public enum HandheldState implements ManagedState<HandheldState> {
     public void write(ByteBuf byteBuf) {
         // not need to write anything, parent type registry should take care of it
     }
-
-    static {
-        TypeRegistry.getINSTANCE().register(HandheldState.class);
-    }
-
-
 }

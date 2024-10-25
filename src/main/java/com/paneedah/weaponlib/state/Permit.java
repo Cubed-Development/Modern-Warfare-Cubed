@@ -6,10 +6,6 @@ import io.netty.buffer.ByteBuf;
 
 public class Permit<S extends ManagedState<S>> extends UniversalObject {
 
-    static {
-        TypeRegistry.getINSTANCE().register(Permit.class);
-    }
-
     public enum Status {REQUESTED, GRANTED, DENIED, UNKNOWN}
 
     protected S state;

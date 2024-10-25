@@ -151,6 +151,8 @@ public final class PlayerItemInstanceRegistry {
 
                 result.setItemInventoryIndex(slot);
                 result.setPlayer(player);
+
+                Tags.setInstance(itemStack, result);
             }
         }
 

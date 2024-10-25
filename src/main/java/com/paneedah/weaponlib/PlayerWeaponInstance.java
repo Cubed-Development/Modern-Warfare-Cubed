@@ -40,10 +40,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     private static final int SERIAL_VERSION = 9;
 
-    static {
-        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
-    }
-
     private static final UUID NIGHT_VISION_SOURCE_UUID = UUID.randomUUID();
     private static final UUID VIGNETTE_SOURCE_UUID = UUID.randomUUID();
     private static final UUID BLUR_SOURCE_UUID = UUID.randomUUID();
