@@ -69,7 +69,7 @@ public final class Tags {
 
         byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG);
         if (bytes != null && bytes.length > 0) {
-            return TypeRegistry.fromBytes(Unpooled.wrappedBuffer(bytes));
+            return TypeRegistry.read(Unpooled.wrappedBuffer(bytes));
         }
         return null;
     }
@@ -82,7 +82,7 @@ public final class Tags {
         byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG);
         if (bytes != null && bytes.length > 0) {
             try {
-                return targetClass.cast(TypeRegistry.fromBytes(Unpooled.wrappedBuffer(bytes)));
+                return targetClass.cast(TypeRegistry.read(Unpooled.wrappedBuffer(bytes)));
             } catch (RuntimeException e) {
                 return null;
             }
@@ -97,7 +97,7 @@ public final class Tags {
 
         ByteBuf buf = Unpooled.buffer();
         if (instance != null) {
-            TypeRegistry.toBytes(instance, buf);
+            TypeRegistry.write(instance, buf);
             NBTTagCompound tagCompound = itemStack.getTagCompound();
             tagCompound.setByteArray(INSTANCE_TAG, buf.array());
 

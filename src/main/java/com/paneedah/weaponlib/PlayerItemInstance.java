@@ -69,7 +69,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
 //        state = WeaponState.DRAWING;
 
-        state = TypeRegistry.fromBytes(byteBuf);
+        state = TypeRegistry.read(byteBuf);
     }
 
     @Override
@@ -81,7 +81,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
         byteBuf.writeLong(updateId);
 
-        TypeRegistry.toBytes(state, byteBuf);
+        TypeRegistry.write(state, byteBuf);
     }
 
     // ! This in the past was weirder, and I never really got how it worked,

@@ -12,12 +12,16 @@ import com.paneedah.weaponlib.melee.MeleeState;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.state.Permit;
 import io.netty.buffer.ByteBuf;
+import lombok.NoArgsConstructor;
 
+import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
+import static lombok.AccessLevel.PRIVATE;
 
+@NoArgsConstructor(access = PRIVATE)
 public final class TypeRegistry {
 
     private static final HashMap<String, Class<? extends ISerializable>> typeRegistry = new HashMap<>();
@@ -59,7 +63,7 @@ public final class TypeRegistry {
         typeRegistry.put(cls.getName(), cls);
     }
 
-    public static <T extends ISerializable> void toBytes(final T object, final ByteBuf byteBuf) {
+    public static <T extends ISerializable> void write(final ByteBuf byteBuf, final T object) {
         final String className = object.getClass().getName();
 
         if (!typeRegistry.containsKey(className)) {
@@ -78,22 +82,20 @@ public final class TypeRegistry {
         }
     }
 
-    public static <T extends ISerializable> T fromBytes(final ByteBuf byteBuf) {
-        Class<T> targetClass;
-
+    public static <T extends ISerializable> T read(final ByteBuf byteBuf) {
         final byte[] classNameBytes = new byte[byteBuf.readByte()];
         byteBuf.readBytes(classNameBytes);
         final String className = new String(classNameBytes, StandardCharsets.UTF_8);
 
         if (!typeRegistry.containsKey(className)) {
-            RED_LOGGER.printFramedError("Networking", "Failed to deserialize object because its class is not registered", "Weapon will reset to it's default state");
+            RED_LOGGER.printFramedError("Networking", "Failed to deserialize object because its class is not registered", "Weapon will probably reset to it's default state");
             return null;
         }
 
-        targetClass = (Class<T>) typeRegistry.get(className);
+        final Class<T> targetClass = (Class<T>) typeRegistry.get(className);
 
         if (targetClass == null) {
-            RED_LOGGER.printFramedError("Networking", "Failed to deserialize object", "Weapon will reset to it's default state");
+            RED_LOGGER.printFramedError("Networking", "Failed to deserialize object", "Weapon will probably reset to it's default state");
             return null;
         }
 
@@ -103,9 +105,9 @@ public final class TypeRegistry {
             instance = constants[byteBuf.readInt()];
         } else {
             try {
-                instance = targetClass.newInstance();
-            } catch (InstantiationException | IllegalAccessException exception) {
-                RED_LOGGER.printFramedError("Networking", "Failed to create instance", "Weapon will reset to it's default state", exception.getMessage(), exception.getStackTrace()[3].toString());
+                instance = targetClass.getDeclaredConstructor().newInstance();
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException exception) {
+                RED_LOGGER.printFramedError("Networking", "Failed to create instance", "Weapon will probably reset to it's default state", exception.getMessage(), exception.getStackTrace()[3].toString());
                 return null;
             }
 
