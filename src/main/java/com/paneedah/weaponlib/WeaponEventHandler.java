@@ -55,7 +55,7 @@ public class WeaponEventHandler {
         }
 
         float fov;
-        if (instance.isAttachmentZoomEnabled()) {
+        if (instance.hasScope()) {
             if (ClientProxy.renderingPhase == RenderingPhase.RENDER_PERSPECTIVE) {
                 fov = instance.getZoom();
             } else {

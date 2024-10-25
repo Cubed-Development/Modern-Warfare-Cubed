@@ -13,13 +13,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
 @NoArgsConstructor
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S> {
 
-    protected boolean compoundMagSwapCompleted = false;
+    @Getter protected boolean compoundMagSwapping = false;
 
     @Getter @Setter protected int itemInventoryIndex;
 
@@ -34,54 +36,22 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     @Getter protected Item item;
     private PlayerItemInstance<S> preparedState;
 
-//	private Set<PlayerItemStateListener<S>> listeners = new HashSet<>();
-
-    public PlayerItemInstance(int itemInventoryIndex, EntityLivingBase player) {
+    public PlayerItemInstance(final int itemInventoryIndex, final EntityLivingBase player) {
         this(itemInventoryIndex, player, player.getHeldItemMainhand());
     }
 
-    public PlayerItemInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
+    public PlayerItemInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
         this.itemInventoryIndex = itemInventoryIndex;
         this.player = player;
-        this.item = itemStack.getItem();
+        item = itemStack.getItem();
     }
 
     public ItemStack getItemStack() {
         return player instanceof EntityPlayer ? ((EntityPlayer) player).inventory.getStackInSlot(itemInventoryIndex) : null;
     }
 
-    protected <T extends PlayerItemInstance<S>> T getPreparedState() {
-        return (T) preparedState;
-    }
-
     public boolean shouldHaveInstanceTags() {
         return true;
-    }
-
-    @Override
-    public void read(ByteBuf byteBuf) {
-        super.read(byteBuf);
-
-        item = Item.getItemById(byteBuf.readInt());
-        itemInventoryIndex = byteBuf.readInt();
-
-        updateId = byteBuf.readLong();
-
-//        state = WeaponState.DRAWING;
-
-        state = TypeRegistry.fromBytes(byteBuf);
-    }
-
-    @Override
-    public void write(ByteBuf byteBuf) {
-        super.write(byteBuf);
-
-        byteBuf.writeInt(Item.getIdFromItem(item));
-        byteBuf.writeInt(itemInventoryIndex);
-
-        byteBuf.writeLong(updateId);
-
-        TypeRegistry.toBytes(state, byteBuf);
     }
 
     // ! This in the past was weirder, and I never really got how it worked,
@@ -89,7 +59,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     // ! it caused problems so I just nuked it,
     // ! it seems to work fine still so ¯\_(ツ)_/¯ - Luna Lage 2024-08-15
     @Override
-    public boolean setState(S state) {
+    public boolean setState(final S state) {
         this.state = state;
         stateUpdateTimestamp = System.currentTimeMillis();
 
@@ -108,7 +78,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     /**
      * Commits pending state
      */
-    protected void updateWith(PlayerItemInstance<S> otherState, boolean updateManagedState) {
+    protected void updateWith(final PlayerItemInstance<S> otherState, final boolean updateManagedState) {
         if (updateManagedState)
             setState(otherState.getState());
     }
@@ -127,24 +97,21 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     }
 
     @Override
-    public <E extends ExtendedState<S>> void prepareTransaction(E preparedExtendedState) {
-
+    public <E extends ExtendedState<S>> void prepareTransaction(final E preparedExtendedState) {
         setState(preparedExtendedState.getState());
-        this.preparedState = (PlayerItemInstance<S>) preparedExtendedState;
+
+        preparedState = (PlayerItemInstance<S>) preparedExtendedState;
     }
 
-    public void completeMagSwap() {
-        this.compoundMagSwapCompleted = true;
+    public void startedCompoundMagSwapping() {
+        compoundMagSwapping = true;
     }
 
-    public void markMagSwapReady() {
-        this.compoundMagSwapCompleted = false;
+    public void stoppedCompoundMagSwapping() {
+        compoundMagSwapping = false;
     }
 
-    public boolean isMagSwapDone() {
-        return this.compoundMagSwapCompleted;
-    }
-
+    @SideOnly(CLIENT)
     public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
         return null;
     }
@@ -154,19 +121,36 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         // Meant to be used to reconcile instances between server and client
     }
 
-//    public View<?> createView() {
-//        return null;
-//    }
+    @Override
+    public String toString() {
+        return item.getRegistryName() + "[" + getUuid() + "]";
+    }
 
-//	public void addListener(PlayerItemStateListener<S> listener) {
-//		listeners.add(listener);
-//	}
-//
-//	public void removeListener(PlayerItemStateListener<S> listener) {
-//		listeners.remove(listener);
-//	}
-//
-//	protected void notifyListeners() {
-//		listeners.forEach(l -> l.stateChanged(this));
-//	}
+    // region Serialization and Deserialization
+
+    @Override
+    public void read(final ByteBuf byteBuf) {
+        super.read(byteBuf);
+
+        item = Item.getItemById(byteBuf.readInt());
+        itemInventoryIndex = byteBuf.readInt();
+
+        updateId = byteBuf.readLong();
+
+        state = TypeRegistry.read(byteBuf);
+    }
+
+    @Override
+    public void write(final ByteBuf byteBuf) {
+        super.write(byteBuf);
+
+        byteBuf.writeInt(Item.getIdFromItem(item));
+        byteBuf.writeInt(itemInventoryIndex);
+
+        byteBuf.writeLong(updateId);
+
+        TypeRegistry.write(byteBuf, state);
+    }
+
+    // endregion
 }

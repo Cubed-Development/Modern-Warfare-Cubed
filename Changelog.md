@@ -74,6 +74,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Overhauled the textures and models of:
   - EOTech 512 A65 Holographic (Black)
   - EOTech EXPS3-0 Holographic (Tan)
+- Changed how fast weapon states expire which should improve how weapons feel in certain conditions 
 
 ### Fixed
 
@@ -87,6 +88,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - revolver_load_complete
   - m40a6_boltaction
   - m200_intervention_boltaction
+- Fixed somewhat of a race condition in the management of the state history (used for rendering)
 
 ### Removed
 

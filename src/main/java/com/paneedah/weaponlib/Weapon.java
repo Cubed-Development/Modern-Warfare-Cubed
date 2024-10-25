@@ -1464,7 +1464,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     void incrementZoom(PlayerWeaponInstance instance) {
-        Item scopeItem = instance.getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
+        Item scopeItem = instance.getAttachmentItemByCategory(AttachmentCategory.SCOPE);
         if (scopeItem instanceof ItemScope && ((ItemScope) scopeItem).isOptical()) {
             float minZoom = ((ItemScope) scopeItem).getMinZoom();
             float maxZoom = ((ItemScope) scopeItem).getMaxZoom();
@@ -1493,7 +1493,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     void decrementZoom(PlayerWeaponInstance instance) {
-        Item scopeItem = instance.getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
+        Item scopeItem = instance.getAttachmentItemByCategory(AttachmentCategory.SCOPE);
         if (scopeItem instanceof ItemScope && ((ItemScope) scopeItem).isOptical()) {
             float minZoom = ((ItemScope) scopeItem).getMinZoom();
             float maxZoom = ((ItemScope) scopeItem).getMaxZoom();

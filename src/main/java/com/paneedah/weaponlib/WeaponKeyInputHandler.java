@@ -194,7 +194,7 @@ public class WeaponKeyInputHandler {
             }
             /*
             if(instance != null && instance.getState() == WeaponState.MODIFYING) {
-                instance.setAltModificationModeEnabled(!instance.isAltMofificationModeEnabled());
+                instance.setAltModificationModeEnabled(!instance.isAltModificationModeEnabled());
             } else if() {
                 Item item = itemStack.getItem();
                 if(item instanceof Inspectable) {
@@ -248,7 +248,7 @@ public class WeaponKeyInputHandler {
         else if(KeyBindings.upArrowKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
             if(instance != null && instance.getState() == WeaponState.MODIFYING) {
-                AttachmentCategory category = instance.isAltMofificationModeEnabled() 
+                AttachmentCategory category = instance.isAltModificationModeEnabled()
                         ? AttachmentCategory.RAILING: AttachmentCategory.SCOPE;
                 modContext.getAttachmentAspect().changeAttachment(category, instance);
             }
@@ -258,7 +258,7 @@ public class WeaponKeyInputHandler {
         else if(KeyBindings.rightArrowKey.isPressed()) {
             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
             if(instance instanceof PlayerWeaponInstance && instance.getState() == WeaponState.MODIFYING) {
-                AttachmentCategory category = ((PlayerWeaponInstance) instance).isAltMofificationModeEnabled() 
+                AttachmentCategory category = ((PlayerWeaponInstance) instance).isAltModificationModeEnabled()
                         ? AttachmentCategory.STOCK: AttachmentCategory.SKIN;
                 modContext.getAttachmentAspect().changeAttachment(category, (PlayerWeaponInstance) instance);
             } else if(instance instanceof PlayerMeleeInstance && instance.getState() == MeleeState.MODIFYING) {
@@ -272,7 +272,7 @@ public class WeaponKeyInputHandler {
         else if(KeyBindings.downArrowKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
             if(instance != null && instance.getState() == WeaponState.MODIFYING) {
-                AttachmentCategory category = instance.isAltMofificationModeEnabled() 
+                AttachmentCategory category = instance.isAltModificationModeEnabled()
                         ? AttachmentCategory.GUARD: AttachmentCategory.GRIP;
                 modContext.getAttachmentAspect().changeAttachment(category, instance);
             }
@@ -281,7 +281,7 @@ public class WeaponKeyInputHandler {
         else if(KeyBindings.laserAttachmentKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
             if(instance != null && instance.getState() == WeaponState.MODIFYING) {
-                AttachmentCategory category = instance.isAltMofificationModeEnabled() 
+                AttachmentCategory category = instance.isAltModificationModeEnabled()
                         ? AttachmentCategory.BACKGRIP: AttachmentCategory.LASER;
                 modContext.getAttachmentAspect().changeAttachment(category, instance);
             }
@@ -290,7 +290,7 @@ public class WeaponKeyInputHandler {
         else if(KeyBindings.leftArrowKey.isPressed()) {
             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
             if(instance instanceof PlayerWeaponInstance && instance.getState() == WeaponState.MODIFYING) {
-                AttachmentCategory category = ((PlayerWeaponInstance) instance).isAltMofificationModeEnabled() 
+                AttachmentCategory category = ((PlayerWeaponInstance) instance).isAltModificationModeEnabled()
                         ? AttachmentCategory.RECEIVER: AttachmentCategory.SILENCER;
                 modContext.getAttachmentAspect().changeAttachment(category, (PlayerWeaponInstance) instance);
             } else if(instance instanceof PlayerTabletInstance) {
@@ -301,7 +301,7 @@ public class WeaponKeyInputHandler {
         
         else if(KeyBindings.periodKey.isPressed()) {
             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
-            if(instance instanceof PlayerWeaponInstance && instance.getState() == WeaponState.MODIFYING  && ((PlayerWeaponInstance) instance).isAltMofificationModeEnabled()) {
+            if(instance instanceof PlayerWeaponInstance && instance.getState() == WeaponState.MODIFYING  && ((PlayerWeaponInstance) instance).isAltModificationModeEnabled()) {
                 AttachmentCategory category = AttachmentCategory.FRONTSIGHT;
                 modContext.getAttachmentAspect().changeAttachment(category, (PlayerWeaponInstance) instance);
             }

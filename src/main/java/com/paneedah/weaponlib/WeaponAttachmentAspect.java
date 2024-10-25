@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.NetworkPermitManager;
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
@@ -553,7 +552,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 
         AttachmentLookupResult result = new AttachmentLookupResult();
 
-        byte[] originallySelectedAttachmentIndexes = weaponInstance.getSelectedAttachmentIds();
+        byte[] originallySelectedAttachmentIndexes = weaponInstance.getSelectedAttachmentIndexes();
         if (originallySelectedAttachmentIndexes == null
                 || originallySelectedAttachmentIndexes.length != AttachmentCategory.values.length) {
             return result;
@@ -769,6 +768,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
     }
 
     ItemAttachment<Weapon> getActiveAttachment(PlayerWeaponInstance weaponInstance, AttachmentCategory category) {
-        return weaponInstance.getAttachmentItemWithCategory(category);
+        return weaponInstance.getAttachmentItemByCategory(category);
     }
 }

@@ -67,9 +67,9 @@ public final class Tags {
             return null;
         }
 
-        byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG);
+        byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
         if (bytes != null && bytes.length > 0) {
-            return TypeRegistry.fromBytes(Unpooled.wrappedBuffer(bytes));
+            return TypeRegistry.read(Unpooled.wrappedBuffer(bytes)); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
         }
         return null;
     }
@@ -79,10 +79,10 @@ public final class Tags {
             return null;
         }
 
-        byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG);
+        byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
         if (bytes != null && bytes.length > 0) {
             try {
-                return targetClass.cast(TypeRegistry.fromBytes(Unpooled.wrappedBuffer(bytes)));
+                return targetClass.cast(TypeRegistry.read(Unpooled.wrappedBuffer(bytes))); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
             } catch (RuntimeException e) {
                 return null;
             }
@@ -97,7 +97,7 @@ public final class Tags {
 
         ByteBuf buf = Unpooled.buffer();
         if (instance != null) {
-            TypeRegistry.toBytes(instance, buf);
+            TypeRegistry.write(buf, instance); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
             NBTTagCompound tagCompound = itemStack.getTagCompound();
             tagCompound.setByteArray(INSTANCE_TAG, buf.array());
 
@@ -139,6 +139,6 @@ public final class Tags {
         if (itemStack.getTagCompound() == null) {
             return null;
         }
-        return itemStack.getTagCompound().getByteArray(INSTANCE_TAG);
+        return itemStack.getTagCompound().getByteArray(INSTANCE_TAG); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
     }
 }

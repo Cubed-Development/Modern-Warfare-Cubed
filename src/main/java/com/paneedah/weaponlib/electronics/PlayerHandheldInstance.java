@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib.electronics;
 
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.perspective.Perspective;
-import io.netty.buffer.ByteBuf;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -11,40 +9,21 @@ import net.minecraft.item.ItemStack;
 @NoArgsConstructor
 public class PlayerHandheldInstance extends PlayerItemInstance<HandheldState> {
 
-    private static final int SERIAL_VERSION = 1;
-
-    public PlayerHandheldInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
-        super(itemInventoryIndex, player, itemStack);
-    }
-
-    public PlayerHandheldInstance(int itemInventoryIndex, EntityLivingBase player) {
+    public PlayerHandheldInstance(final int itemInventoryIndex, final EntityLivingBase player) {
         super(itemInventoryIndex, player);
     }
 
-    @Override
-    public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
-        ItemHandheld<?> item = (ItemHandheld<?>) getItem();
-        return item != null ? item.getRequiredPespectiveType() : null;
-    }
-
-    @Override
-    public void write(ByteBuf byteBuf) {
-        super.write(byteBuf);
-    }
-
-    @Override
-    public void read(ByteBuf byteBuf) {
-        super.read(byteBuf);
+    public PlayerHandheldInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
+        super(itemInventoryIndex, player, itemStack);
     }
 
     @Override
     protected int getSerialVersion() {
-        return SERIAL_VERSION;
+        return 1;
     }
 
     @Override
-    public String toString() {
-        return "Handheld [" + getUuid() + "]";
+    public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
+        return item != null ? ((ItemHandheld<?>) item).getRequiredPespectiveType() : null;
     }
-
 }

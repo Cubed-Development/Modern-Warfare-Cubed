@@ -4,7 +4,6 @@ import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.equipment.inventory.carryable.backpack.BackpackInventory;
 import com.paneedah.mwc.network.NetworkPermitManager;
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.state.Aspect;
@@ -109,7 +108,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     };
 
 
-    private static final Predicate<PlayerWeaponInstance> magSwapCompleted = weaponInstance -> weaponInstance.isMagSwapDone();
+    private static final Predicate<PlayerWeaponInstance> magSwapCompleted = weaponInstance -> !weaponInstance.isCompoundMagSwapping();
 
     private static final Predicate<PlayerWeaponInstance> reloadMidpoint = weaponInstance -> Math.abs((System.currentTimeMillis() - (weaponInstance.getReloadUpdateTimestamp())) / ((double) weaponInstance.getWeapon().getTotalReloadingDuration() * 0.5) - 0.5) < 0.01;
 
@@ -375,7 +374,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             return;
         }
 
-        instance.completeMagSwap();
+        instance.stoppedCompoundMagSwapping();
 
         instance.getWeapon().getRenderer().setMagicMagPermit(true);
 
@@ -419,7 +418,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                     ItemAttachment<Weapon> nextAttachment = getNextMagazine(instance);
 
                     instance.markReloadDirt();
-                    instance.markMagSwapReady();
+                    instance.startedCompoundMagSwapping();
                     if (instance.getAmmo() == 0) {
                         if (nextAttachment != null) {
                             instance.getWeapon().getRenderer().setMagicMag(instance, nextAttachment, WeaponState.COMPOUND_RELOAD_EMPTY);
@@ -434,7 +433,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                         } else {
                             return;
                         }
-                        instance.setIsAwaitingCompoundInstructions(true);
+                        instance.setAwaitingCompoundInstructions(true);
                         stateManager.changeState(this, instance, WeaponState.COMPOUND_REQUESTED, WeaponState.READY);
                     }
                 }
@@ -798,12 +797,12 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
     public void noCompoundInstructionsReceived(PlayerWeaponInstance weaponInstance) {
         weaponInstance.setDelayCompoundEnd(false);
-        weaponInstance.setIsAwaitingCompoundInstructions(false);
+        weaponInstance.setAwaitingCompoundInstructions(false);
         stateManager.changeState(this, weaponInstance, WeaponState.COMPOUND_RELOAD);
     }
 
     public void compoundInstructionsReceived(PlayerWeaponInstance weaponInstance) {
-        weaponInstance.setIsAwaitingCompoundInstructions(false);
+        weaponInstance.setAwaitingCompoundInstructions(false);
         // If it doesn't have a tactical reload just do the normal compound reload
         if (!weaponInstance.getWeapon().getRenderer().getBuilder().isHasTacticalReload()) {
             stateManager.changeState(this, weaponInstance, WeaponState.COMPOUND_RELOAD);

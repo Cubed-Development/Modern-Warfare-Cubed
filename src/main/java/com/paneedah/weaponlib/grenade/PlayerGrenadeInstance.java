@@ -1,225 +1,95 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.mwc.network.TypeRegistry;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.PlayerItemInstance;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Deque;
-import java.util.List;
 import java.util.concurrent.LinkedBlockingDeque;
 
 @NoArgsConstructor
 public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 
-    private static final int SERIAL_VERSION = 11;
+    @Getter @Setter private boolean throwingFar;
 
-    private int ammo;
-    private long activationTimestamp;
+    public long activationTimestamp; // ! TODO: This isn't tick based
 
     private final Deque<AsyncGrenadeState> filteredStateQueue = new LinkedBlockingDeque<>();
-    private int[] activeAttachmentIds = new int[0];
-    private byte[] selectedAttachmentIndexes = new byte[0];
 
-    private boolean throwingFar;
-
-    public PlayerGrenadeInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
-        super(itemInventoryIndex, player, itemStack);
+    public PlayerGrenadeInstance(final int itemInventoryIndex, final EntityLivingBase player) {
+        super(itemInventoryIndex, player);
     }
 
-    public PlayerGrenadeInstance(int itemInventoryIndex, EntityLivingBase player) {
-        super(itemInventoryIndex, player);
+    public PlayerGrenadeInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
+        super(itemInventoryIndex, player, itemStack);
     }
 
     @Override
     protected int getSerialVersion() {
-        return SERIAL_VERSION;
-    }
-
-    private void addStateToHistory(GrenadeState state) {
-        AsyncGrenadeState t;
-        // Remove existing items from lower priorities from the top of the stack; stop when same or higher priority item is found
-        while ((t = filteredStateQueue.peekFirst()) != null) {
-            if (t.getState().getPriority() < state.getPriority()) {
-                filteredStateQueue.pollFirst();
-            } else {
-                break;
-            }
-        }
-
-        long expirationTimeout = 500;
-
-        filteredStateQueue.addFirst(new AsyncGrenadeState(state, this.stateUpdateTimestamp, expirationTimeout));
+        return 11;
     }
 
     @Override
-    public boolean setState(GrenadeState state) {
-        boolean result = super.setState(state);
+    public boolean setState(final GrenadeState state) {
+        final boolean result = super.setState(state);
+
         addStateToHistory(state);
+
         return result;
     }
 
-    public AsyncGrenadeState nextHistoryState() {
-        AsyncGrenadeState result = filteredStateQueue.pollLast();
-        if (result == null) {
+    private void addStateToHistory(final GrenadeState state) {
+        // Remove existing items from lower priorities from the top of the stack; stop when same or higher priority item is found
+        AsyncGrenadeState asyncGrenadeState;
+        while ((asyncGrenadeState = filteredStateQueue.peekFirst()) != null) {
+            if (asyncGrenadeState.getState().getPriority() >= state.getPriority())
+                break;
+
+            filteredStateQueue.pollFirst();
+        }
+
+        final long expirationTimeout = 500;
+
+        filteredStateQueue.addFirst(new AsyncGrenadeState(state, stateUpdateTimestamp, expirationTimeout));
+    }
+
+    public AsyncGrenadeState nextNonExpiredHistoryState() {
+        final long currentTime = System.currentTimeMillis();
+        AsyncGrenadeState result;
+
+        while ((result = filteredStateQueue.pollLast()) != null)
+            if (result.getTimestamp() + result.getDuration() >= currentTime)
+                break;
+
+        if (result == null)
             result = new AsyncGrenadeState(getState(), stateUpdateTimestamp);
-        }
+
         return result;
     }
 
-    public int getAmmo() {
-        return ammo;
-    }
-
-    protected void setAmmo(int ammo) {
-        if (ammo != this.ammo) {
-            this.ammo = ammo;
-            markDirty();
-        }
-    }
-
-    @Override
-    public void read(ByteBuf byteBuf) {
-        super.read(byteBuf);
-        throwingFar = byteBuf.readBoolean();
-        activeAttachmentIds = initIntArray(byteBuf);
-        selectedAttachmentIndexes = initByteArray(byteBuf);
-    }
-
-    @Override
-    public void write(ByteBuf byteBuf) {
-        super.write(byteBuf);
-        byteBuf.writeBoolean(throwingFar);
-        serializeIntArray(byteBuf, activeAttachmentIds);
-        serializeByteArray(byteBuf, selectedAttachmentIndexes);
-    }
-
-    private static void serializeIntArray(ByteBuf buf, int[] a) {
-        buf.writeByte(a.length);
-        for (int i = 0; i < a.length; i++) {
-            buf.writeInt(a[i]);
-        }
-    }
-
-    private static void serializeByteArray(ByteBuf buf, byte[] a) {
-        buf.writeByte(a.length);
-        for (int i = 0; i < a.length; i++) {
-            buf.writeByte(a[i]);
-        }
-    }
-
-    private static int[] initIntArray(ByteBuf buf) {
-        int length = buf.readByte();
-        int[] a = new int[length];
-        for (int i = 0; i < length; i++) {
-            a[i] = buf.readInt();
-        }
-        return a;
-    }
-
-    private static byte[] initByteArray(ByteBuf buf) {
-        int length = buf.readByte();
-        byte[] a = new byte[length];
-        for (int i = 0; i < length; i++) {
-            a[i] = buf.readByte();
-        }
-        return a;
-    }
-
-    @Override
-    protected void updateWith(PlayerItemInstance<GrenadeState> otherItemInstance, boolean updateManagedState) {
-        super.updateWith(otherItemInstance, updateManagedState);
-        PlayerGrenadeInstance otherWeaponInstance = (PlayerGrenadeInstance) otherItemInstance;
-
-        setAmmo(otherWeaponInstance.ammo);
-        setSelectedAttachmentIndexes(otherWeaponInstance.selectedAttachmentIndexes);
-        setActiveAttachmentIds(otherWeaponInstance.activeAttachmentIds);
-    }
-
-    public ItemGrenade getWeapon() {
+    public ItemGrenade getGrenade() {
         return (ItemGrenade) item;
     }
 
-    public long getActivationTimestamp() {
-        return activationTimestamp;
-    }
+    // region Serialization and Deserialization
 
-    void setActivationTimestamp(long activationTimestamp) {
-        this.activationTimestamp = activationTimestamp;
-    }
+    @Override
+    public void read(final ByteBuf byteBuf) {
+        super.read(byteBuf);
 
-    public int[] getActiveAttachmentIds() {
-        if (activeAttachmentIds == null || activeAttachmentIds.length != AttachmentCategory.values.length) {
-            activeAttachmentIds = new int[AttachmentCategory.values.length];
-            for (CompatibleAttachment<ItemGrenade> attachment : getWeapon().getCompatibleAttachments().values()) {
-                if (attachment.isDefault()) {
-                    activeAttachmentIds[attachment.getAttachment().getCategory().ordinal()] = Item.getIdFromItem(attachment.getAttachment());
-                }
-            }
-        }
-        return activeAttachmentIds;
-    }
-
-    void setActiveAttachmentIds(int[] activeAttachmentIds) {
-        if (!Arrays.equals(this.activeAttachmentIds, activeAttachmentIds)) {
-            this.activeAttachmentIds = activeAttachmentIds;
-            markDirty();
-        }
-    }
-
-    public byte[] getSelectedAttachmentIds() {
-        return selectedAttachmentIndexes;
-    }
-
-    void setSelectedAttachmentIndexes(byte[] selectedAttachmentIndexes) {
-        if (!Arrays.equals(this.selectedAttachmentIndexes, selectedAttachmentIndexes)) {
-            this.selectedAttachmentIndexes = selectedAttachmentIndexes;
-            markDirty();
-        }
-    }
-
-
-    public ItemAttachment<ItemGrenade> getAttachmentItemWithCategory(AttachmentCategory category) {
-        if (activeAttachmentIds == null || activeAttachmentIds.length <= category.ordinal()) {
-            return null;
-        }
-        Item scopeItem = Item.getItemById(activeAttachmentIds[category.ordinal()]);
-        return (ItemAttachment<ItemGrenade>) scopeItem;
-    }
-
-    public List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(RenderContext<RenderableState> renderContext, boolean attached) {
-        int[] activeIds = getActiveAttachmentIds();
-        List<CompatibleAttachment<? extends AttachmentContainer>> result = new ArrayList<>();
-        for (int i = 0; i < activeIds.length; i++) {
-            if (activeIds[i] == 0) {
-                continue;
-            }
-            Item item = Item.getItemById(activeIds[i]);
-            if (item instanceof ItemAttachment) {
-                CompatibleAttachment<? extends AttachmentContainer> compatibleAttachment = getWeapon().getCompatibleAttachments().get(item);
-                if (compatibleAttachment != null) {
-                    result.add(compatibleAttachment);
-                }
-            }
-        }
-        return result;
+        throwingFar = byteBuf.readBoolean();
     }
 
     @Override
-    public String toString() {
-        return getWeapon().builder.name + "[" + getUuid() + "]";
+    public void write(final ByteBuf byteBuf) {
+        super.write(byteBuf);
+
+        byteBuf.writeBoolean(throwingFar);
     }
 
-    public void setThrowingFar(boolean throwingFar) {
-        this.throwingFar = throwingFar;
-    }
-
-    public boolean isThrowingFar() {
-        return throwingFar;
-    }
+    // endregion
 }

@@ -52,7 +52,6 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 
     public Vector3F pivotPoint = new Vector3F();
 
-
     public interface ApplyHandler<T> {
         void apply(ItemAttachment<T> itemAttachment, T target, EntityLivingBase player);
     }
@@ -84,6 +83,8 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
         this.apply = apply;
         this.remove = remove;
     }
+
+
 
     @Override
     public int getItemStackLimit() {

@@ -5,6 +5,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.CompatibleAttachment;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.grenade.AsyncGrenadeState;
 import io.netty.buffer.ByteBuf;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
@@ -42,45 +43,38 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
     }
 
     private void addStateToHistory(MeleeState state) {
-        AsyncMeleeState t;
         // Remove existing items from lower priorities from the top of the stack; stop when same or higher priority item is found
-        while ((t = filteredStateQueue.peekFirst()) != null) {
-            if (t.getState().getPriority() < state.getPriority()) {
-                filteredStateQueue.pollFirst();
-            } else {
+        AsyncMeleeState asyncMeleeState;
+        while ((asyncMeleeState = filteredStateQueue.peekFirst()) != null) {
+            if (asyncMeleeState.getState().getPriority() >= state.getPriority())
                 break;
-            }
+
+            filteredStateQueue.pollFirst();
         }
 
-        long expirationTimeout = 500;
+        final long expirationTimeout = 500;
 
-//		long expirationTimeout;
-//
-//		if(state == MeleeState.FIRING || state == MeleeState.RECOILED || state == MeleeState.PAUSED) {
-//			if(isAutomaticModeEnabled() && !getWeapon().hasRecoilPositioning()) {
-//				expirationTimeout = (long) (50f / getFireRate());
-//			} else {
-//				expirationTimeout = 500;
-//			}
-//			expirationTimeout = 500;
-//		} else {
-//			expirationTimeout = Integer.MAX_VALUE;
-//		}
-        filteredStateQueue.addFirst(new AsyncMeleeState(state, this.stateUpdateTimestamp, expirationTimeout));
+        filteredStateQueue.addFirst(new AsyncMeleeState(state, stateUpdateTimestamp, expirationTimeout));
+    }
+
+    public AsyncMeleeState nextNonExpiredHistoryState() {
+        final long currentTime = System.currentTimeMillis();
+        AsyncMeleeState result;
+
+        while ((result = filteredStateQueue.pollLast()) != null)
+            if (result.getTimestamp() + result.getDuration() >= currentTime)
+                break;
+
+        if (result == null)
+            result = new AsyncMeleeState(getState(), stateUpdateTimestamp);
+
+        return result;
     }
 
     @Override
     public boolean setState(MeleeState state) {
         boolean result = super.setState(state);
         addStateToHistory(state);
-        return result;
-    }
-
-    public AsyncMeleeState nextHistoryState() {
-        AsyncMeleeState result = filteredStateQueue.pollLast();
-        if (result == null) {
-            result = new AsyncMeleeState(getState(), stateUpdateTimestamp);
-        }
         return result;
     }
 

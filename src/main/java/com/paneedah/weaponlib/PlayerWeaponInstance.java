@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;
@@ -12,16 +11,16 @@ import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
 import com.paneedah.weaponlib.shader.DynamicShaderPhase;
+import dev.redstudio.redcore.math.ClampUtil;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.FMLClientHandler;
-import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL13;
 
@@ -33,11 +32,10 @@ import java.util.concurrent.LinkedBlockingDeque;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
 @NoArgsConstructor
 public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implements DynamicShaderGroupSourceProvider {
-
-    private static final int SERIAL_VERSION = 9;
 
     // ! TODO: Figure this out, the resources of weaponlib got incorrectly place in the src, and removing this shader system doesn't change anything
 
@@ -45,57 +43,48 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     private static final UUID VIGNETTE_SOURCE_UUID = UUID.randomUUID();
     private static final UUID BLUR_SOURCE_UUID = UUID.randomUUID();
 
-    public final DynamicShaderGroupSource BLUR_SOURCE = new DynamicShaderGroupSource(BLUR_SOURCE_UUID,
-            new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/blur.json"))
-            .withUniform("Radius", context -> hasOpticScope() ? 10f : 5f)
+    @SideOnly(CLIENT) public final DynamicShaderGroupSource blurSource = new DynamicShaderGroupSource(BLUR_SOURCE_UUID, new ResourceLocation("weaponlib", "blur.json"))
+            .withUniform("Radius", context -> hasOpticalScope() ? 10 : 5)
             .withUniform("Progress", context -> getAimChangeProgress());
 
-    public final DynamicShaderGroupSource NIGHT_VISION_SOURCE = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID,
-            new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/night-vision.json"))
-            .withUniform("IntensityAdjust", context -> 40f - MC.gameSettings.gammaSetting * 38)
-            .withUniform("NoiseAmplification", context -> 2f + 3f * MC.gameSettings.gammaSetting);
+    @SideOnly(CLIENT) public final DynamicShaderGroupSource nightVisionSource = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID, new ResourceLocation("weaponlib","night-vision.json"))
+            .withUniform("IntensityAdjust", context -> 40 - MC.gameSettings.gammaSetting * 38)
+            .withUniform("NoiseAmplification", context -> 2 + 3 * MC.gameSettings.gammaSetting);
 
-    public final DynamicShaderGroupSource VIGNETTE_SOURCE = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID,
-            new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/vignette.json"))
-            .withUniform("Radius", context -> getOpticScopeVignetteRadius(context.getPartialTicks()))
+    @SideOnly(CLIENT) public final DynamicShaderGroupSource vignetteSource = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID, new ResourceLocation("weaponlib", "vignette.json"))
+            .withUniform("Radius", context -> getOpticalScopeVignetteRadius(context.getPartialTicks()))
             // .withUniform("Velocity", context -> new float[]{ClientEventHandler.scopeVelX, ClientEventHandler.scopeVelY})
             .withUniform("Reticle", context -> {
-
                 GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
                 MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/reticle1.png"));
                 GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
-
                 return 4;
             });
 
-
     private static final long AIM_CHANGE_DURATION = 1200;
 
-    private int ammo;
-    private float recoil;
-    private int seriesShotCount;
-    private long lastFireTimestamp;
-    private boolean aimed;
-    private int maxShots;
-    private float zoom = 1f;
-    private byte activeTextureIndex;
-    private boolean laserOn;
-    private long aimChangeTimestamp;
-    private boolean nightVisionOn;
-    private boolean seriesResetAllowed;
-    private long lastBurstEndTimestamp;
-    private boolean altModificationModeEnabled;
+    @Getter private int ammo;
+    @Getter private float recoil;
+    @Getter @Setter private int seriesShotCount;
+    @Getter @Setter private long lastFireTimestamp;
+    @Getter private boolean aimed;
+    @Getter private int maxShots;
+    @Getter private float zoom = 1f;
+    @Getter private byte activeTextureIndex;
+    @Getter private boolean laserOn;
+    private long aimedChangeTimestamp;
+    @Getter private boolean nightVisionOn;
+    @Setter @Getter private boolean seriesResetAllowed;
+    @Setter @Getter private long lastBurstEndTimestamp;
+    @Getter @Setter private boolean altModificationModeEnabled;
 
-    private int loadIterationCount;
-    private boolean loadAfterUnloadEnabled;
-    private boolean isDelayCompoundEnd = true;
+    @Getter @Setter private int loadIterationCount;
+    @Getter @Setter private boolean loadAfterUnloadEnabled;
+    @Setter @Getter private boolean delayCompoundEnd = true;
 
-    private long stateReloadUpdateTimestamp;
-    private boolean isAwaitingCompoundInstructions = false;
+    @Getter @Setter private boolean isAwaitingCompoundInstructions = false;
 
-
-    public boolean isSlideInLock = false;
-
+    @Getter private boolean slideLockOn = false;
 
     /*
      * Upon adding an element to the head of the queue, all existing elements with lower priority are removed
@@ -104,81 +93,113 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
      */
     private final Deque<AsyncWeaponState> filteredStateQueue = new LinkedBlockingDeque<>();
     private int[] activeAttachmentIds = new int[0];
-    private byte[] selectedAttachmentIndexes = new byte[0];
+    @Getter private byte[] selectedAttachmentIndexes = new byte[0];
 
-    public PlayerWeaponInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
-        super(itemInventoryIndex, player, itemStack);
+    public PlayerWeaponInstance(final int itemInventoryIndex, final EntityLivingBase player) {
+        super(itemInventoryIndex, player);
     }
 
-    public PlayerWeaponInstance(int itemInventoryIndex, EntityLivingBase player) {
-        super(itemInventoryIndex, player);
+    public PlayerWeaponInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
+        super(itemInventoryIndex, player, itemStack);
     }
 
     @Override
     protected int getSerialVersion() {
-        return SERIAL_VERSION;
+        return 9;
     }
 
-    public RecoilParam getRecoilParameters() {
-        if (AnimationModeProcessor.getInstance().getFPSMode()) {
-            return AnimationGUI.getInstance().getRecoilParams();
-        }
-        return getWeapon().builder.recoilParam;
+    @Override
+    protected void updateWith(final PlayerItemInstance<WeaponState> otherItemInstance, final boolean updateManagedState) {
+        super.updateWith(otherItemInstance, updateManagedState);
+
+        final PlayerWeaponInstance otherWeaponInstance = (PlayerWeaponInstance) otherItemInstance;
+
+        setAmmo(otherWeaponInstance.ammo);
+        setZoom(otherWeaponInstance.zoom);
+        setRecoil(otherWeaponInstance.recoil);
+        setSelectedAttachmentIndexes(otherWeaponInstance.selectedAttachmentIndexes);
+        setActiveAttachmentIds(otherWeaponInstance.activeAttachmentIds);
+        setActiveTextureIndex(otherWeaponInstance.activeTextureIndex);
+        setSlideLock(otherWeaponInstance.slideLockOn);
+        setLaserOn(otherWeaponInstance.laserOn);
+        setMaxShots(otherWeaponInstance.maxShots);
+        setLoadIterationCount(otherWeaponInstance.loadIterationCount);
+        setLoadAfterUnloadEnabled(otherWeaponInstance.loadAfterUnloadEnabled);
     }
 
-    public Pair<Double, Double> getScreenShakeParameters() {
-        if (DebugCommand.isWorkingOnScreenShake()) {
-            return DebugCommand.screenShakeParam;
-        }
-        return getWeapon().getModernScreenShakeParameters();
+    @Override
+    public boolean setState(final WeaponState state) {
+        final boolean result = super.setState(state);
+
+        addStateToHistory(state);
+
+        return result;
     }
 
-    private void addStateToHistory(WeaponState state) {
-        AsyncWeaponState t;
+    private void addStateToHistory(final WeaponState state) {
+        AsyncWeaponState asyncWeaponState;
         // Remove existing items from lower priorities from the top of the stack; stop when same or higher priority item is found
-        while ((t = filteredStateQueue.peekFirst()) != null) {
-            if (t.getState().getPriority() < state.getPriority()) {
-                filteredStateQueue.pollFirst();
-            } else {
+        while ((asyncWeaponState = filteredStateQueue.peekFirst()) != null) {
+            if (asyncWeaponState.getState().getPriority() >= state.getPriority())
                 break;
-            }
+
+            filteredStateQueue.pollFirst();
         }
 
         long expirationTimeout;
 
-        if (state == WeaponState.FIRING || state == WeaponState.RECOILED || state == WeaponState.PAUSED) {
-            if (isAutomaticModeEnabled() && !getWeapon().hasRecoilPositioning()) {
-                expirationTimeout = (long) (50f / getFireRate());
-            } else {
-                expirationTimeout = 500;
-            }
-            expirationTimeout = 500;
+        if (isAutomaticModeEnabled() && !getWeapon().hasRecoilPositioning()) {
+            expirationTimeout = (long) (50 / getFireRate());
         } else {
-            expirationTimeout = Integer.MAX_VALUE;
+            expirationTimeout = 500;
         }
-        filteredStateQueue.addFirst(new AsyncWeaponState(state, this.stateUpdateTimestamp, expirationTimeout));
+
+        filteredStateQueue.addFirst(new AsyncWeaponState(state, stateUpdateTimestamp, expirationTimeout));
     }
 
+    public AsyncWeaponState nextNonExpiredHistoryState() {
+        final long currentTime = System.currentTimeMillis();
+        AsyncWeaponState result;
+
+        while ((result = filteredStateQueue.pollLast()) != null)
+            if (result.getTimestamp() + result.getDuration() >= currentTime && !(result.getState() == WeaponState.FIRING && (getWeapon().hasRecoilPositioning() || !isAutomaticModeEnabled()))) // Allow recoil for non-automatic weapons
+                break;
+
+        if (result == null)
+            result = new AsyncWeaponState(getState(), stateUpdateTimestamp);
+
+        return result;
+    }
+
+    public Weapon getWeapon() {
+        return (Weapon) item;
+    }
+
+    public RecoilParam getRecoilParameters() {
+        if (AnimationModeProcessor.getInstance().getFPSMode())
+            return AnimationGUI.getInstance().getRecoilParams();
+
+        return getWeapon().builder.recoilParam;
+    }
+
+    public Pair<Double, Double> getScreenShakeParameters() {
+        if (DebugCommand.isWorkingOnScreenShake())
+            return DebugCommand.screenShakeParam;
+
+        return getWeapon().getModernScreenShakeParameters();
+    }
 
     public long getAnimationDuration() {
-
-        // Give the old animations
         if (!getWeapon().builder.isUsingNewSystem()) {
             LOGGER.debug("Weapon is using the old system, returning standard value");
             return getWeapon().getTotalReloadingDuration();
         }
 
         return getAnimationDuration(getState());
-
-
     }
 
-    public long getAnimationDuration(WeaponState state) {
-
-        //System.out.println(getWeapon().getRenderer().getWeaponRendererBuilder().getTacticalReloadDuration());
-
+    public long getAnimationDuration(final WeaponState state) {
         switch (state) {
-
             case LOAD:
                 return getWeapon().getTotalReloadingDuration();
             case UNLOAD:
@@ -188,60 +209,277 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             case COMPOUND_RELOAD:
                 return getWeapon().getRenderer().getWeaponRendererBuilder().getCompoundReloadDuration() / 2;
             case COMPOUND_RELOAD_EMPTY:
-                //System.out.println(getWeapon().getRenderer().getWeaponRendererBuilder().getCompoundReloadEmptyDuration());
-                //return getWeapon().getRenderer().getWeaponRendererBuilder().getCompoundReloadEmptyDuration();
                 return getWeapon().getRenderer().getWeaponRendererBuilder().getCompoundReloadEmptyDuration();
             case TACTICAL_RELOAD:
-
                 return getWeapon().getRenderer().getWeaponRendererBuilder().getTacticalReloadDuration();
             case COMPOUND_RELOAD_FINISHED:
                 return getWeapon().getRenderer().getWeaponRendererBuilder().getCompoundReloadDuration();
+            default:
+                return 100L;
+        }
+    }
 
+    public float getFireRate() {
+        return BalancePackManager.getFirerate(getWeapon());
+        //return getWeapon().builder.fireRate;
+    }
+
+    public float getInaccuracy() {
+        return BalancePackManager.getInaccuracy(getWeapon());
+    }
+
+    public ItemScope getScope() {
+        final ItemAttachment<Weapon> scope = getAttachmentItemByCategory(AttachmentCategory.SCOPE);
+
+        return scope instanceof ItemScope ? (ItemScope) scope : null;
+    }
+
+    public boolean hasScope() {
+        return getScope() != null;
+    }
+
+    public boolean hasOpticalScope() {
+        return hasScope() && getScope().isOptical();
+    }
+
+    public boolean isOneClickBurstAllowed() {
+        //System.out.println("One click burst allowed: " + getWeapon().builder.isOneClickBurstAllowed);
+        return getWeapon().builder.isOneClickBurstAllowed;
+    }
+
+    public boolean isAutomaticModeEnabled() {
+        return maxShots > 1;
+    }
+
+    public int[] getActiveAttachmentIds() {
+        if (activeAttachmentIds == null || activeAttachmentIds.length != AttachmentCategory.values.length) {
+            activeAttachmentIds = new int[AttachmentCategory.values.length];
+
+            for (final CompatibleAttachment<Weapon> attachment : getWeapon().getCompatibleAttachments().values())
+                if (attachment.isDefault())
+                    activeAttachmentIds[attachment.getAttachment().getCategory().ordinal()] = Item.getIdFromItem(attachment.getAttachment());
         }
 
-        return 100L;
+        return activeAttachmentIds;
+    }
+
+    public ItemAttachment<Weapon> getAttachmentItemByCategory(final AttachmentCategory category) {
+        if (activeAttachmentIds == null || activeAttachmentIds.length <= category.ordinal())
+            return null;
+
+        final Item activeAttachment = Item.getItemById(activeAttachmentIds[category.ordinal()]);
+
+        if (activeAttachment instanceof ItemAttachment)
+            return (ItemAttachment<Weapon>) activeAttachment;
+
+        return null;
     }
 
     @Override
-    public boolean setState(WeaponState state) {
-
-        boolean result = super.setState(state);
-        addStateToHistory(state);
-        return result;
-    }
-
-    public AsyncWeaponState nextHistoryState() {
-        AsyncWeaponState result = filteredStateQueue.pollLast();
-        if (result == null) {
-            result = new AsyncWeaponState(getState(), stateUpdateTimestamp);
-        }
-        return result;
-    }
-
-    public int getAmmo() {
-        return ammo;
-    }
-
-    public boolean isSlideLocked() {
-        return this.isSlideInLock;
-    }
-
-    public void setSlideLock(boolean state) {
-        this.isSlideInLock = state;
-    }
-
-    public void setAmmo(int ammo) {
-        if (ammo != this.ammo) {
-            this.ammo = ammo;
-            markDirty();
-        }
+    @SideOnly(CLIENT)
+    public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
+        return hasOpticalScope() ? OpticalScopePerspective.class : null;
     }
 
     @Override
-    public void read(ByteBuf byteBuf) {
+    @SideOnly(CLIENT)
+    public DynamicShaderGroupSource getShaderSource(final DynamicShaderPhase phase) {
+        if (isAimed() && phase == DynamicShaderPhase.POST_WORLD_OPTICAL_SCOPE_RENDER) {
+            final ItemScope scope = getScope();
+
+            if (scope.isOptical())
+                return scope.hasNightVision() && nightVisionOn ? nightVisionSource : vignetteSource;
+        }
+
+        final float progress = getAimChangeProgress();
+        return ModernConfigManager.enableBlurOnAim && phase == DynamicShaderPhase.PRE_ITEM_RENDER && (isAimed() || (progress > 0 && progress < 1)) ? blurSource : null;
+    }
+
+    private float getAimChangeProgress() {
+        float progress = ClampUtil.clampMaxFirst((float) (System.currentTimeMillis() - aimedChangeTimestamp) / AIM_CHANGE_DURATION, 0, 1);
+
+        if (!isAimed())
+            progress = 1 - progress;
+
+        return progress;
+    }
+
+    @SideOnly(CLIENT)
+    private float getOpticalScopeVignetteRadius(final float partialTicks) {
+//        final EntityPlayer player = MC.player;
+//        final float f = player.distanceWalkedModified - player.prevDistanceWalkedModified;
+//        final float f1 = -(player.distanceWalkedModified + f * partialTicks);
+//        final float f2 = player.prevCameraYaw + (player.cameraYaw - player.prevCameraYaw) * partialTicks;
+//        return -2f * f2 + 0.55f;
+        return 0.55f;
+    }
+
+    public void setActiveAttachmentIds(final int[] activeAttachmentIds) {
+        if (Arrays.equals(this.activeAttachmentIds, activeAttachmentIds))
+            return;
+
+        this.activeAttachmentIds = activeAttachmentIds;
+
+        markDirty();
+    }
+
+    void setSelectedAttachmentIndexes(final byte[] selectedAttachmentIndexes) {
+        if (Arrays.equals(this.selectedAttachmentIndexes, selectedAttachmentIndexes))
+            return;
+
+        this.selectedAttachmentIndexes = selectedAttachmentIndexes;
+
+        markDirty();
+    }
+
+    // ! TODO: Investigate
+    // ? I am assuming this needs to be synced but all usages are comment out need to investigate - Luna Mira Lage (Desoroxxx)
+    public void setSlideLock(final boolean slideLockOn) {
+        if (this.slideLockOn == slideLockOn)
+            return;
+
+        this.slideLockOn = slideLockOn;
+
+        markDirty();
+    }
+
+    public void setAmmo(final int ammo) {
+        if (this.ammo == ammo)
+            return;
+
+        this.ammo = ammo;
+
+        markDirty();
+    }
+
+    public void setRecoil(final float recoil) {
+        if (this.recoil == recoil)
+            return;
+
+        this.recoil = recoil;
+
+        markDirty();
+    }
+
+    public void setMaxShots(final int maxShots) {
+        if (this.maxShots == maxShots)
+            return;
+
+        this.maxShots = maxShots;
+
+        markDirty();
+    }
+
+    public void setZoom(final float zoom) {
+        if (this.zoom == zoom || zoom <= 0)
+            return;
+
+        this.zoom = zoom;
+
+        markDirty();
+    }
+
+    public void setLaserOn(final boolean laserOn) {
+        if (this.laserOn == laserOn)
+            return;
+
+        this.laserOn = laserOn;
+
+        markDirty();
+    }
+
+    public void setNightVisionOn(final boolean nightVisionOn) {
+        if (this.nightVisionOn == nightVisionOn)
+            return;
+
+        this.nightVisionOn = nightVisionOn;
+
+        markDirty();
+    }
+
+    public void setActiveTextureIndex(final byte activeTextureIndex) {
+        if (this.activeTextureIndex == activeTextureIndex)
+            return;
+
+        this.activeTextureIndex = activeTextureIndex;
+
+        markDirty();
+    }
+
+    public void setAimed(final boolean aimed) {
+        if (this.aimed == aimed)
+            return;
+
+        this.aimed = aimed;
+
+        markDirty();
+
+        aimedChangeTimestamp = System.currentTimeMillis();
+    }
+
+    public void resetCurrentSeries() {
+        seriesShotCount = 0;
+        seriesResetAllowed = false;
+    }
+
+    // ! TODO: Investigate
+//    public void resetCurrentSeriesEventually() {
+//        if(isOneClickBurstAllowed()) {
+//	        seriesResetAllowed = true;
+//	    } else {
+//	        seriesShotCount = 0;
+//	    }
+//    }
+
+    @Override
+    protected void reconcile() {
+        if (!player.world.getGameRules().getBoolean("reconcileAmmunition") && !player.world.getGameRules().getBoolean("reconcileAttachment"))
+            return;
+
+        final ItemStack itemStack = getItemStack();
+
+        if (player.world.getGameRules().getBoolean("reconcileAmmunition"))
+            reconcileAmmunition(itemStack);
+
+        if (player.world.getGameRules().getBoolean("reconcileAttachments"))
+            reconcileAttachments(itemStack);
+    }
+
+    private void reconcileAmmunition(final ItemStack itemStack) {
+        final int expectedStackAmmo = Tags.getAmmo(itemStack);
+
+        if (ammo == expectedStackAmmo)
+            return;
+
+        LOGGER.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
+
+        ammo = expectedStackAmmo;
+
+        updateTimestamp = System.currentTimeMillis();
+    }
+
+    private void reconcileAttachments(final ItemStack itemStack) {
+        final int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
+
+        if (Arrays.equals(expectedAttachmentIds, activeAttachmentIds))
+            return;
+
+        LOGGER.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
+
+        activeAttachmentIds = expectedAttachmentIds;
+
+        updateTimestamp = System.currentTimeMillis();
+    }
+
+    // ! INSTANCE_TAG TODO: Once NBT does not use serialized data, improve serialization
+    // region Serialization and Deserialization
+
+    @Override
+    public void read(final ByteBuf byteBuf) {
         super.read(byteBuf);
-        activeAttachmentIds = initIntArray(byteBuf);
-        selectedAttachmentIndexes = initByteArray(byteBuf);
+
+        activeAttachmentIds = readIntArray(byteBuf);
+        selectedAttachmentIndexes = readByteArray(byteBuf);
         ammo = byteBuf.readInt();
         aimed = byteBuf.readBoolean();
         recoil = byteBuf.readFloat();
@@ -256,10 +494,11 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     }
 
     @Override
-    public void write(ByteBuf byteBuf) {
+    public void write(final ByteBuf byteBuf) {
         super.write(byteBuf);
-        serializeIntArray(byteBuf, activeAttachmentIds);
-        serializeByteArray(byteBuf, selectedAttachmentIndexes);
+
+        writeIntArray(byteBuf, activeAttachmentIds);
+        writeByteArray(byteBuf, selectedAttachmentIndexes);
         byteBuf.writeInt(ammo);
         byteBuf.writeBoolean(aimed);
         byteBuf.writeFloat(recoil);
@@ -273,386 +512,39 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         byteBuf.writeBoolean(altModificationModeEnabled);
     }
 
-    private static void serializeIntArray(ByteBuf buf, int[] a) {
-        buf.writeByte(a.length);
-        for (int j : a) {
-            buf.writeInt(j);
-        }
+    private static int[] readIntArray(final ByteBuf byteBuf) {
+        final int length = byteBuf.readByte();
+
+        final int[] array = new int[length];
+        for (int i = 0; i < length; i++)
+            array[i] = byteBuf.readInt();
+
+        return array;
     }
 
-    private static void serializeByteArray(ByteBuf buf, byte[] a) {
-        buf.writeByte(a.length);
-        for (int i = 0; i < a.length; i++) {
-            buf.writeByte(a[i]);
-        }
+    private static byte[] readByteArray(final ByteBuf byteBuf) {
+        final int length = byteBuf.readByte();
+
+        final byte[] array = new byte[length];
+        for (int i = 0; i < length; i++)
+            array[i] = byteBuf.readByte();
+
+        return array;
     }
 
-    private static int[] initIntArray(ByteBuf buf) {
-        int length = buf.readByte();
-        int[] a = new int[length];
-        for (int i = 0; i < length; i++) {
-            a[i] = buf.readInt();
-        }
-        return a;
+    private static void writeIntArray(final ByteBuf byteBuf, final int[] array) {
+        byteBuf.writeByte(array.length);
+
+        for (final int i : array)
+            byteBuf.writeInt(i);
     }
 
-    private static byte[] initByteArray(ByteBuf buf) {
-        int length = buf.readByte();
-        byte[] a = new byte[length];
-        for (int i = 0; i < length; i++) {
-            a[i] = buf.readByte();
-        }
-        return a;
+    private static void writeByteArray(final ByteBuf byteBuf, final byte[] array) {
+        byteBuf.writeByte(array.length);
+
+        for (final byte b : array)
+            byteBuf.writeByte(b);
     }
 
-    @Override
-    protected void updateWith(PlayerItemInstance<WeaponState> otherItemInstance, boolean updateManagedState) {
-        super.updateWith(otherItemInstance, updateManagedState);
-        PlayerWeaponInstance otherWeaponInstance = (PlayerWeaponInstance) otherItemInstance;
-
-        setAmmo(otherWeaponInstance.ammo);
-        setZoom(otherWeaponInstance.zoom);
-        setRecoil(otherWeaponInstance.recoil);
-        setSelectedAttachmentIndexes(otherWeaponInstance.selectedAttachmentIndexes);
-        setActiveAttachmentIds(otherWeaponInstance.activeAttachmentIds);
-        setActiveTextureIndex(otherWeaponInstance.activeTextureIndex);
-        //setSlideLock(otherWeaponInstance.isSlideInLock);
-        setLaserOn(otherWeaponInstance.laserOn);
-        setMaxShots(otherWeaponInstance.maxShots);
-        setLoadIterationCount(otherWeaponInstance.loadIterationCount);
-        setLoadAfterUnloadEnabled(otherWeaponInstance.loadAfterUnloadEnabled);
-    }
-
-    public Weapon getWeapon() {
-        return (Weapon) item;
-    }
-
-    public float getRecoil() {
-        return recoil;
-    }
-
-    public void setRecoil(float recoil) {
-        if (recoil != this.recoil) {
-            this.recoil = recoil;
-            markDirty();
-        }
-    }
-
-    public boolean isDelayCompoundEnd() {
-        return isDelayCompoundEnd;
-    }
-
-    public void setDelayCompoundEnd(boolean bool) {
-        if (!bool) {
-            stateReloadUpdateTimestamp = System.currentTimeMillis();
-        }
-        this.isDelayCompoundEnd = bool;
-    }
-
-    public boolean isLoadAfterUnloadEnabled() {
-        return loadAfterUnloadEnabled;
-    }
-
-    public void setLoadAfterUnloadEnabled(boolean loadAfterUnloadEnabled) {
-        this.loadAfterUnloadEnabled = loadAfterUnloadEnabled;
-    }
-
-    public int getMaxShots() {
-        return maxShots;
-    }
-
-    void setMaxShots(int maxShots) {
-        if (this.maxShots != maxShots) {
-            this.maxShots = maxShots;
-            markDirty();
-        }
-    }
-
-    public int getSeriesShotCount() {
-        //System.out.println("Series shot count: " + seriesShotCount);
-        return seriesShotCount;
-    }
-
-    public void setSeriesShotCount(int seriesShotCount) {
-        this.seriesShotCount = seriesShotCount;
-    }
-
-    public long getLastFireTimestamp() {
-        return lastFireTimestamp;
-    }
-
-    public void setLastFireTimestamp(long lastFireTimestamp) {
-        this.lastFireTimestamp = lastFireTimestamp;
-    }
-
-    public void resetCurrentSeries() {
-        seriesShotCount = 0;
-        seriesResetAllowed = false;
-    }
-
-    public void setLastBurstEndTimestamp(long lastBurstEndTimestamp) {
-        this.lastBurstEndTimestamp = lastBurstEndTimestamp;
-    }
-
-    public long getLastBurstEndTimestamp() {
-        return lastBurstEndTimestamp;
-    }
-
-    public void setSeriesResetAllowed(boolean seriesResetAllowed) {
-        this.seriesResetAllowed = seriesResetAllowed;
-    }
-
-    public boolean isSeriesResetAllowed() {
-        return seriesResetAllowed;
-    }
-
-//	public void resetCurrentSeriesEventually() {
-//	    if(isOneClickBurstAllowed()) {
-//	        seriesResetAllowed = true;
-//	    } else {
-//	        seriesShotCount = 0;
-//	    }
-//    }
-
-    public float getFireRate() {
-        return BalancePackManager.getFirerate(getWeapon());
-        //return getWeapon().builder.fireRate;
-    }
-
-    public float getInaccuracy() {
-        return BalancePackManager.getInaccuracy(getWeapon());
-    }
-
-    public boolean isOneClickBurstAllowed() {
-        //System.out.println("One click burst allowed: " + getWeapon().builder.isOneClickBurstAllowed);
-        return getWeapon().builder.isOneClickBurstAllowed;
-    }
-
-    public boolean isAutomaticModeEnabled() {
-        return maxShots > 1;
-    }
-
-    public boolean isAimed() {
-        return aimed;
-    }
-
-    public void setAimed(boolean aimed) {
-        if (aimed != this.aimed) {
-            this.aimed = aimed;
-            markDirty();
-            aimChangeTimestamp = System.currentTimeMillis();
-        }
-    }
-
-    public int[] getActiveAttachmentIds() {
-        if (activeAttachmentIds == null || activeAttachmentIds.length != AttachmentCategory.values.length) {
-            activeAttachmentIds = new int[AttachmentCategory.values.length];
-            for (CompatibleAttachment<Weapon> attachment : getWeapon().getCompatibleAttachments().values()) {
-                if (attachment.isDefault()) {
-                    activeAttachmentIds[attachment.getAttachment().getCategory().ordinal()] = Item.getIdFromItem(attachment.getAttachment());
-                }
-            }
-        }
-        return activeAttachmentIds;
-    }
-
-    void setActiveAttachmentIds(int[] activeAttachmentIds) {
-        if (!Arrays.equals(this.activeAttachmentIds, activeAttachmentIds)) {
-            this.activeAttachmentIds = activeAttachmentIds;
-            markDirty();
-        }
-    }
-
-    public byte[] getSelectedAttachmentIds() {
-        return selectedAttachmentIndexes;
-    }
-
-    void setSelectedAttachmentIndexes(byte[] selectedAttachmentIndexes) {
-        if (!Arrays.equals(this.selectedAttachmentIndexes, selectedAttachmentIndexes)) {
-            this.selectedAttachmentIndexes = selectedAttachmentIndexes;
-            markDirty();
-        }
-    }
-
-    public boolean isAttachmentZoomEnabled() {
-        Item scopeItem = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
-        return scopeItem instanceof ItemScope;
-    }
-
-
-    public ItemAttachment<Weapon> getAttachmentItemWithCategory(AttachmentCategory category) {
-        if (activeAttachmentIds == null || activeAttachmentIds.length <= category.ordinal()) {
-            return null;
-        }
-        Item activeAttachment = Item.getItemById(activeAttachmentIds[category.ordinal()]);
-        if (activeAttachment instanceof ItemAttachment) {
-            return (ItemAttachment<Weapon>) activeAttachment;
-        }
-        return null;
-    }
-
-    public boolean isAwaitingCompoundInstructions() {
-        return this.isAwaitingCompoundInstructions;
-    }
-
-    public void setIsAwaitingCompoundInstructions(boolean state) {
-        this.isAwaitingCompoundInstructions = state;
-    }
-
-    public float getZoom() {
-        return zoom;
-    }
-
-    public void setZoom(float zoom) {
-        if (this.zoom != zoom && zoom > 0) {
-            this.zoom = zoom;
-            markDirty();
-        }
-    }
-
-    public boolean isLaserOn() {
-        return laserOn;
-    }
-
-    public void setLaserOn(boolean laserOn) {
-        if (this.laserOn != laserOn) {
-            this.laserOn = laserOn;
-            markDirty();
-        }
-    }
-
-    public boolean isNightVisionOn() {
-        return nightVisionOn;
-    }
-
-    public void setNightVisionOn(boolean nightVisionOn) {
-        if (this.nightVisionOn != nightVisionOn) {
-            this.nightVisionOn = nightVisionOn;
-            markDirty();
-        }
-    }
-
-    public int getActiveTextureIndex() {
-        return activeTextureIndex;
-    }
-
-    public void setActiveTextureIndex(int activeTextureIndex) {
-        if (this.activeTextureIndex != activeTextureIndex) {
-            if (activeTextureIndex > Byte.MAX_VALUE) {
-                throw new IllegalArgumentException("activeTextureIndex must be less than " + Byte.MAX_VALUE);
-            }
-            this.activeTextureIndex = (byte) activeTextureIndex;
-            markDirty();
-        }
-    }
-
-    @Override
-    public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
-        Class<? extends Perspective<?>> result = null;
-        if (isAimed() || !isAimed()) {
-            ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
-            if (scope instanceof ItemScope && ((ItemScope) scope).isOptical()) {
-                result = OpticalScopePerspective.class;
-            }
-        }
-        return result;
-    }
-
-    private boolean hasOpticScope() {
-        ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
-        return scope instanceof ItemScope && ((ItemScope) scope).isOptical();
-    }
-
-    public ItemScope getScope() {
-        ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
-        return scope instanceof ItemScope ? (ItemScope) scope : null;
-    }
-
-    @SideOnly(Side.CLIENT)
-    private float getOpticScopeVignetteRadius(float partialTicks) {
-        //ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
-        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
-//        float f = player.distanceWalkedModified - player.prevDistanceWalkedModified;
-//        float f1 = -(player.distanceWalkedModified + f * partialTicks);
-        float f2 = player.prevCameraYaw + (player.cameraYaw - player.prevCameraYaw) * partialTicks;
-        // return -2f * f2 + 0.55f;
-        return 0.55f;
-    }
-
-    private float getAimChangeProgress() {
-        float p = MiscUtils.clamp((float) (System.currentTimeMillis() - aimChangeTimestamp) / AIM_CHANGE_DURATION, 0f, 1f);
-        if (!isAimed()) {
-            p = 1f - p;
-        }
-
-        return p;
-    }
-
-    @Override
-    public DynamicShaderGroupSource getShaderSource(DynamicShaderPhase phase) {
-        if (isAimed() && phase == DynamicShaderPhase.POST_WORLD_OPTICAL_SCOPE_RENDER) {
-            ItemScope scope = getScope();
-            if (scope.isOptical()) {
-                return scope.hasNightVision() && nightVisionOn ? NIGHT_VISION_SOURCE : VIGNETTE_SOURCE;
-            }
-        }
-
-        float progress = getAimChangeProgress();
-        return ModernConfigManager.enableBlurOnAim && phase == DynamicShaderPhase.PRE_ITEM_RENDER && (isAimed() || (progress > 0f && progress < 1f)) ? BLUR_SOURCE : null;
-    }
-
-    public void setLoadIterationCount(int loadIterationCount) {
-        this.loadIterationCount = loadIterationCount;
-    }
-
-    public int getLoadIterationCount() {
-        return loadIterationCount;
-    }
-
-    @Override
-    protected void reconcile() {
-        if (!player.world.getGameRules().getBoolean("reconcileAmmunition") && !player.world.getGameRules().getBoolean("reconcileAttachment")) {
-            return;
-        }
-
-        final ItemStack itemStack = getItemStack();
-
-        if (player.world.getGameRules().getBoolean("reconcileAmmunition")) {
-            final int expectedStackAmmo = Tags.getAmmo(itemStack);
-
-            if (ammo != expectedStackAmmo) {
-                LOGGER.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
-
-                ammo = expectedStackAmmo;
-
-                updateTimestamp = System.currentTimeMillis();
-            }
-        }
-
-        if (player.world.getGameRules().getBoolean("reconcileAttachments")) {
-            final int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
-
-            if (!Arrays.equals(expectedAttachmentIds, activeAttachmentIds)) {
-                LOGGER.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
-
-                activeAttachmentIds = expectedAttachmentIds;
-
-                updateTimestamp = System.currentTimeMillis();
-            }
-        }
-    }
-
-    @Override
-    public String toString() {
-        return getWeapon().builder.name + "[" + getUuid() + "]";
-    }
-
-
-    public boolean isAltMofificationModeEnabled() {
-        return altModificationModeEnabled;
-    }
-
-    public void setAltModificationModeEnabled(boolean altModificationModeEnabled) {
-        this.altModificationModeEnabled = altModificationModeEnabled;
-    }
+    // endregion
 }

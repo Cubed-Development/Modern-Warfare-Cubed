@@ -514,7 +514,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         }
 
         if (playerMeleeInstance != null) {
-            AsyncMeleeState asyncWeaponState = getNextNonExpiredState(playerMeleeInstance);
+            AsyncMeleeState asyncWeaponState = playerMeleeInstance.nextNonExpiredHistoryState();
 
             switch (asyncWeaponState.getState()) {
 
@@ -558,19 +558,6 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
 
         return new StateDescriptor(playerMeleeInstance, stateManager, rate, amplitude);
-    }
-
-    private AsyncMeleeState getNextNonExpiredState(PlayerMeleeInstance playerWeaponState) {
-        AsyncMeleeState asyncWeaponState = null;
-        while ((asyncWeaponState = playerWeaponState.nextHistoryState()) != null) {
-            if (System.currentTimeMillis() > asyncWeaponState.getTimestamp() + asyncWeaponState.getDuration()) {
-                continue;
-            } else {
-                break;
-            }
-        }
-
-        return asyncWeaponState;
     }
 
     private Consumer<RenderContext<RenderableState>> createWeaponPartPositionFunction(Transition<RenderContext<RenderableState>> t) {

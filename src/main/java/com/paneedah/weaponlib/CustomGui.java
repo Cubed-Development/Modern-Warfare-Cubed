@@ -581,14 +581,14 @@ public class CustomGui extends Gui {
 
 
     public static boolean isInModifyingState(PlayerWeaponInstance weaponInstance) {
-        return (weaponInstance.getState() == WeaponState.MODIFYING && !weaponInstance.isAltMofificationModeEnabled())
+        return (weaponInstance.getState() == WeaponState.MODIFYING && !weaponInstance.isAltModificationModeEnabled())
                 || weaponInstance.getState() == WeaponState.MODIFYING_REQUESTED
                 || weaponInstance.getState() == WeaponState.NEXT_ATTACHMENT
                 || weaponInstance.getState() == WeaponState.NEXT_ATTACHMENT_REQUESTED;
     }
 
     public static boolean isInAltModifyingState(PlayerWeaponInstance weaponInstance) {
-        return weaponInstance.isAltMofificationModeEnabled()
+        return weaponInstance.isAltModificationModeEnabled()
                 && (weaponInstance.getState() == WeaponState.MODIFYING
                 || weaponInstance.getState() == WeaponState.MODIFYING_REQUESTED
                 || weaponInstance.getState() == WeaponState.NEXT_ATTACHMENT

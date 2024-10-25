@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.electronics;
 
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.WirelessCameraPerspective;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -15,16 +15,19 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 @NoArgsConstructor
 public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 
-    private static final int SERIAL_VERSION = 1;
+    @Getter private int activeWatchIndex;
 
-    private int activeWatchIndex;
+    public PlayerTabletInstance(final int itemInventoryIndex, final EntityLivingBase player) {
+        super(itemInventoryIndex, player);
+    }
 
-    public PlayerTabletInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
+    public PlayerTabletInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);
     }
 
-    public PlayerTabletInstance(int itemInventoryIndex, EntityLivingBase player) {
-        super(itemInventoryIndex, player);
+    @Override
+    protected int getSerialVersion() {
+        return 1;
     }
 
     @Override
@@ -32,62 +35,56 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
         return WirelessCameraPerspective.class;
     }
 
-    @Override
-    public void write(ByteBuf byteBuf) {
-        super.write(byteBuf);
-        byteBuf.writeInt(activeWatchIndex);
-    }
+    public void previousActiveWatchIndex() {
+        final LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
+        if (tracker == null)
+            return;
 
-    public void setActiveWatchIndex(int activeWatchIndex) {
-        if (this.activeWatchIndex != activeWatchIndex) {
-            LOGGER.debug("Changing active watch index to {}", activeWatchIndex);
-            this.activeWatchIndex = activeWatchIndex;
-            markDirty();
+        if (activeWatchIndex == 0) {
+            setActiveWatchIndex(tracker.getTrackableEntitites().size() - 1);
+        } else {
+            setActiveWatchIndex(activeWatchIndex - 1);
         }
-    }
-
-    public int getActiveWatchIndex() {
-        return activeWatchIndex;
-    }
-
-    @Override
-    public void read(ByteBuf byteBuf) {
-        super.read(byteBuf);
-        activeWatchIndex = byteBuf.readInt();
-    }
-
-    @Override
-    protected int getSerialVersion() {
-        return SERIAL_VERSION;
     }
 
     public void nextActiveWatchIndex() {
-        LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
-        if (tracker != null) {
-            if (activeWatchIndex >= tracker.getTrackableEntitites().size() - 1) {
-                setActiveWatchIndex(0);
-            } else {
-                setActiveWatchIndex(activeWatchIndex + 1);
-            }
+        final LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
+        if (tracker == null)
+            return;
+
+        if (activeWatchIndex >= tracker.getTrackableEntitites().size() - 1) {
+            setActiveWatchIndex(0);
+        } else {
+            setActiveWatchIndex(activeWatchIndex + 1);
         }
     }
 
+    public void setActiveWatchIndex(final int activeWatchIndex) {
+        if (this.activeWatchIndex == activeWatchIndex)
+            return;
 
-    public void previousActiveWatchIndex() {
-        LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
-        if (tracker != null) {
-            if (activeWatchIndex == 0) {
-                setActiveWatchIndex(tracker.getTrackableEntitites().size() - 1);
-            } else {
-                setActiveWatchIndex(activeWatchIndex - 1);
-            }
-        }
+        LOGGER.debug("Changing {} active watch index to {}", toString(), activeWatchIndex);
+
+        this.activeWatchIndex = activeWatchIndex;
+
+        markDirty();
     }
 
+    // region Serialization and Deserialization
 
     @Override
-    public String toString() {
-        return "Tablet [" + getUuid() + "]";
+    public void write(final ByteBuf byteBuf) {
+        super.write(byteBuf);
+
+        byteBuf.writeInt(activeWatchIndex);
     }
 
+    @Override
+    public void read(final ByteBuf byteBuf) {
+        super.read(byteBuf);
+
+        activeWatchIndex = byteBuf.readInt();
+    }
+
+    // endregion
 }

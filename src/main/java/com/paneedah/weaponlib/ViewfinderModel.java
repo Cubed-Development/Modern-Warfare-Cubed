@@ -93,7 +93,7 @@ public class ViewfinderModel extends ModelBase {
         boolean isNightVisionOn = false;
         boolean useWhitePhosphor = false;
         if (renderContext.getWeaponInstance() != null) {
-            ItemAttachment<Weapon> scope = renderContext.getWeaponInstance().getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
+            ItemAttachment<Weapon> scope = renderContext.getWeaponInstance().getAttachmentItemByCategory(AttachmentCategory.SCOPE);
             if (scope != null) {
                 if (scope instanceof ItemScope) {
                     isNightVisionOn = ((ItemScope) scope).hasNightVision() && renderContext.getWeaponInstance().isNightVisionOn();
