@@ -39,11 +39,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     private static final int SERIAL_VERSION = 9;
 
-    static {
-        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
-    }
-
-    // ! TODO: Figure this out, the resources of weaponlib got incorectly place in the src, and removing this shader system doesn't change anything
+    // ! TODO: Figure this out, the resources of weaponlib got incorrectly place in the src, and removing this shader system doesn't change anything
 
     private static final UUID NIGHT_VISION_SOURCE_UUID = UUID.randomUUID();
     private static final UUID VIGNETTE_SOURCE_UUID = UUID.randomUUID();

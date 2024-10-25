@@ -20,10 +20,6 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
     private static final int SERIAL_VERSION = 7;
 
-    static {
-        TypeRegistry.getINSTANCE().register(PlayerMeleeInstance.class);
-    }
-
     private int ammo;
     private long lastFireTimestamp;
     private byte activeTextureIndex;

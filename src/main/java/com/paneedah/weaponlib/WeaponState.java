@@ -118,9 +118,5 @@ public enum WeaponState implements ManagedState<WeaponState> {
     public void write(ByteBuf byteBuf) {
         // No need to write anything, parent type registry should take care of it
     }
-
-    static {
-        TypeRegistry.getINSTANCE().register(WeaponState.class);
-    }
 }
 

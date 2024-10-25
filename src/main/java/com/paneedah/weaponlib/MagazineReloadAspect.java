@@ -20,11 +20,6 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazineInstance> {
 
-    static {
-        TypeRegistry.getINSTANCE().register(LoadPermit.class);
-        TypeRegistry.getINSTANCE().register(UnloadPermit.class);
-    }
-
     private static final Set<MagazineState> allowedUpdateFromStates = new HashSet<>(
             Arrays.asList(
                     MagazineState.LOAD_REQUESTED,

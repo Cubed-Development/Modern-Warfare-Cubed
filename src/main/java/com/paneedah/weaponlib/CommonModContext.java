@@ -49,33 +49,6 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class CommonModContext implements ModContext {
 
-    static {
-        TypeRegistry.getINSTANCE().register(LoadPermit.class);
-        TypeRegistry.getINSTANCE().register(MagazineState.class);
-        TypeRegistry.getINSTANCE().register(PlayerItemInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerMagazineInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
-        TypeRegistry.getINSTANCE().register(Permit.class);
-        TypeRegistry.getINSTANCE().register(EnterAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ExitAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ChangeAttachmentPermit.class);
-        TypeRegistry.getINSTANCE().register(CompoundPermit.class);
-        TypeRegistry.getINSTANCE().register(UnloadPermit.class);
-        TypeRegistry.getINSTANCE().register(LoadPermit.class);
-        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
-        TypeRegistry.getINSTANCE().register(WeaponState.class);
-        TypeRegistry.getINSTANCE().register(PlayerMeleeInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerGrenadeInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerTabletInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerHandheldInstance.class);
-        TypeRegistry.getINSTANCE().register(MeleeState.class);
-        TypeRegistry.getINSTANCE().register(TabletState.class);
-        TypeRegistry.getINSTANCE().register(HandheldState.class);
-        TypeRegistry.getINSTANCE().register(SpreadableExposure.class);
-        TypeRegistry.getINSTANCE().register(LightExposure.class);
-    }
-
     static class BulletImpactSoundKey {
         private final Material material;
 

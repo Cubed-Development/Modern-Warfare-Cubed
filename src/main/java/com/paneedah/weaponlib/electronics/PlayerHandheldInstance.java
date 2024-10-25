@@ -13,10 +13,6 @@ public class PlayerHandheldInstance extends PlayerItemInstance<HandheldState> {
 
     private static final int SERIAL_VERSION = 1;
 
-    static {
-        TypeRegistry.getINSTANCE().register(PlayerHandheldInstance.class);
-    }
-
     public PlayerHandheldInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);
     }

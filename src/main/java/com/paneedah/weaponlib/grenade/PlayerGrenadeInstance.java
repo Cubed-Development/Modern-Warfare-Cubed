@@ -19,10 +19,6 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 
     private static final int SERIAL_VERSION = 11;
 
-    static {
-        TypeRegistry.getINSTANCE().register(PlayerGrenadeInstance.class);
-    }
-
     private int ammo;
     private long activationTimestamp;
 
