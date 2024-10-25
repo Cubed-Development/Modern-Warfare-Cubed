@@ -19,17 +19,13 @@ public final class PermitMessage implements IMessage {
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        final TypeRegistry typeRegistry = TypeRegistry.getINSTANCE();
-
-        playerItemInstance = typeRegistry.fromBytes(byteBuf);
-        permit = typeRegistry.fromBytes(byteBuf);
+        playerItemInstance = TypeRegistry.fromBytes(byteBuf);
+        permit = TypeRegistry.fromBytes(byteBuf);
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        final TypeRegistry typeRegistry = TypeRegistry.getINSTANCE();
-
-        typeRegistry.toBytes(playerItemInstance, byteBuf);
-        typeRegistry.toBytes(permit, byteBuf);
+        TypeRegistry.toBytes(playerItemInstance, byteBuf);
+        TypeRegistry.toBytes(permit, byteBuf);
     }
 }
