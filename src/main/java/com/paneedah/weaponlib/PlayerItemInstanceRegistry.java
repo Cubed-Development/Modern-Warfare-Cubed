@@ -148,10 +148,10 @@ public final class PlayerItemInstanceRegistry {
                 LOGGER.debug("Creating instance for slot {} from stack {}", slot, itemStack);
                 result = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(player, itemStack, slot);
                 result.markClean();
-            }
 
-            result.setItemInventoryIndex(slot);
-            result.setPlayer(player);
+                result.setItemInventoryIndex(slot);
+                result.setPlayer(player);
+            }
         }
 
         if (result != null) {
