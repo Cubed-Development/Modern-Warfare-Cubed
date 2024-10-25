@@ -118,7 +118,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
     private static final Predicate<PlayerWeaponInstance> magSwapCompleted = weaponInstance -> weaponInstance.isMagSwapDone();
 
-    private static final Predicate<PlayerWeaponInstance> reloadMidpoint = weaponInstance -> Math.abs((System.currentTimeMillis() - (weaponInstance.getReloadTimestamp())) / ((double) weaponInstance.getWeapon().getTotalReloadingDuration() * 0.5) - 0.5) < 0.01;
+    private static final Predicate<PlayerWeaponInstance> reloadMidpoint = weaponInstance -> Math.abs((System.currentTimeMillis() - (weaponInstance.getReloadUpdateTimestamp())) / ((double) weaponInstance.getWeapon().getTotalReloadingDuration() * 0.5) - 0.5) < 0.01;
 
     private static final Predicate<PlayerWeaponInstance> unloadTimeoutExpired = weaponInstance -> System.currentTimeMillis() >= weaponInstance.getStateUpdateTimestamp() + UNLOAD_TIMEOUT;
 
@@ -136,7 +136,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         } else {
             long maxTime = (long) (weaponInstance.getAnimationDuration() * 1.2);
 
-            return System.currentTimeMillis() >= weaponInstance.getReloadTimestamp() + maxTime;
+            return System.currentTimeMillis() >= weaponInstance.getReloadUpdateTimestamp() + maxTime;
         }
     };
 

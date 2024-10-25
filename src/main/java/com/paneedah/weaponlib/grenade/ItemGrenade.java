@@ -453,9 +453,11 @@ public class ItemGrenade extends Item implements
     }
 
     @Override
-    public PlayerGrenadeInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
-        PlayerGrenadeInstance instance = new PlayerGrenadeInstance(slot, player, itemStack);
+    public PlayerGrenadeInstance createItemInstance(final EntityLivingBase entityLivingBase, final ItemStack itemStack, final int slot) {
+        final PlayerGrenadeInstance instance = new PlayerGrenadeInstance(slot, entityLivingBase, itemStack);
+
         instance.setState(GrenadeState.READY);
+
         return instance;
     }
 

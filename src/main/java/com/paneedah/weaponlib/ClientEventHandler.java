@@ -244,7 +244,7 @@ public class ClientEventHandler {
                 PlayerUtil.restorePlayerSpeed(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
             }
 
-            if (mainHandHeldWeaponInstance != null && mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.getSyncStartTimestamp() == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis()) {
+            if (mainHandHeldWeaponInstance != null && mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.syncStartTimestamp == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis()) {
                 mainHandHeldWeaponInstance.reconcile();
             }
         } else {

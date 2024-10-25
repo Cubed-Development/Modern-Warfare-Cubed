@@ -125,8 +125,8 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
     }
 
     @Override
-    public PlayerMagazineInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
-        final PlayerMagazineInstance instance = new PlayerMagazineInstance(slot, player, itemStack);
+    public PlayerMagazineInstance createItemInstance(final EntityLivingBase entityLivingBase, final ItemStack itemStack, final int slot) {
+        final PlayerMagazineInstance instance = new PlayerMagazineInstance(slot, entityLivingBase, itemStack);
 
         instance.setState(MagazineState.READY);
 

@@ -1409,20 +1409,21 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     @Override
-    public PlayerWeaponInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
-        PlayerWeaponInstance instance = new PlayerWeaponInstance(slot, player, itemStack);
-        //state.setAmmo(Tags.getAmmo(itemStack)); // TODO: get ammo properly
+    public PlayerWeaponInstance createItemInstance(final EntityLivingBase entityLivingBase, final ItemStack itemStack, final int slot) {
+        final PlayerWeaponInstance instance = new PlayerWeaponInstance(slot, entityLivingBase, itemStack);
+
+//        instance.setAmmo(Tags.getAmmo(itemStack)); // TODO: Get ammo properly
         instance.setState(WeaponState.READY);
 
         instance.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(instance.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(instance.getWeapon()) : builder.recoil);
         instance.setMaxShots(builder.maxShots.get(0));
 
         for (CompatibleAttachment<Weapon> compatibleAttachment : ((Weapon) itemStack.getItem()).getCompatibleAttachments().values()) {
-            ItemAttachment<Weapon> attachment = compatibleAttachment.getAttachment();
-            if (compatibleAttachment.isDefault() && attachment.getApply2() != null) {
+            final ItemAttachment<Weapon> attachment = compatibleAttachment.getAttachment();
+            if (compatibleAttachment.isDefault() && attachment.getApply2() != null)
                 attachment.apply2.apply(attachment, instance);
-            }
         }
+
         return instance;
     }
 
