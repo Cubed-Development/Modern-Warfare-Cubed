@@ -26,28 +26,19 @@ public class VehicleRendererBuilder extends HierarchicalRendererBuilder<VehicleP
             stateManager, renderContext) -> {
         stateManager.setContinousState(renderContext.getState(), true, false, false);
     };
-/*
-	private static Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_TURN_PROGRESS_PROVIDER = context -> 0.5f
-			+ (float) ((EntityVehicle) context.getEntity()).getLastYawDelta() / 20f;
-*/
 
-    private static final Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_TURN_PROGRESS_PROVIDER = context -> ((EntityVehicle) context.getEntity()).getInterpolatedYawDelta();
+    private static final Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_TURN_PROGRESS_PROVIDER = context -> Float.valueOf(((EntityVehicle) context.getEntity()).getInterpolatedYawDelta());
 
 
-    private static final Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_WHEEL_TURN_PROGRESS_PROVIDER = context -> (float) ((EntityVehicle) context.getEntity()).getInterpolatedWheelRotation();
-	
-	/*
-	private static Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_WHEEL_TURN_PROGRESS_PROVIDER = context -> (float) Math
-			.abs(((EntityVehicle) context.getEntity()).getWheelRotationAngle()) / 360f;
-	*/
+    private static final Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_WHEEL_TURN_PROGRESS_PROVIDER = context -> Float.valueOf((float) ((EntityVehicle) context.getEntity()).getInterpolatedWheelRotation());
 
     public VehicleRendererBuilder performShiftAnimation(boolean state) {
-        this.doShiftAnimation = state;
+        doShiftAnimation = state;
         return this;
     }
 
     public VehicleRendererBuilder shiftWithRight(boolean state) {
-        this.shiftRight = state;
+        shiftRight = state;
         return this;
     }
 
@@ -368,7 +359,7 @@ public class VehicleRendererBuilder extends HierarchicalRendererBuilder<VehicleP
                             idleTransitionDescriptors.get(0).positionFunction, animationDuration));
                 }
 
-                if (transitionDescriptors == null || transitionDescriptors.isEmpty()) {
+                if (transitionDescriptors.isEmpty()) {
                     withPartPosition(part, state, c -> {
                     });
                 }

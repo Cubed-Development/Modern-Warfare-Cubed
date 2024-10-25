@@ -23,7 +23,7 @@ public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tile
     @Override
     public void render(CustomTileEntity<?> tileEntity, double posX, double posY, double posZ, float partialTicks, int destroyStage, float alpha) {
         GL11.glPushMatrix();
-        this.bindTexture(textureResource);
+        bindTexture(textureResource);
 
         //  GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -37,8 +37,6 @@ public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tile
 
         GL11.glTranslatef(0F, -0.5F, 0F);
 
-        //System.out.println("Rendering side " + ((CustomTileEntity<?>) tileEntity).getSide());
-//        GL11.glRotatef(-90f * ((CustomTileEntity<?>) tileEntity).getSide(), 0, 1f, 0);
         positioning.accept(tileEntity);
         //GL11.glEnable(GL11.GL_CULL_FACE);
         model.render(null, 0f, 0f, 0f, 0f, 0f, 0.0625f);

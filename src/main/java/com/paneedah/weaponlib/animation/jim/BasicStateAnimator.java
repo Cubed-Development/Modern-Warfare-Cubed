@@ -34,7 +34,7 @@ public class BasicStateAnimator {
     //public static final
 
 
-    public void BasicStateAnimator() {
+    public BasicStateAnimator() {
 
     }
 
@@ -64,6 +64,7 @@ public class BasicStateAnimator {
 
     public void addPause(double time) {
         Transition pauseTransition = callList.peekLast();
+        assert pauseTransition != null;
         pauseTransition.time = time;
 
         callList.offer(pauseTransition);
@@ -117,8 +118,6 @@ public class BasicStateAnimator {
             if (!callList.isEmpty()) {
                 goingTransition = callList.poll();
             }
-            //currentPosition = currentTransition.pos;
-            //currentRot = currentTransition.rot;
         }
     }
 

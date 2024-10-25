@@ -256,12 +256,6 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
             } else if (lookupResult.compatibleAttachment.getMeleeApplyHandler() != null) {
                 lookupResult.compatibleAttachment.getMeleeApplyHandler().apply(nextAttachment, weaponInstance);
             }
-//			else {
-//				ApplyHandler2<ItemMelee> handler = weaponInstance.getWeapon().getEquivalentHandler(attachmentCategory);
-//				if(handler != null) {
-//					handler.apply(null, weaponInstance);
-//				}
-//			}
             if (player.inventory.getStackInSlot(lookupResult.index) == null) {
                 return;
             }
@@ -274,10 +268,6 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
             activeAttachmentIds[attachmentCategory.ordinal()] = Item.getIdFromItem(nextAttachment);
         } else {
             activeAttachmentIds[attachmentCategory.ordinal()] = -1;
-//			ApplyHandler2<ItemMelee> handler = weaponInstance.getWeapon().getEquivalentHandler(attachmentCategory);
-//			if(handler != null) {
-//				handler.apply(null, weaponInstance);
-//			}
         }
 
         if (currentAttachment != null) {
@@ -374,9 +364,6 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
     /**
      * Adds the attachment to the weapon identified by the itemStack without removing the attachment from the inventory.
      *
-     * @param nextAttachment
-     * @param itemStack
-     * @param player
      */
     void addAttachment(ItemAttachment<ItemMelee> attachment, PlayerMeleeInstance weaponInstance) {
 
@@ -388,7 +375,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
         }
 
         if (currentAttachment == null) {
-            if (attachment != null && attachment.getApply() != null) {
+            if (attachment.getApply() != null) {
                 attachment.getApply().apply(attachment, weaponInstance.getWeapon(), weaponInstance.getPlayer());
             }
             activeAttachmentsIds[attachment.getCategory().ordinal()] = Item.getIdFromItem(attachment);
@@ -401,11 +388,6 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
     /**
      * Removes the attachment from the weapon identified by the itemStack without adding the attachment to the inventory.
      *
-     * @param attachmentCategory
-     * @param itemStack
-     * @param player
-     *
-     * @return
      */
     ItemAttachment<ItemMelee> removeAttachment(AttachmentCategory attachmentCategory, PlayerMeleeInstance weaponInstance) {
 

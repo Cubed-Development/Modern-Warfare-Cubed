@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.electronics;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 
 public enum TabletState implements ManagedState<TabletState> {
 
@@ -28,7 +29,8 @@ public enum TabletState implements ManagedState<TabletState> {
 
     private final boolean isTransient;
 
-    private int priority = DEFAULT_PRIORITY;
+    @Getter
+    private int priority;
 
     TabletState() {
         this(null, null, null, true);
@@ -42,10 +44,6 @@ public enum TabletState implements ManagedState<TabletState> {
         this(null, null, null, isTransient);
     }
 
-//	private WeaponState(WeaponState permitRequestedState, WeaponState transactionFinalState) {
-//		this(permitRequestedState, transactionFinalState, true);
-//	}
-
     TabletState(TabletState preparingPhase, TabletState permitRequestedState, TabletState transactionFinalState, boolean isTransient) {
         this(DEFAULT_PRIORITY, preparingPhase, permitRequestedState, transactionFinalState, isTransient);
     }
@@ -53,8 +51,8 @@ public enum TabletState implements ManagedState<TabletState> {
     TabletState(int priority, TabletState preparingPhase, TabletState permitRequestedState, TabletState transactionFinalState, boolean isTransient) {
         this.priority = priority;
         this.preparingPhase = preparingPhase;
-        this.permitRequestedPhase = permitRequestedState;
-        this.commitPhase = transactionFinalState;
+        permitRequestedPhase = permitRequestedState;
+        commitPhase = transactionFinalState;
         this.isTransient = false; //isTransient; // TODO: make states non-transient, remove flag from constructor
         //this is required to have up-to-date state on server, e.g. preparing, requested;
         // otherwise issus arise, e.g. item toss would not work correctly
@@ -79,10 +77,6 @@ public enum TabletState implements ManagedState<TabletState> {
     @Override
     public TabletState commitPhase() {
         return commitPhase;
-    }
-
-    public int getPriority() {
-        return priority;
     }
 
     @Override

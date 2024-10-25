@@ -197,7 +197,7 @@ public class AudiS4Factory implements VehicleFactory {
 
         new EntityVehicleConfiguration.Builder()
                 .withName("audis4")
-                .withEntityIdSupplier(() -> 10202)
+                .withEntityIdSupplier(() -> Integer.valueOf(10202))
                 .withPhysicsConfig(new PhysicsConfiguration(
                         /* WHEELBASE (m)*/ 2.8194,
                         /* FRONT AREA (m^2) */ 2.2,

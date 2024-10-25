@@ -42,9 +42,9 @@ public class HK_P12Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.17f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.17f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -95,7 +95,7 @@ public class HK_P12Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -104,21 +104,17 @@ public class HK_P12Factory implements GunFactory {
                     if (model instanceof USP45Slide) {
                         GL11.glScaled(1F, 1F, 1F);
 //                GL11.glTranslatef(0F, 0F, 0.5F);
-                    } else if (model instanceof P2000rearsight) {
+                    } else if (null instanceof P2000rearsight) {
                         GL11.glTranslatef(-0.153F, -1.185F, -0.03F);
                         GL11.glScaled(0.3F, 0.22F, 0.3F);
-                    } else if (model instanceof M1911frontsight) {
+                    } else if (null instanceof M1911frontsight) {
                         GL11.glTranslatef(-0.142F, -1.2F, -2F);
                         GL11.glScaled(0.2F, 0.2F, 0.2F);
                     }
                 })
                 .withCompatibleAttachment(Magazines.USP45Mag, (model) -> {
-//        	GL11.glTranslatef(0.05f, 2.5f, 0.2f);
-//        	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.USP45hammer, true, (model) -> {
-//          GL11.glTranslatef(-0F, -0.17F, 0.53F);
-//        	GL11.glRotatef(45F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
                     GL11.glTranslatef(0.01F, -0.65F, -2.3F);
@@ -152,13 +148,8 @@ public class HK_P12Factory implements GunFactory {
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                 AttachmentCategory.GRIP, instance);
-                        if (activeAttachment == Attachments.USPMatchCompensator) {
-                            GL11.glTranslatef(-0.23F, -1.14F, -4.92F);
-                            GL11.glScaled(1.5F, 1.5F, 1.5F);
-                        } else {
-                            GL11.glTranslatef(-0.23F, -1.14F, -4.92F);
-                            GL11.glScaled(1.5F, 1.5F, 1.5F);
-                        }
+                        GL11.glTranslatef(-0.23F, -1.14F, -4.92F);
+                        GL11.glScaled(1.5F, 1.5F, 1.5F);
                     }
                 }, (model) -> {
                     if (model instanceof AcogReticle) {

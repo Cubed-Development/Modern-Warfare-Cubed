@@ -43,9 +43,9 @@ public class UMP45Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.17f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.13f))
+                .withFlashOffsetY(() -> Float.valueOf(0.17f))
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -78,16 +78,12 @@ public class UMP45Factory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
                 .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
                 .withCompatibleAttachment(Attachments.UMP45Stock, true, (model) -> {
-//             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//             GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.UMP45Receiver, true, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.UMP9Receiver, (model) -> {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.UMP45action, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Magazines.UMP45Mag, (model) -> {
                 })
@@ -97,19 +93,19 @@ public class UMP45Factory {
                     if (model instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(-0.183F, -1.29F, -4.1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.25F, -1.65F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron1) {
+                    } else if (null instanceof M4Iron1) {
                         GL11.glTranslatef(0.155F, -1.74F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -152,7 +148,7 @@ public class UMP45Factory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -209,9 +205,6 @@ public class UMP45Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {

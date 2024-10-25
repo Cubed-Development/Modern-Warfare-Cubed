@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 public class ContainerStation extends Container {
 
     protected int page;
-    protected Supplier<Integer> currentPageSupplier = () -> page;
+    protected Supplier<Integer> currentPageSupplier = () -> Integer.valueOf(page);
 
     @Override
     public boolean canInteractWith(EntityPlayer playerIn) {

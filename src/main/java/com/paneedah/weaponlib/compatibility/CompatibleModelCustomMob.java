@@ -73,7 +73,7 @@ public class CompatibleModelCustomMob extends ModelBiped {
     @Override
     public void postRenderArm(float scale, EnumHandSide side) {
         float f = side == EnumHandSide.RIGHT ? 1.0F : -1.0F;
-        ModelRenderer modelrenderer = this.getArmForSide(side);
+        ModelRenderer modelrenderer = getArmForSide(side);
         modelrenderer.rotationPointX += f;
         modelrenderer.postRender(scale);
         modelrenderer.rotationPointX -= f;

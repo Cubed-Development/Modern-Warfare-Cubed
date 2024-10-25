@@ -40,8 +40,6 @@ public class PlayerMagazineInstance extends PlayerItemInstance<MagazineState> {
     @Override
     protected void updateWith(PlayerItemInstance<MagazineState> otherItemInstance, boolean updateManagedState) {
         super.updateWith(otherItemInstance, updateManagedState);
-//		PlayerMagazineInstance otherMagazineInstance = (PlayerMagazineInstance) otherItemInstance;
-//		setAmmo(otherMagazineInstance.ammo);
     }
 
     public ItemMagazine getMagazine() {

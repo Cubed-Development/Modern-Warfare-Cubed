@@ -52,7 +52,7 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
         @Override
         public void setInitializer(Function<World, LivingEntityTracker> initializer) {
             this.initializer = initializer;
-            this.resolved = null;
+            resolved = null;
         }
 
         @Override

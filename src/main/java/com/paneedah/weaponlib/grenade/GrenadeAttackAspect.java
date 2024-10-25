@@ -31,13 +31,6 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
             instance -> System.currentTimeMillis() > instance.getStateUpdateTimestamp()
                     + instance.getWeapon().getReequipTimeout();
 
-//    private static Predicate<PlayerGrenadeInstance> isSmokeGrenade =
-//                    instance -> instance.getWeapon().isSmokeOnly();
-
-//    private static Predicate<PlayerGrenadeInstance> takingOffSafetyPinCompleted = instance ->
-//            System.currentTimeMillis() >= instance.getStateUpdateTimestamp()
-//                + instance.getWeapon().getTotalTakeSafetyPinOffDuration() * 1.1;
-
     private static final Predicate<PlayerGrenadeInstance> throwingCompleted = instance ->
             System.currentTimeMillis() >= instance.getStateUpdateTimestamp()
                     + instance.getWeapon().getTotalThrowingDuration() * 1.1;

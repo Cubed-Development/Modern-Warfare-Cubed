@@ -18,7 +18,7 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
 
         public Builder withTextureVariant(String... textureVariantNames) {
             for (String s : textureVariantNames) {
-                this.textureVariants.add(stripFileExtension(s.toLowerCase(), ".png"));
+                textureVariants.add(stripFileExtension(s.toLowerCase(), ".png"));
             }
             return this;
         }
@@ -26,17 +26,17 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
         @Override
         protected ItemAttachment<ItemMelee> createAttachment(ModContext modContext) {
             MeleeSkin skin = new MeleeSkin(AttachmentCategory.SKIN, getModel(), getTextureName(), null, null, null);
-            skin.textureVariants = this.textureVariants;
+            skin.textureVariants = textureVariants;
             return skin;
         }
 
         @Override
         public <V extends ItemAttachment<ItemMelee>> V build(ModContext modContext, Class<V> target) {
-            this.model = new FlatModel();
+            model = new FlatModel();
             if (textureVariants.isEmpty()) {
                 textureVariants.add(getTextureName());
             } else if (getTextureName() == null) {
-                this.textureName = textureVariants.get(0);
+                textureName = textureVariants.get(0);
             }
             if (transforms.getInventoryPositioning() == null) {
                 withInventoryPositioning(() -> {

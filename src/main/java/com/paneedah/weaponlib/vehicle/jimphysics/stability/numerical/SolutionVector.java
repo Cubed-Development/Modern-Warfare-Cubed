@@ -9,7 +9,7 @@ public class SolutionVector<T extends SolutionVector<T>> {
     }
 
     public void add(double dt, T vec) {
-        this.value += dt * vec.value;
+        value += dt * vec.value;
     }
 
 }

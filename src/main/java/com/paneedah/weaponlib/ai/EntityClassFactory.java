@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.ai;
 
+import lombok.Getter;
 import net.minecraft.entity.Entity;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Label;
@@ -19,7 +20,7 @@ public class EntityClassFactory implements Opcodes {
         public EntityClassLoader(String className, byte[] classBytes, ClassLoader parentClassLoader) {
             super(parentClassLoader);
             this.className = className;
-            this.rawClassBytes = classBytes;
+            rawClassBytes = classBytes;
         }
 
         @Override
@@ -27,15 +28,12 @@ public class EntityClassFactory implements Opcodes {
             if (!className.equals(name)) {
                 throw new ClassNotFoundException(name);
             }
-            return defineClass(name, this.rawClassBytes, 0, this.rawClassBytes.length);
+            return defineClass(name, rawClassBytes, 0, rawClassBytes.length);
         }
     }
 
+    @Getter
     private static final EntityClassFactory instance = new EntityClassFactory();
-
-    public static EntityClassFactory getInstance() {
-        return instance;
-    }
 
     private final Map<Class<?>, EntityConfiguration> entityConfigurations = new HashMap<>();
 

@@ -45,9 +45,9 @@ public class VP70Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.14f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.14f))
+                .withFlashOffsetY(() -> Float.valueOf(0.14f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -81,10 +81,10 @@ public class VP70Factory implements GunFactory {
                     if (model instanceof VP70slide) {
                         GL11.glScaled(1F, 1F, 1F);
 //                GL11.glTranslatef(0F, 0F, 0.5F);
-                    } else if (model instanceof GlockRearSight) {
+                    } else if (null instanceof GlockRearSight) {
                         GL11.glTranslatef(-0.1F, -1.16F, 0.1F);
                         GL11.glScaled(0.2F, 0.2F, 0.4F);
-                    } else if (model instanceof M1911frontsight) {
+                    } else if (null instanceof M1911frontsight) {
                         GL11.glTranslatef(-0.1F, -1.16F, -2F);
                         GL11.glScaled(0.2F, 0.2F, 0.34F);
                     }

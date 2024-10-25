@@ -43,9 +43,9 @@ public class BrowningAuto5Factory implements GunFactory {
                 .withInaccuracy(20)
                 .withPellets(10)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.1f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.1f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
 
@@ -116,20 +116,13 @@ public class BrowningAuto5Factory implements GunFactory {
                             GL11.glRotatef(-1F, 1f, 0f, 0f);
 
 //              // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0.07F, 1.15F, -0.3F);
-//                GL11.glRotatef(-70F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.BrowningAuto5Action.getRenderablePart(), (renderContext) -> {
@@ -313,13 +306,8 @@ public class BrowningAuto5Factory implements GunFactory {
                             GL11.glTranslatef(0.08f, 0.13f, -2.5f);
 
 //              // Holo Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                //System.out.println("Position me for Holo");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR);//System.out.println("Position me for Holo");
+// Everything else
 
 
                         })
@@ -345,11 +333,6 @@ public class BrowningAuto5Factory implements GunFactory {
                                     GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.050000f, -0.600000f, 0.125000f);
 
-//                         GL11.glScalef(4f, 4f, 4f);
-//                         GL11.glRotatef(-75.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.025000f, -0.675000f, 0.175000f);
                                 },
                                 (renderContext) -> {
                                     GL11.glScalef(4f, 4f, 4f);
@@ -401,11 +384,6 @@ public class BrowningAuto5Factory implements GunFactory {
                                     GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.050000f, -0.600000f, 0.125000f);
 
-//                        GL11.glScalef(4f, 4f, 4f);
-//                        GL11.glRotatef(-75.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.025000f, -0.675000f, 0.175000f);
                                 },
                                 (renderContext) -> {
                                     GL11.glScalef(4f, 4f, 4f);
