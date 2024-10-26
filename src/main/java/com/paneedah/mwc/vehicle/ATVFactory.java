@@ -21,10 +21,8 @@ import org.lwjgl.opengl.GL11;
 
 public class ATVFactory implements VehicleFactory {
 
-
+    @Override
     public void createVehicle(ModContext modContext) {
-
-
         StatefulRenderer<VehicleRenderableState> renderer = null;
 
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
@@ -263,7 +261,7 @@ public class ATVFactory implements VehicleFactory {
                 .withOBBDimensions(1, 1, 1)
                 .withSeat(new Vec3d(-0.5, 0.2, -0.3))
                 .withRenderer(renderer)
-                .build(MWC.modContext);
+                .build(modContext);
     }
 
 }

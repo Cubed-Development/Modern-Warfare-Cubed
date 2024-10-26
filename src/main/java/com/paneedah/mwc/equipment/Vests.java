@@ -2,12 +2,14 @@ package com.paneedah.mwc.equipment;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ItemVest;
+import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.Transform;
 import org.lwjgl.opengl.GL11;
 
-public class Vests {
+public class Vests implements EquipmentFactory {
 
-    public static void init(Object mod) {
+    @Override
+    public void createEquipment(ModContext modContext) {
 
         new ItemVest.Builder()
                 .withName("m43a_chest_harness")
@@ -27,7 +29,7 @@ public class Vests {
                             .withScale(3, 3, 3)
                             .doGLDirect();
                 })
-                .build(MWC.modContext);
+                .build(modContext);
 
         new ItemVest.Builder()
                 .withName("flyye_field_compact_plate_carrier")
@@ -67,7 +69,7 @@ public class Vests {
                             .withScale(3, 3, 3)
                             .doGLDirect();
                 })
-                .build(MWC.modContext);
+                .build(modContext);
 
         new ItemVest.Builder()
                 .withName("molle_green")
@@ -87,7 +89,7 @@ public class Vests {
                             .withScale(3, 3, 3)
                             .doGLDirect();
                 })
-                .build(MWC.modContext);
+                .build(modContext);
 
         new ItemVest.Builder()
                 .withName("molle_urban")
@@ -107,7 +109,7 @@ public class Vests {
                             .withScale(3, 3, 3)
                             .doGLDirect();
                 })
-                .build(MWC.modContext);
+                .build(modContext);
 
         new ItemVest.Builder()
                 .withName("swat_vest")
@@ -127,7 +129,7 @@ public class Vests {
                             .withScale(3, 3, 3)
                             .doGLDirect();
                 })
-                .build(MWC.modContext);
+                .build(modContext);
 
         new ItemVest.Builder()
                 .withName("usMC_vest")
@@ -152,7 +154,7 @@ public class Vests {
                             .withScale(2.6, 2.6, 2.6)
                             .doGLDirect();
                 })
-                .build(MWC.modContext);
+                .build(modContext);
 
         new ItemVest.Builder()
                 .withName("usMC_vest_black")
@@ -178,7 +180,7 @@ public class Vests {
                             .withScale(2.6, 2.6, 2.6)
                             .doGLDirect();
                 })
-                .build(MWC.modContext);
+                .build(modContext);
 
         new ItemVest.Builder()
                 .withName("usMC_vest_green")
@@ -204,7 +206,7 @@ public class Vests {
                             .withScale(2.6, 2.6, 2.6)
                             .doGLDirect();
                 })
-                .build(MWC.modContext);
+                .build(modContext);
 
         new ItemVest.Builder()
                 .withName("usMC_vest_urban")
@@ -230,6 +232,6 @@ public class Vests {
                             .withScale(2.6, 2.6, 2.6)
                             .doGLDirect();
                 })
-                .build(MWC.modContext);
+                .build(modContext);
     }
 }

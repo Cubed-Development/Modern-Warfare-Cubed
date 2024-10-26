@@ -99,6 +99,8 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     private static final int INVENTORY_TEXTURE_WIDTH = 128;
     private static final int INVENTORY_TEXTURE_HEIGHT = 128;
 
+    private static final ResourceLocation GUN_ICON_SHEET = new ResourceLocation(ID + ":textures/gui/guniconsheet.png");
+
     private static final Map<String, ResourceLocation> ARMOR_TEXTURE_RES_MAP = Maps.newHashMap();
 
     private final org.apache.commons.lang3.tuple.Pair<? extends IBakedModel, Matrix4f> pair;
@@ -4573,7 +4575,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             GL11.glScalef(1.0F, -1.0F, 1F);
             GlStateManager.translate(-8.0F, -8.0F, 0.0F);
 
-            MC.getTextureManager().bindTexture(ResourceManager.GUN_ICON_SHEET);
+            MC.getTextureManager().bindTexture(GUN_ICON_SHEET);
 
 
             // Checks to see if the gun icon sheet has already
@@ -4583,7 +4585,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
                 try {
-                    InputStream inputStream = MC.getResourceManager().getResource(ResourceManager.GUN_ICON_SHEET).getInputStream();
+                    InputStream inputStream = MC.getResourceManager().getResource(GUN_ICON_SHEET).getInputStream();
                     BufferedImage bf = ImageIO.read(inputStream);
 
                     gunIconSheetWidth = bf.getWidth();

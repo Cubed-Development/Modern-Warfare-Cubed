@@ -14,6 +14,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class AudiS4Factory implements VehicleFactory {
 
+    @Override
     public void createVehicle(ModContext modContext) {
         StatefulRenderer<VehicleRenderableState> renderer = null;
 
@@ -241,7 +242,7 @@ public class AudiS4Factory implements VehicleFactory {
                 .withSeat(new Vec3d(0.0, -0.2, 0.0))
                 .withSeat(new Vec3d(0.5, -0.2, 0.0))
                 .withRenderer(renderer)
-                .build(MWC.modContext);
+                .build(modContext);
     }
 
 }

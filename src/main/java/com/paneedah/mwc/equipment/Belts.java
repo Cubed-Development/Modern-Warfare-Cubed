@@ -1,13 +1,14 @@
 package com.paneedah.mwc.equipment;
 
+import com.paneedah.weaponlib.ModContext;
 import net.minecraft.item.Item;
 
-public class Belts {
+public class Belts implements EquipmentFactory {
 
     public static Item magazineBelt;
 
-    public static void init() {
-
+    @Override
+    public void createEquipment(ModContext modContext) {
         // TODO: Finish implementing belts
 //        magazineBelt = new ItemBelt.Builder()
 //                .withName("magazine_belt")
