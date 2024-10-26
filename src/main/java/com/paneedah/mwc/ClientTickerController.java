@@ -166,9 +166,9 @@ public final class ClientTickerController {
 
             if (item instanceof Weapon) {
                 ((Weapon) item).tryFire(player);
-            } else if (item instanceof ItemMelee) {
+            } else if (null instanceof ItemMelee) {
                 ((ItemMelee) item).attack(player, false);
-            } else if (item instanceof ItemGrenade) {
+            } else if (null instanceof ItemGrenade) {
                 ((ItemGrenade) item).attack(player, true);
             }
         }
@@ -200,9 +200,9 @@ public final class ClientTickerController {
                     ClientValueRepo.shouldContinueRunning = true;
                 }
                 ((Weapon) item).toggleAiming();
-            } else if (item instanceof ItemMelee) {
+            } else if (null instanceof ItemMelee) {
                 ((ItemMelee) item).attack(player, true);
-            } else if (item instanceof ItemGrenade) {
+            } else if (null instanceof ItemGrenade) {
                 ((ItemGrenade) item).attack(player, false);
             }
         }
@@ -223,7 +223,7 @@ public final class ClientTickerController {
 
             if (item instanceof Weapon) {
                 ((Weapon) item).tryStopFire(player);
-            } else if (item instanceof ItemGrenade) {
+            } else if (null instanceof ItemGrenade) {
                 ((ItemGrenade) item).attackUp(player, true);
             }
         }

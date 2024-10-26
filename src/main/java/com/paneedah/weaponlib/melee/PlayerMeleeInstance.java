@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.CompatibleAttachment;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.PlayerItemInstance;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,6 +24,7 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
         TypeRegistry.getINSTANCE().register(PlayerMeleeInstance.class);
     }
 
+    @Getter
     private int ammo;
     private long lastFireTimestamp;
     private byte activeTextureIndex;
@@ -61,19 +63,7 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
         long expirationTimeout = 500;
 
-//		long expirationTimeout;
-//
-//		if(state == MeleeState.FIRING || state == MeleeState.RECOILED || state == MeleeState.PAUSED) {
-//			if(isAutomaticModeEnabled() && !getWeapon().hasRecoilPositioning()) {
-//				expirationTimeout = (long) (50f / getFireRate());
-//			} else {
-//				expirationTimeout = 500;
-//			}
-//			expirationTimeout = 500;
-//		} else {
-//			expirationTimeout = Integer.MAX_VALUE;
-//		}
-        filteredStateQueue.addFirst(new AsyncMeleeState(state, this.stateUpdateTimestamp, expirationTimeout));
+        filteredStateQueue.addFirst(new AsyncMeleeState(state, stateUpdateTimestamp, expirationTimeout));
     }
 
     @Override
@@ -89,10 +79,6 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
             result = new AsyncMeleeState(getState(), stateUpdateTimestamp);
         }
         return result;
-    }
-
-    public int getAmmo() {
-        return ammo;
     }
 
     protected void setAmmo(int ammo) {

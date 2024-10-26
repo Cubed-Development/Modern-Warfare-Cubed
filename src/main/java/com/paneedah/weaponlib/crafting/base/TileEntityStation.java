@@ -65,7 +65,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
     public TileEntityStation() {}
 
     public void sendUpdate() {
-        this.shouldUpdate = true;
+        shouldUpdate = true;
     }
 
     public double getProgress() {
@@ -85,7 +85,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 
     @Override
     public NBTTagCompound getUpdateTag() {
-        return this.writeToNBT(new NBTTagCompound());
+        return writeToNBT(new NBTTagCompound());
     }
 
     @Override
@@ -115,9 +115,9 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
     }
 
     public void setDismantling(int[] instant, int[] lengths) {
-        this.previousDismantleStatus = instant.clone();
-        this.dismantleStatus = instant;
-        this.dismantleDuration = lengths;
+        previousDismantleStatus = instant.clone();
+        dismantleStatus = instant;
+        dismantleDuration = lengths;
     }
 
     @Override
@@ -170,20 +170,11 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
             }
         }
 
-        // System.out.println(this.world.isRemote + " | " + this.mainInventory.serializeNBT());
-
-        //if(!world.isRemote) System.out.println(mainInventory.serializeNBT());
-
         if (shouldUpdate) {
             syncChanges();
             shouldUpdate = false;
         }
 
-        //if(!world.isRemote) {
-        //System.out.println("yo");
-        //mainInventory.setStackInSlot(24, new ItemStack(Items.GOLD_INGOT, 24));
-        //}
-        //System.out.println(mainInventory.serializeNBT());
     }
 
     public boolean inventoryContainsEnoughItems(Ingredient item, int quantity, int start, int end) {
@@ -269,11 +260,10 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
     /**
      * Happens on the client
      *
-     * @param buf
      */
     public void readBytesFromClientSync(ByteBuf buf) {
-        this.craftingTimer = buf.readInt();
-        this.craftingDuration = buf.readInt();
+        craftingTimer = buf.readInt();
+        craftingDuration = buf.readInt();
         for (int i = 0; i < dismantleStatus.length; ++i) {
             int time = buf.readInt();
             previousDismantleStatus[i] = time;
@@ -281,35 +271,22 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
         }
         for (int i = 0; i < dismantleDuration.length; ++i)
             dismantleDuration[i] = buf.readInt();
-		
-		/*
-		int inventorySize = buf.readInt();
-		for(int i = 0; i < inventorySize; ++i) this.mainInventory.setStackInSlot(i, ByteBufUtils.readItemStack(buf));
-		
-		System.out.println("ON CLIENT: " + mainInventory.serializeNBT().toString());
-		*/
 
     }
 
     /**
      * Happens server-side
      *
-     * @param buf
      */
     public void writeBytesForClientSync(ByteBuf buf) {
-        buf.writeInt(this.craftingTimer);
-        buf.writeInt(this.craftingDuration);
+        buf.writeInt(craftingTimer);
+        buf.writeInt(craftingDuration);
         for (int i = 0; i < dismantleStatus.length; ++i)
             buf.writeInt(dismantleStatus[i]);
         for (int i = 0; i < dismantleDuration.length; ++i)
             buf.writeInt(dismantleDuration[i]);
 
         // Write inventory
-		/*
-		buf.writeInt(mainInventory.getSlots());
-		for(int i = 0; i < mainInventory.getSlots(); ++i) {
-			ByteBufUtils.writeItemStack(buf, mainInventory.getStackInSlot(i));
-		}*/
 
 
     }
@@ -327,11 +304,11 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
         if (compound.hasKey("mainInventory")) {
-            this.mainInventory.deserializeNBT((NBTTagCompound) compound.getTag("mainInventory"));
+            mainInventory.deserializeNBT((NBTTagCompound) compound.getTag("mainInventory"));
         }
         if (compound.hasKey("craftingTimer") && compound.hasKey("craftingDuration")) {
-            this.craftingTimer = compound.getInteger("craftingTimer");
-            this.craftingDuration = compound.getInteger("craftingDuration");
+            craftingTimer = compound.getInteger("craftingTimer");
+            craftingDuration = compound.getInteger("craftingDuration");
         }
 
     }

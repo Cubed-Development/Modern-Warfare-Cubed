@@ -24,7 +24,7 @@ class DynamicShader extends Shader {
             ShaderUniform uniform = getShaderManager().getShaderUniform(name);
             if (uniform != null) {
                 if (value instanceof Float) {
-                    uniform.set((float) value);
+                    uniform.set(((Float) value).floatValue());
                 } else if (value instanceof float[]) {
                     float[] values = (float[]) value;
                     if (values.length == 1) {
@@ -58,6 +58,6 @@ class DynamicShader extends Shader {
     }
 
     public int getShaderId() {
-        return this.getShaderManager().getProgram();
+        return getShaderManager().getProgram();
     }
 }

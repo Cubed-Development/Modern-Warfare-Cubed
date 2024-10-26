@@ -43,9 +43,9 @@ public class MP443Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.13f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.13f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -88,8 +88,6 @@ public class MP443Factory implements GunFactory {
                 .withCompatibleAttachment(Attachments.MP443Slide, true, (model) -> {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MP443hammer, true, (model) -> {
-//            GL11.glTranslatef(0.08F, -1.97F, -4.15F);
-//            GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withCompatibleAttachment(Magazines.MP443Mag, (model) -> {
                     GL11.glTranslatef(0F, 0F, 0.12F);

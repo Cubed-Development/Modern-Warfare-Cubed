@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,7 +27,7 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
         }
 
         public Builder withCompatibleBullet(ItemBullet compatibleBullet) {
-            this.compatibleBullets.add(compatibleBullet);
+            compatibleBullets.add(compatibleBullet);
             return this;
         }
 
@@ -64,9 +65,13 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
 
     private ModContext modContext;
 
+    @Getter
     private final int capacity;
+    @Getter
     private List<ItemBullet> compatibleBullets;
+    @Getter
     private SoundEvent reloadSound;
+    @Getter
     private SoundEvent unloadSound;
 
     ItemMagazine(ModelBase model, String textureName, int capacity) {
@@ -88,7 +93,7 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
     }
 
     public ItemStack create() {
-        return this.create(capacity);
+        return create(capacity);
     }
 
     private void initializeTag(ItemStack itemStack, int initialAmmo) {
@@ -101,22 +106,6 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
     @Override
     public void onCreated(ItemStack stack, World world, EntityPlayer player) {
         initializeTag(stack, 0);
-    }
-
-    public List<ItemBullet> getCompatibleBullets() {
-        return compatibleBullets;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public SoundEvent getReloadSound() {
-        return reloadSound;
-    }
-
-    public SoundEvent getUnloadSound() {
-        return unloadSound;
     }
 
     @Override

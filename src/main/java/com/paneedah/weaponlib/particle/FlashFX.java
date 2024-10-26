@@ -32,15 +32,12 @@ public class FlashFX extends Particle {
         this.motionZ = motionZ;
 
         if (motionX == 0.0F) {
-            motionX = 0.01F;
         }
 
         if (motionZ == 0.0F) {
-            motionZ = 0.01F;
         }
 
         if (motionY == 0.0F) {
-            motionY = 0.01F;
         }
 
         this.particleTextureIndexX = 0;
@@ -53,7 +50,7 @@ public class FlashFX extends Particle {
         this.particleScale *= scale;
         this.particleMaxAge = 1;
 
-        this.imageIndex = this.rand.nextInt() % imagesPerRow;
+        imageIndex = this.rand.nextInt() % imagesPerRow;
 
         this.texture = texture != null ? texture : FLASH_TEXTURE;
     }
@@ -65,10 +62,10 @@ public class FlashFX extends Particle {
         this.prevPosZ = this.posZ;
 
         if (this.particleAge++ >= this.particleMaxAge) {
-            this.setExpired();
+            setExpired();
         }
 
-        this.move(this.motionX, this.motionY, this.motionZ);
+        move(this.motionX, this.motionY, this.motionZ);
 
         this.motionX *= 0.9999999785423279D;
         this.motionY *= 0.9999999785423279D;
@@ -99,7 +96,7 @@ public class FlashFX extends Particle {
 
         buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 
-        int brightness = this.getBrightnessForRender(partialTicks); // or simply set it to 200?
+        int brightness = getBrightnessForRender(partialTicks); // or simply set it to 200?
         int skyLight = brightness >> 16 & 65535;
         int blockLight = brightness & 65535;
 

@@ -65,7 +65,7 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
         Positioner<SinglePart, PartRenderContext<State>> positioner = multipartPositioning.getPositioner();
 
 
-        context.setProgress(currentProgressProvider.apply(context));
+        context.setProgress(currentProgressProvider.apply(context).floatValue());
 
         /*
          * NEXT FEW LINES ARE BY JIM (saying this for debug purposes)

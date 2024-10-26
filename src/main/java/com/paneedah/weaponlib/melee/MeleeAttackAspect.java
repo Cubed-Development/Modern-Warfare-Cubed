@@ -62,11 +62,6 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
     private static final Predicate<PlayerMeleeInstance> readyToHeavyStab =
             instance -> System.currentTimeMillis() > instance.getStateUpdateTimestamp() + instance.getWeapon().getPrepareHeavyStubTimeout();
 
-//    private static Predicate<PlayerMeleeInstance> alertTimeoutExpired =
-//            instance -> System.currentTimeMillis() >= ALERT_TIMEOUT + instance.getStateUpdateTimestamp();
-
-//    private static Predicate<PlayerMeleeInstance> sprinting = instance -> instance.getPlayer().isSprinting();
-
     private static final Set<MeleeState> allowedAttackFromStates = new HashSet<>(
             Collections.singletonList(MeleeState.READY));
 

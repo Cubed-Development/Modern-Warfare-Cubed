@@ -15,9 +15,9 @@ public class RenderCustomMob<T extends EntityLiving> extends RenderBiped<T> {
     public RenderCustomMob(ModelBiped model) {
         super(MC.getRenderManager(), model, 0.5F);
 
-        this.addLayer(new LayerHeldItem(this));
-        this.addLayer(new LayerBipedArmor(this) {
-            protected void initArmor() {
+        addLayer(new LayerHeldItem(this));
+        addLayer(new LayerBipedArmor(this) {
+            private void initArmor() {
                 this.modelLeggings = new CompatibleModelCustomMob(0.5F);
                 this.modelArmor = new CompatibleModelCustomMob(1.0F);
             }

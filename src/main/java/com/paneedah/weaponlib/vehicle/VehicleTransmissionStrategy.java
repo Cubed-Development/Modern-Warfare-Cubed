@@ -23,9 +23,9 @@ public abstract class VehicleTransmissionStrategy {
 
             Supplier<Float> drivingSoundVolumeProvider = () -> {
                 if (gear.strategy.speed >= gear.minSpeed && gear.strategy.speed < gear.maxSpeed) {
-                    return (float) Math.log10((0.01 + gear.strategy.speed - gear.minSpeed) * 20) * 0.9f;
+                    return Float.valueOf((float) Math.log10((0.01 + gear.strategy.speed - gear.minSpeed) * 20) * 0.9f);
                 }
-                return 0f;
+                return Float.valueOf(0f);
             };
 
             Supplier<Boolean> donePlayingSoundProvider = () -> entity.isDead;
@@ -70,8 +70,6 @@ public abstract class VehicleTransmissionStrategy {
 
             for (int i = 0; i < gears.length; i++) {
                 if (speed > gears[i].minSpeed) {
-//                    this.rate = thresholds[i].rate;
-//                    this.amplitude = thresholds[i].amplitude;
                 } else {
                     break;
                 }
