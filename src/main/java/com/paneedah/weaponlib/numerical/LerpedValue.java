@@ -1,11 +1,13 @@
 package com.paneedah.weaponlib.numerical;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
+import lombok.Getter;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class LerpedValue {
 
+    @Getter
     public double previousValue;
     public double currentValue;
 
@@ -24,28 +26,24 @@ public class LerpedValue {
     }
 
     public void update(double newValue) {
-        this.previousValue = this.currentValue;
-        this.currentValue = newValue;
+        previousValue = currentValue;
+        currentValue = newValue;
     }
 
     public void add(double value) {
-        this.currentValue += value;
+        currentValue += value;
     }
 
     public void dampen(double damper) {
-        this.currentValue *= damper;
+        currentValue *= damper;
     }
 
     public double getValue() {
-        return this.currentValue;
-    }
-
-    public double getPreviousValue() {
-        return this.previousValue;
+        return currentValue;
     }
 
     public double getLerped() {
-        return MatrixHelper.solveLerp(this.previousValue, this.currentValue, MC.getRenderPartialTicks());
+        return MatrixHelper.solveLerp(previousValue, currentValue, MC.getRenderPartialTicks());
     }
 
     public float getLerpedFloat() {

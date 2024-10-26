@@ -42,15 +42,15 @@ public class EntityBetterTargetAI extends EntityAINearestAttackableTarget {
             if (team != null && team1 == team) {
                 return false;
             } else {
-                double d0 = this.getTargetDistance();
+                double d0 = getTargetDistance();
 
                 if (this.taskOwner.getDistanceSq(entitylivingbase) > d0 * d0) {
                     return false;
                 } else {
                     if (this.shouldCheckSight) {
                         if (this.taskOwner.getEntitySenses().canSee(entitylivingbase)) {
-                            this.targetUnseenTicks = 0;
-                        } else if (++this.targetUnseenTicks > this.unseenMemoryTicks) {
+                            targetUnseenTicks = 0;
+                        } else if (++targetUnseenTicks > this.unseenMemoryTicks) {
                             return false;
                         }
                     }

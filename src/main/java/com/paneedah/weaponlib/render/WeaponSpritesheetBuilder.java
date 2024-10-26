@@ -37,7 +37,7 @@ public class WeaponSpritesheetBuilder {
     }
 
     public static int getSpriteID(Object obj) {
-        return weaponSprites.get(obj);
+        return weaponSprites.get(obj).intValue();
     }
 
     public static int getTotalImagesProcessed() {
@@ -45,7 +45,7 @@ public class WeaponSpritesheetBuilder {
     }
 
     public static void registerSprite(String name) {
-        weaponSprites.put(name, lastInt++);
+        weaponSprites.put(name, Integer.valueOf(lastInt++));
     }
 
     public static boolean hasBeenBuilt(String name) {
@@ -77,7 +77,7 @@ public class WeaponSpritesheetBuilder {
         int id;
         for (Entry<Object, Integer> map : mappings.entrySet()) {
 
-            BufferedImage captured = ImageCaptureUtil.captureImage(map.getValue(), 128, 128, at);
+            BufferedImage captured = ImageCaptureUtil.captureImage(map.getValue().intValue(), 128, 128, at);
             id = getSpriteID(((WeaponRenderer) map.getKey()).name);
             Sprite coords = SpriteSheetTools.getSquareSprite(id, 128, master.getWidth(), master.getHeight());
             masterGraphics.drawImage(captured, (int) (coords.getMinU() * master.getWidth()), (int) (coords.getMinV() * master.getHeight()), null);

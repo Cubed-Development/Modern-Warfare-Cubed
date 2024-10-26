@@ -39,27 +39,7 @@ public class InstancedShellObject extends ModelInstancedObject<ShellManager> {
 
 
     public void updateData(ArrayList<Shell> shells) {
-		
-		/*
-		arrayPointer = 0;
-		float[] data = new float[getInstanceDataLength()*getMaxObjects()];
-		for(int i = 0; i < (getInstanceDataLength()*getMaxObjects()/getInstanceDataLength()); ++i) {
-			
-			data[arrayPointer++] = arrayPointer/1000f;
-			data[arrayPointer++] = 0;
-			data[arrayPointer++] = 0;
-			
-			Quaternion quat = MatrixHelper.fromEulerAngles(Math.toRadians(90), Math.toRadians(0), 0);
-			
-			data[arrayPointer++] = quat.w;
-			data[arrayPointer++] = quat.x;
-			data[arrayPointer++] = quat.y;
-			data[arrayPointer++] = quat.z;
-			
-			
-		}
-		uploadToBuffer(data);
-		*/
+
         arrayPointer = 0;
         float[] data = new float[getInstanceDataLength() * getMaxObjects()];
         for (Shell sh : shells) {

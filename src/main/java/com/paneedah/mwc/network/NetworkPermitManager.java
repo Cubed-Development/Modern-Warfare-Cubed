@@ -15,11 +15,12 @@ import java.util.function.BiConsumer;
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
+@Getter
 @NoArgsConstructor
 public final class NetworkPermitManager {
 
-    @Getter private final HashMap<UUID, BiConsumer<Permit<?>, PlayerItemInstance<?>>> permitCallbacks = new HashMap<>();
-    @Getter private final HashMap<Class<?>, BiConsumer<Permit<?>, PlayerItemInstance<?>>> permitEvaluators = new HashMap<>();
+    private final HashMap<UUID, BiConsumer<Permit<?>, PlayerItemInstance<?>>> permitCallbacks = new HashMap<>();
+    private final HashMap<Class<?>, BiConsumer<Permit<?>, PlayerItemInstance<?>>> permitEvaluators = new HashMap<>();
 
     public <S extends ManagedState<S>, P extends Permit<S>, E extends ExtendedState<S>> void request(P permit, E extendedState, BiConsumer<P, E> callback) {
         permitCallbacks.put(permit.getUuid(), (BiConsumer<Permit<?>, PlayerItemInstance<?>>) callback);

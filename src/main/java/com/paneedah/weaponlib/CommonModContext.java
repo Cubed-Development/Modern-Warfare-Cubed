@@ -163,23 +163,23 @@ public class CommonModContext implements ModContext {
     public void preInit(Object mod) {
         this.mod = mod;
 
-        this.weaponReloadAspect = new WeaponReloadAspect(this);
-        this.magazineReloadAspect = new MagazineReloadAspect(this);
-        this.weaponFireAspect = new WeaponFireAspect(this);
-        this.weaponAttachmentAspect = new WeaponAttachmentAspect(this);
+        weaponReloadAspect = new WeaponReloadAspect(this);
+        magazineReloadAspect = new MagazineReloadAspect(this);
+        weaponFireAspect = new WeaponFireAspect(this);
+        weaponAttachmentAspect = new WeaponAttachmentAspect(this);
 
-        this.meleeAttackAspect = new MeleeAttackAspect(this);
-        this.meleeAttachmentAspect = new MeleeAttachmentAspect(this);
+        meleeAttackAspect = new MeleeAttackAspect(this);
+        meleeAttachmentAspect = new MeleeAttachmentAspect(this);
 
-        this.grenadeAttackAspect = new GrenadeAttackAspect(this);
+        grenadeAttackAspect = new GrenadeAttackAspect(this);
         StateManager<GrenadeState, PlayerGrenadeInstance> grenadeStateManager = new StateManager<>((s1, s2) -> s1 == s2);
         grenadeAttackAspect.setStateManager(grenadeStateManager);
 
-        this.permitManager = new NetworkPermitManager();
+        permitManager = new NetworkPermitManager();
 
-        this.syncManager = new SyncManager<>(permitManager);
+        syncManager = new SyncManager<>(permitManager);
 
-        this.playerItemInstanceRegistry = new PlayerItemInstanceRegistry(syncManager);
+        playerItemInstanceRegistry = new PlayerItemInstanceRegistry(syncManager);
 
         StateManager<WeaponState, PlayerWeaponInstance> weaponStateManager = new StateManager<>((s1, s2) -> s1 == s2);
         weaponReloadAspect.setPermitManager(permitManager);
@@ -201,7 +201,7 @@ public class CommonModContext implements ModContext {
         magazineReloadAspect.setPermitManager(permitManager);
         magazineReloadAspect.setStateManager(magazineStateManager);
 
-        this.recipeManager = new RecipeManager();
+        recipeManager = new RecipeManager();
 
         // Initiate config
         ModernConfigManager.init();
@@ -227,36 +227,7 @@ public class CommonModContext implements ModContext {
 
         net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "EntitySpreadable" + modEntityID), EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, 64, 3, false);
 
-        //compatibility.registerModEntity(EntityVehicle.class, "EntityVehicle" + modEntityID, modEntityID++, mod, 64, 3, false);
 
-//        compatibility.registerModEntity(EntityCustomMob.class, "CustomMob" + modEntityID, modEntityID++, mod, 64, 3, true);
-//
-//        EntityRegistry.addSpawn(EntityCustomMob.class, 1, 1, 3, EnumCreatureType.MONSTER, 
-//                BiomeDictionary.getBiomesForType(Type.PLAINS));
-
-//        Instance inventoryChangeTriggerInstance = new InventoryChangeTrigger.Instance(
-//                MinMaxBounds.UNBOUNDED, 
-//                MinMaxBounds.UNBOUNDED, 
-//                MinMaxBounds.UNBOUNDED, 
-//                new ItemPredicate[] {new ItemPredicate(
-//                        Items.APPLE, 
-//                        null, 
-//                        MinMaxBounds.UNBOUNDED,
-//                        MinMaxBounds.UNBOUNDED,
-//                        new EnchantmentPredicate[0],
-//                        null,
-//                        NBTPredicate.ANY)});
-//
-//        CriteriaTriggers.INVENTORY_CHANGED.addListener(
-//                null, new ICriterionTrigger.Listener(inventoryChangeTriggerInstance, null, "Custom inventory change"));
-
-        //   File missionsDir = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mwc"), "missions");
-        // File entityMissionFile = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mwc"), "entity_mission_offerings.json");
-
-
-        // compatibility.registerBlock(this, new WorkbenchBlock("workbench", Material.ROCK), "workbench");
-
-        // this.missionManager = new MissionManager(missionsDir, entityMissionFile);
     }
 
     @Override
@@ -275,7 +246,7 @@ public class CommonModContext implements ModContext {
 
         ForgeRegistries.BLOCKS.register(workbenchblock);
         ItemBlock workbenchItemBlock = new ItemBlock(workbenchblock);
-        this.registerRenderableItem(workbenchblock.getRegistryName(), workbenchItemBlock, null);
+        registerRenderableItem(workbenchblock.getRegistryName(), workbenchItemBlock, null);
 
         // Ammo press
         GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ID + ":tileammopress");
@@ -292,7 +263,7 @@ public class CommonModContext implements ModContext {
 
         ForgeRegistries.BLOCKS.register(ammopressblock);
         ItemBlock ammoItemBlock = new ItemBlock(ammopressblock);
-        this.registerRenderableItem(ammopressblock.getRegistryName(), ammoItemBlock, null);
+        registerRenderableItem(ammopressblock.getRegistryName(), ammoItemBlock, null);
     }
 
     @Override
@@ -408,7 +379,7 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void setChangeZoomSound(String sound) {
-        this.changeZoomSound = registerSound(sound.toLowerCase());
+        changeZoomSound = registerSound(sound.toLowerCase());
     }
 
     @Override
@@ -423,12 +394,12 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void setChangeFireModeSound(String sound) {
-        this.changeFireModeSound = registerSound(sound.toLowerCase());
+        changeFireModeSound = registerSound(sound.toLowerCase());
     }
 
     @Override
     public void setNoAmmoSound(String sound) {
-        this.noAmmoSound = registerSound(sound.toLowerCase());
+        noAmmoSound = registerSound(sound.toLowerCase());
     }
 
     @Override
@@ -438,7 +409,7 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void setExplosionSound(String sound) {
-        this.explosionSound = registerSound(sound.toLowerCase());
+        explosionSound = registerSound(sound.toLowerCase());
     }
 
     @Override
@@ -453,12 +424,12 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void setFlashExplosionSound(String sound) {
-        this.flashExplosionSound = registerSound(sound);
+        flashExplosionSound = registerSound(sound);
     }
 
     @Override
     public void setNightVisionOnSound(String sound) {
-        this.nightVisionOnSound = registerSound(sound.toLowerCase());
+        nightVisionOnSound = registerSound(sound.toLowerCase());
     }
 
     @Override
@@ -468,7 +439,7 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void setNightVisionOffSound(String sound) {
-        this.nightVisionOffSound = registerSound(sound.toLowerCase());
+        nightVisionOffSound = registerSound(sound.toLowerCase());
     }
 
     @Override
@@ -570,12 +541,12 @@ public class CommonModContext implements ModContext {
                 .stream()
                 .filter(e -> textureName.equals(e.getValue()))
                 .findFirst();
-        return existingEntry.isPresent() ? existingEntry.get().getKey() : -1;
+        return existingEntry.isPresent() ? existingEntry.get().getKey().intValue() : -1;
     }
 
     @Override
     public String getRegisteredTexture(int textureId) {
-        return registeredTextureNames.get(textureId);
+        return registeredTextureNames.get(Integer.valueOf(textureId));
     }
 
     @Override
@@ -587,10 +558,10 @@ public class CommonModContext implements ModContext {
                 .findFirst();
         int id;
         if (existingEntry.isPresent()) {
-            id = existingEntry.get().getKey();
+            id = existingEntry.get().getKey().intValue();
         } else {
             id = registeredTextureCounter++;
-            registeredTextureNames.put(id, textureName);
+            registeredTextureNames.put(Integer.valueOf(id), textureName);
         }
 
         return id;

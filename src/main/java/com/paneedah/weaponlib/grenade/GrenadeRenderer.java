@@ -5,6 +5,8 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -63,8 +65,8 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
         @Override
         public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
-            GrenadeRenderer.this.itemStack = stack;
-            GrenadeRenderer.this.player = entity;
+            itemStack = stack;
+            player = entity;
             return super.handleItemState(originalModel, stack, world, entity);
         }
     }
@@ -72,7 +74,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
     protected static class StateDescriptor {
         protected MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager;
         protected float rate;
-        protected float amplitude = 0.04f;
+        protected float amplitude;
         private final PlayerGrenadeInstance instance;
 
         public StateDescriptor(PlayerGrenadeInstance instance, MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager, float rate, float amplitude) {
@@ -95,12 +97,17 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
     public static class Builder {
 
+        @Getter
         private ModelBase model;
+        @Getter
         private String textureName;
 
+        @Getter
         private Consumer<ItemStack> entityPositioning;
         private Runnable thrownEntityPositioning = () -> {};
+        @Getter
         private Consumer<ItemStack> inventoryPositioning;
+        @Getter
         private Consumer<RenderContext<RenderableState>> thirdPersonPositioning;
 
         private Consumer<RenderContext<RenderableState>> firstPersonPositioning;
@@ -140,9 +147,9 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         private float normalRandomizingRate = DEFAULT_RANDOMIZING_RATE; // movements per second, e.g. 0.25 = 0.25 movements per second = 1 movement in 3 minutes
         private final float normalRandomizingAmplitude = DEFAULT_NORMAL_RANDOMIZING_AMPLITUDE;
         public int animationDuration = DEFAULT_ANIMATION_DURATION;
-        private Supplier<Float> xCenterOffset = () -> 0f;
-        private Supplier<Float> yCenterOffset = () -> 0f;
-        private Supplier<Float> zCenterOffset = () -> 0f;
+        private Supplier<Float> xCenterOffset = () -> Float.valueOf(0f);
+        private Supplier<Float> yCenterOffset = () -> Float.valueOf(0f);
+        private Supplier<Float> zCenterOffset = () -> Float.valueOf(0f);
 
         public Builder withModel(ModelBase model) {
             this.model = model;
@@ -170,7 +177,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         }
 
         public Builder withThrownEntityPositioning(Runnable throwEntityPositioning) {
-            this.thrownEntityPositioning = throwEntityPositioning;
+            thrownEntityPositioning = throwEntityPositioning;
             return this;
         }
 
@@ -192,8 +199,8 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         public Builder withFirstPersonHandPositioning(
                 Consumer<RenderContext<RenderableState>> leftHand,
                 Consumer<RenderContext<RenderableState>> rightHand) {
-            this.firstPersonLeftHandPositioning = leftHand;
-            this.firstPersonRightHandPositioning = rightHand;
+            firstPersonLeftHandPositioning = leftHand;
+            firstPersonRightHandPositioning = rightHand;
             return this;
         }
 
@@ -201,7 +208,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             if (part instanceof DefaultPart) {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
             }
-            if (this.firstPersonCustomPositioning.put(part, new SimplePositioning(attachedTo, positioning)) != null) {
+            if (firstPersonCustomPositioning.put(part, new SimplePositioning(attachedTo, positioning)) != null) {
                 throw new IllegalArgumentException("Part " + part + " already added");
             }
             return this;
@@ -215,8 +222,8 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         public Builder withFirstPersonHandPositioningRunning(
                 Consumer<RenderContext<RenderableState>> leftHand,
                 Consumer<RenderContext<RenderableState>> rightHand) {
-            this.firstPersonLeftHandPositioningRunning = leftHand;
-            this.firstPersonRightHandPositioningRunning = rightHand;
+            firstPersonLeftHandPositioningRunning = leftHand;
+            firstPersonRightHandPositioningRunning = rightHand;
             return this;
         }
 
@@ -224,7 +231,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             if (part instanceof DefaultPart) {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
             }
-            if (this.firstPersonCustomPositioningRunning.put(part, positioning) != null) {
+            if (firstPersonCustomPositioningRunning.put(part, positioning) != null) {
                 throw new IllegalArgumentException("Part " + part + " already added");
             }
             return this;
@@ -239,8 +246,8 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         public Builder withFirstPersonHandPositioningThrown(
                 Consumer<RenderContext<RenderableState>> leftHand,
                 Consumer<RenderContext<RenderableState>> rightHand) {
-            this.firstPersonLeftHandPositioningThrown = leftHand;
-            this.firstPersonRightHandPositioningThrown = rightHand;
+            firstPersonLeftHandPositioningThrown = leftHand;
+            firstPersonRightHandPositioningThrown = rightHand;
             return this;
         }
 
@@ -248,7 +255,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             if (part instanceof DefaultPart) {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
             }
-            if (this.firstPersonCustomPositioningThrown.put(part,
+            if (firstPersonCustomPositioningThrown.put(part,
                     new SimplePositioning(attachedTo, positioning)) != null) {
                 throw new IllegalArgumentException("Part " + part + " already added");
             }
@@ -257,13 +264,13 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
         @SafeVarargs
         public final Builder withFirstPersonPositioningSafetyPinOff(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonPositioningSafetyPinOff = Arrays.asList(transitions);
+            firstPersonPositioningSafetyPinOff = Arrays.asList(transitions);
             return this;
         }
 
         @SafeVarargs
         public final Builder withFirstPersonPositioningThrowing(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonPositioningThrowing = Arrays.asList(transitions);
+            firstPersonPositioningThrowing = Arrays.asList(transitions);
             return this;
         }
 
@@ -275,33 +282,33 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
         @SafeVarargs
         public final Builder withFirstPersonLeftHandPositioningSafetyPinOff(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonLeftHandPositioningSafetyPinOff = Arrays.asList(transitions);
+            firstPersonLeftHandPositioningSafetyPinOff = Arrays.asList(transitions);
             return this;
         }
 
         @SafeVarargs
         public final Builder withFirstPersonLeftHandPositioningThrowing(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonLeftHandPositioningThrowing = Arrays.asList(transitions);
+            firstPersonLeftHandPositioningThrowing = Arrays.asList(transitions);
             return this;
         }
 
         @SafeVarargs
         public final Builder withFirstPersonRightHandPositioningThrowing(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonRightHandPositioningThrowing = Arrays.asList(transitions);
+            firstPersonRightHandPositioningThrowing = Arrays.asList(transitions);
             return this;
         }
 
         @SafeVarargs
         public final Builder withFirstPersonRightHandPositioningSafetyPinOff(Transition<RenderContext<RenderableState>>... transitions) {
-            this.firstPersonRightHandPositioningSafetyPinOff = Arrays.asList(transitions);
+            firstPersonRightHandPositioningSafetyPinOff = Arrays.asList(transitions);
             return this;
         }
 
         public Builder withFirstPersonHandPositioningStrikerLevelOff(
                 Consumer<RenderContext<RenderableState>> leftHand,
                 Consumer<RenderContext<RenderableState>> rightHand) {
-            this.firstPersonLeftHandPositioningStrikerLeverOff = leftHand;
-            this.firstPersonRightHandPositioningStrikerLeverOff = rightHand;
+            firstPersonLeftHandPositioningStrikerLeverOff = leftHand;
+            firstPersonRightHandPositioningStrikerLeverOff = rightHand;
             return this;
         }
 
@@ -309,7 +316,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             if (part instanceof DefaultPart) {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
             }
-            if (this.firstPersonCustomPositioningStrikerLeverOff.put(part,
+            if (firstPersonCustomPositioningStrikerLeverOff.put(part,
                     new SimplePositioning(attachedTo, positioning)) != null) {
                 throw new IllegalArgumentException("Part " + part + " already added");
             }
@@ -322,7 +329,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
             }
 
-            this.firstPersonCustomPositioningSafetyPinOff.put(part, Arrays.asList(transitions));
+            firstPersonCustomPositioningSafetyPinOff.put(part, Arrays.asList(transitions));
             return this;
         }
 
@@ -332,7 +339,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
             }
 
-            this.firstPersonCustomPositioningThrowing.put(part, Arrays.asList(transitions));
+            firstPersonCustomPositioningThrowing.put(part, Arrays.asList(transitions));
             return this;
         }
 
@@ -424,16 +431,19 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             }
 
             if (firstPersonLeftHandPositioningSafetyPinOff == null) {
+                assert firstPersonPositioningSafetyPinOff != null;
                 firstPersonLeftHandPositioningSafetyPinOff = firstPersonPositioningSafetyPinOff.stream().map(t -> new Transition<RenderContext<RenderableState>>(
                         c -> {}, 0)).collect(Collectors.toList());
             }
 
             if (firstPersonLeftHandPositioningThrowing == null) {
+                assert firstPersonPositioningThrowing != null;
                 firstPersonLeftHandPositioningThrowing = firstPersonPositioningThrowing.stream().map(t -> new Transition<RenderContext<RenderableState>>(
                         c -> {}, 0)).collect(Collectors.toList());
             }
 
             if (firstPersonRightHandPositioningThrowing == null) {
+                assert firstPersonPositioningThrowing != null;
                 firstPersonRightHandPositioningThrowing = firstPersonPositioningThrowing.stream().map(t -> new Transition<RenderContext<RenderableState>>(
                         c -> {}, 0)).collect(Collectors.toList());
             }
@@ -444,7 +454,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
             if (firstPersonLeftHandPositioningStrikerLeverOff == null) {
 
-                if (firstPersonLeftHandPositioningSafetyPinOff != null && !firstPersonLeftHandPositioningSafetyPinOff.isEmpty()) {
+                if (!firstPersonLeftHandPositioningSafetyPinOff.isEmpty()) {
                     // Use last transition
                     firstPersonLeftHandPositioningStrikerLeverOff = firstPersonLeftHandPositioningSafetyPinOff
                             .get(firstPersonLeftHandPositioningSafetyPinOff.size() - 1).getItemPositioning();
@@ -478,6 +488,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
             if (firstPersonRightHandPositioningSafetyPinOff == null) {
                 //firstPersonRightHandPositioningSafetyPinOff = Collections.singletonList(new Transition(firstPersonRightHandPositioning, DEFAULT_ANIMATION_DURATION));
+                assert firstPersonPositioningSafetyPinOff != null;
                 firstPersonRightHandPositioningSafetyPinOff = firstPersonPositioningSafetyPinOff.stream().map(t -> new Transition<RenderContext<RenderableState>>(
                         c -> {}, 0)).collect(Collectors.toList());
             }
@@ -494,7 +505,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
             if (firstPersonRightHandPositioningStrikerLeverOff == null) {
 
-                if (firstPersonRightHandPositioningSafetyPinOff != null && !firstPersonRightHandPositioningSafetyPinOff.isEmpty()) {
+                if (!firstPersonRightHandPositioningSafetyPinOff.isEmpty()) {
                     // Use last transition
                     firstPersonRightHandPositioningStrikerLeverOff = firstPersonRightHandPositioningSafetyPinOff
                             .get(firstPersonRightHandPositioningSafetyPinOff.size() - 1).getItemPositioning();
@@ -549,25 +560,6 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             return renderer;
         }
 
-        public Consumer<ItemStack> getEntityPositioning() {
-            return entityPositioning;
-        }
-
-        public Consumer<ItemStack> getInventoryPositioning() {
-            return inventoryPositioning;
-        }
-
-        public Consumer<RenderContext<RenderableState>> getThirdPersonPositioning() {
-            return thirdPersonPositioning;
-        }
-
-        public String getTextureName() {
-            return textureName;
-        }
-
-        public ModelBase getModel() {
-            return model;
-        }
     }
 
     private Builder builder;
@@ -576,15 +568,16 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
     private final MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> weaponTransitionProvider;
 
+    @Setter
     protected ClientModContext clientModContext;
 
     private GrenadeRenderer(Builder builder) {
         this.builder = builder;
-        this.textureManager = MC.getTextureManager();
-        this.pair = Pair.of((IBakedModel) this, null);
+        textureManager = MC.getTextureManager();
+        pair = Pair.of((IBakedModel) this, null);
         this.builder = builder;
-        this.firstPersonStateManagers = new HashMap<>();
-        this.weaponTransitionProvider = new WeaponPositionProvider();
+        firstPersonStateManagers = new HashMap<>();
+        weaponTransitionProvider = new WeaponPositionProvider();
     }
 
     protected long getTotalTakingSafetyPinOffDuration() {
@@ -599,14 +592,10 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         return clientModContext;
     }
 
-    public void setClientModContext(ClientModContext clientModContext) {
-        this.clientModContext = clientModContext;
-    }
-
 
     private static class StateManagerKey {
         EntityLivingBase player;
-        int slot = -1;
+        int slot;
 
         public StateManagerKey(EntityLivingBase player, int slot) {
             this.player = player;
@@ -655,7 +644,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerGrenadeInstance playerGrenadeInstance = null;
-        if (playerItemInstance == null || !(playerItemInstance instanceof PlayerGrenadeInstance)
+        if (!(playerItemInstance instanceof PlayerGrenadeInstance)
                 || playerItemInstance.getItem() != itemStack.getItem()) {
             LOGGER.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
         } else {
@@ -713,10 +702,9 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
     }
 
     private AsyncGrenadeState getNextNonExpiredState(PlayerGrenadeInstance playerWeaponState) {
-        AsyncGrenadeState asyncWeaponState = null;
+        AsyncGrenadeState asyncWeaponState;
         while ((asyncWeaponState = playerWeaponState.nextHistoryState()) != null) {
             if (System.currentTimeMillis() > asyncWeaponState.getTimestamp() + asyncWeaponState.getDuration()) {
-                continue;
             } else {
                 break;
             }
@@ -733,7 +721,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         if ((Consumer<?>) weaponPositionFunction == Transition.anchoredPosition()) {
             return MultipartTransition.anchoredPosition();
         } else if (weaponPositionFunction != null) {
-            return context -> weaponPositionFunction.accept(context);
+            return weaponPositionFunction;
         }
 
         return context -> {};
@@ -745,7 +733,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         if ((Consumer<?>) weaponPositionFunction == Transition.anchoredPosition()) {
             return MultipartTransition.anchoredPosition();
         } else if (weaponPositionFunction != null) {
-            return context -> weaponPositionFunction.accept(context);
+            return weaponPositionFunction;
         }
         return context -> {};
 
@@ -783,6 +771,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
                 } else {
                     LOGGER.warn("Transition not defined for part {}", custom);
                 }
+                assert partTransition != null;
                 t.withPartPositionFunction(e.getKey(), partTransition.getAttachedTo(), createWeaponPartPositionFunction(partTransition));
             }
 
@@ -871,10 +860,8 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         } else {
             String textureName = null;
 
-            if (textureName == null) {
-                ItemGrenade weapon = ((ItemGrenade) weaponItemStack.getItem());
-                textureName = weapon.getTextureName();
-            }
+            ItemGrenade weapon = ((ItemGrenade) weaponItemStack.getItem());
+            textureName = weapon.getTextureName();
 
             MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + textureName));
         }
@@ -915,9 +902,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
 
-        if (compatibleAttachment.getPositioning() != null) {
-            //compatibleAttachment.getPositioning().accept(renderContext.getPlayer(), renderContext.getWeapon());
-        }
+        //compatibleAttachment.getPositioning().accept(renderContext.getPlayer(), renderContext.getWeapon());
 
         ItemAttachment<?> itemAttachment = compatibleAttachment.getAttachment();
 
@@ -1041,9 +1026,9 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         }
 
         // Reset the dynamic values.
-        this.player = null;
-        this.itemStack = null;
-        this.transformType = null;
+        player = null;
+        itemStack = null;
+        transformType = null;
 
         return Collections.emptyList();
     }
@@ -1177,7 +1162,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
     @Override
     public Pair<? extends IBakedModel, Matrix4f> handlePerspective(ItemCameraTransforms.TransformType cameraTransformType) {
-        this.transformType = cameraTransformType;
+        transformType = cameraTransformType;
         return pair;
     }
 }

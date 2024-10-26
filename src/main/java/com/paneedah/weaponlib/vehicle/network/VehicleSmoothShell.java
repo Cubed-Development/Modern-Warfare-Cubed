@@ -24,7 +24,7 @@ public class VehicleSmoothShell {
 
 
     public VehicleSmoothShell(EntityVehicle v) {
-        this.vehicle = v;
+        vehicle = v;
     }
 
     public void upload(VehicleDataContainer state) {
@@ -44,19 +44,19 @@ public class VehicleSmoothShell {
 
         if (inTransition) {
             if (currentTime > finishTime) {
-                this.inTransition = false;
-                states.element().updateVehicle(this.vehicle);
+                inTransition = false;
+                states.element().updateVehicle(vehicle);
                 states.remove();
             }
         }
 
         if (!inTransition && !states.isEmpty()) {
 
-            this.lastTransition = System.currentTimeMillis();
-            this.cs = new VehicleDataContainer(this.vehicle);
+            lastTransition = System.currentTimeMillis();
+            cs = new VehicleDataContainer(vehicle);
             inTransition = true;
 
-            this.finishTime = System.currentTimeMillis() + (VehiclePacketLatencyTracker.getLastDelta(vehicle));
+            finishTime = System.currentTimeMillis() + (VehiclePacketLatencyTracker.getLastDelta(vehicle));
         }
 
         if (!inTransition) {

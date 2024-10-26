@@ -11,8 +11,6 @@ import org.lwjgl.opengl.GL11;
 
 public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstanceFactory<PlayerTabletInstance, TabletState>, Updatable {
 
-    private final int DEFAULT_MAX_STACK_SIZE = 1;
-
     public static final class Builder<T> extends AttachmentBuilder<T> {
 
         {
@@ -59,12 +57,11 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
 
 
     private ModContext modContext;
-    private final Builder<T> builder;
 
     private ItemTablet(Builder<T> builder) {
         super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null, null, null);
-        this.builder = builder;
 
+        int DEFAULT_MAX_STACK_SIZE = 1;
         setMaxStackSize(DEFAULT_MAX_STACK_SIZE);
     }
 

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import lombok.Getter;
 import net.minecraft.entity.Entity;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Label;
@@ -19,7 +20,7 @@ public class EntityClassFactory implements Opcodes {
         public EntityClassLoader(String className, byte[] classBytes, ClassLoader parentClassLoader) {
             super(parentClassLoader);
             this.className = className;
-            this.rawClassBytes = classBytes;
+            rawClassBytes = classBytes;
         }
 
         @Override
@@ -27,15 +28,12 @@ public class EntityClassFactory implements Opcodes {
             if (!className.equals(name)) {
                 throw new ClassNotFoundException(name);
             }
-            return defineClass(name, this.rawClassBytes, 0, this.rawClassBytes.length);
+            return defineClass(name, rawClassBytes, 0, rawClassBytes.length);
         }
     }
 
+    @Getter
     private static final EntityClassFactory instance = new EntityClassFactory();
-
-    public static EntityClassFactory getInstance() {
-        return instance;
-    }
 
     private final Map<Class<?>, EntityConfiguration> entityConfigurations = new HashMap<>();
 
@@ -91,38 +89,6 @@ public class EntityClassFactory implements Opcodes {
             mv.visitMaxs(2, 2);
             mv.visitEnd();
         }
-//        {
-//            mv = cw.visitMethod(ACC_PUBLIC, "getConfiguration", "()Lcom/paneedah/weaponlib/vehicle/EntityVehicleConfiguration;", null, null);
-//            mv.visitCode();
-//            Label l0 = new Label();
-//            mv.visitLabel(l0);
-//            mv.visitLineNumber(689, l0);
-//            mv.visitVarInsn(ALOAD, 0);
-//            mv.visitFieldInsn(GETFIELD, classResourceName, "configuration", "Lcom/paneedah/weaponlib/vehicle/EntityVehicleConfiguration;");
-//            Label l1 = new Label();
-//            mv.visitJumpInsn(IFNONNULL, l1);
-//            Label l2 = new Label();
-//            mv.visitLabel(l2);
-//            mv.visitLineNumber(690, l2);
-//            mv.visitVarInsn(ALOAD, 0);
-//            mv.visitMethodInsn(INVOKESTATIC, "com/paneedah/weaponlib/EntityClassFactory", "getInstance", "()Lcom/paneedah/weaponlib/EntityClassFactory;", false);
-//            mv.visitVarInsn(ALOAD, 0);
-//            mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/Object", "getClass", "()Ljava/lang/Class;", false);
-//            mv.visitMethodInsn(INVOKEVIRTUAL, "com/paneedah/weaponlib/EntityClassFactory", "getConfiguration", "(Ljava/lang/Class;)Lcom/paneedah/weaponlib/EntityConfiguration;", false);
-//            mv.visitTypeInsn(CHECKCAST, "com/paneedah/weaponlib/vehicle/EntityVehicleConfiguration");
-//            mv.visitFieldInsn(PUTFIELD, classResourceName, "configuration", "Lcom/paneedah/weaponlib/vehicle/EntityVehicleConfiguration;");
-//            mv.visitLabel(l1);
-//            mv.visitLineNumber(692, l1);
-//            mv.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
-//            mv.visitVarInsn(ALOAD, 0);
-//            mv.visitFieldInsn(GETFIELD, classResourceName, "configuration", "Lcom/paneedah/weaponlib/vehicle/EntityVehicleConfiguration;");
-//            mv.visitInsn(ARETURN);
-//            Label l3 = new Label();
-//            mv.visitLabel(l3);
-//            mv.visitLocalVariable("this", "L" + classResourceName + ";", null, l0, l3, 0);
-//            mv.visitMaxs(3, 1);
-//            mv.visitEnd();
-//            }
 
         cw.visitEnd();
 

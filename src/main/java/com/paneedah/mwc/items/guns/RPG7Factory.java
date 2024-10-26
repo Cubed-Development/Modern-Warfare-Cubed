@@ -34,9 +34,9 @@ public class RPG7Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.7f)
-                .withFlashScale(() -> 2f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(() -> Float.valueOf(2f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.14f))
                 .withShellCasingEjectEnabled(false)
                 .withDestroyingBlocks(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -79,11 +79,6 @@ public class RPG7Factory implements GunFactory {
                             GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                             GL11.glTranslatef(-0.425000f, 0.825000f, -2.500000f);
 
-//                GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-//                GL11.glRotatef(-25.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-1.200000f, 1.200000f, 0.5f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -694,11 +689,6 @@ public class RPG7Factory implements GunFactory {
                                     GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-0.225000f, -0.875000f, 0.150000f);
 
-//                         GL11.glScalef(4f, 4f, 4f);
-//                         GL11.glRotatef(-115.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(-165.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(-0.425000f, 0.075000f, -0.625000f);
                                 },
                                 (renderContext) -> {
                                     GL11.glScalef(3f, 3f, 3f);

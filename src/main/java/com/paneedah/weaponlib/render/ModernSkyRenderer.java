@@ -99,15 +99,16 @@ public class ModernSkyRenderer extends IRenderHandler {
 
 
     public ByteBuffer readImageFromFile(ResourceLocation location) {
-        IResource resource = null;
+        IResource resource;
         try {
             resource = MC.getResourceManager().getResource(location);
         } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-        ByteBuffer buf = null;
+        ByteBuffer buf;
         try {
+            assert resource != null;
             BufferedImage image = ImageIO.read(resource.getInputStream());
             buf = ByteBuffer.allocateDirect(image.getWidth() * image.getHeight() * 3);
 
@@ -163,65 +164,7 @@ public class ModernSkyRenderer extends IRenderHandler {
 
     @Override
     public void render(float partialTicks, WorldClient world, Minecraft MC) {
-        //if(1+1==2) return;
-        //skyShader = ShaderLoader.loadVMWShader("sky");
-        if (1 + 1 == 2) {
-            return;
-        }
-        if (cubeMapTexture == -1) {
-            setupCubemap();
-        }
-        //
-
-        FloatBuffer viewMatrix = BufferUtils.createFloatBuffer(16);
-        FloatBuffer projectionMatrix = BufferUtils.createFloatBuffer(16);
-
-        GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX, projectionMatrix);
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, viewMatrix);
-
-        viewMatrix.rewind();
-        projectionMatrix.rewind();
-
-        // TODO Auto-generated method stub
-        //GlStateManager.color(1, 1, 1);
-        GlStateManager.enableTexture2D();
-        GL11.glEnable(GL13.GL_TEXTURE_CUBE_MAP);
-        GlStateManager.depthMask(false);
-
-        Tessellator t = Tessellator.getInstance();
-        BufferBuilder bb = t.getBuffer();
-        bb.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION);
-        GlStateManager.disableCull();
-        skyShader.use();
-
-        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
-        ResourceLocation loc = new ResourceLocation(ID + ":textures/crosshairs/okp.png");
-
-        MC.getTextureManager().bindTexture(loc);
-        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
-
-        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 5);
-        GL11.glBindTexture(GL13.GL_TEXTURE_CUBE_MAP, cubeMapTexture);
-        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
-
-        skyShader.uniform1i("skySampla", 5);
-        skyShader.uniform1i("tex", 4);
-        skyShader.sendMatrix4AsUniform("projection", false, projectionMatrix);
-        skyShader.sendMatrix4AsUniform("view", false, viewMatrix);
-
-
-        double scale = 5.0;
-        for (int i = 0; i <= cubeMap.length - 3; i += 3) {
-            bb.pos(cubeMap[i] * scale, cubeMap[i + 1] * scale, cubeMap[i + 2] * scale).endVertex();
-        }
-
-
-        t.draw();
-        skyShader.release();
-        GlStateManager.depthMask(true);
-        GlStateManager.enableCull();
-        //GL11.glBindTexture(GL11.GL_TEXTURE_2D, GL13.GL_TEXTURE0);
-        GL11.glDisable(GL13.GL_TEXTURE_CUBE_MAP);
+        return;
 
     }
 
