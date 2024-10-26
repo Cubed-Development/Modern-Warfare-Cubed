@@ -62,17 +62,19 @@ public class CommonProxy {
 
         // Special object initialization
         SpecialAttachments.init(mod, MWC.modContext);
-        Backpacks.init();
-        Belts.init();
-        Vests.init(mod);
-        Armors.init(mod, MWC.modContext);
+
+        new Backpacks().createEquipment(MWC.modContext);
+        new Belts().createEquipment(MWC.modContext);
+        new Vests().createEquipment(MWC.modContext);
+        new Armors().createEquipment(MWC.modContext);
+
         Attachments.init(mod);
         AuxiliaryAttachments.init(mod);
         GunSkins.init(mod);
         Bullets.init(mod);
         Magazines.init(mod);
         Guns.init(mod, this);
-        Electronics.init();
+        new Electronics().createEquipment(MWC.modContext);
         Grenades.init(mod, this);
         CustomSpawnEggs.init(mod, this);
         TileEntities.init(this);
