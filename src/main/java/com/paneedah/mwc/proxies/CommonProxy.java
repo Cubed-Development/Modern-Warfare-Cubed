@@ -96,7 +96,7 @@ public class CommonProxy {
         Entities.init(this);
         Vehicles.init(this);
 
-        GameRegistry.registerWorldGenerator(new WorldGeneratorEventHandler(), 0);
+        GameRegistry.registerWorldGenerator(new ModernWorldGenerator(), 0);
     }
 
     public void postInit(final MWC mod, final FMLPostInitializationEvent initializationEvent) {

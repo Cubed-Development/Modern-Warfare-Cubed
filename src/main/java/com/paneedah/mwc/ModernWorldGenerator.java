@@ -12,9 +12,9 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-public class WorldGeneratorEventHandler implements IWorldGenerator {
+public class ModernWorldGenerator implements IWorldGenerator {
 
-    public WorldGeneratorEventHandler() {
+    public ModernWorldGenerator() {
 
     }
 
