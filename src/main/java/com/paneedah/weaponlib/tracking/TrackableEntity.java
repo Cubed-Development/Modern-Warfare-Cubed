@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.tracking;
 
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,23 +17,26 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 public class TrackableEntity {
 
     private Supplier<Entity> entitySupplier;
+    @Getter
     private long startTimestamp;
     private UUID uuid;
     private int entityId;
+    @Getter
     private long trackingDuration;
     private WeakReference<Entity> entityRef;
+    @Getter
     private String displayName = "";
     private Supplier<World> worldSupplier;
 
     private TrackableEntity() {}
 
     public TrackableEntity(Entity entity, long startTimestamp, long trackingDuration) {
-        this.uuid = entity.getPersistentID();
-        this.entityId = entity.getEntityId();
-        this.entitySupplier = () -> entity;
+        uuid = entity.getPersistentID();
+        entityId = entity.getEntityId();
+        entitySupplier = () -> entity;
         this.startTimestamp = startTimestamp;
         this.trackingDuration = trackingDuration;
-        this.worldSupplier = () -> entity.world;
+        worldSupplier = () -> entity.world;
     }
 
     public UUID getUuid() {
@@ -45,8 +49,8 @@ public class TrackableEntity {
 
     public void setEntitySupplier(Supplier<Entity> entitySupplier) {
         this.entitySupplier = entitySupplier;
-        this.entityId = -1;
-        this.entityRef = null;
+        entityId = -1;
+        entityRef = null;
     }
 
     public Entity getEntity() {
@@ -76,7 +80,7 @@ public class TrackableEntity {
         this.worldSupplier = worldSupplier;
         uuid = new UUID(buf.readLong(), buf.readLong());
         entityId = buf.readInt();
-        LOGGER.debug("Deserializing entity uuid {}, id {}", uuid, entityId);
+        LOGGER.debug("Deserializing entity uuid {}, id {}", uuid, Integer.valueOf(entityId));
 
         startTimestamp = buf.readLong();
         trackingDuration = buf.readLong();
@@ -107,7 +111,7 @@ public class TrackableEntity {
         if (entity != null) {
             entityId = entity.getEntityId();
         }
-        LOGGER.debug("Serializing server entity uuid {}, id {}", uuid, entityId);
+        LOGGER.debug("Serializing server entity uuid {}, id {}", uuid, Integer.valueOf(entityId));
 
         buf.writeInt(entityId);
         buf.writeLong(startTimestamp);
@@ -122,15 +126,4 @@ public class TrackableEntity {
         return /*(entity != null && entity.isDead) ||  */ startTimestamp + trackingDuration < worldSupplier.get().getWorldTime();
     }
 
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public long getTrackingDuration() {
-        return trackingDuration;
-    }
-
-    public long getStartTimestamp() {
-        return startTimestamp;
-    }
 }

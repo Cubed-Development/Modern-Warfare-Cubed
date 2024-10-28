@@ -23,8 +23,8 @@ public class EngineMovingSound extends AdvCompatibleMovingSound {
         // TODO Auto-generated method stub
         super.update();
         double rpm = vehicle.getSolver().getCurrentRPM();
-        this.repeatDelay = -1;
-        this.attenuationType = ISound.AttenuationType.NONE;
+        repeatDelay = -1;
+        attenuationType = ISound.AttenuationType.NONE;
 
 
         if (vehicle.isDead) {
@@ -36,14 +36,10 @@ public class EngineMovingSound extends AdvCompatibleMovingSound {
         }
 
         if (!isDonePlaying()) {
-            //System.out.println(this.pitch);
-            //System.out.println(this.pitch);
             float suggested = (float) ((float) 1.0 * (vehicle.solver.getCurrentRPM() / 3500.0F) + 1.0f);
 
-            this.pitch = (float) Math.min(suggested, 2.0);
-            this.volume = 2f;
-            //this.pitch = 1.0f;
-            //this.pitch = 1.0f;
+            pitch = (float) Math.min(suggested, 2.0);
+            volume = 2f;
         }
 
     }

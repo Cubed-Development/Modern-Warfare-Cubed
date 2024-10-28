@@ -45,20 +45,16 @@ public class VehicleDataSerializer {
     }
 
     public void updateVehicle(EntityVehicle v) {
-        v.throttle = this.throttle;
-        v.driftTuner = this.driftTuner;
-        v.forwardLean = this.forwardLean;
-        v.sideLean = this.sideLean;
-        v.wheelRotationAngle = (float) this.wheelRotationAngle;
-        v.steerangle = this.steerangle;
-        v.posX = this.position.x;
-        v.posY = this.position.y;
-        v.posZ = this.position.z;
+        v.throttle = throttle;
+        v.driftTuner = driftTuner;
+        v.forwardLean = forwardLean;
+        v.sideLean = sideLean;
+        v.wheelRotationAngle = (float) wheelRotationAngle;
+        v.steerangle = steerangle;
+        v.posX = position.x;
+        v.posY = position.y;
+        v.posZ = position.z;
 
-		/*
-		System.out.println(this.position);
-		Vec3d pAdj = this.position.subtract(v.getPositionVector());
-		System.out.println("fuck " + pAdj);*/
         //v.move(MoverType.SELF, pAdj.x, pAdj.y, pAdj.z);
 
     }

@@ -38,9 +38,9 @@ public class MG34Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.14f))
                 .withInaccuracy(1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -54,8 +54,6 @@ public class MG34Factory {
 //            GL11.glTranslatef(0F, 0F, 1F); 
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MG34latch, true, (model) -> {
-//            GL11.glTranslatef(0F, -2F, 0F);
-//            GL11.glRotatef(90F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MG42Belt, true, (model) -> {
 //            GL11.glTranslatef(0.45F, 0F, 0F);

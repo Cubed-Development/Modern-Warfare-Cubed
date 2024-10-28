@@ -11,6 +11,7 @@ import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
+import lombok.Getter;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -51,16 +52,13 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
  * - Re-factored class
  */
 // Todo: Cleanup this mess
+@Getter
 public class CommonEventHandler {
 
     private final ModContext modContext;
 
     public CommonEventHandler(ModContext modContext) {
         this.modContext = modContext;
-    }
-
-    public ModContext getModContext() {
-        return modContext;
     }
 
     @SubscribeEvent
@@ -128,7 +126,7 @@ public class CommonEventHandler {
                 }
 
                 ItemStack itemStack1 = livingUpdateEvent.getEntityLiving().getHeldItemMainhand();
-                if (itemStack1 != null && itemStack1.getItem() instanceof ItemHandheld) {
+                if (itemStack1.getItem() instanceof ItemHandheld) {
                     if (itemStack1.getTagCompound() == null) {
                         itemStack1.setTagCompound(new NBTTagCompound());
                     }
@@ -178,24 +176,6 @@ public class CommonEventHandler {
             CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, null), (EntityPlayerMP) event.getEntityPlayer());
         }
     }
-
-    /*@SubscribeEvent
-    protected void onPlayerStoppedTracking(PlayerEvent.StopTracking playerStopTrackingEvent) {
-        if(playerStopTrackingEvent.getTarget() instanceof EntityProjectile || playerStopTrackingEvent.getTarget() instanceof EntityBounceable) {
-            return;
-        }
-        LivingEntityTracker tracker = LivingEntityTracker.getTracker((EntityPlayer) playerStopTrackingEvent.getEntity());
-        if (tracker != null && tracker.updateTrackableEntity(playerStopTrackingEvent.getTarget())) {
-            log.debug("Player {} stopped tracking {}", playerStopTrackingEvent.getEntityPlayer(), playerStopTrackingEvent.getTarget());
-            CHANNEL.sendTo(new SyncPlayerEntityTrackerMessage(tracker),
-                    (EntityPlayerMP)playerStopTrackingEvent.getEntityPlayer());
-
-            EntityPlayer player = (EntityPlayer) playerStopTrackingEvent.getEntity();
-            CHANNEL.sendTo(
-                    new EntityControlServerMessage(player, CompatibleExtraEntityFlags.getFlags(player)),
-                    (EntityPlayerMP)playerStopTrackingEvent.getEntity());
-        }
-    }*/
 
     @SubscribeEvent
     protected void onCompatibleLivingDeathEvent(LivingDeathEvent event) {
@@ -260,10 +240,6 @@ public class CommonEventHandler {
     protected void onPlayerRespawnEvent(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event) {
         CHANNEL.sendToAll(new EntityInventorySyncMessage(event.player, false, EquipmentCapability.getInventory(event.player)));
     }
-
-    /*@SubscribeEvent
-    protected void onCompatiblePlayerInteractInteractEvent(PlayerInteractEvent.EntityInteract event) {
-    }*/
 
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {

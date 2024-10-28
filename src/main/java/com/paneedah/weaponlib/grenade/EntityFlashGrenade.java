@@ -67,7 +67,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         }
 
         public Builder withEffectiveDistance(int effectiveDistance) {
-            this.effectiveDistance = effectiveDistance > MAX_EFFECTIVE_DISTANCE ? MAX_EFFECTIVE_DISTANCE : effectiveDistance;
+            this.effectiveDistance = Math.min(effectiveDistance, MAX_EFFECTIVE_DISTANCE);
             return this;
         }
 
@@ -178,13 +178,13 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
             LightExposure exposure = CompatibleExposureCapability.getExposure(nearbyEntity, LightExposure.class);
 
             if (exposure == null) {
-                ProjectConstants.LOGGER.debug("Entity {} exposed to light dose {}", nearbyEntity, dose);
+                ProjectConstants.LOGGER.debug("Entity {} exposed to light dose {}", nearbyEntity, Float.valueOf(dose));
 
                 exposure = new LightExposure(nearbyEntity.world.getTotalWorldTime(), 4000, dose, 0.99f);
             } else {
                 final float totalDose = MathUtil.clampMaxFirst(exposure.getTotalDose() + dose, 0, 1);
 
-                ProjectConstants.LOGGER.debug("Entity {} exposed to light dose {}", nearbyEntity, totalDose);
+                ProjectConstants.LOGGER.debug("Entity {} exposed to light dose {}", nearbyEntity, Float.valueOf(totalDose));
 
                 exposure.setTotalDose(totalDose);
             }
@@ -251,10 +251,6 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         }
 
         return dose;
-    }
-
-    public ItemGrenade getItemGrenade() {
-        return itemGrenade;
     }
 
     private boolean isTransparentBlock(Block block) {

@@ -8,6 +8,7 @@ import org.apache.commons.codec.binary.Hex;
 import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
@@ -35,7 +36,7 @@ public abstract class JSONDatabaseManager {
     public abstract void loadDirectory();
 
     public static String getFileDigestHex(File file) {
-        return Hex.encodeHexString(getDigest(file));
+        return Hex.encodeHexString(Objects.requireNonNull(getDigest(file)));
     }
 
     public static byte[] getDigest(File f) {

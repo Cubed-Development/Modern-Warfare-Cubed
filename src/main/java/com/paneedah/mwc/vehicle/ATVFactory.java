@@ -215,7 +215,7 @@ public class ATVFactory implements VehicleFactory {
         new EntityVehicleConfiguration.Builder()
 
                 .withName("atv_polaris_sportsman_850_2019")
-                .withEntityIdSupplier(() -> 10205)
+                .withEntityIdSupplier(() -> Integer.valueOf(10205))
 
                 .withPhysicsConfig(new PhysicsConfiguration(
                         /* WHEELBASE (m)*/ 1.2827,

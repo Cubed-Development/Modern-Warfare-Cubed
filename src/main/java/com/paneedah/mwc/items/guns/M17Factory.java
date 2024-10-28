@@ -44,9 +44,9 @@ public class M17Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.18f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.18f))
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -103,8 +103,6 @@ public class M17Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Magazines.M17Mag, (model) -> {
-//            GL11.glRotatef(-5F, 1f, 0f, 0f);
-//            GL11.glTranslatef(0F, 0.8F, 0.2F);
                 })
 
                 .withCompatibleAttachment(Attachments.Laser, (p, s) -> {

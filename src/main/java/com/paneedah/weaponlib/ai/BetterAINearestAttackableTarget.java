@@ -26,19 +26,19 @@ public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends
     public BetterAINearestAttackableTarget(EntityCreature creature, Class<T> classTarget, String name, boolean checkSight) {
         super(creature, classTarget, checkSight);
         // TODO Auto-generated constructor stub
-        this.enemyName = name;
+        enemyName = name;
     }
 
 
     @Override
     public boolean shouldExecute() {
-        if (targetChance > 0 && this.taskOwner.getRNG().nextInt(targetChance) != 0) {
+        if (targetChance > 0 && taskOwner.getRNG().nextInt(targetChance) != 0) {
             return false;
-        } else if (this.targetClass != EntityPlayer.class && this.targetClass != EntityPlayerMP.class) {
-            List<T> list = this.taskOwner.world.getEntitiesWithinAABB(this.targetClass, this.getTargetableArea(this.getTargetDistance()), this.targetEntitySelector);
+        } else if (targetClass != EntityPlayer.class && targetClass != EntityPlayerMP.class) {
+            List<T> list = taskOwner.world.getEntitiesWithinAABB(targetClass, getTargetableArea(getTargetDistance()), targetEntitySelector);
             list.removeIf(s -> {
                 if (s instanceof EntityCustomMob) {
-                    return ((EntityCustomMob) s).getMobName() != this.enemyName;
+                    return !((EntityCustomMob) s).getMobName().equals(enemyName);
                 } else {
                     return false;
                 }
@@ -48,30 +48,31 @@ public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends
             if (list.isEmpty()) {
                 return false;
             } else {
-                list.sort(this.sorter);
-                this.targetEntity = list.get(0);
+                list.sort(sorter);
+                targetEntity = list.get(0);
                 return true;
             }
         } else {
-            this.targetEntity = (T) this.taskOwner.world.getNearestAttackablePlayer(this.taskOwner.posX, this.taskOwner.posY + (double) this.taskOwner.getEyeHeight(), this.taskOwner.posZ, this.getTargetDistance(), this.getTargetDistance(), new Function<EntityPlayer, Double>() {
+            targetEntity = (T) taskOwner.world.getNearestAttackablePlayer(taskOwner.posX, taskOwner.posY + (double) taskOwner.getEyeHeight(), taskOwner.posZ, getTargetDistance(), getTargetDistance(), new Function<EntityPlayer, Double>() {
                 public Double apply(@Nullable EntityPlayer p_apply_1_) {
+                    assert p_apply_1_ != null;
                     ItemStack itemstack = p_apply_1_.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 
                     if (itemstack.getItem() == Items.SKULL) {
                         int i = itemstack.getItemDamage();
-                        boolean flag = BetterAINearestAttackableTarget.this.taskOwner instanceof EntitySkeleton && i == 0;
-                        boolean flag1 = BetterAINearestAttackableTarget.this.taskOwner instanceof EntityZombie && i == 2;
-                        boolean flag2 = BetterAINearestAttackableTarget.this.taskOwner instanceof EntityCreeper && i == 4;
+                        boolean flag = taskOwner instanceof EntitySkeleton && i == 0;
+                        boolean flag1 = taskOwner instanceof EntityZombie && i == 2;
+                        boolean flag2 = taskOwner instanceof EntityCreeper && i == 4;
 
                         if (flag || flag1 || flag2) {
-                            return 0.5D;
+                            return Double.valueOf(0.5D);
                         }
                     }
 
-                    return 1.0D;
+                    return Double.valueOf(1.0D);
                 }
-            }, (Predicate<EntityPlayer>) this.targetEntitySelector);
-            return this.targetEntity != null;
+            }, (Predicate<EntityPlayer>) targetEntitySelector);
+            return targetEntity != null;
         }
     }
 

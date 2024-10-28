@@ -34,7 +34,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
     private float resistance = 600000f;
     private String modelClassName;
     private final AtomicInteger counter = new AtomicInteger(10000);
-    private final Supplier<Integer> entityIdSupplier = () -> counter.incrementAndGet();
+    private final Supplier<Integer> entityIdSupplier = () -> Integer.valueOf(counter.incrementAndGet());
     private Consumer<TileEntity> positioning = tileEntity -> {};
     private Function<IBlockState, AxisAlignedBB> boundingBox;
 
@@ -90,7 +90,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
 
     public T withBoundingBox(double x1, double y1, double z1, double x2, double y2, double z2) {
         AxisAlignedBB bb = new AxisAlignedBB(x1, y1, z1, x2, y2, z2);
-        this.boundingBox = state -> bb;
+        boundingBox = state -> bb;
         return safeCast(this);
     }
 
@@ -100,7 +100,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
 
 
     protected Class<CustomTileEntity<T>> createTileEntityClass() {
-        int modEntityId = entityIdSupplier.get();
+        int modEntityId = entityIdSupplier.get().intValue();
         return (Class<CustomTileEntity<T>>) CustomTileEntityClassFactory.getInstance().generateEntitySubclass(
                 getBaseClass(), modEntityId, this);
     }
@@ -152,13 +152,6 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
                 ModContext context, String name, Class<? extends TileEntity> tileEntityClass, String modelClassName,
                 ResourceLocation textureResource, Consumer<TileEntity> positioning, CustomTileEntityBlock tileEntityBlock) {
             try {
-
-//                MC.getRenderItem().getItemModelMesher()
-//                    .register(Item.getItemFromBlock(tileEntityBlock), 0,
-//                        new ModelResourceLocation(ID + ":" + name, "inventory"));
-
-//                ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(ID + ":" + name, "inventory");
-//                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(tileEntityBlock), 0, itemModelResourceLocation);
 
                 ModelBase model = (ModelBase) Class.forName(modelClassName).newInstance();
                 ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass, (TileEntitySpecialRenderer) new CustomTileEntityRenderer(model, textureResource, positioning));

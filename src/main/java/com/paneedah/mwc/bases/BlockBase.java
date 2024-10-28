@@ -21,9 +21,4 @@ public class BlockBase extends Block {
         setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
     }
 
-    @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(this);
-    }
-
 }

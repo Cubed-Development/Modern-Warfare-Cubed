@@ -114,8 +114,6 @@ public class DebugCommand extends CommandBase {
         if (args.length > 0) {
             switch (args[0].toLowerCase()) {
                 case DEBUG_ARG_ON:
-                    processDebugModeSubCommand(args);
-                    break;
                 case DEBUG_ARG_OFF:
                     processDebugModeSubCommand(args);
                     break;
@@ -144,8 +142,6 @@ public class DebugCommand extends CommandBase {
                     processAutorotateSubCommand(args);
                     break;
                 case DEBUG_FREECAM:
-                    processFreecamAndMuzzleSubCommands(args);
-                    break;
                 case DEBUG_MUZZLE_POS:
                     processFreecamAndMuzzleSubCommands(args);
                     break;
@@ -174,7 +170,7 @@ public class DebugCommand extends CommandBase {
     private static boolean isForceLiveRenderGUI = true;
     private static boolean isEditingGUI;
     public static Transform debugSlideTransform = new Transform();
-    public static Pair<Double, Double> screenShakeParam = new Pair<>(0.0, 0.0);
+    public static Pair<Double, Double> screenShakeParam = new Pair<>(Double.valueOf(0.0), Double.valueOf(0.0));
 
     public static boolean isDebuggingActionPosition() {
         return isDebuggingActionPosition;
@@ -229,7 +225,7 @@ public class DebugCommand extends CommandBase {
                 } else if (args[2].equals("set")) {
                     double intensity = Double.parseDouble(args[3]);
                     double lengthModifier = Double.parseDouble(args[4]);
-                    screenShakeParam = new Pair<Double, Double>(intensity, lengthModifier);
+                    screenShakeParam = new Pair<Double, Double>(Double.valueOf(intensity), Double.valueOf(lengthModifier));
                 }
                 break;
             case "buildsheet":
@@ -326,14 +322,14 @@ public class DebugCommand extends CommandBase {
         Boolean debugMode = null;
         switch (args[0].toLowerCase()) {
             case DEBUG_ARG_ON:
-                debugMode = true;
+                debugMode = Boolean.TRUE;
                 break;
             case DEBUG_ARG_OFF:
-                debugMode = false;
+                debugMode = Boolean.FALSE;
                 break;
         }
         if (debugMode != null) {
-            DebugPositioner.setDebugMode(debugMode);
+            DebugPositioner.setDebugMode(debugMode.booleanValue());
             MC.player.sendMessage(new TextComponentString(getDebugPrefix() + "Debug mode " + args[0].toLowerCase()));
         } else {
             MC.player.sendMessage(new TextComponentString(getSubCommandDebugUsage()));

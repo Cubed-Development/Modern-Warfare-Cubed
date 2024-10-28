@@ -59,13 +59,11 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     private StateManager<MagazineState, ? super PlayerMagazineInstance> stateManager;
 
     private final Predicate<PlayerMagazineInstance> notFull = instance -> {
-        boolean result = Tags.getAmmo(instance.getItemStack()) < instance.getMagazine().getCapacity();
-        return result;
+        return Tags.getAmmo(instance.getItemStack()) < instance.getMagazine().getCapacity();
     };
 
     private final Predicate<PlayerMagazineInstance> notEmpty = instance -> {
-        boolean result = Tags.getAmmo(instance.getItemStack()) != 0;
-        return result;
+        return Tags.getAmmo(instance.getItemStack()) != 0;
     };
 
     public MagazineReloadAspect(ModContext modContext) {
@@ -191,27 +189,6 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
                 magazineInstance.getPlayer().playSound(magazine.getUnloadSound(), 1, 1);
             }
 
-            /*
-            ItemStack consumedStack;
-            if((consumedStack = compatibility.tryConsumingItem(compatibleBullets, magazine.getAmmo() - currentAmmo,
-                    (EntityPlayer)magazineInstance.getPlayer(), i -> true)) != null) {
-                
-                ItemStack remainingStack = null;
-                if(shouldSplitStack) {
-                    remainingStack = magazineStack.splitStack(magazineStack.getCount() - 1);
-                }
-                
-                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + consumedStack.getCount());
-                
-                if(remainingStack != null) {
-                    player.inventory.addItemStackToInventory(remainingStack);
-                }
-                
-                if(magazine.getReloadSound() != null) {
-                    magazineInstance.getPlayer().playSound(magazine.getReloadSound(), 1, 1);
-                }
-                status = Status.GRANTED;
-            }*/
             status = Status.GRANTED;
         }
 
@@ -230,12 +207,11 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
 
         Status status = Status.DENIED;
         if (magazineStack.getItem() instanceof ItemMagazine) {
-            ItemStack magazineItemStack = magazineStack;
 
             EntityPlayer player = (EntityPlayer) magazineInstance.getPlayer();
 
             boolean shouldSplitStack = false;
-            if (magazineItemStack.getCount() > 1) {
+            if (magazineStack.getCount() > 1) {
                 shouldSplitStack = true;
                 if (player.inventory.getFirstEmptyStack() < 0) {
                     p.setStatus(status);
@@ -243,7 +219,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
                 }
             }
 
-            ItemMagazine magazine = (ItemMagazine) magazineItemStack.getItem();
+            ItemMagazine magazine = (ItemMagazine) magazineStack.getItem();
             List<ItemBullet> bullets = magazine.getCompatibleBullets();
             int currentAmmo = Tags.getAmmo(magazineStack);
             int consumedAmount;
@@ -274,17 +250,11 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
         if (permit == null) {
             System.err.println("Permit is null, something went wrong");
         }
-//      if(permit.getStatus() == Status.GRANTED) {
-//          weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getReloadSound(), 1, 1);
-//      }
     }
 
     private void doPermittedLoad(PlayerMagazineInstance weaponInstance, LoadPermit permit) {
         if (permit == null) {
             System.err.println("Permit is null, something went wrong");
         }
-//      if(permit.getStatus() == Status.GRANTED) {
-//          weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getReloadSound(), 1, 1);
-//      }
     }
 }

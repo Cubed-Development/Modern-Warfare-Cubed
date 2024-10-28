@@ -16,7 +16,7 @@ public final class SpreadableExposureMessage implements IMessage {
 
     public SpreadableExposureMessage(final SpreadableExposure spreadableExposure) {
         this.spreadableExposure = spreadableExposure;
-        this.removed = spreadableExposure == null;
+        removed = spreadableExposure == null;
     }
 
     @Override

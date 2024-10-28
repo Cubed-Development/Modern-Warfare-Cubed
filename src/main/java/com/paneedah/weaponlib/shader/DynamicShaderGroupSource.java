@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.shader;
 
 import com.paneedah.weaponlib.Tuple;
+import lombok.Getter;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.ArrayList;
@@ -11,22 +12,20 @@ import java.util.function.Function;
 
 public class DynamicShaderGroupSource {
 
+    @Getter
     private final ResourceLocation shaderLocation;
 
     private final List<AdvUniform> advUniforms;
 
     private final List<Tuple<String, Function<DynamicShaderContext, Object>>> uniforms;
+    @Getter
     private final UUID sourceId;
 
     public DynamicShaderGroupSource(UUID sourceId, ResourceLocation location) {
         this.sourceId = sourceId;
-        this.shaderLocation = location;
-        this.uniforms = new ArrayList<>();
-        this.advUniforms = new ArrayList<>();
-    }
-
-    public UUID getSourceId() {
-        return sourceId;
+        shaderLocation = location;
+        uniforms = new ArrayList<>();
+        advUniforms = new ArrayList<>();
     }
 
     public DynamicShaderGroupSource withUniform(String name, Function<DynamicShaderContext, Object> value) {
@@ -37,10 +36,6 @@ public class DynamicShaderGroupSource {
     public DynamicShaderGroupSource withAdvUniform(AdvUniform u) {
         advUniforms.add(u);
         return this;
-    }
-
-    public ResourceLocation getShaderLocation() {
-        return shaderLocation;
     }
 
     public List<Tuple<String, Function<DynamicShaderContext, Object>>> getUniforms(DynamicShaderContext context) {

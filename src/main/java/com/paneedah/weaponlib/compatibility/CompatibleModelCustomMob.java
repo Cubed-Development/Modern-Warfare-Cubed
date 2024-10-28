@@ -26,15 +26,15 @@ public class CompatibleModelCustomMob extends ModelBiped {
      */
     @Override
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
-        this.rightArmPose = ModelBiped.ArmPose.EMPTY;
-        this.leftArmPose = ModelBiped.ArmPose.EMPTY;
+        rightArmPose = ModelBiped.ArmPose.EMPTY;
+        leftArmPose = ModelBiped.ArmPose.EMPTY;
         ItemStack itemstack = entitylivingbaseIn.getHeldItem(EnumHand.MAIN_HAND);
 
         if (itemstack.getItem() == Items.BOW && ((EntityCustomMob) entitylivingbaseIn).isSwingingArms()) {
             if (entitylivingbaseIn.getPrimaryHand() == EnumHandSide.RIGHT) {
-                this.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+                rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
             } else {
-                this.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+                leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
             }
         }
 
@@ -53,27 +53,27 @@ public class CompatibleModelCustomMob extends ModelBiped {
         EntityCustomMob entityCustomMob = (EntityCustomMob) entityIn;
 
         if (entityCustomMob.isSwingingArms() && itemstack.getItem() != Items.BOW) {
-            float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
-            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
-            this.bipedRightArm.rotateAngleZ = 0.0F;
-            this.bipedLeftArm.rotateAngleZ = 0.0F;
-            this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
-            this.bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
-            this.bipedRightArm.rotateAngleX = -((float) Math.PI / 2F);
-            this.bipedLeftArm.rotateAngleX = -((float) Math.PI / 2F);
-            this.bipedRightArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
-            this.bipedLeftArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
-            this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-            this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-            this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
-            this.bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+            float f = MathHelper.sin(swingProgress * (float) Math.PI);
+            float f1 = MathHelper.sin((1.0F - (1.0F - swingProgress) * (1.0F - swingProgress)) * (float) Math.PI);
+            bipedRightArm.rotateAngleZ = 0.0F;
+            bipedLeftArm.rotateAngleZ = 0.0F;
+            bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
+            bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
+            bipedRightArm.rotateAngleX = -((float) Math.PI / 2F);
+            bipedLeftArm.rotateAngleX = -((float) Math.PI / 2F);
+            bipedRightArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
+            bipedLeftArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
+            bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+            bipedLeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+            bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+            bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
         }
     }
 
     @Override
     public void postRenderArm(float scale, EnumHandSide side) {
         float f = side == EnumHandSide.RIGHT ? 1.0F : -1.0F;
-        ModelRenderer modelrenderer = this.getArmForSide(side);
+        ModelRenderer modelrenderer = getArmForSide(side);
         modelrenderer.rotationPointX += f;
         modelrenderer.postRender(scale);
         modelrenderer.rotationPointX -= f;

@@ -43,9 +43,9 @@ public class UMP45Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.17f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.13f))
+                .withFlashOffsetY(() -> Float.valueOf(0.17f))
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -78,16 +78,12 @@ public class UMP45Factory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
                 .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
                 .withCompatibleAttachment(Attachments.UMP45Stock, true, (model) -> {
-//             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//             GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.UMP45Receiver, true, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.UMP9Receiver, (model) -> {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.UMP45action, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Magazines.UMP45Mag, (model) -> {
                 })
@@ -209,10 +205,9 @@ public class UMP45Factory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
                     GL11.glTranslatef(-0.03F, -1.5F, -1.1F);

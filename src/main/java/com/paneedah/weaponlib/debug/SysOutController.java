@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.debug;
 import java.io.*;
 
 /**
- * Based off of post on Stack Overflow (https://stackoverflow.com/questions/25711648/find-the-location-in-code-of-a-system-out-println)
+ * Based off of post on Stack Overflow (<a href="https://stackoverflow.com/questions/25711648/find-the-location-in-code-of-a-system-out-println">...</a>)
  *
  * @author Jim Holden, 2022
  */

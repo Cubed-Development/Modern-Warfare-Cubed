@@ -38,9 +38,9 @@ public class SSG08Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.08f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.08f))
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -55,17 +55,11 @@ public class SSG08Factory implements GunFactory {
 //        	GL11.glTranslatef(0f, 0.5f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.SSG08BoltAction1, true, (model) -> {
-//        	GL11.glTranslatef(-0.105F, -0.585F, 0.63F);
-//            GL11.glScalef(0.62f, 0.62f, 0.5f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.SSG08BoltAction2, true, (model) -> {
-//        	GL11.glTranslatef(-0.105F, -0.585F, 0.63F);
-//            GL11.glScalef(0.62f, 0.62f, 0.5f);
                 })
                 .withCompatibleAttachment(Attachments.SSG08Chassis, true, (model) -> {
                     if (model instanceof SSG08Chassis) {
-//                GL11.glTranslatef(-0.055F, -1.35F, -4.6F);
-//                GL11.glScaled(0.8F, 0.68F, 1F);
                     } else if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.195F, -1.39F, -2.85F);
                         GL11.glScaled(0.55F, 0.55F, 0.7F);
@@ -120,10 +114,9 @@ public class SSG08Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
@@ -261,11 +254,6 @@ public class SSG08Factory implements GunFactory {
                             GL11.glScalef(3.00000f, 3.00000f, 3.00000f);
                             GL11.glTranslatef(-0.175000f, 1.125000f, -0.000000f);
 
-//                GL11.glScalef(3.00000f, 3.00000f, 3.00000f);
-//                GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(75.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.350000f, 1.374999f, 0.100000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -281,8 +269,6 @@ public class SSG08Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.SSG08BoltAction2.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(-0.9f, -0.25f, 0.8f);
-//            	GL11.glRotatef(45f, 0f, 0f, 1f);
                         })
 
                         .withFirstPersonPositioningEjectSpentRound(
@@ -1269,9 +1255,8 @@ public class SSG08Factory implements GunFactory {
                         })
                         .withFirstPersonHandPositioning(
                                 (renderContext) -> {
-                                    RenderContext<?> rc = renderContext;
                                     ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                            AttachmentCategory.GRIP, rc.getWeaponInstance());
+                                            AttachmentCategory.GRIP, renderContext.getWeaponInstance());
                                     if (activeAttachment == Attachments.Bipod) {
                                         GL11.glScalef(4f, 4f, 4f);
                                         GL11.glRotatef(-100.000000f, 1f, 0f, 0f);

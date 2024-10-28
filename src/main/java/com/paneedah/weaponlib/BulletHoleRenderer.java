@@ -25,24 +25,22 @@ public class BulletHoleRenderer {
         private final Vector3D pos;
         private boolean shouldDie;
         private final EnumFacing direction;
-        private final double size;
         private final long timeExisted;
 
         public BulletHole(Vector3D pos, EnumFacing direction, double size) {
             this.pos = pos;
             this.direction = direction;
-            this.size = size;
-            this.timeExisted = System.currentTimeMillis();
+            timeExisted = System.currentTimeMillis();
         }
     }
 
 
     public void addBulletHole(BulletHole hole) {
-        this.holeQueue.add(hole);
+        holeQueue.add(hole);
     }
 
     public void render() {
-        this.holeQueue.removeIf(bulletHole -> bulletHole.shouldDie);
+        holeQueue.removeIf(bulletHole -> bulletHole.shouldDie);
 
         GlStateManager.pushMatrix();
 

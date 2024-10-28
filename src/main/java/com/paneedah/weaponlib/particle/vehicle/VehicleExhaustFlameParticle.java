@@ -18,24 +18,20 @@ public class VehicleExhaustFlameParticle extends Particle {
                                        double xSpeedIn, double ySpeedIn, double zSpeedIn) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
 
-        this.particleTextureIndexY = 0;
+        particleTextureIndexY = 0;
 
 
-        this.motionY = Math.random() * 0.0001;
-        this.motionX *= 2 + (Math.random() * 2.0);
-        this.motionZ *= 2 + (Math.random() * 2.0);
+        motionY = Math.random() * 0.0001;
+        motionX *= 2 + (Math.random() * 2.0);
+        motionZ *= 2 + (Math.random() * 2.0);
 
-        //this.motionX += Math.random()*0.005;
-        //this.motionY += Math.random()*0.005;
-        //this.motionZ += Math.random()*0.005;
+        particleRed = 1.0F;
+        particleGreen = 1.0F;
+        particleBlue = 1.0F;
+        particleScale = rand.nextFloat() * 0.5F + 0.05F;
 
-        this.particleRed = 1.0F;
-        this.particleGreen = 1.0F;
-        this.particleBlue = 1.0F;
-        this.particleScale = this.rand.nextFloat() * 0.5F + 0.05F;
-
-        this.lavaParticleScale = this.particleScale;
-        this.particleMaxAge = (int) (1.0D / (Math.random() * 0.8D + 0.2D));
+        lavaParticleScale = particleScale;
+        particleMaxAge = (int) (1.0D / (Math.random() * 0.8D + 0.2D));
         setParticleTexture(ClientEventHandler.carParticles);
     }
 
@@ -61,11 +57,11 @@ public class VehicleExhaustFlameParticle extends Particle {
      * Renders the particle
      */
     public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-        float f = ((float) this.particleAge + partialTicks) / (float) this.particleMaxAge;
+        float f = ((float) particleAge + partialTicks) / (float) particleMaxAge;
 
 
-        this.particleScale = ((this.particleAge / (float) this.particleMaxAge)) * this.lavaParticleScale;
-        this.particleAlpha = 1.0f - ((this.particleAge / (float) this.particleMaxAge + 28));
+        particleScale = ((particleAge / (float) particleMaxAge)) * lavaParticleScale;
+        particleAlpha = 1.0f - ((particleAge / (float) particleMaxAge + 28));
 
 
         Random urandom = new Random(333);
@@ -73,55 +69,52 @@ public class VehicleExhaustFlameParticle extends Particle {
 
         //this.particleRed = this.particleGreen = this.particleBlue = urandom.nextFloat() * 0.5F + 0.4F;
 
-        int j = this.getBrightnessForRender(partialTicks);
+        int j = getBrightnessForRender(partialTicks);
         int k = j >> 16 & 65535;
         int l = j & 65535;
 
-        float scale = this.particleScale;
-        float pX = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) partialTicks - interpPosX);
-        float pY = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY);
-        float pZ = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ);
+        float scale = particleScale;
+        float pX = (float) (prevPosX + (posX - prevPosX) * (double) partialTicks - interpPosX);
+        float pY = (float) (prevPosY + (posY - prevPosY) * (double) partialTicks - interpPosY);
+        float pZ = (float) (prevPosZ + (posZ - prevPosZ) * (double) partialTicks - interpPosZ);
 
         double minX = particleTexture.getMinU() + ((particleTexture.getMaxU() - particleTexture.getMinU()) * (particleTextureIndexX / 8f));
         double minY = particleTexture.getMinV() + ((particleTexture.getMaxV() - particleTexture.getMinV()) * (particleTextureIndexY / 8f));
         double mU = (particleTexture.getMaxU() - particleTexture.getMinU()) / 8;
         double mV = (particleTexture.getMaxV() - particleTexture.getMinV()) / 8;
 
-        buffer.pos(pX - rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ - rotationYZ * scale - rotationXZ * scale).tex(minX + mU, minY + mV).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
-        buffer.pos(pX - rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ - rotationYZ * scale + rotationXZ * scale).tex(minX + mU, minY).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
-        buffer.pos(pX + rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ + rotationYZ * scale + rotationXZ * scale).tex(minX, minY).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
-        buffer.pos(pX + rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ + rotationYZ * scale - rotationXZ * scale).tex(minX, minY + mV).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
+        buffer.pos(pX - rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ - rotationYZ * scale - rotationXZ * scale).tex(minX + mU, minY + mV).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
+        buffer.pos(pX - rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ - rotationYZ * scale + rotationXZ * scale).tex(minX + mU, minY).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
+        buffer.pos(pX + rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ + rotationYZ * scale + rotationXZ * scale).tex(minX, minY).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
+        buffer.pos(pX + rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ + rotationYZ * scale - rotationXZ * scale).tex(minX, minY + mV).color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(k, l).endVertex();
 
 
     }
 
     public void onUpdate() {
-        this.prevPosX = this.posX;
-        this.prevPosY = this.posY;
-        this.prevPosZ = this.posZ;
+        prevPosX = posX;
+        prevPosY = posY;
+        prevPosZ = posZ;
 
-        this.particleTextureIndexX = this.particleAge * 7 / this.particleMaxAge;
+        particleTextureIndexX = particleAge * 7 / particleMaxAge;
 
 
-        if (this.particleAge++ >= this.particleMaxAge) {
-            this.setExpired();
+        if (particleAge++ >= particleMaxAge) {
+            setExpired();
         }
 
-        float f = (float) this.particleAge / (float) this.particleMaxAge;
+        float f = (float) particleAge / (float) particleMaxAge;
 
-        if (this.rand.nextFloat() > f) {
-            MC.effectRenderer.addEffect(new ExhaustParticle(world, this.posX, this.posY, this.posZ, this.motionX, this.motionY, this.motionZ, 3));
+        if (rand.nextFloat() > f) {
+            MC.effectRenderer.addEffect(new ExhaustParticle(world, posX, posY, posZ, motionX, motionY, motionZ, 3));
         }
 
 
-        this.move(this.motionX, this.motionY, this.motionZ);
-        //this.motionX *= 1.5;
-        // this.motionY *= 0.9990000128746033D;
-        //this.motionZ *= 1.5;
+        move(motionX, motionY, motionZ);
 
-        if (this.onGround) {
-            this.motionX *= 0.699999988079071D;
-            this.motionZ *= 0.699999988079071D;
+        if (onGround) {
+            motionX *= 0.699999988079071D;
+            motionZ *= 0.699999988079071D;
         }
     }
 

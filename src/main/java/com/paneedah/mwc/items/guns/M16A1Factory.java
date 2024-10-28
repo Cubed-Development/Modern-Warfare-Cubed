@@ -42,9 +42,9 @@ public class M16A1Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.09f)
-                .withFlashOffsetY(() -> 0.13f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.09f))
+                .withFlashOffsetY(() -> Float.valueOf(0.13f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -116,8 +116,6 @@ public class M16A1Factory implements GunFactory {
                     GL11.glScaled(1.1F, 1.1F, 1.1F);
                 })
                 .withCompatibleAttachment(Attachments.M16Stock, true, (model) -> {
-//            GL11.glTranslatef(0f, -0.28f, -0.55f);
-//            GL11.glScaled(1F, 1F, 0.85F);
                 })
                 .withCompatibleAttachment(Attachments.MagpulCTRStockTan, (model) -> {
                     GL11.glTranslatef(0.01f, -0.19f, -0.4f);
@@ -257,10 +255,9 @@ public class M16A1Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
@@ -451,8 +448,6 @@ public class M16A1Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                         })
 
                         .withThirdPersonPositioningReloading(
@@ -521,8 +516,6 @@ public class M16A1Factory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//				GL11.glRotatef(45F, 0f, 1f, 0f);
-//				GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.18f, 0.03f, 0.6f);
 
                             // Standard Iron Sight Zoom

@@ -39,9 +39,9 @@ public class HS12Factory implements GunFactory {
                 .withInaccuracy(8)
                 .withPellets(10)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.09f)
-                .withFlashOffsetY(() -> 0.12f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.09f))
+                .withFlashOffsetY(() -> Float.valueOf(0.12f))
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         5f, // x

@@ -22,12 +22,9 @@ import java.util.List;
 
 public class EquipmentContainer extends Container {
 
-    private final EquipmentInventory equipmentInventory;
-
     private final int customSlotStartIndex;
     private final int customSlotEndIndex;
     private final int armorSlotStartIndex;
-    private final int armorSlotEndIndex;
     private final int standardInventorySlotStartIndex;
     private final int standardInventorySlotEndIndex;
     private final int hotbarSlotStartIndex;
@@ -37,31 +34,29 @@ public class EquipmentContainer extends Container {
 
     public EquipmentContainer(EntityPlayer player, InventoryPlayer inventoryPlayer, EquipmentInventory equipmentInventory) {
 
-        this.equipmentInventory = equipmentInventory;
-
-        this.customSlots = createCustomSlots(equipmentInventory);
+        customSlots = createCustomSlots(equipmentInventory);
         customSlots.forEach(slot -> addSlotToContainer(slot));
 
-        this.customSlotStartIndex = 0;
-        this.customSlotEndIndex = customSlotStartIndex + customSlots.size() - 1;
+        customSlotStartIndex = 0;
+        customSlotEndIndex = customSlotStartIndex + customSlots.size() - 1;
 
         List<Slot> armorSlots = createArmorSlots(player, inventoryPlayer);
         armorSlots.forEach(slot -> addSlotToContainer(slot));
 
-        this.armorSlotStartIndex = equipmentInventory.getSizeInventory();
-        this.armorSlotEndIndex = armorSlotStartIndex + armorSlots.size() - 1;
+        armorSlotStartIndex = equipmentInventory.getSizeInventory();
+        int armorSlotEndIndex = armorSlotStartIndex + armorSlots.size() - 1;
 
         List<Slot> standardInventorySlots = createStandardInventorySlots(inventoryPlayer);
         standardInventorySlots.forEach(slot -> addSlotToContainer(slot));
 
-        this.standardInventorySlotStartIndex = armorSlotEndIndex + 1;
-        this.standardInventorySlotEndIndex = standardInventorySlotStartIndex + standardInventorySlots.size() - 1;
+        standardInventorySlotStartIndex = armorSlotEndIndex + 1;
+        standardInventorySlotEndIndex = standardInventorySlotStartIndex + standardInventorySlots.size() - 1;
 
         List<Slot> hotbarSlots = createHotbarSlots(inventoryPlayer);
         hotbarSlots.forEach(slot -> addSlotToContainer(slot));
 
-        this.hotbarSlotStartIndex = standardInventorySlotEndIndex + 1;
-        this.hotbarSlotEndIndex = hotbarSlotStartIndex + hotbarSlots.size() - 1;
+        hotbarSlotStartIndex = standardInventorySlotEndIndex + 1;
+        hotbarSlotEndIndex = hotbarSlotStartIndex + hotbarSlots.size() - 1;
     }
 
     protected List<Slot> createCustomSlots(EquipmentInventory inventoryCustom) {
@@ -117,7 +112,7 @@ public class EquipmentContainer extends Container {
                  * Return whether this slot's stack can be taken from this slot.
                  */
                 public boolean canTakeStack(EntityPlayer playerIn) {
-                    ItemStack itemstack = this.getStack();
+                    ItemStack itemstack = getStack();
                     return (itemstack.isEmpty() || playerIn.isCreative() || !EnchantmentHelper.hasBindingCurse(itemstack)) && super.canTakeStack(playerIn);
                 }
 
@@ -151,7 +146,7 @@ public class EquipmentContainer extends Container {
         try {
 
 
-            Slot slot = this.inventorySlots.get(slotIndex);
+            Slot slot = inventorySlots.get(slotIndex);
 
             if (slot != null && slot.getHasStack()) {
 
@@ -162,7 +157,7 @@ public class EquipmentContainer extends Container {
                 if (slotIndex < standardInventorySlotStartIndex) {
 
                     // try to place in player inventory / action bar
-                    if (!this.mergeItemStack(itemstack1, standardInventorySlotStartIndex, hotbarSlotEndIndex + 1, true)) {
+                    if (!mergeItemStack(itemstack1, standardInventorySlotStartIndex, hotbarSlotEndIndex + 1, true)) {
                         return new ItemStack(Items.AIR);
                     }
 
@@ -175,7 +170,7 @@ public class EquipmentContainer extends Container {
                     // if item is our custom item                
                     if (customSlots.stream().anyMatch(s -> s.isItemValid(itemstack1))) {
 
-                        if (!this.mergeItemStack(itemstack1, customSlotStartIndex, customSlotEndIndex + 1, false)) {
+                        if (!mergeItemStack(itemstack1, customSlotStartIndex, customSlotEndIndex + 1, false)) {
                             return new ItemStack(Items.AIR);
                         }
                     }
@@ -184,43 +179,27 @@ public class EquipmentContainer extends Container {
 
                         ItemArmor armor = ((ItemArmor) itemstack1.getItem());
                         int ordinal = 4 - armor.getEquipmentSlot().getSlotIndex();
-                        if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + ordinal, armorSlotStartIndex + ordinal + 1, false)) {
+                        if (!mergeItemStack(itemstack1, armorSlotStartIndex + ordinal, armorSlotStartIndex + ordinal + 1, false)) {
 
-                            if (!this.mergeItemStack(itemstack1, 0, inventorySlots.size() - 1, false)) {
+                            if (!mergeItemStack(itemstack1, 0, inventorySlots.size() - 1, false)) {
                                 return ItemStack.EMPTY;
                             }
 
                             return ItemStack.EMPTY;
                         }
-                	
-                		
-                    	/*
-                    	if((itemstack.getItem() instanceof CustomArmor)) {
-                    		 EntityEquipmentSlot type = ((ItemArmor) itemstack1.getItem()).armorType;//((ItemArmor) itemstack1.getItem()).armorType;
-                             
-                           
-                             
-                             if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + type.ordinal(), armorSlotStartIndex + type.ordinal() + 1, false)) {
-                                 return new ItemStack(Items.AIR);
-                             }
-                    	} else {
-                    		int ordinal = 4 - ((ItemArmor) itemstack1.getItem()).getEquipmentSlot().getSlotIndex();
-                    		if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + ordinal, armorSlotStartIndex + ordinal + 1, false)) {
-                                return new ItemStack(Items.AIR);
-                            }
-                    	}
-                       */
+
+
                     }
                     // item in player's inventory, but not in action bar
-                    else if (slotIndex >= standardInventorySlotStartIndex && slotIndex < hotbarSlotStartIndex) {
+                    else if (slotIndex < hotbarSlotStartIndex) {
                         // place in action bar
-                        if (!this.mergeItemStack(itemstack1, hotbarSlotStartIndex, hotbarSlotEndIndex + 1, false)) {
+                        if (!mergeItemStack(itemstack1, hotbarSlotStartIndex, hotbarSlotEndIndex + 1, false)) {
                             return new ItemStack(Items.AIR);
                         }
                     }
                     // item in action bar - place in player inventory
-                    else if (slotIndex >= hotbarSlotStartIndex && slotIndex < hotbarSlotEndIndex + 1) {
-                        if (!this.mergeItemStack(itemstack1, standardInventorySlotStartIndex, standardInventorySlotEndIndex + 1, false)) {
+                    else if (slotIndex < hotbarSlotEndIndex + 1) {
+                        if (!mergeItemStack(itemstack1, standardInventorySlotStartIndex, standardInventorySlotEndIndex + 1, false)) {
                             return new ItemStack(Items.AIR);
                         }
                     }

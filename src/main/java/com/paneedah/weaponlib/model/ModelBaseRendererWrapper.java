@@ -15,22 +15,22 @@ public class ModelBaseRendererWrapper extends ModelRenderer {
 
     @Override
     public void render(float scale) {
-        if (!this.isHidden) {
-            if (this.showModel) {
+        if (!isHidden) {
+            if (showModel) {
 
                 GL11.glPushMatrix();
-                GL11.glTranslatef(this.rotationPointX * scale, this.rotationPointY * scale, this.rotationPointZ * scale);
+                GL11.glTranslatef(rotationPointX * scale, rotationPointY * scale, rotationPointZ * scale);
 
-                if (this.rotateAngleY != 0.0F) {
-                    GL11.glRotatef(this.rotateAngleY * (180F / (float) Math.PI), 0.0F, 1.0F, 0.0F);
+                if (rotateAngleY != 0.0F) {
+                    GL11.glRotatef(rotateAngleY * (180F / (float) Math.PI), 0.0F, 1.0F, 0.0F);
                 }
 
-                if (this.rotateAngleX != 0.0F) {
-                    GL11.glRotatef(this.rotateAngleX * (180F / (float) Math.PI), 1.0F, 0.0F, 0.0F);
+                if (rotateAngleX != 0.0F) {
+                    GL11.glRotatef(rotateAngleX * (180F / (float) Math.PI), 1.0F, 0.0F, 0.0F);
                 }
 
-                if (this.rotateAngleZ != 0.0F) {
-                    GL11.glRotatef(this.rotateAngleZ * (180F / (float) Math.PI), 0.0F, 0.0F, 1.0F);
+                if (rotateAngleZ != 0.0F) {
+                    GL11.glRotatef(rotateAngleZ * (180F / (float) Math.PI), 0.0F, 0.0F, 1.0F);
                 }
 
                 model.render(scale);

@@ -15,11 +15,11 @@ public class RenderCustomMob<T extends EntityLiving> extends RenderBiped<T> {
     public RenderCustomMob(ModelBiped model) {
         super(MC.getRenderManager(), model, 0.5F);
 
-        this.addLayer(new LayerHeldItem(this));
-        this.addLayer(new LayerBipedArmor(this) {
+        addLayer(new LayerHeldItem(this));
+        addLayer(new LayerBipedArmor(this) {
             protected void initArmor() {
-                this.modelLeggings = new CompatibleModelCustomMob(0.5F);
-                this.modelArmor = new CompatibleModelCustomMob(1.0F);
+                modelLeggings = new CompatibleModelCustomMob(0.5F);
+                modelArmor = new CompatibleModelCustomMob(1.0F);
             }
         });
     }
@@ -29,7 +29,7 @@ public class RenderCustomMob<T extends EntityLiving> extends RenderBiped<T> {
         EntityCustomMob entityCustomMob = (EntityCustomMob) entity;
 
         EntityConfiguration configuration = entityCustomMob.getConfiguration();
-        this.mainModel = configuration.getTexturedModelVariants().get(entityCustomMob.getVariant()).model;
+        mainModel = configuration.getTexturedModelVariants().get(entityCustomMob.getVariant()).model;
 
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }

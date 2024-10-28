@@ -33,9 +33,9 @@ public class GL06Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0f)
-                .withFlashScale(() -> 0f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.101f)
+                .withFlashScale(() -> Float.valueOf(0f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.101f))
                 .withShellCasingEjectEnabled(false)
                 .withDestroyingBlocks(false)
 
@@ -49,14 +49,8 @@ public class GL06Factory implements GunFactory {
                 .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
 
                 .withCompatibleAttachment(AuxiliaryAttachments.GLgrenade, true, (model) -> {
-//            GL11.glTranslatef(0F, -0.4f, 0F);
-//            GL11.glScaled(1F, 1F, 1F);
-//            GL11.glRotatef(8F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.GL06Cartridge, true, (model) -> {
-//            GL11.glTranslatef(0F, -0.4f, 0F);
-//            GL11.glScaled(1F, 1F, 1F);
-//            GL11.glRotatef(8F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
                     GL11.glTranslatef(-0.31F, -1.41F, -0.7F);

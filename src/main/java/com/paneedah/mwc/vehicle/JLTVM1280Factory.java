@@ -41,12 +41,6 @@ public class JLTVM1280Factory implements VehicleFactory {
                             -1.025000f, -0.325000f, 0.000000f,
                             1.000000f, 1.000000f, 1.000000f
                     );
-//                    Positioners.position(
-//                            0.000000f, -0.150000f, 0.725000f,
-//                            0.000000f, context.getSymmetricProgress() * 90f, 0.000000f,
-//                            0.000000f, 0.000000f, 0.000000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                        );
                 })
 
                 .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.IDLE, context -> {
@@ -57,11 +51,6 @@ public class JLTVM1280Factory implements VehicleFactory {
                             1.000000f, 1.000000f, 1.000000f
                     );
 
-//                    Positioners.position(
-//                            0.1f, -0.85f, 2f,
-//                            0f, 0f, 0f, 
-//                            0.3f, 0.75f, -0.05f, 
-//                            1f, 1f, 1f);
                 })
 
                 .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.DRIVING, context -> {
@@ -71,11 +60,6 @@ public class JLTVM1280Factory implements VehicleFactory {
                             0.000000f, 0.000000f, 0.000000f,
                             1.000000f, 1.000000f, 1.000000f
                     );
-//                    Positioners.position(
-//                            0.1f, -0.85f, 0.2f,
-//                            -90f, -100f * context.getSymmetricProgress(), 0f,
-//                            0.3f, 0.75f, -0.05f, 
-//                            1f, 1f, 1f);
                 })
 
                 .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.IDLE, context -> {
@@ -94,12 +78,6 @@ public class JLTVM1280Factory implements VehicleFactory {
                             0.000000f, 0.000000f, 0.000000f,
                             1.000000f, 1.000000f, 1.000000f
                     );
-//                    Positioners.position(
-//                            -0.1f, -0.860000f, 0.100000f,
-//                            -90.000000f, -100f * context.getSymmetricProgress(), 0f,
-//                            -0.350000f, 0.785000f, -0.000000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                            );
                 })
 
                 .withPartPosition(VehiclePart.FRONT_LEFT_CONTROL_ARM, context -> {
@@ -113,13 +91,6 @@ public class JLTVM1280Factory implements VehicleFactory {
                 })
 
                 .withPartPosition(VehiclePart.FRONT_RIGHT_CONTROL_ARM, context -> {
-//                    Positioners.position(
-//                            -1.600001f, -0.000000f, 2.749997f,
-//                            0.000000f, context.getSymmetricProgress() * 80f - 180f, 0.000000f,
-//                            0.840000f, -0.600000f, -2.430000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                        );
-//                    
                 })
 
                 .withPartPosition(VehiclePart.FRONT_LEFT_WHEEL, context -> {
@@ -131,12 +102,6 @@ public class JLTVM1280Factory implements VehicleFactory {
                             1.000000f, 1.000000f, 1.000000f
                     );
 
-//                	Positioners.position(
-//                		    -3.774999f, 0.000000f, 0.000000f,
-//                		    -entityVehicle.getWheelRotationAngle(), 0.000000f, 0.000000f,
-//                		    0.000000f, 0.500000f, 0.000000f,
-//                		    1.000000f, 1.000000f, 1.000000f
-//                		);
                 })
 
                 .withPartPosition(VehiclePart.FRONT_RIGHT_WHEEL, context -> {
@@ -160,13 +125,6 @@ public class JLTVM1280Factory implements VehicleFactory {
                             1.000000f, 1.000000f, 1.000000f
                     );
 
-//                	Positioners.position(
-//                		    0.000000f, 0.000000f, 5.724997f,
-//                		    -entityVehicle.getWheelRotationAngle(), 0.000000f, 0.000000f,
-//                		    0.000000f, 0.740000f, 0.000000f,
-//                		    1.000000f, 1.000000f, 1.000000f
-//                		);
-
                 })
 
                 .withPartPosition(VehiclePart.REAR_RIGHT_WHEEL, context -> {
@@ -179,21 +137,13 @@ public class JLTVM1280Factory implements VehicleFactory {
                             1.000000f, 1.000000f, 1.000000f
                     );
 
-//                    EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
-//                    Positioners.position(
-//                            -0.730000f, 0.089997f, 2.570000f,
-//                            -entityVehicle.getWheelRotationAngle(), 0.000000f, 0.000000f,
-//                            -0.100000f, 0.965000f, 0.025000f,
-//                            1.000000f, 1.000000f, 1.000000f
-//                        );
-
                 })
 
                 .build(modContext, VehiclePart.MAIN);
 
         new EntityVehicleConfiguration.Builder()
                 .withName("jltv_m1280")
-                .withEntityIdSupplier(() -> 10203)
+                .withEntityIdSupplier(() -> Integer.valueOf(10203))
                 .withEnterSound("vehicle-enter")
                 .withExitSound("vehicle-exit")
                 .withRunSound("vehicle-driving")

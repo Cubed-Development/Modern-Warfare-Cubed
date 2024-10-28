@@ -48,7 +48,7 @@ public class StatefulRenderers {
         @Override
         public void render(PartRenderContext<State> context) {
             Entity entity = entitySupplier.apply(context);
-            if (entity != null && entity instanceof EntityPlayer) {
+            if (entity instanceof EntityPlayer) {
                 Minecraft minecraft = MC;
                 if (minecraft.gameSettings.thirdPersonView == 0) {
 
@@ -58,6 +58,7 @@ public class StatefulRenderers {
                     Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject(entity);
                     RenderPlayer render = (RenderPlayer) entityRenderObject;
 
+                    assert render != null;
                     ModelBiped model = render.getMainModel();
 
                     GL11.glColor3f(1F, 1F, 1F);
@@ -103,7 +104,7 @@ public class StatefulRenderers {
         @Override
         public void render(PartRenderContext<State> context) {
             Entity entity = entitySupplier.apply(context);
-            if (entity != null && entity instanceof EntityPlayer) {
+            if (entity instanceof EntityPlayer) {
                 Minecraft minecraft = MC;
                 if (minecraft.gameSettings.thirdPersonView == 0) {
                     minecraft.getTextureManager().bindTexture(((AbstractClientPlayer) entity).getLocationSkin());
@@ -111,6 +112,7 @@ public class StatefulRenderers {
                     Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject(entity);
                     RenderPlayer render = (RenderPlayer) entityRenderObject;
 
+                    assert render != null;
                     ModelBiped model = render.getMainModel();
 
                     GL11.glColor3f(1F, 1F, 1F);
@@ -118,9 +120,6 @@ public class StatefulRenderers {
 
                     model.isRiding = false;
                     model.isSneak = false;
-//                    model.onGround = 0.0F;
-//                    model.heldItemLeft = 0;
-//                    model.aimedBow = false;
                     model.setRotationAngles(0.0F, 0.3F, 0.0F, 0.0F, 0.0F, 0.0625F, entity);
                     model.bipedRightArm.rotateAngleX = model.bipedRightArm.rotateAngleY = model.bipedRightArm.rotateAngleZ = 0f;
                     model.bipedRightArm.render(0.0625F);

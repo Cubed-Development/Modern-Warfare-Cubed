@@ -23,17 +23,17 @@ public class DebugHandler {
             debugScreenLeft.remove(4);
             debugScreenLeft.add(4, "T: " + MC.world.getDebugLoadedEntities());
 
-            if (!debugScreenLeft.get(debugScreenLeft.size() - 1).equals("")) {
+            if (!debugScreenLeft.get(debugScreenLeft.size() - 1).isEmpty()) {
                 debugScreenLeft.add("");
             }
 
             debugScreenLeft.add(String.format("%s<MWC>%s Modern Warfare Cubed version is %s.", TextFormatting.GOLD, TextFormatting.RESET, VERSION));
             debugScreenLeft.add("");
-            debugScreenLeft.add(String.format("%s<MWC>%s Equipment model pool size: %s", TextFormatting.GOLD, TextFormatting.RESET, EquipmentModelPools.getSize()));
-            debugScreenLeft.add(String.format("%s<MWC>%s Equipment equipped model pool size: %s", TextFormatting.GOLD, TextFormatting.RESET, EquipmentModelPools.getEquippedSize()));
-            debugScreenLeft.add(String.format("%s<MWC>%s Equipment equipped armor model pool size: %s", TextFormatting.GOLD, TextFormatting.RESET, EquipmentModelPools.getEquippedArmorSize()));
+            debugScreenLeft.add(String.format("%s<MWC>%s Equipment model pool size: %s", TextFormatting.GOLD, TextFormatting.RESET, Long.valueOf(EquipmentModelPools.getSize())));
+            debugScreenLeft.add(String.format("%s<MWC>%s Equipment equipped model pool size: %s", TextFormatting.GOLD, TextFormatting.RESET, Long.valueOf(EquipmentModelPools.getEquippedSize())));
+            debugScreenLeft.add(String.format("%s<MWC>%s Equipment equipped armor model pool size: %s", TextFormatting.GOLD, TextFormatting.RESET, Long.valueOf(EquipmentModelPools.getEquippedArmorSize())));
             debugScreenLeft.add("");
-            debugScreenLeft.add(String.format("%s<MWC>%s Itemstack instance cache size: %s", TextFormatting.GOLD, TextFormatting.RESET, MWC.modContext.getPlayerItemInstanceRegistry().getCacheSize()));
+            debugScreenLeft.add(String.format("%s<MWC>%s Itemstack instance cache size: %s", TextFormatting.GOLD, TextFormatting.RESET, Long.valueOf(MWC.modContext.getPlayerItemInstanceRegistry().getCacheSize())));
         }
     }
 }

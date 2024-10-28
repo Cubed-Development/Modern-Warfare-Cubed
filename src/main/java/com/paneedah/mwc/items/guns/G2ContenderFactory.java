@@ -37,9 +37,9 @@ public class G2ContenderFactory implements GunFactory {
                 .withShellCasingEjectEnabled(false)
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.09f)
-                .withFlashOffsetY(() -> 0.09f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.09f))
+                .withFlashOffsetY(() -> Float.valueOf(0.09f))
 
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -128,10 +128,6 @@ public class G2ContenderFactory implements GunFactory {
                         })
 
                         .withFirstPersonPositioning((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glRotatef(5F, 0f, 0f, 1f);
-//                GL11.glScalef(2.500000f, 2.500000f, 2.500000f);
-//                GL11.glTranslatef(-0.150000f, 0.335000f, -1.049999f);
 
                             GL11.glRotatef(45F, 0f, 1f, 0f);
                             GL11.glRotatef(12F, 0f, 0f, 1f);
@@ -148,9 +144,6 @@ public class G2ContenderFactory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(Attachments.G2ContenderBarrelShort.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(0f, -0.1f, 0f);
-//                GL11.glRotatef(35F, 1f, 0f, 0f);
-//                GL11.glScalef(1f, 1f, 1f);
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.BulletSmall.getRenderablePart(), (renderContext) -> {
@@ -174,9 +167,6 @@ public class G2ContenderFactory implements GunFactory {
 
                             // being carried by left hand PT 2
 
-//                GL11.glTranslatef(0.35f, -0.15f, 0.5f);
-//                GL11.glRotatef(25F, 1f, 1f, 0f);
-//                GL11.glScalef(1f, 1f, 1f);
                         })
 
                         .withFirstPersonPositioningReloading(
@@ -1054,9 +1044,7 @@ public class G2ContenderFactory implements GunFactory {
                             GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                             GL11.glTranslatef(0.25f, 0.23f, -0.4f);
                             GL11.glRotatef(-5F, 1f, 0f, 1f);
-//                GL11.glRotatef(-2.5F, 0f, 1f, 0f);
 
-//              // Holo Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                                 //System.out.println("Position me for Holo");
                                 GL11.glTranslatef(0f, 0.27f, 0.5f);

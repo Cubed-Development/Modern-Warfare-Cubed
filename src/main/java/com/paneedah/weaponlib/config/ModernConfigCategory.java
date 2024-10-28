@@ -16,7 +16,7 @@ public class ModernConfigCategory extends DummyCategoryElement {
     }
 
     public String getCategoryName() {
-        return this.name;
+        return name;
     }
 
     @Override

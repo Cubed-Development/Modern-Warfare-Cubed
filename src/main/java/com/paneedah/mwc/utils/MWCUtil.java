@@ -62,7 +62,7 @@ public class MWCUtil {
      * @author Desoroxx
      */
     public static boolean isPenetrableByBullets(IBlockState blockState) {
-        if (PENETRABLE_MATERIALS.contains(blockState.getMaterial()) || PENETRABLE_BLOCKS.contains(blockState.getBlock()) || (!ModernConfigManager.penetrableBlocks.isEmpty() && ModernConfigManager.penetrableBlocks.contains(blockState.getBlock().getRegistryName().toString()))) {
+        if (PENETRABLE_MATERIALS.contains(blockState.getMaterial()) || PENETRABLE_BLOCKS.contains(blockState.getBlock()) || (!ModernConfigManager.penetrableBlocks.isEmpty() && ModernConfigManager.penetrableBlocks.contains(Objects.requireNonNull(blockState.getBlock().getRegistryName()).toString()))) {
             return true;
         }
 
@@ -220,9 +220,7 @@ public class MWCUtil {
             iBlockState = world.getBlockState(blockPos);
             if (isCollidable.test(iBlockState.getBlock(), iBlockState)) {
                 final RayTraceResult rayTraceResult = iBlockState.collisionRayTrace(world, blockPos, startPos.toVec3d(), endPos.toVec3d());
-                if (rayTraceResult != null) {
-                    return rayTraceResult;
-                }
+                return rayTraceResult;
             }
         }
         return null;

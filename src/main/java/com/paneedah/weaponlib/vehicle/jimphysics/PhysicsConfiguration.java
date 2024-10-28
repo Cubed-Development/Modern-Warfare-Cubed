@@ -4,18 +4,21 @@ import com.paneedah.weaponlib.vehicle.GearShiftPattern;
 import com.paneedah.weaponlib.vehicle.collisions.VehicleInertiaBuilder;
 import com.paneedah.weaponlib.vehicle.collisions.VehicleMassObject;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
+import lombok.Getter;
 import net.minecraft.util.math.Vec3d;
 
 public class PhysicsConfiguration {
 
     public double wheelBase;
     public double frontSurfaceArea;
+    @Getter
     public double dragCoefficient;
 
 
     public double finalDriveRatio;
     public double vehicleMass;
 
+    @Getter
     public double driveTrainEfficiency;
 
     /**
@@ -23,14 +26,17 @@ public class PhysicsConfiguration {
      */
     public double COGHeight;
 
+    @Getter
     public Dimensions realDimensions;
 
 
     public Transmission trans;
 
+    @Getter
     public GearShiftPattern shiftPattern;
 
     public VehicleMassObject vmo;
+    @Getter
     public Engine engine;
 
     public Vec3d dimensions;
@@ -43,18 +49,18 @@ public class PhysicsConfiguration {
                                 Engine eng, Dimensions realDim, Vec3d dimensions, Chassis chassis,
                                 GearShiftPattern pat) {
         this.wheelBase = wheelBase;
-        this.frontSurfaceArea = frontArea;
-        this.dragCoefficient = dragC;
-        this.vehicleMass = mass;
+        frontSurfaceArea = frontArea;
+        dragCoefficient = dragC;
+        vehicleMass = mass;
         this.COGHeight = COGHeight;
         this.trans = trans;
-        this.realDimensions = realDim;
+        realDimensions = realDim;
         this.dimensions = dimensions;
-        this.engine = eng;
+        engine = eng;
         this.driveTrainEfficiency = driveTrainEfficiency;
-        this.shiftPattern = pat;
+        shiftPattern = pat;
 
-        this.vmo = (new VehicleInertiaBuilder(mass)).basicConstructor(chassis, realDim).build();
+        vmo = (new VehicleInertiaBuilder(mass)).basicConstructor(chassis, realDim).build();
 
 
         //this.vmo = (new VehicleInertiaBuilder(mass)).basicConstructor(chassis, this.dimensions, (float) this.COGHeight, (float) this.wheelBase, 0.33f, 0.33f).build();
@@ -62,42 +68,22 @@ public class PhysicsConfiguration {
     }
 
 
-    public Dimensions getRealDimensions() {
-        return realDimensions;
-    }
-
     public VehiclePhysicsSolver getPhysicsSolver() {
-        return this.solver;
+        return solver;
     }
 
     public VehiclePhysicsSolver buildStructure() {
-        this.solver = new VehiclePhysicsSolver(this);
+        solver = new VehiclePhysicsSolver(this);
         return getPhysicsSolver();
 
     }
 
-    public GearShiftPattern getShiftPattern() {
-        return this.shiftPattern;
-    }
-
-    public double getDriveTrainEfficiency() {
-        return this.driveTrainEfficiency;
-    }
-
     public double getFrontArea() {
-        return this.frontSurfaceArea;
-    }
-
-    public double getDragCoefficient() {
-        return this.dragCoefficient;
-    }
-
-    public Engine getEngine() {
-        return this.engine;
+        return frontSurfaceArea;
     }
 
     public VehicleMassObject getVehicleMassObject() {
-        return this.vmo;
+        return vmo;
     }
 
 

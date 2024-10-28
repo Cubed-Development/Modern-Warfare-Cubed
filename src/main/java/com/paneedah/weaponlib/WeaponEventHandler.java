@@ -40,8 +40,6 @@ public class WeaponEventHandler {
          *       	setNewFov(getZoom())
          */
 
-        //ItemStack stack = compatibility.getHeldItemMainHand(compatibility.getEntity(event));
-        //ClientModContext modContext = ClientModContext.getContext();
         PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
         EntityPlayer clientPlayer = MC.player;
 
@@ -65,8 +63,6 @@ public class WeaponEventHandler {
         } else {
             fov = MC.player.capabilities.isFlying ? 1.1f : 1.0f;
         }
-        //fov = instance.isAimed() ? instance.getZoom() : 1f;
-        //fov = compatibility.isFlying(MC.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
 
         final WeaponState state = instance.state;
 

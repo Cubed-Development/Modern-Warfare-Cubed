@@ -7,10 +7,6 @@ public class PartInit {
 
     // Vehicle transmissions
 
-    //public static final Transmission evoIVTransmission = new Transmission(3.312F, 3.416F, 4000, 1800)
-    //        .quickFiveSpeed(2.785F, 1.950F, 1.407F, 1.031F, 0.761F)
-    //        .withEcoShift(2500, 1200);
-
     public static final Transmission audiS4B7Transmission = new Transmission(3.889f, 3.4f, 4500, 1800)
             .quickSixSpeed(3.667f, 2.050f, 1.462f, 1.133f, 0.919f, 0.778f)
             .withEcoShift(2500, 1200);

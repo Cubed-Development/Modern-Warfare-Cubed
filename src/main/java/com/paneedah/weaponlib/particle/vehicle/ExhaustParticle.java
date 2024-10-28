@@ -16,8 +16,8 @@ public class ExhaustParticle extends TurbulentSmokeParticle {
     @Override
     public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX,
                                float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-        this.particleAlpha = (1.0f - ((this.particleAge / (float) this.particleMaxAge))) * 0.08f;
-        this.particleScale = (((this.particleAge / (float) this.particleMaxAge)) * 0.3f) + 0.3f;
+        particleAlpha = (1.0f - ((particleAge / (float) particleMaxAge))) * 0.08f;
+        particleScale = (((particleAge / (float) particleMaxAge)) * 0.3f) + 0.3f;
         super.renderParticle(buffer, entityIn, partialTicks, rotationX, rotationZ, rotationYZ, rotationXY, rotationXZ);
     }
 

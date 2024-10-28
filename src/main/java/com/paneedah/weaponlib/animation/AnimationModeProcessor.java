@@ -5,6 +5,8 @@ import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.render.Shaders;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -32,16 +34,19 @@ public class AnimationModeProcessor {
 
 
     static {
-        extraIDRegistry.put(4, AttachmentCategory.ACTION);
+        extraIDRegistry.put(Integer.valueOf(4), AttachmentCategory.ACTION);
     }
 
 
     private final HashMap<AttachmentCategory, Boolean> shouldRender = new HashMap<>();
+    @Setter
     private AttachmentCategory activeCategory;
     private AttachmentCategory exclusionCategory;
 
+    @Getter
     private static final AnimationModeProcessor instance = new AnimationModeProcessor();
 
+    @Getter
     public boolean legacyMode = false;
 
     public Vec3d pan = Vec3d.ZERO;
@@ -56,36 +61,32 @@ public class AnimationModeProcessor {
     public AnimationModeProcessor() {
 
         for (Entry<Integer, AttachmentCategory> i : extraIDRegistry.entrySet()) {
-            shouldRender.put(i.getValue(), true);
+            shouldRender.put(i.getValue(), Boolean.TRUE);
         }
 
     }
 
     public void setExcludedCategory(AttachmentCategory category) {
-        this.exclusionCategory = category;
+        exclusionCategory = category;
     }
 
     public AttachmentCategory getExcludedCategory() {
-        return this.exclusionCategory;
-    }
-
-    public void setActiveCategory(AttachmentCategory category) {
-        this.activeCategory = category;
+        return exclusionCategory;
     }
 
     public boolean shouldIsolateCategory() {
-        return this.activeCategory != null;
+        return activeCategory != null;
     }
 
     public AttachmentCategory getIsolatedCategory() {
-        return this.activeCategory;
+        return activeCategory;
     }
 
     public void flagRender(AttachmentCategory category, boolean status) {
         if (!shouldRender.containsKey(category)) {
             return;
         }
-        shouldRender.put(category, status);
+        shouldRender.put(category, Boolean.valueOf(status));
     }
 
     public boolean queryRender(AttachmentCategory category) {
@@ -94,24 +95,16 @@ public class AnimationModeProcessor {
             // it, just renderer it.
             return true;
         }
-        return shouldRender.get(category);
+        return shouldRender.get(category).booleanValue();
     }
 
     public boolean getFPSMode() {
-        return this.fpsMode;
+        return fpsMode;
     }
 
     public void setFPSMode(boolean state) {
 
-        this.fpsMode = state;
-    }
-
-    public static AnimationModeProcessor getInstance() {
-        return instance;
-    }
-
-    public boolean isLegacyMode() {
-        return this.legacyMode;
+        fpsMode = state;
     }
 
     public void captureDeferral() {
@@ -178,7 +171,7 @@ public class AnimationModeProcessor {
 
     public void tryToUpdateSelectedColor(int i) {
 
-        this.colorSelected = i;
+        colorSelected = i;
     }
 
     public int transformMode = -1;
@@ -217,13 +210,8 @@ public class AnimationModeProcessor {
     public void onTick() {
 
 
-        //this.transformMode = 1;
-
-
-        //MC.player.world.setWorldTime(6000);
-
         if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
-            if (this.pwi == null || pwi != ClientModContext.getContext().getMainHeldWeapon()) {
+            if (pwi == null || pwi != ClientModContext.getContext().getMainHeldWeapon()) {
                 Builder builder = getCurrentWeaponRenderBuilder();
                 pwi = ClientModContext.getContext().getMainHeldWeapon();
                 //System.out.println("BUILDER: " + builder + " | PWI: " + pwi);
@@ -268,9 +256,6 @@ public class AnimationModeProcessor {
         if (permissionToDrag && colorSelected == -1) {
 
             if (Mouse.isButtonDown(0)) {
-                // System.out.println(MC.mouseHelper.deltaX);
-                // double x = MC.mouseHelper.deltaX/1.0;
-                // double y = MC.mouseHelper.deltaY/300.0;
 
 
                 double x = dx / 2f;
@@ -351,9 +336,7 @@ public class AnimationModeProcessor {
                     case 1:
 
                         vec = new Vec3d(0, 1, 0);
-                        // DebugPositioner.incrementYRotation((float) ((float) -dx));
 
-                        // DebugPositioner.incrementXPosition((float) -dx, false);
                         break;
                     case 2:
 
@@ -367,9 +350,6 @@ public class AnimationModeProcessor {
                         break;
                 }
 
-                // DebugPositioner.setAutorotate(0, 0, 0);
-                // Matrix4f rotte = DebugPositioner.rotationMatrix();
-                // System.out.println(currentPartMatrix);
                 /*
                  * Matrix4f rotte = new Matrix4f(DebugPositioner.rotationMatrix());
                  * //rotte.invert(); rotte.transpose(); float m = (float) -dy*0.5f;
@@ -420,10 +400,6 @@ public class AnimationModeProcessor {
 
                 }
 
-
-                // System.out.println(currentPartMatrix);
-
-                // System.out.println(axis);
 
                 /*
                  * Matrix4f rotte = new Matrix4f(DebugPositioner.rotationMatrix());
@@ -488,8 +464,6 @@ public class AnimationModeProcessor {
                 /*
                  * Matrix4f test = new Matrix4f(); test.m10 = -69; System.out.println(test);
                  */
-                // System.out.println("yo");
-                // vec = new Vec3d(1, 0, 0);
 
                 /*
                  * vec = ModelRenderTool.transformViaMatrix(vec, rotte);
@@ -524,8 +498,6 @@ public class AnimationModeProcessor {
             double x = dx / 10f;
             double y = dy / 10f;
 
-            // double x = MC.mouseHelper.deltaX/120.0;
-            // double y = MC.mouseHelper.deltaY/120.0;
             pan = pan.add(-x, -y, 0);
         }
 
@@ -575,8 +547,6 @@ public class AnimationModeProcessor {
                 DebugRenderer.setupBasicRender();
                 DebugRenderer.renderPoint(Vec3d.ZERO, new Vec3d(1, 0, 0));
                 DebugRenderer.destructBasicRender();
-                //GlStateManager.enableDepth();
-                //renderLightAxisRing(new Vec3d(0, 0, 1), Color.red, 0.2f, 0.1f, true, false);
 
 
                 GlStateManager.popMatrix();
@@ -591,9 +561,6 @@ public class AnimationModeProcessor {
         } else if (transformMode == 2) {
             renderRotAxis(scalar);
         } else {
-            //OpenGLSelectionHelper.ballBuf.framebufferClear();
-            //	MC.getFramebuffer().bindFramebuffer(false);
-            //OpenGLSelectionHelper.ballBuf.bindFramebuffer(false);
 
             renderCross();
 
@@ -673,23 +640,6 @@ public class AnimationModeProcessor {
 
 
         GlStateManager.enableDepth();
-		
-		/*
-		GlStateManager.disableDepth();
-		GlStateManager.enableBlend();
-		//GlStateManager.color(1, 1, 1, 0.2f);
-		Tessellator t = Tessellator.getInstance();
-		BufferBuilder bb = t.getBuffer();
-		bb.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION);
-		
-		bb.pos(0, 0, 0).endVertex();
-		for(double i = 0; i <= 2*Math.PI; i += 2*Math.PI/31) {
-			
-			bb.pos(Math.cos(i)*size*2.5, Math.sin(i)*size*2.5, 0).endVertex();
-		}
-		
-		t.draw();
-		*/
 
         GlStateManager.popMatrix();
 
@@ -729,38 +679,6 @@ public class AnimationModeProcessor {
 
 
         Shaders.axis.release();
-		/*
-		if (colorSelected == -1 || colorSelected == 3) {
-			renderCircleOutline(Color.blue, 1, 0, 0, size, innerSize);
-		} else {
-			renderCircleOutline(Color.blue, 0.2, 0, 0, size, innerSize);
-
-		}
-
-		if (colorSelected == -1 || colorSelected == 2) {
-			GlStateManager.pushMatrix();
-			GlStateManager.rotate(90f, 0, 1, 0);
-			renderCircleOutline(Color.GREEN, 1, 0, 0, size, innerSize);
-			GlStateManager.popMatrix();
-		} else {
-			GlStateManager.pushMatrix();
-			GlStateManager.rotate(90f, 0, 1, 0);
-			renderCircleOutline(Color.GREEN, 0.2, 0, 0, size, innerSize);
-			GlStateManager.popMatrix();
-		}
-
-		if (colorSelected == -1 || colorSelected == 1) {
-			GlStateManager.pushMatrix();
-			GlStateManager.rotate(90f, 1, 0, 0);
-			renderCircleOutline(Color.RED, 1, 0, 0, size, innerSize);
-			GlStateManager.popMatrix();
-		} else {
-			GlStateManager.pushMatrix();
-			GlStateManager.rotate(90f, 1, 0, 0);
-			renderCircleOutline(Color.RED, 0.2, 0, 0, size, innerSize);
-			GlStateManager.popMatrix();
-		}
-		*/
     }
 
     public void renderLightAxisRing(Vec3d axis, Color c, float outer, float inner, boolean held, boolean hovered) {
@@ -855,9 +773,6 @@ public class AnimationModeProcessor {
 
 
         MC.getFramebuffer().bindFramebuffer(false);
-        //if(1+1==2) return;
-        //	GlStateManager.disableDepth();
-        //GlStateManager.disableDepth();
         GlStateManager.disableDepth();
         drawArrow(new Vec3d(1, 0, 0), new Color(0xff3838), 1, 1, (colorSelected == -1 || colorSelected == 1),
                 (colorHover == 1 || colorSelected == 1));
@@ -902,8 +817,6 @@ public class AnimationModeProcessor {
          * t.draw();
          */
 
-        // Tessellator t = Tessellator.getInstance();
-        // BufferBuilder b = t.getBuffer();
     }
 
 
@@ -1013,9 +926,7 @@ public class AnimationModeProcessor {
         //GlStateManager.disableDepth();
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
-        // GL11.glBlendFunc(GL11.GL_SRC_ALPHA_SATURATE, GL11.GL_ONE);
 
-        // GL11.glEnable(GL11.GL_POLYGON_SMOOTH);
         /*
          * GL11.glEnable(GL13.GL_MULTISAMPLE);
          * GL11.glHint(NVMultisampleFilterHint.GL_MULTISAMPLE_FILTER_HINT_NV,
@@ -1037,7 +948,6 @@ public class AnimationModeProcessor {
             bb.pos(x + cos, y + sin, -0.05).color(red, green, blue, (float) alpha).endVertex();
             bb.pos(x + cosI, y + sinI, 0.025).color(red, green, blue, (float) alpha).endVertex();
 
-            endAng = a;
         }
 
 

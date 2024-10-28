@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.shader;
 
 import com.google.gson.JsonSyntaxException;
+import lombok.Getter;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.shader.Framebuffer;
@@ -18,6 +19,7 @@ import java.util.Map;
 public class DynamicShaderGroup extends ShaderGroup {
 
     private final Map<String, Object> uniforms = new HashMap<>();
+    @Getter
     private boolean deleted;
 
     public DynamicShaderGroup(TextureManager textureManager, IResourceManager resourceManager, Framebuffer mainFramebufferIn, ResourceLocation resourceLocation) throws IOException, JsonSyntaxException {
@@ -44,10 +46,6 @@ public class DynamicShaderGroup extends ShaderGroup {
     public void deleteShaderGroup() {
         super.deleteShaderGroup();
         deleted = true;
-    }
-
-    public boolean isDeleted() {
-        return deleted;
     }
 
     public void setUniform(String name, Object value) {
