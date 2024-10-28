@@ -25,7 +25,7 @@ public final class PermitMessage implements IMessage {
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        TypeRegistry.write(playerItemInstance, byteBuf);
-        TypeRegistry.write(permit, byteBuf);
+        TypeRegistry.write(byteBuf, playerItemInstance);
+        TypeRegistry.write(byteBuf, permit);
     }
 }

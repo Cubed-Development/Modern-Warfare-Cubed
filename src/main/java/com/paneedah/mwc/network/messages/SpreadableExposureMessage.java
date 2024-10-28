@@ -33,7 +33,7 @@ public final class SpreadableExposureMessage implements IMessage {
         byteBuf.writeBoolean(removed);
 
         if (!removed) {
-            TypeRegistry.write(spreadableExposure, byteBuf);
+            TypeRegistry.write(byteBuf, spreadableExposure);
         }
     }
 }

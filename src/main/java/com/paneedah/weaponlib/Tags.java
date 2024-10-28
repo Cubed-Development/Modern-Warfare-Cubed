@@ -97,7 +97,7 @@ public final class Tags {
 
         ByteBuf buf = Unpooled.buffer();
         if (instance != null) {
-            TypeRegistry.write(instance, buf);
+            TypeRegistry.write(buf, instance);
             NBTTagCompound tagCompound = itemStack.getTagCompound();
             tagCompound.setByteArray(INSTANCE_TAG, buf.array());
 

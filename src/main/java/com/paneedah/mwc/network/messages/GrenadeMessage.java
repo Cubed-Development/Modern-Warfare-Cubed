@@ -24,7 +24,7 @@ public final class GrenadeMessage implements IMessage {
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        TypeRegistry.write(instance, byteBuf);
+        TypeRegistry.write(byteBuf, instance);
         byteBuf.writeLong(activationTimestamp);
     }
 }

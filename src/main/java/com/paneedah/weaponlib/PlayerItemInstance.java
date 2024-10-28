@@ -81,7 +81,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
         byteBuf.writeLong(updateId);
 
-        TypeRegistry.write(state, byteBuf);
+        TypeRegistry.write(byteBuf, state);
     }
 
     // ! This in the past was weirder, and I never really got how it worked,

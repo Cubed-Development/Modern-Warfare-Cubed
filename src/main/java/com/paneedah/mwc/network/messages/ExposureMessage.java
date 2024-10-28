@@ -31,6 +31,6 @@ public final class ExposureMessage implements IMessage {
         byteBuf.writeInt(exposures.size());
 
         for (Exposure exposure : exposures)
-            TypeRegistry.write(exposure, byteBuf);
+            TypeRegistry.write(byteBuf, exposure);
     }
 }

@@ -51,7 +51,7 @@ public class Permit<S extends ManagedState<S>> extends UniversalObject {
         super.write(byteBuf);
         byteBuf.writeLong(timestamp);
         byteBuf.writeInt(status.ordinal());
-        TypeRegistry.write(state, byteBuf);
+        TypeRegistry.write(byteBuf, state);
     }
 
 }

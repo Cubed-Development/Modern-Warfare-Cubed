@@ -26,7 +26,7 @@ public final class MeleeAttackMessage implements IMessage {
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        TypeRegistry.write(instance, byteBuf);
+        TypeRegistry.write(byteBuf, instance);
         byteBuf.writeInt(entityId);
         byteBuf.writeBoolean(isHeavyAttack);
     }
