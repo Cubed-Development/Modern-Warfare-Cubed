@@ -69,7 +69,6 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Reworked vests tooltips
 - Updated Chinese translation
 - Reworked how reloading works in creative so that it aligns with vanilla behavior
-- Overhauled the props to use the new hitbox system
 
 ### Fixed
 
@@ -102,6 +101,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Switched from [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) tags to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin)
 - Updated [MixinBooter](https://www.curseforge.com/minecraft/mc-mods/mixin-booter) dependency to 9.4
 - Updated to [org.jetbrains.gradle.plugin.idea-ext](https://github.com/JetBrains/gradle-idea-ext-plugin) 1.1.9
+- Props now use Red Core `AABBUtil`
 
 ## Modern Warfare Cubed Version 0.1.8 Changelog - 2024-08-16
 
