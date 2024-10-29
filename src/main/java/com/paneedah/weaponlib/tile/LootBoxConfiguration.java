@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.tile;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.WeightedOptions;
+import lombok.Getter;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.SoundEvent;
@@ -46,7 +47,7 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
         public EquipmentKey(EnumDifficulty difficulty, Item item, int stackSize) {
             this.difficulty = difficulty;
             this.item = item;
-            this.attachments = new ItemAttachment<?>[0];
+            attachments = new ItemAttachment<?>[0];
             this.stackSize = stackSize;
         }
 
@@ -94,6 +95,7 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
 
     private WeightedOptions<EnumDifficulty, Equipment> builtEquipmentOptions;
 
+    @Getter
     private int equipmentDispenseTimeoutTicks = DEFAULT_EQUIPMENT_DISPENSE_TIMEOUT_TICKS;
 
     private String dispenseSound;
@@ -113,26 +115,22 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
     }
 
     public LootBoxConfiguration withEquipmentDispenseTimeout(int timeoutSeconds) {
-        this.equipmentDispenseTimeoutTicks = timeoutSeconds * 20;
+        equipmentDispenseTimeoutTicks = timeoutSeconds * 20;
         return this;
     }
 
     public LootBoxConfiguration withEquipementDispenseSound(String sound) {
-        this.dispenseSound = sound.toLowerCase();
+        dispenseSound = sound.toLowerCase();
         return this;
     }
 
     public LootBoxConfiguration withEquipmentNotAvailableSound(String sound) {
-        this.equipmentNotAvailableSound = sound.toLowerCase();
+        equipmentNotAvailableSound = sound.toLowerCase();
         return this;
     }
 
     private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item,
                                                      EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
-//        if(item == null) {
-//            log.warn("Attempted to configure entity equipment with null item");
-//            return this;
-//        }
         Equipment equipment = new Equipment();
         equipment.item = item;
         equipment.attachments = Arrays.asList(attachments);
@@ -146,10 +144,6 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
 
     private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item,
                                                      EnumDifficulty difficultyLevel, float weight, int stackSize) {
-//        if(item == null) {
-//            log.warn("Attempted to configure entity equipment with null item");
-//            return this;
-//        }
         Equipment equipment = new Equipment();
         equipment.item = item;
         equipment.stackSize = stackSize;
@@ -184,10 +178,6 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
 
     public WeightedOptions<EnumDifficulty, Equipment> getEquipmentOptions() {
         return builtEquipmentOptions;
-    }
-
-    public int getEquipmentDispenseTimeoutTicks() {
-        return equipmentDispenseTimeoutTicks;
     }
 
     public SoundEvent getDispenseSound() {

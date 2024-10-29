@@ -33,9 +33,9 @@ public class GL06Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0f)
-                .withFlashScale(() -> 0f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.101f)
+                .withFlashScale(() -> Float.valueOf(0f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.101f))
                 .withShellCasingEjectEnabled(false)
                 .withDestroyingBlocks(false)
 
@@ -49,14 +49,8 @@ public class GL06Factory implements GunFactory {
                 .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
 
                 .withCompatibleAttachment(AuxiliaryAttachments.GLgrenade, true, (model) -> {
-//            GL11.glTranslatef(0F, -0.4f, 0F);
-//            GL11.glScaled(1F, 1F, 1F);
-//            GL11.glRotatef(8F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.GL06Cartridge, true, (model) -> {
-//            GL11.glTranslatef(0F, -0.4f, 0F);
-//            GL11.glScaled(1F, 1F, 1F);
-//            GL11.glRotatef(8F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
                     GL11.glTranslatef(-0.31F, -1.41F, -0.7F);
@@ -65,7 +59,7 @@ public class GL06Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -83,7 +77,7 @@ public class GL06Factory implements GunFactory {
                     if (model instanceof Reflex) {
                         GL11.glTranslatef(-0.072F, -1.2F, -0.9F);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof Reflex2) {
+                    } else if (null instanceof Reflex2) {
                         GL11.glTranslatef(-0.123F, -1.47F, -0.9F);
                         GL11.glScaled(0.07F, 0.07F, 0.07F);
                     }
@@ -92,7 +86,7 @@ public class GL06Factory implements GunFactory {
                     if (model instanceof Holographic2) {
                         GL11.glTranslatef(-0.053F, -1.25F, -0.6F);
                         GL11.glScaled(0.55F, 0.55F, 0.55F);
-                    } else if (model instanceof Holo2) {
+                    } else if (null instanceof Holo2) {
                         GL11.glTranslatef(-0.12F, -1.52F, -0.5F);
                         GL11.glScaled(0.05F, 0.05F, 0.05F);
                     }
@@ -101,7 +95,7 @@ public class GL06Factory implements GunFactory {
                     if (model instanceof Kobra) {
                         GL11.glTranslatef(-0.053F, -1.25F, -0.6F);
                         GL11.glScaled(0.55F, 0.55F, 0.55F);
-                    } else if (model instanceof Reflex2) {
+                    } else if (null instanceof Reflex2) {
                         GL11.glTranslatef(-0.122F, -1.5F, -1.05F);
                         GL11.glScaled(0.07F, 0.07F, 0.07F);
                     }
@@ -110,7 +104,7 @@ public class GL06Factory implements GunFactory {
                     if (model instanceof MicroT1) {
                         GL11.glTranslatef(-0.17F, -1.36F, -0.6F);
                         GL11.glScaled(0.3F, 0.3F, 0.3F);
-                    } else if (model instanceof Reflex2) {
+                    } else if (null instanceof Reflex2) {
                         GL11.glTranslatef(-0.125F, -1.465F, -0.7F);
                         GL11.glScaled(0.07F, 0.07F, 0.07F);
                     }
@@ -119,7 +113,7 @@ public class GL06Factory implements GunFactory {
                     if (model instanceof RMRsight) {
                         GL11.glTranslatef(-0.163F, -1.38F, -0.5F);
                         GL11.glScaled(0.28F, 0.28F, 0.28F);
-                    } else if (model instanceof Reflex2) {
+                    } else if (null instanceof Reflex2) {
                         GL11.glTranslatef(-0.123F, -1.38F, -0.8F);
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }

@@ -37,9 +37,9 @@ public class M1941JohnsonFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.13f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
 //        .withShellCasingSideOffset(0f)
                 .withShellCasingVerticalOffset(-0.1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -103,8 +103,6 @@ public class M1941JohnsonFactory {
                 .withCompatibleAttachment(Magazines.JohnsonMAG, (model) -> {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.JohnsonACTION, true, (model) -> {
-//          GL11.glTranslatef(0.45F, -0.15F, 0.65F);
-//          GL11.glRotatef(-25F, 0f, 0f, 1f);
                 })
                 .withTextureNames("gun") // this is temporary - the johnson will have its own texture
                 .withRenderer(new WeaponRenderer.Builder()

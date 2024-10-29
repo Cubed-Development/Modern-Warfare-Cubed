@@ -35,9 +35,9 @@ public class NinthSinFactory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.7f)
-                .withFlashOffsetX(() -> 0.18f)
-                .withFlashOffsetY(() -> 0.2f)
+                .withFlashScale(() -> Float.valueOf(0.7f))
+                .withFlashOffsetX(() -> Float.valueOf(0.18f))
+                .withFlashOffsetY(() -> Float.valueOf(0.2f))
                 .withShellCasingForwardOffset(-0.02f)
                 .withShellCasingVerticalOffset(-0.05f)
 //        .withBleedingCoefficient(10f)
@@ -52,64 +52,31 @@ public class NinthSinFactory implements GunFactory {
                         2f) // z
 
                 .withCompatibleAttachment(Magazines.NinthSinMag, (model) -> {
-//          GL11.glTranslatef(-0.3F, -1.3F, 0.4F);
-//          GL11.glRotatef(-11F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.PanelUpper, true, (model) -> {
-//            GL11.glTranslatef(0F, -0.25F, 0.6F);
-//            GL11.glRotatef(-11F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.PanelLower, true, (model) -> {
-//          GL11.glTranslatef(0F, 0.35F, 0.3F);
-//          GL11.glRotatef(8F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.RegulatorUpper, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0F, 0F);
 
-//          GL11.glTranslatef(0.2F, -0.7F, 1.1F);
-//          GL11.glRotatef(27F, 1f, 0f, 0);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.RegulatorLower, true, (model) -> {
-//        	 GL11.glTranslatef(0.2F, 0.65F, 1.4F);
-//        	 GL11.glRotatef(-12F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.RegulatorRotator, true, (model) -> {
-//        	 GL11.glTranslatef(0.2F, 0F, 1.5F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.RegulatorActionUpper, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0.55F, 1.6F);
-//       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.RegulatorActionLower, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0.75F, 1.2F);
-//       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.RegulatorAction, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0.775F, 1.15F);
-//       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.CyclerFront, true, (model) -> {
-//          GL11.glTranslatef(0F, -0.35F, -0.2F);
-//          GL11.glRotatef(9F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.CyclerBackLeft, true, (model) -> {
-//        	 GL11.glTranslatef(0.15F, -0.15F, 0F);
-//          GL11.glTranslatef(0F, 0F, 2.4F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.CyclerBackRight, true, (model) -> {
-//        	 GL11.glTranslatef(-0.15F, -0.15F, 0F);
-//          GL11.glTranslatef(0F, 0F, 2.4F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Cycler, true, (model) -> {
-//          GL11.glTranslatef(0F, -0.17F, 0.3F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
                 })
                 .withTextureNames("ninthsin")
                 .withRenderer(new WeaponRenderer.Builder()
@@ -139,11 +106,6 @@ public class NinthSinFactory implements GunFactory {
                             GL11.glRotatef(-5.000000f, 1f, 0f, 0f);
                             GL11.glTranslatef(-0.700000f, -0.505000f, -1.649999f);
 
-//                GL11.glScaled(1F, 1F, 1F);
-//                GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(90.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.050000f, -0.225000f, -1.549999f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -187,8 +149,6 @@ public class NinthSinFactory implements GunFactory {
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.RegulatorRotator.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0.2F, 0F, 1.5F);
 
-//            	GL11.glTranslatef(0.2F, 1.25F, -0.6F);
-//            	GL11.glRotatef(-180F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.RegulatorActionUpper.getRenderablePart(), (renderContext) -> {
@@ -225,8 +185,6 @@ public class NinthSinFactory implements GunFactory {
                             GL11.glTranslatef(0.2F, 0.775F, 1.15F);
                             GL11.glRotatef(-12F, 1f, 0f, 0f);
 
-//             	GL11.glTranslatef(0.2F, 0.55F, 1.6F);
-//            	 GL11.glRotatef(-12F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.CyclerFront.getRenderablePart(), (renderContext) -> {
@@ -1540,13 +1498,8 @@ public class NinthSinFactory implements GunFactory {
                             GL11.glTranslatef(-0.350000f, -1.000000f, -1.274999f);
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                //System.out.println("Position me for Acog");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider);//System.out.println("Position me for Acog");
+// Everything else
 
 
                         })
@@ -1558,13 +1511,8 @@ public class NinthSinFactory implements GunFactory {
                             GL11.glTranslatef(-0.350000f, -1.000000f, -1.074999f);
 
                             // Standard Iron Sight Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                //System.out.println("Position me for Acog");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider);//System.out.println("Position me for Acog");
+// Everything else
 
 
                         })
@@ -1599,11 +1547,6 @@ public class NinthSinFactory implements GunFactory {
                                     GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.500000f, 0.075000f, 0.825000f);
 
-//                    	 GL11.glScalef(3.8f, 3.8f, 3.8f);
-//                    	 GL11.glRotatef(-15.000000f, 1f, 0f, 0f);
-//                    	 GL11.glRotatef(170.000000f, 0f, 1f, 0f);
-//                    	 GL11.glRotatef(-30.000000f, 0f, 0f, 1f);
-//                    	 GL11.glTranslatef(-0.375000f, -0.550000f, -0.100000f);
                                 },
                                 (renderContext) -> {
                                     GL11.glScalef(3.8f, 3.8f, 3.8f);
@@ -1612,11 +1555,6 @@ public class NinthSinFactory implements GunFactory {
                                     GL11.glRotatef(-30.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.473000f, -0.430000f, 0.270000f);
 
-//                         GL11.glScalef(3.8f, 3.8f, 3.8f);
-//                         GL11.glRotatef(-110.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(20.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.150000f, -1.324999f, 0.225000f);
                                 })
 
                         .withFirstPersonHandPositioningZooming(

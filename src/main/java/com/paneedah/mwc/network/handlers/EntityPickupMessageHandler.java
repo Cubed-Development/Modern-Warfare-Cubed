@@ -25,7 +25,7 @@ public final class EntityPickupMessageHandler implements IMessageHandler<EntityP
                 return;
             }
 
-            final HighIQSpawnEgg highIQSpawnEgg = (HighIQSpawnEgg) SecondaryEntityRegistry.pickupMap.get(((EntityCustomMob) targetEntity).getConfiguration().getPickupItemID());
+            final HighIQSpawnEgg highIQSpawnEgg = (HighIQSpawnEgg) SecondaryEntityRegistry.pickupMap.get(Integer.valueOf(((EntityCustomMob) targetEntity).getConfiguration().getPickupItemID()));
 
             targetPlayer.addItemStackToInventory(new ItemStack(highIQSpawnEgg));
 

@@ -138,8 +138,7 @@ public class VehiclePhysUtil {
      */
 
     public static double pacejkaLong(double tireLoad, double slip, double shape, double peak, double curvature, double stiffness) {
-        double F = tireLoad * peak * Math.sin(shape * Math.atan(stiffness * slip - curvature * (stiffness * slip - Math.atan(stiffness * slip))));
-        return F;
+        return tireLoad * peak * Math.sin(shape * Math.atan(stiffness * slip - curvature * (stiffness * slip - Math.atan(stiffness * slip))));
     }
 
     /*
@@ -165,14 +164,6 @@ public class VehiclePhysUtil {
 
     }
 
-    /*
-    public static Vec3d getSlipRatio(Vec3d wheelAngularVelocity, double wheelRadius, Vec3d carSpeed) {
-        double x = (wheelAngularVelocity.x*wheelRadius-carSpeed.x)/carSpeed.length();
-        double y = (wheelAngularVelocity.y*wheelRadius-carSpeed.y)/carSpeed.length();
-        double z = (wheelAngularVelocity.z*wheelRadius-carSpeed.z)/carSpeed.length();
-        return new Vec3d(x, y, z);
-    }
-    */
     public static Vec3d getActualLongitudinalForce(Vec3d nLongForce, double loadOnWheel) {
         return nLongForce.scale(loadOnWheel);
     }

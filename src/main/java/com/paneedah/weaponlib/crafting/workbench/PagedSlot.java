@@ -25,6 +25,6 @@ public class PagedSlot extends Slot {
 
     @Override
     public boolean isEnabled() {
-        return pageNumber.get() == pageID;
+        return pageNumber.get().intValue() == pageID;
     }
 }

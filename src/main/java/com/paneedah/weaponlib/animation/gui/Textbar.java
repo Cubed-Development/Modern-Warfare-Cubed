@@ -12,11 +12,11 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class Textbar {
 
-    public int x = 0;
-    public int y = 0;
+    public int x;
+    public int y;
 
-    public int w = 0;
-    public int h = 0;
+    public int w;
+    public int h;
 
     public String[] strings = new String[3];
 
@@ -45,7 +45,7 @@ public class Textbar {
         Color c = new Color(0x222f3e);
 
         if (isMouseOver(mouseX, mouseY)) {
-            c = c.darker().darker();
+            c.darker().darker();
         }
 
         Color[] cAr = new Color[]{
@@ -59,7 +59,7 @@ public class Textbar {
         AnimationGUI.renderRect(new Color(0x3d3d3d).darker(), x - 5, y - 10, w + 5, h + 15);
         GlStateManager.enableTexture2D();
 
-        AnimationGUI.renderScaledString(this.name, x, y - 7, 0.6);
+        AnimationGUI.renderScaledString(name, x, y - 7, 0.6);
         //MC.fontRenderer.drawStringWithShadow("Position", x, y-5, 0xffffff);
         GlStateManager.disableTexture2D();
 

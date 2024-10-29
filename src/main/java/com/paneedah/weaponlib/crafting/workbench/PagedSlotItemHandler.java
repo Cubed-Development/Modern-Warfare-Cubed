@@ -25,6 +25,6 @@ public class PagedSlotItemHandler extends SlotItemHandler {
 
     @Override
     public boolean isEnabled() {
-        return pageNumber.get() == pageID;
+        return pageNumber.get().intValue() == pageID;
     }
 }

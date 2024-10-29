@@ -67,7 +67,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         }
 
         public Builder withEffectiveDistance(int effectiveDistance) {
-            this.effectiveDistance = effectiveDistance > MAX_EFFECTIVE_DISTANCE ? MAX_EFFECTIVE_DISTANCE : effectiveDistance;
+            this.effectiveDistance = Math.min(effectiveDistance, MAX_EFFECTIVE_DISTANCE);
             return this;
         }
 
@@ -251,10 +251,6 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         }
 
         return dose;
-    }
-
-    public ItemGrenade getItemGrenade() {
-        return itemGrenade;
     }
 
     private boolean isTransparentBlock(Block block) {

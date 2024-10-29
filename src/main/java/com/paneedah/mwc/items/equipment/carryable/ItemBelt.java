@@ -33,7 +33,7 @@ public class ItemBelt extends ItemCarryable {
 
             ResourceLocation guiTexture = new ResourceLocation(ID, "textures/gui/inventory/carryable/" + size + "slots.png");
 
-            ItemBelt itemBelt = new ItemBelt(size, validItemPredicate, guiTexture, this.guiTextureWidth, modelName, textureName);
+            ItemBelt itemBelt = new ItemBelt(size, validItemPredicate, guiTexture, guiTextureWidth, modelName, textureName);
 
             itemBelt.setTranslationKey(LangUtil.format(name)).setCreativeTab(MWC.EQUIPMENT_TAB);
 

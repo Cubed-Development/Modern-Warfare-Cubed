@@ -31,30 +31,28 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
     static final float DEFAULT_INACCURACY = 1f;
     private int ticksInAir;
 
-    private ModContext modContext;
     private ItemWirelessCamera itemWirelessCamera;
     private long timestamp;
     private long duration;
 
     public EntityWirelessCamera(ModContext modContext, World world, EntityPlayer player, ItemWirelessCamera itemWirelessCamera, long duration) {
         super(world, player);
-        this.timestamp = world.getWorldTime(); //System.currentTimeMillis();
+        timestamp = world.getWorldTime(); //System.currentTimeMillis();
         this.duration = (long) ((float) duration / 50f);
-        this.modContext = modContext;
         this.itemWirelessCamera = itemWirelessCamera;
 
-        this.setSize(0.25F, 0.25F);
-        this.setLocationAndAngles(player.posX, player.posY + (double) player.getEyeHeight(), player.posZ, player.rotationYaw, player.rotationPitch);
+        setSize(0.25F, 0.25F);
+        setLocationAndAngles(player.posX, player.posY + (double) player.getEyeHeight(), player.posZ, player.rotationYaw, player.rotationPitch);
         this.posX -= MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
         this.posY -= 0.10000000149011612D;
         this.posZ -= MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
-        this.setPosition(this.posX, this.posY, this.posZ);
+        setPosition(this.posX, this.posY, this.posZ);
         float f = 0.4F;
         this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f;
         this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f;
         float pitchOffset = 0f;
         this.motionY = -MathHelper.sin((this.rotationPitch + pitchOffset) / 180.0F * (float) Math.PI) * f;
-        this.shoot(this.motionX, this.motionY, this.motionZ, 1.5f, 0);
+        shoot(this.motionX, this.motionY, this.motionZ, 1.5f, 0);
 
     }
 
@@ -97,7 +95,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
                 dropItem(itemWirelessCamera, 1);
             }
 
-            this.setDead();
+            setDead();
         }
     }
 
@@ -158,26 +156,8 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
         }
 
         if (this.inGround) {
-            /*if (this.world.getBlockState(new BlockPos(this.xTile, this.yTile, this.zTile)).getBlock() == this.inTile)
-            {
-                ++this.ticksInGround;
-
-                if (this.ticksInGround == 1200)
-                {
-                    this.setDead();
-                }
-
-                return;
-            }
-
-            this.inGround = false;
-            this.motionX *= (double)(this.rand.nextFloat() * 0.2F);
-            this.motionY *= (double)(this.rand.nextFloat() * 0.2F);
-            this.motionZ *= (double)(this.rand.nextFloat() * 0.2F);
-            this.ticksInGround = 0;
-            this.ticksInAir = 0;*/
         } else {
-            ++this.ticksInAir;
+            ++ticksInAir;
         }
 
         Vec3d vec3 = new Vec3d(this.posX, this.posY, this.posZ);
@@ -192,15 +172,15 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
 
         if (!this.world.isRemote) {
             Entity entity = null;
-            List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox()
+            List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox()
                     .expand(this.motionX, this.motionY, this.motionZ).grow(1.0D));
             double d0 = 0.0D;
-            EntityLivingBase entitylivingbase = this.getThrower();
+            EntityLivingBase entitylivingbase = getThrower();
 
             for (int j = 0; j < list.size(); ++j) {
                 Entity entity1 = list.get(j);
 
-                if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
+                if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || ticksInAir >= 5)) {
                     float f = 0.3F;
                     net.minecraft.util.math.AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand(f, f, f);
                     RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
@@ -225,9 +205,9 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
 
         if (movingobjectposition != null) {
             if (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK && this.world.getBlockState(movingobjectposition.getBlockPos()).getBlock() == Blocks.PORTAL) {
-                this.setPortal(movingobjectposition.getBlockPos());
+                setPortal(movingobjectposition.getBlockPos());
             } else {
-                this.onImpact(movingobjectposition);
+                onImpact(movingobjectposition);
             }
         }
 
@@ -255,9 +235,9 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
         this.rotationPitch = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * 0.2F;
         this.rotationYaw = this.prevRotationYaw + (this.rotationYaw - this.prevRotationYaw) * 0.2F;
         float f2 = 0.99F;
-        float f3 = this.getGravityVelocity();
+        float f3 = getGravityVelocity();
 
-        if (this.isInWater()) {
+        if (isInWater()) {
             for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
                 this.world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * (double) f4, this.posY - this.motionY * (double) f4, this.posZ - this.motionZ * (double) f4, this.motionX, this.motionY, this.motionZ);
@@ -270,6 +250,6 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
         this.motionY *= f2;
         this.motionZ *= f2;
         this.motionY -= f3;
-        this.setPosition(this.posX, this.posY, this.posZ);
+        setPosition(this.posX, this.posY, this.posZ);
     }
 }

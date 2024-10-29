@@ -1,5 +1,10 @@
 package com.paneedah.weaponlib.render;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class VAOData {
 
     public int vaoID;
@@ -7,22 +12,6 @@ public class VAOData {
 
     public VAOData(int vaoID, int vertexCount) {
         this.vaoID = vaoID;
-        this.vertexCount = vertexCount;
-    }
-
-    public int getVaoID() {
-        return vaoID;
-    }
-
-    public void setVaoID(int vaoID) {
-        this.vaoID = vaoID;
-    }
-
-    public int getVertexCount() {
-        return vertexCount;
-    }
-
-    public void setVertexCount(int vertexCount) {
         this.vertexCount = vertexCount;
     }
 

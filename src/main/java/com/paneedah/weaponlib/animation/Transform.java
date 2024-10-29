@@ -39,11 +39,6 @@ public class Transform {
      * When going from BB edit mode to the game, the X and Y rotations are inverted. This method will automatically do
      * that for you.
      *
-     * @param x
-     * @param y
-     * @param z
-     *
-     * @return
      */
     public Transform withBBRotation(double x, double y, double z) {
         rotation[0] = -x;
@@ -60,7 +55,7 @@ public class Transform {
     }
 
     public Transform addTransformConditional(Supplier<Boolean> condition, double x, double y, double z) {
-        if (!condition.get()) {
+        if (!condition.get().booleanValue()) {
             return this;
         }
         return addTransform(x, y, z);
@@ -154,10 +149,10 @@ public class Transform {
     }
 
     public void set(Transform t) {
-        this.position = copyArray(t.position);
-        this.rotation = copyArray(t.rotation);
-        this.rotationPoint = copyArray(t.rotationPoint);
-        this.scale = copyArray(t.scale);
+        position = copyArray(t.position);
+        rotation = copyArray(t.rotation);
+        rotationPoint = copyArray(t.rotationPoint);
+        scale = copyArray(t.scale);
     }
 
     public Transform copy() {
@@ -176,15 +171,6 @@ public class Transform {
     public Consumer<RenderContext<RenderableState>> getAsPosition() {
         return (renderContext) -> {
             doGLDirect();
-			/*
-			GL11.glTranslated(getPositionX(), getPositionY(), getPositionZ());
-			GL11.glTranslated(getRotationPointX(), getRotationPointY(), getRotationPointZ());
-			GL11.glRotated(getRotationZ(), 0, 0, 1);
-			GL11.glRotated(getRotationY(), 0, 1, 0);
-			GL11.glRotated(getRotationX(), 1, 0, 0);
-			GL11.glTranslated(-getRotationPointX(), -getRotationPointY(), -getRotationPointZ());
-			GL11.glScaled(getScaleX(), getScaleY(), getScaleZ());
-			*/
         };
 
     }
@@ -203,12 +189,12 @@ public class Transform {
 
 
         String result = "new Transform()" +
-                String.format("\n.withPosition(%ff, %ff, %ff)", getPositionX(), getPositionY(),
-                        getPositionZ()) +
-                String.format("\n.withRotation(%ff, %ff, %ff)", getRotationX(), getRotationY(),
-                        getRotationZ()) +
-                String.format("\n.withRotationPoint(%ff, %ff, %ff)", getRotationPointX(), getRotationPointY(), getRotationPointZ()) +
-                String.format("\n.withScale(%ff, %ff, %ff)", getScaleX(), getScaleY(), getScaleZ());
+                String.format("\n.withPosition(%ff, %ff, %ff)", Double.valueOf(getPositionX()), Double.valueOf(getPositionY()),
+                        Double.valueOf(getPositionZ())) +
+                String.format("\n.withRotation(%ff, %ff, %ff)", Double.valueOf(getRotationX()), Double.valueOf(getRotationY()),
+                        Double.valueOf(getRotationZ())) +
+                String.format("\n.withRotationPoint(%ff, %ff, %ff)", Double.valueOf(getRotationPointX()), Double.valueOf(getRotationPointY()), Double.valueOf(getRotationPointZ())) +
+                String.format("\n.withScale(%ff, %ff, %ff)", Double.valueOf(getScaleX()), Double.valueOf(getScaleY()), Double.valueOf(getScaleZ()));
 
         System.out.println("\n" + result);
     }

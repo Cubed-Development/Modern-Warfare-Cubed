@@ -12,9 +12,6 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class EntityGrenadeRenderer extends Render<Entity> {
 
-    //private ModelBase model = new CameraModel();
-    //private ResourceLocation textureLocation;
-
     public EntityGrenadeRenderer() {
         super(MC.getRenderManager());
     }
@@ -40,9 +37,9 @@ public class EntityGrenadeRenderer extends Render<Entity> {
 
         GL11.glTranslated(x, y, z);
 
-        float rotationOffsetX = renderer.getXRotationCenterOffset().get(); //0.13f;
-        float rotationOffsetY = renderer.getYRotationCenterOffset().get(); //0.12f;
-        float rotationOffsetZ = renderer.getZRotationCenterOffset().get(); //0.13f;
+        float rotationOffsetX = renderer.getXRotationCenterOffset().get().floatValue(); //0.13f;
+        float rotationOffsetY = renderer.getYRotationCenterOffset().get().floatValue(); //0.12f;
+        float rotationOffsetZ = renderer.getZRotationCenterOffset().get().floatValue(); //0.13f;
 
         GL11.glTranslatef(rotationOffsetX, rotationOffsetY, rotationOffsetZ);
         GL11.glRotatef(entityGrenade.getXRotation(), 1f, 0f, 0f);

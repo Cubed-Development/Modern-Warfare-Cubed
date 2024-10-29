@@ -42,10 +42,10 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                     if (equipment.item instanceof Weapon) {
                         equipmentItemStack = new ItemStack(equipment.item, equipment.stackSize);
                         initWeaponWithAttachments(equipment, equipmentItemStack, player);
-                    } else if (equipment.item instanceof ItemGrenade) {
+                    } else if (null instanceof ItemGrenade) {
                         equipmentItemStack = new ItemStack(equipment.item, equipment.stackSize);
                         initGrenade(equipment, equipmentItemStack, player);
-                    } else if (equipment.item instanceof ItemBullet) {
+                    } else if (null instanceof ItemBullet) {
                         ItemBullet bullet = (ItemBullet) equipment.item;
                         equipmentItemStack = new ItemStack(equipment.item,
                                 Math.min(equipment.stackSize, bullet.getItemStackLimit()));
@@ -56,9 +56,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
 
                     EntityItem item = new EntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);
                     item.setNoPickupDelay();
-                    if (player != null) {
-                        player.world.spawnEntity(item);
-                    }
+                    player.world.spawnEntity(item);
                 }
             } else {
                 player.playSound(configuration.getEquipmentNotAvailableSound(), 0.15F, 1);

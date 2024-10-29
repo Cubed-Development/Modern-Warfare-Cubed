@@ -32,7 +32,6 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
     private int tickCounter;
     private int activeWatchIndex;
     private int badSignalTickCounter;
-    private int imageIndex;
 
     private final Random random = new Random();
 
@@ -45,9 +44,6 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
     @Override
     protected void updateWatchablePlayer() {
 
-
-//        this.watchablePlayer.setEntityLiving(null);
-//        if(true) return;
 
         EntityPlayer entityPlayer = MC.player;
         PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
@@ -76,12 +72,12 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         } else {
             displayName = te.getDisplayName();
             watchableEntity = te.getEntity();
-            batteryLevel = 1f - ((float) (entityPlayer.world.getWorldTime()
-                    - te.getStartTimestamp()) / te.getTrackingDuration());
-            if (batteryLevel > 1f) {
-                batteryLevel = 1f;
-            } else if (batteryLevel < 0f) {
-                batteryLevel = 0f;
+            batteryLevel = Float.valueOf(1f - ((float) (entityPlayer.world.getWorldTime()
+                    - te.getStartTimestamp()) / te.getTrackingDuration()));
+            if (batteryLevel.floatValue() > 1f) {
+                batteryLevel = Float.valueOf(1f);
+            } else if (batteryLevel.floatValue() < 0f) {
+                batteryLevel = Float.valueOf(0f);
             }
         }
 
@@ -91,10 +87,6 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
             watchableEntity = realEntity;
         }
 
-//        if(watchableEntity != null && watchableEntity.isDead) {
-//            watchableEntity = null;
-//        }
-
         if (tickCounter++ % 50 == 0) {
             LOGGER.trace("Using entity tracker {}", playerEntityTracker);
             if (watchableEntity != null) {
@@ -103,9 +95,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         }
 
 
-        if (watchableEntity == null || watchableEntity instanceof EntityLivingBase) {
-            this.watchablePlayer.setEntityLiving((EntityLivingBase) watchableEntity);
-        }
+        watchablePlayer.setEntityLiving((EntityLivingBase) watchableEntity);
     }
 
     @Override
@@ -132,7 +122,6 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
                     framebuffer.bindFramebuffer(true);
                 }
 
-                color = 0xFFFF00;
                 message = "Cam " + displayCameraIndex + "/" + totalTrackableEntities + ": no signal";
                 drawStatic();
                 badSignalTickCounter++;
@@ -159,10 +148,10 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         float scale = 2f;
         GL11.glScalef(scale, scale, scale);
 
-        fontRender.drawString(message, (int) (40f / scale), (int) ((this.height - 30) / scale), color, false);
+        fontRender.drawString(message, (int) (40f / scale), (int) ((height - 30) / scale), color, false);
 
         if (totalTrackableEntities > 0 && batteryLevel != null) {
-            fontRender.drawString("Battery: " + (int) (batteryLevel * 100) + "%", (int) ((this.width - 150f) / scale), (int) ((this.height - 30) / scale), color, false);
+            fontRender.drawString("Battery: " + (int) (batteryLevel.floatValue() * 100) + "%", (int) ((width - 150f) / scale), (int) ((height - 30) / scale), color, false);
         }
     }
 
@@ -170,7 +159,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
         MC.getTextureManager().bindTexture(new ResourceLocation(STATIC_TEXTURE));
 
-        imageIndex = random.nextInt(STATIC_IMAGES_PER_ROW);
+        int imageIndex = random.nextInt(STATIC_IMAGES_PER_ROW);
 
         /*
          *  (cU, cV)   (bU, bV)
