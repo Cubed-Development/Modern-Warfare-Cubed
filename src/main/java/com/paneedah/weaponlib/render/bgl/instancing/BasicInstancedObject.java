@@ -5,37 +5,61 @@ import com.paneedah.weaponlib.render.VAOLoader;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import com.paneedah.weaponlib.render.bgl.ModernUtil;
 import com.paneedah.weaponlib.shader.jim.Shader;
+import lombok.Getter;
+import lombok.Setter;
 import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;
 
 public abstract class BasicInstancedObject<K> {
 
+    @Setter
+    @Getter
     private K genericType;
 
+    @Setter
+    @Getter
     private int maxObjects;
+    @Setter
+    @Getter
     private int instanceVBO;
+    @Setter
+    @Getter
     private VAOData vao;
 
+    @Setter
+    @Getter
     private FloatBuffer instancedBuffer;
+    @Setter
+    @Getter
     protected int arrayPointer;
+    @Setter
+    @Getter
     private Shader renderShader;
 
     protected String shaderName;
 
+    @Setter
+    @Getter
     private int instanceDataLength;
 
+    @Setter
+    @Getter
     private int largestAttribute = 0;
 
+    @Setter
+    @Getter
     private int renderMode;
 
+    @Setter
+    @Getter
     private InstancedAttribute[] attribs;
 
 
     public BasicInstancedObject(String shader, int renderMode, int maxCopies, InstancedAttribute... attribs) {
-        this.shaderName = shader;
+        shaderName = shader;
         this.renderMode = renderMode;
-        this.maxObjects = maxCopies;
+        maxObjects = maxCopies;
         this.attribs = attribs;
 
 
@@ -48,13 +72,13 @@ public abstract class BasicInstancedObject<K> {
 
         if (attribs != null) {
             for (InstancedAttribute attr : attribs) {
-                this.instanceDataLength += attr.getAttributeType().getSize();
+                instanceDataLength += attr.getAttributeType().getSize();
             }
         }
 
-        this.instancedBuffer = BufferUtils.createFloatBuffer(getInstanceDataLength() * getMaxObjects());
+        instancedBuffer = BufferUtils.createFloatBuffer(getInstanceDataLength() * getMaxObjects());
 
-        this.instanceVBO = ModernUtil.createEmptyVBO(this.maxObjects * this.instanceDataLength);
+        instanceVBO = ModernUtil.createEmptyVBO(maxObjects * instanceDataLength);
 
 
         // Add instanced attributes
@@ -63,8 +87,8 @@ public abstract class BasicInstancedObject<K> {
         if (attribs != null) {
             for (InstancedAttribute attr : attribs) {
                 ModernUtil.addInstancedAttribute(vao.getVaoID(),
-                        this.instanceVBO, attr.getAttributeID(),
-                        attr.getAttributeType().getSize(), this.instanceDataLength,
+                        instanceVBO, attr.getAttributeID(),
+                        attr.getAttributeType().getSize(), instanceDataLength,
                         offset);
                 offset += attr.getAttributeType().getSize();
 
@@ -81,11 +105,11 @@ public abstract class BasicInstancedObject<K> {
 
         renderShader.use();
         GLCompatible.glBindVertexArray(vao.getVaoID());
-        ModernUtil.enableVertexAttribRange(0, this.largestAttribute);
+        ModernUtil.enableVertexAttribRange(0, largestAttribute);
     }
 
     protected void postRender() {
-        ModernUtil.disableVertexAttribRange(0, this.largestAttribute);
+        ModernUtil.disableVertexAttribRange(0, largestAttribute);
         GLCompatible.glBindVertexArray(0);
         renderShader.release();
     }
@@ -100,7 +124,7 @@ public abstract class BasicInstancedObject<K> {
         preRender();
 
         // Render elements
-        GLCompatible.glDrawArraysInstanced(this.renderMode, 0, vao.getVertexCount(), primCount);
+        GLCompatible.glDrawArraysInstanced(renderMode, 0, vao.getVertexCount(), primCount);
 
         // Tidy up renderer
         postRender();
@@ -110,95 +134,6 @@ public abstract class BasicInstancedObject<K> {
     public void uploadToBuffer(float[] data) {
         VAOLoader.updateVBO(getInstanceVBO(), data, getInstancedBuffer());
 
-    }
-
-
-    public K getGenericType() {
-        return genericType;
-    }
-
-    public void setGenericType(K genericType) {
-        this.genericType = genericType;
-    }
-
-    public int getMaxObjects() {
-        return maxObjects;
-    }
-
-    public void setMaxObjects(int maxObjects) {
-        this.maxObjects = maxObjects;
-    }
-
-    public int getInstanceVBO() {
-        return instanceVBO;
-    }
-
-    public void setInstanceVBO(int instanceVBO) {
-        this.instanceVBO = instanceVBO;
-    }
-
-    public VAOData getVao() {
-        return vao;
-    }
-
-    public void setVao(VAOData vao) {
-        this.vao = vao;
-    }
-
-    public FloatBuffer getInstancedBuffer() {
-        return instancedBuffer;
-    }
-
-    public void setInstancedBuffer(FloatBuffer instancedBuffer) {
-        this.instancedBuffer = instancedBuffer;
-    }
-
-    public int getArrayPointer() {
-        return arrayPointer;
-    }
-
-    public void setArrayPointer(int arrayPointer) {
-        this.arrayPointer = arrayPointer;
-    }
-
-    public Shader getRenderShader() {
-        return renderShader;
-    }
-
-    public void setRenderShader(Shader renderShader) {
-        this.renderShader = renderShader;
-    }
-
-    public int getInstanceDataLength() {
-        return instanceDataLength;
-    }
-
-    public void setInstanceDataLength(int instanceDataLength) {
-        this.instanceDataLength = instanceDataLength;
-    }
-
-    public int getLargestAttribute() {
-        return largestAttribute;
-    }
-
-    public void setLargestAttribute(int largestAttribute) {
-        this.largestAttribute = largestAttribute;
-    }
-
-    public int getRenderMode() {
-        return renderMode;
-    }
-
-    public void setRenderMode(int renderMode) {
-        this.renderMode = renderMode;
-    }
-
-    public InstancedAttribute[] getAttribs() {
-        return attribs;
-    }
-
-    public void setAttribs(InstancedAttribute[] attribs) {
-        this.attribs = attribs;
     }
 
 

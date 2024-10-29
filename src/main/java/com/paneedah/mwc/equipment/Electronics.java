@@ -49,7 +49,7 @@ public class Electronics implements EquipmentFactory {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.65F, 0.65F, 0.65f);
-                    } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+                    } else if (null instanceof com.paneedah.mwc.models.LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -57,7 +57,7 @@ public class Electronics implements EquipmentFactory {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+                    } else if (null instanceof com.paneedah.mwc.models.LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -107,7 +107,7 @@ public class Electronics implements EquipmentFactory {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.65F, 0.65F, 0.65f);
-                    } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+                    } else if (null instanceof com.paneedah.mwc.models.LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -115,7 +115,7 @@ public class Electronics implements EquipmentFactory {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+                    } else if (null instanceof com.paneedah.mwc.models.LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -123,17 +123,9 @@ public class Electronics implements EquipmentFactory {
                 .withFirstPersonHandPositioning(
                         () -> {
                             GL11.glScalef(0F, 0F, 0F);
-                            // GL11.glRotatef(190F, 1f, 0f, 0f);
-                            // GL11.glRotatef(10F, 0f, 1f, 0f);
-                            // GL11.glRotatef(30F, 0f, 0f, 1f);
-                            // GL11.glTranslatef(0.1F, -1.75F, 0F);
                         },
                         () -> {
                             GL11.glScalef(0F, 0F, 0F);
-                            // GL11.glRotatef(190F, 1f, 0f, 0f);
-                            // GL11.glRotatef(0F, 0f, 1f, 0f);
-                            // GL11.glRotatef(-10F, 0f, 0f, 1f);
-                            // GL11.glTranslatef(-0.15F, -0.4F, 0.4F);
                         }
                 )
 
@@ -156,11 +148,6 @@ public class Electronics implements EquipmentFactory {
                     GL11.glRotatef(70.000000f, 0f, 1f, 0f);
                     GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
                     GL11.glTranslatef(-0.2f, 0.4f, -1.8f);
-//            GL11.glTranslatef(-6.500000f, 1.575000f, -2.000000f);
-//            GL11.glRotatef(15.000000f, 1f, 0f, 0f);
-//            GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//            GL11.glRotatef(-5.000000f, 0f, 0f, 1f);
-//            GL11.glTranslatef(-0.8f, 0.2f, -1.5f);
                 })
                 .withThirdPersonModelPositioning(model -> {
                     if (model instanceof TabletModel) {
@@ -176,7 +163,7 @@ public class Electronics implements EquipmentFactory {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.65F, 0.65F, 0.65f);
-                    } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+                    } else if (null instanceof com.paneedah.mwc.models.LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
@@ -184,7 +171,7 @@ public class Electronics implements EquipmentFactory {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.paneedah.mwc.models.LPscope) {
+                    } else if (null instanceof com.paneedah.mwc.models.LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -199,10 +186,6 @@ public class Electronics implements EquipmentFactory {
                             GL11.glRotatef(5.000000f, 0f, 1f, 0f);
                             GL11.glRotatef(-105.000000f, 0f, 0f, 1f);
                             GL11.glTranslatef(0.275000f, -0.425000f, 0.050000f);
-//                    GL11.glRotatef(-180.000000f, 1f, 0f, 0f);
-//                    GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
-//                    GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
-//                    GL11.glTranslatef(0f, -0.1f, 0.8f);
                         })
                 .withName("gas-detector")
 

@@ -96,8 +96,6 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0.03, 0, -0.43, 0.97, 0.54, 1.47);
-                                    break;
                                 case EAST:
                                     boundingBox = new AxisAlignedBB(0.03, 0, -0.43, 0.97, 0.54, 1.47);
                                     break;
@@ -131,14 +129,10 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0.35, 0, 0.15, 0.7, 0.5, 0.85);
-                                    break;
                                 case EAST:
                                     boundingBox = new AxisAlignedBB(0.35, 0, 0.15, 0.7, 0.5, 0.85);
                                     break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7);
                                     break;
@@ -180,14 +174,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
                                     break;
@@ -215,14 +203,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
                                     break;
@@ -278,14 +260,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
                                     break;
@@ -313,14 +289,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
                                     break;
@@ -348,14 +318,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
                                     break;
@@ -424,14 +388,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
                                     break;
@@ -528,14 +486,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
                                     break;
@@ -564,14 +516,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
                                     break;
@@ -627,14 +573,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
                                     break;
@@ -663,14 +603,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
                                     break;
@@ -802,14 +736,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
                                     break;
@@ -850,14 +778,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
                                     break;
@@ -936,14 +858,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
                                     break;
@@ -971,14 +887,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
                                     break;
@@ -1263,14 +1173,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
                                     break;
@@ -1363,14 +1267,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
                                     break;
@@ -1437,14 +1335,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
                                     break;
@@ -1576,14 +1468,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
                                     break;
@@ -1611,14 +1497,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
                                     break;
@@ -1646,14 +1526,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
                                     break;
@@ -1680,14 +1554,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
                                     break;
@@ -1775,14 +1643,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.9, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.9, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.9, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.9, 1);
                                     break;
@@ -1810,14 +1672,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 1);
                                     break;
@@ -1846,14 +1702,8 @@ public class TileEntities implements TileEntityFactory  {
                             EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
                             switch (facing) {
                                 case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
-                                    break;
                                 case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
-                                    break;
                                 case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
-                                    break;
                                 case SOUTH:
                                     boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
                                     break;

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 
@@ -53,7 +54,7 @@ public class BalancePackCommand extends TidyCompatibleCommand {
             case LIST_KEY:
                 sendFormattedMessage(sender, "Listing balance packs:");
                 int counter = 1;
-                for (File file : directory.listFiles()) {
+                for (File file : Objects.requireNonNull(directory.listFiles())) {
                     if (file.getName().equals("index.json")) {
                         continue;
                     }
@@ -78,12 +79,12 @@ public class BalancePackCommand extends TidyCompatibleCommand {
                 CHANNEL.sendToAll(new BalancePackClientMessage(BalancePackManager.getActiveBalancePack()));
                 return;
             case LOAD_KEY:
-                if (secondArgument.length() == 0) {
+                if (secondArgument.isEmpty()) {
                     sendFormattedMessage(sender, "You must specify a file name!");
                     return;
                 }
 
-                for (File f : directory.listFiles()) {
+                for (File f : Objects.requireNonNull(directory.listFiles())) {
                     if (f.getName().equals(secondArgument)) {
                         sender.sendMessage(new TextComponentString(getHeader() + " Loading balance pack " + TextFormatting.RED + f.getName()));
                         BalancePackManager.loadBalancePack(sender, f.getName());
@@ -102,7 +103,7 @@ public class BalancePackCommand extends TidyCompatibleCommand {
 
             case DOWNLOAD_KEY:
                 String link = "";
-                if (secondArgument.length() == 0) {
+                if (secondArgument.isEmpty()) {
                     sendOptionHelp(sender, DOWNLOAD_KEY);
                     return;
                 } else if (secondArgument.equals(PASTEBIN_KEY)) {
@@ -110,15 +111,8 @@ public class BalancePackCommand extends TidyCompatibleCommand {
                         sendOptionHelp(sender, DOWNLOAD_KEY);
                         return;
                     }
-                    if (secondArgument.contains("/") && !secondArgument.contains("raw")) {
-                        sender.sendMessage(new TextComponentString(getHeader() + " Detected pastebin link... but you forgot to link us to the raw data!"));
-                        String[] split = link.split("/");
-                        link = PASTEBIN_LINK_START + split[split.length - 1];
-                        sender.sendMessage(new TextComponentString(getHeader() + " Fixed pastebin link: " + TextFormatting.RED + link));
-                    } else {
-                        // Take Pastebin code directly
-                        link = PASTEBIN_LINK_START + secondArgument;
-                    }
+                    // Take Pastebin code directly
+                    link = PASTEBIN_LINK_START + secondArgument;
 
                 } else if (secondArgument.equals(RAW_KEY)) {
                     if (args.length == 0) {

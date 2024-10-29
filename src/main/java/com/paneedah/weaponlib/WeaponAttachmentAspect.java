@@ -8,6 +8,8 @@ import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
 import com.paneedah.weaponlib.state.StateManager;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -70,7 +72,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 
         public ChangeAttachmentPermit(AttachmentCategory category, ItemStack attachment) {
             super(WeaponState.NEXT_ATTACHMENT);
-            this.attachmentCategory = category;
+            attachmentCategory = category;
             this.attachment = attachment;
 
         }
@@ -247,8 +249,11 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 
     public static class FlaggedAttachment {
 
+        @Getter
         private final ItemAttachment<Weapon> attachment;
         private final ItemStack stack;
+        @Setter
+        @Getter
         private ArrayList<ItemAttachment<Weapon>> requiredParts;
 
         public FlaggedAttachment(ItemStack stack, ItemAttachment<Weapon> attachment) {
@@ -256,16 +261,8 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
             this.attachment = attachment;
         }
 
-        public void setRequiredParts(ArrayList<ItemAttachment<Weapon>> list) {
-            this.requiredParts = list;
-        }
-
         public ItemStack getItemStack() {
             return stack;
-        }
-
-        public ArrayList<ItemAttachment<Weapon>> getRequiredParts() {
-            return requiredParts;
         }
 
         public boolean requiresAnyParts() {
@@ -273,10 +270,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
                 return false;
             }
             return !requiredParts.isEmpty();
-        }
-
-        public ItemAttachment<Weapon> getAttachment() {
-            return attachment;
         }
 
     }
@@ -655,7 +648,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
     public static ArrayList<ItemAttachment<Weapon>> whatRequiredFor(ItemAttachment<Weapon> attachmentItem, PlayerWeaponInstance weaponInstance) {
         ArrayList<ItemAttachment<Weapon>> requireesList = new ArrayList<>();
 
-        boolean result = false;
+        boolean result;
         for (int currentAttachmentId : weaponInstance.getActiveAttachmentIds()) {
             Item otherAttachmentItem = Item.getItemById(currentAttachmentId);
             if (otherAttachmentItem instanceof ItemAttachment) {
@@ -674,9 +667,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
      * Adds the attachment to the weapon identified by the itemStack without
      * removing the attachment from the inventory.
      *
-     * @param nextAttachment
-     * @param itemStack
-     * @param player
      */
     public static void addAttachment(ItemAttachment<Weapon> attachment, PlayerWeaponInstance weaponInstance) {
 
@@ -688,12 +678,10 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
         }
 
         if (currentAttachment == null) {
-            if (attachment != null) {
-                if (attachment.getApply() != null) {
-                    attachment.getApply().apply(attachment, weaponInstance.getWeapon(), weaponInstance.getPlayer());
-                } else if (attachment.getApply2() != null) {
-                    attachment.getApply2().apply(attachment, weaponInstance);
-                }
+            if (attachment.getApply() != null) {
+                attachment.getApply().apply(attachment, weaponInstance.getWeapon(), weaponInstance.getPlayer());
+            } else if (attachment.getApply2() != null) {
+                attachment.getApply2().apply(attachment, weaponInstance);
             }
             activeAttachmentsIds[attachment.getCategory().ordinal()] = Item.getIdFromItem(attachment);
         } else {
@@ -706,11 +694,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
      * Removes the attachment from the weapon identified by the itemStack without
      * adding the attachment to the inventory.
      *
-     * @param attachmentCategory
-     * @param itemStack
-     * @param player
-     *
-     * @return
      */
     ItemAttachment<Weapon> removeAttachment(AttachmentCategory attachmentCategory, PlayerWeaponInstance weaponInstance) {
 

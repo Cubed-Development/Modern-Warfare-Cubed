@@ -28,7 +28,7 @@ public abstract class BlockStation extends Block {
 
     public BlockStation(ModContext context, String name, Material materialIn) {
         super(materialIn);
-        this.modContext = context;
+        modContext = context;
 
         if (context.isClient()) {
             ClientEventHandler.BLANKMAPPED_LIST.add(this);
@@ -38,7 +38,7 @@ public abstract class BlockStation extends Block {
         setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.MISC);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+        setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 
     /**
@@ -46,7 +46,7 @@ public abstract class BlockStation extends Block {
      */
     @Override
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-        this.setDefaultFacing(worldIn, pos, state);
+        setDefaultFacing(worldIn, pos, state);
     }
 
     private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state) {
@@ -88,7 +88,7 @@ public abstract class BlockStation extends Block {
             enumfacing = EnumFacing.NORTH;
         }
 
-        return this.getDefaultState().withProperty(FACING, enumfacing);
+        return getDefaultState().withProperty(FACING, enumfacing);
     }
 
     @Override
@@ -120,7 +120,7 @@ public abstract class BlockStation extends Block {
 
     @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+        return getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
 
     @Override

@@ -41,14 +41,10 @@ public class DriftCloudFX extends ParticleCloud {
 
         this.particleTextureIndexY = 3;
 
-        //this.particleTextureIndexX = (int) Math.floor(8*(this.particleAge/this.particleMaxAge));
-
-        //this.particleAlpha = (float) ((float) 1.0f - ((double) this.particleAge/(double) this.particleMaxAge));
-
 
         this.particleRed = this.particleGreen = this.particleBlue = urandom.nextFloat() * 0.5F + 0.4F;
 
-        int j = this.getBrightnessForRender(partialTicks);
+        int j = getBrightnessForRender(partialTicks);
         int k = j >> 16 & 65535;
         int l = j & 65535;
 
@@ -79,13 +75,13 @@ public class DriftCloudFX extends ParticleCloud {
 
 
         if (this.particleAge++ >= this.particleMaxAge) {
-            this.setExpired();
+            setExpired();
         }
 
         this.particleTextureIndexX = this.particleAge * 7 / this.particleMaxAge;
 
         //this.setParticleTextureIndex(7 - this.particleAge * 8 / this.particleMaxAge);
-        this.move(this.motionX, this.motionY, this.motionZ);
+        move(this.motionX, this.motionY, this.motionZ);
         this.motionX *= 0.9599999785423279D;
         this.motionY *= 0.9599999785423279D;
         this.motionZ *= 0.9599999785423279D;
@@ -97,7 +93,7 @@ public class DriftCloudFX extends ParticleCloud {
             if (this.posY > axisalignedbb.minY) {
                 this.posY += (axisalignedbb.minY - this.posY) * 0.2D;
                 this.motionY += (entityplayer.motionY - this.motionY) * 0.2D;
-                this.setPosition(this.posX, this.posY, this.posZ);
+                setPosition(this.posX, this.posY, this.posZ);
             }
         }
 

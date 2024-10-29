@@ -12,11 +12,11 @@ public class PTIVal {
     public PTIVal() {}
 
     public void updatePrev() {
-        this.prev = cur;
+        prev = cur;
     }
 
     public void setValue(float val) {
-        this.cur = val;
+        cur = val;
     }
 
     public float getPTI() {

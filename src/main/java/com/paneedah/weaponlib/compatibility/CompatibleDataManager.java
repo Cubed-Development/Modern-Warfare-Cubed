@@ -8,9 +8,6 @@ import net.minecraft.network.datasync.EntityDataManager;
 @Deprecated
 public class CompatibleDataManager {
 
-//    private static final DataParameter<Integer> VARIANT = EntityDataManager.<Integer>createKey(EntityCustomMob.class, DataSerializers.VARINT);
-//    private static final DataParameter<Boolean> SWINGING_ARMS = EntityDataManager.<Boolean>createKey(EntityCustomMob.class, DataSerializers.BOOLEAN);
-
     public static class Key {
         private final DataParameter<?> key;
 
@@ -28,11 +25,11 @@ public class CompatibleDataManager {
         }
 
         public int intValue() {
-            return (Integer) dataManager.get(key);
+            return ((Integer) dataManager.get(key)).intValue();
         }
 
         public boolean booleanValue() {
-            return (Boolean) dataManager.get(key);
+            return ((Boolean) dataManager.get(key)).booleanValue();
         }
     }
 
@@ -62,7 +59,7 @@ public class CompatibleDataManager {
 
 
     public <T> Value<T> get(Key key) {
-        return new Value<>((DataParameter<T>) key.key);
+        return new Value<>(key.key);
     }
 
 

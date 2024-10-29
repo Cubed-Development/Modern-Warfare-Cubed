@@ -47,16 +47,20 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
     public float radius;
 
     // List of reticles
-    public CyclicList<Reticle> reticleList = new CyclicList<>();
+    public CyclicList<Reticle> reticleList;
+
+    {
+        new CyclicList<>();
+    }
 
 
     public ReflexScreen(Runnable pos, float radius, CyclicList<Reticle> reticles) {
         textureWidth = 16;
         textureHeight = 16;
 
-        this.reticleList = reticles;
+        reticleList = reticles;
         this.radius = radius;
-        this.positioning = pos;
+        positioning = pos;
 
         bb_main = new ModelRenderer(this);
         bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -67,61 +71,8 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 
-        if (1 + 1 == 2) {
-            return;
-        }
+        return;
 
-        Shader reflexReticle = null;
-
-
-        GlStateManager.disableTexture2D();
-        GlStateManager.enableBlend();
-        //GlStateManager.enableAlpha();
-        //reflexReticle.use();
-
-        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
-        ResourceLocation loc = new ResourceLocation(ID + ":textures/crosshairs/okp.png");
-
-        MC.getTextureManager().bindTexture(loc);
-
-        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
-        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
-        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
-        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
-        GL20.glUniform1i(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "ret"), 4);
-
-        GL20.glUniform1f(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "texScale"), 0.08f);
-        GL20.glUniform1f(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "radius"), 0.1f);
-
-
-        Vec3d bg = new Vec3d(0.0, 0.7, 0.5);
-        GL20.glUniform3f(GL20.glGetUniformLocation(reflexReticle.getShaderId(), "background"), (float) bg.x, (float) bg.y, (float) bg.z);
-
-        GlStateManager.enableCull();
-		
-		/* eo tech
-		bb_main.offsetY = -2.5f;
-		bb_main.offsetX = -0.075f;
-		bb_main.offsetZ = 0.275f;
-		*/
-        GlStateManager.pushMatrix();
-		
-		/* reflex
-		bb_main.offsetY = -2.60f;
-		bb_main.offsetX = -0.05f;
-		bb_main.offsetZ = 0.0f;
-		*/
-
-
-        GlStateManager.translate(0.25, -5.05, -0.1);
-        GlStateManager.scale(2.0, 2.0, 1.2);
-        bb_main.render(f5);
-
-
-        GlStateManager.popMatrix();
-        reflexReticle.release();
-        GlStateManager.disableBlend();
-        GlStateManager.enableTexture2D();
     }
 
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
@@ -164,7 +115,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
         GL20.glUniform1i(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "ret"), 4);
         GL20.glUniform1i(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "isBloom"), bloom ? 1 : 0);
         GL20.glUniform1f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "texScale"), currentReticle.getTextureScale());
-        GL20.glUniform1f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "radius"), this.radius);
+        GL20.glUniform1f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "radius"), radius);
         GL20.glUniform3f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "background"), (float) currentReticle.getBackgroundColor().x, (float) currentReticle.getBackgroundColor().y, (float) currentReticle.getBackgroundColor().z);
         GlStateManager.enableCull();
 
@@ -206,67 +157,26 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 
             //	GlStateManager.translate(0, -3, 0);
             positioning.run();
-			
 
-			/*
-			textureWidth = 4;
-			textureHeight = textureWidth;
-
-			ModelRenderer bb2 = new ModelRenderer(this);
-			bb2.setRotationPoint(0.0F, 24.0F, 0.0F);
-			bb2.cubeList.add(new ModelBox(bb2, 0, 0, -3.0F, -2.0F, 0.0F, 5, 4, 0, 0.0F, false));
-			
-			bb2.renderer(0.065f);
-			*/
 
             Tessellator t = Tessellator.getInstance();
             BufferBuilder bb = t.getBuffer();
             bb.begin(GL11.GL_QUADS, DefaultVertexFormats.OLDMODEL_POSITION_TEX_NORMAL);
 
             double scaleW = 1.0 * reticleList.current().getTextureScale();
-            double scaleH = scaleW;
             double x = -0.03, y = 1.56;
 
-            bb.pos(-1 * scaleW + x, -1 * scaleH + y, 0).tex(0, 0).normal(0, 0, 1).endVertex();
-            bb.pos(1 * scaleW + x, -1 * scaleH + y, 0).tex(1, 0).normal(0, 0, 1).endVertex();
-            bb.pos(1 * scaleW + x, 1 * scaleH + y, 0).tex(1, 1).normal(0, 0, 1).endVertex();
+            bb.pos(-1 * scaleW + x, -1 * scaleW + y, 0).tex(0, 0).normal(0, 0, 1).endVertex();
+            bb.pos(1 * scaleW + x, -1 * scaleW + y, 0).tex(1, 0).normal(0, 0, 1).endVertex();
+            bb.pos(1 * scaleW + x, 1 * scaleW + y, 0).tex(1, 1).normal(0, 0, 1).endVertex();
 
-            bb.pos(-1 * scaleW + x, 1 * scaleH + y, 0).tex(0, 1).normal(0, 0, 1).endVertex();
+            bb.pos(-1 * scaleW + x, 1 * scaleW + y, 0).tex(0, 1).normal(0, 0, 1).endVertex();
 
             t.draw();
 
 
             GlStateManager.popMatrix();
-			
-			
-			/*
-			GlStateManager.disableTexture2D();
-			GlStateManager.enableBlend();
-			MC.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
-			positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
-			//bb_main.renderer(0.065f);
-			//GlStateManager.disableTexture2D();
-			Tessellator t = Tessellator.getInstance();
-			BufferBuilder bb = t.getBuffer();
-			bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
-			
-			double sizeW = 0.12;
-			double sizeH = 0.12;
-			double x = -0.015;
-			double y = 1.525;
-			
-			double texScale = 2.0;
-			double iTS = -1;
-			
-			
-			//GlStateManager.color(10.0f, 10.0f, 10.0f, 2f);
-			bb.pos(-1*sizeW + x, -1*sizeH + y, 0).tex(iTS, iTS).endVertex();
-			bb.pos(1*sizeW + x, -1*sizeH + y, 0).tex(texScale, iTS).endVertex();
-			bb.pos(1*sizeW + x, 1*sizeH + y, 0).tex(texScale, texScale).endVertex();
-			bb.pos(-1*sizeW + x, 1*sizeH + y, 0).tex(iTS, texScale).endVertex();
-			
-			t.draw();
-			*/
+
 
         }
 

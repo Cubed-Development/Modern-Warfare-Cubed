@@ -10,9 +10,9 @@ public class WheelSolutionVector {
 
 
     public void add(double dt, WheelSolutionVector vec) {
-        this.slipRatio += dt * vec.slipRatio;
-        this.velocity += dt * vec.velocity;
-        this.longSpeed += dt * vec.longSpeed;
+        slipRatio += dt * vec.slipRatio;
+        velocity += dt * vec.velocity;
+        longSpeed += dt * vec.longSpeed;
     }
 
 }

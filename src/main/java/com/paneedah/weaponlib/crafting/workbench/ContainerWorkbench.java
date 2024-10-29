@@ -8,30 +8,27 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerWorkbench extends ContainerStation {
 
-    // Panda: Does this have to be here? There's no getters or setters for this. Couldn't we just not set this here and just utilize workbenchTileEntity that's passed?
-    private final TileEntityWorkbench tileEntityWorkbench;
-
     public ContainerWorkbench(EntityPlayer player, InventoryPlayer inventory, TileEntityWorkbench workbenchTileEntity) {
-        this.tileEntityWorkbench = workbenchTileEntity;
+        // Panda: Does this have to be here? There's no getters or setters for this. Couldn't we just not set this here and just utilize workbenchTileEntity that's passed?
 
         // Page first
         int id = 0;
         for (int y = 0; y < 3; ++y) {
             for (int x = 0; x < 9; ++x) {
-                addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, 23 + id, 1, 13 + x * 22, 37 + y * 22));
+                addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, workbenchTileEntity.mainInventory, 23 + id, 1, 13 + x * 22, 37 + y * 22));
                 id += 1;
             }
         }
 
         // Dismantle slots
         for (int i = 0; i < 4; ++i) {
-            addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, 9 + i, 1, 268 + i * 31, 34));
+            addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, workbenchTileEntity.mainInventory, 9 + i, 1, 268 + i * 31, 34));
         }
 
         id = 0;
         for (int y = 0; y < 2; ++y) {
             for (int x = 0; x < 5; ++x) {
-                addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, 13 + (id++), 1, 271 + x * 22, 99 + y * 22));
+                addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, workbenchTileEntity.mainInventory, 13 + (id++), 1, 271 + x * 22, 99 + y * 22));
             }
         }
 
@@ -49,7 +46,7 @@ public class ContainerWorkbench extends ContainerStation {
         // 2nd
         // Output slots
         for (int i = 0; i < 9; ++i)
-            addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, i, 3, 40 + i * 22, 219));
+            addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, workbenchTileEntity.mainInventory, i, 3, 40 + i * 22, 219));
     }
 
     @Override
@@ -58,22 +55,22 @@ public class ContainerWorkbench extends ContainerStation {
 
         // TODO: [PANDA] Self reminder to triple check this merge of if statements cuz i'm incompetent.
 
-        if (index < 27 && !this.mergeItemStack(slot.getStack(), 41, 76, false)) {
+        if (index < 27 && !mergeItemStack(slot.getStack(), 41, 76, false)) {
             // Workbench inventory
             return ItemStack.EMPTY;
         }
 
-        if (index >= 41 && index <= 76 && !this.mergeItemStack(slot.getStack(), 0, 26, false)) {
+        if (index >= 41 && index <= 76 && !mergeItemStack(slot.getStack(), 0, 26, false)) {
             // Main inventory & hotbar
             return ItemStack.EMPTY;
         }
 
-        if (index <= 30 && !this.mergeItemStack(slot.getStack(), 41, 76, false)) {
+        if (index <= 30 && !mergeItemStack(slot.getStack(), 41, 76, false)) {
             return ItemStack.EMPTY;
         }
 
         if (index <= 40) {
-            this.mergeItemStack(slot.getStack(), 41, 76, false);
+            mergeItemStack(slot.getStack(), 41, 76, false);
         }
 
         return ItemStack.EMPTY;
