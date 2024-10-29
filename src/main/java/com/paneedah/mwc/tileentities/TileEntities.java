@@ -1,7 +1,6 @@
 package com.paneedah.mwc.tileentities;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.tile.CustomTileEntityBlock;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
