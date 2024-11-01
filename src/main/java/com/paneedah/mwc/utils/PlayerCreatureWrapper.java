@@ -9,8 +9,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.Objects;
-
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @Getter
@@ -20,7 +18,7 @@ public class PlayerCreatureWrapper extends EntityPlayerSP {
     private EntityLivingBase entityLiving;
 
     public PlayerCreatureWrapper(World world) {
-        super(MC, world, Objects.requireNonNull(MC.getConnection()), new StatisticsManager(), new RecipeBookClient());
+        super(MC, world, MC.getConnection(), new StatisticsManager(), new RecipeBookClient());
     }
 
     public void setEntityLiving(EntityLivingBase entityLiving) {
