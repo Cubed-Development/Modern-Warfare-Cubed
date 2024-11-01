@@ -30,7 +30,7 @@ public class TESRWorkbench extends TESRStation<TileEntityWorkbench> {
         GlStateManager.enableTexture2D();
         GlStateManager.enableRescaleNormal();
         GL11.glPushMatrix();
-        this.bindTexture(this.location);
+        bindTexture(location);
 
         // Set-up initial parameters
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);

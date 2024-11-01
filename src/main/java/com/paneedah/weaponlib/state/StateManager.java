@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.state;
 
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.weaponlib.state.Permit.Status;
+import lombok.Getter;
 
 import java.util.*;
 import java.util.function.BiFunction;
@@ -45,7 +46,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
         }
 
         public RuleBuilder<EE> to(S state) {
-            this.toState = state;
+            toState = state;
             return this;
         }
 
@@ -63,22 +64,12 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
                 BiFunction<S, EE, Permit<S>> permitProvider,
                 BiFunction<S, EE, Boolean> stateUpdater,
                 NetworkPermitManager permitManager) {
-            this.isPermitRequired = true;
+            isPermitRequired = true;
             this.permitProvider = permitProvider;
             this.stateUpdater = stateUpdater;
             this.permitManager = permitManager;
             return this;
         }
-
-//		public RuleBuilder<A, T> withAction(Action<S> action) {
-//			this.action = action;
-//			return this;
-//		}
-
-//		public RuleBuilder<EE> withAction(PostAction<S, EE> action) {
-//            this.action = (context, from, to, permit) -> action.execute(context, from, to, permit);
-//            return this;
-//        }
 
         public RuleBuilder<EE> withAction(VoidPostAction<S, EE> action) {
             this.action = (context, from, to, permit) -> {
@@ -96,11 +87,6 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
             return this;
         }
 
-//		public RuleBuilder<EE> automatically() {
-//			this.auto = true;
-//			return this;
-//		}
-
         public StateManager<S, E> automatic() {
             return addRule(true);
         }
@@ -111,7 +97,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 
         private StateManager<S, E> addRule(boolean auto) {
 
-            LinkedHashSet<TransitionRule<S, E>> aspectRules = StateManager.this.contextRules.computeIfAbsent(
+            LinkedHashSet<TransitionRule<S, E>> aspectRules = contextRules.computeIfAbsent(
                     aspect, c -> new LinkedHashSet<>());
 
             if (predicate == null) {
@@ -178,8 +164,6 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
                         effectivePredicate,
                         (s, f, t, p) -> {
 
-                            //System.out.println("hi gamers " + (p != null));
-                            //System.out.println(t);
                             permitManager.request(
                                     p != null ? p : permitProvider.apply(t, safeCast(s)), s, this::applyPermit);
                             return null;
@@ -222,6 +206,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
         boolean compare(S state1, S state2);
     }
 
+    @Getter
     public class Result {
         private final boolean stateChanged;
         private final S state;
@@ -229,20 +214,9 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 
         private Result(boolean stateChanged, S targetState) {
             this.stateChanged = stateChanged;
-            this.state = targetState;
+            state = targetState;
         }
 
-        public boolean isStateChanged() {
-            return stateChanged;
-        }
-
-        public S getState() {
-            return state;
-        }
-
-        public Object getActionResult() {
-            return actionResult;
-        }
     }
 
     public interface PostAction<S extends ManagedState<S>, EE> {
@@ -392,19 +366,4 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
     }
 
 //  Non-stream version to test performance
-//
-//	private TransitionRule<S, E> findNextStateRule(Aspect<S, ? extends E> aspect, E extendedState, S currentState,  S... targetStates) {
-//		
-//		LinkedHashSet<TransitionRule<S, E>> aspectRules = contextRules.get(aspect);
-//		TransitionRule<S, E> result = null;
-//		if(aspectRules != null) {
-//			for(TransitionRule<S, E> rule: aspectRules) {
-//				if(rule.matches(stateComparator, extendedState, currentState, targetStates)) {
-//					result = rule;
-//					break;
-//				}
-//			}
-//		}
-//		return result;
-//	}
 }

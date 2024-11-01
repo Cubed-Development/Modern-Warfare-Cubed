@@ -23,14 +23,13 @@ public class ViewfinderModel extends ModelBase {
     private static final ResourceLocation SCOPE_GRIME_TEXTURE = new ResourceLocation(ID + ":textures/hud/scopedirt.png");
 
     private final ModelRenderer surfaceRenderer;
-    private final FlatSurfaceModelBox box;
 
     public ViewfinderModel() {
         textureWidth = 128;
         textureHeight = 64;
 
         surfaceRenderer = new ModelRenderer(this, 0, 0);
-        box = new FlatSurfaceModelBox(surfaceRenderer, 0, 0, 0f, 0f, 0f, 3, 3, 0, 0.0F);
+        FlatSurfaceModelBox box = new FlatSurfaceModelBox(surfaceRenderer, 0, 0, 0f, 0f, 0f, 3, 3, 0, 0.0F);
         surfaceRenderer.cubeList.add(box);
         surfaceRenderer.mirror = true;
         surfaceRenderer.setRotationPoint(0F, -10F, 0F);
@@ -167,9 +166,7 @@ public class ViewfinderModel extends ModelBase {
 
         scopeShader.uniform1i("reticle", 4);
         scopeShader.uniform1i("dirt", 6);
-        //scopeShader.uniform1i("holo", 7);
 
-        //scopeShader.uniform2f("Velocity", (float) ClientValueRepo.scopeX.getLerpedFloat(), (float) ClientValueRepo.scopeY.getLerpedFloat());
         scopeShader.uniform2f("resolution", MC.displayWidth, MC.displayHeight);
         scopeShader.boolean1b("isNightVisionOn", isNightVisionOn);
         scopeShader.boolean1b("useWhitePhosphor", useWhitePhosphor);

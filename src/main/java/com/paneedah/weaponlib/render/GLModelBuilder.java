@@ -62,9 +62,6 @@ public class GLModelBuilder {
      * <p>
      * It does NOT unbind the VBO.
      *
-     * @param vertexes
-     *
-     * @return
      */
     public static int buildVBO(ArrayList<Vertex> vertexes) {
         int vbo = GL15.glGenBuffers();

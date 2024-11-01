@@ -21,45 +21,45 @@ public class ExplosionSmokeFX extends Particle {
     private static final int rowCount = 4;
 
     private static final TriFunction<Float, Integer, Integer, Float> EXPLOSION_SCALE_UPDATE_FUNCTION = (currentScale, ticks, maxTicks) -> {
-        if (currentScale > 25) {
-            currentScale *= 1.0008f;
-        } else if (currentScale > 20) {
-            currentScale *= 1.002f;
-        } else if (currentScale > 15) {
-            currentScale *= 1.004f;
-        } else if (currentScale > 10) {
-            currentScale *= 1.05f;
+        if (currentScale.floatValue() > 25) {
+            currentScale = currentScale.floatValue() * 1.0008f;
+        } else if (currentScale.floatValue() > 20) {
+            currentScale = currentScale.floatValue() * 1.002f;
+        } else if (currentScale.floatValue() > 15) {
+            currentScale = currentScale.floatValue() * 1.004f;
+        } else if (currentScale.floatValue() > 10) {
+            currentScale = currentScale.floatValue() * 1.05f;
         } else {
-            currentScale *= 3f;
+            currentScale = currentScale.floatValue() * 3f;
         }
 
         return currentScale;
     };
 
     private static final TriFunction<Float, Integer, Integer, Float> SMOKE_GRENADE_SCALE_UPDATE_FUNCTION = (currentScale, ticks, maxTicks) -> {
-        if (currentScale > 25) {
-            currentScale *= 1.0008f;
-        } else if (currentScale > 20) {
-            currentScale *= 1.002f;
-        } else if (currentScale > 15) {
-            currentScale *= 1.004f;
-        } else if (currentScale > 5) {
-            currentScale *= 1.05f;
+        if (currentScale.floatValue() > 25) {
+            currentScale = currentScale.floatValue() * 1.0008f;
+        } else if (currentScale.floatValue() > 20) {
+            currentScale = currentScale.floatValue() * 1.002f;
+        } else if (currentScale.floatValue() > 15) {
+            currentScale = currentScale.floatValue() * 1.004f;
+        } else if (currentScale.floatValue() > 5) {
+            currentScale = currentScale.floatValue() * 1.05f;
         } else {
-            currentScale *= 2f;
+            currentScale = currentScale.floatValue() * 2f;
         }
 
         return currentScale;
     };
 
     private static final TriFunction<Float, Integer, Integer, Float> EXPLOSION_ALPHA_UPDATE_FUNCTION = (currentAlpha, ticks, maxTicks) -> {
-        double alphaRadians = Math.PI / 4f + Math.PI * (float) ticks / (float) maxTicks;
-        return 0.3f * (float) Math.sin(alphaRadians > Math.PI ? Math.PI : alphaRadians);
+        double alphaRadians = Math.PI / 4f + Math.PI * ticks.floatValue() / maxTicks.floatValue();
+        return Float.valueOf(0.3f * (float) Math.sin(alphaRadians > Math.PI ? Math.PI : alphaRadians));
     };
 
     private static final TriFunction<Float, Integer, Integer, Float> SMOKE_GRENADE_ALPHA_UPDATE_FUNCTION = (currentAlpha, ticks, maxTicks) -> {
-        double alphaRadians = Math.PI / 4f + Math.PI * (float) ticks / (float) maxTicks;
-        return 0.3f * (float) Math.sin(alphaRadians > Math.PI ? Math.PI : alphaRadians);
+        double alphaRadians = Math.PI / 4f + Math.PI * ticks.floatValue() / maxTicks.floatValue();
+        return Float.valueOf(0.3f * (float) Math.sin(alphaRadians > Math.PI ? Math.PI : alphaRadians));
     };
 
     private final String particleTexture;
@@ -75,7 +75,6 @@ public class ExplosionSmokeFX extends Particle {
         this.motionZ = motionZ;
 
         if (motionX == 0.0F) {
-            motionX = 1.0F;
         }
 
         this.behavior = behavior;
@@ -88,7 +87,7 @@ public class ExplosionSmokeFX extends Particle {
         this.scale = scale;
         this.particleMaxAge = particleMaxAge == 0 ? 50 + (int) (rand.nextFloat() * 30) : particleMaxAge;
 
-        this.imageIndex = this.rand.nextInt(columnCount * rowCount); // % columnCount;
+        imageIndex = this.rand.nextInt(columnCount * rowCount); // % columnCount;
 
         this.particleTexture = particleTexture != null ? particleTexture : DEFAULT_SMOKE_TEXTURE;
     }
@@ -100,11 +99,11 @@ public class ExplosionSmokeFX extends Particle {
         this.prevPosZ = this.posZ;
 
         if (this.particleAge++ >= this.particleMaxAge) {
-            this.setExpired();
+            setExpired();
         }
 
         this.motionY += 0.00001D; //this.motionY += 0.0005D;
-        this.move(this.motionX, this.motionY, this.motionZ);
+        move(this.motionX, this.motionY, this.motionZ);
 
         this.motionX *= 0.799999785423279D;
         this.motionY *= 0.9999999785423279D;
@@ -143,7 +142,7 @@ public class ExplosionSmokeFX extends Particle {
         float y = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY);
         float z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ);
 
-        int brightness = this.getBrightnessForRender(partialTicks); // or simply set it to 200?
+        int brightness = getBrightnessForRender(partialTicks); // or simply set it to 200?
         int skyLight = brightness >> 16 & 65535;
         int blockLight = brightness & 65535;
 
@@ -156,19 +155,14 @@ public class ExplosionSmokeFX extends Particle {
         float u1 = (columnIndex + 1) * columnWidth;
         float v1 = (rowIndex + 1) * rowHeight; // 1
 
-        float u2 = u1;
         float v2 = rowIndex * rowHeight; //0f;
 
         float u3 = columnIndex * columnWidth;
-        float v3 = v2;
-
-        float u4 = u3;
-        float v4 = v1;
 
         ParticleRenderer.renderParticle(buffer, x - rotationX * scale - rotationXY * scale, y - rotationZ * scale, z - rotationYZ * scale - rotationXZ * scale, skyLight, blockLight, u1, v1, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-        ParticleRenderer.renderParticle(buffer, x - rotationX * scale + rotationXY * scale, y + rotationZ * scale, z - rotationYZ * scale + rotationXZ * scale, skyLight, blockLight, u2, v2, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-        ParticleRenderer.renderParticle(buffer, x + rotationX * scale + rotationXY * scale, y + rotationZ * scale, z + rotationYZ * scale + rotationXZ * scale, skyLight, blockLight, u3, v3, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-        ParticleRenderer.renderParticle(buffer, x + rotationX * scale - rotationXY * scale, y - rotationZ * scale, z + rotationYZ * scale - rotationXZ * scale, skyLight, blockLight, u4, v4, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
+        ParticleRenderer.renderParticle(buffer, x - rotationX * scale + rotationXY * scale, y + rotationZ * scale, z - rotationYZ * scale + rotationXZ * scale, skyLight, blockLight, u1, v2, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
+        ParticleRenderer.renderParticle(buffer, x + rotationX * scale + rotationXY * scale, y + rotationZ * scale, z + rotationYZ * scale + rotationXZ * scale, skyLight, blockLight, u3, v2, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
+        ParticleRenderer.renderParticle(buffer, x + rotationX * scale - rotationXY * scale, y - rotationZ * scale, z + rotationYZ * scale - rotationXZ * scale, skyLight, blockLight, u3, v1, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
 
         Tessellator.getInstance().draw();
 

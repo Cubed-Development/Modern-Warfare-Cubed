@@ -5,6 +5,7 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import com.paneedah.weaponlib.JSONDatabaseManager;
+import lombok.Getter;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Loader;
@@ -36,6 +37,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
     private static final String CACHE_EXTENSION = ".cache";
 
     // Current file hash
+    @Getter
     private byte[] currentFileHash;
     private byte[] defaultFileHash;
 
@@ -51,18 +53,11 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 
     // {-1: Not loaded, 1: Default mappings, 2: Custom Mappings }
+    @Getter
     private int loadingStatus = -1;
 
     public static CraftingFileManager getInstance() {
         return INSTANCE;
-    }
-
-    public byte[] getCurrentFileHash() {
-        return currentFileHash;
-    }
-
-    public int getLoadingStatus() {
-        return this.loadingStatus;
     }
 
     @Override
@@ -88,8 +83,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
             String itemName = entry.getIngredient().toString();
 
             jsonEntry.addProperty(ENTRY_ITEM_NAME_KEY, !entry.isOreDictionary() ? itemName : entry.getOreDictionaryEntry());
-            jsonEntry.addProperty(ORE_DICTIONARY_BOOLEAN_KEY, false);
-            jsonEntry.addProperty(COUNT_KEY, entry.getCount());
+            jsonEntry.addProperty(ORE_DICTIONARY_BOOLEAN_KEY, Boolean.FALSE);
+            jsonEntry.addProperty(COUNT_KEY, Integer.valueOf(entry.getCount()));
 
             if (entry.isOreDictionary())
                 jsonEntry.addProperty(ORE_DICTIONARY_DEFAULT_ITEM, itemName);
@@ -121,8 +116,11 @@ public class CraftingFileManager extends JSONDatabaseManager {
             } else if (loadingStatus == 1) {
                 // Default mode
                 InputStream is = getClass().getClassLoader().getResourceAsStream(DEFAULT_CRAFTING_MAPPINGS);
-                for (int i = 0; i < is.available(); ++i)
+                if (is != null) {
+                    for (int i = 0; i < is.available(); ++i)
                     baos.write(is.read());
+                }
+
                 is.close();
             }
 

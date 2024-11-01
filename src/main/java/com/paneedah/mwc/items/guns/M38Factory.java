@@ -42,9 +42,9 @@ public class M38Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -173,15 +173,15 @@ public class M38Factory implements GunFactory {
                         GL11.glTranslatef(0.13F, -1.145F, -4.03F);
                         GL11.glScaled(0.6F, 0.6F, 0.88F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.37F, -0.97F, -4.03F);
                         GL11.glScaled(0.6F, 0.6F, 0.88F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.03F, -0.81F, -4.03F);
                         GL11.glScaled(0.6F, 0.6F, 0.88F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.2F, -1.375F, -4.03f);
                         GL11.glScaled(0.6F, 0.8F, 0.88F);
                     }
@@ -191,22 +191,22 @@ public class M38Factory implements GunFactory {
                         GL11.glTranslatef(0.13F, -1.145F, -4.03F);
                         GL11.glScaled(0.6F, 0.6F, 0.88F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.37F, -0.97F, -4.03F);
                         GL11.glScaled(0.6F, 0.6F, 0.88F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.03F, -0.81F, -4.03F);
                         GL11.glScaled(0.6F, 0.6F, 0.88F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.2F, -1.375F, -4.03f);
                         GL11.glScaled(0.6F, 0.8F, 0.88F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.HK416Receiver, true, (model) -> {
                     if (model instanceof M4Receiver) {
-                    } else if (model instanceof AKRail) {
+                    } else if (null instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.375F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.69F);
                     }
@@ -262,23 +262,21 @@ public class M38Factory implements GunFactory {
                     GL11.glScaled(0.7F, 0.4F, 0.7F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M4EjectorAction, true, (model) -> {
-//          GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//          GL11.glScaled(0.7F, 0.4F, 0.7F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.AR15Iron, (model) -> {
                     if (model instanceof M4Iron1) {
                         GL11.glTranslatef(-0.145F, -1.55F, -0.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(-0.055F, -1.35F, -4.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(-0.185F, -1.53F, -4.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ARCarryHandle) {
+                    } else if (null instanceof ARCarryHandle) {
                         GL11.glTranslatef(-0.1425F, -1.533F, -0.12F);
                         GL11.glScaled(0.29F, 0.29F, 0.29F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -319,7 +317,7 @@ public class M38Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -352,10 +350,9 @@ public class M38Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
@@ -572,8 +569,6 @@ public class M38Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                         })
 
                         .withThirdPersonPositioningReloading(
@@ -642,8 +637,6 @@ public class M38Factory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//				GL11.glRotatef(45F, 0f, 1f, 0f);
-//				GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.18f, 0.03f, 0.3f);
 
                             // Standard Iron Sight Zoom

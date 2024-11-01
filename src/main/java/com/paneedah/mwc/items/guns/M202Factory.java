@@ -35,9 +35,9 @@ public class M202Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.7f)
-                .withFlashScale(() -> 2f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(() -> Float.valueOf(2f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.14f))
                 .withShellCasingEjectEnabled(false)
                 .withDestroyingBlocks(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -85,11 +85,6 @@ public class M202Factory implements GunFactory {
                             GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(-1.125000f, 0.225000f, -1.800000f);
 
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glRotatef(-2F, 0f, 0f, 1f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glTranslatef(-1.125000f, 1.825000f, -4.800000f);
-//                GL11.glRotatef(35F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -106,12 +101,8 @@ public class M202Factory implements GunFactory {
                             GL11.glTranslatef(-0.6f, 0.22f, -0.5f);
 
                             // ACOG Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                //System.out.println("Position me for Acog");
-                            }
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG);//System.out.println("Position me for Acog");
+// Everything else
 
 
                         })
@@ -317,12 +308,8 @@ public class M202Factory implements GunFactory {
                             GL11.glTranslatef(-0.6f, 0.22f, -0.8f);
 
                             // ACOG Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                //System.out.println("Position me for Acog");
-                            }
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG);//System.out.println("Position me for Acog");
+// Everything else
 
 
                         })

@@ -5,8 +5,8 @@ import net.minecraft.util.math.Vec3d;
 import javax.vecmath.Quat4d;
 
 /**
- * http://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToEuler/index.htm
- * http://www.euclideanspace.com/maths/geometry/rotations/conversions/eulerToQuaternion/index.htm
+ * <a href="http://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToEuler/inde<a href="x.htm">...</a>
+ ">* http://www.euclideanspace.com/maths/geometry/rotations/conversions/eulerToQu</a>aternion/index.htm
  *
  * @author
  */

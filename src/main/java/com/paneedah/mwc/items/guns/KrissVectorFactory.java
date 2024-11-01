@@ -43,9 +43,9 @@ public class KrissVectorFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.22f)
+                .withFlashScale(() -> Float.valueOf(0.5f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.22f))
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -85,7 +85,7 @@ public class KrissVectorFactory {
                     if (model instanceof KrissVectorRailRiser) {
                         GL11.glTranslatef(0f, 0f, 0f);
                         GL11.glScaled(1F, 1F, 1F);
-                    } else if (model instanceof AKRail) {
+                    } else if (null instanceof AKRail) {
                         GL11.glTranslatef(-0.245F, -1.48F, -4.19f);
                         GL11.glScaled(0.9F, 0.9F, 1.38F);
                     }
@@ -222,7 +222,7 @@ public class KrissVectorFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -263,10 +263,9 @@ public class KrissVectorFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 }, false, false)
                 .withCompatibleAttachment(Attachments.Reflex, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -476,10 +475,8 @@ public class KrissVectorFactory {
                         }
                     }
                 }, (model) -> {
-                    if (model instanceof Bipod) {
-//                GL11.glTranslatef(0.12F, -0.2F, 2.49F);
-//                GL11.glScaled(0.03F, 0.03F, 0.03F);
-                    }
+                    //                GL11.glTranslatef(0.12F, -0.2F, 2.49F);
+                    //                GL11.glScaled(0.03F, 0.03F, 0.03F);
                 }, false, false)
                 .withCompatibleAttachment(Attachments.Grip2, (model) -> {
                     GL11.glTranslatef(-0.23F, 0.8F, -3.5F);
@@ -636,17 +633,14 @@ public class KrissVectorFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.18f, -0.15f, 0.6f);
 
 
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.44f, 0.2f);
                                 } else {
@@ -657,9 +651,8 @@ public class KrissVectorFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MBUSRearSights)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.44f, 0.2f);
                                 } else {
@@ -670,9 +663,8 @@ public class KrissVectorFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.42f, 0.3f);
                                 } else {
@@ -683,9 +675,8 @@ public class KrissVectorFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.48f, 0.7f);
                                 } else {
@@ -696,9 +687,8 @@ public class KrissVectorFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.41f, 1f);
                                 } else {
@@ -709,9 +699,8 @@ public class KrissVectorFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.45f, 0.5f);
                                 } else {
@@ -722,9 +711,8 @@ public class KrissVectorFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.36f, 0.5f);
                                 } else {
@@ -735,9 +723,8 @@ public class KrissVectorFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.375f, 0.3f);
                                 } else {
@@ -748,9 +735,8 @@ public class KrissVectorFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.47f, 0.3f);
                                 } else {
@@ -761,9 +747,8 @@ public class KrissVectorFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.47f, 0.3f);
                                 } else {
@@ -774,9 +759,8 @@ public class KrissVectorFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.47f, 0.4f);
                                 } else {
@@ -787,9 +771,8 @@ public class KrissVectorFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.46f, 0.4f);
                                 } else {
@@ -800,9 +783,8 @@ public class KrissVectorFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.42f, 0.8f);
                                 } else {
@@ -813,9 +795,8 @@ public class KrissVectorFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.45f, 0.8f);
                                 } else {
@@ -826,9 +807,8 @@ public class KrissVectorFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.45f, 0.8f);
                                 } else {
@@ -839,9 +819,8 @@ public class KrissVectorFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RAILING, rc.getWeaponInstance());
+                                        AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.RailRiser) {
                                     GL11.glTranslatef(0F, 0.23f, 0.8f);
                                 } else {

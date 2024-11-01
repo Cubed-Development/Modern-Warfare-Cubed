@@ -65,12 +65,6 @@ public class Interceptors {
     public static NaturalCamera nc = new NaturalCamera();
 
     public static void setupCameraTransformAfterHurtCameraEffect(float partialTicks) {
-        //if(1+1==2) return;
-
-        //if(true) return;
-
-
-        //GlStateManager.rotate((float) -ClientValueRepo.walkingGun.getLerpedPosition()*4, 0, 0, 1);
 
 
         PlayerWeaponInstance weaponInstance = getPlayerWeaponInstance();
@@ -86,11 +80,6 @@ public class Interceptors {
         if (player.isRiding() && player.getRidingEntity() instanceof EntityVehicle && MC.gameSettings.thirdPersonView == 0) {
             EntityVehicle vehicle = (EntityVehicle) player.getRidingEntity();
             // DEBUG //
-            //GL11.glRotated(-vehicle.rotationPitch*0.1, 1, 0, 0);
-            //GL11.glRotated(vehicle.sideLean, 0.0, 0.0, 1.0);
-
-
-            //MC.setRenderViewEntity(vehicle);
 
 
             if (MC.gameSettings.thirdPersonView == 0) {
@@ -101,8 +90,6 @@ public class Interceptors {
                 }
 
 
-                //MatrixHelper.applyMatrix(RenderVehicle2.tm);
-                //vehicle.rotationPitch = 0;
                 float mu = (float) ((1 - Math.cos(MC.getRenderPartialTicks() * Math.PI)) / 2f);
 
                 /*
@@ -125,14 +112,6 @@ public class Interceptors {
                 /*
                  * END YAW & PITCH
                  */
-
-
-                //player.rotationYaw = vehicle.rotationYaw;
-                //player.prevRotationYaw = vehicle.prevRotationYaw;
-
-
-                //player.rotationPitch = -vehicle.rotationPitch;
-                //player.prevRotationPitch = -vehicle.prevRotationPitch;
 
 
                 double dist = vehicle.prevRotationPitch + (vehicle.rotationPitch - vehicle.prevRotationPitch) * mu;
@@ -175,54 +154,11 @@ public class Interceptors {
 
         if (player.isRiding() && player.getRidingEntity() instanceof EntityVehicle && MC.gameSettings.thirdPersonView == 1) {
             EntityVehicle vehicle = (EntityVehicle) player.getRidingEntity();
-    		
-    		/*
-    		double cRY = player.rotationYaw-vehicle.rotationYaw;
-    		double cPRY = player.rotationYaw-vehicle.rotationYaw;
-    		if(cRY > 90) cRY = 0;
-    		if(cPRY > 90) cPRY = 0;
-    		
-    		player.rotationYaw -= cRY*0.005;
-    		player.prevRotationYaw -= cPRY*0.005;*/
-    		/*
-    		player.rotationYaw = vehicle.rotationYaw;
-    		player.prevRotationYaw = vehicle.prevRotationYaw;*/
 
 
-            //Vec3d vcv = vehicle.getSolver().getVelocityVector().scale(0.1);
-            //GL11.glTranslated(vcv.x, vcv.y, vcv.z);
-
-            //MC.gameSettings.fovSetting = (float) (70f + ((vehicle.getSolver().currentRPM)/500.0f) + (vehicle.getRealSpeed()/2));
             Vec3d pV = player.getPositionVector();
-            //GL11.glTranslated(-pV.x, -pV.y, -pV.z);
-
-            //thirdPersonCameraStabilizer.position = Vec3d.ZERO;
-    		/*
-    		if(thirdPersonCameraStabilizer.position.length() == 0.0) {
-    			thirdPersonCameraStabilizer.setPosition(vehicle.getPositionVector());
-    
-    		} else {
-    			thirdPersonCameraStabilizer.setPositionTarget(vehicle.getPositionVector());
-    		}
-    		
-    		thirdPersonCameraStabilizer.tensor = vehicle.getSolver().getOreintationVector();
-    		
-    	
-    		thirdPersonCameraStabilizer.rotationYaw = vehicle.rotationYaw;
-    		thirdPersonCameraStabilizer.updateCameraTransforms();
-    		*/
 
             //GL11.glTranslated(0.0, vehicle.getInterpolatedLiftOffset(), 0.0);
-    		
-    		/*
-    		if(vehicle.rotationPitch > 5) {
-    			Vec3d startLift = InterpolationKit.interpolatedEntityPosition(vehicle);
-    			Vec3d endLift = startLift.subtract(new Vec3d(0, 10, 0).rotatePitch((float) Math.toRadians(vehicle.rotationPitch)).rotateYaw((float) Math.toRadians(-vehicle.rotationYaw)));
-    			RayTraceResult rtr = vehicle.world.rayTraceBlocks(startLift, endLift, false, true, false);
-    			if(rtr != null) {
-    				GL11.glTranslated(0.0, rtr.hitVec.subtract(startLift).length(), 0.0);
-    			}
-    		}*/
 
             if (!vehicle.getConfiguration().shiftWithRight()) {
                 GL11.glTranslated(-0.3, 1.0 /*+ vehicle.getInterpolatedLiftOffset()/2*/, -4.0);
@@ -234,44 +170,6 @@ public class Interceptors {
 
             //GL11.glTranslated(-0.525, 1.0 /*+ vehicle.getInterpolatedLiftOffset()/2*/, -4.0);
             GL11.glTranslated(0.0, 0.5, -2.5);
-    		
-    		
-    		
-    		
-    		/*
-    		float muRoll = (float) ((1 - Math.cos(MC.getRenderPartialTicks() * Math.PI)) / 2f);
-    		float roll = (vehicle.prevRotationRollH+vehicle.prevRotationRoll) + ((vehicle.rotationRoll+vehicle.rotationRollH)-(vehicle.prevRotationRoll+vehicle.prevRotationRollH))*muRoll;
-    		
-    		GL11.glRotated(-roll, 0.0, 0.0, 1.0);
-    		//System.out.println(vehicle.liftOffset);
-    		GL11.glTranslated(-0.525, 1.0 + vehicle.getInterpolatedLiftOffset()/2, -3.0);
-    		GL11.glTranslated(0.0, 0.5, -2.5);
-    		*/
-    	
-    		/*
-    		vehicle.rotationYaw = 0;
-    		vehicle.prevRotationYaw = 0;
-    		
-    		
-    		if(player.rotationYaw == vehicle.rotationYaw) {
-    			
-    		} else if(player.rotationYaw > vehicle.rotationYaw) {
-    			player.rotationYaw += (player.rotationYaw-vehicle.rotationYaw)*0.05;
-    		} else if(player.rotationYaw < vehicle.rotationYaw) {
-    			player.rotationYaw -= (player.rotationYaw-vehicle.rotationYaw)*0.05;
-    		}
-    		
-    		if(player.prevRotationYaw == vehicle.prevRotationYaw) {
-    			
-    		} else if(player.prevRotationYaw > vehicle.prevRotationYaw) {
-    			player.prevRotationYaw += (player.prevRotationYaw-vehicle.prevRotationYaw)*0.05;
-    		} else if(player.prevRotationYaw < vehicle.prevRotationYaw) {
-    			player.prevRotationYaw -= (player.prevRotationYaw-vehicle.prevRotationYaw)*0.05;
-    		}
-    		
-    		System.out.println(player.rotationYaw + " | " + player.prevRotationYaw);
-    		//sysou
-    		*/
 
 
             double targ = vehicle.rotationYaw;
@@ -320,10 +218,6 @@ public class Interceptors {
             player.prevRotationPitch = player.rotationPitch;
 
 
-            //player.rotationPitch = 15;
-            //player.prevRotationPitch = 15;
-
-
         }
 
 
@@ -331,24 +225,11 @@ public class Interceptors {
 
 
         if (weaponInstance != null) {
-            if (weaponInstance.getState() != WeaponState.READY) {
-
-            }
 
             //nc.update();
         }
 
         nsm.applyWorld();
-    	
-    	/*
-    	if(weaponInstance != null) {
-      		   ClientModContext context = (ClientModContext) weaponInstance.getWeapon().getModContext();
-              MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager = weaponInstance.getWeapon().getRenderer().getStateManager(player);
-             
-              ScreenShakingAnimationManager yawPitchAnimationManager = context.getPlayerRawPitchAnimationManager();
-              yawPitchAnimationManager.update(player, weaponInstance, stateManager != null ? stateManager.getLastState() : null);
-         }
-    		*/
 
 
     }
@@ -358,7 +239,7 @@ public class Interceptors {
         ItemStack itemStack = player.getHeldItemMainhand();
         PlayerWeaponInstance weaponInstance = null;
         Item item = itemStack.getItem();
-        if (item != null && item instanceof Weapon) {
+        if (item instanceof Weapon) {
             Weapon weapon = (Weapon) item;
             ClientModContext context = (ClientModContext) weapon.getModContext();
             weaponInstance = context.getMainHeldWeapon();
@@ -367,11 +248,7 @@ public class Interceptors {
     }
 
     public static boolean setupViewBobbing(float partialTicks) {
-    	
-    	/*
-    	GlStateManager.translate(2.0, 0.0, 0.0);
-    	GlStateManager.rotate(45f, 0, 1, 0);
-    	*/
+
         if (AnimationModeProcessor.getInstance().getFPSMode()) {
             AnimationModeProcessor.getInstance().applyCameraTransforms();
 
@@ -396,19 +273,8 @@ public class Interceptors {
         }
 
         float scalar = 0.0f;
-     
-        /*
-        if(ClientValueRepo.gunPow > 30) {
-        	scalar = (float) (ClientValueRepo.gunPow-30)/50f;
-        }
-        */
 
         GlStateManager.rotate(-2f * scalar, 0, 0, 1);
-        // System.out.println(scalar);
-        // GlStateManager.translate(0.0, 0.0, -0.2*scalar);
-
-        //GlStateManager.rotate(3f*scalar, 0, 1, 0);
-        // GlStateManager.rotate(2f*scalar, 1, 0, 0);
 
         EntityPlayer entityplayer = (EntityPlayer) MC.getRenderViewEntity();
 
@@ -422,7 +288,6 @@ public class Interceptors {
 
 
             float sMult = 1.0f;
-            float speed = sMult;
 
             float f = entityplayer.distanceWalkedModified - entityplayer.prevDistanceWalkedModified;
             float f1 = -(entityplayer.distanceWalkedModified + f * partialTicks);
@@ -431,24 +296,11 @@ public class Interceptors {
 
             float xWiggle = LissajousCurve.getXOffsetOnCurve(3, 1, 2, Math.PI, f1);
 
-            GL11.glTranslatef(MathHelper.sin(f1 * (float) Math.PI * speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float) Math.PI) * f2) * 0.5f, 0.0F);
-            GL11.glRotatef(MathHelper.sin(f1 * (float) Math.PI * speed) * f2 * 3.0F * sMult, 0.0F, 0.0F, 1.0F);
-            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float) Math.PI - 0.2F) * speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
+            GL11.glTranslatef(MathHelper.sin(f1 * (float) Math.PI * sMult) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float) Math.PI) * f2) * 0.5f, 0.0F);
+            GL11.glRotatef(MathHelper.sin(f1 * (float) Math.PI * sMult) * f2 * 3.0F * sMult, 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float) Math.PI - 0.2F) * sMult) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
             GL11.glRotatef(f3 * sMult, 1.0F, 0.0F, 0.0F);
-        	
-        	/*
-            float f =entityplayer.distanceWalkedModified - entityplayer.prevDistanceWalkedModified;
-            float f1 = -(entityplayer.distanceWalkedModified + f * partialTicks);
-            float f2 = entityplayer.prevCameraYaw + (entityplayer.cameraYaw - entityplayer.prevCameraYaw) * partialTicks;
-            float f3 = entityplayer.prevCameraPitch + (entityplayer.cameraPitch - entityplayer.prevCameraPitch) * partialTicks;
-            
-            float xWiggle = (float) LissajousCurve.getXOffsetOnCurve(3, 1, 2, Math.PI, f1);
-            
-            GL11.glTranslatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
-            GL11.glRotatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
-            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
-            GL11.glRotatef(f3*sMult, 1.0F, 0.0F, 0.0F);
-            */
+
         } else {
 
 
@@ -470,9 +322,8 @@ public class Interceptors {
             SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(entityplayer, SpreadableExposure.class);
 
             if (spreadableExposure != null) {
-                float totalDose = spreadableExposure.getTotalDose();
 
-                float f1 = totalDose; // * partialTicks;
+                float f1 = spreadableExposure.getTotalDose(); // * partialTicks;
                 if (f1 > 1f) {
                     f1 = 1f;
                 }
@@ -508,21 +359,21 @@ public class Interceptors {
             float frequency = 15f;
 
             double hillFrac = (vehicle.getSolver().getVelocityVector().length() * (vehicle.rotationPitch / 2)) / 20;
-            amplitude += Math.abs(hillFrac) / 250;
-            frequency += Math.abs(hillFrac) / 250;
+            amplitude += (float) (Math.abs(hillFrac) / 250);
+            frequency += (float) (Math.abs(hillFrac) / 250);
 
 
             if (vehicle.getSolver().materialBelow != Material.ROCK) {
                 amplitude += 0.1f;
                 frequency += 2f;
 
-                amplitude *= vehicle.getRealSpeed() / 25.0;
-                frequency *= vehicle.getRealSpeed() / 25.0;
+                amplitude *= (float) (vehicle.getRealSpeed() / 25.0);
+                frequency *= (float) (vehicle.getRealSpeed() / 25.0);
 
 
             }
 
-            float appliedAmplitude = 0.0f;
+            float appliedAmplitude;
             if (MC.gameSettings.thirdPersonView != 0) {
                 appliedAmplitude = amplitude;
             } else {
@@ -530,7 +381,7 @@ public class Interceptors {
             }
 
             if (vehicle.getSolver().velocity.length() > 10) {
-                appliedAmplitude += vehicle.getSolver().getSideSlipAngle() / 45;
+                appliedAmplitude += (float) (vehicle.getSolver().getSideSlipAngle() / 45);
             }
 
             // System.out.println(vehicle.getSolver().getVelocityVector().length());
@@ -539,21 +390,14 @@ public class Interceptors {
                 NoiseGeneratorPerlin ngo = new NoiseGeneratorPerlin(new Random(45302), 1);
                 double val = ngo.getValue(vehicle.posX, vehicle.posZ) / 25;
                 // System.out.println(val);
-                appliedAmplitude += val;
-                frequency += val * 2;
+                appliedAmplitude += (float) val;
+                frequency += (float) (val * 2);
             }
 
 
             Matrix4f transformMatrix = vehicle.getRandomizer().update(frequency, appliedAmplitude * 0.8f);
-            //
-
-            //RenderVehicle2.captureCameraTransform(transformMatrix);
-            //System.out.printf("Yaw delta: %.5f, speed: %.5f\n", lastYawDelta, speed);
 
 
-            if (Math.abs(lastYawDelta) > 0.3) {
-                //  GL11.glRotatef(-(float)lastYawDelta * 2f, 0.0F, 1.0f, 0.0f);
-            }
         } else {
 
             RenderVehicle2.captureCameraTransform(null);
@@ -561,10 +405,6 @@ public class Interceptors {
 
 
         nsm.applyHead();
-        //nsm.update();
-
-
-        // if(true) return false;
 
 
         if (ModernConfigManager.enableAllShaders && ModernConfigManager.enableScreenShaders) {
@@ -629,20 +469,8 @@ public class Interceptors {
     }
 
     public static boolean nauseaCameraEffect(float partialTicks) {
-        boolean allowDefaultEffect = false;
 
-//        float f1 = MC.thePlayer.prevTimeInPortal + (MC.thePlayer.timeInPortal - MC.thePlayer.prevTimeInPortal) * partialTicks;
-//
-//        int i = 1;
-//
-//        float f2 = 5.0F / (f1 * f1 + 5.0F) - f1 * 0.04F;
-//        f2 = f2 * f2;
-//        GlStateManager.rotate(((float)rendererUpdateCount + partialTicks) * (float)i, 0.0F, 1.0F, 1.0F);
-//        GlStateManager.scale(1.0F / f2, 1.0F, 1.0F);
-//        GlStateManager.rotate(-((float)rendererUpdateCount + partialTicks) * (float)i, 0.0F, 1.0F, 1.0F);
-
-        //rendererUpdateCount++;
-        return allowDefaultEffect;
+        return false;
     }
 
     public static boolean layerRendererHookSetup = false;
@@ -659,7 +487,7 @@ public class Interceptors {
 
     @SuppressWarnings("unchecked")
     public static LayerHeldItem extractLayerHeldItem(RenderLivingBase<?> rlb) {
-        List<LayerRenderer<?>> list = null;
+        List<LayerRenderer<?>> list;
 
         try {
             list = (List<LayerRenderer<?>>) layerRendererField.get(rlb);
@@ -765,22 +593,10 @@ public class Interceptors {
             }
         }
 
-        //	System.out.println(ClientValueRepo.recoilWoundY);
-        //	ClientValueRepo.recoilWoundY -= pitchDelta*0.2;
-
-
-        //ClientValueRepo.gunPow.velocity += yawDelta*0.02;
-
-        //compatibility.addChatMessage(MC.player, "Working " + MC.player.ticksExisted);
-
 
         float yawAddition = -yawDelta * 1.5f;
         float pitchAddition = pitchDelta * 2.5f;
-    	
-    	/*
-    	if(Math.abs(Math.abs(yawAddition) - Math.abs(previousYawAddition)) > 1.0) yawAddition = (float) InterpolationKit.interpolateValue(previousYawAddition, yawAddition, 0.3f);
-    	if(Math.abs(Math.abs(pitchAddition) - Math.abs(previousPitchAddition)) > 1.0) pitchAddition = (float) InterpolationKit.interpolateValue(previousPitchAddition, pitchAddition, 0.3f);
-    	*/
+
         //System.out.println(Math.abs(yawAddition) - Math.abs(previousYawAddition));
 
 
@@ -803,11 +619,6 @@ public class Interceptors {
 
 
             double scalar = 0.001 * (1 - weaponInstance.getZoom());
-    		
-    		/*
-    		ClientValueRepo.scopeX += (yawDelta*(0.005+scalar));
-    		ClientValueRepo.scopeY += pitchDelta*(0.005+scalar);
-        	*/
 
             ClientValueRepo.scopeX.add((yawDelta * (0.001 + scalar)));
             ClientValueRepo.scopeY.add(pitchDelta * (0.001 + scalar));
@@ -817,10 +628,6 @@ public class Interceptors {
                 pitchDelta *= weaponInstance.getZoom() * 3;
             }
         } else {
-    		/*
-    		ClientValueRepo.scopeX += (yawDelta*(0.005));
-    		ClientValueRepo.scopeY += pitchDelta*(0.005);
-    		*/
             ClientValueRepo.scopeX.add(yawDelta * (0.005));
             ClientValueRepo.scopeY.add(pitchDelta * (0.005));
 
@@ -841,25 +648,11 @@ public class Interceptors {
         float maxPitch = 90f;
         float maxYawDelta = 40f;
 
-        yawDelta *= 0.15;
+        yawDelta *= 0.15F;
 
 
         boolean canChangeRotationYaw = true;
         if (player.getRidingEntity() instanceof EntityVehicle && MC.gameSettings.thirdPersonView == 0) {
-
-            maxPitch = 90f;
-//            EntityVehicle entityVehicle = (EntityVehicle) player.ridingEntity;
-////            maxYawDelta = 10f + 200f * (float)entityVehicle.getSpeed();
-////            if(maxYawDelta > 35f) {
-////                maxYawDelta = 35f;
-////            }
-////            System.out.println("Speed: " + entityVehicle.getSpeed() + ", maxYawD: " + maxYawDelta);
-//            //canChangeRotationYaw = entityVehicle.getState() != VehicleState.STOPPING;
-//            float vehicleRiderYawDelta = MathHelper.wrapAngleTo180Float(player.ridingEntity.rotationYaw - player.rotationYaw);
-//            if(vehicleRiderYawDelta > maxYawDelta) {
-//                vehicleRiderYawDelta = maxYawDelta;
-//                yawDelta = 1f;
-//            }
 
             player.rotationYaw = (float) ((double) player.rotationYaw + (double) yawDelta);
             float vehicleRiderYawDelta = (((player.getRidingEntity().rotationYaw - player.rotationYaw + 180f) % 360f + 360f) % 360f - 180f);

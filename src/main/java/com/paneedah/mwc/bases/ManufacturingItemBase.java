@@ -1,7 +1,11 @@
 package com.paneedah.mwc.bases;
 
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.item.Item;
 
+@Getter
+@Setter
 public class ManufacturingItemBase extends ItemBase {
 
     // Items used in the custom crafting bench!
@@ -12,23 +16,8 @@ public class ManufacturingItemBase extends ItemBase {
         super(registryName);
     }
 
-    public void setRecoveryChance(double recoveryChance) {
-        this.recoveryChance = recoveryChance;
-    }
-
-    public void setScrap(Item scrap) {
-        this.scrap = scrap;
-    }
-
     public boolean isScrapped() {
-        return this.scrap != null;
+        return scrap != null;
     }
 
-    public Item getScrap() {
-        return this.scrap;
-    }
-
-    public double getRecoveryChance() {
-        return this.recoveryChance;
-    }
 }
