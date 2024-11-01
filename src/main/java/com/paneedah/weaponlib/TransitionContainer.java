@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.Transition;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 
 import java.util.Collections;
@@ -8,11 +10,16 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
 public class TransitionContainer {
 
+    @Setter
     private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> custom = new LinkedHashMap<>();
+    @Setter
     private List<Transition<RenderContext<RenderableState>>> firstPerson;
+    @Setter
     private List<Transition<RenderContext<RenderableState>>> leftHand;
+    @Setter
     private List<Transition<RenderContext<RenderableState>>> rightHand;
 
     private long duration;
@@ -23,9 +30,9 @@ public class TransitionContainer {
                                List<Transition<RenderContext<RenderableState>>> fps, List<Transition<RenderContext<RenderableState>>> left,
                                List<Transition<RenderContext<RenderableState>>> right) {
         this.custom = custom;
-        this.firstPerson = fps;
-        this.leftHand = left;
-        this.rightHand = right;
+        firstPerson = fps;
+        leftHand = left;
+        rightHand = right;
 
     }
 
@@ -39,10 +46,8 @@ public class TransitionContainer {
 
         // Define duration
 
-        for (Transition<RenderContext<RenderableState>> t : firstPerson) {
-            //duration += t.getDuration();
-            //	duration += 0;
-        }
+        //duration += t.getDuration();
+        //	duration += 0;
 
 
         GlStateManager.pushMatrix();
@@ -77,46 +82,10 @@ public class TransitionContainer {
 
     }
 
-    public LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> getCustom() {
-        return custom;
-    }
-
-    public void setCustom(LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> custom) {
-        this.custom = custom;
-    }
-
-    public List<Transition<RenderContext<RenderableState>>> getFirstPerson() {
-        return firstPerson;
-    }
-
-    public void setFirstPerson(List<Transition<RenderContext<RenderableState>>> firstPerson) {
-        this.firstPerson = firstPerson;
-    }
-
-    public List<Transition<RenderContext<RenderableState>>> getLeftHand() {
-        return leftHand;
-    }
-
-    public void setLeftHand(List<Transition<RenderContext<RenderableState>>> leftHand) {
-        this.leftHand = leftHand;
-    }
-
-    public List<Transition<RenderContext<RenderableState>>> getRightHand() {
-        return rightHand;
-    }
-
-    public void setRightHand(List<Transition<RenderContext<RenderableState>>> rightHand) {
-        this.rightHand = rightHand;
-    }
-
-    public long getDuration() {
-        return duration;
-    }
-
     public void setDuration() {
-        this.duration = 0;
-        for (Transition<RenderContext<RenderableState>> t : this.firstPerson) {
-            this.duration += t.getDuration();
+        duration = 0;
+        for (Transition<RenderContext<RenderableState>> t : firstPerson) {
+            duration += t.getDuration();
         }
 
         //this.duration = duration;

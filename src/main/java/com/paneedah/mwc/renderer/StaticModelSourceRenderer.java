@@ -27,6 +27,7 @@ import org.lwjgl.opengl.GL11;
 import javax.vecmath.Matrix4f;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
@@ -34,6 +35,7 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 @SideOnly(Side.CLIENT)
 public class StaticModelSourceRenderer extends ModelSource implements IBakedModel {
 
+    private static final Pattern CUSTOMSKIN_ = Pattern.compile("customskin_", Pattern.LITERAL);
     protected ModelSourceTransforms transforms;
 
     private final Pair<? extends IBakedModel, Matrix4f> pair = Pair.of((IBakedModel) this, null);
@@ -51,8 +53,8 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
         @Override
         public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
-            StaticModelSourceRenderer.this.itemStack = stack;
-            StaticModelSourceRenderer.this.owner = entity;
+            itemStack = stack;
+            owner = entity;
             return super.handleItemState(originalModel, stack, world, entity);
         }
     }
@@ -68,10 +70,6 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
         GL11.glScalef(0.33f, 0.33f, 0.33f);
 
-//        float pivotOffsetX = 0f;
-//        float pivotOffsetY = 0f;
-//        float pivotOffsetZ = 0f;
-//        GL11.glTranslatef(pivotOffsetX, pivotOffsetY, pivotOffsetZ);
         GL11.glRotatef(180f, 0.001f, 0.0f, 0.0f);
 //        GL11.glTranslatef(-pivotOffsetX, -pivotOffsetY, -pivotOffsetZ);
 
@@ -132,9 +130,9 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
         }
 
         // Reset the dynamic values.
-        this.owner = null;
-        this.itemStack = null;
-        this.transformType = null;
+        owner = null;
+        itemStack = null;
+        transformType = null;
 
         return Collections.emptyList();
     }
@@ -224,7 +222,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
         for (Tuple<ModelBase, String> texturedModel : modelSource.getTexturedModels()) {
             if (texturedModel.getV().startsWith("customskin_")) {
-                MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV().replace("customskin_", "")));
+                MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(CUSTOMSKIN_.matcher(texturedModel.getV()).replaceAll("")));
             } else {
                 MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
             }
@@ -314,7 +312,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
     @Override
     public Pair<? extends IBakedModel, Matrix4f> handlePerspective(ItemCameraTransforms.TransformType cameraTransformType) {
-        this.transformType = cameraTransformType;
+        transformType = cameraTransformType;
         return pair;
     }
 }

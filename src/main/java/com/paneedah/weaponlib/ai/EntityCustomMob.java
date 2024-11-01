@@ -8,6 +8,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleDataManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
+import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.*;
@@ -52,6 +53,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     private EntityConfiguration configuration;
 
+    @Getter
     private ItemStack secondaryEquipment;
 
     private int delayedAttackTimer;
@@ -115,10 +117,10 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(getConfiguration().getFollowRange());
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(getConfiguration().getMaxSpeed());
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(getConfiguration().getMaxHealth());
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(getConfiguration().getCollisionAttackDamage());
+        getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(getConfiguration().getFollowRange());
+        getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(getConfiguration().getMaxSpeed());
+        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(getConfiguration().getMaxHealth());
+        getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(getConfiguration().getCollisionAttackDamage());
     }
 
 
@@ -148,7 +150,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     @Override
     protected void playStepSound(BlockPos pos, Block blockIn) {
-        this.playSound(getConfiguration().getStepSound(), 0.15F, 1);
+        playSound(getConfiguration().getStepSound(), 0.15F, 1);
     }
 
     @Override
@@ -164,7 +166,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     public void onLivingUpdate() {
 
 
-        if (this.isEntityAlive() && getConfiguration().getDelayedAttack() != null) {
+        if (isEntityAlive() && getConfiguration().getDelayedAttack() != null) {
 
             if (isDelayedAttackStarted()) {
                 setDelayedAttackTimerIncrement(1);
@@ -196,7 +198,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     @Override
     public void onDeath(DamageSource cause) {
-        ItemStack itemStack = this.getHeldItemMainhand(); // getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
+        ItemStack itemStack = getHeldItemMainhand(); // getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
 
         if (!world.isRemote) {
             initAmmo(itemStack);
@@ -258,7 +260,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         EntityConfiguration configuration = getConfiguration();
         Arrays.fill(this.inventoryArmorDropChances, configuration.getArmorDropChance());
         for (CustomArmor armor : configuration.getArmorSet()) {
-            this.setItemStackToSlot(armor.getCompatibleEquipmentSlot(), new ItemStack(armor));
+            setItemStackToSlot(armor.getCompatibleEquipmentSlot(), new ItemStack(armor));
         }
     }
 
@@ -276,11 +278,9 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     @Override
     public void setActiveHand(EnumHand hand) {
-        ItemStack itemstack = this.getHeldItem(hand);
+        ItemStack itemstack = getHeldItem(hand);
 
-        if (!this.isHandActive()) {
-            // int duration = net.minecraftforge.event.ForgeEventFactory.onItemUseStart(this, itemstack, itemstack.getMaxItemUseDuration());
-            // if (duration <= 0) return;
+        if (!isHandActive()) {
             this.activeItemStack = itemstack;
             this.activeItemStackUseCount = 100;
 
@@ -305,11 +305,11 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             ItemStack equipmentItemStack = new ItemStack(equipment.item);
             if (equipment.item instanceof Weapon) {
                 initWeaponWithAttachments(equipment, equipmentItemStack);
-            } else if (equipment.item instanceof ItemGrenade) {
+            } else if (null instanceof ItemGrenade) {
                 initGrenade(equipment, equipmentItemStack);
             }
 
-            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, equipmentItemStack);
+            setItemStackToSlot(EntityEquipmentSlot.MAINHAND, equipmentItemStack);
         }
     }
 
@@ -349,17 +349,17 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
         livingdata = super.onInitialSpawn(difficulty, livingdata);
 
-        List<TexturedModel> variants = this.getConfiguration().getTexturedModelVariants();
+        List<TexturedModel> variants = getConfiguration().getTexturedModelVariants();
         int variant = 0;
         if (!variants.isEmpty()) {
             variant = this.rand.nextInt(variants.size());
         }
         setVariant(variant);
 
-        this.setEquipmentBasedOnDifficulty(difficulty);
-        this.setEnchantmentBasedOnDifficulty(difficulty);
+        setEquipmentBasedOnDifficulty(difficulty);
+        setEnchantmentBasedOnDifficulty(difficulty);
 
-        this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * difficulty.getClampedAdditionalDifficulty());
+        setCanPickUpLoot(this.rand.nextFloat() < 0.55F * difficulty.getClampedAdditionalDifficulty());
 
         return livingdata;
     }
@@ -386,7 +386,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             return;
         }
 
-        ItemStack itemStack = this.getHeldItemMainhand();
+        ItemStack itemStack = getHeldItemMainhand();
 
         if (itemStack.getItem() instanceof Weapon) {
             WeaponFireAspect fireAspect = modContext.getWeaponFireAspect();
@@ -394,11 +394,6 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith = (weapon, player) -> {
                 int difficultyId = world.getDifficulty().getId();
                 float inaccuracy = weapon.getInaccuracy() + (3f - difficultyId) * 0.5f; // *
-                // 2
-                // +
-                // distanceFactor
-                // *
-                // 3f;
                 WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, world, player,
                         weapon.getSpawnEntityVelocity(), weapon.getSpawnEntityGravityVelocity(), inaccuracy,
                         weapon.getSpawnEntityDamage() * 0.01f * 0.2f, weapon.getSpawnEntityExplosionRadius(), false, false, 1f, 1f, 1.5f, 1f,
@@ -448,7 +443,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
         NBTTagCompound secondaryNbt = compound.getCompoundTag("Secondary");
         if (secondaryNbt != null) {
-            this.secondaryEquipment = new ItemStack(secondaryNbt);
+            secondaryEquipment = new ItemStack(secondaryNbt);
         }
     }
 
@@ -477,19 +472,19 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     }
 
     public int getVariant() {
-        return this.compatibleDataManager.get(VARIANT).intValue();
+        return compatibleDataManager.get(VARIANT).intValue();
     }
 
     public void setVariant(int variant) {
-        this.compatibleDataManager.set(VARIANT, Integer.valueOf(variant));
+        compatibleDataManager.set(VARIANT, Integer.valueOf(variant));
     }
 
     public boolean isSwingingArms() {
-        return this.compatibleDataManager.get(SWINGING_ARMS).booleanValue();
+        return compatibleDataManager.get(SWINGING_ARMS).booleanValue();
     }
 
     public void setSwingingArms(boolean swingingArms) {
-        this.compatibleDataManager.set(SWINGING_ARMS, Boolean.valueOf(swingingArms));
+        compatibleDataManager.set(SWINGING_ARMS, Boolean.valueOf(swingingArms));
     }
 
     @Override
@@ -568,24 +563,20 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         this.modContext = modContext;
     }
 
-    public ItemStack getSecondaryEquipment() {
-        return secondaryEquipment;
-    }
-
     public void setDelayedAttackTimerIncrement(int increment) {
-        this.compatibleDataManager.set(DELAYED_ATTACK_TIMER_INCREMENT, Integer.valueOf(increment));
+        compatibleDataManager.set(DELAYED_ATTACK_TIMER_INCREMENT, Integer.valueOf(increment));
     }
 
     public int getDelayedAttackTimerIncrement() {
-        return this.compatibleDataManager.get(DELAYED_ATTACK_TIMER_INCREMENT).intValue();
+        return compatibleDataManager.get(DELAYED_ATTACK_TIMER_INCREMENT).intValue();
     }
 
     public boolean isDelayedAttackStarted() {
-        return this.compatibleDataManager.get(DELAYED_ATTACK_STARTED).booleanValue();
+        return compatibleDataManager.get(DELAYED_ATTACK_STARTED).booleanValue();
     }
 
     public void startDelayedAttack() {
-        this.compatibleDataManager.set(DELAYED_ATTACK_STARTED, Boolean.valueOf(true));
+        compatibleDataManager.set(DELAYED_ATTACK_STARTED, Boolean.valueOf(true));
     }
 
     @Override
@@ -605,28 +596,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         if (flag) {
             itemstack.interactWithEntity(player, this, hand);
             return true;
-        } else if (this.isEntityAlive() && /*!this.isTrading() &&*/ !player.isSneaking()) {
-        	/*
-            // if (this.buyingList == null)
-            // {
-            // this.populateBuyingList();
-            // }
-
-            // if (hand == EnumHand.MAIN_HAND) {
-            // player.addStat(StatList.TALKED_TO_VILLAGER);
-            // }
-            Map<UUID, MissionOffering> missionOfferings = getMissionOfferings();
-            if (!missionOfferings.isEmpty() || !getConfiguration().getDialogContent().isEmpty()) {
-                setCustomer(player);
-                if(this.world.isRemote) {
-                    displayTradeGui(player);
-                }
-            } else if (missionOfferings.isEmpty()) {
-                return super.processInteract(player, hand);
-            }
-
-            return true;
-            */
+        } else if (isEntityAlive() && /*!this.isTrading() &&*/ !player.isSneaking()) {
             return false;
         } else {
             return super.processInteract(player, hand);

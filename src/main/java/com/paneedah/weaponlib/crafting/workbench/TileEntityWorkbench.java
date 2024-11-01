@@ -48,9 +48,9 @@ public class TileEntityWorkbench extends TileEntityStation {
         super.writeBytesForClientSync(buf);
         //	System.out.println("Writing bytes for client sync, target is currently: " + this.craftingTarget);
 
-        if (this.craftingTarget != null) {
+        if (craftingTarget != null) {
             buf.writeBoolean(true);
-            ByteBufUtils.writeUTF8String(buf, this.craftingTarget.getItemStack().getTranslationKey());
+            ByteBufUtils.writeUTF8String(buf, craftingTarget.getItemStack().getTranslationKey());
             //System.out.println("Tile Entity Workbench writing " + this.craftingTarget.getItem().getTranslationKey());
             return;
         }
@@ -64,7 +64,7 @@ public class TileEntityWorkbench extends TileEntityStation {
         //System.out.println("Starting read from client sync...");
 
         if (buf.readBoolean()) {
-            this.craftingTargetName = ByteBufUtils.readUTF8String(buf);
+            craftingTargetName = ByteBufUtils.readUTF8String(buf);
             //System.out.println("Tile Entity Workbench reading " + this.craftingTargetName);
         }
     }
@@ -74,9 +74,9 @@ public class TileEntityWorkbench extends TileEntityStation {
         super.writeToNBT(compound);
         //System.out.println(compound);
 
-        if (craftingTimer != -1 && this.craftingTarget != null) {
-            compound.setInteger("craftingTargetID", this.craftingTarget.getCraftingGroup().getID());
-            compound.setString("craftingTargetName", this.craftingTarget.getItemStack().getTranslationKey());
+        if (craftingTimer != -1 && craftingTarget != null) {
+            compound.setInteger("craftingTargetID", craftingTarget.getCraftingGroup().getID());
+            compound.setString("craftingTargetName", craftingTarget.getItemStack().getTranslationKey());
         }
 
         return compound;
@@ -87,29 +87,29 @@ public class TileEntityWorkbench extends TileEntityStation {
         super.readFromNBT(compound);
         //System.out.println("Reading: " + compound);
         if (compound.hasKey("craftingTimer") && compound.hasKey("craftingDuration")) {
-            this.craftingTarget = CraftingRegistry.getModernCrafting(CraftingGroup.getValue(compound.getInteger("craftingTargetID")), compound.getString("craftingTargetName"));
+            craftingTarget = CraftingRegistry.getModernCrafting(CraftingGroup.getValue(compound.getInteger("craftingTargetID")), compound.getString("craftingTargetName"));
         }
     }
 
     public void setTimer(int time, int duration) {
-        this.craftingTimer = time;
-        this.craftingDuration = duration;
+        craftingTimer = time;
+        craftingDuration = duration;
     }
 
     @Override
     public void update() {
         super.update();
 
-        if (this.craftingTimer != -1) {
-            this.craftingTimer++;
+        if (craftingTimer != -1) {
+            craftingTimer++;
         }
 
         if (getProgress() >= 1) {
             craftingTimer = -1;
             craftingDuration = -1;
 
-            if (!this.world.isRemote && this.craftingTarget != null) {
-                addStackToInventoryRange(this.craftingTarget.getItemStack(), 0, 9);
+            if (!this.world.isRemote && craftingTarget != null) {
+                addStackToInventoryRange(craftingTarget.getItemStack(), 0, 9);
                 sendUpdate();
             }
         }

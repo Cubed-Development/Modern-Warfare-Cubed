@@ -26,19 +26,19 @@ public class Reticle {
 
     public Reticle(String textureName) {
         this(textureName, 1f, DEFAULT_TINT);
-        this.reticleType = Type.SNIPER;
+        reticleType = Type.SNIPER;
     }
 
     public Reticle(String textureName, float textureScale, int background) {
-        this.reticleType = Type.HOLOGRAPHIC;
-        this.reticleTexture = new ResourceLocation(ID + ":textures/crosshairs/" + textureName + ".png");
+        reticleType = Type.HOLOGRAPHIC;
+        reticleTexture = new ResourceLocation(ID + ":textures/crosshairs/" + textureName + ".png");
         this.textureScale = textureScale;
-        this.backgroundColor = extractColorFromHex(background);
+        backgroundColor = extractColorFromHex(background);
     }
 
     public Reticle(String textureName, float textureScale) {
         this(textureName, textureScale, DEFAULT_TINT);
-        this.reticleType = Type.HOLOGRAPHIC;
+        reticleType = Type.HOLOGRAPHIC;
     }
 
     private static Vec3d extractColorFromHex(int color) {

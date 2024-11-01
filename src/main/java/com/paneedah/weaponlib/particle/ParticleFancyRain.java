@@ -23,8 +23,8 @@ public class ParticleFancyRain extends ParticleRain {
         this.particleBlue = 0.5F;
         this.particleScale = (this.rand.nextFloat() * 0.5F + 0.5F);
         this.particleAlpha = 0.3F;
-        this.setParticleTextureIndex(19 + this.rand.nextInt(4));
-        this.setSize(0.01F, 0.01F);
+        setParticleTextureIndex(19 + this.rand.nextInt(4));
+        setSize(0.01F, 0.01F);
         this.particleGravity = 0.06F;
         this.particleMaxAge = (int) (8.0D / (Math.random() * 0.8D + 0.2D));
     }

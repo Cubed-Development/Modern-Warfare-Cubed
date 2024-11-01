@@ -48,15 +48,11 @@ public class ScopePerspective extends PerspectiveRenderer {
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, perspective.getTexture(renderContext));
         MC.entityRenderer.disableLightmap();
         GlStateManager.enableDepth();
-        //GL11.glDepthMask(true);
-        //GL11.glDisable(GL11.GL_LIGHTING);
-        //GL11.glDisable(GL11.GL_ALPHA_TEST);
-        //GL11.glDisable(GL11.GL_BLEND);
 
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
         GL11.glColor4f(brightness, brightness, brightness, 1f);
-        model.render(this.reticle, renderContext, renderContext.getPlayer(), renderContext.getScale());
+        model.render(reticle, renderContext, renderContext.getPlayer(), renderContext.getScale());
 
         MC.entityRenderer.enableLightmap();
         GL11.glPopAttrib();

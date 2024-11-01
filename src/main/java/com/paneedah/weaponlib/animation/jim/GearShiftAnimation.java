@@ -10,25 +10,17 @@ public class GearShiftAnimation {
 
 
     private final TreeMap<Double, Vec3d> transitionMap = new TreeMap<>();
-    private ArrayList<Vec3d> transitions = new ArrayList<>();
-    private final GearShiftPattern pat;
+    private ArrayList<Vec3d> transitions;
 
 
-    private final int duration;
     private int progress = 0;
-    private final int startGear;
-    private final int targetGear;
 
 
     private int posInAnim;
 
 
     public GearShiftAnimation(GearShiftPattern pat, int duration, int startGear, int targetGear) {
-        this.duration = duration;
-        this.startGear = startGear;
-        this.targetGear = targetGear;
-        this.pat = pat;
-        this.transitions = pat.getTransitions(startGear, targetGear);
+        transitions = pat.getTransitions(startGear, targetGear);
         setup();
     }
 

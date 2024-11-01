@@ -4,15 +4,14 @@ public class SimpleAnimationTimer {
 
     private int time = 0, maxTime;
     private boolean isDone = false;
-    private boolean shouldLoop = false;
+    private boolean shouldLoop;
 
     public SimpleAnimationTimer(int maxTime, boolean loop) {
         this.maxTime = maxTime;
-        this.shouldLoop = loop;
+        shouldLoop = loop;
     }
 
     public void setMaxTime(int max) {
-        this.maxTime = maxTime;
     }
 
     public void setLoop(boolean shouldLoop) {
@@ -37,7 +36,7 @@ public class SimpleAnimationTimer {
     }
 
     public boolean isComplete() {
-        return this.isDone;
+        return isDone;
     }
 
     public void reset() {
@@ -50,8 +49,7 @@ public class SimpleAnimationTimer {
     }
 
     public double getSmoothStepProgress() {
-        float mu2 = (float) ((1 - Math.cos(getLinearProgress() * Math.PI)) / 2f);
-        return mu2;
+        return (float) ((1 - Math.cos(getLinearProgress() * Math.PI)) / 2f);
     }
 
     public double smoothInterpDouble(double start, double end) {

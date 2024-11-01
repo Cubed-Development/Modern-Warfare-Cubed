@@ -58,12 +58,6 @@ public class AE86TruenoFactory implements VehicleFactory {
                     .withPartPosition(VehiclePart.STEERING_WHEEL, context -> {
 
                         float steer = (float) -Math.toDegrees(context.getSymmetricProgress()) - 57;
-//                    	Positioners.position(
-//                    		    0.000000f, 0.000000f, 0.000000f,
-//                    		    0.000000f, 0f, steer,
-//                    		    -1.025000f, -0.325000f, 0.000000f,
-//                    		    1.000000f, 1.000000f, 1.000000f
-//                    		);
 
                         Positioners.position(
                                 0.000000f, 0.000000f, -0.100000f,
@@ -167,13 +161,6 @@ public class AE86TruenoFactory implements VehicleFactory {
                         float vertical = (float) entityVehicle.getSolver().frontAxel.rightWheel.getRenderRideHeight();
                         float steer = (float) Math.toDegrees(context.getSymmetricProgress());
 
-//                    	Positioners.position(
-//                    		    -3.899998f, /*vertical*/0.0f, 0.000000f,
-//                    		    (float) ws.getInterpolatedWheelRotation(), 0f, 0.000000f,
-//                    		    -0.650000f, 0.750000f, 0.010000f,
-//                    		    1.000000f, 1.000000f, 1.000000f
-//                    		);
-
                         Positioners.position(
                                 -3.575001f, 0.000000f, 0.025000f,
                                 (float) ws.getInterpolatedWheelRotation(), 0f, 0.000000f,
@@ -188,13 +175,6 @@ public class AE86TruenoFactory implements VehicleFactory {
                         WheelSolver ws = entityVehicle.getSolver().rearAxel.leftWheel;
                         float vertical = (float) entityVehicle.getSolver().rearAxel.leftWheel.getRenderRideHeight();
 
-//                    	Positioners.position(
-//                    		    0.000000f, /*vertical*/0.0f, 5.724997f,
-//                    		    (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
-//                    		    0.000000f, 0.740000f, 0.000000f,
-//                    		    1.000000f, 1.000000f, 1.000000f
-//                    		);
-
                         Positioners.position(
                                 0.000000f, 0.000000f, 5.349998f,
                                 (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
@@ -208,13 +188,6 @@ public class AE86TruenoFactory implements VehicleFactory {
                         EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
                         WheelSolver ws = entityVehicle.getSolver().rearAxel.rightWheel;
                         float vertical = (float) ws.getRenderRideHeight();
-
-//                    	Positioners.position(
-//                    		    -3.799999f, /*vertical*/0.0f, 5.720000f,
-//                    		    (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
-//                    		    0.000000f, 0.749999f, 0.000000f,
-//                    		    1.000000f, 1.000000f, 1.000000f
-//                    		);
 
                         Positioners.position(
                                 -3.599999f, 0.000000f, 5.325000f,
@@ -232,7 +205,7 @@ public class AE86TruenoFactory implements VehicleFactory {
         new EntityVehicleConfiguration.Builder()
 
                 .withName("ae86trueno")
-                .withEntityIdSupplier(() -> 10204)
+                .withEntityIdSupplier(() -> Integer.valueOf(10204))
 
                 .withPhysicsConfig(new PhysicsConfiguration(
                         /* WHEELBASE (m)*/ 2.4003,

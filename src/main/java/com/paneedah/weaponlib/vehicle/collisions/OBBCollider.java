@@ -125,16 +125,8 @@ public class OBBCollider {
         double margin = 0;
         if (body != null) {
             Vec3d localDir = body.globalToLocalVec(worldDir);
-            if (margin != 0) {
-                localDir = localDir.normalize();
-                return body.localToGlobalPos(c.support(localDir).add(localDir.scale(margin)));
-            }
             return body.localToGlobalPos(c.support(localDir));
         } else {
-            if (margin != 0) {
-                worldDir = worldDir.normalize();
-                return c.support(worldDir).add(worldDir.scale(margin));
-            }
             return c.support(worldDir);
         }
     }
@@ -159,11 +151,7 @@ public class OBBCollider {
             simp.points[1] = simp.points[3];
             simp.points[3] = null;
             simp.size -= 1;
-			
-			/*
-			simp.points[1] = simp.points[3];
-			simp.points[3] = null;
-			simp.size -= 1;*/
+
             return checkTriangleCase(simp, ad, ab, ad.crossProduct(ab), ao);
         } else {
             return null;
@@ -272,6 +260,7 @@ public class OBBCollider {
 
 
             // get a new support point
+            assert closestFace != null;
             MKV support = CSOSupport(one, two, closestFace[3].v);
 
 
@@ -433,7 +422,7 @@ public class OBBCollider {
     }
 
     public static MKV[] generateFace(MKV a, MKV b, MKV c) {
-        MKV[] face = new MKV[4];
+        MKV[] face;
 
         Vec3d ab = b.v.subtract(a.v);
         Vec3d ac = c.v.subtract(a.v);
@@ -472,8 +461,8 @@ public class OBBCollider {
         Vec3d u;
 
         public MKV(Vec3d pos, Vec3d dir) {
-            this.v = pos;
-            this.u = dir;
+            v = pos;
+            u = dir;
         }
 
     }

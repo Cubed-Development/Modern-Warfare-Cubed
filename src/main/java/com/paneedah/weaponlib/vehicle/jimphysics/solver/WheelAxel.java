@@ -16,19 +16,19 @@ public class WheelAxel {
 
     public WheelAxel(double offsetFromCOG, boolean isDriveWheel) {
         this.isDriveWheel = isDriveWheel;
-        this.COGoffset = offsetFromCOG;
+        COGoffset = offsetFromCOG;
     }
 
     public WheelAxel newInstance() {
-        WheelAxel newAxel = new WheelAxel(this.COGoffset, this.isDriveWheel);
-        newAxel.withWheels(this.leftWheel.newInstance(), this.rightWheel.newInstance());
+        WheelAxel newAxel = new WheelAxel(COGoffset, isDriveWheel);
+        newAxel.withWheels(leftWheel.newInstance(), rightWheel.newInstance());
 
         return newAxel;
     }
 
     public void addWheels(WheelSolver left, WheelSolver right) {
-        this.leftWheel = left;
-        this.rightWheel = right;
+        leftWheel = left;
+        rightWheel = right;
 
 
     }
@@ -36,34 +36,30 @@ public class WheelAxel {
     public void assignSolver(VehiclePhysicsSolver solver) {
         this.solver = solver;
 
-        this.leftWheel.assignSolver(solver);
-        this.rightWheel.assignSolver(solver);
+        leftWheel.assignSolver(solver);
+        rightWheel.assignSolver(solver);
 
-        this.solver.wheels.add(this.leftWheel);
-        this.solver.wheels.add(this.rightWheel);
+        this.solver.wheels.add(leftWheel);
+        this.solver.wheels.add(rightWheel);
     }
 
     public void applyHandbrake() {
-        this.isHandbraking = true;
+        isHandbraking = true;
     }
 
     public void releaseHandbrake() {
-        this.isHandbraking = false;
+        isHandbraking = false;
     }
 
     /**
      * Tells the wheels to apply a braking force
      * (affects wheel acceleration and velocity)
      *
-     * @param Magnitude - value between 1.0 - 0.0,
-     * lower values mean higher braking.
      */
     public void applyBrakingForce(double magnitude) {
 
-        leftWheel.driveTorque += -magnitude;
-        rightWheel.driveTorque += -magnitude;
-        //leftWheel.applyBrake(100);
-        //rightWheel.applyBrake(100);
+        leftWheel.driveTorque -= magnitude;
+        rightWheel.driveTorque -= magnitude;
     }
 
     public void setSteeringAngle(double angle) {
@@ -93,7 +89,7 @@ public class WheelAxel {
     }
 
     public double getWheelAngularVelocity() {
-        return this.leftWheel.wheelAngularVelocity;
+        return leftWheel.wheelAngularVelocity;
     }
 
     public void applyDriveTorque(double torque) {
@@ -108,7 +104,7 @@ public class WheelAxel {
     }
 
     public void distributeLoad(double load) {
-        this.loadOnAxel = load;
+        loadOnAxel = load;
 
         leftWheel.loadOnWheel = load;
         rightWheel.loadOnWheel = load;
@@ -151,7 +147,7 @@ public class WheelAxel {
         right.axel = this;
 
 
-        this.addWheels(left, right);
+        addWheels(left, right);
         return this;
     }
 }
