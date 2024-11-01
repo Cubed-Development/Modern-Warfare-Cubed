@@ -53,7 +53,6 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     private float zRotationChange;
 
     private float rotationSlowdownFactor = 0.99f;
-    private final float maxRotationChange = 20f;
 
     protected boolean stopped;
 
@@ -65,22 +64,22 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         this.thrower = thrower;
         this.gravityVelocity = gravityVelocity;
         this.rotationSlowdownFactor = rotationSlowdownFactor;
-        this.setSize(0.3F, 0.3F);
-        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(), thrower.posZ,
+        setSize(0.3F, 0.3F);
+        setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(), thrower.posZ,
                 thrower.rotationYaw, thrower.rotationPitch);
         this.posX -= FastMath.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
         this.posY -= 0.10000000149011612D;
         this.posZ -= FastMath.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
-        this.setPosition(this.posX, this.posY, this.posZ);
+        setPosition(this.posX, this.posY, this.posZ);
         //this.yOffset = 0.0F;
         float f = 0.4F;
         this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f;
         this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f;
         this.motionY = -MathHelper.sin((this.rotationPitch + 0 /*this.func_70183_g()*/) / 180.0F * (float) Math.PI) * f;
 
-        this.initialYaw = this.rotationYaw;
-        this.initialPitch = this.rotationPitch;
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity /*1.3f*/, 10.0F); // TODO: make inaccuracy configurable parameter
+        initialYaw = this.rotationYaw;
+        initialPitch = this.rotationPitch;
+        setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity /*1.3f*/, 10.0F); // TODO: make inaccuracy configurable parameter
 
         ProjectConstants.LOGGER.debug("Throwing with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
                 posX, posY, posZ,
@@ -113,6 +112,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     }
 
     private void setRotations() {
+        float maxRotationChange = 20f;
         xRotationChange = maxRotationChange * (float) rand.nextGaussian();
         yRotationChange = maxRotationChange * (float) rand.nextGaussian();
         zRotationChange = maxRotationChange * (float) rand.nextGaussian();
@@ -132,7 +132,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     public void onUpdate() {
 
         if (!world.isRemote && ticksExisted > MAX_TICKS) {
-            this.setDead();
+            setDead();
             return;
         }
 
@@ -149,7 +149,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         this.lastTickPosZ = this.posZ;
         super.onUpdate();
 
-        ++this.ticksInAir;
+        ++ticksInAir;
 
         if (stopped) {
             return;
@@ -169,15 +169,15 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
         if (thrower != null) { //if(!this.worldObj.isRemote)
             Entity entity = null;
-            List<?> list = world.getEntitiesWithinAABBExcludingEntity(entity, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D)); // compatibility.getEntitiesWithinAABBExcludingEntity(world, this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+            List<?> list = world.getEntitiesWithinAABBExcludingEntity(null, getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D)); // compatibility.getEntitiesWithinAABBExcludingEntity(world, this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
             double d0 = 0.0D;
-            EntityLivingBase entitylivingbase = this.getThrower();
+            EntityLivingBase entitylivingbase = getThrower();
 
             RayTraceResult entityMovingObjectPosition = null;
             for (int j = 0; j < list.size(); ++j) {
                 Entity entity1 = (Entity) list.get(j);
 
-                if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
+                if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || ticksInAir >= 5)) {
                     float f = 0.3F;
                     AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand(f, f, f);
                     RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
@@ -227,11 +227,6 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
                     break;
                 case UP:
                     this.motionY = -this.motionY;
-//                if(this.motionY - gravityVelocity < 0.05) {
-//                    log.debug("Force stopping entity");
-//                    gravityVelocity = (float) this.motionY;
-//                    forcedStop = true;
-//                }
                     break;
                 case NORTH:
                     this.motionZ = -this.motionZ;
@@ -292,9 +287,9 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         this.rotationPitch = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * 0.2F;
         this.rotationYaw = this.prevRotationYaw + (this.rotationYaw - this.prevRotationYaw) * 0.2F;
         float f2 = 0.99F;
-        float currentGravityVelocity = this.getGravityVelocity();
+        float currentGravityVelocity = getGravityVelocity();
 
-        if (this.isInWater()) {
+        if (isInWater()) {
             for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
                 EnumParticleTypes particleType = EnumParticleTypes.getByName("bubble");
@@ -318,7 +313,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
         recordVelocityHistory();
 
-        if (!velocityHistory.stream().anyMatch(v -> v > STOP_THRESHOLD)) {
+        if (velocityHistory.stream().noneMatch(v -> v.doubleValue() > STOP_THRESHOLD)) {
             motionX = motionY = motionZ = 0.0;
             stopped = true;
             ProjectConstants.LOGGER.trace("Stopping {}", this);
@@ -356,7 +351,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
             BlockPos blockPos = new BlockPos(projectedPos.x, projectedPos.y, projectedPos.z);
 
-            AxisAlignedBB projectedEntityBoundingBox = this.getEntityBoundingBox().offset(dX * i, dY * i, dZ * i);
+            AxisAlignedBB projectedEntityBoundingBox = getEntityBoundingBox().offset(dX * i, dY * i, dZ * i);
 
             if (world.isAirBlock(blockPos) || !new AxisAlignedBB(blockPos).intersects(projectedEntityBoundingBox)) {
                 this.posX = projectedXPos;
@@ -454,7 +449,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         if (thrower == null && entityId >= 0) {
             Entity entity = world.getEntityByID(entityId);
             if (entity instanceof EntityLivingBase) {
-                this.thrower = (EntityPlayer) entity;
+                thrower = (EntityPlayer) entity;
             }
         }
         posX = buffer.readDouble();
@@ -494,7 +489,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
     private void recordVelocityHistory() {
         double velocity = motionX * motionX + motionY * motionY + motionZ * motionZ;
-        velocityHistory.add(velocity);
+        velocityHistory.add(Double.valueOf(velocity));
         if (velocityHistory.size() > VELOCITY_HISTORY_SIZE) {
             velocityHistory.poll();
         }

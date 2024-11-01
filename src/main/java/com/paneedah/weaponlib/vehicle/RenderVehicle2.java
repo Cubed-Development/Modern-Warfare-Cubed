@@ -73,20 +73,20 @@ public class RenderVehicle2 extends Render<Entity> {
             //bruhBody = null;
 
             Vec3d posVec = v.getPositionVector();
-            if (this.bruhBody == null) {
-                this.bruhBody = new RigidBody(v.world, posVec.x, posVec.y + 10, posVec.z);
+            if (bruhBody == null) {
+                bruhBody = new RigidBody(v.world, posVec.x, posVec.y + 10, posVec.z);
                 OreintedBB obb = new OreintedBB(new AxisAlignedBB(-1, -1, -1, 1, 1, 1));
                 obb.setupPhysically(175);
-                this.bruhBody.addColliders(obb);
+                bruhBody.addColliders(obb);
             }
 
-            this.bruhBody.minecraftTimestep();
+            bruhBody.minecraftTimestep();
 
 
-            Vec3d p = this.bruhBody.position;
+            Vec3d p = bruhBody.position;
             Vec3d adjP = v.getPositionVector().subtract(p);
             GL11.glTranslated(p.x, p.y, p.z);
-            this.bruhBody.colliders.get(0).renderOBB();
+            bruhBody.colliders.get(0).renderOBB();
 
             DebugRenderer.destructBasicRender();
         } catch (Exception e) {
@@ -129,47 +129,6 @@ public class RenderVehicle2 extends Render<Entity> {
 
         DebugRenderer.destructBasicRender();
         //System.out.println(OBBCollider.areColliding(ob, ob2));
-		
-		/*
-		
-		Vec3d startP = new Vec3d(3, -2, 2);
-		
-		// check cso support point
-		Vec3d supPo = OBBCollider.CSOSupport(ob, ob2, startP);
-		
-		
-		// test support
-		Vec3d o2 = ob.support(startP);
-		
-		
-		// test support on sec
-		Vec3d o3 = ob2.support(startP);
-		
-		
-		//System.out.println(o2);
-		o = o2;
-		
-		//System.out.println(o);
-		
-		ob.renderOBB();
-		ob2.renderOBB();
-		
-		
-		
-		
-		GL11.glTranslated(0.0, -5.0, 0.0);
-		DebugRenderer.renderPoint(o2, new Vec3d(1.0, 0.0, 0.0));
-		DebugRenderer.renderPoint(o3, new Vec3d(0.5, 0.5, 0.5));
-		DebugRenderer.renderPoint(startP, new Vec3d(0.0, 1.0, 0.0));
-		
-		DebugRenderer.renderPoint(supPo, new Vec3d(0.0, 0.0, 1.0));
-		
-		DebugRenderer.renderLine(Vec3d.ZERO, startP, new Vec3d(0.0, 1.0, 0.0));
-	
-		
-		DebugRenderer.destructBasicRender();
-		//GL11.glTranslated(0.0, -5.0, 0.0);
-		*/
 
 
     }
@@ -197,21 +156,6 @@ public class RenderVehicle2 extends Render<Entity> {
         //		int pass = MC.getRenderManager().rend
 
         // RENDER VECTORS
-		/*
-		GL11.glPushMatrix();
-		DebugRenderer.setupBasicRender();
-		GL11.glTranslatef((float)posX, (float)posY+2, (float)posZ);
-		
-		Vec3d ve = entityVehicle.getSolver().getVelocityVector();
-		Vec3d ov = entityVehicle.getSolver().getOreintationVector();
-		
-		DebugRenderer.renderLine(Vec3d.ZERO, ve.scale(0.1), new Vec3d(1, 0, 0));
-		DebugRenderer.renderLine(Vec3d.ZERO, ov.scale(2), new Vec3d(0, 1, 0));
-		
-		GlStateManager.color(1.0f, 1.0f, 1.0f);
-		DebugRenderer.destructBasicRender();
-		GL11.glPopMatrix();
-		*/
 
         // RENDER CUSTOM BOUNDING BOX
         GL11.glPushMatrix();
@@ -231,19 +175,9 @@ public class RenderVehicle2 extends Render<Entity> {
 
         GL11.glPushMatrix();
         invertCameraTransform();
-        EntityVehicle v = entityVehicle;
         float pt = MC.getRenderPartialTicks();
-		
 
-		/*
-		double preX = v.prevPosX - v.posX;
-		double preY = v.prevPosY - v.posY;
-		double preZ = v.prevPosZ - v.posZ;
-		double newPosX = preX + (v.posX-preX)*pt;
-		double newPosY = preY + (v.posY-preY)*pt;
-		double newPosZ = preZ + (v.posZ-preZ)*pt;
-		
-		System.out.println(posX + " | " + posY + " | " + posZ);*/
+
         GL11.glTranslatef((float) posX, (float) posY, (float) posZ);
 
         //GL11.glTranslated(0.0, 0.0, 0.5);
@@ -257,20 +191,8 @@ public class RenderVehicle2 extends Render<Entity> {
         GL11.glRotatef(180.0F - rotationYaw, 0.0F, 1.0F, 0.0F);
 
 
-        if (MC.gameSettings.thirdPersonView == 0) {
-            GL11.glRotatef(roll, 0.0f, 0.0f, 1.0f);
-        } else {
-            GL11.glRotatef(roll, 0.0f, 0.0f, 1.0f);
-        }
-		
-		
-		
-		/*
-		if(entityVehicle.getSolver().angles != null) {
-			GL11.glRotated(-entityVehicle.getSolver().angles[2], 0.0, 0.0, 1.0);
-			GL11.glRotated(-entityVehicle.getSolver().angles[0]-90f, 1.0, 0.0, 0.0);
-		}
-		*/
+        GL11.glRotatef(roll, 0.0f, 0.0f, 1.0f);
+
 
         float mu2 = MC.getRenderPartialTicks();
         //float mu2 = (float) ((1 - Math.cos(MC.getRenderPartialTicks() * Math.PI)) / 2f);
@@ -280,14 +202,7 @@ public class RenderVehicle2 extends Render<Entity> {
 
 
         // debug DD
-        if (MC.gameSettings.thirdPersonView != 0) {
-            GL11.glRotatef(interpPitch, 1.0F, 0.0F, 0.0F);
-        } else {
-
-            GL11.glRotatef(interpPitch, 1.0F, 0.0F, 0.0F);
-
-
-        }
+        GL11.glRotatef(interpPitch, 1.0F, 0.0F, 0.0F);
         //GL11.glRotatef(interpPitch, 1.0F, 0.0F, 0.0F);
 		
 
@@ -299,39 +214,13 @@ public class RenderVehicle2 extends Render<Entity> {
 		}*/
 
 
-//		Matrix4f cM = MatrixHelper.captureMatrix();
-
-        //cM.m33 = 0;
-        //MatrixHelper.applyMatrix(cM);
-		
-		
-/*
-		if(entityVehicle.getSolver().rotMat != null) {
-			
-			Matrix3d k = entityVehicle.getSolver().rotMat;
-			
-			double[] dBuf = new double[] {k.m00, k.m01, k.m02, 0,
-					k.m10, k.m11, k.m12, 0,
-					k.m20, k.m21, k.m22, 0,
-				  0, 0, 0, 0};
-			DoubleBuffer db = DoubleBuffer.wrap(dBuf);
-			
-			
-			GL11.glMultMatrix(db);
-		
-		}*/
-
         if (MC.gameSettings.thirdPersonView == 0) {
 
             //GL11.glTranslated(0.0, (Math.abs(entityVehicle.rotationPitch)/90.0)*2.0, 0.0);
 
         } else {
 
-            if (!entityVehicle.onGround && entityVehicle.rotationPitch > 3) {
-
-
-                //GL11.glTranslated(0.0, -entityVehicle.getInterpolatedLiftOffset(), 0.0);
-            }
+            //GL11.glTranslated(0.0, -entityVehicle.getInterpolatedLiftOffset(), 0.0);
 
 
         }
@@ -368,7 +257,7 @@ public class RenderVehicle2 extends Render<Entity> {
                 GL11.glTranslated(-seatOffset.x, seatOffset.y, -seatOffset.z);
 
                 if (!(pass instanceof EntityPlayer)) {
-                    MC.getRenderManager().renderEntity(pass, 0, 0, 0, -pass.rotationYaw, MC.getRenderPartialTicks(), true);
+                    MC.getRenderManager().renderEntity(null, 0, 0, 0, -pass.rotationYaw, MC.getRenderPartialTicks(), true);
                 } else {
                     EntityPlayer player = (EntityPlayer) pass;
                     RenderManager rManager = MC.getRenderManager();
@@ -460,8 +349,7 @@ public class RenderVehicle2 extends Render<Entity> {
 
         EntityPlayer player = MC.player;
         int gameView = MC.gameSettings.thirdPersonView;
-        boolean isPlayerRiding = player.isRiding();
-        boolean isRidingVehicle = isPlayerRiding;
+        boolean isRidingVehicle = player.isRiding();
         if (isRidingVehicle) {
             isRidingVehicle = ((player.getRidingEntity() instanceof EntityVehicle));
         }
@@ -522,159 +410,21 @@ public class RenderVehicle2 extends Render<Entity> {
 
         // suspension
         //GL11.glTranslatef(-1.6f*s, (float) (-1.5f-entityVehicle.rideOffset), 1.75f*s);
-		
-		/*
-		if(entityVehicle.ticksExisted > 200) entityVehicle.ticksExisted = 0;
-		float interp = (entityVehicle.ticksExisted-1)+(entityVehicle.ticksExisted-(entityVehicle.ticksExisted-1))*MC.getRenderPartialTicks();
-		double tE = entityVehicle.ticksExisted;
-		
-		double dV = Math.sin(interp*2)/(Math.max(1.0, tE*tE/9000));
-		
-		double f = (entityVehicle.ticksExisted/200.0);
-		*/
-        //System.out.println("fuck");
 
-
-        //System.out.println(entityVehicle.rideOffset);
-		
-		/*
-		double dV = entityVehicle.getSolver().rearAxel.rightWheel.rideHeight;
-		
-		
-		
-		susSolve.springRate = 19000;
-		
-		
-		
-		susSolve.applyForce(-entityVehicle.mass*9.81);
-		//System.out.println(susSolve.currentLength + " | " + susSolve.length);
-		
-		GL11.glRotated(0, 1.0, 0.0, 0.0);
-		GL11.glScaled(1.0, 1.0 + (susSolve.getStretch()*-1), 1.0);
-		GL11.glTranslated(0.0, -1.5, 0.0);
-		
-		(new SuspensionModel()).renderer(entityVehicle, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
-		*/
 
         //DebugRenderer.destructBasicRender();
-		
-		
-		
-		/*
-		GL11.glTranslated(0.0, -3.5, 0.0);
-		GL11.glScaled(-1, -1, 1);
-		GL11.glRotated(180, 0, 1, 0);
-		Vec3d[] vL = entityVehicle.calculateTerrainPlane();
-		//System.out.println(Arrays.toString(vL));
-		boolean flag = true;
-		
-		if(vL == null) flag = false;
-		if(vL != null) {
-			for(Vec3d v : vL) {
-				if(v == null) {
-					flag = false;
-					break;
-				}
-			}
-		}
-		
-		
-		if(flag) {
-			//System.out.println(Arrays.toString(vL));
-			renderPlane(vL);
-		}
-		*/
-		
-		
-		/*
-		GlStateManager.enableBlend();
-		GL11.glScaled(1.001, 1.001, 1.001);
-		GlStateManager.blendFunc(GL11.GL_ONE, GL11.GL_ONE);
-		
-		mainRenderer.renderer(context);
-		
-		GlStateManager.disableBlend();
-		*/
+
 
         // test raycast
 
 
         //
-		
-		
-		/*
-		if(MC.getRenderManager().isDebugBoundingBox()) {
-			GL11.glPushMatrix();
-			
-			DebugRenderer.setupBasicRender();
-			entityVehicle.getOreintedBoundingBox().renderOBB();
-			DebugRenderer.destructBasicRender();
-			GL11.glPopMatrix();
-		}*/
-		
-		
-		
-		
-		/*
-		// test side slip
-		double angle = entityVehicle.solver.getSideSlipAngle();
-		//System.out.println(Math.toDegrees(angle));
-		
-		
-		Vec3d eV = new Vec3d(0, 0, -1);
-		eV = eV.rotateYaw(-(float) angle);
-		
-		
-		DebugRenderer.setupBasicRender();
-		GL11.glTranslated(0.0, -3.5, 0.0);
-		DebugRenderer.renderLine(Vec3d.ZERO, eV, new Vec3d(1,0,0));
-		DebugRenderer.destructBasicRender();
-		*/
+
 
         // end test
 
-        //rigidBodyTest(entityVehicle);
-        //OBBTest();
-
-//		double d0 = RenderManager.renderPosX - (entityVehicle.posX - entityVehicle.lastTickPosX) * (double)par9; // - (RenderManager.renderPosX - (entityVehicle.lastTickPosX + (entityVehicle.posX - entityVehicle.lastTickPosX) * (double)par9));
-//		double d1 = RenderManager.renderPosY; // - (RenderManager.renderPosY - (entityVehicle.lastTickPosY + (entityVehicle.posY - entityVehicle.lastTickPosY) * (double)par9));
-//		double d2 = RenderManager.renderPosZ - (entityVehicle.posZ - entityVehicle.lastTickPosZ) * (double)par9; // - (RenderManager.renderPosZ - (entityVehicle.lastTickPosZ + (entityVehicle.posZ - entityVehicle.lastTickPosZ) * (double)par9));
-//
-//	        
         GL11.glPopMatrix();
         this.shadowSize = 0.1f;
-//		
-//		    GL11.glPushMatrix();
-//	        GL11.glDepthMask(false);
-//	        GL11.glDisable(GL11.GL_TEXTURE_2D);
-//	        GL11.glDisable(GL11.GL_LIGHTING);
-//	        GL11.glDisable(GL11.GL_CULL_FACE);
-//	        GL11.glDisable(GL11.GL_BLEND);
-//	        
-//	        GL11.glColor4f(0.0F, 0.0F, 0.0F, 0.4F);
-//	        GL11.glLineWidth(2.0F);
-//	        
-//	        //AxisAlignedBB fbb = entityVehicle.getFrontBoundingBox().copy();
-//
-////	        AxisAlignedBB cbb = entityVehicle.getBoundingBox().copy();
-////	        cbb.offset(-entityVehicle.posX, -entityVehicle.posY, -entityVehicle.posZ);
-////	        RenderGlobal.drawOutlinedBoundingBox(cbb, 16777215);
-//	        
-//	        //System.out.println("Rendering " + entityVehicle + " " + entityVehicle.getFrontBoundingBox());
-//	        //d0 = d1 = d2 = 0;
-//	        RenderGlobal.drawOutlinedBoundingBox(entityVehicle.getBoundingBox().getOffsetBoundingBox(-d0, -d1, -d2), 0x00D0FF00);
-//	        AxisAlignedBB fbb = entityVehicle.getFrontBoundingBox().getOffsetBoundingBox(-d0, -d1, -d2);
-//	        RenderGlobal.drawOutlinedBoundingBox(fbb, 0xFF00FF00);
-//	        
-//	        AxisAlignedBB rbb = entityVehicle.getRearBoundingBox().getOffsetBoundingBox(-d0, -d1, -d2);
-//	        RenderGlobal.drawOutlinedBoundingBox(rbb, 0xFF0000FF);
-//	        
-//	        GL11.glEnable(GL11.GL_TEXTURE_2D);
-//	        GL11.glEnable(GL11.GL_LIGHTING);
-//	        GL11.glEnable(GL11.GL_CULL_FACE);
-//	        GL11.glDisable(GL11.GL_BLEND);
-//	        GL11.glDepthMask(true);
-//	        GL11.glPopMatrix();
     }
 
     @Override
@@ -685,7 +435,7 @@ public class RenderVehicle2 extends Render<Entity> {
                 float f = (float) ((1.0D - d0 / 256.0D) * (double) this.shadowOpaque);
 
                 if (f > 0.0F) {
-                    this.renderShadow(entityIn, x, y, z, f, partialTicks);
+                    renderShadow(entityIn, x, y, z, f, partialTicks);
                 }
             }
 
@@ -731,7 +481,7 @@ public class RenderVehicle2 extends Render<Entity> {
             IBlockState iblockstate = world.getBlockState(blockpos.down());
 
             if (iblockstate.getRenderType() != EnumBlockRenderType.INVISIBLE && world.getLightFromNeighbors(blockpos) > 3) {
-                this.renderShadowSingle(entityIn, iblockstate, x, y, z, blockpos, 0.7f, f, d2, d3, d4);
+                renderShadowSingle(entityIn, iblockstate, x, y, z, blockpos, 0.7f, f, d2, d3, d4);
             }
         }
 
@@ -745,79 +495,7 @@ public class RenderVehicle2 extends Render<Entity> {
     }
 
     private void renderShadowSingle(Entity e, IBlockState state, double p_188299_2_, double p_188299_4_, double p_188299_6_, BlockPos pos, float p_188299_9_, float p_188299_10_, double p_188299_11_, double p_188299_13_, double p_188299_15_) {
-        if (1 + 1 == 2) {
-            return;
-        }
-        GlStateManager.disableBlend();
-        GlStateManager.disableAlpha();
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
-        if (state.isFullCube()) {
-            Tessellator tessellator = Tessellator.getInstance();
-            BufferBuilder bufferbuilder = tessellator.getBuffer();
-            double d0 = ((double) p_188299_9_ - (p_188299_4_ - ((double) pos.getY() + p_188299_13_)) / 2.0D) * 0.5D * (double) e.world.getLightBrightness(pos);
-
-
-            if (d0 >= 0.0D) {
-                if (d0 > 1.0D) {
-                    d0 = 1.0D;
-                }
-
-                AxisAlignedBB axisalignedbb = new AxisAlignedBB(-1, 0, -1.5, 1, 0, 1.5);
-
-
-                Vec3d p = e.getPositionVector();
-                //Vec3d p = new Vec3d(pos.getX(), pos.getY(), pos.getZ());
-
-                double d1 = p.x + axisalignedbb.minX + p_188299_11_;
-                double d2 = p.x + axisalignedbb.maxX + p_188299_11_;
-                double d3 = p.y + axisalignedbb.minY + p_188299_13_ + 0.015625D;
-                double d4 = p.z + axisalignedbb.minZ + p_188299_15_;
-                double d5 = p.z + axisalignedbb.maxZ + p_188299_15_;
-
-
-
-
-                /*
-                 * D1 = 0;
-                 * D2 = 1;
-                 * D3 = 0;
-                 * D4 = 0;
-                 * D5 = 1;
-                 */
-                // System.out.println(axisalignedbb);
-
-
-                float f = 0.0f;
-                float f1 = 1.0f;
-                float f2 = 0.0f;
-                float f3 = 1.0f;
-
-
-                //   System.out.println(d1 + " | " + d2 + " | " + d3 + " | " + d4 + " | " + d5);
-
-
-                // GL11.glRotated(30, 0.0, 1, 0.0);
-                // System.out.println(p_188299_11_ + " | " + p_188299_13_ + " | " + p_188299_15_);
-
-                bufferbuilder.pos(d1, d3, d4).tex(f, f2).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d1, d3, d5).tex(f, f3).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d2, d3, d5).tex(f1, f3).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d2, d3, d4).tex(f1, f2).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-
-                GL11.glTranslated(pos.getX(), pos.getY(), pos.getZ());
-                GL11.glTranslated(p_188299_11_, p_188299_13_, p_188299_15_);
-
-                e.rotationYaw = (float) (360.0 * ((e.ticksExisted % 200) / 200.0));
-                GL11.glTranslated(1.0, 0.0, 1.0);
-                GL11.glRotated(-e.rotationYaw + 90, 0.0, 1, 0.0);
-
-
-                GL11.glTranslated(-p_188299_11_, -p_188299_13_, -p_188299_15_);
-
-                GL11.glTranslated(-pos.getX(), -pos.getY(), -pos.getZ());
-
-            }
-        }
+        return;
     }
 
 
@@ -860,6 +538,6 @@ public class RenderVehicle2 extends Render<Entity> {
 
     @Override
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
-        this.renderVehicle((EntityVehicle) par1Entity, par2, par4, par6, par8, par9);
+        renderVehicle((EntityVehicle) par1Entity, par2, par4, par6, par8, par9);
     }
 }

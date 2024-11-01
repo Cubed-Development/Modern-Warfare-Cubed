@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.shader;
 
+import lombok.Getter;
 import net.minecraft.client.shader.Framebuffer;
 
 import java.util.HashMap;
@@ -7,10 +8,14 @@ import java.util.Map;
 
 public class DynamicShaderContext {
 
+    @Getter
     private final float partialTicks;
+    @Getter
     private final DynamicShaderPhase phase;
     private Map<String, Object> properties;
+    @Getter
     private final Framebuffer mainFramebuffer;
+    @Getter
     private final Object target;
 
     public DynamicShaderContext(DynamicShaderPhase phase, Object target, Framebuffer mainFramebuffer, float partialTicks) {
@@ -18,10 +23,6 @@ public class DynamicShaderContext {
         this.phase = phase;
         this.mainFramebuffer = mainFramebuffer;
         this.target = target;
-    }
-
-    public Object getTarget() {
-        return target;
     }
 
     public DynamicShaderContext withProperty(String name, Object value) {
@@ -37,15 +38,4 @@ public class DynamicShaderContext {
         return (T) properties.get(name);
     }
 
-    public float getPartialTicks() {
-        return partialTicks;
-    }
-
-    public DynamicShaderPhase getPhase() {
-        return phase;
-    }
-
-    public Framebuffer getMainFramebuffer() {
-        return mainFramebuffer;
-    }
 }

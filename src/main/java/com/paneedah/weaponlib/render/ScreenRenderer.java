@@ -23,12 +23,6 @@ public class ScreenRenderer {
 
 
         GlStateManager.translate((float) posX, (float) posY, (float) posZ);
-        
-        /*
-        GlStateManager.rotate((float) roll, 0.0f, 0.0f, 1.0f);
-        GlStateManager.rotate((float) pitch, 1.0f, 0.0f, 0.0f);
-        GlStateManager.rotate((float) yaw, 0.0f, 1.0f, 0.0f);
-        */
 
         GL11.glScaled(scalef, scalef, scalef);
 

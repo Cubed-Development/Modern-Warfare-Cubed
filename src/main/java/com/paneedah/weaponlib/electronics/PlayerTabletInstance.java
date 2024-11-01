@@ -6,11 +6,13 @@ import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.WirelessCameraPerspective;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
+@Getter
 public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 
     private static final int SERIAL_VERSION = 1;
@@ -50,10 +52,6 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
             this.activeWatchIndex = activeWatchIndex;
             markDirty();
         }
-    }
-
-    public int getActiveWatchIndex() {
-        return activeWatchIndex;
     }
 
     @Override

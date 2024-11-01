@@ -31,7 +31,7 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
                 }
             }
 
-            return textureId;
+            return textureId.intValue();
         }
 
         @Override

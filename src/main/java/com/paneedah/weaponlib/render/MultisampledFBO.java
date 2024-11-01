@@ -28,14 +28,14 @@ public class MultisampledFBO extends Framebuffer {
             GlStateManager.enableDepth();
 
             if (this.framebufferObject >= 0) {
-                this.deleteFramebuffer();
+                deleteFramebuffer();
             }
 
 
-            this.createFramebuffer(width, height);
+            createFramebuffer(width, height);
 
 
-            this.checkFramebufferComplete();
+            checkFramebufferComplete();
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, 0);
 
         }
@@ -43,8 +43,8 @@ public class MultisampledFBO extends Framebuffer {
 
     public void deleteFramebuffer() {
         if (OpenGlHelper.isFramebufferEnabled()) {
-            this.unbindFramebufferTexture();
-            this.unbindFramebuffer();
+            unbindFramebufferTexture();
+            unbindFramebuffer();
 
             if (this.depthBuffer > -1) {
                 OpenGlHelper.glDeleteRenderbuffers(this.depthBuffer);
@@ -71,7 +71,7 @@ public class MultisampledFBO extends Framebuffer {
         this.framebufferTextureHeight = height;
 
         if (!OpenGlHelper.isFramebufferEnabled()) {
-            this.framebufferClear();
+            framebufferClear();
         } else {
 
 
@@ -89,19 +89,9 @@ public class MultisampledFBO extends Framebuffer {
             //GlStateManager.bindTexture(this.framebufferTexture);
 
             GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL11.GL_RGBA8, width, height, false);
-			
-			/*
-			GlStateManager.glTexImage2D(3553, 0, 32856, this.framebufferTextureWidth, this.framebufferTextureHeight, 0,
-					6408, 5121, (IntBuffer) null);
-			*/
+
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, this.framebufferObject);
-			
-			
-			
-			/*
-			OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_COLOR_ATTACHMENT0, 3553,
-					this.framebufferTexture, 0);
-			*/
+
 
             GLCompatible.glFramebufferTexture2D(GLCompatible.GL_FRAMEBUFFER, GLCompatible.GL_COLOR_ATTACHMENT0, GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, this.framebufferTexture, 0);
 
@@ -109,12 +99,6 @@ public class MultisampledFBO extends Framebuffer {
             if (this.useDepth) {
 
                 OpenGlHelper.glBindRenderbuffer(OpenGlHelper.GL_RENDERBUFFER, this.depthBuffer);
-
-				/*
-				OpenGlHelper.glRenderbufferStorage(OpenGlHelper.GL_RENDERBUFFER,
-						org.lwjgl.opengl.EXTPackedDepthStencil.GL_DEPTH24_STENCIL8_EXT, this.framebufferTextureWidth,
-						this.framebufferTextureHeight);
-				*/
 
 
                 GL30.glRenderbufferStorageMultisample(OpenGlHelper.GL_FRAMEBUFFER, 4, EXTPackedDepthStencil.GL_DEPTH24_STENCIL8_EXT, width, height);
@@ -128,8 +112,8 @@ public class MultisampledFBO extends Framebuffer {
 
             }
 
-            this.framebufferClear();
-            this.unbindFramebufferTexture();
+            framebufferClear();
+            unbindFramebufferTexture();
         }
     }
 
@@ -166,11 +150,6 @@ public class MultisampledFBO extends Framebuffer {
     }
 
     public void bindFramebufferTexture() {
-		/*
-		if (OpenGlHelper.isFramebufferEnabled()) {
-			GlStateManager.bindTexture(this.framebufferTexture);
-		}
-		*/
 
         GL11.glBindTexture(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, framebufferTexture);
 
@@ -179,12 +158,7 @@ public class MultisampledFBO extends Framebuffer {
     public void unbindFramebufferTexture() {
 
         GL11.glBindTexture(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 0);
-		
-		/*
-		if (OpenGlHelper.isFramebufferEnabled()) {
-			GlStateManager.bindTexture(0);
-		}
-		*/
+
     }
 
     public void bindFramebuffer(boolean p_147610_1_) {
@@ -213,7 +187,7 @@ public class MultisampledFBO extends Framebuffer {
     }
 
     public void framebufferRender(int width, int height) {
-        this.framebufferRenderExt(width, height, true);
+        framebufferRenderExt(width, height, true);
     }
 
     public void framebufferRenderExt(int width, int height, boolean p_178038_3_) {
@@ -238,7 +212,7 @@ public class MultisampledFBO extends Framebuffer {
             }
 
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-            this.bindFramebufferTexture();
+            bindFramebufferTexture();
             float f = (float) width;
             float f1 = (float) height;
             float f2 = (float) this.framebufferWidth / (float) this.framebufferTextureWidth;
@@ -253,14 +227,14 @@ public class MultisampledFBO extends Framebuffer {
                     .endVertex();
             bufferbuilder.pos(0.0D, 0.0D, 0.0D).tex(0.0D, f3).color(255, 255, 255, 255).endVertex();
             tessellator.draw();
-            this.unbindFramebufferTexture();
+            unbindFramebufferTexture();
             GlStateManager.depthMask(true);
             GlStateManager.colorMask(true, true, true, true);
         }
     }
 
     public void framebufferClear() {
-        this.bindFramebuffer(true);
+        bindFramebuffer(true);
         GlStateManager.clearColor(this.framebufferColor[0], this.framebufferColor[1], this.framebufferColor[2],
                 this.framebufferColor[3]);
         int i = 16384;
@@ -271,7 +245,7 @@ public class MultisampledFBO extends Framebuffer {
         }
 
         GlStateManager.clear(i);
-        this.unbindFramebuffer();
+        unbindFramebuffer();
     }
 
 }

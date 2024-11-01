@@ -14,6 +14,7 @@ import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.perspective.PerspectiveManager;
+import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
@@ -38,18 +39,20 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public class ClientModContext extends CommonModContext {
 
     protected static ClientModContext currentContext;
-    private ClientEventHandler clientEventHandler;
     private CompatibleRenderingRegistry rendererRegistry;
 
+    @Getter
     private PerspectiveManager viewManager;
 
     private float aspectRatio;
     private Framebuffer inventoryFramebuffer;
 
+    @Getter
     private Map<Object, Integer> inventoryTextureMap;
 
     private EffectManager effectManager;
 
+    @Getter
     private ScreenShakingAnimationManager playerRawPitchAnimationManager;
 
     public static ClientModContext getContext() {
@@ -85,19 +88,19 @@ public class ClientModContext extends CommonModContext {
 
         KeyBindings.init();
 
-        clientEventHandler = new ClientEventHandler(this);
+        ClientEventHandler clientEventHandler = new ClientEventHandler(this);
         MinecraftForge.EVENT_BUS.register(clientEventHandler);
 
         MinecraftForge.EVENT_BUS.register(InventoryTabs.getInstance());
 
         MinecraftForge.EVENT_BUS.register(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
 
-        this.viewManager = new PerspectiveManager(this);
-        this.inventoryTextureMap = new HashMap<>();
+        viewManager = new PerspectiveManager(this);
+        inventoryTextureMap = new HashMap<>();
 
-        this.effectManager = new ClientEffectManager();
+        effectManager = new ClientEffectManager();
 
-        this.playerRawPitchAnimationManager = new ScreenShakingAnimationManager();
+        playerRawPitchAnimationManager = new ScreenShakingAnimationManager();
 
         GUIContainerWorkbench.setModContext(this);
         GUIContainerAmmoPress.setModContext(this);
@@ -123,10 +126,6 @@ public class ClientModContext extends CommonModContext {
     @Override
     public boolean isClient() {
         return true;
-    }
-
-    public PerspectiveManager getViewManager() {
-        return viewManager;
     }
 
     @Override
@@ -195,17 +194,9 @@ public class ClientModContext extends CommonModContext {
         return inventoryFramebuffer;
     }
 
-    public Map<Object, Integer> getInventoryTextureMap() {
-        return inventoryTextureMap;
-    }
-
     @Override
     public EffectManager getEffectManager() {
         return effectManager;
-    }
-
-    public ScreenShakingAnimationManager getPlayerRawPitchAnimationManager() {
-        return playerRawPitchAnimationManager;
     }
 
     @Override

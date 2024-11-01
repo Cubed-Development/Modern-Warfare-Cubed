@@ -33,9 +33,9 @@ public class M79Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0f)
-                .withFlashScale(() -> 0f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.101f)
+                .withFlashScale(() -> Float.valueOf(0f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.101f))
                 .withShellCasingEjectEnabled(false)
                 .withDestroyingBlocks(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -296,13 +296,8 @@ public class M79Factory implements GunFactory {
                             GL11.glTranslatef(0.2f, -0.3f, -2.8f);
 
                             // ACOG Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                //System.out.println("Position me for Acog");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG);//System.out.println("Position me for Acog");
+// Everything else
 
 
                         })
@@ -314,13 +309,8 @@ public class M79Factory implements GunFactory {
                             GL11.glRotatef(-6F, 1f, 0f, 0f);
 
                             // ACOG Zoom
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                //System.out.println("Position me for Acog");
-                            }
-
-                            // Everything else
-                            else {
-                            }
+                            Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG);//System.out.println("Position me for Acog");
+// Everything else
 
 
                         })

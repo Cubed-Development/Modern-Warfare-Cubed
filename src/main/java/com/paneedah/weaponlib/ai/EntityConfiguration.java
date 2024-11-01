@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.ai;
 
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.config.ModernConfigManager;
+import lombok.Getter;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -21,6 +22,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.regex.Pattern;
 
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
@@ -59,6 +61,8 @@ public class EntityConfiguration {
 
 
     public static class Builder {
+
+        private static final Pattern PATTERN = Pattern.compile(", ");
 
         private static class Spawn {
             int weightedProb;
@@ -131,10 +135,6 @@ public class EntityConfiguration {
             }
 
         }
-
-        private final int trackingRange = DEFAULT_TRACKING_RANGE;
-        private final int updateFrequency = DEFAULT_UPDATE_FREQUENCY;
-        private final boolean sendVelocityUpdates = true;
 
         private Supplier<Integer> entityIdSupplier;
         private final Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
@@ -209,7 +209,7 @@ public class EntityConfiguration {
         }
 
         public Builder withPickupItemID(int item) {
-            this.pickupItemID = item;
+            pickupItemID = item;
             return this;
         }
 
@@ -239,13 +239,13 @@ public class EntityConfiguration {
         }
 
         public Builder withSize(float width, float height) {
-            this.sizeWidth = width;
-            this.sizeHeight = height;
+            sizeWidth = width;
+            sizeHeight = height;
             return this;
         }
 
         public Builder withLookHeightMulitplier(float multiplier) {
-            this.lookHeightMultiplier = multiplier;
+            lookHeightMultiplier = multiplier;
             return this;
         }
 
@@ -266,12 +266,12 @@ public class EntityConfiguration {
         }
 
         public Builder withPrimaryEquipmentDropChance(float chance) {
-            this.primaryEquipmentDropChance = chance;
+            primaryEquipmentDropChance = chance;
             return this;
         }
 
         public Builder withSecondaryEquipmentDropChance(float chance) {
-            this.secondaryEquipmentDropChance = chance;
+            secondaryEquipmentDropChance = chance;
             return this;
         }
 
@@ -281,7 +281,7 @@ public class EntityConfiguration {
         }
 
         public Builder withArmorDropChance(float chance) {
-            this.armorDropChance = chance;
+            armorDropChance = chance;
             return this;
         }
 
@@ -302,7 +302,7 @@ public class EntityConfiguration {
             AiTask task = new AiTask();
             task.priority = priority;
             task.taskSupplier = taskSupplier;
-            this.aiTasks.add(task);
+            aiTasks.add(task);
             return this;
         }
 
@@ -310,27 +310,27 @@ public class EntityConfiguration {
             AiTask task = new AiTask();
             task.priority = priority;
             task.taskSupplier = taskSupplier;
-            this.aiTargetTasks.add(task);
+            aiTargetTasks.add(task);
             return this;
         }
 
         public Builder withAmbientSound(String sound) {
-            this.ambientSound = sound.toLowerCase();
+            ambientSound = sound.toLowerCase();
             return this;
         }
 
         public Builder withHurtSound(String sound) {
-            this.hurtSound = sound.toLowerCase();
+            hurtSound = sound.toLowerCase();
             return this;
         }
 
         public Builder withDeathSound(String sound) {
-            this.deathSound = sound.toLowerCase();
+            deathSound = sound.toLowerCase();
             return this;
         }
 
         public Builder withStepSound(String sound) {
-            this.stepSound = sound.toLowerCase();
+            stepSound = sound.toLowerCase();
             return this;
         }
 
@@ -370,7 +370,7 @@ public class EntityConfiguration {
         }
 
         public Builder withSpawnEgg(int primaryEggColor, int secondaryEggColor) {
-            this.spawnEgg = true;
+            spawnEgg = true;
             this.primaryEggColor = primaryEggColor;
             this.secondaryEggColor = secondaryEggColor;
             return this;
@@ -407,7 +407,7 @@ public class EntityConfiguration {
         }
 
         public Builder withInvulnerability() {
-            this.isInvulnerable = true;
+            isInvulnerable = true;
             return this;
         }
 
@@ -420,15 +420,12 @@ public class EntityConfiguration {
             configuration.delayedAttack = delayedAttack;
             configuration.mobName = name;
 
-            int modEntityId = entityIdSupplier.get();
+            int modEntityId = entityIdSupplier.get().intValue();
             String entityName = name != null ? name : baseClass.getSimpleName() + "Ext" + modEntityId;
 
             //TODO: Remove this and actually have a proper way to register entities
             //     This is just a temporary solution to resolve the NPE
             //Obsolete?
-            //if (!ModernConfigManager.aiEntities.containsKey(entityName))
-            //    ModernConfigManager.aiEntities.put(entityName, new AIEntity(entityName, 1.0, 0.0));
-            //AIEntity entityConfig = ModernConfigManager.aiEntities.get(entityName);
 
 
             WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
@@ -441,7 +438,7 @@ public class EntityConfiguration {
                 EnumDifficulty difficultyLevel = EnumDifficulty.EASY;
                 EnumDifficulty[] difficultyValues = EnumDifficulty.values();
 
-                String[] attachments = ModernConfigManager.terroristEquipmentConfiguration.split(", ");
+                String[] attachments = PATTERN.split(ModernConfigManager.terroristEquipmentConfiguration);
                 for (String attachment : attachments) {
                     String[] parts = attachment.split(":");
                     if (parts.length < 2) {
@@ -533,14 +530,15 @@ public class EntityConfiguration {
             configuration.isDespawnable = isDespawnable;
             configuration.lookHeightMultiplier = lookHeightMultiplier;
             configuration.pickupItemID = pickupItemID;
-            configuration.sizeHeight = this.sizeHeight;
-            configuration.sizeWidth = this.sizeWidth;
+            configuration.sizeHeight = sizeHeight;
+            configuration.sizeWidth = sizeWidth;
 
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance().generateEntitySubclass(baseClass, modEntityId, configuration);
 
             SecondaryEntityRegistry.map.put(name, entityClass);
 
-            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, ID + "_" + entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            boolean sendVelocityUpdates = true;
+            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, ID + "_" + entityName, modEntityId, context.getMod(), DEFAULT_TRACKING_RANGE, DEFAULT_UPDATE_FREQUENCY, sendVelocityUpdates);
 
             if (spawnEgg) {
                 EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
@@ -605,24 +603,39 @@ public class EntityConfiguration {
         }
     }
 
+    @Getter
     private WeightedOptions<EnumDifficulty, Equipment> equipmentOptions;
+    @Getter
     private WeightedOptions<EnumDifficulty, Equipment> secondaryEquipmentOptions;
 
     private List<AiTask> aiTasks;
     private List<AiTask> aiTargetTasks;
+    @Getter
     private SoundEvent ambientSound;
+    @Getter
     private SoundEvent hurtSound;
+    @Getter
     private SoundEvent deathSound;
+    @Getter
     private SoundEvent stepSound;
+    @Getter
     private ResourceLocation lootTable;
+    @Getter
     private double maxHealth;
+    @Getter
     private Predicate<Entity> canSpawnHere;
     private Predicate<Entity> isValidLightLevel;
+    @Getter
     private EnumCreatureAttribute creatureAttribute;
+    @Getter
     private float maxTolerableLightBrightness;
+    @Getter
     private double maxSpeed;
+    @Getter
     private List<TexturedModel> texturedModelVariants;
+    @Getter
     private double followRange;
+    @Getter
     private double collisionAttackDamage;
 
     private boolean isPushable;
@@ -630,144 +643,51 @@ public class EntityConfiguration {
     private boolean isCollidable;
     private boolean isDespawnable;
 
+    @Getter
     public float lookHeightMultiplier;
 
+    @Getter
+    @Getter
     public float sizeWidth, sizeHeight;
 
     private Map<EntityEquipmentSlot, CustomArmor> armor;
+    @Getter
     private float primaryEquipmentDropChance;
+    @Getter
     private float secondaryEquipmentDropChance;
+    @Getter
     private float armorDropChance;
+    @Getter
     private int maxAmmo;
 
+    @Getter
     private CustomMobAttack collisionAttack;
+    @Getter
     private CustomMobAttack delayedAttack;
 
+    @Getter
     private String mobName;
 
 
+    @Getter
     private int pickupItemID = -1;
 
     protected EntityConfiguration() {}
 
-    public String getMobName() {
-        return this.mobName;
-    }
-
-    public WeightedOptions<EnumDifficulty, Equipment> getEquipmentOptions() {
-        return equipmentOptions;
-    }
-
-    public WeightedOptions<EnumDifficulty, Equipment> getSecondaryEquipmentOptions() {
-        return secondaryEquipmentOptions;
-    }
-
-    public float getSizeWidth() {
-        return this.sizeWidth;
-    }
-
-    public float getSizeHeight() {
-        return this.sizeHeight;
-    }
-
-    public int getPickupItemID() {
-        return this.pickupItemID;
-    }
-
     public void addAiTasks(EntityLiving e, EntityAITasks tasks) {
-        aiTasks.stream().forEach(t -> tasks.addTask(t.priority, t.taskSupplier.apply(e)));
+        aiTasks.forEach(t -> tasks.addTask(t.priority, t.taskSupplier.apply(e)));
     }
 
     public void addAiTargetTasks(EntityLiving e, EntityAITasks tasks) {
-        aiTargetTasks.stream().forEach(t -> tasks.addTask(t.priority, t.taskSupplier.apply(e)));
-    }
-
-    public float getLookHeightMultiplier() {
-        return this.lookHeightMultiplier;
-    }
-
-    public SoundEvent getAmbientSound() {
-        return ambientSound;
-    }
-
-    public SoundEvent getHurtSound() {
-        return hurtSound;
-    }
-
-    public SoundEvent getDeathSound() {
-        return deathSound;
-    }
-
-    public SoundEvent getStepSound() {
-        return stepSound;
-    }
-
-    public ResourceLocation getLootTable() {
-        return lootTable;
-    }
-
-    public double getMaxHealth() {
-        return maxHealth;
-    }
-
-    public Predicate<Entity> getCanSpawnHere() {
-        return canSpawnHere;
+        aiTargetTasks.forEach(t -> tasks.addTask(t.priority, t.taskSupplier.apply(e)));
     }
 
     public Predicate<Entity> isValidLightLevel() {
         return isValidLightLevel;
     }
 
-    public EnumCreatureAttribute getCreatureAttribute() {
-        return creatureAttribute;
-    }
-
-    public float getMaxTolerableLightBrightness() {
-        return maxTolerableLightBrightness;
-    }
-
-    public double getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public double getFollowRange() {
-        return followRange;
-    }
-
-    public List<TexturedModel> getTexturedModelVariants() {
-        return texturedModelVariants;
-    }
-
     public Collection<CustomArmor> getArmorSet() {
         return armor.values();
-    }
-
-    public float getPrimaryEquipmentDropChance() {
-        return primaryEquipmentDropChance;
-    }
-
-    public float getSecondaryEquipmentDropChance() {
-        return secondaryEquipmentDropChance;
-    }
-
-    public float getArmorDropChance() {
-        return armorDropChance;
-    }
-
-    public int getMaxAmmo() {
-        return maxAmmo;
-    }
-
-    public CustomMobAttack getCollisionAttack() {
-        return collisionAttack;
-    }
-
-    public CustomMobAttack getDelayedAttack() {
-        return delayedAttack;
-    }
-
-    public double getCollisionAttackDamage() {
-        return collisionAttackDamage;
     }
 
     public boolean isPushable() {

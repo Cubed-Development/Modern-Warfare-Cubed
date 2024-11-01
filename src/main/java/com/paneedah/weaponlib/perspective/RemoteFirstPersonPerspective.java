@@ -24,11 +24,11 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
     @SideOnly(Side.CLIENT)
     public RemoteFirstPersonPerspective() {
-        this.renderEndNanoTime = System.nanoTime();
-        this.width = 427; //MC.displayWidth >> 1;
-        this.height = 240; //MC.displayHeight >> 1;
+        renderEndNanoTime = System.nanoTime();
+        width = 427; //MC.displayWidth >> 1;
+        height = 240; //MC.displayHeight >> 1;
         WorldClient world = (WorldClient) MC.player.world;
-        this.watchablePlayer = new PlayerCreatureWrapper(world);
+        watchablePlayer = new PlayerCreatureWrapper(world);
     }
 
     @Override
@@ -52,14 +52,14 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         int origDisplayWidth = MC.displayWidth;
         int origDisplayHeight = MC.displayHeight;
 
-        MC.displayWidth = this.width;
-        MC.displayHeight = this.height;
+        MC.displayWidth = width;
+        MC.displayHeight = height;
 
         framebuffer.bindFramebuffer(true);
 
         MC.effectRenderer = MWCParticleManager.getParticleManager();
 
-        MC.entityRenderer = this.entityRenderer;
+        MC.entityRenderer = entityRenderer;
         if (watchablePlayer.getEntityLiving() != null && !watchablePlayer.getEntityLiving().isDead) {
 
             MC.setRenderViewEntity(watchablePlayer.getEntityLiving());
@@ -67,10 +67,10 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
             ClientProxy.renderingPhase = RenderingPhase.RENDER_PERSPECTIVE;
 
-            this.entityRenderer.setPrepareTerrain(true);
-            this.entityRenderer.updateRenderer();
-            long p_78471_2_ = this.renderEndNanoTime + (long) (1000000000 / 60);
-            this.entityRenderer.renderWorld(event.renderTickTime, p_78471_2_);
+            entityRenderer.setPrepareTerrain(true);
+            entityRenderer.updateRenderer();
+            long p_78471_2_ = renderEndNanoTime + (long) (1000000000 / 60);
+            entityRenderer.renderWorld(event.renderTickTime, p_78471_2_);
 
             ClientProxy.renderingPhase = RenderingPhase.NORMAL;
 
@@ -89,12 +89,12 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         MC.displayHeight = origDisplayHeight;
         MC.entityRenderer = origEntityRenderer;
 
-        this.renderEndNanoTime = System.nanoTime();
+        renderEndNanoTime = System.nanoTime();
     }
 
     protected abstract void updateWatchablePlayer();
 
     protected void renderOverlay() {
-        this.entityRenderer.setupOverlayRendering();
+        entityRenderer.setupOverlayRendering();
     }
 }

@@ -61,11 +61,11 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
     public void initGui() {
         super.initGui();
 
-        this.quantityBox = new CustomSearchTextField(AMMO_PRESS_TEX, "Amt.", 1, 1, this.fontRenderer, this.guiLeft + 267, this.guiTop + 183, 84, 13);
-        this.quantityBox.setMaxStringLength(3);
-        this.quantityBox.setEnableBackgroundDrawing(true);
-        this.quantityBox.setVisible(true);
-        this.quantityBox.setTextColor(16777215);
+        quantityBox = new CustomSearchTextField(AMMO_PRESS_TEX, "Amt.", 1, 1, this.fontRenderer, this.guiLeft + 267, this.guiTop + 183, 84, 13);
+        quantityBox.setMaxStringLength(3);
+        quantityBox.setEnableBackgroundDrawing(true);
+        quantityBox.setVisible(true);
+        quantityBox.setTextColor(16777215);
 
         bulletSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 3, this.guiLeft + 107, this.guiTop + 29, 19, 20, 256, 256, "")
                 .withStandardState(0xFFFFFF, 0, 0).withHoveredState(0xFFFFFF, 19, 0)
@@ -114,7 +114,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
     @Override
     public void updateScreen() {
         super.updateScreen();
-        if (this.tileEntity.getCraftingQueue().size() > 4) {
+        if (tileEntity.getCraftingQueue().size() > 4) {
             craftButton.setErrored(true);
         } else if (hasSelectedCraftingPiece()) {
             craftButton.setErrored(false);
@@ -167,7 +167,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + format(stack.getTranslationKey()));
 
         final int remainingTicks = tileEntity.craftingDuration - tileEntity.craftingTimer;
-        tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", remainingTicks / 20F) + "s");
+        tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", Float.valueOf(remainingTicks / 20F)) + "s");
 
         if (stack.getItem() instanceof ItemBullet) {
             tooltip.add(TextFormatting.GOLD + "Quantity: " + TextFormatting.WHITE + stack.getCount() + TextFormatting.GREEN + " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
@@ -203,11 +203,9 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         if (hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItemStack().getItem() instanceof ItemBullet &&
                 GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 268, this.guiTop + 201, 20, 20)) {
 
-            tooltip.add(String.format("Amount %d will make %d bullets", getCurrentAmountInQuantityBox(), getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
+            tooltip.add(String.format("Amount %d will make %d bullets", Integer.valueOf(getCurrentAmountInQuantityBox()), Integer.valueOf(getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS)));
         }
 
-        //GUIRenderHelper.drawScaledString("x" + (getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS),
-        //		this.guiLeft + 268, this.guiTop + 201, 0.7, GREEN);
     }
 
     @Override
@@ -215,7 +213,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 
         super.drawScreen(mouseX, mouseY, partialTicks);
         if (getPage() == 2) {
-            this.quantityBox.drawTextBox();
+            quantityBox.drawTextBox();
         }
         drawTooltips(mouseX, mouseY, partialTicks);
 
@@ -260,7 +258,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
     @Override
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
         super.mouseClicked(mouseX, mouseY, mouseButton);
-        this.quantityBox.mouseClicked(mouseX, mouseY, mouseButton);
+        quantityBox.mouseClicked(mouseX, mouseY, mouseButton);
 
         if (tileEntity.hasStack()) {
             if (mouseY >= this.guiTop && mouseY <= this.guiTop + 20) {
@@ -275,14 +273,14 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 
     @Override
     protected void keyTyped(char typedChar, int keyCode) throws IOException {
-        boolean cancelationForQuantity = this.quantityBox.getText().length() == 0 && keyCode == Keyboard.KEY_BACK;
+        boolean cancelationForQuantity = quantityBox.getText().length() == 0 && keyCode == Keyboard.KEY_BACK;
 
         super.keyTyped(typedChar, keyCode);
         if (Character.isDigit(typedChar) || keyCode == Keyboard.KEY_BACK) {
-            this.quantityBox.textboxKeyTyped(typedChar, keyCode);
+            quantityBox.textboxKeyTyped(typedChar, keyCode);
         }
 
-        if ((cancelationForQuantity && this.quantityBox.isFocused())) {
+        if ((cancelationForQuantity && quantityBox.isFocused())) {
             return;
         }
 

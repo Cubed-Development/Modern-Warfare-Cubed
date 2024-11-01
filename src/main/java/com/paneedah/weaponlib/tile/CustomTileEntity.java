@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.Configurable;
+import lombok.Getter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -15,6 +16,7 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
 
     protected CustomTileEntityConfiguration<?> configuration;
 
+    @Getter
     private int side;
 
 
@@ -32,10 +34,6 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
 
     protected void setSide(int side) {
         this.side = side;
-    }
-
-    public int getSide() {
-        return side;
     }
 
     public void onEntityBlockActivated(World world, BlockPos pos, EntityPlayer player) {
@@ -56,7 +54,7 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
 
     @Override
     public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-        this.readFromNBT(pkt.getNbtCompound());
+        readFromNBT(pkt.getNbtCompound());
     }
 
     @Override
@@ -73,10 +71,4 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
         return tagCompound;
     }
 
-//    @Override
-//    public Packet<?> getCompatibleUpdatePacket() {
-//        NBTTagCompound tagCompound = new NBTTagCompound();
-//        writeToNBT(tagCompound);
-//        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tagCompound);
-//    }
 }

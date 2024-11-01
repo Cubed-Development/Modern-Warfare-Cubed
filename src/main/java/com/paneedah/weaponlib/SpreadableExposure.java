@@ -2,6 +2,8 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.UniversalObject;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,7 +31,6 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
         private final long enterDuration = 1000;
         private long exitDuration = 500;
         private long startTime;
-        private final long minIntervalBetweenBlackouts = 10000;
         private final Random random = new Random();
 
         public float getProgress() {
@@ -61,6 +62,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
             if (getPhase() != BlackoutPhase.NONE) {
                 return;
             }
+            long minIntervalBetweenBlackouts = 10000;
             if (totalDose > 0.7f && random.nextFloat() < totalDose * totalDose
                     && startTime + duration + minIntervalBetweenBlackouts < System.currentTimeMillis()) {
                 startTime = System.currentTimeMillis();
@@ -73,28 +75,34 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
     public static final int DEFAULT_IMPACT_DELAY = 5000;
     private static final float DEFAULT_DECAY_FACTOR = 0.999f;
 
+    @Getter
     private long firstExposureTimestamp;
+    @Getter
     private float totalDose;
+    @Getter
     private float lastDose;
     private final Map<UUID, Float> cycleDoseMap = new HashMap<>();
-    private long firstExposureImpactDelay = DEFAULT_IMPACT_DELAY;
-
-    private final float decayFactor = DEFAULT_DECAY_FACTOR;
+    private long firstExposureImpactDelay;
 
     private long startCycleTimestamp;
+    @Setter
+    @Getter
     private long lastSyncTimestamp;
     private long lastApplyTimestamp;
-    private final float entityImpactRate = 0.5f;
-    private final long cycleLengthMillis = 10; //500;
+    @Getter
     private int tickCount;
-    private final Function<Float, Float> absorbFunction = dose -> dose * Math.min(0.2f, 0.2f / totalDose);
+    private final Function<Float, Float> absorbFunction = dose -> Float.valueOf(dose * Math.min(0.2f, 0.2f / totalDose));
 
+    @Getter
     private final Blackout blackout = new Blackout();
 
     private final Collection<Listener> listeners = new LinkedHashSet<>();
 
+    @Getter
     private float colorImpairmentR = 1.2f;
+    @Getter
     private float colorImpairmentG = 1.0f;
+    @Getter
     private float colorImpairmentB = 0.8f;
 
     public SpreadableExposure() {
@@ -107,22 +115,10 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
     }
 
     public SpreadableExposure withColorImpairment(float r, float g, float b) {
-        this.colorImpairmentR = r;
-        this.colorImpairmentG = g;
-        this.colorImpairmentB = b;
+        colorImpairmentR = r;
+        colorImpairmentG = g;
+        colorImpairmentB = b;
         return this;
-    }
-
-    public long getFirstExposureTimestamp() {
-        return firstExposureTimestamp;
-    }
-
-    public float getTotalDose() {
-        return totalDose;
-    }
-
-    public float getLastDose() {
-        return lastDose;
     }
 
     public void addListener(Listener listener) {
@@ -143,9 +139,9 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
         }
 
         //Proceed with updates only if the source was not applied in the current cycle
-        cycleDoseMap.put(spreadable.getId(), dose);
+        cycleDoseMap.put(spreadable.getId(), Float.valueOf(dose));
         lastDose = 0f;
-        cycleDoseMap.forEach((k, v) -> lastDose += v);
+        cycleDoseMap.forEach((k, v) -> lastDose += v.floatValue());
 
         Function<Float, Float> absorbFunction = null;
         if (entity instanceof EntityLivingBase) {
@@ -159,16 +155,8 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
             absorbFunction = this.absorbFunction;
         }
 
-        Float absorbedDose = absorbFunction.apply(dose);
-        this.totalDose += absorbedDose;
-    }
-
-    public void setLastSyncTimestamp(long lastSyncTimestamp) {
-        this.lastSyncTimestamp = lastSyncTimestamp;
-    }
-
-    public long getLastSyncTimestamp() {
-        return lastSyncTimestamp;
+        Float absorbedDose = absorbFunction.apply(Float.valueOf(dose));
+        totalDose += absorbedDose.floatValue();
     }
 
     public void updateFrom(Exposure otherExposure) {
@@ -177,13 +165,13 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
         }
 
         SpreadableExposure other = (SpreadableExposure) otherExposure;
-        this.firstExposureImpactDelay = other.firstExposureImpactDelay;
-        this.firstExposureTimestamp = other.firstExposureTimestamp;
-        this.totalDose = other.totalDose;
-        this.lastDose = other.lastDose;
-        this.colorImpairmentR = other.colorImpairmentR;
-        this.colorImpairmentG = other.colorImpairmentG;
-        this.colorImpairmentB = other.colorImpairmentB;
+        firstExposureImpactDelay = other.firstExposureImpactDelay;
+        firstExposureTimestamp = other.firstExposureTimestamp;
+        totalDose = other.totalDose;
+        lastDose = other.lastDose;
+        colorImpairmentR = other.colorImpairmentR;
+        colorImpairmentG = other.colorImpairmentG;
+        colorImpairmentB = other.colorImpairmentB;
     }
 
     @Override
@@ -212,15 +200,6 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
 
     public void update(Entity entity) {
 
-//        if(entity instanceof EntityPlayer) {
-//            System.out.println("Total dose for entity " + entity + ": " + totalDose);
-//        }
-
-//        if(System.currentTimeMillis() - startCycleTimestamp > cycleLengthMillis) {
-//            startCycleTimestamp = System.currentTimeMillis();
-//            cycleDoseMap.clear();
-//        }
-
         long worldTime = entity.world.getTotalWorldTime();
 
         if (firstExposureTimestamp > worldTime) {
@@ -231,6 +210,8 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
             firstExposureImpactDelay = 20;
         }
 
+        //500;
+        long cycleLengthMillis = 10;
         if (worldTime - startCycleTimestamp > cycleLengthMillis) {
             startCycleTimestamp = entity.world.getTotalWorldTime();
             cycleDoseMap.clear();
@@ -244,12 +225,8 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
                 applyToEntity(entityLiving);
             }
 
-            totalDose *= decayFactor;
+            totalDose *= DEFAULT_DECAY_FACTOR;
 
-            //System.out.println("Total dose: " + totalDose);
-            //if(totalDose < 0.01f) {
-            //    result = false;
-            //}
         }
     }
 
@@ -257,6 +234,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
 
         long worldTime = entityLiving.world.getTotalWorldTime();
 
+        float entityImpactRate = 0.5f;
         if (totalDose > MIN_EFFECTIVE_TOTAL_DOSE && worldTime - lastApplyTimestamp >= /*TODO: convert to world time? */20f / entityImpactRate) {
             // TODO: configure min total dose, possibly per entity?
             //TODO: is it possible to control health per entity type?
@@ -290,27 +268,8 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
         tickCount++;
     }
 
-    public int getTickCount() {
-        return tickCount;
-    }
-
-    public Blackout getBlackout() {
-        return blackout;
-    }
-
     public boolean isEffective(World world) {
         return getLastDose() > 0f || getTotalDose() > MIN_EFFECTIVE_TOTAL_DOSE;
     }
 
-    public float getColorImpairmentR() {
-        return colorImpairmentR;
-    }
-
-    public float getColorImpairmentG() {
-        return colorImpairmentG;
-    }
-
-    public float getColorImpairmentB() {
-        return colorImpairmentB;
-    }
 }

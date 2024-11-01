@@ -12,24 +12,22 @@ public class RK4Integrator {
         SolutionVector k1 = null, k2 = null, k3 = null, k4 = null;
         SolutionVector x;
 
-        calculateDerivatives(state, k1);
+        calculateDerivatives(state, null);
         x = state;
-        x.add(0.5f * dt, k1);
+        x.add(0.5f * dt, null);
 
-        calculateDerivatives(state, k2);
-        x = state;
-        x.add(0.5f * dt, k2);
+        calculateDerivatives(state, null);
+        x.add(0.5f * dt, null);
 
-        calculateDerivatives(state, k3);
-        x = state;
-        x.add(dt, k3);
+        calculateDerivatives(state, null);
+        x.add(dt, null);
 
-        calculateDerivatives(x, k4);
+        calculateDerivatives(x, null);
 
         state.add(dt / 6.0f, k1);
         state.add(dt / 3.0f, k2);
         state.add(dt / 3.0f, k3);
-        state.add(dt / 6.0f, k4);
+        state.add(dt / 6.0f, null);
 
 
     }

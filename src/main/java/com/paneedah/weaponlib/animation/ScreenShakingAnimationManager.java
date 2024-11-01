@@ -4,6 +4,7 @@ import com.paneedah.weaponlib.PlayerWeaponInstance;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation.Builder;
+import lombok.Getter;
 import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.HashMap;
@@ -16,6 +17,7 @@ public class ScreenShakingAnimationManager {
         SHOOTING(0, 0.1f), RELOADING(-5, 0f), AIMING(-10, 0f), DEFAULT(Integer.MIN_VALUE, 0f);
 
         private final int priority;
+        @Getter
         private float stepAdjustement;
 
         State(int priority, float stepAdjustement) {
@@ -26,9 +28,6 @@ public class ScreenShakingAnimationManager {
             return priority;
         }
 
-        public float getStepAdjustement() {
-            return stepAdjustement;
-        }
     }
 
     private static class Key {
@@ -37,7 +36,7 @@ public class ScreenShakingAnimationManager {
         Weapon weapon;
 
         public Key(EntityPlayer player, State state, Weapon weapon) {
-            this.playerId = player.getPersistentID();
+            playerId = player.getPersistentID();
             this.state = state;
             this.weapon = weapon;
         }
@@ -110,17 +109,12 @@ public class ScreenShakingAnimationManager {
 
 //        System.out.println("Target state: " + targetState + ", renderer state: " + weaponState);
         PlayerAnimation activeAnimation = activeAnimations.get(player);
-//        activeAnimations.clear();
-//        allPlayerAnimations.clear();
         boolean fadeOut = true;
         if (activeAnimation == null) {
             activeAnimation = getAnimationForManagedState(player, weaponInstance, targetState);
             activeAnimations.put(player, activeAnimation);
         } else {
             State currentAnimationState = activeAnimation.getState();
-//            System.out.println("Current state: " + currentState);
-
-            // System.out.println(currentAnimationState.getPriority() + " | " + targetState.getPriority());
 
 
             if (currentAnimationState == targetState) {
@@ -142,8 +136,6 @@ public class ScreenShakingAnimationManager {
     }
 
     public void reset(EntityPlayer player, RenderableState weaponState) {
-//        PlayerAnimation activeAnimation = getActiveAnimation(player, weaponState);
-//        activeAnimation.reset(player);
     }
 
     public static State toManagedState(RenderableState weaponState) {
@@ -181,14 +173,6 @@ public class ScreenShakingAnimationManager {
                 break;
             case SHOOTING:
                 Builder builder = weapon.getScreenShakeAnimationBuilder(RenderableState.SHOOTING);
-//            ScreenShaking weaponScreenShaking = weapon.getScreenShaking(RenderableState.SHOOTING);
-//            animation = new ScreenShakeAnimation.Builder()
-//                    .withState(managedState)
-//                    .withRotationAttenuation(0.5f)
-//                    .withTranslationAttenuation(0.05f)
-//                    .withZRotationCoefficient(weaponScreenShaking != null ? weaponScreenShaking.getZRotationCoefficient(): 2f)
-//                    .withTransitionDuration(50)
-//                    .build();
                 animation = builder.build();
                 break;
             case DEFAULT:

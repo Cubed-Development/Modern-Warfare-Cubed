@@ -42,9 +42,9 @@ public class M4A1Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -136,7 +136,7 @@ public class M4A1Factory implements GunFactory {
                     if (model instanceof M4Iron2) {
                         GL11.glTranslatef(-0.055F, -1.35F, -4.05F);
                         GL11.glScaled(0.8F, 0.68F, 1F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(-0.185F, -1.55F, -4.05F);
                         GL11.glScaled(0.55F, 0.5F, 1F);
                     }
@@ -208,11 +208,11 @@ public class M4A1Factory implements GunFactory {
                     if (model instanceof AKMiron2) {
                         GL11.glTranslatef(-0.18F, -1.5F, -3.73F);
                         GL11.glScaled(0.55F, 0.55F, 1F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(-0.1F, -1.34F, -3.7F);
                         GL11.glScaled(0.1F, 0.9F, 0.3F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.235F, -1.85F, -3.7F);
                         GL11.glScaled(0.75F, 0.95F, 0.3F);
                     }
@@ -230,15 +230,15 @@ public class M4A1Factory implements GunFactory {
                         GL11.glTranslatef(0.13F, -1.17F, -3.5F);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.37F, -1.005F, -3.5F);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.03F, -0.84F, -3.64F);
                         GL11.glScaled(0.6F, 0.6F, 0.65F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.2F, -1.32F, -3.65f);
                         GL11.glScaled(0.6F, 0.8F, 0.68F);
                     }
@@ -248,15 +248,15 @@ public class M4A1Factory implements GunFactory {
                         GL11.glTranslatef(0.13F, -1.17F, -4.2F);
                         GL11.glScaled(0.6F, 0.6F, 0.95F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.37F, -1.005F, -4.2F);
                         GL11.glScaled(0.6F, 0.6F, 0.95F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.03F, -0.84F, -3.9F);
                         GL11.glScaled(0.6F, 0.6F, 0.8F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.2F, -1.32F, -4.2f);
                         GL11.glScaled(0.6F, 0.8F, 0.95F);
                     }
@@ -266,15 +266,15 @@ public class M4A1Factory implements GunFactory {
                         GL11.glTranslatef(0.13F, -1.14F, -4.1F);
                         GL11.glScaled(0.6F, 0.6F, 0.9F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.37F, -0.98F, -4.1F);
                         GL11.glScaled(0.6F, 0.6F, 0.9F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.03F, -0.84F, -4.1F);
                         GL11.glScaled(0.6F, 0.6F, 0.9F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.182F, -1.32F, -4.1f);
                         GL11.glScaled(0.5F, 0.8F, 0.9F);
                     }
@@ -284,15 +284,15 @@ public class M4A1Factory implements GunFactory {
                         GL11.glTranslatef(0.13F, -1.14F, -4.1F);
                         GL11.glScaled(0.6F, 0.6F, 0.9F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.37F, -0.98F, -4.1F);
                         GL11.glScaled(0.6F, 0.6F, 0.9F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.03F, -0.84F, -4.1F);
                         GL11.glScaled(0.6F, 0.6F, 0.9F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.182F, -1.32F, -4.1f);
                         GL11.glScaled(0.5F, 0.8F, 0.9F);
                     }
@@ -301,14 +301,14 @@ public class M4A1Factory implements GunFactory {
                     if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.32F, -3.45f);
                         GL11.glScaled(0.6F, 0.8F, 0.68F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.2F, -1.32F, -5f);
                         GL11.glScaled(0.6F, 0.8F, 0.68F);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.03F, -0.84F, -3.45F);
                         GL11.glScaled(0.6F, 0.6F, 0.65F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.03F, -0.84F, -4.8F);
                         GL11.glScaled(0.6F, 0.6F, 0.65F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
@@ -335,29 +335,29 @@ public class M4A1Factory implements GunFactory {
                         GL11.glTranslatef(0.13F, -1.14F, -4.1F);
                         GL11.glScaled(0.6F, 0.6F, 0.9F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.37F, -0.98F, -4.1F);
                         GL11.glScaled(0.6F, 0.6F, 0.9F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.03F, -0.84F, -4.1F);
                         GL11.glScaled(0.6F, 0.6F, 0.9F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.182F, -1.32F, -4.1f);
                         GL11.glScaled(0.5F, 0.8F, 0.9F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.M4Receiver, true, (model) -> {
                     if (model instanceof M4Receiver) {
-                    } else if (model instanceof AKRail) {
+                    } else if (null instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.319F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.VLTORReceiver, (model) -> {
                     if (model instanceof VLTORReceiver) {
-                    } else if (model instanceof AKRail) {
+                    } else if (null instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.319F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
@@ -423,8 +423,6 @@ public class M4A1Factory implements GunFactory {
                     GL11.glScaled(0.7F, 0.4F, 0.7F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M4EjectorAction, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//            GL11.glScaled(0.7F, 0.4F, 0.7F);
                 }).withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
                     GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
                     GL11.glScaled(1.05F, 1.2F, 1.15F);
@@ -456,16 +454,16 @@ public class M4A1Factory implements GunFactory {
                     if (model instanceof M4Iron1) {
                         GL11.glTranslatef(-0.145F, -1.55F, -0.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(-0.055F, -1.35F, -4.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(-0.185F, -1.53F, -4.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ARCarryHandle) {
+                    } else if (null instanceof ARCarryHandle) {
                         GL11.glTranslatef(-0.1425F, -1.533F, -0.12F);
                         GL11.glScaled(0.29F, 0.29F, 0.29F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -534,46 +532,46 @@ public class M4A1Factory implements GunFactory {
                     if (model instanceof M4Iron1) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(0.255F, -1.55F, -2.25F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron1) {
+                    } else if (null instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(0.13F, -1.55F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(0.092F, -1.91F, -0.9F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
+                    } else if (null instanceof G36CIron1) {
                         GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
+                    } else if (null instanceof G36CIron2) {
                         GL11.glTranslatef(-0.205F, -1.9F, -3.15F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if (null instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if (null instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(0.127F, -1.77F, -2.22F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M14Iron) {
+                    } else if (null instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M27rearsight) {
+                    } else if (null instanceof M27rearsight) {
                         GL11.glTranslatef(-0.16F, -1.5F, -0.3F);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
-                    } else if (model instanceof MBUSiron) {
+                    } else if (null instanceof MBUSiron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }
@@ -616,7 +614,7 @@ public class M4A1Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -678,9 +676,6 @@ public class M4A1Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//            	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 }, false, false)
 
@@ -994,13 +989,9 @@ public class M4A1Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                         })
 
                         .withFirstPersonCustomPositioning(Magazines.P90Mag, (renderContext) -> {
-//           	 GL11.glTranslatef(0.45f, -0.35f, 0f);
-//           	 GL11.glRotatef(10F, 1f, 1f, 0f);
                         })
 
                         .withThirdPersonPositioningReloading(
@@ -1069,16 +1060,13 @@ public class M4A1Factory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//				GL11.glRotatef(45F, 0f, 1f, 0f);
-//				GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.18f, -0.02f, 0.6f);
 
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(-0.0005F, 0.1f, 0f);
                                 } else {
@@ -1089,9 +1077,8 @@ public class M4A1Factory implements GunFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.1f, 0f);
                                 } else {
@@ -1107,9 +1094,8 @@ public class M4A1Factory implements GunFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.155f, 0f);
                                 } else {
@@ -1120,9 +1106,8 @@ public class M4A1Factory implements GunFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.14f, 0f);
                                 } else {
@@ -1133,9 +1118,8 @@ public class M4A1Factory implements GunFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(-0.0005F, 0.1f, 0f);
                                 } else {
@@ -1146,9 +1130,8 @@ public class M4A1Factory implements GunFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(-0.01F, 0.125f, 0.1f);
                                 } else {
@@ -1159,9 +1142,8 @@ public class M4A1Factory implements GunFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(-0.003F, 0.05f, 0.2f);
                                 } else {
@@ -1172,9 +1154,8 @@ public class M4A1Factory implements GunFactory {
                             // HP Zoomw
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                                 //System.out.println("Position me for Acog");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0.001F, 0.092f, -0.2f);
                                 } else {
@@ -1185,9 +1166,8 @@ public class M4A1Factory implements GunFactory {
                             // Reflex Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
                                 //System.out.println("Position me for Reflex");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.08f, 0f);
                                 } else {
@@ -1198,9 +1178,8 @@ public class M4A1Factory implements GunFactory {
                             // Reflex Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                                 //System.out.println("Position me for Reflex");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.07f, 0f);
                                 } else {
@@ -1211,9 +1190,8 @@ public class M4A1Factory implements GunFactory {
                             // Holo Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
                                 //System.out.println("Position me for Holo");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.13f, 0f);
                                 } else {
@@ -1224,9 +1202,8 @@ public class M4A1Factory implements GunFactory {
                             // Holo Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
                                 //System.out.println("Position me for Holo");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.13f, 0f);
                                 } else {
@@ -1237,9 +1214,8 @@ public class M4A1Factory implements GunFactory {
                             // Holo Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
                                 //System.out.println("Position me for Holo");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(-0.004F, 0.13f, -0f);
                                 } else {
@@ -1250,9 +1226,8 @@ public class M4A1Factory implements GunFactory {
                             // Holo Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
                                 //System.out.println("Position me for Holo");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.16f, 0f);
                                 } else {
@@ -1263,9 +1238,8 @@ public class M4A1Factory implements GunFactory {
                             // Reflex Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
                                 //System.out.println("Position me for Reflex");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.13f, 0.2f);
                                 } else {
@@ -1276,9 +1250,8 @@ public class M4A1Factory implements GunFactory {
                             // Reflex Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
                                 //System.out.println("Position me for Reflex");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.13f, 0.2f);
                                 } else {
@@ -1289,9 +1262,8 @@ public class M4A1Factory implements GunFactory {
                             // Reflex Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
                                 //System.out.println("Position me for Reflex");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.14f, 0.5f);
                                 } else {
@@ -1302,9 +1274,8 @@ public class M4A1Factory implements GunFactory {
                             // Reflex Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                                 //System.out.println("Position me for Reflex");
-                                RenderContext<?> rc = renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.14f, 0.3f);
                                 } else {

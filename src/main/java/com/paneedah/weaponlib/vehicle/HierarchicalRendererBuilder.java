@@ -141,10 +141,6 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
         List<HierarchicalRendererBuilder<Part, State>.TransitionDescriptor> partStateDescriptors = partConfiguration.transitionDescriptors.computeIfAbsent(state, s -> new ArrayList<>());
         partStateDescriptors.add(new TransitionDescriptor(positionFunction, duration));
 
-        //        List<MultipartTransition<SinglePart, PartRenderContext<State>>> singleStateTransitions = partConfiguration.transitions.computeIfAbsent(state, s -> new ArrayList<>());
-        //        MultipartTransition<SinglePart, PartRenderContext<State>> mt = new MultipartTransition<>(duration);
-        //        mt.withPartPositionFunction(SinglePart.MAIN, positionFunction);
-        //        singleStateTransitions.add(mt);
         return this;
     }
 
