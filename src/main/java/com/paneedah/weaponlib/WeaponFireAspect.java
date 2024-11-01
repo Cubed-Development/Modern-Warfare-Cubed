@@ -46,14 +46,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
     private static final long ALERT_TIMEOUT = 500;
 
-//    private static <T> Predicate<T> logging(Predicate<T> predicate, String message) {
-//        return t -> {
-//            boolean result = predicate.test(t);
-//            log.debug(message, result);
-//            return result;
-//        };
-//    }
-
     private static final Predicate<PlayerWeaponInstance> readyToShootAccordingToFireRate = instance ->
             System.currentTimeMillis() - instance.getLastFireTimestamp() >= 50f / BalancePackManager.getFirerate(instance.getWeapon());
 
@@ -77,11 +69,9 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
     private static final Predicate<PlayerWeaponInstance> ejectSpentRoundTimeoutExpired = instance -> {
 
-        boolean time = System.currentTimeMillis() >= instance.getWeapon().builder.pumpTimeoutMilliseconds + instance.getStateUpdateTimestamp();
-
         // HERE
 
-        return time;
+        return System.currentTimeMillis() >= instance.getWeapon().builder.pumpTimeoutMilliseconds + instance.getStateUpdateTimestamp();
 
     };
 
@@ -271,12 +261,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
 
         if (shootSound != null) {
-        	/*
-        	try {
-        		JSoundEngine.getInstance().playSound();
-        	} catch(Exception e) {
-        		e.printStackTrace();
-        	}*/
 
             // Should prevent sound from being one sided
 
@@ -307,8 +291,8 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
 
         float recoilAmount = weaponInstance.getRecoil();
-        recoilAmount *= BalancePackManager.getGlobalRecoilMultiplier();
-        recoilAmount *= BalancePackManager.getGroupRecoilMultiplier(weapon.getConfigurationGroup());
+        recoilAmount *= (float) BalancePackManager.getGlobalRecoilMultiplier();
+        recoilAmount *= (float) BalancePackManager.getGroupRecoilMultiplier(weapon.getConfigurationGroup());
 
         player.rotationPitch = player.rotationPitch - recoilAmount * 0.7f;
         float rotationYawFactor = -1.0f + random.nextFloat() * 2.0f;
@@ -319,9 +303,9 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
 
         if (ModernConfigManager.enableMuzzleEffects && weapon.builder.flashIntensity > 0) {
-            modContext.getEffectManager().spawnFlashParticle(player, weapon.builder.flashIntensity, weapon.builder.flashScale.get(),
-                    weaponInstance.isAimed() ? FLASH_X_OFFSET_ZOOMED : -0.1f + weapon.builder.flashOffsetX.get(),
-                    weaponInstance.isAimed() ? -1.55f : -1.7f + weapon.builder.flashOffsetY.get(), weapon.builder.flashTexture);
+            modContext.getEffectManager().spawnFlashParticle(player, weapon.builder.flashIntensity, weapon.builder.flashScale.get().floatValue(),
+                    weaponInstance.isAimed() ? FLASH_X_OFFSET_ZOOMED : -0.1f + weapon.builder.flashOffsetX.get().floatValue(),
+                    weaponInstance.isAimed() ? -1.55f : -1.7f + weapon.builder.flashOffsetY.get().floatValue(), weapon.builder.flashTexture);
         }
 
 
@@ -329,7 +313,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         ClientValueRepo.fireWeapon(weaponInstance);
 
         if (weapon.isSmokeEnabled()) {
-            modContext.getEffectManager().spawnSmokeParticle(player, -0.1f + weapon.builder.smokeOffsetX.get(), -1.7f + weapon.builder.smokeOffsetY.get() + 0.3f);
+            modContext.getEffectManager().spawnSmokeParticle(player, -0.1f + weapon.builder.smokeOffsetX.get().floatValue(), -1.7f + weapon.builder.smokeOffsetY.get().floatValue() + 0.3f);
         }
 
         if (weapon.isShellCasingEjectEnabled()) {
@@ -337,8 +321,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             float fovMult = MC.gameSettings.fovSetting < 70f ? (MC.gameSettings.fovSetting / 50) : -(MC.gameSettings.fovSetting / 200f);
 
             // Panda: Replaced this with the above line, undo if it breaks anything for whatever reason.
-            //if (MC.gameSettings.fovSetting < 70f) fovMult = (MC.gameSettings.fovSetting/50);
-            //else fovMult = -(MC.gameSettings.fovSetting/200f);
 
             Vec3d pos = player.getPositionEyes(1.0f);
             Vec3d weaponDir = new Vec3d(0, -0.1, 1.0 + fovMult).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw));
@@ -349,26 +331,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             ClientEventHandler.SHELL_MANAGER.enqueueShell(shell);
 
             //Shell
-        	
-        	/*
-        	// Change the raw position
-        	Vec3d rawPosition = new Vec3d(ClientEventHandler.NEW_POS.get(0), ClientEventHandler.NEW_POS.get(1), ClientEventHandler.NEW_POS.get(2));
-        	
-        	
-        	// Calculate the final position of the bullet spawn point
-        	// by changing it's position along its own vector
-        	double distance = 0.5;
-			Vec3d eyePos = MC.player.getPositionEyes(1.0f);
-			Vec3d finalPosition = rawPosition.subtract(eyePos).normalize().scale(distance).add(eyePos);
-			
-        	// Calculate velocity as 90 degrees to player
-			Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
-    		velocity = velocity.rotateYaw((float) Math.toRadians(-MC.player.rotationYaw));
-    		
-    		// Spawn in shell
-    		Shell shell = new Shell(weaponInstance.getWeapon().getShellType(), new Vec3d(finalPosition.x, finalPosition.y, finalPosition.z), new Vec3d(90, 0, 90), velocity);
-        	ClientEventHandler.shellManager.enqueueShell(shell);
-        	*/
+
         }
 
         int seriesShotCount = weaponInstance.getSeriesShotCount();
@@ -415,25 +378,9 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         Tags.setAmmo(itemStack, --currentServerAmmo);
 
         if (spawnEntityWith == null) {
-            spawnEntityWith = weapon.builder.spawnEntityWith;
         }
 
         //System.out.println(isAimed);
-      
-        /*
-        int itemIndex = 0;
-        EntityPlayer realPlayer = (EntityPlayer) player;
-        for(int i = 0; i < realPlayer.inventory.getSizeInventory(); ++i) {
-        	if(ItemStack.areItemStacksEqual(realPlayer.inventory.getStackInSlot(i), itemStack)) {
-        		itemIndex = i;
-        	}
-        }
-        
-        
-        
-        PlayerWeaponInstance pwi = new PlayerWeaponInstance(itemIndex, player, itemStack);
-        System.out.println(pwi.isAimed());
-            	*/
 
 
         for (int i = 0; i < weapon.builder.pellets; i++) {
@@ -462,9 +409,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             bullet.setPositionAndDirection(isAimed);
             player.world.spawnEntity(bullet);
             // return bullet;
-/*            WeaponSpawnEntity spawnEntity = spawnEntityWith.apply(weapon, player);
-            if(player != null)
-                player.world.spawnEntity(spawnEntity);*/
 
         }
 
@@ -480,7 +424,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
 
 
-        SoundEvent shootSound = null;
+        SoundEvent shootSound;
 
         boolean silencerOn = playerWeaponInstance != null && modContext.getAttachmentAspect().isSilencerOn(playerWeaponInstance);
         if (isBurst && weapon.builder.isOneClickBurstAllowed) {

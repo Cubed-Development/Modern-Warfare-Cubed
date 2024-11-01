@@ -12,12 +12,7 @@ import net.minecraft.entity.Entity;
 
 public class Bullet extends ModelBase {
     private final ModelRenderer bone;
-    private final ModelRenderer cube_r1;
     private final ModelRenderer bone2;
-    private final ModelRenderer cube_r2;
-    private final ModelRenderer cube_r3;
-    private final ModelRenderer cube_r4;
-    private final ModelRenderer cube_r5;
 
     public Bullet() {
         textureWidth = 32;
@@ -28,7 +23,7 @@ public class Bullet extends ModelBase {
         bone.cubeList.add(new ModelBox(bone, 0, 0, -0.5F, -6.0F, -1.0F, 1, 6, 2, 0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 6, 0, -1.0F, -6.0F, -0.5F, 2, 6, 1, 0.002F, false));
 
-        cube_r1 = new ModelRenderer(this);
+        ModelRenderer cube_r1 = new ModelRenderer(this);
         cube_r1.setRotationPoint(1.0F, 0.0F, -0.5F);
         bone.addChild(cube_r1);
         setRotationAngle(cube_r1, 0.0F, -0.7854F, 0.0F);
@@ -41,25 +36,25 @@ public class Bullet extends ModelBase {
         bone2.setRotationPoint(0.5F, 18.0F, 0.8F);
 
 
-        cube_r2 = new ModelRenderer(this);
+        ModelRenderer cube_r2 = new ModelRenderer(this);
         cube_r2.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone2.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.1047F, 0.0F, 0.0F);
         cube_r2.cubeList.add(new ModelBox(cube_r2, 3, 14, -1.0F, -3.0F, -1.0F, 1, 3, 1, 0.002F, false));
 
-        cube_r3 = new ModelRenderer(this);
+        ModelRenderer cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(-1.3F, 0.0F, -0.3F);
         bone2.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, 0.0F, 0.1047F);
         cube_r3.cubeList.add(new ModelBox(cube_r3, 13, 7, 0.0F, -3.0F, -1.0F, 1, 3, 1, 0.002F, false));
 
-        cube_r4 = new ModelRenderer(this);
+        ModelRenderer cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(0.0F, 0.0F, -1.6F);
         bone2.addChild(cube_r4);
         setRotationAngle(cube_r4, -0.1047F, 0.0F, 0.0F);
         cube_r4.cubeList.add(new ModelBox(cube_r4, 7, 14, -1.0F, -3.0F, 0.0F, 1, 3, 1, 0.002F, false));
 
-        cube_r5 = new ModelRenderer(this);
+        ModelRenderer cube_r5 = new ModelRenderer(this);
         cube_r5.setRotationPoint(0.3F, 0.0F, -0.3F);
         bone2.addChild(cube_r5);
         setRotationAngle(cube_r5, 0.0F, 0.0F, -0.1047F);

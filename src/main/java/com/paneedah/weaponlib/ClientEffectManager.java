@@ -34,14 +34,6 @@ final class ClientEffectManager implements EffectManager {
         double posY = player.posY + (look.y * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor - yOffset;
         double posZ = player.posZ + (look.z * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (look.x * xOffset);
 
-		/*
-		Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();
-
-		posX += weapon.getMuzzlePosition().x;
-		posY += weapon.getMuzzlePosition().y;
-		posZ += weapon.getMuzzlePosition().z;
-		*/
-
         if (player instanceof EntityPlayer && player.isSneaking()) {
             posY -= 0.1f;
         }
@@ -61,18 +53,6 @@ final class ClientEffectManager implements EffectManager {
         float positionRandomizationFactor = 0.0f;
 
         Vector3D look = new Vector3D(player.getLookVec());
-
-		/*
-		float motionX = (float)MC.world.rand.nextGaussian() * 0.003f;
-		float motionY = (float)MC.world.rand.nextGaussian() * 0.003f;
-		float motionZ = (float)MC.world.rand.nextGaussian() * 0.003f;
-
-		motionX = 0.0f;
-		motionY = 0f;
-		motionZ = 0f;
-		
-		xOffset = -.05f;
-		*/
 
         double posX = player.posX + (look.x * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.z * xOffset);
         double posY = player.posY + (look.y * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor - yOffset;

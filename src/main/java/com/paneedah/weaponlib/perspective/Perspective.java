@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import com.paneedah.weaponlib.shader.DynamicShaderContext;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupManager;
+import lombok.Getter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.shader.Framebuffer;
@@ -17,6 +18,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public abstract class Perspective<S> {
 
     protected ClientModContext modContext;
+    @Getter
     protected Framebuffer framebuffer;
 
     protected int width;
@@ -32,10 +34,10 @@ public abstract class Perspective<S> {
             framebuffer = new Framebuffer(width, height, true);
             framebuffer.setFramebufferColor(0.0F, 0.0F, 0.0F, 0.0F);
         }
-        this.entityRenderer = manager.getEntityRenderer();
-        this.effectRenderer = manager.getEffectRenderer();
-        this.shaderGroupManager = new DynamicShaderGroupManager(); //manager.getShaderGroupManager();
-        if (this.shaderGroupManager.hasActiveGroups()) {
+        entityRenderer = manager.getEntityRenderer();
+        effectRenderer = manager.getEffectRenderer();
+        shaderGroupManager = new DynamicShaderGroupManager(); //manager.getShaderGroupManager();
+        if (shaderGroupManager.hasActiveGroups()) {
             System.err.println("!!! Active shader groups found !!!");
         }
     }
@@ -45,7 +47,7 @@ public abstract class Perspective<S> {
         int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
 
         framebuffer.deleteFramebuffer();
-        this.shaderGroupManager.removeAllShaders(new DynamicShaderContext(null, entityRenderer, null, 0f));
+        shaderGroupManager.removeAllShaders(new DynamicShaderContext(null, entityRenderer, null, 0f));
         if (OpenGlHelper.isFramebufferEnabled()) {
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
             GlStateManager.viewport(0, 0, MC.getFramebuffer().framebufferWidth, MC.getFramebuffer().framebufferHeight);
@@ -58,10 +60,6 @@ public abstract class Perspective<S> {
 
     public int getTexture(RenderContext<S> context) {
         return framebuffer != null ? framebuffer.framebufferTexture : -1;
-    }
-
-    public Framebuffer getFramebuffer() {
-        return framebuffer;
     }
 
     public abstract void update(TickEvent.RenderTickEvent event);

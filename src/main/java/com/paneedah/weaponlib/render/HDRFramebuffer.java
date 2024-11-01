@@ -20,7 +20,7 @@ public class HDRFramebuffer extends Framebuffer {
         this.framebufferTextureHeight = height;
 
         if (!OpenGlHelper.isFramebufferEnabled()) {
-            this.framebufferClear();
+            framebufferClear();
         } else {
             this.framebufferObject = OpenGlHelper.glGenFramebuffers();
             this.framebufferTexture = TextureUtil.glGenTextures();
@@ -29,7 +29,7 @@ public class HDRFramebuffer extends Framebuffer {
                 this.depthBuffer = OpenGlHelper.glGenRenderbuffers();
             }
 
-            this.setFramebufferFilter(9728);
+            setFramebufferFilter(9728);
             GlStateManager.bindTexture(this.framebufferTexture);
             GlStateManager.glTexImage2D(3553, 0, GLCompatible.GL_RGBA16F, this.framebufferTextureWidth, this.framebufferTextureHeight, 0, 6408, 5121, null);
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, this.framebufferObject);
@@ -47,8 +47,8 @@ public class HDRFramebuffer extends Framebuffer {
                 }
             }
 
-            this.framebufferClear();
-            this.unbindFramebufferTexture();
+            framebufferClear();
+            unbindFramebufferTexture();
         }
     }
 

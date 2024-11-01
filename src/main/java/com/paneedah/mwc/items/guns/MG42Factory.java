@@ -38,9 +38,9 @@ public class MG42Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withInaccuracy(1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -54,8 +54,6 @@ public class MG42Factory {
 //            GL11.glTranslatef(0F, 0F, 1F); 
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MG42latch, true, (model) -> {
-//            GL11.glTranslatef(0F, -2F, 0F);
-//            GL11.glRotatef(90F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.MG42Belt, true, (model) -> {
 //            GL11.glTranslatef(0.45F, 0F, 0F);
@@ -66,41 +64,41 @@ public class MG42Factory {
                     if (model instanceof AKMiron1) {
                         GL11.glTranslatef(0.125F, -1.8F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(-0.183F, -1.32F, -5F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.25F, -1.65F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron1) {
+                    } else if (null instanceof M4Iron1) {
                         GL11.glTranslatef(0.155F, -1.74F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
+                    } else if (null instanceof G36CIron1) {
                         GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
+                    } else if (null instanceof G36CIron2) {
                         GL11.glTranslatef(-0.205F, -1.9F, -3.15F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if (null instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if (null instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(0.26F, -1.555F, -5.4F);
                         GL11.glScaled(0.15F, 0.3F, 0.8F);
                         GL11.glRotatef(-180F, 0f, 0f, 1f);
-                    } else if (model instanceof M14Iron) {
+                    } else if (null instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }

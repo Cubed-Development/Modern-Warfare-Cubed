@@ -7,16 +7,16 @@ public class Attribute {
     private final String attribName;
 
     public Attribute(String name, int id) {
-        this.attribName = name;
-        this.attribID = id;
+        attribName = name;
+        attribID = id;
     }
 
     public int getAttributeID() {
-        return this.attribID;
+        return attribID;
     }
 
     public String getAttributeName() {
-        return this.attribName;
+        return attribName;
     }
 
 }

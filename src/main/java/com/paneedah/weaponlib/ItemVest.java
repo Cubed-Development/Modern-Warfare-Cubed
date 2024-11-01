@@ -10,6 +10,7 @@ import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.render.IHasModel;
 import com.paneedah.weaponlib.render.modelrepo.ServerGearModelHookRegistry;
+import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
@@ -57,7 +58,6 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
         private String properTextureName;
 
         private int durability;
-        private int damageReduceAmount;
         private double percentDamageBlocked;
 
         public Builder withName(String name) {
@@ -66,12 +66,11 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
         }
 
         public Builder withDamageReduceAmount(int damageReduceAmount) {
-            this.damageReduceAmount = damageReduceAmount;
             return this;
         }
 
         public Builder withPercentDamageBlocked(double ratio) {
-            this.percentDamageBlocked = ratio;
+            percentDamageBlocked = ratio;
             return this;
         }
 
@@ -99,16 +98,6 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
             this.model = model;
             return this;
         }
-
-//        public Builder withGuiTextureName(String guiTextureName) {
-//            this.guiTextureName = guiTextureName;
-//            return this;
-//        }
-
-//        public Builder withGuiTextureWidth(int guiTextureWidth) {
-//            this.guiTextureWidth = guiTextureWidth;
-//            return this;
-//        }
 
         public Builder withModelTextureName(String textureName) {
             this.textureName = textureName;
@@ -174,21 +163,21 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
             ItemVest item = new ItemVest(modContext, percentDamageBlocked, durability);
 
             // Register model and texture for the item
-            ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
-            item.modelFileString = this.modelFileString;
-            item.textureName = this.properTextureName;
+            ServerGearModelHookRegistry.modelArray.add(modelFileString);
+            item.modelFileString = modelFileString;
+            item.textureName = properTextureName;
             item.setTranslationKey(ID + "_" + name);
 
             // Register crafting hook for the item
             CraftingRegistry.registerHook(item);
 
             // Register the model for the client side, if applicable
-            if (this.modelFileString != null && !FMLCommonHandler.instance().getSide().isServer()) {
+            if (modelFileString != null && !FMLCommonHandler.instance().getSide().isServer()) {
                 try {
-                    ModelBase baseModel = (ModelBase) Class.forName(this.modelFileString).newInstance();
-                    item.texturedModels.add(new Tuple<>(baseModel, addFileExtension(this.properTextureName, ".png")));
+                    ModelBase baseModel = (ModelBase) Class.forName(modelFileString).newInstance();
+                    item.texturedModels.add(new Tuple<>(baseModel, addFileExtension(properTextureName, ".png")));
                 } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-                    ProjectConstants.LOGGER.info("Error loading model for: " + this.modelFileString);
+                    ProjectConstants.LOGGER.info("Error loading model for: " + modelFileString);
                     e.printStackTrace();
                 }
             }
@@ -222,10 +211,9 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
 
     private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    @Getter
     private int size;
-    private final int damageReduceAmount;
 
-    private final int durability;
     private final double percentDamageBlocked;
 
 
@@ -235,22 +223,15 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
 
     public ModelBiped model;
+    @Getter
     public String modelFileString;
+    @Getter
     public String textureName;
-
-    public String getModelFileString() {
-        return this.modelFileString;
-    }
-
-    public String getTextureName() {
-        return this.textureName;
-    }
 
 
     public ItemVest(ModContext context, double percentDamageBlocked, int durability) {
         this.percentDamageBlocked = percentDamageBlocked;
-        this.damageReduceAmount = 1;
-        this.durability = durability;
+        int damageReduceAmount = 1;
     }
 
     @Override
@@ -274,16 +255,8 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
     }
 
     public double getDamageBlocked() {
-        return this.percentDamageBlocked;
+        return percentDamageBlocked;
     }
-
-    public int getSize() {
-        return size;
-    }
-
-//    public ResourceLocation getGuiTextureLocation() {
-//        return guiTextureLocation;
-//    }
 
     private static String addFileExtension(String s, String ext) {
         return s != null && !s.endsWith(ext) ? s + ext : s;
@@ -292,27 +265,24 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
     @Override
     public ArmorProperties getProperties(EntityLivingBase player, ItemStack vestStack, DamageSource source, double damage, int slot) {
         //this.percentDamageBlocked = 1.0;
-        return new ArmorProperties(0, this.percentDamageBlocked, 2000);
+        return new ArmorProperties(0, percentDamageBlocked, 2000);
     }
 
     @Override
     public int getArmorDisplay(EntityPlayer player, ItemStack armor, int slot) {
 
-        return (int) (this.percentDamageBlocked * 10);
+        return (int) (percentDamageBlocked * 10);
     }
 
     @Override
     public void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage, int slot) {
 
-        //double absorb = damage * percentDamageBlocked;
-        //int itemDamage = (int)(absorb / 25.0 < 1 ? 1 : absorb / 25.0);
-        //stack.damageItem(itemDamage, entity);
     }
 
 
     @Override
     public CraftingEntry[] getModernRecipe() {
-        return this.modernRecipe;
+        return modernRecipe;
     }
 
 
@@ -324,19 +294,19 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
     @Override
     public CraftingGroup getCraftingGroup() {
-        return this.craftGroup;
+        return craftGroup;
     }
 
 
     @Override
     public void setCraftingRecipe(CraftingEntry[] recipe) {
-        this.modernRecipe = recipe;
+        modernRecipe = recipe;
     }
 
 
     @Override
     public void setCraftingGroup(CraftingGroup group) {
-        this.craftGroup = group;
+        craftGroup = group;
     }
 
     @Override

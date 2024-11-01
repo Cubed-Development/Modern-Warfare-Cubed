@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib.render.shells;
 
 import com.paneedah.weaponlib.model.Bullet556;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -30,10 +32,15 @@ public class ShellParticleSimulator {
             PISTOL
         }
 
+        @Getter
         private boolean sleeping;
+        @Getter
+        @Setter
         private Type type;
+        @Getter
         public int age = 0;
         public boolean onGround = false;
+        @Setter
         public boolean shouldDie = false;
         public Vector3d pos = new Vector3d(0, 0, 0);
         public Vector3d prevPos = new Vector3d(0, 0, 0);
@@ -43,6 +50,8 @@ public class ShellParticleSimulator {
         public Vector3d prevRot = new Vector3d(0, 0, 0);
         public Vector3d rot = new Vector3d(0, 0, 0);
 
+        @Getter
+        @Setter
         private double height;
 
 
@@ -60,64 +69,31 @@ public class ShellParticleSimulator {
 
             this.rot = new Vector3d(rot.x, rot.y, rot.z);
             //this.rot = new Vector3d(-45, 0, 0);
-            this.prevRot = this.rot;
-            this.prevPos = new Vector3d(this.pos.x - velocity.x, this.pos.y - velocity.y, this.pos.z - velocity.z);
-            //this.prevPos = this.pos;
+            prevRot = this.rot;
+            prevPos = new Vector3d(this.pos.x - velocity.x, this.pos.y - velocity.y, this.pos.z - velocity.z);
 
-            //this.prevRot = new Vector3d(0, 20, 0);
-
-            //this.prevPos = this.prevPos.subtract(-20, 0, 0);
-
-            this.prevRot = new Vector3d(Math.random() * 100, Math.random() * 100, Math.random() * 100);
-        }
-
-        public Type getType() {
-            return this.type;
-        }
-
-        public boolean isSleeping() {
-            return this.sleeping;
+            prevRot = new Vector3d(Math.random() * 100, Math.random() * 100, Math.random() * 100);
         }
 
         public void sleep() {
-            this.sleeping = true;
+            sleeping = true;
         }
 
         public void wake() {
-            this.sleeping = false;
-        }
-
-        public void setType(Type type) {
-            this.type = type;
+            sleeping = false;
         }
 
         public void ageShell() {
-            this.age++;
-        }
-
-        public int getAge() {
-            return this.age;
-        }
-
-        public void setHeight(double height) {
-            this.height = height;
-        }
-
-        public double getHeight() {
-            return this.height;
+            age++;
         }
 
 
         public boolean shouldDie() {
-            return this.shouldDie;
+            return shouldDie;
         }
 
         public void kill() {
             setShouldDie(true);
-        }
-
-        public void setShouldDie(boolean state) {
-            this.shouldDie = state;
         }
 
     }
@@ -184,12 +160,7 @@ public class ShellParticleSimulator {
             Vec3d next = new Vec3d(sh.pos.x + (sh.pos.x - sh.prevPos.x) * 0.5,
                     sh.pos.y + (sh.pos.y - sh.prevPos.y) * 0.5,
                     sh.pos.z + (sh.pos.z - sh.prevPos.z) * 0.5);
-			
-			/*
-			RayTraceResult rtr = MC.world.rayTraceBlocks(new Vec3d(sh.pos.x, sh.pos.y+0.1, sh.pos.z),
-					next, false, true, false);
-					
-			*/
+
             RayTraceResult rtr = MC.world.rayTraceBlocks(new Vec3d(sh.prevPos.x, sh.prevPos.y, sh.prevPos.z), new Vec3d(sh.pos.x, sh.pos.y, sh.pos.z), false, true, false);
             if (rtr != null) {
 
@@ -222,12 +193,6 @@ public class ShellParticleSimulator {
 
                 sh.pos.x = sh.pos.x + (sh.prevPos.x - sh.pos.x) * friction;
                 sh.pos.z = sh.pos.z + (sh.prevPos.z - sh.pos.z) * friction;
-				
-				/*
-				Vector3d tempRotation = (Vector3d) sh.rot.clone();
-				sh.rot = sh.prevRot;
-				sh.prevRot = tempRotation;
-				*/
 
 
             }
@@ -287,44 +252,16 @@ public class ShellParticleSimulator {
                         continue;
                     }
 
-                    //sh.rot.x = 0;
-                    //sh.rot.y = 0;
-                    //sh.rot.z = 90;
-
                     double verticalVelocity = sh.pos.y - sh.prevPos.y;
                     if (Math.abs(verticalVelocity) < 2) {
 
                         double in = 0.1;
-						
-						/*
-						if(Math.abs(90-sh.rot.x) > Math.abs(-90-sh.rot.x)) {
-							sh.rot.x = sh.rot.x + (90-sh.rot.x)*in;
-						} else {
-							sh.rot.x = sh.rot.x + (-90-sh.rot.x)*in;
-						}
-						
-						if(Math.abs(90-sh.rot.z) > Math.abs(-90-sh.rot.z)) {
-							sh.rot.z = sh.rot.z + (90-sh.rot.z)*in;
-						} else {
-							sh.rot.z = sh.rot.z + (-90-sh.rot.z)*in;
-						}
-						*/
-
-                        //sh.rot.x = sh.rot.x + (90-sh.rot.x)*in;
-                        //sh.rot.y = sh.rot.y + (90-sh.rot.y)*in;
-                        //sh.rot.z = sh.rot.z + (0-sh.rot.z)*in;
 
 
                         sh.prevRot.x = sh.prevRot.x + (sh.rot.x - sh.prevRot.x) * 0.5;
                         sh.prevRot.y = sh.prevRot.y + (sh.rot.y - sh.prevRot.y) * 0.5;
                         sh.prevRot.z = sh.prevRot.z + (sh.rot.z - sh.prevRot.z) * 0.5;
-						
-						/*
-						sh.rot.x = 90;
-						sh.rot.y = 0;
-						sh.rot.z = 90;
-						sh.prevRot = sh.rot;
-						*/
+
                     }
 
 

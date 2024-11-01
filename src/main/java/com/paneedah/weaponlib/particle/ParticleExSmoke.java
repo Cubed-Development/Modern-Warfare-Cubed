@@ -29,7 +29,7 @@ public class ParticleExSmoke extends Particle {
         maxAge = 100 + rand.nextInt(40);
         randomSeed = worldIn.rand.nextInt();
 
-        this.setParticleTexture(ClientEventHandler.carParticles);
+        setParticleTexture(ClientEventHandler.carParticles);
     }
 
     public void setMotion(double x, double y, double z) {
@@ -48,17 +48,17 @@ public class ParticleExSmoke extends Particle {
 
         particleAlpha = 1 - ((float) age / (float) maxAge);
 
-        ++this.age;
+        ++age;
 
-        if (this.age == this.maxAge) {
-            this.setExpired();
+        if (age == maxAge) {
+            setExpired();
         }
 
         this.motionX *= 0.7599999785423279D;
         this.motionY *= 0.7599999785423279D;
         this.motionZ *= 0.7599999785423279D;
 
-        this.move(this.motionX, this.motionY, this.motionZ);
+        move(this.motionX, this.motionY, this.motionZ);
     }
 
     @Override
@@ -80,7 +80,7 @@ public class ParticleExSmoke extends Particle {
 
                 this.particleRed = this.particleGreen = this.particleBlue = urandom.nextFloat() * 0.5F + 0.4F;
 
-                int j = this.getBrightnessForRender(partialTicks);
+                int j = getBrightnessForRender(partialTicks);
                 int k = j >> 16 & 65535;
                 int l = j & 65535;
 
@@ -94,7 +94,7 @@ public class ParticleExSmoke extends Particle {
                 buffer.pos(pX + rotationX * scale + rotationXY * scale, pY + rotationZ * scale, pZ + rotationYZ * scale + rotationXZ * scale).tex(particleTexture.getMinU(), particleTexture.getMinV()).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
                 buffer.pos(pX + rotationX * scale - rotationXY * scale, pY - rotationZ * scale, pZ + rotationYZ * scale - rotationXZ * scale).tex(particleTexture.getMinU(), particleTexture.getMaxV()).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(k, l).endVertex();
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
 
     }

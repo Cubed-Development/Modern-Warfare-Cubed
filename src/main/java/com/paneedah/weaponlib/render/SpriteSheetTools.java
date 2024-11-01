@@ -1,7 +1,12 @@
 package com.paneedah.weaponlib.render;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class SpriteSheetTools {
 
+    @Getter
+    @Setter
     public static class Sprite {
         private double minU, minV, maxU, maxV;
 
@@ -12,37 +17,6 @@ public class SpriteSheetTools {
             this.maxV = maxV;
         }
 
-        public double getMinU() {
-            return minU;
-        }
-
-        public void setMinU(double minU) {
-            this.minU = minU;
-        }
-
-        public double getMinV() {
-            return minV;
-        }
-
-        public void setMinV(double minV) {
-            this.minV = minV;
-        }
-
-        public double getMaxU() {
-            return maxU;
-        }
-
-        public void setMaxU(double maxU) {
-            this.maxU = maxU;
-        }
-
-        public double getMaxV() {
-            return maxV;
-        }
-
-        public void setMaxV(double maxV) {
-            this.maxV = maxV;
-        }
     }
 
     /**
@@ -58,7 +32,7 @@ public class SpriteSheetTools {
         int columns = (int) Math.floor(width / spriteSize);
         int rows = (int) Math.floor(height / spriteSize);
         double u = (id % columns) * spriteSize / width;
-        double v = Math.floor(id / columns) * spriteSize / height;
+        double v = ((double) id / columns) * spriteSize / height;
 
         return new Sprite(u, v, u + (spriteSize / width), v + (spriteSize / height));
     }
@@ -78,11 +52,10 @@ public class SpriteSheetTools {
         int columns = (int) Math.floor(width / spriteWidth);
         int rows = (int) Math.floor(height / spriteHeight);
         double u = (id % columns) * spriteWidth / width;
-        double v = Math.floor(id / columns) * spriteHeight / height;
+        double v = ((double) id / columns) * spriteHeight / height;
 
         double minU = u;
         double maxU = u + (spriteWidth / width);
-        double minV = v;
         double maxV = v + (spriteHeight / height);
 
         // If flipping horizontally, swap minU and maxU
@@ -92,6 +65,6 @@ public class SpriteSheetTools {
             maxU = temp;
         }
 
-        return new Sprite(minU, minV, maxU, maxV);
+        return new Sprite(minU, v, maxU, maxV);
     }
 }

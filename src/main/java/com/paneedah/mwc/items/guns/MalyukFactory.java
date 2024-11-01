@@ -45,9 +45,9 @@ public class MalyukFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(() -> Float.valueOf(0.5f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.16f))
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -127,7 +127,7 @@ public class MalyukFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -160,10 +160,9 @@ public class MalyukFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
@@ -460,8 +459,6 @@ public class MalyukFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.18f, -0.23f, 0.7f);
 
                             // ACOG Zoom

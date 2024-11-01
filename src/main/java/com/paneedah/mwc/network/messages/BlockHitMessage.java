@@ -27,7 +27,7 @@ public final class BlockHitMessage implements IMessage {
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        byteBuf.writeLong(this.blockPos.toLong());
+        byteBuf.writeLong(blockPos.toLong());
         position.write(byteBuf);
         byteBuf.writeInt(enumFacing.getIndex());
     }

@@ -46,9 +46,9 @@ public class K2C1Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.11f))
+                .withFlashOffsetY(() -> Float.valueOf(0.14f))
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -125,13 +125,13 @@ public class K2C1Factory implements GunFactory {
                     if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.5F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail4) {
+                    } else if (null instanceof AKRail4) {
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -139,7 +139,7 @@ public class K2C1Factory implements GunFactory {
                     if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.5F, -4f);
                         GL11.glScaled(0.6F, 0.8F, 0.85F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.035F, -0.73F, -4f);
                         GL11.glScaled(0.6F, 0.8F, 0.85F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
@@ -152,11 +152,11 @@ public class K2C1Factory implements GunFactory {
                     if (model instanceof ScarIron2) {
                         GL11.glTranslatef(-0.065F, -1.5F, -5.1F);
                         GL11.glScaled(0.65F, 0.65F, 0.8F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(-0.105F, -1.7F, -5F);
                         GL11.glScaled(0.1F, 0.25F, 0.2F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof K2C1RearSight) {
+                    } else if (null instanceof K2C1RearSight) {
                         GL11.glTranslatef(-0.152f, -1.665f, 0f);
                         GL11.glScaled(0.28F, 0.28F, 0.28F);
                     }
@@ -187,8 +187,6 @@ public class K2C1Factory implements GunFactory {
                     GL11.glScaled(1.15F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.K2C1Action, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//            GL11.glScaled(0.7F, 0.4F, 0.7F);
                 })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
                     GL11.glTranslatef(-0.21F, -1.58F, -1.8F);
@@ -207,7 +205,7 @@ public class K2C1Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -240,10 +238,9 @@ public class K2C1Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    }
+                    }  //                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
+                    //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+
                 })
 
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
