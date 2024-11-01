@@ -4,6 +4,8 @@ import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import net.minecraft.command.ICommandSender;
 
+import java.util.Arrays;
+
 public class CraftingFileCommand extends TidyCompatibleCommand {
 
     private static final String RELOAD_KEY = "reload";
@@ -35,7 +37,7 @@ public class CraftingFileCommand extends TidyCompatibleCommand {
                 sendFormattedMessage(sender, "Crafting file manager status:");
                 sendNormalMessage(sender, getSecondaryColor() + "File loaded: " + getDisplayColor() + (load != -1));
                 if (load != -1) {
-                    sendNormalMessage(sender, getSecondaryColor() + "File hash: " + getDisplayColor() + CraftingFileManager.getInstance().getCurrentFileHash());
+                    sendNormalMessage(sender, getSecondaryColor() + "File hash: " + getDisplayColor() + Arrays.toString(CraftingFileManager.getInstance().getCurrentFileHash()));
                 }
 
                 sendNormalMessage(sender, getSecondaryColor() + "Using custom recipes: " + getDisplayColor() + (load != -1 ? (load == 2 ? "CUSTOM" : "DEFAULT") : ""));

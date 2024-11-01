@@ -21,10 +21,10 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                 .withTextureNames("bat_nails")
                 .withAttackDamage(4f)
                 .withHeavyAttackDamage(12f)
-                .withPrepareStubTimeout(() -> 00)
-                .withPrepareHeavyStubTimeout(() -> 00)
-                .withAttackCooldownTimeout(() -> 0)
-                .withHeavyAttackCooldownTimeout(() -> 0)
+                .withPrepareStubTimeout(() -> Integer.valueOf(0))
+                .withPrepareHeavyStubTimeout(() -> Integer.valueOf(0))
+                .withAttackCooldownTimeout(() -> Integer.valueOf(0))
+                .withHeavyAttackCooldownTimeout(() -> Integer.valueOf(0))
                 .withAttackSound("swoosh")
                 .withHeavyAttackSound("swoosh")
                 .withRenderer(
@@ -51,11 +51,6 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                                     GL11.glRotatef(0.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-1.249999f, 0.375000f, -1.000000f);
 
-//                                    GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-//                                    GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-//                                    GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-//                                    GL11.glRotatef(80.000000f, 0f, 0f, 1f);
-//                                    GL11.glTranslatef(-0.700000f, -0.175000f, -1.800000f);
                                 })
 
                                 .withFirstPersonHandPositioning(
@@ -67,11 +62,6 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                                             GL11.glRotatef(65.000000f, 0f, 0f, 1f);
                                             GL11.glTranslatef(0.350000f, -0.075000f, 0.025000f);
 
-//                                            GL11.glScalef(5f, 5f, 5f);
-//                                            GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
-//                                            GL11.glRotatef(-30.000000f, 0f, 1f, 0f);
-//                                            GL11.glRotatef(45.000000f, 0f, 0f, 1f);
-//                                            GL11.glTranslatef(0.175000f, -0.600000f, 0.475000f);
                                         },
 
                                         context -> { // right hand

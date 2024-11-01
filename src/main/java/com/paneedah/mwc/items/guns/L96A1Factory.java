@@ -37,9 +37,9 @@ public class L96A1Factory implements GunFactory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.08f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.08f))
+                .withFlashOffsetY(() -> Float.valueOf(0.08f))
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -105,7 +105,7 @@ public class L96A1Factory implements GunFactory {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
-                    } else if (model instanceof AcogReticle) {
+                    } else if (null instanceof AcogReticle) {
                         GL11.glTranslatef(0.243F, -0.23F, 0.68f);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
@@ -208,19 +208,19 @@ public class L96A1Factory implements GunFactory {
                     if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.22F, -1.36F, -3.15F);
                         GL11.glScaled(0.7F, 0.8F, 0.9F);
-                    } else if (model instanceof AKRail2) {
+                    } else if (null instanceof AKRail2) {
                         GL11.glTranslatef(-0.37F, -1.005F, -3.5F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
+                    } else if (null instanceof AKRail3) {
                         GL11.glTranslatef(-0.37F, -1.005F, -3.5F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail4) {
+                    } else if (null instanceof AKRail4) {
                         GL11.glTranslatef(-0.37F, -1.005F, -3.5F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail5) {
+                    } else if (null instanceof AKRail5) {
                         GL11.glTranslatef(-0.37F, -1.005F, -3.5F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(-90F, 0f, 0f, 1f);
@@ -233,10 +233,6 @@ public class L96A1Factory implements GunFactory {
                         GL11.glRotatef(90f, 1f, 0f, 0f);
 
 
-//                GL11.glScaled(0.4F, 0.4F, 0.6F);
-//                GL11.glTranslatef(-0.95F, -3.1F, -3.5F);
-//                GL11.glRotatef(70f, 1f, 0f, 0f);
-//                GL11.glRotatef(5f, 0f, 1f, 0f);
                     }
                 })
 //        .withCompatibleAttachment(Attachments.Silencer762x54, (model) -> {
@@ -272,11 +268,6 @@ public class L96A1Factory implements GunFactory {
                             GL11.glRotatef(7f, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.350000f, 1.274999f, -0.525000f);
 
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(42F, 0f, 1f, 0f);
-//                GL11.glRotatef(-2f, 0f, 0f, 1f);
-//                GL11.glRotatef(2f, 1f, 0f, 0f);
-//                GL11.glTranslatef(-0.40000f, 1.274999f, -0.525000f);
                         })
 
                         .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -292,8 +283,6 @@ public class L96A1Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.L115Bolt2.getRenderablePart(), (renderContext) -> {
-//            	GL11.glRotatef(50F, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.85F, 0.5F, 1.05F);
                         })
 
                         .withFirstPersonPositioningEjectSpentRound(
@@ -1316,11 +1305,6 @@ public class L96A1Factory implements GunFactory {
 
                                 },
                                 (renderContext) -> {
-//                         GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                         GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(25.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.375000f, -0.475000f, 0.250000f);
                                 })
 
                         .withFirstPersonHandPositioningZooming(

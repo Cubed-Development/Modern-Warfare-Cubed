@@ -21,10 +21,10 @@ public class NightStickFactory implements MeleeFactory {
                 .withTextureNames("gun")
                 .withAttackDamage(1f)
                 .withHeavyAttackDamage(3f)
-                .withPrepareStubTimeout(() -> 00)
-                .withPrepareHeavyStubTimeout(() -> 00)
-                .withAttackCooldownTimeout(() -> 0)
-                .withHeavyAttackCooldownTimeout(() -> 0)
+                .withPrepareStubTimeout(() -> Integer.valueOf(0))
+                .withPrepareHeavyStubTimeout(() -> Integer.valueOf(0))
+                .withAttackCooldownTimeout(() -> Integer.valueOf(0))
+                .withHeavyAttackCooldownTimeout(() -> Integer.valueOf(0))
                 .withAttackSound("swoosh")
                 .withHeavyAttackSound("swoosh")
                 .withRenderer(
@@ -51,11 +51,6 @@ public class NightStickFactory implements MeleeFactory {
                                     GL11.glRotatef(20.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-1f, 2.5f, -0.5f);
 
-//                                    GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
-//                                    GL11.glRotatef(-35.000000f, 1f, 0f, 0f);
-//                                    GL11.glRotatef(40.000000f, 0f, 1f, 0f);
-//                                    GL11.glRotatef(-90.000000f, 0f, 0f, 1f);
-//                                    GL11.glTranslatef(-0.700000f, 1.700000f, -2.000000f);
                                 })
 
                                 .withFirstPersonHandPositioning(
@@ -75,11 +70,6 @@ public class NightStickFactory implements MeleeFactory {
                                             GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
                                             GL11.glTranslatef(0.355000f, -0.020000f, 0.195000f);
 
-//                                            GL11.glScalef(4.5f, 4.5f, 4.5f);
-//                                            GL11.glRotatef(-235.000000f, 1f, 0f, 0f);
-//                                            GL11.glRotatef(125.000000f, 0f, 1f, 0f);
-//                                            GL11.glRotatef(70.000000f, 0f, 0f, 1f);
-//                                            GL11.glTranslatef(0.125000f, -0.100000f, 0.025000f);
                                         })
 
                                 .withFirstPersonPositioningHeavyAttacking(

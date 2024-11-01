@@ -23,7 +23,7 @@ public final class EntityInventorySyncMessage implements IMessage {
     private NBTTagCompound inventoryCompound = new NBTTagCompound();
 
     public EntityInventorySyncMessage(final Entity entity, final boolean excludeEntity, final EquipmentInventory inventory) {
-        this.entityId = entity.getEntityId();
+        entityId = entity.getEntityId();
         this.excludeEntity = excludeEntity;
         inventory.writeToNBT(inventoryCompound);
     }

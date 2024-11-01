@@ -25,7 +25,7 @@ public class TireTracks extends ParticleFootStep {
     public TireTracks(TextureManager currentFootStepsIn, World worldIn, double xCoordIn, double yCoordIn,
                       double zCoordIn, double angle) {
         super(currentFootStepsIn, worldIn, xCoordIn, yCoordIn, zCoordIn);
-        this.footstepMaxAge = 100000000;
+        footstepMaxAge = 100000000;
         this.particleMaxAge = 100000000;
         this.currentFootStepsIn = currentFootStepsIn;
         this.angle = angle;
@@ -36,7 +36,7 @@ public class TireTracks extends ParticleFootStep {
     @Override
     public void renderParticle(BufferBuilder buffer, Entity vehicle, float partialTicks, float rotationX,
                                float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-        float f = ((float) this.footstepAge + partialTicks) / (float) this.footstepMaxAge;
+        float f = ((float) footstepAge + partialTicks) / (float) footstepMaxAge;
         f = f * f;
         float f1 = 2.0F - f * 2.0F;
 
@@ -60,13 +60,9 @@ public class TireTracks extends ParticleFootStep {
         float f3 = 0.0f;
         float f4 = 0.0f;
         float f5 = 0.0f;
-        
-        /*
-        float f3 = (float)(this.posX - interpPosX);
-        float f4 = (float)(this.posY - interpPosY);
-        float f5 = (float)(this.posZ - interpPosZ);*/
+
         float f6 = this.world.getLightBrightness(new BlockPos(this.posX, this.posY, this.posZ));
-        this.currentFootStepsIn.bindTexture(NORMAL_TRACK);
+        currentFootStepsIn.bindTexture(NORMAL_TRACK);
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         buffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);

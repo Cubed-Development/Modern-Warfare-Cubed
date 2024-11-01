@@ -45,9 +45,9 @@ public class KBP9A91Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.1f))
+                .withFlashOffsetY(() -> Float.valueOf(0.15f))
                 .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -96,12 +96,8 @@ public class KBP9A91Factory {
 //          GL11.glTranslatef(0F, 0F, 0.33F);
                 })
                 .withCompatibleAttachment(Magazines.KBP9A91Mag, (model) -> {
-//    	   GL11.glTranslatef(-0.4F, 1.5F, 0.2F);
-//           GL11.glRotatef(-15F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.SuppressorKBP9A91, (model) -> {
-//          GL11.glTranslatef(-0.25F, -1.14F, -6.4F);
-//          GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withCompatibleAttachment(Attachments.KobraMount, (player, stack) -> {
                     GL11.glTranslatef(-0.035F, -1.23F, -0.4F);
@@ -129,7 +125,7 @@ public class KBP9A91Factory {
                     if (model instanceof PSO1reticle) {
                         GL11.glTranslatef(-0.212F, -0.486F, 1.27F);
                         GL11.glScaled(0.017F, 0.017F, 0.017F);
-                    } else if (model instanceof PSO12) {
+                    } else if (null instanceof PSO12) {
                         GL11.glTranslatef(-0.27F, -0.6F, 1.21F);
                         GL11.glScaled(0.8F, 0.8F, 0.8F);
                     }

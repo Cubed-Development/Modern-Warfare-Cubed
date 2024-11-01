@@ -19,7 +19,7 @@ import java.nio.IntBuffer;
 
 /**
  * Bloom implementation based on
- * https://github.com/Drillgon200/Hbm-s-Nuclear-Tech-GIT/blob/30df900f4f7f3827133bc58fb26f922da5f3d909/src/main/java/com/hbm/handler/HbmShaderManager2.java#L285
+ * <a href="https://github.com/Drillgon200/Hbm-s-Nuclear-Tech-GIT/blob/30df900f4f7f3827133bc58fb26f922da5f3d909/src/main/java/com/hbm/handler/HbmShaderManager2.java#L285">...</a>
  * using the techniques used in COD (Next Generation Post Processing by Jorge
  * Jiminez)
  *
@@ -42,8 +42,6 @@ public class Bloom {
     /**
      * By default, it should be about six.
      *
-     * @return
-     *
      * @return amount of layers from the configuration setting
      */
     public static int getLayers() {
@@ -52,14 +50,11 @@ public class Bloom {
 
     public static void setupBloom() {
 
-        // logger.info("Creating bloom buffer, MC's Framebuffer is {}, the world is {}",
-        // Minecraft.getMinecraft().getFramebuffer(), Minecraft.getMinecraft().world);
-        // logger.log(Level.INFO, null, message, p0, p1, p2, p3, p4, p5, p6);
         width = MC.displayWidth;
         height = MC.displayHeight;
         hasLoaded = true;
 
-        LOGGER.debug("Recreating Bloom FBOs at ({} x {})", width, height);
+        LOGGER.debug("Recreating Bloom FBOs at ({} x {})", Integer.valueOf(width), Integer.valueOf(height));
 
         // System.out.println("Creating a Bloom FX w/ " + width + "x" + height);
         recreateFramebuffers();
@@ -171,8 +166,6 @@ public class Bloom {
                 throw new RuntimeException("glCheckFramebufferStatus returned unknown status:" + i);
             }
         }
-        // System.out.println("Framebuffer check: " +
-        // (GL30.glCheckFramebufferStatus(buf) == GL30.GL_FRAMEBUFFER_COMPLETE));
     }
 
     public static void renderHDRToBuffer() {
@@ -185,10 +178,6 @@ public class Bloom {
 
         data.bindFramebuffer(false);
         GlStateManager.enableBlend();
-
-        // Shaders.bloomTest = ShaderManager.loadVMWShader("btest");
-
-        // Shaders.bloomTest = ShaderManager.loadVMWShader("btest");
 
         Shaders.bloomTest.use();
         Shaders.bloomTest.uniform1i("real", 4);
@@ -406,8 +395,6 @@ public class Bloom {
         GlStateManager.enableDepth();
         GLCompatible.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER, initial.framebufferObject);
 
-        // GLCompatible.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER,
-        // Minecraft.getMinecraft().getFramebuffer().framebufferObject);
         GLCompatible.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER, multisampleFBO);
         GLCompatible.glBlitFramebuffer(0, 0, gWidth, gHeight, 0, 0, gWidth, gHeight, GL11.GL_COLOR_BUFFER_BIT,
                 GL11.GL_NEAREST);
@@ -443,8 +430,6 @@ public class Bloom {
         GLCompatible.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER, initial.framebufferObject);
         GLCompatible.glBlitFramebuffer(0, 0, gWidth, gHeight, 0, 0, gWidth, gHeight, GL11.GL_COLOR_BUFFER_BIT,
                 GL11.GL_NEAREST);
-        // GLCompatible.glBlitFramebuffer(0, 0, gWidth, gHeight, 0, 0, gWidth, gHeight,
-        // GL11.GL_DEPTH_BUFFER_BIT, GL11.GL_NEAREST);
 
     }
 

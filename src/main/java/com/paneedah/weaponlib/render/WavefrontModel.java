@@ -38,7 +38,7 @@ public class WavefrontModel {
         public float[] normal;
 
         public Vertex(float[] tex, float[] pos, float[] normal) {
-            this.texCoord = tex;
+            texCoord = tex;
             this.pos = pos;
             this.normal = normal;
         }
@@ -61,43 +61,28 @@ public class WavefrontModel {
             } else {
 
                 int newIndex = indexVertexMap.size();
-                indexVertexMap.put(vertexID, newIndex);
+                indexVertexMap.put(vertexID, Integer.valueOf(newIndex));
                 vertices.add(buildVertexFromString(subArray));
-                indexBuffer.add(newIndex);
+                indexBuffer.add(Integer.valueOf(newIndex));
             }
         }
     }
 
 
     public boolean usesVAO() {
-        return this.hasVAO;
+        return hasVAO;
     }
 
     public int getVAOID() {
-        return this.vao;
+        return vao;
     }
 
     public Vertex buildVertexFromString(String[] array) {
         int vertID = Integer.parseInt(array[0]);
         int texID = Integer.parseInt(array[1]);
         int normalID = Integer.parseInt(array[2]);
-		
-		/*
-		if(texcoord.size() <= texID-1) {
-			System.err.println("Trying to get texcoord at " + (texID-1) + " while there are only: " + texcoord.size());
-		}
-		
-		if(vertex.size() <= vertID-1) {
-			System.err.println("Trying to get texcoord at " + (texID-1) + " while there are only: " + texcoord.size());
-		}
-		
-		if(texcoord.size() <= texID-1) {
-			System.err.println("Trying to get texcoord at " + (texID-1) + " while there are only: " + texcoord.size());
-		}
-		*/
-        Vertex vert = new Vertex(texcoord.get(texID - 1), vertex.get(vertID - 1), normals.get(normalID - 1));
 
-        return vert;
+        return new Vertex(texcoord.get(texID - 1), vertex.get(vertID - 1), normals.get(normalID - 1));
     }
 
 
@@ -110,19 +95,19 @@ public class WavefrontModel {
         }
         intBuf.rewind();
 
-        this.ebo = GL15.glGenBuffers();
+        ebo = GL15.glGenBuffers();
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, ebo);
         GL15.glBufferData(GL15.GL_ELEMENT_ARRAY_BUFFER, intBuf, GL15.GL_STATIC_DRAW);
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, 0);
 
-        this.vbo = GLModelBuilder.buildVBO(this.vertices);
+        vbo = GLModelBuilder.buildVBO(vertices);
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
 
     }
 
     public int buildVAO() {
 
-        this.hasVAO = true;
+        hasVAO = true;
         int vS = (3 + 3 + 2) * 4;
 
         // Fill the int buffer with data
@@ -137,12 +122,12 @@ public class WavefrontModel {
         vao = GLModelBuilder.createVAO();
 
 
-        this.ebo = GL15.glGenBuffers();
+        ebo = GL15.glGenBuffers();
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, ebo);
         GL15.glBufferData(GL15.GL_ELEMENT_ARRAY_BUFFER, intBuf, GL15.GL_STATIC_DRAW);
 
 
-        this.vbo = GLModelBuilder.buildVBO(this.vertices);
+        vbo = GLModelBuilder.buildVBO(vertices);
         //GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
 
 
@@ -155,14 +140,8 @@ public class WavefrontModel {
 
         GL20.glEnableVertexAttribArray(2);
         GL20.glVertexAttribPointer(2, 2, GL11.GL_FLOAT, false, vS, 12);
-				
-				
 
-				/*
-				GL11.glVertexPointer(3, GL11.GL_FLOAT, vS, 0);
-				GL11.glNormalPointer(GL11.GL_FLOAT, vS, 20);
-				GL11.glTexCoordPointer(2, GL11.GL_FLOAT, vS, 12);
-			*/
+
         //GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, 0);
         GLCompatible.glBindVertexArray(0);
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -172,20 +151,16 @@ public class WavefrontModel {
     public void render() {
 
 
-        //	GlStateManager.enableTexture2D();
-        //	GlStateManager.color(1.0f, 1.0f, 1.0f);
-        //GlStateManager.disableCull();
-
         GlStateManager.glEnableClientState(GL11.GL_VERTEX_ARRAY);
         GlStateManager.glEnableClientState(GL11.GL_TEXTURE_COORD_ARRAY);
         GlStateManager.glEnableClientState(GL11.GL_NORMAL_ARRAY);
 
 
-        GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, this.ebo);
+        GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, ebo);
 
 
         //	GLModelBuilder.createModelVBO(face, vertCount);
-        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, this.vbo);
+        GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vbo);
 
         int vS = (3 + 3 + 2) * 4;
 

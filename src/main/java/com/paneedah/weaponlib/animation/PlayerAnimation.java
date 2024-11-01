@@ -8,9 +8,6 @@ public interface PlayerAnimation {
     /**
      * Returns true if the animation cycle is in progress, otherwise false
      *
-     * @param player
-     *
-     * @return
      */
     void update(EntityPlayer player, boolean fadeOut);
 

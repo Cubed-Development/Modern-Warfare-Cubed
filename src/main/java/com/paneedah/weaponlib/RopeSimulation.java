@@ -15,13 +15,13 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public class RopeSimulation {
 
     public static class Point {
-        public Vec3d pos = Vec3d.ZERO, prevPos = Vec3d.ZERO;
+        public Vec3d pos, prevPos;
         public boolean locked = false;
         public String name = "";
 
         public Point(Vec3d pos) {
             this.pos = pos;
-            this.prevPos = pos;
+            prevPos = pos;
 
 
         }
@@ -29,7 +29,7 @@ public class RopeSimulation {
         public Point(String name, Vec3d pos, boolean locked) {
             this.name = name;
             this.pos = pos;
-            this.prevPos = pos;
+            prevPos = pos;
             this.locked = locked;
 
 
@@ -37,7 +37,7 @@ public class RopeSimulation {
 
         public Point(Vec3d pos, boolean locked) {
             this.pos = pos;
-            this.prevPos = pos;
+            prevPos = pos;
             this.locked = locked;
 
 
@@ -58,10 +58,10 @@ public class RopeSimulation {
         public boolean c3Constraint = false;
 
         public Stick(Point a, Point b) {
-            this.pointA = a;
-            this.pointB = b;
+            pointA = a;
+            pointB = b;
 
-            this.length = (float) a.pos.distanceTo(b.pos);
+            length = (float) a.pos.distanceTo(b.pos);
         }
     }
 
@@ -124,45 +124,12 @@ public class RopeSimulation {
             Point newPoint = new Point(new Vec3d(-yOffset, 0, 0), false);
             points.add(newPoint);
 
-            prev = newPoint;
-
             //sticks.add(stick);
 
 
         }
 
         autoSticks();
-		
-		/*
-		
-		RopeSimulation.Point prev = new Point();
-		prev.locked = true;
-		prev.pos = new Vec3d(0, 0, 0);
-		
-		points.add(prev);
-		
-		for(int r = 1; r < pieces+1; ++r) {
-			double yOffset = totalLength*(r/(double) pieces);
-			
-			Point newPoint = new Point();
-			
-			newPoint.pos = new Vec3d(-yOffset, 0, 0);
-			newPoint.locked = false;
-			
-			points.add(newPoint);
-			
-			Stick stick = new Stick();
-			stick.pointA = prev;
-			stick.pointB = newPoint;
-			stick.length = (float) 1.0f;
-			
-			prev = newPoint;
-			
-			sticks.add(stick);
-			
-			
-			
-		}*/
 
 
         System.out.println("----------START----------");
@@ -172,42 +139,11 @@ public class RopeSimulation {
 
         }
         System.out.println("----------END----------");
-		
-		/*
-		RopeSimulation.Point one = new Point();
-		one.locked = true;
-		one.pos = new Vec3d(0, 0, 0);
-		
-		RopeSimulation.Point two = new Point();
-		two.locked = false;
-		
-		two.pos = new Vec3d(-1, 0, 0);
-		
-		RopeSimulation.Point three = new Point();
-		three.locked = false;
-		three.pos = new Vec3d(-2, 0, 0);
-		
-		
-		RopeSimulation.Stick stick = new Stick();
-		stick.pointA = one;
-		stick.pointB = two;
-		stick.length = 1.0f;
-		
-		RopeSimulation.Stick stick2 = new Stick();
-		stick2.pointA = two;
-		stick2.pointB = three;
-		stick2.length = 2.0f;
-		
-		simulation.points.add(one);
-		simulation.points.add(two);
-		simulation.points.add(three);
-		simulation.sticks.add(stick);
-		simulation.sticks.add(stick2);
-		*/
+
     }
 
     public void newPoint(Vec3d pos, boolean locked) {
-        this.points.add(new Point(pos, locked));
+        points.add(new Point(pos, locked));
     }
 
     public void autoSticks() {
@@ -227,10 +163,6 @@ public class RopeSimulation {
                 p.pos = p.pos.add(p.pos.subtract(p.prevPos));
                 p.pos = p.pos.add((new Vec3d(0, -1, 0)).scale(dt * dt));
 
-
-                //System.out.println(worldPos);
-                //belowHeight /= 2;
-                //System.out.println(belowHeight + " | " + realPos);
 
                 /*
                  * A note for anyone looking at this code from Jim:
@@ -281,15 +213,6 @@ public class RopeSimulation {
                 //	System.out.println(stickCentre);
                 Vec3d stickDir = (stick.pointA.pos.subtract(stick.pointB.pos)).normalize();
                 //System.out.println(stickDir);
-				/*
-				if(!stick.pointA.locked)
-					stick.pointA.pos = stickCentre.add(stickDir).scale(stick.length).scale(0.5);
-				if(!stick.pointB.locked) 
-					stick.pointB.pos = stickCentre.subtract(stickDir).scale(stick.length).scale(0.5);
-				*/
-
-                //double a = VectorUtil.angleBetweenVec(stick.pointA.pos, stick.pointB.pos);
-                //System.out.println(Math.toDegrees(a));
 
                 if (!stick.pointA.locked) {
                     stick.pointA.pos = stickCentre.add(stickDir.scale(stick.length).scale(0.5));

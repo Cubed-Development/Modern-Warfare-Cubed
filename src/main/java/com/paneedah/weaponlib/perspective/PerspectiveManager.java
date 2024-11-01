@@ -76,8 +76,4 @@ public class PerspectiveManager {
         return effectRenderer;
     }
 
-//    DynamicShaderGroupManager getShaderGroupManager() {
-//        return shaderGroupManager;
-//    }
-
 }

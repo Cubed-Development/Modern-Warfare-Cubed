@@ -37,9 +37,9 @@ public class STG44Factory {
                 .withCrosshairRunning("Running")
                 .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(() -> Float.valueOf(0.6f))
+                .withFlashOffsetX(() -> Float.valueOf(0.12f))
+                .withFlashOffsetY(() -> Float.valueOf(0.14f))
                 .withInaccuracy(1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -53,12 +53,8 @@ public class STG44Factory {
 //        	 GL11.glTranslatef(0f, 0f, 1.5f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.STG44actionCover, true, (model) -> {
-//       	 GL11.glTranslatef(0.5f, -0.2f, 0f);
-//        	GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Magazines.STG44Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 0.45F, -0.15F);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
                 })
 //        .withCompatibleAttachment(Attachments.Silencer762x39, (model) -> {
 //          GL11.glTranslatef(-0.2F, -1.06F, -7.55F);
@@ -69,41 +65,41 @@ public class STG44Factory {
                         GL11.glTranslatef(-0.04F, -1.216F, -1.65F);
                         GL11.glScaled(0F, 0F, 0F);
                         GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof G36CIron2) {
+                    } else if (null instanceof G36CIron2) {
                         GL11.glTranslatef(-0.2F, -1.85F, -7.35F);
                         GL11.glScaled(0.5F, 0.63F, 0.8F);
-                    } else if (model instanceof AKMiron1) {
+                    } else if (null instanceof AKMiron1) {
                         GL11.glTranslatef(0F, -1.5F, -0.5F);
                         GL11.glScaled(0F, 0F, 0F);
 //              GL11.glScaled(0.3F, 0.3F, 0.3F);
-                    } else if (model instanceof AKMiron2) {
+                    } else if (null instanceof AKMiron2) {
                         GL11.glTranslatef(0.13F, -1.55F, -3.05F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
+                    } else if (null instanceof AK47iron) {
                         GL11.glTranslatef(-0.25F, -2.15F, -2.5F);
                         GL11.glScaled(0.8F, 0.6F, 0.7F);
-                    } else if (model instanceof M4Iron1) {
+                    } else if (null instanceof M4Iron1) {
                         GL11.glTranslatef(0.155F, -1.74F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
+                    } else if (null instanceof M4Iron2) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
+                    } else if (null instanceof P90iron) {
                         GL11.glTranslatef(0.26F, -1.55F, -2.35F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
+                    } else if (null instanceof ScarIron1) {
                         GL11.glTranslatef(0.165F, -1.65F, 1F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
+                    } else if (null instanceof ScarIron2) {
                         GL11.glTranslatef(0.25F, -1.55F, -2F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
+                    } else if (null instanceof FALIron) {
                         GL11.glTranslatef(0.129F, -1.63F, -1.55F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M14Iron) {
+                    } else if (null instanceof M14Iron) {
                         GL11.glTranslatef(0.129F, -1.63F, -2.08F);
                         GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
+                    } else if (null instanceof MP5Iron) {
                         GL11.glTranslatef(0.215F, -1.54F, 1.2F);
                         GL11.glScaled(0F, 0F, 0F);
                     }

@@ -10,22 +10,22 @@ public class EntityAIDelayedAttack extends EntityAIBase {
 
     public EntityAIDelayedAttack(EntityCustomMob entityCustomMob) {
         this.entityCustomMob = entityCustomMob;
-        this.setMutexBits(1);
+        setMutexBits(1);
     }
 
     public boolean shouldExecute() {
-        EntityLivingBase entitylivingbase = this.entityCustomMob.getAttackTarget();
+        EntityLivingBase entitylivingbase = entityCustomMob.getAttackTarget();
         return entityCustomMob.getDelayedAttackTimerIncrement() > 0 || entitylivingbase != null
-                && this.entityCustomMob.getDistanceSq(entitylivingbase) < 9.0D;
+                && entityCustomMob.getDistanceSq(entitylivingbase) < 9.0D;
     }
 
     public void startExecuting() {
-        this.entityCustomMob.getNavigator().clearPath();
-        this.targetEntity = this.entityCustomMob.getAttackTarget();
+        entityCustomMob.getNavigator().clearPath();
+        targetEntity = entityCustomMob.getAttackTarget();
     }
 
     public void resetTask() {
-        this.targetEntity = null;
+        targetEntity = null;
     }
 
     public void updateTask() {
