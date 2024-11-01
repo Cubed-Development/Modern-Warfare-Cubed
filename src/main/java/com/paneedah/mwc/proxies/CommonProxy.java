@@ -64,10 +64,10 @@ public class CommonProxy {
         // Special object initialization
         SpecialAttachments.init(mod, MWC.modContext);
 
-        new Backpacks().createEquipment(MWC.modContext);
-        new Belts().createEquipment(MWC.modContext);
-        new Vests().createEquipment(MWC.modContext);
-        new Armors().createEquipment(MWC.modContext);
+        Backpacks.createEquipment(MWC.modContext);
+        Belts.createEquipment(MWC.modContext);
+        Vests.createEquipment(MWC.modContext);
+        Armors.createEquipment(MWC.modContext);
 
         Attachments.init(mod);
         AuxiliaryAttachments.init(mod);

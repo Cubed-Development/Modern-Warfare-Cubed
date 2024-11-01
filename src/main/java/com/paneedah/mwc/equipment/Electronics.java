@@ -12,12 +12,11 @@ import com.paneedah.weaponlib.model.TabletModel;
 import com.paneedah.weaponlib.perspective.GasDetectorScreenPerspective;
 import org.lwjgl.opengl.GL11;
 
-public class Electronics implements EquipmentFactory {
+public class Electronics {
 
     public static ItemAttachment<Object> Tablet;
 
-    @Override
-    public void createEquipment(ModContext modContext) {
+    public static void createEquipment(ModContext modContext) {
         Tablet = new ItemTablet.Builder<>()
                 .withViewfinderPositioning(() -> {
                     float scale = 5.9f;

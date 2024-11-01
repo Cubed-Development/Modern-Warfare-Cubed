@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.Transform;
 import net.minecraft.item.Item;
 
-public class Backpacks implements EquipmentFactory {
+public class Backpacks {
 
     public static Item combatSustainmentBackpackTan;
     public static Item combatSustainmentBackpackBlack;
@@ -23,8 +23,7 @@ public class Backpacks implements EquipmentFactory {
 
     public static Item duffleBag;
 
-    @Override
-    public void createEquipment(ModContext modContext) {
+    public static void createEquipment(ModContext modContext) {
 
         combatSustainmentBackpackTan = new ItemBackpack.Builder()
                 .withName("combat_sustainment_backpack_tan")

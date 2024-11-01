@@ -6,10 +6,9 @@ import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.Transform;
 import org.lwjgl.opengl.GL11;
 
-public class Vests implements EquipmentFactory {
+public class Vests {
 
-    @Override
-    public void createEquipment(ModContext modContext) {
+    public static void createEquipment(ModContext modContext) {
 
         new ItemVest.Builder()
                 .withName("m43a_chest_harness")
