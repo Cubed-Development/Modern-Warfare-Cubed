@@ -215,6 +215,8 @@ public class AnimationModeProcessor {
     }
 
     public void onTick() {
+        //this.transformMode = 1;
+
         // Check for valid context and main held weapon
         if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
             if (this.pwi == null || pwi != ClientModContext.getContext().getMainHeldWeapon()) {
