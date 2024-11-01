@@ -13,14 +13,11 @@ public class Reticle {
 
     private static final int DEFAULT_TINT = 0x576574;
 
-    @Getter @Setter
-    private ResourceLocation reticleTexture;
+    @Getter @Setter private ResourceLocation reticleTexture;
     private Type reticleType;
 
-    @Setter @Getter
-    private float textureScale;
-    @Setter @Getter
-    private Vec3d backgroundColor;
+    @Setter @Getter private float textureScale;
+    @Setter @Getter private Vec3d backgroundColor;
 
     public enum Type {
         HOLOGRAPHIC,
