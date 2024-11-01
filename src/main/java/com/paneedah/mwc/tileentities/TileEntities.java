@@ -9,10 +9,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import org.lwjgl.opengl.GL11;
 
-public class TileEntities implements TileEntityFactory  {
+public class TileEntities {
 
-    @Override
-    public void createTileEntity(ModContext modContext) {
+    public static void createTileEntity(ModContext modContext) {
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("weapons_case")

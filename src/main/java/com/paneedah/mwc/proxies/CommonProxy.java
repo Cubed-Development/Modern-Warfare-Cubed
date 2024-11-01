@@ -79,8 +79,8 @@ public class CommonProxy {
         Grenades.init(mod, this);
         CustomSpawnEggs.init(mod, this);
 
-        new TurretBaseFactory().createTileEntity(MWC.modContext);
-        new TileEntities().createTileEntity(MWC.modContext);
+        TurretBaseFactory.createTileEntity(MWC.modContext);
+        TileEntities.createTileEntity(MWC.modContext);
 
         new TacticalTomahawkFactory().createMelee(this);
         new BaseballBatFactory().createMelee(this);

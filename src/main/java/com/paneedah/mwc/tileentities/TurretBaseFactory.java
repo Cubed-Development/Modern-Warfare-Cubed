@@ -6,10 +6,9 @@ import com.paneedah.weaponlib.tile.LootBoxConfiguration;
 import net.minecraft.block.material.Material;
 import org.lwjgl.opengl.GL11;
 
-public class TurretBaseFactory implements TileEntityFactory {
+public class TurretBaseFactory {
 
-    @Override
-    public void createTileEntity(ModContext modContext) {
+    public static void createTileEntity(ModContext modContext) {
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("turret_base")
