@@ -75,7 +75,7 @@ public class CommonProxy {
         Bullets.init(mod);
         Magazines.init(mod);
         Guns.init(mod, this);
-        new Electronics().createEquipment(MWC.modContext);
+        Electronics.createEquipment(MWC.modContext);
         Grenades.init(mod, this);
         CustomSpawnEggs.init(mod, this);
 
