@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.render.gui;
 
 /**
  * The Colors used for the UIs in MWC
- * <br>
+ * 
  * BRIGHT_YARROW is used for HUD, and SUN_FLOWER is used for the Open door display
  *
  * @author Jim
