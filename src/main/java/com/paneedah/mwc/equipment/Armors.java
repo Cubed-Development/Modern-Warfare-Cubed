@@ -65,7 +65,7 @@ public class Armors {
     static ArmorMaterial Juggernaut = EnumHelper.addArmorMaterial("Juggernaut", "Juggernaut", 20, new int[]{5, 6, 2, 5}, 20, null, 0);
     static ArmorMaterial Marine = EnumHelper.addArmorMaterial("Marine", "Marine", 60, new int[]{2, 3, 3, 3}, 15, null, 0);
 
-    public static void init(Object mod, ModContext modContext) {
+    public static void createEquipment(ModContext modContext) {
         Builder marineArmorBuilder = new CustomArmor.Builder()
                 .withMaterial(Armors.Marine)
                 .withUnlocalizedName("Marine")

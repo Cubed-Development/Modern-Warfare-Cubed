@@ -6,12 +6,13 @@ import com.paneedah.weaponlib.UniversalSoundLookup;
  * Creates a sound registry for WeaponLib to access in order to play
  * reloading noises.
  *
+ * Example: UniversalSoundLookup.registerSoundToLookup("test_sound");
+ *
  * @author Jim Holden, 2022
  */
 public class UniversalSoundRegistry {
 
     public static void init() {
-        // Example: UniversalSoundLookup.registerSoundToLookup("test_sound");
         UniversalSoundLookup.registerSoundToLookup("bolt_press");
         UniversalSoundLookup.registerSoundToLookup("bolt_slap");
         UniversalSoundLookup.registerSoundToLookup("chargehandle_back");

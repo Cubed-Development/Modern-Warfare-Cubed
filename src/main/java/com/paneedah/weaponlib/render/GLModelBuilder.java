@@ -17,7 +17,7 @@ public class GLModelBuilder {
     /**
      * Creates a static VBO
      *
-     * @param How many floats are you storing?
+     * @param floatCount How many floats are you storing?
      *
      * @return The VBO's identity
      */

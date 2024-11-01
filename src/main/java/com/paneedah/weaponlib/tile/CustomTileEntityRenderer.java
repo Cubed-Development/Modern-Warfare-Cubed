@@ -7,7 +7,18 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.function.Consumer;
 
-public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer<CustomTileEntity<?>> {
+/**
+ * Custom renderer for TileEntity with a specified model and texture.
+ *
+ * @param <T> The type of CustomTileEntity being rendered.
+ */
+public class CustomTileEntityRenderer<T extends CustomTileEntity<?>>
+        extends net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer<T> {
+
+    private static final float TRANSLATE_Y = 1.0F;
+    private static final float SCALE_FACTOR = 1.0F;
+    private static final float ROTATION_ANGLE = 90f;
+    private static final float MODEL_RENDER_SCALE = 0.0625f;
 
     private final ModelBase model;
     private final ResourceLocation textureResource;
@@ -20,30 +31,52 @@ public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tile
         this.positioning = positioning;
     }
 
+    /**
+     * Renders the tile entity with appropriate transformations.
+     *
+     * @param tileEntity    The tile entity being rendered.
+     * @param posX         The x position for rendering.
+     * @param posY         The y position for rendering.
+     * @param posZ         The z position for rendering.
+     * @param partialTicks  Partial ticks for smoother rendering.
+     * @param destroyStage  The destroy stage of the block.
+     * @param alpha        The alpha value for transparency.
+     */
     @Override
-    public void render(CustomTileEntity<?> tileEntity, double posX, double posY, double posZ, float partialTicks, int destroyStage, float alpha) {
+    public void render(T tileEntity, double posX, double posY, double posZ,
+                       float partialTicks, int destroyStage, float alpha) {
         GL11.glPushMatrix();
-        this.bindTexture(textureResource);
+        bindTexture(textureResource);
+        setupRenderingTransformations(tileEntity, posX, posY, posZ);
 
-        //  GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+        // Call the positioning consumer to apply additional transformations if necessary
+        positioning.accept(tileEntity);
+
+        // Render the model
+        model.render(null, 0f, 0f, 0f, 0f, 0f, MODEL_RENDER_SCALE);
+
+        GL11.glPopMatrix();
+    }
+
+    /**
+     * Sets up the rendering transformations based on tile entity's position and orientation.
+     *
+     * @param tileEntity The tile entity being rendered.
+     * @param posX      The x position for rendering.
+     * @param posY      The y position for rendering.
+     * @param posZ      The z position for rendering.
+     */
+    private void setupRenderingTransformations(T tileEntity, double posX, double posY, double posZ) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        GL11.glTranslatef((float) posX, (float) posY + 1.0F, (float) posZ + 1.0F);
-        GL11.glScalef(1.0F, -1.0F, -1.0F);
+        GL11.glTranslatef((float) posX, (float) posY + TRANSLATE_Y, (float) posZ + TRANSLATE_Y);
+        GL11.glScalef(SCALE_FACTOR, -SCALE_FACTOR, -SCALE_FACTOR);
         GL11.glTranslatef(0.5F, 0.5F, 0.5F);
-        GL11.glRotatef(90f * tileEntity.getSide(), 0, 1f, 0);
-        GL11.glRotatef(-90f, 0, 1f, 0);
+
+        // Rotate based on the side of the tile entity
+        GL11.glRotatef(ROTATION_ANGLE * tileEntity.getSide(), 0, 1f, 0);
+        GL11.glRotatef(-ROTATION_ANGLE, 0, 1f, 0);
 
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-
         GL11.glTranslatef(0F, -0.5F, 0F);
-
-        //System.out.println("Rendering side " + ((CustomTileEntity<?>) tileEntity).getSide());
-//        GL11.glRotatef(-90f * ((CustomTileEntity<?>) tileEntity).getSide(), 0, 1f, 0);
-        positioning.accept(tileEntity);
-        //GL11.glEnable(GL11.GL_CULL_FACE);
-        model.render(null, 0f, 0f, 0f, 0f, 0f, 0.0625f);
-
-        //  GL11.glDisable(GL12.GL_RESCALE_NORMAL);
-        GL11.glPopMatrix();
     }
 }

@@ -10,6 +10,7 @@ import com.paneedah.weaponlib.vehicle.*;
 
 public class SampleVehicleFactory implements VehicleFactory {
 
+    @Override
     public void createVehicle(ModContext modContext) {
 
         StatefulRenderer<VehicleRenderableState> renderer = new VehicleRendererBuilder()
@@ -208,7 +209,7 @@ public class SampleVehicleFactory implements VehicleFactory {
 //                .withAccelerationIncrement(0.015)
 //                .withForwardDeccelerationFactor(0.97)
                 .withRenderer(renderer)
-                .build(MWC.modContext);
+                .build(modContext);
     }
 
 }
