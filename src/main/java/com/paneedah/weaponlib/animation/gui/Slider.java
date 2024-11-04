@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib.animation.gui;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
@@ -17,7 +19,8 @@ public class Slider implements IElement {
     private final double mapStart;
     private final double mapEnd;
     private final boolean centered;
-    private double progress;
+
+    @Getter @Setter private double progress;
 
     private double verticalOffset = 0;
 
@@ -119,17 +122,9 @@ public class Slider implements IElement {
         return MatrixHelper.solveLerp(mapStart, mapEnd, progress);
     }
 
-    public void setProgress(double progress) {
-        this.progress = progress;
-    }
-
     public void setValue(double value) {
         this.progress = value / (mapEnd - mapStart);
 
-    }
-
-    public double getProgress() {
-        return this.progress;
     }
 
     @Override

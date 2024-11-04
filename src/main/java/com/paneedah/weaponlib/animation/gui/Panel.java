@@ -2,11 +2,14 @@ package com.paneedah.weaponlib.animation.gui;
 
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import io.redstudioragnarok.redcore.vectors.Vector2D;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 
 import java.awt.*;
 import java.util.ArrayList;
 
+@Getter @Setter
 public class Panel {
 
 
@@ -38,14 +41,6 @@ public class Panel {
         this.positionX = x;
         this.positionY = y;
         this.buttonSize = buttonSize;
-    }
-
-    public boolean isClosed() {
-        return this.closed;
-    }
-
-    public void setClosed(boolean bool) {
-        this.closed = bool;
     }
 
 
@@ -184,108 +179,9 @@ public class Panel {
     }
 
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public ArrayList<Button> getButtonList() {
-        return buttonList;
-    }
-
-
-    public void setButtonList(ArrayList<Button> buttonList) {
-        this.buttonList = buttonList;
-    }
-
-
-    public AnimationGUI getGui() {
-        return gui;
-    }
-
-
-    public void setGui(AnimationGUI gui) {
-        this.gui = gui;
-    }
-
-
-    public double getPositionX() {
-        return positionX;
-    }
-
-
-    public void setPositionX(double positionX) {
-        this.positionX = positionX;
-    }
-
-
-    public double getPositionY() {
-        return positionY;
-    }
-
-
-    public void setPositionY(double positionY) {
-        this.positionY = positionY;
-    }
-
-
-    public double getWidth() {
-        return width;
-    }
-
-
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
-
-    public double getHeight() {
-        return height;
-    }
-
-
     public void setHeight(double height) {
         actualHeight = height;
         this.height = height;
-    }
-
-
-    public double getButtonSize() {
-        return buttonSize;
-    }
-
-
-    public void setButtonSize(double buttonSize) {
-        this.buttonSize = buttonSize;
-    }
-
-
-    public boolean isGrabbed() {
-        return grabbed;
-    }
-
-
-    public void setGrabbed(boolean grabbed) {
-        this.grabbed = grabbed;
-    }
-
-
-    public Vector2D getOriginalMouseCoords() {
-        return originalMouseCoords;
-    }
-
-
-    public void setOriginalMouseCoords(Vector2D originalMouseCoords) {
-        this.originalMouseCoords = originalMouseCoords;
-    }
-
-
-    public Vector2D getOriginalPanelCoords() {
-        return originalPanelCoords;
-    }
-
-
-    public void setOriginalPanelCoords(Vector2D originalPanelCoords) {
-        this.originalPanelCoords = originalPanelCoords;
     }
 
 
