@@ -1,7 +1,11 @@
 package com.paneedah.weaponlib.render;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class SpriteSheetTools {
 
+    @Setter @Getter
     public static class Sprite {
         private double minU, minV, maxU, maxV;
 
@@ -12,37 +16,6 @@ public class SpriteSheetTools {
             this.maxV = maxV;
         }
 
-        public double getMinU() {
-            return minU;
-        }
-
-        public void setMinU(double minU) {
-            this.minU = minU;
-        }
-
-        public double getMinV() {
-            return minV;
-        }
-
-        public void setMinV(double minV) {
-            this.minV = minV;
-        }
-
-        public double getMaxU() {
-            return maxU;
-        }
-
-        public void setMaxU(double maxU) {
-            this.maxU = maxU;
-        }
-
-        public double getMaxV() {
-            return maxV;
-        }
-
-        public void setMaxV(double maxV) {
-            this.maxV = maxV;
-        }
     }
 
     /**
