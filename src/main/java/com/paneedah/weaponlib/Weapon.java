@@ -1023,7 +1023,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public Builder builder;
 
-    private final ModContext modContext;
+    @Getter private final ModContext modContext;
 
     @Getter private Vec3d muzzlePosition;
 
@@ -1547,10 +1547,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public float getRecoil() {
         return BalancePackManager.shouldChangeWeaponRecoil(this) ? (float) BalancePackManager.getNewWeaponRecoil(this) : builder.recoil;
-    }
-
-    public ModContext getModContext() {
-        return modContext;
     }
 
     public float getShellCasingVerticalOffset() {
