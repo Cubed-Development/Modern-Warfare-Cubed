@@ -1,19 +1,16 @@
 package com.paneedah.weaponlib.numerical;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
+@Getter @NoArgsConstructor
 public class LerpedValue {
 
     public double previousValue;
     public double currentValue;
-
-
-    public LerpedValue() {
-
-    }
-
 
     /**
      * Called before changes are made, sets the previous value to the
@@ -38,10 +35,6 @@ public class LerpedValue {
 
     public double getValue() {
         return this.currentValue;
-    }
-
-    public double getPreviousValue() {
-        return this.previousValue;
     }
 
     public double getLerped() {
