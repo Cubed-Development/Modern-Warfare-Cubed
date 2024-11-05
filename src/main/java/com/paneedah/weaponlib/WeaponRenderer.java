@@ -2666,7 +2666,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                     .withPartPositionFunction(Part.RIGHT_HAND, createWeaponPartPositionFunction(r));
 
 
-            t.sound = p.getSound();
+            t.sound = p.getSoundEvent();
 
 
             for (Entry<Part, List<Transition<RenderContext<RenderableState>>>> e : custom.entrySet()) {

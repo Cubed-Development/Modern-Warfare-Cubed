@@ -572,7 +572,7 @@ public class AnimationData {
 
             }, (int) timestamp);
             //	System.out.println("Hello?! Brother! " + sound);
-            trans.setSound(sound);
+            trans.setSoundEvent(sound);
 
             return trans;
 
@@ -661,7 +661,7 @@ public class AnimationData {
 
 
             //System.out.println("Hello?! Brother! " + sound);
-            trans.setSound(sound);
+            trans.setSoundEvent(sound);
             return trans;
 
         }

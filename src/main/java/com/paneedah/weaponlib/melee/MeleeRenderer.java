@@ -5,6 +5,8 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -91,14 +93,14 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
     public static class Builder {
 
-        private ModelBase model;
-        private String textureName;
+        @Getter private ModelBase model;
+        @Getter private String textureName;
 
         private BiConsumer<Part, RenderContext<RenderableState>> partDebugPositioning;
 
-        private Consumer<ItemStack> entityPositioning;
-        private Consumer<ItemStack> inventoryPositioning;
-        private Consumer<RenderContext<RenderableState>> thirdPersonPositioning;
+        @Getter private Consumer<ItemStack> entityPositioning;
+        @Getter private Consumer<ItemStack> inventoryPositioning;
+        @Getter private Consumer<RenderContext<RenderableState>> thirdPersonPositioning;
 
         private Consumer<RenderContext<RenderableState>> firstPersonPositioning;
         private Consumer<RenderContext<RenderableState>> firstPersonPositioningRunning;
@@ -465,25 +467,6 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
             return renderer;
         }
 
-        public Consumer<ItemStack> getEntityPositioning() {
-            return entityPositioning;
-        }
-
-        public Consumer<ItemStack> getInventoryPositioning() {
-            return inventoryPositioning;
-        }
-
-        public Consumer<RenderContext<RenderableState>> getThirdPersonPositioning() {
-            return thirdPersonPositioning;
-        }
-
-        public String getTextureName() {
-            return textureName;
-        }
-
-        public ModelBase getModel() {
-            return model;
-        }
     }
 
     private final Builder builder;
@@ -492,7 +475,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
     private final MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> weaponTransitionProvider;
 
-    protected ClientModContext clientModContext;
+    @Setter protected ClientModContext clientModContext;
 
     private MeleeRenderer(Builder builder) {
         this.builder = builder;
@@ -512,10 +495,6 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
     protected ClientModContext getClientModContext() {
         return clientModContext;
-    }
-
-    public void setClientModContext(ClientModContext clientModContext) {
-        this.clientModContext = clientModContext;
     }
 
     protected StateDescriptor getStateDescriptor(EntityPlayer player, ItemStack itemStack) {
