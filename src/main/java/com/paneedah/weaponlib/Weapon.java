@@ -115,7 +115,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private CreativeTabs creativeTab;
         private WeaponRenderer renderer;
         //float zoom = Weapon.DEFAULT_ZOOM;
-        List<Integer> maxShots = new ArrayList<>();
+        @Getter List<Integer> maxShots = new ArrayList<>();
         String crosshair;
         String crosshairRunning;
         String crosshairZoomed;
@@ -150,7 +150,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         long pumpTimeoutMilliseconds;
         long burstTimeoutMilliseconds = Weapon.DEFAULT_BURST_TIMEOUT_MILLISECONDS;
 
-        private float inaccuracy = DEFAULT_INACCURACY;
+        @Getter private float inaccuracy = DEFAULT_INACCURACY;
 
         int pellets = 1;
 
@@ -223,7 +223,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         private boolean newSys = false;
 
-        private int[][] guiPositions = new int[][]{{-43, 86}, {97, 96}, {92, 34}, {14, -55}, {164, -26}, {145, 67}, {60, 110}, {0, -50}, {-100, -50}, {-29, 44}, {50, 100}};
+        @Getter private int[][] guiPositions = new int[][]{{-43, 86}, {97, 96}, {92, 34}, {14, -55}, {164, -26}, {145, 67}, {60, 110}, {0, -50}, {-100, -50}, {-29, 44}, {50, 100}};
 
 
         public Builder() {
@@ -257,20 +257,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
-        public List<Integer> getMaxShots() {
-            return this.maxShots;
-        }
-
-        public int[][] getGUIPositions() {
-            return this.guiPositions;
-        }
-
         public float getFirerate() {
             return this.fireRate;
-        }
-
-        public float getInaccuracy() {
-            return this.inaccuracy;
         }
 
         public Builder hasFlashPedals() {

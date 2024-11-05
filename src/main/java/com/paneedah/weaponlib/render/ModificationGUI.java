@@ -500,7 +500,7 @@ public class ModificationGUI {
         hasBeenSetup = true;
 
 
-        int[][] guiPositions = pwi.getWeapon().builder.getGUIPositions();
+        int[][] guiPositions = pwi.getWeapon().builder.getGuiPositions();
         for (ModificationTab tab : tabList) {
             // Update custom GUI positionings
             tab.setPos(guiPositions[tab.id][0], guiPositions[tab.id][1]);
