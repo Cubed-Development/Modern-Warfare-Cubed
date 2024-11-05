@@ -2735,7 +2735,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         // PLAY SHIFTING SOUND
         if (isInShift()) {
-            PositionedSound ps = new PositionedSoundRecord(getConfiguration().getShiftSound(), SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
+            PositionedSound ps = new PositionedSoundRecord(getConfiguration().getGearshiftSound(), SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
             MC.getSoundHandler().playSound(ps);
         }
 
