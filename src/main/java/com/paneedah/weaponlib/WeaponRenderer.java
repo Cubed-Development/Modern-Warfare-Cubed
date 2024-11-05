@@ -17,6 +17,8 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.*;
 import com.paneedah.weaponlib.shader.jim.Shader;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -312,88 +314,15 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         private boolean compoundReloadUsesTactical;
         private boolean compoundReloadEmptyUsesTactical;
-        private boolean hasTacticalReload;
-
-        public boolean isHasTacticalReload() {
-            return hasTacticalReload;
-        }
-
-        public void setHasTacticalReload(boolean hasTacticalReload) {
-            this.hasTacticalReload = hasTacticalReload;
-        }
-
-        public boolean isHasUnloadEmpty() {
-            return hasUnloadEmpty;
-        }
-
-        public void setHasUnloadEmpty(boolean hasUnloadEmpty) {
-            this.hasUnloadEmpty = hasUnloadEmpty;
-        }
-
-        public boolean isHasLoadEmpty() {
-            return hasLoadEmpty;
-        }
-
-        public void setHasLoadEmpty(boolean hasLoadEmpty) {
-            this.hasLoadEmpty = hasLoadEmpty;
-        }
-
-        public boolean isHasCompoundReloadEmpty() {
-            return hasCompoundReloadEmpty;
-        }
-
-        public void setHasCompoundReloadEmpty(boolean hasCompoundReloadEmpty) {
-            this.hasCompoundReloadEmpty = hasCompoundReloadEmpty;
-        }
-
-        public boolean isHasCompoundReload() {
-            return hasCompoundReload;
-        }
-
-        public void setHasCompoundReload(boolean hasCompoundReload) {
-            this.hasCompoundReload = hasCompoundReload;
-        }
-
-        public boolean isHasLoad() {
-            return hasLoad;
-        }
-
-        public void setHasLoad(boolean hasLoad) {
-            this.hasLoad = hasLoad;
-        }
-
-        public boolean isHasUnload() {
-            return hasUnload;
-        }
-
-        public void setHasUnload(boolean hasUnload) {
-            this.hasUnload = hasUnload;
-        }
-
-        public boolean isHasDraw() {
-            return hasDraw;
-        }
-
-        public void setHasDraw(boolean hasDraw) {
-            this.hasDraw = hasDraw;
-        }
-
-        public boolean isHasInspect() {
-            return hasInspect;
-        }
-
-        public void setHasInspect(boolean hasInspect) {
-            this.hasInspect = hasInspect;
-        }
-
-        private boolean hasUnloadEmpty;
-        private boolean hasLoadEmpty;
-        private boolean hasCompoundReloadEmpty;
-        private boolean hasCompoundReload;
-        private boolean hasLoad;
-        private boolean hasUnload;
-        private boolean hasDraw;
-        private boolean hasInspect;
+        @Setter @Getter private boolean hasTacticalReload;
+        @Setter @Getter private boolean hasUnloadEmpty;
+        @Setter @Getter private boolean hasLoadEmpty;
+        @Setter @Getter private boolean hasCompoundReloadEmpty;
+        @Setter @Getter private boolean hasCompoundReload;
+        @Setter @Getter private boolean hasLoad;
+        @Setter @Getter private boolean hasUnload;
+        @Setter @Getter private boolean hasDraw;
+        @Setter @Getter private boolean hasInspect;
         private boolean hasEjectSpentRound;
         private boolean hasEjectSpentRoundAimed;
 
