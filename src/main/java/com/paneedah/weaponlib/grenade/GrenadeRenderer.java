@@ -5,6 +5,8 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -95,13 +97,13 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
     public static class Builder {
 
-        private ModelBase model;
-        private String textureName;
+        @Getter private ModelBase model;
+        @Getter private String textureName;
 
-        private Consumer<ItemStack> entityPositioning;
+        @Getter private Consumer<ItemStack> entityPositioning;
         private Runnable thrownEntityPositioning = () -> {};
-        private Consumer<ItemStack> inventoryPositioning;
-        private Consumer<RenderContext<RenderableState>> thirdPersonPositioning;
+        @Getter private Consumer<ItemStack> inventoryPositioning;
+        @Getter private Consumer<RenderContext<RenderableState>> thirdPersonPositioning;
 
         private Consumer<RenderContext<RenderableState>> firstPersonPositioning;
         private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioning;
@@ -549,25 +551,6 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             return renderer;
         }
 
-        public Consumer<ItemStack> getEntityPositioning() {
-            return entityPositioning;
-        }
-
-        public Consumer<ItemStack> getInventoryPositioning() {
-            return inventoryPositioning;
-        }
-
-        public Consumer<RenderContext<RenderableState>> getThirdPersonPositioning() {
-            return thirdPersonPositioning;
-        }
-
-        public String getTextureName() {
-            return textureName;
-        }
-
-        public ModelBase getModel() {
-            return model;
-        }
     }
 
     private Builder builder;
@@ -576,7 +559,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
     private final MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> weaponTransitionProvider;
 
-    protected ClientModContext clientModContext;
+    @Setter protected ClientModContext clientModContext;
 
     private GrenadeRenderer(Builder builder) {
         this.builder = builder;
@@ -597,10 +580,6 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
     protected ClientModContext getClientModContext() {
         return clientModContext;
-    }
-
-    public void setClientModContext(ClientModContext clientModContext) {
-        this.clientModContext = clientModContext;
     }
 
 
@@ -1119,7 +1098,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
                 WeaponRenderer.renderLeftArm(player, renderContext, positioner);
 
-                // Randomization is supported for the right hand only only
+                // Randomization is supported for the right hand only
                 positioner.randomize(stateDescriptor.rate, stateDescriptor.amplitude);
 
                 WeaponRenderer.renderRightArm(player, renderContext, positioner);
