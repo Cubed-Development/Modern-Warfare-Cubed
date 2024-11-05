@@ -32,19 +32,13 @@ public class OpenGLSelectionHelper {
 
     public static Framebuffer ballBuf;
 
-    public static boolean mouseClick = false;
-
     /**
      * Allows you to select obj behind
      *
-     * @return
+     * @return true
      */
     public static boolean shouldRender(int id) {
-        return true;
-    }
-
-    public static void setupSelectionBuffer() {
-
+        return true; //TODO This always returns true
     }
 
     public static void bindBallBuf() {

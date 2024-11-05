@@ -12,6 +12,8 @@ import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.EulerAngle;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.Format;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
@@ -22,11 +24,11 @@ import java.util.Map.Entry;
 
 public class AnimationData {
 
-    public TreeMap<Float, BlockbenchTransition> bbTransition = new TreeMap<>();
+    @Getter @Setter private TreeMap<Float, BlockbenchTransition> bbTransition = new TreeMap<>();
 
     public static final float PACE = 833f;
 
-    public ArrayList<Float> timestamps = new ArrayList<>();
+    @Setter @Getter private ArrayList<Float> timestamps = new ArrayList<>();
 
     public TreeMap<Float, Vec3d> rotationKeyframes = new TreeMap<>();
     public TreeMap<Float, Vec3d> translateKeyframes = new TreeMap<>();
@@ -37,21 +39,13 @@ public class AnimationData {
 
 
     // The **ACTUAL** duration of the animation as designated in the BlockBench file
-    private float appointedDuration;
+    @Setter @Getter private float appointedDuration;
 
 
     protected AnimationData(ArrayList<Float> arrayList) {
         this.isNull = true;
         this.fakeTransitions = arrayList.size();
         this.fTLength = (long) (arrayList.get(arrayList.size() - 1) / arrayList.size());
-    }
-
-    public void setAppointedDuration(float f) {
-        this.appointedDuration = f;
-    }
-
-    public float getAppointedDuration() {
-        return this.appointedDuration;
     }
 
     public AnimationData(JsonObject obj) {
@@ -205,7 +199,7 @@ public class AnimationData {
         for (Entry<Float, BlockbenchTransition> set : this.bbTransition.entrySet()) {
             if (map.containsKey(set.getKey())) {
                 overflowList.remove(set.getKey());
-                set.getValue().setSound(UniversalSoundLookup.lookupSound(map.get(set.getKey())));
+                set.getValue().setSoundEvent(UniversalSoundLookup.lookupSound(map.get(set.getKey())));
             }
         }
     }
@@ -464,19 +458,15 @@ public class AnimationData {
 
     public static class BlockbenchTransition {
 
-        private float timestamp;
-        private Vec3d rotation;
-        private Vec3d translation;
-        private SoundEvent sound;
+        @Getter @Setter private float timestamp;
+        @Getter @Setter private Vec3d rotation;
+        @Getter @Setter private Vec3d translation;
+        @Getter @Setter private SoundEvent soundEvent;
 
         public BlockbenchTransition(float timestamp, Vec3d rotation, Vec3d translation) {
             this.timestamp = timestamp;
             this.rotation = rotation;
             this.translation = translation;
-        }
-
-        public void setSound(SoundEvent sound) {
-            this.sound = sound;
         }
 
         public void directTransform() {
@@ -521,9 +511,6 @@ public class AnimationData {
                  */
 
 
-                Transform t = normal;
-
-
                 double rotXMult = 1.0;
                 double rotYMult = 1.0;
                 double rotZMult = 1.0;
@@ -548,31 +535,31 @@ public class AnimationData {
                 double mul = 1 / tesla;
 
                 // Original object positioning
-                GlStateManager.translate(t.getPositionX(), t.getPositionY(), t.getPositionZ());
+                GlStateManager.translate(normal.getPositionX(), normal.getPositionY(), normal.getPositionZ());
 
                 // Animation translation
                 GL11.glTranslated(translation.x * mul, -translation.y * mul, translation.z * mul);
 
                 // Offset rotation point
-                GlStateManager.translate(t.getRotationPointX(), t.getRotationPointY(), t.getRotationPointZ());
+                GlStateManager.translate(normal.getRotationPointX(), normal.getRotationPointY(), normal.getRotationPointZ());
 
                 // Original object rotation (+Z, -Y, -X)
-                GL11.glRotated(t.getRotationZ(), 0, 0, 1);
+                GL11.glRotated(normal.getRotationZ(), 0, 0, 1);
                 GL11.glRotated(rotation.z * rotZMult, 0, 0, 1);
 
-                GL11.glRotated(t.getRotationY(), 0, 1, 0);
+                GL11.glRotated(normal.getRotationY(), 0, 1, 0);
                 GL11.glRotated(rotation.y * rotYMult, 0, 1, 0);
 
-                GL11.glRotated(t.getRotationX(), 1, 0, 0);
+                GL11.glRotated(normal.getRotationX(), 1, 0, 0);
                 GL11.glRotated(rotation.x * rotXMult, 1, 0, 0);
 
-                GlStateManager.translate(-t.getRotationPointX(), -t.getRotationPointY(), -t.getRotationPointZ());
-                GlStateManager.scale(t.getScaleX(), t.getScaleY(), t.getScaleZ());
+                GlStateManager.translate(-normal.getRotationPointX(), -normal.getRotationPointY(), -normal.getRotationPointZ());
+                GlStateManager.scale(normal.getScaleX(), normal.getScaleY(), normal.getScaleZ());
 
 
             }, (int) timestamp);
-            //	System.out.println("Hello?! Brother! " + sound);
-            trans.setSoundEvent(sound);
+            //	System.out.println("Hello?! Brother! " + soundEvent);
+            trans.setSoundEvent(soundEvent);
 
             return trans;
 
@@ -660,8 +647,8 @@ public class AnimationData {
             }, Math.round(timestamp));
 
 
-            //System.out.println("Hello?! Brother! " + sound);
-            trans.setSoundEvent(sound);
+            //System.out.println("Hello?! Brother! " + soundEvent);
+            trans.setSoundEvent(soundEvent);
             return trans;
 
         }
@@ -680,46 +667,6 @@ public class AnimationData {
             return "[(" + this.timestamp + ") " + this.rotation + " > " + this.translation + "]";
         }
 
-        public float getTimestamp() {
-            return timestamp;
-        }
-
-        public void setTimestamp(float timestamp) {
-            this.timestamp = timestamp;
-        }
-
-        public Vec3d getRotation() {
-            return rotation;
-        }
-
-        public void setRotation(Vec3d rotation) {
-            this.rotation = rotation;
-        }
-
-        public Vec3d getTranslation() {
-            return translation;
-        }
-
-        public void setTranslation(Vec3d translation) {
-            this.translation = translation;
-        }
-
-    }
-
-    public TreeMap<Float, BlockbenchTransition> getBbTransition() {
-        return bbTransition;
-    }
-
-    public void setBbTransition(TreeMap<Float, BlockbenchTransition> bbTransition) {
-        this.bbTransition = bbTransition;
-    }
-
-    public ArrayList<Float> getTimestamps() {
-        return timestamps;
-    }
-
-    public void setTimestamps(ArrayList<Float> timestamps) {
-        this.timestamps = timestamps;
     }
 
 }

@@ -25,7 +25,7 @@ public class KeyedAnimation {
 
     public KeyedAnimation(AnimationData data) {
         // Copy keys
-        for (Entry<Float, BlockbenchTransition> entry : data.bbTransition.entrySet()) {
+        for (Entry<Float, BlockbenchTransition> entry : data.getBbTransition().entrySet()) {
             bbMap.put(entry.getKey(), entry.getValue());
         }
 

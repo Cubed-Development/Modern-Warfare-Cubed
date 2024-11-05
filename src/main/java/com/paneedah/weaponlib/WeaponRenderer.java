@@ -1172,7 +1172,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             SingleAnimation compound = set.getSingleAnimation(BBLoader.KEY_COMPOUND_RELOAD);
             if (compound != null) {
                 if (compound.hasBone(BBLoader.KEY_MAGIC_MAGAZINE)) {
-                    if (compound.getBone(BBLoader.KEY_MAGIC_MAGAZINE).bbTransition.size() > 1) {
+                    if (compound.getBone(BBLoader.KEY_MAGIC_MAGAZINE).getBbTransition().size() > 1) {
                         compoundReloadUsesTactical = true;
                     }
                 }
@@ -1181,7 +1181,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             SingleAnimation compoundEmpty = set.getSingleAnimation(BBLoader.KEY_COMPOUND_RELOAD_EMPTY);
             if (compoundEmpty != null) {
                 if (compoundEmpty.hasBone(BBLoader.KEY_MAGIC_MAGAZINE)) {
-                    if (compoundEmpty.getBone(BBLoader.KEY_MAGIC_MAGAZINE).bbTransition.size() > 1) {
+                    if (compoundEmpty.getBone(BBLoader.KEY_MAGIC_MAGAZINE).getBbTransition().size() > 1) {
                         compoundReloadEmptyUsesTactical = true;
                     }
                 }
