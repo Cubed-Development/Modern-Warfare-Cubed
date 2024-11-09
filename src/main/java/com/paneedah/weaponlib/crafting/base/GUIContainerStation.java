@@ -11,6 +11,8 @@ import com.paneedah.weaponlib.crafting.workbench.GUIButtonCustom;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -72,22 +74,22 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
     private final ArrayList<String> tooltipRenderItem = new ArrayList<>();
 
     // Mod context
-    protected static ModContext modContext;
+    @Setter protected static ModContext modContext;
 
     // Currently selected crafting piece
-    private IModernCraftingRecipe selectedCraftingPiece = null;
+    @Setter @Getter private IModernCraftingRecipe selectedCraftingPiece = null;
 
     // Tells us if we can craft the currently selected item
     private boolean hasRequiredItems = false;
     protected HashMap<Ingredient, Boolean> hasAvailableMaterials = new HashMap<>();
 
-    private int craftingMode = 1;
+    @Getter private int craftingMode = 1;
 
     // Currently used crafting list.
     protected ArrayList<IModernCraftingRecipe> filteredCraftingList = new ArrayList<>();
 
     // The page the workbench is on
-    private int page = 1;
+    @Getter private int page = 1;
     private int minPage, maxPage;
 
     // Scroll bar data
@@ -180,21 +182,9 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
      */
     public abstract void fillFilteredList();
 
-    public int getCraftingMode() {
-        return this.craftingMode;
-    }
-
     public void setCraftingMode(int mode) {
         craftButton.setErrored(true);
         this.craftingMode = mode;
-    }
-
-    public IModernCraftingRecipe getSelectedCraftingPiece() {
-        return this.selectedCraftingPiece;
-    }
-
-    public void setSelectedCraftingPiece(IModernCraftingRecipe modernCrafting) {
-        this.selectedCraftingPiece = modernCrafting;
     }
 
     public boolean hasSelectedCraftingPiece() {
@@ -214,8 +204,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             if (!counter.containsKey(stack)) {
                 counter.put(stack, stack.getCount());
             } else {
-                int existingcount = counter.get(stack);
-                counter.put(stack, existingcount + stack.getCount());
+                counter.compute(stack, (k, existingcount) -> existingcount + stack.getCount());
             }
         }
 
@@ -264,17 +253,9 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
         return ingredient.getCount() > finalcount;
     }
 
-    public static void setModContext(ModContext context) {
-        modContext = context;
-    }
-
     public void setPageRange(int min, int max) {
         this.minPage = min;
         this.maxPage = max;
-    }
-
-    public int getPage() {
-        return this.page;
     }
 
     public String format(String unloc) {

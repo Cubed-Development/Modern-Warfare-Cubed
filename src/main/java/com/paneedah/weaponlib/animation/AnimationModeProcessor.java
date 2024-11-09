@@ -5,6 +5,8 @@ import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.render.Shaders;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -37,12 +39,12 @@ public class AnimationModeProcessor {
 
 
     private final HashMap<AttachmentCategory, Boolean> shouldRender = new HashMap<>();
-    private AttachmentCategory activeCategory;
+    @Setter private AttachmentCategory activeCategory;
     private AttachmentCategory exclusionCategory;
 
-    private static final AnimationModeProcessor instance = new AnimationModeProcessor();
+    @Getter private static final AnimationModeProcessor instance = new AnimationModeProcessor();
 
-    public boolean legacyMode = false;
+    @Getter public boolean legacyMode = false;
 
     public Vec3d pan = Vec3d.ZERO;
 
@@ -67,10 +69,6 @@ public class AnimationModeProcessor {
 
     public AttachmentCategory getExcludedCategory() {
         return this.exclusionCategory;
-    }
-
-    public void setActiveCategory(AttachmentCategory category) {
-        this.activeCategory = category;
     }
 
     public boolean shouldIsolateCategory() {
@@ -104,14 +102,6 @@ public class AnimationModeProcessor {
     public void setFPSMode(boolean state) {
 
         this.fpsMode = state;
-    }
-
-    public static AnimationModeProcessor getInstance() {
-        return instance;
-    }
-
-    public boolean isLegacyMode() {
-        return this.legacyMode;
     }
 
     public void captureDeferral() {

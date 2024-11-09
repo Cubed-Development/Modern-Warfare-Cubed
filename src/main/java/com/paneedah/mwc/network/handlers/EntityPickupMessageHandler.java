@@ -4,7 +4,7 @@ import com.paneedah.mwc.network.messages.EntityPickupMessage;
 import com.paneedah.weaponlib.HighIQSpawnEgg;
 import com.paneedah.weaponlib.SecondaryEntityRegistry;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
