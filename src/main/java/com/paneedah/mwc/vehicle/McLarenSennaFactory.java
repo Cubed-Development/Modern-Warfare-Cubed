@@ -1,5 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.vehicle.engines.McLarenSennaEngine;
 import com.paneedah.weaponlib.ModContext;
