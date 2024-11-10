@@ -1,5 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.ATV;
 import com.paneedah.mwc.models.SampleVehicleControlArm;
 import com.paneedah.mwc.models.SampleVehicleSteeringWheel;
