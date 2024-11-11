@@ -28,7 +28,7 @@ public class AnimationData {
 
     public static final float PACE = 833f;
 
-    @Setter @Getter private ArrayList<Float> timestamps = new ArrayList<>();
+    @Getter @Setter private ArrayList<Float> timestamps = new ArrayList<>();
 
     public TreeMap<Float, Vec3d> rotationKeyframes = new TreeMap<>();
     public TreeMap<Float, Vec3d> translateKeyframes = new TreeMap<>();
@@ -39,7 +39,7 @@ public class AnimationData {
 
 
     // The **ACTUAL** duration of the animation as designated in the BlockBench file
-    @Setter @Getter private float appointedDuration;
+    @Getter @Setter private float appointedDuration;
 
 
     protected AnimationData(ArrayList<Float> arrayList) {

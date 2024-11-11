@@ -77,7 +77,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
     @Setter protected static ModContext modContext;
 
     // Currently selected crafting piece
-    @Setter @Getter private IModernCraftingRecipe selectedCraftingPiece = null;
+    @Getter @Setter private IModernCraftingRecipe selectedCraftingPiece = null;
 
     // Tells us if we can craft the currently selected item
     private boolean hasRequiredItems = false;

@@ -82,7 +82,7 @@ public class BalancePackManager {
         return PACK_MANAGER_VERSION;
     }
 
-    @Setter @Getter
+    @Getter @Setter
     public static class GunCategoryBalanceConfiguration {
         private GunConfigurationGroup group;
         private double damageMultiplier = 1.0;
@@ -267,7 +267,7 @@ public class BalancePackManager {
         }
     }
 
-    @Setter @Getter
+    @Getter @Setter
     public static class BalancePack {
         private String name;
         private String version;

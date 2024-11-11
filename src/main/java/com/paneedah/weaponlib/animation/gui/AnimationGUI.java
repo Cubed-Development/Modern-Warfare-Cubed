@@ -36,8 +36,7 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class AnimationGUI {
 
-    @Getter
-    private static final AnimationGUI instance = new AnimationGUI();
+    @Getter private static final AnimationGUI instance = new AnimationGUI();
 
     public ArrayList<Panel> panels = new ArrayList<>();
 

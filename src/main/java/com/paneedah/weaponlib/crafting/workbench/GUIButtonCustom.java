@@ -44,8 +44,9 @@ public class GUIButtonCustom extends GuiButton {
     // not be rendered)
     private Supplier<Boolean> disabledCheck;
 
-    // The page ID-- buttons have the optionality
-    // of being unique to a singular page.
+    /**
+     * The page ID for this button, buttons can be unique to a singular page.
+     */
     @Getter private int pageID = -1;
 
     private boolean isToggleButton = false;
