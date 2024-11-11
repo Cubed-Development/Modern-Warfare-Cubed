@@ -3,7 +3,7 @@ package com.paneedah.mwc.network.handlers;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

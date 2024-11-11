@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.OpenDoorMessage;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;

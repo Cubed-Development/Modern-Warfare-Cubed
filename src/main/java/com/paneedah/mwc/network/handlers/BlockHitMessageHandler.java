@@ -2,7 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

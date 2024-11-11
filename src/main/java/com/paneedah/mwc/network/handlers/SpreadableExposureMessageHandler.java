@@ -3,7 +3,7 @@ package com.paneedah.mwc.network.handlers;
 import com.paneedah.mwc.network.messages.SpreadableExposureMessage;
 import com.paneedah.weaponlib.SpreadableExposure;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;

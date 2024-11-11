@@ -3,7 +3,7 @@ package com.paneedah.mwc.network.handlers;
 import com.paneedah.mwc.network.messages.MeleeAttackMessage;
 import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeAttackAspect;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;

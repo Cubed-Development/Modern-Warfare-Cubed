@@ -4,7 +4,7 @@ import com.paneedah.mwc.network.messages.VehicleClientMessage;
 import com.paneedah.mwc.network.messages.VehicleControlMessage;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataContainer;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;

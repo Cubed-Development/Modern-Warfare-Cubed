@@ -3,7 +3,7 @@ package com.paneedah.mwc.network.handlers;
 import com.paneedah.mwc.network.messages.ShellMessageClient;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
