@@ -33,11 +33,11 @@ Some things in the mod did not have custom tooltips at all, so we changed that, 
 
 Attachments New Tooltips:
 
-<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/6ad9be3f-99ac-48ab-aa7d-6a165ab1260f" alt="Before" width="256">
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/c8a799ee-5ca1-4e82-8cd9-923f4715bd32" alt="Before" height="256">
 
 Melee Weapons New Tooltips:
 
-<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/c8a799ee-5ca1-4e82-8cd9-923f4715bd32" alt="Before" height="256">
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/6ad9be3f-99ac-48ab-aa7d-6a165ab1260f" alt="Before" width="256">
 
 This should really help in a lot of situations,
 like knowing which weapon is better or whether an attachment will be useful to you.
