@@ -5,7 +5,8 @@ import lombok.Setter;
 
 public class SpriteSheetTools {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     public static class Sprite {
         private double minU, minV, maxU, maxV;
 
