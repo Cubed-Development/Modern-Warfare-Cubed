@@ -69,6 +69,9 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Reworked vests tooltips
 - Updated Chinese translation
 - Reworked how reloading works in creative so that it aligns with vanilla behavior
+- Overhauled the textures and models of:
+  - EOTech 512 A65 Holographic (Black)
+  - EOTech EXPS3-0 Holographic (Tan)
 
 ### Fixed
 
