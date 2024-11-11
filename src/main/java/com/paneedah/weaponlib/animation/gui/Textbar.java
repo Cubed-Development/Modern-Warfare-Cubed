@@ -12,7 +12,11 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class Textbar {
 
-    public int x, y, w, h;
+    public int x = 0;
+    public int y = 0;
+
+    public int w = 0;
+    public int h = 0;
 
     public String[] strings = new String[3];
 

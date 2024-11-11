@@ -11,13 +11,14 @@ public enum Interpolation {
 
     public double interpolate(double input) {
         switch (this) {
+            case LINEAR:
+                return input;
             case ACCELERATION:
                 return input * input;
             case DECELERATION:
                 return 1 - ((1 - input) * (1 - input));
             case SMOOTHSTEP:
                 return input * input * (3 - (2 * input));
-            case LINEAR:
             default:
                 return input;
         }

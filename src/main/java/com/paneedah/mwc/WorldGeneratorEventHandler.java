@@ -2,7 +2,6 @@ package com.paneedah.mwc;
 
 import com.paneedah.mwc.init.MWCBlocks;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import lombok.NoArgsConstructor;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -13,9 +12,11 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-@NoArgsConstructor
-public class ModernWorldGenerator implements IWorldGenerator {
+public class WorldGeneratorEventHandler implements IWorldGenerator {
 
+    public WorldGeneratorEventHandler() {
+
+    }
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {

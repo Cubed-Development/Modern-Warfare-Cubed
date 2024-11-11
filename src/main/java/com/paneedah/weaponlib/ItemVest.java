@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
 import com.paneedah.weaponlib.animation.Transform;
@@ -168,50 +167,73 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
         public ItemVest build(ModContext modContext) {
             if (name == null) {
-                throw new IllegalStateException("ItemVest name not set");
+                throw new IllegalStateException("ItemBackpack name not set");
             }
+
+//            if(size <= 0) {
+//                throw new IllegalStateException("ItemBackpack size must be greater than 0");
+//            }
+
+//            if(guiTextureName == null) {
+//                throw new IllegalStateException("ItemBackpack gui texture not set");
+//            }
+//            
+//            if(!guiTextureName.startsWith("textures/gui/")) {
+//                guiTextureName = "textures/gui/" + guiTextureName;
+//            }
+//            ResourceLocation guiTextureLocation = new ResourceLocation(addFileExtension(guiTextureName, ".png"));
+
 
             ItemVest item = new ItemVest(modContext, percentDamageBlocked, durability);
 
-            // Register model and texture for the item
+
             ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
+
             item.modelFileString = this.modelFileString;
             item.textureName = this.properTextureName;
             item.setTranslationKey(ID + "_" + name);
 
-            // Register crafting hook for the item
+            // Register hook
             CraftingRegistry.registerHook(item);
 
-            // Register the model for the client side, if applicable
+
             if (this.modelFileString != null && !FMLCommonHandler.instance().getSide().isServer()) {
+
                 try {
-                    ModelBase baseModel = (ModelBase) Class.forName(this.modelFileString).newInstance();
-                    item.texturedModels.add(new Tuple<>(baseModel, addFileExtension(this.properTextureName, ".png")));
-                } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-                    ProjectConstants.LOGGER.info("Error loading model for: " + this.modelFileString);
+                    //System.out.println("FOR ITEM: " + item.getRegistryName() + " | ");
+                    ModelBase base = (ModelBase) Class.forName(this.modelFileString).newInstance();
+                    item.texturedModels.add(new Tuple<>(base, addFileExtension(this.properTextureName, ".png")));
+
+
+                } catch (InstantiationException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+
+
             }
 
-            // Add additional model if specified
             if (model != null) {
                 item.texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
             }
 
 
-            // Set creative tab if provided
             if (tab != null) {
                 item.setCreativeTab(tab);
+
+
             }
 
-            // Register the item with the mod context as renderable
-            modContext.registerRenderableItem(
-                    name,
-                    item,
-                    FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null
-            );
+            // lientEventHandler.ITEM_REG.add(item);
 
-            // Queue item for client-side processing if on client side
+            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+
             if (FMLCommonHandler.instance().getSide().isClient()) {
                 COOKING_QUEUE.add(item);
             }

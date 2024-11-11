@@ -1,20 +1,19 @@
 package com.paneedah.weaponlib.animation.gui;
 
-import lombok.Getter;
-import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 
 import java.awt.*;
 
-@Getter
-@Setter
 public class Button {
 
-    public double x, y;
+    public double x = 0;
+    public double y = 0;
     public String tooltip;
 
+
     public int id;
-    public int size;
+
+    public int size = 0;
     public boolean state = false;
 
     public boolean isToggle = false;
@@ -71,6 +70,54 @@ public class Button {
     public boolean isMouseOver(int mouseX, int mouseY) {
         return (mouseX >= x && mouseY >= y) && (mouseX <= x + size && mouseY <= y + size);
 
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
+
+    public boolean isToggle() {
+        return isToggle;
+    }
+
+    public void setToggle(boolean isToggle) {
+        this.isToggle = isToggle;
     }
 
     public void onMouseClick() {

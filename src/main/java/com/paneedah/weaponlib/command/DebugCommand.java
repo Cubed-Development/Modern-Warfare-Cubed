@@ -9,7 +9,6 @@ import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.vehicle.VehiclePart;
-import lombok.Getter;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
@@ -17,6 +16,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+
+import java.util.ArrayList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
@@ -113,6 +114,8 @@ public class DebugCommand extends CommandBase {
         if (args.length > 0) {
             switch (args[0].toLowerCase()) {
                 case DEBUG_ARG_ON:
+                    processDebugModeSubCommand(args);
+                    break;
                 case DEBUG_ARG_OFF:
                     processDebugModeSubCommand(args);
                     break;
@@ -141,6 +144,8 @@ public class DebugCommand extends CommandBase {
                     processAutorotateSubCommand(args);
                     break;
                 case DEBUG_FREECAM:
+                    processFreecamAndMuzzleSubCommands(args);
+                    break;
                 case DEBUG_MUZZLE_POS:
                     processFreecamAndMuzzleSubCommands(args);
                     break;
@@ -161,7 +166,9 @@ public class DebugCommand extends CommandBase {
         }
     }
 
-    @Getter private static boolean isInfiniteAmmo;
+    public ArrayList<String> compatList = new ArrayList<>();
+
+    private static boolean isInfiniteAmmo;
     private static boolean isDebuggingActionPosition;
     private static boolean isWorkingOnScreenShake;
     private static boolean isForceLiveRenderGUI = true;
@@ -175,6 +182,10 @@ public class DebugCommand extends CommandBase {
 
     public static boolean isWorkingOnScreenShake() {
         return isWorkingOnScreenShake;
+    }
+
+    public static boolean isInfiniteAmmo() {
+        return isInfiniteAmmo;
     }
 
     public static boolean isEditingGUI() {
@@ -218,7 +229,7 @@ public class DebugCommand extends CommandBase {
                 } else if (args[2].equals("set")) {
                     double intensity = Double.parseDouble(args[3]);
                     double lengthModifier = Double.parseDouble(args[4]);
-                    screenShakeParam = new Pair<>(intensity, lengthModifier);
+                    screenShakeParam = new Pair<Double, Double>(intensity, lengthModifier);
                 }
                 break;
             case "buildsheet":

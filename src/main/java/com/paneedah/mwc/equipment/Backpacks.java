@@ -1,7 +1,6 @@
 package com.paneedah.mwc.equipment;
 
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.Transform;
 import net.minecraft.item.Item;
 
@@ -23,7 +22,7 @@ public class Backpacks {
 
     public static Item duffleBag;
 
-    public static void createEquipment(ModContext modContext) {
+    public static void init() {
 
         combatSustainmentBackpackTan = new ItemBackpack.Builder()
                 .withName("combat_sustainment_backpack_tan")

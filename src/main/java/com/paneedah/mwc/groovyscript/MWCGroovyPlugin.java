@@ -23,6 +23,6 @@ public class MWCGroovyPlugin implements GroovyPlugin {
 
     @Override
     public void onCompatLoaded(GroovyContainer<?> groovyContainer) {
-        groovyContainer.addProperty(craftingStation);
+        groovyContainer.getRegistrar().addRegistry(craftingStation);
     }
 }

@@ -17,8 +17,6 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.*;
 import com.paneedah.weaponlib.shader.jim.Shader;
-import lombok.Getter;
-import lombok.Setter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -101,8 +99,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     private static final int INVENTORY_TEXTURE_WIDTH = 128;
     private static final int INVENTORY_TEXTURE_HEIGHT = 128;
 
-    private static final ResourceLocation GUN_ICON_SHEET = new ResourceLocation(ID + ":textures/gui/guniconsheet.png");
-
     private static final Map<String, ResourceLocation> ARMOR_TEXTURE_RES_MAP = Maps.newHashMap();
 
     private final org.apache.commons.lang3.tuple.Pair<? extends IBakedModel, Matrix4f> pair;
@@ -133,6 +129,8 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     protected ModelBiped playerBiped = new ModelBiped();
 
     protected ItemStack itemStack;
+
+    protected ModelResourceLocation resourceLocation;
 
     public static FloatBuffer atlasMatrix = BufferUtils.createFloatBuffer(16);
 
@@ -314,15 +312,88 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         private boolean compoundReloadUsesTactical;
         private boolean compoundReloadEmptyUsesTactical;
-        @Setter @Getter private boolean hasTacticalReload;
-        @Setter @Getter private boolean hasUnloadEmpty;
-        @Setter @Getter private boolean hasLoadEmpty;
-        @Setter @Getter private boolean hasCompoundReloadEmpty;
-        @Setter @Getter private boolean hasCompoundReload;
-        @Setter @Getter private boolean hasLoad;
-        @Setter @Getter private boolean hasUnload;
-        @Setter @Getter private boolean hasDraw;
-        @Setter @Getter private boolean hasInspect;
+        private boolean hasTacticalReload;
+
+        public boolean isHasTacticalReload() {
+            return hasTacticalReload;
+        }
+
+        public void setHasTacticalReload(boolean hasTacticalReload) {
+            this.hasTacticalReload = hasTacticalReload;
+        }
+
+        public boolean isHasUnloadEmpty() {
+            return hasUnloadEmpty;
+        }
+
+        public void setHasUnloadEmpty(boolean hasUnloadEmpty) {
+            this.hasUnloadEmpty = hasUnloadEmpty;
+        }
+
+        public boolean isHasLoadEmpty() {
+            return hasLoadEmpty;
+        }
+
+        public void setHasLoadEmpty(boolean hasLoadEmpty) {
+            this.hasLoadEmpty = hasLoadEmpty;
+        }
+
+        public boolean isHasCompoundReloadEmpty() {
+            return hasCompoundReloadEmpty;
+        }
+
+        public void setHasCompoundReloadEmpty(boolean hasCompoundReloadEmpty) {
+            this.hasCompoundReloadEmpty = hasCompoundReloadEmpty;
+        }
+
+        public boolean isHasCompoundReload() {
+            return hasCompoundReload;
+        }
+
+        public void setHasCompoundReload(boolean hasCompoundReload) {
+            this.hasCompoundReload = hasCompoundReload;
+        }
+
+        public boolean isHasLoad() {
+            return hasLoad;
+        }
+
+        public void setHasLoad(boolean hasLoad) {
+            this.hasLoad = hasLoad;
+        }
+
+        public boolean isHasUnload() {
+            return hasUnload;
+        }
+
+        public void setHasUnload(boolean hasUnload) {
+            this.hasUnload = hasUnload;
+        }
+
+        public boolean isHasDraw() {
+            return hasDraw;
+        }
+
+        public void setHasDraw(boolean hasDraw) {
+            this.hasDraw = hasDraw;
+        }
+
+        public boolean isHasInspect() {
+            return hasInspect;
+        }
+
+        public void setHasInspect(boolean hasInspect) {
+            this.hasInspect = hasInspect;
+        }
+
+        private boolean hasUnloadEmpty;
+        private boolean hasLoadEmpty;
+        private boolean hasCompoundReloadEmpty;
+        private boolean hasCompoundReload;
+        private boolean hasLoad;
+        private boolean hasUnload;
+        private boolean hasDraw;
+        private boolean hasInspect;
         private boolean hasEjectSpentRound;
         private boolean hasEjectSpentRoundAimed;
 
@@ -1172,7 +1243,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             SingleAnimation compound = set.getSingleAnimation(BBLoader.KEY_COMPOUND_RELOAD);
             if (compound != null) {
                 if (compound.hasBone(BBLoader.KEY_MAGIC_MAGAZINE)) {
-                    if (compound.getBone(BBLoader.KEY_MAGIC_MAGAZINE).getBbTransition().size() > 1) {
+                    if (compound.getBone(BBLoader.KEY_MAGIC_MAGAZINE).bbTransition.size() > 1) {
                         compoundReloadUsesTactical = true;
                     }
                 }
@@ -1181,7 +1252,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             SingleAnimation compoundEmpty = set.getSingleAnimation(BBLoader.KEY_COMPOUND_RELOAD_EMPTY);
             if (compoundEmpty != null) {
                 if (compoundEmpty.hasBone(BBLoader.KEY_MAGIC_MAGAZINE)) {
-                    if (compoundEmpty.getBone(BBLoader.KEY_MAGIC_MAGAZINE).getBbTransition().size() > 1) {
+                    if (compoundEmpty.getBone(BBLoader.KEY_MAGIC_MAGAZINE).bbTransition.size() > 1) {
                         compoundReloadEmptyUsesTactical = true;
                     }
                 }
@@ -2666,7 +2737,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                     .withPartPositionFunction(Part.RIGHT_HAND, createWeaponPartPositionFunction(r));
 
 
-            t.sound = p.getSoundEvent();
+            t.sound = p.getSound();
 
 
             for (Entry<Part, List<Transition<RenderContext<RenderableState>>>> e : custom.entrySet()) {
@@ -4504,7 +4575,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             GL11.glScalef(1.0F, -1.0F, 1F);
             GlStateManager.translate(-8.0F, -8.0F, 0.0F);
 
-            MC.getTextureManager().bindTexture(GUN_ICON_SHEET);
+            MC.getTextureManager().bindTexture(ResourceManager.GUN_ICON_SHEET);
 
 
             // Checks to see if the gun icon sheet has already
@@ -4514,7 +4585,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
                 try {
-                    InputStream inputStream = MC.getResourceManager().getResource(GUN_ICON_SHEET).getInputStream();
+                    InputStream inputStream = MC.getResourceManager().getResource(ResourceManager.GUN_ICON_SHEET).getInputStream();
                     BufferedImage bf = ImageIO.read(inputStream);
 
                     gunIconSheetWidth = bf.getWidth();
@@ -4591,6 +4662,17 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             t.draw();
             GlStateManager.enableTexture2D();
         }
+
+
+
+
+
+
+        /*
+
+         */
+
+
     }
 
     private static void drawTexturedQuadFit(double x, double y, double width, double height, double zLevel) {
@@ -4770,86 +4852,159 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     public static <T> void renderLeftArm(EntityLivingBase player, RenderContext<T> renderContext,
                                          Positioner<Part, RenderContext<T>> positioner) {
 
-        Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject(player);
-        RenderPlayer render = (RenderPlayer) entityRenderObject;
+        //if(true) return;
 
-        // Bind the player skin texture
+        Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager()
+                .getEntityRenderObject(player);
+        RenderPlayer render = (RenderPlayer) entityRenderObject;
         MC.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
         GL11.glPushMatrix();
-
-        // Apply transformations based on the animation mode
         if (AnimationModeProcessor.getInstance().isLegacyMode()) {
+
             GL11.glTranslatef(0f, -1f, 0f);
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glRotatef(0F, 0f, 1f, 0f);
             GL11.glRotatef(10F, 0f, 0f, 1f);
         }
 
-        // Position the left hand
-        positioner.position(Part.LEFT_HAND, renderContext);
+        float MCt = 45f * ((MC.player.ticksExisted % 45) / 45f);
 
+
+        positioner.position(Part.LEFT_HAND, renderContext);
         if (DebugPositioner.isDebugModeEnabled()) {
             DebugPositioner.position(Part.LEFT_HAND, renderContext);
         }
+		/*
+		AnimationData anm = BBLoader.getAnimation("real", "reload", "lefthand");
+		//AnimationData anm = BBLoader.loadAnimationData("m16.animation.json", "animation.M16.reload", "lefthand");
+		FuckMyLife.instance.bbMap.clear();
+        for(Entry<Float, BlockbenchTransition> tranny : anm.bbTransition.entrySet()) {
+			FuckMyLife.instance.bbMap.put(tranny.getKey(), tranny.getValue());
+		}
+
+      //  System.out.println(anm.bbTransition.get(1.5).directTransform());
+        FuckMyLife.instance.timer = 0f;
+        try {
+        	//FuckMyLife.instance.position(FuckMyLife.instance.timer, 4.0f, true);
+        } catch(Exception e) {
+        	e.printStackTrace();
+        }*/
+        // System.out.println(anm.bbTransition);
+
+
+        /*
+        FuckMyLife.instance.timer += 0.01f;
+        FuckMyLife.instance.timer = 0f;
+        */
+
+
+        //AnimationModeProcessor.getInstance().renderCross();
+
+		/*
+		DebugRenderer.setupBasicRender();
+		DebugRenderer.renderPoint(Vec3d.ZERO, new Vec3d(1, 0, 0));
+		DebugRenderer.destructBasicRender();
+		GlStateManager.color(1, 1, 1);
+        */
+        /*
+   	 GlStateManager.rotate(57.7232f, 0, 0, 1);
+   	 GlStateManager.rotate(26.1991f, 0, 1, 0);
+   	 GlStateManager.rotate(-17.5f, 1, 0, 0);
+        */
+
+
+		/*
+		if (!OpenGLSelectionHelper.isInSelectionPass && AnimationModeProcessor.getInstance().getFPSMode()) {
+
+			if (OpenGLSelectionHelper.selectID == 1) {
+
+				AnimationModeProcessor.getInstance().renderTransformIndicator(0.2f);
+			}
+		}*/
+
 
         renderContext.capturePartPosition(Part.LEFT_HAND);
 
+        //GL11.glTranslated(1, 0, 0);
+        //GlStateManager.rotate(0f, 0, 1, 0);
+
         if (!AnimationModeProcessor.getInstance().isLegacyMode()) {
-            // Additional transformations can be applied here if needed
+
+//			GL11.glTranslatef(-0.38f, -0.12f, -0.13f);
         }
 
-        // Render the left arm
+
+        //	armModel = new ArmModel();
+
         renderLeftArm(render.getMainModel(), (AbstractClientPlayer) player);
 
-        // Check for armor on the chest slot
         ItemStack itemstack = getItemStackFromSlot(player, EntityEquipmentSlot.CHEST);
 
         if (itemstack.getItem() instanceof ItemArmor) {
             render.bindTexture(getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
             ModelBiped armorModel = getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
-
             if (armorModel != null) {
                 renderLeftArm(armorModel, (AbstractClientPlayer) player);
             }
         }
 
+		/*
+		 * 	ItemStack itemstack = getItemStackFromSlot(player, EntityEquipmentSlot.CHEST);
+
+		if ( && itemstack.getItem() instanceof ItemArmor) {
+			// ItemArmor itemarmor = (ItemArmor)itemstack.getItem();
+			renderer.bindTexture(getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
+
+			ModelBiped armorModel = getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
+			if (armorModel != null) {
+				renderRightArm(armorModel, (AbstractClientPlayer) player);
+			}
+		}
+		 */
+
+        // GlStateManager.enableTexture2D();
+
         GL11.glPopMatrix();
+
     }
 
-    public static void renderRightArm(ModelBiped modelPlayer, AbstractClientPlayer clientPlayer) {
+    public static void renderRightArm(ModelBiped modelplayer, AbstractClientPlayer clientPlayer) {
         float f = 1.0F;
+
         GlStateManager.color(f, f, f);
+        // ModelPlayer modelplayer = renderPlayer.getMainModel();
+        // Can ignore private method setModelVisibilities since it was already called
+        // earlier for left hand
+        setModelVisibilities(modelplayer, clientPlayer);
 
-        // Set the model visibilities
-        setModelVisibilities(modelPlayer, clientPlayer);
         GlStateManager.enableBlend();
+        modelplayer.swingProgress = 0.0F;
+        modelplayer.isSneak = false;
+        modelplayer.setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, clientPlayer);
 
-        modelPlayer.swingProgress = 0.0F;
-        modelPlayer.isSneak = false;
-        modelPlayer.setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, clientPlayer);
-
-        // Set right arm rotation angles based on the animation mode
         if (AnimationModeProcessor.getInstance().isLegacyMode()) {
-            modelPlayer.bipedRightArm.rotateAngleX = -0.3F;
-            modelPlayer.bipedRightArm.rotateAngleY = 0.0F;
+            modelplayer.bipedRightArm.rotateAngleX = -0.3F;
+            modelplayer.bipedRightArm.rotateAngleY = 0.0F;
         } else {
-            modelPlayer.bipedRightArm.rotateAngleX = (float) Math.toRadians(-90);
-            modelPlayer.bipedRightArm.rotateAngleY = 0f;
-            modelPlayer.bipedRightArm.rotateAngleZ = 0f;
+            modelplayer.bipedRightArm.rotateAngleX = (float) Math.toRadians(-90);
+            modelplayer.bipedRightArm.rotateAngleY = 0f;
+            modelplayer.bipedRightArm.rotateAngleZ = 0f;
         }
 
-        // Render the right arm
-        modelPlayer.bipedRightArm.render(0.0625F);
 
-        if (modelPlayer instanceof ModelPlayer) {
+        modelplayer.bipedRightArm.render(0.0625F);
+
+        if (modelplayer instanceof ModelPlayer) {
             if (AnimationModeProcessor.getInstance().isLegacyMode()) {
-                ((ModelPlayer) modelPlayer).bipedRightArmwear.rotateAngleX = -0.3F;
+                ((ModelPlayer) modelplayer).bipedRightArmwear.rotateAngleX = 0.0F;
+                ((ModelPlayer) modelplayer).bipedRightArmwear.rotateAngleX = -0.3F;
             } else {
-                modelPlayer.bipedRightArm.rotateAngleX = 0f;
-                modelPlayer.bipedRightArm.rotateAngleY = 0f;
-                modelPlayer.bipedRightArm.rotateAngleZ = 0f;
+                modelplayer.bipedRightArm.rotateAngleX = 0f;
+                modelplayer.bipedRightArm.rotateAngleY = 0f;
+                modelplayer.bipedRightArm.rotateAngleZ = 0f;
             }
+            // ((ModelPlayer) modelplayer).bipedRightArmwear.renderer(0.0625F);
         }
 
         GlStateManager.disableBlend();

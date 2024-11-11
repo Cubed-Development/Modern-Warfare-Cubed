@@ -14,8 +14,6 @@ import net.minecraft.world.World;
 
 import java.util.Set;
 
-import static com.paneedah.mwc.ProjectConstants.LOGGER;
-
 public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
 
     private static final String TAG_TIME = "T";
@@ -37,7 +35,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                 lastEquipmentDispenseTimestamp = world.getWorldTime();
                 Equipment equipment = configuration.getEquipmentOptions().pick(EnumDifficulty.EASY);
                 if (equipment != null && equipment.item != null) {
-                    LOGGER.info("Dropping " + equipment.item.getTranslationKey());
+                    System.out.println("Dropping " + equipment.item.getTranslationKey());
                     player.playSound(configuration.getDispenseSound(), 0.15f, 1);
                     ItemStack equipmentItemStack = ItemStack.EMPTY;
                     if (equipment.item instanceof Weapon) {

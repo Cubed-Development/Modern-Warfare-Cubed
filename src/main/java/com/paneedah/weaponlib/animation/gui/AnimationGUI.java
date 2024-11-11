@@ -8,7 +8,6 @@ import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.DebugPositioner.Position;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -36,7 +35,11 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class AnimationGUI {
 
-    @Getter private static final AnimationGUI instance = new AnimationGUI();
+    private static final AnimationGUI instance = new AnimationGUI();
+
+
+    public static final ResourceLocation TEXTURES = new ResourceLocation(ID + ":textures/hud/animguio.png");
+
 
     public ArrayList<Panel> panels = new ArrayList<>();
 
@@ -77,6 +80,11 @@ public class AnimationGUI {
     public Slider debugFireRate = new Slider("Debug Fire Rate", false, 1, 25);
 
 
+    public static AnimationGUI getInstance() {
+        //instance = new AnimationGUI();
+        return instance;
+    }
+
     public boolean isPanelClosed(String name) {
         for (Panel panel : this.panels) {
             if (panel.getTitle().equals(name)) {
@@ -103,6 +111,8 @@ public class AnimationGUI {
     }
 
     public AnimationGUI() {
+
+
         Panel cameraPanel = new Panel(this, "Functionality", 10, 10, 20);
 
         // cam reset 0
@@ -186,6 +196,8 @@ public class AnimationGUI {
     public Textbar rotation = new Textbar("Rotation", 10, 75, 90, 15);
 
     public void extraRender() {
+
+
         ScaledResolution sr = new ScaledResolution(MC);
         position.x = (int) (sr.getScaledWidth_double() - 100);
         rotation.x = (int) (sr.getScaledWidth_double() - 100);

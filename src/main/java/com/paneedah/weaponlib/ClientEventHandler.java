@@ -244,7 +244,7 @@ public class ClientEventHandler {
                 PlayerUtil.restorePlayerSpeed(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
             }
 
-            if (mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.getSyncStartTimestamp() == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis()) {
+            if (mainHandHeldWeaponInstance != null && mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.getSyncStartTimestamp() == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis()) {
                 mainHandHeldWeaponInstance.reconcile();
             }
         } else {
@@ -439,41 +439,55 @@ public class ClientEventHandler {
 
     @SubscribeEvent
     public void onRightHandEmpty(PlayerInteractEvent.RightClickEmpty event) {
-        handleVehicleInteraction(event, true, 10, 7);
-    }
-
-    @SubscribeEvent
-    public void onLeftHandEmpty(PlayerInteractEvent.LeftClickEmpty event) {
-        handleVehicleInteraction(event, false, 3, 4);
-    }
-
-    private void handleVehicleInteraction(PlayerInteractEvent event, boolean isRightClick, int range, int rayLength) {
         final EntityPlayer player = MC.player;
-        if (player == null || player.world == null) {
-            return; // Early exit if player or world is null
-        }
 
-        final List<EntityVehicle> entityVehicleList = player.world.getEntitiesWithinAABB(
-                EntityVehicle.class,
-                new AxisAlignedBB(player.getPosition()).grow(range)
-        );
-
+        final List<EntityVehicle> entityVehicleList = player.world.getEntitiesWithinAABB(EntityVehicle.class, new AxisAlignedBB(player.getPosition()).grow(10));
         if (entityVehicleList.isEmpty()) {
             return;
         }
 
-        Vec3d start = player.getPositionEyes(MC.getRenderPartialTicks());
-        Vec3d endVec = start.add(player.getLookVec().scale(rayLength));
-
         for (EntityVehicle entityVehicle : entityVehicleList) {
             OreintedBB boundingBox = entityVehicle.getOreintedBoundingBox();
+
+            //boundingBox.move(entityVehicle.posX, entityVehicle.posY, entityVehicle.posZ);
+            Vec3d start = player.getPositionEyes(MC.getRenderPartialTicks());
+            Vec3d endVec = start.add(player.getLookVec().scale(7));
+
+            boundingBox.updateInverse();
+
             if (boundingBox.doRayTrace(start, endVec) != null) {
-                CHANNEL.sendToServer(new VehicleInteractMessage(isRightClick, entityVehicle.getEntityId(), player.getEntityId()));
-                return; // Exit after the first valid interaction
+                CHANNEL.sendToServer(new VehicleInteractMessage(true, entityVehicle.getEntityId(), player.getEntityId()));
+                return;
             }
         }
     }
 
+    @SubscribeEvent
+    public void onLeftHandEmpty(PlayerInteractEvent.LeftClickEmpty event) {
+        final EntityPlayer player = MC.player;
+
+        final List<EntityVehicle> entityVehicleList = player.world.getEntitiesWithinAABB(EntityVehicle.class, new AxisAlignedBB(player.getPosition()).grow(3));
+        if (entityVehicleList.isEmpty()) {
+            return;
+        }
+
+        for (EntityVehicle entityVehicle : entityVehicleList) {
+            OreintedBB boundingBox = entityVehicle.getOreintedBoundingBox();
+
+            //boundingBox.move(entityVehicle.posX, entityVehicle.posY, entityVehicle.posZ);
+            Vec3d start = player.getPositionEyes(MC.getRenderPartialTicks());
+            Vec3d endVec = start.add(player.getLookVec().scale(4));
+
+            //boundingBox.updateInverse();
+
+            if (boundingBox.doRayTrace(start, endVec) != null) {
+                CHANNEL.sendToServer(new VehicleInteractMessage(false, entityVehicle.getEntityId(), player.getEntityId()));
+                //entityVehicle.onKillCommand();
+                //entityVehicle.setDead();
+                return;
+            }
+        }
+    }
 
     public static TextureAtlasSprite carParticles;
 

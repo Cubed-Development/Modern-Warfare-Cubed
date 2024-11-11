@@ -2,8 +2,6 @@ package com.paneedah.weaponlib.config;
 
 import com.google.gson.*;
 import com.paneedah.weaponlib.Weapon;
-import lombok.Getter;
-import lombok.Setter;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
@@ -82,7 +80,6 @@ public class BalancePackManager {
         return PACK_MANAGER_VERSION;
     }
 
-    @Getter @Setter
     public static class GunCategoryBalanceConfiguration {
         private GunConfigurationGroup group;
         private double damageMultiplier = 1.0;
@@ -97,8 +94,36 @@ public class BalancePackManager {
             this.hipFireSpreadMultiplier = hipFireSpread;
         }
 
+        public GunConfigurationGroup getGroup() {
+            return group;
+        }
+
+        public void setGroup(GunConfigurationGroup group) {
+            this.group = group;
+        }
+
+        public double getDamageMultiplier() {
+            return damageMultiplier;
+        }
+
+        public void setDamageMultiplier(double damageMultiplier) {
+            this.damageMultiplier = damageMultiplier;
+        }
+
+        public double getRecoilMultiplier() {
+            return recoilMultiplier;
+        }
+
+        public void setRecoilMultiplier(double recoilMultiplier) {
+            this.recoilMultiplier = recoilMultiplier;
+        }
+
         public double getHipFireSpread() {
             return hipFireSpreadMultiplier;
+        }
+
+        public void setHipFireSpread(double hipFireSpread) {
+            this.hipFireSpreadMultiplier = hipFireSpread;
         }
 
         public JsonObject toJSONObject() {
@@ -123,7 +148,6 @@ public class BalancePackManager {
 
     }
 
-    @Getter @Setter
     public static class GunBalanceConfiguration {
         private String weaponName;
         private boolean enabled = true;
@@ -158,6 +182,10 @@ public class BalancePackManager {
             this.inaccuracy = inaccuracy;
         }
 
+        public String getWeaponName() {
+            return weaponName;
+        }
+
         public void setBurstShots(int shots) {
             if (shots != 0) {
                 fireModeBurstChanged = true;
@@ -190,6 +218,10 @@ public class BalancePackManager {
             return this.fireModeBurstChanged;
         }
 
+        public int getBurstShots() {
+            return burstShots;
+        }
+
         public boolean getFiremodeAuto() {
             return this.autoFireEnabled;
         }
@@ -202,12 +234,44 @@ public class BalancePackManager {
             return this.fireModePropertiesChanged;
         }
 
+        public void setWeaponName(String weaponName) {
+            this.weaponName = weaponName;
+        }
+
+        public boolean isEnabled() {
+            return enabled;
+        }
+
+        public void setEnabled(boolean enabled) {
+            this.enabled = enabled;
+        }
+
+        public double getDamage() {
+            return damage;
+        }
+
+        public void setDamage(double damage) {
+            this.damage = damage;
+        }
+
+        public double getRecoil() {
+            return recoil;
+        }
+
+        public void setRecoil(double recoil) {
+            this.recoil = recoil;
+        }
+
         public void setFirerate(float firerate) {
             this.fireRate = firerate;
         }
 
         public double getFirerate() {
             return this.fireRate;
+        }
+
+        public void setInaccuracy(float inaccuracy) {
+            this.inaccuracy = inaccuracy;
         }
 
         public double getInaccuracy() {
@@ -267,7 +331,6 @@ public class BalancePackManager {
         }
     }
 
-    @Getter @Setter
     public static class BalancePack {
         private String name;
         private String version;
@@ -392,6 +455,63 @@ public class BalancePackManager {
 
         }
 
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getVersion() {
+            return version;
+        }
+
+        public void setVersion(String version) {
+            this.version = version;
+        }
+
+        public double getGlobalRecoilMultiplier() {
+            return globalRecoilMultiplier;
+        }
+
+        public void setGlobalRecoilMultiplier(double globalRecoilMultiplier) {
+            this.globalRecoilMultiplier = globalRecoilMultiplier;
+        }
+
+        public double getGlobalDamageMultiplier() {
+            return globalDamageMultiplier;
+        }
+
+        public void setGlobalDamageMultiplier(double globalDamageMultiplier) {
+            this.globalDamageMultiplier = globalDamageMultiplier;
+        }
+
+        public double getGlobalHipFireSpread() {
+            return globalHipFireSpread;
+        }
+
+        public void setGlobalHipFireSpread(double globalHipFireSpread) {
+            this.globalHipFireSpread = globalHipFireSpread;
+        }
+
+        public HashMap<String, GunBalanceConfiguration> getGunConfigurations() {
+            return gunConfigurations;
+        }
+
+        public void setGunConfigurations(HashMap<String, GunBalanceConfiguration> gunConfigurations) {
+            this.gunConfigurations = gunConfigurations;
+        }
+
+        public HashMap<GunConfigurationGroup, GunCategoryBalanceConfiguration> getGunCategoryConfigurations() {
+            return gunCategoryConfigurations;
+        }
+
+        public void setGunCategoryConfigurations(
+                HashMap<GunConfigurationGroup, GunCategoryBalanceConfiguration> gunCategoryConfigurations) {
+            this.gunCategoryConfigurations = gunCategoryConfigurations;
+        }
+
         public boolean containsWeapon(String name) {
             return gunConfigurations.containsKey(name);
         }
@@ -443,7 +563,7 @@ public class BalancePackManager {
 
         } catch (IOException e) {
             LOGGER.catching(e);
-            LOGGER.error("Failed to remake index.json");
+            LOGGER.error("Failed to create a new index.json");
         }
     }
 
@@ -474,7 +594,7 @@ public class BalancePackManager {
             LOGGER.error("Failed to read file {} from the disk!", file.getName());
             return null;
         }
-        JsonObject object;
+        JsonObject object = null;
         try {
             object = GSON_MANAGER.fromJson(reader, JsonObject.class);
         } catch (JsonSyntaxException jse) {
@@ -580,7 +700,7 @@ public class BalancePackManager {
         String header = TextFormatting.GOLD + "(Balance Pack Manager " + BalancePackManager.getPackManagerVersion()
                 + ")" + TextFormatting.WHITE;
 
-        JsonObject object;
+        JsonObject object = null;
         try {
             object = GSON_MANAGER.fromJson(alledgedJson, JsonObject.class);
         } catch (JsonSyntaxException e) {

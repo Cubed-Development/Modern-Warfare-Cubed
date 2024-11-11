@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import dev.redstudio.redcore.utils.DecimalUtils;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
-import lombok.Getter;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -115,7 +114,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private CreativeTabs creativeTab;
         private WeaponRenderer renderer;
         //float zoom = Weapon.DEFAULT_ZOOM;
-        @Getter List<Integer> maxShots = new ArrayList<>();
+        List<Integer> maxShots = new ArrayList<>();
         String crosshair;
         String crosshairRunning;
         String crosshairZoomed;
@@ -150,7 +149,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         long pumpTimeoutMilliseconds;
         long burstTimeoutMilliseconds = Weapon.DEFAULT_BURST_TIMEOUT_MILLISECONDS;
 
-        @Getter private float inaccuracy = DEFAULT_INACCURACY;
+        private float inaccuracy = DEFAULT_INACCURACY;
 
         int pellets = 1;
 
@@ -223,7 +222,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         private boolean newSys = false;
 
-        @Getter private int[][] guiPositions = new int[][]{{-43, 86}, {97, 96}, {92, 34}, {14, -55}, {164, -26}, {145, 67}, {60, 110}, {0, -50}, {-100, -50}, {-29, 44}, {50, 100}};
+        private int[][] guiPositions = new int[][]{{-43, 86}, {97, 96}, {92, 34}, {14, -55}, {164, -26}, {145, 67}, {60, 110}, {0, -50}, {-100, -50}, {-29, 44}, {50, 100}};
 
 
         public Builder() {
@@ -257,8 +256,20 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
+        public List<Integer> getMaxShots() {
+            return this.maxShots;
+        }
+
+        public int[][] getGUIPositions() {
+            return this.guiPositions;
+        }
+
         public float getFirerate() {
             return this.fireRate;
+        }
+
+        public float getInaccuracy() {
+            return this.inaccuracy;
         }
 
         public Builder hasFlashPedals() {
@@ -1011,24 +1022,24 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public Builder builder;
 
-    @Getter private final ModContext modContext;
+    private final ModContext modContext;
 
-    @Getter private Vec3d muzzlePosition;
+    private Vec3d muzzlePosition;
 
     private CraftingEntry[] modernRecipe;
 
-    @Getter private SoundEvent shootSound;
-    @Getter private SoundEvent endOfShootSound;
-    @Getter private SoundEvent silencedShootSound;
-    @Getter private SoundEvent reloadSound;
-    @Getter private SoundEvent reloadIterationSound;
-    @Getter private SoundEvent inspectSound;
-    @Getter private SoundEvent drawSound;
-    @Getter private SoundEvent allReloadIterationsCompletedSound;
-    @Getter private SoundEvent unloadSound;
-    @Getter private SoundEvent ejectSpentRoundSound;
-    @Getter private SoundEvent burstShootSound;
-    @Getter private SoundEvent silencedBurstShootSound;
+    private SoundEvent shootSound;
+    private SoundEvent endOfShootSound;
+    private SoundEvent silencedShootSound;
+    private SoundEvent reloadSound;
+    private SoundEvent reloadIterationSound;
+    private SoundEvent inspectSound;
+    private SoundEvent drawSound;
+    private SoundEvent allReloadIterationsCompletedSound;
+    private SoundEvent unloadSound;
+    private SoundEvent ejectSpentRoundSound;
+    private SoundEvent burstShootSound;
+    private SoundEvent silencedBurstShootSound;
 
     public enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
 
@@ -1059,6 +1070,59 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         //return CraftingRegistry.getDatabaseRecipe(this);
     }
 
+
+    public SoundEvent getShootSound() {
+        return shootSound;
+    }
+
+    public SoundEvent getBurstShootSound() {
+        return burstShootSound;
+    }
+
+    public SoundEvent getSilencedBurstShootSound() {
+        return silencedBurstShootSound;
+    }
+
+    public SoundEvent getEndOfShootSound() {
+        return endOfShootSound;
+    }
+
+    public SoundEvent getSilencedShootSound() {
+        return silencedShootSound;
+    }
+
+    public SoundEvent getReloadSound() {
+        return reloadSound;
+    }
+
+
+    public SoundEvent getReloadIterationSound() {
+        return reloadIterationSound;
+    }
+
+    public SoundEvent getInspectSound() {
+        return inspectSound;
+    }
+
+    public SoundEvent getDrawSound() {
+        return drawSound;
+    }
+
+    public SoundEvent getAllReloadIterationsCompletedSound() {
+        return allReloadIterationsCompletedSound;
+    }
+
+    public SoundEvent getUnloadSound() {
+        return unloadSound;
+    }
+
+    public SoundEvent getEjectSpentRoundSound() {
+        return ejectSpentRoundSound;
+    }
+
+    public Vec3d getMuzzlePosition() {
+        return this.muzzlePosition;
+    }
 
     @Override
     public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack itemStack) {
@@ -1535,6 +1599,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public float getRecoil() {
         return BalancePackManager.shouldChangeWeaponRecoil(this) ? (float) BalancePackManager.getNewWeaponRecoil(this) : builder.recoil;
+    }
+
+    public ModContext getModContext() {
+        return modContext;
     }
 
     public float getShellCasingVerticalOffset() {

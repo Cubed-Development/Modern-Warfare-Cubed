@@ -1,12 +1,8 @@
 version: "1.0"
-linter: jetbrains/qodana-jvm:2024.2
+linter: jetbrains/qodana-jvm-community:2023.3
 profile:
   name: qodana.recommended
-fixesStrategy: none
-bootstrap: |+
-  set -eu
-  bash gradlew setupDecompWorkspace
-  bash gradlew generateBuildConfig
+fixesStrategy: cleanup
 include:
   - name: VulnerableLibrariesGlobal
   - name: CheckDependencyLicenses
@@ -37,28 +33,6 @@ include:
   - name: DanglingJavadoc
   - name: ManualMinMaxCalculation
   - name: FinalStaticMethod
-  - name: TodoComment
-  - name: RedundantSuppression
-  - name: ConfigurationAvoidance
-  - name: DeprecatedConfigurations
-  - name: ObjectEqualsCanBeEquality
-  - name: MapReplaceableByEnumMap
-  - name: SetReplaceableByEnumSet
-  - name: AutoBoxing
-  - name: AutoUnboxing
-  - name: BulkFileAttributesRead
-  - name: DynamicRegexReplaceableByCompiledPattern
-  - name: ExplicitArgumentCanBeLambda
-  - name: QuestionableName
-  - name: UpperCaseFieldNameNotConstant
-  - name: EqualsCalledOnEnumConstant
-  - name: SimplifiableIfStatement
-  - name: UnnecessaryThis
-  - name: UnnecessarySuperQualifier
-  - name: SimplifiableEqualsExpression
-  - name: UnnecessaryBlockStatement
-  - name: UnnecessaryFullyQualifiedName
-  - name: UnnecessaryQualifierForThis
 exclude:
   - name: QodanaSanity
   - name: JavadocReference

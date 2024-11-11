@@ -19,7 +19,6 @@ import org.lwjgl.opengl.GL11;
 
 public class McLarenSennaFactory implements VehicleFactory {
 
-    @Override
     public void createVehicle(ModContext modContext) {
         StatefulRenderer<VehicleRenderableState> renderer = null;
 
@@ -236,7 +235,7 @@ public class McLarenSennaFactory implements VehicleFactory {
                 .withOBBDimensions(3.5, 2.5, 1.75)
                 .withSeat(new Vec3d(-0.15, -0.4, 0.5))
                 .withRenderer(renderer)
-                .build(modContext);
+                .build(MWC.modContext);
     }
 
 }

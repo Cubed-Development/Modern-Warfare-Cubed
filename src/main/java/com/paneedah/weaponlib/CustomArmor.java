@@ -6,7 +6,6 @@ import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.model.ModelBaseRendererWrapper;
 import com.paneedah.weaponlib.model.WrappableModel;
-import lombok.Getter;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -198,8 +197,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
         public Builder withCompatibleAttachment(AttachmentCategory category, ModelBase attachmentModel, String textureName,
                                                 Consumer<ModelBase> positioner) {
-            ItemAttachment<CustomArmor> item = new ItemAttachment<>(category, attachmentModel, textureName, null);
-            compatibleAttachments.put(item, new CompatibleAttachment<>(item, positioner));
+            ItemAttachment<CustomArmor> item = new ItemAttachment<CustomArmor>(category, attachmentModel, textureName, null);
+            compatibleAttachments.put(item, new CompatibleAttachment<CustomArmor>(item, positioner));
             return this;
         }
 
@@ -421,7 +420,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
     //private EntityEquipmentSlot slot;
     private boolean hasNightVision;
-    @Getter private boolean vignetteEnabled;
+    private boolean vignetteEnabled;
     private float exposureReductionFactor;
 
     private SoundEvent breathingSound;
@@ -430,12 +429,12 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     //private boolean shieldEnabled;
     private long shieldRegenerationTimeout = 1000;
     private double shieldRegenerationRate = 1.0; // restored shield capacity per sec
-    @Getter private double maxShieldCapacity;
+    private double maxShieldCapacity;
     private final String unlocalizedArmorSetName;
-    @Getter private double shieldIndicatorPositionX;
-    @Getter private double shieldIndicatorPositionY;
-    @Getter private double shieldIndicatorWidth;
-    @Getter private double shieldIndicatorHeight;
+    private double shieldIndicatorPositionX;
+    private double shieldIndicatorPositionY;
+    private double shieldIndicatorWidth;
+    private double shieldIndicatorHeight;
     private String shieldIndicatorMaskTextureName;
     private String shieldIndicatorProgressBarTextureName;
 
@@ -646,6 +645,10 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         return hasNightVision;
     }
 
+    public boolean isVignetteEnabled() {
+        return vignetteEnabled;
+    }
+
     @Override
     public Function<Float, Float> getAbsorbFunction(Spreadable spreadable) {
         return dose -> dose * (1f - exposureReductionFactor);
@@ -779,6 +782,26 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             int itemDamage = (int) (absorb / 25.0 < 1 ? 1 : absorb / 25.0);
             stack.damageItem(itemDamage, entity);
         }
+    }
+
+    public double getMaxShieldCapacity() {
+        return maxShieldCapacity;
+    }
+
+    public double getShieldIndicatorPositionX() {
+        return shieldIndicatorPositionX;
+    }
+
+    public double getShieldIndicatorPositionY() {
+        return shieldIndicatorPositionY;
+    }
+
+    public double getShieldIndicatorWidth() {
+        return shieldIndicatorWidth;
+    }
+
+    public double getShieldIndicatorHeight() {
+        return shieldIndicatorHeight;
     }
 
     @Override

@@ -18,7 +18,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-public class AK47Factory implements GunFactory {
+public class AK47Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()

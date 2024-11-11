@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.crafting.workbench;
 
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
-import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.audio.SoundHandler;
@@ -44,10 +43,9 @@ public class GUIButtonCustom extends GuiButton {
     // not be rendered)
     private Supplier<Boolean> disabledCheck;
 
-    /**
-     * The page ID for this button, buttons can be unique to a singular page.
-     */
-    @Getter private int pageID = -1;
+    // The page ID-- buttons have the optionality
+    // of being unique to a singular page.
+    private int pageID = -1;
 
     private boolean isToggleButton = false;
     private boolean isToggled = false;
@@ -203,6 +201,15 @@ public class GUIButtonCustom extends GuiButton {
      */
     public void setErrored(boolean disable) {
         this.isErrored = disable;
+    }
+
+    /**
+     * The page ID that this button is isolated to.
+     *
+     * @return this button will renderer only with this page ID, -1 if non-applicable.
+     */
+    public int getPageID() {
+        return this.pageID;
     }
 
     /**

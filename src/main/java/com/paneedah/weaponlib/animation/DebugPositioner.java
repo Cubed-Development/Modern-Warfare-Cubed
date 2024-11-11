@@ -2,8 +2,6 @@ package com.paneedah.weaponlib.animation;
 
 import com.paneedah.weaponlib.KeyBindings;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
-import lombok.Getter;
-import lombok.Setter;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.text.TextComponentString;
 import org.lwjgl.opengl.GL11;
@@ -27,14 +25,24 @@ public class DebugPositioner {
 
     private static final Set<Object> debugParts = new HashSet<>();
 
-    @Getter private static Entity watchableEntity;
+    private static Entity watchableEntity;
 
-    @Setter private static boolean isAdjustRotationMode;
+    private static boolean isAdjustRotationMode;
 
-    @Setter @Getter
+    public static void setAdjustRotPoint(boolean status) {
+        isAdjustRotationMode = status;
+    }
+
     public static final class TransitionConfiguration {
         private long pause;
 
+        public long getPause() {
+            return pause;
+        }
+
+        public void setPause(long pause) {
+            this.pause = pause;
+        }
     }
 
     public static class Position {
@@ -389,6 +397,10 @@ public class DebugPositioner {
     public static void watch() {
         LivingEntityTracker tracker = LivingEntityTracker.getTracker(MC.player);
         System.out.println("Trackable entities: " + tracker.getTrackableEntitites());
+    }
+
+    public static Entity getWatchableEntity() {
+        return watchableEntity;
     }
 
     public static void showCurrentMatrix(String message) {

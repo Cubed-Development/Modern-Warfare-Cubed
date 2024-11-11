@@ -62,7 +62,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated the url in the mod menu
 - Updated dependencies:
   - Requires Red Core 0.6 and up
-  - Requires MixinBooter 9.4 and up
+  - Requires MixinBooter 8.8 and up
 - Updated Korean translation
 - Reworked weapons tooltips
 - Reworked magazines tooltips
@@ -77,7 +77,6 @@ like knowing which weapon is better or whether an attachment will be useful to y
 
 - Fixed the default craftingmappings.json
 - Fixed the position of the RPG-7 and M202 projectiles
-- Fixed compatiblity with GroovyScript 1.2+
 
 ### Removed
 
@@ -95,18 +94,14 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Set a minimum Gradle Daemon JVM version requirement
 - Updated the `gradle.properties` to the new Red Studio standard one
 - Cleaned up the buildscript
-- Updated [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) dependency to 1.2
-- Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 5.5.0
+- Updated [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) dependency to 1.1.2
+- Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 5.4.0
+- Updated to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.4.0
 - Switched to the new standard `gradle.properties`
 - General cleanup
 - Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 8.7.1
 - Remade the build script
 - Switched from [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) tags to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin)
-- Updated [MixinBooter](https://www.curseforge.com/minecraft/mc-mods/mixin-booter) dependency to 9.4
-- Updated to [org.jetbrains.gradle.plugin.idea-ext](https://github.com/JetBrains/gradle-idea-ext-plugin) 1.1.9
-- Props now use Red Core `AABBUtil`
-- Updated [Red Core](https://www.curseforge.com/minecraft/mc-mods/red-core) dependency to 0.6-Dev-8
-- Lombokified most of the codebase
 
 ## Modern Warfare Cubed Version 0.1.8 Changelog - 2024-08-16
 

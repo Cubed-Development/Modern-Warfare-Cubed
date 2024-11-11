@@ -125,6 +125,10 @@ public class ClientModContext extends CommonModContext {
         return true;
     }
 
+    @Override
+    public void registerServerSideOnly() {
+    }
+
     public PerspectiveManager getViewManager() {
         return viewManager;
     }
@@ -151,6 +155,11 @@ public class ClientModContext extends CommonModContext {
     @Override
     protected EntityPlayer getPlayer(MessageContext ctx) {
         return MC.player;
+    }
+
+    @Override
+    public PlayerItemInstanceRegistry getPlayerItemInstanceRegistry() {
+        return playerItemInstanceRegistry;
     }
 
     protected SyncManager<?> getSyncManager() {

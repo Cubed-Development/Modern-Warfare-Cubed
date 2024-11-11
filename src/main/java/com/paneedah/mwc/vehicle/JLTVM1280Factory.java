@@ -9,7 +9,6 @@ import com.paneedah.weaponlib.vehicle.*;
 
 public class JLTVM1280Factory implements VehicleFactory {
 
-    @Override
     public void createVehicle(ModContext modContext) {
         StatefulRenderer<VehicleRenderableState> renderer = new VehicleRendererBuilder()
 
@@ -205,7 +204,7 @@ public class JLTVM1280Factory implements VehicleFactory {
 //                .withAccelerationIncrement(0.015)
 //                .withForwardDeccelerationFactor(0.97)
                 .withRenderer(renderer)
-                .build(modContext);
+                .build(MWC.modContext);
     }
 
 }

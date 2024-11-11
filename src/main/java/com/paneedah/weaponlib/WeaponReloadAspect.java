@@ -504,6 +504,10 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         Comparator<ItemStack> comparator;
         comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
 
+        if (player.isCreative() && !player.isSneaking()) {
+            return (ItemAttachment<Weapon>) compatibleMagazines.stream().map(ItemMagazine::create).max(comparator).orElse(null).getItem();
+        }
+
         int maxItemIndex = -1;
         ItemStack maxStack = null;
 
@@ -533,9 +537,6 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         int i = maxItemIndex;
 
         if (i < 0) {
-            if (player.isCreative())
-                return (ItemAttachment<Weapon>) compatibleMagazines.stream().map(ItemMagazine::create).max(comparator).orElse(null).getItem();
-
             return null;
         }
 
@@ -557,6 +558,10 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         Comparator<ItemStack> comparator;
         comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
 
+        if (player.isCreative() && !player.isSneaking()) {
+            return compatibleMagazines.stream().map(ItemMagazine::create).max(comparator).orElse(null);
+        }
+
         int maxItemIndex = -1;
         ItemStack maxStack = null;
 
@@ -586,19 +591,10 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         int i = maxItemIndex;
 
         if (i < 0) {
-            if (player.isCreative())
-                return compatibleMagazines.stream().map(ItemMagazine::create).max(comparator).orElse(null);
-
             return null;
         }
 
-        ItemStack magazineItemStack = player.inventory.getStackInSlot(i).copy();
-
-        if (!player.isCreative()){
-            magazineItemStack = magazineItemStack.splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
-        } else {
-            Tags.setAmmo(magazineItemStack, ((ItemMagazine) magazineItemStack.getItem()).getCapacity());
-        }
+        ItemStack magazineItemStack = player.inventory.getStackInSlot(i).copy().splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
 
         return magazineItemStack;
     }

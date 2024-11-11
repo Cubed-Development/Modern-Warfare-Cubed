@@ -27,8 +27,8 @@ public class Transmission {
     public int upshiftRPM = 0;
     public int downshiftRPM = 0;
 
-    public int eUShift = 2500;
-    public int eDShift = 1200;
+    public int eUShift = 0;
+    public int eDShift = 0;
 
     /**
      * Transmission Alterable Settings

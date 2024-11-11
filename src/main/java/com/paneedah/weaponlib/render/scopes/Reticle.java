@@ -1,7 +1,5 @@
 package com.paneedah.weaponlib.render.scopes;
 
-import lombok.Getter;
-import lombok.Setter;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
@@ -13,11 +11,12 @@ public class Reticle {
 
     private static final int DEFAULT_TINT = 0x576574;
 
-    @Getter @Setter private ResourceLocation reticleTexture;
+    private ResourceLocation reticleTexture;
     private Type reticleType;
 
-    @Setter @Getter private float textureScale;
-    @Setter @Getter private Vec3d backgroundColor;
+
+    private float textureScale;
+    private Vec3d backgroundColor;
 
     public enum Type {
         HOLOGRAPHIC,
@@ -46,6 +45,30 @@ public class Reticle {
         return new Vec3d(col.getRed() / 255f, col.getBlue() / 255f, col.getGreen() / 255f);
     }
 
+    public ResourceLocation getReticleTexture() {
+        return reticleTexture;
+    }
+
+    public void setReticleTexture(ResourceLocation reticleTexture) {
+        this.reticleTexture = reticleTexture;
+    }
+
+    public float getTextureScale() {
+        return textureScale;
+    }
+
+    public void setTextureScale(float textureScale) {
+        this.textureScale = textureScale;
+    }
+
+
+    public Vec3d getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(Vec3d backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
 
     public static int getDefaultTint() {
         return DEFAULT_TINT;

@@ -5,21 +5,21 @@ import org.jetbrains.gradle.ext.Gradle
 
 plugins {
     id("com.gtnewhorizons.retrofuturagradle") version "1.4.1"
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.9"
-    id("com.github.gmazzo.buildconfig") version "5.5.0"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.8"
+    id("com.github.gmazzo.buildconfig") version "5.4.0"
     id("io.freefair.lombok") version "8.7.1"
 }
 
 group = "com.paneedah"
-version = "0.2-Dev-3" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
+version = "0.2-Dev-2" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
 
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
-val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-8"
+val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-7"
 
-val groovyScriptVersion = "1.2.0-hotfix1"
-val mixinBooterVersion = "9.4"
+val groovyScriptVersion = "1.1.2"
+val mixinBooterVersion = "8.8"
 
 minecraft {
     mcVersion = "1.12.2"
@@ -57,7 +57,7 @@ dependencies {
     implementation("dev.redstudio", "Red-Core", redCoreVersion)
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
-    compileOnly("com.cleanroommc", "groovyscript", groovyScriptVersion) {
+    compileOnly("com.cleanroommc:groovyscript:1.1.2") {
         isTransitive = false
     }
 
@@ -80,9 +80,9 @@ buildConfig {
     documentation.set("This class defines constants for ${project.name}.\n<p>\nThey are automatically updated by Gradle.")
 
     useJavaOutput()
-    buildConfigField("ID", id)
-    buildConfigField("NAME", project.name)
-    buildConfigField("VERSION", project.version.toString())
+    buildConfigField("String", "ID", provider { """"$id"""" })
+    buildConfigField("String", "NAME", provider { """"${project.name}"""" })
+    buildConfigField("String", "VERSION", provider { """"${project.version}"""" })
     buildConfigField("org.apache.logging.log4j.Logger", "LOGGER", "org.apache.logging.log4j.LogManager.getLogger(NAME)")
     buildConfigField("dev.redstudio.redcore.logging.RedLogger", "RED_LOGGER", """new RedLogger(NAME, "https://linkify.cz/MWCBugReport", LOGGER)""")
 }
@@ -113,7 +113,7 @@ tasks {
         inputs.properties(expandProperties)
 
         filesMatching("**/*.*") {
-            val exclusions = listOf(".png", "_at.cfg", ".refmap.json", ".obj", ".frag", ".ogg", "craftingmappings.json")
+            val exclusions = listOf(".png", ".obj", ".frag", ".ogg", "craftingmappings.json")
             if (!exclusions.any { path.endsWith(it) })
                 expand(expandProperties)
         }

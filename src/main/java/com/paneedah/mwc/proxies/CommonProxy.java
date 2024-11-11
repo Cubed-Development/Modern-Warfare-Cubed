@@ -10,7 +10,6 @@ import com.paneedah.mwc.items.melee.NightStickFactory;
 import com.paneedah.mwc.items.melee.TacticalTomahawkFactory;
 import com.paneedah.mwc.skins.GunSkins;
 import com.paneedah.mwc.tileentities.TileEntities;
-import com.paneedah.mwc.tileentities.TurretBaseFactory;
 import com.paneedah.mwc.vehicle.Vehicles;
 import com.paneedah.mwc.weapons.*;
 import com.paneedah.weaponlib.UniversalSoundLookup;
@@ -63,24 +62,20 @@ public class CommonProxy {
 
         // Special object initialization
         SpecialAttachments.init(mod, MWC.modContext);
-
-        Backpacks.createEquipment(MWC.modContext);
-        Belts.createEquipment(MWC.modContext);
-        Vests.createEquipment(MWC.modContext);
-        Armors.createEquipment(MWC.modContext);
-
+        Backpacks.init();
+        Belts.init();
+        Vests.init(mod);
+        Armors.init(mod, MWC.modContext);
         Attachments.init(mod);
         AuxiliaryAttachments.init(mod);
         GunSkins.init(mod);
         Bullets.init(mod);
         Magazines.init(mod);
         Guns.init(mod, this);
-        Electronics.createEquipment(MWC.modContext);
+        Electronics.init();
         Grenades.init(mod, this);
         CustomSpawnEggs.init(mod, this);
-
-        TurretBaseFactory.createTileEntity(MWC.modContext);
-        TileEntities.createTileEntity(MWC.modContext);
+        TileEntities.init(this);
 
         new TacticalTomahawkFactory().createMelee(this);
         new BaseballBatFactory().createMelee(this);
@@ -96,7 +91,7 @@ public class CommonProxy {
         Entities.init(this);
         Vehicles.init(this);
 
-        GameRegistry.registerWorldGenerator(new ModernWorldGenerator(), 0);
+        GameRegistry.registerWorldGenerator(new WorldGeneratorEventHandler(), 0);
     }
 
     public void postInit(final MWC mod, final FMLPostInitializationEvent initializationEvent) {

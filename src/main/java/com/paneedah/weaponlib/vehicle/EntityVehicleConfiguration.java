@@ -5,7 +5,6 @@ import com.paneedah.weaponlib.EntityConfiguration;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
-import lombok.Getter;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -25,13 +24,18 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class EntityVehicleConfiguration implements EntityConfiguration {
 
-    @Getter
     public static class Seat {
         Vec3d seatPosition;
 
         public Seat(Vec3d position) {
             seatPosition = position;
         }
+
+        public Vec3d getSeatPosition() {
+            return seatPosition;
+        }
+
+
     }
 
     /*
@@ -385,14 +389,14 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
     //public Transmission transmission;
 
 
-    @Getter private SoundEvent enterSound;
-    @Getter private SoundEvent exitSound;
-    @Getter private SoundEvent idleSound;
-    @Getter private SoundEvent runSound;
-    @Getter private SoundEvent constantRevSound;
+    private SoundEvent enterSound;
+    private SoundEvent exitSound;
+    private SoundEvent idleSound;
+    private SoundEvent runSound;
+    private SoundEvent constantRevSound;
 
-    @Getter private SoundEvent backfireSound;
-    @Getter private SoundEvent gearshiftSound;
+    private SoundEvent backfireSound;
+    private SoundEvent gearshiftSound;
 
 
     public boolean shiftRight;
@@ -413,7 +417,7 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
 
     private final Builder builder;
 
-    @Getter private PhysicsConfiguration physicsConfig;
+    private PhysicsConfiguration physicsConfig;
 
 //    private GearShiftPattern pattern;
 
@@ -423,6 +427,10 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
         this.builder = builder;
     }
 
+    public PhysicsConfiguration getPhysicsConfig() {
+        return this.physicsConfig;
+    }
+    
     /*
     public GearShiftPattern getPattern() {
     	return this.pattern;
@@ -466,6 +474,34 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
     public Transmission getVehicleTransmission() {
     	return transmission;
     }*/
+
+    public SoundEvent getEnterSound() {
+        return enterSound;
+    }
+
+    public SoundEvent getExitSound() {
+        return exitSound;
+    }
+
+    public SoundEvent getIdleSound() {
+        return idleSound;
+    }
+
+    public SoundEvent getRunSound() {
+        return runSound;
+    }
+
+    public SoundEvent getConstantRev() {
+        return constantRevSound;
+    }
+
+    public SoundEvent getBackfireSound() {
+        return this.backfireSound;
+    }
+
+    public SoundEvent getShiftSound() {
+        return this.gearshiftSound;
+    }
 
     /*
     public Function<Double, Double> getHandling() {
