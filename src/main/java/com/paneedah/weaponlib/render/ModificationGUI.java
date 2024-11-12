@@ -996,7 +996,7 @@ public class ModificationGUI {
 
                         tooltip.color = TOOLTIP_COL_ERROR;
                         tooltip.addBulletPoint(LangTools.formatName(flag.getAttachment().getTranslationKey()));
-                        tooltip.addLine(TextFormatting.BOLD + "Required Mods: ");
+                        tooltip.addLine(TextFormatting.BOLD + "Required Parts: ");
                         for (ItemAttachment<Weapon> required : flag.getRequiredParts()) {
                             tooltip.addBulletPoint(LangTools.formatName(required.getTranslationKey()));
                         }
@@ -1035,7 +1035,7 @@ public class ModificationGUI {
         GlStateManager.popMatrix();
 
         if (allInventoryRequired) {
-            GUIRenderHelper.drawScaledString("Mods required", 119, 50, 3.0, 0xff3f34);
+            GUIRenderHelper.drawScaledString("Parts required", 119, 50, 3.0, 0xff3f34);
         }
 
         GlStateManager.popMatrix();
@@ -1086,10 +1086,4 @@ public class ModificationGUI {
         }
 
     }
-
-
-    /*
-     * RENDER TOOLS
-     */
-
 }
