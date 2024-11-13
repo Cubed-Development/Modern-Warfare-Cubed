@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network.handlers;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import dev.redstudio.redcore.utils.NetworkUtil;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.util.EnumParticleTypes;
@@ -21,7 +21,7 @@ public final class BlockHitMessageHandler implements IMessageHandler<BlockHitMes
         NetworkUtil.processMessage(messageContext, () -> {
             final Vector3F position = blockHitMessage.getPosition();
 
-            for (int i = 0; i < MWC.bulletHitParticleMult; i++) {
+            for (int i = 0; i < ModernConfigManager.bulletHitParticleMult; i++) {
                 MC.effectRenderer.addBlockHitEffects(blockHitMessage.getBlockPos(), blockHitMessage.getEnumFacing());
                 MC.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, position.x, position.y, position.z, 0, 0, 0);
             }

@@ -210,14 +210,16 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         if (weaponInstance.getAmmo() == 0 || Tags.getAmmo(weaponInstance.getItemStack()) == 0) {
             String message;
 
-            if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
-                message = I18n.format("gui.noMagazine");
-            } else {
-                message = I18n.format("gui.noAmmo");
-            }
+            if(ModernConfigManager.enableStatusMessages){
+                if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
+                    message = I18n.format("gui.noMagazine");
+                } else {
+                    message = I18n.format("gui.noAmmo");
+                }
 
-            if (weaponInstance.getPlayer() instanceof EntityPlayer) {
-                ((EntityPlayer) weaponInstance.getPlayer()).sendStatusMessage(new TextComponentString(message), true);
+                if (weaponInstance.getPlayer() instanceof EntityPlayer) {
+                    ((EntityPlayer) weaponInstance.getPlayer()).sendStatusMessage(new TextComponentString(message), true);
+                }
             }
 
             if (weaponInstance.getPlayer() instanceof EntityPlayer) {

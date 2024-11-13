@@ -92,6 +92,9 @@ public class ModernConfigManager {
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the ammo counter")
     public static boolean enableAmmoCounter = true;
 
+    @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the status messages in the action bar")
+    public static boolean enableStatusMessages = true;
+
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "")
     public static int ammoCounterX = 0;
 
@@ -136,6 +139,10 @@ public class ModernConfigManager {
     @RangeDouble(min = 0.0, max = 20.0)
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "How much damage explosions should deal.")
     public static double explosionDamage = 5.0;
+
+    @RangeInt(min = 1, max = 10)
+    @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "How much particles should be spawned by a bullet.")
+    public static int bulletHitParticleMult = 6;
 
     @RangeDouble(min = 0.0, max = 1.0)
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "What should the block drop chance be?")

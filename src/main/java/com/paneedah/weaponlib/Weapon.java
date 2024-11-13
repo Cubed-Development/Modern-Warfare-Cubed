@@ -1395,19 +1395,22 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         instance.setMaxShots(result);
-        String message;
-        if (result == 1) {
-            message = I18n.format("gui.firearmMode.semi");
-        } else if (result == Integer.MAX_VALUE) {
-            message = I18n.format("gui.firearmMode.auto");
-        } else {
-            message = I18n.format("gui.firearmMode.burst");
-        }
-        LOGGER.debug("Changed fire mode of {} to {}", instance, result);
+        if (ModernConfigManager.enableStatusMessages){
+            String message;
+            if (result == 1) {
+                message = I18n.format("gui.firearmMode.semi");
+            } else if (result == Integer.MAX_VALUE) {
+                message = I18n.format("gui.firearmMode.auto");
+            } else {
+                message = I18n.format("gui.firearmMode.burst");
+            }
+            LOGGER.debug("Changed fire mode of {} to {}", instance, result);
 
-        if (instance.getPlayer() instanceof EntityPlayer) {
-            ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.firearmMode", message)), true);
+            if (instance.getPlayer() instanceof EntityPlayer) {
+                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.firearmMode", message)), true);
+            }
         }
+
 
         instance.getPlayer().playSound(modContext.getChangeFireModeSound(), 1, 1);
     }
@@ -1475,8 +1478,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
-            if (instance.getPlayer() instanceof EntityPlayer) {
-                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+            if (ModernConfigManager.enableStatusMessages){
+                if (instance.getPlayer() instanceof EntityPlayer) {
+                    ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+                }
             }
 
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
@@ -1501,8 +1506,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
-            if (instance.getPlayer() instanceof EntityPlayer) {
-                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+            if(ModernConfigManager.enableStatusMessages){
+                if (instance.getPlayer() instanceof EntityPlayer) {
+                    ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+                }
             }
 
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
