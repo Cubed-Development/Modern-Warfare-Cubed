@@ -16641,7 +16641,7 @@ public class Attachments {
 
         Silencer65x39 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Suppressor556x39(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Suppressor556x39(), "sigslxsilencer.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 1),
