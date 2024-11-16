@@ -475,7 +475,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             }
 
             GUIRenderHelper.drawScaledString("WORKBENCH", this.guiLeft + 10, this.guiTop + 5, 1.2, BLUE);
-            //GUIRenderHelper.drawScaledString("DISMANTLING", this.guiLeft + 255, this.guiTop + 5, 1.2, BLUE);
+            GUIRenderHelper.drawScaledString("DISMANTLING", this.guiLeft + 250, this.guiTop + 7, 1.0, BLUE);
             GUIRenderHelper.drawScaledString("Inventory", this.guiLeft + 21, this.guiTop + 115, 1.0, LIGHT_GREY);
 
         } else if (getPage() == 2) {

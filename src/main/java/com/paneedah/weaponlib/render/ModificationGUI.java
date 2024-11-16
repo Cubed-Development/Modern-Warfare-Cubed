@@ -54,7 +54,6 @@ public class ModificationGUI {
     private static final int SHEET_SIZE = 768;
 
 
-    private static final int TOOLTIP_COL_ERROR = 0x702b2b;
 
 
     private static final int[][] DEFAULT_POSITION = new int[][]{{-50, 50}, {120, 75}, {150, 0}, {100, -50},
@@ -996,7 +995,7 @@ public class ModificationGUI {
 
                         tooltip.color = TOOLTIP_COL_ERROR;
                         tooltip.addBulletPoint(LangTools.formatName(flag.getAttachment().getTranslationKey()));
-                        tooltip.addLine(TextFormatting.BOLD + "Required Parts: ");
+                        tooltip.addLine(TextFormatting.BOLD + "Required Mods: ");
                         for (ItemAttachment<Weapon> required : flag.getRequiredParts()) {
                             tooltip.addBulletPoint(LangTools.formatName(required.getTranslationKey()));
                         }
@@ -1035,7 +1034,7 @@ public class ModificationGUI {
         GlStateManager.popMatrix();
 
         if (allInventoryRequired) {
-            GUIRenderHelper.drawScaledString("Parts required", 119, 50, 3.0, 0xff3f34);
+            GUIRenderHelper.drawScaledString("Mods required", 119, 50, 3.0, 0xff3f34);
         }
 
         GlStateManager.popMatrix();
@@ -1045,8 +1044,6 @@ public class ModificationGUI {
 
             // Translate to front
             GlStateManager.translate(0, 0, 1000);
-
-            // tooltip.addLine("fuck off");
 
             // Bind tooltip texture
             MC.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);

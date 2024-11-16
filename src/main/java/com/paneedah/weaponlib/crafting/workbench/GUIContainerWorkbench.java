@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.*;
 
 /**
  * GUI class for the Workbench Block
@@ -50,23 +51,23 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
         super.initGui();
 
         this.assaultSelector = new GUIButtonCustom(GUI_TEX, 3, this.guiLeft + 92, this.guiTop + 29, 19, 20, 480, 370, "")
-                .withStandardState(0xFFFFFF, 0, 291).withHoveredState(0xFFFFFF, 19, 291)
-                .withToggledState(0xFFFFFF, 38, 291).withPageRestriction(2).makeToggleButton();
+                .withStandardState(WHITE, 0, 291).withHoveredState(0xFFFFFF, 19, 291)
+                .withToggledState(WHITE, 38, 291).withPageRestriction(2).makeToggleButton();
 
         this.attachSelector = new GUIButtonCustom(GUI_TEX, 4, this.guiLeft + 115, this.guiTop + 29, 19, 20, 480, 370, "")
-                .withStandardState(0xFFFFFF, 0, 311).withHoveredState(0xFFFFFF, 19, 311)
-                .withToggledState(0xFFFFFF, 38, 311).withPageRestriction(2).makeToggleButton();
+                .withStandardState(WHITE, 0, 311).withHoveredState(0xFFFFFF, 19, 311)
+                .withToggledState(WHITE, 38, 311).withPageRestriction(2).makeToggleButton();
 
         this.modSelector = new GUIButtonCustom(GUI_TEX, 5, this.guiLeft + 138, this.guiTop + 29, 19, 20, 480, 370, "")
-                .withStandardState(0xFFFFFF, 0, 331)
-                .withHoveredState(0xFFFFFF, 19, 331)
-                .withToggledState(0xFFFFFF, 38, 331)
+                .withStandardState(WHITE, 0, 331)
+                .withHoveredState(WHITE, 19, 331)
+                .withToggledState(WHITE, 38, 331)
                 .withPageRestriction(2).makeToggleButton();
 
         this.gearSelector = new GUIButtonCustom(GUI_TEX, 6, this.guiLeft + 161, this.guiTop + 29, 19, 20, 480, 370, "")
-                .withStandardState(0xFFFFFF, 57, 331)
-                .withHoveredState(0xFFFFFF, 76, 331)
-                .withToggledState(0xFFFFFF, 95, 331)
+                .withStandardState(WHITE, 57, 331)
+                .withHoveredState(WHITE, 76, 331)
+                .withToggledState(WHITE, 95, 331)
                 .withPageRestriction(2).makeToggleButton();
 
 
@@ -116,7 +117,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
             attachSelector.toggleOff();
             gearSelector.toggleOff();
 
-            setCraftingMode(1);
+            setCraftingMode(CraftingGroup.GUN.getID());
             setSelectedCraftingPiece(null);
             fillFilteredList();
 
@@ -126,7 +127,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
             assaultSelector.toggleOff();
             gearSelector.toggleOff();
 
-            setCraftingMode(2);
+            setCraftingMode(CraftingGroup.ATTACHMENT_NORMAL.getID());
             setSelectedCraftingPiece(null);
             fillFilteredList();
 
@@ -136,7 +137,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
             assaultSelector.toggleOff();
             gearSelector.toggleOff();
 
-            setCraftingMode(3);
+            setCraftingMode(CraftingGroup.ATTACHMENT_MODIFICATION.getID());
             setSelectedCraftingPiece(null);
             fillFilteredList();
 
