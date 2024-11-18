@@ -140,10 +140,6 @@ public class ModernConfigManager {
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "How much damage explosions should deal.")
     public static double explosionDamage = 5.0;
 
-    @RangeInt(min = 1, max = 10)
-    @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "How much particles should be spawned by a bullet.")
-    public static int bulletHitParticleMult = 6;
-
     @RangeDouble(min = 0.0, max = 1.0)
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "What should the block drop chance be?")
     public static double explodedBlockDropChance = 1.0;
