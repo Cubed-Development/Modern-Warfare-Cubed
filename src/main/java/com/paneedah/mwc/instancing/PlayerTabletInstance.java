@@ -9,11 +9,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 @NoArgsConstructor
 public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
+
+    private static final String ACTIVE_WATCH_INDEX_TAG = "ACTIVE_WATCH_INDEX";
 
     @Getter private int activeWatchIndex;
 
@@ -62,6 +65,24 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
         this.activeWatchIndex = activeWatchIndex;
 
         markDirty();
+    }
+
+    // endregion
+
+    // region NBT
+
+    @Override
+    public void getTags(final NBTTagCompound tagCompound) {
+        super.getTags(tagCompound);
+
+        activeWatchIndex = tagCompound.getInteger(ACTIVE_WATCH_INDEX_TAG);
+    }
+
+    @Override
+    public void setTags(final NBTTagCompound tagCompound) {
+        super.setTags(tagCompound);
+
+        tagCompound.setInteger(ACTIVE_WATCH_INDEX_TAG, activeWatchIndex);
     }
 
     // endregion

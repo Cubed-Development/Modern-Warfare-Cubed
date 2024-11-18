@@ -21,6 +21,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL13;
@@ -37,6 +38,20 @@ import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
 @NoArgsConstructor
 public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implements DynamicShaderGroupSourceProvider {
+
+    private static final String ALT_MODIFICATION_MODE_ENABLED_TAG = "ALT_MODIFICATION_MODE_ENABLED";
+    private static final String SELECTED_ATTACHMENT_INDEXES_TAG = "SELECTED_ATTACHMENT_INDEXES";
+    private static final String LOAD_AFTER_UNLOAD_ENABLED_TAG = "LOAD_AFTER_UNLOAD_ENABLED";
+    private static final String ACTIVE_ATTACHMENT_IDS_TAG = "ACTIVE_ATTACHMENT_IDS";
+    private static final String LOAD_ITERATION_COUNT_TAG = "LOAD_ITERATION_COUNT";
+    private static final String ACTIVE_TEXTURE_INDEX_TAG = "ACTIVE_TEXTURE_INDEX";
+    private static final String NIGHT_VISION_ON_TAG = "NIGHT_VISION_ON";
+    private static final String MAX_SHOTS_TAG = "MAX_SHOTS";
+    private static final String LASER_ON_TAG = "LASER_ON";
+    private static final String RECOIL_TAG = "RECOIL";
+    private static final String AIMED_TAG = "AIMED";
+    private static final String AMMO_TAG = "AMMO";
+    private static final String ZOOM_TAG = "ZOOM";
 
     // ! TODO: Figure this out, the resources of weaponlib got incorrectly place in the src, and removing this shader system doesn't change anything
 
@@ -486,6 +501,48 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         markDirty();
 
         aimedChangeTimestamp = System.currentTimeMillis();
+    }
+
+    // endregion
+
+    // region NBT
+
+    @Override
+    public void getTags(final NBTTagCompound tagCompound) {
+        super.getTags(tagCompound);
+
+        altModificationModeEnabled = tagCompound.getBoolean(ALT_MODIFICATION_MODE_ENABLED_TAG);
+        selectedAttachmentIndexes = tagCompound.getByteArray(SELECTED_ATTACHMENT_INDEXES_TAG);
+        loadAfterUnloadEnabled = tagCompound.getBoolean(LOAD_AFTER_UNLOAD_ENABLED_TAG);
+        activeAttachmentIds = tagCompound.getIntArray(ACTIVE_ATTACHMENT_IDS_TAG);
+        loadIterationCount = tagCompound.getInteger(LOAD_ITERATION_COUNT_TAG);
+        activeTextureIndex = tagCompound.getByte(ACTIVE_TEXTURE_INDEX_TAG);
+        nightVisionOn = tagCompound.getBoolean(NIGHT_VISION_ON_TAG);
+        maxShots = tagCompound.getInteger(MAX_SHOTS_TAG);
+        laserOn = tagCompound.getBoolean(LASER_ON_TAG);
+        recoil = tagCompound.getFloat(RECOIL_TAG);
+        aimed = tagCompound.getBoolean(AIMED_TAG);
+        ammo = tagCompound.getInteger(AMMO_TAG);
+        zoom = tagCompound.getFloat(ZOOM_TAG);
+    }
+
+    @Override
+    public void setTags(final NBTTagCompound tagCompound) {
+        super.setTags(tagCompound);
+
+        tagCompound.setBoolean(ALT_MODIFICATION_MODE_ENABLED_TAG, altModificationModeEnabled);
+        tagCompound.setByteArray(SELECTED_ATTACHMENT_INDEXES_TAG, selectedAttachmentIndexes);
+        tagCompound.setBoolean(LOAD_AFTER_UNLOAD_ENABLED_TAG, loadAfterUnloadEnabled);
+        tagCompound.setIntArray(ACTIVE_ATTACHMENT_IDS_TAG, activeAttachmentIds);
+        tagCompound.setInteger(LOAD_ITERATION_COUNT_TAG, loadIterationCount);
+        tagCompound.setByte(ACTIVE_TEXTURE_INDEX_TAG, activeTextureIndex);
+        tagCompound.setBoolean(NIGHT_VISION_ON_TAG, nightVisionOn);
+        tagCompound.setInteger(MAX_SHOTS_TAG, maxShots);
+        tagCompound.setBoolean(LASER_ON_TAG, laserOn);
+        tagCompound.setFloat(RECOIL_TAG, recoil);
+        tagCompound.setBoolean(AIMED_TAG, aimed);
+        tagCompound.setInteger(AMMO_TAG, ammo);
+        tagCompound.setFloat(ZOOM_TAG, zoom);
     }
 
     // endregion

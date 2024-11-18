@@ -9,12 +9,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 @NoArgsConstructor
 public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
+
+    private static final String THROWING_FAR_TAG = "THROWING_FAR";
 
     @Getter @Setter private boolean throwingFar;
 
@@ -75,6 +78,24 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 
         return result;
     }
+
+    // region NBT
+
+    @Override
+    public void getTags(final NBTTagCompound tagCompound) {
+        super.getTags(tagCompound);
+
+        throwingFar = tagCompound.getBoolean(THROWING_FAR_TAG);
+    }
+
+    @Override
+    public void setTags(final NBTTagCompound tagCompound) {
+        super.setTags(tagCompound);
+
+        tagCompound.setBoolean(THROWING_FAR_TAG, throwingFar);
+    }
+
+    // endregion
 
     // region Serialization & Deserialization
 

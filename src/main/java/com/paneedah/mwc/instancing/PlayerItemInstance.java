@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
@@ -20,6 +22,11 @@ import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
 @NoArgsConstructor
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S> {
+
+    private static final String ITEM_INVENTORY_INDEX_TAG = "ITEM_INVENTORY_INDEX";
+    private static final String UPDATE_ID_TAG = "UPDATE_ID";
+    private static final String STATE_TAG = "STATE";
+    private static final String ITEM_TAG = "ITEM";
 
     @Getter @Setter protected int itemInventoryIndex;
 
@@ -77,7 +84,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     protected void markClean() {
         updateId = 0;
     }
-    
+
     // region Getters
 
     public ItemStack getItemStack() {
@@ -89,7 +96,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     }
 
     // endregion
-    
+
     // region Setters
 
     // ! This in the past was weirder, and I never really got how it worked,
@@ -111,6 +118,35 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         }
 
         return false;
+    }
+
+    // endregion
+
+    // region NBT
+
+    public void getTags(final NBTTagCompound tagCompound) {
+        itemInventoryIndex = tagCompound.getInteger(ITEM_INVENTORY_INDEX_TAG);
+        item = Item.getItemById(tagCompound.getInteger(ITEM_TAG));
+
+        updateId = tagCompound.getLong(UPDATE_ID_TAG);
+
+        //! INSTANCE_TAG TODO: This might be the same thing again, reading network data from NBT...
+        final ByteBuf byteBuf = Unpooled.buffer();
+        byteBuf.writeBytes(tagCompound.getByteArray(STATE_TAG));
+        if (byteBuf.readableBytes() > 0)
+            state = TypeRegistry.read(byteBuf);
+    }
+
+    public void setTags(final NBTTagCompound tagCompound) {
+        tagCompound.setInteger(ITEM_INVENTORY_INDEX_TAG, itemInventoryIndex);
+        tagCompound.setInteger(ITEM_TAG, Item.getIdFromItem(item));
+
+        tagCompound.setLong(UPDATE_ID_TAG, updateId);
+
+        //! INSTANCE_TAG TODO: This might be the same thing again, writing network data from NBT...
+        final ByteBuf byteBuf = Unpooled.buffer();
+        TypeRegistry.write(byteBuf, state);
+        tagCompound.setByteArray(STATE_TAG, byteBuf.array());
     }
 
     // endregion

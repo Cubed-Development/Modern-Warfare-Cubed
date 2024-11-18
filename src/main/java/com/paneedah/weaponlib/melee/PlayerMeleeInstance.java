@@ -9,6 +9,7 @@ import lombok.Setter;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
@@ -16,6 +17,10 @@ import java.util.Deque;
 
 @NoArgsConstructor
 public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
+
+    private static final String SELECTED_ATTACHMENT_INDEXES_TAG = "SELECTED_ATTACHMENT_INDEXES";
+    private static final String ACTIVE_ATTACHMENT_IDS_TAG = "ACTIVE_ATTACHMENT_IDS";
+    private static final String ACTIVE_TEXTURE_INDEX_TAG = "ACTIVE_TEXTURE_INDEX";
 
     @Getter private byte activeTextureIndex;
 
@@ -164,6 +169,28 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
         this.activeTextureIndex = activeTextureIndex;
 
         markDirty();
+    }
+
+    // endregion
+
+    // region NBT
+
+    @Override
+    public void getTags(final NBTTagCompound tagCompound) {
+        super.getTags(tagCompound);
+
+        tagCompound.setByteArray(SELECTED_ATTACHMENT_INDEXES_TAG, selectedAttachmentIndexes);
+        tagCompound.setIntArray(ACTIVE_ATTACHMENT_IDS_TAG, activeAttachmentIds);
+        tagCompound.setByte(ACTIVE_TEXTURE_INDEX_TAG, activeTextureIndex);
+    }
+
+    @Override
+    public void setTags(final NBTTagCompound tagCompound) {
+        super.setTags(tagCompound);
+
+        selectedAttachmentIndexes = tagCompound.getByteArray(SELECTED_ATTACHMENT_INDEXES_TAG);
+        activeAttachmentIds = tagCompound.getIntArray(ACTIVE_ATTACHMENT_IDS_TAG);
+        activeTextureIndex = tagCompound.getByte(ACTIVE_TEXTURE_INDEX_TAG);
     }
 
     // endregion

@@ -1,13 +1,13 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.instancing.PlayerItemInstance;
-import com.paneedah.mwc.network.TypeRegistry;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
+
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public final class Tags {
 
@@ -15,106 +15,110 @@ public final class Tags {
 
     private static final String DEFAULT_TIMER_TAG = "DefaultTimer";
 
-    private static final String INSTANCE_TAG = "Instance";
+    private static final String INSTANCE_CLASS_TAG = "InstanceName";
 
     private static final String ATTACHMENT_ID_TAG = "AtId";
 
     private static final String INSTANCE_UUID_TAG = "IUuid";
 
-    public static int getAmmo(ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
+    public static int getAmmo(final ItemStack itemStack) {
+        if (itemStack.getTagCompound() == null)
             return 0;
-        }
+
         return itemStack.getTagCompound().getInteger(AMMO_TAG);
     }
 
-    public static void setAmmo(ItemStack itemStack, int ammo) {
-        if (itemStack.getTagCompound() == null) {
+    public static void setAmmo(final ItemStack itemStack, int ammo) {
+        if (itemStack.getTagCompound() == null)
             itemStack.setTagCompound(new NBTTagCompound());
-        }
+
         itemStack.getTagCompound().setInteger(AMMO_TAG, ammo);
     }
 
-    public static int[] getAttachmentIds(ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
+    public static int[] getAttachmentIds(final ItemStack itemStack) {
+        if (itemStack.getTagCompound() == null)
             return new int[0];
-        }
+
         return itemStack.getTagCompound().getIntArray(ATTACHMENT_ID_TAG);
     }
 
-    public static void setAttachmentIds(ItemStack itemStack, int[] attachmentIds) {
-        if (itemStack.getTagCompound() == null) {
+    public static void setAttachmentIds(final ItemStack itemStack, int[] attachmentIds) {
+        if (itemStack.getTagCompound() == null)
             itemStack.setTagCompound(new NBTTagCompound());
-        }
+
         itemStack.getTagCompound().setIntArray(ATTACHMENT_ID_TAG, attachmentIds);
     }
 
-    public static long getDefaultTimer(ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
+    public static long getDefaultTimer(final ItemStack itemStack) {
+        if (itemStack.getTagCompound() == null)
             return 0;
-        }
+
         return itemStack.getTagCompound().getLong(DEFAULT_TIMER_TAG);
     }
 
-    public static void setDefaultTimer(ItemStack itemStack, long ammo) {
-        if (itemStack.getTagCompound() == null) {
+    public static void setDefaultTimer(final ItemStack itemStack, long ammo) {
+        if (itemStack.getTagCompound() == null)
             return;
-        }
+
         itemStack.getTagCompound().setLong(DEFAULT_TIMER_TAG, ammo);
     }
 
-    public static PlayerItemInstance<?> getInstance(ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
+    public static PlayerItemInstance<?> getInstance(final ItemStack itemStack) {
+        if (itemStack.getTagCompound() == null)
+            return null;
+
+        final NBTTagCompound tagCompound = itemStack.getTagCompound();
+
+        try {
+            final Class<?> targetClass = Class.forName(tagCompound.getString(INSTANCE_CLASS_TAG));
+
+            return getInstance(itemStack, (Class<PlayerItemInstance<?>>) targetClass);
+        } catch (ClassNotFoundException exception) {
+            LOGGER.error("Failed to create instance of {}", tagCompound.getString(INSTANCE_CLASS_TAG), exception);
             return null;
         }
-
-        byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
-        if (bytes != null && bytes.length > 0) {
-            return TypeRegistry.read(Unpooled.wrappedBuffer(bytes)); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
-        }
-        return null;
     }
 
-    public static <T extends PlayerItemInstance<?>> T getInstance(ItemStack itemStack, Class<T> targetClass) {
-        if (itemStack.getTagCompound() == null) {
+    public static <T extends PlayerItemInstance<?>> T getInstance(final ItemStack itemStack, final Class<T> targetClass) {
+        if (itemStack.getTagCompound() == null)
+            return null;
+
+        final NBTTagCompound tagCompound = itemStack.getTagCompound();
+
+        try {
+            final T instance = targetClass.getDeclaredConstructor().newInstance();
+
+            instance.getTags(tagCompound);
+
+            return instance;
+        } catch (InstantiationException | NoSuchMethodException | InvocationTargetException | IllegalAccessException exception) {
+            LOGGER.error("Failed to create instance of {}", tagCompound.getString(INSTANCE_CLASS_TAG), exception);
             return null;
         }
-
-        byte[] bytes = itemStack.getTagCompound().getByteArray(INSTANCE_TAG); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
-        if (bytes != null && bytes.length > 0) {
-            try {
-                return targetClass.cast(TypeRegistry.read(Unpooled.wrappedBuffer(bytes))); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
-            } catch (RuntimeException e) {
-                return null;
-            }
-        }
-        return null;
     }
 
-    public static void setInstance(ItemStack itemStack, PlayerItemInstance<?> instance) {
-        if (itemStack.getTagCompound() == null) {
+    public static void setInstance(final ItemStack itemStack, final PlayerItemInstance<?> instance) {
+        if (itemStack.getTagCompound() == null)
             itemStack.setTagCompound(new NBTTagCompound());
-        }
 
-        ByteBuf buf = Unpooled.buffer();
+        final NBTTagCompound tagCompound = itemStack.getTagCompound();
+
         if (instance != null) {
-            TypeRegistry.write(buf, instance); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
-            NBTTagCompound tagCompound = itemStack.getTagCompound();
-            tagCompound.setByteArray(INSTANCE_TAG, buf.array());
+            tagCompound.setString(INSTANCE_CLASS_TAG, instance.getClass().getName());
 
-            UUID uuid = instance.getUuid();
+            instance.setTags(tagCompound);
+
+            final UUID uuid = instance.getUuid();
 
             tagCompound.setLong(INSTANCE_UUID_TAG + "Most", uuid.getMostSignificantBits());
             tagCompound.setLong(INSTANCE_UUID_TAG + "Least", uuid.getLeastSignificantBits());
         } else {
-            NBTTagCompound tagCompound = itemStack.getTagCompound();
-            tagCompound.removeTag(INSTANCE_TAG);
             tagCompound.removeTag(INSTANCE_UUID_TAG);
         }
     }
 
-    public static UUID getInstanceUuid(ItemStack itemStack) {
-        NBTTagCompound tagCompound = itemStack.getTagCompound();
+    public static UUID getInstanceUuid(final ItemStack itemStack) {
+        final NBTTagCompound tagCompound = itemStack.getTagCompound();
         if (tagCompound == null) {
             return null;
         }
@@ -125,21 +129,13 @@ public final class Tags {
         return uuid;
     }
 
-    public static void setInstanceUuid(ItemStack itemStack, UUID uuid) {
-        if (itemStack.getTagCompound() == null) {
+    public static void setInstanceUuid(final ItemStack itemStack, final UUID uuid) {
+        if (itemStack.getTagCompound() == null)
             itemStack.setTagCompound(new NBTTagCompound());
-        }
 
-        NBTTagCompound tagCompound = itemStack.getTagCompound();
+        final NBTTagCompound tagCompound = itemStack.getTagCompound();
 
         tagCompound.setLong(INSTANCE_UUID_TAG + "Most", uuid.getMostSignificantBits());
         tagCompound.setLong(INSTANCE_UUID_TAG + "Least", uuid.getLeastSignificantBits());
-    }
-
-    public static byte[] getInstanceBytes(ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
-            return null;
-        }
-        return itemStack.getTagCompound().getByteArray(INSTANCE_TAG); // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
     }
 }
