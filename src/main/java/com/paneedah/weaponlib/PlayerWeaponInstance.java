@@ -24,14 +24,14 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL13;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.UUID;
-import java.util.concurrent.LinkedBlockingDeque;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
 @NoArgsConstructor
@@ -63,37 +63,42 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     private static final long AIM_CHANGE_DURATION = 1200;
 
-    @Getter private int ammo;
-    @Getter private float recoil;
-    @Getter @Setter private int seriesShotCount;
-    @Getter @Setter private long lastFireTimestamp;
-    @Getter private boolean aimed;
-    @Getter private int maxShots;
-    @Getter private float zoom = 1f;
-    @Getter private byte activeTextureIndex;
-    @Getter private boolean laserOn;
-    private long aimedChangeTimestamp;
-    @Getter private boolean nightVisionOn;
-    @Setter @Getter private boolean seriesResetAllowed;
-    @Setter @Getter private long lastBurstEndTimestamp;
+    @Getter @Setter private boolean isAwaitingCompoundInstructions;
     @Getter @Setter private boolean altModificationModeEnabled;
+    @Getter @Setter private boolean delayCompoundEnd = true;
+    @Getter @Setter private boolean loadAfterUnloadEnabled;
+    @Getter @Setter private boolean seriesResetAllowed;
+    @Getter private boolean compoundMagSwapping;
+    @Getter private boolean slideLockOn;
+    @Getter private boolean nightVisionOn;
+    @Getter private boolean laserOn;
+    @Getter private boolean aimed;
+
+    @Getter private byte activeTextureIndex;
 
     @Getter @Setter private int loadIterationCount;
-    @Getter @Setter private boolean loadAfterUnloadEnabled;
-    @Setter @Getter private boolean delayCompoundEnd = true;
+    @Getter @Setter private int seriesShotCount;
+    @Getter private int maxShots;
+    @Getter private int ammo;
 
-    @Getter @Setter private boolean isAwaitingCompoundInstructions = false;
+    @Getter @Setter private long lastReloadUpdateTimestamp;
+    @Getter @Setter private long lastBurstEndTimestamp;
+    @Getter @Setter private long lastFireTimestamp;
+    private long aimedChangeTimestamp;
 
-    @Getter private boolean slideLockOn = false;
+    @Getter private float zoom = 1;
+    @Getter private float recoil;
+
+    @Getter private byte[] selectedAttachmentIndexes = new byte[0];
+
+    private int[] activeAttachmentIds = new int[0];
 
     /*
-     * Upon adding an element to the head of the queue, all existing elements with lower priority are removed
-     * from the queue. Elements with the same priority are not removed.
+     * Upon adding an element to the head of the queue, all existing elements with lower priority are removed from the queue.
+     * Elements with the same priority are not removed.
      * This ensures the queue is always sorted by priority, lowest (head) to highest (tail).
      */
-    private final Deque<AsyncWeaponState> filteredStateQueue = new LinkedBlockingDeque<>();
-    private int[] activeAttachmentIds = new int[0];
-    @Getter private byte[] selectedAttachmentIndexes = new byte[0];
+    private final Deque<AsyncWeaponState> filteredStateQueue = new ArrayDeque<>();
 
     public PlayerWeaponInstance(final int itemInventoryIndex, final EntityLivingBase player) {
         super(itemInventoryIndex, player);
@@ -103,11 +108,9 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         super(itemInventoryIndex, player, itemStack);
     }
 
-    @Override
-    protected int getSerialVersion() {
-        return 9;
-    }
-
+    /**
+     * Commits pending state
+     */
     @Override
     protected void updateWith(final PlayerItemInstance<WeaponState> otherItemInstance, final boolean updateManagedState) {
         super.updateWith(otherItemInstance, updateManagedState);
@@ -125,15 +128,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         setMaxShots(otherWeaponInstance.maxShots);
         setLoadIterationCount(otherWeaponInstance.loadIterationCount);
         setLoadAfterUnloadEnabled(otherWeaponInstance.loadAfterUnloadEnabled);
-    }
-
-    @Override
-    public boolean setState(final WeaponState state) {
-        final boolean result = super.setState(state);
-
-        addStateToHistory(state);
-
-        return result;
     }
 
     private void addStateToHistory(final WeaponState state) {
@@ -169,6 +163,75 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             result = new AsyncWeaponState(getState(), stateUpdateTimestamp);
 
         return result;
+    }
+
+    public void resetCurrentSeries() {
+        seriesShotCount = 0;
+        seriesResetAllowed = false;
+    }
+
+    // ! TODO: Investigate
+//    public void resetCurrentSeriesEventually() {
+//        if(isOneClickBurstAllowed()) {
+//	        seriesResetAllowed = true;
+//	    } else {
+//	        seriesShotCount = 0;
+//	    }
+//    }
+
+    @Override
+    protected void reconcile() {
+        if (!player.world.getGameRules().getBoolean("reconcileAmmunition") && !player.world.getGameRules().getBoolean("reconcileAttachment"))
+            return;
+
+        final ItemStack itemStack = getItemStack();
+
+        if (player.world.getGameRules().getBoolean("reconcileAmmunition"))
+            reconcileAmmunition(itemStack);
+
+        if (player.world.getGameRules().getBoolean("reconcileAttachments"))
+            reconcileAttachments(itemStack);
+    }
+
+    private void reconcileAmmunition(final ItemStack itemStack) {
+        final int expectedStackAmmo = Tags.getAmmo(itemStack);
+
+        if (ammo == expectedStackAmmo)
+            return;
+
+        LOGGER.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
+
+        ammo = expectedStackAmmo;
+
+        updateTimestamp = System.currentTimeMillis();
+    }
+
+    private void reconcileAttachments(final ItemStack itemStack) {
+        final int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
+
+        if (Arrays.equals(expectedAttachmentIds, activeAttachmentIds))
+            return;
+
+        LOGGER.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
+
+        activeAttachmentIds = expectedAttachmentIds;
+
+        updateTimestamp = System.currentTimeMillis();
+    }
+
+    public void startedCompoundMagSwapping() {
+        compoundMagSwapping = true;
+    }
+
+    public void stoppedCompoundMagSwapping() {
+        compoundMagSwapping = false;
+    }
+
+    // region Getters
+
+    @Override
+    protected int getSerialVersion() {
+        return 9;
     }
 
     public Weapon getWeapon() {
@@ -221,7 +284,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     public float getFireRate() {
         return BalancePackManager.getFirerate(getWeapon());
-        //return getWeapon().builder.fireRate;
     }
 
     public float getInaccuracy() {
@@ -243,7 +305,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     }
 
     public boolean isOneClickBurstAllowed() {
-        //System.out.println("One click burst allowed: " + getWeapon().builder.isOneClickBurstAllowed);
         return getWeapon().builder.isOneClickBurstAllowed;
     }
 
@@ -312,6 +373,19 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 //        final float f2 = player.prevCameraYaw + (player.cameraYaw - player.prevCameraYaw) * partialTicks;
 //        return -2f * f2 + 0.55f;
         return 0.55f;
+    }
+
+    // endregion
+
+    // region Setters
+
+    @Override
+    public boolean setState(final WeaponState state) {
+        final boolean result = super.setState(state);
+
+        addStateToHistory(state);
+
+        return result;
     }
 
     public void setActiveAttachmentIds(final int[] activeAttachmentIds) {
@@ -417,62 +491,10 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         aimedChangeTimestamp = System.currentTimeMillis();
     }
 
-    public void resetCurrentSeries() {
-        seriesShotCount = 0;
-        seriesResetAllowed = false;
-    }
-
-    // ! TODO: Investigate
-//    public void resetCurrentSeriesEventually() {
-//        if(isOneClickBurstAllowed()) {
-//	        seriesResetAllowed = true;
-//	    } else {
-//	        seriesShotCount = 0;
-//	    }
-//    }
-
-    @Override
-    protected void reconcile() {
-        if (!player.world.getGameRules().getBoolean("reconcileAmmunition") && !player.world.getGameRules().getBoolean("reconcileAttachment"))
-            return;
-
-        final ItemStack itemStack = getItemStack();
-
-        if (player.world.getGameRules().getBoolean("reconcileAmmunition"))
-            reconcileAmmunition(itemStack);
-
-        if (player.world.getGameRules().getBoolean("reconcileAttachments"))
-            reconcileAttachments(itemStack);
-    }
-
-    private void reconcileAmmunition(final ItemStack itemStack) {
-        final int expectedStackAmmo = Tags.getAmmo(itemStack);
-
-        if (ammo == expectedStackAmmo)
-            return;
-
-        LOGGER.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
-
-        ammo = expectedStackAmmo;
-
-        updateTimestamp = System.currentTimeMillis();
-    }
-
-    private void reconcileAttachments(final ItemStack itemStack) {
-        final int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
-
-        if (Arrays.equals(expectedAttachmentIds, activeAttachmentIds))
-            return;
-
-        LOGGER.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
-
-        activeAttachmentIds = expectedAttachmentIds;
-
-        updateTimestamp = System.currentTimeMillis();
-    }
+    // endregion
 
     // ! INSTANCE_TAG TODO: Once NBT does not use serialized data, improve serialization
-    // region Serialization and Deserialization
+    // region Serialization & Deserialization
 
     @Override
     public void read(final ByteBuf byteBuf) {
@@ -510,40 +532,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         byteBuf.writeInt(loadIterationCount);
         byteBuf.writeBoolean(loadAfterUnloadEnabled);
         byteBuf.writeBoolean(altModificationModeEnabled);
-    }
-
-    private static int[] readIntArray(final ByteBuf byteBuf) {
-        final int length = byteBuf.readByte();
-
-        final int[] array = new int[length];
-        for (int i = 0; i < length; i++)
-            array[i] = byteBuf.readInt();
-
-        return array;
-    }
-
-    private static byte[] readByteArray(final ByteBuf byteBuf) {
-        final int length = byteBuf.readByte();
-
-        final byte[] array = new byte[length];
-        for (int i = 0; i < length; i++)
-            array[i] = byteBuf.readByte();
-
-        return array;
-    }
-
-    private static void writeIntArray(final ByteBuf byteBuf, final int[] array) {
-        byteBuf.writeByte(array.length);
-
-        for (final int i : array)
-            byteBuf.writeInt(i);
-    }
-
-    private static void writeByteArray(final ByteBuf byteBuf, final byte[] array) {
-        byteBuf.writeByte(array.length);
-
-        for (final byte b : array)
-            byteBuf.writeByte(b);
     }
 
     // endregion

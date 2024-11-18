@@ -1,31 +1,27 @@
 package com.paneedah.weaponlib.melee;
 
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.CompatibleAttachment;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.PlayerItemInstance;
-import com.paneedah.weaponlib.grenade.AsyncGrenadeState;
 import io.netty.buffer.ByteBuf;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.concurrent.LinkedBlockingDeque;
 
 @NoArgsConstructor
 public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
     private static final int SERIAL_VERSION = 7;
-
+    private final Deque<AsyncMeleeState> filteredStateQueue = new ArrayDeque<>();
     private int ammo;
     private long lastFireTimestamp;
     private byte activeTextureIndex;
-
-    private final Deque<AsyncMeleeState> filteredStateQueue = new LinkedBlockingDeque<>();
     private int[] activeAttachmentIds = new int[0];
     private byte[] selectedAttachmentIndexes = new byte[0];
 
@@ -89,56 +85,9 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
         }
     }
 
-    @Override
-    public void read(ByteBuf byteBuf) {
-        super.read(byteBuf);
-        activeAttachmentIds = initIntArray(byteBuf);
-        selectedAttachmentIndexes = initByteArray(byteBuf);
-        ammo = byteBuf.readInt();
-        activeTextureIndex = byteBuf.readByte();
-    }
-
-    @Override
-    public void write(ByteBuf byteBuf) {
-        super.write(byteBuf);
-        serializeIntArray(byteBuf, activeAttachmentIds);
-        serializeByteArray(byteBuf, selectedAttachmentIndexes);
-        byteBuf.writeInt(ammo);
-        byteBuf.writeByte(activeTextureIndex);
-    }
-
-    private static void serializeIntArray(ByteBuf buf, int[] a) {
-        buf.writeByte(a.length);
-        for (int i = 0; i < a.length; i++) {
-            buf.writeInt(a[i]);
-        }
-    }
-
-    private static void serializeByteArray(ByteBuf buf, byte[] a) {
-        buf.writeByte(a.length);
-        for (int i = 0; i < a.length; i++) {
-            buf.writeByte(a[i]);
-        }
-    }
-
-    private static int[] initIntArray(ByteBuf buf) {
-        int length = buf.readByte();
-        int[] a = new int[length];
-        for (int i = 0; i < length; i++) {
-            a[i] = buf.readInt();
-        }
-        return a;
-    }
-
-    private static byte[] initByteArray(ByteBuf buf) {
-        int length = buf.readByte();
-        byte[] a = new byte[length];
-        for (int i = 0; i < length; i++) {
-            a[i] = buf.readByte();
-        }
-        return a;
-    }
-
+    /**
+     * Commits pending state
+     */
     @Override
     protected void updateWith(PlayerItemInstance<MeleeState> otherItemInstance, boolean updateManagedState) {
         super.updateWith(otherItemInstance, updateManagedState);
@@ -217,9 +166,28 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
     }
 
+    // ! INSTANCE_TAG TODO: Once NBT does not use serialized data, improve serialization
+    // region Serialization & Deserialization
+
     @Override
-    public String toString() {
-        return getWeapon().builder.name + "[" + getUuid() + "]";
+    public void read(ByteBuf byteBuf) {
+        super.read(byteBuf);
+
+        activeAttachmentIds = readIntArray(byteBuf);
+        selectedAttachmentIndexes = readByteArray(byteBuf);
+        ammo = byteBuf.readInt();
+        activeTextureIndex = byteBuf.readByte();
     }
 
+    @Override
+    public void write(ByteBuf byteBuf) {
+        super.write(byteBuf);
+
+        writeIntArray(byteBuf, activeAttachmentIds);
+        writeByteArray(byteBuf, selectedAttachmentIndexes);
+        byteBuf.writeInt(ammo);
+        byteBuf.writeByte(activeTextureIndex);
+    }
+
+    // endregion
 }

@@ -8,8 +8,8 @@ import lombok.Setter;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.concurrent.LinkedBlockingDeque;
 
 @NoArgsConstructor
 public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
@@ -18,7 +18,7 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 
     public long activationTimestamp; // ! TODO: This isn't tick based
 
-    private final Deque<AsyncGrenadeState> filteredStateQueue = new LinkedBlockingDeque<>();
+    private final Deque<AsyncGrenadeState> filteredStateQueue = new ArrayDeque<>();
 
     public PlayerGrenadeInstance(final int itemInventoryIndex, final EntityLivingBase player) {
         super(itemInventoryIndex, player);
@@ -31,6 +31,10 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
     @Override
     protected int getSerialVersion() {
         return 11;
+    }
+
+    public ItemGrenade getGrenade() {
+        return (ItemGrenade) item;
     }
 
     @Override
@@ -71,11 +75,7 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
         return result;
     }
 
-    public ItemGrenade getGrenade() {
-        return (ItemGrenade) item;
-    }
-
-    // region Serialization and Deserialization
+    // region Serialization & Deserialization
 
     @Override
     public void read(final ByteBuf byteBuf) {

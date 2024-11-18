@@ -40,11 +40,7 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
         if (tracker == null)
             return;
 
-        if (activeWatchIndex == 0) {
-            setActiveWatchIndex(tracker.getTrackableEntitites().size() - 1);
-        } else {
-            setActiveWatchIndex(activeWatchIndex - 1);
-        }
+        setActiveWatchIndex((activeWatchIndex == 0 ? tracker.getTrackableEntitites().size() : activeWatchIndex) - 1);
     }
 
     public void nextActiveWatchIndex() {
@@ -70,7 +66,7 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
         markDirty();
     }
 
-    // region Serialization and Deserialization
+    // region Serialization & Deserialization
 
     @Override
     public void write(final ByteBuf byteBuf) {
