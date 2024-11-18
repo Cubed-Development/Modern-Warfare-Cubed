@@ -177,7 +177,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 //    }
 
     @Override
-    protected void reconcile() {
+    public void reconcile() {
         if (!player.world.getGameRules().getBoolean("reconcileAmmunition") && !player.world.getGameRules().getBoolean("reconcileAttachment"))
             return;
 
@@ -394,7 +394,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         markDirty();
     }
 
-    void setSelectedAttachmentIndexes(final byte[] selectedAttachmentIndexes) {
+    public void setSelectedAttachmentIndexes(final byte[] selectedAttachmentIndexes) {
         if (Arrays.equals(this.selectedAttachmentIndexes, selectedAttachmentIndexes))
             return;
 

@@ -70,7 +70,7 @@ public class WeaponEventHandler {
         //fov = instance.isAimed() ? instance.getZoom() : 1f;
         //fov = compatibility.isFlying(MC.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
 
-        final WeaponState state = instance.state;
+        final WeaponState state = instance.getState();
 
         if (instance.isAimed()
                 && ClientProxy.renderingPhase == null

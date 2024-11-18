@@ -59,7 +59,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         return null;
     }
 
-    protected void reconcile() {
+    public void reconcile() {
         // Currently no op in this class, mainly meant to be implemented in subclasses
         // Meant to be used to reconcile instances between server and client
     }
