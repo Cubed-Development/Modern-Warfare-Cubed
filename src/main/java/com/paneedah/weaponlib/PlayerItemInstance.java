@@ -28,14 +28,10 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     @Getter protected long stateUpdateTimestamp = System.currentTimeMillis();
     @Getter private long updateId; // ? If 0 the instance is newly created and should be synced to the server
 
-    @Getter protected S state;
     @Getter @Setter protected EntityLivingBase player;
     @Getter protected Item item;
+    @Getter protected S state;
     private PlayerItemInstance<S> preparedState;
-
-    public PlayerItemInstance(final int itemInventoryIndex, final EntityLivingBase player) {
-        this(itemInventoryIndex, player, player.getHeldItemMainhand());
-    }
 
     public PlayerItemInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
         this.itemInventoryIndex = itemInventoryIndex;
@@ -91,7 +87,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     public boolean shouldHaveInstanceTags() { // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
         return true;
     }
-    
+
     // endregion
     
     // region Setters
@@ -116,7 +112,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
         return false;
     }
-    
+
     // endregion
 
     // ! INSTANCE_TAG TODO: Once NBT does not use serialized data, improve serialization

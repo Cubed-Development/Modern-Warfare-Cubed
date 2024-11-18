@@ -1,11 +1,10 @@
 package com.paneedah.weaponlib.melee;
 
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.CompatibleAttachment;
-import com.paneedah.weaponlib.ItemAttachment;
-import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.*;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,30 +16,45 @@ import java.util.Deque;
 @NoArgsConstructor
 public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
-    private static final int SERIAL_VERSION = 7;
-    private final Deque<AsyncMeleeState> filteredStateQueue = new ArrayDeque<>();
-    private int ammo;
-    private long lastFireTimestamp;
-    private byte activeTextureIndex;
-    private int[] activeAttachmentIds = new int[0];
-    private byte[] selectedAttachmentIndexes = new byte[0];
+    @Getter private byte activeTextureIndex;
 
-    public PlayerMeleeInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
+    @Getter private int ammo;
+
+    @Getter @Setter private long lastAttackTimestamp;
+
+    @Getter private byte[] selectedAttachmentIndexes = new byte[0];
+
+    private int[] activeAttachmentIds = new int[0];
+
+    /*
+     * Upon adding an element to the head of the queue, all existing elements with lower priority are removed from the queue.
+     * Elements with the same priority are not removed.
+     * This ensures the queue is always sorted by priority, lowest (head) to highest (tail).
+     */
+    private final Deque<AsyncMeleeState> filteredStateQueue = new ArrayDeque<>();
+
+    public PlayerMeleeInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);
     }
 
-    public PlayerMeleeInstance(int itemInventoryIndex, EntityLivingBase player) {
-        super(itemInventoryIndex, player);
-    }
-
+    /**
+     * Commits pending state
+     */
     @Override
-    protected int getSerialVersion() {
-        return SERIAL_VERSION;
+    protected void updateWith(final PlayerItemInstance<MeleeState> otherItemInstance, final boolean updateManagedState) {
+        super.updateWith(otherItemInstance, updateManagedState);
+
+        final PlayerMeleeInstance otherInstance = (PlayerMeleeInstance) otherItemInstance;
+
+        setAmmo(otherInstance.ammo);
+        setSelectedAttachmentIndexes(otherInstance.selectedAttachmentIndexes);
+        setActiveAttachmentIds(otherInstance.activeAttachmentIds);
+        setActiveTextureIndex(otherInstance.activeTextureIndex);
     }
 
-    private void addStateToHistory(MeleeState state) {
-        // Remove existing items from lower priorities from the top of the stack; stop when same or higher priority item is found
+    private void addStateToHistory(final MeleeState state) {
         AsyncMeleeState asyncMeleeState;
+        // Remove existing items from lower priorities from the top of the stack; stop when same or higher priority item is found
         while ((asyncMeleeState = filteredStateQueue.peekFirst()) != null) {
             if (asyncMeleeState.getState().getPriority() >= state.getPriority())
                 break;
@@ -67,104 +81,91 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
         return result;
     }
 
+    // region Getters
+
     @Override
-    public boolean setState(MeleeState state) {
-        boolean result = super.setState(state);
-        addStateToHistory(state);
-        return result;
+    protected int getSerialVersion() {
+        return 7;
     }
 
-    public int getAmmo() {
-        return ammo;
-    }
-
-    protected void setAmmo(int ammo) {
-        if (ammo != this.ammo) {
-            this.ammo = ammo;
-            markDirty();
-        }
-    }
-
-    /**
-     * Commits pending state
-     */
-    @Override
-    protected void updateWith(PlayerItemInstance<MeleeState> otherItemInstance, boolean updateManagedState) {
-        super.updateWith(otherItemInstance, updateManagedState);
-        PlayerMeleeInstance otherWeaponInstance = (PlayerMeleeInstance) otherItemInstance;
-
-        setAmmo(otherWeaponInstance.ammo);
-        setSelectedAttachmentIndexes(otherWeaponInstance.selectedAttachmentIndexes);
-        setActiveAttachmentIds(otherWeaponInstance.activeAttachmentIds);
-        setActiveTextureIndex(otherWeaponInstance.activeTextureIndex);
-    }
-
-    public ItemMelee getWeapon() {
+    public ItemMelee getMelee() {
         return (ItemMelee) item;
-    }
-
-
-    public long getLastAttackTimestamp() {
-        return lastFireTimestamp;
-    }
-
-    void setLastAttackTimestamp(long lastFireTimestamp) {
-        this.lastFireTimestamp = lastFireTimestamp;
     }
 
     public int[] getActiveAttachmentIds() {
         if (activeAttachmentIds == null || activeAttachmentIds.length != AttachmentCategory.values.length) {
             activeAttachmentIds = new int[AttachmentCategory.values.length];
-            for (CompatibleAttachment<ItemMelee> attachment : getWeapon().getCompatibleAttachments().values()) {
-                if (attachment.isDefault()) {
+
+            for (final CompatibleAttachment<ItemMelee> attachment : getMelee().getCompatibleAttachments().values())
+                if (attachment.isDefault())
                     activeAttachmentIds[attachment.getAttachment().getCategory().ordinal()] = Item.getIdFromItem(attachment.getAttachment());
-                }
-            }
         }
+
         return activeAttachmentIds;
     }
 
-    void setActiveAttachmentIds(int[] activeAttachmentIds) {
-        if (!Arrays.equals(this.activeAttachmentIds, activeAttachmentIds)) {
-            this.activeAttachmentIds = activeAttachmentIds;
-            markDirty();
-        }
+    void setActiveAttachmentIds(final int[] activeAttachmentIds) {
+        if (Arrays.equals(this.activeAttachmentIds, activeAttachmentIds))
+            return;
+
+        this.activeAttachmentIds = activeAttachmentIds;
+
+        markDirty();
     }
 
-    public byte[] getSelectedAttachmentIds() {
-        return selectedAttachmentIndexes;
-    }
+    // endregion
 
-    void setSelectedAttachmentIndexes(byte[] selectedAttachmentIndexes) {
-        if (!Arrays.equals(this.selectedAttachmentIndexes, selectedAttachmentIndexes)) {
-            this.selectedAttachmentIndexes = selectedAttachmentIndexes;
-            markDirty();
-        }
-    }
+    // region Setters
 
-
-    public ItemAttachment<ItemMelee> getAttachmentItemWithCategory(AttachmentCategory category) {
-        if (activeAttachmentIds == null || activeAttachmentIds.length <= category.ordinal()) {
+    public ItemAttachment<ItemMelee> getAttachmentItemByCategory(AttachmentCategory category) {
+        if (activeAttachmentIds == null || activeAttachmentIds.length <= category.ordinal())
             return null;
-        }
-        Item scopeItem = Item.getItemById(activeAttachmentIds[category.ordinal()]);
-        return (ItemAttachment<ItemMelee>) scopeItem;
+
+        final Item activeAttachment = Item.getItemById(activeAttachmentIds[category.ordinal()]);
+
+        if (activeAttachment instanceof ItemAttachment)
+            return (ItemAttachment<ItemMelee>) activeAttachment;
+
+        return null;
     }
 
-    public int getActiveTextureIndex() {
-        return activeTextureIndex;
+    @Override
+    public boolean setState(final MeleeState state) {
+        final boolean result = super.setState(state);
+
+        addStateToHistory(state);
+
+        return result;
     }
 
-    public void setActiveTextureIndex(int activeTextureIndex) {
-        if (this.activeTextureIndex != activeTextureIndex) {
-            if (activeTextureIndex > Byte.MAX_VALUE) {
-                throw new IllegalArgumentException("activeTextureIndex must be less than " + Byte.MAX_VALUE);
-            }
-            this.activeTextureIndex = (byte) activeTextureIndex;
-            markDirty();
-        }
+    void setSelectedAttachmentIndexes(final byte[] selectedAttachmentIndexes) {
+        if (Arrays.equals(this.selectedAttachmentIndexes, selectedAttachmentIndexes))
+            return;
 
+        this.selectedAttachmentIndexes = selectedAttachmentIndexes;
+
+        markDirty();
     }
+
+    protected void setAmmo(final int ammo) {
+        if (this.ammo == ammo)
+            return;
+
+        this.ammo = ammo;
+
+        markDirty();
+    }
+
+    public void setActiveTextureIndex(final byte activeTextureIndex) {
+        if (this.activeTextureIndex == activeTextureIndex)
+            return;
+
+        this.activeTextureIndex = activeTextureIndex;
+
+        markDirty();
+    }
+
+    // endregion
 
     // ! INSTANCE_TAG TODO: Once NBT does not use serialized data, improve serialization
     // region Serialization & Deserialization

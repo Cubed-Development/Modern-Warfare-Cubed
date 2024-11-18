@@ -51,16 +51,16 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
                     + HEAVY_STUB_DURATION;
 
     private static final Predicate<PlayerMeleeInstance> attackCooldownTimeoutExpired =
-            instance -> System.currentTimeMillis() > instance.getLastAttackTimestamp() + instance.getWeapon().getAttackCooldownTimeout();
+            instance -> System.currentTimeMillis() > instance.getLastAttackTimestamp() + instance.getMelee().getAttackCooldownTimeout();
 
     private static final Predicate<PlayerMeleeInstance> heavyAttackCooldownTimeoutExpired =
-            instance -> System.currentTimeMillis() > instance.getLastAttackTimestamp() + instance.getWeapon().getHeavyAttackCooldownTimeout();
+            instance -> System.currentTimeMillis() > instance.getLastAttackTimestamp() + instance.getMelee().getHeavyAttackCooldownTimeout();
 
     private static final Predicate<PlayerMeleeInstance> readyToStab =
-            instance -> System.currentTimeMillis() > instance.getStateUpdateTimestamp() + instance.getWeapon().getPrepareStubTimeout();
+            instance -> System.currentTimeMillis() > instance.getStateUpdateTimestamp() + instance.getMelee().getPrepareStubTimeout();
 
     private static final Predicate<PlayerMeleeInstance> readyToHeavyStab =
-            instance -> System.currentTimeMillis() > instance.getStateUpdateTimestamp() + instance.getWeapon().getPrepareHeavyStubTimeout();
+            instance -> System.currentTimeMillis() > instance.getStateUpdateTimestamp() + instance.getMelee().getPrepareHeavyStubTimeout();
 
 //    private static Predicate<PlayerMeleeInstance> alertTimeoutExpired =
 //            instance -> System.currentTimeMillis() >= ALERT_TIMEOUT + instance.getStateUpdateTimestamp();
@@ -174,7 +174,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         if (objectMouseOver != null) {
             EntityPlayer player = MC.player;
             World world = player.world;
-            player.playSound(isHeavyAttack ? meleeInstance.getWeapon().getHeavyAtackSound() : meleeInstance.getWeapon().getLightAtackSound(), 1, 1);
+            player.playSound(isHeavyAttack ? meleeInstance.getMelee().getHeavyAtackSound() : meleeInstance.getMelee().getLightAtackSound(), 1, 1);
 
             switch (objectMouseOver.typeOfHit) {
                 case ENTITY:
@@ -192,13 +192,13 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     private void attackEntity(Entity entity, EntityPlayer player, PlayerMeleeInstance instance, boolean isHeavyAttack) {
         CHANNEL.sendToServer(new MeleeAttackMessage(instance, entity.getEntityId(), isHeavyAttack));
-        entity.attackEntityFrom(DamageSource.causePlayerDamage(player), instance.getWeapon().getDamage(isHeavyAttack));
+        entity.attackEntityFrom(DamageSource.causePlayerDamage(player), instance.getMelee().getDamage(isHeavyAttack));
     }
 
     public void serverAttack(EntityPlayer player, PlayerMeleeInstance instance, Entity entity, boolean isHeavyAttack) {
         LOGGER.debug("Player {} hits {} with {} in state {} with damage {}", player, entity, instance, instance.getState(),
-                instance.getWeapon().getDamage(isHeavyAttack));
-        float damage = instance.getWeapon().getDamage(isHeavyAttack);
+                instance.getMelee().getDamage(isHeavyAttack));
+        float damage = instance.getMelee().getDamage(isHeavyAttack);
         entity.attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
 
         NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 100);

@@ -7,10 +7,6 @@ import net.minecraft.item.ItemStack;
 @NoArgsConstructor
 public class PlayerMagazineInstance extends PlayerItemInstance<MagazineState> {
 
-    public PlayerMagazineInstance(final int itemInventoryIndex, final EntityLivingBase player) {
-        super(itemInventoryIndex, player);
-    }
-
     public PlayerMagazineInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);
     }

@@ -63,8 +63,8 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
         return textureName;
     }
 
-    public int getTextureVariantIndex(String name) {
-        return textureVariants.indexOf(name.toLowerCase());
+    public byte getTextureVariantIndex(String name) {
+        return (byte) textureVariants.indexOf(name.toLowerCase());
     }
 
     public String getTextureVariant(int textureIndex) {

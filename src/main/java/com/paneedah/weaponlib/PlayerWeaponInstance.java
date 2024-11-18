@@ -47,7 +47,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             .withUniform("Radius", context -> hasOpticalScope() ? 10 : 5)
             .withUniform("Progress", context -> getAimChangeProgress());
 
-    @SideOnly(CLIENT) public final DynamicShaderGroupSource nightVisionSource = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID, new ResourceLocation("weaponlib","night-vision.json"))
+    @SideOnly(CLIENT) public final DynamicShaderGroupSource nightVisionSource = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID, new ResourceLocation("weaponlib", "night-vision.json"))
             .withUniform("IntensityAdjust", context -> 40 - MC.gameSettings.gammaSetting * 38)
             .withUniform("NoiseAmplification", context -> 2 + 3 * MC.gameSettings.gammaSetting);
 
@@ -100,10 +100,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
      */
     private final Deque<AsyncWeaponState> filteredStateQueue = new ArrayDeque<>();
 
-    public PlayerWeaponInstance(final int itemInventoryIndex, final EntityLivingBase player) {
-        super(itemInventoryIndex, player);
-    }
-
     public PlayerWeaponInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);
     }
@@ -115,19 +111,19 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     protected void updateWith(final PlayerItemInstance<WeaponState> otherItemInstance, final boolean updateManagedState) {
         super.updateWith(otherItemInstance, updateManagedState);
 
-        final PlayerWeaponInstance otherWeaponInstance = (PlayerWeaponInstance) otherItemInstance;
+        final PlayerWeaponInstance otherInstance = (PlayerWeaponInstance) otherItemInstance;
 
-        setAmmo(otherWeaponInstance.ammo);
-        setZoom(otherWeaponInstance.zoom);
-        setRecoil(otherWeaponInstance.recoil);
-        setSelectedAttachmentIndexes(otherWeaponInstance.selectedAttachmentIndexes);
-        setActiveAttachmentIds(otherWeaponInstance.activeAttachmentIds);
-        setActiveTextureIndex(otherWeaponInstance.activeTextureIndex);
-        setSlideLock(otherWeaponInstance.slideLockOn);
-        setLaserOn(otherWeaponInstance.laserOn);
-        setMaxShots(otherWeaponInstance.maxShots);
-        setLoadIterationCount(otherWeaponInstance.loadIterationCount);
-        setLoadAfterUnloadEnabled(otherWeaponInstance.loadAfterUnloadEnabled);
+        setAmmo(otherInstance.ammo);
+        setZoom(otherInstance.zoom);
+        setRecoil(otherInstance.recoil);
+        setSelectedAttachmentIndexes(otherInstance.selectedAttachmentIndexes);
+        setActiveAttachmentIds(otherInstance.activeAttachmentIds);
+        setActiveTextureIndex(otherInstance.activeTextureIndex);
+        setSlideLock(otherInstance.slideLockOn);
+        setLaserOn(otherInstance.laserOn);
+        setMaxShots(otherInstance.maxShots);
+        setLoadIterationCount(otherInstance.loadIterationCount);
+        setLoadAfterUnloadEnabled(otherInstance.loadAfterUnloadEnabled);
     }
 
     private void addStateToHistory(final WeaponState state) {

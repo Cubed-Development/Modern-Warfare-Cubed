@@ -9,10 +9,6 @@ import net.minecraft.item.ItemStack;
 @NoArgsConstructor
 public class PlayerHandheldInstance extends PlayerItemInstance<HandheldState> {
 
-    public PlayerHandheldInstance(final int itemInventoryIndex, final EntityLivingBase player) {
-        super(itemInventoryIndex, player);
-    }
-
     public PlayerHandheldInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);
     }

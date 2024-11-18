@@ -16,11 +16,12 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 
     @Getter @Setter private boolean throwingFar;
 
+    /*
+     * Upon adding an element to the head of the queue, all existing elements with lower priority are removed from the queue.
+     * Elements with the same priority are not removed.
+     * This ensures the queue is always sorted by priority, lowest (head) to highest (tail).
+     */
     private final Deque<AsyncGrenadeState> filteredStateQueue = new ArrayDeque<>();
-
-    public PlayerGrenadeInstance(final int itemInventoryIndex, final EntityLivingBase player) {
-        super(itemInventoryIndex, player);
-    }
 
     public PlayerGrenadeInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);

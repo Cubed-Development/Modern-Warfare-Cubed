@@ -17,10 +17,6 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 
     @Getter private int activeWatchIndex;
 
-    public PlayerTabletInstance(final int itemInventoryIndex, final EntityLivingBase player) {
-        super(itemInventoryIndex, player);
-    }
-
     public PlayerTabletInstance(final int itemInventoryIndex, final EntityLivingBase player, final ItemStack itemStack) {
         super(itemInventoryIndex, player, itemStack);
     }
@@ -55,6 +51,8 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
         }
     }
 
+    // region Setters
+
     public void setActiveWatchIndex(final int activeWatchIndex) {
         if (this.activeWatchIndex == activeWatchIndex)
             return;
@@ -65,6 +63,8 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 
         markDirty();
     }
+
+    // endregion
 
     // region Serialization & Deserialization
 
