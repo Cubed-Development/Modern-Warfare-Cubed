@@ -50,7 +50,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Added a new sound effect when shooting snow
 - Added tooltips to melee weapons
 - Added tooltips to attachments
-- Added a new config entry, enableStatusMessages
+- Added new `enableStatusMessages` config
 
 ### Changed
 
