@@ -14,17 +14,14 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 public final class GrenadeMessage implements IMessage {
 
     private PlayerGrenadeInstance instance;
-    private long activationTimestamp;
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
         this.instance = TypeRegistry.read(byteBuf);
-        this.activationTimestamp = byteBuf.readLong();
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
         TypeRegistry.write(byteBuf, instance);
-        byteBuf.writeLong(activationTimestamp);
     }
 }

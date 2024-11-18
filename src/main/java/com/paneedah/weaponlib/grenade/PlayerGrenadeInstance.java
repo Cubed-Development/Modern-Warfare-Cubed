@@ -16,8 +16,6 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 
     @Getter @Setter private boolean throwingFar;
 
-    public long activationTimestamp; // ! TODO: This isn't tick based
-
     private final Deque<AsyncGrenadeState> filteredStateQueue = new ArrayDeque<>();
 
     public PlayerGrenadeInstance(final int itemInventoryIndex, final EntityLivingBase player) {

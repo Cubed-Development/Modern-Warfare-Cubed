@@ -18,6 +18,7 @@ import java.util.function.Predicate;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.weaponlib.grenade.ItemGrenade.EXPLODE_ON_IMPACT;
 
 
 /*
@@ -100,14 +101,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
 
     private void throwIt(PlayerGrenadeInstance instance) {
         LOGGER.debug("Throwing with state " + instance.getState());
-        long activationTimestamp;
-        if (instance.getGrenade().getExplosionTimeout() > 0) {
-            activationTimestamp = instance.activationTimestamp;
-        } else {
-            activationTimestamp = ItemGrenade.EXPLODE_ON_IMPACT;
-        }
         instance.getPlayer().playSound(instance.getGrenade().getThrowSound(), 1, 1);
-        CHANNEL.sendToServer(new GrenadeMessage(instance, activationTimestamp));
+        CHANNEL.sendToServer(new GrenadeMessage(instance));
     }
 
     private void reequip(PlayerGrenadeInstance instance) {
@@ -121,7 +116,6 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
 
     private void releaseStrikerLever(PlayerGrenadeInstance instance) {
         LOGGER.debug("Safety pin is off");
-        instance.activationTimestamp = System.currentTimeMillis();
     }
 
     void onAttackButtonClick(EntityPlayer player, boolean throwingFar) {
@@ -148,7 +142,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         }
     }
 
-    public void serverThrowGrenade(EntityPlayer player, PlayerGrenadeInstance instance, long activationTimestamp) {
+    public void serverThrowGrenade(EntityPlayer player, PlayerGrenadeInstance instance) {
         LOGGER.debug("Throwing grenade");
 
         //boolean isSmokeGrenade = instance.getGrenade().isSmokeOnly();
