@@ -1,12 +1,14 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.network.handlers.NightVisionToggleMessageHandler;
 import com.paneedah.mwc.network.messages.NightVisionToggleMessage;
 import com.paneedah.mwc.network.messages.OpenCustomPlayerInventoryGuiMessage;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
-import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
+import com.paneedah.mwc.instancing.PlayerTabletInstance;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import net.minecraft.block.BlockDoor;

@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.animation.PartPositionProvider;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;

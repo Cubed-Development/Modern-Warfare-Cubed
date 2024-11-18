@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.animation.movement;
 
 import com.paneedah.weaponlib.ClientEventHandler;
-import com.paneedah.weaponlib.PlayerWeaponInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.WeaponRenderer.StateDescriptor;

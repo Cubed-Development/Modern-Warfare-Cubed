@@ -5,6 +5,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;

@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
+import com.paneedah.mwc.instancing.PlayerMagazineInstance;
 import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;

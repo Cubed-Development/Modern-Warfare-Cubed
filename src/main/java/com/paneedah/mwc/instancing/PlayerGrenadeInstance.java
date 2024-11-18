@@ -1,6 +1,8 @@
-package com.paneedah.weaponlib.grenade;
+package com.paneedah.mwc.instancing;
 
-import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.grenade.AsyncGrenadeState;
+import com.paneedah.weaponlib.grenade.GrenadeState;
+import com.paneedah.weaponlib.grenade.ItemGrenade;
 import io.netty.buffer.ByteBuf;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

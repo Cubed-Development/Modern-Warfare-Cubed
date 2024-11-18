@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib;
 
 import com.google.common.collect.Maps;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.skins.CustomSkin;

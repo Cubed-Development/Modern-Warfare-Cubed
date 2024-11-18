@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.electronics;
 
+import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
+import com.paneedah.mwc.instancing.PlayerTabletInstance;
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;

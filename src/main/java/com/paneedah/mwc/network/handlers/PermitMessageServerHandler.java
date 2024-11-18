@@ -2,7 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.PermitMessage;
 import com.paneedah.weaponlib.CommonModContext;
-import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.weaponlib.state.Permit;
 import dev.redstudio.redcore.utils.NetworkUtil;
 import lombok.AllArgsConstructor;

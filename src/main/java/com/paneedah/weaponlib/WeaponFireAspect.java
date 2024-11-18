@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.network.messages.MuzzleFlashMessage;
 import com.paneedah.mwc.network.messages.ShellMessageClient;

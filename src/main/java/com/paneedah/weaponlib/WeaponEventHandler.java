@@ -1,8 +1,10 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
+import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.client.model.ModelBiped;

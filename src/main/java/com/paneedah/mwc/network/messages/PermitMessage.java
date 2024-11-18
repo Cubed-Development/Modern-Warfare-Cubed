@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network.messages;
 
 import com.paneedah.mwc.network.TypeRegistry;
-import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.weaponlib.state.Permit;
 import io.netty.buffer.ByteBuf;
 import lombok.AllArgsConstructor;

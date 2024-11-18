@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.Weapon.ShellCasingEjectDirection;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;

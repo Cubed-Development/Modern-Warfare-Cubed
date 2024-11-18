@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;

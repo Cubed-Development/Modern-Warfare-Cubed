@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib;
+package com.paneedah.mwc.instancing;
 
 import com.paneedah.weaponlib.state.ManagedState;
 import net.minecraft.entity.EntityLivingBase;

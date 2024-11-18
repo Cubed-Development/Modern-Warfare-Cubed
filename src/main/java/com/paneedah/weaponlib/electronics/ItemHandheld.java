@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.electronics;
 
+import com.paneedah.mwc.instancing.PlayerHandheldInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.PerspectiveRenderer;

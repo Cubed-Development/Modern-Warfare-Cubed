@@ -1,6 +1,7 @@
-package com.paneedah.weaponlib.electronics;
+package com.paneedah.mwc.instancing;
 
-import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.electronics.HandheldState;
+import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.perspective.Perspective;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;

@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.asm.Interceptors;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.network.messages.VehicleInteractMessage;
 import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.mwc.utils.MWCUtil;

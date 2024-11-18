@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib;
+package com.paneedah.mwc.instancing;
 
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.mwc.network.UniversalObject;

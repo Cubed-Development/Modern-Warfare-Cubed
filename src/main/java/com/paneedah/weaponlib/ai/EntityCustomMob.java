@@ -1,5 +1,8 @@
 package com.paneedah.weaponlib.ai;
 
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.network.messages.EntityPickupMessage;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.ai.EntityConfiguration.Equipment;
@@ -7,7 +10,7 @@ import com.paneedah.weaponlib.ai.EntityConfiguration.TexturedModel;
 import com.paneedah.weaponlib.compatibility.CompatibleDataManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
-import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
+import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.*;

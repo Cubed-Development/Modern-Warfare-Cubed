@@ -1,6 +1,6 @@
-package com.paneedah.weaponlib.electronics;
+package com.paneedah.mwc.instancing;
 
-import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.electronics.TabletState;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.WirelessCameraPerspective;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;

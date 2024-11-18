@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.perspective;
 
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.shader.jim.Shader;
 import com.paneedah.weaponlib.shader.jim.ShaderLoader;

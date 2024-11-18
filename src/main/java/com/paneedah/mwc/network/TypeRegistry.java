@@ -1,12 +1,10 @@
 package com.paneedah.mwc.network;
 
+import com.paneedah.mwc.instancing.*;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.electronics.HandheldState;
-import com.paneedah.weaponlib.electronics.PlayerHandheldInstance;
-import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
 import com.paneedah.weaponlib.electronics.TabletState;
 import com.paneedah.weaponlib.grenade.GrenadeState;
-import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
 import com.paneedah.weaponlib.melee.MeleeAttachmentAspect;
 import com.paneedah.weaponlib.melee.MeleeState;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;

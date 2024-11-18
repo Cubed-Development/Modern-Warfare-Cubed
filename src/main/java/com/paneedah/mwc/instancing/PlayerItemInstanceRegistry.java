@@ -1,8 +1,10 @@
-package com.paneedah.weaponlib;
+package com.paneedah.mwc.instancing;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.util.concurrent.UncheckedExecutionException;
+import com.paneedah.weaponlib.SyncManager;
+import com.paneedah.weaponlib.Tags;
 import com.paneedah.weaponlib.state.ManagedState;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;

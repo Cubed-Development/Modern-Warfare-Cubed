@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.weaponlib.*;
 import io.netty.buffer.ByteBuf;
 import lombok.Getter;

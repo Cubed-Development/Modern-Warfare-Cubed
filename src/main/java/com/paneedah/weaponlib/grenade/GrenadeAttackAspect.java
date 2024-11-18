@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.network.messages.GrenadeMessage;
 import com.paneedah.weaponlib.CommonModContext;
@@ -18,7 +19,6 @@ import java.util.function.Predicate;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
-import static com.paneedah.weaponlib.grenade.ItemGrenade.EXPLODE_ON_IMPACT;
 
 
 /*

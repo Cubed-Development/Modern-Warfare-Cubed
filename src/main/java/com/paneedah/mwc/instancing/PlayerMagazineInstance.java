@@ -1,5 +1,7 @@
-package com.paneedah.weaponlib;
+package com.paneedah.mwc.instancing;
 
+import com.paneedah.weaponlib.ItemMagazine;
+import com.paneedah.weaponlib.MagazineState;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;

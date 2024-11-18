@@ -2,7 +2,6 @@ package com.paneedah.mwc.handlers;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.renderer.EquipmentModelPools;
-import com.paneedah.weaponlib.PlayerItemInstanceRegistry;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.state.Aspect;

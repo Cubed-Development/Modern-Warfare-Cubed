@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.ClientModContext;
-import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import net.minecraft.client.multiplayer.WorldClient;

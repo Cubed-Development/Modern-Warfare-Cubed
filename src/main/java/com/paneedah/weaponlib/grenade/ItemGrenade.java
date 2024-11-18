@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.*;
