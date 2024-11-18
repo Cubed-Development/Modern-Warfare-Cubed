@@ -54,8 +54,8 @@ public class ClientEventHandler {
         if (COOKING_QUEUE.isEmpty()) {
             cooked = true;
 
-            MWC.modContext.getPlayerItemInstanceRegistry().clearRegistry();
             MWC.modContext.getPlayerItemInstanceRegistry().invalidateCache();
+            MWC.modContext.getPlayerItemInstanceRegistry().clearRegistry();
         }
 
         for (int i = 0; i < 32 && !COOKING_QUEUE.isEmpty(); i++) { // We are limiting to 32 per frame to reduce "Minecraft is not responding"

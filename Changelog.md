@@ -98,7 +98,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 
 ### Optimization
 
-- Clear player item instance registry after rendering every weapon once on first world load
+- Clear player item instance registry after rendering every weapon once on first world load and when leaving a world
 - Invalidate player item instance registry itemstack instance cache after rendering every weapon once on first world load
 
 ### Internal

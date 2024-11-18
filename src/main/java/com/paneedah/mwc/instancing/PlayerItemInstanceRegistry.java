@@ -298,17 +298,6 @@ public final class PlayerItemInstanceRegistry {
         return itemStack.getItem() == instance.getItem() && instance.getUuid().equals(Tags.getInstanceUuid(itemStack));
     }
 
-    // region Debug
-
-    /**
-     * Retrieves the current size of the item stack instance cache.
-     *
-     * @return The number of entries in the cache.
-     */
-    public long getCacheSize() {
-        return itemStackInstanceCache.size();
-    }
-
     /**
      * Invalidates the cache, forcing all cached instances to be re-created next time they are accessed.
      */
@@ -321,6 +310,17 @@ public final class PlayerItemInstanceRegistry {
      */
     public void clearRegistry() {
         registry.clear();
+    }
+
+    // region Debug
+
+    /**
+     * Retrieves the current size of the item stack instance cache.
+     *
+     * @return The number of entries in the cache.
+     */
+    public long getCacheSize() {
+        return itemStackInstanceCache.size();
     }
 
     // endregion
