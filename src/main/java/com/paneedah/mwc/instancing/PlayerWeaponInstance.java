@@ -501,36 +501,46 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     public void readInstanceFromNBT(final NBTTagCompound tagCompound) {
         super.readInstanceFromNBT(tagCompound);
 
-        selectedAttachmentIndexes = tagCompound.getByteArray(SELECTED_ATTACHMENT_INDEXES_TAG);
         loadAfterUnloadEnabled = tagCompound.getBoolean(LOAD_AFTER_UNLOAD_ENABLED_TAG);
-        activeAttachmentIds = tagCompound.getIntArray(ACTIVE_ATTACHMENT_IDS_TAG);
-        loadIterationCount = tagCompound.getInteger(LOAD_ITERATION_COUNT_TAG);
-        activeTextureIndex = tagCompound.getByte(ACTIVE_TEXTURE_INDEX_TAG);
         nightVisionOn = tagCompound.getBoolean(NIGHT_VISION_ON_TAG);
-        maxShots = tagCompound.getInteger(MAX_SHOTS_TAG);
         laserOn = tagCompound.getBoolean(LASER_ON_TAG);
-        recoil = tagCompound.getFloat(RECOIL_TAG);
         aimed = tagCompound.getBoolean(AIMED_TAG);
+
+        activeTextureIndex = tagCompound.getByte(ACTIVE_TEXTURE_INDEX_TAG);
+
+        loadIterationCount = tagCompound.getInteger(LOAD_ITERATION_COUNT_TAG);
+        maxShots = tagCompound.getInteger(MAX_SHOTS_TAG);
         ammo = tagCompound.getInteger(AMMO_TAG);
+
+        recoil = tagCompound.getFloat(RECOIL_TAG);
         zoom = tagCompound.getFloat(ZOOM_TAG);
+
+        selectedAttachmentIndexes = tagCompound.getByteArray(SELECTED_ATTACHMENT_INDEXES_TAG);
+
+        activeAttachmentIds = tagCompound.getIntArray(ACTIVE_ATTACHMENT_IDS_TAG);
     }
 
     @Override
     public void writeInstanceToNBT(final NBTTagCompound tagCompound) {
         super.writeInstanceToNBT(tagCompound);
 
-        tagCompound.setByteArray(SELECTED_ATTACHMENT_INDEXES_TAG, selectedAttachmentIndexes);
         tagCompound.setBoolean(LOAD_AFTER_UNLOAD_ENABLED_TAG, loadAfterUnloadEnabled);
-        tagCompound.setIntArray(ACTIVE_ATTACHMENT_IDS_TAG, activeAttachmentIds);
-        tagCompound.setInteger(LOAD_ITERATION_COUNT_TAG, loadIterationCount);
-        tagCompound.setByte(ACTIVE_TEXTURE_INDEX_TAG, activeTextureIndex);
         tagCompound.setBoolean(NIGHT_VISION_ON_TAG, nightVisionOn);
-        tagCompound.setInteger(MAX_SHOTS_TAG, maxShots);
         tagCompound.setBoolean(LASER_ON_TAG, laserOn);
-        tagCompound.setFloat(RECOIL_TAG, recoil);
         tagCompound.setBoolean(AIMED_TAG, aimed);
+
+        tagCompound.setByte(ACTIVE_TEXTURE_INDEX_TAG, activeTextureIndex);
+
+        tagCompound.setInteger(LOAD_ITERATION_COUNT_TAG, loadIterationCount);
+        tagCompound.setInteger(MAX_SHOTS_TAG, maxShots);
         tagCompound.setInteger(AMMO_TAG, ammo);
+
+        tagCompound.setFloat(RECOIL_TAG, recoil);
         tagCompound.setFloat(ZOOM_TAG, zoom);
+
+        tagCompound.setByteArray(SELECTED_ATTACHMENT_INDEXES_TAG, selectedAttachmentIndexes);
+
+        tagCompound.setIntArray(ACTIVE_ATTACHMENT_IDS_TAG, activeAttachmentIds);
     }
 
     // endregion
