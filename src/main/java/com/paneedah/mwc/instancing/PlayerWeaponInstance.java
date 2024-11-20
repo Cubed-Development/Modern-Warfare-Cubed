@@ -36,6 +36,10 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
+/**
+ * @author Luna Mira Lage (Desoroxxx)
+ * @since 0.2
+ */
 @NoArgsConstructor
 public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implements DynamicShaderGroupSourceProvider {
 

@@ -6,6 +6,10 @@ import lombok.NoArgsConstructor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
+/**
+ * @author Luna Mira Lage (Desoroxxx)
+ * @since 0.2
+ */
 @NoArgsConstructor
 public class PlayerMagazineInstance extends PlayerItemInstance<MagazineState> {
 

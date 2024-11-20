@@ -15,6 +15,10 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 import static org.apache.logging.log4j.Level.INFO;
 
+/**
+ * @author Luna Mira Lage (Desoroxxx)
+ * @since 0.2
+ */
 public final class Tags {
 
     private static final HashMap<String, Class<?>> TYPE_REGISTRY_COPY = TypeRegistry.getTypeRegistryCopy();

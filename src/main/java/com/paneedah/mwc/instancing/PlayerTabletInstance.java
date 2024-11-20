@@ -13,6 +13,10 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
+/**
+ * @author Luna Mira Lage (Desoroxxx)
+ * @since 0.2
+ */
 @NoArgsConstructor
 public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 

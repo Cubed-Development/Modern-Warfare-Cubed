@@ -14,6 +14,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * @author Luna Mira Lage (Desoroxxx)
+ * @since 0.2
+ */
 @NoArgsConstructor
 public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 

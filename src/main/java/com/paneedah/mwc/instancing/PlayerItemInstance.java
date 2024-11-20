@@ -21,6 +21,10 @@ import java.util.HashMap;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
+/**
+ * @author Luna Mira Lage (Desoroxxx)
+ * @since 0.2
+ */
 @NoArgsConstructor
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S> {
 
