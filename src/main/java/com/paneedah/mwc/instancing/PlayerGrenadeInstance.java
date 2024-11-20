@@ -82,15 +82,15 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
     // region NBT
 
     @Override
-    public void getTags(final NBTTagCompound tagCompound) {
-        super.getTags(tagCompound);
+    public void readInstanceFromNBT(final NBTTagCompound tagCompound) {
+        super.readInstanceFromNBT(tagCompound);
 
         throwingFar = tagCompound.getBoolean(THROWING_FAR_TAG);
     }
 
     @Override
-    public void setTags(final NBTTagCompound tagCompound) {
-        super.setTags(tagCompound);
+    public void writeInstanceToNBT(final NBTTagCompound tagCompound) {
+        super.writeInstanceToNBT(tagCompound);
 
         tagCompound.setBoolean(THROWING_FAR_TAG, throwingFar);
     }

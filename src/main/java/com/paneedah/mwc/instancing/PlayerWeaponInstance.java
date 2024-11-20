@@ -508,8 +508,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     // region NBT
 
     @Override
-    public void getTags(final NBTTagCompound tagCompound) {
-        super.getTags(tagCompound);
+    public void readInstanceFromNBT(final NBTTagCompound tagCompound) {
+        super.readInstanceFromNBT(tagCompound);
 
         altModificationModeEnabled = tagCompound.getBoolean(ALT_MODIFICATION_MODE_ENABLED_TAG);
         selectedAttachmentIndexes = tagCompound.getByteArray(SELECTED_ATTACHMENT_INDEXES_TAG);
@@ -527,8 +527,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     }
 
     @Override
-    public void setTags(final NBTTagCompound tagCompound) {
-        super.setTags(tagCompound);
+    public void writeInstanceToNBT(final NBTTagCompound tagCompound) {
+        super.writeInstanceToNBT(tagCompound);
 
         tagCompound.setBoolean(ALT_MODIFICATION_MODE_ENABLED_TAG, altModificationModeEnabled);
         tagCompound.setByteArray(SELECTED_ATTACHMENT_INDEXES_TAG, selectedAttachmentIndexes);

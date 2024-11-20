@@ -176,8 +176,8 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
     // region NBT
 
     @Override
-    public void getTags(final NBTTagCompound tagCompound) {
-        super.getTags(tagCompound);
+    public void readInstanceFromNBT(final NBTTagCompound tagCompound) {
+        super.readInstanceFromNBT(tagCompound);
 
         tagCompound.setByteArray(SELECTED_ATTACHMENT_INDEXES_TAG, selectedAttachmentIndexes);
         tagCompound.setIntArray(ACTIVE_ATTACHMENT_IDS_TAG, activeAttachmentIds);
@@ -185,8 +185,8 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
     }
 
     @Override
-    public void setTags(final NBTTagCompound tagCompound) {
-        super.setTags(tagCompound);
+    public void writeInstanceToNBT(final NBTTagCompound tagCompound) {
+        super.writeInstanceToNBT(tagCompound);
 
         selectedAttachmentIndexes = tagCompound.getByteArray(SELECTED_ATTACHMENT_INDEXES_TAG);
         activeAttachmentIds = tagCompound.getIntArray(ACTIVE_ATTACHMENT_IDS_TAG);

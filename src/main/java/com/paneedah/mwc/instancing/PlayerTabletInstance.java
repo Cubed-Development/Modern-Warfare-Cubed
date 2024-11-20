@@ -72,15 +72,15 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
     // region NBT
 
     @Override
-    public void getTags(final NBTTagCompound tagCompound) {
-        super.getTags(tagCompound);
+    public void readInstanceFromNBT(final NBTTagCompound tagCompound) {
+        super.readInstanceFromNBT(tagCompound);
 
         activeWatchIndex = tagCompound.getInteger(ACTIVE_WATCH_INDEX_TAG);
     }
 
     @Override
-    public void setTags(final NBTTagCompound tagCompound) {
-        super.setTags(tagCompound);
+    public void writeInstanceToNBT(final NBTTagCompound tagCompound) {
+        super.writeInstanceToNBT(tagCompound);
 
         tagCompound.setInteger(ACTIVE_WATCH_INDEX_TAG, activeWatchIndex);
     }

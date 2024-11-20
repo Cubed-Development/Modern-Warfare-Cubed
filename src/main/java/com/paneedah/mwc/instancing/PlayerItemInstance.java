@@ -124,7 +124,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
     // region NBT
 
-    public void getTags(final NBTTagCompound tagCompound) {
+    public void readInstanceFromNBT(final NBTTagCompound tagCompound) {
         itemInventoryIndex = tagCompound.getInteger(ITEM_INVENTORY_INDEX_TAG);
         item = Item.getItemById(tagCompound.getInteger(ITEM_TAG));
 
@@ -137,7 +137,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
             state = TypeRegistry.read(byteBuf);
     }
 
-    public void setTags(final NBTTagCompound tagCompound) {
+    public void writeInstanceToNBT(final NBTTagCompound tagCompound) {
         tagCompound.setInteger(ITEM_INVENTORY_INDEX_TAG, itemInventoryIndex);
         tagCompound.setInteger(ITEM_TAG, Item.getIdFromItem(item));
 

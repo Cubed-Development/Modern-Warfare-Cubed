@@ -68,7 +68,7 @@ public final class Tags {
         try {
             final T instance = targetClass.getDeclaredConstructor().newInstance();
 
-            instance.getTags(tagCompound);
+            instance.readInstanceFromNBT(tagCompound);
 
             return instance;
         } catch (InstantiationException | NoSuchMethodException | InvocationTargetException | IllegalAccessException exception) {
@@ -121,7 +121,7 @@ public final class Tags {
         if (instance != null) {
             tagCompound.setString(INSTANCE_CLASS_TAG, instance.getClass().getName());
 
-            instance.setTags(tagCompound);
+            instance.writeInstanceToNBT(tagCompound);
 
             final UUID uuid = instance.getUuid();
 
