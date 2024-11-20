@@ -95,7 +95,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         return player instanceof EntityPlayer ? ((EntityPlayer) player).inventory.getStackInSlot(itemInventoryIndex) : null;
     }
 
-    public boolean shouldHaveInstanceTags() { // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
+    public boolean shouldHaveInstanceTags() {
         return true;
     }
 
@@ -167,7 +167,6 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
     // endregion
 
-    // ! INSTANCE_TAG TODO: Once NBT does not use serialized data, improve serialization
     // region Serialization & Deserialization
 
     @Override

@@ -102,7 +102,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     @Getter @Setter private long lastFireTimestamp;
     private long aimedChangeTimestamp;
 
-    @Getter private float zoom = 1;
+    @Getter @Setter private float zoom = 1;
     @Getter private float recoil;
 
     @Getter private byte[] selectedAttachmentIndexes = new byte[0];
@@ -130,7 +130,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         final PlayerWeaponInstance otherInstance = (PlayerWeaponInstance) otherItemInstance;
 
         setAmmo(otherInstance.ammo);
-        setZoom(otherInstance.zoom);
         setRecoil(otherInstance.recoil);
         setSelectedAttachmentIndexes(otherInstance.selectedAttachmentIndexes);
         setActiveAttachmentIds(otherInstance.activeAttachmentIds);
@@ -456,15 +455,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         markDirty();
     }
 
-    public void setZoom(final float zoom) {
-        if (this.zoom == zoom || zoom <= 0)
-            return;
-
-        this.zoom = zoom;
-
-        markDirty();
-    }
-
     public void setLaserOn(final boolean laserOn) {
         if (this.laserOn == laserOn)
             return;
@@ -511,7 +501,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     public void readInstanceFromNBT(final NBTTagCompound tagCompound) {
         super.readInstanceFromNBT(tagCompound);
 
-        altModificationModeEnabled = tagCompound.getBoolean(ALT_MODIFICATION_MODE_ENABLED_TAG);
         selectedAttachmentIndexes = tagCompound.getByteArray(SELECTED_ATTACHMENT_INDEXES_TAG);
         loadAfterUnloadEnabled = tagCompound.getBoolean(LOAD_AFTER_UNLOAD_ENABLED_TAG);
         activeAttachmentIds = tagCompound.getIntArray(ACTIVE_ATTACHMENT_IDS_TAG);
@@ -530,7 +519,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     public void writeInstanceToNBT(final NBTTagCompound tagCompound) {
         super.writeInstanceToNBT(tagCompound);
 
-        tagCompound.setBoolean(ALT_MODIFICATION_MODE_ENABLED_TAG, altModificationModeEnabled);
         tagCompound.setByteArray(SELECTED_ATTACHMENT_INDEXES_TAG, selectedAttachmentIndexes);
         tagCompound.setBoolean(LOAD_AFTER_UNLOAD_ENABLED_TAG, loadAfterUnloadEnabled);
         tagCompound.setIntArray(ACTIVE_ATTACHMENT_IDS_TAG, activeAttachmentIds);
@@ -547,45 +535,50 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     // endregion
 
-    // ! INSTANCE_TAG TODO: Once NBT does not use serialized data, improve serialization
     // region Serialization & Deserialization
 
     @Override
     public void read(final ByteBuf byteBuf) {
         super.read(byteBuf);
 
-        activeAttachmentIds = readIntArray(byteBuf);
-        selectedAttachmentIndexes = readByteArray(byteBuf);
-        ammo = byteBuf.readInt();
-        aimed = byteBuf.readBoolean();
-        recoil = byteBuf.readFloat();
-        maxShots = byteBuf.readInt();
-        zoom = byteBuf.readFloat();
-        activeTextureIndex = byteBuf.readByte();
-        laserOn = byteBuf.readBoolean();
-        nightVisionOn = byteBuf.readBoolean();
-        loadIterationCount = byteBuf.readInt();
         loadAfterUnloadEnabled = byteBuf.readBoolean();
-        altModificationModeEnabled = byteBuf.readBoolean();
+        nightVisionOn = byteBuf.readBoolean();
+        laserOn = byteBuf.readBoolean();
+        aimed = byteBuf.readBoolean();
+
+        activeTextureIndex = byteBuf.readByte();
+
+        loadIterationCount = byteBuf.readInt();
+        maxShots = byteBuf.readInt();
+        ammo = byteBuf.readInt();
+
+        recoil = byteBuf.readFloat();
+
+        selectedAttachmentIndexes = readByteArray(byteBuf);
+
+        activeAttachmentIds = readIntArray(byteBuf);
     }
 
     @Override
     public void write(final ByteBuf byteBuf) {
         super.write(byteBuf);
 
-        writeIntArray(byteBuf, activeAttachmentIds);
-        writeByteArray(byteBuf, selectedAttachmentIndexes);
-        byteBuf.writeInt(ammo);
-        byteBuf.writeBoolean(aimed);
-        byteBuf.writeFloat(recoil);
-        byteBuf.writeInt(maxShots);
-        byteBuf.writeFloat(zoom);
-        byteBuf.writeByte(activeTextureIndex);
-        byteBuf.writeBoolean(laserOn);
-        byteBuf.writeBoolean(nightVisionOn);
-        byteBuf.writeInt(loadIterationCount);
         byteBuf.writeBoolean(loadAfterUnloadEnabled);
-        byteBuf.writeBoolean(altModificationModeEnabled);
+        byteBuf.writeBoolean(nightVisionOn);
+        byteBuf.writeBoolean(laserOn);
+        byteBuf.writeBoolean(aimed);
+
+        byteBuf.writeByte(activeTextureIndex);
+
+        byteBuf.writeInt(loadIterationCount);
+        byteBuf.writeInt(maxShots);
+        byteBuf.writeInt(ammo);
+
+        byteBuf.writeFloat(recoil);
+
+        writeByteArray(byteBuf, selectedAttachmentIndexes);
+
+        writeIntArray(byteBuf, activeAttachmentIds);
     }
 
     // endregion

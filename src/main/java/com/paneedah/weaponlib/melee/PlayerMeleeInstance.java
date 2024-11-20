@@ -1,7 +1,9 @@
 package com.paneedah.weaponlib.melee;
 
 import com.paneedah.mwc.instancing.PlayerItemInstance;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.CompatibleAttachment;
+import com.paneedah.weaponlib.ItemAttachment;
 import io.netty.buffer.ByteBuf;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,8 +25,6 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
     private static final String ACTIVE_TEXTURE_INDEX_TAG = "ACTIVE_TEXTURE_INDEX";
 
     @Getter private byte activeTextureIndex;
-
-    @Getter private int ammo;
 
     @Getter @Setter private long lastAttackTimestamp;
 
@@ -52,7 +52,6 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
         final PlayerMeleeInstance otherInstance = (PlayerMeleeInstance) otherItemInstance;
 
-        setAmmo(otherInstance.ammo);
         setSelectedAttachmentIndexes(otherInstance.selectedAttachmentIndexes);
         setActiveAttachmentIds(otherInstance.activeAttachmentIds);
         setActiveTextureIndex(otherInstance.activeTextureIndex);
@@ -153,15 +152,6 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
         markDirty();
     }
 
-    protected void setAmmo(final int ammo) {
-        if (this.ammo == ammo)
-            return;
-
-        this.ammo = ammo;
-
-        markDirty();
-    }
-
     public void setActiveTextureIndex(final byte activeTextureIndex) {
         if (this.activeTextureIndex == activeTextureIndex)
             return;
@@ -195,27 +185,28 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
     // endregion
 
-    // ! INSTANCE_TAG TODO: Once NBT does not use serialized data, improve serialization
     // region Serialization & Deserialization
 
     @Override
     public void read(ByteBuf byteBuf) {
         super.read(byteBuf);
 
-        activeAttachmentIds = readIntArray(byteBuf);
-        selectedAttachmentIndexes = readByteArray(byteBuf);
-        ammo = byteBuf.readInt();
         activeTextureIndex = byteBuf.readByte();
+
+        selectedAttachmentIndexes = readByteArray(byteBuf);
+
+        activeAttachmentIds = readIntArray(byteBuf);
     }
 
     @Override
     public void write(ByteBuf byteBuf) {
         super.write(byteBuf);
 
-        writeIntArray(byteBuf, activeAttachmentIds);
-        writeByteArray(byteBuf, selectedAttachmentIndexes);
-        byteBuf.writeInt(ammo);
         byteBuf.writeByte(activeTextureIndex);
+
+        writeByteArray(byteBuf, selectedAttachmentIndexes);
+
+        writeIntArray(byteBuf, activeAttachmentIds);
     }
 
     // endregion

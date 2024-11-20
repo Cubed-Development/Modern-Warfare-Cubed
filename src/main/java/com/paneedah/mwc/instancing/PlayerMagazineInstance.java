@@ -16,7 +16,7 @@ public class PlayerMagazineInstance extends PlayerItemInstance<MagazineState> {
     // region Getters
 
     @Override
-    public boolean shouldHaveInstanceTags() { // ! INSTANCE_TAG TODO: NO, serialized data should not just be throw as a big buffer array in a single tag for NBT. The typeRegistry should not be used for NBT!
+    public boolean shouldHaveInstanceTags() {
         return false;
     }
 
