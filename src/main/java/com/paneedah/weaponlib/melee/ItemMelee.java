@@ -336,7 +336,7 @@ public class ItemMelee extends Item implements
         if (flagIn.isAdvanced() && playerMeleeInstance != null && itemStack.getTagCompound() != null) {
             if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
                 tooltipLines.add(red + "Logging NBT data, release left shift to stop");
-                LOGGER.info("{} NBT Data (Size {}): {}", playerMeleeInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
+                Tags.printTags(itemStack);
             } else {
                 tooltipLines.add(yellow + "Press left shift to log NBT data");
             }

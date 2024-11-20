@@ -13,7 +13,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -169,10 +168,6 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
     }
 
     List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
-            itemStack.setTagCompound(new NBTTagCompound());
-        }
-
         List<CompatibleAttachment<? extends AttachmentContainer>> activeAttachments = new ArrayList<>();
 
         PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry()

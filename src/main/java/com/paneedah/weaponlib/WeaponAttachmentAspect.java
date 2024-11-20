@@ -189,10 +189,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
     }
 
     List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
-            itemStack.setTagCompound(new NBTTagCompound());
-        }
-
         List<CompatibleAttachment<? extends AttachmentContainer>> activeAttachments = new ArrayList<>();
 
         PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player,
