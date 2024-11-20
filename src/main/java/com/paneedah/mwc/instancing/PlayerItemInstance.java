@@ -179,7 +179,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     }
 
     protected static int[] readIntArray(final ByteBuf byteBuf) {
-        final int length = byteBuf.readByte();
+        final int length = byteBuf.readInt();
 
         final int[] array = new int[length];
         for (int i = 0; i < length; i++)
@@ -189,7 +189,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     }
 
     protected static byte[] readByteArray(final ByteBuf byteBuf) {
-        final int length = byteBuf.readByte();
+        final int length = byteBuf.readInt();
 
         final byte[] array = new byte[length];
         for (int i = 0; i < length; i++)
@@ -199,14 +199,14 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     }
 
     protected static void writeIntArray(final ByteBuf byteBuf, final int[] array) {
-        byteBuf.writeByte(array.length);
+        byteBuf.writeInt(array.length);
 
         for (final int i : array)
             byteBuf.writeInt(i);
     }
 
     protected static void writeByteArray(final ByteBuf byteBuf, final byte[] array) {
-        byteBuf.writeByte(array.length);
+        byteBuf.writeInt(array.length);
 
         for (final byte b : array)
             byteBuf.writeByte(b);

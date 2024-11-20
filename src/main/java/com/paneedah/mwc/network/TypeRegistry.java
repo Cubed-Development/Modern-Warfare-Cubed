@@ -70,7 +70,7 @@ public final class TypeRegistry {
         }
 
         byte[] classNameBytes = className.getBytes(StandardCharsets.UTF_8);
-        byteBuf.writeByte((byte) classNameBytes.length);
+        byteBuf.writeInt(classNameBytes.length);
         byteBuf.writeBytes(classNameBytes);
 
         if (object.getClass().isEnum()) {
@@ -81,7 +81,7 @@ public final class TypeRegistry {
     }
 
     public static <T extends ISerializable> T read(final ByteBuf byteBuf) {
-        final byte[] classNameBytes = new byte[byteBuf.readByte()];
+        final byte[] classNameBytes = new byte[byteBuf.readInt()];
         byteBuf.readBytes(classNameBytes);
         final String className = new String(classNameBytes, StandardCharsets.UTF_8);
 
