@@ -56,10 +56,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Added a new sound effect when shooting snow
 - Added tooltips to melee weapons
 - Added tooltips to attachments
-<<<<<<< HEAD
 - Added new `enableStatusMessages` config
-=======
->>>>>>> 27270a77 (Removed the new commands)
 - Added player item instance registry itemstack instance cache size to the F3 debug
 
 ### Changed
