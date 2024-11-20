@@ -6,7 +6,6 @@ import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,15 +16,20 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.HashMap;
+
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
 @NoArgsConstructor
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S> {
 
+    private static final HashMap<String, Class<?>> TYPE_REGISTRY_COPY = TypeRegistry.getTypeRegistryCopy();
+
     private static final String ITEM_INVENTORY_INDEX_TAG = "ITEM_INVENTORY_INDEX";
+    private static final String STATE_ORDINAL_TAG = "StateOrdinal";
+    private static final String STATE_CLASS_TAG = "StateClass";
     private static final String UPDATE_ID_TAG = "UPDATE_ID";
-    private static final String STATE_TAG = "STATE";
     private static final String ITEM_TAG = "ITEM";
 
     @Getter @Setter protected int itemInventoryIndex;
@@ -130,11 +134,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
         updateId = tagCompound.getLong(UPDATE_ID_TAG);
 
-        //! INSTANCE_TAG TODO: This might be the same thing again, reading network data from NBT...
-        final ByteBuf byteBuf = Unpooled.buffer();
-        byteBuf.writeBytes(tagCompound.getByteArray(STATE_TAG));
-        if (byteBuf.readableBytes() > 0)
-            state = TypeRegistry.read(byteBuf);
+        state = readStateFromNBT(tagCompound);
     }
 
     public void writeInstanceToNBT(final NBTTagCompound tagCompound) {
@@ -143,10 +143,26 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
         tagCompound.setLong(UPDATE_ID_TAG, updateId);
 
-        //! INSTANCE_TAG TODO: This might be the same thing again, writing network data from NBT...
-        final ByteBuf byteBuf = Unpooled.buffer();
-        TypeRegistry.write(byteBuf, state);
-        tagCompound.setByteArray(STATE_TAG, byteBuf.array());
+        tagCompound.setString(STATE_CLASS_TAG, state.getClass().getName());
+        tagCompound.setInteger(STATE_ORDINAL_TAG, ((Enum<?>) state).ordinal());
+    }
+
+    private <T extends ManagedState<?>> T readStateFromNBT(final NBTTagCompound tagCompound) {
+        final String className = tagCompound.getString(STATE_CLASS_TAG);
+
+        try {
+            final Class<T> targetClass = (Class<T>) TYPE_REGISTRY_COPY.get(className);
+
+            if (!targetClass.isEnum())
+                throw new ClassNotFoundException();
+
+            final T[] constant = targetClass.getEnumConstants();
+
+            return constant[tagCompound.getInteger(STATE_ORDINAL_TAG)];
+        } catch (final ClassNotFoundException exception) {
+            LOGGER.error("Failed to create state of \"{}\" for instance {}", className, toString(), exception);
+            throw new IllegalStateException("What happened to the state? This should not happen!");
+        }
     }
 
     // endregion

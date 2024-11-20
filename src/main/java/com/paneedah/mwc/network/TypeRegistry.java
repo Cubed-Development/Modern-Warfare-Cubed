@@ -114,4 +114,8 @@ public final class TypeRegistry {
 
         return targetClass.cast(instance);
     }
+
+    public static HashMap<String, Class<?>> getTypeRegistryCopy() {
+        return new HashMap<>(typeRegistry);
+    }
 }

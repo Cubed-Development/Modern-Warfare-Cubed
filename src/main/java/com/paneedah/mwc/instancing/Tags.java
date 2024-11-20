@@ -1,10 +1,12 @@
 package com.paneedah.mwc.instancing;
 
+import com.paneedah.mwc.network.TypeRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,6 +16,8 @@ import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
 import static org.apache.logging.log4j.Level.INFO;
 
 public final class Tags {
+
+    private static final HashMap<String, Class<?>> TYPE_REGISTRY_COPY = TypeRegistry.getTypeRegistryCopy();
 
     private static final String INSTANCE_CLASS_TAG = "InstanceClass";
     private static final String DEFAULT_TIMER_TAG = "DefaultTimer";
@@ -50,7 +54,10 @@ public final class Tags {
         final String className = tagCompound.getString(INSTANCE_CLASS_TAG);
 
         try {
-            final Class<?> targetClass = Class.forName(className);
+            final Class<?> targetClass = TYPE_REGISTRY_COPY.get(className);
+
+            if (targetClass == null)
+                throw new ClassNotFoundException("Class not found: " + className);
 
             return getInstance(itemStack, (Class<PlayerItemInstance<?>>) targetClass);
         } catch (ClassNotFoundException exception) {
