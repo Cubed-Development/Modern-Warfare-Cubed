@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.tile;
 
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
+import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.mwc.instancing.PlayerGrenadeInstance;

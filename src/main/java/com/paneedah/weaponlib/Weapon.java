@@ -2,6 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
+import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
@@ -1307,7 +1308,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         if (flagIn.isAdvanced() && playerWeaponInstance != null && itemStack.getTagCompound() != null) {
             if (Keyboard.isKeyDown(Keyboard.KEY_LCONTROL)) {
                 tooltipLines.add(red + "Logging NBT data, release left control to stop");
-                LOGGER.info("{} NBT Data (Size {}): {}", playerWeaponInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
+                Tags.printTags(itemStack);
             } else {
                 tooltipLines.add(yellow + "Press left control to log NBT data");
             }
