@@ -126,7 +126,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         super.actionPerformed(button);
 
         if (button == craftButton && !craftButton.isDisabled()) {
-            if (hasSelectedCraftingPiece() && quantityBox.getText().length() != 0) {
+            if (hasSelectedCraftingPiece() && !quantityBox.getText().isEmpty()) {
                 int quantity = Integer.parseInt(quantityBox.getText());
                 CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItemStack().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
             }
@@ -136,7 +136,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
             magazineSelector.toggleOff();
             grenadeSelector.toggleOff();
 
-            setCraftingMode(1);
+            setCraftingMode(CraftingGroup.BULLET.getID());
             setSelectedCraftingPiece(null);
 
             fillFilteredList();
@@ -145,7 +145,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
             bulletSelector.toggleOff();
             grenadeSelector.toggleOff();
 
-            setCraftingMode(2);
+            setCraftingMode(CraftingGroup.MAGAZINE.getID());
             setSelectedCraftingPiece(null);
 
             fillFilteredList();
@@ -154,7 +154,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
             magazineSelector.toggleOff();
             bulletSelector.toggleOff();
 
-            setCraftingMode(3);
+            setCraftingMode(CraftingGroup.GRENADE.getID());
             setSelectedCraftingPiece(null);
 
             fillFilteredList();
