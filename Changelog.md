@@ -7,7 +7,13 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 
 ## [UNRELEASED] Modern Warfare Cubed Version 0.2 Changelog
 
+### Warning
+
 [**MWC 0.1 NOW REQUIRES RED CORE 0.6 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+**ALL ATTACHMENTS, MODIFICATIONS AND SKINS CURRENTLY ON A WEAPON WILL DISAPPEAR**
 
 ### Highlight
 
