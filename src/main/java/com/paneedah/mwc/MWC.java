@@ -1,6 +1,5 @@
 package com.paneedah.mwc;
 
-import com.paneedah.mwc.commands.MWCCommand;
 import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.handlers.CommonEventHandler;
@@ -86,8 +85,6 @@ public final class MWC {
             Runtime.getRuntime().addShutdownHook(new Thread(ClientTickerController::stop));
 
             updateDebugHandler();
-
-            ClientCommandHandler.instance.registerCommand(new MWCCommand());
         }
 
         // Set the sounds
