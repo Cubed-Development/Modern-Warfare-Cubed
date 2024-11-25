@@ -1,8 +1,10 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
+import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.client.model.ModelBiped;
@@ -55,7 +57,7 @@ public class WeaponEventHandler {
         }
 
         float fov;
-        if (instance.isAttachmentZoomEnabled()) {
+        if (instance.hasScope()) {
             if (ClientProxy.renderingPhase == RenderingPhase.RENDER_PERSPECTIVE) {
                 fov = instance.getZoom();
             } else {
@@ -68,7 +70,7 @@ public class WeaponEventHandler {
         //fov = instance.isAimed() ? instance.getZoom() : 1f;
         //fov = compatibility.isFlying(MC.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
 
-        final WeaponState state = instance.state;
+        final WeaponState state = instance.getState();
 
         if (instance.isAimed()
                 && ClientProxy.renderingPhase == null
@@ -115,7 +117,7 @@ public class WeaponEventHandler {
 
             EntityPlayer player = (EntityPlayer) event.getEntity();
             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
-                    .getItemInstance(player, itemStack);
+                    .getCachedItemInstance(player, itemStack);
             if (instance instanceof PlayerWeaponInstance) {
                 PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) instance;
                 if (weaponInstance.isAimed() || weaponInstance.getState() == WeaponState.FIRING || weaponInstance.getState() == WeaponState.RECOILED || weaponInstance.getState() == WeaponState.PAUSED) {

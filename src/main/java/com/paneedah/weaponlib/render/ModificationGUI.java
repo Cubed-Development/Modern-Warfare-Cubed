@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.FlaggedAttachment;
 import com.paneedah.weaponlib.command.DebugCommand;
@@ -812,7 +813,7 @@ public class ModificationGUI {
             }
         }
 
-        ItemAttachment<Weapon> primaryAttachment = pwi.getAttachmentItemWithCategory(category);
+        ItemAttachment<Weapon> primaryAttachment = pwi.getAttachmentItemByCategory(category);
 
 
         // Does something require this attachment?
@@ -948,7 +949,7 @@ public class ModificationGUI {
         }
 
         // Primary item renderer
-        ItemAttachment<Weapon> current = pwi.getAttachmentItemWithCategory(category);
+        ItemAttachment<Weapon> current = pwi.getAttachmentItemByCategory(category);
 
         if (current != null) {
             clearRGB();

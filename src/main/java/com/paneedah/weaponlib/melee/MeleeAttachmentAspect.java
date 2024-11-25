@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.network.NetworkPermitManager;
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
@@ -13,7 +13,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -21,12 +20,6 @@ import java.util.function.Predicate;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMeleeInstance> {
-
-    static {
-        TypeRegistry.getINSTANCE().register(EnterAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ExitAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ChangeAttachmentPermit.class);
-    }
 
     private static class AttachmentLookupResult {
         CompatibleAttachment<ItemMelee> compatibleAttachment;
@@ -175,14 +168,10 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
     }
 
     List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
-            itemStack.setTagCompound(new NBTTagCompound());
-        }
-
         List<CompatibleAttachment<? extends AttachmentContainer>> activeAttachments = new ArrayList<>();
 
         PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry()
-                .getItemInstance(player, itemStack);
+                .getCachedItemInstance(player, itemStack);
 
 
         int[] activeAttachmentsIds;
@@ -244,7 +233,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
         if (currentAttachment != null) {
             // Need to apply removal functions first before applying addition functions
             if (currentAttachment.getRemove() != null) {
-                currentAttachment.getRemove().apply(currentAttachment, weaponInstance.getWeapon(), player);
+                currentAttachment.getRemove().apply(currentAttachment, weaponInstance.getMelee(), player);
             }
             if (currentAttachment.getRemove3() != null) {
                 currentAttachment.getRemove3().apply(currentAttachment, weaponInstance);
@@ -256,14 +245,14 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
             ItemAttachment<ItemMelee> nextAttachment = (ItemAttachment<ItemMelee>) slotItemStack.getItem();
 
             if (nextAttachment.getApply() != null) {
-                nextAttachment.getApply().apply(nextAttachment, weaponInstance.getWeapon(), player);
+                nextAttachment.getApply().apply(nextAttachment, weaponInstance.getMelee(), player);
             } else if (nextAttachment.getApply3() != null) {
                 nextAttachment.getApply3().apply(nextAttachment, weaponInstance);
             } else if (lookupResult.compatibleAttachment.getMeleeApplyHandler() != null) {
                 lookupResult.compatibleAttachment.getMeleeApplyHandler().apply(nextAttachment, weaponInstance);
             }
 //			else {
-//				ApplyHandler2<ItemMelee> handler = weaponInstance.getWeapon().getEquivalentHandler(attachmentCategory);
+//				ApplyHandler2<ItemMelee> handler = weaponInstance.getMelee().getEquivalentHandler(attachmentCategory);
 //				if(handler != null) {
 //					handler.apply(null, weaponInstance);
 //				}
@@ -280,7 +269,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
             activeAttachmentIds[attachmentCategory.ordinal()] = Item.getIdFromItem(nextAttachment);
         } else {
             activeAttachmentIds[attachmentCategory.ordinal()] = -1;
-//			ApplyHandler2<ItemMelee> handler = weaponInstance.getWeapon().getEquivalentHandler(attachmentCategory);
+//			ApplyHandler2<ItemMelee> handler = weaponInstance.getMelee().getEquivalentHandler(attachmentCategory);
 //			if(handler != null) {
 //				handler.apply(null, weaponInstance);
 //			}
@@ -328,7 +317,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 
         AttachmentLookupResult result = new AttachmentLookupResult();
 
-        byte[] originallySelectedAttachmentIndexes = weaponInstance.getSelectedAttachmentIds();
+        byte[] originallySelectedAttachmentIndexes = weaponInstance.getSelectedAttachmentIndexes();
         if (originallySelectedAttachmentIndexes == null || originallySelectedAttachmentIndexes.length != AttachmentCategory.values.length) {
             return result;
         }
@@ -360,7 +349,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
                 ItemAttachment<ItemMelee> attachmentItemFromInventory = (ItemAttachment<ItemMelee>) slotItemStack.getItem();
                 CompatibleAttachment<ItemMelee> compatibleAttachment;
                 if (attachmentItemFromInventory.getCategory() == category
-                        && (compatibleAttachment = weaponInstance.getWeapon().getCompatibleAttachments().get(attachmentItemFromInventory)) != null
+                        && (compatibleAttachment = weaponInstance.getMelee().getCompatibleAttachments().get(attachmentItemFromInventory)) != null
                         && attachmentItemFromInventory != currentAttachment) {
 
                     result.index = currentIndex;
@@ -395,7 +384,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 
         if (currentAttachment == null) {
             if (attachment != null && attachment.getApply() != null) {
-                attachment.getApply().apply(attachment, weaponInstance.getWeapon(), weaponInstance.getPlayer());
+                attachment.getApply().apply(attachment, weaponInstance.getMelee(), weaponInstance.getPlayer());
             }
             activeAttachmentsIds[attachment.getCategory().ordinal()] = Item.getIdFromItem(attachment);
         } else {
@@ -423,7 +412,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
         }
 
         if (currentAttachment != null && currentAttachment.getRemove() != null) {
-            currentAttachment.getRemove().apply(currentAttachment, weaponInstance.getWeapon(), weaponInstance.getPlayer());
+            currentAttachment.getRemove().apply(currentAttachment, weaponInstance.getMelee(), weaponInstance.getPlayer());
         }
 
         if (currentAttachment != null) {
@@ -447,7 +436,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
             }
             Item item = Item.getItemById(activeIndex);
             if (item instanceof ItemAttachment) {
-                CompatibleAttachment<ItemMelee> compatibleAttachment = weaponInstance.getWeapon().getCompatibleAttachments().get(item);
+                CompatibleAttachment<ItemMelee> compatibleAttachment = weaponInstance.getMelee().getCompatibleAttachments().get(item);
                 if (compatibleAttachment != null && category == compatibleAttachment.getAttachment().getCategory()) {
                     itemAttachment = compatibleAttachment.getAttachment();
                     break;
@@ -465,7 +454,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 
 
     ItemAttachment<ItemMelee> getActiveAttachment(PlayerMeleeInstance weaponInstance, AttachmentCategory category) {
-        return weaponInstance.getAttachmentItemWithCategory(category);
+        return weaponInstance.getAttachmentItemByCategory(category);
     }
 
 

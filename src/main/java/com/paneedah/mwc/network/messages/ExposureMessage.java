@@ -23,7 +23,7 @@ public final class ExposureMessage implements IMessage {
         final int size = byteBuf.readInt();
 
         for (int i = 0; i < size; i++)
-            exposures.add(TypeRegistry.getINSTANCE().fromBytes(byteBuf));
+            exposures.add(TypeRegistry.read(byteBuf));
     }
 
     @Override
@@ -31,6 +31,6 @@ public final class ExposureMessage implements IMessage {
         byteBuf.writeInt(exposures.size());
 
         for (Exposure exposure : exposures)
-            TypeRegistry.getINSTANCE().toBytes(exposure, byteBuf);
+            TypeRegistry.write(byteBuf, exposure);
     }
 }

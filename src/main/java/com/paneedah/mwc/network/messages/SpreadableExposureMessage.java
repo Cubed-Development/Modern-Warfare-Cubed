@@ -24,7 +24,7 @@ public final class SpreadableExposureMessage implements IMessage {
         removed = byteBuf.readBoolean();
 
         if (!removed) {
-            spreadableExposure = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
+            spreadableExposure = TypeRegistry.read(byteBuf);
         }
     }
 
@@ -33,7 +33,7 @@ public final class SpreadableExposureMessage implements IMessage {
         byteBuf.writeBoolean(removed);
 
         if (!removed) {
-            TypeRegistry.getINSTANCE().toBytes(spreadableExposure, byteBuf);
+            TypeRegistry.write(byteBuf, spreadableExposure);
         }
     }
 }

@@ -60,7 +60,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
 
     public ItemStack getLatestStackInQueue() {
         if (this.craftStack.isEmpty()) {
-            return null;
+            return ItemStack.EMPTY;
         }
         ItemStack stack = craftStack.peek();
         if (stack.isEmpty()) {
@@ -98,7 +98,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
     }
 
     public boolean hasStack() {
-        return !this.craftStack.isEmpty() && getLatestStackInQueue() != null;
+        return !this.craftStack.isEmpty() && getLatestStackInQueue() != ItemStack.EMPTY;
     }
 
     public void addStack(ItemStack stack) {

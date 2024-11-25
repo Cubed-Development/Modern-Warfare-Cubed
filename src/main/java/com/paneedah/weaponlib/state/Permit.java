@@ -6,10 +6,6 @@ import io.netty.buffer.ByteBuf;
 
 public class Permit<S extends ManagedState<S>> extends UniversalObject {
 
-    static {
-        TypeRegistry.getINSTANCE().register(Permit.class);
-    }
-
     public enum Status {REQUESTED, GRANTED, DENIED, UNKNOWN}
 
     protected S state;
@@ -47,7 +43,7 @@ public class Permit<S extends ManagedState<S>> extends UniversalObject {
         super.read(byteBuf);
         timestamp = byteBuf.readLong();
         status = Status.values()[byteBuf.readInt()];
-        state = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
+        state = TypeRegistry.read(byteBuf);
     }
 
     @Override
@@ -55,7 +51,7 @@ public class Permit<S extends ManagedState<S>> extends UniversalObject {
         super.write(byteBuf);
         byteBuf.writeLong(timestamp);
         byteBuf.writeInt(status.ordinal());
-        TypeRegistry.getINSTANCE().toBytes(state, byteBuf);
+        TypeRegistry.write(byteBuf, state);
     }
 
 }

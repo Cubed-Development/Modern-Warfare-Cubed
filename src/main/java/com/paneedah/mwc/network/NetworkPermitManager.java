@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network;
 
 import com.paneedah.mwc.network.messages.PermitMessage;
-import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
 import com.paneedah.weaponlib.state.Permit;

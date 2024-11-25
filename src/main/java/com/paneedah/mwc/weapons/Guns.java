@@ -60,7 +60,6 @@ public class Guns {
     public static Item Python;
     public static Item TaurusRagingHunter;
     public static Item ChiappaRhino;
-    public static Item SW500Magnum;
     public static Item DesertEagle;
     public static Item MP40;
     public static Item M1A1Thompson;
@@ -291,7 +290,6 @@ public class Guns {
         //REVOLVER
         Python = new PythonFactory().createGun(proxy);
         TaurusRagingHunter = new TaurusRagingHunterFactory().createGun(proxy);
-        SW500Magnum = new SW500MagnumFactory().createGun(proxy);
         ChiappaRhino = new ChiappaRhinoFactory().createGun(proxy);
 
         //SIDEARM2

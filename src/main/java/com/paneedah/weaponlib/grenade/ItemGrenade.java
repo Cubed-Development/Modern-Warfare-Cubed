@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.*;
@@ -453,9 +455,11 @@ public class ItemGrenade extends Item implements
     }
 
     @Override
-    public PlayerGrenadeInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
-        PlayerGrenadeInstance instance = new PlayerGrenadeInstance(slot, player, itemStack);
+    public PlayerGrenadeInstance createItemInstance(final EntityLivingBase entityLivingBase, final ItemStack itemStack, final int slot) {
+        final PlayerGrenadeInstance instance = new PlayerGrenadeInstance(slot, entityLivingBase, itemStack);
+
         instance.setState(GrenadeState.READY);
+
         return instance;
     }
 

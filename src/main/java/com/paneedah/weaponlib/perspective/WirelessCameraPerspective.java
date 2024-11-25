@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.perspective;
 
-import com.paneedah.weaponlib.PlayerItemInstance;
-import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerTabletInstance;
 import com.paneedah.weaponlib.electronics.SignalQuality;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import com.paneedah.weaponlib.tracking.TrackableEntity;

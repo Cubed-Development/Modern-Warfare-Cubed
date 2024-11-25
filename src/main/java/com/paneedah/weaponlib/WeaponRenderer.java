@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib;
 
 import com.google.common.collect.Maps;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.skins.CustomSkin;
@@ -2231,7 +2233,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         float rate = getBuilder().normalRandomizingRate;
         RenderableState currentState = null;
 
-        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getItemInstance(player, itemStack);
+        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerWeaponInstance playerWeaponInstance = null;
@@ -2244,7 +2246,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
         if (playerWeaponInstance != null) {
-            AsyncWeaponState asyncWeaponState = getNextNonExpiredState(playerWeaponInstance);
+            AsyncWeaponState asyncWeaponState = playerWeaponInstance.nextNonExpiredHistoryState();
             //System.out.println(asyncWeaponState.getState());
 
             WeaponState renderableState = asyncWeaponState.getState();
@@ -2385,7 +2387,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                 case MODIFYING_REQUESTED:
                 case NEXT_ATTACHMENT:
                 case NEXT_ATTACHMENT_REQUESTED:
-                    if (playerWeaponInstance.isAltMofificationModeEnabled()) {
+                    if (playerWeaponInstance.isAltModificationModeEnabled()) {
                         currentState = RenderableState.MODIFYING_ALT;
                     } else {
                         currentState = RenderableState.MODIFYING;
@@ -2447,7 +2449,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         float rate = getBuilder().normalRandomizingRate;
         RenderableState currentState = null;
 
-        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getItemInstance(player, itemStack);
+        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerWeaponInstance playerWeaponInstance = null;
@@ -2459,7 +2461,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         }
 
         if (playerWeaponInstance != null) {
-            AsyncWeaponState asyncWeaponState = getNextNonExpiredState(playerWeaponInstance);
+            AsyncWeaponState asyncWeaponState = playerWeaponInstance.nextNonExpiredHistoryState();
 
             switch (asyncWeaponState.getState()) {
 
@@ -2586,23 +2588,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         }
 
         return new StateDescriptor(playerWeaponInstance, stateManager, rate, amplitude);
-    }
-
-    private AsyncWeaponState getNextNonExpiredState(PlayerWeaponInstance playerWeaponState) {
-        AsyncWeaponState asyncWeaponState = null;
-        while ((asyncWeaponState = playerWeaponState.nextHistoryState()) != null) {
-
-            if (System.currentTimeMillis() < asyncWeaponState.getTimestamp() + asyncWeaponState.getDuration()) {
-                if (asyncWeaponState.getState() == WeaponState.FIRING
-                        && (hasRecoilPositioning() || !playerWeaponState.isAutomaticModeEnabled())) { // allow recoil for non-automatic weapons
-                    continue;
-                } else {
-                    break; // found non-expired-state
-                }
-            }
-        }
-
-        return asyncWeaponState;
     }
 
     private Consumer<RenderContext<RenderableState>> createWeaponPartPositionFunction(Transition<RenderContext<RenderableState>> t) {
@@ -2999,7 +2984,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 					.filter(ca -> ca.getAttachment() instanceof ItemSkin).findAny().orElse(null);
 			if(compatibleSkin != null) {
 				PlayerItemInstance<?> itemInstance = getClientModContext().getPlayerItemInstanceRegistry()
-						.getItemInstance(renderContext.getPlayer(), weaponItemStack);
+						.getCachedItemInstance(renderContext.getPlayer(), weaponItemStack);
 				if(itemInstance instanceof PlayerWeaponInstance) {
 					int textureIndex = ((PlayerWeaponInstance) itemInstance).getActiveTextureIndex();
 					if(textureIndex >= 0) {
@@ -3033,7 +3018,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             //OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, GL30.GL_COLOR_ATTACHMENT1, GL11.GL_TEXTURE_2D, PostProcessPipeline.maskingBuffer.framebufferTexture, 0);
 
 
-            ItemAttachment<Weapon> skin = renderContext.getWeaponInstance().getAttachmentItemWithCategory(AttachmentCategory.SKIN);
+            ItemAttachment<Weapon> skin = renderContext.getWeaponInstance().getAttachmentItemByCategory(AttachmentCategory.SKIN);
             boolean useSkin = skin != null;
 
             if (useSkin) {
@@ -3426,7 +3411,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 					WeaponState state = renderContext.getWeaponInstance().getState();
 					//System.out.println(renderContext.getWeaponInstance());
-					if(renderContext.getWeaponInstance().isSlideLocked() && (state == WeaponState.READY || state == WeaponState.ALERT)) {
+					if(renderContext.getWeaponInstance().isSlideLockOn() && (state == WeaponState.READY || state == WeaponState.ALERT)) {
 						GlStateManager.translate(0, 0, 0.43);
 					}
 

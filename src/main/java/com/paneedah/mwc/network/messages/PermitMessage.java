@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network.messages;
 
 import com.paneedah.mwc.network.TypeRegistry;
-import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.weaponlib.state.Permit;
 import io.netty.buffer.ByteBuf;
 import lombok.AllArgsConstructor;
@@ -19,17 +19,13 @@ public final class PermitMessage implements IMessage {
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        final TypeRegistry typeRegistry = TypeRegistry.getINSTANCE();
-
-        playerItemInstance = typeRegistry.fromBytes(byteBuf);
-        permit = typeRegistry.fromBytes(byteBuf);
+        playerItemInstance = TypeRegistry.read(byteBuf);
+        permit = TypeRegistry.read(byteBuf);
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        final TypeRegistry typeRegistry = TypeRegistry.getINSTANCE();
-
-        typeRegistry.toBytes(playerItemInstance, byteBuf);
-        typeRegistry.toBytes(permit, byteBuf);
+        TypeRegistry.write(byteBuf, playerItemInstance);
+        TypeRegistry.write(byteBuf, permit);
     }
 }

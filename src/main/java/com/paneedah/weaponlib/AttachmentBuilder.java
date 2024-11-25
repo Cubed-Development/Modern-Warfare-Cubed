@@ -10,7 +10,6 @@ import dev.redstudio.redcore.math.vectors.Vector3F;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
@@ -45,7 +44,6 @@ public class AttachmentBuilder<T> {
     protected ApplyHandler<T> remove;
     protected ApplyHandler2<T> apply2;
     protected ApplyHandler2<T> remove2;
-    private String crosshair;
     private final List<CustomRenderer<?>> postRenderer = new ArrayList<>();
     private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
     private boolean isRenderablePart;
@@ -163,12 +161,6 @@ public class AttachmentBuilder<T> {
         return this;
     }
 
-    public AttachmentBuilder<T> withCrosshair(String crosshair) {
-        this.crosshair = crosshair.toLowerCase();
-        return this;
-    }
-
-
     public AttachmentBuilder<T> withPostRender(CustomRenderer<?> postRenderer) {
         this.postRenderer.add(postRenderer);
         return this;
@@ -234,7 +226,7 @@ public class AttachmentBuilder<T> {
     }
 
     protected ItemAttachment<T> createAttachment(ModContext modContext) {
-        return new ItemAttachment<T>(attachmentCategory, crosshair, apply, remove);
+        return new ItemAttachment<T>(attachmentCategory, apply, remove);
     }
 
     public ItemAttachment<T> build(ModContext modContext) {

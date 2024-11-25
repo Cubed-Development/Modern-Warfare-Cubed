@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
@@ -502,7 +503,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         float rate = builder.normalRandomizingRate;
         RenderableState currentState = null;
 
-        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getItemInstance(player, itemStack);
+        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerMeleeInstance playerMeleeInstance = null;
@@ -514,7 +515,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         }
 
         if (playerMeleeInstance != null) {
-            AsyncMeleeState asyncWeaponState = getNextNonExpiredState(playerMeleeInstance);
+            AsyncMeleeState asyncWeaponState = playerMeleeInstance.nextNonExpiredHistoryState();
 
             switch (asyncWeaponState.getState()) {
 
@@ -558,19 +559,6 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
 
         return new StateDescriptor(playerMeleeInstance, stateManager, rate, amplitude);
-    }
-
-    private AsyncMeleeState getNextNonExpiredState(PlayerMeleeInstance playerWeaponState) {
-        AsyncMeleeState asyncWeaponState = null;
-        while ((asyncWeaponState = playerWeaponState.nextHistoryState()) != null) {
-            if (System.currentTimeMillis() > asyncWeaponState.getTimestamp() + asyncWeaponState.getDuration()) {
-                continue;
-            } else {
-                break;
-            }
-        }
-
-        return asyncWeaponState;
     }
 
     private Consumer<RenderContext<RenderableState>> createWeaponPartPositionFunction(Transition<RenderContext<RenderableState>> t) {
@@ -708,7 +696,7 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
                     .filter(ca -> ca.getAttachment() instanceof MeleeSkin).findAny().orElse(null);
             if (compatibleSkin != null) {
                 PlayerItemInstance<?> itemInstance = getClientModContext().getPlayerItemInstanceRegistry()
-                        .getItemInstance(renderContext.getPlayer(), weaponItemStack);
+                        .getCachedItemInstance(renderContext.getPlayer(), weaponItemStack);
                 if (itemInstance instanceof PlayerMeleeInstance) {
                     int textureIndex = ((PlayerMeleeInstance) itemInstance).getActiveTextureIndex();
                     if (textureIndex >= 0) {

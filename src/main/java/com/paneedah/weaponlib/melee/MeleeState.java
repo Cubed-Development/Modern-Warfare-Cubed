@@ -102,10 +102,4 @@ public enum MeleeState implements ManagedState<MeleeState> {
     public void write(ByteBuf byteBuf) {
         // not need to write anything, parent type registry should take care of it
     }
-
-    static {
-        TypeRegistry.getINSTANCE().register(MeleeState.class);
-    }
-
-
 }

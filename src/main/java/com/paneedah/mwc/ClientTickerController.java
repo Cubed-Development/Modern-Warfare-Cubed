@@ -1,6 +1,6 @@
 package com.paneedah.mwc;
 
-import com.paneedah.weaponlib.PlayerWeaponInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.Updatable;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;

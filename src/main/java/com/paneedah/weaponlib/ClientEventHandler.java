@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.asm.Interceptors;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.network.messages.VehicleInteractMessage;
 import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.mwc.utils.MWCUtil;
@@ -244,7 +246,7 @@ public class ClientEventHandler {
                 PlayerUtil.restorePlayerSpeed(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
             }
 
-            if (mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.getSyncStartTimestamp() == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis()) {
+            if (mainHandHeldWeaponInstance != null && mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.syncStartTimestamp == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis()) {
                 mainHandHeldWeaponInstance.reconcile();
             }
         } else {

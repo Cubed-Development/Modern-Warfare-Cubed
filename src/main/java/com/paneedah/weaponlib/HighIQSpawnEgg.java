@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import akka.japi.Predicate;
 import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -21,6 +20,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.storage.AnvilChunkLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+import java.util.function.Predicate;
 
 import static com.paneedah.mwc.ProjectConstants.ID;
 

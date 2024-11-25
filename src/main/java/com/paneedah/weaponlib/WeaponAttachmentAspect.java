@@ -1,7 +1,9 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
+import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.NetworkPermitManager;
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
@@ -22,12 +24,6 @@ import java.util.function.Predicate;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
-
-    static {
-        TypeRegistry.getINSTANCE().register(EnterAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ExitAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ChangeAttachmentPermit.class);
-    }
 
     private static class AttachmentLookupResult {
         CompatibleAttachment<Weapon> compatibleAttachment;
@@ -193,13 +189,9 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
     }
 
     List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
-            itemStack.setTagCompound(new NBTTagCompound());
-        }
-
         List<CompatibleAttachment<? extends AttachmentContainer>> activeAttachments = new ArrayList<>();
 
-        PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry().getItemInstance(player,
+        PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player,
                 itemStack);
 
         int[] activeAttachmentsIds;
@@ -559,7 +551,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 
         AttachmentLookupResult result = new AttachmentLookupResult();
 
-        byte[] originallySelectedAttachmentIndexes = weaponInstance.getSelectedAttachmentIds();
+        byte[] originallySelectedAttachmentIndexes = weaponInstance.getSelectedAttachmentIndexes();
         if (originallySelectedAttachmentIndexes == null
                 || originallySelectedAttachmentIndexes.length != AttachmentCategory.values.length) {
             return result;
@@ -775,6 +767,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
     }
 
     ItemAttachment<Weapon> getActiveAttachment(PlayerWeaponInstance weaponInstance, AttachmentCategory category) {
-        return weaponInstance.getAttachmentItemWithCategory(category);
+        return weaponInstance.getAttachmentItemByCategory(category);
     }
 }

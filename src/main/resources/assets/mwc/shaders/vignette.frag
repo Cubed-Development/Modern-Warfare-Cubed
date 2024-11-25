@@ -238,7 +238,7 @@ void main(){
 	    if(shouldDoFog) newColor = applyFog(newColor, distortedTexCoords);
 
       // Apply night vision
-      if(isNightVisionOn) newColor = doNightVision(newColor);
+      if(isNightVisionOn)newColor = doNightVision(newColor);
 
       // The scope has a certain border, add it in
      /*

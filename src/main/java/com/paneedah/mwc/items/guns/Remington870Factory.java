@@ -1,6 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -39,10 +40,7 @@ public class Remington870Factory implements GunFactory {
                 .withDrawSound("noaction_draw")
                 .withAllReloadIterationsCompletedSound("r870_reload_final")
                 .withReloadingTime(15)
-                .withCrosshair("gun")
-                .withCrosshairRunning("Running")
                 .withShellCasingEjectEnabled(false)
-                .withCrosshairZoomed("Sight")
                 .withInaccuracy(10)
                 .withPellets(10)
                 .withFlashIntensity(0.5f)

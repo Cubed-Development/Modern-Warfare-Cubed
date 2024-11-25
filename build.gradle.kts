@@ -6,8 +6,8 @@ import org.jetbrains.gradle.ext.Gradle
 plugins {
     id("com.gtnewhorizons.retrofuturagradle") version "1.4.1"
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.9"
-    id("com.github.gmazzo.buildconfig") version "5.5.0"
-    id("io.freefair.lombok") version "8.7.1"
+    id("com.github.gmazzo.buildconfig") version "5.5.1"
+    id("io.freefair.lombok") version "8.11"
 }
 
 group = "com.paneedah"
@@ -19,7 +19,7 @@ val plugin = "${project.group}.${id}.asm.MWCPlugin"
 val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-8"
 
 val groovyScriptVersion = "1.2.0-hotfix1"
-val mixinBooterVersion = "10.1"
+val mixinBooterVersion = "10.2"
 
 minecraft {
     mcVersion = "1.12.2"
