@@ -50,6 +50,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Added a new sound effect when shooting snow
 - Added tooltips to melee weapons
 - Added tooltips to attachments
+- Added text to the workbench/ammo press GUI
 
 ### Changed
 
