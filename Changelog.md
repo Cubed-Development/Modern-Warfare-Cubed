@@ -18,6 +18,7 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 ### Fixed
 
 - Fixed accidental use of `akka.japi.Predicate` instead `java.util.function.Predicate`
+- Fixed ammunition press using `null` instead of `ItemStack#EMPTY`
 
 ## Modern Warfare Cubed Version 0.1.8 Changelog - 2024-08-16
 
