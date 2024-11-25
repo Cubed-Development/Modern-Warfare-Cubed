@@ -98,7 +98,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     @Getter @Setter private int loadIterationCount;
     @Getter @Setter private int seriesShotCount;
-    @Getter private int maxShots;
+    @Getter private int maxShots; // ! FIRE_MODE TODO: Enum pls - Luna Mira Lage (Desoroxxx) 2024-11-25
     @Getter private int ammo;
 
     @Getter @Setter private long lastReloadUpdateTimestamp;

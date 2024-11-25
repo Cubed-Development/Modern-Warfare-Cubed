@@ -96,20 +96,17 @@ public class ModernConfigManager {
     public static boolean enableStatusMessages = true;
 
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "")
-    public static int ammoCounterX = 0;
+    public static int ammunitionCounterOffsetX = 0;
 
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "")
-    public static int ammoCounterY = 0;
+    public static int ammunitionCounterOffsetY = 0;
 
     @RangeDouble(min = 0.1, max = 3.0)
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "")
-    public static double ammoCounterSize = 0.50;
+    public static double ammunitionCounterSize = 0.50;
 
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the black background on the ammo counter.")
     public static boolean enableAmmoCounterBackground = true;
-
-    @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "")
-    public static boolean ammoCounterBackgroundReverse = false;
 
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enable open door key display when hovering doors")
     public static boolean enableOpenDoorDisplay = true;
@@ -143,10 +140,6 @@ public class ModernConfigManager {
     @RangeDouble(min = 0.0, max = 1.0)
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "What should the block drop chance be?")
     public static double explodedBlockDropChance = 1.0;
-
-    @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Where should the status bar be located?")
-    public static String statusBarPosition = "TOP_RIGHT";
-
 
     @RequiresMcRestart
     @RangeDouble(min = 0.1, max = 5.0)

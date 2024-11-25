@@ -118,10 +118,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private CreativeTabs creativeTab;
         private WeaponRenderer renderer;
         //float zoom = Weapon.DEFAULT_ZOOM;
-        @Getter List<Integer> maxShots = new ArrayList<>(); // ! TODO: This is despicable
-        String crosshair;
-        String crosshairRunning;
-        String crosshairZoomed;
+        @Getter List<Integer> maxShots = new ArrayList<>(); // FIRE_MODE ! TODO: This is despicable
         BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith;
         BiFunction<PlayerWeaponInstance, EntityLivingBase, ? extends EntityShellCasing> spawnShellWith;
         private float spawnEntityDamage;
@@ -135,11 +132,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private float spawnEntitySmokeParticleScaleCoefficient = 1f;
         public long reloadingTimeout = Weapon.DEFAULT_RELOADING_TIMEOUT_TICKS;
         long loadIterationTimeout = Weapon.DEFAULT_LOAD_ITERATION_TIMEOUT_TICKS;
-
-
-        boolean crosshairFullScreen = false;
-        boolean crosshairZoomedFullScreen = false;
-
 
         Map<ItemAttachment<Weapon>, CompatibleAttachment<Weapon>> compatibleAttachments = new HashMap<>();
         ModelBase ammoModel;
@@ -364,32 +356,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             for (String textureName : textureNames) {
                 this.textureNames.add(textureName.toLowerCase() + ".png");
             }
-            return this;
-        }
-
-        public Builder withCrosshair(String crosshair) {
-            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
-            return this;
-        }
-
-        public Builder withCrosshair(String crosshair, boolean fullScreen) {
-            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
-            this.crosshairFullScreen = fullScreen;
-            return this;
-        }
-
-        public Builder withCrosshairRunning(String crosshairRunning) {
-            this.crosshairRunning = ID + ":textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
-            return this;
-        }
-
-        public Builder withCrosshairZoomed(String crosshairZoomed) {
-            return withCrosshairZoomed(crosshairZoomed, true);
-        }
-
-        public Builder withCrosshairZoomed(String crosshairZoomed, boolean fullScreen) {
-            this.crosshairZoomed = ID + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
-            this.crosshairZoomedFullScreen = fullScreen;
             return this;
         }
 
@@ -874,14 +840,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 };
             }
 
-            if (crosshairRunning == null) {
-                crosshairRunning = crosshair;
-            }
-
-            if (crosshairZoomed == null) {
-                crosshairZoomed = crosshair;
-            }
-
             if (blockImpactHandler == null) {
                 blockImpactHandler = (world, player, entity, position) -> {
                     IBlockState iBlockState = world.getBlockState(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ()));
@@ -988,9 +946,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     private CraftingGroup craftingGroup = CraftingGroup.GUN;
 
-    public static final int FIREMODE_AUTO = 2;
-    public static final int FIREMODE_SINGLE = 0;
-    public static final int FIREMODE_BURST = 1;
+    // ! FIRE_MODE TODO: Make this an enum and use it instead of get `maxShots` - Luna Mira Lage (Desoroxxx) 2024-11-20
+    public static final int FIRE_MODE_SINGLE = 2;
+    public static final int FIRE_MODE_BURST = 1;
+    public static final int FIRE_MODE_AUTO = 0;
 
     private static final long DEFAULT_RELOADING_TIMEOUT_TICKS = 10;
     private static final long DEFAULT_UNLOADING_TIMEOUT_TICKS = 10;
@@ -1104,23 +1063,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return c.stream().filter(e -> inputCategoryList.contains(e.getAttachment().getCategory())).collect(Collectors.toList());
     }
 
-    String getCrosshair(PlayerWeaponInstance weaponInstance) {
-        if (weaponInstance.isAimed()) {
-            String crosshair = null;
-            ItemAttachment<Weapon> scopeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.SCOPE, weaponInstance);
-            if (scopeAttachment != null) {
-                crosshair = scopeAttachment.getCrosshair();
-            }
-            if (crosshair == null) {
-                crosshair = builder.crosshairZoomed;
-            }
-            return crosshair;
-        } else if (weaponInstance.getPlayer().isSprinting()) {
-            return builder.crosshairRunning;
-        }
-        return builder.crosshair;
-    }
-
     public static boolean isActiveAttachment(PlayerWeaponInstance weaponInstance, ItemAttachment<Weapon> attachment) {
         return weaponInstance != null && WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance);
     }
@@ -1130,7 +1072,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return 0;
     }
 
-    int getCurrentAmmo(EntityPlayer player) {
+    public int getCurrentAmmo(EntityPlayer player) {
         PlayerWeaponInstance state = modContext.getMainHeldWeapon();
         return state.getAmmo();
 

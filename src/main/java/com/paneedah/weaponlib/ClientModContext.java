@@ -1,10 +1,12 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.gui.HUD;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
 import com.paneedah.weaponlib.electronics.EntityWirelessCamera;
@@ -81,7 +83,6 @@ public class ClientModContext extends CommonModContext {
             ((SimpleReloadableResourceManager) resourceManager).reloadResourcePack(weaponResourcePack);
         }
 
-        MinecraftForge.EVENT_BUS.register(new CustomGui(MC, this, weaponAttachmentAspect));
         MinecraftForge.EVENT_BUS.register(new WeaponEventHandler(this));
 
         KeyBindings.init();

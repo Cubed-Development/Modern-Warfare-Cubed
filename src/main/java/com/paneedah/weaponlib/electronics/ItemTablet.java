@@ -64,7 +64,7 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
     private final Builder<T> builder;
 
     private ItemTablet(Builder<T> builder) {
-        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null, null, null);
+        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null, null);
         this.builder = builder;
 
         setMaxStackSize(DEFAULT_MAX_STACK_SIZE);

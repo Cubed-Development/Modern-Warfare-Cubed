@@ -81,6 +81,9 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - EOTech 512 A65 Holographic (Black)
   - EOTech EXPS3-0 Holographic (Tan)
 - Changed how fast weapon states expire which should improve how weapons feel in certain conditions 
+- Changed `ammoCounterSize` config to `ammunitionCounterSize`
+- Changed `ammoCounterX` & `ammoCounterY` configs to `ammunitionCounterOffsetX` & `ammunitionCounterOffsetY`
+- Gas Detector's and some attachments won't unnecessarily hide your crosshair anymore
 
 ### Fixed
 
@@ -95,12 +98,18 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - m40a6_boltaction
   - m200_intervention_boltaction
 - Fixed somewhat of a race condition in the management of the state history (used for rendering)
+- Fixed fire mode icon being cut off at the top
+- Fixed fire mode icon being offset for each fire mode
+- Fixed fire mode key not doing well with longer key names
+- Fixed open door HUD depending on the ammunition counter
+- Fixed crash when looking at a door while loading the world
 
 ### Removed
 
 - Removed unused warning about the grenade exploding in X amount of seconds
 - Removed proning
 - Removed unused `ItemAmmo`
+- Removed `ammoCounterBackgroundReverse` & `statusBarPosition` configs
 
 ### Optimization
 

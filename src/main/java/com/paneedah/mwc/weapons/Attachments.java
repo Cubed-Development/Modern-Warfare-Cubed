@@ -12691,7 +12691,6 @@ public class Attachments {
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL, Attachments.EF88Handguard, KrissVectorReceiver,
                         Vector556Handguard, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip, G2ContenderBarrelLong,
                         HK417Receiver, HK417ReceiverTan)
-                .withCrosshair("LP")
                 .withModel(new com.paneedah.mwc.models.Leupold(), "leupold.png")
                 .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
                 .withFirstPersonModelPositioning(model -> {
@@ -12742,7 +12741,7 @@ public class Attachments {
                 .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.15f, 1.15f, 1.1f);
                     GL11.glTranslatef(-0.299f, 0.215f, 1.15f);
-                }).withCategory(AttachmentCategory.SCOPE).withCreativeTab(MWC.ATTACHMENTS_TAB).withCrosshair("LP")
+                }).withCategory(AttachmentCategory.SCOPE).withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.PSO1(), "pso1.png")
                 .withModel(new com.paneedah.mwc.models.PSO12(), "gun.png")
                 .withModernRecipe(
@@ -14040,7 +14039,7 @@ public class Attachments {
                     GL11.glScalef(1.65f, 1.65f, 1.65f);
                     GL11.glTranslatef(0.0285f, 0.492f, 0.7f);
                 })
-                .withCreativeTab(MWC.ATTACHMENTS_TAB).withCrosshair("HP")
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HP(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder, Kar98Krail,
@@ -14108,7 +14107,6 @@ public class Attachments {
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 5),
                         new CraftingEntry(MWCItems.steelIngot, 5))
-                .withCrosshair("LP")
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.LeupoldRail(), "leupold.png")
 //                .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
@@ -14164,7 +14162,7 @@ public class Attachments {
                     GL11.glTranslatef(-0.045f, 0.495f, 1.551f);
                 })
                 .withRenderablePart()
-                .withCreativeTab(MWC.ATTACHMENTS_TAB).withCrosshair("HP")
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.NightRaiderScope(), "gun.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
@@ -14283,7 +14281,7 @@ public class Attachments {
                     GL11.glTranslatef(-0.125f, -0.923f, 1.621f);
 //                    GL11.glRotatef(30F, 1f, 0f, 0f);
                 })
-                .withCreativeTab(MWC.ATTACHMENTS_TAB).withCrosshair("HP")
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.F2000Scope(), "f2000.png")
                 .withModel(new com.paneedah.mwc.models.F2000Scope2(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.F2000Reticle(), "black.png")
@@ -14345,7 +14343,6 @@ public class Attachments {
                     GL11.glTranslatef(0.375f, 0.185f, 0.34f);
 //                    GL11.glRotatef(30F, 1f, 0f, 0f);
                 })
-                .withCrosshair("HP")
                 .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.JPUreticle) {
@@ -14384,7 +14381,6 @@ public class Attachments {
                     GL11.glTranslatef(-0.23f, -0.77f, 0.65f);
                 })
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withCrosshair("HP")
                 .withModel(new com.paneedah.mwc.models.AUGScope_scope(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
                 .withModel(new com.paneedah.mwc.models.AUGScope(), "gun.png")

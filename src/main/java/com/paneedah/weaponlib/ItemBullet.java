@@ -33,7 +33,7 @@ public class ItemBullet extends ItemAttachment<Weapon> {
 
         @Override
         protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
-            ItemBullet bullet = new ItemBullet(AttachmentCategory.BULLET, getModel(), getTextureName(), null, null, null);
+            ItemBullet bullet = new ItemBullet(AttachmentCategory.BULLET, getModel(), getTextureName(), null, null);
             bullet.compatibleMagazines = compatibleMagazines;
             return bullet;
         }
@@ -42,9 +42,9 @@ public class ItemBullet extends ItemAttachment<Weapon> {
 
     private List<ItemMagazine> compatibleMagazines = new ArrayList<>();
 
-    public ItemBullet(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
+    public ItemBullet(AttachmentCategory category, ModelBase model, String textureName,
                       com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
                       com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
-        super(category, model, textureName, crosshair, apply, remove);
+        super(category, model, textureName, apply, remove);
     }
 }
