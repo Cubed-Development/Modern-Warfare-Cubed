@@ -5,6 +5,9 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -25,6 +28,7 @@ import java.util.function.Predicate;
 
 import static com.paneedah.mwc.ProjectConstants.ID;
 
+@NoArgsConstructor
 public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
     private CraftingEntry[] modernRecipe;
@@ -87,13 +91,9 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
     }
 
-    private String entitySpawnName;
-    private Predicate<Block> blockPredicate;
+    @Setter @Getter private String entitySpawnName;
+    @Setter @Getter private Predicate<Block> blockPredicate;
     private int spawnID;
-
-    public HighIQSpawnEgg() {
-
-    }
 
     public int getID() {
         return this.spawnID;
@@ -101,22 +101,6 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
     public void setID(int i) {
         this.spawnID = i;
-    }
-
-    public String getEntitySpawnName() {
-        return entitySpawnName;
-    }
-
-    public void setEntitySpawnName(String entitySpawnName) {
-        this.entitySpawnName = entitySpawnName;
-    }
-
-    public Predicate<Block> getBlockPredicate() {
-        return blockPredicate;
-    }
-
-    public void setBlockPredicate(Predicate<Block> blockPredicate) {
-        this.blockPredicate = blockPredicate;
     }
 
     @Override

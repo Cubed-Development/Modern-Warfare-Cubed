@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.vehicle.jimphysics.stability;
 
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import lombok.Setter;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
@@ -10,8 +11,8 @@ public class InertialStabilizer {
     public Vec3d tensor = new Vec3d(0, 0, 0);
 
 
-    public Vec3d position = new Vec3d(0, 0, 0);
-    public Vec3d positionTarget = new Vec3d(0, 0, 0);
+    @Setter public Vec3d position = new Vec3d(0, 0, 0);
+    @Setter public Vec3d positionTarget = new Vec3d(0, 0, 0);
 
     public Vec3d rP = new Vec3d(0, 0, 0);
     public Vec3d prevRP = new Vec3d(0, 0, 0);
@@ -32,14 +33,6 @@ public class InertialStabilizer {
         this.tensor = tensor;
     }
 
-
-    public void setPosition(Vec3d pos) {
-        this.position = pos;
-    }
-
-    public void setPositionTarget(Vec3d target) {
-        this.positionTarget = target;
-    }
 
     /*
      * OPENGL TOOLS

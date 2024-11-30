@@ -542,7 +542,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
     public void updateSolver() {
         if (solver == null) {
-            solver = getConfiguration().getPhysicsConfig().getPhysicsSolver().clone();
+            solver = getConfiguration().getPhysicsConfig().getSolver().clone();
 
             if (solver.vehicle == null) {
                 solver.activate(this);

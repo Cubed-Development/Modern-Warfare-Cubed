@@ -1,22 +1,19 @@
 package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
 import com.paneedah.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
+import lombok.Getter;
 
 public class SuspensionSolver {
 
     public double length;
-    public double springRate;
+    @Getter public double springRate;
     public double currentLength;
-    public double joules;
+    @Getter public double joules;
     public double force;
 
     public SuspensionSolver(double k, double l) {
         this.length = l;
         this.springRate = k;
-    }
-
-    public double getSpringRate() {
-        return this.springRate;
     }
 
     public double getStretch() {
@@ -32,10 +29,6 @@ public class SuspensionSolver {
         this.currentLength = len;
         updateEnergy();
         updateForce();
-    }
-
-    public double getEnergy() {
-        return this.joules;
     }
 
     public void updateEnergy() {

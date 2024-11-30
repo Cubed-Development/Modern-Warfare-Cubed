@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.vehicle.jimphysics;
 
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
+import lombok.Getter;
 
 import java.util.ArrayList;
 
@@ -65,7 +66,7 @@ public class Transmission {
 
     public boolean isNeutral = true;
 
-    public MechanicalClutch clutch = new MechanicalClutch(0.4);
+    @Getter public MechanicalClutch clutch = new MechanicalClutch(0.4);
 
 
     /**
@@ -91,10 +92,6 @@ public class Transmission {
 
     public void setNeutral(boolean v) {
         this.isNeutral = v;
-    }
-
-    public MechanicalClutch getClutch() {
-        return this.clutch;
     }
 
 

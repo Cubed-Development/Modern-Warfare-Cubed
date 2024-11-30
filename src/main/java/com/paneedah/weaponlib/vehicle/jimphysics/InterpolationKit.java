@@ -20,11 +20,11 @@ public class InterpolationKit {
         return old + (newVal - old) * partialTicks;
     }
 
-    public static Vec3d interpolateVector(Vec3d start, Vec3d end, double mu) {
+    public static Vec3d interpolateVector(Vec3d start, Vec3d end, double partialTicks) {
+        double x = interpolateValue(start.x, end.x, partialTicks);
+        double y = interpolateValue(start.y, end.y, partialTicks);
+        double z = interpolateValue(start.z, end.z, partialTicks);
 
-        double x = interpolateValue(start.x, end.x, mu);
-        double y = interpolateValue(start.y, end.y, mu);
-        double z = interpolateValue(start.z, end.z, mu);
         return new Vec3d(x, y, z);
 
     }

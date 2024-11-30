@@ -8,6 +8,7 @@ import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
 import com.paneedah.weaponlib.state.StateManager;
+import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -28,18 +29,16 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
                     MagazineState.UNLOAD_REQUESTED,
                     MagazineState.UNLOAD));
 
+    @NoArgsConstructor
     public static class LoadPermit extends Permit<MagazineState> {
-
-        public LoadPermit() {}
 
         public LoadPermit(MagazineState state) {
             super(state);
         }
     }
 
+    @NoArgsConstructor
     public static class UnloadPermit extends Permit<MagazineState> {
-
-        public UnloadPermit() {}
 
         public UnloadPermit(MagazineState state) {
             super(state);

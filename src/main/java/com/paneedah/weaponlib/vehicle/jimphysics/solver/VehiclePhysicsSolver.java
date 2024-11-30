@@ -577,7 +577,7 @@ public class VehiclePhysicsSolver {
 
     public Vec3d calculateResistiveForces(Vec3d speed) {
         //Vec3d drag = Vec3d.ZERO;
-        Vec3d drag = VehiclePhysUtil.realDrag((float) configuration.getDragCoefficient(), speed, configuration.getFrontArea());
+        Vec3d drag = VehiclePhysUtil.realDrag((float) configuration.getDragCoefficient(), speed, configuration.getFrontSurfaceArea());
         Vec3d rolling = VehiclePhysUtil.rollingResistance(0.02F, speed);
         return drag.add(rolling);
 

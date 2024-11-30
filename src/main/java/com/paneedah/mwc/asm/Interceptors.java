@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.vehicle.RenderVehicle2;
 import com.paneedah.weaponlib.vehicle.VehicleSuspensionStrategy;
 import com.paneedah.weaponlib.vehicle.jimphysics.stability.InertialStabilizer;
 import com.paneedah.weaponlib.vehicle.smoothlib.QPTI;
-import com.paneedah.weaponlib.vehicle.smoothlib.VehicleRFCam;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
@@ -57,8 +56,6 @@ public class Interceptors {
     public static InertialStabilizer thirdPersonCameraStabilizer = new InertialStabilizer(new Vec3d(1, 1, 1));
 
     public static float authenticFOV = 0f;
-
-    public static VehicleRFCam firstPersonCamera = new VehicleRFCam();
 
     public static boolean is3dRenderableItem(Item item) {
         return item instanceof ItemBlock;

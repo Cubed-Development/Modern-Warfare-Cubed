@@ -4,38 +4,39 @@ import com.paneedah.weaponlib.vehicle.GearShiftPattern;
 import com.paneedah.weaponlib.vehicle.collisions.VehicleInertiaBuilder;
 import com.paneedah.weaponlib.vehicle.collisions.VehicleMassObject;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
+import lombok.Getter;
 import net.minecraft.util.math.Vec3d;
 
 public class PhysicsConfiguration {
 
     public double wheelBase;
-    public double frontSurfaceArea;
-    public double dragCoefficient;
+    @Getter public double frontSurfaceArea;
+    @Getter public double dragCoefficient;
 
 
     public double finalDriveRatio;
     public double vehicleMass;
 
-    public double driveTrainEfficiency;
+    @Getter public double driveTrainEfficiency;
 
     /**
      * The height the center of gravity is off the ground
      */
     public double COGHeight;
 
-    public Dimensions realDimensions;
+    @Getter public Dimensions realDimensions;
 
 
     public Transmission trans;
 
-    public GearShiftPattern shiftPattern;
+    @Getter public GearShiftPattern shiftPattern;
 
     public VehicleMassObject vmo;
-    public Engine engine;
+    @Getter public Engine engine;
 
     public Vec3d dimensions;
 
-    public VehiclePhysicsSolver solver;
+    @Getter public VehiclePhysicsSolver solver;
 
 
     public PhysicsConfiguration(double wheelBase, double frontArea, double dragC,
@@ -61,39 +62,10 @@ public class PhysicsConfiguration {
 
     }
 
-
-    public Dimensions getRealDimensions() {
-        return realDimensions;
-    }
-
-    public VehiclePhysicsSolver getPhysicsSolver() {
-        return this.solver;
-    }
-
     public VehiclePhysicsSolver buildStructure() {
         this.solver = new VehiclePhysicsSolver(this);
-        return getPhysicsSolver();
+        return getSolver();
 
-    }
-
-    public GearShiftPattern getShiftPattern() {
-        return this.shiftPattern;
-    }
-
-    public double getDriveTrainEfficiency() {
-        return this.driveTrainEfficiency;
-    }
-
-    public double getFrontArea() {
-        return this.frontSurfaceArea;
-    }
-
-    public double getDragCoefficient() {
-        return this.dragCoefficient;
-    }
-
-    public Engine getEngine() {
-        return this.engine;
     }
 
     public VehicleMassObject getVehicleMassObject() {
