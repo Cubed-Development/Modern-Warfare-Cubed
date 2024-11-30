@@ -56,7 +56,6 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Added a new sound effect when shooting snow
 - Added tooltips to melee weapons
 - Added tooltips to attachments
-- Added text to the workbench/ammo press GUI
 - Added new `enableStatusMessages` config
 - Added player item instance registry itemstack instance cache size to the F3 debug
 
@@ -85,6 +84,8 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Changed `ammoCounterSize` config to `ammunitionCounterSize`
 - Changed `ammoCounterX` & `ammoCounterY` configs to `ammunitionCounterOffsetX` & `ammunitionCounterOffsetY`
 - Gas Detector's and some attachments won't unnecessarily hide your crosshair anymore
+- Reworked headers in the workbench (Workbench, Crafting, Inventory)
+
 
 ### Fixed
 
