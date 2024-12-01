@@ -23,10 +23,6 @@ varying vec3 tangent;
 varying vec4 my_FragData[2];
 
 void main(){
-
-
-
-
 	vec3 cameraDir = normalize(posi.xyz);
 
 	vec3 offset = cameraDir + normal;
