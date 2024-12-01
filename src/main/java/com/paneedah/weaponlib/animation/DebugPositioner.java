@@ -31,7 +31,7 @@ public class DebugPositioner {
 
     @Setter private static boolean isAdjustRotationMode;
 
-    @Setter @Getter
+    @Getter @Setter
     public static final class TransitionConfiguration {
         private long pause;
 

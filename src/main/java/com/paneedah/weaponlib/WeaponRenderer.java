@@ -318,15 +318,15 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         private boolean compoundReloadUsesTactical;
         private boolean compoundReloadEmptyUsesTactical;
-        @Setter @Getter private boolean hasTacticalReload;
-        @Setter @Getter private boolean hasUnloadEmpty;
-        @Setter @Getter private boolean hasLoadEmpty;
-        @Setter @Getter private boolean hasCompoundReloadEmpty;
-        @Setter @Getter private boolean hasCompoundReload;
-        @Setter @Getter private boolean hasLoad;
-        @Setter @Getter private boolean hasUnload;
-        @Setter @Getter private boolean hasDraw;
-        @Setter @Getter private boolean hasInspect;
+        @Getter @Setter private boolean hasTacticalReload;
+        @Getter @Setter private boolean hasUnloadEmpty;
+        @Getter @Setter private boolean hasLoadEmpty;
+        @Getter @Setter private boolean hasCompoundReloadEmpty;
+        @Getter @Setter private boolean hasCompoundReload;
+        @Getter @Setter private boolean hasLoad;
+        @Getter @Setter private boolean hasUnload;
+        @Getter @Setter private boolean hasDraw;
+        @Getter @Setter private boolean hasInspect;
         private boolean hasEjectSpentRound;
         private boolean hasEjectSpentRoundAimed;
 

@@ -3,7 +3,7 @@ package com.paneedah.weaponlib;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter @Getter
+@Getter @Setter
 public final class Tuple<U, V> {
 
     private U u;

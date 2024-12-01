@@ -91,8 +91,8 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
     }
 
-    @Setter @Getter private String entitySpawnName;
-    @Setter @Getter private Predicate<Block> blockPredicate;
+    @Getter @Setter private String entitySpawnName;
+    @Getter @Setter private Predicate<Block> blockPredicate;
     private int spawnID;
 
     public int getID() {

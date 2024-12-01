@@ -13,7 +13,7 @@ public class LightExposure extends UniversalObject implements Exposure {
 
     private long lastExposureTimestamp;
     private long maxDuration;
-    @Setter @Getter private float totalDose = 1f;
+    @Getter @Setter private float totalDose = 1f;
     private float decayFactor = 0.995f;
 
 
