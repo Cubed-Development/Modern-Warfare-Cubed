@@ -85,6 +85,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Changed `ammoCounterX` & `ammoCounterY` configs to `ammunitionCounterOffsetX` & `ammunitionCounterOffsetY`
 - Gas Detector's and some attachments won't unnecessarily hide your crosshair anymore
 - Reworked headers in the workbench (Workbench, Crafting, Inventory)
+- Improved the Billboard Shader (Used for smoke grenades)
 
 ### Fixed
 
