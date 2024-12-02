@@ -32,6 +32,9 @@ repositories {
         name = "Cleanroom"
         url = uri("https://repo.cleanroommc.com/releases")
     }
+    maven {
+        url = uri("https://maven.cleanroommc.com")
+    }
 
     listOf("release", "beta", "dev").forEach { repoType ->
         maven {
@@ -57,6 +60,8 @@ dependencies {
     implementation("dev.redstudio", "Red-Core", redCoreVersion)
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
+    //compileOnly(rfg.deobf("mezz:jei:4.26.2"))
+    implementation("mezz:jei:4.26.2")
     compileOnly("com.cleanroommc", "groovyscript", groovyScriptVersion) {
         isTransitive = false
     }
