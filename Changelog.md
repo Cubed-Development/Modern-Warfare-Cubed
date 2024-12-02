@@ -7,7 +7,13 @@ and this project follows the [Ragnarök Versioning Convention](https://github.co
 
 ## [UNRELEASED] Modern Warfare Cubed Version 0.2 Changelog
 
+### Warning
+
 [**MWC 0.1 NOW REQUIRES RED CORE 0.6 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+**ALL ATTACHMENTS, MODIFICATIONS AND SKINS CURRENTLY ON A WEAPON WILL DISAPPEAR**
 
 ### Highlight
 
@@ -33,11 +39,11 @@ Some things in the mod did not have custom tooltips at all, so we changed that, 
 
 Attachments New Tooltips:
 
-<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/6ad9be3f-99ac-48ab-aa7d-6a165ab1260f" alt="Before" width="256">
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/c8a799ee-5ca1-4e82-8cd9-923f4715bd32" alt="Before" height="256">
 
 Melee Weapons New Tooltips:
 
-<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/c8a799ee-5ca1-4e82-8cd9-923f4715bd32" alt="Before" height="256">
+<img src="https://github.com/Cubed-Development/Modern-Warfare-Cubed/assets/82710983/6ad9be3f-99ac-48ab-aa7d-6a165ab1260f" alt="Before" width="256">
 
 This should really help in a lot of situations,
 like knowing which weapon is better or whether an attachment will be useful to you.
@@ -50,6 +56,8 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Added a new sound effect when shooting snow
 - Added tooltips to melee weapons
 - Added tooltips to attachments
+- Added new `enableStatusMessages` config
+- Added player item instance registry itemstack instance cache size to the F3 debug
 
 ### Changed
 
@@ -73,18 +81,44 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - EOTech 512 A65 Holographic (Black)
   - EOTech EXPS3-0 Holographic (Tan)
   - SIG SLX Silencer
+- Changed how fast weapon states expire which should improve how weapons feel in certain conditions 
+- Changed `ammoCounterSize` config to `ammunitionCounterSize`
+- Changed `ammoCounterX` & `ammoCounterY` configs to `ammunitionCounterOffsetX` & `ammunitionCounterOffsetY`
+- Gas Detector's and some attachments won't unnecessarily hide your crosshair anymore
+- Reworked headers in the workbench (Workbench, Crafting, Inventory)
+- Improved the blending of the smoke grenades smoke
 
 ### Fixed
 
 - Fixed the default craftingmappings.json
 - Fixed the position of the RPG-7 and M202 projectiles
 - Fixed compatiblity with GroovyScript 1.2+
+- Fixed certain sounds not being registered:
+  - revolver_reload
+  - revolverbullet
+  - revolver_insert_bullet
+  - revolver_load_complete
+  - m40a6_boltaction
+  - m200_intervention_boltaction
+- Fixed somewhat of a race condition in the management of the state history (used for rendering)
+- Fixed fire mode icon being cut off at the top
+- Fixed fire mode icon being offset for each fire mode
+- Fixed fire mode key not doing well with longer key names
+- Fixed open door HUD depending on the ammunition counter
+- Fixed crash when looking at a door while loading the world
 
 ### Removed
 
 - Removed unused warning about the grenade exploding in X amount of seconds
 - Removed proning
 - Removed unused `ItemAmmo`
+- Removed `ammoCounterBackgroundReverse` & `statusBarPosition` configs
+- Removed the S&W .500 Magnum
+
+### Optimization
+
+- Clear player item instance registry after rendering every weapon once on first world load and when leaving a world
+- Invalidate player item instance registry itemstack instance cache after rendering every weapon once on first world load
 
 ### Internal
 
@@ -97,17 +131,32 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated the `gradle.properties` to the new Red Studio standard one
 - Cleaned up the buildscript
 - Updated [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) dependency to 1.2
-- Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 5.5.0
+- Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 5.5.1
 - Switched to the new standard `gradle.properties`
 - General cleanup
-- Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 8.7.1
+- Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 8.11
 - Remade the build script
 - Switched from [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) tags to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin)
-- Updated [MixinBooter](https://www.curseforge.com/minecraft/mc-mods/mixin-booter) dependency to 10.1
+- Updated [MixinBooter](https://www.curseforge.com/minecraft/mc-mods/mixin-booter) dependency to 10.2
 - Updated to [org.jetbrains.gradle.plugin.idea-ext](https://github.com/JetBrains/gradle-idea-ext-plugin) 1.1.9
 - Props now use Red Core `AABBUtil`
 - Updated [Red Core](https://www.curseforge.com/minecraft/mc-mods/red-core) dependency to 0.6-Dev-8
 - Lombokified most of the codebase
+
+## Modern Warfare Cubed Version 0.1.9 Changelog - 2024-11-25
+
+### Warning
+
+[**MWC 0.1 NOW REQUIRES RED CORE 0.5.1 AND ABOVE**](https://www.curseforge.com/minecraft/mc-mods/red-core/files/all)
+
+[**MWC 0.1 NOW REQUIRES MIXINBOOTER**](https://www.curseforge.com/minecraft/mc-mods/mixin-booter/files/all)
+
+**BEFORE UPDATING TO MWC 0.1 MAKE SURE TO BACKUP YOUR WORLDS, THINGS WILL DISAPPEAR**
+
+### Fixed
+
+- Fixed accidental use of `akka.japi.Predicate` instead `java.util.function.Predicate`
+- Fixed ammunition press using `null` instead of `ItemStack#EMPTY`
 
 ## Modern Warfare Cubed Version 0.1.8 Changelog - 2024-08-16
 

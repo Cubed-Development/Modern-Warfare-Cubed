@@ -1,5 +1,7 @@
 package com.paneedah.mwc.asm;
 
+import com.paneedah.mwc.gui.HUD;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
@@ -14,7 +16,6 @@ import com.paneedah.weaponlib.vehicle.RenderVehicle2;
 import com.paneedah.weaponlib.vehicle.VehicleSuspensionStrategy;
 import com.paneedah.weaponlib.vehicle.jimphysics.stability.InertialStabilizer;
 import com.paneedah.weaponlib.vehicle.smoothlib.QPTI;
-import com.paneedah.weaponlib.vehicle.smoothlib.VehicleRFCam;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
@@ -55,8 +56,6 @@ public class Interceptors {
     public static InertialStabilizer thirdPersonCameraStabilizer = new InertialStabilizer(new Vec3d(1, 1, 1));
 
     public static float authenticFOV = 0f;
-
-    public static VehicleRFCam firstPersonCamera = new VehicleRFCam();
 
     public static boolean is3dRenderableItem(Item item) {
         return item instanceof ItemBlock;
@@ -742,7 +741,7 @@ public class Interceptors {
 
         if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
             PlayerWeaponInstance pwi = ClientModContext.getContext().getMainHeldWeapon();
-            if (CustomGui.isInModifyingState(pwi) || CustomGui.isInAltModifyingState(pwi)) {
+            if (HUD.isInModifyingState(pwi) || HUD.isInAltModifyingState(pwi)) {
                 yawDelta *= 0.01f;
                 pitchDelta *= 0.01f;
             }

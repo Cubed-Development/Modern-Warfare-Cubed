@@ -25,6 +25,7 @@ import java.util.LinkedList;
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.*;
 
 /**
  * GUIContainer for the Workbench Block
@@ -56,7 +57,6 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         super(tileEntityAmmoPress, new ContainerAmmoPress(player, inventory, tileEntityAmmoPress));
     }
 
-
     @Override
     public void initGui() {
         super.initGui();
@@ -68,16 +68,16 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         this.quantityBox.setTextColor(16777215);
 
         bulletSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 3, this.guiLeft + 107, this.guiTop + 29, 19, 20, 256, 256, "")
-                .withStandardState(0xFFFFFF, 0, 0).withHoveredState(0xFFFFFF, 19, 0)
-                .withToggledState(0xFFFFFF, 38, 0).withPageRestriction(2).makeToggleButton();
+                .withStandardState(WHITE, 0, 0).withHoveredState(WHITE, 19, 0)
+                .withToggledState(WHITE, 38, 0).withPageRestriction(2).makeToggleButton();
 
         magazineSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 4, this.guiLeft + 130, this.guiTop + 29, 19, 20, 256, 256, "")
-                .withStandardState(0xFFFFFF, 0, 20).withHoveredState(0xFFFFFF, 19, 20)
-                .withToggledState(0xFFFFFF, 38, 20).withPageRestriction(2).makeToggleButton();
+                .withStandardState(WHITE, 0, 20).withHoveredState(WHITE, 19, 20)
+                .withToggledState(WHITE, 38, 20).withPageRestriction(2).makeToggleButton();
 
         grenadeSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 5, this.guiLeft + 153, this.guiTop + 29, 19, 20, 256, 256, "")
-                .withStandardState(0xFFFFFF, 0, 40).withHoveredState(0xFFFFFF, 19, 40)
-                .withToggledState(0xFFFFFF, 38, 40).withPageRestriction(2).makeToggleButton();
+                .withStandardState(WHITE, 0, 40).withHoveredState(WHITE, 19, 40)
+                .withToggledState(WHITE, 38, 40).withPageRestriction(2).makeToggleButton();
 
         bulletSelector.toggleOn();
 
@@ -126,7 +126,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         super.actionPerformed(button);
 
         if (button == craftButton && !craftButton.isDisabled()) {
-            if (hasSelectedCraftingPiece() && quantityBox.getText().length() != 0) {
+            if (hasSelectedCraftingPiece() && !quantityBox.getText().isEmpty()) {
                 int quantity = Integer.parseInt(quantityBox.getText());
                 CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItemStack().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
             }
@@ -136,7 +136,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
             magazineSelector.toggleOff();
             grenadeSelector.toggleOff();
 
-            setCraftingMode(1);
+            setCraftingMode(CraftingGroup.BULLET.getID());
             setSelectedCraftingPiece(null);
 
             fillFilteredList();
@@ -145,7 +145,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
             bulletSelector.toggleOff();
             grenadeSelector.toggleOff();
 
-            setCraftingMode(2);
+            setCraftingMode(CraftingGroup.MAGAZINE.getID());
             setSelectedCraftingPiece(null);
 
             fillFilteredList();
@@ -154,7 +154,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
             magazineSelector.toggleOff();
             bulletSelector.toggleOff();
 
-            setCraftingMode(3);
+            setCraftingMode(CraftingGroup.GRENADE.getID());
             setSelectedCraftingPiece(null);
 
             fillFilteredList();

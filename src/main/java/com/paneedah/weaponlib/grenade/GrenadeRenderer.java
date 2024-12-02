@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
@@ -630,7 +632,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         float rate = builder.normalRandomizingRate;
         RenderableState currentState = null;
 
-        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getItemInstance(player, itemStack);
+        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerGrenadeInstance playerGrenadeInstance = null;
@@ -642,7 +644,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         }
 
         if (playerGrenadeInstance != null) {
-            AsyncGrenadeState asyncWeaponState = getNextNonExpiredState(playerGrenadeInstance);
+            AsyncGrenadeState asyncWeaponState = playerGrenadeInstance.nextNonExpiredHistoryState();
 
             switch (asyncWeaponState.getState()) {
 
@@ -689,19 +691,6 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
 
         return new StateDescriptor(playerGrenadeInstance, stateManager, rate, amplitude);
-    }
-
-    private AsyncGrenadeState getNextNonExpiredState(PlayerGrenadeInstance playerWeaponState) {
-        AsyncGrenadeState asyncWeaponState = null;
-        while ((asyncWeaponState = playerWeaponState.nextHistoryState()) != null) {
-            if (System.currentTimeMillis() > asyncWeaponState.getTimestamp() + asyncWeaponState.getDuration()) {
-                continue;
-            } else {
-                break;
-            }
-        }
-
-        return asyncWeaponState;
     }
 
     private Consumer<RenderContext<RenderableState>> createWeaponPartPositionFunction(Transition<RenderContext<RenderableState>> t) {
@@ -872,85 +861,6 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             //log.error("Instance is not a grenade!");
             return;
         }
-
-        PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) itemInstance;
-
-        List<CompatibleAttachment<? extends AttachmentContainer>> attachments = grenadeInstance.getActiveAttachments(renderContext, true);
-        renderAttachments(positioner, renderContext, attachments);
-    }
-
-    public void renderAttachments(Positioner<Part, RenderContext<RenderableState>> positioner, RenderContext<RenderableState> renderContext, List<CompatibleAttachment<? extends AttachmentContainer>> attachments) {
-        for (CompatibleAttachment<?> compatibleAttachment : attachments) {
-            if (compatibleAttachment != null && !(compatibleAttachment.getAttachment() instanceof ItemSkin)) {
-                renderCompatibleAttachment(compatibleAttachment, positioner, renderContext);
-            }
-        }
-    }
-
-    private void renderCompatibleAttachment(CompatibleAttachment<?> compatibleAttachment,
-                                            Positioner<Part, RenderContext<RenderableState>> positioner, RenderContext<RenderableState> renderContext) {
-
-
-        GL11.glPushMatrix();
-        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
-
-        if (compatibleAttachment.getPositioning() != null) {
-            //compatibleAttachment.getPositioning().accept(renderContext.getPlayer(), renderContext.getWeapon());
-        }
-
-        ItemAttachment<?> itemAttachment = compatibleAttachment.getAttachment();
-
-
-        if (positioner != null) {
-            if (itemAttachment instanceof Part) {
-                positioner.position((Part) itemAttachment, renderContext);
-                if (DebugPositioner.isDebugModeEnabled()) {
-                    DebugPositioner.position(itemAttachment, renderContext);
-                }
-            } else if (itemAttachment.getRenderablePart() != null) {
-                positioner.position(itemAttachment.getRenderablePart(), renderContext);
-                if (DebugPositioner.isDebugModeEnabled()) {
-                    DebugPositioner.position(itemAttachment.getRenderablePart(), renderContext);
-                }
-            }
-        }
-
-        for (Tuple<ModelBase, String> texturedModel : compatibleAttachment.getAttachment().getTexturedModels()) {
-            MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
-            GL11.glPushMatrix();
-            GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
-            if (compatibleAttachment.getModelPositioning() != null) {
-                compatibleAttachment.getModelPositioning().accept(texturedModel.getU());
-            }
-            texturedModel.getU().render(renderContext.getPlayer(),
-                    renderContext.getLimbSwing(),
-                    renderContext.getFlimbSwingAmount(),
-                    renderContext.getAgeInTicks(),
-                    renderContext.getNetHeadYaw(),
-                    renderContext.getHeadPitch(),
-                    renderContext.getScale());
-
-            GL11.glPopAttrib();
-            GL11.glPopMatrix();
-        }
-
-
-        CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) compatibleAttachment.getAttachment().getPostRenderer();
-        if (postRenderer != null) {
-            GL11.glPushMatrix();
-            GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
-            postRenderer.render(renderContext);
-            GL11.glPopAttrib();
-            GL11.glPopMatrix();
-        }
-
-        for (CompatibleAttachment<?> childAttachment : itemAttachment.getAttachments()) {
-            renderCompatibleAttachment(childAttachment, positioner, renderContext);
-        }
-
-        GL11.glPopAttrib();
-        GL11.glPopMatrix();
-
     }
 
     public String getTextureName() {

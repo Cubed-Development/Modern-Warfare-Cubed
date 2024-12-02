@@ -24,7 +24,7 @@ public final class GrenadeMessageHandler implements IMessageHandler<GrenadeMessa
 
             if (player.getHeldItemMainhand().getItem() instanceof ItemGrenade) {
                 grenadeMessage.getInstance().setPlayer(player);
-                grenadeAttackAspect.serverThrowGrenade(player, grenadeMessage.getInstance(), grenadeMessage.getActivationTimestamp());
+                grenadeAttackAspect.serverThrowGrenade(player, grenadeMessage.getInstance());
             }
         });
 

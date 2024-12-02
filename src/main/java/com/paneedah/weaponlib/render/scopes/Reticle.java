@@ -16,8 +16,8 @@ public class Reticle {
     @Getter @Setter private ResourceLocation reticleTexture;
     private Type reticleType;
 
-    @Setter @Getter private float textureScale;
-    @Setter @Getter private Vec3d backgroundColor;
+    @Getter @Setter private float textureScale;
+    @Getter @Setter private Vec3d backgroundColor;
 
     public enum Type {
         HOLOGRAPHIC,

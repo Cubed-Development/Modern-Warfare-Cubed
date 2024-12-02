@@ -1,12 +1,14 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerMagazineInstance;
+import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.NetworkPermitManager;
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
 import com.paneedah.weaponlib.state.StateManager;
+import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -20,11 +22,6 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazineInstance> {
 
-    static {
-        TypeRegistry.getINSTANCE().register(LoadPermit.class);
-        TypeRegistry.getINSTANCE().register(UnloadPermit.class);
-    }
-
     private static final Set<MagazineState> allowedUpdateFromStates = new HashSet<>(
             Arrays.asList(
                     MagazineState.LOAD_REQUESTED,
@@ -32,18 +29,16 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
                     MagazineState.UNLOAD_REQUESTED,
                     MagazineState.UNLOAD));
 
+    @NoArgsConstructor
     public static class LoadPermit extends Permit<MagazineState> {
-
-        public LoadPermit() {}
 
         public LoadPermit(MagazineState state) {
             super(state);
         }
     }
 
+    @NoArgsConstructor
     public static class UnloadPermit extends Permit<MagazineState> {
-
-        public UnloadPermit() {}
 
         public UnloadPermit(MagazineState state) {
             super(state);

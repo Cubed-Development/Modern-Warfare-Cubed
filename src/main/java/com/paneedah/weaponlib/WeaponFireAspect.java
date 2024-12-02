@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
+import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.network.messages.MuzzleFlashMessage;
 import com.paneedah.mwc.network.messages.ShellMessageClient;
@@ -210,14 +212,16 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         if (weaponInstance.getAmmo() == 0 || Tags.getAmmo(weaponInstance.getItemStack()) == 0) {
             String message;
 
-            if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
-                message = I18n.format("gui.noMagazine");
-            } else {
-                message = I18n.format("gui.noAmmo");
-            }
+            if(ModernConfigManager.enableStatusMessages){
+                if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
+                    message = I18n.format("gui.noMagazine");
+                } else {
+                    message = I18n.format("gui.noAmmo");
+                }
 
-            if (weaponInstance.getPlayer() instanceof EntityPlayer) {
-                ((EntityPlayer) weaponInstance.getPlayer()).sendStatusMessage(new TextComponentString(message), true);
+                if (weaponInstance.getPlayer() instanceof EntityPlayer) {
+                    ((EntityPlayer) weaponInstance.getPlayer()).sendStatusMessage(new TextComponentString(message), true);
+                }
             }
 
             if (weaponInstance.getPlayer() instanceof EntityPlayer) {

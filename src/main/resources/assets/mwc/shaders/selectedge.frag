@@ -16,11 +16,6 @@ bool isSelectedColor(vec4 color) {
 }
 
 vec4 search(vec4 originalColor) {
-
-
-
-
-
 	bool notSelected = isSelectedColor(originalColor);
 
 	vec4 col = vec4(0);

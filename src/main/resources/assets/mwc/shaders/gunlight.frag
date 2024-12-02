@@ -64,7 +64,7 @@ void main(){
 	vec4 specular = vec4(1.0, 0.0, 0.0, 0.0);
 	vec4 spec = vec4(0.0);
 
-	 vec3 n = normalize(normal);
+	vec3 n = normalize(normal);
     vec3 l = normalize(lightDir);
     vec3 e = normalize(eyeDir);
 

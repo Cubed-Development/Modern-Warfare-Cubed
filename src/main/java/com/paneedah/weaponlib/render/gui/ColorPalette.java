@@ -56,4 +56,15 @@ public class ColorPalette {
     public static final int CHI_GONG = 0xD63031;
     public static final int PRUNUS_AVIUM = 0xE84393;
     public static final int DRACULA_ORCHID = 0x2D3436;
+
+    //MWC Pallet
+    public static final int GRAY = 0x7B7B7B;
+    public static final int RED = 0xA95E5F;
+    public static final int GOLD = 0xFDF17C;
+    public static final int BLUE = 0x8FC5E3;
+    public static final int GREEN = 0x97E394;
+    public static final int LIGHT_GREY = 0xDADADA;
+    public static final int TOOLTIP_COL_ERROR = 0x702b2b;
+
+
 }

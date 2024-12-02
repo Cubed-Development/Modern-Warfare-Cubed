@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.command;
 
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.*;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.math.Vec3d;
 
 import java.util.Arrays;
 

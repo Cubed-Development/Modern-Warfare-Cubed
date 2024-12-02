@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.shader;
 
 import com.google.gson.JsonSyntaxException;
-import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.weaponlib.TransformingResourceManager;
 import com.paneedah.weaponlib.TransformingTextureManager;
 import net.minecraft.client.renderer.GlStateManager;

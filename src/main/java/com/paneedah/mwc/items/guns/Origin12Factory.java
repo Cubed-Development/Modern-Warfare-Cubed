@@ -2,6 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -38,9 +39,6 @@ public class Origin12Factory {
                 .withInspectSound("inspection")
                 .withDrawSound("noaction_draw")
                 .withReloadingTime(45)
-                .withCrosshair("gun")
-                .withCrosshairRunning("Running")
-                .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.6f)
                 .withFlashScale(() -> 0.8f)
                 .withFlashOffsetX(() -> 0.12f)

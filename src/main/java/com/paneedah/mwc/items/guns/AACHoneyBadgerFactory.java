@@ -4,6 +4,7 @@ package com.paneedah.mwc.items.guns;
 // IMPORT LIST START
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -38,9 +39,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withInspectSound("m4a1_inspection") // Inspection sound
                 .withDrawSound("m4_draw") // Draw sound
                 .withReloadingTime(50)  // Reloading time in ticks
-                .withCrosshair("gun") // Crosshair
-                .withCrosshairRunning("Running") // Crosshair when running
-                .withCrosshairZoomed("Sight") // Crosshair when zoomed
                 .withFlashIntensity(0.5f) // Flash intensity
                 .withFlashScale(() -> 0.6f) // Flash scale
                 .withFlashOffsetX(() -> 0.13f) // Flash offset X

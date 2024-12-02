@@ -1,11 +1,13 @@
 package com.paneedah.weaponlib.vehicle.jimphysics;
 
+import lombok.Getter;
+
 public class MechanicalClutch {
 
     public double engagementPoint = 0.4;
     public double currentPressure = 0.0;
 
-    public double pedalPressure = 0.0;
+    @Getter public double pedalPressure = 0.0;
 
     public MechanicalClutch(double engagementPoint) {
         this.engagementPoint = engagementPoint;
@@ -30,10 +32,6 @@ public class MechanicalClutch {
             this.pedalPressure = 0;
         }
         updatePedalPressure();
-    }
-
-    public double getPedalPressure() {
-        return this.pedalPressure;
     }
 
 

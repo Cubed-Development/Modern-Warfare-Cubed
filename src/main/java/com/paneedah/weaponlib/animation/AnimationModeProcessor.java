@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.animation;
 
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;

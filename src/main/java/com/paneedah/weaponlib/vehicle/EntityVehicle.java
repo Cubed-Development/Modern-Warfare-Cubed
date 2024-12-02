@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.google.common.collect.Lists;
+import com.paneedah.mwc.gui.HUD;
 import com.paneedah.mwc.network.messages.VehicleControlMessage;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Randomizer;
@@ -541,7 +542,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
     public void updateSolver() {
         if (solver == null) {
-            solver = getConfiguration().getPhysicsConfig().getPhysicsSolver().clone();
+            solver = getConfiguration().getPhysicsConfig().getSolver().clone();
 
             if (solver.vehicle == null) {
                 solver.activate(this);
@@ -701,12 +702,12 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
                 vehicleIsRunning = false;
                 this.drivingSound = null;
-                CustomGui.vehicleGUIOverlay.keyAnimator.removeKey();
+                HUD.VEHICLE_GUI_OVERLAY.keyAnimator.removeKey();
             } else {
 
                 vehicleIsRunning = true;
                 this.drivingSound = null;
-                CustomGui.vehicleGUIOverlay.keyAnimator.turnKey();
+                HUD.VEHICLE_GUI_OVERLAY.keyAnimator.turnKey();
             }
         }
 
@@ -1718,7 +1719,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         if (this.world.getBlockState(getPosition().up()).getMaterial().isLiquid()) {
             vehicleIsRunning = false;
-            CustomGui.vehicleGUIOverlay.keyAnimator.removeKey();
+            HUD.VEHICLE_GUI_OVERLAY.keyAnimator.removeKey();
         }
 
         double wheelbase = 2.85;

@@ -12,7 +12,6 @@ public class QPTI {
 
     public static double pti(double a, double b) {
         return InterpolationKit.interpolateValue(a, b, MC.getRenderPartialTicks());
-
     }
 
 }

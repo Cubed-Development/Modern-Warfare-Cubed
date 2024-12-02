@@ -1,11 +1,13 @@
 package com.paneedah.weaponlib;
 
-import akka.japi.Predicate;
 import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -22,8 +24,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.storage.AnvilChunkLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
+import java.util.function.Predicate;
+
 import static com.paneedah.mwc.ProjectConstants.ID;
 
+@NoArgsConstructor
 public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
     private CraftingEntry[] modernRecipe;
@@ -86,13 +91,9 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
     }
 
-    private String entitySpawnName;
-    private Predicate<Block> blockPredicate;
+    @Getter @Setter private String entitySpawnName;
+    @Getter @Setter private Predicate<Block> blockPredicate;
     private int spawnID;
-
-    public HighIQSpawnEgg() {
-
-    }
 
     public int getID() {
         return this.spawnID;
@@ -100,22 +101,6 @@ public class HighIQSpawnEgg extends Item implements IModernCraftingRecipe {
 
     public void setID(int i) {
         this.spawnID = i;
-    }
-
-    public String getEntitySpawnName() {
-        return entitySpawnName;
-    }
-
-    public void setEntitySpawnName(String entitySpawnName) {
-        this.entitySpawnName = entitySpawnName;
-    }
-
-    public Predicate<Block> getBlockPredicate() {
-        return blockPredicate;
-    }
-
-    public void setBlockPredicate(Predicate<Block> blockPredicate) {
-        this.blockPredicate = blockPredicate;
     }
 
     @Override

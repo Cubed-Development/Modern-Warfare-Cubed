@@ -42,10 +42,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
     private static final String ACTIVE_ATTACHMENT_TAG = "ActiveAttachments";
 
-    private static final String SHIELD_CAPACITY_TAG = "ShieldCapacity";
-
-    private static final String SHIELD_HIT_TIMESTAMP_TAG = "ShieldHitTimestamp";
-
     protected String textureName;
     protected ModelBiped model;
     protected String hudTextureName;
@@ -129,15 +125,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         private boolean vignetteEnabled;
         private float exposureReductionFactor;
         private String breathingSound;
-        private double maxShieldCapacity = 0.0;
-        private long shieldRegenerationTimeout = 2000;
-        private double shieldRegenerationRate = 1.0;
-        private double shieldIndicatorPositionX = 15;
-        private double shieldIndicatorPositionY = 20;
-        private double shieldIndicatorWidth = 100;
-        private double shieldIndicatorHeight = 15;
-        private String shieldIndicatorMaskTextureName;
-        private String shieldIndicatorProgressBarTextureName;
 
         public Builder withCreativeTab(CreativeTabs creativeTab) {
             this.creativeTab = creativeTab;
@@ -198,37 +185,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
         public Builder withCompatibleAttachment(AttachmentCategory category, ModelBase attachmentModel, String textureName,
                                                 Consumer<ModelBase> positioner) {
-            ItemAttachment<CustomArmor> item = new ItemAttachment<>(category, attachmentModel, textureName, null);
+            ItemAttachment<CustomArmor> item = new ItemAttachment<>(category, attachmentModel, textureName);
             compatibleAttachments.put(item, new CompatibleAttachment<>(item, positioner));
-            return this;
-        }
-
-        public Builder withShieldCapacity(double capacity) {
-            this.maxShieldCapacity = capacity;
-            return this;
-        }
-
-        public Builder withShieldRegenerationTimeout(long shieldRegenerationTimeout) {
-            this.shieldRegenerationTimeout = shieldRegenerationTimeout;
-            return this;
-        }
-
-        public Builder withShieldRegenerationRate(double shieldRegenerationRate) {
-            this.shieldRegenerationRate = shieldRegenerationRate;
-            return this;
-        }
-
-        public Builder withShieldIndicatorPosition(double x, double y, double width, double height) {
-            this.shieldIndicatorPositionX = x;
-            this.shieldIndicatorPositionY = y;
-            this.shieldIndicatorWidth = width;
-            this.shieldIndicatorHeight = height;
-            return this;
-        }
-
-        public Builder withShieldIndicatorTexture(String shieldIndicatorMaskTextureName, String shieldIndicatorProgressBarTextureName) {
-            this.shieldIndicatorMaskTextureName = shieldIndicatorMaskTextureName.toLowerCase();
-            this.shieldIndicatorProgressBarTextureName = shieldIndicatorProgressBarTextureName.toLowerCase();
             return this;
         }
 
@@ -280,39 +238,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             armorBoots.setTranslationKey(unlocalizedBootsName);
             armorBoots.setRegistryName(ID, unlocalizedBootsName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorBoots);
-
-            armorHelmet.maxShieldCapacity = maxShieldCapacity;
-            armorHelmet.shieldRegenerationRate = shieldRegenerationRate;
-            armorHelmet.shieldRegenerationTimeout = shieldRegenerationTimeout;
-
-            armorHelmet.shieldIndicatorPositionX = shieldIndicatorPositionX;
-            armorHelmet.shieldIndicatorPositionY = shieldIndicatorPositionY;
-            armorHelmet.shieldIndicatorWidth = shieldIndicatorWidth;
-            armorHelmet.shieldIndicatorHeight = shieldIndicatorHeight;
-            armorHelmet.shieldIndicatorMaskTextureName = shieldIndicatorMaskTextureName;
-            armorHelmet.shieldIndicatorProgressBarTextureName = shieldIndicatorProgressBarTextureName;
-
-            armorBoots.maxShieldCapacity = maxShieldCapacity;
-            armorBoots.shieldRegenerationRate = shieldRegenerationRate;
-            armorBoots.shieldRegenerationTimeout = shieldRegenerationTimeout;
-
-            armorBoots.shieldIndicatorPositionX = shieldIndicatorPositionX;
-            armorBoots.shieldIndicatorPositionY = shieldIndicatorPositionY;
-            armorBoots.shieldIndicatorWidth = shieldIndicatorWidth;
-            armorBoots.shieldIndicatorHeight = shieldIndicatorHeight;
-            armorBoots.shieldIndicatorMaskTextureName = shieldIndicatorMaskTextureName;
-            armorBoots.shieldIndicatorProgressBarTextureName = shieldIndicatorProgressBarTextureName;
-
-            armorChest.maxShieldCapacity = maxShieldCapacity;
-            armorChest.shieldRegenerationRate = shieldRegenerationRate;
-            armorChest.shieldRegenerationTimeout = shieldRegenerationTimeout;
-
-            armorChest.shieldIndicatorPositionX = shieldIndicatorPositionX;
-            armorChest.shieldIndicatorPositionY = shieldIndicatorPositionY;
-            armorChest.shieldIndicatorWidth = shieldIndicatorWidth;
-            armorChest.shieldIndicatorHeight = shieldIndicatorHeight;
-            armorChest.shieldIndicatorMaskTextureName = shieldIndicatorMaskTextureName;
-            armorChest.shieldIndicatorProgressBarTextureName = shieldIndicatorProgressBarTextureName;
         }
 
 
@@ -366,17 +291,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             armorChest.setRegistryName(ID, unlocalizedChestName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorChest);
 
-            armorChest.maxShieldCapacity = maxShieldCapacity;
-            armorChest.shieldRegenerationRate = shieldRegenerationRate;
-            armorChest.shieldRegenerationTimeout = shieldRegenerationTimeout;
-
-            armorChest.shieldIndicatorPositionX = shieldIndicatorPositionX;
-            armorChest.shieldIndicatorPositionY = shieldIndicatorPositionY;
-            armorChest.shieldIndicatorWidth = shieldIndicatorWidth;
-            armorChest.shieldIndicatorHeight = shieldIndicatorHeight;
-            armorChest.shieldIndicatorMaskTextureName = shieldIndicatorMaskTextureName;
-            armorChest.shieldIndicatorProgressBarTextureName = shieldIndicatorProgressBarTextureName;
-
             if (FMLCommonHandler.instance().getSide().isClient()) {
                 COOKING_QUEUE.add(armorChest);
             }
@@ -403,10 +317,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             armorBoots.setRegistryName(ID, unlocalizedBootsName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorBoots);
 
-//            armorBoots.maxShieldCapacity = maxShieldCapacity;
-//            armorBoots.shieldRegenerationRate = shieldRegenerationRate;
-//            armorBoots.shieldRegenerationTimeout = shieldRegenerationTimeout;
-
             if (FMLCommonHandler.instance().getSide().isClient()) {
                 COOKING_QUEUE.add(armorBoots);
             }
@@ -427,18 +337,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     private SoundEvent breathingSound;
     private final EntityEquipmentSlot compatibleEquipmentType;
 
-    //private boolean shieldEnabled;
-    private long shieldRegenerationTimeout = 1000;
-    private double shieldRegenerationRate = 1.0; // restored shield capacity per sec
-    @Getter private double maxShieldCapacity;
     private final String unlocalizedArmorSetName;
-    @Getter private double shieldIndicatorPositionX;
-    @Getter private double shieldIndicatorPositionY;
-    @Getter private double shieldIndicatorWidth;
-    @Getter private double shieldIndicatorHeight;
-    private String shieldIndicatorMaskTextureName;
-    private String shieldIndicatorProgressBarTextureName;
-
     // Modern crafting setup
     private CraftingEntry[] modernRecipe;
     private CraftingGroup craftGroup;
@@ -502,14 +401,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
         return ID + ":textures/models/" + textureName + ".png";
-    }
-
-    public String getShieldIndicatorMaskTextureName() {
-        return ID + ":textures/hud/" + shieldIndicatorMaskTextureName + ".png";
-    }
-
-    public String getShieldIndicatorProgressBarTextureName() {
-        return ID + ":textures/hud/" + shieldIndicatorProgressBarTextureName + ".png";
     }
 
     public String getUnlocalizedArmorSetName() {
@@ -655,24 +546,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
         super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
 
-        if (!worldIn.isRemote && entityIn != null) {
-            if (maxShieldCapacity > 0.0) {
-                double currentShieldCapacity = getShieldCapacity(stack);
-                if (currentShieldCapacity < maxShieldCapacity) {
-                    long shieldHitTimestamp = getShieldHitTimestamp(stack);
-                    if (System.currentTimeMillis() - shieldHitTimestamp > shieldRegenerationTimeout) {
-                        currentShieldCapacity += shieldRegenerationRate / 20.0;
-
-                        if (currentShieldCapacity > maxShieldCapacity) {
-                            currentShieldCapacity = maxShieldCapacity;
-                        }
-                        //System.out.println("Shield capacity increased to " + currentShieldCapacity);
-
-                        setShieldCapacity(stack, currentShieldCapacity);
-                    }
-                }
-            }
-        }
         /*
           if(!worldIn.isRemote && entityIn != null) {
             if (stack.getTagCompound() == null)
@@ -713,50 +586,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     @Override
     public ArmorProperties getProperties(EntityLivingBase player, ItemStack armorStack, DamageSource source, double damage, int slot) {
         double damageReduceRatio;
-        if (maxShieldCapacity > 0.0) {
-            if (getShieldCapacity(armorStack) > 0.0) {
-                damageReduceRatio = 1.0;
-            } else {
-                damageReduceRatio = 0.001;
-            }
-        } else {
-            damageReduceRatio = this.damageReduceAmount / 25.0;
-        }
+        damageReduceRatio = this.damageReduceAmount / 25.0;
         return new ArmorProperties(0, damageReduceRatio, Integer.MAX_VALUE);
-    }
-
-    private void ensureTagCompound(ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
-            NBTTagCompound tagCompound = new NBTTagCompound();
-            itemStack.setTagCompound(tagCompound);
-            tagCompound.setDouble(SHIELD_CAPACITY_TAG, maxShieldCapacity);
-        }
-    }
-
-    public double getShieldCapacity(ItemStack armorStack) {
-        ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = armorStack.getTagCompound();
-        return tagCompound.getDouble(SHIELD_CAPACITY_TAG);
-    }
-
-    private void setShieldCapacity(ItemStack armorStack, double capacity) {
-        ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = armorStack.getTagCompound();
-        tagCompound.setDouble(SHIELD_CAPACITY_TAG, capacity);
-    }
-
-    private long getShieldHitTimestamp(ItemStack armorStack) {
-        ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = armorStack.getTagCompound();
-        return tagCompound.getLong(SHIELD_HIT_TIMESTAMP_TAG);
-    }
-
-    private void setShieldHitTimestamp(ItemStack armorStack, long timestamp) {
-        if (armorStack.getTagCompound() == null) {
-            armorStack.setTagCompound(new NBTTagCompound());
-        }
-        NBTTagCompound tagCompound = armorStack.getTagCompound();
-        tagCompound.setLong(SHIELD_HIT_TIMESTAMP_TAG, timestamp);
     }
 
     @Override
@@ -766,19 +597,9 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
     @Override
     public void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage, int slot) {
-        if (maxShieldCapacity > 0.0) {
-            double shieldCapacity = getShieldCapacity(stack) - damage;
-            if (shieldCapacity < 0.0) {
-                shieldCapacity = 0.0;
-            }
-//            System.out.println("Shield capacity decreased to " + shieldCapacity + ", health: " + entity.getHealth());
-            setShieldCapacity(stack, shieldCapacity);
-            setShieldHitTimestamp(stack, System.currentTimeMillis());
-        } else {
-            double absorb = damage * (this.damageReduceAmount / 25.0);
-            int itemDamage = (int) (absorb / 25.0 < 1 ? 1 : absorb / 25.0);
-            stack.damageItem(itemDamage, entity);
-        }
+        double absorb = damage * (this.damageReduceAmount / 25.0);
+        int itemDamage = (int) (absorb / 25.0 < 1 ? 1 : absorb / 25.0);
+        stack.damageItem(itemDamage, entity);
     }
 
     @Override

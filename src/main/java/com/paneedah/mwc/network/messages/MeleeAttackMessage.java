@@ -19,14 +19,14 @@ public final class MeleeAttackMessage implements IMessage {
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        instance = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
+        instance = TypeRegistry.read(byteBuf);
         entityId = byteBuf.readInt();
         isHeavyAttack = byteBuf.readBoolean();
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        TypeRegistry.getINSTANCE().toBytes(instance, byteBuf);
+        TypeRegistry.write(byteBuf, instance);
         byteBuf.writeInt(entityId);
         byteBuf.writeBoolean(isHeavyAttack);
     }

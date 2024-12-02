@@ -109,7 +109,6 @@ public class VehicleDataContainer {
     public void write(ByteBuf buf, VehicleDataContainer value) {
         //System.out.println(value.vehicle);
         EntityVehicle v = value.vehicle;
-        VehiclePhysicsSolver solver = v.getSolver();
 
         if (v == null) {
             System.out.println("Vehicle is null!");

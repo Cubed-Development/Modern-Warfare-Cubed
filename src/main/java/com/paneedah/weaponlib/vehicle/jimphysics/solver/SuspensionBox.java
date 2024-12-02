@@ -1,9 +1,11 @@
 package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import lombok.NoArgsConstructor;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
+@NoArgsConstructor
 public class SuspensionBox {
 
     public double prevRoll;
@@ -12,10 +14,6 @@ public class SuspensionBox {
     public double prevPitch;
     public double pitch;
 
-
-    public SuspensionBox() {
-
-    }
 
     public void applyForwardAccel(double inertia, double acceleration) {
 

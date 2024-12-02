@@ -83,7 +83,7 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
             NBTTagList exposureTags = new NBTTagList();
             for (Exposure exposure : instance.getExposures().values()) {
                 ByteBuf buf = Unpooled.buffer();
-                TypeRegistry.getINSTANCE().toBytes(exposure, buf);
+                TypeRegistry.write(buf, exposure);
                 exposureTags.appendTag(new NBTTagByteArray(buf.array()));
             }
             tagCompound.setTag(TAG_EXPOSURES, exposureTags);
@@ -100,7 +100,7 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
                 for (int i = 0; i < exposureTags.tagCount(); i++) {
                     NBTTagByteArray byteArray = (NBTTagByteArray) exposureTags.get(i);
                     ByteBuf buf = Unpooled.wrappedBuffer(byteArray.getByteArray());
-                    Exposure exposure = TypeRegistry.getINSTANCE().fromBytes(buf);
+                    Exposure exposure = TypeRegistry.read(buf);
                     instance.getExposures().put(exposure.getClass(), exposure);
                 }
                 instance.setLastSyncTimestamp(tagCompound.getLong(TAG_LAST_SYNC));

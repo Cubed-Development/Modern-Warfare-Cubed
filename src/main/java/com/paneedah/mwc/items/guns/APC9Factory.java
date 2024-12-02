@@ -2,6 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -39,9 +40,6 @@ public class APC9Factory implements GunFactory {
                 .withInspectSound("inspection")
                 .withDrawSound("noaction_draw")
                 .withReloadingTime(50)
-                .withCrosshair("gun")
-                .withCrosshairRunning("Running")
-                .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.12f)

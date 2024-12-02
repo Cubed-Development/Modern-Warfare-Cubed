@@ -1,5 +1,8 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
+import com.paneedah.mwc.instancing.PlayerMagazineInstance;
+import com.paneedah.mwc.instancing.Tags;
 import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
@@ -75,7 +78,7 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
     }
 
     ItemMagazine(ModelBase model, String textureName, int capacity, ApplyHandler<Weapon> apply, ApplyHandler<Weapon> remove) {
-        super(AttachmentCategory.MAGAZINE, model, textureName, null, apply, remove);
+        super(AttachmentCategory.MAGAZINE, model, textureName, apply, remove);
         this.capacity = capacity;
         setMaxStackSize(1);
     }
@@ -110,8 +113,8 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
     }
 
     @Override
-    public PlayerMagazineInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
-        final PlayerMagazineInstance instance = new PlayerMagazineInstance(slot, player, itemStack);
+    public PlayerMagazineInstance createItemInstance(final EntityLivingBase entityLivingBase, final ItemStack itemStack, final int slot) {
+        final PlayerMagazineInstance instance = new PlayerMagazineInstance(slot, entityLivingBase, itemStack);
 
         instance.setState(MagazineState.READY);
 

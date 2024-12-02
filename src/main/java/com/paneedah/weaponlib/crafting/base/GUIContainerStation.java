@@ -40,6 +40,7 @@ import java.util.concurrent.TimeUnit;
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.*;
 
 public abstract class GUIContainerStation<T extends TileEntityStation> extends GuiContainer {
 
@@ -50,14 +51,6 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
     // GUI dimensions
     private static final int GUI_TEXTURE_WIDTH = 402;
     private static final int GUI_TEXTURE_HEIGHT = 240;
-
-    // GUI color palette
-    protected static final int GRAY = 0x7B7B7B;
-    protected static final int RED = 0xA95E5F;
-    protected static final int GOLD = 0xFDF17C;
-    protected static final int BLUE = 0x8FC5E3;
-    protected static final int GREEN = 0x97E394;
-    protected static final int LIGHT_GREY = 0xDADADA;
 
     // Item Scroll
     private long lastUnixTimeSeconds = 0;
@@ -127,16 +120,16 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 .withPageRestriction(2);
 
         leftArrow = new GUIButtonCustom(GUI_TEX, 1, guiLeft + 318, guiTop, 42, 20, 480, 370, "")
-                .withStandardState(0xFFFFFF, 99, 304)
-                .withHoveredState(0xFFFFFF, 141, 304)
-                .withDisabledState(0xFFFFFF, 57, 304)
+                .withStandardState(WHITE, 99, 304)
+                .withHoveredState(WHITE, 141, 304)
+                .withDisabledState(WHITE, 57, 304)
                 .withDisabledCheck(() -> getPage() == 1);
 
         rightArrow = new GUIButtonCustom(GUI_TEX, 2, guiLeft + 360, guiTop, 42, 20, 480, 370, "")
-                .withStandardState(0xFFFFFF, 99, 284)
-                .withHoveredState(0xFFFFFF, 141, 284)
+                .withStandardState(WHITE, 99, 284)
+                .withHoveredState(WHITE, 141, 284)
                 //.withDisabledState(0xFFFFFF, u, v)
-                .withDisabledState(0xFFFFFF, 57, 284)
+                .withDisabledState(WHITE, 57, 284)
                 .withDisabledCheck(() -> getPage() == 2);
 
         dismantleButton = new GUIButtonCustom(GUI_INV_TEX, 6, guiLeft + 286, guiTop + 70, 73, 17, 480, 370, "DISMANTLE")
@@ -481,9 +474,9 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 drawModalRectWithCustomSizedTexture(this.guiLeft + 261 + i * 31, this.guiTop + 57, 81, 239, (int) (29 * progress), 7, 480, 370);
             }
 
-            GUIRenderHelper.drawScaledString("INVENTORY", this.guiLeft + 10, this.guiTop + 5, 1.2, BLUE);
-            //GUIRenderHelper.drawScaledString("DISMANTLING", this.guiLeft + 255, this.guiTop + 5, 1.2, BLUE);
-            GUIRenderHelper.drawScaledString("Player Inventory", this.guiLeft + 21, this.guiTop + 115, 1.0, LIGHT_GREY);
+            GUIRenderHelper.drawScaledString("WORKBENCH", this.guiLeft + 10, this.guiTop + 5, 1.2, BLUE);
+            GUIRenderHelper.drawScaledString("CRAFTING", this.guiLeft + 250, this.guiTop + 5, 1.1, BLUE);
+            GUIRenderHelper.drawScaledString("Inventory", this.guiLeft + 21, this.guiTop + 115, 1.0, LIGHT_GREY);
 
         } else if (getPage() == 2) {
             GlStateManager.color(1f, 1f, 1f, 1f);
@@ -580,7 +573,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 doCraftingModeOneRender(partialTicks, mouseX, mouseY);
 
             } else if (hasSelectedCraftingPiece()) {
-                GuiRenderUtil.drawScaledString(fontRenderer, format(getSelectedCraftingPiece().getItemStack().getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 0.9, 0xFDF17C);
+                GuiRenderUtil.drawScaledString(fontRenderer, format(getSelectedCraftingPiece().getItemStack().getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 0.9, GOLD);
                 GlStateManager.pushMatrix();
                 RenderHelper.enableGUIStandardItemLighting();
                 GlStateManager.translate(this.guiLeft + 275, this.guiTop + 45, 0);
@@ -594,11 +587,11 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             GlStateManager.enableBlend();
 
             // Draw all the text within the GUI
-            GuiRenderUtil.drawScaledString(fontRenderer, "CRAFTING", this.guiLeft + 11, this.guiTop + 5, 1.2, 0x8FC5E3);
-            GuiRenderUtil.drawScaledString(fontRenderer, "Progress", this.guiLeft + 326, this.guiTop + 175, 0.8, 0xFFFFFF);
-            GuiRenderUtil.drawScaledString(fontRenderer, "Output", this.guiLeft + 7, this.guiTop + 223, 0.9, 0xFFFFFF);
+            GuiRenderUtil.drawScaledString(fontRenderer, "CRAFTING", this.guiLeft + 11, this.guiTop + 5, 1.2, BLUE);
+            GuiRenderUtil.drawScaledString(fontRenderer, "Progress", this.guiLeft + 326, this.guiTop + 175, 0.8, WHITE);
+            GuiRenderUtil.drawScaledString(fontRenderer, "Output:", this.guiLeft + 5, this.guiTop + 223, 0.9, WHITE);
             GuiRenderUtil.drawScaledString(fontRenderer, "CRAFT", this.guiLeft + 222, this.guiTop + 184, 1.0, 0xB06061);
-            GuiRenderUtil.drawScaledString(fontRenderer, "Results: " + TextFormatting.YELLOW + filteredCraftingList.size(), this.guiLeft + 12, this.guiTop + 191, 0.8, 0xFFFFFF);
+            GuiRenderUtil.drawScaledString(fontRenderer, "Results: " + TextFormatting.YELLOW + filteredCraftingList.size(), this.guiLeft + 12, this.guiTop + 191, 0.8, WHITE);
 
             if (hasSelectedCraftingPiece()) {
                 final IModernCraftingRecipe weapon = getSelectedCraftingPiece();
@@ -689,7 +682,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             for (int i = 0; i < 9; ++i) {
                 final ItemStack stack = tileEntity.mainInventory.getStackInSlot(i);
                 if (!stack.isEmpty()) {
-                    GUIRenderHelper.drawScaledString(tileEntity.mainInventory.getStackInSlot(i).getCount() + "", this.guiLeft + 50 + (i * 22), this.guiTop + 230, 1, 0xFFFFFF);
+                    GUIRenderHelper.drawScaledString(tileEntity.mainInventory.getStackInSlot(i).getCount() + "", this.guiLeft + 50 + (i * 22), this.guiTop + 230, 1, WHITE);
                 }
             }
 

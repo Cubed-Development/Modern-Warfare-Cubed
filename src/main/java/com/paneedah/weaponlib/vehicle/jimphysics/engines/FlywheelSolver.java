@@ -4,9 +4,7 @@ import com.paneedah.weaponlib.vehicle.collisions.InertiaKit;
 
 public class FlywheelSolver {
 
-    public double mass = 0.0;
-    public double radius = 0.0;
-    public double inertia = 0.0;
+    public double mass, radius, inertia;
 
 
     public double angularVelocity = 0.0;

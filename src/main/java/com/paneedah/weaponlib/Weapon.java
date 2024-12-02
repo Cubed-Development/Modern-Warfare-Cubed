@@ -1,5 +1,8 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
+import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
@@ -115,10 +118,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private CreativeTabs creativeTab;
         private WeaponRenderer renderer;
         //float zoom = Weapon.DEFAULT_ZOOM;
-        @Getter List<Integer> maxShots = new ArrayList<>();
-        String crosshair;
-        String crosshairRunning;
-        String crosshairZoomed;
+        @Getter List<Integer> maxShots = new ArrayList<>(); // FIRE_MODE ! TODO: This is despicable
         BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith;
         BiFunction<PlayerWeaponInstance, EntityLivingBase, ? extends EntityShellCasing> spawnShellWith;
         private float spawnEntityDamage;
@@ -132,11 +132,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private float spawnEntitySmokeParticleScaleCoefficient = 1f;
         public long reloadingTimeout = Weapon.DEFAULT_RELOADING_TIMEOUT_TICKS;
         long loadIterationTimeout = Weapon.DEFAULT_LOAD_ITERATION_TIMEOUT_TICKS;
-
-
-        boolean crosshairFullScreen = false;
-        boolean crosshairZoomedFullScreen = false;
-
 
         Map<ItemAttachment<Weapon>, CompatibleAttachment<Weapon>> compatibleAttachments = new HashMap<>();
         ModelBase ammoModel;
@@ -219,7 +214,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private float zoom;
 
 
-        protected Pair<Double, Double> screenShakingParameters = new Pair<Double, Double>(100.0, 1.0);
+        protected Pair<Double, Double> screenShakingParameters = new Pair<Double, Double>(100.0, 1.0); // ! TODO: Make it a dedicated class, this is a pair with two boxed doubles, so three classes in total for what could be one, and it would probably be nicer
 
         private boolean newSys = false;
 
@@ -361,32 +356,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             for (String textureName : textureNames) {
                 this.textureNames.add(textureName.toLowerCase() + ".png");
             }
-            return this;
-        }
-
-        public Builder withCrosshair(String crosshair) {
-            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
-            return this;
-        }
-
-        public Builder withCrosshair(String crosshair, boolean fullScreen) {
-            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
-            this.crosshairFullScreen = fullScreen;
-            return this;
-        }
-
-        public Builder withCrosshairRunning(String crosshairRunning) {
-            this.crosshairRunning = ID + ":textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
-            return this;
-        }
-
-        public Builder withCrosshairZoomed(String crosshairZoomed) {
-            return withCrosshairZoomed(crosshairZoomed, true);
-        }
-
-        public Builder withCrosshairZoomed(String crosshairZoomed, boolean fullScreen) {
-            this.crosshairZoomed = ID + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
-            this.crosshairZoomedFullScreen = fullScreen;
             return this;
         }
 
@@ -871,14 +840,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 };
             }
 
-            if (crosshairRunning == null) {
-                crosshairRunning = crosshair;
-            }
-
-            if (crosshairZoomed == null) {
-                crosshairZoomed = crosshair;
-            }
-
             if (blockImpactHandler == null) {
                 blockImpactHandler = (world, player, entity, position) -> {
                     IBlockState iBlockState = world.getBlockState(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ()));
@@ -985,9 +946,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     private CraftingGroup craftingGroup = CraftingGroup.GUN;
 
-    public static final int FIREMODE_AUTO = 2;
-    public static final int FIREMODE_SINGLE = 0;
-    public static final int FIREMODE_BURST = 1;
+    // ! FIRE_MODE TODO: Make this an enum and use it instead of get `maxShots` - Luna Mira Lage (Desoroxxx) 2024-11-20
+    public static final int FIRE_MODE_SINGLE = 2;
+    public static final int FIRE_MODE_BURST = 1;
+    public static final int FIRE_MODE_AUTO = 0;
 
     private static final long DEFAULT_RELOADING_TIMEOUT_TICKS = 10;
     private static final long DEFAULT_UNLOADING_TIMEOUT_TICKS = 10;
@@ -1101,23 +1063,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return c.stream().filter(e -> inputCategoryList.contains(e.getAttachment().getCategory())).collect(Collectors.toList());
     }
 
-    String getCrosshair(PlayerWeaponInstance weaponInstance) {
-        if (weaponInstance.isAimed()) {
-            String crosshair = null;
-            ItemAttachment<Weapon> scopeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.SCOPE, weaponInstance);
-            if (scopeAttachment != null) {
-                crosshair = scopeAttachment.getCrosshair();
-            }
-            if (crosshair == null) {
-                crosshair = builder.crosshairZoomed;
-            }
-            return crosshair;
-        } else if (weaponInstance.getPlayer().isSprinting()) {
-            return builder.crosshairRunning;
-        }
-        return builder.crosshair;
-    }
-
     public static boolean isActiveAttachment(PlayerWeaponInstance weaponInstance, ItemAttachment<Weapon> attachment) {
         return weaponInstance != null && WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance);
     }
@@ -1127,7 +1072,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return 0;
     }
 
-    int getCurrentAmmo(EntityPlayer player) {
+    public int getCurrentAmmo(EntityPlayer player) {
         PlayerWeaponInstance state = modContext.getMainHeldWeapon();
         return state.getAmmo();
 
@@ -1305,7 +1250,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         if (flagIn.isAdvanced() && playerWeaponInstance != null && itemStack.getTagCompound() != null) {
             if (Keyboard.isKeyDown(Keyboard.KEY_LCONTROL)) {
                 tooltipLines.add(red + "Logging NBT data, release left control to stop");
-                LOGGER.info("{} NBT Data (Size {}): {}", playerWeaponInstance.toString(), itemStack.getTagCompound().getSize(), itemStack.getTagCompound().toString());
+                Tags.printTags(itemStack);
             } else {
                 tooltipLines.add(yellow + "Press left control to log NBT data");
             }
@@ -1345,20 +1290,21 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     @Override
-    public PlayerWeaponInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
-        PlayerWeaponInstance instance = new PlayerWeaponInstance(slot, player, itemStack);
-        //state.setAmmo(Tags.getAmmo(itemStack)); // TODO: get ammo properly
+    public PlayerWeaponInstance createItemInstance(final EntityLivingBase entityLivingBase, final ItemStack itemStack, final int slot) {
+        final PlayerWeaponInstance instance = new PlayerWeaponInstance(slot, entityLivingBase, itemStack);
+
+//        instance.setAmmo(Tags.getAmmo(itemStack)); // TODO: Get ammo properly
         instance.setState(WeaponState.READY);
 
         instance.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(instance.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(instance.getWeapon()) : builder.recoil);
         instance.setMaxShots(builder.maxShots.get(0));
 
         for (CompatibleAttachment<Weapon> compatibleAttachment : ((Weapon) itemStack.getItem()).getCompatibleAttachments().values()) {
-            ItemAttachment<Weapon> attachment = compatibleAttachment.getAttachment();
-            if (compatibleAttachment.isDefault() && attachment.getApply2() != null) {
+            final ItemAttachment<Weapon> attachment = compatibleAttachment.getAttachment();
+            if (compatibleAttachment.isDefault() && attachment.getApply2() != null)
                 attachment.apply2.apply(attachment, instance);
-            }
         }
+
         return instance;
     }
 
@@ -1395,19 +1341,22 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         instance.setMaxShots(result);
-        String message;
-        if (result == 1) {
-            message = I18n.format("gui.firearmMode.semi");
-        } else if (result == Integer.MAX_VALUE) {
-            message = I18n.format("gui.firearmMode.auto");
-        } else {
-            message = I18n.format("gui.firearmMode.burst");
-        }
-        LOGGER.debug("Changed fire mode of {} to {}", instance, result);
+        if (ModernConfigManager.enableStatusMessages){
+            String message;
+            if (result == 1) {
+                message = I18n.format("gui.firearmMode.semi");
+            } else if (result == Integer.MAX_VALUE) {
+                message = I18n.format("gui.firearmMode.auto");
+            } else {
+                message = I18n.format("gui.firearmMode.burst");
+            }
+            LOGGER.debug("Changed fire mode of {} to {}", instance, result);
 
-        if (instance.getPlayer() instanceof EntityPlayer) {
-            ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.firearmMode", message)), true);
+            if (instance.getPlayer() instanceof EntityPlayer) {
+                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.firearmMode", message)), true);
+            }
         }
+
 
         instance.getPlayer().playSound(modContext.getChangeFireModeSound(), 1, 1);
     }
@@ -1460,7 +1409,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     void incrementZoom(PlayerWeaponInstance instance) {
-        Item scopeItem = instance.getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
+        Item scopeItem = instance.getAttachmentItemByCategory(AttachmentCategory.SCOPE);
         if (scopeItem instanceof ItemScope && ((ItemScope) scopeItem).isOptical()) {
             float minZoom = ((ItemScope) scopeItem).getMinZoom();
             float maxZoom = ((ItemScope) scopeItem).getMaxZoom();
@@ -1475,8 +1424,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
-            if (instance.getPlayer() instanceof EntityPlayer) {
-                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+            if (ModernConfigManager.enableStatusMessages){
+                if (instance.getPlayer() instanceof EntityPlayer) {
+                    ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+                }
             }
 
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
@@ -1487,7 +1438,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     void decrementZoom(PlayerWeaponInstance instance) {
-        Item scopeItem = instance.getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
+        Item scopeItem = instance.getAttachmentItemByCategory(AttachmentCategory.SCOPE);
         if (scopeItem instanceof ItemScope && ((ItemScope) scopeItem).isOptical()) {
             float minZoom = ((ItemScope) scopeItem).getMinZoom();
             float maxZoom = ((ItemScope) scopeItem).getMaxZoom();
@@ -1501,8 +1452,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
-            if (instance.getPlayer() instanceof EntityPlayer) {
-                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+            if(ModernConfigManager.enableStatusMessages){
+                if (instance.getPlayer() instanceof EntityPlayer) {
+                    ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+                }
             }
 
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);

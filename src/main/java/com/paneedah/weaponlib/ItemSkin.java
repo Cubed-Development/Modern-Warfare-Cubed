@@ -20,7 +20,7 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 
         @Override
         protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
-            ItemSkin skin = new ItemSkin(AttachmentCategory.SKIN, getModel(), getTextureName(), null, null, null);
+            ItemSkin skin = new ItemSkin(AttachmentCategory.SKIN, getModel(), getTextureName(), null, null);
             skin.textureVariants = this.textureVariants;
             return skin;
         }
@@ -57,8 +57,8 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 
     private List<String> textureVariants;
 
-    public ItemSkin(AttachmentCategory category, ModelBase model, String textureName, String crosshair, ItemAttachment.ApplyHandler<Weapon> apply, ItemAttachment.ApplyHandler<Weapon> remove) {
-        super(category, model, textureName, crosshair, apply, remove);
+    public ItemSkin(AttachmentCategory category, ModelBase model, String textureName, ItemAttachment.ApplyHandler<Weapon> apply, ItemAttachment.ApplyHandler<Weapon> remove) {
+        super(category, model, textureName, apply, remove);
     }
 
     public String getTextureName() {

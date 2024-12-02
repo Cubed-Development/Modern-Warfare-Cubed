@@ -2,14 +2,11 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
+import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
+import com.paneedah.mwc.instancing.PlayerItemInstanceRegistry;
+import com.paneedah.mwc.instancing.PlayerMagazineInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.network.NetworkPermitManager;
-import com.paneedah.mwc.network.TypeRegistry;
-import com.paneedah.weaponlib.MagazineReloadAspect.LoadPermit;
-import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
-import com.paneedah.weaponlib.WeaponAttachmentAspect.EnterAttachmentModePermit;
-import com.paneedah.weaponlib.WeaponAttachmentAspect.ExitAttachmentModePermit;
-import com.paneedah.weaponlib.WeaponReloadAspect.CompoundPermit;
-import com.paneedah.weaponlib.WeaponReloadAspect.UnloadPermit;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -22,7 +19,6 @@ import com.paneedah.weaponlib.electronics.*;
 import com.paneedah.weaponlib.grenade.*;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.melee.*;
-import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.StateManager;
 import lombok.Getter;
 import net.minecraft.block.Block;
@@ -48,33 +44,6 @@ import java.util.Optional;
 import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class CommonModContext implements ModContext {
-
-    static {
-        TypeRegistry.getINSTANCE().register(LoadPermit.class);
-        TypeRegistry.getINSTANCE().register(MagazineState.class);
-        TypeRegistry.getINSTANCE().register(PlayerItemInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerMagazineInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
-        TypeRegistry.getINSTANCE().register(Permit.class);
-        TypeRegistry.getINSTANCE().register(EnterAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ExitAttachmentModePermit.class);
-        TypeRegistry.getINSTANCE().register(ChangeAttachmentPermit.class);
-        TypeRegistry.getINSTANCE().register(CompoundPermit.class);
-        TypeRegistry.getINSTANCE().register(UnloadPermit.class);
-        TypeRegistry.getINSTANCE().register(LoadPermit.class);
-        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
-        TypeRegistry.getINSTANCE().register(WeaponState.class);
-        TypeRegistry.getINSTANCE().register(PlayerMeleeInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerGrenadeInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerTabletInstance.class);
-        TypeRegistry.getINSTANCE().register(PlayerHandheldInstance.class);
-        TypeRegistry.getINSTANCE().register(MeleeState.class);
-        TypeRegistry.getINSTANCE().register(TabletState.class);
-        TypeRegistry.getINSTANCE().register(HandheldState.class);
-        TypeRegistry.getINSTANCE().register(SpreadableExposure.class);
-        TypeRegistry.getINSTANCE().register(LightExposure.class);
-    }
 
     static class BulletImpactSoundKey {
         private final Material material;

@@ -6,12 +6,12 @@ import org.jetbrains.gradle.ext.Gradle
 plugins {
     id("com.gtnewhorizons.retrofuturagradle") version "1.4.1"
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.9"
-    id("com.github.gmazzo.buildconfig") version "5.5.0"
-    id("io.freefair.lombok") version "8.7.1"
+    id("com.github.gmazzo.buildconfig") version "5.5.1"
+    id("io.freefair.lombok") version "8.11"
 }
 
 group = "com.paneedah"
-version = "0.2-Dev-3" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
+version = "0.2-Dev-4" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
 
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
@@ -19,7 +19,7 @@ val plugin = "${project.group}.${id}.asm.MWCPlugin"
 val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-8"
 
 val groovyScriptVersion = "1.2.0-hotfix1"
-val mixinBooterVersion = "10.1"
+val mixinBooterVersion = "10.2"
 
 minecraft {
     mcVersion = "1.12.2"
@@ -143,7 +143,7 @@ tasks {
     withType<JavaCompile>().configureEach {
         options.encoding = "UTF-8"
         options.isFork = true
-        options.forkOptions.jvmArgs = listOf("-Xmx4G")
+        options.forkOptions.jvmArgs = listOf("-Xmx4G", "-XX:+UseStringDeduplication")
     }
 }
 

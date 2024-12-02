@@ -1,49 +1,78 @@
 package com.paneedah.mwc.network;
 
+import com.paneedah.mwc.instancing.*;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.electronics.HandheldState;
+import com.paneedah.weaponlib.electronics.TabletState;
+import com.paneedah.weaponlib.grenade.GrenadeState;
+import com.paneedah.weaponlib.melee.MeleeAttachmentAspect;
+import com.paneedah.weaponlib.melee.MeleeState;
+import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
+import com.paneedah.weaponlib.state.Permit;
 import io.netty.buffer.ByteBuf;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.UUID;
 
 import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
+import static lombok.AccessLevel.PRIVATE;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = PRIVATE)
 public final class TypeRegistry {
 
-    @Getter private static final TypeRegistry INSTANCE = new TypeRegistry();
+    private static final HashMap<String, Class<? extends ISerializable>> typeRegistry = new HashMap<>();
 
-    private final HashMap<UUID, Class<? extends ISerializable>> typeRegistry = new HashMap<>();
+    static {
+        register(PlayerItemInstance.class);
+        register(PlayerWeaponInstance.class);
+        register(PlayerMagazineInstance.class);
+        register(PlayerMeleeInstance.class);
+        register(PlayerGrenadeInstance.class);
+        register(PlayerHandheldInstance.class);
+        register(PlayerTabletInstance.class);
 
-    public <T extends ISerializable> void register(Class<T> cls) {
-        typeRegistry.put(getUuid(cls), cls);
+        register(WeaponState.class);
+        register(MagazineState.class);
+        register(MeleeState.class);
+        register(GrenadeState.class);
+        register(HandheldState.class);
+        register(TabletState.class);
+
+        register(Permit.class);
+        register(WeaponAttachmentAspect.EnterAttachmentModePermit.class);
+        register(WeaponAttachmentAspect.ExitAttachmentModePermit.class);
+        register(WeaponAttachmentAspect.ChangeAttachmentPermit.class);
+        register(MeleeAttachmentAspect.EnterAttachmentModePermit.class);
+        register(MeleeAttachmentAspect.ExitAttachmentModePermit.class);
+        register(MeleeAttachmentAspect.ChangeAttachmentPermit.class);
+        register(WeaponReloadAspect.LoadPermit.class);
+        register(WeaponReloadAspect.UnloadPermit.class);
+        register(WeaponReloadAspect.CompoundPermit.class);
+        register(MagazineReloadAspect.LoadPermit.class);
+        register(MagazineReloadAspect.UnloadPermit.class);
+
+        register(LightExposure.class);
+        register(SpreadableExposure.class);
     }
 
-    public UUID getUuid(final Class<?> aClass) {
-        try {
-            final SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
-            secureRandom.setSeed(aClass.getName().getBytes());
-            return new UUID(secureRandom.nextLong(), secureRandom.nextLong());
-        } catch (NoSuchAlgorithmException noSuchAlgorithmException) {
-            RED_LOGGER.printFramedError("Networking", "Failed to create a secure random", "", noSuchAlgorithmException.getMessage());
-            throw new RuntimeException(noSuchAlgorithmException);
-        }
-
+    private static <T extends ISerializable> void register(Class<T> cls) {
+        typeRegistry.put(cls.getName(), cls);
     }
 
-    public <T extends ISerializable> void toBytes(final T object, final ByteBuf byteBuf) {
-        final UUID uuid = getUuid(object.getClass());
+    public static <T extends ISerializable> void write(final ByteBuf byteBuf, final T object) {
+        final String className = object.getClass().getName();
 
-        if (!typeRegistry.containsKey(uuid)) {
+        if (!typeRegistry.containsKey(className)) {
             RED_LOGGER.printFramedError("Networking", "Failed to write object because its class is not registered", "", "Object: " + object, "Class: " + object.getClass());
-            throw new RuntimeException();
+            throw new IllegalStateException("Failed to write object because its class is not registered");
         }
 
-        byteBuf.writeLong(uuid.getMostSignificantBits());
-        byteBuf.writeLong(uuid.getLeastSignificantBits());
+        byte[] classNameBytes = className.getBytes(StandardCharsets.UTF_8);
+        byteBuf.writeInt(classNameBytes.length);
+        byteBuf.writeBytes(classNameBytes);
+
         if (object.getClass().isEnum()) {
             byteBuf.writeInt(((Enum<?>) object).ordinal());
         } else {
@@ -51,17 +80,21 @@ public final class TypeRegistry {
         }
     }
 
-    public <T extends ISerializable> T fromBytes(final ByteBuf byteBuf) {
-        long mostSigBits = byteBuf.readLong();
-        long leastSigBits = byteBuf.readLong();
-        UUID typeUuid = new UUID(mostSigBits, leastSigBits);
+    public static <T extends ISerializable> T read(final ByteBuf byteBuf) {
+        final byte[] classNameBytes = new byte[byteBuf.readInt()];
+        byteBuf.readBytes(classNameBytes);
+        final String className = new String(classNameBytes, StandardCharsets.UTF_8);
 
+        if (!typeRegistry.containsKey(className)) {
+            RED_LOGGER.printFramedError("Networking", "Failed to deserialize object because its class is not registered", "Weapon will probably reset to it's default state");
+            return null;
+        }
 
-        Class<T> targetClass = (Class<T>) typeRegistry.get(typeUuid);
+        final Class<T> targetClass = (Class<T>) typeRegistry.get(className);
 
         if (targetClass == null) {
-            RED_LOGGER.printFramedError("Networking", "Failed to deserialize object.\nDid you forget to register type?", "");
-            throw new RuntimeException();
+            RED_LOGGER.printFramedError("Networking", "Failed to deserialize object", "Weapon will probably reset to it's default state");
+            return null;
         }
 
         T instance;
@@ -70,15 +103,19 @@ public final class TypeRegistry {
             instance = constants[byteBuf.readInt()];
         } else {
             try {
-                instance = targetClass.newInstance();
-            } catch (InstantiationException | IllegalAccessException exception) {
-                RED_LOGGER.printFramedError("Networking", "Failed to create instance", "", exception.getMessage(), exception.getStackTrace()[3].toString());
-                throw new RuntimeException();
+                instance = targetClass.getDeclaredConstructor().newInstance();
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException exception) {
+                RED_LOGGER.printFramedError("Networking", "Failed to create instance", "Weapon will probably reset to it's default state", exception.getMessage(), exception.getStackTrace()[3].toString());
+                return null;
             }
 
             instance.read(byteBuf);
         }
 
         return targetClass.cast(instance);
+    }
+
+    public static HashMap<String, Class<?>> getTypeRegistryCopy() {
+        return new HashMap<>(typeRegistry);
     }
 }

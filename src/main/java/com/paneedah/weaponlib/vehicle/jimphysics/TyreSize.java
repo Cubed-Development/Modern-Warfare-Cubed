@@ -27,7 +27,7 @@ public class TyreSize {
     /**
      * Tyre Size
      *
-     * @param Tyre Sizing (ex. 315/30R20)
+     * @param ss Tyre Sizing (ex. 315/30R20)
      */
     public TyreSize(String ss) {
         this.sizeString = ss;
@@ -52,7 +52,7 @@ public class TyreSize {
     /**
      * Converts millimeters to meters
      *
-     * @param Magnitude in millimeters (mm)
+     * @param mm Magnitude in millimeters (mm)
      *
      * @return Magnitude in meters (m)
      */

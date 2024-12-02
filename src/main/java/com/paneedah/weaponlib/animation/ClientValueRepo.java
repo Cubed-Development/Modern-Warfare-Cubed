@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.animation;
 import com.paneedah.mwc.asm.Interceptors;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.Pair;
-import com.paneedah.weaponlib.PlayerWeaponInstance;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.numerical.LerpedValue;
 import com.paneedah.weaponlib.numerical.RandomVector;

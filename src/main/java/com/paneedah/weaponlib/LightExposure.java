@@ -2,17 +2,19 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.UniversalObject;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
+@NoArgsConstructor
 public class LightExposure extends UniversalObject implements Exposure {
 
     private long lastExposureTimestamp;
     private long maxDuration;
-    private float totalDose = 1f;
+    @Getter @Setter private float totalDose = 1f;
     private float decayFactor = 0.995f;
-
-    public LightExposure() {}
 
 
     public LightExposure(long lastExposureTimestamp, long maxDuration, float dose, float decayFactor) {
@@ -20,14 +22,6 @@ public class LightExposure extends UniversalObject implements Exposure {
         this.maxDuration = maxDuration;
         this.totalDose = dose;
         this.decayFactor = decayFactor;
-    }
-
-    public float getTotalDose() {
-        return totalDose;
-    }
-
-    public void setTotalDose(float totalDose) {
-        this.totalDose = totalDose;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.FlaggedAttachment;
 import com.paneedah.weaponlib.command.DebugCommand;
@@ -54,7 +55,6 @@ public class ModificationGUI {
     private static final int SHEET_SIZE = 768;
 
 
-    private static final int TOOLTIP_COL_ERROR = 0x702b2b;
 
 
     private static final int[][] DEFAULT_POSITION = new int[][]{{-50, 50}, {120, 75}, {150, 0}, {100, -50},
@@ -813,7 +813,7 @@ public class ModificationGUI {
             }
         }
 
-        ItemAttachment<Weapon> primaryAttachment = pwi.getAttachmentItemWithCategory(category);
+        ItemAttachment<Weapon> primaryAttachment = pwi.getAttachmentItemByCategory(category);
 
 
         // Does something require this attachment?
@@ -949,7 +949,7 @@ public class ModificationGUI {
         }
 
         // Primary item renderer
-        ItemAttachment<Weapon> current = pwi.getAttachmentItemWithCategory(category);
+        ItemAttachment<Weapon> current = pwi.getAttachmentItemByCategory(category);
 
         if (current != null) {
             clearRGB();
@@ -1046,8 +1046,6 @@ public class ModificationGUI {
             // Translate to front
             GlStateManager.translate(0, 0, 1000);
 
-            // tooltip.addLine("fuck off");
-
             // Bind tooltip texture
             MC.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
             setAlpha(0.5f);
@@ -1086,10 +1084,4 @@ public class ModificationGUI {
         }
 
     }
-
-
-    /*
-     * RENDER TOOLS
-     */
-
 }

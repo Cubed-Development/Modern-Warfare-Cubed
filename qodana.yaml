@@ -60,6 +60,7 @@ include:
   - name: UnnecessaryFullyQualifiedName
   - name: UnnecessaryQualifierForThis
 exclude:
+  - name: CheckDependencyLicenses
   - name: QodanaSanity
   - name: JavadocReference
   - name: All
