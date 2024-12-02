@@ -72,6 +72,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Overhauled the textures and models of:
   - EOTech 512 A65 Holographic (Black)
   - EOTech EXPS3-0 Holographic (Tan)
+  - SIG SLX Silencer
 
 ### Fixed
 
