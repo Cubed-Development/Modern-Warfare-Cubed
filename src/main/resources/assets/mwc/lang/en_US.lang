@@ -1158,16 +1158,22 @@ death.attack.gun=%s was shot by %s using %s
 death.attack.gun.noshooter=%s was shot to death using %s
 
 groovyscript.wiki.mwc.crafting_station.title=MWC Crafting
-groovyscript.wiki.mwc.crafting_station.description=Converts multiple items into another item, with a way to recover some of original resources when dismantled. recipes with group `BULLET, MAGAZINE, GRENADE` can be only crafted via Ammo Press, while recipes with `GUN, ATTACHMENT_NORMAL, ATTACHMENT_MODIFICATION` categories can only be crafted with Crafting Station.
+groovyscript.wiki.mwc.crafting_station.description=Converts multiple items into another item, with a way to recover some of original resources when dismantled. recipe with group `BULLET, MAGAZINE, GRENADE` can be only crafted via Ammo Press, while recipe with `GUN, ATTACHMENT_NORMAL, ATTACHMENT_MODIFICATION` categories can only be crafted with Crafting Station.
 groovyscript.wiki.mwc.crafting_station.remove=Removes recipe that outputs given `ingredient` from all categories
-groovyscript.wiki.mwc.crafting_station.removeAllinGroup=Removes all recipes of given VALID categories = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE"
-groovyscript.wiki.mwc.crafting_station.removeAllGun=Remove all recipes of Gun Category
-groovyscript.wiki.mwc.crafting_station.removeAllGrenade=Remove all recipes of Grenade Category
-groovyscript.wiki.mwc.crafting_station.removeAllNormalAttachment=Remove all recipes of Normal Attachment Category
-groovyscript.wiki.mwc.crafting_station.removeAllModificationAttachment=Remove all recipes of Modification Attachment Category
-groovyscript.wiki.mwc.crafting_station.removeAllBullet=Remove all recipes of Bullet Category
-groovyscript.wiki.mwc.crafting_station.removeAllMagazine=Remove all recipes of Magazine Category
-groovyscript.wiki.mwc.crafting_station.removeInGroupByOutput=Removes Recipe that outputs given `ingredient` from given category. valid categories = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE", "GRENADE"
+groovyscript.wiki.mwc.crafting_station.removeByGroup=Removes all recipes of given valid categories = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE"
+groovyscript.wiki.mwc.crafting_station.removeAllGun=Remove all recipes with the category of Gun
+groovyscript.wiki.mwc.crafting_station.removeAllGrenade=Remove all recipes with the category of Grenade
+groovyscript.wiki.mwc.crafting_station.removeAllNormalAttachment=Remove all recipes with the category of Normal Attachment
+groovyscript.wiki.mwc.crafting_station.removeAllModificationAttachment=Remove all with the category recipes of Modification Attachment
+groovyscript.wiki.mwc.crafting_station.removeAllBullet=Remove all recipes with the category of Bullet
+groovyscript.wiki.mwc.crafting_station.removeAllMagazine=Remove all recipes with the category of Magazine
+groovyscript.wiki.mwc.crafting_station.removeByBullet=Removes recipe that outputs given `ingredient` from Bullet category.
+groovyscript.wiki.mwc.crafting_station.removeByGrenade=Removes recipe that outputs given `ingredient` from Grenade category.
+groovyscript.wiki.mwc.crafting_station.removeByGun=Removes recipe that outputs given `ingredient` from Gun category.
+groovyscript.wiki.mwc.crafting_station.removeByMagazine=Removes recipe that outputs given `ingredient` from Magazine category.
+groovyscript.wiki.mwc.crafting_station.removeByNormalAttachment=Removes recipe that outputs given `ingredient` from Normal Attachment category.
+groovyscript.wiki.mwc.crafting_station.removeByModificationAttachment=Removes recipe that outputs given `ingredient` from Normal Modification category.
+groovyscript.wiki.mwc.crafting_station.removeInGroupByOutput=Removes recipe that outputs given `ingredient` from given category. Valid categories = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE", "GRENADE"
 groovyscript.wiki.mwc.crafting_station.removeGunByOutput=Removes recipe that outputs matching item of given `ingredient` from gun category
 groovyscript.wiki.mwc.crafting_station.removeGrenadeByOutput=Removes recipe that outputs matching item of given `ingredient` from grenade category
 groovyscript.wiki.mwc.crafting_station.removeNormalAttachmentByOutput=Removes recipe that outputs matching item of given `ingredient` from normal attachment category
