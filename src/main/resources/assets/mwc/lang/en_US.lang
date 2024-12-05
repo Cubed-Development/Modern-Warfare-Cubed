@@ -1174,12 +1174,12 @@ groovyscript.wiki.mwc.crafting_station.removeByMagazine=Removes recipe that outp
 groovyscript.wiki.mwc.crafting_station.removeByNormalAttachment=Removes recipe that outputs given `ingredient` from Normal Attachment category.
 groovyscript.wiki.mwc.crafting_station.removeByModificationAttachment=Removes recipe that outputs given `ingredient` from Normal Modification category.
 groovyscript.wiki.mwc.crafting_station.removeInGroupByOutput=Removes recipe that outputs given `ingredient` from given category. Valid categories = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE", "GRENADE"
-groovyscript.wiki.mwc.crafting_station.removeGunByOutput=Removes recipe that outputs matching item of given `ingredient` from gun category
-groovyscript.wiki.mwc.crafting_station.removeGrenadeByOutput=Removes recipe that outputs matching item of given `ingredient` from grenade category
-groovyscript.wiki.mwc.crafting_station.removeNormalAttachmentByOutput=Removes recipe that outputs matching item of given `ingredient` from normal attachment category
-groovyscript.wiki.mwc.crafting_station.removeModificationAttachmentByOutput=Removes recipe that outputs matching item of given `ingredient` from modification attachment category
-groovyscript.wiki.mwc.crafting_station.removeBulletByOutput=Removes recipe that outputs matching item of given `ingredient` from bullet category
-groovyscript.wiki.mwc.crafting_station.removeMagazineByOutput=Removes recipe that outputs matching item of given `ingredient` from magazine category
+groovyscript.wiki.mwc.crafting_station.removeGunByOutput=Removes all recipes that match the given output `ingredient` and are in the category Gun
+groovyscript.wiki.mwc.crafting_station.removeGrenadeByOutput=Removes all recipes that match the given output `ingredient` and are in the category Grenade
+groovyscript.wiki.mwc.crafting_station.removeNormalAttachmentByOutput=Removes all recipes that match the given output `ingredient` and are in the category Normal attachment
+groovyscript.wiki.mwc.crafting_station.removeModificationAttachmentByOutput=Removes all recipes that match the given output `ingredient` and are in the category Modification attachment
+groovyscript.wiki.mwc.crafting_station.removeBulletByOutput=Removes all recipes that match the given output `ingredient` and are in the category Bullet
+groovyscript.wiki.mwc.crafting_station.removeMagazineByOutput=Removes all recipes that match the given output `ingredient` and are in the category Magazine
 
 groovyscript.wiki.mwc.crafting_station.yield.value=Recover ratio of ingredient when dismantling item
 groovyscript.wiki.mwc.crafting_station.group.value=Category of crafting recipe

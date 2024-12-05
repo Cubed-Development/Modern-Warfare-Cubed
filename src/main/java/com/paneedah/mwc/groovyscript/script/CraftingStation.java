@@ -304,7 +304,7 @@ public final class CraftingStation extends VirtualizedRegistry<ICraftingRecipe> 
             return this;
         }
 
-        @RecipeBuilderMethodDescription(field = "group", priority = 2500)
+        @RecipeBuilderMethodDescription(field = "group")
         public RecipeBuilder setGroupGun() {
             return setGroup(GUN);
         }
@@ -334,7 +334,7 @@ public final class CraftingStation extends VirtualizedRegistry<ICraftingRecipe> 
             return setGroup(GRENADE);
         }
 
-        @RecipeBuilderMethodDescription(field = "group")
+        @RecipeBuilderMethodDescription(field = "group", priority = 2500)
         public RecipeBuilder setGroup(String string) {
             return setGroup(CraftingGroup.valueOf(string));
         }
