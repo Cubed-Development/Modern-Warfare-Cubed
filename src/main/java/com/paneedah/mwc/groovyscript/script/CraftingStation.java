@@ -75,6 +75,11 @@ public final class CraftingStation extends VirtualizedRegistry<ICraftingRecipe> 
         removeInGroupWithFilter((s) -> true, group);
     }
 
+    /**
+     * Remove ALL recipes of Given Category.
+     *
+     * @param group CraftingGroup to remove all recipes inside. valid values = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE"
+     */
     @MethodDescription(priority = 3000)
     public void removeByGroup(String group) {
         removeInGroupWithFilter((s) -> true, CraftingGroup.valueOf(group));
@@ -139,9 +144,15 @@ public final class CraftingStation extends VirtualizedRegistry<ICraftingRecipe> 
         removeInGroupWithFilter(ingredient, group);
     }
 
+    /**
+     * Remove recipe that outputs matching item of given `ingredient` from given category.
+     *
+     * @param ingredient Output item of the recipe. recipe with matching output will be removed.
+     * @param group CraftingGroup to remove matching recipes inside. valid values = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE"
+     */
     @MethodDescription(priority = 2000)
     public void removeInGroupByOutput(IIngredient ingredient, String group) {
-        removeInGroupWithFilter(ingredient, CraftingGroup.valueOf(group));
+        removeInGroupByOutput(ingredient, CraftingGroup.valueOf(group));
     }
 
     /**
