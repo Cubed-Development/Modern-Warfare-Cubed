@@ -1,12 +1,9 @@
 package com.paneedah.mwc.tileentities;
 
-import dev.redstudio.redcore.utils.AABBUtil;
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.tile.CustomTileEntityBlock;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
 import net.minecraft.block.material.Material;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import org.lwjgl.opengl.GL11;
 
@@ -20,12 +17,7 @@ public class TileEntities {
                 .withTextureName("textures/models/gun_case.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(3.5f)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.58, 0, 0.2, 1.63, 0.3, 0.8));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(-0.58, 0, 0.2, 1.63, 0.3, 0.8))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.7f, 1.1f, 0.5f);
@@ -39,12 +31,7 @@ public class TileEntities {
                 .withTextureName("textures/models/gun_case_small.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(3.5f)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77));
-                        }
-                )
+                .withBoundingBox( new AxisAlignedBB(-0.58, 0, 0.2, 1.63, 0.3, 0.8))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.8f, 1.1f, 0.8f);
@@ -58,12 +45,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.MilitaryCrate")
                 .withTextureName("textures/models/militarycrate.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.47, 0, 0.03, 1.44, 0.54, 0.98));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(-0.47, 0, 0.03, 1.44, 0.54, 0.98))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.8f, 1.15f, 0.75f);
@@ -77,12 +59,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.Ammobox1")
                 .withTextureName("textures/models/ammobox.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.4f, 0.4f, 0.4f);
                     GL11.glTranslatef(1.2f, 2.5f, 1.1f);
@@ -110,12 +87,7 @@ public class TileEntities {
                 .withTextureName("textures/models/fridge.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
-                        }
-                )
+                .withBoundingBox( new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glTranslatef(0.55f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
@@ -129,12 +101,7 @@ public class TileEntities {
                 .withTextureName("textures/models/fridge.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glTranslatef(0.55f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
@@ -176,12 +143,7 @@ public class TileEntities {
                 .withTextureName("textures/models/medicalcrate.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(3.5f)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.5, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.7f, 1.13f, 0.5f);
@@ -195,12 +157,7 @@ public class TileEntities {
                 .withTextureName("textures/models/locker.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.5f, 0.5f, 0.5f);
                     GL11.glTranslatef(0.7f, 1.85f, 1f);
@@ -214,12 +171,7 @@ public class TileEntities {
                 .withTextureName("textures/models/scplocker.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.5f, 0.45f, 0.6f);
@@ -274,12 +226,7 @@ public class TileEntities {
                 .withTextureName("textures/models/pc.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(5)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.5, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
                     GL11.glTranslatef(0.5f, 0.71f, 0.6f);
@@ -362,12 +309,7 @@ public class TileEntities {
                 .withTextureName("textures/models/shelf.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(2)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.2, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.2, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -382,12 +324,7 @@ public class TileEntities {
                 .withTextureName("textures/models/tv.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(5)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -429,12 +366,7 @@ public class TileEntities {
                 .withTextureName("textures/models/officechair.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(2)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.7, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -449,12 +381,7 @@ public class TileEntities {
                 .withTextureName("textures/models/officechair.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(2)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.7, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -572,12 +499,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.DeskShelf")
                 .withTextureName("textures/models/deskshelf.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.6, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.6, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -604,12 +526,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.DeskShelfAlt2")
                 .withTextureName("textures/models/deskshelf.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.6, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.6, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -661,9 +578,10 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.BodyBag")
                 .withTextureName("textures/models/bodybag.png")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.4, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.5f, -0.9f, 0.55f);
+                    GL11.glTranslatef(0.5f, 0, 0.55f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
@@ -674,12 +592,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.HangingBody")
                 .withTextureName("textures/models/hangingbody.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, -1, 0, 1, 1, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, -1, 0, 1, 1, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.5f, 1.8f, 0.55f);
@@ -693,12 +606,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.ImpaledBody")
                 .withTextureName("textures/models/impaledbody.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 3, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 2.8, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.5f, 0.2f, 0.55f);
@@ -713,12 +621,7 @@ public class TileEntities {
                 .withTextureName("textures/models/dumpster.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(-1, 0, 0, 1, 1, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(-1, 0, 0, 1, 1, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.6f, 0.2f, 0.5f);
@@ -953,12 +856,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.WhiteDeskMiddle")
                 .withTextureName("textures/models/shelf.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.5, 0, 1, 1, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0.5, 0, 1, 1, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1037,12 +935,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.HomeChair")
                 .withTextureName("textures/models/homechair.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.7, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1095,12 +988,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.VendingMachine")
                 .withTextureName("textures/models/vendingmachine.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.55f, 0.4f, 0.62f);
@@ -1218,12 +1106,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.ServerRackTop")
                 .withTextureName("textures/models/serverrackleft.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.5, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1237,12 +1120,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.ServerRackTopRight")
                 .withTextureName("textures/models/serverrackleft.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.5, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1256,12 +1134,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.DuelFloodLight")
                 .withTextureName("textures/models/duelfloodlight.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1.7, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 1.7, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.6f, 0.35f, 0.6f);
@@ -1274,12 +1147,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.Floodlight")
                 .withTextureName("textures/models/floodlight.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.75, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.75, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.6f, 0.175f, 0.6f);
@@ -1305,12 +1173,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.Radio")
                 .withTextureName("textures/models/radio.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
                     GL11.glTranslatef(0.65f, 0.58f, 0.6f);
@@ -1323,7 +1186,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.Camera")
                 .withTextureName("textures/models/camera.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(0, 0, 0, 1, 0.8, 1)
+                .withBoundingBox(new AxisAlignedBB(0,0,0,1,0.8,1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0.05f, 0.6f);
@@ -1337,12 +1200,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.PropaneTank")
                 .withTextureName("textures/models/propanetank.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.9, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.9, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.85f, 1f, 0.85f);
@@ -1370,12 +1228,7 @@ public class TileEntities {
                 .withTextureName("textures/models/sandbag.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(1)
-                .withBoundingBox(
-                        blockState -> {
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            return AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.4, 1));
-                        }
-                )
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.4, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1468,7 +1321,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.Scarecrow")
                 .withTextureName("textures/models/scarecrow.png")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(0.3, 0, 0.3, 0.7, 3.5, 0.7)
+                .withBoundingBox(new AxisAlignedBB(0.3, 0, 0.3, 0.7, 3.5, 0.7))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);

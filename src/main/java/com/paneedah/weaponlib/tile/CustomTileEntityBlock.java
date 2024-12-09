@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.tile;
 
+import dev.redstudio.redcore.utils.AABBUtil;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
@@ -20,6 +21,8 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 
 public class CustomTileEntityBlock extends BlockContainer {
@@ -27,9 +30,9 @@ public class CustomTileEntityBlock extends BlockContainer {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
     private final Class<? extends TileEntity> tileEntityClass;
-    private Function<IBlockState, AxisAlignedBB> customBoundingBox;
+    private Function<IBlockState, ArrayList<AxisAlignedBB>> customBoundingBoxes;
 
-    protected CustomTileEntityBlock(Material material, Class<? extends TileEntity> tileEntityClass) {
+    public CustomTileEntityBlock(Material material, Class<? extends TileEntity> tileEntityClass) {
         super(material);
         this.tileEntityClass = tileEntityClass;
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
@@ -39,14 +42,38 @@ public class CustomTileEntityBlock extends BlockContainer {
         return new BlockStateContainer(this, FACING);
     }
 
-    public void setBoundingBox(Function<IBlockState, AxisAlignedBB> customBoundingBox) {
-        this.customBoundingBox = customBoundingBox;
+    public void setBoundingBoxes(Function<IBlockState, ArrayList<AxisAlignedBB>> customBoundingBoxes) {
+        this.customBoundingBoxes = customBoundingBoxes;
     }
-
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        return customBoundingBox != null ? customBoundingBox.apply(state) : super.getBoundingBox(state, source, pos);
+        if (customBoundingBoxes != null) {
+            // Get the block's facing direction
+            EnumFacing facing = state.getValue(FACING);
+
+            // Retrieve the list of bounding boxes based on the block state
+            List<AxisAlignedBB> boundingBoxes = customBoundingBoxes.apply(state);
+
+            // Orient and combine all bounding boxes dynamically
+            if (!boundingBoxes.isEmpty()) {
+                AxisAlignedBB combinedBoundingBox = null;
+
+                for (AxisAlignedBB boundingBox : boundingBoxes) {
+                    AxisAlignedBB orientedBoundingBox = AABBUtil.orientAABB(facing, boundingBox);
+                    if (combinedBoundingBox == null) {
+                        combinedBoundingBox = orientedBoundingBox;
+                    } else {
+                        combinedBoundingBox = combinedBoundingBox.union(orientedBoundingBox);
+                    }
+                }
+
+                return combinedBoundingBox != null ? combinedBoundingBox : super.getBoundingBox(state, source, pos);
+            }
+        }
+
+        // Default bounding box if no custom bounding boxes are defined
+        return super.getBoundingBox(state, source, pos);
     }
 
     @Override
@@ -130,6 +157,4 @@ public class CustomTileEntityBlock extends BlockContainer {
             return super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, placer).withProperty(FACING, enumfacing);
         }
     }
-
-
 }

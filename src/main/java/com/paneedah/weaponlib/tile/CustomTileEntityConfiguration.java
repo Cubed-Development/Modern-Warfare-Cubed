@@ -17,9 +17,10 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static com.paneedah.mwc.ProjectConstants.ID;
@@ -34,11 +35,11 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
     private float resistance = 600000f;
     private String modelClassName;
     private final AtomicInteger counter = new AtomicInteger(10000);
-    private final Supplier<Integer> entityIdSupplier = () -> counter.incrementAndGet();
+    private final Supplier<Integer> entityIdSupplier = counter::incrementAndGet;
     private Consumer<TileEntity> positioning = tileEntity -> {};
-    private Function<IBlockState, AxisAlignedBB> boundingBox;
+    private List<AxisAlignedBB> boundingBoxes = new ArrayList<>();
 
-
+    @SuppressWarnings("unchecked")
     private T safeCast(CustomTileEntityConfiguration<T> input) {
         return (T) input;
     }
@@ -83,14 +84,13 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         return safeCast(this);
     }
 
-    public T withBoundingBox(Function<IBlockState, AxisAlignedBB> boundingBox) {
-        this.boundingBox = boundingBox;
+    public T withBoundingBox(double x1, double y1, double z1, double x2, double y2, double z2) {
+        boundingBoxes.add(new AxisAlignedBB(x1, y1, z1, x2, y2, z2));
         return safeCast(this);
     }
 
-    public T withBoundingBox(double x1, double y1, double z1, double x2, double y2, double z2) {
-        AxisAlignedBB bb = new AxisAlignedBB(x1, y1, z1, x2, y2, z2);
-        this.boundingBox = state -> bb;
+    public T withBoundingBox(AxisAlignedBB axisAlignedBB) {
+        boundingBoxes.add(axisAlignedBB);
         return safeCast(this);
     }
 
@@ -98,35 +98,31 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         return CustomTileEntity.class;
     }
 
-
+    @SuppressWarnings("unchecked")
     protected Class<CustomTileEntity<T>> createTileEntityClass() {
         int modEntityId = entityIdSupplier.get();
-        return (Class<CustomTileEntity<T>>) CustomTileEntityClassFactory.getInstance().generateEntitySubclass(
-                getBaseClass(), modEntityId, this);
+        return (Class<CustomTileEntity<T>>) CustomTileEntityClassFactory.getInstance()
+                .generateEntitySubclass(getBaseClass(), modEntityId, this);
     }
 
     public void build(ModContext modContext) {
-
         Class<? extends TileEntity> tileEntityClass = createTileEntityClass();
-
         CustomTileEntityBlock tileEntityBlock = new CustomTileEntityBlock(material, tileEntityClass);
+
         if (!FMLCommonHandler.instance().getSide().isServer()) {
             ClientEventHandler.BLANKMAPPED_LIST.add(tileEntityBlock);
         }
+
         tileEntityBlock.setTranslationKey(ID + "_" + name);
         tileEntityBlock.setHardness(hardness);
         tileEntityBlock.setResistance(resistance);
         tileEntityBlock.setCreativeTab(creativeTab);
-        tileEntityBlock.setBoundingBox(boundingBox);
+        tileEntityBlock.setBoundingBoxes(state -> new ArrayList<>(boundingBoxes));
+
         ResourceLocation textureResource = new ResourceLocation(ID, textureName);
         GameRegistry.registerTileEntity(tileEntityClass, "tile" + name);
 
-        //System.out.println("RUNNING!");
-
         if (tileEntityBlock.getRegistryName() == null) {
-            if (tileEntityBlock.getTranslationKey().length() < ID.length() + 2 + 5) {
-                throw new IllegalArgumentException("Unlocalize block name too short " + tileEntityBlock.getTranslationKey());
-            }
             String unlocalizedName = tileEntityBlock.getTranslationKey().toLowerCase();
             String registryName = unlocalizedName.substring(5 + ID.length() + 1);
             tileEntityBlock.setRegistryName(ID, registryName);
@@ -135,12 +131,18 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         ForgeRegistries.BLOCKS.register(tileEntityBlock);
         ItemBlock itemBlock = new ItemBlock(tileEntityBlock);
         // TODO: introduce registerItem()
-
         modContext.registerRenderableItem(tileEntityBlock.getRegistryName(), itemBlock, null);
 
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-            RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, modelClassName,
-                    textureResource, positioning, tileEntityBlock);
+            RendererRegistration.registerRenderableEntity(
+                    modContext,
+                    name,
+                    tileEntityClass,
+                    modelClassName,
+                    textureResource,
+                    positioning,
+                    tileEntityBlock
+            );
         }
     }
 
@@ -152,17 +154,9 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
                 ModContext context, String name, Class<? extends TileEntity> tileEntityClass, String modelClassName,
                 ResourceLocation textureResource, Consumer<TileEntity> positioning, CustomTileEntityBlock tileEntityBlock) {
             try {
-
-//                MC.getRenderItem().getItemModelMesher()
-//                    .register(Item.getItemFromBlock(tileEntityBlock), 0,
-//                        new ModelResourceLocation(ID + ":" + name, "inventory"));
-
-//                ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(ID + ":" + name, "inventory");
-//                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(tileEntityBlock), 0, itemModelResourceLocation);
-
                 ModelBase model = (ModelBase) Class.forName(modelClassName).newInstance();
-                ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass, (TileEntitySpecialRenderer) new CustomTileEntityRenderer(model, textureResource, positioning));
-
+                ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass,
+                        new CustomTileEntityRenderer(model, textureResource, positioning));
             } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
