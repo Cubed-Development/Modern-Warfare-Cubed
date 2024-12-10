@@ -1,8 +1,9 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "${id}:items/radio_rotated"
-    },
+        "layer0": "${id}:items/radio",
+		"layer1": "${id}:items/prop_rotated"
+	},
     "display": {
 		"thirdperson_righthand": {
 			"translation": [0, 3, 1],

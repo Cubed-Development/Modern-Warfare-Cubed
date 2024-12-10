@@ -2,7 +2,6 @@ package com.paneedah.mwc.tileentities;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.tile.CustomTileEntityConfiguration;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -11,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 public class TileEntities {
 
     public static void createTileEntity(ModContext modContext) {
-        new CustomTileEntityConfiguration<>()
+        new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("weapons_case")
                 .withModelClassName("com.paneedah.mwc.models.GunCase")
@@ -582,7 +581,7 @@ public class TileEntities {
                 .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.4, 1))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.5f, 0, 0.55f);
+                    GL11.glTranslatef(0.5f, 0.1f, 0.55f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
