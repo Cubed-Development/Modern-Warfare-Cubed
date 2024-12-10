@@ -92,7 +92,8 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
 
     /**
      * Use a custom bounding box for this tile,
-     * if more than one box is given, it will be merged
+     * if more than one box is given, it will be merged.
+     * Only provide the North orientation, it will be rotated
      *
      * @param axisAlignedBB The {@link AxisAlignedBB} to add to this tile
      */
