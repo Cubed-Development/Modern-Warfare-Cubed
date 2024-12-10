@@ -38,10 +38,11 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
         if (!world.isRemote) {
             if (configuration.getEquipmentDispenseTimeoutTicks() < world.getWorldTime() - lastEquipmentDispenseTimestamp) {
                 lastEquipmentDispenseTimestamp = world.getWorldTime();
-                Equipment equipment = configuration.getEquipmentOptions().pick(EnumDifficulty.EASY);
+                Equipment equipment = configuration.getBuiltEquipmentOptions().pick(EnumDifficulty.EASY);
                 if (equipment != null && equipment.item != null) {
-                    LOGGER.info("Dropping " + equipment.item.getTranslationKey());
-                    player.playSound(configuration.getDispenseSound(), 0.15f, 1);
+                    LOGGER.debug("Dropping " + equipment.item.getTranslationKey());
+
+                    player.playSound(configuration.getDispenseSoundEvent(), 0.15f, 1);
                     ItemStack equipmentItemStack = ItemStack.EMPTY;
                     if (equipment.item instanceof Weapon) {
                         equipmentItemStack = new ItemStack(equipment.item, equipment.stackSize);
@@ -65,7 +66,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                     }
                 }
             } else {
-                player.playSound(configuration.getEquipmentNotAvailableSound(), 0.15F, 1);
+                player.playSound(configuration.getEquipmentNotAvailableSoundEvent(), 0.15F, 1);
             }
         }
 

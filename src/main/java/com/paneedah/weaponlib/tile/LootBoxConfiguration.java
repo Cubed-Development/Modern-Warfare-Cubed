@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.tile;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.WeightedOptions;
+import lombok.Getter;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.SoundEvent;
@@ -92,15 +93,15 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
 
     private final Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
 
-    private WeightedOptions<EnumDifficulty, Equipment> builtEquipmentOptions;
+    @Getter private WeightedOptions<EnumDifficulty, Equipment> builtEquipmentOptions;
 
-    private int equipmentDispenseTimeoutTicks = DEFAULT_EQUIPMENT_DISPENSE_TIMEOUT_TICKS;
+    @Getter private int equipmentDispenseTimeoutTicks = DEFAULT_EQUIPMENT_DISPENSE_TIMEOUT_TICKS;
 
     private String dispenseSound;
     private String equipmentNotAvailableSound;
 
-    private SoundEvent dispenseCompatibleSound;
-    private SoundEvent equipmentNotAvailableCompatibleSound;
+    @Getter private SoundEvent dispenseSoundEvent;
+    @Getter private SoundEvent equipmentNotAvailableSoundEvent;
 
     public LootBoxConfiguration withEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
         withEquipmentOption(equipmentOptions, item, difficultyLevel, weight, attachments);
@@ -176,26 +177,10 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
 
         builtEquipmentOptions = equipmentOptionsBuilder.build();
 
-        dispenseCompatibleSound = modContext.registerSound(dispenseSound);
-        equipmentNotAvailableCompatibleSound = modContext.registerSound(equipmentNotAvailableSound);
+        dispenseSoundEvent = modContext.registerSound(dispenseSound);
+        equipmentNotAvailableSoundEvent = modContext.registerSound(equipmentNotAvailableSound);
 
         super.build(modContext);
-    }
-
-    public WeightedOptions<EnumDifficulty, Equipment> getEquipmentOptions() {
-        return builtEquipmentOptions;
-    }
-
-    public int getEquipmentDispenseTimeoutTicks() {
-        return equipmentDispenseTimeoutTicks;
-    }
-
-    public SoundEvent getDispenseSound() {
-        return dispenseCompatibleSound;
-    }
-
-    public SoundEvent getEquipmentNotAvailableSound() {
-        return equipmentNotAvailableCompatibleSound;
     }
 
 }
