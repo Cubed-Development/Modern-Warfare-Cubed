@@ -2,7 +2,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "${id}:items/barrel"
+        "layer0": "${id}:items/towable_floodlight"
     },
     "display": {
 		"thirdperson_righthand": {

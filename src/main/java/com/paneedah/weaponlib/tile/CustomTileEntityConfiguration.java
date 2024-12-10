@@ -67,6 +67,9 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         return safeCast(this);
     }
 
+    /**
+     * Sets the tiles resistance to explosions
+     */
     public T withResistance(float resistance) {
         this.resistance = resistance;
         return safeCast(this);
@@ -87,6 +90,12 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         return safeCast(this);
     }
 
+    /**
+     * Use a custom bounding box for this tile,
+     * if more than one box is given, it will be merged
+     *
+     * @param axisAlignedBB The {@link AxisAlignedBB} to add to this tile
+     */
     public T withBoundingBox(AxisAlignedBB axisAlignedBB) {
         boundingBoxes.add(axisAlignedBB);
         return safeCast(this);

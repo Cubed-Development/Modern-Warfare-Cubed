@@ -17,7 +17,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -150,7 +150,7 @@ public class CustomTileEntityBlock extends BlockContainer {
             if (!worldIn.isRemote) {
 
                 if (placer instanceof EntityPlayer) {
-                    placer.sendMessage(new TextComponentTranslation("Invalid damage property. Please pick in [0, 1, 2]"));
+                    placer.sendMessage(new TextComponentString("Invalid damage property. Please pick in [0, 1, 2]"));
                 }
             }
 

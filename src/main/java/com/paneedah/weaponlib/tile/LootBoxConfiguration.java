@@ -4,6 +4,7 @@ import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.WeightedOptions;
 import lombok.Getter;
+import lombok.NonNull;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.SoundEvent;
@@ -128,12 +129,8 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
         return this;
     }
 
-    private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item,
+    private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, @NonNull Item item,
                                                      EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
-//        if(item == null) {
-//            log.warn("Attempted to configure entity equipment with null item");
-//            return this;
-//        }
         Equipment equipment = new Equipment();
         equipment.item = item;
         equipment.attachments = Arrays.asList(attachments);
@@ -145,12 +142,8 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
         return this;
     }
 
-    private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item,
+    private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, @NonNull Item item,
                                                      EnumDifficulty difficultyLevel, float weight, int stackSize) {
-//        if(item == null) {
-//            log.warn("Attempted to configure entity equipment with null item");
-//            return this;
-//        }
         Equipment equipment = new Equipment();
         equipment.item = item;
         equipment.stackSize = stackSize;
