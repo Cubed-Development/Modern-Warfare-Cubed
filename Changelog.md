@@ -62,6 +62,22 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - Added wiki
   - Added helper methods to avoid typing enums strings
   - Added more validations
+- Added icons for the following props:
+  - Gravestone
+  - Gravestone Skull
+  - Gravestone Cross
+  - Gravestone Cross (ALT 1)
+  - Gravestone Cross (ALT 2)
+  - Sandbag
+  - Sandbag Wall
+  - Spooky Ghost
+  - Spooky Ghost (ALT 1)
+  - Spooky Ghost (ALT 2)
+  - Towable Floodlight
+  - Swat Truck
+  - Server Rack Left (ALT 3)
+  - Scarecrow
+  - Propane Tank
 
 ### Changed
 
@@ -147,6 +163,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated [Red Core](https://www.curseforge.com/minecraft/mc-mods/red-core) dependency to 0.6-Dev-8
 - Lombokified most of the codebase
 - Updated [foojay-resolver](https://github.com/gradle/foojay-toolchains) to version 0.9.0
+- Cleaned up and improved the system for making props
 
 ## Modern Warfare Cubed Version 0.1.9 Changelog - 2024-11-25
 
