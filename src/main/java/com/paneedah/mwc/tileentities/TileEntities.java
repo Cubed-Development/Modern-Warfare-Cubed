@@ -1130,7 +1130,7 @@ public class TileEntities {
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
-                .withName("DuelFloodLight")
+                .withName("duelfloodlight")
                 .withModelClassName("com.paneedah.mwc.models.DuelFloodLight")
                 .withTextureName("textures/models/duelfloodlight.png")
                 .withCreativeTab(MWC.PROPS_TAB)
@@ -1143,7 +1143,7 @@ public class TileEntities {
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
-                .withName("FloodLight")
+                .withName("floodLight")
                 .withModelClassName("com.paneedah.mwc.models.Floodlight")
                 .withTextureName("textures/models/floodlight.png")
                 .withCreativeTab(MWC.PROPS_TAB)
@@ -1156,10 +1156,11 @@ public class TileEntities {
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
-                .withName("Radio_rotated")
+                .withName("radio_rotated")
                 .withModelClassName("com.paneedah.mwc.models.Radio")
                 .withTextureName("textures/models/radio.png")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
                     GL11.glTranslatef(0.65f, 0.58f, 0.7f);
@@ -1169,7 +1170,7 @@ public class TileEntities {
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
-                .withName("Radio")
+                .withName("radio")
                 .withModelClassName("com.paneedah.mwc.models.Radio")
                 .withTextureName("textures/models/radio.png")
                 .withCreativeTab(MWC.PROPS_TAB)
