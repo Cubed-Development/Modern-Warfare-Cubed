@@ -1229,7 +1229,7 @@ public class TileEntities {
                 .withTextureName("textures/models/sandbag.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(1)
-                .withBoundingBox(new AxisAlignedBB(0, 0, 0, 1, 0.4, 1))
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0.25, 1, 0.4, 0.7))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1243,6 +1243,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.SandbagWall")
                 .withTextureName("textures/models/sandbag.png")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(new AxisAlignedBB(0, 0, 0.25, 1, 1, 0.7))
                 .withHardness(1)
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
