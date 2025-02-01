@@ -54,7 +54,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.redstudio", "Red-Core", redCoreVersion)
+    implementation("curse.maven:red-core-873867:6061518") // TODO Desoroxxx FIX YOUR MAVEN! //implementation("dev.redstudio", "Red-Core", redCoreVersion)
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
     compileOnly("com.cleanroommc", "groovyscript", groovyScriptVersion) {

@@ -37,7 +37,7 @@ public final class Tags {
         for (final String key : tagCompound.getKeySet())
             tags.add(key + ":" + tagCompound.getTag(key));
 
-        RED_LOGGER.logFramed("Tags (Size: " + tagCompound.getSize() + ") for item: " + itemStack, INFO, tags.toArray(new String[0]));
+        RED_LOGGER.framed("Tags (Size: " + tagCompound.getSize() + ") for item: " + itemStack, INFO, tags.toArray(new String[0]));
     }
 
     // region Getters
