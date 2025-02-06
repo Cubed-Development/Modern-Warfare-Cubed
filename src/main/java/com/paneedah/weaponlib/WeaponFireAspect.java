@@ -4,6 +4,7 @@ import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.network.messages.MuzzleFlashMessage;
+import com.paneedah.mwc.network.messages.RealisticSoundMessage;
 import com.paneedah.mwc.network.messages.ShellMessageClient;
 import com.paneedah.mwc.network.messages.TryFireMessage;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
@@ -285,11 +286,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             // Should prevent sound from being one sided
 
             if (!FMLCommonHandler.instance().getSide().isServer()) {
-
-                //
-                PositionedSoundRecord psr = new PositionedSoundRecord(shootSound, SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1.0F, MC.player.getPosition().up(5));
-                playShootSound(psr);
-                //MC.getSoundHandler().playSound(psr);
+                CHANNEL.sendToServer(new RealisticSoundMessage(silencerOn, shootSound, player.getPosition(), player.getEntityWorld().getWorldType().getId()));
             }
 
 
@@ -301,11 +298,12 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
         int currentAmmo = weaponInstance.getAmmo();
         if (currentAmmo == 1 && weapon.getEndOfShootSound() != null && !FMLCommonHandler.instance().getSide().isServer()) {
-            PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, MC.player.getPosition().up(5));
-            playShootSound(psr);
+            CHANNEL.sendToServer(new RealisticSoundMessage(silencerOn,weapon.getEndOfShootSound(), player.getPosition(), player.getEntityWorld().getWorldType().getId()));
+//        	PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, MC.player.getPosition().up(5));
+//        	playShootSound(psr);
             //MC.getSoundHandler().playSound(psr);
         }
-
+        
         if (currentAmmo == 1) {
             weaponInstance.setSlideLock(true);
         }
@@ -353,22 +351,22 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             ClientEventHandler.SHELL_MANAGER.enqueueShell(shell);
 
             //Shell
-        	
+
         	/*
         	// Change the raw position
         	Vec3d rawPosition = new Vec3d(ClientEventHandler.NEW_POS.get(0), ClientEventHandler.NEW_POS.get(1), ClientEventHandler.NEW_POS.get(2));
-        	
-        	
+
+
         	// Calculate the final position of the bullet spawn point
         	// by changing it's position along its own vector
         	double distance = 0.5;
 			Vec3d eyePos = MC.player.getPositionEyes(1.0f);
 			Vec3d finalPosition = rawPosition.subtract(eyePos).normalize().scale(distance).add(eyePos);
-			
+
         	// Calculate velocity as 90 degrees to player
 			Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
     		velocity = velocity.rotateYaw((float) Math.toRadians(-MC.player.rotationYaw));
-    		
+
     		// Spawn in shell
     		Shell shell = new Shell(weaponInstance.getWeapon().getShellType(), new Vec3d(finalPosition.x, finalPosition.y, finalPosition.z), new Vec3d(90, 0, 90), velocity);
         	ClientEventHandler.shellManager.enqueueShell(shell);
@@ -393,7 +391,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         player.playSound(weaponInstance.getWeapon().getEjectSpentRoundSound(), 1, 1);
     }
 
-    //(weapon, player) 
+    //(weapon, player)
     public void serverFire(EntityLivingBase player, boolean isBurst, boolean isAimed) {
         serverFire(player, player.getHeldItemMainhand(), null, isBurst, isAimed, 1.0f);
     }
@@ -423,7 +421,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
 
         //System.out.println(isAimed);
-      
+
         /*
         int itemIndex = 0;
         EntityPlayer realPlayer = (EntityPlayer) player;
@@ -432,9 +430,9 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         		itemIndex = i;
         	}
         }
-        
-        
-        
+
+
+
         PlayerWeaponInstance pwi = new PlayerWeaponInstance(itemIndex, player, itemStack);
         System.out.println(pwi.isAimed());
             	*/
