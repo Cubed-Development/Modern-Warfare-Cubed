@@ -4,10 +4,10 @@ import org.jetbrains.gradle.ext.settings
 import org.jetbrains.gradle.ext.Gradle
 
 plugins {
-    id("com.gtnewhorizons.retrofuturagradle") version "1.4.2"
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.9"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.10"
+    id("com.gtnewhorizons.retrofuturagradle") version "1.4.3"
     id("com.github.gmazzo.buildconfig") version "5.5.1"
-    id("io.freefair.lombok") version "8.11"
+    id("io.freefair.lombok") version "8.12.2"
 }
 
 group = "com.paneedah"
@@ -19,7 +19,7 @@ val plugin = "${project.group}.${id}.asm.MWCPlugin"
 val redCoreVersion = "1.8-1.12-" + "0.6"
 
 val groovyScriptVersion = "1.2.0-hotfix1"
-val mixinBooterVersion = "10.2"
+val mixinBooterVersion = "10.5"
 
 minecraft {
     mcVersion = "1.12.2"
@@ -155,8 +155,8 @@ idea {
 
     project {
         settings {
-            jdkName = "1.8"
-            languageLevel = IdeaLanguageLevel("JDK_1_8")
+            jdkName = "8"
+            languageLevel = IdeaLanguageLevel("JDK_8")
 
             runConfigurations {
                 listOf("Client", "Server", "Obfuscated Client", "Obfuscated Server", "Vanilla Client", "Vanilla Server").forEach { name ->

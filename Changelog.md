@@ -134,24 +134,25 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Made client sided mixins client side only
 - Cleaned up the `mcmod.info` file
 - Switched to [CurseUpdate](https://forge.curseupdate.com/) for update checking
-- Updated [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) to version 1.4.2
-- Updated to [Gradle](https://gradle.org) 8.8
 - Set a minimum Gradle Daemon JVM version requirement
 - Updated the `gradle.properties` to the new Red Studio standard one
 - Cleaned up the buildscript
-- Updated [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) dependency to 1.2
-- Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 5.5.1
 - Switched to the new standard `gradle.properties`
 - General cleanup
-- Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 8.11
 - Remade the build script
 - Switched from [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) tags to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin)
-- Updated [MixinBooter](https://www.curseforge.com/minecraft/mc-mods/mixin-booter) dependency to 10.2
-- Updated to [org.jetbrains.gradle.plugin.idea-ext](https://github.com/JetBrains/gradle-idea-ext-plugin) 1.1.9
 - Props now use Red Core `AABBUtil`
 - Lombokified most of the codebase
-- Updated [foojay-resolver](https://github.com/gradle/foojay-toolchains) to version 0.9.0
-- Updated [Red Core](https://www.curseforge.com/minecraft/mc-mods/red-core) dependency to 0.6
+- Updated dependencies:
+  - Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 5.5.1
+  - Updated to [gradle-idea-ext-plugin](https://github.com/JetBrains/gradle-idea-ext-plugin) 1.1.10
+  - Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 8.12.2
+  - Updated to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.4.3
+  - Updated to [foojay-resolver](https://github.com/gradle/foojay-toolchains) 0.9.0
+  - Updated to [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) 1.2.0-hotfix1
+  - Updated to [MixinBooter](https://www.curseforge.com/minecraft/mc-mods/mixin-booter) 10.5
+  - Updated to [Red Core](https://www.curseforge.com/minecraft/mc-mods/red-core) 0.6
+  - Updated to [Gradle](https://gradle.org) 8.13
 
 ## Modern Warfare Cubed Version 0.1.9 Changelog - 2024-11-25
 
