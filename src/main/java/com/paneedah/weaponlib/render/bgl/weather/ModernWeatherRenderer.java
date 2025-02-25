@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.render.bgl.weather;
 
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -27,11 +26,22 @@ public class ModernWeatherRenderer extends IRenderHandler {
 
     private static final int RAIN_SEARCH_AREA = 4;
 
+    /*
+     * Rainpositions[rainIndex]
+     *   -> { enabled, posX, posY, posZ, type }
+     *        [0]      [1]   [2]   [3]   [4]
+     *
+     *  Type = 1 if rain; type = 0 if snow.
+     *
+     */
     private final float[][] rainPositions = new float[(2 * RAIN_SEARCH_AREA) * (2 * RAIN_SEARCH_AREA)][5];
 
+    //private float previousRotation;
     private Vec3d previousPosition;
+    //private int previousThirdPerson;
 
     // Textures
+    // Todo: Actually use the different rain textures - Luna Lage (Desoroxxx) 2023-12-21
     public static final ResourceLocation RAIN_LIGHT = new ResourceLocation(ID, "textures/environment/lightrain.png");
     public static final ResourceLocation RAIN_MEDIUM = new ResourceLocation(ID, "textures/environment/mediumrain.png");
     public static final ResourceLocation RAIN_HEAVY = new ResourceLocation(ID, "textures/environment/heavyrain.png");
@@ -42,7 +52,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
      * Check if it is raining or snowing
      * at a given block position
      *
-     * @param pos The position to check
+     * @param Position to check
      *
      * @return True if raining, false if snowing
      */
@@ -58,9 +68,9 @@ public class ModernWeatherRenderer extends IRenderHandler {
      * but it's best this calculation happens as infrequently
      * as possible.
      *
-     * @param player the player we use to get the world instance
+     * @param player
      *
-     * @return false if not raining
+     * @return
      */
     public boolean shouldRecalculateRainVectors(EntityPlayer player) {
 
@@ -73,12 +83,25 @@ public class ModernWeatherRenderer extends IRenderHandler {
             previousPosition = player.getPositionVector();
             return true;
         }
+		
+		/*
+		// Rotation flag
+		boolean rotationFlag = Math.abs(player.rotationYaw - previousRotation) > 10;
+		if(rotationFlag) previousRotation = player.rotationYaw;
+		*/
 
         // Position flag
         boolean positionFlag = player.getPositionVector().x != previousPosition.x || player.getPositionVector().y != previousPosition.y || player.getPositionVector().z != previousPosition.z;
         if (positionFlag) {
             previousPosition = player.getPositionVector();
         }
+		
+		
+
+		/*
+		boolean thirdPersonFlag = MC.gameSettings.thirdPersonView != previousThirdPerson;
+		if(thirdPersonFlag) previousThirdPerson = MC.gameSettings.thirdPersonView;
+		*/
 
         return positionFlag;
     }
@@ -86,8 +109,8 @@ public class ModernWeatherRenderer extends IRenderHandler {
     /**
      * Check all rain in search area [(2*S)^2 blocks, where S is search area]
      *
-     * @param player the player
-     * @param interpolatedPosition The interpolated position of the player
+     * @param Entity player
+     * @param The interpolated position of the player
      */
     public void recalculateRainVectors(EntityPlayer player, Vec3d interpolatedPosition) {
 
@@ -114,84 +137,122 @@ public class ModernWeatherRenderer extends IRenderHandler {
 
             }
         }
+
+		/*
+		if(true) return;
+		Vec3d direction = new Vec3d(0, 0, 1);
+		if(MC.gameSettings.thirdPersonView == 1) direction = new Vec3d(0, 0, -1);
+		
+		
+		double delta = -20;
+		Vec3d lookVector = direction.rotateYaw((float) Math.toRadians(-player.rotationYaw + (4*delta)));
+		
+		for(int i = 0; i < 24; i++) {
+			
+			
+			float length = (float) (i % 4) * 3f;
+			if(length == 0) length = 1f;
+		
+				if(i % 4 == 0) {
+					lookVector = lookVector.rotateYaw((float) -Math.toRadians(delta));
+				}
+				
+				BlockPos rainPosition = new BlockPos(interpolatedPosition.x + lookVector.x*length, player.getPositionVector().y, interpolatedPosition.z + lookVector.z*length);
+				int worldPos = MC.world.getHeight(rainPosition.getX(), rainPosition.getZ());
+				rainPositions[i] = new float[] { 1.0f, (float) rainPosition.getX() + 1, (float) (rainPosition.getY() + (worldPos - player.getPosition().getY())), rainPosition.getZ()};
+
+		}
+		*/
+
+
+    }
+
+    public double getRandom(double scalar) {
+        return Math.random() * scalar - (scalar / 2.0);
+    }
+
+    public double getTrueHeight(BlockPos pos) {
+        return MC.world.getHeight(pos).getY();
+
     }
 
     @Override
     public void render(float partialTicks, WorldClient world, Minecraft MC) {
 
+
         float rainStrength = MC.world.getRainStrength(MC.getRenderPartialTicks());
         if (rainStrength == 0.0) {
             return;
         }
-
-        // Choose the rain texture based on rain strength
-        ResourceLocation selectedRainTexture;
-        if (rainStrength < 0.25) {
-            selectedRainTexture = RAIN_LIGHT;
-        } else if (rainStrength < 0.5) {
-            selectedRainTexture = RAIN_MEDIUM;
-        } else if (rainStrength < 0.95) {
-            selectedRainTexture = RAIN_HEAVY;
-        } else {
-            selectedRainTexture = RAIN_INSANE;
-        }
-
         // Rain renderer size
         double lateralSize = 1.0;
         double thinness = 5.0;
         double verticalSize = 64;
         float textureScale = 48;
 
+
         // Initialize the timer
         float timer = 0f;
+
 
         // Culling is not favorable for this
         GlStateManager.disableCull();
 
+
         Vec3d iP = MWCUtil.getInterpolatedPlayerPos();
+
 
         GlStateManager.pushMatrix();
         GlStateManager.translate(-iP.x, -iP.y, -iP.z);
 
+
         GlStateManager.enableBlend();
+        GlStateManager.color(1, 1, 1, rainStrength);
+        Tessellator t = Tessellator.getInstance();
 
-        // Fading effect based on rain strength
-        float alpha = Math.min(rainStrength * 2.0f, 1.0f);
 
-        Tessellator tessellator = Tessellator.getInstance();
-
-        // Bind the selected rain texture
-        MC.getTextureManager().bindTexture(selectedRainTexture);
+        // Rain pass
+        MC.getTextureManager().bindTexture(RAIN_HEAVY);
         timer = -ClientValueRepo.TICKER.getLerpedFloat() / 3f;
-        BufferBuilder tessellatorBuffer = tessellator.getBuffer();
-        tessellatorBuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
-        for (float[] rainPosition : rainPositions) {
-            if (rainPosition[0] == 0.0 || rainPosition[4] == 0) {
+        BufferBuilder bb = t.getBuffer();
+        bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+        for (int i = 0; i < rainPositions.length; ++i) {
+            if (rainPositions[i][0] == 0.0 || rainPositions[i][4] == 0) {
                 continue;
             }
+            bb.pos(rainPositions[i][1] - lateralSize, rainPositions[i][2] + verticalSize, rainPositions[i][3] + lateralSize).tex(0, 0 + timer).endVertex();
+            bb.pos(rainPositions[i][1], rainPositions[i][2] + verticalSize, rainPositions[i][3]).tex(1 * thinness, 0 + timer).endVertex();
+            bb.pos(rainPositions[i][1], rainPositions[i][2], rainPositions[i][3]).tex(1 * thinness, 1 * textureScale + timer).endVertex();
+            bb.pos(rainPositions[i][1] - lateralSize, rainPositions[i][2], rainPositions[i][3] + lateralSize).tex(0, 1 * textureScale + timer).endVertex();
 
-            //Fade out rain closer to the ground (Prevent seeing clipping of rain texture)
-            float groundLevel = MC.world.getHeight((int) rainPosition[1], (int) rainPosition[3]);
-            float groundFade = Math.max(0.33f, (rainPosition[2] - groundLevel) / 5.0f);
-
-            if(ModernConfigManager.recolorRain){
-                GlStateManager.color((float) ModernConfigManager.baseFogColorRed + 0.2f, (float) ModernConfigManager.baseFogColorGreen + 0.2f, (float) ModernConfigManager.baseFogColorBlue + 0.2f, alpha * groundFade);
-            }
-            else {
-                GlStateManager.color(1, 1, 1, alpha * groundFade);
-            }
-
-            tessellatorBuffer.pos(rainPosition[1] - lateralSize, rainPosition[2] + verticalSize, rainPosition[3] + lateralSize).tex(0, 0 + timer).endVertex();
-            tessellatorBuffer.pos(rainPosition[1], rainPosition[2] + verticalSize, rainPosition[3]).tex(1 * thinness, 0 + timer).endVertex();
-            tessellatorBuffer.pos(rainPosition[1], rainPosition[2], rainPosition[3]).tex(1 * thinness, 1 * textureScale + timer).endVertex();
-            tessellatorBuffer.pos(rainPosition[1] - lateralSize, rainPosition[2], rainPosition[3] + lateralSize).tex(0, 1 * textureScale + timer).endVertex();
-
-            tessellatorBuffer.pos(rainPosition[1], rainPosition[2] + verticalSize, rainPosition[3] + lateralSize).tex(0, 0 + timer).endVertex();
-            tessellatorBuffer.pos(rainPosition[1] - lateralSize, rainPosition[2] + verticalSize, rainPosition[3]).tex(1 * thinness, 0 + timer).endVertex();
-            tessellatorBuffer.pos(rainPosition[1] - lateralSize, rainPosition[2], rainPosition[3]).tex(1 * thinness, 1 * textureScale + timer).endVertex();
-            tessellatorBuffer.pos(rainPosition[1], rainPosition[2], rainPosition[3] + lateralSize).tex(0, 1 * textureScale + timer).endVertex();
+            bb.pos(rainPositions[i][1], rainPositions[i][2] + verticalSize, rainPositions[i][3] + lateralSize).tex(0, 0 + timer).endVertex();
+            bb.pos(rainPositions[i][1] - lateralSize, rainPositions[i][2] + verticalSize, rainPositions[i][3]).tex(1 * thinness, 0 + timer).endVertex();
+            bb.pos(rainPositions[i][1] - lateralSize, rainPositions[i][2], rainPositions[i][3]).tex(1 * thinness, 1 * textureScale + timer).endVertex();
+            bb.pos(rainPositions[i][1], rainPositions[i][2], rainPositions[i][3] + lateralSize).tex(0, 1 * textureScale + timer).endVertex();
         }
-        tessellator.draw();
+        t.draw();
+
+
+        // Snow pass
+        MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/environment/christmassnow.png"));
+        timer = -ClientValueRepo.TICKER.getLerpedFloat() / 25f;
+        bb = t.getBuffer();
+        bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+        for (int i = 0; i < rainPositions.length; ++i) {
+            if (rainPositions[i][0] == 0.0 || rainPositions[i][4] == 1) {
+                continue;
+            }
+            bb.pos(rainPositions[i][1] - lateralSize, rainPositions[i][2] + verticalSize, rainPositions[i][3] + lateralSize).tex(0, 0 + timer).endVertex();
+            bb.pos(rainPositions[i][1], rainPositions[i][2] + verticalSize, rainPositions[i][3]).tex(1 * thinness, 0 + timer).endVertex();
+            bb.pos(rainPositions[i][1], rainPositions[i][2], rainPositions[i][3]).tex(1 * thinness, 1 * textureScale + timer).endVertex();
+            bb.pos(rainPositions[i][1] - lateralSize, rainPositions[i][2], rainPositions[i][3] + lateralSize).tex(0, 1 * textureScale + timer).endVertex();
+
+            bb.pos(rainPositions[i][1], rainPositions[i][2] + verticalSize, rainPositions[i][3] + lateralSize).tex(0, 0 + timer).endVertex();
+            bb.pos(rainPositions[i][1] - lateralSize, rainPositions[i][2] + verticalSize, rainPositions[i][3]).tex(1 * thinness, 0 + timer).endVertex();
+            bb.pos(rainPositions[i][1] - lateralSize, rainPositions[i][2], rainPositions[i][3]).tex(1 * thinness, 1 * textureScale + timer).endVertex();
+            bb.pos(rainPositions[i][1], rainPositions[i][2], rainPositions[i][3] + lateralSize).tex(0, 1 * textureScale + timer).endVertex();
+        }
+        t.draw();
 
         GlStateManager.popMatrix();
         GlStateManager.enableCull();

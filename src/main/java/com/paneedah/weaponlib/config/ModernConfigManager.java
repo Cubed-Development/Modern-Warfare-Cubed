@@ -21,7 +21,6 @@ public class ModernConfigManager {
     //private static final List<Field> MODERN_CONFIG_FIELDS = new ArrayList<>();
 
     public static final String CATEGORY_RENDERING = "rendering";
-    public static final String CATEGORY_RENDERING_RAIN = "rendering.rain";
     public static final String CATEGORY_RENDERING_SCREENSHADERS = "rendering.screenshaders";
     public static final String CATEGORY_GAMEPLAY = "gameplay";
     public static final String CATEGORY_ENTITIES = "entities";
@@ -64,21 +63,6 @@ public class ModernConfigManager {
     @ConfigSync(category = CATEGORY_RENDERING, comment = "Enables reticle shaders")
     public static boolean enableReticleShaders = true;
 
-    // ! TODO: This is ass, could be one config?
-    @RangeDouble(min = 0.0, max = 3.0)
-    @ConfigSync(category = CATEGORY_RENDERING_RAIN, comment = "")
-    public static double baseFogColorRed = 1.6f;
-
-    @RangeDouble(min = 0.0, max = 3.0)
-    @ConfigSync(category = CATEGORY_RENDERING_RAIN, comment = "")
-    public static double baseFogColorGreen = 0.0f;
-
-    @RangeDouble(min = 0.0, max = 3.0)
-    @ConfigSync(category = CATEGORY_RENDERING_RAIN, comment = "")
-    public static double baseFogColorBlue = 0.0f;
-
-    @ConfigSync(category = CATEGORY_RENDERING_RAIN, comment = "Should we recolor the rain to match the fog color?")
-    public static boolean recolorRain = false;
 
     @ConfigSync(category = CATEGORY_RENDERING_SCREENSHADERS, comment = "Enables film grain effect")
     public static boolean filmGrain = true;
@@ -102,11 +86,8 @@ public class ModernConfigManager {
     @ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the HDR framebuffer, requires restart. The HDR is the cause of a lot of shader incompat")
     public static boolean enableHDRFramebuffer = true;
 
-    @ConfigSync(category = CATEGORY_RENDERING_RAIN, comment = "Enables the fancy MWC snow/rain")
+    @ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy MWC snow/rain")
     public static boolean enableFancyRainAndSnow = true;
-
-    @ConfigSync(category = CATEGORY_RENDERING_RAIN, comment = "Enables the fancy screen raindrops, requires enableFancyRainAndSnow")
-    public static boolean enableFancyRainDrops = true;
 
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the ammo counter")
     public static boolean enableAmmoCounter = true;
