@@ -155,8 +155,8 @@ idea {
 
     project {
         settings {
-            jdkName = "8"
-            languageLevel = IdeaLanguageLevel("JDK_8")
+            jdkName = "1.8"
+            languageLevel = IdeaLanguageLevel("JDK_1_8")
 
             runConfigurations {
                 listOf("Client", "Server", "Obfuscated Client", "Obfuscated Server", "Vanilla Client", "Vanilla Server").forEach { name ->
