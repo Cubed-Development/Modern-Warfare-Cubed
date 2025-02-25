@@ -136,7 +136,6 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Switched to [CurseUpdate](https://forge.curseupdate.com/) for update checking
 - Set a minimum Gradle Daemon JVM version requirement
 - Updated the `gradle.properties` to the new Red Studio standard one
-- Cleaned up the buildscript
 - Switched to the new standard `gradle.properties`
 - General cleanup
 - Remade the build script

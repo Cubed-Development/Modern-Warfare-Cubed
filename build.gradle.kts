@@ -28,15 +28,22 @@ minecraft {
 }
 
 repositories {
-    maven {
-        name = "Cleanroom"
-        url = uri("https://repo.cleanroommc.com/releases")
+    arrayOf("Release", "Beta", "Dev").forEach { repoType ->
+        maven {
+            name = "Red Studio - $repoType"
+            url = uri("https://repo.redstudio.dev/${repoType.lowercase()}")
+            content {
+                includeGroup("dev.redstudio")
+            }
+        }
     }
 
-    listOf("release", "beta", "dev").forEach { repoType ->
-        maven {
-            name = "Red Studio - ${repoType.replaceFirstChar { it.uppercase() }}"
-            url = uri("https://repo.redstudio.dev/$repoType")
+    maven {
+        name = "Cleanroom"
+        url = uri("https://maven.cleanroommc.com")
+        content {
+            includeGroup("zone.rong")
+            includeGroup("com.cleanroommc")
         }
     }
 
@@ -78,11 +85,14 @@ buildConfig {
     packageName("${project.group}.${id}")
     className("ProjectConstants")
     documentation.set("This class defines constants for ${project.name}.\n<p>\nThey are automatically updated by Gradle.")
-
     useJavaOutput()
+
+    // Details
     buildConfigField("ID", id)
     buildConfigField("NAME", project.name)
     buildConfigField("VERSION", project.version.toString())
+
+    // Loggers
     buildConfigField("org.apache.logging.log4j.Logger", "LOGGER", "org.apache.logging.log4j.LogManager.getLogger(NAME)")
     buildConfigField("dev.redstudio.redcore.logging.RedLogger", "RED_LOGGER", """new RedLogger(NAME, "https://linkify.cz/MWCBugReport", LOGGER)""")
 }
@@ -93,11 +103,12 @@ java {
         languageVersion.set(JavaLanguageVersion.of(8))
         vendor.set(JvmVendorSpec.ADOPTIUM)
     }
-    withSourcesJar() // Generate sources jar
+    if (!project.version.toString().contains("Dev"))
+        withSourcesJar() // Generate sources jar, for releases
 }
 
 tasks {
-    listOf(deobfuscateMergedJarToSrg, srgifyBinpatchedJar).forEach {
+    arrayOf(deobfuscateMergedJarToSrg, srgifyBinpatchedJar).forEach {
         it.configure {
             accessTransformerFiles.from(project.files("src/main/resources/META-INF/${id}_at.cfg"))
         }
@@ -124,7 +135,7 @@ tasks {
         }
     }
 
-    named<Jar>("jar") {
+    withType<Jar>  {
         manifest {
             attributes(
                 "ModSide" to "BOTH",
@@ -134,14 +145,13 @@ tasks {
                 "ForceLoadAsMod" to "true"
             )
         }
-    }
 
-    withType<Jar>().configureEach {
         archiveBaseName.set(archiveBaseName.get().replace(" ", "-"))
     }
 
-    withType<JavaCompile>().configureEach {
+    withType<JavaCompile>{
         options.encoding = "UTF-8"
+
         options.isFork = true
         options.forkOptions.jvmArgs = listOf("-Xmx4G", "-XX:+UseStringDeduplication")
     }
@@ -164,6 +174,8 @@ idea {
                         val prefix = name.substringBefore(" ").let { if (it == "Obfuscated") "Obf" else it }
                         val suffix = name.substringAfter(" ").takeIf { it != prefix } ?: ""
                         taskNames = setOf("run$prefix$suffix")
+
+                        jvmArgs = "-XX:+UseStringDeduplication"
                     }
                 }
             }
