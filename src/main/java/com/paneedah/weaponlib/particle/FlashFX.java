@@ -11,6 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
+import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class FlashFX extends Particle {
@@ -19,10 +20,10 @@ public class FlashFX extends Particle {
 
     private static final double FLASH_SCALE_FACTOR = 0.1f;
 
-    private static final String FLASH_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/flashes.png";
+    private static final ResourceLocation FLASH_TEXTURE = new ResourceLocation(ID, "textures/particless/flashes.png");
     private static final int imagesPerRow = 8;
     private final int imageIndex;
-    private final String texture;
+    private final ResourceLocation texture;
 
     public FlashFX(World par1World, double positionX, double positionY, double positionZ, float scale, float alpha, float motionX, float motionY, float motionZ, String texture) {
         super(par1World, positionX, positionY, positionZ, 0.0D, 0.0D, 0.0D);
@@ -55,7 +56,7 @@ public class FlashFX extends Particle {
 
         this.imageIndex = this.rand.nextInt() % imagesPerRow;
 
-        this.texture = texture != null ? texture : FLASH_TEXTURE;
+        this.texture = texture != null ? new ResourceLocation(texture) : FLASH_TEXTURE;
     }
 
     @Override
@@ -86,7 +87,7 @@ public class FlashFX extends Particle {
 
     @Override
     public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-        MC.getTextureManager().bindTexture(new ResourceLocation(texture));
+        MC.getTextureManager().bindTexture(texture);
 
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT);

@@ -1,8 +1,14 @@
 package com.paneedah.weaponlib.render.bgl;
 
+import com.paneedah.mwc.network.handlers.NightVisionToggleMessageHandler;
 import com.paneedah.mwc.utils.MWCUtil;
+import com.paneedah.weaponlib.CustomArmor;
+import com.paneedah.weaponlib.LightExposure;
+import com.paneedah.weaponlib.MiscUtils;
+import com.paneedah.weaponlib.SpreadableExposure;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
+import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ParticleFancyRain;
 import com.paneedah.weaponlib.render.Bloom;
@@ -20,8 +26,12 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.shader.Framebuffer;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.IRenderHandler;
@@ -34,8 +44,8 @@ import org.lwjgl.util.vector.Matrix4f;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /**
  * Post-processing pipeline enabling modern post effects to be applied in
@@ -932,6 +942,11 @@ public class PostProcessPipeline {
         GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 5);
         GlStateManager.bindTexture(distortionBuffer.framebufferTexture);
 
+        // oldPost noise texture
+        GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 6);
+        MC.getTextureManager().bindTexture(new ResourceLocation(ID, "textures/maps/noise.png"));
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
+
         // Heat distortion texture
         GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
         MC.getTextureManager().bindTexture(HEAT_DISTORTION);
@@ -957,6 +972,24 @@ public class PostProcessPipeline {
         Shaders.post.uniform1f("mdf", (float) ModernConfigManager.filmGrainIntensity);
         Shaders.post.boolean1b("onScreenLiquids", ModernConfigManager.onScreenRainAndSnow);
 
+        // oldPost uniforms
+        // ! TODO: Move flash shader to a separate shader that runs at the very end of rendering
+        Shaders.post.boolean1b("flashed", getBrightness() > 0);
+        Shaders.post.uniform1f("brightness", getBrightness());
+
+        Shaders.post.boolean1b("nightVision", getNightVision());
+        Shaders.post.uniform1f("time", MC.getRenderPartialTicks());
+        Shaders.post.uniform1i("noiseSampler", 6);
+        Shaders.post.uniform1f("noiseAmplification", 2f + 3f * MC.gameSettings.gammaSetting);
+        Shaders.post.uniform1f("intensityAdjust", 40f - MC.gameSettings.gammaSetting * 38);
+
+        Shaders.post.boolean1b("vignette", getVignette());
+        Shaders.post.uniform1f("vignetteRadius", getVignetteRadius());
+
+        updateSepia();
+        Shaders.post.uniform1f("sepiaRatio", sepiaRatio);
+        Shaders.post.uniform3f("sepiaColor", colorImpairmentR, colorImpairmentG, colorImpairmentB);
+
         // Draw full-screen triangle in order to ensure the fragment shader
         // runs for every pixel on screen
         Framebuffer boof = MC.getFramebuffer();
@@ -968,4 +1001,91 @@ public class PostProcessPipeline {
 
     }
 
+    // oldPost
+
+    private static float sepiaRatio;
+    private static float colorImpairmentR;
+    private static float colorImpairmentG;
+    private static float colorImpairmentB;
+
+    private static void updateSepia() {
+        final SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
+        final float spreadableExposureProgress = MiscUtils.smoothstep(0, 1, spreadableExposure != null ? spreadableExposure.getTotalDose() : 0f);
+
+        sepiaRatio = spreadableExposureProgress;
+        if (spreadableExposure != null) {
+            colorImpairmentR = spreadableExposure.getColorImpairmentR();
+            colorImpairmentG = spreadableExposure.getColorImpairmentG();
+            colorImpairmentB = spreadableExposure.getColorImpairmentB();
+        }
+    }
+
+    private static float getBrightness() {
+        final LightExposure lightExposure = CompatibleExposureCapability.getExposure(MC.player, LightExposure.class);
+        final SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
+
+        float brightness = 1f;
+
+//        System.out.println("Hello");
+        long worldTime = MC.player.world.getWorldTime();
+//        System.out.println("Day brightness: " + dayBrightness + ", time: " + (worldTime % 24000));
+        if (lightExposure != null && lightExposure.getTotalDose() > 0.0003f) { //lightExposure.isEffective(compatibility.world(MC.player))) {
+//            flashed = true;
+            float dayBrightness = (MathHelper.sin((float) Math.PI * 2 * (worldTime % 24000 - 24000f) / 24000f) + 1f) / 2f;
+//            dayBrightness *= dayBrightness;
+            brightness = 1f + (100f + (1 - dayBrightness) * 100f) * lightExposure.getTotalDose();
+//            System.out.println("Brightness: " + brightness);
+        }
+
+        if (spreadableExposure != null && !MC.player.isDead) {
+            SpreadableExposure.Blackout blackout = spreadableExposure.getBlackout();
+            blackout.update();
+            switch (blackout.getPhase()) {
+                case ENTER:
+                    brightness = 1f - blackout.getEnterProgress();
+                    break;
+                case EXIT:
+                    brightness = blackout.getExitProgress();
+                    break;
+                case DARK:
+                    brightness = 0f;
+                    break;
+                case NONE:
+                    brightness = 1f;
+                    break;
+            }
+        }
+
+        return brightness;
+    }
+
+    private static boolean getNightVision() {
+        final ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+
+        if (helmetStack != null) {
+            final NBTTagCompound tagCompound = helmetStack.getTagCompound();
+            if (tagCompound != null) {
+                return tagCompound.getBoolean(NightVisionToggleMessageHandler.TAG_NIGHT_VISION_STATE);
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    private static boolean getVignette() {
+        final ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+
+        if (getNightVision() && helmetStack != null && helmetStack.getItem() instanceof CustomArmor) {
+            CustomArmor helmet = (CustomArmor) helmetStack.getItem();
+            return helmet.isVignetteEnabled();
+        }
+
+        return false;
+    }
+
+    private static float getVignetteRadius() {
+        return 0.55f;
+    }
 }

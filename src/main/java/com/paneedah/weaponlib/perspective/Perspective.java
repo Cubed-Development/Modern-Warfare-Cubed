@@ -4,8 +4,6 @@ import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
-import com.paneedah.weaponlib.shader.DynamicShaderContext;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupManager;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.shader.Framebuffer;
@@ -24,7 +22,6 @@ public abstract class Perspective<S> {
 
     protected CompatibleWorldRenderer entityRenderer;
     protected MWCParticleManager effectRenderer;
-    protected DynamicShaderGroupManager shaderGroupManager;
 
     public void activate(ClientModContext modContext, PerspectiveManager manager) {
         this.modContext = modContext;
@@ -34,10 +31,6 @@ public abstract class Perspective<S> {
         }
         this.entityRenderer = manager.getEntityRenderer();
         this.effectRenderer = manager.getEffectRenderer();
-        this.shaderGroupManager = new DynamicShaderGroupManager(); //manager.getShaderGroupManager();
-        if (this.shaderGroupManager.hasActiveGroups()) {
-            System.err.println("!!! Active shader groups found !!!");
-        }
     }
 
     public void deactivate(ClientModContext modContext) {
@@ -45,7 +38,6 @@ public abstract class Perspective<S> {
         int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
 
         framebuffer.deleteFramebuffer();
-        this.shaderGroupManager.removeAllShaders(new DynamicShaderContext(null, entityRenderer, null, 0f));
         if (OpenGlHelper.isFramebufferEnabled()) {
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
             GlStateManager.viewport(0, 0, MC.getFramebuffer().framebufferWidth, MC.getFramebuffer().framebufferHeight);

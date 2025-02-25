@@ -23,12 +23,11 @@ public class ShellCasingRenderer extends Render<Entity> {
         }
         ModelBase model = weapon.getShellCasingModel();
         if (model != null) {
-            String shellCasingTextureName = weapon.getShellCasingTextureName();
-            ResourceLocation textureLocation = shellCasingTextureName != null ? new ResourceLocation(shellCasingTextureName) : null;
+            ResourceLocation shellCasingTextureName = weapon.getShellCasingTextureName();
             GL11.glPushMatrix();
 
-            if (textureLocation != null) {
-                bindTexture(textureLocation);
+            if (shellCasingTextureName != null) {
+                bindTexture(shellCasingTextureName);
             }
 
             GL11.glTranslated(x, y, z);

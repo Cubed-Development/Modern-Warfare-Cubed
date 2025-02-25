@@ -16,7 +16,7 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class TireTracks extends ParticleFootStep {
 
-    private static final ResourceLocation NORMAL_TRACK = new ResourceLocation(ID + ":textures/particle/tiretracknormal.png");
+    private static final ResourceLocation NORMAL_TRACK = new ResourceLocation(ID + ":textures/particles/tiretracknormal.png");
     public int footstepAge;
     public int footstepMaxAge;
     public TextureManager currentFootStepsIn;

@@ -22,10 +22,6 @@ import com.paneedah.weaponlib.render.IHasModel;
 import com.paneedah.weaponlib.render.MWCFrameTimer;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import com.paneedah.weaponlib.render.shells.ShellManager;
-import com.paneedah.weaponlib.shader.DynamicShaderContext;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupManager;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
-import com.paneedah.weaponlib.shader.DynamicShaderPhase;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.collisions.OreintedBB;
@@ -110,7 +106,6 @@ public class ClientEventHandler {
     public static Stack<MuzzleFlash> muzzleFlashStack = new Stack<>();
 
     private final ClientModContext modContext;
-    private final DynamicShaderGroupManager shaderGroupManager;
     private final PipelineShaderGroupSourceProvider pipelineShaderGroupSourceProvider = new PipelineShaderGroupSourceProvider();
 
     private int currentSlotIndex;
@@ -121,7 +116,6 @@ public class ClientEventHandler {
 
     public ClientEventHandler(ClientModContext modContext /*, ReloadAspect reloadAspect*/) {
         this.modContext = modContext;
-        this.shaderGroupManager = new DynamicShaderGroupManager();
         //this.reloadAspect = reloadAspect;
     }
 
@@ -266,20 +260,9 @@ public class ClientEventHandler {
         }
     }
 
-	/*@SubscribeEvent
-	public void onRenderHand(RenderHandEvent event) {
-	    Minecraft minecraft = MC;
-	    if (minecraft.gameSettings.thirdPersonView == 0 & !OptiNotFine.shadersEnabled()) {
-	        PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
-	        DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.PRE_ITEM_RENDER, null, minecraft.getFramebuffer(), event.getPartialTicks()).withProperty("weaponInstance", weaponInstance);
-	        // shaderGroupManager.applyShader(shaderContext, weaponInstance);
-	    }
-	}*/
-
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public final void onRenderTickEvent(TickEvent.RenderTickEvent event) {
-        final DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.POST_WORLD_RENDER, MC.entityRenderer, MC.getFramebuffer(), event.renderTickTime);
         final EntityPlayer clientPlayer = MC.player;
 
         if (event.phase == TickEvent.RenderTickEvent.Phase.START) {
@@ -287,14 +270,6 @@ public class ClientEventHandler {
 
             if (clientPlayer != null) {
                 final PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(clientPlayer);
-
-                //if(minecraft.gameSettings.thirdPersonView == 0) {
-                final DynamicShaderGroupSource source = pipelineShaderGroupSourceProvider.getShaderSource(shaderContext.getPhase());
-                if (source != null) {
-                    shaderGroupManager.loadFromSource(shaderContext, source);
-                    //shaderGroupManager.removeAllShaders(shaderContext);
-                }
-                //}
 
                 if (instance != null) {
                     final Perspective<?> view = modContext.getViewManager().getPerspective(instance, true);
@@ -306,7 +281,6 @@ public class ClientEventHandler {
 
         } else if (event.phase == TickEvent.RenderTickEvent.Phase.END) {
             ClientProxy.renderingPhase = null;
-            shaderGroupManager.removeStaleShaders(shaderContext);
         }
     }
 
@@ -482,7 +456,7 @@ public class ClientEventHandler {
     @SubscribeEvent
     public void onTextureStitchEvent(TextureStitchEvent.Pre event) {
         event.getMap().registerSprite(getModContext().getNamedResource(ParticleBlood.texture));
-        carParticles = event.getMap().registerSprite(new ResourceLocation(ID + ":particle/carparticle"));
+        carParticles = event.getMap().registerSprite(new ResourceLocation(ID + ":particles/carparticle"));
     }
 
     @SubscribeEvent

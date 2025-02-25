@@ -11,12 +11,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
+import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ExplosionSmokeFX extends Particle {
 
-    //private static final String SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-yellow-smoke.png";
-    private static final String DEFAULT_SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-smoke.png";
+    private static final ResourceLocation DEFAULT_SMOKE_TEXTURE = new ResourceLocation(ID, "textures/particles/large-smoke.png");
     private static final int columnCount = 4;
     private static final int rowCount = 4;
 
@@ -62,12 +62,12 @@ public class ExplosionSmokeFX extends Particle {
         return 0.3f * (float) Math.sin(alphaRadians > Math.PI ? Math.PI : alphaRadians);
     };
 
-    private final String particleTexture;
+    private final ResourceLocation particleTexture;
     private final float scale;
     private final int imageIndex;
     private final Behavior behavior;
 
-    public ExplosionSmokeFX(World par1World, double positionX, double positionY, double positionZ, float scale, float motionX, float motionY, float motionZ, int particleMaxAge, Behavior behavior, String particleTexture) {
+    public ExplosionSmokeFX(World par1World, double positionX, double positionY, double positionZ, float scale, float motionX, float motionY, float motionZ, int particleMaxAge, Behavior behavior, ResourceLocation particleTexture) {
         super(par1World, positionX, positionY, positionZ, 0.0D, 0.0D, 0.0D);
 
         this.motionX = motionX;
@@ -122,7 +122,7 @@ public class ExplosionSmokeFX extends Particle {
 
     @Override
     public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-        MC.getTextureManager().bindTexture(new ResourceLocation(particleTexture));
+        MC.getTextureManager().bindTexture(particleTexture);
 
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT);

@@ -29,6 +29,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -82,7 +83,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         private static final float DEFAULT_SPAWN_ENTITY_SPEED = 150f;
         private static final float DEFAULT_INACCURACY = 0f;
-        private static final String DEFAULT_SHELL_CASING_TEXTURE_NAME = "weaponlib:/com/paneedah/weaponlib/resources/shell.png";
+        private static final ResourceLocation DEFAULT_SHELL_CASING_TEXTURE_NAME = new ResourceLocation(ID, "textures/models/shell.png");
         private static final float DEFAULT_SHELL_CASING_VELOCITY = 0.1f;
         private static final float DEFAULT_SHELL_CASING_GRAVITY_VELOCITY = 0.05f;
         private static final float DEFAULT_SHELL_CASING_INACCURACY = 20f;
@@ -137,7 +138,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         ModelBase ammoModel;
         String ammoModelTextureName;
         ModelBase shellCasingModel;
-        String shellCasingModelTextureName;
+        ResourceLocation shellCasingModelTextureName;
 
         private float spawnEntitySpeed = DEFAULT_SPAWN_ENTITY_SPEED;
         private Class<? extends WeaponSpawnEntity> spawnEntityClass;
@@ -202,7 +203,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private Object[] craftingRecipe;
         private CraftingEntry[] modernCraftingRecipe;
         public boolean isOneClickBurstAllowed;
-        String flashTexture;
+        ResourceLocation flashTexture;
 
 
         private com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type shellType = Type.ASSAULT;
@@ -587,7 +588,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withShellCasingModelTexture(String shellModelTextureName) {
-            this.shellCasingModelTextureName = ID + ":textures/models/" + shellModelTextureName.toLowerCase() + ".png";
+            this.shellCasingModelTextureName = new ResourceLocation(ID, "textures/models/" + shellModelTextureName.toLowerCase() + ".png");
             return this;
         }
 
@@ -658,7 +659,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withFlashTexture(String flashTexture) {
-            this.flashTexture = ID + ":textures/particle/" + flashTexture.toLowerCase() + ".png";
+            this.flashTexture = new ResourceLocation(ID, "textures/particles/" + flashTexture.toLowerCase() + ".png");
             return this;
         }
 
@@ -711,7 +712,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             if (explosionParticleTexture.endsWith(".png") && explosionParticleTexture.length() > 4) {
                 explosionParticleTexture = explosionParticleTexture.substring(0, explosionParticleTexture.length() - 4);
             }
-            this.explosionParticleTexture = ID + ":textures/particle/" + explosionParticleTexture.toLowerCase() + ".png";
+            this.explosionParticleTexture = ID + ":textures/particles/" + explosionParticleTexture.toLowerCase() + ".png";
             return this;
         }
 
@@ -719,7 +720,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             if (smokeParticleTexture.endsWith(".png") && smokeParticleTexture.length() > 4) {
                 smokeParticleTexture = smokeParticleTexture.substring(0, smokeParticleTexture.length() - 4);
             }
-            this.smokeParticleTexture = ID + ":textures/particle/" + smokeParticleTexture.toLowerCase() + ".png";
+            this.smokeParticleTexture = ID + ":textures/particles/" + smokeParticleTexture.toLowerCase() + ".png";
             return this;
         }
 
@@ -1098,7 +1099,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return builder.shellCasingModel;
     }
 
-    String getShellCasingTextureName() {
+    ResourceLocation getShellCasingTextureName() {
         return builder.shellCasingModelTextureName;
     }
 

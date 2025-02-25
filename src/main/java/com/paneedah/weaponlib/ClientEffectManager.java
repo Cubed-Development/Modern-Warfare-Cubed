@@ -9,6 +9,7 @@ import dev.redstudio.redcore.math.vectors.Vector3D;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -54,7 +55,7 @@ final class ClientEffectManager implements EffectManager {
     }
 
     @Override
-    public void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale, float xOffset, float yOffset, String texture) {
+    public void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale, float xOffset, float yOffset, ResourceLocation texture) {
         Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();
 
         float distance = 1.0f;
@@ -94,12 +95,12 @@ final class ClientEffectManager implements EffectManager {
     }
 
     @Override
-    public void spawnExplosionSmoke(double posX, double posY, double posZ, double motionX, double motionY, double motionZ, float scale, int maxAge, ExplosionSmokeFX.Behavior behavior, String particleTexture) {
+    public void spawnExplosionSmoke(double posX, double posY, double posZ, double motionX, double motionY, double motionZ, float scale, int maxAge, ExplosionSmokeFX.Behavior behavior, ResourceLocation particleTexture) {
         MC.effectRenderer.addEffect(new ExplosionSmokeFX(MC.world, posX, posY, posZ, scale, (float) motionX, (float) motionY, (float) motionZ, maxAge, ExplosionSmokeFX.Behavior.SMOKE_GRENADE, particleTexture));
     }
 
     @Override
-    public void spawnExplosionParticle(double posX, double posY, double posZ, double motionX, double motionY, double motionZ, float scale, int maxAge, String particleTexture) {
+    public void spawnExplosionParticle(double posX, double posY, double posZ, double motionX, double motionY, double motionZ, float scale, int maxAge, ResourceLocation particleTexture) {
         MC.effectRenderer.addEffect(new ExplosionParticleFX(MC.world, posX, posY, posZ, scale, motionX, motionY, motionZ, maxAge, particleTexture));
     }
 }

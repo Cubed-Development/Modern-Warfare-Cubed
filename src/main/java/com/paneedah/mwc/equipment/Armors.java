@@ -228,7 +228,7 @@ public class Armors {
                 .withTextureName("m40gasmask")
                 .withExposureReductionFactor(0.99f)
                 .withModelClass("com.paneedah.mwc.models.M40GasMask")
-                .withHudTextureName("goggles_overlay")
+                .withHudTextureName("goggles/4_lenses")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
         Armors.GasMaskM40 = gasSuitArmorBuilder.buildHelmet(modContext);

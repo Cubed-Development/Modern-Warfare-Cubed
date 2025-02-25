@@ -2,100 +2,25 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.handlers.NightVisionToggleMessageHandler;
 import com.paneedah.weaponlib.SpreadableExposure.Blackout;
-import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
-import com.paneedah.weaponlib.shader.DynamicShaderPhase;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
-
-import java.util.UUID;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
-class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvider {
+class PipelineShaderGroupSourceProvider {
 
-    private boolean flashEnabled;
     private boolean nightVisionEnabled;
     private boolean blurEnabled;
     private boolean vignetteEnabled;
     private float sepiaRatio;
     private float spreadableExposureProgress;
     private float vignetteRadius;
-    private float brightness;
     private SpreadableExposure spreadableExposure;
-    private LightExposure lightExposure;
     private float colorImpairmentR;
     private float colorImpairmentG;
     private float colorImpairmentB;
-
-    final DynamicShaderGroupSource source = new DynamicShaderGroupSource(UUID.randomUUID(),
-            new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/post-processing-pipeline.json"))
-            .withUniform("NightVisionEnabled", context -> nightVisionEnabled ? 1.0f : 0.0f)
-            .withUniform("BlurEnabled", context -> blurEnabled ? 1.0f : 0.0f)
-            .withUniform("BlurVignetteRadius", context -> 0.0f)
-            .withUniform("Radius", context -> 10f)
-            .withUniform("sussus", context -> 10f)
-            .withUniform("Progress", context -> spreadableExposureProgress)
-            .withUniform("VignetteEnabled", context -> vignetteEnabled ? 1.0f : 0.0f)
-            .withUniform("VignetteRadius", context -> vignetteRadius)
-            .withUniform("Brightness", context -> brightness)
-            .withUniform("SepiaRatio", context -> sepiaRatio)
-            .withUniform("SepiaColor", context -> new float[]{colorImpairmentR, colorImpairmentG, colorImpairmentB})
-            .withUniform("IntensityAdjust", context -> 40f - MC.gameSettings.gammaSetting * 38)
-            .withUniform("NoiseAmplification", context -> 2f + 3f * MC.gameSettings.gammaSetting);
-
-    @Override
-    public DynamicShaderGroupSource getShaderSource(DynamicShaderPhase phase) {
-        lightExposure = CompatibleExposureCapability.getExposure(MC.player, LightExposure.class);
-        spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
-        spreadableExposureProgress = MiscUtils.smoothstep(0, 1, spreadableExposure != null ? spreadableExposure.getTotalDose() : 0f);
-        updateNightVision();
-        updateVignette();
-        updateBlur();
-        updateSepia();
-        updateBrightness();
-        spreadableExposure = null;
-        lightExposure = null;
-        return nightVisionEnabled || blurEnabled || vignetteEnabled || sepiaRatio > 0 || flashEnabled ? source : null;
-    }
-
-    private void updateBrightness() {
-        brightness = 1f;
-
-//        System.out.println("Hello");
-        long worldTime = MC.player.world.getWorldTime();
-//        System.out.println("Day brightness: " + dayBrightness + ", time: " + (worldTime % 24000));
-        if (lightExposure != null && lightExposure.getTotalDose() > 0.0003f) { //lightExposure.isEffective(compatibility.world(MC.player))) {
-            flashEnabled = true;
-            float dayBrightness = (MathHelper.sin((float) Math.PI * 2 * (worldTime % 24000 - 24000f) / 24000f) + 1f) / 2f;
-//            dayBrightness *= dayBrightness;
-            brightness = 1f + (100f + (1 - dayBrightness) * 100f) * lightExposure.getTotalDose();
-//            System.out.println("Brightness: " + brightness);
-        }
-
-        if (spreadableExposure != null && !MC.player.isDead) {
-            Blackout blackout = spreadableExposure.getBlackout();
-            blackout.update();
-            switch (blackout.getPhase()) {
-                case ENTER:
-                    brightness = 1f - blackout.getEnterProgress();
-                    break;
-                case EXIT:
-                    brightness = blackout.getExitProgress();
-                    break;
-                case DARK:
-                    brightness = 0f;
-                    break;
-                case NONE:
-                    brightness = 1f;
-                    break;
-            }
-        }
-    }
 
     private void updateBlur() {
         blurEnabled = spreadableExposureProgress > 0.01f; // TODO: set min

@@ -14,7 +14,7 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class ParticleBlood extends Particle {
 
-    public static final String texture = "particle/blood";
+    public static final String texture = "particles/blood";
 
     public ParticleBlood(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn);

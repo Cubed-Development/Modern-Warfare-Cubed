@@ -18,13 +18,14 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
+import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
-    private static final String STATIC_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/static.png";
-    public static final String DARK_SCREEN_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/dark-screen.png";
+    private static final ResourceLocation STATIC_TEXTURE = new ResourceLocation(ID, "textures/tablet/static.png");
+    public static final ResourceLocation DARK_SCREEN_TEXTURE = new ResourceLocation(ID, "textures/tablet/dark-screen.png");
 
 
     private static final int STATIC_IMAGES_PER_ROW = 8;
@@ -143,7 +144,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         } else if (totalTrackableEntities == 0) {
             framebuffer.framebufferClear();
             framebuffer.bindFramebuffer(true);
-            MC.getTextureManager().bindTexture(new ResourceLocation(DARK_SCREEN_TEXTURE));
+            MC.getTextureManager().bindTexture(DARK_SCREEN_TEXTURE);
             drawTexturedQuadFit(0, 0, width, height, 0);
             color = 0xFF0000;
             message = "No Cameras Available";
@@ -168,7 +169,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
     public void drawStatic() {
 
-        MC.getTextureManager().bindTexture(new ResourceLocation(STATIC_TEXTURE));
+        MC.getTextureManager().bindTexture(STATIC_TEXTURE);
 
         imageIndex = random.nextInt(STATIC_IMAGES_PER_ROW);
 

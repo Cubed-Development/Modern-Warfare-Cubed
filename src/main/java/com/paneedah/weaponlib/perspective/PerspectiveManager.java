@@ -15,11 +15,9 @@ public class PerspectiveManager {
     private final ClientModContext clientModContext;
     private CompatibleWorldRenderer entityRenderer;
     private MWCParticleManager effectRenderer;
-    //private DynamicShaderGroupManager shaderGroupManager;
 
     public PerspectiveManager(ClientModContext clientModContext) {
         this.clientModContext = clientModContext;
-        //this.shaderGroupManager = new DynamicShaderGroupManager();
     }
 
     public Perspective<?> getPerspective(PlayerItemInstance<?> currentInstance, boolean init) {
@@ -75,9 +73,4 @@ public class PerspectiveManager {
         }
         return effectRenderer;
     }
-
-//    DynamicShaderGroupManager getShaderGroupManager() {
-//        return shaderGroupManager;
-//    }
-
 }

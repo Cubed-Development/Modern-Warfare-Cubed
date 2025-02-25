@@ -6,34 +6,24 @@ import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
 import com.paneedah.weaponlib.perspective.Perspective;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
-import com.paneedah.weaponlib.shader.DynamicShaderPhase;
 import dev.redstudio.redcore.math.ClampUtil;
 import io.netty.buffer.ByteBuf;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.lwjgl.opengl.GL13;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.UUID;
 
-import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
 /**
@@ -41,7 +31,7 @@ import static net.minecraftforge.fml.relauncher.Side.CLIENT;
  * @since 0.2
  */
 @NoArgsConstructor
-public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implements DynamicShaderGroupSourceProvider {
+public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> {
 
     private static final String ALT_MODIFICATION_MODE_ENABLED_TAG = "ALT_MODIFICATION_MODE_ENABLED";
     private static final String SELECTED_ATTACHMENT_INDEXES_TAG = "SELECTED_ATTACHMENT_INDEXES";
@@ -56,30 +46,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     private static final String AIMED_TAG = "AIMED";
     private static final String AMMO_TAG = "AMMO";
     private static final String ZOOM_TAG = "ZOOM";
-
-    // ! TODO: Figure this out, the resources of weaponlib got incorrectly place in the src, and removing this shader system doesn't change anything
-
-    private static final UUID NIGHT_VISION_SOURCE_UUID = UUID.randomUUID();
-    private static final UUID VIGNETTE_SOURCE_UUID = UUID.randomUUID();
-    private static final UUID BLUR_SOURCE_UUID = UUID.randomUUID();
-
-    @SideOnly(CLIENT) public final DynamicShaderGroupSource blurSource = new DynamicShaderGroupSource(BLUR_SOURCE_UUID, new ResourceLocation("weaponlib", "blur.json"))
-            .withUniform("Radius", context -> hasOpticalScope() ? 10 : 5)
-            .withUniform("Progress", context -> getAimChangeProgress());
-
-    @SideOnly(CLIENT) public final DynamicShaderGroupSource nightVisionSource = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID, new ResourceLocation("weaponlib", "night-vision.json"))
-            .withUniform("IntensityAdjust", context -> 40 - MC.gameSettings.gammaSetting * 38)
-            .withUniform("NoiseAmplification", context -> 2 + 3 * MC.gameSettings.gammaSetting);
-
-    @SideOnly(CLIENT) public final DynamicShaderGroupSource vignetteSource = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID, new ResourceLocation("weaponlib", "vignette.json"))
-            .withUniform("Radius", context -> getOpticalScopeVignetteRadius(context.getPartialTicks()))
-            // .withUniform("Velocity", context -> new float[]{ClientEventHandler.scopeVelX, ClientEventHandler.scopeVelY})
-            .withUniform("Reticle", context -> {
-                GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
-                MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/reticle1.png"));
-                GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
-                return 4;
-            });
 
     private static final long AIM_CHANGE_DURATION = 1200;
 
@@ -356,20 +322,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     @SideOnly(CLIENT)
     public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
         return hasOpticalScope() ? OpticalScopePerspective.class : null;
-    }
-
-    @Override
-    @SideOnly(CLIENT)
-    public DynamicShaderGroupSource getShaderSource(final DynamicShaderPhase phase) {
-        if (isAimed() && phase == DynamicShaderPhase.POST_WORLD_OPTICAL_SCOPE_RENDER) {
-            final ItemScope scope = getScope();
-
-            if (scope.isOptical())
-                return scope.hasNightVision() && nightVisionOn ? nightVisionSource : vignetteSource;
-        }
-
-        final float progress = getAimChangeProgress();
-        return ModernConfigManager.enableBlurOnAim && phase == DynamicShaderPhase.PRE_ITEM_RENDER && (isAimed() || (progress > 0 && progress < 1)) ? blurSource : null;
     }
 
     private float getAimChangeProgress() {

@@ -18,6 +18,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -54,10 +55,10 @@ public class Explosion {
     @Getter private final Map<EntityPlayer, Vector3F> playerKnockbackMap;
     private final float smokeParticleAgeCoefficient;
     private final float smokeParticleScaleCoefficient;
-    private final String smokeParticleTextureName;
+    private final ResourceLocation smokeParticleTextureName;
     private final SoundEvent explosionSound;
 
-    public Explosion(World worldIn, Entity entityIn, Vector3D position, float explosionStrength, boolean flaming, boolean smoking, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, SoundEvent explosionSound) {
+    public Explosion(World worldIn, Entity entityIn, Vector3D position, float explosionStrength, boolean flaming, boolean smoking, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, ResourceLocation smokeParticleTextureName, SoundEvent explosionSound) {
         this.explosionRNG = new Random();
         this.affectedBlockPositions = Lists.newArrayList();
         this.playerKnockbackMap = Maps.newHashMap();
@@ -73,7 +74,7 @@ public class Explosion {
         this.explosionSound = explosionSound;
     }
 
-    public static void createOldServerSideExplosion(World world, EntityLivingBase thrower, Entity entity, Vector3D position, float explosionStrength, boolean isFlaming, boolean isSmoking, boolean isDestroyingBlocks, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, SoundEvent explosionSound) {
+    public static void createOldServerSideExplosion(World world, EntityLivingBase thrower, Entity entity, Vector3D position, float explosionStrength, boolean isFlaming, boolean isSmoking, boolean isDestroyingBlocks, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, ResourceLocation smokeParticleTextureName, SoundEvent explosionSound) {
         explosionStrength *= (float) ModernConfigManager.explosionDamage;
 
         final Explosion explosion = new Explosion(world, entity, position, explosionStrength, isFlaming, isSmoking, particleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, explosionParticleTextureName, smokeParticleTextureName, explosionSound);

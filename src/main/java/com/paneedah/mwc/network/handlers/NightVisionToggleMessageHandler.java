@@ -30,7 +30,6 @@ public final class NightVisionToggleMessageHandler implements IMessageHandler<Ni
             }
         });
 
-
         return null;
     }
 }

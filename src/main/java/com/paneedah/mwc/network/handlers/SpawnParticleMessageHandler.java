@@ -8,6 +8,7 @@ import dev.redstudio.redcore.utils.NetworkUtil;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -16,12 +17,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
+import static com.paneedah.mwc.ProjectConstants.ID;
+
 @NoArgsConstructor
 @AllArgsConstructor
 public final class SpawnParticleMessageHandler implements IMessageHandler<SpawnParticleMessage, IMessage> {
 
-    private static final String REGULAR_SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-smoke.png";
-    private static final String YELLOW_SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-yellow-smoke.png";
+    private static final ResourceLocation REGULAR_SMOKE_TEXTURE = new ResourceLocation(ID, "textures/particles/large-smoke.png");
+    private static final ResourceLocation YELLOW_SMOKE_TEXTURE = new ResourceLocation(ID, "textures/particles/large-yellow-smoke.png");
 
     private static final Random RANDOM = new Random();
 

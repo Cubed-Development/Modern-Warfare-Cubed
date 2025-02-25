@@ -16,7 +16,7 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 public class DriftCloudFX extends ParticleCloud {
 
 
-    public static final ResourceLocation CAR_PARTICLES = new ResourceLocation(ID + ":particle/carparticle.png");
+    public static final ResourceLocation CAR_PARTICLES = new ResourceLocation(ID + ":particles/carparticle.png");
 
     public DriftCloudFX(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double p_i1221_8_,
                         double p_i1221_10_, double p_i1221_12_) {

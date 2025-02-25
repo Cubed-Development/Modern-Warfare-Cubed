@@ -109,30 +109,10 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
 
         //GlStateManager.enableAlpha();
         //scope.use();
-    	/*
-        DynamicShaderContext shaderContext = new DynamicShaderContext(
-                DynamicShaderPhase.POST_WORLD_OPTICAL_SCOPE_RENDER,
-                this.entityRenderer,
-                framebuffer,
-                event.getRenderTickTime());
-        PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
-        shaderGroupManager.applyShader(shaderContext, instance);
-       // shaderGroupManager.
-        
-        */
-
     }
 
     @Override
     protected void postRenderWorld(TickEvent.RenderTickEvent event) {
         //scope.release();
-    	/*
-        DynamicShaderContext shaderContext = new DynamicShaderContext(
-                DynamicShaderPhase.POST_WORLD_OPTICAL_SCOPE_RENDER,
-                this.entityRenderer,
-                framebuffer,
-                event.getRenderTickTime());
-        shaderGroupManager.removeStaleShaders(shaderContext); // this is probably not the right place
-        */
     }
 }

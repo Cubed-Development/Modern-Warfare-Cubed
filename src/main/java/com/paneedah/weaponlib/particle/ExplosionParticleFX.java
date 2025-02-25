@@ -11,17 +11,18 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
+import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ExplosionParticleFX extends Particle {
 
-    private static final String DEFAULT_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/explosion-particles.png";
+    private static final ResourceLocation DEFAULT_TEXTURE = new ResourceLocation(ID, "textures/particles/explosion.png");
     private static final int columnCount = 5;
     private static final int rowCount = 5; //4;
     private final int imageIndex;
-    private final String particleTexture;
+    private final ResourceLocation particleTexture;
 
-    public ExplosionParticleFX(World par1World, double positionX, double positionY, double positionZ, float scale, double motionX, double motionY, double motionZ, int particleMaxAge, String particleTexture) {
+    public ExplosionParticleFX(World par1World, double positionX, double positionY, double positionZ, float scale, double motionX, double motionY, double motionZ, int particleMaxAge, ResourceLocation particleTexture) {
         super(par1World, positionX, positionY, positionZ, 0.0D, 0.0D, 0.0D);
 
         this.motionX = motionX;
@@ -82,7 +83,7 @@ public class ExplosionParticleFX extends Particle {
 
     @Override
     public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-        MC.getTextureManager().bindTexture(new ResourceLocation(particleTexture));
+        MC.getTextureManager().bindTexture(particleTexture);
 
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
