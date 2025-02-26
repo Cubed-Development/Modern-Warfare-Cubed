@@ -65,6 +65,10 @@ like knowing which weapon is better or whether an attachment will be useful to y
 
 ### Changed
 
+- Now requires:
+  - Red Core 0.6 and up
+  - MixinBooter 10.5 and up
+  - GroovyScript 1.2 and up (optional)
 - Fire mode hint ("Press [B] to change fire mode") now only appears when the weapon has multiple fire modes
 - Magazines now use the same ammunition counter as weapons, instead of a white text in the top-right corner
 - The crosshair will now appear when holding a magazine
@@ -72,9 +76,6 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Updated the author list in the mod menu
 - Updated the credits in the mod menu
 - Updated the url in the mod menu
-- Updated dependencies:
-  - Requires Red Core 0.6 and up
-  - Requires MixinBooter 9.4 and up
 - Updated Korean translation
 - Reworked weapons tooltips
 - Reworked magazines tooltips
