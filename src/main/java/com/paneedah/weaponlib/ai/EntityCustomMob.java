@@ -16,6 +16,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.StatList;
@@ -258,8 +259,8 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     private void setArmorEquipment() {
         EntityConfiguration configuration = getConfiguration();
         Arrays.fill(this.inventoryArmorDropChances, configuration.getArmorDropChance());
-        for (CustomArmor armor : configuration.getArmorSet()) {
-            this.setItemStackToSlot(armor.getCompatibleEquipmentSlot(), new ItemStack(armor));
+        for (ItemArmor armor : configuration.getArmorSet()) {
+            this.setItemStackToSlot(armor.getEquipmentSlot(), new ItemStack(armor));
         }
     }
 

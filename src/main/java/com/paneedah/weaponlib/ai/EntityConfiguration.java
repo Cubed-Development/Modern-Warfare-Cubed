@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.ai;
 
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.config.ModernConfigManager;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.*;
@@ -9,6 +10,7 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.EnumDifficulty;
@@ -61,18 +63,12 @@ public class EntityConfiguration {
 
     public static class Builder {
 
+        @AllArgsConstructor
         private static class Spawn {
             int weightedProb;
             int min;
             int max;
             BiomeDictionary.Type[] biomeTypes;
-
-            public Spawn(int weightedProb, int min, int max, BiomeDictionary.Type[] biomeTypes) {
-                this.weightedProb = weightedProb;
-                this.min = min;
-                this.max = max;
-                this.biomeTypes = biomeTypes;
-            }
         }
 
         private static class EquipmentValue {
@@ -179,7 +175,7 @@ public class EntityConfiguration {
         private boolean spawnEgg;
         private int primaryEggColor;
         private int secondaryEggColor;
-        private final Map<EntityEquipmentSlot, CustomArmor> armor = new HashMap<>();
+        private final Map<EntityEquipmentSlot, ItemArmor> armor = new HashMap<>();
 
         private float primaryEquipmentDropChance = DEFAULT_PRIMARY_EQUIPMENT_DROP_CHANCE;
         private float secondaryEquipmentDropChance = DEFAULT_SECONDARY_EQUIPMENT_DROP_CHANCE;
@@ -276,8 +272,8 @@ public class EntityConfiguration {
             return this;
         }
 
-        public Builder withArmor(CustomArmor armor) {
-            this.armor.put(armor.getCompatibleEquipmentSlot(), armor);
+        public Builder withArmor(ItemArmor armor) {
+            this.armor.put(armor.getEquipmentSlot(), armor);
             return this;
         }
 
@@ -635,7 +631,7 @@ public class EntityConfiguration {
 
     @Getter public float sizeWidth, sizeHeight;
 
-    private Map<EntityEquipmentSlot, CustomArmor> armor;
+    private Map<EntityEquipmentSlot, ItemArmor> armor;
     @Getter private float primaryEquipmentDropChance;
     @Getter private float secondaryEquipmentDropChance;
     @Getter private float armorDropChance;
@@ -663,7 +659,7 @@ public class EntityConfiguration {
         return isValidLightLevel;
     }
 
-    public Collection<CustomArmor> getArmorSet() {
+    public Collection<ItemArmor> getArmorSet() {
         return armor.values();
     }
 
