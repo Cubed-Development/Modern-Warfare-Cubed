@@ -25,7 +25,6 @@ public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends
 
     public BetterAINearestAttackableTarget(EntityCreature creature, Class<T> classTarget, String name, boolean checkSight) {
         super(creature, classTarget, checkSight);
-        // TODO Auto-generated constructor stub
         this.enemyName = name;
     }
 

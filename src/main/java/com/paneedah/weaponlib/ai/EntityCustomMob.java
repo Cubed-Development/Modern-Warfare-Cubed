@@ -8,6 +8,7 @@ import com.paneedah.weaponlib.ai.EntityConfiguration.TexturedModel;
 import com.paneedah.weaponlib.compatibility.CompatibleDataManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
+import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.*;
@@ -52,7 +53,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     private EntityConfiguration configuration;
 
-    private ItemStack secondaryEquipment;
+    @Getter private ItemStack secondaryEquipment;
 
     private int delayedAttackTimer;
 
@@ -566,10 +567,6 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     @Override
     public void setContext(ModContext modContext) {
         this.modContext = modContext;
-    }
-
-    public ItemStack getSecondaryEquipment() {
-        return secondaryEquipment;
     }
 
     public void setDelayedAttackTimerIncrement(int increment) {

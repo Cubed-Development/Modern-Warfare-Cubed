@@ -7,6 +7,7 @@ import com.google.gson.stream.JsonReader;
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.CommonRegistry;
 import com.paneedah.weaponlib.ItemSkin;
+import com.paneedah.weaponlib.ModContext;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import org.apache.commons.io.FileUtils;
@@ -33,61 +34,61 @@ public class GunSkins {
 
     public static HashMap<String, CustomSkin> customSkins = new HashMap<>();
 
-    public static void init(Object mod) {
+    public static void init(ModContext modContext) {
         GunSkins.WoodlandCamo = new ItemSkin.Builder()
                 .withTextureVariant("woodlandcamo")
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("WoodlandCamo")
-                .build(MWC.modContext, ItemSkin.class);
+                .build(modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.WoodlandCamo);
 
         GunSkins.PinkCamo = new ItemSkin.Builder()
                 .withTextureVariant("pinkcamo")
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("PinkCamo")
-                .build(MWC.modContext, ItemSkin.class);
+                .build(modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.PinkCamo);
 
         GunSkins.ArcticCamo = new ItemSkin.Builder()
                 .withTextureVariant("arcticcamo")
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("ArcticCamo")
-                .build(MWC.modContext, ItemSkin.class);
+                .build(modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.ArcticCamo);
 
         GunSkins.BlueCamo = new ItemSkin.Builder()
                 .withTextureVariant("bluecamo")
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("BlueCamo")
-                .build(MWC.modContext, ItemSkin.class);
+                .build(modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.BlueCamo);
 
         GunSkins.Unit01Camo = new ItemSkin.Builder()
                 .withTextureVariant("unit01camo")
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("Unit01Camo")
-                .build(MWC.modContext, ItemSkin.class);
+                .build(modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.Unit01Camo);
 
         GunSkins.BloodForestCamo = new ItemSkin.Builder()
                 .withTextureVariant("bloodforestcamo")
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("BloodForestCamo")
-                .build(MWC.modContext, ItemSkin.class);
+                .build(modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.BloodForestCamo);
 
         GunSkins.DiamondCamo = new ItemSkin.Builder()
                 .withTextureVariant("diamondcamo")
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("DiamondCamo")
-                .build(MWC.modContext, ItemSkin.class);
+                .build(modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.DiamondCamo);
 
         GunSkins.GoldCamo = new ItemSkin.Builder()
                 .withTextureVariant("goldcamo")
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("GoldCamo")
-                .build(MWC.modContext, ItemSkin.class);
+                .build(modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.GoldCamo);
 
         File customSkinsDir = new File("./config/mwc/skins");
@@ -116,7 +117,7 @@ public class GunSkins {
                             .withTextureVariant("customskin_" + skinName)
                             .withCreativeTab(MWC.ATTACHMENTS_TAB)
                             .withName(skinName)
-                            .build(MWC.modContext, ItemSkin.class);
+                            .build(modContext, ItemSkin.class);
                     CommonRegistry.gunSkins.add(skin);
                     LOGGER.info("Registered custom gun skin: " + skinName);
                 }
@@ -155,7 +156,7 @@ public class GunSkins {
                     .withTextureVariant("customskin_" + name.replace(".png", ""))
                     .withCreativeTab(MWC.ATTACHMENTS_TAB)
                     .withName(name.replace(".png", ""))
-                    .build(MWC.modContext, ItemSkin.class);
+                    .build(modContext, ItemSkin.class);
             CommonRegistry.gunSkins.add(skin);
             LOGGER.info("Registered custom gun skin: " + name);
         }

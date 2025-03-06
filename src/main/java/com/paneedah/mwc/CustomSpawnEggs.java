@@ -11,7 +11,7 @@ public class CustomSpawnEggs {
     public static HighIQSpawnEgg TURRETUPGRADED_EGG;
     public static HighIQSpawnEgg TURRETSILENCED_EGG;
 
-    public static void init(Object mod, CommonProxy proxy) {
+    public static void init(CommonProxy proxy) {
         TURRET_EGG = new HighIQSpawnEgg.Builder()
                 .withID(1)
                 .withItemName("turret")

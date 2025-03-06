@@ -164,7 +164,7 @@ public class Guns {
 
     public static Item Chainsaw;
 
-    public static void init(Object mod, CommonProxy proxy) {
+    public static void init(CommonProxy proxy) {
         // Try not to change the order of the guns to ensure stable recipes
         //AR2
         M4A1 = new M4A1Factory().createGun(proxy);

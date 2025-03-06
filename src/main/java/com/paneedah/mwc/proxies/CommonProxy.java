@@ -62,22 +62,22 @@ public class CommonProxy {
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
         // Special object initialization
-        SpecialAttachments.init(mod, MWC.modContext);
+        SpecialAttachments.init(MWC.modContext);
 
         Backpacks.createEquipment(MWC.modContext);
         Belts.createEquipment(MWC.modContext);
         Vests.createEquipment(MWC.modContext);
         Armors.createEquipment(MWC.modContext);
 
-        Attachments.init(mod);
-        AuxiliaryAttachments.init(mod);
-        GunSkins.init(mod);
-        Bullets.init(mod);
-        Magazines.init(mod);
-        Guns.init(mod, this);
+        Attachments.init(MWC.modContext);
+        AuxiliaryAttachments.init(MWC.modContext);
+        GunSkins.init(MWC.modContext);
+        Bullets.init(MWC.modContext);
+        Magazines.init(MWC.modContext);
+        Guns.init(this);
         Electronics.createEquipment(MWC.modContext);
-        Grenades.init(mod, this);
-        CustomSpawnEggs.init(mod, this);
+        Grenades.init(this);
+        CustomSpawnEggs.init(this);
 
         TurretBaseFactory.createTileEntity(MWC.modContext);
         TileEntities.createTileEntity(MWC.modContext);
@@ -93,8 +93,8 @@ public class CommonProxy {
     public void init(final MWC mod) {
         MWC.modContext.init(mod);
 
-        Entities.init(this);
-        Vehicles.init(this);
+        Entities.init(MWC.modContext);
+        Vehicles.init(MWC.modContext);
 
         GameRegistry.registerWorldGenerator(new ModernWorldGenerator(), 0);
     }

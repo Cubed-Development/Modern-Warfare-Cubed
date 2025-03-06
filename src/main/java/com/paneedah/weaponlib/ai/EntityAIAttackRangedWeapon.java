@@ -1,7 +1,9 @@
 package com.paneedah.weaponlib.ai;
 
+import com.paneedah.mwc.Grenades;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumHand;
 
 import java.util.Collections;
@@ -22,8 +24,6 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
     private int strafingTime = -1;
     private final Set<Class<?>> attackWithItemType;
     private final float secondaryEquipmentUseChance;
-
-    private float lookHeightMultiplier;
 
     public EntityAIAttackRangedWeapon(EntityCustomMob customMob,
                                       double speedAmplifier, int delay, float maxDistance,
@@ -59,10 +59,30 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
     }
 
     protected boolean isItemTypeInMainHand() {
-        return entity.getHeldItemMainhand() != null
-                && (attackWithItemType.isEmpty()
-                || attackWithItemType.stream().anyMatch(a -> a.isInstance(entity.getHeldItemMainhand().getItem())));
+        if (entity.getHeldItemMainhand().isEmpty()) {
+            return false;
+        }
+
+        Item heldItem = entity.getHeldItemMainhand().getItem();
+
+        // Check if the held item matches a allowed item
+        boolean matchesAllowedType = attackWithItemType.isEmpty() || attackWithItemType.stream().anyMatch(a -> a.isInstance(heldItem));
+
+        // Check for grenades
+        boolean isSpecificItem = isHoldingSpecificItem(Grenades.FuseGrenade) || isHoldingSpecificItem(Grenades.ImpactGrenade) || isHoldingSpecificItem(Grenades.SmokeGrenade) || isHoldingSpecificItem(Grenades.GasGrenade) || isHoldingSpecificItem(Grenades.FlashGrenade);
+
+        return matchesAllowedType || isSpecificItem;
     }
+
+    /**
+     * Checks if the entity is holding an item
+     *
+     * @param targetItem the Item to check for
+     */
+    protected boolean isHoldingSpecificItem(Item targetItem) {
+        return !entity.getHeldItemMainhand().isEmpty() && entity.getHeldItemMainhand().getItem() == targetItem;
+    }
+
 
     /**
      * Returns whether an in-progress EntityAIBase should continue executing
@@ -99,9 +119,7 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
         EntityLivingBase attackTarget = this.entity.getAttackTarget();
 
         if (attackTarget != null) {
-
             this.entity.getLookHelper().setLookPosition(attackTarget.posX, attackTarget.posY + attackTarget.getEyeHeight() * this.entity.getConfiguration().getLookHeightMultiplier(), attackTarget.posZ, 30f, 30f);
-            //this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
 
             double d0 = this.entity.getDistanceSq(attackTarget.posX, attackTarget.getEntityBoundingBox().minY, attackTarget.posZ);
             boolean canSeeTarget = this.entity.getEntitySenses().canSee(attackTarget);
@@ -111,11 +129,7 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
                 this.seeTime = 0;
             }
 
-            if (canSeeTarget) {
-                ++this.seeTime;
-            } else {
-                --this.seeTime;
-            }
+            this.seeTime += canSeeTarget ? 1 : -1;
 
             if (d0 <= (double) this.maxAttackDistanceSquared && this.seeTime >= 20) {
                 this.entity.getNavigator().clearPath();
@@ -125,49 +139,59 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
                 this.strafingTime = -1;
             }
 
-            if (this.strafingTime >= 20) {
-                if ((double) this.entity.getRNG().nextFloat() < 0.3D) {
-                    this.strafingClockwise = !this.strafingClockwise;
-                }
+            updateStrafingDirection();
+            executeStrafing(d0);
+            handleAttack(attackTarget, canSeeTarget);
+        }
+    }
 
-                if ((double) this.entity.getRNG().nextFloat() < 0.3D) {
-                    this.strafingBackwards = !this.strafingBackwards;
-                }
+    private void updateStrafingDirection() {
+        if (this.strafingTime >= 20) {
+            if (this.entity.getRNG().nextFloat() < 0.3D) {
+                this.strafingClockwise = !this.strafingClockwise;
+            }
+            if (this.entity.getRNG().nextFloat() < 0.3D) {
+                this.strafingBackwards = !this.strafingBackwards;
+            }
+            this.strafingTime = 0;
+        }
+    }
 
-                this.strafingTime = 0;
+    private void executeStrafing(double distanceSq) {
+        if (this.strafingTime > -1) {
+            if (distanceSq > (double) (this.maxAttackDistanceSquared * 0.75F)) {
+                this.strafingBackwards = false;
+            } else if (distanceSq < (double) (this.maxAttackDistanceSquared * 0.25F)) {
+                this.strafingBackwards = true;
             }
 
-            if (this.strafingTime > -1) {
-                if (d0 > (double) (this.maxAttackDistanceSquared * 0.75F)) {
-                    this.strafingBackwards = false;
-                } else if (d0 < (double) (this.maxAttackDistanceSquared * 0.25F)) {
-                    this.strafingBackwards = true;
-                }
+            float forward = this.strafingBackwards ? -0.5F : 0.5F;
+            float strafe = this.strafingClockwise ? 0.5F : -0.5F;
+            this.entity.getMoveHelper().strafe(forward, strafe);
+            this.entity.faceEntity(this.entity.getAttackTarget(), 30.0F, 30.0F);
+        } else {
+            this.entity.getLookHelper().setLookPositionWithEntity(this.entity.getAttackTarget(), 30.0F, 30.0F);
+        }
+    }
 
-                this.entity.getMoveHelper().strafe(this.strafingBackwards ? -0.5F : 0.5F, this.strafingClockwise ? 0.5F : -0.5F);
-                this.entity.faceEntity(attackTarget, 30.0F, 30.0F);
-            } else {
-                this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
-            }
-
-            if (this.entity.isHandActive()) {
-                if (!canSeeTarget && this.seeTime < -60) {
+    private void handleAttack(EntityLivingBase attackTarget, boolean canSeeTarget) {
+        if (this.entity.isHandActive()) {
+            if (!canSeeTarget && this.seeTime < -60) {
+                this.entity.resetActiveHand();
+            } else if (canSeeTarget) {
+                if (Math.abs((-(this.entity.posX - attackTarget.posX) / (this.entity.posZ - attackTarget.posZ)) - Math.tan(this.entity.renderYawOffset / 180f * Math.PI)) < 5.0) {
                     this.entity.resetActiveHand();
-                } else if (canSeeTarget) {
-                    if (Math.abs((-(this.entity.posX - attackTarget.posX) / (this.entity.posZ - attackTarget.posZ)) - Math.tan(this.entity.renderYawOffset / 180f * Math.PI)) < 5.0) {
-                        this.entity.resetActiveHand();
-                        if (entity.getSecondaryEquipment() != null && entity.getRNG().nextFloat() < secondaryEquipmentUseChance) {
-                            this.entity.attackWithSecondaryEquipment(attackTarget, 0); // TODO: set some distance factor
-                        } else {
-                            this.entity.attackEntityWithRangedAttack(attackTarget, 0);
-                            // TODO: set some distance factor
-                        }
-                        this.attackTime = (this.attackCooldown >> 1) + this.entity.getRNG().nextInt(this.attackCooldown << 1);
+                    if (entity.getSecondaryEquipment() != null && entity.getRNG().nextFloat() < secondaryEquipmentUseChance) {
+                        this.entity.attackWithSecondaryEquipment(attackTarget, 0); // TODO: set some distance factor
+                    } else {
+                        this.entity.attackEntityWithRangedAttack(attackTarget, 0);
+                        // TODO: set some distance factor
                     }
+                    this.attackTime = (this.attackCooldown >> 1) + this.entity.getRNG().nextInt(this.attackCooldown << 1);
                 }
-            } else if (--this.attackTime <= 0 && this.seeTime >= -60) {
-                this.entity.setActiveHand(EnumHand.MAIN_HAND);
             }
+        } else if (--this.attackTime <= 0 && this.seeTime >= -60) {
+            this.entity.setActiveHand(EnumHand.MAIN_HAND);
         }
     }
 }
