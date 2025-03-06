@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -142,7 +143,7 @@ public class HighIQSpawnEgg extends Item implements ICraftingRecipe {
 
                 return EnumActionResult.SUCCESS;
             } catch (Exception e) {
-                System.err.println("Unable to spawn entity with name: " + getEntitySpawnName());
+                ProjectConstants.LOGGER.error("Unable to spawn entity with name: {}", getEntitySpawnName());
             }
 
             return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);

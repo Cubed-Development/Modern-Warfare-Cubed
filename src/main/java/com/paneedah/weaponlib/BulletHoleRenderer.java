@@ -19,7 +19,6 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 public class BulletHoleRenderer {
 
     private final LinkedBlockingQueue<BulletHole> holeQueue = new LinkedBlockingQueue<>();
-    private final ArrayList<BulletHole> bulletHoles = new ArrayList<>();
 
     public static class BulletHole {
         private final Vector3D pos;

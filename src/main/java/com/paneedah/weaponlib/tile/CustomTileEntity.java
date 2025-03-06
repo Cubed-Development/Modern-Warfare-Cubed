@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.Configurable;
+import lombok.Getter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -15,7 +16,7 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
 
     protected CustomTileEntityConfiguration<?> configuration;
 
-    private int side;
+    @Getter private int side;
 
 
     private T safeCast(Object input) {
@@ -32,10 +33,6 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
 
     protected void setSide(int side) {
         this.side = side;
-    }
-
-    public int getSide() {
-        return side;
     }
 
     public void onEntityBlockActivated(World world, BlockPos pos, EntityPlayer player) {

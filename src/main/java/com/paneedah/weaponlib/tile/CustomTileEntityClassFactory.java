@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.tile;
 
+import lombok.Getter;
 import net.minecraft.tileentity.TileEntity;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Label;
@@ -31,11 +32,7 @@ public class CustomTileEntityClassFactory implements Opcodes {
         }
     }
 
-    private static final CustomTileEntityClassFactory instance = new CustomTileEntityClassFactory();
-
-    public static CustomTileEntityClassFactory getInstance() {
-        return instance;
-    }
+    @Getter private static final CustomTileEntityClassFactory instance = new CustomTileEntityClassFactory();
 
     private final Map<Class<?>, CustomTileEntityConfiguration<?>> entityConfigurations = new HashMap<>();
 

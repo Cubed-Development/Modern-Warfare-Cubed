@@ -18,7 +18,6 @@ import com.paneedah.weaponlib.animation.SpecialAttachments;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
 import net.minecraft.network.datasync.DataSerializers;
-import net.minecraftforge.fml.common.ProgressManager;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
