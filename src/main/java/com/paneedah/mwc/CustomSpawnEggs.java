@@ -7,12 +7,12 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class CustomSpawnEggs {
 
-    public static HighIQSpawnEgg TURRET_EGG;
-    public static HighIQSpawnEgg TURRETUPGRADED_EGG;
-    public static HighIQSpawnEgg TURRETSILENCED_EGG;
+    public static HighIQSpawnEgg turretEgg;
+    public static HighIQSpawnEgg turretEggUpgraded;
+    public static HighIQSpawnEgg turretEggSilenced;
 
-    public static void init(Object mod, CommonProxy proxy) {
-        TURRET_EGG = new HighIQSpawnEgg.Builder()
+    public static void init(CommonProxy proxy) {
+        turretEgg = new HighIQSpawnEgg.Builder()
                 .withID(1)
                 .withItemName("turret")
                 .withEntitySpawnName("turret")
@@ -20,7 +20,7 @@ public class CustomSpawnEggs {
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .build();
 
-        TURRETUPGRADED_EGG = new HighIQSpawnEgg.Builder()
+        turretEggUpgraded = new HighIQSpawnEgg.Builder()
                 .withID(2)
                 .withItemName("turretupgraded")
                 .withEntitySpawnName("turretupgraded")
@@ -28,7 +28,7 @@ public class CustomSpawnEggs {
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .build();
 
-        TURRETSILENCED_EGG = new HighIQSpawnEgg.Builder()
+        turretEggSilenced = new HighIQSpawnEgg.Builder()
                 .withID(3)
                 .withItemName("turretsilenced")
                 .withEntitySpawnName("turretsilenced")

@@ -11,6 +11,7 @@ import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
+import lombok.Getter;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -51,16 +52,13 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
  * - Re-factored class
  */
 // Todo: Cleanup this mess
+@Getter
 public class CommonEventHandler {
 
     private final ModContext modContext;
 
     public CommonEventHandler(ModContext modContext) {
         this.modContext = modContext;
-    }
-
-    public ModContext getModContext() {
-        return modContext;
     }
 
     @SubscribeEvent

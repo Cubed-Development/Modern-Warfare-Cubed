@@ -4,13 +4,22 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
+/**
+ * The Debug Renderer for MWC, used for rendering debug information
+ */
 public class DebugRenderer {
 
+    /**
+     * Setup the renderer, make sure you call {@link #destructBasicRender} when you are done
+     */
     public static void setupBasicRender() {
         GlStateManager.disableCull();
         GlStateManager.disableTexture2D();
     }
 
+    /**
+     * Deconstruct the renderer
+     */
     public static void destructBasicRender() {
         GlStateManager.enableCull();
         GlStateManager.enableTexture2D();

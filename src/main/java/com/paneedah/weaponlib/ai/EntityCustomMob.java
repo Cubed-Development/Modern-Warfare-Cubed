@@ -8,6 +8,7 @@ import com.paneedah.weaponlib.ai.EntityConfiguration.TexturedModel;
 import com.paneedah.weaponlib.compatibility.CompatibleDataManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
+import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.*;
@@ -15,6 +16,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.StatList;
@@ -52,7 +54,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     private EntityConfiguration configuration;
 
-    private ItemStack secondaryEquipment;
+    @Getter private ItemStack secondaryEquipment;
 
     private int delayedAttackTimer;
 
@@ -257,8 +259,8 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     private void setArmorEquipment() {
         EntityConfiguration configuration = getConfiguration();
         Arrays.fill(this.inventoryArmorDropChances, configuration.getArmorDropChance());
-        for (CustomArmor armor : configuration.getArmorSet()) {
-            this.setItemStackToSlot(armor.getCompatibleEquipmentSlot(), new ItemStack(armor));
+        for (ItemArmor armor : configuration.getArmorSet()) {
+            this.setItemStackToSlot(armor.getEquipmentSlot(), new ItemStack(armor));
         }
     }
 
@@ -566,10 +568,6 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     @Override
     public void setContext(ModContext modContext) {
         this.modContext = modContext;
-    }
-
-    public ItemStack getSecondaryEquipment() {
-        return secondaryEquipment;
     }
 
     public void setDelayedAttackTimerIncrement(int increment) {
