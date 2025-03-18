@@ -35,11 +35,11 @@ public class ScarHHandguard extends ModelWithAttachments {
         textureHeight = 300;
 
         handguard = new ModelRenderer(this);
-        handguard.setRotationPoint(-3.8F, -11.2F, -51.0F);
+        handguard.setRotationPoint(-3.8F, -11.2F, -51);
         handguard.cubeList.add(new ModelBox(handguard, 55, 0, 2.5F, -0.6F, 0.0F, 1, 2, 22, 0.001F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 80, 3.5F, -1.0F, 0.0F, 1, 1, 22, -0.001F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 80, 3.5F, -1, 0.0F, 1, 1, 22, -0.001F, false));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 1.1F, -0.6F, 0.0F, 2, 2, 22, 0.002F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 55, 80, 0.1F, -1.0F, 0.0F, 1, 1, 22, -0.001F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 55, 80, 0.1F, -1, 0.0F, 1, 1, 22, -0.001F, false));
         handguard.cubeList.add(new ModelBox(handguard, 91, 127, 4.075F, -6.33F, -0.3F, 1, 1, 1, -0.2F, false));
         handguard.cubeList.add(new ModelBox(handguard, 79, 127, 4.075F, -5.93F, -0.3F, 1, 1, 1, -0.198F, false));
         handguard.cubeList.add(new ModelBox(handguard, 87, 127, 3.65F, -5.5F, -0.3F, 1, 1, 1, -0.199F, false));
@@ -101,7 +101,7 @@ public class ScarHHandguard extends ModelWithAttachments {
         cube_r59.setRotationPoint(4.5F, 0.0F, 0.0F);
         handguard.addChild(cube_r59);
         setRotationAngle(cube_r59, 0.0F, 0.0F, 0.8552F);
-        cube_r59.cubeList.add(new ModelBox(cube_r59, 55, 24, -1.0F, 0.0F, 0.0F, 1, 2, 22, -0.002F, false));
+        cube_r59.cubeList.add(new ModelBox(cube_r59, 55, 24, -1, 0.0F, 0.0F, 1, 2, 22, -0.002F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(5.3F, -14.9F, 1.25F);

@@ -66,13 +66,13 @@ public class AudiS4SteeringWheel extends ModelBase {
 
 
         cube_r3 = new ModelRenderer(this);
-        cube_r3.setRotationPoint(-1.0F, -3.5F, 5.5F);
+        cube_r3.setRotationPoint(-1, -3.5F, 5.5F);
         bone112.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, 0.1309F, 0.0F);
         cube_r3.cubeList.add(new ModelBox(cube_r3, 19, 102, 52.0466F, -0.5F, 4.4179F, 1, 1, 5, 0.0F, false));
 
         cube_r4 = new ModelRenderer(this);
-        cube_r4.setRotationPoint(-1.0F, -3.5F, 5.5F);
+        cube_r4.setRotationPoint(-1, -3.5F, 5.5F);
         bone112.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.0F, -0.1309F, 0.0F);
         cube_r4.cubeList.add(new ModelBox(cube_r4, 117, 129, 55.0209F, -0.5F, -9.8095F, 1, 1, 5, 0.0F, false));
@@ -102,19 +102,19 @@ public class AudiS4SteeringWheel extends ModelBase {
         bone115.cubeList.add(new ModelBox(bone115, 101, 142, 16.8621F, 51.0222F, -8.5969F, 2, 7, 2, 0.0F, false));
 
         bone114 = new ModelRenderer(this);
-        bone114.setRotationPoint(-61.5F, 1.0F, 2.9F);
+        bone114.setRotationPoint(-61.5F, 1, 2.9F);
         interior_wheel.addChild(bone114);
         setRotationAngle(bone114, 0.3665F, 0.3142F, 0.0F);
         bone114.cubeList.add(new ModelBox(bone114, 60, 35, 51.2592F, 0.2015F, 16.1556F, 2, 10, 2, 0.0F, false));
 
         bone113 = new ModelRenderer(this);
-        bone113.setRotationPoint(-50.5F, 1.0F, 2.9F);
+        bone113.setRotationPoint(-50.5F, 1, 2.9F);
         interior_wheel.addChild(bone113);
         setRotationAngle(bone113, 0.3665F, -0.3142F, 0.0F);
         bone113.cubeList.add(new ModelBox(bone113, 176, 101, 53.2592F, -12.2015F, -16.1556F, 2, 10, 2, 0.0F, false));
 
         bone109 = new ModelRenderer(this);
-        bone109.setRotationPoint(-55.5F, -4.0F, -1.0F);
+        bone109.setRotationPoint(-55.5F, -4.0F, -1);
         interior_wheel.addChild(bone109);
         setRotationAngle(bone109, -1.4137F, 0.0F, 0.0F);
         bone109.cubeList.add(new ModelBox(bone109, 102, 287, 53.0F, -4.0F, 2.0F, 5, 4, 4, 0.0F, false));

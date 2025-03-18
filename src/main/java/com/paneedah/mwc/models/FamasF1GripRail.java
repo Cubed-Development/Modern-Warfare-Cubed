@@ -21,7 +21,7 @@ public class FamasF1GripRail extends ModelWithAttachments {
 
         grip_rail = new ModelRenderer(this);
         grip_rail.setRotationPoint(0.0F, -7.7F, -36.0F);
-        grip_rail.cubeList.add(new ModelBox(grip_rail, 133, 41, -3.0F, -1.0F, 0.0F, 3, 1, 11, 0.0F, false));
+        grip_rail.cubeList.add(new ModelBox(grip_rail, 133, 41, -3.0F, -1, 0.0F, 3, 1, 11, 0.0F, false));
         grip_rail.cubeList.add(new ModelBox(grip_rail, 130, 127, -0.8F, -1.4F, -0.001F, 3, 1, 11, 0.0F, false));
         grip_rail.cubeList.add(new ModelBox(grip_rail, 85, 127, -5.2F, -1.4F, -0.001F, 3, 1, 11, 0.0F, false));
         grip_rail.cubeList.add(new ModelBox(grip_rail, 168, 169, -6.0F, -4.4F, 0.0F, 9, 2, 14, 0.0F, false));
@@ -36,7 +36,7 @@ public class FamasF1GripRail extends ModelWithAttachments {
         cube_r164.setRotationPoint(2.6F, -2.4F, 0.0F);
         grip_rail.addChild(cube_r164);
         setRotationAngle(cube_r164, 0.0F, 0.0F, 0.1745F);
-        cube_r164.cubeList.add(new ModelBox(cube_r164, 69, 20, -1.0F, 0.0F, 0.0F, 1, 2, 11, 0.0F, false));
+        cube_r164.cubeList.add(new ModelBox(cube_r164, 69, 20, -1, 0.0F, 0.0F, 1, 2, 11, 0.0F, false));
     }
 
     @Override

@@ -56,49 +56,49 @@ public class SV98Action extends ModelWithAttachments {
         Action12_r2_r1.setRotationPoint(16.4167F, -3.8944F, -0.1F);
         action.addChild(Action12_r2_r1);
         setRotationAngle(Action12_r2_r1, 0.0F, 0.0F, -0.4363F);
-        Action12_r2_r1.cubeList.add(new ModelBox(Action12_r2_r1, 103, 51, -1.3F, -39.6F, -11.0F, 1, 1, 1, -0.1F, false));
+        Action12_r2_r1.cubeList.add(new ModelBox(Action12_r2_r1, 103, 51, -1.3F, -39.6F, -11, 1, 1, 1, -0.1F, false));
 
         Action13_r1_r1 = new ModelRenderer(this);
         Action13_r1_r1.setRotationPoint(15.6914F, -74.0438F, -0.1F);
         action.addChild(Action13_r1_r1);
         setRotationAngle(Action13_r1_r1, 0.0F, 0.0F, -2.7053F);
-        Action13_r1_r1.cubeList.add(new ModelBox(Action13_r1_r1, 86, 103, -0.5F, -39.6F, -11.0F, 1, 1, 1, -0.098F, false));
+        Action13_r1_r1.cubeList.add(new ModelBox(Action13_r1_r1, 86, 103, -0.5F, -39.6F, -11, 1, 1, 1, -0.098F, false));
 
         Action11_r3_r1 = new ModelRenderer(this);
         Action11_r3_r1.setRotationPoint(-16.4977F, -2.6266F, -0.1F);
         action.addChild(Action11_r3_r1);
         setRotationAngle(Action11_r3_r1, 0.0F, 0.0F, 0.4363F);
-        Action11_r3_r1.cubeList.add(new ModelBox(Action11_r3_r1, 93, 103, -2.7F, -39.6F, -11.0F, 1, 1, 1, -0.098F, false));
+        Action11_r3_r1.cubeList.add(new ModelBox(Action11_r3_r1, 93, 103, -2.7F, -39.6F, -11, 1, 1, 1, -0.098F, false));
 
         Action12_r1_r1 = new ModelRenderer(this);
         Action12_r1_r1.setRotationPoint(-21.2104F, -72.7761F, -0.1F);
         action.addChild(Action12_r1_r1);
         setRotationAngle(Action12_r1_r1, 0.0F, 0.0F, 2.7053F);
-        Action12_r1_r1.cubeList.add(new ModelBox(Action12_r1_r1, 104, 60, -3.5F, -39.6F, -11.0F, 1, 1, 1, -0.1F, false));
+        Action12_r1_r1.cubeList.add(new ModelBox(Action12_r1_r1, 104, 60, -3.5F, -39.6F, -11, 1, 1, 1, -0.1F, false));
 
         Action10_r2_r1 = new ModelRenderer(this);
         Action10_r2_r1.setRotationPoint(33.3116F, -23.1703F, -0.1F);
         action.addChild(Action10_r2_r1);
         setRotationAngle(Action10_r2_r1, 0.0F, 0.0F, -1.1345F);
-        Action10_r2_r1.cubeList.add(new ModelBox(Action10_r2_r1, 104, 64, -1.6F, -38.5F, -11.0F, 1, 1, 1, -0.099F, false));
+        Action10_r2_r1.cubeList.add(new ModelBox(Action10_r2_r1, 104, 64, -1.6F, -38.5F, -11, 1, 1, 1, -0.099F, false));
 
         Action11_r2_r1 = new ModelRenderer(this);
         Action11_r2_r1.setRotationPoint(-34.8439F, -20.4513F, -0.1F);
         action.addChild(Action11_r2_r1);
         setRotationAngle(Action11_r2_r1, 0.0F, 0.0F, 1.1345F);
-        Action11_r2_r1.cubeList.add(new ModelBox(Action11_r2_r1, 69, 104, -2.4F, -38.5F, -11.0F, 1, 1, 1, -0.1F, false));
+        Action11_r2_r1.cubeList.add(new ModelBox(Action11_r2_r1, 69, 104, -2.4F, -38.5F, -11, 1, 1, 1, -0.1F, false));
 
         Action9_r1_r1 = new ModelRenderer(this);
         Action9_r1_r1.setRotationPoint(-36.8378F, -21.7216F, -0.1F);
         action.addChild(Action9_r1_r1);
         setRotationAngle(Action9_r1_r1, 0.0F, 0.0F, 1.1345F);
-        Action9_r1_r1.cubeList.add(new ModelBox(Action9_r1_r1, 106, 15, -1.6F, -39.9F, -11.0F, 1, 1, 1, -0.1F, false));
+        Action9_r1_r1.cubeList.add(new ModelBox(Action9_r1_r1, 106, 15, -1.6F, -39.9F, -11, 1, 1, 1, -0.1F, false));
 
         Action10_r1_r1 = new ModelRenderer(this);
         Action10_r1_r1.setRotationPoint(35.3055F, -24.4406F, -0.1F);
         action.addChild(Action10_r1_r1);
         setRotationAngle(Action10_r1_r1, 0.0F, 0.0F, -1.1345F);
-        Action10_r1_r1.cubeList.add(new ModelBox(Action10_r1_r1, 104, 69, -2.4F, -39.9F, -11.0F, 1, 1, 1, -0.099F, false));
+        Action10_r1_r1.cubeList.add(new ModelBox(Action10_r1_r1, 104, 69, -2.4F, -39.9F, -11, 1, 1, 1, -0.099F, false));
 
         Action11_r1_r1 = new ModelRenderer(this);
         Action11_r1_r1.setRotationPoint(19.5192F, -6.0268F, -0.1F);

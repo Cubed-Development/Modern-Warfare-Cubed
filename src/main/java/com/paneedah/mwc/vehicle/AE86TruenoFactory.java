@@ -44,7 +44,7 @@ public class AE86TruenoFactory implements VehicleFactory {
                         float sideLean = (float) entityVehicle.sideLean;
 
                         Positioners.position(
-                                1.0f, (float) (-1.500000f - entityVehicle.rideOffset), -2.700000f,
+                                1, (float) (-1.500000f - entityVehicle.rideOffset), -2.700000f,
                                 0.0f, 0f, 0.0f,
                                 0.000000f, 0.000000f, 0.000000f,
                                 0.950000f, 0.950000f, 0.950000f

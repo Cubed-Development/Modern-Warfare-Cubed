@@ -32,7 +32,7 @@ public class M16Stock extends ModelBase {
         textureHeight = 180;
 
         m110_stock = new ModelRenderer(this);
-        m110_stock.setRotationPoint(0.0F, 23.9F, 1.0F);
+        m110_stock.setRotationPoint(0.0F, 23.9F, 1);
         m110_stock.cubeList.add(new ModelBox(m110_stock, 0, 33, -1.65F, -37.4F, 2.351F, 2, 1, 32, 0.001F, false));
         m110_stock.cubeList.add(new ModelBox(m110_stock, 0, 0, -3.35F, -37.4F, 2.352F, 2, 1, 32, 0.001F, false));
 
@@ -41,19 +41,19 @@ public class M16Stock extends ModelBase {
         m110_stock.addChild(receiver16_r1);
         setRotationAngle(receiver16_r1, 0.0F, 0.0F, 0.4014F);
         receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 100, 38, -0.001F, -1.4F, -0.0001F, 1, 1, 32, 0.0F, false));
-        receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 36, 34, 0.0F, -1.0F, 0.0F, 2, 1, 32, 0.0F, false));
+        receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 36, 34, 0.0F, -1, 0.0F, 2, 1, 32, 0.0F, false));
 
         receiver19_r1 = new ModelRenderer(this);
         receiver19_r1.setRotationPoint(0.0F, -30.7F, 10.25F);
         m110_stock.addChild(receiver19_r1);
         setRotationAngle(receiver19_r1, -0.3491F, 0.0F, 0.0F);
-        receiver19_r1.cubeList.add(new ModelBox(receiver19_r1, 34, 67, -3.001F, -1.0F, 0.0F, 3, 1, 23, 0.0F, false));
+        receiver19_r1.cubeList.add(new ModelBox(receiver19_r1, 34, 67, -3.001F, -1, 0.0F, 3, 1, 23, 0.0F, false));
 
         receiver18_r1 = new ModelRenderer(this);
         receiver18_r1.setRotationPoint(0.0F, -32.3F, 1.95F);
         m110_stock.addChild(receiver18_r1);
         setRotationAngle(receiver18_r1, -0.192F, 0.0F, 0.0F);
-        receiver18_r1.cubeList.add(new ModelBox(receiver18_r1, 0, 19, -3.0F, -1.0F, 0.0F, 3, 1, 9, 0.0F, false));
+        receiver18_r1.cubeList.add(new ModelBox(receiver18_r1, 0, 19, -3.0F, -1, 0.0F, 3, 1, 9, 0.0F, false));
 
         receiver23_r1 = new ModelRenderer(this);
         receiver23_r1.setRotationPoint(-3.35F, -36.4F, 33.35F);
@@ -61,17 +61,17 @@ public class M16Stock extends ModelBase {
         setRotationAngle(receiver23_r1, -0.1658F, -0.0052F, -0.0279F);
         receiver23_r1.cubeList.add(new ModelBox(receiver23_r1, 0, 0, 0.0F, 4.0F, -30.0F, 1, 5, 14, 0.0F, false));
         receiver23_r1.cubeList.add(new ModelBox(receiver23_r1, 0, 0, 0.0F, 2.0F, -16.0F, 1, 8, 5, 0.0F, false));
-        receiver23_r1.cubeList.add(new ModelBox(receiver23_r1, 45, 13, 0.0F, 1.0F, -11.0F, 1, 10, 5, 0.0F, false));
+        receiver23_r1.cubeList.add(new ModelBox(receiver23_r1, 45, 13, 0.0F, 1, -11, 1, 10, 5, 0.0F, false));
         receiver23_r1.cubeList.add(new ModelBox(receiver23_r1, 36, 0, 0.0F, 0.0F, -6.0F, 1, 12, 6, 0.0F, false));
 
         receiver22_r1 = new ModelRenderer(this);
         receiver22_r1.setRotationPoint(0.35F, -36.4F, 33.35F);
         m110_stock.addChild(receiver22_r1);
         setRotationAngle(receiver22_r1, -0.1658F, 0.0052F, 0.0279F);
-        receiver22_r1.cubeList.add(new ModelBox(receiver22_r1, 0, 33, -1.0F, 4.0F, -30.0F, 1, 5, 14, 0.0F, false));
-        receiver22_r1.cubeList.add(new ModelBox(receiver22_r1, 16, 0, -1.0F, 2.0F, -16.0F, 1, 8, 5, 0.0F, false));
-        receiver22_r1.cubeList.add(new ModelBox(receiver22_r1, 45, 47, -1.0F, 1.0F, -11.0F, 1, 10, 5, 0.0F, false));
-        receiver22_r1.cubeList.add(new ModelBox(receiver22_r1, 36, 34, -1.0F, 0.0F, -6.0F, 1, 12, 6, 0.0F, false));
+        receiver22_r1.cubeList.add(new ModelBox(receiver22_r1, 0, 33, -1, 4.0F, -30.0F, 1, 5, 14, 0.0F, false));
+        receiver22_r1.cubeList.add(new ModelBox(receiver22_r1, 16, 0, -1, 2.0F, -16.0F, 1, 8, 5, 0.0F, false));
+        receiver22_r1.cubeList.add(new ModelBox(receiver22_r1, 45, 47, -1, 1, -11, 1, 10, 5, 0.0F, false));
+        receiver22_r1.cubeList.add(new ModelBox(receiver22_r1, 36, 34, -1, 0.0F, -6.0F, 1, 12, 6, 0.0F, false));
 
         receiver21_r1 = new ModelRenderer(this);
         receiver21_r1.setRotationPoint(-3.35F, -36.4F, 33.35F);
@@ -89,13 +89,13 @@ public class M16Stock extends ModelBase {
         receiver19_r2.setRotationPoint(-3.35F, -36.4F, 34.35F);
         m110_stock.addChild(receiver19_r2);
         setRotationAngle(receiver19_r2, -0.1658F, 0.0F, -0.0279F);
-        receiver19_r2.cubeList.add(new ModelBox(receiver19_r2, 0, 33, 0.0F, 0.0F, -1.0F, 2, 13, 1, 0.0F, false));
+        receiver19_r2.cubeList.add(new ModelBox(receiver19_r2, 0, 33, 0.0F, 0.0F, -1, 2, 13, 1, 0.0F, false));
 
         receiver18_r2 = new ModelRenderer(this);
         receiver18_r2.setRotationPoint(0.35F, -36.4F, 34.35F);
         m110_stock.addChild(receiver18_r2);
         setRotationAngle(receiver18_r2, -0.1658F, 0.0F, 0.0279F);
-        receiver18_r2.cubeList.add(new ModelBox(receiver18_r2, 6, 33, -2.0F, 0.0F, -1.0F, 2, 13, 1, 0.0F, false));
+        receiver18_r2.cubeList.add(new ModelBox(receiver18_r2, 6, 33, -2.0F, 0.0F, -1, 2, 13, 1, 0.0F, false));
 
         receiver19_r3 = new ModelRenderer(this);
         receiver19_r3.setRotationPoint(-3.35F, -36.4F, 2.0F);
@@ -107,13 +107,13 @@ public class M16Stock extends ModelBase {
         receiver18_r3.setRotationPoint(0.35F, -36.4F, 2.0F);
         m110_stock.addChild(receiver18_r3);
         setRotationAngle(receiver18_r3, 0.0F, 0.0F, 0.0873F);
-        receiver18_r3.cubeList.add(new ModelBox(receiver18_r3, 0, 100, -1.0F, 0.0F, 0.0F, 1, 4, 31, 0.0F, false));
+        receiver18_r3.cubeList.add(new ModelBox(receiver18_r3, 0, 100, -1, 0.0F, 0.0F, 1, 4, 31, 0.0F, false));
 
         receiver16_r2 = new ModelRenderer(this);
         receiver16_r2.setRotationPoint(0.35F, -37.4F, 2.35F);
         m110_stock.addChild(receiver16_r2);
         setRotationAngle(receiver16_r2, 0.0F, 0.0F, -0.4014F);
-        receiver16_r2.cubeList.add(new ModelBox(receiver16_r2, 36, 1, -2.0F, -1.0F, 0.0F, 2, 1, 32, 0.0F, false));
+        receiver16_r2.cubeList.add(new ModelBox(receiver16_r2, 36, 1, -2.0F, -1, 0.0F, 2, 1, 32, 0.0F, false));
         receiver16_r2.cubeList.add(new ModelBox(receiver16_r2, 100, 71, -0.999F, -1.4F, -0.0001F, 1, 1, 32, 0.0F, false));
 
         receiver17_r1 = new ModelRenderer(this);
@@ -121,7 +121,7 @@ public class M16Stock extends ModelBase {
         m110_stock.addChild(receiver17_r1);
         setRotationAngle(receiver17_r1, 0.0F, 0.0F, -0.4014F);
         receiver17_r1.cubeList.add(new ModelBox(receiver17_r1, 0, 66, -1.4F, -0.001F, 0.0049F, 1, 2, 32, 0.0F, false));
-        receiver17_r1.cubeList.add(new ModelBox(receiver17_r1, 64, 101, -1.0F, 0.0F, 0.002F, 1, 1, 32, 0.0F, false));
+        receiver17_r1.cubeList.add(new ModelBox(receiver17_r1, 64, 101, -1, 0.0F, 0.002F, 1, 1, 32, 0.0F, false));
 
         receiver17_r2 = new ModelRenderer(this);
         receiver17_r2.setRotationPoint(-1.5F, -39.25F, 2.35F);

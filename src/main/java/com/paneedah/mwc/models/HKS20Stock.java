@@ -66,8 +66,8 @@ public class HKS20Stock extends ModelWithAttachments {
         stock16_r1.setRotationPoint(0.0F, 9.3915F, 92.1096F);
         stock.addChild(stock16_r1);
         setRotationAngle(stock16_r1, 2.082F, 0.0F, 0.0F);
-        stock16_r1.cubeList.add(new ModelBox(stock16_r1, 0, 0, -2.51F, -16.0F, 31.0F, 2, 4, 10, 0.0F, true));
-        stock16_r1.cubeList.add(new ModelBox(stock16_r1, 0, 0, -2.5F, -20.0F, 31.0F, 2, 2, 12, 0.0F, true));
+        stock16_r1.cubeList.add(new ModelBox(stock16_r1, 0, 0, -2.51F, -16.0F, 31, 2, 4, 10, 0.0F, true));
+        stock16_r1.cubeList.add(new ModelBox(stock16_r1, 0, 0, -2.5F, -20.0F, 31, 2, 2, 12, 0.0F, true));
 
         stock15_r1 = new ModelRenderer(this);
         stock15_r1.setRotationPoint(0.0F, 27.0216F, 52.9851F);
@@ -91,7 +91,7 @@ public class HKS20Stock extends ModelWithAttachments {
         stock7_r1.setRotationPoint(0.0F, 24.7019F, 76.8402F);
         stock.addChild(stock7_r1);
         setRotationAngle(stock7_r1, 1.4871F, 0.0F, 0.0F);
-        stock7_r1.cubeList.add(new ModelBox(stock7_r1, 0, 0, -2.5F, -20.0F, 31.0F, 2, 5, 3, 0.0F, true));
+        stock7_r1.cubeList.add(new ModelBox(stock7_r1, 0, 0, -2.5F, -20.0F, 31, 2, 5, 3, 0.0F, true));
 
         stock5_r1 = new ModelRenderer(this);
         stock5_r1.setRotationPoint(0.0F, 15.4283F, 48.5491F);

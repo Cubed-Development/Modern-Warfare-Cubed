@@ -2945,7 +2945,7 @@ public class Magazines {
                     GL11.glRotatef(-150F, 0f, 1f, 0f);
                     GL11.glRotatef(-6F, 1f, 0f, 0f);
                     GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.0F, 1.0F, 1.0f);
+                    GL11.glScaled(1, 1, 1);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);

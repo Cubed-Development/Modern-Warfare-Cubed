@@ -259,13 +259,13 @@ public class Supernova extends ModelWithAttachments {
 
 
         gun20_r1 = new ModelRenderer(this);
-        gun20_r1.setRotationPoint(0.0F, -24.5F, -1.0F);
+        gun20_r1.setRotationPoint(0.0F, -24.5F, -1);
         Maingun.addChild(gun20_r1);
         setRotationAngle(gun20_r1, 0.0F, 0.0F, 2.3562F);
         gun20_r1.cubeList.add(new ModelBox(gun20_r1, 144, 150, -1.5F, -0.1F, 2.0F, 2, 1, 9, -0.1F, true));
 
         gun19_r1 = new ModelRenderer(this);
-        gun19_r1.setRotationPoint(-2.0F, -24.5F, -1.0F);
+        gun19_r1.setRotationPoint(-2.0F, -24.5F, -1);
         Maingun.addChild(gun19_r1);
         setRotationAngle(gun19_r1, 0.0F, 0.0F, -2.3562F);
         gun19_r1.cubeList.add(new ModelBox(gun19_r1, 144, 150, -0.5F, -0.1F, 2.0F, 2, 1, 9, -0.1F, false));
@@ -286,18 +286,18 @@ public class Supernova extends ModelWithAttachments {
         gun22LOADINGAREA.setRotationPoint(-2.0F, -24.5F, -12.0F);
         Maingun.addChild(gun22LOADINGAREA);
         setRotationAngle(gun22LOADINGAREA, -2.618F, 0.0F, 0.0F);
-        gun22LOADINGAREA.cubeList.add(new ModelBox(gun22LOADINGAREA, 71, 8, 0.0F, 0.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        gun22LOADINGAREA.cubeList.add(new ModelBox(gun22LOADINGAREA, 71, 8, 0.0F, 0.0F, -1, 2, 1, 1, 0.0F, false));
 
         gun21LOADINGAREA = new ModelRenderer(this);
         gun21LOADINGAREA.setRotationPoint(-2.0F, -24.5F, -2.0F);
         Maingun.addChild(gun21LOADINGAREA);
         setRotationAngle(gun21LOADINGAREA, -2.0944F, 0.0F, 0.0F);
-        gun21LOADINGAREA.cubeList.add(new ModelBox(gun21LOADINGAREA, 71, 35, 0.0F, 0.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        gun21LOADINGAREA.cubeList.add(new ModelBox(gun21LOADINGAREA, 71, 35, 0.0F, 0.0F, -1, 2, 1, 1, 0.0F, false));
 
         gun20LOADINGAREA = new ModelRenderer(this);
-        gun20LOADINGAREA.setRotationPoint(-2.0F, -25.9F, -11.0F);
+        gun20LOADINGAREA.setRotationPoint(-2.0F, -25.9F, -11);
         Maingun.addChild(gun20LOADINGAREA);
-        gun20LOADINGAREA.cubeList.add(new ModelBox(gun20LOADINGAREA, 67, 66, 0.0F, 0.0F, -1.0F, 2, 1, 10, 0.0F, false));
+        gun20LOADINGAREA.cubeList.add(new ModelBox(gun20LOADINGAREA, 67, 66, 0.0F, 0.0F, -1, 2, 1, 10, 0.0F, false));
 
         maingunBARRELS = new ModelRenderer(this);
         maingunBARRELS.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -371,7 +371,7 @@ public class Supernova extends ModelWithAttachments {
         gun511 = new ModelRenderer(this);
         gun511.setRotationPoint(-0.2F, -27.6F, -14.0F);
         Maingun.addChild(gun511);
-        gun511.cubeList.add(new ModelBox(gun511, 0, 140, -0.3F, -1.0F, 0.0F, 1, 3, 14, 0.0F, false));
+        gun511.cubeList.add(new ModelBox(gun511, 0, 140, -0.3F, -1, 0.0F, 1, 3, 14, 0.0F, false));
 
         gun510 = new ModelRenderer(this);
         gun510.setRotationPoint(-2.0F, -31.15F, 0.2F);
@@ -382,7 +382,7 @@ public class Supernova extends ModelWithAttachments {
         gun508.setRotationPoint(-3.1F, -30.2F, 0.5F);
         Maingun.addChild(gun508);
         setRotationAngle(gun508, 0.0F, 0.0F, -2.3051F);
-        gun508.cubeList.add(new ModelBox(gun508, 47, 56, -1.0F, 0.0F, 1.7F, 1, 1, 6, 0.0F, false));
+        gun508.cubeList.add(new ModelBox(gun508, 47, 56, -1, 0.0F, 1.7F, 1, 1, 6, 0.0F, false));
 
         gun25 = new ModelRenderer(this);
         gun25.setRotationPoint(1.1F, -30.2F, 0.5F);
@@ -406,7 +406,7 @@ public class Supernova extends ModelWithAttachments {
         gun508_r1.setRotationPoint(0.01F, 1.4F, 7.71F);
         gun507.addChild(gun508_r1);
         setRotationAngle(gun508_r1, 0.1051F, 0.157F, 0.0034F);
-        gun508_r1.cubeList.add(new ModelBox(gun508_r1, 8, 80, 0.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun508_r1.cubeList.add(new ModelBox(gun508_r1, 8, 80, 0.0F, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun22 = new ModelRenderer(this);
         gun22.setRotationPoint(-3.1F, -30.2F, 0.5F);
@@ -424,7 +424,7 @@ public class Supernova extends ModelWithAttachments {
         gun509_r2.setRotationPoint(-0.01F, 1.4F, 7.71F);
         gun22.addChild(gun509_r2);
         setRotationAngle(gun509_r2, 0.1051F, -0.157F, -0.0034F);
-        gun509_r2.cubeList.add(new ModelBox(gun509_r2, 4, 79, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun509_r2.cubeList.add(new ModelBox(gun509_r2, 4, 79, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun21 = new ModelRenderer(this);
         gun21.setRotationPoint(-3.1F, -30.2F, 0.5F);
@@ -434,7 +434,7 @@ public class Supernova extends ModelWithAttachments {
         gun21.cubeList.add(new ModelBox(gun21, 38, 80, -0.701F, -0.3F, -0.1F, 1, 1, 2, -0.3F, false));
         gun21.cubeList.add(new ModelBox(gun21, 32, 80, -0.601F, 0.4F, 0.5F, 1, 1, 2, -0.4F, false));
         gun21.cubeList.add(new ModelBox(gun21, 26, 80, -0.601F, 0.6F, 0.8F, 1, 1, 2, -0.4F, false));
-        gun21.cubeList.add(new ModelBox(gun21, 20, 80, -0.601F, 0.8F, 1.0F, 1, 1, 2, -0.4F, false));
+        gun21.cubeList.add(new ModelBox(gun21, 20, 80, -0.601F, 0.8F, 1, 1, 1, 2, -0.4F, false));
         gun21.cubeList.add(new ModelBox(gun21, 60, 56, -0.601F, 0.2F, 0.3F, 1, 1, 1, -0.4F, false));
         gun21.cubeList.add(new ModelBox(gun21, 20, 60, -0.601F, 0.0F, 0.3F, 1, 1, 1, -0.4F, false));
         gun21.cubeList.add(new ModelBox(gun21, 41, 59, -0.601F, 0.0F, 0.1F, 1, 1, 1, -0.4F, false));
@@ -455,7 +455,7 @@ public class Supernova extends ModelWithAttachments {
         gun23.cubeList.add(new ModelBox(gun23, 57, 78, -0.299F, -0.3F, -0.1F, 1, 1, 2, -0.3F, false));
         gun23.cubeList.add(new ModelBox(gun23, 78, 40, -0.399F, 0.4F, 0.5F, 1, 1, 2, -0.4F, false));
         gun23.cubeList.add(new ModelBox(gun23, 12, 78, -0.399F, 0.6F, 0.8F, 1, 1, 2, -0.4F, false));
-        gun23.cubeList.add(new ModelBox(gun23, 0, 78, -0.399F, 0.8F, 1.0F, 1, 1, 2, -0.4F, false));
+        gun23.cubeList.add(new ModelBox(gun23, 0, 78, -0.399F, 0.8F, 1, 1, 1, 2, -0.4F, false));
         gun23.cubeList.add(new ModelBox(gun23, 26, 51, -0.399F, 0.2F, 0.3F, 1, 1, 1, -0.4F, false));
         gun23.cubeList.add(new ModelBox(gun23, 20, 51, -0.399F, 0.0F, 0.3F, 1, 1, 1, -0.4F, false));
         gun23.cubeList.add(new ModelBox(gun23, 40, 49, -0.399F, 0.0F, 0.1F, 1, 1, 1, -0.4F, false));
@@ -483,21 +483,21 @@ public class Supernova extends ModelWithAttachments {
         gun508_r2.setRotationPoint(-3.2F, 0.0F, 4.7F);
         gun505.addChild(gun508_r2);
         setRotationAngle(gun508_r2, -0.1222F, 0.0349F, 0.0F);
-        gun508_r2.cubeList.add(new ModelBox(gun508_r2, 59, 61, 0.0F, 1.0F, 2.0F, 1, 2, 2, 0.0F, false));
+        gun508_r2.cubeList.add(new ModelBox(gun508_r2, 59, 61, 0.0F, 1, 2.0F, 1, 2, 2, 0.0F, false));
         gun508_r2.cubeList.add(new ModelBox(gun508_r2, 0, 9, 0.0F, 0.0F, 0.0F, 1, 3, 2, 0.0F, false));
 
         gun508_r3 = new ModelRenderer(this);
-        gun508_r3.setRotationPoint(1.0F, 0.0F, 4.7F);
+        gun508_r3.setRotationPoint(1, 0.0F, 4.7F);
         gun505.addChild(gun508_r3);
         setRotationAngle(gun508_r3, -0.4538F, -0.0349F, 0.0F);
         gun508_r3.cubeList.add(new ModelBox(gun508_r3, 53, 79, -0.999F, -0.65F, 1.9F, 1, 1, 2, 0.0F, false));
 
         gun507_r1 = new ModelRenderer(this);
-        gun507_r1.setRotationPoint(1.0F, 0.0F, 4.7F);
+        gun507_r1.setRotationPoint(1, 0.0F, 4.7F);
         gun505.addChild(gun507_r1);
         setRotationAngle(gun507_r1, -0.1222F, -0.0349F, 0.0F);
-        gun507_r1.cubeList.add(new ModelBox(gun507_r1, 0, 65, -1.0F, 1.0F, 2.0F, 1, 2, 2, 0.0F, false));
-        gun507_r1.cubeList.add(new ModelBox(gun507_r1, 10, 9, -1.0F, 0.0F, 0.0F, 1, 3, 2, 0.0F, false));
+        gun507_r1.cubeList.add(new ModelBox(gun507_r1, 0, 65, -1, 1, 2.0F, 1, 2, 2, 0.0F, false));
+        gun507_r1.cubeList.add(new ModelBox(gun507_r1, 10, 9, -1, 0.0F, 0.0F, 1, 3, 2, 0.0F, false));
 
         gun508_r4 = new ModelRenderer(this);
         gun508_r4.setRotationPoint(-3.2F, 0.0F, 4.7F);
@@ -506,7 +506,7 @@ public class Supernova extends ModelWithAttachments {
         gun508_r4.cubeList.add(new ModelBox(gun508_r4, 0, 56, 0.001F, -1.1F, 2.8F, 1, 2, 2, 0.0F, false));
 
         gun507_r2 = new ModelRenderer(this);
-        gun507_r2.setRotationPoint(1.0F, 0.0F, 4.7F);
+        gun507_r2.setRotationPoint(1, 0.0F, 4.7F);
         gun505.addChild(gun507_r2);
         setRotationAngle(gun507_r2, -1.0996F, -0.0349F, 0.0F);
         gun507_r2.cubeList.add(new ModelBox(gun507_r2, 47, 56, -1.001F, -1.1F, 2.8F, 1, 2, 2, 0.0F, false));
@@ -532,7 +532,7 @@ public class Supernova extends ModelWithAttachments {
         gun501.setRotationPoint(1.1F, -25.2F, 0.5F);
         Maingun.addChild(gun501);
         setRotationAngle(gun501, 0.0F, 0.0F, 0.8923F);
-        gun501.cubeList.add(new ModelBox(gun501, 51, 9, -1.0F, 0.0F, -0.3F, 1, 2, 3, 0.0F, false));
+        gun501.cubeList.add(new ModelBox(gun501, 51, 9, -1, 0.0F, -0.3F, 1, 2, 3, 0.0F, false));
 
         gun500 = new ModelRenderer(this);
         gun500.setRotationPoint(-3.1F, -25.2F, 0.5F);
@@ -771,7 +771,7 @@ public class Supernova extends ModelWithAttachments {
         gun234 = new ModelRenderer(this);
         gun234.setRotationPoint(-3.0F, -26.5F, 9.5F);
         Maingun.addChild(gun234);
-        gun234.cubeList.add(new ModelBox(gun234, 71, 31, 0.0F, -1.0F, 0.0F, 4, 2, 2, 0.001F, false));
+        gun234.cubeList.add(new ModelBox(gun234, 71, 31, 0.0F, -1, 0.0F, 4, 2, 2, 0.001F, false));
 
         gun233 = new ModelRenderer(this);
         gun233.setRotationPoint(-3.0F, -28.3F, 9.0F);
@@ -799,7 +799,7 @@ public class Supernova extends ModelWithAttachments {
         Maingun.addChild(gun120);
         setRotationAngle(gun120, -1.3134F, 0.0F, 0.0F);
         gun120.cubeList.add(new ModelBox(gun120, 71, 26, 0.001F, 0.0F, 0.0F, 2, 1, 2, 0.0F, false));
-        gun120.cubeList.add(new ModelBox(gun120, 12, 36, 0.001F, 1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun120.cubeList.add(new ModelBox(gun120, 12, 36, 0.001F, 1, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun119 = new ModelRenderer(this);
         gun119.setRotationPoint(-2.0F, -24.3F, 4.5F);
@@ -814,7 +814,7 @@ public class Supernova extends ModelWithAttachments {
         gun118.cubeList.add(new ModelBox(gun118, 51, 0, -0.003F, 0.0F, 0.0F, 2, 4, 2, -0.001F, false));
 
         gun114 = new ModelRenderer(this);
-        gun114.setRotationPoint(-2.0F, -24.1F, -1.0F);
+        gun114.setRotationPoint(-2.0F, -24.1F, -1);
         Maingun.addChild(gun114);
         setRotationAngle(gun114, 0.8717F, 0.0F, 0.0F);
         gun114.cubeList.add(new ModelBox(gun114, 57, 47, 0.0F, 0.0F, 0.0F, 2, 6, 1, 0.0F, false));
@@ -829,23 +829,23 @@ public class Supernova extends ModelWithAttachments {
         gun112.setRotationPoint(-2.0F, -22.7F, 9.34F);
         Maingun.addChild(gun112);
         setRotationAngle(gun112, -0.7436F, 0.0F, 0.0F);
-        gun112.cubeList.add(new ModelBox(gun112, 12, 87, 0.0F, 0.0F, -1.0F, 2, 2, 1, 0.001F, false));
+        gun112.cubeList.add(new ModelBox(gun112, 12, 87, 0.0F, 0.0F, -1, 2, 2, 1, 0.001F, false));
 
         gun111 = new ModelRenderer(this);
         gun111.setRotationPoint(-2.0F, -24.6F, 10.0F);
         Maingun.addChild(gun111);
         setRotationAngle(gun111, -0.3346F, 0.0F, 0.0F);
-        gun111.cubeList.add(new ModelBox(gun111, 87, 15, 0.0F, 0.0F, -1.0F, 2, 2, 1, 0.0F, false));
+        gun111.cubeList.add(new ModelBox(gun111, 87, 15, 0.0F, 0.0F, -1, 2, 2, 1, 0.0F, false));
 
         gun110 = new ModelRenderer(this);
         gun110.setRotationPoint(-2.0F, -25.1F, 0.0F);
         Maingun.addChild(gun110);
-        gun110.cubeList.add(new ModelBox(gun110, 112, 64, 0.002F, 0.0F, -1.0F, 2, 1, 11, 0.0F, false));
+        gun110.cubeList.add(new ModelBox(gun110, 112, 64, 0.002F, 0.0F, -1, 2, 1, 11, 0.0F, false));
 
         gun72 = new ModelRenderer(this);
         gun72.setRotationPoint(-3.0F, -30.0F, 0.0F);
         Maingun.addChild(gun72);
-        gun72.cubeList.add(new ModelBox(gun72, 98, 32, 0.0F, 1.0F, 0.0F, 4, 3, 10, 0.002F, false));
+        gun72.cubeList.add(new ModelBox(gun72, 98, 32, 0.0F, 1, 0.0F, 4, 3, 10, 0.002F, false));
 
         gun68 = new ModelRenderer(this);
         gun68.setRotationPoint(-3.0F, -30.0F, 10.0F);
@@ -877,15 +877,15 @@ public class Supernova extends ModelWithAttachments {
         gun24.cubeList.add(new ModelBox(gun24, 73, 55, 0.001F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun18 = new ModelRenderer(this);
-        gun18.setRotationPoint(0.0F, -24.5F, -1.0F);
+        gun18.setRotationPoint(0.0F, -24.5F, -1);
         Maingun.addChild(gun18);
         setRotationAngle(gun18, 0.0F, 0.0F, -2.3562F);
 
 
         gun17 = new ModelRenderer(this);
-        gun17.setRotationPoint(-2.0F, -25.5F, -1.0F);
+        gun17.setRotationPoint(-2.0F, -25.5F, -1);
         Maingun.addChild(gun17);
-        gun17.cubeList.add(new ModelBox(gun17, 103, 141, 0.001F, 0.0F, -1.0F, 2, 1, 14, 0.0F, false));
+        gun17.cubeList.add(new ModelBox(gun17, 103, 141, 0.001F, 0.0F, -1, 2, 1, 14, 0.0F, false));
 
         gun16 = new ModelRenderer(this);
         gun16.setRotationPoint(-3.0F, -25.5F, -14.0F);
@@ -897,13 +897,13 @@ public class Supernova extends ModelWithAttachments {
         gun15.setRotationPoint(-2.0F, -24.5F, -13.0F);
         Maingun.addChild(gun15);
         setRotationAngle(gun15, 0.0F, 0.0F, -2.3562F);
-        gun15.cubeList.add(new ModelBox(gun15, 18, 87, 0.0F, 0.1414F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun15.cubeList.add(new ModelBox(gun15, 18, 87, 0.0F, 0.1414F, -1, 1, 1, 2, 0.0F, false));
 
         gun14 = new ModelRenderer(this);
         gun14.setRotationPoint(0.0F, -24.5F, -13.0F);
         Maingun.addChild(gun14);
         setRotationAngle(gun14, 0.0F, 0.0F, -2.3562F);
-        gun14.cubeList.add(new ModelBox(gun14, 87, 18, 0.1414F, 0.0F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun14.cubeList.add(new ModelBox(gun14, 87, 18, 0.1414F, 0.0F, -1, 1, 1, 2, 0.0F, false));
 
         gun13 = new ModelRenderer(this);
         gun13.setRotationPoint(0.8F, -25.5F, -14.0F);
@@ -912,13 +912,13 @@ public class Supernova extends ModelWithAttachments {
         gun13.cubeList.add(new ModelBox(gun13, 115, 186, 0.1414F, 0.1414F, -0.01F, 1, 1, 24, 0.0F, false));
 
         gun12 = new ModelRenderer(this);
-        gun12.setRotationPoint(1.0F, -30.0F, -14.0F);
+        gun12.setRotationPoint(1, -30.0F, -14.0F);
         Maingun.addChild(gun12);
         setRotationAngle(gun12, 0.0F, 0.0F, 2.3562F);
         gun12.cubeList.add(new ModelBox(gun12, 142, 203, 0.0F, 0.0F, 0.0F, 1, 1, 23, 0.0F, false));
 
         gun11 = new ModelRenderer(this);
-        gun11.setRotationPoint(0.0F, -31.0F, -14.0F);
+        gun11.setRotationPoint(0.0F, -31, -14.0F);
         Maingun.addChild(gun11);
         setRotationAngle(gun11, 0.0F, 0.0F, 0.8029F);
         gun11.cubeList.add(new ModelBox(gun11, 0, 204, 0.0F, 0.0F, 0.01F, 1, 1, 23, 0.0F, false));
@@ -936,7 +936,7 @@ public class Supernova extends ModelWithAttachments {
         gun9.cubeList.add(new ModelBox(gun9, 87, 21, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun8 = new ModelRenderer(this);
-        gun8.setRotationPoint(-2.0F, -31.0F, -14.0F);
+        gun8.setRotationPoint(-2.0F, -31, -14.0F);
         Maingun.addChild(gun8);
         setRotationAngle(gun8, 0.0F, 0.0F, 0.7854F);
         gun8.cubeList.add(new ModelBox(gun8, 204, 0, -0.001F, 0.0F, 0.01F, 1, 1, 23, 0.0F, false));
@@ -967,7 +967,7 @@ public class Supernova extends ModelWithAttachments {
         gun2.cubeList.add(new ModelBox(gun2, 57, 74, 0.0F, 0.0F, -0.001F, 1, 2, 2, 0.0F, false));
 
         gun1 = new ModelRenderer(this);
-        gun1.setRotationPoint(-2.0F, -31.0F, -14.0F);
+        gun1.setRotationPoint(-2.0F, -31, -14.0F);
         Maingun.addChild(gun1);
         gun1.cubeList.add(new ModelBox(gun1, 67, 210, 0.0F, 0.0F, 0.0F, 2, 1, 22, 0.0F, false));
 
@@ -1000,19 +1000,19 @@ public class Supernova extends ModelWithAttachments {
         gun65.cubeList.add(new ModelBox(gun65, 34, 62, -0.001F, -0.6F, 63.2F, 1, 1, 1, -0.4F, false));
         gun65.cubeList.add(new ModelBox(gun65, 13, 62, 0.199F, -0.6F, 63.2F, 1, 1, 1, -0.4F, false));
         gun65.cubeList.add(new ModelBox(gun65, 33, 46, 0.399F, -1.2F, 63.2F, 1, 2, 1, -0.4F, false));
-        gun65.cubeList.add(new ModelBox(gun65, 41, 22, 0.599F, -1.0F, 63.2F, 1, 2, 1, -0.4F, false));
-        gun65.cubeList.add(new ModelBox(gun65, 41, 0, -0.601F, -1.0F, 63.2F, 1, 2, 1, -0.4F, false));
+        gun65.cubeList.add(new ModelBox(gun65, 41, 22, 0.599F, -1, 63.2F, 1, 2, 1, -0.4F, false));
+        gun65.cubeList.add(new ModelBox(gun65, 41, 0, -0.601F, -1, 63.2F, 1, 2, 1, -0.4F, false));
         gun65.cubeList.add(new ModelBox(gun65, 40, 39, -0.401F, -1.2F, 63.2F, 1, 2, 1, -0.4F, false));
         gun65.cubeList.add(new ModelBox(gun65, 53, 85, -0.5F, -0.401F, -1.6F, 1, 1, 2, -0.4F, false));
-        gun65.cubeList.add(new ModelBox(gun65, 85, 51, -0.501F, -0.402F, -1.0F, 1, 1, 2, -0.4F, false));
-        gun65.cubeList.add(new ModelBox(gun65, 85, 48, 0.499F, -0.402F, -1.0F, 1, 1, 2, -0.4F, false));
+        gun65.cubeList.add(new ModelBox(gun65, 85, 51, -0.501F, -0.402F, -1, 1, 1, 2, -0.4F, false));
+        gun65.cubeList.add(new ModelBox(gun65, 85, 48, 0.499F, -0.402F, -1, 1, 1, 2, -0.4F, false));
         gun65.cubeList.add(new ModelBox(gun65, 47, 85, 0.5F, -0.401F, -1.6F, 1, 1, 2, -0.4F, false));
 
         gun68_r1 = new ModelRenderer(this);
         gun68_r1.setRotationPoint(1.101F, 0.1F, -1.3F);
         gun65.addChild(gun68_r1);
         setRotationAngle(gun68_r1, 0.0F, 0.0F, 0.1396F);
-        gun68_r1.cubeList.add(new ModelBox(gun68_r1, 80, 59, -0.6F, -1.0F, -0.3F, 1, 1, 2, -0.45F, false));
+        gun68_r1.cubeList.add(new ModelBox(gun68_r1, 80, 59, -0.6F, -1, -0.3F, 1, 1, 2, -0.45F, false));
         gun68_r1.cubeList.add(new ModelBox(gun68_r1, 67, 80, -0.6F, -0.9F, -0.3F, 1, 1, 2, -0.45F, false));
         gun68_r1.cubeList.add(new ModelBox(gun68_r1, 73, 80, -0.6F, -0.7F, -0.3F, 1, 1, 2, -0.45F, false));
         gun68_r1.cubeList.add(new ModelBox(gun68_r1, 81, 15, -0.6F, -0.8F, -0.3F, 1, 1, 2, -0.45F, false));
@@ -1030,8 +1030,8 @@ public class Supernova extends ModelWithAttachments {
         gun65.addChild(gun71_r1);
         setRotationAngle(gun71_r1, 0.0F, 0.0F, 0.5236F);
         gun71_r1.cubeList.add(new ModelBox(gun71_r1, 81, 72, -0.8F, -1.1F, 0.3F, 1, 1, 2, -0.45F, false));
-        gun71_r1.cubeList.add(new ModelBox(gun71_r1, 77, 81, -0.799F, -1.0F, -0.3F, 1, 1, 2, -0.45F, false));
-        gun71_r1.cubeList.add(new ModelBox(gun71_r1, 81, 77, -0.8F, -1.0F, 0.3F, 1, 1, 2, -0.45F, false));
+        gun71_r1.cubeList.add(new ModelBox(gun71_r1, 77, 81, -0.799F, -1, -0.3F, 1, 1, 2, -0.45F, false));
+        gun71_r1.cubeList.add(new ModelBox(gun71_r1, 81, 77, -0.8F, -1, 0.3F, 1, 1, 2, -0.45F, false));
         gun71_r1.cubeList.add(new ModelBox(gun71_r1, 82, 38, -0.8F, -1.2F, 0.3F, 1, 1, 2, -0.45F, false));
         gun71_r1.cubeList.add(new ModelBox(gun71_r1, 82, 41, -0.8F, -1.3F, 0.3F, 1, 1, 2, -0.45F, false));
         gun71_r1.cubeList.add(new ModelBox(gun71_r1, 83, 0, -0.799F, -1.1F, -0.3F, 1, 1, 2, -0.45F, false));
@@ -1051,7 +1051,7 @@ public class Supernova extends ModelWithAttachments {
         gun72_r1.cubeList.add(new ModelBox(gun72_r1, 0, 84, -0.4F, -0.7F, -0.3F, 1, 1, 2, -0.45F, false));
         gun72_r1.cubeList.add(new ModelBox(gun72_r1, 6, 84, -0.4F, -0.8F, -0.3F, 1, 1, 2, -0.45F, false));
         gun72_r1.cubeList.add(new ModelBox(gun72_r1, 12, 84, -0.4F, -0.9F, -0.3F, 1, 1, 2, -0.45F, false));
-        gun72_r1.cubeList.add(new ModelBox(gun72_r1, 85, 34, -0.4F, -1.0F, -0.3F, 1, 1, 2, -0.45F, false));
+        gun72_r1.cubeList.add(new ModelBox(gun72_r1, 85, 34, -0.4F, -1, -0.3F, 1, 1, 2, -0.45F, false));
 
         gun72_r2 = new ModelRenderer(this);
         gun72_r2.setRotationPoint(-0.101F, 0.1F, -1.3F);
@@ -1061,8 +1061,8 @@ public class Supernova extends ModelWithAttachments {
         gun72_r2.cubeList.add(new ModelBox(gun72_r2, 24, 84, -0.2F, -1.2F, 0.3F, 1, 1, 2, -0.45F, false));
         gun72_r2.cubeList.add(new ModelBox(gun72_r2, 30, 84, -0.2F, -1.1F, 0.3F, 1, 1, 2, -0.45F, false));
         gun72_r2.cubeList.add(new ModelBox(gun72_r2, 84, 58, -0.201F, -1.1F, -0.3F, 1, 1, 2, -0.45F, false));
-        gun72_r2.cubeList.add(new ModelBox(gun72_r2, 84, 61, -0.2F, -1.0F, 0.3F, 1, 1, 2, -0.45F, false));
-        gun72_r2.cubeList.add(new ModelBox(gun72_r2, 85, 31, -0.201F, -1.0F, -0.3F, 1, 1, 2, -0.45F, false));
+        gun72_r2.cubeList.add(new ModelBox(gun72_r2, 84, 61, -0.2F, -1, 0.3F, 1, 1, 2, -0.45F, false));
+        gun72_r2.cubeList.add(new ModelBox(gun72_r2, 85, 31, -0.201F, -1, -0.3F, 1, 1, 2, -0.45F, false));
 
         gun71_r2 = new ModelRenderer(this);
         gun71_r2.setRotationPoint(0.199F, 0.0F, 63.8F);
@@ -1089,31 +1089,31 @@ public class Supernova extends ModelWithAttachments {
         gun72_r3.cubeList.add(new ModelBox(gun72_r3, 66, 41, -0.601F, -0.68F, -0.598F, 1, 1, 1, -0.4F, false));
 
         gun70_r2 = new ModelRenderer(this);
-        gun70_r2.setRotationPoint(0.801F, -1.0F, 63.8F);
+        gun70_r2.setRotationPoint(0.801F, -1, 63.8F);
         gun65.addChild(gun70_r2);
         setRotationAngle(gun70_r2, 0.0F, 0.0F, -0.7854F);
         gun70_r2.cubeList.add(new ModelBox(gun70_r2, 47, 66, -0.6F, -0.4F, -0.599F, 1, 1, 1, -0.4F, false));
 
         gun71_r4 = new ModelRenderer(this);
-        gun71_r4.setRotationPoint(0.801F, -1.0F, 63.8F);
+        gun71_r4.setRotationPoint(0.801F, -1, 63.8F);
         gun65.addChild(gun71_r4);
         setRotationAngle(gun71_r4, 0.0F, 0.0F, -0.7854F);
         gun71_r4.cubeList.add(new ModelBox(gun71_r4, 33, 67, -0.601F, -0.32F, -0.598F, 1, 1, 1, -0.4F, false));
 
         gun70_r3 = new ModelRenderer(this);
-        gun70_r3.setRotationPoint(0.199F, -1.0F, 63.8F);
+        gun70_r3.setRotationPoint(0.199F, -1, 63.8F);
         gun65.addChild(gun70_r3);
         setRotationAngle(gun70_r3, 0.0F, 0.0F, 0.7854F);
         gun70_r3.cubeList.add(new ModelBox(gun70_r3, 40, 67, -0.399F, -0.32F, -0.598F, 1, 1, 1, -0.4F, false));
 
         gun69_r1 = new ModelRenderer(this);
-        gun69_r1.setRotationPoint(0.199F, -1.0F, 63.8F);
+        gun69_r1.setRotationPoint(0.199F, -1, 63.8F);
         gun65.addChild(gun69_r1);
         setRotationAngle(gun69_r1, 0.0F, 0.0F, 0.7854F);
         gun69_r1.cubeList.add(new ModelBox(gun69_r1, 67, 58, -0.4F, -0.4F, -0.599F, 1, 1, 1, -0.4F, false));
 
         gun4 = new ModelRenderer(this);
-        gun4.setRotationPoint(-2.0F, -31.0F, -15.0F);
+        gun4.setRotationPoint(-2.0F, -31, -15.0F);
         Maingun.addChild(gun4);
         gun4.cubeList.add(new ModelBox(gun4, 20, 58, 0.0F, -0.7F, 18.5F, 2, 1, 5, 0.0F, false));
         gun4.cubeList.add(new ModelBox(gun4, 31, 37, 0.0F, -0.9F, 21.9F, 2, 1, 1, 0.0F, false));
@@ -1152,7 +1152,7 @@ public class Supernova extends ModelWithAttachments {
         gun6_r2.cubeList.add(new ModelBox(gun6_r2, 4, 76, -0.641F, 0.3F, -1.3F, 1, 1, 2, -0.4F, false));
 
         gun6_r3 = new ModelRenderer(this);
-        gun6_r3.setRotationPoint(2.2F, -1.0F, 23.5F);
+        gun6_r3.setRotationPoint(2.2F, -1, 23.5F);
         gun4.addChild(gun6_r3);
         setRotationAngle(gun6_r3, 0.2594F, -0.036F, 0.1349F);
         gun6_r3.cubeList.add(new ModelBox(gun6_r3, 12, 32, -0.602F, -0.36F, -1.57F, 1, 2, 2, -0.4F, false));
@@ -1164,7 +1164,7 @@ public class Supernova extends ModelWithAttachments {
         gun5_r2.cubeList.add(new ModelBox(gun5_r2, 0, 0, -0.64F, -0.4F, -0.6F, 1, 2, 1, -0.4F, false));
 
         gun5_r3 = new ModelRenderer(this);
-        gun5_r3.setRotationPoint(-0.2F, -1.0F, 23.5F);
+        gun5_r3.setRotationPoint(-0.2F, -1, 23.5F);
         gun4.addChild(gun5_r3);
         setRotationAngle(gun5_r3, 0.2594F, 0.036F, -0.1349F);
         gun5_r3.cubeList.add(new ModelBox(gun5_r3, 12, 70, -0.398F, -0.36F, -1.57F, 1, 2, 2, -0.4F, false));
@@ -1229,7 +1229,7 @@ public class Supernova extends ModelWithAttachments {
         gun20.setRotationPoint(-2.0F, -30.8F, 10.1F);
         Maingun.addChild(gun20);
         setRotationAngle(gun20, -0.4484F, 0.0F, 0.0F);
-        gun20.cubeList.add(new ModelBox(gun20, 18, 42, 0.0F, 0.0F, 1.0F, 2, 1, 2, 0.0F, false));
+        gun20.cubeList.add(new ModelBox(gun20, 18, 42, 0.0F, 0.0F, 1, 2, 1, 2, 0.0F, false));
         gun20.cubeList.add(new ModelBox(gun20, 73, 77, 1.2F, -0.201F, -0.2F, 1, 1, 2, -0.2F, false));
         gun20.cubeList.add(new ModelBox(gun20, 67, 77, -0.2F, -0.201F, -0.2F, 1, 1, 2, -0.2F, false));
         gun20.cubeList.add(new ModelBox(gun20, 26, 77, 0.5F, 0.0308F, 0.0365F, 1, 1, 2, 0.0F, false));
@@ -1279,13 +1279,13 @@ public class Supernova extends ModelWithAttachments {
         gun72_r6.cubeList.add(new ModelBox(gun72_r6, 67, 47, -0.8F, -0.2F, -2.8F, 1, 1, 3, -0.2F, false));
 
         gun74_r2 = new ModelRenderer(this);
-        gun74_r2.setRotationPoint(2.0F, 31.0F, -10.0F);
+        gun74_r2.setRotationPoint(2.0F, 31, -10.0F);
         gun20.addChild(gun74_r2);
         setRotationAngle(gun74_r2, 0.0F, -0.1571F, 0.0F);
         gun74_r2.cubeList.add(new ModelBox(gun74_r2, 32, 77, 0.4746F, -31.302F, 9.6229F, 1, 1, 2, -0.3F, false));
 
         gun73_r3 = new ModelRenderer(this);
-        gun73_r3.setRotationPoint(2.0F, 31.0F, -10.0F);
+        gun73_r3.setRotationPoint(2.0F, 31, -10.0F);
         gun20.addChild(gun73_r3);
         setRotationAngle(gun73_r3, 0.0F, 0.1571F, 0.0F);
         gun73_r3.cubeList.add(new ModelBox(gun73_r3, 38, 77, -3.45F, -31.302F, 9.31F, 1, 1, 2, -0.3F, false));
@@ -1307,7 +1307,7 @@ public class Supernova extends ModelWithAttachments {
         pump36.cubeList.add(new ModelBox(pump36, 22, 125, 0.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
 
         pump35 = new ModelRenderer(this);
-        pump35.setRotationPoint(1.0F, -26.6F, -39.0F);
+        pump35.setRotationPoint(1, -26.6F, -39.0F);
         Pump.addChild(pump35);
         setRotationAngle(pump35, 0.0F, 0.0F, 1.0782F);
         pump35.cubeList.add(new ModelBox(pump35, 47, 128, -2.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
@@ -1316,7 +1316,7 @@ public class Supernova extends ModelWithAttachments {
         pump34.setRotationPoint(-3.0F, -26.6F, -39.0F);
         Pump.addChild(pump34);
         setRotationAngle(pump34, 0.0F, 0.0F, -1.0782F);
-        pump34.cubeList.add(new ModelBox(pump34, 70, 141, 1.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
+        pump34.cubeList.add(new ModelBox(pump34, 70, 141, 1, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
 
         pump33 = new ModelRenderer(this);
         pump33.setRotationPoint(-3.0F, -26.6F, -39.0F);
@@ -1325,10 +1325,10 @@ public class Supernova extends ModelWithAttachments {
         pump33.cubeList.add(new ModelBox(pump33, 0, 46, 0.0F, 0.0F, 0.0F, 1, 1, 18, 0.0F, false));
 
         pump32 = new ModelRenderer(this);
-        pump32.setRotationPoint(1.0F, -26.6F, -39.0F);
+        pump32.setRotationPoint(1, -26.6F, -39.0F);
         Pump.addChild(pump32);
         setRotationAngle(pump32, 0.0F, 0.0F, 1.0782F);
-        pump32.cubeList.add(new ModelBox(pump32, 47, 47, -1.0F, 0.0F, 0.0F, 1, 1, 18, 0.0F, false));
+        pump32.cubeList.add(new ModelBox(pump32, 47, 47, -1, 0.0F, 0.0F, 1, 1, 18, 0.0F, false));
 
         pump31 = new ModelRenderer(this);
         pump31.setRotationPoint(-0.6F, -28.8F, -39.0F);
@@ -1353,22 +1353,22 @@ public class Supernova extends ModelWithAttachments {
         pump28.cubeList.add(new ModelBox(pump28, 65, 85, 0.0F, -0.01F, -0.001F, 1, 1, 2, 0.0F, false));
 
         pump27 = new ModelRenderer(this);
-        pump27.setRotationPoint(1.0F, -26.6F, -16.0F);
+        pump27.setRotationPoint(1, -26.6F, -16.0F);
         Pump.addChild(pump27);
         setRotationAngle(pump27, 0.0F, 0.0F, 1.3384F);
         pump27.cubeList.add(new ModelBox(pump27, 85, 67, -1.2F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         pump26 = new ModelRenderer(this);
-        pump26.setRotationPoint(1.0F, -26.6F, -16.0F);
+        pump26.setRotationPoint(1, -26.6F, -16.0F);
         Pump.addChild(pump26);
         setRotationAngle(pump26, 0.0F, 0.0F, 1.3384F);
-        pump26.cubeList.add(new ModelBox(pump26, 85, 70, -1.0F, -0.01F, -0.001F, 1, 1, 2, 0.0F, false));
+        pump26.cubeList.add(new ModelBox(pump26, 85, 70, -1, -0.01F, -0.001F, 1, 1, 2, 0.0F, false));
 
         pump25 = new ModelRenderer(this);
         pump25.setRotationPoint(0.7F, -27.8F, -29.0F);
         Pump.addChild(pump25);
         setRotationAngle(pump25, 0.0F, 0.0F, 1.2269F);
-        pump25.cubeList.add(new ModelBox(pump25, 67, 70, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        pump25.cubeList.add(new ModelBox(pump25, 67, 70, -1, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         pump24 = new ModelRenderer(this);
         pump24.setRotationPoint(-0.3F, -27.8F, -29.0F);
@@ -1447,7 +1447,7 @@ public class Supernova extends ModelWithAttachments {
         pump133.cubeList.add(new ModelBox(pump133, 47, 63, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         pump13 = new ModelRenderer(this);
-        pump13.setRotationPoint(1.0F, -26.6F, -16.0F);
+        pump13.setRotationPoint(1, -26.6F, -16.0F);
         Pump.addChild(pump13);
         setRotationAngle(pump13, 0.0F, 0.0F, 0.2974F);
         pump13.cubeList.add(new ModelBox(pump13, 77, 85, -0.999F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
@@ -1480,13 +1480,13 @@ public class Supernova extends ModelWithAttachments {
         pump8.setRotationPoint(-2.6F, -25.2F, -30.0F);
         Pump.addChild(pump8);
         setRotationAngle(pump8, 0.0F, 0.0F, -2.0076F);
-        pump8.cubeList.add(new ModelBox(pump8, 94, 64, -1.0F, 0.0F, 0.0F, 1, 1, 16, 0.0F, false));
+        pump8.cubeList.add(new ModelBox(pump8, 94, 64, -1, 0.0F, 0.0F, 1, 1, 16, 0.0F, false));
 
         pump7 = new ModelRenderer(this);
         pump7.setRotationPoint(-2.6F, -25.2F, -39.0F);
         Pump.addChild(pump7);
         setRotationAngle(pump7, 0.0F, 0.0F, -2.1935F);
-        pump7.cubeList.add(new ModelBox(pump7, 51, 0, -1.0F, 0.0F, 0.0F, 1, 1, 18, 0.0F, false));
+        pump7.cubeList.add(new ModelBox(pump7, 51, 0, -1, 0.0F, 0.0F, 1, 1, 18, 0.0F, false));
 
         pump6 = new ModelRenderer(this);
         pump6.setRotationPoint(0.6F, -25.2F, -39.0F);
@@ -1501,13 +1501,13 @@ public class Supernova extends ModelWithAttachments {
         pump5.cubeList.add(new ModelBox(pump5, 36, 94, 0.0F, 0.0F, 0.0F, 2, 24, 2, 0.0F, false));
 
         pump4 = new ModelRenderer(this);
-        pump4.setRotationPoint(1.0F, -26.6F, -39.0F);
+        pump4.setRotationPoint(1, -26.6F, -39.0F);
         Pump.addChild(pump4);
         setRotationAngle(pump4, 0.0F, 0.0F, 0.2974F);
-        pump4.cubeList.add(new ModelBox(pump4, 174, 78, -1.0F, 0.5F, 0.0F, 1, 1, 25, 0.0F, false));
+        pump4.cubeList.add(new ModelBox(pump4, 174, 78, -1, 0.5F, 0.0F, 1, 1, 25, 0.0F, false));
 
         pump3 = new ModelRenderer(this);
-        pump3.setRotationPoint(1.0F, -26.6F, -39.0F);
+        pump3.setRotationPoint(1, -26.6F, -39.0F);
         Pump.addChild(pump3);
         setRotationAngle(pump3, 0.0F, 0.0F, 0.2974F);
         pump3.cubeList.add(new ModelBox(pump3, 0, 65, -0.999F, 0.0F, -0.01F, 1, 1, 18, 0.0F, false));
@@ -1622,17 +1622,17 @@ public class Supernova extends ModelWithAttachments {
         stock14.setRotationPoint(-2.0F, -29.0F, 14.5F);
         Stock.addChild(stock14);
         setRotationAngle(stock14, -0.2231F, 0.0F, 0.0F);
-        stock14.cubeList.add(new ModelBox(stock14, 67, 47, 0.0F, -0.02F, -1.0F, 2, 1, 10, 0.0F, false));
+        stock14.cubeList.add(new ModelBox(stock14, 67, 47, 0.0F, -0.02F, -1, 2, 1, 10, 0.0F, false));
 
         stock16_r1 = new ModelRenderer(this);
-        stock16_r1.setRotationPoint(2.0F, -0.02F, -1.0F);
+        stock16_r1.setRotationPoint(2.0F, -0.02F, -1);
         stock14.addChild(stock16_r1);
         setRotationAngle(stock16_r1, 0.0F, 0.0F, -0.5061F);
         stock16_r1.cubeList.add(new ModelBox(stock16_r1, 117, 0, -2.7492F, -0.9696F, 0.0F, 1, 1, 10, 0.0F, false));
         stock16_r1.cubeList.add(new ModelBox(stock16_r1, 113, 95, -2.9892F, -0.9706F, 0.001F, 1, 1, 10, 0.0F, false));
 
         stock16_r2 = new ModelRenderer(this);
-        stock16_r2.setRotationPoint(2.0F, -0.02F, -1.0F);
+        stock16_r2.setRotationPoint(2.0F, -0.02F, -1);
         stock14.addChild(stock16_r2);
         setRotationAngle(stock16_r2, 0.0F, 0.0F, 0.5061F);
         stock16_r2.cubeList.add(new ModelBox(stock16_r2, 117, 16, 0.24F, -0.001F, 0.001F, 1, 1, 10, 0.0F, false));
@@ -1728,7 +1728,7 @@ public class Supernova extends ModelWithAttachments {
         stock1.setRotationPoint(-3.1F, -28.6F, 14.5F);
         Stock.addChild(stock1);
         setRotationAngle(stock1, -0.2231F, 0.0F, 0.0F);
-        stock1.cubeList.add(new ModelBox(stock1, 112, 47, 0.0F, 0.2F, -1.0F, 3, 2, 10, 0.001F, false));
+        stock1.cubeList.add(new ModelBox(stock1, 112, 47, 0.0F, 0.2F, -1, 3, 2, 10, 0.001F, false));
     }
 
     @Override

@@ -57,7 +57,7 @@ public class K2C1Action extends ModelWithAttachments {
         bulletejection2 = new ModelRenderer(this);
         bulletejection2.setRotationPoint(-3.3444F, -40.1773F, -19.8618F);
         Action.addChild(bulletejection2);
-        bulletejection2.cubeList.add(new ModelBox(bulletejection2, 60, 25, 0.0F, 0.0F, -1.0F, 1, 1, 10, 0.0F, false));
+        bulletejection2.cubeList.add(new ModelBox(bulletejection2, 60, 25, 0.0F, 0.0F, -1, 1, 1, 10, 0.0F, false));
     }
 
     @Override

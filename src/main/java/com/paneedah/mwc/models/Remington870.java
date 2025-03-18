@@ -51,10 +51,10 @@ public class Remington870 extends ModelWithAttachments {
 
         gun = new ModelRenderer(this);
         gun.setRotationPoint(0.0F, 24.0F, 0.0F);
-        gun.cubeList.add(new ModelBox(gun, 285, 263, -2.0F, -31.0F, -14.0F, 2, 1, 24, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 285, 263, -2.0F, -31, -14.0F, 2, 1, 24, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 94, 0, -3.0F, -30.0F, -14.0F, 1, 2, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 27, 97, -3.0F, -30.0F, -4.0F, 1, 1, 10, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 150, 97, -3.0F, -27.0F, -1.0F, 1, 1, 7, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 150, 97, -3.0F, -27.0F, -1, 1, 1, 7, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 102, 105, -2.0F, -25.5F, -14.0F, 2, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 241, 0, 0.0F, -30.0F, -14.0F, 1, 4, 20, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 83, 140, -2.98F, -28.0F, -14.0F, 1, 2, 13, 0.0F, false));
@@ -65,7 +65,7 @@ public class Remington870 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 171, 212, -2.0F, -25.1F, 0.0F, 2, 1, 11, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 298, 93, -1.8F, -27.3F, -41.5F, 1, 2, 28, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 294, 293, -1.2F, -27.3F, -41.5F, 1, 2, 28, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 0, 100, -3.0F, -27.7F, -1.0F, 2, 1, 7, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 100, -3.0F, -27.7F, -1, 2, 1, 7, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 66, 84, -3.0F, -29.3F, -4.0F, 1, 2, 7, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 67, 115, -3.0F, -29.5F, 3.0F, 1, 2, 3, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 84, 92, -3.0F, -28.3F, 9.0F, 4, 2, 1, 0.0F, false));
@@ -165,7 +165,7 @@ public class Remington870 extends ModelWithAttachments {
         gun114_r1.setRotationPoint(0.0F, -21.0953F, 23.9571F);
         gun.addChild(gun114_r1);
         setRotationAngle(gun114_r1, 1.4128F, 0.0F, 0.0F);
-        gun114_r1.cubeList.add(new ModelBox(gun114_r1, 75, 57, -2.0F, -24.1F, -1.0F, 2, 4, 1, 0.0F, false));
+        gun114_r1.cubeList.add(new ModelBox(gun114_r1, 75, 57, -2.0F, -24.1F, -1, 2, 4, 1, 0.0F, false));
 
         gun113_r1 = new ModelRenderer(this);
         gun113_r1.setRotationPoint(0.0F, -0.3974F, -1.5011F);
@@ -189,7 +189,7 @@ public class Remington870 extends ModelWithAttachments {
         gun70_r1.setRotationPoint(0.0F, -4.2917F, -8.6459F);
         gun.addChild(gun70_r1);
         setRotationAngle(gun70_r1, -0.2974F, 0.0F, 0.0F);
-        gun70_r1.cubeList.add(new ModelBox(gun70_r1, 140, 140, -2.0F, -31.0F, 10.0F, 2, 2, 3, 0.0F, false));
+        gun70_r1.cubeList.add(new ModelBox(gun70_r1, 140, 140, -2.0F, -31, 10.0F, 2, 2, 3, 0.0F, false));
 
         gun68_r1 = new ModelRenderer(this);
         gun68_r1.setRotationPoint(0.0F, -7.2514F, -11.9659F);
@@ -245,19 +245,19 @@ public class Remington870 extends ModelWithAttachments {
         gun13_r1.setRotationPoint(-16.3241F, -44.2383F, 0.0F);
         gun.addChild(gun13_r1);
         setRotationAngle(gun13_r1, 0.0F, 0.0F, 2.3562F);
-        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 114, 225, 1.0F, -25.5F, -14.0F, 1, 1, 26, 0.0F, false));
+        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 114, 225, 1, -25.5F, -14.0F, 1, 1, 26, 0.0F, false));
 
         gun12_r1 = new ModelRenderer(this);
         gun12_r1.setRotationPoint(-19.5061F, -51.9203F, 0.0F);
         gun.addChild(gun12_r1);
         setRotationAngle(gun12_r1, 0.0F, 0.0F, 2.3562F);
-        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 357, 26, 1.0F, -30.0F, -14.0F, 1, 1, 24, 0.0F, false));
+        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 357, 26, 1, -30.0F, -14.0F, 1, 1, 24, 0.0F, false));
 
         gun11_r1 = new ModelRenderer(this);
         gun11_r1.setRotationPoint(-22.2995F, -9.4656F, 0.0F);
         gun.addChild(gun11_r1);
         setRotationAngle(gun11_r1, 0.0F, 0.0F, 0.8029F);
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 358, 201, 0.0F, -31.0F, -14.0F, 1, 1, 24, 0.0F, false));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 358, 201, 0.0F, -31, -14.0F, 1, 1, 24, 0.0F, false));
 
         gun10_r1 = new ModelRenderer(this);
         gun10_r1.setRotationPoint(20.3345F, -10.9081F, 0.0F);
@@ -270,7 +270,7 @@ public class Remington870 extends ModelWithAttachments {
         gun8_r1.setRotationPoint(-22.5061F, -7.6655F, 0.0F);
         gun.addChild(gun8_r1);
         setRotationAngle(gun8_r1, 0.0F, 0.0F, 0.7854F);
-        gun8_r1.cubeList.add(new ModelBox(gun8_r1, 102, 359, -2.0F, -31.0F, -14.0F, 1, 1, 24, 0.0F, false));
+        gun8_r1.cubeList.add(new ModelBox(gun8_r1, 102, 359, -2.0F, -31, -14.0F, 1, 1, 24, 0.0F, false));
     }
 
     @Override

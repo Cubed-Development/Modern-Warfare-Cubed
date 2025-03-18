@@ -66,9 +66,9 @@ public class F2000Scope extends ModelWithAttachments {
         scope69_r1.setRotationPoint(0.0391F, 7.8225F, 24.0047F);
         scope.addChild(scope69_r1);
         setRotationAngle(scope69_r1, 0.8551F, 0.0F, 0.0F);
-        scope69_r1.cubeList.add(new ModelBox(scope69_r1, 36, 63, -1.0F, -34.0F, -20.8F, 2, 1, 2, 0.0F, false));
+        scope69_r1.cubeList.add(new ModelBox(scope69_r1, 36, 63, -1, -34.0F, -20.8F, 2, 1, 2, 0.0F, false));
         scope69_r1.cubeList.add(new ModelBox(scope69_r1, 36, 7, -1.8F, -34.0F, -20.8F, 1, 1, 5, 0.0F, false));
-        scope69_r1.cubeList.add(new ModelBox(scope69_r1, 52, 63, -1.0F, -34.0F, -16.8F, 2, 1, 2, 0.0F, false));
+        scope69_r1.cubeList.add(new ModelBox(scope69_r1, 52, 63, -1, -34.0F, -16.8F, 2, 1, 2, 0.0F, false));
         scope69_r1.cubeList.add(new ModelBox(scope69_r1, 0, 47, 0.8F, -34.0F, -20.8F, 1, 1, 5, 0.0F, false));
 
         scope68_r1 = new ModelRenderer(this);
@@ -81,7 +81,7 @@ public class F2000Scope extends ModelWithAttachments {
         scope67_r1.setRotationPoint(-28.9057F, 22.3289F, 5.2241F);
         scope.addChild(scope67_r1);
         setRotationAngle(scope67_r1, 0.0F, 0.0F, 0.8551F);
-        scope67_r1.cubeList.add(new ModelBox(scope67_r1, 60, 70, -1.0F, -37.9F, -16.6F, 1, 1, 2, 0.0F, false));
+        scope67_r1.cubeList.add(new ModelBox(scope67_r1, 60, 70, -1, -37.9F, -16.6F, 1, 1, 2, 0.0F, false));
 
         scope66_r1 = new ModelRenderer(this);
         scope66_r1.setRotationPoint(27.3038F, 21.8443F, 5.2241F);
@@ -102,7 +102,7 @@ public class F2000Scope extends ModelWithAttachments {
         scope.addChild(scope62_r1);
         setRotationAngle(scope62_r1, 0.0F, 0.0F, 0.8901F);
         scope62_r1.cubeList.add(new ModelBox(scope62_r1, 21, 78, 1.3F, -37.6F, 8.1F, 1, 1, 2, 0.0F, false));
-        scope62_r1.cubeList.add(new ModelBox(scope62_r1, 25, 79, 1.0F, -37.6F, 8.1F, 1, 1, 2, 0.0F, false));
+        scope62_r1.cubeList.add(new ModelBox(scope62_r1, 25, 79, 1, -37.6F, 8.1F, 1, 1, 2, 0.0F, false));
 
         scope60_r1 = new ModelRenderer(this);
         scope60_r1.setRotationPoint(0.0391F, -27.3276F, -36.496F);
@@ -151,8 +151,8 @@ public class F2000Scope extends ModelWithAttachments {
         scope.addChild(scope38_r1);
         setRotationAngle(scope38_r1, -1.2641F, 0.0F, 0.0F);
         scope38_r1.cubeList.add(new ModelBox(scope38_r1, 0, 60, -1.5F, -34.0F, 11.5F, 3, 1, 1, 0.0F, false));
-        scope38_r1.cubeList.add(new ModelBox(scope38_r1, 60, 59, -1.7F, -34.0F, 11.0F, 2, 1, 1, 0.0F, false));
-        scope38_r1.cubeList.add(new ModelBox(scope38_r1, 72, 57, -0.3F, -34.0F, 11.0F, 2, 1, 1, 0.0F, false));
+        scope38_r1.cubeList.add(new ModelBox(scope38_r1, 60, 59, -1.7F, -34.0F, 11, 2, 1, 1, 0.0F, false));
+        scope38_r1.cubeList.add(new ModelBox(scope38_r1, 72, 57, -0.3F, -34.0F, 11, 2, 1, 1, 0.0F, false));
 
         scope33_r1 = new ModelRenderer(this);
         scope33_r1.setRotationPoint(0.0391F, 30.7779F, 9.9693F);
@@ -172,7 +172,7 @@ public class F2000Scope extends ModelWithAttachments {
         scope23_r1.setRotationPoint(0.0391F, 0.0557F, -19.5614F);
         scope.addChild(scope23_r1);
         setRotationAngle(scope23_r1, -1.2641F, 0.0F, 0.0F);
-        scope23_r1.cubeList.add(new ModelBox(scope23_r1, 42, 60, -1.0F, -34.2F, 7.7F, 2, 1, 1, 0.0F, false));
+        scope23_r1.cubeList.add(new ModelBox(scope23_r1, 42, 60, -1, -34.2F, 7.7F, 2, 1, 1, 0.0F, false));
         scope23_r1.cubeList.add(new ModelBox(scope23_r1, 14, 78, -0.2F, -34.2F, 8.7F, 2, 1, 3, 0.0F, false));
         scope23_r1.cubeList.add(new ModelBox(scope23_r1, 84, 26, -1.8F, -34.2F, 8.7F, 2, 1, 3, 0.0F, false));
 
@@ -194,7 +194,7 @@ public class F2000Scope extends ModelWithAttachments {
         scope12_r1.setRotationPoint(0.0391F, 7.3783F, 21.9796F);
         scope.addChild(scope12_r1);
         setRotationAngle(scope12_r1, 0.8551F, 0.0F, 0.0F);
-        scope12_r1.cubeList.add(new ModelBox(scope12_r1, 36, 51, -1.0F, -32.0F, -21.5F, 2, 1, 4, 0.0F, false));
+        scope12_r1.cubeList.add(new ModelBox(scope12_r1, 36, 51, -1, -32.0F, -21.5F, 2, 1, 4, 0.0F, false));
     }
 
     @Override

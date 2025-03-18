@@ -45,7 +45,7 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
     @Override
     public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
         Random urandom = new Random(333);
-        this.particleAlpha = 1.0f - ((this.particleAge / (float) this.particleMaxAge));
+        this.particleAlpha = 1 - ((this.particleAge / (float) this.particleMaxAge));
         //this.particleScale = (float) ((((this.particleAge/(float) this.particleMaxAge))/2.0)+2.0f);
 
         this.particleRed = this.particleGreen = this.particleBlue = urandom.nextFloat() * 0.5F + 0.4F;

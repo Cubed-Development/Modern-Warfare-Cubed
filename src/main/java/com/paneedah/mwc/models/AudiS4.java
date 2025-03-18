@@ -203,19 +203,19 @@ public class AudiS4 extends ModelBase {
 
 
         bone77 = new ModelRenderer(this);
-        bone77.setRotationPoint(-24.0F, -21.0F, 21.25F);
+        bone77.setRotationPoint(-24.0F, -21, 21.25F);
         interior.addChild(bone77);
         setRotationAngle(bone77, 0.192F, 0.0F, 0.0F);
-        bone77.cubeList.add(new ModelBox(bone77, 348, 352, 1.0F, -6.1385F, -10.9959F, 8, 6, 12, 0.0F, false));
+        bone77.cubeList.add(new ModelBox(bone77, 348, 352, 1, -6.1385F, -10.9959F, 8, 6, 12, 0.0F, false));
 
         bone78 = new ModelRenderer(this);
-        bone78.setRotationPoint(1.0F, -5.0F, 1.0F);
+        bone78.setRotationPoint(1, -5.0F, 1);
         bone77.addChild(bone78);
         setRotationAngle(bone78, 0.0F, 0.0F, -0.829F);
         bone78.cubeList.add(new ModelBox(bone78, 348, 155, -8.1606F, -0.7692F, -11.9859F, 9, 4, 12, 0.0F, false));
 
         bone79 = new ModelRenderer(this);
-        bone79.setRotationPoint(9.0F, -5.0F, 1.0F);
+        bone79.setRotationPoint(9.0F, -5.0F, 1);
         bone77.addChild(bone79);
         setRotationAngle(bone79, 0.0F, 0.0F, 0.829F);
         bone79.cubeList.add(new ModelBox(bone79, 337, 20, -0.8394F, -0.7692F, -11.9859F, 9, 4, 12, 0.0F, false));
@@ -227,13 +227,13 @@ public class AudiS4 extends ModelBase {
 
 
         bone93 = new ModelRenderer(this);
-        bone93.setRotationPoint(5.0F, -1.0F, 14.0F);
+        bone93.setRotationPoint(5.0F, -1, 14.0F);
         bone80.addChild(bone93);
         setRotationAngle(bone93, 0.0F, 1.3788F, 0.0F);
 
 
         bone94 = new ModelRenderer(this);
-        bone94.setRotationPoint(-5.0F, -1.0F, 14.0F);
+        bone94.setRotationPoint(-5.0F, -1, 14.0F);
         bone80.addChild(bone94);
         setRotationAngle(bone94, 0.0F, -1.3788F, 0.0F);
 
@@ -242,7 +242,7 @@ public class AudiS4 extends ModelBase {
         bone81.setRotationPoint(-33.5F, -15.25F, 33.0F);
         interior.addChild(bone81);
         setRotationAngle(bone81, 0.0436F, 0.0F, 0.0F);
-        bone81.cubeList.add(new ModelBox(bone81, 80, 259, -4.0F, -1.0F, -20.0F, 7, 8, 40, 0.0F, false));
+        bone81.cubeList.add(new ModelBox(bone81, 80, 259, -4.0F, -1, -20.0F, 7, 8, 40, 0.0F, false));
         bone81.cubeList.add(new ModelBox(bone81, 134, 259, -4.0F, -0.8264F, 2.9848F, 7, 8, 18, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
@@ -253,13 +253,13 @@ public class AudiS4 extends ModelBase {
         bone3.cubeList.add(new ModelBox(bone3, 12, 0, -0.875F, -2.2445F, -1.1251F, 2, 2, 2, 0.0F, false));
 
         bone91 = new ModelRenderer(this);
-        bone91.setRotationPoint(-5.0F, -1.0F, 0.0F);
+        bone91.setRotationPoint(-5.0F, -1, 0.0F);
         bone81.addChild(bone91);
         setRotationAngle(bone91, 0.0F, 0.0F, -1.1694F);
         bone91.cubeList.add(new ModelBox(bone91, 264, 352, -6.6093F, 0.9205F, -20.0F, 7, 5, 40, 0.0F, false));
 
         bone92 = new ModelRenderer(this);
-        bone92.setRotationPoint(4.0F, -1.0F, 0.0F);
+        bone92.setRotationPoint(4.0F, -1, 0.0F);
         bone81.addChild(bone92);
         setRotationAngle(bone92, 0.0F, 0.0F, 1.1694F);
         bone92.cubeList.add(new ModelBox(bone92, 210, 345, -0.3907F, 0.9205F, -20.0F, 7, 5, 40, 0.0F, false));
@@ -301,13 +301,13 @@ public class AudiS4 extends ModelBase {
         bone89.cubeList.add(new ModelBox(bone89, 49, 93, -2.0F, -5.3367F, 7.8252F, 4, 7, 1, 0.0F, false));
 
         bone90 = new ModelRenderer(this);
-        bone90.setRotationPoint(-33.75F, -29.3F, 81.0F);
+        bone90.setRotationPoint(-33.75F, -29.3F, 81);
         interior.addChild(bone90);
         setRotationAngle(bone90, -0.0698F, 0.0F, 0.0F);
 
 
         bone107 = new ModelRenderer(this);
-        bone107.setRotationPoint(-18.5F, -19.0F, 21.0F);
+        bone107.setRotationPoint(-18.5F, -19.0F, 21);
         interior.addChild(bone107);
         setRotationAngle(bone107, 0.4363F, 0.0F, 0.0F);
 
@@ -324,7 +324,7 @@ public class AudiS4 extends ModelBase {
 
 
         seat_driver = new ModelRenderer(this);
-        seat_driver.setRotationPoint(1.0F, 0.0F, 0.0F);
+        seat_driver.setRotationPoint(1, 0.0F, 0.0F);
         bone11.addChild(seat_driver);
 
 
@@ -350,7 +350,7 @@ public class AudiS4 extends ModelBase {
         bone96.setRotationPoint(-19.0F, -28.0F, 58.0F);
         seat_driver.addChild(bone96);
         setRotationAngle(bone96, -0.3491F, 0.0F, 0.0F);
-        bone96.cubeList.add(new ModelBox(bone96, 366, 114, 161.0F, 5.0F, -3.0F, 10, 16, 4, 0.0F, false));
+        bone96.cubeList.add(new ModelBox(bone96, 366, 114, 161, 5.0F, -3.0F, 10, 16, 4, 0.0F, false));
 
         bone101 = new ModelRenderer(this);
         bone101.setRotationPoint(-19.0F, -34.0F, 58.5F);
@@ -366,7 +366,7 @@ public class AudiS4 extends ModelBase {
 
 
         cube_r9 = new ModelRenderer(this);
-        cube_r9.setRotationPoint(-2.0F, 1.0F, -1.5F);
+        cube_r9.setRotationPoint(-2.0F, 1, -1.5F);
         bone99.addChild(cube_r9);
         setRotationAngle(cube_r9, 0.7854F, 0.0F, 0.0F);
         cube_r9.cubeList.add(new ModelBox(cube_r9, 83, 190, 101.7783F, -93.4015F, -93.3304F, 3, 5, 6, 0.0F, false));
@@ -395,7 +395,7 @@ public class AudiS4 extends ModelBase {
 
 
         cube_r12 = new ModelRenderer(this);
-        cube_r12.setRotationPoint(2.0F, 1.0F, -1.5F);
+        cube_r12.setRotationPoint(2.0F, 1, -1.5F);
         bone100.addChild(cube_r12);
         setRotationAngle(cube_r12, 0.7854F, 0.0F, 0.0F);
         cube_r12.cubeList.add(new ModelBox(cube_r12, 208, 20, 102.3728F, 90.9904F, 89.1854F, 3, 5, 6, 0.0F, false));
@@ -418,7 +418,7 @@ public class AudiS4 extends ModelBase {
         cube_r14.cubeList.add(new ModelBox(cube_r14, 150, 101, 99.5482F, 64.2529F, 113.979F, 4, 7, 2, 0.0F, false));
 
         seat_passenger = new ModelRenderer(this);
-        seat_passenger.setRotationPoint(-31.0F, 0.0F, 0.0F);
+        seat_passenger.setRotationPoint(-31, 0.0F, 0.0F);
         bone11.addChild(seat_passenger);
 
 
@@ -444,7 +444,7 @@ public class AudiS4 extends ModelBase {
         bone14.setRotationPoint(-19.0F, -28.0F, 58.0F);
         seat_passenger.addChild(bone14);
         setRotationAngle(bone14, -0.3491F, 0.0F, 0.0F);
-        bone14.cubeList.add(new ModelBox(bone14, 366, 114, 161.0F, 5.0F, -3.0F, 10, 16, 4, 0.0F, false));
+        bone14.cubeList.add(new ModelBox(bone14, 366, 114, 161, 5.0F, -3.0F, 10, 16, 4, 0.0F, false));
 
         bone15 = new ModelRenderer(this);
         bone15.setRotationPoint(-19.0F, -34.0F, 58.5F);
@@ -460,7 +460,7 @@ public class AudiS4 extends ModelBase {
 
 
         cube_r17 = new ModelRenderer(this);
-        cube_r17.setRotationPoint(-2.0F, 1.0F, -1.5F);
+        cube_r17.setRotationPoint(-2.0F, 1, -1.5F);
         bone16.addChild(cube_r17);
         setRotationAngle(cube_r17, 0.7854F, 0.0F, 0.0F);
         cube_r17.cubeList.add(new ModelBox(cube_r17, 83, 190, 101.7783F, -93.4015F, -93.3304F, 3, 5, 6, 0.0F, false));
@@ -489,7 +489,7 @@ public class AudiS4 extends ModelBase {
 
 
         cube_r20 = new ModelRenderer(this);
-        cube_r20.setRotationPoint(2.0F, 1.0F, -1.5F);
+        cube_r20.setRotationPoint(2.0F, 1, -1.5F);
         bone18.addChild(cube_r20);
         setRotationAngle(cube_r20, 0.7854F, 0.0F, 0.0F);
         cube_r20.cubeList.add(new ModelBox(cube_r20, 208, 20, 102.3728F, 90.9904F, 89.1854F, 3, 5, 6, 0.0F, false));
@@ -512,7 +512,7 @@ public class AudiS4 extends ModelBase {
         cube_r22.cubeList.add(new ModelBox(cube_r22, 150, 101, 99.5482F, 64.2529F, 113.979F, 4, 7, 2, 0.0F, false));
 
         backseat = new ModelRenderer(this);
-        backseat.setRotationPoint(1.0F, 0.0F, 27.0F);
+        backseat.setRotationPoint(1, 0.0F, 27.0F);
         bone11.addChild(backseat);
 
 
@@ -549,7 +549,7 @@ public class AudiS4 extends ModelBase {
         bone122.cubeList.add(new ModelBox(bone122, 48, 287, 103.0824F, 0.9117F, 124.5547F, 4, 19, 3, 0.0F, false));
 
         seat4 = new ModelRenderer(this);
-        seat4.setRotationPoint(-32.0F, 0.0F, -1.0F);
+        seat4.setRotationPoint(-32.0F, 0.0F, -1);
         backseat.addChild(seat4);
 
 
@@ -637,7 +637,7 @@ public class AudiS4 extends ModelBase {
         cube_r30.setRotationPoint(-52.5F, -33.75F, 112.5F);
         body_audi.addChild(cube_r30);
         setRotationAngle(cube_r30, 0.0873F, 0.0436F, 1.309F);
-        cube_r30.cubeList.add(new ModelBox(cube_r30, 0, 259, -1.5F, 1.0F, -10.5F, 10, 7, 21, 0.0F, false));
+        cube_r30.cubeList.add(new ModelBox(cube_r30, 0, 259, -1.5F, 1, -10.5F, 10, 7, 21, 0.0F, false));
 
         cube_r31 = new ModelRenderer(this);
         cube_r31.setRotationPoint(-59.5F, -30.0F, 112.5F);
@@ -661,13 +661,13 @@ public class AudiS4 extends ModelBase {
         cube_r34.setRotationPoint(-9.6869F, -35.3516F, 93.2085F);
         body_audi.addChild(cube_r34);
         setRotationAngle(cube_r34, -0.3927F, -0.4363F, -1.309F);
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 204, 74, -1.0F, -2.5F, -13.5F, 6, 5, 27, 0.0F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 204, 74, -1, -2.5F, -13.5F, 6, 5, 27, 0.0F, false));
 
         cube_r35 = new ModelRenderer(this);
         cube_r35.setRotationPoint(-10.5F, -33.75F, 112.5F);
         body_audi.addChild(cube_r35);
         setRotationAngle(cube_r35, 0.0873F, -0.0436F, -1.309F);
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 282, 282, -8.5F, 1.0F, -10.5F, 10, 7, 21, 0.0F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 282, 282, -8.5F, 1, -10.5F, 10, 7, 21, 0.0F, false));
 
         cube_r36 = new ModelRenderer(this);
         cube_r36.setRotationPoint(-2.5F, -30.0F, 112.5F);
@@ -731,7 +731,7 @@ public class AudiS4 extends ModelBase {
         cube_r45.cubeList.add(new ModelBox(cube_r45, 122, 254, -2.0F, -9.5F, -37.0F, 6, 12, 68, 0.0F, false));
 
         cube_r46 = new ModelRenderer(this);
-        cube_r46.setRotationPoint(-51.0F, -24.6107F, -27.0475F);
+        cube_r46.setRotationPoint(-51, -24.6107F, -27.0475F);
         body_audi.addChild(cube_r46);
         setRotationAngle(cube_r46, 0.2618F, 0.3054F, 0.0F);
         cube_r46.cubeList.add(new ModelBox(cube_r46, 0, 189, -10.0F, -1.5F, -2.0F, 18, 3, 9, 0.0F, false));
@@ -773,7 +773,7 @@ public class AudiS4 extends ModelBase {
         cube_r52.cubeList.add(new ModelBox(cube_r52, 202, 143, -27.5F, -3.0F, -9.0F, 59, 6, 28, 0.0F, false));
 
         cube_r53 = new ModelRenderer(this);
-        cube_r53.setRotationPoint(-31.0F, -9.5F, 101.5F);
+        cube_r53.setRotationPoint(-31, -9.5F, 101.5F);
         body_audi.addChild(cube_r53);
         setRotationAngle(cube_r53, 0.0873F, 0.0F, 0.0F);
         cube_r53.cubeList.add(new ModelBox(cube_r53, 186, 0, -27.0F, -15.5F, -21.5F, 54, 18, 43, 0.0F, false));
@@ -804,13 +804,13 @@ public class AudiS4 extends ModelBase {
         cube_r56.setRotationPoint(-7.5968F, -14.0F, 10.2026F);
         bone131.addChild(cube_r56);
         setRotationAngle(cube_r56, -0.1309F, -0.4363F, 0.1309F);
-        cube_r56.cubeList.add(new ModelBox(cube_r56, 41, 41, -2.5F, 1.0F, -3.5F, 5, 10, 7, 0.0F, false));
+        cube_r56.cubeList.add(new ModelBox(cube_r56, 41, 41, -2.5F, 1, -3.5F, 5, 10, 7, 0.0F, false));
 
         cube_r57 = new ModelRenderer(this);
         cube_r57.setRotationPoint(-8.5968F, -5.0F, 9.2026F);
         bone131.addChild(cube_r57);
         setRotationAngle(cube_r57, 0.0F, -0.4363F, -0.1309F);
-        cube_r57.cubeList.add(new ModelBox(cube_r57, 152, 201, -2.5F, 1.0F, -3.5F, 5, 9, 7, 0.0F, false));
+        cube_r57.cubeList.add(new ModelBox(cube_r57, 152, 201, -2.5F, 1, -3.5F, 5, 9, 7, 0.0F, false));
 
         cube_r58 = new ModelRenderer(this);
         cube_r58.setRotationPoint(9.0082F, 4.0339F, 1.6189F);
@@ -846,13 +846,13 @@ public class AudiS4 extends ModelBase {
         cube_r63.setRotationPoint(50.5549F, -14.0F, 10.2026F);
         bone131.addChild(cube_r63);
         setRotationAngle(cube_r63, -0.1309F, 0.4363F, -0.1309F);
-        cube_r63.cubeList.add(new ModelBox(cube_r63, 41, 0, -2.5F, 1.0F, -3.5F, 5, 10, 7, 0.0F, false));
+        cube_r63.cubeList.add(new ModelBox(cube_r63, 41, 0, -2.5F, 1, -3.5F, 5, 10, 7, 0.0F, false));
 
         cube_r64 = new ModelRenderer(this);
         cube_r64.setRotationPoint(51.5549F, -5.0F, 9.2026F);
         bone131.addChild(cube_r64);
         setRotationAngle(cube_r64, 0.0F, 0.4363F, 0.1309F);
-        cube_r64.cubeList.add(new ModelBox(cube_r64, 243, 73, -2.5F, 1.0F, -3.5F, 5, 9, 7, 0.0F, false));
+        cube_r64.cubeList.add(new ModelBox(cube_r64, 243, 73, -2.5F, 1, -3.5F, 5, 9, 7, 0.0F, false));
 
         cube_r65 = new ModelRenderer(this);
         cube_r65.setRotationPoint(42.4883F, 4.5F, 6.829F);
@@ -885,7 +885,7 @@ public class AudiS4 extends ModelBase {
         cube_r69.cubeList.add(new ModelBox(cube_r69, 244, 61, -2.5F, -0.5F, -3.0F, 5, 1, 6, 0.0F, false));
 
         grille = new ModelRenderer(this);
-        grille.setRotationPoint(21.5F, -11.0F, 3.75F);
+        grille.setRotationPoint(21.5F, -11, 3.75F);
         bone131.addChild(grille);
         grille.cubeList.add(new ModelBox(grille, 132, 308, -11.5F, 11.5F, -4.5F, 23, 1, 6, 0.0F, false));
         grille.cubeList.add(new ModelBox(grille, 41, 114, -11.5F, -2.5F, 1.5F, 23, 17, 1, 0.0F, false));
@@ -897,7 +897,7 @@ public class AudiS4 extends ModelBase {
         grille.cubeList.add(new ModelBox(grille, 101, 154, -11.5F, -0.5F, -3.0F, 23, 1, 6, 0.0F, false));
 
         cube_r70 = new ModelRenderer(this);
-        cube_r70.setRotationPoint(0.0F, 1.0F, -3.25F);
+        cube_r70.setRotationPoint(0.0F, 1, -3.25F);
         grille.addChild(cube_r70);
         setRotationAngle(cube_r70, -0.1309F, 0.0F, 0.0F);
         cube_r70.cubeList.add(new ModelBox(cube_r70, 41, 17, -5.0F, -1.5F, -0.5F, 10, 3, 1, 0.0F, false));
@@ -912,7 +912,7 @@ public class AudiS4 extends ModelBase {
         cube_r71.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone132.addChild(cube_r71);
         setRotationAngle(cube_r71, -0.1309F, 0.0F, 0.1309F);
-        cube_r71.cubeList.add(new ModelBox(cube_r71, 0, 0, -1.0F, -4.5F, -3.0F, 3, 15, 6, 0.0F, false));
+        cube_r71.cubeList.add(new ModelBox(cube_r71, 0, 0, -1, -4.5F, -3.0F, 3, 15, 6, 0.0F, false));
 
         cube_r72 = new ModelRenderer(this);
         cube_r72.setRotationPoint(-24.0F, -3.0F, 0.5F);
@@ -927,10 +927,10 @@ public class AudiS4 extends ModelBase {
         cube_r73.cubeList.add(new ModelBox(cube_r73, 0, 37, -2.0F, -4.5F, -3.0F, 3, 15, 6, 0.0F, false));
 
         cube_r74 = new ModelRenderer(this);
-        cube_r74.setRotationPoint(1.0F, -3.0F, 0.5F);
+        cube_r74.setRotationPoint(1, -3.0F, 0.5F);
         bone132.addChild(cube_r74);
         setRotationAngle(cube_r74, -0.1309F, 0.0F, -0.3927F);
-        cube_r74.cubeList.add(new ModelBox(cube_r74, 174, 121, -1.0F, -4.5F, -3.0F, 3, 4, 6, 0.0F, false));
+        cube_r74.cubeList.add(new ModelBox(cube_r74, 174, 121, -1, -4.5F, -3.0F, 3, 4, 6, 0.0F, false));
 
         bone129 = new ModelRenderer(this);
         bone129.setRotationPoint(-54.9791F, -22.0F, 121.5206F);

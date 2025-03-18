@@ -85,9 +85,9 @@ public class S710Tricun extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 56, 25, -2.701F, -40.0F, -22.4F, 1, 2, 21, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 80, -2.7F, -39.5F, -1.4F, 1, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -3.2F, -36.7F, -22.4F, 1, 2, 24, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 78, 73, -3.0F, -33.35F, -1.0F, 3, 1, 4, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 107, 86, -3.5F, -36.0F, 1.0F, 4, 3, 2, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 26, 20, -3.499F, -34.0F, -1.0F, 4, 1, 2, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 78, 73, -3.0F, -33.35F, -1, 3, 1, 4, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 107, 86, -3.5F, -36.0F, 1, 4, 3, 2, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 26, 20, -3.499F, -34.0F, -1, 4, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 52, 57, -3.5F, -32.1F, -5.85F, 1, 1, 3, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 38, 26, -0.45F, -33.7F, -16.6F, 1, 1, 4, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 78, 86, -3.499F, -34.3F, -15.6F, 4, 2, 4, 0.0F, false));
@@ -96,7 +96,7 @@ public class S710Tricun extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 101, 94, -3.3F, -35.0F, -14.0F, 3, 4, 13, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 48, 74, -0.7F, -35.0F, -14.0F, 1, 4, 13, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 24, 76, -3.0F, -27.0F, -12.3F, 3, 1, 6, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 41, 12, -3.0F, -31.0F, -6.5F, 3, 5, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 41, 12, -3.0F, -31, -6.5F, 3, 5, 1, 0.0F, false));
 
         gun20_r1 = new ModelRenderer(this);
         gun20_r1.setRotationPoint(0.0F, -26.0F, -12.3F);
@@ -105,13 +105,13 @@ public class S710Tricun extends ModelWithAttachments {
         gun20_r1.cubeList.add(new ModelBox(gun20_r1, 15, 0, -3.0F, -6.0F, 0.0F, 3, 6, 1, 0.0F, false));
 
         gun23_r1 = new ModelRenderer(this);
-        gun23_r1.setRotationPoint(-3.2F, -31.0F, -14.3F);
+        gun23_r1.setRotationPoint(-3.2F, -31, -14.3F);
         gun.addChild(gun23_r1);
         setRotationAngle(gun23_r1, 0.7854F, 0.0F, 0.0F);
         gun23_r1.cubeList.add(new ModelBox(gun23_r1, 38, 7, 0.2F, 1.1414F, 0.1414F, 3, 1, 2, 0.0F, false));
 
         gun22_r1 = new ModelRenderer(this);
-        gun22_r1.setRotationPoint(-3.2F, -31.0F, -7.8F);
+        gun22_r1.setRotationPoint(-3.2F, -31, -7.8F);
         gun.addChild(gun22_r1);
         setRotationAngle(gun22_r1, 0.7854F, 0.0F, 0.0F);
         gun22_r1.cubeList.add(new ModelBox(gun22_r1, 79, 42, 0.2F, 0.1414F, 0.1414F, 3, 2, 1, 0.0F, false));
@@ -126,8 +126,8 @@ public class S710Tricun extends ModelWithAttachments {
         gun48_r1.setRotationPoint(0.5F, -32.35F, -17.0F);
         gun.addChild(gun48_r1);
         setRotationAngle(gun48_r1, 0.2182F, 0.0F, 0.0F);
-        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 79, 28, -1.0F, -4.0F, 0.0F, 1, 1, 2, 0.0F, false));
-        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 40, 91, -0.9F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 79, 28, -1, -4.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 40, 91, -0.9F, -1, 0.0F, 1, 1, 1, 0.0F, false));
         gun48_r1.cubeList.add(new ModelBox(gun48_r1, 0, 76, -0.9F, -3.0F, 0.0F, 1, 2, 2, 0.0F, false));
         gun48_r1.cubeList.add(new ModelBox(gun48_r1, 26, 39, -0.9F, 0.0F, 0.0F, 1, 6, 2, 0.0F, false));
 
@@ -141,7 +141,7 @@ public class S710Tricun extends ModelWithAttachments {
         gun48_r2.setRotationPoint(0.75F, -25.4F, -19.25F);
         gun.addChild(gun48_r2);
         setRotationAngle(gun48_r2, 0.1536F, -0.1553F, 0.7854F);
-        gun48_r2.cubeList.add(new ModelBox(gun48_r2, 77, 48, -1.0F, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
+        gun48_r2.cubeList.add(new ModelBox(gun48_r2, 77, 48, -1, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
 
         gun49_r2 = new ModelRenderer(this);
         gun49_r2.setRotationPoint(0.5F, -25.33F, -19.55F);
@@ -159,7 +159,7 @@ public class S710Tricun extends ModelWithAttachments {
         gun47_r1.setRotationPoint(0.75F, -25.4F, -19.25F);
         gun.addChild(gun47_r1);
         setRotationAngle(gun47_r1, 0.2182F, 0.0F, 0.0F);
-        gun47_r1.cubeList.add(new ModelBox(gun47_r1, 77, 56, -1.0F, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
+        gun47_r1.cubeList.add(new ModelBox(gun47_r1, 77, 56, -1, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
         gun47_r1.cubeList.add(new ModelBox(gun47_r1, 26, 12, -4.5F, 0.0F, 0.0F, 4, 1, 7, 0.0F, false));
 
         gun45_r1 = new ModelRenderer(this);
@@ -197,8 +197,8 @@ public class S710Tricun extends ModelWithAttachments {
         gun69_r1.setRotationPoint(0.5F, -31.1F, -2.85F);
         gun.addChild(gun69_r1);
         setRotationAngle(gun69_r1, -0.7854F, 0.0F, 0.0F);
-        gun69_r1.cubeList.add(new ModelBox(gun69_r1, 26, 26, -0.999F, -4.0F, -1.0F, 1, 2, 1, 0.0F, false));
-        gun69_r1.cubeList.add(new ModelBox(gun69_r1, 11, 52, -3.999F, -4.0F, -1.0F, 1, 4, 1, 0.0F, false));
+        gun69_r1.cubeList.add(new ModelBox(gun69_r1, 26, 26, -0.999F, -4.0F, -1, 1, 2, 1, 0.0F, false));
+        gun69_r1.cubeList.add(new ModelBox(gun69_r1, 11, 52, -3.999F, -4.0F, -1, 1, 4, 1, 0.0F, false));
 
         gun69_r2 = new ModelRenderer(this);
         gun69_r2.setRotationPoint(-3.5F, -32.1F, -5.85F);
@@ -207,7 +207,7 @@ public class S710Tricun extends ModelWithAttachments {
         gun69_r2.cubeList.add(new ModelBox(gun69_r2, 77, 59, 0.0F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
 
         gun66_r1 = new ModelRenderer(this);
-        gun66_r1.setRotationPoint(0.5F, -36.0F, 1.0F);
+        gun66_r1.setRotationPoint(0.5F, -36.0F, 1);
         gun.addChild(gun66_r1);
         setRotationAngle(gun66_r1, -1.1781F, 0.0F, 0.0F);
         gun66_r1.cubeList.add(new ModelBox(gun66_r1, 85, 104, -4.0F, 0.0F, 0.0F, 4, 3, 2, 0.0F, false));
@@ -236,7 +236,7 @@ public class S710Tricun extends ModelWithAttachments {
         gun77_r2.setRotationPoint(-0.5F, -40.8F, -0.52F);
         gun.addChild(gun77_r2);
         setRotationAngle(gun77_r2, 0.0F, -0.5236F, 0.0F);
-        gun77_r2.cubeList.add(new ModelBox(gun77_r2, 30, 39, -1.0F, 0.001F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun77_r2.cubeList.add(new ModelBox(gun77_r2, 30, 39, -1, 0.001F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun76_r2 = new ModelRenderer(this);
         gun76_r2.setRotationPoint(-2.5F, -40.8F, -0.52F);
@@ -251,25 +251,25 @@ public class S710Tricun extends ModelWithAttachments {
         gun84_r1.cubeList.add(new ModelBox(gun84_r1, 18, 52, 0.0F, 0.0F, 0.0F, 1, 4, 1, 0.0F, false));
 
         gun118_r1 = new ModelRenderer(this);
-        gun118_r1.setRotationPoint(-3.9F, -37.9F, 1.0F);
+        gun118_r1.setRotationPoint(-3.9F, -37.9F, 1);
         gun.addChild(gun118_r1);
         setRotationAngle(gun118_r1, 0.0F, 0.0F, -2.3562F);
-        gun118_r1.cubeList.add(new ModelBox(gun118_r1, 69, 74, -1.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
+        gun118_r1.cubeList.add(new ModelBox(gun118_r1, 69, 74, -1, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         gun117_r1 = new ModelRenderer(this);
-        gun117_r1.setRotationPoint(0.9F, -37.9F, 1.0F);
+        gun117_r1.setRotationPoint(0.9F, -37.9F, 1);
         gun.addChild(gun117_r1);
         setRotationAngle(gun117_r1, 0.0F, 0.0F, 2.3562F);
         gun117_r1.cubeList.add(new ModelBox(gun117_r1, 24, 76, 0.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         gun118_r2 = new ModelRenderer(this);
-        gun118_r2.setRotationPoint(0.9F, -37.0F, 1.0F);
+        gun118_r2.setRotationPoint(0.9F, -37.0F, 1);
         gun.addChild(gun118_r2);
         setRotationAngle(gun118_r2, 0.0F, 0.0F, 2.0448F);
         gun118_r2.cubeList.add(new ModelBox(gun118_r2, 36, 76, 0.089F, -0.0456F, 0.0F, 2, 2, 2, 0.0F, false));
 
         gun119_r1 = new ModelRenderer(this);
-        gun119_r1.setRotationPoint(-3.9F, -37.0F, 1.0F);
+        gun119_r1.setRotationPoint(-3.9F, -37.0F, 1);
         gun.addChild(gun119_r1);
         setRotationAngle(gun119_r1, 0.0F, 0.0F, -0.4833F);
         gun119_r1.cubeList.add(new ModelBox(gun119_r1, 9, 76, -0.0465F, 0.0885F, 0.0F, 2, 2, 2, 0.0F, false));
@@ -291,19 +291,19 @@ public class S710Tricun extends ModelWithAttachments {
         gun156_r1.setRotationPoint(0.8F, -32.7F, -5.6F);
         gun.addChild(gun156_r1);
         setRotationAngle(gun156_r1, -0.7505F, 0.0F, 0.0F);
-        gun156_r1.cubeList.add(new ModelBox(gun156_r1, 35, 85, -1.0F, -1.0F, 0.0F, 1, 1, 2, -0.1F, false));
+        gun156_r1.cubeList.add(new ModelBox(gun156_r1, 35, 85, -1, -1, 0.0F, 1, 1, 2, -0.1F, false));
 
         bone_r1 = new ModelRenderer(this);
         bone_r1.setRotationPoint(0.1F, -32.8F, -17.1F);
         gun.addChild(bone_r1);
         setRotationAngle(bone_r1, 0.0F, 0.0F, 0.7854F);
-        bone_r1.cubeList.add(new ModelBox(bone_r1, 59, 91, -0.3636F, -0.3636F, 1.0F, 1, 1, 1, 0.0F, false));
+        bone_r1.cubeList.add(new ModelBox(bone_r1, 59, 91, -0.3636F, -0.3636F, 1, 1, 1, 1, 0.0F, false));
 
         bone_r2 = new ModelRenderer(this);
         bone_r2.setRotationPoint(0.1F, -33.0F, -17.3F);
         gun.addChild(bone_r2);
         setRotationAngle(bone_r2, 0.0F, 0.0F, 0.7854F);
-        bone_r2.cubeList.add(new ModelBox(bone_r2, 63, 91, -1.0F, -1.0F, 0.95F, 1, 1, 1, 0.0F, false));
+        bone_r2.cubeList.add(new ModelBox(bone_r2, 63, 91, -1, -1, 0.95F, 1, 1, 1, 0.0F, false));
 
         barrel = new ModelRenderer(this);
         barrel.setRotationPoint(0.0F, 24.4F, 17.0F);
@@ -322,10 +322,10 @@ public class S710Tricun extends ModelWithAttachments {
 
         rail = new ModelRenderer(this);
         rail.setRotationPoint(-0.1F, -16.0F, -19.5F);
-        rail.cubeList.add(new ModelBox(rail, 100, 69, -1.0F, -1.0F, 0.0F, 1, 1, 5, 0.0F, false));
+        rail.cubeList.add(new ModelBox(rail, 100, 69, -1, -1, 0.0F, 1, 1, 5, 0.0F, false));
         rail.cubeList.add(new ModelBox(rail, 76, 0, -0.801F, -0.8F, 4.5F, 1, 1, 7, -0.2F, false));
-        rail.cubeList.add(new ModelBox(rail, 100, 6, -1.0F, -1.0F, 5.5F, 1, 1, 5, 0.0F, false));
-        rail.cubeList.add(new ModelBox(rail, 0, 57, -1.0F, -1.0F, 11.0F, 1, 1, 3, 0.0F, false));
+        rail.cubeList.add(new ModelBox(rail, 100, 6, -1, -1, 5.5F, 1, 1, 5, 0.0F, false));
+        rail.cubeList.add(new ModelBox(rail, 0, 57, -1, -1, 11, 1, 1, 3, 0.0F, false));
         rail.cubeList.add(new ModelBox(rail, 76, 0, -2.4F, -1.75F, -4.9F, 2, 1, 20, 0.0F, false));
         rail.cubeList.add(new ModelBox(rail, 78, 73, -1.5F, -1.25F, -4.899F, 1, 1, 20, 0.0F, false));
         rail.cubeList.add(new ModelBox(rail, 77, 48, -2.3F, -1.25F, -4.899F, 1, 1, 20, 0.0F, false));
@@ -334,7 +334,7 @@ public class S710Tricun extends ModelWithAttachments {
         rail.cubeList.add(new ModelBox(rail, 18, 98, -2.9F, -1.25F, -21.15F, 1, 1, 6, 0.0F, false));
         rail.cubeList.add(new ModelBox(rail, 116, 127, -2.601F, -1.95F, -16.4F, 1, 1, 12, -0.2F, false));
         rail.cubeList.add(new ModelBox(rail, 102, 126, -1.201F, -1.95F, -16.4F, 1, 1, 12, -0.2F, false));
-        rail.cubeList.add(new ModelBox(rail, 52, 113, -2.8F, -1.0F, 0.0F, 1, 1, 14, 0.0F, false));
+        rail.cubeList.add(new ModelBox(rail, 52, 113, -2.8F, -1, 0.0F, 1, 1, 14, 0.0F, false));
         rail.cubeList.add(new ModelBox(rail, 51, 19, -2.701F, -0.5F, 0.0F, 1, 1, 2, 0.0F, false));
         rail.cubeList.add(new ModelBox(rail, 26, 16, -2.801F, -0.5F, 12.0F, 1, 1, 2, 0.0F, false));
         rail.cubeList.add(new ModelBox(rail, 87, 82, -3.7F, -0.75F, 0.5F, 1, 1, 1, 0.0F, false));
@@ -369,15 +369,15 @@ public class S710Tricun extends ModelWithAttachments {
         gun61_r1.cubeList.add(new ModelBox(gun61_r1, 87, 78, 0.0F, 0.0F, 0.0F, 1, 1, 1, -0.2F, false));
 
         cube_r23 = new ModelRenderer(this);
-        cube_r23.setRotationPoint(0.0F, -1.0F, 11.0F);
+        cube_r23.setRotationPoint(0.0F, -1, 11);
         rail.addChild(cube_r23);
         setRotationAngle(cube_r23, 0.0F, 0.0F, 0.6109F);
-        cube_r23.cubeList.add(new ModelBox(cube_r23, 56, 30, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
-        cube_r23.cubeList.add(new ModelBox(cube_r23, 100, 0, -1.0F, 0.0F, -5.5F, 1, 1, 5, 0.0F, false));
-        cube_r23.cubeList.add(new ModelBox(cube_r23, 99, 59, -1.0F, 0.0F, -11.0F, 1, 1, 5, 0.0F, false));
+        cube_r23.cubeList.add(new ModelBox(cube_r23, 56, 30, -1, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        cube_r23.cubeList.add(new ModelBox(cube_r23, 100, 0, -1, 0.0F, -5.5F, 1, 1, 5, 0.0F, false));
+        cube_r23.cubeList.add(new ModelBox(cube_r23, 99, 59, -1, 0.0F, -11, 1, 1, 5, 0.0F, false));
 
         cube_r24 = new ModelRenderer(this);
-        cube_r24.setRotationPoint(-2.8F, -1.0F, 0.0F);
+        cube_r24.setRotationPoint(-2.8F, -1, 0.0F);
         rail.addChild(cube_r24);
         setRotationAngle(cube_r24, 0.0F, 0.0F, -0.6109F);
         cube_r24.cubeList.add(new ModelBox(cube_r24, 36, 99, 0.0F, 0.0F, 0.0F, 1, 1, 14, 0.0F, false));
@@ -392,7 +392,7 @@ public class S710Tricun extends ModelWithAttachments {
         cube_r26.setRotationPoint(0.1F, -1.25F, -21.15F);
         rail.addChild(cube_r26);
         setRotationAngle(cube_r26, 0.0F, 0.0F, 0.4363F);
-        cube_r26.cubeList.add(new ModelBox(cube_r26, 36, 98, -1.0F, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        cube_r26.cubeList.add(new ModelBox(cube_r26, 36, 98, -1, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
     }
 
     @Override

@@ -21,26 +21,26 @@ public class VendingMachine extends ModelBase {
         textureHeight = 256;
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(-1.0F, -19.5F, 5.5F);
+        bone.setRotationPoint(-1, -19.5F, 5.5F);
         setRotationAngle(bone, -0.2618F, 0.0F, 0.0F);
         bone.cubeList.add(new ModelBox(bone, 48, 130, -6.0F, -0.7511F, -1.4014F, 14, 3, 10, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(-1.0F, -19.5F, 5.5F);
+        bone2.setRotationPoint(-1, -19.5F, 5.5F);
         setRotationAngle(bone2, 0.2618F, 0.0F, 0.0F);
         bone2.cubeList.add(new ModelBox(bone2, 0, 130, -6.0F, -3.5981F, -19.2238F, 14, 3, 10, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(-1.0F, -8.0F, 2.5F);
+        bone3.setRotationPoint(-1, -8.0F, 2.5F);
         setRotationAngle(bone3, 0.0F, 0.0F, -0.1745F);
-        bone3.cubeList.add(new ModelBox(bone3, 104, 111, -3.0F, -1.0F, -8.5F, 9, 2, 17, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 104, 111, -3.0F, -1, -8.5F, 9, 2, 17, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 52, 111, -4.9101F, 9.8329F, -8.5F, 9, 2, 17, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 0, 111, -6.9939F, 21.6506F, -8.5F, 9, 2, 17, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(0.0F, 24.0F, 0.0F);
         bone4.cubeList.add(new ModelBox(bone4, 0, 0, 5.0F, -42.0F, -6.0F, 2, 35, 17, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 62, 67, -7.0F, -42.0F, 11.0F, 14, 41, 3, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 62, 67, -7.0F, -42.0F, 11, 14, 41, 3, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 56, 0, -7.0F, -42.0F, -14.0F, 14, 41, 8, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 74, 146, -8.0F, -29.0F, -13.0F, 1, 21, 6, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 36, 173, -6.0F, -40.0F, -6.0F, 0, 33, 17, 0.0F, false));
@@ -48,8 +48,8 @@ public class VendingMachine extends ModelBase {
         bone4.cubeList.add(new ModelBox(bone4, 96, 67, -7.0F, -42.0F, -6.0F, 12, 2, 17, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 38, 146, -7.0F, -44.5882F, -4.3407F, 14, 3, 4, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 0, 162, -7.0F, -44.5882F, -0.6593F, 14, 3, 5, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 0, 178, -7.0F, -1.0F, 9.0F, 14, 1, 4, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 0, 173, -7.0F, -1.0F, -13.0F, 14, 1, 4, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 0, 178, -7.0F, -1, 9.0F, 14, 1, 4, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 0, 173, -7.0F, -1, -13.0F, 14, 1, 4, 0.0F, false));
     }
 
     @Override

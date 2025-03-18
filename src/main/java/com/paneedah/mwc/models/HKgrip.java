@@ -30,7 +30,7 @@ public class HKgrip extends ModelBase {
 
         hk_grip = new ModelRenderer(this);
         hk_grip.setRotationPoint(0.0F, 24.0F, 0.0F);
-        hk_grip.cubeList.add(new ModelBox(hk_grip, 9, 32, -3.0F, -30.7F, -1.0F, 3, 5, 1, 0.0F, false));
+        hk_grip.cubeList.add(new ModelBox(hk_grip, 9, 32, -3.0F, -30.7F, -1, 3, 5, 1, 0.0F, false));
         hk_grip.cubeList.add(new ModelBox(hk_grip, 13, 9, -3.499F, -30.7F, -6.0F, 4, 5, 5, 0.0F, false));
 
         grip3_r1 = new ModelRenderer(this);
@@ -44,11 +44,11 @@ public class HKgrip extends ModelBase {
         grip8_r1.setRotationPoint(-2.1F, -29.7F, 0.0F);
         hk_grip.addChild(grip8_r1);
         setRotationAngle(grip8_r1, -0.7243F, 0.0F, 0.0F);
-        grip8_r1.cubeList.add(new ModelBox(grip8_r1, 24, 29, -1.0F, -3.0F, -2.0F, 3, 5, 2, 0.0F, false));
+        grip8_r1.cubeList.add(new ModelBox(grip8_r1, 24, 29, -1, -3.0F, -2.0F, 3, 5, 2, 0.0F, false));
         grip8_r1.cubeList.add(new ModelBox(grip8_r1, 17, 32, 1.2F, -3.001F, -2.001F, 1, 5, 2, 0.0F, false));
 
         grip8_r2 = new ModelRenderer(this);
-        grip8_r2.setRotationPoint(-3.5F, -26.25F, -1.0F);
+        grip8_r2.setRotationPoint(-3.5F, -26.25F, -1);
         hk_grip.addChild(grip8_r2);
         setRotationAngle(grip8_r2, -1.0345F, 0.0F, 0.0F);
         grip8_r2.cubeList.add(new ModelBox(grip8_r2, 0, 14, -0.001F, -0.8581F, -1.7357F, 4, 1, 5, 0.0F, false));
@@ -69,7 +69,7 @@ public class HKgrip extends ModelBase {
         grip12_r2.setRotationPoint(-3.5F, -16.85F, -2.85F);
         hk_grip.addChild(grip12_r2);
         setRotationAngle(grip12_r2, -0.0349F, 0.0F, 0.0F);
-        grip12_r2.cubeList.add(new ModelBox(grip12_r2, 6, 20, 0.001F, -1.0F, 1.0F, 4, 1, 2, 0.0F, false));
+        grip12_r2.cubeList.add(new ModelBox(grip12_r2, 6, 20, 0.001F, -1, 1, 4, 1, 2, 0.0F, false));
         grip12_r2.cubeList.add(new ModelBox(grip12_r2, 26, 6, 0.0F, 0.0F, 0.0F, 4, 1, 3, 0.0F, false));
 
         grip10_r1 = new ModelRenderer(this);
@@ -92,7 +92,7 @@ public class HKgrip extends ModelBase {
         grip8_r3.cubeList.add(new ModelBox(grip8_r3, 24, 24, 0.0F, 0.0F, 0.0F, 3, 1, 4, 0.0F, false));
 
         grip7_r1 = new ModelRenderer(this);
-        grip7_r1.setRotationPoint(-3.0F, -27.25F, -1.0F);
+        grip7_r1.setRotationPoint(-3.0F, -27.25F, -1);
         hk_grip.addChild(grip7_r1);
         setRotationAngle(grip7_r1, -1.0345F, 0.0F, 0.0F);
         grip7_r1.cubeList.add(new ModelBox(grip7_r1, 25, 1, -0.001F, -0.8581F, 0.2643F, 3, 1, 4, 0.0F, false));

@@ -108,7 +108,7 @@ public class SpecOps extends ModelBiped {
 
         bipedLeftArm = new ModelRenderer(this);
         bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 0, 46, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 0, 46, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         bipedRightLeg = new ModelRenderer(this);
         bipedRightLeg.setRotationPoint(-2.0F, 12.0F, 0.0F);
@@ -270,11 +270,11 @@ public class SpecOps extends ModelBiped {
         leftarm5 = new ModelRenderer(this);
         leftarm5.setRotationPoint(0.0F, 0.0F, 0.0F);
         leftarm_usMC.addChild(leftarm5);
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 10, 84, -1.0F, -1.95F, 1.2F, 4, 7, 1, 0.0F, false));
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 91, 3, -1.0F, 5.05F, -2.1F, 4, 1, 1, 0.0F, false));
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 52, -1.0F, 7.55F, -2.1F, 4, 1, 1, 0.0F, false));
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 91, -1.0F, 5.05F, 1.1F, 4, 1, 1, 0.0F, false));
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 37, -1.0F, 7.55F, 1.1F, 4, 1, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 10, 84, -1, -1.95F, 1.2F, 4, 7, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 91, 3, -1, 5.05F, -2.1F, 4, 1, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 52, -1, 7.55F, -2.1F, 4, 1, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 91, -1, 5.05F, 1.1F, 4, 1, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 37, -1, 7.55F, 1.1F, 4, 1, 1, 0.0F, false));
         leftarm5.cubeList.add(new ModelBox(leftarm5, 89, 44, -1.1F, 5.05F, -2.0F, 1, 1, 4, 0.0F, false));
         leftarm5.cubeList.add(new ModelBox(leftarm5, 86, 86, -1.1F, 7.55F, -2.0F, 1, 1, 4, 0.0F, false));
         leftarm5.cubeList.add(new ModelBox(leftarm5, 22, 89, 2.1F, 5.05F, -2.0F, 1, 1, 4, 0.0F, false));
@@ -362,13 +362,13 @@ public class SpecOps extends ModelBiped {
         cube_r1.setRotationPoint(0.0F, -7.0F, -4.7F);
         bone.addChild(cube_r1);
         setRotationAngle(cube_r1, 0.1396F, 0.0F, 0.0F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 108, 7, -1.0F, -0.46F, -2.4774F, 2, 1, 1, -0.199F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 108, 7, -1, -0.46F, -2.4774F, 2, 1, 1, -0.199F, false));
 
         cube_r2 = new ModelRenderer(this);
         cube_r2.setRotationPoint(0.0F, -7.0F, -5.0F);
         bone.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.1396F, 0.0F, 0.0F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 117, 62, -1.0F, 1.6829F, -2.1937F, 2, 1, 1, -0.2F, true));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 117, 62, -1, 1.6829F, -2.1937F, 2, 1, 1, -0.2F, true));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(0.0F, -7.0F, -4.8F);

@@ -103,7 +103,7 @@ public class Explosion {
     }
 
     public static void createServerSideExplosion(World world, EntityLivingBase thrower, Entity entity, double posX, double posY, double posZ, float explosionStrength, boolean isFlaming, boolean isSmoking, boolean isDestroyingBlocks, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, SoundEvent explosionSound) {
-        world.createExplosion(thrower, entity.posX, entity.posY + 1.0f, entity.posZ, (float) explosionDamage, explosionBreak);
+        world.createExplosion(thrower, entity.posX, entity.posY + 1, entity.posZ, (float) explosionDamage, explosionBreak);
     }
 
     /**
@@ -116,9 +116,9 @@ public class Explosion {
             for (int k = 0; k < 16; ++k) {
                 for (int l = 0; l < 16; ++l) {
                     if (j == 0 || j == 15 || k == 0 || k == 15 || l == 0 || l == 15) {
-                        double d0 = (j / 15.0F * 2.0F - 1.0F);
-                        double d1 = (k / 15.0F * 2.0F - 1.0F);
-                        double d2 = (l / 15.0F * 2.0F - 1.0F);
+                        double d0 = (j / 15.0F * 2.0F - 1);
+                        double d1 = (k / 15.0F * 2.0F - 1);
+                        double d2 = (l / 15.0F * 2.0F - 1);
                         double d3 = Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
                         d0 = d0 / d3;
                         d1 = d1 / d3;
@@ -230,7 +230,7 @@ public class Explosion {
      */
     public void doExplosionB(boolean spawnParticles, boolean destroyBlocks) {
         if (!world.isRemote && explosionSound != null) {
-            world.playSound(null, position.x, position.y, position.z, explosionSound, SoundCategory.BLOCKS, 4f, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
+            world.playSound(null, position.x, position.y, position.z, explosionSound, SoundCategory.BLOCKS, 4f, (1 + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
         }
 
         if (this.isSmoking) {
@@ -300,7 +300,7 @@ public class Explosion {
 
                 if (destroyBlocks && blockState.getBlock() != Blocks.AIR) {
                     if (blockState.getBlock().canDropFromExplosion(new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true))) {
-                        blockState.getBlock().dropBlockAsItemWithChance(this.world, blockpos, blockState, (float) ModernConfigManager.explodedBlockDropChance * (1.0F / this.explosionStrength), 0);
+                        blockState.getBlock().dropBlockAsItemWithChance(this.world, blockpos, blockState, (float) ModernConfigManager.explodedBlockDropChance * (1 / this.explosionStrength), 0);
                     }
 
                     blockState.getBlock().onBlockExploded(this.world, blockpos, new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true));

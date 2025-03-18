@@ -93,19 +93,19 @@ public class BijiaReflex extends ModelBase {
         sight87_r1.setRotationPoint(-12.8258F, -34.5776F, -6.4915F);
         Bijiareflex.addChild(sight87_r1);
         setRotationAngle(sight87_r1, 0.0F, 0.0F, 2.5653F);
-        sight87_r1.cubeList.add(new ModelBox(sight87_r1, 29, 7, 2.45F, -35.0F, -1.0F, 1, 1, 6, 0.0F, false));
+        sight87_r1.cubeList.add(new ModelBox(sight87_r1, 29, 7, 2.45F, -35.0F, -1, 1, 1, 6, 0.0F, false));
 
         sight86_r1 = new ModelRenderer(this);
         sight86_r1.setRotationPoint(20.4176F, 20.8219F, -6.4915F);
         Bijiareflex.addChild(sight86_r1);
         setRotationAngle(sight86_r1, 0.0F, 0.0F, -0.6692F);
-        sight86_r1.cubeList.add(new ModelBox(sight86_r1, 35, 69, -5.45F, -32.0F, -1.0F, 1, 1, 11, 0.0F, false));
+        sight86_r1.cubeList.add(new ModelBox(sight86_r1, 35, 69, -5.45F, -32.0F, -1, 1, 1, 11, 0.0F, false));
 
         sight84_r1 = new ModelRenderer(this);
         sight84_r1.setRotationPoint(-17.582F, 22.683F, -6.4915F);
         Bijiareflex.addChild(sight84_r1);
         setRotationAngle(sight84_r1, 0.0F, 0.0F, 0.6692F);
-        sight84_r1.cubeList.add(new ModelBox(sight84_r1, 69, 48, 1.45F, -32.0F, -1.0F, 1, 1, 11, 0.0F, false));
+        sight84_r1.cubeList.add(new ModelBox(sight84_r1, 69, 48, 1.45F, -32.0F, -1, 1, 1, 11, 0.0F, false));
 
         sight82_r1 = new ModelRenderer(this);
         sight82_r1.setRotationPoint(-20.9143F, 22.3006F, -6.4915F);
@@ -221,7 +221,7 @@ public class BijiaReflex extends ModelBase {
         sight40_r1.setRotationPoint(25.9484F, 19.8171F, -6.4915F);
         Bijiareflex.addChild(sight40_r1);
         setRotationAngle(sight40_r1, 0.0F, 0.0F, -0.8727F);
-        sight40_r1.cubeList.add(new ModelBox(sight40_r1, 48, 0, -1.0F, -31.6F, -0.45F, 1, 1, 15, 0.0F, false));
+        sight40_r1.cubeList.add(new ModelBox(sight40_r1, 48, 0, -1, -31.6F, -0.45F, 1, 1, 15, 0.0F, false));
 
         sight39_r1 = new ModelRenderer(this);
         sight39_r1.setRotationPoint(-23.5373F, 22.1152F, -6.4915F);
@@ -291,7 +291,7 @@ public class BijiaReflex extends ModelBase {
         sight88_r1.setRotationPoint(10.7931F, -36.2122F, -6.4915F);
         Bijiareflex.addChild(sight88_r1);
         setRotationAngle(sight88_r1, 0.0F, 0.0F, -2.5653F);
-        sight88_r1.cubeList.add(new ModelBox(sight88_r1, 29, 0, -6.45F, -35.0F, -1.0F, 1, 1, 6, 0.0F, false));
+        sight88_r1.cubeList.add(new ModelBox(sight88_r1, 29, 0, -6.45F, -35.0F, -1, 1, 1, 6, 0.0F, false));
     }
 
     @Override

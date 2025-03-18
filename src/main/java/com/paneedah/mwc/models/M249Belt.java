@@ -317,7 +317,7 @@ public class M249Belt extends ModelWithAttachments {
         Main154.cubeList.add(new ModelBox(Main154, 54, 51, -2.0F, 5.9025F, -69.4141F, 1, 4, 2, 0.0F, false));
 
         Barrel20 = new ModelRenderer(this);
-        Barrel20.setRotationPoint(1.0F, -25.7F, -30.0F);
+        Barrel20.setRotationPoint(1, -25.7F, -30.0F);
         gun.addChild(Barrel20);
         setRotationAngle(Barrel20, 0.0F, 0.0F, -2.3562F);
         Barrel20.cubeList.add(new ModelBox(Barrel20, 122, 19, 9.1227F, 6.2932F, -69.001F, 1, 1, 8, 0.0F, false));
@@ -359,13 +359,13 @@ public class M249Belt extends ModelWithAttachments {
         Barrel14.cubeList.add(new ModelBox(Barrel14, 0, 140, -9.1217F, -6.2933F, -69.001F, 1, 1, 8, 0.0F, false));
 
         Barrel13 = new ModelRenderer(this);
-        Barrel13.setRotationPoint(1.0F, -29.3F, -30.0F);
+        Barrel13.setRotationPoint(1, -29.3F, -30.0F);
         gun.addChild(Barrel13);
         setRotationAngle(Barrel13, 0.0F, 0.0F, 0.7854F);
         Barrel13.cubeList.add(new ModelBox(Barrel13, 122, 140, -9.1217F, -6.2933F, -69.002F, 1, 1, 8, 0.0F, false));
 
         Barrel12 = new ModelRenderer(this);
-        Barrel12.setRotationPoint(1.0F, -26.0F, -25.0F);
+        Barrel12.setRotationPoint(1, -26.0F, -25.0F);
         gun.addChild(Barrel12);
         setRotationAngle(Barrel12, 0.0F, 0.0F, -2.3562F);
         Barrel12.cubeList.add(new ModelBox(Barrel12, 71, 69, 9.1227F, 6.2932F, -69.0F, 1, 1, 63, 0.0F, false));
@@ -389,13 +389,13 @@ public class M249Belt extends ModelWithAttachments {
         Barrel9.cubeList.add(new ModelBox(Barrel9, 136, 64, -6.2923F, 9.1217F, -69.0F, 1, 1, 63, 0.0F, false));
 
         Barrel8 = new ModelRenderer(this);
-        Barrel8.setRotationPoint(-1.0F, -27.0F, -25.0F);
+        Barrel8.setRotationPoint(-1, -27.0F, -25.0F);
         gun.addChild(Barrel8);
         setRotationAngle(Barrel8, 0.0F, 0.0F, -0.7854F);
         Barrel8.cubeList.add(new ModelBox(Barrel8, 0, 140, 6.2933F, -9.1217F, -69.0F, 1, 1, 63, 0.0F, false));
 
         Barrel7 = new ModelRenderer(this);
-        Barrel7.setRotationPoint(-1.0F, -28.0F, -25.0F);
+        Barrel7.setRotationPoint(-1, -28.0F, -25.0F);
         gun.addChild(Barrel7);
         setRotationAngle(Barrel7, 0.0F, 0.0F, -0.7854F);
         Barrel7.cubeList.add(new ModelBox(Barrel7, 142, 128, 6.2933F, -9.1227F, -69.0F, 1, 1, 63, 0.0F, false));
@@ -407,7 +407,7 @@ public class M249Belt extends ModelWithAttachments {
         Barrel6.cubeList.add(new ModelBox(Barrel6, 142, 192, -9.1217F, -6.2933F, -69.0F, 1, 1, 63, 0.0F, false));
 
         Barrel5 = new ModelRenderer(this);
-        Barrel5.setRotationPoint(1.0F, -29.0F, -25.0F);
+        Barrel5.setRotationPoint(1, -29.0F, -25.0F);
         gun.addChild(Barrel5);
         setRotationAngle(Barrel5, 0.0F, 0.0F, 0.7854F);
         Barrel5.cubeList.add(new ModelBox(Barrel5, 65, 197, -9.1217F, -6.2933F, -69.0F, 1, 1, 63, 0.0F, false));
@@ -448,7 +448,7 @@ public class M249Belt extends ModelWithAttachments {
         Main128.cubeList.add(new ModelBox(Main128, 78, 29, -2.0F, -9.6F, -69.0F, 2, 2, 11, 0.0F, false));
 
         Main127 = new ModelRenderer(this);
-        Main127.setRotationPoint(2.0F, -30.5F, 41.0F);
+        Main127.setRotationPoint(2.0F, -30.5F, 41);
         gun.addChild(Main127);
         Main127.cubeList.add(new ModelBox(Main127, 0, 103, -2.0F, -9.6F, -69.0F, 1, 2, 10, 0.0F, false));
 
@@ -470,7 +470,7 @@ public class M249Belt extends ModelWithAttachments {
         Main124.cubeList.add(new ModelBox(Main124, 109, 32, -2.0F, -9.6F, -69.0F, 1, 1, 2, 0.0F, false));
 
         Main123 = new ModelRenderer(this);
-        Main123.setRotationPoint(-2.7F, -30.0F, 41.0F);
+        Main123.setRotationPoint(-2.7F, -30.0F, 41);
         gun.addChild(Main123);
         Main123.cubeList.add(new ModelBox(Main123, 195, 258, -2.0F, -9.6F, -69.0F, 1, 1, 34, 0.0F, false));
 
@@ -486,7 +486,7 @@ public class M249Belt extends ModelWithAttachments {
         Main121.cubeList.add(new ModelBox(Main121, 16, 31, -1.998F, -9.6F, -69.0F, 7, 1, 1, 0.0F, false));
 
         Main119 = new ModelRenderer(this);
-        Main119.setRotationPoint(5.2F, -31.8F, 51.0F);
+        Main119.setRotationPoint(5.2F, -31.8F, 51);
         gun.addChild(Main119);
         setRotationAngle(Main119, 0.0F, -2.2307F, 0.0F);
         Main119.cubeList.add(new ModelBox(Main119, 43, 77, -52.6547F, -9.6F, 43.3904F, 1, 3, 2, 0.0F, false));
@@ -573,13 +573,13 @@ public class M249Belt extends ModelWithAttachments {
         Grip14.cubeList.add(new ModelBox(Grip14, 115, 57, -1.998F, -9.6F, -69.0F, 5, 2, 4, 0.0F, false));
 
         Grip13 = new ModelRenderer(this);
-        Grip13.setRotationPoint(-1.0F, -21.1F, 62.4F);
+        Grip13.setRotationPoint(-1, -21.1F, 62.4F);
         gun.addChild(Grip13);
         setRotationAngle(Grip13, -0.0372F, 0.0F, 0.0F);
         Grip13.cubeList.add(new ModelBox(Grip13, 35, 34, -1.999F, -7.0286F, -69.3092F, 3, 5, 1, 0.0F, false));
 
         Grip12 = new ModelRenderer(this);
-        Grip12.setRotationPoint(-1.0F, -15.5F, 62.4F);
+        Grip12.setRotationPoint(-1, -15.5F, 62.4F);
         gun.addChild(Grip12);
         setRotationAngle(Grip12, 2.1564F, 0.0F, 0.0F);
         Grip12.cubeList.add(new ModelBox(Grip12, 0, 40, -2.001F, -52.1991F, 46.1348F, 3, 1, 1, 0.0F, false));
@@ -655,13 +655,13 @@ public class M249Belt extends ModelWithAttachments {
         Main93.cubeList.add(new ModelBox(Main93, 129, 57, -2.0F, -9.6F, -69.0F, 5, 2, 1, 0.0F, false));
 
         Main88 = new ModelRenderer(this);
-        Main88.setRotationPoint(-1.0F, -29.5F, 7.0F);
+        Main88.setRotationPoint(-1, -29.5F, 7.0F);
         gun.addChild(Main88);
         setRotationAngle(Main88, 0.2793F, 0.0F, 0.0F);
         Main88.cubeList.add(new ModelBox(Main88, 122, 0, -1.999F, -29.4967F, -64.3226F, 3, 2, 6, 0.0F, false));
 
         Main86 = new ModelRenderer(this);
-        Main86.setRotationPoint(-1.0F, -31.0F, 10.8F);
+        Main86.setRotationPoint(-1, -31, 10.8F);
         gun.addChild(Main86);
         Main86.cubeList.add(new ModelBox(Main86, 87, 98, -2.0F, -10.9F, -69.0F, 3, 1, 2, 0.0F, false));
 
@@ -671,7 +671,7 @@ public class M249Belt extends ModelWithAttachments {
         Main89.cubeList.add(new ModelBox(Main89, 0, 125, -2.0F, -9.6F, -68.999F, 5, 4, 1, 0.0F, false));
 
         Main87 = new ModelRenderer(this);
-        Main87.setRotationPoint(-1.0F, -29.0F, 6.0F);
+        Main87.setRotationPoint(-1, -29.0F, 6.0F);
         gun.addChild(Main87);
         Main87.cubeList.add(new ModelBox(Main87, 109, 49, -2.0F, -10.9F, -69.0F, 3, 1, 6, 0.0F, false));
 
@@ -682,12 +682,12 @@ public class M249Belt extends ModelWithAttachments {
         Main85.cubeList.add(new ModelBox(Main85, 12, 115, -1.999F, -31.6887F, -62.2546F, 2, 1, 5, 0.0F, false));
 
         Main84 = new ModelRenderer(this);
-        Main84.setRotationPoint(-0.5F, -29.5F, 1.0F);
+        Main84.setRotationPoint(-0.5F, -29.5F, 1);
         gun.addChild(Main84);
         Main84.cubeList.add(new ModelBox(Main84, 122, 149, -2.0F, -10.9F, -69.1F, 2, 1, 7, 0.0F, false));
 
         Main83 = new ModelRenderer(this);
-        Main83.setRotationPoint(3.1F, -28.5F, 41.0F);
+        Main83.setRotationPoint(3.1F, -28.5F, 41);
         gun.addChild(Main83);
         Main83.cubeList.add(new ModelBox(Main83, 101, 24, -2.0F, -9.6F, -69.0F, 1, 1, 1, 0.0F, false));
 
@@ -754,7 +754,7 @@ public class M249Belt extends ModelWithAttachments {
         Main61.cubeList.add(new ModelBox(Main61, 116, 133, -2.0F, -9.6F, -69.0F, 5, 1, 1, 0.0F, false));
 
         Main60 = new ModelRenderer(this);
-        Main60.setRotationPoint(-0.5F, -31.0F, 34.0F);
+        Main60.setRotationPoint(-0.5F, -31, 34.0F);
         gun.addChild(Main60);
         Main60.cubeList.add(new ModelBox(Main60, 0, 89, -2.0F, -9.6F, -69.0F, 2, 2, 3, 0.0F, false));
 
@@ -789,7 +789,7 @@ public class M249Belt extends ModelWithAttachments {
         Main59.cubeList.add(new ModelBox(Main59, 93, 69, -2.0F, -10.9F, -69.0F, 1, 2, 2, 0.0F, false));
 
         LocationForBipod = new ModelRenderer(this);
-        LocationForBipod.setRotationPoint(-1.0F, -24.0F, 6.0F);
+        LocationForBipod.setRotationPoint(-1, -24.0F, 6.0F);
         gun.addChild(LocationForBipod);
         LocationForBipod.cubeList.add(new ModelBox(LocationForBipod, 71, 133, -1.999F, -10.9F, -69.0F, 3, 2, 3, 0.0F, false));
 
@@ -844,7 +844,7 @@ public class M249Belt extends ModelWithAttachments {
         Main43.cubeList.add(new ModelBox(Main43, 249, 193, -2.0F, -10.9F, -69.0F, 2, 3, 33, 0.0F, false));
 
         Main42 = new ModelRenderer(this);
-        Main42.setRotationPoint(-1.0F, -25.8F, 5.0F);
+        Main42.setRotationPoint(-1, -25.8F, 5.0F);
         gun.addChild(Main42);
         Main42.cubeList.add(new ModelBox(Main42, 130, 197, -2.0F, -10.9F, -69.0F, 3, 2, 33, 0.0F, false));
 
@@ -855,12 +855,12 @@ public class M249Belt extends ModelWithAttachments {
         Main41.cubeList.add(new ModelBox(Main41, 143, 0, -2.0F, -7.1861F, -69.293F, 1, 1, 19, 0.0F, false));
 
         Main40 = new ModelRenderer(this);
-        Main40.setRotationPoint(1.0F, -29.5F, 51.0F);
+        Main40.setRotationPoint(1, -29.5F, 51);
         gun.addChild(Main40);
         Main40.cubeList.add(new ModelBox(Main40, 71, 69, -2.0F, -9.6F, -69.0F, 2, 1, 28, 0.0F, false));
 
         Main39 = new ModelRenderer(this);
-        Main39.setRotationPoint(-2.0F, -29.5F, 51.0F);
+        Main39.setRotationPoint(-2.0F, -29.5F, 51);
         gun.addChild(Main39);
         Main39.cubeList.add(new ModelBox(Main39, 78, 0, -2.0F, -9.6F, -69.0F, 2, 1, 28, 0.0F, false));
 
@@ -875,24 +875,24 @@ public class M249Belt extends ModelWithAttachments {
         Main33.cubeList.add(new ModelBox(Main33, 0, 115, -2.0F, -9.601F, -69.0F, 2, 2, 8, 0.0F, false));
 
         Main30 = new ModelRenderer(this);
-        Main30.setRotationPoint(-2.0F, -30.5F, 41.0F);
+        Main30.setRotationPoint(-2.0F, -30.5F, 41);
         gun.addChild(Main30);
         Main30.cubeList.add(new ModelBox(Main30, 159, 256, -2.0F, -9.6F, -69.0F, 1, 2, 34, 0.0F, false));
 
         Grip4 = new ModelRenderer(this);
-        Grip4.setRotationPoint(-1.0F, -17.0F, 55.5F);
+        Grip4.setRotationPoint(-1, -17.0F, 55.5F);
         gun.addChild(Grip4);
         setRotationAngle(Grip4, -0.0744F, 0.0F, 0.0F);
         Grip4.cubeList.add(new ModelBox(Grip4, 103, 85, -2.0F, -4.4476F, -70.5225F, 3, 1, 8, 0.0F, false));
 
         Grip3 = new ModelRenderer(this);
-        Grip3.setRotationPoint(-1.0F, -21.5F, 54.5F);
+        Grip3.setRotationPoint(-1, -21.5F, 54.5F);
         gun.addChild(Grip3);
         setRotationAngle(Grip3, -0.0372F, 0.0F, 0.0F);
         Grip3.cubeList.add(new ModelBox(Grip3, 0, 55, -1.999F, -7.0286F, -69.3092F, 3, 5, 1, 0.0F, false));
 
         Grip2 = new ModelRenderer(this);
-        Grip2.setRotationPoint(-1.5F, -21.0F, 63.0F);
+        Grip2.setRotationPoint(-1.5F, -21, 63.0F);
         gun.addChild(Grip2);
         Grip2.cubeList.add(new ModelBox(Grip2, 34, 86, -2.0F, -9.6F, -69.0F, 4, 1, 10, 0.0F, false));
 
@@ -909,15 +909,15 @@ public class M249Belt extends ModelWithAttachments {
         Main27 = new ModelRenderer(this);
         Main27.setRotationPoint(-3.2F, -29.5F, 40.5F);
         gun.addChild(Main27);
-        Main27.cubeList.add(new ModelBox(Main27, 61, 69, -2.001F, -9.601F, -71.0F, 1, 3, 3, 0.0F, false));
+        Main27.cubeList.add(new ModelBox(Main27, 61, 69, -2.001F, -9.601F, -71, 1, 3, 3, 0.0F, false));
 
         Main26 = new ModelRenderer(this);
-        Main26.setRotationPoint(-3.2F, -27.5F, 41.0F);
+        Main26.setRotationPoint(-3.2F, -27.5F, 41);
         gun.addChild(Main26);
         Main26.cubeList.add(new ModelBox(Main26, 0, 0, -2.0F, -9.6F, -69.0F, 1, 1, 33, 0.0F, false));
 
         Main25 = new ModelRenderer(this);
-        Main25.setRotationPoint(-3.2F, -29.5F, 41.0F);
+        Main25.setRotationPoint(-3.2F, -29.5F, 41);
         gun.addChild(Main25);
         Main25.cubeList.add(new ModelBox(Main25, 0, 34, -2.0F, -9.6F, -69.0F, 1, 1, 33, 0.0F, false));
 
@@ -937,7 +937,7 @@ public class M249Belt extends ModelWithAttachments {
         Main21.cubeList.add(new ModelBox(Main21, 51, 64, -7.0F, -8.6F, -69.0F, 6, 1, 2, 0.0F, false));
 
         Main20 = new ModelRenderer(this);
-        Main20.setRotationPoint(2.5F, -27.0F, 21.0F);
+        Main20.setRotationPoint(2.5F, -27.0F, 21);
         gun.addChild(Main20);
         Main20.cubeList.add(new ModelBox(Main20, 52, 93, -7.0F, -8.6F, -69.0F, 6, 1, 2, 0.0F, false));
 
@@ -947,7 +947,7 @@ public class M249Belt extends ModelWithAttachments {
         Main19.cubeList.add(new ModelBox(Main19, 78, 57, -7.0F, -8.6F, -69.0F, 6, 1, 5, 0.0F, false));
 
         Main18 = new ModelRenderer(this);
-        Main18.setRotationPoint(-3.0F, -29.0F, 41.0F);
+        Main18.setRotationPoint(-3.0F, -29.0F, 41);
         gun.addChild(Main18);
         Main18.cubeList.add(new ModelBox(Main18, 185, 0, -2.0F, -9.6F, -69.0F, 1, 2, 37, 0.0F, false));
 
@@ -959,7 +959,7 @@ public class M249Belt extends ModelWithAttachments {
         Main16 = new ModelRenderer(this);
         Main16.setRotationPoint(-2.5F, -27.0F, 49.0F);
         gun.addChild(Main16);
-        Main16.cubeList.add(new ModelBox(Main16, 207, 193, -2.0F, -9.6F, -81.0F, 1, 4, 40, 0.0F, false));
+        Main16.cubeList.add(new ModelBox(Main16, 207, 193, -2.0F, -9.6F, -81, 1, 4, 40, 0.0F, false));
 
         Main9 = new ModelRenderer(this);
         Main9.setRotationPoint(-2.5F, -27.0F, 9.0F);
@@ -972,7 +972,7 @@ public class M249Belt extends ModelWithAttachments {
         Main7.cubeList.add(new ModelBox(Main7, 35, 51, -2.0F, -9.6F, -68.999F, 1, 2, 4, 0.0F, false));
 
         Main6 = new ModelRenderer(this);
-        Main6.setRotationPoint(2.3F, -30.5F, 51.0F);
+        Main6.setRotationPoint(2.3F, -30.5F, 51);
         gun.addChild(Main6);
         Main6.cubeList.add(new ModelBox(Main6, 0, 167, -2.0F, -9.6F, -69.0F, 1, 2, 25, 0.0F, false));
         Main6.cubeList.add(new ModelBox(Main6, 0, 140, -2.0F, -10.7F, -69.0F, 1, 2, 25, -0.3F, false));
@@ -1002,12 +1002,12 @@ public class M249Belt extends ModelWithAttachments {
         Main1.cubeList.add(new ModelBox(Main1, 0, 69, -2.0F, -9.6F, -69.0F, 1, 2, 69, 0.0F, false));
 
         Barrel4 = new ModelRenderer(this);
-        Barrel4.setRotationPoint(-1.0F, -28.0F, -25.0F);
+        Barrel4.setRotationPoint(-1, -28.0F, -25.0F);
         gun.addChild(Barrel4);
         Barrel4.cubeList.add(new ModelBox(Barrel4, 201, 1, -2.0F, -10.9F, -69.0F, 1, 1, 63, 0.0F, false));
 
         Barrel3 = new ModelRenderer(this);
-        Barrel3.setRotationPoint(1.0F, -28.0F, -25.0F);
+        Barrel3.setRotationPoint(1, -28.0F, -25.0F);
         gun.addChild(Barrel3);
         Barrel3.cubeList.add(new ModelBox(Barrel3, 0, 204, -2.0F, -10.9F, -69.0F, 1, 1, 63, 0.0F, false));
 
@@ -1047,7 +1047,7 @@ public class M249Belt extends ModelWithAttachments {
         IronSight2.cubeList.add(new ModelBox(IronSight2, 39, 40, -2.0F, -9.6F, -69.0F, 1, 1, 1, 0.0F, false));
 
         IronSight1 = new ModelRenderer(this);
-        IronSight1.setRotationPoint(0.0F, -35.0F, 1.0F);
+        IronSight1.setRotationPoint(0.0F, -35.0F, 1);
         ironsight.addChild(IronSight1);
         IronSight1.cubeList.add(new ModelBox(IronSight1, 52, 69, -2.0F, -9.6F, -69.0F, 1, 6, 1, 0.0F, false));
 
@@ -1157,7 +1157,7 @@ public class M249Belt extends ModelWithAttachments {
 
 
         Hatch39 = new ModelRenderer(this);
-        Hatch39.setRotationPoint(4.0F, -34.0F, 51.0F);
+        Hatch39.setRotationPoint(4.0F, -34.0F, 51);
         hatch.addChild(Hatch39);
         setRotationAngle(Hatch39, 0.0F, -1.8218F, 0.0F);
         Hatch39.cubeList.add(new ModelBox(Hatch39, 130, 66, -66.342F, -9.599F, 19.0721F, 5, 1, 1, 0.0F, false));
@@ -1213,7 +1213,7 @@ public class M249Belt extends ModelWithAttachments {
         Hatch30.cubeList.add(new ModelBox(Hatch30, 109, 29, -2.0F, -9.6F, -69.0F, 1, 1, 2, 0.0F, false));
 
         Hatch29 = new ModelRenderer(this);
-        Hatch29.setRotationPoint(-2.7F, -31.0F, 55.0F);
+        Hatch29.setRotationPoint(-2.7F, -31, 55.0F);
         hatch.addChild(Hatch29);
         setRotationAngle(Hatch29, 0.0372F, 0.0F, 0.0F);
         Hatch29.cubeList.add(new ModelBox(Hatch29, 24, 268, -2.0F, -13.1581F, -68.5955F, 1, 2, 20, 0.0F, false));
@@ -1254,7 +1254,7 @@ public class M249Belt extends ModelWithAttachments {
         Hatch23.cubeList.add(new ModelBox(Hatch23, 43, 131, -2.0F, -55.5786F, -42.0021F, 5, 1, 1, 0.0F, false));
 
         Hatch22 = new ModelRenderer(this);
-        Hatch22.setRotationPoint(-2.0F, -31.5F, 41.0F);
+        Hatch22.setRotationPoint(-2.0F, -31.5F, 41);
         hatch.addChild(Hatch22);
         Hatch22.cubeList.add(new ModelBox(Hatch22, 35, 12, -2.0F, -9.6F, -69.0F, 5, 1, 2, 0.0F, false));
 
@@ -1269,22 +1269,22 @@ public class M249Belt extends ModelWithAttachments {
         Hatch20.cubeList.add(new ModelBox(Hatch20, 71, 119, -1.998F, -9.6F, -69.0F, 5, 1, 4, 0.0F, false));
 
         Hatch19 = new ModelRenderer(this);
-        Hatch19.setRotationPoint(-0.9F, -34.4F, 41.0F);
+        Hatch19.setRotationPoint(-0.9F, -34.4F, 41);
         hatch.addChild(Hatch19);
         Hatch19.cubeList.add(new ModelBox(Hatch19, 71, 98, -2.0F, -9.6F, -68.999F, 1, 1, 27, 0.0F, false));
 
         Hatch18 = new ModelRenderer(this);
-        Hatch18.setRotationPoint(0.9F, -34.4F, 41.0F);
+        Hatch18.setRotationPoint(0.9F, -34.4F, 41);
         hatch.addChild(Hatch18);
         Hatch18.cubeList.add(new ModelBox(Hatch18, 0, 103, -2.0F, -9.6F, -68.999F, 1, 1, 27, 0.0F, false));
 
         Hatch17 = new ModelRenderer(this);
-        Hatch17.setRotationPoint(0.8F, -35.0F, 41.0F);
+        Hatch17.setRotationPoint(0.8F, -35.0F, 41);
         hatch.addChild(Hatch17);
         Hatch17.cubeList.add(new ModelBox(Hatch17, 136, 64, -2.0F, -9.601F, -69.001F, 1, 1, 27, 0.0F, false));
 
         Hatch16 = new ModelRenderer(this);
-        Hatch16.setRotationPoint(-0.8F, -35.0F, 41.0F);
+        Hatch16.setRotationPoint(-0.8F, -35.0F, 41);
         hatch.addChild(Hatch16);
         Hatch16.cubeList.add(new ModelBox(Hatch16, 78, 29, -2.0F, -9.6F, -69.0F, 2, 1, 27, 0.0F, false));
 
@@ -1330,7 +1330,7 @@ public class M249Belt extends ModelWithAttachments {
         Hatch9.cubeList.add(new ModelBox(Hatch9, 0, 94, 66.3019F, -9.601F, -15.3446F, 4, 3, 1, 0.0F, false));
 
         Hatch8 = new ModelRenderer(this);
-        Hatch8.setRotationPoint(-2.5F, -33.5F, 51.0F);
+        Hatch8.setRotationPoint(-2.5F, -33.5F, 51);
         hatch.addChild(Hatch8);
         Hatch8.cubeList.add(new ModelBox(Hatch8, 136, 92, -2.0F, -9.6F, -69.999F, 1, 3, 25, 0.0F, false));
 
@@ -1362,7 +1362,7 @@ public class M249Belt extends ModelWithAttachments {
         Hatch2.cubeList.add(new ModelBox(Hatch2, 234, 237, -2.001F, -9.6F, -69.0F, 5, 1, 36, 0.0F, false));
 
         Hatch1 = new ModelRenderer(this);
-        Hatch1.setRotationPoint(2.5F, -33.5F, 51.0F);
+        Hatch1.setRotationPoint(2.5F, -33.5F, 51);
         hatch.addChild(Hatch1);
         Hatch1.cubeList.add(new ModelBox(Hatch1, 65, 204, -2.0F, -9.6F, -69.0F, 1, 3, 24, 0.0F, false));
 
@@ -1401,7 +1401,7 @@ public class M249Belt extends ModelWithAttachments {
         Stock8.cubeList.add(new ModelBox(Stock8, 52, 86, -2.001F, 59.1528F, -36.7982F, 6, 5, 2, 0.0F, false));
 
         Stock7 = new ModelRenderer(this);
-        Stock7.setRotationPoint(-1.5F, -31.0F, 79.0F);
+        Stock7.setRotationPoint(-1.5F, -31, 79.0F);
         stock.addChild(Stock7);
         setRotationAngle(Stock7, -0.1745F, 0.0F, 0.0F);
         Stock7.cubeList.add(new ModelBox(Stock7, 35, 16, -1.999F, 3.5276F, -63.6188F, 4, 1, 12, 0.0F, false));
@@ -1413,7 +1413,7 @@ public class M249Belt extends ModelWithAttachments {
         Stock6.cubeList.add(new ModelBox(Stock6, 29, 103, -2.0F, -67.6599F, 16.5923F, 6, 10, 3, 0.0F, false));
 
         Stock5 = new ModelRenderer(this);
-        Stock5.setRotationPoint(-2.5F, -31.0F, 81.0F);
+        Stock5.setRotationPoint(-2.5F, -31, 81);
         stock.addChild(Stock5);
         setRotationAngle(Stock5, -0.6002F, 0.0F, 0.0F);
         Stock5.cubeList.add(new ModelBox(Stock5, 78, 42, -2.0F, 31.0513F, -63.3616F, 6, 3, 7, 0.0F, false));
@@ -1435,13 +1435,13 @@ public class M249Belt extends ModelWithAttachments {
         Stock2.cubeList.add(new ModelBox(Stock2, 154, 232, -1.999F, 3.5276F, -69.6188F, 6, 5, 17, 0.0F, false));
 
         Stock1 = new ModelRenderer(this);
-        Stock1.setRotationPoint(-1.5F, -32.0F, 81.0F);
+        Stock1.setRotationPoint(-1.5F, -32.0F, 81);
         stock.addChild(Stock1);
         setRotationAngle(Stock1, -0.6002F, 0.0F, 0.0F);
         Stock1.cubeList.add(new ModelBox(Stock1, 111, 115, -2.0F, 31.0513F, -62.3616F, 4, 3, 6, 0.0F, false));
 
         mk48para_stock = new ModelRenderer(this);
-        mk48para_stock.setRotationPoint(3.0F, 4.25F, 81.0F);
+        mk48para_stock.setRotationPoint(3.0F, 4.25F, 81);
         mk48para_stock.cubeList.add(new ModelBox(mk48para_stock, 0, 55, -7.499F, -16.85F, -69.0F, 6, 3, 8, 0.0F, false));
         mk48para_stock.cubeList.add(new ModelBox(mk48para_stock, 78, 0, -5.499F, -20.85F, -69.002F, 2, 11, 8, 0.0F, false));
         mk48para_stock.cubeList.add(new ModelBox(mk48para_stock, 207, 129, -5.499F, -20.35F, -61.002F, 2, 2, 23, 0.0F, false));
@@ -1452,7 +1452,7 @@ public class M249Belt extends ModelWithAttachments {
         cube_r1.setRotationPoint(-2.0F, -9.8F, -70.9F);
         mk48para_stock.addChild(cube_r1);
         setRotationAngle(cube_r1, -0.9076F, 0.0F, 0.0F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 34, 97, -4.999F, -1.0F, -3.0F, 5, 1, 3, 0.0F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 34, 97, -4.999F, -1, -3.0F, 5, 1, 3, 0.0F, false));
 
         cube_r2 = new ModelRenderer(this);
         cube_r2.setRotationPoint(-2.0F, -9.6F, -70.0F);
@@ -1460,8 +1460,8 @@ public class M249Belt extends ModelWithAttachments {
         setRotationAngle(cube_r2, -0.0349F, 0.0F, 0.0F);
         cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 103, -4.499F, -12.0F, 0.0F, 4, 1, 1, 0.0F, false));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 118, 98, -4.998F, -10.8F, -2.0F, 5, 9, 1, 0.0F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 93, 29, -4.998F, -11.0F, -1.0F, 5, 10, 1, 0.0F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 52, 0, -4.999F, -11.0F, 0.0F, 5, 11, 1, 0.0F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 93, 29, -4.998F, -11, -1, 5, 10, 1, 0.0F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 52, 0, -4.999F, -11, 0.0F, 5, 11, 1, 0.0F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(-7.5F, -13.85F, -69.0F);
@@ -1528,17 +1528,17 @@ public class M249Belt extends ModelWithAttachments {
         cube_r13.setRotationPoint(-2.0F, -9.6F, -70.0F);
         mk48para_stock.addChild(cube_r13);
         setRotationAngle(cube_r13, -0.2269F, 0.0F, 0.0F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 130, 64, -5.0F, -1.0F, -1.0F, 5, 1, 1, 0.0F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 130, 64, -5.0F, -1, -1, 5, 1, 1, 0.0F, false));
 
         stockadapter = new ModelRenderer(this);
-        stockadapter.setRotationPoint(3.0F, 4.25F, 81.0F);
+        stockadapter.setRotationPoint(3.0F, 4.25F, 81);
 
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(-2.0F, -9.8F, -70.9F);
         stockadapter.addChild(cube_r14);
         setRotationAngle(cube_r14, -0.9076F, 0.0F, 0.0F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 29, -4.999F, -1.0F, -3.0F, 5, 1, 3, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 29, -4.999F, -1, -3.0F, 5, 1, 3, 0.0F, false));
 
         cube_r15 = new ModelRenderer(this);
         cube_r15.setRotationPoint(-2.0F, -9.6F, -70.0F);
@@ -1546,69 +1546,69 @@ public class M249Belt extends ModelWithAttachments {
         setRotationAngle(cube_r15, -0.0349F, 0.0F, 0.0F);
         cube_r15.cubeList.add(new ModelBox(cube_r15, 87, 101, -4.499F, -12.0F, 0.0F, 4, 1, 1, 0.0F, false));
         cube_r15.cubeList.add(new ModelBox(cube_r15, 12, 103, -4.998F, -10.8F, -2.0F, 5, 9, 1, 0.0F, false));
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 55, 16, -4.998F, -11.0F, -1.0F, 5, 10, 1, 0.0F, false));
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 35, 16, -4.999F, -11.0F, 0.0F, 5, 11, 1, 0.0F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 55, 16, -4.998F, -11, -1, 5, 10, 1, 0.0F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 35, 16, -4.999F, -11, 0.0F, 5, 11, 1, 0.0F, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(-2.0F, -9.6F, -70.0F);
         stockadapter.addChild(cube_r16);
         setRotationAngle(cube_r16, -0.2269F, 0.0F, 0.0F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 121, 29, -5.0F, -1.0F, -1.0F, 5, 1, 1, 0.0F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 121, 29, -5.0F, -1, -1, 5, 1, 1, 0.0F, false));
 
         upperhandguard = new ModelRenderer(this);
         upperhandguard.setRotationPoint(0.0F, 23.0F, 0.0F);
 
 
         Main153 = new ModelRenderer(this);
-        Main153.setRotationPoint(-1.0F, -32.0F, 30.0F);
+        Main153.setRotationPoint(-1, -32.0F, 30.0F);
         upperhandguard.addChild(Main153);
         setRotationAngle(Main153, 0.0F, 0.0F, 0.9948F);
         Main153.cubeList.add(new ModelBox(Main153, 78, 29, -9.1405F, -2.5512F, -69.0F, 1, 1, 4, 0.0F, false));
 
         Main152 = new ModelRenderer(this);
-        Main152.setRotationPoint(-1.0F, -32.0F, 28.0F);
+        Main152.setRotationPoint(-1, -32.0F, 28.0F);
         upperhandguard.addChild(Main152);
         setRotationAngle(Main152, 0.0F, 0.0F, 0.9948F);
         Main152.cubeList.add(new ModelBox(Main152, 58, 40, -9.1405F, -2.5512F, -69.0F, 1, 1, 1, 0.0F, false));
 
         Main151 = new ModelRenderer(this);
-        Main151.setRotationPoint(-1.0F, -32.0F, 26.0F);
+        Main151.setRotationPoint(-1, -32.0F, 26.0F);
         upperhandguard.addChild(Main151);
         setRotationAngle(Main151, 0.0F, 0.0F, 0.9948F);
         Main151.cubeList.add(new ModelBox(Main151, 75, 74, -9.1405F, -2.5512F, -69.0F, 1, 1, 1, 0.0F, false));
 
         Main150 = new ModelRenderer(this);
-        Main150.setRotationPoint(-1.0F, -32.0F, 24.0F);
+        Main150.setRotationPoint(-1, -32.0F, 24.0F);
         upperhandguard.addChild(Main150);
         setRotationAngle(Main150, 0.0F, 0.0F, 0.9948F);
         Main150.cubeList.add(new ModelBox(Main150, 82, 5, -9.1405F, -2.5512F, -69.0F, 1, 1, 1, 0.0F, false));
 
         Main149 = new ModelRenderer(this);
-        Main149.setRotationPoint(-1.0F, -32.0F, 21.0F);
+        Main149.setRotationPoint(-1, -32.0F, 21);
         upperhandguard.addChild(Main149);
         setRotationAngle(Main149, 0.0F, 0.0F, 0.9948F);
         Main149.cubeList.add(new ModelBox(Main149, 103, 69, -9.1405F, -2.5512F, -69.0F, 1, 1, 2, 0.0F, false));
 
         Main148 = new ModelRenderer(this);
-        Main148.setRotationPoint(-1.0F, -32.0F, 19.0F);
+        Main148.setRotationPoint(-1, -32.0F, 19.0F);
         upperhandguard.addChild(Main148);
         setRotationAngle(Main148, 0.0F, 0.0F, 0.9948F);
         Main148.cubeList.add(new ModelBox(Main148, 43, 82, -9.1405F, -2.5512F, -69.0F, 1, 1, 1, 0.0F, false));
 
         Main147 = new ModelRenderer(this);
-        Main147.setRotationPoint(-1.0F, -32.0F, 17.0F);
+        Main147.setRotationPoint(-1, -32.0F, 17.0F);
         upperhandguard.addChild(Main147);
         setRotationAngle(Main147, 0.0F, 0.0F, 0.9948F);
         Main147.cubeList.add(new ModelBox(Main147, 61, 82, -9.1405F, -2.5512F, -69.0F, 1, 1, 1, 0.0F, false));
 
         Main146 = new ModelRenderer(this);
-        Main146.setRotationPoint(-1.0F, -32.0F, 15.0F);
+        Main146.setRotationPoint(-1, -32.0F, 15.0F);
         upperhandguard.addChild(Main146);
         setRotationAngle(Main146, 0.0F, 0.0F, 0.9948F);
         Main146.cubeList.add(new ModelBox(Main146, 65, 82, -9.1405F, -2.5512F, -69.0F, 1, 1, 1, 0.0F, false));
 
         Main145 = new ModelRenderer(this);
-        Main145.setRotationPoint(-1.0F, -32.0F, 12.0F);
+        Main145.setRotationPoint(-1, -32.0F, 12.0F);
         upperhandguard.addChild(Main145);
         setRotationAngle(Main145, 0.0F, 0.0F, 0.9948F);
         Main145.cubeList.add(new ModelBox(Main145, 103, 72, -9.1405F, -2.5512F, -68.999F, 1, 1, 2, 0.0F, false));
@@ -1638,7 +1638,7 @@ public class M249Belt extends ModelWithAttachments {
         Main141.cubeList.add(new ModelBox(Main141, 83, 90, 6.962F, -5.9059F, -69.0F, 1, 1, 1, 0.0F, false));
 
         Main140 = new ModelRenderer(this);
-        Main140.setRotationPoint(1.5F, -31.2F, 21.0F);
+        Main140.setRotationPoint(1.5F, -31.2F, 21);
         upperhandguard.addChild(Main140);
         setRotationAngle(Main140, 0.0F, 0.0F, -0.9948F);
         Main140.cubeList.add(new ModelBox(Main140, 92, 103, 6.962F, -5.9059F, -69.0F, 1, 1, 2, 0.0F, false));
@@ -1674,7 +1674,7 @@ public class M249Belt extends ModelWithAttachments {
         Main97.cubeList.add(new ModelBox(Main97, 130, 232, 0.8942F, -9.8653F, -69.001F, 1, 1, 22, 0.0F, false));
 
         Main98 = new ModelRenderer(this);
-        Main98.setRotationPoint(-2.0F, -31.0F, 33.0F);
+        Main98.setRotationPoint(-2.0F, -31, 33.0F);
         upperhandguard.addChild(Main98);
         Main98.cubeList.add(new ModelBox(Main98, 12, 127, -2.0F, -9.6F, -68.999F, 5, 2, 1, 0.0F, false));
 
@@ -1685,23 +1685,23 @@ public class M249Belt extends ModelWithAttachments {
         Main96.cubeList.add(new ModelBox(Main96, 266, 0, 6.962F, -6.9059F, -69.001F, 1, 1, 22, 0.0F, false));
 
         Main95 = new ModelRenderer(this);
-        Main95.setRotationPoint(-2.0F, -31.0F, 12.0F);
+        Main95.setRotationPoint(-2.0F, -31, 12.0F);
         upperhandguard.addChild(Main95);
         Main95.cubeList.add(new ModelBox(Main95, 104, 133, -2.0F, -9.6F, -69.0F, 5, 1, 1, 0.0F, false));
 
         Main56 = new ModelRenderer(this);
-        Main56.setRotationPoint(-1.0F, -32.0F, 12.0F);
+        Main56.setRotationPoint(-1, -32.0F, 12.0F);
         upperhandguard.addChild(Main56);
         Main56.cubeList.add(new ModelBox(Main56, 0, 231, -2.0F, -9.6F, -68.999F, 3, 1, 22, 0.0F, false));
 
         Main55 = new ModelRenderer(this);
-        Main55.setRotationPoint(-1.0F, -32.0F, 12.0F);
+        Main55.setRotationPoint(-1, -32.0F, 12.0F);
         upperhandguard.addChild(Main55);
         setRotationAngle(Main55, 0.0F, 0.0F, 0.9948F);
         Main55.cubeList.add(new ModelBox(Main55, 266, 23, -9.1405F, -3.5512F, -69.001F, 1, 1, 22, 0.0F, false));
 
         Main54 = new ModelRenderer(this);
-        Main54.setRotationPoint(-2.6F, -31.0F, 12.0F);
+        Main54.setRotationPoint(-2.6F, -31, 12.0F);
         upperhandguard.addChild(Main54);
         setRotationAngle(Main54, 0.0F, 0.0F, 0.3665F);
         Main54.cubeList.add(new ModelBox(Main54, 0, 268, -5.3075F, -8.1456F, -69.001F, 1, 1, 22, 0.0F, false));
@@ -1770,12 +1770,12 @@ public class M249Belt extends ModelWithAttachments {
         setRotationAngle(Main12_r1, 0.0F, 0.0F, -0.5585F);
         Main12_r1.cubeList.add(new ModelBox(Main12_r1, 169, 133, -0.799F, -3.2F, 1.001F, 1, 1, 16, -0.2F, false));
         Main12_r1.cubeList.add(new ModelBox(Main12_r1, 169, 160, -0.799F, -0.8F, 1.001F, 1, 1, 16, -0.2F, false));
-        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 0, 69, -1.0F, -3.0F, 16.001F, 1, 3, 2, 0.0F, false));
-        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 110, 106, -1.0F, -3.0F, 13.001F, 1, 3, 1, 0.0F, false));
-        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 94, 111, -1.0F, -3.0F, 7.001F, 1, 3, 1, 0.0F, false));
-        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 110, 102, -1.0F, -3.0F, 10.001F, 1, 3, 1, 0.0F, false));
-        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 23, 112, -1.0F, -3.0F, 4.001F, 1, 3, 1, 0.0F, false));
-        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 43, 69, -1.0F, -3.0F, 0.001F, 1, 3, 2, 0.0F, false));
+        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 0, 69, -1, -3.0F, 16.001F, 1, 3, 2, 0.0F, false));
+        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 110, 106, -1, -3.0F, 13.001F, 1, 3, 1, 0.0F, false));
+        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 94, 111, -1, -3.0F, 7.001F, 1, 3, 1, 0.0F, false));
+        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 110, 102, -1, -3.0F, 10.001F, 1, 3, 1, 0.0F, false));
+        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 23, 112, -1, -3.0F, 4.001F, 1, 3, 1, 0.0F, false));
+        Main12_r1.cubeList.add(new ModelBox(Main12_r1, 43, 69, -1, -3.0F, 0.001F, 1, 3, 2, 0.0F, false));
 
         lowerhandguard = new ModelRenderer(this);
         lowerhandguard.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -1927,13 +1927,13 @@ public class M249Belt extends ModelWithAttachments {
         Main14_r1.cubeList.add(new ModelBox(Main14_r1, 65, 158, -0.799F, 2.2F, 0.0F, 1, 1, 17, -0.2F, false));
         Main14_r1.cubeList.add(new ModelBox(Main14_r1, 103, 158, -0.799F, -0.2F, 0.0F, 1, 1, 17, -0.2F, false));
         Main14_r1.cubeList.add(new ModelBox(Main14_r1, 84, 29, -1.001F, 0.0F, 16.5F, 1, 3, 1, 0.0F, false));
-        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 34, 86, -1.0F, 0.0F, 16.0F, 1, 3, 1, 0.0F, false));
-        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 71, 86, -1.0F, 0.0F, 10.5F, 1, 3, 1, 0.0F, false));
-        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 77, 86, -1.0F, 0.0F, 5.0F, 1, 3, 1, 0.0F, false));
-        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 84, 34, -1.0F, 0.0F, 13.25F, 1, 3, 1, 0.0F, false));
-        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 40, 86, -1.0F, 0.0F, 7.75F, 1, 3, 1, 0.0F, false));
-        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 65, 102, -1.0F, 0.0F, 2.25F, 1, 3, 1, 0.0F, false));
-        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 6, 109, -1.0F, 0.0F, -0.5F, 1, 3, 1, 0.0F, false));
+        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 34, 86, -1, 0.0F, 16.0F, 1, 3, 1, 0.0F, false));
+        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 71, 86, -1, 0.0F, 10.5F, 1, 3, 1, 0.0F, false));
+        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 77, 86, -1, 0.0F, 5.0F, 1, 3, 1, 0.0F, false));
+        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 84, 34, -1, 0.0F, 13.25F, 1, 3, 1, 0.0F, false));
+        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 40, 86, -1, 0.0F, 7.75F, 1, 3, 1, 0.0F, false));
+        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 65, 102, -1, 0.0F, 2.25F, 1, 3, 1, 0.0F, false));
+        Main14_r1.cubeList.add(new ModelBox(Main14_r1, 6, 109, -1, 0.0F, -0.5F, 1, 3, 1, 0.0F, false));
 
         action = new ModelRenderer(this);
         action.setRotationPoint(0.0F, 24.0F, -3.0F);

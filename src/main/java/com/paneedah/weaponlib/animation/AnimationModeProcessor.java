@@ -444,7 +444,7 @@ public class AnimationModeProcessor {
 
         bb.pos(0, 0, -1).endVertex();
         bb.pos(0, 0, 1).endVertex();
-        GlStateManager.color(1.0f, 1f, 1f);
+        GlStateManager.color(1, 1f, 1f);
         GlStateManager.enableTexture2D();
         //DebugRenderer.destructBasicRender();
         t.draw();
@@ -598,7 +598,7 @@ public class AnimationModeProcessor {
         float b = c.getBlue() / 255f;
         float g = c.getGreen() / 255f;
 
-        float al = 1.0f;
+        float al = 1;
         if (!held) {
             al = 0.5f;
         }
@@ -635,7 +635,7 @@ public class AnimationModeProcessor {
         float b = c.getBlue() / 255f;
         float g = c.getGreen() / 255f;
 
-        float al = 1.0f;
+        float al = 1;
         if (!held) {
             al = 0.5f;
         }
@@ -758,7 +758,7 @@ public class AnimationModeProcessor {
         float b = c.getBlue() / 255f;
         float g = c.getGreen() / 255f;
 
-        float al = 1.0f;
+        float al = 1;
         if (!held) {
             al = 0.5f;
         }
@@ -843,7 +843,7 @@ public class AnimationModeProcessor {
          * GL11.GL_NICEST);
          * System.out.println(GL11.glGetInteger(GL13.GL_SAMPLE_BUFFERS));
          */
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
         Tessellator t = Tessellator.getInstance();
         BufferBuilder bb = t.getBuffer();
         double endAng = 0;

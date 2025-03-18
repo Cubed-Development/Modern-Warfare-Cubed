@@ -60,7 +60,7 @@ public class Ghillie extends ModelBiped {
         head_r1.setRotationPoint(5.4F, -3.8F, -3.6F);
         hood.addChild(head_r1);
         setRotationAngle(head_r1, 0.0162F, -0.05F, 0.0861F);
-        head_r1.cubeList.add(new ModelBox(head_r1, 46, 0, -1.0F, 0.0F, 0.0F, 1, 4, 8, 0.0F, false));
+        head_r1.cubeList.add(new ModelBox(head_r1, 46, 0, -1, 0.0F, 0.0F, 1, 4, 8, 0.0F, false));
 
         head_r2 = new ModelRenderer(this);
         head_r2.setRotationPoint(-5.4F, -3.8F, -3.6F);
@@ -120,12 +120,12 @@ public class Ghillie extends ModelBiped {
         head_r11.setRotationPoint(4.2F, -8.0F, -4.9F);
         hood.addChild(head_r11);
         setRotationAngle(head_r11, 0.0847F, -0.0196F, -0.2641F);
-        head_r11.cubeList.add(new ModelBox(head_r11, 35, 35, -1.0F, 0.0F, 0.0F, 1, 5, 9, 0.0F, false));
+        head_r11.cubeList.add(new ModelBox(head_r11, 35, 35, -1, 0.0F, 0.0F, 1, 5, 9, 0.0F, false));
 
         torso = new ModelRenderer(this);
         torso.setRotationPoint(0.0F, 0.0F, 0.0F);
         torso.cubeList.add(new ModelBox(torso, 0, 26, -4.0F, 0.0F, -2.0F, 8, 12, 4, 0.14F, false));
-        torso.cubeList.add(new ModelBox(torso, 26, 10, -3.5F, 2.0F, -1.0F, 7, 7, 4, 0.0F, false));
+        torso.cubeList.add(new ModelBox(torso, 26, 10, -3.5F, 2.0F, -1, 7, 7, 4, 0.0F, false));
         torso.cubeList.add(new ModelBox(torso, 46, 27, -4.0F, 9.25F, -2.0F, 8, 1, 4, 0.3F, false));
 
         body_r1 = new ModelRenderer(this);
@@ -144,13 +144,13 @@ public class Ghillie extends ModelBiped {
         body_r3.setRotationPoint(-3.5F, 2.0F, -3.0F);
         torso.addChild(body_r3);
         setRotationAngle(body_r3, -0.2443F, 0.0F, 0.0F);
-        body_r3.cubeList.add(new ModelBox(body_r3, 34, 23, 0.0F, -2.0F, 1.0F, 2, 2, 0, -0.01F, false));
-        body_r3.cubeList.add(new ModelBox(body_r3, 40, 23, 5.0F, -2.0F, 1.0F, 2, 2, 0, -0.01F, false));
+        body_r3.cubeList.add(new ModelBox(body_r3, 34, 23, 0.0F, -2.0F, 1, 2, 2, 0, -0.01F, false));
+        body_r3.cubeList.add(new ModelBox(body_r3, 40, 23, 5.0F, -2.0F, 1, 2, 2, 0, -0.01F, false));
 
         leftarm_ghillie = new ModelRenderer(this);
         leftarm_ghillie.setRotationPoint(0.0F, 0.0F, 0.0F);
-        leftarm_ghillie.cubeList.add(new ModelBox(leftarm_ghillie, 48, 49, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
-        leftarm_ghillie.cubeList.add(new ModelBox(leftarm_ghillie, 60, 8, -1.0F, -2.0F, -2.0F, 4, 9, 4, 0.1F, false));
+        leftarm_ghillie.cubeList.add(new ModelBox(leftarm_ghillie, 48, 49, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm_ghillie.cubeList.add(new ModelBox(leftarm_ghillie, 60, 8, -1, -2.0F, -2.0F, 4, 9, 4, 0.1F, false));
 
         leftarm_r1 = new ModelRenderer(this);
         leftarm_r1.setRotationPoint(4.6F, 6.4F, 0.1F);
@@ -235,7 +235,7 @@ public class Ghillie extends ModelBiped {
 
         bipedLeftArm = new ModelRenderer(this);
         bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 99, 24, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 99, 24, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 //
         bipedRightLeg = new ModelRenderer(this);
         bipedRightLeg.setRotationPoint(-2.0F, 12.0F, 0.0F);

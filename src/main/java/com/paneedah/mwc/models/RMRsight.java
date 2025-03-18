@@ -82,7 +82,7 @@ public class RMRsight extends ModelBase {
         sight23_r1.setRotationPoint(-14.7326F, -29.6897F, 5.4192F);
         Sight.addChild(sight23_r1);
         setRotationAngle(sight23_r1, 0.0F, 0.0F, 2.6397F);
-        sight23_r1.cubeList.add(new ModelBox(sight23_r1, 58, 1, 1.0F, -30.0F, -9.6F, 3, 1, 5, 0.0F, false));
+        sight23_r1.cubeList.add(new ModelBox(sight23_r1, 58, 1, 1, -30.0F, -9.6F, 3, 1, 5, 0.0F, false));
 
         sight22_r1 = new ModelRenderer(this);
         sight22_r1.setRotationPoint(7.7995F, -34.4314F, 5.4192F);

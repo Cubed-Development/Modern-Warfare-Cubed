@@ -33,7 +33,7 @@ public class MP43Edoublebarrel extends ModelBase {
 
         Barrel1 = new ModelRenderer(this);
         Barrel1.setRotationPoint(-1.5F, -8.0F, -77.0F);
-        Barrel1.cubeList.add(new ModelBox(Barrel1, 0, 0, 0.0F, 1.0F, 0.0F, 1, 2, 79, 0.0F, false));
+        Barrel1.cubeList.add(new ModelBox(Barrel1, 0, 0, 0.0F, 1, 0.0F, 1, 2, 79, 0.0F, false));
 
         Barrel4 = new ModelRenderer(this);
         Barrel4.setRotationPoint(-3.0F, -3.0F, -6.0F);
@@ -41,7 +41,7 @@ public class MP43Edoublebarrel extends ModelBase {
         Barrel4.cubeList.add(new ModelBox(Barrel4, 0, 0, -0.001F, 0.0F, 0.0F, 4, 1, 4, 0.0F, false));
 
         Barrel5 = new ModelRenderer(this);
-        Barrel5.setRotationPoint(1.0F, -4.8F, -5.9F);
+        Barrel5.setRotationPoint(1, -4.8F, -5.9F);
         setRotationAngle(Barrel5, 0.0F, -1.7474F, 0.0F);
         Barrel5.cubeList.add(new ModelBox(Barrel5, 12, 0, 0.0F, 0.0F, 0.0F, 2, 3, 1, 0.0F, false));
 
@@ -56,7 +56,7 @@ public class MP43Edoublebarrel extends ModelBase {
         Barrel7.cubeList.add(new ModelBox(Barrel7, 0, 81, 0.001F, 0.0F, 0.0F, 4, 1, 22, 0.0F, false));
 
         Barrel8 = new ModelRenderer(this);
-        Barrel8.setRotationPoint(1.0F, -4.8F, -30.9F);
+        Barrel8.setRotationPoint(1, -4.8F, -30.9F);
         setRotationAngle(Barrel8, 0.0F, 0.0F, 2.3562F);
         Barrel8.cubeList.add(new ModelBox(Barrel8, 27, 53, 0.0F, 0.0F, 0.0F, 1, 1, 25, 0.0F, false));
 
@@ -104,18 +104,18 @@ public class MP43Edoublebarrel extends ModelBase {
         Barrel25.cubeList.add(new ModelBox(Barrel25, 243, 161, 0.0F, 0.0F, 0.0F, 1, 1, 79, 0.0F, false));
         Barrel25.cubeList.add(new ModelBox(Barrel25, 243, 81, 0.0F, 2.0F, 0.0F, 1, 1, 79, 0.0F, false));
         Barrel25.cubeList.add(new ModelBox(Barrel25, 243, 1, 2.0F, 2.0F, 0.0F, 1, 1, 79, 0.0F, false));
-        Barrel25.cubeList.add(new ModelBox(Barrel25, 243, 243, -1.0F, 1.0F, 0.0F, 1, 1, 79, 0.0F, false));
-        Barrel25.cubeList.add(new ModelBox(Barrel25, 162, 320, 3.0F, 1.0F, 0.0F, 1, 1, 79, 0.0F, false));
+        Barrel25.cubeList.add(new ModelBox(Barrel25, 243, 243, -1, 1, 0.0F, 1, 1, 79, 0.0F, false));
+        Barrel25.cubeList.add(new ModelBox(Barrel25, 162, 320, 3.0F, 1, 0.0F, 1, 1, 79, 0.0F, false));
         Barrel25.cubeList.add(new ModelBox(Barrel25, 81, 322, 2.0F, 0.0F, 0.0F, 1, 1, 79, 0.0F, false));
         Barrel25.cubeList.add(new ModelBox(Barrel25, 0, 26, -0.5F, 2.8F, 46.1F, 4, 1, 25, 0.0F, false));
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(-0.5F, -7.9F, 1.0F);
+        bone.setRotationPoint(-0.5F, -7.9F, 1);
         setRotationAngle(bone, 0.0F, 0.0F, -0.1745F);
         bone.cubeList.add(new ModelBox(bone, 81, 2, -0.9609F, -0.0921F, -78.001F, 1, 1, 79, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(-1.5F, -7.9F, 1.0F);
+        bone2.setRotationPoint(-1.5F, -7.9F, 1);
         setRotationAngle(bone2, 0.0F, 0.0F, 0.1745F);
         bone2.cubeList.add(new ModelBox(bone2, 0, 81, -0.0391F, -0.0921F, -77.999F, 1, 1, 79, 0.0F, false));
     }

@@ -56,11 +56,11 @@ public class AACHoneyBadger extends ModelWithAttachments {
 
         gun = new ModelRenderer(this);
         gun.setRotationPoint(0.0F, 24.0F, 0.0F);
-        gun.cubeList.add(new ModelBox(gun, 16, 16, -3.0F, -31.0F, -6.5F, 3, 5, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 16, 16, -3.0F, -31, -6.5F, 3, 5, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 22, -3.0F, -27.0F, -7.3F, 3, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 80, 0, -2.5F, -27.1F, -12.3F, 2, 1, 6, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 6, -3.0F, -27.0F, -13.3F, 3, 1, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.01F, -31.0F, -13.8F, 3, 5, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.01F, -31, -13.8F, 3, 5, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 157, 131, -0.7F, -36.0F, -14.0F, 1, 5, 13, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 138, 156, -3.3F, -36.0F, -14.0F, 3, 5, 13, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -3.5F, -36.0F, -21.2F, 4, 8, 8, 0.0F, false));
@@ -71,8 +71,8 @@ public class AACHoneyBadger extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 39, 0, -0.4F, -33.5F, -16.3F, 1, 1, 5, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 39, 6, -3.5F, -35.5F, -22.7F, 4, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 59, 4, -0.4F, -35.47F, -22.4F, 1, 1, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 27, 12, -0.7F, -36.5F, -1.0F, 1, 3, 4, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 79, 64, -3.3F, -35.5F, -1.0F, 3, 2, 4, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 27, 12, -0.7F, -36.5F, -1, 1, 3, 4, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 79, 64, -3.3F, -35.5F, -1, 3, 2, 4, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 28, 3, -0.75F, -38.0F, -22.0F, 1, 2, 24, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 54, 0, -3.25F, -37.0F, -22.0F, 1, 1, 24, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 27, 12, -1.45F, -38.0F, -21.2F, 1, 2, 10, 0.0F, false));
@@ -94,19 +94,19 @@ public class AACHoneyBadger extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 39, 65, -2.7F, -39.3F, -22.7F, 2, 2, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 54, 8, -2.501F, -40.101F, -22.7F, 2, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 26, 65, -3.7F, -38.4F, -22.7F, 1, 1, 2, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 0, 16, -2.5F, -39.3F, 1.0F, 2, 4, 2, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 16, -2.5F, -39.3F, 1, 2, 4, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 46, 54, -0.3F, -35.6F, -12.5F, 1, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 32, 54, -0.3F, -35.6F, -13.0F, 1, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 39, 12, -0.25F, -36.5F, -12.75F, 1, 2, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 38, 54, -3.0F, -38.5F, -22.6F, 3, 3, 2, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 27, 19, -3.0F, -34.0F, 1.0F, 3, 1, 2, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 50, 0, -4.3F, -39.0F, -11.0F, 2, 1, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 12, 50, -4.3F, -38.5F, -11.0F, 2, 1, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 92, 154, -3.7F, -37.8F, -11.0F, 1, 1, 13, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 27, 19, -3.0F, -34.0F, 1, 3, 1, 2, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 50, 0, -4.3F, -39.0F, -11, 2, 1, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 12, 50, -4.3F, -38.5F, -11, 2, 1, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 92, 154, -3.7F, -37.8F, -11, 1, 1, 13, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 55, 25, -1.3F, -39.3F, -22.0F, 1, 2, 23, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 62, 50, -2.0F, -40.3F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 62, 50, -2.0F, -40.3F, -1, 1, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 12, 39, -1.3F, -39.3F, -22.7F, 1, 2, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 26, 54, -2.8F, -39.3F, -21.0F, 1, 1, 10, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 26, 54, -2.8F, -39.3F, -21, 1, 1, 10, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 158, 114, 0.1F, -37.7F, -8.9F, 1, 1, 12, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 158, 97, 0.11F, -37.2F, -8.9F, 1, 1, 12, 0.0F, false));
 
@@ -172,13 +172,13 @@ public class AACHoneyBadger extends ModelWithAttachments {
         gun252_r1.setRotationPoint(33.1822F, -33.0478F, 0.0F);
         gun.addChild(gun252_r1);
         setRotationAngle(gun252_r1, 0.0F, 0.0F, -1.3384F);
-        gun252_r1.cubeList.add(new ModelBox(gun252_r1, 39, 0, -4.3F, -37.5F, -11.0F, 1, 2, 1, 0.0F, false));
+        gun252_r1.cubeList.add(new ModelBox(gun252_r1, 39, 0, -4.3F, -37.5F, -11, 1, 2, 1, 0.0F, false));
 
         gun251_r1 = new ModelRenderer(this);
         gun251_r1.setRotationPoint(7.1343F, -1.4667F, 0.0F);
         gun.addChild(gun251_r1);
         setRotationAngle(gun251_r1, 0.0F, 0.0F, -0.1859F);
-        gun251_r1.cubeList.add(new ModelBox(gun251_r1, 18, 50, -4.3F, -39.0F, -11.0F, 2, 1, 1, 0.0F, false));
+        gun251_r1.cubeList.add(new ModelBox(gun251_r1, 18, 50, -4.3F, -39.0F, -11, 2, 1, 1, 0.0F, false));
 
         gun156_r1 = new ModelRenderer(this);
         gun156_r1.setRotationPoint(0.0706F, 0.4336F, -4.8545F);
@@ -208,7 +208,7 @@ public class AACHoneyBadger extends ModelWithAttachments {
         gun125_r1.setRotationPoint(0.0F, -7.1547F, -23.8826F);
         gun.addChild(gun125_r1);
         setRotationAngle(gun125_r1, -0.632F, 0.0F, 0.0F);
-        gun125_r1.cubeList.add(new ModelBox(gun125_r1, 54, 45, -2.5F, -40.1F, -1.0F, 2, 1, 2, 0.0F, false));
+        gun125_r1.cubeList.add(new ModelBox(gun125_r1, 54, 45, -2.5F, -40.1F, -1, 2, 1, 2, 0.0F, false));
 
         gun114_r1 = new ModelRenderer(this);
         gun114_r1.setRotationPoint(24.9379F, -13.3948F, 0.0F);

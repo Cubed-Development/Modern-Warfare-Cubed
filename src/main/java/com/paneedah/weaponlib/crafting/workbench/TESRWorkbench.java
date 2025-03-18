@@ -33,9 +33,9 @@ public class TESRWorkbench extends TESRStation<TileEntityWorkbench> {
         this.bindTexture(this.location);
 
         // Set-up initial parameters
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        GL11.glColor4f(1, 1, 1, 1);
         GL11.glTranslatef((float) x + MODEL_X_OFFSET, (float) y + MODEL_Y_OFFSET, (float) z + MODEL_Z_OFFSET);
-        GL11.glScalef(1.0F, -1.0F, -1.0F);
+        GL11.glScalef(1, -1, -1);
 
         // Set rotation
         float blockRotation = 0f;

@@ -89,7 +89,7 @@ public class UMP45GFL extends ModelBase {
         body.setRotationPoint(0.0F, 0.5F, -0.4F);
         setRotationAngle(body, 0.0349F, 0.0F, 0.0F);
         body.cubeList.add(new ModelBox(body, 0, 16, -4.0F, 0.0F, -2.0F, 8, 11, 4, 0.0F, false));
-        body.cubeList.add(new ModelBox(body, 0, 31, -4.0F, 0.0F, 1.0F, 8, 11, 1, 0.201F, false));
+        body.cubeList.add(new ModelBox(body, 0, 31, -4.0F, 0.0F, 1, 8, 11, 1, 0.201F, false));
 
         body_r1 = new ModelRenderer(this);
         body_r1.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -139,13 +139,13 @@ public class UMP45GFL extends ModelBase {
 
 
         rightarm_r1 = new ModelRenderer(this);
-        rightarm_r1.setRotationPoint(1.0F, 4.0F, -2.0F);
+        rightarm_r1.setRotationPoint(1, 4.0F, -2.0F);
         rightarm.addChild(rightarm_r1);
         setRotationAngle(rightarm_r1, 0.0698F, 0.0F, 0.0F);
         rightarm_r1.cubeList.add(new ModelBox(rightarm_r1, 38, 58, -2.8063F, -5.765F, 0.3021F, 3, 6, 4, 0.1F, false));
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(-1.0F, 4.0F, 0.0F);
+        bone.setRotationPoint(-1, 4.0F, 0.0F);
         rightarm.addChild(bone);
         setRotationAngle(bone, -0.5585F, -0.5236F, -0.384F);
 
@@ -154,7 +154,7 @@ public class UMP45GFL extends ModelBase {
         rightarm_r2.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(rightarm_r2);
         setRotationAngle(rightarm_r2, -0.0873F, -0.1396F, 0.0087F);
-        rightarm_r2.cubeList.add(new ModelBox(rightarm_r2, 28, 52, -1.0F, 0.0F, -2.0F, 3, 6, 4, 0.0F, false));
+        rightarm_r2.cubeList.add(new ModelBox(rightarm_r2, 28, 52, -1, 0.0F, -2.0F, 3, 6, 4, 0.0F, false));
 
         gun = new ModelRenderer(this);
         gun.setRotationPoint(1.3F, 5.5F, -2.7F);
@@ -196,16 +196,16 @@ public class UMP45GFL extends ModelBase {
         cube_r4.setRotationPoint(0.0F, 0.0F, 4.0F);
         gun.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.0698F, 0.0F, 0.0F);
-        cube_r4.cubeList.add(new ModelBox(cube_r4, 57, 53, -1.0F, -2.0F, -4.1F, 2, 2, 5, -0.2F, false));
+        cube_r4.cubeList.add(new ModelBox(cube_r4, 57, 53, -1, -2.0F, -4.1F, 2, 2, 5, -0.2F, false));
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(5.0F, 2.5F, -0.35F);
         setRotationAngle(leftarm, 0.0436F, 0.0F, -0.2967F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 56, 10, -1.0F, -2.0F, -2.0F, 3, 6, 4, 0.1F, false));
-        leftarm.cubeList.add(new ModelBox(leftarm, 60, 0, -1.0F, 0.0F, -2.0F, 3, 2, 4, 0.3F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 56, 10, -1, -2.0F, -2.0F, 3, 6, 4, 0.1F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 60, 0, -1, 0.0F, -2.0F, 3, 2, 4, 0.3F, false));
 
         leftarm_r1 = new ModelRenderer(this);
-        leftarm_r1.setRotationPoint(1.0F, 4.0F, 0.0F);
+        leftarm_r1.setRotationPoint(1, 4.0F, 0.0F);
         leftarm.addChild(leftarm_r1);
         setRotationAngle(leftarm_r1, -0.1308F, -0.0046F, -0.1131F);
         leftarm_r1.cubeList.add(new ModelBox(leftarm_r1, 0, 54, -2.0F, 0.0F, -2.0F, 3, 6, 4, 0.0F, false));

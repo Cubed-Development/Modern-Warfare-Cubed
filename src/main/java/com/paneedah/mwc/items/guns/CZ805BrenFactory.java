@@ -241,7 +241,7 @@ public class CZ805BrenFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
-                    GL11.glTranslatef(-0.3F, -1.5F, -1.0F);
+                    GL11.glTranslatef(-0.3F, -1.5F, -1);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
                 }, (model) -> {
                     if (model instanceof Holo2) {

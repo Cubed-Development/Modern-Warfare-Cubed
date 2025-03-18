@@ -287,13 +287,13 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun49.cubeList.add(new ModelBox(gun49, 27, 35, -3.2F, -0.6F, 0.0F, 4, 3, 1, 0.0F, false));
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(1.3F, 7.8437F, 1.0F);
+        bone.setRotationPoint(1.3F, 7.8437F, 1);
         gun49.addChild(bone);
         setRotationAngle(bone, 0.0F, -0.5411F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 52, 54, -1.0F, -8.0F, 0.0F, 1, 8, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 52, 54, -1, -8.0F, 0.0F, 1, 8, 1, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(-3.7F, 7.8437F, 1.0F);
+        bone2.setRotationPoint(-3.7F, 7.8437F, 1);
         gun49.addChild(bone2);
         setRotationAngle(bone2, 0.0F, 0.5411F, 0.0F);
         bone2.cubeList.add(new ModelBox(bone2, 6, 27, 0.0F, -8.0F, 0.0F, 1, 8, 1, 0.0F, false));
@@ -302,7 +302,7 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         bone3.setRotationPoint(-0.5F, -0.6057F, 1.0015F);
         gun49.addChild(bone3);
         setRotationAngle(bone3, -1.7977F, 0.0F, 0.0F);
-        bone3.cubeList.add(new ModelBox(bone3, 13, 36, -2.69F, -1.0F, 0.0F, 4, 1, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 13, 36, -2.69F, -1, 0.0F, 4, 1, 1, 0.0F, false));
 
         gun52 = new ModelRenderer(this);
         gun52.setRotationPoint(-3.5F, -12.0F, -15.2F);
@@ -345,7 +345,7 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun63.cubeList.add(new ModelBox(gun63, 39, 45, 0.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun65 = new ModelRenderer(this);
-        gun65.setRotationPoint(-0.7F, -12.0F, -1.0F);
+        gun65.setRotationPoint(-0.7F, -12.0F, -1);
         gun65.cubeList.add(new ModelBox(gun65, 27, 12, 0.0F, -0.5F, 0.0F, 1, 3, 4, 0.0F, false));
 
         gun66 = new ModelRenderer(this);
@@ -364,7 +364,7 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun68.cubeList.add(new ModelBox(gun68, 79, 71, 0.0F, 0.0F, 0.0F, 3, 2, 4, 0.0F, false));
 
         gun69 = new ModelRenderer(this);
-        gun69.setRotationPoint(-3.3F, -12.0F, -1.0F);
+        gun69.setRotationPoint(-3.3F, -12.0F, -1);
         gun69.cubeList.add(new ModelBox(gun69, 79, 64, 0.0F, 0.5F, 0.0F, 3, 2, 4, 0.0F, false));
 
         gun70 = new ModelRenderer(this);
@@ -507,11 +507,11 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun114.cubeList.add(new ModelBox(gun114, 54, 25, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun121 = new ModelRenderer(this);
-        gun121.setRotationPoint(-2.5F, -15.3F, 1.0F);
+        gun121.setRotationPoint(-2.5F, -15.3F, 1);
         gun121.cubeList.add(new ModelBox(gun121, 0, 16, 0.0F, 0.0F, 0.0F, 2, 4, 2, 0.0F, false));
 
         gun125 = new ModelRenderer(this);
-        gun125.setRotationPoint(-2.5F, -16.1F, -1.0F);
+        gun125.setRotationPoint(-2.5F, -16.1F, -1);
         setRotationAngle(gun125, -0.632F, 0.0F, 0.0F);
         gun125.cubeList.add(new ModelBox(gun125, 54, 45, 0.0F, 0.0F, 0.0F, 2, 1, 2, 0.0F, false));
 
@@ -525,7 +525,7 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
 
         gun129 = new ModelRenderer(this);
         gun129.setRotationPoint(-0.25F, -11.5F, -12.75F);
-        gun129.cubeList.add(new ModelBox(gun129, 39, 12, 0.0F, -1.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun129.cubeList.add(new ModelBox(gun129, 39, 12, 0.0F, -1, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun130 = new ModelRenderer(this);
         gun130.setRotationPoint(0.75F, -10.5F, -12.75F);
@@ -552,11 +552,11 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun157.cubeList.add(new ModelBox(gun157, 38, 54, 0.0F, 0.0F, 0.0F, 3, 3, 2, 0.0F, false));
 
         gun170 = new ModelRenderer(this);
-        gun170.setRotationPoint(-3.0F, -10.0F, 1.0F);
+        gun170.setRotationPoint(-3.0F, -10.0F, 1);
         gun170.cubeList.add(new ModelBox(gun170, 27, 19, 0.0F, 0.0F, 0.0F, 3, 1, 2, 0.0F, false));
 
         gun248 = new ModelRenderer(this);
-        gun248.setRotationPoint(-4.3F, -15.0F, -11.0F);
+        gun248.setRotationPoint(-4.3F, -15.0F, -11);
         gun248.cubeList.add(new ModelBox(gun248, 50, 0, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun249 = new ModelRenderer(this);
@@ -565,17 +565,17 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun249.cubeList.add(new ModelBox(gun249, 64, 54, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         gun251 = new ModelRenderer(this);
-        gun251.setRotationPoint(-4.3F, -15.0F, -11.0F);
+        gun251.setRotationPoint(-4.3F, -15.0F, -11);
         setRotationAngle(gun251, 0.0F, 0.0F, -0.1859F);
         gun251.cubeList.add(new ModelBox(gun251, 18, 50, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun252 = new ModelRenderer(this);
-        gun252.setRotationPoint(-4.3F, -13.5F, -11.0F);
+        gun252.setRotationPoint(-4.3F, -13.5F, -11);
         setRotationAngle(gun252, 0.0F, 0.0F, -1.3384F);
         gun252.cubeList.add(new ModelBox(gun252, 39, 0, 0.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun254 = new ModelRenderer(this);
-        gun254.setRotationPoint(-4.3F, -14.5F, -11.0F);
+        gun254.setRotationPoint(-4.3F, -14.5F, -11);
         gun254.cubeList.add(new ModelBox(gun254, 12, 50, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun255 = new ModelRenderer(this);
@@ -599,7 +599,7 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun264.cubeList.add(new ModelBox(gun264, 52, 65, 0.0F, 0.0F, 0.0F, 1, 2, 8, 0.0F, false));
 
         gun266 = new ModelRenderer(this);
-        gun266.setRotationPoint(-3.7F, -13.8F, -11.0F);
+        gun266.setRotationPoint(-3.7F, -13.8F, -11);
         gun266.cubeList.add(new ModelBox(gun266, 92, 154, 0.0F, 0.0F, 0.0F, 1, 1, 13, 0.0F, false));
 
         gun267 = new ModelRenderer(this);
@@ -637,7 +637,7 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun303.cubeList.add(new ModelBox(gun303, 55, 25, 0.0F, 0.0F, 0.0F, 1, 2, 23, 0.0F, false));
 
         gun319 = new ModelRenderer(this);
-        gun319.setRotationPoint(-2.0F, -16.3F, -1.0F);
+        gun319.setRotationPoint(-2.0F, -16.3F, -1);
         gun319.cubeList.add(new ModelBox(gun319, 62, 50, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun343 = new ModelRenderer(this);
@@ -645,7 +645,7 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun343.cubeList.add(new ModelBox(gun343, 12, 39, 0.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun346 = new ModelRenderer(this);
-        gun346.setRotationPoint(-2.8F, -15.3F, -21.0F);
+        gun346.setRotationPoint(-2.8F, -15.3F, -21);
         gun346.cubeList.add(new ModelBox(gun346, 26, 54, 0.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
 
         gun745 = new ModelRenderer(this);
@@ -771,22 +771,22 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         handguard.cubeList.add(new ModelBox(handguard, 102, 1, -2.6F, -35.5F, -42.7F, 1, 1, 20, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(1.0F, -38.5F, -42.7F);
+        bone4.setRotationPoint(1, -38.5F, -42.7F);
         handguard.addChild(bone4);
         setRotationAngle(bone4, 0.0F, 0.0F, -0.8727F);
-        bone4.cubeList.add(new ModelBox(bone4, 39, 3, -1.0F, -2.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 39, 3, -1, -2.0F, 0.0F, 1, 1, 1, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 0, 100, -0.99F, -2.5F, 0.0F, 1, 1, 20, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 17, 58, -1.0F, -2.0F, 5.0F, 1, 1, 2, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 17, 58, -1, -2.0F, 5.0F, 1, 1, 2, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 44, 101, -1.5F, -2.0F, 7.0F, 1, 1, 12, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 56, 56, -1.0F, -2.0F, 12.0F, 1, 1, 2, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 54, 40, -1.0F, -2.0F, 18.0F, 1, 1, 2, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 50, 99, -1.0F, -1.0F, 0.0F, 1, 1, 20, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 56, 56, -1, -2.0F, 12.0F, 1, 1, 2, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 54, 40, -1, -2.0F, 18.0F, 1, 1, 2, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 50, 99, -1, -1, 0.0F, 1, 1, 20, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
-        bone6.setRotationPoint(1.0F, -35.9F, -42.7F);
+        bone6.setRotationPoint(1, -35.9F, -42.7F);
         handguard.addChild(bone6);
         setRotationAngle(bone6, 0.0F, 0.0F, 0.7854F);
-        bone6.cubeList.add(new ModelBox(bone6, 80, 80, -1.0F, 0.0F, 0.0F, 1, 2, 20, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 80, 80, -1, 0.0F, 0.0F, 1, 2, 20, 0.0F, false));
         bone6.cubeList.add(new ModelBox(bone6, 56, 78, -3.5355F, 2.5355F, 0.0F, 2, 1, 20, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
@@ -794,7 +794,7 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         handguard.addChild(bone5);
         setRotationAngle(bone5, 0.0F, 0.0F, 0.8727F);
         bone5.cubeList.add(new ModelBox(bone5, 6, 36, 0.0F, -2.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 80, 25, 0.0F, -1.0F, 0.0F, 1, 1, 20, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 80, 25, 0.0F, -1, 0.0F, 1, 1, 20, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 80, 0, -0.01F, -2.5F, 0.0F, 1, 1, 20, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 54, 37, 0.0F, -2.0F, 5.0F, 1, 1, 2, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 38, 122, 0.5F, -2.0F, 6.0F, 1, 1, 12, 0.0F, false));
@@ -1115,8 +1115,8 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun778.setRotationPoint(-4.4F, -37.3F, -5.5F);
         stock.addChild(gun778);
         gun778.cubeList.add(new ModelBox(gun778, 27, 29, 0.0F, 0.0F, 5.0F, 1, 1, 10, 0.0F, false));
-        gun778.cubeList.add(new ModelBox(gun778, 27, 29, 0.0F, -0.1F, 21.0F, 1, 1, 10, 0.0F, false));
-        gun778.cubeList.add(new ModelBox(gun778, 27, 29, 4.8F, -0.1F, 21.0F, 1, 1, 10, 0.0F, false));
+        gun778.cubeList.add(new ModelBox(gun778, 27, 29, 0.0F, -0.1F, 21, 1, 1, 10, 0.0F, false));
+        gun778.cubeList.add(new ModelBox(gun778, 27, 29, 4.8F, -0.1F, 21, 1, 1, 10, 0.0F, false));
 
         receiver = new ModelRenderer(this);
         receiver.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -1169,16 +1169,16 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun135 = new ModelRenderer(this);
         gun135.setRotationPoint(-0.3F, -39.1F, -19.5F);
         receiver.addChild(gun135);
-        gun135.cubeList.add(new ModelBox(gun135, 18, 64, 0.01F, 0.0F, 1.0F, 1, 1, 2, 0.0F, false));
+        gun135.cubeList.add(new ModelBox(gun135, 18, 64, 0.01F, 0.0F, 1, 1, 1, 2, 0.0F, false));
 
         bone9 = new ModelRenderer(this);
-        bone9.setRotationPoint(1.0F, 0.0F, 3.0F);
+        bone9.setRotationPoint(1, 0.0F, 3.0F);
         gun135.addChild(bone9);
         setRotationAngle(bone9, -0.9076F, 0.0F, 0.0F);
         bone9.cubeList.add(new ModelBox(bone9, 21, 6, -1.01F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         bone10 = new ModelRenderer(this);
-        bone10.setRotationPoint(1.0F, 0.0F, 3.0F);
+        bone10.setRotationPoint(1, 0.0F, 3.0F);
         gun135.addChild(bone10);
         setRotationAngle(bone10, 0.9076F, 0.0F, 0.0F);
         bone10.cubeList.add(new ModelBox(bone10, 20, 0, -1.01F, -1.576F, -2.2313F, 1, 1, 1, 0.0F, false));
@@ -1199,7 +1199,7 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         bone8.setRotationPoint(0.0076F, 0.0199F, 0.0F);
         gun138.addChild(bone8);
         setRotationAngle(bone8, 0.0F, -0.925F, 0.0F);
-        bone8.cubeList.add(new ModelBox(bone8, 27, 12, 0.0F, 0.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        bone8.cubeList.add(new ModelBox(bone8, 27, 12, 0.0F, 0.0F, -1, 1, 2, 1, 0.0F, false));
 
         gun735 = new ModelRenderer(this);
         gun735.setRotationPoint(0.7F, -38.4F, -22.0F);
@@ -1242,7 +1242,7 @@ public class AACHoneyBadgerReceiver extends ModelWithAttachments {
         gun737.cubeList.add(new ModelBox(gun737, 104, 137, 0.0F, -2.0F, 0.0F, 1, 2, 13, 0.0F, false));
 
         gun738 = new ModelRenderer(this);
-        gun738.setRotationPoint(-3.7F, -38.4F, -11.0F);
+        gun738.setRotationPoint(-3.7F, -38.4F, -11);
         receiver.addChild(gun738);
         gun738.cubeList.add(new ModelBox(gun738, 122, 153, 0.0F, 0.0F, 0.0F, 1, 1, 13, 0.0F, false));
 

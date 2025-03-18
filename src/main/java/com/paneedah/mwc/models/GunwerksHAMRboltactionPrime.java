@@ -125,7 +125,7 @@ public class GunwerksHAMRboltactionPrime extends ModelBase {
         BoltAction27.cubeList.add(new ModelBox(BoltAction27, 238, 238, 0.0F, -0.001F, -0.002F, 1, 1, 24, 0.0F, false));
 
         BoltAction26 = new ModelRenderer(this);
-        BoltAction26.setRotationPoint(1.0F, -45.2F, 8.0F);
+        BoltAction26.setRotationPoint(1, -45.2F, 8.0F);
         boltaction.addChild(BoltAction26);
         setRotationAngle(BoltAction26, 0.0F, 0.0F, 0.7854F);
         BoltAction26.cubeList.add(new ModelBox(BoltAction26, 0, 113, 0.0F, 0.0F, -0.001F, 1, 1, 2, 0.0F, false));
@@ -137,7 +137,7 @@ public class GunwerksHAMRboltactionPrime extends ModelBase {
         BoltAction24.cubeList.add(new ModelBox(BoltAction24, 113, 40, 0.0F, 0.0F, -0.001F, 1, 1, 2, 0.0F, false));
 
         BoltAction23 = new ModelRenderer(this);
-        BoltAction23.setRotationPoint(1.0F, -41.8F, 8.0F);
+        BoltAction23.setRotationPoint(1, -41.8F, 8.0F);
         boltaction.addChild(BoltAction23);
         setRotationAngle(BoltAction23, 0.0F, 0.0F, -2.3562F);
         BoltAction23.cubeList.add(new ModelBox(BoltAction23, 72, 113, 0.0F, 0.0F, -0.001F, 1, 1, 2, 0.0F, false));
@@ -148,7 +148,7 @@ public class GunwerksHAMRboltactionPrime extends ModelBase {
         BoltAction22.cubeList.add(new ModelBox(BoltAction22, 4, 114, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         BoltAction21 = new ModelRenderer(this);
-        BoltAction21.setRotationPoint(1.0F, -42.8F, 8.0F);
+        BoltAction21.setRotationPoint(1, -42.8F, 8.0F);
         boltaction.addChild(BoltAction21);
         BoltAction21.cubeList.add(new ModelBox(BoltAction21, 114, 11, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
@@ -158,7 +158,7 @@ public class GunwerksHAMRboltactionPrime extends ModelBase {
         BoltAction20.cubeList.add(new ModelBox(BoltAction20, 19, 114, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         BoltAction19 = new ModelRenderer(this);
-        BoltAction19.setRotationPoint(1.0F, -45.2F, 8.0F);
+        BoltAction19.setRotationPoint(1, -45.2F, 8.0F);
         boltaction.addChild(BoltAction19);
         BoltAction19.cubeList.add(new ModelBox(BoltAction19, 114, 74, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
@@ -187,7 +187,7 @@ public class GunwerksHAMRboltactionPrime extends ModelBase {
         BoltAction15.cubeList.add(new ModelBox(BoltAction15, 50, 117, 0.0F, -0.001F, 0.001F, 1, 1, 1, 0.0F, false));
 
         BoltAction14 = new ModelRenderer(this);
-        BoltAction14.setRotationPoint(1.0F, -41.3F, 7.0F);
+        BoltAction14.setRotationPoint(1, -41.3F, 7.0F);
         boltaction.addChild(BoltAction14);
         setRotationAngle(BoltAction14, 0.0F, 0.0F, -2.3562F);
         BoltAction14.cubeList.add(new ModelBox(BoltAction14, 117, 51, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
@@ -205,18 +205,18 @@ public class GunwerksHAMRboltactionPrime extends ModelBase {
         BoltAction12.cubeList.add(new ModelBox(BoltAction12, 58, 0, 0.0F, 0.0F, 0.001F, 2, 1, 1, 0.0F, false));
 
         BoltAction11 = new ModelRenderer(this);
-        BoltAction11.setRotationPoint(1.0F, -45.7F, 7.0F);
+        BoltAction11.setRotationPoint(1, -45.7F, 7.0F);
         boltaction.addChild(BoltAction11);
         setRotationAngle(BoltAction11, 0.0F, 0.0F, 0.7854F);
         BoltAction11.cubeList.add(new ModelBox(BoltAction11, 34, 58, 0.0F, 0.0F, 0.002F, 1, 2, 1, 0.0F, false));
 
         BoltAction10 = new ModelRenderer(this);
-        BoltAction10.setRotationPoint(1.0F, -42.3F, 7.0F);
+        BoltAction10.setRotationPoint(1, -42.3F, 7.0F);
         boltaction.addChild(BoltAction10);
         BoltAction10.cubeList.add(new ModelBox(BoltAction10, 63, 117, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         BoltAction9 = new ModelRenderer(this);
-        BoltAction9.setRotationPoint(1.0F, -45.7F, 7.0F);
+        BoltAction9.setRotationPoint(1, -45.7F, 7.0F);
         boltaction.addChild(BoltAction9);
         BoltAction9.cubeList.add(new ModelBox(BoltAction9, 75, 117, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -237,7 +237,7 @@ public class GunwerksHAMRboltactionPrime extends ModelBase {
         BoltAction6.cubeList.add(new ModelBox(BoltAction6, 0, 170, 0.0F, 0.0F, 0.001F, 1, 2, 24, 0.0F, false));
 
         BoltAction5 = new ModelRenderer(this);
-        BoltAction5.setRotationPoint(1.0F, -41.5F, -17.0F);
+        BoltAction5.setRotationPoint(1, -41.5F, -17.0F);
         boltaction.addChild(BoltAction5);
         setRotationAngle(BoltAction5, 0.0F, 0.0F, -2.3562F);
         BoltAction5.cubeList.add(new ModelBox(BoltAction5, 144, 41, 0.0F, 0.0F, 0.001F, 2, 1, 24, 0.0F, false));
@@ -249,13 +249,13 @@ public class GunwerksHAMRboltactionPrime extends ModelBase {
         BoltAction4.cubeList.add(new ModelBox(BoltAction4, 144, 166, 0.0F, 0.0F, 0.0F, 2, 1, 24, 0.0F, false));
 
         BoltAction3 = new ModelRenderer(this);
-        BoltAction3.setRotationPoint(1.0F, -45.5F, -17.0F);
+        BoltAction3.setRotationPoint(1, -45.5F, -17.0F);
         boltaction.addChild(BoltAction3);
         setRotationAngle(BoltAction3, 0.0F, 0.0F, 0.7854F);
         BoltAction3.cubeList.add(new ModelBox(BoltAction3, 80, 211, 0.0F, 0.0F, 0.0F, 1, 2, 24, 0.0F, false));
 
         BoltAction2 = new ModelRenderer(this);
-        BoltAction2.setRotationPoint(1.0F, -45.5F, -17.0F);
+        BoltAction2.setRotationPoint(1, -45.5F, -17.0F);
         boltaction.addChild(BoltAction2);
         BoltAction2.cubeList.add(new ModelBox(BoltAction2, 144, 138, 0.0F, 0.0F, 0.0F, 1, 4, 24, 0.0F, false));
 
@@ -265,7 +265,7 @@ public class GunwerksHAMRboltactionPrime extends ModelBase {
         BoltAction1.cubeList.add(new ModelBox(BoltAction1, 140, 95, 0.0F, 0.0F, 0.0F, 4, 1, 24, 0.0F, false));
 
         boltprime = new ModelRenderer(this);
-        boltprime.setRotationPoint(6.0F, 21.0F, 0.0F);
+        boltprime.setRotationPoint(6.0F, 21, 0.0F);
 
 
         BoltAction39 = new ModelRenderer(this);

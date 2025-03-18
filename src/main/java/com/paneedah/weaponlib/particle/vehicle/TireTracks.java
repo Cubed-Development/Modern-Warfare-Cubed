@@ -40,8 +40,8 @@ public class TireTracks extends ParticleFootStep {
         f = f * f;
         float f1 = 2.0F - f * 2.0F;
 
-        if (f1 > 1.0F) {
-            f1 = 1.0F;
+        if (f1 > 1) {
+            f1 = 1;
         }
 
         f1 = f1 * 0.4F;
@@ -53,7 +53,7 @@ public class TireTracks extends ParticleFootStep {
 
 
         GL11.glTranslated((this.posX - interpPosX), (this.posY - interpPosY), (this.posZ - interpPosZ));
-        GL11.glRotated(angle, 0.0f, 1.0f, 0.0f);
+        GL11.glRotated(angle, 0.0f, 1, 0.0f);
         float f2 = 0.125F;
 
 

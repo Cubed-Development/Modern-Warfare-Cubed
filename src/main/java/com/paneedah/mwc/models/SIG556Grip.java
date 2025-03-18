@@ -46,22 +46,22 @@ public class SIG556Grip extends ModelWithAttachments {
         grip6_r1.cubeList.add(new ModelBox(grip6_r1, 46, 76, 0.46F, 0.0F, -3.0F, 3, 1, 3, -0.001F, false));
 
         grip4_r1 = new ModelRenderer(this);
-        grip4_r1.setRotationPoint(-1.0F, -1.7F, 9.0F);
+        grip4_r1.setRotationPoint(-1, -1.7F, 9.0F);
         grip.addChild(grip4_r1);
         setRotationAngle(grip4_r1, 0.6807F, 0.0F, 0.0F);
-        grip4_r1.cubeList.add(new ModelBox(grip4_r1, 93, 76, -3.0F, 5.1F, -1.0F, 4, 3, 1, 0.0F, false));
+        grip4_r1.cubeList.add(new ModelBox(grip4_r1, 93, 76, -3.0F, 5.1F, -1, 4, 3, 1, 0.0F, false));
 
         grip4_r2 = new ModelRenderer(this);
         grip4_r2.setRotationPoint(0.0F, 4.9F, -1.5F);
         grip.addChild(grip4_r2);
         setRotationAngle(grip4_r2, 1.3177F, 0.0F, 0.0F);
-        grip4_r2.cubeList.add(new ModelBox(grip4_r2, 0, 42, -4.0F, 9.0F, -1.0F, 4, 1, 2, -0.001F, false));
+        grip4_r2.cubeList.add(new ModelBox(grip4_r2, 0, 42, -4.0F, 9.0F, -1, 4, 1, 2, -0.001F, false));
 
         grip3_r1 = new ModelRenderer(this);
         grip3_r1.setRotationPoint(0.0F, 0.0F, 3.0F);
         grip.addChild(grip3_r1);
         setRotationAngle(grip3_r1, 0.5672F, 0.0F, 0.0F);
-        grip3_r1.cubeList.add(new ModelBox(grip3_r1, 49, 31, -4.0F, 9.0F, -1.0F, 4, 1, 1, 0.0F, false));
+        grip3_r1.cubeList.add(new ModelBox(grip3_r1, 49, 31, -4.0F, 9.0F, -1, 4, 1, 1, 0.0F, false));
         grip3_r1.cubeList.add(new ModelBox(grip3_r1, 49, 36, -4.0F, 7.0F, 0.0F, 4, 3, 6, 0.001F, false));
 
         grip5_r2 = new ModelRenderer(this);

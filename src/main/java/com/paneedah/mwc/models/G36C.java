@@ -164,7 +164,7 @@ public class G36C extends ModelWithAttachments {
         textureHeight = 220;
 
         body = new ModelRenderer(this);
-        body.setRotationPoint(0.8457F, -11.0F, -22.7706F);
+        body.setRotationPoint(0.8457F, -11, -22.7706F);
         body.cubeList.add(new ModelBox(body, 130, 0, -1.1705F, 3.0F, -1.7294F, 1, 4, 11, 0.001F, false));
         body.cubeList.add(new ModelBox(body, 69, 129, -1.4707F, -6.0F, 10.2706F, 1, 1, 17, 0.0F, false));
         body.cubeList.add(new ModelBox(body, 116, 110, -1.1707F, 2.45F, -3.7294F, 1, 2, 13, 0.0F, false));
@@ -216,8 +216,8 @@ public class G36C extends ModelWithAttachments {
         cube_r2.setRotationPoint(-2.6957F, 2.4135F, 23.295F);
         body.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.3927F, 0.0F, 0.0F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 28, 87, -2.175F, 1.0F, -2.0F, 4, 1, 1, -0.1F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 104, 34, -1.125F, 1.0F, -2.0F, 4, 1, 1, -0.1F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 28, 87, -2.175F, 1, -2.0F, 4, 1, 1, -0.1F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 104, 34, -1.125F, 1, -2.0F, 4, 1, 1, -0.1F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(-2.5957F, 3.3762F, 19.8813F);
@@ -251,15 +251,15 @@ public class G36C extends ModelWithAttachments {
         cube_r7.setRotationPoint(-3.9957F, 2.6512F, -5.9047F);
         body.addChild(cube_r7);
         setRotationAngle(cube_r7, -0.48F, 0.0F, 0.0F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 98, 84, -0.4999F, -1.0F, -3.0F, 1, 2, 4, 0.0F, false));
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 16, 39, -0.2001F, -1.0F, -3.0F, 4, 2, 4, 0.001F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 98, 84, -0.4999F, -1, -3.0F, 1, 2, 4, 0.0F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 16, 39, -0.2001F, -1, -3.0F, 4, 2, 4, 0.001F, false));
 
         cube_r8 = new ModelRenderer(this);
         cube_r8.setRotationPoint(-3.8956F, 2.6F, 22.2706F);
         body.addChild(cube_r8);
         setRotationAngle(cube_r8, 0.48F, 0.0F, 0.0F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 11, 17, -0.5F, -2.0F, -1.0F, 1, 4, 3, 0.0F, false));
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 34, 65, 2.5998F, -2.0F, -1.0F, 1, 4, 3, 0.0F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 11, 17, -0.5F, -2.0F, -1, 1, 4, 3, 0.0F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 34, 65, 2.5998F, -2.0F, -1, 1, 4, 3, 0.0F, false));
 
         cube_r9 = new ModelRenderer(this);
         cube_r9.setRotationPoint(-3.8956F, 3.4691F, 15.7141F);
@@ -279,37 +279,37 @@ public class G36C extends ModelWithAttachments {
         cube_r11.setRotationPoint(-4.5694F, 3.9301F, 22.708F);
         body.addChild(cube_r11);
         setRotationAngle(cube_r11, -0.7854F, 0.0F, 0.0F);
-        cube_r11.cubeList.add(new ModelBox(cube_r11, 33, 79, -0.5F, -0.5F, -1.0F, 2, 1, 2, -0.3F, false));
-        cube_r11.cubeList.add(new ModelBox(cube_r11, 111, 0, 2.9473F, -0.5F, -1.0F, 2, 1, 2, -0.3F, false));
+        cube_r11.cubeList.add(new ModelBox(cube_r11, 33, 79, -0.5F, -0.5F, -1, 2, 1, 2, -0.3F, false));
+        cube_r11.cubeList.add(new ModelBox(cube_r11, 111, 0, 2.9473F, -0.5F, -1, 2, 1, 2, -0.3F, false));
 
         cube_r12 = new ModelRenderer(this);
         cube_r12.setRotationPoint(-4.2694F, 3.4705F, 21.8242F);
         body.addChild(cube_r12);
         setRotationAngle(cube_r12, -0.7854F, 0.0F, 0.0F);
         cube_r12.cubeList.add(new ModelBox(cube_r12, 9, 101, -0.4998F, -2.7F, -1.225F, 1, 2, 3, 0.0F, false));
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 111, 9, -0.5001F, -0.5F, -1.0F, 1, 1, 2, 0.002F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 111, 9, -0.5001F, -0.5F, -1, 1, 1, 2, 0.002F, false));
         cube_r12.cubeList.add(new ModelBox(cube_r12, 69, 102, 3.347F, -2.7F, -1.225F, 1, 2, 3, 0.0F, false));
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 114, 3.3473F, -0.5F, -1.0F, 1, 1, 2, 0.002F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 114, 3.3473F, -0.5F, -1, 1, 1, 2, 0.002F, false));
 
         cube_r13 = new ModelRenderer(this);
         cube_r13.setRotationPoint(-4.8123F, -0.7652F, 11.2706F);
         body.addChild(cube_r13);
         setRotationAngle(cube_r13, 0.0F, 0.7854F, 0.0F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 13, 31, -0.5F, -1.0F, -0.5F, 1, 2, 2, 0.0F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 13, 31, -0.5F, -1, -0.5F, 1, 2, 2, 0.0F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(-4.0207F, 5.4403F, -1.4147F);
         body.addChild(cube_r14);
         setRotationAngle(cube_r14, -1.0908F, 0.0F, 0.0F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 99, -0.5F, -1.0F, -1.5F, 3, 2, 3, -0.002F, false));
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 42, 102, 0.85F, -1.0F, -1.5F, 3, 2, 3, -0.001F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 99, -0.5F, -1, -1.5F, 3, 2, 3, -0.002F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 42, 102, 0.85F, -1, -1.5F, 3, 2, 3, -0.001F, false));
 
         cube_r15 = new ModelRenderer(this);
         cube_r15.setRotationPoint(-4.0207F, 4.7261F, -1.9479F);
         body.addChild(cube_r15);
         setRotationAngle(cube_r15, -0.7418F, 0.0F, 0.0F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 19, 99, -0.5F, -1.0F, -1.5F, 3, 2, 3, -0.001F, false));
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 79, 108, 0.85F, -1.0F, -1.5F, 3, 2, 3, -0.002F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 19, 99, -0.5F, -1, -1.5F, 3, 2, 3, -0.001F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 79, 108, 0.85F, -1, -1.5F, 3, 2, 3, -0.002F, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(-3.0208F, 7.782F, 4.3866F);
@@ -328,7 +328,7 @@ public class G36C extends ModelWithAttachments {
         cube_r18.setRotationPoint(-4.8694F, 4.5098F, 17.1706F);
         body.addChild(cube_r18);
         setRotationAngle(cube_r18, 0.1063F, -0.1736F, -0.0184F);
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 36, 87, -0.5015F, -1.0F, 0.0F, 1, 1, 2, -0.1F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 36, 87, -0.5015F, -1, 0.0F, 1, 1, 2, -0.1F, false));
 
         cube_r19 = new ModelRenderer(this);
         cube_r19.setRotationPoint(-4.7694F, 5.0098F, 16.5706F);
@@ -341,7 +341,7 @@ public class G36C extends ModelWithAttachments {
         cube_r20.setRotationPoint(0.1779F, 4.5098F, 17.1706F);
         body.addChild(cube_r20);
         setRotationAngle(cube_r20, 0.1063F, 0.1736F, 0.0184F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 11, 91, -0.4985F, -1.0F, 0.0F, 1, 1, 2, -0.1F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 11, 91, -0.4985F, -1, 0.0F, 1, 1, 2, -0.1F, false));
 
         cube_r21 = new ModelRenderer(this);
         cube_r21.setRotationPoint(-0.3684F, 0.7348F, 27.1478F);
@@ -383,7 +383,7 @@ public class G36C extends ModelWithAttachments {
         cube_r27.setRotationPoint(0.0779F, -1.7652F, -7.7294F);
         body.addChild(cube_r27);
         setRotationAngle(cube_r27, 0.0F, 0.0F, -0.2269F);
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 94, 39, -1.0F, -2.0F, 0.0F, 1, 2, 35, 0.0F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 94, 39, -1, -2.0F, 0.0F, 1, 2, 35, 0.0F, false));
 
         grip = new ModelRenderer(this);
         grip.setRotationPoint(-0.3915F, 0.9283F, -0.4854F);
@@ -400,8 +400,8 @@ public class G36C extends ModelWithAttachments {
         cube_r28.setRotationPoint(0.4719F, -6.3783F, -15.7471F);
         grip.addChild(cube_r28);
         setRotationAngle(cube_r28, 0.0F, 0.3927F, 0.0F);
-        cube_r28.cubeList.add(new ModelBox(cube_r28, 19, 114, -0.5001F, -1.0F, -1.0F, 1, 1, 2, 0.001F, false));
-        cube_r28.cubeList.add(new ModelBox(cube_r28, 25, 114, -0.5F, -1.45F, -1.0F, 1, 1, 2, 0.0F, false));
+        cube_r28.cubeList.add(new ModelBox(cube_r28, 19, 114, -0.5001F, -1, -1, 1, 1, 2, 0.001F, false));
+        cube_r28.cubeList.add(new ModelBox(cube_r28, 25, 114, -0.5F, -1.45F, -1, 1, 1, 2, 0.0F, false));
 
         cube_r29 = new ModelRenderer(this);
         cube_r29.setRotationPoint(1.0665F, -7.0783F, -12.7646F);
@@ -419,7 +419,7 @@ public class G36C extends ModelWithAttachments {
         gun240_r1.setRotationPoint(-1.1075F, -3.9851F, -7.6398F);
         grip.addChild(gun240_r1);
         setRotationAngle(gun240_r1, -0.2182F, 0.0F, 0.0F);
-        gun240_r1.cubeList.add(new ModelBox(gun240_r1, 39, 65, -0.499F, -1.0F, -0.5F, 1, 2, 1, 0.0F, false));
+        gun240_r1.cubeList.add(new ModelBox(gun240_r1, 39, 65, -0.499F, -1, -0.5F, 1, 2, 1, 0.0F, false));
 
         gun239_r1 = new ModelRenderer(this);
         gun239_r1.setRotationPoint(-1.1075F, -2.7094F, -4.7174F);
@@ -444,10 +444,10 @@ public class G36C extends ModelWithAttachments {
         bone.addChild(gun240_r2);
         setRotationAngle(gun240_r2, 0.3054F, 0.0F, 0.0F);
         gun240_r2.cubeList.add(new ModelBox(gun240_r2, 0, 0, -2.002F, -6.5F, 0.175F, 4, 13, 3, 0.001F, false));
-        gun240_r2.cubeList.add(new ModelBox(gun240_r2, 0, 65, -1.0F, -6.5F, -0.5F, 2, 13, 2, 0.0F, false));
+        gun240_r2.cubeList.add(new ModelBox(gun240_r2, 0, 65, -1, -6.5F, -0.5F, 2, 13, 2, 0.0F, false));
 
         gun241_r1 = new ModelRenderer(this);
-        gun241_r1.setRotationPoint(-1.0F, -0.0623F, 0.1975F);
+        gun241_r1.setRotationPoint(-1, -0.0623F, 0.1975F);
         bone.addChild(gun241_r1);
         setRotationAngle(gun241_r1, 0.4194F, -0.7401F, -0.2921F);
         gun241_r1.cubeList.add(new ModelBox(gun241_r1, 41, 0, -0.5F, -6.5F, -0.5F, 1, 13, 1, 0.0F, false));
@@ -462,7 +462,7 @@ public class G36C extends ModelWithAttachments {
         gun240_r3.setRotationPoint(0.0F, 0.4256F, 5.8394F);
         bone.addChild(gun240_r3);
         setRotationAngle(gun240_r3, 0.4363F, 0.0F, 0.0F);
-        gun240_r3.cubeList.add(new ModelBox(gun240_r3, 94, 76, -1.0F, -6.0F, -1.5F, 2, 10, 2, 0.0F, false));
+        gun240_r3.cubeList.add(new ModelBox(gun240_r3, 94, 76, -1, -6.0F, -1.5F, 2, 10, 2, 0.0F, false));
 
         gun241_r2 = new ModelRenderer(this);
         gun241_r2.setRotationPoint(0.0F, 1.2708F, 4.0268F);
@@ -480,7 +480,7 @@ public class G36C extends ModelWithAttachments {
         gun241_r3.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone6.addChild(gun241_r3);
         setRotationAngle(gun241_r3, 0.4363F, 0.0F, 0.0F);
-        gun241_r3.cubeList.add(new ModelBox(gun241_r3, 30, 30, -1.0F, -8.0F, -0.5F, 2, 4, 1, 0.0F, false));
+        gun241_r3.cubeList.add(new ModelBox(gun241_r3, 30, 30, -1, -8.0F, -0.5F, 2, 4, 1, 0.0F, false));
 
         gun242_r2 = new ModelRenderer(this);
         gun242_r2.setRotationPoint(0.0F, 0.8452F, -1.8126F);
@@ -490,7 +490,7 @@ public class G36C extends ModelWithAttachments {
 
         stock = new ModelRenderer(this);
         stock.setRotationPoint(0.0F, 24.0F, 17.05F);
-        stock.cubeList.add(new ModelBox(stock, 110, 79, -1.625F, -41.0F, -12.5F, 2, 1, 2, 0.002F, false));
+        stock.cubeList.add(new ModelBox(stock, 110, 79, -1.625F, -41, -12.5F, 2, 1, 2, 0.002F, false));
         stock.cubeList.add(new ModelBox(stock, 82, 27, -3.375F, -40.999F, -12.5F, 2, 1, 2, 0.001F, false));
         stock.cubeList.add(new ModelBox(stock, 47, 47, -3.5F, -40.0F, -12.5F, 4, 9, 3, 0.0F, false));
         stock.cubeList.add(new ModelBox(stock, 33, 91, -4.5F, -40.0F, -12.5F, 1, 9, 1, 0.0F, false));
@@ -546,19 +546,19 @@ public class G36C extends ModelWithAttachments {
         cube_r37.setRotationPoint(-1.501F, -27.8224F, 13.5659F);
         stock.addChild(cube_r37);
         setRotationAngle(cube_r37, -0.2618F, 0.0F, 0.0F);
-        cube_r37.cubeList.add(new ModelBox(cube_r37, 112, 51, -1.0F, -1.5F, -0.5F, 2, 2, 1, 0.001F, false));
+        cube_r37.cubeList.add(new ModelBox(cube_r37, 112, 51, -1, -1.5F, -0.5F, 2, 2, 1, 0.001F, false));
 
         cube_r38 = new ModelRenderer(this);
         cube_r38.setRotationPoint(-1.501F, -29.0482F, 14.1175F);
         stock.addChild(cube_r38);
         setRotationAngle(cube_r38, 0.2182F, 0.0F, 0.0F);
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 115, 5, -1.0F, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 115, 5, -1, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
 
         cube_r39 = new ModelRenderer(this);
         cube_r39.setRotationPoint(-1.5F, -33.5747F, 15.459F);
         stock.addChild(cube_r39);
         setRotationAngle(cube_r39, -0.5672F, 0.0F, 0.0F);
-        cube_r39.cubeList.add(new ModelBox(cube_r39, 113, 35, -1.001F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r39.cubeList.add(new ModelBox(cube_r39, 113, 35, -1.001F, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         cube_r40 = new ModelRenderer(this);
         cube_r40.setRotationPoint(-1.5F, -29.0F, 17.0F);
@@ -587,31 +587,31 @@ public class G36C extends ModelWithAttachments {
         mag.addChild(cube_r43);
         setRotationAngle(cube_r43, -0.1309F, 0.0F, 0.0F);
         cube_r43.cubeList.add(new ModelBox(cube_r43, 77, 39, -2.5F, -2.0F, -0.5F, 5, 2, 2, 0.0F, false));
-        cube_r43.cubeList.add(new ModelBox(cube_r43, 72, 0, -2.0F, -3.0F, -1.0F, 4, 5, 5, 0.0F, false));
+        cube_r43.cubeList.add(new ModelBox(cube_r43, 72, 0, -2.0F, -3.0F, -1, 4, 5, 5, 0.0F, false));
 
         cube_r44 = new ModelRenderer(this);
         cube_r44.setRotationPoint(-3.8107F, 2.9844F, -1.9547F);
         mag.addChild(cube_r44);
         setRotationAngle(cube_r44, -0.1841F, 0.7769F, -0.1298F);
-        cube_r44.cubeList.add(new ModelBox(cube_r44, 112, 21, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r44.cubeList.add(new ModelBox(cube_r44, 112, 21, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r45 = new ModelRenderer(this);
         cube_r45.setRotationPoint(-3.8107F, 2.8538F, -2.9461F);
         mag.addChild(cube_r45);
         setRotationAngle(cube_r45, -0.1841F, 0.7769F, -0.1298F);
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 112, 15, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 112, 15, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r46 = new ModelRenderer(this);
         cube_r46.setRotationPoint(-1.2249F, 2.9844F, -1.9547F);
         mag.addChild(cube_r46);
         setRotationAngle(cube_r46, -0.1841F, 0.7769F, -0.1298F);
-        cube_r46.cubeList.add(new ModelBox(cube_r46, 112, 39, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r46.cubeList.add(new ModelBox(cube_r46, 112, 39, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r47 = new ModelRenderer(this);
         cube_r47.setRotationPoint(-1.2249F, 2.8538F, -2.9461F);
         mag.addChild(cube_r47);
         setRotationAngle(cube_r47, -0.1841F, 0.7769F, -0.1298F);
-        cube_r47.cubeList.add(new ModelBox(cube_r47, 112, 45, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r47.cubeList.add(new ModelBox(cube_r47, 112, 45, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r48 = new ModelRenderer(this);
         cube_r48.setRotationPoint(-0.75F, 2.6119F, -4.7838F);
@@ -629,31 +629,31 @@ public class G36C extends ModelWithAttachments {
         cube_r49.setRotationPoint(-0.75F, -2.7046F, -0.567F);
         mag2.addChild(cube_r49);
         setRotationAngle(cube_r49, -0.1309F, 0.0F, 0.0F);
-        cube_r49.cubeList.add(new ModelBox(cube_r49, 18, 0, -2.0F, -3.0F, -1.0F, 4, 6, 5, 0.001F, false));
+        cube_r49.cubeList.add(new ModelBox(cube_r49, 18, 0, -2.0F, -3.0F, -1, 4, 6, 5, 0.001F, false));
 
         cube_r50 = new ModelRenderer(this);
         cube_r50.setRotationPoint(-3.8107F, -2.789F, -1.2079F);
         mag2.addChild(cube_r50);
         setRotationAngle(cube_r50, -0.1841F, 0.7769F, -0.1298F);
-        cube_r50.cubeList.add(new ModelBox(cube_r50, 47, 82, 1.0F, -3.0F, 0.5F, 1, 6, 1, 0.0F, false));
+        cube_r50.cubeList.add(new ModelBox(cube_r50, 47, 82, 1, -3.0F, 0.5F, 1, 6, 1, 0.0F, false));
 
         cube_r51 = new ModelRenderer(this);
         cube_r51.setRotationPoint(-3.8107F, -2.9195F, -2.1994F);
         mag2.addChild(cube_r51);
         setRotationAngle(cube_r51, -0.1841F, 0.7769F, -0.1298F);
-        cube_r51.cubeList.add(new ModelBox(cube_r51, 102, 76, 1.0F, -3.0F, 0.5F, 1, 6, 1, 0.0F, false));
+        cube_r51.cubeList.add(new ModelBox(cube_r51, 102, 76, 1, -3.0F, 0.5F, 1, 6, 1, 0.0F, false));
 
         cube_r52 = new ModelRenderer(this);
         cube_r52.setRotationPoint(-1.2249F, -2.789F, -1.2079F);
         mag2.addChild(cube_r52);
         setRotationAngle(cube_r52, -0.1841F, 0.7769F, -0.1298F);
-        cube_r52.cubeList.add(new ModelBox(cube_r52, 105, 4, 1.0F, -3.0F, 0.5F, 1, 6, 1, 0.0F, false));
+        cube_r52.cubeList.add(new ModelBox(cube_r52, 105, 4, 1, -3.0F, 0.5F, 1, 6, 1, 0.0F, false));
 
         cube_r53 = new ModelRenderer(this);
         cube_r53.setRotationPoint(-1.2249F, -2.9195F, -2.1994F);
         mag2.addChild(cube_r53);
         setRotationAngle(cube_r53, -0.1841F, 0.7769F, -0.1298F);
-        cube_r53.cubeList.add(new ModelBox(cube_r53, 106, 46, 1.0F, -3.0F, 0.5F, 1, 6, 1, 0.0F, false));
+        cube_r53.cubeList.add(new ModelBox(cube_r53, 106, 46, 1, -3.0F, 0.5F, 1, 6, 1, 0.0F, false));
 
         cube_r54 = new ModelRenderer(this);
         cube_r54.setRotationPoint(-0.75F, -3.1615F, -4.0371F);
@@ -671,31 +671,31 @@ public class G36C extends ModelWithAttachments {
         cube_r55.setRotationPoint(-0.75F, 7.7094F, -1.4821F);
         mag3.addChild(cube_r55);
         setRotationAngle(cube_r55, -0.1309F, 0.0F, 0.0F);
-        cube_r55.cubeList.add(new ModelBox(cube_r55, 71, 65, -2.0F, -3.0F, -1.0F, 4, 5, 5, -0.001F, false));
+        cube_r55.cubeList.add(new ModelBox(cube_r55, 71, 65, -2.0F, -3.0F, -1, 4, 5, 5, -0.001F, false));
 
         cube_r56 = new ModelRenderer(this);
         cube_r56.setRotationPoint(-3.8107F, 7.6251F, -2.123F);
         mag3.addChild(cube_r56);
         setRotationAngle(cube_r56, -0.1841F, 0.7769F, -0.1298F);
-        cube_r56.cubeList.add(new ModelBox(cube_r56, 111, 3, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r56.cubeList.add(new ModelBox(cube_r56, 111, 3, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r57 = new ModelRenderer(this);
         cube_r57.setRotationPoint(-3.8107F, 7.4945F, -3.1144F);
         mag3.addChild(cube_r57);
         setRotationAngle(cube_r57, -0.1841F, 0.7769F, -0.1298F);
-        cube_r57.cubeList.add(new ModelBox(cube_r57, 111, 56, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r57.cubeList.add(new ModelBox(cube_r57, 111, 56, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r58 = new ModelRenderer(this);
         cube_r58.setRotationPoint(-1.2249F, 7.6251F, -2.123F);
         mag3.addChild(cube_r58);
         setRotationAngle(cube_r58, -0.1841F, 0.7769F, -0.1298F);
-        cube_r58.cubeList.add(new ModelBox(cube_r58, 111, 62, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r58.cubeList.add(new ModelBox(cube_r58, 111, 62, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r59 = new ModelRenderer(this);
         cube_r59.setRotationPoint(-1.2249F, 7.4945F, -3.1144F);
         mag3.addChild(cube_r59);
         setRotationAngle(cube_r59, -0.1841F, 0.7769F, -0.1298F);
-        cube_r59.cubeList.add(new ModelBox(cube_r59, 13, 112, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r59.cubeList.add(new ModelBox(cube_r59, 13, 112, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r60 = new ModelRenderer(this);
         cube_r60.setRotationPoint(-0.75F, 7.2526F, -4.9521F);
@@ -726,31 +726,31 @@ public class G36C extends ModelWithAttachments {
         mag4.addChild(cube_r63);
         setRotationAngle(cube_r63, -0.1309F, 0.0F, 0.0F);
         cube_r63.cubeList.add(new ModelBox(cube_r63, 76, 82, -2.5F, -2.0F, -0.5F, 5, 2, 2, 0.0F, false));
-        cube_r63.cubeList.add(new ModelBox(cube_r63, 25, 47, -2.0F, -3.0F, -1.0F, 4, 5, 5, 0.001F, false));
+        cube_r63.cubeList.add(new ModelBox(cube_r63, 25, 47, -2.0F, -3.0F, -1, 4, 5, 5, 0.001F, false));
 
         cube_r64 = new ModelRenderer(this);
         cube_r64.setRotationPoint(-3.0607F, 5.0076F, 0.1453F);
         mag4.addChild(cube_r64);
         setRotationAngle(cube_r64, -0.1841F, 0.7769F, -0.1298F);
-        cube_r64.cubeList.add(new ModelBox(cube_r64, 0, 83, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r64.cubeList.add(new ModelBox(cube_r64, 0, 83, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r65 = new ModelRenderer(this);
         cube_r65.setRotationPoint(-3.0607F, 4.877F, -0.8462F);
         mag4.addChild(cube_r65);
         setRotationAngle(cube_r65, -0.1841F, 0.7769F, -0.1298F);
-        cube_r65.cubeList.add(new ModelBox(cube_r65, 84, 10, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r65.cubeList.add(new ModelBox(cube_r65, 84, 10, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r66 = new ModelRenderer(this);
         cube_r66.setRotationPoint(-0.4749F, 5.0076F, 0.1453F);
         mag4.addChild(cube_r66);
         setRotationAngle(cube_r66, -0.1841F, 0.7769F, -0.1298F);
-        cube_r66.cubeList.add(new ModelBox(cube_r66, 84, 47, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r66.cubeList.add(new ModelBox(cube_r66, 84, 47, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r67 = new ModelRenderer(this);
         cube_r67.setRotationPoint(-0.4749F, 4.877F, -0.8462F);
         mag4.addChild(cube_r67);
         setRotationAngle(cube_r67, -0.1841F, 0.7769F, -0.1298F);
-        cube_r67.cubeList.add(new ModelBox(cube_r67, 106, 96, 1.0F, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
+        cube_r67.cubeList.add(new ModelBox(cube_r67, 106, 96, 1, -3.0F, 0.5F, 1, 5, 1, 0.0F, false));
 
         cube_r68 = new ModelRenderer(this);
         cube_r68.setRotationPoint(0.0F, 4.6351F, -2.6839F);
@@ -761,8 +761,8 @@ public class G36C extends ModelWithAttachments {
         handguard = new ModelRenderer(this);
         handguard.setRotationPoint(0.0F, 24.0F, 0.0F);
         handguard.cubeList.add(new ModelBox(handguard, 64, 21, 0.25F, -40.999F, -41.751F, 1, 2, 1, 0.0F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 19, 109, -3.5F, -41.0F, -41.5F, 4, 4, 1, 0.001F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 93, 39, -1.7071F, -41.0F, -44.4571F, 2, 1, 3, 0.0F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 19, 109, -3.5F, -41, -41.5F, 4, 4, 1, 0.001F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 93, 39, -1.7071F, -41, -44.4571F, 2, 1, 3, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 81, 127, -2.0F, -37.25F, -59.7F, 1, 1, 33, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 116, 110, -1.2929F, -36.5429F, -59.7F, 1, 1, 33, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 116, 76, -2.7071F, -36.5429F, -59.7F, 1, 1, 33, 0.0F, false));
@@ -781,10 +781,10 @@ public class G36C extends ModelWithAttachments {
         handguard.cubeList.add(new ModelBox(handguard, 111, 12, -2.5F, -31.5398F, -50.8F, 2, 1, 1, -0.1F, false));
         handguard.cubeList.add(new ModelBox(handguard, 110, 72, -2.5F, -31.5398F, -54.05F, 2, 1, 1, -0.1F, false));
         handguard.cubeList.add(new ModelBox(handguard, 107, 36, -2.5F, -31.5398F, -55.675F, 2, 1, 1, -0.1F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 53, 0, -4.0F, -41.0F, -43.75F, 5, 5, 3, 0.002F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 53, 0, -4.0F, -41, -43.75F, 5, 5, 3, 0.002F, false));
         handguard.cubeList.add(new ModelBox(handguard, 57, 59, -4.75F, -36.5F, -42.75F, 1, 2, 2, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 10, 59, -4.75F, -36.5F, -54.75F, 1, 2, 2, 0.0F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 79, 86, -3.2929F, -41.0F, -44.4571F, 2, 1, 3, 0.0F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 79, 86, -3.2929F, -41, -44.4571F, 2, 1, 3, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 38, 57, -4.25F, -40.999F, -41.751F, 1, 2, 1, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 79, 92, -2.5F, -37.0F, -59.7F, 2, 2, 33, 0.01F, false));
 
@@ -792,7 +792,7 @@ public class G36C extends ModelWithAttachments {
         cube_r69.setRotationPoint(-2.2642F, -40.28F, -47.25F);
         handguard.addChild(cube_r69);
         setRotationAngle(cube_r69, 0.0F, 0.0F, -0.2182F);
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 95, 15, -1.0F, -0.5F, -6.5F, 2, 1, 13, -0.001F, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 95, 15, -1, -0.5F, -6.5F, 2, 1, 13, -0.001F, false));
 
         cube_r70 = new ModelRenderer(this);
         cube_r70.setRotationPoint(-2.4079F, -37.8251F, -30.4401F);
@@ -826,7 +826,7 @@ public class G36C extends ModelWithAttachments {
         cube_r74.cubeList.add(new ModelBox(cube_r74, 71, 33, -0.5F, -3.0F, 0.0F, 1, 1, 1, 0.0F, false));
         cube_r74.cubeList.add(new ModelBox(cube_r74, 48, 109, -0.5F, -3.0F, 4.0F, 1, 1, 2, 0.0F, false));
         cube_r74.cubeList.add(new ModelBox(cube_r74, 71, 65, -0.5F, -3.0F, -4.0F, 1, 1, 1, 0.0F, false));
-        cube_r74.cubeList.add(new ModelBox(cube_r74, 16, 17, -0.5F, 1.0F, -5.5F, 1, 2, 1, 0.0F, false));
+        cube_r74.cubeList.add(new ModelBox(cube_r74, 16, 17, -0.5F, 1, -5.5F, 1, 2, 1, 0.0F, false));
         cube_r74.cubeList.add(new ModelBox(cube_r74, 72, 47, -0.5F, -2.0F, -4.5F, 1, 5, 1, 0.0F, false));
         cube_r74.cubeList.add(new ModelBox(cube_r74, 0, 17, -0.5F, -2.0F, -3.5F, 1, 5, 9, 0.0F, false));
 
@@ -877,7 +877,7 @@ public class G36C extends ModelWithAttachments {
         cube_r82.setRotationPoint(-3.5429F, -39.999F, -41.751F);
         handguard.addChild(cube_r82);
         setRotationAngle(cube_r82, 0.0F, -0.7854F, 0.0F);
-        cube_r82.cubeList.add(new ModelBox(cube_r82, 16, 39, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.001F, false));
+        cube_r82.cubeList.add(new ModelBox(cube_r82, 16, 39, -0.5F, -1, -0.5F, 1, 2, 1, -0.001F, false));
 
         cube_r83 = new ModelRenderer(this);
         cube_r83.setRotationPoint(-1.4216F, -37.5848F, -41.251F);
@@ -943,7 +943,7 @@ public class G36C extends ModelWithAttachments {
         cube_r86.setRotationPoint(0.5429F, -39.999F, -41.751F);
         handguard.addChild(cube_r86);
         setRotationAngle(cube_r86, 0.0F, 0.7854F, 0.0F);
-        cube_r86.cubeList.add(new ModelBox(cube_r86, 47, 59, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.001F, false));
+        cube_r86.cubeList.add(new ModelBox(cube_r86, 47, 59, -0.5F, -1, -0.5F, 1, 2, 1, -0.001F, false));
 
         cube_r87 = new ModelRenderer(this);
         cube_r87.setRotationPoint(-1.5784F, -37.5848F, -41.251F);
@@ -968,7 +968,7 @@ public class G36C extends ModelWithAttachments {
         cube_r90.setRotationPoint(0.5509F, -36.5257F, -48.5F);
         handguard.addChild(cube_r90);
         setRotationAngle(cube_r90, 0.0F, 0.0F, -0.1745F);
-        cube_r90.cubeList.add(new ModelBox(cube_r90, 65, 8, -0.5F, 1.0F, -7.0F, 1, 2, 1, 0.0F, false));
+        cube_r90.cubeList.add(new ModelBox(cube_r90, 65, 8, -0.5F, 1, -7.0F, 1, 2, 1, 0.0F, false));
         cube_r90.cubeList.add(new ModelBox(cube_r90, 69, 113, -0.5F, -2.0F, -6.0F, 1, 5, 1, 0.0F, false));
         cube_r90.cubeList.add(new ModelBox(cube_r90, 114, 25, -0.5F, -3.0F, 2.5F, 1, 1, 2, 0.0F, false));
         cube_r90.cubeList.add(new ModelBox(cube_r90, 30, 118, -0.5F, -3.0F, -1.5F, 1, 1, 1, 0.0F, false));
@@ -1028,7 +1028,7 @@ public class G36C extends ModelWithAttachments {
         cube_r99.setRotationPoint(-0.7358F, -40.28F, -47.25F);
         handguard.addChild(cube_r99);
         setRotationAngle(cube_r99, 0.0F, 0.0F, 0.2182F);
-        cube_r99.cubeList.add(new ModelBox(cube_r99, 79, 108, -1.0F, -0.5F, -6.5F, 2, 1, 13, 0.0F, false));
+        cube_r99.cubeList.add(new ModelBox(cube_r99, 79, 108, -1, -0.5F, -6.5F, 2, 1, 13, 0.0F, false));
 
         cube_r100 = new ModelRenderer(this);
         cube_r100.setRotationPoint(0.464F, -37.0181F, -46.5F);
@@ -1057,16 +1057,16 @@ public class G36C extends ModelWithAttachments {
         teeth3 = new ModelRenderer(this);
         teeth3.setRotationPoint(0.0F, -3.014F, 20.334F);
         rail2.addChild(teeth3);
-        teeth3.cubeList.add(new ModelBox(teeth3, 10, 106, -1.0F, 3.0F, -13.5F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 104, 72, -1.0F, 3.0F, -15.125F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 69, 100, -1.0F, 3.0F, -16.75F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 9, 99, -1.0F, 3.0F, -18.375F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 76, 86, -1.0F, 3.0F, -21.625F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 62, 86, -1.0F, 3.0F, -20.0F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 84, 79, -1.0F, 3.0F, -24.875F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 81, 43, -1.0F, 3.0F, -23.25F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 34, 72, -1.0F, 3.0F, -26.5F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 71, 28, -1.0F, 3.0F, -28.125F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 10, 106, -1, 3.0F, -13.5F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 104, 72, -1, 3.0F, -15.125F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 69, 100, -1, 3.0F, -16.75F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 9, 99, -1, 3.0F, -18.375F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 76, 86, -1, 3.0F, -21.625F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 62, 86, -1, 3.0F, -20.0F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 84, 79, -1, 3.0F, -24.875F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 81, 43, -1, 3.0F, -23.25F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 34, 72, -1, 3.0F, -26.5F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 71, 28, -1, 3.0F, -28.125F, 2, 1, 1, -0.1F, false));
 
         DustCover8_r2 = new ModelRenderer(this);
         DustCover8_r2.setRotationPoint(0.9F, 3.3343F, -27.623F);
@@ -1108,7 +1108,7 @@ public class G36C extends ModelWithAttachments {
         carryhandle.cubeList.add(new ModelBox(carryhandle, 83, 113, -0.75F, -43.0F, -20.0F, 1, 1, 2, -0.001F, false));
         carryhandle.cubeList.add(new ModelBox(carryhandle, 62, 82, -3.5F, -44.3F, -4.5F, 4, 1, 6, 0.004F, false));
         carryhandle.cubeList.add(new ModelBox(carryhandle, 0, 39, -3.0F, -44.6F, -3.6F, 3, 1, 5, 0.0F, false));
-        carryhandle.cubeList.add(new ModelBox(carryhandle, 81, 75, -1.0F, -45.63F, -3.3F, 1, 1, 3, -0.001F, false));
+        carryhandle.cubeList.add(new ModelBox(carryhandle, 81, 75, -1, -45.63F, -3.3F, 1, 1, 3, -0.001F, false));
         carryhandle.cubeList.add(new ModelBox(carryhandle, 63, 39, -3.0F, -45.63F, -3.3F, 1, 1, 3, -0.001F, false));
         carryhandle.cubeList.add(new ModelBox(carryhandle, 11, 39, -2.0F, -45.38F, -2.9F, 1, 1, 3, -0.001F, false));
         carryhandle.cubeList.add(new ModelBox(carryhandle, 20, 83, -3.7F, -44.9F, -4.298F, 1, 1, 6, -0.199F, false));
@@ -1128,18 +1128,18 @@ public class G36C extends ModelWithAttachments {
         carryhandle.cubeList.add(new ModelBox(carryhandle, 96, 108, -3.251F, -43.55F, -31.5F, 1, 1, 4, 0.0F, false));
 
         cube_r101 = new ModelRenderer(this);
-        cube_r101.setRotationPoint(-1.5F, -42.0F, -1.0F);
+        cube_r101.setRotationPoint(-1.5F, -42.0F, -1);
         carryhandle.addChild(cube_r101);
         setRotationAngle(cube_r101, -0.3927F, 0.0F, 0.0F);
         cube_r101.cubeList.add(new ModelBox(cube_r101, 27, 65, -2.0F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
-        cube_r101.cubeList.add(new ModelBox(cube_r101, 27, 117, 1.0F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
+        cube_r101.cubeList.add(new ModelBox(cube_r101, 27, 117, 1, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
 
         cube_r102 = new ModelRenderer(this);
-        cube_r102.setRotationPoint(-1.5F, -42.0F, -11.0F);
+        cube_r102.setRotationPoint(-1.5F, -42.0F, -11);
         carryhandle.addChild(cube_r102);
         setRotationAngle(cube_r102, -0.3927F, 0.0F, 0.0F);
         cube_r102.cubeList.add(new ModelBox(cube_r102, 66, 0, -2.0F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
-        cube_r102.cubeList.add(new ModelBox(cube_r102, 117, 31, 1.0F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
+        cube_r102.cubeList.add(new ModelBox(cube_r102, 117, 31, 1, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
 
         cube_r103 = new ModelRenderer(this);
         cube_r103.setRotationPoint(-2.75F, -42.7776F, -27.5036F);
@@ -1184,12 +1184,12 @@ public class G36C extends ModelWithAttachments {
         cube_r108.cubeList.add(new ModelBox(cube_r108, 87, 39, -3.6F, -0.2F, -3.8F, 1, 2, 4, -0.2F, false));
 
         cube_r109 = new ModelRenderer(this);
-        cube_r109.setRotationPoint(1.0F, -44.6F, 1.4F);
+        cube_r109.setRotationPoint(1, -44.6F, 1.4F);
         carryhandle.addChild(cube_r109);
         setRotationAngle(cube_r109, -0.5411F, 0.0F, 0.0F);
         cube_r109.cubeList.add(new ModelBox(cube_r109, 101, 15, -2.0F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
         cube_r109.cubeList.add(new ModelBox(cube_r109, 38, 60, -3.0F, 0.0F, -1.5F, 1, 1, 1, -0.001F, false));
-        cube_r109.cubeList.add(new ModelBox(cube_r109, 6, 65, -3.0F, 0.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        cube_r109.cubeList.add(new ModelBox(cube_r109, 6, 65, -3.0F, 0.0F, -1, 1, 1, 1, 0.0F, false));
         cube_r109.cubeList.add(new ModelBox(cube_r109, 5, 104, -4.0F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
 
         rail = new ModelRenderer(this);
@@ -1212,29 +1212,29 @@ public class G36C extends ModelWithAttachments {
         teeth = new ModelRenderer(this);
         teeth.setRotationPoint(-0.8918F, -0.2489F, 18.65F);
         rail.addChild(teeth);
-        teeth.cubeList.add(new ModelBox(teeth, 116, 82, -1.0F, -4.0F, -13.5F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 79, -1.0F, -4.0F, -15.125F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 76, -1.0F, -4.0F, -16.75F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 72, -1.0F, -4.0F, -18.375F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 60, 116, -1.0F, -4.0F, -21.625F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 48, -1.0F, -4.0F, -20.0F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 48, 116, -1.0F, -4.0F, -24.875F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 46, -1.0F, -4.0F, -23.25F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 42, 116, -1.0F, -4.0F, -37.875F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 41, -1.0F, -4.0F, -36.25F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 39, -1.0F, -4.0F, -26.5F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 30, 116, -1.0F, -4.0F, -28.125F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 22, -1.0F, -4.0F, -29.75F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 17, -1.0F, -4.0F, -31.375F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 15, -1.0F, -4.0F, -34.625F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 116, 11, -1.0F, -4.0F, -33.0F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 115, 63, -1.0F, -4.0F, -49.25F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 115, 58, -1.0F, -4.0F, -39.5F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 115, 56, -1.0F, -4.0F, -41.125F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 115, 44, -1.0F, -4.0F, -42.75F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 115, 20, -1.0F, -4.0F, -44.375F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 115, 9, -1.0F, -4.0F, -47.625F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 115, 7, -1.0F, -4.0F, -46.0F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 82, -1, -4.0F, -13.5F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 79, -1, -4.0F, -15.125F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 76, -1, -4.0F, -16.75F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 72, -1, -4.0F, -18.375F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 60, 116, -1, -4.0F, -21.625F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 48, -1, -4.0F, -20.0F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 48, 116, -1, -4.0F, -24.875F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 46, -1, -4.0F, -23.25F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 42, 116, -1, -4.0F, -37.875F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 41, -1, -4.0F, -36.25F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 39, -1, -4.0F, -26.5F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 30, 116, -1, -4.0F, -28.125F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 22, -1, -4.0F, -29.75F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 17, -1, -4.0F, -31.375F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 15, -1, -4.0F, -34.625F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 116, 11, -1, -4.0F, -33.0F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 115, 63, -1, -4.0F, -49.25F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 115, 58, -1, -4.0F, -39.5F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 115, 56, -1, -4.0F, -41.125F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 115, 44, -1, -4.0F, -42.75F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 115, 20, -1, -4.0F, -44.375F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 115, 9, -1, -4.0F, -47.625F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 115, 7, -1, -4.0F, -46.0F, 2, 1, 1, -0.1F, false));
 
         DustCover9_r2 = new ModelRenderer(this);
         DustCover9_r2.setRotationPoint(-0.9F, -3.3343F, -45.498F);

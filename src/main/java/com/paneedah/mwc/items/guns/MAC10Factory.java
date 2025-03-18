@@ -103,7 +103,7 @@ public class MAC10Factory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
-                    GL11.glTranslatef(-0.235F, -1.65F, -1.0F);
+                    GL11.glTranslatef(-0.235F, -1.65F, -1);
                     GL11.glScaled(0.95F, 0.95F, 0.95F);
                 }, (model) -> {
                     if (model instanceof JPUreticle) {

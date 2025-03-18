@@ -259,132 +259,132 @@ public class LeupoldRail extends ModelBase {
         Leupold168_r1.setRotationPoint(-37.5395F, 10.0407F, -14.222F);
         Leupold.addChild(Leupold168_r1);
         setRotationAngle(Leupold168_r1, 0.0F, 0.0F, 1.1525F);
-        Leupold168_r1.cubeList.add(new ModelBox(Leupold168_r1, 24, 0, 0.0F, -40.0F, -31.0F, 1, 4, 6, 0.0F, false));
+        Leupold168_r1.cubeList.add(new ModelBox(Leupold168_r1, 24, 0, 0.0F, -40.0F, -31, 1, 4, 6, 0.0F, false));
 
         Leupold166_r1 = new ModelRenderer(this);
         Leupold166_r1.setRotationPoint(28.0252F, 8.4408F, -14.222F);
         Leupold.addChild(Leupold166_r1);
         setRotationAngle(Leupold166_r1, 0.0F, 0.0F, -1.1525F);
-        Leupold166_r1.cubeList.add(new ModelBox(Leupold166_r1, 22, 65, -5.0F, -35.0F, -31.0F, 4, 1, 6, 0.0F, false));
+        Leupold166_r1.cubeList.add(new ModelBox(Leupold166_r1, 22, 65, -5.0F, -35.0F, -31, 4, 1, 6, 0.0F, false));
 
         Leupold165_r1 = new ModelRenderer(this);
         Leupold165_r1.setRotationPoint(12.7604F, 28.4058F, -14.222F);
         Leupold.addChild(Leupold165_r1);
         setRotationAngle(Leupold165_r1, 0.0F, 0.0F, -0.4461F);
-        Leupold165_r1.cubeList.add(new ModelBox(Leupold165_r1, 24, 19, -5.0F, -33.0F, -31.0F, 1, 4, 6, 0.0F, false));
+        Leupold165_r1.cubeList.add(new ModelBox(Leupold165_r1, 24, 19, -5.0F, -33.0F, -31, 1, 4, 6, 0.0F, false));
 
         Leupold163_r1 = new ModelRenderer(this);
         Leupold163_r1.setRotationPoint(10.6229F, -19.6865F, -14.222F);
         Leupold.addChild(Leupold163_r1);
         setRotationAngle(Leupold163_r1, 0.0F, 0.0F, -2.714F);
-        Leupold163_r1.cubeList.add(new ModelBox(Leupold163_r1, 71, 0, 0.0F, -28.0F, -31.0F, 4, 1, 6, 0.0F, false));
+        Leupold163_r1.cubeList.add(new ModelBox(Leupold163_r1, 71, 0, 0.0F, -28.0F, -31, 4, 1, 6, 0.0F, false));
 
         Leupold162_r1 = new ModelRenderer(this);
         Leupold162_r1.setRotationPoint(26.4107F, -6.1615F, -14.222F);
         Leupold.addChild(Leupold162_r1);
         setRotationAngle(Leupold162_r1, 0.0F, 0.0F, -2.082F);
-        Leupold162_r1.cubeList.add(new ModelBox(Leupold162_r1, 0, 44, 2.0F, -28.0F, -31.0F, 1, 4, 6, 0.0F, false));
+        Leupold162_r1.cubeList.add(new ModelBox(Leupold162_r1, 0, 44, 2.0F, -28.0F, -31, 1, 4, 6, 0.0F, false));
 
         Leupold160_r1 = new ModelRenderer(this);
         Leupold160_r1.setRotationPoint(-19.3447F, -21.4571F, -14.222F);
         Leupold.addChild(Leupold160_r1);
         setRotationAngle(Leupold160_r1, 0.0F, 0.0F, 2.082F);
-        Leupold160_r1.cubeList.add(new ModelBox(Leupold160_r1, 71, 7, 7.0F, -33.0F, -31.0F, 4, 1, 6, 0.0F, false));
+        Leupold160_r1.cubeList.add(new ModelBox(Leupold160_r1, 71, 7, 7.0F, -33.0F, -31, 4, 1, 6, 0.0F, false));
 
         Leupold159_r1 = new ModelRenderer(this);
         Leupold159_r1.setRotationPoint(-3.4156F, -35.6331F, -14.222F);
         Leupold.addChild(Leupold159_r1);
         setRotationAngle(Leupold159_r1, 0.0F, 0.0F, 2.6769F);
-        Leupold159_r1.cubeList.add(new ModelBox(Leupold159_r1, 51, 0, 7.0F, -35.0F, -31.0F, 1, 4, 6, 0.0F, false));
+        Leupold159_r1.cubeList.add(new ModelBox(Leupold159_r1, 51, 0, 7.0F, -35.0F, -31, 1, 4, 6, 0.0F, false));
 
         Leupold157_r1 = new ModelRenderer(this);
         Leupold157_r1.setRotationPoint(-19.3473F, 28.2818F, -14.222F);
         Leupold.addChild(Leupold157_r1);
         setRotationAngle(Leupold157_r1, 0.0F, 0.0F, 0.4833F);
-        Leupold157_r1.cubeList.add(new ModelBox(Leupold157_r1, 22, 72, 2.0F, -40.0F, -31.0F, 4, 1, 6, 0.0F, false));
+        Leupold157_r1.cubeList.add(new ModelBox(Leupold157_r1, 22, 72, 2.0F, -40.0F, -31, 4, 1, 6, 0.0F, false));
 
         Leupold137_r1 = new ModelRenderer(this);
         Leupold137_r1.setRotationPoint(-14.2256F, -23.7871F, -14.222F);
         Leupold.addChild(Leupold137_r1);
         setRotationAngle(Leupold137_r1, 0.0F, 0.0F, 2.4166F);
         Leupold137_r1.cubeList.add(new ModelBox(Leupold137_r1, 84, 78, 4.3F, -31.3F, 28.0F, 1, 1, 3, 0.0F, false));
-        Leupold137_r1.cubeList.add(new ModelBox(Leupold137_r1, 85, 0, 4.3F, -31.3F, 1.0F, 1, 1, 3, 0.0F, false));
+        Leupold137_r1.cubeList.add(new ModelBox(Leupold137_r1, 85, 0, 4.3F, -31.3F, 1, 1, 1, 3, 0.0F, false));
 
         Leupold135_r1 = new ModelRenderer(this);
         Leupold135_r1.setRotationPoint(21.769F, 21.2359F, -14.222F);
         Leupold.addChild(Leupold135_r1);
         setRotationAngle(Leupold135_r1, 0.0F, 0.0F, -0.8551F);
         Leupold135_r1.cubeList.add(new ModelBox(Leupold135_r1, 85, 7, -2.4F, -31.25F, 28.0F, 1, 1, 3, 0.0F, false));
-        Leupold135_r1.cubeList.add(new ModelBox(Leupold135_r1, 85, 27, -2.4F, -31.25F, 1.0F, 1, 1, 3, 0.0F, false));
+        Leupold135_r1.cubeList.add(new ModelBox(Leupold135_r1, 85, 27, -2.4F, -31.25F, 1, 1, 1, 3, 0.0F, false));
 
         Leupold133_r1 = new ModelRenderer(this);
         Leupold133_r1.setRotationPoint(-27.7341F, 24.1852F, -14.222F);
         Leupold.addChild(Leupold133_r1);
         setRotationAngle(Leupold133_r1, 0.0F, 0.0F, 0.7808F);
         Leupold133_r1.cubeList.add(new ModelBox(Leupold133_r1, 14, 88, -1.7F, -37.3F, 28.0F, 1, 1, 3, 0.0F, false));
-        Leupold133_r1.cubeList.add(new ModelBox(Leupold133_r1, 26, 88, -1.7F, -37.3F, 1.0F, 1, 1, 3, 0.0F, false));
+        Leupold133_r1.cubeList.add(new ModelBox(Leupold133_r1, 26, 88, -1.7F, -37.3F, 1, 1, 1, 3, 0.0F, false));
 
         Leupold131_r1 = new ModelRenderer(this);
         Leupold131_r1.setRotationPoint(-27.0886F, 19.3173F, -14.222F);
         Leupold.addChild(Leupold131_r1);
         setRotationAngle(Leupold131_r1, 0.0F, 0.0F, 0.8179F);
         Leupold131_r1.cubeList.add(new ModelBox(Leupold131_r1, 27, 93, 3.65F, -37.35F, 28.0F, 1, 1, 3, 0.0F, false));
-        Leupold131_r1.cubeList.add(new ModelBox(Leupold131_r1, 88, 95, 3.65F, -37.35F, 1.0F, 1, 1, 3, 0.0F, false));
+        Leupold131_r1.cubeList.add(new ModelBox(Leupold131_r1, 88, 95, 3.65F, -37.35F, 1, 1, 1, 3, 0.0F, false));
 
         Leupold129_r1 = new ModelRenderer(this);
         Leupold129_r1.setRotationPoint(27.3992F, -9.6841F, -14.222F);
         Leupold.addChild(Leupold129_r1);
         setRotationAngle(Leupold129_r1, 0.0F, 0.0F, -2.1192F);
-        Leupold129_r1.cubeList.add(new ModelBox(Leupold129_r1, 34, 10, 2.0F, -29.7F, 1.0F, 1, 2, 3, 0.0F, false));
+        Leupold129_r1.cubeList.add(new ModelBox(Leupold129_r1, 34, 10, 2.0F, -29.7F, 1, 1, 2, 3, 0.0F, false));
         Leupold129_r1.cubeList.add(new ModelBox(Leupold129_r1, 61, 21, 2.0F, -29.7F, 28.0F, 1, 2, 3, 0.0F, false));
 
         Leupold128_r1 = new ModelRenderer(this);
         Leupold128_r1.setRotationPoint(-21.086F, -20.934F, -14.222F);
         Leupold.addChild(Leupold128_r1);
         setRotationAngle(Leupold128_r1, 0.0F, 0.0F, 2.1192F);
-        Leupold128_r1.cubeList.add(new ModelBox(Leupold128_r1, 8, 44, 5.3F, -33.0F, 1.0F, 2, 1, 3, 0.0F, false));
+        Leupold128_r1.cubeList.add(new ModelBox(Leupold128_r1, 8, 44, 5.3F, -33.0F, 1, 2, 1, 3, 0.0F, false));
         Leupold128_r1.cubeList.add(new ModelBox(Leupold128_r1, 81, 14, 5.3F, -33.0F, 28.0F, 2, 1, 3, 0.0F, false));
 
         Leupold127_r1 = new ModelRenderer(this);
         Leupold127_r1.setRotationPoint(-9.1074F, -33.9644F, -14.222F);
         Leupold.addChild(Leupold127_r1);
         setRotationAngle(Leupold127_r1, 0.0F, 0.0F, 2.6025F);
-        Leupold127_r1.cubeList.add(new ModelBox(Leupold127_r1, 34, 29, 5.3F, -35.0F, 1.0F, 1, 2, 3, 0.0F, false));
+        Leupold127_r1.cubeList.add(new ModelBox(Leupold127_r1, 34, 29, 5.3F, -35.0F, 1, 1, 2, 3, 0.0F, false));
         Leupold127_r1.cubeList.add(new ModelBox(Leupold127_r1, 61, 48, 5.3F, -35.0F, 28.0F, 1, 2, 3, 0.0F, false));
 
         Leupold126_r1 = new ModelRenderer(this);
         Leupold126_r1.setRotationPoint(-19.7704F, 27.7259F, -14.222F);
         Leupold.addChild(Leupold126_r1);
         setRotationAngle(Leupold126_r1, 0.0F, 0.0F, 0.5205F);
-        Leupold126_r1.cubeList.add(new ModelBox(Leupold126_r1, 59, 0, 2.0F, -38.3F, 1.0F, 2, 1, 3, 0.0F, false));
+        Leupold126_r1.cubeList.add(new ModelBox(Leupold126_r1, 59, 0, 2.0F, -38.3F, 1, 2, 1, 3, 0.0F, false));
         Leupold126_r1.cubeList.add(new ModelBox(Leupold126_r1, 82, 33, 2.0F, -38.3F, 28.0F, 2, 1, 3, 0.0F, false));
 
         Leupold125_r1 = new ModelRenderer(this);
         Leupold125_r1.setRotationPoint(13.3001F, -21.9447F, -14.222F);
         Leupold.addChild(Leupold125_r1);
         setRotationAngle(Leupold125_r1, 0.0F, 0.0F, -2.6397F);
-        Leupold125_r1.cubeList.add(new ModelBox(Leupold125_r1, 71, 14, 0.0F, -29.7F, 1.0F, 2, 1, 3, 0.0F, false));
+        Leupold125_r1.cubeList.add(new ModelBox(Leupold125_r1, 71, 14, 0.0F, -29.7F, 1, 2, 1, 3, 0.0F, false));
         Leupold125_r1.cubeList.add(new ModelBox(Leupold125_r1, 32, 79, 0.0F, -29.7F, 28.0F, 2, 1, 3, 0.0F, false));
 
         Leupold124_r1 = new ModelRenderer(this);
         Leupold124_r1.setRotationPoint(13.9691F, 28.4794F, -14.222F);
         Leupold.addChild(Leupold124_r1);
         setRotationAngle(Leupold124_r1, 0.0F, 0.0F, -0.4833F);
-        Leupold124_r1.cubeList.add(new ModelBox(Leupold124_r1, 34, 44, -3.3F, -33.0F, 1.0F, 1, 2, 3, 0.0F, false));
+        Leupold124_r1.cubeList.add(new ModelBox(Leupold124_r1, 34, 44, -3.3F, -33.0F, 1, 1, 2, 3, 0.0F, false));
         Leupold124_r1.cubeList.add(new ModelBox(Leupold124_r1, 61, 10, -3.3F, -33.0F, 28.0F, 1, 2, 3, 0.0F, false));
 
         Leupold123_r1 = new ModelRenderer(this);
         Leupold123_r1.setRotationPoint(27.5814F, 13.6324F, -14.222F);
         Leupold.addChild(Leupold123_r1);
         setRotationAngle(Leupold123_r1, 0.0F, 0.0F, -1.041F);
-        Leupold123_r1.cubeList.add(new ModelBox(Leupold123_r1, 22, 79, -3.3F, -35.0F, 1.0F, 2, 1, 3, 0.0F, false));
+        Leupold123_r1.cubeList.add(new ModelBox(Leupold123_r1, 22, 79, -3.3F, -35.0F, 1, 2, 1, 3, 0.0F, false));
         Leupold123_r1.cubeList.add(new ModelBox(Leupold123_r1, 81, 48, -3.3F, -35.0F, 28.0F, 2, 1, 3, 0.0F, false));
 
         Leupold122_r1 = new ModelRenderer(this);
         Leupold122_r1.setRotationPoint(-34.0376F, 14.8477F, -14.222F);
         Leupold.addChild(Leupold122_r1);
         setRotationAngle(Leupold122_r1, 0.0F, 0.0F, 1.041F);
-        Leupold122_r1.cubeList.add(new ModelBox(Leupold122_r1, 34, 52, 0.0F, -38.3F, 1.0F, 1, 2, 3, 0.0F, false));
+        Leupold122_r1.cubeList.add(new ModelBox(Leupold122_r1, 34, 52, 0.0F, -38.3F, 1, 1, 2, 3, 0.0F, false));
         Leupold122_r1.cubeList.add(new ModelBox(Leupold122_r1, 61, 29, 0.0F, -38.3F, 28.0F, 1, 2, 3, 0.0F, false));
 
         Leupold96_r1 = new ModelRenderer(this);
@@ -403,7 +403,7 @@ public class LeupoldRail extends ModelBase {
         Leupold94_r1.setRotationPoint(12.1437F, -20.9795F, -14.222F);
         Leupold.addChild(Leupold94_r1);
         setRotationAngle(Leupold94_r1, 0.0F, 0.0F, -2.6025F);
-        Leupold94_r1.cubeList.add(new ModelBox(Leupold94_r1, 0, 29, -1.0F, -29.2F, 10.0F, 2, 2, 6, 0.0F, false));
+        Leupold94_r1.cubeList.add(new ModelBox(Leupold94_r1, 0, 29, -1, -29.2F, 10.0F, 2, 2, 6, 0.0F, false));
 
         Leupold93_r1 = new ModelRenderer(this);
         Leupold93_r1.setRotationPoint(15.3716F, 26.9326F, -14.222F);
@@ -421,7 +421,7 @@ public class LeupoldRail extends ModelBase {
         Leupold91_r1.setRotationPoint(-33.3509F, 17.8578F, -14.222F);
         Leupold.addChild(Leupold91_r1);
         setRotationAngle(Leupold91_r1, 0.0F, 0.0F, 0.9666F);
-        Leupold91_r1.cubeList.add(new ModelBox(Leupold91_r1, 51, 21, -1.0F, -38.8F, 10.0F, 2, 2, 6, 0.0F, false));
+        Leupold91_r1.cubeList.add(new ModelBox(Leupold91_r1, 51, 21, -1, -38.8F, 10.0F, 2, 2, 6, 0.0F, false));
 
         Leupold90_r1 = new ModelRenderer(this);
         Leupold90_r1.setRotationPoint(-9.942F, -35.5536F, -14.222F);
@@ -439,13 +439,13 @@ public class LeupoldRail extends ModelBase {
         Leupold88_r1.setRotationPoint(-0.9882F, -1.8866F, 34.4378F);
         Leupold.addChild(Leupold88_r1);
         setRotationAngle(Leupold88_r1, 2.2679F, 0.0F, 0.0F);
-        Leupold88_r1.cubeList.add(new ModelBox(Leupold88_r1, 51, 80, -1.0F, -29.2F, 16.0F, 4, 3, 2, 0.0F, false));
+        Leupold88_r1.cubeList.add(new ModelBox(Leupold88_r1, 51, 80, -1, -29.2F, 16.0F, 4, 3, 2, 0.0F, false));
 
         Leupold87_r1 = new ModelRenderer(this);
         Leupold87_r1.setRotationPoint(-0.9882F, -10.6325F, 22.6265F);
         Leupold.addChild(Leupold87_r1);
         setRotationAngle(Leupold87_r1, 2.4166F, 0.0F, 0.0F);
-        Leupold87_r1.cubeList.add(new ModelBox(Leupold87_r1, 28, 38, -1.0F, -29.2F, 10.0F, 4, 2, 3, 0.0F, false));
+        Leupold87_r1.cubeList.add(new ModelBox(Leupold87_r1, 28, 38, -1, -29.2F, 10.0F, 4, 2, 3, 0.0F, false));
 
         Leupold86_r1 = new ModelRenderer(this);
         Leupold86_r1.setRotationPoint(-12.2831F, 33.7925F, -12.8598F);
@@ -475,13 +475,13 @@ public class LeupoldRail extends ModelBase {
         Leupold82_r1.setRotationPoint(-0.9882F, 12.9045F, -40.0633F);
         Leupold.addChild(Leupold82_r1);
         setRotationAngle(Leupold82_r1, -0.8551F, 0.0F, 0.0F);
-        Leupold82_r1.cubeList.add(new ModelBox(Leupold82_r1, 73, 80, -1.0F, -38.8F, 10.0F, 4, 3, 2, 0.0F, false));
+        Leupold82_r1.cubeList.add(new ModelBox(Leupold82_r1, 73, 80, -1, -38.8F, 10.0F, 4, 3, 2, 0.0F, false));
 
         Leupold81_r1 = new ModelRenderer(this);
         Leupold81_r1.setRotationPoint(-0.9882F, 14.1222F, -35.5783F);
         Leupold.addChild(Leupold81_r1);
         setRotationAngle(Leupold81_r1, -0.7064F, 0.0F, 0.0F);
-        Leupold81_r1.cubeList.add(new ModelBox(Leupold81_r1, 0, 78, -1.0F, -38.8F, 16.0F, 4, 2, 3, 0.0F, false));
+        Leupold81_r1.cubeList.add(new ModelBox(Leupold81_r1, 0, 78, -1, -38.8F, 16.0F, 4, 2, 3, 0.0F, false));
 
         Leupold79_r1 = new ModelRenderer(this);
         Leupold79_r1.setRotationPoint(-16.1284F, -25.9362F, -14.222F);

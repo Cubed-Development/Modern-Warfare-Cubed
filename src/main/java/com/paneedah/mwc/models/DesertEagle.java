@@ -133,13 +133,13 @@ public class DesertEagle extends ModelWithAttachments {
         slide90_r1.setRotationPoint(-1.8F, -37.7F, 1.4F);
         gun.addChild(slide90_r1);
         setRotationAngle(slide90_r1, 0.0F, 0.0F, 0.4363F);
-        slide90_r1.cubeList.add(new ModelBox(slide90_r1, 75, 44, 0.05F, 0.0F, -1.0F, 1, 1, 1, -0.2F, false));
+        slide90_r1.cubeList.add(new ModelBox(slide90_r1, 75, 44, 0.05F, 0.0F, -1, 1, 1, 1, -0.2F, false));
 
         gun1_r1 = new ModelRenderer(this);
         gun1_r1.setRotationPoint(-3.0F, -32.5F, -4.1F);
         gun.addChild(gun1_r1);
         setRotationAngle(gun1_r1, -1.4128F, 0.0F, 0.0F);
-        gun1_r1.cubeList.add(new ModelBox(gun1_r1, 0, 26, 0.0F, -3.0F, -1.0F, 3, 6, 14, 0.001F, false));
+        gun1_r1.cubeList.add(new ModelBox(gun1_r1, 0, 26, 0.0F, -3.0F, -1, 3, 6, 14, 0.001F, false));
 
         gun3_r1 = new ModelRenderer(this);
         gun3_r1.setRotationPoint(-3.0F, -19.0F, 1.3F);
@@ -178,10 +178,10 @@ public class DesertEagle extends ModelWithAttachments {
         gun9_r1.cubeList.add(new ModelBox(gun9_r1, 20, 38, 0.0F, 0.0F, 0.0F, 3, 1, 1, 0.0F, false));
 
         gun11_r1 = new ModelRenderer(this);
-        gun11_r1.setRotationPoint(-3.5F, -21.0F, -4.7F);
+        gun11_r1.setRotationPoint(-3.5F, -21, -4.7F);
         gun.addChild(gun11_r1);
         setRotationAngle(gun11_r1, 1.7474F, 0.0F, 0.0F);
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 56, 44, 0.0F, 0.0F, -1.0F, 4, 1, 11, 0.001F, false));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 56, 44, 0.0F, 0.0F, -1, 4, 1, 11, 0.001F, false));
 
         gun12_r1 = new ModelRenderer(this);
         gun12_r1.setRotationPoint(-3.5F, -20.0F, 1.3F);
@@ -193,7 +193,7 @@ public class DesertEagle extends ModelWithAttachments {
         gun17_r1.setRotationPoint(0.0F, -30.8F, -12.1F);
         gun.addChild(gun17_r1);
         setRotationAngle(gun17_r1, 0.7854F, 0.0F, 0.0F);
-        gun17_r1.cubeList.add(new ModelBox(gun17_r1, 0, 7, -3.0F, -1.0F, 0.0F, 3, 1, 2, -0.001F, false));
+        gun17_r1.cubeList.add(new ModelBox(gun17_r1, 0, 7, -3.0F, -1, 0.0F, 3, 1, 2, -0.001F, false));
 
         gun19_r1 = new ModelRenderer(this);
         gun19_r1.setRotationPoint(-3.0F, -30.8F, -13.1F);
@@ -242,7 +242,7 @@ public class DesertEagle extends ModelWithAttachments {
         gun36_r2.setRotationPoint(-3.85F, -34.6F, -27.65F);
         gun.addChild(gun36_r2);
         setRotationAngle(gun36_r2, 0.2826F, 0.0327F, 0.4252F);
-        gun36_r2.cubeList.add(new ModelBox(gun36_r2, 31, 22, -0.08F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun36_r2.cubeList.add(new ModelBox(gun36_r2, 31, 22, -0.08F, -1, 0.0F, 2, 1, 1, 0.0F, false));
         gun36_r2.cubeList.add(new ModelBox(gun36_r2, 69, 32, -0.08F, -1.3F, 0.0F, 1, 1, 1, -0.001F, false));
 
         gun36_r3 = new ModelRenderer(this);
@@ -250,34 +250,34 @@ public class DesertEagle extends ModelWithAttachments {
         gun.addChild(gun36_r3);
         setRotationAngle(gun36_r3, 0.2826F, -0.0327F, -0.4252F);
         gun36_r3.cubeList.add(new ModelBox(gun36_r3, 69, 34, -0.92F, -1.3F, 0.0F, 1, 1, 1, -0.001F, false));
-        gun36_r3.cubeList.add(new ModelBox(gun36_r3, 8, 38, -1.92F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun36_r3.cubeList.add(new ModelBox(gun36_r3, 8, 38, -1.92F, -1, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun40_r1 = new ModelRenderer(this);
         gun40_r1.setRotationPoint(-3.35F, -34.8F, -23.2F);
         gun.addChild(gun40_r1);
         setRotationAngle(gun40_r1, 0.0F, 0.0F, -2.714F);
-        gun40_r1.cubeList.add(new ModelBox(gun40_r1, 0, 13, -1.0F, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
+        gun40_r1.cubeList.add(new ModelBox(gun40_r1, 0, 13, -1, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
 
         gun40_r2 = new ModelRenderer(this);
         gun40_r2.setRotationPoint(-3.85F, -34.8F, -23.2F);
         gun.addChild(gun40_r2);
         setRotationAngle(gun40_r2, 0.0F, 0.0F, -2.714F);
-        gun40_r2.cubeList.add(new ModelBox(gun40_r2, 61, 56, -1.0F, 1.0F, 0.0F, 1, 2, 11, 0.0F, false));
-        gun40_r2.cubeList.add(new ModelBox(gun40_r2, 17, 53, -1.0F, 0.0F, -4.0F, 1, 3, 4, 0.0F, false));
+        gun40_r2.cubeList.add(new ModelBox(gun40_r2, 61, 56, -1, 1, 0.0F, 1, 2, 11, 0.0F, false));
+        gun40_r2.cubeList.add(new ModelBox(gun40_r2, 17, 53, -1, 0.0F, -4.0F, 1, 3, 4, 0.0F, false));
 
         gun39_r1 = new ModelRenderer(this);
         gun39_r1.setRotationPoint(0.85F, -34.8F, -23.2F);
         gun.addChild(gun39_r1);
         setRotationAngle(gun39_r1, 0.0F, 0.0F, 2.714F);
-        gun39_r1.cubeList.add(new ModelBox(gun39_r1, 0, 62, 0.0F, 1.0F, 0.0F, 1, 2, 11, 0.0F, false));
-        gun39_r1.cubeList.add(new ModelBox(gun39_r1, 50, 26, 0.0F, 1.0F, -4.8F, 1, 2, 1, 0.001F, false));
+        gun39_r1.cubeList.add(new ModelBox(gun39_r1, 0, 62, 0.0F, 1, 0.0F, 1, 2, 11, 0.0F, false));
+        gun39_r1.cubeList.add(new ModelBox(gun39_r1, 50, 26, 0.0F, 1, -4.8F, 1, 2, 1, 0.001F, false));
         gun39_r1.cubeList.add(new ModelBox(gun39_r1, 56, 44, 0.0F, 0.0F, -4.0F, 1, 3, 4, 0.0F, false));
 
         gun40_r3 = new ModelRenderer(this);
         gun40_r3.setRotationPoint(-3.85F, -34.8F, -27.0F);
         gun.addChild(gun40_r3);
         setRotationAngle(gun40_r3, 0.0F, 0.0F, -2.714F);
-        gun40_r3.cubeList.add(new ModelBox(gun40_r3, 43, 9, -1.0F, 1.0F, -1.0F, 1, 2, 1, 0.001F, false));
+        gun40_r3.cubeList.add(new ModelBox(gun40_r3, 43, 9, -1, 1, -1, 1, 2, 1, 0.001F, false));
 
         gun39_r2 = new ModelRenderer(this);
         gun39_r2.setRotationPoint(0.35F, -34.8F, -23.2F);
@@ -295,10 +295,10 @@ public class DesertEagle extends ModelWithAttachments {
         gun43_r1.setRotationPoint(-2.35F, -32.6F, -27.2F);
         gun.addChild(gun43_r1);
         setRotationAngle(gun43_r1, 0.0F, 0.0F, 1.8961F);
-        gun43_r1.cubeList.add(new ModelBox(gun43_r1, 81, 45, -1.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun43_r1.cubeList.add(new ModelBox(gun43_r1, 81, 45, -1, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun47_r1 = new ModelRenderer(this);
-        gun47_r1.setRotationPoint(-1.0F, -32.3F, -25.1F);
+        gun47_r1.setRotationPoint(-1, -32.3F, -25.1F);
         gun.addChild(gun47_r1);
         setRotationAngle(gun47_r1, 0.0F, 0.0F, -1.7474F);
         gun47_r1.cubeList.add(new ModelBox(gun47_r1, 66, 0, 0.0F, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
@@ -307,21 +307,21 @@ public class DesertEagle extends ModelWithAttachments {
         gun46_r1.setRotationPoint(-2.0F, -32.3F, -25.1F);
         gun.addChild(gun46_r1);
         setRotationAngle(gun46_r1, 0.0F, 0.0F, 1.7474F);
-        gun46_r1.cubeList.add(new ModelBox(gun46_r1, 51, 69, -1.0F, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
+        gun46_r1.cubeList.add(new ModelBox(gun46_r1, 51, 69, -1, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
 
         gun59_r1 = new ModelRenderer(this);
         gun59_r1.setRotationPoint(-2.0F, -38.5F, -18.0F);
         gun.addChild(gun59_r1);
         setRotationAngle(gun59_r1, 0.0F, 0.0F, -0.6807F);
-        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 25, 58, -1.0F, 0.0F, 4.0F, 1, 1, 2, 0.0F, false));
-        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 38, 29, -1.0F, 0.0F, 2.0F, 1, 1, 1, 0.0F, false));
-        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 34, 60, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 6, 68, -1.0F, 0.0F, -2.0F, 1, 1, 1, 0.0F, false));
-        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 68, 56, -1.0F, 0.0F, -4.0F, 1, 1, 1, 0.0F, false));
-        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 17, 47, -1.0F, 0.0F, -10.0F, 1, 1, 5, 0.0F, false));
+        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 25, 58, -1, 0.0F, 4.0F, 1, 1, 2, 0.0F, false));
+        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 38, 29, -1, 0.0F, 2.0F, 1, 1, 1, 0.0F, false));
+        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 34, 60, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 6, 68, -1, 0.0F, -2.0F, 1, 1, 1, 0.0F, false));
+        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 68, 56, -1, 0.0F, -4.0F, 1, 1, 1, 0.0F, false));
+        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 17, 47, -1, 0.0F, -10.0F, 1, 1, 5, 0.0F, false));
 
         gun60_r1 = new ModelRenderer(this);
-        gun60_r1.setRotationPoint(-1.0F, -38.5F, -18.0F);
+        gun60_r1.setRotationPoint(-1, -38.5F, -18.0F);
         gun.addChild(gun60_r1);
         setRotationAngle(gun60_r1, 0.0F, 0.0F, 0.6807F);
         gun60_r1.cubeList.add(new ModelBox(gun60_r1, 48, 50, 0.0F, 0.0F, 4.0F, 1, 1, 2, 0.0F, false));
@@ -341,13 +341,13 @@ public class DesertEagle extends ModelWithAttachments {
         gun87_r1.setRotationPoint(-2.2F, -38.5F, -12.5F);
         gun.addChild(gun87_r1);
         setRotationAngle(gun87_r1, 0.0F, 0.0F, -0.632F);
-        gun87_r1.cubeList.add(new ModelBox(gun87_r1, 77, 69, -1.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun87_r1.cubeList.add(new ModelBox(gun87_r1, 77, 69, -1, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun90_r1 = new ModelRenderer(this);
         gun90_r1.setRotationPoint(-3.01F, -37.9F, -12.5F);
         gun.addChild(gun90_r1);
         setRotationAngle(gun90_r1, 0.0F, 0.0F, -1.2641F);
-        gun90_r1.cubeList.add(new ModelBox(gun90_r1, 64, 69, -1.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun90_r1.cubeList.add(new ModelBox(gun90_r1, 64, 69, -1, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun89_r1 = new ModelRenderer(this);
         gun89_r1.setRotationPoint(0.01F, -37.9F, -12.5F);
@@ -365,13 +365,13 @@ public class DesertEagle extends ModelWithAttachments {
         gun91_r1.setRotationPoint(-3.31F, -36.95F, -12.5F);
         gun.addChild(gun91_r1);
         setRotationAngle(gun91_r1, 0.0F, 0.0F, -1.5987F);
-        gun91_r1.cubeList.add(new ModelBox(gun91_r1, 75, 44, -1.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun91_r1.cubeList.add(new ModelBox(gun91_r1, 75, 44, -1, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun94_r1 = new ModelRenderer(this);
         gun94_r1.setRotationPoint(0.3F, -36.95F, -12.5F);
         gun.addChild(gun94_r1);
         setRotationAngle(gun94_r1, -1.0411F, -0.0088F, 0.0151F);
-        gun94_r1.cubeList.add(new ModelBox(gun94_r1, 66, 0, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun94_r1.cubeList.add(new ModelBox(gun94_r1, 66, 0, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun93_r1 = new ModelRenderer(this);
         gun93_r1.setRotationPoint(-3.3F, -36.95F, -12.5F);
@@ -409,7 +409,7 @@ public class DesertEagle extends ModelWithAttachments {
         gun136_r1.setRotationPoint(-1.7F, -38.8F, -27.3F);
         gun.addChild(gun136_r1);
         setRotationAngle(gun136_r1, 0.0F, 0.0F, -0.5949F);
-        gun136_r1.cubeList.add(new ModelBox(gun136_r1, 74, 56, -1.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun136_r1.cubeList.add(new ModelBox(gun136_r1, 74, 56, -1, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun100_r1 = new ModelRenderer(this);
         gun100_r1.setRotationPoint(-2.5F, -34.5F, -28.0F);
@@ -421,21 +421,21 @@ public class DesertEagle extends ModelWithAttachments {
         gun112_r1.setRotationPoint(-1.8F, -33.3F, 2.6F);
         gun.addChild(gun112_r1);
         setRotationAngle(gun112_r1, -2.9371F, 0.0F, 0.0F);
-        gun112_r1.cubeList.add(new ModelBox(gun112_r1, 49, 37, -1.0F, -0.5F, 0.0F, 1, 3, 1, 0.0F, false));
+        gun112_r1.cubeList.add(new ModelBox(gun112_r1, 49, 37, -1, -0.5F, 0.0F, 1, 3, 1, 0.0F, false));
         gun112_r1.cubeList.add(new ModelBox(gun112_r1, 50, 18, 0.6F, -0.5F, 0.0F, 1, 3, 1, 0.0F, false));
 
         gun113_r1 = new ModelRenderer(this);
         gun113_r1.setRotationPoint(-2.3F, -33.3F, 2.5F);
         gun.addChild(gun113_r1);
         setRotationAngle(gun113_r1, -2.9371F, 0.0F, 0.0F);
-        gun113_r1.cubeList.add(new ModelBox(gun113_r1, 37, 63, -1.0F, -0.5F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun113_r1.cubeList.add(new ModelBox(gun113_r1, 37, 63, -1, -0.5F, 0.0F, 1, 2, 1, 0.0F, false));
         gun113_r1.cubeList.add(new ModelBox(gun113_r1, 18, 65, 1.6F, -0.5F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun113_r2 = new ModelRenderer(this);
         gun113_r2.setRotationPoint(-0.2F, -33.5F, 2.5F);
         gun.addChild(gun113_r2);
         setRotationAngle(gun113_r2, -0.2231F, 0.0F, 0.0F);
-        gun113_r2.cubeList.add(new ModelBox(gun113_r2, 77, 19, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun113_r2.cubeList.add(new ModelBox(gun113_r2, 77, 19, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
         gun113_r2.cubeList.add(new ModelBox(gun113_r2, 21, 77, -2.6F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun123_r1 = new ModelRenderer(this);
@@ -454,14 +454,14 @@ public class DesertEagle extends ModelWithAttachments {
         gun121_r1.setRotationPoint(-2.5F, -32.5F, -8.0F);
         gun.addChild(gun121_r1);
         setRotationAngle(gun121_r1, 0.0372F, 0.0F, 0.0F);
-        gun121_r1.cubeList.add(new ModelBox(gun121_r1, 43, 18, -1.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
+        gun121_r1.cubeList.add(new ModelBox(gun121_r1, 43, 18, -1, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
         gun121_r1.cubeList.add(new ModelBox(gun121_r1, 49, 6, 2.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
 
         gun122_r1 = new ModelRenderer(this);
         gun122_r1.setRotationPoint(-2.5F, -32.5F, -8.0F);
         gun.addChild(gun122_r1);
         setRotationAngle(gun122_r1, 0.1115F, 0.0F, 0.0F);
-        gun122_r1.cubeList.add(new ModelBox(gun122_r1, 38, 32, -1.0F, 0.0F, 0.0F, 1, 1, 5, 0.001F, false));
+        gun122_r1.cubeList.add(new ModelBox(gun122_r1, 38, 32, -1, 0.0F, 0.0F, 1, 1, 5, 0.001F, false));
         gun122_r1.cubeList.add(new ModelBox(gun122_r1, 49, 0, 2.0F, 0.0F, 0.0F, 1, 1, 5, 0.001F, false));
 
         gun122_r2 = new ModelRenderer(this);
@@ -500,7 +500,7 @@ public class DesertEagle extends ModelWithAttachments {
         gun132_r1.setRotationPoint(0.2F, -28.7F, -7.0F);
         gun.addChild(gun132_r1);
         setRotationAngle(gun132_r1, 0.1859F, 0.0F, 0.0F);
-        gun132_r1.cubeList.add(new ModelBox(gun132_r1, 27, 77, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun132_r1.cubeList.add(new ModelBox(gun132_r1, 27, 77, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
         gun132_r1.cubeList.add(new ModelBox(gun132_r1, 78, 65, -3.4F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun132_r2 = new ModelRenderer(this);
@@ -510,11 +510,11 @@ public class DesertEagle extends ModelWithAttachments {
         gun132_r2.cubeList.add(new ModelBox(gun132_r2, 7, 52, 0.3F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         gun158_r1 = new ModelRenderer(this);
-        gun158_r1.setRotationPoint(-1.0F, -33.5F, 1.9F);
+        gun158_r1.setRotationPoint(-1, -33.5F, 1.9F);
         gun.addChild(gun158_r1);
         setRotationAngle(gun158_r1, -0.1859F, 0.0F, 0.0F);
         gun158_r1.cubeList.add(new ModelBox(gun158_r1, 38, 75, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
-        gun158_r1.cubeList.add(new ModelBox(gun158_r1, 77, 16, -1.0F, 0.0F, 3.0F, 1, 1, 1, 0.0F, false));
+        gun158_r1.cubeList.add(new ModelBox(gun158_r1, 77, 16, -1, 0.0F, 3.0F, 1, 1, 1, 0.0F, false));
         gun158_r1.cubeList.add(new ModelBox(gun158_r1, 73, 16, 0.4F, 0.0F, 0.0F, 1, 1, 2, 0.002F, false));
         gun158_r1.cubeList.add(new ModelBox(gun158_r1, 73, 23, -2.4F, 0.0F, 0.0F, 1, 1, 2, 0.002F, false));
         gun158_r1.cubeList.add(new ModelBox(gun158_r1, 21, 75, -2.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));

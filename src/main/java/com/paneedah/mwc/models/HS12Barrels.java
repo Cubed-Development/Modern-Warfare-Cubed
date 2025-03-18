@@ -48,7 +48,7 @@ public class HS12Barrels extends ModelWithAttachments {
 
         barrel = new ModelRenderer(this);
         barrel.setRotationPoint(0.0F, 24.0F, 0.0F);
-        barrel.cubeList.add(new ModelBox(barrel, 0, 0, -1.8F, -33.0F, -11.0F, 1, 1, 12, 0.0F, true));
+        barrel.cubeList.add(new ModelBox(barrel, 0, 0, -1.8F, -33.0F, -11, 1, 1, 12, 0.0F, true));
         barrel.cubeList.add(new ModelBox(barrel, 0, 0, -1.5F, -30.0F, -53.0F, 1, 2, 20, 0.0F, true));
         barrel.cubeList.add(new ModelBox(barrel, 0, 0, -1.2F, -32.6F, -16.0F, 1, 1, 3, 0.0F, true));
         barrel.cubeList.add(new ModelBox(barrel, 0, 0, -1.8F, -32.6F, -16.0F, 1, 1, 3, 0.0F, true));
@@ -63,13 +63,13 @@ public class HS12Barrels extends ModelWithAttachments {
         barrel.cubeList.add(new ModelBox(barrel, 0, 0, -2.0F, -30.0F, -59.0F, 2, 2, 6, 0.0F, true));
         barrel.cubeList.add(new ModelBox(barrel, 250, 0, -3.0F, -29.5F, -9.9F, 4, 2, 1, 0.0F, true));
         barrel.cubeList.add(new ModelBox(barrel, 250, 0, -3.0F, -29.1F, -34.4F, 4, 2, 1, 0.0F, true));
-        barrel.cubeList.add(new ModelBox(barrel, 0, 0, -1.2F, -33.0F, -11.0F, 1, 1, 12, 0.0F, true));
+        barrel.cubeList.add(new ModelBox(barrel, 0, 0, -1.2F, -33.0F, -11, 1, 1, 12, 0.0F, true));
 
         Barrel39_r1 = new ModelRenderer(this);
         Barrel39_r1.setRotationPoint(-8.5703F, 0.0F, -12.6237F);
         barrel.addChild(Barrel39_r1);
         setRotationAngle(Barrel39_r1, -3.1416F, -1.3942F, 3.1416F);
-        Barrel39_r1.cubeList.add(new ModelBox(Barrel39_r1, 250, 0, 1.0F, -28.3F, -9.9F, 2, 3, 1, 0.0F, true));
+        Barrel39_r1.cubeList.add(new ModelBox(Barrel39_r1, 250, 0, 1, -28.3F, -9.9F, 2, 3, 1, 0.0F, true));
 
         Barrel38_r1 = new ModelRenderer(this);
         Barrel38_r1.setRotationPoint(1.7781F, 0.0F, -0.725F);
@@ -184,7 +184,7 @@ public class HS12Barrels extends ModelWithAttachments {
         Barrel8_r1.setRotationPoint(-19.1526F, -51.0667F, 0.0F);
         barrel.addChild(Barrel8_r1);
         setRotationAngle(Barrel8_r1, 0.0F, 0.0F, 2.3562F);
-        Barrel8_r1.cubeList.add(new ModelBox(Barrel8_r1, 250, 0, 1.0F, -29.5F, -33.9F, 1, 1, 26, 0.0F, true));
+        Barrel8_r1.cubeList.add(new ModelBox(Barrel8_r1, 250, 0, 1, -29.5F, -33.9F, 1, 1, 26, 0.0F, true));
 
         Barrel6_r1 = new ModelRenderer(this);
         Barrel6_r1.setRotationPoint(1.5933F, 0.0F, -0.7078F);
@@ -196,7 +196,7 @@ public class HS12Barrels extends ModelWithAttachments {
         Barrel5_r1.setRotationPoint(-7.5859F, 0.0F, -11.448F);
         barrel.addChild(Barrel5_r1);
         setRotationAngle(Barrel5_r1, -3.1416F, -1.3942F, 3.1416F);
-        Barrel5_r1.cubeList.add(new ModelBox(Barrel5_r1, 250, 0, 1.0F, -29.5F, -8.9F, 2, 2, 1, 0.0F, true));
+        Barrel5_r1.cubeList.add(new ModelBox(Barrel5_r1, 250, 0, 1, -29.5F, -8.9F, 2, 2, 1, 0.0F, true));
 
         Barrel3_r1 = new ModelRenderer(this);
         Barrel3_r1.setRotationPoint(19.9354F, -50.5425F, 0.0F);
@@ -214,8 +214,8 @@ public class HS12Barrels extends ModelWithAttachments {
         Barrel67_r1.setRotationPoint(0.0F, -16.9444F, -41.858F);
         barrel.addChild(Barrel67_r1);
         setRotationAngle(Barrel67_r1, -1.4128F, 0.0F, 0.0F);
-        Barrel67_r1.cubeList.add(new ModelBox(Barrel67_r1, 0, 0, -1.8F, -33.0F, -11.0F, 1, 4, 1, 0.0F, true));
-        Barrel67_r1.cubeList.add(new ModelBox(Barrel67_r1, 0, 0, -1.2F, -33.0F, -11.0F, 1, 4, 1, 0.0F, true));
+        Barrel67_r1.cubeList.add(new ModelBox(Barrel67_r1, 0, 0, -1.8F, -33.0F, -11, 1, 4, 1, 0.0F, true));
+        Barrel67_r1.cubeList.add(new ModelBox(Barrel67_r1, 0, 0, -1.2F, -33.0F, -11, 1, 4, 1, 0.0F, true));
 
         Barrel63_r1 = new ModelRenderer(this);
         Barrel63_r1.setRotationPoint(0.0F, -40.2921F, -34.8196F);

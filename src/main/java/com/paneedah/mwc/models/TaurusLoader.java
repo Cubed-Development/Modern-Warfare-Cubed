@@ -24,20 +24,20 @@ public class TaurusLoader extends ModelWithAttachments {
 
         loader = new ModelRenderer(this);
         loader.setRotationPoint(-1.5F, 0.9F, 10.7F);
-        loader.cubeList.add(new ModelBox(loader, 25, 41, -1.0F, -2.0F, -3.0F, 2, 5, 2, 0.0F, false));
+        loader.cubeList.add(new ModelBox(loader, 25, 41, -1, -2.0F, -3.0F, 2, 5, 2, 0.0F, false));
         loader.cubeList.add(new ModelBox(loader, 68, 55, 1.9F, -0.9F, -3.0F, 1, 2, 2, 0.0F, false));
         loader.cubeList.add(new ModelBox(loader, 90, 49, -2.9F, -0.9F, -3.001F, 5, 2, 2, 0.0F, false));
-        loader.cubeList.add(new ModelBox(loader, 89, 69, -1.0F, -2.8F, -3.001F, 2, 1, 2, 0.0F, false));
+        loader.cubeList.add(new ModelBox(loader, 89, 69, -1, -2.8F, -3.001F, 2, 1, 2, 0.0F, false));
 
         cube_r9 = new ModelRenderer(this);
-        cube_r9.setRotationPoint(-1.0F, -2.8F, -3.0F);
+        cube_r9.setRotationPoint(-1, -2.8F, -3.0F);
         loader.addChild(cube_r9);
         setRotationAngle(cube_r9, 0.0F, 0.0F, -0.7854F);
         cube_r9.cubeList.add(new ModelBox(cube_r9, 59, 64, -2.7F, -0.001F, -0.003F, 1, 2, 2, 0.0F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 9, 83, -2.0F, 0.0F, -0.002F, 2, 2, 2, 0.0F, false));
 
         cube_r10 = new ModelRenderer(this);
-        cube_r10.setRotationPoint(1.0F, -2.8F, -3.0F);
+        cube_r10.setRotationPoint(1, -2.8F, -3.0F);
         loader.addChild(cube_r10);
         setRotationAngle(cube_r10, 0.0F, 0.0F, -0.7854F);
         cube_r10.cubeList.add(new ModelBox(cube_r10, 62, 48, -1.999F, 1.7F, -0.003F, 2, 1, 2, 0.0F, false));
@@ -52,14 +52,14 @@ public class TaurusLoader extends ModelWithAttachments {
         cube_r11.cubeList.add(new ModelBox(cube_r11, 81, 98, -2.0F, 0.0F, 1.399F, 2, 2, 1, 0.0F, false));
 
         cube_r12 = new ModelRenderer(this);
-        cube_r12.setRotationPoint(-1.0F, 3.0F, -3.0F);
+        cube_r12.setRotationPoint(-1, 3.0F, -3.0F);
         loader.addChild(cube_r12);
         setRotationAngle(cube_r12, 0.0F, 0.0F, 0.7854F);
         cube_r12.cubeList.add(new ModelBox(cube_r12, 69, 11, -2.7F, -2.0F, 0.003F, 1, 2, 2, 0.0F, false));
         cube_r12.cubeList.add(new ModelBox(cube_r12, 93, 97, -2.0F, -2.0F, 0.002F, 2, 2, 2, 0.0F, false));
 
         cube_r13 = new ModelRenderer(this);
-        cube_r13.setRotationPoint(1.0F, 3.0F, -3.0F);
+        cube_r13.setRotationPoint(1, 3.0F, -3.0F);
         loader.addChild(cube_r13);
         setRotationAngle(cube_r13, 0.0F, 0.0F, 0.7854F);
         cube_r13.cubeList.add(new ModelBox(cube_r13, 49, 96, -1.999F, -2.7F, 0.002F, 2, 1, 2, 0.0F, false));

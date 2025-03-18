@@ -53,7 +53,7 @@ public class UMP45Stock extends ModelWithAttachments {
         cube_r1.setRotationPoint(0.5F, -36.0F, 11.5F);
         stock.addChild(cube_r1);
         setRotationAngle(cube_r1, 0.3665F, 0.0F, 0.0F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 68, -4.0F, -1.0F, 0.0F, 4, 1, 3, -0.002F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 68, -4.0F, -1, 0.0F, 4, 1, 3, -0.002F, false));
 
         cube_r2 = new ModelRenderer(this);
         cube_r2.setRotationPoint(-1.5F, -28.0864F, 8.1633F);
@@ -84,13 +84,13 @@ public class UMP45Stock extends ModelWithAttachments {
         cube_r6.setRotationPoint(-1.501F, -26.5224F, 14.1659F);
         stock.addChild(cube_r6);
         setRotationAngle(cube_r6, -0.2618F, 0.0F, 0.0F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 115, 15, -1.0F, -1.5F, -0.5F, 2, 2, 1, 0.001F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 115, 15, -1, -1.5F, -0.5F, 2, 2, 1, 0.001F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(-1.501F, -27.7482F, 14.7175F);
         stock.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.2182F, 0.0F, 0.0F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 86, 58, -1.0F, -0.5F, -0.5F, 2, 1, 2, 0.0F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 86, 58, -1, -0.5F, -0.5F, 2, 1, 2, 0.0F, false));
 
         cube_r8 = new ModelRenderer(this);
         cube_r8.setRotationPoint(-1.5F, -29.2F, 18.0F);
@@ -108,7 +108,7 @@ public class UMP45Stock extends ModelWithAttachments {
         cube_r10.setRotationPoint(-0.5F, -28.7F, 6.6F);
         stock.addChild(cube_r10);
         setRotationAngle(cube_r10, 0.2094F, 0.0F, 0.0F);
-        cube_r10.cubeList.add(new ModelBox(cube_r10, 78, 111, -2.0F, -8.0F, -1.0F, 2, 8, 1, 0.0F, false));
+        cube_r10.cubeList.add(new ModelBox(cube_r10, 78, 111, -2.0F, -8.0F, -1, 2, 8, 1, 0.0F, false));
 
         cube_r11 = new ModelRenderer(this);
         cube_r11.setRotationPoint(-0.5F, -33.3F, -8.7F);
@@ -120,7 +120,7 @@ public class UMP45Stock extends ModelWithAttachments {
         cube_r12.setRotationPoint(1.4F, -34.0F, -8.9F);
         stock.addChild(cube_r12);
         setRotationAngle(cube_r12, 0.3464F, -0.2976F, -0.1042F);
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 15, -1.0F, -3.0F, 0.0F, 1, 3, 2, 0.0F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 15, -1, -3.0F, 0.0F, 1, 3, 2, 0.0F, false));
 
         cube_r13 = new ModelRenderer(this);
         cube_r13.setRotationPoint(-4.4F, -38.9F, -11.5F);
@@ -135,11 +135,11 @@ public class UMP45Stock extends ModelWithAttachments {
         cube_r14.cubeList.add(new ModelBox(cube_r14, 54, 41, 0.0F, -8.0F, 0.0F, 2, 8, 1, -0.002F, false));
 
         cube_r15 = new ModelRenderer(this);
-        cube_r15.setRotationPoint(0.8F, -37.6F, -11.0F);
+        cube_r15.setRotationPoint(0.8F, -37.6F, -11);
         stock.addChild(cube_r15);
         setRotationAngle(cube_r15, 0.0F, -0.1745F, 0.0F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 98, 37, -1.0F, -3.0F, 0.0F, 1, 1, 1, -0.001F, false));
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 65, 64, -1.0F, -2.1F, 0.0F, 1, 2, 2, 0.0F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 98, 37, -1, -3.0F, 0.0F, 1, 1, 1, -0.001F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 65, 64, -1, -2.1F, 0.0F, 1, 2, 2, 0.0F, false));
     }
 
     @Override

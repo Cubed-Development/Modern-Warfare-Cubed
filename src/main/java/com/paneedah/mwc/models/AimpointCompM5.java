@@ -469,13 +469,13 @@ public class AimpointCompM5 extends ModelBase {
         MRO138_r1_r1.setRotationPoint(1.1084F, 33.6351F, 1.1901F);
         MRO.addChild(MRO138_r1_r1);
         setRotationAngle(MRO138_r1_r1, 0.0F, 0.0F, -0.409F);
-        MRO138_r1_r1.cubeList.add(new ModelBox(MRO138_r1_r1, 9, 25, 6.661F, -33.1811F, -1.0F, 2, 1, 5, 0.0F, false));
+        MRO138_r1_r1.cubeList.add(new ModelBox(MRO138_r1_r1, 9, 25, 6.661F, -33.1811F, -1, 2, 1, 5, 0.0F, false));
 
         MRO139_r1_r1 = new ModelRenderer(this);
         MRO139_r1_r1.setRotationPoint(42.0652F, 32.7266F, 1.1901F);
         MRO.addChild(MRO139_r1_r1);
         setRotationAngle(MRO139_r1_r1, 0.0F, 0.0F, -1.3384F);
-        MRO139_r1_r1.cubeList.add(new ModelBox(MRO139_r1_r1, 11, 32, 19.2837F, -53.9312F, -1.0F, 1, 2, 5, 0.0F, false));
+        MRO139_r1_r1.cubeList.add(new ModelBox(MRO139_r1_r1, 11, 32, 19.2837F, -53.9312F, -1, 1, 2, 5, 0.0F, false));
 
         MRO141_r1_r1 = new ModelRenderer(this);
         MRO141_r1_r1.setRotationPoint(-27.1352F, -93.0973F, 1.1901F);
@@ -620,55 +620,55 @@ public class AimpointCompM5 extends ModelBase {
         MRO178_r1_r10.setRotationPoint(3.0452F, 8.6589F, 12.3388F);
         MRO.addChild(MRO178_r1_r10);
         setRotationAngle(MRO178_r1_r10, -0.9711F, -0.339F, 0.4528F);
-        MRO178_r1_r10.cubeList.add(new ModelBox(MRO178_r1_r10, 10, 61, -0.9702F, -1.0F, -1.5F, 2, 2, 3, 0.0F, false));
+        MRO178_r1_r10.cubeList.add(new ModelBox(MRO178_r1_r10, 10, 61, -0.9702F, -1, -1.5F, 2, 2, 3, 0.0F, false));
 
         MRO178_r1_r11 = new ModelRenderer(this);
         MRO178_r1_r11.setRotationPoint(-1.7539F, 5.9435F, 10.1498F);
         MRO.addChild(MRO178_r1_r11);
         setRotationAngle(MRO178_r1_r11, -0.9711F, -0.339F, 0.4528F);
-        MRO178_r1_r11.cubeList.add(new ModelBox(MRO178_r1_r11, 0, 60, -0.9F, -1.0F, -1.4F, 2, 2, 3, 0.0F, false));
+        MRO178_r1_r11.cubeList.add(new ModelBox(MRO178_r1_r11, 0, 60, -0.9F, -1, -1.4F, 2, 2, 3, 0.0F, false));
 
         MRO178_r1_r12 = new ModelRenderer(this);
         MRO178_r1_r12.setRotationPoint(-1.6952F, 8.6589F, 12.3388F);
         MRO.addChild(MRO178_r1_r12);
         setRotationAngle(MRO178_r1_r12, -0.9711F, 0.339F, -0.4528F);
-        MRO178_r1_r12.cubeList.add(new ModelBox(MRO178_r1_r12, 57, 0, -1.0298F, -1.0F, -1.5F, 2, 2, 3, 0.0F, false));
+        MRO178_r1_r12.cubeList.add(new ModelBox(MRO178_r1_r12, 57, 0, -1.0298F, -1, -1.5F, 2, 2, 3, 0.0F, false));
 
         MRO178_r1_r13 = new ModelRenderer(this);
         MRO178_r1_r13.setRotationPoint(-2.4411F, 4.7774F, 9.2096F);
         MRO.addChild(MRO178_r1_r13);
         setRotationAngle(MRO178_r1_r13, -1.2956F, -0.6284F, 1.1231F);
-        MRO178_r1_r13.cubeList.add(new ModelBox(MRO178_r1_r13, 65, 3, 0.1F, -1.0F, -2.8F, 1, 2, 2, 0.0F, false));
+        MRO178_r1_r13.cubeList.add(new ModelBox(MRO178_r1_r13, 65, 3, 0.1F, -1, -2.8F, 1, 2, 2, 0.0F, false));
 
         MRO178_r1_r14 = new ModelRenderer(this);
         MRO178_r1_r14.setRotationPoint(0.6906F, 10.167F, 13.5401F);
         MRO.addChild(MRO178_r1_r14);
         setRotationAngle(MRO178_r1_r14, 1.87F, -0.6676F, 1.1086F);
-        MRO178_r1_r14.cubeList.add(new ModelBox(MRO178_r1_r14, 44, 63, -0.2326F, -1.0F, 0.225F, 1, 2, 2, 0.0F, false));
+        MRO178_r1_r14.cubeList.add(new ModelBox(MRO178_r1_r14, 44, 63, -0.2326F, -1, 0.225F, 1, 2, 2, 0.0F, false));
 
         MRO178_r1_r15 = new ModelRenderer(this);
         MRO178_r1_r15.setRotationPoint(0.6906F, 10.167F, 13.5401F);
         MRO.addChild(MRO178_r1_r15);
         setRotationAngle(MRO178_r1_r15, 2.2929F, 0.0F, 0.0F);
-        MRO178_r1_r15.cubeList.add(new ModelBox(MRO178_r1_r15, 9, 25, -0.4656F, -1.0F, -0.7018F, 1, 2, 1, 0.0F, false));
+        MRO178_r1_r15.cubeList.add(new ModelBox(MRO178_r1_r15, 9, 25, -0.4656F, -1, -0.7018F, 1, 2, 1, 0.0F, false));
 
         MRO178_r1_r16 = new ModelRenderer(this);
         MRO178_r1_r16.setRotationPoint(0.6906F, 10.167F, 13.5401F);
         MRO.addChild(MRO178_r1_r16);
         setRotationAngle(MRO178_r1_r16, 1.87F, 0.6676F, -1.1086F);
-        MRO178_r1_r16.cubeList.add(new ModelBox(MRO178_r1_r16, 54, 57, -0.7437F, -1.0F, 0.225F, 1, 2, 2, 0.0F, false));
+        MRO178_r1_r16.cubeList.add(new ModelBox(MRO178_r1_r16, 54, 57, -0.7437F, -1, 0.225F, 1, 2, 2, 0.0F, false));
 
         MRO178_r1_r17 = new ModelRenderer(this);
         MRO178_r1_r17.setRotationPoint(1.8911F, 4.7774F, 9.2096F);
         MRO.addChild(MRO178_r1_r17);
         setRotationAngle(MRO178_r1_r17, -1.2956F, 0.6284F, -1.1231F);
-        MRO178_r1_r17.cubeList.add(new ModelBox(MRO178_r1_r17, 54, 65, -0.4F, -1.0F, -1.0F, 1, 2, 2, 0.0F, false));
+        MRO178_r1_r17.cubeList.add(new ModelBox(MRO178_r1_r17, 54, 65, -0.4F, -1, -1, 1, 2, 2, 0.0F, false));
 
         MRO178_r1_r18 = new ModelRenderer(this);
         MRO178_r1_r18.setRotationPoint(3.1039F, 5.9435F, 10.1498F);
         MRO.addChild(MRO178_r1_r18);
         setRotationAngle(MRO178_r1_r18, -0.9711F, 0.339F, -0.4528F);
-        MRO178_r1_r18.cubeList.add(new ModelBox(MRO178_r1_r18, 26, 62, -1.1F, -1.0F, -1.4F, 2, 2, 3, 0.0F, false));
+        MRO178_r1_r18.cubeList.add(new ModelBox(MRO178_r1_r18, 26, 62, -1.1F, -1, -1.4F, 2, 2, 3, 0.0F, false));
 
         MRO180_r1_r1 = new ModelRenderer(this);
         MRO180_r1_r1.setRotationPoint(31.22F, 29.5413F, 25.0331F);
@@ -692,16 +692,16 @@ public class AimpointCompM5 extends ModelBase {
         MRO186_r1_r1.setRotationPoint(-9.0907F, 29.5413F, -18.8832F);
         MRO.addChild(MRO186_r1_r1);
         setRotationAngle(MRO186_r1_r1, 0.0F, -1.5243F, 0.0F);
-        MRO186_r1_r1.cubeList.add(new ModelBox(MRO186_r1_r1, 57, 15, 17.4067F, -21.0F, -17.5258F, 10, 3, 3, 0.0F, false));
-        MRO186_r1_r1.cubeList.add(new ModelBox(MRO186_r1_r1, 64, 31, 23.3067F, -21.0F, -17.5258F, 1, 3, 3, 0.1F, false));
-        MRO186_r1_r1.cubeList.add(new ModelBox(MRO186_r1_r1, 63, 57, 25.0067F, -21.0F, -17.5258F, 1, 3, 3, 0.1F, false));
-        MRO186_r1_r1.cubeList.add(new ModelBox(MRO186_r1_r1, 64, 23, 26.5067F, -21.0F, -17.6258F, 1, 3, 3, 0.15F, false));
+        MRO186_r1_r1.cubeList.add(new ModelBox(MRO186_r1_r1, 57, 15, 17.4067F, -21, -17.5258F, 10, 3, 3, 0.0F, false));
+        MRO186_r1_r1.cubeList.add(new ModelBox(MRO186_r1_r1, 64, 31, 23.3067F, -21, -17.5258F, 1, 3, 3, 0.1F, false));
+        MRO186_r1_r1.cubeList.add(new ModelBox(MRO186_r1_r1, 63, 57, 25.0067F, -21, -17.5258F, 1, 3, 3, 0.1F, false));
+        MRO186_r1_r1.cubeList.add(new ModelBox(MRO186_r1_r1, 64, 23, 26.5067F, -21, -17.6258F, 1, 3, 3, 0.15F, false));
 
         MRO187_r1_r1 = new ModelRenderer(this);
         MRO187_r1_r1.setRotationPoint(16.8713F, 29.5414F, -33.0008F);
         MRO.addChild(MRO187_r1_r1);
         setRotationAngle(MRO187_r1_r1, 3.1416F, -0.7622F, -3.1416F);
-        MRO187_r1_r1.cubeList.add(new ModelBox(MRO187_r1_r1, 41, 42, 26.7231F, -21.0F, -16.9199F, 2, 3, 2, 0.0F, false));
+        MRO187_r1_r1.cubeList.add(new ModelBox(MRO187_r1_r1, 41, 42, 26.7231F, -21, -16.9199F, 2, 3, 2, 0.0F, false));
     }
 
     @Override

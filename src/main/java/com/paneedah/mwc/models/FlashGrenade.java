@@ -78,8 +78,8 @@ public class FlashGrenade extends ModelBase {
         grenade34_r1.setRotationPoint(0.495F, 0.0F, -0.205F);
         grenade.addChild(grenade34_r1);
         setRotationAngle(grenade34_r1, 0.0F, 0.7854F, 0.0F);
-        grenade34_r1.cubeList.add(new ModelBox(grenade34_r1, 50, 80, -1.0F, -32.5F, 1.8F, 1, 17, 1, 0.0F, true));
-        grenade34_r1.cubeList.add(new ModelBox(grenade34_r1, 50, 50, -1.0F, -32.5F, -0.7F, 1, 17, 3, 0.0F, true));
+        grenade34_r1.cubeList.add(new ModelBox(grenade34_r1, 50, 80, -1, -32.5F, 1.8F, 1, 17, 1, 0.0F, true));
+        grenade34_r1.cubeList.add(new ModelBox(grenade34_r1, 50, 50, -1, -32.5F, -0.7F, 1, 17, 3, 0.0F, true));
 
         grenade33_r1 = new ModelRenderer(this);
         grenade33_r1.setRotationPoint(-5.1619F, 0.0F, 12.4619F);
@@ -92,7 +92,7 @@ public class FlashGrenade extends ModelBase {
         grenade28_r1.setRotationPoint(-1.1464F, 0.0F, 0.7678F);
         grenade.addChild(grenade28_r1);
         setRotationAngle(grenade28_r1, 0.0F, -0.7854F, 0.0F);
-        grenade28_r1.cubeList.add(new ModelBox(grenade28_r1, 0, 50, -1.5F, -37.5F, -1.0F, 6, 1, 6, 0.0F, true));
+        grenade28_r1.cubeList.add(new ModelBox(grenade28_r1, 0, 50, -1.5F, -37.5F, -1, 6, 1, 6, 0.0F, true));
 
         grenade26_r1 = new ModelRenderer(this);
         grenade26_r1.setRotationPoint(-2.9293F, 0.0F, 3.0435F);

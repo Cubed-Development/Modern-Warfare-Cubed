@@ -76,16 +76,16 @@ public class ParticleBlood extends Particle {
 
         buffer.pos(f5 - rotationX * f4 - rotationXY * f4, f6 - rotationZ * f4,
                         f7 - rotationYZ * f4 - rotationXZ * f4).tex(f, f3)
-                .color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
+                .color(this.particleRed, this.particleGreen, this.particleBlue, 1).lightmap(j, k).endVertex();
         buffer.pos(f5 - rotationX * f4 + rotationXY * f4, f6 + rotationZ * f4,
                         f7 - rotationYZ * f4 + rotationXZ * f4).tex(f, f2)
-                .color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
+                .color(this.particleRed, this.particleGreen, this.particleBlue, 1).lightmap(j, k).endVertex();
         buffer.pos(f5 + rotationX * f4 + rotationXY * f4, f6 + rotationZ * f4,
                         f7 + rotationYZ * f4 + rotationXZ * f4).tex(f1, f2)
-                .color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
+                .color(this.particleRed, this.particleGreen, this.particleBlue, 1).lightmap(j, k).endVertex();
         buffer.pos(f5 + rotationX * f4 - rotationXY * f4, f6 - rotationZ * f4,
                         f7 + rotationYZ * f4 - rotationXZ * f4).tex(f1, f3)
-                .color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
+                .color(this.particleRed, this.particleGreen, this.particleBlue, 1).lightmap(j, k).endVertex();
     }
 
     public int getBrightnessForRender(float partialTicks) {

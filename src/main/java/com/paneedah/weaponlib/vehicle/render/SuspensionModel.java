@@ -79,7 +79,7 @@ public class SuspensionModel extends ModelBase {
         bone2.setRotationPoint(0.0F, 18.25F, -0.0013F);
         bone.addChild(bone2);
         setRotationAngle(bone2, 0.0F, 0.7854F, 0.0F);
-        bone2.cubeList.add(new ModelBox(bone2, 4, 0, -1.0F, -10.25F, -1.0F, 2, 14, 2, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 4, 0, -1, -10.25F, -1, 2, 14, 2, 0.0F, false));
         bone2.cubeList.add(new ModelBox(bone2, 0, 0, -0.5F, -18.25F, -0.5F, 1, 25, 1, 0.0F, false));
 
         cube_r3 = new ModelRenderer(this);
@@ -107,7 +107,7 @@ public class SuspensionModel extends ModelBase {
 
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(0.0F, -21.5F, 1.0F);
+        bone3.setRotationPoint(0.0F, -21.5F, 1);
         bone7.addChild(bone3);
         setRotationAngle(bone3, 0.0F, 0.0F, -0.1309F);
         bone3.cubeList.add(new ModelBox(bone3, 30, 16, -0.6983F, -0.5261F, -3.0F, 2, 1, 1, 0.0F, false));
@@ -163,7 +163,7 @@ public class SuspensionModel extends ModelBase {
         cube_r13.cubeList.add(new ModelBox(cube_r13, 16, 22, -0.5522F, -0.1273F, 0.1356F, 1, 1, 2, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(0.0F, -19.0F, 1.0F);
+        bone4.setRotationPoint(0.0F, -19.0F, 1);
         bone7.addChild(bone4);
         setRotationAngle(bone4, 0.0F, 0.0F, -0.1309F);
         bone4.cubeList.add(new ModelBox(bone4, 29, 7, -0.6983F, -0.5261F, -3.0F, 2, 1, 1, 0.0F, false));
@@ -206,7 +206,7 @@ public class SuspensionModel extends ModelBase {
         cube_r19.cubeList.add(new ModelBox(cube_r19, 10, 22, -0.5522F, -0.1273F, 0.1356F, 1, 1, 2, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
-        bone5.setRotationPoint(0.0F, -16.5F, 1.0F);
+        bone5.setRotationPoint(0.0F, -16.5F, 1);
         bone7.addChild(bone5);
         setRotationAngle(bone5, 0.0F, 0.0F, -0.1309F);
         bone5.cubeList.add(new ModelBox(bone5, 13, 27, -0.6983F, -0.5261F, -3.0F, 2, 1, 1, 0.0F, false));
@@ -249,7 +249,7 @@ public class SuspensionModel extends ModelBase {
         cube_r25.cubeList.add(new ModelBox(cube_r25, 21, 20, -0.5522F, -0.1273F, 0.1356F, 1, 1, 2, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
-        bone6.setRotationPoint(0.0F, -14.0F, 1.0F);
+        bone6.setRotationPoint(0.0F, -14.0F, 1);
         bone7.addChild(bone6);
         setRotationAngle(bone6, 0.0F, 0.0F, -0.1309F);
         bone6.cubeList.add(new ModelBox(bone6, 25, 20, -0.6983F, -0.5261F, -3.0F, 2, 1, 1, 0.0F, false));
@@ -292,7 +292,7 @@ public class SuspensionModel extends ModelBase {
         cube_r31.cubeList.add(new ModelBox(cube_r31, 21, 5, -0.5522F, -0.1273F, 0.1356F, 1, 1, 2, 0.0F, false));
 
         bone8 = new ModelRenderer(this);
-        bone8.setRotationPoint(0.0F, -11.5F, 1.0F);
+        bone8.setRotationPoint(0.0F, -11.5F, 1);
         bone7.addChild(bone8);
         setRotationAngle(bone8, 0.0F, 0.0F, -0.1309F);
 

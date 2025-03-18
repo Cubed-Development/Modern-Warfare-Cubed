@@ -82,26 +82,26 @@ public class Albert01RSlide extends ModelWithAttachments {
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.2F, -35.0F, -22.0F, 1, 2, 19, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, -4.2F, -35.0F, -22.0F, 1, 2, 19, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, -4.2F, -35.8F, -22.0F, 1, 1, 19, 0.0F, true));
-        slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.8F, 1.0F, 1, 2, 1, 0.0F, true));
+        slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.8F, 1, 1, 2, 1, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -34.5F, -2.0F, 1, 1, 3, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.8F, 0.5F, 1, 2, 1, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.0F, -34.8F, -2.0F, 1, 1, 3, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -36.8F, -14.5F, 1, 1, 2, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -36.8F, -14.5F, 1, 1, 2, 0.0F, true));
-        slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.8F, -21.0F, 1, 1, 1, 0.0F, true));
+        slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.8F, -21, 1, 1, 1, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.8F, -18.0F, 1, 1, 1, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.8F, -16.5F, 1, 1, 7, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.0F, -16.5F, 1, 2, 7, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.8F, -19.5F, 1, 1, 1, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.0F, -18.0F, 1, 2, 1, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.0F, -19.5F, 1, 2, 1, 0.0F, true));
-        slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.0F, -21.0F, 1, 2, 1, 0.0F, true));
+        slide.cubeList.add(new ModelBox(slide, 100, 0, 0.3F, -35.0F, -21, 1, 2, 1, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -35.0F, -16.5F, 1, 2, 7, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -35.8F, -16.5F, 1, 1, 7, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -35.8F, -19.5F, 1, 1, 1, 0.0F, true));
-        slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -35.8F, -21.0F, 1, 1, 1, 0.0F, true));
+        slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -35.8F, -21, 1, 1, 1, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -35.8F, -18.0F, 1, 1, 1, 0.0F, true));
-        slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -35.0F, -21.0F, 1, 2, 1, 0.0F, true));
+        slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -35.0F, -21, 1, 2, 1, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -35.0F, -18.0F, 1, 2, 1, 0.0F, true));
         slide.cubeList.add(new ModelBox(slide, 100, 0, -4.3F, -35.0F, -19.5F, 1, 2, 1, 0.0F, true));
 
@@ -123,19 +123,19 @@ public class Albert01RSlide extends ModelWithAttachments {
         gun189_r1.setRotationPoint(0.0F, -68.3336F, -15.5099F);
         slide.addChild(gun189_r1);
         setRotationAngle(gun189_r1, -2.7512F, 0.0F, 0.0F);
-        gun189_r1.cubeList.add(new ModelBox(gun189_r1, 100, 50, -4.6F, -35.7F, -1.0F, 1, 1, 2, 0.0F, true));
+        gun189_r1.cubeList.add(new ModelBox(gun189_r1, 100, 50, -4.6F, -35.7F, -1, 1, 1, 2, 0.0F, true));
 
         gun188_r1 = new ModelRenderer(this);
         gun188_r1.setRotationPoint(0.0F, -16.5159F, -32.0953F);
         slide.addChild(gun188_r1);
         setRotationAngle(gun188_r1, -1.0038F, 0.0F, 0.0F);
-        gun188_r1.cubeList.add(new ModelBox(gun188_r1, 100, 50, -4.0F, -37.5F, -1.0F, 1, 2, 2, 0.0F, true));
+        gun188_r1.cubeList.add(new ModelBox(gun188_r1, 100, 50, -4.0F, -37.5F, -1, 1, 2, 2, 0.0F, true));
 
         gun187_r1 = new ModelRenderer(this);
         gun187_r1.setRotationPoint(-6.3572F, -68.8281F, 0.0F);
         slide.addChild(gun187_r1);
         setRotationAngle(gun187_r1, 0.0F, 0.0F, 2.8999F);
-        gun187_r1.cubeList.add(new ModelBox(gun187_r1, 100, 0, 1.0F, -34.8F, -3.0F, 1, 1, 4, 0.0F, true));
+        gun187_r1.cubeList.add(new ModelBox(gun187_r1, 100, 0, 1, -34.8F, -3.0F, 1, 1, 4, 0.0F, true));
 
         gun183_r1 = new ModelRenderer(this);
         gun183_r1.setRotationPoint(0.0F, -7.211F, -21.0537F);
@@ -159,7 +159,7 @@ public class Albert01RSlide extends ModelWithAttachments {
         gun179_r1.setRotationPoint(0.0F, -4.4953F, -18.8812F);
         slide.addChild(gun179_r1);
         setRotationAngle(gun179_r1, -0.5205F, 0.0F, 0.0F);
-        gun179_r1.cubeList.add(new ModelBox(gun179_r1, 100, 50, -0.2F, -37.7F, -1.0F, 1, 2, 2, 0.0F, true));
+        gun179_r1.cubeList.add(new ModelBox(gun179_r1, 100, 50, -0.2F, -37.7F, -1, 1, 2, 2, 0.0F, true));
 
         gun154_r1 = new ModelRenderer(this);
         gun154_r1.setRotationPoint(-23.0952F, -62.0336F, 0.0F);
@@ -205,12 +205,12 @@ public class Albert01RSlide extends ModelWithAttachments {
         gun149_r1.setRotationPoint(0.0F, -27.2276F, -32.7841F);
         slide.addChild(gun149_r1);
         setRotationAngle(gun149_r1, -1.2641F, 0.0F, 0.0F);
-        gun149_r1.cubeList.add(new ModelBox(gun149_r1, 100, 0, -1.0F, -36.0F, 2.6F, 1, 1, 1, 0.0F, true));
+        gun149_r1.cubeList.add(new ModelBox(gun149_r1, 100, 0, -1, -36.0F, 2.6F, 1, 1, 1, 0.0F, true));
         gun149_r1.cubeList.add(new ModelBox(gun149_r1, 100, 0, -3.0F, -36.0F, 2.6F, 1, 1, 1, 0.0F, true));
         gun149_r1.cubeList.add(new ModelBox(gun149_r1, 100, 0, -3.8F, -36.0F, 3.9F, 1, 1, 1, 0.0F, true));
         gun149_r1.cubeList.add(new ModelBox(gun149_r1, 100, 0, -0.2F, -36.0F, 3.9F, 1, 1, 1, 0.0F, true));
         gun149_r1.cubeList.add(new ModelBox(gun149_r1, 100, 0, -3.0F, -36.0F, 2.1F, 1, 1, 1, 0.0F, true));
-        gun149_r1.cubeList.add(new ModelBox(gun149_r1, 100, 0, -1.0F, -36.0F, 2.1F, 1, 1, 1, 0.0F, true));
+        gun149_r1.cubeList.add(new ModelBox(gun149_r1, 100, 0, -1, -36.0F, 2.1F, 1, 1, 1, 0.0F, true));
         gun149_r1.cubeList.add(new ModelBox(gun149_r1, 100, 0, -3.8F, -36.0F, 2.1F, 1, 2, 2, 0.0F, true));
         gun149_r1.cubeList.add(new ModelBox(gun149_r1, 100, 0, -0.2F, -36.0F, 2.1F, 1, 2, 2, 0.0F, true));
 
@@ -220,8 +220,8 @@ public class Albert01RSlide extends ModelWithAttachments {
         setRotationAngle(gun141_r1, -0.8551F, 0.0F, 0.0F);
         gun141_r1.cubeList.add(new ModelBox(gun141_r1, 100, 0, -1.2F, -38.0F, 0.5F, 1, 2, 1, 0.0F, true));
         gun141_r1.cubeList.add(new ModelBox(gun141_r1, 100, 0, -2.8F, -38.0F, 0.5F, 2, 2, 1, 0.0F, true));
-        gun141_r1.cubeList.add(new ModelBox(gun141_r1, 100, 0, -1.0F, -38.0F, 1.0F, 1, 2, 2, 0.0F, true));
-        gun141_r1.cubeList.add(new ModelBox(gun141_r1, 100, 0, -3.0F, -38.0F, 1.0F, 1, 2, 2, 0.0F, true));
+        gun141_r1.cubeList.add(new ModelBox(gun141_r1, 100, 0, -1, -38.0F, 1, 1, 2, 2, 0.0F, true));
+        gun141_r1.cubeList.add(new ModelBox(gun141_r1, 100, 0, -3.0F, -38.0F, 1, 1, 2, 2, 0.0F, true));
 
         gun130_r1 = new ModelRenderer(this);
         gun130_r1.setRotationPoint(32.334F, -32.6475F, 0.0F);

@@ -37,7 +37,7 @@ public class G11HandguardK2 extends ModelWithAttachments {
         textureHeight = 256;
 
         handguard_K2 = new ModelRenderer(this);
-        handguard_K2.setRotationPoint(0.8457F, -11.0F, -22.8456F);
+        handguard_K2.setRotationPoint(0.8457F, -11, -22.8456F);
         handguard_K2.cubeList.add(new ModelBox(handguard_K2, 8, 0, -1.1717F, -2.5F, -28.9044F, 2, 5, 1, -0.2F, false));
         handguard_K2.cubeList.add(new ModelBox(handguard_K2, 48, 38, -0.4967F, -2.5F, 2.2706F, 1, 5, 3, 0.0F, false));
         handguard_K2.cubeList.add(new ModelBox(handguard_K2, 88, 45, -5.3467F, -2.5F, 5.2706F, 6, 5, 2, 0.0F, false));

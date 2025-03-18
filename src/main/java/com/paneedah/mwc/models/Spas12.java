@@ -150,26 +150,26 @@ public class Spas12 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, -22.7688F, -19.2333F, -59.0F, 3, 1, 45, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -23.2688F, -16.0333F, -14.0F, 4, 1, 24, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -22.7688F, -20.9333F, -22.0F, 3, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -22.2688F, -14.7333F, -41.0F, 2, 1, 27, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -22.2688F, -14.7333F, -41, 2, 1, 27, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -16.0333F, -15.0F, 2, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -16.0333F, -15.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -16.0333F, -18.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -16.0333F, -22.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -16.0333F, -18.5F, 2, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -16.0333F, -22.0F, 2, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -16.3333F, -21.0F, 1, 1, 6, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -16.3333F, -21, 1, 1, 6, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -23.7688F, -18.6333F, -39.0F, 5, 4, 19, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -23.7688F, -16.6333F, -40.9F, 5, 2, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -22.7688F, -14.3333F, -42.0F, 3, 1, 22, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -22.7688F, -13.6333F, -21.0F, 3, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -22.7688F, -13.6333F, -21, 3, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -23.7688F, -14.6333F, -36.0F, 5, 1, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -22.7688F, -13.6333F, -36.0F, 3, 1, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 100, -22.7688F, -18.1333F, -12.0F, 1, 2, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -23.4688F, -16.2333F, -13.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -23.5688F, -16.2333F, -13.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -20.1688F, -16.1333F, 5.0F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -19.8688F, -16.5333F, -11.0F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -19.8688F, -16.7333F, -11.0F, 1, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -19.8688F, -16.5333F, -11, 1, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -19.8688F, -16.7333F, -11, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -19.8688F, -16.6333F, -11.1F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -19.8688F, -16.6333F, -10.9F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -21.7688F, -20.4333F, -60.0F, 1, 1, 4, 0.0F, true));
@@ -178,7 +178,7 @@ public class Spas12 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, -20.5688F, -19.2333F, -60.0F, 1, 1, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -21.5688F, -20.4333F, -38.5F, 1, 1, 14, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -21.5688F, -20.9333F, -24.0F, 1, 1, 2, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -22.7688F, -20.7333F, -21.0F, 3, 1, 6, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -22.7688F, -20.7333F, -21, 3, 1, 6, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -21.9688F, -20.9333F, -19.5F, 1, 1, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -21.5688F, -20.9333F, -19.5F, 1, 1, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -21.7688F, -21.2333F, -19.2F, 1, 1, 2, 0.0F, true));
@@ -189,7 +189,7 @@ public class Spas12 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -20.5333F, -15.0F, 2, 5, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -22.2688F, -20.4333F, -56.3F, 2, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -23.2688F, -19.5333F, 6.0F, 4, 4, 4, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -22.2688F, -14.8333F, -1.0F, 2, 1, 11, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -22.2688F, -14.8333F, -1, 2, 1, 11, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -23.2688F, -17.2333F, -4.0F, 2, 1, 10, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -23.2688F, -18.8333F, -4.0F, 1, 1, 10, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -23.2688F, -18.0333F, 3.0F, 1, 1, 3, 0.0F, true));
@@ -210,8 +210,8 @@ public class Spas12 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -19.4333F, -25.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -19.4333F, -29.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -19.4333F, -32.5F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -19.4333F, -41.0F, 1, 1, 2, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -19.4333F, -41.0F, 1, 1, 2, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -19.4333F, -41, 1, 1, 2, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -19.4333F, -41, 1, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -19.4333F, -32.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -19.4333F, -29.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -19.4333F, -25.5F, 1, 1, 1, 0.0F, true));
@@ -221,11 +221,11 @@ public class Spas12 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -19.4333F, -36.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -19.4333F, -39.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -19.4333F, -39.5F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -16.9333F, -41.0F, 1, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -16.9333F, -41.0F, 1, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -20.1688F, -17.9333F, -41.0F, 1, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.3688F, -17.9333F, -41.0F, 1, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -22.7688F, -20.4333F, -41.0F, 3, 1, 2, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -16.9333F, -41, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -16.9333F, -41, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -20.1688F, -17.9333F, -41, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.3688F, -17.9333F, -41, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -22.7688F, -20.4333F, -41, 3, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -22.7688F, -20.4333F, -39.5F, 3, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -21.9688F, -20.4333F, -38.5F, 1, 1, 14, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -21.9688F, -20.9333F, -24.0F, 1, 1, 2, 0.0F, true));
@@ -235,8 +235,8 @@ public class Spas12 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 200, 0, -20.7688F, -20.4333F, -32.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -20.7688F, -20.4333F, -28.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -22.7688F, -20.4333F, -28.5F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.3688F, -20.4333F, -41.0F, 1, 1, 17, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -20.1688F, -20.4333F, -41.0F, 1, 1, 17, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.3688F, -20.4333F, -41, 1, 1, 17, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -20.1688F, -20.4333F, -41, 1, 1, 17, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -22.7688F, -20.9333F, -15.0F, 3, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -20.6333F, -24.0F, 1, 1, 10, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -20.6333F, -24.0F, 1, 1, 10, 0.0F, true));
@@ -251,10 +251,10 @@ public class Spas12 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 200, 0, -20.9688F, -20.5333F, -15.0F, 2, 5, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -23.3688F, -20.9333F, -24.0F, 1, 1, 10, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -20.1688F, -20.9333F, -24.0F, 1, 1, 10, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -20.2333F, -41.0F, 1, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -20.2333F, -41.0F, 1, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -20.9688F, -18.9333F, -41.0F, 2, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -18.9333F, -41.0F, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -20.2333F, -41, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -20.2333F, -41, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -20.9688F, -18.9333F, -41, 2, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -23.5688F, -18.9333F, -41, 1, 1, 26, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -19.4333F, -18.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -19.9688F, -19.4333F, -22.0F, 1, 1, 1, 0.0F, true));
 
@@ -262,7 +262,7 @@ public class Spas12 extends ModelWithAttachments {
         gun442_r1.setRotationPoint(-37.3708F, -35.6494F, 0.0F);
         gun.addChild(gun442_r1);
         setRotationAngle(gun442_r1, 0.0F, 0.0F, 2.3562F);
-        gun442_r1.cubeList.add(new ModelBox(gun442_r1, 0, 0, 1.0F, -26.6F, -46.0F, 1, 2, 1, 0.0F, true));
+        gun442_r1.cubeList.add(new ModelBox(gun442_r1, 0, 0, 1, -26.6F, -46.0F, 1, 2, 1, 0.0F, true));
 
         gun441_r1 = new ModelRenderer(this);
         gun441_r1.setRotationPoint(-5.7882F, -31.7352F, 0.0F);
@@ -280,7 +280,7 @@ public class Spas12 extends ModelWithAttachments {
         gun439_r1.setRotationPoint(-36.6637F, -33.9423F, 0.0F);
         gun.addChild(gun439_r1);
         setRotationAngle(gun439_r1, 0.0F, 0.0F, 2.3562F);
-        gun439_r1.cubeList.add(new ModelBox(gun439_r1, 0, 0, 1.0F, -25.6F, -46.0F, 2, 1, 1, 0.0F, true));
+        gun439_r1.cubeList.add(new ModelBox(gun439_r1, 0, 0, 1, -25.6F, -46.0F, 2, 1, 1, 0.0F, true));
 
         gun438_r1 = new ModelRenderer(this);
         gun438_r1.setRotationPoint(-3.0456F, 0.8473F, 0.0F);
@@ -446,7 +446,7 @@ public class Spas12 extends ModelWithAttachments {
         gun254_r1.setRotationPoint(-20.2688F, -13.3381F, -12.8106F);
         gun.addChild(gun254_r1);
         setRotationAngle(gun254_r1, -1.2269F, 0.0F, 0.0F);
-        gun254_r1.cubeList.add(new ModelBox(gun254_r1, 0, 0, -3.0F, -21.0F, 10.5F, 4, 1, 8, 0.0F, true));
+        gun254_r1.cubeList.add(new ModelBox(gun254_r1, 0, 0, -3.0F, -21, 10.5F, 4, 1, 8, 0.0F, true));
 
         gun253_r1 = new ModelRenderer(this);
         gun253_r1.setRotationPoint(-20.2688F, -7.4719F, -12.9303F);
@@ -518,7 +518,7 @@ public class Spas12 extends ModelWithAttachments {
         gun70_r1.setRotationPoint(-20.2688F, 6.8496F, -7.6403F);
         gun.addChild(gun70_r1);
         setRotationAngle(gun70_r1, -0.2602F, 0.0F, 0.0F);
-        gun70_r1.cubeList.add(new ModelBox(gun70_r1, 0, 0, -2.0F, -31.0F, 10.0F, 2, 1, 5, 0.0F, true));
+        gun70_r1.cubeList.add(new ModelBox(gun70_r1, 0, 0, -2.0F, -31, 10.0F, 2, 1, 5, 0.0F, true));
 
         gun641_r1 = new ModelRenderer(this);
         gun641_r1.setRotationPoint(-20.2688F, -9.2773F, 26.1176F);
@@ -548,7 +548,7 @@ public class Spas12 extends ModelWithAttachments {
         gun634_r1.setRotationPoint(-5.5953F, 10.4667F, -6.575F);
         gun.addChild(gun634_r1);
         setRotationAngle(gun634_r1, 0.0F, 0.7854F, 0.0F);
-        gun634_r1.cubeList.add(new ModelBox(gun634_r1, 200, 0, -0.6F, -31.4F, -21.0F, 1, 1, 1, 0.0F, true));
+        gun634_r1.cubeList.add(new ModelBox(gun634_r1, 200, 0, -0.6F, -31.4F, -21, 1, 1, 1, 0.0F, true));
 
         gun633_r1 = new ModelRenderer(this);
         gun633_r1.setRotationPoint(-9.838F, 10.4667F, -4.8177F);
@@ -566,7 +566,7 @@ public class Spas12 extends ModelWithAttachments {
         gun631_r1.setRotationPoint(-6.2397F, 10.4667F, -8.1307F);
         gun.addChild(gun631_r1);
         setRotationAngle(gun631_r1, 0.0F, 0.7854F, 0.0F);
-        gun631_r1.cubeList.add(new ModelBox(gun631_r1, 200, 0, -2.8F, -31.4F, -21.0F, 1, 1, 1, 0.0F, true));
+        gun631_r1.cubeList.add(new ModelBox(gun631_r1, 200, 0, -2.8F, -31.4F, -21, 1, 1, 1, 0.0F, true));
 
         gun627_r1 = new ModelRenderer(this);
         gun627_r1.setRotationPoint(-20.2688F, -26.546F, -19.3246F);
@@ -734,37 +734,37 @@ public class Spas12 extends ModelWithAttachments {
         gun583_r1.setRotationPoint(-6.6629F, -29.3802F, 0.0F);
         gun.addChild(gun583_r1);
         setRotationAngle(gun583_r1, 0.0F, 0.0F, -2.2679F);
-        gun583_r1.cubeList.add(new ModelBox(gun583_r1, 0, 0, -2.5F, -23.1F, -21.0F, 1, 1, 1, 0.0F, true));
+        gun583_r1.cubeList.add(new ModelBox(gun583_r1, 0, 0, -2.5F, -23.1F, -21, 1, 1, 1, 0.0F, true));
 
         gun582_r1 = new ModelRenderer(this);
         gun582_r1.setRotationPoint(-6.8535F, 3.9331F, 0.0F);
         gun.addChild(gun582_r1);
         setRotationAngle(gun582_r1, 0.0F, 0.0F, -0.5949F);
-        gun582_r1.cubeList.add(new ModelBox(gun582_r1, 0, 0, -3.95F, -25.15F, -21.0F, 1, 2, 1, 0.0F, true));
+        gun582_r1.cubeList.add(new ModelBox(gun582_r1, 0, 0, -3.95F, -25.15F, -21, 1, 2, 1, 0.0F, true));
 
         gun581_r1 = new ModelRenderer(this);
         gun581_r1.setRotationPoint(-35.2639F, -33.1682F, 0.0F);
         gun.addChild(gun581_r1);
         setRotationAngle(gun581_r1, 0.0F, 0.0F, 2.3051F);
-        gun581_r1.cubeList.add(new ModelBox(gun581_r1, 0, 0, 2.2F, -25.15F, -21.0F, 1, 1, 1, 0.0F, true));
+        gun581_r1.cubeList.add(new ModelBox(gun581_r1, 0, 0, 2.2F, -25.15F, -21, 1, 1, 1, 0.0F, true));
 
         gun580_r1 = new ModelRenderer(this);
         gun580_r1.setRotationPoint(-4.9635F, -30.372F, 0.0F);
         gun.addChild(gun580_r1);
         setRotationAngle(gun580_r1, 0.0F, 0.0F, -2.4677F);
-        gun580_r1.cubeList.add(new ModelBox(gun580_r1, 0, 0, 0.5F, -23.1F, -21.0F, 1, 2, 1, 0.0F, true));
+        gun580_r1.cubeList.add(new ModelBox(gun580_r1, 0, 0, 0.5F, -23.1F, -21, 1, 2, 1, 0.0F, true));
 
         gun578_r1 = new ModelRenderer(this);
         gun578_r1.setRotationPoint(-47.6872F, -15.0573F, 0.0F);
         gun.addChild(gun578_r1);
         setRotationAngle(gun578_r1, 0.0F, 0.0F, 1.3963F);
-        gun578_r1.cubeList.add(new ModelBox(gun578_r1, 0, 0, 1.5F, -29.1F, -21.0F, 4, 1, 1, 0.0F, true));
+        gun578_r1.cubeList.add(new ModelBox(gun578_r1, 0, 0, 1.5F, -29.1F, -21, 4, 1, 1, 0.0F, true));
 
         gun577_r1 = new ModelRenderer(this);
         gun577_r1.setRotationPoint(-23.5296F, 10.6754F, 0.0F);
         gun.addChild(gun577_r1);
         setRotationAngle(gun577_r1, 0.0F, 0.0F, 0.1115F);
-        gun577_r1.cubeList.add(new ModelBox(gun577_r1, 0, 0, -3.5F, -29.1F, -21.0F, 1, 4, 1, 0.0F, true));
+        gun577_r1.cubeList.add(new ModelBox(gun577_r1, 0, 0, -3.5F, -29.1F, -21, 1, 4, 1, 0.0F, true));
 
         gun576_r1 = new ModelRenderer(this);
         gun576_r1.setRotationPoint(-5.0463F, -32.0399F, 0.0F);
@@ -820,13 +820,13 @@ public class Spas12 extends ModelWithAttachments {
         gun559_r1.setRotationPoint(-3.2042F, 0.6645F, 0.0F);
         gun.addChild(gun559_r1);
         setRotationAngle(gun559_r1, 0.0F, 0.0F, -0.7854F);
-        gun559_r1.cubeList.add(new ModelBox(gun559_r1, 200, 0, -3.3F, -25.5F, -41.0F, 1, 1, 27, 0.0F, true));
+        gun559_r1.cubeList.add(new ModelBox(gun559_r1, 200, 0, -3.3F, -25.5F, -41, 1, 1, 27, 0.0F, true));
 
         gun557_r1 = new ModelRenderer(this);
         gun557_r1.setRotationPoint(-36.0808F, -33.9838F, 0.0F);
         gun.addChild(gun557_r1);
         setRotationAngle(gun557_r1, 0.0F, 0.0F, 2.3562F);
-        gun557_r1.cubeList.add(new ModelBox(gun557_r1, 200, 0, 1.3F, -25.5F, -41.0F, 1, 1, 27, 0.0F, true));
+        gun557_r1.cubeList.add(new ModelBox(gun557_r1, 200, 0, 1.3F, -25.5F, -41, 1, 1, 27, 0.0F, true));
 
         gun553_r1 = new ModelRenderer(this);
         gun553_r1.setRotationPoint(-20.2688F, 12.6037F, -45.5648F);
@@ -936,19 +936,19 @@ public class Spas12 extends ModelWithAttachments {
         gun13_r1.setRotationPoint(-36.593F, -33.7716F, 0.0F);
         gun.addChild(gun13_r1);
         setRotationAngle(gun13_r1, 0.0F, 0.0F, 2.3562F);
-        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 0, 0, 1.0F, -25.5F, -14.0F, 1, 1, 24, 0.0F, true));
+        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 0, 0, 1, -25.5F, -14.0F, 1, 1, 24, 0.0F, true));
 
         gun12_r1 = new ModelRenderer(this);
         gun12_r1.setRotationPoint(-39.7749F, -41.4536F, 0.0F);
         gun.addChild(gun12_r1);
         setRotationAngle(gun12_r1, 0.0F, 0.0F, 2.3562F);
-        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 0, 0, 1.0F, -30.0F, -14.0F, 1, 1, 24, 0.0F, true));
+        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 0, 0, 1, -30.0F, -14.0F, 1, 1, 24, 0.0F, true));
 
         gun11_r1 = new ModelRenderer(this);
         gun11_r1.setRotationPoint(-42.5684F, 1.0011F, 0.0F);
         gun.addChild(gun11_r1);
         setRotationAngle(gun11_r1, 0.0F, 0.0F, 0.8029F);
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.0F, -31.0F, -14.0F, 1, 1, 24, 0.0F, true));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.0F, -31, -14.0F, 1, 1, 24, 0.0F, true));
 
         gun10_r1 = new ModelRenderer(this);
         gun10_r1.setRotationPoint(0.0657F, -0.4414F, 0.0F);
@@ -961,7 +961,7 @@ public class Spas12 extends ModelWithAttachments {
         gun8_r1.setRotationPoint(-42.7749F, 2.8012F, 0.0F);
         gun.addChild(gun8_r1);
         setRotationAngle(gun8_r1, 0.0F, 0.0F, 0.7854F);
-        gun8_r1.cubeList.add(new ModelBox(gun8_r1, 0, 0, -2.0F, -31.0F, -14.0F, 1, 1, 24, 0.0F, true));
+        gun8_r1.cubeList.add(new ModelBox(gun8_r1, 0, 0, -2.0F, -31, -14.0F, 1, 1, 24, 0.0F, true));
 
         gun50_r1 = new ModelRenderer(this);
         gun50_r1.setRotationPoint(-0.7071F, 0.2929F, 0.0F);

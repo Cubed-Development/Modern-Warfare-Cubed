@@ -299,7 +299,7 @@ public class MP7Factory implements GunFactory {
                 })
                 .withCompatibleAttachment(Attachments.SilencerMP7, (model) -> {
                     GL11.glTranslatef(-0.21F, -0.7F, -3.8F);
-                    GL11.glScaled(1.1F, 1.1F, 1.0F);
+                    GL11.glScaled(1.1F, 1.1F, 1);
                 })
                 .withTextureNames("mp7")
                 .withRenderer(new WeaponRenderer.Builder()

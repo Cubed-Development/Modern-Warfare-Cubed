@@ -21,8 +21,8 @@ public class CrossGravestone3 extends ModelBase {
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(-6.0F, 24.0F, -4.0F);
-        bone.cubeList.add(new ModelBox(bone, 0, 6, 0.0F, -2.0F, 1.0F, 12, 2, 6, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 12, 14, 1.0F, -4.0F, 2.0F, 10, 2, 4, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 6, 0.0F, -2.0F, 1, 12, 2, 6, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 12, 14, 1, -4.0F, 2.0F, 10, 2, 4, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 14, 4.5F, -24.0F, 2.5F, 3, 20, 3, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -2.0F, -19.0F, 2.501F, 16, 3, 3, 0.0F, false));
 

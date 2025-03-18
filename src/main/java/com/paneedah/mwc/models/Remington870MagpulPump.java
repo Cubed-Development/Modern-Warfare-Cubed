@@ -42,31 +42,31 @@ public class Remington870MagpulPump extends ModelWithAttachments {
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 118, 25, -14.4028F, 15.5525F, -12.0F, 1, 1, 8, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 7, 29, -11.1028F, 18.1525F, -42.0F, 1, 2, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 0, 29, -15.3028F, 18.1525F, -42.0F, 1, 2, 1, 0.0F, false));
-        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 57, 100, -15.2028F, 18.1525F, -41.0F, 5, 2, 4, 0.0F, false));
+        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 57, 100, -15.2028F, 18.1525F, -41, 5, 2, 4, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 0, 234, -11.3028F, 19.1525F, -37.0F, 1, 1, 12, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 142, 225, -15.1028F, 19.1525F, -37.0F, 1, 1, 12, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 61, 49, -11.1028F, 18.6525F, -25.5F, 1, 1, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 42, 61, -15.3028F, 18.6525F, -25.5F, 1, 1, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 27, 61, -15.3028F, 19.1525F, -25.5F, 1, 1, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 14, 61, -11.1028F, 19.1525F, -25.5F, 1, 1, 1, 0.0F, false));
-        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 178, 360, -11.6028F, 16.1525F, -41.0F, 1, 1, 15, 0.0F, false));
-        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 357, 51, -14.8028F, 17.6525F, -41.0F, 1, 2, 16, 0.0F, false));
+        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 178, 360, -11.6028F, 16.1525F, -41, 1, 1, 15, 0.0F, false));
+        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 357, 51, -14.8028F, 17.6525F, -41, 1, 2, 16, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 61, 32, -14.2028F, 21.6525F, -25.5F, 3, 1, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 114, 76, -14.4028F, 18.6525F, -25.7F, 3, 3, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 28, 11, -12.0028F, 18.6525F, -25.7F, 1, 3, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 61, 15, -14.5028F, 21.0525F, -42.0F, 3, 1, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 46, 34, -11.9028F, 21.0525F, -42.0F, 1, 1, 1, 0.0F, false));
-        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 328, 103, -13.7028F, 20.5525F, -41.0F, 2, 1, 16, 0.0F, false));
-        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 217, 73, -11.6028F, 17.6525F, -41.0F, 1, 2, 16, 0.0F, false));
-        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 128, 359, -14.8028F, 16.1525F, -41.0F, 1, 1, 15, 0.0F, false));
-        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 66, 87, -11.6028F, 17.1525F, -41.0F, 1, 1, 2, 0.0F, false));
+        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 328, 103, -13.7028F, 20.5525F, -41, 2, 1, 16, 0.0F, false));
+        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 217, 73, -11.6028F, 17.6525F, -41, 1, 2, 16, 0.0F, false));
+        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 128, 359, -14.8028F, 16.1525F, -41, 1, 1, 15, 0.0F, false));
+        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 66, 87, -11.6028F, 17.1525F, -41, 1, 1, 2, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 46, 18, -11.6028F, 17.1525F, -37.0F, 1, 1, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 4, 41, -11.6028F, 17.1525F, -34.0F, 1, 1, 1, 0.0F, false));
-        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 10, 128, -11.6028F, 17.1525F, -31.0F, 1, 1, 6, 0.0F, false));
-        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 57, 87, -14.8028F, 17.1525F, -41.0F, 1, 1, 2, 0.0F, false));
+        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 10, 128, -11.6028F, 17.1525F, -31, 1, 1, 6, 0.0F, false));
+        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 57, 87, -14.8028F, 17.1525F, -41, 1, 1, 2, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 34, 8, -14.8028F, 17.1525F, -37.0F, 1, 1, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 34, 0, -14.8028F, 17.1525F, -34.0F, 1, 1, 1, 0.0F, false));
-        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 124, 92, -14.8028F, 17.1525F, -31.0F, 1, 1, 6, 0.0F, false));
+        pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 124, 92, -14.8028F, 17.1525F, -31, 1, 1, 6, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 83, 52, -15.2028F, 19.1525F, -36.0F, 5, 1, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 72, 53, -15.2028F, 19.1525F, -34.0F, 5, 1, 1, 0.0F, false));
         pumpMagpulPump.cubeList.add(new ModelBox(pumpMagpulPump, 42, 66, -15.2028F, 19.1525F, -32.0F, 5, 1, 1, 0.0F, false));
@@ -97,25 +97,25 @@ public class Remington870MagpulPump extends ModelWithAttachments {
         pump49_r1.setRotationPoint(-28.9704F, 36.8403F, 0.0F);
         pumpMagpulPump.addChild(pump49_r1);
         setRotationAngle(pump49_r1, 0.0F, 0.0F, 0.7854F);
-        pump49_r1.cubeList.add(new ModelBox(pump49_r1, 191, 259, 0.4F, -25.0F, -41.0F, 1, 2, 16, 0.0F, false));
+        pump49_r1.cubeList.add(new ModelBox(pump49_r1, 191, 259, 0.4F, -25.0F, -41, 1, 2, 16, 0.0F, false));
 
         pump48_r1 = new ModelRenderer(this);
         pump48_r1.setRotationPoint(4.979F, 35.426F, 0.0F);
         pumpMagpulPump.addChild(pump48_r1);
         setRotationAngle(pump48_r1, 0.0F, 0.0F, -0.7854F);
-        pump48_r1.cubeList.add(new ModelBox(pump48_r1, 333, 26, -3.4F, -25.0F, -41.0F, 1, 2, 16, 0.0F, false));
+        pump48_r1.cubeList.add(new ModelBox(pump48_r1, 333, 26, -3.4F, -25.0F, -41, 1, 2, 16, 0.0F, false));
 
         pump47_r1 = new ModelRenderer(this);
         pump47_r1.setRotationPoint(6.4042F, 1.588F, 0.0F);
         pumpMagpulPump.addChild(pump47_r1);
         setRotationAngle(pump47_r1, 0.0F, 0.0F, -2.0959F);
-        pump47_r1.cubeList.add(new ModelBox(pump47_r1, 106, 14, -4.5F, -27.0F, -41.0F, 1, 1, 4, 0.0F, false));
+        pump47_r1.cubeList.add(new ModelBox(pump47_r1, 106, 14, -4.5F, -27.0F, -41, 1, 1, 4, 0.0F, false));
 
         pump46_r1 = new ModelRenderer(this);
         pump46_r1.setRotationPoint(-32.8125F, 3.3185F, 0.0F);
         pumpMagpulPump.addChild(pump46_r1);
         setRotationAngle(pump46_r1, 0.0F, 0.0F, 2.0959F);
-        pump46_r1.cubeList.add(new ModelBox(pump46_r1, 106, 19, 1.5F, -27.0F, -41.0F, 1, 1, 4, 0.0F, false));
+        pump46_r1.cubeList.add(new ModelBox(pump46_r1, 106, 19, 1.5F, -27.0F, -41, 1, 1, 4, 0.0F, false));
 
         pump40_r1 = new ModelRenderer(this);
         pump40_r1.setRotationPoint(-29.6775F, 36.5474F, 0.0F);
@@ -133,8 +133,8 @@ public class Remington870MagpulPump extends ModelWithAttachments {
         pump37_r1.setRotationPoint(-11.7028F, -12.2848F, -2.4201F);
         pumpMagpulPump.addChild(pump37_r1);
         setRotationAngle(pump37_r1, 1.2269F, 0.0F, 0.0F);
-        pump37_r1.cubeList.add(new ModelBox(pump37_r1, 5, 48, -3.4F, -27.0F, -41.0F, 1, 1, 1, 0.0F, false));
-        pump37_r1.cubeList.add(new ModelBox(pump37_r1, 44, 48, 0.4F, -27.0F, -41.0F, 1, 1, 1, 0.0F, false));
+        pump37_r1.cubeList.add(new ModelBox(pump37_r1, 5, 48, -3.4F, -27.0F, -41, 1, 1, 1, 0.0F, false));
+        pump37_r1.cubeList.add(new ModelBox(pump37_r1, 44, 48, 0.4F, -27.0F, -41, 1, 1, 1, 0.0F, false));
         pump37_r1.cubeList.add(new ModelBox(pump37_r1, 27, 63, -3.6F, -27.0F, -42.0F, 1, 1, 1, 0.0F, false));
         pump37_r1.cubeList.add(new ModelBox(pump37_r1, 42, 63, 0.6F, -27.0F, -42.0F, 1, 1, 1, 0.0F, false));
 

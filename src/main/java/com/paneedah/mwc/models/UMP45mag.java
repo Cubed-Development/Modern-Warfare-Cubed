@@ -40,7 +40,7 @@ public class UMP45mag extends ModelWithAttachments {
         cube_r80.cubeList.add(new ModelBox(cube_r80, 24, 10, -4.0F, -0.1F, 0.0F, 4, 1, 1, -0.01F, false));
 
         cube_r81 = new ModelRenderer(this);
-        cube_r81.setRotationPoint(-1.0F, 0.0F, -0.7F);
+        cube_r81.setRotationPoint(-1, 0.0F, -0.7F);
         magazine.addChild(cube_r81);
         setRotationAngle(cube_r81, 0.0F, 0.0F, 0.3665F);
         cube_r81.cubeList.add(new ModelBox(cube_r81, 54, 85, -3.3007F, -0.8249F, 0.7F, 1, 2, 5, -0.01F, false));

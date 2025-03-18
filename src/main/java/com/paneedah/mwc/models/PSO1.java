@@ -78,7 +78,7 @@ public class PSO1 extends ModelBase {
         gun.cubeList.add(new ModelBox(gun, 51, 56, 19.8405F, 21.2701F, 3.2F, 2, 2, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 22, 21.0405F, 21.7701F, 3.2F, 1, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 19, 9, 19.6405F, 21.7701F, 3.2F, 1, 1, 2, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 5, 0, 19.5405F, 17.9701F, 1.0F, 1, 2, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 5, 0, 19.5405F, 17.9701F, 1, 1, 2, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 52, 18, 17.5405F, 19.2701F, 0.2F, 1, 1, 5, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 52, 12, 19.3405F, 17.5201F, 0.2F, 1, 1, 5, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 52, 6, 15.7405F, 17.5201F, 0.2F, 1, 1, 5, 0.0F, false));
@@ -86,7 +86,7 @@ public class PSO1 extends ModelBase {
         gun.cubeList.add(new ModelBox(gun, 0, 54, 17.0405F, 15.9701F, -2.5F, 2, 1, 3, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 18, 17.8405F, 16.1701F, -0.3F, 2, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 6, 17.0405F, 15.5701F, 0.2F, 2, 1, 2, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 15, 18, 17.5405F, 15.1701F, 1.0F, 1, 1, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 15, 18, 17.5405F, 15.1701F, 1, 1, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 11, 18, 17.5405F, 15.1701F, 0.4F, 1, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 5, 17, 17.2405F, 15.1701F, 0.7F, 1, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 4, 11, 17.8405F, 15.1701F, 0.7F, 1, 1, 1, 0.0F, false));
@@ -394,13 +394,13 @@ public class PSO1 extends ModelBase {
         Scope5_r1.setRotationPoint(20.5405F, 21.6036F, 23.2971F);
         gun.addChild(Scope5_r1);
         setRotationAngle(Scope5_r1, 2.0076F, 0.0F, 0.0F);
-        Scope5_r1.cubeList.add(new ModelBox(Scope5_r1, 0, 25, -0.5F, -21.0F, 3.0F, 1, 2, 1, 0.0F, false));
+        Scope5_r1.cubeList.add(new ModelBox(Scope5_r1, 0, 25, -0.5F, -21, 3.0F, 1, 2, 1, 0.0F, false));
 
         Scope4_r1 = new ModelRenderer(this);
         Scope4_r1.setRotationPoint(20.5405F, 7.2076F, 4.2643F);
         gun.addChild(Scope4_r1);
         setRotationAngle(Scope4_r1, 2.9371F, 0.0F, 0.0F);
-        Scope4_r1.cubeList.add(new ModelBox(Scope4_r1, 52, 45, -0.5F, -21.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        Scope4_r1.cubeList.add(new ModelBox(Scope4_r1, 52, 45, -0.5F, -21, 0.0F, 1, 1, 4, 0.0F, false));
     }
 
     @Override

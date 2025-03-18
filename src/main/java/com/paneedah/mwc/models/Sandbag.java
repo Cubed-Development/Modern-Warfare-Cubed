@@ -52,7 +52,7 @@ public class Sandbag extends ModelBase {
         bone6.cubeList.add(new ModelBox(bone6, 24, 24, -7.9604F, 0.0F, 0.0F, 8, 2, 4, -0.001F, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(0.1F, -8.0F, -1.0F);
+        bone3.setRotationPoint(0.1F, -8.0F, -1);
         Sandbag.addChild(bone3);
         setRotationAngle(bone3, 0.0F, 0.0F, 0.0873F);
         bone3.cubeList.add(new ModelBox(bone3, 0, 22, -7.403F, 6.1725F, -3.5F, 8, 2, 8, -0.001F, false));

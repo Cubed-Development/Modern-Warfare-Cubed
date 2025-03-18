@@ -173,7 +173,7 @@ public class WavefrontModel {
 
 
         //	GlStateManager.enableTexture2D();
-        //	GlStateManager.color(1.0f, 1.0f, 1.0f);
+        //	GlStateManager.color(1, 1, 1);
         //GlStateManager.disableCull();
 
         GlStateManager.glEnableClientState(GL11.GL_VERTEX_ARRAY);

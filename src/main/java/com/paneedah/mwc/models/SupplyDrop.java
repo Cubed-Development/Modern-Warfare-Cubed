@@ -57,9 +57,9 @@ public class SupplyDrop extends ModelBase {
         Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -40.8F, 13.0F, 1, 19, 2, 0.0F, true));
         Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -40.8F, -14.0F, 1, 19, 2, 0.0F, true));
         Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -40.8F, -1.5F, 1, 19, 2, 0.0F, true));
-        Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -14.8F, -21.0F, 1, 2, 71, 0.0F, true));
-        Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -23.8F, -21.0F, 1, 2, 70, 0.0F, true));
-        Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -28.8F, -21.0F, 1, 2, 70, 0.0F, true));
+        Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -14.8F, -21, 1, 2, 71, 0.0F, true));
+        Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -23.8F, -21, 1, 2, 70, 0.0F, true));
+        Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -28.8F, -21, 1, 2, 70, 0.0F, true));
         Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -33.8F, -20.0F, 1, 2, 68, 0.0F, true));
         Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -38.8F, -20.0F, 1, 2, 68, 0.0F, true));
         Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 300, 29.3F, -40.8F, 20.0F, 1, 37, 2, 0.0F, true));
@@ -101,9 +101,9 @@ public class SupplyDrop extends ModelBase {
         Belt54_r1.setRotationPoint(-3.6675F, -1.3814F, -2.1634F);
         belts.addChild(Belt54_r1);
         setRotationAngle(Belt54_r1, -0.0524F, 0.0F, 0.0F);
-        Belt54_r1.cubeList.add(new ModelBox(Belt54_r1, 200, 400, 24.0F, -16.8F, -21.0F, 2, 6, 1, 0.0F, true));
-        Belt54_r1.cubeList.add(new ModelBox(Belt54_r1, 200, 400, 10.0F, -16.8F, -21.0F, 2, 6, 1, 0.0F, true));
-        Belt54_r1.cubeList.add(new ModelBox(Belt54_r1, 200, 400, -4.0F, -16.8F, -21.0F, 2, 6, 1, 0.0F, true));
+        Belt54_r1.cubeList.add(new ModelBox(Belt54_r1, 200, 400, 24.0F, -16.8F, -21, 2, 6, 1, 0.0F, true));
+        Belt54_r1.cubeList.add(new ModelBox(Belt54_r1, 200, 400, 10.0F, -16.8F, -21, 2, 6, 1, 0.0F, true));
+        Belt54_r1.cubeList.add(new ModelBox(Belt54_r1, 200, 400, -4.0F, -16.8F, -21, 2, 6, 1, 0.0F, true));
         Belt54_r1.cubeList.add(new ModelBox(Belt54_r1, 200, 300, 17.0F, -40.8F, -20.5F, 2, 19, 1, 0.0F, true));
         Belt54_r1.cubeList.add(new ModelBox(Belt54_r1, 200, 300, 3.0F, -40.8F, -20.5F, 2, 19, 1, 0.0F, true));
         Belt54_r1.cubeList.add(new ModelBox(Belt54_r1, 200, 300, -10.0F, -40.8F, -20.5F, 2, 19, 1, 0.0F, true));
@@ -132,8 +132,8 @@ public class SupplyDrop extends ModelBase {
         Belt43_r1.cubeList.add(new ModelBox(Belt43_r1, 200, 300, -15.3F, -38.8F, -20.0F, 1, 2, 68, 0.0F, true));
         Belt43_r1.cubeList.add(new ModelBox(Belt43_r1, 200, 300, -15.3F, -33.8F, -20.0F, 1, 2, 68, 0.0F, true));
         Belt43_r1.cubeList.add(new ModelBox(Belt43_r1, 200, 300, -15.3F, -28.8F, -20.0F, 1, 2, 68, 0.0F, true));
-        Belt43_r1.cubeList.add(new ModelBox(Belt43_r1, 200, 300, -15.3F, -23.8F, -21.0F, 1, 2, 70, 0.0F, true));
-        Belt43_r1.cubeList.add(new ModelBox(Belt43_r1, 200, 300, -15.3F, -14.8F, -21.0F, 1, 2, 70, 0.0F, true));
+        Belt43_r1.cubeList.add(new ModelBox(Belt43_r1, 200, 300, -15.3F, -23.8F, -21, 1, 2, 70, 0.0F, true));
+        Belt43_r1.cubeList.add(new ModelBox(Belt43_r1, 200, 300, -15.3F, -14.8F, -21, 1, 2, 70, 0.0F, true));
         Belt43_r1.cubeList.add(new ModelBox(Belt43_r1, 200, 300, -15.3F, -40.8F, 34.0F, 1, 37, 2, 0.0F, true));
         Belt43_r1.cubeList.add(new ModelBox(Belt43_r1, 200, 300, -15.3F, -40.8F, 20.0F, 1, 37, 2, 0.0F, true));
         Belt43_r1.cubeList.add(new ModelBox(Belt43_r1, 200, 300, -15.3F, -40.8F, 6.0F, 1, 37, 2, 0.0F, true));
@@ -180,7 +180,7 @@ public class SupplyDrop extends ModelBase {
         shape.cubeList.add(new ModelBox(shape, 0, 0, -19.0F, -3.5F, -20.0F, 53, 1, 5, 0.0F, true));
         shape.cubeList.add(new ModelBox(shape, 0, 0, -19.0F, -3.5F, -13.0F, 53, 1, 5, 0.0F, true));
         shape.cubeList.add(new ModelBox(shape, 0, 0, -19.0F, -3.5F, -6.0F, 53, 1, 5, 0.0F, true));
-        shape.cubeList.add(new ModelBox(shape, 0, 0, -19.0F, -3.5F, 1.0F, 53, 1, 5, 0.0F, true));
+        shape.cubeList.add(new ModelBox(shape, 0, 0, -19.0F, -3.5F, 1, 53, 1, 5, 0.0F, true));
         shape.cubeList.add(new ModelBox(shape, 0, 0, -19.0F, -3.5F, 15.0F, 53, 1, 5, 0.0F, true));
         shape.cubeList.add(new ModelBox(shape, 0, 0, -19.0F, -3.5F, 8.0F, 53, 1, 5, 0.0F, true));
         shape.cubeList.add(new ModelBox(shape, 0, 0, -19.0F, -3.5F, 22.0F, 53, 1, 5, 0.0F, true));

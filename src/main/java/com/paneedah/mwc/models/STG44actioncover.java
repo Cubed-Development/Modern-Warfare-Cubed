@@ -572,7 +572,7 @@ public class STG44actioncover extends ModelBase {
         gun54.cubeList.add(new ModelBox(gun54, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, true));
 
         gun544 = new ModelRenderer(this);
-        gun544.setRotationPoint(-3.5F, -11.0F, -17.2F);
+        gun544.setRotationPoint(-3.5F, -11, -17.2F);
         gun544.cubeList.add(new ModelBox(gun544, 100, 0, 0.0F, 0.0F, 0.0F, 4, 5, 18, 0.0F, true));
 
         gun55 = new ModelRenderer(this);
@@ -781,12 +781,12 @@ public class STG44actioncover extends ModelBase {
         gun103.cubeList.add(new ModelBox(gun103, 100, 0, 0.0F, 0.0F, 0.0F, 1, 2, 19, 0.0F, true));
 
         gun104 = new ModelRenderer(this);
-        gun104.setRotationPoint(1.0F, -15.0F, -15.1F);
+        gun104.setRotationPoint(1, -15.0F, -15.1F);
         setRotationAngle(gun104, 0.0F, 0.0F, 2.3562F);
         gun104.cubeList.add(new ModelBox(gun104, 100, 0, 0.0F, 0.0F, 0.0F, 1, 2, 19, 0.0F, true));
 
         gun105 = new ModelRenderer(this);
-        gun105.setRotationPoint(1.0F, -13.0F, -15.1F);
+        gun105.setRotationPoint(1, -13.0F, -15.1F);
         setRotationAngle(gun105, 0.0F, 0.0F, 2.3562F);
         gun105.cubeList.add(new ModelBox(gun105, 100, 0, 0.0F, 0.0F, 0.0F, 1, 1, 19, 0.0F, true));
 
@@ -819,16 +819,16 @@ public class STG44actioncover extends ModelBase {
         gun111.cubeList.add(new ModelBox(gun111, 100, 0, 0.0F, 0.0F, 0.0F, 1, 1, 41, 0.0F, true));
 
         gun112 = new ModelRenderer(this);
-        gun112.setRotationPoint(-2.5F, -21.0F, -37.1F);
+        gun112.setRotationPoint(-2.5F, -21, -37.1F);
         gun112.cubeList.add(new ModelBox(gun112, 100, 0, 0.0F, 0.0F, 0.0F, 2, 1, 41, 0.0F, true));
 
         gun113 = new ModelRenderer(this);
-        gun113.setRotationPoint(-0.5F, -21.0F, -37.1F);
+        gun113.setRotationPoint(-0.5F, -21, -37.1F);
         setRotationAngle(gun113, 0.0F, 0.0F, 0.7854F);
         gun113.cubeList.add(new ModelBox(gun113, 100, 0, 0.0F, 0.0F, 0.0F, 1, 1, 41, 0.0F, true));
 
         gun114 = new ModelRenderer(this);
-        gun114.setRotationPoint(-2.5F, -21.0F, -37.1F);
+        gun114.setRotationPoint(-2.5F, -21, -37.1F);
         setRotationAngle(gun114, 0.0F, 0.0F, 0.7854F);
         gun114.cubeList.add(new ModelBox(gun114, 100, 0, 0.0F, 0.0F, 0.0F, 1, 1, 41, 0.0F, true));
 
@@ -837,17 +837,17 @@ public class STG44actioncover extends ModelBase {
         gun115.cubeList.add(new ModelBox(gun115, 100, 0, 0.0F, 0.0F, 0.0F, 1, 2, 5, 0.0F, true));
 
         gun116 = new ModelRenderer(this);
-        gun116.setRotationPoint(1.0F, -12.6F, -15.1F);
+        gun116.setRotationPoint(1, -12.6F, -15.1F);
         setRotationAngle(gun116, 0.0F, 0.0F, 2.3562F);
         gun116.cubeList.add(new ModelBox(gun116, 100, 0, 0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, true));
 
         gun117 = new ModelRenderer(this);
-        gun117.setRotationPoint(1.0F, -10.6F, -15.1F);
+        gun117.setRotationPoint(1, -10.6F, -15.1F);
         setRotationAngle(gun117, 0.0F, 0.0F, 2.3562F);
         gun117.cubeList.add(new ModelBox(gun117, 100, 0, 0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, true));
 
         gun118 = new ModelRenderer(this);
-        gun118.setRotationPoint(1.0F, -12.6F, -10.1F);
+        gun118.setRotationPoint(1, -12.6F, -10.1F);
         setRotationAngle(gun118, 0.0F, -2.3562F, 0.0F);
         gun118.cubeList.add(new ModelBox(gun118, 100, 0, 0.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, true));
 
@@ -910,7 +910,7 @@ public class STG44actioncover extends ModelBase {
         gun130.cubeList.add(new ModelBox(gun130, 100, 0, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, true));
 
         gun131 = new ModelRenderer(this);
-        gun131.setRotationPoint(-4.5F, -11.0F, -29.1F);
+        gun131.setRotationPoint(-4.5F, -11, -29.1F);
         gun131.cubeList.add(new ModelBox(gun131, 100, 0, 0.0F, 0.0F, 0.0F, 6, 1, 14, 0.0F, true));
 
         gun132 = new ModelRenderer(this);
@@ -1194,7 +1194,7 @@ public class STG44actioncover extends ModelBase {
         gun192.cubeList.add(new ModelBox(gun192, 100, 0, 0.0F, 0.0F, 0.0F, 2, 1, 7, 0.0F, true));
 
         gun193 = new ModelRenderer(this);
-        gun193.setRotationPoint(-2.5F, -21.0F, -72.1F);
+        gun193.setRotationPoint(-2.5F, -21, -72.1F);
         gun193.cubeList.add(new ModelBox(gun193, 100, 0, 0.0F, 0.0F, 0.0F, 2, 7, 5, 0.0F, true));
 
         gun194 = new ModelRenderer(this);
@@ -1569,12 +1569,12 @@ public class STG44actioncover extends ModelBase {
         gun276.cubeList.add(new ModelBox(gun276, 100, 0, 0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, true));
 
         gun277 = new ModelRenderer(this);
-        gun277.setRotationPoint(-0.5F, -21.0F, -72.1F);
+        gun277.setRotationPoint(-0.5F, -21, -72.1F);
         setRotationAngle(gun277, 0.0F, 0.0F, 0.7854F);
         gun277.cubeList.add(new ModelBox(gun277, 100, 0, 0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, true));
 
         gun278 = new ModelRenderer(this);
-        gun278.setRotationPoint(-2.5F, -21.0F, -72.1F);
+        gun278.setRotationPoint(-2.5F, -21, -72.1F);
         setRotationAngle(gun278, 0.0F, 0.0F, 0.7854F);
         gun278.cubeList.add(new ModelBox(gun278, 100, 0, 0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, true));
 
@@ -1741,7 +1741,7 @@ public class STG44actioncover extends ModelBase {
         bone = new ModelRenderer(this);
         bone.setRotationPoint(-3.5F, -19.0F, -29.0F);
         setRotationAngle(bone, 0.0F, 0.0F, -0.3316F);
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.0F, -2.0F, 0.0F, 1, 2, 10, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1, -2.0F, 0.0F, 1, 2, 10, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(-5.1F, -20.5F, -29.0F);
@@ -1753,7 +1753,7 @@ public class STG44actioncover extends ModelBase {
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(-2.8F, -21.4F, -29.0F);
         setRotationAngle(bone3, 0.0F, 0.0F, 0.2793F);
-        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -1.0F, -1.0F, 0.0F, 1, 1, 10, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -1, -1, 0.0F, 1, 1, 10, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 0, 0, -1.6F, -1.02F, 4.0F, 1, 2, 2, 0.0F, false));
     }
 

@@ -21,18 +21,18 @@ public class ScarHMag extends ModelWithAttachments {
 
         magazine = new ModelRenderer(this);
         magazine.setRotationPoint(0.25F, -4.0F, -24.95F);
-        magazine.cubeList.add(new ModelBox(magazine, 114, 112, -1.0F, -5.0F, 0.25F, 1, 15, 1, 0.0F, false));
+        magazine.cubeList.add(new ModelBox(magazine, 114, 112, -1, -5.0F, 0.25F, 1, 15, 1, 0.0F, false));
         magazine.cubeList.add(new ModelBox(magazine, 12, 24, -1.35F, -5.0F, 0.45F, 1, 18, 4, -0.002F, false));
         magazine.cubeList.add(new ModelBox(magazine, 55, 24, -3.25F, -5.0F, 5.45F, 3, 18, 3, -0.002F, false));
         magazine.cubeList.add(new ModelBox(magazine, 8, 80, -2.15F, -5.0F, 3.75F, 2, 18, 2, -0.003F, false));
         magazine.cubeList.add(new ModelBox(magazine, 55, 67, -0.7F, 12.3F, 0.05F, 1, 1, 9, -0.1F, false));
-        magazine.cubeList.add(new ModelBox(magazine, 66, 48, -1.0F, 12.2F, 7.45F, 1, 1, 2, -0.001F, false));
+        magazine.cubeList.add(new ModelBox(magazine, 66, 48, -1, 12.2F, 7.45F, 1, 1, 2, -0.001F, false));
         magazine.cubeList.add(new ModelBox(magazine, 42, 27, -0.7F, 10.3F, -0.25F, 1, 3, 1, -0.2F, false));
-        magazine.cubeList.add(new ModelBox(magazine, 110, 112, -1.0F, -5.0F, 0.75F, 1, 15, 1, -0.001F, false));
-        magazine.cubeList.add(new ModelBox(magazine, 65, 111, -1.0F, -5.0F, 2.5F, 1, 15, 2, 0.0F, false));
-        magazine.cubeList.add(new ModelBox(magazine, 101, 71, -1.0F, -5.0F, 5.0F, 1, 15, 2, 0.0F, false));
-        magazine.cubeList.add(new ModelBox(magazine, 11, 73, -1.0F, 9.8F, 5.0F, 1, 1, 2, 0.001F, false));
-        magazine.cubeList.add(new ModelBox(magazine, 73, 80, -1.0F, -5.0F, 8.0F, 1, 16, 1, 0.0F, false));
+        magazine.cubeList.add(new ModelBox(magazine, 110, 112, -1, -5.0F, 0.75F, 1, 15, 1, -0.001F, false));
+        magazine.cubeList.add(new ModelBox(magazine, 65, 111, -1, -5.0F, 2.5F, 1, 15, 2, 0.0F, false));
+        magazine.cubeList.add(new ModelBox(magazine, 101, 71, -1, -5.0F, 5.0F, 1, 15, 2, 0.0F, false));
+        magazine.cubeList.add(new ModelBox(magazine, 11, 73, -1, 9.8F, 5.0F, 1, 1, 2, 0.001F, false));
+        magazine.cubeList.add(new ModelBox(magazine, 73, 80, -1, -5.0F, 8.0F, 1, 16, 1, 0.0F, false));
         magazine.cubeList.add(new ModelBox(magazine, 48, 14, -3.5F, -5.0F, 8.0F, 1, 16, 1, 0.0F, false));
         magazine.cubeList.add(new ModelBox(magazine, 16, 80, -3.5F, -5.0F, 5.0F, 1, 15, 2, 0.0F, false));
         magazine.cubeList.add(new ModelBox(magazine, 101, 14, -3.5F, -5.0F, 2.5F, 1, 15, 2, 0.0F, false));

@@ -88,7 +88,7 @@ public class VortexSight extends ModelBase {
 
 
         Shape145 = new ModelRenderer(this);
-        Shape145.setRotationPoint(1.0F, -21.2F, 18.1F);
+        Shape145.setRotationPoint(1, -21.2F, 18.1F);
         bone22.addChild(Shape145);
         setRotationAngle(Shape145, -0.5236F, 0.0F, 0.0F);
         Shape145.cubeList.add(new ModelBox(Shape145, 32, 60, 6.0F, 0.2151F, 0.1634F, 2, 2, 1, 0.0F, false));
@@ -98,12 +98,12 @@ public class VortexSight extends ModelBase {
         bone16.setRotationPoint(7.0F, 7.9986F, -11.586F);
         Shape145.addChild(bone16);
         setRotationAngle(bone16, 0.7854F, 0.0F, 0.0F);
-        bone16.cubeList.add(new ModelBox(bone16, 18, 60, -1.0F, -0.6979F, -0.4183F, 2, 2, 1, 0.0F, false));
+        bone16.cubeList.add(new ModelBox(bone16, 18, 60, -1, -0.6979F, -0.4183F, 2, 2, 1, 0.0F, false));
         bone16.cubeList.add(new ModelBox(bone16, 60, 40, -3.5F, -0.922F, 0.6771F, 1, 2, 1, 0.0F, false));
         bone16.cubeList.add(new ModelBox(bone16, 12, 60, -7.0F, -0.6979F, -0.4183F, 2, 2, 1, 0.0F, false));
 
         Shape33 = new ModelRenderer(this);
-        Shape33.setRotationPoint(0.7F, -33.0F, 1.0F);
+        Shape33.setRotationPoint(0.7F, -33.0F, 1);
         bone22.addChild(Shape33);
         setRotationAngle(Shape33, 0.0F, 0.0F, 0.1745F);
         Shape33.cubeList.add(new ModelBox(Shape33, 76, 21, 6.1665F, -1.5118F, -3.75F, 1, 1, 15, 0.0F, false));
@@ -122,7 +122,7 @@ public class VortexSight extends ModelBase {
         bone9.cubeList.add(new ModelBox(bone9, 0, 12, -2.2736F, -0.5678F, -3.3849F, 2, 1, 6, 0.0F, false));
 
         Shape32 = new ModelRenderer(this);
-        Shape32.setRotationPoint(0.7F, -33.0F, 1.0F);
+        Shape32.setRotationPoint(0.7F, -33.0F, 1);
         bone22.addChild(Shape32);
         setRotationAngle(Shape32, 0.0F, 0.0F, 0.5672F);
         Shape32.cubeList.add(new ModelBox(Shape32, 77, 77, 6.0424F, -4.1392F, -3.75F, 1, 1, 15, 0.0F, false));
@@ -135,7 +135,7 @@ public class VortexSight extends ModelBase {
         bone6.cubeList.add(new ModelBox(bone6, 55, 8, -0.9611F, -0.1121F, -3.5687F, 1, 1, 6, 0.0F, false));
 
         Shape143 = new ModelRenderer(this);
-        Shape143.setRotationPoint(0.7F, -33.0F, 1.0F);
+        Shape143.setRotationPoint(0.7F, -33.0F, 1);
         bone22.addChild(Shape143);
         setRotationAngle(Shape143, 0.0F, 0.0F, -0.1745F);
         Shape143.cubeList.add(new ModelBox(Shape143, 17, 78, 1.3724F, -0.0062F, -3.75F, 1, 1, 15, 0.0F, false));
@@ -154,7 +154,7 @@ public class VortexSight extends ModelBase {
         bone8.cubeList.add(new ModelBox(bone8, 0, 22, -1.7463F, 0.1078F, -3.5466F, 2, 1, 6, 0.0F, false));
 
         Shape142 = new ModelRenderer(this);
-        Shape142.setRotationPoint(0.7F, -33.0F, 1.0F);
+        Shape142.setRotationPoint(0.7F, -33.0F, 1);
         bone22.addChild(Shape142);
         setRotationAngle(Shape142, 0.0F, 0.0F, -0.5672F);
         Shape142.cubeList.add(new ModelBox(Shape142, 0, 82, 0.2703F, 0.5195F, -3.75F, 1, 1, 15, 0.0F, false));
@@ -178,13 +178,13 @@ public class VortexSight extends ModelBase {
         bone22.addChild(Shape138);
         setRotationAngle(Shape138, 0.1396F, 0.0F, 0.0F);
         Shape138.cubeList.add(new ModelBox(Shape138, 60, 52, -3.5F, 2.0F, 0.0F, 1, 2, 1, 0.0F, false));
-        Shape138.cubeList.add(new ModelBox(Shape138, 10, 0, 0.0F, 1.0F, 0.0F, 1, 3, 1, 0.0F, false));
+        Shape138.cubeList.add(new ModelBox(Shape138, 10, 0, 0.0F, 1, 0.0F, 1, 3, 1, 0.0F, false));
 
         Shape136 = new ModelRenderer(this);
-        Shape136.setRotationPoint(1.0F, -25.8F, 18.5F);
+        Shape136.setRotationPoint(1, -25.8F, 18.5F);
         bone22.addChild(Shape136);
         setRotationAngle(Shape136, 0.1396F, 0.0F, 0.0F);
-        Shape136.cubeList.add(new ModelBox(Shape136, 11, 12, 0.0F, 1.0F, 0.0F, 1, 3, 1, 0.0F, false));
+        Shape136.cubeList.add(new ModelBox(Shape136, 11, 12, 0.0F, 1, 0.0F, 1, 3, 1, 0.0F, false));
 
         Shape134 = new ModelRenderer(this);
         Shape134.setRotationPoint(7.0F, -25.8F, 18.5F);
@@ -205,13 +205,13 @@ public class VortexSight extends ModelBase {
         bone15.cubeList.add(new ModelBox(bone15, 10, 6, -1.5961F, -1.4039F, -0.2912F, 3, 1, 1, 0.0F, false));
 
         Shape133 = new ModelRenderer(this);
-        Shape133.setRotationPoint(1.0F, -25.8F, 18.5F);
+        Shape133.setRotationPoint(1, -25.8F, 18.5F);
         bone22.addChild(Shape133);
         setRotationAngle(Shape133, 0.1396F, 0.0F, 0.0F);
         Shape133.cubeList.add(new ModelBox(Shape133, 0, 45, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         Shape100 = new ModelRenderer(this);
-        Shape100.setRotationPoint(0.7F, -32.0F, 1.0F);
+        Shape100.setRotationPoint(0.7F, -32.0F, 1);
         bone22.addChild(Shape100);
         setRotationAngle(Shape100, 0.0F, 0.0F, -0.7854F);
         Shape100.cubeList.add(new ModelBox(Shape100, 75, 0, -0.1414F, -0.1414F, -3.75F, 1, 1, 15, 0.0F, false));
@@ -234,7 +234,7 @@ public class VortexSight extends ModelBase {
         Shape118.cubeList.add(new ModelBox(Shape118, 35, 0, 0.0F, 0.0F, -4.0F, 1, 1, 18, 0.0F, false));
 
         Shape116 = new ModelRenderer(this);
-        Shape116.setRotationPoint(9.0F, -21.0F, 4.0F);
+        Shape116.setRotationPoint(9.0F, -21, 4.0F);
         bone22.addChild(Shape116);
         Shape116.cubeList.add(new ModelBox(Shape116, 34, 39, 0.0F, 0.0F, -6.0F, 1, 1, 18, 0.0F, false));
         Shape116.cubeList.add(new ModelBox(Shape116, 6, 60, 0.0F, -2.0F, -2.0F, 1, 2, 2, 0.0F, false));
@@ -242,15 +242,15 @@ public class VortexSight extends ModelBase {
         Shape116.cubeList.add(new ModelBox(Shape116, 0, 41, -9.0F, -3.0F, 4.5F, 1, 2, 2, 0.0F, false));
         Shape116.cubeList.add(new ModelBox(Shape116, 55, 12, -9.25F, -3.0F, 10.5F, 2, 2, 1, 0.0F, false));
         Shape116.cubeList.add(new ModelBox(Shape116, 0, 60, 0.0F, -3.5F, 6.0F, 1, 2, 2, 0.0F, false));
-        Shape116.cubeList.add(new ModelBox(Shape116, 0, 0, -0.25F, -4.0F, -1.0F, 1, 4, 8, 0.0F, false));
+        Shape116.cubeList.add(new ModelBox(Shape116, 0, 0, -0.25F, -4.0F, -1, 1, 4, 8, 0.0F, false));
         Shape116.cubeList.add(new ModelBox(Shape116, 9, 30, -8.75F, -4.0F, 4.0F, 1, 4, 3, 0.0F, false));
         Shape116.cubeList.add(new ModelBox(Shape116, 20, 46, -8.75F, -3.0F, 7.0F, 1, 2, 1, 0.0F, false));
         Shape116.cubeList.add(new ModelBox(Shape116, 43, 0, -8.75F, -3.0F, 3.0F, 1, 2, 1, 0.0F, false));
-        Shape116.cubeList.add(new ModelBox(Shape116, 14, 30, -9.25F, -2.75F, -1.0F, 1, 2, 1, 0.0F, false));
+        Shape116.cubeList.add(new ModelBox(Shape116, 14, 30, -9.25F, -2.75F, -1, 1, 2, 1, 0.0F, false));
         Shape116.cubeList.add(new ModelBox(Shape116, 55, 4, -9.25F, -3.5F, -2.75F, 1, 1, 2, 0.0F, false));
-        Shape116.cubeList.add(new ModelBox(Shape116, 54, 47, -9.25F, -1.0F, -2.75F, 1, 1, 2, 0.0F, false));
+        Shape116.cubeList.add(new ModelBox(Shape116, 54, 47, -9.25F, -1, -2.75F, 1, 1, 2, 0.0F, false));
         Shape116.cubeList.add(new ModelBox(Shape116, 16, 0, -9.25F, -2.75F, -3.5F, 1, 2, 1, 0.0F, false));
-        Shape116.cubeList.add(new ModelBox(Shape116, 35, 0, -8.75F, -1.0F, -5.0F, 1, 2, 2, 0.0F, false));
+        Shape116.cubeList.add(new ModelBox(Shape116, 35, 0, -8.75F, -1, -5.0F, 1, 2, 2, 0.0F, false));
         Shape116.cubeList.add(new ModelBox(Shape116, 43, 49, 0.5F, -3.5F, 1.5F, 1, 3, 3, 0.0F, false));
         Shape116.cubeList.add(new ModelBox(Shape116, 6, 53, 1.25F, -3.0F, 2.0F, 1, 2, 2, 0.0F, false));
 
@@ -258,13 +258,13 @@ public class VortexSight extends ModelBase {
         bone10.setRotationPoint(1.75F, -2.0F, 0.0F);
         Shape116.addChild(bone10);
         setRotationAngle(bone10, 0.0F, 1.2654F, 0.0F);
-        bone10.cubeList.add(new ModelBox(bone10, 58, 45, -2.7571F, -1.0F, -0.9217F, 1, 2, 2, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 58, 45, -2.7571F, -1, -0.9217F, 1, 2, 2, 0.0F, false));
 
         bone11 = new ModelRenderer(this);
         bone11.setRotationPoint(1.75F, -2.0F, 0.0F);
         Shape116.addChild(bone11);
         setRotationAngle(bone11, 0.0F, -1.2654F, 0.0F);
-        bone11.cubeList.add(new ModelBox(bone11, 55, 8, 2.9652F, -1.0F, 0.726F, 1, 2, 2, 0.0F, false));
+        bone11.cubeList.add(new ModelBox(bone11, 55, 8, 2.9652F, -1, 0.726F, 1, 2, 2, 0.0F, false));
 
         bone12 = new ModelRenderer(this);
         bone12.setRotationPoint(1.75F, -2.0F, 0.0F);
@@ -281,45 +281,45 @@ public class VortexSight extends ModelBase {
         Shape115 = new ModelRenderer(this);
         Shape115.setRotationPoint(8.8F, -26.0F, 2.0F);
         bone22.addChild(Shape115);
-        Shape115.cubeList.add(new ModelBox(Shape115, 22, 58, -0.25F, 1.0F, -3.0F, 1, 4, 16, 0.0F, false));
+        Shape115.cubeList.add(new ModelBox(Shape115, 22, 58, -0.25F, 1, -3.0F, 1, 4, 16, 0.0F, false));
 
         Shape104 = new ModelRenderer(this);
-        Shape104.setRotationPoint(1.0F, -19.7F, 4.0F);
+        Shape104.setRotationPoint(1, -19.7F, 4.0F);
         bone22.addChild(Shape104);
-        Shape104.cubeList.add(new ModelBox(Shape104, 74, 56, 6.0F, -1.0F, 0.0F, 2, 2, 14, 0.0F, false));
-        Shape104.cubeList.add(new ModelBox(Shape104, 26, 46, 7.9836F, -1.0F, 3.577F, 2, 2, 2, 0.0F, false));
+        Shape104.cubeList.add(new ModelBox(Shape104, 74, 56, 6.0F, -1, 0.0F, 2, 2, 14, 0.0F, false));
+        Shape104.cubeList.add(new ModelBox(Shape104, 26, 46, 7.9836F, -1, 3.577F, 2, 2, 2, 0.0F, false));
         Shape104.cubeList.add(new ModelBox(Shape104, 43, 46, 8.2336F, -0.5F, 3.577F, 2, 1, 2, 0.0F, false));
-        Shape104.cubeList.add(new ModelBox(Shape104, 0, 30, 8.5F, -1.0F, 7.25F, 1, 2, 7, 0.0F, false));
-        Shape104.cubeList.add(new ModelBox(Shape104, 38, 52, 8.75F, -1.0F, 13.25F, 1, 2, 1, 0.0F, false));
-        Shape104.cubeList.add(new ModelBox(Shape104, 49, 0, 8.75F, -1.0F, 11.75F, 1, 2, 1, 0.0F, false));
-        Shape104.cubeList.add(new ModelBox(Shape104, 48, 49, 8.75F, -1.0F, 10.25F, 1, 2, 1, 0.0F, false));
-        Shape104.cubeList.add(new ModelBox(Shape104, 20, 41, 0.0F, -1.0F, 0.0F, 2, 2, 14, 0.0F, false));
+        Shape104.cubeList.add(new ModelBox(Shape104, 0, 30, 8.5F, -1, 7.25F, 1, 2, 7, 0.0F, false));
+        Shape104.cubeList.add(new ModelBox(Shape104, 38, 52, 8.75F, -1, 13.25F, 1, 2, 1, 0.0F, false));
+        Shape104.cubeList.add(new ModelBox(Shape104, 49, 0, 8.75F, -1, 11.75F, 1, 2, 1, 0.0F, false));
+        Shape104.cubeList.add(new ModelBox(Shape104, 48, 49, 8.75F, -1, 10.25F, 1, 2, 1, 0.0F, false));
+        Shape104.cubeList.add(new ModelBox(Shape104, 20, 41, 0.0F, -1, 0.0F, 2, 2, 14, 0.0F, false));
         Shape104.cubeList.add(new ModelBox(Shape104, 8, 41, -0.75F, -1.25F, 8.0F, 2, 2, 3, 0.0F, false));
-        Shape104.cubeList.add(new ModelBox(Shape104, 20, 41, 2.0F, -1.5F, 11.0F, 4, 2, 3, 0.0F, false));
-        Shape104.cubeList.add(new ModelBox(Shape104, 54, 40, 3.5F, -1.5F, 1.0F, 1, 2, 10, 0.0F, false));
+        Shape104.cubeList.add(new ModelBox(Shape104, 20, 41, 2.0F, -1.5F, 11, 4, 2, 3, 0.0F, false));
+        Shape104.cubeList.add(new ModelBox(Shape104, 54, 40, 3.5F, -1.5F, 1, 1, 2, 10, 0.0F, false));
 
         bone19 = new ModelRenderer(this);
         bone19.setRotationPoint(9.0F, 0.0F, 5.25F);
         Shape104.addChild(bone19);
         setRotationAngle(bone19, 0.0F, -0.2618F, 0.0F);
-        bone19.cubeList.add(new ModelBox(bone19, 0, 53, 0.0347F, -1.0F, 0.0613F, 1, 2, 2, 0.0F, false));
+        bone19.cubeList.add(new ModelBox(bone19, 0, 53, 0.0347F, -1, 0.0613F, 1, 2, 2, 0.0F, false));
 
         bone20 = new ModelRenderer(this);
         bone20.setRotationPoint(9.0F, 0.0F, 5.25F);
         Shape104.addChild(bone20);
         setRotationAngle(bone20, 0.0F, 0.2618F, 0.0F);
-        bone20.cubeList.add(new ModelBox(bone20, 20, 51, 0.3831F, -1.0F, -3.3615F, 1, 2, 2, 0.0F, false));
+        bone20.cubeList.add(new ModelBox(bone20, 20, 51, 0.3831F, -1, -3.3615F, 1, 2, 2, 0.0F, false));
 
         bone21 = new ModelRenderer(this);
         bone21.setRotationPoint(9.0F, 0.0F, 5.25F);
         Shape104.addChild(bone21);
         setRotationAngle(bone21, 0.0F, 0.7854F, 0.0F);
-        bone21.cubeList.add(new ModelBox(bone21, 28, 50, 1.8785F, -1.0F, -4.2196F, 1, 2, 2, 0.0F, false));
+        bone21.cubeList.add(new ModelBox(bone21, 28, 50, 1.8785F, -1, -4.2196F, 1, 2, 2, 0.0F, false));
 
         Shape97 = new ModelRenderer(this);
         Shape97.setRotationPoint(0.2F, -26.0F, 2.0F);
         bone22.addChild(Shape97);
-        Shape97.cubeList.add(new ModelBox(Shape97, 0, 63, 0.25F, 1.0F, -3.0F, 1, 4, 15, 0.0F, false));
+        Shape97.cubeList.add(new ModelBox(Shape97, 0, 63, 0.25F, 1, -3.0F, 1, 4, 15, 0.0F, false));
 
         Shape95 = new ModelRenderer(this);
         Shape95.setRotationPoint(0.0F, -26.0F, 2.0F);
@@ -330,11 +330,11 @@ public class VortexSight extends ModelBase {
         Shape91.setRotationPoint(0.0F, -26.0F, 14.0F);
         bone22.addChild(Shape91);
         Shape91.cubeList.add(new ModelBox(Shape91, 0, 12, 0.0F, 0.0F, 0.0F, 1, 5, 2, 0.0F, false));
-        Shape91.cubeList.add(new ModelBox(Shape91, 14, 46, 0.0F, 1.0F, -16.0F, 1, 4, 1, 0.0F, false));
-        Shape91.cubeList.add(new ModelBox(Shape91, 17, 11, 9.0F, 1.0F, -16.0F, 1, 4, 1, 0.0F, false));
+        Shape91.cubeList.add(new ModelBox(Shape91, 14, 46, 0.0F, 1, -16.0F, 1, 4, 1, 0.0F, false));
+        Shape91.cubeList.add(new ModelBox(Shape91, 17, 11, 9.0F, 1, -16.0F, 1, 4, 1, 0.0F, false));
 
         Shape90 = new ModelRenderer(this);
-        Shape90.setRotationPoint(0.0F, -21.0F, 7.0F);
+        Shape90.setRotationPoint(0.0F, -21, 7.0F);
         bone22.addChild(Shape90);
         Shape90.cubeList.add(new ModelBox(Shape90, 0, 41, 0.0F, 0.0F, -9.0F, 1, 1, 18, 0.0F, false));
 
@@ -351,7 +351,7 @@ public class VortexSight extends ModelBase {
         Shape50.cubeList.add(new ModelBox(Shape50, 35, 19, 0.5F, 0.0F, 0.3F, 6, 1, 1, 0.0F, false));
 
         Shape49 = new ModelRenderer(this);
-        Shape49.setRotationPoint(2.0F, -31.1F, 11.0F);
+        Shape49.setRotationPoint(2.0F, -31.1F, 11);
         bone22.addChild(Shape49);
         setRotationAngle(Shape49, 0.192F, 0.0F, 0.0F);
         Shape49.cubeList.add(new ModelBox(Shape49, 49, 19, 2.0F, -0.7254F, 6.3856F, 2, 1, 1, 0.0F, false));
@@ -383,7 +383,7 @@ public class VortexSight extends ModelBase {
         Shape41.cubeList.add(new ModelBox(Shape41, 0, 41, 0.0F, 0.0F, 0.0F, 1, 6, 6, 0.0F, false));
 
         Shape39 = new ModelRenderer(this);
-        Shape39.setRotationPoint(7.8F, -32.0F, 1.0F);
+        Shape39.setRotationPoint(7.8F, -32.0F, 1);
         bone22.addChild(Shape39);
         setRotationAngle(Shape39, 0.0F, 0.0F, -0.7854F);
         Shape39.cubeList.add(new ModelBox(Shape39, 60, 75, 0.252F, 0.252F, -3.75F, 1, 1, 15, 0.0F, false));
@@ -417,7 +417,7 @@ public class VortexSight extends ModelBase {
         bone18.setRotationPoint(0.5F, -0.2F, 10.5F);
         Shape34.addChild(bone18);
         setRotationAngle(bone18, 0.0F, 0.2182F, 0.0F);
-        bone18.cubeList.add(new ModelBox(bone18, 10, 0, -1.0292F, -1.0F, 2.3325F, 1, 2, 4, 0.0F, false));
+        bone18.cubeList.add(new ModelBox(bone18, 10, 0, -1.0292F, -1, 2.3325F, 1, 2, 4, 0.0F, false));
 
         Shape31 = new ModelRenderer(this);
         Shape31.setRotationPoint(2.0F, -33.5F, 0.0F);
@@ -435,10 +435,10 @@ public class VortexSight extends ModelBase {
         bone17.setRotationPoint(0.5F, -0.3F, 15.5F);
         Shape27.addChild(bone17);
         setRotationAngle(bone17, 0.0F, -0.2182F, 0.0F);
-        bone17.cubeList.add(new ModelBox(bone17, 11, 12, -1.053F, -1.0F, -2.549F, 1, 2, 4, 0.0F, false));
+        bone17.cubeList.add(new ModelBox(bone17, 11, 12, -1.053F, -1, -2.549F, 1, 2, 4, 0.0F, false));
 
         Shape26 = new ModelRenderer(this);
-        Shape26.setRotationPoint(8.9F, -21.0F, 16.0F);
+        Shape26.setRotationPoint(8.9F, -21, 16.0F);
         bone22.addChild(Shape26);
         setRotationAngle(Shape26, 0.0F, -0.192F, 0.0F);
         Shape26.cubeList.add(new ModelBox(Shape26, 0, 0, 0.0798F, -4.0F, -0.2099F, 1, 5, 3, 0.0F, false));
@@ -447,7 +447,7 @@ public class VortexSight extends ModelBase {
         Shape23.setRotationPoint(1.5F, -27.0F, 2.0F);
         bone22.addChild(Shape23);
         Shape23.cubeList.add(new ModelBox(Shape23, 0, 0, 0.0F, 0.0F, -4.0F, 7, 1, 21, 0.0F, false));
-        Shape23.cubeList.add(new ModelBox(Shape23, 34, 30, 1.0F, 1.0F, -3.75F, 5, 1, 1, 0.0F, false));
+        Shape23.cubeList.add(new ModelBox(Shape23, 34, 30, 1, 1, -3.75F, 5, 1, 1, 0.0F, false));
 
         Shape21 = new ModelRenderer(this);
         Shape21.setRotationPoint(9.0F, -26.0F, 16.0F);
@@ -456,7 +456,7 @@ public class VortexSight extends ModelBase {
         Shape21.cubeList.add(new ModelBox(Shape21, 43, 0, 0.0F, 0.0F, -0.7F, 1, 1, 4, 0.0F, false));
 
         Shape19 = new ModelRenderer(this);
-        Shape19.setRotationPoint(1.0F, -26.0F, 17.4F);
+        Shape19.setRotationPoint(1, -26.0F, 17.4F);
         bone22.addChild(Shape19);
         Shape19.cubeList.add(new ModelBox(Shape19, 35, 12, 0.0F, 0.0F, 0.0F, 8, 1, 1, 0.0F, false));
 
@@ -467,13 +467,13 @@ public class VortexSight extends ModelBase {
         Shape17.cubeList.add(new ModelBox(Shape17, 20, 46, 0.0F, 0.0F, -0.4F, 1, 1, 4, 0.0F, false));
 
         Shape15 = new ModelRenderer(this);
-        Shape15.setRotationPoint(0.0F, -21.0F, 16.0F);
+        Shape15.setRotationPoint(0.0F, -21, 16.0F);
         bone22.addChild(Shape15);
         setRotationAngle(Shape15, 0.0F, 0.2269F, 0.0F);
         Shape15.cubeList.add(new ModelBox(Shape15, 34, 22, 0.0F, -4.0F, 0.0F, 1, 5, 3, 0.0F, false));
 
         Shape11 = new ModelRenderer(this);
-        Shape11.setRotationPoint(1.0F, -26.0F, 16.0F);
+        Shape11.setRotationPoint(1, -26.0F, 16.0F);
         bone22.addChild(Shape11);
         Shape11.cubeList.add(new ModelBox(Shape11, 40, 58, 0.0F, 0.0F, 0.0F, 8, 6, 3, 0.0F, false));
 
@@ -488,28 +488,28 @@ public class VortexSight extends ModelBase {
         Shape9.cubeList.add(new ModelBox(Shape9, 83, 93, 0.0F, 0.0F, -3.0F, 1, 6, 13, 0.0F, false));
 
         Shape6 = new ModelRenderer(this);
-        Shape6.setRotationPoint(1.0F, -22.5F, 19.0F);
+        Shape6.setRotationPoint(1, -22.5F, 19.0F);
         bone22.addChild(Shape6);
         setRotationAngle(Shape6, -0.384F, 0.0F, 0.0F);
         Shape6.cubeList.add(new ModelBox(Shape6, 4, 57, 3.5F, 0.0917F, 0.1662F, 1, 1, 1, 0.0F, false));
-        Shape6.cubeList.add(new ModelBox(Shape6, 35, 16, 1.0F, 0.2917F, -0.1802F, 6, 1, 1, 0.0F, false));
+        Shape6.cubeList.add(new ModelBox(Shape6, 35, 16, 1, 0.2917F, -0.1802F, 6, 1, 1, 0.0F, false));
         Shape6.cubeList.add(new ModelBox(Shape6, 17, 19, 0.0F, 0.0917F, 0.1662F, 1, 1, 1, 0.0F, false));
         Shape6.cubeList.add(new ModelBox(Shape6, 42, 32, 7.0F, 0.0917F, 0.1662F, 1, 1, 1, 0.0F, false));
 
         Shape5 = new ModelRenderer(this);
-        Shape5.setRotationPoint(1.0F, -22.2F, 19.1F);
+        Shape5.setRotationPoint(1, -22.2F, 19.1F);
         bone22.addChild(Shape5);
         setRotationAngle(Shape5, -0.5236F, 0.0F, 0.0F);
         Shape5.cubeList.add(new ModelBox(Shape5, 35, 14, 0.0F, 0.709F, 0.0702F, 8, 1, 1, 0.0F, false));
 
         Shape4 = new ModelRenderer(this);
-        Shape4.setRotationPoint(1.0F, -25.8F, 18.5F);
+        Shape4.setRotationPoint(1, -25.8F, 18.5F);
         bone22.addChild(Shape4);
         setRotationAngle(Shape4, 0.1396F, 0.0F, 0.0F);
-        Shape4.cubeList.add(new ModelBox(Shape4, 38, 41, 1.0F, 0.0F, -0.4F, 6, 4, 1, 0.0F, false));
+        Shape4.cubeList.add(new ModelBox(Shape4, 38, 41, 1, 0.0F, -0.4F, 6, 4, 1, 0.0F, false));
 
         Shape1 = new ModelRenderer(this);
-        Shape1.setRotationPoint(1.0F, -26.0F, 2.0F);
+        Shape1.setRotationPoint(1, -26.0F, 2.0F);
         bone22.addChild(Shape1);
         Shape1.cubeList.add(new ModelBox(Shape1, 0, 22, 0.0F, 5.0F, -4.0F, 8, 1, 18, 0.0F, false));
         Shape1.cubeList.add(new ModelBox(Shape1, 34, 22, 0.0F, 0.0F, -3.5F, 8, 5, 12, 0.0F, false));

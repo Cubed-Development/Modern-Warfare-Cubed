@@ -48,14 +48,14 @@ public class LaserBeamRenderer implements CustomRenderer {
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
             GL11.glPushMatrix();
-            //GlStateManager.color(1.0f, 0.0f, 0.0f, 1.0f);
+            //GlStateManager.color(1, 0.0f, 0.0f, 1);
 
             GlStateManager.enableBlend();
             GlStateManager.enableAlpha();
 
 
-            GL11.glLineWidth(1.0f);
-            GL11.glColor4f(1f, 0f, 0f, 1.0f);
+            GL11.glLineWidth(1);
+            GL11.glColor4f(1f, 0f, 0f, 1);
             //GL11.glDepthMask(false);
 
 
@@ -74,16 +74,16 @@ public class LaserBeamRenderer implements CustomRenderer {
             Tessellator tes = Tessellator.getInstance();
             BufferBuilder bb = tes.getBuffer();
             bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
-            bb.pos(xOffset, yOffset, -1.5).color(1.0f, 0.0f, 0.0f, 1.0f).endVertex();
-            bb.pos(xOffset, yOffset, -50).color(1.0f, 0.0f, 0.0f, 0.1f).endVertex();
+            bb.pos(xOffset, yOffset, -1.5).color(1, 0.0f, 0.0f, 1).endVertex();
+            bb.pos(xOffset, yOffset, -50).color(1, 0.0f, 0.0f, 0.1f).endVertex();
             tes.draw();
 
             MC.getFramebuffer().bindFramebuffer(false);
             tes = Tessellator.getInstance();
             bb = tes.getBuffer();
             bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
-            bb.pos(xOffset, yOffset, -1.5).color(1.0f, 0.0f, 0.0f, 1.0f).endVertex();
-            bb.pos(xOffset, yOffset, -50).color(1.0f, 0.0f, 0.0f, 0.1f).endVertex();
+            bb.pos(xOffset, yOffset, -1.5).color(1, 0.0f, 0.0f, 1).endVertex();
+            bb.pos(xOffset, yOffset, -50).color(1, 0.0f, 0.0f, 0.1f).endVertex();
             tes.draw();
 
 

@@ -45,9 +45,9 @@ public class FlashFX extends Particle {
 
         this.particleTextureIndexX = 0;
         this.particleTextureIndexY = 0;
-        this.particleRed = 1.0F;
-        this.particleGreen = 1.0F;
-        this.particleBlue = 1.0F;
+        this.particleRed = 1;
+        this.particleGreen = 1;
+        this.particleBlue = 1;
         this.particleAlpha = alpha;
         this.particleScale *= 1.4F;
         this.particleScale *= scale;
@@ -91,7 +91,7 @@ public class FlashFX extends Particle {
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
 
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        GL11.glColor4f(1, 1, 1, 1);
         GL11.glDepthMask(false);
         GL11.glEnable(GL11.GL_BLEND);
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);

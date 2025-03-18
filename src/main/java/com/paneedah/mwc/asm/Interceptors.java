@@ -152,7 +152,7 @@ public class Interceptors {
 
                 GL11.glTranslated(roll * 0.025, 0.0, 0.0);
 
-                GL11.glRotatef(-roll, 0.0f, 0.0f, 1.0f);
+                GL11.glRotatef(-roll, 0.0f, 0.0f, 1);
 
 
                 double iSL = QPTI.pti(vehicle.prevSideLean, vehicle.sideLean);
@@ -420,7 +420,7 @@ public class Interceptors {
         if (pwi == null || !pwi.isAimed()) {
 
 
-            float sMult = 1.0f;
+            float sMult = 1;
             float speed = sMult;
 
             float f = entityplayer.distanceWalkedModified - entityplayer.prevDistanceWalkedModified;
@@ -431,9 +431,9 @@ public class Interceptors {
             float xWiggle = LissajousCurve.getXOffsetOnCurve(3, 1, 2, Math.PI, f1);
 
             GL11.glTranslatef(MathHelper.sin(f1 * (float) Math.PI * speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float) Math.PI) * f2) * 0.5f, 0.0F);
-            GL11.glRotatef(MathHelper.sin(f1 * (float) Math.PI * speed) * f2 * 3.0F * sMult, 0.0F, 0.0F, 1.0F);
-            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float) Math.PI - 0.2F) * speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
-            GL11.glRotatef(f3 * sMult, 1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(MathHelper.sin(f1 * (float) Math.PI * speed) * f2 * 3.0F * sMult, 0.0F, 0.0F, 1);
+            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float) Math.PI - 0.2F) * speed) * f2) * 5.0F, 1, 0.0F, 0.0F);
+            GL11.glRotatef(f3 * sMult, 1, 0.0F, 0.0F);
         	
         	/*
             float f =entityplayer.distanceWalkedModified - entityplayer.prevDistanceWalkedModified;
@@ -444,9 +444,9 @@ public class Interceptors {
             float xWiggle = (float) LissajousCurve.getXOffsetOnCurve(3, 1, 2, Math.PI, f1);
             
             GL11.glTranslatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
-            GL11.glRotatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
-            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
-            GL11.glRotatef(f3*sMult, 1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1);
+            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1, 0.0F, 0.0F);
+            GL11.glRotatef(f3*sMult, 1, 0.0F, 0.0F);
             */
         } else {
 
@@ -456,10 +456,10 @@ public class Interceptors {
             float f2 = entityplayer.prevCameraYaw + (entityplayer.cameraYaw - entityplayer.prevCameraYaw) * partialTicks;
             float f3 = entityplayer.prevCameraPitch + (entityplayer.cameraPitch - entityplayer.prevCameraPitch) * partialTicks;
             GL11.glTranslatef(MathHelper.sin(f1 * (float) Math.PI) * f2 * 0.2F, -Math.abs(MathHelper.cos(f1 * (float) Math.PI) * f2) * 0.2f, 0.0F);
-            GL11.glRotatef(MathHelper.sin(f1 * (float) Math.PI) * f2 * 3.0F, 0.0F, 0.0F, 1.0F);
-            GL11.glRotatef(Math.abs(MathHelper.cos(f1 * (float) Math.PI - 0.2F) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(MathHelper.sin(f1 * (float) Math.PI) * f2 * 3.0F, 0.0F, 0.0F, 1);
+            GL11.glRotatef(Math.abs(MathHelper.cos(f1 * (float) Math.PI - 0.2F) * f2) * 5.0F, 1, 0.0F, 0.0F);
 
-            GL11.glRotatef(f3, 1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(f3, 1, 0.0F, 0.0F);
 
 
         }
@@ -479,9 +479,9 @@ public class Interceptors {
 
                 float f2 = 5f / (f1 * f1 + 5f) - f1 * 0.01F;
                 f2 = f2 * f2;
-                GL11.glRotatef(((float) spreadableExposure.getTickCount() + partialTicks) * speed, 0.0F, 1.0F, 1.0F);
-                GL11.glScalef(1.0F / f2, 1.0F, 1.0F);
-                GL11.glRotatef(-((float) spreadableExposure.getTickCount() + partialTicks) * speed, 0.0F, 1.0F, 1.0F);
+                GL11.glRotatef(((float) spreadableExposure.getTickCount() + partialTicks) * speed, 0.0F, 1, 1);
+                GL11.glScalef(1 / f2, 1, 1);
+                GL11.glRotatef(-((float) spreadableExposure.getTickCount() + partialTicks) * speed, 0.0F, 1, 1);
                 spreadableExposure.incrementTickCount();
             }
         }
@@ -551,7 +551,7 @@ public class Interceptors {
 
 
             if (Math.abs(lastYawDelta) > 0.3) {
-                //  GL11.glRotatef(-(float)lastYawDelta * 2f, 0.0F, 1.0f, 0.0f);
+                //  GL11.glRotatef(-(float)lastYawDelta * 2f, 0.0F, 1, 0.0f);
             }
         } else {
 
@@ -601,7 +601,7 @@ public class Interceptors {
 
         if (entitylivingbase.getHealth() <= 0.0F) {
             float f1 = (float) entitylivingbase.deathTime + partialTicks;
-            GL11.glRotatef(40.0F - 8000.0F / (f1 + 200.0F), 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(40.0F - 8000.0F / (f1 + 200.0F), 0.0F, 0.0F, 1);
         }
 
         if (f < 0.0F) {
@@ -611,17 +611,17 @@ public class Interceptors {
         f = f / (float) entitylivingbase.maxHurtTime;
         f = MathHelper.sin(f * f * f * f * (float) Math.PI);
         float f2 = entitylivingbase.attackedAtYaw;
-        GL11.glRotatef(-f2, 0.0F, 1.0F, 0.0F);
+        GL11.glRotatef(-f2, 0.0F, 1, 0.0F);
         SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(entitylivingbase, SpreadableExposure.class);
 
         if (spreadableExposure != null) {
-            GL11.glRotatef(-f * 4.0F, 1.0F, 0.0F, 0.0F);
-            GL11.glRotatef(-f, 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(-f * 4.0F, 1, 0.0F, 0.0F);
+            GL11.glRotatef(-f, 0.0F, 0.0F, 1);
         } else {
-            GL11.glRotatef(-f * 14.0F, 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(-f * 14.0F, 0.0F, 0.0F, 1);
         }
 
-        GL11.glRotatef(f2, 0.0F, 1.0F, 0.0F);
+        GL11.glRotatef(f2, 0.0F, 1, 0.0F);
 
 
         return allowDefaultEffect;
@@ -636,9 +636,9 @@ public class Interceptors {
 //
 //        float f2 = 5.0F / (f1 * f1 + 5.0F) - f1 * 0.04F;
 //        f2 = f2 * f2;
-//        GlStateManager.rotate(((float)rendererUpdateCount + partialTicks) * (float)i, 0.0F, 1.0F, 1.0F);
-//        GlStateManager.scale(1.0F / f2, 1.0F, 1.0F);
-//        GlStateManager.rotate(-((float)rendererUpdateCount + partialTicks) * (float)i, 0.0F, 1.0F, 1.0F);
+//        GlStateManager.rotate(((float)rendererUpdateCount + partialTicks) * (float)i, 0.0F, 1, 1);
+//        GlStateManager.scale(1 / f2, 1, 1);
+//        GlStateManager.rotate(-((float)rendererUpdateCount + partialTicks) * (float)i, 0.0F, 1, 1);
 
         //rendererUpdateCount++;
         return allowDefaultEffect;

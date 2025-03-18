@@ -31,7 +31,7 @@ public class InventoryTab extends GuiButton {
     @Override
     public void drawButton(Minecraft MC, int mouseX, int mouseY, float partialTicks) {
         if (this.visible) {
-            GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+            GL11.glColor4f(1, 1, 1, 1);
 
             int yTexPos = this.enabled ? 3 : 32;
             int ySize = this.enabled ? 25 : 32;

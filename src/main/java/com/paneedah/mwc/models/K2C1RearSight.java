@@ -30,16 +30,16 @@ public class K2C1RearSight extends ModelBase {
         sight17.cubeList.add(new ModelBox(sight17, 0, 0, -0.5F, -10.05F, -1.5F, 1, 2, 2, 0.0F, false));
         sight17.cubeList.add(new ModelBox(sight17, 0, 0, 0.5F, -11.05F, -1.5F, 2, 1, 2, 0.0F, false));
         sight17.cubeList.add(new ModelBox(sight17, 0, 0, -4.0F, -3.4F, -24.0F, 11, 8, 25, 0.0F, false));
-        sight17.cubeList.add(new ModelBox(sight17, 0, 0, -1.0F, -7.15F, -23.0F, 5, 2, 8, 0.0F, false));
+        sight17.cubeList.add(new ModelBox(sight17, 0, 0, -1, -7.15F, -23.0F, 5, 2, 8, 0.0F, false));
         sight17.cubeList.add(new ModelBox(sight17, 0, 0, -0.75F, -6.901F, -15.0F, 1, 1, 9, 0.0F, false));
         sight17.cubeList.add(new ModelBox(sight17, 0, 0, 2.75F, -6.901F, -15.0F, 1, 1, 9, 0.0F, false));
-        sight17.cubeList.add(new ModelBox(sight17, 0, 0, -1.0F, -6.9F, -6.5F, 5, 2, 5, 0.0F, false));
+        sight17.cubeList.add(new ModelBox(sight17, 0, 0, -1, -6.9F, -6.5F, 5, 2, 5, 0.0F, false));
         sight17.cubeList.add(new ModelBox(sight17, 0, 0, 5.0F, -7.4F, -24.0F, 2, 4, 2, 0.0F, false));
         sight17.cubeList.add(new ModelBox(sight17, 0, 0, -4.0F, -7.4F, -24.0F, 2, 4, 2, 0.0F, false));
         sight17.cubeList.add(new ModelBox(sight17, 0, 0, -5.0F, 1.1F, -24.01F, 13, 2, 26, 0.0F, false));
-        sight17.cubeList.add(new ModelBox(sight17, 0, 0, 5.0F, -11.0F, -5.0F, 2, 8, 2, 0.0F, false));
-        sight17.cubeList.add(new ModelBox(sight17, 0, 0, -4.0F, -11.0F, -5.0F, 2, 8, 2, 0.0F, false));
-        sight17.cubeList.add(new ModelBox(sight17, 0, 0, -4.0F, -1.4F, 1.0F, 11, 6, 1, 0.0F, false));
+        sight17.cubeList.add(new ModelBox(sight17, 0, 0, 5.0F, -11, -5.0F, 2, 8, 2, 0.0F, false));
+        sight17.cubeList.add(new ModelBox(sight17, 0, 0, -4.0F, -11, -5.0F, 2, 8, 2, 0.0F, false));
+        sight17.cubeList.add(new ModelBox(sight17, 0, 0, -4.0F, -1.4F, 1, 11, 6, 1, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(8.0F, 1.1F, -20.01F);
@@ -51,7 +51,7 @@ public class K2C1RearSight extends ModelBase {
         bone5.cubeList.add(new ModelBox(bone5, 0, 0, -0.5858F, 1.4142F, -4.01F, 2, 2, 26, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(7.0F, -11.0F, -3.0F);
+        bone3.setRotationPoint(7.0F, -11, -3.0F);
         sight17.addChild(bone3);
         setRotationAngle(bone3, -0.8552F, 0.0F, 0.0F);
         bone3.cubeList.add(new ModelBox(bone3, 0, 0, -2.001F, 0.0F, 0.0F, 2, 4, 5, 0.0F, false));
@@ -66,14 +66,14 @@ public class K2C1RearSight extends ModelBase {
         bone4.cubeList.add(new ModelBox(bone4, 0, 0, -9.001F, 0.0F, 4.0F, 7, 1, 2, 0.0F, false));
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(7.0F, -11.0F, -5.0F);
+        bone.setRotationPoint(7.0F, -11, -5.0F);
         sight17.addChild(bone);
         setRotationAngle(bone, -1.4137F, 0.0F, 0.0F);
         bone.cubeList.add(new ModelBox(bone, 0, 0, -1.99F, 0.0F, 0.0F, 2, 19, 8, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -10.99F, 0.0F, 0.0F, 2, 19, 8, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(-1.0F, -8.55F, -1.55F);
+        bone2.setRotationPoint(-1, -8.55F, -1.55F);
         sight17.addChild(bone2);
         setRotationAngle(bone2, 0.0F, 0.0F, -0.7854F);
         bone2.cubeList.add(new ModelBox(bone2, 0, 0, 0.0F, 0.7071F, 0.049F, 1, 1, 2, 0.0F, false));
@@ -88,9 +88,9 @@ public class K2C1RearSight extends ModelBase {
         sight17.addChild(bone6);
         setRotationAngle(bone6, -0.7854F, 0.0F, 0.0F);
         bone6.cubeList.add(new ModelBox(bone6, 0, 0, -2.0F, -3.0F, 0.0F, 7, 2, 2, 0.0F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 0, 0, -8.0F, -4.0F, -1.0F, 4, 4, 4, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 0, 0, -8.0F, -4.0F, -1, 4, 4, 4, 0.0F, false));
         bone6.cubeList.add(new ModelBox(bone6, 0, 0, 7.0F, -6.0F, -3.0F, 2, 8, 8, 0.0F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 0, 0, 6.5F, -4.0F, -1.0F, 4, 4, 4, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 0, 0, 6.5F, -4.0F, -1, 4, 4, 4, 0.0F, false));
         bone6.cubeList.add(new ModelBox(bone6, 0, 0, 5.5F, 3.0711F, -9.4853F, 2, 4, 4, 0.0F, false));
     }
 

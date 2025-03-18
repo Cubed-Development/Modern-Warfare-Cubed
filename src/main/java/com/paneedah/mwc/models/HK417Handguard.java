@@ -32,7 +32,7 @@ public class HK417Handguard extends ModelWithAttachments {
 
         handguard = new ModelRenderer(this);
         handguard.setRotationPoint(0.0F, -15.1F, -19.5F);
-        handguard.cubeList.add(new ModelBox(handguard, 35, 89, -2.5F, -1.0F, -36.0F, 2, 1, 31, 0.0F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 35, 89, -2.5F, -1, -36.0F, 2, 1, 31, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 0, 88, -2.5F, 3.8F, -36.001F, 2, 1, 31, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 0, 120, -1.4F, 3.45F, -36.0F, 1, 1, 31, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 75, 45, -0.4F, 2.4F, -16.0F, 1, 2, 5, 0.0F, false));
@@ -50,13 +50,13 @@ public class HK417Handguard extends ModelWithAttachments {
         handguard.cubeList.add(new ModelBox(handguard, 90, 0, -2.7F, -0.7F, -36.0F, 1, 2, 31, 0.0F, false));
 
         cube_r8 = new ModelRenderer(this);
-        cube_r8.setRotationPoint(1.0F, 3.15F, -8.0F);
+        cube_r8.setRotationPoint(1, 3.15F, -8.0F);
         handguard.addChild(cube_r8);
         setRotationAngle(cube_r8, 0.0F, 0.0F, -0.5061F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 75, 77, -2.0F, -1.0F, 0.0F, 2, 1, 3, 0.0F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 75, 77, -2.0F, -1, 0.0F, 2, 1, 3, 0.0F, false));
 
         cube_r9 = new ModelRenderer(this);
-        cube_r9.setRotationPoint(1.0F, 1.15F, -8.0F);
+        cube_r9.setRotationPoint(1, 1.15F, -8.0F);
         handguard.addChild(cube_r9);
         setRotationAngle(cube_r9, 0.0F, 0.0F, 0.5061F);
         cube_r9.cubeList.add(new ModelBox(cube_r9, 52, 83, -2.0F, 0.0F, 0.0F, 2, 1, 3, 0.0F, false));
@@ -65,7 +65,7 @@ public class HK417Handguard extends ModelWithAttachments {
         cube_r10.setRotationPoint(-3.9F, 3.15F, -8.0F);
         handguard.addChild(cube_r10);
         setRotationAngle(cube_r10, 0.0F, 0.0F, 0.5061F);
-        cube_r10.cubeList.add(new ModelBox(cube_r10, 76, 6, 0.0F, -1.0F, 0.0F, 2, 1, 3, 0.0F, false));
+        cube_r10.cubeList.add(new ModelBox(cube_r10, 76, 6, 0.0F, -1, 0.0F, 2, 1, 3, 0.0F, false));
 
         cube_r11 = new ModelRenderer(this);
         cube_r11.setRotationPoint(-3.9F, 1.15F, -8.0F);
@@ -121,11 +121,11 @@ public class HK417Handguard extends ModelWithAttachments {
         cube_r16.cubeList.add(new ModelBox(cube_r16, 0, 44, -0.299F, -0.7F, -0.1F, 1, 1, 17, -0.3F, false));
 
         cube_r17 = new ModelRenderer(this);
-        cube_r17.setRotationPoint(-2.6F, 4.4F, -11.0F);
+        cube_r17.setRotationPoint(-2.6F, 4.4F, -11);
         handguard.addChild(cube_r17);
         setRotationAngle(cube_r17, -0.9163F, 0.0F, 0.0F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 56, 36, -0.999F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 19, 56, 2.201F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 56, 36, -0.999F, -2.0F, -1, 1, 2, 1, 0.0F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 19, 56, 2.201F, -2.0F, -1, 1, 2, 1, 0.0F, false));
 
         cube_r18 = new ModelRenderer(this);
         cube_r18.setRotationPoint(-2.6F, 4.4F, -16.0F);
@@ -138,15 +138,15 @@ public class HK417Handguard extends ModelWithAttachments {
         cube_r19.setRotationPoint(-2.9F, 4.1F, -12.0F);
         handguard.addChild(cube_r19);
         setRotationAngle(cube_r19, -0.3142F, 0.0F, 0.0F);
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 69, 45, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 69, 63, 2.8F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 69, 45, -1, -1, 0.0F, 1, 1, 1, -0.2F, false));
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 69, 63, 2.8F, -1, 0.0F, 1, 1, 1, -0.2F, false));
 
         cube_r20 = new ModelRenderer(this);
         cube_r20.setRotationPoint(-2.9F, 4.1F, -16.3F);
         handguard.addChild(cube_r20);
         setRotationAngle(cube_r20, -0.3142F, 0.0F, 0.0F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 9, 64, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 39, 74, 2.8F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 9, 64, -1, -1, 0.0F, 1, 1, 1, -0.2F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 39, 74, 2.8F, -1, 0.0F, 1, 1, 1, -0.2F, false));
     }
 
     @Override

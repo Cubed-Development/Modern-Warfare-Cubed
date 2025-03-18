@@ -25,7 +25,7 @@ public class APSstock extends ModelWithAttachments {
 
         stock = new ModelRenderer(this);
         stock.setRotationPoint(0.0F, 7.2F, 3.0F);
-        stock.cubeList.add(new ModelBox(stock, 63, 53, -3.499F, -7.1F, 1.0F, 4, 2, 22, 0.0F, false));
+        stock.cubeList.add(new ModelBox(stock, 63, 53, -3.499F, -7.1F, 1, 4, 2, 22, 0.0F, false));
 
         cube_r1 = new ModelRenderer(this);
         cube_r1.setRotationPoint(0.5F, -12.7F, 27.7F);
@@ -57,7 +57,7 @@ public class APSstock extends ModelWithAttachments {
         stock.addChild(cube_r5);
         setRotationAngle(cube_r5, -0.0524F, 0.0F, 0.0F);
         cube_r5.cubeList.add(new ModelBox(cube_r5, 70, 77, -4.001F, -14.1F, 27.0F, 4, 7, 20, 0.0F, false));
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 0, 0, -4.001F, -7.1F, 1.0F, 4, 7, 46, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 0, 0, -4.001F, -7.1F, 1, 4, 7, 46, 0.0F, false));
 
         cube_r6 = new ModelRenderer(this);
         cube_r6.setRotationPoint(0.5F, 0.0F, 0.0F);

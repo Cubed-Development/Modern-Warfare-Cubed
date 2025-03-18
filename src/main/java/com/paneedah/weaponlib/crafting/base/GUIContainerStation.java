@@ -430,7 +430,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
         GlStateManager.translate(x, y, 100.0F);
         GlStateManager.translate(8.0F, 8.0F, 0.0F);
-        GlStateManager.scale(1.0F, -1.0F, 1.0F);
+        GlStateManager.scale(1, -1, 1);
         GlStateManager.scale(20.0F, 20.0F, 20.0F);
 
         GlStateManager.rotate(15 + mouseY * 0.01f, 1, 0, 0);

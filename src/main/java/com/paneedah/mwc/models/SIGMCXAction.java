@@ -312,15 +312,15 @@ public class SIGMCXAction extends ModelWithAttachments {
         bone_r1.setRotationPoint(0.2F, -31.8F, -14.7F);
         receiver_lower.addChild(bone_r1);
         setRotationAngle(bone_r1, 0.0F, 0.0F, 0.7854F);
-        bone_r1.cubeList.add(new ModelBox(bone_r1, 54, 97, -1.0F, -1.0F, -0.001F, 1, 1, 1, 0.0F, false));
-        bone_r1.cubeList.add(new ModelBox(bone_r1, 50, 97, -1.0F, -1.0F, 0.499F, 1, 1, 1, -0.001F, false));
+        bone_r1.cubeList.add(new ModelBox(bone_r1, 54, 97, -1, -1, -0.001F, 1, 1, 1, 0.0F, false));
+        bone_r1.cubeList.add(new ModelBox(bone_r1, 50, 97, -1, -1, 0.499F, 1, 1, 1, -0.001F, false));
 
         bone_r2 = new ModelRenderer(this);
         bone_r2.setRotationPoint(0.2F, -33.0F, -14.2F);
         receiver_lower.addChild(bone_r2);
         setRotationAngle(bone_r2, 0.0F, 0.0F, 0.7854F);
-        bone_r2.cubeList.add(new ModelBox(bone_r2, 58, 97, -1.0F, -1.0F, -0.001F, 1, 1, 1, -0.001F, false));
-        bone_r2.cubeList.add(new ModelBox(bone_r2, 62, 97, -1.0F, -1.0F, -0.501F, 1, 1, 1, 0.0F, false));
+        bone_r2.cubeList.add(new ModelBox(bone_r2, 58, 97, -1, -1, -0.001F, 1, 1, 1, -0.001F, false));
+        bone_r2.cubeList.add(new ModelBox(bone_r2, 62, 97, -1, -1, -0.501F, 1, 1, 1, 0.0F, false));
 
         receiver_lower_r1 = new ModelRenderer(this);
         receiver_lower_r1.setRotationPoint(0.5F, -30.2F, -11.5F);
@@ -333,7 +333,7 @@ public class SIGMCXAction extends ModelWithAttachments {
         receiver_lower.addChild(receiver_lower_r2);
         setRotationAngle(receiver_lower_r2, -0.7854F, 0.0F, 0.0F);
         receiver_lower_r2.cubeList.add(new ModelBox(receiver_lower_r2, 89, 20, 0.0F, -1.4F, 0.0F, 1, 1, 1, 0.001F, false));
-        receiver_lower_r2.cubeList.add(new ModelBox(receiver_lower_r2, 43, 89, 0.0F, -1.0F, 0.0F, 1, 1, 1, -0.001F, false));
+        receiver_lower_r2.cubeList.add(new ModelBox(receiver_lower_r2, 43, 89, 0.0F, -1, 0.0F, 1, 1, 1, -0.001F, false));
 
         receiver_lower_r3 = new ModelRenderer(this);
         receiver_lower_r3.setRotationPoint(-3.85F, -31.75F, -12.8F);
@@ -358,20 +358,20 @@ public class SIGMCXAction extends ModelWithAttachments {
         bone271.setRotationPoint(-1.5F, -38.5F, 8.75F);
         receiver_lower.addChild(bone271);
         setRotationAngle(bone271, -0.7854F, 0.0F, 0.0F);
-        bone271.cubeList.add(new ModelBox(bone271, 0, 51, 0.9F, 0.0F, -1.0F, 1, 8, 2, -0.001F, false));
-        bone271.cubeList.add(new ModelBox(bone271, 0, 51, -1.9F, 0.0F, -1.0F, 1, 8, 2, -0.001F, false));
+        bone271.cubeList.add(new ModelBox(bone271, 0, 51, 0.9F, 0.0F, -1, 1, 8, 2, -0.001F, false));
+        bone271.cubeList.add(new ModelBox(bone271, 0, 51, -1.9F, 0.0F, -1, 1, 8, 2, -0.001F, false));
 
         bone265 = new ModelRenderer(this);
         bone265.setRotationPoint(0.0F, -38.5F, 10.0F);
         receiver_lower.addChild(bone265);
         setRotationAngle(bone265, 0.0F, -0.2182F, 0.0F);
-        bone265.cubeList.add(new ModelBox(bone265, 115, 14, -0.7389F, -1.0F, -1.5943F, 1, 2, 1, 0.0F, false));
+        bone265.cubeList.add(new ModelBox(bone265, 115, 14, -0.7389F, -1, -1.5943F, 1, 2, 1, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(-3.0F, -38.5F, 10.0F);
         receiver_lower.addChild(bone3);
         setRotationAngle(bone3, 0.0F, 0.2182F, 0.0F);
-        bone3.cubeList.add(new ModelBox(bone3, 13, 113, -0.2611F, -1.0F, -1.5943F, 1, 2, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 13, 113, -0.2611F, -1, -1.5943F, 1, 2, 1, 0.0F, false));
 
         bone288 = new ModelRenderer(this);
         bone288.setRotationPoint(-1.5F, -31.25F, -10.5F);
@@ -383,7 +383,7 @@ public class SIGMCXAction extends ModelWithAttachments {
         bone289.setRotationPoint(-1.5F, -31.25F, -2.5F);
         receiver_lower.addChild(bone289);
         setRotationAngle(bone289, 0.7854F, 0.0F, 0.0F);
-        bone289.cubeList.add(new ModelBox(bone289, 36, 83, -1.5F, -1.0F, -0.5F, 3, 2, 1, -0.001F, false));
+        bone289.cubeList.add(new ModelBox(bone289, 36, 83, -1.5F, -1, -0.5F, 3, 2, 1, -0.001F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(-1.5F, -35.5F, 6.5F);
@@ -411,25 +411,25 @@ public class SIGMCXAction extends ModelWithAttachments {
         bone5.setRotationPoint(-1.5F, -27.0F, -8.5F);
         receiver_lower.addChild(bone5);
         setRotationAngle(bone5, -0.1745F, 0.0F, 0.0F);
-        bone5.cubeList.add(new ModelBox(bone5, 0, 32, -1.0F, -0.435F, -1.885F, 2, 1, 3, 0.001F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 0, 32, -1, -0.435F, -1.885F, 2, 1, 3, 0.001F, false));
 
         bone290 = new ModelRenderer(this);
         bone290.setRotationPoint(-1.5F, -27.685F, -9.385F);
         receiver_lower.addChild(bone290);
         setRotationAngle(bone290, -0.829F, 0.0F, 0.0F);
-        bone290.cubeList.add(new ModelBox(bone290, 63, 5, -1.0F, -0.5F, -1.0F, 2, 1, 2, 0.0F, false));
+        bone290.cubeList.add(new ModelBox(bone290, 63, 5, -1, -0.5F, -1, 2, 1, 2, 0.0F, false));
 
         bone291 = new ModelRenderer(this);
         bone291.setRotationPoint(-1.5F, -27.685F, -2.635F);
         receiver_lower.addChild(bone291);
         setRotationAngle(bone291, -2.3998F, 0.0F, 0.0F);
-        bone291.cubeList.add(new ModelBox(bone291, 25, 57, -1.0F, -0.5F, -1.0F, 2, 1, 2, 0.0F, false));
+        bone291.cubeList.add(new ModelBox(bone291, 25, 57, -1, -0.5F, -1, 2, 1, 2, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(-1.5F, -27.0F, -3.5F);
         receiver_lower.addChild(bone4);
         setRotationAngle(bone4, 0.1745F, 0.0F, 0.0F);
-        bone4.cubeList.add(new ModelBox(bone4, 12, 17, -1.0F, -0.435F, -1.115F, 2, 1, 3, 0.001F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 12, 17, -1, -0.435F, -1.115F, 2, 1, 3, 0.001F, false));
 
         gun132 = new ModelRenderer(this);
         gun132.setRotationPoint(0.05F, -36.9F, -10.4F);
@@ -448,7 +448,7 @@ public class SIGMCXAction extends ModelWithAttachments {
         gun130_r1.setRotationPoint(1.2F, -33.5F, -15.351F);
         bone7.addChild(gun130_r1);
         setRotationAngle(gun130_r1, 0.0F, 0.0F, 0.4538F);
-        gun130_r1.cubeList.add(new ModelBox(gun130_r1, 107, 106, -1.0F, -1.0F, 0.0F, 1, 1, 2, -0.2F, false));
+        gun130_r1.cubeList.add(new ModelBox(gun130_r1, 107, 106, -1, -1, 0.0F, 1, 1, 2, -0.2F, false));
 
         side_things = new ModelRenderer(this);
         side_things.setRotationPoint(0.0F, 0.0F, 6.0F);
@@ -524,13 +524,13 @@ public class SIGMCXAction extends ModelWithAttachments {
         receiver_upper_r1.setRotationPoint(0.75F, -41.5F, -16.5F);
         receiver_upper.addChild(receiver_upper_r1);
         setRotationAngle(receiver_upper_r1, 0.0F, 0.0F, -0.733F);
-        receiver_upper_r1.cubeList.add(new ModelBox(receiver_upper_r1, 43, 103, -1.0F, -1.0F, 1.0F, 1, 1, 16, 0.0F, false));
+        receiver_upper_r1.cubeList.add(new ModelBox(receiver_upper_r1, 43, 103, -1, -1, 1, 1, 1, 16, 0.0F, false));
 
         receiver_upper_r2 = new ModelRenderer(this);
         receiver_upper_r2.setRotationPoint(-3.55F, -41.5F, -16.5F);
         receiver_upper.addChild(receiver_upper_r2);
         setRotationAngle(receiver_upper_r2, 0.0F, 0.0F, 0.733F);
-        receiver_upper_r2.cubeList.add(new ModelBox(receiver_upper_r2, 0, 101, 0.0F, -1.0F, 0.0F, 1, 1, 17, 0.0F, false));
+        receiver_upper_r2.cubeList.add(new ModelBox(receiver_upper_r2, 0, 101, 0.0F, -1, 0.0F, 1, 1, 17, 0.0F, false));
 
         receiver_upper_r3 = new ModelRenderer(this);
         receiver_upper_r3.setRotationPoint(-3.75F, -42.5F, -3.4F);
@@ -548,49 +548,49 @@ public class SIGMCXAction extends ModelWithAttachments {
         receiver_upper_r5.setRotationPoint(0.75F, -42.5F, 0.6F);
         receiver_upper.addChild(receiver_upper_r5);
         setRotationAngle(receiver_upper_r5, 0.1223F, -0.052F, -1.1932F);
-        receiver_upper_r5.cubeList.add(new ModelBox(receiver_upper_r5, 100, 9, -1.0F, -2.0F, 0.0F, 1, 2, 2, 0.0F, false));
+        receiver_upper_r5.cubeList.add(new ModelBox(receiver_upper_r5, 100, 9, -1, -2.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         receiver_upper_r6 = new ModelRenderer(this);
         receiver_upper_r6.setRotationPoint(0.75F, -42.5F, -3.4F);
         receiver_upper.addChild(receiver_upper_r6);
         setRotationAngle(receiver_upper_r6, 0.0F, 0.0F, -1.1868F);
-        receiver_upper_r6.cubeList.add(new ModelBox(receiver_upper_r6, 0, 37, -1.0F, -2.0F, 0.0F, 1, 2, 4, 0.0F, false));
+        receiver_upper_r6.cubeList.add(new ModelBox(receiver_upper_r6, 0, 37, -1, -2.0F, 0.0F, 1, 2, 4, 0.0F, false));
 
         receiver_upper_r7 = new ModelRenderer(this);
         receiver_upper_r7.setRotationPoint(0.75F, -42.5F, -30.4F);
         receiver_upper.addChild(receiver_upper_r7);
         setRotationAngle(receiver_upper_r7, 0.0F, 0.0F, -0.9076F);
-        receiver_upper_r7.cubeList.add(new ModelBox(receiver_upper_r7, 0, 51, -1.0F, -2.0F, -21.0F, 1, 2, 48, 0.0F, false));
+        receiver_upper_r7.cubeList.add(new ModelBox(receiver_upper_r7, 0, 51, -1, -2.0F, -21, 1, 2, 48, 0.0F, false));
 
         receiver_upper_r8 = new ModelRenderer(this);
         receiver_upper_r8.setRotationPoint(-3.75F, -42.5F, -30.4F);
         receiver_upper.addChild(receiver_upper_r8);
         setRotationAngle(receiver_upper_r8, 0.0F, 0.0F, 0.9076F);
-        receiver_upper_r8.cubeList.add(new ModelBox(receiver_upper_r8, 50, 53, 0.0F, -2.0F, -21.0F, 1, 2, 48, 0.0F, false));
+        receiver_upper_r8.cubeList.add(new ModelBox(receiver_upper_r8, 50, 53, 0.0F, -2.0F, -21, 1, 2, 48, 0.0F, false));
 
         receiver_upper_r9 = new ModelRenderer(this);
         receiver_upper_r9.setRotationPoint(-3.75F, -41.5F, -25.5F);
         receiver_upper.addChild(receiver_upper_r9);
         setRotationAngle(receiver_upper_r9, 0.0F, 0.0F, 0.7679F);
-        receiver_upper_r9.cubeList.add(new ModelBox(receiver_upper_r9, 24, 38, 0.0F, -1.0F, 0.0F, 2, 1, 9, 0.0F, false));
+        receiver_upper_r9.cubeList.add(new ModelBox(receiver_upper_r9, 24, 38, 0.0F, -1, 0.0F, 2, 1, 9, 0.0F, false));
 
         receiver_upper_r10 = new ModelRenderer(this);
         receiver_upper_r10.setRotationPoint(-3.75F, -41.5F, 0.5F);
         receiver_upper.addChild(receiver_upper_r10);
         setRotationAngle(receiver_upper_r10, 0.0F, 0.1222F, 0.0F);
-        receiver_upper_r10.cubeList.add(new ModelBox(receiver_upper_r10, 43, 105, 0.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver_upper_r10.cubeList.add(new ModelBox(receiver_upper_r10, 43, 105, 0.0F, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         receiver_upper_r11 = new ModelRenderer(this);
         receiver_upper_r11.setRotationPoint(0.75F, -41.5F, 0.5F);
         receiver_upper.addChild(receiver_upper_r11);
         setRotationAngle(receiver_upper_r11, 0.0F, -0.1222F, 0.0F);
-        receiver_upper_r11.cubeList.add(new ModelBox(receiver_upper_r11, 61, 106, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver_upper_r11.cubeList.add(new ModelBox(receiver_upper_r11, 61, 106, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         receiver_upper_r12 = new ModelRenderer(this);
         receiver_upper_r12.setRotationPoint(-5.45F, -40.75F, -14.5F);
         receiver_upper.addChild(receiver_upper_r12);
         setRotationAngle(receiver_upper_r12, 0.0F, 0.6981F, 0.0F);
-        receiver_upper_r12.cubeList.add(new ModelBox(receiver_upper_r12, 25, 0, 1.0F, 0.0F, 0.5F, 1, 3, 1, -0.002F, false));
+        receiver_upper_r12.cubeList.add(new ModelBox(receiver_upper_r12, 25, 0, 1, 0.0F, 0.5F, 1, 3, 1, -0.002F, false));
         receiver_upper_r12.cubeList.add(new ModelBox(receiver_upper_r12, 61, 68, 0.0F, 0.0F, 0.0F, 3, 3, 1, -0.001F, false));
 
         receiver_upper_r13 = new ModelRenderer(this);
@@ -603,33 +603,33 @@ public class SIGMCXAction extends ModelWithAttachments {
         receiver_upper_r14.setRotationPoint(-3.75F, -40.3F, -25.5F);
         receiver_upper.addChild(receiver_upper_r14);
         setRotationAngle(receiver_upper_r14, 0.7679F, 0.0F, 0.0F);
-        receiver_upper_r14.cubeList.add(new ModelBox(receiver_upper_r14, 9, 105, 0.0F, -1.0F, 0.0F, 1, 1, 2, -0.001F, false));
+        receiver_upper_r14.cubeList.add(new ModelBox(receiver_upper_r14, 9, 105, 0.0F, -1, 0.0F, 1, 1, 2, -0.001F, false));
 
         receiver_upper_r15 = new ModelRenderer(this);
         receiver_upper_r15.setRotationPoint(-4.0F, -37.5F, -25.4F);
         receiver_upper.addChild(receiver_upper_r15);
         setRotationAngle(receiver_upper_r15, 0.0F, 0.0F, 0.3316F);
-        receiver_upper_r15.cubeList.add(new ModelBox(receiver_upper_r15, 0, 0, 0.0F, -1.0F, -1.0F, 1, 1, 10, -0.101F, false));
-        receiver_upper_r15.cubeList.add(new ModelBox(receiver_upper_r15, 74, 0, 0.0F, -1.0F, 5.9F, 1, 1, 3, 0.0F, false));
-        receiver_upper_r15.cubeList.add(new ModelBox(receiver_upper_r15, 74, 4, 0.0F, -1.0F, -0.1F, 1, 1, 3, 0.0F, false));
+        receiver_upper_r15.cubeList.add(new ModelBox(receiver_upper_r15, 0, 0, 0.0F, -1, -1, 1, 1, 10, -0.101F, false));
+        receiver_upper_r15.cubeList.add(new ModelBox(receiver_upper_r15, 74, 0, 0.0F, -1, 5.9F, 1, 1, 3, 0.0F, false));
+        receiver_upper_r15.cubeList.add(new ModelBox(receiver_upper_r15, 74, 4, 0.0F, -1, -0.1F, 1, 1, 3, 0.0F, false));
 
         receiver_upper_r16 = new ModelRenderer(this);
         receiver_upper_r16.setRotationPoint(-3.5F, -39.5F, -12.5F);
         receiver_upper.addChild(receiver_upper_r16);
         setRotationAngle(receiver_upper_r16, 0.0F, 0.0F, 0.5061F);
-        receiver_upper_r16.cubeList.add(new ModelBox(receiver_upper_r16, 129, 103, 0.0F, -1.0F, -1.0F, 1, 1, 13, 0.0F, false));
+        receiver_upper_r16.cubeList.add(new ModelBox(receiver_upper_r16, 129, 103, 0.0F, -1, -1, 1, 1, 13, 0.0F, false));
 
         receiver_upper_r17 = new ModelRenderer(this);
         receiver_upper_r17.setRotationPoint(0.5F, -39.5F, -12.5F);
         receiver_upper.addChild(receiver_upper_r17);
         setRotationAngle(receiver_upper_r17, 0.0F, 0.0F, -0.5061F);
-        receiver_upper_r17.cubeList.add(new ModelBox(receiver_upper_r17, 117, 85, -1.0F, -1.0F, -2.0F, 1, 1, 14, 0.0F, false));
+        receiver_upper_r17.cubeList.add(new ModelBox(receiver_upper_r17, 117, 85, -1, -1, -2.0F, 1, 1, 14, 0.0F, false));
 
         receiver_upper_r18 = new ModelRenderer(this);
         receiver_upper_r18.setRotationPoint(0.75F, -36.75F, -21.5F);
         receiver_upper.addChild(receiver_upper_r18);
         setRotationAngle(receiver_upper_r18, 0.7505F, 0.0F, 0.0F);
-        receiver_upper_r18.cubeList.add(new ModelBox(receiver_upper_r18, 25, 6, -1.0F, -3.3F, -1.0F, 1, 3, 1, 0.0F, false));
+        receiver_upper_r18.cubeList.add(new ModelBox(receiver_upper_r18, 25, 6, -1, -3.3F, -1, 1, 3, 1, 0.0F, false));
 
         receiver_upper_r19 = new ModelRenderer(this);
         receiver_upper_r19.setRotationPoint(-3.75F, -36.75F, -26.5F);
@@ -641,7 +641,7 @@ public class SIGMCXAction extends ModelWithAttachments {
         receiver_upper_r20.setRotationPoint(0.75F, -36.75F, -26.5F);
         receiver_upper.addChild(receiver_upper_r20);
         setRotationAngle(receiver_upper_r20, 0.0F, 0.0F, 0.4887F);
-        receiver_upper_r20.cubeList.add(new ModelBox(receiver_upper_r20, 74, 74, -1.0F, 0.0F, -6.0F, 1, 1, 11, -0.001F, false));
+        receiver_upper_r20.cubeList.add(new ModelBox(receiver_upper_r20, 74, 74, -1, 0.0F, -6.0F, 1, 1, 11, -0.001F, false));
 
         receiver_upper_r21 = new ModelRenderer(this);
         receiver_upper_r21.setRotationPoint(-3.6F, -39.5F, -1.5F);
@@ -659,13 +659,13 @@ public class SIGMCXAction extends ModelWithAttachments {
         receiver_upper_r23.setRotationPoint(0.6F, -39.5F, 2.5F);
         receiver_upper.addChild(receiver_upper_r23);
         setRotationAngle(receiver_upper_r23, 0.0873F, -0.192F, -0.5934F);
-        receiver_upper_r23.cubeList.add(new ModelBox(receiver_upper_r23, 79, 112, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        receiver_upper_r23.cubeList.add(new ModelBox(receiver_upper_r23, 79, 112, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         receiver_upper_r24 = new ModelRenderer(this);
         receiver_upper_r24.setRotationPoint(0.6F, -39.5F, -1.5F);
         receiver_upper.addChild(receiver_upper_r24);
         setRotationAngle(receiver_upper_r24, 0.0F, 0.0F, -0.5934F);
-        receiver_upper_r24.cubeList.add(new ModelBox(receiver_upper_r24, 38, 0, -1.0F, -2.0F, 0.0F, 1, 2, 4, 0.0F, false));
+        receiver_upper_r24.cubeList.add(new ModelBox(receiver_upper_r24, 38, 0, -1, -2.0F, 0.0F, 1, 2, 4, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
         bone6.setRotationPoint(-4.4F, -37.9F, -25.5F);
@@ -679,7 +679,7 @@ public class SIGMCXAction extends ModelWithAttachments {
         bone6.cubeList.add(new ModelBox(bone6, 100, 13, -0.3F, 0.4F, 3.4F, 1, 2, 2, -0.299F, false));
 
         bone253 = new ModelRenderer(this);
-        bone253.setRotationPoint(-1.0F, -37.5F, -5.75F);
+        bone253.setRotationPoint(-1, -37.5F, -5.75F);
         receiver_upper.addChild(bone253);
         setRotationAngle(bone253, -0.0873F, -0.2182F, 0.0F);
 
@@ -711,7 +711,7 @@ public class SIGMCXAction extends ModelWithAttachments {
 
 
         bone278 = new ModelRenderer(this);
-        bone278.setRotationPoint(3.0429F, 36.2929F, 21.0F);
+        bone278.setRotationPoint(3.0429F, 36.2929F, 21);
         bone279.addChild(bone278);
         bone278.cubeList.add(new ModelBox(bone278, 13, 101, -3.25F, -36.0858F, -21.5F, 1, 1, 1, 0.002F, false));
         bone278.cubeList.add(new ModelBox(bone278, 104, 4, -2.5429F, -36.7929F, -21.5F, 1, 1, 1, 0.001F, false));
@@ -724,16 +724,16 @@ public class SIGMCXAction extends ModelWithAttachments {
         setRotationAngle(bone277, 0.0F, 0.0F, -0.7854F);
         bone277.cubeList.add(new ModelBox(bone277, 29, 92, 0.4142F, -0.2929F, -0.5F, 1, 1, 1, 0.0F, false));
         bone277.cubeList.add(new ModelBox(bone277, 89, 92, -0.2929F, 0.4142F, -0.5F, 1, 1, 1, 0.0F, false));
-        bone277.cubeList.add(new ModelBox(bone277, 25, 96, -1.0F, -0.2929F, -0.5F, 1, 1, 1, 0.0F, false));
-        bone277.cubeList.add(new ModelBox(bone277, 90, 45, -0.2929F, -1.0F, -0.5F, 1, 1, 1, 0.0F, false));
+        bone277.cubeList.add(new ModelBox(bone277, 25, 96, -1, -0.2929F, -0.5F, 1, 1, 1, 0.0F, false));
+        bone277.cubeList.add(new ModelBox(bone277, 90, 45, -0.2929F, -1, -0.5F, 1, 1, 1, 0.0F, false));
 
         bone280 = new ModelRenderer(this);
-        bone280.setRotationPoint(-8.5F, -38.25F, -11.0F);
+        bone280.setRotationPoint(-8.5F, -38.25F, -11);
         bone254.addChild(bone280);
 
 
         bone281 = new ModelRenderer(this);
-        bone281.setRotationPoint(3.0429F, 36.2929F, 21.0F);
+        bone281.setRotationPoint(3.0429F, 36.2929F, 21);
         bone280.addChild(bone281);
         bone281.cubeList.add(new ModelBox(bone281, 110, 75, -3.25F, -36.0858F, -22.5F, 1, 1, 2, 0.002F, false));
         bone281.cubeList.add(new ModelBox(bone281, 110, 57, -2.5429F, -36.7929F, -22.5F, 1, 1, 2, 0.001F, false));
@@ -746,8 +746,8 @@ public class SIGMCXAction extends ModelWithAttachments {
         setRotationAngle(bone282, 0.0F, 0.0F, -0.7854F);
         bone282.cubeList.add(new ModelBox(bone282, 52, 107, 0.4142F, -0.2929F, -1.5F, 1, 1, 2, 0.0F, false));
         bone282.cubeList.add(new ModelBox(bone282, 27, 110, -0.2929F, 0.4142F, -1.5F, 1, 1, 2, 0.0F, false));
-        bone282.cubeList.add(new ModelBox(bone282, 110, 23, -1.0F, -0.2929F, -1.5F, 1, 1, 2, 0.0F, false));
-        bone282.cubeList.add(new ModelBox(bone282, 106, 97, -0.2929F, -1.0F, -1.5F, 1, 1, 2, 0.0F, false));
+        bone282.cubeList.add(new ModelBox(bone282, 110, 23, -1, -0.2929F, -1.5F, 1, 1, 2, 0.0F, false));
+        bone282.cubeList.add(new ModelBox(bone282, 106, 97, -0.2929F, -1, -1.5F, 1, 1, 2, 0.0F, false));
 
         bone251 = new ModelRenderer(this);
         bone251.setRotationPoint(-1.5F, -40.25F, -15.25F);
@@ -786,7 +786,7 @@ public class SIGMCXAction extends ModelWithAttachments {
         gun156_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone8.addChild(gun156_r1);
         setRotationAngle(gun156_r1, -1.5708F, 0.0F, 0.0F);
-        gun156_r1.cubeList.add(new ModelBox(gun156_r1, 85, 92, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun156_r1.cubeList.add(new ModelBox(gun156_r1, 85, 92, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun152_r1 = new ModelRenderer(this);
         gun152_r1.setRotationPoint(-1.3F, -0.1F, -0.2F);
@@ -804,7 +804,7 @@ public class SIGMCXAction extends ModelWithAttachments {
         gun157_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone9.addChild(gun157_r1);
         setRotationAngle(gun157_r1, -1.5708F, 0.0F, 0.0F);
-        gun157_r1.cubeList.add(new ModelBox(gun157_r1, 37, 92, 0.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun157_r1.cubeList.add(new ModelBox(gun157_r1, 37, 92, 0.0F, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun153_r1 = new ModelRenderer(this);
         gun153_r1.setRotationPoint(1.3F, -0.1F, -0.2F);
@@ -950,14 +950,14 @@ public class SIGMCXAction extends ModelWithAttachments {
         setRotationAngle(long_guard_right6_r3, 0.0F, 0.0F, 0.9599F);
         long_guard_right6_r3.cubeList.add(new ModelBox(long_guard_right6_r3, 25, 0, 0.0F, -2.0F, 0.0F, 1, 2, 4, -0.001F, false));
         long_guard_right6_r3.cubeList.add(new ModelBox(long_guard_right6_r3, 12, 11, 0.0F, -2.0F, -14.9516F, 1, 2, 4, -0.001F, false));
-        long_guard_right6_r3.cubeList.add(new ModelBox(long_guard_right6_r3, 24, 26, 0.0F, -2.5F, -11.0F, 1, 1, 11, -0.003F, false));
+        long_guard_right6_r3.cubeList.add(new ModelBox(long_guard_right6_r3, 24, 26, 0.0F, -2.5F, -11, 1, 1, 11, -0.003F, false));
         long_guard_right6_r3.cubeList.add(new ModelBox(long_guard_right6_r3, 63, 0, 0.0F, -2.0F, -7.2F, 1, 2, 3, -0.001F, false));
 
         long_guard_right9_r3 = new ModelRenderer(this);
         long_guard_right9_r3.setRotationPoint(-4.0F, -42.5784F, -68.5784F);
         long_guard_right3.addChild(long_guard_right9_r3);
         setRotationAngle(long_guard_right9_r3, 0.384F, 0.0F, 0.9599F);
-        long_guard_right9_r3.cubeList.add(new ModelBox(long_guard_right9_r3, 111, 96, 0.0F, -2.2F, -1.0F, 1, 2, 1, -0.002F, false));
+        long_guard_right9_r3.cubeList.add(new ModelBox(long_guard_right9_r3, 111, 96, 0.0F, -2.2F, -1, 1, 2, 1, -0.002F, false));
 
         long_guard_right8_r3 = new ModelRenderer(this);
         long_guard_right8_r3.setRotationPoint(-4.0F, -42.5784F, -65.5784F);
@@ -969,40 +969,40 @@ public class SIGMCXAction extends ModelWithAttachments {
         long_guard_right8_r4.setRotationPoint(-4.0F, -42.5784F, -61.5784F);
         long_guard_right3.addChild(long_guard_right8_r4);
         setRotationAngle(long_guard_right8_r4, 0.384F, 0.0F, 0.9599F);
-        long_guard_right8_r4.cubeList.add(new ModelBox(long_guard_right8_r4, 37, 110, 0.0F, -2.2F, -1.0F, 1, 2, 1, -0.002F, false));
+        long_guard_right8_r4.cubeList.add(new ModelBox(long_guard_right8_r4, 37, 110, 0.0F, -2.2F, -1, 1, 2, 1, -0.002F, false));
 
         long_guard_right7_r3 = new ModelRenderer(this);
-        long_guard_right7_r3.setRotationPoint(1.0F, -42.5784F, -73.5784F);
+        long_guard_right7_r3.setRotationPoint(1, -42.5784F, -73.5784F);
         long_guard_right3.addChild(long_guard_right7_r3);
         setRotationAngle(long_guard_right7_r3, 0.0F, 0.0F, -0.9599F);
-        long_guard_right7_r3.cubeList.add(new ModelBox(long_guard_right7_r3, 0, 26, -1.0F, -2.0F, 0.2484F, 1, 2, 4, -0.001F, false));
-        long_guard_right7_r3.cubeList.add(new ModelBox(long_guard_right7_r3, 25, 63, -1.0F, -2.0F, 8.0F, 1, 2, 3, -0.001F, false));
-        long_guard_right7_r3.cubeList.add(new ModelBox(long_guard_right7_r3, 74, 51, -1.0F, -2.5F, 4.2F, 1, 1, 11, -0.003F, false));
-        long_guard_right7_r3.cubeList.add(new ModelBox(long_guard_right7_r3, 12, 26, -1.0F, -2.0F, 15.2F, 1, 2, 4, -0.001F, false));
+        long_guard_right7_r3.cubeList.add(new ModelBox(long_guard_right7_r3, 0, 26, -1, -2.0F, 0.2484F, 1, 2, 4, -0.001F, false));
+        long_guard_right7_r3.cubeList.add(new ModelBox(long_guard_right7_r3, 25, 63, -1, -2.0F, 8.0F, 1, 2, 3, -0.001F, false));
+        long_guard_right7_r3.cubeList.add(new ModelBox(long_guard_right7_r3, 74, 51, -1, -2.5F, 4.2F, 1, 1, 11, -0.003F, false));
+        long_guard_right7_r3.cubeList.add(new ModelBox(long_guard_right7_r3, 12, 26, -1, -2.0F, 15.2F, 1, 2, 4, -0.001F, false));
 
         long_guard_right8_r5 = new ModelRenderer(this);
-        long_guard_right8_r5.setRotationPoint(1.0F, -42.5784F, -68.5784F);
+        long_guard_right8_r5.setRotationPoint(1, -42.5784F, -68.5784F);
         long_guard_right3.addChild(long_guard_right8_r5);
         setRotationAngle(long_guard_right8_r5, 0.384F, 0.0F, -0.9599F);
-        long_guard_right8_r5.cubeList.add(new ModelBox(long_guard_right8_r5, 112, 68, -1.0F, -2.2F, -1.0F, 1, 2, 1, -0.002F, false));
+        long_guard_right8_r5.cubeList.add(new ModelBox(long_guard_right8_r5, 112, 68, -1, -2.2F, -1, 1, 2, 1, -0.002F, false));
 
         long_guard_right7_r4 = new ModelRenderer(this);
-        long_guard_right7_r4.setRotationPoint(1.0F, -42.5784F, -61.5784F);
+        long_guard_right7_r4.setRotationPoint(1, -42.5784F, -61.5784F);
         long_guard_right3.addChild(long_guard_right7_r4);
         setRotationAngle(long_guard_right7_r4, 0.384F, 0.0F, -0.9599F);
-        long_guard_right7_r4.cubeList.add(new ModelBox(long_guard_right7_r4, 112, 71, -1.0F, -2.2F, -1.0F, 1, 2, 1, -0.002F, false));
+        long_guard_right7_r4.cubeList.add(new ModelBox(long_guard_right7_r4, 112, 71, -1, -2.2F, -1, 1, 2, 1, -0.002F, false));
 
         long_guard_right8_r6 = new ModelRenderer(this);
-        long_guard_right8_r6.setRotationPoint(1.0F, -42.5784F, -58.3784F);
+        long_guard_right8_r6.setRotationPoint(1, -42.5784F, -58.3784F);
         long_guard_right3.addChild(long_guard_right8_r6);
         setRotationAngle(long_guard_right8_r6, 0.5411F, 0.0F, -0.9599F);
-        long_guard_right8_r6.cubeList.add(new ModelBox(long_guard_right8_r6, 112, 62, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
+        long_guard_right8_r6.cubeList.add(new ModelBox(long_guard_right8_r6, 112, 62, -1, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
 
         long_guard_right7_r5 = new ModelRenderer(this);
-        long_guard_right7_r5.setRotationPoint(1.0F, -42.5784F, -65.5784F);
+        long_guard_right7_r5.setRotationPoint(1, -42.5784F, -65.5784F);
         long_guard_right3.addChild(long_guard_right7_r5);
         setRotationAngle(long_guard_right7_r5, 0.5411F, 0.0F, -0.9599F);
-        long_guard_right7_r5.cubeList.add(new ModelBox(long_guard_right7_r5, 112, 65, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
+        long_guard_right7_r5.cubeList.add(new ModelBox(long_guard_right7_r5, 112, 65, -1, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
 
         long_guard_right12_r1 = new ModelRenderer(this);
         long_guard_right12_r1.setRotationPoint(-4.0F, -37.0784F, -41.2284F);
@@ -1107,103 +1107,103 @@ public class SIGMCXAction extends ModelWithAttachments {
         long_guard_right5_r3.cubeList.add(new ModelBox(long_guard_right5_r3, 79, 4, -0.1F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right7_r9 = new ModelRenderer(this);
-        long_guard_right7_r9.setRotationPoint(1.0F, -37.0784F, -49.3284F);
+        long_guard_right7_r9.setRotationPoint(1, -37.0784F, -49.3284F);
         long_guard_right3.addChild(long_guard_right7_r9);
         setRotationAngle(long_guard_right7_r9, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right7_r9.cubeList.add(new ModelBox(long_guard_right7_r9, 17, 87, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right8_r11 = new ModelRenderer(this);
-        long_guard_right8_r11.setRotationPoint(1.0F, -37.0784F, -47.3284F);
+        long_guard_right8_r11.setRotationPoint(1, -37.0784F, -47.3284F);
         long_guard_right3.addChild(long_guard_right8_r11);
         setRotationAngle(long_guard_right8_r11, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right8_r11.cubeList.add(new ModelBox(long_guard_right8_r11, 11, 87, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right9_r7 = new ModelRenderer(this);
-        long_guard_right9_r7.setRotationPoint(1.0F, -37.0784F, -45.3284F);
+        long_guard_right9_r7.setRotationPoint(1, -37.0784F, -45.3284F);
         long_guard_right3.addChild(long_guard_right9_r7);
         setRotationAngle(long_guard_right9_r7, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right9_r7.cubeList.add(new ModelBox(long_guard_right9_r7, 85, 86, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right11_r3 = new ModelRenderer(this);
-        long_guard_right11_r3.setRotationPoint(1.0F, -37.0784F, -41.2284F);
+        long_guard_right11_r3.setRotationPoint(1, -37.0784F, -41.2284F);
         long_guard_right3.addChild(long_guard_right11_r3);
         setRotationAngle(long_guard_right11_r3, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right11_r3.cubeList.add(new ModelBox(long_guard_right11_r3, 67, 85, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right10_r4 = new ModelRenderer(this);
-        long_guard_right10_r4.setRotationPoint(1.0F, -37.0784F, -43.3284F);
+        long_guard_right10_r4.setRotationPoint(1, -37.0784F, -43.3284F);
         long_guard_right3.addChild(long_guard_right10_r4);
         setRotationAngle(long_guard_right10_r4, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right10_r4.cubeList.add(new ModelBox(long_guard_right10_r4, 44, 86, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right6_r6 = new ModelRenderer(this);
-        long_guard_right6_r6.setRotationPoint(1.0F, -37.0784F, -57.3284F);
+        long_guard_right6_r6.setRotationPoint(1, -37.0784F, -57.3284F);
         long_guard_right3.addChild(long_guard_right6_r6);
         setRotationAngle(long_guard_right6_r6, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right6_r6.cubeList.add(new ModelBox(long_guard_right6_r6, 87, 74, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right7_r10 = new ModelRenderer(this);
-        long_guard_right7_r10.setRotationPoint(1.0F, -37.0784F, -55.3284F);
+        long_guard_right7_r10.setRotationPoint(1, -37.0784F, -55.3284F);
         long_guard_right3.addChild(long_guard_right7_r10);
         setRotationAngle(long_guard_right7_r10, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right7_r10.cubeList.add(new ModelBox(long_guard_right7_r10, 87, 56, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right8_r12 = new ModelRenderer(this);
-        long_guard_right8_r12.setRotationPoint(1.0F, -37.0784F, -53.3284F);
+        long_guard_right8_r12.setRotationPoint(1, -37.0784F, -53.3284F);
         long_guard_right3.addChild(long_guard_right8_r12);
         setRotationAngle(long_guard_right8_r12, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right8_r12.cubeList.add(new ModelBox(long_guard_right8_r12, 87, 51, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right9_r8 = new ModelRenderer(this);
-        long_guard_right9_r8.setRotationPoint(1.0F, -37.0784F, -51.3284F);
+        long_guard_right9_r8.setRotationPoint(1, -37.0784F, -51.3284F);
         long_guard_right3.addChild(long_guard_right9_r8);
         setRotationAngle(long_guard_right9_r8, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right9_r8.cubeList.add(new ModelBox(long_guard_right9_r8, 37, 87, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right5_r4 = new ModelRenderer(this);
-        long_guard_right5_r4.setRotationPoint(1.0F, -37.0784F, -65.3284F);
+        long_guard_right5_r4.setRotationPoint(1, -37.0784F, -65.3284F);
         long_guard_right3.addChild(long_guard_right5_r4);
         setRotationAngle(long_guard_right5_r4, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right5_r4.cubeList.add(new ModelBox(long_guard_right5_r4, 90, 42, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right6_r7 = new ModelRenderer(this);
-        long_guard_right6_r7.setRotationPoint(1.0F, -37.0784F, -63.3284F);
+        long_guard_right6_r7.setRotationPoint(1, -37.0784F, -63.3284F);
         long_guard_right3.addChild(long_guard_right6_r7);
         setRotationAngle(long_guard_right6_r7, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right6_r7.cubeList.add(new ModelBox(long_guard_right6_r7, 90, 25, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right7_r11 = new ModelRenderer(this);
-        long_guard_right7_r11.setRotationPoint(1.0F, -37.0784F, -61.3284F);
+        long_guard_right7_r11.setRotationPoint(1, -37.0784F, -61.3284F);
         long_guard_right3.addChild(long_guard_right7_r11);
         setRotationAngle(long_guard_right7_r11, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right7_r11.cubeList.add(new ModelBox(long_guard_right7_r11, 55, 89, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right8_r13 = new ModelRenderer(this);
-        long_guard_right8_r13.setRotationPoint(1.0F, -37.0784F, -59.3284F);
+        long_guard_right8_r13.setRotationPoint(1, -37.0784F, -59.3284F);
         long_guard_right3.addChild(long_guard_right8_r13);
         setRotationAngle(long_guard_right8_r13, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right8_r13.cubeList.add(new ModelBox(long_guard_right8_r13, 87, 79, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right7_r12 = new ModelRenderer(this);
-        long_guard_right7_r12.setRotationPoint(1.0F, -37.0784F, -67.3284F);
+        long_guard_right7_r12.setRotationPoint(1, -37.0784F, -67.3284F);
         long_guard_right3.addChild(long_guard_right7_r12);
         setRotationAngle(long_guard_right7_r12, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right7_r12.cubeList.add(new ModelBox(long_guard_right7_r12, 67, 90, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right6_r8 = new ModelRenderer(this);
-        long_guard_right6_r8.setRotationPoint(1.0F, -37.0784F, -69.3284F);
+        long_guard_right6_r8.setRotationPoint(1, -37.0784F, -69.3284F);
         long_guard_right3.addChild(long_guard_right6_r8);
         setRotationAngle(long_guard_right6_r8, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right6_r8.cubeList.add(new ModelBox(long_guard_right6_r8, 79, 90, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right5_r5 = new ModelRenderer(this);
-        long_guard_right5_r5.setRotationPoint(1.0F, -37.0784F, -71.3284F);
+        long_guard_right5_r5.setRotationPoint(1, -37.0784F, -71.3284F);
         long_guard_right3.addChild(long_guard_right5_r5);
         setRotationAngle(long_guard_right5_r5, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right5_r5.cubeList.add(new ModelBox(long_guard_right5_r5, 5, 91, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right4_r1 = new ModelRenderer(this);
-        long_guard_right4_r1.setRotationPoint(1.0F, -37.0784F, -73.3284F);
+        long_guard_right4_r1.setRotationPoint(1, -37.0784F, -73.3284F);
         long_guard_right3.addChild(long_guard_right4_r1);
         setRotationAngle(long_guard_right4_r1, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right4_r1.cubeList.add(new ModelBox(long_guard_right4_r1, 17, 92, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
@@ -1212,8 +1212,8 @@ public class SIGMCXAction extends ModelWithAttachments {
         bone129.setRotationPoint(0.5F, -35.25F, -34.75F);
         long_guard_right3.addChild(bone129);
         setRotationAngle(bone129, 0.0F, 0.0F, 0.7854F);
-        bone129.cubeList.add(new ModelBox(bone129, 0, 87, -1.0F, -0.7071F, -5.0F, 1, 1, 9, -0.001F, false));
-        bone129.cubeList.add(new ModelBox(bone129, 129, 85, -1.0F, -0.2929F, -37.0F, 1, 1, 41, 0.0F, false));
+        bone129.cubeList.add(new ModelBox(bone129, 0, 87, -1, -0.7071F, -5.0F, 1, 1, 9, -0.001F, false));
+        bone129.cubeList.add(new ModelBox(bone129, 129, 85, -1, -0.2929F, -37.0F, 1, 1, 41, 0.0F, false));
         bone129.cubeList.add(new ModelBox(bone129, 86, 104, -3.1213F, 1.8284F, -37.0F, 1, 1, 41, 0.0F, false));
 
         handguard_lower13 = new ModelRenderer(this);
@@ -1238,12 +1238,12 @@ public class SIGMCXAction extends ModelWithAttachments {
         handguard_normalboi3.addChild(long_guard_left4);
         long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 9, 101, -1.5F, -39.25F, -37.75F, 1, 2, 2, 0.0F, false));
         long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 0, 101, -1.5F, -39.25F, -34.0F, 1, 2, 2, 0.0F, false));
-        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 19, 115, -1.0F, -39.75F, -39.575F, 1, 2, 1, 0.0F, false));
-        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 97, 42, -1.0F, -42.0784F, -73.3284F, 1, 5, 1, 0.0F, false));
-        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 121, 30, -1.0F, -42.5784F, -39.5784F, 1, 3, 6, 0.0F, false));
-        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 100, 0, -1.0F, -42.0784F, -58.3284F, 1, 1, 19, 0.0F, false));
-        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 73, 112, -1.0F, -42.0784F, -65.5784F, 1, 1, 4, 0.0F, false));
-        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 31, 110, -1.0F, -42.0784F, -72.5784F, 1, 1, 4, 0.0F, false));
+        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 19, 115, -1, -39.75F, -39.575F, 1, 2, 1, 0.0F, false));
+        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 97, 42, -1, -42.0784F, -73.3284F, 1, 5, 1, 0.0F, false));
+        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 121, 30, -1, -42.5784F, -39.5784F, 1, 3, 6, 0.0F, false));
+        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 100, 0, -1, -42.0784F, -58.3284F, 1, 1, 19, 0.0F, false));
+        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 73, 112, -1, -42.0784F, -65.5784F, 1, 1, 4, 0.0F, false));
+        long_guard_left4.cubeList.add(new ModelBox(long_guard_left4, 31, 110, -1, -42.0784F, -72.5784F, 1, 1, 4, 0.0F, false));
 
         bone213 = new ModelRenderer(this);
         bone213.setRotationPoint(-0.5F, -35.25F, -34.75F);
@@ -1307,7 +1307,7 @@ public class SIGMCXAction extends ModelWithAttachments {
         long_guard_right10_r5.setRotationPoint(-4.0F, -42.5784F, -60.5784F);
         long_guard_right2.addChild(long_guard_right10_r5);
         setRotationAngle(long_guard_right10_r5, 0.384F, 0.0F, 0.9599F);
-        long_guard_right10_r5.cubeList.add(new ModelBox(long_guard_right10_r5, 18, 26, 0.0F, -2.2F, -1.0F, 1, 2, 1, -0.002F, false));
+        long_guard_right10_r5.cubeList.add(new ModelBox(long_guard_right10_r5, 18, 26, 0.0F, -2.2F, -1, 1, 2, 1, -0.002F, false));
 
         long_guard_right9_r10 = new ModelRenderer(this);
         long_guard_right9_r10.setRotationPoint(-4.0F, -42.5784F, -65.5784F);
@@ -1382,24 +1382,24 @@ public class SIGMCXAction extends ModelWithAttachments {
         long_guard_right10_r7.cubeList.add(new ModelBox(long_guard_right10_r7, 62, 11, 0.0F, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
 
         long_guard_right8_r15 = new ModelRenderer(this);
-        long_guard_right8_r15.setRotationPoint(1.0F, -42.5784F, -65.5784F);
+        long_guard_right8_r15.setRotationPoint(1, -42.5784F, -65.5784F);
         long_guard_right2.addChild(long_guard_right8_r15);
         setRotationAngle(long_guard_right8_r15, 0.0F, 0.0F, -0.9599F);
-        long_guard_right8_r15.cubeList.add(new ModelBox(long_guard_right8_r15, 30, 63, -1.0F, -2.0F, 3.2484F, 1, 2, 1, -0.001F, false));
-        long_guard_right8_r15.cubeList.add(new ModelBox(long_guard_right8_r15, 50, 63, -1.0F, -2.5F, 4.2F, 1, 1, 3, -0.003F, false));
-        long_guard_right8_r15.cubeList.add(new ModelBox(long_guard_right8_r15, 12, 0, -1.0F, -2.0F, 7.2F, 1, 2, 4, -0.001F, false));
+        long_guard_right8_r15.cubeList.add(new ModelBox(long_guard_right8_r15, 30, 63, -1, -2.0F, 3.2484F, 1, 2, 1, -0.001F, false));
+        long_guard_right8_r15.cubeList.add(new ModelBox(long_guard_right8_r15, 50, 63, -1, -2.5F, 4.2F, 1, 1, 3, -0.003F, false));
+        long_guard_right8_r15.cubeList.add(new ModelBox(long_guard_right8_r15, 12, 0, -1, -2.0F, 7.2F, 1, 2, 4, -0.001F, false));
 
         long_guard_right9_r12 = new ModelRenderer(this);
-        long_guard_right9_r12.setRotationPoint(1.0F, -42.5784F, -60.5784F);
+        long_guard_right9_r12.setRotationPoint(1, -42.5784F, -60.5784F);
         long_guard_right2.addChild(long_guard_right9_r12);
         setRotationAngle(long_guard_right9_r12, 0.384F, 0.0F, -0.9599F);
-        long_guard_right9_r12.cubeList.add(new ModelBox(long_guard_right9_r12, 36, 63, -1.0F, -2.2F, -1.0F, 1, 2, 1, -0.002F, false));
+        long_guard_right9_r12.cubeList.add(new ModelBox(long_guard_right9_r12, 36, 63, -1, -2.2F, -1, 1, 2, 1, -0.002F, false));
 
         long_guard_right9_r13 = new ModelRenderer(this);
-        long_guard_right9_r13.setRotationPoint(1.0F, -42.5784F, -58.3784F);
+        long_guard_right9_r13.setRotationPoint(1, -42.5784F, -58.3784F);
         long_guard_right2.addChild(long_guard_right9_r13);
         setRotationAngle(long_guard_right9_r13, 0.5411F, 0.0F, -0.9599F);
-        long_guard_right9_r13.cubeList.add(new ModelBox(long_guard_right9_r13, 63, 42, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
+        long_guard_right9_r13.cubeList.add(new ModelBox(long_guard_right9_r13, 63, 42, -1, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
 
         long_guard_right13_r1 = new ModelRenderer(this);
         long_guard_right13_r1.setRotationPoint(-4.0F, -37.0784F, -41.2284F);
@@ -1474,73 +1474,73 @@ public class SIGMCXAction extends ModelWithAttachments {
         long_guard_right8_r17.cubeList.add(new ModelBox(long_guard_right8_r17, 55, 74, -0.1F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right8_r18 = new ModelRenderer(this);
-        long_guard_right8_r18.setRotationPoint(1.0F, -37.0784F, -49.3284F);
+        long_guard_right8_r18.setRotationPoint(1, -37.0784F, -49.3284F);
         long_guard_right2.addChild(long_guard_right8_r18);
         setRotationAngle(long_guard_right8_r18, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right8_r18.cubeList.add(new ModelBox(long_guard_right8_r18, 74, 56, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right9_r17 = new ModelRenderer(this);
-        long_guard_right9_r17.setRotationPoint(1.0F, -37.0784F, -47.3284F);
+        long_guard_right9_r17.setRotationPoint(1, -37.0784F, -47.3284F);
         long_guard_right2.addChild(long_guard_right9_r17);
         setRotationAngle(long_guard_right9_r17, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right9_r17.cubeList.add(new ModelBox(long_guard_right9_r17, 61, 74, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right10_r11 = new ModelRenderer(this);
-        long_guard_right10_r11.setRotationPoint(1.0F, -37.0784F, -45.3284F);
+        long_guard_right10_r11.setRotationPoint(1, -37.0784F, -45.3284F);
         long_guard_right2.addChild(long_guard_right10_r11);
         setRotationAngle(long_guard_right10_r11, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right10_r11.cubeList.add(new ModelBox(long_guard_right10_r11, 67, 74, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right12_r4 = new ModelRenderer(this);
-        long_guard_right12_r4.setRotationPoint(1.0F, -37.0784F, -41.2284F);
+        long_guard_right12_r4.setRotationPoint(1, -37.0784F, -41.2284F);
         long_guard_right2.addChild(long_guard_right12_r4);
         setRotationAngle(long_guard_right12_r4, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right12_r4.cubeList.add(new ModelBox(long_guard_right12_r4, 74, 74, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right11_r7 = new ModelRenderer(this);
-        long_guard_right11_r7.setRotationPoint(1.0F, -37.0784F, -43.3284F);
+        long_guard_right11_r7.setRotationPoint(1, -37.0784F, -43.3284F);
         long_guard_right2.addChild(long_guard_right11_r7);
         setRotationAngle(long_guard_right11_r7, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right11_r7.cubeList.add(new ModelBox(long_guard_right11_r7, 76, 42, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right7_r14 = new ModelRenderer(this);
-        long_guard_right7_r14.setRotationPoint(1.0F, -37.0784F, -57.3284F);
+        long_guard_right7_r14.setRotationPoint(1, -37.0784F, -57.3284F);
         long_guard_right2.addChild(long_guard_right7_r14);
         setRotationAngle(long_guard_right7_r14, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right7_r14.cubeList.add(new ModelBox(long_guard_right7_r14, 5, 77, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right8_r19 = new ModelRenderer(this);
-        long_guard_right8_r19.setRotationPoint(1.0F, -37.0784F, -55.3284F);
+        long_guard_right8_r19.setRotationPoint(1, -37.0784F, -55.3284F);
         long_guard_right2.addChild(long_guard_right8_r19);
         setRotationAngle(long_guard_right8_r19, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right8_r19.cubeList.add(new ModelBox(long_guard_right8_r19, 11, 77, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right9_r18 = new ModelRenderer(this);
-        long_guard_right9_r18.setRotationPoint(1.0F, -37.0784F, -53.3284F);
+        long_guard_right9_r18.setRotationPoint(1, -37.0784F, -53.3284F);
         long_guard_right2.addChild(long_guard_right9_r18);
         setRotationAngle(long_guard_right9_r18, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right9_r18.cubeList.add(new ModelBox(long_guard_right9_r18, 17, 77, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right10_r12 = new ModelRenderer(this);
-        long_guard_right10_r12.setRotationPoint(1.0F, -37.0784F, -51.3284F);
+        long_guard_right10_r12.setRotationPoint(1, -37.0784F, -51.3284F);
         long_guard_right2.addChild(long_guard_right10_r12);
         setRotationAngle(long_guard_right10_r12, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right10_r12.cubeList.add(new ModelBox(long_guard_right10_r12, 36, 77, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right7_r15 = new ModelRenderer(this);
-        long_guard_right7_r15.setRotationPoint(1.0F, -37.0784F, -62.6284F);
+        long_guard_right7_r15.setRotationPoint(1, -37.0784F, -62.6284F);
         long_guard_right2.addChild(long_guard_right7_r15);
         setRotationAngle(long_guard_right7_r15, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right7_r15.cubeList.add(new ModelBox(long_guard_right7_r15, 43, 77, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right8_r20 = new ModelRenderer(this);
-        long_guard_right8_r20.setRotationPoint(1.0F, -37.0784F, -61.3284F);
+        long_guard_right8_r20.setRotationPoint(1, -37.0784F, -61.3284F);
         long_guard_right2.addChild(long_guard_right8_r20);
         setRotationAngle(long_guard_right8_r20, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right8_r20.cubeList.add(new ModelBox(long_guard_right8_r20, 55, 78, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
 
         long_guard_right9_r19 = new ModelRenderer(this);
-        long_guard_right9_r19.setRotationPoint(1.0F, -37.0784F, -59.3284F);
+        long_guard_right9_r19.setRotationPoint(1, -37.0784F, -59.3284F);
         long_guard_right2.addChild(long_guard_right9_r19);
         setRotationAngle(long_guard_right9_r19, 0.6288F, -0.0333F, 0.2791F);
         long_guard_right9_r19.cubeList.add(new ModelBox(long_guard_right9_r19, 79, 0, -0.9F, 0.4F, 0.0F, 1, 2, 1, 0.0F, false));
@@ -1549,8 +1549,8 @@ public class SIGMCXAction extends ModelWithAttachments {
         bone10.setRotationPoint(0.5F, -35.25F, -34.75F);
         long_guard_right2.addChild(bone10);
         setRotationAngle(bone10, 0.0F, 0.0F, 0.7854F);
-        bone10.cubeList.add(new ModelBox(bone10, 74, 63, -1.0F, -0.7071F, -5.0F, 1, 1, 9, -0.001F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 178, 34, -1.0F, -0.2929F, -26.0F, 1, 1, 30, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 74, 63, -1, -0.7071F, -5.0F, 1, 1, 9, -0.001F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 178, 34, -1, -0.2929F, -26.0F, 1, 1, 30, 0.0F, false));
         bone10.cubeList.add(new ModelBox(bone10, 175, 164, -3.1213F, 1.8284F, -26.0F, 1, 1, 30, 0.0F, false));
 
         handguard_lower2 = new ModelRenderer(this);
@@ -1573,9 +1573,9 @@ public class SIGMCXAction extends ModelWithAttachments {
         handguard_normalboi5.addChild(long_guard_left2);
         long_guard_left2.cubeList.add(new ModelBox(long_guard_left2, 88, 31, -1.5F, -39.25F, -37.75F, 1, 2, 2, 0.0F, false));
         long_guard_left2.cubeList.add(new ModelBox(long_guard_left2, 88, 11, -1.5F, -39.25F, -34.0F, 1, 2, 2, 0.0F, false));
-        long_guard_left2.cubeList.add(new ModelBox(long_guard_left2, 30, 26, -1.0F, -39.75F, -39.575F, 1, 2, 1, 0.0F, false));
-        long_guard_left2.cubeList.add(new ModelBox(long_guard_left2, 117, 85, -1.0F, -42.5784F, -39.5784F, 1, 3, 6, 0.0F, false));
-        long_guard_left2.cubeList.add(new ModelBox(long_guard_left2, 53, 0, -1.0F, -42.0784F, -58.3284F, 1, 1, 19, 0.0F, false));
+        long_guard_left2.cubeList.add(new ModelBox(long_guard_left2, 30, 26, -1, -39.75F, -39.575F, 1, 2, 1, 0.0F, false));
+        long_guard_left2.cubeList.add(new ModelBox(long_guard_left2, 117, 85, -1, -42.5784F, -39.5784F, 1, 3, 6, 0.0F, false));
+        long_guard_left2.cubeList.add(new ModelBox(long_guard_left2, 53, 0, -1, -42.0784F, -58.3284F, 1, 1, 19, 0.0F, false));
 
         bone11 = new ModelRenderer(this);
         bone11.setRotationPoint(-0.5F, -35.25F, -34.75F);
@@ -1607,7 +1607,7 @@ public class SIGMCXAction extends ModelWithAttachments {
         stonk.cubeList.add(new ModelBox(stonk, 115, 5, -2.75F, -39.0F, 4.25F, 1, 2, 1, 0.0F, false));
 
         bone316 = new ModelRenderer(this);
-        bone316.setRotationPoint(-1.0F, -42.75F, 26.5F);
+        bone316.setRotationPoint(-1, -42.75F, 26.5F);
         stonk.addChild(bone316);
         setRotationAngle(bone316, 0.0F, 0.0F, 0.7854F);
         bone316.cubeList.add(new ModelBox(bone316, 44, 207, 0.4142F, -0.7071F, -10.0F, 1, 1, 21, 0.0F, false));
@@ -1619,28 +1619,28 @@ public class SIGMCXAction extends ModelWithAttachments {
         bone300.setRotationPoint(-1.5F, -34.75F, 30.5F);
         stonk.addChild(bone300);
         setRotationAngle(bone300, 0.7854F, 0.0F, 0.0F);
-        bone300.cubeList.add(new ModelBox(bone300, 53, 20, -1.5F, -6.5F, -1.0F, 3, 14, 3, 0.0F, false));
+        bone300.cubeList.add(new ModelBox(bone300, 53, 20, -1.5F, -6.5F, -1, 3, 14, 3, 0.0F, false));
         bone300.cubeList.add(new ModelBox(bone300, 100, 85, -2.0003F, -3.9142F, 1.4749F, 4, 10, 2, 0.0F, false));
         bone300.cubeList.add(new ModelBox(bone300, 36, 51, -2.001F, -2.1517F, 3.0659F, 4, 6, 2, 0.0F, false));
         bone300.cubeList.add(new ModelBox(bone300, 108, 79, -2.0004F, 0.0806F, 4.8336F, 4, 2, 2, 0.0F, false));
 
         bone302 = new ModelRenderer(this);
-        bone302.setRotationPoint(-1.0F, -33.75F, 25.5F);
+        bone302.setRotationPoint(-1, -33.75F, 25.5F);
         stonk.addChild(bone302);
         setRotationAngle(bone302, 0.7854F, 0.0F, 0.0F);
-        bone302.cubeList.add(new ModelBox(bone302, 65, 20, -1.0F, -1.5F, 1.0F, 1, 10, 1, 0.0F, false));
+        bone302.cubeList.add(new ModelBox(bone302, 65, 20, -1, -1.5F, 1, 1, 10, 1, 0.0F, false));
 
         bone301 = new ModelRenderer(this);
         bone301.setRotationPoint(-1.5F, -34.75F, 26.5F);
         stonk.addChild(bone301);
         setRotationAngle(bone301, 0.7854F, 0.0F, 0.0F);
-        bone301.cubeList.add(new ModelBox(bone301, 11, 62, -1.5F, -6.5F, -1.0F, 3, 5, 3, -0.002F, false));
+        bone301.cubeList.add(new ModelBox(bone301, 11, 62, -1.5F, -6.5F, -1, 3, 5, 3, -0.002F, false));
 
         bone303 = new ModelRenderer(this);
-        bone303.setRotationPoint(-1.0F, -34.75F, 24.5F);
+        bone303.setRotationPoint(-1, -34.75F, 24.5F);
         stonk.addChild(bone303);
         setRotationAngle(bone303, 0.7854F, 0.0F, 0.0F);
-        bone303.cubeList.add(new ModelBox(bone303, 0, 0, -1.5F, -6.8536F, -1.0F, 2, 5, 3, -0.001F, false));
+        bone303.cubeList.add(new ModelBox(bone303, 0, 0, -1.5F, -6.8536F, -1, 2, 5, 3, -0.001F, false));
 
         bone305 = new ModelRenderer(this);
         bone305.setRotationPoint(-0.75F, -39.0F, 4.25F);
@@ -1652,19 +1652,19 @@ public class SIGMCXAction extends ModelWithAttachments {
         bone304.setRotationPoint(-0.75F, 10.0F, 28.75F);
         bone305.addChild(bone304);
         setRotationAngle(bone304, 0.6545F, 0.0F, 0.0F);
-        bone304.cubeList.add(new ModelBox(bone304, 0, 111, -1.0F, -0.5F, -3.0F, 2, 1, 4, 0.0F, false));
+        bone304.cubeList.add(new ModelBox(bone304, 0, 111, -1, -0.5F, -3.0F, 2, 1, 4, 0.0F, false));
 
         bone306 = new ModelRenderer(this);
         bone306.setRotationPoint(-0.75F, 10.0F, 26.25F);
         bone305.addChild(bone306);
         setRotationAngle(bone306, 1.309F, 0.0F, 0.0F);
-        bone306.cubeList.add(new ModelBox(bone306, 0, 69, -1.0F, 0.1919F, -2.4286F, 2, 1, 1, 0.0F, false));
+        bone306.cubeList.add(new ModelBox(bone306, 0, 69, -1, 0.1919F, -2.4286F, 2, 1, 1, 0.0F, false));
 
         bone307 = new ModelRenderer(this);
         bone307.setRotationPoint(-0.75F, 13.25F, 28.25F);
         bone305.addChild(bone307);
         setRotationAngle(bone307, -0.7854F, 0.0F, 0.0F);
-        bone307.cubeList.add(new ModelBox(bone307, 24, 44, -1.0F, 0.0607F, -2.3536F, 2, 1, 2, 0.0F, false));
+        bone307.cubeList.add(new ModelBox(bone307, 24, 44, -1, 0.0607F, -2.3536F, 2, 1, 2, 0.0F, false));
 
         bone308 = new ModelRenderer(this);
         bone308.setRotationPoint(0.0F, -17.1562F, 20.9688F);
@@ -1735,11 +1735,11 @@ public class SIGMCXAction extends ModelWithAttachments {
         receiver16_r1.setRotationPoint(-2.3F, -38.8F, -15.0F);
         action.addChild(receiver16_r1);
         setRotationAngle(receiver16_r1, 0.0F, 0.0F, -0.4014F);
-        receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 91, 92, -1.0F, -0.001F, 0.001F, 1, 1, 2, 0.0F, false));
+        receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 91, 92, -1, -0.001F, 0.001F, 1, 1, 2, 0.0F, false));
         receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 74, 20, -0.75F, -0.001F, -4.499F, 1, 1, 3, 0.0F, false));
-        receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 4, 87, -1.0F, -0.001F, -5.499F, 1, 1, 1, 0.0F, false));
-        receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 100, 97, -1.0F, 0.0F, -1.499F, 1, 1, 2, 0.0F, false));
-        receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 61, 103, -1.0F, 0.0F, -6.999F, 1, 1, 2, 0.0F, false));
+        receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 4, 87, -1, -0.001F, -5.499F, 1, 1, 1, 0.0F, false));
+        receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 100, 97, -1, 0.0F, -1.499F, 1, 1, 2, 0.0F, false));
+        receiver16_r1.cubeList.add(new ModelBox(receiver16_r1, 61, 103, -1, 0.0F, -6.999F, 1, 1, 2, 0.0F, false));
 
         receiver16_r2 = new ModelRenderer(this);
         receiver16_r2.setRotationPoint(-3.6F, -37.5F, -16.5F);
@@ -1755,17 +1755,17 @@ public class SIGMCXAction extends ModelWithAttachments {
         receiver15_r1.setRotationPoint(-3.6F, -37.5F, -16.5F);
         action.addChild(receiver15_r1);
         setRotationAngle(receiver15_r1, 0.0F, 0.0F, 0.4014F);
-        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 88, 35, -0.001F, -1.0F, -0.001F, 1, 1, 1, 0.0F, false));
-        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 74, 63, 0.0F, -1.0F, 0.5F, 1, 1, 3, 0.0F, false));
-        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 89, 0, -0.001F, -1.0F, -4.001F, 1, 1, 1, 0.0F, false));
-        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 93, 103, 0.0F, -1.0F, -5.5F, 1, 1, 2, 0.0F, false));
+        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 88, 35, -0.001F, -1, -0.001F, 1, 1, 1, 0.0F, false));
+        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 74, 63, 0.0F, -1, 0.5F, 1, 1, 3, 0.0F, false));
+        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 89, 0, -0.001F, -1, -4.001F, 1, 1, 1, 0.0F, false));
+        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 93, 103, 0.0F, -1, -5.5F, 1, 1, 2, 0.0F, false));
 
         receiver16_r3 = new ModelRenderer(this);
         receiver16_r3.setRotationPoint(-3.5F, -37.3F, -19.5F);
         action.addChild(receiver16_r3);
         setRotationAngle(receiver16_r3, 0.0F, 0.0F, 0.4014F);
         receiver16_r3.cubeList.add(new ModelBox(receiver16_r3, 74, 67, 0.0F, -1.3F, -0.001F, 1, 1, 3, 0.0F, false));
-        receiver16_r3.cubeList.add(new ModelBox(receiver16_r3, 0, 77, -0.001F, -1.0F, -0.001F, 1, 1, 3, 0.0F, false));
+        receiver16_r3.cubeList.add(new ModelBox(receiver16_r3, 0, 77, -0.001F, -1, -0.001F, 1, 1, 3, 0.0F, false));
     }
 
     @Override

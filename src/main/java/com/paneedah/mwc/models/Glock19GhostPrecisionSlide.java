@@ -277,7 +277,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
 
         gun = new ModelRenderer(this);
         gun.setRotationPoint(0.0F, 24.0F, 0.0F);
-        gun.cubeList.add(new ModelBox(gun, 0, 123, -3.0F, -31.0F, -6.8F, 4, 1, 4, -0.001F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 123, -3.0F, -31, -6.8F, 4, 1, 4, -0.001F, false));
         gun.cubeList.add(new ModelBox(gun, 56, 133, -2.5F, -17.5F, -4.8F, 3, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 160, 124, -3.0F, -19.5F, -3.7F, 4, 3, 6, -0.001F, false));
         gun.cubeList.add(new ModelBox(gun, 113, 67, -2.999F, -20.0F, 1.9F, 4, 2, 1, 0.0F, false));
@@ -313,10 +313,10 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun31_r1.cubeList.add(new ModelBox(gun31_r1, 0, 116, 0.0F, 0.0F, 0.0F, 2, 2, 17, 0.0F, false));
 
         gun110_r1 = new ModelRenderer(this);
-        gun110_r1.setRotationPoint(1.0F, -33.7F, -28.4F);
+        gun110_r1.setRotationPoint(1, -33.7F, -28.4F);
         gun.addChild(gun110_r1);
         setRotationAngle(gun110_r1, 0.0F, 0.0F, 0.9774F);
-        gun110_r1.cubeList.add(new ModelBox(gun110_r1, 145, 159, -1.0F, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        gun110_r1.cubeList.add(new ModelBox(gun110_r1, 145, 159, -1, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
 
         gun109_r1 = new ModelRenderer(this);
         gun109_r1.setRotationPoint(-3.0F, -33.7F, -28.4F);
@@ -328,19 +328,19 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun113_r1.setRotationPoint(-1.3F, -32.2F, -27.4F);
         gun.addChild(gun113_r1);
         setRotationAngle(gun113_r1, 0.0F, 0.0F, -0.7854F);
-        gun113_r1.cubeList.add(new ModelBox(gun113_r1, 161, 133, -1.0F, -1.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        gun113_r1.cubeList.add(new ModelBox(gun113_r1, 161, 133, -1, -1, 0.0F, 1, 1, 8, 0.0F, false));
 
         gun112_r1 = new ModelRenderer(this);
         gun112_r1.setRotationPoint(0.7F, -32.2F, -27.4F);
         gun.addChild(gun112_r1);
         setRotationAngle(gun112_r1, 0.0F, 0.0F, -0.7854F);
-        gun112_r1.cubeList.add(new ModelBox(gun112_r1, 0, 162, -1.0F, -1.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        gun112_r1.cubeList.add(new ModelBox(gun112_r1, 0, 162, -1, -1, 0.0F, 1, 1, 8, 0.0F, false));
 
         gun111_r1 = new ModelRenderer(this);
         gun111_r1.setRotationPoint(0.8F, -33.0F, -28.4F);
         gun.addChild(gun111_r1);
         setRotationAngle(gun111_r1, 0.0F, 0.0F, -0.7854F);
-        gun111_r1.cubeList.add(new ModelBox(gun111_r1, 15, 158, -1.0F, -1.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        gun111_r1.cubeList.add(new ModelBox(gun111_r1, 15, 158, -1, -1, 0.0F, 1, 1, 9, 0.0F, false));
 
         gun110_r2 = new ModelRenderer(this);
         gun110_r2.setRotationPoint(-2.8F, -33.0F, -28.4F);
@@ -352,13 +352,13 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun111_r2.setRotationPoint(0.0F, -31.53F, -27.8F);
         gun.addChild(gun111_r2);
         setRotationAngle(gun111_r2, 0.6632F, 0.0F, 0.0F);
-        gun111_r2.cubeList.add(new ModelBox(gun111_r2, 137, 62, -2.0F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun111_r2.cubeList.add(new ModelBox(gun111_r2, 137, 62, -2.0F, -1, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun110_r3 = new ModelRenderer(this);
         gun110_r3.setRotationPoint(0.0F, -31.3F, -26.8F);
         gun.addChild(gun110_r3);
         setRotationAngle(gun110_r3, 1.3439F, 0.0F, 0.0F);
-        gun110_r3.cubeList.add(new ModelBox(gun110_r3, 137, 67, -2.0F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun110_r3.cubeList.add(new ModelBox(gun110_r3, 137, 67, -2.0F, -1, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun111_r3 = new ModelRenderer(this);
         gun111_r3.setRotationPoint(1.501F, -31.2F, -19.5F);
@@ -376,13 +376,13 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun111_r4.setRotationPoint(-2.999F, -31.8F, -19.4F);
         gun.addChild(gun111_r4);
         setRotationAngle(gun111_r4, 0.0F, -0.7854F, 0.0F);
-        gun111_r4.cubeList.add(new ModelBox(gun111_r4, 44, 141, 0.0F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        gun111_r4.cubeList.add(new ModelBox(gun111_r4, 44, 141, 0.0F, -2.0F, -1, 1, 2, 1, 0.0F, false));
 
         gun110_r5 = new ModelRenderer(this);
         gun110_r5.setRotationPoint(1.001F, -31.8F, -19.4F);
         gun.addChild(gun110_r5);
         setRotationAngle(gun110_r5, 0.0F, -0.7854F, 0.0F);
-        gun110_r5.cubeList.add(new ModelBox(gun110_r5, 141, 44, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun110_r5.cubeList.add(new ModelBox(gun110_r5, 141, 44, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun111_r5 = new ModelRenderer(this);
         gun111_r5.setRotationPoint(0.501F, -29.8F, -15.6F);
@@ -394,7 +394,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun111_r6.setRotationPoint(1.101F, -32.85F, -7.5F);
         gun.addChild(gun111_r6);
         setRotationAngle(gun111_r6, 0.0F, 0.0F, 0.192F);
-        gun111_r6.cubeList.add(new ModelBox(gun111_r6, 134, 122, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun111_r6.cubeList.add(new ModelBox(gun111_r6, 134, 122, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun39_r1 = new ModelRenderer(this);
         gun39_r1.setRotationPoint(-3.0F, -30.9F, -10.7F);
@@ -424,7 +424,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun92_r1.setRotationPoint(0.5F, -27.5F, -16.5F);
         gun.addChild(gun92_r1);
         setRotationAngle(gun92_r1, -0.4538F, 0.0F, 0.0F);
-        gun92_r1.cubeList.add(new ModelBox(gun92_r1, 133, 35, -3.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        gun92_r1.cubeList.add(new ModelBox(gun92_r1, 133, 35, -3.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         gun92_r2 = new ModelRenderer(this);
         gun92_r2.setRotationPoint(0.501F, -26.5F, -9.5F);
@@ -452,31 +452,31 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun157_r1.cubeList.add(new ModelBox(gun157_r1, 15, 135, -2.6F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun10_r1 = new ModelRenderer(this);
-        gun10_r1.setRotationPoint(1.0F, -30.0F, -8.5F);
+        gun10_r1.setRotationPoint(1, -30.0F, -8.5F);
         gun.addChild(gun10_r1);
         setRotationAngle(gun10_r1, -0.5585F, 0.0F, 0.0F);
-        gun10_r1.cubeList.add(new ModelBox(gun10_r1, 93, 90, -4.0F, -1.0F, 0.0F, 4, 1, 1, -0.001F, false));
+        gun10_r1.cubeList.add(new ModelBox(gun10_r1, 93, 90, -4.0F, -1, 0.0F, 4, 1, 1, -0.001F, false));
 
         gun12_r1 = new ModelRenderer(this);
-        gun12_r1.setRotationPoint(1.0F, -31.7F, -1.4F);
+        gun12_r1.setRotationPoint(1, -31.7F, -1.4F);
         gun.addChild(gun12_r1);
         setRotationAngle(gun12_r1, -1.0647F, 0.0F, 0.0F);
-        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 132, 105, -4.0F, -3.0F, -1.0F, 4, 3, 1, -0.003F, false));
+        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 132, 105, -4.0F, -3.0F, -1, 4, 3, 1, -0.003F, false));
 
         gun13_r1 = new ModelRenderer(this);
-        gun13_r1.setRotationPoint(1.0F, -33.0F, 2.25F);
+        gun13_r1.setRotationPoint(1, -33.0F, 2.25F);
         gun.addChild(gun13_r1);
         setRotationAngle(gun13_r1, 0.1745F, 0.0F, 0.0F);
-        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 85, 58, -4.001F, -1.0F, -2.0F, 4, 1, 2, 0.0F, false));
+        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 85, 58, -4.001F, -1, -2.0F, 4, 1, 2, 0.0F, false));
 
         gun13_r2 = new ModelRenderer(this);
-        gun13_r2.setRotationPoint(1.0F, -34.0F, 2.25F);
+        gun13_r2.setRotationPoint(1, -34.0F, 2.25F);
         gun.addChild(gun13_r2);
         setRotationAngle(gun13_r2, 1.0123F, 0.0F, 0.0F);
-        gun13_r2.cubeList.add(new ModelBox(gun13_r2, 62, 90, -4.0F, -1.0F, -1.0F, 4, 1, 1, -0.001F, false));
+        gun13_r2.cubeList.add(new ModelBox(gun13_r2, 62, 90, -4.0F, -1, -1, 4, 1, 1, -0.001F, false));
 
         gun14_r1 = new ModelRenderer(this);
-        gun14_r1.setRotationPoint(0.5F, -31.0F, -0.45F);
+        gun14_r1.setRotationPoint(0.5F, -31, -0.45F);
         gun.addChild(gun14_r1);
         setRotationAngle(gun14_r1, 0.1396F, 0.0F, 0.0F);
         gun14_r1.cubeList.add(new ModelBox(gun14_r1, 35, 104, -2.999F, 0.0F, -2.0F, 3, 4, 2, 0.0F, false));
@@ -485,7 +485,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun13_r3.setRotationPoint(0.5F, -33.0F, 2.25F);
         gun.addChild(gun13_r3);
         setRotationAngle(gun13_r3, 0.5236F, 0.0F, 0.0F);
-        gun13_r3.cubeList.add(new ModelBox(gun13_r3, 76, 58, -3.0F, -1.0F, -3.0F, 3, 1, 3, 0.0F, false));
+        gun13_r3.cubeList.add(new ModelBox(gun13_r3, 76, 58, -3.0F, -1, -3.0F, 3, 1, 3, 0.0F, false));
 
         gun11_r1 = new ModelRenderer(this);
         gun11_r1.setRotationPoint(0.5F, -30.0F, -0.8F);
@@ -494,7 +494,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun11_r1.cubeList.add(new ModelBox(gun11_r1, 128, 127, -3.001F, -3.0F, -2.0F, 3, 3, 2, 0.0F, false));
 
         gun10_r2 = new ModelRenderer(this);
-        gun10_r2.setRotationPoint(1.0F, -30.0F, -1.8F);
+        gun10_r2.setRotationPoint(1, -30.0F, -1.8F);
         gun.addChild(gun10_r2);
         setRotationAngle(gun10_r2, -0.576F, 0.0F, 0.0F);
         gun10_r2.cubeList.add(new ModelBox(gun10_r2, 102, 28, -4.0F, -3.0F, -2.0F, 4, 3, 2, -0.002F, false));
@@ -515,7 +515,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun12_r2.setRotationPoint(0.501F, -20.0F, 3.9F);
         gun.addChild(gun12_r2);
         setRotationAngle(gun12_r2, 0.4712F, 0.0F, 0.0F);
-        gun12_r2.cubeList.add(new ModelBox(gun12_r2, 51, 48, -3.0F, -9.0F, -1.0F, 3, 9, 1, 0.0F, false));
+        gun12_r2.cubeList.add(new ModelBox(gun12_r2, 51, 48, -3.0F, -9.0F, -1, 3, 9, 1, 0.0F, false));
 
         gun12_r3 = new ModelRenderer(this);
         gun12_r3.setRotationPoint(0.501F, -18.0F, 3.9F);
@@ -527,14 +527,14 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun13_r4.setRotationPoint(-1.699F, -17.8F, 2.5F);
         gun.addChild(gun13_r4);
         setRotationAngle(gun13_r4, -0.4014F, 0.0F, 0.0F);
-        gun13_r4.cubeList.add(new ModelBox(gun13_r4, 111, 148, -1.001F, 0.0F, -1.0F, 1, 1, 1, 0.3F, false));
-        gun13_r4.cubeList.add(new ModelBox(gun13_r4, 148, 111, 1.399F, 0.0F, -1.0F, 1, 1, 1, 0.3F, false));
+        gun13_r4.cubeList.add(new ModelBox(gun13_r4, 111, 148, -1.001F, 0.0F, -1, 1, 1, 1, 0.3F, false));
+        gun13_r4.cubeList.add(new ModelBox(gun13_r4, 148, 111, 1.399F, 0.0F, -1, 1, 1, 1, 0.3F, false));
 
         gun10_r3 = new ModelRenderer(this);
         gun10_r3.setRotationPoint(-5.1F, -31.45F, -8.8F);
         gun.addChild(gun10_r3);
         setRotationAngle(gun10_r3, 0.3543F, 0.0F, 0.0F);
-        gun10_r3.cubeList.add(new ModelBox(gun10_r3, 115, 148, 2.0F, 3.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        gun10_r3.cubeList.add(new ModelBox(gun10_r3, 115, 148, 2.0F, 3.0F, 1, 1, 1, 1, 0.0F, false));
 
         gun9_r2 = new ModelRenderer(this);
         gun9_r2.setRotationPoint(-1.9F, -31.35F, -8.6F);
@@ -596,11 +596,11 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         G19slide.cubeList.add(new ModelBox(G19slide, 89, 102, -3.2F, -37.501F, -7.5F, 1, 2, 3, 0.0F, false));
         G19slide.cubeList.add(new ModelBox(G19slide, 64, 0, 0.201F, -37.001F, -28.5F, 1, 3, 24, 0.0F, false));
         G19slide.cubeList.add(new ModelBox(G19slide, 32, 32, -3.199F, -37.001F, -28.5F, 1, 3, 13, 0.0F, false));
-        G19slide.cubeList.add(new ModelBox(G19slide, 12, 93, -3.199F, -37.001F, 1.0F, 1, 3, 1, 0.0F, false));
+        G19slide.cubeList.add(new ModelBox(G19slide, 12, 93, -3.199F, -37.001F, 1, 1, 3, 1, 0.0F, false));
         G19slide.cubeList.add(new ModelBox(G19slide, 139, 141, -3.099F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
         G19slide.cubeList.add(new ModelBox(G19slide, 135, 141, -1.5F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
         G19slide.cubeList.add(new ModelBox(G19slide, 109, 141, 0.101F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
-        G19slide.cubeList.add(new ModelBox(G19slide, 84, 48, 0.2F, -37.001F, 1.0F, 1, 3, 1, 0.0F, false));
+        G19slide.cubeList.add(new ModelBox(G19slide, 84, 48, 0.2F, -37.001F, 1, 1, 3, 1, 0.0F, false));
         G19slide.cubeList.add(new ModelBox(G19slide, 135, 5, 0.45F, -37.75F, -0.25F, 1, 4, 1, -0.25F, false));
         G19slide.cubeList.add(new ModelBox(G19slide, 4, 135, -3.45F, -37.75F, -0.25F, 1, 4, 1, -0.25F, false));
         G19slide.cubeList.add(new ModelBox(G19slide, 135, 0, -3.45F, -37.75F, -2.25F, 1, 4, 1, -0.25F, false));
@@ -623,9 +623,9 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide56_r1.setRotationPoint(-2.4F, -38.1F, -28.5F);
         G19slide.addChild(slide56_r1);
         setRotationAngle(slide56_r1, 0.0F, 0.0F, -0.6545F);
-        slide56_r1.cubeList.add(new ModelBox(slide56_r1, 148, 14, -1.0F, 0.0F, 18.0F, 1, 1, 12, -0.001F, false));
-        slide56_r1.cubeList.add(new ModelBox(slide56_r1, 55, 133, -1.0F, 0.0F, 0.0F, 1, 1, 13, -0.001F, false));
-        slide56_r1.cubeList.add(new ModelBox(slide56_r1, 141, 85, -1.0F, 0.0F, 29.5F, 1, 1, 1, 0.0F, false));
+        slide56_r1.cubeList.add(new ModelBox(slide56_r1, 148, 14, -1, 0.0F, 18.0F, 1, 1, 12, -0.001F, false));
+        slide56_r1.cubeList.add(new ModelBox(slide56_r1, 55, 133, -1, 0.0F, 0.0F, 1, 1, 13, -0.001F, false));
+        slide56_r1.cubeList.add(new ModelBox(slide56_r1, 141, 85, -1, 0.0F, 29.5F, 1, 1, 1, 0.0F, false));
 
         slide54_r1 = new ModelRenderer(this);
         slide54_r1.setRotationPoint(0.4F, -38.1F, -28.5F);
@@ -638,35 +638,35 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide23_r1.setRotationPoint(-0.5F, -36.501F, 0.55F);
         G19slide.addChild(slide23_r1);
         setRotationAngle(slide23_r1, -0.7854F, 0.0F, 0.0F);
-        slide23_r1.cubeList.add(new ModelBox(slide23_r1, 54, 127, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide23_r1.cubeList.add(new ModelBox(slide23_r1, 54, 127, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide22_r1 = new ModelRenderer(this);
         slide22_r1.setRotationPoint(-0.5F, -36.301F, 0.55F);
         G19slide.addChild(slide22_r1);
         setRotationAngle(slide22_r1, -0.7854F, 0.0F, 0.0F);
-        slide22_r1.cubeList.add(new ModelBox(slide22_r1, 129, 49, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide22_r1.cubeList.add(new ModelBox(slide22_r1, 129, 49, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide21_r1 = new ModelRenderer(this);
         slide21_r1.setRotationPoint(-0.5F, -35.901F, 0.55F);
         G19slide.addChild(slide21_r1);
         setRotationAngle(slide21_r1, -0.7854F, 0.0F, 0.0F);
-        slide21_r1.cubeList.add(new ModelBox(slide21_r1, 70, 130, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide21_r1.cubeList.add(new ModelBox(slide21_r1, 70, 130, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide21_r2 = new ModelRenderer(this);
         slide21_r2.setRotationPoint(-0.5F, -36.101F, 0.55F);
         G19slide.addChild(slide21_r2);
         setRotationAngle(slide21_r2, -0.7854F, 0.0F, 0.0F);
-        slide21_r2.cubeList.add(new ModelBox(slide21_r2, 78, 130, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide21_r2.cubeList.add(new ModelBox(slide21_r2, 78, 130, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide20_r1 = new ModelRenderer(this);
         slide20_r1.setRotationPoint(-0.5F, -35.701F, 0.55F);
         G19slide.addChild(slide20_r1);
         setRotationAngle(slide20_r1, -0.7854F, 0.0F, 0.0F);
-        slide20_r1.cubeList.add(new ModelBox(slide20_r1, 86, 130, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide20_r1.cubeList.add(new ModelBox(slide20_r1, 86, 130, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         G19razorbackbody = new ModelRenderer(this);
         G19razorbackbody.setRotationPoint(0.0F, 24.0F, 0.0F);
-        G19razorbackbody.cubeList.add(new ModelBox(G19razorbackbody, 112, 83, -2.999F, -31.0F, -6.8F, 4, 1, 4, 0.0F, false));
+        G19razorbackbody.cubeList.add(new ModelBox(G19razorbackbody, 112, 83, -2.999F, -31, -6.8F, 4, 1, 4, 0.0F, false));
         G19razorbackbody.cubeList.add(new ModelBox(G19razorbackbody, 111, 110, -2.5F, -17.5F, -4.8F, 3, 1, 2, 0.0F, false));
         G19razorbackbody.cubeList.add(new ModelBox(G19razorbackbody, 156, 159, -3.0F, -19.5F, -3.7F, 4, 3, 6, -0.002F, false));
         G19razorbackbody.cubeList.add(new ModelBox(G19razorbackbody, 35, 110, -2.999F, -20.0F, 1.9F, 4, 2, 1, 0.0F, false));
@@ -702,10 +702,10 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun32_r1.cubeList.add(new ModelBox(gun32_r1, 113, 53, 0.0F, 0.0F, 0.0F, 2, 2, 17, 0.0F, false));
 
         gun111_r7 = new ModelRenderer(this);
-        gun111_r7.setRotationPoint(1.0F, -33.7F, -28.4F);
+        gun111_r7.setRotationPoint(1, -33.7F, -28.4F);
         G19razorbackbody.addChild(gun111_r7);
         setRotationAngle(gun111_r7, 0.0F, 0.0F, 0.9774F);
-        gun111_r7.cubeList.add(new ModelBox(gun111_r7, 76, 148, -1.0F, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        gun111_r7.cubeList.add(new ModelBox(gun111_r7, 76, 148, -1, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
 
         gun110_r6 = new ModelRenderer(this);
         gun110_r6.setRotationPoint(-3.0F, -33.7F, -28.4F);
@@ -717,19 +717,19 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun114_r1.setRotationPoint(-1.3F, -32.2F, -27.4F);
         G19razorbackbody.addChild(gun114_r1);
         setRotationAngle(gun114_r1, 0.0F, 0.0F, -0.7854F);
-        gun114_r1.cubeList.add(new ModelBox(gun114_r1, 69, 93, -1.0F, -1.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        gun114_r1.cubeList.add(new ModelBox(gun114_r1, 69, 93, -1, -1, 0.0F, 1, 1, 8, 0.0F, false));
 
         gun113_r2 = new ModelRenderer(this);
         gun113_r2.setRotationPoint(0.7F, -32.2F, -27.4F);
         G19razorbackbody.addChild(gun113_r2);
         setRotationAngle(gun113_r2, 0.0F, 0.0F, -0.7854F);
-        gun113_r2.cubeList.add(new ModelBox(gun113_r2, 89, 93, -1.0F, -1.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        gun113_r2.cubeList.add(new ModelBox(gun113_r2, 89, 93, -1, -1, 0.0F, 1, 1, 8, 0.0F, false));
 
         gun112_r2 = new ModelRenderer(this);
         gun112_r2.setRotationPoint(0.8F, -33.0F, -28.4F);
         G19razorbackbody.addChild(gun112_r2);
         setRotationAngle(gun112_r2, 0.0F, 0.0F, -0.7854F);
-        gun112_r2.cubeList.add(new ModelBox(gun112_r2, 150, 0, -1.0F, -1.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        gun112_r2.cubeList.add(new ModelBox(gun112_r2, 150, 0, -1, -1, 0.0F, 1, 1, 9, 0.0F, false));
 
         gun111_r8 = new ModelRenderer(this);
         gun111_r8.setRotationPoint(-2.8F, -33.0F, -28.4F);
@@ -741,13 +741,13 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun112_r3.setRotationPoint(0.0F, -31.53F, -27.8F);
         G19razorbackbody.addChild(gun112_r3);
         setRotationAngle(gun112_r3, 0.6632F, 0.0F, 0.0F);
-        gun112_r3.cubeList.add(new ModelBox(gun112_r3, 95, 58, -2.0F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun112_r3.cubeList.add(new ModelBox(gun112_r3, 95, 58, -2.0F, -1, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun111_r9 = new ModelRenderer(this);
         gun111_r9.setRotationPoint(0.0F, -31.3F, -26.8F);
         G19razorbackbody.addChild(gun111_r9);
         setRotationAngle(gun111_r9, 1.3439F, 0.0F, 0.0F);
-        gun111_r9.cubeList.add(new ModelBox(gun111_r9, 108, 21, -2.0F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun111_r9.cubeList.add(new ModelBox(gun111_r9, 108, 21, -2.0F, -1, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun112_r4 = new ModelRenderer(this);
         gun112_r4.setRotationPoint(1.501F, -31.2F, -19.5F);
@@ -765,13 +765,13 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun112_r5.setRotationPoint(-2.999F, -31.8F, -19.4F);
         G19razorbackbody.addChild(gun112_r5);
         setRotationAngle(gun112_r5, 0.0F, -0.7854F, 0.0F);
-        gun112_r5.cubeList.add(new ModelBox(gun112_r5, 26, 54, 0.0F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        gun112_r5.cubeList.add(new ModelBox(gun112_r5, 26, 54, 0.0F, -2.0F, -1, 1, 2, 1, 0.0F, false));
 
         gun111_r11 = new ModelRenderer(this);
         gun111_r11.setRotationPoint(1.001F, -31.8F, -19.4F);
         G19razorbackbody.addChild(gun111_r11);
         setRotationAngle(gun111_r11, 0.0F, -0.7854F, 0.0F);
-        gun111_r11.cubeList.add(new ModelBox(gun111_r11, 58, 9, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun111_r11.cubeList.add(new ModelBox(gun111_r11, 58, 9, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun112_r6 = new ModelRenderer(this);
         gun112_r6.setRotationPoint(0.501F, -29.8F, -15.6F);
@@ -783,7 +783,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun112_r7.setRotationPoint(1.101F, -32.85F, -7.5F);
         G19razorbackbody.addChild(gun112_r7);
         setRotationAngle(gun112_r7, 0.0F, 0.0F, 0.192F);
-        gun112_r7.cubeList.add(new ModelBox(gun112_r7, 32, 63, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun112_r7.cubeList.add(new ModelBox(gun112_r7, 32, 63, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun40_r1 = new ModelRenderer(this);
         gun40_r1.setRotationPoint(-3.0F, -30.9F, -10.7F);
@@ -813,7 +813,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun93_r2.setRotationPoint(0.5F, -27.5F, -16.5F);
         G19razorbackbody.addChild(gun93_r2);
         setRotationAngle(gun93_r2, -0.4538F, 0.0F, 0.0F);
-        gun93_r2.cubeList.add(new ModelBox(gun93_r2, 111, 90, -3.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        gun93_r2.cubeList.add(new ModelBox(gun93_r2, 111, 90, -3.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         gun93_r3 = new ModelRenderer(this);
         gun93_r3.setRotationPoint(0.501F, -26.5F, -9.5F);
@@ -841,31 +841,31 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun158_r1.cubeList.add(new ModelBox(gun158_r1, 64, 3, -2.6F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun11_r3 = new ModelRenderer(this);
-        gun11_r3.setRotationPoint(1.0F, -30.0F, -8.5F);
+        gun11_r3.setRotationPoint(1, -30.0F, -8.5F);
         G19razorbackbody.addChild(gun11_r3);
         setRotationAngle(gun11_r3, -0.5585F, 0.0F, 0.0F);
-        gun11_r3.cubeList.add(new ModelBox(gun11_r3, 10, 90, -3.999F, -1.0F, 0.0F, 4, 1, 1, 0.0F, false));
+        gun11_r3.cubeList.add(new ModelBox(gun11_r3, 10, 90, -3.999F, -1, 0.0F, 4, 1, 1, 0.0F, false));
 
         gun13_r5 = new ModelRenderer(this);
-        gun13_r5.setRotationPoint(1.0F, -31.7F, -1.4F);
+        gun13_r5.setRotationPoint(1, -31.7F, -1.4F);
         G19razorbackbody.addChild(gun13_r5);
         setRotationAngle(gun13_r5, -1.0647F, 0.0F, 0.0F);
-        gun13_r5.cubeList.add(new ModelBox(gun13_r5, 21, 129, -4.0F, -3.0F, -1.0F, 4, 3, 1, -0.003F, false));
+        gun13_r5.cubeList.add(new ModelBox(gun13_r5, 21, 129, -4.0F, -3.0F, -1, 4, 3, 1, -0.003F, false));
 
         gun14_r2 = new ModelRenderer(this);
-        gun14_r2.setRotationPoint(1.0F, -33.0F, 2.25F);
+        gun14_r2.setRotationPoint(1, -33.0F, 2.25F);
         G19razorbackbody.addChild(gun14_r2);
         setRotationAngle(gun14_r2, 0.1745F, 0.0F, 0.0F);
-        gun14_r2.cubeList.add(new ModelBox(gun14_r2, 32, 83, -4.001F, -1.0F, -2.0F, 4, 1, 2, 0.0F, false));
+        gun14_r2.cubeList.add(new ModelBox(gun14_r2, 32, 83, -4.001F, -1, -2.0F, 4, 1, 2, 0.0F, false));
 
         gun14_r3 = new ModelRenderer(this);
-        gun14_r3.setRotationPoint(1.0F, -34.0F, 2.25F);
+        gun14_r3.setRotationPoint(1, -34.0F, 2.25F);
         G19razorbackbody.addChild(gun14_r3);
         setRotationAngle(gun14_r3, 1.0123F, 0.0F, 0.0F);
-        gun14_r3.cubeList.add(new ModelBox(gun14_r3, 20, 90, -4.0F, -1.0F, -1.0F, 4, 1, 1, -0.001F, false));
+        gun14_r3.cubeList.add(new ModelBox(gun14_r3, 20, 90, -4.0F, -1, -1, 4, 1, 1, -0.001F, false));
 
         gun15_r1 = new ModelRenderer(this);
-        gun15_r1.setRotationPoint(0.5F, -31.0F, -0.45F);
+        gun15_r1.setRotationPoint(0.5F, -31, -0.45F);
         G19razorbackbody.addChild(gun15_r1);
         setRotationAngle(gun15_r1, 0.1396F, 0.0F, 0.0F);
         gun15_r1.cubeList.add(new ModelBox(gun15_r1, 78, 0, -2.999F, 0.0F, -2.0F, 3, 4, 2, -0.001F, false));
@@ -874,7 +874,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun14_r4.setRotationPoint(0.5F, -33.0F, 2.25F);
         G19razorbackbody.addChild(gun14_r4);
         setRotationAngle(gun14_r4, 0.5236F, 0.0F, 0.0F);
-        gun14_r4.cubeList.add(new ModelBox(gun14_r4, 15, 71, -3.0F, -1.0F, -3.0F, 3, 1, 3, 0.0F, false));
+        gun14_r4.cubeList.add(new ModelBox(gun14_r4, 15, 71, -3.0F, -1, -3.0F, 3, 1, 3, 0.0F, false));
 
         gun12_r4 = new ModelRenderer(this);
         gun12_r4.setRotationPoint(0.5F, -30.0F, -0.8F);
@@ -883,7 +883,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun12_r4.cubeList.add(new ModelBox(gun12_r4, 109, 124, -3.001F, -3.0F, -2.0F, 3, 3, 2, 0.0F, false));
 
         gun11_r4 = new ModelRenderer(this);
-        gun11_r4.setRotationPoint(1.0F, -30.0F, -1.8F);
+        gun11_r4.setRotationPoint(1, -30.0F, -1.8F);
         G19razorbackbody.addChild(gun11_r4);
         setRotationAngle(gun11_r4, -0.576F, 0.0F, 0.0F);
         gun11_r4.cubeList.add(new ModelBox(gun11_r4, 69, 81, -4.0F, -3.0F, -2.0F, 4, 3, 2, -0.002F, false));
@@ -904,7 +904,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun13_r6.setRotationPoint(0.501F, -20.0F, 3.9F);
         G19razorbackbody.addChild(gun13_r6);
         setRotationAngle(gun13_r6, 0.4712F, 0.0F, 0.0F);
-        gun13_r6.cubeList.add(new ModelBox(gun13_r6, 49, 16, -3.0F, -9.0F, -1.0F, 3, 9, 1, 0.0F, false));
+        gun13_r6.cubeList.add(new ModelBox(gun13_r6, 49, 16, -3.0F, -9.0F, -1, 3, 9, 1, 0.0F, false));
 
         gun13_r7 = new ModelRenderer(this);
         gun13_r7.setRotationPoint(0.501F, -18.0F, 3.9F);
@@ -916,14 +916,14 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun14_r5.setRotationPoint(-1.699F, -17.8F, 2.5F);
         G19razorbackbody.addChild(gun14_r5);
         setRotationAngle(gun14_r5, -0.4014F, 0.0F, 0.0F);
-        gun14_r5.cubeList.add(new ModelBox(gun14_r5, 72, 90, -1.001F, 0.0F, -1.0F, 1, 1, 1, 0.3F, false));
-        gun14_r5.cubeList.add(new ModelBox(gun14_r5, 97, 48, 1.399F, 0.0F, -1.0F, 1, 1, 1, 0.3F, false));
+        gun14_r5.cubeList.add(new ModelBox(gun14_r5, 72, 90, -1.001F, 0.0F, -1, 1, 1, 1, 0.3F, false));
+        gun14_r5.cubeList.add(new ModelBox(gun14_r5, 97, 48, 1.399F, 0.0F, -1, 1, 1, 1, 0.3F, false));
 
         gun11_r5 = new ModelRenderer(this);
         gun11_r5.setRotationPoint(-5.1F, -31.45F, -8.8F);
         G19razorbackbody.addChild(gun11_r5);
         setRotationAngle(gun11_r5, 0.3543F, 0.0F, 0.0F);
-        gun11_r5.cubeList.add(new ModelBox(gun11_r5, 98, 53, 2.0F, 3.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        gun11_r5.cubeList.add(new ModelBox(gun11_r5, 98, 53, 2.0F, 3.0F, 1, 1, 1, 1, 0.0F, false));
 
         gun10_r5 = new ModelRenderer(this);
         gun10_r5.setRotationPoint(-1.9F, -31.35F, -8.6F);
@@ -1001,11 +1001,11 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 103, 67, 0.399F, -37.7F, -10.401F, 1, 1, 3, -0.2F, false));
         G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 91, 148, -3.199F, -37.501F, -16.5F, 1, 1, 1, 0.0F, false));
         G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 147, 33, 0.201F, -37.501F, -16.5F, 1, 1, 1, 0.0F, false));
-        G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 112, 78, -3.199F, -37.001F, 1.0F, 1, 3, 1, 0.0F, false));
+        G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 112, 78, -3.199F, -37.001F, 1, 1, 3, 1, 0.0F, false));
         G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 87, 148, -3.099F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
         G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 80, 148, -1.5F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
         G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 76, 148, 0.101F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
-        G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 102, 0, 0.2F, -37.001F, 1.0F, 1, 3, 1, 0.0F, false));
+        G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 102, 0, 0.2F, -37.001F, 1, 1, 3, 1, 0.0F, false));
         G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 141, 14, -3.45F, -35.75F, -0.25F, 1, 2, 1, -0.25F, false));
         G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 44, 138, 0.45F, -35.75F, -0.25F, 1, 2, 1, -0.25F, false));
         G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 8, 141, -3.45F, -35.75F, -2.25F, 1, 2, 1, -0.25F, false));
@@ -1061,36 +1061,36 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide59_r1.setRotationPoint(-2.75F, -38.15F, -2.1F);
         G19razorbackslide.addChild(slide59_r1);
         setRotationAngle(slide59_r1, 0.0F, 0.0F, -0.6545F);
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 146, 88, -1.0F, 0.0F, 0.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 146, 88, -1, 0.0F, 0.0F, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 139, -0.5F, 0.0F, -2.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 146, 92, -1.0F, 0.0F, -2.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 146, 92, -1, 0.0F, -2.0F, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 117, 144, -0.5F, 0.0F, -17.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 14, -0.5F, 0.0F, -21.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 14, -0.5F, 0.0F, -21, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 126, -0.5F, 0.0F, -25.0F, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 135, -0.5F, 0.0F, -4.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 144, 111, -1.0F, 0.0F, -17.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 0, 145, -1.0F, 0.0F, -21.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 128, -1.0F, 0.0F, -25.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 146, 113, -1.0F, 0.0F, -4.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 141, -0.5F, 0.0F, 1.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 15, 146, -1.0F, 0.0F, 1.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 19, 146, -1.0F, 0.0F, -1.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 144, 111, -1, 0.0F, -17.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 0, 145, -1, 0.0F, -21, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 128, -1, 0.0F, -25.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 146, 113, -1, 0.0F, -4.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 141, -0.5F, 0.0F, 1, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 15, 146, -1, 0.0F, 1, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 19, 146, -1, 0.0F, -1, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 101, 144, -0.5F, 0.0F, -16.0F, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 24, 104, -0.5F, 0.0F, -20.0F, 1, 1, 3, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 121, -0.5F, 0.0F, -24.0F, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 137, -0.5F, 0.0F, -3.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 121, 144, -1.0F, 0.0F, -16.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 103, 71, -1.0F, 0.0F, -20.0F, 1, 1, 3, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 119, -1.0F, 0.0F, -24.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 146, 90, -1.0F, 0.0F, -3.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 121, 144, -1, 0.0F, -16.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 103, 71, -1, 0.0F, -20.0F, 1, 1, 3, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 119, -1, 0.0F, -24.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 146, 90, -1, 0.0F, -3.0F, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 125, 144, -0.5F, 0.0F, -23.0F, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 4, 145, -0.5F, 0.0F, -22.0F, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 130, -0.5F, 0.0F, -26.0F, 1, 1, 1, -0.25F, false));
         slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 133, -0.5F, 0.0F, -5.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 129, 144, -1.0F, 0.0F, -23.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 133, 144, -1.0F, 0.0F, -22.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 124, -1.0F, 0.0F, -26.0F, 1, 1, 1, -0.25F, false));
-        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 148, 23, -1.0F, 0.0F, -5.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 129, 144, -1, 0.0F, -23.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 133, 144, -1, 0.0F, -22.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 145, 124, -1, 0.0F, -26.0F, 1, 1, 1, -0.25F, false));
+        slide59_r1.cubeList.add(new ModelBox(slide59_r1, 148, 23, -1, 0.0F, -5.0F, 1, 1, 1, -0.25F, false));
 
         slide70_r1 = new ModelRenderer(this);
         slide70_r1.setRotationPoint(1.55F, -37.53F, -28.1F);
@@ -1100,30 +1100,30 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide70_r1.cubeList.add(new ModelBox(slide70_r1, 101, 142, -1.5F, 0.0F, 2.0F, 1, 1, 1, -0.25F, false));
         slide70_r1.cubeList.add(new ModelBox(slide70_r1, 4, 143, -1.5F, 0.0F, 4.0F, 1, 1, 1, -0.25F, false));
         slide70_r1.cubeList.add(new ModelBox(slide70_r1, 60, 143, -1.5F, 0.0F, 9.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 142, 54, -1.5F, 0.0F, 1.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 142, 54, -1.5F, 0.0F, 1, 1, 1, 1, -0.25F, false));
         slide70_r1.cubeList.add(new ModelBox(slide70_r1, 92, 142, -1.5F, 0.0F, 3.0F, 1, 1, 1, -0.25F, false));
         slide70_r1.cubeList.add(new ModelBox(slide70_r1, 143, 0, -1.5F, 0.0F, 5.0F, 1, 1, 1, -0.25F, false));
         slide70_r1.cubeList.add(new ModelBox(slide70_r1, 70, 143, -1.5F, 0.0F, 10.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 74, 143, -1.5F, 0.0F, 21.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 142, 80, -1.0F, 0.0F, 0.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 142, 113, -1.0F, 0.0F, 2.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 47, 143, -1.0F, 0.0F, 4.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 56, 143, -1.0F, 0.0F, 9.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 142, 50, -1.0F, 0.0F, 1.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 88, 142, -1.0F, 0.0F, 3.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 0, 143, -1.0F, 0.0F, 5.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 64, 143, -1.0F, 0.0F, 10.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 108, 143, -1.0F, 0.0F, 21.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 74, 143, -1.5F, 0.0F, 21, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 142, 80, -1, 0.0F, 0.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 142, 113, -1, 0.0F, 2.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 47, 143, -1, 0.0F, 4.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 56, 143, -1, 0.0F, 9.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 142, 50, -1, 0.0F, 1, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 88, 142, -1, 0.0F, 3.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 0, 143, -1, 0.0F, 5.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 64, 143, -1, 0.0F, 10.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 108, 143, -1, 0.0F, 21, 1, 1, 1, -0.25F, false));
         slide70_r1.cubeList.add(new ModelBox(slide70_r1, 85, 143, -1.5F, 0.0F, 24.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 15, 144, -1.0F, 0.0F, 24.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 19, 144, -1.0F, 0.0F, 26.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 15, 144, -1, 0.0F, 24.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 19, 144, -1, 0.0F, 26.0F, 1, 1, 1, -0.25F, false));
         slide70_r1.cubeList.add(new ModelBox(slide70_r1, 78, 143, -1.5F, 0.0F, 22.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 104, 143, -1.0F, 0.0F, 22.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 104, 143, -1, 0.0F, 22.0F, 1, 1, 1, -0.25F, false));
         slide70_r1.cubeList.add(new ModelBox(slide70_r1, 143, 82, -1.5F, 0.0F, 23.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 138, 143, -1.0F, 0.0F, 23.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 7, 144, -1.0F, 0.0F, 25.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 138, 143, -1, 0.0F, 23.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 7, 144, -1, 0.0F, 25.0F, 1, 1, 1, -0.25F, false));
         slide70_r1.cubeList.add(new ModelBox(slide70_r1, 143, 72, -1.5F, 0.0F, 27.0F, 1, 1, 1, -0.25F, false));
-        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 23, 144, -1.0F, 0.0F, 27.0F, 1, 1, 1, -0.25F, false));
+        slide70_r1.cubeList.add(new ModelBox(slide70_r1, 23, 144, -1, 0.0F, 27.0F, 1, 1, 1, -0.25F, false));
 
         slide57_r1 = new ModelRenderer(this);
         slide57_r1.setRotationPoint(0.4F, -38.1F, -34.75F);
@@ -1146,18 +1146,18 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide57_r2.setRotationPoint(-2.3F, -38.1F, -28.5F);
         G19razorbackslide.addChild(slide57_r2);
         setRotationAngle(slide57_r2, 0.0F, 0.0F, -0.6545F);
-        slide57_r2.cubeList.add(new ModelBox(slide57_r2, 134, 44, -1.0F, -0.001F, 0.0F, 1, 1, 13, 0.0F, false));
-        slide57_r2.cubeList.add(new ModelBox(slide57_r2, 111, 148, -1.0F, -0.001F, 21.0F, 1, 1, 8, 0.0F, false));
+        slide57_r2.cubeList.add(new ModelBox(slide57_r2, 134, 44, -1, -0.001F, 0.0F, 1, 1, 13, 0.0F, false));
+        slide57_r2.cubeList.add(new ModelBox(slide57_r2, 111, 148, -1, -0.001F, 21, 1, 1, 8, 0.0F, false));
 
         slide57_r3 = new ModelRenderer(this);
         slide57_r3.setRotationPoint(-2.4F, -38.1F, -8.0F);
         G19razorbackslide.addChild(slide57_r3);
         setRotationAngle(slide57_r3, 0.0F, 0.0F, -0.6545F);
-        slide57_r3.cubeList.add(new ModelBox(slide57_r3, 145, 143, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        slide57_r3.cubeList.add(new ModelBox(slide57_r3, 145, 117, -1.0F, -0.001F, -8.5F, 1, 1, 1, 0.0F, false));
-        slide57_r3.cubeList.add(new ModelBox(slide57_r3, 47, 107, -1.0F, -0.001F, -2.5F, 1, 1, 3, 0.0F, false));
-        slide57_r3.cubeList.add(new ModelBox(slide57_r3, 7, 146, -1.0F, -0.001F, 8.25F, 1, 1, 1, 0.0F, false));
-        slide57_r3.cubeList.add(new ModelBox(slide57_r3, 148, 27, -1.0F, 0.0F, 9.0F, 1, 1, 1, 0.0F, false));
+        slide57_r3.cubeList.add(new ModelBox(slide57_r3, 145, 143, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide57_r3.cubeList.add(new ModelBox(slide57_r3, 145, 117, -1, -0.001F, -8.5F, 1, 1, 1, 0.0F, false));
+        slide57_r3.cubeList.add(new ModelBox(slide57_r3, 47, 107, -1, -0.001F, -2.5F, 1, 1, 3, 0.0F, false));
+        slide57_r3.cubeList.add(new ModelBox(slide57_r3, 7, 146, -1, -0.001F, 8.25F, 1, 1, 1, 0.0F, false));
+        slide57_r3.cubeList.add(new ModelBox(slide57_r3, 148, 27, -1, 0.0F, 9.0F, 1, 1, 1, 0.0F, false));
 
         slide16_r1 = new ModelRenderer(this);
         slide16_r1.setRotationPoint(-0.9F, -38.2F, -20.5F);
@@ -1169,7 +1169,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide15_r1.setRotationPoint(-1.1F, -38.2F, -20.5F);
         G19razorbackslide.addChild(slide15_r1);
         setRotationAngle(slide15_r1, 0.0F, -0.8378F, 0.0F);
-        slide15_r1.cubeList.add(new ModelBox(slide15_r1, 142, 11, -1.0F, -0.001F, 0.0F, 1, 1, 1, -0.1F, false));
+        slide15_r1.cubeList.add(new ModelBox(slide15_r1, 142, 11, -1, -0.001F, 0.0F, 1, 1, 1, -0.1F, false));
 
         slide19_r1 = new ModelRenderer(this);
         slide19_r1.setRotationPoint(-3.2F, -36.201F, -10.5F);
@@ -1181,31 +1181,31 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide23_r2.setRotationPoint(-0.5F, -36.501F, 0.55F);
         G19razorbackslide.addChild(slide23_r2);
         setRotationAngle(slide23_r2, -0.7854F, 0.0F, 0.0F);
-        slide23_r2.cubeList.add(new ModelBox(slide23_r2, 94, 130, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide23_r2.cubeList.add(new ModelBox(slide23_r2, 94, 130, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide22_r2 = new ModelRenderer(this);
         slide22_r2.setRotationPoint(-0.5F, -36.301F, 0.55F);
         G19razorbackslide.addChild(slide22_r2);
         setRotationAngle(slide22_r2, -0.7854F, 0.0F, 0.0F);
-        slide22_r2.cubeList.add(new ModelBox(slide22_r2, 109, 130, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide22_r2.cubeList.add(new ModelBox(slide22_r2, 109, 130, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide21_r3 = new ModelRenderer(this);
         slide21_r3.setRotationPoint(-0.5F, -35.901F, 0.55F);
         G19razorbackslide.addChild(slide21_r3);
         setRotationAngle(slide21_r3, -0.7854F, 0.0F, 0.0F);
-        slide21_r3.cubeList.add(new ModelBox(slide21_r3, 117, 130, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide21_r3.cubeList.add(new ModelBox(slide21_r3, 117, 130, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide21_r4 = new ModelRenderer(this);
         slide21_r4.setRotationPoint(-0.5F, -36.101F, 0.55F);
         G19razorbackslide.addChild(slide21_r4);
         setRotationAngle(slide21_r4, -0.7854F, 0.0F, 0.0F);
-        slide21_r4.cubeList.add(new ModelBox(slide21_r4, 131, 72, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide21_r4.cubeList.add(new ModelBox(slide21_r4, 131, 72, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide20_r2 = new ModelRenderer(this);
         slide20_r2.setRotationPoint(-0.5F, -35.701F, 0.55F);
         G19razorbackslide.addChild(slide20_r2);
         setRotationAngle(slide20_r2, -0.7854F, 0.0F, 0.0F);
-        slide20_r2.cubeList.add(new ModelBox(slide20_r2, 133, 33, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide20_r2.cubeList.add(new ModelBox(slide20_r2, 133, 33, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide19_r2 = new ModelRenderer(this);
         slide19_r2.setRotationPoint(0.201F, -36.501F, -16.5F);
@@ -1217,22 +1217,22 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide19_r2.cubeList.add(new ModelBox(slide19_r2, 147, 103, -3.4F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide17_r1 = new ModelRenderer(this);
-        slide17_r1.setRotationPoint(1.0F, -38.2F, -2.75F);
+        slide17_r1.setRotationPoint(1, -38.2F, -2.75F);
         G19razorbackslide.addChild(slide17_r1);
         setRotationAngle(slide17_r1, 0.0F, -1.2043F, 0.0F);
         slide17_r1.cubeList.add(new ModelBox(slide17_r1, 70, 136, -2.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         slide16_r2 = new ModelRenderer(this);
-        slide16_r2.setRotationPoint(1.0F, -38.2F, -1.75F);
+        slide16_r2.setRotationPoint(1, -38.2F, -1.75F);
         G19razorbackslide.addChild(slide16_r2);
         setRotationAngle(slide16_r2, 0.0F, 1.2043F, 0.0F);
-        slide16_r2.cubeList.add(new ModelBox(slide16_r2, 76, 136, -2.0F, 0.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        slide16_r2.cubeList.add(new ModelBox(slide16_r2, 76, 136, -2.0F, 0.0F, -1, 2, 1, 1, 0.0F, false));
 
         slide15_r2 = new ModelRenderer(this);
         slide15_r2.setRotationPoint(-3.0F, -38.2F, -1.75F);
         G19razorbackslide.addChild(slide15_r2);
         setRotationAngle(slide15_r2, 0.0F, -1.2043F, 0.0F);
-        slide15_r2.cubeList.add(new ModelBox(slide15_r2, 136, 127, 0.0F, 0.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        slide15_r2.cubeList.add(new ModelBox(slide15_r2, 136, 127, 0.0F, 0.0F, -1, 2, 1, 1, 0.0F, false));
 
         slide14_r1 = new ModelRenderer(this);
         slide14_r1.setRotationPoint(-3.0F, -38.2F, -2.75F);
@@ -1250,13 +1250,13 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide14_r2.setRotationPoint(-2.0F, -38.3F, -2.95F);
         G19razorbackslide.addChild(slide14_r2);
         setRotationAngle(slide14_r2, 0.0F, 0.5411F, 0.0F);
-        slide14_r2.cubeList.add(new ModelBox(slide14_r2, 92, 144, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide14_r2.cubeList.add(new ModelBox(slide14_r2, 92, 144, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide34_r1 = new ModelRenderer(this);
         slide34_r1.setRotationPoint(1.45F, -34.95F, -3.1F);
         G19razorbackslide.addChild(slide34_r1);
         setRotationAngle(slide34_r1, 0.384F, 0.0F, 0.0F);
-        slide34_r1.cubeList.add(new ModelBox(slide34_r1, 0, 128, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide34_r1.cubeList.add(new ModelBox(slide34_r1, 0, 128, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide34_r1.cubeList.add(new ModelBox(slide34_r1, 29, 139, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide34_r1.cubeList.add(new ModelBox(slide34_r1, 8, 138, -1.001F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
         slide34_r1.cubeList.add(new ModelBox(slide34_r1, 85, 138, -4.901F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
@@ -1265,20 +1265,20 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide34_r2.setRotationPoint(1.45F, -34.95F, -7.1F);
         G19razorbackslide.addChild(slide34_r2);
         setRotationAngle(slide34_r2, 0.384F, 0.0F, 0.0F);
-        slide34_r2.cubeList.add(new ModelBox(slide34_r2, 40, 131, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide34_r2.cubeList.add(new ModelBox(slide34_r2, 40, 131, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide34_r2.cubeList.add(new ModelBox(slide34_r2, 135, 138, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
 
         slide34_r3 = new ModelRenderer(this);
         slide34_r3.setRotationPoint(1.45F, -35.95F, -11.1F);
         G19razorbackslide.addChild(slide34_r3);
         setRotationAngle(slide34_r3, -0.384F, 0.0F, 0.0F);
-        slide34_r3.cubeList.add(new ModelBox(slide34_r3, 18, 93, -1.0F, -2.0F, 0.0F, 1, 3, 1, -0.25F, false));
+        slide34_r3.cubeList.add(new ModelBox(slide34_r3, 18, 93, -1, -2.0F, 0.0F, 1, 3, 1, -0.25F, false));
 
         slide33_r1 = new ModelRenderer(this);
         slide33_r1.setRotationPoint(1.45F, -34.95F, -6.1F);
         G19razorbackslide.addChild(slide33_r1);
         setRotationAngle(slide33_r1, 0.384F, 0.0F, 0.0F);
-        slide33_r1.cubeList.add(new ModelBox(slide33_r1, 130, 19, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide33_r1.cubeList.add(new ModelBox(slide33_r1, 130, 19, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide33_r1.cubeList.add(new ModelBox(slide33_r1, 139, 78, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide33_r1.cubeList.add(new ModelBox(slide33_r1, 8, 135, -1.001F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
         slide33_r1.cubeList.add(new ModelBox(slide33_r1, 70, 138, -4.901F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
@@ -1287,7 +1287,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide32_r1.setRotationPoint(1.45F, -34.95F, -27.1F);
         G19razorbackslide.addChild(slide32_r1);
         setRotationAngle(slide32_r1, 0.384F, 0.0F, 0.0F);
-        slide32_r1.cubeList.add(new ModelBox(slide32_r1, 112, 83, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide32_r1.cubeList.add(new ModelBox(slide32_r1, 112, 83, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide32_r1.cubeList.add(new ModelBox(slide32_r1, 139, 82, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide32_r1.cubeList.add(new ModelBox(slide32_r1, 110, 49, -1.001F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
         slide32_r1.cubeList.add(new ModelBox(slide32_r1, 138, 58, -4.901F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
@@ -1296,7 +1296,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide33_r2.setRotationPoint(1.45F, -34.95F, -2.1F);
         G19razorbackslide.addChild(slide33_r2);
         setRotationAngle(slide33_r2, 0.384F, 0.0F, 0.0F);
-        slide33_r2.cubeList.add(new ModelBox(slide33_r2, 64, 125, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide33_r2.cubeList.add(new ModelBox(slide33_r2, 64, 125, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide33_r2.cubeList.add(new ModelBox(slide33_r2, 139, 9, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide33_r2.cubeList.add(new ModelBox(slide33_r2, 15, 138, -1.001F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
         slide33_r2.cubeList.add(new ModelBox(slide33_r2, 108, 138, -4.901F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
@@ -1305,7 +1305,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide32_r2.setRotationPoint(1.45F, -34.95F, -5.1F);
         G19razorbackslide.addChild(slide32_r2);
         setRotationAngle(slide32_r2, 0.384F, 0.0F, 0.0F);
-        slide32_r2.cubeList.add(new ModelBox(slide32_r2, 129, 44, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide32_r2.cubeList.add(new ModelBox(slide32_r2, 129, 44, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide32_r2.cubeList.add(new ModelBox(slide32_r2, 139, 72, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide32_r2.cubeList.add(new ModelBox(slide32_r2, 109, 135, -1.001F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
         slide32_r2.cubeList.add(new ModelBox(slide32_r2, 74, 138, -4.901F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
@@ -1314,7 +1314,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide31_r1.setRotationPoint(1.45F, -34.95F, -26.1F);
         G19razorbackslide.addChild(slide31_r1);
         setRotationAngle(slide31_r1, 0.384F, 0.0F, 0.0F);
-        slide31_r1.cubeList.add(new ModelBox(slide31_r1, 63, 107, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide31_r1.cubeList.add(new ModelBox(slide31_r1, 63, 107, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide31_r1.cubeList.add(new ModelBox(slide31_r1, 89, 139, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide31_r1.cubeList.add(new ModelBox(slide31_r1, 29, 108, -1.001F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
         slide31_r1.cubeList.add(new ModelBox(slide31_r1, 60, 138, -4.901F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
@@ -1325,7 +1325,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         setRotationAngle(slide42_r1, 0.384F, 0.0F, 0.0F);
         slide42_r1.cubeList.add(new ModelBox(slide42_r1, 29, 104, -1.001F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
         slide42_r1.cubeList.add(new ModelBox(slide42_r1, 64, 138, -4.901F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
-        slide42_r1.cubeList.add(new ModelBox(slide42_r1, 52, 107, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide42_r1.cubeList.add(new ModelBox(slide42_r1, 52, 107, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide42_r1.cubeList.add(new ModelBox(slide42_r1, 93, 139, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
 
         slide41_r1 = new ModelRenderer(this);
@@ -1341,7 +1341,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         setRotationAngle(slide38_r1, 0.384F, 0.0F, 0.0F);
         slide38_r1.cubeList.add(new ModelBox(slide38_r1, 131, 137, -1.001F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
         slide38_r1.cubeList.add(new ModelBox(slide38_r1, 78, 138, -4.901F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
-        slide38_r1.cubeList.add(new ModelBox(slide38_r1, 128, 122, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide38_r1.cubeList.add(new ModelBox(slide38_r1, 128, 122, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide38_r1.cubeList.add(new ModelBox(slide38_r1, 139, 52, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
 
         slide35_r1 = new ModelRenderer(this);
@@ -1350,7 +1350,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         setRotationAngle(slide35_r1, 0.384F, 0.0F, 0.0F);
         slide35_r1.cubeList.add(new ModelBox(slide35_r1, 19, 138, -1.001F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
         slide35_r1.cubeList.add(new ModelBox(slide35_r1, 138, 120, -4.901F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
-        slide35_r1.cubeList.add(new ModelBox(slide35_r1, 34, 138, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide35_r1.cubeList.add(new ModelBox(slide35_r1, 34, 138, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide35_r1.cubeList.add(new ModelBox(slide35_r1, 139, 6, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
 
         slide35_r2 = new ModelRenderer(this);
@@ -1366,35 +1366,35 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         setRotationAngle(slide34_r4, 0.384F, 0.0F, 0.0F);
         slide34_r4.cubeList.add(new ModelBox(slide34_r4, 56, 138, -1.001F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
         slide34_r4.cubeList.add(new ModelBox(slide34_r4, 138, 129, -4.901F, -2.75F, 0.0F, 1, 2, 1, -0.25F, false));
-        slide34_r4.cubeList.add(new ModelBox(slide34_r4, 48, 138, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide34_r4.cubeList.add(new ModelBox(slide34_r4, 48, 138, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide34_r4.cubeList.add(new ModelBox(slide34_r4, 139, 3, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
 
         slide29_r1 = new ModelRenderer(this);
         slide29_r1.setRotationPoint(1.45F, -34.95F, -21.1F);
         G19razorbackslide.addChild(slide29_r1);
         setRotationAngle(slide29_r1, 0.384F, 0.0F, 0.0F);
-        slide29_r1.cubeList.add(new ModelBox(slide29_r1, 21, 121, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
+        slide29_r1.cubeList.add(new ModelBox(slide29_r1, 21, 121, -1, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
         slide29_r1.cubeList.add(new ModelBox(slide29_r1, 139, 97, -4.9F, -2.0F, 0.0F, 1, 2, 1, -0.25F, false));
 
         slide29_r2 = new ModelRenderer(this);
         slide29_r2.setRotationPoint(1.099F, -34.75F, -16.1F);
         G19razorbackslide.addChild(slide29_r2);
         setRotationAngle(slide29_r2, 0.384F, 0.0F, 0.0F);
-        slide29_r2.cubeList.add(new ModelBox(slide29_r2, 52, 103, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        slide29_r2.cubeList.add(new ModelBox(slide29_r2, 52, 103, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
         slide29_r2.cubeList.add(new ModelBox(slide29_r2, 63, 103, -4.2F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         slide30_r1 = new ModelRenderer(this);
         slide30_r1.setRotationPoint(-2.101F, -34.35F, -24.7F);
         G19razorbackslide.addChild(slide30_r1);
         setRotationAngle(slide30_r1, 0.384F, 0.0F, 0.0F);
-        slide30_r1.cubeList.add(new ModelBox(slide30_r1, 29, 93, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        slide30_r1.cubeList.add(new ModelBox(slide30_r1, 29, 93, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
         slide30_r1.cubeList.add(new ModelBox(slide30_r1, 52, 93, 2.2F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         slide28_r1 = new ModelRenderer(this);
         slide28_r1.setRotationPoint(1.099F, -34.75F, -21.2F);
         G19razorbackslide.addChild(slide28_r1);
         setRotationAngle(slide28_r1, 0.384F, 0.0F, 0.0F);
-        slide28_r1.cubeList.add(new ModelBox(slide28_r1, 63, 93, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        slide28_r1.cubeList.add(new ModelBox(slide28_r1, 63, 93, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
         slide28_r1.cubeList.add(new ModelBox(slide28_r1, 101, 139, -4.2F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         G19rockslide = new ModelRenderer(this);
@@ -1410,8 +1410,8 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 47, 93, -0.6F, -38.101F, -18.5F, 1, 1, 20, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 40, 121, -0.6F, -38.101F, -28.5F, 1, 1, 2, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 116, 3, -0.6F, -38.1F, -27.0F, 1, 1, 2, 0.0F, false));
-        G19rockslide.cubeList.add(new ModelBox(G19rockslide, 141, 20, -0.6F, -38.101F, -21.0F, 1, 1, 1, 0.0F, false));
-        G19rockslide.cubeList.add(new ModelBox(G19rockslide, 15, 141, -2.45F, -38.1F, -21.0F, 1, 1, 1, 0.0F, false));
+        G19rockslide.cubeList.add(new ModelBox(G19rockslide, 141, 20, -0.6F, -38.101F, -21, 1, 1, 1, 0.0F, false));
+        G19rockslide.cubeList.add(new ModelBox(G19rockslide, 15, 141, -2.45F, -38.1F, -21, 1, 1, 1, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 140, 111, -2.45F, -38.1F, -23.5F, 1, 1, 1, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 19, 141, -0.6F, -38.101F, -23.5F, 1, 1, 1, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 87, 115, -1.5F, -38.099F, -26.5F, 1, 1, 8, 0.0F, false));
@@ -1423,11 +1423,11 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 0, 45, -3.199F, -36.001F, -28.5F, 1, 2, 13, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 133, 19, -3.2F, -36.25F, -28.5F, 1, 1, 13, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 50, 114, 0.2F, -36.25F, -28.5F, 1, 1, 18, 0.0F, false));
-        G19rockslide.cubeList.add(new ModelBox(G19rockslide, 84, 32, -3.199F, -37.001F, 1.0F, 1, 3, 1, 0.0F, false));
+        G19rockslide.cubeList.add(new ModelBox(G19rockslide, 84, 32, -3.199F, -37.001F, 1, 1, 3, 1, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 70, 141, -3.099F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 64, 141, -1.5F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 141, 60, 0.101F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
-        G19rockslide.cubeList.add(new ModelBox(G19rockslide, 84, 16, 0.2F, -37.001F, 1.0F, 1, 3, 1, 0.0F, false));
+        G19rockslide.cubeList.add(new ModelBox(G19rockslide, 84, 16, 0.2F, -37.001F, 1, 1, 3, 1, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 149, 44, -3.199F, -36.001F, -15.5F, 1, 2, 11, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 58, 103, -3.2F, -36.201F, -10.5F, 1, 1, 3, 0.0F, false));
         G19rockslide.cubeList.add(new ModelBox(G19rockslide, 60, 141, -0.6F, -38.1F, 1.002F, 1, 1, 1, 0.0F, false));
@@ -1444,13 +1444,13 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide16_r3.setRotationPoint(-2.0F, -38.3F, -2.95F);
         G19rockslide.addChild(slide16_r3);
         setRotationAngle(slide16_r3, 0.0F, 0.5411F, 0.0F);
-        slide16_r3.cubeList.add(new ModelBox(slide16_r3, 114, 56, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide16_r3.cubeList.add(new ModelBox(slide16_r3, 114, 56, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide17_r2 = new ModelRenderer(this);
         slide17_r2.setRotationPoint(-3.0F, -38.2F, -1.75F);
         G19rockslide.addChild(slide17_r2);
         setRotationAngle(slide17_r2, 0.0F, -1.2043F, 0.0F);
-        slide17_r2.cubeList.add(new ModelBox(slide17_r2, 116, 49, 0.0F, 0.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        slide17_r2.cubeList.add(new ModelBox(slide17_r2, 116, 49, 0.0F, 0.0F, -1, 2, 1, 1, 0.0F, false));
 
         slide16_r4 = new ModelRenderer(this);
         slide16_r4.setRotationPoint(-3.0F, -38.2F, -2.75F);
@@ -1465,13 +1465,13 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide17_r3.cubeList.add(new ModelBox(slide17_r3, 118, 0, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide18_r1 = new ModelRenderer(this);
-        slide18_r1.setRotationPoint(1.0F, -38.2F, -1.75F);
+        slide18_r1.setRotationPoint(1, -38.2F, -1.75F);
         G19rockslide.addChild(slide18_r1);
         setRotationAngle(slide18_r1, 0.0F, 1.2043F, 0.0F);
-        slide18_r1.cubeList.add(new ModelBox(slide18_r1, 31, 131, -2.0F, 0.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        slide18_r1.cubeList.add(new ModelBox(slide18_r1, 31, 131, -2.0F, 0.0F, -1, 2, 1, 1, 0.0F, false));
 
         slide19_r3 = new ModelRenderer(this);
-        slide19_r3.setRotationPoint(1.0F, -38.2F, -2.75F);
+        slide19_r3.setRotationPoint(1, -38.2F, -2.75F);
         G19rockslide.addChild(slide19_r3);
         setRotationAngle(slide19_r3, 0.0F, -1.2043F, 0.0F);
         slide19_r3.cubeList.add(new ModelBox(slide19_r3, 29, 135, -2.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
@@ -1480,8 +1480,8 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide57_r4.setRotationPoint(-2.4F, -38.1F, -28.5F);
         G19rockslide.addChild(slide57_r4);
         setRotationAngle(slide57_r4, 0.0F, 0.0F, -0.6545F);
-        slide57_r4.cubeList.add(new ModelBox(slide57_r4, 147, 88, -1.0F, 0.0F, 18.0F, 1, 1, 12, -0.001F, false));
-        slide57_r4.cubeList.add(new ModelBox(slide57_r4, 48, 141, -1.0F, 0.0F, 29.5F, 1, 1, 1, 0.0F, false));
+        slide57_r4.cubeList.add(new ModelBox(slide57_r4, 147, 88, -1, 0.0F, 18.0F, 1, 1, 12, -0.001F, false));
+        slide57_r4.cubeList.add(new ModelBox(slide57_r4, 48, 141, -1, 0.0F, 29.5F, 1, 1, 1, 0.0F, false));
 
         slide55_r1 = new ModelRenderer(this);
         slide55_r1.setRotationPoint(0.4F, -38.1F, -28.5F);
@@ -1512,7 +1512,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide27_r1.cubeList.add(new ModelBox(slide27_r1, 122, 97, 3.151F, -0.25F, -0.75F, 1, 4, 1, -0.25F, false));
 
         slide29_r3 = new ModelRenderer(this);
-        slide29_r3.setRotationPoint(-2.7F, -37.5F, 1.0F);
+        slide29_r3.setRotationPoint(-2.7F, -37.5F, 1);
         G19rockslide.addChild(slide29_r3);
         setRotationAngle(slide29_r3, 0.192F, 0.0F, 0.0F);
         slide29_r3.cubeList.add(new ModelBox(slide29_r3, 109, 117, -0.75F, -0.25F, -0.75F, 1, 4, 1, -0.25F, false));
@@ -1550,31 +1550,31 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide24_r2.setRotationPoint(-0.5F, -36.501F, 0.55F);
         G19rockslide.addChild(slide24_r2);
         setRotationAngle(slide24_r2, -0.7854F, 0.0F, 0.0F);
-        slide24_r2.cubeList.add(new ModelBox(slide24_r2, 124, 7, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide24_r2.cubeList.add(new ModelBox(slide24_r2, 124, 7, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide23_r3 = new ModelRenderer(this);
         slide23_r3.setRotationPoint(-0.5F, -36.301F, 0.55F);
         G19rockslide.addChild(slide23_r3);
         setRotationAngle(slide23_r3, -0.7854F, 0.0F, 0.0F);
-        slide23_r3.cubeList.add(new ModelBox(slide23_r3, 124, 9, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide23_r3.cubeList.add(new ModelBox(slide23_r3, 124, 9, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide22_r3 = new ModelRenderer(this);
         slide22_r3.setRotationPoint(-0.5F, -35.901F, 0.55F);
         G19rockslide.addChild(slide22_r3);
         setRotationAngle(slide22_r3, -0.7854F, 0.0F, 0.0F);
-        slide22_r3.cubeList.add(new ModelBox(slide22_r3, 124, 11, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide22_r3.cubeList.add(new ModelBox(slide22_r3, 124, 11, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide22_r4 = new ModelRenderer(this);
         slide22_r4.setRotationPoint(-0.5F, -36.101F, 0.55F);
         G19rockslide.addChild(slide22_r4);
         setRotationAngle(slide22_r4, -0.7854F, 0.0F, 0.0F);
-        slide22_r4.cubeList.add(new ModelBox(slide22_r4, 124, 14, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide22_r4.cubeList.add(new ModelBox(slide22_r4, 124, 14, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide21_r5 = new ModelRenderer(this);
         slide21_r5.setRotationPoint(-0.5F, -35.701F, 0.55F);
         G19rockslide.addChild(slide21_r5);
         setRotationAngle(slide21_r5, -0.7854F, 0.0F, 0.0F);
-        slide21_r5.cubeList.add(new ModelBox(slide21_r5, 54, 125, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide21_r5.cubeList.add(new ModelBox(slide21_r5, 54, 125, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide25_r3 = new ModelRenderer(this);
         slide25_r3.setRotationPoint(1.201F, -36.25F, -38.5F);
@@ -1612,13 +1612,13 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide19_r4.setRotationPoint(0.4F, -38.1F, -23.5F);
         G19rockslide.addChild(slide19_r4);
         setRotationAngle(slide19_r4, 0.0F, 0.9076F, 0.0F);
-        slide19_r4.cubeList.add(new ModelBox(slide19_r4, 58, 66, -1.0F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        slide19_r4.cubeList.add(new ModelBox(slide19_r4, 58, 66, -1, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
 
         slide18_r2 = new ModelRenderer(this);
-        slide18_r2.setRotationPoint(0.4F, -38.1F, -21.0F);
+        slide18_r2.setRotationPoint(0.4F, -38.1F, -21);
         G19rockslide.addChild(slide18_r2);
         setRotationAngle(slide18_r2, 0.0F, 0.9076F, 0.0F);
-        slide18_r2.cubeList.add(new ModelBox(slide18_r2, 24, 71, -1.0F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        slide18_r2.cubeList.add(new ModelBox(slide18_r2, 24, 71, -1, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
 
         slide20_r3 = new ModelRenderer(this);
         slide20_r3.setRotationPoint(-2.4F, -38.1F, -23.5F);
@@ -1627,7 +1627,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide20_r3.cubeList.add(new ModelBox(slide20_r3, 15, 65, 0.0F, -0.001F, -2.0F, 1, 1, 2, 0.0F, false));
 
         slide19_r5 = new ModelRenderer(this);
-        slide19_r5.setRotationPoint(-2.4F, -38.1F, -21.0F);
+        slide19_r5.setRotationPoint(-2.4F, -38.1F, -21);
         G19rockslide.addChild(slide19_r5);
         setRotationAngle(slide19_r5, 0.0F, -0.9076F, 0.0F);
         slide19_r5.cubeList.add(new ModelBox(slide19_r5, 23, 65, 0.0F, -0.001F, -2.0F, 1, 1, 2, 0.0F, false));
@@ -1642,7 +1642,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide17_r5.setRotationPoint(0.4F, -38.1F, -18.5F);
         G19rockslide.addChild(slide17_r5);
         setRotationAngle(slide17_r5, 0.0F, 0.9076F, 0.0F);
-        slide17_r5.cubeList.add(new ModelBox(slide17_r5, 90, 28, -1.0F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        slide17_r5.cubeList.add(new ModelBox(slide17_r5, 90, 28, -1, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
 
         G19ghostprecisionslide = new ModelRenderer(this);
         G19ghostprecisionslide.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -1670,11 +1670,11 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 89, 102, -3.099F, -35.001F, -27.5F, 1, 1, 8, 0.0F, false));
         G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 69, 102, 0.101F, -35.001F, -27.5F, 1, 1, 8, 0.0F, false));
         G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 35, 93, -3.199F, -37.001F, -19.5F, 1, 3, 4, 0.0F, false));
-        G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 52, 79, -3.199F, -37.001F, 1.0F, 1, 3, 1, 0.0F, false));
+        G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 52, 79, -3.199F, -37.001F, 1, 1, 3, 1, 0.0F, false));
         G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 139, 55, -3.099F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
         G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 138, 117, -1.5F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
         G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 137, 37, 0.101F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
-        G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 78, 32, 0.2F, -37.001F, 1.0F, 1, 3, 1, 0.0F, false));
+        G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 78, 32, 0.2F, -37.001F, 1, 1, 3, 1, 0.0F, false));
         G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 0, 149, -3.199F, -36.001F, -15.5F, 1, 2, 11, 0.0F, false));
         G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 47, 103, -3.2F, -36.201F, -10.5F, 1, 1, 3, 0.0F, false));
         G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 34, 136, -0.6F, -38.1F, 1.002F, 1, 1, 1, 0.0F, false));
@@ -1696,16 +1696,16 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 58, 81, -2.5F, -38.201F, -4.75F, 3, 1, 5, 0.0F, false));
 
         slide18_r4 = new ModelRenderer(this);
-        slide18_r4.setRotationPoint(1.0F, -38.2F, -2.75F);
+        slide18_r4.setRotationPoint(1, -38.2F, -2.75F);
         G19ghostprecisionslide.addChild(slide18_r4);
         setRotationAngle(slide18_r4, 0.0F, -1.2043F, 0.0F);
         slide18_r4.cubeList.add(new ModelBox(slide18_r4, 135, 44, -2.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         slide17_r6 = new ModelRenderer(this);
-        slide17_r6.setRotationPoint(1.0F, -38.2F, -1.75F);
+        slide17_r6.setRotationPoint(1, -38.2F, -1.75F);
         G19ghostprecisionslide.addChild(slide17_r6);
         setRotationAngle(slide17_r6, 0.0F, 1.2043F, 0.0F);
-        slide17_r6.cubeList.add(new ModelBox(slide17_r6, 135, 46, -2.0F, 0.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        slide17_r6.cubeList.add(new ModelBox(slide17_r6, 135, 46, -2.0F, 0.0F, -1, 2, 1, 1, 0.0F, false));
 
         slide16_r6 = new ModelRenderer(this);
         slide16_r6.setRotationPoint(0.0F, -38.3F, -2.95F);
@@ -1717,7 +1717,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide15_r4.setRotationPoint(-2.0F, -38.3F, -2.95F);
         G19ghostprecisionslide.addChild(slide15_r4);
         setRotationAngle(slide15_r4, 0.0F, 0.5411F, 0.0F);
-        slide15_r4.cubeList.add(new ModelBox(slide15_r4, 127, 32, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide15_r4.cubeList.add(new ModelBox(slide15_r4, 127, 32, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide15_r5 = new ModelRenderer(this);
         slide15_r5.setRotationPoint(-3.0F, -38.2F, -2.75F);
@@ -1729,15 +1729,15 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide16_r7.setRotationPoint(-3.0F, -38.2F, -1.75F);
         G19ghostprecisionslide.addChild(slide16_r7);
         setRotationAngle(slide16_r7, 0.0F, -1.2043F, 0.0F);
-        slide16_r7.cubeList.add(new ModelBox(slide16_r7, 131, 135, 0.0F, 0.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        slide16_r7.cubeList.add(new ModelBox(slide16_r7, 131, 135, 0.0F, 0.0F, -1, 2, 1, 1, 0.0F, false));
 
         slide59_r2 = new ModelRenderer(this);
         slide59_r2.setRotationPoint(-2.4F, -38.1F, -46.5F);
         G19ghostprecisionslide.addChild(slide59_r2);
         setRotationAngle(slide59_r2, 0.0F, 0.0F, -0.6545F);
-        slide59_r2.cubeList.add(new ModelBox(slide59_r2, 132, 97, -1.0F, 0.0F, 18.0F, 1, 1, 13, -0.001F, false));
-        slide59_r2.cubeList.add(new ModelBox(slide59_r2, 86, 147, -1.0F, 0.0F, 36.0F, 1, 1, 12, -0.001F, false));
-        slide59_r2.cubeList.add(new ModelBox(slide59_r2, 78, 133, -1.0F, 0.0F, 47.5F, 1, 1, 1, 0.0F, false));
+        slide59_r2.cubeList.add(new ModelBox(slide59_r2, 132, 97, -1, 0.0F, 18.0F, 1, 1, 13, -0.001F, false));
+        slide59_r2.cubeList.add(new ModelBox(slide59_r2, 86, 147, -1, 0.0F, 36.0F, 1, 1, 12, -0.001F, false));
+        slide59_r2.cubeList.add(new ModelBox(slide59_r2, 78, 133, -1, 0.0F, 47.5F, 1, 1, 1, 0.0F, false));
 
         slide56_r2 = new ModelRenderer(this);
         slide56_r2.setRotationPoint(0.4F, -38.1F, -28.5F);
@@ -1883,35 +1883,35 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide25_r5.setRotationPoint(-0.5F, -36.501F, 0.55F);
         G19ghostprecisionslide.addChild(slide25_r5);
         setRotationAngle(slide25_r5, -0.7854F, 0.0F, 0.0F);
-        slide25_r5.cubeList.add(new ModelBox(slide25_r5, 48, 122, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide25_r5.cubeList.add(new ModelBox(slide25_r5, 48, 122, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide24_r4 = new ModelRenderer(this);
         slide24_r4.setRotationPoint(-0.5F, -36.301F, 0.55F);
         G19ghostprecisionslide.addChild(slide24_r4);
         setRotationAngle(slide24_r4, -0.7854F, 0.0F, 0.0F);
-        slide24_r4.cubeList.add(new ModelBox(slide24_r4, 122, 56, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide24_r4.cubeList.add(new ModelBox(slide24_r4, 122, 56, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide23_r4 = new ModelRenderer(this);
         slide23_r4.setRotationPoint(-0.5F, -35.901F, 0.55F);
         G19ghostprecisionslide.addChild(slide23_r4);
         setRotationAngle(slide23_r4, -0.7854F, 0.0F, 0.0F);
-        slide23_r4.cubeList.add(new ModelBox(slide23_r4, 59, 122, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide23_r4.cubeList.add(new ModelBox(slide23_r4, 59, 122, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide23_r5 = new ModelRenderer(this);
         slide23_r5.setRotationPoint(-0.5F, -36.101F, 0.55F);
         G19ghostprecisionslide.addChild(slide23_r5);
         setRotationAngle(slide23_r5, -0.7854F, 0.0F, 0.0F);
-        slide23_r5.cubeList.add(new ModelBox(slide23_r5, 123, 117, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide23_r5.cubeList.add(new ModelBox(slide23_r5, 123, 117, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide22_r5 = new ModelRenderer(this);
         slide22_r5.setRotationPoint(-0.5F, -35.701F, 0.55F);
         G19ghostprecisionslide.addChild(slide22_r5);
         setRotationAngle(slide22_r5, -0.7854F, 0.0F, 0.0F);
-        slide22_r5.cubeList.add(new ModelBox(slide22_r5, 124, 3, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide22_r5.cubeList.add(new ModelBox(slide22_r5, 124, 3, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         G19Xbody = new ModelRenderer(this);
         G19Xbody.setRotationPoint(0.0F, 24.0F, 0.0F);
-        G19Xbody.cubeList.add(new ModelBox(G19Xbody, 112, 78, -2.999F, -31.0F, -6.8F, 4, 1, 4, 0.0F, false));
+        G19Xbody.cubeList.add(new ModelBox(G19Xbody, 112, 78, -2.999F, -31, -6.8F, 4, 1, 4, 0.0F, false));
         G19Xbody.cubeList.add(new ModelBox(G19Xbody, 100, 21, -2.5F, -17.5F, -4.8F, 3, 1, 2, 0.0F, false));
         G19Xbody.cubeList.add(new ModelBox(G19Xbody, 147, 101, -3.001F, -19.5F, -3.7F, 4, 3, 6, 0.0F, false));
         G19Xbody.cubeList.add(new ModelBox(G19Xbody, 100, 49, -2.999F, -20.0F, 1.9F, 4, 2, 1, 0.0F, false));
@@ -1947,10 +1947,10 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun32_r2.cubeList.add(new ModelBox(gun32_r2, 111, 78, 0.0F, 0.0F, 0.0F, 2, 2, 17, 0.0F, false));
 
         gun111_r12 = new ModelRenderer(this);
-        gun111_r12.setRotationPoint(1.0F, -33.7F, -28.4F);
+        gun111_r12.setRotationPoint(1, -33.7F, -28.4F);
         G19Xbody.addChild(gun111_r12);
         setRotationAngle(gun111_r12, 0.0F, 0.0F, 0.9774F);
-        gun111_r12.cubeList.add(new ModelBox(gun111_r12, 47, 93, -1.0F, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        gun111_r12.cubeList.add(new ModelBox(gun111_r12, 47, 93, -1, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
 
         gun110_r7 = new ModelRenderer(this);
         gun110_r7.setRotationPoint(-3.0F, -33.7F, -28.4F);
@@ -1962,19 +1962,19 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun114_r2.setRotationPoint(-1.3F, -32.2F, -27.4F);
         G19Xbody.addChild(gun114_r2);
         setRotationAngle(gun114_r2, 0.0F, 0.0F, -0.7854F);
-        gun114_r2.cubeList.add(new ModelBox(gun114_r2, 93, 58, -1.0F, -1.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        gun114_r2.cubeList.add(new ModelBox(gun114_r2, 93, 58, -1, -1, 0.0F, 1, 1, 8, 0.0F, false));
 
         gun113_r3 = new ModelRenderer(this);
         gun113_r3.setRotationPoint(0.7F, -32.2F, -27.4F);
         G19Xbody.addChild(gun113_r3);
         setRotationAngle(gun113_r3, 0.0F, 0.0F, -0.7854F);
-        gun113_r3.cubeList.add(new ModelBox(gun113_r3, 93, 67, -1.0F, -1.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        gun113_r3.cubeList.add(new ModelBox(gun113_r3, 93, 67, -1, -1, 0.0F, 1, 1, 8, 0.0F, false));
 
         gun112_r8 = new ModelRenderer(this);
         gun112_r8.setRotationPoint(0.8F, -33.0F, -28.4F);
         G19Xbody.addChild(gun112_r8);
         setRotationAngle(gun112_r8, 0.0F, 0.0F, -0.7854F);
-        gun112_r8.cubeList.add(new ModelBox(gun112_r8, 48, 115, -1.0F, -1.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        gun112_r8.cubeList.add(new ModelBox(gun112_r8, 48, 115, -1, -1, 0.0F, 1, 1, 9, 0.0F, false));
 
         gun111_r13 = new ModelRenderer(this);
         gun111_r13.setRotationPoint(-2.8F, -33.0F, -28.4F);
@@ -1986,13 +1986,13 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun112_r9.setRotationPoint(0.0F, -31.53F, -27.8F);
         G19Xbody.addChild(gun112_r9);
         setRotationAngle(gun112_r9, 0.6632F, 0.0F, 0.0F);
-        gun112_r9.cubeList.add(new ModelBox(gun112_r9, 84, 68, -2.0F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun112_r9.cubeList.add(new ModelBox(gun112_r9, 84, 68, -2.0F, -1, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun111_r14 = new ModelRenderer(this);
         gun111_r14.setRotationPoint(0.0F, -31.3F, -26.8F);
         G19Xbody.addChild(gun111_r14);
         setRotationAngle(gun111_r14, 1.3439F, 0.0F, 0.0F);
-        gun111_r14.cubeList.add(new ModelBox(gun111_r14, 84, 88, -2.0F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun111_r14.cubeList.add(new ModelBox(gun111_r14, 84, 88, -2.0F, -1, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun112_r10 = new ModelRenderer(this);
         gun112_r10.setRotationPoint(1.501F, -31.2F, -19.5F);
@@ -2010,13 +2010,13 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun112_r11.setRotationPoint(-2.999F, -31.8F, -19.4F);
         G19Xbody.addChild(gun112_r11);
         setRotationAngle(gun112_r11, 0.0F, -0.7854F, 0.0F);
-        gun112_r11.cubeList.add(new ModelBox(gun112_r11, 8, 37, 0.0F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        gun112_r11.cubeList.add(new ModelBox(gun112_r11, 8, 37, 0.0F, -2.0F, -1, 1, 2, 1, 0.0F, false));
 
         gun111_r16 = new ModelRenderer(this);
         gun111_r16.setRotationPoint(1.001F, -31.8F, -19.4F);
         G19Xbody.addChild(gun111_r16);
         setRotationAngle(gun111_r16, 0.0F, -0.7854F, 0.0F);
-        gun111_r16.cubeList.add(new ModelBox(gun111_r16, 25, 37, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun111_r16.cubeList.add(new ModelBox(gun111_r16, 25, 37, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun112_r12 = new ModelRenderer(this);
         gun112_r12.setRotationPoint(0.501F, -29.8F, -15.6F);
@@ -2028,7 +2028,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun112_r13.setRotationPoint(1.101F, -32.85F, -7.5F);
         G19Xbody.addChild(gun112_r13);
         setRotationAngle(gun112_r13, 0.0F, 0.0F, 0.192F);
-        gun112_r13.cubeList.add(new ModelBox(gun112_r13, 55, 32, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun112_r13.cubeList.add(new ModelBox(gun112_r13, 55, 32, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun40_r2 = new ModelRenderer(this);
         gun40_r2.setRotationPoint(-3.0F, -30.9F, -10.7F);
@@ -2058,7 +2058,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun93_r4.setRotationPoint(0.5F, -27.5F, -16.5F);
         G19Xbody.addChild(gun93_r4);
         setRotationAngle(gun93_r4, -0.4538F, 0.0F, 0.0F);
-        gun93_r4.cubeList.add(new ModelBox(gun93_r4, 107, 93, -3.0F, -1.0F, 0.0F, 3, 1, 1, -0.002F, false));
+        gun93_r4.cubeList.add(new ModelBox(gun93_r4, 107, 93, -3.0F, -1, 0.0F, 3, 1, 1, -0.002F, false));
 
         gun93_r5 = new ModelRenderer(this);
         gun93_r5.setRotationPoint(0.501F, -26.5F, -9.5F);
@@ -2086,31 +2086,31 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun158_r2.cubeList.add(new ModelBox(gun158_r2, 23, 62, -2.6F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun11_r6 = new ModelRenderer(this);
-        gun11_r6.setRotationPoint(1.0F, -30.0F, -8.5F);
+        gun11_r6.setRotationPoint(1, -30.0F, -8.5F);
         G19Xbody.addChild(gun11_r6);
         setRotationAngle(gun11_r6, -0.5585F, 0.0F, 0.0F);
-        gun11_r6.cubeList.add(new ModelBox(gun11_r6, 79, 81, -3.999F, -1.0F, 0.0F, 4, 1, 1, 0.0F, false));
+        gun11_r6.cubeList.add(new ModelBox(gun11_r6, 79, 81, -3.999F, -1, 0.0F, 4, 1, 1, 0.0F, false));
 
         gun13_r8 = new ModelRenderer(this);
-        gun13_r8.setRotationPoint(1.0F, -31.7F, -1.4F);
+        gun13_r8.setRotationPoint(1, -31.7F, -1.4F);
         G19Xbody.addChild(gun13_r8);
         setRotationAngle(gun13_r8, -1.0647F, 0.0F, 0.0F);
-        gun13_r8.cubeList.add(new ModelBox(gun13_r8, 113, 72, -4.0F, -3.0F, -1.0F, 4, 3, 1, -0.003F, false));
+        gun13_r8.cubeList.add(new ModelBox(gun13_r8, 113, 72, -4.0F, -3.0F, -1, 4, 3, 1, -0.003F, false));
 
         gun14_r6 = new ModelRenderer(this);
-        gun14_r6.setRotationPoint(1.0F, -33.0F, 2.25F);
+        gun14_r6.setRotationPoint(1, -33.0F, 2.25F);
         G19Xbody.addChild(gun14_r6);
         setRotationAngle(gun14_r6, 0.1745F, 0.0F, 0.0F);
-        gun14_r6.cubeList.add(new ModelBox(gun14_r6, 49, 26, -4.001F, -1.0F, -2.0F, 4, 1, 2, 0.0F, false));
+        gun14_r6.cubeList.add(new ModelBox(gun14_r6, 49, 26, -4.001F, -1, -2.0F, 4, 1, 2, 0.0F, false));
 
         gun14_r7 = new ModelRenderer(this);
-        gun14_r7.setRotationPoint(1.0F, -34.0F, 2.25F);
+        gun14_r7.setRotationPoint(1, -34.0F, 2.25F);
         G19Xbody.addChild(gun14_r7);
         setRotationAngle(gun14_r7, 1.0123F, 0.0F, 0.0F);
-        gun14_r7.cubeList.add(new ModelBox(gun14_r7, 0, 90, -4.001F, -1.0F, -1.0F, 4, 1, 1, 0.0F, false));
+        gun14_r7.cubeList.add(new ModelBox(gun14_r7, 0, 90, -4.001F, -1, -1, 4, 1, 1, 0.0F, false));
 
         gun15_r2 = new ModelRenderer(this);
-        gun15_r2.setRotationPoint(0.5F, -31.0F, -0.45F);
+        gun15_r2.setRotationPoint(0.5F, -31, -0.45F);
         G19Xbody.addChild(gun15_r2);
         setRotationAngle(gun15_r2, 0.1396F, 0.0F, 0.0F);
         gun15_r2.cubeList.add(new ModelBox(gun15_r2, 46, 63, -2.999F, 0.0F, -2.0F, 3, 4, 2, 0.0F, false));
@@ -2119,7 +2119,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun14_r8.setRotationPoint(0.5F, -33.0F, 2.25F);
         G19Xbody.addChild(gun14_r8);
         setRotationAngle(gun14_r8, 0.5236F, 0.0F, 0.0F);
-        gun14_r8.cubeList.add(new ModelBox(gun14_r8, 64, 52, -3.0F, -1.0F, -3.0F, 3, 1, 3, 0.0F, false));
+        gun14_r8.cubeList.add(new ModelBox(gun14_r8, 64, 52, -3.0F, -1, -3.0F, 3, 1, 3, 0.0F, false));
 
         gun12_r6 = new ModelRenderer(this);
         gun12_r6.setRotationPoint(0.5F, -30.0F, -0.8F);
@@ -2128,7 +2128,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun12_r6.cubeList.add(new ModelBox(gun12_r6, 21, 116, -3.001F, -3.0F, -2.0F, 3, 3, 2, 0.0F, false));
 
         gun11_r7 = new ModelRenderer(this);
-        gun11_r7.setRotationPoint(1.0F, -30.0F, -1.8F);
+        gun11_r7.setRotationPoint(1, -30.0F, -1.8F);
         G19Xbody.addChild(gun11_r7);
         setRotationAngle(gun11_r7, -0.576F, 0.0F, 0.0F);
         gun11_r7.cubeList.add(new ModelBox(gun11_r7, 0, 69, -4.0F, -3.0F, -2.0F, 4, 3, 2, -0.002F, false));
@@ -2149,7 +2149,7 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun13_r9.setRotationPoint(0.501F, -20.0F, 3.9F);
         G19Xbody.addChild(gun13_r9);
         setRotationAngle(gun13_r9, 0.4712F, 0.0F, 0.0F);
-        gun13_r9.cubeList.add(new ModelBox(gun13_r9, 32, 48, -3.0F, -9.0F, -1.0F, 3, 9, 1, 0.0F, false));
+        gun13_r9.cubeList.add(new ModelBox(gun13_r9, 32, 48, -3.0F, -9.0F, -1, 3, 9, 1, 0.0F, false));
 
         gun13_r10 = new ModelRenderer(this);
         gun13_r10.setRotationPoint(0.501F, -18.0F, 3.9F);
@@ -2161,14 +2161,14 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         gun14_r9.setRotationPoint(-1.699F, -17.8F, 2.5F);
         G19Xbody.addChild(gun14_r9);
         setRotationAngle(gun14_r9, -0.4014F, 0.0F, 0.0F);
-        gun14_r9.cubeList.add(new ModelBox(gun14_r9, 26, 80, -1.001F, 0.0F, -1.0F, 1, 1, 1, 0.3F, false));
-        gun14_r9.cubeList.add(new ModelBox(gun14_r9, 42, 83, 1.399F, 0.0F, -1.0F, 1, 1, 1, 0.3F, false));
+        gun14_r9.cubeList.add(new ModelBox(gun14_r9, 26, 80, -1.001F, 0.0F, -1, 1, 1, 1, 0.3F, false));
+        gun14_r9.cubeList.add(new ModelBox(gun14_r9, 42, 83, 1.399F, 0.0F, -1, 1, 1, 1, 0.3F, false));
 
         gun11_r8 = new ModelRenderer(this);
         gun11_r8.setRotationPoint(-5.1F, -31.45F, -8.8F);
         G19Xbody.addChild(gun11_r8);
         setRotationAngle(gun11_r8, 0.3543F, 0.0F, 0.0F);
-        gun11_r8.cubeList.add(new ModelBox(gun11_r8, 9, 87, 2.0F, 3.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        gun11_r8.cubeList.add(new ModelBox(gun11_r8, 9, 87, 2.0F, 3.0F, 1, 1, 1, 1, 0.0F, false));
 
         gun10_r7 = new ModelRenderer(this);
         gun10_r7.setRotationPoint(-1.9F, -31.35F, -8.6F);
@@ -2230,11 +2230,11 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         G19Xslide.cubeList.add(new ModelBox(G19Xslide, 93, 61, -3.2F, -37.501F, -7.5F, 1, 2, 3, 0.0F, false));
         G19Xslide.cubeList.add(new ModelBox(G19Xslide, 32, 63, 0.201F, -37.001F, -28.5F, 1, 3, 24, 0.0F, false));
         G19Xslide.cubeList.add(new ModelBox(G19Xslide, 32, 0, -3.199F, -37.001F, -28.5F, 1, 3, 13, 0.0F, false));
-        G19Xslide.cubeList.add(new ModelBox(G19Xslide, 8, 52, -3.199F, -37.001F, 1.0F, 1, 3, 1, 0.0F, false));
+        G19Xslide.cubeList.add(new ModelBox(G19Xslide, 8, 52, -3.199F, -37.001F, 1, 1, 3, 1, 0.0F, false));
         G19Xslide.cubeList.add(new ModelBox(G19Xslide, 74, 58, -3.099F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
         G19Xslide.cubeList.add(new ModelBox(G19Xslide, 73, 52, -1.5F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
         G19Xslide.cubeList.add(new ModelBox(G19Xslide, 69, 67, 0.101F, -35.901F, 0.9F, 1, 1, 1, -0.001F, false));
-        G19Xslide.cubeList.add(new ModelBox(G19Xslide, 0, 52, 0.2F, -37.001F, 1.0F, 1, 3, 1, 0.0F, false));
+        G19Xslide.cubeList.add(new ModelBox(G19Xslide, 0, 52, 0.2F, -37.001F, 1, 1, 3, 1, 0.0F, false));
         G19Xslide.cubeList.add(new ModelBox(G19Xslide, 55, 0, 0.45F, -37.75F, -0.25F, 1, 4, 1, -0.25F, false));
         G19Xslide.cubeList.add(new ModelBox(G19Xslide, 47, 32, -3.45F, -37.75F, -0.25F, 1, 4, 1, -0.25F, false));
         G19Xslide.cubeList.add(new ModelBox(G19Xslide, 47, 0, -3.45F, -37.75F, -2.25F, 1, 4, 1, -0.25F, false));
@@ -2257,9 +2257,9 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide57_r5.setRotationPoint(-2.4F, -38.1F, -28.5F);
         G19Xslide.addChild(slide57_r5);
         setRotationAngle(slide57_r5, 0.0F, 0.0F, -0.6545F);
-        slide57_r5.cubeList.add(new ModelBox(slide57_r5, 146, 146, -1.0F, 0.0F, 18.0F, 1, 1, 12, -0.001F, false));
-        slide57_r5.cubeList.add(new ModelBox(slide57_r5, 0, 62, -1.0F, 0.0F, 0.0F, 1, 1, 13, -0.001F, false));
-        slide57_r5.cubeList.add(new ModelBox(slide57_r5, 39, 57, -1.0F, 0.0F, 29.5F, 1, 1, 1, 0.0F, false));
+        slide57_r5.cubeList.add(new ModelBox(slide57_r5, 146, 146, -1, 0.0F, 18.0F, 1, 1, 12, -0.001F, false));
+        slide57_r5.cubeList.add(new ModelBox(slide57_r5, 0, 62, -1, 0.0F, 0.0F, 1, 1, 13, -0.001F, false));
+        slide57_r5.cubeList.add(new ModelBox(slide57_r5, 39, 57, -1, 0.0F, 29.5F, 1, 1, 1, 0.0F, false));
 
         slide55_r2 = new ModelRenderer(this);
         slide55_r2.setRotationPoint(0.4F, -38.1F, -28.5F);
@@ -2272,31 +2272,31 @@ public class Glock19GhostPrecisionSlide extends ModelWithAttachments {
         slide24_r5.setRotationPoint(-0.5F, -36.501F, 0.55F);
         G19Xslide.addChild(slide24_r5);
         setRotationAngle(slide24_r5, -0.7854F, 0.0F, 0.0F);
-        slide24_r5.cubeList.add(new ModelBox(slide24_r5, 93, 73, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide24_r5.cubeList.add(new ModelBox(slide24_r5, 93, 73, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide23_r6 = new ModelRenderer(this);
         slide23_r6.setRotationPoint(-0.5F, -36.301F, 0.55F);
         G19Xslide.addChild(slide23_r6);
         setRotationAngle(slide23_r6, -0.7854F, 0.0F, 0.0F);
-        slide23_r6.cubeList.add(new ModelBox(slide23_r6, 69, 99, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide23_r6.cubeList.add(new ModelBox(slide23_r6, 69, 99, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide22_r6 = new ModelRenderer(this);
         slide22_r6.setRotationPoint(-0.5F, -35.901F, 0.55F);
         G19Xslide.addChild(slide22_r6);
         setRotationAngle(slide22_r6, -0.7854F, 0.0F, 0.0F);
-        slide22_r6.cubeList.add(new ModelBox(slide22_r6, 79, 99, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide22_r6.cubeList.add(new ModelBox(slide22_r6, 79, 99, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide22_r7 = new ModelRenderer(this);
         slide22_r7.setRotationPoint(-0.5F, -36.101F, 0.55F);
         G19Xslide.addChild(slide22_r7);
         setRotationAngle(slide22_r7, -0.7854F, 0.0F, 0.0F);
-        slide22_r7.cubeList.add(new ModelBox(slide22_r7, 35, 100, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide22_r7.cubeList.add(new ModelBox(slide22_r7, 35, 100, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         slide21_r6 = new ModelRenderer(this);
         slide21_r6.setRotationPoint(-0.5F, -35.701F, 0.55F);
         G19Xslide.addChild(slide21_r6);
         setRotationAngle(slide21_r6, -0.7854F, 0.0F, 0.0F);
-        slide21_r6.cubeList.add(new ModelBox(slide21_r6, 103, 90, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        slide21_r6.cubeList.add(new ModelBox(slide21_r6, 103, 90, -2.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
     }
 
     @Override

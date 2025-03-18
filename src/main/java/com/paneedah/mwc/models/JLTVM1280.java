@@ -168,7 +168,7 @@ public class JLTVM1280 extends ModelBase {
         textureHeight = 512;
 
         interior = new ModelRenderer(this);
-        interior.setRotationPoint(0.0F, 1.0F, 21.0F);
+        interior.setRotationPoint(0.0F, 1, 21);
 
 
         steering_wheel = new ModelRenderer(this);
@@ -211,25 +211,25 @@ public class JLTVM1280 extends ModelBase {
         bone116.setRotationPoint(-20.0F, -32.0F, 32.7F);
         steering_wheel.addChild(bone116);
         setRotationAngle(bone116, 0.2269F, -0.1745F, 1.2217F);
-        bone116.cubeList.add(new ModelBox(bone116, 0, 109, 0.0F, -1.0F, 0.0F, 2, 7, 2, 0.0F, false));
+        bone116.cubeList.add(new ModelBox(bone116, 0, 109, 0.0F, -1, 0.0F, 2, 7, 2, 0.0F, false));
 
         bone117 = new ModelRenderer(this);
         bone117.setRotationPoint(-18.5F, -20.0F, 37.3F);
         steering_wheel.addChild(bone117);
         setRotationAngle(bone117, -0.0698F, 0.4189F, -1.8151F);
-        bone117.cubeList.add(new ModelBox(bone117, 159, 25, -2.0F, -1.0F, 0.0F, 2, 6, 2, 0.0F, false));
+        bone117.cubeList.add(new ModelBox(bone117, 159, 25, -2.0F, -1, 0.0F, 2, 6, 2, 0.0F, false));
 
         bone118 = new ModelRenderer(this);
         bone118.setRotationPoint(-19.5F, -20.0F, 37.3F);
         steering_wheel.addChild(bone118);
         setRotationAngle(bone118, -0.0698F, -0.4189F, 1.8151F);
-        bone118.cubeList.add(new ModelBox(bone118, 189, 178, 0.0F, -1.0F, 0.0F, 2, 6, 2, 0.0F, false));
+        bone118.cubeList.add(new ModelBox(bone118, 189, 178, 0.0F, -1, 0.0F, 2, 6, 2, 0.0F, false));
 
         bone115 = new ModelRenderer(this);
         bone115.setRotationPoint(-18.0F, -32.0F, 32.7F);
         steering_wheel.addChild(bone115);
         setRotationAngle(bone115, 0.2269F, 0.1745F, -1.2217F);
-        bone115.cubeList.add(new ModelBox(bone115, 148, 109, -2.0F, -1.0F, 0.0F, 2, 7, 2, 0.0F, false));
+        bone115.cubeList.add(new ModelBox(bone115, 148, 109, -2.0F, -1, 0.0F, 2, 7, 2, 0.0F, false));
 
         bone114 = new ModelRenderer(this);
         bone114.setRotationPoint(-24.5F, -24.0F, 35.9F);
@@ -344,25 +344,25 @@ public class JLTVM1280 extends ModelBase {
         cube_r10.setRotationPoint(-4.0792F, 7.6274F, 5.4824F);
         backseats.addChild(cube_r10);
         setRotationAngle(cube_r10, 0.0F, 0.0F, -0.48F);
-        cube_r10.cubeList.add(new ModelBox(cube_r10, 205, 63, -1.0F, -0.5F, -6.0F, 2, 1, 13, 0.0F, false));
+        cube_r10.cubeList.add(new ModelBox(cube_r10, 205, 63, -1, -0.5F, -6.0F, 2, 1, 13, 0.0F, false));
 
         cube_r11 = new ModelRenderer(this);
         cube_r11.setRotationPoint(17.4208F, 7.6274F, 5.4824F);
         backseats.addChild(cube_r11);
         setRotationAngle(cube_r11, 0.0F, 0.0F, -0.48F);
-        cube_r11.cubeList.add(new ModelBox(cube_r11, 447, 394, -1.0F, -0.5F, -7.0F, 2, 1, 14, 0.0F, false));
+        cube_r11.cubeList.add(new ModelBox(cube_r11, 447, 394, -1, -0.5F, -7.0F, 2, 1, 14, 0.0F, false));
 
         cube_r12 = new ModelRenderer(this);
         cube_r12.setRotationPoint(-17.2669F, 7.6274F, 5.4824F);
         backseats.addChild(cube_r12);
         setRotationAngle(cube_r12, 0.0F, 0.0F, 0.48F);
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 399, 447, -1.0F, -0.5F, -7.0F, 2, 1, 14, 0.0F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 399, 447, -1, -0.5F, -7.0F, 2, 1, 14, 0.0F, false));
 
         cube_r13 = new ModelRenderer(this);
         cube_r13.setRotationPoint(4.2331F, 7.6274F, 5.4824F);
         backseats.addChild(cube_r13);
         setRotationAngle(cube_r13, 0.0F, 0.0F, 0.48F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 223, 294, -1.0F, -0.5F, -6.0F, 2, 1, 13, 0.0F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 223, 294, -1, -0.5F, -6.0F, 2, 1, 13, 0.0F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(-11.4231F, -9.6743F, 17.428F);
@@ -403,7 +403,7 @@ public class JLTVM1280 extends ModelBase {
         cube_r17.cubeList.add(new ModelBox(cube_r17, 273, 280, -4.7462F, 0.9399F, -3.0532F, 8, 6, 6, 0.0F, false));
 
         cube_r18 = new ModelRenderer(this);
-        cube_r18.setRotationPoint(41.0F, -5.8288F, 14.0083F);
+        cube_r18.setRotationPoint(41, -5.8288F, 14.0083F);
         bone76.addChild(cube_r18);
         setRotationAngle(cube_r18, 0.6981F, 0.0F, 0.0F);
         cube_r18.cubeList.add(new ModelBox(cube_r18, 319, 39, -5.0F, 1.6964F, -3.3151F, 12, 6, 6, 0.0F, false));
@@ -428,13 +428,13 @@ public class JLTVM1280 extends ModelBase {
 
 
         bone93 = new ModelRenderer(this);
-        bone93.setRotationPoint(5.0F, -1.0F, 14.0F);
+        bone93.setRotationPoint(5.0F, -1, 14.0F);
         bone80.addChild(bone93);
         setRotationAngle(bone93, 0.0F, 1.3788F, 0.0F);
 
 
         bone94 = new ModelRenderer(this);
-        bone94.setRotationPoint(-5.0F, -1.0F, 14.0F);
+        bone94.setRotationPoint(-5.0F, -1, 14.0F);
         bone80.addChild(bone94);
         setRotationAngle(bone94, 0.0F, -1.3788F, 0.0F);
 
@@ -499,84 +499,84 @@ public class JLTVM1280 extends ModelBase {
         cube_r23.setRotationPoint(10.0743F, -0.1689F, -41.4827F);
         body_m1280.addChild(cube_r23);
         setRotationAngle(cube_r23, 0.0873F, 0.0F, 0.0F);
-        cube_r23.cubeList.add(new ModelBox(cube_r23, 37, 82, -2.0F, -1.0F, -1.0F, 4, 2, 2, 0.0F, false));
-        cube_r23.cubeList.add(new ModelBox(cube_r23, 152, 167, -24.0F, -1.0F, -1.0F, 4, 2, 2, 0.0F, false));
+        cube_r23.cubeList.add(new ModelBox(cube_r23, 37, 82, -2.0F, -1, -1, 4, 2, 2, 0.0F, false));
+        cube_r23.cubeList.add(new ModelBox(cube_r23, 152, 167, -24.0F, -1, -1, 4, 2, 2, 0.0F, false));
 
         cube_r24 = new ModelRenderer(this);
         cube_r24.setRotationPoint(-0.9257F, -2.1613F, -41.657F);
         body_m1280.addChild(cube_r24);
         setRotationAngle(cube_r24, 0.0873F, 0.0F, 0.0F);
-        cube_r24.cubeList.add(new ModelBox(cube_r24, 159, 51, -13.0F, -1.0F, -1.0F, 26, 2, 2, 0.0F, false));
+        cube_r24.cubeList.add(new ModelBox(cube_r24, 159, 51, -13.0F, -1, -1, 26, 2, 2, 0.0F, false));
 
         cube_r25 = new ModelRenderer(this);
         cube_r25.setRotationPoint(15.5743F, -11.5777F, -42.4186F);
         body_m1280.addChild(cube_r25);
         setRotationAngle(cube_r25, 0.0873F, 0.0F, 0.0F);
-        cube_r25.cubeList.add(new ModelBox(cube_r25, 121, 193, -21.5F, -6.5F, -1.0F, 10, 4, 2, 0.0F, true));
-        cube_r25.cubeList.add(new ModelBox(cube_r25, 0, 76, -2.5F, -8.5F, -1.0F, 4, 17, 2, 0.0F, false));
-        cube_r25.cubeList.add(new ModelBox(cube_r25, 148, 76, -34.5F, -8.5F, -1.0F, 4, 17, 2, 0.0F, false));
+        cube_r25.cubeList.add(new ModelBox(cube_r25, 121, 193, -21.5F, -6.5F, -1, 10, 4, 2, 0.0F, true));
+        cube_r25.cubeList.add(new ModelBox(cube_r25, 0, 76, -2.5F, -8.5F, -1, 4, 17, 2, 0.0F, false));
+        cube_r25.cubeList.add(new ModelBox(cube_r25, 148, 76, -34.5F, -8.5F, -1, 4, 17, 2, 0.0F, false));
 
         cube_r26 = new ModelRenderer(this);
         cube_r26.setRotationPoint(2.5743F, -9.8448F, -42.1576F);
         body_m1280.addChild(cube_r26);
         setRotationAngle(cube_r26, 0.0873F, 0.0F, -0.0873F);
-        cube_r26.cubeList.add(new ModelBox(cube_r26, 160, 76, -0.5F, -4.5F, -1.0F, 1, 12, 2, 0.0F, false));
+        cube_r26.cubeList.add(new ModelBox(cube_r26, 160, 76, -0.5F, -4.5F, -1, 1, 12, 2, 0.0F, false));
 
         cube_r27 = new ModelRenderer(this);
         cube_r27.setRotationPoint(-4.4257F, -9.8448F, -42.1576F);
         body_m1280.addChild(cube_r27);
         setRotationAngle(cube_r27, 0.0873F, 0.0F, 0.0873F);
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 191, 13, -0.5F, -4.5F, -1.0F, 1, 12, 2, 0.0F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 191, 13, -0.5F, -4.5F, -1, 1, 12, 2, 0.0F, false));
 
         cube_r28 = new ModelRenderer(this);
         cube_r28.setRotationPoint(-0.9257F, -12.5834F, -41.6077F);
         body_m1280.addChild(cube_r28);
         setRotationAngle(cube_r28, 0.0873F, 0.0F, 0.0F);
-        cube_r28.cubeList.add(new ModelBox(cube_r28, 374, 66, -14.0F, -7.5F, -1.0F, 28, 17, 2, 0.0F, true));
+        cube_r28.cubeList.add(new ModelBox(cube_r28, 374, 66, -14.0F, -7.5F, -1, 28, 17, 2, 0.0F, true));
 
         cube_r29 = new ModelRenderer(this);
         cube_r29.setRotationPoint(-0.9257F, -8.5673F, -33.8417F);
         body_m1280.addChild(cube_r29);
         setRotationAngle(cube_r29, 0.5236F, 0.0F, 0.0F);
-        cube_r29.cubeList.add(new ModelBox(cube_r29, 218, 173, -35.0F, -1.0F, -6.5F, 70, 2, 13, 0.0F, false));
+        cube_r29.cubeList.add(new ModelBox(cube_r29, 218, 173, -35.0F, -1, -6.5F, 70, 2, 13, 0.0F, false));
 
         cube_r30 = new ModelRenderer(this);
         cube_r30.setRotationPoint(-0.9257F, -11.8561F, -7.2663F);
         body_m1280.addChild(cube_r30);
         setRotationAngle(cube_r30, -0.7418F, 0.0F, 0.0F);
-        cube_r30.cubeList.add(new ModelBox(cube_r30, 276, 147, -35.0F, -1.0F, -2.0F, 70, 2, 4, 0.0F, false));
+        cube_r30.cubeList.add(new ModelBox(cube_r30, 276, 147, -35.0F, -1, -2.0F, 70, 2, 4, 0.0F, false));
 
         cube_r31 = new ModelRenderer(this);
         cube_r31.setRotationPoint(-0.9257F, -13.4187F, -10.185F);
         body_m1280.addChild(cube_r31);
         setRotationAngle(cube_r31, -0.2618F, 0.0F, 0.0F);
-        cube_r31.cubeList.add(new ModelBox(cube_r31, 278, 27, -35.0F, -1.0F, -2.0F, 70, 2, 4, 0.0F, false));
+        cube_r31.cubeList.add(new ModelBox(cube_r31, 278, 27, -35.0F, -1, -2.0F, 70, 2, 4, 0.0F, false));
 
         cube_r32 = new ModelRenderer(this);
         cube_r32.setRotationPoint(-0.9257F, -12.7361F, -20.6505F);
         body_m1280.addChild(cube_r32);
         setRotationAngle(cube_r32, 0.1309F, 0.0F, 0.0F);
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 152, 154, -35.0F, -1.0F, -8.0F, 70, 2, 17, 0.0F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 152, 154, -35.0F, -1, -8.0F, 70, 2, 17, 0.0F, false));
 
         cube_r33 = new ModelRenderer(this);
         cube_r33.setRotationPoint(-0.9257F, 0.3072F, -0.2313F);
         body_m1280.addChild(cube_r33);
         setRotationAngle(cube_r33, 0.48F, 0.0F, 0.0F);
-        cube_r33.cubeList.add(new ModelBox(cube_r33, 278, 0, -35.0F, -12.5F, -1.0F, 70, 25, 2, 0.0F, false));
+        cube_r33.cubeList.add(new ModelBox(cube_r33, 278, 0, -35.0F, -12.5F, -1, 70, 25, 2, 0.0F, false));
 
         cube_r34 = new ModelRenderer(this);
         cube_r34.setRotationPoint(-16.8126F, 6.1959F, -18.9366F);
         body_m1280.addChild(cube_r34);
         setRotationAngle(cube_r34, 0.0F, 0.0F, -0.2182F);
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 371, 168, -11.0F, -3.0F, 100.5F, 22, 6, 7, 0.0F, false));
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 371, 168, -11.0F, -3.0F, -3.5F, 22, 6, 7, 0.0F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 371, 168, -11, -3.0F, 100.5F, 22, 6, 7, 0.0F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 371, 168, -11, -3.0F, -3.5F, 22, 6, 7, 0.0F, false));
 
         cube_r35 = new ModelRenderer(this);
         cube_r35.setRotationPoint(14.9612F, 6.1959F, -18.9366F);
         body_m1280.addChild(cube_r35);
         setRotationAngle(cube_r35, 0.0F, 0.0F, 0.2182F);
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 284, 261, -11.0F, -3.0F, 100.5F, 22, 6, 7, 0.0F, false));
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 284, 261, -11.0F, -3.0F, -3.5F, 22, 6, 7, 0.0F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 284, 261, -11, -3.0F, 100.5F, 22, 6, 7, 0.0F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 284, 261, -11, -3.0F, -3.5F, 22, 6, 7, 0.0F, false));
 
         cube_r36 = new ModelRenderer(this);
         cube_r36.setRotationPoint(-0.9257F, 4.3771F, -35.9366F);
@@ -605,21 +605,21 @@ public class JLTVM1280 extends ModelBase {
         cube_r39.setRotationPoint(-0.9257F, -1.9557F, 103.6811F);
         body_m1280.addChild(cube_r39);
         setRotationAngle(cube_r39, -0.2618F, 0.0F, 0.0F);
-        cube_r39.cubeList.add(new ModelBox(cube_r39, 375, 437, -35.0F, -1.0F, -4.0F, 9, 3, 10, 0.0F, false));
-        cube_r39.cubeList.add(new ModelBox(cube_r39, 437, 437, 26.0F, -1.0F, -4.0F, 9, 3, 10, 0.0F, false));
+        cube_r39.cubeList.add(new ModelBox(cube_r39, 375, 437, -35.0F, -1, -4.0F, 9, 3, 10, 0.0F, false));
+        cube_r39.cubeList.add(new ModelBox(cube_r39, 437, 437, 26.0F, -1, -4.0F, 9, 3, 10, 0.0F, false));
 
         cube_r40 = new ModelRenderer(this);
         cube_r40.setRotationPoint(-0.9257F, -4.5902F, 98.4158F);
         body_m1280.addChild(cube_r40);
         setRotationAngle(cube_r40, 0.5236F, 0.0F, 0.0F);
-        cube_r40.cubeList.add(new ModelBox(cube_r40, 293, 409, -34.999F, -5.5F, -1.0F, 14, 9, 9, 0.0F, false));
-        cube_r40.cubeList.add(new ModelBox(cube_r40, 414, 409, 20.999F, -5.5F, -1.0F, 14, 9, 9, 0.0F, false));
+        cube_r40.cubeList.add(new ModelBox(cube_r40, 293, 409, -34.999F, -5.5F, -1, 14, 9, 9, 0.0F, false));
+        cube_r40.cubeList.add(new ModelBox(cube_r40, 414, 409, 20.999F, -5.5F, -1, 14, 9, 9, 0.0F, false));
 
         cube_r41 = new ModelRenderer(this);
         cube_r41.setRotationPoint(-0.9257F, -2.0699F, 67.7414F);
         body_m1280.addChild(cube_r41);
         setRotationAngle(cube_r41, -0.2618F, 0.0F, 0.0F);
-        cube_r41.cubeList.add(new ModelBox(cube_r41, 204, 135, -35.0F, -11.0F, -0.5F, 70, 10, 2, 0.0F, false));
+        cube_r41.cubeList.add(new ModelBox(cube_r41, 204, 135, -35.0F, -11, -0.5F, 70, 10, 2, 0.0F, false));
 
         cube_r42 = new ModelRenderer(this);
         cube_r42.setRotationPoint(-13.6219F, -0.971F, 87.5634F);
@@ -637,14 +637,14 @@ public class JLTVM1280 extends ModelBase {
         cube_r44.setRotationPoint(30.5743F, -28.4001F, 104.7699F);
         body_m1280.addChild(cube_r44);
         setRotationAngle(cube_r44, 0.2618F, 0.0F, 0.0F);
-        cube_r44.cubeList.add(new ModelBox(cube_r44, 0, 130, 0.4F, -11.0F, -2.5F, 3, 11, 7, 0.0F, false));
+        cube_r44.cubeList.add(new ModelBox(cube_r44, 0, 130, 0.4F, -11, -2.5F, 3, 11, 7, 0.0F, false));
         cube_r44.cubeList.add(new ModelBox(cube_r44, 76, 130, 0.4F, 0.0F, -2.5F, 3, 9, 4, 0.0F, false));
 
         cube_r45 = new ModelRenderer(this);
         cube_r45.setRotationPoint(27.0743F, -22.0194F, 117.0028F);
         body_m1280.addChild(cube_r45);
         setRotationAngle(cube_r45, -0.7854F, 0.0F, 0.0F);
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 189, 173, -8.03F, -1.0F, -1.5F, 15, 3, 2, 0.0F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 189, 173, -8.03F, -1, -1.5F, 15, 3, 2, 0.0F, false));
 
         bone8 = new ModelRenderer(this);
         bone8.setRotationPoint(21.0743F, -14.3729F, 104.5634F);
@@ -658,7 +658,7 @@ public class JLTVM1280 extends ModelBase {
         cube_r46.setRotationPoint(3.0F, 8.5179F, 4.567F);
         bone8.addChild(cube_r46);
         setRotationAngle(cube_r46, 0.5236F, 0.0F, 0.0F);
-        cube_r46.cubeList.add(new ModelBox(cube_r46, 147, 290, 1.0F, -1.0F, -1.5F, 9, 3, 2, 0.0F, false));
+        cube_r46.cubeList.add(new ModelBox(cube_r46, 147, 290, 1, -1, -1.5F, 9, 3, 2, 0.0F, false));
 
         bone16 = new ModelRenderer(this);
         bone16.setRotationPoint(-22.9257F, -14.3729F, 104.5634F);
@@ -670,7 +670,7 @@ public class JLTVM1280 extends ModelBase {
         cube_r47.setRotationPoint(-3.0F, 8.5179F, 4.567F);
         bone16.addChild(cube_r47);
         setRotationAngle(cube_r47, 0.5236F, 0.0F, 0.0F);
-        cube_r47.cubeList.add(new ModelBox(cube_r47, 122, 267, -10.0F, -1.0F, -1.5F, 9, 3, 2, 0.0F, false));
+        cube_r47.cubeList.add(new ModelBox(cube_r47, 122, 267, -10.0F, -1, -1.5F, 9, 3, 2, 0.0F, false));
 
         bone19 = new ModelRenderer(this);
         bone19.setRotationPoint(-0.9257F, -9.1229F, -37.4366F);
@@ -691,7 +691,7 @@ public class JLTVM1280 extends ModelBase {
         cube_r49.setRotationPoint(-14.4253F, 4.0988F, -2.5F);
         bone19.addChild(cube_r49);
         setRotationAngle(cube_r49, 0.0F, 0.0F, -0.48F);
-        cube_r49.cubeList.add(new ModelBox(cube_r49, 189, 178, -2.0F, -1.0F, -4.5F, 3, 3, 9, 0.0F, false));
+        cube_r49.cubeList.add(new ModelBox(cube_r49, 189, 178, -2.0F, -1, -4.5F, 3, 3, 9, 0.0F, false));
 
         bone31 = new ModelRenderer(this);
         bone31.setRotationPoint(-0.9257F, -9.1229F, -37.4366F);
@@ -712,7 +712,7 @@ public class JLTVM1280 extends ModelBase {
         cube_r51.setRotationPoint(14.4253F, 4.0988F, -2.5F);
         bone31.addChild(cube_r51);
         setRotationAngle(cube_r51, 0.0F, 0.0F, 0.48F);
-        cube_r51.cubeList.add(new ModelBox(cube_r51, 189, 178, -1.0F, -1.0F, -4.5F, 3, 3, 9, 0.0F, true));
+        cube_r51.cubeList.add(new ModelBox(cube_r51, 189, 178, -1, -1, -4.5F, 3, 3, 9, 0.0F, true));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(-0.9257F, -35.3729F, 12.0634F);
@@ -732,7 +732,7 @@ public class JLTVM1280 extends ModelBase {
         bone25 = new ModelRenderer(this);
         bone25.setRotationPoint(0.0F, 0.6213F, 2.1213F);
         bone7.addChild(bone25);
-        bone25.cubeList.add(new ModelBox(bone25, 90, 148, 21.0F, -8.2279F, -3.4142F, 1, 17, 2, 0.0F, false));
+        bone25.cubeList.add(new ModelBox(bone25, 90, 148, 21, -8.2279F, -3.4142F, 1, 17, 2, 0.0F, false));
         bone25.cubeList.add(new ModelBox(bone25, 148, 124, 2.0F, -9.2279F, -3.4142F, 20, 1, 2, 0.0F, false));
         bone25.cubeList.add(new ModelBox(bone25, 187, 56, 9.0F, 8.7721F, -3.4142F, 13, 1, 2, 0.0F, false));
 
@@ -740,13 +740,13 @@ public class JLTVM1280 extends ModelBase {
         cube_r53.setRotationPoint(6.1716F, 6.2365F, -2.4142F);
         bone25.addChild(cube_r53);
         setRotationAngle(cube_r53, 0.0F, 0.0F, 0.7854F);
-        cube_r53.cubeList.add(new ModelBox(cube_r53, 248, 236, -6.5F, -0.5F, -1.0F, 11, 1, 2, 0.0F, false));
+        cube_r53.cubeList.add(new ModelBox(cube_r53, 248, 236, -6.5F, -0.5F, -1, 11, 1, 2, 0.0F, false));
 
         cube_r54 = new ModelRenderer(this);
         cube_r54.setRotationPoint(2.1288F, -0.7142F, -2.4142F);
         bone25.addChild(cube_r54);
         setRotationAngle(cube_r54, 0.0F, 0.0F, 0.0436F);
-        cube_r54.cubeList.add(new ModelBox(cube_r54, 66, 241, -0.5F, -8.5F, -1.0F, 1, 11, 2, 0.0F, false));
+        cube_r54.cubeList.add(new ModelBox(cube_r54, 66, 241, -0.5F, -8.5F, -1, 1, 11, 2, 0.0F, false));
 
         bone26 = new ModelRenderer(this);
         bone26.setRotationPoint(0.0F, 0.6213F, 2.1213F);
@@ -759,13 +759,13 @@ public class JLTVM1280 extends ModelBase {
         cube_r55.setRotationPoint(-6.1716F, 6.2365F, -2.4142F);
         bone26.addChild(cube_r55);
         setRotationAngle(cube_r55, 0.0F, 0.0F, -0.7854F);
-        cube_r55.cubeList.add(new ModelBox(cube_r55, 28, 198, -4.5F, -0.5F, -1.0F, 11, 1, 2, 0.0F, false));
+        cube_r55.cubeList.add(new ModelBox(cube_r55, 28, 198, -4.5F, -0.5F, -1, 11, 1, 2, 0.0F, false));
 
         cube_r56 = new ModelRenderer(this);
         cube_r56.setRotationPoint(-2.1288F, -0.7142F, -2.4142F);
         bone26.addChild(cube_r56);
         setRotationAngle(cube_r56, 0.0F, 0.0F, -0.0436F);
-        cube_r56.cubeList.add(new ModelBox(cube_r56, 113, 148, -0.5F, -8.5F, -1.0F, 1, 11, 2, 0.0F, false));
+        cube_r56.cubeList.add(new ModelBox(cube_r56, 113, 148, -0.5F, -8.5F, -1, 1, 11, 2, 0.0F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(-0.9257F, -41.8729F, 50.0634F);
@@ -812,25 +812,25 @@ public class JLTVM1280 extends ModelBase {
         cube_r59.setRotationPoint(25.9257F, -2.7716F, 11.7998F);
         bone17.addChild(cube_r59);
         setRotationAngle(cube_r59, 0.48F, -0.0873F, 0.0F);
-        cube_r59.cubeList.add(new ModelBox(cube_r59, 212, 274, -1.0F, -11.5F, -4.5F, 2, 23, 10, 0.0F, true));
+        cube_r59.cubeList.add(new ModelBox(cube_r59, 212, 274, -1, -11.5F, -4.5F, 2, 23, 10, 0.0F, true));
 
         cube_r60 = new ModelRenderer(this);
         cube_r60.setRotationPoint(-25.9257F, -2.7716F, 11.7998F);
         bone17.addChild(cube_r60);
         setRotationAngle(cube_r60, 0.48F, 0.0873F, 0.0F);
-        cube_r60.cubeList.add(new ModelBox(cube_r60, 212, 274, -1.0F, -11.5F, -4.5F, 2, 23, 10, 0.0F, false));
+        cube_r60.cubeList.add(new ModelBox(cube_r60, 212, 274, -1, -11.5F, -4.5F, 2, 23, 10, 0.0F, false));
 
         cube_r61 = new ModelRenderer(this);
         cube_r61.setRotationPoint(-27.0F, -17.4803F, 8.6644F);
         bone17.addChild(cube_r61);
         setRotationAngle(cube_r61, 0.0F, 0.0873F, 0.0F);
-        cube_r61.cubeList.add(new ModelBox(cube_r61, 0, 76, -1.0F, -7.0F, -9.5F, 2, 14, 19, 0.0F, false));
+        cube_r61.cubeList.add(new ModelBox(cube_r61, 0, 76, -1, -7.0F, -9.5F, 2, 14, 19, 0.0F, false));
 
         cube_r62 = new ModelRenderer(this);
         cube_r62.setRotationPoint(27.0F, -17.4803F, 8.6644F);
         bone17.addChild(cube_r62);
         setRotationAngle(cube_r62, 0.0F, -0.0873F, 0.0F);
-        cube_r62.cubeList.add(new ModelBox(cube_r62, 148, 76, -1.0F, -7.0F, -9.5F, 2, 14, 19, 0.0F, false));
+        cube_r62.cubeList.add(new ModelBox(cube_r62, 148, 76, -1, -7.0F, -9.5F, 2, 14, 19, 0.0F, false));
 
         bone28 = new ModelRenderer(this);
         bone28.setRotationPoint(34.1001F, -33.0197F, 27.6192F);
@@ -860,7 +860,7 @@ public class JLTVM1280 extends ModelBase {
         cube_r66.setRotationPoint(1.6499F, 5.0F, 1.4664F);
         bone28.addChild(cube_r66);
         setRotationAngle(cube_r66, 0.0F, -0.48F, 0.0F);
-        cube_r66.cubeList.add(new ModelBox(cube_r66, 190, 0, -7.0F, -4.5F, -1.0F, 3, 3, 2, 0.0F, false));
+        cube_r66.cubeList.add(new ModelBox(cube_r66, 190, 0, -7.0F, -4.5F, -1, 3, 3, 2, 0.0F, false));
 
         cube_r67 = new ModelRenderer(this);
         cube_r67.setRotationPoint(1.3999F, 5.0F, 1.4664F);
@@ -896,7 +896,7 @@ public class JLTVM1280 extends ModelBase {
         cube_r71.setRotationPoint(-1.6499F, 5.0F, 1.4664F);
         bone29.addChild(cube_r71);
         setRotationAngle(cube_r71, 0.0F, 0.48F, 0.0F);
-        cube_r71.cubeList.add(new ModelBox(cube_r71, 42, 114, 4.0F, -4.5F, -1.0F, 3, 3, 2, 0.0F, false));
+        cube_r71.cubeList.add(new ModelBox(cube_r71, 42, 114, 4.0F, -4.5F, -1, 3, 3, 2, 0.0F, false));
 
         cube_r72 = new ModelRenderer(this);
         cube_r72.setRotationPoint(-1.3999F, 5.0F, 1.4664F);
@@ -961,7 +961,7 @@ public class JLTVM1280 extends ModelBase {
         bone20 = new ModelRenderer(this);
         bone20.setRotationPoint(-23.1539F, -26.6234F, 48.3134F);
         body_m1280.addChild(bone20);
-        bone20.cubeList.add(new ModelBox(bone20, 342, 225, -2.2718F, -14.5F, 21.0F, 49, 21, 4, 0.0F, false));
+        bone20.cubeList.add(new ModelBox(bone20, 342, 225, -2.2718F, -14.5F, 21, 49, 21, 4, 0.0F, false));
 
         cube_r79 = new ModelRenderer(this);
         cube_r79.setRotationPoint(47.9564F, 21.6337F, 14.6558F);
@@ -979,11 +979,11 @@ public class JLTVM1280 extends ModelBase {
         cube_r80.setRotationPoint(-3.1036F, 17.3536F, 13.5F);
         bone23.addChild(cube_r80);
         setRotationAngle(cube_r80, 0.0F, 0.0F, -0.9163F);
-        cube_r80.cubeList.add(new ModelBox(cube_r80, 204, 77, -5.0F, -1.0F, -1.5F, 9, 2, 3, 0.0F, false));
-        cube_r80.cubeList.add(new ModelBox(cube_r80, 204, 178, -5.0F, -1.0F, -45.75F, 9, 2, 3, 0.0F, false));
+        cube_r80.cubeList.add(new ModelBox(cube_r80, 204, 77, -5.0F, -1, -1.5F, 9, 2, 3, 0.0F, false));
+        cube_r80.cubeList.add(new ModelBox(cube_r80, 204, 178, -5.0F, -1, -45.75F, 9, 2, 3, 0.0F, false));
 
         cube_r81 = new ModelRenderer(this);
-        cube_r81.setRotationPoint(-1.0F, 3.6337F, 20.9058F);
+        cube_r81.setRotationPoint(-1, 3.6337F, 20.9058F);
         bone23.addChild(cube_r81);
         setRotationAngle(cube_r81, -0.2618F, 0.0F, 0.0F);
         cube_r81.cubeList.add(new ModelBox(cube_r81, 257, 280, -0.8968F, -17.5F, -6.0F, 2, 30, 12, 0.0F, false));
@@ -992,13 +992,13 @@ public class JLTVM1280 extends ModelBase {
         cube_r82.setRotationPoint(-2.0F, -5.0F, -3.0F);
         bone23.addChild(cube_r82);
         setRotationAngle(cube_r82, 0.1309F, 0.0F, 0.0F);
-        cube_r82.cubeList.add(new ModelBox(cube_r82, 122, 275, -1.0F, -1.5F, -9.5F, 2, 3, 21, 0.0F, false));
+        cube_r82.cubeList.add(new ModelBox(cube_r82, 122, 275, -1, -1.5F, -9.5F, 2, 3, 21, 0.0F, false));
 
         cube_r83 = new ModelRenderer(this);
         cube_r83.setRotationPoint(0.0F, -13.0F, 0.0F);
         bone23.addChild(cube_r83);
         setRotationAngle(cube_r83, 0.0873F, 0.0F, 0.0F);
-        cube_r83.cubeList.add(new ModelBox(cube_r83, 128, 76, -2.1008F, -2.0F, -41.0F, 2, 6, 72, 0.0F, false));
+        cube_r83.cubeList.add(new ModelBox(cube_r83, 128, 76, -2.1008F, -2.0F, -41, 2, 6, 72, 0.0F, false));
 
         bone32 = new ModelRenderer(this);
         bone32.setRotationPoint(23.8025F, -8.6234F, 42.0634F);
@@ -1010,11 +1010,11 @@ public class JLTVM1280 extends ModelBase {
         cube_r84.setRotationPoint(3.1036F, 17.3536F, 13.5F);
         bone32.addChild(cube_r84);
         setRotationAngle(cube_r84, 0.0F, 0.0F, 0.9163F);
-        cube_r84.cubeList.add(new ModelBox(cube_r84, 204, 77, -4.0F, -1.0F, -1.5F, 9, 2, 3, 0.0F, true));
-        cube_r84.cubeList.add(new ModelBox(cube_r84, 204, 178, -4.0F, -1.0F, -45.75F, 9, 2, 3, 0.0F, true));
+        cube_r84.cubeList.add(new ModelBox(cube_r84, 204, 77, -4.0F, -1, -1.5F, 9, 2, 3, 0.0F, true));
+        cube_r84.cubeList.add(new ModelBox(cube_r84, 204, 178, -4.0F, -1, -45.75F, 9, 2, 3, 0.0F, true));
 
         cube_r85 = new ModelRenderer(this);
-        cube_r85.setRotationPoint(1.0F, 3.6337F, 20.9058F);
+        cube_r85.setRotationPoint(1, 3.6337F, 20.9058F);
         bone32.addChild(cube_r85);
         setRotationAngle(cube_r85, -0.2618F, 0.0F, 0.0F);
         cube_r85.cubeList.add(new ModelBox(cube_r85, 257, 280, -1.1032F, -17.5F, -6.0F, 2, 30, 12, 0.0F, true));
@@ -1023,13 +1023,13 @@ public class JLTVM1280 extends ModelBase {
         cube_r86.setRotationPoint(2.0F, -5.0F, -3.0F);
         bone32.addChild(cube_r86);
         setRotationAngle(cube_r86, 0.1309F, 0.0F, 0.0F);
-        cube_r86.cubeList.add(new ModelBox(cube_r86, 122, 275, -1.0F, -1.5F, -9.5F, 2, 3, 21, 0.0F, true));
+        cube_r86.cubeList.add(new ModelBox(cube_r86, 122, 275, -1, -1.5F, -9.5F, 2, 3, 21, 0.0F, true));
 
         cube_r87 = new ModelRenderer(this);
         cube_r87.setRotationPoint(0.0F, -13.0F, 0.0F);
         bone32.addChild(cube_r87);
         setRotationAngle(cube_r87, 0.0873F, 0.0F, 0.0F);
-        cube_r87.cubeList.add(new ModelBox(cube_r87, 128, 76, 0.1008F, -2.0F, -41.0F, 2, 6, 72, 0.0F, true));
+        cube_r87.cubeList.add(new ModelBox(cube_r87, 128, 76, 0.1008F, -2.0F, -41, 2, 6, 72, 0.0F, true));
 
         bone24 = new ModelRenderer(this);
         bone24.setRotationPoint(-23.9039F, -42.1234F, 46.0634F);
@@ -1062,19 +1062,19 @@ public class JLTVM1280 extends ModelBase {
         cube_r90.setRotationPoint(-2.1084F, 10.353F, -28.5503F);
         bone24.addChild(cube_r90);
         setRotationAngle(cube_r90, -0.7854F, 0.0F, 0.0F);
-        cube_r90.cubeList.add(new ModelBox(cube_r90, 242, 280, -1.0F, -5.5F, -0.5F, 2, 11, 1, 0.0F, false));
+        cube_r90.cubeList.add(new ModelBox(cube_r90, 242, 280, -1, -5.5F, -0.5F, 2, 11, 1, 0.0F, false));
 
         cube_r91 = new ModelRenderer(this);
         cube_r91.setRotationPoint(-2.1084F, 14.0322F, 11.5757F);
         bone24.addChild(cube_r91);
         setRotationAngle(cube_r91, 0.2182F, 0.0F, 0.0F);
-        cube_r91.cubeList.add(new ModelBox(cube_r91, 300, 447, -1.0F, -0.6082F, -7.4881F, 2, 1, 14, 0.0F, false));
+        cube_r91.cubeList.add(new ModelBox(cube_r91, 300, 447, -1, -0.6082F, -7.4881F, 2, 1, 14, 0.0F, false));
 
         cube_r92 = new ModelRenderer(this);
         cube_r92.setRotationPoint(-2.1084F, 20.4743F, -19.5F);
         bone24.addChild(cube_r92);
         setRotationAngle(cube_r92, 0.2618F, 0.0F, 0.0F);
-        cube_r92.cubeList.add(new ModelBox(cube_r92, 54, 271, -1.0F, -3.5F, -12.5F, 2, 1, 25, 0.0F, false));
+        cube_r92.cubeList.add(new ModelBox(cube_r92, 54, 271, -1, -3.5F, -12.5F, 2, 1, 25, 0.0F, false));
 
         cube_r93 = new ModelRenderer(this);
         cube_r93.setRotationPoint(-0.1084F, 17.119F, -14.705F);
@@ -1119,19 +1119,19 @@ public class JLTVM1280 extends ModelBase {
         cube_r97.setRotationPoint(2.1084F, 10.353F, -28.5503F);
         bone30.addChild(cube_r97);
         setRotationAngle(cube_r97, -0.7854F, 0.0F, 0.0F);
-        cube_r97.cubeList.add(new ModelBox(cube_r97, 236, 280, -1.0F, -5.5F, -0.5F, 2, 11, 1, 0.0F, false));
+        cube_r97.cubeList.add(new ModelBox(cube_r97, 236, 280, -1, -5.5F, -0.5F, 2, 11, 1, 0.0F, false));
 
         cube_r98 = new ModelRenderer(this);
         cube_r98.setRotationPoint(2.1084F, 14.0322F, 11.5757F);
         bone30.addChild(cube_r98);
         setRotationAngle(cube_r98, 0.2182F, 0.0F, 0.0F);
-        cube_r98.cubeList.add(new ModelBox(cube_r98, 446, 413, -1.0F, -0.6082F, -7.4881F, 2, 1, 14, 0.0F, false));
+        cube_r98.cubeList.add(new ModelBox(cube_r98, 446, 413, -1, -0.6082F, -7.4881F, 2, 1, 14, 0.0F, false));
 
         cube_r99 = new ModelRenderer(this);
         cube_r99.setRotationPoint(2.1084F, 20.4743F, -19.5F);
         bone30.addChild(cube_r99);
         setRotationAngle(cube_r99, 0.2618F, 0.0F, 0.0F);
-        cube_r99.cubeList.add(new ModelBox(cube_r99, 122, 249, -1.0F, -3.5F, -12.5F, 2, 1, 25, 0.0F, false));
+        cube_r99.cubeList.add(new ModelBox(cube_r99, 122, 249, -1, -3.5F, -12.5F, 2, 1, 25, 0.0F, false));
 
         cube_r100 = new ModelRenderer(this);
         cube_r100.setRotationPoint(0.1084F, 17.119F, -14.705F);

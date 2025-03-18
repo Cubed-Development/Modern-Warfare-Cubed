@@ -34,14 +34,14 @@ public class HK417Mag extends ModelBase {
         mag.cubeList.add(new ModelBox(mag, 23, 0, -0.9F, 0.3F, -8.9F, 2, 5, 2, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 29, 28, -0.7F, 0.298F, -6.9F, 2, 5, 5, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 45, 0, 0.4F, 0.3F, -2.0F, 2, 5, 2, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 21, 38, -1.0F, 0.4F, -1.001F, 1, 2, 1, 0.0F, false));
+        mag.cubeList.add(new ModelBox(mag, 21, 38, -1, 0.4F, -1.001F, 1, 2, 1, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 19, 10, 1.501F, -0.5F, -1.001F, 1, 1, 1, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 22, 26, 1.501F, 0.2F, -8.801F, 1, 4, 1, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 26, 20, 1.501F, 0.2F, -7.801F, 1, 1, 7, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 35, 12, -1.0F, 3.4F, -1.001F, 1, 2, 1, 0.0F, false));
+        mag.cubeList.add(new ModelBox(mag, 35, 12, -1, 3.4F, -1.001F, 1, 2, 1, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 47, 24, -1.001F, 3.4F, -3.5F, 1, 1, 3, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 31, 46, -1.001F, 1.4F, -3.5F, 1, 1, 3, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 0, 33, -1.0F, 1.9F, -3.85F, 1, 2, 1, 0.0F, false));
+        mag.cubeList.add(new ModelBox(mag, 0, 33, -1, 1.9F, -3.85F, 1, 2, 1, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 39, 46, 1.501F, 3.4F, -3.5F, 1, 1, 3, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 46, 7, 1.501F, 1.4F, -3.5F, 1, 1, 3, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 28, 28, 1.5F, 1.9F, -3.85F, 1, 2, 1, 0.0F, false));
@@ -93,7 +93,7 @@ public class HK417Mag extends ModelBase {
         cube_r25.setRotationPoint(2.7F, 13.39F, -10.19F);
         mag.addChild(cube_r25);
         setRotationAngle(cube_r25, -0.2531F, 0.0F, 0.0F);
-        cube_r25.cubeList.add(new ModelBox(cube_r25, 35, 5, -3.95F, 0.02F, -1.0F, 4, 1, 1, 0.0F, false));
+        cube_r25.cubeList.add(new ModelBox(cube_r25, 35, 5, -3.95F, 0.02F, -1, 4, 1, 1, 0.0F, false));
 
         cube_r26 = new ModelRenderer(this);
         cube_r26.setRotationPoint(0.8F, 10.07F, -0.04F);

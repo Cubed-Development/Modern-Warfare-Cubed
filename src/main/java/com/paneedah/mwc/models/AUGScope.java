@@ -42,7 +42,7 @@ public class AUGScope extends ModelWithAttachments {
         scope5_r1.setRotationPoint(1.4231F, -40.0547F, 29.3772F);
         scope.addChild(scope5_r1);
         setRotationAngle(scope5_r1, 2.6025F, 0.0F, 0.0F);
-        scope5_r1.cubeList.add(new ModelBox(scope5_r1, 77, 44, -2.5F, -41.0F, -3.8F, 2, 2, 2, 0.0F, false));
+        scope5_r1.cubeList.add(new ModelBox(scope5_r1, 77, 44, -2.5F, -41, -3.8F, 2, 2, 2, 0.0F, false));
 
         scope4_r1 = new ModelRenderer(this);
         scope4_r1.setRotationPoint(1.4231F, 14.3294F, 45.2261F);

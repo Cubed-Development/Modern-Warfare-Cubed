@@ -188,7 +188,7 @@ public class MatrixHelper {
         return build(1f, 0f, 0f, x,
                 0f, 1f, 0f, y,
                 0f, 0f, 1f, z,
-                0f, 0f, 0f, 1.0f);
+                0f, 0f, 0f, 1);
     }
 
     public static Matrix4f build(float m00, float m10, float m20, float m30,

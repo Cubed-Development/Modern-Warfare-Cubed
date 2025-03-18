@@ -23,7 +23,7 @@ public class KragJorgensenAction2 extends ModelWithAttachments {
         action2.cubeList.add(new ModelBox(action2, 200, 0, -2.5F, -41.3F, -21.2F, 1, 2, 1, 0.0F, true));
         action2.cubeList.add(new ModelBox(action2, 200, 0, -2.4F, -40.9F, -31.5F, 1, 1, 17, 0.0F, true));
         action2.cubeList.add(new ModelBox(action2, 200, 0, -1.8F, -40.8F, -14.0F, 2, 1, 2, 0.0F, true));
-        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.5F, -41.0F, -31.5F, 1, 1, 10, 0.0F, true));
+        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.5F, -41, -31.5F, 1, 1, 10, 0.0F, true));
         action2.cubeList.add(new ModelBox(action2, 200, 0, -2.6F, -40.9F, -31.5F, 1, 1, 17, 0.0F, true));
         action2.cubeList.add(new ModelBox(action2, 200, 0, -2.5F, -40.9F, -14.0F, 1, 1, 2, 0.0F, true));
         action2.cubeList.add(new ModelBox(action2, 200, 0, -2.7F, -41.2F, -21.5F, 1, 2, 8, 0.0F, true));

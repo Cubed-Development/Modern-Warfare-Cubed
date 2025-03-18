@@ -332,7 +332,7 @@ public class K2C1Handguard extends ModelWithAttachments {
         bone17.setRotationPoint(-1.75F, -38.75F, -37.2F);
         Handguard.addChild(bone17);
         setRotationAngle(bone17, 0.0F, 0.0F, 0.6545F);
-        bone17.cubeList.add(new ModelBox(bone17, 0, 141, -1.951F, -1.0785F, -11.0F, 1, 1, 22, 0.0F, false));
+        bone17.cubeList.add(new ModelBox(bone17, 0, 141, -1.951F, -1.0785F, -11, 1, 1, 22, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(-1.5F, -40.25F, -47.95F);
@@ -369,7 +369,7 @@ public class K2C1Handguard extends ModelWithAttachments {
         bone18.setRotationPoint(-1.75F, -38.75F, -37.2F);
         Handguard.addChild(bone18);
         setRotationAngle(bone18, 0.0F, 0.0F, -0.6545F);
-        bone18.cubeList.add(new ModelBox(bone18, 120, 23, 1.3477F, -0.7742F, -11.0F, 1, 1, 22, 0.0F, false));
+        bone18.cubeList.add(new ModelBox(bone18, 120, 23, 1.3477F, -0.7742F, -11, 1, 1, 22, 0.0F, false));
 
         bone21 = new ModelRenderer(this);
         bone21.setRotationPoint(1.5179F, -34.7189F, -39.7F);

@@ -42,7 +42,7 @@ public class MG42latch extends ModelWithAttachments {
         latch.cubeList.add(new ModelBox(latch, 100, 0, 5.6F, -38.6F, 2.0F, 1, 1, 28, 0.0F, true));
         latch.cubeList.add(new ModelBox(latch, 100, 0, 0.4F, -39.6F, 23.0F, 3, 1, 7, 0.0F, true));
         latch.cubeList.add(new ModelBox(latch, 100, 0, 2.6F, -39.6F, 23.0F, 3, 1, 7, 0.0F, true));
-        latch.cubeList.add(new ModelBox(latch, 100, 0, 5.6F, -41.3F, 1.0F, 1, 3, 4, 0.0F, true));
+        latch.cubeList.add(new ModelBox(latch, 100, 0, 5.6F, -41.3F, 1, 1, 3, 4, 0.0F, true));
         latch.cubeList.add(new ModelBox(latch, 100, 0, -0.6F, -41.3F, 0.0F, 1, 3, 5, 0.0F, true));
         latch.cubeList.add(new ModelBox(latch, 100, 0, 0.4F, -42.3F, -10.0F, 3, 1, 15, 0.0F, true));
         latch.cubeList.add(new ModelBox(latch, 100, 0, 2.6F, -42.3F, -10.0F, 3, 1, 15, 0.0F, true));
@@ -77,26 +77,26 @@ public class MG42latch extends ModelWithAttachments {
         latch55_r1.setRotationPoint(17.1431F, 0.0F, -0.4057F);
         latch.addChild(latch55_r1);
         setRotationAngle(latch55_r1, -3.1416F, -0.2788F, 3.1416F);
-        latch55_r1.cubeList.add(new ModelBox(latch55_r1, 100, 0, 8.6F, -42.3F, 1.0F, 3, 3, 1, 0.0F, true));
+        latch55_r1.cubeList.add(new ModelBox(latch55_r1, 100, 0, 8.6F, -42.3F, 1, 3, 3, 1, 0.0F, true));
 
         latch54_r1 = new ModelRenderer(this);
         latch54_r1.setRotationPoint(-17.9366F, -75.1704F, 0.0F);
         latch.addChild(latch54_r1);
         setRotationAngle(latch54_r1, 0.0F, 0.0F, 2.3562F);
         latch54_r1.cubeList.add(new ModelBox(latch54_r1, 100, 0, 6.6F, -41.3F, -10.0F, 1, 1, 1, 0.0F, true));
-        latch54_r1.cubeList.add(new ModelBox(latch54_r1, 100, 0, 6.6F, -41.3F, 1.0F, 1, 1, 4, 0.0F, true));
+        latch54_r1.cubeList.add(new ModelBox(latch54_r1, 100, 0, 6.6F, -41.3F, 1, 1, 1, 4, 0.0F, true));
 
         latch52_r1 = new ModelRenderer(this);
         latch52_r1.setRotationPoint(27.1186F, -11.7299F, 0.0F);
         latch.addChild(latch52_r1);
         setRotationAngle(latch52_r1, 0.0F, 0.0F, -0.7854F);
-        latch52_r1.cubeList.add(new ModelBox(latch52_r1, 100, 0, -0.6F, -38.6F, 21.0F, 1, 1, 9, 0.0F, true));
+        latch52_r1.cubeList.add(new ModelBox(latch52_r1, 100, 0, -0.6F, -38.6F, 21, 1, 1, 9, 0.0F, true));
 
         latch51_r1 = new ModelRenderer(this);
         latch51_r1.setRotationPoint(-16.0274F, -70.5612F, 0.0F);
         latch.addChild(latch51_r1);
         setRotationAngle(latch51_r1, 0.0F, 0.0F, 2.3562F);
-        latch51_r1.cubeList.add(new ModelBox(latch51_r1, 100, 0, 6.6F, -38.6F, 21.0F, 1, 1, 9, 0.0F, true));
+        latch51_r1.cubeList.add(new ModelBox(latch51_r1, 100, 0, 6.6F, -38.6F, 21, 1, 1, 9, 0.0F, true));
 
         latch50_r1 = new ModelRenderer(this);
         latch50_r1.setRotationPoint(-27.8843F, -11.8814F, 0.0F);

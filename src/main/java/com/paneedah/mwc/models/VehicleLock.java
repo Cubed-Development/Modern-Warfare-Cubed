@@ -36,28 +36,28 @@ public class VehicleLock extends ModelBase {
         bone.cubeList.add(new ModelBox(bone, 38, 7, -3.0F, -17.0F, -0.3F, 6, 2, 2, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 40, -3.0F, -15.0F, 0.7F, 6, 8, 1, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 3, -2.0F, -7.0F, 0.7F, 4, 1, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 17, 31, -0.1F, -15.5F, 1.0F, 3, 1, 11, 0.001F, false));
+        bone.cubeList.add(new ModelBox(bone, 17, 31, -0.1F, -15.5F, 1, 3, 1, 11, 0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 16, -0.1F, -14.5F, 5.0F, 3, 1, 1, 0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 38, 0, -0.35F, -14.5F, 6.0F, 3, 1, 6, 0.001F, false));
-        bone.cubeList.add(new ModelBox(bone, 35, 44, -0.35F, -14.5F, 1.0F, 3, 1, 3, 0.001F, false));
+        bone.cubeList.add(new ModelBox(bone, 35, 44, -0.35F, -14.5F, 1, 3, 1, 3, 0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 7, 17, 1.4F, -14.5F, 4.0F, 1, 1, 1, 0.001F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 28, -2.9F, -15.5F, 1.0F, 3, 1, 11, 0.002F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 28, -2.9F, -15.5F, 1, 3, 1, 11, 0.002F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 14, -2.9F, -14.5F, 5.0F, 3, 1, 1, 0.001F, false));
-        bone.cubeList.add(new ModelBox(bone, 26, 43, -2.65F, -14.5F, 1.0F, 3, 1, 3, 0.001F, false));
+        bone.cubeList.add(new ModelBox(bone, 26, 43, -2.65F, -14.5F, 1, 3, 1, 3, 0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 34, 31, -2.65F, -14.5F, 6.0F, 3, 1, 6, 0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 7, 15, -2.4F, -14.5F, 4.0F, 1, 1, 1, 0.001F, false));
-        bone.cubeList.add(new ModelBox(bone, 19, 3, -1.99F, -16.0F, 1.0F, 4, 1, 11, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.99F, -12.0F, 1.0F, 4, 3, 11, -0.001F, false));
+        bone.cubeList.add(new ModelBox(bone, 19, 3, -1.99F, -16.0F, 1, 4, 1, 11, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.99F, -12.0F, 1, 4, 3, 11, -0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 14, 43, -1.99F, -15.0F, 12.0F, 4, 4, 2, 0.0F, false));
 
         K20_r1 = new ModelRenderer(this);
-        K20_r1.setRotationPoint(-2.91F, -13.5F, 1.0F);
+        K20_r1.setRotationPoint(-2.91F, -13.5F, 1);
         bone.addChild(K20_r1);
         setRotationAngle(K20_r1, 0.0F, 0.0F, -0.2269F);
         K20_r1.cubeList.add(new ModelBox(K20_r1, 0, 14, 0.01F, 0.0F, 0.0F, 3, 3, 11, 0.0F, false));
 
         K19_r1 = new ModelRenderer(this);
-        K19_r1.setRotationPoint(2.91F, -13.5F, 1.0F);
+        K19_r1.setRotationPoint(2.91F, -13.5F, 1);
         bone.addChild(K19_r1);
         setRotationAngle(K19_r1, 0.0F, 0.0F, 0.2269F);
         K19_r1.cubeList.add(new ModelBox(K19_r1, 17, 17, -3.01F, 0.0F, 0.0F, 3, 3, 11, 0.0F, false));
@@ -72,13 +72,13 @@ public class VehicleLock extends ModelBase {
         K16_r1.setRotationPoint(-7.9497F, -3.4645F, -0.01F);
         bone.addChild(K16_r1);
         setRotationAngle(K16_r1, 0.0F, 0.0F, 0.7854F);
-        K16_r1.cubeList.add(new ModelBox(K16_r1, 17, 17, 1.0F, -6.9965F, 0.73F, 1, 1, 1, 0.0F, false));
+        K16_r1.cubeList.add(new ModelBox(K16_r1, 17, 17, 1, -6.9965F, 0.73F, 1, 1, 1, 0.0F, false));
 
         K14_r1 = new ModelRenderer(this);
         K14_r1.setRotationPoint(-3.364F, -3.4645F, 0.0F);
         bone.addChild(K14_r1);
         setRotationAngle(K14_r1, 0.0F, 0.0F, 0.7854F);
-        K14_r1.cubeList.add(new ModelBox(K14_r1, 0, 18, 1.0F, -7.0F, 0.71F, 1, 1, 1, 0.0F, false));
+        K14_r1.cubeList.add(new ModelBox(K14_r1, 0, 18, 1, -7.0F, 0.71F, 1, 1, 1, 0.0F, false));
 
         K13_r1 = new ModelRenderer(this);
         K13_r1.setRotationPoint(-3.6569F, -3.1716F, 0.0F);
@@ -87,14 +87,14 @@ public class VehicleLock extends ModelBase {
         K13_r1.cubeList.add(new ModelBox(K13_r1, 4, 18, 0.9969F, -7.0F, 0.72F, 1, 1, 1, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(0.0F, -13.0F, 1.0F);
+        bone2.setRotationPoint(0.0F, -13.0F, 1);
         bone.addChild(bone2);
-        bone2.cubeList.add(new ModelBox(bone2, 34, 15, -0.99F, -1.0F, 11.0F, 2, 2, 9, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 34, 15, -0.99F, -1, 11, 2, 2, 9, 0.0F, false));
         bone2.cubeList.add(new ModelBox(bone2, 41, 39, -0.99F, -0.5F, 20.0F, 2, 1, 4, 0.0F, false));
-        bone2.cubeList.add(new ModelBox(bone2, 0, 0, -2.0F, -1.0F, -0.999F, 4, 2, 1, 0.0F, false));
-        bone2.cubeList.add(new ModelBox(bone2, 6, 5, 0.25F, -1.0F, -1.9F, 1, 2, 1, -0.1F, false));
-        bone2.cubeList.add(new ModelBox(bone2, 6, 8, -1.25F, -1.0F, -1.9F, 1, 2, 1, -0.1F, false));
-        bone2.cubeList.add(new ModelBox(bone2, 0, 5, -1.0F, -2.0F, -1.0F, 2, 4, 1, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 0, 0, -2.0F, -1, -0.999F, 4, 2, 1, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 6, 5, 0.25F, -1, -1.9F, 1, 2, 1, -0.1F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 6, 8, -1.25F, -1, -1.9F, 1, 2, 1, -0.1F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 0, 5, -1, -2.0F, -1, 2, 4, 1, 0.0F, false));
 
         K8_r1 = new ModelRenderer(this);
         K8_r1.setRotationPoint(-9.494F, 11.8907F, -1.004F);

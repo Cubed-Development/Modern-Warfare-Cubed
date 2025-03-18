@@ -75,7 +75,7 @@ public class AK15DustCover extends ModelBase {
         DustCover20.cubeList.add(new ModelBox(DustCover20, 0, 70, 0.001F, 0.0F, 0.0F, 1, 2, 27, 0.0F, false));
 
         DustCover13 = new ModelRenderer(this);
-        DustCover13.setRotationPoint(-3.8F, -11.0F, -9.5F);
+        DustCover13.setRotationPoint(-3.8F, -11, -9.5F);
         setRotationAngle(DustCover13, 2.1935F, 0.0F, 0.0F);
         DustCover13.cubeList.add(new ModelBox(DustCover13, 6, 22, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
@@ -138,7 +138,7 @@ public class AK15DustCover extends ModelBase {
         DustCover1.cubeList.add(new ModelBox(DustCover1, 38, 1, 0.0F, 0.0F, 0.0F, 1, 1, 34, 0.0F, false));
 
         DustCover2 = new ModelRenderer(this);
-        DustCover2.setRotationPoint(-1.0F, -15.8F, -33.5F);
+        DustCover2.setRotationPoint(-1, -15.8F, -33.5F);
         setRotationAngle(DustCover2, 0.0F, 0.0F, 0.5949F);
         DustCover2.cubeList.add(new ModelBox(DustCover2, 36, 36, 0.0F, 0.0F, 0.0F, 1, 1, 34, 0.0F, false));
 
@@ -168,7 +168,7 @@ public class AK15DustCover extends ModelBase {
         DustCover5.cubeList.add(new ModelBox(DustCover5, 74, 0, 0.0F, 0.0F, -0.001F, 1, 2, 22, 0.0F, false));
 
         DustCover44 = new ModelRenderer(this);
-        DustCover44.setRotationPoint(-3.7F, -13.5F, -11.0F);
+        DustCover44.setRotationPoint(-3.7F, -13.5F, -11);
         setRotationAngle(DustCover44, 0.0F, 0.0F, -0.7436F);
         DustCover44.cubeList.add(new ModelBox(DustCover44, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 12, 0.0F, false));
 

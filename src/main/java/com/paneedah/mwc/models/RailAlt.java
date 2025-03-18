@@ -33,7 +33,7 @@ public class RailAlt extends ModelBase {
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -20.2946F, -13.157F, 12.0F, 1, 1, 1, 0.0F, true));
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -20.2946F, -13.157F, 15.0F, 1, 1, 1, 0.0F, true));
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -20.2946F, -13.157F, 18.0F, 1, 1, 1, 0.0F, true));
-        railalt.cubeList.add(new ModelBox(railalt, 0, 0, -20.2946F, -13.157F, 21.0F, 1, 1, 1, 0.0F, true));
+        railalt.cubeList.add(new ModelBox(railalt, 0, 0, -20.2946F, -13.157F, 21, 1, 1, 1, 0.0F, true));
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -20.2946F, -13.157F, 24.0F, 1, 1, 1, 0.0F, true));
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -20.2946F, -13.157F, 27.0F, 1, 1, 1, 0.0F, true));
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -20.2946F, -13.157F, 25.5F, 1, 1, 1, 0.0F, true));
@@ -52,7 +52,7 @@ public class RailAlt extends ModelBase {
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -22.7946F, -13.156F, 12.0F, 1, 1, 1, 0.0F, true));
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -22.7946F, -13.156F, 15.0F, 1, 1, 1, 0.0F, true));
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -22.7946F, -13.156F, 18.0F, 1, 1, 1, 0.0F, true));
-        railalt.cubeList.add(new ModelBox(railalt, 0, 0, -22.7946F, -13.156F, 21.0F, 1, 1, 1, 0.0F, true));
+        railalt.cubeList.add(new ModelBox(railalt, 0, 0, -22.7946F, -13.156F, 21, 1, 1, 1, 0.0F, true));
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -22.7946F, -13.156F, 24.0F, 1, 1, 1, 0.0F, true));
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -22.7946F, -13.156F, 27.0F, 1, 1, 1, 0.0F, true));
         railalt.cubeList.add(new ModelBox(railalt, 0, 0, -22.7946F, -13.156F, 28.5F, 1, 1, 2, 0.0F, true));
@@ -90,7 +90,7 @@ public class RailAlt extends ModelBase {
         Rail132_r1.cubeList.add(new ModelBox(Rail132_r1, 0, 0, 2.0F, -23.999F, 28.5F, 1, 1, 2, 0.0F, true));
         Rail132_r1.cubeList.add(new ModelBox(Rail132_r1, 0, 0, 2.0F, -23.999F, 27.0F, 1, 1, 1, 0.0F, true));
         Rail132_r1.cubeList.add(new ModelBox(Rail132_r1, 0, 0, 2.0F, -23.999F, 24.0F, 1, 1, 1, 0.0F, true));
-        Rail132_r1.cubeList.add(new ModelBox(Rail132_r1, 0, 0, 2.0F, -23.999F, 21.0F, 1, 1, 1, 0.0F, true));
+        Rail132_r1.cubeList.add(new ModelBox(Rail132_r1, 0, 0, 2.0F, -23.999F, 21, 1, 1, 1, 0.0F, true));
         Rail132_r1.cubeList.add(new ModelBox(Rail132_r1, 0, 0, 2.0F, -23.999F, 18.0F, 1, 1, 1, 0.0F, true));
         Rail132_r1.cubeList.add(new ModelBox(Rail132_r1, 0, 0, 2.0F, -23.999F, 15.0F, 1, 1, 1, 0.0F, true));
         Rail132_r1.cubeList.add(new ModelBox(Rail132_r1, 0, 0, 2.0F, -23.999F, 12.0F, 1, 1, 1, 0.0F, true));
@@ -116,7 +116,7 @@ public class RailAlt extends ModelBase {
         Rail112_r1.cubeList.add(new ModelBox(Rail112_r1, 0, 0, 1.5F, -23.999F, 25.5F, 1, 1, 1, 0.0F, true));
         Rail112_r1.cubeList.add(new ModelBox(Rail112_r1, 0, 0, 1.5F, -23.999F, 27.0F, 1, 1, 1, 0.0F, true));
         Rail112_r1.cubeList.add(new ModelBox(Rail112_r1, 0, 0, 1.5F, -23.999F, 24.0F, 1, 1, 1, 0.0F, true));
-        Rail112_r1.cubeList.add(new ModelBox(Rail112_r1, 0, 0, 1.5F, -23.999F, 21.0F, 1, 1, 1, 0.0F, true));
+        Rail112_r1.cubeList.add(new ModelBox(Rail112_r1, 0, 0, 1.5F, -23.999F, 21, 1, 1, 1, 0.0F, true));
         Rail112_r1.cubeList.add(new ModelBox(Rail112_r1, 0, 0, 1.5F, -23.999F, 18.0F, 1, 1, 1, 0.0F, true));
         Rail112_r1.cubeList.add(new ModelBox(Rail112_r1, 0, 0, 1.5F, -23.999F, 15.0F, 1, 1, 1, 0.0F, true));
         Rail112_r1.cubeList.add(new ModelBox(Rail112_r1, 0, 0, 1.5F, -23.999F, 12.0F, 1, 1, 1, 0.0F, true));
@@ -153,7 +153,7 @@ public class RailAlt extends ModelBase {
         Rail80_r1.cubeList.add(new ModelBox(Rail80_r1, 0, 0, 0.5F, -24.0F, 28.5F, 1, 1, 2, 0.0F, true));
         Rail80_r1.cubeList.add(new ModelBox(Rail80_r1, 0, 0, 0.5F, -24.0F, 27.0F, 1, 1, 1, 0.0F, true));
         Rail80_r1.cubeList.add(new ModelBox(Rail80_r1, 0, 0, 0.5F, -24.0F, 24.0F, 1, 1, 1, 0.0F, true));
-        Rail80_r1.cubeList.add(new ModelBox(Rail80_r1, 0, 0, 0.5F, -24.0F, 21.0F, 1, 1, 1, 0.0F, true));
+        Rail80_r1.cubeList.add(new ModelBox(Rail80_r1, 0, 0, 0.5F, -24.0F, 21, 1, 1, 1, 0.0F, true));
         Rail80_r1.cubeList.add(new ModelBox(Rail80_r1, 0, 0, 0.5F, -24.0F, 18.0F, 1, 1, 1, 0.0F, true));
         Rail80_r1.cubeList.add(new ModelBox(Rail80_r1, 0, 0, 0.5F, -24.0F, 15.0F, 1, 1, 1, 0.0F, true));
         Rail80_r1.cubeList.add(new ModelBox(Rail80_r1, 0, 0, 0.5F, -24.0F, 12.0F, 1, 1, 1, 0.0F, true));
@@ -178,7 +178,7 @@ public class RailAlt extends ModelBase {
         Rail51_r1.cubeList.add(new ModelBox(Rail51_r1, 0, 0, 4.0F, -24.0F, 25.5F, 1, 1, 1, 0.0F, true));
         Rail51_r1.cubeList.add(new ModelBox(Rail51_r1, 0, 0, 4.0F, -24.0F, 27.0F, 1, 1, 1, 0.0F, true));
         Rail51_r1.cubeList.add(new ModelBox(Rail51_r1, 0, 0, 4.0F, -24.0F, 24.0F, 1, 1, 1, 0.0F, true));
-        Rail51_r1.cubeList.add(new ModelBox(Rail51_r1, 0, 0, 4.0F, -24.0F, 21.0F, 1, 1, 1, 0.0F, true));
+        Rail51_r1.cubeList.add(new ModelBox(Rail51_r1, 0, 0, 4.0F, -24.0F, 21, 1, 1, 1, 0.0F, true));
         Rail51_r1.cubeList.add(new ModelBox(Rail51_r1, 0, 0, 4.0F, -24.0F, 18.0F, 1, 1, 1, 0.0F, true));
         Rail51_r1.cubeList.add(new ModelBox(Rail51_r1, 0, 0, 4.0F, -24.0F, 15.0F, 1, 1, 1, 0.0F, true));
         Rail51_r1.cubeList.add(new ModelBox(Rail51_r1, 0, 0, 4.0F, -24.0F, 12.0F, 1, 1, 1, 0.0F, true));

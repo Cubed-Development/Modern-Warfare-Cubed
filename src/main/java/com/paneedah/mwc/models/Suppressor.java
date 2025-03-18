@@ -37,8 +37,8 @@ public class Suppressor extends ModelBase {
         suppressor.setRotationPoint(0.0F, 24.0F, 0.0F);
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -24.0F, 0.0F, 2, 3, 20, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 2.0F, -23.0F, 0.0F, 1, 2, 20, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -1.0F, -23.0F, 0.0F, 1, 2, 20, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -21.0F, 0.0F, 2, 1, 20, 0.0F, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -1, -23.0F, 0.0F, 1, 2, 20, 0.0F, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -21, 0.0F, 2, 1, 20, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -24.2F, 16.0F, 2, 1, 4, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -20.8F, 16.0F, 2, 1, 4, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 2.2F, -23.0F, 16.0F, 1, 2, 4, 0.0F, true));
@@ -66,9 +66,9 @@ public class Suppressor extends ModelBase {
         gun48_r1.setRotationPoint(-14.1556F, -36.3283F, 0.0F);
         suppressor.addChild(gun48_r1);
         setRotationAngle(gun48_r1, 0.0F, 0.0F, 2.3794F);
-        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 0, 0, 0.2F, -21.0F, 3.0F, 1, 1, 1, 0.0F, true));
-        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 0, 0, 0.2F, -21.0F, 0.0F, 1, 1, 2, 0.0F, true));
-        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 0, 0, 0.2F, -21.0F, 16.0F, 1, 1, 4, 0.0F, true));
+        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 0, 0, 0.2F, -21, 3.0F, 1, 1, 1, 0.0F, true));
+        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 0, 0, 0.2F, -21, 0.0F, 1, 1, 2, 0.0F, true));
+        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 0, 0, 0.2F, -21, 16.0F, 1, 1, 4, 0.0F, true));
 
         gun47_r1 = new ModelRenderer(this);
         gun47_r1.setRotationPoint(-15.5365F, -39.775F, 0.0F);
@@ -98,9 +98,9 @@ public class Suppressor extends ModelBase {
         gun44_r1.setRotationPoint(-8.9855F, -38.3998F, 0.0F);
         suppressor.addChild(gun44_r1);
         setRotationAngle(gun44_r1, 0.0F, 0.0F, 2.3794F);
-        gun44_r1.cubeList.add(new ModelBox(gun44_r1, 0, 0, 3.2F, -21.0F, 3.0F, 1, 1, 1, 0.0F, true));
-        gun44_r1.cubeList.add(new ModelBox(gun44_r1, 0, 0, 3.2F, -21.0F, 0.0F, 1, 1, 2, 0.0F, true));
-        gun44_r1.cubeList.add(new ModelBox(gun44_r1, 0, 0, 3.2F, -21.0F, 16.0F, 1, 1, 4, 0.0F, true));
+        gun44_r1.cubeList.add(new ModelBox(gun44_r1, 0, 0, 3.2F, -21, 3.0F, 1, 1, 1, 0.0F, true));
+        gun44_r1.cubeList.add(new ModelBox(gun44_r1, 0, 0, 3.2F, -21, 0.0F, 1, 1, 2, 0.0F, true));
+        gun44_r1.cubeList.add(new ModelBox(gun44_r1, 0, 0, 3.2F, -21, 16.0F, 1, 1, 4, 0.0F, true));
 
         gun43_r1 = new ModelRenderer(this);
         gun43_r1.setRotationPoint(-10.3665F, -41.8465F, 0.0F);
@@ -134,8 +134,8 @@ public class Suppressor extends ModelBase {
         gun11_r1.setRotationPoint(-13.8109F, -36.4664F, 0.0F);
         suppressor.addChild(gun11_r1);
         setRotationAngle(gun11_r1, 0.0F, 0.0F, 2.3794F);
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21.0F, 0.0F, 1, 1, 20, 0.0F, true));
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21.0F, 0.0F, 1, 1, 20, 0.0F, true));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21, 0.0F, 1, 1, 20, 0.0F, true));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21, 0.0F, 1, 1, 20, 0.0F, true));
 
         gun9_r1 = new ModelRenderer(this);
         gun9_r1.setRotationPoint(-15.0616F, -6.1978F, 0.0F);
@@ -159,7 +159,7 @@ public class Suppressor extends ModelBase {
         gun6_r1.setRotationPoint(-9.3302F, -38.2617F, 0.0F);
         suppressor.addChild(gun6_r1);
         setRotationAngle(gun6_r1, 0.0F, 0.0F, 2.3794F);
-        gun6_r1.cubeList.add(new ModelBox(gun6_r1, 0, 0, 3.0F, -21.0F, 0.0F, 1, 1, 20, 0.0F, true));
+        gun6_r1.cubeList.add(new ModelBox(gun6_r1, 0, 0, 3.0F, -21, 0.0F, 1, 1, 20, 0.0F, true));
 
         gun5_r1 = new ModelRenderer(this);
         gun5_r1.setRotationPoint(-10.7112F, -41.7084F, 0.0F);

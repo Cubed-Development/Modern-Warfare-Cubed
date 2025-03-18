@@ -65,13 +65,13 @@ public class AK74Stock extends ModelBase {
         gun241_r1.setRotationPoint(-3.5F, -23.9F, 28.6F);
         stock.addChild(gun241_r1);
         setRotationAngle(gun241_r1, -0.1115F, 0.0F, 0.0F);
-        gun241_r1.cubeList.add(new ModelBox(gun241_r1, 14, 22, 0.001F, -1.0F, 0.0F, 4, 2, 1, 0.0F, false));
+        gun241_r1.cubeList.add(new ModelBox(gun241_r1, 14, 22, 0.001F, -1, 0.0F, 4, 2, 1, 0.0F, false));
 
         gun240_r1 = new ModelRenderer(this);
         gun240_r1.setRotationPoint(-3.5F, -29.7F, 26.4F);
         stock.addChild(gun240_r1);
         setRotationAngle(gun240_r1, -0.1115F, 0.0F, 0.0F);
-        gun240_r1.cubeList.add(new ModelBox(gun240_r1, 0, 0, 0.002F, -1.0F, 0.0F, 4, 6, 4, 0.0F, false));
+        gun240_r1.cubeList.add(new ModelBox(gun240_r1, 0, 0, 0.002F, -1, 0.0F, 4, 6, 4, 0.0F, false));
 
         gun239_r1 = new ModelRenderer(this);
         gun239_r1.setRotationPoint(-3.5F, -33.6F, 3.5F);

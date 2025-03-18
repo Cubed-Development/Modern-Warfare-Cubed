@@ -33,8 +33,8 @@ public class BulletSmall extends ModelBase {
 
         shell = new ModelRenderer(this);
         shell.setRotationPoint(0.0F, 24.0F, 0.0F);
-        shell.cubeList.add(new ModelBox(shell, 0, 10, -1.0F, -8.6F, -0.78F, 1, 4, 1, -0.099F, false));
-        shell.cubeList.add(new ModelBox(shell, 4, 5, -1.0F, -8.6F, 0.22F, 1, 4, 1, -0.099F, false));
+        shell.cubeList.add(new ModelBox(shell, 0, 10, -1, -8.6F, -0.78F, 1, 4, 1, -0.099F, false));
+        shell.cubeList.add(new ModelBox(shell, 4, 5, -1, -8.6F, 0.22F, 1, 4, 1, -0.099F, false));
         shell.cubeList.add(new ModelBox(shell, 8, 5, -0.53F, -8.6F, -0.28F, 1, 4, 1, -0.099F, false));
         shell.cubeList.add(new ModelBox(shell, 4, 0, -1.47F, -8.6F, -0.28F, 1, 4, 1, -0.099F, false));
 
@@ -68,13 +68,13 @@ public class BulletSmall extends ModelBase {
 
         bullet = new ModelRenderer(this);
         bullet.setRotationPoint(0.0F, 25.75F, 0.0F);
-        bullet.cubeList.add(new ModelBox(bullet, 11, 15, -1.0F, -11.4F, -0.7F, 1, 2, 1, -0.1F, false));
-        bullet.cubeList.add(new ModelBox(bullet, 0, 15, -1.0F, -11.4F, 0.1F, 1, 2, 1, -0.1F, false));
+        bullet.cubeList.add(new ModelBox(bullet, 11, 15, -1, -11.4F, -0.7F, 1, 2, 1, -0.1F, false));
+        bullet.cubeList.add(new ModelBox(bullet, 0, 15, -1, -11.4F, 0.1F, 1, 2, 1, -0.1F, false));
         bullet.cubeList.add(new ModelBox(bullet, 7, 14, -1.4F, -11.4F, -0.3F, 1, 2, 1, -0.1F, false));
         bullet.cubeList.add(new ModelBox(bullet, 12, 12, -0.6F, -11.4F, -0.3F, 1, 2, 1, -0.1F, false));
 
         bullet_r1 = new ModelRenderer(this);
-        bullet_r1.setRotationPoint(-0.1F, -9.5F, 1.0F);
+        bullet_r1.setRotationPoint(-0.1F, -9.5F, 1);
         bullet.addChild(bullet_r1);
         setRotationAngle(bullet_r1, 0.0F, -0.7854F, 0.0F);
         bullet_r1.cubeList.add(new ModelBox(bullet_r1, 12, 0, -0.8F, -2.0F, -0.8F, 1, 3, 1, -0.201F, false));
@@ -86,7 +86,7 @@ public class BulletSmall extends ModelBase {
         bullet_r2.cubeList.add(new ModelBox(bullet_r2, 8, 10, -0.8F, -2.0F, -0.2F, 1, 3, 1, -0.201F, false));
 
         bullet_r3 = new ModelRenderer(this);
-        bullet_r3.setRotationPoint(-0.9F, -9.5F, 1.0F);
+        bullet_r3.setRotationPoint(-0.9F, -9.5F, 1);
         bullet.addChild(bullet_r3);
         setRotationAngle(bullet_r3, 0.0F, 0.7854F, 0.0F);
         bullet_r3.cubeList.add(new ModelBox(bullet_r3, 12, 4, -0.2F, -2.0F, -0.8F, 1, 3, 1, -0.201F, false));
@@ -110,7 +110,7 @@ public class BulletSmall extends ModelBase {
         bullet_r6.cubeList.add(new ModelBox(bullet_r6, 4, 16, -0.9F, -0.9F, -0.9F, 1, 1, 1, -0.1F, false));
 
         bullet_r7 = new ModelRenderer(this);
-        bullet_r7.setRotationPoint(-0.9F, -11.3F, 1.0F);
+        bullet_r7.setRotationPoint(-0.9F, -11.3F, 1);
         bullet.addChild(bullet_r7);
         setRotationAngle(bullet_r7, 0.3491F, 0.0F, 0.0F);
         bullet_r7.cubeList.add(new ModelBox(bullet_r7, 16, 5, -0.1F, -0.9F, -0.9F, 1, 1, 1, -0.1F, false));

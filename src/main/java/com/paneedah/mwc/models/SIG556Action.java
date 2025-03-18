@@ -26,16 +26,16 @@ public class SIG556Action extends ModelBase {
         action.cubeList.add(new ModelBox(action, 35, 129, -0.5F, -1.4F, 0.4F, 1, 1, 1, 0.0F, false));
 
         cube_r17 = new ModelRenderer(this);
-        cube_r17.setRotationPoint(0.0F, 0.3F, 1.0F);
+        cube_r17.setRotationPoint(0.0F, 0.3F, 1);
         action.addChild(cube_r17);
         setRotationAngle(cube_r17, 0.0F, 0.0F, 0.2618F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 65, 92, 0.0F, -2.0F, -1.0F, 1, 2, 9, 0.0F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 65, 92, 0.0F, -2.0F, -1, 1, 2, 9, 0.0F, false));
 
         cube_r18 = new ModelRenderer(this);
         cube_r18.setRotationPoint(0.5F, -1.4F, 1.9F);
         action.addChild(cube_r18);
         setRotationAngle(cube_r18, 0.0F, -0.1571F, 0.0F);
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 37, 38, -3.0F, 0.0F, -1.0F, 3, 1, 1, 0.001F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 37, 38, -3.0F, 0.0F, -1, 3, 1, 1, 0.001F, false));
 
 
     }

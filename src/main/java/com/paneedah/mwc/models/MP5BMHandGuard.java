@@ -523,7 +523,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun76_r1.setRotationPoint(-1.0207F, -0.526F, -7.2F);
         bone19.addChild(gun76_r1);
         setRotationAngle(gun76_r1, 0.0F, 0.0F, -2.3051F);
-        gun76_r1.cubeList.add(new ModelBox(gun76_r1, 92, 92, -0.4F, -0.4F, 1.0F, 1, 1, 5, -0.101F, false));
+        gun76_r1.cubeList.add(new ModelBox(gun76_r1, 92, 92, -0.4F, -0.4F, 1, 1, 1, 5, -0.101F, false));
         gun76_r1.cubeList.add(new ModelBox(gun76_r1, 71, 159, -0.5F, -0.5F, -2.5F, 1, 1, 4, 0.0F, false));
         gun76_r1.cubeList.add(new ModelBox(gun76_r1, 213, 129, -0.5F, -0.5F, 5.5F, 1, 1, 14, 0.0F, false));
 
@@ -566,14 +566,14 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun64_r1.setRotationPoint(-1.5269F, 0.0379F, -8.7F);
         bone19.addChild(gun64_r1);
         setRotationAngle(gun64_r1, 0.0F, 0.0F, 0.1047F);
-        gun64_r1.cubeList.add(new ModelBox(gun64_r1, 119, 53, -0.5F, -0.5F, -1.0F, 1, 1, 3, -0.1F, false));
+        gun64_r1.cubeList.add(new ModelBox(gun64_r1, 119, 53, -0.5F, -0.5F, -1, 1, 1, 3, -0.1F, false));
         gun64_r1.cubeList.add(new ModelBox(gun64_r1, 44, 131, -0.5F, -0.5F, 7.25F, 1, 1, 2, -0.1F, false));
 
         gun64_r2 = new ModelRenderer(this);
         gun64_r2.setRotationPoint(0.5577F, 0.0379F, -0.45F);
         bone19.addChild(gun64_r2);
         setRotationAngle(gun64_r2, 0.0F, 0.0F, -0.1047F);
-        gun64_r2.cubeList.add(new ModelBox(gun64_r2, 147, 96, -0.5F, -0.5F, -1.0F, 1, 1, 2, -0.1F, false));
+        gun64_r2.cubeList.add(new ModelBox(gun64_r2, 147, 96, -0.5F, -0.5F, -1, 1, 1, 2, -0.1F, false));
         gun64_r2.cubeList.add(new ModelBox(gun64_r2, 147, 99, -0.5F, -0.5F, -9.25F, 1, 1, 2, -0.1F, false));
 
         gun73_r1 = new ModelRenderer(this);
@@ -607,22 +607,22 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         bone45.addChild(gun61_r1);
         setRotationAngle(gun61_r1, 0.0F, 0.0F, 2.5384F);
         gun61_r1.cubeList.add(new ModelBox(gun61_r1, 27, 27, -1.6445F, 0.0F, 0.0F, 1, 1, 25, -0.001F, false));
-        gun61_r1.cubeList.add(new ModelBox(gun61_r1, 147, 88, -1.0F, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
+        gun61_r1.cubeList.add(new ModelBox(gun61_r1, 147, 88, -1, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
 
         gun60_r1 = new ModelRenderer(this);
         gun60_r1.setRotationPoint(-3.4146F, -0.0654F, -9.4182F);
         bone45.addChild(gun60_r1);
         setRotationAngle(gun60_r1, 0.0F, 0.0F, 2.8875F);
-        gun60_r1.cubeList.add(new ModelBox(gun60_r1, 0, 148, -1.0F, -1.4F, 0.0F, 1, 1, 7, -0.001F, false));
-        gun60_r1.cubeList.add(new ModelBox(gun60_r1, 134, 147, -1.0F, -1.0F, 0.0F, 1, 1, 7, 0.0F, false));
+        gun60_r1.cubeList.add(new ModelBox(gun60_r1, 0, 148, -1, -1.4F, 0.0F, 1, 1, 7, -0.001F, false));
+        gun60_r1.cubeList.add(new ModelBox(gun60_r1, 134, 147, -1, -1, 0.0F, 1, 1, 7, 0.0F, false));
         gun60_r1.cubeList.add(new ModelBox(gun60_r1, 131, 23, -0.9F, -1.5F, 6.1F, 1, 1, 19, -0.102F, false));
 
         gun59_r1 = new ModelRenderer(this);
         gun59_r1.setRotationPoint(-3.4146F, -0.0544F, -9.4182F);
         bone45.addChild(gun59_r1);
         setRotationAngle(gun59_r1, 0.0F, 0.0F, -2.8875F);
-        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 147, 116, -1.0F, 0.4F, 0.0F, 1, 1, 7, -0.001F, false));
-        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 147, 108, -1.0F, 0.0F, 0.0F, 1, 1, 7, 0.001F, false));
+        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 147, 116, -1, 0.4F, 0.0F, 1, 1, 7, -0.001F, false));
+        gun59_r1.cubeList.add(new ModelBox(gun59_r1, 147, 108, -1, 0.0F, 0.0F, 1, 1, 7, 0.001F, false));
         gun59_r1.cubeList.add(new ModelBox(gun59_r1, 131, 0, -0.9F, 0.5F, 6.1F, 1, 1, 19, -0.102F, false));
 
         gun64_r3 = new ModelRenderer(this);
@@ -642,14 +642,14 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         bone45.addChild(gun62_r2);
         setRotationAngle(gun62_r2, 0.0F, 0.0F, 2.521F);
         gun62_r2.cubeList.add(new ModelBox(gun62_r2, 93, 52, 1.55F, -0.7063F, 6.7F, 1, 1, 5, -0.3F, false));
-        gun62_r2.cubeList.add(new ModelBox(gun62_r2, 126, 186, 0.25F, -1.0F, 11.0F, 2, 1, 14, -0.001F, false));
-        gun62_r2.cubeList.add(new ModelBox(gun62_r2, 24, 118, 0.25F, -1.0F, 0.0F, 2, 1, 7, -0.001F, false));
+        gun62_r2.cubeList.add(new ModelBox(gun62_r2, 126, 186, 0.25F, -1, 11, 2, 1, 14, -0.001F, false));
+        gun62_r2.cubeList.add(new ModelBox(gun62_r2, 24, 118, 0.25F, -1, 0.0F, 2, 1, 7, -0.001F, false));
 
         gun59_r2 = new ModelRenderer(this);
         gun59_r2.setRotationPoint(-1.232F, -2.7425F, -9.4182F);
         bone45.addChild(gun59_r2);
         setRotationAngle(gun59_r2, 0.0F, 0.0F, -2.521F);
-        gun59_r2.cubeList.add(new ModelBox(gun59_r2, 0, 0, -2.25F, -1.0F, 0.0F, 2, 1, 25, -0.001F, false));
+        gun59_r2.cubeList.add(new ModelBox(gun59_r2, 0, 0, -2.25F, -1, 0.0F, 2, 1, 25, -0.001F, false));
 
         gun60_r2 = new ModelRenderer(this);
         gun60_r2.setRotationPoint(0.9507F, -0.0654F, -9.3182F);
@@ -657,7 +657,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         setRotationAngle(gun60_r2, 0.0F, 0.0F, -2.8875F);
         gun60_r2.cubeList.add(new ModelBox(gun60_r2, 92, 131, -0.1F, -1.5F, 6.0F, 1, 1, 19, -0.102F, false));
         gun60_r2.cubeList.add(new ModelBox(gun60_r2, 148, 136, 0.0F, -1.4F, -0.1F, 1, 1, 7, -0.001F, false));
-        gun60_r2.cubeList.add(new ModelBox(gun60_r2, 148, 128, 0.0F, -1.0F, -0.1F, 1, 1, 7, 0.0F, false));
+        gun60_r2.cubeList.add(new ModelBox(gun60_r2, 148, 128, 0.0F, -1, -0.1F, 1, 1, 7, 0.0F, false));
 
         gun59_r3 = new ModelRenderer(this);
         gun59_r3.setRotationPoint(0.9507F, -0.0544F, -9.5182F);
@@ -710,8 +710,8 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun34_r2.setRotationPoint(-1.8868F, -0.3306F, -6.6748F);
         bone2.addChild(gun34_r2);
         setRotationAngle(gun34_r2, 1.3756F, 0.0F, 0.0F);
-        gun34_r2.cubeList.add(new ModelBox(gun34_r2, 54, 27, -1.0F, -0.5F, -1.8F, 1, 3, 1, -0.001F, false));
-        gun34_r2.cubeList.add(new ModelBox(gun34_r2, 13, 0, -1.0F, -1.5F, -1.5F, 1, 4, 5, 0.0F, false));
+        gun34_r2.cubeList.add(new ModelBox(gun34_r2, 54, 27, -1, -0.5F, -1.8F, 1, 3, 1, -0.001F, false));
+        gun34_r2.cubeList.add(new ModelBox(gun34_r2, 13, 0, -1, -1.5F, -1.5F, 1, 4, 5, 0.0F, false));
         gun34_r2.cubeList.add(new ModelBox(gun34_r2, 54, 53, 1.8F, -0.5F, -1.8F, 1, 3, 1, -0.001F, false));
         gun34_r2.cubeList.add(new ModelBox(gun34_r2, 13, 12, 1.8F, -1.5F, -1.5F, 1, 4, 5, 0.0F, false));
 
@@ -740,7 +740,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun11_r1.setRotationPoint(-1.8868F, -2.7324F, -10.0141F);
         bone2.addChild(gun11_r1);
         setRotationAngle(gun11_r1, -0.7418F, 0.0F, 0.0F);
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 54, 70, -1.0F, -0.4991F, -0.4F, 2, 1, 2, 0.0F, false));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 54, 70, -1, -0.4991F, -0.4F, 2, 1, 2, 0.0F, false));
         gun11_r1.cubeList.add(new ModelBox(gun11_r1, 82, 31, 0.8F, -0.5F, -0.4F, 2, 1, 2, 0.0F, false));
 
         gun7_r1 = new ModelRenderer(this);
@@ -754,13 +754,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun4_r1.setRotationPoint(1.0632F, 1.4125F, 5.7209F);
         bone2.addChild(gun4_r1);
         setRotationAngle(gun4_r1, -0.192F, 0.0F, 0.0F);
-        gun4_r1.cubeList.add(new ModelBox(gun4_r1, 131, 26, -1.0F, -2.0F, 0.0F, 1, 1, 2, -0.101F, false));
+        gun4_r1.cubeList.add(new ModelBox(gun4_r1, 131, 26, -1, -2.0F, 0.0F, 1, 1, 2, -0.101F, false));
 
         gun3_r1 = new ModelRenderer(this);
         gun3_r1.setRotationPoint(1.1632F, 0.9125F, 4.7209F);
         bone2.addChild(gun3_r1);
         setRotationAngle(gun3_r1, -0.3142F, 0.0F, 0.0F);
-        gun3_r1.cubeList.add(new ModelBox(gun3_r1, 0, 127, -1.0F, -2.0F, 0.0F, 1, 2, 2, -0.2F, false));
+        gun3_r1.cubeList.add(new ModelBox(gun3_r1, 0, 127, -1, -2.0F, 0.0F, 1, 2, 2, -0.2F, false));
 
         gun8_r1 = new ModelRenderer(this);
         gun8_r1.setRotationPoint(0.4132F, 0.0125F, 3.2209F);
@@ -844,37 +844,37 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         handle_and_trigger = new ModelRenderer(this);
         handle_and_trigger.setRotationPoint(0.5F, 3.9581F, 4.1225F);
         gun.addChild(handle_and_trigger);
-        handle_and_trigger.cubeList.add(new ModelBox(handle_and_trigger, 44, 141, -1.0F, 0.367F, -5.5431F, 2, 1, 4, 0.001F, false));
+        handle_and_trigger.cubeList.add(new ModelBox(handle_and_trigger, 44, 141, -1, 0.367F, -5.5431F, 2, 1, 4, 0.001F, false));
 
         gun238_r1 = new ModelRenderer(this);
         gun238_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         handle_and_trigger.addChild(gun238_r1);
         setRotationAngle(gun238_r1, 0.48F, 0.0F, 0.0F);
-        gun238_r1.cubeList.add(new ModelBox(gun238_r1, 7, 156, -1.0F, -0.5F, -2.0F, 2, 1, 4, -0.001F, false));
+        gun238_r1.cubeList.add(new ModelBox(gun238_r1, 7, 156, -1, -0.5F, -2.0F, 2, 1, 4, -0.001F, false));
 
         gun240_r1 = new ModelRenderer(this);
         gun240_r1.setRotationPoint(-0.5F, -1.896F, -1.5292F);
         handle_and_trigger.addChild(gun240_r1);
         setRotationAngle(gun240_r1, -0.1484F, 0.0F, 0.0F);
-        gun240_r1.cubeList.add(new ModelBox(gun240_r1, 112, 49, 0.0F, -2.0F, -1.0F, 1, 2, 1, 0.001F, false));
+        gun240_r1.cubeList.add(new ModelBox(gun240_r1, 112, 49, 0.0F, -2.0F, -1, 1, 2, 1, 0.001F, false));
 
         gun239_r1 = new ModelRenderer(this);
         gun239_r1.setRotationPoint(-0.5F, -1.896F, -1.5292F);
         handle_and_trigger.addChild(gun239_r1);
         setRotationAngle(gun239_r1, -0.3578F, 0.0F, 0.0F);
-        gun239_r1.cubeList.add(new ModelBox(gun239_r1, 10, 113, 0.0F, 0.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        gun239_r1.cubeList.add(new ModelBox(gun239_r1, 10, 113, 0.0F, 0.0F, -1, 1, 2, 1, 0.0F, false));
 
         gun238_r2 = new ModelRenderer(this);
         gun238_r2.setRotationPoint(0.0F, -1.696F, -8.6293F);
         handle_and_trigger.addChild(gun238_r2);
         setRotationAngle(gun238_r2, 0.2356F, 0.0F, 0.0F);
-        gun238_r2.cubeList.add(new ModelBox(gun238_r2, 65, 79, -1.0F, -3.0F, -0.5F, 2, 4, 1, -0.2F, false));
+        gun238_r2.cubeList.add(new ModelBox(gun238_r2, 65, 79, -1, -3.0F, -0.5F, 2, 4, 1, -0.2F, false));
 
         gun237_r1 = new ModelRenderer(this);
         gun237_r1.setRotationPoint(0.0F, -1.596F, -6.2293F);
         handle_and_trigger.addChild(gun237_r1);
         setRotationAngle(gun237_r1, 0.3927F, 0.0F, 0.0F);
-        gun237_r1.cubeList.add(new ModelBox(gun237_r1, 26, 79, -1.0F, -3.0F, -0.5F, 2, 6, 1, 0.0F, false));
+        gun237_r1.cubeList.add(new ModelBox(gun237_r1, 26, 79, -1, -3.0F, -0.5F, 2, 6, 1, 0.0F, false));
 
         bone62 = new ModelRenderer(this);
         bone62.setRotationPoint(0.5F, -0.2979F, 3.6701F);
@@ -890,7 +890,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         setRotationAngle(bone63, -1.1396F, 0.0F, 0.0F);
         bone63.cubeList.add(new ModelBox(bone63, 216, 185, -1.3915F, -2.2941F, -5.5004F, 3, 3, 12, 0.0F, false));
         bone63.cubeList.add(new ModelBox(bone63, 43, 223, -1.6085F, -2.2934F, -5.5014F, 1, 3, 12, 0.0F, false));
-        bone63.cubeList.add(new ModelBox(bone63, 227, 33, -1.0F, 0.5F, -5.5F, 2, 1, 11, 0.0F, false));
+        bone63.cubeList.add(new ModelBox(bone63, 227, 33, -1, 0.5F, -5.5F, 2, 1, 11, 0.0F, false));
         bone63.cubeList.add(new ModelBox(bone63, 0, 21, -1.525F, 0.7F, 5.5F, 3, 1, 1, 0.0F, false));
 
         mp5_standard_parts = new ModelRenderer(this);
@@ -938,7 +938,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun75_r2.setRotationPoint(0.0888F, 0.7444F, -12.75F);
         bone6.addChild(gun75_r2);
         setRotationAngle(gun75_r2, 0.0F, 0.0F, 2.1935F);
-        gun75_r2.cubeList.add(new ModelBox(gun75_r2, 31, 141, -0.5F, -0.5F, 11.0F, 1, 1, 3, 0.0F, false));
+        gun75_r2.cubeList.add(new ModelBox(gun75_r2, 31, 141, -0.5F, -0.5F, 11, 1, 1, 3, 0.0F, false));
 
         gun78_r1 = new ModelRenderer(this);
         gun78_r1.setRotationPoint(-0.4557F, -0.0042F, -2.9445F);
@@ -974,14 +974,14 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun76_r5.setRotationPoint(-1.0003F, 0.7444F, -12.75F);
         bone6.addChild(gun76_r5);
         setRotationAngle(gun76_r5, 0.0F, 0.0F, -2.1935F);
-        gun76_r5.cubeList.add(new ModelBox(gun76_r5, 56, 142, -0.5F, -0.5F, 11.0F, 1, 1, 3, 0.0F, false));
+        gun76_r5.cubeList.add(new ModelBox(gun76_r5, 56, 142, -0.5F, -0.5F, 11, 1, 1, 3, 0.0F, false));
 
         bone9 = new ModelRenderer(this);
         bone9.setRotationPoint(-1.5F, -38.5826F, -38.85F);
         front_end_standard.addChild(bone9);
-        bone9.cubeList.add(new ModelBox(bone9, 134, 147, -1.2423F, -0.4473F, -1.0F, 1, 1, 2, 0.0F, false));
-        bone9.cubeList.add(new ModelBox(bone9, 147, 119, -0.5F, -1.1174F, -1.0F, 1, 1, 2, 0.0F, false));
-        bone9.cubeList.add(new ModelBox(bone9, 147, 108, 0.2423F, -0.4473F, -1.0F, 1, 1, 2, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 134, 147, -1.2423F, -0.4473F, -1, 1, 1, 2, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 147, 119, -0.5F, -1.1174F, -1, 1, 1, 2, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 147, 108, 0.2423F, -0.4473F, -1, 1, 1, 2, 0.0F, false));
 
         gun75_r4 = new ModelRenderer(this);
         gun75_r4.setRotationPoint(0.5361F, -0.4112F, -0.5F);
@@ -1042,9 +1042,9 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         bone14 = new ModelRenderer(this);
         bone14.setRotationPoint(-1.5F, -38.5826F, -41.85F);
         front_end_standard.addChild(bone14);
-        bone14.cubeList.add(new ModelBox(bone14, 151, 71, -1.2423F, -0.4473F, -1.0F, 1, 1, 2, 0.0F, false));
-        bone14.cubeList.add(new ModelBox(bone14, 124, 115, -0.5F, -2.1174F, -1.0F, 1, 2, 2, 0.0F, false));
-        bone14.cubeList.add(new ModelBox(bone14, 151, 20, 0.2423F, -0.4473F, -1.0F, 1, 1, 2, 0.0F, false));
+        bone14.cubeList.add(new ModelBox(bone14, 151, 71, -1.2423F, -0.4473F, -1, 1, 1, 2, 0.0F, false));
+        bone14.cubeList.add(new ModelBox(bone14, 124, 115, -0.5F, -2.1174F, -1, 1, 2, 2, 0.0F, false));
+        bone14.cubeList.add(new ModelBox(bone14, 151, 20, 0.2423F, -0.4473F, -1, 1, 1, 2, 0.0F, false));
 
         gun76_r10 = new ModelRenderer(this);
         gun76_r10.setRotationPoint(0.5361F, -0.4112F, -0.5F);
@@ -1073,10 +1073,10 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         bone15 = new ModelRenderer(this);
         bone15.setRotationPoint(-1.5F, -35.5826F, -41.85F);
         front_end_standard.addChild(bone15);
-        bone15.cubeList.add(new ModelBox(bone15, 149, 104, -1.2423F, -0.4473F, -1.0F, 1, 1, 2, 0.0F, false));
-        bone15.cubeList.add(new ModelBox(bone15, 54, 38, -0.5F, -2.6174F, -1.0F, 1, 4, 2, 0.0F, false));
+        bone15.cubeList.add(new ModelBox(bone15, 149, 104, -1.2423F, -0.4473F, -1, 1, 1, 2, 0.0F, false));
+        bone15.cubeList.add(new ModelBox(bone15, 54, 38, -0.5F, -2.6174F, -1, 1, 4, 2, 0.0F, false));
         bone15.cubeList.add(new ModelBox(bone15, 46, 53, -0.5F, -2.6174F, 2.0F, 1, 3, 2, 0.0F, false));
-        bone15.cubeList.add(new ModelBox(bone15, 148, 131, 0.2423F, -0.4473F, -1.0F, 1, 1, 2, 0.0F, false));
+        bone15.cubeList.add(new ModelBox(bone15, 148, 131, 0.2423F, -0.4473F, -1, 1, 1, 2, 0.0F, false));
 
         gun77_r6 = new ModelRenderer(this);
         gun77_r6.setRotationPoint(0.5361F, -0.4112F, -0.5F);
@@ -1219,7 +1219,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun75_r8.setRotationPoint(0.3629F, -0.3485F, -10.55F);
         bone4.addChild(gun75_r8);
         setRotationAngle(gun75_r8, 0.0F, 0.0F, 2.3051F);
-        gun75_r8.cubeList.add(new ModelBox(gun75_r8, 124, 58, -0.5F, -0.5F, 11.0F, 1, 1, 1, -0.2F, false));
+        gun75_r8.cubeList.add(new ModelBox(gun75_r8, 124, 58, -0.5F, -0.5F, 11, 1, 1, 1, -0.2F, false));
         gun75_r8.cubeList.add(new ModelBox(gun75_r8, 0, 75, -0.5F, -0.5F, 8.6F, 2, 1, 1, -0.2F, false));
 
         gun75_r9 = new ModelRenderer(this);
@@ -1250,7 +1250,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun75_r11.setRotationPoint(0.0659F, -0.6165F, -10.65F);
         bone4.addChild(gun75_r11);
         setRotationAngle(gun75_r11, 0.0F, 0.0F, 2.3051F);
-        gun75_r11.cubeList.add(new ModelBox(gun75_r11, 16, 124, -0.5007F, -0.5F, 11.0F, 1, 1, 1, -0.2F, false));
+        gun75_r11.cubeList.add(new ModelBox(gun75_r11, 16, 124, -0.5007F, -0.5F, 11, 1, 1, 1, -0.2F, false));
         gun75_r11.cubeList.add(new ModelBox(gun75_r11, 124, 53, -0.5F, -0.5F, 11.1F, 1, 1, 1, -0.201F, false));
         gun75_r11.cubeList.add(new ModelBox(gun75_r11, 124, 89, -0.5F, -0.5F, 8.7F, 1, 1, 1, -0.201F, false));
 
@@ -1258,7 +1258,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun74_r4.setRotationPoint(0.0515F, -0.899F, -12.55F);
         bone4.addChild(gun74_r4);
         setRotationAngle(gun74_r4, 0.0F, 0.0F, 2.3051F);
-        gun74_r4.cubeList.add(new ModelBox(gun74_r4, 31, 152, -0.5F, -0.5F, 11.0F, 1, 1, 3, -0.4F, false));
+        gun74_r4.cubeList.add(new ModelBox(gun74_r4, 31, 152, -0.5F, -0.5F, 11, 1, 1, 3, -0.4F, false));
 
         bone8 = new ModelRenderer(this);
         bone8.setRotationPoint(-1.5111F, -38.3865F, -23.5F);
@@ -1283,13 +1283,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun73_r2.setRotationPoint(0.5472F, -0.6073F, 1.5F);
         bone8.addChild(gun73_r2);
         setRotationAngle(gun73_r2, 0.0F, 0.0F, 2.3051F);
-        gun73_r2.cubeList.add(new ModelBox(gun73_r2, 144, 56, -0.5F, -0.5F, -1.0F, 1, 1, 3, 0.0F, false));
+        gun73_r2.cubeList.add(new ModelBox(gun73_r2, 144, 56, -0.5F, -0.5F, -1, 1, 1, 3, 0.0F, false));
 
         gun74_r6 = new ModelRenderer(this);
         gun74_r6.setRotationPoint(0.5557F, 0.471F, 1.5F);
         bone8.addChild(gun74_r6);
         setRotationAngle(gun74_r6, 0.0F, 0.0F, 2.1935F);
-        gun74_r6.cubeList.add(new ModelBox(gun74_r6, 44, 146, -0.5F, -0.5F, -1.0F, 1, 1, 3, 0.0F, false));
+        gun74_r6.cubeList.add(new ModelBox(gun74_r6, 44, 146, -0.5F, -0.5F, -1, 1, 1, 3, 0.0F, false));
 
         mp5_navy_handguard = new ModelRenderer(this);
         mp5_navy_handguard.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -1308,7 +1308,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         setRotationAngle(bone10, 0.0F, 0.0F, -0.3054F);
         bone10.cubeList.add(new ModelBox(bone10, 189, 76, -0.5F, -0.5F, -7.5F, 1, 2, 17, 0.002F, false));
         bone10.cubeList.add(new ModelBox(bone10, 152, 20, -0.5F, 1.5F, 3.5F, 1, 1, 6, 0.001F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 169, 133, -0.5F, 1.0F, -0.5F, 1, 1, 4, 0.001F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 169, 133, -0.5F, 1, -0.5F, 1, 1, 4, 0.001F, false));
 
         gun35_r2 = new ModelRenderer(this);
         gun35_r2.setRotationPoint(0.0F, 1.9958F, 0.0002F);
@@ -1328,7 +1328,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         setRotationAngle(bone5, 0.0F, 0.0F, 0.3054F);
         bone5.cubeList.add(new ModelBox(bone5, 61, 189, -0.5F, -0.5F, -7.5F, 1, 2, 17, 0.002F, false));
         bone5.cubeList.add(new ModelBox(bone5, 65, 79, -0.5F, 1.5F, 3.5F, 1, 1, 6, 0.001F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 159, 71, -0.5F, 1.0F, -0.5F, 1, 1, 4, 0.001F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 159, 71, -0.5F, 1, -0.5F, 1, 1, 4, 0.001F, false));
 
         gun36_r1 = new ModelRenderer(this);
         gun36_r1.setRotationPoint(0.0F, 1.9958F, 0.0002F);
@@ -1346,13 +1346,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         bone11.setRotationPoint(-1.5F, -32.6977F, -30.5527F);
         mp5_navy_handguard.addChild(bone11);
         setRotationAngle(bone11, -0.1047F, 0.0F, 0.0F);
-        bone11.cubeList.add(new ModelBox(bone11, 0, 127, -1.0F, -1.5F, -9.5F, 2, 2, 19, 0.0F, false));
+        bone11.cubeList.add(new ModelBox(bone11, 0, 127, -1, -1.5F, -9.5F, 2, 2, 19, 0.0F, false));
 
         gun34_r5 = new ModelRenderer(this);
         gun34_r5.setRotationPoint(1.6279F, -1.3223F, 0.0F);
         bone11.addChild(gun34_r5);
         setRotationAngle(gun34_r5, -0.0262F, 0.0175F, -1.1781F);
-        gun34_r5.cubeList.add(new ModelBox(gun34_r5, 125, 126, -1.0F, -1.5F, -9.5F, 2, 2, 19, 0.0F, false));
+        gun34_r5.cubeList.add(new ModelBox(gun34_r5, 125, 126, -1, -1.5F, -9.5F, 2, 2, 19, 0.0F, false));
 
         gun33_r2 = new ModelRenderer(this);
         gun33_r2.setRotationPoint(0.9886F, -0.2184F, 0.0274F);
@@ -1370,7 +1370,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun35_r4.setRotationPoint(-1.6279F, -1.3223F, 0.0F);
         bone21.addChild(gun35_r4);
         setRotationAngle(gun35_r4, -0.0262F, -0.0175F, 1.1781F);
-        gun35_r4.cubeList.add(new ModelBox(gun35_r4, 124, 105, -1.0F, -1.5F, -9.5F, 2, 2, 19, 0.0F, false));
+        gun35_r4.cubeList.add(new ModelBox(gun35_r4, 124, 105, -1, -1.5F, -9.5F, 2, 2, 19, 0.0F, false));
 
         gun34_r6 = new ModelRenderer(this);
         gun34_r6.setRotationPoint(-0.9886F, -0.2184F, 0.0274F);
@@ -1386,21 +1386,21 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun61_r2.setRotationPoint(-1.5F, -37.9827F, -23.0F);
         mp5_blackmesa_handguard.addChild(gun61_r2);
         setRotationAngle(gun61_r2, 0.0F, 0.0F, 2.521F);
-        gun61_r2.cubeList.add(new ModelBox(gun61_r2, 175, 22, 0.25F, -1.0F, 0.0F, 2, 1, 17, -0.001F, false));
+        gun61_r2.cubeList.add(new ModelBox(gun61_r2, 175, 22, 0.25F, -1, 0.0F, 2, 1, 17, -0.001F, false));
 
         gun60_r3 = new ModelRenderer(this);
         gun60_r3.setRotationPoint(-3.6827F, -35.2945F, -23.0F);
         mp5_blackmesa_handguard.addChild(gun60_r3);
         setRotationAngle(gun60_r3, 0.0F, 0.0F, -2.8875F);
-        gun60_r3.cubeList.add(new ModelBox(gun60_r3, 209, 78, -1.0F, 0.4F, 0.0F, 1, 1, 17, -0.001F, false));
-        gun60_r3.cubeList.add(new ModelBox(gun60_r3, 76, 209, -1.0F, 0.0F, 0.0F, 1, 1, 17, 0.0F, false));
+        gun60_r3.cubeList.add(new ModelBox(gun60_r3, 209, 78, -1, 0.4F, 0.0F, 1, 1, 17, -0.001F, false));
+        gun60_r3.cubeList.add(new ModelBox(gun60_r3, 76, 209, -1, 0.0F, 0.0F, 1, 1, 17, 0.0F, false));
 
         gun61_r3 = new ModelRenderer(this);
         gun61_r3.setRotationPoint(-3.6827F, -35.3055F, -23.0F);
         mp5_blackmesa_handguard.addChild(gun61_r3);
         setRotationAngle(gun61_r3, 0.0F, 0.0F, 2.8875F);
-        gun61_r3.cubeList.add(new ModelBox(gun61_r3, 208, 59, -1.0F, -1.4F, 0.0F, 1, 1, 17, -0.001F, false));
-        gun61_r3.cubeList.add(new ModelBox(gun61_r3, 57, 208, -1.0F, -1.0F, 0.0F, 1, 1, 17, 0.0F, false));
+        gun61_r3.cubeList.add(new ModelBox(gun61_r3, 208, 59, -1, -1.4F, 0.0F, 1, 1, 17, -0.001F, false));
+        gun61_r3.cubeList.add(new ModelBox(gun61_r3, 57, 208, -1, -1, 0.0F, 1, 1, 17, 0.0F, false));
 
         gun63_r3 = new ModelRenderer(this);
         gun63_r3.setRotationPoint(-1.9945F, -33.0173F, -23.0F);
@@ -1413,7 +1413,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun61_r4.setRotationPoint(-1.0055F, -33.0173F, -23.0F);
         mp5_blackmesa_handguard.addChild(gun61_r4);
         setRotationAngle(gun61_r4, 0.0F, 0.0F, 2.5384F);
-        gun61_r4.cubeList.add(new ModelBox(gun61_r4, 118, 205, -1.0F, 0.0F, 0.0F, 1, 1, 17, 0.0F, false));
+        gun61_r4.cubeList.add(new ModelBox(gun61_r4, 118, 205, -1, 0.0F, 0.0F, 1, 1, 17, 0.0F, false));
         gun61_r4.cubeList.add(new ModelBox(gun61_r4, 38, 205, -1.6445F, 0.0F, 0.0F, 1, 1, 17, -0.001F, false));
 
         gun60_r4 = new ModelRenderer(this);
@@ -1421,7 +1421,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         mp5_blackmesa_handguard.addChild(gun60_r4);
         setRotationAngle(gun60_r4, 0.0F, 0.0F, -2.8875F);
         gun60_r4.cubeList.add(new ModelBox(gun60_r4, 0, 205, 0.0F, -1.4F, 0.0F, 1, 1, 17, -0.001F, false));
-        gun60_r4.cubeList.add(new ModelBox(gun60_r4, 181, 204, 0.0F, -1.0F, 0.0F, 1, 1, 17, 0.0F, false));
+        gun60_r4.cubeList.add(new ModelBox(gun60_r4, 181, 204, 0.0F, -1, 0.0F, 1, 1, 17, 0.0F, false));
 
         gun58_r1 = new ModelRenderer(this);
         gun58_r1.setRotationPoint(0.6827F, -35.2945F, -23.0F);
@@ -1434,7 +1434,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun60_r5.setRotationPoint(-1.5F, -37.9827F, -23.0F);
         mp5_blackmesa_handguard.addChild(gun60_r5);
         setRotationAngle(gun60_r5, 0.0F, 0.0F, -2.521F);
-        gun60_r5.cubeList.add(new ModelBox(gun60_r5, 86, 173, -2.25F, -1.0F, 0.0F, 2, 1, 17, -0.001F, false));
+        gun60_r5.cubeList.add(new ModelBox(gun60_r5, 86, 173, -2.25F, -1, 0.0F, 2, 1, 17, -0.001F, false));
 
         mp5_a5_handguard = new ModelRenderer(this);
         mp5_a5_handguard.setRotationPoint(0.0F, 24.0F, -17.0F);
@@ -1447,7 +1447,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         mp5_a5_handguard.cubeList.add(new ModelBox(mp5_a5_handguard, 192, 41, -2.0F, -33.67F, -23.0F, 1, 1, 17, 0.0F, false));
 
         gun63_r4 = new ModelRenderer(this);
-        gun63_r4.setRotationPoint(-1.5F, -37.9827F, -11.0F);
+        gun63_r4.setRotationPoint(-1.5F, -37.9827F, -11);
         mp5_a5_handguard.addChild(gun63_r4);
         setRotationAngle(gun63_r4, 0.0F, 0.0F, 2.521F);
         gun63_r4.cubeList.add(new ModelBox(gun63_r4, 39, 45, 0.35F, -0.65F, 3.0F, 2, 1, 2, -0.001F, false));
@@ -1460,7 +1460,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun63_r4.cubeList.add(new ModelBox(gun63_r4, 82, 49, 1.1F, -0.45F, 1.5F, 1, 1, 1, -0.2F, false));
 
         gun61_r5 = new ModelRenderer(this);
-        gun61_r5.setRotationPoint(-3.6827F, -35.2945F, -11.0F);
+        gun61_r5.setRotationPoint(-3.6827F, -35.2945F, -11);
         mp5_a5_handguard.addChild(gun61_r5);
         setRotationAngle(gun61_r5, 0.0F, 0.0F, -2.8875F);
         gun61_r5.cubeList.add(new ModelBox(gun61_r5, 97, 73, -0.65F, -0.1F, 3.0F, 1, 1, 2, 0.0F, false));
@@ -1471,19 +1471,19 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun61_r5.cubeList.add(new ModelBox(gun61_r5, 59, 98, -0.65F, -0.1F, -9.0F, 1, 1, 2, 0.0F, false));
 
         gun63_r5 = new ModelRenderer(this);
-        gun63_r5.setRotationPoint(-3.6827F, -35.2945F, -21.0F);
+        gun63_r5.setRotationPoint(-3.6827F, -35.2945F, -21);
         mp5_a5_handguard.addChild(gun63_r5);
         setRotationAngle(gun63_r5, 0.0F, 0.0F, -2.6257F);
         gun63_r5.cubeList.add(new ModelBox(gun63_r5, 0, 26, -1.55F, 0.7F, 3.0F, 2, 1, 10, -0.001F, false));
 
         gun62_r4 = new ModelRenderer(this);
-        gun62_r4.setRotationPoint(0.6827F, -35.2945F, -21.0F);
+        gun62_r4.setRotationPoint(0.6827F, -35.2945F, -21);
         mp5_a5_handguard.addChild(gun62_r4);
         setRotationAngle(gun62_r4, 0.0F, 0.0F, 2.6257F);
         gun62_r4.cubeList.add(new ModelBox(gun62_r4, 27, 27, -0.45F, 0.7F, 3.0F, 2, 1, 10, -0.001F, false));
 
         gun61_r6 = new ModelRenderer(this);
-        gun61_r6.setRotationPoint(0.6827F, -35.2945F, -11.0F);
+        gun61_r6.setRotationPoint(0.6827F, -35.2945F, -11);
         mp5_a5_handguard.addChild(gun61_r6);
         setRotationAngle(gun61_r6, 0.0F, 0.0F, 2.8875F);
         gun61_r6.cubeList.add(new ModelBox(gun61_r6, 8, 48, -0.35F, 0.5F, 3.0F, 2, 1, 2, -0.001F, false));
@@ -1546,15 +1546,15 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun64_r5.setRotationPoint(-3.1F, -37.9827F, -23.0F);
         mp5_a5_handguard.addChild(gun64_r5);
         setRotationAngle(gun64_r5, -0.2618F, 0.0F, 0.0F);
-        gun64_r5.cubeList.add(new ModelBox(gun64_r5, 92, 32, 0.15F, 0.25F, 1.0F, 1, 1, 1, -0.001F, false));
-        gun64_r5.cubeList.add(new ModelBox(gun64_r5, 92, 41, 2.05F, 0.25F, 1.0F, 1, 1, 1, -0.001F, false));
+        gun64_r5.cubeList.add(new ModelBox(gun64_r5, 92, 32, 0.15F, 0.25F, 1, 1, 1, 1, -0.001F, false));
+        gun64_r5.cubeList.add(new ModelBox(gun64_r5, 92, 41, 2.05F, 0.25F, 1, 1, 1, 1, -0.001F, false));
 
         gun68_r1 = new ModelRenderer(this);
         gun68_r1.setRotationPoint(-1.5F, -37.9827F, -32.5F);
         mp5_a5_handguard.addChild(gun68_r1);
         setRotationAngle(gun68_r1, 0.0F, 0.0F, -2.521F);
         gun68_r1.cubeList.add(new ModelBox(gun68_r1, 86, 49, -2.1F, -0.45F, 23.0F, 1, 1, 1, -0.2F, false));
-        gun68_r1.cubeList.add(new ModelBox(gun68_r1, 88, 20, -2.1F, -0.45F, 21.0F, 1, 1, 1, -0.2F, false));
+        gun68_r1.cubeList.add(new ModelBox(gun68_r1, 88, 20, -2.1F, -0.45F, 21, 1, 1, 1, -0.2F, false));
         gun68_r1.cubeList.add(new ModelBox(gun68_r1, 90, 49, -2.1F, -0.45F, 19.0F, 1, 1, 1, -0.2F, false));
         gun68_r1.cubeList.add(new ModelBox(gun68_r1, 10, 91, -2.1F, -0.45F, 17.0F, 1, 1, 1, -0.2F, false));
         gun68_r1.cubeList.add(new ModelBox(gun68_r1, 91, 87, -2.1F, -0.45F, 15.0F, 1, 1, 1, -0.2F, false));
@@ -1564,28 +1564,28 @@ public class MP5BMHandGuard extends ModelWithAttachments {
 
         mp5_mi_handguard = new ModelRenderer(this);
         mp5_mi_handguard.setRotationPoint(0.7F, -10.3F, -40.0F);
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 17, 104, -1.0F, -2.0F, 16.0F, 1, 2, 1, -0.001F, false));
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 101, 68, -1.0F, -2.0F, 14.0F, 1, 2, 1, -0.001F, false));
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 100, 41, -1.0F, -2.0F, 11.5F, 1, 2, 1, -0.001F, false));
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 100, 26, -1.0F, -2.0F, 7.5F, 1, 2, 1, -0.001F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 17, 104, -1, -2.0F, 16.0F, 1, 2, 1, -0.001F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 101, 68, -1, -2.0F, 14.0F, 1, 2, 1, -0.001F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 100, 41, -1, -2.0F, 11.5F, 1, 2, 1, -0.001F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 100, 26, -1, -2.0F, 7.5F, 1, 2, 1, -0.001F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 211, 36, -0.8F, -2.2F, 3.0F, 1, 1, 14, -0.2F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 209, 114, -0.8F, -0.8F, 3.0F, 1, 1, 14, -0.2F, false));
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 117, 0, -1.0F, -1.0F, -1.0F, 1, 1, 4, 0.0F, false));
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 116, 24, -1.0F, -1.5F, -1.0F, 1, 1, 4, -0.002F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 117, 0, -1, -1, -1, 1, 1, 4, 0.0F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 116, 24, -1, -1.5F, -1, 1, 1, 4, -0.002F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 54, 79, -1.7F, -3.8F, 0.2F, 1, 3, 2, 0.0F, false));
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 81, 92, -1.0F, -2.0F, 2.4F, 1, 2, 2, -0.001F, false));
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 155, 148, -2.4F, 0.4F, -1.0F, 1, 1, 18, 0.0F, false));
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 155, 39, -3.0F, 0.4F, -1.0F, 1, 1, 18, 0.001F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 81, 92, -1, -2.0F, 2.4F, 1, 2, 2, -0.001F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 155, 148, -2.4F, 0.4F, -1, 1, 1, 18, 0.0F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 155, 39, -3.0F, 0.4F, -1, 1, 1, 18, 0.001F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 48, 33, -4.4F, -2.0F, 16.0F, 1, 2, 1, -0.001F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 38, 66, -3.7F, -3.8F, 0.2F, 1, 3, 2, 0.0F, false));
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 11, 104, -4.4F, -1.0F, -1.0F, 1, 1, 4, 0.0F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 11, 104, -4.4F, -1, -1, 1, 1, 4, 0.0F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 91, 83, -4.4F, -2.0F, 2.4F, 1, 2, 2, -0.001F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 113, 129, -4.6F, -2.2F, 3.0F, 1, 1, 14, -0.2F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 192, 59, -4.6F, -0.8F, 3.0F, 1, 1, 14, -0.2F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 21, 52, -4.4F, -2.0F, 14.0F, 1, 2, 1, -0.001F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 59, 59, -4.4F, -2.0F, 11.5F, 1, 2, 1, -0.001F, false));
         mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 5, 65, -4.4F, -2.0F, 7.5F, 1, 2, 1, -0.001F, false));
-        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 110, 115, -4.4F, -1.5F, -1.0F, 1, 1, 4, -0.002F, false));
+        mp5_mi_handguard.cubeList.add(new ModelBox(mp5_mi_handguard, 110, 115, -4.4F, -1.5F, -1, 1, 1, 4, -0.002F, false));
 
         cube_r1 = new ModelRenderer(this);
         cube_r1.setRotationPoint(-4.4F, -2.0F, 15.5F);
@@ -1602,10 +1602,10 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r2.cubeList.add(new ModelBox(cube_r2, 56, 10, -0.2F, -0.8F, 3.5F, 1, 1, 9, -0.201F, false));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 12, 78, 0.0F, -2.0F, 3.4F, 1, 2, 1, 0.0F, false));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 32, 66, 0.0F, -2.0F, 11.5F, 1, 2, 1, 0.001F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 102, 49, 0.0F, -1.0F, 12.1F, 1, 1, 1, -0.002F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 102, 49, 0.0F, -1, 12.1F, 1, 1, 1, -0.002F, false));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 101, 73, 0.0F, -1.5F, 12.1F, 1, 1, 1, -0.001F, false));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 98, 21, 0.0F, -1.5F, 2.4F, 1, 1, 1, -0.001F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 96, 41, 0.0F, -1.0F, 2.4F, 1, 1, 1, -0.002F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 96, 41, 0.0F, -1, 2.4F, 1, 1, 1, -0.002F, false));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 50, 6, 0.0F, -2.0F, 7.5F, 1, 2, 1, 0.0F, false));
 
         cube_r3 = new ModelRenderer(this);
@@ -1615,7 +1615,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r3.cubeList.add(new ModelBox(cube_r3, 11, 109, -0.1F, -3.68F, 0.35F, 1, 1, 1, -0.102F, false));
 
         cube_r4 = new ModelRenderer(this);
-        cube_r4.setRotationPoint(-4.4F, 0.0F, -1.0F);
+        cube_r4.setRotationPoint(-4.4F, 0.0F, -1);
         mp5_mi_handguard.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.0F, 0.0F, -0.7854F);
         cube_r4.cubeList.add(new ModelBox(cube_r4, 20, 78, 0.0F, 0.0F, 0.0F, 1, 2, 1, -0.001F, false));
@@ -1631,15 +1631,15 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r5.setRotationPoint(-3.8F, -2.4F, 0.5F);
         mp5_mi_handguard.addChild(cube_r5);
         setRotationAngle(cube_r5, -0.3491F, 0.0F, 0.0F);
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 107, 18, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 111, 101, 2.2F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 107, 18, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 111, 101, 2.2F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r6 = new ModelRenderer(this);
         cube_r6.setRotationPoint(-4.6F, -0.6F, 0.5F);
         mp5_mi_handguard.addChild(cube_r6);
         setRotationAngle(cube_r6, -0.3491F, 0.0F, 0.0F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 106, 46, 0.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 113, 76, 3.8F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 106, 46, 0.0F, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 113, 76, 3.8F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(-4.5F, -0.9F, 16.0F);
@@ -1674,7 +1674,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         mp5_mi_handguard.addChild(cube_r11);
         setRotationAngle(cube_r11, 0.0F, 0.0F, 0.4712F);
         cube_r11.cubeList.add(new ModelBox(cube_r11, 39, 53, 0.0F, -1.75F, 12.0F, 1, 1, 5, -0.001F, false));
-        cube_r11.cubeList.add(new ModelBox(cube_r11, 109, 106, 0.0F, -1.0F, 13.0F, 1, 1, 4, 0.0F, false));
+        cube_r11.cubeList.add(new ModelBox(cube_r11, 109, 106, 0.0F, -1, 13.0F, 1, 1, 4, 0.0F, false));
 
         cube_r12 = new ModelRenderer(this);
         cube_r12.setRotationPoint(0.0F, -2.0F, 15.5F);
@@ -1686,16 +1686,16 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r13.setRotationPoint(0.0F, -2.0F, 16.1F);
         mp5_mi_handguard.addChild(cube_r13);
         setRotationAngle(cube_r13, 0.0F, 0.0F, -0.3665F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 110, 46, -1.0F, -1.5F, -4.0F, 1, 1, 1, -0.001F, false));
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 109, 76, -1.0F, -1.0F, -4.0F, 1, 1, 1, -0.002F, false));
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 116, 24, -1.0F, -1.5F, -13.7F, 1, 1, 1, -0.001F, false));
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 116, 26, -1.0F, -1.0F, -13.7F, 1, 1, 1, -0.002F, false));
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 100, 0, -1.0F, -2.0F, -4.6F, 1, 2, 1, 0.001F, false));
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 72, 109, -1.0F, -2.0F, -13.1F, 1, 1, 1, -0.003F, false));
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 49, 79, -1.0F, -2.0F, -12.7F, 1, 2, 1, 0.0F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 110, 46, -1, -1.5F, -4.0F, 1, 1, 1, -0.001F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 109, 76, -1, -1, -4.0F, 1, 1, 1, -0.002F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 116, 24, -1, -1.5F, -13.7F, 1, 1, 1, -0.001F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 116, 26, -1, -1, -13.7F, 1, 1, 1, -0.002F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 100, 0, -1, -2.0F, -4.6F, 1, 2, 1, 0.001F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 72, 109, -1, -2.0F, -13.1F, 1, 1, 1, -0.003F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 49, 79, -1, -2.0F, -12.7F, 1, 2, 1, 0.0F, false));
         cube_r13.cubeList.add(new ModelBox(cube_r13, 0, 65, -0.8F, -2.2F, -12.6F, 1, 1, 9, -0.201F, false));
         cube_r13.cubeList.add(new ModelBox(cube_r13, 27, 66, -0.8F, -0.8F, -12.6F, 1, 1, 9, -0.201F, false));
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 11, 104, -1.0F, -2.0F, -8.6F, 1, 2, 1, 0.0F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 11, 104, -1, -2.0F, -8.6F, 1, 2, 1, 0.0F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(0.0F, -2.0F, 0.0F);
@@ -1707,21 +1707,21 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r15.setRotationPoint(0.0F, -2.0F, 0.0F);
         mp5_mi_handguard.addChild(cube_r15);
         setRotationAngle(cube_r15, 0.0F, 0.0F, -0.4712F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 66, 27, -1.0F, -1.75F, 12.0F, 1, 1, 5, -0.001F, false));
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 116, 33, -1.0F, -1.0F, 13.0F, 1, 1, 4, 0.0F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 66, 27, -1, -1.75F, 12.0F, 1, 1, 5, -0.001F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 116, 33, -1, -1, 13.0F, 1, 1, 4, 0.0F, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(0.0F, 0.0F, 16.0F);
         mp5_mi_handguard.addChild(cube_r16);
         setRotationAngle(cube_r16, 0.0F, 0.0F, 0.7854F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 92, 26, -1.0F, 0.0F, -12.6F, 1, 2, 1, -0.003F, false));
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 92, 35, -1.0F, 0.0F, -8.5F, 1, 2, 1, -0.003F, false));
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 94, 0, -1.0F, 0.0F, -4.5F, 1, 2, 1, -0.003F, false));
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 0, 96, -1.0F, 0.0F, -2.0F, 1, 2, 1, -0.003F, false));
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 46, 96, -1.0F, 0.0F, 0.0F, 1, 2, 1, -0.001F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 92, 26, -1, 0.0F, -12.6F, 1, 2, 1, -0.003F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 92, 35, -1, 0.0F, -8.5F, 1, 2, 1, -0.003F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 94, 0, -1, 0.0F, -4.5F, 1, 2, 1, -0.003F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 0, 96, -1, 0.0F, -2.0F, 1, 2, 1, -0.003F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 46, 96, -1, 0.0F, 0.0F, 1, 2, 1, -0.001F, false));
         cube_r16.cubeList.add(new ModelBox(cube_r16, 197, 149, -0.8F, 1.2F, -16.5F, 1, 1, 17, -0.202F, false));
         cube_r16.cubeList.add(new ModelBox(cube_r16, 197, 167, -0.8F, -0.2F, -16.5F, 1, 1, 17, -0.202F, false));
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 101, 98, -1.0F, 0.0F, -17.0F, 1, 2, 1, -0.001F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 101, 98, -1, 0.0F, -17.0F, 1, 2, 1, -0.001F, false));
 
         mp5_sd_handguard = new ModelRenderer(this);
         mp5_sd_handguard.setRotationPoint(0.0F, 24.0F, -17.0F);
@@ -1786,13 +1786,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 0, 168, -0.9673F, -36.0555F, -23.0F, 2, 1, 17, 0.003F, false));
         mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 82, 0, -1.2673F, -37.8055F, -8.0F, 1, 2, 2, 0.001F, false));
         mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 81, 62, -1.0673F, -37.8055F, -23.0F, 1, 2, 2, 0.001F, false));
-        mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 70, 38, -1.0673F, -37.8055F, -11.0F, 1, 2, 3, 0.002F, false));
+        mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 70, 38, -1.0673F, -37.8055F, -11, 1, 2, 3, 0.002F, false));
         mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 107, 185, -2.25F, -34.7055F, -23.0F, 1, 2, 17, 0.001F, false));
         mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 178, 165, -1.75F, -34.7055F, -23.0F, 1, 2, 17, 0.002F, false));
         mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 108, 167, -4.0327F, -35.5555F, -23.0F, 2, 1, 17, 0.002F, false));
         mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 46, 68, -2.9327F, -37.8055F, -23.0F, 1, 2, 2, 0.001F, false));
         mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 157, 167, -4.0327F, -36.0555F, -23.0F, 2, 1, 17, 0.003F, false));
-        mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 27, 66, -2.9327F, -37.8055F, -11.0F, 1, 2, 3, 0.002F, false));
+        mp5_utg_tri_rail_handguard.cubeList.add(new ModelBox(mp5_utg_tri_rail_handguard, 27, 66, -2.9327F, -37.8055F, -11, 1, 2, 3, 0.002F, false));
 
         gun64_r8 = new ModelRenderer(this);
         gun64_r8.setRotationPoint(-1.9945F, -33.0173F, -23.0F);
@@ -1815,7 +1815,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun66_r4.cubeList.add(new ModelBox(gun66_r4, 71, 33, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.001F, false));
 
         gun63_r9 = new ModelRenderer(this);
-        gun63_r9.setRotationPoint(-3.6827F, -35.2945F, -11.0F);
+        gun63_r9.setRotationPoint(-3.6827F, -35.2945F, -11);
         mp5_utg_tri_rail_handguard.addChild(gun63_r9);
         setRotationAngle(gun63_r9, 0.0F, 0.0F, -2.8875F);
         gun63_r9.cubeList.add(new ModelBox(gun63_r9, 29, 22, -1.65F, 0.5F, 3.0F, 2, 1, 2, -0.001F, false));
@@ -1824,8 +1824,8 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun66_r5.setRotationPoint(-1.9F, -37.9827F, -10.7F);
         mp5_utg_tri_rail_handguard.addChild(gun66_r5);
         setRotationAngle(gun66_r5, -0.2618F, 0.0F, 0.0F);
-        gun66_r5.cubeList.add(new ModelBox(gun66_r5, 14, 48, -1.15F, 0.25F, 1.0F, 1, 1, 1, -0.001F, false));
-        gun66_r5.cubeList.add(new ModelBox(gun66_r5, 60, 0, 0.95F, 0.25F, 1.0F, 1, 1, 1, -0.001F, false));
+        gun66_r5.cubeList.add(new ModelBox(gun66_r5, 14, 48, -1.15F, 0.25F, 1, 1, 1, 1, -0.001F, false));
+        gun66_r5.cubeList.add(new ModelBox(gun66_r5, 60, 0, 0.95F, 0.25F, 1, 1, 1, 1, -0.001F, false));
 
         gun64_r9 = new ModelRenderer(this);
         gun64_r9.setRotationPoint(-3.6327F, -34.5555F, -23.0F);
@@ -1837,11 +1837,11 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun65_r2.setRotationPoint(-1.9F, -37.9827F, -23.3F);
         mp5_utg_tri_rail_handguard.addChild(gun65_r2);
         setRotationAngle(gun65_r2, -0.2618F, 0.0F, 0.0F);
-        gun65_r2.cubeList.add(new ModelBox(gun65_r2, 33, 35, -1.15F, 0.25F, 1.0F, 1, 1, 1, -0.001F, false));
-        gun65_r2.cubeList.add(new ModelBox(gun65_r2, 75, 6, 0.95F, 0.25F, 1.0F, 1, 1, 1, -0.001F, false));
+        gun65_r2.cubeList.add(new ModelBox(gun65_r2, 33, 35, -1.15F, 0.25F, 1, 1, 1, 1, -0.001F, false));
+        gun65_r2.cubeList.add(new ModelBox(gun65_r2, 75, 6, 0.95F, 0.25F, 1, 1, 1, 1, -0.001F, false));
 
         gun62_r10 = new ModelRenderer(this);
-        gun62_r10.setRotationPoint(0.6827F, -35.2945F, -11.0F);
+        gun62_r10.setRotationPoint(0.6827F, -35.2945F, -11);
         mp5_utg_tri_rail_handguard.addChild(gun62_r10);
         setRotationAngle(gun62_r10, 0.0F, 0.0F, 2.8875F);
         gun62_r10.cubeList.add(new ModelBox(gun62_r10, 12, 44, -0.35F, 0.5F, 3.0F, 2, 1, 2, -0.001F, false));
@@ -1863,34 +1863,34 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun65_r3.setRotationPoint(-0.2673F, -37.8055F, -8.0F);
         mp5_utg_tri_rail_handguard.addChild(gun65_r3);
         setRotationAngle(gun65_r3, 0.0F, 0.0F, -0.7505F);
-        gun65_r3.cubeList.add(new ModelBox(gun65_r3, 18, 74, -1.0F, 0.3F, 0.0F, 1, 1, 2, 0.0F, false));
-        gun65_r3.cubeList.add(new ModelBox(gun65_r3, 86, 72, -1.0F, 0.0F, 0.0F, 1, 1, 2, 0.001F, false));
+        gun65_r3.cubeList.add(new ModelBox(gun65_r3, 18, 74, -1, 0.3F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun65_r3.cubeList.add(new ModelBox(gun65_r3, 86, 72, -1, 0.0F, 0.0F, 1, 1, 2, 0.001F, false));
 
         gun63_r11 = new ModelRenderer(this);
         gun63_r11.setRotationPoint(0.6327F, -34.5555F, -23.0F);
         mp5_utg_tri_rail_handguard.addChild(gun63_r11);
         setRotationAngle(gun63_r11, 0.0F, 0.0F, 0.7854F);
-        gun63_r11.cubeList.add(new ModelBox(gun63_r11, 178, 184, -1.0F, 0.0F, 0.0F, 1, 2, 17, 0.0F, false));
+        gun63_r11.cubeList.add(new ModelBox(gun63_r11, 178, 184, -1, 0.0F, 0.0F, 1, 2, 17, 0.0F, false));
 
         bone41 = new ModelRenderer(this);
         bone41.setRotationPoint(0.0327F, -36.4055F, -11.8F);
         mp5_utg_tri_rail_handguard.addChild(bone41);
         setRotationAngle(bone41, 0.0F, 0.0F, -0.1745F);
-        bone41.cubeList.add(new ModelBox(bone41, 60, 10, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.201F, false));
-        bone41.cubeList.add(new ModelBox(bone41, 141, 225, -1.0F, -0.5F, -10.2F, 1, 1, 12, -0.2F, false));
-        bone41.cubeList.add(new ModelBox(bone41, 225, 114, -1.1F, -1.0F, -10.2F, 1, 1, 12, -0.2F, false));
-        bone41.cubeList.add(new ModelBox(bone41, 14, 226, -1.0F, -1.5F, -10.2F, 1, 1, 12, -0.2F, false));
-        bone41.cubeList.add(new ModelBox(bone41, 20, 68, -1.0F, -1.0F, -9.4F, 1, 1, 1, -0.201F, false));
+        bone41.cubeList.add(new ModelBox(bone41, 60, 10, -1, -1, 0.0F, 1, 1, 1, -0.201F, false));
+        bone41.cubeList.add(new ModelBox(bone41, 141, 225, -1, -0.5F, -10.2F, 1, 1, 12, -0.2F, false));
+        bone41.cubeList.add(new ModelBox(bone41, 225, 114, -1.1F, -1, -10.2F, 1, 1, 12, -0.2F, false));
+        bone41.cubeList.add(new ModelBox(bone41, 14, 226, -1, -1.5F, -10.2F, 1, 1, 12, -0.2F, false));
+        bone41.cubeList.add(new ModelBox(bone41, 20, 68, -1, -1, -9.4F, 1, 1, 1, -0.201F, false));
 
         bone42 = new ModelRenderer(this);
         bone42.setRotationPoint(-3.0327F, -36.4055F, -11.8F);
         mp5_utg_tri_rail_handguard.addChild(bone42);
         setRotationAngle(bone42, 0.0F, 0.0F, 0.1745F);
-        bone42.cubeList.add(new ModelBox(bone42, 60, 10, 0.0F, -1.0F, 0.0F, 1, 1, 1, -0.201F, true));
+        bone42.cubeList.add(new ModelBox(bone42, 60, 10, 0.0F, -1, 0.0F, 1, 1, 1, -0.201F, true));
         bone42.cubeList.add(new ModelBox(bone42, 141, 225, 0.0F, -0.5F, -10.2F, 1, 1, 12, -0.2F, true));
-        bone42.cubeList.add(new ModelBox(bone42, 225, 114, 0.1F, -1.0F, -10.2F, 1, 1, 12, -0.2F, true));
+        bone42.cubeList.add(new ModelBox(bone42, 225, 114, 0.1F, -1, -10.2F, 1, 1, 12, -0.2F, true));
         bone42.cubeList.add(new ModelBox(bone42, 14, 226, 0.0F, -1.5F, -10.2F, 1, 1, 12, -0.2F, true));
-        bone42.cubeList.add(new ModelBox(bone42, 20, 68, 0.0F, -1.0F, -9.4F, 1, 1, 1, -0.201F, true));
+        bone42.cubeList.add(new ModelBox(bone42, 20, 68, 0.0F, -1, -9.4F, 1, 1, 1, -0.201F, true));
 
         mp5_stock = new ModelRenderer(this);
         mp5_stock.setRotationPoint(-1.4496F, -9.6871F, 25.296F);
@@ -1912,62 +1912,62 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun167_r2.setRotationPoint(-0.0476F, 5.9113F, 0.3296F);
         mp5_stock.addChild(gun167_r2);
         setRotationAngle(gun167_r2, 0.2182F, 0.0F, 0.0F);
-        gun167_r2.cubeList.add(new ModelBox(gun167_r2, 29, 0, -1.5028F, -3.0F, -1.0F, 3, 6, 2, 0.001F, false));
+        gun167_r2.cubeList.add(new ModelBox(gun167_r2, 29, 0, -1.5028F, -3.0F, -1, 3, 6, 2, 0.001F, false));
 
         gun166_r1 = new ModelRenderer(this);
         gun166_r1.setRotationPoint(-0.4033F, -1.8831F, -2.1293F);
         mp5_stock.addChild(gun166_r1);
         setRotationAngle(gun166_r1, 0.0873F, 0.0F, 0.0F);
-        gun166_r1.cubeList.add(new ModelBox(gun166_r1, 54, 33, -1.5F, -2.0F, -1.0F, 2, 1, 3, 0.001F, false));
-        gun166_r1.cubeList.add(new ModelBox(gun166_r1, 56, 20, 0.2057F, -2.0F, -1.0F, 2, 1, 3, 0.0F, false));
+        gun166_r1.cubeList.add(new ModelBox(gun166_r1, 54, 33, -1.5F, -2.0F, -1, 2, 1, 3, 0.001F, false));
+        gun166_r1.cubeList.add(new ModelBox(gun166_r1, 56, 20, 0.2057F, -2.0F, -1, 2, 1, 3, 0.0F, false));
 
         gun153_r1 = new ModelRenderer(this);
         gun153_r1.setRotationPoint(-1.3678F, 4.1387F, -0.4792F);
         mp5_stock.addChild(gun153_r1);
         setRotationAngle(gun153_r1, 0.2182F, 0.0F, -0.0873F);
-        gun153_r1.cubeList.add(new ModelBox(gun153_r1, 48, 109, -1.0F, -5.0F, -1.0F, 3, 10, 2, 0.001F, false));
+        gun153_r1.cubeList.add(new ModelBox(gun153_r1, 48, 109, -1, -5.0F, -1, 3, 10, 2, 0.001F, false));
 
         gun154_r1 = new ModelRenderer(this);
         gun154_r1.setRotationPoint(-1.6787F, 0.5849F, -1.3565F);
         mp5_stock.addChild(gun154_r1);
         setRotationAngle(gun154_r1, 1.0036F, 0.0F, -0.0873F);
-        gun154_r1.cubeList.add(new ModelBox(gun154_r1, 135, 115, -1.0F, -1.5F, -1.0F, 2, 2, 2, 0.0F, false));
+        gun154_r1.cubeList.add(new ModelBox(gun154_r1, 135, 115, -1, -1.5F, -1, 2, 2, 2, 0.0F, false));
 
         gun153_r2 = new ModelRenderer(this);
         gun153_r2.setRotationPoint(1.5779F, 0.5849F, -1.3565F);
         mp5_stock.addChild(gun153_r2);
         setRotationAngle(gun153_r2, 1.0036F, 0.0F, 0.0873F);
-        gun153_r2.cubeList.add(new ModelBox(gun153_r2, 141, 0, -1.0F, -1.5F, -1.0F, 2, 2, 2, 0.0F, false));
+        gun153_r2.cubeList.add(new ModelBox(gun153_r2, 141, 0, -1, -1.5F, -1, 2, 2, 2, 0.0F, false));
 
         gun152_r1 = new ModelRenderer(this);
         gun152_r1.setRotationPoint(1.267F, 4.1387F, -0.4792F);
         mp5_stock.addChild(gun152_r1);
         setRotationAngle(gun152_r1, 0.2182F, 0.0F, 0.0873F);
-        gun152_r1.cubeList.add(new ModelBox(gun152_r1, 64, 109, -2.0F, -5.0F, -1.0F, 3, 10, 2, 0.001F, false));
+        gun152_r1.cubeList.add(new ModelBox(gun152_r1, 64, 109, -2.0F, -5.0F, -1, 3, 10, 2, 0.001F, false));
 
         gun153_r3 = new ModelRenderer(this);
         gun153_r3.setRotationPoint(-1.6577F, -2.3085F, -2.296F);
         mp5_stock.addChild(gun153_r3);
         setRotationAngle(gun153_r3, 0.0F, 0.0F, 0.6109F);
-        gun153_r3.cubeList.add(new ModelBox(gun153_r3, 169, 108, -1.0F, -1.0F, -1.0F, 2, 2, 3, 0.001F, false));
+        gun153_r3.cubeList.add(new ModelBox(gun153_r3, 169, 108, -1, -1, -1, 2, 2, 3, 0.001F, false));
 
         gun152_r2 = new ModelRenderer(this);
         gun152_r2.setRotationPoint(1.5569F, -2.3085F, -2.296F);
         mp5_stock.addChild(gun152_r2);
         setRotationAngle(gun152_r2, 0.0F, 0.0F, -0.6109F);
-        gun152_r2.cubeList.add(new ModelBox(gun152_r2, 169, 113, -1.0F, -1.0F, -1.0F, 2, 2, 3, 0.001F, false));
+        gun152_r2.cubeList.add(new ModelBox(gun152_r2, 169, 113, -1, -1, -1, 2, 2, 3, 0.001F, false));
 
         gun152_r3 = new ModelRenderer(this);
         gun152_r3.setRotationPoint(-1.8051F, -0.7593F, 0.204F);
         mp5_stock.addChild(gun152_r3);
         setRotationAngle(gun152_r3, 0.0F, 0.0F, -0.1745F);
-        gun152_r3.cubeList.add(new ModelBox(gun152_r3, 94, 10, -1.0F, -1.5F, -3.5F, 2, 3, 3, 0.0F, false));
+        gun152_r3.cubeList.add(new ModelBox(gun152_r3, 94, 10, -1, -1.5F, -3.5F, 2, 3, 3, 0.0F, false));
 
         gun151_r1 = new ModelRenderer(this);
         gun151_r1.setRotationPoint(1.7043F, -0.7593F, 0.204F);
         mp5_stock.addChild(gun151_r1);
         setRotationAngle(gun151_r1, 0.0F, 0.0F, 0.1745F);
-        gun151_r1.cubeList.add(new ModelBox(gun151_r1, 14, 96, -1.0F, -1.5F, -3.5F, 2, 3, 3, 0.0F, false));
+        gun151_r1.cubeList.add(new ModelBox(gun151_r1, 14, 96, -1, -1.5F, -3.5F, 2, 3, 3, 0.0F, false));
 
         stock_mp5a5_connection2 = new ModelRenderer(this);
         stock_mp5a5_connection2.setRotationPoint(1.3599F, -2.9372F, -21.2683F);
@@ -1991,14 +1991,14 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun165_r1.setRotationPoint(-1.4103F, -1.7887F, 1.0027F);
         stock_mp5a5_connection2.addChild(gun165_r1);
         setRotationAngle(gun165_r1, 0.3491F, 0.0F, 0.0F);
-        gun165_r1.cubeList.add(new ModelBox(gun165_r1, 23, 134, -1.0F, -0.5F, -0.5F, 2, 2, 1, 0.0F, false));
+        gun165_r1.cubeList.add(new ModelBox(gun165_r1, 23, 134, -1, -0.5F, -0.5F, 2, 2, 1, 0.0F, false));
 
         gun165_r2 = new ModelRenderer(this);
         gun165_r2.setRotationPoint(-2.1103F, 3.7513F, 0.6335F);
         stock_mp5a5_connection2.addChild(gun165_r2);
         setRotationAngle(gun165_r2, -2.1143F, 0.0F, 0.0F);
-        gun165_r2.cubeList.add(new ModelBox(gun165_r2, 88, 119, -1.0F, -1.0F, -1.0F, 2, 2, 2, -0.001F, false));
-        gun165_r2.cubeList.add(new ModelBox(gun165_r2, 0, 122, 0.4F, -1.0F, -1.0F, 2, 2, 2, -0.001F, false));
+        gun165_r2.cubeList.add(new ModelBox(gun165_r2, 88, 119, -1, -1, -1, 2, 2, 2, -0.001F, false));
+        gun165_r2.cubeList.add(new ModelBox(gun165_r2, 0, 122, 0.4F, -1, -1, 2, 2, 2, -0.001F, false));
 
         gun152_r4 = new ModelRenderer(this);
         gun152_r4.setRotationPoint(-3.6805F, 0.9601F, -0.0277F);
@@ -2028,13 +2028,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun154_r2.setRotationPoint(-3.9324F, 2.8981F, -1.4277F);
         stock_mp5a5_connection2.addChild(gun154_r2);
         setRotationAngle(gun154_r2, 0.0F, 0.0F, -0.3927F);
-        gun154_r2.cubeList.add(new ModelBox(gun154_r2, 44, 134, -0.5F, -0.5F, -1.0F, 1, 1, 2, -0.401F, false));
+        gun154_r2.cubeList.add(new ModelBox(gun154_r2, 44, 134, -0.5F, -0.5F, -1, 1, 1, 2, -0.401F, false));
 
         gun153_r5 = new ModelRenderer(this);
         gun153_r5.setRotationPoint(1.1117F, 2.8981F, -1.4277F);
         stock_mp5a5_connection2.addChild(gun153_r5);
         setRotationAngle(gun153_r5, 0.0F, 0.0F, 0.3927F);
-        gun153_r5.cubeList.add(new ModelBox(gun153_r5, 134, 46, -0.5F, -0.5F, -1.0F, 1, 1, 2, -0.401F, false));
+        gun153_r5.cubeList.add(new ModelBox(gun153_r5, 134, 46, -0.5F, -0.5F, -1, 1, 1, 2, -0.401F, false));
 
         gun153_r6 = new ModelRenderer(this);
         gun153_r6.setRotationPoint(-3.9324F, 2.8981F, 0.3723F);
@@ -2071,13 +2071,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun151_r4.setRotationPoint(-3.7443F, 1.7723F, -0.0277F);
         stock_mp5a5_connection2.addChild(gun151_r4);
         setRotationAngle(gun151_r4, 0.0F, 0.0F, -0.1745F);
-        gun151_r4.cubeList.add(new ModelBox(gun151_r4, 34, 109, -0.5F, -1.0F, -2.0F, 2, 2, 4, 0.002F, false));
+        gun151_r4.cubeList.add(new ModelBox(gun151_r4, 34, 109, -0.5F, -1, -2.0F, 2, 2, 4, 0.002F, false));
 
         gun150_r1 = new ModelRenderer(this);
         gun150_r1.setRotationPoint(0.9236F, 1.7723F, -0.0277F);
         stock_mp5a5_connection2.addChild(gun150_r1);
         setRotationAngle(gun150_r1, 0.0F, 0.0F, 0.1745F);
-        gun150_r1.cubeList.add(new ModelBox(gun150_r1, 10, 113, -1.5F, -1.0F, -2.0F, 2, 2, 4, 0.002F, false));
+        gun150_r1.cubeList.add(new ModelBox(gun150_r1, 10, 113, -1.5F, -1, -2.0F, 2, 2, 4, 0.002F, false));
 
         gun151_r5 = new ModelRenderer(this);
         gun151_r5.setRotationPoint(-2.834F, -0.3144F, -0.0585F);
@@ -2101,13 +2101,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun152_r8.setRotationPoint(-2.4147F, -1.2506F, 1.0678F);
         stock_mp5a5_connection2.addChild(gun152_r8);
         setRotationAngle(gun152_r8, 0.3491F, -0.4363F, 0.1745F);
-        gun152_r8.cubeList.add(new ModelBox(gun152_r8, 115, 106, -0.5F, -1.0F, -0.5F, 1, 2, 1, 0.0F, false));
+        gun152_r8.cubeList.add(new ModelBox(gun152_r8, 115, 106, -0.5F, -1, -0.5F, 1, 2, 1, 0.0F, false));
 
         gun151_r7 = new ModelRenderer(this);
         gun151_r7.setRotationPoint(-0.4059F, -1.2506F, 1.0678F);
         stock_mp5a5_connection2.addChild(gun151_r7);
         setRotationAngle(gun151_r7, 0.3491F, 0.4363F, -0.1745F);
-        gun151_r7.cubeList.add(new ModelBox(gun151_r7, 110, 115, -0.5F, -1.0F, -0.5F, 1, 2, 1, 0.0F, false));
+        gun151_r7.cubeList.add(new ModelBox(gun151_r7, 110, 115, -0.5F, -1, -0.5F, 1, 2, 1, 0.0F, false));
 
         gun150_r3 = new ModelRenderer(this);
         gun150_r3.setRotationPoint(0.2234F, -0.3469F, 1.1865F);
@@ -2169,43 +2169,43 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun57_r1.setRotationPoint(-3.1138F, 0.0022F, -13.0277F);
         stock_mp5a5_connection2.addChild(gun57_r1);
         setRotationAngle(gun57_r1, 0.0F, 0.0F, -2.5297F);
-        gun57_r1.cubeList.add(new ModelBox(gun57_r1, 137, 137, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun57_r1.cubeList.add(new ModelBox(gun57_r1, 137, 137, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun59_r4 = new ModelRenderer(this);
         gun59_r4.setRotationPoint(-3.431F, 0.7211F, -1.0277F);
         stock_mp5a5_connection2.addChild(gun59_r4);
         setRotationAngle(gun59_r4, 0.0F, 0.0F, -2.9224F);
-        gun59_r4.cubeList.add(new ModelBox(gun59_r4, 92, 139, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun59_r4.cubeList.add(new ModelBox(gun59_r4, 92, 139, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         gun56_r1 = new ModelRenderer(this);
         gun56_r1.setRotationPoint(0.2932F, 0.0022F, -13.0277F);
         stock_mp5a5_connection2.addChild(gun56_r1);
         setRotationAngle(gun56_r1, 0.0F, 0.0F, 2.5297F);
-        gun56_r1.cubeList.add(new ModelBox(gun56_r1, 121, 139, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun56_r1.cubeList.add(new ModelBox(gun56_r1, 121, 139, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun58_r2 = new ModelRenderer(this);
         gun58_r2.setRotationPoint(0.6104F, 0.7211F, -1.0277F);
         stock_mp5a5_connection2.addChild(gun58_r2);
         setRotationAngle(gun58_r2, 0.0F, 0.0F, 2.9224F);
-        gun58_r2.cubeList.add(new ModelBox(gun58_r2, 137, 140, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun58_r2.cubeList.add(new ModelBox(gun58_r2, 137, 140, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         gun57_r2 = new ModelRenderer(this);
         gun57_r2.setRotationPoint(-0.2749F, -0.5405F, -13.0277F);
         stock_mp5a5_connection2.addChild(gun57_r2);
         setRotationAngle(gun57_r2, 0.0F, 0.0F, 2.137F);
-        gun57_r2.cubeList.add(new ModelBox(gun57_r2, 36, 141, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun57_r2.cubeList.add(new ModelBox(gun57_r2, 36, 141, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun58_r3 = new ModelRenderer(this);
         gun58_r3.setRotationPoint(-2.5457F, -0.5405F, -13.0277F);
         stock_mp5a5_connection2.addChild(gun58_r3);
         setRotationAngle(gun58_r3, 0.0F, 0.0F, -2.137F);
-        gun58_r3.cubeList.add(new ModelBox(gun58_r3, 52, 142, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun58_r3.cubeList.add(new ModelBox(gun58_r3, 52, 142, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun76_r15 = new ModelRenderer(this);
         gun76_r15.setRotationPoint(-2.0235F, -1.318F, -1.0277F);
         stock_mp5a5_connection2.addChild(gun76_r15);
         setRotationAngle(gun76_r15, 0.0F, 0.0F, -2.1935F);
-        gun76_r15.cubeList.add(new ModelBox(gun76_r15, 61, 142, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun76_r15.cubeList.add(new ModelBox(gun76_r15, 61, 142, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         gun75_r13 = new ModelRenderer(this);
         gun75_r13.setRotationPoint(-0.7971F, -1.318F, -14.0277F);
@@ -2222,7 +2222,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun148_r1.setRotationPoint(-0.0351F, -0.0848F, 0.0F);
         bone73.addChild(gun148_r1);
         setRotationAngle(gun148_r1, 0.0F, 0.0F, -0.7854F);
-        gun148_r1.cubeList.add(new ModelBox(gun148_r1, 39, 59, -1.0F, -0.5F, -0.5F, 2, 1, 1, -0.3F, false));
+        gun148_r1.cubeList.add(new ModelBox(gun148_r1, 39, 59, -1, -0.5F, -0.5F, 2, 1, 1, -0.3F, false));
 
         gun148_r2 = new ModelRenderer(this);
         gun148_r2.setRotationPoint(-0.2341F, -1.9324F, 0.0F);
@@ -2312,7 +2312,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         bone20.addChild(gun165_r3);
         setRotationAngle(gun165_r3, 0.0F, 0.0F, -0.4363F);
         gun165_r3.cubeList.add(new ModelBox(gun165_r3, 0, 117, -1.25F, 0.0F, 0.0F, 1, 1, 3, -0.001F, false));
-        gun165_r3.cubeList.add(new ModelBox(gun165_r3, 78, 119, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.002F, false));
+        gun165_r3.cubeList.add(new ModelBox(gun165_r3, 78, 119, -1, 0.0F, 0.0F, 1, 1, 3, 0.002F, false));
 
         gun166_r5 = new ModelRenderer(this);
         gun166_r5.setRotationPoint(0.0F, -0.5755F, 0.0F);
@@ -2347,14 +2347,14 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun166_r6.setRotationPoint(-1.4103F, -1.7887F, 1.0027F);
         stock_mp5a5_connection4.addChild(gun166_r6);
         setRotationAngle(gun166_r6, 0.3491F, 0.0F, 0.0F);
-        gun166_r6.cubeList.add(new ModelBox(gun166_r6, 23, 134, -1.0F, -0.5F, -0.5F, 2, 2, 1, 0.0F, false));
+        gun166_r6.cubeList.add(new ModelBox(gun166_r6, 23, 134, -1, -0.5F, -0.5F, 2, 2, 1, 0.0F, false));
 
         gun166_r7 = new ModelRenderer(this);
         gun166_r7.setRotationPoint(-2.1103F, 3.7513F, 0.6335F);
         stock_mp5a5_connection4.addChild(gun166_r7);
         setRotationAngle(gun166_r7, -2.1143F, 0.0F, 0.0F);
-        gun166_r7.cubeList.add(new ModelBox(gun166_r7, 88, 119, -1.0F, -1.001F, -1.0F, 2, 2, 2, -0.001F, false));
-        gun166_r7.cubeList.add(new ModelBox(gun166_r7, 0, 122, 0.4F, -1.0F, -1.0F, 2, 2, 2, -0.001F, false));
+        gun166_r7.cubeList.add(new ModelBox(gun166_r7, 88, 119, -1, -1.001F, -1, 2, 2, 2, -0.001F, false));
+        gun166_r7.cubeList.add(new ModelBox(gun166_r7, 0, 122, 0.4F, -1, -1, 2, 2, 2, -0.001F, false));
 
         gun153_r8 = new ModelRenderer(this);
         gun153_r8.setRotationPoint(-3.6805F, 0.9601F, -0.0277F);
@@ -2384,13 +2384,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun155_r1.setRotationPoint(-3.9324F, 2.8981F, -1.4277F);
         stock_mp5a5_connection4.addChild(gun155_r1);
         setRotationAngle(gun155_r1, 0.0F, 0.0F, -0.3927F);
-        gun155_r1.cubeList.add(new ModelBox(gun155_r1, 44, 134, -0.5F, -0.5F, -1.0F, 1, 1, 2, -0.401F, false));
+        gun155_r1.cubeList.add(new ModelBox(gun155_r1, 44, 134, -0.5F, -0.5F, -1, 1, 1, 2, -0.401F, false));
 
         gun154_r4 = new ModelRenderer(this);
         gun154_r4.setRotationPoint(1.1117F, 2.8981F, -1.4277F);
         stock_mp5a5_connection4.addChild(gun154_r4);
         setRotationAngle(gun154_r4, 0.0F, 0.0F, 0.3927F);
-        gun154_r4.cubeList.add(new ModelBox(gun154_r4, 134, 46, -0.5F, -0.5F, -1.0F, 1, 1, 2, -0.401F, false));
+        gun154_r4.cubeList.add(new ModelBox(gun154_r4, 134, 46, -0.5F, -0.5F, -1, 1, 1, 2, -0.401F, false));
 
         gun154_r5 = new ModelRenderer(this);
         gun154_r5.setRotationPoint(-3.9324F, 2.8981F, 0.3723F);
@@ -2427,13 +2427,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun152_r12.setRotationPoint(-3.7443F, 1.7723F, -0.0277F);
         stock_mp5a5_connection4.addChild(gun152_r12);
         setRotationAngle(gun152_r12, 0.0F, 0.0F, -0.1745F);
-        gun152_r12.cubeList.add(new ModelBox(gun152_r12, 34, 109, -0.5F, -1.0F, -2.0F, 2, 2, 4, 0.002F, false));
+        gun152_r12.cubeList.add(new ModelBox(gun152_r12, 34, 109, -0.5F, -1, -2.0F, 2, 2, 4, 0.002F, false));
 
         gun151_r10 = new ModelRenderer(this);
         gun151_r10.setRotationPoint(0.9236F, 1.7723F, -0.0277F);
         stock_mp5a5_connection4.addChild(gun151_r10);
         setRotationAngle(gun151_r10, 0.0F, 0.0F, 0.1745F);
-        gun151_r10.cubeList.add(new ModelBox(gun151_r10, 10, 113, -1.5F, -1.0F, -2.0F, 2, 2, 4, 0.002F, false));
+        gun151_r10.cubeList.add(new ModelBox(gun151_r10, 10, 113, -1.5F, -1, -2.0F, 2, 2, 4, 0.002F, false));
 
         gun152_r13 = new ModelRenderer(this);
         gun152_r13.setRotationPoint(-2.834F, -0.3144F, -0.0585F);
@@ -2457,13 +2457,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun153_r12.setRotationPoint(-2.4147F, -1.2506F, 1.0678F);
         stock_mp5a5_connection4.addChild(gun153_r12);
         setRotationAngle(gun153_r12, 0.3491F, -0.4363F, 0.1745F);
-        gun153_r12.cubeList.add(new ModelBox(gun153_r12, 115, 106, -0.5F, -1.0F, -0.5F, 1, 2, 1, 0.0F, false));
+        gun153_r12.cubeList.add(new ModelBox(gun153_r12, 115, 106, -0.5F, -1, -0.5F, 1, 2, 1, 0.0F, false));
 
         gun152_r15 = new ModelRenderer(this);
         gun152_r15.setRotationPoint(-0.4059F, -1.2506F, 1.0678F);
         stock_mp5a5_connection4.addChild(gun152_r15);
         setRotationAngle(gun152_r15, 0.3491F, 0.4363F, -0.1745F);
-        gun152_r15.cubeList.add(new ModelBox(gun152_r15, 110, 115, -0.5F, -1.0F, -0.5F, 1, 2, 1, 0.0F, false));
+        gun152_r15.cubeList.add(new ModelBox(gun152_r15, 110, 115, -0.5F, -1, -0.5F, 1, 2, 1, 0.0F, false));
 
         gun151_r12 = new ModelRenderer(this);
         gun151_r12.setRotationPoint(0.2234F, -0.3469F, 1.1865F);
@@ -2525,43 +2525,43 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun58_r4.setRotationPoint(-3.1138F, 0.0022F, -13.0277F);
         stock_mp5a5_connection4.addChild(gun58_r4);
         setRotationAngle(gun58_r4, 0.0F, 0.0F, -2.5297F);
-        gun58_r4.cubeList.add(new ModelBox(gun58_r4, 137, 137, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun58_r4.cubeList.add(new ModelBox(gun58_r4, 137, 137, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun60_r7 = new ModelRenderer(this);
         gun60_r7.setRotationPoint(-3.431F, 0.7211F, -1.0277F);
         stock_mp5a5_connection4.addChild(gun60_r7);
         setRotationAngle(gun60_r7, 0.0F, 0.0F, -2.9224F);
-        gun60_r7.cubeList.add(new ModelBox(gun60_r7, 92, 139, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun60_r7.cubeList.add(new ModelBox(gun60_r7, 92, 139, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         gun57_r3 = new ModelRenderer(this);
         gun57_r3.setRotationPoint(0.2932F, 0.0022F, -13.0277F);
         stock_mp5a5_connection4.addChild(gun57_r3);
         setRotationAngle(gun57_r3, 0.0F, 0.0F, 2.5297F);
-        gun57_r3.cubeList.add(new ModelBox(gun57_r3, 121, 139, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun57_r3.cubeList.add(new ModelBox(gun57_r3, 121, 139, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun59_r5 = new ModelRenderer(this);
         gun59_r5.setRotationPoint(0.6104F, 0.7211F, -1.0277F);
         stock_mp5a5_connection4.addChild(gun59_r5);
         setRotationAngle(gun59_r5, 0.0F, 0.0F, 2.9224F);
-        gun59_r5.cubeList.add(new ModelBox(gun59_r5, 137, 140, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun59_r5.cubeList.add(new ModelBox(gun59_r5, 137, 140, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         gun58_r5 = new ModelRenderer(this);
         gun58_r5.setRotationPoint(-0.2749F, -0.5405F, -13.0277F);
         stock_mp5a5_connection4.addChild(gun58_r5);
         setRotationAngle(gun58_r5, 0.0F, 0.0F, 2.137F);
-        gun58_r5.cubeList.add(new ModelBox(gun58_r5, 36, 141, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun58_r5.cubeList.add(new ModelBox(gun58_r5, 36, 141, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun59_r6 = new ModelRenderer(this);
         gun59_r6.setRotationPoint(-2.5457F, -0.5405F, -13.0277F);
         stock_mp5a5_connection4.addChild(gun59_r6);
         setRotationAngle(gun59_r6, 0.0F, 0.0F, -2.137F);
-        gun59_r6.cubeList.add(new ModelBox(gun59_r6, 52, 142, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun59_r6.cubeList.add(new ModelBox(gun59_r6, 52, 142, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun77_r10 = new ModelRenderer(this);
         gun77_r10.setRotationPoint(-2.0235F, -1.318F, -1.0277F);
         stock_mp5a5_connection4.addChild(gun77_r10);
         setRotationAngle(gun77_r10, 0.0F, 0.0F, -2.1935F);
-        gun77_r10.cubeList.add(new ModelBox(gun77_r10, 61, 142, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun77_r10.cubeList.add(new ModelBox(gun77_r10, 61, 142, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         gun76_r16 = new ModelRenderer(this);
         gun76_r16.setRotationPoint(-0.7971F, -1.318F, -14.0277F);
@@ -2578,7 +2578,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun149_r2.setRotationPoint(-0.0351F, -0.0848F, 0.0F);
         bone3.addChild(gun149_r2);
         setRotationAngle(gun149_r2, 0.0F, 0.0F, -0.7854F);
-        gun149_r2.cubeList.add(new ModelBox(gun149_r2, 39, 59, -1.0F, -0.5F, -0.5F, 2, 1, 1, -0.3F, false));
+        gun149_r2.cubeList.add(new ModelBox(gun149_r2, 39, 59, -1, -0.5F, -0.5F, 2, 1, 1, -0.3F, false));
 
         gun149_r3 = new ModelRenderer(this);
         gun149_r3.setRotationPoint(-0.2341F, -1.9324F, 0.0F);
@@ -2611,68 +2611,68 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun167_r8.setRotationPoint(-0.0476F, 6.8875F, 18.296F);
         mp5_competition_stock.addChild(gun167_r8);
         setRotationAngle(gun167_r8, 0.2182F, 0.0F, 0.0F);
-        gun167_r8.cubeList.add(new ModelBox(gun167_r8, 124, 106, -0.5F, -1.0F, -1.25F, 1, 2, 2, 0.0F, false));
+        gun167_r8.cubeList.add(new ModelBox(gun167_r8, 124, 106, -0.5F, -1, -1.25F, 1, 2, 2, 0.0F, false));
 
         gun166_r9 = new ModelRenderer(this);
         gun166_r9.setRotationPoint(0.0524F, 5.4231F, 19.9714F);
         mp5_competition_stock.addChild(gun166_r9);
         setRotationAngle(gun166_r9, 0.2182F, 0.0F, 0.0F);
-        gun166_r9.cubeList.add(new ModelBox(gun166_r9, 29, 11, -1.6028F, -2.5F, -1.0F, 3, 6, 2, 0.0F, false));
+        gun166_r9.cubeList.add(new ModelBox(gun166_r9, 29, 11, -1.6028F, -2.5F, -1, 3, 6, 2, 0.0F, false));
 
         gun165_r4 = new ModelRenderer(this);
         gun165_r4.setRotationPoint(-0.4033F, -1.8831F, 12.8707F);
         mp5_competition_stock.addChild(gun165_r4);
         setRotationAngle(gun165_r4, 0.0873F, 0.0F, 0.0F);
-        gun165_r4.cubeList.add(new ModelBox(gun165_r4, 119, 67, -1.5F, -2.0F, -1.0F, 2, 1, 7, 0.001F, false));
-        gun165_r4.cubeList.add(new ModelBox(gun165_r4, 124, 115, 0.2057F, -2.0F, -1.0F, 2, 1, 7, 0.0F, false));
+        gun165_r4.cubeList.add(new ModelBox(gun165_r4, 119, 67, -1.5F, -2.0F, -1, 2, 1, 7, 0.001F, false));
+        gun165_r4.cubeList.add(new ModelBox(gun165_r4, 124, 115, 0.2057F, -2.0F, -1, 2, 1, 7, 0.0F, false));
 
         gun152_r18 = new ModelRenderer(this);
         gun152_r18.setRotationPoint(-1.3678F, 4.1387F, 18.5208F);
         mp5_competition_stock.addChild(gun152_r18);
         setRotationAngle(gun152_r18, 0.2182F, 0.0F, -0.0873F);
-        gun152_r18.cubeList.add(new ModelBox(gun152_r18, 130, 88, -1.0F, -5.0F, -1.0F, 3, 10, 2, 0.001F, false));
+        gun152_r18.cubeList.add(new ModelBox(gun152_r18, 130, 88, -1, -5.0F, -1, 3, 10, 2, 0.001F, false));
 
         gun153_r14 = new ModelRenderer(this);
         gun153_r14.setRotationPoint(-1.3678F, 4.1387F, 18.5208F);
         mp5_competition_stock.addChild(gun153_r14);
         setRotationAngle(gun153_r14, 1.0036F, 0.0F, -0.0873F);
-        gun153_r14.cubeList.add(new ModelBox(gun153_r14, 0, 78, -1.0F, -5.0F, 1.0F, 2, 3, 2, 0.0F, false));
+        gun153_r14.cubeList.add(new ModelBox(gun153_r14, 0, 78, -1, -5.0F, 1, 2, 3, 2, 0.0F, false));
 
         gun152_r19 = new ModelRenderer(this);
         gun152_r19.setRotationPoint(1.267F, 4.1387F, 18.5208F);
         mp5_competition_stock.addChild(gun152_r19);
         setRotationAngle(gun152_r19, 1.0036F, 0.0F, 0.0873F);
-        gun152_r19.cubeList.add(new ModelBox(gun152_r19, 82, 26, -1.0F, -5.0F, 1.0F, 2, 3, 2, 0.0F, false));
+        gun152_r19.cubeList.add(new ModelBox(gun152_r19, 82, 26, -1, -5.0F, 1, 2, 3, 2, 0.0F, false));
 
         gun151_r15 = new ModelRenderer(this);
         gun151_r15.setRotationPoint(1.267F, 4.1387F, 18.5208F);
         mp5_competition_stock.addChild(gun151_r15);
         setRotationAngle(gun151_r15, 0.2182F, 0.0F, 0.0873F);
-        gun151_r15.cubeList.add(new ModelBox(gun151_r15, 86, 151, -2.0F, -5.0F, -1.0F, 3, 10, 2, 0.001F, false));
+        gun151_r15.cubeList.add(new ModelBox(gun151_r15, 86, 151, -2.0F, -5.0F, -1, 3, 10, 2, 0.001F, false));
 
         gun152_r20 = new ModelRenderer(this);
         gun152_r20.setRotationPoint(-1.6577F, -2.3085F, 12.704F);
         mp5_competition_stock.addChild(gun152_r20);
         setRotationAngle(gun152_r20, 0.0F, 0.0F, 0.6109F);
-        gun152_r20.cubeList.add(new ModelBox(gun152_r20, 81, 92, -1.0F, -1.0F, -0.999F, 2, 2, 7, 0.0F, false));
+        gun152_r20.cubeList.add(new ModelBox(gun152_r20, 81, 92, -1, -1, -0.999F, 2, 2, 7, 0.0F, false));
 
         gun151_r16 = new ModelRenderer(this);
         gun151_r16.setRotationPoint(1.5569F, -2.3085F, 12.704F);
         mp5_competition_stock.addChild(gun151_r16);
         setRotationAngle(gun151_r16, 0.0F, 0.0F, -0.6109F);
-        gun151_r16.cubeList.add(new ModelBox(gun151_r16, 0, 104, -1.0F, -1.0F, -0.999F, 2, 2, 7, 0.0F, false));
+        gun151_r16.cubeList.add(new ModelBox(gun151_r16, 0, 104, -1, -1, -0.999F, 2, 2, 7, 0.0F, false));
 
         gun151_r17 = new ModelRenderer(this);
         gun151_r17.setRotationPoint(-1.8051F, -0.7593F, 15.204F);
         mp5_competition_stock.addChild(gun151_r17);
         setRotationAngle(gun151_r17, 0.0F, 0.0F, -0.1745F);
-        gun151_r17.cubeList.add(new ModelBox(gun151_r17, 26, 79, -1.0F, -1.5F, -3.5F, 2, 3, 7, 0.0F, false));
+        gun151_r17.cubeList.add(new ModelBox(gun151_r17, 26, 79, -1, -1.5F, -3.5F, 2, 3, 7, 0.0F, false));
 
         gun150_r7 = new ModelRenderer(this);
         gun150_r7.setRotationPoint(1.7043F, -0.7593F, 15.204F);
         mp5_competition_stock.addChild(gun150_r7);
         setRotationAngle(gun150_r7, 0.0F, 0.0F, 0.1745F);
-        gun150_r7.cubeList.add(new ModelBox(gun150_r7, 54, 79, -1.0F, -1.5F, -3.5F, 2, 3, 7, 0.0F, false));
+        gun150_r7.cubeList.add(new ModelBox(gun150_r7, 54, 79, -1, -1.5F, -3.5F, 2, 3, 7, 0.0F, false));
 
         stock_mp5a5_connection3 = new ModelRenderer(this);
         stock_mp5a5_connection3.setRotationPoint(1.3599F, -2.9372F, -6.2683F);
@@ -2696,14 +2696,14 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun166_r10.setRotationPoint(-1.4103F, -1.7887F, 1.0027F);
         stock_mp5a5_connection3.addChild(gun166_r10);
         setRotationAngle(gun166_r10, 0.3491F, 0.0F, 0.0F);
-        gun166_r10.cubeList.add(new ModelBox(gun166_r10, 23, 134, -1.0F, -0.5F, -0.5F, 2, 2, 1, 0.0F, false));
+        gun166_r10.cubeList.add(new ModelBox(gun166_r10, 23, 134, -1, -0.5F, -0.5F, 2, 2, 1, 0.0F, false));
 
         gun166_r11 = new ModelRenderer(this);
         gun166_r11.setRotationPoint(-2.1103F, 3.7513F, 0.6335F);
         stock_mp5a5_connection3.addChild(gun166_r11);
         setRotationAngle(gun166_r11, -2.1143F, 0.0F, 0.0F);
-        gun166_r11.cubeList.add(new ModelBox(gun166_r11, 88, 119, -1.0F, -1.0F, -1.0F, 2, 2, 2, -0.001F, false));
-        gun166_r11.cubeList.add(new ModelBox(gun166_r11, 0, 122, 0.4F, -1.0F, -1.0F, 2, 2, 2, -0.001F, false));
+        gun166_r11.cubeList.add(new ModelBox(gun166_r11, 88, 119, -1, -1, -1, 2, 2, 2, -0.001F, false));
+        gun166_r11.cubeList.add(new ModelBox(gun166_r11, 0, 122, 0.4F, -1, -1, 2, 2, 2, -0.001F, false));
 
         gun153_r15 = new ModelRenderer(this);
         gun153_r15.setRotationPoint(-3.6805F, 0.9601F, -0.0277F);
@@ -2733,13 +2733,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun155_r2.setRotationPoint(-3.9324F, 2.8981F, -1.4277F);
         stock_mp5a5_connection3.addChild(gun155_r2);
         setRotationAngle(gun155_r2, 0.0F, 0.0F, -0.3927F);
-        gun155_r2.cubeList.add(new ModelBox(gun155_r2, 44, 134, -0.5F, -0.5F, -1.0F, 1, 1, 2, -0.401F, false));
+        gun155_r2.cubeList.add(new ModelBox(gun155_r2, 44, 134, -0.5F, -0.5F, -1, 1, 1, 2, -0.401F, false));
 
         gun154_r8 = new ModelRenderer(this);
         gun154_r8.setRotationPoint(1.1117F, 2.8981F, -1.4277F);
         stock_mp5a5_connection3.addChild(gun154_r8);
         setRotationAngle(gun154_r8, 0.0F, 0.0F, 0.3927F);
-        gun154_r8.cubeList.add(new ModelBox(gun154_r8, 134, 46, -0.5F, -0.5F, -1.0F, 1, 1, 2, -0.401F, false));
+        gun154_r8.cubeList.add(new ModelBox(gun154_r8, 134, 46, -0.5F, -0.5F, -1, 1, 1, 2, -0.401F, false));
 
         gun154_r9 = new ModelRenderer(this);
         gun154_r9.setRotationPoint(-3.9324F, 2.8981F, 0.3723F);
@@ -2776,13 +2776,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun152_r23.setRotationPoint(-3.7443F, 1.7723F, -0.0277F);
         stock_mp5a5_connection3.addChild(gun152_r23);
         setRotationAngle(gun152_r23, 0.0F, 0.0F, -0.1745F);
-        gun152_r23.cubeList.add(new ModelBox(gun152_r23, 34, 109, -0.5F, -1.0F, -2.0F, 2, 2, 4, 0.002F, false));
+        gun152_r23.cubeList.add(new ModelBox(gun152_r23, 34, 109, -0.5F, -1, -2.0F, 2, 2, 4, 0.002F, false));
 
         gun151_r18 = new ModelRenderer(this);
         gun151_r18.setRotationPoint(0.9236F, 1.7723F, -0.0277F);
         stock_mp5a5_connection3.addChild(gun151_r18);
         setRotationAngle(gun151_r18, 0.0F, 0.0F, 0.1745F);
-        gun151_r18.cubeList.add(new ModelBox(gun151_r18, 10, 113, -1.5F, -1.0F, -2.0F, 2, 2, 4, 0.002F, false));
+        gun151_r18.cubeList.add(new ModelBox(gun151_r18, 10, 113, -1.5F, -1, -2.0F, 2, 2, 4, 0.002F, false));
 
         gun152_r24 = new ModelRenderer(this);
         gun152_r24.setRotationPoint(-2.834F, -0.3144F, -0.0585F);
@@ -2806,13 +2806,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun153_r19.setRotationPoint(-2.4147F, -1.2506F, 1.0678F);
         stock_mp5a5_connection3.addChild(gun153_r19);
         setRotationAngle(gun153_r19, 0.3491F, -0.4363F, 0.1745F);
-        gun153_r19.cubeList.add(new ModelBox(gun153_r19, 115, 106, -0.5F, -1.0F, -0.5F, 1, 2, 1, 0.0F, false));
+        gun153_r19.cubeList.add(new ModelBox(gun153_r19, 115, 106, -0.5F, -1, -0.5F, 1, 2, 1, 0.0F, false));
 
         gun152_r26 = new ModelRenderer(this);
         gun152_r26.setRotationPoint(-0.4059F, -1.2506F, 1.0678F);
         stock_mp5a5_connection3.addChild(gun152_r26);
         setRotationAngle(gun152_r26, 0.3491F, 0.4363F, -0.1745F);
-        gun152_r26.cubeList.add(new ModelBox(gun152_r26, 110, 115, -0.5F, -1.0F, -0.5F, 1, 2, 1, 0.0F, false));
+        gun152_r26.cubeList.add(new ModelBox(gun152_r26, 110, 115, -0.5F, -1, -0.5F, 1, 2, 1, 0.0F, false));
 
         gun151_r20 = new ModelRenderer(this);
         gun151_r20.setRotationPoint(0.2234F, -0.3469F, 1.1865F);
@@ -2874,43 +2874,43 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun58_r6.setRotationPoint(-3.1138F, 0.0022F, -13.0277F);
         stock_mp5a5_connection3.addChild(gun58_r6);
         setRotationAngle(gun58_r6, 0.0F, 0.0F, -2.5297F);
-        gun58_r6.cubeList.add(new ModelBox(gun58_r6, 137, 137, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun58_r6.cubeList.add(new ModelBox(gun58_r6, 137, 137, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun60_r8 = new ModelRenderer(this);
         gun60_r8.setRotationPoint(-3.431F, 0.7211F, -1.0277F);
         stock_mp5a5_connection3.addChild(gun60_r8);
         setRotationAngle(gun60_r8, 0.0F, 0.0F, -2.9224F);
-        gun60_r8.cubeList.add(new ModelBox(gun60_r8, 92, 139, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun60_r8.cubeList.add(new ModelBox(gun60_r8, 92, 139, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         gun57_r4 = new ModelRenderer(this);
         gun57_r4.setRotationPoint(0.2932F, 0.0022F, -13.0277F);
         stock_mp5a5_connection3.addChild(gun57_r4);
         setRotationAngle(gun57_r4, 0.0F, 0.0F, 2.5297F);
-        gun57_r4.cubeList.add(new ModelBox(gun57_r4, 121, 139, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun57_r4.cubeList.add(new ModelBox(gun57_r4, 121, 139, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun59_r7 = new ModelRenderer(this);
         gun59_r7.setRotationPoint(0.6104F, 0.7211F, -1.0277F);
         stock_mp5a5_connection3.addChild(gun59_r7);
         setRotationAngle(gun59_r7, 0.0F, 0.0F, 2.9224F);
-        gun59_r7.cubeList.add(new ModelBox(gun59_r7, 137, 140, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun59_r7.cubeList.add(new ModelBox(gun59_r7, 137, 140, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         gun58_r7 = new ModelRenderer(this);
         gun58_r7.setRotationPoint(-0.2749F, -0.5405F, -13.0277F);
         stock_mp5a5_connection3.addChild(gun58_r7);
         setRotationAngle(gun58_r7, 0.0F, 0.0F, 2.137F);
-        gun58_r7.cubeList.add(new ModelBox(gun58_r7, 36, 141, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun58_r7.cubeList.add(new ModelBox(gun58_r7, 36, 141, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun59_r8 = new ModelRenderer(this);
         gun59_r8.setRotationPoint(-2.5457F, -0.5405F, -13.0277F);
         stock_mp5a5_connection3.addChild(gun59_r8);
         setRotationAngle(gun59_r8, 0.0F, 0.0F, -2.137F);
-        gun59_r8.cubeList.add(new ModelBox(gun59_r8, 52, 142, -0.5F, -0.5F, 11.0F, 1, 1, 2, 0.0F, false));
+        gun59_r8.cubeList.add(new ModelBox(gun59_r8, 52, 142, -0.5F, -0.5F, 11, 1, 1, 2, 0.0F, false));
 
         gun77_r11 = new ModelRenderer(this);
         gun77_r11.setRotationPoint(-2.0235F, -1.318F, -1.0277F);
         stock_mp5a5_connection3.addChild(gun77_r11);
         setRotationAngle(gun77_r11, 0.0F, 0.0F, -2.1935F);
-        gun77_r11.cubeList.add(new ModelBox(gun77_r11, 61, 142, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun77_r11.cubeList.add(new ModelBox(gun77_r11, 61, 142, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         gun76_r17 = new ModelRenderer(this);
         gun76_r17.setRotationPoint(-0.7971F, -1.318F, -14.0277F);
@@ -2927,7 +2927,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun149_r4.setRotationPoint(-0.0351F, -0.0848F, 0.0F);
         bone33.addChild(gun149_r4);
         setRotationAngle(gun149_r4, 0.0F, 0.0F, -0.7854F);
-        gun149_r4.cubeList.add(new ModelBox(gun149_r4, 39, 59, -1.0F, -0.5F, -0.5F, 2, 1, 1, -0.3F, false));
+        gun149_r4.cubeList.add(new ModelBox(gun149_r4, 39, 59, -1, -0.5F, -0.5F, 2, 1, 1, -0.3F, false));
 
         gun149_r5 = new ModelRenderer(this);
         gun149_r5.setRotationPoint(-0.2341F, -1.9324F, 0.0F);
@@ -3017,7 +3017,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         bone39.addChild(gun166_r12);
         setRotationAngle(gun166_r12, 0.0F, 0.0F, -0.4363F);
         gun166_r12.cubeList.add(new ModelBox(gun166_r12, 0, 117, -1.25F, 0.0F, 0.0F, 1, 1, 3, -0.001F, false));
-        gun166_r12.cubeList.add(new ModelBox(gun166_r12, 78, 119, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.002F, false));
+        gun166_r12.cubeList.add(new ModelBox(gun166_r12, 78, 119, -1, 0.0F, 0.0F, 1, 1, 3, 0.002F, false));
 
         gun167_r12 = new ModelRenderer(this);
         gun167_r12.setRotationPoint(0.0F, -0.5755F, 0.0F);
@@ -3052,8 +3052,8 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun166_r13.setRotationPoint(-1.7103F, 7.2781F, 15.1619F);
         mp5_a5_stock.addChild(gun166_r13);
         setRotationAngle(gun166_r13, -0.3491F, 0.0F, 0.0F);
-        gun166_r13.cubeList.add(new ModelBox(gun166_r13, 28, 82, 0.0F, -3.5F, -11.0F, 2, 5, 22, -0.001F, false));
-        gun166_r13.cubeList.add(new ModelBox(gun166_r13, 83, 56, -1.4F, -3.5F, -11.0F, 2, 5, 22, -0.001F, false));
+        gun166_r13.cubeList.add(new ModelBox(gun166_r13, 28, 82, 0.0F, -3.5F, -11, 2, 5, 22, -0.001F, false));
+        gun166_r13.cubeList.add(new ModelBox(gun166_r13, 83, 56, -1.4F, -3.5F, -11, 2, 5, 22, -0.001F, false));
 
         bone64 = new ModelRenderer(this);
         bone64.setRotationPoint(1.2704F, 0.7603F, -0.2777F);
@@ -3080,13 +3080,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun155_r3.setRotationPoint(-0.6928F, -0.2075F, 3.1054F);
         bone71.addChild(gun155_r3);
         setRotationAngle(gun155_r3, 0.0F, -0.5236F, -0.5672F);
-        gun155_r3.cubeList.add(new ModelBox(gun155_r3, 119, 67, -0.5F, -1.0F, -1.0F, 1, 2, 2, 0.0F, false));
+        gun155_r3.cubeList.add(new ModelBox(gun155_r3, 119, 67, -0.5F, -1, -1, 1, 2, 2, 0.0F, false));
 
         gun154_r12 = new ModelRenderer(this);
         gun154_r12.setRotationPoint(-0.6928F, 1.4531F, 3.1054F);
         bone71.addChild(gun154_r12);
         setRotationAngle(gun154_r12, 0.0F, -0.5236F, 0.5672F);
-        gun154_r12.cubeList.add(new ModelBox(gun154_r12, 16, 120, -0.5F, -1.0F, -1.0F, 1, 2, 2, 0.0F, false));
+        gun154_r12.cubeList.add(new ModelBox(gun154_r12, 16, 120, -0.5F, -1, -1, 1, 2, 2, 0.0F, false));
 
         gun153_r21 = new ModelRenderer(this);
         gun153_r21.setRotationPoint(-0.4398F, 0.6228F, 3.5996F);
@@ -3115,13 +3115,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         gun156_r1.setRotationPoint(0.6928F, -0.2075F, 3.1054F);
         bone72.addChild(gun156_r1);
         setRotationAngle(gun156_r1, 0.0F, 0.5236F, 0.5672F);
-        gun156_r1.cubeList.add(new ModelBox(gun156_r1, 99, 115, -0.5F, -1.0F, -1.0F, 1, 2, 2, 0.0F, false));
+        gun156_r1.cubeList.add(new ModelBox(gun156_r1, 99, 115, -0.5F, -1, -1, 1, 2, 2, 0.0F, false));
 
         gun155_r6 = new ModelRenderer(this);
         gun155_r6.setRotationPoint(0.6928F, 1.4531F, 3.1054F);
         bone72.addChild(gun155_r6);
         setRotationAngle(gun155_r6, 0.0F, 0.5236F, -0.5672F);
-        gun155_r6.cubeList.add(new ModelBox(gun155_r6, 24, 118, -0.5F, -1.0F, -1.0F, 1, 2, 2, 0.0F, false));
+        gun155_r6.cubeList.add(new ModelBox(gun155_r6, 24, 118, -0.5F, -1, -1, 1, 2, 2, 0.0F, false));
 
         gun154_r13 = new ModelRenderer(this);
         gun154_r13.setRotationPoint(0.4398F, 0.6228F, 3.5996F);
@@ -3190,7 +3190,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         bone68 = new ModelRenderer(this);
         bone68.setRotationPoint(-1.3174F, 12.8012F, 25.9855F);
         mp5_a5_stock.addChild(bone68);
-        bone68.cubeList.add(new ModelBox(bone68, 0, 71, -1.0929F, -0.6024F, -1.0F, 2, 1, 2, 0.0F, false));
+        bone68.cubeList.add(new ModelBox(bone68, 0, 71, -1.0929F, -0.6024F, -1, 2, 1, 2, 0.0F, false));
 
         gun168_r9 = new ModelRenderer(this);
         gun168_r9.setRotationPoint(0.5464F, 0.0512F, -11.5F);
@@ -3232,7 +3232,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         setRotationAngle(bone40, -1.1396F, 0.0F, 0.0F);
         bone40.cubeList.add(new ModelBox(bone40, 0, 127, 0.6085F, -2.2934F, -1.5F, 1, 3, 7, 0.2F, false));
         bone40.cubeList.add(new ModelBox(bone40, 124, 105, -1.6085F, -2.2934F, -1.5F, 1, 3, 7, 0.2F, false));
-        bone40.cubeList.add(new ModelBox(bone40, 99, 115, -1.0F, 0.5F, -1.5F, 2, 1, 7, 0.201F, false));
+        bone40.cubeList.add(new ModelBox(bone40, 99, 115, -1, 0.5F, -1.5F, 2, 1, 7, 0.201F, false));
 
         gun240_r2 = new ModelRenderer(this);
         gun240_r2.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -3240,8 +3240,8 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         setRotationAngle(gun240_r2, 0.7156F, 0.0F, 0.0F);
         gun240_r2.cubeList.add(new ModelBox(gun240_r2, 19, 21, -0.8F, 3.1583F, 1.2103F, 2, 1, 1, -0.001F, false));
         gun240_r2.cubeList.add(new ModelBox(gun240_r2, 12, 75, -1.2F, 3.1583F, 1.2103F, 1, 1, 1, 0.0F, false));
-        gun240_r2.cubeList.add(new ModelBox(gun240_r2, 81, 56, -1.2F, 1.0F, -1.3F, 1, 1, 1, 0.0F, false));
-        gun240_r2.cubeList.add(new ModelBox(gun240_r2, 29, 8, -0.8F, 1.0F, -1.3F, 2, 1, 1, -0.001F, false));
+        gun240_r2.cubeList.add(new ModelBox(gun240_r2, 81, 56, -1.2F, 1, -1.3F, 1, 1, 1, 0.0F, false));
+        gun240_r2.cubeList.add(new ModelBox(gun240_r2, 29, 8, -0.8F, 1, -1.3F, 2, 1, 1, -0.001F, false));
 
         gun240_r3 = new ModelRenderer(this);
         gun240_r3.setRotationPoint(1.8915F, -0.7934F, 0.5F);
@@ -3263,9 +3263,9 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         bone23.setRotationPoint(0.0F, -6.4236F, 4.0209F);
         magazine30.addChild(bone23);
         setRotationAngle(bone23, -0.3054F, 0.0F, 0.0F);
-        bone23.cubeList.add(new ModelBox(bone23, 169, 118, -1.5F, -4.0F, -1.0F, 3, 3, 2, -0.1F, false));
-        bone23.cubeList.add(new ModelBox(bone23, 43, 17, -1.5F, -5.5F, -1.0F, 3, 2, 2, 0.0F, false));
-        bone23.cubeList.add(new ModelBox(bone23, 43, 0, -1.5F, -1.5F, -1.0F, 3, 4, 2, 0.0F, false));
+        bone23.cubeList.add(new ModelBox(bone23, 169, 118, -1.5F, -4.0F, -1, 3, 3, 2, -0.1F, false));
+        bone23.cubeList.add(new ModelBox(bone23, 43, 17, -1.5F, -5.5F, -1, 3, 2, 2, 0.0F, false));
+        bone23.cubeList.add(new ModelBox(bone23, 43, 0, -1.5F, -1.5F, -1, 3, 4, 2, 0.0F, false));
         bone23.cubeList.add(new ModelBox(bone23, 107, 4, -1.3F, -4.0F, -1.2F, 3, 3, 1, -0.201F, false));
         bone23.cubeList.add(new ModelBox(bone23, 107, 0, -1.7F, -4.0F, -1.2F, 3, 3, 1, -0.201F, false));
         bone23.cubeList.add(new ModelBox(bone23, 20, 59, -0.5F, -5.4998F, -2.0F, 1, 8, 1, 0.0F, false));
@@ -3293,7 +3293,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r20.setRotationPoint(0.7224F, 0.0F, -1.8034F);
         bone23.addChild(cube_r20);
         setRotationAngle(cube_r20, 0.0F, 0.3054F, 0.0F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 121, 129, -0.5F, -5.5F, -1.0F, 1, 8, 2, 0.0F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 121, 129, -0.5F, -5.5F, -1, 1, 8, 2, 0.0F, false));
 
         cube_r21 = new ModelRenderer(this);
         cube_r21.setRotationPoint(3.0F, 0.0F, 0.0F);
@@ -3342,7 +3342,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r26.setRotationPoint(0.6762F, -2.7855F, -3.1693F);
         bone25.addChild(cube_r26);
         setRotationAngle(cube_r26, 0.0F, 0.3054F, 0.0F);
-        cube_r26.cubeList.add(new ModelBox(cube_r26, 78, 104, -0.5F, -4.5F, -1.0F, 1, 8, 2, 0.0F, false));
+        cube_r26.cubeList.add(new ModelBox(cube_r26, 78, 104, -0.5F, -4.5F, -1, 1, 8, 2, 0.0F, false));
 
         bone26 = new ModelRenderer(this);
         bone26.setRotationPoint(0.0463F, 5.3158F, -0.4874F);
@@ -3374,7 +3374,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r30.setRotationPoint(0.6762F, 2.2648F, -3.2034F);
         bone26.addChild(cube_r30);
         setRotationAngle(cube_r30, 0.0F, 0.3054F, 0.0F);
-        cube_r30.cubeList.add(new ModelBox(cube_r30, 56, 10, -0.5F, -4.5F, -1.0F, 1, 7, 2, 0.0F, false));
+        cube_r30.cubeList.add(new ModelBox(cube_r30, 56, 10, -0.5F, -4.5F, -1, 1, 7, 2, 0.0F, false));
 
         magazinedrum50 = new ModelRenderer(this);
         magazinedrum50.setRotationPoint(-1.5F, 2.2314F, -20.5454F);
@@ -3397,7 +3397,7 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         magazinedrum50.addChild(bone22);
         setRotationAngle(bone22, -0.1745F, 0.0F, 0.0F);
         bone22.cubeList.add(new ModelBox(bone22, 102, 49, -1.5F, -1.5F, -3.0F, 3, 3, 4, 0.001F, false));
-        bone22.cubeList.add(new ModelBox(bone22, 41, 27, -1.5F, -5.5F, -1.0F, 3, 4, 2, 0.001F, false));
+        bone22.cubeList.add(new ModelBox(bone22, 41, 27, -1.5F, -5.5F, -1, 3, 4, 2, 0.001F, false));
         bone22.cubeList.add(new ModelBox(bone22, 27, 27, -1.5F, -5.7F, -2.6F, 3, 6, 2, -0.2F, false));
         bone22.cubeList.add(new ModelBox(bone22, 54, 64, -1.3F, -5.7F, -3.2F, 3, 5, 1, -0.2F, false));
         bone22.cubeList.add(new ModelBox(bone22, 27, 53, -1.7F, -5.7F, -3.2F, 3, 5, 1, -0.201F, false));
@@ -3461,13 +3461,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r41.setRotationPoint(-4.5981F, 6.0981F, 0.0F);
         bone27.addChild(cube_r41);
         setRotationAngle(cube_r41, 0.0F, 0.0F, -1.5708F);
-        cube_r41.cubeList.add(new ModelBox(cube_r41, 0, 96, -1.5F, -1.0F, -3.0F, 3, 2, 4, -0.001F, false));
+        cube_r41.cubeList.add(new ModelBox(cube_r41, 0, 96, -1.5F, -1, -3.0F, 3, 2, 4, -0.001F, false));
 
         cube_r42 = new ModelRenderer(this);
         cube_r42.setRotationPoint(4.5981F, 6.0981F, 0.0F);
         bone27.addChild(cube_r42);
         setRotationAngle(cube_r42, 0.0F, 0.0F, 1.5708F);
-        cube_r42.cubeList.add(new ModelBox(cube_r42, 134, 155, -1.5F, -1.0F, -3.0F, 3, 2, 4, -0.001F, false));
+        cube_r42.cubeList.add(new ModelBox(cube_r42, 134, 155, -1.5F, -1, -3.0F, 3, 2, 4, -0.001F, false));
 
         bone28 = new ModelRenderer(this);
         bone28.setRotationPoint(0.0F, -6.4236F, 4.2709F);
@@ -3484,13 +3484,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r43.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone29.addChild(cube_r43);
         setRotationAngle(cube_r43, 0.0F, 0.0F, -0.5236F);
-        cube_r43.cubeList.add(new ModelBox(cube_r43, 131, 0, -1.0F, -0.5F, -1.5F, 2, 4, 6, -0.001F, false));
+        cube_r43.cubeList.add(new ModelBox(cube_r43, 131, 0, -1, -0.5F, -1.5F, 2, 4, 6, -0.001F, false));
 
         cube_r44 = new ModelRenderer(this);
         cube_r44.setRotationPoint(4.2321F, 0.0F, 0.0F);
         bone29.addChild(cube_r44);
         setRotationAngle(cube_r44, 0.0F, 0.0F, 0.5236F);
-        cube_r44.cubeList.add(new ModelBox(cube_r44, 23, 131, -1.0F, -0.5F, -1.5F, 2, 4, 6, -0.001F, false));
+        cube_r44.cubeList.add(new ModelBox(cube_r44, 23, 131, -1, -0.5F, -1.5F, 2, 4, 6, -0.001F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(3.3151F, 8.2141F, -3.5F);
@@ -3501,13 +3501,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r45.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(cube_r45);
         setRotationAngle(cube_r45, 0.0F, 0.0F, -1.0472F);
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 44, 131, -1.0F, -3.5F, -1.5F, 2, 4, 6, 0.0F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 44, 131, -1, -3.5F, -1.5F, 2, 4, 6, 0.0F, false));
 
         cube_r46 = new ModelRenderer(this);
         cube_r46.setRotationPoint(0.0F, -4.2321F, 0.0F);
         bone.addChild(cube_r46);
         setRotationAngle(cube_r46, 0.0F, 0.0F, 1.0472F);
-        cube_r46.cubeList.add(new ModelBox(cube_r46, 134, 46, -1.0F, -0.5F, -1.5F, 2, 4, 6, 0.0F, false));
+        cube_r46.cubeList.add(new ModelBox(cube_r46, 134, 46, -1, -0.5F, -1.5F, 2, 4, 6, 0.0F, false));
 
         cube_r47 = new ModelRenderer(this);
         cube_r47.setRotationPoint(0.433F, -2.116F, 0.0F);
@@ -3524,13 +3524,13 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r48.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone30.addChild(cube_r48);
         setRotationAngle(cube_r48, 0.0F, 0.0F, 1.0472F);
-        cube_r48.cubeList.add(new ModelBox(cube_r48, 131, 23, -1.0F, -3.5F, -1.5F, 2, 4, 6, 0.0F, false));
+        cube_r48.cubeList.add(new ModelBox(cube_r48, 131, 23, -1, -3.5F, -1.5F, 2, 4, 6, 0.0F, false));
 
         cube_r49 = new ModelRenderer(this);
         cube_r49.setRotationPoint(0.0F, -4.2321F, 0.0F);
         bone30.addChild(cube_r49);
         setRotationAngle(cube_r49, 0.0F, 0.0F, -1.0472F);
-        cube_r49.cubeList.add(new ModelBox(cube_r49, 131, 69, -1.0F, -0.5F, -1.5F, 2, 4, 6, 0.0F, false));
+        cube_r49.cubeList.add(new ModelBox(cube_r49, 131, 69, -1, -0.5F, -1.5F, 2, 4, 6, 0.0F, false));
 
         cube_r50 = new ModelRenderer(this);
         cube_r50.setRotationPoint(-0.433F, -2.116F, 0.0F);
@@ -3548,21 +3548,21 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         cube_r51.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone31.addChild(cube_r51);
         setRotationAngle(cube_r51, 0.0F, 0.0F, 0.5236F);
-        cube_r51.cubeList.add(new ModelBox(cube_r51, 71, 127, -1.0F, -3.5F, -1.5F, 2, 4, 6, -0.001F, false));
+        cube_r51.cubeList.add(new ModelBox(cube_r51, 71, 127, -1, -3.5F, -1.5F, 2, 4, 6, -0.001F, false));
 
         cube_r52 = new ModelRenderer(this);
         cube_r52.setRotationPoint(4.2321F, 0.0F, 0.0F);
         bone31.addChild(cube_r52);
         setRotationAngle(cube_r52, 0.0F, 0.0F, -0.5236F);
-        cube_r52.cubeList.add(new ModelBox(cube_r52, 92, 129, -1.0F, -3.5F, -1.5F, 2, 4, 6, -0.001F, false));
+        cube_r52.cubeList.add(new ModelBox(cube_r52, 92, 129, -1, -3.5F, -1.5F, 2, 4, 6, -0.001F, false));
 
         action = new ModelRenderer(this);
         action.setRotationPoint(-2.6423F, -15.0299F, -16.0F);
         action.cubeList.add(new ModelBox(action, 108, 158, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.001F, false));
-        action.cubeList.add(new ModelBox(action, 21, 158, 0.3423F, 1.0F, 0.0F, 1, 1, 4, 0.001F, false));
+        action.cubeList.add(new ModelBox(action, 21, 158, 0.3423F, 1, 0.0F, 1, 1, 4, 0.001F, false));
 
         gun65_r4 = new ModelRenderer(this);
-        gun65_r4.setRotationPoint(0.0F, 1.0F, 0.0F);
+        gun65_r4.setRotationPoint(0.0F, 1, 0.0F);
         action.addChild(gun65_r4);
         setRotationAngle(gun65_r4, 0.0F, 0.0F, -0.6632F);
         gun65_r4.cubeList.add(new ModelBox(gun65_r4, 44, 158, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.001F, false));
@@ -3587,25 +3587,25 @@ public class MP5BMHandGuard extends ModelWithAttachments {
         action6_r1.setRotationPoint(2.8478F, -38.4543F, -33.3F);
         bolt.addChild(action6_r1);
         setRotationAngle(action6_r1, 0.0F, -0.3665F, -0.1798F);
-        action6_r1.cubeList.add(new ModelBox(action6_r1, 35, 8, -2.2F, -1.0F, 0.8F, 1, 1, 1, 0.001F, false));
+        action6_r1.cubeList.add(new ModelBox(action6_r1, 35, 8, -2.2F, -1, 0.8F, 1, 1, 1, 0.001F, false));
 
         action5_r1 = new ModelRenderer(this);
         action5_r1.setRotationPoint(2.8478F, -38.4543F, -33.3F);
         bolt.addChild(action5_r1);
         setRotationAngle(action5_r1, 0.0F, 0.0F, -0.1798F);
-        action5_r1.cubeList.add(new ModelBox(action5_r1, 35, 19, -2.6F, -1.0F, 0.4F, 1, 1, 1, -0.001F, false));
+        action5_r1.cubeList.add(new ModelBox(action5_r1, 35, 19, -2.6F, -1, 0.4F, 1, 1, 1, -0.001F, false));
 
         action4_r1 = new ModelRenderer(this);
         action4_r1.setRotationPoint(2.8478F, -38.4543F, -33.3F);
         bolt.addChild(action4_r1);
         setRotationAngle(action4_r1, 0.0F, 0.192F, -0.1798F);
-        action4_r1.cubeList.add(new ModelBox(action4_r1, 35, 22, -1.9F, -1.0F, 0.05F, 1, 1, 1, 0.0F, false));
+        action4_r1.cubeList.add(new ModelBox(action4_r1, 35, 22, -1.9F, -1, 0.05F, 1, 1, 1, 0.0F, false));
 
         action3_r1 = new ModelRenderer(this);
         action3_r1.setRotationPoint(1.1478F, -38.0543F, -33.0F);
         bolt.addChild(action3_r1);
         setRotationAngle(action3_r1, 0.0F, 0.0F, -0.0227F);
-        action3_r1.cubeList.add(new ModelBox(action3_r1, 13, 21, -2.0F, -1.0F, 0.0F, 2, 1, 1, -0.2F, false));
+        action3_r1.cubeList.add(new ModelBox(action3_r1, 13, 21, -2.0F, -1, 0.0F, 2, 1, 1, -0.2F, false));
 
         action2 = new ModelRenderer(this);
         action2.setRotationPoint(-0.4F, -38.95F, -26.9F);

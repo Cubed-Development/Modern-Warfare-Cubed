@@ -38,7 +38,7 @@ public class FMG9Carryhandle extends ModelWithAttachments {
 
         carryhandle = new ModelRenderer(this);
         carryhandle.setRotationPoint(0.75F, -16.0F, -28.1F);
-        carryhandle.cubeList.add(new ModelBox(carryhandle, 129, 80, -1.0F, 0.0F, 0.0F, 1, 1, 26, 0.0F, false));
+        carryhandle.cubeList.add(new ModelBox(carryhandle, 129, 80, -1, 0.0F, 0.0F, 1, 1, 26, 0.0F, false));
         carryhandle.cubeList.add(new ModelBox(carryhandle, 41, 93, -2.75F, -0.75F, 0.0F, 2, 1, 26, 0.001F, false));
         carryhandle.cubeList.add(new ModelBox(carryhandle, 21, 48, -2.75F, -5.75F, 0.0F, 2, 5, 2, 0.001F, false));
         carryhandle.cubeList.add(new ModelBox(carryhandle, 43, 48, -2.15F, -7.45F, -5.4F, 2, 2, 6, 0.002F, false));
@@ -68,22 +68,22 @@ public class FMG9Carryhandle extends ModelWithAttachments {
         cube_r30.cubeList.add(new ModelBox(cube_r30, 126, 28, 0.0F, 0.0F, 0.0F, 1, 1, 26, -0.001F, false));
 
         cube_r31 = new ModelRenderer(this);
-        cube_r31.setRotationPoint(-3.5F, 1.0F, 0.0F);
+        cube_r31.setRotationPoint(-3.5F, 1, 0.0F);
         carryhandle.addChild(cube_r31);
         setRotationAngle(cube_r31, 0.0F, 0.0F, -0.9425F);
         cube_r31.cubeList.add(new ModelBox(cube_r31, 99, 120, 0.0F, 0.0F, 0.0F, 1, 1, 26, -0.001F, false));
 
         cube_r32 = new ModelRenderer(this);
-        cube_r32.setRotationPoint(0.0F, 1.0F, 0.0F);
+        cube_r32.setRotationPoint(0.0F, 1, 0.0F);
         carryhandle.addChild(cube_r32);
         setRotationAngle(cube_r32, 0.0F, 0.0F, 0.9425F);
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 122, 1, -1.0F, 0.0F, 0.0F, 1, 1, 26, -0.001F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 122, 1, -1, 0.0F, 0.0F, 1, 1, 26, -0.001F, false));
 
         cube_r33 = new ModelRenderer(this);
         cube_r33.setRotationPoint(0.0F, 0.0F, 0.0F);
         carryhandle.addChild(cube_r33);
         setRotationAngle(cube_r33, 0.0F, 0.0F, 0.8029F);
-        cube_r33.cubeList.add(new ModelBox(cube_r33, 127, 119, -1.0F, 0.0F, 0.0F, 1, 1, 26, -0.001F, false));
+        cube_r33.cubeList.add(new ModelBox(cube_r33, 127, 119, -1, 0.0F, 0.0F, 1, 1, 26, -0.001F, false));
 
         cube_r34 = new ModelRenderer(this);
         cube_r34.setRotationPoint(-3.35F, -6.45F, 20.4F);
@@ -91,7 +91,7 @@ public class FMG9Carryhandle extends ModelWithAttachments {
         setRotationAngle(cube_r34, -0.8378F, 0.0F, 0.0F);
         cube_r34.cubeList.add(new ModelBox(cube_r34, 21, 48, -0.2F, -0.2F, -1.2F, 1, 1, 9, -0.201F, false));
         cube_r34.cubeList.add(new ModelBox(cube_r34, 64, 48, 2.4F, -0.2F, -1.2F, 1, 1, 9, -0.201F, false));
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 86, 80, 0.6F, 0.0F, -1.0F, 2, 1, 9, 0.0F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 86, 80, 0.6F, 0.0F, -1, 2, 1, 9, 0.0F, false));
 
         cube_r35 = new ModelRenderer(this);
         cube_r35.setRotationPoint(-0.75F, -1.95F, 19.8F);
@@ -137,8 +137,8 @@ public class FMG9Carryhandle extends ModelWithAttachments {
         cube_r41.setRotationPoint(-3.35F, -7.0F, -7.0F);
         carryhandle.addChild(cube_r41);
         setRotationAngle(cube_r41, -0.3002F, 0.0F, 0.0F);
-        cube_r41.cubeList.add(new ModelBox(cube_r41, 53, 48, 0.0F, -1.0F, 0.0F, 2, 2, 2, 0.0F, false));
-        cube_r41.cubeList.add(new ModelBox(cube_r41, 59, 9, 1.2F, -1.0F, 0.0F, 2, 2, 2, -0.001F, false));
+        cube_r41.cubeList.add(new ModelBox(cube_r41, 53, 48, 0.0F, -1, 0.0F, 2, 2, 2, 0.0F, false));
+        cube_r41.cubeList.add(new ModelBox(cube_r41, 59, 9, 1.2F, -1, 0.0F, 2, 2, 2, -0.001F, false));
 
         cube_r42 = new ModelRenderer(this);
         cube_r42.setRotationPoint(-3.35F, -8.2F, -6.5F);
@@ -158,19 +158,19 @@ public class FMG9Carryhandle extends ModelWithAttachments {
         cube_r44.setRotationPoint(-3.35F, -6.2F, 1.6F);
         carryhandle.addChild(cube_r44);
         setRotationAngle(cube_r44, 0.0F, 0.0F, -0.5934F);
-        cube_r44.cubeList.add(new ModelBox(cube_r44, 0, 48, 0.0F, 0.0F, -1.0F, 1, 1, 19, 0.0F, false));
+        cube_r44.cubeList.add(new ModelBox(cube_r44, 0, 48, 0.0F, 0.0F, -1, 1, 1, 19, 0.0F, false));
 
         cube_r45 = new ModelRenderer(this);
         cube_r45.setRotationPoint(-0.15F, -6.2F, 1.6F);
         carryhandle.addChild(cube_r45);
         setRotationAngle(cube_r45, 0.0F, 0.0F, 0.5934F);
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 43, 48, -1.0F, 0.0F, -1.0F, 1, 1, 19, 0.0F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 43, 48, -1, 0.0F, -1, 1, 1, 19, 0.0F, false));
 
         cube_r46 = new ModelRenderer(this);
         cube_r46.setRotationPoint(-0.35F, -5.45F, 0.6F);
         carryhandle.addChild(cube_r46);
         setRotationAngle(cube_r46, 0.8727F, 0.0F, 0.0F);
-        cube_r46.cubeList.add(new ModelBox(cube_r46, 75, 72, -2.0F, -1.0F, 0.0F, 2, 1, 2, -0.001F, false));
+        cube_r46.cubeList.add(new ModelBox(cube_r46, 75, 72, -2.0F, -1, 0.0F, 2, 1, 2, -0.001F, false));
     }
 
     @Override

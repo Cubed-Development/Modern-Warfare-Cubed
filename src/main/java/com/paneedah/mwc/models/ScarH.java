@@ -119,7 +119,7 @@ public class ScarH extends ModelWithAttachments {
         lowerreceiver = new ModelRenderer(this);
         lowerreceiver.setRotationPoint(0.0F, 0.0F, 0.0F);
         gun.addChild(lowerreceiver);
-        lowerreceiver.cubeList.add(new ModelBox(lowerreceiver, 39, 14, -2.999F, -31.0F, -7.5F, 3, 5, 1, 0.0F, false));
+        lowerreceiver.cubeList.add(new ModelBox(lowerreceiver, 39, 14, -2.999F, -31, -7.5F, 3, 5, 1, 0.0F, false));
         lowerreceiver.cubeList.add(new ModelBox(lowerreceiver, 65, 93, 0.15F, -36.0F, -15.55F, 1, 2, 1, -0.2F, false));
         lowerreceiver.cubeList.add(new ModelBox(lowerreceiver, 130, 79, 0.2F, -34.5F, -15.551F, 1, 1, 1, -0.2F, false));
         lowerreceiver.cubeList.add(new ModelBox(lowerreceiver, 130, 54, -0.1F, -35.5F, -15.8F, 1, 1, 1, 0.0F, false));
@@ -174,13 +174,13 @@ public class ScarH extends ModelWithAttachments {
         gun30_r1.setRotationPoint(-3.2F, -30.5F, -8.6F);
         lowerreceiver.addChild(gun30_r1);
         setRotationAngle(gun30_r1, -2.3562F, 0.0F, 0.0F);
-        gun30_r1.cubeList.add(new ModelBox(gun30_r1, 99, 64, 0.2F, -2.0F, -1.0F, 3, 2, 1, 0.0F, false));
+        gun30_r1.cubeList.add(new ModelBox(gun30_r1, 99, 64, 0.2F, -2.0F, -1, 3, 2, 1, 0.0F, false));
 
         gun29_r1 = new ModelRenderer(this);
         gun29_r1.setRotationPoint(-3.2F, -26.75F, -8.6F);
         lowerreceiver.addChild(gun29_r1);
         setRotationAngle(gun29_r1, -2.3562F, 0.0F, 0.0F);
-        gun29_r1.cubeList.add(new ModelBox(gun29_r1, 39, 66, 0.2F, -1.0F, -2.0F, 3, 1, 2, 0.0F, false));
+        gun29_r1.cubeList.add(new ModelBox(gun29_r1, 39, 66, 0.2F, -1, -2.0F, 3, 1, 2, 0.0F, false));
 
         gun28_r1 = new ModelRenderer(this);
         gun28_r1.setRotationPoint(-3.2F, -26.45F, -13.6F);
@@ -252,31 +252,31 @@ public class ScarH extends ModelWithAttachments {
         gun63_r1.cubeList.add(new ModelBox(gun63_r1, 79, 24, 0.0F, -2.0F, 0.0F, 1, 4, 1, 0.0F, false));
 
         gun131_r1 = new ModelRenderer(this);
-        gun131_r1.setRotationPoint(1.0F, -34.2F, -16.5F);
+        gun131_r1.setRotationPoint(1, -34.2F, -16.5F);
         lowerreceiver.addChild(gun131_r1);
         setRotationAngle(gun131_r1, 0.0F, 0.5236F, 0.0F);
-        gun131_r1.cubeList.add(new ModelBox(gun131_r1, 120, 61, -1.0F, -1.0F, -1.0F, 1, 1, 1, -0.002F, false));
+        gun131_r1.cubeList.add(new ModelBox(gun131_r1, 120, 61, -1, -1, -1, 1, 1, 1, -0.002F, false));
 
         gun130_r1 = new ModelRenderer(this);
         gun130_r1.setRotationPoint(1.4F, -34.2F, -17.4F);
         lowerreceiver.addChild(gun130_r1);
         setRotationAngle(gun130_r1, 0.0F, 1.1519F, 0.0F);
-        gun130_r1.cubeList.add(new ModelBox(gun130_r1, 120, 59, -1.0F, -1.0F, -1.0F, 1, 1, 1, -0.001F, false));
+        gun130_r1.cubeList.add(new ModelBox(gun130_r1, 120, 59, -1, -1, -1, 1, 1, 1, -0.001F, false));
 
         gun130_r2 = new ModelRenderer(this);
-        gun130_r2.setRotationPoint(1.0F, -34.2F, -19.3F);
+        gun130_r2.setRotationPoint(1, -34.2F, -19.3F);
         lowerreceiver.addChild(gun130_r2);
         setRotationAngle(gun130_r2, 0.0F, -0.5236F, 0.0F);
-        gun130_r2.cubeList.add(new ModelBox(gun130_r2, 120, 63, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.002F, false));
+        gun130_r2.cubeList.add(new ModelBox(gun130_r2, 120, 63, -1, -1, 0.0F, 1, 1, 1, -0.002F, false));
 
         gun129_r1 = new ModelRenderer(this);
         gun129_r1.setRotationPoint(1.4F, -34.2F, -18.4F);
         lowerreceiver.addChild(gun129_r1);
         setRotationAngle(gun129_r1, 0.0F, -1.1519F, 0.0F);
-        gun129_r1.cubeList.add(new ModelBox(gun129_r1, 120, 66, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.001F, false));
+        gun129_r1.cubeList.add(new ModelBox(gun129_r1, 120, 66, -1, -1, 0.0F, 1, 1, 1, -0.001F, false));
 
         gun131_r2 = new ModelRenderer(this);
-        gun131_r2.setRotationPoint(1.0F, -31.0F, -14.9F);
+        gun131_r2.setRotationPoint(1, -31, -14.9F);
         lowerreceiver.addChild(gun131_r2);
         setRotationAngle(gun131_r2, 0.0F, -0.6632F, 0.0F);
         gun131_r2.cubeList.add(new ModelBox(gun131_r2, 85, 103, -0.8F, -0.8F, -0.2F, 1, 1, 2, -0.201F, false));
@@ -286,14 +286,14 @@ public class ScarH extends ModelWithAttachments {
         gun131_r3.setRotationPoint(1.1F, -31.7F, -15.8F);
         lowerreceiver.addChild(gun131_r3);
         setRotationAngle(gun131_r3, 0.0F, -0.2094F, 0.0F);
-        gun131_r3.cubeList.add(new ModelBox(gun131_r3, 104, 117, -1.0F, -1.0F, 0.5F, 1, 1, 1, -0.001F, false));
-        gun131_r3.cubeList.add(new ModelBox(gun131_r3, 118, 16, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun131_r3.cubeList.add(new ModelBox(gun131_r3, 104, 117, -1, -1, 0.5F, 1, 1, 1, -0.001F, false));
+        gun131_r3.cubeList.add(new ModelBox(gun131_r3, 118, 16, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun131_r4 = new ModelRenderer(this);
         gun131_r4.setRotationPoint(1.1F, -31.7F, -15.8F);
         lowerreceiver.addChild(gun131_r4);
         setRotationAngle(gun131_r4, 0.0F, 0.1745F, 0.0F);
-        gun131_r4.cubeList.add(new ModelBox(gun131_r4, 92, 117, -1.0F, -1.0F, -0.9F, 1, 1, 1, -0.15F, false));
+        gun131_r4.cubeList.add(new ModelBox(gun131_r4, 92, 117, -1, -1, -0.9F, 1, 1, 1, -0.15F, false));
 
         gun132_r1 = new ModelRenderer(this);
         gun132_r1.setRotationPoint(-3.9F, -31.9F, -6.7F);
@@ -365,31 +365,31 @@ public class ScarH extends ModelWithAttachments {
         gun710_r1.setRotationPoint(-2.6F, -39.05F, -61.8F);
         barrel.addChild(gun710_r1);
         setRotationAngle(gun710_r1, 0.0F, 0.0F, 0.5411F);
-        gun710_r1.cubeList.add(new ModelBox(gun710_r1, 42, 27, -0.1F, -1.0F, 0.0F, 1, 1, 4, -0.2F, false));
+        gun710_r1.cubeList.add(new ModelBox(gun710_r1, 42, 27, -0.1F, -1, 0.0F, 1, 1, 4, -0.2F, false));
 
         gun709_r1 = new ModelRenderer(this);
         gun709_r1.setRotationPoint(-0.4F, -39.05F, -61.8F);
         barrel.addChild(gun709_r1);
         setRotationAngle(gun709_r1, 0.0F, 0.0F, -0.5411F);
-        gun709_r1.cubeList.add(new ModelBox(gun709_r1, 79, 80, -0.9F, -1.0F, 0.0F, 1, 1, 4, -0.2F, false));
+        gun709_r1.cubeList.add(new ModelBox(gun709_r1, 79, 80, -0.9F, -1, 0.0F, 1, 1, 4, -0.2F, false));
 
         gun708_r1 = new ModelRenderer(this);
         gun708_r1.setRotationPoint(-0.4F, -41.05F, -59.8F);
         barrel.addChild(gun708_r1);
         setRotationAngle(gun708_r1, 0.0F, 0.0F, -0.5411F);
-        gun708_r1.cubeList.add(new ModelBox(gun708_r1, 0, 103, -0.9F, -1.0F, 0.0F, 1, 1, 2, -0.002F, false));
+        gun708_r1.cubeList.add(new ModelBox(gun708_r1, 0, 103, -0.9F, -1, 0.0F, 1, 1, 2, -0.002F, false));
 
         gun707_r1 = new ModelRenderer(this);
         gun707_r1.setRotationPoint(-2.6F, -41.05F, -59.8F);
         barrel.addChild(gun707_r1);
         setRotationAngle(gun707_r1, 0.0F, 0.0F, 0.5411F);
-        gun707_r1.cubeList.add(new ModelBox(gun707_r1, 6, 103, -0.1F, -1.0F, 0.0F, 1, 1, 2, -0.001F, false));
+        gun707_r1.cubeList.add(new ModelBox(gun707_r1, 6, 103, -0.1F, -1, 0.0F, 1, 1, 2, -0.001F, false));
 
         gun706_r1 = new ModelRenderer(this);
         gun706_r1.setRotationPoint(-2.4F, -41.45F, -57.2F);
         barrel.addChild(gun706_r1);
         setRotationAngle(gun706_r1, -0.3491F, 0.0F, 0.0F);
-        gun706_r1.cubeList.add(new ModelBox(gun706_r1, 85, 90, -0.1F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun706_r1.cubeList.add(new ModelBox(gun706_r1, 85, 90, -0.1F, -1, 0.0F, 2, 1, 1, 0.0F, false));
 
         upperreceiver = new ModelRenderer(this);
         upperreceiver.setRotationPoint(0.65F, -12.5F, -49.0F);
@@ -568,21 +568,21 @@ public class ScarH extends ModelWithAttachments {
         cube_r20.setRotationPoint(-0.7F, -5.4F, 0.0F);
         upperreceiver.addChild(cube_r20);
         setRotationAngle(cube_r20, 0.0F, 0.0F, 0.4014F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 55, 57, -1.0F, 0.0F, -2.0F, 1, 1, 53, 0.0F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 55, 57, -1, 0.0F, -2.0F, 1, 1, 53, 0.0F, false));
 
         cube_r21 = new ModelRenderer(this);
         cube_r21.setRotationPoint(-4.45F, -2.0F, 0.0F);
         upperreceiver.addChild(cube_r21);
         setRotationAngle(cube_r21, 0.0F, 0.0F, 0.6283F);
-        cube_r21.cubeList.add(new ModelBox(cube_r21, 110, 58, 0.0F, -1.0F, -2.0F, 1, 1, 53, 0.001F, false));
+        cube_r21.cubeList.add(new ModelBox(cube_r21, 110, 58, 0.0F, -1, -2.0F, 1, 1, 53, 0.001F, false));
         cube_r21.cubeList.add(new ModelBox(cube_r21, 0, 110, 0.0F, -1.58F, -2.0F, 1, 1, 53, -0.001F, false));
 
         cube_r22 = new ModelRenderer(this);
         cube_r22.setRotationPoint(0.15F, -2.0F, 0.0F);
         upperreceiver.addChild(cube_r22);
         setRotationAngle(cube_r22, 0.0F, 0.0F, -0.6283F);
-        cube_r22.cubeList.add(new ModelBox(cube_r22, 55, 111, -1.0F, -1.0F, -2.0F, 1, 1, 53, 0.001F, false));
-        cube_r22.cubeList.add(new ModelBox(cube_r22, 112, 0, -1.0F, -1.58F, -2.0F, 1, 1, 53, -0.001F, false));
+        cube_r22.cubeList.add(new ModelBox(cube_r22, 55, 111, -1, -1, -2.0F, 1, 1, 53, 0.001F, false));
+        cube_r22.cubeList.add(new ModelBox(cube_r22, 112, 0, -1, -1.58F, -2.0F, 1, 1, 53, -0.001F, false));
 
         cube_r23 = new ModelRenderer(this);
         cube_r23.setRotationPoint(-5.75F, -1.6F, 35.2F);
@@ -612,14 +612,14 @@ public class ScarH extends ModelWithAttachments {
         cube_r27.setRotationPoint(0.65F, -1.4F, 22.5F);
         upperreceiver.addChild(cube_r27);
         setRotationAngle(cube_r27, 0.0F, -1.117F, 0.0F);
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 122, 21, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 122, 19, -1.0F, 0.3F, 0.0F, 1, 1, 1, 0.001F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 122, 21, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 122, 19, -1, 0.3F, 0.0F, 1, 1, 1, 0.001F, false));
 
         cube_r28 = new ModelRenderer(this);
         cube_r28.setRotationPoint(0.65F, -1.4F, 19.5F);
         upperreceiver.addChild(cube_r28);
         setRotationAngle(cube_r28, 0.0F, 0.0F, 0.4189F);
-        cube_r28.cubeList.add(new ModelBox(cube_r28, 90, 71, -1.0F, 0.0F, -1.0F, 1, 1, 4, -0.001F, false));
+        cube_r28.cubeList.add(new ModelBox(cube_r28, 90, 71, -1, 0.0F, -1, 1, 1, 4, -0.001F, false));
 
         cube_r29 = new ModelRenderer(this);
         cube_r29.setRotationPoint(0.95F, -1.4F, 21.7F);
@@ -646,26 +646,26 @@ public class ScarH extends ModelWithAttachments {
         cube_r32.setRotationPoint(0.65F, -0.1F, 19.5F);
         upperreceiver.addChild(cube_r32);
         setRotationAngle(cube_r32, 0.0F, 0.0F, -0.4189F);
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 79, 85, -1.0F, -1.0F, -1.0F, 1, 1, 4, -0.001F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 79, 85, -1, -1, -1, 1, 1, 4, -0.001F, false));
 
         cube_r33 = new ModelRenderer(this);
         cube_r33.setRotationPoint(0.65F, -0.1F, 18.5F);
         upperreceiver.addChild(cube_r33);
         setRotationAngle(cube_r33, -0.1011F, 0.2228F, -0.4302F);
-        cube_r33.cubeList.add(new ModelBox(cube_r33, 30, 106, -1.0F, -1.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r33.cubeList.add(new ModelBox(cube_r33, 30, 106, -1, -1, -2.0F, 1, 1, 2, 0.0F, false));
 
         cube_r34 = new ModelRenderer(this);
         cube_r34.setRotationPoint(0.65F, -1.1F, 18.5F);
         upperreceiver.addChild(cube_r34);
         setRotationAngle(cube_r34, 0.0F, 0.2443F, 0.0F);
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 24, 106, -1.0F, 0.0F, -2.0F, 1, 1, 2, 0.001F, false));
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 18, 106, -1.0F, -0.3F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 24, 106, -1, 0.0F, -2.0F, 1, 1, 2, 0.001F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 18, 106, -1, -0.3F, -2.0F, 1, 1, 2, 0.0F, false));
 
         cube_r35 = new ModelRenderer(this);
         cube_r35.setRotationPoint(0.65F, -1.4F, 18.5F);
         upperreceiver.addChild(cube_r35);
         setRotationAngle(cube_r35, 0.1011F, 0.2228F, 0.4302F);
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 12, 106, -1.0F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 12, 106, -1, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
 
         cube_r36 = new ModelRenderer(this);
         cube_r36.setRotationPoint(0.25F, -1.1F, 50.0F);
@@ -729,7 +729,7 @@ public class ScarH extends ModelWithAttachments {
         cube_r45.setRotationPoint(-4.95F, -0.1F, 18.5F);
         upperreceiver.addChild(cube_r45);
         setRotationAngle(cube_r45, -0.1011F, -0.2228F, 0.4302F);
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 36, 106, 0.0F, -1.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 36, 106, 0.0F, -1, -2.0F, 1, 1, 2, 0.0F, false));
 
         cube_r46 = new ModelRenderer(this);
         cube_r46.setRotationPoint(-4.95F, -1.4F, 18.5F);
@@ -741,13 +741,13 @@ public class ScarH extends ModelWithAttachments {
         cube_r47.setRotationPoint(-4.95F, -0.1F, 19.5F);
         upperreceiver.addChild(cube_r47);
         setRotationAngle(cube_r47, 0.0F, 0.0F, 0.4189F);
-        cube_r47.cubeList.add(new ModelBox(cube_r47, 93, 48, 0.0F, -1.0F, -1.0F, 1, 1, 4, -0.001F, false));
+        cube_r47.cubeList.add(new ModelBox(cube_r47, 93, 48, 0.0F, -1, -1, 1, 1, 4, -0.001F, false));
 
         cube_r48 = new ModelRenderer(this);
         cube_r48.setRotationPoint(-4.95F, -1.4F, 19.5F);
         upperreceiver.addChild(cube_r48);
         setRotationAngle(cube_r48, 0.0F, 0.0F, -0.4189F);
-        cube_r48.cubeList.add(new ModelBox(cube_r48, 65, 93, 0.0F, 0.0F, -1.0F, 1, 1, 4, -0.001F, false));
+        cube_r48.cubeList.add(new ModelBox(cube_r48, 65, 93, 0.0F, 0.0F, -1, 1, 1, 4, -0.001F, false));
 
         cube_r49 = new ModelRenderer(this);
         cube_r49.setRotationPoint(-4.95F, -1.1F, 22.5F);

@@ -42,7 +42,7 @@ public class Transmission {
      * Clutch
      */
     public boolean declutched = false;
-    public float slippage = 1.0f;
+    public float slippage = 1;
 
 
     /**

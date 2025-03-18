@@ -66,10 +66,10 @@ public class ScorpionRearSight extends ModelBase {
         sight_rear.setRotationPoint(0.0F, 24.0F, 6.0F);
         sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, -3.0F, -8.1321F, 2.0958F, 6, 2, 8, 0.0F, false));
         sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, -1.5F, -9.2793F, 3.4575F, 3, 1, 5, 0.0F, false));
-        sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, -1.0F, -9.5293F, 4.9575F, 2, 1, 3, 0.0F, false));
-        sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, 1.5F, -11.0F, 3.0F, 1, 3, 3, 0.0F, false));
-        sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, 1.5F, -11.0F, 3.0F, 1, 3, 3, 0.0F, false));
-        sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, -2.5F, -11.0F, 3.0F, 1, 3, 3, 0.0F, false));
+        sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, -1, -9.5293F, 4.9575F, 2, 1, 3, 0.0F, false));
+        sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, 1.5F, -11, 3.0F, 1, 3, 3, 0.0F, false));
+        sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, 1.5F, -11, 3.0F, 1, 3, 3, 0.0F, false));
+        sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, -2.5F, -11, 3.0F, 1, 3, 3, 0.0F, false));
         sight_rear.cubeList.add(new ModelBox(sight_rear, 0, 0, -0.5F, -9.9557F, 6.0266F, 1, 1, 1, -0.3F, false));
 
         cube_r1 = new ModelRenderer(this);
@@ -88,13 +88,13 @@ public class ScorpionRearSight extends ModelBase {
         cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 0, -4.5F, -1.5F, -1.5F, 1, 2, 5, 0.0F, false));
 
         cube_r3 = new ModelRenderer(this);
-        cube_r3.setRotationPoint(-1.0F, -9.2543F, 6.7075F);
+        cube_r3.setRotationPoint(-1, -9.2543F, 6.7075F);
         sight_rear.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, 0.0F, 0.3927F);
         cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 0, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
 
         cube_r4 = new ModelRenderer(this);
-        cube_r4.setRotationPoint(1.0F, -9.2543F, 6.7075F);
+        cube_r4.setRotationPoint(1, -9.2543F, 6.7075F);
         sight_rear.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.0F, 0.0F, -0.3927F);
         cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 0, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
@@ -148,13 +148,13 @@ public class ScorpionRearSight extends ModelBase {
         cube_r14.setRotationPoint(1.0555F, -9.7612F, 6.7766F);
         sight_rear.addChild(cube_r14);
         setRotationAngle(cube_r14, 0.0F, 0.0F, -1.6581F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 0, -1.0F, -0.5F, -1.5F, 2, 1, 2, -0.3F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 0, -1, -0.5F, -1.5F, 2, 1, 2, -0.3F, false));
 
         cube_r23 = new ModelRenderer(this);
         cube_r23.setRotationPoint(-1.0555F, -9.7612F, 6.7766F);
         sight_rear.addChild(cube_r23);
         setRotationAngle(cube_r23, 0.0F, 0.0F, 1.5708F);
-        cube_r23.cubeList.add(new ModelBox(cube_r23, 0, 0, -1.0F, -0.5F, -1.5F, 2, 1, 2, -0.3F, false));
+        cube_r23.cubeList.add(new ModelBox(cube_r23, 0, 0, -1, -0.5F, -1.5F, 2, 1, 2, -0.3F, false));
 
         cube_r19 = new ModelRenderer(this);
         cube_r19.setRotationPoint(0.0F, -11.0666F, 6.5266F);
@@ -251,9 +251,9 @@ public class ScorpionRearSight extends ModelBase {
         sight_front.cubeList.add(new ModelBox(sight_front, 0, 0, -3.0F, -8.1321F, 3.0958F, 6, 2, 7, 0.0F, false));
         sight_front.cubeList.add(new ModelBox(sight_front, 0, 0, -1.5F, -8.7057F, 4.2766F, 3, 1, 5, 0.0F, false));
         sight_front.cubeList.add(new ModelBox(sight_front, 0, 0, -0.5F, -10.4557F, 4.7766F, 1, 2, 1, -0.3F, false));
-        sight_front.cubeList.add(new ModelBox(sight_front, 0, 0, 1.5F, -11.0F, 4.0F, 1, 3, 2, 0.0F, false));
-        sight_front.cubeList.add(new ModelBox(sight_front, 0, 0, 1.5F, -11.0F, 4.0F, 1, 3, 2, 0.0F, false));
-        sight_front.cubeList.add(new ModelBox(sight_front, 0, 0, -2.5F, -11.0F, 4.0F, 1, 3, 2, 0.0F, false));
+        sight_front.cubeList.add(new ModelBox(sight_front, 0, 0, 1.5F, -11, 4.0F, 1, 3, 2, 0.0F, false));
+        sight_front.cubeList.add(new ModelBox(sight_front, 0, 0, 1.5F, -11, 4.0F, 1, 3, 2, 0.0F, false));
+        sight_front.cubeList.add(new ModelBox(sight_front, 0, 0, -2.5F, -11, 4.0F, 1, 3, 2, 0.0F, false));
 
         cube_r9 = new ModelRenderer(this);
         cube_r9.setRotationPoint(2.0F, -9.1184F, 4.9795F);
@@ -275,7 +275,7 @@ public class ScorpionRearSight extends ModelBase {
         sight_front.addChild(cube_r28);
         setRotationAngle(cube_r28, 0.0F, -0.7854F, 0.0F);
         cube_r28.cubeList.add(new ModelBox(cube_r28, 0, 0, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
-        cube_r28.cubeList.add(new ModelBox(cube_r28, 0, 0, -0.5F, -1.0F, -0.5F, 1, 1, 1, -0.2F, false));
+        cube_r28.cubeList.add(new ModelBox(cube_r28, 0, 0, -0.5F, -1, -0.5F, 1, 1, 1, -0.2F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(2.25F, -9.0855F, 4.9044F);

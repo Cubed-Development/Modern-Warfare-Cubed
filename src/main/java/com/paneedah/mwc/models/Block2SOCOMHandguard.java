@@ -92,8 +92,8 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard318_r1.setRotationPoint(-3.2F, -39.55F, -23.5F);
         handguard.addChild(handguard318_r1);
         setRotationAngle(handguard318_r1, 0.0F, 0.0F, -0.7854F);
-        handguard318_r1.cubeList.add(new ModelBox(handguard318_r1, 31, 31, -1.0F, 0.0F, 0.0F, 1, 1, 1, -0.2F, false));
-        handguard318_r1.cubeList.add(new ModelBox(handguard318_r1, 24, 30, -1.0F, 0.0F, -0.5F, 1, 1, 1, 0.0F, false));
+        handguard318_r1.cubeList.add(new ModelBox(handguard318_r1, 31, 31, -1, 0.0F, 0.0F, 1, 1, 1, -0.2F, false));
+        handguard318_r1.cubeList.add(new ModelBox(handguard318_r1, 24, 30, -1, 0.0F, -0.5F, 1, 1, 1, 0.0F, false));
 
         handguard317_r1 = new ModelRenderer(this);
         handguard317_r1.setRotationPoint(0.2F, -39.55F, -23.5F);
@@ -107,13 +107,13 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard303_r1.setRotationPoint(-3.2F, -39.65F, -27.0F);
         handguard.addChild(handguard303_r1);
         setRotationAngle(handguard303_r1, 0.0F, 0.0F, -0.7854F);
-        handguard303_r1.cubeList.add(new ModelBox(handguard303_r1, 18, 5, -1.0F, 0.2F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard303_r1.cubeList.add(new ModelBox(handguard303_r1, 18, 5, -1, 0.2F, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard311_r1 = new ModelRenderer(this);
         handguard311_r1.setRotationPoint(-3.9F, -38.85F, -24.0F);
         handguard.addChild(handguard311_r1);
         setRotationAngle(handguard311_r1, 0.0F, 0.0F, -1.752F);
-        handguard311_r1.cubeList.add(new ModelBox(handguard311_r1, 0, 32, -1.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard311_r1.cubeList.add(new ModelBox(handguard311_r1, 0, 32, -1, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard310_r1 = new ModelRenderer(this);
         handguard310_r1.setRotationPoint(0.9F, -38.85F, -24.0F);
@@ -125,7 +125,7 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard309_r1.setRotationPoint(-3.2F, -39.55F, -24.0F);
         handguard.addChild(handguard309_r1);
         setRotationAngle(handguard309_r1, 0.0F, 0.0F, -1.4546F);
-        handguard309_r1.cubeList.add(new ModelBox(handguard309_r1, 4, 32, -1.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard309_r1.cubeList.add(new ModelBox(handguard309_r1, 4, 32, -1, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard308_r1 = new ModelRenderer(this);
         handguard308_r1.setRotationPoint(0.2F, -39.55F, -24.0F);
@@ -150,7 +150,7 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard243_r1.cubeList.add(new ModelBox(handguard243_r1, 63, 63, 0.009F, -0.2F, -23.501F, 1, 1, 28, 0.0F, false));
 
         handguard242_r1 = new ModelRenderer(this);
-        handguard242_r1.setRotationPoint(1.0F, -37.1F, -28.5F);
+        handguard242_r1.setRotationPoint(1, -37.1F, -28.5F);
         handguard.addChild(handguard242_r1);
         setRotationAngle(handguard242_r1, 0.0F, 0.0F, 0.4363F);
         handguard242_r1.cubeList.add(new ModelBox(handguard242_r1, 6, 11, -1.01F, 0.58F, 0.999F, 1, 1, 4, 0.0F, false));
@@ -182,7 +182,7 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard242_r2.cubeList.add(new ModelBox(handguard242_r2, 0, 90, 0.009F, -0.8F, -23.503F, 1, 1, 28, 0.0F, false));
 
         handguard241_r1 = new ModelRenderer(this);
-        handguard241_r1.setRotationPoint(1.0F, -37.55F, -28.5F);
+        handguard241_r1.setRotationPoint(1, -37.55F, -28.5F);
         handguard.addChild(handguard241_r1);
         setRotationAngle(handguard241_r1, 0.0F, 0.0F, -0.4363F);
         handguard241_r1.cubeList.add(new ModelBox(handguard241_r1, 12, 12, -1.01F, -1.58F, 0.999F, 1, 1, 4, 0.0F, false));
@@ -201,7 +201,7 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard242_r3.setRotationPoint(-1.9F, -35.0F, -28.5F);
         handguard.addChild(handguard242_r3);
         setRotationAngle(handguard242_r3, 0.0F, 0.0F, 0.4363F);
-        handguard242_r3.cubeList.add(new ModelBox(handguard242_r3, 6, 6, -1.58F, -1.01F, 1.0F, 1, 1, 4, 0.0F, false));
+        handguard242_r3.cubeList.add(new ModelBox(handguard242_r3, 6, 6, -1.58F, -1.01F, 1, 1, 1, 4, 0.0F, false));
         handguard242_r3.cubeList.add(new ModelBox(handguard242_r3, 33, 14, -1.58F, -1.01F, -1.501F, 1, 1, 1, 0.0F, false));
         handguard242_r3.cubeList.add(new ModelBox(handguard242_r3, 33, 16, -1.58F, -1.01F, -6.501F, 1, 1, 1, 0.0F, false));
         handguard242_r3.cubeList.add(new ModelBox(handguard242_r3, 33, 18, -1.58F, -1.01F, -11.501F, 1, 1, 1, 0.0F, false));
@@ -217,7 +217,7 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard241_r2.setRotationPoint(-1.1F, -35.0F, -28.5F);
         handguard.addChild(handguard241_r2);
         setRotationAngle(handguard241_r2, 0.0F, 0.0F, -0.4363F);
-        handguard241_r2.cubeList.add(new ModelBox(handguard241_r2, 12, 7, 0.58F, -1.01F, 1.0F, 1, 1, 4, 0.0F, false));
+        handguard241_r2.cubeList.add(new ModelBox(handguard241_r2, 12, 7, 0.58F, -1.01F, 1, 1, 1, 4, 0.0F, false));
         handguard241_r2.cubeList.add(new ModelBox(handguard241_r2, 8, 36, 0.58F, -1.01F, -1.501F, 1, 1, 1, 0.0F, false));
         handguard241_r2.cubeList.add(new ModelBox(handguard241_r2, 36, 9, 0.58F, -1.01F, -6.501F, 1, 1, 1, 0.0F, false));
         handguard241_r2.cubeList.add(new ModelBox(handguard241_r2, 36, 11, 0.58F, -1.01F, -11.501F, 1, 1, 1, 0.0F, false));
@@ -233,7 +233,7 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard241_r3.setRotationPoint(-1.9F, -39.65F, -28.5F);
         handguard.addChild(handguard241_r3);
         setRotationAngle(handguard241_r3, 0.0F, 0.0F, -0.4363F);
-        handguard241_r3.cubeList.add(new ModelBox(handguard241_r3, 0, 10, -1.58F, 0.01F, 1.0F, 1, 1, 4, 0.0F, false));
+        handguard241_r3.cubeList.add(new ModelBox(handguard241_r3, 0, 10, -1.58F, 0.01F, 1, 1, 1, 4, 0.0F, false));
         handguard241_r3.cubeList.add(new ModelBox(handguard241_r3, 4, 34, -1.58F, 0.01F, -1.501F, 1, 1, 1, 0.0F, false));
         handguard241_r3.cubeList.add(new ModelBox(handguard241_r3, 20, 34, -1.58F, 0.01F, -6.501F, 1, 1, 1, 0.0F, false));
         handguard241_r3.cubeList.add(new ModelBox(handguard241_r3, 34, 32, -1.58F, 0.01F, -11.501F, 1, 1, 1, 0.0F, false));
@@ -249,7 +249,7 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard240_r1.setRotationPoint(-1.1F, -39.65F, -28.5F);
         handguard.addChild(handguard240_r1);
         setRotationAngle(handguard240_r1, 0.0F, 0.0F, 0.4363F);
-        handguard240_r1.cubeList.add(new ModelBox(handguard240_r1, 14, 0, 0.58F, 0.01F, 1.0F, 1, 1, 4, 0.0F, false));
+        handguard240_r1.cubeList.add(new ModelBox(handguard240_r1, 14, 0, 0.58F, 0.01F, 1, 1, 1, 4, 0.0F, false));
         handguard240_r1.cubeList.add(new ModelBox(handguard240_r1, 20, 36, 0.58F, 0.01F, -1.501F, 1, 1, 1, 0.0F, false));
         handguard240_r1.cubeList.add(new ModelBox(handguard240_r1, 36, 25, 0.58F, 0.01F, -6.501F, 1, 1, 1, 0.0F, false));
         handguard240_r1.cubeList.add(new ModelBox(handguard240_r1, 34, 36, 0.58F, 0.01F, -11.501F, 1, 1, 1, 0.0F, false));
@@ -265,59 +265,59 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard109_r1.setRotationPoint(1.801F, -35.95F, -41.499F);
         handguard.addChild(handguard109_r1);
         setRotationAngle(handguard109_r1, 0.0F, 0.0F, 0.733F);
-        handguard109_r1.cubeList.add(new ModelBox(handguard109_r1, 48, 141, -1.0F, 0.0F, 0.001F, 1, 1, 14, 0.0F, false));
+        handguard109_r1.cubeList.add(new ModelBox(handguard109_r1, 48, 141, -1, 0.0F, 0.001F, 1, 1, 14, 0.0F, false));
 
         handguard108_r1 = new ModelRenderer(this);
         handguard108_r1.setRotationPoint(1.801F, -38.85F, -41.499F);
         handguard.addChild(handguard108_r1);
         setRotationAngle(handguard108_r1, 0.0F, 0.0F, -0.733F);
-        handguard108_r1.cubeList.add(new ModelBox(handguard108_r1, 80, 142, -1.0F, -1.0F, 0.001F, 1, 1, 14, 0.0F, false));
+        handguard108_r1.cubeList.add(new ModelBox(handguard108_r1, 80, 142, -1, -1, 0.001F, 1, 1, 14, 0.0F, false));
 
         handguard113_r1 = new ModelRenderer(this);
         handguard113_r1.setRotationPoint(2.201F, -36.9F, -38.599F);
         handguard.addChild(handguard113_r1);
         setRotationAngle(handguard113_r1, 0.0F, 0.0F, 0.2967F);
-        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 67, 134, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 67, 134, -1.0F, 0.0F, 6.0F, 1, 1, 1, 0.0F, false));
-        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 42, 124, -1.0F, 0.0F, 2.0F, 1, 1, 1, 0.0F, false));
-        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 42, 124, -1.0F, 0.0F, 8.0F, 1, 1, 1, 0.0F, false));
-        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 42, 132, -1.0F, 0.0F, 4.0F, 1, 1, 1, 0.0F, false));
-        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 42, 132, -1.0F, 0.0F, 10.0F, 1, 1, 1, 0.0F, false));
+        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 67, 134, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 67, 134, -1, 0.0F, 6.0F, 1, 1, 1, 0.0F, false));
+        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 42, 124, -1, 0.0F, 2.0F, 1, 1, 1, 0.0F, false));
+        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 42, 124, -1, 0.0F, 8.0F, 1, 1, 1, 0.0F, false));
+        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 42, 132, -1, 0.0F, 4.0F, 1, 1, 1, 0.0F, false));
+        handguard113_r1.cubeList.add(new ModelBox(handguard113_r1, 42, 132, -1, 0.0F, 10.0F, 1, 1, 1, 0.0F, false));
 
         handguard109_r2 = new ModelRenderer(this);
         handguard109_r2.setRotationPoint(2.301F, -36.9F, -40.499F);
         handguard.addChild(handguard109_r2);
         setRotationAngle(handguard109_r2, 0.0F, 0.0F, 0.2967F);
-        handguard109_r2.cubeList.add(new ModelBox(handguard109_r2, 47, 124, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        handguard109_r2.cubeList.add(new ModelBox(handguard109_r2, 47, 124, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard108_r2 = new ModelRenderer(this);
         handguard108_r2.setRotationPoint(2.101F, -36.9F, -41.499F);
         handguard.addChild(handguard108_r2);
         setRotationAngle(handguard108_r2, 0.0F, 0.0F, 0.2967F);
-        handguard108_r2.cubeList.add(new ModelBox(handguard108_r2, 47, 124, -1.0F, 0.0F, 0.0F, 1, 1, 14, 0.0F, false));
+        handguard108_r2.cubeList.add(new ModelBox(handguard108_r2, 47, 124, -1, 0.0F, 0.0F, 1, 1, 14, 0.0F, false));
 
         handguard112_r1 = new ModelRenderer(this);
         handguard112_r1.setRotationPoint(2.201F, -37.9F, -38.599F);
         handguard.addChild(handguard112_r1);
         setRotationAngle(handguard112_r1, 0.0F, 0.0F, -0.2967F);
-        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 54, 130, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 54, 130, -1.0F, -1.0F, 6.0F, 1, 1, 1, 0.0F, false));
-        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 53, 126, -1.0F, -1.0F, 2.0F, 1, 1, 1, 0.0F, false));
-        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 53, 126, -1.0F, -1.0F, 8.0F, 1, 1, 1, 0.0F, false));
-        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 40, 128, -1.0F, -1.0F, 4.0F, 1, 1, 1, 0.0F, false));
-        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 40, 128, -1.0F, -1.0F, 10.0F, 1, 1, 1, 0.0F, false));
+        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 54, 130, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
+        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 54, 130, -1, -1, 6.0F, 1, 1, 1, 0.0F, false));
+        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 53, 126, -1, -1, 2.0F, 1, 1, 1, 0.0F, false));
+        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 53, 126, -1, -1, 8.0F, 1, 1, 1, 0.0F, false));
+        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 40, 128, -1, -1, 4.0F, 1, 1, 1, 0.0F, false));
+        handguard112_r1.cubeList.add(new ModelBox(handguard112_r1, 40, 128, -1, -1, 10.0F, 1, 1, 1, 0.0F, false));
 
         handguard108_r3 = new ModelRenderer(this);
         handguard108_r3.setRotationPoint(2.301F, -37.9F, -40.499F);
         handguard.addChild(handguard108_r3);
         setRotationAngle(handguard108_r3, 0.0F, 0.0F, -0.2967F);
-        handguard108_r3.cubeList.add(new ModelBox(handguard108_r3, 16, 141, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        handguard108_r3.cubeList.add(new ModelBox(handguard108_r3, 16, 141, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard107_r1 = new ModelRenderer(this);
         handguard107_r1.setRotationPoint(2.101F, -37.9F, -41.499F);
         handguard.addChild(handguard107_r1);
         setRotationAngle(handguard107_r1, 0.0F, 0.0F, -0.2967F);
-        handguard107_r1.cubeList.add(new ModelBox(handguard107_r1, 16, 141, -1.0F, -1.0F, 0.0F, 1, 1, 14, 0.0F, false));
+        handguard107_r1.cubeList.add(new ModelBox(handguard107_r1, 16, 141, -1, -1, 0.0F, 1, 1, 14, 0.0F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(0.4F, -35.2F, -23.5F);
@@ -329,21 +329,21 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard311_r2.setRotationPoint(0.7F, -0.7F, -0.5F);
         bone.addChild(handguard311_r2);
         setRotationAngle(handguard311_r2, 0.0F, 0.0F, -1.752F);
-        handguard311_r2.cubeList.add(new ModelBox(handguard311_r2, 17, 25, 0.0F, -1.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard311_r2.cubeList.add(new ModelBox(handguard311_r2, 17, 25, 0.0F, -1, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard303_r2 = new ModelRenderer(this);
         handguard303_r2.setRotationPoint(0.0F, 0.0F, -3.5F);
         bone.addChild(handguard303_r2);
         setRotationAngle(handguard303_r2, 0.0F, 0.0F, -0.7854F);
         handguard303_r2.cubeList.add(new ModelBox(handguard303_r2, 15, 17, 0.0F, -1.2F, 0.0F, 1, 1, 3, 0.0F, false));
-        handguard303_r2.cubeList.add(new ModelBox(handguard303_r2, 25, 17, 0.0F, -1.0F, 3.0F, 1, 1, 1, 0.0F, false));
+        handguard303_r2.cubeList.add(new ModelBox(handguard303_r2, 25, 17, 0.0F, -1, 3.0F, 1, 1, 1, 0.0F, false));
         handguard303_r2.cubeList.add(new ModelBox(handguard303_r2, 25, 27, 0.0F, -0.8F, 3.5F, 1, 1, 1, -0.3F, false));
 
         handguard309_r2 = new ModelRenderer(this);
         handguard309_r2.setRotationPoint(0.0F, 0.0F, -0.5F);
         bone.addChild(handguard309_r2);
         setRotationAngle(handguard309_r2, 0.0F, 0.0F, -1.4546F);
-        handguard309_r2.cubeList.add(new ModelBox(handguard309_r2, 25, 20, 0.0F, -1.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard309_r2.cubeList.add(new ModelBox(handguard309_r2, 25, 20, 0.0F, -1, -0.001F, 1, 1, 1, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(-3.4F, -35.2F, -23.5F);
@@ -355,21 +355,21 @@ public class Block2SOCOMHandguard extends ModelBase {
         handguard312_r1.setRotationPoint(-0.7F, -0.7F, -0.5F);
         bone2.addChild(handguard312_r1);
         setRotationAngle(handguard312_r1, 0.0F, 0.0F, 1.752F);
-        handguard312_r1.cubeList.add(new ModelBox(handguard312_r1, 0, 0, -1.0F, -1.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard312_r1.cubeList.add(new ModelBox(handguard312_r1, 0, 0, -1, -1, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard304_r1 = new ModelRenderer(this);
         handguard304_r1.setRotationPoint(0.0F, 0.0F, -3.5F);
         bone2.addChild(handguard304_r1);
         setRotationAngle(handguard304_r1, 0.0F, 0.0F, 0.7854F);
-        handguard304_r1.cubeList.add(new ModelBox(handguard304_r1, 7, 17, -1.0F, -1.2F, 0.0F, 1, 1, 3, 0.0F, false));
-        handguard304_r1.cubeList.add(new ModelBox(handguard304_r1, 0, 2, -1.0F, -1.0F, 3.0F, 1, 1, 1, 0.0F, false));
-        handguard304_r1.cubeList.add(new ModelBox(handguard304_r1, 6, 6, -1.0F, -0.8F, 3.5F, 1, 1, 1, -0.3F, false));
+        handguard304_r1.cubeList.add(new ModelBox(handguard304_r1, 7, 17, -1, -1.2F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard304_r1.cubeList.add(new ModelBox(handguard304_r1, 0, 2, -1, -1, 3.0F, 1, 1, 1, 0.0F, false));
+        handguard304_r1.cubeList.add(new ModelBox(handguard304_r1, 6, 6, -1, -0.8F, 3.5F, 1, 1, 1, -0.3F, false));
 
         handguard310_r2 = new ModelRenderer(this);
         handguard310_r2.setRotationPoint(0.0F, 0.0F, -0.5F);
         bone2.addChild(handguard310_r2);
         setRotationAngle(handguard310_r2, 0.0F, 0.0F, 1.4546F);
-        handguard310_r2.cubeList.add(new ModelBox(handguard310_r2, 0, 5, -1.0F, -1.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard310_r2.cubeList.add(new ModelBox(handguard310_r2, 0, 5, -1, -1, -0.001F, 1, 1, 1, 0.0F, false));
     }
 
     @Override

@@ -58,13 +58,13 @@ public class BanditNew4 extends ModelBiped {
         body_r1.setRotationPoint(-2.9F, 3.05F, 2.35F);
         chestharness.addChild(body_r1);
         setRotation(body_r1, 0.0F, 0.0F, -0.8727F);
-        body_r1.cubeList.add(new ModelBox(body_r1, 48, 5, 0.0F, -0.4F, -1.0F, 1, 9, 1, -0.1F, false));
+        body_r1.cubeList.add(new ModelBox(body_r1, 48, 5, 0.0F, -0.4F, -1, 1, 9, 1, -0.1F, false));
 
         body_r2 = new ModelRenderer(this);
         body_r2.setRotationPoint(2.9F, 3.05F, 2.35F);
         chestharness.addChild(body_r2);
         setRotation(body_r2, 0.0F, 0.0F, 0.8727F);
-        body_r2.cubeList.add(new ModelBox(body_r2, 12, 48, -1.0F, -0.4F, -0.97F, 1, 9, 1, -0.1F, false));
+        body_r2.cubeList.add(new ModelBox(body_r2, 12, 48, -1, -0.4F, -0.97F, 1, 9, 1, -0.1F, false));
 
         body_r3 = new ModelRenderer(this);
         body_r3.setRotationPoint(3.0F, 11.5F, -4.15F);
@@ -82,13 +82,13 @@ public class BanditNew4 extends ModelBiped {
         bone6.setRotationPoint(3.9F, 0.45F, 2.55F);
         chestharness.addChild(bone6);
         setRotation(bone6, -0.0524F, 0.0F, 0.2793F);
-        bone6.cubeList.add(new ModelBox(bone6, 36, 16, -2.0F, 0.0F, -1.0F, 2, 3, 1, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 36, 16, -2.0F, 0.0F, -1, 2, 3, 1, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(-3.9F, 0.45F, 2.55F);
         chestharness.addChild(bone7);
         setRotation(bone7, -0.0524F, 0.0F, -0.2793F);
-        bone7.cubeList.add(new ModelBox(bone7, 28, 32, 0.0F, 0.0F, -1.0F, 2, 3, 1, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 28, 32, 0.0F, 0.0F, -1, 2, 3, 1, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(3.9F, 3.25F, -2.75F);
@@ -104,8 +104,8 @@ public class BanditNew4 extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(0.0F, 0.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
-        leftarm.cubeList.add(new ModelBox(leftarm, 40, 16, -1.0F, -2.0F, -2.0F, 4, 10, 4, 0.12F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 40, 16, -1, -2.0F, -2.0F, 4, 10, 4, 0.12F, false));
 
         rightleg = new ModelRenderer(this);
         rightleg.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -139,7 +139,7 @@ public class BanditNew4 extends ModelBiped {
 
         if (entityCustomMob.isSwingingArms() && itemstack.getItem() != Items.BOW) {
             float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
-            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
+            float f1 = MathHelper.sin((1 - (1 - this.swingProgress) * (1 - this.swingProgress)) * (float) Math.PI);
             this.bipedRightArm.rotateAngleZ = 0.0F;
             this.bipedLeftArm.rotateAngleZ = 0.0F;
             this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
@@ -176,7 +176,7 @@ public class BanditNew4 extends ModelBiped {
 
     @Override
     public void postRenderArm(float scale, EnumHandSide side) {
-        float f = side == EnumHandSide.RIGHT ? 1.0F : -1.0F;
+        float f = side == EnumHandSide.RIGHT ? 1 : -1;
         ModelRenderer modelrenderer = this.getArmForSide(side);
         modelrenderer.rotationPointX += f;
         modelrenderer.postRender(scale * 1.25f);

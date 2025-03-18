@@ -41,7 +41,7 @@ public class ACRSquareDropHandguard extends ModelBase {
 
         SquareDrop_Handguard = new ModelRenderer(this);
         SquareDrop_Handguard.setRotationPoint(-1.5F, -14.8F, -34.5F);
-        SquareDrop_Handguard.cubeList.add(new ModelBox(SquareDrop_Handguard, 216, 99, -2.5F, -1.0F, -10.5F, 5, 2, 21, 0.0F, false));
+        SquareDrop_Handguard.cubeList.add(new ModelBox(SquareDrop_Handguard, 216, 99, -2.5F, -1, -10.5F, 5, 2, 21, 0.0F, false));
 
         handguard1 = new ModelRenderer(this);
         handguard1.setRotationPoint(1.8F, -0.6F, -14.5F);
@@ -55,21 +55,21 @@ public class ACRSquareDropHandguard extends ModelBase {
         handguard1.cubeList.add(new ModelBox(handguard1, 149, 153, -5.1F, 1.3F, 2.0F, 1, 1, 1, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 153, 135, -5.1F, 1.3F, 5.0F, 1, 1, 1, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 131, 153, -5.1F, 1.3F, 8.0F, 1, 1, 1, 0.0F, false));
-        handguard1.cubeList.add(new ModelBox(handguard1, 101, 153, -5.1F, 1.3F, 11.0F, 1, 1, 1, 0.0F, false));
+        handguard1.cubeList.add(new ModelBox(handguard1, 101, 153, -5.1F, 1.3F, 11, 1, 1, 1, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 92, 153, -5.1F, 1.3F, 14.0F, 1, 1, 1, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 104, 152, 0.5F, 1.3F, 14.0F, 1, 1, 1, 0.0F, false));
-        handguard1.cubeList.add(new ModelBox(handguard1, 95, 152, 0.5F, 1.3F, 11.0F, 1, 1, 1, 0.0F, false));
+        handguard1.cubeList.add(new ModelBox(handguard1, 95, 152, 0.5F, 1.3F, 11, 1, 1, 1, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 85, 152, 0.5F, 1.3F, 8.0F, 1, 1, 1, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 58, 152, 0.5F, 1.3F, 5.0F, 1, 1, 1, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 49, 152, 0.5F, 1.3F, 2.0F, 1, 1, 1, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 303, 0, 0.5F, 2.3F, -3.0F, 1, 1, 24, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 159, 33, 0.5F, 1.3F, -3.0F, 1, 1, 3, 0.0F, false));
-        handguard1.cubeList.add(new ModelBox(handguard1, 35, 125, -4.8F, 0.5F, 21.0F, 1, 3, 4, 0.0F, false));
-        handguard1.cubeList.add(new ModelBox(handguard1, 116, 67, 0.2F, 0.5F, 21.0F, 1, 3, 4, 0.0F, false));
-        handguard1.cubeList.add(new ModelBox(handguard1, 157, 128, -5.1F, -0.7F, 1.0F, 1, 1, 3, 0.0F, false));
+        handguard1.cubeList.add(new ModelBox(handguard1, 35, 125, -4.8F, 0.5F, 21, 1, 3, 4, 0.0F, false));
+        handguard1.cubeList.add(new ModelBox(handguard1, 116, 67, 0.2F, 0.5F, 21, 1, 3, 4, 0.0F, false));
+        handguard1.cubeList.add(new ModelBox(handguard1, 157, 128, -5.1F, -0.7F, 1, 1, 1, 3, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 155, 145, -4.8F, -0.7F, 0.0F, 1, 1, 3, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 151, 38, 0.2F, -0.7F, 0.0F, 1, 1, 3, 0.0F, false));
-        handguard1.cubeList.add(new ModelBox(handguard1, 151, 33, 0.5F, -0.7F, 1.0F, 1, 1, 3, 0.0F, false));
+        handguard1.cubeList.add(new ModelBox(handguard1, 151, 33, 0.5F, -0.7F, 1, 1, 1, 3, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 50, 301, 0.5F, 0.3F, -3.0F, 1, 1, 24, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 0, 301, -5.1F, 2.3F, -3.0F, 1, 1, 24, 0.0F, false));
         handguard1.cubeList.add(new ModelBox(handguard1, 149, 128, -5.1F, 1.3F, -3.0F, 1, 1, 3, 0.0F, false));
@@ -226,13 +226,13 @@ public class ACRSquareDropHandguard extends ModelBase {
         bone11_r1.cubeList.add(new ModelBox(bone11_r1, 80, 120, -1.2F, -37.1F, -52.0F, 2, 1, 3, 0.0F, false));
         bone11_r1.cubeList.add(new ModelBox(bone11_r1, 0, 154, -0.2F, -37.1F, -47.0F, 1, 1, 1, 0.0F, false));
         bone11_r1.cubeList.add(new ModelBox(bone11_r1, 154, 2, -0.2F, -37.1F, -44.0F, 1, 1, 1, 0.0F, false));
-        bone11_r1.cubeList.add(new ModelBox(bone11_r1, 8, 154, -0.2F, -37.1F, -41.0F, 1, 1, 1, 0.0F, false));
+        bone11_r1.cubeList.add(new ModelBox(bone11_r1, 8, 154, -0.2F, -37.1F, -41, 1, 1, 1, 0.0F, false));
         bone11_r1.cubeList.add(new ModelBox(bone11_r1, 154, 8, -0.2F, -37.1F, -38.0F, 1, 1, 1, 0.0F, false));
         bone11_r1.cubeList.add(new ModelBox(bone11_r1, 154, 10, -0.2F, -37.1F, -35.0F, 1, 1, 1, 0.0F, false));
         bone11_r1.cubeList.add(new ModelBox(bone11_r1, 49, 10, -0.2F, -37.1F, -32.0F, 1, 1, 8, 0.0F, false));
         bone11_r1.cubeList.add(new ModelBox(bone11_r1, 278, 172, -1.2F, -37.1F, -49.0F, 1, 1, 25, 0.0F, false));
         bone11_r1.cubeList.add(new ModelBox(bone11_r1, 154, 18, 0.8F, -37.1F, -52.0F, 1, 1, 1, 0.0F, false));
-        bone11_r1.cubeList.add(new ModelBox(bone11_r1, 247, 116, 0.4F, -37.11F, -51.0F, 1, 1, 27, 0.0F, false));
+        bone11_r1.cubeList.add(new ModelBox(bone11_r1, 247, 116, 0.4F, -37.11F, -51, 1, 1, 27, 0.0F, false));
 
         bone14_r1 = new ModelRenderer(this);
         bone14_r1.setRotationPoint(-22.993F, 35.019F, 49.0F);
@@ -240,14 +240,14 @@ public class ACRSquareDropHandguard extends ModelBase {
         setRotationAngle(bone14_r1, 0.0F, 0.0F, 0.6458F);
         bone14_r1.cubeList.add(new ModelBox(bone14_r1, 9, 124, -4.8F, -37.1F, -52.0F, 3, 1, 1, 0.0F, false));
         bone14_r1.cubeList.add(new ModelBox(bone14_r1, 47, 57, -3.8F, -37.1F, -32.0F, 1, 1, 8, 0.0F, false));
-        bone14_r1.cubeList.add(new ModelBox(bone14_r1, 47, 124, -3.8F, -37.1F, -51.0F, 1, 1, 2, 0.0F, false));
+        bone14_r1.cubeList.add(new ModelBox(bone14_r1, 47, 124, -3.8F, -37.1F, -51, 1, 1, 2, 0.0F, false));
         bone14_r1.cubeList.add(new ModelBox(bone14_r1, 124, 143, -3.8F, -37.1F, -47.0F, 1, 1, 1, 0.0F, false));
         bone14_r1.cubeList.add(new ModelBox(bone14_r1, 154, 20, -3.8F, -37.1F, -44.0F, 1, 1, 1, 0.0F, false));
-        bone14_r1.cubeList.add(new ModelBox(bone14_r1, 131, 143, -3.8F, -37.1F, -41.0F, 1, 1, 1, 0.0F, false));
+        bone14_r1.cubeList.add(new ModelBox(bone14_r1, 131, 143, -3.8F, -37.1F, -41, 1, 1, 1, 0.0F, false));
         bone14_r1.cubeList.add(new ModelBox(bone14_r1, 154, 25, -3.8F, -37.1F, -38.0F, 1, 1, 1, 0.0F, false));
         bone14_r1.cubeList.add(new ModelBox(bone14_r1, 154, 27, -3.8F, -37.1F, -35.0F, 1, 1, 1, 0.0F, false));
-        bone14_r1.cubeList.add(new ModelBox(bone14_r1, 58, 248, -4.4F, -37.1F, -51.0F, 1, 1, 27, 0.0F, false));
-        bone14_r1.cubeList.add(new ModelBox(bone14_r1, 248, 144, -2.8F, -37.1F, -51.0F, 1, 1, 27, 0.0F, false));
+        bone14_r1.cubeList.add(new ModelBox(bone14_r1, 58, 248, -4.4F, -37.1F, -51, 1, 1, 27, 0.0F, false));
+        bone14_r1.cubeList.add(new ModelBox(bone14_r1, 248, 144, -2.8F, -37.1F, -51, 1, 1, 27, 0.0F, false));
     }
 
     @Override

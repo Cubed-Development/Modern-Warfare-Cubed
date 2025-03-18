@@ -48,7 +48,7 @@ public class G95_upright_frontsights extends ModelBase {
         sight4.cubeList.add(new ModelBox(sight4, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 7, 0.0F, true));
 
         sight5 = new ModelRenderer(this);
-        sight5.setRotationPoint(-4.0F, 7.5F, -11.0F);
+        sight5.setRotationPoint(-4.0F, 7.5F, -11);
         sight5.cubeList.add(new ModelBox(sight5, 0, 0, 0.0F, 0.0F, 0.0F, 11, 5, 2, 0.0F, true));
 
         sight6 = new ModelRenderer(this);
@@ -56,7 +56,7 @@ public class G95_upright_frontsights extends ModelBase {
         sight6.cubeList.add(new ModelBox(sight6, 0, 0, 0.0F, 0.0F, 0.0F, 11, 4, 5, 0.0F, true));
 
         sight7 = new ModelRenderer(this);
-        sight7.setRotationPoint(-4.0F, 7.5F, -11.0F);
+        sight7.setRotationPoint(-4.0F, 7.5F, -11);
         setRotationAngle(sight7, -1.3756F, 0.0F, 0.0F);
         sight7.cubeList.add(new ModelBox(sight7, 0, 0, 0.0F, 0.0F, 0.0F, 11, 5, 1, 0.0F, true));
 
@@ -84,20 +84,20 @@ public class G95_upright_frontsights extends ModelBase {
         sight15.cubeList.add(new ModelBox(sight15, 0, 0, 0.0F, 0.0F, 0.0F, 7, 2, 16, 0.0F, true));
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(2.0F, -1.0F, -6.0F);
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        bone.setRotationPoint(2.0F, -1, -6.0F);
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(-2.0F, 0.5F, 0.0F);
         bone.addChild(bone2);
         setRotationAngle(bone2, 0.0F, 0.0F, -0.4014F);
-        bone2.cubeList.add(new ModelBox(bone2, 0, 0, 0.0F, -3.0F, -1.0F, 1, 3, 3, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 0, 0, 0.0F, -3.0F, -1, 1, 3, 3, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(1.0F, 0.5F, 0.0F);
+        bone3.setRotationPoint(1, 0.5F, 0.0F);
         bone.addChild(bone3);
         setRotationAngle(bone3, 0.0F, 0.0F, 0.4014F);
-        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -1.0F, -3.0F, -1.0F, 1, 3, 3, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -1, -3.0F, -1, 1, 3, 3, 0.0F, false));
     }
 
     @Override

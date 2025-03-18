@@ -19,7 +19,7 @@ public class APC9Action extends ModelBase {
         textureHeight = 16;
 
         bone41 = new ModelRenderer(this);
-        bone41.setRotationPoint(1.0F, -15.0F, -10.5F);
+        bone41.setRotationPoint(1, -15.0F, -10.5F);
         bone41.cubeList.add(new ModelBox(bone41, 20, 64, -2.0F, -2.7189F, -10.2321F, 1, 2, 9, 0.0F, false));
         bone41.cubeList.add(new ModelBox(bone41, 22, 0, -4.0F, -2.7189F, -10.2321F, 1, 2, 9, 0.0F, false));
 

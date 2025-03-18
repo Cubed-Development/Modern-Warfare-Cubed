@@ -56,7 +56,7 @@ public class Beowulf50CalReceiver extends ModelWithAttachments {
         cube_r4.setRotationPoint(-1.2F, -1.35F, -0.05F);
         receiver.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.0F, 0.0F, -0.9948F);
-        cube_r4.cubeList.add(new ModelBox(cube_r4, 124, 119, -1.0F, -2.0F, 0.05F, 1, 2, 24, 0.0F, false));
+        cube_r4.cubeList.add(new ModelBox(cube_r4, 124, 119, -1, -2.0F, 0.05F, 1, 2, 24, 0.0F, false));
     }
 
     @Override

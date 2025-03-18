@@ -136,7 +136,7 @@ public class G43Gewehr extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 250, 0, -3.0F, -28.5F, -17.0F, 4, 2, 17, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.3F, -30.8F, 10.2F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.7F, -30.8F, 10.2F, 1, 2, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -31.0F, 9.0F, 3, 1, 2, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -31, 9.0F, 3, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.5F, -32.5F, 4.0F, 1, 1, 7, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.7F, -30.9F, -19.0F, 1, 1, 8, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 250, 0, -1.5F, -33.3F, -44.5F, 1, 1, 25, 0.0F, true));
@@ -146,9 +146,9 @@ public class G43Gewehr extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.3F, -32.7F, -19.0F, 1, 1, 7, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.7F, -32.7F, -19.0F, 1, 1, 7, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.0F, -32.8F, -20.0F, 2, 2, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -2.8F, -31.0F, -20.0F, 3, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -0.2F, -31.0F, -20.0F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -31.0F, -32.5F, 3, 1, 13, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -2.8F, -31, -20.0F, 3, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -0.2F, -31, -20.0F, 1, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -31, -32.5F, 3, 1, 13, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.1F, -32.5F, -46.5F, 2, 2, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.9F, -28.6F, -48.5F, 1, 1, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.1F, -30.6F, -48.5F, 1, 2, 4, 0.0F, true));
@@ -169,8 +169,8 @@ public class G43Gewehr extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 250, 0, -2.5F, -29.7F, 10.2F, 1, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 250, 0, -0.5F, -29.7F, 10.2F, 1, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.8F, -30.6F, 11.5F, 2, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, 1.2F, -30.7F, 11.0F, 1, 1, 2, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, 1.19F, -30.5F, 11.0F, 1, 1, 2, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, 1.2F, -30.7F, 11, 1, 1, 2, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, 1.19F, -30.5F, 11, 1, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 1.199F, -30.6F, 12.1F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 1.199F, -30.6F, 10.9F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.2F, -30.5F, -19.8F, 1, 2, 29, 0.0F, true));
@@ -181,9 +181,9 @@ public class G43Gewehr extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.3F, -32.2F, -3.0F, 1, 1, 12, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.7F, -32.2F, -3.0F, 1, 1, 12, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 250, 0, -2.8F, -30.0F, -0.7F, 1, 1, 11, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.0F, -30.2F, 1.0F, 1, 1, 9, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.2F, -30.3F, 1.0F, 1, 1, 4, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.2F, -30.1F, 1.0F, 1, 1, 4, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.0F, -30.2F, 1, 1, 1, 9, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.2F, -30.3F, 1, 1, 1, 4, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.2F, -30.1F, 1, 1, 1, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -3.2F, -30.3F, 5.8F, 1, 1, 5, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -3.2F, -30.1F, 5.8F, 1, 1, 5, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -3.2F, -30.2F, 10.1F, 1, 1, 1, 0.0F, true));
@@ -259,13 +259,13 @@ public class G43Gewehr extends ModelWithAttachments {
         gun427_r1.setRotationPoint(-27.8528F, -19.14F, 0.0F);
         gun.addChild(gun427_r1);
         setRotationAngle(gun427_r1, 0.0F, 0.0F, 1.1525F);
-        gun427_r1.cubeList.add(new ModelBox(gun427_r1, 0, 0, -1.2F, -31.0F, -20.0F, 2, 1, 1, 0.0F, true));
+        gun427_r1.cubeList.add(new ModelBox(gun427_r1, 0, 0, -1.2F, -31, -20.0F, 2, 1, 1, 0.0F, true));
 
         gun426_r1 = new ModelRenderer(this);
         gun426_r1.setRotationPoint(26.665F, -20.9673F, 0.0F);
         gun.addChild(gun426_r1);
         setRotationAngle(gun426_r1, 0.0F, 0.0F, -1.1525F);
-        gun426_r1.cubeList.add(new ModelBox(gun426_r1, 0, 0, -2.8F, -31.0F, -20.0F, 2, 1, 1, 0.0F, true));
+        gun426_r1.cubeList.add(new ModelBox(gun426_r1, 0, 0, -2.8F, -31, -20.0F, 2, 1, 1, 0.0F, true));
 
         gun425_r1 = new ModelRenderer(this);
         gun425_r1.setRotationPoint(-28.7986F, -21.8258F, 0.0F);
@@ -331,7 +331,7 @@ public class G43Gewehr extends ModelWithAttachments {
         gun415_r1.setRotationPoint(-2.4115F, 0.0368F, 0.0F);
         gun.addChild(gun415_r1);
         setRotationAngle(gun415_r1, 0.0F, 0.0F, 0.0744F);
-        gun415_r1.cubeList.add(new ModelBox(gun415_r1, 0, 0, -1.7F, -32.4F, 1.0F, 1, 1, 1, 0.0F, true));
+        gun415_r1.cubeList.add(new ModelBox(gun415_r1, 0, 0, -1.7F, -32.4F, 1, 1, 1, 1, 0.0F, true));
         gun415_r1.cubeList.add(new ModelBox(gun415_r1, 0, 0, -1.4F, -32.4F, -0.8F, 1, 1, 4, 0.0F, true));
         gun415_r1.cubeList.add(new ModelBox(gun415_r1, 0, 0, -1.7F, -32.4F, -2.8F, 1, 1, 2, 0.0F, true));
 
@@ -339,7 +339,7 @@ public class G43Gewehr extends ModelWithAttachments {
         gun414_r1.setRotationPoint(2.4061F, -0.1118F, 0.0F);
         gun.addChild(gun414_r1);
         setRotationAngle(gun414_r1, 0.0F, 0.0F, -0.0744F);
-        gun414_r1.cubeList.add(new ModelBox(gun414_r1, 0, 0, -1.3F, -32.4F, 1.0F, 1, 1, 1, 0.0F, true));
+        gun414_r1.cubeList.add(new ModelBox(gun414_r1, 0, 0, -1.3F, -32.4F, 1, 1, 1, 1, 0.0F, true));
         gun414_r1.cubeList.add(new ModelBox(gun414_r1, 0, 0, -1.6F, -32.4F, -0.8F, 1, 1, 4, 0.0F, true));
         gun414_r1.cubeList.add(new ModelBox(gun414_r1, 0, 0, -1.3F, -32.4F, -2.8F, 1, 1, 2, 0.0F, true));
 
@@ -348,14 +348,14 @@ public class G43Gewehr extends ModelWithAttachments {
         gun.addChild(gun409_r1);
         setRotationAngle(gun409_r1, 0.0F, 0.0F, -0.4136F);
         gun409_r1.cubeList.add(new ModelBox(gun409_r1, 0, 0, -1.3F, -32.4F, -2.0F, 1, 1, 1, 0.0F, true));
-        gun409_r1.cubeList.add(new ModelBox(gun409_r1, 0, 0, -1.3F, -32.4F, 1.0F, 1, 1, 1, 0.0F, true));
+        gun409_r1.cubeList.add(new ModelBox(gun409_r1, 0, 0, -1.3F, -32.4F, 1, 1, 1, 1, 0.0F, true));
 
         gun408_r1 = new ModelRenderer(this);
         gun408_r1.setRotationPoint(-13.1654F, -2.0488F, 0.0F);
         gun.addChild(gun408_r1);
         setRotationAngle(gun408_r1, 0.0F, 0.0F, 0.4136F);
         gun408_r1.cubeList.add(new ModelBox(gun408_r1, 0, 0, -1.7F, -32.4F, -2.0F, 1, 1, 1, 0.0F, true));
-        gun408_r1.cubeList.add(new ModelBox(gun408_r1, 0, 0, -1.7F, -32.4F, 1.0F, 1, 1, 1, 0.0F, true));
+        gun408_r1.cubeList.add(new ModelBox(gun408_r1, 0, 0, -1.7F, -32.4F, 1, 1, 1, 1, 0.0F, true));
 
         gun402_r1 = new ModelRenderer(this);
         gun402_r1.setRotationPoint(0.0F, 0.5666F, -1.126F);
@@ -456,7 +456,7 @@ public class G43Gewehr extends ModelWithAttachments {
         gun352_r1.setRotationPoint(0.0F, -6.0252F, -10.0379F);
         gun.addChild(gun352_r1);
         setRotationAngle(gun352_r1, -0.3718F, 0.0F, 0.0F);
-        gun352_r1.cubeList.add(new ModelBox(gun352_r1, 250, 0, 0.0F, -29.7F, 11.0F, 1, 1, 2, 0.0F, true));
+        gun352_r1.cubeList.add(new ModelBox(gun352_r1, 250, 0, 0.0F, -29.7F, 11, 1, 1, 2, 0.0F, true));
 
         gun350_r1 = new ModelRenderer(this);
         gun350_r1.setRotationPoint(-23.4203F, -8.4584F, 0.0F);
@@ -468,13 +468,13 @@ public class G43Gewehr extends ModelWithAttachments {
         gun349_r1.setRotationPoint(5.8774F, -60.9511F, 0.0F);
         gun.addChild(gun349_r1);
         setRotationAngle(gun349_r1, 0.0F, 0.0F, -2.7884F);
-        gun349_r1.cubeList.add(new ModelBox(gun349_r1, 0, 0, -3.5F, -31.0F, 9.0F, 1, 1, 1, 0.0F, true));
+        gun349_r1.cubeList.add(new ModelBox(gun349_r1, 0, 0, -3.5F, -31, 9.0F, 1, 1, 1, 0.0F, true));
 
         gun348_r1 = new ModelRenderer(this);
         gun348_r1.setRotationPoint(-9.7537F, -60.2594F, 0.0F);
         gun.addChild(gun348_r1);
         setRotationAngle(gun348_r1, 0.0F, 0.0F, 2.7884F);
-        gun348_r1.cubeList.add(new ModelBox(gun348_r1, 0, 0, 0.5F, -31.0F, 9.0F, 1, 1, 1, 0.0F, true));
+        gun348_r1.cubeList.add(new ModelBox(gun348_r1, 0, 0, 0.5F, -31, 9.0F, 1, 1, 1, 0.0F, true));
 
         gun347_r1 = new ModelRenderer(this);
         gun347_r1.setRotationPoint(-23.1274F, -9.1655F, 0.0F);
@@ -492,7 +492,7 @@ public class G43Gewehr extends ModelWithAttachments {
         gun339_r1.setRotationPoint(11.0419F, 0.0F, 10.3994F);
         gun.addChild(gun339_r1);
         setRotationAngle(gun339_r1, -3.1416F, -1.4314F, 3.1416F);
-        gun339_r1.cubeList.add(new ModelBox(gun339_r1, 250, 0, 1.0F, -30.4F, 10.0F, 1, 1, 1, 0.0F, true));
+        gun339_r1.cubeList.add(new ModelBox(gun339_r1, 250, 0, 1, -30.4F, 10.0F, 1, 1, 1, 0.0F, true));
 
         gun289_r1 = new ModelRenderer(this);
         gun289_r1.setRotationPoint(16.2727F, -48.4596F, 0.0F);
@@ -540,13 +540,13 @@ public class G43Gewehr extends ModelWithAttachments {
         gun229_r1.setRotationPoint(0.961F, -61.9075F, 0.0F);
         gun.addChild(gun229_r1);
         setRotationAngle(gun229_r1, 0.0F, 0.0F, -2.9496F);
-        gun229_r1.cubeList.add(new ModelBox(gun229_r1, 0, 0, -3.5F, -31.0F, 10.0F, 1, 1, 1, 0.0F, true));
+        gun229_r1.cubeList.add(new ModelBox(gun229_r1, 0, 0, -3.5F, -31, 10.0F, 1, 1, 1, 0.0F, true));
 
         gun228_r1 = new ModelRenderer(this);
         gun228_r1.setRotationPoint(-4.8801F, -61.5337F, 0.0F);
         gun.addChild(gun228_r1);
         setRotationAngle(gun228_r1, 0.0F, 0.0F, 2.9511F);
-        gun228_r1.cubeList.add(new ModelBox(gun228_r1, 0, 0, 0.5F, -31.0F, 10.0F, 1, 1, 1, 0.0F, true));
+        gun228_r1.cubeList.add(new ModelBox(gun228_r1, 0, 0, 0.5F, -31, 10.0F, 1, 1, 1, 0.0F, true));
 
         gun227_r1 = new ModelRenderer(this);
         gun227_r1.setRotationPoint(-18.4248F, -5.3854F, 0.0F);

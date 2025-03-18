@@ -54,7 +54,7 @@ public class CompatibleModelCustomMob extends ModelBiped {
 
         if (entityCustomMob.isSwingingArms() && itemstack.getItem() != Items.BOW) {
             float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
-            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
+            float f1 = MathHelper.sin((1 - (1 - this.swingProgress) * (1 - this.swingProgress)) * (float) Math.PI);
             this.bipedRightArm.rotateAngleZ = 0.0F;
             this.bipedLeftArm.rotateAngleZ = 0.0F;
             this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
@@ -72,7 +72,7 @@ public class CompatibleModelCustomMob extends ModelBiped {
 
     @Override
     public void postRenderArm(float scale, EnumHandSide side) {
-        float f = side == EnumHandSide.RIGHT ? 1.0F : -1.0F;
+        float f = side == EnumHandSide.RIGHT ? 1 : -1;
         ModelRenderer modelrenderer = this.getArmForSide(side);
         modelrenderer.rotationPointX += f;
         modelrenderer.postRender(scale);

@@ -32,7 +32,7 @@ public class Suppressor762x39 extends ModelBase {
         suppressor = new ModelRenderer(this);
         suppressor.setRotationPoint(0.0F, 24.0F, 0.0F);
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -24.0F, -2.0F, 2, 3, 22, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -21.0F, -2.0F, 2, 1, 22, 0.0F, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -21, -2.0F, 2, 1, 22, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.5F, -24.1F, 13.0F, 1, 3, 6, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.5F, -20.9F, 13.0F, 1, 1, 6, 0.0F, true));
 

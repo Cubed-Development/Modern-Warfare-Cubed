@@ -69,37 +69,37 @@ public class Karambit extends ModelWithAttachments {
         Knife66_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         Knife.addChild(Knife66_r1);
         setRotationAngle(Knife66_r1, -2.714F, 0.0F, 0.0F);
-        Knife66_r1.cubeList.add(new ModelBox(Knife66_r1, 50, 0, 1.0F, -34.5F, -1.75F, 1, 4, 1, 0.0F, true));
+        Knife66_r1.cubeList.add(new ModelBox(Knife66_r1, 50, 0, 1, -34.5F, -1.75F, 1, 4, 1, 0.0F, true));
 
         Knife65_r1 = new ModelRenderer(this);
         Knife65_r1.setRotationPoint(0.0F, 64.6564F, 21.4265F);
         Knife.addChild(Knife65_r1);
         setRotationAngle(Knife65_r1, 0.1115F, 0.0F, 0.0F);
-        Knife65_r1.cubeList.add(new ModelBox(Knife65_r1, 50, 0, 1.0F, -34.1F, -2.7F, 1, 4, 2, 0.0F, true));
+        Knife65_r1.cubeList.add(new ModelBox(Knife65_r1, 50, 0, 1, -34.1F, -2.7F, 1, 4, 2, 0.0F, true));
 
         Knife64_r1 = new ModelRenderer(this);
         Knife64_r1.setRotationPoint(0.0F, 55.9632F, 37.8016F);
         Knife.addChild(Knife64_r1);
         setRotationAngle(Knife64_r1, 0.5577F, 0.0F, 0.0F);
-        Knife64_r1.cubeList.add(new ModelBox(Knife64_r1, 50, 0, 1.0F, -39.8F, -6.0F, 1, 7, 1, 0.0F, true));
+        Knife64_r1.cubeList.add(new ModelBox(Knife64_r1, 50, 0, 1, -39.8F, -6.0F, 1, 7, 1, 0.0F, true));
 
         Knife63_r1 = new ModelRenderer(this);
         Knife63_r1.setRotationPoint(0.0F, 5.624F, -14.3161F);
         Knife.addChild(Knife63_r1);
         setRotationAngle(Knife63_r1, -2.2307F, 0.0F, 0.0F);
-        Knife63_r1.cubeList.add(new ModelBox(Knife63_r1, 50, 0, 1.0F, -37.6F, -1.4F, 1, 5, 1, 0.0F, true));
+        Knife63_r1.cubeList.add(new ModelBox(Knife63_r1, 50, 0, 1, -37.6F, -1.4F, 1, 5, 1, 0.0F, true));
 
         Knife62_r1 = new ModelRenderer(this);
         Knife62_r1.setRotationPoint(0.0F, 0.9566F, -1.8894F);
         Knife.addChild(Knife62_r1);
         setRotationAngle(Knife62_r1, -2.5281F, 0.0F, 0.0F);
-        Knife62_r1.cubeList.add(new ModelBox(Knife62_r1, 50, 0, 1.0F, -35.2F, 0.4F, 1, 3, 2, 0.0F, true));
+        Knife62_r1.cubeList.add(new ModelBox(Knife62_r1, 50, 0, 1, -35.2F, 0.4F, 1, 3, 2, 0.0F, true));
 
         Knife61_r1 = new ModelRenderer(this);
         Knife61_r1.setRotationPoint(0.0F, 1.8499F, 9.348F);
         Knife.addChild(Knife61_r1);
         setRotationAngle(Knife61_r1, -2.7884F, 0.0F, 0.0F);
-        Knife61_r1.cubeList.add(new ModelBox(Knife61_r1, 50, 0, 1.0F, -32.4F, 1.5F, 1, 3, 3, 0.0F, true));
+        Knife61_r1.cubeList.add(new ModelBox(Knife61_r1, 50, 0, 1, -32.4F, 1.5F, 1, 3, 3, 0.0F, true));
 
         Knife60_r1 = new ModelRenderer(this);
         Knife60_r1.setRotationPoint(0.0F, 62.1994F, 3.7578F);
@@ -187,7 +187,7 @@ public class Karambit extends ModelWithAttachments {
         Knife39_r1.setRotationPoint(0.0F, 35.5635F, 1.6747F);
         Knife.addChild(Knife39_r1);
         setRotationAngle(Knife39_r1, -1.8218F, 0.0F, 0.0F);
-        Knife39_r1.cubeList.add(new ModelBox(Knife39_r1, 0, 0, 0.5F, -21.0F, 3.5F, 2, 1, 2, 0.0F, true));
+        Knife39_r1.cubeList.add(new ModelBox(Knife39_r1, 0, 0, 0.5F, -21, 3.5F, 2, 1, 2, 0.0F, true));
 
         Knife38_r1 = new ModelRenderer(this);
         Knife38_r1.setRotationPoint(0.0F, 31.3345F, -4.6928F);
@@ -205,7 +205,7 @@ public class Karambit extends ModelWithAttachments {
         Knife36_r1.setRotationPoint(0.0F, 36.0478F, 1.0506F);
         Knife.addChild(Knife36_r1);
         setRotationAngle(Knife36_r1, -1.8218F, 0.0F, 0.0F);
-        Knife36_r1.cubeList.add(new ModelBox(Knife36_r1, 0, 0, 0.0F, -21.0F, 3.0F, 3, 2, 2, 0.0F, true));
+        Knife36_r1.cubeList.add(new ModelBox(Knife36_r1, 0, 0, 0.0F, -21, 3.0F, 3, 2, 2, 0.0F, true));
 
         Knife35_r1 = new ModelRenderer(this);
         Knife35_r1.setRotationPoint(0.0F, 31.8319F, -5.2438F);
@@ -277,7 +277,7 @@ public class Karambit extends ModelWithAttachments {
         Knife67_r1.setRotationPoint(0.0F, 3.8069F, -12.2718F);
         Knife.addChild(Knife67_r1);
         setRotationAngle(Knife67_r1, -2.3423F, 0.0F, 0.0F);
-        Knife67_r1.cubeList.add(new ModelBox(Knife67_r1, 50, 0, 1.0F, -37.0F, -2.0F, 1, 3, 1, 0.0F, true));
+        Knife67_r1.cubeList.add(new ModelBox(Knife67_r1, 50, 0, 1, -37.0F, -2.0F, 1, 3, 1, 0.0F, true));
     }
 
     @Override

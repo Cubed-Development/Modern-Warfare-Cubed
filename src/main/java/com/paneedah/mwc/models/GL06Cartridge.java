@@ -55,7 +55,7 @@ public class GL06Cartridge extends ModelBase {
         cartridge.cubeList.add(new ModelBox(cartridge, 100, 0, -26.1337F, 28.3035F, -22.0F, 1, 1, 1, 0.0F, true));
         cartridge.cubeList.add(new ModelBox(cartridge, 100, 0, -26.1337F, 28.3035F, -25.0F, 1, 1, 1, 0.0F, true));
         cartridge.cubeList.add(new ModelBox(cartridge, 100, 0, -26.1337F, 28.3035F, -28.0F, 1, 1, 1, 0.0F, true));
-        cartridge.cubeList.add(new ModelBox(cartridge, 100, 0, -26.1337F, 28.3035F, -31.0F, 1, 1, 1, 0.0F, true));
+        cartridge.cubeList.add(new ModelBox(cartridge, 100, 0, -26.1337F, 28.3035F, -31, 1, 1, 1, 0.0F, true));
         cartridge.cubeList.add(new ModelBox(cartridge, 100, 0, -26.1337F, 28.3035F, -34.0F, 1, 1, 1, 0.0F, true));
         cartridge.cubeList.add(new ModelBox(cartridge, 100, 0, -26.6337F, 28.3035F, -42.0F, 2, 1, 4, 0.0F, true));
 
@@ -88,7 +88,7 @@ public class GL06Cartridge extends ModelBase {
         cartridge78_r1.cubeList.add(new ModelBox(cartridge78_r1, 100, 0, -2.0F, -40.1F, -22.0F, 1, 1, 1, 0.0F, true));
         cartridge78_r1.cubeList.add(new ModelBox(cartridge78_r1, 100, 0, -2.0F, -40.1F, -25.0F, 1, 1, 1, 0.0F, true));
         cartridge78_r1.cubeList.add(new ModelBox(cartridge78_r1, 100, 0, -2.0F, -40.1F, -28.0F, 1, 1, 1, 0.0F, true));
-        cartridge78_r1.cubeList.add(new ModelBox(cartridge78_r1, 100, 0, -2.0F, -40.1F, -31.0F, 1, 1, 1, 0.0F, true));
+        cartridge78_r1.cubeList.add(new ModelBox(cartridge78_r1, 100, 0, -2.0F, -40.1F, -31, 1, 1, 1, 0.0F, true));
         cartridge78_r1.cubeList.add(new ModelBox(cartridge78_r1, 100, 0, -2.0F, -40.1F, -34.0F, 1, 1, 1, 0.0F, true));
         cartridge78_r1.cubeList.add(new ModelBox(cartridge78_r1, 100, 0, -2.0F, -40.1F, -38.0F, 1, 1, 2, 0.0F, true));
 
@@ -97,27 +97,27 @@ public class GL06Cartridge extends ModelBase {
         cartridge.addChild(cartridge37_r1);
         setRotationAngle(cartridge37_r1, 0.0F, 0.0F, 0.7436F);
         cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, 0.0F, -40.1F, -38.0F, 0, 1, 36, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -35.5F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -32.5F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -29.5F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -26.5F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -23.5F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -20.5F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -17.5F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -14.5F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -11.5F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -8.5F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -7.0F, 1, 1, 5, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -10.0F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -13.0F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -16.0F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -19.0F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -22.0F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -25.0F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -28.0F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -31.0F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -34.0F, 1, 1, 1, 0.0F, true));
-        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1.0F, -40.1F, -38.0F, 1, 1, 2, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -35.5F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -32.5F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -29.5F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -26.5F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -23.5F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -20.5F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -17.5F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -14.5F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -11.5F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -8.5F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -7.0F, 1, 1, 5, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -10.0F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -13.0F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -16.0F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -19.0F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -22.0F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -25.0F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -28.0F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -31, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -34.0F, 1, 1, 1, 0.0F, true));
+        cartridge37_r1.cubeList.add(new ModelBox(cartridge37_r1, 100, 0, -1, -40.1F, -38.0F, 1, 1, 2, 0.0F, true));
 
         cartridge12_r1 = new ModelRenderer(this);
         cartridge12_r1.setRotationPoint(-0.9456F, 10.0083F, 0.0F);
@@ -135,7 +135,7 @@ public class GL06Cartridge extends ModelBase {
         cartridge10_r1.setRotationPoint(-48.9431F, 3.6799F, 0.0F);
         cartridge.addChild(cartridge10_r1);
         setRotationAngle(cartridge10_r1, 0.0F, 0.0F, 2.3562F);
-        cartridge10_r1.cubeList.add(new ModelBox(cartridge10_r1, 100, 0, 1.0F, -37.5F, -42.0F, 1, 1, 40, 0.0F, true));
+        cartridge10_r1.cubeList.add(new ModelBox(cartridge10_r1, 100, 0, 1, -37.5F, -42.0F, 1, 1, 40, 0.0F, true));
 
         cartridge9_r1 = new ModelRenderer(this);
         cartridge9_r1.setRotationPoint(1.2113F, 54.5916F, 0.0F);
@@ -147,7 +147,7 @@ public class GL06Cartridge extends ModelBase {
         cartridge8_r1.setRotationPoint(-47.5289F, 7.0941F, 0.0F);
         cartridge.addChild(cartridge8_r1);
         setRotationAngle(cartridge8_r1, 0.0F, 0.0F, 2.3562F);
-        cartridge8_r1.cubeList.add(new ModelBox(cartridge8_r1, 100, 0, 1.0F, -35.5F, -42.0F, 2, 1, 40, 0.0F, true));
+        cartridge8_r1.cubeList.add(new ModelBox(cartridge8_r1, 100, 0, 1, -35.5F, -42.0F, 2, 1, 40, 0.0F, true));
 
         cartridge7_r1 = new ModelRenderer(this);
         cartridge7_r1.setRotationPoint(-0.203F, 55.1774F, 0.0F);

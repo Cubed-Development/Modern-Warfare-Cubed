@@ -90,13 +90,13 @@ public class PythonChamber extends ModelWithAttachments {
         cube_r2.setRotationPoint(0.4F, -36.7F, -11.3F);
         chamber.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.0F, 0.0F, -0.4014F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 29, 0, -1.0F, -0.001F, -1.18F, 1, 1, 1, 0.2F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 29, 0, -1, -0.001F, -1.18F, 1, 1, 1, 0.2F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(0.4F, -33.3F, -11.3F);
         chamber.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, 0.0F, 0.4014F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 22, 30, -1.0F, -0.999F, -1.18F, 1, 1, 1, 0.2F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 22, 30, -1, -0.999F, -1.18F, 1, 1, 1, 0.2F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(-3.4F, -33.3F, -11.3F);
@@ -354,7 +354,7 @@ public class PythonChamber extends ModelWithAttachments {
         chamber58_r2.setRotationPoint(0.1766F, -35.0048F, -29.55F);
         chamber.addChild(chamber58_r2);
         setRotationAngle(chamber58_r2, 0.0F, 0.0F, -0.673F);
-        chamber58_r2.cubeList.add(new ModelBox(chamber58_r2, 0, 13, -1.0F, -1.0F, 0.0F, 1, 1, 11, 0.0F, false));
+        chamber58_r2.cubeList.add(new ModelBox(chamber58_r2, 0, 13, -1, -1, 0.0F, 1, 1, 11, 0.0F, false));
     }
 
     @Override

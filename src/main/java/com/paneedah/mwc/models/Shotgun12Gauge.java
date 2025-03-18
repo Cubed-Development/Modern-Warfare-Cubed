@@ -51,7 +51,7 @@ public class Shotgun12Gauge extends ModelBase {
 
         Shape12 = new ModelRenderer(this);
         Shape12.setRotationPoint(0.0F, 3.5F, 2.4F);
-        Shape12.cubeList.add(new ModelBox(Shape12, 16, 8, 0.0F, 0.0F, -1.0F, 3, 1, 2, 0.0F, false));
+        Shape12.cubeList.add(new ModelBox(Shape12, 16, 8, 0.0F, 0.0F, -1, 3, 1, 2, 0.0F, false));
 
         Shape13 = new ModelRenderer(this);
         Shape13.setRotationPoint(2.4F, 3.5F, 0.0F);

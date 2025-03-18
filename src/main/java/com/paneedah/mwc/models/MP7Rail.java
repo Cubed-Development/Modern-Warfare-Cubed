@@ -84,7 +84,7 @@ public class MP7Rail extends ModelBase {
         textureHeight = 128;
 
         Rail1 = new ModelRenderer(this);
-        Rail1.setRotationPoint(1.0F, 0.0F, 0.0F);
+        Rail1.setRotationPoint(1, 0.0F, 0.0F);
         Rail1.cubeList.add(new ModelBox(Rail1, 6, 13, 0.0F, 0.0F, 0.5F, 2, 1, 1, 0.0F, false));
 
         Rail2 = new ModelRenderer(this);
@@ -98,59 +98,59 @@ public class MP7Rail extends ModelBase {
         Rail3.cubeList.add(new ModelBox(Rail3, 14, 21, 0.0F, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
 
         Rail4 = new ModelRenderer(this);
-        Rail4.setRotationPoint(1.0F, 0.0F, 1.5F);
-        Rail4.cubeList.add(new ModelBox(Rail4, 0, 13, 0.0F, 0.0F, 1.0F, 2, 1, 1, 0.0F, false));
+        Rail4.setRotationPoint(1, 0.0F, 1.5F);
+        Rail4.cubeList.add(new ModelBox(Rail4, 0, 13, 0.0F, 0.0F, 1, 2, 1, 1, 0.0F, false));
 
         Rail6 = new ModelRenderer(this);
-        Rail6.setRotationPoint(1.0F, 0.0F, 6.0F);
+        Rail6.setRotationPoint(1, 0.0F, 6.0F);
         Rail6.cubeList.add(new ModelBox(Rail6, 12, 0, 0.0F, 0.0F, 0.5F, 2, 1, 1, 0.0F, false));
 
         Rail8 = new ModelRenderer(this);
-        Rail8.setRotationPoint(1.0F, 0.0F, 12.0F);
+        Rail8.setRotationPoint(1, 0.0F, 12.0F);
         Rail8.cubeList.add(new ModelBox(Rail8, 11, 12, 0.0F, 0.0F, 0.5F, 2, 1, 1, 0.0F, false));
 
         Rail10 = new ModelRenderer(this);
-        Rail10.setRotationPoint(1.0F, 0.0F, 18.0F);
+        Rail10.setRotationPoint(1, 0.0F, 18.0F);
         Rail10.cubeList.add(new ModelBox(Rail10, 11, 10, 0.0F, 0.0F, 0.5F, 2, 1, 1, 0.0F, false));
 
         Rail11 = new ModelRenderer(this);
-        Rail11.setRotationPoint(1.0F, 0.0F, 21.0F);
+        Rail11.setRotationPoint(1, 0.0F, 21);
         Rail11.cubeList.add(new ModelBox(Rail11, 11, 8, 0.0F, 0.0F, -0.5F, 2, 1, 1, 0.0F, false));
 
         Rail12 = new ModelRenderer(this);
-        Rail12.setRotationPoint(1.0F, 0.0F, 24.0F);
+        Rail12.setRotationPoint(1, 0.0F, 24.0F);
         Rail12.cubeList.add(new ModelBox(Rail12, 11, 6, 0.0F, 0.0F, 0.5F, 2, 1, 1, 0.0F, false));
 
         Rail14 = new ModelRenderer(this);
-        Rail14.setRotationPoint(1.0F, 0.0F, 25.5F);
-        Rail14.cubeList.add(new ModelBox(Rail14, 6, 11, 0.0F, 0.0F, 1.0F, 2, 1, 1, 0.0F, false));
+        Rail14.setRotationPoint(1, 0.0F, 25.5F);
+        Rail14.cubeList.add(new ModelBox(Rail14, 6, 11, 0.0F, 0.0F, 1, 2, 1, 1, 0.0F, false));
 
         Rail15 = new ModelRenderer(this);
-        Rail15.setRotationPoint(1.0F, 0.0F, 22.5F);
+        Rail15.setRotationPoint(1, 0.0F, 22.5F);
         Rail15.cubeList.add(new ModelBox(Rail15, 0, 11, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         Rail17 = new ModelRenderer(this);
-        Rail17.setRotationPoint(1.0F, 0.0F, 16.5F);
+        Rail17.setRotationPoint(1, 0.0F, 16.5F);
         Rail17.cubeList.add(new ModelBox(Rail17, 6, 9, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         Rail18 = new ModelRenderer(this);
-        Rail18.setRotationPoint(1.0F, 0.0F, 13.5F);
-        Rail18.cubeList.add(new ModelBox(Rail18, 0, 9, 0.0F, 0.0F, 1.0F, 2, 1, 1, 0.0F, false));
+        Rail18.setRotationPoint(1, 0.0F, 13.5F);
+        Rail18.cubeList.add(new ModelBox(Rail18, 0, 9, 0.0F, 0.0F, 1, 2, 1, 1, 0.0F, false));
 
         Rail19 = new ModelRenderer(this);
-        Rail19.setRotationPoint(1.0F, 0.0F, 10.5F);
+        Rail19.setRotationPoint(1, 0.0F, 10.5F);
         Rail19.cubeList.add(new ModelBox(Rail19, 8, 4, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         Rail20 = new ModelRenderer(this);
-        Rail20.setRotationPoint(1.0F, 0.0F, 7.5F);
-        Rail20.cubeList.add(new ModelBox(Rail20, 7, 2, 0.0F, 0.0F, 1.0F, 2, 1, 1, 0.0F, false));
+        Rail20.setRotationPoint(1, 0.0F, 7.5F);
+        Rail20.cubeList.add(new ModelBox(Rail20, 7, 2, 0.0F, 0.0F, 1, 2, 1, 1, 0.0F, false));
 
         Rail21 = new ModelRenderer(this);
-        Rail21.setRotationPoint(1.0F, 0.0F, 4.5F);
+        Rail21.setRotationPoint(1, 0.0F, 4.5F);
         Rail21.cubeList.add(new ModelBox(Rail21, 6, 7, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         Rail22 = new ModelRenderer(this);
-        Rail22.setRotationPoint(1.0F, 0.0F, 28.5F);
+        Rail22.setRotationPoint(1, 0.0F, 28.5F);
         Rail22.cubeList.add(new ModelBox(Rail22, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 2, 0.0F, false));
 
         Rail24 = new ModelRenderer(this);
@@ -169,7 +169,7 @@ public class MP7Rail extends ModelBase {
         Rail28.cubeList.add(new ModelBox(Rail28, 0, 21, 0.0F, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
 
         Rail29 = new ModelRenderer(this);
-        Rail29.setRotationPoint(3.0F, 0.0F, 21.0F);
+        Rail29.setRotationPoint(3.0F, 0.0F, 21);
         setRotationAngle(Rail29, 0.0F, 0.0F, 0.5949F);
         Rail29.cubeList.add(new ModelBox(Rail29, 20, 19, 0.0F, 0.0F, -0.5F, 1, 1, 1, 0.0F, false));
 
@@ -195,7 +195,7 @@ public class MP7Rail extends ModelBase {
         Rail38.cubeList.add(new ModelBox(Rail38, 20, 0, 0.0F, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
 
         Rail39 = new ModelRenderer(this);
-        Rail39.setRotationPoint(0.5F, 0.001F, 21.0F);
+        Rail39.setRotationPoint(0.5F, 0.001F, 21);
         Rail39.cubeList.add(new ModelBox(Rail39, 17, 20, 0.0F, 0.0F, -0.5F, 1, 1, 1, 0.0F, false));
 
         Rail40 = new ModelRenderer(this);
@@ -205,7 +205,7 @@ public class MP7Rail extends ModelBase {
         Rail42 = new ModelRenderer(this);
         Rail42.setRotationPoint(3.0F, 0.0F, 25.5F);
         setRotationAngle(Rail42, 0.0F, 0.0F, 0.5949F);
-        Rail42.cubeList.add(new ModelBox(Rail42, 19, 14, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail42.cubeList.add(new ModelBox(Rail42, 19, 14, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail43 = new ModelRenderer(this);
         Rail43.setRotationPoint(3.0F, 0.0F, 22.5F);
@@ -220,7 +220,7 @@ public class MP7Rail extends ModelBase {
         Rail46 = new ModelRenderer(this);
         Rail46.setRotationPoint(3.0F, 0.0F, 13.5F);
         setRotationAngle(Rail46, 0.0F, 0.0F, 0.5949F);
-        Rail46.cubeList.add(new ModelBox(Rail46, 19, 8, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail46.cubeList.add(new ModelBox(Rail46, 19, 8, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail47 = new ModelRenderer(this);
         Rail47.setRotationPoint(3.0F, 0.0F, 10.5F);
@@ -230,7 +230,7 @@ public class MP7Rail extends ModelBase {
         Rail48 = new ModelRenderer(this);
         Rail48.setRotationPoint(3.0F, 0.0F, 7.5F);
         setRotationAngle(Rail48, 0.0F, 0.0F, 0.5949F);
-        Rail48.cubeList.add(new ModelBox(Rail48, 8, 19, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail48.cubeList.add(new ModelBox(Rail48, 8, 19, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail49 = new ModelRenderer(this);
         Rail49.setRotationPoint(3.0F, 0.0F, 4.5F);
@@ -240,7 +240,7 @@ public class MP7Rail extends ModelBase {
         Rail50 = new ModelRenderer(this);
         Rail50.setRotationPoint(3.0F, 0.0F, 1.5F);
         setRotationAngle(Rail50, 0.0F, 0.0F, 0.5949F);
-        Rail50.cubeList.add(new ModelBox(Rail50, 0, 19, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail50.cubeList.add(new ModelBox(Rail50, 0, 19, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail51 = new ModelRenderer(this);
         Rail51.setRotationPoint(3.0F, 0.0F, 28.5F);
@@ -263,7 +263,7 @@ public class MP7Rail extends ModelBase {
         Rail57.cubeList.add(new ModelBox(Rail57, 17, 16, 0.0F, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
 
         Rail58 = new ModelRenderer(this);
-        Rail58.setRotationPoint(0.5F, 0.0F, 21.0F);
+        Rail58.setRotationPoint(0.5F, 0.0F, 21);
         setRotationAngle(Rail58, 0.0F, 0.0F, 1.0038F);
         Rail58.cubeList.add(new ModelBox(Rail58, 17, 5, 0.0F, 0.0F, -0.5F, 1, 1, 1, 0.0F, false));
 
@@ -283,7 +283,7 @@ public class MP7Rail extends ModelBase {
 
         Rail63 = new ModelRenderer(this);
         Rail63.setRotationPoint(0.5F, 0.001F, 25.5F);
-        Rail63.cubeList.add(new ModelBox(Rail63, 17, 1, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail63.cubeList.add(new ModelBox(Rail63, 17, 1, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail64 = new ModelRenderer(this);
         Rail64.setRotationPoint(0.5F, 0.001F, 22.5F);
@@ -295,7 +295,7 @@ public class MP7Rail extends ModelBase {
 
         Rail67 = new ModelRenderer(this);
         Rail67.setRotationPoint(0.5F, 0.001F, 13.5F);
-        Rail67.cubeList.add(new ModelBox(Rail67, 4, 17, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail67.cubeList.add(new ModelBox(Rail67, 4, 17, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail68 = new ModelRenderer(this);
         Rail68.setRotationPoint(0.5F, 0.001F, 10.5F);
@@ -303,7 +303,7 @@ public class MP7Rail extends ModelBase {
 
         Rail69 = new ModelRenderer(this);
         Rail69.setRotationPoint(0.5F, 0.001F, 7.5F);
-        Rail69.cubeList.add(new ModelBox(Rail69, 16, 13, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail69.cubeList.add(new ModelBox(Rail69, 16, 13, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail70 = new ModelRenderer(this);
         Rail70.setRotationPoint(0.5F, 0.001F, 4.5F);
@@ -311,12 +311,12 @@ public class MP7Rail extends ModelBase {
 
         Rail71 = new ModelRenderer(this);
         Rail71.setRotationPoint(0.5F, 0.001F, 1.5F);
-        Rail71.cubeList.add(new ModelBox(Rail71, 16, 9, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail71.cubeList.add(new ModelBox(Rail71, 16, 9, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail72 = new ModelRenderer(this);
         Rail72.setRotationPoint(0.5F, 0.0F, 1.5F);
         setRotationAngle(Rail72, 0.0F, 0.0F, 1.0038F);
-        Rail72.cubeList.add(new ModelBox(Rail72, 16, 7, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail72.cubeList.add(new ModelBox(Rail72, 16, 7, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail73 = new ModelRenderer(this);
         Rail73.setRotationPoint(0.5F, 0.0F, 4.5F);
@@ -326,7 +326,7 @@ public class MP7Rail extends ModelBase {
         Rail74 = new ModelRenderer(this);
         Rail74.setRotationPoint(0.5F, 0.0F, 7.5F);
         setRotationAngle(Rail74, 0.0F, 0.0F, 1.0038F);
-        Rail74.cubeList.add(new ModelBox(Rail74, 14, 15, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail74.cubeList.add(new ModelBox(Rail74, 14, 15, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail75 = new ModelRenderer(this);
         Rail75.setRotationPoint(0.5F, 0.0F, 10.5F);
@@ -336,7 +336,7 @@ public class MP7Rail extends ModelBase {
         Rail76 = new ModelRenderer(this);
         Rail76.setRotationPoint(0.5F, 0.0F, 13.5F);
         setRotationAngle(Rail76, 0.0F, 0.0F, 1.0038F);
-        Rail76.cubeList.add(new ModelBox(Rail76, 4, 15, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail76.cubeList.add(new ModelBox(Rail76, 4, 15, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail77 = new ModelRenderer(this);
         Rail77.setRotationPoint(0.5F, 0.0F, 16.5F);
@@ -351,7 +351,7 @@ public class MP7Rail extends ModelBase {
         Rail80 = new ModelRenderer(this);
         Rail80.setRotationPoint(0.5F, 0.0F, 25.5F);
         setRotationAngle(Rail80, 0.0F, 0.0F, 1.0038F);
-        Rail80.cubeList.add(new ModelBox(Rail80, 11, 14, 0.0F, 0.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        Rail80.cubeList.add(new ModelBox(Rail80, 11, 14, 0.0F, 0.0F, 1, 1, 1, 1, 0.0F, false));
 
         Rail81 = new ModelRenderer(this);
         Rail81.setRotationPoint(0.2F, 0.8F, 0.5F);
@@ -376,7 +376,7 @@ public class MP7Rail extends ModelBase {
         Rail85.cubeList.add(new ModelBox(Rail85, 16, 0, 0.0F, 0.0F, 0.0F, 1, 0, 30, 0.0F, false));
 
         Rail86 = new ModelRenderer(this);
-        Rail86.setRotationPoint(1.0F, 0.0F, 30.5F);
+        Rail86.setRotationPoint(1, 0.0F, 30.5F);
         setRotationAngle(Rail86, -0.8179F, 0.0F, 0.0F);
         Rail86.cubeList.add(new ModelBox(Rail86, 6, 0, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 

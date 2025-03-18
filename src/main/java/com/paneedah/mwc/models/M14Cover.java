@@ -272,7 +272,7 @@ public class M14Cover extends ModelBase {
         gun.cubeList.add(new ModelBox(gun, 73, 82, -3.0F, -40.3F, -23.4F, 3, 1, 5, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 30, -2.8F, -40.1F, -24.2F, 3, 1, 1, -0.2F, false));
         gun.cubeList.add(new ModelBox(gun, 73, 0, -3.2F, -40.1F, -24.2F, 1, 1, 1, -0.201F, false));
-        gun.cubeList.add(new ModelBox(gun, 51, 75, -3.0F, -31.0F, -27.3F, 3, 1, 6, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 51, 75, -3.0F, -31, -27.3F, 3, 1, 6, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 51, 68, -3.5F, -31.1F, -27.3F, 4, 1, 6, 0.001F, false));
         gun.cubeList.add(new ModelBox(gun, 51, 21, -3.3F, -39.7F, -39.0F, 1, 3, 3, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 82, 49, -4.0F, -36.5F, -15.2F, 1, 1, 1, 0.0F, false));
@@ -323,8 +323,8 @@ public class M14Cover extends ModelBase {
         gun.addChild(gun105_r1);
         setRotationAngle(gun105_r1, 0.0F, 0.0F, -0.4363F);
         gun105_r1.cubeList.add(new ModelBox(gun105_r1, 67, 26, -1.65F, 0.0F, -7.0F, 1, 1, 1, -0.001F, false));
-        gun105_r1.cubeList.add(new ModelBox(gun105_r1, 66, 58, -1.0F, 0.0F, -7.0F, 1, 1, 1, 0.0F, false));
-        gun105_r1.cubeList.add(new ModelBox(gun105_r1, 0, 94, -1.0F, 0.0F, 26.9F, 1, 1, 7, 0.0F, false));
+        gun105_r1.cubeList.add(new ModelBox(gun105_r1, 66, 58, -1, 0.0F, -7.0F, 1, 1, 1, 0.0F, false));
+        gun105_r1.cubeList.add(new ModelBox(gun105_r1, 0, 94, -1, 0.0F, 26.9F, 1, 1, 7, 0.0F, false));
         gun105_r1.cubeList.add(new ModelBox(gun105_r1, 0, 78, -1.65F, 0.0F, 26.9F, 1, 1, 7, -0.001F, false));
 
         gun104_r2 = new ModelRenderer(this);
@@ -349,7 +349,7 @@ public class M14Cover extends ModelBase {
         gun.addChild(gun105_r2);
         setRotationAngle(gun105_r2, 0.0F, 0.0F, -0.4363F);
         gun105_r2.cubeList.add(new ModelBox(gun105_r2, 187, 223, -1.35F, 0.0F, -34.0F, 1, 1, 34, -0.001F, false));
-        gun105_r2.cubeList.add(new ModelBox(gun105_r2, 226, 129, -1.0F, 0.0F, -34.0F, 1, 1, 34, 0.0F, false));
+        gun105_r2.cubeList.add(new ModelBox(gun105_r2, 226, 129, -1, 0.0F, -34.0F, 1, 1, 34, 0.0F, false));
 
         gun104_r3 = new ModelRenderer(this);
         gun104_r3.setRotationPoint(-1.5F, -39.35F, -49.0F);
@@ -359,31 +359,31 @@ public class M14Cover extends ModelBase {
         gun104_r3.cubeList.add(new ModelBox(gun104_r3, 54, 227, 0.0F, 0.0F, -34.0F, 1, 1, 34, 0.0F, false));
 
         gun101_r1 = new ModelRenderer(this);
-        gun101_r1.setRotationPoint(-1.5F, -40.1F, -61.0F);
+        gun101_r1.setRotationPoint(-1.5F, -40.1F, -61);
         gun.addChild(gun101_r1);
         setRotationAngle(gun101_r1, 0.0F, 0.0F, -0.4363F);
-        gun101_r1.cubeList.add(new ModelBox(gun101_r1, 61, 26, -2.0F, 0.0F, -1.0F, 2, 1, 2, 0.0F, false));
+        gun101_r1.cubeList.add(new ModelBox(gun101_r1, 61, 26, -2.0F, 0.0F, -1, 2, 1, 2, 0.0F, false));
         gun101_r1.cubeList.add(new ModelBox(gun101_r1, 23, 94, -2.0F, 0.0F, 19.0F, 2, 1, 3, -0.001F, false));
 
         gun102_r1 = new ModelRenderer(this);
-        gun102_r1.setRotationPoint(-1.5F, -40.1F, -61.0F);
+        gun102_r1.setRotationPoint(-1.5F, -40.1F, -61);
         gun.addChild(gun102_r1);
         setRotationAngle(gun102_r1, 0.0F, 0.0F, 0.4363F);
-        gun102_r1.cubeList.add(new ModelBox(gun102_r1, 23, 54, 0.0F, 0.0F, -1.0F, 2, 1, 2, -0.001F, false));
+        gun102_r1.cubeList.add(new ModelBox(gun102_r1, 23, 54, 0.0F, 0.0F, -1, 2, 1, 2, -0.001F, false));
         gun102_r1.cubeList.add(new ModelBox(gun102_r1, 84, 82, 0.0F, 0.0F, 19.0F, 2, 1, 3, -0.001F, false));
 
         gun102_r2 = new ModelRenderer(this);
-        gun102_r2.setRotationPoint(0.8F, -37.2F, -61.0F);
+        gun102_r2.setRotationPoint(0.8F, -37.2F, -61);
         gun.addChild(gun102_r2);
         setRotationAngle(gun102_r2, 0.0F, 0.0F, -0.2094F);
-        gun102_r2.cubeList.add(new ModelBox(gun102_r2, 38, 11, -1.0F, -2.0F, -1.0F, 1, 2, 2, 0.0F, false));
-        gun102_r2.cubeList.add(new ModelBox(gun102_r2, 12, 70, -1.0F, -2.0F, 19.0F, 1, 2, 3, -0.001F, false));
+        gun102_r2.cubeList.add(new ModelBox(gun102_r2, 38, 11, -1, -2.0F, -1, 1, 2, 2, 0.0F, false));
+        gun102_r2.cubeList.add(new ModelBox(gun102_r2, 12, 70, -1, -2.0F, 19.0F, 1, 2, 3, -0.001F, false));
 
         gun103_r2 = new ModelRenderer(this);
-        gun103_r2.setRotationPoint(-3.8F, -37.2F, -61.0F);
+        gun103_r2.setRotationPoint(-3.8F, -37.2F, -61);
         gun.addChild(gun103_r2);
         setRotationAngle(gun103_r2, 0.0F, 0.0F, 0.2094F);
-        gun103_r2.cubeList.add(new ModelBox(gun103_r2, 14, 35, 0.0F, -2.0F, -1.0F, 1, 2, 2, -0.001F, false));
+        gun103_r2.cubeList.add(new ModelBox(gun103_r2, 14, 35, 0.0F, -2.0F, -1, 1, 2, 2, -0.001F, false));
         gun103_r2.cubeList.add(new ModelBox(gun103_r2, 23, 98, 0.0F, -2.0F, 19.0F, 1, 1, 3, -0.001F, false));
 
         gun100_r1 = new ModelRenderer(this);
@@ -421,10 +421,10 @@ public class M14Cover extends ModelBase {
         gun178.setRotationPoint(-2.0F, -28.15F, -13.9F);
         gun.addChild(gun178);
         setRotationAngle(gun178, -2.0076F, 0.0F, 0.0F);
-        gun178.cubeList.add(new ModelBox(gun178, 111, 70, 0.0F, 0.0F, -1.0F, 1, 1, 2, 0.0F, false));
+        gun178.cubeList.add(new ModelBox(gun178, 111, 70, 0.0F, 0.0F, -1, 1, 1, 2, 0.0F, false));
 
         gun176 = new ModelRenderer(this);
-        gun176.setRotationPoint(-2.0F, -31.0F, -14.1F);
+        gun176.setRotationPoint(-2.0F, -31, -14.1F);
         gun.addChild(gun176);
         setRotationAngle(gun176, -1.2641F, 0.0F, 0.0F);
         gun176.cubeList.add(new ModelBox(gun176, 111, 75, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
@@ -554,7 +554,7 @@ public class M14Cover extends ModelBase {
         bone2.addChild(gun78_r1);
         setRotationAngle(gun78_r1, -0.0622F, -0.0412F, -0.5906F);
         gun78_r1.cubeList.add(new ModelBox(gun78_r1, 32, 105, -1.44F, 0.0F, -0.55F, 1, 1, 5, -0.001F, false));
-        gun78_r1.cubeList.add(new ModelBox(gun78_r1, 107, 93, -1.0F, 0.0F, -0.55F, 1, 1, 5, 0.0F, false));
+        gun78_r1.cubeList.add(new ModelBox(gun78_r1, 107, 93, -1, 0.0F, -0.55F, 1, 1, 5, 0.0F, false));
 
         gun78_r2 = new ModelRenderer(this);
         gun78_r2.setRotationPoint(0.2F, 0.0F, 0.1F);
@@ -594,7 +594,7 @@ public class M14Cover extends ModelBase {
         bone7.addChild(gun79_r2);
         setRotationAngle(gun79_r2, -0.0715F, -0.0212F, -0.2944F);
         gun79_r2.cubeList.add(new ModelBox(gun79_r2, 35, 58, -1.24F, 0.0F, 0.73F, 1, 1, 4, 0.0F, false));
-        gun79_r2.cubeList.add(new ModelBox(gun79_r2, 61, 13, -1.0F, 0.0F, 0.73F, 1, 1, 4, 0.001F, false));
+        gun79_r2.cubeList.add(new ModelBox(gun79_r2, 61, 13, -1, 0.0F, 0.73F, 1, 1, 4, 0.001F, false));
 
         gun81_r2 = new ModelRenderer(this);
         gun81_r2.setRotationPoint(-1.6F, 0.0F, -0.01F);
@@ -816,7 +816,7 @@ public class M14Cover extends ModelBase {
         gun182.setRotationPoint(-3.5F, -29.4F, 2.5F);
         defaultchassis.addChild(gun182);
         setRotationAngle(gun182, 0.9666F, 0.0F, 0.0F);
-        gun182.cubeList.add(new ModelBox(gun182, 147, 26, 0.0F, 1.0F, 0.0F, 4, 4, 2, -0.001F, false));
+        gun182.cubeList.add(new ModelBox(gun182, 147, 26, 0.0F, 1, 0.0F, 4, 4, 2, -0.001F, false));
 
         gun181 = new ModelRenderer(this);
         gun181.setRotationPoint(-3.5F, -30.65F, -0.5F);
@@ -912,13 +912,13 @@ public class M14Cover extends ModelBase {
         gun49.cubeList.add(new ModelBox(gun49, 116, 0, 0.0F, 0.0F, 0.0F, 1, 1, 2, -0.002F, false));
 
         gun48 = new ModelRenderer(this);
-        gun48.setRotationPoint(1.0F, -35.4F, -27.0F);
+        gun48.setRotationPoint(1, -35.4F, -27.0F);
         defaultchassis.addChild(gun48);
         setRotationAngle(gun48, 0.0F, 0.0F, 2.8256F);
         gun48.cubeList.add(new ModelBox(gun48, 108, 109, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         gun36 = new ModelRenderer(this);
-        gun36.setRotationPoint(1.0F, -35.2F, -82.0F);
+        gun36.setRotationPoint(1, -35.2F, -82.0F);
         defaultchassis.addChild(gun36);
         setRotationAngle(gun36, 0.0F, 0.0F, 1.9333F);
         gun36.cubeList.add(new ModelBox(gun36, 90, 183, 0.0F, 0.0F, 0.0F, 1, 1, 42, 0.0F, false));
@@ -1019,7 +1019,7 @@ public class M14Cover extends ModelBase {
         gun7.cubeList.add(new ModelBox(gun7, 0, 133, 0.01F, 0.0F, 0.0F, 4, 1, 3, 0.0F, false));
 
         gun6 = new ModelRenderer(this);
-        gun6.setRotationPoint(-3.5F, -31.0F, -1.5F);
+        gun6.setRotationPoint(-3.5F, -31, -1.5F);
         defaultchassis.addChild(gun6);
         setRotationAngle(gun6, -2.3423F, 0.0F, 0.0F);
         gun6.cubeList.add(new ModelBox(gun6, 124, 30, 0.0F, 0.0F, 0.0F, 4, 3, 4, 0.0F, false));
@@ -1102,7 +1102,7 @@ public class M14Cover extends ModelBase {
         socoMChassis.addChild(gun23_r1);
         setRotationAngle(gun23_r1, -1.309F, 0.0F, 0.0F);
         gun23_r1.cubeList.add(new ModelBox(gun23_r1, 73, 38, -3.999F, 0.0F, 4.0F, 4, 1, 2, 0.0F, false));
-        gun23_r1.cubeList.add(new ModelBox(gun23_r1, 73, 68, -3.499F, 1.0F, 0.0F, 3, 1, 6, 0.0F, false));
+        gun23_r1.cubeList.add(new ModelBox(gun23_r1, 73, 68, -3.499F, 1, 0.0F, 3, 1, 6, 0.0F, false));
 
         gun26_r1 = new ModelRenderer(this);
         gun26_r1.setRotationPoint(0.5F, -32.52F, -6.55F);
@@ -1115,14 +1115,14 @@ public class M14Cover extends ModelBase {
         socoMChassis.addChild(gun28_r1);
         setRotationAngle(gun28_r1, -0.1745F, -0.1745F, -0.7854F);
         gun28_r1.cubeList.add(new ModelBox(gun28_r1, 9, 120, -1.4F, -0.001F, 0.0F, 1, 1, 5, 0.0F, false));
-        gun28_r1.cubeList.add(new ModelBox(gun28_r1, 9, 127, -1.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
+        gun28_r1.cubeList.add(new ModelBox(gun28_r1, 9, 127, -1, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
 
         gun27_r1 = new ModelRenderer(this);
         gun27_r1.setRotationPoint(-0.5F, -33.52F, -6.55F);
         socoMChassis.addChild(gun27_r1);
         setRotationAngle(gun27_r1, -0.1745F, -0.1745F, -0.7854F);
         gun27_r1.cubeList.add(new ModelBox(gun27_r1, 107, 101, -1.001F, 0.4F, 0.0F, 1, 1, 5, 0.0F, false));
-        gun27_r1.cubeList.add(new ModelBox(gun27_r1, 107, 127, -1.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
+        gun27_r1.cubeList.add(new ModelBox(gun27_r1, 107, 127, -1, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
 
         gun25_r2 = new ModelRenderer(this);
         gun25_r2.setRotationPoint(-0.5F, -33.52F, -6.55F);
@@ -1141,7 +1141,7 @@ public class M14Cover extends ModelBase {
         socoMChassis.addChild(gun27_r2);
         setRotationAngle(gun27_r2, -1.1868F, 0.3316F, -0.6807F);
         gun27_r2.cubeList.add(new ModelBox(gun27_r2, 51, 55, -1.4F, 0.0F, 0.0F, 1, 4, 1, -0.001F, false));
-        gun27_r2.cubeList.add(new ModelBox(gun27_r2, 0, 60, -1.0F, 0.0F, 0.0F, 1, 4, 1, 0.0F, false));
+        gun27_r2.cubeList.add(new ModelBox(gun27_r2, 0, 60, -1, 0.0F, 0.0F, 1, 4, 1, 0.0F, false));
 
         gun28_r2 = new ModelRenderer(this);
         gun28_r2.setRotationPoint(-0.5F, -34.02F, 0.25F);
@@ -1160,14 +1160,14 @@ public class M14Cover extends ModelBase {
         gun25_r4.setRotationPoint(-2.5F, -34.02F, 0.25F);
         socoMChassis.addChild(gun25_r4);
         setRotationAngle(gun25_r4, 0.0F, 0.0F, -0.7854F);
-        gun25_r4.cubeList.add(new ModelBox(gun25_r4, 260, 213, -1.0F, 0.0F, -0.001F, 1, 1, 26, -0.001F, false));
+        gun25_r4.cubeList.add(new ModelBox(gun25_r4, 260, 213, -1, 0.0F, -0.001F, 1, 1, 26, -0.001F, false));
 
         gun25_r5 = new ModelRenderer(this);
         gun25_r5.setRotationPoint(-0.5F, -34.02F, 0.25F);
         socoMChassis.addChild(gun25_r5);
         setRotationAngle(gun25_r5, 0.0F, 0.0F, -0.7854F);
         gun25_r5.cubeList.add(new ModelBox(gun25_r5, 132, 260, -1.001F, 0.4F, 0.0F, 1, 1, 26, -0.001F, false));
-        gun25_r5.cubeList.add(new ModelBox(gun25_r5, 261, 29, -1.0F, 0.0F, -0.001F, 1, 1, 26, -0.001F, false));
+        gun25_r5.cubeList.add(new ModelBox(gun25_r5, 261, 29, -1, 0.0F, -0.001F, 1, 1, 26, -0.001F, false));
 
         gun24_r2 = new ModelRenderer(this);
         gun24_r2.setRotationPoint(-0.5F, -34.02F, 0.25F);
@@ -1179,7 +1179,7 @@ public class M14Cover extends ModelBase {
         gun26_r3.setRotationPoint(0.5F, -27.12F, 12.25F);
         socoMChassis.addChild(gun26_r3);
         setRotationAngle(gun26_r3, -0.0873F, 0.0F, 0.0F);
-        gun26_r3.cubeList.add(new ModelBox(gun26_r3, 192, 0, -3.998F, -1.0F, 0.0F, 4, 4, 12, 0.0F, false));
+        gun26_r3.cubeList.add(new ModelBox(gun26_r3, 192, 0, -3.998F, -1, 0.0F, 4, 4, 12, 0.0F, false));
 
         gun24_r3 = new ModelRenderer(this);
         gun24_r3.setRotationPoint(-2.5F, -36.22F, -8.45F);
@@ -1191,7 +1191,7 @@ public class M14Cover extends ModelBase {
         gun23_r2.setRotationPoint(-0.5F, -36.22F, -8.45F);
         socoMChassis.addChild(gun23_r2);
         setRotationAngle(gun23_r2, -0.48F, -0.5498F, -0.7854F);
-        gun23_r2.cubeList.add(new ModelBox(gun23_r2, 0, 125, -1.0F, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        gun23_r2.cubeList.add(new ModelBox(gun23_r2, 0, 125, -1, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
 
         gun22_r1 = new ModelRenderer(this);
         gun22_r1.setRotationPoint(-0.5F, -36.22F, -8.45F);
@@ -1203,15 +1203,15 @@ public class M14Cover extends ModelBase {
         gun22_r2.setRotationPoint(0.5F, -31.4F, -3.3F);
         socoMChassis.addChild(gun22_r2);
         setRotationAngle(gun22_r2, -0.9599F, 0.0F, 0.0F);
-        gun22_r2.cubeList.add(new ModelBox(gun22_r2, 51, 31, -3.999F, 1.0F, 0.0F, 4, 2, 6, 0.002F, false));
+        gun22_r2.cubeList.add(new ModelBox(gun22_r2, 51, 31, -3.999F, 1, 0.0F, 4, 2, 6, 0.002F, false));
         gun22_r2.cubeList.add(new ModelBox(gun22_r2, 0, 70, -3.499F, 2.0F, 0.0F, 3, 2, 6, 0.001F, false));
 
         gun21_r1 = new ModelRenderer(this);
         gun21_r1.setRotationPoint(0.5F, -34.2F, -9.0F);
         socoMChassis.addChild(gun21_r1);
         setRotationAngle(gun21_r1, -0.4014F, 0.0F, 0.0F);
-        gun21_r1.cubeList.add(new ModelBox(gun21_r1, 0, 35, -3.999F, 1.0F, 0.0F, 4, 2, 6, 0.0F, false));
-        gun21_r1.cubeList.add(new ModelBox(gun21_r1, 23, 58, -3.499F, 1.0F, 0.0F, 3, 3, 6, 0.0F, false));
+        gun21_r1.cubeList.add(new ModelBox(gun21_r1, 0, 35, -3.999F, 1, 0.0F, 4, 2, 6, 0.0F, false));
+        gun21_r1.cubeList.add(new ModelBox(gun21_r1, 23, 58, -3.499F, 1, 0.0F, 3, 3, 6, 0.0F, false));
 
         gun24_r4 = new ModelRenderer(this);
         gun24_r4.setRotationPoint(-4.0F, -34.2F, -10.0F);
@@ -1220,16 +1220,16 @@ public class M14Cover extends ModelBase {
         gun24_r4.cubeList.add(new ModelBox(gun24_r4, 131, 104, 0.0F, -2.1F, -0.6F, 1, 1, 5, 0.0F, false));
 
         gun23_r3 = new ModelRenderer(this);
-        gun23_r3.setRotationPoint(1.0F, -34.2F, -10.0F);
+        gun23_r3.setRotationPoint(1, -34.2F, -10.0F);
         socoMChassis.addChild(gun23_r3);
         setRotationAngle(gun23_r3, -0.6981F, -0.2209F, -0.2686F);
-        gun23_r3.cubeList.add(new ModelBox(gun23_r3, 133, 57, -1.0F, -2.1F, -0.6F, 1, 1, 5, 0.0F, false));
+        gun23_r3.cubeList.add(new ModelBox(gun23_r3, 133, 57, -1, -2.1F, -0.6F, 1, 1, 5, 0.0F, false));
 
         gun21_r2 = new ModelRenderer(this);
-        gun21_r2.setRotationPoint(1.0F, -34.2F, -10.0F);
+        gun21_r2.setRotationPoint(1, -34.2F, -10.0F);
         socoMChassis.addChild(gun21_r2);
         setRotationAngle(gun21_r2, -0.3665F, -0.0873F, 0.0349F);
-        gun21_r2.cubeList.add(new ModelBox(gun21_r2, 84, 94, -1.0F, 0.0F, 0.0F, 1, 3, 5, 0.0F, false));
+        gun21_r2.cubeList.add(new ModelBox(gun21_r2, 84, 94, -1, 0.0F, 0.0F, 1, 3, 5, 0.0F, false));
 
         gun20_r1 = new ModelRenderer(this);
         gun20_r1.setRotationPoint(-4.0F, -34.2F, -10.0F);
@@ -1255,7 +1255,7 @@ public class M14Cover extends ModelBase {
         gun58_r2.setRotationPoint(1.001F, -36.4346F, -9.9957F);
         socoMChassis.addChild(gun58_r2);
         setRotationAngle(gun58_r2, -0.8901F, -0.1047F, 0.0F);
-        gun58_r2.cubeList.add(new ModelBox(gun58_r2, 61, 21, -1.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun58_r2.cubeList.add(new ModelBox(gun58_r2, 61, 21, -1, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
         gun58_r2.cubeList.add(new ModelBox(gun58_r2, 73, 10, -1.001F, 0.7F, 1.6F, 1, 1, 1, 0.0F, false));
         gun58_r2.cubeList.add(new ModelBox(gun58_r2, 73, 21, -0.999F, 0.7F, 0.8F, 1, 1, 1, 0.0F, false));
 
@@ -1353,13 +1353,13 @@ public class M14Cover extends ModelBase {
         gun197.cubeList.add(new ModelBox(gun197, 98, 101, 0.0F, 0.0F, 0.0F, 1, 1, 2, -0.002F, false));
 
         gun198 = new ModelRenderer(this);
-        gun198.setRotationPoint(1.0F, -35.4F, -27.0F);
+        gun198.setRotationPoint(1, -35.4F, -27.0F);
         socoMChassis.addChild(gun198);
         setRotationAngle(gun198, 0.0F, 0.0F, 2.8256F);
         gun198.cubeList.add(new ModelBox(gun198, 71, 99, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         gun199 = new ModelRenderer(this);
-        gun199.setRotationPoint(1.0F, -35.2F, -82.0F);
+        gun199.setRotationPoint(1, -35.2F, -82.0F);
         socoMChassis.addChild(gun199);
         setRotationAngle(gun199, 0.0F, 0.0F, 1.9333F);
         gun199.cubeList.add(new ModelBox(gun199, 94, 139, 0.0F, 0.0F, 0.0F, 1, 1, 42, 0.0F, false));
@@ -1418,7 +1418,7 @@ public class M14Cover extends ModelBase {
         gun222.setRotationPoint(-4.0F, -30.2F, -27.0F);
         socoMChassis.addChild(gun222);
         setRotationAngle(gun222, 2.9371F, 0.0F, 0.0F);
-        gun222.cubeList.add(new ModelBox(gun222, 192, 16, 0.01F, 1.0F, 0.0F, 5, 2, 12, 0.0F, false));
+        gun222.cubeList.add(new ModelBox(gun222, 192, 16, 0.01F, 1, 0.0F, 5, 2, 12, 0.0F, false));
         gun222.cubeList.add(new ModelBox(gun222, 45, 164, 0.26F, 0.0F, 0.0F, 3, 1, 16, 0.0F, false));
         gun222.cubeList.add(new ModelBox(gun222, 190, 90, 2.7501F, 0.0F, 0.0F, 2, 1, 16, 0.0F, false));
 
@@ -1706,30 +1706,30 @@ public class M14Cover extends ModelBase {
 
         trit_rail_cover = new ModelRenderer(this);
         trit_rail_cover.setRotationPoint(3.0F, -14.0F, -42.0F);
-        trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 0, 228, -2.7F, -1.0F, -19.0F, 1, 2, 29, 0.0F, false));
+        trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 0, 228, -2.7F, -1, -19.0F, 1, 2, 29, 0.0F, false));
         trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 98, 93, -2.8F, -0.5F, -39.8F, 1, 1, 21, 0.0F, false));
         trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 0, 94, -7.2F, -0.5F, -39.8F, 1, 1, 21, 0.0F, false));
-        trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 0, 0, -3.2F, -1.0F, -40.001F, 1, 2, 21, 0.0F, false));
-        trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 45, 140, -6.8F, -1.0F, -40.001F, 1, 2, 22, 0.0F, false));
+        trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 0, 0, -3.2F, -1, -40.001F, 1, 2, 21, 0.0F, false));
+        trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 45, 140, -6.8F, -1, -40.001F, 1, 2, 22, 0.0F, false));
         trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 138, 139, -5.5F, -2.8F, -40.0F, 2, 1, 43, 0.001F, false));
         trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 0, 23, -5.5F, -1.8F, -41.1F, 2, 5, 2, 0.0F, false));
         trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 35, 70, -6.0F, -1.3F, -41.09F, 3, 3, 2, 0.0F, false));
         trit_rail_cover.cubeList.add(new ModelBox(trit_rail_cover, 73, 58, -2.55F, -0.5F, 7.5F, 1, 1, 1, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(-2.2F, -1.0F, -40.0F);
+        bone3.setRotationPoint(-2.2F, -1, -40.0F);
         trit_rail_cover.addChild(bone3);
         setRotationAngle(bone3, 0.0F, 0.0F, 1.1519F);
-        bone3.cubeList.add(new ModelBox(bone3, 147, 20, -1.0F, 0.0F, 0.0F, 1, 1, 5, -0.001F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 147, 20, -1, 0.0F, 0.0F, 1, 1, 5, -0.001F, false));
         bone3.cubeList.add(new ModelBox(bone3, 192, 0, -0.5F, 0.0F, 0.0F, 1, 1, 38, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 102, 70, -1.0F, 0.0F, 10.0F, 1, 1, 2, -0.001F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 102, 67, -1.0F, 0.0F, 17.0F, 1, 1, 2, -0.001F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 102, 57, -1.0F, 0.0F, 24.0F, 1, 1, 2, -0.001F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 102, 54, -1.0F, 0.0F, 31.0F, 1, 1, 2, -0.001F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 0, 147, -1.0F, 0.0F, 38.0F, 1, 1, 5, -0.001F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 102, 70, -1, 0.0F, 10.0F, 1, 1, 2, -0.001F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 102, 67, -1, 0.0F, 17.0F, 1, 1, 2, -0.001F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 102, 57, -1, 0.0F, 24.0F, 1, 1, 2, -0.001F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 102, 54, -1, 0.0F, 31, 1, 1, 2, -0.001F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 147, -1, 0.0F, 38.0F, 1, 1, 5, -0.001F, false));
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(-6.8F, -1.0F, -40.0F);
+        bone4.setRotationPoint(-6.8F, -1, -40.0F);
         trit_rail_cover.addChild(bone4);
         setRotationAngle(bone4, 0.0F, 0.0F, -1.1519F);
         bone4.cubeList.add(new ModelBox(bone4, 147, 12, 0.0F, 0.0F, 0.0F, 1, 1, 5, -0.001F, false));
@@ -1737,38 +1737,38 @@ public class M14Cover extends ModelBase {
         bone4.cubeList.add(new ModelBox(bone4, 102, 24, 0.0F, 0.0F, 10.0F, 1, 1, 2, -0.001F, false));
         bone4.cubeList.add(new ModelBox(bone4, 102, 21, 0.0F, 0.0F, 17.0F, 1, 1, 2, -0.001F, false));
         bone4.cubeList.add(new ModelBox(bone4, 102, 11, 0.0F, 0.0F, 24.0F, 1, 1, 2, -0.001F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 102, 8, 0.0F, 0.0F, 31.0F, 1, 1, 2, -0.001F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 102, 8, 0.0F, 0.0F, 31, 1, 1, 2, -0.001F, false));
         bone4.cubeList.add(new ModelBox(bone4, 117, 146, 0.0F, 0.0F, 38.0F, 1, 1, 5, -0.001F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(-3.5F, -2.33F, -40.0F);
         trit_rail_cover.addChild(bone5);
         setRotationAngle(bone5, 0.0F, 0.0F, -2.7053F);
-        bone5.cubeList.add(new ModelBox(bone5, 147, 6, -1.0F, -1.0F, 0.0F, 1, 1, 5, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 0, 105, -1.0F, -1.0F, 10.0F, 1, 1, 2, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 90, 227, -0.5F, -1.0F, 5.0F, 1, 1, 33, -0.001F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 98, 104, -1.0F, -1.0F, 17.0F, 1, 1, 2, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 102, 78, -1.0F, -1.0F, 24.0F, 1, 1, 2, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 102, 75, -1.0F, -1.0F, 31.0F, 1, 1, 2, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 138, 146, -1.0F, -1.0F, 38.0F, 1, 1, 5, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 147, 6, -1, -1, 0.0F, 1, 1, 5, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 0, 105, -1, -1, 10.0F, 1, 1, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 90, 227, -0.5F, -1, 5.0F, 1, 1, 33, -0.001F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 98, 104, -1, -1, 17.0F, 1, 1, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 102, 78, -1, -1, 24.0F, 1, 1, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 102, 75, -1, -1, 31, 1, 1, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 138, 146, -1, -1, 38.0F, 1, 1, 5, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
         bone6.setRotationPoint(-5.5F, -2.33F, -40.0F);
         trit_rail_cover.addChild(bone6);
         setRotationAngle(bone6, 0.0F, 0.0F, 2.7053F);
-        bone6.cubeList.add(new ModelBox(bone6, 147, 0, 0.0F, -1.0F, 0.0F, 1, 1, 5, 0.0F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 190, 90, -0.5F, -1.0F, 0.0F, 1, 1, 38, -0.001F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 102, 49, 0.0F, -1.0F, 10.0F, 1, 1, 2, 0.0F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 102, 46, 0.0F, -1.0F, 17.0F, 1, 1, 2, 0.0F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 102, 32, 0.0F, -1.0F, 24.0F, 1, 1, 2, 0.0F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 102, 29, 0.0F, -1.0F, 31.0F, 1, 1, 2, 0.0F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 94, 146, 0.0F, -1.0F, 38.0F, 1, 1, 5, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 147, 0, 0.0F, -1, 0.0F, 1, 1, 5, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 190, 90, -0.5F, -1, 0.0F, 1, 1, 38, -0.001F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 102, 49, 0.0F, -1, 10.0F, 1, 1, 2, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 102, 46, 0.0F, -1, 17.0F, 1, 1, 2, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 102, 32, 0.0F, -1, 24.0F, 1, 1, 2, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 102, 29, 0.0F, -1, 31, 1, 1, 2, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 94, 146, 0.0F, -1, 38.0F, 1, 1, 5, 0.0F, false));
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(-1.7F, -1.0F, -19.0F);
+        bone.setRotationPoint(-1.7F, -1, -19.0F);
         trit_rail_cover.addChild(bone);
         setRotationAngle(bone, 0.0F, 0.0F, 0.5061F);
-        bone.cubeList.add(new ModelBox(bone, 230, 39, -1.0F, 0.0F, 0.0F, 1, 1, 29, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 230, 39, -1, 0.0F, 0.0F, 1, 1, 29, 0.0F, false));
 
         mag = new ModelRenderer(this);
         mag.setRotationPoint(0.0F, 21.9F, 2.0F);
@@ -1779,7 +1779,7 @@ public class M14Cover extends ModelBase {
         mag4.setRotationPoint(-3.0F, -16.1F, -28.5F);
         mag.addChild(mag4);
         setRotationAngle(mag4, 2.9743F, 0.0F, 0.0F);
-        mag4.cubeList.add(new ModelBox(mag4, 219, 183, 0.0F, 0.0F, 1.0F, 3, 19, 6, 0.001F, false));
+        mag4.cubeList.add(new ModelBox(mag4, 219, 183, 0.0F, 0.0F, 1, 3, 19, 6, 0.001F, false));
 
         mag3 = new ModelRenderer(this);
         mag3.setRotationPoint(-3.5F, -16.1F, -28.5F);
@@ -1843,10 +1843,10 @@ public class M14Cover extends ModelBase {
         action9.cubeList.add(new ModelBox(action9, 98, 101, -0.3F, 0.0F, -3.0F, 1, 1, 7, 0.001F, false));
 
         action8 = new ModelRenderer(this);
-        action8.setRotationPoint(-1.0F, -39.5F, -36.0F);
+        action8.setRotationPoint(-1, -39.5F, -36.0F);
         action.addChild(action8);
         setRotationAngle(action8, 0.0F, 0.0F, -1.1525F);
-        action8.cubeList.add(new ModelBox(action8, 58, 94, -1.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        action8.cubeList.add(new ModelBox(action8, 58, 94, -1, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         action7 = new ModelRenderer(this);
         action7.setRotationPoint(-2.0F, -39.5F, -36.0F);
@@ -1860,16 +1860,16 @@ public class M14Cover extends ModelBase {
         action6.cubeList.add(new ModelBox(action6, 64, 82, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         action5 = new ModelRenderer(this);
-        action5.setRotationPoint(-1.0F, -39.3F, -36.0F);
+        action5.setRotationPoint(-1, -39.3F, -36.0F);
         action.addChild(action5);
         setRotationAngle(action5, 0.0F, 0.0F, -1.1525F);
-        action5.cubeList.add(new ModelBox(action5, 23, 47, -1.0F, 0.0F, 1.0F, 1, 1, 10, 0.0F, false));
+        action5.cubeList.add(new ModelBox(action5, 23, 47, -1, 0.0F, 1, 1, 1, 10, 0.0F, false));
 
         action4 = new ModelRenderer(this);
         action4.setRotationPoint(-2.0F, -39.3F, -36.0F);
         action.addChild(action4);
         setRotationAngle(action4, 0.0F, 0.0F, 1.1525F);
-        action4.cubeList.add(new ModelBox(action4, 23, 23, 0.0F, 0.0F, 1.0F, 1, 1, 10, 0.0F, false));
+        action4.cubeList.add(new ModelBox(action4, 23, 23, 0.0F, 0.0F, 1, 1, 1, 10, 0.0F, false));
 
         action3 = new ModelRenderer(this);
         action3.setRotationPoint(-2.9F, -38.9F, -36.0F);
@@ -1879,7 +1879,7 @@ public class M14Cover extends ModelBase {
         action1 = new ModelRenderer(this);
         action1.setRotationPoint(-2.0F, -39.3F, -36.0F);
         action.addChild(action1);
-        action1.cubeList.add(new ModelBox(action1, 23, 0, 0.0F, 0.0F, 1.0F, 1, 1, 10, 0.0F, false));
+        action1.cubeList.add(new ModelBox(action1, 23, 0, 0.0F, 0.0F, 1, 1, 1, 10, 0.0F, false));
 
         barrel = new ModelRenderer(this);
         barrel.setRotationPoint(0.0F, 24.0F, 0.0F);

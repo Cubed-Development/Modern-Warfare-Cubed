@@ -95,7 +95,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
     private final Collection<Listener> listeners = new LinkedHashSet<>();
 
     private float colorImpairmentR = 1.2f;
-    private float colorImpairmentG = 1.0f;
+    private float colorImpairmentG = 1;
     private float colorImpairmentB = 0.8f;
 
     public SpreadableExposure() {

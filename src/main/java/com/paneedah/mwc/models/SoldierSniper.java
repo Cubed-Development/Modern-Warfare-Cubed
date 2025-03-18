@@ -63,7 +63,7 @@ public class SoldierSniper extends ModelBiped {
         head_r1.setRotationPoint(5.4F, -3.8F, -3.6F);
         head.addChild(head_r1);
         setRotation(head_r1, 0.0162F, -0.05F, 0.0861F);
-        head_r1.cubeList.add(new ModelBox(head_r1, 46, 0, -1.0F, 0.0F, 0.0F, 1, 4, 8, 0.0F, false));
+        head_r1.cubeList.add(new ModelBox(head_r1, 46, 0, -1, 0.0F, 0.0F, 1, 4, 8, 0.0F, false));
 
         head_r2 = new ModelRenderer(this);
         head_r2.setRotationPoint(-5.4F, -3.8F, -3.6F);
@@ -123,7 +123,7 @@ public class SoldierSniper extends ModelBiped {
         head_r11.setRotationPoint(4.2F, -8.0F, -4.9F);
         head.addChild(head_r11);
         setRotation(head_r11, 0.0847F, -0.0196F, -0.2641F);
-        head_r11.cubeList.add(new ModelBox(head_r11, 35, 35, -1.0F, 0.0F, 0.0F, 1, 5, 9, 0.0F, false));
+        head_r11.cubeList.add(new ModelBox(head_r11, 35, 35, -1, 0.0F, 0.0F, 1, 5, 9, 0.0F, false));
 
         body = new ModelRenderer(this);
         body.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -164,8 +164,8 @@ public class SoldierSniper extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(0.0F, 0.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 48, 49, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
-        leftarm.cubeList.add(new ModelBox(leftarm, 60, 8, -1.0F, -2.0F, -2.0F, 4, 9, 4, 0.1F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 48, 49, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 60, 8, -1, -2.0F, -2.0F, 4, 9, 4, 0.1F, false));
 
         leftarm_r1 = new ModelRenderer(this);
         leftarm_r1.setRotationPoint(4.6F, 6.4F, 0.1F);
@@ -264,7 +264,7 @@ public class SoldierSniper extends ModelBiped {
 
         if (entityCustomMob.isSwingingArms() && itemstack.getItem() != Items.BOW) {
             float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
-            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
+            float f1 = MathHelper.sin((1 - (1 - this.swingProgress) * (1 - this.swingProgress)) * (float) Math.PI);
             this.bipedRightArm.rotateAngleZ = 0.0F;
             this.bipedLeftArm.rotateAngleZ = 0.0F;
             this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
@@ -301,7 +301,7 @@ public class SoldierSniper extends ModelBiped {
 
     @Override
     public void postRenderArm(float scale, EnumHandSide side) {
-        float f = side == EnumHandSide.RIGHT ? 1.0F : -1.0F;
+        float f = side == EnumHandSide.RIGHT ? 1 : -1;
         ModelRenderer modelrenderer = this.getArmForSide(side);
         modelrenderer.rotationPointX += f;
         modelrenderer.postRender(scale * 1.25f);

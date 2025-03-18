@@ -80,19 +80,19 @@ public class Forklift extends ModelBase {
         textureHeight = 128;
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(-1.0F, 24.0F, 0.0F);
+        bone.setRotationPoint(-1, 24.0F, 0.0F);
         bone.cubeList.add(new ModelBox(bone, 101, 92, 3.0F, -9.83F, -4.83F, 3, 3, 4, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 58, 9, 4.25F, -6.83F, -4.83F, 1, 4, 4, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 18, -7.75F, -6.83F, -4.83F, 1, 4, 4, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 45, 101, 3.0F, -3.17F, -4.83F, 3, 3, 4, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 20, 106, 3.0F, -7.0F, -1.0F, 3, 4, 3, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 20, 106, 3.0F, -7.0F, -1, 3, 4, 3, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 104, 60, 3.0F, -7.0F, -7.66F, 3, 4, 3, 0.0F, false));
 
         bone52 = new ModelRenderer(this);
         bone52.setRotationPoint(-7.75F, -5.0F, -2.85F);
         bone.addChild(bone52);
         setRotationAngle(bone52, -0.7854F, 0.0F, 0.0F);
-        bone52.cubeList.add(new ModelBox(bone52, 67, 61, -0.5F, -1.0F, -1.0F, 14, 2, 2, 0.0F, false));
+        bone52.cubeList.add(new ModelBox(bone52, 67, 61, -0.5F, -1, -1, 14, 2, 2, 0.0F, false));
         bone52.cubeList.add(new ModelBox(bone52, 8, 54, 3.0F, -4.7071F, -1.2929F, 7, 6, 4, 0.0F, false));
         bone52.cubeList.add(new ModelBox(bone52, 70, 48, 0.0F, -15.7F, 14.75F, 13, 2, 2, 0.0F, false));
         bone52.cubeList.add(new ModelBox(bone52, 36, 40, 3.0F, -16.8768F, 8.8661F, 7, 5, 8, 0.0F, false));
@@ -124,13 +124,13 @@ public class Forklift extends ModelBase {
         bone40.setRotationPoint(-1.25F, -10.0F, 6.25F);
         bone7.addChild(bone40);
         setRotationAngle(bone40, 0.2618F, 0.0F, 0.0F);
-        bone40.cubeList.add(new ModelBox(bone40, 48, 22, -11.0F, -0.4529F, -1.6904F, 11, 2, 6, 0.0F, false));
+        bone40.cubeList.add(new ModelBox(bone40, 48, 22, -11, -0.4529F, -1.6904F, 11, 2, 6, 0.0F, false));
 
         bone41 = new ModelRenderer(this);
         bone41.setRotationPoint(-1.25F, -10.0F, 5.25F);
         bone7.addChild(bone41);
         setRotationAngle(bone41, -0.1745F, 0.0F, 0.0F);
-        bone41.cubeList.add(new ModelBox(bone41, 73, 9, -11.0F, 0.1941F, -0.7244F, 11, 4, 3, 0.0F, false));
+        bone41.cubeList.add(new ModelBox(bone41, 73, 9, -11, 0.1941F, -0.7244F, 11, 4, 3, 0.0F, false));
 
         bone10 = new ModelRenderer(this);
         bone10.setRotationPoint(-12.5F, 0.0F, 0.0F);
@@ -148,7 +148,7 @@ public class Forklift extends ModelBase {
         bone14.setRotationPoint(0.5F, -3.5F, 0.8F);
         bone10.addChild(bone14);
         setRotationAngle(bone14, 0.7854F, 0.0F, 0.0F);
-        bone14.cubeList.add(new ModelBox(bone14, 35, 31, -1.75F, -5.0F, -1.0F, 3, 5, 1, 0.0F, false));
+        bone14.cubeList.add(new ModelBox(bone14, 35, 31, -1.75F, -5.0F, -1, 3, 5, 1, 0.0F, false));
 
         bone11 = new ModelRenderer(this);
         bone11.setRotationPoint(-13.25F, -1.5F, 0.8F);
@@ -186,14 +186,14 @@ public class Forklift extends ModelBase {
         bone21.setRotationPoint(-1.62F, -11.52F, 18.18F);
         bone7.addChild(bone21);
         setRotationAngle(bone21, 0.0F, -0.9599F, 0.0F);
-        bone21.cubeList.add(new ModelBox(bone21, 96, 46, -1.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        bone21.cubeList.add(new ModelBox(bone21, 96, 46, -1, -1, 0.0F, 1, 1, 6, 0.0F, false));
 
         bone35 = new ModelRenderer(this);
         bone35.setRotationPoint(-1.62F, -12.52F, 18.18F);
         bone7.addChild(bone35);
         setRotationAngle(bone35, 0.7854F, -0.6283F, -1.0472F);
-        bone35.cubeList.add(new ModelBox(bone35, 17, 99, -1.0F, -2.0F, 0.32F, 1, 2, 5, 0.0F, false));
-        bone35.cubeList.add(new ModelBox(bone35, 105, 19, -1.0F, -4.0F, 0.32F, 1, 2, 4, 0.0F, false));
+        bone35.cubeList.add(new ModelBox(bone35, 17, 99, -1, -2.0F, 0.32F, 1, 2, 5, 0.0F, false));
+        bone35.cubeList.add(new ModelBox(bone35, 105, 19, -1, -4.0F, 0.32F, 1, 2, 4, 0.0F, false));
 
         bone36 = new ModelRenderer(this);
         bone36.setRotationPoint(-11.87F, -12.52F, 18.18F);
@@ -206,25 +206,25 @@ public class Forklift extends ModelBase {
         bone37.setRotationPoint(-7.37F, -15.02F, 16.68F);
         bone7.addChild(bone37);
         setRotationAngle(bone37, -0.6981F, 0.0F, 0.0F);
-        bone37.cubeList.add(new ModelBox(bone37, 110, 110, 0.12F, -1.0F, 1.32F, 1, 1, 4, 0.0F, false));
+        bone37.cubeList.add(new ModelBox(bone37, 110, 110, 0.12F, -1, 1.32F, 1, 1, 4, 0.0F, false));
 
         bone24 = new ModelRenderer(this);
         bone24.setRotationPoint(-1.62F, -5.52F, 18.18F);
         bone7.addChild(bone24);
         setRotationAngle(bone24, 0.384F, -0.6109F, 0.0F);
-        bone24.cubeList.add(new ModelBox(bone24, 68, 109, -1.7F, -1.0F, 0.2F, 2, 8, 2, 0.0F, false));
+        bone24.cubeList.add(new ModelBox(bone24, 68, 109, -1.7F, -1, 0.2F, 2, 8, 2, 0.0F, false));
 
         bone25 = new ModelRenderer(this);
         bone25.setRotationPoint(-11.62F, -5.52F, 17.93F);
         bone7.addChild(bone25);
         setRotationAngle(bone25, 0.384F, 0.6109F, 0.0F);
-        bone25.cubeList.add(new ModelBox(bone25, 8, 71, -0.7F, -1.0F, 0.2F, 2, 8, 2, 0.0F, false));
+        bone25.cubeList.add(new ModelBox(bone25, 8, 71, -0.7F, -1, 0.2F, 2, 8, 2, 0.0F, false));
 
         bone22 = new ModelRenderer(this);
         bone22.setRotationPoint(-11.85F, -11.52F, 18.18F);
         bone7.addChild(bone22);
         setRotationAngle(bone22, 0.0F, 0.9599F, 0.0F);
-        bone22.cubeList.add(new ModelBox(bone22, 93, 96, -0.05F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        bone22.cubeList.add(new ModelBox(bone22, 93, 96, -0.05F, -1, 0.0F, 1, 1, 6, 0.0F, false));
 
         bone16 = new ModelRenderer(this);
         bone16.setRotationPoint(-1.25F, -9.5F, 6.8F);
@@ -239,13 +239,13 @@ public class Forklift extends ModelBase {
         bone17.cubeList.add(new ModelBox(bone17, 35, 31, -12.0F, 0.0F, 0.0F, 13, 1, 8, 0.0F, false));
 
         bone18 = new ModelRenderer(this);
-        bone18.setRotationPoint(1.0F, 0.6387F, 7.945F);
+        bone18.setRotationPoint(1, 0.6387F, 7.945F);
         bone17.addChild(bone18);
         setRotationAngle(bone18, 0.0F, -0.3491F, 0.0F);
         bone18.cubeList.add(new ModelBox(bone18, 110, 30, -0.98F, -0.6387F, 0.055F, 1, 1, 4, 0.0F, false));
 
         bone33 = new ModelRenderer(this);
-        bone33.setRotationPoint(1.0F, 0.02F, 7.945F);
+        bone33.setRotationPoint(1, 0.02F, 7.945F);
         bone17.addChild(bone33);
         setRotationAngle(bone33, 0.192F, -0.288F, -0.6109F);
         bone33.cubeList.add(new ModelBox(bone33, 33, 102, -1.9741F, -4.0F, 0.0713F, 2, 4, 4, 0.0F, false));
@@ -266,19 +266,19 @@ public class Forklift extends ModelBase {
         bone13.setRotationPoint(-13.25F, -5.5F, 14.8F);
         bone7.addChild(bone13);
         setRotationAngle(bone13, 0.0F, 0.3491F, 0.0F);
-        bone13.cubeList.add(new ModelBox(bone13, 110, 77, 0.0F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        bone13.cubeList.add(new ModelBox(bone13, 110, 77, 0.0F, -1, 0.0F, 1, 1, 4, 0.0F, false));
 
         bone15 = new ModelRenderer(this);
         bone15.setRotationPoint(-0.25F, -5.5F, 14.8F);
         bone7.addChild(bone15);
         setRotationAngle(bone15, 0.0F, -0.3491F, 0.0F);
-        bone15.cubeList.add(new ModelBox(bone15, 110, 72, -1.0F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        bone15.cubeList.add(new ModelBox(bone15, 110, 72, -1, -1, 0.0F, 1, 1, 4, 0.0F, false));
 
         bone9 = new ModelRenderer(this);
         bone9.setRotationPoint(-0.25F, -1.5F, 4.5F);
         bone7.addChild(bone9);
         setRotationAngle(bone9, 0.0F, 0.0F, 0.3491F);
-        bone9.cubeList.add(new ModelBox(bone9, 67, 67, -1.0F, 0.0F, -3.7F, 1, 3, 11, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 67, 67, -1, 0.0F, -3.7F, 1, 3, 11, 0.0F, false));
 
         bone42 = new ModelRenderer(this);
         bone42.setRotationPoint(-0.75F, -19.25F, -1.9F);
@@ -286,15 +286,15 @@ public class Forklift extends ModelBase {
         setRotationAngle(bone42, 1.1345F, 0.0F, 0.0F);
         bone42.cubeList.add(new ModelBox(bone42, 79, 96, -1.25F, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
         bone42.cubeList.add(new ModelBox(bone42, 71, 95, -11.75F, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
-        bone42.cubeList.add(new ModelBox(bone42, 82, 28, -11.0F, -0.15F, 5.0F, 10, 1, 1, 0.0F, false));
+        bone42.cubeList.add(new ModelBox(bone42, 82, 28, -11, -0.15F, 5.0F, 10, 1, 1, 0.0F, false));
 
         bone44 = new ModelRenderer(this);
-        bone44.setRotationPoint(-1.0F, -12.0F, -3.25F);
+        bone44.setRotationPoint(-1, -12.0F, -3.25F);
         bone7.addChild(bone44);
         setRotationAngle(bone44, -0.2618F, 0.0F, 0.0F);
         bone44.cubeList.add(new ModelBox(bone44, 80, 65, -11.25F, -0.5477F, 0.1121F, 11, 6, 2, 0.0F, false));
         bone44.cubeList.add(new ModelBox(bone44, 45, 108, -11.5F, -7.3536F, -0.6124F, 1, 13, 1, 0.0F, false));
-        bone44.cubeList.add(new ModelBox(bone44, 106, 106, -1.0F, -7.3536F, -0.6124F, 1, 13, 1, 0.0F, false));
+        bone44.cubeList.add(new ModelBox(bone44, 106, 106, -1, -7.3536F, -0.6124F, 1, 13, 1, 0.0F, false));
         bone44.cubeList.add(new ModelBox(bone44, 80, 73, -11.25F, -0.5477F, 2.1121F, 11, 1, 1, 0.0F, false));
 
         bone45 = new ModelRenderer(this);
@@ -310,13 +310,13 @@ public class Forklift extends ModelBase {
         bone46.cubeList.add(new ModelBox(bone46, 54, 54, -12.5F, 0.0F, 0.0F, 11, 2, 5, 0.0F, false));
 
         bone43 = new ModelRenderer(this);
-        bone43.setRotationPoint(-1.0F, -12.0F, -3.25F);
+        bone43.setRotationPoint(-1, -12.0F, -3.25F);
         bone7.addChild(bone43);
         setRotationAngle(bone43, -0.6109F, 0.0F, 0.0F);
-        bone43.cubeList.add(new ModelBox(bone43, 60, 75, -11.0F, 0.0F, 0.0F, 1, 7, 2, 0.0F, false));
+        bone43.cubeList.add(new ModelBox(bone43, 60, 75, -11, 0.0F, 0.0F, 1, 7, 2, 0.0F, false));
         bone43.cubeList.add(new ModelBox(bone43, 0, 31, -1.5F, 0.0F, 0.0F, 1, 7, 2, 0.0F, false));
-        bone43.cubeList.add(new ModelBox(bone43, 96, 110, -3.5F, 1.5F, -1.0F, 2, 2, 3, 0.0F, false));
-        bone43.cubeList.add(new ModelBox(bone43, 86, 110, -10.0F, 1.5F, -1.0F, 2, 2, 3, 0.0F, false));
+        bone43.cubeList.add(new ModelBox(bone43, 96, 110, -3.5F, 1.5F, -1, 2, 2, 3, 0.0F, false));
+        bone43.cubeList.add(new ModelBox(bone43, 86, 110, -10.0F, 1.5F, -1, 2, 2, 3, 0.0F, false));
         bone43.cubeList.add(new ModelBox(bone43, 8, 95, -9.75F, 2.0F, -7.0F, 1, 1, 6, 0.0F, false));
         bone43.cubeList.add(new ModelBox(bone43, 49, 94, -2.75F, 2.0F, -7.0F, 1, 1, 6, 0.0F, false));
 
@@ -324,7 +324,7 @@ public class Forklift extends ModelBase {
         bone8.setRotationPoint(0.5F, -3.5F, 0.8F);
         bone7.addChild(bone8);
         setRotationAngle(bone8, 0.7854F, 0.0F, 0.0F);
-        bone8.cubeList.add(new ModelBox(bone8, 8, 64, -2.25F, -5.0F, -1.0F, 2, 5, 1, 0.0F, false));
+        bone8.cubeList.add(new ModelBox(bone8, 8, 64, -2.25F, -5.0F, -1, 2, 5, 1, 0.0F, false));
 
         bone31 = new ModelRenderer(this);
         bone31.setRotationPoint(-0.25F, -9.5F, 6.8F);
@@ -360,7 +360,7 @@ public class Forklift extends ModelBase {
         bone47.setRotationPoint(-0.75F, -24.0F, 2.1F);
         bone7.addChild(bone47);
         bone47.cubeList.add(new ModelBox(bone47, 0, 82, -1.25F, -0.75F, -1.5F, 1, 1, 9, 0.0F, false));
-        bone47.cubeList.add(new ModelBox(bone47, 80, 75, -11.0F, -0.65F, 6.4F, 10, 1, 1, 0.0F, false));
+        bone47.cubeList.add(new ModelBox(bone47, 80, 75, -11, -0.65F, 6.4F, 10, 1, 1, 0.0F, false));
         bone47.cubeList.add(new ModelBox(bone47, 43, 53, -4.0F, -0.4F, 6.65F, 2, 1, 1, 0.0F, false));
         bone47.cubeList.add(new ModelBox(bone47, 6, 50, -10.0F, -0.4F, 6.65F, 2, 1, 1, 0.0F, false));
         bone47.cubeList.add(new ModelBox(bone47, 86, 52, -10.0F, -0.6F, -1.35F, 1, 1, 8, 0.0F, false));
@@ -389,7 +389,7 @@ public class Forklift extends ModelBase {
         bone4.setRotationPoint(-12.5F, 24.0F, 0.0F);
         bone4.cubeList.add(new ModelBox(bone4, 100, 26, 3.0F, -9.83F, -4.83F, 3, 3, 4, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 98, 5, 3.0F, -3.17F, -4.83F, 3, 3, 4, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 104, 40, 3.0F, -7.0F, -1.0F, 3, 4, 3, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 104, 40, 3.0F, -7.0F, -1, 3, 4, 3, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 94, 103, 3.0F, -7.0F, -7.66F, 3, 4, 3, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
@@ -407,7 +407,7 @@ public class Forklift extends ModelBase {
         bone6.cubeList.add(new ModelBox(bone6, 70, 102, -1.001F, -4.7071F, -8.9497F, 3, 4, 3, 0.0F, false));
 
         bone29 = new ModelRenderer(this);
-        bone29.setRotationPoint(1.75F, 10.5F, 21.0F);
+        bone29.setRotationPoint(1.75F, 10.5F, 21);
         setRotationAngle(bone29, 0.2618F, -0.8727F, -0.2269F);
         bone29.cubeList.add(new ModelBox(bone29, 25, 91, -1.1915F, -2.0416F, -0.1552F, 1, 8, 5, 0.0F, false));
         bone29.cubeList.add(new ModelBox(bone29, 54, 61, -1.1915F, 5.9584F, 0.8448F, 1, 4, 4, 0.0F, false));
@@ -416,29 +416,29 @@ public class Forklift extends ModelBase {
         bone30.setRotationPoint(-5.75F, 10.5F, 20.0F);
         setRotationAngle(bone30, 0.2618F, 0.8727F, 0.2269F);
         bone30.cubeList.add(new ModelBox(bone30, 0, 0, -0.9F, -1.85F, 0.0F, 1, 8, 5, 0.0F, false));
-        bone30.cubeList.add(new ModelBox(bone30, 22, 82, -0.9F, 6.15F, 1.0F, 1, 4, 4, 0.0F, false));
+        bone30.cubeList.add(new ModelBox(bone30, 22, 82, -0.9F, 6.15F, 1, 1, 4, 4, 0.0F, false));
 
         bone50 = new ModelRenderer(this);
         bone50.setRotationPoint(0.75F, 5.75F, -8.75F);
-        bone50.cubeList.add(new ModelBox(bone50, 88, 52, -0.25F, -1.0F, 0.0F, 1, 3, 2, 0.0F, false));
-        bone50.cubeList.add(new ModelBox(bone50, 48, 22, -6.75F, -1.0F, 0.0F, 1, 3, 2, 0.0F, false));
-        bone50.cubeList.add(new ModelBox(bone50, 0, 54, -6.5F, -11.0F, -0.75F, 1, 28, 3, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 88, 52, -0.25F, -1, 0.0F, 1, 3, 2, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 48, 22, -6.75F, -1, 0.0F, 1, 3, 2, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 0, 54, -6.5F, -11, -0.75F, 1, 28, 3, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 4, 101, -9.25F, 2.75F, -1.75F, 1, 15, 1, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 0, 101, 2.25F, 2.75F, -1.75F, 1, 15, 1, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 76, 26, -8.5F, 2.0F, -1.75F, 11, 1, 1, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 73, 16, -8.5F, 15.5F, -1.5F, 11, 2, 1, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 18, 44, -8.5F, 11.5F, -1.5F, 11, 2, 1, 0.0F, false));
-        bone50.cubeList.add(new ModelBox(bone50, 59, 112, 1.0F, 3.0F, -1.75F, 1, 9, 1, 0.0F, false));
-        bone50.cubeList.add(new ModelBox(bone50, 55, 112, -1.0F, 3.0F, -1.75F, 1, 9, 1, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 59, 112, 1, 3.0F, -1.75F, 1, 9, 1, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 55, 112, -1, 3.0F, -1.75F, 1, 9, 1, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 39, 110, -8.0F, 3.0F, -1.75F, 1, 9, 1, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 98, 40, -6.0F, 3.0F, -1.75F, 1, 9, 1, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 49, 108, -7.75F, 8.75F, -2.75F, 2, 9, 1, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 23, 71, -0.25F, 8.75F, -2.75F, 2, 9, 1, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 58, 9, -0.25F, 17.0F, -13.75F, 2, 1, 11, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 55, 42, -7.75F, 17.0F, -13.75F, 2, 1, 11, 0.0F, false));
-        bone50.cubeList.add(new ModelBox(bone50, 30, 50, -5.25F, -11.0F, -0.75F, 1, 28, 3, 0.0F, false));
-        bone50.cubeList.add(new ModelBox(bone50, 46, 53, -0.5F, -11.0F, -0.75F, 1, 28, 3, 0.0F, false));
-        bone50.cubeList.add(new ModelBox(bone50, 38, 53, -1.75F, -11.0F, -0.75F, 1, 28, 3, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 30, 50, -5.25F, -11, -0.75F, 1, 28, 3, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 46, 53, -0.5F, -11, -0.75F, 1, 28, 3, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 38, 53, -1.75F, -11, -0.75F, 1, 28, 3, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 71, 91, -6.5F, -10.85F, 2.25F, 7, 1, 3, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 87, 96, -6.75F, -10.75F, -0.25F, 1, 1, 5, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 18, 47, -0.25F, -10.75F, -0.25F, 1, 1, 5, 0.0F, false));
@@ -467,7 +467,7 @@ public class Forklift extends ModelBase {
         bone54.cubeList.add(new ModelBox(bone54, 11, 82, -1.999F, 2.1213F, 0.1213F, 2, 3, 2, 0.0F, false));
         bone54.cubeList.add(new ModelBox(bone54, 63, 18, -1.998F, 4.65F, 1.1213F, 2, 1, 1, 0.0F, false));
         bone54.cubeList.add(new ModelBox(bone54, 108, 2, -1.999F, 5.7782F, -3.5355F, 2, 2, 3, 0.0F, false));
-        bone54.cubeList.add(new ModelBox(bone54, 64, 40, -1.998F, 6.7782F, -1.0F, 2, 1, 1, 0.0F, false));
+        bone54.cubeList.add(new ModelBox(bone54, 64, 40, -1.998F, 6.7782F, -1, 2, 1, 1, 0.0F, false));
         bone54.cubeList.add(new ModelBox(bone54, 81, 81, -1.999F, 2.6569F, -5.6569F, 2, 3, 2, 0.0F, false));
         bone54.cubeList.add(new ModelBox(bone54, 54, 69, -1.998F, 2.12F, -5.6569F, 2, 1, 1, 0.0F, false));
 
@@ -488,34 +488,34 @@ public class Forklift extends ModelBase {
         bone56.cubeList.add(new ModelBox(bone56, 58, 40, -2.01F, 2.1213F, 0.1213F, 2, 3, 2, 0.0F, false));
         bone56.cubeList.add(new ModelBox(bone56, 58, 17, -2.02F, 4.65F, 1.1213F, 2, 1, 1, 0.0F, false));
         bone56.cubeList.add(new ModelBox(bone56, 100, 0, -2.01F, 5.7782F, -3.5355F, 2, 2, 3, 0.0F, false));
-        bone56.cubeList.add(new ModelBox(bone56, 51, 54, -2.02F, 6.7782F, -1.0F, 2, 1, 1, 0.0F, false));
+        bone56.cubeList.add(new ModelBox(bone56, 51, 54, -2.02F, 6.7782F, -1, 2, 1, 1, 0.0F, false));
         bone56.cubeList.add(new ModelBox(bone56, 25, 47, -2.01F, 2.6569F, -5.6569F, 2, 3, 2, 0.0F, false));
         bone56.cubeList.add(new ModelBox(bone56, 5, 54, -2.02F, 2.12F, -5.6569F, 2, 1, 1, 0.0F, false));
 
         bone57 = new ModelRenderer(this);
         bone57.setRotationPoint(-1.75F, 10.0F, 7.25F);
-        bone57.cubeList.add(new ModelBox(bone57, 93, 16, -2.5F, -1.0F, 0.0F, 4, 1, 4, 0.0F, false));
+        bone57.cubeList.add(new ModelBox(bone57, 93, 16, -2.5F, -1, 0.0F, 4, 1, 4, 0.0F, false));
 
         bone58 = new ModelRenderer(this);
-        bone58.setRotationPoint(-1.0F, -0.5F, -0.5F);
+        bone58.setRotationPoint(-1, -0.5F, -0.5F);
         bone57.addChild(bone58);
         setRotationAngle(bone58, 0.0873F, 0.0F, 0.0F);
-        bone58.cubeList.add(new ModelBox(bone58, 87, 91, -2.0F, -1.0F, 0.0F, 5, 1, 4, 0.0F, false));
+        bone58.cubeList.add(new ModelBox(bone58, 87, 91, -2.0F, -1, 0.0F, 5, 1, 4, 0.0F, false));
         bone58.cubeList.add(new ModelBox(bone58, 0, 13, -1.5F, -1.1F, -0.5019F, 4, 1, 1, 0.0F, false));
 
         bone59 = new ModelRenderer(this);
-        bone59.setRotationPoint(-2.0F, -1.0F, 2.5F);
+        bone59.setRotationPoint(-2.0F, -1, 2.5F);
         bone57.addChild(bone59);
         setRotationAngle(bone59, -0.1745F, 0.0F, 0.0F);
-        bone59.cubeList.add(new ModelBox(bone59, 37, 9, -1.0F, -5.0F, 0.0F, 5, 5, 1, 0.0F, false));
+        bone59.cubeList.add(new ModelBox(bone59, 37, 9, -1, -5.0F, 0.0F, 5, 5, 1, 0.0F, false));
         bone59.cubeList.add(new ModelBox(bone59, 0, 26, -0.5F, -5.7104F, -0.05F, 4, 1, 1, 0.0F, false));
 
         bone60 = new ModelRenderer(this);
         bone60.setRotationPoint(2.25F, -4.5F, 3.0F);
         bone57.addChild(bone60);
         setRotationAngle(bone60, -0.2618F, 0.0F, 0.0F);
-        bone60.cubeList.add(new ModelBox(bone60, 37, 21, -1.0F, -1.0F, -0.1F, 1, 4, 1, 0.0F, false));
-        bone60.cubeList.add(new ModelBox(bone60, 0, 0, -5.5F, -1.0F, -0.1F, 1, 4, 1, 0.0F, false));
+        bone60.cubeList.add(new ModelBox(bone60, 37, 21, -1, -1, -0.1F, 1, 4, 1, 0.0F, false));
+        bone60.cubeList.add(new ModelBox(bone60, 0, 0, -5.5F, -1, -0.1F, 1, 4, 1, 0.0F, false));
 
         bone61 = new ModelRenderer(this);
         bone61.setRotationPoint(0.0F, -0.75F, -7.25F);
@@ -534,11 +534,11 @@ public class Forklift extends ModelBase {
         bone63.setRotationPoint(0.5F, -5.75F, -5.0F);
         bone57.addChild(bone63);
         setRotationAngle(bone63, -0.7854F, 0.0F, 0.0F);
-        bone63.cubeList.add(new ModelBox(bone63, 0, 50, -2.0F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
-        bone63.cubeList.add(new ModelBox(bone63, 35, 37, -2.0F, -1.0F, 2.0F, 2, 1, 1, 0.0F, false));
-        bone63.cubeList.add(new ModelBox(bone63, 11, 12, -1.5F, -0.6464F, 1.0F, 1, 2, 1, 0.0F, false));
-        bone63.cubeList.add(new ModelBox(bone63, 43, 18, -2.5F, -1.0F, 0.4F, 1, 1, 2, 0.0F, false));
-        bone63.cubeList.add(new ModelBox(bone63, 37, 18, -0.5F, -1.0F, 0.4F, 1, 1, 2, 0.0F, false));
+        bone63.cubeList.add(new ModelBox(bone63, 0, 50, -2.0F, -1, 0.0F, 2, 1, 1, 0.0F, false));
+        bone63.cubeList.add(new ModelBox(bone63, 35, 37, -2.0F, -1, 2.0F, 2, 1, 1, 0.0F, false));
+        bone63.cubeList.add(new ModelBox(bone63, 11, 12, -1.5F, -0.6464F, 1, 1, 2, 1, 0.0F, false));
+        bone63.cubeList.add(new ModelBox(bone63, 43, 18, -2.5F, -1, 0.4F, 1, 1, 2, 0.0F, false));
+        bone63.cubeList.add(new ModelBox(bone63, 37, 18, -0.5F, -1, 0.4F, 1, 1, 2, 0.0F, false));
     }
 
     @Override

@@ -33,12 +33,12 @@ public class ElectricBoxOpened extends ModelBase {
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(0.0F, 20.5F, 7.0F);
         setRotationAngle(bone2, 0.0F, -0.7854F, 0.0F);
-        bone2.cubeList.add(new ModelBox(bone2, 0, 49, -0.5F, -6.5F, -1.0F, 1, 13, 2, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 0, 49, -0.5F, -6.5F, -1, 1, 13, 2, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(0.0F, 20.5F, 7.0F);
         setRotationAngle(bone3, 0.0F, 0.7854F, 0.0F);
-        bone3.cubeList.add(new ModelBox(bone3, 20, 34, -0.5F, -6.5F, -1.0F, 1, 13, 2, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 20, 34, -0.5F, -6.5F, -1, 1, 13, 2, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(1.75F, 11.75F, 5.5F);
@@ -76,7 +76,7 @@ public class ElectricBoxOpened extends ModelBase {
         bone6.cubeList.add(new ModelBox(bone6, 6, 55, 0.25F, -20.75F, 5.5F, 3, 1, 2, 0.0F, false));
         bone6.cubeList.add(new ModelBox(bone6, 6, 49, -1.5F, -22.25F, 5.5F, 3, 1, 2, 0.0F, false));
         bone6.cubeList.add(new ModelBox(bone6, 0, 37, -4.0F, -24.0F, 4.0F, 8, 1, 2, 0.0F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 0, 34, -4.0F, -11.0F, 4.0F, 8, 1, 2, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 0, 34, -4.0F, -11, 4.0F, 8, 1, 2, 0.0F, false));
     }
 
     @Override

@@ -15,8 +15,8 @@ import java.util.function.Consumer;
 public class CustomTileEntityRenderer<T extends CustomTileEntity<?>>
         extends net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer<T> {
 
-    private static final float TRANSLATE_Y = 1.0F;
-    private static final float SCALE_FACTOR = 1.0F;
+    private static final float TRANSLATE_Y = 1;
+    private static final float SCALE_FACTOR = 1;
     private static final float ROTATION_ANGLE = 90f;
     private static final float MODEL_RENDER_SCALE = 0.0625f;
 
@@ -67,7 +67,7 @@ public class CustomTileEntityRenderer<T extends CustomTileEntity<?>>
      * @param posZ      The z position for rendering.
      */
     private void setupRenderingTransformations(T tileEntity, double posX, double posY, double posZ) {
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        GL11.glColor4f(1, 1, 1, 1);
         GL11.glTranslatef((float) posX, (float) posY + TRANSLATE_Y, (float) posZ + TRANSLATE_Y);
         GL11.glScalef(SCALE_FACTOR, -SCALE_FACTOR, -SCALE_FACTOR);
         GL11.glTranslatef(0.5F, 0.5F, 0.5F);

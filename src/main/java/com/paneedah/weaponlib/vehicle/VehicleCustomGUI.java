@@ -81,7 +81,7 @@ public class VehicleCustomGUI extends Gui {
         GlStateManager.disableDepth();
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
 
 
         double interpolatedAng = prevAngle + (angle - prevAngle) * MC.getRenderPartialTicks();
@@ -139,7 +139,7 @@ public class VehicleCustomGUI extends Gui {
 		GL11.glEnable(GL13.GL_MULTISAMPLE);
 		GL11.glHint(NVMultisampleFilterHint.GL_MULTISAMPLE_FILTER_HINT_NV, GL11.GL_NICEST);
 		System.out.println(GL11.glGetInteger(GL13.GL_SAMPLE_BUFFERS)); */
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
         Tessellator t = Tessellator.getInstance();
         BufferBuilder bb = t.getBuffer();
         double endAng = 0;
@@ -152,7 +152,7 @@ public class VehicleCustomGUI extends Gui {
             double sinI = -Math.sin(Math.toRadians(a)) * innerRadius;
 
             bb.pos(x + cos, y + sin, 0).color(red, green, blue, alpha).endVertex();
-            bb.pos(x + cosI, y + sinI, 0).color(red, green, blue, 1.0f).endVertex();
+            bb.pos(x + cosI, y + sinI, 0).color(red, green, blue, 1).endVertex();
 
             endAng = a;
         }
@@ -165,7 +165,7 @@ public class VehicleCustomGUI extends Gui {
             double sinI = -Math.sin(Math.toRadians(finishAngle)) * innerRadius;
 
             bb.pos(x + cos, y + sin, 0).color(red, green, blue, alpha).endVertex();
-            bb.pos(x + cosI, y + sinI, 0).color(red, green, blue, 1.0f).endVertex();
+            bb.pos(x + cosI, y + sinI, 0).color(red, green, blue, 1).endVertex();
         }
 
 
@@ -218,7 +218,7 @@ public class VehicleCustomGUI extends Gui {
         GL11.glPushMatrix();
         GlStateManager.disableTexture2D();
         GlStateManager.disableDepth();
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
         GL11.glTranslated(x + 6.5, y + 6.5, 0.0);
         GL11.glScaled(30.5, 30.5, 30.5);
 
@@ -233,7 +233,7 @@ public class VehicleCustomGUI extends Gui {
         // renderer knob
         ResourceLocation loc = new ResourceLocation(ID + ":textures/gui/caricons.png");
         MC.getTextureManager().bindTexture(loc);
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
         GL11.glTranslated(x + nX, y + nZ, 0);
         GL11.glScaled(0.8, 0.8, 0.8);
         drawTexturedModalRect(0, 0, 0, 0, 17, 17);

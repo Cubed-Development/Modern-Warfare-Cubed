@@ -182,7 +182,7 @@ public class MalyukFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
-                    GL11.glTranslatef(-0.06F, -1.18F, -1.0F);
+                    GL11.glTranslatef(-0.06F, -1.18F, -1);
                     GL11.glScaled(0.52F, 0.52F, 0.52F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -191,7 +191,7 @@ public class MalyukFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
-                    GL11.glTranslatef(-0.055F, -1.16F, -1.0F);
+                    GL11.glTranslatef(-0.055F, -1.16F, -1);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -200,7 +200,7 @@ public class MalyukFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
-                    GL11.glTranslatef(-0.035F, -1.25F, -1.0F);
+                    GL11.glTranslatef(-0.035F, -1.25F, -1);
                     GL11.glScaled(0.73F, 0.73F, 0.73F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -209,7 +209,7 @@ public class MalyukFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
-                    GL11.glTranslatef(-0.035F, -1.25F, -1.0F);
+                    GL11.glTranslatef(-0.035F, -1.25F, -1);
                     GL11.glScaled(0.73F, 0.73F, 0.73F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -233,7 +233,7 @@ public class MalyukFactory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
-                    GL11.glTranslatef(-0.33F, -1.44F, -1.0F);
+                    GL11.glTranslatef(-0.33F, -1.44F, -1);
                     GL11.glScaled(0.52F, 0.52F, 0.52F);
                 }, (model) -> {
                     if (model instanceof Holo2) {

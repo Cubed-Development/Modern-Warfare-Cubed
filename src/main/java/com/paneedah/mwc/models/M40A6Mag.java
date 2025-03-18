@@ -590,24 +590,24 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape718.cubeList.add(new ModelBox(Shape718, 44, 0, 0.0F, -0.001F, 0.0F, 1, 4, 1, 0.0F, false));
 
         Shape717 = new ModelRenderer(this);
-        Shape717.setRotationPoint(-1.0F, -40.6F, 14.0F);
+        Shape717.setRotationPoint(-1, -40.6F, 14.0F);
         chassis.addChild(Shape717);
         setRotationAngle(Shape717, 0.0F, 0.7854F, 0.0F);
         Shape717.cubeList.add(new ModelBox(Shape717, 44, 5, 0.0F, -0.001F, 0.0F, 1, 4, 1, 0.0F, false));
 
         Shape716 = new ModelRenderer(this);
-        Shape716.setRotationPoint(-1.0F, -40.6F, 16.0F);
+        Shape716.setRotationPoint(-1, -40.6F, 16.0F);
         chassis.addChild(Shape716);
         setRotationAngle(Shape716, 0.0F, 0.7854F, 0.0F);
         Shape716.cubeList.add(new ModelBox(Shape716, 20, 50, 0.0F, -0.001F, 0.0F, 1, 4, 1, 0.0F, false));
 
         Shape715 = new ModelRenderer(this);
-        Shape715.setRotationPoint(-1.0F, -40.6F, 14.0F);
+        Shape715.setRotationPoint(-1, -40.6F, 14.0F);
         chassis.addChild(Shape715);
         Shape715.cubeList.add(new ModelBox(Shape715, 88, 71, 0.0F, 0.0F, 0.0F, 5, 4, 2, 0.0F, false));
 
         Shape714 = new ModelRenderer(this);
-        Shape714.setRotationPoint(-0.5F, -41.0F, 12.0F);
+        Shape714.setRotationPoint(-0.5F, -41, 12.0F);
         chassis.addChild(Shape714);
         setRotationAngle(Shape714, -0.2231F, 0.0F, 0.0F);
         Shape714.cubeList.add(new ModelBox(Shape714, 49, 39, -0.001F, 0.0F, 0.0F, 4, 1, 4, 0.0F, false));
@@ -630,7 +630,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape711.cubeList.add(new ModelBox(Shape711, 0, 31, 0.0F, 0.0F, 0.0F, 6, 9, 10, 0.0F, false));
 
         Shape710 = new ModelRenderer(this);
-        Shape710.setRotationPoint(-1.0F, -40.0F, 27.0F);
+        Shape710.setRotationPoint(-1, -40.0F, 27.0F);
         chassis.addChild(Shape710);
         Shape710.cubeList.add(new ModelBox(Shape710, 88, 29, 0.0F, 0.0F, 0.0F, 5, 6, 2, 0.0F, false));
 
@@ -794,7 +794,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape683.cubeList.add(new ModelBox(Shape683, 45, 71, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape682 = new ModelRenderer(this);
-        Shape682.setRotationPoint(2.0F, -48.4F, 1.0F);
+        Shape682.setRotationPoint(2.0F, -48.4F, 1);
         chassis.addChild(Shape682);
         setRotationAngle(Shape682, 0.0F, 0.0F, 0.5949F);
         Shape682.cubeList.add(new ModelBox(Shape682, 58, 35, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
@@ -818,7 +818,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape679.cubeList.add(new ModelBox(Shape679, 32, 73, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape678 = new ModelRenderer(this);
-        Shape678.setRotationPoint(2.0F, -48.4F, -11.0F);
+        Shape678.setRotationPoint(2.0F, -48.4F, -11);
         chassis.addChild(Shape678);
         setRotationAngle(Shape678, 0.0F, 0.0F, 0.5949F);
         Shape678.cubeList.add(new ModelBox(Shape678, 45, 73, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -878,7 +878,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape669.cubeList.add(new ModelBox(Shape669, 76, 29, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape668 = new ModelRenderer(this);
-        Shape668.setRotationPoint(2.0F, -48.4F, -41.0F);
+        Shape668.setRotationPoint(2.0F, -48.4F, -41);
         chassis.addChild(Shape668);
         setRotationAngle(Shape668, 0.0F, 0.0F, 0.5949F);
         Shape668.cubeList.add(new ModelBox(Shape668, 76, 31, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -926,463 +926,463 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape661.cubeList.add(new ModelBox(Shape661, 76, 2, 1.001F, 0.0F, 0.0F, 0, 1, 65, 0.0F, false));
 
         Shape660 = new ModelRenderer(this);
-        Shape660.setRotationPoint(1.0F, -48.4F, -60.5F);
+        Shape660.setRotationPoint(1, -48.4F, -60.5F);
         chassis.addChild(Shape660);
         Shape660.cubeList.add(new ModelBox(Shape660, 0, 82, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape659 = new ModelRenderer(this);
-        Shape659.setRotationPoint(1.0F, -48.4F, -57.5F);
+        Shape659.setRotationPoint(1, -48.4F, -57.5F);
         chassis.addChild(Shape659);
         Shape659.cubeList.add(new ModelBox(Shape659, 82, 0, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape658 = new ModelRenderer(this);
-        Shape658.setRotationPoint(1.0F, -48.4F, -54.5F);
+        Shape658.setRotationPoint(1, -48.4F, -54.5F);
         chassis.addChild(Shape658);
         Shape658.cubeList.add(new ModelBox(Shape658, 82, 2, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape657 = new ModelRenderer(this);
-        Shape657.setRotationPoint(1.0F, -48.4F, -51.5F);
+        Shape657.setRotationPoint(1, -48.4F, -51.5F);
         chassis.addChild(Shape657);
         Shape657.cubeList.add(new ModelBox(Shape657, 82, 5, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape656 = new ModelRenderer(this);
-        Shape656.setRotationPoint(1.0F, -48.4F, -48.5F);
+        Shape656.setRotationPoint(1, -48.4F, -48.5F);
         chassis.addChild(Shape656);
         Shape656.cubeList.add(new ModelBox(Shape656, 6, 82, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape655 = new ModelRenderer(this);
-        Shape655.setRotationPoint(1.0F, -48.4F, -45.5F);
+        Shape655.setRotationPoint(1, -48.4F, -45.5F);
         chassis.addChild(Shape655);
         Shape655.cubeList.add(new ModelBox(Shape655, 82, 7, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape654 = new ModelRenderer(this);
-        Shape654.setRotationPoint(1.0F, -48.4F, -42.5F);
+        Shape654.setRotationPoint(1, -48.4F, -42.5F);
         chassis.addChild(Shape654);
         Shape654.cubeList.add(new ModelBox(Shape654, 82, 12, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape653 = new ModelRenderer(this);
-        Shape653.setRotationPoint(1.0F, -48.4F, -39.5F);
+        Shape653.setRotationPoint(1, -48.4F, -39.5F);
         chassis.addChild(Shape653);
         Shape653.cubeList.add(new ModelBox(Shape653, 82, 14, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape652 = new ModelRenderer(this);
-        Shape652.setRotationPoint(1.0F, -48.4F, -36.5F);
+        Shape652.setRotationPoint(1, -48.4F, -36.5F);
         chassis.addChild(Shape652);
         Shape652.cubeList.add(new ModelBox(Shape652, 82, 17, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape651 = new ModelRenderer(this);
-        Shape651.setRotationPoint(1.0F, -48.4F, -33.5F);
+        Shape651.setRotationPoint(1, -48.4F, -33.5F);
         chassis.addChild(Shape651);
         Shape651.cubeList.add(new ModelBox(Shape651, 82, 19, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape650 = new ModelRenderer(this);
-        Shape650.setRotationPoint(1.0F, -48.4F, -30.5F);
+        Shape650.setRotationPoint(1, -48.4F, -30.5F);
         chassis.addChild(Shape650);
         Shape650.cubeList.add(new ModelBox(Shape650, 82, 29, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape649 = new ModelRenderer(this);
-        Shape649.setRotationPoint(1.0F, -48.4F, -27.5F);
+        Shape649.setRotationPoint(1, -48.4F, -27.5F);
         chassis.addChild(Shape649);
         Shape649.cubeList.add(new ModelBox(Shape649, 82, 31, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape648 = new ModelRenderer(this);
-        Shape648.setRotationPoint(1.0F, -48.4F, -24.5F);
+        Shape648.setRotationPoint(1, -48.4F, -24.5F);
         chassis.addChild(Shape648);
         Shape648.cubeList.add(new ModelBox(Shape648, 82, 34, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape647 = new ModelRenderer(this);
-        Shape647.setRotationPoint(1.0F, -48.4F, -21.5F);
+        Shape647.setRotationPoint(1, -48.4F, -21.5F);
         chassis.addChild(Shape647);
         Shape647.cubeList.add(new ModelBox(Shape647, 82, 36, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape646 = new ModelRenderer(this);
-        Shape646.setRotationPoint(1.0F, -48.4F, -18.5F);
+        Shape646.setRotationPoint(1, -48.4F, -18.5F);
         chassis.addChild(Shape646);
         Shape646.cubeList.add(new ModelBox(Shape646, 82, 46, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape645 = new ModelRenderer(this);
-        Shape645.setRotationPoint(1.0F, -48.4F, -15.5F);
+        Shape645.setRotationPoint(1, -48.4F, -15.5F);
         chassis.addChild(Shape645);
         Shape645.cubeList.add(new ModelBox(Shape645, 82, 48, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape644 = new ModelRenderer(this);
-        Shape644.setRotationPoint(1.0F, -48.4F, -12.5F);
+        Shape644.setRotationPoint(1, -48.4F, -12.5F);
         chassis.addChild(Shape644);
         Shape644.cubeList.add(new ModelBox(Shape644, 72, 83, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape643 = new ModelRenderer(this);
-        Shape643.setRotationPoint(1.0F, -48.4F, -9.5F);
+        Shape643.setRotationPoint(1, -48.4F, -9.5F);
         chassis.addChild(Shape643);
         Shape643.cubeList.add(new ModelBox(Shape643, 78, 83, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape642 = new ModelRenderer(this);
-        Shape642.setRotationPoint(1.0F, -48.4F, -6.5F);
+        Shape642.setRotationPoint(1, -48.4F, -6.5F);
         chassis.addChild(Shape642);
         Shape642.cubeList.add(new ModelBox(Shape642, 0, 84, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape641 = new ModelRenderer(this);
-        Shape641.setRotationPoint(1.0F, -48.4F, -3.5F);
+        Shape641.setRotationPoint(1, -48.4F, -3.5F);
         chassis.addChild(Shape641);
         Shape641.cubeList.add(new ModelBox(Shape641, 6, 84, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape640 = new ModelRenderer(this);
-        Shape640.setRotationPoint(1.0F, -48.4F, -0.5F);
+        Shape640.setRotationPoint(1, -48.4F, -0.5F);
         chassis.addChild(Shape640);
         Shape640.cubeList.add(new ModelBox(Shape640, 72, 86, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape639 = new ModelRenderer(this);
-        Shape639.setRotationPoint(1.0F, -48.4F, 1.0F);
+        Shape639.setRotationPoint(1, -48.4F, 1);
         chassis.addChild(Shape639);
         Shape639.cubeList.add(new ModelBox(Shape639, 58, 54, 0.0F, 0.0F, 0.001F, 1, 1, 2, 0.0F, false));
 
         Shape638 = new ModelRenderer(this);
-        Shape638.setRotationPoint(1.0F, -48.4F, -2.0F);
+        Shape638.setRotationPoint(1, -48.4F, -2.0F);
         chassis.addChild(Shape638);
         Shape638.cubeList.add(new ModelBox(Shape638, 78, 86, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape637 = new ModelRenderer(this);
-        Shape637.setRotationPoint(1.0F, -48.4F, -5.0F);
+        Shape637.setRotationPoint(1, -48.4F, -5.0F);
         chassis.addChild(Shape637);
         Shape637.cubeList.add(new ModelBox(Shape637, 0, 87, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape636 = new ModelRenderer(this);
-        Shape636.setRotationPoint(1.0F, -48.4F, -8.0F);
+        Shape636.setRotationPoint(1, -48.4F, -8.0F);
         chassis.addChild(Shape636);
         Shape636.cubeList.add(new ModelBox(Shape636, 6, 87, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape635 = new ModelRenderer(this);
-        Shape635.setRotationPoint(1.0F, -48.4F, -11.0F);
+        Shape635.setRotationPoint(1, -48.4F, -11);
         chassis.addChild(Shape635);
         Shape635.cubeList.add(new ModelBox(Shape635, 88, 8, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape634 = new ModelRenderer(this);
-        Shape634.setRotationPoint(1.0F, -48.4F, -14.0F);
+        Shape634.setRotationPoint(1, -48.4F, -14.0F);
         chassis.addChild(Shape634);
         Shape634.cubeList.add(new ModelBox(Shape634, 88, 20, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape633 = new ModelRenderer(this);
-        Shape633.setRotationPoint(1.0F, -48.4F, -17.0F);
+        Shape633.setRotationPoint(1, -48.4F, -17.0F);
         chassis.addChild(Shape633);
         Shape633.cubeList.add(new ModelBox(Shape633, 88, 37, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape632 = new ModelRenderer(this);
-        Shape632.setRotationPoint(1.0F, -48.4F, -20.0F);
+        Shape632.setRotationPoint(1, -48.4F, -20.0F);
         chassis.addChild(Shape632);
         Shape632.cubeList.add(new ModelBox(Shape632, 88, 41, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape631 = new ModelRenderer(this);
-        Shape631.setRotationPoint(1.0F, -48.4F, -23.0F);
+        Shape631.setRotationPoint(1, -48.4F, -23.0F);
         chassis.addChild(Shape631);
         Shape631.cubeList.add(new ModelBox(Shape631, 88, 43, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape630 = new ModelRenderer(this);
-        Shape630.setRotationPoint(1.0F, -48.4F, -26.0F);
+        Shape630.setRotationPoint(1, -48.4F, -26.0F);
         chassis.addChild(Shape630);
         Shape630.cubeList.add(new ModelBox(Shape630, 88, 68, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape629 = new ModelRenderer(this);
-        Shape629.setRotationPoint(1.0F, -48.4F, -29.0F);
+        Shape629.setRotationPoint(1, -48.4F, -29.0F);
         chassis.addChild(Shape629);
         Shape629.cubeList.add(new ModelBox(Shape629, 72, 88, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape628 = new ModelRenderer(this);
-        Shape628.setRotationPoint(1.0F, -48.4F, -32.0F);
+        Shape628.setRotationPoint(1, -48.4F, -32.0F);
         chassis.addChild(Shape628);
         Shape628.cubeList.add(new ModelBox(Shape628, 88, 77, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape627 = new ModelRenderer(this);
-        Shape627.setRotationPoint(1.0F, -48.4F, -35.0F);
+        Shape627.setRotationPoint(1, -48.4F, -35.0F);
         chassis.addChild(Shape627);
         Shape627.cubeList.add(new ModelBox(Shape627, 78, 88, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape626 = new ModelRenderer(this);
-        Shape626.setRotationPoint(1.0F, -48.4F, -38.0F);
+        Shape626.setRotationPoint(1, -48.4F, -38.0F);
         chassis.addChild(Shape626);
         Shape626.cubeList.add(new ModelBox(Shape626, 0, 89, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape625 = new ModelRenderer(this);
-        Shape625.setRotationPoint(1.0F, -48.4F, -41.0F);
+        Shape625.setRotationPoint(1, -48.4F, -41);
         chassis.addChild(Shape625);
         Shape625.cubeList.add(new ModelBox(Shape625, 6, 89, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape624 = new ModelRenderer(this);
-        Shape624.setRotationPoint(1.0F, -48.4F, -44.0F);
+        Shape624.setRotationPoint(1, -48.4F, -44.0F);
         chassis.addChild(Shape624);
         Shape624.cubeList.add(new ModelBox(Shape624, 32, 90, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape623 = new ModelRenderer(this);
-        Shape623.setRotationPoint(1.0F, -48.4F, -47.0F);
+        Shape623.setRotationPoint(1, -48.4F, -47.0F);
         chassis.addChild(Shape623);
         Shape623.cubeList.add(new ModelBox(Shape623, 38, 90, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape622 = new ModelRenderer(this);
-        Shape622.setRotationPoint(1.0F, -48.4F, -50.0F);
+        Shape622.setRotationPoint(1, -48.4F, -50.0F);
         chassis.addChild(Shape622);
         Shape622.cubeList.add(new ModelBox(Shape622, 44, 90, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape621 = new ModelRenderer(this);
-        Shape621.setRotationPoint(1.0F, -48.4F, -53.0F);
+        Shape621.setRotationPoint(1, -48.4F, -53.0F);
         chassis.addChild(Shape621);
         Shape621.cubeList.add(new ModelBox(Shape621, 66, 90, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape620 = new ModelRenderer(this);
-        Shape620.setRotationPoint(1.0F, -48.4F, -56.0F);
+        Shape620.setRotationPoint(1, -48.4F, -56.0F);
         chassis.addChild(Shape620);
         Shape620.cubeList.add(new ModelBox(Shape620, 91, 58, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape619 = new ModelRenderer(this);
-        Shape619.setRotationPoint(1.0F, -48.4F, -59.0F);
+        Shape619.setRotationPoint(1, -48.4F, -59.0F);
         chassis.addChild(Shape619);
         Shape619.cubeList.add(new ModelBox(Shape619, 91, 60, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape618 = new ModelRenderer(this);
-        Shape618.setRotationPoint(1.0F, -48.4F, -60.5F);
+        Shape618.setRotationPoint(1, -48.4F, -60.5F);
         chassis.addChild(Shape618);
         setRotationAngle(Shape618, 0.0F, 0.0F, 1.0038F);
         Shape618.cubeList.add(new ModelBox(Shape618, 92, 8, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape616 = new ModelRenderer(this);
-        Shape616.setRotationPoint(1.0F, -48.4F, -54.5F);
+        Shape616.setRotationPoint(1, -48.4F, -54.5F);
         chassis.addChild(Shape616);
         setRotationAngle(Shape616, 0.0F, 0.0F, 1.0038F);
         Shape616.cubeList.add(new ModelBox(Shape616, 24, 92, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape617 = new ModelRenderer(this);
-        Shape617.setRotationPoint(1.0F, -48.4F, -57.5F);
+        Shape617.setRotationPoint(1, -48.4F, -57.5F);
         chassis.addChild(Shape617);
         setRotationAngle(Shape617, 0.0F, 0.0F, 1.0038F);
         Shape617.cubeList.add(new ModelBox(Shape617, 92, 20, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape615 = new ModelRenderer(this);
-        Shape615.setRotationPoint(1.0F, -48.4F, -51.5F);
+        Shape615.setRotationPoint(1, -48.4F, -51.5F);
         chassis.addChild(Shape615);
         setRotationAngle(Shape615, 0.0F, 0.0F, 1.0038F);
         Shape615.cubeList.add(new ModelBox(Shape615, 32, 92, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape614 = new ModelRenderer(this);
-        Shape614.setRotationPoint(1.0F, -48.4F, -48.5F);
+        Shape614.setRotationPoint(1, -48.4F, -48.5F);
         chassis.addChild(Shape614);
         setRotationAngle(Shape614, 0.0F, 0.0F, 1.0038F);
         Shape614.cubeList.add(new ModelBox(Shape614, 92, 37, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape613 = new ModelRenderer(this);
-        Shape613.setRotationPoint(1.0F, -48.4F, -45.5F);
+        Shape613.setRotationPoint(1, -48.4F, -45.5F);
         chassis.addChild(Shape613);
         setRotationAngle(Shape613, 0.0F, 0.0F, 1.0038F);
         Shape613.cubeList.add(new ModelBox(Shape613, 38, 92, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape612 = new ModelRenderer(this);
-        Shape612.setRotationPoint(1.0F, -48.4F, -42.5F);
+        Shape612.setRotationPoint(1, -48.4F, -42.5F);
         chassis.addChild(Shape612);
         setRotationAngle(Shape612, 0.0F, 0.0F, 1.0038F);
         Shape612.cubeList.add(new ModelBox(Shape612, 44, 92, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape611 = new ModelRenderer(this);
-        Shape611.setRotationPoint(1.0F, -48.4F, -39.5F);
+        Shape611.setRotationPoint(1, -48.4F, -39.5F);
         chassis.addChild(Shape611);
         setRotationAngle(Shape611, 0.0F, 0.0F, 1.0038F);
         Shape611.cubeList.add(new ModelBox(Shape611, 92, 68, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape610 = new ModelRenderer(this);
-        Shape610.setRotationPoint(1.0F, -48.4F, -36.5F);
+        Shape610.setRotationPoint(1, -48.4F, -36.5F);
         chassis.addChild(Shape610);
         setRotationAngle(Shape610, 0.0F, 0.0F, 1.0038F);
         Shape610.cubeList.add(new ModelBox(Shape610, 92, 77, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape609 = new ModelRenderer(this);
-        Shape609.setRotationPoint(1.0F, -48.4F, -33.5F);
+        Shape609.setRotationPoint(1, -48.4F, -33.5F);
         chassis.addChild(Shape609);
         setRotationAngle(Shape609, 0.0F, 0.0F, 1.0038F);
         Shape609.cubeList.add(new ModelBox(Shape609, 72, 93, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape608 = new ModelRenderer(this);
-        Shape608.setRotationPoint(1.0F, -48.4F, -30.5F);
+        Shape608.setRotationPoint(1, -48.4F, -30.5F);
         chassis.addChild(Shape608);
         setRotationAngle(Shape608, 0.0F, 0.0F, 1.0038F);
         Shape608.cubeList.add(new ModelBox(Shape608, 85, 93, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape607 = new ModelRenderer(this);
-        Shape607.setRotationPoint(1.0F, -48.4F, -27.5F);
+        Shape607.setRotationPoint(1, -48.4F, -27.5F);
         chassis.addChild(Shape607);
         setRotationAngle(Shape607, 0.0F, 0.0F, 1.0038F);
         Shape607.cubeList.add(new ModelBox(Shape607, 26, 94, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape606 = new ModelRenderer(this);
-        Shape606.setRotationPoint(1.0F, -48.4F, -24.5F);
+        Shape606.setRotationPoint(1, -48.4F, -24.5F);
         chassis.addChild(Shape606);
         setRotationAngle(Shape606, 0.0F, 0.0F, 1.0038F);
         Shape606.cubeList.add(new ModelBox(Shape606, 66, 95, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape605 = new ModelRenderer(this);
-        Shape605.setRotationPoint(1.0F, -48.4F, -21.5F);
+        Shape605.setRotationPoint(1, -48.4F, -21.5F);
         chassis.addChild(Shape605);
         setRotationAngle(Shape605, 0.0F, 0.0F, 1.0038F);
         Shape605.cubeList.add(new ModelBox(Shape605, 72, 95, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape604 = new ModelRenderer(this);
-        Shape604.setRotationPoint(1.0F, -48.4F, -18.5F);
+        Shape604.setRotationPoint(1, -48.4F, -18.5F);
         chassis.addChild(Shape604);
         setRotationAngle(Shape604, 0.0F, 0.0F, 1.0038F);
         Shape604.cubeList.add(new ModelBox(Shape604, 85, 95, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape603 = new ModelRenderer(this);
-        Shape603.setRotationPoint(1.0F, -48.4F, -15.5F);
+        Shape603.setRotationPoint(1, -48.4F, -15.5F);
         chassis.addChild(Shape603);
         setRotationAngle(Shape603, 0.0F, 0.0F, 1.0038F);
         Shape603.cubeList.add(new ModelBox(Shape603, 96, 20, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape602 = new ModelRenderer(this);
-        Shape602.setRotationPoint(1.0F, -48.4F, -12.5F);
+        Shape602.setRotationPoint(1, -48.4F, -12.5F);
         chassis.addChild(Shape602);
         setRotationAngle(Shape602, 0.0F, 0.0F, 1.0038F);
         Shape602.cubeList.add(new ModelBox(Shape602, 26, 96, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape601 = new ModelRenderer(this);
-        Shape601.setRotationPoint(1.0F, -48.4F, -9.5F);
+        Shape601.setRotationPoint(1, -48.4F, -9.5F);
         chassis.addChild(Shape601);
         setRotationAngle(Shape601, 0.0F, 0.0F, 1.0038F);
         Shape601.cubeList.add(new ModelBox(Shape601, 96, 37, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape600 = new ModelRenderer(this);
-        Shape600.setRotationPoint(1.0F, -48.4F, -6.5F);
+        Shape600.setRotationPoint(1, -48.4F, -6.5F);
         chassis.addChild(Shape600);
         setRotationAngle(Shape600, 0.0F, 0.0F, 1.0038F);
         Shape600.cubeList.add(new ModelBox(Shape600, 96, 54, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape599 = new ModelRenderer(this);
-        Shape599.setRotationPoint(1.0F, -48.4F, -3.5F);
+        Shape599.setRotationPoint(1, -48.4F, -3.5F);
         chassis.addChild(Shape599);
         setRotationAngle(Shape599, 0.0F, 0.0F, 1.0038F);
         Shape599.cubeList.add(new ModelBox(Shape599, 96, 68, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape598 = new ModelRenderer(this);
-        Shape598.setRotationPoint(1.0F, -48.4F, -0.5F);
+        Shape598.setRotationPoint(1, -48.4F, -0.5F);
         chassis.addChild(Shape598);
         setRotationAngle(Shape598, 0.0F, 0.0F, 1.0038F);
         Shape598.cubeList.add(new ModelBox(Shape598, 66, 97, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape597 = new ModelRenderer(this);
-        Shape597.setRotationPoint(1.0F, -48.4F, 1.0F);
+        Shape597.setRotationPoint(1, -48.4F, 1);
         chassis.addChild(Shape597);
         setRotationAngle(Shape597, 0.0F, 0.0F, 1.0038F);
         Shape597.cubeList.add(new ModelBox(Shape597, 17, 60, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         Shape596 = new ModelRenderer(this);
-        Shape596.setRotationPoint(1.0F, -48.4F, -2.0F);
+        Shape596.setRotationPoint(1, -48.4F, -2.0F);
         chassis.addChild(Shape596);
         setRotationAngle(Shape596, 0.0F, 0.0F, 1.0038F);
         Shape596.cubeList.add(new ModelBox(Shape596, 26, 98, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape595 = new ModelRenderer(this);
-        Shape595.setRotationPoint(1.0F, -48.4F, -5.0F);
+        Shape595.setRotationPoint(1, -48.4F, -5.0F);
         chassis.addChild(Shape595);
         setRotationAngle(Shape595, 0.0F, 0.0F, 1.0038F);
         Shape595.cubeList.add(new ModelBox(Shape595, 98, 39, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape594 = new ModelRenderer(this);
-        Shape594.setRotationPoint(1.0F, -48.4F, -8.0F);
+        Shape594.setRotationPoint(1, -48.4F, -8.0F);
         chassis.addChild(Shape594);
         setRotationAngle(Shape594, 0.0F, 0.0F, 1.0038F);
         Shape594.cubeList.add(new ModelBox(Shape594, 98, 93, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape593 = new ModelRenderer(this);
-        Shape593.setRotationPoint(1.0F, -48.4F, -11.0F);
+        Shape593.setRotationPoint(1, -48.4F, -11);
         chassis.addChild(Shape593);
         setRotationAngle(Shape593, 0.0F, 0.0F, 1.0038F);
         Shape593.cubeList.add(new ModelBox(Shape593, 98, 95, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape592 = new ModelRenderer(this);
-        Shape592.setRotationPoint(1.0F, -48.4F, -14.0F);
+        Shape592.setRotationPoint(1, -48.4F, -14.0F);
         chassis.addChild(Shape592);
         setRotationAngle(Shape592, 0.0F, 0.0F, 1.0038F);
         Shape592.cubeList.add(new ModelBox(Shape592, 98, 97, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape591 = new ModelRenderer(this);
-        Shape591.setRotationPoint(1.0F, -48.4F, -17.0F);
+        Shape591.setRotationPoint(1, -48.4F, -17.0F);
         chassis.addChild(Shape591);
         setRotationAngle(Shape591, 0.0F, 0.0F, 1.0038F);
         Shape591.cubeList.add(new ModelBox(Shape591, 54, 99, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape590 = new ModelRenderer(this);
-        Shape590.setRotationPoint(1.0F, -48.4F, -20.0F);
+        Shape590.setRotationPoint(1, -48.4F, -20.0F);
         chassis.addChild(Shape590);
         setRotationAngle(Shape590, 0.0F, 0.0F, 1.0038F);
         Shape590.cubeList.add(new ModelBox(Shape590, 58, 99, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape589 = new ModelRenderer(this);
-        Shape589.setRotationPoint(1.0F, -48.4F, -23.0F);
+        Shape589.setRotationPoint(1, -48.4F, -23.0F);
         chassis.addChild(Shape589);
         setRotationAngle(Shape589, 0.0F, 0.0F, 1.0038F);
         Shape589.cubeList.add(new ModelBox(Shape589, 66, 99, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape588 = new ModelRenderer(this);
-        Shape588.setRotationPoint(1.0F, -48.4F, -26.0F);
+        Shape588.setRotationPoint(1, -48.4F, -26.0F);
         chassis.addChild(Shape588);
         setRotationAngle(Shape588, 0.0F, 0.0F, 1.0038F);
         Shape588.cubeList.add(new ModelBox(Shape588, 72, 99, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape587 = new ModelRenderer(this);
-        Shape587.setRotationPoint(1.0F, -48.4F, -29.0F);
+        Shape587.setRotationPoint(1, -48.4F, -29.0F);
         chassis.addChild(Shape587);
         setRotationAngle(Shape587, 0.0F, 0.0F, 1.0038F);
         Shape587.cubeList.add(new ModelBox(Shape587, 76, 99, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape586 = new ModelRenderer(this);
-        Shape586.setRotationPoint(1.0F, -48.4F, -32.0F);
+        Shape586.setRotationPoint(1, -48.4F, -32.0F);
         chassis.addChild(Shape586);
         setRotationAngle(Shape586, 0.0F, 0.0F, 1.0038F);
         Shape586.cubeList.add(new ModelBox(Shape586, 100, 68, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape585 = new ModelRenderer(this);
-        Shape585.setRotationPoint(1.0F, -48.4F, -35.0F);
+        Shape585.setRotationPoint(1, -48.4F, -35.0F);
         chassis.addChild(Shape585);
         setRotationAngle(Shape585, 0.0F, 0.0F, 1.0038F);
         Shape585.cubeList.add(new ModelBox(Shape585, 12, 102, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape584 = new ModelRenderer(this);
-        Shape584.setRotationPoint(1.0F, -48.4F, -38.0F);
+        Shape584.setRotationPoint(1, -48.4F, -38.0F);
         chassis.addChild(Shape584);
         setRotationAngle(Shape584, 0.0F, 0.0F, 1.0038F);
         Shape584.cubeList.add(new ModelBox(Shape584, 84, 102, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape583 = new ModelRenderer(this);
-        Shape583.setRotationPoint(1.0F, -48.4F, -41.0F);
+        Shape583.setRotationPoint(1, -48.4F, -41);
         chassis.addChild(Shape583);
         setRotationAngle(Shape583, 0.0F, 0.0F, 1.0038F);
         Shape583.cubeList.add(new ModelBox(Shape583, 12, 104, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape582 = new ModelRenderer(this);
-        Shape582.setRotationPoint(1.0F, -48.4F, -44.0F);
+        Shape582.setRotationPoint(1, -48.4F, -44.0F);
         chassis.addChild(Shape582);
         setRotationAngle(Shape582, 0.0F, 0.0F, 1.0038F);
         Shape582.cubeList.add(new ModelBox(Shape582, 104, 58, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape581 = new ModelRenderer(this);
-        Shape581.setRotationPoint(1.0F, -48.4F, -47.0F);
+        Shape581.setRotationPoint(1, -48.4F, -47.0F);
         chassis.addChild(Shape581);
         setRotationAngle(Shape581, 0.0F, 0.0F, 1.0038F);
         Shape581.cubeList.add(new ModelBox(Shape581, 104, 60, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape580 = new ModelRenderer(this);
-        Shape580.setRotationPoint(1.0F, -48.4F, -50.0F);
+        Shape580.setRotationPoint(1, -48.4F, -50.0F);
         chassis.addChild(Shape580);
         setRotationAngle(Shape580, 0.0F, 0.0F, 1.0038F);
         Shape580.cubeList.add(new ModelBox(Shape580, 104, 68, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape579 = new ModelRenderer(this);
-        Shape579.setRotationPoint(1.0F, -48.4F, -53.0F);
+        Shape579.setRotationPoint(1, -48.4F, -53.0F);
         chassis.addChild(Shape579);
         setRotationAngle(Shape579, 0.0F, 0.0F, 1.0038F);
         Shape579.cubeList.add(new ModelBox(Shape579, 84, 104, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape578 = new ModelRenderer(this);
-        Shape578.setRotationPoint(1.0F, -48.4F, -56.0F);
+        Shape578.setRotationPoint(1, -48.4F, -56.0F);
         chassis.addChild(Shape578);
         setRotationAngle(Shape578, 0.0F, 0.0F, 1.0038F);
         Shape578.cubeList.add(new ModelBox(Shape578, 104, 98, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape577 = new ModelRenderer(this);
-        Shape577.setRotationPoint(1.0F, -48.4F, -62.0F);
+        Shape577.setRotationPoint(1, -48.4F, -62.0F);
         chassis.addChild(Shape577);
         setRotationAngle(Shape577, 0.0F, 0.0F, 1.0038F);
         Shape577.cubeList.add(new ModelBox(Shape577, 0, 0, 0.0F, 1.001F, 0.0F, 1, 0, 65, 0.0F, false));
@@ -1394,18 +1394,18 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape576.cubeList.add(new ModelBox(Shape576, 19, 105, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape575 = new ModelRenderer(this);
-        Shape575.setRotationPoint(1.0F, -48.4F, -62.0F);
+        Shape575.setRotationPoint(1, -48.4F, -62.0F);
         chassis.addChild(Shape575);
         Shape575.cubeList.add(new ModelBox(Shape575, 105, 29, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape574 = new ModelRenderer(this);
-        Shape574.setRotationPoint(1.0F, -48.4F, -59.0F);
+        Shape574.setRotationPoint(1, -48.4F, -59.0F);
         chassis.addChild(Shape574);
         setRotationAngle(Shape574, 0.0F, 0.0F, 1.0038F);
         Shape574.cubeList.add(new ModelBox(Shape574, 105, 31, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape573 = new ModelRenderer(this);
-        Shape573.setRotationPoint(1.0F, -48.4F, -62.0F);
+        Shape573.setRotationPoint(1, -48.4F, -62.0F);
         chassis.addChild(Shape573);
         setRotationAngle(Shape573, 0.0F, 0.0F, 1.0038F);
         Shape573.cubeList.add(new ModelBox(Shape573, 105, 42, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -1684,13 +1684,13 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape525.cubeList.add(new ModelBox(Shape525, 105, 49, 0.0F, 0.0F, 0.0F, 3, 1, 2, 0.0F, false));
 
         Shape524 = new ModelRenderer(this);
-        Shape524.setRotationPoint(5.1F, -42.6F, -61.0F);
+        Shape524.setRotationPoint(5.1F, -42.6F, -61);
         chassis.addChild(Shape524);
         setRotationAngle(Shape524, 0.0F, 0.0F, 2.4784F);
         Shape524.cubeList.add(new ModelBox(Shape524, 105, 52, 0.0F, 0.0F, 0.0F, 3, 1, 2, 0.0F, false));
 
         Shape523 = new ModelRenderer(this);
-        Shape523.setRotationPoint(2.5F, -40.6F, -61.0F);
+        Shape523.setRotationPoint(2.5F, -40.6F, -61);
         chassis.addChild(Shape523);
         setRotationAngle(Shape523, 0.0F, 0.0F, -1.9722F);
         Shape523.cubeList.add(new ModelBox(Shape523, 212, 201, 0.0F, 0.0F, -0.001F, 1, 1, 35, 0.0F, false));
@@ -1762,19 +1762,19 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape512.cubeList.add(new ModelBox(Shape512, 24, 9, 0.0F, 0.0F, 0.0F, 1, 3, 2, 0.0F, false));
 
         Shape511 = new ModelRenderer(this);
-        Shape511.setRotationPoint(0.5F, -40.6F, -61.0F);
+        Shape511.setRotationPoint(0.5F, -40.6F, -61);
         chassis.addChild(Shape511);
         setRotationAngle(Shape511, 0.0F, 0.0F, -2.7884F);
         Shape511.cubeList.add(new ModelBox(Shape511, 230, 0, 0.0F, 0.0F, -0.001F, 1, 1, 35, 0.0F, false));
 
         Shape510 = new ModelRenderer(this);
-        Shape510.setRotationPoint(-2.1F, -42.6F, -61.0F);
+        Shape510.setRotationPoint(-2.1F, -42.6F, -61);
         chassis.addChild(Shape510);
         setRotationAngle(Shape510, 0.0F, 0.0F, -0.8923F);
         Shape510.cubeList.add(new ModelBox(Shape510, 48, 45, 0.0F, 0.0F, 0.0F, 1, 3, 2, 0.0F, false));
 
         Shape509 = new ModelRenderer(this);
-        Shape509.setRotationPoint(0.5F, -41.6F, -61.0F);
+        Shape509.setRotationPoint(0.5F, -41.6F, -61);
         chassis.addChild(Shape509);
         Shape509.cubeList.add(new ModelBox(Shape509, 41, 211, 0.0F, 0.0F, 0.0F, 2, 1, 35, 0.0F, false));
 
@@ -1912,22 +1912,22 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape483.setRotationPoint(2.5F, -47.0F, -39.5F);
         chassis.addChild(Shape483);
         setRotationAngle(Shape483, 0.0F, 0.0F, 0.4461F);
-        Shape483.cubeList.add(new ModelBox(Shape483, 84, 115, 1.0F, 0.001F, 5.0F, 1, 1, 1, 0.0F, false));
+        Shape483.cubeList.add(new ModelBox(Shape483, 84, 115, 1, 0.001F, 5.0F, 1, 1, 1, 0.0F, false));
 
         Shape482 = new ModelRenderer(this);
         Shape482.setRotationPoint(2.5F, -47.0F, -30.5F);
         chassis.addChild(Shape482);
         setRotationAngle(Shape482, 0.0F, 0.0F, 0.4461F);
-        Shape482.cubeList.add(new ModelBox(Shape482, 93, 115, 1.0F, 0.001F, 4.5F, 1, 1, 1, 0.0F, false));
+        Shape482.cubeList.add(new ModelBox(Shape482, 93, 115, 1, 0.001F, 4.5F, 1, 1, 1, 0.0F, false));
 
         Shape481 = new ModelRenderer(this);
         Shape481.setRotationPoint(2.5F, -47.0F, -30.5F);
         chassis.addChild(Shape481);
         setRotationAngle(Shape481, 0.0F, 0.0F, 0.4461F);
-        Shape481.cubeList.add(new ModelBox(Shape481, 110, 115, 1.0F, 0.001F, 1.5F, 1, 1, 1, 0.0F, false));
+        Shape481.cubeList.add(new ModelBox(Shape481, 110, 115, 1, 0.001F, 1.5F, 1, 1, 1, 0.0F, false));
 
         Shape480 = new ModelRenderer(this);
-        Shape480.setRotationPoint(0.5F, -47.0F, -31.0F);
+        Shape480.setRotationPoint(0.5F, -47.0F, -31);
         chassis.addChild(Shape480);
         setRotationAngle(Shape480, 0.0F, 0.0F, 1.0782F);
         Shape480.cubeList.add(new ModelBox(Shape480, 114, 115, 0.001F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -1936,19 +1936,19 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape479.setRotationPoint(0.5F, -47.0F, -26.0F);
         chassis.addChild(Shape479);
         setRotationAngle(Shape479, 0.0F, 0.0F, 1.0782F);
-        Shape479.cubeList.add(new ModelBox(Shape479, 0, 116, 0.001F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        Shape479.cubeList.add(new ModelBox(Shape479, 0, 116, 0.001F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape478 = new ModelRenderer(this);
         Shape478.setRotationPoint(0.5F, -47.0F, -29.0F);
         chassis.addChild(Shape478);
         setRotationAngle(Shape478, 0.0F, 0.0F, 1.0782F);
-        Shape478.cubeList.add(new ModelBox(Shape478, 116, 0, 0.001F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        Shape478.cubeList.add(new ModelBox(Shape478, 116, 0, 0.001F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape477 = new ModelRenderer(this);
         Shape477.setRotationPoint(0.5F, -47.0F, -34.5F);
         chassis.addChild(Shape477);
         setRotationAngle(Shape477, 0.0F, 0.0F, 1.0782F);
-        Shape477.cubeList.add(new ModelBox(Shape477, 116, 3, 0.001F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        Shape477.cubeList.add(new ModelBox(Shape477, 116, 3, 0.001F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape476 = new ModelRenderer(this);
         Shape476.setRotationPoint(5.1F, -45.1F, -53.5F);
@@ -2026,13 +2026,13 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape464.setRotationPoint(2.5F, -47.0F, -36.0F);
         chassis.addChild(Shape464);
         setRotationAngle(Shape464, 0.0F, 0.0F, 0.4461F);
-        Shape464.cubeList.add(new ModelBox(Shape464, 76, 0, -0.5F, -0.001F, 1.0F, 1, 2, 10, 0.0F, false));
+        Shape464.cubeList.add(new ModelBox(Shape464, 76, 0, -0.5F, -0.001F, 1, 1, 2, 10, 0.0F, false));
 
         Shape463 = new ModelRenderer(this);
         Shape463.setRotationPoint(2.5F, -47.0F, -36.0F);
         chassis.addChild(Shape463);
         setRotationAngle(Shape463, 0.0F, 0.0F, 0.4461F);
-        Shape463.cubeList.add(new ModelBox(Shape463, 76, 12, 1.5F, -0.001F, 1.0F, 1, 2, 10, 0.0F, false));
+        Shape463.cubeList.add(new ModelBox(Shape463, 76, 12, 1.5F, -0.001F, 1, 1, 2, 10, 0.0F, false));
 
         Shape462 = new ModelRenderer(this);
         Shape462.setRotationPoint(2.5F, -47.0F, -25.5F);
@@ -2119,7 +2119,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape449.cubeList.add(new ModelBox(Shape449, 63, 81, 0.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         Shape448 = new ModelRenderer(this);
-        Shape448.setRotationPoint(5.1F, -45.1F, -61.0F);
+        Shape448.setRotationPoint(5.1F, -45.1F, -61);
         chassis.addChild(Shape448);
         setRotationAngle(Shape448, 0.0F, 0.0F, 2.1991F);
         Shape448.cubeList.add(new ModelBox(Shape448, 49, 15, 0.0F, 0.0F, 0.0F, 1, 3, 2, 0.0F, false));
@@ -2252,7 +2252,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape423.cubeList.add(new ModelBox(Shape423, 22, 31, 0.001F, 0.0F, 0.0F, 4, 6, 1, 0.0F, false));
 
         Shape422 = new ModelRenderer(this);
-        Shape422.setRotationPoint(-1.3F, -41.6F, -1.0F);
+        Shape422.setRotationPoint(-1.3F, -41.6F, -1);
         chassis.addChild(Shape422);
         Shape422.cubeList.add(new ModelBox(Shape422, 116, 96, 0.001F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -2362,7 +2362,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape410.cubeList.add(new ModelBox(Shape410, 117, 47, -0.001F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape408 = new ModelRenderer(this);
-        Shape408.setRotationPoint(-2.1F, -45.1F, -61.0F);
+        Shape408.setRotationPoint(-2.1F, -45.1F, -61);
         chassis.addChild(Shape408);
         setRotationAngle(Shape408, 0.0F, 0.0F, -0.6367F);
         Shape408.cubeList.add(new ModelBox(Shape408, 106, 19, 0.0F, 0.0F, 0.0F, 3, 1, 2, 0.0F, false));
@@ -2492,7 +2492,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape377 = new ModelRenderer(this);
         Shape377.setRotationPoint(-0.5F, -41.9F, 1.5F);
         chassis.addChild(Shape377);
-        Shape377.cubeList.add(new ModelBox(Shape377, 0, 71, 1.0F, 0.8F, 0.5F, 2, 1, 10, 0.0F, false));
+        Shape377.cubeList.add(new ModelBox(Shape377, 0, 71, 1, 0.8F, 0.5F, 2, 1, 10, 0.0F, false));
 
         Shape376 = new ModelRenderer(this);
         Shape376.setRotationPoint(-0.51F, -42.0F, 9.5F);
@@ -2538,10 +2538,10 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape369.setRotationPoint(-0.5F, -42.0F, 5.5F);
         chassis.addChild(Shape369);
         Shape369.cubeList.add(new ModelBox(Shape369, 72, 129, 0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
-        Shape369.cubeList.add(new ModelBox(Shape369, 180, 106, 1.0F, 0.2F, 0.0F, 2, 1, 5, 0.0F, false));
+        Shape369.cubeList.add(new ModelBox(Shape369, 180, 106, 1, 0.2F, 0.0F, 2, 1, 5, 0.0F, false));
 
         Shape141 = new ModelRenderer(this);
-        Shape141.setRotationPoint(1.0F, -34.0F, 36.8F);
+        Shape141.setRotationPoint(1, -34.0F, 36.8F);
         chassis.addChild(Shape141);
         Shape141.cubeList.add(new ModelBox(Shape141, 14, 0, 0.0F, 0.0F, 0.0F, 1, 5, 2, 0.0F, false));
 
@@ -2566,37 +2566,37 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape8.cubeList.add(new ModelBox(Shape8, 92, 91, 0.0F, 0.0F, 0.0F, 1, 7, 2, 0.0F, false));
 
         Shape128 = new ModelRenderer(this);
-        Shape128.setRotationPoint(-1.0F, -34.5F, 42.4F);
+        Shape128.setRotationPoint(-1, -34.5F, 42.4F);
         chassis.addChild(Shape128);
         Shape128.cubeList.add(new ModelBox(Shape128, 110, 121, 0.0F, 0.0F, 0.001F, 5, 3, 3, 0.0F, false));
 
         Shape127 = new ModelRenderer(this);
         Shape127.setRotationPoint(0.6F, -31.4F, 42.4F);
         chassis.addChild(Shape127);
-        Shape127.cubeList.add(new ModelBox(Shape127, 52, 71, 0.0F, -1.0F, 0.002F, 1, 3, 3, 0.0F, false));
+        Shape127.cubeList.add(new ModelBox(Shape127, 52, 71, 0.0F, -1, 0.002F, 1, 3, 3, 0.0F, false));
 
         Shape126 = new ModelRenderer(this);
         Shape126.setRotationPoint(1.4F, -31.4F, 42.4F);
         chassis.addChild(Shape126);
-        Shape126.cubeList.add(new ModelBox(Shape126, 62, 71, 0.0F, -1.0F, 0.003F, 1, 3, 3, 0.0F, false));
+        Shape126.cubeList.add(new ModelBox(Shape126, 62, 71, 0.0F, -1, 0.003F, 1, 3, 3, 0.0F, false));
 
         Shape125 = new ModelRenderer(this);
         Shape125.setRotationPoint(-0.1F, -31.5F, 42.4F);
         chassis.addChild(Shape125);
         setRotationAngle(Shape125, 0.0F, 0.0F, -0.7854F);
-        Shape125.cubeList.add(new ModelBox(Shape125, 32, 95, -1.0F, 0.0F, -0.001F, 2, 2, 3, 0.0F, false));
+        Shape125.cubeList.add(new ModelBox(Shape125, 32, 95, -1, 0.0F, -0.001F, 2, 2, 3, 0.0F, false));
 
         Shape124 = new ModelRenderer(this);
         Shape124.setRotationPoint(3.1F, -31.5F, 42.4F);
         chassis.addChild(Shape124);
         setRotationAngle(Shape124, 0.0F, 0.0F, 0.7854F);
-        Shape124.cubeList.add(new ModelBox(Shape124, 0, 102, -1.0F, 0.0F, -0.001F, 2, 2, 3, 0.0F, false));
+        Shape124.cubeList.add(new ModelBox(Shape124, 0, 102, -1, 0.0F, -0.001F, 2, 2, 3, 0.0F, false));
 
         Shape123 = new ModelRenderer(this);
         Shape123.setRotationPoint(-0.8F, -33.0F, 42.4F);
         chassis.addChild(Shape123);
         setRotationAngle(Shape123, 0.0F, 0.0F, -0.4712F);
-        Shape123.cubeList.add(new ModelBox(Shape123, 84, 81, -1.0F, 0.0F, -0.002F, 1, 2, 3, 0.0F, false));
+        Shape123.cubeList.add(new ModelBox(Shape123, 84, 81, -1, 0.0F, -0.002F, 1, 2, 3, 0.0F, false));
 
         Shape122 = new ModelRenderer(this);
         Shape122.setRotationPoint(3.8F, -33.0F, 42.4F);
@@ -2605,10 +2605,10 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape122.cubeList.add(new ModelBox(Shape122, 61, 90, 0.0F, 0.0F, -0.002F, 1, 2, 3, 0.0F, false));
 
         Shape121 = new ModelRenderer(this);
-        Shape121.setRotationPoint(-1.0F, -34.7F, 42.4F);
+        Shape121.setRotationPoint(-1, -34.7F, 42.4F);
         chassis.addChild(Shape121);
         setRotationAngle(Shape121, 0.0F, 0.0F, -0.1571F);
-        Shape121.cubeList.add(new ModelBox(Shape121, 94, 78, -1.0F, 0.0F, -0.001F, 1, 2, 3, 0.0F, false));
+        Shape121.cubeList.add(new ModelBox(Shape121, 94, 78, -1, 0.0F, -0.001F, 1, 2, 3, 0.0F, false));
 
         Shape120 = new ModelRenderer(this);
         Shape120.setRotationPoint(4.0F, -34.7F, 42.4F);
@@ -2622,7 +2622,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape119.cubeList.add(new ModelBox(Shape119, 0, 66, 0.001F, 0.0F, 0.001F, 7, 1, 3, 0.0F, false));
 
         Shape116 = new ModelRenderer(this);
-        Shape116.setRotationPoint(1.0F, -47.3F, 42.4F);
+        Shape116.setRotationPoint(1, -47.3F, 42.4F);
         chassis.addChild(Shape116);
         Shape116.cubeList.add(new ModelBox(Shape116, 0, 50, 0.0F, 0.0F, 0.001F, 1, 4, 3, 0.0F, false));
 
@@ -2630,7 +2630,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape115.setRotationPoint(1.3F, -46.3F, 42.4F);
         chassis.addChild(Shape115);
         setRotationAngle(Shape115, 0.0F, 0.0F, 1.4137F);
-        Shape115.cubeList.add(new ModelBox(Shape115, 76, 24, -1.0F, 0.0F, -0.001F, 4, 1, 3, 0.0F, false));
+        Shape115.cubeList.add(new ModelBox(Shape115, 76, 24, -1, 0.0F, -0.001F, 4, 1, 3, 0.0F, false));
 
         Shape114 = new ModelRenderer(this);
         Shape114.setRotationPoint(1.7F, -46.3F, 42.4F);
@@ -2642,7 +2642,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape113.setRotationPoint(0.6F, -46.2F, 42.4F);
         chassis.addChild(Shape113);
         setRotationAngle(Shape113, 0.0F, 0.0F, 1.0996F);
-        Shape113.cubeList.add(new ModelBox(Shape113, 0, 124, -1.0F, 0.0F, -0.002F, 3, 1, 3, 0.0F, false));
+        Shape113.cubeList.add(new ModelBox(Shape113, 0, 124, -1, 0.0F, -0.002F, 3, 1, 3, 0.0F, false));
 
         Shape112 = new ModelRenderer(this);
         Shape112.setRotationPoint(2.4F, -46.2F, 42.4F);
@@ -2654,19 +2654,19 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape111.setRotationPoint(0.0F, -46.0F, 42.4F);
         chassis.addChild(Shape111);
         setRotationAngle(Shape111, 0.0F, 0.0F, 0.7854F);
-        Shape111.cubeList.add(new ModelBox(Shape111, 0, 77, -1.0F, 0.0F, 0.0F, 2, 1, 3, 0.0F, false));
+        Shape111.cubeList.add(new ModelBox(Shape111, 0, 77, -1, 0.0F, 0.0F, 2, 1, 3, 0.0F, false));
 
         Shape110 = new ModelRenderer(this);
         Shape110.setRotationPoint(3.0F, -46.0F, 42.4F);
         chassis.addChild(Shape110);
         setRotationAngle(Shape110, 0.0F, 0.0F, -0.7854F);
-        Shape110.cubeList.add(new ModelBox(Shape110, 104, 90, -1.0F, 0.0F, 0.0F, 2, 1, 3, 0.0F, false));
+        Shape110.cubeList.add(new ModelBox(Shape110, 104, 90, -1, 0.0F, 0.0F, 2, 1, 3, 0.0F, false));
 
         Shape107 = new ModelRenderer(this);
         Shape107.setRotationPoint(-0.9F, -45.0F, 42.4F);
         chassis.addChild(Shape107);
         setRotationAngle(Shape107, 0.0F, 0.0F, 0.1571F);
-        Shape107.cubeList.add(new ModelBox(Shape107, 40, 124, -1.0F, 0.0F, 0.002F, 3, 1, 3, 0.0F, false));
+        Shape107.cubeList.add(new ModelBox(Shape107, 40, 124, -1, 0.0F, 0.002F, 3, 1, 3, 0.0F, false));
 
         Shape109 = new ModelRenderer(this);
         Shape109.setRotationPoint(3.9F, -45.0F, 42.4F);
@@ -2678,13 +2678,13 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape108.setRotationPoint(3.5F, -45.6F, 42.4F);
         chassis.addChild(Shape108);
         setRotationAngle(Shape108, 0.0F, 0.0F, -0.4712F);
-        Shape108.cubeList.add(new ModelBox(Shape108, 104, 94, -1.0F, 0.0F, 0.001F, 2, 1, 3, 0.0F, false));
+        Shape108.cubeList.add(new ModelBox(Shape108, 104, 94, -1, 0.0F, 0.001F, 2, 1, 3, 0.0F, false));
 
         Shape106 = new ModelRenderer(this);
         Shape106.setRotationPoint(-0.5F, -45.6F, 42.4F);
         chassis.addChild(Shape106);
         setRotationAngle(Shape106, 0.0F, 0.0F, 0.4712F);
-        Shape106.cubeList.add(new ModelBox(Shape106, 105, 45, -1.0F, 0.0F, 0.001F, 2, 1, 3, 0.0F, false));
+        Shape106.cubeList.add(new ModelBox(Shape106, 105, 45, -1, 0.0F, 0.001F, 2, 1, 3, 0.0F, false));
 
         Shape105 = new ModelRenderer(this);
         Shape105.setRotationPoint(0.6F, -38.5F, 42.4F);
@@ -2761,28 +2761,28 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape91.setRotationPoint(1.3F, -44.3F, 32.9F);
         chassis.addChild(Shape91);
         setRotationAngle(Shape91, 0.0F, 0.0F, 1.4137F);
-        Shape91.cubeList.add(new ModelBox(Shape91, 117, 45, -1.0F, 0.0F, 0.001F, 1, 1, 9, 0.0F, false));
+        Shape91.cubeList.add(new ModelBox(Shape91, 117, 45, -1, 0.0F, 0.001F, 1, 1, 9, 0.0F, false));
 
         Shape89 = new ModelRenderer(this);
         Shape89.setRotationPoint(0.6F, -44.2F, 32.9F);
         chassis.addChild(Shape89);
         setRotationAngle(Shape89, 0.0F, 0.0F, 1.0996F);
-        Shape89.cubeList.add(new ModelBox(Shape89, 12, 130, -1.0F, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        Shape89.cubeList.add(new ModelBox(Shape89, 12, 130, -1, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
 
         Shape87 = new ModelRenderer(this);
         Shape87.setRotationPoint(0.0F, -43.9F, 32.9F);
         chassis.addChild(Shape87);
         setRotationAngle(Shape87, 0.0F, 0.0F, 0.7854F);
-        Shape87.cubeList.add(new ModelBox(Shape87, 140, 106, -1.0F, 0.0F, 0.001F, 1, 1, 9, 0.0F, false));
+        Shape87.cubeList.add(new ModelBox(Shape87, 140, 106, -1, 0.0F, 0.001F, 1, 1, 9, 0.0F, false));
 
         Shape85 = new ModelRenderer(this);
         Shape85.setRotationPoint(-0.5F, -43.4F, 32.9F);
         chassis.addChild(Shape85);
         setRotationAngle(Shape85, 0.0F, 0.0F, 0.4712F);
-        Shape85.cubeList.add(new ModelBox(Shape85, 140, 120, -1.0F, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        Shape85.cubeList.add(new ModelBox(Shape85, 140, 120, -1, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
 
         Shape83 = new ModelRenderer(this);
-        Shape83.setRotationPoint(1.0F, -45.3F, 32.9F);
+        Shape83.setRotationPoint(1, -45.3F, 32.9F);
         chassis.addChild(Shape83);
         Shape83.cubeList.add(new ModelBox(Shape83, 0, 144, 0.0F, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
 
@@ -2790,7 +2790,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape82.setRotationPoint(-0.8F, -42.8F, 32.9F);
         chassis.addChild(Shape82);
         setRotationAngle(Shape82, 0.0F, 0.0F, 0.1571F);
-        Shape82.cubeList.add(new ModelBox(Shape82, 29, 144, -1.0F, 0.0F, 0.001F, 1, 1, 9, 0.0F, false));
+        Shape82.cubeList.add(new ModelBox(Shape82, 29, 144, -1, 0.0F, 0.001F, 1, 1, 9, 0.0F, false));
 
         Shape80 = new ModelRenderer(this);
         Shape80.setRotationPoint(4.0F, -42.0F, 32.9F);
@@ -2889,7 +2889,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape21.cubeList.add(new ModelBox(Shape21, 172, 43, 0.002F, 0.0F, 0.0F, 4, 3, 19, 0.0F, false));
 
         Shape6 = new ModelRenderer(this);
-        Shape6.setRotationPoint(-0.5F, -40.5F, -1.0F);
+        Shape6.setRotationPoint(-0.5F, -40.5F, -1);
         chassis.addChild(Shape6);
         Shape6.cubeList.add(new ModelBox(Shape6, 60, 247, 0.0F, 0.0F, 0.0F, 4, 4, 20, 0.0F, false));
 
@@ -3020,7 +3020,7 @@ public class M40A6Mag extends ModelWithAttachments {
         BoltAction27.cubeList.add(new ModelBox(BoltAction27, 238, 238, 0.0F, -0.001F, -0.002F, 1, 1, 24, 0.0F, false));
 
         BoltAction26 = new ModelRenderer(this);
-        BoltAction26.setRotationPoint(1.0F, -45.2F, 8.0F);
+        BoltAction26.setRotationPoint(1, -45.2F, 8.0F);
         boltaction.addChild(BoltAction26);
         setRotationAngle(BoltAction26, 0.0F, 0.0F, 0.7854F);
         BoltAction26.cubeList.add(new ModelBox(BoltAction26, 0, 113, 0.0F, 0.0F, -0.001F, 1, 1, 2, 0.0F, false));
@@ -3032,7 +3032,7 @@ public class M40A6Mag extends ModelWithAttachments {
         BoltAction24.cubeList.add(new ModelBox(BoltAction24, 113, 40, 0.0F, 0.0F, -0.001F, 1, 1, 2, 0.0F, false));
 
         BoltAction23 = new ModelRenderer(this);
-        BoltAction23.setRotationPoint(1.0F, -41.8F, 8.0F);
+        BoltAction23.setRotationPoint(1, -41.8F, 8.0F);
         boltaction.addChild(BoltAction23);
         setRotationAngle(BoltAction23, 0.0F, 0.0F, -2.3562F);
         BoltAction23.cubeList.add(new ModelBox(BoltAction23, 72, 113, 0.0F, 0.0F, -0.001F, 1, 1, 2, 0.0F, false));
@@ -3043,7 +3043,7 @@ public class M40A6Mag extends ModelWithAttachments {
         BoltAction22.cubeList.add(new ModelBox(BoltAction22, 4, 114, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         BoltAction21 = new ModelRenderer(this);
-        BoltAction21.setRotationPoint(1.0F, -42.8F, 8.0F);
+        BoltAction21.setRotationPoint(1, -42.8F, 8.0F);
         boltaction.addChild(BoltAction21);
         BoltAction21.cubeList.add(new ModelBox(BoltAction21, 114, 11, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
@@ -3053,7 +3053,7 @@ public class M40A6Mag extends ModelWithAttachments {
         BoltAction20.cubeList.add(new ModelBox(BoltAction20, 19, 114, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         BoltAction19 = new ModelRenderer(this);
-        BoltAction19.setRotationPoint(1.0F, -45.2F, 8.0F);
+        BoltAction19.setRotationPoint(1, -45.2F, 8.0F);
         boltaction.addChild(BoltAction19);
         BoltAction19.cubeList.add(new ModelBox(BoltAction19, 114, 74, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
@@ -3082,7 +3082,7 @@ public class M40A6Mag extends ModelWithAttachments {
         BoltAction15.cubeList.add(new ModelBox(BoltAction15, 50, 117, 0.0F, -0.001F, 0.001F, 1, 1, 1, 0.0F, false));
 
         BoltAction14 = new ModelRenderer(this);
-        BoltAction14.setRotationPoint(1.0F, -41.3F, 7.0F);
+        BoltAction14.setRotationPoint(1, -41.3F, 7.0F);
         boltaction.addChild(BoltAction14);
         setRotationAngle(BoltAction14, 0.0F, 0.0F, -2.3562F);
         BoltAction14.cubeList.add(new ModelBox(BoltAction14, 117, 51, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
@@ -3100,18 +3100,18 @@ public class M40A6Mag extends ModelWithAttachments {
         BoltAction12.cubeList.add(new ModelBox(BoltAction12, 58, 0, 0.0F, 0.0F, 0.001F, 2, 1, 1, 0.0F, false));
 
         BoltAction11 = new ModelRenderer(this);
-        BoltAction11.setRotationPoint(1.0F, -45.7F, 7.0F);
+        BoltAction11.setRotationPoint(1, -45.7F, 7.0F);
         boltaction.addChild(BoltAction11);
         setRotationAngle(BoltAction11, 0.0F, 0.0F, 0.7854F);
         BoltAction11.cubeList.add(new ModelBox(BoltAction11, 34, 58, 0.0F, 0.0F, 0.002F, 1, 2, 1, 0.0F, false));
 
         BoltAction10 = new ModelRenderer(this);
-        BoltAction10.setRotationPoint(1.0F, -42.3F, 7.0F);
+        BoltAction10.setRotationPoint(1, -42.3F, 7.0F);
         boltaction.addChild(BoltAction10);
         BoltAction10.cubeList.add(new ModelBox(BoltAction10, 63, 117, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         BoltAction9 = new ModelRenderer(this);
-        BoltAction9.setRotationPoint(1.0F, -45.7F, 7.0F);
+        BoltAction9.setRotationPoint(1, -45.7F, 7.0F);
         boltaction.addChild(BoltAction9);
         BoltAction9.cubeList.add(new ModelBox(BoltAction9, 75, 117, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -3132,7 +3132,7 @@ public class M40A6Mag extends ModelWithAttachments {
         BoltAction6.cubeList.add(new ModelBox(BoltAction6, 0, 170, 0.0F, 0.0F, 0.001F, 1, 2, 24, 0.0F, false));
 
         BoltAction5 = new ModelRenderer(this);
-        BoltAction5.setRotationPoint(1.0F, -41.5F, -17.0F);
+        BoltAction5.setRotationPoint(1, -41.5F, -17.0F);
         boltaction.addChild(BoltAction5);
         setRotationAngle(BoltAction5, 0.0F, 0.0F, -2.3562F);
         BoltAction5.cubeList.add(new ModelBox(BoltAction5, 144, 41, 0.0F, 0.0F, 0.001F, 2, 1, 24, 0.0F, false));
@@ -3144,13 +3144,13 @@ public class M40A6Mag extends ModelWithAttachments {
         BoltAction4.cubeList.add(new ModelBox(BoltAction4, 144, 166, 0.0F, 0.0F, 0.0F, 2, 1, 24, 0.0F, false));
 
         BoltAction3 = new ModelRenderer(this);
-        BoltAction3.setRotationPoint(1.0F, -45.5F, -17.0F);
+        BoltAction3.setRotationPoint(1, -45.5F, -17.0F);
         boltaction.addChild(BoltAction3);
         setRotationAngle(BoltAction3, 0.0F, 0.0F, 0.7854F);
         BoltAction3.cubeList.add(new ModelBox(BoltAction3, 80, 211, 0.0F, 0.0F, 0.0F, 1, 2, 24, 0.0F, false));
 
         BoltAction2 = new ModelRenderer(this);
-        BoltAction2.setRotationPoint(1.0F, -45.5F, -17.0F);
+        BoltAction2.setRotationPoint(1, -45.5F, -17.0F);
         boltaction.addChild(BoltAction2);
         BoltAction2.cubeList.add(new ModelBox(BoltAction2, 144, 138, 0.0F, 0.0F, 0.0F, 1, 4, 24, 0.0F, false));
 
@@ -3218,7 +3218,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape292.cubeList.add(new ModelBox(Shape292, 72, 102, 0.0F, 0.0F, -0.001F, 1, 1, 10, 0.0F, false));
 
         Shape291 = new ModelRenderer(this);
-        Shape291.setRotationPoint(1.0F, -42.2F, -110.0F);
+        Shape291.setRotationPoint(1, -42.2F, -110.0F);
         gun.addChild(Shape291);
         setRotationAngle(Shape291, 0.0F, 0.0F, -2.3562F);
         Shape291.cubeList.add(new ModelBox(Shape291, 104, 90, 0.0F, 0.0F, -0.002F, 1, 1, 10, 0.0F, false));
@@ -3254,7 +3254,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape286.cubeList.add(new ModelBox(Shape286, 105, 45, 0.0F, 0.0F, -0.001F, 1, 1, 10, 0.0F, false));
 
         Shape285 = new ModelRenderer(this);
-        Shape285.setRotationPoint(1.0F, -45.8F, -110.0F);
+        Shape285.setRotationPoint(1, -45.8F, -110.0F);
         gun.addChild(Shape285);
         setRotationAngle(Shape285, 0.0F, 0.0F, 0.7854F);
         Shape285.cubeList.add(new ModelBox(Shape285, 106, 16, 0.0F, 0.0F, -0.002F, 1, 1, 10, 0.0F, false));
@@ -3324,12 +3324,12 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape274.cubeList.add(new ModelBox(Shape274, 6, 120, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         Shape272 = new ModelRenderer(this);
-        Shape272.setRotationPoint(1.0F, -43.2F, -110.0F);
+        Shape272.setRotationPoint(1, -43.2F, -110.0F);
         gun.addChild(Shape272);
         Shape272.cubeList.add(new ModelBox(Shape272, 0, 113, 0.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
 
         Shape271 = new ModelRenderer(this);
-        Shape271.setRotationPoint(1.0F, -45.8F, -110.0F);
+        Shape271.setRotationPoint(1, -45.8F, -110.0F);
         gun.addChild(Shape271);
         Shape271.cubeList.add(new ModelBox(Shape271, 72, 113, 0.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
 
@@ -3340,7 +3340,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape262.cubeList.add(new ModelBox(Shape262, 118, 17, 0.001F, 0.0F, -0.001F, 1, 1, 10, 0.0F, false));
 
         Shape261 = new ModelRenderer(this);
-        Shape261.setRotationPoint(1.0F, -42.5F, -100.0F);
+        Shape261.setRotationPoint(1, -42.5F, -100.0F);
         gun.addChild(Shape261);
         setRotationAngle(Shape261, 0.0F, 0.0F, -2.3562F);
         Shape261.cubeList.add(new ModelBox(Shape261, 116, 121, 0.0F, -0.001F, -0.001F, 1, 1, 10, 0.0F, false));
@@ -3376,7 +3376,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape256.cubeList.add(new ModelBox(Shape256, 140, 79, 0.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
 
         Shape255 = new ModelRenderer(this);
-        Shape255.setRotationPoint(1.0F, -45.5F, -100.0F);
+        Shape255.setRotationPoint(1, -45.5F, -100.0F);
         gun.addChild(Shape255);
         setRotationAngle(Shape255, 0.0F, 0.0F, 0.7854F);
         Shape255.cubeList.add(new ModelBox(Shape255, 140, 95, 0.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
@@ -3387,30 +3387,30 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape254.cubeList.add(new ModelBox(Shape254, 0, 0, 0.0F, 0.0F, 0.0F, 3, 1, 70, 0.0F, false));
 
         Shape253 = new ModelRenderer(this);
-        Shape253.setRotationPoint(1.0F, -45.5F, -100.0F);
+        Shape253.setRotationPoint(1, -45.5F, -100.0F);
         gun.addChild(Shape253);
         Shape253.cubeList.add(new ModelBox(Shape253, 0, 71, 0.0F, 0.0F, 0.0F, 1, 3, 70, 0.0F, false));
 
         Shape258_r1 = new ModelRenderer(this);
-        Shape258_r1.setRotationPoint(-1.0F, 2.0F, 0.0F);
+        Shape258_r1.setRotationPoint(-1, 2.0F, 0.0F);
         Shape253.addChild(Shape258_r1);
         setRotationAngle(Shape258_r1, 0.0F, 0.0F, 0.5585F);
-        Shape258_r1.cubeList.add(new ModelBox(Shape258_r1, 72, 71, 0.0F, -1.0F, 4.0F, 1, 1, 66, 0.0F, false));
+        Shape258_r1.cubeList.add(new ModelBox(Shape258_r1, 72, 71, 0.0F, -1, 4.0F, 1, 1, 66, 0.0F, false));
 
         Shape257_r1 = new ModelRenderer(this);
         Shape257_r1.setRotationPoint(2.0F, 2.0F, 0.0F);
         Shape253.addChild(Shape257_r1);
         setRotationAngle(Shape257_r1, 0.0F, 0.0F, -0.5585F);
-        Shape257_r1.cubeList.add(new ModelBox(Shape257_r1, 76, 138, -1.0F, -1.0F, 4.0F, 1, 1, 66, 0.0F, false));
+        Shape257_r1.cubeList.add(new ModelBox(Shape257_r1, 76, 138, -1, -1, 4.0F, 1, 1, 66, 0.0F, false));
 
         Shape256_r1 = new ModelRenderer(this);
-        Shape256_r1.setRotationPoint(2.0F, 1.0F, 0.0F);
+        Shape256_r1.setRotationPoint(2.0F, 1, 0.0F);
         Shape253.addChild(Shape256_r1);
         setRotationAngle(Shape256_r1, 0.0F, 0.0F, 0.5585F);
-        Shape256_r1.cubeList.add(new ModelBox(Shape256_r1, 0, 144, -1.0F, 0.0F, 4.0F, 1, 1, 66, 0.0F, false));
+        Shape256_r1.cubeList.add(new ModelBox(Shape256_r1, 0, 144, -1, 0.0F, 4.0F, 1, 1, 66, 0.0F, false));
 
         Shape255_r1 = new ModelRenderer(this);
-        Shape255_r1.setRotationPoint(-1.0F, 1.0F, 0.0F);
+        Shape255_r1.setRotationPoint(-1, 1, 0.0F);
         Shape253.addChild(Shape255_r1);
         setRotationAngle(Shape255_r1, 0.0F, 0.0F, -0.5585F);
         Shape255_r1.cubeList.add(new ModelBox(Shape255_r1, 144, 201, 0.0F, 0.0F, 4.0F, 1, 1, 66, 0.0F, false));
@@ -3419,19 +3419,19 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape257_r2.setRotationPoint(0.0F, 3.0F, 0.0F);
         Shape253.addChild(Shape257_r2);
         setRotationAngle(Shape257_r2, 0.0F, 0.0F, -0.5585F);
-        Shape257_r2.cubeList.add(new ModelBox(Shape257_r2, 76, 0, 0.0F, -1.0F, 4.0F, 1, 1, 66, 0.0F, false));
+        Shape257_r2.cubeList.add(new ModelBox(Shape257_r2, 76, 0, 0.0F, -1, 4.0F, 1, 1, 66, 0.0F, false));
 
         Shape256_r2 = new ModelRenderer(this);
-        Shape256_r2.setRotationPoint(1.0F, 3.0F, 0.0F);
+        Shape256_r2.setRotationPoint(1, 3.0F, 0.0F);
         Shape253.addChild(Shape256_r2);
         setRotationAngle(Shape256_r2, 0.0F, 0.0F, 0.5585F);
-        Shape256_r2.cubeList.add(new ModelBox(Shape256_r2, 140, 67, -1.0F, -1.0F, 4.0F, 1, 1, 66, 0.0F, false));
+        Shape256_r2.cubeList.add(new ModelBox(Shape256_r2, 140, 67, -1, -1, 4.0F, 1, 1, 66, 0.0F, false));
 
         Shape255_r2 = new ModelRenderer(this);
-        Shape255_r2.setRotationPoint(1.0F, 0.0F, 0.0F);
+        Shape255_r2.setRotationPoint(1, 0.0F, 0.0F);
         Shape253.addChild(Shape255_r2);
         setRotationAngle(Shape255_r2, 0.0F, 0.0F, -0.5585F);
-        Shape255_r2.cubeList.add(new ModelBox(Shape255_r2, 144, 134, -1.0F, 0.0F, 4.0F, 1, 1, 66, 0.0F, false));
+        Shape255_r2.cubeList.add(new ModelBox(Shape255_r2, 144, 134, -1, 0.0F, 4.0F, 1, 1, 66, 0.0F, false));
 
         Shape254_r1 = new ModelRenderer(this);
         Shape254_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -3457,13 +3457,13 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape382.cubeList.add(new ModelBox(Shape382, 188, 1, 0.0F, 0.0F, -0.001F, 1, 2, 40, 0.0F, false));
 
         Shape49 = new ModelRenderer(this);
-        Shape49.setRotationPoint(1.0F, -46.0F, -3.0F);
+        Shape49.setRotationPoint(1, -46.0F, -3.0F);
         gun.addChild(Shape49);
         setRotationAngle(Shape49, 0.0F, 0.0F, 0.7854F);
         Shape49.cubeList.add(new ModelBox(Shape49, 49, 15, 0.0F, 0.0F, 0.0F, 1, 2, 7, 0.0F, false));
 
         Shape379 = new ModelRenderer(this);
-        Shape379.setRotationPoint(1.0F, -46.0F, -3.0F);
+        Shape379.setRotationPoint(1, -46.0F, -3.0F);
         gun.addChild(Shape379);
         setRotationAngle(Shape379, 0.0F, 0.0F, 0.7854F);
         Shape379.cubeList.add(new ModelBox(Shape379, 120, 102, 0.001F, 1.5F, -0.001F, 1, 1, 7, 0.0F, false));
@@ -3491,13 +3491,13 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape4133.cubeList.add(new ModelBox(Shape4133, 97, 4, 0.001F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         Shape378 = new ModelRenderer(this);
-        Shape378.setRotationPoint(1.0F, -46.0F, -37.0F);
+        Shape378.setRotationPoint(1, -46.0F, -37.0F);
         gun.addChild(Shape378);
         setRotationAngle(Shape378, 0.0F, 0.0F, 0.7854F);
         Shape378.cubeList.add(new ModelBox(Shape378, 92, 181, 0.0F, 0.0F, 0.0F, 1, 2, 20, 0.0F, false));
 
         Shape380 = new ModelRenderer(this);
-        Shape380.setRotationPoint(1.0F, -46.0F, -37.0F);
+        Shape380.setRotationPoint(1, -46.0F, -37.0F);
         gun.addChild(Shape380);
         setRotationAngle(Shape380, 0.0F, 0.0F, 0.7854F);
         Shape380.cubeList.add(new ModelBox(Shape380, 22, 252, 0.001F, 1.5F, -0.001F, 1, 1, 20, 0.0F, false));
@@ -3508,24 +3508,24 @@ public class M40A6Mag extends ModelWithAttachments {
         Shape383.cubeList.add(new ModelBox(Shape383, 0, 251, 0.0F, 0.0F, 0.0F, 1, 1, 20, 0.0F, false));
 
         Shape17 = new ModelRenderer(this);
-        Shape17.setRotationPoint(1.0F, -32.8F, -3.5F);
+        Shape17.setRotationPoint(1, -32.8F, -3.5F);
         gun.addChild(Shape17);
         setRotationAngle(Shape17, 0.1571F, 0.0F, 0.0F);
         Shape17.cubeList.add(new ModelBox(Shape17, 97, 11, -0.5F, 0.0F, 0.0F, 2, 3, 1, 0.0F, false));
 
         Shape14 = new ModelRenderer(this);
-        Shape14.setRotationPoint(1.0F, -35.0F, 3.8F);
+        Shape14.setRotationPoint(1, -35.0F, 3.8F);
         gun.addChild(Shape14);
         setRotationAngle(Shape14, -0.4189F, 0.0F, 0.0F);
         Shape14.cubeList.add(new ModelBox(Shape14, 120, 48, 0.001F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape13 = new ModelRenderer(this);
-        Shape13.setRotationPoint(1.0F, -35.6F, 3.7F);
+        Shape13.setRotationPoint(1, -35.6F, 3.7F);
         gun.addChild(Shape13);
         Shape13.cubeList.add(new ModelBox(Shape13, 120, 50, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         Shape12 = new ModelRenderer(this);
-        Shape12.setRotationPoint(1.0F, -37.0F, 3.0F);
+        Shape12.setRotationPoint(1, -37.0F, 3.0F);
         gun.addChild(Shape12);
         setRotationAngle(Shape12, 0.4189F, 0.0F, 0.0F);
         Shape12.cubeList.add(new ModelBox(Shape12, 60, 2, 0.001F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
@@ -3533,12 +3533,12 @@ public class M40A6Mag extends ModelWithAttachments {
         Grip17 = new ModelRenderer(this);
         Grip17.setRotationPoint(2.0F, -36.5F, 9.0F);
         gun.addChild(Grip17);
-        Grip17.cubeList.add(new ModelBox(Grip17, 12, 102, 0.001F, 0.0F, -1.0F, 1, 4, 5, 0.0F, false));
+        Grip17.cubeList.add(new ModelBox(Grip17, 12, 102, 0.001F, 0.0F, -1, 1, 4, 5, 0.0F, false));
 
         Grip16 = new ModelRenderer(this);
         Grip16.setRotationPoint(0.0F, -36.5F, 9.0F);
         gun.addChild(Grip16);
-        Grip16.cubeList.add(new ModelBox(Grip16, 84, 102, -0.003F, 0.0F, -1.0F, 1, 4, 5, 0.0F, false));
+        Grip16.cubeList.add(new ModelBox(Grip16, 84, 102, -0.003F, 0.0F, -1, 1, 4, 5, 0.0F, false));
 
         Grip15 = new ModelRenderer(this);
         Grip15.setRotationPoint(2.0F, -32.7F, 8.9F);
@@ -3597,13 +3597,13 @@ public class M40A6Mag extends ModelWithAttachments {
         Grip3.setRotationPoint(0.0F, -25.0F, 13.8F);
         gun.addChild(Grip3);
         setRotationAngle(Grip3, 0.2269F, 0.0F, 0.0F);
-        Grip3.cubeList.add(new ModelBox(Grip3, 20, 60, 0.002F, -1.0F, 0.0F, 3, 2, 3, 0.0F, false));
+        Grip3.cubeList.add(new ModelBox(Grip3, 20, 60, 0.002F, -1, 0.0F, 3, 2, 3, 0.0F, false));
 
         Grip2 = new ModelRenderer(this);
         Grip2.setRotationPoint(0.0F, -35.0F, 12.2F);
         gun.addChild(Grip2);
         setRotationAngle(Grip2, 0.3665F, 0.0F, 0.0F);
-        Grip2.cubeList.add(new ModelBox(Grip2, 34, 45, -0.002F, 0.0F, -1.0F, 3, 10, 2, 0.0F, false));
+        Grip2.cubeList.add(new ModelBox(Grip2, 34, 45, -0.002F, 0.0F, -1, 3, 10, 2, 0.0F, false));
 
         Grip1 = new ModelRenderer(this);
         Grip1.setRotationPoint(0.0F, -25.0F, 10.0F);
@@ -3623,7 +3623,7 @@ public class M40A6Mag extends ModelWithAttachments {
         Mag17.setRotationPoint(0.5F, -27.5F, -18.0F);
         mag.addChild(Mag17);
         setRotationAngle(Mag17, 1.3756F, 0.0F, 0.0F);
-        Mag17.cubeList.add(new ModelBox(Mag17, 104, 71, 0.001F, 1.0F, 0.1F, 2, 12, 3, 0.0F, false));
+        Mag17.cubeList.add(new ModelBox(Mag17, 104, 71, 0.001F, 1, 0.1F, 2, 12, 3, 0.0F, false));
 
         Mag16 = new ModelRenderer(this);
         Mag16.setRotationPoint(0.0F, -27.0F, -8.5F);

@@ -224,7 +224,7 @@ public class MalyukRails extends ModelWithAttachments {
         gun60_r1.setRotationPoint(0.95F, -36.5F, -30.5F);
         gun.addChild(gun60_r1);
         setRotationAngle(gun60_r1, 0.0F, 0.0F, 1.0647F);
-        gun60_r1.cubeList.add(new ModelBox(gun60_r1, 37, 41, -1.0F, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        gun60_r1.cubeList.add(new ModelBox(gun60_r1, 37, 41, -1, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(-0.25F, 0.0F, 0.0F);
@@ -258,8 +258,8 @@ public class MalyukRails extends ModelWithAttachments {
         gun12 = new ModelRenderer(this);
         gun12.setRotationPoint(0.55F, -34.5F, -27.5F);
         gun.addChild(gun12);
-        gun12.cubeList.add(new ModelBox(gun12, 95, 18, -1.0F, 0.0F, -2.0F, 1, 1, 1, 0.0F, false));
-        gun12.cubeList.add(new ModelBox(gun12, 17, 95, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun12.cubeList.add(new ModelBox(gun12, 95, 18, -1, 0.0F, -2.0F, 1, 1, 1, 0.0F, false));
+        gun12.cubeList.add(new ModelBox(gun12, 17, 95, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun82 = new ModelRenderer(this);
         gun82.setRotationPoint(-3.4F, -33.5F, -24.5F);
@@ -323,22 +323,22 @@ public class MalyukRails extends ModelWithAttachments {
         gun47_r3.setRotationPoint(3.401F, -1.9717F, -35.4224F);
         gun42.addChild(gun47_r3);
         setRotationAngle(gun47_r3, 0.0873F, 0.0F, 0.0F);
-        gun47_r3.cubeList.add(new ModelBox(gun47_r3, 43, 15, -0.001F, -1.0F, -2.5F, 1, 2, 5, 0.0F, false));
-        gun47_r3.cubeList.add(new ModelBox(gun47_r3, 26, 57, -3.401F, -1.0F, -2.5F, 1, 2, 5, 0.0F, false));
+        gun47_r3.cubeList.add(new ModelBox(gun47_r3, 43, 15, -0.001F, -1, -2.5F, 1, 2, 5, 0.0F, false));
+        gun47_r3.cubeList.add(new ModelBox(gun47_r3, 26, 57, -3.401F, -1, -2.5F, 1, 2, 5, 0.0F, false));
 
         gun46_r3 = new ModelRenderer(this);
         gun46_r3.setRotationPoint(-0.001F, 3.8F, -13.5F);
         gun42.addChild(gun46_r3);
         setRotationAngle(gun46_r3, 0.5236F, 0.0F, 0.0F);
-        gun46_r3.cubeList.add(new ModelBox(gun46_r3, 52, 72, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        gun46_r3.cubeList.add(new ModelBox(gun46_r3, 73, 48, 3.402F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun46_r3.cubeList.add(new ModelBox(gun46_r3, 52, 72, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
+        gun46_r3.cubeList.add(new ModelBox(gun46_r3, 73, 48, 3.402F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun47_r4 = new ModelRenderer(this);
-        gun47_r4.setRotationPoint(-0.201F, -1.0F, -34.1F);
+        gun47_r4.setRotationPoint(-0.201F, -1, -34.1F);
         gun42.addChild(gun47_r4);
         setRotationAngle(gun47_r4, 0.5236F, 0.0F, 0.0F);
-        gun47_r4.cubeList.add(new ModelBox(gun47_r4, 20, 70, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        gun47_r4.cubeList.add(new ModelBox(gun47_r4, 0, 72, 3.802F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun47_r4.cubeList.add(new ModelBox(gun47_r4, 20, 70, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
+        gun47_r4.cubeList.add(new ModelBox(gun47_r4, 0, 72, 3.802F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(3.63F, -2.3113F, -10.5F);
@@ -347,7 +347,7 @@ public class MalyukRails extends ModelWithAttachments {
 
 
         gun47_r5 = new ModelRenderer(this);
-        gun47_r5.setRotationPoint(0.0575F, -0.0649F, -1.0F);
+        gun47_r5.setRotationPoint(0.0575F, -0.0649F, -1);
         bone3.addChild(gun47_r5);
         setRotationAngle(gun47_r5, 0.0F, 0.0F, -0.349F);
         gun47_r5.cubeList.add(new ModelBox(gun47_r5, 116, 115, -0.5F, 0.0F, -21.5F, 1, 1, 45, -0.001F, false));
@@ -357,7 +357,7 @@ public class MalyukRails extends ModelWithAttachments {
         gun52_r1.setRotationPoint(-0.37F, -1.2395F, 14.5F);
         bone3.addChild(gun52_r1);
         setRotationAngle(gun52_r1, 0.0F, 0.0F, -0.349F);
-        gun52_r1.cubeList.add(new ModelBox(gun52_r1, 0, 57, -0.5F, -1.0F, -5.5F, 1, 2, 11, 0.0F, false));
+        gun52_r1.cubeList.add(new ModelBox(gun52_r1, 0, 57, -0.5F, -1, -5.5F, 1, 2, 11, 0.0F, false));
 
         gun50_r1 = new ModelRenderer(this);
         gun50_r1.setRotationPoint(-0.2442F, -0.8939F, 21.5607F);
@@ -367,7 +367,7 @@ public class MalyukRails extends ModelWithAttachments {
         gun50_r1.cubeList.add(new ModelBox(gun50_r1, 0, 0, -0.5F, -2.0F, -0.5F, 1, 4, 1, -0.001F, false));
 
         gun48_r2 = new ModelRenderer(this);
-        gun48_r2.setRotationPoint(-0.6778F, -2.0852F, -1.0F);
+        gun48_r2.setRotationPoint(-0.6778F, -2.0852F, -1);
         bone3.addChild(gun48_r2);
         setRotationAngle(gun48_r2, 0.0F, 0.0F, -0.349F);
         gun48_r2.cubeList.add(new ModelBox(gun48_r2, 176, 202, -0.4999F, -0.5F, -20.5F, 1, 1, 43, 0.001F, false));
@@ -499,7 +499,7 @@ public class MalyukRails extends ModelWithAttachments {
 
 
         gun48_r3 = new ModelRenderer(this);
-        gun48_r3.setRotationPoint(-0.0575F, -0.0649F, -1.0F);
+        gun48_r3.setRotationPoint(-0.0575F, -0.0649F, -1);
         bone4.addChild(gun48_r3);
         setRotationAngle(gun48_r3, 0.0F, 0.0F, 0.349F);
         gun48_r3.cubeList.add(new ModelBox(gun48_r3, 45, 172, -0.5F, 0.0F, -21.5F, 1, 1, 43, -0.001F, false));
@@ -509,7 +509,7 @@ public class MalyukRails extends ModelWithAttachments {
         gun53_r1.setRotationPoint(0.37F, -1.2395F, 14.5F);
         bone4.addChild(gun53_r1);
         setRotationAngle(gun53_r1, 0.0F, 0.0F, 0.349F);
-        gun53_r1.cubeList.add(new ModelBox(gun53_r1, 0, 28, -0.5F, -1.0F, -5.5F, 1, 2, 11, 0.0F, false));
+        gun53_r1.cubeList.add(new ModelBox(gun53_r1, 0, 28, -0.5F, -1, -5.5F, 1, 2, 11, 0.0F, false));
 
         gun50_r2 = new ModelRenderer(this);
         gun50_r2.setRotationPoint(0.2442F, -0.8939F, 21.5607F);
@@ -518,7 +518,7 @@ public class MalyukRails extends ModelWithAttachments {
         gun50_r2.cubeList.add(new ModelBox(gun50_r2, 97, 26, -0.5F, -2.0F, -0.5F, 1, 1, 1, 0.0F, false));
 
         gun49_r1 = new ModelRenderer(this);
-        gun49_r1.setRotationPoint(0.6778F, -2.0852F, -1.0F);
+        gun49_r1.setRotationPoint(0.6778F, -2.0852F, -1);
         bone4.addChild(gun49_r1);
         setRotationAngle(gun49_r1, 0.0F, 0.0F, 0.349F);
         gun49_r1.cubeList.add(new ModelBox(gun49_r1, 174, 57, -0.5001F, -0.5F, -21.5F, 1, 1, 43, 0.001F, false));
@@ -665,34 +665,34 @@ public class MalyukRails extends ModelWithAttachments {
         DustCover46_r1.setRotationPoint(-1.5F, -38.1021F, 1.0367F);
         dustcover.addChild(DustCover46_r1);
         setRotationAngle(DustCover46_r1, -0.48F, 0.0F, 0.0F);
-        DustCover46_r1.cubeList.add(new ModelBox(DustCover46_r1, 83, 8, -1.0F, -0.5001F, -0.15F, 2, 1, 3, 0.0F, false));
+        DustCover46_r1.cubeList.add(new ModelBox(DustCover46_r1, 83, 8, -1, -0.5001F, -0.15F, 2, 1, 3, 0.0F, false));
         DustCover46_r1.cubeList.add(new ModelBox(DustCover46_r1, 83, 28, -0.5F, -0.5F, -2.5F, 1, 1, 3, 0.0F, false));
 
         DustCover45_r1 = new ModelRenderer(this);
         DustCover45_r1.setRotationPoint(-1.5F, -38.1021F, 1.0367F);
         dustcover.addChild(DustCover45_r1);
         setRotationAngle(DustCover45_r1, -0.4863F, 0.1546F, -0.0812F);
-        DustCover45_r1.cubeList.add(new ModelBox(DustCover45_r1, 0, 62, 0.4F, -0.4999F, -1.0F, 1, 1, 4, 0.0F, false));
+        DustCover45_r1.cubeList.add(new ModelBox(DustCover45_r1, 0, 62, 0.4F, -0.4999F, -1, 1, 1, 4, 0.0F, false));
 
         DustCover46_r2 = new ModelRenderer(this);
         DustCover46_r2.setRotationPoint(-0.8844F, -38.743F, -0.1945F);
         dustcover.addChild(DustCover46_r2);
         setRotationAngle(DustCover46_r2, -0.553F, 0.4968F, -0.2861F);
         DustCover46_r2.cubeList.add(new ModelBox(DustCover46_r2, 97, 30, -0.5F, -0.499F, -0.5F, 1, 1, 1, 0.0F, false));
-        DustCover46_r2.cubeList.add(new ModelBox(DustCover46_r2, 97, 28, -0.5F, -0.498F, -1.0F, 1, 1, 1, 0.0F, false));
+        DustCover46_r2.cubeList.add(new ModelBox(DustCover46_r2, 97, 28, -0.5F, -0.498F, -1, 1, 1, 1, 0.0F, false));
 
         DustCover44_r1 = new ModelRenderer(this);
         DustCover44_r1.setRotationPoint(-1.5F, -38.1021F, 1.0367F);
         dustcover.addChild(DustCover44_r1);
         setRotationAngle(DustCover44_r1, -0.4863F, -0.1546F, 0.0812F);
-        DustCover44_r1.cubeList.add(new ModelBox(DustCover44_r1, 73, 48, -1.4F, -0.4999F, -1.0F, 1, 1, 4, 0.0F, false));
+        DustCover44_r1.cubeList.add(new ModelBox(DustCover44_r1, 73, 48, -1.4F, -0.4999F, -1, 1, 1, 4, 0.0F, false));
 
         DustCover45_r2 = new ModelRenderer(this);
         DustCover45_r2.setRotationPoint(-2.1156F, -38.743F, -0.1945F);
         dustcover.addChild(DustCover45_r2);
         setRotationAngle(DustCover45_r2, -0.553F, -0.4968F, 0.2861F);
         DustCover45_r2.cubeList.add(new ModelBox(DustCover45_r2, 66, 99, -0.5F, -0.499F, -0.5F, 1, 1, 1, 0.0F, false));
-        DustCover45_r2.cubeList.add(new ModelBox(DustCover45_r2, 99, 67, -0.5F, -0.498F, -1.0F, 1, 1, 1, 0.0F, false));
+        DustCover45_r2.cubeList.add(new ModelBox(DustCover45_r2, 99, 67, -0.5F, -0.498F, -1, 1, 1, 1, 0.0F, false));
 
         DustCover5 = new ModelRenderer(this);
         DustCover5.setRotationPoint(-2.8F, -39.125F, -21.5F);
@@ -700,7 +700,7 @@ public class MalyukRails extends ModelWithAttachments {
         setRotationAngle(DustCover5, 0.0F, 0.0F, 0.3346F);
         DustCover5.cubeList.add(new ModelBox(DustCover5, 116, 18, 0.0F, 0.0F, 3.499F, 1, 2, 18, 0.0F, false));
         DustCover5.cubeList.add(new ModelBox(DustCover5, 0, 82, 0.011F, 1.7753F, 3.0F, 1, 1, 22, 0.0F, false));
-        DustCover5.cubeList.add(new ModelBox(DustCover5, 30, 87, 0.011F, 0.7753F, 21.0F, 1, 1, 2, 0.0F, false));
+        DustCover5.cubeList.add(new ModelBox(DustCover5, 30, 87, 0.011F, 0.7753F, 21, 1, 1, 2, 0.0F, false));
 
         DustCover6_r1 = new ModelRenderer(this);
         DustCover6_r1.setRotationPoint(0.511F, 1.4379F, 22.3286F);
@@ -742,11 +742,11 @@ public class MalyukRails extends ModelWithAttachments {
         DustCover5_r1.cubeList.add(new ModelBox(DustCover5_r1, 70, 99, -0.5F, -0.4999F, -0.5F, 1, 1, 1, -0.151F, false));
 
         DustCover6 = new ModelRenderer(this);
-        DustCover6.setRotationPoint(-1.0F, -39.7F, -33.5F);
+        DustCover6.setRotationPoint(-1, -39.7F, -33.5F);
         dustcover.addChild(DustCover6);
         setRotationAngle(DustCover6, 0.0F, 0.0F, -0.9295F);
-        DustCover6.cubeList.add(new ModelBox(DustCover6, 49, 97, -1.0F, 0.0F, 31.55F, 1, 1, 1, 0.0F, false));
-        DustCover6.cubeList.add(new ModelBox(DustCover6, 0, 28, -1.0F, 0.0F, 8.0F, 1, 1, 24, 0.001F, false));
+        DustCover6.cubeList.add(new ModelBox(DustCover6, 49, 97, -1, 0.0F, 31.55F, 1, 1, 1, 0.0F, false));
+        DustCover6.cubeList.add(new ModelBox(DustCover6, 0, 28, -1, 0.0F, 8.0F, 1, 1, 24, 0.001F, false));
 
         DustCover6_r2 = new ModelRenderer(this);
         DustCover6_r2.setRotationPoint(-0.35F, 0.4938F, 32.5845F);
@@ -805,7 +805,7 @@ public class MalyukRails extends ModelWithAttachments {
         stocc3_r1.setRotationPoint(0.0F, 0.0016F, 22.1284F);
         stocc.addChild(stocc3_r1);
         setRotationAngle(stocc3_r1, 0.0524F, 0.0F, 0.0F);
-        stocc3_r1.cubeList.add(new ModelBox(stocc3_r1, 28, 0, -2.0F, -4.75F, -1.0F, 4, 9, 2, 0.0F, false));
+        stocc3_r1.cubeList.add(new ModelBox(stocc3_r1, 28, 0, -2.0F, -4.75F, -1, 4, 9, 2, 0.0F, false));
 
         stocc2_r1 = new ModelRenderer(this);
         stocc2_r1.setRotationPoint(0.0F, 1.0788F, 20.6828F);
@@ -820,40 +820,40 @@ public class MalyukRails extends ModelWithAttachments {
         stocc5_r1.cubeList.add(new ModelBox(stocc5_r1, 14, 41, -2.001F, -5.5F, -0.5F, 4, 7, 1, 0.0F, false));
 
         stocc5_r2 = new ModelRenderer(this);
-        stocc5_r2.setRotationPoint(-1.0F, -0.7298F, 6.9001F);
+        stocc5_r2.setRotationPoint(-1, -0.7298F, 6.9001F);
         stocc.addChild(stocc5_r2);
         setRotationAngle(stocc5_r2, -0.3054F, 0.0F, 0.0F);
-        stocc5_r2.cubeList.add(new ModelBox(stocc5_r2, 92, 38, -1.0F, -2.5F, -2.5F, 4, 3, 4, 0.0F, false));
+        stocc5_r2.cubeList.add(new ModelBox(stocc5_r2, 92, 38, -1, -2.5F, -2.5F, 4, 3, 4, 0.0F, false));
 
         stocc7_r1 = new ModelRenderer(this);
-        stocc7_r1.setRotationPoint(-1.0F, 0.6816F, 9.8669F);
+        stocc7_r1.setRotationPoint(-1, 0.6816F, 9.8669F);
         stocc.addChild(stocc7_r1);
         setRotationAngle(stocc7_r1, -0.5672F, 0.0F, 0.0F);
         stocc7_r1.cubeList.add(new ModelBox(stocc7_r1, 85, 72, -0.999F, -2.5F, -2.0F, 4, 3, 4, 0.0F, false));
 
         stocc7_r2 = new ModelRenderer(this);
-        stocc7_r2.setRotationPoint(-1.0F, 1.3961F, 11.1179F);
+        stocc7_r2.setRotationPoint(-1, 1.3961F, 11.1179F);
         stocc.addChild(stocc7_r2);
         setRotationAngle(stocc7_r2, -0.6981F, 0.0F, 0.0F);
-        stocc7_r2.cubeList.add(new ModelBox(stocc7_r2, 95, 80, -1.0F, -3.5F, -0.5F, 4, 4, 4, 0.0F, false));
+        stocc7_r2.cubeList.add(new ModelBox(stocc7_r2, 95, 80, -1, -3.5F, -0.5F, 4, 4, 4, 0.0F, false));
 
         stocc6_r1 = new ModelRenderer(this);
         stocc6_r1.setRotationPoint(0.0F, 2.1461F, 10.6179F);
         stocc.addChild(stocc6_r1);
         setRotationAngle(stocc6_r1, -0.6981F, 0.0F, 0.0F);
-        stocc6_r1.cubeList.add(new ModelBox(stocc6_r1, 83, 4, -1.0F, -0.5F, 0.5F, 2, 1, 3, 0.0F, false));
+        stocc6_r1.cubeList.add(new ModelBox(stocc6_r1, 83, 4, -1, -0.5F, 0.5F, 2, 1, 3, 0.0F, false));
 
         stocc6_r2 = new ModelRenderer(this);
         stocc6_r2.setRotationPoint(0.0F, 1.4316F, 9.3669F);
         stocc.addChild(stocc6_r2);
         setRotationAngle(stocc6_r2, -0.5672F, 0.0F, 0.0F);
-        stocc6_r2.cubeList.add(new ModelBox(stocc6_r2, 43, 8, -1.0F, -0.5F, -2.0F, 2, 1, 4, 0.001F, false));
+        stocc6_r2.cubeList.add(new ModelBox(stocc6_r2, 43, 8, -1, -0.5F, -2.0F, 2, 1, 4, 0.001F, false));
 
         stocc4_r2 = new ModelRenderer(this);
         stocc4_r2.setRotationPoint(0.0F, 0.0202F, 6.4001F);
         stocc.addChild(stocc4_r2);
         setRotationAngle(stocc4_r2, -0.3054F, 0.0F, 0.0F);
-        stocc4_r2.cubeList.add(new ModelBox(stocc4_r2, 81, 80, -1.0F, -0.5F, -2.5F, 2, 1, 4, 0.0F, false));
+        stocc4_r2.cubeList.add(new ModelBox(stocc4_r2, 81, 80, -1, -0.5F, -2.5F, 2, 1, 4, 0.0F, false));
 
         stocc6_r3 = new ModelRenderer(this);
         stocc6_r3.setRotationPoint(0.0F, -2.2464F, -9.0113F);
@@ -896,8 +896,8 @@ public class MalyukRails extends ModelWithAttachments {
         stocc5_r5.setRotationPoint(1.7501F, -2.0118F, -3.0563F);
         stocc.addChild(stocc5_r5);
         setRotationAngle(stocc5_r5, -0.3054F, 0.0F, 0.0F);
-        stocc5_r5.cubeList.add(new ModelBox(stocc5_r5, 24, 82, -0.4993F, -1.0F, -6.0F, 1, 2, 12, 0.0F, false));
-        stocc5_r5.cubeList.add(new ModelBox(stocc5_r5, 83, 0, -4.0002F, -1.0F, -6.0F, 1, 2, 12, 0.0F, false));
+        stocc5_r5.cubeList.add(new ModelBox(stocc5_r5, 24, 82, -0.4993F, -1, -6.0F, 1, 2, 12, 0.0F, false));
+        stocc5_r5.cubeList.add(new ModelBox(stocc5_r5, 83, 0, -4.0002F, -1, -6.0F, 1, 2, 12, 0.0F, false));
 
         stocc6_r6 = new ModelRenderer(this);
         stocc6_r6.setRotationPoint(5.0001F, -0.5812F, -3.5073F);
@@ -917,7 +917,7 @@ public class MalyukRails extends ModelWithAttachments {
         stocc3_r2.setRotationPoint(0.0F, 4.4188F, 16.9927F);
         stocc.addChild(stocc3_r2);
         setRotationAngle(stocc3_r2, -0.0349F, 0.0F, 0.0F);
-        stocc3_r2.cubeList.add(new ModelBox(stocc3_r2, 58, 14, -1.0F, -0.5F, -4.0F, 2, 1, 8, 0.001F, false));
+        stocc3_r2.cubeList.add(new ModelBox(stocc3_r2, 58, 14, -1, -0.5F, -4.0F, 2, 1, 8, 0.001F, false));
 
         stocc1_r1 = new ModelRenderer(this);
         stocc1_r1.setRotationPoint(0.0F, -4.0349F, 4.0006F);
@@ -936,91 +936,91 @@ public class MalyukRails extends ModelWithAttachments {
         gun152_r1.setRotationPoint(-4.251F, -34.6F, -51.75F);
         handguard.addChild(gun152_r1);
         setRotationAngle(gun152_r1, 0.3665F, 0.0F, 0.0F);
-        gun152_r1.cubeList.add(new ModelBox(gun152_r1, 20, 74, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        gun152_r1.cubeList.add(new ModelBox(gun152_r1, 75, 73, 4.502F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun152_r1.cubeList.add(new ModelBox(gun152_r1, 20, 74, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
+        gun152_r1.cubeList.add(new ModelBox(gun152_r1, 75, 73, 4.502F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun153_r1 = new ModelRenderer(this);
         gun153_r1.setRotationPoint(-4.151F, -34.6F, -43.75F);
         handguard.addChild(gun153_r1);
         setRotationAngle(gun153_r1, 0.3665F, 0.0F, 0.0F);
-        gun153_r1.cubeList.add(new ModelBox(gun153_r1, 73, 50, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        gun153_r1.cubeList.add(new ModelBox(gun153_r1, 68, 75, 4.302F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun153_r1.cubeList.add(new ModelBox(gun153_r1, 73, 50, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
+        gun153_r1.cubeList.add(new ModelBox(gun153_r1, 68, 75, 4.302F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun152_r2 = new ModelRenderer(this);
         gun152_r2.setRotationPoint(-4.151F, -35.55F, -50.25F);
         handguard.addChild(gun152_r2);
         setRotationAngle(gun152_r2, 0.0F, 0.0F, 0.7854F);
-        gun152_r2.cubeList.add(new ModelBox(gun152_r2, 97, 0, 0.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
-        gun152_r2.cubeList.add(new ModelBox(gun152_r2, 58, 80, 0.0F, -1.0F, 7.5F, 1, 1, 8, 0.0F, false));
+        gun152_r2.cubeList.add(new ModelBox(gun152_r2, 97, 0, 0.0F, -1, 0.0F, 1, 1, 6, 0.0F, false));
+        gun152_r2.cubeList.add(new ModelBox(gun152_r2, 58, 80, 0.0F, -1, 7.5F, 1, 1, 8, 0.0F, false));
 
         gun153_r2 = new ModelRenderer(this);
         gun153_r2.setRotationPoint(-4.151F, -34.8F, -50.25F);
         handguard.addChild(gun153_r2);
         setRotationAngle(gun153_r2, 0.0F, 0.0F, 0.7854F);
-        gun153_r2.cubeList.add(new ModelBox(gun153_r2, 96, 48, 0.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
-        gun153_r2.cubeList.add(new ModelBox(gun153_r2, 26, 72, 0.0F, -1.0F, 7.5F, 1, 1, 8, 0.0F, false));
+        gun153_r2.cubeList.add(new ModelBox(gun153_r2, 96, 48, 0.0F, -1, 0.0F, 1, 1, 6, 0.0F, false));
+        gun153_r2.cubeList.add(new ModelBox(gun153_r2, 26, 72, 0.0F, -1, 7.5F, 1, 1, 8, 0.0F, false));
 
         gun155_r1 = new ModelRenderer(this);
         gun155_r1.setRotationPoint(-4.151F, -34.05F, -42.75F);
         handguard.addChild(gun155_r1);
         setRotationAngle(gun155_r1, 0.0F, 0.0F, 0.7854F);
-        gun155_r1.cubeList.add(new ModelBox(gun155_r1, 83, 38, 0.0F, -1.0F, 0.0F, 1, 1, 7, 0.0F, false));
+        gun155_r1.cubeList.add(new ModelBox(gun155_r1, 83, 38, 0.0F, -1, 0.0F, 1, 1, 7, 0.0F, false));
 
         gun156_r1 = new ModelRenderer(this);
         gun156_r1.setRotationPoint(-4.151F, -33.3F, -42.25F);
         handguard.addChild(gun156_r1);
         setRotationAngle(gun156_r1, 0.0F, 0.0F, 0.7854F);
-        gun156_r1.cubeList.add(new ModelBox(gun156_r1, 38, 96, 0.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        gun156_r1.cubeList.add(new ModelBox(gun156_r1, 38, 96, 0.0F, -1, 0.0F, 1, 1, 6, 0.0F, false));
 
         gun157_r1 = new ModelRenderer(this);
         gun157_r1.setRotationPoint(-4.151F, -32.55F, -40.7F);
         handguard.addChild(gun157_r1);
         setRotationAngle(gun157_r1, 0.0F, 0.0F, 0.7854F);
-        gun157_r1.cubeList.add(new ModelBox(gun157_r1, 0, 57, 0.0F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun157_r1.cubeList.add(new ModelBox(gun157_r1, 0, 57, 0.0F, -1, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun158_r1 = new ModelRenderer(this);
         gun158_r1.setRotationPoint(-4.151F, -31.8F, -40.2F);
         handguard.addChild(gun158_r1);
         setRotationAngle(gun158_r1, 0.0F, 0.0F, 0.7854F);
-        gun158_r1.cubeList.add(new ModelBox(gun158_r1, 26, 76, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        gun158_r1.cubeList.add(new ModelBox(gun158_r1, 26, 76, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         gun152_r3 = new ModelRenderer(this);
         gun152_r3.setRotationPoint(1.151F, -35.55F, -42.75F);
         handguard.addChild(gun152_r3);
         setRotationAngle(gun152_r3, 0.0F, 0.0F, -0.7854F);
-        gun152_r3.cubeList.add(new ModelBox(gun152_r3, 38, 82, -1.0F, -1.0F, 0.0F, 1, 1, 8, 0.0F, false));
-        gun152_r3.cubeList.add(new ModelBox(gun152_r3, 96, 99, -1.0F, -1.0F, -7.5F, 1, 1, 6, 0.0F, false));
+        gun152_r3.cubeList.add(new ModelBox(gun152_r3, 38, 82, -1, -1, 0.0F, 1, 1, 8, 0.0F, false));
+        gun152_r3.cubeList.add(new ModelBox(gun152_r3, 96, 99, -1, -1, -7.5F, 1, 1, 6, 0.0F, false));
 
         gun157_r2 = new ModelRenderer(this);
         gun157_r2.setRotationPoint(1.151F, -31.8F, -40.2F);
         handguard.addChild(gun157_r2);
         setRotationAngle(gun157_r2, 0.0F, 0.0F, -0.7854F);
-        gun157_r2.cubeList.add(new ModelBox(gun157_r2, 48, 80, -1.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        gun157_r2.cubeList.add(new ModelBox(gun157_r2, 48, 80, -1, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         gun156_r2 = new ModelRenderer(this);
         gun156_r2.setRotationPoint(1.151F, -32.55F, -40.7F);
         handguard.addChild(gun156_r2);
         setRotationAngle(gun156_r2, 0.0F, 0.0F, -0.7854F);
-        gun156_r2.cubeList.add(new ModelBox(gun156_r2, 13, 57, -1.0F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun156_r2.cubeList.add(new ModelBox(gun156_r2, 13, 57, -1, -1, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun155_r2 = new ModelRenderer(this);
         gun155_r2.setRotationPoint(1.151F, -33.3F, -42.25F);
         handguard.addChild(gun155_r2);
         setRotationAngle(gun155_r2, 0.0F, 0.0F, -0.7854F);
-        gun155_r2.cubeList.add(new ModelBox(gun155_r2, 97, 27, -1.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        gun155_r2.cubeList.add(new ModelBox(gun155_r2, 97, 27, -1, -1, 0.0F, 1, 1, 6, 0.0F, false));
 
         gun154_r1 = new ModelRenderer(this);
         gun154_r1.setRotationPoint(1.151F, -34.05F, -42.75F);
         handguard.addChild(gun154_r1);
         setRotationAngle(gun154_r1, 0.0F, 0.0F, -0.7854F);
-        gun154_r1.cubeList.add(new ModelBox(gun154_r1, 0, 91, -1.0F, -1.0F, 0.0F, 1, 1, 7, 0.0F, false));
+        gun154_r1.cubeList.add(new ModelBox(gun154_r1, 0, 91, -1, -1, 0.0F, 1, 1, 7, 0.0F, false));
 
         gun153_r3 = new ModelRenderer(this);
         gun153_r3.setRotationPoint(1.151F, -34.8F, -42.75F);
         handguard.addChild(gun153_r3);
         setRotationAngle(gun153_r3, 0.0F, 0.0F, -0.7854F);
-        gun153_r3.cubeList.add(new ModelBox(gun153_r3, 0, 82, -1.0F, -1.0F, 0.0F, 1, 1, 8, 0.0F, false));
-        gun153_r3.cubeList.add(new ModelBox(gun153_r3, 99, 58, -1.0F, -1.0F, -7.5F, 1, 1, 6, 0.0F, false));
+        gun153_r3.cubeList.add(new ModelBox(gun153_r3, 0, 82, -1, -1, 0.0F, 1, 1, 8, 0.0F, false));
+        gun153_r3.cubeList.add(new ModelBox(gun153_r3, 99, 58, -1, -1, -7.5F, 1, 1, 6, 0.0F, false));
 
         gun220 = new ModelRenderer(this);
         gun220.setRotationPoint(-1.1F, -35.2F, -54.0F);
@@ -1039,13 +1039,13 @@ public class MalyukRails extends ModelWithAttachments {
         gun193.cubeList.add(new ModelBox(gun193, 38, 53, -0.001F, 0.3F, 0.5F, 3, 1, 2, 0.0F, false));
 
         gun196_r1 = new ModelRenderer(this);
-        gun196_r1.setRotationPoint(3.3886F, 0.6464F, 1.0F);
+        gun196_r1.setRotationPoint(3.3886F, 0.6464F, 1);
         gun193.addChild(gun196_r1);
         setRotationAngle(gun196_r1, 0.0F, 0.0F, -0.2618F);
         gun196_r1.cubeList.add(new ModelBox(gun196_r1, 83, 42, -0.5F, -0.5F, -0.5F, 1, 1, 2, 0.0F, false));
 
         gun195_r1 = new ModelRenderer(this);
-        gun195_r1.setRotationPoint(-0.3886F, 0.6464F, 1.0F);
+        gun195_r1.setRotationPoint(-0.3886F, 0.6464F, 1);
         gun193.addChild(gun195_r1);
         setRotationAngle(gun195_r1, 0.0F, 0.0F, 0.2618F);
         gun195_r1.cubeList.add(new ModelBox(gun195_r1, 0, 86, -0.5F, -0.5F, -0.5F, 1, 1, 2, 0.0F, false));
@@ -1081,7 +1081,7 @@ public class MalyukRails extends ModelWithAttachments {
         gun194_r2.setRotationPoint(-0.2592F, 4.2834F, -1.3089F);
         gun192.addChild(gun194_r2);
         setRotationAngle(gun194_r2, 0.0F, 0.2618F, 0.0F);
-        gun194_r2.cubeList.add(new ModelBox(gun194_r2, 52, 28, -0.5F, -3.0F, -1.0F, 1, 6, 1, 0.0F, false));
+        gun194_r2.cubeList.add(new ModelBox(gun194_r2, 52, 28, -0.5F, -3.0F, -1, 1, 6, 1, 0.0F, false));
 
         gun159 = new ModelRenderer(this);
         gun159.setRotationPoint(-3.0F, -33.0F, -53.5F);
@@ -1094,7 +1094,7 @@ public class MalyukRails extends ModelWithAttachments {
         gun161_r1.setRotationPoint(6.316F, 6.4791F, 0.4321F);
         gun159.addChild(gun161_r1);
         setRotationAngle(gun161_r1, 0.0F, -0.5236F, 0.0F);
-        gun161_r1.cubeList.add(new ModelBox(gun161_r1, 72, 58, -3.0981F, -8.5F, 1.0F, 1, 15, 1, 0.0F, false));
+        gun161_r1.cubeList.add(new ModelBox(gun161_r1, 72, 58, -3.0981F, -8.5F, 1, 1, 15, 1, 0.0F, false));
 
         gun160_r1 = new ModelRenderer(this);
         gun160_r1.setRotationPoint(-0.316F, 6.4791F, 0.4321F);
@@ -1111,7 +1111,7 @@ public class MalyukRails extends ModelWithAttachments {
         gun148.setRotationPoint(-4.0F, -37.0F, -41.5F);
         handguard.addChild(gun148);
         gun148.cubeList.add(new ModelBox(gun148, 116, 0, 0.0F, 0.5F, -9.0F, 5, 3, 15, 0.0F, false));
-        gun148.cubeList.add(new ModelBox(gun148, 0, 20, 0.0F, 3.5F, 1.0F, 5, 2, 4, 0.0F, false));
+        gun148.cubeList.add(new ModelBox(gun148, 0, 20, 0.0F, 3.5F, 1, 5, 2, 4, 0.0F, false));
         gun148.cubeList.add(new ModelBox(gun148, 58, 41, 0.0F, 0.5F, 6.0F, 5, 1, 3, 0.0F, false));
 
         gun151_r1 = new ModelRenderer(this);
@@ -1148,36 +1148,36 @@ public class MalyukRails extends ModelWithAttachments {
         DustCover5_r2.setRotationPoint(-0.8918F, 0.8684F, 20.998F);
         rail.addChild(DustCover5_r2);
         setRotationAngle(DustCover5_r2, -0.7854F, 0.0F, 0.0F);
-        DustCover5_r2.cubeList.add(new ModelBox(DustCover5_r2, 58, 80, -1.0F, -1.0F, -1.0F, 2, 2, 2, 0.0F, false));
+        DustCover5_r2.cubeList.add(new ModelBox(DustCover5_r2, 58, 80, -1, -1, -1, 2, 2, 2, 0.0F, false));
 
         teeth = new ModelRenderer(this);
         teeth.setRotationPoint(-0.8918F, -0.2489F, 18.65F);
         rail.addChild(teeth);
-        teeth.cubeList.add(new ModelBox(teeth, 15, 91, -1.0F, -0.5F, -0.5F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 9, 91, -1.0F, -0.5F, -2.125F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 86, 90, -1.0F, -0.5F, -3.75F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 0, 91, -1.0F, -0.5F, -5.375F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 90, 52, -1.0F, -0.5F, -8.625F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 90, 65, -1.0F, -0.5F, -7.0F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 90, 48, -1.0F, -0.5F, -11.875F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 90, 50, -1.0F, -0.5F, -10.25F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 89, 21, -1.0F, -0.5F, -24.875F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 89, 34, -1.0F, -0.5F, -23.25F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 89, 58, -1.0F, -0.5F, -13.5F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 89, 62, -1.0F, -0.5F, -15.125F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 69, 89, -1.0F, -0.5F, -16.75F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 81, 89, -1.0F, -0.5F, -18.375F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 24, 90, -1.0F, -0.5F, -21.625F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 30, 90, -1.0F, -0.5F, -20.0F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 83, 18, -1.0F, -0.5F, -37.875F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 83, 21, -1.0F, -0.5F, -36.25F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 72, 84, -1.0F, -0.5F, -26.5F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 87, 32, -1.0F, -0.5F, -28.125F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 88, 24, -1.0F, -0.5F, -29.75F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 88, 28, -1.0F, -0.5F, -31.375F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 48, 88, -1.0F, -0.5F, -34.625F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 86, 88, -1.0F, -0.5F, -33.0F, 2, 1, 1, -0.1F, false));
-        teeth.cubeList.add(new ModelBox(teeth, 12, 79, -1.0F, -0.5F, -39.5F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 15, 91, -1, -0.5F, -0.5F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 9, 91, -1, -0.5F, -2.125F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 86, 90, -1, -0.5F, -3.75F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 0, 91, -1, -0.5F, -5.375F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 90, 52, -1, -0.5F, -8.625F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 90, 65, -1, -0.5F, -7.0F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 90, 48, -1, -0.5F, -11.875F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 90, 50, -1, -0.5F, -10.25F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 89, 21, -1, -0.5F, -24.875F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 89, 34, -1, -0.5F, -23.25F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 89, 58, -1, -0.5F, -13.5F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 89, 62, -1, -0.5F, -15.125F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 69, 89, -1, -0.5F, -16.75F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 81, 89, -1, -0.5F, -18.375F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 24, 90, -1, -0.5F, -21.625F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 30, 90, -1, -0.5F, -20.0F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 83, 18, -1, -0.5F, -37.875F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 83, 21, -1, -0.5F, -36.25F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 72, 84, -1, -0.5F, -26.5F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 87, 32, -1, -0.5F, -28.125F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 88, 24, -1, -0.5F, -29.75F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 88, 28, -1, -0.5F, -31.375F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 48, 88, -1, -0.5F, -34.625F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 86, 88, -1, -0.5F, -33.0F, 2, 1, 1, -0.1F, false));
+        teeth.cubeList.add(new ModelBox(teeth, 12, 79, -1, -0.5F, -39.5F, 2, 1, 1, -0.1F, false));
 
         DustCover9_r1 = new ModelRenderer(this);
         DustCover9_r1.setRotationPoint(0.9F, 0.1657F, -38.998F);
@@ -1248,31 +1248,31 @@ public class MalyukRails extends ModelWithAttachments {
         gun12_r1.setRotationPoint(-1.001F, -28.6F, -8.851F);
         grip.addChild(gun12_r1);
         setRotationAngle(gun12_r1, -0.8552F, 0.0F, 0.0F);
-        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 43, 15, -1.0F, 0.0F, -1.0F, 1, 2, 1, -0.001F, false));
+        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 43, 15, -1, 0.0F, -1, 1, 2, 1, -0.001F, false));
 
         gun11_r1 = new ModelRenderer(this);
         gun11_r1.setRotationPoint(-1.001F, -28.6F, -8.851F);
         grip.addChild(gun11_r1);
         setRotationAngle(gun11_r1, -0.1222F, 0.0F, 0.0F);
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 51, 8, -1.0F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 51, 8, -1, -2.0F, -1, 1, 2, 1, 0.0F, false));
 
         gun10_r1 = new ModelRenderer(this);
         gun10_r1.setRotationPoint(-1.501F, -25.7F, -8.551F);
         grip.addChild(gun10_r1);
         setRotationAngle(gun10_r1, 0.4363F, 0.0F, 0.0F);
-        gun10_r1.cubeList.add(new ModelBox(gun10_r1, 14, 20, -1.5F, -1.0F, 0.0F, 3, 1, 3, -0.2F, false));
+        gun10_r1.cubeList.add(new ModelBox(gun10_r1, 14, 20, -1.5F, -1, 0.0F, 3, 1, 3, -0.2F, false));
 
         gun9_r1 = new ModelRenderer(this);
         gun9_r1.setRotationPoint(0.001F, -26.5F, -7.001F);
         grip.addChild(gun9_r1);
         setRotationAngle(gun9_r1, -0.4014F, 0.0F, 0.0F);
-        gun9_r1.cubeList.add(new ModelBox(gun9_r1, 28, 53, -3.0F, -1.0F, 0.0F, 3, 1, 2, -0.003F, false));
+        gun9_r1.cubeList.add(new ModelBox(gun9_r1, 28, 53, -3.0F, -1, 0.0F, 3, 1, 2, -0.003F, false));
 
         gun9_r2 = new ModelRenderer(this);
         gun9_r2.setRotationPoint(0.001F, -26.5F, -7.001F);
         grip.addChild(gun9_r2);
         setRotationAngle(gun9_r2, 0.1571F, 0.0F, 0.0F);
-        gun9_r2.cubeList.add(new ModelBox(gun9_r2, 0, 11, -3.0F, -1.0F, 0.0F, 3, 1, 3, -0.002F, false));
+        gun9_r2.cubeList.add(new ModelBox(gun9_r2, 0, 11, -3.0F, -1, 0.0F, 3, 1, 3, -0.002F, false));
 
         gun10_r2 = new ModelRenderer(this);
         gun10_r2.setRotationPoint(-0.499F, -27.0F, -6.601F);
@@ -1293,7 +1293,7 @@ public class MalyukRails extends ModelWithAttachments {
         gun5.cubeList.add(new ModelBox(gun5, 44, 28, 0.5F, 0.0F, 0.0F, 3, 11, 1, 0.0F, false));
 
         gun4 = new ModelRenderer(this);
-        gun4.setRotationPoint(-3.5F, -17.5F, -1.0F);
+        gun4.setRotationPoint(-3.5F, -17.5F, -1);
         grip.addChild(gun4);
         gun4.cubeList.add(new ModelBox(gun4, 0, 41, 0.501F, 0.0F, -7.5F, 3, 1, 8, 0.0F, false));
 
@@ -1333,25 +1333,25 @@ public class MalyukRails extends ModelWithAttachments {
         cube_r1.setRotationPoint(-2.0F, -35.7071F, -15.0F);
         barrel.addChild(cube_r1);
         setRotationAngle(cube_r1, 0.0F, 0.0F, 0.7854F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 58, 58, -0.5F, -0.5F, -31.0F, 1, 1, 56, 0.0F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 58, 58, -0.5F, -0.5F, -31, 1, 1, 56, 0.0F, false));
 
         cube_r2 = new ModelRenderer(this);
-        cube_r2.setRotationPoint(-1.0F, -35.7071F, -15.0F);
+        cube_r2.setRotationPoint(-1, -35.7071F, -15.0F);
         barrel.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.0F, 0.0F, 0.7854F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 58, 1, -0.5F, -0.5F, -31.0F, 1, 1, 56, 0.0F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 58, 1, -0.5F, -0.5F, -31, 1, 1, 56, 0.0F, false));
 
         cube_r3 = new ModelRenderer(this);
-        cube_r3.setRotationPoint(-1.0F, -34.7071F, -15.0F);
+        cube_r3.setRotationPoint(-1, -34.7071F, -15.0F);
         barrel.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, 0.0F, 0.7854F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 58, 115, -0.5F, -0.5F, -31.0F, 1, 1, 56, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 58, 115, -0.5F, -0.5F, -31, 1, 1, 56, 0.0F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(-2.0F, -34.7071F, -15.0F);
         barrel.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.0F, 0.0F, 0.7854F);
-        cube_r4.cubeList.add(new ModelBox(cube_r4, 116, 0, -0.5F, -0.5F, -31.0F, 1, 1, 56, 0.0F, false));
+        cube_r4.cubeList.add(new ModelBox(cube_r4, 116, 0, -0.5F, -0.5F, -31, 1, 1, 56, 0.0F, false));
 
         cube_r5 = new ModelRenderer(this);
         cube_r5.setRotationPoint(-1.5F, -38.6881F, -34.501F);
@@ -1374,15 +1374,15 @@ public class MalyukRails extends ModelWithAttachments {
         teeth2 = new ModelRenderer(this);
         teeth2.setRotationPoint(-1.4F, -0.6656F, 37.876F);
         griprails.addChild(teeth2);
-        teeth2.cubeList.add(new ModelBox(teeth2, 6, 79, -1.0F, -0.5F, -37.875F, 2, 1, 1, -0.1F, false));
-        teeth2.cubeList.add(new ModelBox(teeth2, 0, 79, -1.0F, -0.5F, -36.25F, 2, 1, 1, -0.1F, false));
-        teeth2.cubeList.add(new ModelBox(teeth2, 83, 0, -1.0F, -0.5F, -26.5F, 2, 1, 3, -0.1F, false));
-        teeth2.cubeList.add(new ModelBox(teeth2, 74, 19, -1.0F, -0.5F, -28.125F, 2, 1, 1, -0.1F, false));
-        teeth2.cubeList.add(new ModelBox(teeth2, 64, 45, -1.0F, -0.5F, -29.75F, 2, 1, 1, -0.1F, false));
-        teeth2.cubeList.add(new ModelBox(teeth2, 49, 61, -1.0F, -0.5F, -31.375F, 2, 1, 1, -0.1F, false));
-        teeth2.cubeList.add(new ModelBox(teeth2, 41, 61, -1.0F, -0.5F, -34.625F, 2, 1, 1, -0.1F, false));
-        teeth2.cubeList.add(new ModelBox(teeth2, 58, 45, -1.0F, -0.5F, -33.0F, 2, 1, 1, -0.1F, false));
-        teeth2.cubeList.add(new ModelBox(teeth2, 18, 50, -1.0F, -0.5F, -39.5F, 2, 1, 1, -0.1F, false));
+        teeth2.cubeList.add(new ModelBox(teeth2, 6, 79, -1, -0.5F, -37.875F, 2, 1, 1, -0.1F, false));
+        teeth2.cubeList.add(new ModelBox(teeth2, 0, 79, -1, -0.5F, -36.25F, 2, 1, 1, -0.1F, false));
+        teeth2.cubeList.add(new ModelBox(teeth2, 83, 0, -1, -0.5F, -26.5F, 2, 1, 3, -0.1F, false));
+        teeth2.cubeList.add(new ModelBox(teeth2, 74, 19, -1, -0.5F, -28.125F, 2, 1, 1, -0.1F, false));
+        teeth2.cubeList.add(new ModelBox(teeth2, 64, 45, -1, -0.5F, -29.75F, 2, 1, 1, -0.1F, false));
+        teeth2.cubeList.add(new ModelBox(teeth2, 49, 61, -1, -0.5F, -31.375F, 2, 1, 1, -0.1F, false));
+        teeth2.cubeList.add(new ModelBox(teeth2, 41, 61, -1, -0.5F, -34.625F, 2, 1, 1, -0.1F, false));
+        teeth2.cubeList.add(new ModelBox(teeth2, 58, 45, -1, -0.5F, -33.0F, 2, 1, 1, -0.1F, false));
+        teeth2.cubeList.add(new ModelBox(teeth2, 18, 50, -1, -0.5F, -39.5F, 2, 1, 1, -0.1F, false));
 
         DustCover10_r2 = new ModelRenderer(this);
         DustCover10_r2.setRotationPoint(0.9F, 0.1657F, -38.998F);
@@ -1421,15 +1421,15 @@ public class MalyukRails extends ModelWithAttachments {
         teeth3 = new ModelRenderer(this);
         teeth3.setRotationPoint(1.4F, -0.6656F, 37.876F);
         griprails2.addChild(teeth3);
-        teeth3.cubeList.add(new ModelBox(teeth3, 12, 50, -1.0F, -0.5F, -37.875F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 6, 50, -1.0F, -0.5F, -36.25F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 68, 80, -1.0F, -0.5F, -26.5F, 2, 1, 3, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 0, 50, -1.0F, -0.5F, -28.125F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 47, 47, -1.0F, -0.5F, -29.75F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 0, 37, -1.0F, -0.5F, -31.375F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 34, 11, -1.0F, -0.5F, -34.625F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 28, 11, -1.0F, -0.5F, -33.0F, 2, 1, 1, -0.1F, false));
-        teeth3.cubeList.add(new ModelBox(teeth3, 18, 24, -1.0F, -0.5F, -39.5F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 12, 50, -1, -0.5F, -37.875F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 6, 50, -1, -0.5F, -36.25F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 68, 80, -1, -0.5F, -26.5F, 2, 1, 3, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 0, 50, -1, -0.5F, -28.125F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 47, 47, -1, -0.5F, -29.75F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 0, 37, -1, -0.5F, -31.375F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 34, 11, -1, -0.5F, -34.625F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 28, 11, -1, -0.5F, -33.0F, 2, 1, 1, -0.1F, false));
+        teeth3.cubeList.add(new ModelBox(teeth3, 18, 24, -1, -0.5F, -39.5F, 2, 1, 1, -0.1F, false));
 
         DustCover11_r2 = new ModelRenderer(this);
         DustCover11_r2.setRotationPoint(-0.9F, 0.1657F, -38.998F);
@@ -1510,7 +1510,7 @@ public class MalyukRails extends ModelWithAttachments {
         cube_r6.setRotationPoint(0.4F, -34.6F, -27.2F);
         action.addChild(cube_r6);
         setRotationAngle(cube_r6, 0.0F, -0.0524F, 0.0F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 26, 41, -1.0F, -1.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 26, 41, -1, -1, 0.0F, 1, 1, 9, 0.0F, false));
     }
 
     @Override

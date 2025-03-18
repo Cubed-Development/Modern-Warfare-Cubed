@@ -232,7 +232,7 @@ public class VSSVintorezFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
-                    GL11.glTranslatef(-0.062F, -1.19F, -1.0F);
+                    GL11.glTranslatef(-0.062F, -1.19F, -1);
                     GL11.glScaled(0.47F, 0.47F, 0.47F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -241,7 +241,7 @@ public class VSSVintorezFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
-                    GL11.glTranslatef(-0.055F, -1.13F, -1.0F);
+                    GL11.glTranslatef(-0.055F, -1.13F, -1);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -250,7 +250,7 @@ public class VSSVintorezFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
-                    GL11.glTranslatef(-0.045F, -1.22F, -1.0F);
+                    GL11.glTranslatef(-0.045F, -1.22F, -1);
                     GL11.glScaled(0.63F, 0.63F, 0.63F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -259,7 +259,7 @@ public class VSSVintorezFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
-                    GL11.glTranslatef(-0.045F, -1.22F, -1.0F);
+                    GL11.glTranslatef(-0.045F, -1.22F, -1);
                     GL11.glScaled(0.63F, 0.63F, 0.63F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -269,7 +269,7 @@ public class VSSVintorezFactory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
-                    GL11.glTranslatef(-0.045F, -1.22F, -1.0F);
+                    GL11.glTranslatef(-0.045F, -1.22F, -1);
                     GL11.glScaled(0.63F, 0.63F, 0.63F);
                 }, (model) -> {
                     if (model instanceof EotechScopeRing) {

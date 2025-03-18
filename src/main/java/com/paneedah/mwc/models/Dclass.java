@@ -135,7 +135,7 @@ public class Dclass extends ModelBiped {
         bone35.cubeList.add(new ModelBox(bone35, 66, 0, -7.0F, -4.3584F, 6.1749F, 4, 9, 1, 0.0F, false));
 
         bone39 = new ModelRenderer(this);
-        bone39.setRotationPoint(-1.0F, 5.3916F, -1.9251F);
+        bone39.setRotationPoint(-1, 5.3916F, -1.9251F);
         right_arm.addChild(bone39);
         setRotationAngle(bone39, 0.1134F, 0.0F, 0.0F);
         bone39.cubeList.add(new ModelBox(bone39, 76, 0, -2.0F, 1.5549F, -0.6076F, 4, 1, 1, 0.0F, false));
@@ -153,7 +153,7 @@ public class Dclass extends ModelBiped {
         bone42.cubeList.add(new ModelBox(bone42, 75, 65, -0.0749F, 1.7897F, 1.4539F, 4, 1, 1, 0.0F, false));
 
         bone40 = new ModelRenderer(this);
-        bone40.setRotationPoint(-1.0F, 5.3916F, 1.9251F);
+        bone40.setRotationPoint(-1, 5.3916F, 1.9251F);
         right_arm.addChild(bone40);
         setRotationAngle(bone40, -0.1134F, 0.0F, 0.0F);
         bone40.cubeList.add(new ModelBox(bone40, 59, 76, -2.0F, 1.5549F, -0.3924F, 4, 1, 1, 0.0F, false));
@@ -199,7 +199,7 @@ public class Dclass extends ModelBiped {
         bone25.cubeList.add(new ModelBox(bone25, 61, 25, 3.0F, -4.3584F, 6.1749F, 4, 9, 1, 0.0F, false));
 
         bone28 = new ModelRenderer(this);
-        bone28.setRotationPoint(1.0F, 5.3916F, -1.9251F);
+        bone28.setRotationPoint(1, 5.3916F, -1.9251F);
         left_arm.addChild(bone28);
         setRotationAngle(bone28, 0.1134F, 0.0F, 0.0F);
         bone28.cubeList.add(new ModelBox(bone28, 75, 75, -2.0F, 1.5549F, -0.6076F, 4, 1, 1, 0.0F, false));
@@ -217,7 +217,7 @@ public class Dclass extends ModelBiped {
         bone30.cubeList.add(new ModelBox(bone30, 30, 75, -3.9251F, 1.7897F, 1.4539F, 4, 1, 1, 0.0F, false));
 
         bone31 = new ModelRenderer(this);
-        bone31.setRotationPoint(1.0F, 5.3916F, 1.9251F);
+        bone31.setRotationPoint(1, 5.3916F, 1.9251F);
         left_arm.addChild(bone31);
         setRotationAngle(bone31, -0.1134F, 0.0F, 0.0F);
         bone31.cubeList.add(new ModelBox(bone31, 54, 50, -2.0F, 1.5549F, -0.3924F, 4, 1, 1, 0.0F, false));
@@ -381,7 +381,7 @@ public class Dclass extends ModelBiped {
 
         bipedLeftArm = new ModelRenderer(this);
         bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 88, 0, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, true));
+        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 88, 0, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, true));
 
         head = new ModelRenderer(this);
         head.setRotationPoint(0.0F, 0.0F, 0.0F);

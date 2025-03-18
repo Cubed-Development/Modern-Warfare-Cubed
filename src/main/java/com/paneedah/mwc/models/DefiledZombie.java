@@ -69,9 +69,9 @@ public class DefiledZombie extends ModelBiped {
         this.textureWidth = p_i1149_3_;
         this.textureHeight = p_i1149_4_;
 //        this.bipedCloak = new ModelRenderer(this, 0, 0);
-//        this.bipedCloak.addBox(-5.0F, 0.0F, -1.0F, 10, 16, 1, p_i1149_1_);
+//        this.bipedCloak.addBox(-5.0F, 0.0F, -1, 10, 16, 1, p_i1149_1_);
 //        this.bipedEars = new ModelRenderer(this, 24, 0);
-//        this.bipedEars.addBox(-3.0F, -6.0F, -1.0F, 6, 6, 1, p_i1149_1_);
+//        this.bipedEars.addBox(-3.0F, -6.0F, -1, 6, 6, 1, p_i1149_1_);
 
         head = new ModelRenderer(this, 25, 0);
         head.addBox(-4F, -6F, -4F, 8, 4, 8);
@@ -262,10 +262,10 @@ public class DefiledZombie extends ModelBiped {
 
         this.bipedRightArm = new ModelRenderer(this, 40, 16);
         this.bipedRightArm.addBox(-3.0F, -2.0F, -2.0F, 0, 0, 0, p_i1149_1_);
-        this.bipedRightArm.setRotationPoint(-1.0F, 0.0F + p_i1149_2_, -2.0F);
+        this.bipedRightArm.setRotationPoint(-1, 0.0F + p_i1149_2_, -2.0F);
         this.bipedLeftArm = new ModelRenderer(this, 40, 16);
         this.bipedLeftArm.mirror = true;
-        this.bipedLeftArm.addBox(-1.0F, -2.0F, -2.0F, 0, 0, 0, p_i1149_1_);
+        this.bipedLeftArm.addBox(-1, -2.0F, -2.0F, 0, 0, 0, p_i1149_1_);
         this.bipedLeftArm.setRotationPoint(0.0F, 0.0F + p_i1149_2_, -2.0F);
         this.bipedRightLeg = new ModelRenderer(this, 0, 16);
         this.bipedRightLeg.addBox(-2.0F, 0.0F, -2.0F, 0, 0, 0, p_i1149_1_);
@@ -328,7 +328,7 @@ public class DefiledZombie extends ModelBiped {
             this.bipedHead.render(p_78088_7_);
             GL11.glPopMatrix();
             GL11.glPushMatrix();
-            GL11.glScalef(1.0F / f6, 1.0F / f6, 1.0F / f6);
+            GL11.glScalef(1 / f6, 1 / f6, 1 / f6);
             GL11.glTranslatef(0.0F, 24.0F * p_78088_7_, 0.0F);
             this.bipedBody.render(p_78088_7_);
             this.bipedRightArm.render(p_78088_7_);
@@ -397,10 +397,10 @@ public class DefiledZombie extends ModelBiped {
 //            this.bipedRightArm.rotateAngleY += this.bipedBody.rotateAngleY;
 //            this.bipedLeftArm.rotateAngleY += this.bipedBody.rotateAngleY;
 //            this.bipedLeftArm.rotateAngleX += this.bipedBody.rotateAngleY;
-//            f6 = 1.0F - this.onGround;
+//            f6 = 1 - this.onGround;
 //            f6 *= f6;
 //            f6 *= f6;
-//            f6 = 1.0F - f6;
+//            f6 = 1 - f6;
 //            f7 = MathHelper.sin(f6 * (float)Math.PI);
 //            float f8 = MathHelper.sin(this.onGround * (float)Math.PI) * -(this.bipedHead.rotateAngleX - 0.7F) * 0.75F;
 //            this.bipedRightArm.rotateAngleX = (float)((double)this.bipedRightArm.rotateAngleX - ((double)f7 * 1.2D + (double)f8));
@@ -416,7 +416,7 @@ public class DefiledZombie extends ModelBiped {
             this.bipedLeftLeg.rotationPointZ = 4.0F;
             this.bipedRightLeg.rotationPointY = 9.0F;
             this.bipedLeftLeg.rotationPointY = 9.0F;
-            this.bipedHead.rotationPointY = 1.0F;
+            this.bipedHead.rotationPointY = 1;
         } else {
             this.bipedBody.rotateAngleX = 0.0F;
             this.bipedRightLeg.rotationPointZ = 0.1F;

@@ -108,7 +108,7 @@ public class M79Cartridge extends ModelWithAttachments {
         MAIN2D10_r1.setRotationPoint(-0.3734F, 16.9061F, 24.7868F);
         Cartridge.addChild(MAIN2D10_r1);
         setRotationAngle(MAIN2D10_r1, 0.3316F, 0.0F, 0.0F);
-        MAIN2D10_r1.cubeList.add(new ModelBox(MAIN2D10_r1, 0, 70, -1.0F, -20.0F, 1.2F, 3, 1, 3, 0.0F, false));
+        MAIN2D10_r1.cubeList.add(new ModelBox(MAIN2D10_r1, 0, 70, -1, -20.0F, 1.2F, 3, 1, 3, 0.0F, false));
     }
 
     @Override

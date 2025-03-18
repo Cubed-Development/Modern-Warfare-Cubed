@@ -86,7 +86,7 @@ public class SingleAnimation {
 
             for (int t = 0; t < getTimestamps().size(); ++t) {
                 if (t == 0) {
-                    data.getBbTransition().get(getTimestamps().get(t)).setTimestamp(1.0f);
+                    data.getBbTransition().get(getTimestamps().get(t)).setTimestamp(1);
                 } else {
                     float trueDelta = AnimationData.PACE * (getTimestamps().get(t) - getTimestamps().get(t - 1));
 

@@ -682,7 +682,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 Tags.setAmmo(weaponItemStack, ammo);
                 LOGGER.debug("Setting server side ammo for {} to {}", weaponInstance, ammo);
                 WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineItemStack.getItem(), weaponInstance);
-                player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0f, 1.0F);
+                player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1, 1);
             }
             // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, ReloadMessage.Type.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
             weaponInstance.setAmmo(ammo);
@@ -694,12 +694,12 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             if (weapon.hasIteratedLoad()) {
                 weaponInstance.setLoadIterationCount(consumedAmount);
             }
-            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
+            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1, 1);
         } else if (consumed) {
             Tags.setAmmo(weaponItemStack, weapon.builder.ammoCapacity);
             // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, weapon.builder.ammoCapacity), (EntityPlayerMP) player);
             weaponInstance.setAmmo(weapon.builder.ammoCapacity);
-            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
+            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1, 1);
         } else {
             LOGGER.debug("No suitable ammo found for {}. Permit denied.", weaponInstance);
             //Tags.setAmmo(weaponItemStack, 0);
@@ -715,7 +715,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
 
     private void prepareUnload(PlayerWeaponInstance weaponInstance) {
-        weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getUnloadSound(), 1.0F, 1.0F);
+        weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getUnloadSound(), 1, 1);
     }
 
     private void processUnloadPermit(UnloadPermit p, PlayerWeaponInstance weaponInstance) {
@@ -748,7 +748,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
             Tags.setAmmo(weaponItemStack, 0);
             weaponInstance.setAmmo(0);
-            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getUnloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
+            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getUnloadSound(), player.getSoundCategory(), 1, 1);
 
             p.setStatus(Status.GRANTED);
         } else {

@@ -287,7 +287,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             if (!FMLCommonHandler.instance().getSide().isServer()) {
 
                 //
-                PositionedSoundRecord psr = new PositionedSoundRecord(shootSound, SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1.0F, MC.player.getPosition().up(5));
+                PositionedSoundRecord psr = new PositionedSoundRecord(shootSound, SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1, MC.player.getPosition().up(5));
                 playShootSound(psr);
                 //MC.getSoundHandler().playSound(psr);
             }
@@ -301,7 +301,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
         int currentAmmo = weaponInstance.getAmmo();
         if (currentAmmo == 1 && weapon.getEndOfShootSound() != null && !FMLCommonHandler.instance().getSide().isServer()) {
-            PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, MC.player.getPosition().up(5));
+            PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound(), SoundCategory.PLAYERS, 1, 1, MC.player.getPosition().up(5));
             playShootSound(psr);
             //MC.getSoundHandler().playSound(psr);
         }
@@ -315,7 +315,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         recoilAmount *= BalancePackManager.getGroupRecoilMultiplier(weapon.getConfigurationGroup());
 
         player.rotationPitch = player.rotationPitch - recoilAmount * 0.7f;
-        float rotationYawFactor = -1.0f + random.nextFloat() * 2.0f;
+        float rotationYawFactor = -1 + random.nextFloat() * 2.0f;
 
         player.rotationYaw = player.rotationYaw + recoilAmount * rotationYawFactor * 0.4f;
 
@@ -357,7 +357,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	// Calculate the final position of the bullet spawn point
         	// by changing it's position along its own vector
         	double distance = 0.5;
-			Vec3d eyePos = MC.player.getPositionEyes(1.0f);
+			Vec3d eyePos = MC.player.getPositionEyes(1);
 			Vec3d finalPosition = rawPosition.subtract(eyePos).normalize().scale(distance).add(eyePos);
 			
         	// Calculate velocity as 90 degrees to player
@@ -390,7 +390,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
     //(weapon, player) 
     public void serverFire(EntityLivingBase player, boolean isBurst, boolean isAimed) {
-        serverFire(player, player.getHeldItemMainhand(), null, isBurst, isAimed, 1.0f);
+        serverFire(player, player.getHeldItemMainhand(), null, isBurst, isAimed, 1);
     }
 
     public void serverFire(EntityLivingBase player, ItemStack itemStack, BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith, boolean isBurst, boolean isAimed, float damageMultiplier) {
@@ -499,7 +499,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             shootSound = silencerOn ? weapon.getSilencedShootSound() : weapon.getShootSound();
         }
 
-        player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, shootSound, player.getSoundCategory(), silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1.0f);
+        player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, shootSound, player.getSoundCategory(), silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1);
 
     }
 

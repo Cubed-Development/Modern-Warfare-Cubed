@@ -147,13 +147,13 @@ public class BanditNew extends ModelBiped {
         cube_r13.setRotationPoint(-3.0F, 0.05F, 2.1F);
         platecarrier.addChild(cube_r13);
         setRotation(cube_r13, 0.1396F, 0.0F, -0.1222F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 0, 16, 0.0F, 0.0F, -1.0F, 2, 2, 1, 0.0F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 0, 16, 0.0F, 0.0F, -1, 2, 2, 1, 0.0F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(3.0F, 0.05F, 2.1F);
         platecarrier.addChild(cube_r14);
         setRotation(cube_r14, 0.1396F, 0.0F, 0.1222F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 19, -2.0F, 0.0F, -1.0F, 2, 2, 1, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 19, -2.0F, 0.0F, -1, 2, 2, 1, 0.0F, false));
 
         cube_r15 = new ModelRenderer(this);
         cube_r15.setRotationPoint(3.2F, -0.25F, -1.9F);
@@ -185,7 +185,7 @@ public class BanditNew extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(0.0F, 0.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 16, 47, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 16, 47, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         rightleg = new ModelRenderer(this);
         rightleg.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -219,7 +219,7 @@ public class BanditNew extends ModelBiped {
 
         if (entityCustomMob.isSwingingArms() && itemstack.getItem() != Items.BOW) {
             float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
-            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
+            float f1 = MathHelper.sin((1 - (1 - this.swingProgress) * (1 - this.swingProgress)) * (float) Math.PI);
             this.bipedRightArm.rotateAngleZ = 0.0F;
             this.bipedLeftArm.rotateAngleZ = 0.0F;
             this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
@@ -256,7 +256,7 @@ public class BanditNew extends ModelBiped {
 
     @Override
     public void postRenderArm(float scale, EnumHandSide side) {
-        float f = side == EnumHandSide.RIGHT ? 1.0F : -1.0F;
+        float f = side == EnumHandSide.RIGHT ? 1 : -1;
         ModelRenderer modelrenderer = this.getArmForSide(side);
         modelrenderer.rotationPointX += f;
         modelrenderer.postRender(scale * 1.25f);

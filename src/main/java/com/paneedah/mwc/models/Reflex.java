@@ -60,8 +60,8 @@ public class Reflex extends ModelBase {
 
         gun3 = new ModelRenderer(this);
         gun3.setRotationPoint(-5.0F, -3.0F, -2.0F);
-        gun3.cubeList.add(new ModelBox(gun3, 28, 31, -0.01F, 1.0F, 0.0F, 1, 1, 14, 0.0F, false));
-        gun3.cubeList.add(new ModelBox(gun3, 29, 0, 6.01F, 1.0F, 0.0F, 1, 1, 14, 0.0F, false));
+        gun3.cubeList.add(new ModelBox(gun3, 28, 31, -0.01F, 1, 0.0F, 1, 1, 14, 0.0F, false));
+        gun3.cubeList.add(new ModelBox(gun3, 29, 0, 6.01F, 1, 0.0F, 1, 1, 14, 0.0F, false));
 
         gun8 = new ModelRenderer(this);
         gun8.setRotationPoint(-5.0F, -3.5F, -2.0F);
@@ -70,7 +70,7 @@ public class Reflex extends ModelBase {
         bone10 = new ModelRenderer(this);
         bone10.setRotationPoint(-5.0F, -6.0F, -2.0F);
         setRotationAngle(bone10, 0.0F, 0.0F, -2.3562F);
-        bone10.cubeList.add(new ModelBox(bone10, 21, 48, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 21, 48, -1, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
         bone10.cubeList.add(new ModelBox(bone10, 13, 48, -4.9497F, 3.9497F, 0.0F, 1, 1, 3, 0.0F, false));
 
         gun9 = new ModelRenderer(this);
@@ -100,20 +100,20 @@ public class Reflex extends ModelBase {
         gun10.setRotationPoint(0.5F, -6.1995F, -0.014F);
         gun9.addChild(gun10);
         setRotationAngle(gun10, 0.0F, 3.1416F, 0.0F);
-        gun10.cubeList.add(new ModelBox(gun10, 28, 33, 0.5F, 1.0F, -3.0F, 1, 2, 3, 0.0F, false));
+        gun10.cubeList.add(new ModelBox(gun10, 28, 33, 0.5F, 1, -3.0F, 1, 2, 3, 0.0F, false));
         gun10.cubeList.add(new ModelBox(gun10, 29, 10, 0.51F, 0.5F, -3.0F, 1, 1, 3, 0.0F, false));
 
         bone13 = new ModelRenderer(this);
         bone13.setRotationPoint(1.5F, 0.5F, 0.0F);
         gun10.addChild(bone13);
         setRotationAngle(bone13, 0.0F, 0.0F, -0.5236F);
-        bone13.cubeList.add(new ModelBox(bone13, 29, 5, -1.0F, -2.0F, -3.0F, 1, 2, 3, 0.0F, false));
+        bone13.cubeList.add(new ModelBox(bone13, 29, 5, -1, -2.0F, -3.0F, 1, 2, 3, 0.0F, false));
 
         bone14 = new ModelRenderer(this);
         bone14.setRotationPoint(1.5F, 3.0F, 0.0F);
         gun10.addChild(bone14);
         setRotationAngle(bone14, 0.0F, 0.0F, 0.5236F);
-        bone14.cubeList.add(new ModelBox(bone14, 29, 0, -1.0F, 0.0F, -3.0F, 1, 2, 3, 0.0F, false));
+        bone14.cubeList.add(new ModelBox(bone14, 29, 0, -1, 0.0F, -3.0F, 1, 2, 3, 0.0F, false));
 
         gun14 = new ModelRenderer(this);
         gun14.setRotationPoint(5.0F, -7.0F, 0.0F);
@@ -132,23 +132,23 @@ public class Reflex extends ModelBase {
 
         bone15 = new ModelRenderer(this);
         bone15.setRotationPoint(-0.65F, -6.2F, 3.25F);
-        bone15.cubeList.add(new ModelBox(bone15, 44, 31, -3.85F, -1.0F, 0.25F, 6, 2, 3, 0.0F, false));
-        bone15.cubeList.add(new ModelBox(bone15, 16, 33, -2.35F, -1.0F, -1.25F, 3, 2, 6, 0.0F, false));
+        bone15.cubeList.add(new ModelBox(bone15, 44, 31, -3.85F, -1, 0.25F, 6, 2, 3, 0.0F, false));
+        bone15.cubeList.add(new ModelBox(bone15, 16, 33, -2.35F, -1, -1.25F, 3, 2, 6, 0.0F, false));
 
         bone17 = new ModelRenderer(this);
         bone17.setRotationPoint(0.4F, -0.3F, 0.25F);
         bone15.addChild(bone17);
         setRotationAngle(bone17, 0.0F, -0.7854F, 0.0F);
-        bone17.cubeList.add(new ModelBox(bone17, 45, 5, -1.85F, -1.0F, 0.0F, 4, 2, 4, 0.0F, false));
+        bone17.cubeList.add(new ModelBox(bone17, 45, 5, -1.85F, -1, 0.0F, 4, 2, 4, 0.0F, false));
 
         bone16 = new ModelRenderer(this);
         bone16.setRotationPoint(-3.85F, 0.0F, 0.25F);
         bone15.addChild(bone16);
         setRotationAngle(bone16, 0.0F, 0.7854F, 0.0F);
-        bone16.cubeList.add(new ModelBox(bone16, 43, 46, 0.0F, -1.0F, 0.0F, 2, 2, 2, 0.0F, false));
-        bone16.cubeList.add(new ModelBox(bone16, 35, 46, -2.1213F, -1.0F, 2.1213F, 2, 2, 2, 0.0F, false));
-        bone16.cubeList.add(new ModelBox(bone16, 27, 46, 0.1213F, -1.0F, 4.364F, 2, 2, 2, 0.0F, false));
-        bone16.cubeList.add(new ModelBox(bone16, 0, 46, 2.2426F, -1.0F, 2.2426F, 2, 2, 2, 0.0F, false));
+        bone16.cubeList.add(new ModelBox(bone16, 43, 46, 0.0F, -1, 0.0F, 2, 2, 2, 0.0F, false));
+        bone16.cubeList.add(new ModelBox(bone16, 35, 46, -2.1213F, -1, 2.1213F, 2, 2, 2, 0.0F, false));
+        bone16.cubeList.add(new ModelBox(bone16, 27, 46, 0.1213F, -1, 4.364F, 2, 2, 2, 0.0F, false));
+        bone16.cubeList.add(new ModelBox(bone16, 0, 46, 2.2426F, -1, 2.2426F, 2, 2, 2, 0.0F, false));
 
         bone18 = new ModelRenderer(this);
         bone18.setRotationPoint(0.0F, 24.0F, -0.6F);
@@ -174,7 +174,7 @@ public class Reflex extends ModelBase {
         bone2.cubeList.add(new ModelBox(bone2, 0, 7, -0.7656F, -0.8315F, -4.528F, 1, 1, 6, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(0.0F, -1.0F, 0.0F);
+        bone4.setRotationPoint(0.0F, -1, 0.0F);
         bone2.addChild(bone4);
         setRotationAngle(bone4, 0.0F, 0.0F, 0.4712F);
         bone4.cubeList.add(new ModelBox(bone4, 0, 23, -0.7146F, 0.0437F, -3.528F, 1, 1, 5, 0.0F, false));
@@ -232,7 +232,7 @@ public class Reflex extends ModelBase {
         bone19 = new ModelRenderer(this);
         bone19.setRotationPoint(2.2F, -5.2F, 10.2F);
         setRotationAngle(bone19, -0.7854F, 0.0F, 0.0F);
-        bone19.cubeList.add(new ModelBox(bone19, 10, 18, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        bone19.cubeList.add(new ModelBox(bone19, 10, 18, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
         bone19.cubeList.add(new ModelBox(bone19, 7, 17, -0.8F, 1.192F, 2.0506F, 1, 1, 1, 0.0F, false));
         bone19.cubeList.add(new ModelBox(bone19, 0, 17, -0.8F, 9.3945F, -6.1518F, 1, 1, 1, 0.0F, false));
 

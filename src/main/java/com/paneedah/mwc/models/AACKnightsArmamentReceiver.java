@@ -72,7 +72,7 @@ public class AACKnightsArmamentReceiver extends ModelBase {
         bone4.setRotationPoint(2.1622F, 1.4473F, -0.9F);
         gun764.addChild(bone4);
         setRotationAngle(bone4, 0.0F, 0.0F, -0.6458F);
-        bone4.cubeList.add(new ModelBox(bone4, 0, 27, -1.0F, -2.0F, -1.0F, 1, 3, 2, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 0, 27, -1, -2.0F, -1, 1, 3, 2, 0.0F, false));
 
         gun2 = new ModelRenderer(this);
         gun2.setRotationPoint(-5.2F, -38.1F, -9.0F);
@@ -91,7 +91,7 @@ public class AACKnightsArmamentReceiver extends ModelBase {
         gun135 = new ModelRenderer(this);
         gun135.setRotationPoint(-0.3F, -39.1F, -19.5F);
         receiver.addChild(gun135);
-        gun135.cubeList.add(new ModelBox(gun135, 26, 30, -0.19F, -0.3F, 1.0F, 1, 1, 2, 0.0F, false));
+        gun135.cubeList.add(new ModelBox(gun135, 26, 30, -0.19F, -0.3F, 1, 1, 1, 2, 0.0F, false));
         gun135.cubeList.add(new ModelBox(gun135, 0, 6, -0.189F, 0.2F, -3.2F, 1, 1, 5, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
@@ -101,7 +101,7 @@ public class AACKnightsArmamentReceiver extends ModelBase {
         bone3.cubeList.add(new ModelBox(bone3, 30, 11, -2.0F, 0.0F, 0.0F, 2, 1, 5, 0.0F, false));
 
         bone9 = new ModelRenderer(this);
-        bone9.setRotationPoint(1.0F, 0.0F, 3.0F);
+        bone9.setRotationPoint(1, 0.0F, 3.0F);
         gun135.addChild(bone9);
         setRotationAngle(bone9, -1.0996F, 0.0F, 0.0F);
         bone9.cubeList.add(new ModelBox(bone9, 7, 0, -1.21F, -0.1362F, -0.2673F, 1, 1, 1, 0.0F, false));
@@ -175,18 +175,18 @@ public class AACKnightsArmamentReceiver extends ModelBase {
         gun111.cubeList.add(new ModelBox(gun111, 20, 10, -0.001F, -0.001F, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun125 = new ModelRenderer(this);
-        gun125.setRotationPoint(-2.5F, -40.1F, -1.0F);
+        gun125.setRotationPoint(-2.5F, -40.1F, -1);
         receiver.addChild(gun125);
         setRotationAngle(gun125, -0.632F, 0.0F, 0.0F);
         gun125.cubeList.add(new ModelBox(gun125, 13, 22, 0.0F, 0.0F, 0.0F, 2, 1, 2, 0.0F, false));
 
         gun319 = new ModelRenderer(this);
-        gun319.setRotationPoint(-2.0F, -40.3F, -1.0F);
+        gun319.setRotationPoint(-2.0F, -40.3F, -1);
         receiver.addChild(gun319);
         gun319.cubeList.add(new ModelBox(gun319, 4, 30, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun121 = new ModelRenderer(this);
-        gun121.setRotationPoint(-2.5F, -39.3F, 1.0F);
+        gun121.setRotationPoint(-2.5F, -39.3F, 1);
         receiver.addChild(gun121);
         gun121.cubeList.add(new ModelBox(gun121, 0, 19, 0.0F, 0.0F, 0.0F, 2, 4, 2, 0.0F, false));
 
@@ -201,7 +201,7 @@ public class AACKnightsArmamentReceiver extends ModelBase {
         gun109.cubeList.add(new ModelBox(gun109, 17, 30, 0.0F, 0.0F, 0.0F, 2, 2, 1, 0.0F, false));
 
         gun346 = new ModelRenderer(this);
-        gun346.setRotationPoint(-2.8F, -39.3F, -21.0F);
+        gun346.setRotationPoint(-2.8F, -39.3F, -21);
         receiver.addChild(gun346);
         gun346.cubeList.add(new ModelBox(gun346, 30, 0, 0.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
 
@@ -237,10 +237,10 @@ public class AACKnightsArmamentReceiver extends ModelBase {
         bone.setRotationPoint(0.8F, -38.1F, -9.0F);
         receiver.addChild(bone);
         setRotationAngle(bone, 0.0F, 0.0F, -0.8378F);
-        bone.cubeList.add(new ModelBox(bone, 50, 54, -1.0F, -2.0F, -9.0F, 1, 2, 17, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 14, 5, -1.0F, -1.0F, 8.0F, 1, 1, 4, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 14, 0, -1.0F, -1.7F, 8.0F, 1, 1, 4, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.0F, -1.0F, -13.7F, 1, 1, 5, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 50, 54, -1, -2.0F, -9.0F, 1, 2, 17, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 14, 5, -1, -1, 8.0F, 1, 1, 4, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 14, 0, -1, -1.7F, 8.0F, 1, 1, 4, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1, -1, -13.7F, 1, 1, 5, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(0.0F, 0.0F, -9.0F);
@@ -252,7 +252,7 @@ public class AACKnightsArmamentReceiver extends ModelBase {
         bone5.setRotationPoint(-3.8F, -38.1F, -9.0F);
         receiver.addChild(bone5);
         setRotationAngle(bone5, 0.0F, 0.0F, 0.8378F);
-        bone5.cubeList.add(new ModelBox(bone5, 75, 0, 0.0F, -1.0F, -2.0F, 1, 1, 14, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 75, 0, 0.0F, -1, -2.0F, 1, 1, 14, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 72, 72, 0.0F, -1.7F, -2.0F, 1, 1, 14, 0.0F, false));
     }
 

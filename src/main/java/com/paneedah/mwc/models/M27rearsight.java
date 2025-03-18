@@ -52,19 +52,19 @@ public class M27rearsight extends ModelBase {
         textureHeight = 64;
 
         sight2 = new ModelRenderer(this);
-        sight2.setRotationPoint(0.0F, -4.0F, -1.0F);
+        sight2.setRotationPoint(0.0F, -4.0F, -1);
         sight2.cubeList.add(new ModelBox(sight2, 0, 20, -0.5F, -0.5F, 0.0F, 1, 2, 2, 0.0F, true));
 
         sight3 = new ModelRenderer(this);
-        sight3.setRotationPoint(2.0F, -4.0F, -1.0F);
+        sight3.setRotationPoint(2.0F, -4.0F, -1);
         sight3.cubeList.add(new ModelBox(sight3, 0, 20, 0.5F, -0.5F, 0.0F, 1, 2, 2, 0.0F, true));
 
         sight5 = new ModelRenderer(this);
-        sight5.setRotationPoint(1.0F, -5.0F, -1.0F);
+        sight5.setRotationPoint(1, -5.0F, -1);
         sight5.cubeList.add(new ModelBox(sight5, 0, 20, -0.5F, -0.5F, 0.0F, 2, 1, 2, 0.0F, true));
 
         sight6 = new ModelRenderer(this);
-        sight6.setRotationPoint(1.0F, -3.0F, -1.0F);
+        sight6.setRotationPoint(1, -3.0F, -1);
 
 
         sight8 = new ModelRenderer(this);
@@ -81,7 +81,7 @@ public class M27rearsight extends ModelBase {
         sight13.cubeList.add(new ModelBox(sight13, 0, 0, 0.0F, 0.0F, 0.0F, 3, 4, 4, 0.0F, true));
 
         sight17 = new ModelRenderer(this);
-        sight17.setRotationPoint(0.5F, -2.5F, -1.0F);
+        sight17.setRotationPoint(0.5F, -2.5F, -1);
         sight17.cubeList.add(new ModelBox(sight17, 0, 0, -0.5F, 0.0F, 0.0F, 3, 8, 2, 0.0F, true));
 
         sight19 = new ModelRenderer(this);
@@ -89,49 +89,49 @@ public class M27rearsight extends ModelBase {
         sight19.cubeList.add(new ModelBox(sight19, 0, 0, 0.0F, 0.0F, 0.0F, 4, 3, 4, 0.0F, true));
 
         sight20 = new ModelRenderer(this);
-        sight20.setRotationPoint(1.0F, -2.0F, -1.0F);
+        sight20.setRotationPoint(1, -2.0F, -1);
         setRotationAngle(sight20, 0.0F, 0.0F, -2.3562F);
 
 
         sight21 = new ModelRenderer(this);
-        sight21.setRotationPoint(2.0F, -2.0F, -1.0F);
+        sight21.setRotationPoint(2.0F, -2.0F, -1);
         setRotationAngle(sight21, 0.0F, 0.0F, -2.3562F);
 
 
         sight22 = new ModelRenderer(this);
-        sight22.setRotationPoint(3.0F, -3.0F, -1.0F);
+        sight22.setRotationPoint(3.0F, -3.0F, -1);
         setRotationAngle(sight22, 0.0F, 0.0F, 2.3562F);
         sight22.cubeList.add(new ModelBox(sight22, 0, 20, 0.0F, -0.7071F, 0.0F, 2, 1, 2, 0.0F, true));
 
         sight23 = new ModelRenderer(this);
-        sight23.setRotationPoint(3.0F, -4.0F, -1.0F);
+        sight23.setRotationPoint(3.0F, -4.0F, -1);
         setRotationAngle(sight23, 0.0F, 0.0F, 2.3562F);
         sight23.cubeList.add(new ModelBox(sight23, 0, 20, -0.7071F, 0.0F, 0.0F, 1, 1, 2, 0.0F, true));
         sight23.cubeList.add(new ModelBox(sight23, 0, 20, -0.7071F, 0.4F, 0.0F, 1, 1, 2, 0.0F, true));
 
         sight24 = new ModelRenderer(this);
-        sight24.setRotationPoint(2.0F, -5.0F, -1.0F);
+        sight24.setRotationPoint(2.0F, -5.0F, -1);
         setRotationAngle(sight24, 0.0F, 0.0F, 0.7854F);
 
 
         sight25 = new ModelRenderer(this);
-        sight25.setRotationPoint(1.0F, -5.0F, -1.0F);
+        sight25.setRotationPoint(1, -5.0F, -1);
         setRotationAngle(sight25, 0.0F, 0.0F, 0.7854F);
 
 
         sight26 = new ModelRenderer(this);
-        sight26.setRotationPoint(0.0F, -4.0F, -1.0F);
+        sight26.setRotationPoint(0.0F, -4.0F, -1);
         setRotationAngle(sight26, 0.0F, 0.0F, -0.7854F);
         sight26.cubeList.add(new ModelBox(sight26, 0, 20, 0.0F, -0.7071F, 0.0F, 1, 1, 2, 0.0F, true));
         sight26.cubeList.add(new ModelBox(sight26, 0, 20, 0.4F, -0.7071F, 0.0F, 1, 1, 2, 0.0F, true));
 
         sight27 = new ModelRenderer(this);
-        sight27.setRotationPoint(0.0F, -3.0F, -1.0F);
+        sight27.setRotationPoint(0.0F, -3.0F, -1);
         setRotationAngle(sight27, 0.0F, 0.0F, -0.7854F);
         sight27.cubeList.add(new ModelBox(sight27, 0, 20, -0.7071F, 0.0F, 0.0F, 1, 2, 2, 0.0F, true));
 
         sight28 = new ModelRenderer(this);
-        sight28.setRotationPoint(0.5F, -1.0F, 0.5F);
+        sight28.setRotationPoint(0.5F, -1, 0.5F);
 
 
         sight29 = new ModelRenderer(this);
@@ -182,7 +182,7 @@ public class M27rearsight extends ModelBase {
         sight38.cubeList.add(new ModelBox(sight38, 0, 0, 0.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, true));
 
         sight39 = new ModelRenderer(this);
-        sight39.setRotationPoint(-1.8F, 5.5F, -1.0F);
+        sight39.setRotationPoint(-1.8F, 5.5F, -1);
         sight39.cubeList.add(new ModelBox(sight39, 0, 0, 0.0F, 0.0F, 0.0F, 6, 2, 2, 0.0F, true));
 
         sight40 = new ModelRenderer(this);

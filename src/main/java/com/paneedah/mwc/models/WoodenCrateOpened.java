@@ -33,21 +33,21 @@ public class WoodenCrateOpened extends ModelBase {
         bone = new ModelRenderer(this);
         bone.setRotationPoint(7.0F, 16.0F, -7.0F);
         setRotationAngle(bone, -1.5708F, 0.0F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 18, 75, -1.0F, -1.0F, -9.0F, 2, 2, 14, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 57, -15.0F, -1.0F, -9.0F, 2, 2, 14, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 18, 75, -1, -1, -9.0F, 2, 2, 14, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 57, -15.0F, -1, -9.0F, 2, 2, 14, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(7.0F, 16.0F, 7.0F);
         setRotationAngle(bone2, -1.5708F, 0.0F, 0.0F);
-        bone2.cubeList.add(new ModelBox(bone2, 0, 73, -1.0F, -1.0F, -9.0F, 2, 2, 14, 0.0F, false));
-        bone2.cubeList.add(new ModelBox(bone2, 18, 59, -15.0F, -1.0F, -9.0F, 2, 2, 14, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 0, 73, -1, -1, -9.0F, 2, 2, 14, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 18, 59, -15.0F, -1, -9.0F, 2, 2, 14, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(-21.0F, 10.0F, 15.0F);
-        bone3.cubeList.add(new ModelBox(bone3, 52, 52, 14.0F, -1.0F, -22.0F, 14, 12, 14, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 0, 89, 27.0F, -3.0F, -21.0F, 2, 2, 12, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 82, 84, 13.0F, -3.0F, -21.0F, 2, 2, 12, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 48, 20, 13.0F, 11.0F, -23.0F, 16, 2, 16, 0.0F, false));
+        bone3.setRotationPoint(-21, 10.0F, 15.0F);
+        bone3.cubeList.add(new ModelBox(bone3, 52, 52, 14.0F, -1, -22.0F, 14, 12, 14, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 89, 27.0F, -3.0F, -21, 2, 2, 12, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 82, 84, 13.0F, -3.0F, -21, 2, 2, 12, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 48, 20, 13.0F, 11, -23.0F, 16, 2, 16, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 36, 57, 15.0F, -3.0F, -23.0F, 12, 2, 2, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 94, 51, 13.0F, 13.0F, -9.0F, 16, 1, 2, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 90, 46, 13.0F, 13.0F, -16.0F, 16, 1, 2, 0.0F, false));
@@ -68,7 +68,7 @@ public class WoodenCrateOpened extends ModelBase {
         bone12.setRotationPoint(0.0F, 0.6667F, 0.0F);
         bone11.addChild(bone12);
         setRotationAngle(bone12, 0.0F, -0.7854F, 0.0F);
-        bone12.cubeList.add(new ModelBox(bone12, 76, 78, -9.0F, -0.5F, -1.0F, 18, 2, 2, 0.0F, false));
+        bone12.cubeList.add(new ModelBox(bone12, 76, 78, -9.0F, -0.5F, -1, 18, 2, 2, 0.0F, false));
 
         bone13 = new ModelRenderer(this);
         bone13.setRotationPoint(0.0F, 0.5F, 0.0F);
@@ -80,7 +80,7 @@ public class WoodenCrateOpened extends ModelBase {
         bone14.setRotationPoint(0.0F, 0.5F, 0.0F);
         bone12.addChild(bone14);
         setRotationAngle(bone14, 0.0F, 1.5708F, 0.0F);
-        bone14.cubeList.add(new ModelBox(bone14, 36, 78, -9.0F, -1.01F, -1.0F, 18, 2, 2, 0.0F, false));
+        bone14.cubeList.add(new ModelBox(bone14, 36, 78, -9.0F, -1.01F, -1, 18, 2, 2, 0.0F, false));
 
         bone10 = new ModelRenderer(this);
         bone10.setRotationPoint(20.5F, 7.5F, -4.0F);
@@ -92,34 +92,34 @@ public class WoodenCrateOpened extends ModelBase {
         bone4.setRotationPoint(14.0F, 5.0F, -15.0F);
         bone3.addChild(bone4);
         setRotationAngle(bone4, 0.7854F, 0.0F, 0.0F);
-        bone4.cubeList.add(new ModelBox(bone4, 0, 0, -0.5F, -1.0F, -9.0F, 15, 2, 18, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 0, 0, -0.5F, -1, -9.0F, 15, 2, 18, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(14.25F, 5.0F, -15.0F);
         bone3.addChild(bone5);
         setRotationAngle(bone5, -0.7854F, 0.0F, 0.0F);
-        bone5.cubeList.add(new ModelBox(bone5, 0, 20, -0.74F, -1.0F, -9.0F, 15, 2, 18, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 0, 20, -0.74F, -1, -9.0F, 15, 2, 18, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
-        bone6.setRotationPoint(21.0F, 5.0F, -22.0F);
+        bone6.setRotationPoint(21, 5.0F, -22.0F);
         bone3.addChild(bone6);
         setRotationAngle(bone6, 0.0F, 0.0F, -0.7854F);
-        bone6.cubeList.add(new ModelBox(bone6, 0, 40, -9.0F, -1.0F, -0.51F, 18, 2, 15, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 0, 40, -9.0F, -1, -0.51F, 18, 2, 15, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
-        bone7.setRotationPoint(21.0F, 5.0F, -21.75F);
+        bone7.setRotationPoint(21, 5.0F, -21.75F);
         bone3.addChild(bone7);
         setRotationAngle(bone7, 0.0F, 0.0F, 0.7854F);
-        bone7.cubeList.add(new ModelBox(bone7, 48, 0, -9.0F, -1.0F, -0.75F, 18, 2, 15, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 48, 0, -9.0F, -1, -0.75F, 18, 2, 15, 0.0F, false));
 
         bone8 = new ModelRenderer(this);
-        bone8.setRotationPoint(21.0F, -2.0F, 1.0F);
+        bone8.setRotationPoint(21, -2.0F, 1);
         bone3.addChild(bone8);
         setRotationAngle(bone8, 0.0F, -0.7854F, 0.0F);
 
 
         bone9 = new ModelRenderer(this);
-        bone9.setRotationPoint(21.0F, 12.0F, -15.0F);
+        bone9.setRotationPoint(21, 12.0F, -15.0F);
         bone3.addChild(bone9);
         setRotationAngle(bone9, 0.0F, 0.7854F, 0.0F);
 

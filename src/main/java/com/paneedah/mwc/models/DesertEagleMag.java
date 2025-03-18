@@ -26,7 +26,7 @@ public class DesertEagleMag extends ModelWithAttachments {
         magazine.cubeList.add(new ModelBox(magazine, 31, 18, -3.0F, -18.9F, -4.8F, 3, 1, 6, 0.001F, false));
 
         mag2_r1 = new ModelRenderer(this);
-        mag2_r1.setRotationPoint(-2.8F, -18.8F, 1.0F);
+        mag2_r1.setRotationPoint(-2.8F, -18.8F, 1);
         magazine.addChild(mag2_r1);
         setRotationAngle(mag2_r1, -2.9845F, 0.0F, 0.0F);
         mag2_r1.cubeList.add(new ModelBox(mag2_r1, 0, 75, 0.0F, 0.0F, 0.0F, 2, 12, 5, 0.0F, false));
@@ -36,7 +36,7 @@ public class DesertEagleMag extends ModelWithAttachments {
         mag6_r1.setRotationPoint(-0.5F, -18.9F, -5.8F);
         magazine.addChild(mag6_r1);
         setRotationAngle(mag6_r1, 0.0F, 0.4636F, 0.0F);
-        mag6_r1.cubeList.add(new ModelBox(mag6_r1, 77, 37, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        mag6_r1.cubeList.add(new ModelBox(mag6_r1, 77, 37, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         mag5_r1 = new ModelRenderer(this);
         mag5_r1.setRotationPoint(-2.5F, -18.9F, -5.8F);

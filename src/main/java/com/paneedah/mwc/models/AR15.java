@@ -98,7 +98,7 @@ public class AR15 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 63, 85, -3.8F, -32.5F, -13.7F, 1, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 31, 29, -3.8F, -34.3F, -14.7F, 1, 3, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 76, 85, -3.8F, -35.3F, -21.4F, 1, 1, 10, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 43, 36, -3.0F, -33.35F, -1.0F, 3, 1, 4, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 43, 36, -3.0F, -33.35F, -1, 3, 1, 4, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 26, 84, -3.3F, -36.0F, -1.001F, 3, 3, 4, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 31, 29, -0.7F, -36.0F, -0.998F, 1, 3, 4, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 15, -3.501F, -35.7F, -22.7F, 4, 1, 2, 0.0F, false));
@@ -115,7 +115,7 @@ public class AR15 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 43, 61, -0.7F, -36.0F, -14.0F, 1, 5, 13, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 33, 10, -3.001F, -32.0F, -13.8F, 3, 5, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 20, 10, -3.001F, -27.0F, -13.3F, 3, 1, 7, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 20, 42, -2.999F, -31.0F, -6.5F, 3, 5, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 20, 42, -2.999F, -31, -6.5F, 3, 5, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 10, 19, -2.6F, -39.401F, 1.0015F, 2, 4, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 20, 10, -1.4F, -39.4F, 1.0025F, 1, 4, 2, 0.0F, false));
 
@@ -124,7 +124,7 @@ public class AR15 extends ModelWithAttachments {
         gun.addChild(receiver17_r1);
         setRotationAngle(receiver17_r1, 0.0F, 0.0F, 0.4014F);
         receiver17_r1.cubeList.add(new ModelBox(receiver17_r1, 35, 42, -0.999F, 0.3F, 0.0F, 1, 1, 2, 0.0F, false));
-        receiver17_r1.cubeList.add(new ModelBox(receiver17_r1, 30, 54, -1.0F, 0.0F, 0.002F, 1, 1, 2, 0.0F, false));
+        receiver17_r1.cubeList.add(new ModelBox(receiver17_r1, 30, 54, -1, 0.0F, 0.002F, 1, 1, 2, 0.0F, false));
 
         receiver16_r1 = new ModelRenderer(this);
         receiver16_r1.setRotationPoint(-3.25F, -37.5F, 2.35F);
@@ -138,7 +138,7 @@ public class AR15 extends ModelWithAttachments {
         gun.addChild(receiver18_r1);
         setRotationAngle(receiver18_r1, 0.0F, 0.0F, -0.4014F);
         receiver18_r1.cubeList.add(new ModelBox(receiver18_r1, 0, 46, 0.35F, -0.999F, 0.001F, 1, 1, 2, 0.0F, false));
-        receiver18_r1.cubeList.add(new ModelBox(receiver18_r1, 49, 43, 0.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver18_r1.cubeList.add(new ModelBox(receiver18_r1, 49, 43, 0.0F, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         receiver17_r2 = new ModelRenderer(this);
         receiver17_r2.setRotationPoint(-1.5F, -39.25F, 2.35F);
@@ -152,37 +152,37 @@ public class AR15 extends ModelWithAttachments {
         gun.addChild(receiver17_r3);
         setRotationAngle(receiver17_r3, 0.0F, 0.0F, 0.4014F);
         receiver17_r3.cubeList.add(new ModelBox(receiver17_r3, 11, 45, -1.35F, -0.999F, 0.001F, 1, 1, 2, 0.0F, false));
-        receiver17_r3.cubeList.add(new ModelBox(receiver17_r3, 30, 51, -1.0F, -1.0F, 0.002F, 1, 1, 2, 0.0F, false));
+        receiver17_r3.cubeList.add(new ModelBox(receiver17_r3, 30, 51, -1, -1, 0.002F, 1, 1, 2, 0.0F, false));
 
         receiver16_r2 = new ModelRenderer(this);
         receiver16_r2.setRotationPoint(-1.5F, -39.25F, 2.35F);
         gun.addChild(receiver16_r2);
         setRotationAngle(receiver16_r2, 0.0F, 0.0F, -0.4014F);
         receiver16_r2.cubeList.add(new ModelBox(receiver16_r2, 70, 31, -1.35F, -0.001F, 0.001F, 1, 1, 2, 0.0F, false));
-        receiver16_r2.cubeList.add(new ModelBox(receiver16_r2, 34, 70, -1.0F, 0.0F, 0.002F, 1, 1, 2, 0.0F, false));
+        receiver16_r2.cubeList.add(new ModelBox(receiver16_r2, 34, 70, -1, 0.0F, 0.002F, 1, 1, 2, 0.0F, false));
 
         receiver15_r1 = new ModelRenderer(this);
         receiver15_r1.setRotationPoint(0.25F, -37.5F, 2.35F);
         gun.addChild(receiver15_r1);
         setRotationAngle(receiver15_r1, 0.0F, 0.0F, -0.4014F);
-        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 50, 61, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 50, 61, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
         receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 35, 61, -0.999F, -1.35F, -0.0001F, 1, 1, 2, 0.0F, false));
 
         receiver14_r1 = new ModelRenderer(this);
         receiver14_r1.setRotationPoint(-3.25F, -37.5F, 2.35F);
         gun.addChild(receiver14_r1);
         setRotationAngle(receiver14_r1, 0.0F, 0.0F, 0.4014F);
-        receiver14_r1.cubeList.add(new ModelBox(receiver14_r1, 34, 73, 0.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver14_r1.cubeList.add(new ModelBox(receiver14_r1, 34, 73, 0.0F, -1, 0.0F, 1, 1, 2, 0.0F, false));
         receiver14_r1.cubeList.add(new ModelBox(receiver14_r1, 74, 19, -0.001F, -1.35F, -0.0001F, 1, 1, 2, 0.0F, false));
 
         receiver16_r3 = new ModelRenderer(this);
-        receiver16_r3.setRotationPoint(-3.8F, -37.5F, 1.0F);
+        receiver16_r3.setRotationPoint(-3.8F, -37.5F, 1);
         gun.addChild(receiver16_r3);
         setRotationAngle(receiver16_r3, -0.925F, 0.0F, -0.2618F);
         receiver16_r3.cubeList.add(new ModelBox(receiver16_r3, 12, 0, 0.001F, -0.2F, 0.7F, 1, 2, 2, 0.0F, false));
 
         receiver15_r2 = new ModelRenderer(this);
-        receiver15_r2.setRotationPoint(0.8F, -37.5F, 1.0F);
+        receiver15_r2.setRotationPoint(0.8F, -37.5F, 1);
         gun.addChild(receiver15_r2);
         setRotationAngle(receiver15_r2, -0.925F, 0.0F, 0.2618F);
         receiver15_r2.cubeList.add(new ModelBox(receiver15_r2, 0, 42, -0.999F, -0.2F, 0.7F, 1, 2, 2, 0.0F, false));
@@ -197,29 +197,29 @@ public class AR15 extends ModelWithAttachments {
         receiver15_r3.setRotationPoint(0.37F, -35.9F, 0.0F);
         gun.addChild(receiver15_r3);
         setRotationAngle(receiver15_r3, 0.0F, 0.0F, 0.0524F);
-        receiver15_r3.cubeList.add(new ModelBox(receiver15_r3, 50, 29, -1.0F, 0.0F, 0.001F, 1, 2, 3, 0.0F, false));
+        receiver15_r3.cubeList.add(new ModelBox(receiver15_r3, 50, 29, -1, 0.0F, 0.001F, 1, 2, 3, 0.0F, false));
 
         receiver14_r2 = new ModelRenderer(this);
-        receiver14_r2.setRotationPoint(0.8F, -37.5F, 1.0F);
+        receiver14_r2.setRotationPoint(0.8F, -37.5F, 1);
         gun.addChild(receiver14_r2);
         setRotationAngle(receiver14_r2, 0.0F, 0.0F, 0.2618F);
         receiver14_r2.cubeList.add(new ModelBox(receiver14_r2, 20, 65, -2.0F, 0.0F, 0.0012F, 2, 2, 2, 0.0F, false));
 
         receiver14_r3 = new ModelRenderer(this);
-        receiver14_r3.setRotationPoint(0.8F, -37.5F, 1.0F);
+        receiver14_r3.setRotationPoint(0.8F, -37.5F, 1);
         gun.addChild(receiver14_r3);
         setRotationAngle(receiver14_r3, 0.0F, 0.0F, -0.4014F);
         receiver14_r3.cubeList.add(new ModelBox(receiver14_r3, 20, 70, -1.999F, -1.3F, 0.001F, 2, 1, 2, 0.0F, false));
-        receiver14_r3.cubeList.add(new ModelBox(receiver14_r3, 43, 79, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver14_r3.cubeList.add(new ModelBox(receiver14_r3, 43, 79, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         receiver17_r4 = new ModelRenderer(this);
-        receiver17_r4.setRotationPoint(-2.6F, -39.4F, 1.0F);
+        receiver17_r4.setRotationPoint(-2.6F, -39.4F, 1);
         gun.addChild(receiver17_r4);
         setRotationAngle(receiver17_r4, 0.0F, 0.0F, -0.8029F);
-        receiver17_r4.cubeList.add(new ModelBox(receiver17_r4, 78, 50, -1.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver17_r4.cubeList.add(new ModelBox(receiver17_r4, 78, 50, -1, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         receiver16_r5 = new ModelRenderer(this);
-        receiver16_r5.setRotationPoint(-0.4F, -39.4F, 1.0F);
+        receiver16_r5.setRotationPoint(-0.4F, -39.4F, 1);
         gun.addChild(receiver16_r5);
         setRotationAngle(receiver16_r5, 0.0F, 0.0F, 0.8029F);
         receiver16_r5.cubeList.add(new ModelBox(receiver16_r5, 78, 69, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
@@ -228,33 +228,33 @@ public class AR15 extends ModelWithAttachments {
         receiver16_r6.setRotationPoint(-1.5F, -37.5F, 3.1F);
         gun.addChild(receiver16_r6);
         setRotationAngle(receiver16_r6, 0.0F, 0.0F, -0.3316F);
-        receiver16_r6.cubeList.add(new ModelBox(receiver16_r6, 0, 42, -1.0F, -1.001F, 8.0015F, 2, 2, 7, -0.1F, false));
-        receiver16_r6.cubeList.add(new ModelBox(receiver16_r6, 43, 19, -1.0F, -1.001F, -0.2985F, 2, 2, 15, -0.2F, false));
+        receiver16_r6.cubeList.add(new ModelBox(receiver16_r6, 0, 42, -1, -1.001F, 8.0015F, 2, 2, 7, -0.1F, false));
+        receiver16_r6.cubeList.add(new ModelBox(receiver16_r6, 43, 19, -1, -1.001F, -0.2985F, 2, 2, 15, -0.2F, false));
 
         receiver15_r4 = new ModelRenderer(this);
-        receiver15_r4.setRotationPoint(-3.8F, -37.5F, 1.0F);
+        receiver15_r4.setRotationPoint(-3.8F, -37.5F, 1);
         gun.addChild(receiver15_r4);
         setRotationAngle(receiver15_r4, 0.0F, 0.0F, -0.2618F);
         receiver15_r4.cubeList.add(new ModelBox(receiver15_r4, 63, 36, 0.0F, 0.0F, 0.0F, 2, 2, 2, 0.0F, false));
 
         receiver15_r5 = new ModelRenderer(this);
-        receiver15_r5.setRotationPoint(-3.8F, -37.5F, 1.0F);
+        receiver15_r5.setRotationPoint(-3.8F, -37.5F, 1);
         gun.addChild(receiver15_r5);
         setRotationAngle(receiver15_r5, 0.0F, 0.0F, 0.4014F);
         receiver15_r5.cubeList.add(new ModelBox(receiver15_r5, 78, 44, -0.001F, -1.3F, 0.001F, 1, 1, 2, 0.0F, false));
-        receiver15_r5.cubeList.add(new ModelBox(receiver15_r5, 69, 38, 0.0F, -1.0F, -0.001F, 2, 1, 2, 0.0F, false));
+        receiver15_r5.cubeList.add(new ModelBox(receiver15_r5, 69, 38, 0.0F, -1, -0.001F, 2, 1, 2, 0.0F, false));
 
         gun30_r1 = new ModelRenderer(this);
-        gun30_r1.setRotationPoint(-3.2F, -31.0F, -7.6F);
+        gun30_r1.setRotationPoint(-3.2F, -31, -7.6F);
         gun.addChild(gun30_r1);
         setRotationAngle(gun30_r1, -2.3562F, 0.0F, 0.0F);
-        gun30_r1.cubeList.add(new ModelBox(gun30_r1, 73, 0, 0.2F, -2.0F, -1.0F, 3, 2, 1, 0.0F, false));
+        gun30_r1.cubeList.add(new ModelBox(gun30_r1, 73, 0, 0.2F, -2.0F, -1, 3, 2, 1, 0.0F, false));
 
         gun29_r1 = new ModelRenderer(this);
         gun29_r1.setRotationPoint(-3.2F, -27.0F, -7.6F);
         gun.addChild(gun29_r1);
         setRotationAngle(gun29_r1, -2.3562F, 0.0F, 0.0F);
-        gun29_r1.cubeList.add(new ModelBox(gun29_r1, 0, 38, 0.2F, -1.0F, -2.0F, 3, 1, 2, 0.0F, false));
+        gun29_r1.cubeList.add(new ModelBox(gun29_r1, 0, 38, 0.2F, -1, -2.0F, 3, 1, 2, 0.0F, false));
 
         gun28_r1 = new ModelRenderer(this);
         gun28_r1.setRotationPoint(-3.2F, -27.0F, -11.5F);
@@ -266,26 +266,26 @@ public class AR15 extends ModelWithAttachments {
         gun39_r1.setRotationPoint(0.5F, -33.7F, -11.3F);
         gun.addChild(gun39_r1);
         setRotationAngle(gun39_r1, -0.3665F, 0.0F, 0.0F);
-        gun39_r1.cubeList.add(new ModelBox(gun39_r1, 37, 31, -1.05F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        gun39_r1.cubeList.add(new ModelBox(gun39_r1, 37, 31, -1.05F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         gun38_r1 = new ModelRenderer(this);
         gun38_r1.setRotationPoint(0.5F, -32.7F, -7.6F);
         gun.addChild(gun38_r1);
         setRotationAngle(gun38_r1, -0.3665F, 0.0F, 0.0F);
-        gun38_r1.cubeList.add(new ModelBox(gun38_r1, 37, 31, -1.05F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        gun38_r1.cubeList.add(new ModelBox(gun38_r1, 37, 31, -1.05F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         gun37_r1 = new ModelRenderer(this);
         gun37_r1.setRotationPoint(-3.4F, -33.0F, -4.2F);
         gun.addChild(gun37_r1);
         setRotationAngle(gun37_r1, -0.3665F, 0.0F, 0.0F);
-        gun37_r1.cubeList.add(new ModelBox(gun37_r1, 0, 25, 0.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        gun37_r1.cubeList.add(new ModelBox(gun37_r1, 0, 25, 0.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         gun37_r2 = new ModelRenderer(this);
         gun37_r2.setRotationPoint(-2.6F, -34.7F, -0.6F);
         gun.addChild(gun37_r2);
         setRotationAngle(gun37_r2, -0.3665F, 0.0F, 0.0F);
-        gun37_r2.cubeList.add(new ModelBox(gun37_r2, 10, 15, 0.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
-        gun37_r2.cubeList.add(new ModelBox(gun37_r2, 62, 51, -0.8F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        gun37_r2.cubeList.add(new ModelBox(gun37_r2, 10, 15, 0.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
+        gun37_r2.cubeList.add(new ModelBox(gun37_r2, 62, 51, -0.8F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         gun51_r1 = new ModelRenderer(this);
         gun51_r1.setRotationPoint(-3.9F, -27.5F, -21.2F);
@@ -336,14 +336,14 @@ public class AR15 extends ModelWithAttachments {
         gun156_r1.setRotationPoint(0.6F, -33.4F, -4.5F);
         gun.addChild(gun156_r1);
         setRotationAngle(gun156_r1, -1.5708F, 0.0F, 0.0F);
-        gun156_r1.cubeList.add(new ModelBox(gun156_r1, 16, 84, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun156_r1.cubeList.add(new ModelBox(gun156_r1, 16, 84, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         bone_r1 = new ModelRenderer(this);
         bone_r1.setRotationPoint(0.2F, -32.8F, -16.5F);
         gun.addChild(bone_r1);
         setRotationAngle(bone_r1, 0.0F, 0.0F, 0.7854F);
         bone_r1.cubeList.add(new ModelBox(bone_r1, 59, 80, -0.3636F, -0.3636F, -0.001F, 1, 1, 2, 0.0F, false));
-        bone_r1.cubeList.add(new ModelBox(bone_r1, 0, 84, -1.0F, -1.0F, -0.001F, 1, 1, 2, 0.0F, false));
+        bone_r1.cubeList.add(new ModelBox(bone_r1, 0, 84, -1, -1, -0.001F, 1, 1, 2, 0.0F, false));
 
         gun132 = new ModelRenderer(this);
         gun132.setRotationPoint(-0.15F, -36.2F, -12.8F);
@@ -381,12 +381,12 @@ public class AR15 extends ModelWithAttachments {
         handguard.cubeList.add(new ModelBox(handguard, 209, 5, 0.5F, 1.85F, 30.0F, 1, 2, 8, 0.001F, false));
         handguard.cubeList.add(new ModelBox(handguard, 217, 69, 0.7F, 3.05F, -4.75F, 1, 1, 35, -0.2F, false));
         handguard.cubeList.add(new ModelBox(handguard, 177, 62, 0.7F, 1.65F, -4.75F, 1, 1, 35, -0.2F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 231, 20, 0.78F, 2.85F, 31.0F, 1, 1, 7, -0.002F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 231, 5, 0.58F, 3.15F, 31.0F, 1, 1, 7, -0.003F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 257, 6, -0.47F, 4.35F, 31.0F, 1, 1, 7, -0.003F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 261, 127, -1.17F, 5.05F, 31.0F, 1, 1, 7, -0.003F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 253, 152, -1.83F, 5.05F, 31.0F, 1, 1, 7, -0.004F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 231, 34, 0.78F, 2.05F, 31.0F, 1, 1, 7, -0.003F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 231, 20, 0.78F, 2.85F, 31, 1, 1, 7, -0.002F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 231, 5, 0.58F, 3.15F, 31, 1, 1, 7, -0.003F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 257, 6, -0.47F, 4.35F, 31, 1, 1, 7, -0.003F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 261, 127, -1.17F, 5.05F, 31, 1, 1, 7, -0.003F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 253, 152, -1.83F, 5.05F, 31, 1, 1, 7, -0.004F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 231, 34, 0.78F, 2.05F, 31, 1, 1, 7, -0.003F, false));
         handguard.cubeList.add(new ModelBox(handguard, 236, 65, -3.5F, 1.85F, 0.0F, 1, 2, 1, 0.001F, true));
         handguard.cubeList.add(new ModelBox(handguard, 236, 65, -3.5F, 1.85F, 5.0F, 1, 2, 1, 0.001F, true));
         handguard.cubeList.add(new ModelBox(handguard, 236, 65, -3.5F, 1.85F, 10.0F, 1, 2, 1, 0.001F, true));
@@ -397,10 +397,10 @@ public class AR15 extends ModelWithAttachments {
         handguard.cubeList.add(new ModelBox(handguard, 178, 103, -3.7F, 1.65F, -4.75F, 1, 1, 35, -0.2F, true));
         handguard.cubeList.add(new ModelBox(handguard, 218, 111, -3.7F, 3.05F, -4.75F, 1, 1, 35, -0.2F, true));
         handguard.cubeList.add(new ModelBox(handguard, 236, 65, -3.5F, 1.85F, -5.0F, 1, 2, 1, 0.001F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 258, 75, -3.78F, 2.85F, 31.0F, 1, 1, 7, -0.002F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 257, 62, -3.78F, 2.05F, 31.0F, 1, 1, 7, -0.003F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 183, 156, -3.58F, 3.15F, 31.0F, 1, 1, 7, -0.003F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 223, 121, -2.53F, 4.35F, 31.0F, 1, 1, 7, -0.003F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 258, 75, -3.78F, 2.85F, 31, 1, 1, 7, -0.002F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 257, 62, -3.78F, 2.05F, 31, 1, 1, 7, -0.003F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 183, 156, -3.58F, 3.15F, 31, 1, 1, 7, -0.003F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 223, 121, -2.53F, 4.35F, 31, 1, 1, 7, -0.003F, true));
 
         cube_r1 = new ModelRenderer(this);
         cube_r1.setRotationPoint(-3.5F, 3.85F, 2.25F);
@@ -433,7 +433,7 @@ public class AR15 extends ModelWithAttachments {
         handguard.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.0F, 0.0F, 0.925F);
         cube_r2.cubeList.add(new ModelBox(cube_r2, 214, 150, -0.2F, -0.8F, 0.8F, 1, 1, 34, -0.199F, true));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 172, 143, 0.0F, -2.5F, 1.0F, 1, 1, 34, 0.001F, true));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 172, 143, 0.0F, -2.5F, 1, 1, 1, 34, 0.001F, true));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 257, 30, 0.0F, -2.0F, 35.0F, 1, 2, 8, 0.0F, true));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 185, 114, -0.1F, -1.9F, 34.05F, 1, 2, 2, -0.101F, true));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 185, 114, -0.1F, -1.9F, 31.95F, 1, 2, 1, -0.1F, true));
@@ -454,48 +454,48 @@ public class AR15 extends ModelWithAttachments {
         cube_r2.cubeList.add(new ModelBox(cube_r2, 259, 44, 0.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, true));
 
         cube_r3 = new ModelRenderer(this);
-        cube_r3.setRotationPoint(-2.53F, 5.35F, 31.0F);
+        cube_r3.setRotationPoint(-2.53F, 5.35F, 31);
         handguard.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, 0.0F, 0.7854F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 234, 114, 0.0F, -1.0F, 0.0F, 1, 1, 7, -0.001F, true));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 234, 114, 0.0F, -1, 0.0F, 1, 1, 7, -0.001F, true));
 
         cube_r4 = new ModelRenderer(this);
-        cube_r4.setRotationPoint(-3.58F, 4.15F, 31.0F);
+        cube_r4.setRotationPoint(-3.58F, 4.15F, 31);
         handguard.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.0F, 0.0F, -0.8552F);
         cube_r4.cubeList.add(new ModelBox(cube_r4, 219, 156, 0.0F, 0.0F, 0.0F, 1, 2, 7, -0.002F, true));
 
         cube_r5 = new ModelRenderer(this);
-        cube_r5.setRotationPoint(-3.78F, 3.85F, 31.0F);
+        cube_r5.setRotationPoint(-3.78F, 3.85F, 31);
         handguard.addChild(cube_r5);
         setRotationAngle(cube_r5, 0.0F, -0.7854F, 0.0F);
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 243, 72, 0.0F, -1.0F, -1.0F, 1, 1, 1, -0.004F, true));
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 246, 63, 0.0F, -1.8F, -1.0F, 1, 1, 1, -0.003F, true));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 243, 72, 0.0F, -1, -1, 1, 1, 1, -0.004F, true));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 246, 63, 0.0F, -1.8F, -1, 1, 1, 1, -0.003F, true));
 
         cube_r6 = new ModelRenderer(this);
-        cube_r6.setRotationPoint(1.78F, 3.85F, 31.0F);
+        cube_r6.setRotationPoint(1.78F, 3.85F, 31);
         handguard.addChild(cube_r6);
         setRotationAngle(cube_r6, 0.0F, 0.7854F, 0.0F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 212, 31, -1.0F, -1.0F, -1.0F, 1, 1, 1, -0.004F, false));
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 213, 45, -1.0F, -1.8F, -1.0F, 1, 1, 1, -0.003F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 212, 31, -1, -1, -1, 1, 1, 1, -0.004F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 213, 45, -1, -1.8F, -1, 1, 1, 1, -0.003F, false));
 
         cube_r7 = new ModelRenderer(this);
-        cube_r7.setRotationPoint(0.53F, 5.35F, 31.0F);
+        cube_r7.setRotationPoint(0.53F, 5.35F, 31);
         handguard.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.0F, 0.0F, -0.7854F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 258, 17, -1.0F, -1.0F, 0.0F, 1, 1, 7, -0.001F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 258, 17, -1, -1, 0.0F, 1, 1, 7, -0.001F, false));
 
         cube_r8 = new ModelRenderer(this);
-        cube_r8.setRotationPoint(1.58F, 4.15F, 31.0F);
+        cube_r8.setRotationPoint(1.58F, 4.15F, 31);
         handguard.addChild(cube_r8);
         setRotationAngle(cube_r8, 0.0F, 0.0F, 0.8552F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 217, 63, -1.0F, 0.0F, 0.0F, 1, 2, 7, -0.002F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 217, 63, -1, 0.0F, 0.0F, 1, 2, 7, -0.002F, false));
 
         cube_r9 = new ModelRenderer(this);
-        cube_r9.setRotationPoint(1.5F, 1.85F, 31.0F);
+        cube_r9.setRotationPoint(1.5F, 1.85F, 31);
         handguard.addChild(cube_r9);
         setRotationAngle(cube_r9, 0.0F, 0.0F, -0.925F);
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 210, 17, -1.0F, -0.65F, 0.0F, 1, 1, 7, -0.001F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 210, 17, -1, -0.65F, 0.0F, 1, 1, 7, -0.001F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 221, 76, -0.9F, -1.9F, -16.35F, 1, 2, 1, -0.1F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 221, 76, -0.9F, -1.9F, -14.25F, 1, 2, 1, -0.1F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 221, 76, -0.9F, -1.9F, -12.25F, 1, 2, 1, -0.1F, false));
@@ -510,11 +510,11 @@ public class AR15 extends ModelWithAttachments {
         cube_r9.cubeList.add(new ModelBox(cube_r9, 221, 76, -0.9F, -1.9F, -24.65F, 1, 2, 1, -0.1F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 221, 76, -0.9F, -1.9F, -26.65F, 1, 2, 1, -0.1F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 221, 76, -0.9F, -1.9F, -28.75F, 1, 2, 1, -0.1F, false));
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 216, 28, -1.0F, -2.0F, -1.0F, 1, 2, 8, 0.0F, false));
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 189, 31, -1.0F, -2.0F, -31.0F, 1, 2, 1, 0.0F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 216, 28, -1, -2.0F, -1, 1, 2, 8, 0.0F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 189, 31, -1, -2.0F, -31, 1, 2, 1, 0.0F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 167, 185, -0.8F, -0.8F, -35.2F, 1, 1, 34, -0.199F, false));
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 127, 180, -1.0F, -2.5F, -35.0F, 1, 1, 34, 0.001F, false));
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 200, 75, -1.0F, -2.0F, -36.0F, 1, 2, 1, 0.0F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 127, 180, -1, -2.5F, -35.0F, 1, 1, 34, 0.001F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 200, 75, -1, -2.0F, -36.0F, 1, 2, 1, 0.0F, false));
 
         cube_r10 = new ModelRenderer(this);
         cube_r10.setRotationPoint(1.5F, 3.85F, 29.05F);
@@ -538,7 +538,7 @@ public class AR15 extends ModelWithAttachments {
         cube_r10.cubeList.add(new ModelBox(cube_r10, 221, 86, -0.9F, -0.1F, -30.9F, 1, 2, 1, -0.1F, false));
         cube_r10.cubeList.add(new ModelBox(cube_r10, 221, 86, -0.9F, -0.1F, -24.7F, 1, 2, 1, -0.1F, false));
         cube_r10.cubeList.add(new ModelBox(cube_r10, 221, 86, -0.9F, -0.1F, -26.8F, 1, 2, 1, -0.1F, false));
-        cube_r10.cubeList.add(new ModelBox(cube_r10, 200, 84, -1.0F, 0.0F, -34.05F, 1, 2, 1, 0.0F, false));
+        cube_r10.cubeList.add(new ModelBox(cube_r10, 200, 84, -1, 0.0F, -34.05F, 1, 2, 1, 0.0F, false));
         cube_r10.cubeList.add(new ModelBox(cube_r10, 206, 192, -0.8F, -0.2F, -33.25F, 1, 1, 34, -0.199F, false));
         cube_r10.cubeList.add(new ModelBox(cube_r10, 87, 189, -0.8F, 1.2F, -33.25F, 1, 1, 34, -0.199F, false));
     }

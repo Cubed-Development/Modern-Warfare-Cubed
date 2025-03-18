@@ -69,14 +69,14 @@ public class S710Tricun10mmReceiver extends ModelWithAttachments {
         receiver25_r1.setRotationPoint(-3.8F, -38.0F, 0.6F);
         receiver_10mm.addChild(receiver25_r1);
         setRotationAngle(receiver25_r1, 0.0F, 0.0F, -2.2689F);
-        receiver25_r1.cubeList.add(new ModelBox(receiver25_r1, 79, 33, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        receiver25_r1.cubeList.add(new ModelBox(receiver25_r1, 79, 33, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         receiver27_r1 = new ModelRenderer(this);
         receiver27_r1.setRotationPoint(-3.7F, -38.0F, -11.4F);
         receiver_10mm.addChild(receiver27_r1);
         setRotationAngle(receiver27_r1, 0.0F, 0.0F, -2.2689F);
-        receiver27_r1.cubeList.add(new ModelBox(receiver27_r1, 120, 86, -1.0F, 0.0F, 0.0F, 1, 2, 12, 0.0F, false));
-        receiver27_r1.cubeList.add(new ModelBox(receiver27_r1, 54, 74, -1.0F, 0.0F, -11.0F, 1, 2, 2, 0.0F, false));
+        receiver27_r1.cubeList.add(new ModelBox(receiver27_r1, 120, 86, -1, 0.0F, 0.0F, 1, 2, 12, 0.0F, false));
+        receiver27_r1.cubeList.add(new ModelBox(receiver27_r1, 54, 74, -1, 0.0F, -11, 1, 2, 2, 0.0F, false));
 
         receiver27_r2 = new ModelRenderer(this);
         receiver27_r2.setRotationPoint(0.6F, -38.0F, -15.4F);
@@ -118,24 +118,24 @@ public class S710Tricun10mmReceiver extends ModelWithAttachments {
         gun140_r1.cubeList.add(new ModelBox(gun140_r1, 25, 65, 0.0F, -0.4F, 0.0F, 2, 1, 7, 0.0F, false));
 
         gun274_r1 = new ModelRenderer(this);
-        gun274_r1.setRotationPoint(-4.58F, -37.1F, -21.0F);
+        gun274_r1.setRotationPoint(-4.58F, -37.1F, -21);
         receiver_10mm.addChild(gun274_r1);
         setRotationAngle(gun274_r1, 0.0F, 0.0F, 0.0873F);
         gun274_r1.cubeList.add(new ModelBox(gun274_r1, 8, 91, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
         gun274_r1.cubeList.add(new ModelBox(gun274_r1, 12, 91, 0.0F, 0.0F, 8.999F, 1, 1, 1, 0.0F, false));
 
         gun275_r1 = new ModelRenderer(this);
-        gun275_r1.setRotationPoint(-4.58F, -37.1F, -21.0F);
+        gun275_r1.setRotationPoint(-4.58F, -37.1F, -21);
         receiver_10mm.addChild(gun275_r1);
         setRotationAngle(gun275_r1, 0.0F, 0.0F, -0.5672F);
         gun275_r1.cubeList.add(new ModelBox(gun275_r1, 90, 88, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
         gun275_r1.cubeList.add(new ModelBox(gun275_r1, 0, 91, 0.0F, 0.0F, 8.999F, 1, 1, 1, 0.0F, false));
 
         gun275_r2 = new ModelRenderer(this);
-        gun275_r2.setRotationPoint(-3.98F, -37.7F, -21.0F);
+        gun275_r2.setRotationPoint(-3.98F, -37.7F, -21);
         receiver_10mm.addChild(gun275_r2);
         setRotationAngle(gun275_r2, 0.0F, 0.0F, -1.0036F);
-        gun275_r2.cubeList.add(new ModelBox(gun275_r2, 52, 62, 1.38F, 0.0F, 1.0F, 1, 2, 8, 0.0F, false));
+        gun275_r2.cubeList.add(new ModelBox(gun275_r2, 52, 62, 1.38F, 0.0F, 1, 1, 2, 8, 0.0F, false));
         gun275_r2.cubeList.add(new ModelBox(gun275_r2, 76, 21, 0.0F, 0.0F, 0.0F, 3, 2, 1, 0.0F, false));
         gun275_r2.cubeList.add(new ModelBox(gun275_r2, 77, 69, 0.0F, 0.0F, 9.0F, 3, 2, 1, 0.0F, false));
 
@@ -147,17 +147,17 @@ public class S710Tricun10mmReceiver extends ModelWithAttachments {
         gun272_r1.cubeList.add(new ModelBox(gun272_r1, 70, 69, 0.0F, 0.0F, -9.0F, 1, 2, 1, 0.0F, false));
 
         receiver7_r1 = new ModelRenderer(this);
-        receiver7_r1.setRotationPoint(1.0F, -35.6F, -9.5F);
+        receiver7_r1.setRotationPoint(1, -35.6F, -9.5F);
         receiver_10mm.addChild(receiver7_r1);
         setRotationAngle(receiver7_r1, 0.5672F, 0.0F, 0.0F);
-        receiver7_r1.cubeList.add(new ModelBox(receiver7_r1, 79, 25, -1.0F, -1.0F, 0.5F, 1, 1, 2, -0.3F, false));
-        receiver7_r1.cubeList.add(new ModelBox(receiver7_r1, 14, 83, -0.999F, -1.0F, 0.0F, 1, 1, 2, -0.3F, false));
+        receiver7_r1.cubeList.add(new ModelBox(receiver7_r1, 79, 25, -1, -1, 0.5F, 1, 1, 2, -0.3F, false));
+        receiver7_r1.cubeList.add(new ModelBox(receiver7_r1, 14, 83, -0.999F, -1, 0.0F, 1, 1, 2, -0.3F, false));
 
         receiver9_r1 = new ModelRenderer(this);
         receiver9_r1.setRotationPoint(0.6F, -36.1F, -9.5F);
         receiver_10mm.addChild(receiver9_r1);
         setRotationAngle(receiver9_r1, 0.6021F, 0.0F, 0.0F);
-        receiver9_r1.cubeList.add(new ModelBox(receiver9_r1, 78, 78, -0.999F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver9_r1.cubeList.add(new ModelBox(receiver9_r1, 78, 78, -0.999F, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         receiver10_r1 = new ModelRenderer(this);
         receiver10_r1.setRotationPoint(-4.45F, -39.75F, -9.7F);
@@ -193,7 +193,7 @@ public class S710Tricun10mmReceiver extends ModelWithAttachments {
         receiver17.setRotationPoint(0.4F, -39.1F, -16.5F);
         receiver_10mm.addChild(receiver17);
         setRotationAngle(receiver17, 0.0F, 1.9333F, 0.0F);
-        receiver17.cubeList.add(new ModelBox(receiver17, 86, 60, 0.0F, -0.2F, -1.0F, 1, 2, 1, 0.0F, false));
+        receiver17.cubeList.add(new ModelBox(receiver17, 86, 60, 0.0F, -0.2F, -1, 1, 2, 1, 0.0F, false));
 
         receiver16 = new ModelRenderer(this);
         receiver16.setRotationPoint(0.4F, -39.1F, -19.5F);
@@ -211,7 +211,7 @@ public class S710Tricun10mmReceiver extends ModelWithAttachments {
         receiver9.setRotationPoint(-3.7F, -37.0F, -22.7F);
         receiver_10mm.addChild(receiver9);
         setRotationAngle(receiver9, 0.0F, 0.0F, 2.6005F);
-        receiver9.cubeList.add(new ModelBox(receiver9, 26, 49, -1.0F, -1.0F, 0.3F, 1, 1, 24, 0.0F, false));
+        receiver9.cubeList.add(new ModelBox(receiver9, 26, 49, -1, -1, 0.3F, 1, 1, 24, 0.0F, false));
 
         receiver6 = new ModelRenderer(this);
         receiver6.setRotationPoint(0.7F, -37.0F, -22.7F);
@@ -237,7 +237,7 @@ public class S710Tricun10mmReceiver extends ModelWithAttachments {
         gun263.cubeList.add(new ModelBox(gun263, 118, 73, -0.8194F, -0.2618F, -0.2F, 1, 1, 11, -0.2F, false));
 
         gun262 = new ModelRenderer(this);
-        gun262.setRotationPoint(-4.3F, -36.5F, -21.0F);
+        gun262.setRotationPoint(-4.3F, -36.5F, -21);
         receiver_10mm.addChild(gun262);
         setRotationAngle(gun262, 0.0F, 0.0F, -1.2641F);
 

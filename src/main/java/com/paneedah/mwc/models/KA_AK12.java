@@ -1085,7 +1085,7 @@ public class KA_AK12 extends ModelWithAttachments {
         setRotation(gun129, 0F, 0F, 0F);
         gun130 = new ModelRenderer(this, 150, 0);
         gun130.addBox(0F, 0F, 0F, 2, 1, 1);
-        gun130.setRotationPoint(-2.5F, -15.6F, 1.0F);
+        gun130.setRotationPoint(-2.5F, -15.6F, 1);
         gun130.setTextureSize(64, 32);
         gun130.mirror = true;
         setRotation(gun130, -1.301251F, 0F, 0F);

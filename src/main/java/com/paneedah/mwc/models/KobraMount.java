@@ -126,7 +126,7 @@ public class KobraMount extends ModelBase {
         gun45.setRotationPoint(-3.5F, -29.4F, -12.0F);
         kobra.addChild(gun45);
         setRotationAngle(gun45, 0.0F, 0.0F, -1.041F);
-        gun45.cubeList.add(new ModelBox(gun45, 18, 41, -1.0F, 0.0F, 0.0F, 1, 2, 3, 0.0F, false));
+        gun45.cubeList.add(new ModelBox(gun45, 18, 41, -1, 0.0F, 0.0F, 1, 2, 3, 0.0F, false));
 
         gun47 = new ModelRenderer(this);
         gun47.setRotationPoint(0.5F, -30.3F, -12.0F);
@@ -181,7 +181,7 @@ public class KobraMount extends ModelBase {
         gun31.cubeList.add(new ModelBox(gun31, 18, 34, 0.0F, 0.0F, 0.0F, 1, 4, 3, 0.001F, false));
 
         gun39_r1 = new ModelRenderer(this);
-        gun39_r1.setRotationPoint(1.0F, 0.0F, 0.0F);
+        gun39_r1.setRotationPoint(1, 0.0F, 0.0F);
         gun31.addChild(gun39_r1);
         setRotationAngle(gun39_r1, 0.0F, 0.0F, 1.405F);
         gun39_r1.cubeList.add(new ModelBox(gun39_r1, 47, 11, 2.3F, 0.0F, 2.05F, 1, 1, 3, -0.301F, false));
@@ -189,7 +189,7 @@ public class KobraMount extends ModelBase {
         gun39_r1.cubeList.add(new ModelBox(gun39_r1, 44, 24, 2.3F, -0.3F, 2.05F, 1, 1, 3, -0.299F, false));
 
         gun37_r1 = new ModelRenderer(this);
-        gun37_r1.setRotationPoint(1.0F, 0.0F, 0.0F);
+        gun37_r1.setRotationPoint(1, 0.0F, 0.0F);
         gun31.addChild(gun37_r1);
         setRotationAngle(gun37_r1, 0.0F, 0.2967F, 1.405F);
         gun37_r1.cubeList.add(new ModelBox(gun37_r1, 53, 13, 0.8F, 0.3F, 3.6F, 1, 1, 2, -0.3F, false));
@@ -197,7 +197,7 @@ public class KobraMount extends ModelBase {
         gun37_r1.cubeList.add(new ModelBox(gun37_r1, 5, 51, 0.8F, -0.3F, 3.6F, 1, 1, 2, -0.3F, false));
 
         gun35_r1 = new ModelRenderer(this);
-        gun35_r1.setRotationPoint(1.0F, 0.0F, 0.0F);
+        gun35_r1.setRotationPoint(1, 0.0F, 0.0F);
         gun31.addChild(gun35_r1);
         setRotationAngle(gun35_r1, 0.0F, 1.0996F, 1.405F);
         gun35_r1.cubeList.add(new ModelBox(gun35_r1, 41, 44, -2.3F, 0.0F, 1.9F, 1, 1, 2, -0.001F, false));
@@ -231,7 +231,7 @@ public class KobraMount extends ModelBase {
         gun33_r1.cubeList.add(new ModelBox(gun33_r1, 0, 7, -3.0F, 0.0F, 0.0F, 3, 1, 3, 0.0F, false));
 
         gun32_r1 = new ModelRenderer(this);
-        gun32_r1.setRotationPoint(1.0F, 0.0F, 0.0F);
+        gun32_r1.setRotationPoint(1, 0.0F, 0.0F);
         gun31.addChild(gun32_r1);
         setRotationAngle(gun32_r1, 0.0F, 0.0F, 1.405F);
         gun32_r1.cubeList.add(new ModelBox(gun32_r1, 22, 17, 0.0F, 0.0F, 0.0F, 3, 1, 3, 0.0F, false));
@@ -365,7 +365,7 @@ public class KobraMount extends ModelBase {
         gun7.cubeList.add(new ModelBox(gun7, 6, 11, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun6 = new ModelRenderer(this);
-        gun6.setRotationPoint(-2.0F, -30.0F, 1.0F);
+        gun6.setRotationPoint(-2.0F, -30.0F, 1);
         kobra.addChild(gun6);
         gun6.cubeList.add(new ModelBox(gun6, 27, 0, 0.0F, 0.0F, 0.0F, 3, 1, 3, 0.001F, false));
 
@@ -382,7 +382,7 @@ public class KobraMount extends ModelBase {
         gun3 = new ModelRenderer(this);
         gun3.setRotationPoint(-4.0F, -28.8F, -12.0F);
         kobra.addChild(gun3);
-        gun3.cubeList.add(new ModelBox(gun3, 18, 34, -1.0F, 0.0F, 0.0F, 2, 1, 13, -0.001F, false));
+        gun3.cubeList.add(new ModelBox(gun3, 18, 34, -1, 0.0F, 0.0F, 2, 1, 13, -0.001F, false));
 
         gun1 = new ModelRenderer(this);
         gun1.setRotationPoint(-4.5F, -28.0F, -12.0F);
@@ -439,14 +439,14 @@ public class KobraMount extends ModelBase {
         cube_r3.setRotationPoint(0.7F, 9.3F, 14.2F);
         mount.addChild(cube_r3);
         setRotationAngle(cube_r3, -1.0996F, 0.0F, 0.0F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 23, 34, -1.0F, 0.0F, -2.0F, 1, 1, 2, -0.003F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 23, 34, -1, 0.0F, -2.0F, 1, 1, 2, -0.003F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(0.7F, 13.3F, 12.2F);
         mount.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.2967F, 0.0F, 0.0F);
         cube_r4.cubeList.add(new ModelBox(cube_r4, 50, 18, -0.3F, -3.7F, -0.3F, 1, 4, 1, -0.3F, false));
-        cube_r4.cubeList.add(new ModelBox(cube_r4, 52, 52, -1.0F, -4.0F, 0.0F, 1, 4, 1, -0.002F, false));
+        cube_r4.cubeList.add(new ModelBox(cube_r4, 52, 52, -1, -4.0F, 0.0F, 1, 4, 1, -0.002F, false));
 
         cube_r5 = new ModelRenderer(this);
         cube_r5.setRotationPoint(-1.3F, 4.3F, 0.5F);
@@ -517,19 +517,19 @@ public class KobraMount extends ModelBase {
         cube_r14.setRotationPoint(1.1F, 13.5F, 12.1F);
         mount.addChild(cube_r14);
         setRotationAngle(cube_r14, -0.2269F, 0.0F, 0.0F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 6, 0, -1.0F, -2.0F, 0.0F, 1, 2, 2, 0.001F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 6, 0, -1, -2.0F, 0.0F, 1, 2, 2, 0.001F, false));
 
         cube_r15 = new ModelRenderer(this);
         cube_r15.setRotationPoint(1.1F, 10.1F, 11.3F);
         mount.addChild(cube_r15);
         setRotationAngle(cube_r15, -0.2269F, 0.0F, 0.0F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 33, 4, -1.0F, -2.0F, 0.0F, 1, 2, 2, 0.001F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 33, 4, -1, -2.0F, 0.0F, 1, 2, 2, 0.001F, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(1.1F, 9.9F, 0.0F);
         mount.addChild(cube_r16);
         setRotationAngle(cube_r16, -0.2269F, 0.0F, 0.0F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 40, 34, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 40, 34, -1, -1, 0.0F, 1, 1, 1, 0.001F, false));
 
         cube_r17 = new ModelRenderer(this);
         cube_r17.setRotationPoint(1.1F, 10.2F, 0.6F);
@@ -541,37 +541,37 @@ public class KobraMount extends ModelBase {
         cube_r18.setRotationPoint(0.7F, 4.8F, 8.8F);
         mount.addChild(cube_r18);
         setRotationAngle(cube_r18, -0.2269F, 0.0F, 0.0F);
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 0, 38, -1.0F, -3.0F, 0.0F, 1, 3, 3, 0.001F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 0, 38, -1, -3.0F, 0.0F, 1, 3, 3, 0.001F, false));
 
         cube_r19 = new ModelRenderer(this);
         cube_r19.setRotationPoint(1.2F, 0.8F, 8.8F);
         mount.addChild(cube_r19);
         setRotationAngle(cube_r19, -0.5585F, 0.0F, 0.0F);
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 7, 47, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 7, 47, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r20 = new ModelRenderer(this);
         cube_r20.setRotationPoint(1.2F, 0.8F, 5.1F);
         mount.addChild(cube_r20);
         setRotationAngle(cube_r20, -0.5585F, 0.0F, 0.0F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 49, 29, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 49, 29, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r21 = new ModelRenderer(this);
         cube_r21.setRotationPoint(1.7F, 10.6F, 6.7F);
         mount.addChild(cube_r21);
         setRotationAngle(cube_r21, -0.3491F, 0.0F, 0.0F);
-        cube_r21.cubeList.add(new ModelBox(cube_r21, 8, 19, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r21.cubeList.add(new ModelBox(cube_r21, 8, 19, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r22 = new ModelRenderer(this);
         cube_r22.setRotationPoint(1.7F, 10.6F, 4.6F);
         mount.addChild(cube_r22);
         setRotationAngle(cube_r22, -0.3491F, 0.0F, 0.0F);
-        cube_r22.cubeList.add(new ModelBox(cube_r22, 6, 29, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r22.cubeList.add(new ModelBox(cube_r22, 6, 29, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r23 = new ModelRenderer(this);
         cube_r23.setRotationPoint(1.2F, 0.8F, 1.6F);
         mount.addChild(cube_r23);
         setRotationAngle(cube_r23, -0.5585F, 0.0F, 0.0F);
-        cube_r23.cubeList.add(new ModelBox(cube_r23, 50, 9, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r23.cubeList.add(new ModelBox(cube_r23, 50, 9, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(-1.5F, -2.0F, 0.0F);
@@ -589,7 +589,7 @@ public class KobraMount extends ModelBase {
         cube_r25.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(cube_r25);
         setRotationAngle(cube_r25, 0.0F, 0.0F, -1.1519F);
-        cube_r25.cubeList.add(new ModelBox(cube_r25, 34, 68, -1.0F, 0.25F, 0.0F, 1, 1, 16, -0.002F, false));
+        cube_r25.cubeList.add(new ModelBox(cube_r25, 34, 68, -1, 0.25F, 0.0F, 1, 1, 16, -0.002F, false));
         cube_r25.cubeList.add(new ModelBox(cube_r25, 24, 0, -2.0F, 0.0F, 0.0F, 2, 1, 16, 0.001F, false));
 
         bone4 = new ModelRenderer(this);
@@ -613,7 +613,7 @@ public class KobraMount extends ModelBase {
         bone2.addChild(cube_r27);
         setRotationAngle(cube_r27, 0.0F, 0.0F, 1.1519F);
         cube_r27.cubeList.add(new ModelBox(cube_r27, 53, 18, -1.25F, 0.0F, 0.0F, 1, 1, 16, -0.001F, false));
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 0, 33, -1.0F, 0.0F, 0.0F, 1, 2, 16, 0.002F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 0, 33, -1, 0.0F, 0.0F, 1, 2, 16, 0.002F, false));
 
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(-3.1F, -0.4F, 0.0F);
@@ -631,8 +631,8 @@ public class KobraMount extends ModelBase {
         cube_r29.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone3.addChild(cube_r29);
         setRotationAngle(cube_r29, 0.0F, 0.0F, 1.1519F);
-        cube_r29.cubeList.add(new ModelBox(cube_r29, 52, 35, 0.25F, -1.0F, 0.0F, 1, 1, 16, -0.001F, false));
-        cube_r29.cubeList.add(new ModelBox(cube_r29, 52, 52, 0.0F, -1.0F, 0.0F, 1, 1, 16, 0.003F, false));
+        cube_r29.cubeList.add(new ModelBox(cube_r29, 52, 35, 0.25F, -1, 0.0F, 1, 1, 16, -0.001F, false));
+        cube_r29.cubeList.add(new ModelBox(cube_r29, 52, 52, 0.0F, -1, 0.0F, 1, 1, 16, 0.003F, false));
     }
 
     @Override

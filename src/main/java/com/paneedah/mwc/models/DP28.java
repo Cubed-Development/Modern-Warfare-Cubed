@@ -120,7 +120,7 @@ public class DP28 extends ModelWithAttachments {
         stock25_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         stock.addChild(stock25_r1);
         setRotationAngle(stock25_r1, 0.0F, 0.0F, -0.5577F);
-        stock25_r1.cubeList.add(new ModelBox(stock25_r1, 0, 50, 1.0F, -21.3F, 27.8F, 1, 1, 7, 0.0F, true));
+        stock25_r1.cubeList.add(new ModelBox(stock25_r1, 0, 50, 1, -21.3F, 27.8F, 1, 1, 7, 0.0F, true));
 
         stock24_r1 = new ModelRenderer(this);
         stock24_r1.setRotationPoint(-22.8478F, -1.0584F, 0.0F);
@@ -132,7 +132,7 @@ public class DP28 extends ModelWithAttachments {
         stock23_r1.setRotationPoint(9.9306F, 2.1689F, 8.0797F);
         stock.addChild(stock23_r1);
         setRotationAngle(stock23_r1, 0.0F, -0.7854F, 0.0F);
-        stock23_r1.cubeList.add(new ModelBox(stock23_r1, 0, 0, 1.0F, -21.5F, 30.0F, 1, 1, 1, 0.0F, true));
+        stock23_r1.cubeList.add(new ModelBox(stock23_r1, 0, 0, 1, -21.5F, 30.0F, 1, 1, 1, 0.0F, true));
 
         stock20_r1 = new ModelRenderer(this);
         stock20_r1.setRotationPoint(-11.5755F, 0.8593F, -0.842F);
@@ -310,10 +310,10 @@ public class DP28 extends ModelWithAttachments {
         main.cubeList.add(new ModelBox(main, 0, 0, -0.7F, -20.7464F, 15.324F, 1, 3, 5, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -21.6464F, 2.324F, 2, 2, 18, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -15.8964F, -21.676F, 2, 1, 3, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.0F, -17.7464F, -19.676F, 4, 1, 20, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1, -17.7464F, -19.676F, 4, 1, 20, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 1.3F, -16.7464F, -18.676F, 1, 1, 20, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.0F, -17.9464F, -0.376F, 4, 2, 2, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.0F, -15.9464F, 1.324F, 4, 1, 1, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1, -17.9464F, -0.376F, 4, 2, 2, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1, -15.9464F, 1.324F, 4, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.5F, -17.1464F, -2.676F, 3, 2, 4, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -15.2464F, -2.676F, 2, 1, 6, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -4.0F, -16.3464F, -15.876F, 5, 1, 1, 0.0F, true));
@@ -334,9 +334,9 @@ public class DP28 extends ModelWithAttachments {
         main.cubeList.add(new ModelBox(main, 0, 0, -0.5F, -21.2464F, -9.676F, 1, 4, 13, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 1.5F, -21.2464F, -9.676F, 1, 4, 12, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.5F, -16.7464F, -21.676F, 3, 1, 3, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.0F, -19.7464F, 1.324F, 4, 2, 2, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.0F, -20.2464F, -21.676F, 4, 3, 23, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.0F, -17.2464F, -21.676F, 4, 1, 2, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1, -19.7464F, 1.324F, 4, 2, 2, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1, -20.2464F, -21.676F, 4, 3, 23, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1, -17.2464F, -21.676F, 4, 1, 2, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -16.2464F, -52.676F, 2, 1, 32, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.3F, -16.7464F, -18.676F, 1, 1, 20, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.5F, -21.2464F, -21.676F, 3, 1, 12, 0.0F, true));
@@ -406,7 +406,7 @@ public class DP28 extends ModelWithAttachments {
         Main174_r1.setRotationPoint(-20.3176F, -8.1715F, -3.676F);
         main.addChild(Main174_r1);
         setRotationAngle(Main174_r1, 0.0F, 0.0F, 1.1154F);
-        Main174_r1.cubeList.add(new ModelBox(Main174_r1, 0, 0, -1.0F, -22.0F, -42.5F, 1, 1, 2, 0.0F, true));
+        Main174_r1.cubeList.add(new ModelBox(Main174_r1, 0, 0, -1, -22.0F, -42.5F, 1, 1, 2, 0.0F, true));
 
         Main173_r1 = new ModelRenderer(this);
         Main173_r1.setRotationPoint(10.9246F, -31.1318F, -3.676F);
@@ -460,37 +460,37 @@ public class DP28 extends ModelWithAttachments {
         Main154_r1.setRotationPoint(-8.8194F, -0.4263F, -3.676F);
         main.addChild(Main154_r1);
         setRotationAngle(Main154_r1, 0.0F, 0.0F, 0.5205F);
-        Main154_r1.cubeList.add(new ModelBox(Main154_r1, 0, 0, 1.5F, -18.4F, 1.0F, 1, 1, 6, 0.0F, true));
+        Main154_r1.cubeList.add(new ModelBox(Main154_r1, 0, 0, 1.5F, -18.4F, 1, 1, 1, 6, 0.0F, true));
 
         Main153_r1 = new ModelRenderer(this);
         Main153_r1.setRotationPoint(9.0844F, 0.5683F, -3.676F);
         main.addChild(Main153_r1);
         setRotationAngle(Main153_r1, 0.0F, 0.0F, -0.5205F);
-        Main153_r1.cubeList.add(new ModelBox(Main153_r1, 0, 0, -0.5F, -18.4F, 1.0F, 1, 1, 6, 0.0F, true));
+        Main153_r1.cubeList.add(new ModelBox(Main153_r1, 0, 0, -0.5F, -18.4F, 1, 1, 1, 6, 0.0F, true));
 
         Main150_r1 = new ModelRenderer(this);
         Main150_r1.setRotationPoint(0.0F, -33.5533F, -7.522F);
         main.addChild(Main150_r1);
         setRotationAngle(Main150_r1, -2.3562F, 0.0F, 0.0F);
-        Main150_r1.cubeList.add(new ModelBox(Main150_r1, 0, 0, -1.0F, -19.2F, 5.7F, 4, 1, 1, 0.0F, true));
+        Main150_r1.cubeList.add(new ModelBox(Main150_r1, 0, 0, -1, -19.2F, 5.7F, 4, 1, 1, 0.0F, true));
 
         Main149_r1 = new ModelRenderer(this);
         Main149_r1.setRotationPoint(0.0F, -36.6261F, -8.7948F);
         main.addChild(Main149_r1);
         setRotationAngle(Main149_r1, -2.3562F, 0.0F, 0.0F);
-        Main149_r1.cubeList.add(new ModelBox(Main149_r1, 0, 0, -1.0F, -21.0F, 5.7F, 4, 1, 1, 0.0F, true));
+        Main149_r1.cubeList.add(new ModelBox(Main149_r1, 0, 0, -1, -21, 5.7F, 4, 1, 1, 0.0F, true));
 
         Main148_r1 = new ModelRenderer(this);
         Main148_r1.setRotationPoint(0.0F, -3.3959F, 14.5242F);
         main.addChild(Main148_r1);
         setRotationAngle(Main148_r1, 1.041F, 0.0F, 0.0F);
-        Main148_r1.cubeList.add(new ModelBox(Main148_r1, 0, 0, -1.0F, -19.2F, 3.3F, 4, 2, 1, 0.0F, true));
+        Main148_r1.cubeList.add(new ModelBox(Main148_r1, 0, 0, -1, -19.2F, 3.3F, 4, 2, 1, 0.0F, true));
 
         Main144_r1 = new ModelRenderer(this);
         Main144_r1.setRotationPoint(0.0F, -41.3487F, -17.2011F);
         main.addChild(Main144_r1);
         setRotationAngle(Main144_r1, 2.3562F, 0.0F, 0.0F);
-        Main144_r1.cubeList.add(new ModelBox(Main144_r1, 0, 0, -1.0F, -19.5F, -16.0F, 4, 1, 1, 0.0F, true));
+        Main144_r1.cubeList.add(new ModelBox(Main144_r1, 0, 0, -1, -19.5F, -16.0F, 4, 1, 1, 0.0F, true));
 
         Main143_r1 = new ModelRenderer(this);
         Main143_r1.setRotationPoint(-15.0601F, -8.3039F, -3.676F);
@@ -502,7 +502,7 @@ public class DP28 extends ModelWithAttachments {
         Main142_r1.setRotationPoint(15.9859F, -6.6168F, -3.676F);
         main.addChild(Main142_r1);
         setRotationAngle(Main142_r1, 0.0F, 0.0F, -1.0038F);
-        Main142_r1.cubeList.add(new ModelBox(Main142_r1, 0, 0, -1.0F, -19.5F, -18.0F, 1, 1, 2, 0.0F, true));
+        Main142_r1.cubeList.add(new ModelBox(Main142_r1, 0, 0, -1, -19.5F, -18.0F, 1, 1, 2, 0.0F, true));
 
         Main140_r1 = new ModelRenderer(this);
         Main140_r1.setRotationPoint(-9.4286F, -0.7478F, -3.676F);
@@ -526,7 +526,7 @@ public class DP28 extends ModelWithAttachments {
         Main136_r1.setRotationPoint(14.3442F, -3.5164F, -3.676F);
         main.addChild(Main136_r1);
         setRotationAngle(Main136_r1, 0.0F, 0.0F, -0.7854F);
-        Main136_r1.cubeList.add(new ModelBox(Main136_r1, 0, 0, -1.0F, -20.7F, -40.0F, 1, 1, 22, 0.0F, true));
+        Main136_r1.cubeList.add(new ModelBox(Main136_r1, 0, 0, -1, -20.7F, -40.0F, 1, 1, 22, 0.0F, true));
 
         Main135_r1 = new ModelRenderer(this);
         Main135_r1.setRotationPoint(-17.0584F, -3.5637F, -3.676F);
@@ -552,7 +552,7 @@ public class DP28 extends ModelWithAttachments {
         main.addChild(Main131_r1);
         setRotationAngle(Main131_r1, 0.0F, 0.0F, -0.9076F);
         Main131_r1.cubeList.add(new ModelBox(Main131_r1, 0, 0, -1.15F, -24.9F, 6.0F, 1, 1, 18, 0.0F, true));
-        Main131_r1.cubeList.add(new ModelBox(Main131_r1, 0, 0, -1.0F, -24.9F, 6.0F, 1, 1, 18, 0.0F, true));
+        Main131_r1.cubeList.add(new ModelBox(Main131_r1, 0, 0, -1, -24.9F, 6.0F, 1, 1, 18, 0.0F, true));
 
         Main129_r1 = new ModelRenderer(this);
         Main129_r1.setRotationPoint(-8.071F, 3.2536F, 3.3064F);
@@ -607,7 +607,7 @@ public class DP28 extends ModelWithAttachments {
         Main100_r1.setRotationPoint(0.0F, -22.9586F, -21.578F);
         main.addChild(Main100_r1);
         setRotationAngle(Main100_r1, -1.3756F, 0.0F, 0.0F);
-        Main100_r1.cubeList.add(new ModelBox(Main100_r1, 0, 0, -1.0F, -24.0F, 7.0F, 4, 3, 1, 0.0F, true));
+        Main100_r1.cubeList.add(new ModelBox(Main100_r1, 0, 0, -1, -24.0F, 7.0F, 4, 3, 1, 0.0F, true));
 
         Main99_r1 = new ModelRenderer(this);
         Main99_r1.setRotationPoint(0.0F, -17.9551F, -23.0213F);
@@ -653,7 +653,7 @@ public class DP28 extends ModelWithAttachments {
         Main222_r1.setRotationPoint(0.0F, -6.0491F, 3.7896F);
         main.addChild(Main222_r1);
         setRotationAngle(Main222_r1, 0.3718F, 0.0F, 0.0F);
-        Main222_r1.cubeList.add(new ModelBox(Main222_r1, 0, 0, 0.0F, -24.5F, -21.0F, 2, 1, 2, 0.0F, true));
+        Main222_r1.cubeList.add(new ModelBox(Main222_r1, 0, 0, 0.0F, -24.5F, -21, 2, 1, 2, 0.0F, true));
 
         Main221_r1 = new ModelRenderer(this);
         Main221_r1.setRotationPoint(0.0F, -38.6185F, -20.2551F);

@@ -38,11 +38,11 @@ public class RPG7rocketPROJECTILE extends ModelWithAttachments {
         rpg = new ModelRenderer(this);
         rpg.setRotationPoint(0.5F, -15.5F, -16.0F);
         setRotationAngle(rpg, -1.5708F, 0.0F, 0.0F);
-        rpg.cubeList.add(new ModelBox(rpg, 150, 0, -1.0F, -18.0F, 9.9999F, 2, 4, 30, 0.0F, true));
+        rpg.cubeList.add(new ModelBox(rpg, 150, 0, -1, -18.0F, 9.9999F, 2, 4, 30, 0.0F, true));
         rpg.cubeList.add(new ModelBox(rpg, 150, 0, -2.0F, -17.0F, 9.9999F, 4, 2, 30, 0.0F, true));
-        rpg.cubeList.add(new ModelBox(rpg, 150, 0, -1.0F, -20.0F, -4.0001F, 2, 8, 3, 0.0F, true));
+        rpg.cubeList.add(new ModelBox(rpg, 150, 0, -1, -20.0F, -4.0001F, 2, 8, 3, 0.0F, true));
         rpg.cubeList.add(new ModelBox(rpg, 150, 0, -4.0F, -17.0F, -4.0001F, 8, 2, 3, 0.0F, true));
-        rpg.cubeList.add(new ModelBox(rpg, 150, 0, -1.0F, -17.0F, -17.0001F, 2, 2, 4, 0.0F, true));
+        rpg.cubeList.add(new ModelBox(rpg, 150, 0, -1, -17.0F, -17.0001F, 2, 2, 4, 0.0F, true));
 
         rpg23_r1 = new ModelRenderer(this);
         rpg23_r1.setRotationPoint(-0.5F, -24.7026F, 31.3765F);

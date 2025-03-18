@@ -120,7 +120,7 @@ public class Z10Handguard extends ModelWithAttachments {
         textureHeight = 300;
 
         handguard = new ModelRenderer(this);
-        handguard.setRotationPoint(-0.412F, -12.1156F, -31.0F);
+        handguard.setRotationPoint(-0.412F, -12.1156F, -31);
         handguard.cubeList.add(new ModelBox(handguard, 78, 48, 0.11F, -1.8594F, 1.5F, 1, 2, 7, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 75, 80, 0.11F, -1.8594F, -5.5F, 1, 2, 1, 0.0F, false));
         handguard.cubeList.add(new ModelBox(handguard, 64, 80, 0.11F, -1.8594F, -12.5F, 1, 2, 1, 0.0F, false));
@@ -234,13 +234,13 @@ public class Z10Handguard extends ModelWithAttachments {
         gun45_r5.setRotationPoint(0.1643F, 1.6311F, -12.8F);
         handguard.addChild(gun45_r5);
         setRotationAngle(gun45_r5, 0.0F, 0.0F, -1.0036F);
-        gun45_r5.cubeList.add(new ModelBox(gun45_r5, 0, 184, -0.5F, -0.5F, -21.0F, 1, 1, 42, -0.299F, false));
+        gun45_r5.cubeList.add(new ModelBox(gun45_r5, 0, 184, -0.5F, -0.5F, -21, 1, 1, 42, -0.299F, false));
 
         gun45_r6 = new ModelRenderer(this);
         gun45_r6.setRotationPoint(0.8359F, 0.5768F, -12.8F);
         handguard.addChild(gun45_r6);
         setRotationAngle(gun45_r6, 0.0F, 0.0F, -1.0036F);
-        gun45_r6.cubeList.add(new ModelBox(gun45_r6, 88, 181, -0.5F, -0.5F, -21.0F, 1, 1, 42, -0.3F, false));
+        gun45_r6.cubeList.add(new ModelBox(gun45_r6, 88, 181, -0.5F, -0.5F, -21, 1, 1, 42, -0.3F, false));
 
         gun45_r7 = new ModelRenderer(this);
         gun45_r7.setRotationPoint(-1.088F, 0.4157F, 4.2678F);
@@ -252,8 +252,8 @@ public class Z10Handguard extends ModelWithAttachments {
         gun45_r8.setRotationPoint(0.8335F, -2.1853F, -12.6F);
         handguard.addChild(gun45_r8);
         setRotationAngle(gun45_r8, 0.0F, 0.0F, -0.9599F);
-        gun45_r8.cubeList.add(new ModelBox(gun45_r8, 186, 90, -0.5F, -1.725F, -21.0F, 1, 1, 42, -0.3F, false));
-        gun45_r8.cubeList.add(new ModelBox(gun45_r8, 188, 1, -0.5F, -0.5F, -21.0F, 1, 1, 42, -0.3F, false));
+        gun45_r8.cubeList.add(new ModelBox(gun45_r8, 186, 90, -0.5F, -1.725F, -21, 1, 1, 42, -0.3F, false));
+        gun45_r8.cubeList.add(new ModelBox(gun45_r8, 188, 1, -0.5F, -0.5F, -21, 1, 1, 42, -0.3F, false));
 
         gun55_r1 = new ModelRenderer(this);
         gun55_r1.setRotationPoint(0.3318F, -2.5366F, -15.3578F);
@@ -280,17 +280,17 @@ public class Z10Handguard extends ModelWithAttachments {
         gun49_r3.setRotationPoint(0.4239F, -2.4721F, -8.35F);
         handguard.addChild(gun49_r3);
         setRotationAngle(gun49_r3, 0.0F, 0.0F, -0.9599F);
-        gun49_r3.cubeList.add(new ModelBox(gun49_r3, 82, 9, -0.5009F, -1.0F, -25.0F, 1, 2, 5, -0.3F, false));
-        gun49_r3.cubeList.add(new ModelBox(gun49_r3, 22, 78, -0.5009F, -1.0F, -15.0F, 1, 2, 2, -0.3F, false));
-        gun49_r3.cubeList.add(new ModelBox(gun49_r3, 31, 78, -0.5009F, -1.0F, -8.0F, 1, 2, 2, -0.3F, false));
-        gun49_r3.cubeList.add(new ModelBox(gun49_r3, 65, 48, -0.5009F, -1.0F, 6.0F, 1, 2, 11, -0.3F, false));
-        gun49_r3.cubeList.add(new ModelBox(gun49_r3, 78, 48, -0.5009F, -1.0F, -1.0F, 1, 2, 2, -0.3F, false));
+        gun49_r3.cubeList.add(new ModelBox(gun49_r3, 82, 9, -0.5009F, -1, -25.0F, 1, 2, 5, -0.3F, false));
+        gun49_r3.cubeList.add(new ModelBox(gun49_r3, 22, 78, -0.5009F, -1, -15.0F, 1, 2, 2, -0.3F, false));
+        gun49_r3.cubeList.add(new ModelBox(gun49_r3, 31, 78, -0.5009F, -1, -8.0F, 1, 2, 2, -0.3F, false));
+        gun49_r3.cubeList.add(new ModelBox(gun49_r3, 65, 48, -0.5009F, -1, 6.0F, 1, 2, 11, -0.3F, false));
+        gun49_r3.cubeList.add(new ModelBox(gun49_r3, 78, 48, -0.5009F, -1, -1, 1, 2, 2, -0.3F, false));
 
         gun49_r4 = new ModelRenderer(this);
         gun49_r4.setRotationPoint(-0.1451F, 0.0704F, 7.3F);
         handguard.addChild(gun49_r4);
         setRotationAngle(gun49_r4, 0.0F, 0.0F, -1.0036F);
-        gun49_r4.cubeList.add(new ModelBox(gun49_r4, 40, 42, -1.5F, 0.4994F, -41.0F, 2, 1, 1, -0.201F, false));
+        gun49_r4.cubeList.add(new ModelBox(gun49_r4, 40, 42, -1.5F, 0.4994F, -41, 2, 1, 1, -0.201F, false));
 
         gun48_r3 = new ModelRenderer(this);
         gun48_r3.setRotationPoint(-0.1456F, 0.0701F, 7.45F);
@@ -309,43 +309,43 @@ public class Z10Handguard extends ModelWithAttachments {
         gun44_r6.setRotationPoint(-3.586F, -0.6594F, 1.5F);
         handguard.addChild(gun44_r6);
         setRotationAngle(gun44_r6, -0.4887F, 0.0F, 0.0F);
-        gun44_r6.cubeList.add(new ModelBox(gun44_r6, 56, 68, 0.0F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
-        gun44_r6.cubeList.add(new ModelBox(gun44_r6, 73, 61, 3.996F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
+        gun44_r6.cubeList.add(new ModelBox(gun44_r6, 56, 68, 0.0F, -1, 0.0F, 1, 1, 1, -0.2F, false));
+        gun44_r6.cubeList.add(new ModelBox(gun44_r6, 73, 61, 3.996F, -1, 0.0F, 1, 1, 1, -0.2F, false));
 
         gun45_r9 = new ModelRenderer(this);
         gun45_r9.setRotationPoint(-3.586F, -0.6594F, -5.7F);
         handguard.addChild(gun45_r9);
         setRotationAngle(gun45_r9, -0.4887F, 0.0F, 0.0F);
-        gun45_r9.cubeList.add(new ModelBox(gun45_r9, 48, 68, 0.0F, -1.0F, 0.05F, 1, 1, 1, -0.2F, false));
-        gun45_r9.cubeList.add(new ModelBox(gun45_r9, 18, 73, 3.996F, -1.0F, 0.05F, 1, 1, 1, -0.2F, false));
+        gun45_r9.cubeList.add(new ModelBox(gun45_r9, 48, 68, 0.0F, -1, 0.05F, 1, 1, 1, -0.2F, false));
+        gun45_r9.cubeList.add(new ModelBox(gun45_r9, 18, 73, 3.996F, -1, 0.05F, 1, 1, 1, -0.2F, false));
 
         gun46_r2 = new ModelRenderer(this);
         gun46_r2.setRotationPoint(-3.586F, -0.6594F, -12.7F);
         handguard.addChild(gun46_r2);
         setRotationAngle(gun46_r2, -0.4887F, 0.0F, 0.0F);
-        gun46_r2.cubeList.add(new ModelBox(gun46_r2, 65, 61, 0.0F, -1.0F, 0.05F, 1, 1, 1, -0.2F, false));
-        gun46_r2.cubeList.add(new ModelBox(gun46_r2, 69, 72, 3.996F, -1.0F, 0.05F, 1, 1, 1, -0.2F, false));
+        gun46_r2.cubeList.add(new ModelBox(gun46_r2, 65, 61, 0.0F, -1, 0.05F, 1, 1, 1, -0.2F, false));
+        gun46_r2.cubeList.add(new ModelBox(gun46_r2, 69, 72, 3.996F, -1, 0.05F, 1, 1, 1, -0.2F, false));
 
         gun47_r1 = new ModelRenderer(this);
         gun47_r1.setRotationPoint(-3.586F, -0.6594F, -19.7F);
         handguard.addChild(gun47_r1);
         setRotationAngle(gun47_r1, -0.4887F, 0.0F, 0.0F);
-        gun47_r1.cubeList.add(new ModelBox(gun47_r1, 56, 60, 0.0F, -1.0F, 0.05F, 1, 1, 1, -0.2F, false));
-        gun47_r1.cubeList.add(new ModelBox(gun47_r1, 65, 72, 3.996F, -1.0F, 0.05F, 1, 1, 1, -0.2F, false));
+        gun47_r1.cubeList.add(new ModelBox(gun47_r1, 56, 60, 0.0F, -1, 0.05F, 1, 1, 1, -0.2F, false));
+        gun47_r1.cubeList.add(new ModelBox(gun47_r1, 65, 72, 3.996F, -1, 0.05F, 1, 1, 1, -0.2F, false));
 
         gun48_r5 = new ModelRenderer(this);
         gun48_r5.setRotationPoint(-3.586F, -0.6594F, -26.7F);
         handguard.addChild(gun48_r5);
         setRotationAngle(gun48_r5, -0.4887F, 0.0F, 0.0F);
-        gun48_r5.cubeList.add(new ModelBox(gun48_r5, 58, 13, 0.0F, -1.0F, 0.05F, 1, 1, 1, -0.2F, false));
-        gun48_r5.cubeList.add(new ModelBox(gun48_r5, 72, 44, 3.996F, -1.0F, 0.05F, 1, 1, 1, -0.2F, false));
+        gun48_r5.cubeList.add(new ModelBox(gun48_r5, 58, 13, 0.0F, -1, 0.05F, 1, 1, 1, -0.2F, false));
+        gun48_r5.cubeList.add(new ModelBox(gun48_r5, 72, 44, 3.996F, -1, 0.05F, 1, 1, 1, -0.2F, false));
 
         gun49_r5 = new ModelRenderer(this);
         gun49_r5.setRotationPoint(-3.586F, -0.6594F, -33.7F);
         handguard.addChild(gun49_r5);
         setRotationAngle(gun49_r5, -0.4887F, 0.0F, 0.0F);
-        gun49_r5.cubeList.add(new ModelBox(gun49_r5, 34, 41, 0.0F, -1.0F, 0.05F, 1, 1, 1, -0.2F, false));
-        gun49_r5.cubeList.add(new ModelBox(gun49_r5, 69, 61, 3.996F, -1.0F, 0.05F, 1, 1, 1, -0.2F, false));
+        gun49_r5.cubeList.add(new ModelBox(gun49_r5, 34, 41, 0.0F, -1, 0.05F, 1, 1, 1, -0.2F, false));
+        gun49_r5.cubeList.add(new ModelBox(gun49_r5, 69, 61, 3.996F, -1, 0.05F, 1, 1, 1, -0.2F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(0.713F, -0.4501F, 1.5F);
@@ -437,13 +437,13 @@ public class Z10Handguard extends ModelWithAttachments {
         gun53_r6.cubeList.add(new ModelBox(gun53_r6, 27, 100, -0.503F, -0.5F, -0.5F, 1, 1, 1, -0.101F, false));
 
         gun51_r10 = new ModelRenderer(this);
-        gun51_r10.setRotationPoint(0.0F, -1.225F, -21.0F);
+        gun51_r10.setRotationPoint(0.0F, -1.225F, -21);
         bone5.addChild(gun51_r10);
         setRotationAngle(gun51_r10, -0.7854F, 0.0F, 0.0F);
         gun51_r10.cubeList.add(new ModelBox(gun51_r10, 48, 100, -0.503F, -0.5F, -0.5F, 1, 1, 1, -0.101F, false));
 
         gun52_r8 = new ModelRenderer(this);
-        gun52_r8.setRotationPoint(0.0F, 0.4F, -21.0F);
+        gun52_r8.setRotationPoint(0.0F, 0.4F, -21);
         bone5.addChild(gun52_r8);
         setRotationAngle(gun52_r8, -0.7854F, 0.0F, 0.0F);
         gun52_r8.cubeList.add(new ModelBox(gun52_r8, 42, 100, -0.503F, -0.5F, -0.5F, 1, 1, 1, -0.101F, false));
@@ -481,11 +481,11 @@ public class Z10Handguard extends ModelWithAttachments {
         gun49_r8.setRotationPoint(0.0F, 0.4F, -6.5F);
         bone7.addChild(gun49_r8);
         setRotationAngle(gun49_r8, 0.0F, 0.0F, -1.0036F);
-        gun49_r8.cubeList.add(new ModelBox(gun49_r8, 81, 43, -1.0F, -0.5007F, -1.0F, 2, 1, 2, -0.3F, false));
-        gun49_r8.cubeList.add(new ModelBox(gun49_r8, 19, 47, -1.0F, -0.5007F, 20.0F, 2, 1, 11, -0.3F, false));
-        gun49_r8.cubeList.add(new ModelBox(gun49_r8, 86, 65, -1.0F, -0.5007F, 13.0F, 2, 1, 2, -0.3F, false));
-        gun49_r8.cubeList.add(new ModelBox(gun49_r8, 70, 86, -1.0F, -0.5007F, 6.0F, 2, 1, 2, -0.3F, false));
-        gun49_r8.cubeList.add(new ModelBox(gun49_r8, 104, 48, -1.0F, -0.5007F, -11.0F, 2, 1, 5, -0.3F, false));
+        gun49_r8.cubeList.add(new ModelBox(gun49_r8, 81, 43, -1, -0.5007F, -1, 2, 1, 2, -0.3F, false));
+        gun49_r8.cubeList.add(new ModelBox(gun49_r8, 19, 47, -1, -0.5007F, 20.0F, 2, 1, 11, -0.3F, false));
+        gun49_r8.cubeList.add(new ModelBox(gun49_r8, 86, 65, -1, -0.5007F, 13.0F, 2, 1, 2, -0.3F, false));
+        gun49_r8.cubeList.add(new ModelBox(gun49_r8, 70, 86, -1, -0.5007F, 6.0F, 2, 1, 2, -0.3F, false));
+        gun49_r8.cubeList.add(new ModelBox(gun49_r8, 104, 48, -1, -0.5007F, -11, 2, 1, 5, -0.3F, false));
 
         le_hand_guard2 = new ModelRenderer(this);
         le_hand_guard2.setRotationPoint(-2.1759F, 0.0F, 0.0F);
@@ -600,20 +600,20 @@ public class Z10Handguard extends ModelWithAttachments {
         gun46_r5.setRotationPoint(-0.1643F, 1.6311F, -12.8F);
         le_hand_guard2.addChild(gun46_r5);
         setRotationAngle(gun46_r5, 0.0F, 0.0F, 1.0036F);
-        gun46_r5.cubeList.add(new ModelBox(gun46_r5, 0, 141, -0.5F, -0.5F, -21.0F, 1, 1, 42, -0.299F, false));
+        gun46_r5.cubeList.add(new ModelBox(gun46_r5, 0, 141, -0.5F, -0.5F, -21, 1, 1, 42, -0.299F, false));
 
         gun46_r6 = new ModelRenderer(this);
         gun46_r6.setRotationPoint(-0.8359F, 0.5768F, -12.8F);
         le_hand_guard2.addChild(gun46_r6);
         setRotationAngle(gun46_r6, 0.0F, 0.0F, 1.0036F);
-        gun46_r6.cubeList.add(new ModelBox(gun46_r6, 44, 142, -0.5F, -0.5F, -21.0F, 1, 1, 42, -0.3F, false));
+        gun46_r6.cubeList.add(new ModelBox(gun46_r6, 44, 142, -0.5F, -0.5F, -21, 1, 1, 42, -0.3F, false));
 
         gun46_r7 = new ModelRenderer(this);
         gun46_r7.setRotationPoint(-0.8335F, -2.1853F, -12.6F);
         le_hand_guard2.addChild(gun46_r7);
         setRotationAngle(gun46_r7, 0.0F, 0.0F, 0.9599F);
-        gun46_r7.cubeList.add(new ModelBox(gun46_r7, 144, 0, -0.5F, -1.725F, -21.0F, 1, 1, 42, -0.3F, false));
-        gun46_r7.cubeList.add(new ModelBox(gun46_r7, 144, 47, -0.5F, -0.5F, -21.0F, 1, 1, 42, -0.3F, false));
+        gun46_r7.cubeList.add(new ModelBox(gun46_r7, 144, 0, -0.5F, -1.725F, -21, 1, 1, 42, -0.3F, false));
+        gun46_r7.cubeList.add(new ModelBox(gun46_r7, 144, 47, -0.5F, -0.5F, -21, 1, 1, 42, -0.3F, false));
 
         gun56_r1 = new ModelRenderer(this);
         gun56_r1.setRotationPoint(-0.3318F, -2.5366F, -15.3578F);
@@ -640,17 +640,17 @@ public class Z10Handguard extends ModelWithAttachments {
         gun50_r7.setRotationPoint(-0.4239F, -2.4721F, -8.35F);
         le_hand_guard2.addChild(gun50_r7);
         setRotationAngle(gun50_r7, 0.0F, 0.0F, 0.9599F);
-        gun50_r7.cubeList.add(new ModelBox(gun50_r7, 34, 47, -0.4991F, -1.0F, -25.0F, 1, 2, 5, -0.3F, false));
-        gun50_r7.cubeList.add(new ModelBox(gun50_r7, 56, 64, -0.4991F, -1.0F, -15.0F, 1, 2, 2, -0.3F, false));
-        gun50_r7.cubeList.add(new ModelBox(gun50_r7, 48, 72, -0.4991F, -1.0F, -8.0F, 1, 2, 2, -0.3F, false));
-        gun50_r7.cubeList.add(new ModelBox(gun50_r7, 48, 33, -0.4991F, -1.0F, 6.0F, 1, 2, 11, -0.3F, false));
-        gun50_r7.cubeList.add(new ModelBox(gun50_r7, 56, 72, -0.4991F, -1.0F, -1.0F, 1, 2, 2, -0.3F, false));
+        gun50_r7.cubeList.add(new ModelBox(gun50_r7, 34, 47, -0.4991F, -1, -25.0F, 1, 2, 5, -0.3F, false));
+        gun50_r7.cubeList.add(new ModelBox(gun50_r7, 56, 64, -0.4991F, -1, -15.0F, 1, 2, 2, -0.3F, false));
+        gun50_r7.cubeList.add(new ModelBox(gun50_r7, 48, 72, -0.4991F, -1, -8.0F, 1, 2, 2, -0.3F, false));
+        gun50_r7.cubeList.add(new ModelBox(gun50_r7, 48, 33, -0.4991F, -1, 6.0F, 1, 2, 11, -0.3F, false));
+        gun50_r7.cubeList.add(new ModelBox(gun50_r7, 56, 72, -0.4991F, -1, -1, 1, 2, 2, -0.3F, false));
 
         gun50_r8 = new ModelRenderer(this);
         gun50_r8.setRotationPoint(0.1451F, 0.0704F, 7.3F);
         le_hand_guard2.addChild(gun50_r8);
         setRotationAngle(gun50_r8, 0.0F, 0.0F, 1.0036F);
-        gun50_r8.cubeList.add(new ModelBox(gun50_r8, 23, 17, -0.5F, 0.4994F, -41.0F, 2, 1, 1, -0.201F, false));
+        gun50_r8.cubeList.add(new ModelBox(gun50_r8, 23, 17, -0.5F, 0.4994F, -41, 2, 1, 1, -0.201F, false));
 
         gun49_r9 = new ModelRenderer(this);
         gun49_r9.setRotationPoint(0.1456F, 0.0701F, 7.45F);
@@ -755,13 +755,13 @@ public class Z10Handguard extends ModelWithAttachments {
         gun54_r12.cubeList.add(new ModelBox(gun54_r12, 29, 96, -0.497F, -0.5F, -0.5F, 1, 1, 1, -0.101F, false));
 
         gun52_r13 = new ModelRenderer(this);
-        gun52_r13.setRotationPoint(0.0F, -1.225F, -21.0F);
+        gun52_r13.setRotationPoint(0.0F, -1.225F, -21);
         bone9.addChild(gun52_r13);
         setRotationAngle(gun52_r13, -0.7854F, 0.0F, 0.0F);
         gun52_r13.cubeList.add(new ModelBox(gun52_r13, 96, 69, -0.497F, -0.5F, -0.5F, 1, 1, 1, -0.101F, false));
 
         gun53_r12 = new ModelRenderer(this);
-        gun53_r12.setRotationPoint(0.0F, 0.4F, -21.0F);
+        gun53_r12.setRotationPoint(0.0F, 0.4F, -21);
         bone9.addChild(gun53_r12);
         setRotationAngle(gun53_r12, -0.7854F, 0.0F, 0.0F);
         gun53_r12.cubeList.add(new ModelBox(gun53_r12, 96, 71, -0.497F, -0.5F, -0.5F, 1, 1, 1, -0.101F, false));
@@ -799,11 +799,11 @@ public class Z10Handguard extends ModelWithAttachments {
         gun50_r11.setRotationPoint(0.0F, 0.4F, -6.5F);
         bone10.addChild(gun50_r11);
         setRotationAngle(gun50_r11, 0.0F, 0.0F, 1.0036F);
-        gun50_r11.cubeList.add(new ModelBox(gun50_r11, 9, 60, -1.0F, -0.5007F, -1.0F, 2, 1, 2, -0.3F, false));
-        gun50_r11.cubeList.add(new ModelBox(gun50_r11, 20, 25, -1.0F, -0.5007F, 20.0F, 2, 1, 11, -0.3F, false));
-        gun50_r11.cubeList.add(new ModelBox(gun50_r11, 12, 73, -1.0F, -0.5007F, 13.0F, 2, 1, 2, -0.3F, false));
-        gun50_r11.cubeList.add(new ModelBox(gun50_r11, 76, 11, -1.0F, -0.5007F, 6.0F, 2, 1, 2, -0.3F, false));
-        gun50_r11.cubeList.add(new ModelBox(gun50_r11, 96, 102, -1.0F, -0.5007F, -11.0F, 2, 1, 5, -0.3F, false));
+        gun50_r11.cubeList.add(new ModelBox(gun50_r11, 9, 60, -1, -0.5007F, -1, 2, 1, 2, -0.3F, false));
+        gun50_r11.cubeList.add(new ModelBox(gun50_r11, 20, 25, -1, -0.5007F, 20.0F, 2, 1, 11, -0.3F, false));
+        gun50_r11.cubeList.add(new ModelBox(gun50_r11, 12, 73, -1, -0.5007F, 13.0F, 2, 1, 2, -0.3F, false));
+        gun50_r11.cubeList.add(new ModelBox(gun50_r11, 76, 11, -1, -0.5007F, 6.0F, 2, 1, 2, -0.3F, false));
+        gun50_r11.cubeList.add(new ModelBox(gun50_r11, 96, 102, -1, -0.5007F, -11, 2, 1, 5, -0.3F, false));
     }
 
     @Override

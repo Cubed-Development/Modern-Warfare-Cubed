@@ -24,17 +24,17 @@ public class NinthSinCycleBackRight extends ModelWithAttachments {
 
 
         cube_r67 = new ModelRenderer(this);
-        cube_r67.setRotationPoint(-1.0F, -25.5F, -5.0F);
+        cube_r67.setRotationPoint(-1, -25.5F, -5.0F);
         cycler_back_right_BACKGRIP.addChild(cube_r67);
         setRotationAngle(cube_r67, -0.0681F, 0.0541F, 0.6981F);
-        cube_r67.cubeList.add(new ModelBox(cube_r67, 74, 29, 0.0F, 1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        cube_r67.cubeList.add(new ModelBox(cube_r67, 74, 29, 0.0F, 1, 0.0F, 1, 1, 3, 0.0F, false));
         cube_r67.cubeList.add(new ModelBox(cube_r67, 95, 96, 0.0F, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
 
         cube_r68 = new ModelRenderer(this);
         cube_r68.setRotationPoint(-2.0F, -25.5F, -5.0F);
         cycler_back_right_BACKGRIP.addChild(cube_r68);
         setRotationAngle(cube_r68, -0.0873F, 0.0F, 0.0F);
-        cube_r68.cubeList.add(new ModelBox(cube_r68, 14, 75, 1.0F, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
+        cube_r68.cubeList.add(new ModelBox(cube_r68, 14, 75, 1, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
     }
 
     @Override

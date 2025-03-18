@@ -70,13 +70,13 @@ public class FamasF1Action extends ModelWithAttachments {
         cube_r156.cubeList.add(new ModelBox(cube_r156, 28, 96, -2.001F, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
 
         cube_r157 = new ModelRenderer(this);
-        cube_r157.setRotationPoint(1.0F, 4.6936F, -22.4535F);
+        cube_r157.setRotationPoint(1, 4.6936F, -22.4535F);
         bolt2.addChild(cube_r157);
         setRotationAngle(cube_r157, -1.056F, 0.1312F, -0.2272F);
         cube_r157.cubeList.add(new ModelBox(cube_r157, 5, 0, -4.9944F, -23.2437F, 10.3673F, 1, 2, 1, -0.2F, false));
 
         cube_r158 = new ModelRenderer(this);
-        cube_r158.setRotationPoint(1.0F, 4.6936F, -22.4535F);
+        cube_r158.setRotationPoint(1, 4.6936F, -22.4535F);
         bolt2.addChild(cube_r158);
         setRotationAngle(cube_r158, -1.041F, 0.0F, 0.0F);
         cube_r158.cubeList.add(new ModelBox(cube_r158, 113, 136, -2.5F, -24.4437F, 11.1696F, 2, 2, 1, 0.0F, false));
@@ -88,7 +88,7 @@ public class FamasF1Action extends ModelWithAttachments {
         cube_r159.cubeList.add(new ModelBox(cube_r159, 137, 29, -2.002F, -0.8204F, -0.6494F, 2, 2, 1, 0.0F, false));
 
         cube_r160 = new ModelRenderer(this);
-        cube_r160.setRotationPoint(1.0F, 2.4684F, -26.0744F);
+        cube_r160.setRotationPoint(1, 2.4684F, -26.0744F);
         bolt2.addChild(cube_r160);
         setRotationAngle(cube_r160, -1.041F, 0.0F, 0.0F);
         cube_r160.cubeList.add(new ModelBox(cube_r160, 0, 40, -2.501F, -24.8437F, 10.4696F, 2, 1, 2, -0.2F, false));
@@ -96,7 +96,7 @@ public class FamasF1Action extends ModelWithAttachments {
         cube_r160.cubeList.add(new ModelBox(cube_r160, 107, 67, -2.5F, -24.4437F, 12.1696F, 2, 1, 2, 0.0F, false));
 
         cube_r161 = new ModelRenderer(this);
-        cube_r161.setRotationPoint(1.0F, 2.4684F, -26.0744F);
+        cube_r161.setRotationPoint(1, 2.4684F, -26.0744F);
         bolt2.addChild(cube_r161);
         setRotationAngle(cube_r161, -1.0934F, 0.0F, 0.0F);
         cube_r161.cubeList.add(new ModelBox(cube_r161, 82, 11, -2.5F, -24.5339F, 5.1594F, 2, 1, 1, 0.0F, false));

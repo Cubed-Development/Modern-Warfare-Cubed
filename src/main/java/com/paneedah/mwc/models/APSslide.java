@@ -120,25 +120,25 @@ public class APSslide extends ModelWithAttachments {
         slide96.setRotationPoint(0.9F, -35.5F, 0.5F);
         slide.addChild(slide96);
         setRotationAngle(slide96, 0.0F, 0.0F, 0.3718F);
-        slide96.cubeList.add(new ModelBox(slide96, 80, 4, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide96.cubeList.add(new ModelBox(slide96, 80, 4, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide95 = new ModelRenderer(this);
         slide95.setRotationPoint(0.9F, -35.5F, -1.1F);
         slide.addChild(slide95);
         setRotationAngle(slide95, 0.0F, 0.0F, 0.3718F);
-        slide95.cubeList.add(new ModelBox(slide95, 67, 36, -1.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        slide95.cubeList.add(new ModelBox(slide95, 67, 36, -1, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         slide94 = new ModelRenderer(this);
         slide94.setRotationPoint(0.9F, -35.5F, -4.9F);
         slide.addChild(slide94);
         setRotationAngle(slide94, 0.0F, 0.0F, 0.3718F);
-        slide94.cubeList.add(new ModelBox(slide94, 80, 8, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide94.cubeList.add(new ModelBox(slide94, 80, 8, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide93 = new ModelRenderer(this);
         slide93.setRotationPoint(0.9F, -35.5F, -25.5F);
         slide.addChild(slide93);
         setRotationAngle(slide93, 0.0F, 0.0F, 0.3718F);
-        slide93.cubeList.add(new ModelBox(slide93, 0, 0, -1.0F, -0.001F, 0.0F, 1, 1, 21, 0.0F, false));
+        slide93.cubeList.add(new ModelBox(slide93, 0, 0, -1, -0.001F, 0.0F, 1, 1, 21, 0.0F, false));
 
         slide92 = new ModelRenderer(this);
         slide92.setRotationPoint(-3.9F, -35.5F, -25.5F);
@@ -167,16 +167,16 @@ public class APSslide extends ModelWithAttachments {
         slide89.cubeList.add(new ModelBox(slide89, 37, 22, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         slide88 = new ModelRenderer(this);
-        slide88.setRotationPoint(-1.0F, -36.8F, -7.5F);
+        slide88.setRotationPoint(-1, -36.8F, -7.5F);
         slide.addChild(slide88);
         setRotationAngle(slide88, 0.0F, 0.0F, -1.2269F);
-        slide88.cubeList.add(new ModelBox(slide88, 24, 65, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        slide88.cubeList.add(new ModelBox(slide88, 24, 65, -1, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         slide87 = new ModelRenderer(this);
-        slide87.setRotationPoint(-1.0F, -36.9F, -4.5F);
+        slide87.setRotationPoint(-1, -36.9F, -4.5F);
         slide.addChild(slide87);
         setRotationAngle(slide87, 0.0F, 0.0F, -1.2269F);
-        slide87.cubeList.add(new ModelBox(slide87, 89, 33, -1.0F, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        slide87.cubeList.add(new ModelBox(slide87, 89, 33, -1, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
 
         slide86 = new ModelRenderer(this);
         slide86.setRotationPoint(-1.8F, -37.1F, -28.2F);
@@ -564,8 +564,8 @@ public class APSslide extends ModelWithAttachments {
         slide29_r1.setRotationPoint(1.001F, 1.7F, 0.0F);
         slide26.addChild(slide29_r1);
         setRotationAngle(slide29_r1, -0.5585F, 0.0F, 0.0F);
-        slide29_r1.cubeList.add(new ModelBox(slide29_r1, 13, 92, -4.799F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        slide29_r1.cubeList.add(new ModelBox(slide29_r1, 13, 92, -0.999F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide29_r1.cubeList.add(new ModelBox(slide29_r1, 13, 92, -4.799F, -1, 0.0F, 1, 1, 1, 0.0F, false));
+        slide29_r1.cubeList.add(new ModelBox(slide29_r1, 13, 92, -0.999F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide25 = new ModelRenderer(this);
         slide25.setRotationPoint(-0.1F, -34.5F, -25.5F);
@@ -583,7 +583,7 @@ public class APSslide extends ModelWithAttachments {
         slide23.setRotationPoint(-3.6F, -33.7F, -30.5F);
         slide.addChild(slide23);
         setRotationAngle(slide23, 0.0F, 0.0F, -2.1192F);
-        slide23.cubeList.add(new ModelBox(slide23, 45, 68, -1.0F, 0.0F, -0.001F, 1, 1, 7, 0.0F, false));
+        slide23.cubeList.add(new ModelBox(slide23, 45, 68, -1, 0.0F, -0.001F, 1, 1, 7, 0.0F, false));
 
         slide22 = new ModelRenderer(this);
         slide22.setRotationPoint(0.6F, -33.7F, -30.5F);
@@ -626,13 +626,13 @@ public class APSslide extends ModelWithAttachments {
         slide15.setRotationPoint(0.6F, -35.5F, -30.5F);
         slide.addChild(slide15);
         setRotationAngle(slide15, 0.0F, 0.0F, 1.041F);
-        slide15.cubeList.add(new ModelBox(slide15, 54, 0, -1.0F, 0.001F, 0.001F, 1, 1, 32, 0.0F, false));
+        slide15.cubeList.add(new ModelBox(slide15, 54, 0, -1, 0.001F, 0.001F, 1, 1, 32, 0.0F, false));
 
         slide14 = new ModelRenderer(this);
-        slide14.setRotationPoint(-1.0F, -36.9F, -30.5F);
+        slide14.setRotationPoint(-1, -36.9F, -30.5F);
         slide.addChild(slide14);
         setRotationAngle(slide14, 0.0F, 0.0F, -1.2269F);
-        slide14.cubeList.add(new ModelBox(slide14, 0, 86, -1.0F, 0.0F, -0.001F, 1, 1, 23, 0.0F, false));
+        slide14.cubeList.add(new ModelBox(slide14, 0, 86, -1, 0.0F, -0.001F, 1, 1, 23, 0.0F, false));
 
         slide13 = new ModelRenderer(this);
         slide13.setRotationPoint(-3.6F, -35.5F, -7.5F);

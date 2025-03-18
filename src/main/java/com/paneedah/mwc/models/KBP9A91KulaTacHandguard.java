@@ -175,19 +175,19 @@ public class KBP9A91KulaTacHandguard extends ModelWithAttachments {
         cube_r111.setRotationPoint(4.4F, -3.6F, -3.1F);
         Handguard_KulaTactical_railmount.addChild(cube_r111);
         setRotationAngle(cube_r111, 0.7854F, 0.0F, 0.0F);
-        cube_r111.cubeList.add(new ModelBox(cube_r111, 47, 48, -1.7F, 1.0F, 1.5F, 2, 1, 1, -0.2F, false));
-        cube_r111.cubeList.add(new ModelBox(cube_r111, 53, 3, -4.6F, 1.0F, 1.5F, 2, 1, 1, -0.2F, false));
+        cube_r111.cubeList.add(new ModelBox(cube_r111, 47, 48, -1.7F, 1, 1.5F, 2, 1, 1, -0.2F, false));
+        cube_r111.cubeList.add(new ModelBox(cube_r111, 53, 3, -4.6F, 1, 1.5F, 2, 1, 1, -0.2F, false));
 
         cube_r112 = new ModelRenderer(this);
         cube_r112.setRotationPoint(5.0F, -2.8F, -4.0F);
         Handguard_KulaTactical_railmount.addChild(cube_r112);
         setRotationAngle(cube_r112, 0.0372F, -0.2944F, -0.1277F);
-        cube_r112.cubeList.add(new ModelBox(cube_r112, 54, 25, -0.7F, -0.3F, 1.0F, 1, 1, 2, -0.3F, false));
+        cube_r112.cubeList.add(new ModelBox(cube_r112, 54, 25, -0.7F, -0.3F, 1, 1, 1, 2, -0.3F, false));
         cube_r112.cubeList.add(new ModelBox(cube_r112, 38, 93, -0.7F, 1.08F, 1.8F, 1, 1, 3, -0.302F, false));
         cube_r112.cubeList.add(new ModelBox(cube_r112, 69, 89, -0.7F, 0.9F, 1.5F, 1, 1, 3, -0.301F, false));
         cube_r112.cubeList.add(new ModelBox(cube_r112, 59, 89, -0.7F, 0.5F, 0.8F, 1, 1, 3, -0.301F, false));
         cube_r112.cubeList.add(new ModelBox(cube_r112, 101, 72, -1.7F, 0.1F, 0.1F, 2, 1, 3, -0.3F, false));
-        cube_r112.cubeList.add(new ModelBox(cube_r112, 94, 59, -1.7F, -2.32F, -1.0F, 2, 1, 3, -0.3F, false));
+        cube_r112.cubeList.add(new ModelBox(cube_r112, 94, 59, -1.7F, -2.32F, -1, 2, 1, 3, -0.3F, false));
         cube_r112.cubeList.add(new ModelBox(cube_r112, 94, 45, -1.7F, -1.5F, -0.7F, 2, 1, 3, -0.3F, false));
         cube_r112.cubeList.add(new ModelBox(cube_r112, 91, 72, -1.7F, -0.7F, -0.3F, 2, 1, 3, -0.3F, false));
 
@@ -195,7 +195,7 @@ public class KBP9A91KulaTacHandguard extends ModelWithAttachments {
         cube_r113.setRotationPoint(5.0F, -2.8F, -4.0F);
         Handguard_KulaTactical_railmount.addChild(cube_r113);
         setRotationAngle(cube_r113, -0.4864F, -0.2944F, -0.1277F);
-        cube_r113.cubeList.add(new ModelBox(cube_r113, 54, 22, -0.7F, -0.2F, 1.0F, 1, 1, 2, -0.3F, false));
+        cube_r113.cubeList.add(new ModelBox(cube_r113, 54, 22, -0.7F, -0.2F, 1, 1, 1, 2, -0.3F, false));
         cube_r113.cubeList.add(new ModelBox(cube_r113, 54, 18, -0.7F, -0.2F, 0.4F, 1, 1, 2, -0.299F, false));
 
         cube_r114 = new ModelRenderer(this);
@@ -239,7 +239,7 @@ public class KBP9A91KulaTacHandguard extends ModelWithAttachments {
         cube_r119.setRotationPoint(4.5F, 0.0F, 0.0F);
         Handguard_KulaTactical_railmount.addChild(cube_r119);
         setRotationAngle(cube_r119, 0.4538F, 0.0F, 0.0F);
-        cube_r119.cubeList.add(new ModelBox(cube_r119, 40, 45, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.001F, false));
+        cube_r119.cubeList.add(new ModelBox(cube_r119, 40, 45, -1, -2.0F, 0.0F, 1, 2, 1, -0.001F, false));
         cube_r119.cubeList.add(new ModelBox(cube_r119, 96, 31, -4.5F, -2.0F, -0.001F, 4, 2, 1, -0.001F, false));
 
         cube_r120 = new ModelRenderer(this);
@@ -305,12 +305,12 @@ public class KBP9A91KulaTacHandguard extends ModelWithAttachments {
         cube_r127.setRotationPoint(-0.5F, -2.8F, -4.0F);
         Handguard_KulaTactical_railmount.addChild(cube_r127);
         setRotationAngle(cube_r127, 0.0372F, 0.2944F, 0.1277F);
-        cube_r127.cubeList.add(new ModelBox(cube_r127, 15, 71, -0.3F, -0.3F, 1.0F, 1, 1, 2, -0.3F, false));
+        cube_r127.cubeList.add(new ModelBox(cube_r127, 15, 71, -0.3F, -0.3F, 1, 1, 1, 2, -0.3F, false));
         cube_r127.cubeList.add(new ModelBox(cube_r127, 94, 40, -0.3F, 1.08F, 1.8F, 1, 1, 3, -0.302F, false));
         cube_r127.cubeList.add(new ModelBox(cube_r127, 94, 50, -0.3F, 0.9F, 1.5F, 1, 1, 3, -0.301F, false));
         cube_r127.cubeList.add(new ModelBox(cube_r127, 94, 54, -0.3F, 0.5F, 0.8F, 1, 1, 3, -0.301F, false));
         cube_r127.cubeList.add(new ModelBox(cube_r127, 38, 116, -0.3F, 0.1F, 0.1F, 2, 1, 3, -0.3F, false));
-        cube_r127.cubeList.add(new ModelBox(cube_r127, 0, 116, -0.3F, -2.32F, -1.0F, 2, 1, 3, -0.3F, false));
+        cube_r127.cubeList.add(new ModelBox(cube_r127, 0, 116, -0.3F, -2.32F, -1, 2, 1, 3, -0.3F, false));
         cube_r127.cubeList.add(new ModelBox(cube_r127, 15, 116, -0.3F, -1.5F, -0.7F, 2, 1, 3, -0.3F, false));
         cube_r127.cubeList.add(new ModelBox(cube_r127, 53, 116, -0.3F, -0.7F, -0.3F, 2, 1, 3, -0.3F, false));
 
@@ -318,7 +318,7 @@ public class KBP9A91KulaTacHandguard extends ModelWithAttachments {
         cube_r128.setRotationPoint(-0.5F, -2.8F, -4.0F);
         Handguard_KulaTactical_railmount.addChild(cube_r128);
         setRotationAngle(cube_r128, -0.4864F, 0.2944F, 0.1277F);
-        cube_r128.cubeList.add(new ModelBox(cube_r128, 64, 68, -0.3F, -0.2F, 1.0F, 1, 1, 2, -0.3F, false));
+        cube_r128.cubeList.add(new ModelBox(cube_r128, 64, 68, -0.3F, -0.2F, 1, 1, 1, 2, -0.3F, false));
         cube_r128.cubeList.add(new ModelBox(cube_r128, 0, 71, -0.3F, -0.2F, 0.4F, 1, 1, 2, -0.299F, false));
 
         cube_r129 = new ModelRenderer(this);

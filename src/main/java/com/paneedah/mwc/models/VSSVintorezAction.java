@@ -886,12 +886,12 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun46.cubeList.add(new ModelBox(gun46, 49, 133, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun45 = new ModelRenderer(this);
-        gun45.setRotationPoint(-3.1F, -31.0F, -7.7F);
+        gun45.setRotationPoint(-3.1F, -31, -7.7F);
         gun.addChild(gun45);
         gun45.cubeList.add(new ModelBox(gun45, 107, 73, 0.0F, -0.01F, -0.01F, 1, 5, 1, 0.0F, false));
 
         gun44 = new ModelRenderer(this);
-        gun44.setRotationPoint(-0.9F, -31.0F, -7.7F);
+        gun44.setRotationPoint(-0.9F, -31, -7.7F);
         gun.addChild(gun44);
         gun44.cubeList.add(new ModelBox(gun44, 107, 93, 0.0F, -0.01F, -0.01F, 1, 5, 1, 0.0F, false));
 
@@ -959,7 +959,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun33.cubeList.add(new ModelBox(gun33, 134, 28, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun32 = new ModelRenderer(this);
-        gun32.setRotationPoint(-2.5F, -31.0F, -8.5F);
+        gun32.setRotationPoint(-2.5F, -31, -8.5F);
         gun.addChild(gun32);
         setRotationAngle(gun32, 0.9666F, 0.0F, 0.0F);
         gun32.cubeList.add(new ModelBox(gun32, 25, 162, 0.0F, 0.0F, 0.0F, 2, 2, 2, 0.0F, false));
@@ -1035,7 +1035,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun6.cubeList.add(new ModelBox(gun6, 165, 32, 0.0F, 0.01F, 0.0F, 2, 1, 9, 0.0F, false));
 
         gun5 = new ModelRenderer(this);
-        gun5.setRotationPoint(-0.8F, -31.0F, -7.5F);
+        gun5.setRotationPoint(-0.8F, -31, -7.5F);
         gun.addChild(gun5);
         gun5.cubeList.add(new ModelBox(gun5, 0, 0, 0.01F, 0.0F, 0.0F, 1, 5, 2, 0.0F, false));
 
@@ -1043,7 +1043,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         bone23.setRotationPoint(-3.9F, -33.0F, -8.5F);
         gun.addChild(bone23);
         setRotationAngle(bone23, 0.5061F, 0.0F, 0.0F);
-        bone23.cubeList.add(new ModelBox(bone23, 128, 162, -0.2F, -1.0F, -0.5F, 1, 1, 1, 0.0F, false));
+        bone23.cubeList.add(new ModelBox(bone23, 128, 162, -0.2F, -1, -0.5F, 1, 1, 1, 0.0F, false));
         bone23.cubeList.add(new ModelBox(bone23, 107, 65, -0.21F, -0.8F, -0.9F, 1, 2, 2, 0.0F, false));
         bone23.cubeList.add(new ModelBox(bone23, 139, 162, -0.2F, -0.3F, 0.3F, 1, 1, 1, 0.0F, false));
         bone23.cubeList.add(new ModelBox(bone23, 151, 162, -0.2F, -0.3F, -1.1F, 1, 1, 1, 0.0F, false));
@@ -1087,7 +1087,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun167.cubeList.add(new ModelBox(gun167, 116, 111, 0.02F, 0.0F, 0.0F, 1, 2, 3, 0.0F, false));
 
         gun179 = new ModelRenderer(this);
-        gun179.setRotationPoint(-0.1F, -1.0F, 0.5F);
+        gun179.setRotationPoint(-0.1F, -1, 0.5F);
         bone23.addChild(gun179);
         setRotationAngle(gun179, -2.6025F, 0.0F, 0.0F);
         gun179.cubeList.add(new ModelBox(gun179, 162, 99, -0.001F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -1099,12 +1099,12 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun169.cubeList.add(new ModelBox(gun169, 163, 0, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         barrel = new ModelRenderer(this);
-        barrel.setRotationPoint(-1.0F, -36.8F, -85.5F);
+        barrel.setRotationPoint(-1, -36.8F, -85.5F);
         gun.addChild(barrel);
 
 
         barrel2 = new ModelRenderer(this);
-        barrel2.setRotationPoint(1.0F, 36.8F, 85.5F);
+        barrel2.setRotationPoint(1, 36.8F, 85.5F);
         barrel.addChild(barrel2);
 
 
@@ -1134,13 +1134,13 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r3.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone4.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, 0.0F, -0.4363F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 0, 0.0F, -1.0F, 0.0F, 2, 1, 45, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 0, 0.0F, -1, 0.0F, 2, 1, 45, 0.0F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone4.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.0F, 0.0F, 0.4363F);
-        cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 46, -2.0F, -1.0F, 0.0F, 2, 1, 45, 0.0F, false));
+        cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 46, -2.0F, -1, 0.0F, 2, 1, 45, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(1.2F, -35.1F, -85.5F);
@@ -1244,7 +1244,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r15.cubeList.add(new ModelBox(cube_r15, 134, 32, 0.0F, 0.0F, 0.0F, 2, 2, 2, 0.052F, false));
 
         bone5 = new ModelRenderer(this);
-        bone5.setRotationPoint(-0.5F, -1.0F, 0.0F);
+        bone5.setRotationPoint(-0.5F, -1, 0.0F);
         barrelouter.addChild(bone5);
 
 
@@ -1274,13 +1274,13 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r18.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone13.addChild(cube_r18);
         setRotationAngle(cube_r18, 0.0F, 0.0F, -0.4363F);
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 176, 20, 0.0F, -1.0F, 0.0F, 2, 1, 4, 0.1F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 176, 20, 0.0F, -1, 0.0F, 2, 1, 4, 0.1F, false));
 
         cube_r19 = new ModelRenderer(this);
         cube_r19.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone13.addChild(cube_r19);
         setRotationAngle(cube_r19, 0.0F, 0.0F, 0.4363F);
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 37, 176, -2.0F, -1.0F, 0.0F, 2, 1, 4, 0.1F, false));
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 37, 176, -2.0F, -1, 0.0F, 2, 1, 4, 0.1F, false));
 
         bone14 = new ModelRenderer(this);
         bone14.setRotationPoint(2.2F, 1.7F, 0.0F);
@@ -1319,7 +1319,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r23.cubeList.add(new ModelBox(cube_r23, 176, 5, 0.0F, 0.0F, 0.0F, 2, 1, 4, 0.1F, false));
 
         bone16 = new ModelRenderer(this);
-        bone16.setRotationPoint(-0.5F, -1.0F, 0.0F);
+        bone16.setRotationPoint(-0.5F, -1, 0.0F);
         barrelouter3.addChild(bone16);
 
 
@@ -1349,13 +1349,13 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r26.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone17.addChild(cube_r26);
         setRotationAngle(cube_r26, 0.0F, 0.0F, -0.4363F);
-        cube_r26.cubeList.add(new ModelBox(cube_r26, 130, 116, 0.0F, -1.0F, 0.0F, 2, 1, 1, 0.1F, false));
+        cube_r26.cubeList.add(new ModelBox(cube_r26, 130, 116, 0.0F, -1, 0.0F, 2, 1, 1, 0.1F, false));
 
         cube_r27 = new ModelRenderer(this);
         cube_r27.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone17.addChild(cube_r27);
         setRotationAngle(cube_r27, 0.0F, 0.0F, 0.4363F);
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 87, 131, -2.0F, -1.0F, 0.0F, 2, 1, 1, 0.1F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 87, 131, -2.0F, -1, 0.0F, 2, 1, 1, 0.1F, false));
 
         bone18 = new ModelRenderer(this);
         bone18.setRotationPoint(2.2F, 1.7F, 0.0F);
@@ -1394,7 +1394,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r31.cubeList.add(new ModelBox(cube_r31, 128, 124, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.1F, false));
 
         bone20 = new ModelRenderer(this);
-        bone20.setRotationPoint(-0.5F, -1.0F, 0.0F);
+        bone20.setRotationPoint(-0.5F, -1, 0.0F);
         barrelouter4.addChild(bone20);
 
 
@@ -1424,13 +1424,13 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r34.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone9.addChild(cube_r34);
         setRotationAngle(cube_r34, 0.0F, 0.0F, -0.4363F);
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 0, 67, 0.0F, -1.0F, 0.0F, 2, 1, 20, 0.05F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 0, 67, 0.0F, -1, 0.0F, 2, 1, 20, 0.05F, false));
 
         cube_r35 = new ModelRenderer(this);
         cube_r35.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone9.addChild(cube_r35);
         setRotationAngle(cube_r35, 0.0F, 0.0F, 0.4363F);
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 49, 68, -2.0F, -1.0F, 0.0F, 2, 1, 20, 0.05F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 49, 68, -2.0F, -1, 0.0F, 2, 1, 20, 0.05F, false));
 
         bone10 = new ModelRenderer(this);
         bone10.setRotationPoint(2.2F, 1.7F, 0.0F);
@@ -1469,7 +1469,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r39.cubeList.add(new ModelBox(cube_r39, 49, 0, 0.0F, 0.0F, 0.0F, 2, 1, 20, 0.05F, false));
 
         bone12 = new ModelRenderer(this);
-        bone12.setRotationPoint(-0.5F, -1.0F, 0.0F);
+        bone12.setRotationPoint(-0.5F, -1, 0.0F);
         barrelouter2.addChild(bone12);
 
 
@@ -1486,7 +1486,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r41.cubeList.add(new ModelBox(cube_r41, 0, 21, -2.0F, 0.0F, 0.0F, 2, 1, 20, 0.05F, false));
 
         ironsights = new ModelRenderer(this);
-        ironsights.setRotationPoint(1.0F, -1.2F, 1.5F);
+        ironsights.setRotationPoint(1, -1.2F, 1.5F);
         barrel.addChild(ironsights);
         ironsights.cubeList.add(new ModelBox(ironsights, 38, 0, -1.1F, -2.1F, -1.4F, 1, 4, 2, -0.3F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 145, 108, -2.1F, -0.9F, 32.6F, 2, 3, 9, -0.3F, false));
@@ -1498,7 +1498,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         ironsights.cubeList.add(new ModelBox(ironsights, 86, 73, -3.0F, -1.56F, 41.22F, 3, 1, 1, -0.4F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 86, 60, -3.0F, -1.76F, 41.22F, 3, 1, 1, -0.4F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 86, 52, -3.0F, -1.96F, 41.22F, 3, 1, 1, -0.4F, false));
-        ironsights.cubeList.add(new ModelBox(ironsights, 125, 161, -1.0F, -2.16F, 41.22F, 1, 1, 1, -0.4F, false));
+        ironsights.cubeList.add(new ModelBox(ironsights, 125, 161, -1, -2.16F, 41.22F, 1, 1, 1, -0.4F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 98, 161, -1.2F, -2.16F, 41.22F, 1, 1, 1, -0.4F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 161, 67, -1.4F, -2.16F, 41.22F, 1, 1, 1, -0.4F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 161, 65, -1.6F, -2.16F, 41.22F, 1, 1, 1, -0.4F, false));
@@ -1507,7 +1507,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         ironsights.cubeList.add(new ModelBox(ironsights, 161, 47, -1.6F, -2.26F, 41.22F, 1, 1, 1, -0.401F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 161, 51, -1.4F, -2.26F, 41.22F, 1, 1, 1, -0.401F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 161, 53, -1.2F, -2.26F, 41.22F, 1, 1, 1, -0.401F, false));
-        ironsights.cubeList.add(new ModelBox(ironsights, 161, 59, -1.0F, -2.26F, 41.22F, 1, 1, 1, -0.401F, false));
+        ironsights.cubeList.add(new ModelBox(ironsights, 161, 59, -1, -2.26F, 41.22F, 1, 1, 1, -0.401F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 136, 159, -2.3F, -2.26F, 41.22F, 1, 1, 1, -0.402F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 159, 140, -2.4F, -2.26F, 41.22F, 1, 1, 1, -0.401F, false));
         ironsights.cubeList.add(new ModelBox(ironsights, 159, 142, -2.6F, -2.26F, 41.22F, 1, 1, 1, -0.401F, false));
@@ -1557,13 +1557,13 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r45.cubeList.add(new ModelBox(cube_r45, 98, 47, -2.1F, -1.7F, -0.3F, 1, 2, 2, -0.302F, false));
 
         gun4 = new ModelRenderer(this);
-        gun4.setRotationPoint(-3.2F, -31.0F, -7.5F);
+        gun4.setRotationPoint(-3.2F, -31, -7.5F);
         gun.addChild(gun4);
         gun4.cubeList.add(new ModelBox(gun4, 83, 76, -0.01F, 0.0F, 0.0F, 3, 5, 2, 0.0F, false));
 
         dustcover = new ModelRenderer(this);
         dustcover.setRotationPoint(0.0F, 24.0F, 0.0F);
-        dustcover.cubeList.add(new ModelBox(dustcover, 162, 92, -2.0F, -39.35F, -11.0F, 1, 1, 4, 0.0F, false));
+        dustcover.cubeList.add(new ModelBox(dustcover, 162, 92, -2.0F, -39.35F, -11, 1, 1, 4, 0.0F, false));
         dustcover.cubeList.add(new ModelBox(dustcover, 162, 97, -2.0F, -39.35F, -17.0F, 1, 1, 4, 0.0F, false));
         dustcover.cubeList.add(new ModelBox(dustcover, 163, 0, -2.0F, -39.35F, -23.0F, 1, 1, 4, 0.0F, false));
         dustcover.cubeList.add(new ModelBox(dustcover, 98, 129, -2.0F, -39.35F, -27.0F, 1, 1, 2, 0.0F, false));
@@ -1573,7 +1573,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         dustcover.cubeList.add(new ModelBox(dustcover, 164, 76, -2.0F, -39.3F, -24.5F, 1, 1, 1, 0.0F, false));
 
         gun118 = new ModelRenderer(this);
-        gun118.setRotationPoint(-1.0F, -39.2F, -26.5F);
+        gun118.setRotationPoint(-1, -39.2F, -26.5F);
         dustcover.addChild(gun118);
         setRotationAngle(gun118, 0.0F, 0.0F, 0.4461F);
         gun118.cubeList.add(new ModelBox(gun118, 179, 88, 0.0F, 0.0F, 0.01F, 1, 2, 26, 0.0F, false));
@@ -1608,7 +1608,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         setRotationAngle(gun142, 0.0F, 0.0F, 0.1487F);
         gun142.cubeList.add(new ModelBox(gun142, 220, 170, 0.0F, 0.0F, 0.0F, 1, 1, 15, 0.0F, false));
         gun142.cubeList.add(new ModelBox(gun142, 0, 155, 0.0F, 0.5F, 0.0F, 1, 1, 6, -0.001F, false));
-        gun142.cubeList.add(new ModelBox(gun142, 49, 21, 0.0F, 1.0F, 6.0F, 1, 2, 9, 0.0F, false));
+        gun142.cubeList.add(new ModelBox(gun142, 49, 21, 0.0F, 1, 6.0F, 1, 2, 9, 0.0F, false));
 
         gun116 = new ModelRenderer(this);
         gun116.setRotationPoint(-2.0F, -39.2F, -26.5F);
@@ -1695,7 +1695,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun164.cubeList.add(new ModelBox(gun164, 125, 159, -0.2F, -0.2F, 5.2F, 1, 1, 1, -0.201F, false));
 
         gun146 = new ModelRenderer(this);
-        gun146.setRotationPoint(-1.0F, -39.3F, -6.5F);
+        gun146.setRotationPoint(-1, -39.3F, -6.5F);
         dustcover.addChild(gun146);
         setRotationAngle(gun146, 0.0F, 0.0F, 0.4461F);
         gun146.cubeList.add(new ModelBox(gun146, 9, 164, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -1713,7 +1713,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun154.cubeList.add(new ModelBox(gun154, 68, 106, 0.0F, 0.0F, 0.0F, 3, 1, 1, 0.0F, false));
 
         gun145 = new ModelRenderer(this);
-        gun145.setRotationPoint(-1.0F, -39.3F, -12.5F);
+        gun145.setRotationPoint(-1, -39.3F, -12.5F);
         dustcover.addChild(gun145);
         setRotationAngle(gun145, 0.0F, 0.0F, 0.4461F);
         gun145.cubeList.add(new ModelBox(gun145, 17, 164, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -1731,7 +1731,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun153.cubeList.add(new ModelBox(gun153, 0, 109, 0.0F, 0.0F, 0.0F, 3, 1, 1, 0.0F, false));
 
         gun144 = new ModelRenderer(this);
-        gun144.setRotationPoint(-1.0F, -39.3F, -18.5F);
+        gun144.setRotationPoint(-1, -39.3F, -18.5F);
         dustcover.addChild(gun144);
         setRotationAngle(gun144, 0.0F, 0.0F, 0.4461F);
         gun144.cubeList.add(new ModelBox(gun144, 164, 23, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -1749,7 +1749,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun152.cubeList.add(new ModelBox(gun152, 116, 60, 0.0F, 0.0F, 0.0F, 3, 1, 1, 0.0F, false));
 
         gun143 = new ModelRenderer(this);
-        gun143.setRotationPoint(-1.0F, -39.3F, -24.5F);
+        gun143.setRotationPoint(-1, -39.3F, -24.5F);
         dustcover.addChild(gun143);
         setRotationAngle(gun143, 0.0F, 0.0F, 0.4461F);
         gun143.cubeList.add(new ModelBox(gun143, 56, 164, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -1822,74 +1822,74 @@ public class VSSVintorezAction extends ModelWithAttachments {
         vssm_dustcover.setRotationPoint(-0.5F, -15.45F, -26.5F);
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 111, 173, -2.0F, 0.0F, 0.0F, 2, 1, 27, 0.0F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 80, 172, -2.0F, -0.3F, 0.0F, 2, 1, 27, -0.1F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 8, 138, -1.0F, -0.8F, 26.2F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 0, 138, -1.0F, -0.8F, 25.8F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 8, 138, -1, -0.8F, 26.2F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 0, 138, -1, -0.8F, 25.8F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 135, 42, -2.0F, -0.8F, 26.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 135, 83, -2.0F, -0.8F, 25.8F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 132, 111, -1.0F, -0.8F, 24.6F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 132, 113, -1.0F, -0.8F, 24.2F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 132, 111, -1, -0.8F, 24.6F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 132, 113, -1, -0.8F, 24.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 40, 133, -2.0F, -0.8F, 24.6F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 98, 133, -2.0F, -0.8F, 24.2F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 132, 52, -1.0F, -0.8F, 23.0F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 132, 54, -1.0F, -0.8F, 22.6F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 132, 52, -1, -0.8F, 23.0F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 132, 54, -1, -0.8F, 22.6F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 132, 78, -2.0F, -0.8F, 23.0F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 132, 93, -2.0F, -0.8F, 22.6F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 123, 19, -1.0F, -0.8F, 18.2F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 123, 21, -1.0F, -0.8F, 17.8F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 123, 19, -1, -0.8F, 18.2F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 123, 21, -1, -0.8F, 17.8F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 109, 123, -2.0F, -0.8F, 18.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 49, 124, -2.0F, -0.8F, 17.8F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 126, 93, -1.0F, -0.8F, 19.4F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 126, 95, -1.0F, -0.8F, 19.8F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 126, 93, -1, -0.8F, 19.4F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 126, 95, -1, -0.8F, 19.8F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 126, 111, -2.0F, -0.8F, 19.8F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 127, 37, -2.0F, -0.8F, 19.4F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 108, 129, -1.0F, -0.8F, 21.4F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 59, 130, -1.0F, -0.8F, 21.0F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 108, 129, -1, -0.8F, 21.4F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 59, 130, -1, -0.8F, 21, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 66, 130, -2.0F, -0.8F, 21.4F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 40, 131, -2.0F, -0.8F, 21.0F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 33, 117, -1.0F, -0.8F, 13.4F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 40, 118, -1.0F, -0.8F, 13.0F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 40, 131, -2.0F, -0.8F, 21, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 33, 117, -1, -0.8F, 13.4F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 40, 118, -1, -0.8F, 13.0F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 24, 120, -2.0F, -0.8F, 13.4F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 73, 120, -2.0F, -0.8F, 13.0F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 90, 121, -1.0F, -0.8F, 14.6F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 98, 121, -1.0F, -0.8F, 15.0F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 90, 121, -1, -0.8F, 14.6F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 98, 121, -1, -0.8F, 15.0F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 109, 121, -2.0F, -0.8F, 15.0F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 24, 122, -2.0F, -0.8F, 14.6F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 122, 49, -1.0F, -0.8F, 16.6F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 60, 122, -1.0F, -0.8F, 16.2F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 122, 49, -1, -0.8F, 16.6F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 60, 122, -1, -0.8F, 16.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 122, 65, -2.0F, -0.8F, 16.6F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 122, 67, -2.0F, -0.8F, 16.2F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 110, 101, -1.0F, -0.8F, 8.6F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 110, 103, -1.0F, -0.8F, 8.2F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 110, 101, -1, -0.8F, 8.6F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 110, 103, -1, -0.8F, 8.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 73, 112, -2.0F, -0.8F, 8.6F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 98, 113, -2.0F, -0.8F, 8.2F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 18, 115, -1.0F, -0.8F, 9.8F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 24, 115, -1.0F, -0.8F, 10.2F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 18, 115, -1, -0.8F, 9.8F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 24, 115, -1, -0.8F, 10.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 33, 115, -2.0F, -0.8F, 10.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 116, 47, -2.0F, -0.8F, 9.8F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 116, 54, -1.0F, -0.8F, 11.8F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 116, 70, -1.0F, -0.8F, 11.4F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 116, 54, -1, -0.8F, 11.8F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 116, 70, -1, -0.8F, 11.4F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 116, 72, -2.0F, -0.8F, 11.8F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 73, 116, -2.0F, -0.8F, 11.4F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 90, 12, -1.0F, -0.8F, 3.8F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 90, 21, -1.0F, -0.8F, 3.4F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 90, 12, -1, -0.8F, 3.8F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 90, 21, -1, -0.8F, 3.4F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 90, 33, -2.0F, -0.8F, 3.8F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 26, 92, -2.0F, -0.8F, 3.4F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 98, 2, -1.0F, -0.8F, 5.0F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 101, 88, -1.0F, -0.8F, 5.4F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 98, 2, -1, -0.8F, 5.0F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 101, 88, -1, -0.8F, 5.4F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 98, 101, -2.0F, -0.8F, 5.4F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 33, 104, -2.0F, -0.8F, 5.0F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 78, 17, -1.0F, -0.8F, 0.6F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 12, 82, -1.0F, -0.8F, 0.2F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 78, 17, -1, -0.8F, 0.6F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 12, 82, -1, -0.8F, 0.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 84, 21, -2.0F, -0.8F, 0.6F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 84, 23, -2.0F, -0.8F, 0.2F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 64, 68, -1.0F, -0.8F, -0.2F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 64, 68, -1, -0.8F, -0.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 77, 10, -2.0F, -0.8F, -0.2F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 41, 85, -1.0F, -0.8F, 1.8F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 81, 85, -1.0F, -0.8F, 2.2F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 41, 85, -1, -0.8F, 1.8F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 81, 85, -1, -0.8F, 2.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 34, 88, -2.0F, -0.8F, 2.2F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 90, 0, -2.0F, -0.8F, 1.8F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 33, 106, -1.0F, -0.8F, 7.0F, 1, 1, 1, -0.301F, false));
-        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 110, 37, -1.0F, -0.8F, 6.6F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 33, 106, -1, -0.8F, 7.0F, 1, 1, 1, -0.301F, false));
+        vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 110, 37, -1, -0.8F, 6.6F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 110, 39, -2.0F, -0.8F, 7.0F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 110, 60, -2.0F, -0.8F, 6.6F, 1, 1, 1, -0.301F, false));
         vssm_dustcover.cubeList.add(new ModelBox(vssm_dustcover, 24, 73, -2.5F, 2.6F, 26.1F, 3, 2, 1, 0.0F, false));
@@ -1908,18 +1908,18 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r46.cubeList.add(new ModelBox(cube_r46, 49, 58, -0.2F, 1.2F, 25.8F, 1, 3, 2, -0.202F, false));
         cube_r46.cubeList.add(new ModelBox(cube_r46, 98, 65, 0.0F, 4.0F, 19.0F, 1, 1, 7, 0.0F, false));
         cube_r46.cubeList.add(new ModelBox(cube_r46, 73, 76, 0.0F, 3.0F, 18.0F, 1, 1, 8, 0.0F, false));
-        cube_r46.cubeList.add(new ModelBox(cube_r46, 0, 138, 0.0F, 1.0F, 12.0F, 1, 2, 15, 0.0F, false));
+        cube_r46.cubeList.add(new ModelBox(cube_r46, 0, 138, 0.0F, 1, 12.0F, 1, 2, 15, 0.0F, false));
         cube_r46.cubeList.add(new ModelBox(cube_r46, 176, 32, 0.0F, 0.0F, 0.0F, 1, 1, 27, -0.002F, false));
 
         cube_r47 = new ModelRenderer(this);
         cube_r47.setRotationPoint(0.2F, 0.2F, 0.0F);
         vssm_dustcover.addChild(cube_r47);
         setRotationAngle(cube_r47, 0.0F, 0.0F, -0.2793F);
-        cube_r47.cubeList.add(new ModelBox(cube_r47, 181, 116, -1.0F, 3.0F, 0.0F, 1, 1, 26, 0.0F, false));
-        cube_r47.cubeList.add(new ModelBox(cube_r47, 0, 174, -1.0F, 1.0F, 0.0F, 1, 2, 27, 0.0F, false));
+        cube_r47.cubeList.add(new ModelBox(cube_r47, 181, 116, -1, 3.0F, 0.0F, 1, 1, 26, 0.0F, false));
+        cube_r47.cubeList.add(new ModelBox(cube_r47, 0, 174, -1, 1, 0.0F, 1, 2, 27, 0.0F, false));
         cube_r47.cubeList.add(new ModelBox(cube_r47, 138, 17, -0.8F, 0.8F, 26.8F, 1, 1, 1, -0.201F, false));
         cube_r47.cubeList.add(new ModelBox(cube_r47, 49, 47, -0.8F, 1.2F, 25.8F, 1, 3, 2, -0.202F, false));
-        cube_r47.cubeList.add(new ModelBox(cube_r47, 29, 176, -1.0F, 0.0F, 0.0F, 1, 1, 27, -0.002F, false));
+        cube_r47.cubeList.add(new ModelBox(cube_r47, 29, 176, -1, 0.0F, 0.0F, 1, 1, 27, -0.002F, false));
 
         cube_r48 = new ModelRenderer(this);
         cube_r48.setRotationPoint(0.2F, 0.2F, 0.0F);
@@ -1936,7 +1936,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r49.cubeList.add(new ModelBox(cube_r49, 138, 21, -0.2F, 13.87F, 22.6F, 1, 1, 1, -0.203F, false));
 
         cube_r50 = new ModelRenderer(this);
-        cube_r50.setRotationPoint(-2.2F, 0.2F, -1.0F);
+        cube_r50.setRotationPoint(-2.2F, 0.2F, -1);
         vssm_dustcover.addChild(cube_r50);
         setRotationAngle(cube_r50, -0.4712F, 0.0F, 0.2793F);
         cube_r50.cubeList.add(new ModelBox(cube_r50, 54, 21, 0.0F, -9.8F, 25.34F, 1, 2, 1, -0.003F, false));
@@ -1945,7 +1945,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r51.setRotationPoint(-0.5F, 4.4F, 27.0F);
         vssm_dustcover.addChild(cube_r51);
         setRotationAngle(cube_r51, 0.2269F, 0.0F, 0.0F);
-        cube_r51.cubeList.add(new ModelBox(cube_r51, 16, 21, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        cube_r51.cubeList.add(new ModelBox(cube_r51, 16, 21, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         cube_r52 = new ModelRenderer(this);
         cube_r52.setRotationPoint(-1.7F, -0.5F, 7.3F);
@@ -2096,7 +2096,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun338.cubeList.add(new ModelBox(gun338, 73, 0, 0.0F, 0.0F, 0.0F, 2, 4, 2, 0.0F, false));
 
         gun335 = new ModelRenderer(this);
-        gun335.setRotationPoint(-2.5F, -29.0F, 21.0F);
+        gun335.setRotationPoint(-2.5F, -29.0F, 21);
         vssvintorez_stock.addChild(gun335);
         setRotationAngle(gun335, -2.4538F, 0.0F, 0.0F);
         gun335.cubeList.add(new ModelBox(gun335, 146, 21, 0.0F, 0.0F, 0.0F, 2, 2, 3, 0.0F, false));
@@ -2142,7 +2142,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun328.cubeList.add(new ModelBox(gun328, 49, 0, 0.0F, 0.0F, 0.0F, 4, 14, 4, 0.0F, false));
 
         gun327 = new ModelRenderer(this);
-        gun327.setRotationPoint(-3.5F, -31.0F, 34.0F);
+        gun327.setRotationPoint(-3.5F, -31, 34.0F);
         vssvintorez_stock.addChild(gun327);
         setRotationAngle(gun327, -1.2269F, 0.0F, 0.0F);
         gun327.cubeList.add(new ModelBox(gun327, 161, 157, 0.0F, 0.0F, 0.0F, 4, 3, 1, 0.0F, false));
@@ -2164,12 +2164,12 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun324.cubeList.add(new ModelBox(gun324, 0, 42, 0.0F, 0.0F, 0.0F, 4, 1, 2, -0.001F, false));
 
         gun323 = new ModelRenderer(this);
-        gun323.setRotationPoint(-3.5F, -31.0F, 8.5F);
+        gun323.setRotationPoint(-3.5F, -31, 8.5F);
         vssvintorez_stock.addChild(gun323);
         gun323.cubeList.add(new ModelBox(gun323, 0, 82, 0.0F, 0.0F, 0.0F, 4, 1, 4, -0.001F, false));
 
         gun322 = new ModelRenderer(this);
-        gun322.setRotationPoint(-3.5F, -31.0F, 6.5F);
+        gun322.setRotationPoint(-3.5F, -31, 6.5F);
         vssvintorez_stock.addChild(gun322);
         gun322.cubeList.add(new ModelBox(gun322, 34, 18, 0.0F, 0.0F, 0.0F, 4, 1, 1, 0.0F, false));
 
@@ -2234,7 +2234,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun57.cubeList.add(new ModelBox(gun57, 110, 37, 0.0F, 0.0F, 0.0F, 4, 1, 5, 0.0F, false));
 
         gun55 = new ModelRenderer(this);
-        gun55.setRotationPoint(-3.5F, -27.5F, 1.0F);
+        gun55.setRotationPoint(-3.5F, -27.5F, 1);
         GRIP.addChild(gun55);
         setRotationAngle(gun55, -1.8961F, 0.0F, 0.0F);
         gun55.cubeList.add(new ModelBox(gun55, 12, 42, 0.0F, 0.0F, 0.0F, 4, 1, 2, -0.001F, false));
@@ -2305,7 +2305,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun216.cubeList.add(new ModelBox(gun216, 160, 172, 0.0F, -2.0F, 0.0F, 3, 3, 3, 0.001F, false));
 
         gun214 = new ModelRenderer(this);
-        gun214.setRotationPoint(-4.1F, -31.0F, -28.5F);
+        gun214.setRotationPoint(-4.1F, -31, -28.5F);
         vssvintorez_handguard.addChild(gun214);
         gun214.cubeList.add(new ModelBox(gun214, 76, 162, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -2335,7 +2335,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun209.cubeList.add(new ModelBox(gun209, 16, 62, 0.0F, 0.0F, 0.0F, 1, 3, 1, 0.0F, false));
 
         gun208 = new ModelRenderer(this);
-        gun208.setRotationPoint(0.2F, -31.0F, -28.5F);
+        gun208.setRotationPoint(0.2F, -31, -28.5F);
         vssvintorez_handguard.addChild(gun208);
         gun208.cubeList.add(new ModelBox(gun208, 162, 94, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -2357,8 +2357,8 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun204 = new ModelRenderer(this);
         gun204.setRotationPoint(0.2F, -33.0F, -39.5F);
         vssvintorez_handguard.addChild(gun204);
-        gun204.cubeList.add(new ModelBox(gun204, 76, 176, -1.0F, 0.0F, 0.0F, 2, 1, 13, 0.0F, false));
-        gun204.cubeList.add(new ModelBox(gun204, 68, 102, -1.0F, -0.4F, -2.0F, 2, 1, 2, 0.0F, false));
+        gun204.cubeList.add(new ModelBox(gun204, 76, 176, -1, 0.0F, 0.0F, 2, 1, 13, 0.0F, false));
+        gun204.cubeList.add(new ModelBox(gun204, 68, 102, -1, -0.4F, -2.0F, 2, 1, 2, 0.0F, false));
 
         gun203 = new ModelRenderer(this);
         gun203.setRotationPoint(0.2F, -32.0F, -39.5F);
@@ -2433,7 +2433,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun190.cubeList.add(new ModelBox(gun190, 102, 220, 0.0F, 0.0F, 0.01F, 1, 1, 15, 0.0F, false));
 
         gun189 = new ModelRenderer(this);
-        gun189.setRotationPoint(-1.0F, -39.5F, -41.5F);
+        gun189.setRotationPoint(-1, -39.5F, -41.5F);
         vssvintorez_handguard.addChild(gun189);
         setRotationAngle(gun189, 0.0F, 0.0F, 0.4461F);
         gun189.cubeList.add(new ModelBox(gun189, 85, 218, 0.0F, 0.0F, 0.0F, 1, 2, 15, 0.0F, false));
@@ -2444,7 +2444,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun188.cubeList.add(new ModelBox(gun188, 218, 143, 0.0F, 0.0F, -0.02F, 1, 2, 15, 0.0F, false));
 
         gun315 = new ModelRenderer(this);
-        gun315.setRotationPoint(-2.5F, -38.5F, -41.0F);
+        gun315.setRotationPoint(-2.5F, -38.5F, -41);
         vssvintorez_handguard.addChild(gun315);
         gun315.cubeList.add(new ModelBox(gun315, 98, 0, 0.0F, 0.0F, 0.0F, 2, 6, 5, 0.0F, false));
 
@@ -2468,7 +2468,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun10.cubeList.add(new ModelBox(gun10, 168, 124, 0.0F, -2.0F, 0.0F, 3, 3, 3, 0.001F, false));
 
         gun11 = new ModelRenderer(this);
-        gun11.setRotationPoint(-4.1F, -31.0F, -28.5F);
+        gun11.setRotationPoint(-4.1F, -31, -28.5F);
         asval_handguard.addChild(gun11);
         gun11.cubeList.add(new ModelBox(gun11, 68, 162, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -2498,7 +2498,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun215.cubeList.add(new ModelBox(gun215, 61, 0, 0.0F, 0.0F, 0.0F, 1, 3, 1, 0.0F, false));
 
         gun217 = new ModelRenderer(this);
-        gun217.setRotationPoint(0.2F, -31.0F, -28.5F);
+        gun217.setRotationPoint(0.2F, -31, -28.5F);
         asval_handguard.addChild(gun217);
         gun217.cubeList.add(new ModelBox(gun217, 56, 162, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -2520,8 +2520,8 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun221 = new ModelRenderer(this);
         gun221.setRotationPoint(0.2F, -33.0F, -39.5F);
         asval_handguard.addChild(gun221);
-        gun221.cubeList.add(new ModelBox(gun221, 39, 156, -1.0F, 0.0F, 0.0F, 2, 1, 13, 0.0F, false));
-        gun221.cubeList.add(new ModelBox(gun221, 49, 83, -1.0F, -0.4F, -2.0F, 2, 1, 2, 0.0F, false));
+        gun221.cubeList.add(new ModelBox(gun221, 39, 156, -1, 0.0F, 0.0F, 2, 1, 13, 0.0F, false));
+        gun221.cubeList.add(new ModelBox(gun221, 49, 83, -1, -0.4F, -2.0F, 2, 1, 2, 0.0F, false));
 
         gun222 = new ModelRenderer(this);
         gun222.setRotationPoint(0.2F, -32.0F, -39.5F);
@@ -2569,7 +2569,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun229.setRotationPoint(-3.2F, -38.8F, -41.5F);
         asval_handguard.addChild(gun229);
         setRotationAngle(gun229, 0.0F, 0.0F, 0.2231F);
-        gun229.cubeList.add(new ModelBox(gun229, 205, 0, 0.0F, 1.0F, -0.01F, 2, 1, 15, 0.0F, false));
+        gun229.cubeList.add(new ModelBox(gun229, 205, 0, 0.0F, 1, -0.01F, 2, 1, 15, 0.0F, false));
         gun229.cubeList.add(new ModelBox(gun229, 84, 5, 0.0F, 0.0F, -0.01F, 2, 1, 3, 0.0F, false));
         gun229.cubeList.add(new ModelBox(gun229, 151, 133, -0.4F, -0.4F, 0.99F, 2, 1, 12, -0.401F, false));
         gun229.cubeList.add(new ModelBox(gun229, 24, 82, 0.0F, 0.0F, 5.99F, 2, 1, 2, 0.0F, false));
@@ -2579,7 +2579,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun230.setRotationPoint(0.2F, -38.9F, -41.5F);
         asval_handguard.addChild(gun230);
         setRotationAngle(gun230, 0.0F, 0.0F, 1.3384F);
-        gun230.cubeList.add(new ModelBox(gun230, 124, 217, 1.0F, 0.0F, -0.01F, 1, 2, 15, 0.0F, false));
+        gun230.cubeList.add(new ModelBox(gun230, 124, 217, 1, 0.0F, -0.01F, 1, 2, 15, 0.0F, false));
         gun230.cubeList.add(new ModelBox(gun230, 39, 139, -0.4F, -0.4F, -0.01F, 1, 2, 15, -0.401F, false));
         gun230.cubeList.add(new ModelBox(gun230, 24, 77, 0.0F, 0.0F, -0.01F, 1, 2, 3, 0.0F, false));
         gun230.cubeList.add(new ModelBox(gun230, 98, 55, 0.0F, 0.0F, 5.99F, 1, 2, 2, 0.0F, false));
@@ -2604,7 +2604,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun233.cubeList.add(new ModelBox(gun233, 0, 155, 0.0F, 0.0F, 0.01F, 1, 1, 15, 0.0F, false));
 
         gun234 = new ModelRenderer(this);
-        gun234.setRotationPoint(-1.0F, -39.5F, -41.5F);
+        gun234.setRotationPoint(-1, -39.5F, -41.5F);
         asval_handguard.addChild(gun234);
         setRotationAngle(gun234, 0.0F, 0.0F, 0.4461F);
         gun234.cubeList.add(new ModelBox(gun234, 53, 217, 0.0F, 0.0F, 0.0F, 1, 2, 15, 0.0F, false));
@@ -2615,7 +2615,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         gun235.cubeList.add(new ModelBox(gun235, 209, 116, 0.0F, 0.0F, -0.02F, 1, 2, 15, 0.0F, false));
 
         gun236 = new ModelRenderer(this);
-        gun236.setRotationPoint(-2.5F, -38.5F, -41.0F);
+        gun236.setRotationPoint(-2.5F, -38.5F, -41);
         asval_handguard.addChild(gun236);
         gun236.cubeList.add(new ModelBox(gun236, 49, 93, 0.0F, 0.0F, 0.0F, 2, 6, 5, 0.0F, false));
 
@@ -2677,10 +2677,10 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r58.setRotationPoint(-4.1F, 15.8F, 7.3F);
         asval_stock.addChild(cube_r58);
         setRotationAngle(cube_r58, 0.4712F, 0.0F, 0.0F);
-        cube_r58.cubeList.add(new ModelBox(cube_r58, 98, 41, 0.0F, -1.0F, 0.0F, 2, 1, 1, -0.002F, false));
-        cube_r58.cubeList.add(new ModelBox(cube_r58, 28, 88, 0.0F, -1.0F, 0.7F, 2, 1, 2, -0.003F, false));
-        cube_r58.cubeList.add(new ModelBox(cube_r58, 65, 89, 1.2F, -1.0F, 0.0F, 3, 1, 1, -0.001F, false));
-        cube_r58.cubeList.add(new ModelBox(cube_r58, 81, 42, 1.2F, -1.0F, 0.7F, 3, 1, 2, -0.002F, false));
+        cube_r58.cubeList.add(new ModelBox(cube_r58, 98, 41, 0.0F, -1, 0.0F, 2, 1, 1, -0.002F, false));
+        cube_r58.cubeList.add(new ModelBox(cube_r58, 28, 88, 0.0F, -1, 0.7F, 2, 1, 2, -0.003F, false));
+        cube_r58.cubeList.add(new ModelBox(cube_r58, 65, 89, 1.2F, -1, 0.0F, 3, 1, 1, -0.001F, false));
+        cube_r58.cubeList.add(new ModelBox(cube_r58, 81, 42, 1.2F, -1, 0.7F, 3, 1, 2, -0.002F, false));
 
         cube_r59 = new ModelRenderer(this);
         cube_r59.setRotationPoint(-4.1F, 3.95F, 6.7F);
@@ -2693,36 +2693,36 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r60.setRotationPoint(-4.1F, 2.5F, 9.0F);
         asval_stock.addChild(cube_r60);
         setRotationAngle(cube_r60, -0.8378F, 0.0F, 0.0F);
-        cube_r60.cubeList.add(new ModelBox(cube_r60, 107, 0, 0.0F, 0.0F, -1.0F, 2, 3, 1, -0.003F, false));
-        cube_r60.cubeList.add(new ModelBox(cube_r60, 75, 130, 1.2F, 0.0F, -1.0F, 3, 3, 1, -0.002F, false));
+        cube_r60.cubeList.add(new ModelBox(cube_r60, 107, 0, 0.0F, 0.0F, -1, 2, 3, 1, -0.003F, false));
+        cube_r60.cubeList.add(new ModelBox(cube_r60, 75, 130, 1.2F, 0.0F, -1, 3, 3, 1, -0.002F, false));
 
         cube_r61 = new ModelRenderer(this);
         cube_r61.setRotationPoint(0.5F, -3.95F, 10.55F);
         asval_stock.addChild(cube_r61);
         setRotationAngle(cube_r61, -0.1887F, -0.8638F, 0.1442F);
         cube_r61.cubeList.add(new ModelBox(cube_r61, 98, 83, -0.23F, 0.0F, 0.64F, 1, 5, 1, -0.001F, false));
-        cube_r61.cubeList.add(new ModelBox(cube_r61, 98, 93, -1.0F, 0.0F, -0.001F, 1, 5, 1, -0.001F, false));
+        cube_r61.cubeList.add(new ModelBox(cube_r61, 98, 93, -1, 0.0F, -0.001F, 1, 5, 1, -0.001F, false));
 
         cube_r62 = new ModelRenderer(this);
         cube_r62.setRotationPoint(0.0F, -0.85F, 11.55F);
         asval_stock.addChild(cube_r62);
         setRotationAngle(cube_r62, -0.1222F, 0.0F, 0.0F);
         cube_r62.cubeList.add(new ModelBox(cube_r62, 10, 133, -3.6F, 0.0F, 3.999F, 3, 2, 2, -0.002F, false));
-        cube_r62.cubeList.add(new ModelBox(cube_r62, 98, 73, -1.0F, 0.0F, 3.999F, 1, 2, 2, 0.0F, false));
-        cube_r62.cubeList.add(new ModelBox(cube_r62, 129, 127, -1.0F, 0.0F, 0.999F, 1, 1, 3, 0.0F, false));
+        cube_r62.cubeList.add(new ModelBox(cube_r62, 98, 73, -1, 0.0F, 3.999F, 1, 2, 2, 0.0F, false));
+        cube_r62.cubeList.add(new ModelBox(cube_r62, 129, 127, -1, 0.0F, 0.999F, 1, 1, 3, 0.0F, false));
         cube_r62.cubeList.add(new ModelBox(cube_r62, 160, 124, -0.8F, -3.15F, -0.001F, 1, 1, 6, -0.202F, false));
         cube_r62.cubeList.add(new ModelBox(cube_r62, 49, 93, -0.8F, -3.15F, 5.199F, 1, 4, 1, -0.201F, false));
         cube_r62.cubeList.add(new ModelBox(cube_r62, 68, 93, -0.8F, -3.15F, -0.501F, 1, 4, 1, -0.201F, false));
         cube_r62.cubeList.add(new ModelBox(cube_r62, 49, 47, -3.6F, -2.95F, -1.001F, 3, 4, 7, -0.001F, false));
         cube_r62.cubeList.add(new ModelBox(cube_r62, 20, 88, -3.6F, 0.0F, -0.001F, 3, 2, 1, -0.002F, false));
         cube_r62.cubeList.add(new ModelBox(cube_r62, 128, 133, -3.3F, 0.8F, 0.499F, 3, 1, 4, 0.0F, false));
-        cube_r62.cubeList.add(new ModelBox(cube_r62, 54, 68, -1.0F, 0.0F, -0.001F, 1, 2, 1, 0.0F, false));
+        cube_r62.cubeList.add(new ModelBox(cube_r62, 54, 68, -1, 0.0F, -0.001F, 1, 2, 1, 0.0F, false));
 
         cube_r63 = new ModelRenderer(this);
         cube_r63.setRotationPoint(-0.2F, -2.95F, 12.15F);
         asval_stock.addChild(cube_r63);
         setRotationAngle(cube_r63, -0.1228F, 0.1039F, -0.0128F);
-        cube_r63.cubeList.add(new ModelBox(cube_r63, 146, 59, -1.0F, 0.0F, -0.001F, 1, 2, 5, 0.0F, false));
+        cube_r63.cubeList.add(new ModelBox(cube_r63, 146, 59, -1, 0.0F, -0.001F, 1, 2, 5, 0.0F, false));
 
         cube_r64 = new ModelRenderer(this);
         cube_r64.setRotationPoint(-3.0F, -1.8F, 42.449F);
@@ -2731,10 +2731,10 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r64.cubeList.add(new ModelBox(cube_r64, 24, 67, 0.0F, 0.0F, 0.0F, 1, 3, 3, 0.0F, false));
 
         cube_r65 = new ModelRenderer(this);
-        cube_r65.setRotationPoint(-1.0F, -1.8F, 42.449F);
+        cube_r65.setRotationPoint(-1, -1.8F, 42.449F);
         asval_stock.addChild(cube_r65);
         setRotationAngle(cube_r65, -0.0498F, -0.0162F, -0.3138F);
-        cube_r65.cubeList.add(new ModelBox(cube_r65, 49, 68, -1.0F, 0.0F, 0.0F, 1, 3, 3, 0.0F, false));
+        cube_r65.cubeList.add(new ModelBox(cube_r65, 49, 68, -1, 0.0F, 0.0F, 1, 3, 3, 0.0F, false));
 
         cube_r66 = new ModelRenderer(this);
         cube_r66.setRotationPoint(-3.92F, 8.05F, 41.93F);
@@ -2753,24 +2753,24 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r68.setRotationPoint(-0.08F, 8.05F, 41.93F);
         asval_stock.addChild(cube_r68);
         setRotationAngle(cube_r68, -0.0462F, 0.0246F, 0.4881F);
-        cube_r68.cubeList.add(new ModelBox(cube_r68, 86, 68, -1.0F, 0.0F, 0.0F, 1, 2, 3, 0.001F, false));
+        cube_r68.cubeList.add(new ModelBox(cube_r68, 86, 68, -1, 0.0F, 0.0F, 1, 2, 3, 0.001F, false));
 
         cube_r69 = new ModelRenderer(this);
-        cube_r69.setRotationPoint(-1.0F, -1.8F, 42.449F);
+        cube_r69.setRotationPoint(-1, -1.8F, 42.449F);
         asval_stock.addChild(cube_r69);
         setRotationAngle(cube_r69, -0.0524F, 0.0F, 0.0F);
         cube_r69.cubeList.add(new ModelBox(cube_r69, 84, 36, -2.0F, 10.62F, 0.0F, 2, 1, 3, 0.001F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 67, 112, -2.0F, 1.0F, 2.0F, 2, 10, 1, 0.001F, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 67, 112, -2.0F, 1, 2.0F, 2, 10, 1, 0.001F, false));
         cube_r69.cubeList.add(new ModelBox(cube_r69, 0, 133, -2.0F, 0.0F, 0.0F, 2, 1, 3, 0.001F, false));
 
         cube_r70 = new ModelRenderer(this);
-        cube_r70.setRotationPoint(-1.0F, -3.8F, 15.549F);
+        cube_r70.setRotationPoint(-1, -3.8F, 15.549F);
         asval_stock.addChild(cube_r70);
         setRotationAngle(cube_r70, -0.4189F, 0.0F, 0.0F);
         cube_r70.cubeList.add(new ModelBox(cube_r70, 199, 197, -2.0F, 2.5F, -1.8F, 2, 2, 24, -0.3F, false));
 
         cube_r71 = new ModelRenderer(this);
-        cube_r71.setRotationPoint(-1.0F, -3.4F, 15.449F);
+        cube_r71.setRotationPoint(-1, -3.4F, 15.449F);
         asval_stock.addChild(cube_r71);
         setRotationAngle(cube_r71, -0.0524F, 0.0F, 0.0F);
         cube_r71.cubeList.add(new ModelBox(cube_r71, 21, 92, -2.0F, 9.7F, 18.8F, 2, 2, 10, -0.299F, false));
@@ -2780,7 +2780,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r72.setRotationPoint(0.5F, -3.95F, 10.55F);
         asval_stock.addChild(cube_r72);
         setRotationAngle(cube_r72, -0.1222F, 0.0F, 0.0F);
-        cube_r72.cubeList.add(new ModelBox(cube_r72, 21, 104, -1.0F, 0.0F, -0.001F, 1, 5, 1, 0.0F, false));
+        cube_r72.cubeList.add(new ModelBox(cube_r72, 21, 104, -1, 0.0F, -0.001F, 1, 5, 1, 0.0F, false));
 
         cube_r73 = new ModelRenderer(this);
         cube_r73.setRotationPoint(0.0F, -4.6F, 9.55F);
@@ -2788,8 +2788,8 @@ public class VSSVintorezAction extends ModelWithAttachments {
         setRotationAngle(cube_r73, -0.1222F, 0.0F, 0.0F);
         cube_r73.cubeList.add(new ModelBox(cube_r73, 71, 42, -4.3F, -0.3F, -0.301F, 4, 2, 1, -0.201F, false));
         cube_r73.cubeList.add(new ModelBox(cube_r73, 34, 63, -4.0F, 0.4F, -0.001F, 3, 1, 2, 0.098F, false));
-        cube_r73.cubeList.add(new ModelBox(cube_r73, 35, 46, -4.0F, 1.0F, -0.001F, 3, 5, 2, 0.1F, false));
-        cube_r73.cubeList.add(new ModelBox(cube_r73, 60, 68, -1.0F, 0.0F, -0.001F, 1, 6, 2, 0.101F, false));
+        cube_r73.cubeList.add(new ModelBox(cube_r73, 35, 46, -4.0F, 1, -0.001F, 3, 5, 2, 0.1F, false));
+        cube_r73.cubeList.add(new ModelBox(cube_r73, 60, 68, -1, 0.0F, -0.001F, 1, 6, 2, 0.101F, false));
 
         bone21 = new ModelRenderer(this);
         bone21.setRotationPoint(-3.0F, -2.2F, 36.249F);
@@ -2802,7 +2802,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         bone21.addChild(cube_r74);
         setRotationAngle(cube_r74, -0.0524F, 0.0F, 0.0F);
         cube_r74.cubeList.add(new ModelBox(cube_r74, 49, 78, -0.6F, 2.7102F, -3.8792F, 1, 2, 3, -0.1F, false));
-        cube_r74.cubeList.add(new ModelBox(cube_r74, 49, 21, -1.0F, 0.623F, -3.8706F, 1, 6, 3, 0.001F, false));
+        cube_r74.cubeList.add(new ModelBox(cube_r74, 49, 21, -1, 0.623F, -3.8706F, 1, 6, 3, 0.001F, false));
 
         cube_r75 = new ModelRenderer(this);
         cube_r75.setRotationPoint(2.0F, 0.0F, 0.0F);
@@ -2883,10 +2883,10 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r83.setRotationPoint(-4.1F, 15.8F, 7.3F);
         kulatac_milspec_stock.addChild(cube_r83);
         setRotationAngle(cube_r83, 0.4712F, 0.0F, 0.0F);
-        cube_r83.cubeList.add(new ModelBox(cube_r83, 49, 52, 0.0F, -1.0F, 0.0F, 2, 1, 1, -0.002F, false));
-        cube_r83.cubeList.add(new ModelBox(cube_r83, 73, 6, 0.0F, -1.0F, 0.7F, 2, 1, 2, -0.003F, false));
-        cube_r83.cubeList.add(new ModelBox(cube_r83, 57, 18, 1.2F, -1.0F, 0.0F, 3, 1, 1, -0.001F, false));
-        cube_r83.cubeList.add(new ModelBox(cube_r83, 24, 63, 1.2F, -1.0F, 0.7F, 3, 1, 2, -0.002F, false));
+        cube_r83.cubeList.add(new ModelBox(cube_r83, 49, 52, 0.0F, -1, 0.0F, 2, 1, 1, -0.002F, false));
+        cube_r83.cubeList.add(new ModelBox(cube_r83, 73, 6, 0.0F, -1, 0.7F, 2, 1, 2, -0.003F, false));
+        cube_r83.cubeList.add(new ModelBox(cube_r83, 57, 18, 1.2F, -1, 0.0F, 3, 1, 1, -0.001F, false));
+        cube_r83.cubeList.add(new ModelBox(cube_r83, 24, 63, 1.2F, -1, 0.7F, 3, 1, 2, -0.002F, false));
 
         cube_r84 = new ModelRenderer(this);
         cube_r84.setRotationPoint(-4.1F, 3.95F, 6.7F);
@@ -2899,11 +2899,11 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r85.setRotationPoint(-4.1F, 2.5F, 9.0F);
         kulatac_milspec_stock.addChild(cube_r85);
         setRotationAngle(cube_r85, -0.8378F, 0.0F, 0.0F);
-        cube_r85.cubeList.add(new ModelBox(cube_r85, 73, 55, 0.0F, 0.0F, -1.0F, 2, 3, 1, -0.003F, false));
-        cube_r85.cubeList.add(new ModelBox(cube_r85, 128, 120, 1.2F, 0.0F, -1.0F, 3, 3, 1, -0.002F, false));
+        cube_r85.cubeList.add(new ModelBox(cube_r85, 73, 55, 0.0F, 0.0F, -1, 2, 3, 1, -0.003F, false));
+        cube_r85.cubeList.add(new ModelBox(cube_r85, 128, 120, 1.2F, 0.0F, -1, 3, 3, 1, -0.002F, false));
 
         bone30 = new ModelRenderer(this);
-        bone30.setRotationPoint(-2.0F, -3.7F, 11.0F);
+        bone30.setRotationPoint(-2.0F, -3.7F, 11);
         kulatac_milspec_stock.addChild(bone30);
 
 
@@ -2912,7 +2912,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         bone30.addChild(cube_r86);
         setRotationAngle(cube_r86, 0.0F, 0.0F, -0.4363F);
         cube_r86.cubeList.add(new ModelBox(cube_r86, 116, 123, -1.3F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
-        cube_r86.cubeList.add(new ModelBox(cube_r86, 0, 126, -1.0F, 0.0F, -2.0F, 1, 1, 2, 0.002F, false));
+        cube_r86.cubeList.add(new ModelBox(cube_r86, 0, 126, -1, 0.0F, -2.0F, 1, 1, 2, 0.002F, false));
 
         cube_r87 = new ModelRenderer(this);
         cube_r87.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -2922,7 +2922,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r87.cubeList.add(new ModelBox(cube_r87, 124, 32, 0.0F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
 
         bone33 = new ModelRenderer(this);
-        bone33.setRotationPoint(-2.0F, -0.3F, 11.0F);
+        bone33.setRotationPoint(-2.0F, -0.3F, 11);
         kulatac_milspec_stock.addChild(bone33);
 
 
@@ -2930,18 +2930,18 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r88.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone33.addChild(cube_r88);
         setRotationAngle(cube_r88, 0.0F, 0.0F, 0.4363F);
-        cube_r88.cubeList.add(new ModelBox(cube_r88, 0, 118, -1.3F, -1.0F, -2.0F, 1, 1, 2, 0.0F, false));
-        cube_r88.cubeList.add(new ModelBox(cube_r88, 9, 118, -1.0F, -1.0F, -2.0F, 1, 1, 2, 0.002F, false));
+        cube_r88.cubeList.add(new ModelBox(cube_r88, 0, 118, -1.3F, -1, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r88.cubeList.add(new ModelBox(cube_r88, 9, 118, -1, -1, -2.0F, 1, 1, 2, 0.002F, false));
 
         cube_r89 = new ModelRenderer(this);
         cube_r89.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone33.addChild(cube_r89);
         setRotationAngle(cube_r89, 0.0F, 0.0F, -0.4363F);
-        cube_r89.cubeList.add(new ModelBox(cube_r89, 116, 120, 0.3F, -1.0F, -2.0F, 1, 1, 2, -0.001F, false));
-        cube_r89.cubeList.add(new ModelBox(cube_r89, 121, 83, 0.0F, -1.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r89.cubeList.add(new ModelBox(cube_r89, 116, 120, 0.3F, -1, -2.0F, 1, 1, 2, -0.001F, false));
+        cube_r89.cubeList.add(new ModelBox(cube_r89, 121, 83, 0.0F, -1, -2.0F, 1, 1, 2, 0.0F, false));
 
         bone31 = new ModelRenderer(this);
-        bone31.setRotationPoint(-3.7F, -2.0F, 11.0F);
+        bone31.setRotationPoint(-3.7F, -2.0F, 11);
         kulatac_milspec_stock.addChild(bone31);
 
 
@@ -2957,10 +2957,10 @@ public class VSSVintorezAction extends ModelWithAttachments {
         bone31.addChild(cube_r91);
         setRotationAngle(cube_r91, 0.0F, 0.0F, 0.4363F);
         cube_r91.cubeList.add(new ModelBox(cube_r91, 33, 123, 0.0F, -1.3F, -2.0F, 1, 1, 2, -0.001F, false));
-        cube_r91.cubeList.add(new ModelBox(cube_r91, 123, 37, 0.0F, -1.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r91.cubeList.add(new ModelBox(cube_r91, 123, 37, 0.0F, -1, -2.0F, 1, 1, 2, 0.0F, false));
 
         bone32 = new ModelRenderer(this);
-        bone32.setRotationPoint(-0.3F, -2.0F, 11.0F);
+        bone32.setRotationPoint(-0.3F, -2.0F, 11);
         kulatac_milspec_stock.addChild(bone32);
 
 
@@ -2968,15 +2968,15 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r92.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone32.addChild(cube_r92);
         setRotationAngle(cube_r92, 0.0F, 0.0F, 0.4363F);
-        cube_r92.cubeList.add(new ModelBox(cube_r92, 121, 86, -1.0F, 0.3F, -2.0F, 1, 1, 2, 0.0F, false));
-        cube_r92.cubeList.add(new ModelBox(cube_r92, 122, 60, -1.0F, 0.0F, -2.0F, 1, 1, 2, 0.002F, false));
+        cube_r92.cubeList.add(new ModelBox(cube_r92, 121, 86, -1, 0.3F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r92.cubeList.add(new ModelBox(cube_r92, 122, 60, -1, 0.0F, -2.0F, 1, 1, 2, 0.002F, false));
 
         cube_r93 = new ModelRenderer(this);
         cube_r93.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone32.addChild(cube_r93);
         setRotationAngle(cube_r93, 0.0F, 0.0F, -0.4363F);
-        cube_r93.cubeList.add(new ModelBox(cube_r93, 122, 78, -1.0F, -1.3F, -2.0F, 1, 1, 2, -0.001F, false));
-        cube_r93.cubeList.add(new ModelBox(cube_r93, 0, 123, -1.0F, -1.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r93.cubeList.add(new ModelBox(cube_r93, 122, 78, -1, -1.3F, -2.0F, 1, 1, 2, -0.001F, false));
+        cube_r93.cubeList.add(new ModelBox(cube_r93, 0, 123, -1, -1, -2.0F, 1, 1, 2, 0.0F, false));
 
         action = new ModelRenderer(this);
         action.setRotationPoint(0.1F, 24.0F, 0.0F);
@@ -3072,7 +3072,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         bone27.cubeList.add(new ModelBox(bone27, 151, 148, -0.7F, -0.3F, -1.3F, 1, 1, 1, -0.301F, false));
         bone27.cubeList.add(new ModelBox(bone27, 151, 142, -0.7F, 0.5F, -0.3F, 1, 1, 1, -0.301F, false));
         bone27.cubeList.add(new ModelBox(bone27, 151, 140, -0.7F, -0.3F, -0.3F, 1, 1, 1, -0.301F, false));
-        bone27.cubeList.add(new ModelBox(bone27, 98, 65, -1.0F, -0.4F, -15.2F, 1, 2, 16, -0.2F, false));
+        bone27.cubeList.add(new ModelBox(bone27, 98, 65, -1, -0.4F, -15.2F, 1, 2, 16, -0.2F, false));
 
         cube_r95 = new ModelRenderer(this);
         cube_r95.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -3231,7 +3231,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         bone28.cubeList.add(new ModelBox(bone28, 146, 54, -0.7F, -0.3F, -1.3F, 1, 1, 1, -0.301F, false));
         bone28.cubeList.add(new ModelBox(bone28, 146, 18, -0.7F, 0.5F, -0.3F, 1, 1, 1, -0.301F, false));
         bone28.cubeList.add(new ModelBox(bone28, 146, 16, -0.7F, -0.3F, -0.3F, 1, 1, 1, -0.301F, false));
-        bone28.cubeList.add(new ModelBox(bone28, 98, 47, -1.0F, -0.4F, -15.2F, 1, 2, 16, -0.2F, false));
+        bone28.cubeList.add(new ModelBox(bone28, 98, 47, -1, -0.4F, -15.2F, 1, 2, 16, -0.2F, false));
 
         cube_r99 = new ModelRenderer(this);
         cube_r99.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -3284,15 +3284,15 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r101.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone24.addChild(cube_r101);
         setRotationAngle(cube_r101, 0.0F, 0.0F, 0.4363F);
-        cube_r101.cubeList.add(new ModelBox(cube_r101, 87, 201, -1.0F, 1.3F, 0.0F, 1, 1, 16, -0.001F, false));
-        cube_r101.cubeList.add(new ModelBox(cube_r101, 109, 139, -1.0F, 0.0F, 0.0F, 1, 2, 16, 0.0F, false));
+        cube_r101.cubeList.add(new ModelBox(cube_r101, 87, 201, -1, 1.3F, 0.0F, 1, 1, 16, -0.001F, false));
+        cube_r101.cubeList.add(new ModelBox(cube_r101, 109, 139, -1, 0.0F, 0.0F, 1, 2, 16, 0.0F, false));
 
         cube_r102 = new ModelRenderer(this);
         cube_r102.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone24.addChild(cube_r102);
         setRotationAngle(cube_r102, 0.0F, 0.0F, -0.4363F);
-        cube_r102.cubeList.add(new ModelBox(cube_r102, 105, 202, -1.0F, -2.3F, 0.0F, 1, 1, 16, -0.001F, false));
-        cube_r102.cubeList.add(new ModelBox(cube_r102, 142, 172, -1.0F, -2.0F, 0.0F, 1, 2, 16, 0.0F, false));
+        cube_r102.cubeList.add(new ModelBox(cube_r102, 105, 202, -1, -2.3F, 0.0F, 1, 1, 16, -0.001F, false));
+        cube_r102.cubeList.add(new ModelBox(cube_r102, 142, 172, -1, -2.0F, 0.0F, 1, 2, 16, 0.0F, false));
 
         bone26 = new ModelRenderer(this);
         bone26.setRotationPoint(-6.0F, 0.0F, 0.0F);
@@ -3323,29 +3323,29 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r105.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone25.addChild(cube_r105);
         setRotationAngle(cube_r105, 0.0F, 0.0F, 0.4363F);
-        cube_r105.cubeList.add(new ModelBox(cube_r105, 181, 143, -1.0F, 1.3F, 0.0F, 1, 1, 16, -0.001F, false));
-        cube_r105.cubeList.add(new ModelBox(cube_r105, 49, 112, -1.0F, 0.0F, 0.0F, 1, 2, 16, 0.0F, false));
+        cube_r105.cubeList.add(new ModelBox(cube_r105, 181, 143, -1, 1.3F, 0.0F, 1, 1, 16, -0.001F, false));
+        cube_r105.cubeList.add(new ModelBox(cube_r105, 49, 112, -1, 0.0F, 0.0F, 1, 2, 16, 0.0F, false));
 
         cube_r106 = new ModelRenderer(this);
         cube_r106.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone25.addChild(cube_r106);
         setRotationAngle(cube_r106, 0.0F, 0.0F, -0.4363F);
-        cube_r106.cubeList.add(new ModelBox(cube_r106, 69, 200, -1.0F, -2.3F, 0.0F, 1, 1, 16, -0.001F, false));
-        cube_r106.cubeList.add(new ModelBox(cube_r106, 0, 115, -1.0F, -2.0F, 0.0F, 1, 2, 16, 0.0F, false));
+        cube_r106.cubeList.add(new ModelBox(cube_r106, 69, 200, -1, -2.3F, 0.0F, 1, 1, 16, -0.001F, false));
+        cube_r106.cubeList.add(new ModelBox(cube_r106, 0, 115, -1, -2.0F, 0.0F, 1, 2, 16, 0.0F, false));
 
         vss_mag = new ModelRenderer(this);
         vss_mag.setRotationPoint(0.0F, -3.0F, -16.5F);
 
 
         cube_r107 = new ModelRenderer(this);
-        cube_r107.setRotationPoint(-1.25F, 1.0F, -1.0F);
+        cube_r107.setRotationPoint(-1.25F, 1, -1);
         vss_mag.addChild(cube_r107);
         setRotationAngle(cube_r107, -0.1047F, 0.0F, 0.0F);
         cube_r107.cubeList.add(new ModelBox(cube_r107, 73, 59, -2.05F, 5.5F, -7.9F, 1, 1, 2, -0.2F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 84, 0, -2.15F, 5.5F, -6.65F, 1, 1, 4, -0.003F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 33, 104, -2.15F, 4.0F, -5.4F, 1, 1, 5, -0.003F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 16, 76, -2.15F, 0.0F, -0.65F, 1, 7, 1, -0.002F, false));
-        cube_r107.cubeList.add(new ModelBox(cube_r107, 59, 130, -2.15F, 1.0F, -5.4F, 1, 1, 5, -0.003F, false));
+        cube_r107.cubeList.add(new ModelBox(cube_r107, 59, 130, -2.15F, 1, -5.4F, 1, 1, 5, -0.003F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 84, 10, -2.15F, 2.5F, -6.65F, 1, 1, 4, -0.003F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 73, 72, -2.05F, 2.5F, -7.9F, 1, 1, 2, -0.2F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 98, 51, -2.05F, -0.5F, -7.9F, 1, 1, 2, -0.2F, false));
@@ -3357,7 +3357,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r107.cubeList.add(new ModelBox(cube_r107, 98, 69, 0.55F, 2.5F, -7.9F, 1, 1, 2, -0.2F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 98, 77, 0.55F, -0.5F, -7.9F, 1, 1, 2, -0.2F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 116, 47, 0.65F, -0.5F, -6.65F, 1, 1, 4, -0.003F, false));
-        cube_r107.cubeList.add(new ModelBox(cube_r107, 146, 66, 0.65F, 1.0F, -5.4F, 1, 1, 5, -0.003F, false));
+        cube_r107.cubeList.add(new ModelBox(cube_r107, 146, 66, 0.65F, 1, -5.4F, 1, 1, 5, -0.003F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 40, 110, 0.65F, 0.0F, -0.65F, 1, 7, 1, -0.002F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 76, 139, -0.5F, -5.0F, -6.4F, 2, 14, 7, -0.001F, false));
         cube_r107.cubeList.add(new ModelBox(cube_r107, 111, 172, -2.0F, -5.0F, -6.4F, 2, 14, 7, 0.0F, false));
@@ -3366,13 +3366,13 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r108.setRotationPoint(-3.25F, -4.5F, -5.9F);
         vss_mag.addChild(cube_r108);
         setRotationAngle(cube_r108, -0.0908F, 0.0523F, 0.5212F);
-        cube_r108.cubeList.add(new ModelBox(cube_r108, 113, 83, 0.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        cube_r108.cubeList.add(new ModelBox(cube_r108, 113, 83, 0.0F, -1, 0.0F, 1, 1, 6, 0.0F, false));
 
         cube_r109 = new ModelRenderer(this);
         cube_r109.setRotationPoint(0.25F, -4.5F, -5.9F);
         vss_mag.addChild(cube_r109);
         setRotationAngle(cube_r109, -0.0908F, -0.0523F, -0.5212F);
-        cube_r109.cubeList.add(new ModelBox(cube_r109, 0, 138, -1.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        cube_r109.cubeList.add(new ModelBox(cube_r109, 0, 138, -1, -1, 0.0F, 1, 1, 6, 0.0F, false));
 
         cube_r110 = new ModelRenderer(this);
         cube_r110.setRotationPoint(0.0F, 1.2F, -1.1F);
@@ -3435,11 +3435,11 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r117.setRotationPoint(-2.75F, 8.1F, -0.7F);
         asval_mag.addChild(cube_r117);
         setRotationAngle(cube_r117, -0.0349F, 0.0F, 0.0F);
-        cube_r117.cubeList.add(new ModelBox(cube_r117, 0, 21, 1.0F, 6.04F, -2.54F, 2, 5, 1, -0.003F, false));
+        cube_r117.cubeList.add(new ModelBox(cube_r117, 0, 21, 1, 6.04F, -2.54F, 2, 5, 1, -0.003F, false));
         cube_r117.cubeList.add(new ModelBox(cube_r117, 24, 0, -0.5F, 6.04F, -2.54F, 2, 5, 1, -0.002F, false));
 
         cube_r118 = new ModelRenderer(this);
-        cube_r118.setRotationPoint(-1.25F, 1.0F, -1.0F);
+        cube_r118.setRotationPoint(-1.25F, 1, -1);
         asval_mag.addChild(cube_r118);
         setRotationAngle(cube_r118, -0.192F, 0.0F, 0.0F);
         cube_r118.cubeList.add(new ModelBox(cube_r118, 113, 86, -2.05F, 15.0F, -7.2F, 1, 1, 2, -0.2F, false));
@@ -3469,7 +3469,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r119.cubeList.add(new ModelBox(cube_r119, 24, 21, -3.1F, 0.04F, -7.44F, 2, 11, 7, -0.001F, false));
 
         cube_r120 = new ModelRenderer(this);
-        cube_r120.setRotationPoint(-1.25F, 1.0F, -1.0F);
+        cube_r120.setRotationPoint(-1.25F, 1, -1);
         asval_mag.addChild(cube_r120);
         setRotationAngle(cube_r120, -0.1047F, 0.0F, 0.0F);
         cube_r120.cubeList.add(new ModelBox(cube_r120, 107, 111, -2.05F, 5.5F, -7.9F, 1, 1, 2, -0.2F, false));
@@ -3477,7 +3477,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r120.cubeList.add(new ModelBox(cube_r120, 161, 59, -2.15F, 7.0F, -5.4F, 1, 1, 5, -0.003F, false));
         cube_r120.cubeList.add(new ModelBox(cube_r120, 161, 51, -2.15F, 4.0F, -5.4F, 1, 1, 5, -0.003F, false));
         cube_r120.cubeList.add(new ModelBox(cube_r120, 65, 10, -2.15F, 0.0F, -0.65F, 1, 8, 1, -0.002F, false));
-        cube_r120.cubeList.add(new ModelBox(cube_r120, 161, 45, -2.15F, 1.0F, -5.4F, 1, 1, 5, -0.003F, false));
+        cube_r120.cubeList.add(new ModelBox(cube_r120, 161, 45, -2.15F, 1, -5.4F, 1, 1, 5, -0.003F, false));
         cube_r120.cubeList.add(new ModelBox(cube_r120, 116, 65, -2.15F, 2.5F, -6.65F, 1, 1, 4, -0.003F, false));
         cube_r120.cubeList.add(new ModelBox(cube_r120, 107, 69, -2.05F, 2.5F, -7.9F, 1, 1, 2, -0.2F, false));
         cube_r120.cubeList.add(new ModelBox(cube_r120, 107, 51, -2.05F, -0.5F, -7.9F, 1, 1, 2, -0.2F, false));
@@ -3490,7 +3490,7 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r120.cubeList.add(new ModelBox(cube_r120, 116, 116, 0.55F, 2.5F, -7.9F, 1, 1, 2, -0.2F, false));
         cube_r120.cubeList.add(new ModelBox(cube_r120, 117, 12, 0.55F, -0.5F, -7.9F, 1, 1, 2, -0.2F, false));
         cube_r120.cubeList.add(new ModelBox(cube_r120, 146, 0, 0.65F, -0.5F, -6.65F, 1, 1, 4, -0.003F, false));
-        cube_r120.cubeList.add(new ModelBox(cube_r120, 167, 139, 0.65F, 1.0F, -5.4F, 1, 1, 5, -0.003F, false));
+        cube_r120.cubeList.add(new ModelBox(cube_r120, 167, 139, 0.65F, 1, -5.4F, 1, 1, 5, -0.003F, false));
         cube_r120.cubeList.add(new ModelBox(cube_r120, 16, 67, 0.65F, 0.0F, -0.65F, 1, 8, 1, -0.002F, false));
         cube_r120.cubeList.add(new ModelBox(cube_r120, 0, 0, -0.5F, -5.0F, -6.4F, 2, 13, 7, -0.001F, false));
         cube_r120.cubeList.add(new ModelBox(cube_r120, 0, 21, -2.0F, -5.0F, -6.4F, 2, 13, 7, 0.0F, false));
@@ -3499,13 +3499,13 @@ public class VSSVintorezAction extends ModelWithAttachments {
         cube_r121.setRotationPoint(-3.25F, -4.5F, -5.9F);
         asval_mag.addChild(cube_r121);
         setRotationAngle(cube_r121, -0.0908F, 0.0523F, 0.5212F);
-        cube_r121.cubeList.add(new ModelBox(cube_r121, 39, 138, 0.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        cube_r121.cubeList.add(new ModelBox(cube_r121, 39, 138, 0.0F, -1, 0.0F, 1, 1, 6, 0.0F, false));
 
         cube_r122 = new ModelRenderer(this);
         cube_r122.setRotationPoint(0.25F, -4.5F, -5.9F);
         asval_mag.addChild(cube_r122);
         setRotationAngle(cube_r122, -0.0908F, -0.0523F, -0.5212F);
-        cube_r122.cubeList.add(new ModelBox(cube_r122, 0, 145, -1.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        cube_r122.cubeList.add(new ModelBox(cube_r122, 0, 145, -1, -1, 0.0F, 1, 1, 6, 0.0F, false));
 
         cube_r123 = new ModelRenderer(this);
         cube_r123.setRotationPoint(-2.75F, 8.1F, -0.7F);

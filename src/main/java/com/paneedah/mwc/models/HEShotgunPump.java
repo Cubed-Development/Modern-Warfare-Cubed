@@ -97,37 +97,37 @@ public class HEShotgunPump extends ModelWithAttachments {
         pump15_r1.setRotationPoint(13.606F, 18.6998F, 14.6464F);
         pump.addChild(pump15_r1);
         setRotationAngle(pump15_r1, 0.0F, 0.0F, -2.2679F);
-        pump15_r1.cubeList.add(new ModelBox(pump15_r1, 0, 0, -2.5F, -23.1F, -21.0F, 1, 1, 1, 0.0F, true));
+        pump15_r1.cubeList.add(new ModelBox(pump15_r1, 0, 0, -2.5F, -23.1F, -21, 1, 1, 1, 0.0F, true));
 
         pump14_r1 = new ModelRenderer(this);
         pump14_r1.setRotationPoint(13.4153F, 52.013F, 14.6464F);
         pump.addChild(pump14_r1);
         setRotationAngle(pump14_r1, 0.0F, 0.0F, -0.5949F);
-        pump14_r1.cubeList.add(new ModelBox(pump14_r1, 0, 0, -3.95F, -25.15F, -21.0F, 1, 2, 1, 0.0F, true));
+        pump14_r1.cubeList.add(new ModelBox(pump14_r1, 0, 0, -3.95F, -25.15F, -21, 1, 2, 1, 0.0F, true));
 
         pump13_r1 = new ModelRenderer(this);
         pump13_r1.setRotationPoint(-14.9951F, 14.9117F, 14.6464F);
         pump.addChild(pump13_r1);
         setRotationAngle(pump13_r1, 0.0F, 0.0F, 2.3051F);
-        pump13_r1.cubeList.add(new ModelBox(pump13_r1, 0, 0, 2.2F, -25.15F, -21.0F, 1, 1, 1, 0.0F, true));
+        pump13_r1.cubeList.add(new ModelBox(pump13_r1, 0, 0, 2.2F, -25.15F, -21, 1, 1, 1, 0.0F, true));
 
         pump12_r1 = new ModelRenderer(this);
         pump12_r1.setRotationPoint(15.3053F, 17.7079F, 14.6464F);
         pump.addChild(pump12_r1);
         setRotationAngle(pump12_r1, 0.0F, 0.0F, -2.4677F);
-        pump12_r1.cubeList.add(new ModelBox(pump12_r1, 0, 0, 0.5F, -23.1F, -21.0F, 1, 2, 1, 0.0F, true));
+        pump12_r1.cubeList.add(new ModelBox(pump12_r1, 0, 0, 0.5F, -23.1F, -21, 1, 2, 1, 0.0F, true));
 
         pump10_r1 = new ModelRenderer(this);
         pump10_r1.setRotationPoint(-27.4184F, 33.0226F, 14.6464F);
         pump.addChild(pump10_r1);
         setRotationAngle(pump10_r1, 0.0F, 0.0F, 1.3963F);
-        pump10_r1.cubeList.add(new ModelBox(pump10_r1, 0, 0, 1.5F, -29.1F, -21.0F, 4, 1, 1, 0.0F, true));
+        pump10_r1.cubeList.add(new ModelBox(pump10_r1, 0, 0, 1.5F, -29.1F, -21, 4, 1, 1, 0.0F, true));
 
         pump9_r1 = new ModelRenderer(this);
         pump9_r1.setRotationPoint(-3.2607F, 58.7554F, 14.6464F);
         pump.addChild(pump9_r1);
         setRotationAngle(pump9_r1, 0.0F, 0.0F, 0.1115F);
-        pump9_r1.cubeList.add(new ModelBox(pump9_r1, 0, 0, -3.5F, -29.1F, -21.0F, 1, 4, 1, 0.0F, true));
+        pump9_r1.cubeList.add(new ModelBox(pump9_r1, 0, 0, -3.5F, -29.1F, -21, 1, 4, 1, 0.0F, true));
 
         pump8_r1 = new ModelRenderer(this);
         pump8_r1.setRotationPoint(15.2225F, 16.04F, 14.6464F);

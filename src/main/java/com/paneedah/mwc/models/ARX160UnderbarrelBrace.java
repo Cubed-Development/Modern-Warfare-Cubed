@@ -42,7 +42,7 @@ public class ARX160UnderbarrelBrace extends ModelWithAttachments {
         cube_r253.setRotationPoint(-0.5F, -33.0281F, -45.0124F);
         underbarrelbrace.addChild(cube_r253);
         setRotationAngle(cube_r253, -1.3352F, 0.0F, 0.0F);
-        cube_r253.cubeList.add(new ModelBox(cube_r253, 90, 47, -2.5F, -0.5F, -1.0F, 3, 1, 2, 0.0F, false));
+        cube_r253.cubeList.add(new ModelBox(cube_r253, 90, 47, -2.5F, -0.5F, -1, 3, 1, 2, 0.0F, false));
 
         cube_r254 = new ModelRenderer(this);
         cube_r254.setRotationPoint(-2.7384F, -33.335F, -38.7281F);
@@ -54,7 +54,7 @@ public class ARX160UnderbarrelBrace extends ModelWithAttachments {
         cube_r255.setRotationPoint(-2.6735F, -32.1459F, -34.2543F);
         underbarrelbrace.addChild(cube_r255);
         setRotationAngle(cube_r255, 0.0F, 0.0F, 1.2654F);
-        cube_r255.cubeList.add(new ModelBox(cube_r255, 58, 103, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        cube_r255.cubeList.add(new ModelBox(cube_r255, 58, 103, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
         cube_r255.cubeList.add(new ModelBox(cube_r255, 52, 103, -0.5F, -0.5F, -4.0F, 1, 1, 2, 0.0F, false));
         cube_r255.cubeList.add(new ModelBox(cube_r255, 67, 103, -0.5F, -0.5F, -6.75F, 1, 1, 2, 0.0F, false));
         cube_r255.cubeList.add(new ModelBox(cube_r255, 73, 103, -0.5F, -0.5F, -9.75F, 1, 1, 2, 0.0F, false));
@@ -69,7 +69,7 @@ public class ARX160UnderbarrelBrace extends ModelWithAttachments {
         cube_r257.setRotationPoint(-0.3265F, -32.1459F, -34.2543F);
         underbarrelbrace.addChild(cube_r257);
         setRotationAngle(cube_r257, 0.0F, 0.0F, -1.2654F);
-        cube_r257.cubeList.add(new ModelBox(cube_r257, 40, 98, -0.5F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        cube_r257.cubeList.add(new ModelBox(cube_r257, 40, 98, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
         cube_r257.cubeList.add(new ModelBox(cube_r257, 98, 22, -0.5F, -0.5F, -4.0F, 1, 1, 2, 0.0F, false));
         cube_r257.cubeList.add(new ModelBox(cube_r257, 98, 45, -0.5F, -0.5F, -6.75F, 1, 1, 2, 0.0F, false));
         cube_r257.cubeList.add(new ModelBox(cube_r257, 16, 102, -0.5F, -0.5F, -9.75F, 1, 1, 2, 0.0F, false));

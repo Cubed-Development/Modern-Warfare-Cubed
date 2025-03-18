@@ -277,21 +277,21 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         samurai_edge_body.cubeList.add(new ModelBox(samurai_edge_body, 126, 104, -3.0F, -36.8F, -32.5F, 1, 1, 22, 0.0F, false));
         samurai_edge_body.cubeList.add(new ModelBox(samurai_edge_body, 119, 0, -2.0F, -37.8F, -32.5F, 1, 1, 22, 0.0F, false));
         samurai_edge_body.cubeList.add(new ModelBox(samurai_edge_body, 93, 58, -2.0F, -35.8F, -32.5F, 1, 1, 22, 0.0F, false));
-        samurai_edge_body.cubeList.add(new ModelBox(samurai_edge_body, 93, 29, -1.0F, -36.8F, -32.5F, 1, 1, 22, 0.0F, false));
+        samurai_edge_body.cubeList.add(new ModelBox(samurai_edge_body, 93, 29, -1, -36.8F, -32.5F, 1, 1, 22, 0.0F, false));
 
         gun110_r1 = new ModelRenderer(this);
-        gun110_r1.setRotationPoint(-1.0F, -34.8F, -32.5F);
+        gun110_r1.setRotationPoint(-1, -34.8F, -32.5F);
         samurai_edge_body.addChild(gun110_r1);
         setRotationAngle(gun110_r1, 0.0F, 0.0F, 0.7854F);
-        gun110_r1.cubeList.add(new ModelBox(gun110_r1, 54, 113, -1.0F, -1.4F, 0.0F, 1, 1, 22, -0.002F, false));
-        gun110_r1.cubeList.add(new ModelBox(gun110_r1, 78, 115, -1.0F, -1.0F, 0.0F, 1, 1, 22, -0.001F, false));
+        gun110_r1.cubeList.add(new ModelBox(gun110_r1, 54, 113, -1, -1.4F, 0.0F, 1, 1, 22, -0.002F, false));
+        gun110_r1.cubeList.add(new ModelBox(gun110_r1, 78, 115, -1, -1, 0.0F, 1, 1, 22, -0.001F, false));
 
         gun111_r1 = new ModelRenderer(this);
         gun111_r1.setRotationPoint(-2.0F, -34.8F, -32.5F);
         samurai_edge_body.addChild(gun111_r1);
         setRotationAngle(gun111_r1, 0.0F, 0.0F, -0.7854F);
         gun111_r1.cubeList.add(new ModelBox(gun111_r1, 0, 116, 0.0F, -1.4F, 0.0F, 1, 1, 22, -0.002F, false));
-        gun111_r1.cubeList.add(new ModelBox(gun111_r1, 116, 81, 0.0F, -1.0F, 0.0F, 1, 1, 22, -0.001F, false));
+        gun111_r1.cubeList.add(new ModelBox(gun111_r1, 116, 81, 0.0F, -1, 0.0F, 1, 1, 22, -0.001F, false));
 
         gun110_r2 = new ModelRenderer(this);
         gun110_r2.setRotationPoint(-2.0F, -37.8F, -32.5F);
@@ -301,11 +301,11 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun110_r2.cubeList.add(new ModelBox(gun110_r2, 117, 25, 0.0F, 0.0F, 0.0F, 1, 1, 22, -0.001F, false));
 
         gun109_r1 = new ModelRenderer(this);
-        gun109_r1.setRotationPoint(-1.0F, -37.8F, -32.5F);
+        gun109_r1.setRotationPoint(-1, -37.8F, -32.5F);
         samurai_edge_body.addChild(gun109_r1);
         setRotationAngle(gun109_r1, 0.0F, 0.0F, -0.7854F);
-        gun109_r1.cubeList.add(new ModelBox(gun109_r1, 117, 48, -1.0F, 0.4F, 0.0F, 1, 1, 22, -0.002F, false));
-        gun109_r1.cubeList.add(new ModelBox(gun109_r1, 24, 118, -1.0F, 0.0F, 0.0F, 1, 1, 22, -0.001F, false));
+        gun109_r1.cubeList.add(new ModelBox(gun109_r1, 117, 48, -1, 0.4F, 0.0F, 1, 1, 22, -0.002F, false));
+        gun109_r1.cubeList.add(new ModelBox(gun109_r1, 24, 118, -1, 0.0F, 0.0F, 1, 1, 22, -0.001F, false));
 
         gun47 = new ModelRenderer(this);
         gun47.setRotationPoint(-2.0F, -33.3F, -29.0F);
@@ -323,11 +323,11 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun45.setRotationPoint(0.5F, -33.0F, -26.0F);
         samurai_edge_body.addChild(gun45);
         setRotationAngle(gun45, 0.0F, 0.0F, 0.2603F);
-        gun45.cubeList.add(new ModelBox(gun45, 60, 64, -1.0F, 0.0F, -3.0F, 1, 1, 14, 0.0F, false));
+        gun45.cubeList.add(new ModelBox(gun45, 60, 64, -1, 0.0F, -3.0F, 1, 1, 14, 0.0F, false));
         gun45.cubeList.add(new ModelBox(gun45, 82, 69, -0.75F, -0.25F, -5.701F, 1, 1, 3, -0.25F, false));
 
         gun326 = new ModelRenderer(this);
-        gun326.setRotationPoint(-1.0F, -31.37F, -26.0F);
+        gun326.setRotationPoint(-1, -31.37F, -26.0F);
         samurai_edge_body.addChild(gun326);
         setRotationAngle(gun326, 0.0F, 0.0F, -0.2231F);
         gun326.cubeList.add(new ModelBox(gun326, 26, 90, 0.0F, 0.0F, -5.45F, 1, 1, 3, 0.001F, false));
@@ -359,7 +359,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun329.cubeList.add(new ModelBox(gun329, 52, 93, 0.0F, -0.001F, -5.45F, 1, 1, 16, 0.0F, false));
 
         gun330 = new ModelRenderer(this);
-        gun330.setRotationPoint(-1.0F, -31.37F, -22.0F);
+        gun330.setRotationPoint(-1, -31.37F, -22.0F);
         samurai_edge_body.addChild(gun330);
         setRotationAngle(gun330, 0.0F, 0.0F, -0.2231F);
 
@@ -402,12 +402,12 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun334.setRotationPoint(1.4F, -32.4F, -9.0F);
         samurai_edge_body.addChild(gun334);
         setRotationAngle(gun334, 0.0F, 0.0F, 2.2679F);
-        gun334.cubeList.add(new ModelBox(gun334, 60, 64, 0.3067F, -0.2568F, -1.0F, 1, 1, 4, 0.0F, false));
+        gun334.cubeList.add(new ModelBox(gun334, 60, 64, 0.3067F, -0.2568F, -1, 1, 1, 4, 0.0F, false));
 
         gun335 = new ModelRenderer(this);
         gun335.setRotationPoint(0.4F, -33.4F, -9.0F);
         samurai_edge_body.addChild(gun335);
-        gun335.cubeList.add(new ModelBox(gun335, 45, 64, 0.0F, 0.4F, -1.0F, 1, 1, 4, 0.0F, false));
+        gun335.cubeList.add(new ModelBox(gun335, 45, 64, 0.0F, 0.4F, -1, 1, 1, 4, 0.0F, false));
         gun335.cubeList.add(new ModelBox(gun335, 64, 40, 0.301F, -0.1F, 0.7F, 1, 1, 4, -0.3F, false));
 
         gun145_r1 = new ModelRenderer(this);
@@ -425,10 +425,10 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun337 = new ModelRenderer(this);
         gun337.setRotationPoint(-3.6F, -31.2F, -7.0F);
         samurai_edge_body.addChild(gun337);
-        gun337.cubeList.add(new ModelBox(gun337, 31, 77, 0.0F, 0.0F, -1.0F, 1, 1, 9, 0.0F, false));
+        gun337.cubeList.add(new ModelBox(gun337, 31, 77, 0.0F, 0.0F, -1, 1, 1, 9, 0.0F, false));
 
         gun338 = new ModelRenderer(this);
-        gun338.setRotationPoint(-3.5F, -31.0F, -8.0F);
+        gun338.setRotationPoint(-3.5F, -31, -8.0F);
         samurai_edge_body.addChild(gun338);
         setRotationAngle(gun338, 2.6025F, 0.0F, 0.0F);
         gun338.cubeList.add(new ModelBox(gun338, 42, 100, 0.0F, -0.5134F, 0.8582F, 1, 1, 1, 0.0F, false));
@@ -442,12 +442,12 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun340 = new ModelRenderer(this);
         gun340.setRotationPoint(-3.5F, -32.0F, -8.0F);
         samurai_edge_body.addChild(gun340);
-        gun340.cubeList.add(new ModelBox(gun340, 64, 35, -0.001F, 0.0F, -1.0F, 1, 1, 4, 0.0F, false));
+        gun340.cubeList.add(new ModelBox(gun340, 64, 35, -0.001F, 0.0F, -1, 1, 1, 4, 0.0F, false));
 
         gun341 = new ModelRenderer(this);
-        gun341.setRotationPoint(-3.5F, -32.5F, -11.0F);
+        gun341.setRotationPoint(-3.5F, -32.5F, -11);
         samurai_edge_body.addChild(gun341);
-        gun341.cubeList.add(new ModelBox(gun341, 0, 90, -0.001F, 0.0F, -1.0F, 1, 1, 3, 0.0F, false));
+        gun341.cubeList.add(new ModelBox(gun341, 0, 90, -0.001F, 0.0F, -1, 1, 1, 3, 0.0F, false));
 
         gun342 = new ModelRenderer(this);
         gun342.setRotationPoint(-3.5F, -33.1F, -13.0F);
@@ -486,12 +486,12 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun348 = new ModelRenderer(this);
         gun348.setRotationPoint(-3.6F, -33.2F, -7.0F);
         samurai_edge_body.addChild(gun348);
-        gun348.cubeList.add(new ModelBox(gun348, 31, 50, 0.0F, 0.0F, -1.0F, 1, 1, 9, 0.0F, false));
+        gun348.cubeList.add(new ModelBox(gun348, 31, 50, 0.0F, 0.0F, -1, 1, 1, 9, 0.0F, false));
 
         gun349 = new ModelRenderer(this);
         gun349.setRotationPoint(-0.4F, -33.2F, -9.0F);
         samurai_edge_body.addChild(gun349);
-        gun349.cubeList.add(new ModelBox(gun349, 93, 29, 0.0F, 0.0F, -1.0F, 1, 3, 10, 0.0F, false));
+        gun349.cubeList.add(new ModelBox(gun349, 93, 29, 0.0F, 0.0F, -1, 1, 3, 10, 0.0F, false));
 
         gun350 = new ModelRenderer(this);
         gun350.setRotationPoint(-3.0F, -29.2F, -7.2F);
@@ -565,7 +565,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun361.cubeList.add(new ModelBox(gun361, 33, 7, 0.0F, 0.0F, 0.0F, 1, 3, 1, 0.0F, false));
 
         gun362 = new ModelRenderer(this);
-        gun362.setRotationPoint(-1.0F, -33.0F, 4.5F);
+        gun362.setRotationPoint(-1, -33.0F, 4.5F);
         samurai_edge_body.addChild(gun362);
         setRotationAngle(gun362, -2.0076F, 0.0F, 0.0F);
         gun362.cubeList.add(new ModelBox(gun362, 33, 0, 0.0F, 0.0F, 0.0F, 1, 3, 1, 0.0F, false));
@@ -577,7 +577,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun363.cubeList.add(new ModelBox(gun363, 22, 16, 0.0F, 0.0F, 0.0F, 1, 4, 1, -0.001F, false));
 
         gun367 = new ModelRenderer(this);
-        gun367.setRotationPoint(-1.0F, -36.0F, 2.3F);
+        gun367.setRotationPoint(-1, -36.0F, 2.3F);
         samurai_edge_body.addChild(gun367);
         setRotationAngle(gun367, -1.2641F, 0.0F, 0.0F);
         gun367.cubeList.add(new ModelBox(gun367, 23, 46, 0.0F, 0.0F, 1.3F, 1, 2, 2, 0.0F, false));
@@ -597,11 +597,11 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun374 = new ModelRenderer(this);
         gun374.setRotationPoint(0.1F, -30.0F, -5.0F);
         samurai_edge_body.addChild(gun374);
-        gun374.cubeList.add(new ModelBox(gun374, 89, 87, 0.0F, -1.0F, -0.2F, 1, 1, 3, -0.001F, false));
-        gun374.cubeList.add(new ModelBox(gun374, 76, 87, -4.2F, -1.0F, -0.2F, 1, 1, 3, -0.001F, false));
+        gun374.cubeList.add(new ModelBox(gun374, 89, 87, 0.0F, -1, -0.2F, 1, 1, 3, -0.001F, false));
+        gun374.cubeList.add(new ModelBox(gun374, 76, 87, -4.2F, -1, -0.2F, 1, 1, 3, -0.001F, false));
 
         gun115_r1 = new ModelRenderer(this);
-        gun115_r1.setRotationPoint(-3.201F, -1.0F, 2.8F);
+        gun115_r1.setRotationPoint(-3.201F, -1, 2.8F);
         gun374.addChild(gun115_r1);
         setRotationAngle(gun115_r1, -0.6807F, 0.0F, 0.0F);
         gun115_r1.cubeList.add(new ModelBox(gun115_r1, 0, 79, -0.999F, 0.0F, 0.0F, 1, 2, 3, -0.002F, false));
@@ -611,10 +611,10 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun375.setRotationPoint(0.1F, -29.0F, -5.0F);
         samurai_edge_body.addChild(gun375);
         setRotationAngle(gun375, 0.2231F, 0.0F, 0.0F);
-        gun375.cubeList.add(new ModelBox(gun375, 93, 58, 0.0F, -1.0F, 0.0F, 1, 12, 3, 0.0F, false));
-        gun375.cubeList.add(new ModelBox(gun375, 37, 35, 0.0F, 1.0F, 3.0F, 1, 10, 2, 0.0F, false));
-        gun375.cubeList.add(new ModelBox(gun375, 52, 93, -4.2F, -1.0F, 0.0F, 1, 12, 3, 0.0F, false));
-        gun375.cubeList.add(new ModelBox(gun375, 31, 35, -4.2F, 1.0F, 3.0F, 1, 10, 2, 0.0F, false));
+        gun375.cubeList.add(new ModelBox(gun375, 93, 58, 0.0F, -1, 0.0F, 1, 12, 3, 0.0F, false));
+        gun375.cubeList.add(new ModelBox(gun375, 37, 35, 0.0F, 1, 3.0F, 1, 10, 2, 0.0F, false));
+        gun375.cubeList.add(new ModelBox(gun375, 52, 93, -4.2F, -1, 0.0F, 1, 12, 3, 0.0F, false));
+        gun375.cubeList.add(new ModelBox(gun375, 31, 35, -4.2F, 1, 3.0F, 1, 10, 2, 0.0F, false));
 
         gun116_r1 = new ModelRenderer(this);
         gun116_r1.setRotationPoint(-0.1F, 29.0F, 5.0F);
@@ -667,7 +667,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun385.cubeList.add(new ModelBox(gun385, 72, 138, 0.0F, 0.0F, 0.0F, 4, 2, 12, 0.0F, false));
 
         gun386 = new ModelRenderer(this);
-        gun386.setRotationPoint(-3.5F, -31.0F, 1.4F);
+        gun386.setRotationPoint(-3.5F, -31, 1.4F);
         samurai_edge_body.addChild(gun386);
         setRotationAngle(gun386, -1.9333F, 0.0F, 0.0F);
         gun386.cubeList.add(new ModelBox(gun386, 46, 40, 0.0F, 0.0F, 0.0F, 4, 2, 3, -0.001F, false));
@@ -702,7 +702,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
 
 
         gun392 = new ModelRenderer(this);
-        gun392.setRotationPoint(-3.0F, -31.0F, -17.5F);
+        gun392.setRotationPoint(-3.0F, -31, -17.5F);
         samurai_edge_body.addChild(gun392);
         setRotationAngle(gun392, 1.3384F, 0.0F, 0.0F);
         gun392.cubeList.add(new ModelBox(gun392, 31, 83, 0.0F, 2.0F, 0.0F, 3, 2, 1, 0.0F, false));
@@ -733,10 +733,10 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun397.setRotationPoint(-3.0F, -25.1F, -8.5F);
         samurai_edge_body.addChild(gun397);
         setRotationAngle(gun397, 1.8589F, 0.0F, 0.0F);
-        gun397.cubeList.add(new ModelBox(gun397, 78, 40, 0.0F, -1.0F, 0.0F, 3, 4, 1, 0.0F, false));
+        gun397.cubeList.add(new ModelBox(gun397, 78, 40, 0.0F, -1, 0.0F, 3, 4, 1, 0.0F, false));
 
         gun398 = new ModelRenderer(this);
-        gun398.setRotationPoint(-4.0F, -31.0F, -6.0F);
+        gun398.setRotationPoint(-4.0F, -31, -6.0F);
         samurai_edge_body.addChild(gun398);
         setRotationAngle(gun398, 0.2231F, 0.0F, 0.0F);
         gun398.cubeList.add(new ModelBox(gun398, 0, 0, 0.0F, 0.0F, 0.0F, 5, 13, 6, 0.0F, false));
@@ -766,7 +766,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun12_r2.setRotationPoint(4.999F, 1.2F, 7.4F);
         gun400.addChild(gun12_r2);
         setRotationAngle(gun12_r2, -0.3491F, 0.0F, 0.0F);
-        gun12_r2.cubeList.add(new ModelBox(gun12_r2, 64, 9, -5.0F, 0.0F, -1.0F, 5, 2, 1, 0.0F, false));
+        gun12_r2.cubeList.add(new ModelBox(gun12_r2, 64, 9, -5.0F, 0.0F, -1, 5, 2, 1, 0.0F, false));
 
         gun401 = new ModelRenderer(this);
         gun401.setRotationPoint(-3.3F, -34.0F, -13.8F);
@@ -780,20 +780,20 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun402.cubeList.add(new ModelBox(gun402, 22, 6, 0.0F, 1.5914F, -2.7762F, 1, 4, 1, 0.0F, false));
 
         gun403 = new ModelRenderer(this);
-        gun403.setRotationPoint(-1.0F, -38.0F, 0.5F);
+        gun403.setRotationPoint(-1, -38.0F, 0.5F);
         samurai_edge_body.addChild(gun403);
         setRotationAngle(gun403, -0.8551F, 0.0F, 0.0F);
 
 
         gun127_r1 = new ModelRenderer(this);
-        gun127_r1.setRotationPoint(1.0F, 0.2454F, 1.1561F);
+        gun127_r1.setRotationPoint(1, 0.2454F, 1.1561F);
         gun403.addChild(gun127_r1);
         setRotationAngle(gun127_r1, 0.8551F, 0.0F, 0.0F);
         gun127_r1.cubeList.add(new ModelBox(gun127_r1, 55, 50, -3.5F, 0.4F, -1.2F, 1, 2, 1, -0.001F, false));
         gun127_r1.cubeList.add(new ModelBox(gun127_r1, 7, 46, -2.5F, -0.6F, -1.2F, 2, 3, 1, -0.001F, false));
 
         gun127_r2 = new ModelRenderer(this);
-        gun127_r2.setRotationPoint(1.0F, 0.2454F, 1.1561F);
+        gun127_r2.setRotationPoint(1, 0.2454F, 1.1561F);
         gun403.addChild(gun127_r2);
         setRotationAngle(gun127_r2, 0.802F, 0.3372F, -0.3097F);
         gun127_r2.cubeList.add(new ModelBox(gun127_r2, 81, 99, -1.9932F, -0.7293F, -0.9F, 1, 1, 1, -0.2F, false));
@@ -806,15 +806,15 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun68_r1.setRotationPoint(-2.6F, -38.0F, -28.5F);
         samurai_edge_slide.addChild(gun68_r1);
         setRotationAngle(gun68_r1, 0.0F, 0.0F, -0.9425F);
-        gun68_r1.cubeList.add(new ModelBox(gun68_r1, 14, 65, -1.0F, 0.0F, -3.0F, 1, 1, 4, -0.001F, false));
+        gun68_r1.cubeList.add(new ModelBox(gun68_r1, 14, 65, -1, 0.0F, -3.0F, 1, 1, 4, -0.001F, false));
 
         gun76_r1 = new ModelRenderer(this);
         gun76_r1.setRotationPoint(-3.5F, -36.0F, -28.5F);
         samurai_edge_slide.addChild(gun76_r1);
         setRotationAngle(gun76_r1, 0.0F, 0.0F, -2.887F);
-        gun76_r1.cubeList.add(new ModelBox(gun76_r1, 31, 69, -1.0F, 0.22F, -3.0F, 1, 1, 4, -0.002F, false));
-        gun76_r1.cubeList.add(new ModelBox(gun76_r1, 45, 69, -1.0F, 0.0F, -3.0F, 1, 1, 4, -0.001F, false));
-        gun76_r1.cubeList.add(new ModelBox(gun76_r1, 150, 102, -1.0F, -0.3F, 1.0F, 1, 1, 14, -0.002F, false));
+        gun76_r1.cubeList.add(new ModelBox(gun76_r1, 31, 69, -1, 0.22F, -3.0F, 1, 1, 4, -0.002F, false));
+        gun76_r1.cubeList.add(new ModelBox(gun76_r1, 45, 69, -1, 0.0F, -3.0F, 1, 1, 4, -0.001F, false));
+        gun76_r1.cubeList.add(new ModelBox(gun76_r1, 150, 102, -1, -0.3F, 1, 1, 1, 14, -0.002F, false));
 
         gun67_r1 = new ModelRenderer(this);
         gun67_r1.setRotationPoint(-0.4F, -38.0F, -28.5F);
@@ -827,7 +827,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         samurai_edge_slide.addChild(gun75_r1);
         setRotationAngle(gun75_r1, 0.0F, 0.0F, 2.887F);
         gun75_r1.cubeList.add(new ModelBox(gun75_r1, 0, 74, 0.0F, 0.22F, -3.0F, 1, 1, 4, -0.002F, false));
-        gun75_r1.cubeList.add(new ModelBox(gun75_r1, 154, 127, 0.0F, -0.3F, 1.0F, 1, 1, 14, -0.002F, false));
+        gun75_r1.cubeList.add(new ModelBox(gun75_r1, 154, 127, 0.0F, -0.3F, 1, 1, 1, 14, -0.002F, false));
         gun75_r1.cubeList.add(new ModelBox(gun75_r1, 14, 74, 0.0F, 0.0F, -3.0F, 1, 1, 4, -0.001F, false));
 
         gun31 = new ModelRenderer(this);
@@ -846,166 +846,166 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun46.setRotationPoint(-4.3F, -35.0F, -8.5F);
         samurai_edge_slide.addChild(gun46);
         setRotationAngle(gun46, 0.0F, 2.3562F, 0.0F);
-        gun46.cubeList.add(new ModelBox(gun46, 7, 97, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun46.cubeList.add(new ModelBox(gun46, 7, 97, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun46.cubeList.add(new ModelBox(gun46, 23, 61, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun48 = new ModelRenderer(this);
         gun48.setRotationPoint(-4.3F, -35.0F, -7.5F);
         samurai_edge_slide.addChild(gun48);
         setRotationAngle(gun48, 0.0F, 2.3562F, 0.0F);
-        gun48.cubeList.add(new ModelBox(gun48, 0, 97, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun48.cubeList.add(new ModelBox(gun48, 0, 97, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun48.cubeList.add(new ModelBox(gun48, 64, 13, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun52 = new ModelRenderer(this);
         gun52.setRotationPoint(-4.3F, -35.0F, -6.5F);
         samurai_edge_slide.addChild(gun52);
         setRotationAngle(gun52, 0.0F, 2.3562F, 0.0F);
-        gun52.cubeList.add(new ModelBox(gun52, 82, 96, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun52.cubeList.add(new ModelBox(gun52, 82, 96, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun52.cubeList.add(new ModelBox(gun52, 64, 40, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun54 = new ModelRenderer(this);
         gun54.setRotationPoint(-4.3F, -35.0F, -5.5F);
         samurai_edge_slide.addChild(gun54);
         setRotationAngle(gun54, 0.0F, 2.3562F, 0.0F);
-        gun54.cubeList.add(new ModelBox(gun54, 39, 96, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun54.cubeList.add(new ModelBox(gun54, 39, 96, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun54.cubeList.add(new ModelBox(gun54, 64, 48, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun56 = new ModelRenderer(this);
         gun56.setRotationPoint(-4.3F, -35.0F, -4.5F);
         samurai_edge_slide.addChild(gun56);
         setRotationAngle(gun56, 0.0F, 2.3562F, 0.0F);
-        gun56.cubeList.add(new ModelBox(gun56, 93, 95, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun56.cubeList.add(new ModelBox(gun56, 93, 95, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun56.cubeList.add(new ModelBox(gun56, 0, 65, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun57 = new ModelRenderer(this);
         gun57.setRotationPoint(-4.3F, -35.0F, -3.5F);
         samurai_edge_slide.addChild(gun57);
         setRotationAngle(gun57, 0.0F, 2.3562F, 0.0F);
-        gun57.cubeList.add(new ModelBox(gun57, 89, 95, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun57.cubeList.add(new ModelBox(gun57, 89, 95, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun58 = new ModelRenderer(this);
         gun58.setRotationPoint(-4.3F, -35.0F, -4.0F);
         samurai_edge_slide.addChild(gun58);
         setRotationAngle(gun58, 0.0F, 2.3562F, 0.0F);
-        gun58.cubeList.add(new ModelBox(gun58, 78, 95, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun58.cubeList.add(new ModelBox(gun58, 78, 95, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun58.cubeList.add(new ModelBox(gun58, 14, 65, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun59 = new ModelRenderer(this);
         gun59.setRotationPoint(-4.3F, -35.0F, -5.0F);
         samurai_edge_slide.addChild(gun59);
         setRotationAngle(gun59, 0.0F, 2.3562F, 0.0F);
-        gun59.cubeList.add(new ModelBox(gun59, 74, 95, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun59.cubeList.add(new ModelBox(gun59, 74, 95, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun59.cubeList.add(new ModelBox(gun59, 60, 64, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun60 = new ModelRenderer(this);
         gun60.setRotationPoint(-4.3F, -35.0F, -6.0F);
         samurai_edge_slide.addChild(gun60);
         setRotationAngle(gun60, 0.0F, 2.3562F, 0.0F);
-        gun60.cubeList.add(new ModelBox(gun60, 70, 95, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun60.cubeList.add(new ModelBox(gun60, 70, 95, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun60.cubeList.add(new ModelBox(gun60, 45, 64, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun61 = new ModelRenderer(this);
         gun61.setRotationPoint(-4.3F, -35.0F, -7.0F);
         samurai_edge_slide.addChild(gun61);
         setRotationAngle(gun61, 0.0F, 2.3562F, 0.0F);
-        gun61.cubeList.add(new ModelBox(gun61, 62, 95, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun61.cubeList.add(new ModelBox(gun61, 62, 95, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun61.cubeList.add(new ModelBox(gun61, 64, 35, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun62 = new ModelRenderer(this);
         gun62.setRotationPoint(-4.3F, -35.0F, -8.0F);
         samurai_edge_slide.addChild(gun62);
         setRotationAngle(gun62, 0.0F, 2.3562F, 0.0F);
-        gun62.cubeList.add(new ModelBox(gun62, 44, 95, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun62.cubeList.add(new ModelBox(gun62, 44, 95, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun62.cubeList.add(new ModelBox(gun62, 64, 4, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun63 = new ModelRenderer(this);
         gun63.setRotationPoint(-4.3F, -35.0F, -9.0F);
         samurai_edge_slide.addChild(gun63);
         setRotationAngle(gun63, 0.0F, 2.3562F, 0.0F);
-        gun63.cubeList.add(new ModelBox(gun63, 30, 95, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun63.cubeList.add(new ModelBox(gun63, 30, 95, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
         gun63.cubeList.add(new ModelBox(gun63, 56, 35, 11.0208F, 0.0F, 12.0208F, 1, 2, 1, 0.0F, false));
 
         gun64 = new ModelRenderer(this);
         gun64.setRotationPoint(-4.3F, -35.5F, -8.5F);
         samurai_edge_slide.addChild(gun64);
         setRotationAngle(gun64, 0.0F, 2.3562F, 0.0F);
-        gun64.cubeList.add(new ModelBox(gun64, 102, 104, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun64.cubeList.add(new ModelBox(gun64, 102, 104, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun64.cubeList.add(new ModelBox(gun64, 100, 72, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun65 = new ModelRenderer(this);
         gun65.setRotationPoint(-4.3F, -35.5F, -7.5F);
         samurai_edge_slide.addChild(gun65);
         setRotationAngle(gun65, 0.0F, 2.3562F, 0.0F);
-        gun65.cubeList.add(new ModelBox(gun65, 93, 104, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun65.cubeList.add(new ModelBox(gun65, 93, 104, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun65.cubeList.add(new ModelBox(gun65, 78, 100, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun66 = new ModelRenderer(this);
         gun66.setRotationPoint(-4.3F, -35.5F, -6.5F);
         samurai_edge_slide.addChild(gun66);
         setRotationAngle(gun66, 0.0F, 2.3562F, 0.0F);
-        gun66.cubeList.add(new ModelBox(gun66, 89, 104, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun66.cubeList.add(new ModelBox(gun66, 89, 104, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun66.cubeList.add(new ModelBox(gun66, 93, 100, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun67 = new ModelRenderer(this);
         gun67.setRotationPoint(-4.3F, -35.5F, -5.5F);
         samurai_edge_slide.addChild(gun67);
         setRotationAngle(gun67, 0.0F, 2.3562F, 0.0F);
-        gun67.cubeList.add(new ModelBox(gun67, 104, 78, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun67.cubeList.add(new ModelBox(gun67, 104, 78, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun67.cubeList.add(new ModelBox(gun67, 32, 101, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun68 = new ModelRenderer(this);
         gun68.setRotationPoint(-4.3F, -35.5F, -4.5F);
         samurai_edge_slide.addChild(gun68);
         setRotationAngle(gun68, 0.0F, 2.3562F, 0.0F);
-        gun68.cubeList.add(new ModelBox(gun68, 78, 104, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun68.cubeList.add(new ModelBox(gun68, 78, 104, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun68.cubeList.add(new ModelBox(gun68, 101, 52, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun69 = new ModelRenderer(this);
         gun69.setRotationPoint(-4.3F, -35.5F, -3.5F);
         samurai_edge_slide.addChild(gun69);
         setRotationAngle(gun69, 0.0F, 2.3562F, 0.0F);
-        gun69.cubeList.add(new ModelBox(gun69, 104, 76, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun69.cubeList.add(new ModelBox(gun69, 104, 76, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
 
         gun70 = new ModelRenderer(this);
         gun70.setRotationPoint(-4.3F, -35.5F, -4.0F);
         samurai_edge_slide.addChild(gun70);
         setRotationAngle(gun70, 0.0F, 2.3562F, 0.0F);
-        gun70.cubeList.add(new ModelBox(gun70, 74, 104, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun70.cubeList.add(new ModelBox(gun70, 74, 104, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun70.cubeList.add(new ModelBox(gun70, 101, 59, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun71 = new ModelRenderer(this);
         gun71.setRotationPoint(-4.3F, -35.5F, -5.0F);
         samurai_edge_slide.addChild(gun71);
         setRotationAngle(gun71, 0.0F, 2.3562F, 0.0F);
-        gun71.cubeList.add(new ModelBox(gun71, 70, 104, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun71.cubeList.add(new ModelBox(gun71, 70, 104, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun71.cubeList.add(new ModelBox(gun71, 39, 101, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun73 = new ModelRenderer(this);
         gun73.setRotationPoint(-4.3F, -35.5F, -6.0F);
         samurai_edge_slide.addChild(gun73);
         setRotationAngle(gun73, 0.0F, 2.3562F, 0.0F);
-        gun73.cubeList.add(new ModelBox(gun73, 104, 68, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun73.cubeList.add(new ModelBox(gun73, 104, 68, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun73.cubeList.add(new ModelBox(gun73, 26, 101, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun74 = new ModelRenderer(this);
         gun74.setRotationPoint(-4.3F, -35.5F, -8.0F);
         samurai_edge_slide.addChild(gun74);
         setRotationAngle(gun74, 0.0F, 2.3562F, 0.0F);
-        gun74.cubeList.add(new ModelBox(gun74, 104, 66, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun74.cubeList.add(new ModelBox(gun74, 104, 66, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun74.cubeList.add(new ModelBox(gun74, 74, 100, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun75 = new ModelRenderer(this);
         gun75.setRotationPoint(-4.3F, -35.5F, -7.0F);
         samurai_edge_slide.addChild(gun75);
         setRotationAngle(gun75, 0.0F, 2.3562F, 0.0F);
-        gun75.cubeList.add(new ModelBox(gun75, 104, 64, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun75.cubeList.add(new ModelBox(gun75, 104, 64, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun75.cubeList.add(new ModelBox(gun75, 89, 100, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun76 = new ModelRenderer(this);
         gun76.setRotationPoint(-4.3F, -35.5F, -9.0F);
         samurai_edge_slide.addChild(gun76);
         setRotationAngle(gun76, 0.0F, 2.3562F, 0.0F);
-        gun76.cubeList.add(new ModelBox(gun76, 64, 104, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
+        gun76.cubeList.add(new ModelBox(gun76, 64, 104, -1, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         gun76.cubeList.add(new ModelBox(gun76, 70, 100, 11.0208F, 0.0F, 12.0208F, 1, 1, 1, 0.001F, false));
 
         gun78 = new ModelRenderer(this);
@@ -1195,13 +1195,13 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun169.setRotationPoint(-4.3F, -35.5F, -26.2F);
         samurai_edge_slide.addChild(gun169);
         setRotationAngle(gun169, 0.0F, 0.0F, -2.3934F);
-        gun169.cubeList.add(new ModelBox(gun169, 16, 103, -1.0F, 0.7F, -3.0F, 1, 1, 1, 0.0F, false));
+        gun169.cubeList.add(new ModelBox(gun169, 16, 103, -1, 0.7F, -3.0F, 1, 1, 1, 0.0F, false));
 
         gun170 = new ModelRenderer(this);
         gun170.setRotationPoint(-4.3F, -35.5F, -25.5F);
         samurai_edge_slide.addChild(gun170);
         setRotationAngle(gun170, 0.0F, 0.0F, -2.3934F);
-        gun170.cubeList.add(new ModelBox(gun170, 131, 148, -1.0F, 0.4F, -3.0F, 1, 1, 15, -0.001F, false));
+        gun170.cubeList.add(new ModelBox(gun170, 131, 148, -1, 0.4F, -3.0F, 1, 1, 15, -0.001F, false));
 
         gun171 = new ModelRenderer(this);
         gun171.setRotationPoint(1.3F, -35.5F, -26.2F);
@@ -1219,7 +1219,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun173.setRotationPoint(-4.3F, -35.5F, -24.5F);
         samurai_edge_slide.addChild(gun173);
         setRotationAngle(gun173, 0.0F, 0.0F, -2.3934F);
-        gun173.cubeList.add(new ModelBox(gun173, 0, 31, -1.0F, 0.0F, -3.0F, 1, 1, 29, 0.0F, false));
+        gun173.cubeList.add(new ModelBox(gun173, 0, 31, -1, 0.0F, -3.0F, 1, 1, 29, 0.0F, false));
 
         gun260 = new ModelRenderer(this);
         gun260.setRotationPoint(0.0F, -32.0F, -28.5F);
@@ -1280,19 +1280,19 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun269.cubeList.add(new ModelBox(gun269, 15, 38, 0.0F, -0.4F, -3.001F, 3, 2, 4, 0.0F, false));
 
         gun270 = new ModelRenderer(this);
-        gun270.setRotationPoint(-4.6F, -35.7F, -1.0F);
+        gun270.setRotationPoint(-4.6F, -35.7F, -1);
         samurai_edge_slide.addChild(gun270);
         setRotationAngle(gun270, -2.7512F, 0.0F, 0.0F);
         gun270.cubeList.add(new ModelBox(gun270, 39, 93, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun271 = new ModelRenderer(this);
-        gun271.setRotationPoint(-4.0F, -37.5F, -1.0F);
+        gun271.setRotationPoint(-4.0F, -37.5F, -1);
         samurai_edge_slide.addChild(gun271);
         setRotationAngle(gun271, -1.0038F, 0.0F, 0.0F);
         gun271.cubeList.add(new ModelBox(gun271, 51, 64, 0.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         gun272 = new ModelRenderer(this);
-        gun272.setRotationPoint(1.0F, -34.8F, -3.0F);
+        gun272.setRotationPoint(1, -34.8F, -3.0F);
         samurai_edge_slide.addChild(gun272);
         setRotationAngle(gun272, 0.0F, 0.0F, 2.8999F);
         gun272.cubeList.add(new ModelBox(gun272, 76, 64, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
@@ -1308,7 +1308,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun274.cubeList.add(new ModelBox(gun274, 87, 64, 0.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun275 = new ModelRenderer(this);
-        gun275.setRotationPoint(0.1F, -34.5F, -1.0F);
+        gun275.setRotationPoint(0.1F, -34.5F, -1);
         samurai_edge_slide.addChild(gun275);
         setRotationAngle(gun275, -0.5577F, 0.0F, 0.0F);
         gun275.cubeList.add(new ModelBox(gun275, 102, 100, 0.2F, -0.6469F, -0.2856F, 1, 1, 1, -0.2F, false));
@@ -1326,7 +1326,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun277.cubeList.add(new ModelBox(gun277, 93, 20, 0.0F, 0.0F, 0.0F, 1, 1, 2, -0.001F, false));
 
         gun278 = new ModelRenderer(this);
-        gun278.setRotationPoint(0.3F, -35.5F, 1.0F);
+        gun278.setRotationPoint(0.3F, -35.5F, 1);
         samurai_edge_slide.addChild(gun278);
         gun278.cubeList.add(new ModelBox(gun278, 86, 51, -0.001F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
@@ -1337,7 +1337,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun279.cubeList.add(new ModelBox(gun279, 93, 8, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun280 = new ModelRenderer(this);
-        gun280.setRotationPoint(-0.2F, -37.7F, -1.0F);
+        gun280.setRotationPoint(-0.2F, -37.7F, -1);
         samurai_edge_slide.addChild(gun280);
         setRotationAngle(gun280, -0.5205F, 0.0F, 0.0F);
         gun280.cubeList.add(new ModelBox(gun280, 54, 19, 0.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
@@ -1481,18 +1481,18 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         samurai_edge_slide.addChild(gun304);
         gun304.cubeList.add(new ModelBox(gun304, 30, 158, 0.0F, 0.0F, 4.0F, 1, 1, 11, -0.001F, false));
         gun304.cubeList.add(new ModelBox(gun304, 42, 102, 0.0F, 0.0F, -3.0F, 1, 1, 1, -0.001F, false));
-        gun304.cubeList.add(new ModelBox(gun304, 65, 87, 0.0F, -1.0F, 8.0F, 1, 1, 2, -0.001F, false));
-        gun304.cubeList.add(new ModelBox(gun304, 85, 79, -4.6F, -1.0F, 8.0F, 1, 1, 2, -0.001F, false));
+        gun304.cubeList.add(new ModelBox(gun304, 65, 87, 0.0F, -1, 8.0F, 1, 1, 2, -0.001F, false));
+        gun304.cubeList.add(new ModelBox(gun304, 85, 79, -4.6F, -1, 8.0F, 1, 1, 2, -0.001F, false));
 
         gun136_r1 = new ModelRenderer(this);
-        gun136_r1.setRotationPoint(-3.6F, -1.0F, 10.0F);
+        gun136_r1.setRotationPoint(-3.6F, -1, 10.0F);
         gun304.addChild(gun136_r1);
         setRotationAngle(gun136_r1, -0.4189F, 0.0F, 0.0F);
         gun136_r1.cubeList.add(new ModelBox(gun136_r1, 93, 0, -0.999F, 0.0F, 0.0F, 1, 1, 3, -0.001F, false));
         gun136_r1.cubeList.add(new ModelBox(gun136_r1, 93, 12, 3.599F, 0.0F, 0.0F, 1, 1, 3, -0.001F, false));
 
         gun137_r1 = new ModelRenderer(this);
-        gun137_r1.setRotationPoint(-3.6F, -1.0F, 8.0F);
+        gun137_r1.setRotationPoint(-3.6F, -1, 8.0F);
         gun304.addChild(gun137_r1);
         setRotationAngle(gun137_r1, 0.4189F, 0.0F, 0.0F);
         gun137_r1.cubeList.add(new ModelBox(gun137_r1, 89, 91, -0.999F, 0.0F, -3.0F, 1, 1, 3, -0.001F, false));
@@ -1518,7 +1518,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun307.cubeList.add(new ModelBox(gun307, 33, 7, -1.25F, 0.0F, -5.5F, 2, 1, 4, 0.0F, false));
 
         gun308 = new ModelRenderer(this);
-        gun308.setRotationPoint(-1.0F, -38.0F, 0.5F);
+        gun308.setRotationPoint(-1, -38.0F, 0.5F);
         samurai_edge_slide.addChild(gun308);
         setRotationAngle(gun308, -0.8551F, 0.0F, 0.0F);
         gun308.cubeList.add(new ModelBox(gun308, 81, 87, 0.0F, 0.0F, 0.5F, 1, 1, 2, -0.001F, false));
@@ -1610,9 +1610,9 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         gun323.cubeList.add(new ModelBox(gun323, 40, 141, 0.0F, 0.0F, 0.0F, 2, 1, 11, 0.0F, false));
 
         samurai_edge_mount = new ModelRenderer(this);
-        samurai_edge_mount.setRotationPoint(1.0F, -8.0F, -32.4F);
+        samurai_edge_mount.setRotationPoint(1, -8.0F, -32.4F);
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 89, 139, -3.1F, -1.2F, -0.2F, 3, 1, 16, -0.2F, false));
-        samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 64, 13, -0.9F, 0.6F, 1.0F, 1, 1, 12, -0.3F, false));
+        samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 64, 13, -0.9F, 0.6F, 1, 1, 1, 12, -0.3F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 46, 45, -4.302F, -0.6F, -0.001F, 4, 1, 2, 0.001F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 78, 35, -0.702F, -3.4F, 1.699F, 1, 2, 3, 0.001F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 46, 35, -0.702F, -4.6F, 1.699F, 1, 2, 1, -0.001F, false));
@@ -1670,9 +1670,9 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 70, 93, -3.7F, 2.75F, 7.097F, 2, 1, 1, -0.199F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 93, 73, -3.7F, 2.75F, 6.097F, 2, 1, 1, -0.199F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 77, 156, -3.999F, 1.55F, 0.998F, 3, 1, 12, 0.1F, false));
-        samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 23, 142, -1.1F, 0.1F, 1.0F, 1, 1, 15, -0.2F, false));
+        samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 23, 142, -1.1F, 0.1F, 1, 1, 1, 15, -0.2F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 141, 23, -4.9F, -1.2F, -0.2F, 3, 1, 15, -0.2F, false));
-        samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 33, 0, -5.1F, 0.6F, 1.0F, 1, 1, 12, -0.3F, false));
+        samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 33, 0, -5.1F, 0.6F, 1, 1, 1, 12, -0.3F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 42, 57, -4.7F, 0.6F, -0.4F, 3, 1, 1, -0.3F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 76, 93, -2.3F, 0.6F, -0.4F, 2, 1, 1, -0.3F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 47, 82, -4.699F, -0.6F, -0.001F, 1, 1, 2, 0.0F, false));
@@ -1681,10 +1681,10 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 75, 79, -4.9F, 0.8F, 13.199F, 1, 1, 3, 0.0F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 80, 80, -5.001F, 1.7F, 13.499F, 1, 1, 3, 0.0F, false));
         samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 19, 81, -4.601F, 1.8F, 12.799F, 1, 1, 3, 0.0F, false));
-        samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 141, 48, -4.9F, 0.1F, 1.0F, 1, 1, 15, -0.2F, false));
+        samurai_edge_mount.cubeList.add(new ModelBox(samurai_edge_mount, 141, 48, -4.9F, 0.1F, 1, 1, 1, 15, -0.2F, false));
 
         cube_r1 = new ModelRenderer(this);
-        cube_r1.setRotationPoint(-4.7F, -1.0F, 15.6F);
+        cube_r1.setRotationPoint(-4.7F, -1, 15.6F);
         samurai_edge_mount.addChild(cube_r1);
         setRotationAngle(cube_r1, -1.2915F, 0.0F, 0.0F);
         cube_r1.cubeList.add(new ModelBox(cube_r1, 81, 52, 0.002F, 0.0F, -0.001F, 1, 1, 3, 0.0F, false));
@@ -1715,19 +1715,19 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         cube_r5.setRotationPoint(-4.6F, 2.8F, 12.8F);
         samurai_edge_mount.addChild(cube_r5);
         setRotationAngle(cube_r5, 0.0F, 0.0F, 1.0297F);
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 64, 4, -0.001F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 64, 4, -0.001F, -1, 0.0F, 1, 1, 4, 0.0F, false));
 
         cube_r6 = new ModelRenderer(this);
         cube_r6.setRotationPoint(-4.7F, -0.4F, 3.0F);
         samurai_edge_mount.addChild(cube_r6);
         setRotationAngle(cube_r6, 0.0F, 0.0F, 0.7854F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 61, 0.001F, -1.0F, -1.001F, 1, 1, 12, 0.0F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 61, 0.001F, -1, -1.001F, 1, 1, 12, 0.0F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(-4.7F, 0.3F, 3.0F);
         samurai_edge_mount.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.0F, 0.0F, 0.7854F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 33, 13, 0.001F, -1.0F, -1.001F, 1, 1, 12, 0.0F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 33, 13, 0.001F, -1, -1.001F, 1, 1, 12, 0.0F, false));
 
         cube_r8 = new ModelRenderer(this);
         cube_r8.setRotationPoint(-4.8F, 1.3F, 1.3F);
@@ -1769,7 +1769,7 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         cube_r13.setRotationPoint(-0.4F, 2.8F, 12.8F);
         samurai_edge_mount.addChild(cube_r13);
         setRotationAngle(cube_r13, 0.0F, 0.0F, -1.0297F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 64, 13, -0.999F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 64, 13, -0.999F, -1, 0.0F, 1, 1, 4, 0.0F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(-3.5F, 3.55F, 7.3F);
@@ -1807,20 +1807,20 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
         cube_r16.setRotationPoint(-0.3F, -0.4F, 3.0F);
         samurai_edge_mount.addChild(cube_r16);
         setRotationAngle(cube_r16, 0.0F, 0.0F, -0.7854F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 31, 64, -1.001F, -1.0F, -1.001F, 1, 1, 12, 0.0F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 31, 64, -1.001F, -1, -1.001F, 1, 1, 12, 0.0F, false));
 
         cube_r17 = new ModelRenderer(this);
         cube_r17.setRotationPoint(-0.3F, 0.3F, 3.0F);
         samurai_edge_mount.addChild(cube_r17);
         setRotationAngle(cube_r17, 0.0F, 0.0F, -0.7854F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 64, 35, -1.001F, -1.0F, -1.001F, 1, 1, 12, 0.0F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 64, 35, -1.001F, -1, -1.001F, 1, 1, 12, 0.0F, false));
 
         cube_r18 = new ModelRenderer(this);
         cube_r18.setRotationPoint(-4.7F, 0.4F, 0.8F);
         samurai_edge_mount.addChild(cube_r18);
         setRotationAngle(cube_r18, -0.9774F, 0.0F, 0.0F);
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 42, 98, 0.003F, -1.0F, -0.001F, 1, 1, 1, 0.001F, false));
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 46, 98, 3.397F, -1.0F, -0.001F, 1, 1, 1, 0.001F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 42, 98, 0.003F, -1, -0.001F, 1, 1, 1, 0.001F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 46, 98, 3.397F, -1, -0.001F, 1, 1, 1, 0.001F, false));
 
         cube_r19 = new ModelRenderer(this);
         cube_r19.setRotationPoint(-5.3F, -1.7F, 1.7F);

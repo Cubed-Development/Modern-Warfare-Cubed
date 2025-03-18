@@ -41,10 +41,10 @@ public class ARCarryHandle extends ModelBase {
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(0.0F, -4.0F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 62, 0, -1.0F, -1.0F, -1.0F, 1, 5, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 10, 54, 2.0F, -1.0F, -1.0F, 1, 5, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 21, 23, 0.0F, 1.0F, -1.0F, 2, 3, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 8, 36, 0.0F, -2.0F, -1.0F, 2, 1, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 62, 0, -1, -1, -1, 1, 5, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 10, 54, 2.0F, -1, -1, 1, 5, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 21, 23, 0.0F, 1, -1, 2, 3, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 8, 36, 0.0F, -2.0F, -1, 2, 1, 2, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 8, 71, -3.5F, 4.0F, -6.0F, 9, 3, 11, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 88, 0, -2.51F, 4.05F, -67.0F, 7, 1, 61, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 144, 62, -2.52F, 1.15F, -42.0F, 1, 3, 36, 0.0F, false));
@@ -61,10 +61,10 @@ public class ARCarryHandle extends ModelBase {
         bone.cubeList.add(new ModelBox(bone, 21, 44, -4.5F, 9.09F, -3.0F, 11, 3, 5, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 12, -2.49F, 9.0F, 5.0F, 7, 4, 1, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 25, 52, -2.499F, 12.3F, -6.0F, 7, 1, 13, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 88, 14, -3.5F, 1.0F, -6.0F, 1, 3, 11, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 88, 0, 4.5F, 1.0F, -6.0F, 1, 3, 11, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 73, 71, 3.75F, -1.0F, -9.75F, 2, 8, 4, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 44, -3.75F, -1.0F, -9.75F, 2, 8, 4, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 88, 14, -3.5F, 1, -6.0F, 1, 3, 11, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 88, 0, 4.5F, 1, -6.0F, 1, 3, 11, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 73, 71, 3.75F, -1, -9.75F, 2, 8, 4, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 44, -3.75F, -1, -9.75F, 2, 8, 4, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 141, 6.0F, 14.0F, -70.001F, 1, 2, 69, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 44, -5.0F, 12.7F, -18.0F, 2, 4, 17, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 23, -5.0F, 12.7F, -70.0F, 2, 4, 17, 0.0F, false));
@@ -73,36 +73,36 @@ public class ARCarryHandle extends ModelBase {
         bone2.setRotationPoint(0.0F, 2.0F, 0.0F);
         bone.addChild(bone2);
         setRotationAngle(bone2, 0.0F, 0.0F, 0.7854F);
-        bone2.cubeList.add(new ModelBox(bone2, 10, 26, -1.4F, -1.0F, -1.01F, 1, 1, 2, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 10, 26, -1.4F, -1, -1.01F, 1, 1, 2, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(2.3F, -0.3F, 0.0F);
         bone.addChild(bone4);
         setRotationAngle(bone4, 0.0F, 0.0F, 0.7854F);
-        bone4.cubeList.add(new ModelBox(bone4, 10, 23, -1.0F, -1.001F, -0.99F, 1, 1, 2, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 0, 23, -1.4F, -1.0F, -1.01F, 1, 1, 2, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 10, 23, -1, -1.001F, -0.99F, 1, 1, 2, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 0, 23, -1.4F, -1, -1.01F, 1, 1, 2, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(2.0F, 2.0F, 0.0F);
         bone.addChild(bone3);
         setRotationAngle(bone3, 0.0F, 0.0F, 0.7854F);
-        bone3.cubeList.add(new ModelBox(bone3, 0, 26, -1.0F, -1.4F, -1.01F, 1, 1, 2, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 26, -1, -1.4F, -1.01F, 1, 1, 2, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(-0.3F, -0.3F, 0.0F);
         bone.addChild(bone5);
         setRotationAngle(bone5, 0.0F, 0.0F, 0.7854F);
-        bone5.cubeList.add(new ModelBox(bone5, 0, 3, -1.001F, -1.0F, -0.99F, 1, 1, 2, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 0, 0, -1.0F, -1.4F, -1.01F, 1, 1, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 0, 3, -1.001F, -1, -0.99F, 1, 1, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 0, 0, -1, -1.4F, -1.01F, 1, 1, 2, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
         bone6.setRotationPoint(-2.0F, 3.6F, -0.7F);
         bone.addChild(bone6);
         setRotationAngle(bone6, -0.4538F, 0.0F, 0.0F);
-        bone6.cubeList.add(new ModelBox(bone6, 0, 17, -1.0F, -1.0F, 0.0F, 8, 1, 1, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 0, 17, -1, -1, 0.0F, 8, 1, 1, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
-        bone7.setRotationPoint(5.5F, 1.0F, 5.0F);
+        bone7.setRotationPoint(5.5F, 1, 5.0F);
         bone.addChild(bone7);
         setRotationAngle(bone7, 2.5831F, 0.0F, 0.0F);
         bone7.cubeList.add(new ModelBox(bone7, 51, 97, -1.01F, -4.0F, 0.0F, 1, 4, 6, 0.0F, false));
@@ -190,8 +190,8 @@ public class ARCarryHandle extends ModelBase {
         bone20.setRotationPoint(4.5F, 3.05F, -66.7F);
         bone.addChild(bone20);
         setRotationAngle(bone20, -1.4923F, 0.0F, 0.0F);
-        bone20.cubeList.add(new ModelBox(bone20, 0, 71, -7.0F, -61.0F, -0.01F, 1, 61, 3, 0.0F, false));
-        bone20.cubeList.add(new ModelBox(bone20, 54, 0, -1.0F, -61.0F, -0.01F, 1, 61, 3, 0.0F, false));
+        bone20.cubeList.add(new ModelBox(bone20, 0, 71, -7.0F, -61, -0.01F, 1, 61, 3, 0.0F, false));
+        bone20.cubeList.add(new ModelBox(bone20, 54, 0, -1, -61, -0.01F, 1, 61, 3, 0.0F, false));
 
         bone21 = new ModelRenderer(this);
         bone21.setRotationPoint(6.0F, 7.2F, -9.5F);
@@ -204,8 +204,8 @@ public class ARCarryHandle extends ModelBase {
         bone22.setRotationPoint(8.0F, 16.0F, -15.0F);
         bone.addChild(bone22);
         setRotationAngle(bone22, -0.4189F, 0.0F, 0.0F);
-        bone22.cubeList.add(new ModelBox(bone22, 94, 94, -1.0F, -5.0F, 0.0F, 4, 5, 5, 0.0F, false));
-        bone22.cubeList.add(new ModelBox(bone22, 39, 93, -1.0F, 16.557F, -48.4179F, 4, 5, 5, 0.0F, false));
+        bone22.cubeList.add(new ModelBox(bone22, 94, 94, -1, -5.0F, 0.0F, 4, 5, 5, 0.0F, false));
+        bone22.cubeList.add(new ModelBox(bone22, 39, 93, -1, 16.557F, -48.4179F, 4, 5, 5, 0.0F, false));
         bone22.cubeList.add(new ModelBox(bone22, 34, 0, 3.0F, 16.0905F, -49.0014F, 2, 6, 6, 0.0F, false));
         bone22.cubeList.add(new ModelBox(bone22, 0, 23, 3.0F, -5.4666F, -0.5835F, 2, 6, 6, 0.0F, false));
         bone22.cubeList.add(new ModelBox(bone22, 0, 0, -13.5F, -20.9032F, 4.5847F, 2, 6, 6, 0.0F, false));
@@ -216,7 +216,7 @@ public class ARCarryHandle extends ModelBase {
         bone23.setRotationPoint(0.0F, 2.7F, 0.4F);
         bone.addChild(bone23);
         setRotationAngle(bone23, 0.384F, 0.0F, 0.0F);
-        bone23.cubeList.add(new ModelBox(bone23, 0, 35, -0.99F, -1.0F, 0.0F, 4, 2, 1, 0.0F, false));
+        bone23.cubeList.add(new ModelBox(bone23, 0, 35, -0.99F, -1, 0.0F, 4, 2, 1, 0.0F, false));
     }
 
     @Override

@@ -148,14 +148,14 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard23.cubeList.add(new ModelBox(handguard23, 44, 63, 0.0F, 0.0F, 0.001F, 1, 1, 20, 0.0F, false));
 
         handguard24 = new ModelRenderer(this);
-        handguard24.setRotationPoint(-1.0F, -16.1F, -45.5F);
+        handguard24.setRotationPoint(-1, -16.1F, -45.5F);
         setRotationAngle(handguard24, 0.0F, 0.0F, 0.4461F);
         handguard24.cubeList.add(new ModelBox(handguard24, 66, 63, 0.0F, -0.001F, 0.5F, 1, 1, 19, 0.0F, false));
 
         handguard25 = new ModelRenderer(this);
         handguard25.setRotationPoint(-2.0F, -16.1F, -45.5F);
         setRotationAngle(handguard25, 0.0F, 0.0F, -0.4461F);
-        handguard25.cubeList.add(new ModelBox(handguard25, 66, 42, -1.0F, -0.001F, 0.5F, 1, 1, 19, 0.0F, false));
+        handguard25.cubeList.add(new ModelBox(handguard25, 66, 42, -1, -0.001F, 0.5F, 1, 1, 19, 0.0F, false));
 
         handguard26 = new ModelRenderer(this);
         handguard26.setRotationPoint(-0.1F, -15.65F, -45.5F);
@@ -165,7 +165,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard27 = new ModelRenderer(this);
         handguard27.setRotationPoint(-2.9F, -15.65F, -45.5F);
         setRotationAngle(handguard27, 0.0F, 0.0F, -1.1897F);
-        handguard27.cubeList.add(new ModelBox(handguard27, 44, 42, -1.0F, 0.0F, 0.499F, 1, 1, 20, 0.0F, false));
+        handguard27.cubeList.add(new ModelBox(handguard27, 44, 42, -1, 0.0F, 0.499F, 1, 1, 20, 0.0F, false));
 
         handguard30 = new ModelRenderer(this);
         handguard30.setRotationPoint(-3.65F, -14.5F, -46.0F);
@@ -175,7 +175,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard33 = new ModelRenderer(this);
         handguard33.setRotationPoint(0.65F, -14.5F, -46.0F);
         setRotationAngle(handguard33, 0.0F, 0.0F, 0.8551F);
-        handguard33.cubeList.add(new ModelBox(handguard33, 28, 14, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        handguard33.cubeList.add(new ModelBox(handguard33, 28, 14, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard34 = new ModelRenderer(this);
         handguard34.setRotationPoint(-0.1F, -15.65F, -46.5F);
@@ -185,27 +185,27 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard35 = new ModelRenderer(this);
         handguard35.setRotationPoint(-2.9F, -15.65F, -46.5F);
         setRotationAngle(handguard35, 0.0F, 0.0F, -1.1897F);
-        handguard35.cubeList.add(new ModelBox(handguard35, 7, 28, -1.0F, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
+        handguard35.cubeList.add(new ModelBox(handguard35, 7, 28, -1, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
 
         handguard36 = new ModelRenderer(this);
-        handguard36.setRotationPoint(-1.0F, -16.1F, -45.5F);
+        handguard36.setRotationPoint(-1, -16.1F, -45.5F);
         setRotationAngle(handguard36, 0.0F, 0.0F, 0.4461F);
         handguard36.cubeList.add(new ModelBox(handguard36, 3, 28, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard37 = new ModelRenderer(this);
         handguard37.setRotationPoint(-2.0F, -16.1F, -45.5F);
         setRotationAngle(handguard37, 0.0F, 0.0F, -0.4461F);
-        handguard37.cubeList.add(new ModelBox(handguard37, 22, 27, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        handguard37.cubeList.add(new ModelBox(handguard37, 22, 27, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard38 = new ModelRenderer(this);
-        handguard38.setRotationPoint(1.0F, -13.0F, -44.0F);
+        handguard38.setRotationPoint(1, -13.0F, -44.0F);
         setRotationAngle(handguard38, 0.0F, 0.0F, 0.7064F);
-        handguard38.cubeList.add(new ModelBox(handguard38, 44, 21, -1.0F, -0.001F, -1.0F, 1, 1, 20, 0.0F, false));
+        handguard38.cubeList.add(new ModelBox(handguard38, 44, 21, -1, -0.001F, -1, 1, 1, 20, 0.0F, false));
 
         handguard39 = new ModelRenderer(this);
         handguard39.setRotationPoint(-4.0F, -13.0F, -44.0F);
         setRotationAngle(handguard39, 0.0F, 0.0F, -0.7064F);
-        handguard39.cubeList.add(new ModelBox(handguard39, 44, 0, 0.0F, -0.001F, -1.0F, 1, 1, 20, 0.0F, false));
+        handguard39.cubeList.add(new ModelBox(handguard39, 44, 0, 0.0F, -0.001F, -1, 1, 1, 20, 0.0F, false));
 
         handguard41 = new ModelRenderer(this);
         handguard41.setRotationPoint(0.65F, -14.5F, -47.0F);
@@ -220,7 +220,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard43 = new ModelRenderer(this);
         handguard43.setRotationPoint(0.65F, -14.5F, -46.5F);
         setRotationAngle(handguard43, 0.0F, 0.0F, 0.8551F);
-        handguard43.cubeList.add(new ModelBox(handguard43, 14, 27, -1.0F, -0.001F, 0.0F, 1, 1, 1, 0.0F, false));
+        handguard43.cubeList.add(new ModelBox(handguard43, 14, 27, -1, -0.001F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard45 = new ModelRenderer(this);
         handguard45.setRotationPoint(-3.65F, -14.5F, -46.5F);
@@ -230,22 +230,22 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard46 = new ModelRenderer(this);
         handguard46.setRotationPoint(-3.65F, -14.5F, -47.0F);
         setRotationAngle(handguard46, 0.0F, 0.0F, -1.4871F);
-        handguard46.cubeList.add(new ModelBox(handguard46, 14, 16, -1.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        handguard46.cubeList.add(new ModelBox(handguard46, 14, 16, -1, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         handguard47 = new ModelRenderer(this);
         handguard47.setRotationPoint(-3.75F, -13.5F, -47.0F);
         setRotationAngle(handguard47, 0.0F, 0.0F, -1.673F);
-        handguard47.cubeList.add(new ModelBox(handguard47, 10, 15, -1.0F, 0.0F, -0.001F, 1, 1, 2, 0.0F, false));
+        handguard47.cubeList.add(new ModelBox(handguard47, 10, 15, -1, 0.0F, -0.001F, 1, 1, 2, 0.0F, false));
 
         handguard48 = new ModelRenderer(this);
-        handguard48.setRotationPoint(1.0F, -13.0F, -45.0F);
+        handguard48.setRotationPoint(1, -13.0F, -45.0F);
         setRotationAngle(handguard48, 0.0F, 0.0F, 0.1859F);
-        handguard48.cubeList.add(new ModelBox(handguard48, 0, 44, -1.0F, 0.0F, -0.002F, 1, 1, 20, 0.0F, false));
+        handguard48.cubeList.add(new ModelBox(handguard48, 0, 44, -1, 0.0F, -0.002F, 1, 1, 20, 0.0F, false));
 
         handguard49 = new ModelRenderer(this);
         handguard49.setRotationPoint(0.8F, -12.0F, -45.0F);
         setRotationAngle(handguard49, 0.0F, 0.0F, 0.8179F);
-        handguard49.cubeList.add(new ModelBox(handguard49, 0, 22, -1.0F, 0.0F, -0.001F, 1, 2, 20, 0.0F, false));
+        handguard49.cubeList.add(new ModelBox(handguard49, 0, 22, -1, 0.0F, -0.001F, 1, 2, 20, 0.0F, false));
 
         handguard50 = new ModelRenderer(this);
         handguard50.setRotationPoint(-4.0F, -13.0F, -45.0F);
@@ -264,7 +264,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard53 = new ModelRenderer(this);
         handguard53.setRotationPoint(0.8F, -12.0F, -46.0F);
         setRotationAngle(handguard53, 0.0F, 0.0F, 0.8179F);
-        handguard53.cubeList.add(new ModelBox(handguard53, 27, 9, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        handguard53.cubeList.add(new ModelBox(handguard53, 27, 9, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard54 = new ModelRenderer(this);
         handguard54.setRotationPoint(-3.8F, -12.0F, -46.0F);
@@ -293,7 +293,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard59 = new ModelRenderer(this);
         handguard59.setRotationPoint(-3.65F, -12.5F, -47.0F);
         setRotationAngle(handguard59, 0.0F, 0.0F, -2.4166F);
-        handguard59.cubeList.add(new ModelBox(handguard59, 14, 0, -1.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        handguard59.cubeList.add(new ModelBox(handguard59, 14, 0, -1, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         handguard60 = new ModelRenderer(this);
         handguard60.setRotationPoint(0.8F, -13.8F, -26.0F);
@@ -313,25 +313,25 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard63 = new ModelRenderer(this);
         handguard63.setRotationPoint(-3.8F, -13.8F, -26.0F);
         setRotationAngle(handguard63, 0.0F, 0.0F, -2.8999F);
-        handguard63.cubeList.add(new ModelBox(handguard63, 0, 27, -1.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard63.cubeList.add(new ModelBox(handguard63, 0, 27, -1, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard64 = new ModelRenderer(this);
         handguard64.setRotationPoint(-3.8F, -13.8F, -26.0F);
         setRotationAngle(handguard64, 0.0F, 0.0F, -1.7474F);
-        handguard64.cubeList.add(new ModelBox(handguard64, 25, 26, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        handguard64.cubeList.add(new ModelBox(handguard64, 25, 26, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard65 = new ModelRenderer(this);
         handguard65.setRotationPoint(-3.55F, -14.75F, -26.0F);
         setRotationAngle(handguard65, 0.0F, 0.0F, -2.4538F);
-        handguard65.cubeList.add(new ModelBox(handguard65, 11, 26, -1.0F, 0.0F, 0.001F, 1, 1, 1, 0.0F, false));
+        handguard65.cubeList.add(new ModelBox(handguard65, 11, 26, -1, 0.0F, 0.001F, 1, 1, 1, 0.0F, false));
 
         handguard66 = new ModelRenderer(this);
         handguard66.setRotationPoint(-1.9F, -15.7F, -26.5F);
-        handguard66.cubeList.add(new ModelBox(handguard66, 7, 26, -1.0F, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
+        handguard66.cubeList.add(new ModelBox(handguard66, 7, 26, -1, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
 
         handguard67 = new ModelRenderer(this);
         handguard67.setRotationPoint(-0.1F, -15.7F, -26.5F);
-        handguard67.cubeList.add(new ModelBox(handguard67, 3, 26, -1.0F, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
+        handguard67.cubeList.add(new ModelBox(handguard67, 3, 26, -1, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
 
         handguard68 = new ModelRenderer(this);
         handguard68.setRotationPoint(-2.0F, -16.1F, -42.0F);
@@ -381,22 +381,22 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard78 = new ModelRenderer(this);
         handguard78.setRotationPoint(-0.1F, -15.65F, -45.5F);
         setRotationAngle(handguard78, 0.0F, 0.0F, 1.1897F);
-        handguard78.cubeList.add(new ModelBox(handguard78, 6, 12, 1.0F, 0.0F, 0.5F, 1, 1, 2, 0.0F, false));
+        handguard78.cubeList.add(new ModelBox(handguard78, 6, 12, 1, 0.0F, 0.5F, 1, 1, 2, 0.0F, false));
 
         handguard79 = new ModelRenderer(this);
         handguard79.setRotationPoint(-0.1F, -15.65F, -40.5F);
         setRotationAngle(handguard79, 0.0F, 0.0F, 1.1897F);
-        handguard79.cubeList.add(new ModelBox(handguard79, 0, 3, 1.0F, 0.0F, 0.5F, 1, 1, 2, 0.0F, false));
+        handguard79.cubeList.add(new ModelBox(handguard79, 0, 3, 1, 0.0F, 0.5F, 1, 1, 2, 0.0F, false));
 
         handguard80 = new ModelRenderer(this);
         handguard80.setRotationPoint(-0.1F, -15.65F, -35.5F);
         setRotationAngle(handguard80, 0.0F, 0.0F, 1.1897F);
-        handguard80.cubeList.add(new ModelBox(handguard80, 0, 0, 1.0F, 0.0F, 0.5F, 1, 1, 2, 0.0F, false));
+        handguard80.cubeList.add(new ModelBox(handguard80, 0, 0, 1, 0.0F, 0.5F, 1, 1, 2, 0.0F, false));
 
         handguard81 = new ModelRenderer(this);
         handguard81.setRotationPoint(-0.1F, -15.65F, -30.5F);
         setRotationAngle(handguard81, 0.0F, 0.0F, 1.1897F);
-        handguard81.cubeList.add(new ModelBox(handguard81, 0, 7, 1.0F, 0.0F, 0.5F, 1, 1, 4, 0.0F, false));
+        handguard81.cubeList.add(new ModelBox(handguard81, 0, 7, 1, 0.0F, 0.5F, 1, 1, 4, 0.0F, false));
 
         handguard82 = new ModelRenderer(this);
         handguard82.setRotationPoint(-0.1F, -15.65F, -43.5F);
@@ -406,7 +406,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard83 = new ModelRenderer(this);
         handguard83.setRotationPoint(-0.1F, -15.65F, -43.5F);
         setRotationAngle(handguard83, 0.0F, 0.0F, 1.1897F);
-        handguard83.cubeList.add(new ModelBox(handguard83, 66, 22, 1.0F, 0.1F, 0.5F, 1, 1, 13, 0.0F, false));
+        handguard83.cubeList.add(new ModelBox(handguard83, 66, 22, 1, 0.1F, 0.5F, 1, 1, 13, 0.0F, false));
 
         handguard84 = new ModelRenderer(this);
         handguard84.setRotationPoint(-2.9F, -15.65F, -43.5F);
@@ -414,27 +414,27 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard84.cubeList.add(new ModelBox(handguard84, 22, 66, -2.0F, 0.1F, 0.5F, 1, 1, 13, 0.0F, false));
 
         handguard85 = new ModelRenderer(this);
-        handguard85.setRotationPoint(1.0F, -13.0F, -41.5F);
+        handguard85.setRotationPoint(1, -13.0F, -41.5F);
         setRotationAngle(handguard85, 0.0F, 0.0F, 0.7064F);
         handguard85.cubeList.add(new ModelBox(handguard85, 16, 25, -0.8F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard86 = new ModelRenderer(this);
-        handguard86.setRotationPoint(1.0F, -13.0F, -38.0F);
+        handguard86.setRotationPoint(1, -13.0F, -38.0F);
         setRotationAngle(handguard86, 0.0F, 0.0F, 0.7064F);
         handguard86.cubeList.add(new ModelBox(handguard86, 25, 15, -0.8F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard87 = new ModelRenderer(this);
-        handguard87.setRotationPoint(1.0F, -13.0F, -34.5F);
+        handguard87.setRotationPoint(1, -13.0F, -34.5F);
         setRotationAngle(handguard87, 0.0F, 0.0F, 0.7064F);
         handguard87.cubeList.add(new ModelBox(handguard87, 25, 13, -0.8F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard88 = new ModelRenderer(this);
-        handguard88.setRotationPoint(1.0F, -13.0F, -31.0F);
+        handguard88.setRotationPoint(1, -13.0F, -31);
         setRotationAngle(handguard88, 0.0F, 0.0F, 0.7064F);
         handguard88.cubeList.add(new ModelBox(handguard88, 0, 25, -0.8F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard89 = new ModelRenderer(this);
-        handguard89.setRotationPoint(1.0F, -13.0F, -27.5F);
+        handguard89.setRotationPoint(1, -13.0F, -27.5F);
         setRotationAngle(handguard89, 0.0F, 0.0F, 0.7064F);
         handguard89.cubeList.add(new ModelBox(handguard89, 13, 24, -0.8F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -454,7 +454,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard92.cubeList.add(new ModelBox(handguard92, 22, 23, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard93 = new ModelRenderer(this);
-        handguard93.setRotationPoint(1.15F, -12.85F, -31.0F);
+        handguard93.setRotationPoint(1.15F, -12.85F, -31);
         setRotationAngle(handguard93, 0.0F, 0.0F, 1.8218F);
         handguard93.cubeList.add(new ModelBox(handguard93, 22, 18, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
@@ -479,7 +479,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard97.cubeList.add(new ModelBox(handguard97, 22, 8, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         handguard98 = new ModelRenderer(this);
-        handguard98.setRotationPoint(0.9F, -11.9F, -31.0F);
+        handguard98.setRotationPoint(0.9F, -11.9F, -31);
         setRotationAngle(handguard98, 0.0F, 0.0F, 2.4166F);
         handguard98.cubeList.add(new ModelBox(handguard98, 22, 6, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
@@ -504,7 +504,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard102.cubeList.add(new ModelBox(handguard102, 22, 12, -0.2F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         handguard103 = new ModelRenderer(this);
-        handguard103.setRotationPoint(-4.0F, -13.0F, -31.0F);
+        handguard103.setRotationPoint(-4.0F, -13.0F, -31);
         setRotationAngle(handguard103, 0.0F, 0.0F, -0.7064F);
         handguard103.cubeList.add(new ModelBox(handguard103, 16, 12, -0.2F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -516,27 +516,27 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard105 = new ModelRenderer(this);
         handguard105.setRotationPoint(-4.15F, -12.85F, -41.5F);
         setRotationAngle(handguard105, 0.0F, 0.0F, -1.8218F);
-        handguard105.cubeList.add(new ModelBox(handguard105, 10, 12, -1.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard105.cubeList.add(new ModelBox(handguard105, 10, 12, -1, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard106 = new ModelRenderer(this);
         handguard106.setRotationPoint(-4.15F, -12.85F, -34.5F);
         setRotationAngle(handguard106, 0.0F, 0.0F, -1.8218F);
-        handguard106.cubeList.add(new ModelBox(handguard106, 0, 9, -1.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard106.cubeList.add(new ModelBox(handguard106, 0, 9, -1, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard107 = new ModelRenderer(this);
         handguard107.setRotationPoint(-4.15F, -12.85F, -27.5F);
         setRotationAngle(handguard107, 0.0F, 0.0F, -1.8218F);
-        handguard107.cubeList.add(new ModelBox(handguard107, 8, 2, -1.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard107.cubeList.add(new ModelBox(handguard107, 8, 2, -1, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard108 = new ModelRenderer(this);
-        handguard108.setRotationPoint(-4.15F, -12.85F, -31.0F);
+        handguard108.setRotationPoint(-4.15F, -12.85F, -31);
         setRotationAngle(handguard108, 0.0F, 0.0F, -1.8218F);
-        handguard108.cubeList.add(new ModelBox(handguard108, 8, 0, -1.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard108.cubeList.add(new ModelBox(handguard108, 8, 0, -1, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard109 = new ModelRenderer(this);
         handguard109.setRotationPoint(-4.15F, -12.85F, -38.0F);
         setRotationAngle(handguard109, 0.0F, 0.0F, -1.8218F);
-        handguard109.cubeList.add(new ModelBox(handguard109, 0, 7, -1.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
+        handguard109.cubeList.add(new ModelBox(handguard109, 0, 7, -1, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         handguard110 = new ModelRenderer(this);
         handguard110.setRotationPoint(-3.9F, -11.9F, -41.5F);
@@ -554,7 +554,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard112.cubeList.add(new ModelBox(handguard112, 22, 0, -2.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         handguard113 = new ModelRenderer(this);
-        handguard113.setRotationPoint(-3.9F, -11.9F, -31.0F);
+        handguard113.setRotationPoint(-3.9F, -11.9F, -31);
         setRotationAngle(handguard113, 0.0F, 0.0F, -2.4166F);
         handguard113.cubeList.add(new ModelBox(handguard113, 6, 18, -2.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
@@ -571,16 +571,16 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard202_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(handguard202_r1);
         setRotationAngle(handguard202_r1, -0.0925F, 0.0524F, 0.4538F);
-        handguard202_r1.cubeList.add(new ModelBox(handguard202_r1, 11, 76, -1.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard202_r1.cubeList.add(new ModelBox(handguard202_r1, 11, 76, -1, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard201_r1 = new ModelRenderer(this);
-        handguard201_r1.setRotationPoint(1.0F, -4.2F, 0.0F);
+        handguard201_r1.setRotationPoint(1, -4.2F, 0.0F);
         bone.addChild(handguard201_r1);
         setRotationAngle(handguard201_r1, 0.0925F, 0.0349F, 0.4538F);
         handguard201_r1.cubeList.add(new ModelBox(handguard201_r1, 2, 53, 0.2F, 0.0F, 0.05F, 1, 1, 3, 0.0F, false));
 
         handguard200_r1 = new ModelRenderer(this);
-        handguard200_r1.setRotationPoint(1.0F, -4.2F, 0.0F);
+        handguard200_r1.setRotationPoint(1, -4.2F, 0.0F);
         bone.addChild(handguard200_r1);
         setRotationAngle(handguard200_r1, 0.0925F, -0.0524F, 0.4538F);
         handguard200_r1.cubeList.add(new ModelBox(handguard200_r1, 2, 47, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
@@ -589,7 +589,7 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard201_r2.setRotationPoint(0.0F, -4.2F, 0.0F);
         bone.addChild(handguard201_r2);
         setRotationAngle(handguard201_r2, 0.0925F, 0.0524F, -0.4538F);
-        handguard201_r2.cubeList.add(new ModelBox(handguard201_r2, 11, 87, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard201_r2.cubeList.add(new ModelBox(handguard201_r2, 11, 87, -1, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard199_r1 = new ModelRenderer(this);
         handguard199_r1.setRotationPoint(0.0F, -4.2F, 0.0F);
@@ -613,13 +613,13 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard203_r1.setRotationPoint(-1.6F, -2.6F, 0.0F);
         bone.addChild(handguard203_r1);
         setRotationAngle(handguard203_r1, -0.0436F, -0.096F, 0.4538F);
-        handguard203_r1.cubeList.add(new ModelBox(handguard203_r1, 32, 53, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard203_r1.cubeList.add(new ModelBox(handguard203_r1, 32, 53, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard202_r3 = new ModelRenderer(this);
         handguard202_r3.setRotationPoint(-1.6F, -1.6F, 0.0F);
         bone.addChild(handguard202_r3);
         setRotationAngle(handguard202_r3, 0.0F, -0.1047F, 0.0F);
-        handguard202_r3.cubeList.add(new ModelBox(handguard202_r3, 32, 47, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard202_r3.cubeList.add(new ModelBox(handguard202_r3, 32, 47, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard204_r2 = new ModelRenderer(this);
         handguard204_r2.setRotationPoint(-1.6F, -1.6F, 0.0F);
@@ -637,31 +637,31 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard203_r2.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(handguard203_r2);
         setRotationAngle(handguard203_r2, -0.0925F, -0.0349F, 0.4538F);
-        handguard203_r2.cubeList.add(new ModelBox(handguard203_r2, 23, 47, -1.2F, -1.0F, 0.05F, 1, 1, 3, 0.0F, false));
+        handguard203_r2.cubeList.add(new ModelBox(handguard203_r2, 23, 47, -1.2F, -1, 0.05F, 1, 1, 3, 0.0F, false));
 
         handguard200_r2 = new ModelRenderer(this);
         handguard200_r2.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(handguard200_r2);
         setRotationAngle(handguard200_r2, -0.1047F, 0.0F, 0.0F);
-        handguard200_r2.cubeList.add(new ModelBox(handguard200_r2, 2, 76, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard200_r2.cubeList.add(new ModelBox(handguard200_r2, 2, 76, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard203_r3 = new ModelRenderer(this);
-        handguard203_r3.setRotationPoint(1.0F, 0.0F, 0.0F);
+        handguard203_r3.setRotationPoint(1, 0.0F, 0.0F);
         bone.addChild(handguard203_r3);
         setRotationAngle(handguard203_r3, -0.0925F, -0.0524F, -0.4538F);
-        handguard203_r3.cubeList.add(new ModelBox(handguard203_r3, 11, 71, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard203_r3.cubeList.add(new ModelBox(handguard203_r3, 11, 71, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard204_r3 = new ModelRenderer(this);
-        handguard204_r3.setRotationPoint(1.0F, 0.0F, 0.0F);
+        handguard204_r3.setRotationPoint(1, 0.0F, 0.0F);
         bone.addChild(handguard204_r3);
         setRotationAngle(handguard204_r3, -0.0925F, 0.0349F, -0.4538F);
-        handguard204_r3.cubeList.add(new ModelBox(handguard204_r3, 2, 71, 0.2F, -1.0F, 0.05F, 1, 1, 3, 0.0F, false));
+        handguard204_r3.cubeList.add(new ModelBox(handguard204_r3, 2, 71, 0.2F, -1, 0.05F, 1, 1, 3, 0.0F, false));
 
         handguard205_r2 = new ModelRenderer(this);
         handguard205_r2.setRotationPoint(2.6F, -1.6F, 0.0F);
         bone.addChild(handguard205_r2);
         setRotationAngle(handguard205_r2, 0.0436F, 0.096F, 0.4538F);
-        handguard205_r2.cubeList.add(new ModelBox(handguard205_r2, 2, 66, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard205_r2.cubeList.add(new ModelBox(handguard205_r2, 2, 66, -1, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard206_r1 = new ModelRenderer(this);
         handguard206_r1.setRotationPoint(2.6F, -1.6F, 0.0F);
@@ -673,13 +673,13 @@ public class M4MagpulHandGuard extends ModelBase {
         handguard202_r4.setRotationPoint(2.6F, -2.6F, 0.0F);
         bone.addChild(handguard202_r4);
         setRotationAngle(handguard202_r4, -0.0436F, 0.096F, -0.4538F);
-        handguard202_r4.cubeList.add(new ModelBox(handguard202_r4, 2, 58, -1.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard202_r4.cubeList.add(new ModelBox(handguard202_r4, 2, 58, -1, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard201_r3 = new ModelRenderer(this);
         handguard201_r3.setRotationPoint(2.6F, -1.6F, 0.0F);
         bone.addChild(handguard201_r3);
         setRotationAngle(handguard201_r3, 0.0F, 0.1047F, 0.0F);
-        handguard201_r3.cubeList.add(new ModelBox(handguard201_r3, 11, 58, -1.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard201_r3.cubeList.add(new ModelBox(handguard201_r3, 11, 58, -1, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard203_r4 = new ModelRenderer(this);
         handguard203_r4.setRotationPoint(2.6F, -2.6F, 0.0F);

@@ -70,10 +70,10 @@ public class HK417 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 54, 29, -3.8F, -32.2F, -13.7F, 1, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 45, 36, -3.8F, -34.2F, -14.7F, 1, 3, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 64, 0, -3.8F, -35.0F, -21.4F, 1, 1, 10, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 61, 36, -3.0F, -34.05F, -1.0F, 3, 1, 5, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 61, 36, -3.0F, -34.05F, -1, 3, 1, 5, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 80, -3.0F, -31.7F, -4.0F, 3, 1, 4, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 45, 36, -3.3F, -35.7F, -1.0F, 3, 2, 5, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 75, 64, -0.7F, -35.7F, -1.0F, 1, 2, 5, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 45, 36, -3.3F, -35.7F, -1, 3, 2, 5, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 75, 64, -0.7F, -35.7F, -1, 1, 2, 5, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 19, 72, -3.5F, -35.4F, -24.5F, 4, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 76, 0, -3.5F, -35.7F, -13.2F, 4, 4, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 45, 63, -3.5F, -35.7F, -23.2F, 4, 8, 10, 0.0F, false));
@@ -100,7 +100,7 @@ public class HK417 extends ModelWithAttachments {
         gun22_r1.setRotationPoint(-0.5F, -26.65F, -11.65F);
         gun.addChild(gun22_r1);
         setRotationAngle(gun22_r1, 1.1781F, 0.0F, 0.0F);
-        gun22_r1.cubeList.add(new ModelBox(gun22_r1, 30, 13, -2.0F, 0.0F, -1.0F, 2, 2, 1, 0.0F, false));
+        gun22_r1.cubeList.add(new ModelBox(gun22_r1, 30, 13, -2.0F, 0.0F, -1, 2, 2, 1, 0.0F, false));
 
         gun21_r1 = new ModelRenderer(this);
         gun21_r1.setRotationPoint(-0.5F, -26.65F, -7.55F);
@@ -112,13 +112,13 @@ public class HK417 extends ModelWithAttachments {
         gun30_r1.setRotationPoint(-3.2F, -30.7F, -7.6F);
         gun.addChild(gun30_r1);
         setRotationAngle(gun30_r1, -2.3562F, 0.0F, 0.0F);
-        gun30_r1.cubeList.add(new ModelBox(gun30_r1, 75, 52, 0.2F, -2.0F, -1.0F, 3, 2, 1, 0.0F, false));
+        gun30_r1.cubeList.add(new ModelBox(gun30_r1, 75, 52, 0.2F, -2.0F, -1, 3, 2, 1, 0.0F, false));
 
         gun29_r1 = new ModelRenderer(this);
         gun29_r1.setRotationPoint(-3.2F, -26.7F, -7.6F);
         gun.addChild(gun29_r1);
         setRotationAngle(gun29_r1, -2.3562F, 0.0F, 0.0F);
-        gun29_r1.cubeList.add(new ModelBox(gun29_r1, 32, 52, 0.2F, -1.0F, -2.0F, 3, 1, 2, 0.0F, false));
+        gun29_r1.cubeList.add(new ModelBox(gun29_r1, 32, 52, 0.2F, -1, -2.0F, 3, 1, 2, 0.0F, false));
 
         gun29_r2 = new ModelRenderer(this);
         gun29_r2.setRotationPoint(-3.2F, -30.7F, -11.5F);
@@ -136,19 +136,19 @@ public class HK417 extends ModelWithAttachments {
         gun48_r1.setRotationPoint(0.85F, -34.05F, -22.8F);
         gun.addChild(gun48_r1);
         setRotationAngle(gun48_r1, 0.0F, 0.0F, 0.7854F);
-        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 103, 33, -1.0F, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 103, 33, -1, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
 
         gun47_r1 = new ModelRenderer(this);
         gun47_r1.setRotationPoint(0.85F, -35.05F, -22.8F);
         gun.addChild(gun47_r1);
         setRotationAngle(gun47_r1, 0.0F, 0.0F, 0.7854F);
-        gun47_r1.cubeList.add(new ModelBox(gun47_r1, 103, 89, -1.0F, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        gun47_r1.cubeList.add(new ModelBox(gun47_r1, 103, 89, -1, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
 
         gun52_r1 = new ModelRenderer(this);
         gun52_r1.setRotationPoint(1.05F, -33.05F, -12.3F);
         gun.addChild(gun52_r1);
         setRotationAngle(gun52_r1, -0.4363F, 0.0F, 0.0F);
-        gun52_r1.cubeList.add(new ModelBox(gun52_r1, 75, 45, -1.0F, 0.0F, 0.0F, 1, 1, 1, -0.2F, false));
+        gun52_r1.cubeList.add(new ModelBox(gun52_r1, 75, 45, -1, 0.0F, 0.0F, 1, 1, 1, -0.2F, false));
 
         gun50_r1 = new ModelRenderer(this);
         gun50_r1.setRotationPoint(-3.9F, -27.2F, -23.2F);
@@ -222,13 +222,13 @@ public class HK417 extends ModelWithAttachments {
         gun115_r1.cubeList.add(new ModelBox(gun115_r1, 14, 80, -2.0F, 0.0F, -0.003F, 2, 3, 3, 0.0F, false));
 
         gun118_r1 = new ModelRenderer(this);
-        gun118_r1.setRotationPoint(-3.9F, -37.6F, 1.0F);
+        gun118_r1.setRotationPoint(-3.9F, -37.6F, 1);
         gun.addChild(gun118_r1);
         setRotationAngle(gun118_r1, 0.0F, 0.0F, -2.3562F);
-        gun118_r1.cubeList.add(new ModelBox(gun118_r1, 75, 93, -1.0F, 0.0F, 0.0F, 1, 2, 3, 0.0F, false));
+        gun118_r1.cubeList.add(new ModelBox(gun118_r1, 75, 93, -1, 0.0F, 0.0F, 1, 2, 3, 0.0F, false));
 
         gun117_r2 = new ModelRenderer(this);
-        gun117_r2.setRotationPoint(0.9F, -37.6F, 1.0F);
+        gun117_r2.setRotationPoint(0.9F, -37.6F, 1);
         gun.addChild(gun117_r2);
         setRotationAngle(gun117_r2, 0.0F, 0.0F, 2.3562F);
         gun117_r2.cubeList.add(new ModelBox(gun117_r2, 40, 97, 0.0F, 0.0F, 0.0F, 1, 2, 3, 0.0F, false));
@@ -240,7 +240,7 @@ public class HK417 extends ModelWithAttachments {
         gun152_r1.cubeList.add(new ModelBox(gun152_r1, 75, 47, 0.2F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun262_r1 = new ModelRenderer(this);
-        gun262_r1.setRotationPoint(-4.3F, -36.2F, -21.0F);
+        gun262_r1.setRotationPoint(-4.3F, -36.2F, -21);
         gun.addChild(gun262_r1);
         setRotationAngle(gun262_r1, 0.0F, 0.0F, -1.2641F);
         gun262_r1.cubeList.add(new ModelBox(gun262_r1, 72, 37, 0.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));

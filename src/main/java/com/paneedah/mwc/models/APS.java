@@ -69,7 +69,7 @@ public class APS extends ModelWithAttachments {
         gun182.setRotationPoint(-3.0F, -17.6F, 3.0F);
         gun.addChild(gun182);
         setRotationAngle(gun182, -3.0486F, 0.0F, 0.0F);
-        gun182.cubeList.add(new ModelBox(gun182, 23, 0, 0.0F, -1.0F, 0.0F, 3, 8, 2, 0.0F, false));
+        gun182.cubeList.add(new ModelBox(gun182, 23, 0, 0.0F, -1, 0.0F, 3, 8, 2, 0.0F, false));
 
         gun181 = new ModelRenderer(this);
         gun181.setRotationPoint(-3.0F, -23.7F, 2.3F);
@@ -141,13 +141,13 @@ public class APS extends ModelWithAttachments {
         gun156.cubeList.add(new ModelBox(gun156, 67, 22, -0.001F, 0.0F, -0.001F, 2, 1, 1, 0.0F, false));
 
         gun155 = new ModelRenderer(this);
-        gun155.setRotationPoint(-3.5F, -31.0F, -10.0F);
+        gun155.setRotationPoint(-3.5F, -31, -10.0F);
         gun.addChild(gun155);
         setRotationAngle(gun155, 1.2641F, 0.0F, 0.0F);
         gun155.cubeList.add(new ModelBox(gun155, 34, 11, 0.002F, 0.0F, 0.0F, 4, 5, 2, 0.0F, false));
 
         gun154 = new ModelRenderer(this);
-        gun154.setRotationPoint(-3.5F, -31.0F, -13.5F);
+        gun154.setRotationPoint(-3.5F, -31, -13.5F);
         gun.addChild(gun154);
         setRotationAngle(gun154, 2.0448F, 0.0F, 0.0F);
         gun154.cubeList.add(new ModelBox(gun154, 0, 42, -0.001F, 0.0F, 0.0F, 4, 1, 3, 0.0F, false));
@@ -227,7 +227,7 @@ public class APS extends ModelWithAttachments {
         gun1799.cubeList.add(new ModelBox(gun1799, 75, 58, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun1588 = new ModelRenderer(this);
-        gun1588.setRotationPoint(-2.5F, -35.85F, -31.0F);
+        gun1588.setRotationPoint(-2.5F, -35.85F, -31);
         gun.addChild(gun1588);
         gun1588.cubeList.add(new ModelBox(gun1588, 43, 81, 0.0F, 0.0F, 0.0F, 2, 2, 23, 0.0F, false));
 
@@ -263,7 +263,7 @@ public class APS extends ModelWithAttachments {
         gun92.setRotationPoint(-3.5F, -30.5F, -4.0F);
         gun.addChild(gun92);
         setRotationAngle(gun92, -1.3384F, 0.0F, 0.0F);
-        gun92.cubeList.add(new ModelBox(gun92, 25, 86, 0.001F, 0.0F, -1.0F, 4, 3, 15, 0.0F, false));
+        gun92.cubeList.add(new ModelBox(gun92, 25, 86, 0.001F, 0.0F, -1, 4, 3, 15, 0.0F, false));
 
         gun86 = new ModelRenderer(this);
         gun86.setRotationPoint(-3.5F, -30.5F, 1.4F);
@@ -280,15 +280,15 @@ public class APS extends ModelWithAttachments {
         gun84 = new ModelRenderer(this);
         gun84.setRotationPoint(-3.5F, -33.5F, -0.5F);
         gun.addChild(gun84);
-        gun84.cubeList.add(new ModelBox(gun84, 80, 81, 0.0F, 1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun84.cubeList.add(new ModelBox(gun84, 80, 81, 0.0F, 1, 0.0F, 1, 1, 4, 0.0F, false));
         gun84.cubeList.add(new ModelBox(gun84, 54, 5, -0.002F, 0.2F, -0.001F, 1, 1, 4, 0.0F, false));
-        gun84.cubeList.add(new ModelBox(gun84, 54, 38, 3.0F, 1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun84.cubeList.add(new ModelBox(gun84, 54, 38, 3.0F, 1, 0.0F, 1, 1, 4, 0.0F, false));
         gun84.cubeList.add(new ModelBox(gun84, 36, 41, 3.002F, 0.2F, -0.001F, 1, 1, 4, 0.0F, false));
-        gun84.cubeList.add(new ModelBox(gun84, 54, 33, 2.55F, 1.0F, 0.1F, 1, 1, 4, 0.0F, false));
+        gun84.cubeList.add(new ModelBox(gun84, 54, 33, 2.55F, 1, 0.1F, 1, 1, 4, 0.0F, false));
         gun84.cubeList.add(new ModelBox(gun84, 54, 0, 2.551F, 0.2F, 0.099F, 1, 1, 4, 0.0F, false));
-        gun84.cubeList.add(new ModelBox(gun84, 54, 18, 0.45F, 1.0F, 0.1F, 1, 1, 4, 0.0F, false));
+        gun84.cubeList.add(new ModelBox(gun84, 54, 18, 0.45F, 1, 0.1F, 1, 1, 4, 0.0F, false));
         gun84.cubeList.add(new ModelBox(gun84, 54, 13, 0.449F, 0.2F, 0.099F, 1, 1, 4, 0.0F, false));
-        gun84.cubeList.add(new ModelBox(gun84, 34, 75, 0.95F, 1.0F, 0.099F, 2, 1, 4, 0.0F, false));
+        gun84.cubeList.add(new ModelBox(gun84, 34, 75, 0.95F, 1, 0.099F, 2, 1, 4, 0.0F, false));
         gun84.cubeList.add(new ModelBox(gun84, 19, 59, 0.95F, 0.5F, 0.098F, 2, 1, 4, 0.0F, false));
         gun84.cubeList.add(new ModelBox(gun84, 0, 65, 0.95F, -2.6F, 1.198F, 2, 3, 1, 0.0F, false));
         gun84.cubeList.add(new ModelBox(gun84, 80, 2, 1.5F, -2.6F, 1.498F, 1, 1, 1, -0.2F, false));
@@ -321,7 +321,7 @@ public class APS extends ModelWithAttachments {
         gun6.cubeList.add(new ModelBox(gun6, 54, 0, 0.0F, 0.0F, 0.0F, 4, 3, 10, 0.0F, false));
 
         gun2 = new ModelRenderer(this);
-        gun2.setRotationPoint(-2.0F, -31.0F, -8.0F);
+        gun2.setRotationPoint(-2.0F, -31, -8.0F);
         gun.addChild(gun2);
         setRotationAngle(gun2, -0.5205F, 0.0F, 0.0F);
         gun2.cubeList.add(new ModelBox(gun2, 0, 0, 0.0F, 0.0F, 0.0F, 1, 4, 1, 0.0F, false));

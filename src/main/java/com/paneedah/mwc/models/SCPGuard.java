@@ -99,7 +99,7 @@ public class SCPGuard extends ModelBiped {
 
         bipedLeftArm = new ModelRenderer(this);
         bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 34, 35, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 34, 35, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         bipedRightLeg = new ModelRenderer(this);
         bipedRightLeg.setRotationPoint(-2.0F, 12.0F, 0.0F);
@@ -220,7 +220,7 @@ public class SCPGuard extends ModelBiped {
         bone18.setRotationPoint(-2.6F, 1.7F, 0.9F);
         rightleg1.addChild(bone18);
         setRotationAngle(bone18, 2.9147F, 0.0F, 0.0F);
-        bone18.cubeList.add(new ModelBox(bone18, 24, 0, -1.0F, -5.0F, 0.0F, 1, 5, 2, 0.0F, false));
+        bone18.cubeList.add(new ModelBox(bone18, 24, 0, -1, -5.0F, 0.0F, 1, 5, 2, 0.0F, false));
         bone18.cubeList.add(new ModelBox(bone18, 48, 52, -0.9F, -2.2205F, -0.82F, 1, 2, 1, 0.0F, false));
 
         rightleg2 = new ModelRenderer(this);
@@ -276,9 +276,9 @@ public class SCPGuard extends ModelBiped {
         leftarm5 = new ModelRenderer(this);
         leftarm5.setRotationPoint(0.0F, 0.0F, 0.0F);
         leftarm_scp.addChild(leftarm5);
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 32, 80, -1.0F, -1.95F, 1.2F, 4, 9, 1, 0.0F, false));
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 95, 0, -1.0F, 7.05F, -2.1F, 4, 1, 1, 0.0F, false));
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 94, 81, -1.0F, 7.05F, 1.1F, 4, 1, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 32, 80, -1, -1.95F, 1.2F, 4, 9, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 95, 0, -1, 7.05F, -2.1F, 4, 1, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 94, 81, -1, 7.05F, 1.1F, 4, 1, 1, 0.0F, false));
         leftarm5.cubeList.add(new ModelBox(leftarm5, 92, 40, -1.1F, 7.05F, -2.0F, 1, 1, 4, 0.0F, false));
         leftarm5.cubeList.add(new ModelBox(leftarm5, 16, 92, 2.1F, 7.05F, -2.0F, 1, 1, 4, 0.0F, false));
 
@@ -375,14 +375,14 @@ public class SCPGuard extends ModelBiped {
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(-0.95F, 1.9F, 0.0F);
         helmet.addChild(bone3);
-        bone3.cubeList.add(new ModelBox(bone3, 0, 95, 4.746F, -7.1F, 1.0F, 1, 2, 3, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 95, 4.746F, -7.1F, 1, 1, 2, 3, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 70, 40, -3.604F, -7.1F, -1.05F, 1, 4, 5, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 51, 70, 4.496F, -7.1F, -1.05F, 1, 4, 5, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 64, 34, -3.104F, -5.1F, 3.2F, 3, 2, 1, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 18, 64, -1.004F, -5.1F, 3.201F, 6, 2, 1, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 28, 51, -3.604F, -7.85F, -2.05F, 1, 3, 1, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 16, 51, 4.496F, -7.85F, -2.05F, 1, 3, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 94, 76, -3.8F, -7.1F, 1.0F, 1, 2, 3, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 94, 76, -3.8F, -7.1F, 1, 1, 2, 3, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 65, 24, -3.054F, -7.1F, 3.7F, 8, 2, 1, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
@@ -393,7 +393,7 @@ public class SCPGuard extends ModelBiped {
         bone6.cubeList.add(new ModelBox(bone6, 59, 52, 7.15F, 0.866F, -0.5F, 1, 2, 1, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
-        bone5.setRotationPoint(5.8F, -5.1F, 1.0F);
+        bone5.setRotationPoint(5.8F, -5.1F, 1);
         bone3.addChild(bone5);
         setRotationAngle(bone5, 0.8552F, 0.0F, 0.0F);
         bone5.cubeList.add(new ModelBox(bone5, 8, 96, -1.05F, -3.0F, 0.0F, 1, 3, 2, 0.0F, false));
@@ -441,14 +441,14 @@ public class SCPGuard extends ModelBiped {
         bone9.cubeList.add(new ModelBox(bone9, 42, 43, 1.1F, -1.8253F, -3.9628F, 3, 1, 8, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
-        bone7.setRotationPoint(5.8F, -4.75F, -1.0F);
+        bone7.setRotationPoint(5.8F, -4.75F, -1);
         helmet.addChild(bone7);
         setRotationAngle(bone7, -0.192F, 0.0F, 0.0F);
-        bone7.cubeList.add(new ModelBox(bone7, 90, 86, -1.5F, -1.0F, -3.0F, 1, 1, 4, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 90, 86, -1.5F, -1, -3.0F, 1, 1, 4, 0.0F, false));
         bone7.cubeList.add(new ModelBox(bone7, 20, 12, -0.7F, 0.0F, -3.0F, 0, 4, 4, 0.0F, false));
-        bone7.cubeList.add(new ModelBox(bone7, 90, 46, -11.1F, -1.0F, -3.0F, 1, 1, 4, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 90, 46, -11.1F, -1, -3.0F, 1, 1, 4, 0.0F, false));
         bone7.cubeList.add(new ModelBox(bone7, 0, 0, -10.9F, 0.0F, -3.0F, 0, 4, 4, 0.0F, false));
-        bone7.cubeList.add(new ModelBox(bone7, 58, 81, -8.85F, -1.0F, -4.9F, 6, 1, 1, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 58, 81, -8.85F, -1, -4.9F, 6, 1, 1, 0.0F, false));
         bone7.cubeList.add(new ModelBox(bone7, 83, 0, -8.8F, 0.0F, -4.77F, 6, 5, 0, 0.0F, false));
 
         bone10 = new ModelRenderer(this);
@@ -485,7 +485,7 @@ public class SCPGuard extends ModelBiped {
         vest.cubeList.add(new ModelBox(vest, 32, 52, -3.5F, 0.2F, 1.8F, 7, 10, 1, 0.0F, false));
         vest.cubeList.add(new ModelBox(vest, 57, 16, 1.3F, 5.9F, 1.9F, 2, 4, 1, 0.0F, false));
         vest.cubeList.add(new ModelBox(vest, 50, 38, -3.3F, 5.9F, 1.9F, 2, 4, 1, 0.0F, false));
-        vest.cubeList.add(new ModelBox(vest, 48, 16, -1.0F, 5.9F, 1.9F, 2, 4, 1, 0.0F, false));
+        vest.cubeList.add(new ModelBox(vest, 48, 16, -1, 5.9F, 1.9F, 2, 4, 1, 0.0F, false));
         vest.cubeList.add(new ModelBox(vest, 90, 68, -2.0F, 9.9F, -3.0F, 5, 2, 1, 0.0F, false));
         vest.cubeList.add(new ModelBox(vest, 90, 12, -2.5F, 10.9F, -3.2F, 5, 4, 1, 0.0F, false));
         vest.cubeList.add(new ModelBox(vest, 48, 9, -4.6F, 9.8F, -2.8F, 5, 2, 5, 0.0F, false));
@@ -496,8 +496,8 @@ public class SCPGuard extends ModelBiped {
         bone17.setRotationPoint(4.7F, 5.5F, -2.2F);
         vest.addChild(bone17);
         setRotationAngle(bone17, -1.3963F, 0.0F, 0.0F);
-        bone17.cubeList.add(new ModelBox(bone17, 57, 84, -1.0F, -2.0F, -1.0F, 1, 2, 5, 0.0F, false));
-        bone17.cubeList.add(new ModelBox(bone17, 17, 82, -9.4F, -2.0F, -1.0F, 1, 2, 5, 0.0F, false));
+        bone17.cubeList.add(new ModelBox(bone17, 57, 84, -1, -2.0F, -1, 1, 2, 5, 0.0F, false));
+        bone17.cubeList.add(new ModelBox(bone17, 17, 82, -9.4F, -2.0F, -1, 1, 2, 5, 0.0F, false));
         bone17.cubeList.add(new ModelBox(bone17, 83, 46, -1.1F, -4.1666F, -0.618F, 1, 2, 5, 0.0F, false));
         bone17.cubeList.add(new ModelBox(bone17, 83, 14, -9.3F, -4.1666F, -0.618F, 1, 2, 5, 0.0F, false));
 
@@ -527,7 +527,7 @@ public class SCPGuard extends ModelBiped {
         bone15.setRotationPoint(2.9618F, 0.4156F, -3.6814F);
         bone21.addChild(bone15);
         setRotationAngle(bone15, 0.1396F, 0.0F, 0.0F);
-        bone15.cubeList.add(new ModelBox(bone15, 0, 16, -1.0F, 0.0F, 0.0F, 1, 3, 1, 0.0F, false));
+        bone15.cubeList.add(new ModelBox(bone15, 0, 16, -1, 0.0F, 0.0F, 1, 3, 1, 0.0F, false));
 
         bone22 = new ModelRenderer(this);
         bone22.setRotationPoint(0.0F, 0.0F, 0.0F);

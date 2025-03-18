@@ -104,7 +104,7 @@ public class MilSpecStock extends ModelBase {
         gun370.cubeList.add(new ModelBox(gun370, 39, 0, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
         gun371 = new ModelRenderer(this);
-        gun371.setRotationPoint(-1.0F, -11.7F, 7.5F);
+        gun371.setRotationPoint(-1, -11.7F, 7.5F);
         setRotationAngle(gun371, 0.0F, 0.0F, 0.7854F);
         gun371.cubeList.add(new ModelBox(gun371, 22, 45, 0.0F, -0.001F, 0.0F, 1, 1, 20, 0.0F, false));
 
@@ -161,9 +161,9 @@ public class MilSpecStock extends ModelBase {
         gun386.cubeList.add(new ModelBox(gun386, 0, 65, 0.0F, 0.0F, 0.0F, 1, 2, 17, 0.0F, false));
 
         gun394 = new ModelRenderer(this);
-        gun394.setRotationPoint(-2.5F, 1.0F, 26.2F);
+        gun394.setRotationPoint(-2.5F, 1, 26.2F);
         setRotationAngle(gun394, -0.0372F, 0.0F, 0.0F);
-        gun394.cubeList.add(new ModelBox(gun394, 8, 17, 0.0F, 1.0F, -0.2F, 2, 1, 2, 0.0F, false));
+        gun394.cubeList.add(new ModelBox(gun394, 8, 17, 0.0F, 1, -0.2F, 2, 1, 2, 0.0F, false));
 
         gun395 = new ModelRenderer(this);
         gun395.setRotationPoint(-3.0F, 0.5F, 26.25F);
@@ -171,7 +171,7 @@ public class MilSpecStock extends ModelBase {
         gun395.cubeList.add(new ModelBox(gun395, 26, 39, 0.001F, 0.0F, -0.2F, 3, 2, 2, 0.0F, false));
 
         gun407 = new ModelRenderer(this);
-        gun407.setRotationPoint(-1.0F, -11.5F, 3.5F);
+        gun407.setRotationPoint(-1, -11.5F, 3.5F);
         setRotationAngle(gun407, 0.0F, 0.0F, 0.7854F);
         gun407.cubeList.add(new ModelBox(gun407, 44, 24, 0.0F, -0.001F, 0.0F, 1, 1, 4, 0.0F, false));
 
@@ -206,7 +206,7 @@ public class MilSpecStock extends ModelBase {
         gun413.cubeList.add(new ModelBox(gun413, 0, 44, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun414 = new ModelRenderer(this);
-        gun414.setRotationPoint(-1.0F, -8.5F, 3.5F);
+        gun414.setRotationPoint(-1, -8.5F, 3.5F);
         setRotationAngle(gun414, 0.0F, 0.0F, -2.3562F);
         gun414.cubeList.add(new ModelBox(gun414, 0, 37, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
@@ -279,7 +279,7 @@ public class MilSpecStock extends ModelBase {
         gun430 = new ModelRenderer(this);
         gun430.setRotationPoint(-3.2F, -9.5F, 7.5F);
         setRotationAngle(gun430, 0.0F, 0.0F, -2.0216F);
-        gun430.cubeList.add(new ModelBox(gun430, 22, 24, -1.0F, 0.0F, 0.0F, 1, 1, 20, 0.0F, false));
+        gun430.cubeList.add(new ModelBox(gun430, 22, 24, -1, 0.0F, 0.0F, 1, 1, 20, 0.0F, false));
 
         gun431 = new ModelRenderer(this);
         gun431.setRotationPoint(-0.25F, -8.6F, 7.5F);
@@ -289,7 +289,7 @@ public class MilSpecStock extends ModelBase {
         gun432 = new ModelRenderer(this);
         gun432.setRotationPoint(-2.75F, -8.6F, 7.5F);
         setRotationAngle(gun432, 0.0F, 0.0F, -2.7652F);
-        gun432.cubeList.add(new ModelBox(gun432, 22, 3, -1.0F, 0.0F, 0.0F, 1, 1, 20, 0.0F, false));
+        gun432.cubeList.add(new ModelBox(gun432, 22, 3, -1, 0.0F, 0.0F, 1, 1, 20, 0.0F, false));
 
         gun433 = new ModelRenderer(this);
         gun433.setRotationPoint(-1.8F, -10.5F, 11.5F);
@@ -360,7 +360,7 @@ public class MilSpecStock extends ModelBase {
         gun448 = new ModelRenderer(this);
         gun448.setRotationPoint(-3.0F, -6.4F, 16.3F);
         setRotationAngle(gun448, -0.8551F, 0.0F, 0.0F);
-        gun448.cubeList.add(new ModelBox(gun448, 0, 6, 0.0F, 1.0F, 5.0F, 3, 1, 1, 0.0F, false));
+        gun448.cubeList.add(new ModelBox(gun448, 0, 6, 0.0F, 1, 5.0F, 3, 1, 1, 0.0F, false));
 
         gun449 = new ModelRenderer(this);
         gun449.setRotationPoint(-3.0F, 0.3F, 24.0F);

@@ -93,7 +93,7 @@ public class MagpulCTRStock extends ModelBase {
 
 
         gun371 = new ModelRenderer(this);
-        gun371.setRotationPoint(-1.0F, -11.7F, 7.5F);
+        gun371.setRotationPoint(-1, -11.7F, 7.5F);
         setRotationAngle(gun371, 0.0F, 0.0F, 0.7854F);
         gun371.cubeList.add(new ModelBox(gun371, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 20, 0.0F, false));
 
@@ -186,7 +186,7 @@ public class MagpulCTRStock extends ModelBase {
         gun393.cubeList.add(new ModelBox(gun393, 24, 13, 0.001F, 0.0F, 0.0F, 2, 1, 5, 0.0F, false));
 
         gun394 = new ModelRenderer(this);
-        gun394.setRotationPoint(-2.5F, 1.0F, 26.2F);
+        gun394.setRotationPoint(-2.5F, 1, 26.2F);
         setRotationAngle(gun394, -0.1115F, 0.0F, 0.0F);
         gun394.cubeList.add(new ModelBox(gun394, 14, 32, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
@@ -243,7 +243,7 @@ public class MagpulCTRStock extends ModelBase {
         gun406.cubeList.add(new ModelBox(gun406, 11, 10, -0.001F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun407 = new ModelRenderer(this);
-        gun407.setRotationPoint(-1.0F, -11.5F, 3.5F);
+        gun407.setRotationPoint(-1, -11.5F, 3.5F);
         setRotationAngle(gun407, 0.0F, 0.0F, 0.7854F);
         gun407.cubeList.add(new ModelBox(gun407, 32, 45, 0.0F, -0.001F, 0.0F, 1, 1, 4, 0.0F, false));
 
@@ -278,7 +278,7 @@ public class MagpulCTRStock extends ModelBase {
         gun413.cubeList.add(new ModelBox(gun413, 10, 44, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun414 = new ModelRenderer(this);
-        gun414.setRotationPoint(-1.0F, -8.5F, 3.5F);
+        gun414.setRotationPoint(-1, -8.5F, 3.5F);
         setRotationAngle(gun414, 0.0F, 0.0F, -2.3562F);
         gun414.cubeList.add(new ModelBox(gun414, 0, 44, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 

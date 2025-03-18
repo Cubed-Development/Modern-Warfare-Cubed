@@ -74,7 +74,7 @@ public class RPKstock extends ModelBase {
         stock11.cubeList.add(new ModelBox(stock11, 6, 12, 0.0F, 0.0F, 0.0F, 2, 1, 4, 0.0F, false));
 
         stock12 = new ModelRenderer(this);
-        stock12.setRotationPoint(-3.5F, 1.0F, 16.6F);
+        stock12.setRotationPoint(-3.5F, 1, 16.6F);
         setRotationAngle(stock12, -0.0524F, 0.0F, 0.0F);
         stock12.cubeList.add(new ModelBox(stock12, 34, 32, 0.001F, -6.0F, 0.0F, 4, 6, 13, 0.0F, false));
 

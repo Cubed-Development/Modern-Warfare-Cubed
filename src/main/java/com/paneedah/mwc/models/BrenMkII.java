@@ -106,7 +106,7 @@ public class BrenMkII extends ModelWithAttachments {
         main.cubeList.add(new ModelBox(main, 0, 0, 4.1F, -29.0F, 0.0F, 1, 1, 15, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.5F, -29.0F, 0.0F, 4, 2, 4, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.1F, -30.0F, 15.0F, 5, 2, 1, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, 1.0F, -29.0F, 16.0F, 3, 1, 3, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, 1, -29.0F, 16.0F, 3, 1, 3, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -29.0F, 27.3F, 5, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -19.0F, -22.0F, 5, 2, 55, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.5F, -23.0F, -10.0F, 6, 4, 43, 0.0F, true));
@@ -115,7 +115,7 @@ public class BrenMkII extends ModelWithAttachments {
         main.cubeList.add(new ModelBox(main, 0, 0, 4.0F, -25.0F, -7.0F, 3, 4, 9, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.5F, -22.0F, -23.0F, 6, 3, 13, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.5F, -22.5F, -23.0F, 6, 1, 13, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.0F, -22.0F, -20.0F, 7, 1, 10, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1, -22.0F, -20.0F, 7, 1, 10, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 5.0F, -20.0F, -20.0F, 1, 1, 10, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -26.5F, 28.0F, 5, 4, 5, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.1F, -29.0F, 0.0F, 1, 1, 15, 0.0F, true));
@@ -123,18 +123,18 @@ public class BrenMkII extends ModelWithAttachments {
         main.cubeList.add(new ModelBox(main, 0, 0, -0.5F, -27.0F, 33.0F, 6, 10, 2, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -1.5F, -24.0F, 33.0F, 8, 6, 2, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.5F, -25.0F, -37.0F, 1, 1, 1, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, 1.0F, -22.8F, -42.0F, 3, 3, 10, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, 1.0F, -20.0F, -42.0F, 3, 1, 10, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, 1, -22.8F, -42.0F, 3, 3, 10, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, 1, -20.0F, -42.0F, 3, 1, 10, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.5F, -22.4F, -42.0F, 4, 3, 10, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.0F, -23.0F, -37.0F, 7, 4, 1, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1, -23.0F, -37.0F, 7, 4, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -19.0F, -37.0F, 5, 1, 1, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.0F, -24.0F, -37.0F, 3, 1, 1, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1, -24.0F, -37.0F, 3, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 3.0F, -24.0F, -37.0F, 3, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 4.5F, -25.0F, -37.0F, 1, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 1.5F, -19.0F, -42.0F, 2, 2, 3, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 4.7F, -26.2F, 33.5F, 1, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -17.0F, 15.0F, 5, 1, 14, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -16.0F, 21.0F, 5, 3, 6, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -16.0F, 21, 5, 3, 6, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.5F, -13.0F, 16.0F, 4, 1, 5, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.5F, -16.0F, 15.0F, 4, 3, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 1.5F, -16.0F, 19.0F, 2, 2, 1, 0.0F, true));
@@ -151,26 +151,26 @@ public class BrenMkII extends ModelWithAttachments {
         main.cubeList.add(new ModelBox(main, 0, 0, 0.5F, -17.0F, -29.0F, 4, 1, 4, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.5F, -16.2F, -28.5F, 4, 1, 3, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -0.7F, -23.0F, -10.0F, 1, 4, 14, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.5F, -22.5F, 31.0F, 2, 3, 2, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, -1.0F, -22.5F, 14.0F, 1, 3, 17, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1.5F, -22.5F, 31, 2, 3, 2, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, -1, -22.5F, 14.0F, 1, 3, 17, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -1.2F, -22.3F, 17.0F, 1, 1, 14, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, -1.2F, -20.7F, 17.0F, 1, 1, 14, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 100, 100, 0.0F, -18.2F, 35.0F, 5, 1, 7, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 100, 100, -1.0F, -23.2F, 35.0F, 7, 1, 7, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 100, 100, -1, -23.2F, 35.0F, 7, 1, 7, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 100, 100, 0.0F, -24.2F, 35.0F, 5, 1, 7, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 100, 100, 0.0F, -23.2F, 42.0F, 5, 1, 8, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, 4.0F, -31.0F, 27.4F, 2, 1, 1, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, 4.0F, -31, 27.4F, 2, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 100, 1.5F, -27.5F, -25.0F, 2, 5, 4, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 100, 0.0F, -26.0F, -25.0F, 5, 2, 4, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 100, 100, -1.0F, -22.2F, 35.0F, 7, 4, 36, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 100, 100, -1, -22.2F, 35.0F, 7, 4, 36, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 100, 100, 14.0F, -26.5F, -21.1F, 1, 3, 2, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 1.5F, -29.2F, 17.3F, 2, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 4.0F, -28.0F, 0.0F, 1, 5, 28, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, 1.0F, -27.8F, 22.0F, 3, 1, 6, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, 1.0F, -28.0F, 18.3F, 3, 1, 1, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, 1, -27.8F, 22.0F, 3, 1, 6, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, 1, -28.0F, 18.3F, 3, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.3F, -28.0F, 19.0F, 1, 1, 3, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 3.7F, -28.0F, 19.0F, 1, 1, 3, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 0, 1.0F, -27.6F, 19.0F, 3, 1, 3, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 0, 1, -27.6F, 19.0F, 3, 1, 3, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 1.5F, -27.8F, 21.5F, 2, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 4.1F, -30.0F, 14.0F, 1, 2, 2, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 4.1F, -28.0F, 0.0F, 1, 2, 2, 0.0F, true));
@@ -188,11 +188,11 @@ public class BrenMkII extends ModelWithAttachments {
         main.cubeList.add(new ModelBox(main, 0, 0, 0.0F, -13.0F, 20.5F, 5, 1, 2, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 4.3F, -13.0F, 20.7F, 1, 1, 2, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 1.5F, -22.0F, -45.0F, 2, 2, 13, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 100, 1.0F, -24.0F, -47.0F, 3, 4, 4, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 100, 1.0F, -20.5F, -46.5F, 3, 1, 3, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 100, 1, -24.0F, -47.0F, 3, 4, 4, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 100, 1, -20.5F, -46.5F, 3, 1, 3, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 100, 3.5F, -23.0F, -47.0F, 1, 1, 1, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 100, 3.5F, -21.0F, -47.0F, 1, 1, 1, 0.0F, true));
-        main.cubeList.add(new ModelBox(main, 0, 100, 3.5F, -21.0F, -44.0F, 1, 1, 1, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 100, 3.5F, -21, -47.0F, 1, 1, 1, 0.0F, true));
+        main.cubeList.add(new ModelBox(main, 0, 100, 3.5F, -21, -44.0F, 1, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 100, 3.5F, -23.0F, -44.0F, 1, 1, 1, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 1.5F, -24.0F, -92.0F, 2, 1, 30, 0.0F, true));
         main.cubeList.add(new ModelBox(main, 0, 0, 0.5F, -26.0F, -92.0F, 1, 2, 30, 0.0F, true));
@@ -207,7 +207,7 @@ public class BrenMkII extends ModelWithAttachments {
         Main73Barrel_r1.setRotationPoint(0.0F, -38.6777F, 1.3762F);
         main.addChild(Main73Barrel_r1);
         setRotationAngle(Main73Barrel_r1, 0.7854F, 0.0F, 0.0F);
-        Main73Barrel_r1.cubeList.add(new ModelBox(Main73Barrel_r1, 0, 100, 0.0F, -21.0F, -46.0F, 3, 1, 2, 0.0F, true));
+        Main73Barrel_r1.cubeList.add(new ModelBox(Main73Barrel_r1, 0, 100, 0.0F, -21, -46.0F, 3, 1, 2, 0.0F, true));
 
         Main148_r1 = new ModelRenderer(this);
         Main148_r1.setRotationPoint(0.0F, 11.4319F, 21.457F);
@@ -445,11 +445,11 @@ public class BrenMkII extends ModelWithAttachments {
         Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1.5F, -36.4F, 27.6F, 2, 1, 1, 0.0F, true));
         Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1.5F, -37.4F, 27.2F, 2, 1, 1, 0.0F, true));
         Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1.5F, -37.4F, 28.0F, 2, 1, 1, 0.0F, true));
-        Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1.0F, -37.4F, 27.4F, 3, 1, 1, 0.0F, true));
-        Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1.0F, -37.4F, 27.8F, 3, 1, 1, 0.0F, true));
+        Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1, -37.4F, 27.4F, 3, 1, 1, 0.0F, true));
+        Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1, -37.4F, 27.8F, 3, 1, 1, 0.0F, true));
         Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1.5F, -36.2F, 27.2F, 2, 1, 1, 0.0F, true));
         Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1.5F, -36.2F, 28.0F, 2, 1, 1, 0.0F, true));
-        Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1.0F, -36.2F, 27.8F, 3, 1, 1, 0.0F, true));
+        Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 1, -36.2F, 27.8F, 3, 1, 1, 0.0F, true));
         Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 3.3F, -36.2F, 27.6F, 1, 7, 1, 0.0F, true));
         Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 0.7F, -36.2F, 27.6F, 1, 7, 1, 0.0F, true));
         Main81_r1.cubeList.add(new ModelBox(Main81_r1, 0, 0, 0.5F, -29.2F, 27.6F, 4, 2, 1, 0.0F, true));
@@ -458,7 +458,7 @@ public class BrenMkII extends ModelWithAttachments {
         Main71_r1.setRotationPoint(0.0F, 1.5654F, 1.7841F);
         main.addChild(Main71_r1);
         setRotationAngle(Main71_r1, 0.0595F, 0.0F, 0.0F);
-        Main71_r1.cubeList.add(new ModelBox(Main71_r1, 0, 0, 1.0F, -36.2F, 27.4F, 3, 1, 1, 0.0F, true));
+        Main71_r1.cubeList.add(new ModelBox(Main71_r1, 0, 0, 1, -36.2F, 27.4F, 3, 1, 1, 0.0F, true));
 
         Main67_r1 = new ModelRenderer(this);
         Main67_r1.setRotationPoint(-15.0668F, -11.6256F, 0.0F);
@@ -482,7 +482,7 @@ public class BrenMkII extends ModelWithAttachments {
         Main221_r1.setRotationPoint(0.0F, 36.6089F, 58.7367F);
         main.addChild(Main221_r1);
         setRotationAngle(Main221_r1, 1.4277F, 0.0F, 0.0F);
-        Main221_r1.cubeList.add(new ModelBox(Main221_r1, 100, 100, -1.0F, -15.6F, 50.5F, 7, 11, 5, 0.0F, true));
+        Main221_r1.cubeList.add(new ModelBox(Main221_r1, 100, 100, -1, -15.6F, 50.5F, 7, 11, 5, 0.0F, true));
 
         Main220_r1 = new ModelRenderer(this);
         Main220_r1.setRotationPoint(0.0F, 50.6147F, 56.9298F);
@@ -494,7 +494,7 @@ public class BrenMkII extends ModelWithAttachments {
         Main219_r1.setRotationPoint(0.0F, 49.8159F, 57.9094F);
         main.addChild(Main219_r1);
         setRotationAngle(Main219_r1, 1.3682F, 0.0F, 0.0F);
-        Main219_r1.cubeList.add(new ModelBox(Main219_r1, 100, 100, -1.0F, -10.6F, 59.5F, 7, 10, 10, 0.0F, true));
+        Main219_r1.cubeList.add(new ModelBox(Main219_r1, 100, 100, -1, -10.6F, 59.5F, 7, 10, 10, 0.0F, true));
 
         Main217_r1 = new ModelRenderer(this);
         Main217_r1.setRotationPoint(0.0F, -9.204F, -4.0951F);
@@ -518,31 +518,31 @@ public class BrenMkII extends ModelWithAttachments {
         Main213_r1.setRotationPoint(0.0F, -33.0468F, -4.8395F);
         main.addChild(Main213_r1);
         setRotationAngle(Main213_r1, -0.6107F, 0.0F, 0.0F);
-        Main213_r1.cubeList.add(new ModelBox(Main213_r1, 100, 100, -1.0F, -24.2F, 50.0F, 7, 4, 3, 0.0F, true));
+        Main213_r1.cubeList.add(new ModelBox(Main213_r1, 100, 100, -1, -24.2F, 50.0F, 7, 4, 3, 0.0F, true));
 
         Main212_r1 = new ModelRenderer(this);
         Main212_r1.setRotationPoint(0.0F, 2.1579F, 1.1032F);
         main.addChild(Main212_r1);
         setRotationAngle(Main212_r1, 0.0436F, 0.0F, 0.0F);
-        Main212_r1.cubeList.add(new ModelBox(Main212_r1, 100, 100, -1.0F, -24.2F, 50.0F, 7, 3, 21, 0.0F, true));
+        Main212_r1.cubeList.add(new ModelBox(Main212_r1, 100, 100, -1, -24.2F, 50.0F, 7, 3, 21, 0.0F, true));
 
         Main211_r1 = new ModelRenderer(this);
         Main211_r1.setRotationPoint(0.0F, -9.1824F, -3.8884F);
         main.addChild(Main211_r1);
         setRotationAngle(Main211_r1, -0.2082F, 0.0F, 0.0F);
-        Main211_r1.cubeList.add(new ModelBox(Main211_r1, 100, 100, -1.0F, -23.2F, 42.0F, 7, 1, 6, 0.0F, true));
+        Main211_r1.cubeList.add(new ModelBox(Main211_r1, 100, 100, -1, -23.2F, 42.0F, 7, 1, 6, 0.0F, true));
 
         Main208_r1 = new ModelRenderer(this);
         Main208_r1.setRotationPoint(0.0F, 27.2559F, 41.7173F);
         main.addChild(Main208_r1);
         setRotationAngle(Main208_r1, 1.1897F, 0.0F, 0.0F);
-        Main208_r1.cubeList.add(new ModelBox(Main208_r1, 100, 100, 0.0F, -17.2F, 41.0F, 5, 20, 4, 0.0F, true));
+        Main208_r1.cubeList.add(new ModelBox(Main208_r1, 100, 100, 0.0F, -17.2F, 41, 5, 20, 4, 0.0F, true));
 
         Main207_r1 = new ModelRenderer(this);
         Main207_r1.setRotationPoint(0.0F, 26.6278F, 42.6455F);
         main.addChild(Main207_r1);
         setRotationAngle(Main207_r1, 1.1897F, 0.0F, 0.0F);
-        Main207_r1.cubeList.add(new ModelBox(Main207_r1, 100, 100, -1.0F, -18.2F, 41.0F, 7, 20, 4, 0.0F, true));
+        Main207_r1.cubeList.add(new ModelBox(Main207_r1, 100, 100, -1, -18.2F, 41, 7, 20, 4, 0.0F, true));
 
         Main206_r1 = new ModelRenderer(this);
         Main206_r1.setRotationPoint(17.117F, -6.6759F, 0.0F);
@@ -583,7 +583,7 @@ public class BrenMkII extends ModelWithAttachments {
         Main192_r1.setRotationPoint(6.866F, 0.0F, -3.4239F);
         main.addChild(Main192_r1);
         setRotationAngle(Main192_r1, 0.0F, 0.7854F, 0.0F);
-        Main192_r1.cubeList.add(new ModelBox(Main192_r1, 0, 0, -0.7F, -21.0F, -10.0F, 1, 2, 1, 0.0F, true));
+        Main192_r1.cubeList.add(new ModelBox(Main192_r1, 0, 0, -0.7F, -21, -10.0F, 1, 2, 1, 0.0F, true));
 
         Main191_r1 = new ModelRenderer(this);
         Main191_r1.setRotationPoint(-3.0335F, 0.0F, 0.6766F);
@@ -704,7 +704,7 @@ public class BrenMkII extends ModelWithAttachments {
         Main55MagCover_r1.setRotationPoint(0.0F, -0.0714F, 2.0439F);
         main.addChild(Main55MagCover_r1);
         setRotationAngle(Main55MagCover_r1, 0.0698F, 0.0F, 0.0F);
-        Main55MagCover_r1.cubeList.add(new ModelBox(Main55MagCover_r1, 0, 0, 1.5F, -30.3F, -11.0F, 2, 1, 13, 0.0F, true));
+        Main55MagCover_r1.cubeList.add(new ModelBox(Main55MagCover_r1, 0, 0, 1.5F, -30.3F, -11, 2, 1, 13, 0.0F, true));
 
         Main54MagCover_r1 = new ModelRenderer(this);
         Main54MagCover_r1.setRotationPoint(0.0F, -0.0719F, 2.0578F);
@@ -720,7 +720,7 @@ public class BrenMkII extends ModelWithAttachments {
         Main56MagCover_r1.setRotationPoint(0.0F, -0.0002F, 2.0044F);
         main.addChild(Main56MagCover_r1);
         setRotationAngle(Main56MagCover_r1, 0.0698F, 0.0F, 0.0F);
-        Main56MagCover_r1.cubeList.add(new ModelBox(Main56MagCover_r1, 0, 0, 1.5F, -31.2F, -1.0F, 2, 2, 1, 0.0F, true));
+        Main56MagCover_r1.cubeList.add(new ModelBox(Main56MagCover_r1, 0, 0, 1.5F, -31.2F, -1, 2, 2, 1, 0.0F, true));
 
         Main23_r1 = new ModelRenderer(this);
         Main23_r1.setRotationPoint(0.0F, 6.5031F, 8.728F);
@@ -732,7 +732,7 @@ public class BrenMkII extends ModelWithAttachments {
         Main51_r1.setRotationPoint(0.0F, 2.8303F, 7.1586F);
         main.addChild(Main51_r1);
         setRotationAngle(Main51_r1, 0.2269F, 0.0F, 0.0F);
-        Main51_r1.cubeList.add(new ModelBox(Main51_r1, 0, 0, 1.0F, -30.0F, 15.0F, 3, 2, 2, 0.0F, true));
+        Main51_r1.cubeList.add(new ModelBox(Main51_r1, 0, 0, 1, -30.0F, 15.0F, 3, 2, 2, 0.0F, true));
 
         Main41_r1 = new ModelRenderer(this);
         Main41_r1.setRotationPoint(6.3921F, 0.0F, 0.2822F);

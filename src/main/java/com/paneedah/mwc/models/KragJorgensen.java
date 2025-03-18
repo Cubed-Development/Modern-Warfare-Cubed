@@ -186,21 +186,21 @@ public class KragJorgensen extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, -4.0F, -36.8F, -69.0F, 4, 2, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -4.0F, -38.4F, -17.6F, 4, 3, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -1.1F, -38.7F, -32.0F, 1, 1, 14, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -2.5F, -41.0F, -128.0F, 1, 1, 55, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -2.5F, -41, -128.0F, 1, 1, 55, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -4.5F, -38.35F, -14.6F, 5, 4, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.5F, -36.0F, -14.6F, 1, 1, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -4.5F, -36.5F, -17.1F, 5, 1, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -1.4F, -40.0F, -104.1F, 1, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -3.8F, -39.7F, -35.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -1.2F, -39.7F, -35.0F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, -2.5F, -41.0F, -35.0F, 1, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, -2.5F, -41, -35.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -2.5F, -41.25F, -72.0F, 1, 1, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -3.5F, -35.9F, -72.0F, 3, 1, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -4.3F, -39.6F, -72.0F, 1, 2, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -0.7F, -39.6F, -72.0F, 1, 2, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -4.2F, -39.0F, -108.0F, 3, 1, 36, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.8F, -39.0F, -108.0F, 2, 1, 36, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.5F, -38.5F, -91.0F, 3, 3, 19, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.5F, -38.5F, -91, 3, 3, 19, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -41.3F, -73.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -0.9F, -39.6F, -73.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, -4.1F, -39.6F, -73.0F, 1, 1, 1, 0.0F, true));
@@ -267,7 +267,7 @@ public class KragJorgensen extends ModelWithAttachments {
         gun651_r1.setRotationPoint(-14.1946F, -0.9528F, 0.0F);
         gun.addChild(gun651_r1);
         setRotationAngle(gun651_r1, 0.0F, 0.0F, 0.409F);
-        gun651_r1.cubeList.add(new ModelBox(gun651_r1, 200, 0, -4.8F, -34.7F, -31.0F, 1, 1, 9, 0.0F, true));
+        gun651_r1.cubeList.add(new ModelBox(gun651_r1, 200, 0, -4.8F, -34.7F, -31, 1, 1, 9, 0.0F, true));
 
         gun649_r1 = new ModelRenderer(this);
         gun649_r1.setRotationPoint(35.2176F, -24.336F, 0.0F);
@@ -294,7 +294,7 @@ public class KragJorgensen extends ModelWithAttachments {
         gun637_r1.setRotationPoint(0.0F, -62.7042F, 4.0765F);
         gun.addChild(gun637_r1);
         setRotationAngle(gun637_r1, 1.5184F, 0.0F, 0.0F);
-        gun637_r1.cubeList.add(new ModelBox(gun637_r1, 200, 0, -5.8F, -33.5F, -31.0F, 2, 9, 1, 0.0F, true));
+        gun637_r1.cubeList.add(new ModelBox(gun637_r1, 200, 0, -5.8F, -33.5F, -31, 2, 9, 1, 0.0F, true));
 
         gun634_r1 = new ModelRenderer(this);
         gun634_r1.setRotationPoint(14.0363F, -5.3165F, 0.0F);
@@ -337,7 +337,7 @@ public class KragJorgensen extends ModelWithAttachments {
         gun627_r1.setRotationPoint(-38.2103F, -23.4012F, 0.0F);
         gun.addChild(gun627_r1);
         setRotationAngle(gun627_r1, 0.0F, 0.0F, 1.1525F);
-        gun627_r1.cubeList.add(new ModelBox(gun627_r1, 200, 0, -1.1F, -41.1F, -31.0F, 2, 1, 14, 0.0F, true));
+        gun627_r1.cubeList.add(new ModelBox(gun627_r1, 200, 0, -1.1F, -41.1F, -31, 2, 1, 14, 0.0F, true));
 
         gun624_r1 = new ModelRenderer(this);
         gun624_r1.setRotationPoint(-21.3082F, 0.0F, -53.3739F);
@@ -600,15 +600,15 @@ public class KragJorgensen extends ModelWithAttachments {
         gun504_r1.setRotationPoint(-29.7236F, -10.2409F, 0.0F);
         gun.addChild(gun504_r1);
         setRotationAngle(gun504_r1, 0.0F, 0.0F, 0.7854F);
-        gun504_r1.cubeList.add(new ModelBox(gun504_r1, 200, 0, -2.5F, -41.0F, -128.0F, 1, 1, 55, 0.0F, true));
-        gun504_r1.cubeList.add(new ModelBox(gun504_r1, 200, 0, -2.5F, -41.0F, -35.0F, 1, 1, 1, 0.0F, true));
+        gun504_r1.cubeList.add(new ModelBox(gun504_r1, 200, 0, -2.5F, -41, -128.0F, 1, 1, 55, 0.0F, true));
+        gun504_r1.cubeList.add(new ModelBox(gun504_r1, 200, 0, -2.5F, -41, -35.0F, 1, 1, 1, 0.0F, true));
 
         gun5033_r1 = new ModelRenderer(this);
         gun5033_r1.setRotationPoint(-29.4307F, -10.948F, 0.0F);
         gun.addChild(gun5033_r1);
         setRotationAngle(gun5033_r1, 0.0F, 0.0F, 0.7854F);
-        gun5033_r1.cubeList.add(new ModelBox(gun5033_r1, 200, 0, -1.5F, -41.0F, -128.0F, 1, 1, 55, 0.0F, true));
-        gun5033_r1.cubeList.add(new ModelBox(gun5033_r1, 200, 0, -1.5F, -41.0F, -35.0F, 1, 1, 1, 0.0F, true));
+        gun5033_r1.cubeList.add(new ModelBox(gun5033_r1, 200, 0, -1.5F, -41, -128.0F, 1, 1, 55, 0.0F, true));
+        gun5033_r1.cubeList.add(new ModelBox(gun5033_r1, 200, 0, -1.5F, -41, -35.0F, 1, 1, 1, 0.0F, true));
 
         gun503_r1 = new ModelRenderer(this);
         gun503_r1.setRotationPoint(0.0F, 2.792F, -6.7F);
@@ -654,7 +654,7 @@ public class KragJorgensen extends ModelWithAttachments {
         gun487_r1.setRotationPoint(-31.9719F, -11.8345F, 0.0F);
         gun.addChild(gun487_r1);
         setRotationAngle(gun487_r1, 0.0F, 0.0F, 0.8551F);
-        gun487_r1.cubeList.add(new ModelBox(gun487_r1, 0, 0, -3.0F, -41.0F, -73.0F, 1, 1, 1, 0.0F, true));
+        gun487_r1.cubeList.add(new ModelBox(gun487_r1, 0, 0, -3.0F, -41, -73.0F, 1, 1, 1, 0.0F, true));
 
         gun486_r1 = new ModelRenderer(this);
         gun486_r1.setRotationPoint(32.7305F, -24.4844F, 0.0F);
@@ -672,7 +672,7 @@ public class KragJorgensen extends ModelWithAttachments {
         gun483_r1.setRotationPoint(-29.1025F, -11.276F, 0.0F);
         gun.addChild(gun483_r1);
         setRotationAngle(gun483_r1, 0.0F, 0.0F, 0.7808F);
-        gun483_r1.cubeList.add(new ModelBox(gun483_r1, 0, 0, -0.85F, -41.0F, -73.0F, 1, 1, 1, 0.0F, true));
+        gun483_r1.cubeList.add(new ModelBox(gun483_r1, 0, 0, -0.85F, -41, -73.0F, 1, 1, 1, 0.0F, true));
 
         gun482_r1 = new ModelRenderer(this);
         gun482_r1.setRotationPoint(-16.229F, -75.6768F, 0.0F);
@@ -720,7 +720,7 @@ public class KragJorgensen extends ModelWithAttachments {
         gun470_r1.setRotationPoint(-34.0987F, -13.9872F, 0.0F);
         gun.addChild(gun470_r1);
         setRotationAngle(gun470_r1, 0.0F, 0.0F, 0.9295F);
-        gun470_r1.cubeList.add(new ModelBox(gun470_r1, 200, 0, -3.1F, -41.0F, -72.0F, 1, 1, 3, 0.0F, true));
+        gun470_r1.cubeList.add(new ModelBox(gun470_r1, 200, 0, -3.1F, -41, -72.0F, 1, 1, 3, 0.0F, true));
 
         gun469_r1 = new ModelRenderer(this);
         gun469_r1.setRotationPoint(-32.8077F, -64.0452F, 0.0F);
@@ -866,7 +866,7 @@ public class KragJorgensen extends ModelWithAttachments {
         gun364_r1.setRotationPoint(0.0F, 1.852F, -7.3316F);
         gun.addChild(gun364_r1);
         setRotationAngle(gun364_r1, -0.1859F, 0.0F, 0.0F);
-        gun364_r1.cubeList.add(new ModelBox(gun364_r1, 0, 0, -1.0F, -38.4F, -13.6F, 1, 1, 3, 0.0F, true));
+        gun364_r1.cubeList.add(new ModelBox(gun364_r1, 0, 0, -1, -38.4F, -13.6F, 1, 1, 3, 0.0F, true));
         gun364_r1.cubeList.add(new ModelBox(gun364_r1, 0, 0, -4.0F, -38.4F, -13.6F, 1, 1, 3, 0.0F, true));
 
         gun363_r1 = new ModelRenderer(this);

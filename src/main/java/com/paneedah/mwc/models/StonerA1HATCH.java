@@ -23,7 +23,7 @@ public class StonerA1HATCH extends ModelWithAttachments {
         hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -27.9461F, 38.0F, 7, 1, 1, 0.0F, true));
         hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -27.9461F, 38.0F, 5, 1, 4, 0.0F, true));
         hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -27.4461F, 40.0F, 5, 1, 3, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -26.4461F, 41.0F, 5, 1, 2, 0.0F, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -26.4461F, 41, 5, 1, 2, 0.0F, true));
         hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.7791F, -28.9461F, 37.0F, 1, 3, 4, 0.0F, true));
         hatch.cubeList.add(new ModelBox(hatch, 0, 0, 16.7791F, -28.9461F, 37.0F, 1, 3, 4, 0.0F, true));
         hatch.cubeList.add(new ModelBox(hatch, 0, 0, 13.2791F, -28.7461F, 52.0F, 3, 2, 2, 0.0F, true));
@@ -33,7 +33,7 @@ public class StonerA1HATCH extends ModelWithAttachments {
         hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -28.4461F, 45.0F, 1, 2, 7, 0.0F, true));
         hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -26.4461F, 45.0F, 1, 1, 1, 0.0F, true));
         hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -26.4461F, 50.0F, 1, 1, 2, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -28.4461F, 41.0F, 1, 3, 4, 0.0F, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -28.4461F, 41, 1, 3, 4, 0.0F, true));
 
         Hatch11_r1 = new ModelRenderer(this);
         Hatch11_r1.setRotationPoint(0.0F, 0.0F, 0.0F);

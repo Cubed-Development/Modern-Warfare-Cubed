@@ -46,7 +46,7 @@ public class ChiappaRhinoFactory implements GunFactory {
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         4f, // x
-                        1.0f, // y
+                        1, // y
                         3.5f) // z
 
                 .withCompatibleAttachment(AuxiliaryAttachments.RhinoChamber, true, (model) -> {

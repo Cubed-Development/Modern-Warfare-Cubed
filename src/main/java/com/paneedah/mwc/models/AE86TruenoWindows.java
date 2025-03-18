@@ -213,7 +213,7 @@ public class AE86TruenoWindows extends ModelBase {
         textureHeight = 800;
 
         steering_wheel = new ModelRenderer(this);
-        steering_wheel.setRotationPoint(7.0F, 21.0F, -7.0F);
+        steering_wheel.setRotationPoint(7.0F, 21, -7.0F);
         setRotationAngle(steering_wheel, -0.1309F, 0.0F, 0.0F);
 
 
@@ -293,21 +293,21 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r3.setRotationPoint(-0.5F, -2.0524F, 2.0007F);
         bone109.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.2618F, 0.0F, 0.0F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 234, 648, -30.5F, 1.0F, -1.0F, 3, 6, 2, 0.0F, false));
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 36, 658, -30.5F, -2.0F, 1.0F, 3, 4, 1, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 234, 648, -30.5F, 1, -1, 3, 6, 2, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 36, 658, -30.5F, -2.0F, 1, 3, 4, 1, 0.0F, false));
         cube_r3.cubeList.add(new ModelBox(cube_r3, 172, 642, -31.5F, -2.0F, -2.0F, 5, 3, 3, 0.0F, false));
 
         body_AE86 = new ModelRenderer(this);
-        body_AE86.setRotationPoint(31.0F, 24.0F, 0.0F);
+        body_AE86.setRotationPoint(31, 24.0F, 0.0F);
         body_AE86.cubeList.add(new ModelBox(body_AE86, 0, 0, -89.0F, -9.0F, 12.0F, 58, 4, 61, 0.0F, false));
-        body_AE86.cubeList.add(new ModelBox(body_AE86, 0, 385, -87.0F, -29.0F, 21.0F, 54, 3, 2, 0.0F, false));
+        body_AE86.cubeList.add(new ModelBox(body_AE86, 0, 385, -87.0F, -29.0F, 21, 54, 3, 2, 0.0F, false));
         body_AE86.cubeList.add(new ModelBox(body_AE86, 390, 74, -80.0F, -48.0F, 38.0F, 40, 3, 36, 0.0F, false));
-        body_AE86.cubeList.add(new ModelBox(body_AE86, 138, 287, -86.0F, -11.0F, -27.0F, 52, 3, 15, 0.0F, false));
+        body_AE86.cubeList.add(new ModelBox(body_AE86, 138, 287, -86.0F, -11, -27.0F, 52, 3, 15, 0.0F, false));
         body_AE86.cubeList.add(new ModelBox(body_AE86, 138, 270, -86.0F, -8.0F, -28.0F, 52, 1, 16, 0.0F, false));
         body_AE86.cubeList.add(new ModelBox(body_AE86, 188, 642, -43.0F, -10.25F, -29.0F, 6, 3, 2, 0.0F, false));
         body_AE86.cubeList.add(new ModelBox(body_AE86, 172, 653, -83.0F, -10.25F, -29.0F, 6, 3, 2, 0.0F, false));
         body_AE86.cubeList.add(new ModelBox(body_AE86, 248, 148, -84.0F, -23.0F, -12.0F, 48, 18, 24, 0.0F, false));
-        body_AE86.cubeList.add(new ModelBox(body_AE86, 190, 317, -88.0F, -19.5F, -31.0F, 56, 1, 9, 0.0F, false));
+        body_AE86.cubeList.add(new ModelBox(body_AE86, 190, 317, -88.0F, -19.5F, -31, 56, 1, 9, 0.0F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(-60.0F, -17.3368F, -28.7576F);
@@ -319,10 +319,10 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r5.setRotationPoint(-44.5F, -17.8368F, -29.2576F);
         body_AE86.addChild(cube_r5);
         setRotationAngle(cube_r5, 0.1745F, 0.0F, 0.0F);
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 20, 658, -0.5F, -1.0F, -1.5F, 1, 4, 3, 0.0F, false));
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 188, 647, 8.5F, -1.0F, -1.5F, 4, 4, 3, 0.0F, false));
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 204, 642, -43.5F, -1.0F, -1.5F, 4, 4, 3, 0.0F, false));
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 28, 658, -31.5F, -1.0F, -1.5F, 1, 4, 3, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 20, 658, -0.5F, -1, -1.5F, 1, 4, 3, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 188, 647, 8.5F, -1, -1.5F, 4, 4, 3, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 204, 642, -43.5F, -1, -1.5F, 4, 4, 3, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 28, 658, -31.5F, -1, -1.5F, 1, 4, 3, 0.0F, false));
 
         cube_r6 = new ModelRenderer(this);
         cube_r6.setRotationPoint(-60.0F, -12.6476F, -27.563F);
@@ -340,15 +340,15 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r8.setRotationPoint(-33.75F, -8.5F, -19.75F);
         body_AE86.addChild(cube_r8);
         setRotationAngle(cube_r8, 0.0F, 0.1309F, 0.0F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 44, 546, -1.0F, -2.5F, -7.0F, 2, 3, 15, 0.0F, false));
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 392, 521, -1.0F, 0.5F, -8.0F, 2, 1, 16, 0.0F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 44, 546, -1, -2.5F, -7.0F, 2, 3, 15, 0.0F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 392, 521, -1, 0.5F, -8.0F, 2, 1, 16, 0.0F, false));
 
         cube_r9 = new ModelRenderer(this);
         cube_r9.setRotationPoint(-86.25F, -8.5F, -19.75F);
         body_AE86.addChild(cube_r9);
         setRotationAngle(cube_r9, 0.0F, -0.1309F, 0.0F);
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 78, 546, -1.0F, -2.5F, -7.0F, 2, 3, 15, 0.0F, false));
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 428, 521, -1.0F, 0.5F, -8.0F, 2, 1, 16, 0.0F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 78, 546, -1, -2.5F, -7.0F, 2, 3, 15, 0.0F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 428, 521, -1, 0.5F, -8.0F, 2, 1, 16, 0.0F, false));
 
         cube_r10 = new ModelRenderer(this);
         cube_r10.setRotationPoint(-32.0117F, -24.757F, -0.0459F);
@@ -378,13 +378,13 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r14.setRotationPoint(-35.8343F, -34.6711F, 101.61F);
         body_AE86.addChild(cube_r14);
         setRotationAngle(cube_r14, -0.3491F, -0.0436F, 0.2182F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 124, 607, -2.0F, -1.0F, -5.0F, 4, 5, 9, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 124, 607, -2.0F, -1, -5.0F, 4, 5, 9, 0.0F, false));
 
         cube_r15 = new ModelRenderer(this);
         cube_r15.setRotationPoint(-84.1657F, -34.6711F, 101.61F);
         body_AE86.addChild(cube_r15);
         setRotationAngle(cube_r15, -0.3491F, 0.0436F, -0.2182F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 150, 607, -2.0F, -1.0F, -5.0F, 4, 5, 9, 0.0F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 150, 607, -2.0F, -1, -5.0F, 4, 5, 9, 0.0F, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(-33.1129F, -26.6536F, 103.9529F);
@@ -486,13 +486,13 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r32.setRotationPoint(-40.3926F, -40.838F, 88.6637F);
         body_AE86.addChild(cube_r32);
         setRotationAngle(cube_r32, -0.2932F, 0.2547F, 0.3575F);
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 104, 422, -2.0F, -1.0F, -16.5F, 4, 2, 33, 0.0F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 104, 422, -2.0F, -1, -16.5F, 4, 2, 33, 0.0F, false));
 
         cube_r33 = new ModelRenderer(this);
         cube_r33.setRotationPoint(-79.6074F, -40.838F, 88.6637F);
         body_AE86.addChild(cube_r33);
         setRotationAngle(cube_r33, -0.2932F, -0.2547F, -0.3575F);
-        cube_r33.cubeList.add(new ModelBox(cube_r33, 178, 422, -2.0F, -1.0F, -16.5F, 4, 2, 33, 0.0F, false));
+        cube_r33.cubeList.add(new ModelBox(cube_r33, 178, 422, -2.0F, -1, -16.5F, 4, 2, 33, 0.0F, false));
 
         cube_r34 = new ModelRenderer(this);
         cube_r34.setRotationPoint(-84.0F, -38.5676F, 27.3769F);
@@ -513,7 +513,7 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r36.cubeList.add(new ModelBox(cube_r36, 0, 270, -27.0F, -3.0F, -7.0F, 54, 6, 14, 0.0F, false));
 
         cube_r37 = new ModelRenderer(this);
-        cube_r37.setRotationPoint(-61.0F, -11.0F, 95.0F);
+        cube_r37.setRotationPoint(-61, -11, 95.0F);
         body_AE86.addChild(cube_r37);
         setRotationAngle(cube_r37, 0.1745F, 0.0F, 0.0F);
         cube_r37.cubeList.add(new ModelBox(cube_r37, 236, 212, -23.0F, -2.0F, -23.0F, 48, 4, 25, 0.0F, false));
@@ -542,7 +542,7 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r39.cubeList.add(new ModelBox(cube_r39, 108, 521, -2.0F, -5.5F, -8.0F, 4, 11, 14, 0.0F, false));
 
         bone12 = new ModelRenderer(this);
-        bone12.setRotationPoint(-31.0F, -24.5217F, -4.0775F);
+        bone12.setRotationPoint(-31, -24.5217F, -4.0775F);
         body_AE86.addChild(bone12);
         setRotationAngle(bone12, 0.2182F, 0.0F, 0.0F);
         bone12.cubeList.add(new ModelBox(bone12, 238, 0, -56.0F, -4.0F, -17.5F, 54, 3, 41, 0.0F, false));
@@ -593,7 +593,7 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r45.cubeList.add(new ModelBox(cube_r45, 208, 546, -33.0F, -0.99F, -4.7939F, 10, 4, 8, 0.0F, false));
 
         bone14 = new ModelRenderer(this);
-        bone14.setRotationPoint(-31.0F, -25.9643F, 115.1429F);
+        bone14.setRotationPoint(-31, -25.9643F, 115.1429F);
         body_AE86.addChild(bone14);
         bone14.cubeList.add(new ModelBox(bone14, 190, 344, -56.0F, -10.0357F, -12.3929F, 54, 3, 8, 0.0F, false));
 
@@ -607,25 +607,25 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r47.setRotationPoint(-29.0F, 12.6787F, -2.9675F);
         bone14.addChild(cube_r47);
         setRotationAngle(cube_r47, -0.829F, 0.0F, 0.0F);
-        cube_r47.cubeList.add(new ModelBox(cube_r47, 0, 380, -27.0F, -2.5F, -1.0F, 54, 3, 2, 0.0F, false));
+        cube_r47.cubeList.add(new ModelBox(cube_r47, 0, 380, -27.0F, -2.5F, -1, 54, 3, 2, 0.0F, false));
 
         cube_r48 = new ModelRenderer(this);
         cube_r48.setRotationPoint(-29.0F, 13.6787F, -3.4675F);
         bone14.addChild(cube_r48);
         setRotationAngle(cube_r48, -0.3491F, 0.0F, 0.0F);
-        cube_r48.cubeList.add(new ModelBox(cube_r48, 354, 374, -27.0F, -1.5F, -1.0F, 54, 4, 2, 0.0F, false));
+        cube_r48.cubeList.add(new ModelBox(cube_r48, 354, 374, -27.0F, -1.5F, -1, 54, 4, 2, 0.0F, false));
 
         cube_r49 = new ModelRenderer(this);
-        cube_r49.setRotationPoint(1.0F, 8.9633F, -8.5992F);
+        cube_r49.setRotationPoint(1, 8.9633F, -8.5992F);
         bone14.addChild(cube_r49);
         setRotationAngle(cube_r49, 0.0436F, -0.1309F, 0.0F);
-        cube_r49.cubeList.add(new ModelBox(cube_r49, 182, 493, -1.0F, -3.5F, -9.0F, 2, 7, 17, 0.0F, false));
+        cube_r49.cubeList.add(new ModelBox(cube_r49, 182, 493, -1, -3.5F, -9.0F, 2, 7, 17, 0.0F, false));
 
         cube_r50 = new ModelRenderer(this);
         cube_r50.setRotationPoint(-59.0F, 8.9633F, -8.5992F);
         bone14.addChild(cube_r50);
         setRotationAngle(cube_r50, 0.0436F, 0.1309F, 0.0F);
-        cube_r50.cubeList.add(new ModelBox(cube_r50, 220, 493, -1.0F, -3.5F, -9.0F, 2, 7, 17, 0.0F, false));
+        cube_r50.cubeList.add(new ModelBox(cube_r50, 220, 493, -1, -3.5F, -9.0F, 2, 7, 17, 0.0F, false));
 
         cube_r51 = new ModelRenderer(this);
         cube_r51.setRotationPoint(-29.5F, 7.7143F, -8.6429F);
@@ -637,26 +637,26 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r52.setRotationPoint(-38.75F, 4.4825F, -2.9957F);
         bone14.addChild(cube_r52);
         setRotationAngle(cube_r52, 0.1309F, 0.0F, 0.48F);
-        cube_r52.cubeList.add(new ModelBox(cube_r52, 44, 662, -1.0F, -0.5F, -1.0F, 2, 1, 2, 0.0F, false));
+        cube_r52.cubeList.add(new ModelBox(cube_r52, 44, 662, -1, -0.5F, -1, 2, 1, 2, 0.0F, false));
 
         cube_r53 = new ModelRenderer(this);
         cube_r53.setRotationPoint(-19.25F, 4.4825F, -2.9957F);
         bone14.addChild(cube_r53);
         setRotationAngle(cube_r53, 0.1309F, 0.0F, -0.48F);
-        cube_r53.cubeList.add(new ModelBox(cube_r53, 52, 658, -1.0F, -0.5F, -1.0F, 2, 1, 2, 0.0F, false));
+        cube_r53.cubeList.add(new ModelBox(cube_r53, 52, 658, -1, -0.5F, -1, 2, 1, 2, 0.0F, false));
 
         cube_r54 = new ModelRenderer(this);
         cube_r54.setRotationPoint(-30.0F, 4.4868F, -2.9859F);
         bone14.addChild(cube_r54);
         setRotationAngle(cube_r54, 0.1309F, 0.0F, 0.0F);
-        cube_r54.cubeList.add(new ModelBox(cube_r54, 136, 565, -9.0F, 0.0F, -1.0F, 20, 1, 2, 0.0F, false));
+        cube_r54.cubeList.add(new ModelBox(cube_r54, 136, 565, -9.0F, 0.0F, -1, 20, 1, 2, 0.0F, false));
 
         cube_r55 = new ModelRenderer(this);
         cube_r55.setRotationPoint(-10.0F, 3.9868F, -2.9859F);
         bone14.addChild(cube_r55);
         setRotationAngle(cube_r55, 0.1309F, 0.0F, 0.0F);
-        cube_r55.cubeList.add(new ModelBox(cube_r55, 136, 568, -9.0F, -1.0F, -1.0F, 19, 3, 2, 0.0F, false));
-        cube_r55.cubeList.add(new ModelBox(cube_r55, 136, 573, -48.0F, -1.0F, -1.0F, 19, 3, 2, 0.0F, false));
+        cube_r55.cubeList.add(new ModelBox(cube_r55, 136, 568, -9.0F, -1, -1, 19, 3, 2, 0.0F, false));
+        cube_r55.cubeList.add(new ModelBox(cube_r55, 136, 573, -48.0F, -1, -1, 19, 3, 2, 0.0F, false));
 
         cube_r56 = new ModelRenderer(this);
         cube_r56.setRotationPoint(-10.0F, 3.2953F, -2.314F);
@@ -676,13 +676,13 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r58.setRotationPoint(-29.0F, -3.685F, -4.2844F);
         bone14.addChild(cube_r58);
         setRotationAngle(cube_r58, 0.2182F, 0.0F, 0.0F);
-        cube_r58.cubeList.add(new ModelBox(cube_r58, 116, 373, -28.5F, -1.0F, -1.5F, 57, 2, 3, 0.0F, false));
+        cube_r58.cubeList.add(new ModelBox(cube_r58, 116, 373, -28.5F, -1, -1.5F, 57, 2, 3, 0.0F, false));
 
         cube_r59 = new ModelRenderer(this);
         cube_r59.setRotationPoint(-29.0F, 1.0777F, -3.8732F);
         bone14.addChild(cube_r59);
         setRotationAngle(cube_r59, 0.1309F, 0.0F, 0.0F);
-        cube_r59.cubeList.add(new ModelBox(cube_r59, 346, 521, -11.0F, -4.0F, -0.5F, 22, 8, 1, 0.0F, false));
+        cube_r59.cubeList.add(new ModelBox(cube_r59, 346, 521, -11, -4.0F, -0.5F, 22, 8, 1, 0.0F, false));
 
         bone15 = new ModelRenderer(this);
         bone15.setRotationPoint(-59.4883F, -25.757F, -0.0459F);
@@ -817,12 +817,12 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r77.cubeList.add(new ModelBox(cube_r77, 362, 565, -26.0192F, -15.9448F, -8.0275F, 3, 4, 11, 0.0F, false));
 
         interior = new ModelRenderer(this);
-        interior.setRotationPoint(3.0F, -4.0F, -1.0F);
+        interior.setRotationPoint(3.0F, -4.0F, -1);
         body_AE86.addChild(interior);
 
 
         front_seats = new ModelRenderer(this);
-        front_seats.setRotationPoint(0.0F, 1.0F, 0.0F);
+        front_seats.setRotationPoint(0.0F, 1, 0.0F);
         interior.addChild(front_seats);
 
 
@@ -947,7 +947,7 @@ public class AE86TruenoWindows extends ModelBase {
         basechairpiece_r4.cubeList.add(new ModelBox(basechairpiece_r4, 232, 521, -28.2925F, 9.0978F, -7.0F, 3, 4, 16, 0.0F, false));
 
         front_seats_performance = new ModelRenderer(this);
-        front_seats_performance.setRotationPoint(0.0F, 1.0F, 0.0F);
+        front_seats_performance.setRotationPoint(0.0F, 1, 0.0F);
         interior.addChild(front_seats_performance);
 
 
@@ -1180,13 +1180,13 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r93.setRotationPoint(-28.9231F, -8.1639F, 6.93F);
         backseats.addChild(cube_r93);
         setRotationAngle(cube_r93, 0.1745F, 0.0F, 0.0F);
-        cube_r93.cubeList.add(new ModelBox(cube_r93, 0, 390, -23.0F, -1.5F, -1.0F, 46, 3, 7, 0.0F, false));
+        cube_r93.cubeList.add(new ModelBox(cube_r93, 0, 390, -23.0F, -1.5F, -1, 46, 3, 7, 0.0F, false));
 
         cube_r94 = new ModelRenderer(this);
         cube_r94.setRotationPoint(-6.9231F, -0.4683F, -0.3872F);
         backseats.addChild(cube_r94);
         setRotationAngle(cube_r94, 0.0F, -0.3054F, 0.0873F);
-        cube_r94.cubeList.add(new ModelBox(cube_r94, 158, 457, -1.0F, -9.0F, -11.5F, 3, 18, 18, 0.0F, false));
+        cube_r94.cubeList.add(new ModelBox(cube_r94, 158, 457, -1, -9.0F, -11.5F, 3, 18, 18, 0.0F, false));
 
         cube_r95 = new ModelRenderer(this);
         cube_r95.setRotationPoint(-50.9231F, -0.4683F, -0.3872F);
@@ -1198,7 +1198,7 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r96.setRotationPoint(-28.9231F, -0.2779F, 4.4824F);
         backseats.addChild(cube_r96);
         setRotationAngle(cube_r96, -0.2182F, 0.0F, 0.0F);
-        cube_r96.cubeList.add(new ModelBox(cube_r96, 0, 400, -23.0F, -9.0F, -1.0F, 46, 18, 2, 0.0F, false));
+        cube_r96.cubeList.add(new ModelBox(cube_r96, 0, 400, -23.0F, -9.0F, -1, 46, 18, 2, 0.0F, false));
 
         detailing = new ModelRenderer(this);
         detailing.setRotationPoint(-38.0922F, -11.5947F, 29.0426F);
@@ -1267,13 +1267,13 @@ public class AE86TruenoWindows extends ModelBase {
 
 
         bone93 = new ModelRenderer(this);
-        bone93.setRotationPoint(5.0F, -1.0F, 14.0F);
+        bone93.setRotationPoint(5.0F, -1, 14.0F);
         bone80.addChild(bone93);
         setRotationAngle(bone93, 0.0F, 1.3788F, 0.0F);
 
 
         bone94 = new ModelRenderer(this);
-        bone94.setRotationPoint(-5.0F, -1.0F, 14.0F);
+        bone94.setRotationPoint(-5.0F, -1, 14.0F);
         bone80.addChild(bone94);
         setRotationAngle(bone94, 0.0F, -1.3788F, 0.0F);
 
@@ -1306,7 +1306,7 @@ public class AE86TruenoWindows extends ModelBase {
         cube_r106.setRotationPoint(-0.5F, 3.6798F, 9.5874F);
         bone81.addChild(cube_r106);
         setRotationAngle(cube_r106, 0.5672F, 0.0F, 0.0F);
-        cube_r106.cubeList.add(new ModelBox(cube_r106, 172, 648, -31.5F, -1.0F, 0.5F, 5, 2, 3, 0.0F, false));
+        cube_r106.cubeList.add(new ModelBox(cube_r106, 172, 648, -31.5F, -1, 0.5F, 5, 2, 3, 0.0F, false));
 
         cube_r107 = new ModelRenderer(this);
         cube_r107.setRotationPoint(-0.5F, 4.9981F, 0.9128F);
@@ -1324,13 +1324,13 @@ public class AE86TruenoWindows extends ModelBase {
         bone3.cubeList.add(new ModelBox(bone3, 44, 658, -30.125F, -2.2445F, -1.1251F, 2, 2, 2, 0.0F, false));
 
         bone91 = new ModelRenderer(this);
-        bone91.setRotationPoint(-5.0F, -1.0F, 0.0F);
+        bone91.setRotationPoint(-5.0F, -1, 0.0F);
         bone81.addChild(bone91);
         setRotationAngle(bone91, 0.0F, 0.0F, -1.1694F);
 
 
         bone92 = new ModelRenderer(this);
-        bone92.setRotationPoint(4.0F, -1.0F, 0.0F);
+        bone92.setRotationPoint(4.0F, -1, 0.0F);
         bone81.addChild(bone92);
         setRotationAngle(bone92, 0.0F, 0.0F, 1.1694F);
 
@@ -1340,7 +1340,7 @@ public class AE86TruenoWindows extends ModelBase {
         wheel.cubeList.add(new ModelBox(wheel, 102, 565, -36.0F, -22.0F, -5.0F, 7, 4, 10, 0.0F, false));
         wheel.cubeList.add(new ModelBox(wheel, 360, 493, -34.0F, -18.0F, -7.0F, 3, 14, 14, 0.0F, false));
         wheel.cubeList.add(new ModelBox(wheel, 44, 622, -36.0F, -16.0F, 7.0F, 7, 10, 4, 0.0F, false));
-        wheel.cubeList.add(new ModelBox(wheel, 22, 622, -36.0F, -16.0F, -11.0F, 7, 10, 4, 0.0F, false));
+        wheel.cubeList.add(new ModelBox(wheel, 22, 622, -36.0F, -16.0F, -11, 7, 10, 4, 0.0F, false));
         wheel.cubeList.add(new ModelBox(wheel, 68, 565, -36.0F, -4.0F, -5.0F, 7, 4, 10, 0.0F, false));
 
         bone = new ModelRenderer(this);

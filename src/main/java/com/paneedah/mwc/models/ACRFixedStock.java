@@ -75,7 +75,7 @@ public class ACRFixedStock extends ModelBase {
         bone17_r1.setRotationPoint(27.6341F, -38.5017F, 20.054F);
         Fixed_stock.addChild(bone17_r1);
         setRotationAngle(bone17_r1, -3.0617F, -0.7355F, 0.9089F);
-        bone17_r1.cubeList.add(new ModelBox(bone17_r1, 65, 39, -1.0F, -41.994F, 21.2769F, 1, 1, 3, 0.0F, false));
+        bone17_r1.cubeList.add(new ModelBox(bone17_r1, 65, 39, -1, -41.994F, 21.2769F, 1, 1, 3, 0.0F, false));
 
         bone18_r1 = new ModelRenderer(this);
         bone18_r1.setRotationPoint(-6.2077F, -32.3187F, 41.9436F);
@@ -125,7 +125,7 @@ public class ACRFixedStock extends ModelBase {
         bone24_r1.setRotationPoint(-22.1681F, 27.9934F, -14.8399F);
         Fixed_stock.addChild(bone24_r1);
         setRotationAngle(bone24_r1, 0.0F, 0.0F, 0.6632F);
-        bone24_r1.cubeList.add(new ModelBox(bone24_r1, 88, 216, -1.0F, -38.7173F, 7.9424F, 2, 1, 11, 0.0F, false));
+        bone24_r1.cubeList.add(new ModelBox(bone24_r1, 88, 216, -1, -38.7173F, 7.9424F, 2, 1, 11, 0.0F, false));
 
         bone3_r1 = new ModelRenderer(this);
         bone3_r1.setRotationPoint(1.4559F, 41.801F, 16.1209F);

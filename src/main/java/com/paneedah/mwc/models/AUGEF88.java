@@ -188,7 +188,7 @@ public class AUGEF88 extends ModelWithAttachments {
         handguard48_r1.setRotationPoint(-23.1881F, -57.9644F, 20.3202F);
         ef88.addChild(handguard48_r1);
         setRotationAngle(handguard48_r1, 0.0F, 0.0F, 2.3562F);
-        handguard48_r1.cubeList.add(new ModelBox(handguard48_r1, 118, 69, 0.5F, -34.0F, -31.0F, 2, 1, 6, 0.0F, false));
+        handguard48_r1.cubeList.add(new ModelBox(handguard48_r1, 118, 69, 0.5F, -34.0F, -31, 2, 1, 6, 0.0F, false));
 
         handguard43_r1 = new ModelRenderer(this);
         handguard43_r1.setRotationPoint(0.0F, 11.3517F, 2.4625F);
@@ -200,13 +200,13 @@ public class AUGEF88 extends ModelWithAttachments {
         handguard41_r1.setRotationPoint(-24.6023F, -10.174F, 20.3202F);
         ef88.addChild(handguard41_r1);
         setRotationAngle(handguard41_r1, 0.0F, 0.0F, 0.7854F);
-        handguard41_r1.cubeList.add(new ModelBox(handguard41_r1, 118, 69, -1.5F, -35.0F, -31.0F, 2, 1, 6, 0.0F, false));
+        handguard41_r1.cubeList.add(new ModelBox(handguard41_r1, 118, 69, -1.5F, -35.0F, -31, 2, 1, 6, 0.0F, false));
 
         handguard40_r1 = new ModelRenderer(this);
         handguard40_r1.setRotationPoint(23.7236F, -12.2953F, 20.3202F);
         ef88.addChild(handguard40_r1);
         setRotationAngle(handguard40_r1, 0.0F, 0.0F, -0.7854F);
-        handguard40_r1.cubeList.add(new ModelBox(handguard40_r1, 118, 69, -3.5F, -35.0F, -31.0F, 2, 1, 6, 0.0F, false));
+        handguard40_r1.cubeList.add(new ModelBox(handguard40_r1, 118, 69, -3.5F, -35.0F, -31, 2, 1, 6, 0.0F, false));
 
         handguard35_r1 = new ModelRenderer(this);
         handguard35_r1.setRotationPoint(0.0F, 10.8309F, -12.269F);
@@ -328,7 +328,7 @@ public class AUGEF88 extends ModelWithAttachments {
         handguard28_r1.setRotationPoint(-25.0873F, 23.2389F, 27.5559F);
         handguard.addChild(handguard28_r1);
         setRotationAngle(handguard28_r1, 0.0F, 0.0F, 0.8179F);
-        handguard28_r1.cubeList.add(new ModelBox(handguard28_r1, 157, 81, -1.0F, -36.0F, -32.0F, 1, 1, 8, 0.0F, false));
+        handguard28_r1.cubeList.add(new ModelBox(handguard28_r1, 157, 81, -1, -36.0F, -32.0F, 1, 1, 8, 0.0F, false));
 
         handguard27_r1 = new ModelRenderer(this);
         handguard27_r1.setRotationPoint(-23.5921F, -25.5065F, 27.5559F);
@@ -370,7 +370,7 @@ public class AUGEF88 extends ModelWithAttachments {
         handguard21_r1.setRotationPoint(22.562F, -23.6661F, 27.5559F);
         handguard.addChild(handguard21_r1);
         setRotationAngle(handguard21_r1, 0.0F, 0.0F, -2.3794F);
-        handguard21_r1.cubeList.add(new ModelBox(handguard21_r1, 139, 134, -1.0F, -33.0F, -32.0F, 1, 1, 8, 0.0F, false));
+        handguard21_r1.cubeList.add(new ModelBox(handguard21_r1, 139, 134, -1, -33.0F, -32.0F, 1, 1, 8, 0.0F, false));
 
         handguard19_r2 = new ModelRenderer(this);
         handguard19_r2.setRotationPoint(7.6358F, 32.7262F, 27.5559F);

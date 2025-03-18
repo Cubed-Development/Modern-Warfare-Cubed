@@ -208,7 +208,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		DebugRenderer.renderLine(Vec3d.ZERO, ve.scale(0.1), new Vec3d(1, 0, 0));
 		DebugRenderer.renderLine(Vec3d.ZERO, ov.scale(2), new Vec3d(0, 1, 0));
 		
-		GlStateManager.color(1.0f, 1.0f, 1.0f);
+		GlStateManager.color(1, 1, 1);
 		DebugRenderer.destructBasicRender();
 		GL11.glPopMatrix();
 		*/
@@ -221,7 +221,7 @@ public class RenderVehicle2 extends Render<Entity> {
         double sr = entityVehicle.getSolver().rearAxel.leftWheel.slipRatio;
 
         //DebugRenderer.renderLine(Vec3d.ZERO.add(0, 3, 0), Vec3d.ZERO.add(0, -sr*100, 0), new Vec3d(1, 0, 0));
-        GlStateManager.color(1.0f, 1f, 1f);
+        GlStateManager.color(1, 1f, 1f);
         if (MC.getRenderManager().isDebugBoundingBox()) {
             entityVehicle.oreintedBoundingBox.renderOBB();
         }
@@ -254,13 +254,13 @@ public class RenderVehicle2 extends Render<Entity> {
 
 
         // debug
-        GL11.glRotatef(180.0F - rotationYaw, 0.0F, 1.0F, 0.0F);
+        GL11.glRotatef(180.0F - rotationYaw, 0.0F, 1, 0.0F);
 
 
         if (MC.gameSettings.thirdPersonView == 0) {
-            GL11.glRotatef(roll, 0.0f, 0.0f, 1.0f);
+            GL11.glRotatef(roll, 0.0f, 0.0f, 1);
         } else {
-            GL11.glRotatef(roll, 0.0f, 0.0f, 1.0f);
+            GL11.glRotatef(roll, 0.0f, 0.0f, 1);
         }
 		
 		
@@ -281,14 +281,14 @@ public class RenderVehicle2 extends Render<Entity> {
 
         // debug DD
         if (MC.gameSettings.thirdPersonView != 0) {
-            GL11.glRotatef(interpPitch, 1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(interpPitch, 1, 0.0F, 0.0F);
         } else {
 
-            GL11.glRotatef(interpPitch, 1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(interpPitch, 1, 0.0F, 0.0F);
 
 
         }
-        //GL11.glRotatef(interpPitch, 1.0F, 0.0F, 0.0F);
+        //GL11.glRotatef(interpPitch, 1, 0.0F, 0.0F);
 		
 
 		/* wtf does this even do???
@@ -336,7 +336,7 @@ public class RenderVehicle2 extends Render<Entity> {
 
         }
 
-        //GL11.glRotatef(MathHelper.wrapAngleTo180_float(par1HCEntityMongoose.getRotateWheelSpeed()*100F), 1.0F, 0.0F, 0.0F);
+        //GL11.glRotatef(MathHelper.wrapAngleTo180_float(par1HCEntityMongoose.getRotateWheelSpeed()*100F), 1, 0.0F, 0.0F);
 
 
         //if(entityVehicle.rotationPitch > 5) {
@@ -418,7 +418,7 @@ public class RenderVehicle2 extends Render<Entity> {
         GL11.glScalef(f4, f4, f4);
         GL11.glScalef(0.6F / f4, 0.6F / f4, 0.6F / f4);
         //this.bindEntityTexture(entityVehicle);
-        GL11.glScalef(-1.0F, -1.0F, 1.0F);
+        GL11.glScalef(-1, -1, 1);
         //this.model.renderer(entityVehicle, 0.0625F);
 
         VehicleRenderableState renderState = null;
@@ -736,9 +736,9 @@ public class RenderVehicle2 extends Render<Entity> {
         }
 
 
-        //  GlStateManager.rotate(-entityIn.rotationYaw, 0.0f, 1.0f, 0.0f);
+        //  GlStateManager.rotate(-entityIn.rotationYaw, 0.0f, 1, 0.0f);
         tessellator.draw();
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color(1, 1, 1, 1);
         GlStateManager.disableBlend();
         GlStateManager.depthMask(true);
         GL11.glPopMatrix();
@@ -750,7 +750,7 @@ public class RenderVehicle2 extends Render<Entity> {
         }
         GlStateManager.disableBlend();
         GlStateManager.disableAlpha();
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
         if (state.isFullCube()) {
             Tessellator tessellator = Tessellator.getInstance();
             BufferBuilder bufferbuilder = tessellator.getBuffer();
@@ -788,9 +788,9 @@ public class RenderVehicle2 extends Render<Entity> {
 
 
                 float f = 0.0f;
-                float f1 = 1.0f;
+                float f1 = 1;
                 float f2 = 0.0f;
-                float f3 = 1.0f;
+                float f3 = 1;
 
 
                 //   System.out.println(d1 + " | " + d2 + " | " + d3 + " | " + d4 + " | " + d5);
@@ -799,10 +799,10 @@ public class RenderVehicle2 extends Render<Entity> {
                 // GL11.glRotated(30, 0.0, 1, 0.0);
                 // System.out.println(p_188299_11_ + " | " + p_188299_13_ + " | " + p_188299_15_);
 
-                bufferbuilder.pos(d1, d3, d4).tex(f, f2).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d1, d3, d5).tex(f, f3).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d2, d3, d5).tex(f1, f3).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d2, d3, d4).tex(f1, f2).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
+                bufferbuilder.pos(d1, d3, d4).tex(f, f2).color(1, 1, 1, (float) d0).endVertex();
+                bufferbuilder.pos(d1, d3, d5).tex(f, f3).color(1, 1, 1, (float) d0).endVertex();
+                bufferbuilder.pos(d2, d3, d5).tex(f1, f3).color(1, 1, 1, (float) d0).endVertex();
+                bufferbuilder.pos(d2, d3, d4).tex(f1, f2).color(1, 1, 1, (float) d0).endVertex();
 
                 GL11.glTranslated(pos.getX(), pos.getY(), pos.getZ());
                 GL11.glTranslated(p_188299_11_, p_188299_13_, p_188299_15_);

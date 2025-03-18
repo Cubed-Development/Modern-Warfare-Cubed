@@ -100,13 +100,13 @@ public class TabletModel extends ModelBase {
         IPad32_r1.setRotationPoint(0.0F, 7.7591F, -5.1495F);
         Tablet.addChild(IPad32_r1);
         setRotationAngle(IPad32_r1, 0.7064F, 0.0F, 0.0F);
-        IPad32_r1.cubeList.add(new ModelBox(IPad32_r1, 0, 0, -9.0F, -24.0F, -1.0F, 18, 1, 1, 0.0F, true));
+        IPad32_r1.cubeList.add(new ModelBox(IPad32_r1, 0, 0, -9.0F, -24.0F, -1, 18, 1, 1, 0.0F, true));
 
         IPad31_r1 = new ModelRenderer(this);
         IPad31_r1.setRotationPoint(0.0F, 1.7053F, 4.8255F);
         Tablet.addChild(IPad31_r1);
         setRotationAngle(IPad31_r1, 0.8551F, 0.0F, 0.0F);
-        IPad31_r1.cubeList.add(new ModelBox(IPad31_r1, 0, 0, -9.0F, -34.0F, -1.0F, 18, 1, 1, 0.0F, true));
+        IPad31_r1.cubeList.add(new ModelBox(IPad31_r1, 0, 0, -9.0F, -34.0F, -1, 18, 1, 1, 0.0F, true));
 
         IPad27_r1 = new ModelRenderer(this);
         IPad27_r1.setRotationPoint(-5.9689F, 11.4443F, -20.4884F);

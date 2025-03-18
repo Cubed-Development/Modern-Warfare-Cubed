@@ -59,7 +59,7 @@ public class ChainsawChain extends ModelWithAttachments {
         chain11_r1.setRotationPoint(-22.1766F, 12.2425F, 1.9585F);
         chain.addChild(chain11_r1);
         setRotationAngle(chain11_r1, 0.0744F, 0.0F, 0.0F);
-        chain11_r1.cubeList.add(new ModelBox(chain11_r1, 0, 100, 0.0F, -26.4F, -1.0F, 1, 1, 3, 0.0F, true));
+        chain11_r1.cubeList.add(new ModelBox(chain11_r1, 0, 100, 0.0F, -26.4F, -1, 1, 1, 3, 0.0F, true));
 
         chain10_r1 = new ModelRenderer(this);
         chain10_r1.setRotationPoint(-22.1766F, 11.9825F, 1.9488F);

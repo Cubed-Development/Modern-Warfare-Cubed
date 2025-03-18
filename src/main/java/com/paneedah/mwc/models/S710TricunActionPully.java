@@ -121,16 +121,16 @@ public class S710TricunActionPully extends ModelWithAttachments {
         cube_r44.cubeList.add(new ModelBox(cube_r44, 79, 36, -0.2F, -0.4F, -0.8F, 1, 1, 1, -0.2F, false));
 
         cube_r45 = new ModelRenderer(this);
-        cube_r45.setRotationPoint(-1.0F, -2.6F, 19.95F);
+        cube_r45.setRotationPoint(-1, -2.6F, 19.95F);
         action_pully.addChild(cube_r45);
         setRotationAngle(cube_r45, 0.0F, -0.3927F, 0.0F);
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 9, 80, 0.0F, 0.0F, -1.0F, 3, 1, 1, -0.1F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 9, 80, 0.0F, 0.0F, -1, 3, 1, 1, -0.1F, false));
 
         cube_r46 = new ModelRenderer(this);
         cube_r46.setRotationPoint(2.1F, -2.6F, 21.15F);
         action_pully.addChild(cube_r46);
         setRotationAngle(cube_r46, 0.0F, 0.3927F, 0.0F);
-        cube_r46.cubeList.add(new ModelBox(cube_r46, 36, 80, 0.0F, 0.0F, -1.0F, 3, 1, 1, -0.1F, false));
+        cube_r46.cubeList.add(new ModelBox(cube_r46, 36, 80, 0.0F, 0.0F, -1, 3, 1, 1, -0.1F, false));
     }
 
     @Override

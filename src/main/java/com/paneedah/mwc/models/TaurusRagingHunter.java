@@ -167,17 +167,17 @@ public class TaurusRagingHunter extends ModelWithAttachments {
         gun158_r1.cubeList.add(new ModelBox(gun158_r1, 61, 32, -0.8F, -0.2F, -14.2F, 1, 1, 1, -0.2F, false));
 
         gun243_r1 = new ModelRenderer(this);
-        gun243_r1.setRotationPoint(-1.0F, -39.974F, -45.1295F);
+        gun243_r1.setRotationPoint(-1, -39.974F, -45.1295F);
         barrel.addChild(gun243_r1);
         setRotationAngle(gun243_r1, -0.1859F, 0.0F, 0.0F);
-        gun243_r1.cubeList.add(new ModelBox(gun243_r1, 15, 51, -1.0F, -1.0F, 0.0F, 1, 2, 3, -0.2F, false));
+        gun243_r1.cubeList.add(new ModelBox(gun243_r1, 15, 51, -1, -1, 0.0F, 1, 2, 3, -0.2F, false));
 
         gun255_r1 = new ModelRenderer(this);
         gun255_r1.setRotationPoint(-3.5F, -45.3F, -18.5F);
         barrel.addChild(gun255_r1);
         setRotationAngle(gun255_r1, 0.0F, 0.0F, 2.1118F);
         gun255_r1.cubeList.add(new ModelBox(gun255_r1, 75, 32, 7.0115F, -8.579F, -10.0F, 1, 1, 6, -0.001F, false));
-        gun255_r1.cubeList.add(new ModelBox(gun255_r1, 75, 42, 6.5115F, -8.579F, -21.0F, 2, 1, 11, -0.001F, false));
+        gun255_r1.cubeList.add(new ModelBox(gun255_r1, 75, 42, 6.5115F, -8.579F, -21, 2, 1, 11, -0.001F, false));
         gun255_r1.cubeList.add(new ModelBox(gun255_r1, 53, 87, 6.9615F, -8.579F, -27.0F, 1, 1, 6, -0.002F, false));
         gun255_r1.cubeList.add(new ModelBox(gun255_r1, 0, 27, 7.8115F, -8.579F, -27.0F, 1, 1, 23, 0.001F, false));
 
@@ -339,7 +339,7 @@ public class TaurusRagingHunter extends ModelWithAttachments {
         gun47_r1.cubeList.add(new ModelBox(gun47_r1, 37, 41, 5.6F, 13.0019F, 5.5634F, 1, 2, 4, 0.002F, false));
 
         gun49_r1 = new ModelRenderer(this);
-        gun49_r1.setRotationPoint(-9.0F, -1.2F, 21.0F);
+        gun49_r1.setRotationPoint(-9.0F, -1.2F, 21);
         gun.addChild(gun49_r1);
         setRotationAngle(gun49_r1, -0.7482F, 0.0F, 0.0F);
         gun49_r1.cubeList.add(new ModelBox(gun49_r1, 17, 0, 3.0F, 14.1324F, -0.5257F, 1, 2, 2, 0.001F, false));
@@ -389,13 +389,13 @@ public class TaurusRagingHunter extends ModelWithAttachments {
         gun65_r1.setRotationPoint(-2.2F, 15.5F, -3.2F);
         gun.addChild(gun65_r1);
         setRotationAngle(gun65_r1, 0.0F, 0.0F, -0.7854F);
-        gun65_r1.cubeList.add(new ModelBox(gun65_r1, 0, 66, -1.0F, -1.0F, 0.0F, 1, 1, 3, -0.001F, false));
+        gun65_r1.cubeList.add(new ModelBox(gun65_r1, 0, 66, -1, -1, 0.0F, 1, 1, 3, -0.001F, false));
 
         gun64_r1 = new ModelRenderer(this);
         gun64_r1.setRotationPoint(-2.2F, 14.5F, -3.2F);
         gun.addChild(gun64_r1);
         setRotationAngle(gun64_r1, 0.0F, 0.0F, -0.7854F);
-        gun64_r1.cubeList.add(new ModelBox(gun64_r1, 8, 75, -1.0F, -1.0F, 0.0F, 1, 1, 3, -0.001F, false));
+        gun64_r1.cubeList.add(new ModelBox(gun64_r1, 8, 75, -1, -1, 0.0F, 1, 1, 3, -0.001F, false));
 
         gun66_r1 = new ModelRenderer(this);
         gun66_r1.setRotationPoint(0.8F, 6.7F, 6.8F);
@@ -417,7 +417,7 @@ public class TaurusRagingHunter extends ModelWithAttachments {
         gun89_r1.cubeList.add(new ModelBox(gun89_r1, 44, 102, -4.0F, 11.8024F, -11.9606F, 2, 1, 1, 0.0F, false));
 
         gun99_r1 = new ModelRenderer(this);
-        gun99_r1.setRotationPoint(-2.4F, 1.0F, 5.8F);
+        gun99_r1.setRotationPoint(-2.4F, 1, 5.8F);
         gun.addChild(gun99_r1);
         setRotationAngle(gun99_r1, 0.0F, 0.0F, -2.2075F);
         gun99_r1.cubeList.add(new ModelBox(gun99_r1, 67, 95, -7.6626F, -9.1616F, -10.0F, 2, 1, 4, -0.001F, false));
@@ -553,7 +553,7 @@ public class TaurusRagingHunter extends ModelWithAttachments {
         gun210_r1.cubeList.add(new ModelBox(gun210_r1, 101, 25, 9.8995F, -4.2426F, -10.0F, 1, 1, 2, 0.0F, false));
 
         gun212_r2 = new ModelRenderer(this);
-        gun212_r2.setRotationPoint(-0.7F, -2.7F, 21.0F);
+        gun212_r2.setRotationPoint(-0.7F, -2.7F, 21);
         gun.addChild(gun212_r2);
         setRotationAngle(gun212_r2, -1.1897F, 0.0F, 0.0F);
         gun212_r2.cubeList.add(new ModelBox(gun212_r2, 99, 73, -4.0F, 13.0019F, 5.5634F, 1, 1, 3, 0.0F, false));

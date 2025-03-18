@@ -29,19 +29,19 @@ public class TowableFloodLight extends ModelBase {
 
 
         bone15 = new ModelRenderer(this);
-        bone15.setRotationPoint(-1.0F, -14.25F, -1.25F);
+        bone15.setRotationPoint(-1, -14.25F, -1.25F);
         Floodlight.addChild(bone15);
         bone15.cubeList.add(new ModelBox(bone15, 90, 0, -7.0F, 0.25F, -8.751F, 16, 10, 26, 0.0F, false));
         bone15.cubeList.add(new ModelBox(bone15, 43, 280, -6.0F, 3.25F, -9.25F, 14, 2, 1, 0.0F, false));
         bone15.cubeList.add(new ModelBox(bone15, 0, 0, 0.0F, 7.25F, -2.75F, 2, 1, 43, 0.0F, false));
         bone15.cubeList.add(new ModelBox(bone15, 94, 249, 0.0F, 6.25F, 38.25F, 2, 1, 4, 0.0F, false));
         bone15.cubeList.add(new ModelBox(bone15, 42, 243, 0.0F, 2.25F, 29.25F, 2, 9, 2, -0.5F, false));
-        bone15.cubeList.add(new ModelBox(bone15, 58, 116, -11.0F, 1.25F, -0.75F, 24, 2, 10, 0.0F, false));
+        bone15.cubeList.add(new ModelBox(bone15, 58, 116, -11, 1.25F, -0.75F, 24, 2, 10, 0.0F, false));
         bone15.cubeList.add(new ModelBox(bone15, 34, 196, -4.0F, -1.75F, 17.251F, 10, 8, 1, 0.0F, false));
         bone15.cubeList.add(new ModelBox(bone15, 64, 83, -4.5944F, -7.3797F, -8.751F, 11, 7, 26, 0.0F, false));
         bone15.cubeList.add(new ModelBox(bone15, 44, 222, -2.4965F, -6.5186F, 17.252F, 7, 7, 1, 0.0F, false));
-        bone15.cubeList.add(new ModelBox(bone15, 131, 165, -0.4056F, -49.1297F, 11.0F, 3, 42, 3, -0.3F, false));
-        bone15.cubeList.add(new ModelBox(bone15, 50, 144, -12.4056F, -51.1297F, 11.0F, 27, 3, 3, -0.3F, false));
+        bone15.cubeList.add(new ModelBox(bone15, 131, 165, -0.4056F, -49.1297F, 11, 3, 42, 3, -0.3F, false));
+        bone15.cubeList.add(new ModelBox(bone15, 50, 144, -12.4056F, -51.1297F, 11, 27, 3, 3, -0.3F, false));
         bone15.cubeList.add(new ModelBox(bone15, 136, 233, 12.4F, -54.8797F, 11.01F, 2, 11, 2, -0.3F, false));
         bone15.cubeList.add(new ModelBox(bone15, 136, 233, -6.4056F, -54.8797F, 11.01F, 2, 11, 2, -0.3F, false));
         bone15.cubeList.add(new ModelBox(bone15, 136, 233, 6.5944F, -54.8797F, 11.01F, 2, 10, 2, -0.3F, false));
@@ -86,16 +86,16 @@ public class TowableFloodLight extends ModelBase {
         bone8.setRotationPoint(5.0F, -6.0F, 9.0F);
         Floodlight.addChild(bone8);
         setRotationAngle(bone8, 0.0F, 0.48F, 0.0F);
-        bone8.cubeList.add(new ModelBox(bone8, 180, 75, -1.0F, -1.0F, -26.0F, 2, 1, 40, 0.0F, false));
-        bone8.cubeList.add(new ModelBox(bone8, 66, 243, -1.0F, -1.5F, 12.0F, 2, 8, 2, -0.3F, false));
+        bone8.cubeList.add(new ModelBox(bone8, 180, 75, -1, -1, -26.0F, 2, 1, 40, 0.0F, false));
+        bone8.cubeList.add(new ModelBox(bone8, 66, 243, -1, -1.5F, 12.0F, 2, 8, 2, -0.3F, false));
         bone8.cubeList.add(new ModelBox(bone8, 58, 243, -1.0313F, -1.5F, -26.0523F, 2, 8, 2, -0.3F, false));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(-5.0F, -6.0F, 9.0F);
         Floodlight.addChild(bone7);
         setRotationAngle(bone7, 0.0F, -0.48F, 0.0F);
-        bone7.cubeList.add(new ModelBox(bone7, 0, 116, -1.0F, -1.0F, -26.0F, 2, 1, 40, 0.0F, false));
-        bone7.cubeList.add(new ModelBox(bone7, 74, 243, -1.0F, -1.5F, 12.0F, 2, 8, 2, -0.3F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 0, 116, -1, -1, -26.0F, 2, 1, 40, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 74, 243, -1, -1.5F, 12.0F, 2, 8, 2, -0.3F, false));
         bone7.cubeList.add(new ModelBox(bone7, 50, 243, -1.0191F, -1.5F, -26.1676F, 2, 8, 2, -0.3F, false));
 
         bone2 = new ModelRenderer(this);

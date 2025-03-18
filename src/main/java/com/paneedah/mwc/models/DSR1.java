@@ -155,7 +155,7 @@ public class DSR1 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 47, 53, -3.0F, 2.4F, -4.0F, 3, 1, 4, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 68, 34, -3.5F, 1.95F, 3.5F, 4, 2, 2, -0.001F, false));
         gun.cubeList.add(new ModelBox(gun, 111, 50, -3.5F, 2.35F, 0.0F, 4, 1, 3, -0.001F, false));
-        gun.cubeList.add(new ModelBox(gun, 53, 135, -3.0F, -0.5F, 1.0F, 3, 3, 5, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 53, 135, -3.0F, -0.5F, 1, 3, 3, 5, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 66, 78, -3.5F, -1.4F, 0.0F, 4, 1, 9, 0.1F, false));
 
         cube_r53_r1 = new ModelRenderer(this);
@@ -494,15 +494,15 @@ public class DSR1 extends ModelWithAttachments {
         cube_r11_r1.setRotationPoint(1.496F, 30.0F, 6.9543F);
         gun.addChild(cube_r11_r1);
         setRotationAngle(cube_r11_r1, 0.0F, 0.0611F, 0.0F);
-        cube_r11_r1.cubeList.add(new ModelBox(cube_r11_r1, 131, 36, -1.0F, -28.5F, -21.5F, 1, 1, 1, -0.001F, false));
-        cube_r11_r1.cubeList.add(new ModelBox(cube_r11_r1, 52, 110, -1.0F, -29.5F, -23.5F, 1, 1, 3, -0.001F, false));
-        cube_r11_r1.cubeList.add(new ModelBox(cube_r11_r1, 68, 28, -1.0F, -31.25F, -24.5F, 1, 2, 4, 0.0F, false));
+        cube_r11_r1.cubeList.add(new ModelBox(cube_r11_r1, 131, 36, -1, -28.5F, -21.5F, 1, 1, 1, -0.001F, false));
+        cube_r11_r1.cubeList.add(new ModelBox(cube_r11_r1, 52, 110, -1, -29.5F, -23.5F, 1, 1, 3, -0.001F, false));
+        cube_r11_r1.cubeList.add(new ModelBox(cube_r11_r1, 68, 28, -1, -31.25F, -24.5F, 1, 2, 4, 0.0F, false));
 
         cube_r10_r1 = new ModelRenderer(this);
         cube_r10_r1.setRotationPoint(2.3316F, 4.0355F, 20.6125F);
         gun.addChild(cube_r10_r1);
         setRotationAngle(cube_r10_r1, 0.7854F, 0.0611F, 0.0F);
-        cube_r10_r1.cubeList.add(new ModelBox(cube_r10_r1, 0, 97, -1.0F, -27.5F, -23.78F, 1, 2, 1, -0.002F, false));
+        cube_r10_r1.cubeList.add(new ModelBox(cube_r10_r1, 0, 97, -1, -27.5F, -23.78F, 1, 2, 1, -0.002F, false));
 
         cube_r9_r1 = new ModelRenderer(this);
         cube_r9_r1.setRotationPoint(-2.3372F, 4.0355F, 20.7957F);

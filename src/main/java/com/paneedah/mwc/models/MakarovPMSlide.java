@@ -266,7 +266,7 @@ public class MakarovPMSlide extends ModelBase {
         gun127.cubeList.add(new ModelBox(gun127, 0, 50, 0.0F, 0.0F, 0.0F, 5, 1, 2, 0.0F, true));
 
         gun126 = new ModelRenderer(this);
-        gun126.setRotationPoint(-3.5F, -31.0F, -16.5F);
+        gun126.setRotationPoint(-3.5F, -31, -16.5F);
         gun.addChild(gun126);
         setRotationAngle(gun126, 1.45F, 0.0F, 0.0F);
         gun126.cubeList.add(new ModelBox(gun126, 0, 0, 0.0F, 0.0F, 0.0F, 4, 17, 2, 0.0F, true));
@@ -352,7 +352,7 @@ public class MakarovPMSlide extends ModelBase {
         gun6.cubeList.add(new ModelBox(gun6, 0, 0, 0.0F, 0.0F, 0.0F, 4, 4, 14, 0.0F, true));
 
         gun2 = new ModelRenderer(this);
-        gun2.setRotationPoint(-2.0F, -31.0F, -8.0F);
+        gun2.setRotationPoint(-2.0F, -31, -8.0F);
         gun.addChild(gun2);
         setRotationAngle(gun2, -0.5205F, 0.0F, 0.0F);
         gun2.cubeList.add(new ModelBox(gun2, 0, 0, 0.0F, 0.0F, 0.0F, 1, 4, 1, 0.0F, true));
@@ -366,7 +366,7 @@ public class MakarovPMSlide extends ModelBase {
         pm_slide.cubeList.add(new ModelBox(pm_slide, 0, 0, -0.2F, -33.0F, -3.5F, 1, 1, 6, 0.0F, true));
         pm_slide.cubeList.add(new ModelBox(pm_slide, 0, 0, -3.8F, -33.0F, -1.5F, 1, 1, 4, 0.0F, true));
         pm_slide.cubeList.add(new ModelBox(pm_slide, 0, 0, -3.0F, -33.0F, 2.001F, 1, 1, 1, 0.0F, true));
-        pm_slide.cubeList.add(new ModelBox(pm_slide, 0, 0, -1.0F, -33.0F, 2.001F, 1, 1, 1, 0.0F, true));
+        pm_slide.cubeList.add(new ModelBox(pm_slide, 0, 0, -1, -33.0F, 2.001F, 1, 1, 1, 0.0F, true));
         pm_slide.cubeList.add(new ModelBox(pm_slide, 0, 0, -0.2F, -33.0F, 2.0F, 1, 1, 1, 0.0F, true));
         pm_slide.cubeList.add(new ModelBox(pm_slide, 0, 0, -3.8F, -33.0F, 2.0F, 1, 1, 1, 0.0F, true));
         pm_slide.cubeList.add(new ModelBox(pm_slide, 0, 0, 0.2F, -34.5F, -3.1F, 1, 1, 3, 0.0F, true));
@@ -479,7 +479,7 @@ public class MakarovPMSlide extends ModelBase {
         gun140_r1.setRotationPoint(-0.5F, -37.0F, -22.7F);
         pm_slide.addChild(gun140_r1);
         setRotationAngle(gun140_r1, 0.0F, 0.0F, -0.6545F);
-        gun140_r1.cubeList.add(new ModelBox(gun140_r1, 0, 0, -1.0F, 0.0F, 0.0F, 1, 1, 23, 0.0F, true));
+        gun140_r1.cubeList.add(new ModelBox(gun140_r1, 0, 0, -1, 0.0F, 0.0F, 1, 1, 23, 0.0F, true));
 
         gun153_r1 = new ModelRenderer(this);
         gun153_r1.setRotationPoint(-3.1F, -36.2F, -6.7F);
@@ -487,8 +487,8 @@ public class MakarovPMSlide extends ModelBase {
         setRotationAngle(gun153_r1, 0.0F, 0.0F, -1.1897F);
         gun153_r1.cubeList.add(new ModelBox(gun153_r1, 0, 0, -1.3F, -0.001F, -0.001F, 1, 1, 7, 0.0F, true));
         gun153_r1.cubeList.add(new ModelBox(gun153_r1, 0, 0, -1.3F, -0.001F, -16.001F, 1, 1, 13, 0.0F, true));
-        gun153_r1.cubeList.add(new ModelBox(gun153_r1, 0, 0, -1.0F, 0.0F, 0.0F, 1, 1, 7, 0.0F, true));
-        gun153_r1.cubeList.add(new ModelBox(gun153_r1, 0, 0, -1.0F, 0.0F, -16.0F, 1, 1, 13, 0.0F, true));
+        gun153_r1.cubeList.add(new ModelBox(gun153_r1, 0, 0, -1, 0.0F, 0.0F, 1, 1, 7, 0.0F, true));
+        gun153_r1.cubeList.add(new ModelBox(gun153_r1, 0, 0, -1, 0.0F, -16.0F, 1, 1, 13, 0.0F, true));
 
         gun151_r1 = new ModelRenderer(this);
         gun151_r1.setRotationPoint(0.1F, -36.2F, -22.7F);
@@ -553,14 +553,14 @@ public class MakarovPMSlide extends ModelBase {
         gun212_r2.cubeList.add(new ModelBox(gun212_r2, 0, 0, 0.001F, 0.0F, 0.0F, 1, 1, 2, 0.0F, true));
 
         gun219_r1 = new ModelRenderer(this);
-        gun219_r1.setRotationPoint(-1.949F, -35.0F, 1.0F);
+        gun219_r1.setRotationPoint(-1.949F, -35.0F, 1);
         pm_slide.addChild(gun219_r1);
         setRotationAngle(gun219_r1, -1.2217F, 0.0F, 0.0F);
         gun219_r1.cubeList.add(new ModelBox(gun219_r1, 0, 0, -1.051F, -0.001F, -1.5F, 1, 1, 1, 0.0F, true));
         gun219_r1.cubeList.add(new ModelBox(gun219_r1, 0, 0, 0.949F, -0.001F, -1.5F, 1, 1, 1, 0.0F, true));
 
         gun220_r1 = new ModelRenderer(this);
-        gun220_r1.setRotationPoint(-1.799F, -35.6F, 1.0F);
+        gun220_r1.setRotationPoint(-1.799F, -35.6F, 1);
         pm_slide.addChild(gun220_r1);
         setRotationAngle(gun220_r1, -1.2217F, 0.0F, 0.0F);
         gun220_r1.cubeList.add(new ModelBox(gun220_r1, 0, 0, -1.001F, -0.001F, -1.7F, 1, 1, 1, -0.2F, true));
@@ -571,13 +571,13 @@ public class MakarovPMSlide extends ModelBase {
         pm_slide.addChild(gun219_r2);
         setRotationAngle(gun219_r2, -0.8203F, 0.0F, 0.0F);
         gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, -1.051F, -0.003F, -1.3F, 1, 1, 1, 0.0F, true));
-        gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, -1.051F, 0.0F, -1.0F, 1, 1, 1, 0.0F, true));
+        gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, -1.051F, 0.0F, -1, 1, 1, 1, 0.0F, true));
         gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, -1.301F, -0.003F, -1.3F, 1, 1, 1, 0.0F, true));
-        gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, -1.301F, -0.002F, -1.0F, 1, 1, 1, 0.0F, true));
+        gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, -1.301F, -0.002F, -1, 1, 1, 1, 0.0F, true));
         gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, 1.199F, -0.003F, -1.3F, 1, 1, 1, 0.0F, true));
-        gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, 1.199F, -0.002F, -1.0F, 1, 1, 1, 0.0F, true));
+        gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, 1.199F, -0.002F, -1, 1, 1, 1, 0.0F, true));
         gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, 0.949F, -0.003F, -1.3F, 1, 1, 1, 0.0F, true));
-        gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, 0.949F, 0.0F, -1.0F, 1, 1, 1, 0.0F, true));
+        gun219_r2.cubeList.add(new ModelBox(gun219_r2, 0, 0, 0.949F, 0.0F, -1, 1, 1, 1, 0.0F, true));
     }
 
     @Override

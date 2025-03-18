@@ -115,7 +115,7 @@ public class MLOKExtendedHandguard extends ModelBase {
 
         guard3 = new ModelRenderer(this);
         guard3.setRotationPoint(-2.5F, -8.0F, -38.5F);
-        guard3.cubeList.add(new ModelBox(guard3, 12, 3, 0.0F, 0.0F, -1.0F, 2, 1, 4, 0.0F, false));
+        guard3.cubeList.add(new ModelBox(guard3, 12, 3, 0.0F, 0.0F, -1, 2, 1, 4, 0.0F, false));
 
         guard4 = new ModelRenderer(this);
         guard4.setRotationPoint(-2.5F, -7.0F, -39.5F);
@@ -175,39 +175,39 @@ public class MLOKExtendedHandguard extends ModelBase {
         guard23.cubeList.add(new ModelBox(guard23, 0, 99, 0.0F, 0.0F, -0.001F, 1, 1, 31, 0.0F, false));
 
         guard24 = new ModelRenderer(this);
-        guard24.setRotationPoint(-4.0F, -11.0F, -71.5F);
+        guard24.setRotationPoint(-4.0F, -11, -71.5F);
         guard24.cubeList.add(new ModelBox(guard24, 11, 25, 0.0F, 0.0F, -0.001F, 5, 1, 1, 0.0F, false));
 
         guard25 = new ModelRenderer(this);
-        guard25.setRotationPoint(-4.0F, -11.0F, -69.5F);
+        guard25.setRotationPoint(-4.0F, -11, -69.5F);
         guard25.cubeList.add(new ModelBox(guard25, 0, 24, 0.0F, 0.0F, 0.0F, 5, 1, 1, 0.0F, false));
 
         guard26 = new ModelRenderer(this);
-        guard26.setRotationPoint(-4.0F, -11.0F, -65.5F);
+        guard26.setRotationPoint(-4.0F, -11, -65.5F);
         guard26.cubeList.add(new ModelBox(guard26, 11, 23, 0.0F, 0.0F, 0.0F, 5, 1, 1, 0.0F, false));
 
         guard27 = new ModelRenderer(this);
-        guard27.setRotationPoint(-4.0F, -11.0F, -61.5F);
+        guard27.setRotationPoint(-4.0F, -11, -61.5F);
         guard27.cubeList.add(new ModelBox(guard27, 0, 22, 0.0F, 0.0F, 0.0F, 5, 1, 1, 0.0F, false));
 
         guard28 = new ModelRenderer(this);
-        guard28.setRotationPoint(-4.0F, -11.0F, -57.5F);
+        guard28.setRotationPoint(-4.0F, -11, -57.5F);
         guard28.cubeList.add(new ModelBox(guard28, 15, 21, 0.0F, 0.0F, 0.0F, 5, 1, 1, 0.0F, false));
 
         guard29 = new ModelRenderer(this);
-        guard29.setRotationPoint(-4.0F, -11.0F, -53.5F);
+        guard29.setRotationPoint(-4.0F, -11, -53.5F);
         guard29.cubeList.add(new ModelBox(guard29, 20, 5, 0.0F, 0.0F, 0.0F, 5, 1, 1, 0.0F, false));
 
         guard30 = new ModelRenderer(this);
-        guard30.setRotationPoint(-4.0F, -11.0F, -49.5F);
+        guard30.setRotationPoint(-4.0F, -11, -49.5F);
         guard30.cubeList.add(new ModelBox(guard30, 20, 3, 0.0F, 0.0F, 0.0F, 5, 1, 1, 0.0F, false));
 
         guard31 = new ModelRenderer(this);
-        guard31.setRotationPoint(-4.0F, -11.0F, -45.5F);
+        guard31.setRotationPoint(-4.0F, -11, -45.5F);
         guard31.cubeList.add(new ModelBox(guard31, 12, 0, 0.0F, 0.0F, 0.0F, 5, 1, 2, 0.0F, false));
 
         guard32 = new ModelRenderer(this);
-        guard32.setRotationPoint(-4.0F, -11.0F, -42.5F);
+        guard32.setRotationPoint(-4.0F, -11, -42.5F);
         guard32.cubeList.add(new ModelBox(guard32, 0, 12, 0.0F, 0.0F, 0.0F, 5, 1, 3, 0.0F, false));
 
         guard33 = new ModelRenderer(this);
@@ -216,9 +216,9 @@ public class MLOKExtendedHandguard extends ModelBase {
         guard33.cubeList.add(new ModelBox(guard33, 24, 35, 0.0F, 0.0F, 0.0F, 1, 3, 2, 0.0F, false));
 
         guard34 = new ModelRenderer(this);
-        guard34.setRotationPoint(1.0F, -12.0F, -39.5F);
+        guard34.setRotationPoint(1, -12.0F, -39.5F);
         setRotationAngle(guard34, 0.0F, -0.409F, 0.0F);
-        guard34.cubeList.add(new ModelBox(guard34, 18, 35, -1.0F, 0.0F, 0.0F, 1, 3, 2, 0.0F, false));
+        guard34.cubeList.add(new ModelBox(guard34, 18, 35, -1, 0.0F, 0.0F, 1, 3, 2, 0.0F, false));
 
         guard35 = new ModelRenderer(this);
         guard35.setRotationPoint(0.5F, -14.0F, -70.5F);
@@ -228,47 +228,47 @@ public class MLOKExtendedHandguard extends ModelBase {
         guard36 = new ModelRenderer(this);
         guard36.setRotationPoint(0.5F, -14.0F, -65.5F);
         setRotationAngle(guard36, 0.0F, 0.0F, 2.5281F);
-        guard36.cubeList.add(new ModelBox(guard36, 27, 40, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard36.cubeList.add(new ModelBox(guard36, 27, 40, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard37 = new ModelRenderer(this);
         guard37.setRotationPoint(0.5F, -14.0F, -62.5F);
         setRotationAngle(guard37, 0.0F, 0.0F, 2.5281F);
-        guard37.cubeList.add(new ModelBox(guard37, 23, 40, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard37.cubeList.add(new ModelBox(guard37, 23, 40, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard38 = new ModelRenderer(this);
         guard38.setRotationPoint(0.5F, -14.0F, -59.5F);
         setRotationAngle(guard38, 0.0F, 0.0F, 2.5281F);
-        guard38.cubeList.add(new ModelBox(guard38, 19, 40, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard38.cubeList.add(new ModelBox(guard38, 19, 40, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard39 = new ModelRenderer(this);
         guard39.setRotationPoint(0.5F, -14.0F, -56.5F);
         setRotationAngle(guard39, 0.0F, 0.0F, 2.5281F);
-        guard39.cubeList.add(new ModelBox(guard39, 15, 40, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard39.cubeList.add(new ModelBox(guard39, 15, 40, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard40 = new ModelRenderer(this);
         guard40.setRotationPoint(0.5F, -14.0F, -53.5F);
         setRotationAngle(guard40, 0.0F, 0.0F, 2.5281F);
-        guard40.cubeList.add(new ModelBox(guard40, 12, 39, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard40.cubeList.add(new ModelBox(guard40, 12, 39, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard41 = new ModelRenderer(this);
         guard41.setRotationPoint(0.5F, -14.0F, -50.5F);
         setRotationAngle(guard41, 0.0F, 0.0F, 2.5281F);
-        guard41.cubeList.add(new ModelBox(guard41, 8, 39, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard41.cubeList.add(new ModelBox(guard41, 8, 39, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard42 = new ModelRenderer(this);
         guard42.setRotationPoint(0.5F, -14.0F, -47.5F);
         setRotationAngle(guard42, 0.0F, 0.0F, 2.5281F);
-        guard42.cubeList.add(new ModelBox(guard42, 4, 39, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard42.cubeList.add(new ModelBox(guard42, 4, 39, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard43 = new ModelRenderer(this);
         guard43.setRotationPoint(0.5F, -14.0F, -44.5F);
         setRotationAngle(guard43, 0.0F, 0.0F, 2.5281F);
-        guard43.cubeList.add(new ModelBox(guard43, 0, 39, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard43.cubeList.add(new ModelBox(guard43, 0, 39, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard44 = new ModelRenderer(this);
         guard44.setRotationPoint(0.5F, -14.0F, -41.5F);
         setRotationAngle(guard44, 0.0F, 0.0F, 2.5281F);
-        guard44.cubeList.add(new ModelBox(guard44, 12, 37, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard44.cubeList.add(new ModelBox(guard44, 12, 37, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard45 = new ModelRenderer(this);
         guard45.setRotationPoint(0.5F, -14.0F, -67.5F);
@@ -335,77 +335,77 @@ public class MLOKExtendedHandguard extends ModelBase {
         guard60 = new ModelRenderer(this);
         guard60.setRotationPoint(-3.5F, -14.0F, -70.5F);
         setRotationAngle(guard60, 0.0F, 0.0F, -2.5281F);
-        guard60.cubeList.add(new ModelBox(guard60, 23, 8, -1.0F, 0.0F, 0.0F, 1, 2, 3, 0.0F, false));
+        guard60.cubeList.add(new ModelBox(guard60, 23, 8, -1, 0.0F, 0.0F, 1, 2, 3, 0.0F, false));
 
         guard61 = new ModelRenderer(this);
-        guard61.setRotationPoint(1.0F, -12.0F, -71.5F);
+        guard61.setRotationPoint(1, -12.0F, -71.5F);
         setRotationAngle(guard61, 0.0F, 0.0F, 2.1192F);
         guard61.cubeList.add(new ModelBox(guard61, 78, 0, 0.0F, 0.0F, 0.0F, 1, 1, 31, 0.0F, false));
 
         guard62 = new ModelRenderer(this);
-        guard62.setRotationPoint(1.0F, -9.5F, -71.5F);
+        guard62.setRotationPoint(1, -9.5F, -71.5F);
         setRotationAngle(guard62, 0.0F, 0.0F, 2.3423F);
         guard62.cubeList.add(new ModelBox(guard62, 68, 69, 0.0F, -0.001F, 0.001F, 1, 1, 32, 0.0F, false));
 
         guard63 = new ModelRenderer(this);
         guard63.setRotationPoint(-4.0F, -9.5F, -71.5F);
         setRotationAngle(guard63, 0.0F, 0.0F, -2.3422F);
-        guard63.cubeList.add(new ModelBox(guard63, 34, 68, -1.0F, -0.001F, 0.001F, 1, 1, 32, 0.0F, false));
+        guard63.cubeList.add(new ModelBox(guard63, 34, 68, -1, -0.001F, 0.001F, 1, 1, 32, 0.0F, false));
 
         guard64 = new ModelRenderer(this);
         guard64.setRotationPoint(-4.0F, -12.0F, -71.5F);
         setRotationAngle(guard64, 0.0F, 0.0F, -2.1192F);
-        guard64.cubeList.add(new ModelBox(guard64, 76, 35, -1.0F, 0.0F, 0.0F, 1, 1, 31, 0.0F, false));
+        guard64.cubeList.add(new ModelBox(guard64, 76, 35, -1, 0.0F, 0.0F, 1, 1, 31, 0.0F, false));
 
         guard65 = new ModelRenderer(this);
         guard65.setRotationPoint(-3.5F, -14.0F, -67.5F);
         setRotationAngle(guard65, 0.0F, 0.0F, -2.5281F);
-        guard65.cubeList.add(new ModelBox(guard65, 126, 98, -1.0F, 0.0F, 0.0F, 1, 1, 27, 0.0F, false));
+        guard65.cubeList.add(new ModelBox(guard65, 126, 98, -1, 0.0F, 0.0F, 1, 1, 27, 0.0F, false));
 
         guard66 = new ModelRenderer(this);
         guard66.setRotationPoint(-3.5F, -14.0F, -65.5F);
         setRotationAngle(guard66, 0.0F, 0.0F, -2.5281F);
-        guard66.cubeList.add(new ModelBox(guard66, 8, 37, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard66.cubeList.add(new ModelBox(guard66, 8, 37, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard67 = new ModelRenderer(this);
         guard67.setRotationPoint(-3.5F, -14.0F, -62.5F);
         setRotationAngle(guard67, 0.0F, 0.0F, -2.5281F);
-        guard67.cubeList.add(new ModelBox(guard67, 4, 37, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard67.cubeList.add(new ModelBox(guard67, 4, 37, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard68 = new ModelRenderer(this);
         guard68.setRotationPoint(-3.5F, -14.0F, -59.5F);
         setRotationAngle(guard68, 0.0F, 0.0F, -2.5281F);
-        guard68.cubeList.add(new ModelBox(guard68, 0, 37, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard68.cubeList.add(new ModelBox(guard68, 0, 37, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard69 = new ModelRenderer(this);
         guard69.setRotationPoint(-3.5F, -14.0F, -56.5F);
         setRotationAngle(guard69, 0.0F, 0.0F, -2.5281F);
-        guard69.cubeList.add(new ModelBox(guard69, 28, 35, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard69.cubeList.add(new ModelBox(guard69, 28, 35, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard70 = new ModelRenderer(this);
         guard70.setRotationPoint(-3.5F, -14.0F, -53.5F);
         setRotationAngle(guard70, 0.0F, 0.0F, -2.5281F);
-        guard70.cubeList.add(new ModelBox(guard70, 22, 35, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard70.cubeList.add(new ModelBox(guard70, 22, 35, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard71 = new ModelRenderer(this);
         guard71.setRotationPoint(-3.5F, -14.0F, -50.5F);
         setRotationAngle(guard71, 0.0F, 0.0F, -2.5281F);
-        guard71.cubeList.add(new ModelBox(guard71, 28, 28, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard71.cubeList.add(new ModelBox(guard71, 28, 28, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard72 = new ModelRenderer(this);
         guard72.setRotationPoint(-3.5F, -14.0F, -47.5F);
         setRotationAngle(guard72, 0.0F, 0.0F, -2.5281F);
-        guard72.cubeList.add(new ModelBox(guard72, 28, 24, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard72.cubeList.add(new ModelBox(guard72, 28, 24, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard73 = new ModelRenderer(this);
         guard73.setRotationPoint(-3.5F, -14.0F, -44.5F);
         setRotationAngle(guard73, 0.0F, 0.0F, -2.5281F);
-        guard73.cubeList.add(new ModelBox(guard73, 24, 28, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard73.cubeList.add(new ModelBox(guard73, 24, 28, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard74 = new ModelRenderer(this);
         guard74.setRotationPoint(-3.5F, -14.0F, -41.5F);
         setRotationAngle(guard74, 0.0F, 0.0F, -2.5281F);
-        guard74.cubeList.add(new ModelBox(guard74, 28, 22, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard74.cubeList.add(new ModelBox(guard74, 28, 22, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard75 = new ModelRenderer(this);
         guard75.setRotationPoint(-3.5F, -14.0F, -67.5F);
@@ -418,7 +418,7 @@ public class MLOKExtendedHandguard extends ModelBase {
         guard76.cubeList.add(new ModelBox(guard76, 0, 66, -2.5F, 0.0F, 0.0F, 1, 1, 32, 0.0F, false));
 
         guard77 = new ModelRenderer(this);
-        guard77.setRotationPoint(1.0F, -9.5F, -71.5F);
+        guard77.setRotationPoint(1, -9.5F, -71.5F);
         setRotationAngle(guard77, 0.0F, 0.0F, 2.3423F);
         guard77.cubeList.add(new ModelBox(guard77, 42, 35, 1.5F, 0.0F, 0.0F, 1, 1, 32, 0.0F, false));
 
@@ -458,37 +458,37 @@ public class MLOKExtendedHandguard extends ModelBase {
         guard84.cubeList.add(new ModelBox(guard84, 0, 26, -1.5F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         guard85 = new ModelRenderer(this);
-        guard85.setRotationPoint(1.0F, -9.5F, -71.5F);
+        guard85.setRotationPoint(1, -9.5F, -71.5F);
         setRotationAngle(guard85, 0.0F, 0.0F, 2.3423F);
         guard85.cubeList.add(new ModelBox(guard85, 24, 17, 0.5F, 0.0F, 0.002F, 1, 1, 2, 0.0F, false));
 
         guard86 = new ModelRenderer(this);
-        guard86.setRotationPoint(1.0F, -9.5F, -67.5F);
+        guard86.setRotationPoint(1, -9.5F, -67.5F);
         setRotationAngle(guard86, 0.0F, 0.0F, 2.3423F);
         guard86.cubeList.add(new ModelBox(guard86, 24, 0, 0.5F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard87 = new ModelRenderer(this);
-        guard87.setRotationPoint(1.0F, -9.5F, -62.5F);
+        guard87.setRotationPoint(1, -9.5F, -62.5F);
         setRotationAngle(guard87, 0.0F, 0.0F, 2.3423F);
         guard87.cubeList.add(new ModelBox(guard87, 22, 8, 0.5F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard88 = new ModelRenderer(this);
-        guard88.setRotationPoint(1.0F, -9.5F, -57.5F);
+        guard88.setRotationPoint(1, -9.5F, -57.5F);
         setRotationAngle(guard88, 0.0F, 0.0F, 2.3423F);
         guard88.cubeList.add(new ModelBox(guard88, 18, 17, 0.5F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard89 = new ModelRenderer(this);
-        guard89.setRotationPoint(1.0F, -9.5F, -52.5F);
+        guard89.setRotationPoint(1, -9.5F, -52.5F);
         setRotationAngle(guard89, 0.0F, 0.0F, 2.3423F);
         guard89.cubeList.add(new ModelBox(guard89, 18, 15, 0.5F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard90 = new ModelRenderer(this);
-        guard90.setRotationPoint(1.0F, -9.5F, -47.5F);
+        guard90.setRotationPoint(1, -9.5F, -47.5F);
         setRotationAngle(guard90, 0.0F, 0.0F, 2.3423F);
         guard90.cubeList.add(new ModelBox(guard90, 6, 18, 0.5F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard91 = new ModelRenderer(this);
-        guard91.setRotationPoint(1.0F, -9.5F, -42.5F);
+        guard91.setRotationPoint(1, -9.5F, -42.5F);
         setRotationAngle(guard91, 0.0F, 0.0F, 2.3423F);
         guard91.cubeList.add(new ModelBox(guard91, 24, 13, 0.5F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
@@ -500,29 +500,29 @@ public class MLOKExtendedHandguard extends ModelBase {
         guard58_r1.setRotationPoint(0.7F, 0.4F, 5.8F);
         guard9.addChild(guard58_r1);
         setRotationAngle(guard58_r1, -0.5061F, 0.0F, 0.0F);
-        guard58_r1.cubeList.add(new ModelBox(guard58_r1, 0, 0, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
-        guard58_r1.cubeList.add(new ModelBox(guard58_r1, 0, 9, 2.6F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
+        guard58_r1.cubeList.add(new ModelBox(guard58_r1, 0, 0, -1, -1, 0.0F, 1, 1, 1, -0.2F, false));
+        guard58_r1.cubeList.add(new ModelBox(guard58_r1, 0, 9, 2.6F, -1, 0.0F, 1, 1, 1, -0.2F, false));
 
         guard59_r1 = new ModelRenderer(this);
         guard59_r1.setRotationPoint(0.8F, 3.0F, 13.2F);
         guard9.addChild(guard59_r1);
         setRotationAngle(guard59_r1, -0.5061F, 0.0F, 0.0F);
-        guard59_r1.cubeList.add(new ModelBox(guard59_r1, 0, 2, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        guard59_r1.cubeList.add(new ModelBox(guard59_r1, 0, 7, 2.4F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        guard59_r1.cubeList.add(new ModelBox(guard59_r1, 0, 2, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        guard59_r1.cubeList.add(new ModelBox(guard59_r1, 0, 7, 2.4F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         guard57_r1 = new ModelRenderer(this);
         guard57_r1.setRotationPoint(0.7F, 0.4F, -6.2F);
         guard9.addChild(guard57_r1);
         setRotationAngle(guard57_r1, -0.5061F, 0.0F, 0.0F);
-        guard57_r1.cubeList.add(new ModelBox(guard57_r1, 0, 16, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
-        guard57_r1.cubeList.add(new ModelBox(guard57_r1, 6, 16, 2.6F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
+        guard57_r1.cubeList.add(new ModelBox(guard57_r1, 0, 16, -1, -1, 0.0F, 1, 1, 1, -0.2F, false));
+        guard57_r1.cubeList.add(new ModelBox(guard57_r1, 6, 16, 2.6F, -1, 0.0F, 1, 1, 1, -0.2F, false));
 
         guard56_r1 = new ModelRenderer(this);
         guard56_r1.setRotationPoint(0.7F, 0.4F, -20.2F);
         guard9.addChild(guard56_r1);
         setRotationAngle(guard56_r1, -0.5061F, 0.0F, 0.0F);
-        guard56_r1.cubeList.add(new ModelBox(guard56_r1, 12, 16, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
-        guard56_r1.cubeList.add(new ModelBox(guard56_r1, 0, 18, 2.6F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
+        guard56_r1.cubeList.add(new ModelBox(guard56_r1, 12, 16, -1, -1, 0.0F, 1, 1, 1, -0.2F, false));
+        guard56_r1.cubeList.add(new ModelBox(guard56_r1, 0, 18, 2.6F, -1, 0.0F, 1, 1, 1, -0.2F, false));
     }
 
     @Override

@@ -193,8 +193,8 @@ public class ATVWheel extends ModelBase {
         cube_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         body.addChild(cube_r1);
         setRotationAngle(cube_r1, -0.3491F, 0.0F, 0.0F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 64, -13.0F, -5.5F, -1.0F, 2, 11, 2, 0.0F, false));
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 39, 131, 11.0F, -5.5F, -1.0F, 2, 11, 2, 0.0F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 64, -13.0F, -5.5F, -1, 2, 11, 2, 0.0F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 39, 131, 11, -5.5F, -1, 2, 11, 2, 0.0F, false));
 
         cube_r2 = new ModelRenderer(this);
         cube_r2.setRotationPoint(-13.25F, 0.0F, 0.0F);
@@ -206,8 +206,8 @@ public class ATVWheel extends ModelBase {
         cube_r3.setRotationPoint(-12.5F, -6.3791F, 2.5211F);
         body.addChild(cube_r3);
         setRotationAngle(cube_r3, -0.48F, 0.0F, 0.0F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 111, -1.5F, -1.5F, -1.0F, 3, 3, 2, 0.0F, false));
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 105, 111, 23.5F, -1.5F, -1.0F, 3, 3, 2, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 111, -1.5F, -1.5F, -1, 3, 3, 2, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 105, 111, 23.5F, -1.5F, -1, 3, 3, 2, 0.0F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(13.25F, 0.0F, 0.0F);
@@ -219,31 +219,31 @@ public class ATVWheel extends ModelBase {
         cube_r5.setRotationPoint(0.0F, 0.0F, 0.5F);
         body.addChild(cube_r5);
         setRotationAngle(cube_r5, -0.3491F, 0.0F, 0.0F);
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 64, 53, -11.0F, -5.5F, -1.0F, 22, 11, 2, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 64, 53, -11, -5.5F, -1, 22, 11, 2, 0.0F, false));
 
         cube_r6 = new ModelRenderer(this);
         cube_r6.setRotationPoint(5.8998F, -0.3117F, 10.5483F);
         body.addChild(cube_r6);
         setRotationAngle(cube_r6, -0.0873F, 0.0F, -0.3927F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 42, -1.0F, -5.0F, -1.0F, 2, 12, 2, 0.0F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 42, -1, -5.0F, -1, 2, 12, 2, 0.0F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(-5.8998F, -0.3117F, 10.5483F);
         body.addChild(cube_r7);
         setRotationAngle(cube_r7, -0.0873F, 0.0F, 0.3927F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 8, 42, -1.0F, -5.0F, -1.0F, 2, 12, 2, 0.0F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 8, 42, -1, -5.0F, -1, 2, 12, 2, 0.0F, false));
 
         cube_r8 = new ModelRenderer(this);
         cube_r8.setRotationPoint(-5.8998F, -0.3117F, -21.4517F);
         body.addChild(cube_r8);
         setRotationAngle(cube_r8, -0.0873F, 0.0F, 0.3927F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 88, 130, -1.0F, -5.0F, -1.0F, 2, 12, 2, 0.0F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 88, 130, -1, -5.0F, -1, 2, 12, 2, 0.0F, false));
 
         cube_r9 = new ModelRenderer(this);
         cube_r9.setRotationPoint(5.8998F, -0.3117F, -21.4517F);
         body.addChild(cube_r9);
         setRotationAngle(cube_r9, -0.0873F, 0.0F, -0.3927F);
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 96, 130, -1.0F, -5.0F, -1.0F, 2, 12, 2, 0.0F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 96, 130, -1, -5.0F, -1, 2, 12, 2, 0.0F, false));
 
         cube_r10 = new ModelRenderer(this);
         cube_r10.setRotationPoint(5.7221F, -6.2736F, -20.4517F);
@@ -261,49 +261,49 @@ public class ATVWheel extends ModelBase {
         cube_r12.setRotationPoint(-4.5302F, 5.1479F, 8.2983F);
         body.addChild(cube_r12);
         setRotationAngle(cube_r12, 0.0F, 0.1309F, -0.3491F);
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 11, 128, -4.0F, -1.0F, -2.0F, 8, 2, 2, 0.0F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 11, 128, -4.0F, -1, -2.0F, 8, 2, 2, 0.0F, false));
 
         cube_r13 = new ModelRenderer(this);
         cube_r13.setRotationPoint(4.5302F, 5.1479F, 9.2983F);
         body.addChild(cube_r13);
         setRotationAngle(cube_r13, 0.0F, 0.1309F, 0.3491F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 52, 126, -4.0F, -1.0F, 0.0F, 8, 2, 2, 0.0F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 52, 126, -4.0F, -1, 0.0F, 8, 2, 2, 0.0F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(4.5302F, 5.1479F, 8.2983F);
         body.addChild(cube_r14);
         setRotationAngle(cube_r14, 0.0F, -0.1309F, 0.3491F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 124, 111, -4.0F, -1.0F, -2.0F, 8, 2, 2, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 124, 111, -4.0F, -1, -2.0F, 8, 2, 2, 0.0F, false));
 
         cube_r15 = new ModelRenderer(this);
         cube_r15.setRotationPoint(-4.5302F, 5.1479F, 9.2983F);
         body.addChild(cube_r15);
         setRotationAngle(cube_r15, 0.0F, -0.1309F, -0.3491F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 112, 54, -4.0F, -1.0F, 0.0F, 8, 2, 2, 0.0F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 112, 54, -4.0F, -1, 0.0F, 8, 2, 2, 0.0F, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(4.5302F, 5.1479F, -21.7017F);
         body.addChild(cube_r16);
         setRotationAngle(cube_r16, 0.0F, 0.1309F, 0.3491F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 129, 58, -4.0F, -1.0F, 0.0F, 8, 2, 2, 0.0F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 129, 58, -4.0F, -1, 0.0F, 8, 2, 2, 0.0F, false));
 
         cube_r17 = new ModelRenderer(this);
         cube_r17.setRotationPoint(4.5302F, 5.1479F, -22.7017F);
         body.addChild(cube_r17);
         setRotationAngle(cube_r17, 0.0F, -0.1309F, 0.3491F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 70, 128, -4.0F, -1.0F, -2.0F, 8, 2, 2, 0.0F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 70, 128, -4.0F, -1, -2.0F, 8, 2, 2, 0.0F, false));
 
         cube_r18 = new ModelRenderer(this);
         cube_r18.setRotationPoint(-4.5302F, 5.1479F, -21.7017F);
         body.addChild(cube_r18);
         setRotationAngle(cube_r18, 0.0F, -0.1309F, -0.3491F);
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 129, 62, -4.0F, -1.0F, 0.0F, 8, 2, 2, 0.0F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 129, 62, -4.0F, -1, 0.0F, 8, 2, 2, 0.0F, false));
 
         cube_r19 = new ModelRenderer(this);
         cube_r19.setRotationPoint(-4.5302F, 5.1479F, -22.7017F);
         body.addChild(cube_r19);
         setRotationAngle(cube_r19, 0.0F, 0.1309F, -0.3491F);
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 129, 89, -4.0F, -1.0F, -2.0F, 8, 2, 2, 0.0F, false));
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 129, 89, -4.0F, -1, -2.0F, 8, 2, 2, 0.0F, false));
 
         cube_r20 = new ModelRenderer(this);
         cube_r20.setRotationPoint(0.0F, -5.9844F, -14.7284F);
@@ -315,19 +315,19 @@ public class ATVWheel extends ModelBase {
         cube_r21.setRotationPoint(12.75F, 1.9128F, -11.5962F);
         body.addChild(cube_r21);
         setRotationAngle(cube_r21, 0.4784F, -0.0403F, 0.0774F);
-        cube_r21.cubeList.add(new ModelBox(cube_r21, 0, 92, -1.0F, -3.5F, -1.0056F, 2, 7, 2, 0.0F, false));
+        cube_r21.cubeList.add(new ModelBox(cube_r21, 0, 92, -1, -3.5F, -1.0056F, 2, 7, 2, 0.0F, false));
 
         cube_r22 = new ModelRenderer(this);
         cube_r22.setRotationPoint(-12.75F, 1.9128F, -11.5962F);
         body.addChild(cube_r22);
         setRotationAngle(cube_r22, 0.4784F, 0.0403F, -0.0774F);
-        cube_r22.cubeList.add(new ModelBox(cube_r22, 97, 66, -1.0F, -3.5F, -1.0056F, 2, 7, 2, 0.0F, false));
+        cube_r22.cubeList.add(new ModelBox(cube_r22, 97, 66, -1, -3.5F, -1.0056F, 2, 7, 2, 0.0F, false));
 
         cube_r23 = new ModelRenderer(this);
         cube_r23.setRotationPoint(0.0F, 1.9128F, -11.5962F);
         body.addChild(cube_r23);
         setRotationAngle(cube_r23, 0.48F, 0.0F, 0.0F);
-        cube_r23.cubeList.add(new ModelBox(cube_r23, 33, 44, -13.0F, -3.5F, -1.0F, 26, 7, 2, 0.0F, false));
+        cube_r23.cubeList.add(new ModelBox(cube_r23, 33, 44, -13.0F, -3.5F, -1, 26, 7, 2, 0.0F, false));
 
         cube_r24 = new ModelRenderer(this);
         cube_r24.setRotationPoint(0.0F, -2.2506F, -14.1136F);
@@ -363,7 +363,7 @@ public class ATVWheel extends ModelBase {
         cube_r29.setRotationPoint(0.0F, -6.3118F, -29.0768F);
         body.addChild(cube_r29);
         setRotationAngle(cube_r29, -0.2182F, 0.0F, 0.0F);
-        cube_r29.cubeList.add(new ModelBox(cube_r29, 76, 78, -4.0F, -1.5F, -1.0F, 8, 3, 2, 0.0F, false));
+        cube_r29.cubeList.add(new ModelBox(cube_r29, 76, 78, -4.0F, -1.5F, -1, 8, 3, 2, 0.0F, false));
 
         cube_r30 = new ModelRenderer(this);
         cube_r30.setRotationPoint(0.0F, -7.9311F, -29.0241F);
@@ -376,43 +376,43 @@ public class ATVWheel extends ModelBase {
         cube_r31.setRotationPoint(-4.1872F, -2.7642F, -29.0138F);
         body.addChild(cube_r31);
         setRotationAngle(cube_r31, -0.1201F, 0.4205F, -0.2875F);
-        cube_r31.cubeList.add(new ModelBox(cube_r31, 0, 22, -0.5F, -2.0F, -1.0F, 1, 4, 2, 0.0F, false));
+        cube_r31.cubeList.add(new ModelBox(cube_r31, 0, 22, -0.5F, -2.0F, -1, 1, 4, 2, 0.0F, false));
 
         cube_r32 = new ModelRenderer(this);
         cube_r32.setRotationPoint(4.1872F, -2.7642F, -29.0138F);
         body.addChild(cube_r32);
         setRotationAngle(cube_r32, -0.1201F, -0.4205F, 0.2875F);
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 64, 97, -0.5F, -2.0F, -1.0F, 1, 4, 2, 0.0F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 64, 97, -0.5F, -2.0F, -1, 1, 4, 2, 0.0F, false));
 
         cube_r33 = new ModelRenderer(this);
         cube_r33.setRotationPoint(3.25F, -2.7029F, -29.4522F);
         body.addChild(cube_r33);
         setRotationAngle(cube_r33, 0.0F, -0.4363F, 0.0F);
-        cube_r33.cubeList.add(new ModelBox(cube_r33, 130, 133, -1.0F, -2.0F, -1.0F, 2, 4, 2, 0.0F, false));
+        cube_r33.cubeList.add(new ModelBox(cube_r33, 130, 133, -1, -2.0F, -1, 2, 4, 2, 0.0F, false));
 
         cube_r34 = new ModelRenderer(this);
         cube_r34.setRotationPoint(-3.25F, -2.7029F, -29.4522F);
         body.addChild(cube_r34);
         setRotationAngle(cube_r34, 0.0F, 0.4363F, 0.0F);
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 0, 134, -1.0F, -2.0F, -1.0F, 2, 4, 2, 0.0F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 0, 134, -1, -2.0F, -1, 2, 4, 2, 0.0F, false));
 
         cube_r35 = new ModelRenderer(this);
         cube_r35.setRotationPoint(3.519F, 1.5125F, -29.2429F);
         body.addChild(cube_r35);
         setRotationAngle(cube_r35, 0.2823F, -0.3786F, -0.1068F);
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 52, 87, -1.0F, -2.5F, -0.5F, 2, 6, 1, 0.0F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 52, 87, -1, -2.5F, -0.5F, 2, 6, 1, 0.0F, false));
 
         cube_r36 = new ModelRenderer(this);
         cube_r36.setRotationPoint(-3.519F, 1.5125F, -29.2429F);
         body.addChild(cube_r36);
         setRotationAngle(cube_r36, 0.2823F, 0.3786F, 0.1068F);
-        cube_r36.cubeList.add(new ModelBox(cube_r36, 91, 19, -1.0F, -2.5F, -0.5F, 2, 6, 1, 0.0F, false));
+        cube_r36.cubeList.add(new ModelBox(cube_r36, 91, 19, -1, -2.5F, -0.5F, 2, 6, 1, 0.0F, false));
 
         cube_r37 = new ModelRenderer(this);
         cube_r37.setRotationPoint(-5.5F, -0.6209F, -29.4743F);
         body.addChild(cube_r37);
         setRotationAngle(cube_r37, 0.2618F, 0.0F, 0.0F);
-        cube_r37.cubeList.add(new ModelBox(cube_r37, 51, 103, -1.0F, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
+        cube_r37.cubeList.add(new ModelBox(cube_r37, 51, 103, -1, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
         cube_r37.cubeList.add(new ModelBox(cube_r37, 64, 103, 10.0F, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
 
         cube_r38 = new ModelRenderer(this);
@@ -463,7 +463,7 @@ public class ATVWheel extends ModelBase {
         cube_r45.setRotationPoint(-7.8053F, -6.5032F, 5.1747F);
         body.addChild(cube_r45);
         setRotationAngle(cube_r45, 0.8326F, -0.3923F, -0.0181F);
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 89, 46, -4.0F, -1.0F, -2.5F, 8, 2, 4, 0.0F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 89, 46, -4.0F, -1, -2.5F, 8, 2, 4, 0.0F, false));
 
         cube_r46 = new ModelRenderer(this);
         cube_r46.setRotationPoint(8.5146F, -7.345F, 6.8521F);
@@ -475,25 +475,25 @@ public class ATVWheel extends ModelBase {
         cube_r47.setRotationPoint(9.7446F, -4.0337F, 16.4408F);
         body.addChild(cube_r47);
         setRotationAngle(cube_r47, -0.0174F, 0.3513F, -0.1699F);
-        cube_r47.cubeList.add(new ModelBox(cube_r47, 128, 129, -4.0F, -1.0F, -1.0F, 7, 2, 2, 0.0F, false));
+        cube_r47.cubeList.add(new ModelBox(cube_r47, 128, 129, -4.0F, -1, -1, 7, 2, 2, 0.0F, false));
 
         cube_r48 = new ModelRenderer(this);
         cube_r48.setRotationPoint(-9.7446F, -4.0337F, 16.4408F);
         body.addChild(cube_r48);
         setRotationAngle(cube_r48, -0.0174F, -0.3513F, 0.1699F);
-        cube_r48.cubeList.add(new ModelBox(cube_r48, 130, 77, -3.0F, -1.0F, -1.0F, 7, 2, 2, 0.0F, false));
+        cube_r48.cubeList.add(new ModelBox(cube_r48, 130, 77, -3.0F, -1, -1, 7, 2, 2, 0.0F, false));
 
         cube_r49 = new ModelRenderer(this);
         cube_r49.setRotationPoint(-13.6642F, -6.228F, 14.9171F);
         body.addChild(cube_r49);
         setRotationAngle(cube_r49, -0.0174F, -0.3513F, 0.1699F);
-        cube_r49.cubeList.add(new ModelBox(cube_r49, 91, 4, -0.5F, -2.5F, -1.0F, 2, 5, 2, 0.0F, false));
+        cube_r49.cubeList.add(new ModelBox(cube_r49, 91, 4, -0.5F, -2.5F, -1, 2, 5, 2, 0.0F, false));
 
         cube_r50 = new ModelRenderer(this);
         cube_r50.setRotationPoint(13.6642F, -6.228F, 14.9171F);
         body.addChild(cube_r50);
         setRotationAngle(cube_r50, -0.0174F, 0.3513F, -0.1699F);
-        cube_r50.cubeList.add(new ModelBox(cube_r50, 103, 16, -1.5F, -2.5F, -1.0F, 2, 5, 2, 0.0F, false));
+        cube_r50.cubeList.add(new ModelBox(cube_r50, 103, 16, -1.5F, -2.5F, -1, 2, 5, 2, 0.0F, false));
 
         cube_r51 = new ModelRenderer(this);
         cube_r51.setRotationPoint(8.8263F, -5.79F, 16.8733F);
@@ -541,20 +541,20 @@ public class ATVWheel extends ModelBase {
         cube_r58.setRotationPoint(7.8053F, -6.5032F, 5.1747F);
         body.addChild(cube_r58);
         setRotationAngle(cube_r58, 0.8326F, 0.3923F, 0.0181F);
-        cube_r58.cubeList.add(new ModelBox(cube_r58, 110, 48, -4.0F, -1.0F, -2.5F, 8, 2, 4, 0.0F, false));
+        cube_r58.cubeList.add(new ModelBox(cube_r58, 110, 48, -4.0F, -1, -2.5F, 8, 2, 4, 0.0F, false));
 
         cube_r59 = new ModelRenderer(this);
         cube_r59.setRotationPoint(0.0F, -5.0762F, 2.9618F);
         body.addChild(cube_r59);
         setRotationAngle(cube_r59, 0.0436F, 0.0F, 0.0F);
-        cube_r59.cubeList.add(new ModelBox(cube_r59, 64, 0, -11.0F, -0.5F, -1.5F, 22, 1, 3, 0.0F, false));
+        cube_r59.cubeList.add(new ModelBox(cube_r59, 64, 0, -11, -0.5F, -1.5F, 22, 1, 3, 0.0F, false));
 
         cube_r60 = new ModelRenderer(this);
         cube_r60.setRotationPoint(-4.5141F, -7.3991F, 8.0915F);
         body.addChild(cube_r60);
         setRotationAngle(cube_r60, 0.0436F, 0.0F, 0.0F);
-        cube_r60.cubeList.add(new ModelBox(cube_r60, 48, 124, -0.5F, -0.999F, -1.0F, 1, 2, 2, 0.0F, false));
-        cube_r60.cubeList.add(new ModelBox(cube_r60, 0, 125, 8.5282F, -0.999F, -1.0F, 1, 2, 2, 0.0F, false));
+        cube_r60.cubeList.add(new ModelBox(cube_r60, 48, 124, -0.5F, -0.999F, -1, 1, 2, 2, 0.0F, false));
+        cube_r60.cubeList.add(new ModelBox(cube_r60, 0, 125, 8.5282F, -0.999F, -1, 1, 2, 2, 0.0F, false));
 
         cube_r61 = new ModelRenderer(this);
         cube_r61.setRotationPoint(4.7466F, -4.3579F, 17.7575F);
@@ -592,7 +592,7 @@ public class ATVWheel extends ModelBase {
         setRotationAngle(cube_r66, 0.0436F, 0.0F, 0.0F);
         cube_r66.cubeList.add(new ModelBox(cube_r66, 103, 14, -3.0F, 5.0F, -4.5F, 6, 2, 9, 0.0F, false));
         cube_r66.cubeList.add(new ModelBox(cube_r66, 0, 81, -4.0F, 4.0F, -4.5F, 8, 1, 10, 0.01F, false));
-        cube_r66.cubeList.add(new ModelBox(cube_r66, 26, 87, -4.0F, -1.0F, -4.5F, 8, 1, 10, 0.0F, false));
+        cube_r66.cubeList.add(new ModelBox(cube_r66, 26, 87, -4.0F, -1, -4.5F, 8, 1, 10, 0.0F, false));
 
         cube_r67 = new ModelRenderer(this);
         cube_r67.setRotationPoint(-0.25F, -0.1987F, 12.7188F);
@@ -610,8 +610,8 @@ public class ATVWheel extends ModelBase {
         cube_r69.setRotationPoint(12.5F, -7.5431F, 10.8622F);
         body.addChild(cube_r69);
         setRotationAngle(cube_r69, 0.0436F, 0.0F, 0.0F);
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 84, 16, -1.5F, -1.0F, -8.5F, 3, 2, 13, 0.01F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 73, 84, -26.5F, -1.0F, -8.5F, 3, 2, 13, 0.01F, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 84, 16, -1.5F, -1, -8.5F, 3, 2, 13, 0.01F, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 73, 84, -26.5F, -1, -8.5F, 3, 2, 13, 0.01F, false));
 
         cube_r70 = new ModelRenderer(this);
         cube_r70.setRotationPoint(10.2822F, -9.8995F, 7.5196F);
@@ -704,13 +704,13 @@ public class ATVWheel extends ModelBase {
         cube_r84.setRotationPoint(1.4194F, -6.7204F, -17.8606F);
         body.addChild(cube_r84);
         setRotationAngle(cube_r84, 0.0647F, 0.7249F, -0.162F);
-        cube_r84.cubeList.add(new ModelBox(cube_r84, 122, 133, -0.5F, -2.0F, 1.0F, 2, 4, 2, 0.0F, false));
+        cube_r84.cubeList.add(new ModelBox(cube_r84, 122, 133, -0.5F, -2.0F, 1, 2, 4, 2, 0.0F, false));
 
         cube_r85 = new ModelRenderer(this);
         cube_r85.setRotationPoint(-1.4194F, -6.7204F, -17.8606F);
         body.addChild(cube_r85);
         setRotationAngle(cube_r85, 0.0647F, -0.7249F, 0.162F);
-        cube_r85.cubeList.add(new ModelBox(cube_r85, 8, 134, -1.5F, -2.0F, 1.0F, 2, 4, 2, 0.0F, false));
+        cube_r85.cubeList.add(new ModelBox(cube_r85, 8, 134, -1.5F, -2.0F, 1, 2, 4, 2, 0.0F, false));
 
         cube_r86 = new ModelRenderer(this);
         cube_r86.setRotationPoint(2.9901F, -7.1042F, -16.7031F);
@@ -844,7 +844,7 @@ public class ATVWheel extends ModelBase {
         cube_r105.setRotationPoint(2.649F, -0.1605F, -0.9899F);
         bone2.addChild(cube_r105);
         setRotationAngle(cube_r105, 0.3185F, 0.3035F, 0.8345F);
-        cube_r105.cubeList.add(new ModelBox(cube_r105, 24, 92, -2.0F, -0.5F, -1.0F, 4, 1, 2, 0.0F, false));
+        cube_r105.cubeList.add(new ModelBox(cube_r105, 24, 92, -2.0F, -0.5F, -1, 4, 1, 2, 0.0F, false));
 
         cube_r106 = new ModelRenderer(this);
         cube_r106.setRotationPoint(1.6112F, -0.0026F, -0.506F);
@@ -868,7 +868,7 @@ public class ATVWheel extends ModelBase {
         cube_r109.setRotationPoint(-5.8662F, -0.3251F, 2.4291F);
         bone2.addChild(cube_r109);
         setRotationAngle(cube_r109, -0.2291F, -0.0175F, -0.5195F);
-        cube_r109.cubeList.add(new ModelBox(cube_r109, 88, 34, -0.6F, -1.0F, -0.55F, 1, 2, 1, 0.0F, false));
+        cube_r109.cubeList.add(new ModelBox(cube_r109, 88, 34, -0.6F, -1, -0.55F, 1, 2, 1, 0.0F, false));
 
         cube_r110 = new ModelRenderer(this);
         cube_r110.setRotationPoint(-3.5675F, 0.7633F, 1.1529F);
@@ -886,13 +886,13 @@ public class ATVWheel extends ModelBase {
         cube_r112.setRotationPoint(-6.3269F, -1.186F, 2.8412F);
         bone2.addChild(cube_r112);
         setRotationAngle(cube_r112, -0.0164F, -0.0693F, 0.5481F);
-        cube_r112.cubeList.add(new ModelBox(cube_r112, 75, 108, -0.5F, -1.5F, -1.0F, 1, 3, 2, 0.0F, false));
+        cube_r112.cubeList.add(new ModelBox(cube_r112, 75, 108, -0.5F, -1.5F, -1, 1, 3, 2, 0.0F, false));
 
         cube_r113 = new ModelRenderer(this);
         cube_r113.setRotationPoint(-1.9633F, -1.7788F, 1.1608F);
         bone2.addChild(cube_r113);
         setRotationAngle(cube_r113, 0.0406F, 0.4346F, 0.0962F);
-        cube_r113.cubeList.add(new ModelBox(cube_r113, 124, 115, -4.0F, -0.5F, -1.0F, 8, 1, 2, 0.01F, false));
+        cube_r113.cubeList.add(new ModelBox(cube_r113, 124, 115, -4.0F, -0.5F, -1, 8, 1, 2, 0.01F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(6.2411F, -6.131F, -28.7655F);
@@ -904,7 +904,7 @@ public class ATVWheel extends ModelBase {
         cube_r114.setRotationPoint(-2.649F, -0.1605F, -0.9899F);
         bone4.addChild(cube_r114);
         setRotationAngle(cube_r114, 0.3185F, -0.3035F, -0.8345F);
-        cube_r114.cubeList.add(new ModelBox(cube_r114, 26, 81, -2.0F, -0.5F, -1.0F, 4, 1, 2, 0.0F, false));
+        cube_r114.cubeList.add(new ModelBox(cube_r114, 26, 81, -2.0F, -0.5F, -1, 4, 1, 2, 0.0F, false));
 
         cube_r115 = new ModelRenderer(this);
         cube_r115.setRotationPoint(-1.6112F, -0.0026F, -0.506F);
@@ -928,7 +928,7 @@ public class ATVWheel extends ModelBase {
         cube_r118.setRotationPoint(5.8662F, -0.3251F, 2.4291F);
         bone4.addChild(cube_r118);
         setRotationAngle(cube_r118, -0.2291F, 0.0175F, 0.5195F);
-        cube_r118.cubeList.add(new ModelBox(cube_r118, 13, 12, -0.4F, -1.0F, -0.55F, 1, 2, 1, 0.0F, false));
+        cube_r118.cubeList.add(new ModelBox(cube_r118, 13, 12, -0.4F, -1, -0.55F, 1, 2, 1, 0.0F, false));
 
         cube_r119 = new ModelRenderer(this);
         cube_r119.setRotationPoint(3.5675F, 0.7633F, 1.1529F);
@@ -946,13 +946,13 @@ public class ATVWheel extends ModelBase {
         cube_r121.setRotationPoint(6.3269F, -1.186F, 2.8412F);
         bone4.addChild(cube_r121);
         setRotationAngle(cube_r121, -0.0164F, 0.0693F, -0.5481F);
-        cube_r121.cubeList.add(new ModelBox(cube_r121, 107, 89, -0.5F, -1.5F, -1.0F, 1, 3, 2, 0.0F, false));
+        cube_r121.cubeList.add(new ModelBox(cube_r121, 107, 89, -0.5F, -1.5F, -1, 1, 3, 2, 0.0F, false));
 
         cube_r122 = new ModelRenderer(this);
         cube_r122.setRotationPoint(1.9633F, -1.7788F, 1.1608F);
         bone4.addChild(cube_r122);
         setRotationAngle(cube_r122, 0.0406F, -0.4346F, -0.0962F);
-        cube_r122.cubeList.add(new ModelBox(cube_r122, 88, 31, -4.0F, -0.5F, -1.0F, 8, 1, 2, 0.01F, false));
+        cube_r122.cubeList.add(new ModelBox(cube_r122, 88, 31, -4.0F, -0.5F, -1, 8, 1, 2, 0.01F, false));
 
         steering_thing = new ModelRenderer(this);
         steering_thing.setRotationPoint(0.0F, 0.2141F, 6.5824F);
@@ -968,13 +968,13 @@ public class ATVWheel extends ModelBase {
         cube_r124.setRotationPoint(0.7325F, -3.8798F, -2.634F);
         steering_thing.addChild(cube_r124);
         setRotationAngle(cube_r124, -0.3927F, -0.345F, 0.1128F);
-        cube_r124.cubeList.add(new ModelBox(cube_r124, 108, 80, -1.0F, -1.5F, -0.5F, 2, 3, 1, 0.0F, false));
+        cube_r124.cubeList.add(new ModelBox(cube_r124, 108, 80, -1, -1.5F, -0.5F, 2, 3, 1, 0.0F, false));
 
         cube_r125 = new ModelRenderer(this);
         cube_r125.setRotationPoint(-0.7325F, -3.8798F, -2.634F);
         steering_thing.addChild(cube_r125);
         setRotationAngle(cube_r125, -0.3927F, 0.345F, -0.1128F);
-        cube_r125.cubeList.add(new ModelBox(cube_r125, 109, 69, -1.0F, -1.5F, -0.5F, 2, 3, 1, 0.0F, false));
+        cube_r125.cubeList.add(new ModelBox(cube_r125, 109, 69, -1, -1.5F, -0.5F, 2, 3, 1, 0.0F, false));
 
         cube_r126 = new ModelRenderer(this);
         cube_r126.setRotationPoint(1.1945F, -2.3381F, -3.3492F);
@@ -986,13 +986,13 @@ public class ATVWheel extends ModelBase {
         cube_r127.setRotationPoint(-0.6997F, -2.4482F, -0.8506F);
         steering_thing.addChild(cube_r127);
         setRotationAngle(cube_r127, 0.0472F, 0.3923F, 0.0181F);
-        cube_r127.cubeList.add(new ModelBox(cube_r127, 0, 89, -1.0F, -0.5F, -3.0F, 3, 1, 1, 0.0F, false));
+        cube_r127.cubeList.add(new ModelBox(cube_r127, 0, 89, -1, -0.5F, -3.0F, 3, 1, 1, 0.0F, false));
 
         cube_r128 = new ModelRenderer(this);
         cube_r128.setRotationPoint(0.0F, -0.0689F, 2.2189F);
         steering_thing.addChild(cube_r128);
         setRotationAngle(cube_r128, 0.0436F, 0.0F, 0.0F);
-        cube_r128.cubeList.add(new ModelBox(cube_r128, 8, 22, -1.0F, -2.1F, -2.0F, 2, 4, 2, 0.0F, false));
+        cube_r128.cubeList.add(new ModelBox(cube_r128, 8, 22, -1, -2.1F, -2.0F, 2, 4, 2, 0.0F, false));
 
         cube_r129 = new ModelRenderer(this);
         cube_r129.setRotationPoint(3.429F, -4.2801F, 2.7897F);
@@ -1004,7 +1004,7 @@ public class ATVWheel extends ModelBase {
         cube_r130.setRotationPoint(-0.6997F, -5.6191F, -0.3033F);
         steering_thing.addChild(cube_r130);
         setRotationAngle(cube_r130, 0.1886F, 0.3864F, 0.0718F);
-        cube_r130.cubeList.add(new ModelBox(cube_r130, 24, 98, -1.0F, -0.496F, -3.0F, 3, 1, 2, 0.0F, false));
+        cube_r130.cubeList.add(new ModelBox(cube_r130, 24, 98, -1, -0.496F, -3.0F, 3, 1, 2, 0.0F, false));
 
         cube_r131 = new ModelRenderer(this);
         cube_r131.setRotationPoint(9.7771F, -6.0777F, 3.5486F);
@@ -1017,13 +1017,13 @@ public class ATVWheel extends ModelBase {
         steering_thing.addChild(cube_r132);
         setRotationAngle(cube_r132, 1.3494F, -0.1704F, 0.0381F);
         cube_r132.cubeList.add(new ModelBox(cube_r132, 129, 93, -2.0F, -0.5F, -0.5F, 8, 1, 1, 0.0F, false));
-        cube_r132.cubeList.add(new ModelBox(cube_r132, 114, 0, -1.0F, -1.0F, -1.0F, 2, 2, 2, 0.0F, false));
+        cube_r132.cubeList.add(new ModelBox(cube_r132, 114, 0, -1, -1, -1, 2, 2, 2, 0.0F, false));
 
         cube_r133 = new ModelRenderer(this);
         cube_r133.setRotationPoint(-6.592F, -6.3795F, 4.4225F);
         steering_thing.addChild(cube_r133);
         setRotationAngle(cube_r133, 1.3494F, 0.1704F, -0.0381F);
-        cube_r133.cubeList.add(new ModelBox(cube_r133, 22, 132, -1.0F, -1.0F, -1.0F, 2, 2, 2, 0.0F, false));
+        cube_r133.cubeList.add(new ModelBox(cube_r133, 22, 132, -1, -1, -1, 2, 2, 2, 0.0F, false));
         cube_r133.cubeList.add(new ModelBox(cube_r133, 130, 54, -6.0F, -0.5F, -0.5F, 8, 1, 1, 0.0F, false));
 
         cube_r134 = new ModelRenderer(this);
@@ -1060,7 +1060,7 @@ public class ATVWheel extends ModelBase {
         cube_r139.setRotationPoint(-1.8234F, -2.8694F, -0.2012F);
         steering_thing.addChild(cube_r139);
         setRotationAngle(cube_r139, 0.1734F, -0.017F, -0.0018F);
-        cube_r139.cubeList.add(new ModelBox(cube_r139, 0, 22, -1.0F, -0.5F, -3.0F, 1, 1, 6, 0.0F, false));
+        cube_r139.cubeList.add(new ModelBox(cube_r139, 0, 22, -1, -0.5F, -3.0F, 1, 1, 6, 0.0F, false));
 
         cube_r140 = new ModelRenderer(this);
         cube_r140.setRotationPoint(1.8234F, -2.8694F, -0.2012F);
@@ -1087,67 +1087,67 @@ public class ATVWheel extends ModelBase {
         cube_r143.cubeList.add(new ModelBox(cube_r143, 26, 87, -2.0F, -0.497F, -3.0F, 3, 1, 2, 0.0F, false));
 
         wheel_small = new ModelRenderer(this);
-        wheel_small.setRotationPoint(11.0F, 16.5308F, 0.0F);
+        wheel_small.setRotationPoint(11, 16.5308F, 0.0F);
         wheel_small.cubeList.add(new ModelBox(wheel_small, 32, 124, -3.0F, 4.4692F, -2.0F, 6, 3, 4, 0.01F, false));
         wheel_small.cubeList.add(new ModelBox(wheel_small, 58, 78, -2.0F, -4.5308F, -5.0F, 4, 9, 10, 0.0F, false));
         wheel_small.cubeList.add(new ModelBox(wheel_small, 120, 97, -3.0F, -7.459F, -2.0F, 6, 3, 4, 0.01F, false));
 
         cube_r144 = new ModelRenderer(this);
-        cube_r144.setRotationPoint(-1.0F, -6.9949F, -1.0359F);
+        cube_r144.setRotationPoint(-1, -6.9949F, -1.0359F);
         wheel_small.addChild(cube_r144);
         setRotationAngle(cube_r144, -1.5708F, 0.0F, 0.0F);
         cube_r144.cubeList.add(new ModelBox(cube_r144, 92, 80, -2.0F, -8.5F, 5.0F, 6, 3, 4, 0.01F, false));
 
         cube_r145 = new ModelRenderer(this);
-        cube_r145.setRotationPoint(-1.0F, 4.3042F, 2.4821F);
+        cube_r145.setRotationPoint(-1, 4.3042F, 2.4821F);
         wheel_small.addChild(cube_r145);
         setRotationAngle(cube_r145, 0.5236F, 0.0F, 0.0F);
         cube_r145.cubeList.add(new ModelBox(cube_r145, 14, 104, -2.0F, -0.5F, -2.0F, 6, 3, 4, -0.01F, false));
 
         cube_r146 = new ModelRenderer(this);
-        cube_r146.setRotationPoint(-1.0F, 2.4872F, 4.299F);
+        cube_r146.setRotationPoint(-1, 2.4872F, 4.299F);
         wheel_small.addChild(cube_r146);
         setRotationAngle(cube_r146, 1.0472F, 0.0F, 0.0F);
         cube_r146.cubeList.add(new ModelBox(cube_r146, 35, 117, -2.0F, -0.5F, -2.0F, 6, 3, 4, 0.0F, false));
 
         cube_r147 = new ModelRenderer(this);
-        cube_r147.setRotationPoint(-1.0F, -4.2939F, 2.4821F);
+        cube_r147.setRotationPoint(-1, -4.2939F, 2.4821F);
         wheel_small.addChild(cube_r147);
         setRotationAngle(cube_r147, -0.5236F, 0.0F, 0.0F);
         cube_r147.cubeList.add(new ModelBox(cube_r147, 118, 0, -2.0F, -2.5F, -2.0F, 6, 3, 4, -0.01F, false));
 
         cube_r148 = new ModelRenderer(this);
-        cube_r148.setRotationPoint(-1.0F, -2.4769F, 4.299F);
+        cube_r148.setRotationPoint(-1, -2.4769F, 4.299F);
         wheel_small.addChild(cube_r148);
         setRotationAngle(cube_r148, -1.0472F, 0.0F, 0.0F);
         cube_r148.cubeList.add(new ModelBox(cube_r148, 55, 119, -2.0F, -2.5F, -2.0F, 6, 3, 4, 0.0F, false));
 
         cube_r149 = new ModelRenderer(this);
-        cube_r149.setRotationPoint(-1.0F, 7.0051F, 1.0359F);
+        cube_r149.setRotationPoint(-1, 7.0051F, 1.0359F);
         wheel_small.addChild(cube_r149);
         setRotationAngle(cube_r149, -1.5708F, 0.0F, 0.0F);
         cube_r149.cubeList.add(new ModelBox(cube_r149, 111, 120, -2.0F, 5.5F, -9.0F, 6, 3, 4, 0.01F, false));
 
         cube_r150 = new ModelRenderer(this);
-        cube_r150.setRotationPoint(-1.0F, -4.2939F, -2.4821F);
+        cube_r150.setRotationPoint(-1, -4.2939F, -2.4821F);
         wheel_small.addChild(cube_r150);
         setRotationAngle(cube_r150, 0.5236F, 0.0F, 0.0F);
         cube_r150.cubeList.add(new ModelBox(cube_r150, 16, 121, -2.0F, -2.5F, -2.0F, 6, 3, 4, -0.01F, false));
 
         cube_r151 = new ModelRenderer(this);
-        cube_r151.setRotationPoint(-1.0F, -2.4769F, -4.299F);
+        cube_r151.setRotationPoint(-1, -2.4769F, -4.299F);
         wheel_small.addChild(cube_r151);
         setRotationAngle(cube_r151, 1.0472F, 0.0F, 0.0F);
         cube_r151.cubeList.add(new ModelBox(cube_r151, 122, 39, -2.0F, -2.5F, -2.0F, 6, 3, 4, 0.0F, false));
 
         cube_r152 = new ModelRenderer(this);
-        cube_r152.setRotationPoint(-1.0F, 4.3042F, -2.4821F);
+        cube_r152.setRotationPoint(-1, 4.3042F, -2.4821F);
         wheel_small.addChild(cube_r152);
         setRotationAngle(cube_r152, -0.5236F, 0.0F, 0.0F);
         cube_r152.cubeList.add(new ModelBox(cube_r152, 124, 10, -2.0F, -0.5F, -2.0F, 6, 3, 4, -0.01F, false));
 
         cube_r153 = new ModelRenderer(this);
-        cube_r153.setRotationPoint(-1.0F, 2.4872F, -4.299F);
+        cube_r153.setRotationPoint(-1, 2.4872F, -4.299F);
         wheel_small.addChild(cube_r153);
         setRotationAngle(cube_r153, -1.0472F, 0.0F, 0.0F);
         cube_r153.cubeList.add(new ModelBox(cube_r153, 124, 25, -2.0F, -0.5F, -2.0F, 6, 3, 4, 0.0F, false));
@@ -1156,7 +1156,7 @@ public class ATVWheel extends ModelBase {
         cube_r154.setRotationPoint(0.0F, -0.0308F, 0.0F);
         wheel_small.addChild(cube_r154);
         setRotationAngle(cube_r154, 0.7854F, 0.0F, 0.0F);
-        cube_r154.cubeList.add(new ModelBox(cube_r154, 33, 53, -3.0F, -1.0F, -1.0F, 6, 2, 2, 0.0F, false));
+        cube_r154.cubeList.add(new ModelBox(cube_r154, 33, 53, -3.0F, -1, -1, 6, 2, 2, 0.0F, false));
     }
 
     @Override

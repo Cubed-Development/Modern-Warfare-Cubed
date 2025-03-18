@@ -43,7 +43,7 @@ public class AUG9mmConversionkit extends ModelWithAttachments {
         conversionkit17_r1.cubeList.add(new ModelBox(conversionkit17_r1, 72, 71, -3.2F, -19.1F, 11.1F, 1, 1, 5, 0.0F, false));
         conversionkit17_r1.cubeList.add(new ModelBox(conversionkit17_r1, 22, 60, -1.3F, -25.1F, 15.7F, 1, 7, 1, 0.0F, false));
         conversionkit17_r1.cubeList.add(new ModelBox(conversionkit17_r1, 0, 27, -2.7F, -25.1F, 15.7F, 2, 7, 1, 0.0F, false));
-        conversionkit17_r1.cubeList.add(new ModelBox(conversionkit17_r1, 17, 27, -2.5F, -25.1F, 11.0F, 2, 7, 1, 0.0F, false));
+        conversionkit17_r1.cubeList.add(new ModelBox(conversionkit17_r1, 17, 27, -2.5F, -25.1F, 11, 2, 7, 1, 0.0F, false));
         conversionkit17_r1.cubeList.add(new ModelBox(conversionkit17_r1, 67, 18, -3.0F, -25.1F, 11.3F, 3, 7, 5, 0.0F, false));
 
         conversionkit15_r1 = new ModelRenderer(this);

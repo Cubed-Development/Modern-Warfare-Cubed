@@ -49,7 +49,7 @@ public class MPXMag extends ModelWithAttachments {
         magazine_r3.setRotationPoint(1.225F, -12.6653F, -7.2288F);
         magazine.addChild(magazine_r3);
         setRotationAngle(magazine_r3, 0.0F, 0.0F, -0.4189F);
-        magazine_r3.cubeList.add(new ModelBox(magazine_r3, 31, 99, -1.0F, -1.0F, -4.0F, 1, 1, 4, 0.0F, false));
+        magazine_r3.cubeList.add(new ModelBox(magazine_r3, 31, 99, -1, -1, -4.0F, 1, 1, 4, 0.0F, false));
 
         bone295 = new ModelRenderer(this);
         bone295.setRotationPoint(-0.675F, -5.95F, -8.15F);

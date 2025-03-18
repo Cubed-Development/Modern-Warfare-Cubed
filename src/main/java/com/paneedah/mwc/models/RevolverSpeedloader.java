@@ -88,8 +88,8 @@ public class RevolverSpeedloader extends ModelBase {
         cube_r7.setRotationPoint(-5.1F, -1.1F, -10.0F);
         speedloaderbullets.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.0F, 0.0F, 0.4014F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 6, 4, -1.0F, -1.101F, -1.003F, 1, 1, 1, 0.0F, false));
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 9, -1.0F, -1.101F, -0.003F, 1, 1, 4, 0.1F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 6, 4, -1, -1.101F, -1.003F, 1, 1, 1, 0.0F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 9, -1, -1.101F, -0.003F, 1, 1, 4, 0.1F, false));
 
         cube_r8 = new ModelRenderer(this);
         cube_r8.setRotationPoint(-8.9F, -4.6F, -10.0F);
@@ -102,8 +102,8 @@ public class RevolverSpeedloader extends ModelBase {
         cube_r9.setRotationPoint(-5.1F, -4.6F, -10.0F);
         speedloaderbullets.addChild(cube_r9);
         setRotationAngle(cube_r9, 0.0F, 0.0F, -0.4014F);
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 0, 9, -1.0F, -0.001F, -1.003F, 1, 1, 1, 0.0F, false));
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 6, 10, -1.0F, -0.001F, -0.003F, 1, 1, 4, 0.1F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 0, 9, -1, -0.001F, -1.003F, 1, 1, 1, 0.0F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 6, 10, -1, -0.001F, -0.003F, 1, 1, 4, 0.1F, false));
     }
 
     @Override

@@ -52,13 +52,13 @@ public class Remington870Pump extends ModelWithAttachments {
         pump27_r1.setRotationPoint(-39.2715F, -6.8389F, 0.0F);
         pump.addChild(pump27_r1);
         setRotationAngle(pump27_r1, 0.0F, 0.0F, 2.2307F);
-        pump27_r1.cubeList.add(new ModelBox(pump27_r1, 84, 234, 1.0F, -27.75F, -37.5F, 1, 1, 13, 0.0F, false));
+        pump27_r1.cubeList.add(new ModelBox(pump27_r1, 84, 234, 1, -27.75F, -37.5F, 1, 1, 13, 0.0F, false));
 
         pump26_r1 = new ModelRenderer(this);
         pump26_r1.setRotationPoint(-34.684F, -4.0739F, 0.0F);
         pump.addChild(pump26_r1);
         setRotationAngle(pump26_r1, 0.0F, 0.0F, 2.3562F);
-        pump26_r1.cubeList.add(new ModelBox(pump26_r1, 234, 375, 1.0F, -24.65F, -35.5F, 1, 1, 14, 0.0F, false));
+        pump26_r1.cubeList.add(new ModelBox(pump26_r1, 234, 375, 1, -24.65F, -35.5F, 1, 1, 14, 0.0F, false));
 
         pump25_r1 = new ModelRenderer(this);
         pump25_r1.setRotationPoint(-6.652F, -5.4881F, 0.0F);

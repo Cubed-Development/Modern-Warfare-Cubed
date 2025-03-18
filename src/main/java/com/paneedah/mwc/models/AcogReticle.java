@@ -35,7 +35,7 @@ public class AcogReticle extends ModelBase {
         textureHeight = 64;
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(-1.0F, 26.25F, 0.0F);
+        bone.setRotationPoint(-1, 26.25F, 0.0F);
 
 
         reticle16 = new ModelRenderer(this);
@@ -79,7 +79,7 @@ public class AcogReticle extends ModelBase {
         reticle9.cubeList.add(new ModelBox(reticle9, 2, 4, 0.0F, 0.0F, 0.0F, 5, 1, 0, 0.0F, false));
 
         reticle8 = new ModelRenderer(this);
-        reticle8.setRotationPoint(-2.5F, -41.0F, 0.0F);
+        reticle8.setRotationPoint(-2.5F, -41, 0.0F);
         bone.addChild(reticle8);
         reticle8.cubeList.add(new ModelBox(reticle8, 2, 3, 0.0F, 0.0F, 0.0F, 6, 1, 0, 0.0F, false));
 

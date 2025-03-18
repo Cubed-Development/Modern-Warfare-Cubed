@@ -75,34 +75,34 @@ public class BanditNew3 extends ModelBiped {
         headset = new ModelRenderer(this);
         headset.setRotationPoint(0.0F, 0.0F, 0.0F);
         head.addChild(headset);
-        headset.cubeList.add(new ModelBox(headset, 21, 81, -4.0F, -8.5F, -1.0F, 8, 1, 2, 0.0F, false));
+        headset.cubeList.add(new ModelBox(headset, 21, 81, -4.0F, -8.5F, -1, 8, 1, 2, 0.0F, false));
 
         cube_r1 = new ModelRenderer(this);
         cube_r1.setRotationPoint(3.8F, -1.5F, -5.4F);
         headset.addChild(cube_r1);
         setRotation(cube_r1, -0.3665F, 1.0123F, 1.2392F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 41, 92, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 41, 92, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r2 = new ModelRenderer(this);
         cube_r2.setRotationPoint(5.2F, -1.8F, -4.3F);
         headset.addChild(cube_r2);
         setRotation(cube_r2, -0.9425F, 0.6458F, 0.6283F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 41, 81, -1.0F, 0.0F, 0.0F, 1, 2, 1, -0.2F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 41, 81, -1, 0.0F, 0.0F, 1, 2, 1, -0.2F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(5.35F, -3.2F, -1.9F);
         headset.addChild(cube_r3);
         setRotation(cube_r3, -1.0472F, 0.0349F, 0.1745F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 1, 81, -1.0F, 0.0F, 0.0F, 1, 3, 1, -0.2F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 1, 81, -1, 0.0F, 0.0F, 1, 3, 1, -0.2F, false));
 
         cube_r4 = new ModelRenderer(this);
-        cube_r4.setRotationPoint(-5.15F, -5.35F, -1.0F);
+        cube_r4.setRotationPoint(-5.15F, -5.35F, -1);
         headset.addChild(cube_r4);
         setRotation(cube_r4, 0.0F, 0.0F, 0.2618F);
         cube_r4.cubeList.add(new ModelBox(cube_r4, 1, 68, 0.1114F, -3.0871F, -0.001F, 1, 3, 2, 0.0F, false));
 
         cube_r5 = new ModelRenderer(this);
-        cube_r5.setRotationPoint(4.95F, -5.35F, -1.0F);
+        cube_r5.setRotationPoint(4.95F, -5.35F, -1);
         headset.addChild(cube_r5);
         setRotation(cube_r5, 0.0F, 0.0F, -0.2618F);
         cube_r5.cubeList.add(new ModelBox(cube_r5, 25, 84, -0.8886F, -3.0871F, -0.001F, 1, 3, 2, 0.0F, false));
@@ -111,61 +111,61 @@ public class BanditNew3 extends ModelBiped {
         cube_r6.setRotationPoint(-3.95F, -3.95F, 1.9F);
         headset.addChild(cube_r6);
         setRotation(cube_r6, 0.0F, -0.733F, -0.1222F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 1, 97, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.3F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 1, 97, -1, -2.0F, 0.0F, 1, 2, 1, -0.3F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(5.4F, -3.75F, 1.9F);
         headset.addChild(cube_r7);
         setRotation(cube_r7, 0.0F, -0.733F, 0.1222F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 21, 103, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.3F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 21, 103, -1, -2.0F, 0.0F, 1, 2, 1, -0.3F, false));
 
         cube_r8 = new ModelRenderer(this);
         cube_r8.setRotationPoint(-5.6F, -5.5F, -2.45F);
         headset.addChild(cube_r8);
         setRotation(cube_r8, -0.9076F, 1.5882F, -0.1222F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 25, 65, -5.0F, -1.0F, 0.0F, 5, 1, 1, -0.3F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 25, 65, -5.0F, -1, 0.0F, 5, 1, 1, -0.3F, false));
 
         cube_r9 = new ModelRenderer(this);
         cube_r9.setRotationPoint(5.5F, -5.5F, 2.55F);
         headset.addChild(cube_r9);
         setRotation(cube_r9, -0.9076F, -1.5882F, 0.1222F);
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 25, 67, -5.0F, -1.0F, 0.0F, 5, 1, 1, -0.3F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 25, 67, -5.0F, -1, 0.0F, 5, 1, 1, -0.3F, false));
 
         cube_r10 = new ModelRenderer(this);
         cube_r10.setRotationPoint(-3.95F, -3.95F, -1.9F);
         headset.addChild(cube_r10);
         setRotation(cube_r10, 0.0F, -0.733F, -0.1222F);
-        cube_r10.cubeList.add(new ModelBox(cube_r10, 25, 89, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.3F, false));
+        cube_r10.cubeList.add(new ModelBox(cube_r10, 25, 89, -1, -2.0F, 0.0F, 1, 2, 1, -0.3F, false));
 
         cube_r11 = new ModelRenderer(this);
         cube_r11.setRotationPoint(5.4F, -3.75F, -1.9F);
         headset.addChild(cube_r11);
         setRotation(cube_r11, 0.0F, -0.733F, 0.1222F);
-        cube_r11.cubeList.add(new ModelBox(cube_r11, 24, 105, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.3F, false));
+        cube_r11.cubeList.add(new ModelBox(cube_r11, 24, 105, -1, -2.0F, 0.0F, 1, 2, 1, -0.3F, false));
 
         cube_r12 = new ModelRenderer(this);
         cube_r12.setRotationPoint(-4.9F, -3.4F, -0.3F);
         headset.addChild(cube_r12);
         setRotation(cube_r12, -0.9076F, 0.0F, 0.2793F);
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 5, 68, 0.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 5, 68, 0.0F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         cube_r13 = new ModelRenderer(this);
         cube_r13.setRotationPoint(4.9F, -3.4F, -0.3F);
         headset.addChild(cube_r13);
         setRotation(cube_r13, -0.9076F, 0.0F, -0.2793F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 41, 90, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 41, 90, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         cube_r14 = new ModelRenderer(this);
-        cube_r14.setRotationPoint(-5.71F, -3.83F, -1.0F);
+        cube_r14.setRotationPoint(-5.71F, -3.83F, -1);
         headset.addChild(cube_r14);
         setRotation(cube_r14, 0.0F, 0.0F, 0.4189F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 19, 116, 0.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 19, 116, 0.0F, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         cube_r15 = new ModelRenderer(this);
-        cube_r15.setRotationPoint(5.71F, -3.83F, -1.0F);
+        cube_r15.setRotationPoint(5.71F, -3.83F, -1);
         headset.addChild(cube_r15);
         setRotation(cube_r15, 0.0F, 0.0F, -0.4189F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 19, 111, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 19, 111, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(5.25F, -2.25F, 1.85F);
@@ -176,13 +176,13 @@ public class BanditNew3 extends ModelBiped {
         cube_r16.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(cube_r16);
         setRotation(cube_r16, 0.0F, -0.733F, 0.1222F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 28, 105, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.2F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 28, 105, -1, -2.0F, 0.0F, 1, 2, 1, -0.2F, false));
 
         cube_r17 = new ModelRenderer(this);
         cube_r17.setRotationPoint(0.0F, 0.0F, -3.75F);
         bone.addChild(cube_r17);
         setRotation(cube_r17, 0.0F, -0.733F, 0.1222F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 32, 105, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.2F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 32, 105, -1, -2.0F, 0.0F, 1, 2, 1, -0.2F, false));
 
         cube_r18 = new ModelRenderer(this);
         cube_r18.setRotationPoint(-0.25F, 0.5F, -1.1F);
@@ -195,19 +195,19 @@ public class BanditNew3 extends ModelBiped {
         cube_r19.setRotationPoint(0.0F, -1.5F, -0.1F);
         bone.addChild(cube_r19);
         setRotation(cube_r19, 0.8378F, 0.0F, 0.1222F);
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 37, 84, -2.005F, -1.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 37, 84, -2.005F, -1, -1, 2, 1, 1, 0.0F, false));
 
         cube_r20 = new ModelRenderer(this);
         cube_r20.setRotationPoint(0.0F, -1.5F, -3.6F);
         bone.addChild(cube_r20);
         setRotation(cube_r20, -0.8378F, 0.0F, 0.1222F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 37, 88, -2.005F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 37, 88, -2.005F, -1, 0.0F, 2, 1, 1, 0.0F, false));
 
         cube_r21 = new ModelRenderer(this);
         cube_r21.setRotationPoint(-0.04F, -1.18F, -2.85F);
         bone.addChild(cube_r21);
         setRotation(cube_r21, 0.0F, 0.0F, 0.1222F);
-        cube_r21.cubeList.add(new ModelBox(cube_r21, 25, 69, -2.0F, -1.0F, 0.0F, 2, 1, 2, 0.0F, false));
+        cube_r21.cubeList.add(new ModelBox(cube_r21, 25, 69, -2.0F, -1, 0.0F, 2, 1, 2, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(-2.85F, -2.6F, 1.85F);
@@ -238,19 +238,19 @@ public class BanditNew3 extends ModelBiped {
         cube_r25.setRotationPoint(0.0F, -1.5F, -0.1F);
         bone2.addChild(cube_r25);
         setRotation(cube_r25, 0.8378F, 0.0F, 0.1222F);
-        cube_r25.cubeList.add(new ModelBox(cube_r25, 31, 87, -2.0F, -1.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        cube_r25.cubeList.add(new ModelBox(cube_r25, 31, 87, -2.0F, -1, -1, 2, 1, 1, 0.0F, false));
 
         cube_r26 = new ModelRenderer(this);
         cube_r26.setRotationPoint(0.0F, -1.5F, -3.6F);
         bone2.addChild(cube_r26);
         setRotation(cube_r26, -0.8378F, 0.0F, 0.1222F);
-        cube_r26.cubeList.add(new ModelBox(cube_r26, 36, 86, -2.0F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        cube_r26.cubeList.add(new ModelBox(cube_r26, 36, 86, -2.0F, -1, 0.0F, 2, 1, 1, 0.0F, false));
 
         cube_r27 = new ModelRenderer(this);
         cube_r27.setRotationPoint(-0.04F, -1.18F, -2.85F);
         bone2.addChild(cube_r27);
         setRotation(cube_r27, 0.0F, 0.0F, 0.1222F);
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 1, 65, -2.0F, -1.0F, 0.0F, 2, 1, 2, 0.0F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 1, 65, -2.0F, -1, 0.0F, 2, 1, 2, 0.0F, false));
 
         body = new ModelRenderer(this);
         body.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -279,13 +279,13 @@ public class BanditNew3 extends ModelBiped {
         cube_r30.setRotationPoint(-3.0F, 0.05F, 2.1F);
         platecarrier.addChild(cube_r30);
         setRotation(cube_r30, 0.1396F, 0.0F, -0.1222F);
-        cube_r30.cubeList.add(new ModelBox(cube_r30, 0, 16, 0.0F, 0.0F, -1.0F, 2, 2, 1, 0.0F, false));
+        cube_r30.cubeList.add(new ModelBox(cube_r30, 0, 16, 0.0F, 0.0F, -1, 2, 2, 1, 0.0F, false));
 
         cube_r31 = new ModelRenderer(this);
         cube_r31.setRotationPoint(3.0F, 0.05F, 2.1F);
         platecarrier.addChild(cube_r31);
         setRotation(cube_r31, 0.1396F, 0.0F, 0.1222F);
-        cube_r31.cubeList.add(new ModelBox(cube_r31, 0, 19, -2.0F, 0.0F, -1.0F, 2, 2, 1, 0.0F, false));
+        cube_r31.cubeList.add(new ModelBox(cube_r31, 0, 19, -2.0F, 0.0F, -1, 2, 2, 1, 0.0F, false));
 
         cube_r32 = new ModelRenderer(this);
         cube_r32.setRotationPoint(3.2F, -0.25F, -1.9F);
@@ -317,7 +317,7 @@ public class BanditNew3 extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(0.0F, 0.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 16, 47, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 16, 47, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         rightleg = new ModelRenderer(this);
         rightleg.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -351,7 +351,7 @@ public class BanditNew3 extends ModelBiped {
 
         if (entityCustomMob.isSwingingArms() && itemstack.getItem() != Items.BOW) {
             float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
-            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
+            float f1 = MathHelper.sin((1 - (1 - this.swingProgress) * (1 - this.swingProgress)) * (float) Math.PI);
             this.bipedRightArm.rotateAngleZ = 0.0F;
             this.bipedLeftArm.rotateAngleZ = 0.0F;
             this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
@@ -388,7 +388,7 @@ public class BanditNew3 extends ModelBiped {
 
     @Override
     public void postRenderArm(float scale, EnumHandSide side) {
-        float f = side == EnumHandSide.RIGHT ? 1.0F : -1.0F;
+        float f = side == EnumHandSide.RIGHT ? 1 : -1;
         ModelRenderer modelrenderer = this.getArmForSide(side);
         modelrenderer.rotationPointX += f;
         modelrenderer.postRender(scale * 1.25f);

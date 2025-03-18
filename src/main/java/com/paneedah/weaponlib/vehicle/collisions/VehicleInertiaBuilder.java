@@ -149,7 +149,7 @@ public class VehicleInertiaBuilder {
 		double sP = wheelBase/2;
 		
 		// add engine
-		Matrix3f engineTensor = InertiaKit.inertiaTensorCube(1.0f, (float) engineDimensions.x, (float) engineDimensions.y, (float) engineDimensions.z);
+		Matrix3f engineTensor = InertiaKit.inertiaTensorCube(1, (float) engineDimensions.x, (float) engineDimensions.y, (float) engineDimensions.z);
 		addCube(new Vec3d(0.0, height, sP), engineDimensions, 8.05);
 		
 		sP -= engineDimensions.z;
@@ -163,7 +163,7 @@ public class VehicleInertiaBuilder {
 		// add transmission
 		float transmissionLen = (float) (engineDimensions.z/1.85f);
 		float transmissionRadius = (float) ((engineDimensions.x + engineDimensions.z)/2.5f);
-		Matrix3f transTensor = InertiaKit.inertiaTensorCylinder(1.0f, transmissionRadius, transmissionLen);
+		Matrix3f transTensor = InertiaKit.inertiaTensorCylinder(1, transmissionRadius, transmissionLen);
 		addCylinder(new Vec3d(0.0, height-(engineDimensions.y/2), sP), transmissionRadius, transmissionLen, 3.03);
 		
 		sP -= transmissionLen;
@@ -172,7 +172,7 @@ public class VehicleInertiaBuilder {
 		
 		float driveLineLength = (float) Math.abs((-wheelBase/2)-sP);
 		float driveLineRadius = transmissionRadius/3f;
-		Matrix3f driveLineTensor = InertiaKit.inertiaTensorCylinder(1.0f, driveLineRadius, driveLineLength);
+		Matrix3f driveLineTensor = InertiaKit.inertiaTensorCylinder(1, driveLineRadius, driveLineLength);
 		addCylinder(new Vec3d(0.0, height-(engineDimensions.y/1.8), sP), driveLineRadius, driveLineLength, 3.03);
 		
 		
@@ -234,14 +234,14 @@ public class VehicleInertiaBuilder {
      */
     public void addCube(Vec3d offset, Dimensions dim, double density) {
         double volume = dim.getVolume();
-        Matrix3f tens = InertiaKit.inertiaTensorCube(1.0f, (float) dim.height, (float) dim.width, (float) dim.length);
+        Matrix3f tens = InertiaKit.inertiaTensorCube(1, (float) dim.height, (float) dim.width, (float) dim.length);
         inertiaObjectList.add(new InertiaObject(offset, tens, 0.0, volume, density));
     }
 
 
     public void addCylinder(Vec3d offset, float radius, float depth, double density) {
         double volume = Math.PI * radius * radius * depth;
-        Matrix3f tens = InertiaKit.inertiaTensorCylinder(1.0f, radius, depth);
+        Matrix3f tens = InertiaKit.inertiaTensorCylinder(1, radius, depth);
         inertiaObjectList.add(new InertiaObject(offset, tens, 0.0, volume, density));
     }
 

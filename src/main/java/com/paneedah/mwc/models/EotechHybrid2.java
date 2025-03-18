@@ -164,7 +164,7 @@ public class EotechHybrid2 extends ModelBase {
         gun143_r1.setRotationPoint(0.6816F, -1.2264F, -24.4969F);
         sight1.addChild(gun143_r1);
         setRotationAngle(gun143_r1, -1.3384F, 0.0F, 0.0F);
-        gun143_r1.cubeList.add(new ModelBox(gun143_r1, 0, 30, 1.0F, -28.6F, 6.6F, 1, 1, 3, 0.0F, false));
+        gun143_r1.cubeList.add(new ModelBox(gun143_r1, 0, 30, 1, -28.6F, 6.6F, 1, 1, 3, 0.0F, false));
 
         gun142_r1 = new ModelRenderer(this);
         gun142_r1.setRotationPoint(0.6816F, 25.4012F, 12.49F);
@@ -182,8 +182,8 @@ public class EotechHybrid2 extends ModelBase {
         gun133_r1.setRotationPoint(0.6816F, -18.3457F, 6.9409F);
         sight1.addChild(gun133_r1);
         setRotationAngle(gun133_r1, 2.3562F, 0.0F, 0.0F);
-        gun133_r1.cubeList.add(new ModelBox(gun133_r1, 57, 42, 1.0F, -24.9F, -5.0F, 1, 1, 1, 0.0F, false));
-        gun133_r1.cubeList.add(new ModelBox(gun133_r1, 58, 9, 1.0F, -24.9F, -4.6F, 1, 1, 1, 0.0F, false));
+        gun133_r1.cubeList.add(new ModelBox(gun133_r1, 57, 42, 1, -24.9F, -5.0F, 1, 1, 1, 0.0F, false));
+        gun133_r1.cubeList.add(new ModelBox(gun133_r1, 58, 9, 1, -24.9F, -4.6F, 1, 1, 1, 0.0F, false));
         gun133_r1.cubeList.add(new ModelBox(gun133_r1, 23, 7, -4.5F, -24.9F, -4.6F, 6, 1, 1, 0.0F, false));
         gun133_r1.cubeList.add(new ModelBox(gun133_r1, 49, 45, -4.5F, -24.9F, -5.0F, 6, 1, 1, 0.0F, false));
 
@@ -191,8 +191,8 @@ public class EotechHybrid2 extends ModelBase {
         gun131_r1.setRotationPoint(0.6816F, 15.2824F, 15.8404F);
         sight1.addChild(gun131_r1);
         setRotationAngle(gun131_r1, 0.7854F, 0.0F, 0.0F);
-        gun131_r1.cubeList.add(new ModelBox(gun131_r1, 58, 19, 1.0F, -27.9F, -6.0F, 1, 1, 1, 0.0F, false));
-        gun131_r1.cubeList.add(new ModelBox(gun131_r1, 58, 51, 1.0F, -27.9F, -5.7F, 1, 1, 1, 0.0F, false));
+        gun131_r1.cubeList.add(new ModelBox(gun131_r1, 58, 19, 1, -27.9F, -6.0F, 1, 1, 1, 0.0F, false));
+        gun131_r1.cubeList.add(new ModelBox(gun131_r1, 58, 51, 1, -27.9F, -5.7F, 1, 1, 1, 0.0F, false));
         gun131_r1.cubeList.add(new ModelBox(gun131_r1, 59, 36, 0.5F, -27.9F, -5.7F, 1, 1, 1, 0.0F, false));
         gun131_r1.cubeList.add(new ModelBox(gun131_r1, 0, 60, -4.5F, -27.9F, -5.7F, 1, 1, 1, 0.0F, false));
         gun131_r1.cubeList.add(new ModelBox(gun131_r1, 38, 60, 0.5F, -27.9F, -6.0F, 1, 1, 1, 0.0F, false));
@@ -240,7 +240,7 @@ public class EotechHybrid2 extends ModelBase {
         gun107_r1.setRotationPoint(0.6816F, -25.6714F, -12.0501F);
         sight1.addChild(gun107_r1);
         setRotationAngle(gun107_r1, -2.2679F, 0.0F, 0.0F);
-        gun107_r1.cubeList.add(new ModelBox(gun107_r1, 48, 60, 1.0F, -28.3F, 7.5F, 1, 1, 1, 0.0F, false));
+        gun107_r1.cubeList.add(new ModelBox(gun107_r1, 48, 60, 1, -28.3F, 7.5F, 1, 1, 1, 0.0F, false));
         gun107_r1.cubeList.add(new ModelBox(gun107_r1, 54, 14, -5.0F, -29.0F, 7.5F, 1, 2, 1, 0.0F, false));
         gun107_r1.cubeList.add(new ModelBox(gun107_r1, 51, 64, 1.3F, -29.0F, 7.5F, 1, 1, 1, 0.0F, false));
 
@@ -254,7 +254,7 @@ public class EotechHybrid2 extends ModelBase {
         gun105_r1.setRotationPoint(0.6816F, 14.8466F, 18.5002F);
         sight1.addChild(gun105_r1);
         setRotationAngle(gun105_r1, 0.9295F, 0.0F, 0.0F);
-        gun105_r1.cubeList.add(new ModelBox(gun105_r1, 8, 61, 1.7F, -27.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        gun105_r1.cubeList.add(new ModelBox(gun105_r1, 8, 61, 1.7F, -27.0F, -1, 1, 1, 1, 0.0F, false));
         gun105_r1.cubeList.add(new ModelBox(gun105_r1, 70, 13, -4.9F, -27.0F, -2.5F, 1, 2, 4, 0.0F, false));
         gun105_r1.cubeList.add(new ModelBox(gun105_r1, 48, 5, 1.7F, -27.0F, -2.5F, 1, 2, 2, 0.0F, false));
 
@@ -329,9 +329,9 @@ public class EotechHybrid2 extends ModelBase {
         gun55_r1.setRotationPoint(-23.0671F, 17.0313F, -2.1305F);
         sight1.addChild(gun55_r1);
         setRotationAngle(gun55_r1, 0.0F, 0.0F, 0.7854F);
-        gun55_r1.cubeList.add(new ModelBox(gun55_r1, 63, 63, 1.0F, -34.0F, 5.5F, 1, 1, 1, 0.0F, false));
+        gun55_r1.cubeList.add(new ModelBox(gun55_r1, 63, 63, 1, -34.0F, 5.5F, 1, 1, 1, 0.0F, false));
         gun55_r1.cubeList.add(new ModelBox(gun55_r1, 0, 57, 1.4F, -34.0F, 0.0F, 1, 1, 6, 0.0F, false));
-        gun55_r1.cubeList.add(new ModelBox(gun55_r1, 47, 57, 1.0F, -34.0019F, 0.0F, 1, 1, 6, 0.0F, false));
+        gun55_r1.cubeList.add(new ModelBox(gun55_r1, 47, 57, 1, -34.0019F, 0.0F, 1, 1, 6, 0.0F, false));
 
         gun54_r1 = new ModelRenderer(this);
         gun54_r1.setRotationPoint(-24.5316F, 20.5668F, -2.1305F);
@@ -345,14 +345,14 @@ public class EotechHybrid2 extends ModelBase {
         gun28_r1.setRotationPoint(0.6816F, 1.5002F, -27.3383F);
         sight1.addChild(gun28_r1);
         setRotationAngle(gun28_r1, -1.2269F, 0.0F, 0.0F);
-        gun28_r1.cubeList.add(new ModelBox(gun28_r1, 27, 72, -4.9F, -31.0F, 6.0F, 1, 1, 3, 0.0F, false));
-        gun28_r1.cubeList.add(new ModelBox(gun28_r1, 0, 57, 1.0F, -31.0F, 6.0F, 1, 1, 2, 0.0F, false));
+        gun28_r1.cubeList.add(new ModelBox(gun28_r1, 27, 72, -4.9F, -31, 6.0F, 1, 1, 3, 0.0F, false));
+        gun28_r1.cubeList.add(new ModelBox(gun28_r1, 0, 57, 1, -31, 6.0F, 1, 1, 2, 0.0F, false));
 
         gun26_r1 = new ModelRenderer(this);
         gun26_r1.setRotationPoint(0.6816F, 27.1282F, -8.2297F);
         sight1.addChild(gun26_r1);
         setRotationAngle(gun26_r1, -0.1859F, 0.0F, 0.0F);
-        gun26_r1.cubeList.add(new ModelBox(gun26_r1, 46, 24, 1.0F, -33.0F, 0.0F, 1, 5, 1, 0.0F, false));
+        gun26_r1.cubeList.add(new ModelBox(gun26_r1, 46, 24, 1, -33.0F, 0.0F, 1, 5, 1, 0.0F, false));
         gun26_r1.cubeList.add(new ModelBox(gun26_r1, 0, 47, -5.0F, -33.0F, 0.0F, 1, 5, 1, 0.0F, false));
 
         sight2 = new ModelRenderer(this);

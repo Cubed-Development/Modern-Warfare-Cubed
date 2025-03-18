@@ -157,13 +157,13 @@ public class KS23pump extends ModelWithAttachments {
         pump14.cubeList.add(new ModelBox(pump14, 69, 21, 0.0F, 0.001F, 0.0F, 1, 3, 2, 0.0F, false));
 
         pump13 = new ModelRenderer(this);
-        pump13.setRotationPoint(1.0F, -24.4F, -39.0F);
+        pump13.setRotationPoint(1, -24.4F, -39.0F);
         pump.addChild(pump13);
         setRotationAngle(pump13, 0.0F, 0.0F, 2.4784F);
         pump13.cubeList.add(new ModelBox(pump13, 0, 38, 0.3F, -0.001F, -0.001F, 1, 1, 10, 0.0F, false));
 
         pump12 = new ModelRenderer(this);
-        pump12.setRotationPoint(1.0F, -24.4F, -39.0F);
+        pump12.setRotationPoint(1, -24.4F, -39.0F);
         pump.addChild(pump12);
         setRotationAngle(pump12, 0.0F, 0.0F, 2.4784F);
         pump12.cubeList.add(new ModelBox(pump12, 79, 21, 0.0F, 0.0F, 0.001F, 1, 1, 10, 0.0F, false));
@@ -191,7 +191,7 @@ public class KS23pump extends ModelWithAttachments {
         pump5.setRotationPoint(0.5F, -23.4F, -29.0F);
         pump.addChild(pump5);
         setRotationAngle(pump5, 0.0F, 0.0F, 2.3038F);
-        pump5.cubeList.add(new ModelBox(pump5, 104, 120, -1.0F, 0.0F, 0.0F, 1, 1, 14, 0.0F, false));
+        pump5.cubeList.add(new ModelBox(pump5, 104, 120, -1, 0.0F, 0.0F, 1, 1, 14, 0.0F, false));
         pump5.cubeList.add(new ModelBox(pump5, 109, 31, -1.35F, -0.001F, -0.001F, 1, 1, 14, 0.0F, false));
     }
 

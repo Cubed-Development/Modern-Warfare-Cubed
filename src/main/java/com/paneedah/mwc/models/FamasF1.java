@@ -428,7 +428,7 @@ public class FamasF1 extends ModelWithAttachments {
         grip21_r1.setRotationPoint(-2.0F, 48.8775F, 53.5125F);
         stock2.addChild(grip21_r1);
         setRotationAngle(grip21_r1, -0.6981F, 0.0F, 0.0F);
-        grip21_r1.cubeList.add(new ModelBox(grip21_r1, 119, 79, -1.0F, -2.5F, -1.5F, 2, 1, 2, 0.0F, false));
+        grip21_r1.cubeList.add(new ModelBox(grip21_r1, 119, 79, -1, -2.5F, -1.5F, 2, 1, 2, 0.0F, false));
         grip21_r1.cubeList.add(new ModelBox(grip21_r1, 42, 104, -2.0F, -1.5F, -1.5F, 4, 4, 2, 0.0F, false));
 
         grip23_r1 = new ModelRenderer(this);
@@ -441,7 +441,7 @@ public class FamasF1 extends ModelWithAttachments {
         grip22_r1.setRotationPoint(-2.0F, 38.787F, 48.9299F);
         stock2.addChild(grip22_r1);
         setRotationAngle(grip22_r1, -0.2182F, 0.0F, 0.0F);
-        grip22_r1.cubeList.add(new ModelBox(grip22_r1, 42, 110, -1.0F, -0.5F, -2.5F, 2, 2, 4, 0.0F, false));
+        grip22_r1.cubeList.add(new ModelBox(grip22_r1, 42, 110, -1, -0.5F, -2.5F, 2, 2, 4, 0.0F, false));
 
         cube_r1 = new ModelRenderer(this);
         cube_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -480,7 +480,7 @@ public class FamasF1 extends ModelWithAttachments {
         grip22_r2.cubeList.add(new ModelBox(grip22_r2, 108, 53, -2.0F, -5.1757F, -15.4858F, 4, 1, 4, 0.0F, false));
         grip22_r2.cubeList.add(new ModelBox(grip22_r2, 34, 59, -2.0F, -5.4954F, -10.25F, 4, 1, 1, 0.0F, false));
         grip22_r2.cubeList.add(new ModelBox(grip22_r2, 133, 53, -1.99F, -6.5F, -9.5F, 4, 2, 10, 0.0F, false));
-        grip22_r2.cubeList.add(new ModelBox(grip22_r2, 65, 70, -1.0F, -7.5F, -9.5F, 2, 3, 10, 0.0F, false));
+        grip22_r2.cubeList.add(new ModelBox(grip22_r2, 65, 70, -1, -7.5F, -9.5F, 2, 3, 10, 0.0F, false));
 
         grip20_r1 = new ModelRenderer(this);
         grip20_r1.setRotationPoint(0.0F, 0.7093F, -5.8637F);
@@ -522,7 +522,7 @@ public class FamasF1 extends ModelWithAttachments {
         grip15_r1.setRotationPoint(0.0F, -3.704F, -11.7598F);
         stockparts.addChild(grip15_r1);
         setRotationAngle(grip15_r1, -2.7053F, 0.0F, 0.0F);
-        grip15_r1.cubeList.add(new ModelBox(grip15_r1, 65, 75, -2.0F, -1.0F, -0.5F, 4, 2, 1, 0.0F, false));
+        grip15_r1.cubeList.add(new ModelBox(grip15_r1, 65, 75, -2.0F, -1, -0.5F, 4, 2, 1, 0.0F, false));
 
         grip14_r1 = new ModelRenderer(this);
         grip14_r1.setRotationPoint(0.0F, -7.9343F, -12.5966F);
@@ -741,27 +741,27 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r13.setRotationPoint(-7.8286F, -36.2629F, -40.7574F);
         bone22.addChild(cube_r13);
         setRotationAngle(cube_r13, 0.48F, 0.0F, 0.0F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 59, 81, -0.5004F, -1.0F, -0.5F, 1, 2, 1, 0.0F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 59, 81, -0.5004F, -1, -0.5F, 1, 2, 1, 0.0F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(-8.8294F, -33.9796F, -8.0946F);
         bone22.addChild(cube_r14);
         setRotationAngle(cube_r14, 0.0F, -0.096F, 0.0F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 110, 105, -1.0F, -1.0F, 6.0F, 2, 1, 6, 0.0F, false));
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 6, 117, -1.0F, -1.0F, -6.0F, 2, 2, 12, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 110, 105, -1, -1, 6.0F, 2, 1, 6, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 6, 117, -1, -1, -6.0F, 2, 2, 12, 0.0F, false));
 
         cube_r15 = new ModelRenderer(this);
         cube_r15.setRotationPoint(-8.9658F, -33.9126F, -1.4611F);
         bone22.addChild(cube_r15);
         setRotationAngle(cube_r15, 0.5236F, -0.096F, 0.0F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 138, 101, -0.4942F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 138, 101, -0.4942F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(-9.1539F, -34.8F, -7.9367F);
         bone22.addChild(cube_r16);
         setRotationAngle(cube_r16, 0.0F, -0.1396F, 0.0F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 23, 23, -1.0F, -2.5F, 6.0F, 2, 3, 3, 0.0F, false));
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 95, 17, -1.0F, -2.5F, -6.0F, 2, 5, 12, 0.0F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 23, 23, -1, -2.5F, 6.0F, 2, 3, 3, 0.0F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 95, 17, -1, -2.5F, -6.0F, 2, 5, 12, 0.0F, false));
 
         bone24 = new ModelRenderer(this);
         bone24.setRotationPoint(-9.5F, -38.25F, -18.5F);
@@ -786,7 +786,7 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone44 = new ModelRenderer(this);
-        bone44.setRotationPoint(1.0F, 0.0F, -72.25F);
+        bone44.setRotationPoint(1, 0.0F, -72.25F);
         bone43.addChild(bone44);
 
 
@@ -794,10 +794,10 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r17.setRotationPoint(0.25F, -33.3638F, 35.1264F);
         bone44.addChild(cube_r17);
         setRotationAngle(cube_r17, -0.5672F, 0.0F, 0.0F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 140, 109, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 140, 109, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone49 = new ModelRenderer(this);
-        bone49.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone49.setRotationPoint(1, 0.0F, 0.0F);
         bone43.addChild(bone49);
 
 
@@ -805,7 +805,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r18.setRotationPoint(0.25F, -33.3638F, -34.8548F);
         bone49.addChild(cube_r18);
         setRotationAngle(cube_r18, 0.5672F, 0.0F, 0.0F);
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 138, 139, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 138, 139, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone48 = new ModelRenderer(this);
         bone48.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -813,7 +813,7 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone47 = new ModelRenderer(this);
-        bone47.setRotationPoint(1.0F, 0.0F, -72.25F);
+        bone47.setRotationPoint(1, 0.0F, -72.25F);
         bone48.addChild(bone47);
 
 
@@ -821,10 +821,10 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r19.setRotationPoint(0.25F, -33.3638F, 35.1264F);
         bone47.addChild(cube_r19);
         setRotationAngle(cube_r19, -0.5672F, 0.0F, 0.0F);
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 140, 122, -0.999F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 140, 122, -0.999F, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone46 = new ModelRenderer(this);
-        bone46.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone46.setRotationPoint(1, 0.0F, 0.0F);
         bone48.addChild(bone46);
 
 
@@ -832,7 +832,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r20.setRotationPoint(0.25F, -33.3638F, -35.1048F);
         bone46.addChild(cube_r20);
         setRotationAngle(cube_r20, 0.5672F, 0.0F, 0.0F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 141, 73, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 141, 73, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone45 = new ModelRenderer(this);
         bone45.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -843,7 +843,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r21.setRotationPoint(1.25F, -33.5018F, -36.1F);
         bone45.addChild(cube_r21);
         setRotationAngle(cube_r21, 0.0F, 0.0F, 0.6109F);
-        cube_r21.cubeList.add(new ModelBox(cube_r21, 0, 23, -0.5F, -1.0F, -1.0F, 1, 2, 21, 0.0F, false));
+        cube_r21.cubeList.add(new ModelBox(cube_r21, 0, 23, -0.5F, -1, -1, 1, 2, 21, 0.0F, false));
 
         bone52 = new ModelRenderer(this);
         bone52.setRotationPoint(0.0F, 0.0F, 4.25F);
@@ -851,7 +851,7 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone53 = new ModelRenderer(this);
-        bone53.setRotationPoint(1.0F, 0.0F, -72.25F);
+        bone53.setRotationPoint(1, 0.0F, -72.25F);
         bone52.addChild(bone53);
 
 
@@ -859,10 +859,10 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r22.setRotationPoint(0.25F, -33.3638F, 35.1264F);
         bone53.addChild(cube_r22);
         setRotationAngle(cube_r22, -0.5672F, 0.0F, 0.0F);
-        cube_r22.cubeList.add(new ModelBox(cube_r22, 130, 139, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r22.cubeList.add(new ModelBox(cube_r22, 130, 139, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone54 = new ModelRenderer(this);
-        bone54.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone54.setRotationPoint(1, 0.0F, 0.0F);
         bone52.addChild(bone54);
 
 
@@ -870,7 +870,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r23.setRotationPoint(0.25F, -33.3638F, -34.8548F);
         bone54.addChild(cube_r23);
         setRotationAngle(cube_r23, 0.5672F, 0.0F, 0.0F);
-        cube_r23.cubeList.add(new ModelBox(cube_r23, 139, 105, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r23.cubeList.add(new ModelBox(cube_r23, 139, 105, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone56 = new ModelRenderer(this);
         bone56.setRotationPoint(0.0F, 0.0F, 8.75F);
@@ -878,7 +878,7 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone57 = new ModelRenderer(this);
-        bone57.setRotationPoint(1.0F, 0.0F, -72.25F);
+        bone57.setRotationPoint(1, 0.0F, -72.25F);
         bone56.addChild(bone57);
 
 
@@ -886,10 +886,10 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r24.setRotationPoint(0.25F, -33.3638F, 35.1264F);
         bone57.addChild(cube_r24);
         setRotationAngle(cube_r24, -0.5672F, 0.0F, 0.0F);
-        cube_r24.cubeList.add(new ModelBox(cube_r24, 31, 139, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r24.cubeList.add(new ModelBox(cube_r24, 31, 139, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone58 = new ModelRenderer(this);
-        bone58.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone58.setRotationPoint(1, 0.0F, 0.0F);
         bone56.addChild(bone58);
 
 
@@ -897,7 +897,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r25.setRotationPoint(0.25F, -33.3638F, -34.8548F);
         bone58.addChild(cube_r25);
         setRotationAngle(cube_r25, 0.5672F, 0.0F, 0.0F);
-        cube_r25.cubeList.add(new ModelBox(cube_r25, 25, 139, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r25.cubeList.add(new ModelBox(cube_r25, 25, 139, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone59 = new ModelRenderer(this);
         bone59.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -910,7 +910,7 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone61 = new ModelRenderer(this);
-        bone61.setRotationPoint(1.0F, 0.0F, -72.25F);
+        bone61.setRotationPoint(1, 0.0F, -72.25F);
         bone60.addChild(bone61);
 
 
@@ -918,10 +918,10 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r26.setRotationPoint(0.25F, -33.3638F, 35.1264F);
         bone61.addChild(cube_r26);
         setRotationAngle(cube_r26, -0.5672F, 0.0F, 0.0F);
-        cube_r26.cubeList.add(new ModelBox(cube_r26, 19, 139, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r26.cubeList.add(new ModelBox(cube_r26, 19, 139, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone62 = new ModelRenderer(this);
-        bone62.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone62.setRotationPoint(1, 0.0F, 0.0F);
         bone60.addChild(bone62);
 
 
@@ -929,7 +929,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r27.setRotationPoint(0.25F, -33.3638F, -34.6048F);
         bone62.addChild(cube_r27);
         setRotationAngle(cube_r27, 0.5672F, 0.0F, 0.0F);
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 6, 139, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 6, 139, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone27 = new ModelRenderer(this);
         bone27.setRotationPoint(-3.0F, 0.0F, 0.0F);
@@ -942,12 +942,12 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone29 = new ModelRenderer(this);
-        bone29.setRotationPoint(-1.0F, 0.0F, -72.25F);
+        bone29.setRotationPoint(-1, 0.0F, -72.25F);
         bone28.addChild(bone29);
 
 
         bone30 = new ModelRenderer(this);
-        bone30.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone30.setRotationPoint(-1, 0.0F, 0.0F);
         bone28.addChild(bone30);
 
 
@@ -957,12 +957,12 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone33 = new ModelRenderer(this);
-        bone33.setRotationPoint(-1.0F, 0.0F, -72.25F);
+        bone33.setRotationPoint(-1, 0.0F, -72.25F);
         bone32.addChild(bone33);
 
 
         bone34 = new ModelRenderer(this);
-        bone34.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone34.setRotationPoint(-1, 0.0F, 0.0F);
         bone32.addChild(bone34);
 
 
@@ -977,12 +977,12 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone37 = new ModelRenderer(this);
-        bone37.setRotationPoint(-1.0F, 0.0F, -72.25F);
+        bone37.setRotationPoint(-1, 0.0F, -72.25F);
         bone36.addChild(bone37);
 
 
         bone38 = new ModelRenderer(this);
-        bone38.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone38.setRotationPoint(-1, 0.0F, 0.0F);
         bone36.addChild(bone38);
 
 
@@ -992,12 +992,12 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone41 = new ModelRenderer(this);
-        bone41.setRotationPoint(-1.0F, 0.0F, -72.25F);
+        bone41.setRotationPoint(-1, 0.0F, -72.25F);
         bone40.addChild(bone41);
 
 
         bone42 = new ModelRenderer(this);
-        bone42.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone42.setRotationPoint(-1, 0.0F, 0.0F);
         bone40.addChild(bone42);
 
 
@@ -1007,12 +1007,12 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone66 = new ModelRenderer(this);
-        bone66.setRotationPoint(-1.0F, 0.0F, -72.25F);
+        bone66.setRotationPoint(-1, 0.0F, -72.25F);
         bone65.addChild(bone66);
 
 
         bone67 = new ModelRenderer(this);
-        bone67.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone67.setRotationPoint(-1, 0.0F, 0.0F);
         bone65.addChild(bone67);
 
 
@@ -1058,27 +1058,27 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r31.setRotationPoint(7.8286F, -36.2629F, -40.7574F);
         bone26.addChild(cube_r31);
         setRotationAngle(cube_r31, 0.48F, 0.0F, 0.0F);
-        cube_r31.cubeList.add(new ModelBox(cube_r31, 5, 34, -0.4996F, -1.0F, -0.5F, 1, 2, 1, 0.0F, false));
+        cube_r31.cubeList.add(new ModelBox(cube_r31, 5, 34, -0.4996F, -1, -0.5F, 1, 2, 1, 0.0F, false));
 
         cube_r32 = new ModelRenderer(this);
         cube_r32.setRotationPoint(8.8294F, -33.9796F, -8.0946F);
         bone26.addChild(cube_r32);
         setRotationAngle(cube_r32, 0.0F, 0.096F, 0.0F);
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 103, 86, -1.0F, -1.0F, 6.0F, 2, 1, 6, 0.0F, false));
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 42, 104, -1.0F, -1.0F, -6.0F, 2, 2, 12, 0.0F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 103, 86, -1, -1, 6.0F, 2, 1, 6, 0.0F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 42, 104, -1, -1, -6.0F, 2, 2, 12, 0.0F, false));
 
         cube_r33 = new ModelRenderer(this);
         cube_r33.setRotationPoint(8.9658F, -33.9126F, -1.4611F);
         bone26.addChild(cube_r33);
         setRotationAngle(cube_r33, 0.5236F, 0.096F, 0.0F);
-        cube_r33.cubeList.add(new ModelBox(cube_r33, 60, 110, -0.5058F, -0.5F, -1.0F, 1, 1, 2, 0.0F, false));
+        cube_r33.cubeList.add(new ModelBox(cube_r33, 60, 110, -0.5058F, -0.5F, -1, 1, 1, 2, 0.0F, false));
 
         cube_r34 = new ModelRenderer(this);
         cube_r34.setRotationPoint(9.1539F, -34.8F, -7.9367F);
         bone26.addChild(cube_r34);
         setRotationAngle(cube_r34, 0.0F, 0.1396F, 0.0F);
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 11, 23, -1.0F, -2.5F, 6.0F, 2, 3, 3, 0.0F, false));
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 95, 0, -1.0F, -2.5F, -6.0F, 2, 5, 12, 0.0F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 11, 23, -1, -2.5F, 6.0F, 2, 3, 3, 0.0F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 95, 0, -1, -2.5F, -6.0F, 2, 5, 12, 0.0F, false));
 
         bone39 = new ModelRenderer(this);
         bone39.setRotationPoint(9.5F, -38.25F, -18.5F);
@@ -1103,7 +1103,7 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone98 = new ModelRenderer(this);
-        bone98.setRotationPoint(-1.0F, 0.0F, -72.25F);
+        bone98.setRotationPoint(-1, 0.0F, -72.25F);
         bone93.addChild(bone98);
 
 
@@ -1111,10 +1111,10 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r35.setRotationPoint(-0.25F, -33.3638F, 35.1264F);
         bone98.addChild(cube_r35);
         setRotationAngle(cube_r35, -0.5672F, 0.0F, 0.0F);
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 133, 73, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 133, 73, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone107 = new ModelRenderer(this);
-        bone107.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone107.setRotationPoint(-1, 0.0F, 0.0F);
         bone93.addChild(bone107);
 
 
@@ -1122,7 +1122,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r36.setRotationPoint(-0.25F, -33.3638F, -34.8548F);
         bone107.addChild(cube_r36);
         setRotationAngle(cube_r36, 0.5672F, 0.0F, 0.0F);
-        cube_r36.cubeList.add(new ModelBox(cube_r36, 133, 59, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r36.cubeList.add(new ModelBox(cube_r36, 133, 59, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone111 = new ModelRenderer(this);
         bone111.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -1130,7 +1130,7 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone112 = new ModelRenderer(this);
-        bone112.setRotationPoint(-1.0F, 0.0F, -72.25F);
+        bone112.setRotationPoint(-1, 0.0F, -72.25F);
         bone111.addChild(bone112);
 
 
@@ -1138,10 +1138,10 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r37.setRotationPoint(-0.25F, -33.3638F, 35.1264F);
         bone112.addChild(cube_r37);
         setRotationAngle(cube_r37, -0.5672F, 0.0F, 0.0F);
-        cube_r37.cubeList.add(new ModelBox(cube_r37, 133, 56, -1.001F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r37.cubeList.add(new ModelBox(cube_r37, 133, 56, -1.001F, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone113 = new ModelRenderer(this);
-        bone113.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone113.setRotationPoint(-1, 0.0F, 0.0F);
         bone111.addChild(bone113);
 
 
@@ -1149,7 +1149,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r38.setRotationPoint(-0.25F, -33.3638F, -35.1048F);
         bone113.addChild(cube_r38);
         setRotationAngle(cube_r38, 0.5672F, 0.0F, 0.0F);
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 133, 53, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 133, 53, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone114 = new ModelRenderer(this);
         bone114.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -1160,7 +1160,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r39.setRotationPoint(-1.25F, -33.5018F, -36.1F);
         bone114.addChild(cube_r39);
         setRotationAngle(cube_r39, 0.0F, 0.0F, -0.6109F);
-        cube_r39.cubeList.add(new ModelBox(cube_r39, 0, 0, -0.5F, -1.0F, -1.0F, 1, 2, 21, 0.0F, false));
+        cube_r39.cubeList.add(new ModelBox(cube_r39, 0, 0, -0.5F, -1, -1, 1, 2, 21, 0.0F, false));
 
         bone115 = new ModelRenderer(this);
         bone115.setRotationPoint(0.0F, 0.0F, 4.25F);
@@ -1168,7 +1168,7 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone116 = new ModelRenderer(this);
-        bone116.setRotationPoint(-1.0F, 0.0F, -72.25F);
+        bone116.setRotationPoint(-1, 0.0F, -72.25F);
         bone115.addChild(bone116);
 
 
@@ -1176,10 +1176,10 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r40.setRotationPoint(-0.25F, -33.3638F, 35.1264F);
         bone116.addChild(cube_r40);
         setRotationAngle(cube_r40, -0.5672F, 0.0F, 0.0F);
-        cube_r40.cubeList.add(new ModelBox(cube_r40, 50, 133, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r40.cubeList.add(new ModelBox(cube_r40, 50, 133, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone117 = new ModelRenderer(this);
-        bone117.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone117.setRotationPoint(-1, 0.0F, 0.0F);
         bone115.addChild(bone117);
 
 
@@ -1187,7 +1187,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r41.setRotationPoint(-0.25F, -33.3638F, -34.8548F);
         bone117.addChild(cube_r41);
         setRotationAngle(cube_r41, 0.5672F, 0.0F, 0.0F);
-        cube_r41.cubeList.add(new ModelBox(cube_r41, 133, 47, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r41.cubeList.add(new ModelBox(cube_r41, 133, 47, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone118 = new ModelRenderer(this);
         bone118.setRotationPoint(0.0F, 0.0F, 8.75F);
@@ -1195,7 +1195,7 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone119 = new ModelRenderer(this);
-        bone119.setRotationPoint(-1.0F, 0.0F, -72.25F);
+        bone119.setRotationPoint(-1, 0.0F, -72.25F);
         bone118.addChild(bone119);
 
 
@@ -1203,10 +1203,10 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r42.setRotationPoint(-0.25F, -33.3638F, 35.1264F);
         bone119.addChild(cube_r42);
         setRotationAngle(cube_r42, -0.5672F, 0.0F, 0.0F);
-        cube_r42.cubeList.add(new ModelBox(cube_r42, 126, 109, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r42.cubeList.add(new ModelBox(cube_r42, 126, 109, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone120 = new ModelRenderer(this);
-        bone120.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone120.setRotationPoint(-1, 0.0F, 0.0F);
         bone118.addChild(bone120);
 
 
@@ -1214,7 +1214,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r43.setRotationPoint(-0.25F, -33.3638F, -34.8548F);
         bone120.addChild(cube_r43);
         setRotationAngle(cube_r43, 0.5672F, 0.0F, 0.0F);
-        cube_r43.cubeList.add(new ModelBox(cube_r43, 125, 35, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r43.cubeList.add(new ModelBox(cube_r43, 125, 35, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone121 = new ModelRenderer(this);
         bone121.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -1227,7 +1227,7 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone123 = new ModelRenderer(this);
-        bone123.setRotationPoint(-1.0F, 0.0F, -72.25F);
+        bone123.setRotationPoint(-1, 0.0F, -72.25F);
         bone122.addChild(bone123);
 
 
@@ -1235,10 +1235,10 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r44.setRotationPoint(-0.25F, -33.3638F, 35.1264F);
         bone123.addChild(cube_r44);
         setRotationAngle(cube_r44, -0.5672F, 0.0F, 0.0F);
-        cube_r44.cubeList.add(new ModelBox(cube_r44, 121, 71, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r44.cubeList.add(new ModelBox(cube_r44, 121, 71, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone124 = new ModelRenderer(this);
-        bone124.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone124.setRotationPoint(-1, 0.0F, 0.0F);
         bone122.addChild(bone124);
 
 
@@ -1246,7 +1246,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r45.setRotationPoint(-0.25F, -33.3638F, -34.6048F);
         bone124.addChild(cube_r45);
         setRotationAngle(cube_r45, 0.5672F, 0.0F, 0.0F);
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 120, 53, -1.0F, -1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 120, 53, -1, -1, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone125 = new ModelRenderer(this);
         bone125.setRotationPoint(3.0F, 0.0F, 0.0F);
@@ -1259,12 +1259,12 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone127 = new ModelRenderer(this);
-        bone127.setRotationPoint(1.0F, 0.0F, -72.25F);
+        bone127.setRotationPoint(1, 0.0F, -72.25F);
         bone126.addChild(bone127);
 
 
         bone128 = new ModelRenderer(this);
-        bone128.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone128.setRotationPoint(1, 0.0F, 0.0F);
         bone126.addChild(bone128);
 
 
@@ -1274,12 +1274,12 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone130 = new ModelRenderer(this);
-        bone130.setRotationPoint(1.0F, 0.0F, -72.25F);
+        bone130.setRotationPoint(1, 0.0F, -72.25F);
         bone129.addChild(bone130);
 
 
         bone131 = new ModelRenderer(this);
-        bone131.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone131.setRotationPoint(1, 0.0F, 0.0F);
         bone129.addChild(bone131);
 
 
@@ -1294,12 +1294,12 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone134 = new ModelRenderer(this);
-        bone134.setRotationPoint(1.0F, 0.0F, -72.25F);
+        bone134.setRotationPoint(1, 0.0F, -72.25F);
         bone133.addChild(bone134);
 
 
         bone135 = new ModelRenderer(this);
-        bone135.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone135.setRotationPoint(1, 0.0F, 0.0F);
         bone133.addChild(bone135);
 
 
@@ -1309,12 +1309,12 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone137 = new ModelRenderer(this);
-        bone137.setRotationPoint(1.0F, 0.0F, -72.25F);
+        bone137.setRotationPoint(1, 0.0F, -72.25F);
         bone136.addChild(bone137);
 
 
         bone138 = new ModelRenderer(this);
-        bone138.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone138.setRotationPoint(1, 0.0F, 0.0F);
         bone136.addChild(bone138);
 
 
@@ -1324,12 +1324,12 @@ public class FamasF1 extends ModelWithAttachments {
 
 
         bone140 = new ModelRenderer(this);
-        bone140.setRotationPoint(1.0F, 0.0F, -72.25F);
+        bone140.setRotationPoint(1, 0.0F, -72.25F);
         bone139.addChild(bone140);
 
 
         bone141 = new ModelRenderer(this);
-        bone141.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone141.setRotationPoint(1, 0.0F, 0.0F);
         bone139.addChild(bone141);
 
 
@@ -1356,7 +1356,7 @@ public class FamasF1 extends ModelWithAttachments {
         bone104.cubeList.add(new ModelBox(bone104, 137, 60, 4.9975F, -40.0F, -3.25F, 1, 1, 2, 0.0F, false));
         bone104.cubeList.add(new ModelBox(bone104, 35, 28, 5.0025F, -40.0F, -32.75F, 1, 1, 4, 0.0F, false));
         bone104.cubeList.add(new ModelBox(bone104, 35, 23, 5.0005F, -40.0F, -36.75F, 1, 1, 4, 0.0F, false));
-        bone104.cubeList.add(new ModelBox(bone104, 0, 88, 5.0005F, -41.0F, -37.0F, 1, 1, 3, 0.0F, false));
+        bone104.cubeList.add(new ModelBox(bone104, 0, 88, 5.0005F, -41, -37.0F, 1, 1, 3, 0.0F, false));
 
         cube_r46 = new ModelRenderer(this);
         cube_r46.setRotationPoint(5.5F, -40.403F, -37.0597F);
@@ -1389,7 +1389,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r50.cubeList.add(new ModelBox(cube_r50, 101, 70, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
 
         cube_r51 = new ModelRenderer(this);
-        cube_r51.setRotationPoint(5.9262F, -39.714F, -1.0F);
+        cube_r51.setRotationPoint(5.9262F, -39.714F, -1);
         bone104.addChild(cube_r51);
         setRotationAngle(cube_r51, 0.0F, 0.0F, -0.0873F);
         cube_r51.cubeList.add(new ModelBox(cube_r51, 52, 20, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, false));
@@ -1399,14 +1399,14 @@ public class FamasF1 extends ModelWithAttachments {
         bone104.addChild(cube_r52);
         setRotationAngle(cube_r52, 0.0F, 0.7854F, 0.0F);
         cube_r52.cubeList.add(new ModelBox(cube_r52, 24, 104, -0.4995F, -0.5F, -0.501F, 1, 1, 1, 0.0F, false));
-        cube_r52.cubeList.add(new ModelBox(cube_r52, 74, 104, -0.5F, -1.0F, -0.5F, 1, 1, 1, 0.0F, false));
+        cube_r52.cubeList.add(new ModelBox(cube_r52, 74, 104, -0.5F, -1, -0.5F, 1, 1, 1, 0.0F, false));
 
         cube_r53 = new ModelRenderer(this);
         cube_r53.setRotationPoint(5.5F, -39.5F, -25.25F);
         bone104.addChild(cube_r53);
         setRotationAngle(cube_r53, 0.0F, 0.7854F, 0.0F);
         cube_r53.cubeList.add(new ModelBox(cube_r53, 62, 104, -0.4995F, -0.5F, -0.501F, 1, 1, 1, 0.0F, false));
-        cube_r53.cubeList.add(new ModelBox(cube_r53, 11, 106, -0.5F, -1.0F, -0.5F, 1, 1, 1, 0.0F, false));
+        cube_r53.cubeList.add(new ModelBox(cube_r53, 11, 106, -0.5F, -1, -0.5F, 1, 1, 1, 0.0F, false));
 
         bone106 = new ModelRenderer(this);
         bone106.setRotationPoint(5.25F, -39.75F, -0.2125F);
@@ -1473,7 +1473,7 @@ public class FamasF1 extends ModelWithAttachments {
         bone108.cubeList.add(new ModelBox(bone108, 130, 135, -5.9975F, -40.0F, -3.25F, 1, 1, 2, 0.0F, false));
         bone108.cubeList.add(new ModelBox(bone108, 35, 0, -6.0015F, -40.0F, -32.75F, 1, 1, 4, 0.0F, false));
         bone108.cubeList.add(new ModelBox(bone108, 11, 34, -6.0005F, -40.0F, -36.75F, 1, 1, 4, 0.0F, false));
-        bone108.cubeList.add(new ModelBox(bone108, 0, 84, -6.0005F, -41.0F, -37.0F, 1, 1, 3, 0.0F, false));
+        bone108.cubeList.add(new ModelBox(bone108, 0, 84, -6.0005F, -41, -37.0F, 1, 1, 3, 0.0F, false));
 
         cube_r60 = new ModelRenderer(this);
         cube_r60.setRotationPoint(-5.5F, -40.403F, -37.0597F);
@@ -1506,7 +1506,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r64.cubeList.add(new ModelBox(cube_r64, 85, 61, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
 
         cube_r65 = new ModelRenderer(this);
-        cube_r65.setRotationPoint(-5.9262F, -39.714F, -1.0F);
+        cube_r65.setRotationPoint(-5.9262F, -39.714F, -1);
         bone108.addChild(cube_r65);
         setRotationAngle(cube_r65, 0.0F, 0.0F, 0.0873F);
         cube_r65.cubeList.add(new ModelBox(cube_r65, 52, 0, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, false));
@@ -1516,14 +1516,14 @@ public class FamasF1 extends ModelWithAttachments {
         bone108.addChild(cube_r66);
         setRotationAngle(cube_r66, 0.0F, -0.7854F, 0.0F);
         cube_r66.cubeList.add(new ModelBox(cube_r66, 88, 4, -0.5005F, -0.5F, -0.501F, 1, 1, 1, 0.0F, false));
-        cube_r66.cubeList.add(new ModelBox(cube_r66, 16, 88, -0.5F, -1.0F, -0.5F, 1, 1, 1, 0.0F, false));
+        cube_r66.cubeList.add(new ModelBox(cube_r66, 16, 88, -0.5F, -1, -0.5F, 1, 1, 1, 0.0F, false));
 
         cube_r67 = new ModelRenderer(this);
         cube_r67.setRotationPoint(-5.5F, -39.5F, -25.25F);
         bone108.addChild(cube_r67);
         setRotationAngle(cube_r67, 0.0F, -0.7854F, 0.0F);
         cube_r67.cubeList.add(new ModelBox(cube_r67, 5, 88, -0.5005F, -0.5F, -0.501F, 1, 1, 1, 0.0F, false));
-        cube_r67.cubeList.add(new ModelBox(cube_r67, 28, 88, -0.5F, -1.0F, -0.5F, 1, 1, 1, 0.0F, false));
+        cube_r67.cubeList.add(new ModelBox(cube_r67, 28, 88, -0.5F, -1, -0.5F, 1, 1, 1, 0.0F, false));
 
         bone109 = new ModelRenderer(this);
         bone109.setRotationPoint(-5.25F, -39.75F, -0.2125F);
@@ -1610,14 +1610,14 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r78.setRotationPoint(0.5F, -29.5511F, 26.7445F);
         bone84.addChild(cube_r78);
         setRotationAngle(cube_r78, -0.3491F, 0.0F, 0.0F);
-        cube_r78.cubeList.add(new ModelBox(cube_r78, 138, 86, -0.5F, -2.5F, 1.0F, 1, 1, 2, 0.0F, false));
+        cube_r78.cubeList.add(new ModelBox(cube_r78, 138, 86, -0.5F, -2.5F, 1, 1, 1, 2, 0.0F, false));
         cube_r78.cubeList.add(new ModelBox(cube_r78, 18, 115, -0.5F, -1.5F, -2.0F, 1, 1, 1, 0.0F, false));
 
         cube_r79 = new ModelRenderer(this);
         cube_r79.setRotationPoint(0.5F, -29.8011F, 26.7445F);
         bone84.addChild(cube_r79);
         setRotationAngle(cube_r79, -0.3491F, 0.0F, 0.0F);
-        cube_r79.cubeList.add(new ModelBox(cube_r79, 117, 28, -0.52F, -1.5F, -1.0F, 1, 1, 6, 0.0F, false));
+        cube_r79.cubeList.add(new ModelBox(cube_r79, 117, 28, -0.52F, -1.5F, -1, 1, 1, 6, 0.0F, false));
         cube_r79.cubeList.add(new ModelBox(cube_r79, 0, 63, -0.491F, -0.5F, -3.0F, 1, 1, 9, 0.0F, false));
 
         cube_r80 = new ModelRenderer(this);
@@ -1661,23 +1661,23 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r85.setRotationPoint(0.5F, -29.5511F, 26.7445F);
         bone85.addChild(cube_r85);
         setRotationAngle(cube_r85, -0.3491F, 0.0F, 0.0F);
-        cube_r85.cubeList.add(new ModelBox(cube_r85, 138, 45, -0.5F, -2.5F, 1.0F, 1, 1, 2, 0.0F, false));
+        cube_r85.cubeList.add(new ModelBox(cube_r85, 138, 45, -0.5F, -2.5F, 1, 1, 1, 2, 0.0F, false));
         cube_r85.cubeList.add(new ModelBox(cube_r85, 74, 114, -0.5F, -1.5F, -2.0F, 1, 1, 1, 0.0F, false));
 
         cube_r86 = new ModelRenderer(this);
         cube_r86.setRotationPoint(0.5F, -29.8011F, 26.7445F);
         bone85.addChild(cube_r86);
         setRotationAngle(cube_r86, -0.3491F, 0.0F, 0.0F);
-        cube_r86.cubeList.add(new ModelBox(cube_r86, 92, 46, -0.48F, -1.5F, -1.0F, 1, 1, 6, 0.0F, false));
+        cube_r86.cubeList.add(new ModelBox(cube_r86, 92, 46, -0.48F, -1.5F, -1, 1, 1, 6, 0.0F, false));
         cube_r86.cubeList.add(new ModelBox(cube_r86, 0, 34, -0.509F, -0.5F, -3.0F, 1, 1, 9, 0.0F, false));
 
         bone78 = new ModelRenderer(this);
-        bone78.setRotationPoint(1.0F, -31.0F, 25.0F);
+        bone78.setRotationPoint(1, -31, 25.0F);
         stock.addChild(bone78);
         bone78.cubeList.add(new ModelBox(bone78, 4, 74, -0.99F, -7.5F, 14.0F, 1, 8, 1, 0.0F, false));
-        bone78.cubeList.add(new ModelBox(bone78, 23, 52, -1.0F, -7.7981F, 12.0716F, 1, 6, 2, 0.0F, false));
+        bone78.cubeList.add(new ModelBox(bone78, 23, 52, -1, -7.7981F, 12.0716F, 1, 6, 2, 0.0F, false));
         bone78.cubeList.add(new ModelBox(bone78, 121, 89, -1.01F, -1.7981F, 13.0716F, 1, 1, 1, 0.0F, false));
-        bone78.cubeList.add(new ModelBox(bone78, 121, 0, -1.0F, -8.7981F, 13.0716F, 1, 1, 1, 0.0F, false));
+        bone78.cubeList.add(new ModelBox(bone78, 121, 0, -1, -8.7981F, 13.0716F, 1, 1, 1, 0.0F, false));
 
         cube_r87 = new ModelRenderer(this);
         cube_r87.setRotationPoint(-0.5F, -9.6425F, 12.9927F);
@@ -1710,7 +1710,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r91.cubeList.add(new ModelBox(cube_r91, 41, 5, -0.5F, -2.0F, -0.5F, 1, 3, 1, 0.0F, false));
 
         bone82 = new ModelRenderer(this);
-        bone82.setRotationPoint(-4.0F, -31.0F, 25.0F);
+        bone82.setRotationPoint(-4.0F, -31, 25.0F);
         stock.addChild(bone82);
         bone82.cubeList.add(new ModelBox(bone82, 0, 74, -0.01F, -7.5F, 14.0F, 1, 8, 1, 0.0F, false));
         bone82.cubeList.add(new ModelBox(bone82, 0, 52, 0.0F, -7.7981F, 12.0716F, 1, 6, 2, 0.0F, false));
@@ -1905,14 +1905,14 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r113.cubeList.add(new ModelBox(cube_r113, 123, 26, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
 
         bone68 = new ModelRenderer(this);
-        bone68.setRotationPoint(1.0F, 0.0F, 0.0F);
+        bone68.setRotationPoint(1, 0.0F, 0.0F);
         stock.addChild(bone68);
 
 
         bone50 = new ModelRenderer(this);
         bone50.setRotationPoint(0.0F, -39.75F, 7.5F);
         bone68.addChild(bone50);
-        bone50.cubeList.add(new ModelBox(bone50, 48, 70, -0.99F, -1.0F, 0.0F, 1, 3, 15, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 48, 70, -0.99F, -1, 0.0F, 1, 3, 15, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 4, 63, -1.01F, 1.25F, 7.0F, 1, 1, 1, 0.0F, false));
         bone50.cubeList.add(new ModelBox(bone50, 120, 105, -0.99F, 4.0F, 6.75F, 1, 3, 2, 0.0F, false));
 
@@ -1972,12 +1972,12 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r117.setRotationPoint(-0.6176F, -1.4855F, 7.4736F);
         bone71.addChild(cube_r117);
         setRotationAngle(cube_r117, 0.0F, 0.0F, -1.1345F);
-        cube_r117.cubeList.add(new ModelBox(cube_r117, 48, 52, -0.5F, -1.0F, -7.5F, 1, 3, 15, 0.0F, false));
+        cube_r117.cubeList.add(new ModelBox(cube_r117, 48, 52, -0.5F, -1, -7.5F, 1, 3, 15, 0.0F, false));
 
         bone64 = new ModelRenderer(this);
         bone64.setRotationPoint(1.25F, 0.0F, 0.0F);
         stock.addChild(bone64);
-        bone64.cubeList.add(new ModelBox(bone64, 130, 131, -1.0F, -34.25F, 14.5F, 1, 2, 2, 0.0F, false));
+        bone64.cubeList.add(new ModelBox(bone64, 130, 131, -1, -34.25F, 14.5F, 1, 2, 2, 0.0F, false));
         bone64.cubeList.add(new ModelBox(bone64, 22, 131, -0.99F, -34.25F, 13.75F, 1, 2, 2, 0.0F, false));
 
         bone31 = new ModelRenderer(this);
@@ -2065,9 +2065,9 @@ public class FamasF1 extends ModelWithAttachments {
         bone11 = new ModelRenderer(this);
         bone11.setRotationPoint(-3.0F, 0.0F, 0.0F);
         stock.addChild(bone11);
-        bone11.cubeList.add(new ModelBox(bone11, 23, 34, -1.0F, -41.75F, 5.25F, 1, 4, 2, 0.0F, false));
+        bone11.cubeList.add(new ModelBox(bone11, 23, 34, -1, -41.75F, 5.25F, 1, 4, 2, 0.0F, false));
         bone11.cubeList.add(new ModelBox(bone11, 130, 127, -1.01F, -36.75F, 6.75F, 1, 2, 2, 0.0F, false));
-        bone11.cubeList.add(new ModelBox(bone11, 28, 59, -1.0F, -37.0F, 6.5F, 1, 1, 1, 0.0F, false));
+        bone11.cubeList.add(new ModelBox(bone11, 28, 59, -1, -37.0F, 6.5F, 1, 1, 1, 0.0F, false));
 
         cube_r130 = new ModelRenderer(this);
         cube_r130.setRotationPoint(-0.5F, -32.8629F, 10.6708F);
@@ -2158,7 +2158,7 @@ public class FamasF1 extends ModelWithAttachments {
         barrel.cubeList.add(new ModelBox(barrel, 23, 84, -3.0F, -37.0F, -52.5F, 1, 1, 9, 0.0F, false));
 
         bone18 = new ModelRenderer(this);
-        bone18.setRotationPoint(1.0F, -35.25F, -50.5F);
+        bone18.setRotationPoint(1, -35.25F, -50.5F);
         barrel.addChild(bone18);
         bone18.cubeList.add(new ModelBox(bone18, 55, 143, -3.5F, -2.75F, -8.0F, 1, 1, 6, 0.0F, false));
         bone18.cubeList.add(new ModelBox(bone18, 29, 143, -3.5F, -0.75F, -8.0F, 1, 1, 6, 0.0F, false));
@@ -2167,13 +2167,13 @@ public class FamasF1 extends ModelWithAttachments {
         bone18.cubeList.add(new ModelBox(bone18, 102, 142, -4.0F, -2.5F, -8.0F, 1, 1, 6, 0.0F, false));
         bone18.cubeList.add(new ModelBox(bone18, 143, 0, -3.0F, -2.5F, -8.0F, 1, 1, 6, 0.0F, false));
         bone18.cubeList.add(new ModelBox(bone18, 141, 74, -2.75F, -2.25F, -8.0F, 1, 1, 6, 0.0F, false));
-        bone18.cubeList.add(new ModelBox(bone18, 0, 143, -3.0F, -1.0F, -8.0F, 1, 1, 6, 0.0F, false));
+        bone18.cubeList.add(new ModelBox(bone18, 0, 143, -3.0F, -1, -8.0F, 1, 1, 6, 0.0F, false));
         bone18.cubeList.add(new ModelBox(bone18, 138, 140, -2.75F, -1.25F, -8.0F, 1, 1, 6, 0.0F, false));
         bone18.cubeList.add(new ModelBox(bone18, 142, 115, -4.25F, -1.25F, -8.0F, 1, 1, 6, 0.0F, false));
-        bone18.cubeList.add(new ModelBox(bone18, 130, 139, -4.0F, -1.0F, -8.0F, 1, 1, 6, 0.0F, false));
+        bone18.cubeList.add(new ModelBox(bone18, 130, 139, -4.0F, -1, -8.0F, 1, 1, 6, 0.0F, false));
 
         bone19 = new ModelRenderer(this);
-        bone19.setRotationPoint(1.0F, -35.25F, -35.75F);
+        bone19.setRotationPoint(1, -35.25F, -35.75F);
         barrel.addChild(bone19);
         bone19.cubeList.add(new ModelBox(bone19, 137, 29, -3.5F, -2.75F, -8.0F, 1, 1, 6, 0.0F, false));
         bone19.cubeList.add(new ModelBox(bone19, 137, 15, -3.5F, -0.75F, -8.0F, 1, 1, 6, 0.0F, false));
@@ -2182,13 +2182,13 @@ public class FamasF1 extends ModelWithAttachments {
         bone19.cubeList.add(new ModelBox(bone19, 50, 134, -4.0F, -2.5F, -8.0F, 1, 1, 6, 0.0F, false));
         bone19.cubeList.add(new ModelBox(bone19, 133, 73, -3.0F, -2.5F, -8.0F, 1, 1, 6, 0.0F, false));
         bone19.cubeList.add(new ModelBox(bone19, 42, 133, -2.75F, -2.25F, -8.0F, 1, 1, 6, 0.0F, false));
-        bone19.cubeList.add(new ModelBox(bone19, 22, 132, -3.0F, -1.0F, -8.0F, 1, 1, 6, 0.0F, false));
+        bone19.cubeList.add(new ModelBox(bone19, 22, 132, -3.0F, -1, -8.0F, 1, 1, 6, 0.0F, false));
         bone19.cubeList.add(new ModelBox(bone19, 14, 131, -2.75F, -1.25F, -8.0F, 1, 1, 6, 0.0F, false));
         bone19.cubeList.add(new ModelBox(bone19, 62, 129, -4.25F, -1.25F, -8.0F, 1, 1, 6, 0.0F, false));
-        bone19.cubeList.add(new ModelBox(bone19, 105, 118, -4.0F, -1.0F, -8.0F, 1, 1, 6, 0.0F, false));
+        bone19.cubeList.add(new ModelBox(bone19, 105, 118, -4.0F, -1, -8.0F, 1, 1, 6, 0.0F, false));
 
         bone20 = new ModelRenderer(this);
-        bone20.setRotationPoint(1.0F, -35.25F, -34.25F);
+        bone20.setRotationPoint(1, -35.25F, -34.25F);
         barrel.addChild(bone20);
         bone20.cubeList.add(new ModelBox(bone20, 23, 0, -4.0F, -3.25F, -8.0F, 2, 4, 3, 0.0F, false));
         bone20.cubeList.add(new ModelBox(bone20, 91, 53, -4.95F, -2.25F, -8.0F, 4, 2, 3, 0.0F, false));
@@ -2339,7 +2339,7 @@ public class FamasF1 extends ModelWithAttachments {
         grip16_r7.setRotationPoint(0.0F, -0.8645F, 1.1972F);
         bone4.addChild(grip16_r7);
         setRotationAngle(grip16_r7, 0.0873F, 0.0F, 0.0F);
-        grip16_r7.cubeList.add(new ModelBox(grip16_r7, 95, 34, -1.999F, -0.5F, -1.0F, 4, 1, 3, 0.0F, false));
+        grip16_r7.cubeList.add(new ModelBox(grip16_r7, 95, 34, -1.999F, -0.5F, -1, 4, 1, 3, 0.0F, false));
 
         grip17_r4 = new ModelRenderer(this);
         grip17_r4.setRotationPoint(0.0F, 0.702F, 0.0423F);
@@ -2377,24 +2377,24 @@ public class FamasF1 extends ModelWithAttachments {
         fingerguard2.setRotationPoint(2.0F, -10.0719F, -0.4702F);
         outline2.addChild(fingerguard2);
         setRotationAngle(fingerguard2, -1.0472F, 0.0F, 0.0F);
-        fingerguard2.cubeList.add(new ModelBox(fingerguard2, 64, 114, -1.0F, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
+        fingerguard2.cubeList.add(new ModelBox(fingerguard2, 64, 114, -1, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
         fingerguard2.cubeList.add(new ModelBox(fingerguard2, 58, 114, -1.001F, -0.0031F, 0.0031F, 2, 1, 1, 0.0F, false));
         fingerguard2.cubeList.add(new ModelBox(fingerguard2, 13, 138, -1.001F, 1.5946F, -0.2786F, 2, 2, 1, 0.0F, false));
-        fingerguard2.cubeList.add(new ModelBox(fingerguard2, 58, 137, -1.0F, 1.7757F, 7.666F, 2, 2, 1, 0.0F, false));
-        fingerguard2.cubeList.add(new ModelBox(fingerguard2, 113, 71, -1.0F, 0.5302F, 7.2733F, 2, 1, 1, 0.0F, false));
+        fingerguard2.cubeList.add(new ModelBox(fingerguard2, 58, 137, -1, 1.7757F, 7.666F, 2, 2, 1, 0.0F, false));
+        fingerguard2.cubeList.add(new ModelBox(fingerguard2, 113, 71, -1, 0.5302F, 7.2733F, 2, 1, 1, 0.0F, false));
         fingerguard2.cubeList.add(new ModelBox(fingerguard2, 111, 26, -1.001F, 4.1244F, 0.9492F, 2, 1, 2, 0.0F, false));
 
         cube_r140 = new ModelRenderer(this);
         cube_r140.setRotationPoint(0.0F, 1.2957F, 0.3622F);
         fingerguard2.addChild(cube_r140);
         setRotationAngle(cube_r140, -0.3491F, 0.0F, 0.0F);
-        cube_r140.cubeList.add(new ModelBox(cube_r140, 40, 96, -1.0F, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
+        cube_r140.cubeList.add(new ModelBox(cube_r140, 40, 96, -1, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
 
         cube_r141 = new ModelRenderer(this);
         cube_r141.setRotationPoint(0.0F, 4.4199F, 0.8875F);
         fingerguard2.addChild(cube_r141);
         setRotationAngle(cube_r141, 0.8727F, 0.0F, 0.0F);
-        cube_r141.cubeList.add(new ModelBox(cube_r141, 107, 71, -1.0F, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
+        cube_r141.cubeList.add(new ModelBox(cube_r141, 107, 71, -1, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
 
         cube_r142 = new ModelRenderer(this);
         cube_r142.setRotationPoint(0.0F, 3.8072F, 0.3958F);
@@ -2412,7 +2412,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r144.setRotationPoint(0.0F, 4.5391F, 3.9018F);
         fingerguard2.addChild(cube_r144);
         setRotationAngle(cube_r144, 0.0873F, 0.0F, 0.0F);
-        cube_r144.cubeList.add(new ModelBox(cube_r144, 119, 43, -1.0F, -0.5F, -1.0F, 2, 1, 4, 0.0F, false));
+        cube_r144.cubeList.add(new ModelBox(cube_r144, 119, 43, -1, -0.5F, -1, 2, 1, 4, 0.0F, false));
 
         cube_r145 = new ModelRenderer(this);
         cube_r145.setRotationPoint(0.0F, 1.653F, 7.9696F);
@@ -2542,13 +2542,13 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r156.cubeList.add(new ModelBox(cube_r156, 28, 96, -2.001F, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
 
         cube_r157 = new ModelRenderer(this);
-        cube_r157.setRotationPoint(1.0F, 4.6936F, -22.4535F);
+        cube_r157.setRotationPoint(1, 4.6936F, -22.4535F);
         bolt2.addChild(cube_r157);
         setRotationAngle(cube_r157, -1.056F, 0.1312F, -0.2272F);
         cube_r157.cubeList.add(new ModelBox(cube_r157, 5, 0, -4.9944F, -23.2437F, 10.3673F, 1, 2, 1, -0.2F, false));
 
         cube_r158 = new ModelRenderer(this);
-        cube_r158.setRotationPoint(1.0F, 4.6936F, -22.4535F);
+        cube_r158.setRotationPoint(1, 4.6936F, -22.4535F);
         bolt2.addChild(cube_r158);
         setRotationAngle(cube_r158, -1.041F, 0.0F, 0.0F);
         cube_r158.cubeList.add(new ModelBox(cube_r158, 113, 136, -2.5F, -24.4437F, 11.1696F, 2, 2, 1, 0.0F, false));
@@ -2560,7 +2560,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r159.cubeList.add(new ModelBox(cube_r159, 137, 29, -2.002F, -0.8204F, -0.6494F, 2, 2, 1, 0.0F, false));
 
         cube_r160 = new ModelRenderer(this);
-        cube_r160.setRotationPoint(1.0F, 2.4684F, -26.0744F);
+        cube_r160.setRotationPoint(1, 2.4684F, -26.0744F);
         bolt2.addChild(cube_r160);
         setRotationAngle(cube_r160, -1.041F, 0.0F, 0.0F);
         cube_r160.cubeList.add(new ModelBox(cube_r160, 0, 40, -2.501F, -24.8437F, 10.4696F, 2, 1, 2, -0.2F, false));
@@ -2568,7 +2568,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r160.cubeList.add(new ModelBox(cube_r160, 107, 67, -2.5F, -24.4437F, 12.1696F, 2, 1, 2, 0.0F, false));
 
         cube_r161 = new ModelRenderer(this);
-        cube_r161.setRotationPoint(1.0F, 2.4684F, -26.0744F);
+        cube_r161.setRotationPoint(1, 2.4684F, -26.0744F);
         bolt2.addChild(cube_r161);
         setRotationAngle(cube_r161, -1.0934F, 0.0F, 0.0F);
         cube_r161.cubeList.add(new ModelBox(cube_r161, 82, 11, -2.5F, -24.5339F, 5.1594F, 2, 1, 1, 0.0F, false));
@@ -2587,7 +2587,7 @@ public class FamasF1 extends ModelWithAttachments {
 
         grip_rail = new ModelRenderer(this);
         grip_rail.setRotationPoint(0.0F, -7.7F, -36.0F);
-        grip_rail.cubeList.add(new ModelBox(grip_rail, 133, 41, -3.0F, -1.0F, 0.0F, 3, 1, 11, 0.0F, false));
+        grip_rail.cubeList.add(new ModelBox(grip_rail, 133, 41, -3.0F, -1, 0.0F, 3, 1, 11, 0.0F, false));
         grip_rail.cubeList.add(new ModelBox(grip_rail, 130, 127, -0.8F, -1.4F, -0.001F, 3, 1, 11, 0.0F, false));
         grip_rail.cubeList.add(new ModelBox(grip_rail, 85, 127, -5.2F, -1.4F, -0.001F, 3, 1, 11, 0.0F, false));
         grip_rail.cubeList.add(new ModelBox(grip_rail, 168, 169, -6.0F, -4.4F, 0.0F, 9, 2, 14, 0.0F, false));
@@ -2602,7 +2602,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r164.setRotationPoint(2.6F, -2.4F, 0.0F);
         grip_rail.addChild(cube_r164);
         setRotationAngle(cube_r164, 0.0F, 0.0F, 0.1745F);
-        cube_r164.cubeList.add(new ModelBox(cube_r164, 69, 20, -1.0F, 0.0F, 0.0F, 1, 2, 11, 0.0F, false));
+        cube_r164.cubeList.add(new ModelBox(cube_r164, 69, 20, -1, 0.0F, 0.0F, 1, 2, 11, 0.0F, false));
 
         carryhandle2 = new ModelRenderer(this);
         carryhandle2.setRotationPoint(-0.5F, -16.9F, 0.1F);
@@ -2633,7 +2633,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r166.cubeList.add(new ModelBox(cube_r166, 85, 104, 0.398F, -5.1F, -5.6F, 1, 3, 2, -0.3F, false));
 
         cube_r167 = new ModelRenderer(this);
-        cube_r167.setRotationPoint(1.0F, 0.9F, -4.7F);
+        cube_r167.setRotationPoint(1, 0.9F, -4.7F);
         bone12.addChild(cube_r167);
         setRotationAngle(cube_r167, 0.925F, 0.0F, 0.0F);
         cube_r167.cubeList.add(new ModelBox(cube_r167, 28, 63, -1.002F, -4.141F, 5.3F, 1, 2, 1, -0.3F, false));
@@ -2641,7 +2641,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r167.cubeList.add(new ModelBox(cube_r167, 65, 52, -1.001F, -4.14F, 5.8F, 1, 2, 1, -0.3F, false));
 
         cube_r168 = new ModelRenderer(this);
-        cube_r168.setRotationPoint(1.0F, 0.9F, -4.7F);
+        cube_r168.setRotationPoint(1, 0.9F, -4.7F);
         bone12.addChild(cube_r168);
         setRotationAngle(cube_r168, 0.4712F, 0.0F, 0.0F);
         cube_r168.cubeList.add(new ModelBox(cube_r168, 125, 116, -1.002F, -6.601F, 3.85F, 1, 2, 2, -0.3F, false));
@@ -2703,25 +2703,25 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r175.setRotationPoint(1.1F, -1.2F, 0.1F);
         bone13.addChild(cube_r175);
         setRotationAngle(cube_r175, -0.5585F, 0.0F, 0.0F);
-        cube_r175.cubeList.add(new ModelBox(cube_r175, 121, 85, -1.0F, -2.1F, 0.0F, 1, 2, 2, 0.0F, false));
+        cube_r175.cubeList.add(new ModelBox(cube_r175, 121, 85, -1, -2.1F, 0.0F, 1, 2, 2, 0.0F, false));
         cube_r175.cubeList.add(new ModelBox(cube_r175, 121, 95, 1.6F, -2.1F, 0.0F, 1, 2, 2, 0.0F, false));
 
         cube_r176 = new ModelRenderer(this);
         cube_r176.setRotationPoint(3.6F, -3.7F, -40.9F);
         bone13.addChild(cube_r176);
         setRotationAngle(cube_r176, -0.5585F, 0.0F, 0.0F);
-        cube_r176.cubeList.add(new ModelBox(cube_r176, 27, 11, -1.0F, -1.1F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r176.cubeList.add(new ModelBox(cube_r176, 27, 11, -1, -1.1F, 0.0F, 1, 1, 1, 0.0F, false));
         cube_r176.cubeList.add(new ModelBox(cube_r176, 4, 52, -3.6F, -1.1F, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r177 = new ModelRenderer(this);
-        cube_r177.setRotationPoint(1.0F, 0.9F, -41.5F);
+        cube_r177.setRotationPoint(1, 0.9F, -41.5F);
         bone13.addChild(cube_r177);
         setRotationAngle(cube_r177, 0.4712F, 0.0F, 0.0F);
         cube_r177.cubeList.add(new ModelBox(cube_r177, 59, 123, -0.999F, -6.6F, 4.55F, 1, 2, 2, -0.3F, false));
         cube_r177.cubeList.add(new ModelBox(cube_r177, 125, 26, -1.002F, -6.601F, 3.85F, 1, 2, 2, -0.3F, false));
 
         cube_r178 = new ModelRenderer(this);
-        cube_r178.setRotationPoint(1.0F, 0.9F, -41.5F);
+        cube_r178.setRotationPoint(1, 0.9F, -41.5F);
         bone13.addChild(cube_r178);
         setRotationAngle(cube_r178, 0.925F, 0.0F, 0.0F);
         cube_r178.cubeList.add(new ModelBox(cube_r178, 34, 52, -1.001F, -4.14F, 5.8F, 1, 2, 1, -0.3F, false));
@@ -2797,7 +2797,7 @@ public class FamasF1 extends ModelWithAttachments {
         bone7.cubeList.add(new ModelBox(bone7, 86, 33, 3.7F, -12.1F, -1.9F, 1, 3, 2, -0.4F, false));
         bone7.cubeList.add(new ModelBox(bone7, 59, 0, 5.3F, -12.1F, -1.9F, 1, 3, 2, -0.4F, false));
         bone7.cubeList.add(new ModelBox(bone7, 121, 99, 5.1F, -12.15F, -1.7F, 1, 2, 2, -0.4F, false));
-        bone7.cubeList.add(new ModelBox(bone7, 23, 69, 4.0F, -11.0F, -1.8F, 2, 1, 2, -0.3F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 23, 69, 4.0F, -11, -1.8F, 2, 1, 2, -0.3F, false));
         bone7.cubeList.add(new ModelBox(bone7, 72, 6, 4.0F, -10.8F, -1.799F, 2, 1, 2, -0.3F, false));
         bone7.cubeList.add(new ModelBox(bone7, 134, 133, 4.5F, -10.4F, -1.9F, 1, 1, 2, -0.2F, false));
         bone7.cubeList.add(new ModelBox(bone7, 95, 95, 4.1F, -9.6F, -2.3F, 1, 12, 2, 0.0F, false));
@@ -2807,7 +2807,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r187.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone7.addChild(cube_r187);
         setRotationAngle(cube_r187, 0.0F, 0.0F, 0.7854F);
-        cube_r187.cubeList.add(new ModelBox(cube_r187, 95, 17, -2.0F, -9.1F, -2.0F, 3, 3, 3, -1.0F, false));
+        cube_r187.cubeList.add(new ModelBox(cube_r187, 95, 17, -2.0F, -9.1F, -2.0F, 3, 3, 3, -1, false));
 
         cube_r188 = new ModelRenderer(this);
         cube_r188.setRotationPoint(4.8F, -1.2F, 1.1F);
@@ -2820,15 +2820,15 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r189.setRotationPoint(3.9F, -10.7F, -1.7F);
         bone7.addChild(cube_r189);
         setRotationAngle(cube_r189, 0.0F, 0.0F, 0.7854F);
-        cube_r189.cubeList.add(new ModelBox(cube_r189, 134, 109, 0.0F, -1.0F, -0.001F, 1, 1, 2, -0.4F, false));
-        cube_r189.cubeList.add(new ModelBox(cube_r189, 134, 103, -0.2F, -1.0F, -0.001F, 1, 1, 2, -0.4F, false));
+        cube_r189.cubeList.add(new ModelBox(cube_r189, 134, 109, 0.0F, -1, -0.001F, 1, 1, 2, -0.4F, false));
+        cube_r189.cubeList.add(new ModelBox(cube_r189, 134, 103, -0.2F, -1, -0.001F, 1, 1, 2, -0.4F, false));
 
         cube_r190 = new ModelRenderer(this);
         cube_r190.setRotationPoint(6.1F, -10.7F, -1.7F);
         bone7.addChild(cube_r190);
         setRotationAngle(cube_r190, 0.0F, 0.0F, -0.7854F);
-        cube_r190.cubeList.add(new ModelBox(cube_r190, 134, 117, -1.0F, -1.0F, -0.001F, 1, 1, 2, -0.4F, false));
-        cube_r190.cubeList.add(new ModelBox(cube_r190, 134, 114, -0.8F, -1.0F, -0.001F, 1, 1, 2, -0.4F, false));
+        cube_r190.cubeList.add(new ModelBox(cube_r190, 134, 117, -1, -1, -0.001F, 1, 1, 2, -0.4F, false));
+        cube_r190.cubeList.add(new ModelBox(cube_r190, 134, 114, -0.8F, -1, -0.001F, 1, 1, 2, -0.4F, false));
 
         cube_r191 = new ModelRenderer(this);
         cube_r191.setRotationPoint(3.85F, -11.8F, -1.7F);
@@ -2848,7 +2848,7 @@ public class FamasF1 extends ModelWithAttachments {
         cube_r193.setRotationPoint(6.1F, -11.7F, -1.7F);
         bone7.addChild(cube_r193);
         setRotationAngle(cube_r193, 0.0F, 0.0F, 0.7854F);
-        cube_r193.cubeList.add(new ModelBox(cube_r193, 134, 97, -1.0F, 0.0F, -0.001F, 1, 1, 2, -0.4F, false));
+        cube_r193.cubeList.add(new ModelBox(cube_r193, 134, 97, -1, 0.0F, -0.001F, 1, 1, 2, -0.4F, false));
         cube_r193.cubeList.add(new ModelBox(cube_r193, 134, 100, -0.8F, 0.0F, -0.001F, 1, 1, 2, -0.4F, false));
 
         cube_r194 = new ModelRenderer(this);

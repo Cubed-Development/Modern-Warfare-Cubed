@@ -97,7 +97,7 @@ public class USMCVestTwo extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 0, 46, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 0, 46, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         rightleg = new ModelRenderer(this);
         rightleg.setRotationPoint(-2.0F, 12.0F, 0.0F);
@@ -249,11 +249,11 @@ public class USMCVestTwo extends ModelBiped {
         leftarm5 = new ModelRenderer(this);
         leftarm5.setRotationPoint(0.0F, 0.0F, 0.0F);
         leftarm_usMC.addChild(leftarm5);
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 10, 84, -1.0F, -1.95F, 1.2F, 4, 7, 1, 0.0F, false));
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 91, 3, -1.0F, 5.05F, -2.1F, 4, 1, 1, 0.0F, false));
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 52, -1.0F, 7.55F, -2.1F, 4, 1, 1, 0.0F, false));
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 91, -1.0F, 5.05F, 1.1F, 4, 1, 1, 0.0F, false));
-        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 37, -1.0F, 7.55F, 1.1F, 4, 1, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 10, 84, -1, -1.95F, 1.2F, 4, 7, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 91, 3, -1, 5.05F, -2.1F, 4, 1, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 52, -1, 7.55F, -2.1F, 4, 1, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 91, -1, 5.05F, 1.1F, 4, 1, 1, 0.0F, false));
+        leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 37, -1, 7.55F, 1.1F, 4, 1, 1, 0.0F, false));
         leftarm5.cubeList.add(new ModelBox(leftarm5, 89, 44, -1.1F, 5.05F, -2.0F, 1, 1, 4, 0.0F, false));
         leftarm5.cubeList.add(new ModelBox(leftarm5, 86, 86, -1.1F, 7.55F, -2.0F, 1, 1, 4, 0.0F, false));
         leftarm5.cubeList.add(new ModelBox(leftarm5, 22, 89, 2.1F, 5.05F, -2.0F, 1, 1, 4, 0.0F, false));
@@ -336,7 +336,7 @@ public class USMCVestTwo extends ModelBiped {
         helmet.addChild(bone);
         setRotationAngle(bone, -0.2443F, 0.0F, 0.0F);
         bone.cubeList.add(new ModelBox(bone, 32, 9, -4.0F, -6.9093F, -6.0678F, 8, 3, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 12, 46, -1.0F, -7.0121F, -6.3595F, 2, 3, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 12, 46, -1, -7.0121F, -6.3595F, 2, 3, 1, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 64, 59, -1.5F, -5.0849F, -6.4807F, 3, 1, 1, 0.0F, false));
 
         bone16 = new ModelRenderer(this);

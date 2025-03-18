@@ -50,7 +50,7 @@ public class JSoundEngine {
      * leave it as is.
      */
 
-    public float[] volumes = new float[]{1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f};
+    public float[] volumes = new float[]{1, 1, 1, 1, 1, 1, 1, 1};
 
     /**
      * Velocity of the source sound.
@@ -71,7 +71,7 @@ public class JSoundEngine {
      * Orientation of the listener. (first 3 elements are "at", second 3 are "up")
      * Also note that these should be units of '1'.
      */
-    FloatBuffer listenerOri = BufferUtils.createFloatBuffer(6).put(new float[]{0.0f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f});
+    FloatBuffer listenerOri = BufferUtils.createFloatBuffer(6).put(new float[]{0.0f, 0.0f, -1, 0.0f, 1, 0.0f});
 
     public static JSoundEngine instance;
 
@@ -156,8 +156,8 @@ public class JSoundEngine {
 		FloatBuffer sourcesad = BufferUtils.createFloatBuffer(3).put(new float[] { 100.0f, 0.0f, 0.0f });
 
 		AL10.alSourcei(source.get(0), AL10.AL_BUFFER, buffer.get(0));
-		AL10.alSourcef(source.get(0), AL10.AL_PITCH, 1.0f);
-		AL10.alSourcef(source.get(0), AL10.AL_GAIN, 1.0f);
+		AL10.alSourcef(source.get(0), AL10.AL_PITCH, 1);
+		AL10.alSourcef(source.get(0), AL10.AL_GAIN, 1);
 		AL10.alSource(source.get(0), AL10.AL_POSITION, sourcesad);
 		AL10.alSource(source.get(0), AL10.AL_VELOCITY, sourceVel);
 		
@@ -209,7 +209,7 @@ public class JSoundEngine {
 
 
             if (!volumesMap.containsKey(i)) {
-                volumesMap.put(i, 1.0f);
+                volumesMap.put(i, 1);
             }
             volumesMap.put(i, volumesMap.get(i) - 0.05f);
 
@@ -229,7 +229,7 @@ public class JSoundEngine {
 
 
         //System.out.println(AL10.alIsSource(0));
-        // AL10.alSourcef(source.get(0), AL10.AL_PITCH, 1.0f);
+        // AL10.alSourcef(source.get(0), AL10.AL_PITCH, 1);
 
 
         return 0;
@@ -254,7 +254,7 @@ public class JSoundEngine {
 
         AL10.alSourcei(source.get(position), AL10.AL_BUFFER, buffer.get(type));
         AL10.alSourcef(source.get(position), AL10.AL_PITCH, 1.1f);
-        AL10.alSourcef(source.get(position), AL10.AL_GAIN, 1.0f);
+        AL10.alSourcef(source.get(position), AL10.AL_GAIN, 1);
         AL10.alSource(source.get(position), AL10.AL_POSITION, sourcePos);
         AL10.alSource(source.get(position), AL10.AL_VELOCITY, sourceVel);
         AL10.alSourcei(source.get(position), AL10.AL_LOOPING, AL10.AL_FALSE);
@@ -329,7 +329,7 @@ public class JSoundEngine {
 
         //setListenerValues();
         addSource(0);
-        velo = 1.0f;
+        velo = 1;
         //AL10.alSourcePlay(source.get(0));
 
     }

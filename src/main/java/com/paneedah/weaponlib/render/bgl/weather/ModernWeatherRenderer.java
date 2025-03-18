@@ -131,7 +131,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 
 
                 int worldPos = MC.world.getHeight(rainPosition.getX(), rainPosition.getZ());
-                rainPositions[count] = new float[]{1.0f, (float) rainPosition.getX() + 1, (float) worldPos, rainPosition.getZ(), rainStatus ? 1 : 0};
+                rainPositions[count] = new float[]{1, (float) rainPosition.getX() + 1, (float) worldPos, rainPosition.getZ(), rainStatus ? 1 : 0};
                 count++;
 
 
@@ -159,7 +159,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 				
 				BlockPos rainPosition = new BlockPos(interpolatedPosition.x + lookVector.x*length, player.getPositionVector().y, interpolatedPosition.z + lookVector.z*length);
 				int worldPos = MC.world.getHeight(rainPosition.getX(), rainPosition.getZ());
-				rainPositions[i] = new float[] { 1.0f, (float) rainPosition.getX() + 1, (float) (rainPosition.getY() + (worldPos - player.getPosition().getY())), rainPosition.getZ()};
+				rainPositions[i] = new float[] { 1, (float) rainPosition.getX() + 1, (float) (rainPosition.getY() + (worldPos - player.getPosition().getY())), rainPosition.getZ()};
 
 		}
 		*/

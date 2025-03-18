@@ -115,7 +115,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     private final Supplier<Vector3D> soundPositionProvider = () -> new Vector3D(posX, posY, posZ);
     private final Supplier<Boolean> donePlayingSoundProvider = () -> isDead;
     private final Supplier<Boolean> isDorifto = () -> !getSolver().isDrifting;
-    private final Supplier<Float> doriftoSoundProvider = () -> 1.0f;
+    private final Supplier<Float> doriftoSoundProvider = () -> 1;
 
     /*
      * Key Inputs
@@ -379,7 +379,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
              * System.out.println(rotationYaw-130);
              *
              * //Vec3d apr = new Vec3d(aPRX/2, aPRY, aPRX); Vec3d apr = new Vec3d(-aPRX,
-             * aPRY, 10.0); if(aPRX == 1.0f || aPRX == -1.0f) aPRX = 0.0f;
+             * aPRY, 10.0); if(aPRX == 1 || aPRX == -1) aPRX = 0.0f;
              */
 
             float mu = (float) ((1 - Math.cos(0.5f * Math.PI)) / 2f);
@@ -640,7 +640,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         float yaw = driver.rotationYaw;
         float pitch = driver.rotationPitch;
 
-        float f = 1.0f;
+        float f = 1;
         double motionX = -MathHelper.sin(yaw / 180.0F * (float) Math.PI)
                 * MathHelper.cos(pitch / 180.0F * (float) Math.PI) * f;
         double motionZ = MathHelper.cos(yaw / 180.0F * (float) Math.PI)
@@ -1420,12 +1420,12 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                                         + entity.motionZ * entity.motionZ * 0.20000000298023224D)
                                 * f;
 
-                        if (f1 > 1.0F) {
-                            f1 = 1.0F;
+                        if (f1 > 1) {
+                            f1 = 1;
                         }
 
                         this.playSound(this.getSwimSound(), f1,
-                                1.0F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.4F);
+                                1 + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.4F);
                     } else {
                         this.playStepSound(blockpos, block);
                     }
@@ -1563,7 +1563,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             }
 
             //System.out.println("sped" + getSpeed());
-            float t = 1.0f;
+            float t = 1;
             float mu2 = (float) ((1 - Math.cos(t * Math.PI)) / 2f);
             Vec3d lift = new Vec3d(0.0, upMag + 0.2, 0.7 + liftPush).rotateYaw((float) Math.toRadians(-rotationYaw))
                     .scale(mu2);
@@ -2025,7 +2025,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 opp = heightRay.hitVec.y - getPositionVector().y;
                 adj = heightRay.hitVec.subtract(ray.hitVec).length();
             }
-            float t = 1.0f;
+            float t = 1;
             float mu2 = (float) ((1 - Math.cos(t * Math.PI)) / 2f);
 
             Vec3d lift = new Vec3d(0.0, upMag + 0.55, 0.05 + liftPush).rotateYaw((float) Math.toRadians(-rotationYaw))
@@ -2315,12 +2315,12 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         int ran = (int) Math.floor(Math.random() * (max - min + 1) + min);
         if (ran < 1) {
 
-            PositionedSound ps = new PositionedSoundRecord(getConfiguration().getBackfireSound(), SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
+            PositionedSound ps = new PositionedSoundRecord(getConfiguration().getBackfireSound(), SoundCategory.MASTER, 1.5f, 1, (float) posX, (float) posY, (float) posZ);
             MC.getSoundHandler().playSound(ps);
 
             for (int x = 0; x < 20 + (solver.synthAccelFor); ++x) {
                 // Vec3d pE =
-                // posExhaust.subtract(getPositionVector()).scale(1.0f+(Math.random()*0.5)).add(getPositionVector());
+                // posExhaust.subtract(getPositionVector()).scale(1+(Math.random()*0.5)).add(getPositionVector());
                 Vec3d pE = posExhaust;
                 MC.effectRenderer.addEffect(new VehicleExhaustFlameParticle(this.world, pE.x, pE.y, pE.z, partDirExhaust2.x * mult, 0, partDirExhaust2.z * mult));
 
@@ -2736,7 +2736,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         // PLAY SHIFTING SOUND
         if (isInShift()) {
-            PositionedSound ps = new PositionedSoundRecord(getConfiguration().getGearshiftSound(), SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
+            PositionedSound ps = new PositionedSoundRecord(getConfiguration().getGearshiftSound(), SoundCategory.MASTER, 1.5f, 1, (float) posX, (float) posY, (float) posZ);
             MC.getSoundHandler().playSound(ps);
         }
 

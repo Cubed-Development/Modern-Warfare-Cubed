@@ -25,11 +25,11 @@ public class KBP9A91Action extends ModelWithAttachments {
 
         Action = new ModelRenderer(this);
         Action.setRotationPoint(-2.45F, -11.2F, -29.5F);
-        Action.cubeList.add(new ModelBox(Action, 149, 29, -1.0F, -2.1F, 0.0F, 1, 2, 11, 0.0F, false));
+        Action.cubeList.add(new ModelBox(Action, 149, 29, -1, -2.1F, 0.0F, 1, 2, 11, 0.0F, false));
         Action.cubeList.add(new ModelBox(Action, 26, 63, -1.8F, -1.2F, -0.001F, 2, 1, 1, 0.0F, false));
         Action.cubeList.add(new ModelBox(Action, 7, 63, -1.8F, -1.2F, 3.5F, 2, 1, 1, 0.0F, false));
-        Action.cubeList.add(new ModelBox(Action, 47, 57, -3.7F, -1.2F, 1.0F, 2, 1, 1, 0.0F, false));
-        Action.cubeList.add(new ModelBox(Action, 7, 23, -1.0F, -2.0F, 12.0F, 1, 2, 2, 0.0F, false));
+        Action.cubeList.add(new ModelBox(Action, 47, 57, -3.7F, -1.2F, 1, 2, 1, 1, 0.0F, false));
+        Action.cubeList.add(new ModelBox(Action, 7, 23, -1, -2.0F, 12.0F, 1, 2, 2, 0.0F, false));
 
         cube_r142 = new ModelRenderer(this);
         cube_r142.setRotationPoint(-0.6F, -2.1F, 0.0F);
@@ -38,7 +38,7 @@ public class KBP9A91Action extends ModelWithAttachments {
         cube_r142.cubeList.add(new ModelBox(cube_r142, 152, 86, 0.0F, 0.0F, 0.0F, 2, 1, 11, 0.0F, false));
 
         cube_r143 = new ModelRenderer(this);
-        cube_r143.setRotationPoint(-1.0F, -2.1F, 0.0F);
+        cube_r143.setRotationPoint(-1, -2.1F, 0.0F);
         Action.addChild(cube_r143);
         setRotationAngle(cube_r143, 0.0F, 0.0F, -0.7505F);
         cube_r143.cubeList.add(new ModelBox(cube_r143, 152, 123, 0.0F, 0.0F, 0.0F, 2, 1, 11, 0.0F, false));
@@ -69,7 +69,7 @@ public class KBP9A91Action extends ModelWithAttachments {
         cube_r147.setRotationPoint(-3.7F, -1.2F, 2.0F);
         Action.addChild(cube_r147);
         setRotationAngle(cube_r147, 0.0F, 0.8552F, 0.0F);
-        cube_r147.cubeList.add(new ModelBox(cube_r147, 121, 42, 0.0F, 0.0F, -1.0F, 1, 1, 1, 0.001F, false));
+        cube_r147.cubeList.add(new ModelBox(cube_r147, 121, 42, 0.0F, 0.0F, -1, 1, 1, 1, 0.001F, false));
     }
 
     @Override

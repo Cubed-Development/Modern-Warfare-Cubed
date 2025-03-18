@@ -132,7 +132,7 @@ public class DSR1Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
-                    GL11.glTranslatef(-0.072F, -1.03F, -1.0F);
+                    GL11.glTranslatef(-0.072F, -1.03F, -1);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -141,7 +141,7 @@ public class DSR1Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
-                    GL11.glTranslatef(-0.072F, -1.03F, -1.0F);
+                    GL11.glTranslatef(-0.072F, -1.03F, -1);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -208,7 +208,7 @@ public class DSR1Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
-                    GL11.glTranslatef(-0.175F, -1.23F, -1.0F);
+                    GL11.glTranslatef(-0.175F, -1.23F, -1);
                     GL11.glScaled(0.35F, 0.35F, 0.35F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -217,7 +217,7 @@ public class DSR1Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
-                    GL11.glTranslatef(-0.175F, -1.23F, -1.0F);
+                    GL11.glTranslatef(-0.175F, -1.23F, -1);
                     GL11.glScaled(0.35F, 0.35F, 0.35F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {

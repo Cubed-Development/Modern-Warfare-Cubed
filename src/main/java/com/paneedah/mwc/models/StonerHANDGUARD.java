@@ -29,16 +29,16 @@ public class StonerHANDGUARD extends ModelWithAttachments {
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -21.481F, -6.0F, 1, 2, 35, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 21.5668F, -22.981F, -7.0F, 3, 1, 36, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 21.5668F, -13.981F, 0.0F, 3, 1, 29, 0.0F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -15.481F, -1.0F, 1, 1, 30, 0.0F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -15.481F, -1, 1, 1, 30, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, 25.0F, 1, 4, 4, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -18.481F, -4.0F, 1, 1, 29, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -16.481F, -2.0F, 1, 1, 27, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, -5.0F, 1, 1, 2, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -17.481F, -3.0F, 1, 1, 2, 0.0F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -17.481F, 1.0F, 1, 1, 1, 0.0F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -17.481F, 1, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -17.481F, 4.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -17.481F, 4.0F, 1, 1, 1, 0.0F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -17.481F, 1.0F, 1, 1, 1, 0.0F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -17.481F, 1, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -17.481F, 7.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -17.481F, 10.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -17.481F, 10.0F, 1, 1, 1, 0.0F, true));
@@ -47,11 +47,11 @@ public class StonerHANDGUARD extends ModelWithAttachments {
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -17.481F, 16.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -17.481F, 19.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -17.481F, 22.0F, 1, 1, 1, 0.0F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, -1.0F, 1, 1, 1, 0.0F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, -1, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, 2.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, 5.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, 8.0F, 1, 1, 1, 0.0F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, 11.0F, 1, 1, 1, 0.0F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, 11, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, 14.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, 17.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -19.481F, 20.0F, 1, 1, 1, 0.0F, true));
@@ -62,23 +62,23 @@ public class StonerHANDGUARD extends ModelWithAttachments {
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -16.481F, -2.0F, 1, 1, 27, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, 23.0F, 1, 1, 2, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, 25.0F, 1, 4, 4, 0.0F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -15.481F, -1.0F, 1, 1, 30, 0.0F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -15.481F, -1, 1, 1, 30, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, -5.0F, 1, 1, 2, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -17.481F, -3.0F, 1, 1, 2, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -17.481F, 13.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -17.481F, 16.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -17.481F, 19.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -17.481F, 22.0F, 1, 1, 1, 0.0F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, -1.0F, 1, 1, 1, 0.0F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, -1, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, 2.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, 5.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, 8.0F, 1, 1, 1, 0.0F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, 11.0F, 1, 1, 1, 0.0F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, 11, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, 14.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, 17.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 20.0668F, -19.481F, 20.0F, 1, 1, 1, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 25.0668F, -21.481F, -6.0F, 1, 2, 35, 0.0F, true));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 22.0668F, -12.981F, 1.0F, 2, 1, 28, 0.0F, true));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 22.0668F, -12.981F, 1, 2, 1, 28, 0.0F, true));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 22.0668F, -23.981F, -7.0F, 2, 1, 36, 0.0F, true));
 
         MainNEW141BARLBLT_r1 = new ModelRenderer(this);
@@ -94,10 +94,10 @@ public class StonerHANDGUARD extends ModelWithAttachments {
         MainNEW137BARLBLT_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         handguard.addChild(MainNEW137BARLBLT_r1);
         setRotationAngle(MainNEW137BARLBLT_r1, 0.0F, 0.0F, 0.7854F);
-        MainNEW137BARLBLT_r1.cubeList.add(new ModelBox(MainNEW137BARLBLT_r1, 27, 120, -1.5F, -31.0F, 27.0F, 2, 1, 1, 0.0F, true));
-        MainNEW137BARLBLT_r1.cubeList.add(new ModelBox(MainNEW137BARLBLT_r1, 27, 120, -1.5F, -31.0F, 10.0F, 2, 1, 1, 0.0F, true));
-        MainNEW137BARLBLT_r1.cubeList.add(new ModelBox(MainNEW137BARLBLT_r1, 0, 0, -1.0F, -31.5F, -7.5F, 1, 2, 3, 0.0F, true));
-        MainNEW137BARLBLT_r1.cubeList.add(new ModelBox(MainNEW137BARLBLT_r1, 0, 0, -1.0F, -31.5F, -5.0F, 1, 2, 34, 0.0F, true));
+        MainNEW137BARLBLT_r1.cubeList.add(new ModelBox(MainNEW137BARLBLT_r1, 27, 120, -1.5F, -31, 27.0F, 2, 1, 1, 0.0F, true));
+        MainNEW137BARLBLT_r1.cubeList.add(new ModelBox(MainNEW137BARLBLT_r1, 27, 120, -1.5F, -31, 10.0F, 2, 1, 1, 0.0F, true));
+        MainNEW137BARLBLT_r1.cubeList.add(new ModelBox(MainNEW137BARLBLT_r1, 0, 0, -1, -31.5F, -7.5F, 1, 2, 3, 0.0F, true));
+        MainNEW137BARLBLT_r1.cubeList.add(new ModelBox(MainNEW137BARLBLT_r1, 0, 0, -1, -31.5F, -5.0F, 1, 2, 34, 0.0F, true));
 
         MainNEW135BARLBLT_r1 = new ModelRenderer(this);
         MainNEW135BARLBLT_r1.setRotationPoint(0.8787F, -2.1213F, 0.0F);
@@ -112,7 +112,7 @@ public class StonerHANDGUARD extends ModelWithAttachments {
         MainNEW111BARL_r1.setRotationPoint(5.0104F, 2.9038F, 0.0F);
         handguard.addChild(MainNEW111BARL_r1);
         setRotationAngle(MainNEW111BARL_r1, 0.0F, 0.0F, 0.7854F);
-        MainNEW111BARL_r1.cubeList.add(new ModelBox(MainNEW111BARL_r1, 0, 0, -1.6F, -24.0F, -1.0F, 1, 1, 1, 0.0F, true));
+        MainNEW111BARL_r1.cubeList.add(new ModelBox(MainNEW111BARL_r1, 0, 0, -1.6F, -24.0F, -1, 1, 1, 1, 0.0F, true));
         MainNEW111BARL_r1.cubeList.add(new ModelBox(MainNEW111BARL_r1, 0, 0, -1.6F, -24.0F, 0.0F, 2, 1, 29, 0.0F, true));
 
         MainNEW110BARL_r1 = new ModelRenderer(this);
@@ -126,7 +126,7 @@ public class StonerHANDGUARD extends ModelWithAttachments {
         MainNEW104BARL_r1.setRotationPoint(6.4749F, -0.6317F, 0.0F);
         handguard.addChild(MainNEW104BARL_r1);
         setRotationAngle(MainNEW104BARL_r1, 0.0F, 0.0F, 0.7854F);
-        MainNEW104BARL_r1.cubeList.add(new ModelBox(MainNEW104BARL_r1, 0, 0, 3.0F, -23.6F, -1.0F, 1, 1, 1, 0.0F, true));
+        MainNEW104BARL_r1.cubeList.add(new ModelBox(MainNEW104BARL_r1, 0, 0, 3.0F, -23.6F, -1, 1, 1, 1, 0.0F, true));
         MainNEW104BARL_r1.cubeList.add(new ModelBox(MainNEW104BARL_r1, 0, 0, 3.0F, -23.6F, 0.0F, 1, 2, 29, 0.0F, true));
     }
 

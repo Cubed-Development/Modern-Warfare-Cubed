@@ -8,7 +8,7 @@ import net.minecraft.util.math.Vec3d;
 public class HitUtil {
 
     public static RayTraceResult traceMeleeHit(Entity attacker, Entity hurt) {
-        Vec3d startVec = attacker.getPositionEyes(1.0F);
+        Vec3d startVec = attacker.getPositionEyes(1);
         Vec3d endVec = startVec.add(attacker.getLookVec().scale(3));
         return hurt.getEntityBoundingBox().calculateIntercept(startVec, endVec);
     }
@@ -31,7 +31,7 @@ public class HitUtil {
     }
 
     public static EnumFacing getDirectionHitMelee(Entity player, Entity hurt) {
-        Vec3d startVec = player.getPositionEyes(1.0F);
+        Vec3d startVec = player.getPositionEyes(1);
         Vec3d endVec = startVec.add(player.getLookVec().scale(5));
 
 

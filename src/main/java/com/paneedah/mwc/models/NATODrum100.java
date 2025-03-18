@@ -67,9 +67,9 @@ public class NATODrum100 extends ModelBase {
 
         Drum100mag = new ModelRenderer(this);
         Drum100mag.setRotationPoint(0.0F, 24.0F, 0.0F);
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 8, 1.0F, -37.0F, -4.5F, 3, 7, 6, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 23, 40, 1.0F, -38.0F, -1.5F, 3, 1, 3, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 21, 1.0F, -30.0F, -5.5F, 3, 2, 7, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 8, 1, -37.0F, -4.5F, 3, 7, 6, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 23, 40, 1, -38.0F, -1.5F, 3, 1, 3, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 21, 1, -30.0F, -5.5F, 3, 2, 7, 0.0F, false));
         Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 0, -4.0F, -30.0F, -4.5F, 13, 2, 6, -0.1F, false));
         Drum100mag.cubeList.add(new ModelBox(Drum100mag, 36, 5, -5.0F, -36.0F, -2.5F, 3, 2, 4, 0.01F, false));
         Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 36, 7.0F, -36.0F, -2.5F, 3, 2, 4, 0.01F, false));
@@ -82,16 +82,16 @@ public class NATODrum100 extends ModelBase {
         Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 30, -6.5F, -35.0F, -2.51F, 6, 2, 4, 0.0F, false));
         Drum100mag.cubeList.add(new ModelBox(Drum100mag, 20, 31, -6.5F, -30.5F, -2.51F, 6, 1, 4, 0.0F, false));
         Drum100mag.cubeList.add(new ModelBox(Drum100mag, 20, 25, 5.5F, -35.0F, -2.51F, 6, 2, 4, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 42, 35, -5.5F, -34.0F, 1.0F, 4, 4, 1, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 42, 6.5F, -34.0F, 1.0F, 4, 4, 1, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 54, 38, 7.0F, -34.5F, 1.0F, 3, 1, 1, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 54, 36, -5.0F, -34.5F, 1.0F, 3, 1, 1, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 26, 15, -5.0F, -30.5F, 1.0F, 3, 1, 1, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 18, 15, 7.0F, -30.5F, 1.0F, 3, 1, 1, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 10, 36, 10.0F, -33.5F, 1.0F, 1, 3, 1, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 36, 6.0F, -33.5F, 1.0F, 1, 3, 1, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 32, 0, -2.0F, -33.5F, 1.0F, 1, 3, 1, 0.0F, false));
-        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 30, -6.0F, -33.5F, 1.0F, 1, 3, 1, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 42, 35, -5.5F, -34.0F, 1, 4, 4, 1, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 42, 6.5F, -34.0F, 1, 4, 4, 1, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 54, 38, 7.0F, -34.5F, 1, 3, 1, 1, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 54, 36, -5.0F, -34.5F, 1, 3, 1, 1, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 26, 15, -5.0F, -30.5F, 1, 3, 1, 1, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 18, 15, 7.0F, -30.5F, 1, 3, 1, 1, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 10, 36, 10.0F, -33.5F, 1, 1, 3, 1, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 36, 6.0F, -33.5F, 1, 1, 3, 1, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 32, 0, -2.0F, -33.5F, 1, 1, 3, 1, 0.0F, false));
+        Drum100mag.cubeList.add(new ModelBox(Drum100mag, 0, 30, -6.0F, -33.5F, 1, 1, 3, 1, 0.0F, false));
         Drum100mag.cubeList.add(new ModelBox(Drum100mag, 52, 0, 7.0F, -35.8F, -4.5F, 3, 2, 2, 0.0F, false));
         Drum100mag.cubeList.add(new ModelBox(Drum100mag, 12, 8, -5.0F, -35.8F, -4.5F, 3, 2, 2, 0.0F, false));
         Drum100mag.cubeList.add(new ModelBox(Drum100mag, 44, 52, -7.3F, -33.5F, -4.5F, 2, 3, 2, 0.0F, false));
@@ -383,13 +383,13 @@ public class NATODrum100 extends ModelBase {
         gun5_r1.setRotationPoint(0.0F, -12.5594F, 19.5215F);
         Drum100mag.addChild(gun5_r1);
         setRotationAngle(gun5_r1, 0.7808F, 0.0F, 0.0F);
-        gun5_r1.cubeList.add(new ModelBox(gun5_r1, 13, 25, 1.0F, -30.0F, -5.5F, 3, 1, 2, 0.0F, false));
+        gun5_r1.cubeList.add(new ModelBox(gun5_r1, 13, 25, 1, -30.0F, -5.5F, 3, 1, 2, 0.0F, false));
 
         gun3_r1 = new ModelRenderer(this);
         gun3_r1.setRotationPoint(0.0F, -15.1791F, -31.9213F);
         Drum100mag.addChild(gun3_r1);
         setRotationAngle(gun3_r1, -0.9666F, 0.0F, 0.0F);
-        gun3_r1.cubeList.add(new ModelBox(gun3_r1, 54, 11, 1.0F, -38.0F, -1.5F, 3, 2, 1, 0.0F, false));
+        gun3_r1.cubeList.add(new ModelBox(gun3_r1, 54, 11, 1, -38.0F, -1.5F, 3, 2, 1, 0.0F, false));
     }
 
     @Override

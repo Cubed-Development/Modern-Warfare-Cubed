@@ -138,7 +138,7 @@ public class Astronaut extends ModelBiped {
 
         bipedLeftArm = new ModelRenderer(this);
         bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 50, 4, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 50, 4, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         bipedRightLeg = new ModelRenderer(this);
         bipedRightLeg.setRotationPoint(-2.0F, 12.0F, 0.0F);
@@ -223,16 +223,16 @@ public class Astronaut extends ModelBiped {
         body_r2.cubeList.add(new ModelBox(body_r2, 0, 50, -0.4782F, -1.2469F, -0.5325F, 1, 2, 1, 0.0F, false));
 
         bone10 = new ModelRenderer(this);
-        bone10.setRotationPoint(0.0F, 11.0F, -2.25F);
+        bone10.setRotationPoint(0.0F, 11, -2.25F);
         torso_piece.addChild(bone10);
         setRotationAngle(bone10, -0.1745F, 0.0F, 0.0F);
-        bone10.cubeList.add(new ModelBox(bone10, 82, 95, -1.0F, -0.9566F, -0.7462F, 2, 2, 1, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 82, 95, -1, -0.9566F, -0.7462F, 2, 2, 1, 0.0F, false));
 
         bone13 = new ModelRenderer(this);
         bone13.setRotationPoint(0.0F, 5.5F, -2.5F);
         torso_piece.addChild(bone13);
         setRotationAngle(bone13, 0.2182F, 0.0F, 0.0F);
-        bone13.cubeList.add(new ModelBox(bone13, 14, 95, -1.0F, -1.1623F, -1.2322F, 2, 2, 1, 0.0F, false));
+        bone13.cubeList.add(new ModelBox(bone13, 14, 95, -1, -1.1623F, -1.2322F, 2, 2, 1, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(2.75F, 5.5F, -2.75F);
@@ -264,7 +264,7 @@ public class Astronaut extends ModelBiped {
         bone3.setRotationPoint(0.0F, 1.5F, -2.25F);
         torso_piece.addChild(bone3);
         setRotationAngle(bone3, -0.3054F, 0.0F, 0.0F);
-        bone3.cubeList.add(new ModelBox(bone3, 42, 23, -1.0F, -0.2745F, -1.2153F, 2, 1, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 42, 23, -1, -0.2745F, -1.2153F, 2, 1, 1, 0.0F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(4.5F, 2.0F, -0.5F);
@@ -286,7 +286,7 @@ public class Astronaut extends ModelBiped {
         bone17.cubeList.add(new ModelBox(bone17, 32, 8, -3.5F, 5.25F, 2.25F, 7, 5, 2, 0.0F, false));
         bone17.cubeList.add(new ModelBox(bone17, 74, 59, -4.0F, 5.25F, 1.75F, 8, 4, 2, 0.0F, false));
         bone17.cubeList.add(new ModelBox(bone17, 10, 41, -2.5F, 9.75F, 1.5F, 5, 1, 2, 0.0F, false));
-        bone17.cubeList.add(new ModelBox(bone17, 5, 95, -1.0F, 7.25F, 3.75F, 2, 2, 1, 0.0F, false));
+        bone17.cubeList.add(new ModelBox(bone17, 5, 95, -1, 7.25F, 3.75F, 2, 2, 1, 0.0F, false));
         bone17.cubeList.add(new ModelBox(bone17, 36, 46, -2.75F, 5.5F, 3.5F, 1, 2, 1, 0.0F, false));
         bone17.cubeList.add(new ModelBox(bone17, 10, 36, 1.75F, 5.5F, 3.5F, 1, 2, 1, 0.0F, false));
 
@@ -341,7 +341,7 @@ public class Astronaut extends ModelBiped {
         arm_right.cubeList.add(new ModelBox(arm_right, 76, 95, -3.575F, 4.0F, -2.001F, 1, 4, 4, 0.0F, false));
         arm_right.cubeList.add(new ModelBox(arm_right, 82, 99, -3.825F, 4.25F, -2.0F, 1, 2, 4, 0.0F, false));
         arm_right.cubeList.add(new ModelBox(arm_right, 48, 20, -4.075F, 5.0F, -0.5F, 1, 1, 1, 0.0F, false));
-        arm_right.cubeList.add(new ModelBox(arm_right, 81, 12, -3.625F, 8.0F, -1.0F, 1, 2, 2, 0.0F, false));
+        arm_right.cubeList.add(new ModelBox(arm_right, 81, 12, -3.625F, 8.0F, -1, 1, 2, 2, 0.0F, false));
         arm_right.cubeList.add(new ModelBox(arm_right, 72, 24, -3.5F, 6.0F, -2.5F, 5, 1, 5, 0.0F, false));
         arm_right.cubeList.add(new ModelBox(arm_right, 72, 18, -3.5F, 7.25F, -2.5F, 5, 1, 5, 0.0F, false));
         arm_right.cubeList.add(new ModelBox(arm_right, 99, 63, -3.5F, -2.25F, -1.5F, 1, 4, 3, 0.0F, false));
@@ -365,8 +365,8 @@ public class Astronaut extends ModelBiped {
         arm_left.cubeList.add(new ModelBox(arm_left, 69, 72, 0.25F, -2.0F, -2.0F, 1, 12, 4, 0.0F, false));
         arm_left.cubeList.add(new ModelBox(arm_left, 59, 72, -3.25F, -2.0F, -2.0F, 1, 12, 4, 0.0F, false));
         arm_left.cubeList.add(new ModelBox(arm_left, 8, 95, -3.575F, 4.0F, -1.999F, 1, 4, 4, 0.0F, false));
-        arm_left.cubeList.add(new ModelBox(arm_left, 2, 113, -3.825F, 4.05F, -1.0F, 1, 4, 2, 0.0F, false));
-        arm_left.cubeList.add(new ModelBox(arm_left, 74, 65, -3.625F, 8.0F, -1.0F, 1, 2, 2, 0.0F, false));
+        arm_left.cubeList.add(new ModelBox(arm_left, 2, 113, -3.825F, 4.05F, -1, 1, 4, 2, 0.0F, false));
+        arm_left.cubeList.add(new ModelBox(arm_left, 74, 65, -3.625F, 8.0F, -1, 1, 2, 2, 0.0F, false));
         arm_left.cubeList.add(new ModelBox(arm_left, 30, 72, -3.5F, 6.0F, -2.5F, 5, 1, 5, 0.0F, false));
         arm_left.cubeList.add(new ModelBox(arm_left, 69, 36, -3.5F, 7.25F, -2.5F, 5, 1, 5, 0.0F, false));
         arm_left.cubeList.add(new ModelBox(arm_left, 44, 62, -3.5F, -2.25F, -1.5F, 1, 4, 3, 0.0F, false));
@@ -392,8 +392,8 @@ public class Astronaut extends ModelBiped {
         leg_right.cubeList.add(new ModelBox(leg_right, 105, 50, -1.5F, 4.75F, -2.5F, 3, 3, 1, 0.0F, false));
         leg_right.cubeList.add(new ModelBox(leg_right, 107, 66, -1.5F, 5.5F, -2.75F, 3, 1, 1, 0.0F, false));
         leg_right.cubeList.add(new ModelBox(leg_right, 104, 32, -2.0F, 10.0F, -2.5F, 4, 2, 1, 0.0F, false));
-        leg_right.cubeList.add(new ModelBox(leg_right, 107, 8, -1.5F, 11.0F, -3.25F, 3, 1, 1, 0.0F, false));
-        leg_right.cubeList.add(new ModelBox(leg_right, 97, 16, -1.5F, 11.0F, -1.5F, 3, 1, 3, 0.0F, false));
+        leg_right.cubeList.add(new ModelBox(leg_right, 107, 8, -1.5F, 11, -3.25F, 3, 1, 1, 0.0F, false));
+        leg_right.cubeList.add(new ModelBox(leg_right, 97, 16, -1.5F, 11, -1.5F, 3, 1, 3, 0.0F, false));
         leg_right.cubeList.add(new ModelBox(leg_right, 52, 47, -2.0F, -0.25F, -2.0F, 4, 1, 4, 0.0F, false));
         leg_right.cubeList.add(new ModelBox(leg_right, 20, 70, -2.25F, 0.0F, -2.001F, 1, 12, 4, 0.0F, false));
         leg_right.cubeList.add(new ModelBox(leg_right, 98, 51, -3.85F, 1.4F, -1.75F, 2, 3, 3, 0.0F, false));
@@ -402,7 +402,7 @@ public class Astronaut extends ModelBiped {
         leg_right.cubeList.add(new ModelBox(leg_right, 95, 105, -3.85F, 4.4F, -1.75F, 2, 2, 2, 0.0F, false));
 
         bone29 = new ModelRenderer(this);
-        bone29.setRotationPoint(0.0F, 11.0F, 1.75F);
+        bone29.setRotationPoint(0.0F, 11, 1.75F);
         leg_right.addChild(bone29);
         setRotationAngle(bone29, -0.0873F, 0.0F, 0.0F);
         bone29.cubeList.add(new ModelBox(bone29, 37, 104, -2.0F, -1.0474F, -0.4147F, 4, 2, 1, 0.0F, false));
@@ -414,7 +414,7 @@ public class Astronaut extends ModelBiped {
         bone30.cubeList.add(new ModelBox(bone30, 103, 84, -2.0F, -2.8901F, -0.3308F, 4, 2, 1, 0.0F, false));
 
         bone27 = new ModelRenderer(this);
-        bone27.setRotationPoint(-1.75F, 11.0F, 0.0F);
+        bone27.setRotationPoint(-1.75F, 11, 0.0F);
         leg_right.addChild(bone27);
         setRotationAngle(bone27, 0.0F, 0.0F, -0.0873F);
         bone27.cubeList.add(new ModelBox(bone27, 95, 98, -0.5853F, -1.0474F, -2.0F, 1, 2, 4, 0.0F, false));
@@ -434,8 +434,8 @@ public class Astronaut extends ModelBiped {
         leg_left.cubeList.add(new ModelBox(leg_left, 76, 42, -1.5F, 4.75F, 1.5F, 3, 3, 1, 0.0F, false));
         leg_left.cubeList.add(new ModelBox(leg_left, 94, 63, -1.5F, 5.5F, 1.75F, 3, 1, 1, 0.0F, false));
         leg_left.cubeList.add(new ModelBox(leg_left, 79, 76, -2.0F, 10.0F, 1.5F, 4, 2, 1, 0.0F, false));
-        leg_left.cubeList.add(new ModelBox(leg_left, 89, 87, -1.5F, 11.0F, 2.25F, 3, 1, 1, 0.0F, false));
-        leg_left.cubeList.add(new ModelBox(leg_left, 94, 20, -1.5F, 11.0F, -1.5F, 3, 1, 3, 0.0F, false));
+        leg_left.cubeList.add(new ModelBox(leg_left, 89, 87, -1.5F, 11, 2.25F, 3, 1, 1, 0.0F, false));
+        leg_left.cubeList.add(new ModelBox(leg_left, 94, 20, -1.5F, 11, -1.5F, 3, 1, 3, 0.0F, false));
         leg_left.cubeList.add(new ModelBox(leg_left, 10, 36, -2.0F, -0.25F, -2.0F, 4, 1, 4, 0.0F, false));
         leg_left.cubeList.add(new ModelBox(leg_left, 0, 66, -2.25F, 0.0F, -1.999F, 1, 12, 4, 0.0F, false));
         leg_left.cubeList.add(new ModelBox(leg_left, 90, 46, -2.5F, 1.75F, -1.98F, 1, 4, 4, 0.0F, false));
@@ -443,7 +443,7 @@ public class Astronaut extends ModelBiped {
         leg_left.cubeList.add(new ModelBox(leg_left, 22, 38, -3.0F, 2.75F, -0.499F, 1, 1, 1, 0.0F, false));
 
         bone31 = new ModelRenderer(this);
-        bone31.setRotationPoint(0.0F, 11.0F, -1.75F);
+        bone31.setRotationPoint(0.0F, 11, -1.75F);
         leg_left.addChild(bone31);
         setRotationAngle(bone31, 0.0873F, 0.0F, 0.0F);
         bone31.cubeList.add(new ModelBox(bone31, 103, 20, -2.0F, -1.0474F, -0.5853F, 4, 2, 1, 0.0F, false));
@@ -455,7 +455,7 @@ public class Astronaut extends ModelBiped {
         bone32.cubeList.add(new ModelBox(bone32, 103, 10, -2.0F, -2.8901F, -0.6692F, 4, 2, 1, 0.0F, false));
 
         bone33 = new ModelRenderer(this);
-        bone33.setRotationPoint(-1.75F, 11.0F, 0.0F);
+        bone33.setRotationPoint(-1.75F, 11, 0.0F);
         leg_left.addChild(bone33);
         setRotationAngle(bone33, 0.0F, 0.0F, -0.0873F);
         bone33.cubeList.add(new ModelBox(bone33, 97, 10, -0.5853F, -1.0474F, -2.0F, 1, 2, 4, 0.0F, false));
@@ -485,7 +485,7 @@ public class Astronaut extends ModelBiped {
         bone48.setRotationPoint(-0.5F, -3.0F, -5.0F);
         helmet.addChild(bone48);
         setRotationAngle(bone48, 0.1309F, 0.0F, 0.0F);
-        bone48.cubeList.add(new ModelBox(bone48, 29, 104, -1.0F, -2.0F, -0.5F, 3, 4, 1, 0.0F, false));
+        bone48.cubeList.add(new ModelBox(bone48, 29, 104, -1, -2.0F, -0.5F, 3, 4, 1, 0.0F, false));
 
         bone51 = new ModelRenderer(this);
         bone51.setRotationPoint(-3.5F, -3.0F, -5.0F);
@@ -515,7 +515,7 @@ public class Astronaut extends ModelBiped {
         bone49.setRotationPoint(-0.5F, -7.0F, -5.0F);
         helmet.addChild(bone49);
         setRotationAngle(bone49, -0.2618F, 0.0F, 0.0F);
-        bone49.cubeList.add(new ModelBox(bone49, 65, 72, -1.0F, -0.7927F, -0.192F, 3, 3, 1, 0.0F, false));
+        bone49.cubeList.add(new ModelBox(bone49, 65, 72, -1, -0.7927F, -0.192F, 3, 3, 1, 0.0F, false));
 
         bone53 = new ModelRenderer(this);
         bone53.setRotationPoint(-0.5F, -7.0F, -5.0F);
@@ -604,31 +604,31 @@ public class Astronaut extends ModelBiped {
         bone78.setRotationPoint(4.5F, -8.5F, -1.5F);
         helmet.addChild(bone78);
         setRotationAngle(bone78, 0.0F, -0.1309F, -0.3927F);
-        bone78.cubeList.add(new ModelBox(bone78, 102, 102, -0.5F, -1.0F, -1.5F, 1, 2, 3, 0.0F, false));
+        bone78.cubeList.add(new ModelBox(bone78, 102, 102, -0.5F, -1, -1.5F, 1, 2, 3, 0.0F, false));
 
         bone79 = new ModelRenderer(this);
         bone79.setRotationPoint(-4.5F, -8.5F, -1.75F);
         helmet.addChild(bone79);
         setRotationAngle(bone79, 0.0F, 0.1309F, 0.3927F);
-        bone79.cubeList.add(new ModelBox(bone79, 89, 102, -0.5392F, -1.0F, -1.2026F, 1, 2, 3, 0.0F, false));
+        bone79.cubeList.add(new ModelBox(bone79, 89, 102, -0.5392F, -1, -1.2026F, 1, 2, 3, 0.0F, false));
 
         bone40 = new ModelRenderer(this);
         bone40.setRotationPoint(4.25F, -1.25F, -0.25F);
         helmet.addChild(bone40);
         setRotationAngle(bone40, 0.0873F, 0.0F, 0.0F);
-        bone40.cubeList.add(new ModelBox(bone40, 34, 62, -0.4999F, -1.0F, -4.0F, 1, 2, 8, 0.0F, false));
+        bone40.cubeList.add(new ModelBox(bone40, 34, 62, -0.4999F, -1, -4.0F, 1, 2, 8, 0.0F, false));
 
         bone42 = new ModelRenderer(this);
         bone42.setRotationPoint(4.25F, -4.25F, 1.25F);
         helmet.addChild(bone42);
         setRotationAngle(bone42, 0.8727F, 0.0F, 0.0F);
-        bone42.cubeList.add(new ModelBox(bone42, 73, 103, -0.499F, -1.0F, -4.0F, 1, 2, 3, 0.0F, false));
+        bone42.cubeList.add(new ModelBox(bone42, 73, 103, -0.499F, -1, -4.0F, 1, 2, 3, 0.0F, false));
 
         bone43 = new ModelRenderer(this);
         bone43.setRotationPoint(-4.25F, -4.25F, 1.25F);
         helmet.addChild(bone43);
         setRotationAngle(bone43, 0.8727F, 0.0F, 0.0F);
-        bone43.cubeList.add(new ModelBox(bone43, 68, 101, -0.501F, -1.0F, -4.0F, 1, 2, 3, 0.0F, false));
+        bone43.cubeList.add(new ModelBox(bone43, 68, 101, -0.501F, -1, -4.0F, 1, 2, 3, 0.0F, false));
 
         bone44 = new ModelRenderer(this);
         bone44.setRotationPoint(4.25F, -7.25F, 0.75F);
@@ -640,7 +640,7 @@ public class Astronaut extends ModelBiped {
         bone41.setRotationPoint(-4.25F, -1.25F, -0.25F);
         helmet.addChild(bone41);
         setRotationAngle(bone41, 0.0873F, 0.0F, 0.0F);
-        bone41.cubeList.add(new ModelBox(bone41, 24, 60, -0.5001F, -1.0F, -4.0F, 1, 2, 8, 0.0F, false));
+        bone41.cubeList.add(new ModelBox(bone41, 24, 60, -0.5001F, -1, -4.0F, 1, 2, 8, 0.0F, false));
 
         bone45 = new ModelRenderer(this);
         bone45.setRotationPoint(-4.25F, -7.25F, 0.5F);
@@ -658,7 +658,7 @@ public class Astronaut extends ModelBiped {
         bone89.setRotationPoint(0.0F, -10.25F, 0.0F);
         helmet.addChild(bone89);
         setRotationAngle(bone89, -0.1745F, 0.0F, 0.0F);
-        bone89.cubeList.add(new ModelBox(bone89, 99, 94, -1.0F, -0.5F, -1.5F, 2, 1, 3, 0.0F, false));
+        bone89.cubeList.add(new ModelBox(bone89, 99, 94, -1, -0.5F, -1.5F, 2, 1, 3, 0.0F, false));
 
         mandible = new ModelRenderer(this);
         mandible.setRotationPoint(0.0F, 0.25F, -0.5F);
@@ -669,13 +669,13 @@ public class Astronaut extends ModelBiped {
         bone35.setRotationPoint(0.0F, -0.75F, -4.75F);
         mandible.addChild(bone35);
         setRotationAngle(bone35, 0.2182F, 0.0F, 0.0F);
-        bone35.cubeList.add(new ModelBox(bone35, 0, 25, -1.0F, -1.7559F, -0.5541F, 2, 3, 1, 0.0F, false));
+        bone35.cubeList.add(new ModelBox(bone35, 0, 25, -1, -1.7559F, -0.5541F, 2, 3, 1, 0.0F, false));
 
         bone37 = new ModelRenderer(this);
         bone37.setRotationPoint(-1.5F, -0.75F, -4.5F);
         mandible.addChild(bone37);
         setRotationAngle(bone37, 0.2182F, 0.2618F, 0.1745F);
-        bone37.cubeList.add(new ModelBox(bone37, 45, 107, -2.0F, -1.0F, -0.5F, 3, 2, 1, 0.0F, false));
+        bone37.cubeList.add(new ModelBox(bone37, 45, 107, -2.0F, -1, -0.5F, 3, 2, 1, 0.0F, false));
 
         bone39 = new ModelRenderer(this);
         bone39.setRotationPoint(-1.75F, -0.75F, -5.5F);
@@ -687,7 +687,7 @@ public class Astronaut extends ModelBiped {
         bone36.setRotationPoint(1.5F, -0.75F, -4.5F);
         mandible.addChild(bone36);
         setRotationAngle(bone36, 0.2182F, -0.2618F, -0.1745F);
-        bone36.cubeList.add(new ModelBox(bone36, 103, 107, -1.0F, -1.0F, -0.5F, 3, 2, 1, 0.0F, false));
+        bone36.cubeList.add(new ModelBox(bone36, 103, 107, -1, -1, -0.5F, 3, 2, 1, 0.0F, false));
 
         bone38 = new ModelRenderer(this);
         bone38.setRotationPoint(1.5F, -0.75F, -5.5F);
@@ -716,7 +716,7 @@ public class Astronaut extends ModelBiped {
         bone55.setRotationPoint(-0.5F, -32.5F, -5.0F);
         forehead.addChild(bone55);
         setRotationAngle(bone55, -0.48F, 0.0F, 0.0F);
-        bone55.cubeList.add(new ModelBox(bone55, 89, 33, -1.0F, -0.7927F, -0.192F, 3, 1, 1, 0.0F, false));
+        bone55.cubeList.add(new ModelBox(bone55, 89, 33, -1, -0.7927F, -0.192F, 3, 1, 1, 0.0F, false));
 
         bone57 = new ModelRenderer(this);
         bone57.setRotationPoint(-0.5F, -32.5F, -5.0F);
@@ -752,7 +752,7 @@ public class Astronaut extends ModelBiped {
         bone65.setRotationPoint(-0.5F, -32.25F, -5.0F);
         forehead2.addChild(bone65);
         setRotationAngle(bone65, -0.48F, 0.0F, 0.0F);
-        bone65.cubeList.add(new ModelBox(bone65, 18, 44, -1.0F, 7.7388F, -9.0732F, 3, 1, 1, 0.0F, false));
+        bone65.cubeList.add(new ModelBox(bone65, 18, 44, -1, 7.7388F, -9.0732F, 3, 1, 1, 0.0F, false));
 
         bone66 = new ModelRenderer(this);
         bone66.setRotationPoint(-0.5F, -32.25F, -5.0F);
@@ -788,7 +788,7 @@ public class Astronaut extends ModelBiped {
         bone70.setRotationPoint(-0.5F, -32.25F, -5.0F);
         forehead3.addChild(bone70);
         setRotationAngle(bone70, -0.48F, 0.0F, 0.0F);
-        bone70.cubeList.add(new ModelBox(bone70, 106, 45, -1.0F, 18.0196F, -14.0135F, 3, 2, 1, 0.0F, false));
+        bone70.cubeList.add(new ModelBox(bone70, 106, 45, -1, 18.0196F, -14.0135F, 3, 2, 1, 0.0F, false));
 
         bone71 = new ModelRenderer(this);
         bone71.setRotationPoint(-0.5F, -32.25F, -5.0F);

@@ -23,8 +23,8 @@ public class NinthSinPanelLower extends ModelWithAttachments {
         panel_lower_EXTRA2.setRotationPoint(-9.6F, 9.75F, -4.5F);
         panel_lower_EXTRA2.cubeList.add(new ModelBox(panel_lower_EXTRA2, 0, 66, 0.0F, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
         panel_lower_EXTRA2.cubeList.add(new ModelBox(panel_lower_EXTRA2, 0, 58, -0.299F, 1.3F, 0.0F, 1, 1, 7, -0.3F, false));
-        panel_lower_EXTRA2.cubeList.add(new ModelBox(panel_lower_EXTRA2, 3, 67, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        panel_lower_EXTRA2.cubeList.add(new ModelBox(panel_lower_EXTRA2, 33, 58, 0.0F, 1.0F, 5.0F, 1, 1, 7, 0.0F, false));
+        panel_lower_EXTRA2.cubeList.add(new ModelBox(panel_lower_EXTRA2, 3, 67, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
+        panel_lower_EXTRA2.cubeList.add(new ModelBox(panel_lower_EXTRA2, 33, 58, 0.0F, 1, 5.0F, 1, 1, 7, 0.0F, false));
 
         cube_r43 = new ModelRenderer(this);
         cube_r43.setRotationPoint(0.0F, 2.0F, 0.0F);

@@ -53,24 +53,24 @@ public class Bipod extends ModelBase {
         textureHeight = 64;
 
         gun1 = new ModelRenderer(this);
-        gun1.setRotationPoint(-1.0F, -6.5F, -3.0F);
-        gun1.cubeList.add(new ModelBox(gun1, 12, 18, 0.0F, -1.0F, -1.0F, 4, 1, 5, 0.0F, false));
+        gun1.setRotationPoint(-1, -6.5F, -3.0F);
+        gun1.cubeList.add(new ModelBox(gun1, 12, 18, 0.0F, -1, -1, 4, 1, 5, 0.0F, false));
 
         gun2 = new ModelRenderer(this);
-        gun2.setRotationPoint(-1.0F, -5.0F, -3.0F);
+        gun2.setRotationPoint(-1, -5.0F, -3.0F);
         gun2.cubeList.add(new ModelBox(gun2, 21, 39, 0.0F, 0.0F, 0.0F, 4, 1, 3, 0.0F, false));
 
         gun3 = new ModelRenderer(this);
         gun3.setRotationPoint(-0.5F, -6.0F, -2.5F);
-        gun3.cubeList.add(new ModelBox(gun3, 19, 31, 0.0F, -1.0F, 0.0F, 3, 2, 2, 0.0F, false));
+        gun3.cubeList.add(new ModelBox(gun3, 19, 31, 0.0F, -1, 0.0F, 3, 2, 2, 0.0F, false));
 
         gun6 = new ModelRenderer(this);
-        gun6.setRotationPoint(-1.0F, -3.0F, -3.0F);
-        gun6.cubeList.add(new ModelBox(gun6, 18, 43, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        gun6.setRotationPoint(-1, -3.0F, -3.0F);
+        gun6.cubeList.add(new ModelBox(gun6, 18, 43, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         gun7 = new ModelRenderer(this);
         gun7.setRotationPoint(2.0F, -3.0F, -3.0F);
-        gun7.cubeList.add(new ModelBox(gun7, 27, 21, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        gun7.cubeList.add(new ModelBox(gun7, 27, 21, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         gun8 = new ModelRenderer(this);
         gun8.setRotationPoint(4.5F, -4.0F, -2.5F);
@@ -91,7 +91,7 @@ public class Bipod extends ModelBase {
         gun13AND14 = new ModelRenderer(this);
         gun13AND14.setRotationPoint(9.3F, 8.0F, -2.0F);
         setRotationAngle(gun13AND14, 0.0F, 0.0F, 1.2269F);
-        gun13AND14.cubeList.add(new ModelBox(gun13AND14, 9, 37, 5.0F, 0.0F, -1.0F, 3, 3, 3, 0.0F, false));
+        gun13AND14.cubeList.add(new ModelBox(gun13AND14, 9, 37, 5.0F, 0.0F, -1, 3, 3, 3, 0.0F, false));
         gun13AND14.cubeList.add(new ModelBox(gun13AND14, 44, 10, 7.4F, 0.5F, -0.5F, 1, 2, 2, 0.0F, false));
 
         gun16 = new ModelRenderer(this);
@@ -145,37 +145,37 @@ public class Bipod extends ModelBase {
         gun25.cubeList.add(new ModelBox(gun25, 32, 34, -13.2883F, -14.8557F, 0.0F, 1, 4, 4, 0.0F, false));
 
         gun26 = new ModelRenderer(this);
-        gun26.setRotationPoint(-0.5F, -6.5F, -1.0F);
+        gun26.setRotationPoint(-0.5F, -6.5F, -1);
         setRotationAngle(gun26, 0.0F, 0.0F, -0.8727F);
         gun26.cubeList.add(new ModelBox(gun26, 24, 31, -0.234F, -1.8428F, -3.0F, 1, 2, 5, 0.0F, false));
 
         gun27 = new ModelRenderer(this);
-        gun27.setRotationPoint(2.5F, -6.5F, -1.0F);
+        gun27.setRotationPoint(2.5F, -6.5F, -1);
         setRotationAngle(gun27, 0.0F, 0.0F, 0.8727F);
         gun27.cubeList.add(new ModelBox(gun27, 12, 30, -0.766F, -1.8428F, -3.0F, 1, 2, 5, 0.0F, false));
 
         gun28 = new ModelRenderer(this);
-        gun28.setRotationPoint(0.5F, -4.5F, -1.0F);
+        gun28.setRotationPoint(0.5F, -4.5F, -1);
         gun28.cubeList.add(new ModelBox(gun28, 12, 24, 0.0F, -3.0F, -4.0F, 1, 3, 1, 0.0F, false));
 
         gun29AND31 = new ModelRenderer(this);
-        gun29AND31.setRotationPoint(1.0F, -3.5F, -4.5F);
+        gun29AND31.setRotationPoint(1, -3.5F, -4.5F);
         setRotationAngle(gun29AND31, 0.8727F, 0.0F, 0.0F);
         gun29AND31.cubeList.add(new ModelBox(gun29AND31, 12, 18, -0.5F, -1.5F, 0.5F, 1, 3, 1, 0.0F, false));
         gun29AND31.cubeList.add(new ModelBox(gun29AND31, 31, 42, -0.5F, 1.5F, -0.5F, 1, 1, 4, 0.0F, false));
-        gun29AND31.cubeList.add(new ModelBox(gun29AND31, 31, 31, -1.0F, 1.0F, -1.5F, 2, 2, 1, 0.0F, false));
+        gun29AND31.cubeList.add(new ModelBox(gun29AND31, 31, 31, -1, 1, -1.5F, 2, 2, 1, 0.0F, false));
 
         gun32AND33 = new ModelRenderer(this);
-        gun32AND33.setRotationPoint(2.5F, -6.5F, -1.0F);
+        gun32AND33.setRotationPoint(2.5F, -6.5F, -1);
         setRotationAngle(gun32AND33, 0.0F, 0.0F, 1.0472F);
-        gun32AND33.cubeList.add(new ModelBox(gun32AND33, 23, 25, 1.0F, -1.2F, -3.0F, 3, 1, 5, 0.0F, false));
-        gun32AND33.cubeList.add(new ModelBox(gun32AND33, 30, 47, 2.0F, -1.4F, -1.0F, 1, 1, 1, 0.0F, false));
+        gun32AND33.cubeList.add(new ModelBox(gun32AND33, 23, 25, 1, -1.2F, -3.0F, 3, 1, 5, 0.0F, false));
+        gun32AND33.cubeList.add(new ModelBox(gun32AND33, 30, 47, 2.0F, -1.4F, -1, 1, 1, 1, 0.0F, false));
 
         gun34AND35 = new ModelRenderer(this);
-        gun34AND35.setRotationPoint(-0.5F, -6.5F, -1.0F);
+        gun34AND35.setRotationPoint(-0.5F, -6.5F, -1);
         setRotationAngle(gun34AND35, 0.0F, 0.0F, -1.0472F);
         gun34AND35.cubeList.add(new ModelBox(gun34AND35, 12, 24, -4.0F, -1.2F, -3.0F, 3, 1, 5, 0.0F, false));
-        gun34AND35.cubeList.add(new ModelBox(gun34AND35, 20, 47, -3.0F, -1.4F, -1.0F, 1, 1, 1, 0.0F, false));
+        gun34AND35.cubeList.add(new ModelBox(gun34AND35, 20, 47, -3.0F, -1.4F, -1, 1, 1, 1, 0.0F, false));
 
         gun36 = new ModelRenderer(this);
         gun36.setRotationPoint(0.5F, -7.2F, -1.5F);
@@ -197,12 +197,12 @@ public class Bipod extends ModelBase {
         gun40 = new ModelRenderer(this);
         gun40.setRotationPoint(4.5F, -4.0F, -2.5F);
         setRotationAngle(gun40, -0.7854F, 0.0F, 1.2269F);
-        gun40.cubeList.add(new ModelBox(gun40, 0, 15, -1.0F, -1.0F, 0.9F, 21, 2, 1, 0.0F, false));
+        gun40.cubeList.add(new ModelBox(gun40, 0, 15, -1, -1, 0.9F, 21, 2, 1, 0.0F, false));
 
         gun41 = new ModelRenderer(this);
         gun41.setRotationPoint(4.5F, -4.0F, -2.5F);
         setRotationAngle(gun41, -0.7854F, 0.0F, 1.2269F);
-        gun41.cubeList.add(new ModelBox(gun41, 0, 9, -1.0F, -0.5F, 0.4F, 21, 1, 2, 0.0F, false));
+        gun41.cubeList.add(new ModelBox(gun41, 0, 9, -1, -0.5F, 0.4F, 21, 1, 2, 0.0F, false));
 
         gun42 = new ModelRenderer(this);
         gun42.setRotationPoint(4.5F, -4.0F, -2.5F);
@@ -230,7 +230,7 @@ public class Bipod extends ModelBase {
         gun45AND53.cubeList.add(new ModelBox(gun45AND53, 13, 46, -0.7F, -3.9F, -0.2F, 1, 1, 1, 0.0F, false));
         gun45AND53.cubeList.add(new ModelBox(gun45AND53, 45, 43, -0.7F, -5.0F, -0.2F, 1, 1, 1, 0.0F, false));
         gun45AND53.cubeList.add(new ModelBox(gun45AND53, 41, 43, -1.3F, -5.0F, -0.2F, 1, 6, 1, 0.0F, false));
-        gun45AND53.cubeList.add(new ModelBox(gun45AND53, 0, 40, -3.0F, 1.0F, -1.2F, 3, 1, 3, 0.0F, false));
+        gun45AND53.cubeList.add(new ModelBox(gun45AND53, 0, 40, -3.0F, 1, -1.2F, 3, 1, 3, 0.0F, false));
 
         gun53AND2 = new ModelRenderer(this);
         gun53AND2.setRotationPoint(-2.5F, 3.5F, -1.5F);
@@ -243,7 +243,7 @@ public class Bipod extends ModelBase {
         gun53AND2.cubeList.add(new ModelBox(gun53AND2, 23, 27, -3.3F, -3.9F, -0.2F, 1, 1, 1, 0.0F, false));
         gun53AND2.cubeList.add(new ModelBox(gun53AND2, 25, 21, -3.3F, -5.0F, -0.2F, 1, 1, 1, 0.0F, false));
         gun53AND2.cubeList.add(new ModelBox(gun53AND2, 26, 43, -2.9F, -5.0F, -0.2F, 1, 6, 1, 0.0F, false));
-        gun53AND2.cubeList.add(new ModelBox(gun53AND2, 39, 39, -3.0F, 1.0F, -1.2F, 3, 1, 3, 0.0F, false));
+        gun53AND2.cubeList.add(new ModelBox(gun53AND2, 39, 39, -3.0F, 1, -1.2F, 3, 1, 3, 0.0F, false));
     }
 
     @Override

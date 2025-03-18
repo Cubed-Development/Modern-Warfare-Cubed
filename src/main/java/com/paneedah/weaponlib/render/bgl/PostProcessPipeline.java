@@ -123,7 +123,7 @@ public class PostProcessPipeline {
         }
 
         public void update() {
-            this.alpha = 1.0f - (System.currentTimeMillis() - creationTime) / life;
+            this.alpha = 1 - (System.currentTimeMillis() - creationTime) / life;
 
         }
 
@@ -616,7 +616,7 @@ public class PostProcessPipeline {
         Shaders.postWorld.uniform1f("fogIntensity", getFogIntensity());
         Shaders.postWorld.uniform3f("baseFogColor", getBaseFogColor()[0], getBaseFogColor()[1], getBaseFogColor()[2]);
         // Shaders.postWorld.uniform1f("help", 0.2f);
-        // Shaders.postWorld.uniform1f("joe[0]", 1.0f);
+        // Shaders.postWorld.uniform1f("joe[0]", 1);
 
         // GL20.glUniform1f(GL20.getloc, v0);
 
@@ -804,7 +804,7 @@ public class PostProcessPipeline {
             // Fade
             float alphaFade = 1f;
             if (raindrop[6] > raindrop[7] / 2) {
-                alphaFade = 1.0f - (raindrop[6] - raindrop[7] / 2.0f) / (raindrop[7] / 2);
+                alphaFade = 1 - (raindrop[6] - raindrop[7] / 2.0f) / (raindrop[7] / 2);
             }
 
             drawRaindrop(raindrop[0], raindrop[1], raindrop[4], raindrop[8], alphaFade);
@@ -833,7 +833,7 @@ public class PostProcessPipeline {
         GlStateManager.disableCull();
         double halfSize = size / 2;
 
-        GlStateManager.color(1.0f, 1.0f, 1.0f, alpha);
+        GlStateManager.color(1, 1, 1, alpha);
 
         bb.begin(GL11.GL_TRIANGLE_STRIP, DefaultVertexFormats.POSITION_TEX);
 
@@ -949,7 +949,7 @@ public class PostProcessPipeline {
         Shaders.post.uniform1i("distortionBuffer", 5);
 
         // Send variables as uniforms
-        Shaders.post.uniform2f("windowSize", 1.0f / MC.displayWidth, 1.0f / MC.displayHeight);
+        Shaders.post.uniform2f("windowSize", 1 / MC.displayWidth, 1 / MC.displayHeight);
         Shaders.post.boolean1b("isSnow", !isRain);
         Shaders.post.uniform1f("timer", ClientValueRepo.TICKER.getLerpedFloat());
 

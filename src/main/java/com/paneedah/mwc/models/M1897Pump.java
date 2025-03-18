@@ -74,7 +74,7 @@ public class M1897Pump extends ModelWithAttachments {
         action30_r1.setRotationPoint(-8.0696F, -12.3129F, 0.0F);
         action.addChild(action30_r1);
         setRotationAngle(action30_r1, 0.0F, 0.0F, -2.728F);
-        action30_r1.cubeList.add(new ModelBox(action30_r1, 250, 0, 1.0F, -26.6F, -38.0F, 1, 1, 16, 0.0F, true));
+        action30_r1.cubeList.add(new ModelBox(action30_r1, 250, 0, 1, -26.6F, -38.0F, 1, 1, 16, 0.0F, true));
 
         action29_r1 = new ModelRenderer(this);
         action29_r1.setRotationPoint(-36.3104F, -11.5091F, 0.0F);
@@ -163,7 +163,7 @@ public class M1897Pump extends ModelWithAttachments {
         action5_r1.setRotationPoint(-29.0497F, -15.0324F, 0.0F);
         action.addChild(action5_r1);
         setRotationAngle(action5_r1, 0.0F, 0.0F, 2.728F);
-        action5_r1.cubeList.add(new ModelBox(action5_r1, 250, 0, 1.0F, -26.6F, -38.0F, 1, 1, 16, 0.0F, true));
+        action5_r1.cubeList.add(new ModelBox(action5_r1, 250, 0, 1, -26.6F, -38.0F, 1, 1, 16, 0.0F, true));
     }
 
     @Override

@@ -71,12 +71,12 @@ public class AK101Stock extends ModelBase {
         gun240 = new ModelRenderer(this);
         gun240.setRotationPoint(-3.5F, -5.7F, 26.4F);
         setRotationAngle(gun240, -0.1115F, 0.0F, 0.0F);
-        gun240.cubeList.add(new ModelBox(gun240, 0, 0, 0.002F, -1.0F, 0.0F, 4, 6, 4, 0.0F, false));
+        gun240.cubeList.add(new ModelBox(gun240, 0, 0, 0.002F, -1, 0.0F, 4, 6, 4, 0.0F, false));
 
         gun241 = new ModelRenderer(this);
         gun241.setRotationPoint(-3.5F, 0.1F, 28.6F);
         setRotationAngle(gun241, -0.1115F, 0.0F, 0.0F);
-        gun241.cubeList.add(new ModelBox(gun241, 14, 22, 0.001F, -1.0F, 0.0F, 4, 2, 1, 0.0F, false));
+        gun241.cubeList.add(new ModelBox(gun241, 14, 22, 0.001F, -1, 0.0F, 4, 2, 1, 0.0F, false));
 
         gun242 = new ModelRenderer(this);
         gun242.setRotationPoint(-2.9F, -9.9F, 30.8F);

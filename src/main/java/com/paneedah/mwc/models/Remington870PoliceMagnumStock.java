@@ -91,7 +91,7 @@ public class Remington870PoliceMagnumStock extends ModelWithAttachments {
         stock27_r1.setRotationPoint(0.0F, 13.7666F, 16.7604F);
         stockPoliceMagnum.addChild(stock27_r1);
         setRotationAngle(stock27_r1, 0.2974F, 0.0F, 0.0F);
-        stock27_r1.cubeList.add(new ModelBox(stock27_r1, 114, 57, -2.5F, -21.0F, 13.5F, 3, 9, 5, -0.01F, false));
+        stock27_r1.cubeList.add(new ModelBox(stock27_r1, 114, 57, -2.5F, -21, 13.5F, 3, 9, 5, -0.01F, false));
 
         stock26_r1 = new ModelRenderer(this);
         stock26_r1.setRotationPoint(0.0F, 9.4639F, 7.2929F);

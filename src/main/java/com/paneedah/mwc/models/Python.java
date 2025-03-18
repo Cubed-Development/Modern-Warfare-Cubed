@@ -133,8 +133,8 @@ public class Python extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 33, 55, -2.5F, -38.2F, -45.5F, 2, 1, 23, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 56, 94, -3.7F, -36.8F, -22.5F, 1, 1, 4, 0.002F, false));
         gun.cubeList.add(new ModelBox(gun, 6, 95, -0.3F, -36.8F, -22.5F, 1, 1, 4, 0.001F, false));
-        gun.cubeList.add(new ModelBox(gun, 7, 13, -3.3F, -31.0F, -17.0F, 1, 2, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 13, 35, -4.0F, -36.0F, -11.0F, 5, 2, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 7, 13, -3.3F, -31, -17.0F, 1, 2, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 13, 35, -4.0F, -36.0F, -11, 5, 2, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 100, 72, -1.9F, -39.4F, -42.5F, 1, 1, 20, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 28, 103, -2.1F, -39.4F, -42.5F, 1, 1, 20, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 84, 80, -2.3F, -37.2F, -22.5F, 3, 1, 4, 0.0F, false));
@@ -153,16 +153,16 @@ public class Python extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 62, 88, -3.3F, -39.0F, -9.5F, 3, 8, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 73, 6, -0.7F, -39.0F, -9.5F, 1, 8, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 18, 66, -0.7F, -39.7F, -10.5F, 1, 9, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 22, 20, -0.7F, -31.0F, -10.0F, 1, 2, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 23, 0, -3.3F, -31.0F, -10.0F, 1, 2, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 0, 28, -0.7F, -31.0F, -17.0F, 1, 2, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 22, 20, -0.7F, -31, -10.0F, 1, 2, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 23, 0, -3.3F, -31, -10.0F, 1, 2, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 28, -0.7F, -31, -17.0F, 1, 2, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 29, 12, -0.7F, -31.5F, -18.5F, 1, 1, 10, 0.002F, false));
-        gun.cubeList.add(new ModelBox(gun, 29, 28, -0.7F, -31.0F, -18.5F, 1, 1, 10, 0.001F, false));
-        gun.cubeList.add(new ModelBox(gun, 88, 105, -3.3F, -31.0F, -21.5F, 3, 1, 13, 0.002F, false));
+        gun.cubeList.add(new ModelBox(gun, 29, 28, -0.7F, -31, -18.5F, 1, 1, 10, 0.001F, false));
+        gun.cubeList.add(new ModelBox(gun, 88, 105, -3.3F, -31, -21.5F, 3, 1, 13, 0.002F, false));
         gun.cubeList.add(new ModelBox(gun, 55, 29, -3.3F, -31.5F, -21.5F, 1, 1, 13, 0.001F, false));
         gun.cubeList.add(new ModelBox(gun, 29, 12, -3.3F, -39.7F, -10.5F, 3, 9, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 29, 28, -3.3F, -39.7F, -11.0F, 3, 9, 1, -0.003F, false));
-        gun.cubeList.add(new ModelBox(gun, 18, 56, -0.7F, -39.7F, -11.0F, 1, 9, 1, -0.001F, false));
+        gun.cubeList.add(new ModelBox(gun, 29, 28, -3.3F, -39.7F, -11, 3, 9, 1, -0.003F, false));
+        gun.cubeList.add(new ModelBox(gun, 18, 56, -0.7F, -39.7F, -11, 1, 9, 1, -0.001F, false));
         gun.cubeList.add(new ModelBox(gun, 62, 38, -1.8F, -39.9F, -9.5F, 2, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 49, 30, -0.8F, -40.6F, -9.5F, 1, 1, 1, -0.001F, false));
         gun.cubeList.add(new ModelBox(gun, 32, 65, -1.8F, -39.9F, -8.9F, 2, 1, 1, 0.002F, false));
@@ -180,10 +180,10 @@ public class Python extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 50, 88, -1.7F, -39.7F, -15.0F, 2, 1, 4, 0.0F, false));
 
         gun243_r1 = new ModelRenderer(this);
-        gun243_r1.setRotationPoint(-1.0F, -39.974F, -45.1295F);
+        gun243_r1.setRotationPoint(-1, -39.974F, -45.1295F);
         gun.addChild(gun243_r1);
         setRotationAngle(gun243_r1, -0.1859F, 0.0F, 0.0F);
-        gun243_r1.cubeList.add(new ModelBox(gun243_r1, 18, 40, -1.0F, -1.0F, 0.0F, 1, 2, 3, -0.2F, false));
+        gun243_r1.cubeList.add(new ModelBox(gun243_r1, 18, 40, -1, -1, 0.0F, 1, 2, 3, -0.2F, false));
 
         gun42_r1 = new ModelRenderer(this);
         gun42_r1.setRotationPoint(0.5F, -45.15F, 6.6F);
@@ -414,13 +414,13 @@ public class Python extends ModelWithAttachments {
         gun65_r1.setRotationPoint(0.5F, -30.3F, -21.5F);
         gun.addChild(gun65_r1);
         setRotationAngle(gun65_r1, 0.0F, 0.0F, -0.7854F);
-        gun65_r1.cubeList.add(new ModelBox(gun65_r1, 89, 91, -1.0F, -1.0F, 0.0F, 1, 1, 3, -0.001F, false));
+        gun65_r1.cubeList.add(new ModelBox(gun65_r1, 89, 91, -1, -1, 0.0F, 1, 1, 3, -0.001F, false));
 
         gun64_r1 = new ModelRenderer(this);
         gun64_r1.setRotationPoint(0.5F, -31.3F, -21.5F);
         gun.addChild(gun64_r1);
         setRotationAngle(gun64_r1, 0.0F, 0.0F, -0.7854F);
-        gun64_r1.cubeList.add(new ModelBox(gun64_r1, 39, 88, -1.0F, -1.0F, 0.0F, 1, 1, 3, -0.001F, false));
+        gun64_r1.cubeList.add(new ModelBox(gun64_r1, 39, 88, -1, -1, 0.0F, 1, 1, 3, -0.001F, false));
 
         gun185_r1 = new ModelRenderer(this);
         gun185_r1.setRotationPoint(4.3F, -41.8F, -11.9F);
@@ -454,25 +454,25 @@ public class Python extends ModelWithAttachments {
         gun105_r1.cubeList.add(new ModelBox(gun105_r1, 40, 56, -9.972F, 4.0692F, -9.0F, 1, 1, 7, -0.001F, false));
 
         gun125_r1 = new ModelRenderer(this);
-        gun125_r1.setRotationPoint(1.0F, -34.75F, -1.3F);
+        gun125_r1.setRotationPoint(1, -34.75F, -1.3F);
         gun.addChild(gun125_r1);
         setRotationAngle(gun125_r1, 2.0071F, 0.0F, 0.0F);
         gun125_r1.cubeList.add(new ModelBox(gun125_r1, 70, 15, -4.0F, -13.2893F, -4.8369F, 3, 2, 1, -0.001F, false));
 
         gun128_r1 = new ModelRenderer(this);
-        gun128_r1.setRotationPoint(1.0F, -36.5F, 1.0F);
+        gun128_r1.setRotationPoint(1, -36.5F, 1);
         gun.addChild(gun128_r1);
         setRotationAngle(gun128_r1, -2.082F, 0.0F, 0.0F);
         gun128_r1.cubeList.add(new ModelBox(gun128_r1, 43, 76, -4.0F, 3.8293F, 13.6138F, 3, 1, 1, 0.0F, false));
 
         gun126_r1 = new ModelRenderer(this);
-        gun126_r1.setRotationPoint(1.0F, -34.75F, -24.7F);
+        gun126_r1.setRotationPoint(1, -34.75F, -24.7F);
         gun.addChild(gun126_r1);
         setRotationAngle(gun126_r1, -2.0071F, 0.0F, 0.0F);
         gun126_r1.cubeList.add(new ModelBox(gun126_r1, 60, 61, -4.0F, -13.2893F, 3.8369F, 3, 2, 1, -0.001F, false));
 
         gun129_r1 = new ModelRenderer(this);
-        gun129_r1.setRotationPoint(1.0F, -36.5F, -27.0F);
+        gun129_r1.setRotationPoint(1, -36.5F, -27.0F);
         gun.addChild(gun129_r1);
         setRotationAngle(gun129_r1, 2.082F, 0.0F, 0.0F);
         gun129_r1.cubeList.add(new ModelBox(gun129_r1, 45, 50, -4.0F, 3.8293F, -14.6138F, 3, 1, 1, 0.0F, false));
@@ -481,7 +481,7 @@ public class Python extends ModelWithAttachments {
         gun107_r1.setRotationPoint(-0.7F, -49.7F, -5.0F);
         gun.addChild(gun107_r1);
         setRotationAngle(gun107_r1, -1.1154F, 0.0F, 0.0F);
-        gun107_r1.cubeList.add(new ModelBox(gun107_r1, 67, 83, -1.0F, 13.3792F, 4.5821F, 2, 1, 1, -0.001F, false));
+        gun107_r1.cubeList.add(new ModelBox(gun107_r1, 67, 83, -1, 13.3792F, 4.5821F, 2, 1, 1, -0.001F, false));
         gun107_r1.cubeList.add(new ModelBox(gun107_r1, 14, 56, 0.0F, 13.9792F, 4.5821F, 1, 1, 1, -0.002F, false));
         gun107_r1.cubeList.add(new ModelBox(gun107_r1, 81, 21, -2.6F, 13.3792F, 4.5821F, 2, 1, 1, -0.001F, false));
         gun107_r1.cubeList.add(new ModelBox(gun107_r1, 37, 80, -2.6F, 13.9792F, 4.5821F, 2, 1, 1, -0.002F, false));
@@ -524,25 +524,25 @@ public class Python extends ModelWithAttachments {
         gun112_r1.cubeList.add(new ModelBox(gun112_r1, 25, 70, 0.4F, 14.098F, -1.1161F, 1, 1, 1, -0.001F, false));
 
         gun117_r1 = new ModelRenderer(this);
-        gun117_r1.setRotationPoint(-8.0F, -44.0F, -1.0F);
+        gun117_r1.setRotationPoint(-8.0F, -44.0F, -1);
         gun.addChild(gun117_r1);
         setRotationAngle(gun117_r1, 0.0F, 0.0F, -2.3562F);
         gun117_r1.cubeList.add(new ModelBox(gun117_r1, 14, 58, -10.8995F, -4.2426F, -10.0F, 1, 1, 1, -0.001F, false));
 
         gun118_r1 = new ModelRenderer(this);
-        gun118_r1.setRotationPoint(-8.0F, -46.0F, -1.0F);
+        gun118_r1.setRotationPoint(-8.0F, -46.0F, -1);
         gun.addChild(gun118_r1);
         setRotationAngle(gun118_r1, 0.0F, 0.0F, -2.3562F);
         gun118_r1.cubeList.add(new ModelBox(gun118_r1, 0, 58, -10.8995F, -4.2426F, -10.0F, 1, 1, 1, -0.001F, false));
 
         gun117_r2 = new ModelRenderer(this);
-        gun117_r2.setRotationPoint(5.0F, -46.0F, -1.0F);
+        gun117_r2.setRotationPoint(5.0F, -46.0F, -1);
         gun.addChild(gun117_r2);
         setRotationAngle(gun117_r2, 0.0F, 0.0F, 2.3562F);
         gun117_r2.cubeList.add(new ModelBox(gun117_r2, 25, 58, 9.8995F, -4.2426F, -10.0F, 1, 1, 1, -0.001F, false));
 
         gun116_r1 = new ModelRenderer(this);
-        gun116_r1.setRotationPoint(5.0F, -44.0F, -1.0F);
+        gun116_r1.setRotationPoint(5.0F, -44.0F, -1);
         gun.addChild(gun116_r1);
         setRotationAngle(gun116_r1, 0.0F, 0.0F, 2.3562F);
         gun116_r1.cubeList.add(new ModelBox(gun116_r1, 14, 69, 9.8995F, -4.2426F, -10.0F, 1, 1, 1, -0.001F, false));

@@ -77,7 +77,7 @@ public class G95_upright_rearsights extends ModelBase {
         sight38.cubeList.add(new ModelBox(sight38, 0, 0, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, true));
 
         sight39 = new ModelRenderer(this);
-        sight39.setRotationPoint(-1.8F, 5.5F, -1.0F);
+        sight39.setRotationPoint(-1.8F, 5.5F, -1);
         sight39.cubeList.add(new ModelBox(sight39, 0, 0, 0.0F, 0.0F, 0.0F, 6, 2, 2, 0.0F, true));
 
         sight40 = new ModelRenderer(this);
@@ -116,8 +116,8 @@ public class G95_upright_rearsights extends ModelBase {
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(0.5F, -3.75F, -0.75F);
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.0F, -1.0F, 0.05F, 1, 2, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, 2.0F, -1.0F, 0.05F, 1, 2, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1, -1, 0.05F, 1, 2, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, 2.0F, -1, 0.05F, 1, 2, 2, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 0, 0.0F, -2.0F, 0.05F, 2, 1, 2, 0.0F, false));
 
         bone2 = new ModelRenderer(this);

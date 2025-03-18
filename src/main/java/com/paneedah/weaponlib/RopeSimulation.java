@@ -154,7 +154,7 @@ public class RopeSimulation {
 			Stick stick = new Stick();
 			stick.pointA = prev;
 			stick.pointB = newPoint;
-			stick.length = (float) 1.0f;
+			stick.length = (float) 1;
 			
 			prev = newPoint;
 			
@@ -191,7 +191,7 @@ public class RopeSimulation {
 		RopeSimulation.Stick stick = new Stick();
 		stick.pointA = one;
 		stick.pointB = two;
-		stick.length = 1.0f;
+		stick.length = 1;
 		
 		RopeSimulation.Stick stick2 = new Stick();
 		stick2.pointA = two;

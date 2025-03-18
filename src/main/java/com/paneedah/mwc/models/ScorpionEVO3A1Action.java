@@ -475,64 +475,64 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
         receiver_upper = new ModelRenderer(this);
         receiver_upper.setRotationPoint(-1.5F, 24.0F, 0.0F);
-        receiver_upper.cubeList.add(new ModelBox(receiver_upper, 187, 73, -3.0F, -41.0F, -17.0F, 1, 5, 17, 0.0F, false));
-        receiver_upper.cubeList.add(new ModelBox(receiver_upper, 0, 162, 2.0F, -41.0F, -26.0F, 1, 2, 26, 0.0F, false));
+        receiver_upper.cubeList.add(new ModelBox(receiver_upper, 187, 73, -3.0F, -41, -17.0F, 1, 5, 17, 0.0F, false));
+        receiver_upper.cubeList.add(new ModelBox(receiver_upper, 0, 162, 2.0F, -41, -26.0F, 1, 2, 26, 0.0F, false));
         receiver_upper.cubeList.add(new ModelBox(receiver_upper, 22, 131, 2.0F, -38.0F, -25.0F, 1, 2, 14, 0.0F, false));
         receiver_upper.cubeList.add(new ModelBox(receiver_upper, 25, 80, 2.0F, -37.0F, -26.0F, 1, 1, 1, 0.0F, false));
         receiver_upper.cubeList.add(new ModelBox(receiver_upper, 6, 82, 2.0F, -39.0F, -12.0F, 1, 1, 1, 0.0F, false));
         receiver_upper.cubeList.add(new ModelBox(receiver_upper, 33, 80, 2.0F, -39.0F, -25.0F, 1, 1, 1, 0.0F, false));
         receiver_upper.cubeList.add(new ModelBox(receiver_upper, 110, 110, 2.0F, -39.0F, -8.0F, 1, 3, 8, 0.0F, false));
-        receiver_upper.cubeList.add(new ModelBox(receiver_upper, 55, 70, 2.0F, -37.0F, -11.0F, 1, 1, 3, 0.0F, false));
+        receiver_upper.cubeList.add(new ModelBox(receiver_upper, 55, 70, 2.0F, -37.0F, -11, 1, 1, 3, 0.0F, false));
         receiver_upper.cubeList.add(new ModelBox(receiver_upper, 186, 103, 1.9F, -39.0F, -26.0F, 1, 2, 18, 0.0F, false));
-        receiver_upper.cubeList.add(new ModelBox(receiver_upper, 25, 38, -3.0F, -41.0F, -26.0F, 1, 5, 2, 0.0F, false));
+        receiver_upper.cubeList.add(new ModelBox(receiver_upper, 25, 38, -3.0F, -41, -26.0F, 1, 5, 2, 0.0F, false));
         receiver_upper.cubeList.add(new ModelBox(receiver_upper, 91, 13, -3.0F, -38.0F, -24.0F, 1, 2, 7, 0.0F, false));
         receiver_upper.cubeList.add(new ModelBox(receiver_upper, 110, 55, -2.0F, -42.75F, -26.0F, 4, 1, 26, 0.0F, false));
         receiver_upper.cubeList.add(new ModelBox(receiver_upper, 49, 17, 1.75F, -42.75F, -2.0F, 1, 2, 1, 0.0F, false));
         receiver_upper.cubeList.add(new ModelBox(receiver_upper, 30, 0, -2.75F, -42.75F, -2.0F, 1, 2, 1, 0.0F, false));
-        receiver_upper.cubeList.add(new ModelBox(receiver_upper, 137, 83, -1.0F, -44.25F, -26.0F, 2, 1, 26, 0.0F, false));
+        receiver_upper.cubeList.add(new ModelBox(receiver_upper, 137, 83, -1, -44.25F, -26.0F, 2, 1, 26, 0.0F, false));
 
         receiver_upper_r1 = new ModelRenderer(this);
         receiver_upper_r1.setRotationPoint(3.2F, -36.3F, -25.9F);
         receiver_upper.addChild(receiver_upper_r1);
         setRotationAngle(receiver_upper_r1, -0.6632F, 0.0F, 0.0F);
-        receiver_upper_r1.cubeList.add(new ModelBox(receiver_upper_r1, 19, 72, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        receiver_upper_r1.cubeList.add(new ModelBox(receiver_upper_r1, 19, 72, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         receiver_upper_r2 = new ModelRenderer(this);
         receiver_upper_r2.setRotationPoint(-0.2F, -43.5F, -4.2F);
         receiver_upper.addChild(receiver_upper_r2);
         setRotationAngle(receiver_upper_r2, -0.6632F, 0.0F, 0.0F);
-        receiver_upper_r2.cubeList.add(new ModelBox(receiver_upper_r2, 61, 31, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        receiver_upper_r2.cubeList.add(new ModelBox(receiver_upper_r2, 61, 37, 0.4F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        receiver_upper_r2.cubeList.add(new ModelBox(receiver_upper_r2, 61, 31, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        receiver_upper_r2.cubeList.add(new ModelBox(receiver_upper_r2, 61, 37, 0.4F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         receiver_upper_r3 = new ModelRenderer(this);
         receiver_upper_r3.setRotationPoint(-0.2F, -43.5F, -18.2F);
         receiver_upper.addChild(receiver_upper_r3);
         setRotationAngle(receiver_upper_r3, -0.6632F, 0.0F, 0.0F);
-        receiver_upper_r3.cubeList.add(new ModelBox(receiver_upper_r3, 61, 26, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        receiver_upper_r3.cubeList.add(new ModelBox(receiver_upper_r3, 49, 63, 0.4F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        receiver_upper_r3.cubeList.add(new ModelBox(receiver_upper_r3, 61, 26, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        receiver_upper_r3.cubeList.add(new ModelBox(receiver_upper_r3, 49, 63, 0.4F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         receiver_upper_r4 = new ModelRenderer(this);
         receiver_upper_r4.setRotationPoint(-0.2F, -43.5F, -11.2F);
         receiver_upper.addChild(receiver_upper_r4);
         setRotationAngle(receiver_upper_r4, -0.6632F, 0.0F, 0.0F);
-        receiver_upper_r4.cubeList.add(new ModelBox(receiver_upper_r4, 61, 29, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        receiver_upper_r4.cubeList.add(new ModelBox(receiver_upper_r4, 61, 35, 0.4F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        receiver_upper_r4.cubeList.add(new ModelBox(receiver_upper_r4, 61, 29, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        receiver_upper_r4.cubeList.add(new ModelBox(receiver_upper_r4, 61, 35, 0.4F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         receiver_upper_r5 = new ModelRenderer(this);
         receiver_upper_r5.setRotationPoint(-0.2F, -43.5F, -25.2F);
         receiver_upper.addChild(receiver_upper_r5);
         setRotationAngle(receiver_upper_r5, -0.6632F, 0.0F, 0.0F);
-        receiver_upper_r5.cubeList.add(new ModelBox(receiver_upper_r5, 61, 24, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        receiver_upper_r5.cubeList.add(new ModelBox(receiver_upper_r5, 60, 70, 0.4F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        receiver_upper_r5.cubeList.add(new ModelBox(receiver_upper_r5, 61, 24, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        receiver_upper_r5.cubeList.add(new ModelBox(receiver_upper_r5, 60, 70, 0.4F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         receiver_upper_r6 = new ModelRenderer(this);
         receiver_upper_r6.setRotationPoint(3.2F, -40.2F, -25.9F);
         receiver_upper.addChild(receiver_upper_r6);
         setRotationAngle(receiver_upper_r6, -0.6632F, 0.0F, 0.0F);
-        receiver_upper_r6.cubeList.add(new ModelBox(receiver_upper_r6, 5, 78, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        receiver_upper_r6.cubeList.add(new ModelBox(receiver_upper_r6, 5, 78, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         bone259 = new ModelRenderer(this);
-        bone259.setRotationPoint(-1.5F, -27.5F, -11.0F);
+        bone259.setRotationPoint(-1.5F, -27.5F, -11);
         receiver_upper.addChild(bone259);
         setRotationAngle(bone259, 0.0F, 0.0F, 0.7854F);
         bone259.cubeList.add(new ModelBox(bone259, 193, 0, -10.6066F, -9.4853F, -6.0F, 1, 1, 17, 0.0F, false));
@@ -543,30 +543,30 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone259.cubeList.add(new ModelBox(bone259, 164, 165, -7.364F, -12.7279F, -15.0F, 1, 1, 26, 0.0F, false));
 
         bone260 = new ModelRenderer(this);
-        bone260.setRotationPoint(-1.5F, -27.5F, -11.0F);
+        bone260.setRotationPoint(-1.5F, -27.5F, -11);
         receiver_upper.addChild(bone260);
         setRotationAngle(bone260, 0.0F, 0.0F, 0.7854F);
         bone260.cubeList.add(new ModelBox(bone260, 136, 164, -11.1369F, -11.4298F, -15.0F, 1, 1, 26, 0.0F, false));
         bone260.cubeList.add(new ModelBox(bone260, 11, 108, -11.1369F, -12.4298F, -15.0F, 1, 1, 1, 0.0F, false));
         bone260.cubeList.add(new ModelBox(bone260, 131, 89, -11.1369F, -12.4298F, -13.0F, 1, 1, 6, 0.0F, false));
         bone260.cubeList.add(new ModelBox(bone260, 131, 131, -11.1369F, -12.4298F, -6.0F, 1, 1, 6, 0.0F, false));
-        bone260.cubeList.add(new ModelBox(bone260, 22, 131, -11.1369F, -12.4298F, 1.0F, 1, 1, 6, 0.0F, false));
+        bone260.cubeList.add(new ModelBox(bone260, 22, 131, -11.1369F, -12.4298F, 1, 1, 1, 6, 0.0F, false));
         bone260.cubeList.add(new ModelBox(bone260, 55, 16, -11.1369F, -12.4298F, 8.0F, 1, 1, 3, 0.0F, false));
         bone260.cubeList.add(new ModelBox(bone260, 4, 108, -10.3085F, -13.2583F, -15.0F, 1, 1, 1, 0.0F, false));
         bone260.cubeList.add(new ModelBox(bone260, 132, 21, -10.3085F, -13.2583F, -13.0F, 1, 1, 6, 0.0F, false));
         bone260.cubeList.add(new ModelBox(bone260, 131, 82, -10.3085F, -13.2583F, -6.0F, 1, 1, 6, 0.0F, false));
-        bone260.cubeList.add(new ModelBox(bone260, 76, 131, -10.3085F, -13.2583F, 1.0F, 1, 1, 6, 0.0F, false));
+        bone260.cubeList.add(new ModelBox(bone260, 76, 131, -10.3085F, -13.2583F, 1, 1, 1, 6, 0.0F, false));
         bone260.cubeList.add(new ModelBox(bone260, 12, 69, -10.3085F, -13.2583F, 8.0F, 1, 1, 3, 0.0F, false));
         bone260.cubeList.add(new ModelBox(bone260, 82, 164, -9.3085F, -13.2583F, -15.0F, 1, 1, 26, 0.0F, false));
 
         bone261 = new ModelRenderer(this);
-        bone261.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone261.setRotationPoint(-2.5F, -22.5F, -11);
         receiver_upper.addChild(bone261);
         setRotationAngle(bone261, 0.0F, 0.0F, 0.3927F);
         bone261.cubeList.add(new ModelBox(bone261, 54, 163, -5.6282F, -13.281F, -15.0F, 1, 1, 26, 0.0F, false));
 
         bone262 = new ModelRenderer(this);
-        bone262.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone262.setRotationPoint(-2.5F, -22.5F, -11);
         receiver_upper.addChild(bone262);
         setRotationAngle(bone262, 0.0F, 0.0F, -0.3927F);
         bone262.cubeList.add(new ModelBox(bone262, 144, 54, 9.2476F, -11.3676F, -15.0F, 1, 1, 26, 0.0F, false));
@@ -655,20 +655,20 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone58.setRotationPoint(-1.5F, -23.0F, -22.75F);
         receiver_lower.addChild(bone58);
         setRotationAngle(bone58, 0.6109F, 0.0F, 0.0F);
-        bone58.cubeList.add(new ModelBox(bone58, 40, 67, -2.0F, -1.0F, -1.0F, 4, 4, 2, 0.0F, false));
+        bone58.cubeList.add(new ModelBox(bone58, 40, 67, -2.0F, -1, -1, 4, 4, 2, 0.0F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(-1.5F, -21.75F, -18.5F);
         receiver_lower.addChild(bone);
         setRotationAngle(bone, -0.0873F, 0.0F, 0.0F);
         bone.cubeList.add(new ModelBox(bone, 55, 79, -2.0F, -0.0218F, -3.251F, 4, 2, 7, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 94, 9, -1.0F, -0.0218F, 3.749F, 2, 2, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 94, 9, -1, -0.0218F, 3.749F, 2, 2, 1, 0.0F, false));
 
         bone137 = new ModelRenderer(this);
         bone137.setRotationPoint(-0.5F, 0.9782F, 4.249F);
         bone.addChild(bone137);
         setRotationAngle(bone137, 0.0F, -0.7854F, 0.0F);
-        bone137.cubeList.add(new ModelBox(bone137, 0, 54, -1.0F, -2.0F, -0.2929F, 1, 3, 1, 0.0F, false));
+        bone137.cubeList.add(new ModelBox(bone137, 0, 54, -1, -2.0F, -0.2929F, 1, 3, 1, 0.0F, false));
         bone137.cubeList.add(new ModelBox(bone137, 49, 0, -1.4142F, -2.0F, -0.2929F, 1, 3, 1, 0.0F, false));
         bone137.cubeList.add(new ModelBox(bone137, 88, 10, -2.4749F, 2.0F, -0.6464F, 1, 1, 1, 0.0F, false));
         bone137.cubeList.add(new ModelBox(bone137, 74, 88, -6.7175F, 2.0F, -4.8891F, 1, 1, 1, 0.0F, false));
@@ -689,45 +689,45 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone250.setRotationPoint(2.0F, 2.4782F, -0.251F);
         bone2.addChild(bone250);
         setRotationAngle(bone250, 0.0F, 0.0F, -0.7854F);
-        bone250.cubeList.add(new ModelBox(bone250, 134, 12, -1.0F, -0.2929F, -3.0F, 1, 1, 6, 0.0F, false));
+        bone250.cubeList.add(new ModelBox(bone250, 134, 12, -1, -0.2929F, -3.0F, 1, 1, 6, 0.0F, false));
         bone250.cubeList.add(new ModelBox(bone250, 132, 28, -3.5355F, -2.8284F, -3.0F, 1, 1, 6, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(-1.5F, -20.75F, -17.5F);
         receiver_lower.addChild(bone3);
         setRotationAngle(bone3, 0.1745F, 0.0F, 0.0F);
-        bone3.cubeList.add(new ModelBox(bone3, 0, 89, -1.0F, 1.2896F, 1.7028F, 2, 4, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 89, -1, 1.2896F, 1.7028F, 2, 4, 1, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(-1.5F, -20.25F, -17.25F);
         receiver_lower.addChild(bone7);
         setRotationAngle(bone7, 0.3927F, 0.0F, 0.0F);
-        bone7.cubeList.add(new ModelBox(bone7, 55, 88, -1.0F, 1.3266F, 1.6353F, 2, 4, 1, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 55, 88, -1, 1.3266F, 1.6353F, 2, 4, 1, 0.0F, false));
 
         bone8 = new ModelRenderer(this);
         bone8.setRotationPoint(-1.5F, -18.25F, -18.675F);
         receiver_lower.addChild(bone8);
         setRotationAngle(bone8, 0.9163F, 0.0F, 0.0F);
-        bone8.cubeList.add(new ModelBox(bone8, 6, 102, -1.0F, 4.4293F, 1.5565F, 2, 1, 1, 0.0F, false));
+        bone8.cubeList.add(new ModelBox(bone8, 6, 102, -1, 4.4293F, 1.5565F, 2, 1, 1, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(-1.5F, -20.75F, -17.5F);
         receiver_lower.addChild(bone4);
         setRotationAngle(bone4, 0.0873F, 0.0F, 0.0F);
-        bone4.cubeList.add(new ModelBox(bone4, 26, 121, -1.0F, 4.1211F, 2.1573F, 2, 1, 7, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 26, 121, -1, 4.1211F, 2.1573F, 2, 1, 7, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(-1.5F, -16.3998F, -7.0699F);
         receiver_lower.addChild(bone5);
         setRotationAngle(bone5, 0.3491F, 0.0F, 0.0F);
-        bone5.cubeList.add(new ModelBox(bone5, 95, 24, -1.0F, -1.3385F, -0.7933F, 2, 1, 4, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 95, 24, -1, -1.3385F, -0.7933F, 2, 1, 4, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
         bone6.setRotationPoint(-1.5F, -16.3998F, -7.0699F);
         receiver_lower.addChild(bone6);
         setRotationAngle(bone6, 0.5236F, 0.0F, 0.0F);
-        bone6.cubeList.add(new ModelBox(bone6, 11, 89, -1.0F, -1.4559F, -0.5488F, 2, 1, 4, 0.0F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 55, 93, -1.0F, -4.4559F, 2.4512F, 2, 3, 1, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 11, 89, -1, -1.4559F, -0.5488F, 2, 1, 4, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 55, 93, -1, -4.4559F, 2.4512F, 2, 3, 1, 0.0F, false));
 
         bone9 = new ModelRenderer(this);
         bone9.setRotationPoint(-0.5F, -22.4F, -24.35F);
@@ -795,13 +795,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone60_r1 = new ModelRenderer(this);
-        bone60_r1.setRotationPoint(1.0F, -20.15F, -24.35F);
+        bone60_r1.setRotationPoint(1, -20.15F, -24.35F);
         bone59.addChild(bone60_r1);
         setRotationAngle(bone60_r1, -0.6981F, 0.0F, 0.0F);
 
 
         bone60 = new ModelRenderer(this);
-        bone60.setRotationPoint(1.0F, -20.15F, -24.35F);
+        bone60.setRotationPoint(1, -20.15F, -24.35F);
         bone59.addChild(bone60);
         setRotationAngle(bone60, -0.6981F, 0.0F, 0.0F);
 
@@ -840,7 +840,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone61.setRotationPoint(0.5F, -0.1607F, 0.6915F);
         bone60.addChild(bone61);
         setRotationAngle(bone61, 0.0F, 0.0F, 0.7854F);
-        bone61.cubeList.add(new ModelBox(bone61, 80, 55, -1.0F, -0.2929F, -1.5F, 1, 1, 3, 0.0F, false));
+        bone61.cubeList.add(new ModelBox(bone61, 80, 55, -1, -0.2929F, -1.5F, 1, 1, 3, 0.0F, false));
 
         bone62 = new ModelRenderer(this);
         bone62.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -876,7 +876,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone76.setRotationPoint(0.5F, -1.0083F, 2.509F);
         bone75.addChild(bone76);
         setRotationAngle(bone76, 0.0F, 0.0F, 0.7854F);
-        bone76.cubeList.add(new ModelBox(bone76, 55, 35, -1.0F, -0.2929F, -2.0F, 1, 1, 4, 0.0F, false));
+        bone76.cubeList.add(new ModelBox(bone76, 55, 35, -1, -0.2929F, -2.0F, 1, 1, 4, 0.0F, false));
 
         bone77 = new ModelRenderer(this);
         bone77.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -918,7 +918,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone81.setRotationPoint(1.5F, -20.5F, -26.25F);
         bone59.addChild(bone81);
         setRotationAngle(bone81, 0.0F, 0.0F, 0.7854F);
-        bone81.cubeList.add(new ModelBox(bone81, 101, 46, -1.0F, -0.2929F, -0.5F, 1, 1, 2, 0.0F, false));
+        bone81.cubeList.add(new ModelBox(bone81, 101, 46, -1, -0.2929F, -0.5F, 1, 1, 2, 0.0F, false));
 
         bone94 = new ModelRenderer(this);
         bone94.setRotationPoint(-4.0F, -2.25F, 0.0F);
@@ -932,13 +932,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone95_r1 = new ModelRenderer(this);
-        bone95_r1.setRotationPoint(1.0F, -20.15F, -24.35F);
+        bone95_r1.setRotationPoint(1, -20.15F, -24.35F);
         bone94.addChild(bone95_r1);
         setRotationAngle(bone95_r1, -0.6981F, 0.0F, 0.0F);
 
 
         bone95 = new ModelRenderer(this);
-        bone95.setRotationPoint(1.0F, -20.15F, -24.35F);
+        bone95.setRotationPoint(1, -20.15F, -24.35F);
         bone94.addChild(bone95);
         setRotationAngle(bone95, -0.6981F, 0.0F, 0.0F);
 
@@ -1069,13 +1069,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone83_r1 = new ModelRenderer(this);
-        bone83_r1.setRotationPoint(1.0F, -20.15F, -24.35F);
+        bone83_r1.setRotationPoint(1, -20.15F, -24.35F);
         bone82.addChild(bone83_r1);
         setRotationAngle(bone83_r1, -0.6981F, 0.0F, 0.0F);
 
 
         bone83 = new ModelRenderer(this);
-        bone83.setRotationPoint(1.0F, -20.15F, -24.35F);
+        bone83.setRotationPoint(1, -20.15F, -24.35F);
         bone82.addChild(bone83);
         setRotationAngle(bone83, -0.6981F, 0.0F, 0.0F);
 
@@ -1114,7 +1114,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone84.setRotationPoint(0.5F, -0.1607F, 0.6915F);
         bone83.addChild(bone84);
         setRotationAngle(bone84, 0.0F, 0.0F, 1.5708F);
-        bone84.cubeList.add(new ModelBox(bone84, 80, 37, -1.0F, -0.2929F, -1.5F, 1, 1, 3, 0.0F, false));
+        bone84.cubeList.add(new ModelBox(bone84, 80, 37, -1, -0.2929F, -1.5F, 1, 1, 3, 0.0F, false));
 
         bone85 = new ModelRenderer(this);
         bone85.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -1150,7 +1150,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone88.setRotationPoint(0.5F, -1.0083F, 2.509F);
         bone87.addChild(bone88);
         setRotationAngle(bone88, 0.0F, 0.0F, 1.5708F);
-        bone88.cubeList.add(new ModelBox(bone88, 55, 24, -1.0F, -0.2929F, -2.0F, 1, 1, 4, 0.0F, false));
+        bone88.cubeList.add(new ModelBox(bone88, 55, 24, -1, -0.2929F, -2.0F, 1, 1, 4, 0.0F, false));
 
         bone89 = new ModelRenderer(this);
         bone89.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -1186,13 +1186,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone92.setRotationPoint(0.5F, -0.107F, -0.9952F);
         bone91.addChild(bone92);
         setRotationAngle(bone92, 0.0F, 0.0F, 1.5708F);
-        bone92.cubeList.add(new ModelBox(bone92, 101, 32, -1.0F, -0.2929F, -0.5F, 1, 1, 2, 0.0F, false));
+        bone92.cubeList.add(new ModelBox(bone92, 101, 32, -1, -0.2929F, -0.5F, 1, 1, 2, 0.0F, false));
 
         bone93 = new ModelRenderer(this);
         bone93.setRotationPoint(1.5F, -20.5F, -26.25F);
         bone82.addChild(bone93);
         setRotationAngle(bone93, 0.0F, 0.0F, 1.5708F);
-        bone93.cubeList.add(new ModelBox(bone93, 100, 9, -1.0F, -0.2929F, -0.5F, 1, 1, 2, 0.0F, false));
+        bone93.cubeList.add(new ModelBox(bone93, 100, 9, -1, -0.2929F, -0.5F, 1, 1, 2, 0.0F, false));
 
         bone106 = new ModelRenderer(this);
         bone106.setRotationPoint(-4.25F, -2.25F, 0.0F);
@@ -1206,13 +1206,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone107_r1 = new ModelRenderer(this);
-        bone107_r1.setRotationPoint(1.0F, -20.15F, -24.35F);
+        bone107_r1.setRotationPoint(1, -20.15F, -24.35F);
         bone106.addChild(bone107_r1);
         setRotationAngle(bone107_r1, -0.6981F, 0.0F, 0.0F);
 
 
         bone107 = new ModelRenderer(this);
-        bone107.setRotationPoint(1.0F, -20.15F, -24.35F);
+        bone107.setRotationPoint(1, -20.15F, -24.35F);
         bone106.addChild(bone107);
         setRotationAngle(bone107, -0.6981F, 0.0F, 0.0F);
 
@@ -1251,7 +1251,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone108.setRotationPoint(0.5F, -0.1607F, 0.6915F);
         bone107.addChild(bone108);
         setRotationAngle(bone108, 0.0F, 0.0F, 1.5708F);
-        bone108.cubeList.add(new ModelBox(bone108, 80, 28, -1.0F, -0.2929F, -1.5F, 1, 1, 3, 0.0F, false));
+        bone108.cubeList.add(new ModelBox(bone108, 80, 28, -1, -0.2929F, -1.5F, 1, 1, 3, 0.0F, false));
 
         bone109 = new ModelRenderer(this);
         bone109.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -1287,7 +1287,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone112.setRotationPoint(0.5F, -1.0083F, 2.509F);
         bone111.addChild(bone112);
         setRotationAngle(bone112, 0.0F, 0.0F, 1.5708F);
-        bone112.cubeList.add(new ModelBox(bone112, 12, 54, -1.0F, -0.2929F, -2.0F, 1, 1, 4, 0.0F, false));
+        bone112.cubeList.add(new ModelBox(bone112, 12, 54, -1, -0.2929F, -2.0F, 1, 1, 4, 0.0F, false));
 
         bone113 = new ModelRenderer(this);
         bone113.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -1323,13 +1323,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone116.setRotationPoint(0.5F, -0.107F, -0.9952F);
         bone115.addChild(bone116);
         setRotationAngle(bone116, 0.0F, 0.0F, 1.5708F);
-        bone116.cubeList.add(new ModelBox(bone116, 98, 89, -1.0F, -0.2929F, -0.5F, 1, 1, 2, 0.0F, false));
+        bone116.cubeList.add(new ModelBox(bone116, 98, 89, -1, -0.2929F, -0.5F, 1, 1, 2, 0.0F, false));
 
         bone117 = new ModelRenderer(this);
         bone117.setRotationPoint(1.5F, -20.5F, -26.25F);
         bone106.addChild(bone117);
         setRotationAngle(bone117, 0.0F, 0.0F, 1.5708F);
-        bone117.cubeList.add(new ModelBox(bone117, 67, 98, -1.0F, -0.2929F, -0.5F, 1, 1, 2, 0.0F, false));
+        bone117.cubeList.add(new ModelBox(bone117, 67, 98, -1, -0.2929F, -0.5F, 1, 1, 2, 0.0F, false));
 
         exterior_shit = new ModelRenderer(this);
         exterior_shit.setRotationPoint(-1.5F, -2.25F, 0.0F);
@@ -1337,12 +1337,12 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         selector_left = new ModelRenderer(this);
-        selector_left.setRotationPoint(3.0F, -21.0F, -8.75F);
+        selector_left.setRotationPoint(3.0F, -21, -8.75F);
         exterior_shit.addChild(selector_left);
-        selector_left.cubeList.add(new ModelBox(selector_left, 39, 96, -1.25F, -1.0F, 0.25F, 1, 1, 1, 0.0F, false));
+        selector_left.cubeList.add(new ModelBox(selector_left, 39, 96, -1.25F, -1, 0.25F, 1, 1, 1, 0.0F, false));
         selector_left.cubeList.add(new ModelBox(selector_left, 0, 96, -1.25F, -0.75F, 0.25F, 1, 1, 1, 0.0F, false));
         selector_left.cubeList.add(new ModelBox(selector_left, 95, 26, -1.25F, -0.75F, 0.0F, 1, 1, 1, 0.0F, false));
-        selector_left.cubeList.add(new ModelBox(selector_left, 95, 24, -1.25F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        selector_left.cubeList.add(new ModelBox(selector_left, 95, 24, -1.25F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         bone224 = new ModelRenderer(this);
         bone224.setRotationPoint(-0.925F, -0.1F, 1.75F);
@@ -1351,12 +1351,12 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone224.cubeList.add(new ModelBox(bone224, 49, 95, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
 
         selector_right = new ModelRenderer(this);
-        selector_right.setRotationPoint(-2.0F, -21.0F, -8.75F);
+        selector_right.setRotationPoint(-2.0F, -21, -8.75F);
         exterior_shit.addChild(selector_right);
-        selector_right.cubeList.add(new ModelBox(selector_right, 15, 94, -1.0F, -1.0F, 0.25F, 1, 1, 1, 0.0F, false));
-        selector_right.cubeList.add(new ModelBox(selector_right, 0, 94, -1.0F, -0.75F, 0.25F, 1, 1, 1, 0.0F, false));
-        selector_right.cubeList.add(new ModelBox(selector_right, 60, 92, -1.0F, -0.75F, 0.0F, 1, 1, 1, 0.0F, false));
-        selector_right.cubeList.add(new ModelBox(selector_right, 19, 91, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        selector_right.cubeList.add(new ModelBox(selector_right, 15, 94, -1, -1, 0.25F, 1, 1, 1, 0.0F, false));
+        selector_right.cubeList.add(new ModelBox(selector_right, 0, 94, -1, -0.75F, 0.25F, 1, 1, 1, 0.0F, false));
+        selector_right.cubeList.add(new ModelBox(selector_right, 60, 92, -1, -0.75F, 0.0F, 1, 1, 1, 0.0F, false));
+        selector_right.cubeList.add(new ModelBox(selector_right, 19, 91, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         bone227 = new ModelRenderer(this);
         bone227.setRotationPoint(0.175F, -0.1F, 1.75F);
@@ -1368,7 +1368,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bullet_let_go_inator.setRotationPoint(2.25F, -21.25F, -16.75F);
         exterior_shit.addChild(bullet_let_go_inator);
         setRotationAngle(bullet_let_go_inator, 0.0F, 0.0F, -0.1745F);
-        bullet_let_go_inator.cubeList.add(new ModelBox(bullet_let_go_inator, 11, 91, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        bullet_let_go_inator.cubeList.add(new ModelBox(bullet_let_go_inator, 11, 91, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         bone228 = new ModelRenderer(this);
         bone228.setRotationPoint(-0.5F, 0.5F, 1.45F);
@@ -1673,18 +1673,18 @@ public class ScorpionEVO3A1Action extends ModelBase {
         handguard_left = new ModelRenderer(this);
         handguard_left.setRotationPoint(0.0F, 0.0F, -26.0F);
         handguard_short.addChild(handguard_left);
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 61, 98, 1.0F, -23.0F, -18.5F, 1, 1, 2, 0.0F, false));
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 55, 131, 1.0F, -26.0F, -17.0F, 1, 4, 19, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 61, 98, 1, -23.0F, -18.5F, 1, 1, 2, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 55, 131, 1, -26.0F, -17.0F, 1, 4, 19, 0.0F, false));
         handguard_left.cubeList.add(new ModelBox(handguard_left, 101, 67, 2.0F, -26.0F, 0.0F, 1, 4, 1, 0.0F, false));
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 19, 29, 1.9F, -25.0F, 1.0F, 1, 2, 1, 0.0F, false));
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 33, 78, 2.0F, -26.0F, 1.0F, 1, 1, 1, 0.0F, false));
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 25, 78, 2.0F, -23.0F, 1.0F, 1, 1, 1, 0.0F, false));
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 80, 24, 1.0F, -27.0F, -16.0F, 1, 1, 3, 0.0F, false));
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 0, 108, 1.0F, -27.0F, -9.0F, 1, 1, 1, 0.0F, false));
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 76, 138, 1.0F, -27.0F, -4.0F, 1, 1, 6, 0.0F, false));
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 0, 209, 1.0F, -28.0F, -13.0F, 1, 1, 15, 0.0F, false));
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 80, 24, -1.0F, -30.25F, -9.0F, 2, 2, 11, 0.0F, false));
-        handguard_left.cubeList.add(new ModelBox(handguard_left, 55, 109, -1.0F, -22.0F, -19.0F, 2, 1, 21, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 19, 29, 1.9F, -25.0F, 1, 1, 2, 1, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 33, 78, 2.0F, -26.0F, 1, 1, 1, 1, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 25, 78, 2.0F, -23.0F, 1, 1, 1, 1, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 80, 24, 1, -27.0F, -16.0F, 1, 1, 3, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 0, 108, 1, -27.0F, -9.0F, 1, 1, 1, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 76, 138, 1, -27.0F, -4.0F, 1, 1, 6, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 0, 209, 1, -28.0F, -13.0F, 1, 1, 15, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 80, 24, -1, -30.25F, -9.0F, 2, 2, 11, 0.0F, false));
+        handguard_left.cubeList.add(new ModelBox(handguard_left, 55, 109, -1, -22.0F, -19.0F, 2, 1, 21, 0.0F, false));
 
         handguard_left_r1 = new ModelRenderer(this);
         handguard_left_r1.setRotationPoint(2.7F, -22.7F, 1.1F);
@@ -1703,7 +1703,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone30.setRotationPoint(0.0F, -0.3436F, -0.7273F);
         bone27.addChild(bone30);
         setRotationAngle(bone30, 0.0F, 0.7854F, 0.0F);
-        bone30.cubeList.add(new ModelBox(bone30, 101, 60, -0.2929F, -2.0F, -1.0F, 1, 4, 1, 0.0F, false));
+        bone30.cubeList.add(new ModelBox(bone30, 101, 60, -0.2929F, -2.0F, -1, 1, 4, 1, 0.0F, false));
         bone30.cubeList.add(new ModelBox(bone30, 94, 79, -0.2929F, -3.0F, -2.0F, 1, 5, 1, 0.0F, false));
 
         bone28 = new ModelRenderer(this);
@@ -1745,13 +1745,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone20.setRotationPoint(0.0F, -27.0F, -17.0F);
         handguard_left.addChild(bone20);
         setRotationAngle(bone20, 0.2618F, 0.0F, 0.0F);
-        bone20.cubeList.add(new ModelBox(bone20, 92, 100, -1.0F, -0.6207F, -0.4676F, 2, 1, 1, 0.0F, false));
+        bone20.cubeList.add(new ModelBox(bone20, 92, 100, -1, -0.6207F, -0.4676F, 2, 1, 1, 0.0F, false));
 
         bone32 = new ModelRenderer(this);
         bone32.setRotationPoint(0.0F, -27.0F, -17.0F);
         handguard_left.addChild(bone32);
         setRotationAngle(bone32, 1.0908F, 0.0F, 0.0F);
-        bone32.cubeList.add(new ModelBox(bone32, 86, 100, -1.0F, -0.7642F, -0.8583F, 2, 1, 1, 0.0F, false));
+        bone32.cubeList.add(new ModelBox(bone32, 86, 100, -1, -0.7642F, -0.8583F, 2, 1, 1, 0.0F, false));
 
         bone18 = new ModelRenderer(this);
         bone18.setRotationPoint(1.5F, -24.25F, -17.25F);
@@ -1779,7 +1779,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone25.cubeList.add(new ModelBox(bone25, 43, 5, -0.8871F, -0.1301F, -1.5793F, 1, 1, 4, 0.0F, false));
 
         bone31 = new ModelRenderer(this);
-        bone31.setRotationPoint(-1.0F, -27.75F, -15.0F);
+        bone31.setRotationPoint(-1, -27.75F, -15.0F);
         handguard_left.addChild(bone31);
         setRotationAngle(bone31, 0.3054F, 0.0F, 0.0F);
         bone31.cubeList.add(new ModelBox(bone31, 55, 109, -0.0353F, -0.4809F, -1.6544F, 2, 2, 8, 0.0F, false));
@@ -1788,10 +1788,10 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone26.setRotationPoint(0.0F, -27.5F, -15.0F);
         handguard_left.addChild(bone26);
         setRotationAngle(bone26, 0.3054F, 0.0F, 0.0F);
-        bone26.cubeList.add(new ModelBox(bone26, 43, 0, 1.0F, 0.1572F, -1.7296F, 1, 1, 4, 0.0F, false));
+        bone26.cubeList.add(new ModelBox(bone26, 43, 0, 1, 0.1572F, -1.7296F, 1, 1, 4, 0.0F, false));
 
         bone19 = new ModelRenderer(this);
-        bone19.setRotationPoint(-1.5F, -26.75F, -11.0F);
+        bone19.setRotationPoint(-1.5F, -26.75F, -11);
         handguard_left.addChild(bone19);
         setRotationAngle(bone19, 0.0F, 0.0F, 0.7854F);
         bone19.cubeList.add(new ModelBox(bone19, 0, 108, -0.9393F, -3.8891F, 2.0F, 1, 1, 9, 0.0F, false));
@@ -1804,7 +1804,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone23.cubeList.add(new ModelBox(bone23, 99, 105, -0.5467F, -0.3055F, -0.7513F, 1, 1, 1, 0.0F, false));
 
         bone21 = new ModelRenderer(this);
-        bone21.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone21.setRotationPoint(-2.5F, -22.5F, -11);
         handguard_left.addChild(bone21);
         setRotationAngle(bone21, 0.0F, 0.0F, -0.3927F);
         bone21.cubeList.add(new ModelBox(bone21, 0, 131, 2.9661F, 1.184F, -7.0F, 1, 1, 20, 0.0F, false));
@@ -1848,7 +1848,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone35.setRotationPoint(0.0F, -0.3436F, -0.7273F);
         bone34.addChild(bone35);
         setRotationAngle(bone35, 0.0F, -0.7854F, 0.0F);
-        bone35.cubeList.add(new ModelBox(bone35, 99, 55, -0.7071F, -2.0F, -1.0F, 1, 4, 1, 0.0F, false));
+        bone35.cubeList.add(new ModelBox(bone35, 99, 55, -0.7071F, -2.0F, -1, 1, 4, 1, 0.0F, false));
         bone35.cubeList.add(new ModelBox(bone35, 80, 93, -0.7071F, -3.0F, -2.0F, 1, 5, 1, 0.0F, false));
 
         bone36 = new ModelRenderer(this);
@@ -1918,7 +1918,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone45.cubeList.add(new ModelBox(bone45, 0, 40, -2.0F, 0.1572F, -1.7296F, 1, 1, 4, 0.0F, false));
 
         bone46 = new ModelRenderer(this);
-        bone46.setRotationPoint(1.5F, -26.75F, -11.0F);
+        bone46.setRotationPoint(1.5F, -26.75F, -11);
         handguard_right.addChild(bone46);
         setRotationAngle(bone46, 0.0F, 0.0F, -0.7854F);
         bone46.cubeList.add(new ModelBox(bone46, 25, 91, -0.0607F, -3.8891F, 2.0F, 1, 1, 9, 0.0F, false));
@@ -1937,7 +1937,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone47.cubeList.add(new ModelBox(bone47, 83, 105, -0.4533F, -0.3055F, -0.7513F, 1, 1, 1, 0.0F, false));
 
         bone48 = new ModelRenderer(this);
-        bone48.setRotationPoint(2.5F, -22.5F, -11.0F);
+        bone48.setRotationPoint(2.5F, -22.5F, -11);
         handguard_right.addChild(bone48);
         setRotationAngle(bone48, 0.0F, 0.0F, 0.3927F);
         bone48.cubeList.add(new ModelBox(bone48, 110, 21, -3.9661F, 1.184F, -7.0F, 1, 1, 20, 0.0F, false));
@@ -1969,7 +1969,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         spike_grip.cubeList.add(new ModelBox(spike_grip, 71, 105, -2.25F, -21.25F, -40.5F, 1, 1, 1, 0.0F, false));
 
         bone53_r1 = new ModelRenderer(this);
-        bone53_r1.setRotationPoint(-3.0F, -21.0F, -43.0F);
+        bone53_r1.setRotationPoint(-3.0F, -21, -43.0F);
         spike_grip.addChild(bone53_r1);
         setRotationAngle(bone53_r1, 0.0F, 0.0F, -0.2182F);
 
@@ -1981,108 +1981,108 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone44 = new ModelRenderer(this);
-        bone44.setRotationPoint(-1.0F, -21.0F, -43.0F);
+        bone44.setRotationPoint(-1, -21, -43.0F);
         spike_grip.addChild(bone44);
         bone44.cubeList.add(new ModelBox(bone44, 12, 82, 0.0F, 0.0F, 3.0F, 2, 4, 1, 0.0F, false));
         bone44.cubeList.add(new ModelBox(bone44, 91, 13, 0.0F, 0.0F, 2.0F, 2, 3, 1, 0.0F, false));
 
         bone39_r1 = new ModelRenderer(this);
-        bone39_r1.setRotationPoint(1.0F, 1.25F, 3.0F);
+        bone39_r1.setRotationPoint(1, 1.25F, 3.0F);
         bone44.addChild(bone39_r1);
         setRotationAngle(bone39_r1, -1.1781F, 0.0F, 0.0F);
 
 
         bone40_r1 = new ModelRenderer(this);
-        bone40_r1.setRotationPoint(1.0F, 3.75F, 3.25F);
+        bone40_r1.setRotationPoint(1, 3.75F, 3.25F);
         bone44.addChild(bone40_r1);
         setRotationAngle(bone40_r1, 0.3054F, 0.0F, 0.0F);
 
 
         bone56_r1 = new ModelRenderer(this);
-        bone56_r1.setRotationPoint(1.0F, 1.5F, 3.5F);
+        bone56_r1.setRotationPoint(1, 1.5F, 3.5F);
         bone44.addChild(bone56_r1);
         setRotationAngle(bone56_r1, -0.7854F, 0.0F, 0.0F);
 
 
         bone56 = new ModelRenderer(this);
-        bone56.setRotationPoint(1.0F, 1.5F, 3.5F);
+        bone56.setRotationPoint(1, 1.5F, 3.5F);
         bone44.addChild(bone56);
         setRotationAngle(bone56, -0.7854F, 0.0F, 0.0F);
-        bone56.cubeList.add(new ModelBox(bone56, 97, 72, -1.0F, -1.5F, -0.5F, 2, 2, 1, 0.0F, false));
+        bone56.cubeList.add(new ModelBox(bone56, 97, 72, -1, -1.5F, -0.5F, 2, 2, 1, 0.0F, false));
 
         bone40 = new ModelRenderer(this);
-        bone40.setRotationPoint(1.0F, 3.75F, 3.25F);
+        bone40.setRotationPoint(1, 3.75F, 3.25F);
         bone44.addChild(bone40);
         setRotationAngle(bone40, 0.3054F, 0.0F, 0.0F);
-        bone40.cubeList.add(new ModelBox(bone40, 80, 100, -1.0F, -0.553F, -0.8951F, 2, 1, 1, 0.0F, false));
-        bone40.cubeList.add(new ModelBox(bone40, 12, 99, -1.0F, -0.536F, -0.3599F, 2, 1, 1, 0.0F, false));
+        bone40.cubeList.add(new ModelBox(bone40, 80, 100, -1, -0.553F, -0.8951F, 2, 1, 1, 0.0F, false));
+        bone40.cubeList.add(new ModelBox(bone40, 12, 99, -1, -0.536F, -0.3599F, 2, 1, 1, 0.0F, false));
 
         bone39 = new ModelRenderer(this);
-        bone39.setRotationPoint(1.0F, 1.25F, 3.0F);
+        bone39.setRotationPoint(1, 1.25F, 3.0F);
         bone44.addChild(bone39);
         setRotationAngle(bone39, -1.1781F, 0.0F, 0.0F);
-        bone39.cubeList.add(new ModelBox(bone39, 66, 88, -1.0F, 0.6564F, -1.2273F, 2, 1, 4, 0.0F, false));
+        bone39.cubeList.add(new ModelBox(bone39, 66, 88, -1, 0.6564F, -1.2273F, 2, 1, 4, 0.0F, false));
 
         bone50 = new ModelRenderer(this);
         bone50.setRotationPoint(0.0F, -21.5F, -43.0F);
         spike_grip.addChild(bone50);
         setRotationAngle(bone50, 0.0F, 0.0F, 0.2182F);
-        bone50.cubeList.add(new ModelBox(bone50, 97, 67, 1.0F, 0.0F, 3.0F, 1, 4, 1, 0.0F, false));
-        bone50.cubeList.add(new ModelBox(bone50, 55, 24, 1.0F, 0.0F, 2.0F, 1, 3, 1, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 97, 67, 1, 0.0F, 3.0F, 1, 4, 1, 0.0F, false));
+        bone50.cubeList.add(new ModelBox(bone50, 55, 24, 1, 0.0F, 2.0F, 1, 3, 1, 0.0F, false));
 
         bone52_r1 = new ModelRenderer(this);
-        bone52_r1.setRotationPoint(1.0F, 1.25F, 3.0F);
+        bone52_r1.setRotationPoint(1, 1.25F, 3.0F);
         bone50.addChild(bone52_r1);
         setRotationAngle(bone52_r1, -1.1781F, 0.0F, 0.0F);
 
 
         bone51_r1 = new ModelRenderer(this);
-        bone51_r1.setRotationPoint(1.0F, 3.75F, 3.25F);
+        bone51_r1.setRotationPoint(1, 3.75F, 3.25F);
         bone50.addChild(bone51_r1);
         setRotationAngle(bone51_r1, 0.3054F, 0.0F, 0.0F);
 
 
         bone51 = new ModelRenderer(this);
-        bone51.setRotationPoint(1.0F, 3.75F, 3.25F);
+        bone51.setRotationPoint(1, 3.75F, 3.25F);
         bone50.addChild(bone51);
         setRotationAngle(bone51, 0.3054F, 0.0F, 0.0F);
         bone51.cubeList.add(new ModelBox(bone51, 67, 105, 0.0F, -0.553F, -0.8951F, 1, 1, 1, 0.0F, false));
         bone51.cubeList.add(new ModelBox(bone51, 63, 105, 0.0F, -0.536F, -0.3599F, 1, 1, 1, 0.0F, false));
 
         bone52 = new ModelRenderer(this);
-        bone52.setRotationPoint(1.0F, 1.25F, 3.0F);
+        bone52.setRotationPoint(1, 1.25F, 3.0F);
         bone50.addChild(bone52);
         setRotationAngle(bone52, -1.1781F, 0.0F, 0.0F);
         bone52.cubeList.add(new ModelBox(bone52, 12, 35, 0.0F, 0.6564F, -1.2273F, 1, 1, 4, 0.0F, false));
 
         bone53 = new ModelRenderer(this);
-        bone53.setRotationPoint(-3.0F, -21.0F, -43.0F);
+        bone53.setRotationPoint(-3.0F, -21, -43.0F);
         spike_grip.addChild(bone53);
         setRotationAngle(bone53, 0.0F, 0.0F, -0.2182F);
-        bone53.cubeList.add(new ModelBox(bone53, 74, 97, 1.0F, 0.0F, 3.0F, 1, 4, 1, 0.0F, false));
-        bone53.cubeList.add(new ModelBox(bone53, 33, 54, 1.0F, 0.0F, 2.0F, 1, 3, 1, 0.0F, false));
+        bone53.cubeList.add(new ModelBox(bone53, 74, 97, 1, 0.0F, 3.0F, 1, 4, 1, 0.0F, false));
+        bone53.cubeList.add(new ModelBox(bone53, 33, 54, 1, 0.0F, 2.0F, 1, 3, 1, 0.0F, false));
 
         bone55_r1 = new ModelRenderer(this);
-        bone55_r1.setRotationPoint(1.0F, 1.25F, 3.0F);
+        bone55_r1.setRotationPoint(1, 1.25F, 3.0F);
         bone53.addChild(bone55_r1);
         setRotationAngle(bone55_r1, -1.1781F, 0.0F, 0.0F);
 
 
         bone54_r1 = new ModelRenderer(this);
-        bone54_r1.setRotationPoint(1.0F, 3.75F, 3.25F);
+        bone54_r1.setRotationPoint(1, 3.75F, 3.25F);
         bone53.addChild(bone54_r1);
         setRotationAngle(bone54_r1, 0.3054F, 0.0F, 0.0F);
 
 
         bone54 = new ModelRenderer(this);
-        bone54.setRotationPoint(1.0F, 3.75F, 3.25F);
+        bone54.setRotationPoint(1, 3.75F, 3.25F);
         bone53.addChild(bone54);
         setRotationAngle(bone54, 0.3054F, 0.0F, 0.0F);
         bone54.cubeList.add(new ModelBox(bone54, 59, 105, 0.0F, -0.553F, -0.8951F, 1, 1, 1, 0.0F, false));
         bone54.cubeList.add(new ModelBox(bone54, 55, 105, 0.0F, -0.536F, -0.3599F, 1, 1, 1, 0.0F, false));
 
         bone55 = new ModelRenderer(this);
-        bone55.setRotationPoint(1.0F, 1.25F, 3.0F);
+        bone55.setRotationPoint(1, 1.25F, 3.0F);
         bone53.addChild(bone55);
         setRotationAngle(bone55, -1.1781F, 0.0F, 0.0F);
         bone55.cubeList.add(new ModelBox(bone55, 0, 35, 0.0F, 0.6564F, -1.2273F, 1, 1, 4, 0.0F, false));
@@ -2117,22 +2117,22 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone210.setRotationPoint(-0.5F, -1.5F, 0.5F);
         bone180.addChild(bone210);
         setRotationAngle(bone210, 0.0F, 0.0F, -0.7854F);
-        bone210.cubeList.add(new ModelBox(bone210, 55, 24, -1.0F, -0.7071F, 29.5F, 1, 1, 23, 0.0F, false));
+        bone210.cubeList.add(new ModelBox(bone210, 55, 24, -1, -0.7071F, 29.5F, 1, 1, 23, 0.0F, false));
 
         bone211 = new ModelRenderer(this);
         bone211.setRotationPoint(-0.5F, -1.5F, 0.5F);
         bone180.addChild(bone211);
         setRotationAngle(bone211, 0.0F, 0.0F, -0.7854F);
-        bone211.cubeList.add(new ModelBox(bone211, 55, 0, -1.0F, 0.7071F, 29.5F, 1, 1, 23, 0.0F, false));
+        bone211.cubeList.add(new ModelBox(bone211, 55, 0, -1, 0.7071F, 29.5F, 1, 1, 23, 0.0F, false));
 
         bone212 = new ModelRenderer(this);
-        bone212.setRotationPoint(-1.0F, -1.7071F, 0.5F);
+        bone212.setRotationPoint(-1, -1.7071F, 0.5F);
         bone180.addChild(bone212);
         setRotationAngle(bone212, 0.0F, 0.0F, -1.5708F);
         bone212.cubeList.add(new ModelBox(bone212, 55, 55, -1.4142F, -0.7071F, 29.5F, 1, 1, 23, 0.0F, false));
 
         bone218 = new ModelRenderer(this);
-        bone218.setRotationPoint(-1.0F, -1.7071F, 0.5F);
+        bone218.setRotationPoint(-1, -1.7071F, 0.5F);
         bone180.addChild(bone218);
         setRotationAngle(bone218, 0.0F, 0.0F, -1.5708F);
         bone218.cubeList.add(new ModelBox(bone218, 0, 54, -1.4142F, 0.7071F, 29.5F, 1, 1, 23, 0.0F, false));
@@ -2179,16 +2179,16 @@ public class ScorpionEVO3A1Action extends ModelBase {
         handguard_left2.cubeList.add(new ModelBox(handguard_left2, 116, 191, 2.0F, -24.0F, -17.0F, 1, 1, 17, 0.0F, false));
         handguard_left2.cubeList.add(new ModelBox(handguard_left2, 12, 104, 2.001F, -25.0F, -5.5F, 1, 1, 1, 0.0F, false));
         handguard_left2.cubeList.add(new ModelBox(handguard_left2, 0, 104, 2.0F, -25.25F, -5.5F, 1, 1, 1, 0.0F, false));
-        handguard_left2.cubeList.add(new ModelBox(handguard_left2, 8, 104, 2.001F, -25.0F, -11.0F, 1, 1, 1, 0.0F, false));
-        handguard_left2.cubeList.add(new ModelBox(handguard_left2, 103, 72, 2.0F, -25.25F, -11.0F, 1, 1, 1, 0.0F, false));
+        handguard_left2.cubeList.add(new ModelBox(handguard_left2, 8, 104, 2.001F, -25.0F, -11, 1, 1, 1, 0.0F, false));
+        handguard_left2.cubeList.add(new ModelBox(handguard_left2, 103, 72, 2.0F, -25.25F, -11, 1, 1, 1, 0.0F, false));
         handguard_left2.cubeList.add(new ModelBox(handguard_left2, 4, 104, 2.001F, -25.0F, -16.5F, 1, 1, 1, 0.0F, false));
         handguard_left2.cubeList.add(new ModelBox(handguard_left2, 103, 57, 2.0F, -25.25F, -16.5F, 1, 1, 1, 0.0F, false));
         handguard_left2.cubeList.add(new ModelBox(handguard_left2, 68, 11, 2.001F, -27.0F, 0.0F, 1, 5, 2, 0.0F, false));
         handguard_left2.cubeList.add(new ModelBox(handguard_left2, 55, 35, 2.0F, -25.0F, 1.25F, 1, 2, 1, 0.0F, false));
         handguard_left2.cubeList.add(new ModelBox(handguard_left2, 17, 78, 2.0F, -27.25F, 0.0F, 1, 1, 2, 0.0F, false));
         handguard_left2.cubeList.add(new ModelBox(handguard_left2, 131, 131, 2.002F, -24.0F, 2.0F, 1, 2, 15, 0.0F, false));
-        handguard_left2.cubeList.add(new ModelBox(handguard_left2, 131, 82, -1.0F, -30.25F, -12.0F, 2, 2, 14, 0.0F, false));
-        handguard_left2.cubeList.add(new ModelBox(handguard_left2, 0, 108, -1.0F, -22.25F, -19.75F, 2, 1, 22, 0.0F, false));
+        handguard_left2.cubeList.add(new ModelBox(handguard_left2, 131, 82, -1, -30.25F, -12.0F, 2, 2, 14, 0.0F, false));
+        handguard_left2.cubeList.add(new ModelBox(handguard_left2, 0, 108, -1, -22.25F, -19.75F, 2, 1, 22, 0.0F, false));
 
         bone172 = new ModelRenderer(this);
         bone172.setRotationPoint(2.5F, -24.5F, -16.75F);
@@ -2198,13 +2198,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone172.cubeList.add(new ModelBox(bone172, 79, 103, -0.5F, 1.6341F, -1.404F, 1, 1, 1, 0.0F, false));
 
         bone21_r2 = new ModelRenderer(this);
-        bone21_r2.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone21_r2.setRotationPoint(-2.5F, -22.5F, -11);
         handguard_left2.addChild(bone21_r2);
         setRotationAngle(bone21_r2, 0.0F, 0.0F, -0.3927F);
 
 
         bone19_r2 = new ModelRenderer(this);
-        bone19_r2.setRotationPoint(-1.5F, -26.75F, -11.0F);
+        bone19_r2.setRotationPoint(-1.5F, -26.75F, -11);
         handguard_left2.addChild(bone19_r2);
         setRotationAngle(bone19_r2, 0.0F, 0.0F, 0.7854F);
 
@@ -2216,7 +2216,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone31_r2 = new ModelRenderer(this);
-        bone31_r2.setRotationPoint(-1.0F, -27.75F, -15.0F);
+        bone31_r2.setRotationPoint(-1, -27.75F, -15.0F);
         handguard_left2.addChild(bone31_r2);
         setRotationAngle(bone31_r2, 0.3054F, 0.0F, 0.0F);
 
@@ -2264,13 +2264,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone179 = new ModelRenderer(this);
-        bone179.setRotationPoint(-1.0F, -27.75F, -17.0F);
+        bone179.setRotationPoint(-1, -27.75F, -17.0F);
         handguard_left2.addChild(bone179);
         setRotationAngle(bone179, 0.349F, 0.0F, 0.0F);
         bone179.cubeList.add(new ModelBox(bone179, 0, 131, 0.0F, -0.6393F, -0.4465F, 2, 1, 6, 0.0F, false));
 
         bone181 = new ModelRenderer(this);
-        bone181.setRotationPoint(-1.5F, -26.75F, -11.0F);
+        bone181.setRotationPoint(-1.5F, -26.75F, -11);
         handguard_left2.addChild(bone181);
         setRotationAngle(bone181, 0.0F, 0.0F, 0.7854F);
         bone181.cubeList.add(new ModelBox(bone181, 174, 192, -0.1716F, -3.5355F, -4.0F, 1, 1, 17, 0.0F, false));
@@ -2304,25 +2304,25 @@ public class ScorpionEVO3A1Action extends ModelBase {
         handguard_left3 = new ModelRenderer(this);
         handguard_left3.setRotationPoint(0.0F, 0.0F, -8.0F);
         handguard_short2.addChild(handguard_left3);
-        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 167, 81, 1.0F, -26.0F, -16.0F, 1, 4, 18, 0.0F, false));
-        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 72, 55, 2.0F, -26.0F, -1.0F, 1, 4, 2, 0.0F, false));
-        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 19, 11, 2.0F, -26.0F, 1.0F, 1, 1, 1, 0.0F, false));
-        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 19, 19, 2.0F, -23.0F, 1.0F, 1, 1, 1, 0.0F, false));
-        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 12, 78, 1.0F, -27.0F, -16.0F, 1, 1, 3, 0.0F, false));
-        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 20, 104, 1.0F, -27.0F, -9.0F, 1, 1, 1, 0.0F, false));
-        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 0, 138, 1.0F, -27.0F, -4.0F, 1, 1, 6, 0.0F, false));
-        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 192, 192, 1.0F, -28.0F, -16.0F, 1, 1, 18, 0.0F, false));
-        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 165, 130, -1.0F, -30.25F, -16.0F, 2, 2, 18, 0.0F, false));
-        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 172, 54, -1.0F, -22.25F, -16.0F, 2, 1, 18, 0.0F, false));
+        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 167, 81, 1, -26.0F, -16.0F, 1, 4, 18, 0.0F, false));
+        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 72, 55, 2.0F, -26.0F, -1, 1, 4, 2, 0.0F, false));
+        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 19, 11, 2.0F, -26.0F, 1, 1, 1, 1, 0.0F, false));
+        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 19, 19, 2.0F, -23.0F, 1, 1, 1, 1, 0.0F, false));
+        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 12, 78, 1, -27.0F, -16.0F, 1, 1, 3, 0.0F, false));
+        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 20, 104, 1, -27.0F, -9.0F, 1, 1, 1, 0.0F, false));
+        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 0, 138, 1, -27.0F, -4.0F, 1, 1, 6, 0.0F, false));
+        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 192, 192, 1, -28.0F, -16.0F, 1, 1, 18, 0.0F, false));
+        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 165, 130, -1, -30.25F, -16.0F, 2, 2, 18, 0.0F, false));
+        handguard_left3.cubeList.add(new ModelBox(handguard_left3, 172, 54, -1, -22.25F, -16.0F, 2, 1, 18, 0.0F, false));
 
         bone21_r3 = new ModelRenderer(this);
-        bone21_r3.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone21_r3.setRotationPoint(-2.5F, -22.5F, -11);
         handguard_left3.addChild(bone21_r3);
         setRotationAngle(bone21_r3, 0.0F, 0.0F, -0.3927F);
 
 
         bone19_r3 = new ModelRenderer(this);
-        bone19_r3.setRotationPoint(-1.5F, -26.75F, -11.0F);
+        bone19_r3.setRotationPoint(-1.5F, -26.75F, -11);
         handguard_left3.addChild(bone19_r3);
         setRotationAngle(bone19_r3, 0.0F, 0.0F, 0.7854F);
 
@@ -2334,7 +2334,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone31_r3 = new ModelRenderer(this);
-        bone31_r3.setRotationPoint(-1.0F, -27.75F, -15.0F);
+        bone31_r3.setRotationPoint(-1, -27.75F, -15.0F);
         handguard_left3.addChild(bone31_r3);
         setRotationAngle(bone31_r3, 0.3054F, 0.0F, 0.0F);
 
@@ -2402,7 +2402,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone213.setRotationPoint(-1.5F, 5.6264F, 34.5385F);
         bone215.addChild(bone213);
         setRotationAngle(bone213, 0.6981F, 0.0F, 0.0F);
-        bone213.cubeList.add(new ModelBox(bone213, 80, 67, 1.0F, -26.8588F, -26.0114F, 1, 3, 2, 0.0F, false));
+        bone213.cubeList.add(new ModelBox(bone213, 80, 67, 1, -26.8588F, -26.0114F, 1, 3, 2, 0.0F, false));
 
         receiver_upper7_r9 = new ModelRenderer(this);
         receiver_upper7_r9.setRotationPoint(0.5858F, -23.8588F, -26.7185F);
@@ -2453,7 +2453,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         receiver_upper7_r8.cubeList.add(new ModelBox(receiver_upper7_r8, 16, 104, -0.5538F, 0.9497F, -0.4856F, 1, 1, 1, 0.0F, false));
 
         bone225 = new ModelRenderer(this);
-        bone225.setRotationPoint(-1.5F, -26.75F, -11.0F);
+        bone225.setRotationPoint(-1.5F, -26.75F, -11);
         handguard_left3.addChild(bone225);
         setRotationAngle(bone225, 0.0F, 0.0F, 0.7854F);
         bone225.cubeList.add(new ModelBox(bone225, 154, 192, -0.409F, -3.3588F, -5.0F, 1, 1, 18, 0.0F, false));
@@ -2479,14 +2479,14 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone186.cubeList.add(new ModelBox(bone186, 0, 24, -1.5421F, -0.7583F, -6.1179F, 1, 1, 10, 0.0F, false));
 
         bone214 = new ModelRenderer(this);
-        bone214.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone214.setRotationPoint(-2.5F, -22.5F, -11);
         handguard_left3.addChild(bone214);
         setRotationAngle(bone214, 0.0F, 0.0F, -0.3927F);
         bone214.cubeList.add(new ModelBox(bone214, 110, 0, 2.89F, 1.5667F, -7.0F, 2, 1, 20, 0.0F, false));
         bone214.cubeList.add(new ModelBox(bone214, 63, 103, 2.3725F, 2.4181F, 9.25F, 1, 1, 1, 0.0F, false));
         bone214.cubeList.add(new ModelBox(bone214, 165, 27, 3.89F, 1.5667F, -25.75F, 1, 1, 19, 0.0F, false));
         bone214.cubeList.add(new ModelBox(bone214, 47, 73, 2.89F, 1.5667F, -8.25F, 1, 1, 2, 0.0F, false));
-        bone214.cubeList.add(new ModelBox(bone214, 103, 22, 2.89F, 1.5667F, -11.0F, 1, 1, 1, 0.0F, false));
+        bone214.cubeList.add(new ModelBox(bone214, 103, 22, 2.89F, 1.5667F, -11, 1, 1, 1, 0.0F, false));
         bone214.cubeList.add(new ModelBox(bone214, 99, 103, 2.89F, 1.5667F, -13.75F, 1, 1, 1, 0.0F, false));
         bone214.cubeList.add(new ModelBox(bone214, 87, 103, 2.89F, 1.5667F, -19.25F, 1, 1, 1, 0.0F, false));
         bone214.cubeList.add(new ModelBox(bone214, 95, 103, 2.89F, 1.5667F, -16.5F, 1, 1, 1, 0.0F, false));
@@ -2496,7 +2496,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone173 = new ModelRenderer(this);
         bone173.setRotationPoint(3.89F, 2.0667F, -26.25F);
         bone214.addChild(bone173);
-        bone173.cubeList.add(new ModelBox(bone173, 72, 61, -1.0F, -0.5F, -0.5F, 1, 1, 2, 0.0F, false));
+        bone173.cubeList.add(new ModelBox(bone173, 72, 61, -1, -0.5F, -0.5F, 1, 1, 2, 0.0F, false));
 
         bone174 = new ModelRenderer(this);
         bone174.setRotationPoint(3.89F, 2.0667F, -26.25F);
@@ -2525,8 +2525,8 @@ public class ScorpionEVO3A1Action extends ModelBase {
         handguard_right4.cubeList.add(new ModelBox(handguard_right4, 78, 191, -3.0F, -24.0F, -17.0F, 1, 1, 17, 0.0F, false));
         handguard_right4.cubeList.add(new ModelBox(handguard_right4, 59, 103, -3.001F, -25.0F, -5.5F, 1, 1, 1, 0.0F, false));
         handguard_right4.cubeList.add(new ModelBox(handguard_right4, 55, 103, -3.0F, -25.25F, -5.5F, 1, 1, 1, 0.0F, false));
-        handguard_right4.cubeList.add(new ModelBox(handguard_right4, 102, 88, -3.001F, -25.0F, -11.0F, 1, 1, 1, 0.0F, false));
-        handguard_right4.cubeList.add(new ModelBox(handguard_right4, 102, 82, -3.0F, -25.25F, -11.0F, 1, 1, 1, 0.0F, false));
+        handguard_right4.cubeList.add(new ModelBox(handguard_right4, 102, 88, -3.001F, -25.0F, -11, 1, 1, 1, 0.0F, false));
+        handguard_right4.cubeList.add(new ModelBox(handguard_right4, 102, 82, -3.0F, -25.25F, -11, 1, 1, 1, 0.0F, false));
         handguard_right4.cubeList.add(new ModelBox(handguard_right4, 102, 80, -3.001F, -25.0F, -16.5F, 1, 1, 1, 0.0F, false));
         handguard_right4.cubeList.add(new ModelBox(handguard_right4, 102, 78, -3.0F, -25.25F, -16.5F, 1, 1, 1, 0.0F, false));
         handguard_right4.cubeList.add(new ModelBox(handguard_right4, 67, 35, -3.001F, -27.0F, 0.0F, 1, 5, 2, 0.0F, false));
@@ -2542,13 +2542,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone176.cubeList.add(new ModelBox(bone176, 102, 74, -0.5F, 1.6341F, -1.404F, 1, 1, 1, 0.0F, false));
 
         bone21_r4 = new ModelRenderer(this);
-        bone21_r4.setRotationPoint(2.5F, -22.5F, -11.0F);
+        bone21_r4.setRotationPoint(2.5F, -22.5F, -11);
         handguard_right4.addChild(bone21_r4);
         setRotationAngle(bone21_r4, 0.0F, 0.0F, 0.3927F);
 
 
         bone19_r4 = new ModelRenderer(this);
-        bone19_r4.setRotationPoint(1.5F, -26.75F, -11.0F);
+        bone19_r4.setRotationPoint(1.5F, -26.75F, -11);
         handguard_right4.addChild(bone19_r4);
         setRotationAngle(bone19_r4, 0.0F, 0.0F, -0.7854F);
 
@@ -2560,7 +2560,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone31_r4 = new ModelRenderer(this);
-        bone31_r4.setRotationPoint(1.0F, -27.75F, -15.0F);
+        bone31_r4.setRotationPoint(1, -27.75F, -15.0F);
         handguard_right4.addChild(bone31_r4);
         setRotationAngle(bone31_r4, 0.3054F, 0.0F, 0.0F);
 
@@ -2608,7 +2608,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone182 = new ModelRenderer(this);
-        bone182.setRotationPoint(1.5F, -26.75F, -11.0F);
+        bone182.setRotationPoint(1.5F, -26.75F, -11);
         handguard_right4.addChild(bone182);
         setRotationAngle(bone182, 0.0F, 0.0F, -0.7854F);
         bone182.cubeList.add(new ModelBox(bone182, 20, 190, -0.8284F, -3.5355F, -4.0F, 1, 1, 17, 0.0F, false));
@@ -2625,7 +2625,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone183.setRotationPoint(-1.4042F, -3.8134F, 13.1F);
         bone182.addChild(bone183);
         setRotationAngle(bone183, -1.1781F, -0.6109F, 0.0F);
-        bone183.cubeList.add(new ModelBox(bone183, 102, 4, -1.0F, -0.5F, 0.5F, 1, 1, 1, 0.0F, false));
+        bone183.cubeList.add(new ModelBox(bone183, 102, 4, -1, -0.5F, 0.5F, 1, 1, 1, 0.0F, false));
 
         bone184 = new ModelRenderer(this);
         bone184.setRotationPoint(-1.6516F, -2.8588F, -4.25F);
@@ -2643,21 +2643,21 @@ public class ScorpionEVO3A1Action extends ModelBase {
         handguard_right5.setRotationPoint(0.0F, 0.0F, -8.0F);
         handguard_short3.addChild(handguard_right5);
         handguard_right5.cubeList.add(new ModelBox(handguard_right5, 110, 164, -2.0F, -26.0F, -16.0F, 1, 4, 18, 0.0F, false));
-        handguard_right5.cubeList.add(new ModelBox(handguard_right5, 25, 0, -3.0F, -26.0F, -1.0F, 1, 4, 3, 0.0F, false));
+        handguard_right5.cubeList.add(new ModelBox(handguard_right5, 25, 0, -3.0F, -26.0F, -1, 1, 4, 3, 0.0F, false));
         handguard_right5.cubeList.add(new ModelBox(handguard_right5, 0, 78, -2.0F, -27.0F, -16.0F, 1, 1, 3, 0.0F, false));
         handguard_right5.cubeList.add(new ModelBox(handguard_right5, 32, 102, -2.0F, -27.0F, -9.0F, 1, 1, 1, 0.0F, false));
         handguard_right5.cubeList.add(new ModelBox(handguard_right5, 134, 122, -2.0F, -27.0F, -4.0F, 1, 1, 6, 0.0F, false));
         handguard_right5.cubeList.add(new ModelBox(handguard_right5, 187, 142, -2.0F, -28.0F, -16.0F, 1, 1, 18, 0.0F, false));
-        handguard_right5.cubeList.add(new ModelBox(handguard_right5, 80, 64, -1.0F, -21.25F, -1.75F, 2, 1, 1, 0.0F, false));
+        handguard_right5.cubeList.add(new ModelBox(handguard_right5, 80, 64, -1, -21.25F, -1.75F, 2, 1, 1, 0.0F, false));
 
         bone21_r5 = new ModelRenderer(this);
-        bone21_r5.setRotationPoint(2.5F, -22.5F, -11.0F);
+        bone21_r5.setRotationPoint(2.5F, -22.5F, -11);
         handguard_right5.addChild(bone21_r5);
         setRotationAngle(bone21_r5, 0.0F, 0.0F, 0.3927F);
 
 
         bone19_r5 = new ModelRenderer(this);
-        bone19_r5.setRotationPoint(1.5F, -26.75F, -11.0F);
+        bone19_r5.setRotationPoint(1.5F, -26.75F, -11);
         handguard_right5.addChild(bone19_r5);
         setRotationAngle(bone19_r5, 0.0F, 0.0F, -0.7854F);
 
@@ -2669,7 +2669,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
 
 
         bone31_r5 = new ModelRenderer(this);
-        bone31_r5.setRotationPoint(1.0F, -27.75F, -15.0F);
+        bone31_r5.setRotationPoint(1, -27.75F, -15.0F);
         handguard_right5.addChild(bone31_r5);
         setRotationAngle(bone31_r5, 0.3054F, 0.0F, 0.0F);
 
@@ -2761,7 +2761,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone191.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone190.addChild(bone191);
         setRotationAngle(bone191, 0.6981F, 0.0F, 0.0F);
-        bone191.cubeList.add(new ModelBox(bone191, 25, 67, 1.0F, -28.5083F, -26.0575F, 1, 5, 2, 0.0F, false));
+        bone191.cubeList.add(new ModelBox(bone191, 25, 67, 1, -28.5083F, -26.0575F, 1, 5, 2, 0.0F, false));
 
         receiver_upper7_r10 = new ModelRenderer(this);
         receiver_upper7_r10.setRotationPoint(0.5858F, -23.8588F, -26.7185F);
@@ -2788,7 +2788,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         receiver_upper7_r11.cubeList.add(new ModelBox(receiver_upper7_r11, 28, 102, -0.4462F, 0.9497F, -0.4856F, 1, 1, 1, 0.0F, false));
 
         bone193 = new ModelRenderer(this);
-        bone193.setRotationPoint(1.5F, -26.75F, -11.0F);
+        bone193.setRotationPoint(1.5F, -26.75F, -11);
         handguard_right5.addChild(bone193);
         setRotationAngle(bone193, 0.0F, 0.0F, -0.7854F);
         bone193.cubeList.add(new ModelBox(bone193, 187, 123, -0.591F, -3.3588F, -5.0F, 1, 1, 18, 0.0F, false));
@@ -2814,14 +2814,14 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone195.cubeList.add(new ModelBox(bone195, 0, 0, 0.5421F, -0.7583F, -6.1179F, 1, 1, 10, 0.0F, false));
 
         bone196 = new ModelRenderer(this);
-        bone196.setRotationPoint(2.5F, -22.5F, -11.0F);
+        bone196.setRotationPoint(2.5F, -22.5F, -11);
         handguard_right5.addChild(bone196);
         setRotationAngle(bone196, 0.0F, 0.0F, 0.3927F);
         bone196.cubeList.add(new ModelBox(bone196, 110, 110, -4.89F, 1.5667F, -7.0F, 2, 1, 20, 0.0F, false));
         bone196.cubeList.add(new ModelBox(bone196, 24, 102, -3.3725F, 2.4181F, 9.25F, 1, 1, 1, 0.0F, false));
         bone196.cubeList.add(new ModelBox(bone196, 110, 131, -4.89F, 1.5667F, -25.75F, 1, 1, 19, 0.0F, false));
         bone196.cubeList.add(new ModelBox(bone196, 72, 24, -3.89F, 1.5667F, -8.25F, 1, 1, 2, 0.0F, false));
-        bone196.cubeList.add(new ModelBox(bone196, 20, 102, -3.89F, 1.5667F, -11.0F, 1, 1, 1, 0.0F, false));
+        bone196.cubeList.add(new ModelBox(bone196, 20, 102, -3.89F, 1.5667F, -11, 1, 1, 1, 0.0F, false));
         bone196.cubeList.add(new ModelBox(bone196, 16, 102, -3.89F, 1.5667F, -13.75F, 1, 1, 1, 0.0F, false));
         bone196.cubeList.add(new ModelBox(bone196, 12, 102, -3.89F, 1.5667F, -19.25F, 1, 1, 1, 0.0F, false));
         bone196.cubeList.add(new ModelBox(bone196, 98, 100, -3.89F, 1.5667F, -16.5F, 1, 1, 1, 0.0F, false));
@@ -2864,22 +2864,22 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone202.setRotationPoint(-0.5F, -1.5F, 0.5F);
         bone199.addChild(bone202);
         setRotationAngle(bone202, 0.0F, 0.0F, -0.7854F);
-        bone202.cubeList.add(new ModelBox(bone202, 55, 109, -1.0F, -0.7071F, -0.5F, 1, 1, 53, 0.0F, false));
+        bone202.cubeList.add(new ModelBox(bone202, 55, 109, -1, -0.7071F, -0.5F, 1, 1, 53, 0.0F, false));
 
         bone206 = new ModelRenderer(this);
         bone206.setRotationPoint(-0.5F, -1.5F, 0.5F);
         bone199.addChild(bone206);
         setRotationAngle(bone206, 0.0F, 0.0F, -0.7854F);
-        bone206.cubeList.add(new ModelBox(bone206, 0, 54, -1.0F, 0.7071F, -0.5F, 1, 1, 53, 0.0F, false));
+        bone206.cubeList.add(new ModelBox(bone206, 0, 54, -1, 0.7071F, -0.5F, 1, 1, 53, 0.0F, false));
 
         bone203 = new ModelRenderer(this);
-        bone203.setRotationPoint(-1.0F, -1.7071F, 0.5F);
+        bone203.setRotationPoint(-1, -1.7071F, 0.5F);
         bone199.addChild(bone203);
         setRotationAngle(bone203, 0.0F, 0.0F, -1.5708F);
         bone203.cubeList.add(new ModelBox(bone203, 0, 108, -1.4142F, -0.7071F, -0.5F, 1, 1, 53, 0.0F, false));
 
         bone204 = new ModelRenderer(this);
-        bone204.setRotationPoint(-1.0F, -1.7071F, 0.5F);
+        bone204.setRotationPoint(-1, -1.7071F, 0.5F);
         bone199.addChild(bone204);
         setRotationAngle(bone204, 0.0F, 0.0F, -1.5708F);
         bone204.cubeList.add(new ModelBox(bone204, 55, 1, -1.4142F, 0.7071F, -0.5F, 1, 1, 53, 0.0F, false));
@@ -2899,14 +2899,14 @@ public class ScorpionEVO3A1Action extends ModelBase {
         receiver_stock_connector = new ModelRenderer(this);
         receiver_stock_connector.setRotationPoint(-1.5F, 10.0F, 0.0F);
         receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 131, 138, -3.0F, -27.0F, 0.0F, 6, 5, 1, 0.0F, false));
-        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 61, 219, -4.0F, -28.0F, 1.0F, 2, 6, 2, 0.0F, false));
-        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 12, 0, -2.0F, -27.0F, 1.0F, 4, 5, 1, 0.0F, false));
+        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 61, 219, -4.0F, -28.0F, 1, 2, 6, 2, 0.0F, false));
+        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 12, 0, -2.0F, -27.0F, 1, 4, 5, 1, 0.0F, false));
         receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 0, 72, -2.0F, -22.625F, 0.0F, 4, 1, 1, 0.0F, false));
-        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 68, 18, -2.0F, -22.625F, 1.0F, 4, 1, 1, 0.0F, false));
+        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 68, 18, -2.0F, -22.625F, 1, 4, 1, 1, 0.0F, false));
         receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 25, 7, -2.0F, -28.75F, 0.0F, 4, 2, 1, 0.0F, false));
-        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 67, 42, -2.0F, -28.75F, 1.0F, 4, 2, 1, 0.0F, false));
-        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 96, 96, -1.0F, -30.25F, 0.0F, 2, 2, 1, 0.0F, false));
-        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 94, 88, -1.0F, -29.75F, 1.0F, 2, 2, 1, 0.0F, false));
+        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 67, 42, -2.0F, -28.75F, 1, 4, 2, 1, 0.0F, false));
+        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 96, 96, -1, -30.25F, 0.0F, 2, 2, 1, 0.0F, false));
+        receiver_stock_connector.cubeList.add(new ModelBox(receiver_stock_connector, 94, 88, -1, -29.75F, 1, 2, 2, 1, 0.0F, false));
 
         bone222 = new ModelRenderer(this);
         bone222.setRotationPoint(0.0F, -24.5F, 1.5F);
@@ -2915,77 +2915,77 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone222.cubeList.add(new ModelBox(bone222, 37, 121, -4.2322F, -2.5F, -2.4749F, 6, 5, 2, 0.0F, false));
 
         bone15_r5 = new ModelRenderer(this);
-        bone15_r5.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone15_r5.setRotationPoint(-2.5F, -22.5F, -11);
         receiver_stock_connector.addChild(bone15_r5);
         setRotationAngle(bone15_r5, 0.0F, 0.0F, -0.3927F);
 
 
         bone14_r5 = new ModelRenderer(this);
-        bone14_r5.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone14_r5.setRotationPoint(-2.5F, -22.5F, -11);
         receiver_stock_connector.addChild(bone14_r5);
         setRotationAngle(bone14_r5, 0.0F, 0.0F, 0.3927F);
 
 
         bone17_r5 = new ModelRenderer(this);
-        bone17_r5.setRotationPoint(-1.5F, -27.5F, -11.0F);
+        bone17_r5.setRotationPoint(-1.5F, -27.5F, -11);
         receiver_stock_connector.addChild(bone17_r5);
         setRotationAngle(bone17_r5, 0.0F, 0.0F, 0.7854F);
 
 
         bone15_r6 = new ModelRenderer(this);
-        bone15_r6.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone15_r6.setRotationPoint(-2.5F, -22.5F, -11);
         receiver_stock_connector.addChild(bone15_r6);
         setRotationAngle(bone15_r6, 0.0F, 0.0F, -0.3927F);
 
 
         bone14_r6 = new ModelRenderer(this);
-        bone14_r6.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone14_r6.setRotationPoint(-2.5F, -22.5F, -11);
         receiver_stock_connector.addChild(bone14_r6);
         setRotationAngle(bone14_r6, 0.0F, 0.0F, 0.3927F);
 
 
         bone17_r6 = new ModelRenderer(this);
-        bone17_r6.setRotationPoint(-1.5F, -27.5F, -11.0F);
+        bone17_r6.setRotationPoint(-1.5F, -27.5F, -11);
         receiver_stock_connector.addChild(bone17_r6);
         setRotationAngle(bone17_r6, 0.0F, 0.0F, 0.7854F);
 
 
         bone133 = new ModelRenderer(this);
-        bone133.setRotationPoint(-1.5F, -27.5F, -11.0F);
+        bone133.setRotationPoint(-1.5F, -27.5F, -11);
         receiver_stock_connector.addChild(bone133);
         setRotationAngle(bone133, 0.0F, 0.0F, 0.7854F);
-        bone133.cubeList.add(new ModelBox(bone133, 95, 63, -0.7071F, 0.4142F, 11.0F, 1, 1, 2, 0.0F, false));
-        bone133.cubeList.add(new ModelBox(bone133, 95, 60, -0.7071F, -0.5858F, 11.0F, 1, 1, 2, 0.0F, false));
-        bone133.cubeList.add(new ModelBox(bone133, 47, 105, 1.5355F, -2.8284F, 11.0F, 1, 1, 1, 0.0F, false));
-        bone133.cubeList.add(new ModelBox(bone133, 104, 90, 2.5355F, -2.8284F, 11.0F, 1, 1, 1, 0.0F, false));
+        bone133.cubeList.add(new ModelBox(bone133, 95, 63, -0.7071F, 0.4142F, 11, 1, 1, 2, 0.0F, false));
+        bone133.cubeList.add(new ModelBox(bone133, 95, 60, -0.7071F, -0.5858F, 11, 1, 1, 2, 0.0F, false));
+        bone133.cubeList.add(new ModelBox(bone133, 47, 105, 1.5355F, -2.8284F, 11, 1, 1, 1, 0.0F, false));
+        bone133.cubeList.add(new ModelBox(bone133, 104, 90, 2.5355F, -2.8284F, 11, 1, 1, 1, 0.0F, false));
 
         bone134 = new ModelRenderer(this);
-        bone134.setRotationPoint(-1.5F, -27.5F, -11.0F);
+        bone134.setRotationPoint(-1.5F, -27.5F, -11);
         receiver_stock_connector.addChild(bone134);
         setRotationAngle(bone134, 0.0F, 0.0F, 0.7854F);
-        bone134.cubeList.add(new ModelBox(bone134, 104, 64, -1.2374F, -1.5303F, 11.0F, 1, 1, 1, 0.0F, false));
+        bone134.cubeList.add(new ModelBox(bone134, 104, 64, -1.2374F, -1.5303F, 11, 1, 1, 1, 0.0F, false));
         bone134.cubeList.add(new ModelBox(bone134, 44, 104, -1.2374F, -1.5303F, 12.0F, 1, 1, 1, 0.0F, false));
-        bone134.cubeList.add(new ModelBox(bone134, 104, 59, -1.2374F, -2.5303F, 11.0F, 1, 1, 1, 0.0F, false));
+        bone134.cubeList.add(new ModelBox(bone134, 104, 59, -1.2374F, -2.5303F, 11, 1, 1, 1, 0.0F, false));
         bone134.cubeList.add(new ModelBox(bone134, 40, 104, -1.2374F, -1.9445F, 12.0F, 1, 1, 1, 0.0F, false));
-        bone134.cubeList.add(new ModelBox(bone134, 104, 15, -0.409F, -3.3588F, 11.0F, 1, 1, 1, 0.0F, false));
+        bone134.cubeList.add(new ModelBox(bone134, 104, 15, -0.409F, -3.3588F, 11, 1, 1, 1, 0.0F, false));
         bone134.cubeList.add(new ModelBox(bone134, 36, 104, 0.1768F, -3.3588F, 12.0F, 1, 1, 1, 0.0F, false));
-        bone134.cubeList.add(new ModelBox(bone134, 104, 13, 0.591F, -3.3588F, 11.0F, 1, 1, 1, 0.0F, false));
+        bone134.cubeList.add(new ModelBox(bone134, 104, 13, 0.591F, -3.3588F, 11, 1, 1, 1, 0.0F, false));
         bone134.cubeList.add(new ModelBox(bone134, 32, 104, 0.591F, -3.3588F, 12.0F, 1, 1, 1, 0.0F, false));
 
         bone135 = new ModelRenderer(this);
-        bone135.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone135.setRotationPoint(-2.5F, -22.5F, -11);
         receiver_stock_connector.addChild(bone135);
         setRotationAngle(bone135, 0.0F, 0.0F, 0.3927F);
-        bone135.cubeList.add(new ModelBox(bone135, 45, 95, -0.2706F, -0.3467F, 11.0F, 1, 1, 2, 0.0F, false));
+        bone135.cubeList.add(new ModelBox(bone135, 45, 95, -0.2706F, -0.3467F, 11, 1, 1, 2, 0.0F, false));
 
         bone136 = new ModelRenderer(this);
-        bone136.setRotationPoint(-2.5F, -22.5F, -11.0F);
+        bone136.setRotationPoint(-2.5F, -22.5F, -11);
         receiver_stock_connector.addChild(bone136);
         setRotationAngle(bone136, 0.0F, 0.0F, -0.3927F);
-        bone136.cubeList.add(new ModelBox(bone136, 104, 9, 3.89F, 1.5667F, 11.0F, 1, 1, 1, 0.0F, false));
+        bone136.cubeList.add(new ModelBox(bone136, 104, 9, 3.89F, 1.5667F, 11, 1, 1, 1, 0.0F, false));
 
         stock = new ModelRenderer(this);
-        stock.setRotationPoint(-1.5F, 10.0F, 1.0F);
+        stock.setRotationPoint(-1.5F, 10.0F, 1);
 
 
         receiver_stock_connector4 = new ModelRenderer(this);
@@ -2996,7 +2996,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         receiver_stock_connector4.cubeList.add(new ModelBox(receiver_stock_connector4, 0, 54, 0.999F, -5.9375F, -3.25F, 1, 1, 10, 0.0F, false));
         receiver_stock_connector4.cubeList.add(new ModelBox(receiver_stock_connector4, 80, 109, -1.999F, -7.9375F, -4.25F, 1, 2, 11, 0.0F, false));
         receiver_stock_connector4.cubeList.add(new ModelBox(receiver_stock_connector4, 26, 108, 0.999F, -7.9375F, -4.25F, 1, 2, 11, 0.0F, false));
-        receiver_stock_connector4.cubeList.add(new ModelBox(receiver_stock_connector4, 80, 55, -1.0F, -8.9375F, -4.25F, 2, 1, 11, 0.0F, false));
+        receiver_stock_connector4.cubeList.add(new ModelBox(receiver_stock_connector4, 80, 55, -1, -8.9375F, -4.25F, 2, 1, 11, 0.0F, false));
 
         bone129 = new ModelRenderer(this);
         bone129.setRotationPoint(-1.5F, -6.6875F, -16.25F);
@@ -3015,9 +3015,9 @@ public class ScorpionEVO3A1Action extends ModelBase {
         receiver_stock_connector3.cubeList.add(new ModelBox(receiver_stock_connector3, 165, 150, -2.0F, -7.9375F, -4.25F, 4, 2, 11, 0.0F, false));
         receiver_stock_connector3.cubeList.add(new ModelBox(receiver_stock_connector3, 83, 48, -2.0F, -7.9375F, 6.75F, 4, 1, 3, 0.0F, false));
         receiver_stock_connector3.cubeList.add(new ModelBox(receiver_stock_connector3, 110, 121, -2.0F, -8.4375F, -13.25F, 4, 2, 5, 0.0F, false));
-        receiver_stock_connector3.cubeList.add(new ModelBox(receiver_stock_connector3, 25, 25, -1.0F, -8.9375F, -4.25F, 2, 1, 12, 0.0F, false));
-        receiver_stock_connector3.cubeList.add(new ModelBox(receiver_stock_connector3, 0, 82, -1.0F, -8.9375F, 7.75F, 2, 1, 2, 0.0F, false));
-        receiver_stock_connector3.cubeList.add(new ModelBox(receiver_stock_connector3, 0, 65, -1.0F, -9.1875F, 9.75F, 2, 1, 3, 0.0F, false));
+        receiver_stock_connector3.cubeList.add(new ModelBox(receiver_stock_connector3, 25, 25, -1, -8.9375F, -4.25F, 2, 1, 12, 0.0F, false));
+        receiver_stock_connector3.cubeList.add(new ModelBox(receiver_stock_connector3, 0, 82, -1, -8.9375F, 7.75F, 2, 1, 2, 0.0F, false));
+        receiver_stock_connector3.cubeList.add(new ModelBox(receiver_stock_connector3, 0, 65, -1, -9.1875F, 9.75F, 2, 1, 3, 0.0F, false));
 
         bone153 = new ModelRenderer(this);
         bone153.setRotationPoint(0.0F, -6.9375F, 9.75F);
@@ -3076,13 +3076,13 @@ public class ScorpionEVO3A1Action extends ModelBase {
         setRotationAngle(bone161, -0.0436F, 0.0F, 0.0F);
         bone161.cubeList.add(new ModelBox(bone161, 0, 0, -2.0F, -1.0748F, -0.5091F, 4, 8, 1, 0.0F, false));
         bone161.cubeList.add(new ModelBox(bone161, 68, 55, 0.0F, -1.7503F, -1.2463F, 1, 8, 1, 0.0F, false));
-        bone161.cubeList.add(new ModelBox(bone161, 25, 54, -1.0F, -5.7503F, -4.2463F, 2, 4, 4, 0.0F, false));
+        bone161.cubeList.add(new ModelBox(bone161, 25, 54, -1, -5.7503F, -4.2463F, 2, 4, 4, 0.0F, false));
 
         bone159 = new ModelRenderer(this);
         bone159.setRotationPoint(0.0F, 6.0625F, 10.5F);
         receiver_stock_connector3.addChild(bone159);
         setRotationAngle(bone159, 0.7854F, 0.0F, 0.0F);
-        bone159.cubeList.add(new ModelBox(bone159, 42, 51, -2.0F, -1.0F, -0.5F, 4, 1, 1, 0.0F, false));
+        bone159.cubeList.add(new ModelBox(bone159, 42, 51, -2.0F, -1, -0.5F, 4, 1, 1, 0.0F, false));
 
         bone162 = new ModelRenderer(this);
         bone162.setRotationPoint(0.0F, 5.0625F, 9.75F);
@@ -3097,7 +3097,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone154.cubeList.add(new ModelBox(bone154, 93, 109, -2.5F, -3.0F, -0.5F, 5, 6, 2, 0.0F, false));
 
         bone155 = new ModelRenderer(this);
-        bone155.setRotationPoint(0.0F, -2.6875F, 11.0F);
+        bone155.setRotationPoint(0.0F, -2.6875F, 11);
         receiver_stock_connector3.addChild(bone155);
         setRotationAngle(bone155, -0.0436F, 0.0F, 0.0F);
         bone155.cubeList.add(new ModelBox(bone155, 22, 138, -2.5F, -2.0F, -0.5F, 5, 5, 2, 0.0F, false));
@@ -3130,7 +3130,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone139.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone132.addChild(bone139);
         bone139.cubeList.add(new ModelBox(bone139, 80, 67, -2.0F, -27.25F, -9.0F, 4, 2, 9, 0.0F, false));
-        bone139.cubeList.add(new ModelBox(bone139, 55, 11, -1.0F, -26.85F, -9.0F, 2, 2, 9, 0.0F, false));
+        bone139.cubeList.add(new ModelBox(bone139, 55, 11, -1, -26.85F, -9.0F, 2, 2, 9, 0.0F, false));
 
         bone140 = new ModelRenderer(this);
         bone140.setRotationPoint(-1.5F, -25.75F, -4.5F);
@@ -3153,7 +3153,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone147.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone146.addChild(bone147);
         bone147.cubeList.add(new ModelBox(bone147, 25, 12, -2.0F, -26.475F, -9.8273F, 4, 2, 9, 0.0F, false));
-        bone147.cubeList.add(new ModelBox(bone147, 55, 0, -1.0F, -26.075F, -9.8273F, 2, 2, 9, 0.0F, false));
+        bone147.cubeList.add(new ModelBox(bone147, 55, 0, -1, -26.075F, -9.8273F, 2, 2, 9, 0.0F, false));
 
         bone150 = new ModelRenderer(this);
         bone150.setRotationPoint(0.0F, -26.475F, -1.3273F);
@@ -3165,7 +3165,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone169.setRotationPoint(0.0F, -24.825F, -5.8273F);
         bone147.addChild(bone169);
         setRotationAngle(bone169, -0.2182F, 0.0F, 0.0F);
-        bone169.cubeList.add(new ModelBox(bone169, 55, 55, -1.0F, -1.0F, -4.5F, 2, 2, 9, 0.0F, false));
+        bone169.cubeList.add(new ModelBox(bone169, 55, 55, -1, -1, -4.5F, 2, 2, 9, 0.0F, false));
 
         bone148 = new ModelRenderer(this);
         bone148.setRotationPoint(-1.5F, -25.75F, -4.5F);
@@ -3189,7 +3189,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone143.setRotationPoint(0.0F, 3.25F, 22.0F);
         bone142.addChild(bone143);
         bone143.cubeList.add(new ModelBox(bone143, 14, 48, -2.0F, -27.25F, -9.0F, 4, 2, 3, 0.0F, false));
-        bone143.cubeList.add(new ModelBox(bone143, 12, 29, -1.0F, -26.85F, -9.0F, 2, 2, 3, 0.0F, false));
+        bone143.cubeList.add(new ModelBox(bone143, 12, 29, -1, -26.85F, -9.0F, 2, 2, 3, 0.0F, false));
 
         bone144 = new ModelRenderer(this);
         bone144.setRotationPoint(-1.5F, -22.5F, 17.5F);
@@ -3253,16 +3253,16 @@ public class ScorpionEVO3A1Action extends ModelBase {
         cube_r2.setRotationPoint(0.0F, -3.969F, -3.3436F);
         bone231.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.0F, 0.0F, -0.4712F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 12, 24, -1.0F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 12, 24, -1, -1, 0.0F, 1, 1, 4, 0.0F, false));
 
         bone232 = new ModelRenderer(this);
         bone232.setRotationPoint(1.75F, -15.0F, -17.0F);
         magazine.addChild(bone232);
         setRotationAngle(bone232, -0.0436F, 0.0F, 0.0F);
-        bone232.cubeList.add(new ModelBox(bone232, 110, 82, -3.5F, -1.0F, -5.001F, 3, 3, 6, 0.0F, false));
+        bone232.cubeList.add(new ModelBox(bone232, 110, 82, -3.5F, -1, -5.001F, 3, 3, 6, 0.0F, false));
         bone232.cubeList.add(new ModelBox(bone232, 74, 0, -1.9239F, -4.0F, -5.3827F, 1, 6, 1, 0.0F, false));
         bone232.cubeList.add(new ModelBox(bone232, 73, 35, -2.5761F, -4.0F, -5.3837F, 1, 6, 1, 0.0F, false));
-        bone232.cubeList.add(new ModelBox(bone232, 39, 108, -1.0F, -1.0F, -5.0F, 1, 3, 6, 0.0F, false));
+        bone232.cubeList.add(new ModelBox(bone232, 39, 108, -1, -1, -5.0F, 1, 3, 6, 0.0F, false));
 
         bone233 = new ModelRenderer(this);
         bone233.setRotationPoint(-0.5F, 0.0F, -5.5F);
@@ -3283,7 +3283,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone235.cubeList.add(new ModelBox(bone235, 110, 42, -3.5F, 1.9545F, -4.9147F, 3, 3, 6, 0.0F, false));
         bone235.cubeList.add(new ModelBox(bone235, 18, 40, -1.9239F, 1.9545F, -5.2964F, 1, 3, 1, 0.0F, false));
         bone235.cubeList.add(new ModelBox(bone235, 12, 40, -2.5761F, 1.9545F, -5.2974F, 1, 3, 1, 0.0F, false));
-        bone235.cubeList.add(new ModelBox(bone235, 94, 79, -1.0F, 1.9545F, -4.9137F, 1, 3, 6, 0.0F, false));
+        bone235.cubeList.add(new ModelBox(bone235, 94, 79, -1, 1.9545F, -4.9137F, 1, 3, 6, 0.0F, false));
 
         bone236 = new ModelRenderer(this);
         bone236.setRotationPoint(-0.5F, 0.0F, -5.5F);
@@ -3304,7 +3304,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone238.cubeList.add(new ModelBox(bone238, 110, 30, -3.5F, 4.9024F, -4.6996F, 3, 3, 6, 0.0F, false));
         bone238.cubeList.add(new ModelBox(bone238, 6, 40, -1.9239F, 4.9024F, -5.0813F, 1, 3, 1, 0.0F, false));
         bone238.cubeList.add(new ModelBox(bone238, 0, 40, -2.5761F, 4.9024F, -5.0823F, 1, 3, 1, 0.0F, false));
-        bone238.cubeList.add(new ModelBox(bone238, 94, 0, -1.0F, 4.9024F, -4.6986F, 1, 3, 6, 0.0F, false));
+        bone238.cubeList.add(new ModelBox(bone238, 94, 0, -1, 4.9024F, -4.6986F, 1, 3, 6, 0.0F, false));
 
         bone239 = new ModelRenderer(this);
         bone239.setRotationPoint(-0.5F, 0.0F, -5.5F);
@@ -3325,7 +3325,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone241.cubeList.add(new ModelBox(bone241, 110, 21, -3.5F, 7.8381F, -4.3562F, 3, 3, 6, 0.0F, false));
         bone241.cubeList.add(new ModelBox(bone241, 18, 35, -1.9239F, 7.8381F, -4.7379F, 1, 3, 1, 0.0F, false));
         bone241.cubeList.add(new ModelBox(bone241, 12, 35, -2.5761F, 7.8381F, -4.7389F, 1, 3, 1, 0.0F, false));
-        bone241.cubeList.add(new ModelBox(bone241, 91, 37, -1.0F, 7.8381F, -4.3552F, 1, 3, 6, 0.0F, false));
+        bone241.cubeList.add(new ModelBox(bone241, 91, 37, -1, 7.8381F, -4.3552F, 1, 3, 6, 0.0F, false));
 
         bone242 = new ModelRenderer(this);
         bone242.setRotationPoint(-0.5F, 0.0F, -5.5F);
@@ -3346,7 +3346,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone244.cubeList.add(new ModelBox(bone244, 110, 9, -3.5F, 10.756F, -3.885F, 3, 3, 6, 0.0F, false));
         bone244.cubeList.add(new ModelBox(bone244, 6, 35, -1.9239F, 10.756F, -4.2667F, 1, 3, 1, 0.0F, false));
         bone244.cubeList.add(new ModelBox(bone244, 0, 35, -2.5761F, 10.756F, -4.2677F, 1, 3, 1, 0.0F, false));
-        bone244.cubeList.add(new ModelBox(bone244, 39, 78, -1.0F, 10.756F, -3.884F, 1, 3, 6, 0.0F, false));
+        bone244.cubeList.add(new ModelBox(bone244, 39, 78, -1, 10.756F, -3.884F, 1, 3, 6, 0.0F, false));
 
         bone245 = new ModelRenderer(this);
         bone245.setRotationPoint(-0.5F, 0.0F, -5.5F);
@@ -3395,7 +3395,7 @@ public class ScorpionEVO3A1Action extends ModelBase {
         bone226 = new ModelRenderer(this);
         bone226.setRotationPoint(5.0F, -28.0F, -30.0F);
         fast_thingy.addChild(bone226);
-        bone226.cubeList.add(new ModelBox(bone226, 74, 90, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        bone226.cubeList.add(new ModelBox(bone226, 74, 90, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         bone229 = new ModelRenderer(this);
         bone229.setRotationPoint(4.5F, -28.5F, -29.5F);

@@ -127,7 +127,7 @@ public class USP45 extends ModelWithAttachments {
         gun299.setRotationPoint(0.5F, -31.2F, -28.5F);
         gun.addChild(gun299);
         setRotationAngle(gun299, 0.0F, 0.0F, 0.632F);
-        gun299.cubeList.add(new ModelBox(gun299, 93, 49, -1.0F, 0.0F, 0.0F, 1, 1, 14, 0.0F, false));
+        gun299.cubeList.add(new ModelBox(gun299, 93, 49, -1, 0.0F, 0.0F, 1, 1, 14, 0.0F, false));
 
         gun298 = new ModelRenderer(this);
         gun298.setRotationPoint(-3.5F, -31.2F, -28.5F);
@@ -141,7 +141,7 @@ public class USP45 extends ModelWithAttachments {
         gun297.cubeList.add(new ModelBox(gun297, 71, 29, 0.001F, 0.0F, 0.0F, 4, 2, 1, 0.0F, false));
 
         gun296 = new ModelRenderer(this);
-        gun296.setRotationPoint(-1.0F, -30.6F, 2.25F);
+        gun296.setRotationPoint(-1, -30.6F, 2.25F);
         gun.addChild(gun296);
         setRotationAngle(gun296, 1.9333F, 0.0F, 0.0F);
         gun296.cubeList.add(new ModelBox(gun296, 31, 38, 0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
@@ -369,12 +369,12 @@ public class USP45 extends ModelWithAttachments {
         gun108.cubeList.add(new ModelBox(gun108, 0, 53, 0.0F, 0.0F, 0.0F, 5, 2, 6, 0.0F, false));
 
         gun97 = new ModelRenderer(this);
-        gun97.setRotationPoint(-4.0F, -33.2F, -1.0F);
+        gun97.setRotationPoint(-4.0F, -33.2F, -1);
         gun.addChild(gun97);
         gun97.cubeList.add(new ModelBox(gun97, 68, 6, 0.001F, -0.001F, 0.0F, 5, 1, 3, 0.0F, false));
 
         gun95 = new ModelRenderer(this);
-        gun95.setRotationPoint(-4.0F, -28.5F, -1.0F);
+        gun95.setRotationPoint(-4.0F, -28.5F, -1);
         gun.addChild(gun95);
         setRotationAngle(gun95, 2.5653F, 0.0F, 0.0F);
         gun95.cubeList.add(new ModelBox(gun95, 45, 32, -0.001F, 0.0F, 0.0F, 5, 4, 2, 0.0F, false));

@@ -56,13 +56,13 @@ public class AssaultBackpack extends ModelBiped {
         cube_r1.setRotationPoint(2.5F, 2.0F, 5.8F);
         backpack.addChild(cube_r1);
         setRotationAngle(cube_r1, -0.1041F, -0.8351F, 0.0773F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 14, 48, -1.0F, 0.0F, -1.0F, 1, 9, 1, -0.001F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 14, 48, -1, 0.0F, -1, 1, 9, 1, -0.001F, false));
 
         cube_r2 = new ModelRenderer(this);
         cube_r2.setRotationPoint(-2.5F, 2.0F, 5.8F);
         backpack.addChild(cube_r2);
         setRotationAngle(cube_r2, -0.1041F, 0.8351F, -0.0773F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 18, 48, 0.0F, 0.0F, -1.0F, 1, 9, 1, -0.001F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 18, 48, 0.0F, 0.0F, -1, 1, 9, 1, -0.001F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(2.5F, 2.0F, 5.8F);
@@ -88,7 +88,7 @@ public class AssaultBackpack extends ModelBiped {
         cube_r6.setRotationPoint(3.35F, 5.25F, -2.45F);
         backpack.addChild(cube_r6);
         setRotationAngle(cube_r6, -0.0754F, -0.1957F, -0.4489F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 32, -1.0F, 0.0F, 0.0F, 1, 3, 1, 0.0F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 32, -1, 0.0F, 0.0F, 1, 3, 1, 0.0F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(3.55F, -0.15F, -2.35F);
@@ -112,61 +112,61 @@ public class AssaultBackpack extends ModelBiped {
         cube_r10.setRotationPoint(3.3F, 9.15F, 5.0F);
         backpack.addChild(cube_r10);
         setRotationAngle(cube_r10, -0.1577F, 0.4995F, -0.0956F);
-        cube_r10.cubeList.add(new ModelBox(cube_r10, 36, 16, -1.0F, 0.0F, -1.0F, 1, 1, 1, 0.001F, false));
+        cube_r10.cubeList.add(new ModelBox(cube_r10, 36, 16, -1, 0.0F, -1, 1, 1, 1, 0.001F, false));
 
         cube_r11 = new ModelRenderer(this);
         cube_r11.setRotationPoint(-3.3F, 9.15F, 5.0F);
         backpack.addChild(cube_r11);
         setRotationAngle(cube_r11, -1.1227F, -1.2438F, 1.1436F);
-        cube_r11.cubeList.add(new ModelBox(cube_r11, 12, 32, -3.0F, 0.0F, -1.0F, 3, 1, 1, 0.0F, false));
+        cube_r11.cubeList.add(new ModelBox(cube_r11, 12, 32, -3.0F, 0.0F, -1, 3, 1, 1, 0.0F, false));
 
         cube_r12 = new ModelRenderer(this);
         cube_r12.setRotationPoint(3.3F, 9.15F, 5.0F);
         backpack.addChild(cube_r12);
         setRotationAngle(cube_r12, -1.1227F, 1.2438F, -1.1436F);
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 28, 32, 0.0F, 0.0F, -1.0F, 3, 1, 1, 0.0F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 28, 32, 0.0F, 0.0F, -1, 3, 1, 1, 0.0F, false));
 
         cube_r13 = new ModelRenderer(this);
         cube_r13.setRotationPoint(-3.3F, 9.15F, 5.0F);
         backpack.addChild(cube_r13);
         setRotationAngle(cube_r13, -0.1577F, -0.4995F, 0.0956F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 36, 18, 0.0F, 0.0F, -1.0F, 1, 1, 1, 0.001F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 36, 18, 0.0F, 0.0F, -1, 1, 1, 1, 0.001F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(-3.3F, 5.15F, 5.3F);
         backpack.addChild(cube_r14);
         setRotationAngle(cube_r14, -0.7805F, -1.3737F, 0.7903F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 12, 34, -3.0F, 0.0F, -1.0F, 3, 1, 1, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 12, 34, -3.0F, 0.0F, -1, 3, 1, 1, 0.0F, false));
 
         cube_r15 = new ModelRenderer(this);
         cube_r15.setRotationPoint(-3.3F, 5.15F, 5.3F);
         backpack.addChild(cube_r15);
         setRotationAngle(cube_r15, -0.1577F, -0.4995F, 0.0956F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 39, 17, 0.0F, 0.0F, -1.0F, 1, 1, 1, 0.001F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 39, 17, 0.0F, 0.0F, -1, 1, 1, 1, 0.001F, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(3.3F, 5.15F, 5.3F);
         backpack.addChild(cube_r16);
         setRotationAngle(cube_r16, -0.1577F, 0.4995F, -0.0956F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 40, 29, -1.0F, 0.0F, -1.0F, 1, 1, 1, 0.001F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 40, 29, -1, 0.0F, -1, 1, 1, 1, 0.001F, false));
 
         cube_r17 = new ModelRenderer(this);
         cube_r17.setRotationPoint(-4.4F, 8.25F, 2.7F);
         backpack.addChild(cube_r17);
         setRotationAngle(cube_r17, -1.2376F, -1.3512F, 1.2596F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 24, 0, -5.0F, 0.0F, -1.0F, 5, 1, 1, -0.2F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 24, 0, -5.0F, 0.0F, -1, 5, 1, 1, -0.2F, false));
 
         cube_r18 = new ModelRenderer(this);
         cube_r18.setRotationPoint(4.4F, 8.25F, 2.7F);
         backpack.addChild(cube_r18);
         setRotationAngle(cube_r18, -1.2376F, 1.3512F, -1.2596F);
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 24, 2, 0.0F, 0.0F, -1.0F, 5, 1, 1, -0.2F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 24, 2, 0.0F, 0.0F, -1, 5, 1, 1, -0.2F, false));
 
         cube_r19 = new ModelRenderer(this);
         cube_r19.setRotationPoint(3.3F, 5.15F, 5.3F);
         backpack.addChild(cube_r19);
         setRotationAngle(cube_r19, -0.7805F, 1.3737F, -0.7903F);
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 28, 34, 0.0F, 0.0F, -1.0F, 3, 1, 1, 0.0F, false));
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 28, 34, 0.0F, 0.0F, -1, 3, 1, 1, 0.0F, false));
 
         cube_r20 = new ModelRenderer(this);
         cube_r20.setRotationPoint(-2.5F, 2.45F, 6.2F);
@@ -178,7 +178,7 @@ public class AssaultBackpack extends ModelBiped {
         cube_r21.setRotationPoint(-2.5F, 4.75F, 6.2F);
         backpack.addChild(cube_r21);
         setRotationAngle(cube_r21, 0.0175F, 0.0F, 0.0F);
-        cube_r21.cubeList.add(new ModelBox(cube_r21, 38, 45, 0.0F, 1.0F, -2.0F, 5, 5, 2, 0.0F, false));
+        cube_r21.cubeList.add(new ModelBox(cube_r21, 38, 45, 0.0F, 1, -2.0F, 5, 5, 2, 0.0F, false));
 
         cube_r22 = new ModelRenderer(this);
         cube_r22.setRotationPoint(2.7F, 0.5F, 2.1F);
@@ -214,7 +214,7 @@ public class AssaultBackpack extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 24, 16, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 24, 16, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         rightarm = new ModelRenderer(this);
         rightarm.setRotationPoint(-5.0F, 2.0F, 0.0F);

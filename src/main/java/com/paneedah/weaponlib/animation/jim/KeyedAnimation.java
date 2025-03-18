@@ -33,7 +33,7 @@ public class KeyedAnimation {
     }
 
     public void doPositioning(float speed) {
-        doPositioning(1.0f, Vec3d.ZERO);
+        doPositioning(1, Vec3d.ZERO);
     }
 
     public void update(float speed) {

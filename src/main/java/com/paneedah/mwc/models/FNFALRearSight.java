@@ -34,7 +34,7 @@ public class FNFALRearSight extends ModelBase {
         bone5.setRotationPoint(3.3F, -7.1F, -1.45F);
         sight17.addChild(bone5);
         setRotationAngle(bone5, -0.1047F, -0.0698F, -0.576F);
-        bone5.cubeList.add(new ModelBox(bone5, 0, 0, -1.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 0, 0, -1, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
         bone6.setRotationPoint(-0.3F, -7.1F, -1.45F);
@@ -43,7 +43,7 @@ public class FNFALRearSight extends ModelBase {
         bone6.cubeList.add(new ModelBox(bone6, 0, 0, 0.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(-1.0F, -3.25F, -0.75F);
+        bone2.setRotationPoint(-1, -3.25F, -0.75F);
         setRotationAngle(bone2, 0.0F, 0.0F, -0.7854F);
         bone2.cubeList.add(new ModelBox(bone2, 0, 0, 0.0F, 0.7071F, 0.049F, 1, 1, 2, 0.0F, false));
         bone2.cubeList.add(new ModelBox(bone2, 0, 0, 1.4142F, -0.7071F, 0.049F, 1, 1, 2, 0.0F, false));
@@ -55,11 +55,11 @@ public class FNFALRearSight extends ModelBase {
         bone = new ModelRenderer(this);
         bone.setRotationPoint(-0.5F, -0.3F, -0.85F);
         setRotationAngle(bone, -0.1396F, 0.0F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.0F, 0.0F, 0.0F, 6, 6, 4, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.0F, 2.0F, 4.0F, 6, 4, 3, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1, 0.0F, 0.0F, 6, 6, 4, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1, 2.0F, 4.0F, 6, 4, 3, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(-1.0F, 2.0F, 7.0F);
+        bone3.setRotationPoint(-1, 2.0F, 7.0F);
         bone.addChild(bone3);
         setRotationAngle(bone3, 0.9774F, 0.0F, 0.0F);
         bone3.cubeList.add(new ModelBox(bone3, 0, 0, -0.001F, -3.0F, -2.0F, 6, 3, 2, 0.0F, false));

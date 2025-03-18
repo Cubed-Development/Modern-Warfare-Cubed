@@ -227,9 +227,9 @@ public class Deathclaw extends ModelBiped {
         this.textureWidth = p_i1149_3_;
         this.textureHeight = p_i1149_4_;
 //        this.bipedCloak = new ModelRenderer(this, 0, 0);
-//        this.bipedCloak.addBox(-5.0F, 0.0F, -1.0F, 10, 16, 1, p_i1149_1_);
+//        this.bipedCloak.addBox(-5.0F, 0.0F, -1, 10, 16, 1, p_i1149_1_);
 //        this.bipedEars = new ModelRenderer(this, 24, 0);
-//        this.bipedEars.addBox(-3.0F, -6.0F, -1.0F, 6, 6, 1, p_i1149_1_);
+//        this.bipedEars.addBox(-3.0F, -6.0F, -1, 6, 6, 1, p_i1149_1_);
 
         head = new ModelRenderer(this, 0, 0);
         head.addBox(-4F, -6.5F, -8F, 8, 9, 8);
@@ -1374,11 +1374,11 @@ public class Deathclaw extends ModelBiped {
 
         this.bipedRightArm = new ModelRenderer(this, 40, 16);
         this.bipedRightArm.addBox(-3.0F, -2.0F, -2.0F, 0, 0, 0, p_i1149_1_);
-        this.bipedRightArm.setRotationPoint(-13.0F, -20.0F, 1.0F);
+        this.bipedRightArm.setRotationPoint(-13.0F, -20.0F, 1);
         this.bipedLeftArm = new ModelRenderer(this, 40, 16);
         this.bipedLeftArm.mirror = true;
-        this.bipedLeftArm.addBox(-1.0F, -2.0F, -2.0F, 0, 0, 0, p_i1149_1_);
-        this.bipedLeftArm.setRotationPoint(13.0F, -20.0F, 1.0F);
+        this.bipedLeftArm.addBox(-1, -2.0F, -2.0F, 0, 0, 0, p_i1149_1_);
+        this.bipedLeftArm.setRotationPoint(13.0F, -20.0F, 1);
         this.bipedRightLeg = new ModelRenderer(this, 0, 16);
         this.bipedRightLeg.addBox(-2.0F, 0.0F, -2.0F, 0, 0, 0, p_i1149_1_);
         this.bipedRightLeg.setRotationPoint(-12.0F, -3.0F, 13.0F);

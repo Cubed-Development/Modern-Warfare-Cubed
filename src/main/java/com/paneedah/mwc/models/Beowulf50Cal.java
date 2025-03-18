@@ -74,9 +74,9 @@ public class Beowulf50Cal extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 55, 18, -3.8F, -35.3F, -21.4F, 1, 1, 10, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 26, 148, -3.25F, -37.0F, -22.0F, 1, 1, 24, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 142, 30, -0.8F, -38.0F, -22.5F, 1, 2, 24, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 40, 33, -3.0F, -33.35F, -1.0F, 3, 1, 4, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 40, 79, -3.3F, -36.0F, -1.0F, 3, 3, 4, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 28, 31, -0.7F, -36.0F, -1.0F, 1, 3, 4, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 40, 33, -3.0F, -33.35F, -1, 3, 1, 4, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 40, 79, -3.3F, -36.0F, -1, 3, 3, 4, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 28, 31, -0.7F, -36.0F, -1, 1, 3, 4, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 19, 26, -3.5F, -35.7F, -22.7F, 4, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 40, 18, -0.4F, -33.5F, -16.3F, 1, 1, 5, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 9, 0, -0.35F, -36.5F, -16.5F, 1, 3, 2, 0.0F, false));
@@ -87,19 +87,19 @@ public class Beowulf50Cal extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 40, 0, -0.7F, -36.0F, -14.0F, 1, 5, 13, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 29, 0, -3.0F, -32.0F, -13.8F, 3, 5, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 54, 56, -3.0F, -27.0F, -13.3F, 3, 1, 7, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 17, 39, -3.0F, -31.0F, -6.5F, 3, 5, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 17, 39, -3.0F, -31, -6.5F, 3, 5, 1, 0.0F, false));
 
         gun30_r1 = new ModelRenderer(this);
-        gun30_r1.setRotationPoint(-3.2F, -31.0F, -7.6F);
+        gun30_r1.setRotationPoint(-3.2F, -31, -7.6F);
         gun.addChild(gun30_r1);
         setRotationAngle(gun30_r1, -2.3562F, 0.0F, 0.0F);
-        gun30_r1.cubeList.add(new ModelBox(gun30_r1, 17, 45, 0.2F, -2.0F, -1.0F, 3, 2, 1, 0.0F, false));
+        gun30_r1.cubeList.add(new ModelBox(gun30_r1, 17, 45, 0.2F, -2.0F, -1, 3, 2, 1, 0.0F, false));
 
         gun29_r1 = new ModelRenderer(this);
         gun29_r1.setRotationPoint(-3.2F, -27.0F, -7.6F);
         gun.addChild(gun29_r1);
         setRotationAngle(gun29_r1, -2.3562F, 0.0F, 0.0F);
-        gun29_r1.cubeList.add(new ModelBox(gun29_r1, 0, 35, 0.2F, -1.0F, -2.0F, 3, 1, 2, 0.0F, false));
+        gun29_r1.cubeList.add(new ModelBox(gun29_r1, 0, 35, 0.2F, -1, -2.0F, 3, 1, 2, 0.0F, false));
 
         gun28_r1 = new ModelRenderer(this);
         gun28_r1.setRotationPoint(-3.2F, -27.0F, -11.5F);
@@ -151,25 +151,25 @@ public class Beowulf50Cal extends ModelWithAttachments {
         gun82_r1.cubeList.add(new ModelBox(gun82_r1, 11, 9, 0.0F, 0.0F, 0.0F, 1, 3, 1, 0.0F, false));
 
         gun118_r1 = new ModelRenderer(this);
-        gun118_r1.setRotationPoint(-3.9F, -38.4F, 1.0F);
+        gun118_r1.setRotationPoint(-3.9F, -38.4F, 1);
         gun.addChild(gun118_r1);
         setRotationAngle(gun118_r1, 0.0F, 0.0F, -2.1293F);
-        gun118_r1.cubeList.add(new ModelBox(gun118_r1, 31, 10, -1.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
+        gun118_r1.cubeList.add(new ModelBox(gun118_r1, 31, 10, -1, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         gun117_r1 = new ModelRenderer(this);
-        gun117_r1.setRotationPoint(0.9F, -38.4F, 1.0F);
+        gun117_r1.setRotationPoint(0.9F, -38.4F, 1);
         gun.addChild(gun117_r1);
         setRotationAngle(gun117_r1, 0.0F, 0.0F, 2.1293F);
         gun117_r1.cubeList.add(new ModelBox(gun117_r1, 40, 40, 0.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         gun118_r2 = new ModelRenderer(this);
-        gun118_r2.setRotationPoint(0.9F, -36.5F, 1.0F);
+        gun118_r2.setRotationPoint(0.9F, -36.5F, 1);
         gun.addChild(gun118_r2);
         setRotationAngle(gun118_r2, 0.0F, 0.0F, 2.0448F);
         gun118_r2.cubeList.add(new ModelBox(gun118_r2, 17, 49, 0.089F, -0.0456F, 0.0F, 2, 2, 2, 0.0F, false));
 
         gun119_r1 = new ModelRenderer(this);
-        gun119_r1.setRotationPoint(-3.9F, -36.5F, 1.0F);
+        gun119_r1.setRotationPoint(-3.9F, -36.5F, 1);
         gun.addChild(gun119_r1);
         setRotationAngle(gun119_r1, 0.0F, 0.0F, -0.4833F);
         gun119_r1.cubeList.add(new ModelBox(gun119_r1, 40, 8, -0.0465F, 0.0885F, 0.0F, 2, 2, 2, 0.0F, false));
@@ -184,32 +184,32 @@ public class Beowulf50Cal extends ModelWithAttachments {
         gun599_r1.setRotationPoint(-1.95F, -40.0F, -23.5F);
         gun.addChild(gun599_r1);
         setRotationAngle(gun599_r1, 0.0F, 0.0F, -2.3562F);
-        gun599_r1.cubeList.add(new ModelBox(gun599_r1, 0, 39, -1.3452F, -2.3617F, -1.0F, 1, 2, 2, 0.0F, false));
+        gun599_r1.cubeList.add(new ModelBox(gun599_r1, 0, 39, -1.3452F, -2.3617F, -1, 1, 2, 2, 0.0F, false));
 
         gun598_r1 = new ModelRenderer(this);
         gun598_r1.setRotationPoint(-0.95F, -40.0F, -23.5F);
         gun.addChild(gun598_r1);
         setRotationAngle(gun598_r1, 0.0F, 0.0F, -2.3562F);
-        gun598_r1.cubeList.add(new ModelBox(gun598_r1, 25, 49, -2.3452F, -1.3617F, -1.0F, 2, 1, 2, 0.0F, false));
+        gun598_r1.cubeList.add(new ModelBox(gun598_r1, 25, 49, -2.3452F, -1.3617F, -1, 2, 1, 2, 0.0F, false));
 
         gun597_r1 = new ModelRenderer(this);
         gun597_r1.setRotationPoint(-0.95F, -36.0F, -23.5F);
         gun.addChild(gun597_r1);
         setRotationAngle(gun597_r1, 0.0F, 0.0F, -2.3562F);
-        gun597_r1.cubeList.add(new ModelBox(gun597_r1, 8, 39, -0.3452F, -0.3617F, -1.0F, 1, 2, 2, 0.0F, false));
+        gun597_r1.cubeList.add(new ModelBox(gun597_r1, 8, 39, -0.3452F, -0.3617F, -1, 1, 2, 2, 0.0F, false));
 
         gun596_r1 = new ModelRenderer(this);
         gun596_r1.setRotationPoint(-1.95F, -36.0F, -23.5F);
         gun.addChild(gun596_r1);
         setRotationAngle(gun596_r1, 0.0F, 0.0F, -2.3562F);
-        gun596_r1.cubeList.add(new ModelBox(gun596_r1, 50, 33, -0.3452F, -0.3617F, -1.0F, 2, 1, 2, 0.0F, false));
+        gun596_r1.cubeList.add(new ModelBox(gun596_r1, 50, 33, -0.3452F, -0.3617F, -1, 2, 1, 2, 0.0F, false));
 
         bone_r1 = new ModelRenderer(this);
         bone_r1.setRotationPoint(0.2F, -32.8F, -16.5F);
         gun.addChild(bone_r1);
         setRotationAngle(bone_r1, 0.0F, 0.0F, 0.7854F);
         bone_r1.cubeList.add(new ModelBox(bone_r1, 0, 46, -0.3636F, -0.3636F, 0.0F, 1, 1, 2, 0.0F, false));
-        bone_r1.cubeList.add(new ModelBox(bone_r1, 8, 46, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        bone_r1.cubeList.add(new ModelBox(bone_r1, 8, 46, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun132 = new ModelRenderer(this);
         gun132.setRotationPoint(-0.15F, -36.2F, -12.8F);
@@ -252,8 +252,8 @@ public class Beowulf50Cal extends ModelWithAttachments {
         barrel.cubeList.add(new ModelBox(barrel, 22, 0, -1.7F, -0.301F, -37.001F, 1, 1, 1, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 0, 28, -1.7F, -2.301F, -34.501F, 1, 1, 1, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 19, 23, -1.7F, -0.301F, -34.501F, 1, 1, 1, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 57, 40, -1.0F, -2.599F, -39.2F, 1, 1, 6, -0.3F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 40, 47, -1.0F, 0.001F, -39.2F, 1, 1, 6, -0.3F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 57, 40, -1, -2.599F, -39.2F, 1, 1, 6, -0.3F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 40, 47, -1, 0.001F, -39.2F, 1, 1, 6, -0.3F, false));
         barrel.cubeList.add(new ModelBox(barrel, 48, 70, -0.25F, -2.0F, -39.3F, 1, 1, 6, -0.2F, false));
         barrel.cubeList.add(new ModelBox(barrel, 19, 19, -2.75F, -2.0F, -39.3F, 1, 1, 6, -0.2F, false));
         barrel.cubeList.add(new ModelBox(barrel, 40, 40, -0.25F, -0.6F, -39.3F, 1, 1, 6, -0.2F, false));
@@ -267,42 +267,42 @@ public class Beowulf50Cal extends ModelWithAttachments {
         barrel.cubeList.add(new ModelBox(barrel, 0, 39, -2.2F, -1.3F, -33.5F, 1, 1, 38, 0.0F, false));
 
         cube_r5 = new ModelRenderer(this);
-        cube_r5.setRotationPoint(-0.5F, -1.0F, -33.5F);
+        cube_r5.setRotationPoint(-0.5F, -1, -33.5F);
         barrel.addChild(cube_r5);
         setRotationAngle(cube_r5, 0.0F, 0.0F, -0.7854F);
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 0, 78, -1.0F, 0.0F, 0.0F, 1, 1, 38, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 0, 78, -1, 0.0F, 0.0F, 1, 1, 38, 0.0F, false));
 
         cube_r6 = new ModelRenderer(this);
-        cube_r6.setRotationPoint(-1.5F, -1.0F, -33.5F);
+        cube_r6.setRotationPoint(-1.5F, -1, -33.5F);
         barrel.addChild(cube_r6);
         setRotationAngle(cube_r6, 0.0F, 0.0F, -0.7854F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 0, -1.0F, 0.0F, 0.0F, 1, 1, 38, 0.0F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 0, -1, 0.0F, 0.0F, 1, 1, 38, 0.0F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(-1.5F, -2.0F, -33.5F);
         barrel.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.0F, 0.0F, -0.7854F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 40, 40, -1.0F, 0.0F, 0.0F, 1, 1, 38, 0.0F, false));
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 117, -1.0F, 0.0F, 9.15F, 1, 1, 29, 0.15F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 40, 40, -1, 0.0F, 0.0F, 1, 1, 38, 0.0F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 117, -1, 0.0F, 9.15F, 1, 1, 29, 0.15F, false));
 
         cube_r8 = new ModelRenderer(this);
-        cube_r8.setRotationPoint(-1.5F, -1.0F, -24.4F);
+        cube_r8.setRotationPoint(-1.5F, -1, -24.4F);
         barrel.addChild(cube_r8);
         setRotationAngle(cube_r8, 0.0F, 0.0F, -0.7854F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 80, 40, -1.0F, 0.0F, 0.05F, 1, 1, 29, 0.15F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 80, 40, -1, 0.0F, 0.05F, 1, 1, 29, 0.15F, false));
 
         cube_r9 = new ModelRenderer(this);
-        cube_r9.setRotationPoint(-0.5F, -1.0F, -24.4F);
+        cube_r9.setRotationPoint(-0.5F, -1, -24.4F);
         barrel.addChild(cube_r9);
         setRotationAngle(cube_r9, 0.0F, 0.0F, -0.7854F);
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 111, 39, -1.0F, 0.0F, 0.05F, 1, 1, 29, 0.15F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 111, 39, -1, 0.0F, 0.05F, 1, 1, 29, 0.15F, false));
 
         cube_r10 = new ModelRenderer(this);
         cube_r10.setRotationPoint(-0.5F, -2.0F, -24.4F);
         barrel.addChild(cube_r10);
         setRotationAngle(cube_r10, 0.0F, 0.0F, -0.7854F);
-        cube_r10.cubeList.add(new ModelBox(cube_r10, 31, 118, -1.0F, 0.0F, 0.05F, 1, 1, 29, 0.15F, false));
-        cube_r10.cubeList.add(new ModelBox(cube_r10, 80, 80, -1.0F, 0.0F, -9.1F, 1, 1, 38, 0.0F, false));
+        cube_r10.cubeList.add(new ModelBox(cube_r10, 31, 118, -1, 0.0F, 0.05F, 1, 1, 29, 0.15F, false));
+        cube_r10.cubeList.add(new ModelBox(cube_r10, 80, 80, -1, 0.0F, -9.1F, 1, 1, 38, 0.0F, false));
 
         cube_r11 = new ModelRenderer(this);
         cube_r11.setRotationPoint(-1.7F, -2.3F, -39.5F);
@@ -314,19 +314,19 @@ public class Beowulf50Cal extends ModelWithAttachments {
         cube_r12.setRotationPoint(-1.7F, 0.7F, -39.5F);
         barrel.addChild(cube_r12);
         setRotationAngle(cube_r12, 0.0F, 0.0F, -1.0297F);
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 57, 47, 0.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 57, 47, 0.0F, -1, 0.0F, 1, 1, 6, 0.0F, false));
 
         cube_r13 = new ModelRenderer(this);
         cube_r13.setRotationPoint(-0.3F, 0.7F, -39.5F);
         barrel.addChild(cube_r13);
         setRotationAngle(cube_r13, 0.0F, 0.0F, 1.0297F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 62, 29, -1.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 62, 29, -1, -1, 0.0F, 1, 1, 6, 0.0F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(-0.3F, -2.3F, -39.5F);
         barrel.addChild(cube_r14);
         setRotationAngle(cube_r14, 0.0F, 0.0F, -1.0297F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 40, 69, -1.0F, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 40, 69, -1, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
     }
 
     @Override

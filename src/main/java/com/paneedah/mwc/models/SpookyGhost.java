@@ -32,7 +32,7 @@ public class SpookyGhost extends ModelBase {
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(0.0F, 24.0F, 0.0F);
         bone3.cubeList.add(new ModelBox(bone3, 0, 0, -0.5F, -33.0F, -0.5F, 1, 7, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 40, 14, -11.0F, -21.0F, 0.0F, 6, 14, 0, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 40, 14, -11, -21, 0.0F, 6, 14, 0, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 0, 48, 5.0F, -23.0F, 0.0F, 6, 14, 0, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 0, 0, -5.0F, -26.0F, -5.0F, 10, 2, 10, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 20, 38, -5.0F, -24.0F, -5.0F, 10, 18, 0, 0.0F, false));

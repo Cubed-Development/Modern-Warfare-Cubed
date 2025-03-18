@@ -198,7 +198,7 @@ public class Holographic extends ModelBase {
 		gun65_r1_r1_r1.setRotationPoint(1.3299F, -187.3722F, 16.5576F);
 		Holografics.addChild(gun65_r1_r1_r1);
 		setRotationAngle(gun65_r1_r1_r1, -3.002F, 0.0F, 0.0F);
-		gun65_r1_r1_r1.cubeList.add(new ModelBox(gun65_r1_r1_r1, 0, 18, 1.0F, -185.7789F, 37.4364F, 1, 3, 1, 0.0F, false));
+		gun65_r1_r1_r1.cubeList.add(new ModelBox(gun65_r1_r1_r1, 0, 18, 1, -185.7789F, 37.4364F, 1, 3, 1, 0.0F, false));
 		gun65_r1_r1_r1.cubeList.add(new ModelBox(gun65_r1_r1_r1, 13, 9, -4.99F, -185.7789F, 37.4364F, 1, 3, 1, 0.0F, false));
 
 		gun60_r1_r1_r1 = new ModelRenderer(this);
@@ -261,7 +261,7 @@ public class Holographic extends ModelBase {
 		Holografics.addChild(gun28_r1_r1_r1);
 		setRotationAngle(gun28_r1_r1_r1, -1.2269F, 0.0F, 0.0F);
 		gun28_r1_r1_r1.cubeList.add(new ModelBox(gun28_r1_r1_r1, 22, 34, -5.0F, -50.829F, -60.5793F, 1, 1, 2, -0.002F, false));
-		gun28_r1_r1_r1.cubeList.add(new ModelBox(gun28_r1_r1_r1, 30, 40, 1.0F, -50.829F, -60.5793F, 1, 1, 3, -0.001F, false));
+		gun28_r1_r1_r1.cubeList.add(new ModelBox(gun28_r1_r1_r1, 30, 40, 1, -50.829F, -60.5793F, 1, 1, 3, -0.001F, false));
 
 		gun26_r1_r1_r1 = new ModelRenderer(this);
 		gun26_r1_r1_r1.setRotationPoint(1.3299F, 27.8667F, -2.4616F);
@@ -293,7 +293,7 @@ public class Holographic extends ModelBase {
 		Holografics_r2.setRotationPoint(-3.1701F, 0.922F, -1.5503F);
 		Holografics.addChild(Holografics_r2);
 		setRotationAngle(Holografics_r2, -1.9111F, 0.0F, 0.0F);
-		Holografics_r2.cubeList.add(new ModelBox(Holografics_r2, 0, 0, -0.5F, -1.0F, -1.0F, 1, 2, 2, 0.05F, false));
+		Holografics_r2.cubeList.add(new ModelBox(Holografics_r2, 0, 0, -0.5F, -1, -1, 1, 2, 2, 0.05F, false));
 
 		Holografics_r3 = new ModelRenderer(this);
 		Holografics_r3.setRotationPoint(-3.1701F, 0.2086F, 3.9355F);
@@ -323,7 +323,7 @@ public class Holographic extends ModelBase {
 		Holografics_r7.setRotationPoint(-0.1701F, -0.4931F, -2.1257F);
 		Holografics.addChild(Holografics_r7);
 		setRotationAngle(Holografics_r7, 0.4276F, 0.0F, 0.0F);
-		Holografics_r7.cubeList.add(new ModelBox(Holografics_r7, 36, 2, -1.0F, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
+		Holografics_r7.cubeList.add(new ModelBox(Holografics_r7, 36, 2, -1, -0.5F, -0.5F, 2, 1, 1, 0.0F, false));
 	}
 
 	@Override

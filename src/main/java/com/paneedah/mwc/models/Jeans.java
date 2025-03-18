@@ -37,7 +37,7 @@ public class Jeans extends ModelBiped {
 
         bipedLeftArm = new ModelRenderer(this);
         bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 32, 0, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 32, 0, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         bipedRightLeg = new ModelRenderer(this);
         bipedRightLeg.setRotationPoint(-2.0F, 12.0F, 0.0F);

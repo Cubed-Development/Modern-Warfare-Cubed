@@ -202,7 +202,7 @@ public class ACRPolymerHandguard extends ModelBase {
         bone18_r1.setRotationPoint(30.0702F, 26.3351F, 39.8955F);
         Polymer_Handguard.addChild(bone18_r1);
         setRotationAngle(bone18_r1, 0.0F, 0.0F, -0.7505F);
-        bone18_r1.cubeList.add(new ModelBox(bone18_r1, 160, 26, -1.0F, -41.9F, -51.45F, 1, 1, 4, 0.0F, false));
+        bone18_r1.cubeList.add(new ModelBox(bone18_r1, 160, 26, -1, -41.9F, -51.45F, 1, 1, 4, 0.0F, false));
 
         bone23_r1 = new ModelRenderer(this);
         bone23_r1.setRotationPoint(9.7717F, 3.9691F, 53.7577F);

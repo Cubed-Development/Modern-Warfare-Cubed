@@ -237,7 +237,7 @@ public class MultisampledFBO extends Framebuffer {
                 GlStateManager.enableColorMaterial();
             }
 
-            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+            GlStateManager.color(1, 1, 1, 1);
             this.bindFramebufferTexture();
             float f = (float) width;
             float f1 = (float) height;

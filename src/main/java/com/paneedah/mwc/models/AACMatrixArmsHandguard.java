@@ -76,7 +76,7 @@ public class AACMatrixArmsHandguard extends ModelBase {
         bone2.setRotationPoint(0.0F, -0.2079F, 0.9781F);
         bone.addChild(bone2);
         setRotationAngle(bone2, -0.733F, 0.0F, 0.0F);
-        bone2.cubeList.add(new ModelBox(bone2, 21, 17, -1.11F, -1.0F, -1.0F, 2, 1, 2, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 21, 17, -1.11F, -1, -1, 2, 1, 2, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(-1.6F, -34.3F, -53.7F);
@@ -88,31 +88,31 @@ public class AACMatrixArmsHandguard extends ModelBase {
         bone7.setRotationPoint(0.0F, -0.2079F, 0.9781F);
         bone3.addChild(bone7);
         setRotationAngle(bone7, -0.733F, 0.0F, 0.0F);
-        bone7.cubeList.add(new ModelBox(bone7, 20, 5, -1.1F, -1.0F, -1.0F, 2, 1, 2, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 20, 5, -1.1F, -1, -1, 2, 1, 2, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(1.0F, -38.5F, -42.7F);
+        bone4.setRotationPoint(1, -38.5F, -42.7F);
         handguard.addChild(bone4);
         setRotationAngle(bone4, 0.0F, 0.0F, -0.8727F);
-        bone4.cubeList.add(new ModelBox(bone4, 17, 20, -1.0F, -2.0F, -3.0F, 1, 1, 3, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 0, 0, -1.0F, -2.0F, -12.0F, 1, 1, 5, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 17, 20, -1, -2.0F, -3.0F, 1, 1, 3, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 0, 0, -1, -2.0F, -12.0F, 1, 1, 5, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 70, 33, -0.99F, -2.5F, -12.0F, 1, 1, 32, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 5, 20, -1.0F, -2.0F, 4.0F, 1, 1, 3, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 5, 20, -1, -2.0F, 4.0F, 1, 1, 3, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 104, 33, -1.5F, -2.0F, -4.0F, 1, 1, 23, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 19, 9, -1.0F, -2.0F, 11.0F, 1, 1, 3, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 16, 24, -1.0F, -2.0F, 18.0F, 1, 1, 2, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 19, 9, -1, -2.0F, 11, 1, 1, 3, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 16, 24, -1, -2.0F, 18.0F, 1, 1, 2, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 25, 26, -0.9F, -1.7F, 18.5F, 1, 1, 1, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 21, 26, -0.9F, -1.7F, 12.0F, 1, 1, 1, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 11, 26, -0.9F, -1.7F, 5.0F, 1, 1, 1, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 3, 26, -0.9F, -1.7F, -2.0F, 1, 1, 1, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 25, 13, -0.9F, -1.7F, -9.0F, 1, 1, 1, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 70, 0, -1.0F, -1.0F, -12.0F, 1, 1, 32, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 70, 0, -1, -1, -12.0F, 1, 1, 32, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
-        bone6.setRotationPoint(1.0F, -35.9F, -42.7F);
+        bone6.setRotationPoint(1, -35.9F, -42.7F);
         handguard.addChild(bone6);
         setRotationAngle(bone6, 0.0F, 0.0F, 0.7854F);
-        bone6.cubeList.add(new ModelBox(bone6, 36, 36, -1.0F, 0.0F, -12.0F, 1, 2, 32, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 36, 36, -1, 0.0F, -12.0F, 1, 2, 32, 0.0F, false));
         bone6.cubeList.add(new ModelBox(bone6, 0, 0, -3.5355F, 2.5355F, -12.0F, 2, 1, 32, 0.0F, false));
         bone6.cubeList.add(new ModelBox(bone6, 12, 16, -3.0F, 2.65F, 18.5F, 1, 1, 1, 0.0F, false));
         bone6.cubeList.add(new ModelBox(bone6, 0, 0, -0.9494F, 0.5994F, 18.5F, 1, 1, 1, 0.0F, false));
@@ -131,11 +131,11 @@ public class AACMatrixArmsHandguard extends ModelBase {
         setRotationAngle(bone5, 0.0F, 0.0F, 0.8727F);
         bone5.cubeList.add(new ModelBox(bone5, 12, 19, 0.0F, -2.0F, -3.0F, 1, 1, 3, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 0, 6, 0.0F, -2.0F, -12.0F, 1, 1, 5, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 34, 70, 0.0F, -1.0F, -12.0F, 1, 1, 32, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 34, 70, 0.0F, -1, -12.0F, 1, 1, 32, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 0, 66, -0.01F, -2.5F, -12.0F, 1, 1, 32, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 0, 17, 0.0F, -2.0F, 4.0F, 1, 1, 3, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 104, 66, 0.5F, -2.0F, -4.0F, 1, 1, 22, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 7, 16, 0.0F, -2.0F, 11.0F, 1, 1, 3, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 7, 16, 0.0F, -2.0F, 11, 1, 1, 3, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 6, 24, 0.0F, -2.0F, 18.0F, 1, 1, 2, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 14, 27, -0.1F, -1.8F, 18.5F, 1, 1, 1, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 6, 27, -0.1F, -1.8F, 12.0F, 1, 1, 1, 0.0F, false));

@@ -35,7 +35,7 @@ public class USP45Mag extends ModelWithAttachments {
         mag3.setRotationPoint(-3.5F, -16.9F, -4.8F);
         mag.addChild(mag3);
         setRotationAngle(mag3, 0.0744F, 0.0F, 0.0F);
-        mag3.cubeList.add(new ModelBox(mag3, 63, 63, 0.001F, 1.0F, -1.3F, 4, 1, 2, 0.0F, false));
+        mag3.cubeList.add(new ModelBox(mag3, 63, 63, 0.001F, 1, -1.3F, 4, 1, 2, 0.0F, false));
 
         mag1 = new ModelRenderer(this);
         mag1.setRotationPoint(-3.5F, -16.9F, -4.8F);
@@ -47,7 +47,7 @@ public class USP45Mag extends ModelWithAttachments {
         mag2.setRotationPoint(-3.0F, -16.9F, -4.8F);
         mag.addChild(mag2);
         setRotationAngle(mag2, 0.0744F, 0.0F, 0.0F);
-        mag2.cubeList.add(new ModelBox(mag2, 58, 11, 0.0F, 0.0F, -1.0F, 3, 2, 1, 0.0F, false));
+        mag2.cubeList.add(new ModelBox(mag2, 58, 11, 0.0F, 0.0F, -1, 3, 2, 1, 0.0F, false));
     }
 
     @Override

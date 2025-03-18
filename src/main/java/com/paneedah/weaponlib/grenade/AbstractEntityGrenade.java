@@ -76,7 +76,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
                 Material material = iBlockState.getMaterial();
 
                 if (material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
-                    this.playSound(bounceHardSound, 2.0f / (bounceCount + 1f), 1.0f);
+                    this.playSound(bounceHardSound, 2.0f / (bounceCount + 1f), 1);
                 }
             }
 
@@ -86,7 +86,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
                 Material material = iBlockState.getMaterial();
 
                 if (material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
-                    this.playSound(bounceHardSound, 1.0f / (bounceCount + 1f), 1.0f);
+                    this.playSound(bounceHardSound, 1 / (bounceCount + 1f), 1);
                 }
             }
         }

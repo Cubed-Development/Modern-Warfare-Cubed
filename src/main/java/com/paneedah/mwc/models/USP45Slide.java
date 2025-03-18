@@ -61,7 +61,7 @@ public class USP45Slide extends ModelWithAttachments {
         slide43.cubeList.add(new ModelBox(slide43, 10, 9, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide42 = new ModelRenderer(this);
-        slide42.setRotationPoint(-1.0F, -38.2F, -10.3F);
+        slide42.setRotationPoint(-1, -38.2F, -10.3F);
         slide.addChild(slide42);
         slide42.cubeList.add(new ModelBox(slide42, 7, 17, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -92,10 +92,10 @@ public class USP45Slide extends ModelWithAttachments {
         slide30.cubeList.add(new ModelBox(slide30, 23, 35, 0.0F, 0.01F, -2.0F, 2, 1, 1, 0.0F, false));
 
         slide29 = new ModelRenderer(this);
-        slide29.setRotationPoint(1.0F, -33.8F, -27.0F);
+        slide29.setRotationPoint(1, -33.8F, -27.0F);
         slide.addChild(slide29);
         setRotationAngle(slide29, 0.0F, 0.0F, 0.6692F);
-        slide29.cubeList.add(new ModelBox(slide29, 0, 32, -1.0F, 0.0F, 0.0F, 1, 1, 29, 0.0F, false));
+        slide29.cubeList.add(new ModelBox(slide29, 0, 32, -1, 0.0F, 0.0F, 1, 1, 29, 0.0F, false));
 
         slide28 = new ModelRenderer(this);
         slide28.setRotationPoint(-4.0F, -33.8F, -27.0F);
@@ -104,10 +104,10 @@ public class USP45Slide extends ModelWithAttachments {
         slide28.cubeList.add(new ModelBox(slide28, 31, 33, 0.0F, 0.0F, 0.0F, 1, 1, 29, 0.0F, false));
 
         slide27 = new ModelRenderer(this);
-        slide27.setRotationPoint(1.0F, -34.8F, -29.3F);
+        slide27.setRotationPoint(1, -34.8F, -29.3F);
         slide.addChild(slide27);
         setRotationAngle(slide27, 0.0F, 0.0F, 0.7854F);
-        slide27.cubeList.add(new ModelBox(slide27, 51, 66, -1.0F, 0.0F, 0.0F, 1, 1, 19, 0.0F, false));
+        slide27.cubeList.add(new ModelBox(slide27, 51, 66, -1, 0.0F, 0.0F, 1, 1, 19, 0.0F, false));
 
         slide26 = new ModelRenderer(this);
         slide26.setRotationPoint(-3.7F, -35.6F, -15.3F);
@@ -144,10 +144,10 @@ public class USP45Slide extends ModelWithAttachments {
         slide21.cubeList.add(new ModelBox(slide21, 0, 67, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         slide20 = new ModelRenderer(this);
-        slide20.setRotationPoint(0.0F, -38.2F, -11.0F);
+        slide20.setRotationPoint(0.0F, -38.2F, -11);
         slide.addChild(slide20);
         setRotationAngle(slide20, 0.0F, 0.0F, -0.632F);
-        slide20.cubeList.add(new ModelBox(slide20, 31, 32, -1.0F, 0.7F, 0.0F, 1, 1, 12, 0.0F, false));
+        slide20.cubeList.add(new ModelBox(slide20, 31, 32, -1, 0.7F, 0.0F, 1, 1, 12, 0.0F, false));
 
         slide19 = new ModelRenderer(this);
         slide19.setRotationPoint(0.0F, -38.2F, -10.3F);
@@ -165,7 +165,7 @@ public class USP45Slide extends ModelWithAttachments {
         slide17.setRotationPoint(0.0F, -38.2F, -29.3F);
         slide.addChild(slide17);
         setRotationAngle(slide17, 0.0F, 0.0F, -0.632F);
-        slide17.cubeList.add(new ModelBox(slide17, 0, 91, -1.0F, 0.0F, 0.001F, 1, 1, 14, 0.0F, false));
+        slide17.cubeList.add(new ModelBox(slide17, 0, 91, -1, 0.0F, 0.001F, 1, 1, 14, 0.0F, false));
 
         slide16 = new ModelRenderer(this);
         slide16.setRotationPoint(-0.3F, -37.25F, -29.3F);

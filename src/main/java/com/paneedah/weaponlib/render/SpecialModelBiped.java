@@ -63,7 +63,7 @@ public class SpecialModelBiped extends ModelBase {
         this.bipedRightArm.setRotationPoint(-5.0F, 2.0F + p_i1149_2_, 0.0F);
         this.bipedLeftArm = new ModelRenderer(this, 40, 16);
         this.bipedLeftArm.mirror = true;
-        this.bipedLeftArm.addBox(-1.0F, -2.0F, -2.0F, 4, 12, 4, modelSize);
+        this.bipedLeftArm.addBox(-1, -2.0F, -2.0F, 4, 12, 4, modelSize);
         this.bipedLeftArm.setRotationPoint(5.0F, 2.0F + p_i1149_2_, 0.0F);
         this.bipedRightLeg = new ModelRenderer(this, 0, 16);
         this.bipedRightLeg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, modelSize);
@@ -133,7 +133,7 @@ public class SpecialModelBiped extends ModelBase {
         this.bipedRightArm.rotationPointX = -5.0F;
         this.bipedLeftArm.rotationPointZ = 0.0F;
         this.bipedLeftArm.rotationPointX = 5.0F;
-        float f = 1.0F;
+        float f = 1;
 
         if (flag) {
             f = (float) (entityIn.motionX * entityIn.motionX + entityIn.motionY * entityIn.motionY + entityIn.motionZ * entityIn.motionZ);
@@ -141,8 +141,8 @@ public class SpecialModelBiped extends ModelBase {
             f = f * f * f;
         }
 
-        if (f < 1.0F) {
-            f = 1.0F;
+        if (f < 1) {
+            f = 1;
         }
 
         this.bipedRightArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 2.0F * limbSwingAmount * 0.5F / f;
@@ -203,7 +203,7 @@ public class SpecialModelBiped extends ModelBase {
             this.bipedBody.rotateAngleY = MathHelper.sin(MathHelper.sqrt(f1) * ((float) Math.PI * 2F)) * 0.2F;
 
             if (enumhandside == EnumHandSide.LEFT) {
-                this.bipedBody.rotateAngleY *= -1.0F;
+                this.bipedBody.rotateAngleY *= -1;
             }
 
             this.bipedRightArm.rotationPointZ = MathHelper.sin(this.bipedBody.rotateAngleY) * 5.0F;
@@ -213,10 +213,10 @@ public class SpecialModelBiped extends ModelBase {
             this.bipedRightArm.rotateAngleY += this.bipedBody.rotateAngleY;
             this.bipedLeftArm.rotateAngleY += this.bipedBody.rotateAngleY;
             this.bipedLeftArm.rotateAngleX += this.bipedBody.rotateAngleY;
-            f1 = 1.0F - this.swingProgress;
+            f1 = 1 - this.swingProgress;
             f1 = f1 * f1;
             f1 = f1 * f1;
-            f1 = 1.0F - f1;
+            f1 = 1 - f1;
             float f2 = MathHelper.sin(f1 * (float) Math.PI);
             float f3 = MathHelper.sin(this.swingProgress * (float) Math.PI) * -(this.bipedHead.rotateAngleX - 0.7F) * 0.75F;
             modelrenderer.rotateAngleX = (float) ((double) modelrenderer.rotateAngleX - ((double) f2 * 1.2D + (double) f3));
@@ -232,7 +232,7 @@ public class SpecialModelBiped extends ModelBase {
             this.bipedLeftLeg.rotationPointZ = 4.0F;
             this.bipedRightLeg.rotationPointY = 9.0F;
             this.bipedLeftLeg.rotationPointY = 9.0F;
-            this.bipedHead.rotationPointY = 1.0F;
+            this.bipedHead.rotationPointY = 1;
         } else {
             this.bipedBody.rotateAngleX = 0.0F;
             this.bipedRightLeg.rotationPointZ = 0.1F;

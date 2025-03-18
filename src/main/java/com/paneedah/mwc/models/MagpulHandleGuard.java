@@ -124,7 +124,7 @@ public class MagpulHandleGuard extends ModelBase {
         guard3.cubeList.add(new ModelBox(guard3, 0, 0, -0.001F, 0.0F, 0.0F, 4, 1, 21, 0.0F, false));
 
         guard5 = new ModelRenderer(this);
-        guard5.setRotationPoint(-4.0F, -11.0F, -38.5F);
+        guard5.setRotationPoint(-4.0F, -11, -38.5F);
         guard5.cubeList.add(new ModelBox(guard5, 0, 0, 0.0F, 0.0F, 0.0F, 5, 3, 3, 0.0F, false));
 
         guard7 = new ModelRenderer(this);
@@ -156,7 +156,7 @@ public class MagpulHandleGuard extends ModelBase {
         guard12.cubeList.add(new ModelBox(guard12, 29, 42, 0.001F, 0.0F, 0.0F, 1, 1, 21, 0.0F, false));
 
         guard13 = new ModelRenderer(this);
-        guard13.setRotationPoint(-4.0F, -11.0F, -58.5F);
+        guard13.setRotationPoint(-4.0F, -11, -58.5F);
         guard13.cubeList.add(new ModelBox(guard13, 29, 0, 0.001F, 0.0F, 0.0F, 5, 1, 20, 0.0F, false));
 
         guard14 = new ModelRenderer(this);
@@ -171,7 +171,7 @@ public class MagpulHandleGuard extends ModelBase {
         guard16 = new ModelRenderer(this);
         guard16.setRotationPoint(-3.2F, -8.0F, -58.5F);
         setRotationAngle(guard16, 0.0F, 0.0F, 2.6397F);
-        guard16.cubeList.add(new ModelBox(guard16, 59, 1, -1.0F, 0.65F, 0.0F, 1, 1, 20, 0.0F, false));
+        guard16.cubeList.add(new ModelBox(guard16, 59, 1, -1, 0.65F, 0.0F, 1, 1, 20, 0.0F, false));
 
         guard17 = new ModelRenderer(this);
         guard17.setRotationPoint(-3.0F, -8.0F, -38.5F);
@@ -306,7 +306,7 @@ public class MagpulHandleGuard extends ModelBase {
         guard466 = new ModelRenderer(this);
         guard466.setRotationPoint(-2.5F, -15.8F, -53.5F);
         setRotationAngle(guard466, 0.0F, 0.0F, -0.8923F);
-        guard466.cubeList.add(new ModelBox(guard466, 68, 85, -1.0F, 0.0F, 0.0F, 1, 1, 12, 0.0F, false));
+        guard466.cubeList.add(new ModelBox(guard466, 68, 85, -1, 0.0F, 0.0F, 1, 1, 12, 0.0F, false));
 
         guard477 = new ModelRenderer(this);
         guard477.setRotationPoint(-0.7F, -14.8F, -53.5F);
@@ -338,7 +338,7 @@ public class MagpulHandleGuard extends ModelBase {
         guard49.cubeList.add(new ModelBox(guard49, 0, 86, -0.2F, -0.201F, 0.0F, 1, 1, 11, -0.2F, false));
 
         guard50 = new ModelRenderer(this);
-        guard50.setRotationPoint(-2.5F, -15.8F, -51.0F);
+        guard50.setRotationPoint(-2.5F, -15.8F, -51);
         guard50.cubeList.add(new ModelBox(guard50, 13, 32, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
         guard50.cubeList.add(new ModelBox(guard50, 22, 65, 0.6F, 0.2F, -1.6F, 1, 1, 10, 0.0F, false));
 
@@ -526,27 +526,27 @@ public class MagpulHandleGuard extends ModelBase {
         guard90 = new ModelRenderer(this);
         guard90.setRotationPoint(0.1F, -7.6F, -55.5F);
         setRotationAngle(guard90, 0.0F, 0.0F, 1.1897F);
-        guard90.cubeList.add(new ModelBox(guard90, 5, 34, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard90.cubeList.add(new ModelBox(guard90, 5, 34, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard91 = new ModelRenderer(this);
         guard91.setRotationPoint(0.1F, -7.6F, -52.5F);
         setRotationAngle(guard91, 0.0F, 0.0F, 1.1897F);
-        guard91.cubeList.add(new ModelBox(guard91, 34, 4, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard91.cubeList.add(new ModelBox(guard91, 34, 4, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard92 = new ModelRenderer(this);
         guard92.setRotationPoint(0.1F, -7.6F, -49.5F);
         setRotationAngle(guard92, 0.0F, 0.0F, 1.1897F);
-        guard92.cubeList.add(new ModelBox(guard92, 34, 0, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard92.cubeList.add(new ModelBox(guard92, 34, 0, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard93 = new ModelRenderer(this);
         guard93.setRotationPoint(0.1F, -7.6F, -46.5F);
         setRotationAngle(guard93, 0.0F, 0.0F, 1.1897F);
-        guard93.cubeList.add(new ModelBox(guard93, 17, 19, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard93.cubeList.add(new ModelBox(guard93, 17, 19, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         guard94 = new ModelRenderer(this);
         guard94.setRotationPoint(0.1F, -7.6F, -43.5F);
         setRotationAngle(guard94, 0.0F, 0.0F, 1.1897F);
-        guard94.cubeList.add(new ModelBox(guard94, 16, 7, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        guard94.cubeList.add(new ModelBox(guard94, 16, 7, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
     }
 
     @Override

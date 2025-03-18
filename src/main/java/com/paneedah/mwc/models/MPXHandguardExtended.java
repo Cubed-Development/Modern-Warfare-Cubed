@@ -85,12 +85,12 @@ public class MPXHandguardExtended extends ModelWithAttachments {
 
         mpx_handguard3 = new ModelRenderer(this);
         mpx_handguard3.setRotationPoint(0.0F, 24.0F, 0.0F);
-        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 70, 74, 1.0F, -40.0F, -69.5F, 1, 3, 2, 0.0F, false));
-        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 0, 142, 1.0F, -40.0F, -67.5F, 1, 1, 38, 0.0F, false));
-        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 94, 141, 1.0F, -38.0F, -67.5F, 1, 1, 38, 0.0F, false));
-        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 105, 51, 1.0F, -39.0F, -61.5F, 1, 1, 2, 0.0F, false));
-        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 105, 45, 1.0F, -39.0F, -53.5F, 1, 1, 2, 0.0F, false));
-        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 59, 50, 1.0F, -40.0F, -29.5F, 1, 3, 4, 0.0F, false));
+        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 70, 74, 1, -40.0F, -69.5F, 1, 3, 2, 0.0F, false));
+        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 0, 142, 1, -40.0F, -67.5F, 1, 1, 38, 0.0F, false));
+        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 94, 141, 1, -38.0F, -67.5F, 1, 1, 38, 0.0F, false));
+        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 105, 51, 1, -39.0F, -61.5F, 1, 1, 2, 0.0F, false));
+        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 105, 45, 1, -39.0F, -53.5F, 1, 1, 2, 0.0F, false));
+        mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 59, 50, 1, -40.0F, -29.5F, 1, 3, 4, 0.0F, false));
         mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 9, 58, -5.0F, -39.0F, -61.5F, 1, 1, 2, 0.0F, false));
         mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 100, 0, -5.0F, -38.0F, -67.5F, 1, 1, 38, 0.0F, false));
         mpx_handguard3.cubeList.add(new ModelBox(mpx_handguard3, 49, 74, -5.0F, -40.0F, -69.5F, 1, 3, 2, 0.0F, false));
@@ -203,7 +203,7 @@ public class MPXHandguardExtended extends ModelWithAttachments {
         receiver_upper_r86.cubeList.add(new ModelBox(receiver_upper_r86, 10, 97, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r87 = new ModelRenderer(this);
-        receiver_upper_r87.setRotationPoint(-3.13F, -42.75F, -51.0F);
+        receiver_upper_r87.setRotationPoint(-3.13F, -42.75F, -51);
         mpx_handguard3.addChild(receiver_upper_r87);
         setRotationAngle(receiver_upper_r87, 0.0148F, -0.4012F, -0.3346F);
         receiver_upper_r87.cubeList.add(new ModelBox(receiver_upper_r87, 41, 93, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -233,132 +233,132 @@ public class MPXHandguardExtended extends ModelWithAttachments {
         receiver_upper_r91.cubeList.add(new ModelBox(receiver_upper_r91, 10, 86, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r92 = new ModelRenderer(this);
-        receiver_upper_r92.setRotationPoint(0.13F, -42.75F, -51.0F);
+        receiver_upper_r92.setRotationPoint(0.13F, -42.75F, -51);
         mpx_handguard3.addChild(receiver_upper_r92);
         setRotationAngle(receiver_upper_r92, 0.0148F, 0.4012F, 0.3346F);
-        receiver_upper_r92.cubeList.add(new ModelBox(receiver_upper_r92, 105, 48, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r92.cubeList.add(new ModelBox(receiver_upper_r92, 105, 48, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r93 = new ModelRenderer(this);
         receiver_upper_r93.setRotationPoint(0.84F, -42.1F, -51.5F);
         mpx_handguard3.addChild(receiver_upper_r93);
         setRotationAngle(receiver_upper_r93, 0.0F, 0.4538F, 0.8901F);
-        receiver_upper_r93.cubeList.add(new ModelBox(receiver_upper_r93, 33, 104, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r93.cubeList.add(new ModelBox(receiver_upper_r93, 33, 104, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r94 = new ModelRenderer(this);
         receiver_upper_r94.setRotationPoint(0.13F, -42.75F, -66.0F);
         mpx_handguard3.addChild(receiver_upper_r94);
         setRotationAngle(receiver_upper_r94, 0.0074F, 0.4014F, 0.3157F);
-        receiver_upper_r94.cubeList.add(new ModelBox(receiver_upper_r94, 64, 102, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r94.cubeList.add(new ModelBox(receiver_upper_r94, 64, 102, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r95 = new ModelRenderer(this);
         receiver_upper_r95.setRotationPoint(1.001F, -41.9F, -59.5F);
         mpx_handguard3.addChild(receiver_upper_r95);
         setRotationAngle(receiver_upper_r95, 0.0F, 0.0F, 0.8901F);
-        receiver_upper_r95.cubeList.add(new ModelBox(receiver_upper_r95, 54, 106, -1.0F, 0.0F, -8.0F, 1, 1, 2, 0.0F, false));
-        receiver_upper_r95.cubeList.add(new ModelBox(receiver_upper_r95, 73, 106, -1.0F, 0.0F, -3.75F, 1, 1, 2, 0.0F, false));
-        receiver_upper_r95.cubeList.add(new ModelBox(receiver_upper_r95, 106, 83, -1.0F, 0.0F, 0.5F, 1, 1, 2, 0.0F, false));
-        receiver_upper_r95.cubeList.add(new ModelBox(receiver_upper_r95, 106, 98, -1.0F, 0.0F, 4.75F, 1, 1, 2, 0.0F, false));
+        receiver_upper_r95.cubeList.add(new ModelBox(receiver_upper_r95, 54, 106, -1, 0.0F, -8.0F, 1, 1, 2, 0.0F, false));
+        receiver_upper_r95.cubeList.add(new ModelBox(receiver_upper_r95, 73, 106, -1, 0.0F, -3.75F, 1, 1, 2, 0.0F, false));
+        receiver_upper_r95.cubeList.add(new ModelBox(receiver_upper_r95, 106, 83, -1, 0.0F, 0.5F, 1, 1, 2, 0.0F, false));
+        receiver_upper_r95.cubeList.add(new ModelBox(receiver_upper_r95, 106, 98, -1, 0.0F, 4.75F, 1, 1, 2, 0.0F, false));
 
         receiver_upper_r96 = new ModelRenderer(this);
         receiver_upper_r96.setRotationPoint(0.84F, -42.1F, -66.5F);
         mpx_handguard3.addChild(receiver_upper_r96);
         setRotationAngle(receiver_upper_r96, 0.0F, 0.4538F, 0.8901F);
-        receiver_upper_r96.cubeList.add(new ModelBox(receiver_upper_r96, 58, 102, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r96.cubeList.add(new ModelBox(receiver_upper_r96, 58, 102, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r97 = new ModelRenderer(this);
         receiver_upper_r97.setRotationPoint(0.37F, -42.68F, -59.25F);
         mpx_handguard3.addChild(receiver_upper_r97);
         setRotationAngle(receiver_upper_r97, 0.0F, 0.0F, 0.3316F);
-        receiver_upper_r97.cubeList.add(new ModelBox(receiver_upper_r97, 48, 106, -1.0F, 0.0F, -8.0F, 1, 1, 2, 0.0F, false));
-        receiver_upper_r97.cubeList.add(new ModelBox(receiver_upper_r97, 60, 106, -1.0F, 0.0F, -3.75F, 1, 1, 2, 0.0F, false));
-        receiver_upper_r97.cubeList.add(new ModelBox(receiver_upper_r97, 79, 106, -1.0F, 0.0F, 0.5F, 1, 1, 2, 0.0F, false));
-        receiver_upper_r97.cubeList.add(new ModelBox(receiver_upper_r97, 85, 106, -1.0F, 0.0F, 4.75F, 1, 1, 2, 0.0F, false));
+        receiver_upper_r97.cubeList.add(new ModelBox(receiver_upper_r97, 48, 106, -1, 0.0F, -8.0F, 1, 1, 2, 0.0F, false));
+        receiver_upper_r97.cubeList.add(new ModelBox(receiver_upper_r97, 60, 106, -1, 0.0F, -3.75F, 1, 1, 2, 0.0F, false));
+        receiver_upper_r97.cubeList.add(new ModelBox(receiver_upper_r97, 79, 106, -1, 0.0F, 0.5F, 1, 1, 2, 0.0F, false));
+        receiver_upper_r97.cubeList.add(new ModelBox(receiver_upper_r97, 85, 106, -1, 0.0F, 4.75F, 1, 1, 2, 0.0F, false));
 
         receiver_upper_r98 = new ModelRenderer(this);
         receiver_upper_r98.setRotationPoint(0.13F, -42.75F, -61.75F);
         mpx_handguard3.addChild(receiver_upper_r98);
         setRotationAngle(receiver_upper_r98, 0.0074F, 0.4014F, 0.3157F);
-        receiver_upper_r98.cubeList.add(new ModelBox(receiver_upper_r98, 102, 100, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r98.cubeList.add(new ModelBox(receiver_upper_r98, 102, 100, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r99 = new ModelRenderer(this);
         receiver_upper_r99.setRotationPoint(0.13F, -42.75F, -63.75F);
         mpx_handguard3.addChild(receiver_upper_r99);
         setRotationAngle(receiver_upper_r99, 0.0074F, 0.4014F, 0.3157F);
-        receiver_upper_r99.cubeList.add(new ModelBox(receiver_upper_r99, 89, 102, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r99.cubeList.add(new ModelBox(receiver_upper_r99, 89, 102, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r100 = new ModelRenderer(this);
         receiver_upper_r100.setRotationPoint(0.84F, -42.1F, -64.25F);
         mpx_handguard3.addChild(receiver_upper_r100);
         setRotationAngle(receiver_upper_r100, 0.0F, 0.4538F, 0.8901F);
-        receiver_upper_r100.cubeList.add(new ModelBox(receiver_upper_r100, 83, 102, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r100.cubeList.add(new ModelBox(receiver_upper_r100, 83, 102, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r101 = new ModelRenderer(this);
         receiver_upper_r101.setRotationPoint(0.84F, -42.1F, -62.25F);
         mpx_handguard3.addChild(receiver_upper_r101);
         setRotationAngle(receiver_upper_r101, 0.0F, 0.4538F, 0.8901F);
-        receiver_upper_r101.cubeList.add(new ModelBox(receiver_upper_r101, 77, 102, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r101.cubeList.add(new ModelBox(receiver_upper_r101, 77, 102, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r102 = new ModelRenderer(this);
         receiver_upper_r102.setRotationPoint(0.13F, -42.75F, -57.5F);
         mpx_handguard3.addChild(receiver_upper_r102);
         setRotationAngle(receiver_upper_r102, 0.0074F, 0.4014F, 0.3157F);
-        receiver_upper_r102.cubeList.add(new ModelBox(receiver_upper_r102, 103, 80, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r102.cubeList.add(new ModelBox(receiver_upper_r102, 103, 80, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r103 = new ModelRenderer(this);
         receiver_upper_r103.setRotationPoint(0.13F, -42.75F, -59.5F);
         mpx_handguard3.addChild(receiver_upper_r103);
         setRotationAngle(receiver_upper_r103, 0.0074F, 0.4014F, 0.3157F);
-        receiver_upper_r103.cubeList.add(new ModelBox(receiver_upper_r103, 40, 103, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r103.cubeList.add(new ModelBox(receiver_upper_r103, 40, 103, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r104 = new ModelRenderer(this);
         receiver_upper_r104.setRotationPoint(0.84F, -42.1F, -60.0F);
         mpx_handguard3.addChild(receiver_upper_r104);
         setRotationAngle(receiver_upper_r104, 0.0F, 0.4538F, 0.8901F);
-        receiver_upper_r104.cubeList.add(new ModelBox(receiver_upper_r104, 27, 103, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r104.cubeList.add(new ModelBox(receiver_upper_r104, 27, 103, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r105 = new ModelRenderer(this);
         receiver_upper_r105.setRotationPoint(0.84F, -42.1F, -58.0F);
         mpx_handguard3.addChild(receiver_upper_r105);
         setRotationAngle(receiver_upper_r105, 0.0F, 0.4538F, 0.8901F);
-        receiver_upper_r105.cubeList.add(new ModelBox(receiver_upper_r105, 4, 103, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r105.cubeList.add(new ModelBox(receiver_upper_r105, 4, 103, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r106 = new ModelRenderer(this);
         receiver_upper_r106.setRotationPoint(0.13F, -42.75F, -55.25F);
         mpx_handguard3.addChild(receiver_upper_r106);
         setRotationAngle(receiver_upper_r106, 0.0074F, 0.4014F, 0.3157F);
-        receiver_upper_r106.cubeList.add(new ModelBox(receiver_upper_r106, 58, 106, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r106.cubeList.add(new ModelBox(receiver_upper_r106, 58, 106, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r107 = new ModelRenderer(this);
         receiver_upper_r107.setRotationPoint(0.84F, -42.1F, -53.75F);
         mpx_handguard3.addChild(receiver_upper_r107);
         setRotationAngle(receiver_upper_r107, 0.0F, 0.4538F, 0.8901F);
-        receiver_upper_r107.cubeList.add(new ModelBox(receiver_upper_r107, 52, 106, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r107.cubeList.add(new ModelBox(receiver_upper_r107, 52, 106, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r108 = new ModelRenderer(this);
         receiver_upper_r108.setRotationPoint(0.13F, -42.75F, -53.25F);
         mpx_handguard3.addChild(receiver_upper_r108);
         setRotationAngle(receiver_upper_r108, 0.0074F, 0.4014F, 0.3157F);
-        receiver_upper_r108.cubeList.add(new ModelBox(receiver_upper_r108, 90, 105, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r108.cubeList.add(new ModelBox(receiver_upper_r108, 90, 105, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         receiver_upper_r109 = new ModelRenderer(this);
         receiver_upper_r109.setRotationPoint(0.84F, -42.1F, -55.75F);
         mpx_handguard3.addChild(receiver_upper_r109);
         setRotationAngle(receiver_upper_r109, 0.0F, 0.4538F, 0.8901F);
-        receiver_upper_r109.cubeList.add(new ModelBox(receiver_upper_r109, 65, 105, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        receiver_upper_r109.cubeList.add(new ModelBox(receiver_upper_r109, 65, 105, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         mpx_handguard_left_r51 = new ModelRenderer(this);
         mpx_handguard_left_r51.setRotationPoint(-0.5F, -43.0F, -65.5F);
         mpx_handguard3.addChild(mpx_handguard_left_r51);
         setRotationAngle(mpx_handguard_left_r51, 0.0F, 0.0F, -1.1868F);
-        mpx_handguard_left_r51.cubeList.add(new ModelBox(mpx_handguard_left_r51, 52, 23, -1.0F, 0.0F, -4.0F, 1, 1, 3, 0.002F, false));
-        mpx_handguard_left_r51.cubeList.add(new ModelBox(mpx_handguard_left_r51, 83, 97, -1.0F, 0.0F, 15.0F, 1, 1, 4, 0.002F, false));
+        mpx_handguard_left_r51.cubeList.add(new ModelBox(mpx_handguard_left_r51, 52, 23, -1, 0.0F, -4.0F, 1, 1, 3, 0.002F, false));
+        mpx_handguard_left_r51.cubeList.add(new ModelBox(mpx_handguard_left_r51, 83, 97, -1, 0.0F, 15.0F, 1, 1, 4, 0.002F, false));
 
         mpx_handguard_left_r52 = new ModelRenderer(this);
-        mpx_handguard_left_r52.setRotationPoint(1.0F, -41.8F, -65.5F);
+        mpx_handguard_left_r52.setRotationPoint(1, -41.8F, -65.5F);
         mpx_handguard3.addChild(mpx_handguard_left_r52);
         setRotationAngle(mpx_handguard_left_r52, 0.0F, 0.0F, 0.9774F);
-        mpx_handguard_left_r52.cubeList.add(new ModelBox(mpx_handguard_left_r52, 52, 4, -1.0F, 0.0F, -4.0F, 1, 1, 3, 0.001F, false));
-        mpx_handguard_left_r52.cubeList.add(new ModelBox(mpx_handguard_left_r52, 73, 97, -1.0F, 0.0F, 15.0F, 1, 1, 4, 0.001F, false));
+        mpx_handguard_left_r52.cubeList.add(new ModelBox(mpx_handguard_left_r52, 52, 4, -1, 0.0F, -4.0F, 1, 1, 3, 0.001F, false));
+        mpx_handguard_left_r52.cubeList.add(new ModelBox(mpx_handguard_left_r52, 73, 97, -1, 0.0F, 15.0F, 1, 1, 4, 0.001F, false));
 
         mpx_handguard_left_r53 = new ModelRenderer(this);
         mpx_handguard_left_r53.setRotationPoint(2.0F, -40.0F, -46.5F);
@@ -370,66 +370,66 @@ public class MPXHandguardExtended extends ModelWithAttachments {
         mpx_handguard_left_r54.setRotationPoint(-3.0F, -35.25F, -46.5F);
         mpx_handguard3.addChild(mpx_handguard_left_r54);
         setRotationAngle(mpx_handguard_left_r54, 0.0F, 0.0F, 0.7156F);
-        mpx_handguard_left_r54.cubeList.add(new ModelBox(mpx_handguard_left_r54, 99, 45, -2.6F, -1.0F, -23.0F, 1, 1, 44, -0.002F, false));
-        mpx_handguard_left_r54.cubeList.add(new ModelBox(mpx_handguard_left_r54, 50, 95, -2.0F, -1.0F, -23.0F, 2, 1, 44, -0.001F, false));
+        mpx_handguard_left_r54.cubeList.add(new ModelBox(mpx_handguard_left_r54, 99, 45, -2.6F, -1, -23.0F, 1, 1, 44, -0.002F, false));
+        mpx_handguard_left_r54.cubeList.add(new ModelBox(mpx_handguard_left_r54, 50, 95, -2.0F, -1, -23.0F, 2, 1, 44, -0.001F, false));
 
         mpx_handguard_left_r55 = new ModelRenderer(this);
         mpx_handguard_left_r55.setRotationPoint(0.0F, -35.25F, -46.5F);
         mpx_handguard3.addChild(mpx_handguard_left_r55);
         setRotationAngle(mpx_handguard_left_r55, 0.0F, 0.0F, -0.7156F);
-        mpx_handguard_left_r55.cubeList.add(new ModelBox(mpx_handguard_left_r55, 48, 140, 1.6F, -1.0F, -23.0F, 1, 1, 44, -0.002F, false));
-        mpx_handguard_left_r55.cubeList.add(new ModelBox(mpx_handguard_left_r55, 0, 97, 0.0F, -1.0F, -23.0F, 2, 1, 44, -0.001F, false));
+        mpx_handguard_left_r55.cubeList.add(new ModelBox(mpx_handguard_left_r55, 48, 140, 1.6F, -1, -23.0F, 1, 1, 44, -0.002F, false));
+        mpx_handguard_left_r55.cubeList.add(new ModelBox(mpx_handguard_left_r55, 0, 97, 0.0F, -1, -23.0F, 2, 1, 44, -0.001F, false));
 
         mpx_handguard_left_r56 = new ModelRenderer(this);
         mpx_handguard_left_r56.setRotationPoint(-5.2F, -38.2F, -29.1F);
         mpx_handguard3.addChild(mpx_handguard_left_r56);
         setRotationAngle(mpx_handguard_left_r56, -0.4189F, 0.0F, 0.0F);
-        mpx_handguard_left_r56.cubeList.add(new ModelBox(mpx_handguard_left_r56, 25, 41, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        mpx_handguard_left_r56.cubeList.add(new ModelBox(mpx_handguard_left_r56, 25, 41, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         mpx_handguard_left_r57 = new ModelRenderer(this);
         mpx_handguard_left_r57.setRotationPoint(-5.2F, -38.2F, -37.1F);
         mpx_handguard3.addChild(mpx_handguard_left_r57);
         setRotationAngle(mpx_handguard_left_r57, -0.4189F, 0.0F, 0.0F);
-        mpx_handguard_left_r57.cubeList.add(new ModelBox(mpx_handguard_left_r57, 58, 18, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        mpx_handguard_left_r57.cubeList.add(new ModelBox(mpx_handguard_left_r57, 58, 18, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         mpx_handguard_left_r58 = new ModelRenderer(this);
         mpx_handguard_left_r58.setRotationPoint(-5.2F, -38.2F, -45.1F);
         mpx_handguard3.addChild(mpx_handguard_left_r58);
         setRotationAngle(mpx_handguard_left_r58, -0.4189F, 0.0F, 0.0F);
-        mpx_handguard_left_r58.cubeList.add(new ModelBox(mpx_handguard_left_r58, 33, 58, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        mpx_handguard_left_r58.cubeList.add(new ModelBox(mpx_handguard_left_r58, 33, 58, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         mpx_handguard_left_r59 = new ModelRenderer(this);
         mpx_handguard_left_r59.setRotationPoint(-5.2F, -38.2F, -53.1F);
         mpx_handguard3.addChild(mpx_handguard_left_r59);
         setRotationAngle(mpx_handguard_left_r59, -0.4189F, 0.0F, 0.0F);
-        mpx_handguard_left_r59.cubeList.add(new ModelBox(mpx_handguard_left_r59, 41, 74, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        mpx_handguard_left_r59.cubeList.add(new ModelBox(mpx_handguard_left_r59, 74, 45, 6.4F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        mpx_handguard_left_r59.cubeList.add(new ModelBox(mpx_handguard_left_r59, 41, 74, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
+        mpx_handguard_left_r59.cubeList.add(new ModelBox(mpx_handguard_left_r59, 74, 45, 6.4F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         mpx_handguard_left_r60 = new ModelRenderer(this);
         mpx_handguard_left_r60.setRotationPoint(-5.2F, -38.2F, -69.1F);
         mpx_handguard3.addChild(mpx_handguard_left_r60);
         setRotationAngle(mpx_handguard_left_r60, -0.4189F, 0.0F, 0.0F);
-        mpx_handguard_left_r60.cubeList.add(new ModelBox(mpx_handguard_left_r60, 66, 45, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        mpx_handguard_left_r60.cubeList.add(new ModelBox(mpx_handguard_left_r60, 59, 83, 6.4F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        mpx_handguard_left_r60.cubeList.add(new ModelBox(mpx_handguard_left_r60, 66, 45, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
+        mpx_handguard_left_r60.cubeList.add(new ModelBox(mpx_handguard_left_r60, 59, 83, 6.4F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         mpx_handguard_left_r61 = new ModelRenderer(this);
         mpx_handguard_left_r61.setRotationPoint(-5.2F, -38.2F, -61.1F);
         mpx_handguard3.addChild(mpx_handguard_left_r61);
         setRotationAngle(mpx_handguard_left_r61, -0.4189F, 0.0F, 0.0F);
-        mpx_handguard_left_r61.cubeList.add(new ModelBox(mpx_handguard_left_r61, 58, 45, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        mpx_handguard_left_r61.cubeList.add(new ModelBox(mpx_handguard_left_r61, 82, 45, 6.4F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        mpx_handguard_left_r61.cubeList.add(new ModelBox(mpx_handguard_left_r61, 58, 45, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
+        mpx_handguard_left_r61.cubeList.add(new ModelBox(mpx_handguard_left_r61, 82, 45, 6.4F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         mpx_handguard_left_r62 = new ModelRenderer(this);
         mpx_handguard_left_r62.setRotationPoint(2.0F, -37.0F, -25.5F);
         mpx_handguard3.addChild(mpx_handguard_left_r62);
         setRotationAngle(mpx_handguard_left_r62, -0.0249F, 0.6064F, 0.8305F);
-        mpx_handguard_left_r62.cubeList.add(new ModelBox(mpx_handguard_left_r62, 19, 0, -1.0F, 0.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        mpx_handguard_left_r62.cubeList.add(new ModelBox(mpx_handguard_left_r62, 19, 0, -1, 0.0F, -1, 1, 2, 1, 0.0F, false));
 
         mpx_handguard_left_r63 = new ModelRenderer(this);
         mpx_handguard_left_r63.setRotationPoint(-5.0F, -37.0F, -25.5F);
         mpx_handguard3.addChild(mpx_handguard_left_r63);
         setRotationAngle(mpx_handguard_left_r63, -0.0249F, -0.6064F, -0.8305F);
-        mpx_handguard_left_r63.cubeList.add(new ModelBox(mpx_handguard_left_r63, 5, 24, 0.0F, 0.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        mpx_handguard_left_r63.cubeList.add(new ModelBox(mpx_handguard_left_r63, 5, 24, 0.0F, 0.0F, -1, 1, 2, 1, 0.0F, false));
 
         mpx_handguard_left_r64 = new ModelRenderer(this);
         mpx_handguard_left_r64.setRotationPoint(-5.0F, -40.0F, -25.5F);
@@ -441,7 +441,7 @@ public class MPXHandguardExtended extends ModelWithAttachments {
         mpx_handguard_left_r65.setRotationPoint(2.0F, -40.0F, -25.5F);
         mpx_handguard3.addChild(mpx_handguard_left_r65);
         setRotationAngle(mpx_handguard_left_r65, 0.0F, -0.7854F, -0.576F);
-        mpx_handguard_left_r65.cubeList.add(new ModelBox(mpx_handguard_left_r65, 44, 37, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        mpx_handguard_left_r65.cubeList.add(new ModelBox(mpx_handguard_left_r65, 44, 37, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         mpx_handguard_left_r66 = new ModelRenderer(this);
         mpx_handguard_left_r66.setRotationPoint(-5.0F, -37.0F, -25.5F);
@@ -453,7 +453,7 @@ public class MPXHandguardExtended extends ModelWithAttachments {
         mpx_handguard_left_r67.setRotationPoint(2.0F, -37.0F, -25.5F);
         mpx_handguard3.addChild(mpx_handguard_left_r67);
         setRotationAngle(mpx_handguard_left_r67, 0.0F, -0.7854F, 0.0F);
-        mpx_handguard_left_r67.cubeList.add(new ModelBox(mpx_handguard_left_r67, 12, 18, -1.0F, -3.0F, 0.0F, 1, 3, 1, 0.0F, false));
+        mpx_handguard_left_r67.cubeList.add(new ModelBox(mpx_handguard_left_r67, 12, 18, -1, -3.0F, 0.0F, 1, 3, 1, 0.0F, false));
 
         mpx_handguard_left_r68 = new ModelRenderer(this);
         mpx_handguard_left_r68.setRotationPoint(-5.0F, -40.0F, -46.5F);
@@ -462,39 +462,39 @@ public class MPXHandguardExtended extends ModelWithAttachments {
         mpx_handguard_left_r68.cubeList.add(new ModelBox(mpx_handguard_left_r68, 98, 96, 0.0F, 0.0F, -23.0F, 2, 1, 44, 0.001F, false));
 
         barrel3 = new ModelRenderer(this);
-        barrel3.setRotationPoint(-1.0F, -40.0F, -78.0F);
+        barrel3.setRotationPoint(-1, -40.0F, -78.0F);
         mpx_handguard3.addChild(barrel3);
-        barrel3.cubeList.add(new ModelBox(barrel3, 82, 5, -1.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
+        barrel3.cubeList.add(new ModelBox(barrel3, 82, 5, -1, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
         barrel3.cubeList.add(new ModelBox(barrel3, 0, 0, -1.5F, 0.5F, 5.0F, 2, 2, 48, 0.0F, false));
-        barrel3.cubeList.add(new ModelBox(barrel3, 30, 81, -1.0F, 2.0F, 0.0F, 1, 1, 5, 0.0F, false));
-        barrel3.cubeList.add(new ModelBox(barrel3, 17, 107, -2.0F, 1.0F, 4.0F, 1, 1, 1, 0.0F, false));
-        barrel3.cubeList.add(new ModelBox(barrel3, 4, 107, -2.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        barrel3.cubeList.add(new ModelBox(barrel3, 83, 106, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        barrel3.cubeList.add(new ModelBox(barrel3, 77, 106, 0.0F, 1.0F, 4.0F, 1, 1, 1, 0.0F, false));
+        barrel3.cubeList.add(new ModelBox(barrel3, 30, 81, -1, 2.0F, 0.0F, 1, 1, 5, 0.0F, false));
+        barrel3.cubeList.add(new ModelBox(barrel3, 17, 107, -2.0F, 1, 4.0F, 1, 1, 1, 0.0F, false));
+        barrel3.cubeList.add(new ModelBox(barrel3, 4, 107, -2.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
+        barrel3.cubeList.add(new ModelBox(barrel3, 83, 106, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
+        barrel3.cubeList.add(new ModelBox(barrel3, 77, 106, 0.0F, 1, 4.0F, 1, 1, 1, 0.0F, false));
 
         cube_r15 = new ModelRenderer(this);
-        cube_r15.setRotationPoint(-1.0F, 0.3F, -0.8F);
+        cube_r15.setRotationPoint(-1, 0.3F, -0.8F);
         barrel3.addChild(cube_r15);
         setRotationAngle(cube_r15, 0.0F, 0.0F, 0.7854F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 236, 81, 0.0F, 0.0F, 1.0F, 1, 1, 5, 0.203F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 236, 81, 0.0F, 0.0F, 1, 1, 1, 5, 0.203F, false));
 
         cube_r16 = new ModelRenderer(this);
-        cube_r16.setRotationPoint(-1.0F, 1.3F, -0.8F);
+        cube_r16.setRotationPoint(-1, 1.3F, -0.8F);
         barrel3.addChild(cube_r16);
         setRotationAngle(cube_r16, 0.0F, 0.0F, 0.7854F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 221, 76, 0.0F, 0.0F, 1.0F, 1, 1, 5, 0.203F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 221, 76, 0.0F, 0.0F, 1, 1, 1, 5, 0.203F, false));
 
         cube_r17 = new ModelRenderer(this);
         cube_r17.setRotationPoint(0.0F, 1.3F, -0.8F);
         barrel3.addChild(cube_r17);
         setRotationAngle(cube_r17, 0.0F, 0.0F, 0.7854F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 210, 72, 0.0F, 0.0F, 1.0F, 1, 1, 5, 0.202F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 210, 72, 0.0F, 0.0F, 1, 1, 1, 5, 0.202F, false));
 
         cube_r18 = new ModelRenderer(this);
         cube_r18.setRotationPoint(0.0F, 0.3F, -0.8F);
         barrel3.addChild(cube_r18);
         setRotationAngle(cube_r18, 0.0F, 0.0F, 0.7854F);
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 182, 48, 0.0F, 0.0F, 1.0F, 1, 1, 5, 0.201F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 182, 48, 0.0F, 0.0F, 1, 1, 1, 5, 0.201F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(-0.7F, -34.2F, -29.0F);

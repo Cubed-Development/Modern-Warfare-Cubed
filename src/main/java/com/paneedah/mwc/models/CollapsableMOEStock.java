@@ -86,7 +86,7 @@ public class CollapsableMOEStock extends ModelBase {
         gun370.cubeList.add(new ModelBox(gun370, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 20, 0.0F, false));
 
         gun371 = new ModelRenderer(this);
-        gun371.setRotationPoint(-1.0F, -11.7F, 7.5F);
+        gun371.setRotationPoint(-1, -11.7F, 7.5F);
         setRotationAngle(gun371, 0.0F, 0.0F, 0.7854F);
         gun371.cubeList.add(new ModelBox(gun371, 46, 42, 0.0F, -0.001F, -0.001F, 1, 1, 20, 0.0F, false));
 
@@ -193,7 +193,7 @@ public class CollapsableMOEStock extends ModelBase {
         gun393.cubeList.add(new ModelBox(gun393, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 7, 0.0F, false));
 
         gun394 = new ModelRenderer(this);
-        gun394.setRotationPoint(-2.5F, 1.0F, 26.2F);
+        gun394.setRotationPoint(-2.5F, 1, 26.2F);
         setRotationAngle(gun394, -0.1115F, 0.0F, 0.0F);
         gun394.cubeList.add(new ModelBox(gun394, 0, 5, -0.001F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
@@ -208,7 +208,7 @@ public class CollapsableMOEStock extends ModelBase {
         gun396.cubeList.add(new ModelBox(gun396, 12, 17, -0.001F, 0.0F, 0.0F, 2, 1, 2, 0.0F, false));
 
         gun397 = new ModelRenderer(this);
-        gun397.setRotationPoint(-3.0F, -8.5F, 11.0F);
+        gun397.setRotationPoint(-3.0F, -8.5F, 11);
         setRotationAngle(gun397, -0.0744F, 0.0F, 0.0F);
         gun397.cubeList.add(new ModelBox(gun397, 44, 45, 0.001F, 0.0F, 0.0F, 3, 2, 8, 0.0F, false));
 
@@ -228,7 +228,7 @@ public class CollapsableMOEStock extends ModelBase {
 
         gun401 = new ModelRenderer(this);
         gun401.setRotationPoint(-2.5F, -4.5F, 10.0F);
-        gun401.cubeList.add(new ModelBox(gun401, 36, 24, 0.001F, -1.0F, 0.0F, 2, 3, 2, 0.0F, false));
+        gun401.cubeList.add(new ModelBox(gun401, 36, 24, 0.001F, -1, 0.0F, 2, 3, 2, 0.0F, false));
 
         gun402 = new ModelRenderer(this);
         gun402.setRotationPoint(-2.5F, -1.8F, 24.6F);
@@ -254,7 +254,7 @@ public class CollapsableMOEStock extends ModelBase {
         gun406.cubeList.add(new ModelBox(gun406, 10, 10, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun407 = new ModelRenderer(this);
-        gun407.setRotationPoint(-1.0F, -11.5F, 3.5F);
+        gun407.setRotationPoint(-1, -11.5F, 3.5F);
         setRotationAngle(gun407, 0.0F, 0.0F, 0.7854F);
         gun407.cubeList.add(new ModelBox(gun407, 24, 36, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
@@ -289,7 +289,7 @@ public class CollapsableMOEStock extends ModelBase {
         gun413.cubeList.add(new ModelBox(gun413, 31, 0, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun414 = new ModelRenderer(this);
-        gun414.setRotationPoint(-1.0F, -8.5F, 3.5F);
+        gun414.setRotationPoint(-1, -8.5F, 3.5F);
         setRotationAngle(gun414, 0.0F, 0.0F, -2.3562F);
         gun414.cubeList.add(new ModelBox(gun414, 30, 27, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
     }

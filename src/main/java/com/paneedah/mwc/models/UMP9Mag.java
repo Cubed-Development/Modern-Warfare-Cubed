@@ -34,20 +34,20 @@ public class UMP9Mag extends ModelWithAttachments {
         textureHeight = 200;
 
         magazine9mm = new ModelRenderer(this);
-        magazine9mm.setRotationPoint(0.5F, 11.0F, -32.4F);
+        magazine9mm.setRotationPoint(0.5F, 11, -32.4F);
 
 
         cube_r83 = new ModelRenderer(this);
         cube_r83.setRotationPoint(-4.0401F, -20.679F, 14.5705F);
         magazine9mm.addChild(cube_r83);
         setRotationAngle(cube_r83, -0.21F, 0.0677F, 0.3496F);
-        cube_r83.cubeList.add(new ModelBox(cube_r83, 37, 68, 0.0F, -1.0F, -3.0F, 1, 1, 3, 0.01F, false));
+        cube_r83.cubeList.add(new ModelBox(cube_r83, 37, 68, 0.0F, -1, -3.0F, 1, 1, 3, 0.01F, false));
 
         cube_r84 = new ModelRenderer(this);
         cube_r84.setRotationPoint(0.0401F, -20.679F, 14.5705F);
         magazine9mm.addChild(cube_r84);
         setRotationAngle(cube_r84, -0.21F, -0.0677F, -0.3496F);
-        cube_r84.cubeList.add(new ModelBox(cube_r84, 83, 94, -1.0F, -1.0F, -3.0F, 1, 1, 3, 0.01F, false));
+        cube_r84.cubeList.add(new ModelBox(cube_r84, 83, 94, -1, -1, -3.0F, 1, 1, 3, 0.01F, false));
 
         cube_r85 = new ModelRenderer(this);
         cube_r85.setRotationPoint(-4.15F, -13.95F, 16.6F);
@@ -95,8 +95,8 @@ public class UMP9Mag extends ModelWithAttachments {
         cube_r91.setRotationPoint(-4.15F, 0.35F, 1.5F);
         magazine9mm.addChild(cube_r91);
         setRotationAngle(cube_r91, -0.5934F, 0.0F, 0.0F);
-        cube_r91.cubeList.add(new ModelBox(cube_r91, 15, 0, 0.0F, -6.0F, 1.0F, 1, 6, 1, -0.002F, false));
-        cube_r91.cubeList.add(new ModelBox(cube_r91, 27, 53, 3.3F, -6.0F, 1.0F, 1, 6, 1, -0.002F, false));
+        cube_r91.cubeList.add(new ModelBox(cube_r91, 15, 0, 0.0F, -6.0F, 1, 1, 6, 1, -0.002F, false));
+        cube_r91.cubeList.add(new ModelBox(cube_r91, 27, 53, 3.3F, -6.0F, 1, 1, 6, 1, -0.002F, false));
 
         cube_r92 = new ModelRenderer(this);
         cube_r92.setRotationPoint(0.0F, -14.8F, 13.2F);
@@ -120,7 +120,7 @@ public class UMP9Mag extends ModelWithAttachments {
         cube_r95.setRotationPoint(0.5F, -0.1F, 0.1F);
         magazine9mm.addChild(cube_r95);
         setRotationAngle(cube_r95, -0.3344F, 0.4999F, 0.9436F);
-        cube_r95.cubeList.add(new ModelBox(cube_r95, 88, 41, -1.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
+        cube_r95.cubeList.add(new ModelBox(cube_r95, 88, 41, -1, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
 
         cube_r96 = new ModelRenderer(this);
         cube_r96.setRotationPoint(0.0F, -0.6F, -0.7F);
@@ -132,7 +132,7 @@ public class UMP9Mag extends ModelWithAttachments {
         cube_r97.setRotationPoint(0.5F, 0.2F, -1.3F);
         magazine9mm.addChild(cube_r97);
         setRotationAngle(cube_r97, -0.5934F, 0.0F, 0.0F);
-        cube_r97.cubeList.add(new ModelBox(cube_r97, 0, 15, -5.0F, -1.0F, 0.0F, 5, 1, 6, 0.0F, false));
+        cube_r97.cubeList.add(new ModelBox(cube_r97, 0, 15, -5.0F, -1, 0.0F, 5, 1, 6, 0.0F, false));
 
         cube_r98 = new ModelRenderer(this);
         cube_r98.setRotationPoint(0.0F, 0.0F, 0.0F);

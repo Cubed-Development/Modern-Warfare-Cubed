@@ -26,7 +26,7 @@ public class VP70mag extends ModelWithAttachments {
         gun5_r5.setRotationPoint(0.4998F, -4.2882F, -3.9494F);
         mag.addChild(gun5_r5);
         setRotationAngle(gun5_r5, 0.2732F, 0.0F, 0.0F);
-        gun5_r5.cubeList.add(new ModelBox(gun5_r5, 20, 87, -1.5F, 8.25F, 1.0F, 3, 1, 2, 0.0F, false));
+        gun5_r5.cubeList.add(new ModelBox(gun5_r5, 20, 87, -1.5F, 8.25F, 1, 3, 1, 2, 0.0F, false));
         gun5_r5.cubeList.add(new ModelBox(gun5_r5, 115, 128, -1.5F, 7.25F, -2.0F, 3, 1, 5, 0.0F, false));
         gun5_r5.cubeList.add(new ModelBox(gun5_r5, 0, 65, -1.5F, -11.75F, -3.0F, 3, 19, 6, 0.0F, false));
     }

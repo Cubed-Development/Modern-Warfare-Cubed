@@ -75,13 +75,13 @@ public class AK47Action extends ModelWithAttachments {
         action10.setRotationPoint(-3.3F, -37.0F, -25.5F);
         action.addChild(action10);
         setRotationAngle(action10, 0.0F, 0.0F, -2.1564F);
-        action10.cubeList.add(new ModelBox(action10, 88, 124, -1.0F, 0.0F, -0.001F, 1, 1, 7, 0.0F, false));
+        action10.cubeList.add(new ModelBox(action10, 88, 124, -1, 0.0F, -0.001F, 1, 1, 7, 0.0F, false));
 
         action9 = new ModelRenderer(this);
         action9.setRotationPoint(-3.5F, -37.0F, -33.5F);
         action.addChild(action9);
         setRotationAngle(action9, 0.0F, 0.0F, -2.1564F);
-        action9.cubeList.add(new ModelBox(action9, 118, 106, -1.0F, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        action9.cubeList.add(new ModelBox(action9, 118, 106, -1, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
 
         action8 = new ModelRenderer(this);
         action8.setRotationPoint(0.5F, -37.0F, -33.5F);
@@ -99,13 +99,13 @@ public class AK47Action extends ModelWithAttachments {
         action6.setRotationPoint(-0.6F, -38.5F, -33.5F);
         action.addChild(action6);
         setRotationAngle(action6, 0.0F, 0.0F, -0.2974F);
-        action6.cubeList.add(new ModelBox(action6, 82, 75, -1.0F, 0.0F, 0.0F, 1, 2, 12, 0.0F, false));
+        action6.cubeList.add(new ModelBox(action6, 82, 75, -1, 0.0F, 0.0F, 1, 2, 12, 0.0F, false));
 
         action4 = new ModelRenderer(this);
         action4.setRotationPoint(-1.5F, -39.0F, -39.5F);
         action.addChild(action4);
         setRotationAngle(action4, 0.0F, 0.0F, -1.1154F);
-        action4.cubeList.add(new ModelBox(action4, 0, 19, -1.0F, 0.0F, -0.002F, 1, 1, 18, 0.0F, false));
+        action4.cubeList.add(new ModelBox(action4, 0, 19, -1, 0.0F, -0.002F, 1, 1, 18, 0.0F, false));
 
         action5 = new ModelRenderer(this);
         action5.setRotationPoint(-1.5F, -39.0F, -39.5F);

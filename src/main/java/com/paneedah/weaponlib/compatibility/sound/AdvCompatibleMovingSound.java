@@ -128,7 +128,7 @@ public class AdvCompatibleMovingSound extends MovingSound {
             //this.volume = (float) (vehicle.solver.currentRPM/24000.0F);
 
 
-            // this.pitch = 1.0F + ((float) (vehicle.solver.currentRPM/7000.0F)*0.1F);
+            // this.pitch = 1 + ((float) (vehicle.solver.currentRPM/7000.0F)*0.1F);
 
             //this.pitch = 1 + this.volume * this.volume;
         }

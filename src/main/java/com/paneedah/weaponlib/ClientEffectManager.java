@@ -57,7 +57,7 @@ final class ClientEffectManager implements EffectManager {
     public void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale, float xOffset, float yOffset, String texture) {
         Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();
 
-        float distance = 1.0f;
+        float distance = 1;
 
         //float scale = 0.8f * flashScale;
         float positionRandomizationFactor = 0.0f;

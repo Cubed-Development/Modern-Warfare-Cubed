@@ -200,7 +200,7 @@ public class OKP7 extends ModelBase {
         sight37_r1_r1.setRotationPoint(-5.1174F, 36.3029F, -4.1393F);
         sight.addChild(sight37_r1_r1);
         setRotationAngle(sight37_r1_r1, 0.0F, 0.0F, 0.1859F);
-        sight37_r1_r1.cubeList.add(new ModelBox(sight37_r1_r1, 0, 18, 2.4079F, -29.5449F, 1.0F, 1, 3, 5, 0.0F, false));
+        sight37_r1_r1.cubeList.add(new ModelBox(sight37_r1_r1, 0, 18, 2.4079F, -29.5449F, 1, 1, 3, 5, 0.0F, false));
     }
 
     @Override

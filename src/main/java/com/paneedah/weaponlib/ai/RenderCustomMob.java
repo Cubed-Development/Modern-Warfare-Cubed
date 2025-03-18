@@ -19,7 +19,7 @@ public class RenderCustomMob<T extends EntityLiving> extends RenderBiped<T> {
         this.addLayer(new LayerBipedArmor(this) {
             protected void initArmor() {
                 this.modelLeggings = new CompatibleModelCustomMob(0.5F);
-                this.modelArmor = new CompatibleModelCustomMob(1.0F);
+                this.modelArmor = new CompatibleModelCustomMob(1);
             }
         });
     }

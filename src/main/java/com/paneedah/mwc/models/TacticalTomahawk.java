@@ -44,8 +44,8 @@ public class TacticalTomahawk extends ModelWithAttachments {
         AxeHead.cubeList.add(new ModelBox(AxeHead, 0, 0, -7.0F, -67.0F, 0.0F, 18, 2, 4, 0.0F, true));
         AxeHead.cubeList.add(new ModelBox(AxeHead, 0, 0, -5.0F, -62.0F, 0.0F, 5, 3, 4, 0.0F, true));
         AxeHead.cubeList.add(new ModelBox(AxeHead, 0, 0, -13.8F, -57.0F, 1.5F, 1, 2, 1, 0.0F, true));
-        AxeHead.cubeList.add(new ModelBox(AxeHead, 0, 0, 11.0F, -67.0F, 0.5F, 3, 1, 3, 0.0F, true));
-        AxeHead.cubeList.add(new ModelBox(AxeHead, 0, 0, 14.0F, -67.0F, 1.0F, 4, 3, 2, 0.0F, true));
+        AxeHead.cubeList.add(new ModelBox(AxeHead, 0, 0, 11, -67.0F, 0.5F, 3, 1, 3, 0.0F, true));
+        AxeHead.cubeList.add(new ModelBox(AxeHead, 0, 0, 14.0F, -67.0F, 1, 4, 3, 2, 0.0F, true));
         AxeHead.cubeList.add(new ModelBox(AxeHead, 0, 0, 18.0F, -67.0F, 1.5F, 3, 1, 1, 0.0F, true));
         AxeHead.cubeList.add(new ModelBox(AxeHead, 0, 0, 4.0F, -65.0F, 0.0F, 7, 4, 4, 0.0F, true));
 
@@ -60,7 +60,7 @@ public class TacticalTomahawk extends ModelWithAttachments {
         AxeHead.addChild(AxeHead37_r1);
         setRotationAngle(AxeHead37_r1, 0.0F, 0.0F, -0.5411F);
         AxeHead37_r1.cubeList.add(new ModelBox(AxeHead37_r1, 0, 0, 18.1F, -60.3F, 1.5F, 4, 1, 1, 0.0F, true));
-        AxeHead37_r1.cubeList.add(new ModelBox(AxeHead37_r1, 0, 0, 14.1F, -62.3F, 1.0F, 4, 3, 2, 0.0F, true));
+        AxeHead37_r1.cubeList.add(new ModelBox(AxeHead37_r1, 0, 0, 14.1F, -62.3F, 1, 4, 3, 2, 0.0F, true));
         AxeHead37_r1.cubeList.add(new ModelBox(AxeHead37_r1, 0, 0, 10.1F, -62.3F, 0.5F, 4, 3, 3, 0.0F, true));
 
         AxeHead34_r1 = new ModelRenderer(this);
@@ -73,7 +73,7 @@ public class TacticalTomahawk extends ModelWithAttachments {
         AxeHead33_r1.setRotationPoint(15.6314F, -1.268F, 0.0F);
         AxeHead.addChild(AxeHead33_r1);
         setRotationAngle(AxeHead33_r1, 0.0F, 0.0F, -0.2618F);
-        AxeHead33_r1.cubeList.add(new ModelBox(AxeHead33_r1, 0, 0, 3.0F, -61.0F, 0.0F, 5, 2, 4, 0.0F, true));
+        AxeHead33_r1.cubeList.add(new ModelBox(AxeHead33_r1, 0, 0, 3.0F, -61, 0.0F, 5, 2, 4, 0.0F, true));
 
         AxeHead32_r1 = new ModelRenderer(this);
         AxeHead32_r1.setRotationPoint(0.1045F, 0.0F, 2.1051F);
@@ -115,7 +115,7 @@ public class TacticalTomahawk extends ModelWithAttachments {
         AxeHead20_r1.setRotationPoint(32.6903F, -18.2991F, 0.0F);
         AxeHead.addChild(AxeHead20_r1);
         setRotationAngle(AxeHead20_r1, 0.0F, 0.0F, -0.6458F);
-        AxeHead20_r1.cubeList.add(new ModelBox(AxeHead20_r1, 0, 0, -13.0F, -59.0F, 1.0F, 4, 2, 2, 0.0F, true));
+        AxeHead20_r1.cubeList.add(new ModelBox(AxeHead20_r1, 0, 0, -13.0F, -59.0F, 1, 4, 2, 2, 0.0F, true));
 
         AxeHead15_r1 = new ModelRenderer(this);
         AxeHead15_r1.setRotationPoint(21.6744F, -8.2792F, 0.0F);
@@ -127,13 +127,13 @@ public class TacticalTomahawk extends ModelWithAttachments {
         AxeHead14_r1.setRotationPoint(-35.5309F, -3.1969F, 0.0F);
         AxeHead.addChild(AxeHead14_r1);
         setRotationAngle(AxeHead14_r1, 0.0F, 0.0F, 0.5236F);
-        AxeHead14_r1.cubeList.add(new ModelBox(AxeHead14_r1, 0, 0, -12.8F, -67.9F, 1.0F, 2, 1, 2, 0.0F, true));
+        AxeHead14_r1.cubeList.add(new ModelBox(AxeHead14_r1, 0, 0, -12.8F, -67.9F, 1, 2, 1, 2, 0.0F, true));
 
         AxeHead9_r1 = new ModelRenderer(this);
         AxeHead9_r1.setRotationPoint(-6.0126F, 0.0F, -10.5158F);
         AxeHead.addChild(AxeHead9_r1);
         setRotationAngle(AxeHead9_r1, 0.0F, 0.7854F, 0.0F);
-        AxeHead9_r1.cubeList.add(new ModelBox(AxeHead9_r1, 0, 0, -15.7F, -71.0F, 2.0F, 1, 18, 1, 0.0F, true));
+        AxeHead9_r1.cubeList.add(new ModelBox(AxeHead9_r1, 0, 0, -15.7F, -71, 2.0F, 1, 18, 1, 0.0F, true));
 
         AxeHead8_r1 = new ModelRenderer(this);
         AxeHead8_r1.setRotationPoint(-6.1884F, 0.0F, -10.9401F);
@@ -145,13 +145,13 @@ public class TacticalTomahawk extends ModelWithAttachments {
         AxeHead7_r1.setRotationPoint(15.3588F, -3.3385F, 0.0F);
         AxeHead.addChild(AxeHead7_r1);
         setRotationAngle(AxeHead7_r1, 0.0F, 0.0F, -0.2618F);
-        AxeHead7_r1.cubeList.add(new ModelBox(AxeHead7_r1, 0, 0, -10.0F, -60.0F, 1.0F, 5, 1, 2, 0.0F, true));
+        AxeHead7_r1.cubeList.add(new ModelBox(AxeHead7_r1, 0, 0, -10.0F, -60.0F, 1, 5, 1, 2, 0.0F, true));
 
         AxeHead3_r1 = new ModelRenderer(this);
         AxeHead3_r1.setRotationPoint(-8.2371F, 0.4748F, 0.0F);
         AxeHead.addChild(AxeHead3_r1);
         setRotationAngle(AxeHead3_r1, 0.0F, 0.0F, 0.1222F);
-        AxeHead3_r1.cubeList.add(new ModelBox(AxeHead3_r1, 0, 0, -11.0F, -67.1F, 1.0F, 4, 2, 2, 0.0F, true));
+        AxeHead3_r1.cubeList.add(new ModelBox(AxeHead3_r1, 0, 0, -11, -67.1F, 1, 4, 2, 2, 0.0F, true));
 
         AxeHead2_r1 = new ModelRenderer(this);
         AxeHead2_r1.setRotationPoint(-6.1005F, 0.0F, -10.7279F);
@@ -163,7 +163,7 @@ public class TacticalTomahawk extends ModelWithAttachments {
         AxeHead43_r1.setRotationPoint(0.1354F, 0.0F, -1.7208F);
         AxeHead.addChild(AxeHead43_r1);
         setRotationAngle(AxeHead43_r1, 0.0F, -0.1571F, 0.0F);
-        AxeHead43_r1.cubeList.add(new ModelBox(AxeHead43_r1, 0, 0, 11.0F, -67.0F, 0.0F, 3, 5, 1, 0.0F, true));
+        AxeHead43_r1.cubeList.add(new ModelBox(AxeHead43_r1, 0, 0, 11, -67.0F, 0.0F, 3, 5, 1, 0.0F, true));
 
         shape = new ModelRenderer(this);
         shape.setRotationPoint(-0.2212F, 24.0F, 2.1896F);
@@ -190,7 +190,7 @@ public class TacticalTomahawk extends ModelWithAttachments {
         Shape7_r1.setRotationPoint(0.9978F, 0.0F, -6.5145F);
         shape.addChild(Shape7_r1);
         setRotationAngle(Shape7_r1, 0.0F, -0.2443F, 0.0F);
-        Shape7_r1.cubeList.add(new ModelBox(Shape7_r1, 0, 0, 18.0F, -67.0F, 1.0F, 2, 2, 1, 0.0F, true));
+        Shape7_r1.cubeList.add(new ModelBox(Shape7_r1, 0, 0, 18.0F, -67.0F, 1, 2, 2, 1, 0.0F, true));
 
         Shape6_r1 = new ModelRenderer(this);
         Shape6_r1.setRotationPoint(0.4718F, 0.0F, -4.3735F);
@@ -200,25 +200,25 @@ public class TacticalTomahawk extends ModelWithAttachments {
 
         handle = new ModelRenderer(this);
         handle.setRotationPoint(0.0F, 24.0F, 0.0F);
-        handle.cubeList.add(new ModelBox(handle, 100, 100, -1.0F, -39.0F, 0.0F, 6, 3, 4, 0.0F, true));
-        handle.cubeList.add(new ModelBox(handle, 100, 100, -1.5F, -38.0F, 1.0F, 1, 1, 2, 0.0F, true));
-        handle.cubeList.add(new ModelBox(handle, 100, 100, 4.5F, -38.0F, 1.0F, 1, 1, 2, 0.0F, true));
+        handle.cubeList.add(new ModelBox(handle, 100, 100, -1, -39.0F, 0.0F, 6, 3, 4, 0.0F, true));
+        handle.cubeList.add(new ModelBox(handle, 100, 100, -1.5F, -38.0F, 1, 1, 1, 2, 0.0F, true));
+        handle.cubeList.add(new ModelBox(handle, 100, 100, 4.5F, -38.0F, 1, 1, 1, 2, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -4.0F, -0.5F, 4, 2, 5, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.5F, -30.0F, 0.0F, 3, 29, 4, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -29.0F, -0.5F, 4, 1, 5, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -27.0F, -0.5F, 4, 1, 5, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -25.0F, -0.5F, 4, 1, 5, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -23.0F, -0.5F, 4, 1, 5, 0.0F, true));
-        handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -21.0F, -0.5F, 4, 1, 5, 0.0F, true));
+        handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -21, -0.5F, 4, 1, 5, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -17.0F, -0.5F, 4, 3, 5, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -19.0F, -0.5F, 4, 1, 5, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -13.0F, -0.5F, 4, 1, 5, 0.0F, true));
-        handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -11.0F, -0.5F, 4, 1, 5, 0.0F, true));
+        handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -11, -0.5F, 4, 1, 5, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -9.0F, -0.5F, 4, 1, 5, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -7.0F, -0.5F, 4, 2, 5, 0.0F, true));
-        handle.cubeList.add(new ModelBox(handle, 100, 100, 1.0F, -60.0F, -1.0F, 2, 2, 6, 0.0F, true));
-        handle.cubeList.add(new ModelBox(handle, 100, 100, 1.0F, -53.0F, -1.0F, 2, 2, 6, 0.0F, true));
-        handle.cubeList.add(new ModelBox(handle, 100, 100, 1.0F, -46.0F, -1.0F, 2, 2, 6, 0.0F, true));
+        handle.cubeList.add(new ModelBox(handle, 100, 100, 1, -60.0F, -1, 2, 2, 6, 0.0F, true));
+        handle.cubeList.add(new ModelBox(handle, 100, 100, 1, -53.0F, -1, 2, 2, 6, 0.0F, true));
+        handle.cubeList.add(new ModelBox(handle, 100, 100, 1, -46.0F, -1, 2, 2, 6, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 100, 100, 0.0F, -62.0F, -0.5F, 4, 32, 5, 0.0F, true));
     }
 

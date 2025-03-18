@@ -182,11 +182,11 @@ public class M712 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, 27.4097F, 34.4575F, -29.2F, 2, 2, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 27.4097F, 42.9575F, -11.5F, 2, 3, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 26.6097F, 30.6575F, -14.0F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, 26.6097F, 30.6575F, -11.0F, 1, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, 26.6097F, 30.6575F, -11, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 26.6097F, 30.6575F, -12.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 26.6097F, 30.6575F, -9.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 29.2097F, 30.6575F, -14.0F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, 29.2097F, 30.6575F, -11.0F, 1, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, 29.2097F, 30.6575F, -11, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 29.2097F, 30.6575F, -12.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 27.4097F, 35.5575F, -3.0F, 2, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 25.9097F, 30.2575F, -6.5F, 5, 1, 1, 0.0F, true));
@@ -268,7 +268,7 @@ public class M712 extends ModelWithAttachments {
         gun189_r1.setRotationPoint(29.9097F, -13.0643F, 8.6517F);
         gun.addChild(gun189_r1);
         setRotationAngle(gun189_r1, 2.714F, 0.0F, 0.0F);
-        gun189_r1.cubeList.add(new ModelBox(gun189_r1, 0, 0, -1.0F, -45.5F, -5.5F, 2, 1, 1, 0.0F, true));
+        gun189_r1.cubeList.add(new ModelBox(gun189_r1, 0, 0, -1, -45.5F, -5.5F, 2, 1, 1, 0.0F, true));
         gun189_r1.cubeList.add(new ModelBox(gun189_r1, 0, 0, -4.0F, -45.5F, -5.5F, 2, 1, 1, 0.0F, true));
         gun189_r1.cubeList.add(new ModelBox(gun189_r1, 0, 0, -4.0F, -46.2F, -5.5F, 5, 1, 1, 0.0F, true));
 
@@ -345,7 +345,7 @@ public class M712 extends ModelWithAttachments {
         gun161_r1.setRotationPoint(12.7371F, 77.4575F, -46.2868F);
         gun.addChild(gun161_r1);
         setRotationAngle(gun161_r1, -3.1416F, -0.7854F, 3.1416F);
-        gun161_r1.cubeList.add(new ModelBox(gun161_r1, 0, 0, 1.0F, -39.9F, -26.7F, 1, 13, 1, 0.0F, true));
+        gun161_r1.cubeList.add(new ModelBox(gun161_r1, 0, 0, 1, -39.9F, -26.7F, 1, 13, 1, 0.0F, true));
 
         gun160_r1 = new ModelRenderer(this);
         gun160_r1.setRotationPoint(10.3229F, 77.4575F, -8.1131F);
@@ -685,7 +685,7 @@ public class M712 extends ModelWithAttachments {
         gun48_r1.setRotationPoint(59.8304F, 10.051F, 0.0F);
         gun.addChild(gun48_r1);
         setRotationAngle(gun48_r1, 0.0F, 0.0F, -2.3562F);
-        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 0, 0, 1.0F, -39.9F, -28.0F, 1, 1, 24, 0.0F, true));
+        gun48_r1.cubeList.add(new ModelBox(gun48_r1, 0, 0, 1, -39.9F, -28.0F, 1, 1, 24, 0.0F, true));
 
         gun47_r1 = new ModelRenderer(this);
         gun47_r1.setRotationPoint(-1.5967F, 67.7208F, 0.0F);
@@ -748,7 +748,7 @@ public class M712 extends ModelWithAttachments {
         gun.addChild(gun19_r1);
         setRotationAngle(gun19_r1, -3.1416F, -0.7854F, 3.1416F);
         gun19_r1.cubeList.add(new ModelBox(gun19_r1, 0, 0, 1.5F, -39.9F, -17.7F, 1, 13, 1, 0.0F, true));
-        gun19_r1.cubeList.add(new ModelBox(gun19_r1, 0, 0, 1.0F, -39.9F, -17.7F, 1, 13, 1, 0.0F, true));
+        gun19_r1.cubeList.add(new ModelBox(gun19_r1, 0, 0, 1, -39.9F, -17.7F, 1, 13, 1, 0.0F, true));
 
         gun14_r1 = new ModelRenderer(this);
         gun14_r1.setRotationPoint(29.9097F, 34.0527F, -52.2587F);
@@ -772,7 +772,7 @@ public class M712 extends ModelWithAttachments {
         gun9_r1.setRotationPoint(29.9097F, 44.6039F, -40.5907F);
         gun.addChild(gun9_r1);
         setRotationAngle(gun9_r1, -1.8961F, 0.0F, 0.0F);
-        gun9_r1.cubeList.add(new ModelBox(gun9_r1, 0, 0, -3.0F, -31.0F, -8.5F, 3, 1, 3, 0.0F, true));
+        gun9_r1.cubeList.add(new ModelBox(gun9_r1, 0, 0, -3.0F, -31, -8.5F, 3, 1, 3, 0.0F, true));
 
         gun7_r1 = new ModelRenderer(this);
         gun7_r1.setRotationPoint(29.9097F, 19.2018F, 2.6942F);

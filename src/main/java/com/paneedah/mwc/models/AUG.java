@@ -343,7 +343,7 @@ public class AUG extends ModelWithAttachments {
         AUG92_r1.setRotationPoint(10.2635F, 28.0048F, -2.632F);
         gun.addChild(AUG92_r1);
         setRotationAngle(AUG92_r1, 0.0F, 0.0F, -0.2957F);
-        AUG92_r1.cubeList.add(new ModelBox(AUG92_r1, 20, 80, -4.3F, -31.0F, 7.0F, 1, 2, 2, 0.0F, false));
+        AUG92_r1.cubeList.add(new ModelBox(AUG92_r1, 20, 80, -4.3F, -31, 7.0F, 1, 2, 2, 0.0F, false));
 
         AUG91_r1 = new ModelRenderer(this);
         AUG91_r1.setRotationPoint(-12.0326F, 27.2549F, -2.632F);
@@ -497,7 +497,7 @@ public class AUG extends ModelWithAttachments {
         AUG48_r1.setRotationPoint(-12.0927F, 28.4384F, -2.632F);
         gun.addChild(AUG48_r1);
         setRotationAngle(AUG48_r1, 0.0F, 0.0F, 0.3718F);
-        AUG48_r1.cubeList.add(new ModelBox(AUG48_r1, 118, 41, -1.0F, -37.0F, -4.7F, 1, 1, 39, 0.0F, false));
+        AUG48_r1.cubeList.add(new ModelBox(AUG48_r1, 118, 41, -1, -37.0F, -4.7F, 1, 1, 39, 0.0F, false));
 
         AUG44_r1 = new ModelRenderer(this);
         AUG44_r1.setRotationPoint(-12.3484F, -32.0498F, -2.632F);
@@ -593,7 +593,7 @@ public class AUG extends ModelWithAttachments {
         AUG14_r1.setRotationPoint(1.417F, -18.4835F, 16.1024F);
         gun.addChild(AUG14_r1);
         setRotationAngle(AUG14_r1, 2.3423F, 0.0F, 0.0F);
-        AUG14_r1.cubeList.add(new ModelBox(AUG14_r1, 43, 60, -3.5F, -28.5F, -1.0F, 4, 3, 2, 0.0F, false));
+        AUG14_r1.cubeList.add(new ModelBox(AUG14_r1, 43, 60, -3.5F, -28.5F, -1, 4, 3, 2, 0.0F, false));
 
         AUG13_r1 = new ModelRenderer(this);
         AUG13_r1.setRotationPoint(1.417F, -27.4471F, 0.573F);
@@ -641,7 +641,7 @@ public class AUG extends ModelWithAttachments {
         AUG3_r1.setRotationPoint(1.417F, 21.3276F, -24.0241F);
         gun.addChild(AUG3_r1);
         setRotationAngle(AUG3_r1, -0.8923F, 0.0F, 0.0F);
-        AUG3_r1.cubeList.add(new ModelBox(AUG3_r1, 82, 150, -3.5F, -27.0F, -1.0F, 4, 3, 5, 0.0F, false));
+        AUG3_r1.cubeList.add(new ModelBox(AUG3_r1, 82, 150, -3.5F, -27.0F, -1, 4, 3, 5, 0.0F, false));
 
         AUG2_r1 = new ModelRenderer(this);
         AUG2_r1.setRotationPoint(1.417F, 27.725F, 4.5776F);

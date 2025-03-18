@@ -193,7 +193,7 @@ public class M17Slide extends ModelWithAttachments {
         slide3_r1.cubeList.add(new ModelBox(slide3_r1, 83, 46, 0.4F, -0.001F, 0.001F, 1, 1, 3, 0.0F, false));
 
         slide4_r1 = new ModelRenderer(this);
-        slide4_r1.setRotationPoint(-1.0F, -32.5F, -27.0F);
+        slide4_r1.setRotationPoint(-1, -32.5F, -27.0F);
         slide.addChild(slide4_r1);
         setRotationAngle(slide4_r1, 0.0F, 0.0F, -2.3562F);
         slide4_r1.cubeList.add(new ModelBox(slide4_r1, 25, 68, -0.001F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
@@ -203,29 +203,29 @@ public class M17Slide extends ModelWithAttachments {
         slide12_r1.setRotationPoint(-3.7F, -35.0F, -25.5F);
         slide.addChild(slide12_r1);
         setRotationAngle(slide12_r1, 0.0F, -0.2793F, 0.0F);
-        slide12_r1.cubeList.add(new ModelBox(slide12_r1, 75, 77, -0.001F, -1.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        slide12_r1.cubeList.add(new ModelBox(slide12_r1, 75, 77, -0.001F, -1, -1, 1, 1, 1, 0.0F, false));
         slide12_r1.cubeList.add(new ModelBox(slide12_r1, 36, 77, 0.001F, -1.5F, -1.77F, 1, 1, 1, 0.0F, false));
-        slide12_r1.cubeList.add(new ModelBox(slide12_r1, 66, 75, 0.0F, -1.0F, -1.77F, 1, 1, 1, 0.0F, false));
+        slide12_r1.cubeList.add(new ModelBox(slide12_r1, 66, 75, 0.0F, -1, -1.77F, 1, 1, 1, 0.0F, false));
 
         slide11_r1 = new ModelRenderer(this);
         slide11_r1.setRotationPoint(0.7F, -35.0F, -25.5F);
         slide.addChild(slide11_r1);
         setRotationAngle(slide11_r1, 0.0F, 0.2793F, 0.0F);
-        slide11_r1.cubeList.add(new ModelBox(slide11_r1, 80, 2, -1.001F, -1.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        slide11_r1.cubeList.add(new ModelBox(slide11_r1, 80, 2, -1.001F, -1, -1, 1, 1, 1, 0.0F, false));
         slide11_r1.cubeList.add(new ModelBox(slide11_r1, 80, 0, -0.999F, -1.5F, -1.77F, 1, 1, 1, 0.0F, false));
-        slide11_r1.cubeList.add(new ModelBox(slide11_r1, 66, 83, -1.0F, -1.0F, -1.77F, 1, 1, 1, 0.0F, false));
+        slide11_r1.cubeList.add(new ModelBox(slide11_r1, 66, 83, -1, -1, -1.77F, 1, 1, 1, 0.0F, false));
 
         slide10_r1 = new ModelRenderer(this);
         slide10_r1.setRotationPoint(-3.7F, -35.6F, -25.5F);
         slide.addChild(slide10_r1);
         setRotationAngle(slide10_r1, -0.3316F, -0.2793F, 0.0F);
-        slide10_r1.cubeList.add(new ModelBox(slide10_r1, 81, 76, 0.0F, -1.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        slide10_r1.cubeList.add(new ModelBox(slide10_r1, 81, 76, 0.0F, -1, -2.0F, 1, 1, 2, 0.0F, false));
 
         slide9_r1 = new ModelRenderer(this);
         slide9_r1.setRotationPoint(0.7F, -35.6F, -25.5F);
         slide.addChild(slide9_r1);
         setRotationAngle(slide9_r1, -0.3316F, 0.2793F, 0.0F);
-        slide9_r1.cubeList.add(new ModelBox(slide9_r1, 82, 15, -1.0F, -1.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        slide9_r1.cubeList.add(new ModelBox(slide9_r1, 82, 15, -1, -1, -2.0F, 1, 1, 2, 0.0F, false));
 
         slide11_r2 = new ModelRenderer(this);
         slide11_r2.setRotationPoint(0.7F, -36.7F, -23.6F);
@@ -234,7 +234,7 @@ public class M17Slide extends ModelWithAttachments {
         slide11_r2.cubeList.add(new ModelBox(slide11_r2, 14, 68, -4.398F, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
         slide11_r2.cubeList.add(new ModelBox(slide11_r2, 31, 68, -0.998F, 0.0F, 0.5F, 1, 1, 1, 0.0F, false));
         slide11_r2.cubeList.add(new ModelBox(slide11_r2, 25, 68, -4.4F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        slide11_r2.cubeList.add(new ModelBox(slide11_r2, 51, 68, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide11_r2.cubeList.add(new ModelBox(slide11_r2, 51, 68, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide13_r1 = new ModelRenderer(this);
         slide13_r1.setRotationPoint(0.7F, -36.7F, -18.6F);
@@ -255,7 +255,7 @@ public class M17Slide extends ModelWithAttachments {
         slide14_r1.setRotationPoint(0.0F, -38.5F, -25.2F);
         slide.addChild(slide14_r1);
         setRotationAngle(slide14_r1, 0.0F, 0.0873F, 0.0F);
-        slide14_r1.cubeList.add(new ModelBox(slide14_r1, 75, 80, -1.0F, 0.001F, -2.0F, 1, 1, 2, 0.0F, false));
+        slide14_r1.cubeList.add(new ModelBox(slide14_r1, 75, 80, -1, 0.001F, -2.0F, 1, 1, 2, 0.0F, false));
 
         slide24_r1 = new ModelRenderer(this);
         slide24_r1.setRotationPoint(-3.0F, -38.5F, 1.5F);
@@ -291,7 +291,7 @@ public class M17Slide extends ModelWithAttachments {
         slide50_r1.cubeList.add(new ModelBox(slide50_r1, 60, 18, -1.2F, -0.301F, 2.7F, 1, 1, 1, -0.3F, false));
         slide50_r1.cubeList.add(new ModelBox(slide50_r1, 71, 64, -0.9F, -0.101F, -0.1F, 1, 1, 2, -0.1F, false));
         slide50_r1.cubeList.add(new ModelBox(slide50_r1, 66, 0, -1.2F, 0.001F, 0.6F, 1, 1, 2, 0.0F, false));
-        slide50_r1.cubeList.add(new ModelBox(slide50_r1, 72, 73, -1.0F, 0.0F, 0.6F, 1, 1, 2, 0.0F, false));
+        slide50_r1.cubeList.add(new ModelBox(slide50_r1, 72, 73, -1, 0.0F, 0.6F, 1, 1, 2, 0.0F, false));
 
         slide47_r1 = new ModelRenderer(this);
         slide47_r1.setRotationPoint(-2.5F, -38.5F, 1.7F);
@@ -338,7 +338,7 @@ public class M17Slide extends ModelWithAttachments {
         slide53_r1.setRotationPoint(0.1F, -38.5F, -8.5F);
         slide.addChild(slide53_r1);
         setRotationAngle(slide53_r1, -0.0087F, 0.0157F, -0.4538F);
-        slide53_r1.cubeList.add(new ModelBox(slide53_r1, 52, 24, -1.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
+        slide53_r1.cubeList.add(new ModelBox(slide53_r1, 52, 24, -1, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
 
         slide54_r3 = new ModelRenderer(this);
         slide54_r3.setRotationPoint(-3.1F, -38.5F, -8.5F);
@@ -350,25 +350,25 @@ public class M17Slide extends ModelWithAttachments {
         slide53_r2.setRotationPoint(0.1F, -38.5F, -8.5F);
         slide.addChild(slide53_r2);
         setRotationAngle(slide53_r2, 0.0F, 0.0183F, 0.0F);
-        slide53_r2.cubeList.add(new ModelBox(slide53_r2, 0, 49, -1.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
+        slide53_r2.cubeList.add(new ModelBox(slide53_r2, 0, 49, -1, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
 
         slide62_r1 = new ModelRenderer(this);
         slide62_r1.setRotationPoint(-2.3F, -38.63F, -6.5F);
         slide.addChild(slide62_r1);
         setRotationAngle(slide62_r1, 0.0F, 0.0F, 1.4486F);
-        slide62_r1.cubeList.add(new ModelBox(slide62_r1, 71, 26, 0.0F, 0.0F, -1.0F, 1, 1, 7, 0.0F, false));
+        slide62_r1.cubeList.add(new ModelBox(slide62_r1, 71, 26, 0.0F, 0.0F, -1, 1, 1, 7, 0.0F, false));
 
         slide61_r1 = new ModelRenderer(this);
         slide61_r1.setRotationPoint(-0.7F, -38.63F, -6.5F);
         slide.addChild(slide61_r1);
         setRotationAngle(slide61_r1, 0.0F, 0.0F, -1.4486F);
-        slide61_r1.cubeList.add(new ModelBox(slide61_r1, 72, 34, -1.0F, 0.0F, -1.0F, 1, 1, 7, 0.0F, false));
+        slide61_r1.cubeList.add(new ModelBox(slide61_r1, 72, 34, -1, 0.0F, -1, 1, 1, 7, 0.0F, false));
 
         gun66_r1 = new ModelRenderer(this);
         gun66_r1.setRotationPoint(-2.4F, -37.5F, 1.25F);
         slide.addChild(gun66_r1);
         setRotationAngle(gun66_r1, -1.4813F, 0.0F, 0.0F);
-        gun66_r1.cubeList.add(new ModelBox(gun66_r1, 86, 35, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.2F, false));
+        gun66_r1.cubeList.add(new ModelBox(gun66_r1, 86, 35, -1, -1, 0.0F, 1, 1, 1, -0.2F, false));
 
         slide101_r1 = new ModelRenderer(this);
         slide101_r1.setRotationPoint(0.0F, -38.5F, -26.2F);
@@ -381,32 +381,32 @@ public class M17Slide extends ModelWithAttachments {
         slide.addChild(slide100_r1);
         setRotationAngle(slide100_r1, 0.0F, 0.0F, -1.1868F);
         slide100_r1.cubeList.add(new ModelBox(slide100_r1, 84, 56, -1.6F, -0.001F, 6.7F, 1, 1, 2, 0.0F, false));
-        slide100_r1.cubeList.add(new ModelBox(slide100_r1, 40, 0, -1.0F, 0.0F, 1.0F, 1, 1, 12, 0.0F, false));
+        slide100_r1.cubeList.add(new ModelBox(slide100_r1, 40, 0, -1, 0.0F, 1, 1, 1, 12, 0.0F, false));
         slide100_r1.cubeList.add(new ModelBox(slide100_r1, 24, 8, -1.6F, -0.002F, 2.18F, 1, 1, 5, 0.0F, false));
 
         slide100_r2 = new ModelRenderer(this);
         slide100_r2.setRotationPoint(-3.0F, -38.5F, -25.2F);
         slide.addChild(slide100_r2);
         setRotationAngle(slide100_r2, 0.0698F, 0.0F, -1.2043F);
-        slide100_r2.cubeList.add(new ModelBox(slide100_r2, 14, 70, -1.0F, 0.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        slide100_r2.cubeList.add(new ModelBox(slide100_r2, 14, 70, -1, 0.0F, -1, 1, 1, 1, 0.0F, false));
 
         slide101_r2 = new ModelRenderer(this);
         slide101_r2.setRotationPoint(-2.93F, -38.48F, -26.2F);
         slide.addChild(slide101_r2);
         setRotationAngle(slide101_r2, 0.1222F, 0.0F, -1.2043F);
-        slide101_r2.cubeList.add(new ModelBox(slide101_r2, 57, 68, -1.0F, 0.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        slide101_r2.cubeList.add(new ModelBox(slide101_r2, 57, 68, -1, 0.0F, -1, 1, 1, 1, 0.0F, false));
 
         slide100_r3 = new ModelRenderer(this);
         slide100_r3.setRotationPoint(-0.07F, -38.48F, -26.2F);
         slide.addChild(slide100_r3);
         setRotationAngle(slide100_r3, 0.1222F, 0.0F, 1.2043F);
-        slide100_r3.cubeList.add(new ModelBox(slide100_r3, 64, 68, 0.0F, 0.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        slide100_r3.cubeList.add(new ModelBox(slide100_r3, 64, 68, 0.0F, 0.0F, -1, 1, 1, 1, 0.0F, false));
 
         slide99_r1 = new ModelRenderer(this);
         slide99_r1.setRotationPoint(0.0F, -38.5F, -25.2F);
         slide.addChild(slide99_r1);
         setRotationAngle(slide99_r1, 0.0698F, 0.0F, 1.2043F);
-        slide99_r1.cubeList.add(new ModelBox(slide99_r1, 25, 70, 0.0F, 0.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        slide99_r1.cubeList.add(new ModelBox(slide99_r1, 25, 70, 0.0F, 0.0F, -1, 1, 1, 1, 0.0F, false));
 
         slide99_r2 = new ModelRenderer(this);
         slide99_r2.setRotationPoint(0.0F, -38.5F, -24.5F);
@@ -420,8 +420,8 @@ public class M17Slide extends ModelWithAttachments {
         slide.addChild(slide103_r1);
         setRotationAngle(slide103_r1, 0.0401F, 0.0F, 0.0F);
         slide103_r1.cubeList.add(new ModelBox(slide103_r1, 33, 36, -3.408F, 0.15F, 5.35F, 1, 2, 1, 0.0F, false));
-        slide103_r1.cubeList.add(new ModelBox(slide103_r1, 30, 48, -3.411F, 0.65F, 1.0F, 1, 1, 5, 0.0F, false));
-        slide103_r1.cubeList.add(new ModelBox(slide103_r1, 0, 35, -0.008F, 0.95F, 1.0F, 1, 1, 13, 0.0F, false));
+        slide103_r1.cubeList.add(new ModelBox(slide103_r1, 30, 48, -3.411F, 0.65F, 1, 1, 1, 5, 0.0F, false));
+        slide103_r1.cubeList.add(new ModelBox(slide103_r1, 0, 35, -0.008F, 0.95F, 1, 1, 1, 13, 0.0F, false));
         slide103_r1.cubeList.add(new ModelBox(slide103_r1, 28, 85, -3.409F, 0.15F, -6.0F, 1, 1, 2, 0.0F, false));
         slide103_r1.cubeList.add(new ModelBox(slide103_r1, 56, 85, -0.009F, 0.15F, -6.0F, 1, 1, 2, 0.0F, false));
         slide103_r1.cubeList.add(new ModelBox(slide103_r1, 66, 18, -3.408F, 0.15F, 13.0F, 1, 1, 1, 0.0F, false));
@@ -441,14 +441,14 @@ public class M17Slide extends ModelWithAttachments {
         slide.addChild(slide106_r1);
         setRotationAngle(slide106_r1, 0.1222F, -0.4014F, -1.2741F);
         slide106_r1.cubeList.add(new ModelBox(slide106_r1, 66, 73, 0.0F, 0.0F, -1.8F, 1, 1, 1, 0.0F, false));
-        slide106_r1.cubeList.add(new ModelBox(slide106_r1, 74, 7, 0.0F, 0.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        slide106_r1.cubeList.add(new ModelBox(slide106_r1, 74, 7, 0.0F, 0.0F, -1, 1, 1, 1, 0.0F, false));
 
         slide105_r1 = new ModelRenderer(this);
         slide105_r1.setRotationPoint(0.68F, -36.65F, -25.5F);
         slide.addChild(slide105_r1);
         setRotationAngle(slide105_r1, 0.1222F, 0.4014F, 1.2741F);
-        slide105_r1.cubeList.add(new ModelBox(slide105_r1, 31, 70, -1.0F, 0.0F, -1.9F, 1, 1, 1, 0.0F, false));
-        slide105_r1.cubeList.add(new ModelBox(slide105_r1, 36, 75, -1.0F, 0.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        slide105_r1.cubeList.add(new ModelBox(slide105_r1, 31, 70, -1, 0.0F, -1.9F, 1, 1, 1, 0.0F, false));
+        slide105_r1.cubeList.add(new ModelBox(slide105_r1, 36, 75, -1, 0.0F, -1, 1, 1, 1, 0.0F, false));
 
         slide103_r2 = new ModelRenderer(this);
         slide103_r2.setRotationPoint(0.71F, -36.85F, -19.5F);
@@ -510,7 +510,7 @@ public class M17Slide extends ModelWithAttachments {
         slide103_r5.cubeList.add(new ModelBox(slide103_r5, 74, 56, 2.403F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         slide104_r5 = new ModelRenderer(this);
-        slide104_r5.setRotationPoint(-2.7F, -37.35F, 1.0F);
+        slide104_r5.setRotationPoint(-2.7F, -37.35F, 1);
         slide.addChild(slide104_r5);
         setRotationAngle(slide104_r5, -1.117F, 0.0F, 0.0F);
         slide104_r5.cubeList.add(new ModelBox(slide104_r5, 74, 11, -0.997F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
@@ -670,7 +670,7 @@ public class M17Slide extends ModelWithAttachments {
         gun2_r1.setRotationPoint(-3.5F, -27.5F, -5.0F);
         gun.addChild(gun2_r1);
         setRotationAngle(gun2_r1, 0.1859F, 0.0F, 0.0F);
-        gun2_r1.cubeList.add(new ModelBox(gun2_r1, 0, 20, 0.0F, 0.0F, -1.0F, 4, 10, 3, 0.0F, false));
+        gun2_r1.cubeList.add(new ModelBox(gun2_r1, 0, 20, 0.0F, 0.0F, -1, 4, 10, 3, 0.0F, false));
 
         gun3_r1 = new ModelRenderer(this);
         gun3_r1.setRotationPoint(-3.5F, -24.2F, 3.5F);
@@ -745,22 +745,22 @@ public class M17Slide extends ModelWithAttachments {
         gun33_r1.setRotationPoint(-2.5F, -31.5F, -19.0F);
         gun.addChild(gun33_r1);
         setRotationAngle(gun33_r1, 0.0F, 0.0F, 2.3051F);
-        gun33_r1.cubeList.add(new ModelBox(gun33_r1, 86, 9, -1.0F, 0.0F, -4.5F, 1, 1, 1, 0.0F, false));
-        gun33_r1.cubeList.add(new ModelBox(gun33_r1, 10, 86, -1.0F, 0.0F, -3.0F, 1, 1, 1, 0.0F, false));
-        gun33_r1.cubeList.add(new ModelBox(gun33_r1, 86, 15, -1.0F, 0.0F, -1.5F, 1, 1, 1, 0.0F, false));
-        gun33_r1.cubeList.add(new ModelBox(gun33_r1, 80, 0, -1.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun33_r1.cubeList.add(new ModelBox(gun33_r1, 86, 9, -1, 0.0F, -4.5F, 1, 1, 1, 0.0F, false));
+        gun33_r1.cubeList.add(new ModelBox(gun33_r1, 10, 86, -1, 0.0F, -3.0F, 1, 1, 1, 0.0F, false));
+        gun33_r1.cubeList.add(new ModelBox(gun33_r1, 86, 15, -1, 0.0F, -1.5F, 1, 1, 1, 0.0F, false));
+        gun33_r1.cubeList.add(new ModelBox(gun33_r1, 80, 0, -1, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun31_r1 = new ModelRenderer(this);
         gun31_r1.setRotationPoint(-2.51F, -31.5F, -22.5F);
         gun.addChild(gun31_r1);
         setRotationAngle(gun31_r1, 0.0F, 0.0F, 2.3051F);
-        gun31_r1.cubeList.add(new ModelBox(gun31_r1, 10, 6, -1.0F, 1.0F, 0.0F, 1, 0, 4, 0.0F, false));
+        gun31_r1.cubeList.add(new ModelBox(gun31_r1, 10, 6, -1, 1, 0.0F, 1, 0, 4, 0.0F, false));
 
         gun32_r1 = new ModelRenderer(this);
         gun32_r1.setRotationPoint(-0.51F, -31.5F, -22.5F);
         gun.addChild(gun32_r1);
         setRotationAngle(gun32_r1, 0.0F, 0.0F, -2.3051F);
-        gun32_r1.cubeList.add(new ModelBox(gun32_r1, 0, 0, 0.0F, 1.0F, 0.0F, 1, 0, 4, 0.0F, false));
+        gun32_r1.cubeList.add(new ModelBox(gun32_r1, 0, 0, 0.0F, 1, 0.0F, 1, 0, 4, 0.0F, false));
 
         gun34_r1 = new ModelRenderer(this);
         gun34_r1.setRotationPoint(-3.5F, -33.5F, -24.0F);
@@ -772,7 +772,7 @@ public class M17Slide extends ModelWithAttachments {
         gun35_r1.setRotationPoint(0.5F, -33.5F, -24.0F);
         gun.addChild(gun35_r1);
         setRotationAngle(gun35_r1, 0.0F, 0.0F, 0.7807F);
-        gun35_r1.cubeList.add(new ModelBox(gun35_r1, 47, 55, -1.0F, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
+        gun35_r1.cubeList.add(new ModelBox(gun35_r1, 47, 55, -1, 0.0F, 0.0F, 1, 1, 10, 0.0F, false));
 
         gun37_r1 = new ModelRenderer(this);
         gun37_r1.setRotationPoint(-0.7F, -31.5F, -15.5F);
@@ -988,7 +988,7 @@ public class M17Slide extends ModelWithAttachments {
         gun78_r1.setRotationPoint(-0.2F, -38.2F, -13.2F);
         gun.addChild(gun78_r1);
         setRotationAngle(gun78_r1, 0.0436F, 0.0F, 0.0F);
-        gun78_r1.cubeList.add(new ModelBox(gun78_r1, 57, 66, -1.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
+        gun78_r1.cubeList.add(new ModelBox(gun78_r1, 57, 66, -1, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
 
         mag = new ModelRenderer(this);
         mag.setRotationPoint(0.0F, 23.8F, 0.5F);
@@ -1012,7 +1012,7 @@ public class M17Slide extends ModelWithAttachments {
         mag3_r1.cubeList.add(new ModelBox(mag3_r1, 45, 43, 0.0F, -1.5F, 1.4F, 1, 1, 4, 0.0F, false));
         mag3_r1.cubeList.add(new ModelBox(mag3_r1, 45, 43, 2.6F, -1.5F, 1.4F, 1, 1, 4, 0.0F, false));
         mag3_r1.cubeList.add(new ModelBox(mag3_r1, 24, 0, 2.6F, -0.5F, -0.1F, 1, 2, 6, 0.0F, false));
-        mag3_r1.cubeList.add(new ModelBox(mag3_r1, 14, 64, 0.3F, -0.5F, -1.0F, 3, 2, 1, 0.0F, false));
+        mag3_r1.cubeList.add(new ModelBox(mag3_r1, 14, 64, 0.3F, -0.5F, -1, 3, 2, 1, 0.0F, false));
     }
 
     @Override

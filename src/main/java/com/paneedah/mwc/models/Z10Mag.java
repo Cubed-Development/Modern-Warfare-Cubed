@@ -42,7 +42,7 @@ public class Z10Mag extends ModelWithAttachments {
         mag = new ModelRenderer(this);
         mag.setRotationPoint(-1.5F, -2.1972F, -16.9893F);
         mag.cubeList.add(new ModelBox(mag, 22, 66, -1.75F, -5.8028F, -2.4607F, 3, 5, 7, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 23, 0, -1.0F, -5.8028F, -4.3607F, 2, 5, 2, 0.001F, false));
+        mag.cubeList.add(new ModelBox(mag, 23, 0, -1, -5.8028F, -4.3607F, 2, 5, 2, 0.001F, false));
         mag.cubeList.add(new ModelBox(mag, 0, 25, 0.75F, -5.8028F, -2.4607F, 1, 5, 7, -0.001F, false));
 
         gun48_r10_r1 = new ModelRenderer(this);

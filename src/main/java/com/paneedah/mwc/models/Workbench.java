@@ -36,7 +36,7 @@ public class Workbench extends ModelBase {
         workbench.cubeList.add(new ModelBox(workbench, 0, 72, -28.5F, 6.55F, 1.45F, 12, 5, 10, 0.0F, false));
         workbench.cubeList.add(new ModelBox(workbench, 68, 81, -2.5F, 4.8F, 0.7F, 2, 9, 2, 0.0F, false));
         workbench.cubeList.add(new ModelBox(workbench, 0, 55, -2.5F, 4.8F, 13.95F, 2, 9, 2, 0.0F, false));
-        workbench.cubeList.add(new ModelBox(workbench, 6, 21, -1.0F, -13.2F, 13.95F, 1, 11, 2, 0.0F, false));
+        workbench.cubeList.add(new ModelBox(workbench, 6, 21, -1, -13.2F, 13.95F, 1, 11, 2, 0.0F, false));
         workbench.cubeList.add(new ModelBox(workbench, 0, 21, -32.0F, -13.2F, 13.95F, 1, 11, 2, 0.0F, false));
         workbench.cubeList.add(new ModelBox(workbench, 80, 0, -32.0F, -15.2F, 12.95F, 32, 2, 3, 0.0F, false));
         workbench.cubeList.add(new ModelBox(workbench, 80, 5, -29.5F, 4.8F, 14.7F, 28, 7, 1, 0.0F, false));
@@ -54,13 +54,13 @@ public class Workbench extends ModelBase {
         cube_r2.setRotationPoint(-5.75F, -4.5F, 5.2F);
         workbench.addChild(cube_r2);
         setRotationAngle(cube_r2, -0.067F, -0.4826F, 0.2046F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 6, 10, 0.0F, -1.0F, 0.0F, 4, 1, 1, -0.2F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 6, 10, 0.0F, -1, 0.0F, 4, 1, 1, -0.2F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(-4.05F, -3.2F, 1.2F);
         workbench.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0831F, -0.3214F, -0.2578F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 8, 0.0F, -1.0F, 0.0F, 6, 1, 1, -0.2F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 8, 0.0F, -1, 0.0F, 6, 1, 1, -0.2F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(-5.25F, -3.2F, 1.6F);
@@ -78,7 +78,7 @@ public class Workbench extends ModelBase {
         cube_r6.setRotationPoint(-7.0F, -2.2F, 0.85F);
         workbench.addChild(cube_r6);
         setRotationAngle(cube_r6, 0.0F, -0.3316F, 0.0F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 48, 81, 0.0F, -1.0F, 0.0F, 5, 1, 5, 0.0F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 48, 81, 0.0F, -1, 0.0F, 5, 1, 5, 0.0F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(-7.6F, 8.05F, 4.8F);
@@ -109,7 +109,7 @@ public class Workbench extends ModelBase {
         cube_r9.cubeList.add(new ModelBox(cube_r9, 10, 0, -4.0F, 2.0F, 0.6F, 1, 3, 1, 0.0F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 12, 21, -8.0F, 2.0F, 0.6F, 1, 3, 1, 0.0F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 12, 29, -6.0F, -2.3F, 0.2F, 1, 2, 1, 0.0F, false));
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 8, 45, -1.0F, -2.3F, 0.2F, 1, 2, 1, 0.0F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 8, 45, -1, -2.3F, 0.2F, 1, 2, 1, 0.0F, false));
 
         cube_r10 = new ModelRenderer(this);
         cube_r10.setRotationPoint(-33.8F, 5.2F, 0.7F);
@@ -122,7 +122,7 @@ public class Workbench extends ModelBase {
         workbench.addChild(cube_r11);
         setRotationAngle(cube_r11, 0.0F, -0.8552F, 0.0F);
         cube_r11.cubeList.add(new ModelBox(cube_r11, 80, 81, -18.0F, -9.0F, 0.2F, 16, 9, 1, -0.02F, false));
-        cube_r11.cubeList.add(new ModelBox(cube_r11, 55, 59, -18.0F, -9.0F, 1.0F, 16, 9, 13, -0.01F, false));
+        cube_r11.cubeList.add(new ModelBox(cube_r11, 55, 59, -18.0F, -9.0F, 1, 16, 9, 13, -0.01F, false));
         cube_r11.cubeList.add(new ModelBox(cube_r11, 82, 13, -4.0F, -6.0F, 0.0F, 1, 6, 14, 0.0F, false));
         cube_r11.cubeList.add(new ModelBox(cube_r11, 0, 87, -17.0F, -6.0F, 0.0F, 1, 6, 14, 0.0F, false));
         cube_r11.cubeList.add(new ModelBox(cube_r11, 54, 55, -18.0F, -9.0F, 0.0F, 16, 3, 1, 0.0F, false));

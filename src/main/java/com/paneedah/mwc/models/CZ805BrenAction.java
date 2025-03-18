@@ -31,7 +31,7 @@ public class CZ805BrenAction extends ModelWithAttachments {
         cube_r67.setRotationPoint(5.9F, -3.25F, -6.0F);
         action.addChild(cube_r67);
         setRotationAngle(cube_r67, 0.0F, -0.3316F, 0.0F);
-        cube_r67.cubeList.add(new ModelBox(cube_r67, 77, 2, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.101F, false));
+        cube_r67.cubeList.add(new ModelBox(cube_r67, 77, 2, -1, -1, 0.0F, 1, 1, 1, 0.101F, false));
     }
 
     @Override

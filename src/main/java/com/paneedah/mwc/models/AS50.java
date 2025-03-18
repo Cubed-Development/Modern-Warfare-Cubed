@@ -112,23 +112,23 @@ public class AS50 extends ModelWithAttachments {
         gun = new ModelRenderer(this);
         gun.setRotationPoint(0.0F, 24.0F, 0.0F);
         gun.cubeList.add(new ModelBox(gun, 252, 83, 0.5F, -56.0F, -44.7F, 1, 1, 41, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -41.0F, -16.7F, 6, 1, 34, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -54.0F, 16.3F, 6, 13, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 42, 76, -1.0F, -46.0F, -18.7F, 6, 5, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 84, 37, -1.0F, -45.0F, -16.7F, 1, 4, 33, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -41, -16.7F, 6, 1, 34, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -54.0F, 16.3F, 6, 13, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 42, 76, -1, -46.0F, -18.7F, 6, 5, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 84, 37, -1, -45.0F, -16.7F, 1, 4, 33, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 84, 0, 4.0F, -45.0F, -16.7F, 1, 4, 33, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 53, 109, -1.0F, -41.0F, -18.7F, 2, 1, 2, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 45, 109, 3.0F, -41.0F, -18.7F, 2, 1, 2, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 53, 109, -1, -41, -18.7F, 2, 1, 2, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 45, 109, 3.0F, -41, -18.7F, 2, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 14, -0.5F, -45.0F, -41.7F, 5, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 37, 195, 3.7F, -45.0F, -41.7F, 1, 1, 21, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 168, 60, -0.7F, -45.0F, -41.7F, 1, 1, 21, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 107, 66, 3.7F, -44.0F, -23.3F, 1, 1, 3, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 107, 29, -0.7F, -44.0F, -23.3F, 1, 1, 3, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 143, 170, 4.1F, -51.0F, -41.7F, 1, 6, 23, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 143, 170, 4.1F, -51, -41.7F, 1, 6, 23, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 197, 0, -1.1F, -50.0F, -41.7F, 1, 2, 23, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 102, 42, -1.1F, -41.0F, -18.7F, 1, 1, 4, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 0, 84, -1.1F, -51.0F, -18.7F, 1, 6, 35, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 0, 35, 4.1F, -51.0F, -18.7F, 1, 6, 35, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 102, 42, -1.1F, -41, -18.7F, 1, 1, 4, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 84, -1.1F, -51, -18.7F, 1, 6, 35, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 35, 4.1F, -51, -18.7F, 1, 6, 35, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 59, 84, -1.1F, -53.0F, -41.7F, 1, 3, 4, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 59, 91, 4.1F, -53.0F, -41.7F, 1, 2, 4, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 33, 125, -1.1F, -47.0F, -41.7F, 1, 2, 23, 0.0F, false));
@@ -141,7 +141,7 @@ public class AS50 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 143, 170, 3.7F, -53.4F, -37.7F, 1, 3, 51, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.7F, -53.4F, -2.7F, 1, 4, 16, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 160, 200, -0.7F, -52.0F, -17.7F, 1, 1, 15, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 98, 101, 4.1F, -41.0F, -18.7F, 1, 1, 4, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 98, 101, 4.1F, -41, -18.7F, 1, 1, 4, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 51, 47, 4.1F, -42.0F, -17.8F, 1, 1, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 7, 105, 4.1F, -45.0F, -19.0F, 1, 2, 3, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 52, 251, 0.5F, -57.5F, -44.7F, 3, 2, 41, 0.0F, false));
@@ -197,15 +197,15 @@ public class AS50 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 198, 3.2F, -55.68F, 13.3F, 1, 2, 27, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 168, 30, 4.4F, -54.0F, 13.3F, 1, 3, 27, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 168, 0, -1.4F, -54.0F, 13.3F, 1, 3, 27, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 168, 144, 4.4F, -51.0F, 20.3F, 1, 1, 20, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 110, 145, -1.4F, -51.0F, 20.3F, 1, 1, 20, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 168, 144, 4.4F, -51, 20.3F, 1, 1, 20, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 110, 145, -1.4F, -51, 20.3F, 1, 1, 20, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 15, 76, 4.4F, -50.2F, 20.9F, 1, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 9, 76, -1.4F, -50.2F, 20.9F, 1, 1, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 191, 60, 4.4F, -50.2F, 21.3F, 1, 1, 19, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 190, 144, -1.4F, -50.2F, 21.3F, 1, 1, 19, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 95, 0.0F, -40.1F, 37.3F, 4, 3, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 68, 78, 0.0F, -40.8F, 38.3F, 4, 3, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 46, 18, 0.0F, -51.0F, 39.3F, 4, 13, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 46, 18, 0.0F, -51, 39.3F, 4, 13, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 37, 35, 0.0F, -55.2F, 40.3F, 4, 17, 3, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 37, 84, -0.5F, -55.7F, 43.3F, 5, 18, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 60, 35, 0.0F, -55.4F, 44.3F, 4, 18, 2, 0.0F, false));
@@ -295,7 +295,7 @@ public class AS50 extends ModelWithAttachments {
         Grip21_r1.setRotationPoint(0.0F, -0.4487F, -6.4693F);
         gun.addChild(Grip21_r1);
         setRotationAngle(Grip21_r1, -0.2094F, 0.0F, 0.0F);
-        Grip21_r1.cubeList.add(new ModelBox(Grip21_r1, 104, 58, 0.0F, -31.0F, -1.1F, 4, 2, 1, 0.0F, false));
+        Grip21_r1.cubeList.add(new ModelBox(Grip21_r1, 104, 58, 0.0F, -31, -1.1F, 4, 2, 1, 0.0F, false));
 
         Grip20_r1 = new ModelRenderer(this);
         Grip20_r1.setRotationPoint(0.0F, -16.0409F, 24.9686F);
@@ -471,7 +471,7 @@ public class AS50 extends ModelWithAttachments {
         gun.addChild(Shape166_r1);
         setRotationAngle(Shape166_r1, 0.0F, 0.0F, 0.7854F);
         Shape166_r1.cubeList.add(new ModelBox(Shape166_r1, 65, 7, -2.0F, -47.5F, -68.2F, 1, 1, 1, 0.0F, false));
-        Shape166_r1.cubeList.add(new ModelBox(Shape166_r1, 45, 150, -1.0F, -47.5F, -68.2F, 1, 1, 15, 0.0F, false));
+        Shape166_r1.cubeList.add(new ModelBox(Shape166_r1, 45, 150, -1, -47.5F, -68.2F, 1, 1, 15, 0.0F, false));
 
         Shape165_r1 = new ModelRenderer(this);
         Shape165_r1.setRotationPoint(34.052F, -10.7911F, 0.0F);
@@ -591,7 +591,7 @@ public class AS50 extends ModelWithAttachments {
         Shape52_r1.setRotationPoint(0.0F, -2.9775F, -44.0876F);
         gun.addChild(Shape52_r1);
         setRotationAngle(Shape52_r1, -0.8378F, 0.0F, 0.0F);
-        Shape52_r1.cubeList.add(new ModelBox(Shape52_r1, 56, 18, -1.1F, -51.0F, -18.7F, 1, 2, 1, 0.0F, false));
+        Shape52_r1.cubeList.add(new ModelBox(Shape52_r1, 56, 18, -1.1F, -51, -18.7F, 1, 2, 1, 0.0F, false));
 
         Shape51_r1 = new ModelRenderer(this);
         Shape51_r1.setRotationPoint(0.0F, -3.5185F, -21.9532F);
@@ -642,7 +642,7 @@ public class AS50 extends ModelWithAttachments {
         Shape28_r1.setRotationPoint(0.0F, -3.3988F, 6.186F);
         gun.addChild(Shape28_r1);
         setRotationAngle(Shape28_r1, 0.1571F, 0.0F, 0.0F);
-        Shape28_r1.cubeList.add(new ModelBox(Shape28_r1, 28, 20, 1.0F, -41.0F, -18.5F, 2, 4, 1, 0.0F, false));
+        Shape28_r1.cubeList.add(new ModelBox(Shape28_r1, 28, 20, 1, -41, -18.5F, 2, 4, 1, 0.0F, false));
 
         barrel = new ModelRenderer(this);
         barrel.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -664,20 +664,20 @@ public class AS50 extends ModelWithAttachments {
         barrel.cubeList.add(new ModelBox(barrel, 100, 86, 1.9F, -54.1F, -107.0F, 1, 1, 4, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 90, 77, 0.0F, -50.4F, -109.0F, 1, 1, 4, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 23, 93, 3.0F, -50.4F, -109.0F, 1, 1, 4, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 94, 65, 0.0F, -51.0F, -109.0F, 1, 1, 4, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 96, 74, 3.0F, -51.0F, -109.0F, 1, 1, 4, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 94, 65, 0.0F, -51, -109.0F, 1, 1, 4, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 96, 74, 3.0F, -51, -109.0F, 1, 1, 4, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 84, 86, 1.1F, -49.3F, -109.0F, 1, 2, 4, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 17, 91, 1.9F, -49.3F, -109.0F, 1, 2, 4, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 98, 58, 1.1F, -52.1F, -109.0F, 1, 1, 4, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 45, 99, 1.9F, -52.1F, -109.0F, 1, 1, 4, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 56, 76, 1.0F, -47.7F, -127.5F, 2, 2, 4, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 67, 71, 1.0F, -53.0F, -128.0F, 2, 2, 5, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 56, 76, 1, -47.7F, -127.5F, 2, 2, 4, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 67, 71, 1, -53.0F, -128.0F, 2, 2, 5, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 65, 7, -0.8F, -51.2F, -128.0F, 2, 2, 5, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 65, 0, 2.8F, -51.2F, -128.0F, 2, 2, 5, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 63, 26, 1.0F, -49.4F, -128.0F, 2, 2, 5, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 63, 18, 1.0F, -53.2F, -136.0F, 2, 2, 6, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 63, 26, 1, -49.4F, -128.0F, 2, 2, 5, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 63, 18, 1, -53.2F, -136.0F, 2, 2, 6, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 72, 67, 0.5F, -53.2F, -130.0F, 3, 2, 2, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 18, 20, 1.0F, -49.2F, -136.0F, 2, 2, 6, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 18, 20, 1, -49.2F, -136.0F, 2, 2, 6, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 72, 46, 0.5F, -49.2F, -130.0F, 3, 2, 2, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 84, 106, 3.1F, -51.8F, -130.0F, 2, 3, 2, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 106, 61, -1.1F, -51.8F, -130.0F, 2, 3, 2, 0.0F, false));
@@ -750,7 +750,7 @@ public class AS50 extends ModelWithAttachments {
         Muzzle13_r1.setRotationPoint(-33.224F, -14.5902F, 0.0F);
         barrel.addChild(Muzzle13_r1);
         setRotationAngle(Muzzle13_r1, 0.0F, 0.0F, 0.7854F);
-        Muzzle13_r1.cubeList.add(new ModelBox(Muzzle13_r1, 67, 50, -1.0F, -48.4F, -128.0F, 2, 1, 5, 0.0F, false));
+        Muzzle13_r1.cubeList.add(new ModelBox(Muzzle13_r1, 67, 50, -1, -48.4F, -128.0F, 2, 1, 5, 0.0F, false));
 
         Muzzle3_r1 = new ModelRenderer(this);
         Muzzle3_r1.setRotationPoint(34.3955F, -11.7618F, 0.0F);
@@ -768,7 +768,7 @@ public class AS50 extends ModelWithAttachments {
         Muzzle9_r1.setRotationPoint(37.7696F, -14.8162F, 0.0F);
         barrel.addChild(Muzzle9_r1);
         setRotationAngle(Muzzle9_r1, 0.0F, 0.0F, -0.7854F);
-        Muzzle9_r1.cubeList.add(new ModelBox(Muzzle9_r1, 14, 76, -1.0F, -53.0F, -128.0F, 2, 1, 5, 0.0F, false));
+        Muzzle9_r1.cubeList.add(new ModelBox(Muzzle9_r1, 14, 76, -1, -53.0F, -128.0F, 2, 1, 5, 0.0F, false));
 
         Muzzle6_r1 = new ModelRenderer(this);
         Muzzle6_r1.setRotationPoint(-35.998F, -17.8932F, 0.0F);

@@ -213,7 +213,7 @@ public class Bloom {
 
         GlStateManager.enableColorMaterial();
 
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color(1, 1, 1, 1);
         buf.bindFramebufferTexture();
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferbuilder = tessellator.getBuffer();

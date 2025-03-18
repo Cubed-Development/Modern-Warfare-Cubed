@@ -66,7 +66,7 @@ public class VeprDustCover extends ModelBase {
         DustCover38.cubeList.add(new ModelBox(DustCover38, 14, 35, 0.001F, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
 
         DustCover13 = new ModelRenderer(this);
-        DustCover13.setRotationPoint(-3.8F, -11.0F, -9.5F);
+        DustCover13.setRotationPoint(-3.8F, -11, -9.5F);
         setRotationAngle(DustCover13, 2.1935F, 0.0F, 0.0F);
         DustCover13.cubeList.add(new ModelBox(DustCover13, 6, 5, 0.001F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
@@ -85,7 +85,7 @@ public class VeprDustCover extends ModelBase {
         DustCover36.cubeList.add(new ModelBox(DustCover36, 6, 0, -0.001F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         DustCover14 = new ModelRenderer(this);
-        DustCover14.setRotationPoint(-3.7F, -13.7F, -11.0F);
+        DustCover14.setRotationPoint(-3.7F, -13.7F, -11);
         DustCover14.cubeList.add(new ModelBox(DustCover14, 0, 0, -0.001F, 0.0F, 0.0F, 1, 1, 13, 0.0F, false));
 
         DustCover15 = new ModelRenderer(this);

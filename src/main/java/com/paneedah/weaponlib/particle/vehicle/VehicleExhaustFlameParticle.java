@@ -29,9 +29,9 @@ public class VehicleExhaustFlameParticle extends Particle {
         //this.motionY += Math.random()*0.005;
         //this.motionZ += Math.random()*0.005;
 
-        this.particleRed = 1.0F;
-        this.particleGreen = 1.0F;
-        this.particleBlue = 1.0F;
+        this.particleRed = 1;
+        this.particleGreen = 1;
+        this.particleBlue = 1;
         this.particleScale = this.rand.nextFloat() * 0.5F + 0.05F;
 
         this.lavaParticleScale = this.particleScale;
@@ -65,7 +65,7 @@ public class VehicleExhaustFlameParticle extends Particle {
 
 
         this.particleScale = ((this.particleAge / (float) this.particleMaxAge)) * this.lavaParticleScale;
-        this.particleAlpha = 1.0f - ((this.particleAge / (float) this.particleMaxAge + 28));
+        this.particleAlpha = 1 - ((this.particleAge / (float) this.particleMaxAge + 28));
 
 
         Random urandom = new Random(333);

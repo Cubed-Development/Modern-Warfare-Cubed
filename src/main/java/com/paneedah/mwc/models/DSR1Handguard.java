@@ -361,7 +361,7 @@ public class DSR1Handguard extends ModelWithAttachments {
         cube_r68_r1.cubeList.add(new ModelBox(cube_r68_r1, 4, 127, -1.05F, -38.2F, -0.5F, 1, 1, 1, -0.251F, false));
         cube_r68_r1.cubeList.add(new ModelBox(cube_r68_r1, 0, 127, -1.05F, -38.2F, 0.5F, 1, 1, 1, -0.251F, false));
         cube_r68_r1.cubeList.add(new ModelBox(cube_r68_r1, 123, 57, -1.05F, -38.2F, 1.5F, 1, 1, 1, -0.251F, false));
-        cube_r68_r1.cubeList.add(new ModelBox(cube_r68_r1, 0, 179, -1.0F, -38.1F, -44.6F, 1, 1, 49, -0.3F, false));
+        cube_r68_r1.cubeList.add(new ModelBox(cube_r68_r1, 0, 179, -1, -38.1F, -44.6F, 1, 1, 49, -0.3F, false));
         cube_r68_r1.cubeList.add(new ModelBox(cube_r68_r1, 102, 64, -1.05F, -38.2F, 2.5F, 1, 1, 3, -0.251F, false));
     }
 

@@ -53,7 +53,7 @@ public class UTG547Vest extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         rightleg = new ModelRenderer(this);
         rightleg.setRotationPoint(-2.0F, 12.0F, 0.0F);
@@ -80,7 +80,7 @@ public class UTG547Vest extends ModelBiped {
         cube_r2.setRotationPoint(-0.5F, 1.75F, -2.75F);
         vest.addChild(cube_r2);
         setRotationAngle(cube_r2, -0.2091F, -0.0011F, -0.5519F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 36, 16, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 36, 16, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(3.3F, -0.15F, -3.1F);
@@ -104,13 +104,13 @@ public class UTG547Vest extends ModelBiped {
         cube_r6.setRotationPoint(-3.0F, -0.05F, 2.2F);
         vest.addChild(cube_r6);
         setRotationAngle(cube_r6, 0.0698F, 0.0F, -0.1222F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 48, 5, 0.0F, 0.0F, -1.0F, 2, 3, 1, 0.0F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 48, 5, 0.0F, 0.0F, -1, 2, 3, 1, 0.0F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(3.0F, -0.05F, 2.2F);
         vest.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.0698F, 0.0F, 0.1222F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 8, 48, -2.0F, 0.0F, -1.0F, 2, 3, 1, 0.0F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 8, 48, -2.0F, 0.0F, -1, 2, 3, 1, 0.0F, false));
 
         cube_r8 = new ModelRenderer(this);
         cube_r8.setRotationPoint(-3.2F, -0.25F, -2.1F);
@@ -159,13 +159,13 @@ public class UTG547Vest extends ModelBiped {
         cube_r14.cubeList.add(new ModelBox(cube_r14, 24, 0, 0.0F, 0.0F, -0.02F, 2, 4, 2, 0.0F, false));
 
         bone26 = new ModelRenderer(this);
-        bone26.setRotationPoint(0.2F, 1.0F, 0.5F);
+        bone26.setRotationPoint(0.2F, 1, 0.5F);
         vest.addChild(bone26);
         setRotationAngle(bone26, -1.6692F, -0.2462F, 0.5014F);
 
 
         cube_r15 = new ModelRenderer(this);
-        cube_r15.setRotationPoint(-1.0F, 0.0F, -4.0F);
+        cube_r15.setRotationPoint(-1, 0.0F, -4.0F);
         bone26.addChild(cube_r15);
         setRotationAngle(cube_r15, 0.0F, -0.6632F, 0.0F);
         cube_r15.cubeList.add(new ModelBox(cube_r15, 47, 30, 7.8415F, 2.6643F, 4.6287F, 2, 2, 1, 0.0F, false));

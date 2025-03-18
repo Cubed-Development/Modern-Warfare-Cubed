@@ -46,13 +46,13 @@ public class MG42action extends ModelWithAttachments {
         action8_r1.setRotationPoint(-15.8492F, 0.0F, 1.4343F);
         action.addChild(action8_r1);
         setRotationAngle(action8_r1, -3.1416F, 0.7854F, 3.1416F);
-        action8_r1.cubeList.add(new ModelBox(action8_r1, 100, 0, -1.9F, -38.5F, 11.0F, 1, 9, 1, 0.0F, true));
+        action8_r1.cubeList.add(new ModelBox(action8_r1, 100, 0, -1.9F, -38.5F, 11, 1, 9, 1, 0.0F, true));
 
         action7_r1 = new ModelRenderer(this);
         action7_r1.setRotationPoint(-17.5564F, 0.0F, 0.7272F);
         action.addChild(action7_r1);
         setRotationAngle(action7_r1, -3.1416F, 0.7854F, 3.1416F);
-        action7_r1.cubeList.add(new ModelBox(action7_r1, 100, 0, -2.9F, -38.5F, 11.0F, 1, 9, 1, 0.0F, true));
+        action7_r1.cubeList.add(new ModelBox(action7_r1, 100, 0, -2.9F, -38.5F, 11, 1, 9, 1, 0.0F, true));
 
         action6_r1 = new ModelRenderer(this);
         action6_r1.setRotationPoint(-0.0201F, 0.0F, -11.6066F);

@@ -235,7 +235,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
-                    GL11.glTranslatef(-0.05F, -1.66F, -1.0F);
+                    GL11.glTranslatef(-0.05F, -1.66F, -1);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -244,7 +244,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
-                    GL11.glTranslatef(-0.05F, -1.66F, -1.0F);
+                    GL11.glTranslatef(-0.05F, -1.66F, -1);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -253,7 +253,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
-                    GL11.glTranslatef(-0.05F, -1.66F, -1.0F);
+                    GL11.glTranslatef(-0.05F, -1.66F, -1);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof EotechScopeRing) {
@@ -275,7 +275,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
-                    GL11.glTranslatef(-0.04F, -1.65F, -1.0F);
+                    GL11.glTranslatef(-0.04F, -1.65F, -1);
                     GL11.glScaled(0.7F, 0.7F, 0.7F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -284,7 +284,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
-                    GL11.glTranslatef(-0.04F, -1.65F, -1.0F);
+                    GL11.glTranslatef(-0.04F, -1.65F, -1);
                     GL11.glScaled(0.7F, 0.7F, 0.7F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -293,7 +293,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
-                    GL11.glTranslatef(-0.2F, -1.86F, -1.0F);
+                    GL11.glTranslatef(-0.2F, -1.86F, -1);
                     GL11.glScaled(0.48F, 0.48F, 0.48F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -302,7 +302,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
-                    GL11.glTranslatef(-0.2F, -1.86F, -1.0F);
+                    GL11.glTranslatef(-0.2F, -1.86F, -1);
                     GL11.glScaled(0.48F, 0.48F, 0.48F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {

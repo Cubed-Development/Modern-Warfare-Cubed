@@ -91,7 +91,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         String name;
         List<String> textureNames = new ArrayList<>();
         int ammoCapacity = 0;
-        float recoil = 1.0F;
+        float recoil = 1;
 
         private boolean hasFlashPedals = false;
 

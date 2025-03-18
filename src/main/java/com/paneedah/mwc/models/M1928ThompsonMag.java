@@ -37,11 +37,11 @@ public class M1928ThompsonMag extends ModelWithAttachments {
         magazine.cubeList.add(new ModelBox(magazine, 0, 0, 0.0F, -31.5F, -12.5F, 1, 20, 5, 0.0F, true));
         magazine.cubeList.add(new ModelBox(magazine, 0, 0, -3.0F, -31.5F, -12.5F, 1, 20, 5, 0.0F, true));
         magazine.cubeList.add(new ModelBox(magazine, 0, 0, -2.0F, -30.5F, -12.5F, 2, 19, 5, 0.0F, true));
-        magazine.cubeList.add(new ModelBox(magazine, 0, 0, -11.0F, -23.5F, -12.5F, 20, 4, 5, 0.0F, true));
+        magazine.cubeList.add(new ModelBox(magazine, 0, 0, -11, -23.5F, -12.5F, 20, 4, 5, 0.0F, true));
         magazine.cubeList.add(new ModelBox(magazine, 0, 0, -8.0F, -19.5F, -12.5F, 5, 5, 5, 0.0F, true));
         magazine.cubeList.add(new ModelBox(magazine, 0, 0, -8.0F, -28.5F, -12.5F, 5, 5, 5, 0.0F, true));
-        magazine.cubeList.add(new ModelBox(magazine, 0, 0, 1.0F, -28.5F, -12.5F, 5, 5, 5, 0.0F, true));
-        magazine.cubeList.add(new ModelBox(magazine, 0, 0, 1.0F, -19.5F, -12.5F, 5, 5, 5, 0.0F, true));
+        magazine.cubeList.add(new ModelBox(magazine, 0, 0, 1, -28.5F, -12.5F, 5, 5, 5, 0.0F, true));
+        magazine.cubeList.add(new ModelBox(magazine, 0, 0, 1, -19.5F, -12.5F, 5, 5, 5, 0.0F, true));
         magazine.cubeList.add(new ModelBox(magazine, 0, 0, -3.5F, -23.5F, -8.3F, 5, 4, 1, 0.0F, true));
 
         mag23_r1 = new ModelRenderer(this);
@@ -108,7 +108,7 @@ public class M1928ThompsonMag extends ModelWithAttachments {
         mag13_r1.setRotationPoint(6.625F, -5.6939F, 0.0F);
         magazine.addChild(mag13_r1);
         setRotationAngle(mag13_r1, 0.0F, 0.0F, -0.3927F);
-        mag13_r1.cubeList.add(new ModelBox(mag13_r1, 0, 0, -11.0F, -19.5F, -12.5F, 3, 4, 5, 0.0F, true));
+        mag13_r1.cubeList.add(new ModelBox(mag13_r1, 0, 0, -11, -19.5F, -12.5F, 3, 4, 5, 0.0F, true));
 
         mag12_r1 = new ModelRenderer(this);
         mag12_r1.setRotationPoint(29.8683F, -18.856F, 0.0F);
@@ -132,7 +132,7 @@ public class M1928ThompsonMag extends ModelWithAttachments {
         mag9_r1.setRotationPoint(14.9053F, -24.9707F, 0.0F);
         magazine.addChild(mag9_r1);
         setRotationAngle(mag9_r1, 0.0F, 0.0F, -1.1897F);
-        mag9_r1.cubeList.add(new ModelBox(mag9_r1, 0, 0, -11.0F, -23.5F, -12.5F, 4, 3, 5, 0.0F, true));
+        mag9_r1.cubeList.add(new ModelBox(mag9_r1, 0, 0, -11, -23.5F, -12.5F, 4, 3, 5, 0.0F, true));
     }
 
     @Override

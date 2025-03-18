@@ -101,7 +101,7 @@ public class FMG9 extends ModelWithAttachments {
         gun111_r3.setRotationPoint(1.101F, -32.85F, -7.5F);
         gun.addChild(gun111_r3);
         setRotationAngle(gun111_r3, 0.0F, 0.0F, 0.192F);
-        gun111_r3.cubeList.add(new ModelBox(gun111_r3, 35, 61, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        gun111_r3.cubeList.add(new ModelBox(gun111_r3, 35, 61, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun93_r1 = new ModelRenderer(this);
         gun93_r1.setRotationPoint(0.5F, -27.5F, -13.6F);
@@ -113,7 +113,7 @@ public class FMG9 extends ModelWithAttachments {
         gun92_r1.setRotationPoint(0.5F, -27.5F, -16.5F);
         gun.addChild(gun92_r1);
         setRotationAngle(gun92_r1, -0.4538F, 0.0F, 0.0F);
-        gun92_r1.cubeList.add(new ModelBox(gun92_r1, 53, 52, -3.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        gun92_r1.cubeList.add(new ModelBox(gun92_r1, 53, 52, -3.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         gun92_r2 = new ModelRenderer(this);
         gun92_r2.setRotationPoint(0.501F, -26.5F, -9.5F);
@@ -140,13 +140,13 @@ public class FMG9 extends ModelWithAttachments {
         gun157_r1.cubeList.add(new ModelBox(gun157_r1, 64, 58, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
 
         gun10_r1 = new ModelRenderer(this);
-        gun10_r1.setRotationPoint(1.0F, -30.0F, -8.5F);
+        gun10_r1.setRotationPoint(1, -30.0F, -8.5F);
         gun.addChild(gun10_r1);
         setRotationAngle(gun10_r1, -0.5585F, 0.0F, 0.0F);
-        gun10_r1.cubeList.add(new ModelBox(gun10_r1, 0, 65, -4.0F, -1.0F, 0.0F, 4, 1, 1, -0.001F, false));
+        gun10_r1.cubeList.add(new ModelBox(gun10_r1, 0, 65, -4.0F, -1, 0.0F, 4, 1, 1, -0.001F, false));
 
         gun14_r1 = new ModelRenderer(this);
-        gun14_r1.setRotationPoint(0.5F, -31.0F, -0.45F);
+        gun14_r1.setRotationPoint(0.5F, -31, -0.45F);
         gun.addChild(gun14_r1);
         setRotationAngle(gun14_r1, 0.1396F, 0.0F, 0.0F);
         gun14_r1.cubeList.add(new ModelBox(gun14_r1, 8, 75, -2.999F, 0.0F, -2.0F, 3, 4, 2, 0.0F, false));
@@ -167,7 +167,7 @@ public class FMG9 extends ModelWithAttachments {
         gun12_r1.setRotationPoint(0.501F, -20.0F, 3.9F);
         gun.addChild(gun12_r1);
         setRotationAngle(gun12_r1, 0.4712F, 0.0F, 0.0F);
-        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 18, 91, -3.0F, -9.0F, -1.0F, 3, 9, 1, 0.0F, false));
+        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 18, 91, -3.0F, -9.0F, -1, 3, 9, 1, 0.0F, false));
 
         gun12_r2 = new ModelRenderer(this);
         gun12_r2.setRotationPoint(0.501F, -18.0F, 3.9F);
@@ -179,14 +179,14 @@ public class FMG9 extends ModelWithAttachments {
         gun13_r1.setRotationPoint(-1.699F, -17.8F, 2.5F);
         gun.addChild(gun13_r1);
         setRotationAngle(gun13_r1, -0.4014F, 0.0F, 0.0F);
-        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 55, 85, -1.001F, 0.0F, -1.0F, 1, 1, 1, 0.3F, false));
-        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 86, 0, 1.399F, 0.0F, -1.0F, 1, 1, 1, 0.3F, false));
+        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 55, 85, -1.001F, 0.0F, -1, 1, 1, 1, 0.3F, false));
+        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 86, 0, 1.399F, 0.0F, -1, 1, 1, 1, 0.3F, false));
 
         gun10_r2 = new ModelRenderer(this);
         gun10_r2.setRotationPoint(-5.1F, -31.45F, -8.8F);
         gun.addChild(gun10_r2);
         setRotationAngle(gun10_r2, 0.3543F, 0.0F, 0.0F);
-        gun10_r2.cubeList.add(new ModelBox(gun10_r2, 86, 2, 2.0F, 3.0F, 1.0F, 1, 1, 1, 0.0F, false));
+        gun10_r2.cubeList.add(new ModelBox(gun10_r2, 86, 2, 2.0F, 3.0F, 1, 1, 1, 1, 0.0F, false));
 
         gun9_r2 = new ModelRenderer(this);
         gun9_r2.setRotationPoint(-1.9F, -31.35F, -8.6F);
@@ -210,7 +210,7 @@ public class FMG9 extends ModelWithAttachments {
         gun6_r1.setRotationPoint(-3.0F, -30.0F, -8.0F);
         gun.addChild(gun6_r1);
         setRotationAngle(gun6_r1, 0.3718F, 0.0F, 0.0F);
-        gun6_r1.cubeList.add(new ModelBox(gun6_r1, 41, 93, 0.0F, -1.0F, 0.0F, 4, 15, 6, 0.0F, false));
+        gun6_r1.cubeList.add(new ModelBox(gun6_r1, 41, 93, 0.0F, -1, 0.0F, 4, 15, 6, 0.0F, false));
 
         gun145_r1 = new ModelRenderer(this);
         gun145_r1.setRotationPoint(-2.6F, -30.0F, -5.8F);
@@ -307,15 +307,15 @@ public class FMG9 extends ModelWithAttachments {
         cube_r2.setRotationPoint(1.75F, -32.85F, -14.0F);
         fmg9.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.0F, 0.0F, -1.0297F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 75, -1.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 49, 130, -1.0F, -1.0F, -22.0F, 1, 1, 19, 0.0F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 75, -1, -1, 0.0F, 1, 1, 6, 0.0F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 49, 130, -1, -1, -22.0F, 1, 1, 19, 0.0F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(1.75F, -31.85F, -14.0F);
         fmg9.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, 0.0F, -0.925F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 72, 25, -1.0F, -1.0F, 0.0F, 1, 1, 6, 0.0F, false));
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 70, 146, -1.0F, -1.0F, -22.0F, 1, 1, 19, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 72, 25, -1, -1, 0.0F, 1, 1, 6, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 70, 146, -1, -1, -22.0F, 1, 1, 19, 0.0F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(-3.6F, -37.7F, 0.0F);
@@ -330,15 +330,15 @@ public class FMG9 extends ModelWithAttachments {
         cube_r5.setRotationPoint(-3.9F, -31.4F, 2.6F);
         fmg9.addChild(cube_r5);
         setRotationAngle(cube_r5, -0.5236F, 0.0F, 0.0F);
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 25, 85, 0.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 33, 85, 4.8F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 25, 85, 0.0F, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 33, 85, 4.8F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         cube_r6 = new ModelRenderer(this);
         cube_r6.setRotationPoint(-3.9F, -31.4F, 0.3F);
         fmg9.addChild(cube_r6);
         setRotationAngle(cube_r6, -0.5236F, 0.0F, 0.0F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 21, 85, 0.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 37, 85, 4.8F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 21, 85, 0.0F, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 37, 85, 4.8F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(-3.5F, -37.7F, -5.0F);
@@ -350,7 +350,7 @@ public class FMG9 extends ModelWithAttachments {
         cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 108, -0.2F, -2.2F, -22.5F, 1, 1, 14, -0.201F, false));
         cube_r7.cubeList.add(new ModelBox(cube_r7, 51, 29, 0.0F, -2.0F, -27.0F, 1, 1, 5, 0.0F, false));
         cube_r7.cubeList.add(new ModelBox(cube_r7, 94, 13, -0.2F, -0.8F, -22.8F, 1, 1, 11, -0.201F, false));
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 71, 81, 0.0F, -1.0F, -27.0F, 1, 1, 5, 0.001F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 71, 81, 0.0F, -1, -27.0F, 1, 1, 5, 0.001F, false));
         cube_r7.cubeList.add(new ModelBox(cube_r7, 43, 68, 0.0F, -2.0F, -32.6F, 1, 1, 6, -0.001F, false));
         cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 84, 0.0F, -2.0F, -33.5F, 1, 1, 1, 0.0F, false));
         cube_r7.cubeList.add(new ModelBox(cube_r7, 78, 83, 0.0F, -1.35F, -33.5F, 1, 1, 1, 0.001F, false));
@@ -360,13 +360,13 @@ public class FMG9 extends ModelWithAttachments {
         cube_r8.setRotationPoint(-3.75F, -32.85F, -36.0F);
         fmg9.addChild(cube_r8);
         setRotationAngle(cube_r8, 0.0F, 0.0F, 1.0297F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 28, 129, 0.0F, -1.0F, 0.0F, 1, 1, 19, 0.0F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 28, 129, 0.0F, -1, 0.0F, 1, 1, 19, 0.0F, false));
 
         cube_r9 = new ModelRenderer(this);
         cube_r9.setRotationPoint(-3.75F, -31.85F, -36.0F);
         fmg9.addChild(cube_r9);
         setRotationAngle(cube_r9, 0.0F, 0.0F, 0.925F);
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 43, 68, 0.0F, -1.0F, 0.0F, 1, 1, 19, 0.0F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 43, 68, 0.0F, -1, 0.0F, 1, 1, 19, 0.0F, false));
 
         cube_r10 = new ModelRenderer(this);
         cube_r10.setRotationPoint(-3.0F, -39.15F, 2.25F);
@@ -382,23 +382,23 @@ public class FMG9 extends ModelWithAttachments {
         cube_r11.cubeList.add(new ModelBox(cube_r11, 104, 59, 0.0F, 0.0F, -9.5F, 1, 1, 9, -0.001F, false));
 
         cube_r12 = new ModelRenderer(this);
-        cube_r12.setRotationPoint(1.0F, -39.15F, 2.25F);
+        cube_r12.setRotationPoint(1, -39.15F, 2.25F);
         fmg9.addChild(cube_r12);
         setRotationAngle(cube_r12, 0.0F, 0.0F, 0.7505F);
         cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 58, -1.7F, 0.0F, 0.6F, 1, 1, 6, -0.001F, false));
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 91, -1.0F, 0.0F, 0.0F, 1, 1, 16, 0.0F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 91, -1, 0.0F, 0.0F, 1, 1, 16, 0.0F, false));
 
         cube_r13 = new ModelRenderer(this);
-        cube_r13.setRotationPoint(1.0F, -39.15F, 18.25F);
+        cube_r13.setRotationPoint(1, -39.15F, 18.25F);
         fmg9.addChild(cube_r13);
         setRotationAngle(cube_r13, 0.0F, 0.0733F, 0.7505F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 106, 27, -1.0F, 0.0F, -9.5F, 1, 1, 9, -0.001F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 106, 27, -1, 0.0F, -9.5F, 1, 1, 9, -0.001F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(-0.25F, -40.3F, 2.85F);
         fmg9.addChild(cube_r14);
         setRotationAngle(cube_r14, -1.0123F, 0.0F, 0.0F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 82, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 82, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
         cube_r14.cubeList.add(new ModelBox(cube_r14, 21, 82, -1.5F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
 
         cube_r15 = new ModelRenderer(this);
@@ -411,13 +411,13 @@ public class FMG9 extends ModelWithAttachments {
         cube_r16.setRotationPoint(-0.25F, -40.3F, 8.85F);
         fmg9.addChild(cube_r16);
         setRotationAngle(cube_r16, -0.0524F, 0.0523F, -0.0027F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 64, 68, -1.0F, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 64, 68, -1, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
 
         cube_r17 = new ModelRenderer(this);
         cube_r17.setRotationPoint(-0.75F, -40.3F, 8.85F);
         fmg9.addChild(cube_r17);
         setRotationAngle(cube_r17, -0.0524F, 0.0F, 0.0F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 99, 81, -1.0F, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 99, 81, -1, 0.0F, 0.0F, 1, 1, 9, 0.0F, false));
         cube_r17.cubeList.add(new ModelBox(cube_r17, 78, 81, 0.0F, 0.0F, 8.4F, 1, 1, 1, -0.001F, false));
         cube_r17.cubeList.add(new ModelBox(cube_r17, 0, 75, -1.5F, 0.0F, 8.4F, 2, 1, 1, 0.001F, false));
         cube_r17.cubeList.add(new ModelBox(cube_r17, 104, 41, -0.5F, 0.0F, 0.0F, 1, 1, 9, 0.002F, false));
@@ -432,13 +432,13 @@ public class FMG9 extends ModelWithAttachments {
         cube_r19.setRotationPoint(1.9F, -31.9F, -15.25F);
         fmg9.addChild(cube_r19);
         setRotationAngle(cube_r19, 0.0F, -0.1222F, 0.0F);
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 35, 82, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.1F, false));
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 35, 82, -1, -1, 0.0F, 1, 1, 1, 0.1F, false));
 
         cube_r20 = new ModelRenderer(this);
         cube_r20.setRotationPoint(1.7F, -31.9F, -16.75F);
         fmg9.addChild(cube_r20);
         setRotationAngle(cube_r20, 0.0F, 0.0524F, 0.0F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 21, 61, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 21, 61, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         cube_r21 = new ModelRenderer(this);
         cube_r21.setRotationPoint(-1.9F, -40.15F, -2.5F);
@@ -520,7 +520,7 @@ public class FMG9 extends ModelWithAttachments {
         cube_r25.cubeList.add(new ModelBox(cube_r25, 43, 75, -4.5F, 0.0F, 0.0F, 4, 6, 2, 0.0F, false));
 
         cube_r26 = new ModelRenderer(this);
-        cube_r26.setRotationPoint(1.0F, -28.95F, -33.0F);
+        cube_r26.setRotationPoint(1, -28.95F, -33.0F);
         fmg9.addChild(cube_r26);
         setRotationAngle(cube_r26, 0.4712F, 0.0F, 0.0F);
         cube_r26.cubeList.add(new ModelBox(cube_r26, 51, 36, -4.0F, 5.0F, -3.5F, 4, 1, 2, -0.001F, false));
@@ -529,26 +529,26 @@ public class FMG9 extends ModelWithAttachments {
         cube_r27.setRotationPoint(1.5F, -37.7F, -38.6F);
         fmg9.addChild(cube_r27);
         setRotationAngle(cube_r27, 0.0F, 0.0F, -0.7854F);
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 72, 7, -1.0F, -2.0F, 1.0F, 1, 1, 6, -0.001F, false));
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 29, 85, -1.0F, -1.35F, 0.1F, 1, 1, 1, 0.001F, false));
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 51, 85, -1.0F, -2.0F, 0.1F, 1, 1, 1, 0.0F, false));
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 43, 50, -1.0F, -2.0F, 40.85F, 1, 2, 41, 0.0F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 72, 7, -1, -2.0F, 1, 1, 1, 6, -0.001F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 29, 85, -1, -1.35F, 0.1F, 1, 1, 1, 0.001F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 51, 85, -1, -2.0F, 0.1F, 1, 1, 1, 0.0F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 43, 50, -1, -2.0F, 40.85F, 1, 2, 41, 0.0F, false));
         cube_r27.cubeList.add(new ModelBox(cube_r27, 94, 0, -0.8F, -2.2F, 13.1F, 1, 1, 12, -0.201F, false));
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 86, 41, -1.0F, -2.0F, 24.6F, 1, 2, 16, 0.001F, false));
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 58, 18, -1.0F, -2.0F, 6.6F, 1, 1, 4, 0.001F, false));
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 94, 93, -1.0F, -1.0F, 6.6F, 1, 1, 15, 0.001F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 86, 41, -1, -2.0F, 24.6F, 1, 2, 16, 0.001F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 58, 18, -1, -2.0F, 6.6F, 1, 1, 4, 0.001F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 94, 93, -1, -1, 6.6F, 1, 1, 15, 0.001F, false));
 
         cube_r28 = new ModelRenderer(this);
         cube_r28.setRotationPoint(1.25F, -37.4F, -17.05F);
         fmg9.addChild(cube_r28);
         setRotationAngle(cube_r28, 0.0F, 0.0F, -0.7854F);
-        cube_r28.cubeList.add(new ModelBox(cube_r28, 94, 27, -1.0F, -2.0F, -7.0F, 1, 2, 10, 0.1F, false));
+        cube_r28.cubeList.add(new ModelBox(cube_r28, 94, 27, -1, -2.0F, -7.0F, 1, 2, 10, 0.1F, false));
 
         cube_r29 = new ModelRenderer(this);
         cube_r29.setRotationPoint(1.15F, -37.6F, -37.7F);
         fmg9.addChild(cube_r29);
         setRotationAngle(cube_r29, 0.0F, 0.0F, -0.7854F);
-        cube_r29.cubeList.add(new ModelBox(cube_r29, 25, 8, -1.0F, -1.0F, 0.0F, 1, 1, 6, 0.001F, false));
+        cube_r29.cubeList.add(new ModelBox(cube_r29, 25, 8, -1, -1, 0.0F, 1, 1, 6, 0.001F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(1.5F, -39.25F, -24.7F);

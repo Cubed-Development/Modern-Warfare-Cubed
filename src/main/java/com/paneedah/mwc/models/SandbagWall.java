@@ -73,7 +73,7 @@ public class SandbagWall extends ModelBase {
         bone6.cubeList.add(new ModelBox(bone6, 24, 24, -7.9604F, 0.0F, 0.0F, 8, 2, 4, -0.001F, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(0.1F, -8.0F, -1.0F);
+        bone3.setRotationPoint(0.1F, -8.0F, -1);
         Sandbag.addChild(bone3);
         setRotationAngle(bone3, 0.0F, 0.0F, 0.0873F);
         bone3.cubeList.add(new ModelBox(bone3, 0, 22, -7.403F, 6.1725F, -3.5F, 8, 2, 8, -0.001F, false));
@@ -113,7 +113,7 @@ public class SandbagWall extends ModelBase {
         bone10.cubeList.add(new ModelBox(bone10, 24, 24, -7.9429F, -0.1978F, -0.0243F, 8, 2, 4, -0.001F, false));
 
         bone11 = new ModelRenderer(this);
-        bone11.setRotationPoint(0.1F, -8.0F, -1.0F);
+        bone11.setRotationPoint(0.1F, -8.0F, -1);
         Sandbag2.addChild(bone11);
         setRotationAngle(bone11, 0.0F, 0.0F, 0.0873F);
         bone11.cubeList.add(new ModelBox(bone11, 0, 22, -7.4205F, 5.9733F, -3.5F, 8, 2, 8, -0.001F, false));
@@ -153,7 +153,7 @@ public class SandbagWall extends ModelBase {
         bone16.cubeList.add(new ModelBox(bone16, 24, 24, -7.9429F, -0.1978F, -0.0243F, 8, 2, 4, -0.001F, false));
 
         bone17 = new ModelRenderer(this);
-        bone17.setRotationPoint(0.1F, -8.0F, -1.0F);
+        bone17.setRotationPoint(0.1F, -8.0F, -1);
         Sandbag3.addChild(bone17);
         setRotationAngle(bone17, 0.0F, 0.0F, 0.0873F);
         bone17.cubeList.add(new ModelBox(bone17, 0, 22, -7.4205F, 5.9733F, -3.5F, 8, 2, 8, -0.001F, false));
@@ -193,7 +193,7 @@ public class SandbagWall extends ModelBase {
         bone22.cubeList.add(new ModelBox(bone22, 24, 24, -7.9604F, 0.0F, 0.0F, 8, 2, 4, -0.001F, false));
 
         bone23 = new ModelRenderer(this);
-        bone23.setRotationPoint(0.1F, -8.0F, -1.0F);
+        bone23.setRotationPoint(0.1F, -8.0F, -1);
         Sandbag4.addChild(bone23);
         setRotationAngle(bone23, 0.0F, 0.0F, 0.0873F);
         bone23.cubeList.add(new ModelBox(bone23, 0, 22, -7.403F, 6.1725F, -3.5F, 8, 2, 8, -0.001F, false));

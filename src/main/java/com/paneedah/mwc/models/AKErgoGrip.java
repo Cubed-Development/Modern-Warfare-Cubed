@@ -55,13 +55,13 @@ public class AKErgoGrip extends ModelBase {
         gun3.cubeList.add(new ModelBox(gun3, 26, 6, -0.001F, 0.0F, 0.0F, 4, 1, 3, 0.0F, false));
 
         gun4 = new ModelRenderer(this);
-        gun4.setRotationPoint(-3.5F, 6.5F, -1.0F);
+        gun4.setRotationPoint(-3.5F, 6.5F, -1);
         gun4.cubeList.add(new ModelBox(gun4, 17, 0, 0.0F, 0.0F, 0.0F, 4, 2, 4, 0.0F, false));
 
         gun5 = new ModelRenderer(this);
         gun5.setRotationPoint(-3.5F, -4.5F, -1.5F);
         setRotationAngle(gun5, 0.481F, 0.0F, 0.0F);
-        gun5.cubeList.add(new ModelBox(gun5, 7, 27, -0.001F, 1.0F, 0.0F, 4, 3, 1, 0.0F, false));
+        gun5.cubeList.add(new ModelBox(gun5, 7, 27, -0.001F, 1, 0.0F, 4, 3, 1, 0.0F, false));
 
         gun6 = new ModelRenderer(this);
         gun6.setRotationPoint(-3.5F, 8.5F, 3.0F);
@@ -130,7 +130,7 @@ public class AKErgoGrip extends ModelBase {
         gun39 = new ModelRenderer(this);
         gun39.setRotationPoint(-3.5F, -3.7F, -1.5F);
         setRotationAngle(gun39, 0.7041F, 0.0F, 0.0F);
-        gun39.cubeList.add(new ModelBox(gun39, 33, 10, 0.001F, 1.0F, 0.0F, 4, 4, 1, 0.0F, false));
+        gun39.cubeList.add(new ModelBox(gun39, 33, 10, 0.001F, 1, 0.0F, 4, 4, 1, 0.0F, false));
 
         gun40 = new ModelRenderer(this);
         gun40.setRotationPoint(-3.5F, -0.2F, 1.5F);
@@ -138,13 +138,13 @@ public class AKErgoGrip extends ModelBase {
 
 
         gun40_r1 = new ModelRenderer(this);
-        gun40_r1.setRotationPoint(4.0F, 0.0F, 1.0F);
+        gun40_r1.setRotationPoint(4.0F, 0.0F, 1);
         gun40.addChild(gun40_r1);
         setRotationAngle(gun40_r1, -0.0524F, 0.0F, 0.0F);
-        gun40_r1.cubeList.add(new ModelBox(gun40_r1, 30, 21, -4.0F, 0.0F, -1.0F, 4, 7, 1, 0.0F, false));
+        gun40_r1.cubeList.add(new ModelBox(gun40_r1, 30, 21, -4.0F, 0.0F, -1, 4, 7, 1, 0.0F, false));
 
         gun41 = new ModelRenderer(this);
-        gun41.setRotationPoint(-3.5F, -1.0F, -4.3F);
+        gun41.setRotationPoint(-3.5F, -1, -4.3F);
         setRotationAngle(gun41, -0.4856F, 0.0F, 0.0F);
         gun41.cubeList.add(new ModelBox(gun41, 30, 29, 0.0F, 0.0F, 0.0F, 4, 2, 2, 0.0F, false));
 

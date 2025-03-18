@@ -34,9 +34,9 @@ public class Mac10stockwithrail extends ModelBase {
 
         railplusstock = new ModelRenderer(this);
         railplusstock.setRotationPoint(-4.0F, -12.25F, 12.5F);
-        railplusstock.cubeList.add(new ModelBox(railplusstock, 42, 39, -1.0F, -1.0F, -1.0F, 7, 6, 2, 0.0F, false));
-        railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 16, 1.0F, -6.9F, -16.0F, 3, 1, 11, 0.01F, false));
-        railplusstock.cubeList.add(new ModelBox(railplusstock, 19, 29, -1.0F, -6.3F, -12.7F, 3, 1, 5, 0.01F, false));
+        railplusstock.cubeList.add(new ModelBox(railplusstock, 42, 39, -1, -1, -1, 7, 6, 2, 0.0F, false));
+        railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 16, 1, -6.9F, -16.0F, 3, 1, 11, 0.01F, false));
+        railplusstock.cubeList.add(new ModelBox(railplusstock, 19, 29, -1, -6.3F, -12.7F, 3, 1, 5, 0.01F, false));
         railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 16, -1.6F, -5.4F, -12.7F, 1, 5, 3, 0.02F, false));
         railplusstock.cubeList.add(new ModelBox(railplusstock, 18, 0, -1.6F, -5.4F, -8.7F, 1, 5, 1, 0.02F, false));
         railplusstock.cubeList.add(new ModelBox(railplusstock, 29, 2, 1.5F, -7.4F, -16.0F, 2, 1, 1, 0.0F, false));
@@ -46,29 +46,29 @@ public class Mac10stockwithrail extends ModelBase {
         railplusstock.cubeList.add(new ModelBox(railplusstock, 27, 27, 1.5F, -7.4F, -8.0F, 2, 1, 1, 0.0F, false));
         railplusstock.cubeList.add(new ModelBox(railplusstock, 17, 23, 1.5F, -7.4F, -6.0F, 2, 1, 1, 0.0F, false));
         railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 0, 0.0F, -1.1F, 0.0F, 5, 6, 2, 0.0F, false));
-        railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 39, 1.0F, -0.25F, 1.25F, 3, 2, 36, 0.0F, false));
+        railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 39, 1, -0.25F, 1.25F, 3, 2, 36, 0.0F, false));
         railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 50, 1.5F, 2.25F, 35.25F, 2, 14, 2, 0.0F, false));
         railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 8, 1.5F, 16.25F, 33.55F, 2, 1, 4, 0.0F, false));
         railplusstock.cubeList.add(new ModelBox(railplusstock, 29, 4, 1.5F, 1.25F, 36.25F, 2, 1, 1, 0.0F, false));
         railplusstock.cubeList.add(new ModelBox(railplusstock, 24, 39, 1.5F, 2.25F, 31.25F, 2, 1, 4, 0.0F, false));
         railplusstock.cubeList.add(new ModelBox(railplusstock, 17, 16, 1.5F, 1.25F, 18.25F, 2, 5, 2, 0.0F, false));
-        railplusstock.cubeList.add(new ModelBox(railplusstock, 8, 51, -1.0F, 0.0F, -2.0F, 7, 4, 1, 0.0F, false));
-        railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 34, -1.0F, 1.0F, -3.0F, 7, 3, 1, 0.0F, false));
-        railplusstock.cubeList.add(new ModelBox(railplusstock, 18, 11, -1.0F, 2.0F, -4.0F, 7, 2, 1, 0.0F, false));
-        railplusstock.cubeList.add(new ModelBox(railplusstock, 16, 35, -1.0F, 3.0F, -5.0F, 7, 1, 1, 0.0F, false));
-        railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 28, -1.0F, 4.0F, -6.0F, 7, 1, 5, 0.0F, false));
+        railplusstock.cubeList.add(new ModelBox(railplusstock, 8, 51, -1, 0.0F, -2.0F, 7, 4, 1, 0.0F, false));
+        railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 34, -1, 1, -3.0F, 7, 3, 1, 0.0F, false));
+        railplusstock.cubeList.add(new ModelBox(railplusstock, 18, 11, -1, 2.0F, -4.0F, 7, 2, 1, 0.0F, false));
+        railplusstock.cubeList.add(new ModelBox(railplusstock, 16, 35, -1, 3.0F, -5.0F, 7, 1, 1, 0.0F, false));
+        railplusstock.cubeList.add(new ModelBox(railplusstock, 0, 28, -1, 4.0F, -6.0F, 7, 1, 5, 0.0F, false));
 
         cube_r1 = new ModelRenderer(this);
         cube_r1.setRotationPoint(3.5F, -7.4F, -6.0F);
         railplusstock.addChild(cube_r1);
         setRotationAngle(cube_r1, 0.0F, 0.0F, -1.0472F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 21, 5, -1.0F, 0.0F, 0.0F, 1, 1, 1, -0.001F, false));
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 6, 25, -1.0F, 0.0F, -2.0F, 1, 1, 1, -0.001F, false));
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 19, 28, -1.0F, 0.0F, -4.0F, 1, 1, 1, -0.001F, false));
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 19, 30, -1.0F, 0.0F, -6.0F, 1, 1, 1, -0.001F, false));
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 30, 31, -1.0F, 0.0F, -8.0F, 1, 1, 1, -0.001F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 21, 5, -1, 0.0F, 0.0F, 1, 1, 1, -0.001F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 6, 25, -1, 0.0F, -2.0F, 1, 1, 1, -0.001F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 19, 28, -1, 0.0F, -4.0F, 1, 1, 1, -0.001F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 19, 30, -1, 0.0F, -6.0F, 1, 1, 1, -0.001F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 30, 31, -1, 0.0F, -8.0F, 1, 1, 1, -0.001F, false));
         cube_r1.cubeList.add(new ModelBox(cube_r1, 12, 40, -0.9F, 0.3F, -9.3F, 1, 1, 10, -0.3F, false));
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 33, 16, -1.0F, 0.0F, -10.0F, 1, 1, 1, -0.001F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 33, 16, -1, 0.0F, -10.0F, 1, 1, 1, -0.001F, false));
 
         cube_r2 = new ModelRenderer(this);
         cube_r2.setRotationPoint(1.5F, -7.4F, -6.0F);
@@ -86,10 +86,10 @@ public class Mac10stockwithrail extends ModelBase {
         cube_r3.setRotationPoint(-0.6F, -5.4F, -9.0F);
         railplusstock.addChild(cube_r3);
         setRotationAngle(cube_r3, -0.3316F, 0.0F, 0.0F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 17, 16, -1.0F, 3.0F, 0.0F, 1, 2, 9, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 17, 16, -1, 3.0F, 0.0F, 1, 2, 9, 0.0F, false));
 
         cube_r4 = new ModelRenderer(this);
-        cube_r4.setRotationPoint(-1.0F, -6.3F, -12.7F);
+        cube_r4.setRotationPoint(-1, -6.3F, -12.7F);
         railplusstock.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.0F, 0.0F, 0.576F);
         cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 8, 0.0F, 0.0F, 4.0F, 1, 1, 1, 0.0F, false));
@@ -99,7 +99,7 @@ public class Mac10stockwithrail extends ModelBase {
         bone74.setRotationPoint(0.6F, 1.35F, 37.25F);
         railplusstock.addChild(bone74);
         setRotationAngle(bone74, 0.0F, 0.0F, -0.0524F);
-        bone74.cubeList.add(new ModelBox(bone74, 44, 19, 0.0F, -1.0F, 0.0F, 2, 17, 2, 0.002F, false));
+        bone74.cubeList.add(new ModelBox(bone74, 44, 19, 0.0F, -1, 0.0F, 2, 17, 2, 0.002F, false));
 
         bone75 = new ModelRenderer(this);
         bone75.setRotationPoint(4.4F, 0.35F, 37.25F);
@@ -111,7 +111,7 @@ public class Mac10stockwithrail extends ModelBase {
         bone76.setRotationPoint(4.4F, 0.35F, 37.25F);
         railplusstock.addChild(bone76);
         setRotationAngle(bone76, 0.0F, 0.0F, 1.2915F);
-        bone76.cubeList.add(new ModelBox(bone76, 5, 16, -1.0F, 0.0F, 0.0F, 1, 1, 2, -0.001F, false));
+        bone76.cubeList.add(new ModelBox(bone76, 5, 16, -1, 0.0F, 0.0F, 1, 1, 2, -0.001F, false));
 
         bone77 = new ModelRenderer(this);
         bone77.setRotationPoint(0.55F, 0.35F, 37.25F);
@@ -126,16 +126,16 @@ public class Mac10stockwithrail extends ModelBase {
         bone73.cubeList.add(new ModelBox(bone73, 0, 24, -2.0F, -2.0F, 0.0F, 2, 2, 1, 0.0F, false));
 
         bone69 = new ModelRenderer(this);
-        bone69.setRotationPoint(4.0F, -1.0F, 2.25F);
+        bone69.setRotationPoint(4.0F, -1, 2.25F);
         railplusstock.addChild(bone69);
         setRotationAngle(bone69, -0.0105F, 0.0F, 0.0F);
-        bone69.cubeList.add(new ModelBox(bone69, 0, 0, -3.001F, 0.0F, -1.0F, 3, 1, 38, 0.0F, false));
+        bone69.cubeList.add(new ModelBox(bone69, 0, 0, -3.001F, 0.0F, -1, 3, 1, 38, 0.0F, false));
 
         bone70 = new ModelRenderer(this);
         bone70.setRotationPoint(4.0F, 3.75F, 2.0F);
         railplusstock.addChild(bone70);
         setRotationAngle(bone70, -0.1571F, 0.0F, 0.0F);
-        bone70.cubeList.add(new ModelBox(bone70, 42, 39, -2.501F, -1.0F, 0.0F, 2, 2, 18, 0.0F, false));
+        bone70.cubeList.add(new ModelBox(bone70, 42, 39, -2.501F, -1, 0.0F, 2, 2, 18, 0.0F, false));
 
         bone71 = new ModelRenderer(this);
         bone71.setRotationPoint(4.0F, 5.55F, 19.9F);
@@ -150,7 +150,7 @@ public class Mac10stockwithrail extends ModelBase {
         bone72.cubeList.add(new ModelBox(bone72, 18, 0, -2.0F, -4.1035F, -0.3864F, 2, 4, 7, 0.0F, false));
 
         bone68 = new ModelRenderer(this);
-        bone68.setRotationPoint(6.0F, -1.0F, -1.0F);
+        bone68.setRotationPoint(6.0F, -1, -1);
         railplusstock.addChild(bone68);
         setRotationAngle(bone68, -0.8029F, 0.0F, 0.0F);
         bone68.cubeList.add(new ModelBox(bone68, 42, 47, -6.999F, 0.0F, 0.0F, 7, 7, 1, 0.0F, false));

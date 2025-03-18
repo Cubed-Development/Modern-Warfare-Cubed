@@ -131,7 +131,7 @@ public class BanditNew5 extends ModelBiped {
         body_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         backpack.addChild(body_r1);
         setRotation(body_r1, -1.4401F, -0.4145F, -0.0583F);
-        body_r1.cubeList.add(new ModelBox(body_r1, 23, 7, -1.0F, -2.0F, 0.0F, 4, 4, 9, 0.1F, false));
+        body_r1.cubeList.add(new ModelBox(body_r1, 23, 7, -1, -2.0F, 0.0F, 4, 4, 9, 0.1F, false));
 
         body_r2 = new ModelRenderer(this);
         body_r2.setRotationPoint(4.1F, 0.0F, 0.0F);
@@ -173,7 +173,7 @@ public class BanditNew5 extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(0.0F, 0.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 32, 36, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 32, 36, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         rightleg = new ModelRenderer(this);
         rightleg.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -207,7 +207,7 @@ public class BanditNew5 extends ModelBiped {
 
         if (entityCustomMob.isSwingingArms() && itemstack.getItem() != Items.BOW) {
             float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
-            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
+            float f1 = MathHelper.sin((1 - (1 - this.swingProgress) * (1 - this.swingProgress)) * (float) Math.PI);
             this.bipedRightArm.rotateAngleZ = 0.0F;
             this.bipedLeftArm.rotateAngleZ = 0.0F;
             this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
@@ -244,7 +244,7 @@ public class BanditNew5 extends ModelBiped {
 
     @Override
     public void postRenderArm(float scale, EnumHandSide side) {
-        float f = side == EnumHandSide.RIGHT ? 1.0F : -1.0F;
+        float f = side == EnumHandSide.RIGHT ? 1 : -1;
         ModelRenderer modelrenderer = this.getArmForSide(side);
         modelrenderer.rotationPointX += f;
         modelrenderer.postRender(scale * 1.25f);

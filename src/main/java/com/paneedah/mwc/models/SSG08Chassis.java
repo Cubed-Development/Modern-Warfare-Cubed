@@ -152,13 +152,13 @@ public class SSG08Chassis extends ModelBase {
 
         underchassis = new ModelRenderer(this);
         underchassis.setRotationPoint(-3.5F, -7.5F, -7.0F);
-        underchassis.cubeList.add(new ModelBox(underchassis, 49, 99, 1.0F, -3.0F, 4.5F, 3, 3, 1, 0.0F, false));
+        underchassis.cubeList.add(new ModelBox(underchassis, 49, 99, 1, -3.0F, 4.5F, 3, 3, 1, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 101, 125, 0.0F, -2.0F, 1.5F, 4, 2, 7, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 49, 95, 1.1F, -3.0F, 5.5F, 2, 1, 3, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 6, 94, 0.0F, -2.0F, 8.5F, 3, 2, 2, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 27, 100, 1.1F, -3.0F, 8.5F, 2, 1, 2, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 39, 99, 0.0F, -3.0F, 10.5F, 3, 3, 1, 0.0F, false));
-        underchassis.cubeList.add(new ModelBox(underchassis, 88, 76, 1.0F, 3.0F, -9.0F, 2, 1, 7, 0.0F, false));
+        underchassis.cubeList.add(new ModelBox(underchassis, 88, 76, 1, 3.0F, -9.0F, 2, 1, 7, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 11, 38, 0.999F, -0.5F, -9.25F, 2, 4, 1, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 0, 0, 3.0F, -5.9F, -10.25F, 1, 5, 6, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 19, 86, 0.5F, -5.9F, -6.75F, 1, 2, 2, 0.0F, false));
@@ -172,7 +172,7 @@ public class SSG08Chassis extends ModelBase {
         underchassis.cubeList.add(new ModelBox(underchassis, 8, 0, 0.251F, 0.0F, -10.0F, 2, 4, 1, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 0, 38, 0.5F, -7.05F, -29.0F, 3, 5, 5, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 0, 11, -0.5F, -4.4784F, -66.6481F, 5, 2, 1, 0.0F, false));
-        underchassis.cubeList.add(new ModelBox(underchassis, 74, 49, 1.0F, -5.9784F, -68.8981F, 2, 4, 3, 0.0F, false));
+        underchassis.cubeList.add(new ModelBox(underchassis, 74, 49, 1, -5.9784F, -68.8981F, 2, 4, 3, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 0, 0, 0.5F, -2.875F, -66.0F, 3, 1, 37, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 86, 172, -0.501F, -5.0F, -66.0F, 1, 1, 37, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 196, 139, -0.49F, -5.75F, -30.0F, 1, 1, 19, 0.0F, false));
@@ -182,7 +182,7 @@ public class SSG08Chassis extends ModelBase {
         underchassis.cubeList.add(new ModelBox(underchassis, 127, 38, -0.5F, -6.5F, -30.0F, 1, 1, 19, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 127, 0, 3.5F, -6.5F, -30.0F, 1, 1, 19, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 0, 86, 3.499F, -7.25F, -65.5F, 1, 3, 37, 0.0F, false));
-        underchassis.cubeList.add(new ModelBox(underchassis, 127, 58, -1.0F, -6.75F, -39.5F, 6, 2, 8, 0.0F, false));
+        underchassis.cubeList.add(new ModelBox(underchassis, 127, 58, -1, -6.75F, -39.5F, 6, 2, 8, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 172, 87, -0.6F, -6.75F, -65.5F, 1, 2, 26, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 125, 172, 3.6F, -6.75F, -65.5F, 1, 2, 26, 0.0F, false));
         underchassis.cubeList.add(new ModelBox(underchassis, 0, 38, -0.499F, -7.25F, -65.5F, 1, 3, 37, 0.0F, false));
@@ -207,27 +207,27 @@ public class SSG08Chassis extends ModelBase {
         bone120.setRotationPoint(0.0F, -2.0F, 9.45F);
         underchassis.addChild(bone120);
         setRotationAngle(bone120, 1.2043F, 0.0F, 0.0F);
-        bone120.cubeList.add(new ModelBox(bone120, 58, 0, -0.001F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        bone120.cubeList.add(new ModelBox(bone120, 58, 0, -0.001F, -2.0F, -1, 1, 2, 1, 0.0F, false));
 
         bone109 = new ModelRenderer(this);
         bone109.setRotationPoint(0.0F, -2.0F, 4.6F);
         underchassis.addChild(bone109);
         setRotationAngle(bone109, 0.0873F, 0.1222F, 0.5934F);
-        bone109.cubeList.add(new ModelBox(bone109, 88, 38, 0.0F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        bone109.cubeList.add(new ModelBox(bone109, 88, 38, 0.0F, -1, 0.0F, 1, 1, 4, 0.0F, false));
         bone109.cubeList.add(new ModelBox(bone109, 13, 78, -0.001F, -1.3F, 0.6F, 1, 1, 2, 0.0F, false));
 
         bone112 = new ModelRenderer(this);
         bone112.setRotationPoint(0.0F, -2.0F, 10.6F);
         underchassis.addChild(bone112);
         setRotationAngle(bone112, -0.0873F, -0.1222F, 0.5934F);
-        bone112.cubeList.add(new ModelBox(bone112, 34, 78, 0.0F, -1.0F, -4.0F, 1, 1, 4, 0.0F, false));
+        bone112.cubeList.add(new ModelBox(bone112, 34, 78, 0.0F, -1, -4.0F, 1, 1, 4, 0.0F, false));
         bone112.cubeList.add(new ModelBox(bone112, 77, 64, -0.001F, -1.3F, -2.6F, 1, 1, 2, 0.0F, false));
 
         bone159 = new ModelRenderer(this);
         bone159.setRotationPoint(2.5F, -0.3F, -4.3F);
         underchassis.addChild(bone159);
         setRotationAngle(bone159, -1.2566F, 0.0F, 0.0F);
-        bone159.cubeList.add(new ModelBox(bone159, 39, 95, -1.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        bone159.cubeList.add(new ModelBox(bone159, 39, 95, -1, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         bone144 = new ModelRenderer(this);
         bone144.setRotationPoint(0.5F, -2.5F, 9.5F);
@@ -245,7 +245,7 @@ public class SSG08Chassis extends ModelBase {
         bone132.setRotationPoint(2.0F, 2.5F, -8.25F);
         underchassis.addChild(bone132);
         setRotationAngle(bone132, -2.5307F, 0.0F, 0.0F);
-        bone132.cubeList.add(new ModelBox(bone132, 19, 100, -1.0F, -4.8136F, -6.2593F, 2, 1, 2, 0.0F, false));
+        bone132.cubeList.add(new ModelBox(bone132, 19, 100, -1, -4.8136F, -6.2593F, 2, 1, 2, 0.0F, false));
 
         bone110 = new ModelRenderer(this);
         bone110.setRotationPoint(1.5F, 0.5F, -0.25F);
@@ -270,13 +270,13 @@ public class SSG08Chassis extends ModelBase {
 
 
         bone7 = new ModelRenderer(this);
-        bone7.setRotationPoint(2.0F, -2.0F, 1.0F);
+        bone7.setRotationPoint(2.0F, -2.0F, 1);
         underchassis.addChild(bone7);
         setRotationAngle(bone7, -0.2182F, 0.0F, 0.0F);
         bone7.cubeList.add(new ModelBox(bone7, 202, 0, 0.75F, -3.2847F, -7.13F, 1, 1, 18, 0.0F, false));
 
         bone134 = new ModelRenderer(this);
-        bone134.setRotationPoint(2.0F, -2.0F, 1.0F);
+        bone134.setRotationPoint(2.0F, -2.0F, 1);
         underchassis.addChild(bone134);
         setRotationAngle(bone134, -0.3054F, 0.0F, 0.0F);
 
@@ -294,7 +294,7 @@ public class SSG08Chassis extends ModelBase {
         bone135.cubeList.add(new ModelBox(bone135, 0, 86, -1.5946F, -1.2017F, -12.3141F, 1, 1, 7, 0.0F, false));
 
         bone106 = new ModelRenderer(this);
-        bone106.setRotationPoint(2.0F, -2.0F, 1.0F);
+        bone106.setRotationPoint(2.0F, -2.0F, 1);
         underchassis.addChild(bone106);
         setRotationAngle(bone106, -0.2182F, 0.0F, 0.0F);
 
@@ -306,13 +306,13 @@ public class SSG08Chassis extends ModelBase {
         bone107.cubeList.add(new ModelBox(bone107, 39, 126, -1.1445F, -1.0153F, -6.2441F, 1, 1, 19, 0.0F, false));
 
         bone100 = new ModelRenderer(this);
-        bone100.setRotationPoint(-0.5F, -2.0F, 1.0F);
+        bone100.setRotationPoint(-0.5F, -2.0F, 1);
         underchassis.addChild(bone100);
         setRotationAngle(bone100, -0.2182F, 0.0F, 0.0F);
         bone100.cubeList.add(new ModelBox(bone100, 94, 44, 0.75F, -3.2847F, -7.13F, 1, 1, 4, 0.0F, false));
 
         bone111 = new ModelRenderer(this);
-        bone111.setRotationPoint(-0.25F, -1.25F, 1.0F);
+        bone111.setRotationPoint(-0.25F, -1.25F, 1);
         underchassis.addChild(bone111);
         setRotationAngle(bone111, -0.2182F, 0.0F, 0.0F);
         bone111.cubeList.add(new ModelBox(bone111, 43, 0, 3.251F, -3.2847F, -7.13F, 1, 2, 19, 0.0F, false));
@@ -325,7 +325,7 @@ public class SSG08Chassis extends ModelBase {
         bone136.cubeList.add(new ModelBox(bone136, 88, 6, -0.3292F, -0.819F, -7.8641F, 1, 1, 5, 0.0F, false));
 
         bone102 = new ModelRenderer(this);
-        bone102.setRotationPoint(-0.5F, -2.0F, 1.0F);
+        bone102.setRotationPoint(-0.5F, -2.0F, 1);
         underchassis.addChild(bone102);
         setRotationAngle(bone102, -0.2182F, 0.0F, 0.0F);
 
@@ -337,7 +337,7 @@ public class SSG08Chassis extends ModelBase {
         bone103.cubeList.add(new ModelBox(bone103, 94, 39, 0.1445F, -1.0153F, -2.2441F, 1, 1, 4, 0.0F, false));
 
         bone8 = new ModelRenderer(this);
-        bone8.setRotationPoint(1.0F, -2.0F, 1.0F);
+        bone8.setRotationPoint(1, -2.0F, 1);
         underchassis.addChild(bone8);
         setRotationAngle(bone8, -0.2182F, 0.0F, 0.0F);
         bone8.cubeList.add(new ModelBox(bone8, 86, 87, 0.0F, -3.0947F, -6.8318F, 2, 3, 4, 0.0F, false));
@@ -352,22 +352,22 @@ public class SSG08Chassis extends ModelBase {
         bone148.setRotationPoint(-0.5F, -0.2982F, 0.19F);
         bone8.addChild(bone148);
         setRotationAngle(bone148, -0.2182F, 0.0F, 0.0F);
-        bone148.cubeList.add(new ModelBox(bone148, 43, 27, 1.0F, -2.6197F, 0.0187F, 1, 3, 1, 0.0F, false));
+        bone148.cubeList.add(new ModelBox(bone148, 43, 27, 1, -2.6197F, 0.0187F, 1, 3, 1, 0.0F, false));
 
         bone150 = new ModelRenderer(this);
-        bone150.setRotationPoint(1.0F, -1.4179F, 0.7087F);
+        bone150.setRotationPoint(1, -1.4179F, 0.7087F);
         bone8.addChild(bone150);
         setRotationAngle(bone150, 0.1745F, 0.0F, 0.0F);
         bone150.cubeList.add(new ModelBox(bone150, 43, 14, -0.5F, -1.4005F, -0.6854F, 1, 3, 1, 0.0F, false));
 
         bone151 = new ModelRenderer(this);
-        bone151.setRotationPoint(1.0F, -1.3184F, 0.5233F);
+        bone151.setRotationPoint(1, -1.3184F, 0.5233F);
         bone8.addChild(bone151);
         setRotationAngle(bone151, 0.3927F, 0.0F, 0.0F);
         bone151.cubeList.add(new ModelBox(bone151, 39, 39, -0.5F, -1.7462F, -0.4566F, 1, 3, 1, 0.0F, false));
 
         bone149 = new ModelRenderer(this);
-        bone149.setRotationPoint(1.0F, -1.4179F, 0.7087F);
+        bone149.setRotationPoint(1, -1.4179F, 0.7087F);
         bone8.addChild(bone149);
         setRotationAngle(bone149, -0.6109F, 0.0F, 0.0F);
         bone149.cubeList.add(new ModelBox(bone149, 32, 38, -0.5F, -1.5954F, 0.156F, 1, 3, 1, 0.0F, false));
@@ -435,11 +435,11 @@ public class SSG08Chassis extends ModelBase {
         bone94 = new ModelRenderer(this);
         bone94.setRotationPoint(0.5F, -0.25F, -16.0F);
         underchassis.addChild(bone94);
-        bone94.cubeList.add(new ModelBox(bone94, 0, 99, -1.0F, -4.0F, -33.0F, 1, 1, 3, 0.0F, false));
-        bone94.cubeList.add(new ModelBox(bone94, 93, 98, -1.0F, -4.0F, -25.0F, 1, 1, 3, 0.0F, false));
-        bone94.cubeList.add(new ModelBox(bone94, 86, 94, -1.0F, -4.0F, -17.0F, 1, 1, 4, 0.0F, false));
-        bone94.cubeList.add(new ModelBox(bone94, 7, 98, -1.0F, -4.0F, -41.0F, 1, 1, 3, 0.0F, false));
-        bone94.cubeList.add(new ModelBox(bone94, 0, 94, -1.0F, -4.0F, -50.0F, 1, 1, 4, 0.0F, false));
+        bone94.cubeList.add(new ModelBox(bone94, 0, 99, -1, -4.0F, -33.0F, 1, 1, 3, 0.0F, false));
+        bone94.cubeList.add(new ModelBox(bone94, 93, 98, -1, -4.0F, -25.0F, 1, 1, 3, 0.0F, false));
+        bone94.cubeList.add(new ModelBox(bone94, 86, 94, -1, -4.0F, -17.0F, 1, 1, 4, 0.0F, false));
+        bone94.cubeList.add(new ModelBox(bone94, 7, 98, -1, -4.0F, -41, 1, 1, 3, 0.0F, false));
+        bone94.cubeList.add(new ModelBox(bone94, 0, 94, -1, -4.0F, -50.0F, 1, 1, 4, 0.0F, false));
 
         bone95 = new ModelRenderer(this);
         bone95.setRotationPoint(4.5F, -0.25F, -16.0F);
@@ -447,7 +447,7 @@ public class SSG08Chassis extends ModelBase {
         bone95.cubeList.add(new ModelBox(bone95, 97, 13, -0.999F, -4.0F, -33.0F, 1, 1, 3, 0.0F, false));
         bone95.cubeList.add(new ModelBox(bone95, 75, 96, -0.999F, -4.0F, -25.0F, 1, 1, 3, 0.0F, false));
         bone95.cubeList.add(new ModelBox(bone95, 88, 60, -0.999F, -4.0F, -17.0F, 1, 1, 4, 0.0F, false));
-        bone95.cubeList.add(new ModelBox(bone95, 61, 96, -0.999F, -4.0F, -41.0F, 1, 1, 3, 0.0F, false));
+        bone95.cubeList.add(new ModelBox(bone95, 61, 96, -0.999F, -4.0F, -41, 1, 1, 3, 0.0F, false));
         bone95.cubeList.add(new ModelBox(bone95, 88, 55, -0.999F, -4.0F, -50.0F, 1, 1, 4, 0.0F, false));
 
         bone10 = new ModelRenderer(this);
@@ -912,7 +912,7 @@ public class SSG08Chassis extends ModelBase {
         bone31.cubeList.add(new ModelBox(bone31, 68, 60, -0.5F, -3.0591F, -0.5F, 1, 6, 1, 0.0F, false));
 
         bone98 = new ModelRenderer(this);
-        bone98.setRotationPoint(-1.0F, -0.7224F, 3.0136F);
+        bone98.setRotationPoint(-1, -0.7224F, 3.0136F);
         bone13.addChild(bone98);
         setRotationAngle(bone98, 0.0F, 1.1781F, 0.0F);
         bone98.cubeList.add(new ModelBox(bone98, 10, 22, -0.0753F, -3.6198F, 0.5724F, 1, 7, 1, 0.0F, false));

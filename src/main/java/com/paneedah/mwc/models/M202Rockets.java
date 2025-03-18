@@ -25,9 +25,9 @@ public class M202Rockets extends ModelWithAttachments {
         mag = new ModelRenderer(this);
         mag.setRotationPoint(0.0F, 24.0F, 0.0F);
         mag.cubeList.add(new ModelBox(mag, 0, 0, -12.0F, -29.0F, 50.0F, 6, 6, 12, 0.0F, true));
-        mag.cubeList.add(new ModelBox(mag, 0, 0, -10.0F, -27.0F, 61.0F, 2, 2, 2, 0.0F, true));
-        mag.cubeList.add(new ModelBox(mag, 0, 0, -9.0F, -30.0F, 61.0F, 1, 1, 7, 0.0F, true));
-        mag.cubeList.add(new ModelBox(mag, 0, 0, -9.0F, -23.0F, 61.0F, 1, 1, 7, 0.0F, true));
+        mag.cubeList.add(new ModelBox(mag, 0, 0, -10.0F, -27.0F, 61, 2, 2, 2, 0.0F, true));
+        mag.cubeList.add(new ModelBox(mag, 0, 0, -9.0F, -30.0F, 61, 1, 1, 7, 0.0F, true));
+        mag.cubeList.add(new ModelBox(mag, 0, 0, -9.0F, -23.0F, 61, 1, 1, 7, 0.0F, true));
         mag.cubeList.add(new ModelBox(mag, 0, 0, -9.0F, -29.5F, 67.5F, 1, 7, 1, 0.0F, true));
         mag.cubeList.add(new ModelBox(mag, 0, 0, -10.0F, -27.0F, 32.0F, 2, 2, 18, 0.0F, true));
 
@@ -39,13 +39,13 @@ public class M202Rockets extends ModelWithAttachments {
         magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -2.5F, -33.0F, 20.0F, 1, 5, 42, 0.0F, true));
         magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -7.5F, -33.0F, 20.0F, 1, 5, 42, 0.0F, true));
         magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -7.0F, -33.0F, 60.0F, 5, 5, 1, 0.0F, true));
-        magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -7.0F, -31.0F, 60.5F, 5, 1, 1, 0.0F, true));
+        magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -7.0F, -31, 60.5F, 5, 1, 1, 0.0F, true));
         magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -2.0F, -33.0F, 3.0F, 1, 5, 17, 0.0F, true));
         magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -8.0F, -33.0F, 3.0F, 1, 5, 17, 0.0F, true));
         magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -7.0F, -34.0F, 3.0F, 5, 1, 17, 0.0F, true));
         magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -7.0F, -28.0F, 3.0F, 5, 1, 17, 0.0F, true));
         magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -7.0F, -33.0F, 2.0F, 5, 5, 1, 0.0F, true));
-        magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -5.0F, -31.0F, 1.5F, 1, 1, 1, 0.0F, true));
+        magtube1.cubeList.add(new ModelBox(magtube1, 0, 0, -5.0F, -31, 1.5F, 1, 1, 1, 0.0F, true));
 
         magtube2 = new ModelRenderer(this);
         magtube2.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -55,13 +55,13 @@ public class M202Rockets extends ModelWithAttachments {
         magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -11.5F, -33.0F, 20.0F, 1, 5, 42, 0.0F, true));
         magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -16.5F, -33.0F, 20.0F, 1, 5, 42, 0.0F, true));
         magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -16.0F, -33.0F, 60.0F, 5, 5, 1, 0.0F, true));
-        magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -16.0F, -31.0F, 60.5F, 5, 1, 1, 0.0F, true));
-        magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -11.0F, -33.0F, 3.0F, 1, 5, 17, 0.0F, true));
+        magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -16.0F, -31, 60.5F, 5, 1, 1, 0.0F, true));
+        magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -11, -33.0F, 3.0F, 1, 5, 17, 0.0F, true));
         magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -17.0F, -33.0F, 3.0F, 1, 5, 17, 0.0F, true));
         magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -16.0F, -34.0F, 3.0F, 5, 1, 17, 0.0F, true));
         magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -16.0F, -28.0F, 3.0F, 5, 1, 17, 0.0F, true));
         magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -16.0F, -33.0F, 2.0F, 5, 5, 1, 0.0F, true));
-        magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -14.0F, -31.0F, 1.5F, 1, 1, 1, 0.0F, true));
+        magtube2.cubeList.add(new ModelBox(magtube2, 0, 0, -14.0F, -31, 1.5F, 1, 1, 1, 0.0F, true));
 
         magtube3 = new ModelRenderer(this);
         magtube3.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -72,7 +72,7 @@ public class M202Rockets extends ModelWithAttachments {
         magtube3.cubeList.add(new ModelBox(magtube3, 0, 0, -16.5F, -24.0F, 20.0F, 1, 5, 42, 0.0F, true));
         magtube3.cubeList.add(new ModelBox(magtube3, 0, 0, -16.0F, -24.0F, 60.0F, 5, 5, 1, 0.0F, true));
         magtube3.cubeList.add(new ModelBox(magtube3, 0, 0, -16.0F, -22.0F, 60.5F, 5, 1, 1, 0.0F, true));
-        magtube3.cubeList.add(new ModelBox(magtube3, 0, 0, -11.0F, -24.0F, 3.0F, 1, 5, 17, 0.0F, true));
+        magtube3.cubeList.add(new ModelBox(magtube3, 0, 0, -11, -24.0F, 3.0F, 1, 5, 17, 0.0F, true));
         magtube3.cubeList.add(new ModelBox(magtube3, 0, 0, -17.0F, -24.0F, 3.0F, 1, 5, 17, 0.0F, true));
         magtube3.cubeList.add(new ModelBox(magtube3, 0, 0, -16.0F, -25.0F, 3.0F, 5, 1, 17, 0.0F, true));
         magtube3.cubeList.add(new ModelBox(magtube3, 0, 0, -16.0F, -19.0F, 3.0F, 5, 1, 17, 0.0F, true));

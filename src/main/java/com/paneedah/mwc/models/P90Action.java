@@ -298,7 +298,7 @@ public class P90Action extends ModelWithAttachments {
         gun162.setRotationPoint(-5.3F, -39.5F, 23.5F);
         gun.addChild(gun162);
         setRotationAngle(gun162, 0.0F, 0.1859F, 0.0F);
-        gun162.cubeList.add(new ModelBox(gun162, 116, 94, -1.0F, 0.0F, 0.0F, 3, 2, 3, 0.0F, false));
+        gun162.cubeList.add(new ModelBox(gun162, 116, 94, -1, 0.0F, 0.0F, 3, 2, 3, 0.0F, false));
 
         gun160 = new ModelRenderer(this);
         gun160.setRotationPoint(-5.5F, -37.5F, 18.5F);
@@ -315,7 +315,7 @@ public class P90Action extends ModelWithAttachments {
         gun157 = new ModelRenderer(this);
         gun157.setRotationPoint(-5.5F, -37.5F, 18.5F);
         gun.addChild(gun157);
-        gun157.cubeList.add(new ModelBox(gun157, 59, 35, -1.0F, 0.0F, 0.0F, 10, 2, 3, 0.0F, false));
+        gun157.cubeList.add(new ModelBox(gun157, 59, 35, -1, 0.0F, 0.0F, 10, 2, 3, 0.0F, false));
 
         gun156 = new ModelRenderer(this);
         gun156.setRotationPoint(-3.0F, -41.1F, -22.4F);
@@ -327,7 +327,7 @@ public class P90Action extends ModelWithAttachments {
         gun155.setRotationPoint(-3.0F, -42.2F, -19.4F);
         gun.addChild(gun155);
         setRotationAngle(gun155, -2.9614F, 0.0F, 0.0F);
-        gun155.cubeList.add(new ModelBox(gun155, 134, 72, 0.0F, 0.0F, -1.0F, 3, 2, 5, 0.0F, false));
+        gun155.cubeList.add(new ModelBox(gun155, 134, 72, 0.0F, 0.0F, -1, 3, 2, 5, 0.0F, false));
 
         gun153 = new ModelRenderer(this);
         gun153.setRotationPoint(-3.0F, -40.0F, -25.5F);
@@ -338,13 +338,13 @@ public class P90Action extends ModelWithAttachments {
         gun152 = new ModelRenderer(this);
         gun152.setRotationPoint(-4.0F, -41.5F, -24.5F);
         gun.addChild(gun152);
-        gun152.cubeList.add(new ModelBox(gun152, 59, 11, -1.0F, 0.0F, -0.5F, 7, 5, 2, 0.0F, false));
+        gun152.cubeList.add(new ModelBox(gun152, 59, 11, -1, 0.0F, -0.5F, 7, 5, 2, 0.0F, false));
 
         gun150 = new ModelRenderer(this);
         gun150.setRotationPoint(-3.5F, -29.0F, -17.5F);
         gun.addChild(gun150);
         setRotationAngle(gun150, 1.673F, 0.0F, 0.0F);
-        gun150.cubeList.add(new ModelBox(gun150, 85, 19, -1.0F, 0.0F, 0.0F, 6, 9, 1, 0.0F, false));
+        gun150.cubeList.add(new ModelBox(gun150, 85, 19, -1, 0.0F, 0.0F, 6, 9, 1, 0.0F, false));
 
         gun149 = new ModelRenderer(this);
         gun149.setRotationPoint(-2.5F, -28.0F, -9.2F);
@@ -367,7 +367,7 @@ public class P90Action extends ModelWithAttachments {
         gun146.setRotationPoint(-3.0F, -18.7F, -20.2F);
         gun.addChild(gun146);
         setRotationAngle(gun146, 1.5243F, 0.0F, 0.0F);
-        gun146.cubeList.add(new ModelBox(gun146, 130, 0, -1.0F, 1.0F, 4.0F, 5, 8, 2, 0.0F, false));
+        gun146.cubeList.add(new ModelBox(gun146, 130, 0, -1, 1, 4.0F, 5, 8, 2, 0.0F, false));
 
         gun145 = new ModelRenderer(this);
         gun145.setRotationPoint(-3.0F, -22.75F, -25.95F);
@@ -379,7 +379,7 @@ public class P90Action extends ModelWithAttachments {
         gun144.setRotationPoint(-3.0F, -27.7F, -21.5F);
         gun.addChild(gun144);
         setRotationAngle(gun144, 0.1115F, 0.0F, 0.0F);
-        gun144.cubeList.add(new ModelBox(gun144, 189, 195, -1.0F, 0.0F, 0.0F, 5, 3, 2, 0.0F, false));
+        gun144.cubeList.add(new ModelBox(gun144, 189, 195, -1, 0.0F, 0.0F, 5, 3, 2, 0.0F, false));
 
         gun143 = new ModelRenderer(this);
         gun143.setRotationPoint(-3.5F, -27.7F, -18.5F);
@@ -391,7 +391,7 @@ public class P90Action extends ModelWithAttachments {
         gun142.setRotationPoint(-3.5F, -26.3F, -10.2F);
         gun.addChild(gun142);
         setRotationAngle(gun142, -0.8551F, 0.0F, 0.0F);
-        gun142.cubeList.add(new ModelBox(gun142, 0, 174, -1.0F, 0.0F, 0.0F, 6, 5, 3, 0.0F, false));
+        gun142.cubeList.add(new ModelBox(gun142, 0, 174, -1, 0.0F, 0.0F, 6, 5, 3, 0.0F, false));
 
         gun141 = new ModelRenderer(this);
         gun141.setRotationPoint(-3.5F, -26.3F, -10.2F);
@@ -414,7 +414,7 @@ public class P90Action extends ModelWithAttachments {
         gun138.setRotationPoint(-3.5F, -22.75F, -25.95F);
         gun.addChild(gun138);
         setRotationAngle(gun138, 0.9666F, 0.0F, 0.0F);
-        gun138.cubeList.add(new ModelBox(gun138, 104, 131, -1.0F, 0.0F, 0.0F, 6, 7, 5, 0.0F, false));
+        gun138.cubeList.add(new ModelBox(gun138, 104, 131, -1, 0.0F, 0.0F, 6, 7, 5, 0.0F, false));
 
         gun137 = new ModelRenderer(this);
         gun137.setRotationPoint(-3.5F, -27.7F, -26.5F);
@@ -425,24 +425,24 @@ public class P90Action extends ModelWithAttachments {
         gun136 = new ModelRenderer(this);
         gun136.setRotationPoint(-3.5F, -37.2F, -25.5F);
         gun.addChild(gun136);
-        gun136.cubeList.add(new ModelBox(gun136, 23, 14, -1.0F, 0.0F, 0.0F, 6, 2, 5, 0.0F, false));
+        gun136.cubeList.add(new ModelBox(gun136, 23, 14, -1, 0.0F, 0.0F, 6, 2, 5, 0.0F, false));
 
         gun134 = new ModelRenderer(this);
         gun134.setRotationPoint(-5.5F, -31.3F, -27.0F);
         gun.addChild(gun134);
         setRotationAngle(gun134, 0.0744F, 0.0F, 0.0F);
-        gun134.cubeList.add(new ModelBox(gun134, 0, 102, -1.0F, -1.0F, 0.0F, 3, 1, 3, 0.0F, false));
+        gun134.cubeList.add(new ModelBox(gun134, 0, 102, -1, -1, 0.0F, 3, 1, 3, 0.0F, false));
 
         gun133 = new ModelRenderer(this);
         gun133.setRotationPoint(-5.5F, -35.3F, -27.0F);
         gun.addChild(gun133);
         setRotationAngle(gun133, -0.0744F, 0.0F, 0.0F);
-        gun133.cubeList.add(new ModelBox(gun133, 0, 117, -1.0F, 0.0F, 0.0F, 3, 1, 3, 0.0F, false));
+        gun133.cubeList.add(new ModelBox(gun133, 0, 117, -1, 0.0F, 0.0F, 3, 1, 3, 0.0F, false));
 
         gun130 = new ModelRenderer(this);
         gun130.setRotationPoint(-5.5F, -35.3F, -28.0F);
         gun.addChild(gun130);
-        gun130.cubeList.add(new ModelBox(gun130, 91, 46, -1.0F, 0.0F, 0.0F, 3, 4, 1, 0.0F, false));
+        gun130.cubeList.add(new ModelBox(gun130, 91, 46, -1, 0.0F, 0.0F, 3, 4, 1, 0.0F, false));
 
         gun128 = new ModelRenderer(this);
         gun128.setRotationPoint(-4.5F, -47.7F, -24.3F);
@@ -526,12 +526,12 @@ public class P90Action extends ModelWithAttachments {
         gun114 = new ModelRenderer(this);
         gun114.setRotationPoint(-4.0F, -45.8F, -9.5F);
         gun.addChild(gun114);
-        gun114.cubeList.add(new ModelBox(gun114, 144, 33, -1.0F, 0.0F, 0.0F, 7, 1, 5, 0.0F, false));
+        gun114.cubeList.add(new ModelBox(gun114, 144, 33, -1, 0.0F, 0.0F, 7, 1, 5, 0.0F, false));
 
         gun113 = new ModelRenderer(this);
         gun113.setRotationPoint(-3.0F, -48.4F, -10.4F);
         gun.addChild(gun113);
-        gun113.cubeList.add(new ModelBox(gun113, 163, 16, -1.0F, 0.0F, 0.0F, 5, 1, 7, 0.0F, false));
+        gun113.cubeList.add(new ModelBox(gun113, 163, 16, -1, 0.0F, 0.0F, 5, 1, 7, 0.0F, false));
 
         gun112 = new ModelRenderer(this);
         gun112.setRotationPoint(-4.0F, -48.3F, -10.5F);
@@ -548,31 +548,31 @@ public class P90Action extends ModelWithAttachments {
         gun106.setRotationPoint(-3.0F, -49.3F, -3.5F);
         gun.addChild(gun106);
         setRotationAngle(gun106, -1.2269F, 0.0F, 0.0F);
-        gun106.cubeList.add(new ModelBox(gun106, 161, 77, -1.0F, -0.005F, 0.5F, 5, 1, 3, 0.0F, false));
+        gun106.cubeList.add(new ModelBox(gun106, 161, 77, -1, -0.005F, 0.5F, 5, 1, 3, 0.0F, false));
 
         gun105 = new ModelRenderer(this);
         gun105.setRotationPoint(0.0F, -49.3F, -3.5F);
         gun.addChild(gun105);
         setRotationAngle(gun105, -1.2269F, 0.0F, 0.0F);
-        gun105.cubeList.add(new ModelBox(gun105, 195, 162, -1.0F, 0.0F, 0.0F, 3, 1, 4, 0.0F, false));
+        gun105.cubeList.add(new ModelBox(gun105, 195, 162, -1, 0.0F, 0.0F, 3, 1, 4, 0.0F, false));
 
         gun100 = new ModelRenderer(this);
         gun100.setRotationPoint(-4.0F, -49.3F, -3.5F);
         gun.addChild(gun100);
         setRotationAngle(gun100, -1.2269F, 0.0F, 0.0F);
-        gun100.cubeList.add(new ModelBox(gun100, 195, 170, -1.0F, 0.0F, 0.0F, 3, 1, 4, 0.0F, false));
+        gun100.cubeList.add(new ModelBox(gun100, 195, 170, -1, 0.0F, 0.0F, 3, 1, 4, 0.0F, false));
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(-1.0F, 0.9855F, -0.016F);
+        bone.setRotationPoint(-1, 0.9855F, -0.016F);
         gun100.addChild(bone);
         setRotationAngle(bone, 0.0F, 1.2741F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 22, 51, -3.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 22, 51, -3.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(6.0F, 0.9855F, -0.016F);
         gun100.addChild(bone2);
         setRotationAngle(bone2, 0.0F, -1.2741F, 0.0F);
-        bone2.cubeList.add(new ModelBox(bone2, 13, 5, 0.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 13, 5, 0.0F, -1, 0.0F, 3, 1, 1, 0.0F, false));
 
         gun99 = new ModelRenderer(this);
         gun99.setRotationPoint(-4.0F, -49.3F, -10.5F);
@@ -614,7 +614,7 @@ public class P90Action extends ModelWithAttachments {
         gun90 = new ModelRenderer(this);
         gun90.setRotationPoint(-4.0F, -43.1F, -25.4F);
         gun.addChild(gun90);
-        gun90.cubeList.add(new ModelBox(gun90, 69, 119, -1.0F, -0.3F, 0.0F, 7, 1, 7, 0.0F, false));
+        gun90.cubeList.add(new ModelBox(gun90, 69, 119, -1, -0.3F, 0.0F, 7, 1, 7, 0.0F, false));
 
         gun89 = new ModelRenderer(this);
         gun89.setRotationPoint(2.0F, -40.3F, -0.8F);
@@ -623,13 +623,13 @@ public class P90Action extends ModelWithAttachments {
         gun89.cubeList.add(new ModelBox(gun89, 58, 46, -7.0F, 5.0F, 7.0F, 7, 1, 10, 0.0F, false));
 
         gun88 = new ModelRenderer(this);
-        gun88.setRotationPoint(7.3F, -40.5F, -1.0F);
+        gun88.setRotationPoint(7.3F, -40.5F, -1);
         gun.addChild(gun88);
         setRotationAngle(gun88, -2.9371F, 0.0F, 0.0F);
         gun88.cubeList.add(new ModelBox(gun88, 0, 190, -4.999F, 4.3F, -0.001F, 1, 1, 7, 0.0F, false));
 
         gun87 = new ModelRenderer(this);
-        gun87.setRotationPoint(0.7F, -40.5F, -1.0F);
+        gun87.setRotationPoint(0.7F, -40.5F, -1);
         gun.addChild(gun87);
         setRotationAngle(gun87, -2.9371F, 0.0F, 0.0F);
         gun87.cubeList.add(new ModelBox(gun87, 26, 190, -7.001F, 4.3F, -0.001F, 1, 1, 7, 0.0F, false));
@@ -659,7 +659,7 @@ public class P90Action extends ModelWithAttachments {
         gun75.setRotationPoint(-5.3F, -40.7F, -0.4F);
         gun.addChild(gun75);
         setRotationAngle(gun75, -2.8256F, 0.0F, 0.0F);
-        gun75.cubeList.add(new ModelBox(gun75, 24, 94, -1.0F, 0.0F, 0.0F, 1, 5, 7, 0.0F, false));
+        gun75.cubeList.add(new ModelBox(gun75, 24, 94, -1, 0.0F, 0.0F, 1, 5, 7, 0.0F, false));
 
         gun74 = new ModelRenderer(this);
         gun74.setRotationPoint(-5.3F, -40.7F, -7.4F);
@@ -669,10 +669,10 @@ public class P90Action extends ModelWithAttachments {
         gun73 = new ModelRenderer(this);
         gun73.setRotationPoint(-4.8F, -37.7F, -7.4F);
         gun.addChild(gun73);
-        gun73.cubeList.add(new ModelBox(gun73, 79, 0, -1.0F, 0.0F, 0.0F, 3, 4, 7, 0.0F, false));
+        gun73.cubeList.add(new ModelBox(gun73, 79, 0, -1, 0.0F, 0.0F, 3, 4, 7, 0.0F, false));
 
         gun67 = new ModelRenderer(this);
-        gun67.setRotationPoint(1.0F, -40.5F, -1.0F);
+        gun67.setRotationPoint(1, -40.5F, -1);
         gun.addChild(gun67);
         setRotationAngle(gun67, -2.9371F, 0.0F, 0.0F);
         gun67.cubeList.add(new ModelBox(gun67, 58, 77, -7.0F, 5.0F, 0.0F, 9, 1, 7, 0.0F, false));
@@ -681,7 +681,7 @@ public class P90Action extends ModelWithAttachments {
         gun66.setRotationPoint(1.3F, -40.7F, -0.4F);
         gun.addChild(gun66);
         setRotationAngle(gun66, -2.8256F, 0.0F, 0.0F);
-        gun66.cubeList.add(new ModelBox(gun66, 32, 135, 1.0F, 0.0F, 0.0F, 1, 5, 7, 0.0F, false));
+        gun66.cubeList.add(new ModelBox(gun66, 32, 135, 1, 0.0F, 0.0F, 1, 5, 7, 0.0F, false));
 
         gun65 = new ModelRenderer(this);
         gun65.setRotationPoint(2.3F, -37.7F, -7.4F);
@@ -698,7 +698,7 @@ public class P90Action extends ModelWithAttachments {
         gun63 = new ModelRenderer(this);
         gun63.setRotationPoint(0.8F, -37.7F, -7.4F);
         gun.addChild(gun63);
-        gun63.cubeList.add(new ModelBox(gun63, 161, 59, -1.0F, 0.0F, 0.0F, 3, 4, 7, 0.0F, false));
+        gun63.cubeList.add(new ModelBox(gun63, 161, 59, -1, 0.0F, 0.0F, 3, 4, 7, 0.0F, false));
 
         gun62 = new ModelRenderer(this);
         gun62.setRotationPoint(-4.0F, -37.5F, -33.5F);
@@ -708,32 +708,32 @@ public class P90Action extends ModelWithAttachments {
         gun61 = new ModelRenderer(this);
         gun61.setRotationPoint(-1.7F, -33.2F, -30.5F);
         gun.addChild(gun61);
-        gun61.cubeList.add(new ModelBox(gun61, 46, 94, -1.0F, 0.0F, 0.0F, 4, 1, 24, 0.0F, false));
+        gun61.cubeList.add(new ModelBox(gun61, 46, 94, -1, 0.0F, 0.0F, 4, 1, 24, 0.0F, false));
 
         gun60 = new ModelRenderer(this);
         gun60.setRotationPoint(-3.3F, -33.2F, -30.5F);
         gun.addChild(gun60);
-        gun60.cubeList.add(new ModelBox(gun60, 170, 110, -1.0F, 0.0F, 0.0F, 4, 1, 24, 0.0F, false));
+        gun60.cubeList.add(new ModelBox(gun60, 170, 110, -1, 0.0F, 0.0F, 4, 1, 24, 0.0F, false));
 
         gun59 = new ModelRenderer(this);
         gun59.setRotationPoint(0.2F, -34.3F, -31.5F);
         gun.addChild(gun59);
-        gun59.cubeList.add(new ModelBox(gun59, 175, 125, -1.0F, 0.0F, 0.0F, 3, 2, 6, 0.0F, false));
+        gun59.cubeList.add(new ModelBox(gun59, 175, 125, -1, 0.0F, 0.0F, 3, 2, 6, 0.0F, false));
 
         gun58 = new ModelRenderer(this);
         gun58.setRotationPoint(-4.2F, -34.3F, -31.5F);
         gun.addChild(gun58);
-        gun58.cubeList.add(new ModelBox(gun58, 104, 176, -1.0F, 0.0F, 0.0F, 3, 2, 6, 0.0F, false));
+        gun58.cubeList.add(new ModelBox(gun58, 104, 176, -1, 0.0F, 0.0F, 3, 2, 6, 0.0F, false));
 
         gun57 = new ModelRenderer(this);
-        gun57.setRotationPoint(-3.0F, -27.7F, -31.0F);
+        gun57.setRotationPoint(-3.0F, -27.7F, -31);
         gun.addChild(gun57);
-        gun57.cubeList.add(new ModelBox(gun57, 80, 35, -1.0F, 0.0F, 0.0F, 5, 1, 5, 0.0F, false));
+        gun57.cubeList.add(new ModelBox(gun57, 80, 35, -1, 0.0F, 0.0F, 5, 1, 5, 0.0F, false));
 
         gun56 = new ModelRenderer(this);
         gun56.setRotationPoint(-3.0F, -27.7F, -32.0F);
         gun.addChild(gun56);
-        gun56.cubeList.add(new ModelBox(gun56, 134, 89, -1.0F, 0.0F, 0.0F, 5, 4, 1, 0.0F, false));
+        gun56.cubeList.add(new ModelBox(gun56, 134, 89, -1, 0.0F, 0.0F, 5, 4, 1, 0.0F, false));
 
         gun55 = new ModelRenderer(this);
         gun55.setRotationPoint(-3.5F, -27.7F, -33.4F);
@@ -744,17 +744,17 @@ public class P90Action extends ModelWithAttachments {
         gun54.setRotationPoint(-3.5F, -29.7F, -34.3F);
         gun.addChild(gun54);
         setRotationAngle(gun54, 0.1487F, 0.0F, 0.0F);
-        gun54.cubeList.add(new ModelBox(gun54, 86, 191, -1.0F, 0.0F, 0.0F, 6, 6, 2, 0.0F, false));
+        gun54.cubeList.add(new ModelBox(gun54, 86, 191, -1, 0.0F, 0.0F, 6, 6, 2, 0.0F, false));
 
         gun53 = new ModelRenderer(this);
         gun53.setRotationPoint(-3.5F, -29.7F, -32.5F);
         gun.addChild(gun53);
-        gun53.cubeList.add(new ModelBox(gun53, 59, 19, -1.0F, 0.0F, 0.0F, 6, 2, 14, 0.0F, false));
+        gun53.cubeList.add(new ModelBox(gun53, 59, 19, -1, 0.0F, 0.0F, 6, 2, 14, 0.0F, false));
 
         gun52 = new ModelRenderer(this);
         gun52.setRotationPoint(-4.0F, -32.2F, -32.5F);
         gun.addChild(gun52);
-        gun52.cubeList.add(new ModelBox(gun52, 161, 33, -1.0F, 0.0F, -0.001F, 7, 1, 25, 0.0F, false));
+        gun52.cubeList.add(new ModelBox(gun52, 161, 33, -1, 0.0F, -0.001F, 7, 1, 25, 0.0F, false));
 
         gun51 = new ModelRenderer(this);
         gun51.setRotationPoint(-3.5F, -31.7F, -32.5F);
@@ -764,22 +764,22 @@ public class P90Action extends ModelWithAttachments {
         gun50 = new ModelRenderer(this);
         gun50.setRotationPoint(-3.5F, -29.5F, -7.0F);
         gun.addChild(gun50);
-        gun50.cubeList.add(new ModelBox(gun50, 0, 198, -1.0F, 0.0F, 0.0F, 6, 4, 1, 0.0F, false));
+        gun50.cubeList.add(new ModelBox(gun50, 0, 198, -1, 0.0F, 0.0F, 6, 4, 1, 0.0F, false));
 
         gun49 = new ModelRenderer(this);
         gun49.setRotationPoint(-4.0F, -29.5F, -6.0F);
         gun.addChild(gun49);
-        gun49.cubeList.add(new ModelBox(gun49, 189, 185, -1.0F, 0.0F, 0.0F, 7, 3, 1, 0.0F, false));
+        gun49.cubeList.add(new ModelBox(gun49, 189, 185, -1, 0.0F, 0.0F, 7, 3, 1, 0.0F, false));
 
         gun48 = new ModelRenderer(this);
         gun48.setRotationPoint(-4.0F, -26.5F, -7.2F);
         gun.addChild(gun48);
-        gun48.cubeList.add(new ModelBox(gun48, 42, 171, -1.0F, 0.0F, 0.0F, 7, 2, 3, 0.0F, false));
+        gun48.cubeList.add(new ModelBox(gun48, 42, 171, -1, 0.0F, 0.0F, 7, 2, 3, 0.0F, false));
 
         gun47 = new ModelRenderer(this);
         gun47.setRotationPoint(-4.0F, -30.5F, -7.5F);
         gun.addChild(gun47);
-        gun47.cubeList.add(new ModelBox(gun47, 0, 60, -1.0F, 0.0F, 0.0F, 7, 1, 2, 0.0F, false));
+        gun47.cubeList.add(new ModelBox(gun47, 0, 60, -1, 0.0F, 0.0F, 7, 1, 2, 0.0F, false));
 
         gun46 = new ModelRenderer(this);
         gun46.setRotationPoint(-4.0F, -37.3F, -20.5F);
@@ -790,7 +790,7 @@ public class P90Action extends ModelWithAttachments {
         gun45 = new ModelRenderer(this);
         gun45.setRotationPoint(-4.0F, -36.0F, -25.5F);
         gun.addChild(gun45);
-        gun45.cubeList.add(new ModelBox(gun45, 0, 83, -1.0F, 0.0F, 0.0F, 7, 2, 5, 0.0F, false));
+        gun45.cubeList.add(new ModelBox(gun45, 0, 83, -1, 0.0F, 0.0F, 7, 2, 5, 0.0F, false));
 
         gun44 = new ModelRenderer(this);
         gun44.setRotationPoint(-4.0F, -37.5F, -31.5F);
@@ -810,7 +810,7 @@ public class P90Action extends ModelWithAttachments {
         gun40.cubeList.add(new ModelBox(gun40, 58, 58, -2.4205F, -0.9927F, 0.0F, 1, 1, 18, 0.0F, false));
 
         gun42 = new ModelRenderer(this);
-        gun42.setRotationPoint(1.0F, -40.5F, 23.5F);
+        gun42.setRotationPoint(1, -40.5F, 23.5F);
         gun.addChild(gun42);
         setRotationAngle(gun42, 0.0F, 0.0F, 0.7854F);
         gun42.cubeList.add(new ModelBox(gun42, 140, 194, 1.1071F, -0.7071F, 0.0F, 1, 1, 6, 0.0F, false));
@@ -840,7 +840,7 @@ public class P90Action extends ModelWithAttachments {
         gun36.cubeList.add(new ModelBox(gun36, 104, 188, -1.7071F, -0.708F, -0.001F, 1, 1, 24, 0.0F, false));
 
         gun35 = new ModelRenderer(this);
-        gun35.setRotationPoint(1.0F, -40.5F, 23.5F);
+        gun35.setRotationPoint(1, -40.5F, 23.5F);
         gun.addChild(gun35);
         setRotationAngle(gun35, 0.0F, 0.0F, 0.7854F);
         gun35.cubeList.add(new ModelBox(gun35, 34, 189, 0.7071F, -0.708F, -0.001F, 1, 1, 24, 0.0F, false));
@@ -877,12 +877,12 @@ public class P90Action extends ModelWithAttachments {
         gun29 = new ModelRenderer(this);
         gun29.setRotationPoint(-4.0F, -24.5F, 25.5F);
         gun.addChild(gun29);
-        gun29.cubeList.add(new ModelBox(gun29, 40, 164, -1.0F, 0.0F, 0.001F, 7, 3, 22, 0.0F, false));
+        gun29.cubeList.add(new ModelBox(gun29, 40, 164, -1, 0.0F, 0.001F, 7, 3, 22, 0.0F, false));
 
         gun28 = new ModelRenderer(this);
         gun28.setRotationPoint(-4.5F, -30.5F, 23.5F);
         gun.addChild(gun28);
-        gun28.cubeList.add(new ModelBox(gun28, 130, 131, -1.0F, 0.0F, 0.0F, 8, 6, 24, 0.0F, false));
+        gun28.cubeList.add(new ModelBox(gun28, 130, 131, -1, 0.0F, 0.0F, 8, 6, 24, 0.0F, false));
 
         gun27 = new ModelRenderer(this);
         gun27.setRotationPoint(-5.0F, -39.5F, 29.5F);
@@ -893,23 +893,23 @@ public class P90Action extends ModelWithAttachments {
         gun26 = new ModelRenderer(this);
         gun26.setRotationPoint(-5.0F, -39.5F, 27.5F);
         gun.addChild(gun26);
-        gun26.cubeList.add(new ModelBox(gun26, 139, 83, -1.0F, 0.0F, 0.0F, 9, 2, 2, 0.0F, false));
+        gun26.cubeList.add(new ModelBox(gun26, 139, 83, -1, 0.0F, 0.0F, 9, 2, 2, 0.0F, false));
 
         gun25 = new ModelRenderer(this);
         gun25.setRotationPoint(-4.0F, -40.5F, 23.5F);
         gun.addChild(gun25);
-        gun25.cubeList.add(new ModelBox(gun25, 163, 0, -1.0F, 0.0F, 0.0F, 7, 3, 24, 0.0F, false));
+        gun25.cubeList.add(new ModelBox(gun25, 163, 0, -1, 0.0F, 0.0F, 7, 3, 24, 0.0F, false));
 
         gun24 = new ModelRenderer(this);
         gun24.setRotationPoint(-5.0F, -37.5F, 21.5F);
         gun.addChild(gun24);
-        gun24.cubeList.add(new ModelBox(gun24, 60, 131, -1.0F, 0.0F, 0.0F, 9, 7, 26, 0.0F, false));
+        gun24.cubeList.add(new ModelBox(gun24, 60, 131, -1, 0.0F, 0.0F, 9, 7, 26, 0.0F, false));
 
         gun23 = new ModelRenderer(this);
         gun23.setRotationPoint(-5.0F, -35.8F, -0.5F);
         gun.addChild(gun23);
         setRotationAngle(gun23, -0.7854F, 0.0F, 0.0F);
-        gun23.cubeList.add(new ModelBox(gun23, 0, 17, -1.0F, 0.0F, 0.0F, 9, 2, 1, 0.0F, false));
+        gun23.cubeList.add(new ModelBox(gun23, 0, 17, -1, 0.0F, 0.0F, 9, 2, 1, 0.0F, false));
 
         gun20 = new ModelRenderer(this);
         gun20.setRotationPoint(-4.0F, -37.5F, -0.5F);
@@ -918,7 +918,7 @@ public class P90Action extends ModelWithAttachments {
         gun20.cubeList.add(new ModelBox(gun20, 60, 191, -0.7071F, 0.7071F, 0.0F, 1, 1, 24, 0.0F, false));
 
         gun19 = new ModelRenderer(this);
-        gun19.setRotationPoint(1.0F, -37.5F, -0.5F);
+        gun19.setRotationPoint(1, -37.5F, -0.5F);
         gun.addChild(gun19);
         setRotationAngle(gun19, 0.0F, 0.0F, 0.7854F);
         gun19.cubeList.add(new ModelBox(gun19, 202, 88, 0.7071F, -0.7071F, 0.0F, 1, 1, 23, 0.0F, false));
@@ -926,21 +926,21 @@ public class P90Action extends ModelWithAttachments {
         gun18 = new ModelRenderer(this);
         gun18.setRotationPoint(-4.0F, -37.3F, -20.5F);
         gun.addChild(gun18);
-        gun18.cubeList.add(new ModelBox(gun18, 0, 46, -1.0F, 0.0F, 0.0F, 7, 4, 44, 0.0F, false));
+        gun18.cubeList.add(new ModelBox(gun18, 0, 46, -1, 0.0F, 0.0F, 7, 4, 44, 0.0F, false));
 
         gun17 = new ModelRenderer(this);
         gun17.setRotationPoint(-5.0F, -36.5F, -0.5F);
         gun.addChild(gun17);
-        gun17.cubeList.add(new ModelBox(gun17, 146, 161, -1.0F, 0.0F, 0.0F, 9, 2, 22, 0.0F, false));
+        gun17.cubeList.add(new ModelBox(gun17, 146, 161, -1, 0.0F, 0.0F, 9, 2, 22, 0.0F, false));
 
         gun16 = new ModelRenderer(this);
         gun16.setRotationPoint(-3.5F, -30.0F, 10.0F);
         gun.addChild(gun16);
         setRotationAngle(gun16, 0.7854F, 0.0F, 0.0F);
-        gun16.cubeList.add(new ModelBox(gun16, 194, 155, -1.0F, 0.0F, 0.0F, 6, 3, 2, 0.0F, false));
+        gun16.cubeList.add(new ModelBox(gun16, 194, 155, -1, 0.0F, 0.0F, 6, 3, 2, 0.0F, false));
 
         gun15 = new ModelRenderer(this);
-        gun15.setRotationPoint(-4.0F, -30.5F, 1.0F);
+        gun15.setRotationPoint(-4.0F, -30.5F, 1);
         gun.addChild(gun15);
         setRotationAngle(gun15, -2.3562F, 0.0F, 0.0F);
         gun15.cubeList.add(new ModelBox(gun15, 76, 181, -0.99F, 0.0F, 0.0F, 7, 2, 3, 0.0F, false));
@@ -949,12 +949,12 @@ public class P90Action extends ModelWithAttachments {
         gun14.setRotationPoint(-3.5F, -30.0F, 4.0F);
         gun.addChild(gun14);
         setRotationAngle(gun14, -2.3562F, 0.0F, 0.0F);
-        gun14.cubeList.add(new ModelBox(gun14, 102, 191, -1.0F, 0.0F, 0.0F, 6, 2, 3, 0.0F, false));
+        gun14.cubeList.add(new ModelBox(gun14, 102, 191, -1, 0.0F, 0.0F, 6, 2, 3, 0.0F, false));
 
         gun13 = new ModelRenderer(this);
-        gun13.setRotationPoint(-3.5F, -31.0F, 3.5F);
+        gun13.setRotationPoint(-3.5F, -31, 3.5F);
         gun.addChild(gun13);
-        gun13.cubeList.add(new ModelBox(gun13, 162, 110, -1.0F, 0.0F, 0.0F, 6, 1, 7, 0.0F, false));
+        gun13.cubeList.add(new ModelBox(gun13, 162, 110, -1, 0.0F, 0.0F, 6, 1, 7, 0.0F, false));
 
         gun12 = new ModelRenderer(this);
         gun12.setRotationPoint(-4.0F, -25.5F, 13.5F);
@@ -971,18 +971,18 @@ public class P90Action extends ModelWithAttachments {
         gun10 = new ModelRenderer(this);
         gun10.setRotationPoint(-3.5F, -30.5F, 11.5F);
         gun.addChild(gun10);
-        gun10.cubeList.add(new ModelBox(gun10, 22, 109, -1.0F, 0.0F, 0.0F, 6, 8, 3, 0.0F, false));
+        gun10.cubeList.add(new ModelBox(gun10, 22, 109, -1, 0.0F, 0.0F, 6, 8, 3, 0.0F, false));
 
         gun9 = new ModelRenderer(this);
-        gun9.setRotationPoint(-3.5F, -26.5F, 1.0F);
+        gun9.setRotationPoint(-3.5F, -26.5F, 1);
         gun.addChild(gun9);
         setRotationAngle(gun9, -0.2603F, 0.0F, 0.0F);
-        gun9.cubeList.add(new ModelBox(gun9, 0, 94, -1.0F, 0.0F, 0.0F, 6, 3, 12, 0.0F, false));
+        gun9.cubeList.add(new ModelBox(gun9, 0, 94, -1, 0.0F, 0.0F, 6, 3, 12, 0.0F, false));
 
         gun8 = new ModelRenderer(this);
         gun8.setRotationPoint(-4.0F, -30.8F, 13.5F);
         gun.addChild(gun8);
-        gun8.cubeList.add(new ModelBox(gun8, 0, 65, -1.0F, 0.0F, 0.0F, 7, 8, 10, 0.0F, false));
+        gun8.cubeList.add(new ModelBox(gun8, 0, 65, -1, 0.0F, 0.0F, 7, 8, 10, 0.0F, false));
 
         gun7 = new ModelRenderer(this);
         gun7.setRotationPoint(-4.0F, -19.0F, 14.5F);
@@ -999,7 +999,7 @@ public class P90Action extends ModelWithAttachments {
         gun5.setRotationPoint(-4.0F, -19.4F, -0.3F);
         gun.addChild(gun5);
         setRotationAngle(gun5, 1.3013F, 0.0F, 0.0F);
-        gun5.cubeList.add(new ModelBox(gun5, 162, 83, -1.0F, 0.0F, 0.0F, 7, 6, 5, 0.0F, false));
+        gun5.cubeList.add(new ModelBox(gun5, 162, 83, -1, 0.0F, 0.0F, 7, 6, 5, 0.0F, false));
 
         gun4 = new ModelRenderer(this);
         gun4.setRotationPoint(-4.0F, -23.7F, -4.5F);
@@ -1008,7 +1008,7 @@ public class P90Action extends ModelWithAttachments {
         gun4.cubeList.add(new ModelBox(gun4, 162, 94, -0.99F, 0.0F, 0.0F, 7, 6, 5, 0.0F, false));
 
         gun3 = new ModelRenderer(this);
-        gun3.setRotationPoint(-3.5F, -30.5F, -1.0F);
+        gun3.setRotationPoint(-3.5F, -30.5F, -1);
         gun.addChild(gun3);
         setRotationAngle(gun3, 0.2231F, 0.0F, 0.0F);
         gun3.cubeList.add(new ModelBox(gun3, 76, 172, -0.99F, 0.0F, 0.0F, 6, 6, 3, 0.0F, false));
@@ -1022,14 +1022,14 @@ public class P90Action extends ModelWithAttachments {
         gun1 = new ModelRenderer(this);
         gun1.setRotationPoint(-5.0F, -34.5F, -7.5F);
         gun.addChild(gun1);
-        gun1.cubeList.add(new ModelBox(gun1, 116, 0, -1.0F, 0.0F, 0.0F, 9, 4, 29, 0.0F, false));
+        gun1.cubeList.add(new ModelBox(gun1, 116, 0, -1, 0.0F, 0.0F, 9, 4, 29, 0.0F, false));
 
         rail = new ModelRenderer(this);
         rail.setRotationPoint(0.0F, 24.0F, 0.0F);
-        rail.cubeList.add(new ModelBox(rail, 200, 27, -3.0F, -50.2F, -31.0F, 3, 3, 21, 0.0F, false));
+        rail.cubeList.add(new ModelBox(rail, 200, 27, -3.0F, -50.2F, -31, 3, 3, 21, 0.0F, false));
         rail.cubeList.add(new ModelBox(rail, 146, 172, -3.0F, -50.2F, -10.0F, 3, 2, 6, 0.0F, false));
-        rail.cubeList.add(new ModelBox(rail, 186, 136, -3.3F, -49.5F, -31.0F, 1, 1, 25, 0.0F, false));
-        rail.cubeList.add(new ModelBox(rail, 146, 185, -0.7F, -49.5F, -31.0F, 1, 1, 25, 0.0F, false));
+        rail.cubeList.add(new ModelBox(rail, 186, 136, -3.3F, -49.5F, -31, 1, 1, 25, 0.0F, false));
+        rail.cubeList.add(new ModelBox(rail, 146, 185, -0.7F, -49.5F, -31, 1, 1, 25, 0.0F, false));
 
         swordfish = new ModelRenderer(this);
         swordfish.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -1048,49 +1048,49 @@ public class P90Action extends ModelWithAttachments {
         swordfish60 = new ModelRenderer(this);
         swordfish60.setRotationPoint(-6.0F, -42.0F, -28.0F);
         swordfish.addChild(swordfish60);
-        swordfish60.cubeList.add(new ModelBox(swordfish60, 116, 116, -1.0F, 0.0F, 0.0F, 11, 2, 1, 0.0F, false));
+        swordfish60.cubeList.add(new ModelBox(swordfish60, 116, 116, -1, 0.0F, 0.0F, 11, 2, 1, 0.0F, false));
 
         swordfish58 = new ModelRenderer(this);
         swordfish58.setRotationPoint(-5.5F, -44.0F, -35.5F);
         swordfish.addChild(swordfish58);
-        swordfish58.cubeList.add(new ModelBox(swordfish58, 115, 42, -1.0F, 0.0F, 0.0F, 10, 6, 7, 0.0F, false));
+        swordfish58.cubeList.add(new ModelBox(swordfish58, 115, 42, -1, 0.0F, 0.0F, 10, 6, 7, 0.0F, false));
 
         swordfish59 = new ModelRenderer(this);
         swordfish59.setRotationPoint(-6.0F, -42.0F, -30.0F);
         swordfish.addChild(swordfish59);
-        swordfish59.cubeList.add(new ModelBox(swordfish59, 116, 26, -1.0F, 0.0F, 0.0F, 11, 2, 1, 0.0F, false));
+        swordfish59.cubeList.add(new ModelBox(swordfish59, 116, 26, -1, 0.0F, 0.0F, 11, 2, 1, 0.0F, false));
 
         swordfish57 = new ModelRenderer(this);
         swordfish57.setRotationPoint(-5.6F, -40.5F, -35.5F);
         swordfish.addChild(swordfish57);
-        swordfish57.cubeList.add(new ModelBox(swordfish57, 139, 188, -1.0F, 0.0F, -0.001F, 4, 1, 5, 0.0F, false));
+        swordfish57.cubeList.add(new ModelBox(swordfish57, 139, 188, -1, 0.0F, -0.001F, 4, 1, 5, 0.0F, false));
 
         swordfish56 = new ModelRenderer(this);
         swordfish56.setRotationPoint(-5.6F, -42.5F, -35.5F);
         swordfish.addChild(swordfish56);
-        swordfish56.cubeList.add(new ModelBox(swordfish56, 60, 189, -1.0F, 0.0F, -0.001F, 4, 1, 5, 0.0F, false));
+        swordfish56.cubeList.add(new ModelBox(swordfish56, 60, 189, -1, 0.0F, -0.001F, 4, 1, 5, 0.0F, false));
 
         swordfish55 = new ModelRenderer(this);
         swordfish55.setRotationPoint(0.6F, -40.5F, -35.5F);
         swordfish.addChild(swordfish55);
-        swordfish55.cubeList.add(new ModelBox(swordfish55, 152, 189, -1.0F, 0.0F, -0.001F, 4, 1, 5, 0.0F, false));
+        swordfish55.cubeList.add(new ModelBox(swordfish55, 152, 189, -1, 0.0F, -0.001F, 4, 1, 5, 0.0F, false));
 
         swordfish54 = new ModelRenderer(this);
         swordfish54.setRotationPoint(0.6F, -42.5F, -35.5F);
         swordfish.addChild(swordfish54);
-        swordfish54.cubeList.add(new ModelBox(swordfish54, 189, 189, -1.0F, 0.0F, -0.001F, 4, 1, 5, 0.0F, false));
+        swordfish54.cubeList.add(new ModelBox(swordfish54, 189, 189, -1, 0.0F, -0.001F, 4, 1, 5, 0.0F, false));
 
         swordfish53 = new ModelRenderer(this);
         swordfish53.setRotationPoint(0.6F, -39.5F, -30.5F);
         swordfish.addChild(swordfish53);
         setRotationAngle(swordfish53, -0.3346F, 0.0F, 0.0F);
-        swordfish53.cubeList.add(new ModelBox(swordfish53, 24, 65, -0.999F, -1.0F, 0.0F, 4, 1, 3, 0.0F, false));
+        swordfish53.cubeList.add(new ModelBox(swordfish53, 24, 65, -0.999F, -1, 0.0F, 4, 1, 3, 0.0F, false));
 
         swordfish52 = new ModelRenderer(this);
         swordfish52.setRotationPoint(-5.6F, -39.5F, -30.5F);
         swordfish.addChild(swordfish52);
         setRotationAngle(swordfish52, -0.3346F, 0.0F, 0.0F);
-        swordfish52.cubeList.add(new ModelBox(swordfish52, 85, 29, -1.001F, -1.0F, 0.0F, 4, 1, 3, 0.0F, false));
+        swordfish52.cubeList.add(new ModelBox(swordfish52, 85, 29, -1.001F, -1, 0.0F, 4, 1, 3, 0.0F, false));
 
         swordfish51 = new ModelRenderer(this);
         swordfish51.setRotationPoint(-5.6F, -42.5F, -30.5F);
@@ -1107,22 +1107,22 @@ public class P90Action extends ModelWithAttachments {
         swordfish49 = new ModelRenderer(this);
         swordfish49.setRotationPoint(-5.6F, -42.5F, -30.5F);
         swordfish.addChild(swordfish49);
-        swordfish49.cubeList.add(new ModelBox(swordfish49, 116, 0, -1.0F, 0.0F, 0.0F, 4, 3, 2, 0.0F, false));
+        swordfish49.cubeList.add(new ModelBox(swordfish49, 116, 0, -1, 0.0F, 0.0F, 4, 3, 2, 0.0F, false));
 
         swordfish48 = new ModelRenderer(this);
         swordfish48.setRotationPoint(0.6F, -42.5F, -30.5F);
         swordfish.addChild(swordfish48);
-        swordfish48.cubeList.add(new ModelBox(swordfish48, 116, 5, -1.0F, 0.0F, 0.0F, 4, 3, 2, 0.0F, false));
+        swordfish48.cubeList.add(new ModelBox(swordfish48, 116, 5, -1, 0.0F, 0.0F, 4, 3, 2, 0.0F, false));
 
         swordfish47 = new ModelRenderer(this);
         swordfish47.setRotationPoint(0.6F, -44.0F, -28.5F);
         swordfish.addChild(swordfish47);
-        swordfish47.cubeList.add(new ModelBox(swordfish47, 0, 94, -1.0F, 0.0F, 0.0F, 4, 6, 2, 0.0F, false));
+        swordfish47.cubeList.add(new ModelBox(swordfish47, 0, 94, -1, 0.0F, 0.0F, 4, 6, 2, 0.0F, false));
 
         swordfish46 = new ModelRenderer(this);
         swordfish46.setRotationPoint(-5.6F, -44.0F, -28.5F);
         swordfish.addChild(swordfish46);
-        swordfish46.cubeList.add(new ModelBox(swordfish46, 0, 109, -1.0F, 0.0F, 0.0F, 4, 6, 2, 0.0F, false));
+        swordfish46.cubeList.add(new ModelBox(swordfish46, 0, 109, -1, 0.0F, 0.0F, 4, 6, 2, 0.0F, false));
 
         swordfish45 = new ModelRenderer(this);
         swordfish45.setRotationPoint(-6.6F, -28.0F, -35.5F);
@@ -1151,30 +1151,30 @@ public class P90Action extends ModelWithAttachments {
         swordfish30 = new ModelRenderer(this);
         swordfish30.setRotationPoint(-6.0F, -35.5F, -36.5F);
         swordfish.addChild(swordfish30);
-        swordfish30.cubeList.add(new ModelBox(swordfish30, 78, 94, -1.0F, 0.0F, 0.0F, 3, 3, 9, 0.0F, false));
+        swordfish30.cubeList.add(new ModelBox(swordfish30, 78, 94, -1, 0.0F, 0.0F, 3, 3, 9, 0.0F, false));
 
         swordfish29 = new ModelRenderer(this);
         swordfish29.setRotationPoint(2.0F, -35.5F, -36.5F);
         swordfish.addChild(swordfish29);
-        swordfish29.cubeList.add(new ModelBox(swordfish29, 78, 106, -1.0F, 0.0F, 0.0F, 3, 3, 9, 0.0F, false));
+        swordfish29.cubeList.add(new ModelBox(swordfish29, 78, 106, -1, 0.0F, 0.0F, 3, 3, 9, 0.0F, false));
 
         swordfish28 = new ModelRenderer(this);
         swordfish28.setRotationPoint(-3.5F, -49.7F, -35.5F);
         swordfish.addChild(swordfish28);
         setRotationAngle(swordfish28, -0.4833F, 0.0F, 0.0F);
-        swordfish28.cubeList.add(new ModelBox(swordfish28, 46, 116, -1.0F, 0.3F, -0.01F, 6, 1, 1, 0.0F, false));
+        swordfish28.cubeList.add(new ModelBox(swordfish28, 46, 116, -1, 0.3F, -0.01F, 6, 1, 1, 0.0F, false));
 
         swordfish27 = new ModelRenderer(this);
         swordfish27.setRotationPoint(-1.8F, -49.7F, -35.5F);
         swordfish.addChild(swordfish27);
         setRotationAngle(swordfish27, -0.4833F, 0.0F, 0.0F);
-        swordfish27.cubeList.add(new ModelBox(swordfish27, 59, 5, 1.0F, 0.0F, -0.001F, 3, 1, 1, 0.0F, false));
+        swordfish27.cubeList.add(new ModelBox(swordfish27, 59, 5, 1, 0.0F, -0.001F, 3, 1, 1, 0.0F, false));
 
         swordfish26 = new ModelRenderer(this);
         swordfish26.setRotationPoint(-4.2F, -49.7F, -35.5F);
         swordfish.addChild(swordfish26);
         setRotationAngle(swordfish26, -0.4833F, 0.0F, 0.0F);
-        swordfish26.cubeList.add(new ModelBox(swordfish26, 90, 124, -1.0F, 0.0F, 0.0F, 5, 1, 1, 0.0F, false));
+        swordfish26.cubeList.add(new ModelBox(swordfish26, 90, 124, -1, 0.0F, 0.0F, 5, 1, 1, 0.0F, false));
 
         swordfish14 = new ModelRenderer(this);
         swordfish14.setRotationPoint(-5.0F, -47.0F, -35.85F);
@@ -1207,12 +1207,12 @@ public class P90Action extends ModelWithAttachments {
         swordfish13 = new ModelRenderer(this);
         swordfish13.setRotationPoint(-4.5F, -28.0F, -35.5F);
         swordfish.addChild(swordfish13);
-        swordfish13.cubeList.add(new ModelBox(swordfish13, 0, 135, -1.0F, 0.0F, 0.0F, 8, 6, 6, 0.0F, false));
+        swordfish13.cubeList.add(new ModelBox(swordfish13, 0, 135, -1, 0.0F, 0.0F, 8, 6, 6, 0.0F, false));
 
         swordfish11 = new ModelRenderer(this);
         swordfish11.setRotationPoint(-5.6F, -38.0F, -35.5F);
         swordfish.addChild(swordfish11);
-        swordfish11.cubeList.add(new ModelBox(swordfish11, 115, 55, -1.0F, 0.0F, 0.0F, 8, 10, 7, 0.0F, false));
+        swordfish11.cubeList.add(new ModelBox(swordfish11, 115, 55, -1, 0.0F, 0.0F, 8, 10, 7, 0.0F, false));
 
         swordfish10 = new ModelRenderer(this);
         swordfish10.setRotationPoint(0.6F, -38.0F, -35.5F);
@@ -1222,17 +1222,17 @@ public class P90Action extends ModelWithAttachments {
         swordfish9 = new ModelRenderer(this);
         swordfish9.setRotationPoint(0.6F, -46.0F, -35.5F);
         swordfish.addChild(swordfish9);
-        swordfish9.cubeList.add(new ModelBox(swordfish9, 0, 123, -1.0F, 0.0F, -0.001F, 4, 2, 9, 0.0F, false));
+        swordfish9.cubeList.add(new ModelBox(swordfish9, 0, 123, -1, 0.0F, -0.001F, 4, 2, 9, 0.0F, false));
 
         swordfish8 = new ModelRenderer(this);
         swordfish8.setRotationPoint(-1.8F, -49.7F, -35.5F);
         swordfish.addChild(swordfish8);
-        swordfish8.cubeList.add(new ModelBox(swordfish8, 116, 89, 1.0F, 0.0F, -0.001F, 3, 2, 12, 0.0F, false));
+        swordfish8.cubeList.add(new ModelBox(swordfish8, 116, 89, 1, 0.0F, -0.001F, 3, 2, 12, 0.0F, false));
 
         swordfish7 = new ModelRenderer(this);
         swordfish7.setRotationPoint(-5.6F, -46.0F, -35.5F);
         swordfish.addChild(swordfish7);
-        swordfish7.cubeList.add(new ModelBox(swordfish7, 46, 119, -1.0F, 0.0F, 0.0F, 7, 2, 9, 0.0F, false));
+        swordfish7.cubeList.add(new ModelBox(swordfish7, 46, 119, -1, 0.0F, 0.0F, 7, 2, 9, 0.0F, false));
 
         swordfish3 = new ModelRenderer(this);
         swordfish3.setRotationPoint(-5.2F, -49.7F, -35.5F);
@@ -1245,19 +1245,19 @@ public class P90Action extends ModelWithAttachments {
         swordfish4.setRotationPoint(2.2F, -49.7F, -35.5F);
         swordfish.addChild(swordfish4);
         setRotationAngle(swordfish4, 0.0F, 0.0F, -0.3718F);
-        swordfish4.cubeList.add(new ModelBox(swordfish4, 116, 0, -1.0F, 0.0F, -0.01F, 1, 2, 12, 0.0F, false));
+        swordfish4.cubeList.add(new ModelBox(swordfish4, 116, 0, -1, 0.0F, -0.01F, 1, 2, 12, 0.0F, false));
         swordfish4.cubeList.add(new ModelBox(swordfish4, 132, 132, -2.0F, 2.0F, -0.01F, 2, 2, 9, 0.0F, false));
 
         swordfish2 = new ModelRenderer(this);
         swordfish2.setRotationPoint(-3.0F, -50.2F, -34.0F);
         swordfish.addChild(swordfish2);
-        swordfish2.cubeList.add(new ModelBox(swordfish2, 46, 130, -1.0F, 0.0F, 0.0F, 5, 1, 3, 0.0F, false));
+        swordfish2.cubeList.add(new ModelBox(swordfish2, 46, 130, -1, 0.0F, 0.0F, 5, 1, 3, 0.0F, false));
 
         swordfish1 = new ModelRenderer(this);
         swordfish1.setRotationPoint(-4.2F, -49.7F, -35.5F);
         swordfish.addChild(swordfish1);
-        swordfish1.cubeList.add(new ModelBox(swordfish1, 0, 109, -1.0F, -0.001F, 0.0F, 5, 2, 12, 0.0F, false));
-        swordfish1.cubeList.add(new ModelBox(swordfish1, 0, 40, -1.0F, 2.0F, 0.0F, 8, 2, 1, 0.0F, false));
+        swordfish1.cubeList.add(new ModelBox(swordfish1, 0, 109, -1, -0.001F, 0.0F, 5, 2, 12, 0.0F, false));
+        swordfish1.cubeList.add(new ModelBox(swordfish1, 0, 40, -1, 2.0F, 0.0F, 8, 2, 1, 0.0F, false));
 
         terminator = new ModelRenderer(this);
         terminator.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -1266,46 +1266,46 @@ public class P90Action extends ModelWithAttachments {
         terminator34 = new ModelRenderer(this);
         terminator34.setRotationPoint(5.7F, -36.7F, 12.8F);
         terminator.addChild(terminator34);
-        terminator34.cubeList.add(new ModelBox(terminator34, 78, 68, -1.0F, 0.0F, 0.0F, 3, 1, 7, 0.0F, false));
+        terminator34.cubeList.add(new ModelBox(terminator34, 78, 68, -1, 0.0F, 0.0F, 3, 1, 7, 0.0F, false));
 
         terminator33 = new ModelRenderer(this);
         terminator33.setRotationPoint(5.7F, -37.3F, 12.8F);
         terminator.addChild(terminator33);
-        terminator33.cubeList.add(new ModelBox(terminator33, 76, 164, -1.0F, 0.0F, 0.0F, 3, 1, 7, 0.0F, false));
+        terminator33.cubeList.add(new ModelBox(terminator33, 76, 164, -1, 0.0F, 0.0F, 3, 1, 7, 0.0F, false));
 
         terminator32 = new ModelRenderer(this);
         terminator32.setRotationPoint(6.5F, -37.5F, 15.0F);
         terminator.addChild(terminator32);
         setRotationAngle(terminator32, 0.0F, -1.4871F, 0.0F);
-        terminator32.cubeList.add(new ModelBox(terminator32, 78, 127, -1.0F, 0.0F, 0.0F, 7, 2, 1, 0.0F, false));
+        terminator32.cubeList.add(new ModelBox(terminator32, 78, 127, -1, 0.0F, 0.0F, 7, 2, 1, 0.0F, false));
 
         terminator31 = new ModelRenderer(this);
         terminator31.setRotationPoint(7.2F, -37.5F, 12.6F);
         terminator.addChild(terminator31);
         setRotationAngle(terminator31, 0.0F, -1.7846F, 0.0F);
-        terminator31.cubeList.add(new ModelBox(terminator31, 116, 106, -1.0F, 0.0F, 0.0F, 4, 2, 1, 0.0F, false));
+        terminator31.cubeList.add(new ModelBox(terminator31, 116, 106, -1, 0.0F, 0.0F, 4, 2, 1, 0.0F, false));
 
         terminator30 = new ModelRenderer(this);
         terminator30.setRotationPoint(5.8F, -37.0F, 12.8F);
         terminator.addChild(terminator30);
-        terminator30.cubeList.add(new ModelBox(terminator30, 0, 166, -1.0F, 0.0F, 0.0F, 3, 1, 7, 0.0F, false));
+        terminator30.cubeList.add(new ModelBox(terminator30, 0, 166, -1, 0.0F, 0.0F, 3, 1, 7, 0.0F, false));
 
         terminator29 = new ModelRenderer(this);
         terminator29.setRotationPoint(6.6F, -38.5F, 20.3F);
         terminator.addChild(terminator29);
         setRotationAngle(terminator29, 0.0F, -1.8218F, 0.0F);
-        terminator29.cubeList.add(new ModelBox(terminator29, 116, 14, -1.0F, 0.0F, 0.0F, 4, 4, 1, 0.0F, false));
+        terminator29.cubeList.add(new ModelBox(terminator29, 116, 14, -1, 0.0F, 0.0F, 4, 4, 1, 0.0F, false));
 
         terminator28 = new ModelRenderer(this);
         terminator28.setRotationPoint(6.6F, -38.5F, 12.3F);
         terminator.addChild(terminator28);
         setRotationAngle(terminator28, 0.0F, -2.6025F, 0.0F);
-        terminator28.cubeList.add(new ModelBox(terminator28, 13, 0, -1.0F, 0.0F, 0.0F, 3, 4, 1, 0.0F, false));
+        terminator28.cubeList.add(new ModelBox(terminator28, 13, 0, -1, 0.0F, 0.0F, 3, 4, 1, 0.0F, false));
 
         terminator27 = new ModelRenderer(this);
         terminator27.setRotationPoint(5.6F, -38.5F, 12.3F);
         terminator.addChild(terminator27);
-        terminator27.cubeList.add(new ModelBox(terminator27, 22, 46, -1.0F, 0.0F, 0.0F, 3, 4, 8, 0.0F, false));
+        terminator27.cubeList.add(new ModelBox(terminator27, 22, 46, -1, 0.0F, 0.0F, 3, 4, 8, 0.0F, false));
 
         terminator26 = new ModelRenderer(this);
         terminator26.setRotationPoint(2.2F, -42.7F, 20.7F);
@@ -1344,18 +1344,18 @@ public class P90Action extends ModelWithAttachments {
         terminator20 = new ModelRenderer(this);
         terminator20.setRotationPoint(2.2F, -42.7F, 12.7F);
         terminator.addChild(terminator20);
-        terminator20.cubeList.add(new ModelBox(terminator20, 46, 94, 1.0F, 0.0F, 0.0F, 4, 14, 8, 0.0F, false));
+        terminator20.cubeList.add(new ModelBox(terminator20, 46, 94, 1, 0.0F, 0.0F, 4, 14, 8, 0.0F, false));
 
         terminator19 = new ModelRenderer(this);
         terminator19.setRotationPoint(-4.5F, -42.7F, 22.7F);
         terminator.addChild(terminator19);
-        terminator19.cubeList.add(new ModelBox(terminator19, 0, 182, -1.0F, 0.0F, 0.0F, 8, 5, 1, 0.0F, false));
+        terminator19.cubeList.add(new ModelBox(terminator19, 0, 182, -1, 0.0F, 0.0F, 8, 5, 1, 0.0F, false));
 
         terminator16 = new ModelRenderer(this);
-        terminator16.setRotationPoint(-3.5F, -49.2F, 21.0F);
+        terminator16.setRotationPoint(-3.5F, -49.2F, 21);
         terminator.addChild(terminator16);
         setRotationAngle(terminator16, -1.1897F, 0.0F, 0.0F);
-        terminator16.cubeList.add(new ModelBox(terminator16, 116, 120, -1.0F, 0.0F, 0.0F, 6, 2, 7, 0.0F, false));
+        terminator16.cubeList.add(new ModelBox(terminator16, 116, 120, -1, 0.0F, 0.0F, 6, 2, 7, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(5.0F, -0.0158F, 0.0118F);
@@ -1367,16 +1367,16 @@ public class P90Action extends ModelWithAttachments {
         bone8.setRotationPoint(1.0185F, 0.0058F, -0.0209F);
         bone3.addChild(bone8);
         setRotationAngle(bone8, 0.0F, 0.1396F, 0.0F);
-        bone8.cubeList.add(new ModelBox(bone8, 83, 78, -1.0F, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
+        bone8.cubeList.add(new ModelBox(bone8, 83, 78, -1, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(-1.0F, -0.0158F, 0.0118F);
+        bone4.setRotationPoint(-1, -0.0158F, 0.0118F);
         terminator16.addChild(bone4);
         setRotationAngle(bone4, 0.0F, 0.0F, -0.5411F);
-        bone4.cubeList.add(new ModelBox(bone4, 186, 170, -1.0F, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 186, 170, -1, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
-        bone5.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone5.setRotationPoint(-1, 0.0F, 0.0F);
         bone4.addChild(bone5);
         setRotationAngle(bone5, 0.0F, -0.1396F, 0.0F);
         bone5.cubeList.add(new ModelBox(bone5, 186, 162, 0.0F, 0.0058F, 0.0F, 1, 1, 7, 0.0F, false));
@@ -1406,7 +1406,7 @@ public class P90Action extends ModelWithAttachments {
         terminator5 = new ModelRenderer(this);
         terminator5.setRotationPoint(-3.5F, -49.2F, -2.0F);
         terminator.addChild(terminator5);
-        terminator5.cubeList.add(new ModelBox(terminator5, 0, 166, -1.0F, 0.0F, 0.0F, 6, 1, 23, 0.0F, false));
+        terminator5.cubeList.add(new ModelBox(terminator5, 0, 166, -1, 0.0F, 0.0F, 6, 1, 23, 0.0F, false));
 
         bone11 = new ModelRenderer(this);
         bone11.setRotationPoint(5.0F, 0.0F, 0.0F);
@@ -1417,7 +1417,7 @@ public class P90Action extends ModelWithAttachments {
         bone11.cubeList.add(new ModelBox(bone11, 79, 4, -0.9969F, 3.0F, 7.8F, 1, 1, 2, 0.0F, false));
 
         bone13 = new ModelRenderer(this);
-        bone13.setRotationPoint(-1.0F, 0.0F, 0.0F);
+        bone13.setRotationPoint(-1, 0.0F, 0.0F);
         terminator5.addChild(bone13);
         setRotationAngle(bone13, 0.0F, -0.0157F, 0.2269F);
         bone13.cubeList.add(new ModelBox(bone13, 176, 210, 0.0031F, 0.0F, 0.8F, 1, 3, 22, 0.0F, false));
@@ -1431,7 +1431,7 @@ public class P90Action extends ModelWithAttachments {
         bone12.cubeList.add(new ModelBox(bone12, 78, 68, -0.9969F, 0.2F, -0.2F, 1, 5, 1, 0.0F, false));
 
         bone14 = new ModelRenderer(this);
-        bone14.setRotationPoint(-1.0F, 0.0F, 0.2F);
+        bone14.setRotationPoint(-1, 0.0F, 0.2F);
         terminator5.addChild(bone14);
         setRotationAngle(bone14, 0.2793F, -0.0157F, 0.2269F);
         bone14.cubeList.add(new ModelBox(bone14, 58, 77, 0.0031F, 0.2F, -0.2F, 1, 5, 1, 0.0F, false));
@@ -1440,11 +1440,11 @@ public class P90Action extends ModelWithAttachments {
         bone9.setRotationPoint(5.85F, 0.2F, 22.5F);
         terminator5.addChild(bone9);
         setRotationAngle(bone9, -1.3614F, 0.0F, -0.0873F);
-        bone9.cubeList.add(new ModelBox(bone9, 145, 51, -1.0F, 0.0F, 0.0F, 1, 21, 4, 0.0F, false));
-        bone9.cubeList.add(new ModelBox(bone9, 181, 185, -1.0F, 0.0F, 4.0F, 1, 14, 3, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 145, 51, -1, 0.0F, 0.0F, 1, 21, 4, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 181, 185, -1, 0.0F, 4.0F, 1, 14, 3, 0.0F, false));
 
         bone10 = new ModelRenderer(this);
-        bone10.setRotationPoint(0.0F, 1.0F, 0.0F);
+        bone10.setRotationPoint(0.0F, 1, 0.0F);
         bone9.addChild(bone10);
         setRotationAngle(bone10, 0.1047F, 0.0F, 0.0F);
         bone10.cubeList.add(new ModelBox(bone10, 89, 61, -0.999F, 19.5F, -2.0F, 1, 1, 4, 0.0F, false));
@@ -1457,7 +1457,7 @@ public class P90Action extends ModelWithAttachments {
         bone6.cubeList.add(new ModelBox(bone6, 173, 185, 0.0F, 0.0F, 4.0F, 1, 14, 3, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
-        bone7.setRotationPoint(0.0F, 1.0F, 0.0F);
+        bone7.setRotationPoint(0.0F, 1, 0.0F);
         bone6.addChild(bone7);
         setRotationAngle(bone7, 0.1047F, 0.0F, 0.0F);
         bone7.cubeList.add(new ModelBox(bone7, 89, 56, 0.001F, 19.5F, -2.0F, 1, 1, 4, 0.0F, false));
@@ -1465,7 +1465,7 @@ public class P90Action extends ModelWithAttachments {
         terminator2 = new ModelRenderer(this);
         terminator2.setRotationPoint(-5.2F, -42.7F, 1.5F);
         terminator.addChild(terminator2);
-        terminator2.cubeList.add(new ModelBox(terminator2, 199, 62, -1.0F, 0.0F, 0.0F, 3, 5, 21, 0.0F, false));
+        terminator2.cubeList.add(new ModelBox(terminator2, 199, 62, -1, 0.0F, 0.0F, 3, 5, 21, 0.0F, false));
 
         terminator1 = new ModelRenderer(this);
         terminator1.setRotationPoint(1.3F, -42.7F, 1.5F);
@@ -1482,7 +1482,7 @@ public class P90Action extends ModelWithAttachments {
         bone16.setRotationPoint(-7.5F, 0.0F, -1.5F);
         terminator1.addChild(bone16);
         setRotationAngle(bone16, 0.0F, 0.0F, -2.8972F);
-        bone16.cubeList.add(new ModelBox(bone16, 134, 213, -1.0F, 0.0F, 0.0F, 1, 2, 22, 0.0F, false));
+        bone16.cubeList.add(new ModelBox(bone16, 134, 213, -1, 0.0F, 0.0F, 1, 2, 22, 0.0F, false));
 
         defaultkit = new ModelRenderer(this);
         defaultkit.setRotationPoint(0.0F, 24.5F, 0.0F);
@@ -1505,12 +1505,12 @@ public class P90Action extends ModelWithAttachments {
         gun135.setRotationPoint(1.5F, -31.3F, -27.0F);
         action.addChild(gun135);
         setRotationAngle(gun135, 0.0744F, 0.0F, 0.0F);
-        gun135.cubeList.add(new ModelBox(gun135, 0, 71, 0.0F, -1.0F, 0.0F, 2, 1, 3, 0.0F, false));
+        gun135.cubeList.add(new ModelBox(gun135, 0, 71, 0.0F, -1, 0.0F, 2, 1, 3, 0.0F, false));
 
         mag = new ModelRenderer(this);
         mag.setRotationPoint(0.0F, 24.0F, 0.0F);
-        mag.cubeList.add(new ModelBox(mag, 69, 0, -5.7F, -41.0F, -23.3F, 3, 4, 1, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 68, 57, -0.3F, -41.0F, -23.3F, 3, 4, 1, 0.0F, false));
+        mag.cubeList.add(new ModelBox(mag, 69, 0, -5.7F, -41, -23.3F, 3, 4, 1, 0.0F, false));
+        mag.cubeList.add(new ModelBox(mag, 68, 57, -0.3F, -41, -23.3F, 3, 4, 1, 0.0F, false));
 
         mag30 = new ModelRenderer(this);
         mag30.setRotationPoint(0.5F, -40.6F, 17.5F);
@@ -1527,7 +1527,7 @@ public class P90Action extends ModelWithAttachments {
         mag27 = new ModelRenderer(this);
         mag27.setRotationPoint(-4.0F, -40.6F, -22.5F);
         mag.addChild(mag27);
-        mag27.cubeList.add(new ModelBox(mag27, 61, 89, -1.0F, 0.1F, 0.0F, 7, 1, 41, 0.0F, false));
+        mag27.cubeList.add(new ModelBox(mag27, 61, 89, -1, 0.1F, 0.0F, 7, 1, 41, 0.0F, false));
 
         mag26 = new ModelRenderer(this);
         mag26.setRotationPoint(0.55F, -40.5F, -22.5F);
@@ -1551,12 +1551,12 @@ public class P90Action extends ModelWithAttachments {
         mag22.setRotationPoint(-4.6F, -40.5F, 21.2F);
         mag.addChild(mag22);
         setRotationAngle(mag22, 0.0F, 0.4833F, 0.0F);
-        mag22.cubeList.add(new ModelBox(mag22, 40, 17, -1.0F, 0.01F, 0.0F, 1, 1, 1, 0.0F, false));
+        mag22.cubeList.add(new ModelBox(mag22, 40, 17, -1, 0.01F, 0.0F, 1, 1, 1, 0.0F, false));
 
         mag21 = new ModelRenderer(this);
         mag21.setRotationPoint(-4.0F, -40.5F, 21.5F);
         mag.addChild(mag21);
-        mag21.cubeList.add(new ModelBox(mag21, 58, 85, -1.0F, 0.0F, 0.0F, 7, 1, 1, 0.0F, false));
+        mag21.cubeList.add(new ModelBox(mag21, 58, 85, -1, 0.0F, 0.0F, 7, 1, 1, 0.0F, false));
 
         mag20 = new ModelRenderer(this);
         mag20.setRotationPoint(2.0F, -38.7F, 18.5F);
@@ -1586,7 +1586,7 @@ public class P90Action extends ModelWithAttachments {
         mag16 = new ModelRenderer(this);
         mag16.setRotationPoint(-4.5F, -40.5F, 18.5F);
         mag.addChild(mag16);
-        mag16.cubeList.add(new ModelBox(mag16, 22, 39, -1.0F, 0.0F, 0.0F, 8, 1, 3, 0.0F, false));
+        mag16.cubeList.add(new ModelBox(mag16, 22, 39, -1, 0.0F, 0.0F, 8, 1, 3, 0.0F, false));
 
         mag15 = new ModelRenderer(this);
         mag15.setRotationPoint(-5.0F, -38.7F, 21.5F);
@@ -1639,7 +1639,7 @@ public class P90Action extends ModelWithAttachments {
         mag7 = new ModelRenderer(this);
         mag7.setRotationPoint(-3.5F, -40.3F, 21.5F);
         mag.addChild(mag7);
-        mag7.cubeList.add(new ModelBox(mag7, 0, 161, -1.0F, 0.0F, 0.0F, 6, 2, 2, 0.0F, false));
+        mag7.cubeList.add(new ModelBox(mag7, 0, 161, -1, 0.0F, 0.0F, 6, 2, 2, 0.0F, false));
 
         mag6 = new ModelRenderer(this);
         mag6.setRotationPoint(-5.0F, -38.7F, 18.5F);
@@ -1649,7 +1649,7 @@ public class P90Action extends ModelWithAttachments {
         mag5 = new ModelRenderer(this);
         mag5.setRotationPoint(-5.0F, -40.3F, 18.5F);
         mag.addChild(mag5);
-        mag5.cubeList.add(new ModelBox(mag5, 35, 166, -1.0F, 0.0F, 0.0F, 9, 2, 3, 0.0F, false));
+        mag5.cubeList.add(new ModelBox(mag5, 35, 166, -1, 0.0F, 0.0F, 9, 2, 3, 0.0F, false));
 
         mag4 = new ModelRenderer(this);
         mag4.setRotationPoint(-4.5F, -38.7F, -22.5F);
@@ -1665,12 +1665,12 @@ public class P90Action extends ModelWithAttachments {
         mag1 = new ModelRenderer(this);
         mag1.setRotationPoint(-4.5F, -40.3F, -22.5F);
         mag.addChild(mag1);
-        mag1.cubeList.add(new ModelBox(mag1, 58, 46, -1.0F, 0.0F, 0.0F, 8, 2, 41, 0.0F, false));
+        mag1.cubeList.add(new ModelBox(mag1, 58, 46, -1, 0.0F, 0.0F, 8, 2, 41, 0.0F, false));
 
         mag3 = new ModelRenderer(this);
         mag3.setRotationPoint(-4.0F, -38.5F, -22.5F);
         mag.addChild(mag3);
-        mag3.cubeList.add(new ModelBox(mag3, 0, 0, -1.0F, 0.0F, 0.0F, 7, 1, 45, 0.0F, false));
+        mag3.cubeList.add(new ModelBox(mag3, 0, 0, -1, 0.0F, 0.0F, 7, 1, 45, 0.0F, false));
     }
 
     @Override

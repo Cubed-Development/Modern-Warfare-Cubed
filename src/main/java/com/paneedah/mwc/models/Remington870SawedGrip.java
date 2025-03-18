@@ -129,7 +129,7 @@ public class Remington870SawedGrip extends ModelWithAttachments {
         stock12_r1.setRotationPoint(0.4F, -16.2953F, 24.2282F);
         stockSawed.addChild(stock12_r1);
         setRotationAngle(stock12_r1, 0.6041F, 0.6127F, 0.3778F);
-        stock12_r1.cubeList.add(new ModelBox(stock12_r1, 22, 46, -1.0F, -2.0F, -0.4F, 1, 4, 1, 0.0F, false));
+        stock12_r1.cubeList.add(new ModelBox(stock12_r1, 22, 46, -1, -2.0F, -0.4F, 1, 4, 1, 0.0F, false));
 
         stock12_r2 = new ModelRenderer(this);
         stock12_r2.setRotationPoint(0.0F, 11.1071F, 18.2815F);
@@ -139,10 +139,10 @@ public class Remington870SawedGrip extends ModelWithAttachments {
         stock12_r2.cubeList.add(new ModelBox(stock12_r2, 0, 67, -2.9F, -25.5F, 18.5F, 2, 6, 2, 0.0F, false));
 
         stock10_r1 = new ModelRenderer(this);
-        stock10_r1.setRotationPoint(-1.0F, -16.0074F, 31.3153F);
+        stock10_r1.setRotationPoint(-1, -16.0074F, 31.3153F);
         stockSawed.addChild(stock10_r1);
         setRotationAngle(stock10_r1, 2.3571F, 0.0F, 0.0F);
-        stock10_r1.cubeList.add(new ModelBox(stock10_r1, 97, 40, -1.0F, -1.1F, -0.4F, 2, 2, 1, 0.0F, false));
+        stock10_r1.cubeList.add(new ModelBox(stock10_r1, 97, 40, -1, -1.1F, -0.4F, 2, 2, 1, 0.0F, false));
 
         stock10_r2 = new ModelRenderer(this);
         stock10_r2.setRotationPoint(0.0F, -4.6801F, 58.7454F);
@@ -186,7 +186,7 @@ public class Remington870SawedGrip extends ModelWithAttachments {
         stock6_r1.setRotationPoint(0.5F, -18.9264F, 20.7637F);
         stockSawed.addChild(stock6_r1);
         setRotationAngle(stock6_r1, 1.3187F, 0.2364F, 0.7378F);
-        stock6_r1.cubeList.add(new ModelBox(stock6_r1, 19, 92, -1.0F, -3.7F, -0.5F, 1, 7, 1, 0.0F, false));
+        stock6_r1.cubeList.add(new ModelBox(stock6_r1, 19, 92, -1, -3.7F, -0.5F, 1, 7, 1, 0.0F, false));
 
         stock6_r2 = new ModelRenderer(this);
         stock6_r2.setRotationPoint(0.0F, 1.2008F, 36.9238F);

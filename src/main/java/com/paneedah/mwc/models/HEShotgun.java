@@ -146,7 +146,7 @@ public class HEShotgun extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 15.409F, -15.0F, 2, 3, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 14.3948F, 13.509F, -49.3F, 2, 1, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 13.3948F, 14.409F, 6.0F, 4, 4, 4, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, 14.3948F, 19.109F, -1.0F, 2, 1, 11, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, 14.3948F, 19.109F, -1, 2, 1, 11, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 13.3948F, 16.709F, -4.0F, 2, 1, 10, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 13.3948F, 15.109F, -4.0F, 1, 1, 10, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 13.3948F, 15.909F, 3.0F, 1, 1, 3, 0.0F, true));
@@ -174,16 +174,16 @@ public class HEShotgun extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, 13.3948F, 17.809F, -46.0F, 4, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 14.8948F, 19.309F, -46.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 15.6948F, 15.409F, -15.0F, 2, 3, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 13.709F, -41.0F, 1, 1, 20, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 13.709F, -41.0F, 1, 1, 20, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 15.6948F, 15.009F, -41.0F, 2, 1, 27, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 15.009F, -41.0F, 1, 1, 27, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 13.709F, -41, 1, 1, 20, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 13.709F, -41, 1, 1, 20, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 15.6948F, 15.009F, -41, 2, 1, 27, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 15.009F, -41, 1, 1, 27, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 14.509F, -22.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 14.509F, -25.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 14.509F, -29.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 14.509F, -32.5F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 14.509F, -41.0F, 1, 1, 2, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 14.509F, -41.0F, 1, 1, 2, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 14.509F, -41, 1, 1, 2, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 14.509F, -41, 1, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 14.509F, -32.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 14.509F, -29.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 14.509F, -25.5F, 1, 1, 1, 0.0F, true));
@@ -192,34 +192,34 @@ public class HEShotgun extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 14.509F, -36.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 14.509F, -39.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 14.509F, -39.5F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 17.009F, -41.0F, 1, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 17.009F, -41.0F, 1, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.4948F, 16.009F, -41.0F, 1, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.2948F, 16.009F, -41.0F, 1, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.8948F, 13.509F, -41.0F, 3, 1, 2, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 17.009F, -41, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 17.009F, -41, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.4948F, 16.009F, -41, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.2948F, 16.009F, -41, 1, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.8948F, 13.509F, -41, 3, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.8948F, 13.509F, -39.5F, 3, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.8948F, 13.509F, -33.5F, 3, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.8948F, 13.509F, -36.5F, 3, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.8948F, 13.509F, -30.0F, 3, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 15.8948F, 13.509F, -28.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.8948F, 13.509F, -28.5F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.2948F, 13.509F, -41.0F, 1, 1, 17, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.4948F, 13.509F, -41.0F, 1, 1, 17, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 13.2948F, 13.509F, -41, 1, 1, 17, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.4948F, 13.509F, -41, 1, 1, 17, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 17.909F, -15.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 17.909F, -15.0F, 2, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 14.3948F, 19.209F, -41.0F, 2, 1, 27, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 14.3948F, 19.209F, -41, 2, 1, 27, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 17.909F, -18.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 17.909F, -22.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 17.909F, -18.5F, 2, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 0, 13.0948F, 17.909F, -22.0F, 2, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 17.609F, -21.0F, 1, 1, 6, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 0, 16.6948F, 17.609F, -21, 1, 1, 6, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 13.8948F, 19.609F, -42.0F, 3, 1, 22, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 100, 13.8948F, 15.809F, -12.0F, 1, 2, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 13.1948F, 17.709F, -13.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 13.0948F, 17.709F, -13.0F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 16.4948F, 17.809F, 5.0F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, 16.7948F, 17.409F, -11.0F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, 16.7948F, 17.209F, -11.0F, 1, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, 16.7948F, 17.409F, -11, 1, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, 16.7948F, 17.209F, -11, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 16.7948F, 17.309F, -11.1F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 16.7948F, 17.309F, -10.9F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 14.8948F, 13.509F, -54.0F, 1, 1, 4, 0.0F, true));
@@ -265,14 +265,14 @@ public class HEShotgun extends ModelWithAttachments {
         gun707_r1.setRotationPoint(43.0805F, 6.0114F, 0.0F);
         gun.addChild(gun707_r1);
         setRotationAngle(gun707_r1, 0.0F, 0.0F, -1.7102F);
-        gun707_r1.cubeList.add(new ModelBox(gun707_r1, 0, 0, -5.35F, -30.8F, -21.0F, 2, 1, 1, 0.0F, true));
+        gun707_r1.cubeList.add(new ModelBox(gun707_r1, 0, 0, -5.35F, -30.8F, -21, 2, 1, 1, 0.0F, true));
         gun707_r1.cubeList.add(new ModelBox(gun707_r1, 0, 0, -5.35F, -30.8F, -16.1F, 2, 1, 2, 0.0F, true));
 
         gun706_r1 = new ModelRenderer(this);
         gun706_r1.setRotationPoint(-12.5687F, 7.9919F, 0.0F);
         gun.addChild(gun706_r1);
         setRotationAngle(gun706_r1, 0.0F, 0.0F, 1.7102F);
-        gun706_r1.cubeList.add(new ModelBox(gun706_r1, 0, 0, 1.35F, -30.8F, -21.0F, 2, 1, 1, 0.0F, true));
+        gun706_r1.cubeList.add(new ModelBox(gun706_r1, 0, 0, 1.35F, -30.8F, -21, 2, 1, 1, 0.0F, true));
         gun706_r1.cubeList.add(new ModelBox(gun706_r1, 0, 0, 1.35F, -30.8F, -16.1F, 2, 1, 2, 0.0F, true));
 
         gun699_r1 = new ModelRenderer(this);
@@ -303,7 +303,7 @@ public class HEShotgun extends ModelWithAttachments {
         gun692_r1.setRotationPoint(-8.0262F, -2.6921F, 0.0F);
         gun.addChild(gun692_r1);
         setRotationAngle(gun692_r1, 0.0F, 0.0F, 2.1192F);
-        gun692_r1.cubeList.add(new ModelBox(gun692_r1, 0, 0, 1.0F, -30.4F, -5.0F, 1, 1, 11, 0.0F, true));
+        gun692_r1.cubeList.add(new ModelBox(gun692_r1, 0, 0, 1, -30.4F, -5.0F, 1, 1, 11, 0.0F, true));
 
         gun691_r1 = new ModelRenderer(this);
         gun691_r1.setRotationPoint(-7.0578F, -2.0354F, 0.0F);
@@ -538,19 +538,19 @@ public class HEShotgun extends ModelWithAttachments {
         gun559_r1.setRotationPoint(33.4595F, 34.6068F, 0.0F);
         gun.addChild(gun559_r1);
         setRotationAngle(gun559_r1, 0.0F, 0.0F, -0.7854F);
-        gun559_r1.cubeList.add(new ModelBox(gun559_r1, 200, 0, -3.3F, -25.5F, -41.0F, 1, 1, 27, 0.0F, true));
+        gun559_r1.cubeList.add(new ModelBox(gun559_r1, 200, 0, -3.3F, -25.5F, -41, 1, 1, 27, 0.0F, true));
 
         gun557_r1 = new ModelRenderer(this);
         gun557_r1.setRotationPoint(0.5828F, -0.0414F, 0.0F);
         gun.addChild(gun557_r1);
         setRotationAngle(gun557_r1, 0.0F, 0.0F, 2.3562F);
-        gun557_r1.cubeList.add(new ModelBox(gun557_r1, 200, 0, 1.3F, -25.5F, -41.0F, 1, 1, 27, 0.0F, true));
+        gun557_r1.cubeList.add(new ModelBox(gun557_r1, 200, 0, 1.3F, -25.5F, -41, 1, 1, 27, 0.0F, true));
 
         gun442_r1 = new ModelRenderer(this);
         gun442_r1.setRotationPoint(-0.7071F, -1.7071F, 0.0F);
         gun.addChild(gun442_r1);
         setRotationAngle(gun442_r1, 0.0F, 0.0F, 2.3562F);
-        gun442_r1.cubeList.add(new ModelBox(gun442_r1, 0, 0, 1.0F, -26.6F, -46.0F, 1, 1, 1, 0.0F, true));
+        gun442_r1.cubeList.add(new ModelBox(gun442_r1, 0, 0, 1, -26.6F, -46.0F, 1, 1, 1, 0.0F, true));
 
         gun441_r1 = new ModelRenderer(this);
         gun441_r1.setRotationPoint(30.8755F, 2.2071F, 0.0F);
@@ -568,7 +568,7 @@ public class HEShotgun extends ModelWithAttachments {
         gun439_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         gun.addChild(gun439_r1);
         setRotationAngle(gun439_r1, 0.0F, 0.0F, 2.3562F);
-        gun439_r1.cubeList.add(new ModelBox(gun439_r1, 0, 0, 1.0F, -25.6F, -46.0F, 2, 1, 1, 0.0F, true));
+        gun439_r1.cubeList.add(new ModelBox(gun439_r1, 0, 0, 1, -25.6F, -46.0F, 2, 1, 1, 0.0F, true));
 
         gun438_r1 = new ModelRenderer(this);
         gun438_r1.setRotationPoint(33.6181F, 34.7896F, 0.0F);
@@ -718,7 +718,7 @@ public class HEShotgun extends ModelWithAttachments {
         gun254_r1.setRotationPoint(16.3948F, 20.6043F, -12.8106F);
         gun.addChild(gun254_r1);
         setRotationAngle(gun254_r1, -1.2269F, 0.0F, 0.0F);
-        gun254_r1.cubeList.add(new ModelBox(gun254_r1, 0, 0, -3.0F, -21.0F, 10.5F, 4, 1, 8, 0.0F, true));
+        gun254_r1.cubeList.add(new ModelBox(gun254_r1, 0, 0, -3.0F, -21, 10.5F, 4, 1, 8, 0.0F, true));
 
         gun253_r1 = new ModelRenderer(this);
         gun253_r1.setRotationPoint(16.3948F, 26.4704F, -12.9303F);
@@ -790,7 +790,7 @@ public class HEShotgun extends ModelWithAttachments {
         gun70_r1.setRotationPoint(16.3948F, 40.7919F, -7.6403F);
         gun.addChild(gun70_r1);
         setRotationAngle(gun70_r1, -0.2602F, 0.0F, 0.0F);
-        gun70_r1.cubeList.add(new ModelBox(gun70_r1, 0, 0, -2.0F, -31.0F, 10.0F, 2, 1, 5, 0.0F, true));
+        gun70_r1.cubeList.add(new ModelBox(gun70_r1, 0, 0, -2.0F, -31, 10.0F, 2, 1, 5, 0.0F, true));
 
         gun51_r1 = new ModelRenderer(this);
         gun51_r1.setRotationPoint(33.421F, -3.9385F, 0.0F);
@@ -900,19 +900,19 @@ public class HEShotgun extends ModelWithAttachments {
         gun13_r1.setRotationPoint(0.0707F, 0.1707F, 0.0F);
         gun.addChild(gun13_r1);
         setRotationAngle(gun13_r1, 0.0F, 0.0F, 2.3562F);
-        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 0, 0, 1.0F, -25.5F, -14.0F, 1, 1, 24, 0.0F, true));
+        gun13_r1.cubeList.add(new ModelBox(gun13_r1, 0, 0, 1, -25.5F, -14.0F, 1, 1, 24, 0.0F, true));
 
         gun12_r1 = new ModelRenderer(this);
         gun12_r1.setRotationPoint(-3.1113F, -7.5113F, 0.0F);
         gun.addChild(gun12_r1);
         setRotationAngle(gun12_r1, 0.0F, 0.0F, 2.3562F);
-        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 0, 0, 1.0F, -30.0F, -15.0F, 1, 1, 25, 0.0F, true));
+        gun12_r1.cubeList.add(new ModelBox(gun12_r1, 0, 0, 1, -30.0F, -15.0F, 1, 1, 25, 0.0F, true));
 
         gun11_r1 = new ModelRenderer(this);
         gun11_r1.setRotationPoint(-5.9047F, 34.9434F, 0.0F);
         gun.addChild(gun11_r1);
         setRotationAngle(gun11_r1, 0.0F, 0.0F, 0.8029F);
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.0F, -31.0F, -15.0F, 1, 1, 25, 0.0F, true));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.0F, -31, -15.0F, 1, 1, 25, 0.0F, true));
 
         gun10_r1 = new ModelRenderer(this);
         gun10_r1.setRotationPoint(36.7294F, 33.5009F, 0.0F);
@@ -925,7 +925,7 @@ public class HEShotgun extends ModelWithAttachments {
         gun8_r1.setRotationPoint(-6.1113F, 36.7436F, 0.0F);
         gun.addChild(gun8_r1);
         setRotationAngle(gun8_r1, 0.0F, 0.0F, 0.7854F);
-        gun8_r1.cubeList.add(new ModelBox(gun8_r1, 0, 0, -2.0F, -31.0F, -15.0F, 1, 1, 25, 0.0F, true));
+        gun8_r1.cubeList.add(new ModelBox(gun8_r1, 0, 0, -2.0F, -31, -15.0F, 1, 1, 25, 0.0F, true));
 
         gun440_r1 = new ModelRenderer(this);
         gun440_r1.setRotationPoint(32.5826F, 2.9142F, 0.0F);

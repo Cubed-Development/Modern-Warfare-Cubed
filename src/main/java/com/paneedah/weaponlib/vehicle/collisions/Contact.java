@@ -98,7 +98,7 @@ public class Contact {
                         .add(c.bodyB.linearVelocity)
                         .add(c.bodyB.angularVelocity.crossProduct(c.rB))
                         .dotProduct(c.normal);
-                float restitution = 1.0f;
+                float restitution = 1;
                 //float restitution = c.bodyA.restitution*c.bodyB.restitution;
 
                 float beta = 0.2F;

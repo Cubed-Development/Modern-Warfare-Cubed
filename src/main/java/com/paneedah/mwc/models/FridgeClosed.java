@@ -38,23 +38,23 @@ public class FridgeClosed extends ModelBase {
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(-2.25F, 13.0F, -7.25F);
-        bone4.cubeList.add(new ModelBox(bone4, 100, 94, -2.8103F, 0.5F, 1.0F, 10, 2, 2, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 100, 94, -2.8103F, -5.5F, 1.0F, 10, 2, 2, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 100, 94, -2.8103F, 0.5F, 1, 10, 2, 2, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 100, 94, -2.8103F, -5.5F, 1, 10, 2, 2, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 0, 80, -3.75F, -9.0F, 0.0F, 12, 18, 1, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 52, 80, -2.75F, -8.0F, -1.0F, 1, 16, 1, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 52, 80, -2.75F, -8.0F, -1, 1, 16, 1, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(0.0F, 24.0F, 0.0F);
-        bone5.cubeList.add(new ModelBox(bone5, 12, 99, -6.0F, -1.0F, 4.5F, 2, 1, 2, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 4, 105, -6.0F, -1.0F, -6.5F, 2, 1, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 12, 99, -6.0F, -1, 4.5F, 2, 1, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 4, 105, -6.0F, -1, -6.5F, 2, 1, 2, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 0, 0, -7.0F, -32.0F, -7.5F, 1, 31, 15, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 54, 103, -6.0F, -2.0F, -7.5F, 12, 1, 14, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 54, 103, -6.0F, -21.0F, -7.5F, 12, 1, 14, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 54, 103, -6.0F, -21, -7.5F, 12, 1, 14, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 75, 6, -6.0F, -32.0F, 6.5F, 12, 31, 1, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 96, 42, 6.0F, -32.0F, -7.5F, 1, 31, 15, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 0, 46, -3.0F, -33.0353F, -7.5F, 6, 2, 15, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 4, 102, 4.0F, -1.0F, -6.5F, 2, 1, 2, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 4, 99, 4.0F, -1.0F, 4.5F, 2, 1, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 4, 102, 4.0F, -1, -6.5F, 2, 1, 2, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 4, 99, 4.0F, -1, 4.5F, 2, 1, 2, 0.0F, false));
     }
 
     @Override

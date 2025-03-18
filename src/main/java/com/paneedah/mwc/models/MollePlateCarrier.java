@@ -49,7 +49,7 @@ public class MollePlateCarrier extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         rightleg = new ModelRenderer(this);
         rightleg.setRotationPoint(-2.0F, 12.0F, 0.0F);
@@ -76,7 +76,7 @@ public class MollePlateCarrier extends ModelBiped {
         cube_r2.setRotationPoint(-0.5F, 1.75F, -2.5F);
         platecarrier.addChild(cube_r2);
         setRotationAngle(cube_r2, -0.2094F, -0.0524F, -0.5411F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 24, 24, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 24, 24, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(3.5F, 1.75F, -2.5F);
@@ -106,13 +106,13 @@ public class MollePlateCarrier extends ModelBiped {
         cube_r7.setRotationPoint(-3.0F, 0.05F, 2.1F);
         platecarrier.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.1396F, 0.0F, -0.1222F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 20, 16, 0.0F, 0.0F, -1.0F, 2, 2, 1, 0.0F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 20, 16, 0.0F, 0.0F, -1, 2, 2, 1, 0.0F, false));
 
         cube_r8 = new ModelRenderer(this);
         cube_r8.setRotationPoint(3.0F, 0.05F, 2.1F);
         platecarrier.addChild(cube_r8);
         setRotationAngle(cube_r8, 0.1396F, 0.0F, 0.1222F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 24, 0, -2.0F, 0.0F, -1.0F, 2, 2, 1, 0.0F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 24, 0, -2.0F, 0.0F, -1, 2, 2, 1, 0.0F, false));
 
         cube_r9 = new ModelRenderer(this);
         cube_r9.setRotationPoint(3.2F, -0.25F, -1.9F);

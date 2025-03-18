@@ -97,7 +97,7 @@ public class APC9 extends ModelWithAttachments {
         maingun = new ModelRenderer(this);
         maingun.setRotationPoint(0.0F, 24.0F, 0.0F);
         maingun.cubeList.add(new ModelBox(maingun, 20, 80, -2.501F, -27.25F, -13.0F, 2, 1, 4, 0.0F, false));
-        maingun.cubeList.add(new ModelBox(maingun, 72, 65, -2.999F, -31.0F, -15.5F, 3, 3, 1, 0.0F, false));
+        maingun.cubeList.add(new ModelBox(maingun, 72, 65, -2.999F, -31, -15.5F, 3, 3, 1, 0.0F, false));
         maingun.cubeList.add(new ModelBox(maingun, 20, 22, -3.499F, -37.25F, -24.0F, 4, 9, 7, 0.0F, false));
         maingun.cubeList.add(new ModelBox(maingun, 68, 88, -0.749F, -37.25F, -17.0F, 1, 2, 9, 0.0F, false));
         maingun.cubeList.add(new ModelBox(maingun, 42, 88, -3.251F, -37.25F, -17.0F, 1, 2, 9, 0.0F, false));
@@ -134,7 +134,7 @@ public class APC9 extends ModelWithAttachments {
         maingun.cubeList.add(new ModelBox(maingun, 45, 0, -0.75F, -42.4689F, -38.4821F, 1, 1, 41, 0.0F, false));
         maingun.cubeList.add(new ModelBox(maingun, 92, 66, -3.0F, -43.4689F, -37.7321F, 1, 1, 4, 0.0F, false));
         maingun.cubeList.add(new ModelBox(maingun, 84, 93, -2.0F, -43.4689F, -34.7321F, 1, 1, 1, 0.0F, false));
-        maingun.cubeList.add(new ModelBox(maingun, 51, 56, -1.0F, -43.4689F, -37.7321F, 1, 1, 4, 0.0F, false));
+        maingun.cubeList.add(new ModelBox(maingun, 51, 56, -1, -43.4689F, -37.7321F, 1, 1, 4, 0.0F, false));
         maingun.cubeList.add(new ModelBox(maingun, 158, 113, -3.5F, -39.7189F, -15.732F, 3, 3, 18, 0.0F, false));
         maingun.cubeList.add(new ModelBox(maingun, 74, 29, -3.5F, -37.7189F, -20.7321F, 1, 1, 5, 0.0F, false));
         maingun.cubeList.add(new ModelBox(maingun, 63, 44, -3.5F, -39.7189F, -23.7321F, 1, 3, 3, 0.0F, false));
@@ -265,7 +265,7 @@ public class APC9 extends ModelWithAttachments {
         bone11.setRotationPoint(0.589F, -36.3852F, -38.25F);
         maingun.addChild(bone11);
         setRotationAngle(bone11, 0.0F, 0.0F, -1.2217F);
-        bone11.cubeList.add(new ModelBox(bone11, 68, 94, -2.0585F, -1.1436F, -1.0F, 1, 1, 2, 0.0F, false));
+        bone11.cubeList.add(new ModelBox(bone11, 68, 94, -2.0585F, -1.1436F, -1, 1, 1, 2, 0.0F, false));
         bone11.cubeList.add(new ModelBox(bone11, 58, 99, -2.0585F, -1.1436F, 1.5F, 1, 1, 1, 0.0F, false));
         bone11.cubeList.add(new ModelBox(bone11, 54, 99, -2.0585F, -1.1436F, 3.0F, 1, 1, 1, 0.0F, false));
         bone11.cubeList.add(new ModelBox(bone11, 50, 99, -2.0585F, -1.1436F, 4.5F, 1, 1, 1, 0.0F, false));
@@ -278,7 +278,7 @@ public class APC9 extends ModelWithAttachments {
         bone12.setRotationPoint(-3.589F, -36.3852F, -38.25F);
         maingun.addChild(bone12);
         setRotationAngle(bone12, 0.0F, 0.0F, 1.2217F);
-        bone12.cubeList.add(new ModelBox(bone12, 42, 94, 1.0585F, -1.1436F, -1.0F, 1, 1, 2, 0.0F, false));
+        bone12.cubeList.add(new ModelBox(bone12, 42, 94, 1.0585F, -1.1436F, -1, 1, 1, 2, 0.0F, false));
         bone12.cubeList.add(new ModelBox(bone12, 24, 99, 1.0585F, -1.1436F, 1.5F, 1, 1, 1, 0.0F, false));
         bone12.cubeList.add(new ModelBox(bone12, 20, 99, 1.0585F, -1.1436F, 3.0F, 1, 1, 1, 0.0F, false));
         bone12.cubeList.add(new ModelBox(bone12, 16, 99, 1.0585F, -1.1436F, 4.5F, 1, 1, 1, 0.0F, false));
@@ -311,8 +311,8 @@ public class APC9 extends ModelWithAttachments {
         bone42.setRotationPoint(-0.25F, -40.2189F, -11.9821F);
         maingun.addChild(bone42);
         setRotationAngle(bone42, -0.7854F, 0.0F, 0.0F);
-        bone42.cubeList.add(new ModelBox(bone42, 72, 88, -0.502F, -1.0F, -0.5F, 1, 1, 1, 0.0F, false));
-        bone42.cubeList.add(new ModelBox(bone42, 28, 82, -2.998F, -1.0F, -0.5F, 1, 1, 1, 0.0F, false));
+        bone42.cubeList.add(new ModelBox(bone42, 72, 88, -0.502F, -1, -0.5F, 1, 1, 1, 0.0F, false));
+        bone42.cubeList.add(new ModelBox(bone42, 28, 82, -2.998F, -1, -0.5F, 1, 1, 1, 0.0F, false));
         bone42.cubeList.add(new ModelBox(bone42, 46, 88, -0.5F, 5.364F, -6.864F, 1, 1, 1, 0.0F, false));
         bone42.cubeList.add(new ModelBox(bone42, 82, 12, -3.0F, 5.364F, -6.864F, 1, 1, 1, 0.0F, false));
 
@@ -320,8 +320,8 @@ public class APC9 extends ModelWithAttachments {
         bone43.setRotationPoint(-0.25F, -41.2189F, -11.9821F);
         maingun.addChild(bone43);
         setRotationAngle(bone43, -0.7854F, 0.0F, 0.0F);
-        bone43.cubeList.add(new ModelBox(bone43, 57, 88, -0.502F, -1.0F, -0.5F, 1, 1, 1, 0.0F, false));
-        bone43.cubeList.add(new ModelBox(bone43, 81, 80, -2.998F, -1.0F, -0.5F, 1, 1, 1, 0.0F, false));
+        bone43.cubeList.add(new ModelBox(bone43, 57, 88, -0.502F, -1, -0.5F, 1, 1, 1, 0.0F, false));
+        bone43.cubeList.add(new ModelBox(bone43, 81, 80, -2.998F, -1, -0.5F, 1, 1, 1, 0.0F, false));
         bone43.cubeList.add(new ModelBox(bone43, 31, 88, -0.502F, 5.364F, -6.864F, 1, 1, 1, 0.0F, false));
         bone43.cubeList.add(new ModelBox(bone43, 82, 82, -2.998F, 5.364F, -6.864F, 1, 1, 1, 0.0F, false));
 
@@ -329,13 +329,13 @@ public class APC9 extends ModelWithAttachments {
         bone28.setRotationPoint(-3.0F, -32.2189F, 0.5179F);
         maingun.addChild(bone28);
         setRotationAngle(bone28, 0.0F, 0.0F, -0.6545F);
-        bone28.cubeList.add(new ModelBox(bone28, 8, 91, 0.5165F, -1.4944F, -1.0F, 1, 1, 2, 0.0F, false));
+        bone28.cubeList.add(new ModelBox(bone28, 8, 91, 0.5165F, -1.4944F, -1, 1, 1, 2, 0.0F, false));
 
         bone29 = new ModelRenderer(this);
         bone29.setRotationPoint(0.0F, -32.2189F, 0.5179F);
         maingun.addChild(bone29);
         setRotationAngle(bone29, 0.0F, 0.0F, 0.6545F);
-        bone29.cubeList.add(new ModelBox(bone29, 90, 87, -1.5165F, -1.4944F, -1.0F, 1, 1, 2, 0.0F, false));
+        bone29.cubeList.add(new ModelBox(bone29, 90, 87, -1.5165F, -1.4944F, -1, 1, 1, 2, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(-0.5F, -35.75F, -26.0F);
@@ -353,8 +353,8 @@ public class APC9 extends ModelWithAttachments {
         bone3.setRotationPoint(-0.5F, -35.25F, -27.0F);
         maingun.addChild(bone3);
         setRotationAngle(bone3, 1.2654F, 0.0F, 0.0F);
-        bone3.cubeList.add(new ModelBox(bone3, 8, 73, -2.25F, 1.0F, -0.5F, 1, 2, 2, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 8, 69, -0.75F, 1.0F, -0.5F, 1, 2, 2, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 8, 73, -2.25F, 1, -0.5F, 1, 2, 2, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 8, 69, -0.75F, 1, -0.5F, 1, 2, 2, 0.0F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(-0.5F, -28.25F, -19.25F);
@@ -411,7 +411,7 @@ public class APC9 extends ModelWithAttachments {
         bone39.cubeList.add(new ModelBox(bone39, 70, 37, -4.25F, -13.4047F, 12.7583F, 1, 1, 1, 0.0F, false));
         bone39.cubeList.add(new ModelBox(bone39, 82, 39, -3.75F, -9.5156F, 9.5763F, 1, 1, 1, 0.0F, false));
         bone39.cubeList.add(new ModelBox(bone39, 32, 90, -4.0F, -5.6265F, -4.5659F, 1, 1, 1, 0.0F, false));
-        bone39.cubeList.add(new ModelBox(bone39, 28, 85, -1.0F, -5.6265F, -4.5659F, 1, 1, 1, 0.0F, false));
+        bone39.cubeList.add(new ModelBox(bone39, 28, 85, -1, -5.6265F, -4.5659F, 1, 1, 1, 0.0F, false));
         bone39.cubeList.add(new ModelBox(bone39, 47, 90, -4.25F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
 
         bone40 = new ModelRenderer(this);
@@ -425,15 +425,15 @@ public class APC9 extends ModelWithAttachments {
         bone44.setRotationPoint(0.25F, -30.0F, -16.75F);
         maingun.addChild(bone44);
         setRotationAngle(bone44, -0.1309F, 0.0F, 0.0F);
-        bone44.cubeList.add(new ModelBox(bone44, 16, 88, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
-        bone44.cubeList.add(new ModelBox(bone44, 8, 88, -3.5F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        bone44.cubeList.add(new ModelBox(bone44, 16, 88, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
+        bone44.cubeList.add(new ModelBox(bone44, 8, 88, -3.5F, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         bone46 = new ModelRenderer(this);
         bone46.setRotationPoint(0.75F, -34.0F, -5.25F);
         maingun.addChild(bone46);
         setRotationAngle(bone46, 0.2618F, 0.0F, 0.0F);
-        bone46.cubeList.add(new ModelBox(bone46, 86, 42, -1.15F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
-        bone46.cubeList.add(new ModelBox(bone46, 77, 80, -4.4F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        bone46.cubeList.add(new ModelBox(bone46, 86, 42, -1.15F, -1, 0.0F, 1, 1, 2, 0.0F, false));
+        bone46.cubeList.add(new ModelBox(bone46, 77, 80, -4.4F, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         bone45 = new ModelRenderer(this);
         bone45.setRotationPoint(0.0F, -36.5F, -22.5F);
@@ -454,7 +454,7 @@ public class APC9 extends ModelWithAttachments {
 
 
         bone52 = new ModelRenderer(this);
-        bone52.setRotationPoint(-1.5F, -31.0F, -10.0F);
+        bone52.setRotationPoint(-1.5F, -31, -10.0F);
         trigger.addChild(bone52);
         setRotationAngle(bone52, 0.7854F, 0.0F, 0.0F);
         bone52.cubeList.add(new ModelBox(bone52, 56, 29, -0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F, false));
@@ -498,7 +498,7 @@ public class APC9 extends ModelWithAttachments {
         grip11.setRotationPoint(-3.5F, -27.5F, -5.5F);
         grip.addChild(grip11);
         setRotationAngle(grip11, 0.2603F, 0.0F, 0.0F);
-        grip11.cubeList.add(new ModelBox(grip11, 12, 85, 0.0F, 9.0F, -1.0F, 4, 1, 1, 0.0F, false));
+        grip11.cubeList.add(new ModelBox(grip11, 12, 85, 0.0F, 9.0F, -1, 4, 1, 1, 0.0F, false));
 
         grip8 = new ModelRenderer(this);
         grip8.setRotationPoint(-3.5F, -27.5F, -7.0F);
@@ -507,7 +507,7 @@ public class APC9 extends ModelWithAttachments {
 
 
         grip5 = new ModelRenderer(this);
-        grip5.setRotationPoint(-1.5F, -31.0F, -2.634F);
+        grip5.setRotationPoint(-1.5F, -31, -2.634F);
         grip.addChild(grip5);
         setRotationAngle(grip5, 0.0436F, 0.0F, 0.0F);
         grip5.cubeList.add(new ModelBox(grip5, 22, 11, -1.998F, -2.0F, -4.5F, 4, 3, 5, 0.0F, false));
@@ -548,7 +548,7 @@ public class APC9 extends ModelWithAttachments {
         grip1 = new ModelRenderer(this);
         grip1.setRotationPoint(-3.5F, -31.5F, -7.0F);
         grip.addChild(grip1);
-        grip1.cubeList.add(new ModelBox(grip1, 45, 76, 0.0F, 1.0F, 1.25F, 4, 1, 2, 0.0F, false));
+        grip1.cubeList.add(new ModelBox(grip1, 45, 76, 0.0F, 1, 1.25F, 4, 1, 2, 0.0F, false));
 
         barrel = new ModelRenderer(this);
         barrel.setRotationPoint(-4.0F, 0.0F, 0.0F);
@@ -620,7 +620,7 @@ public class APC9 extends ModelWithAttachments {
         bone47.cubeList.add(new ModelBox(bone47, 26, 53, -2.501F, -36.75F, 30.25F, 1, 3, 3, 0.0F, false));
 
         bone51 = new ModelRenderer(this);
-        bone51.setRotationPoint(-1.0F, -33.0F, 33.25F);
+        bone51.setRotationPoint(-1, -33.0F, 33.25F);
         bone47.addChild(bone51);
         setRotationAngle(bone51, -0.7854F, 0.0F, 0.0F);
         bone51.cubeList.add(new ModelBox(bone51, 77, 37, -2.5F, -0.5F, -0.5F, 3, 1, 1, 0.0F, false));
@@ -667,20 +667,20 @@ public class APC9 extends ModelWithAttachments {
         bone38.cubeList.add(new ModelBox(bone38, 12, 55, -0.5F, -2.9051F, 1.7317F, 1, 2, 1, 0.0F, false));
 
         bone8 = new ModelRenderer(this);
-        bone8.setRotationPoint(-1.0F, -39.4689F, 5.7679F);
+        bone8.setRotationPoint(-1, -39.4689F, 5.7679F);
         stock.addChild(bone8);
         setRotationAngle(bone8, -0.3054F, 0.0F, 0.0F);
         bone8.cubeList.add(new ModelBox(bone8, 12, 79, -2.5F, -0.847F, 3.5147F, 3, 2, 3, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
-        bone7.setRotationPoint(-1.0F, -40.2189F, 5.7679F);
+        bone7.setRotationPoint(-1, -40.2189F, 5.7679F);
         stock.addChild(bone7);
         setRotationAngle(bone7, -0.48F, 0.0F, 0.0F);
         bone7.cubeList.add(new ModelBox(bone7, 90, 90, -2.501F, -0.8471F, 1.5147F, 2, 2, 3, 0.0F, false));
         bone7.cubeList.add(new ModelBox(bone7, 61, 69, -1.501F, -0.847F, 2.5147F, 2, 2, 2, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
-        bone6.setRotationPoint(-1.0F, -40.4689F, 5.7679F);
+        bone6.setRotationPoint(-1, -40.4689F, 5.7679F);
         stock.addChild(bone6);
         setRotationAngle(bone6, -0.6109F, 0.0F, 0.0F);
         bone6.cubeList.add(new ModelBox(bone6, 35, 22, -2.5F, -0.847F, 0.5147F, 2, 5, 2, 0.0F, false));
@@ -725,8 +725,8 @@ public class APC9 extends ModelWithAttachments {
         setRotationAngle(bone30, -0.7854F, 0.0F, 0.0F);
         bone30.cubeList.add(new ModelBox(bone30, 63, 22, -0.999F, 0.4142F, -0.2927F, 2, 1, 1, 0.0F, false));
         bone30.cubeList.add(new ModelBox(bone30, 54, 5, -0.999F, -0.7081F, -1.4142F, 2, 1, 1, 0.0F, false));
-        bone30.cubeList.add(new ModelBox(bone30, 55, 54, -1.0F, 0.0F, -0.2929F, 2, 1, 1, 0.0F, false));
-        bone30.cubeList.add(new ModelBox(bone30, 54, 13, -1.0F, -0.7071F, -1.0F, 2, 1, 1, 0.0F, false));
+        bone30.cubeList.add(new ModelBox(bone30, 55, 54, -1, 0.0F, -0.2929F, 2, 1, 1, 0.0F, false));
+        bone30.cubeList.add(new ModelBox(bone30, 54, 13, -1, -0.7071F, -1, 2, 1, 1, 0.0F, false));
 
         bone26 = new ModelRenderer(this);
         bone26.setRotationPoint(-2.0F, -40.2189F, 4.2679F);
@@ -765,12 +765,12 @@ public class APC9 extends ModelWithAttachments {
         mag.cubeList.add(new ModelBox(mag, 179, 38, -3.0F, -24.0F, -4.0F, 3, 24, 5, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 108, 42, -0.9F, -24.9346F, -2.3F, 1, 24, 3, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 34, 44, -3.15F, -24.9346F, -2.3F, 1, 24, 3, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 45, 26, -2.75F, -1.0F, -4.0F, 3, 1, 5, 0.0F, false));
+        mag.cubeList.add(new ModelBox(mag, 45, 26, -2.75F, -1, -4.0F, 3, 1, 5, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 77, 48, -2.75F, -1.0654F, -4.2529F, 3, 1, 1, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 77, 46, -2.75F, -0.9595F, 0.2736F, 3, 1, 1, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 84, 90, -3.25F, -0.9595F, 0.2736F, 1, 1, 1, 0.0F, false));
         mag.cubeList.add(new ModelBox(mag, 92, 44, -3.25F, -1.0654F, -4.2529F, 1, 1, 1, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 0, 14, -3.25F, -1.0F, -4.0F, 3, 1, 5, 0.0F, false));
+        mag.cubeList.add(new ModelBox(mag, 0, 14, -3.25F, -1, -4.0F, 3, 1, 5, 0.0F, false));
     }
 
     @Override

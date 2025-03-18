@@ -68,9 +68,9 @@ public class ScarLHandguard extends ModelBase {
         handguard = new ModelRenderer(this);
         handguard.setRotationPoint(-3.8F, -11.2F, -49.0F);
         handguard.cubeList.add(new ModelBox(handguard, 53, 0, 2.5F, -0.6F, 0.0F, 1, 2, 22, 0.001F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 78, 3.5F, -1.0F, 0.0F, 1, 1, 22, -0.001F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 78, 3.5F, -1, 0.0F, 1, 1, 22, -0.001F, false));
         handguard.cubeList.add(new ModelBox(handguard, 0, 0, 1.1F, -0.6F, 0.0F, 2, 2, 22, 0.002F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 53, 78, 0.1F, -1.0F, 0.0F, 1, 1, 22, -0.001F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 53, 78, 0.1F, -1, 0.0F, 1, 1, 22, -0.001F, false));
         handguard.cubeList.add(new ModelBox(handguard, 159, 56, 4.075F, -6.33F, -0.3F, 1, 1, 1, -0.2F, false));
         handguard.cubeList.add(new ModelBox(handguard, 50, 158, 4.075F, -5.93F, -0.3F, 1, 1, 1, -0.198F, false));
         handguard.cubeList.add(new ModelBox(handguard, 53, 159, 3.65F, -5.5F, -0.3F, 1, 1, 1, -0.199F, false));
@@ -132,7 +132,7 @@ public class ScarLHandguard extends ModelBase {
         cube_r8.setRotationPoint(4.5F, 0.0F, 0.0F);
         handguard.addChild(cube_r8);
         setRotationAngle(cube_r8, 0.0F, 0.0F, 0.8552F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 53, 24, -1.0F, 0.0F, 0.0F, 1, 2, 22, -0.002F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 53, 24, -1, 0.0F, 0.0F, 1, 2, 22, -0.002F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(5.3F, -14.9F, 1.25F);
@@ -306,9 +306,9 @@ public class ScarLHandguard extends ModelBase {
         handguard_midwest_industries = new ModelRenderer(this);
         handguard_midwest_industries.setRotationPoint(-3.8F, -11.2F, -65.0F);
         handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 208, 100, 2.5F, -0.6F, 0.0F, 1, 2, 38, 0.001F, false));
-        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 0, 246, 3.5F, -1.0F, 0.0F, 1, 1, 38, -0.001F, false));
+        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 0, 246, 3.5F, -1, 0.0F, 1, 1, 38, -0.001F, false));
         handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 100, 160, 1.1F, -0.6F, 0.0F, 2, 2, 38, 0.002F, false));
-        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 240, 235, 0.1F, -1.0F, 0.0F, 1, 1, 38, -0.001F, false));
+        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 240, 235, 0.1F, -1, 0.0F, 1, 1, 38, -0.001F, false));
         handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 159, 108, 3.9F, -1.05F, -0.3F, 1, 1, 17, -0.202F, false));
         handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 50, 159, -0.3F, -4.05F, -0.3F, 1, 3, 17, -0.2F, false));
         handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 0, 158, 3.9F, -4.05F, -0.3F, 1, 3, 17, -0.2F, false));
@@ -372,7 +372,7 @@ public class ScarLHandguard extends ModelBase {
         cube_r20.setRotationPoint(4.5F, 0.0F, 0.0F);
         handguard_midwest_industries.addChild(cube_r20);
         setRotationAngle(cube_r20, 0.0F, 0.0F, 0.8552F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 208, 48, -1.0F, 0.0F, 0.0F, 1, 2, 38, -0.002F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 208, 48, -1, 0.0F, 0.0F, 1, 2, 38, -0.002F, false));
 
         bone9 = new ModelRenderer(this);
         bone9.setRotationPoint(5.3F, -14.9F, 1.25F);
@@ -695,7 +695,7 @@ public class ScarLHandguard extends ModelBase {
 
         handguard_mlok = new ModelRenderer(this);
         handguard_mlok.setRotationPoint(1.1F, -14.0F, -68.0F);
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 248, 88, -1.0F, 0.0F, 3.0F, 1, 1, 33, 0.0F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 248, 88, -1, 0.0F, 3.0F, 1, 1, 33, 0.0F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 108, 29, -2.4F, -2.1F, 3.0F, 1, 1, 6, -0.001F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 57, -1.8F, -2.3F, 9.0F, 1, 1, 1, 0.0F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 14, 6, -4.4F, -2.3F, 9.0F, 3, 1, 1, -0.001F, false));
@@ -710,12 +710,12 @@ public class ScarLHandguard extends ModelBase {
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 106, 77, -0.75F, 0.45F, 25.9F, 1, 2, 2, -0.101F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 106, 63, -0.75F, 0.45F, 30.9F, 1, 2, 2, -0.101F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 80, 7, -0.75F, 0.85F, 33.8F, 1, 1, 3, -0.102F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 77, -1.0F, 0.9F, 3.0F, 1, 1, 1, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 74, -1.0F, 0.9F, 7.0F, 1, 1, 1, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 117, 55, -1.0F, 0.9F, 11.0F, 1, 1, 4, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 70, -1.0F, 0.9F, 16.0F, 1, 1, 1, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 116, 44, -1.0F, 0.9F, 18.0F, 1, 1, 4, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 200, 234, -1.0F, 1.8F, 3.0F, 1, 1, 38, 0.0F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 77, -1, 0.9F, 3.0F, 1, 1, 1, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 74, -1, 0.9F, 7.0F, 1, 1, 1, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 117, 55, -1, 0.9F, 11, 1, 1, 4, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 70, -1, 0.9F, 16.0F, 1, 1, 1, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 116, 44, -1, 0.9F, 18.0F, 1, 1, 4, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 200, 234, -1, 1.8F, 3.0F, 1, 1, 38, 0.0F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 210, 0, -5.2F, 1.8F, 3.0F, 1, 1, 38, 0.0F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 40, 248, -5.2F, 0.0F, 3.0F, 1, 1, 33, 0.0F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 73, 129, -5.45F, 0.15F, 22.3F, 1, 1, 14, -0.1F, false));
@@ -726,7 +726,7 @@ public class ScarLHandguard extends ModelBase {
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 0, 78, -5.45F, 0.85F, 33.8F, 1, 1, 3, -0.102F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 62, -5.2F, 0.9F, 3.0F, 1, 1, 1, -0.001F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 64, -5.2F, 0.9F, 7.0F, 1, 1, 1, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 116, 29, -5.2F, 0.9F, 11.0F, 1, 1, 4, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 116, 29, -5.2F, 0.9F, 11, 1, 1, 4, -0.001F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 68, -5.2F, 0.9F, 16.0F, 1, 1, 1, -0.001F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 116, 36, -5.2F, 0.9F, 18.0F, 1, 1, 4, -0.001F, false));
 
@@ -754,19 +754,19 @@ public class ScarLHandguard extends ModelBase {
         cube_r32.setRotationPoint(-5.2F, 2.8F, 3.0F);
         handguard_mlok.addChild(cube_r32);
         setRotationAngle(cube_r32, 0.0F, 0.0F, 0.576F);
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 197, 156, 0.0F, -1.0F, 0.0F, 2, 1, 38, -0.001F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 197, 156, 0.0F, -1, 0.0F, 2, 1, 38, -0.001F, false));
 
         cube_r33 = new ModelRenderer(this);
         cube_r33.setRotationPoint(0.0F, 2.8F, 3.0F);
         handguard_mlok.addChild(cube_r33);
         setRotationAngle(cube_r33, 0.0F, 0.0F, -0.576F);
-        cube_r33.cubeList.add(new ModelBox(cube_r33, 206, 195, -2.0F, -1.0F, 0.0F, 2, 1, 38, -0.001F, false));
+        cube_r33.cubeList.add(new ModelBox(cube_r33, 206, 195, -2.0F, -1, 0.0F, 2, 1, 38, -0.001F, false));
 
         cube_r34 = new ModelRenderer(this);
         cube_r34.setRotationPoint(0.0F, 0.0F, 3.0F);
         handguard_mlok.addChild(cube_r34);
         setRotationAngle(cube_r34, 0.0F, 0.0F, 0.3142F);
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 248, 39, -1.0F, 0.0F, 0.0F, 1, 1, 33, -0.001F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 248, 39, -1, 0.0F, 0.0F, 1, 1, 33, -0.001F, false));
 
         cube_r35 = new ModelRenderer(this);
         cube_r35.setRotationPoint(-4.9F, 0.7F, 3.0F);
@@ -781,10 +781,10 @@ public class ScarLHandguard extends ModelBase {
         cube_r36.setRotationPoint(-0.3F, 0.7F, 3.0F);
         handguard_mlok.addChild(cube_r36);
         setRotationAngle(cube_r36, 0.0F, 0.0F, -0.1396F);
-        cube_r36.cubeList.add(new ModelBox(cube_r36, 63, 87, -1.0F, -1.2F, 8.0F, 1, 1, 5, -0.002F, false));
-        cube_r36.cubeList.add(new ModelBox(cube_r36, 91, 101, -1.0F, -2.0F, 6.0F, 1, 2, 2, -0.002F, false));
-        cube_r36.cubeList.add(new ModelBox(cube_r36, 106, 71, -1.0F, -2.0F, 13.0F, 1, 2, 1, -0.002F, false));
-        cube_r36.cubeList.add(new ModelBox(cube_r36, 77, 36, -1.0F, -3.0F, 6.0F, 1, 1, 8, -0.002F, false));
+        cube_r36.cubeList.add(new ModelBox(cube_r36, 63, 87, -1, -1.2F, 8.0F, 1, 1, 5, -0.002F, false));
+        cube_r36.cubeList.add(new ModelBox(cube_r36, 91, 101, -1, -2.0F, 6.0F, 1, 2, 2, -0.002F, false));
+        cube_r36.cubeList.add(new ModelBox(cube_r36, 106, 71, -1, -2.0F, 13.0F, 1, 2, 1, -0.002F, false));
+        cube_r36.cubeList.add(new ModelBox(cube_r36, 77, 36, -1, -3.0F, 6.0F, 1, 1, 8, -0.002F, false));
 
         cube_r37 = new ModelRenderer(this);
         cube_r37.setRotationPoint(-4.9F, 0.7F, 3.0F);
@@ -793,16 +793,16 @@ public class ScarLHandguard extends ModelBase {
         cube_r37.cubeList.add(new ModelBox(cube_r37, 10, 106, 0.0F, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
         cube_r37.cubeList.add(new ModelBox(cube_r37, 100, 30, 0.0F, -2.0F, 5.0F, 1, 2, 1, -0.002F, false));
         cube_r37.cubeList.add(new ModelBox(cube_r37, 108, 36, 0.0F, -3.0F, 0.0F, 1, 1, 6, -0.002F, false));
-        cube_r37.cubeList.add(new ModelBox(cube_r37, 8, 116, 0.0F, -1.25F, 1.0F, 1, 1, 4, -0.002F, false));
+        cube_r37.cubeList.add(new ModelBox(cube_r37, 8, 116, 0.0F, -1.25F, 1, 1, 1, 4, -0.002F, false));
 
         cube_r38 = new ModelRenderer(this);
         cube_r38.setRotationPoint(-0.3F, 0.7F, 8.0F);
         handguard_mlok.addChild(cube_r38);
         setRotationAngle(cube_r38, 0.0F, 0.0F, -0.3665F);
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 16, 106, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 116, 22, -1.0F, -1.25F, -4.0F, 1, 1, 4, -0.002F, false));
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 23, 106, -1.0F, -2.0F, -5.0F, 1, 2, 1, -0.002F, false));
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 108, 44, -1.0F, -3.0F, -5.0F, 1, 1, 6, -0.002F, false));
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 16, 106, -1, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 116, 22, -1, -1.25F, -4.0F, 1, 1, 4, -0.002F, false));
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 23, 106, -1, -2.0F, -5.0F, 1, 2, 1, -0.002F, false));
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 108, 44, -1, -3.0F, -5.0F, 1, 1, 6, -0.002F, false));
     }
 
     @Override

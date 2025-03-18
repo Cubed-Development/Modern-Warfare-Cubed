@@ -147,7 +147,7 @@ public class ViewfinderModel extends ModelBase {
                 ClientValueRepo.scopeY.currentValue = 1;
             }
             scopeShader.uniform1f("reticleZoom", (pwi + 0.86f));
-            scopeShader.uniform1f("actualZoom", (1.0f - pwi) - 0.80f);
+            scopeShader.uniform1f("actualZoom", (1 - pwi) - 0.80f);
         }
 
 

@@ -32,7 +32,7 @@ public class TestMS extends MovingSound {
             float f = MathHelper.sqrt(this.minecart.motionX * this.minecart.motionX + this.minecart.motionZ * this.minecart.motionZ);
 
             if ((double) f >= 0.01D) {
-                this.volume = 0.0F + MathHelper.clamp(f, 0.0F, 1.0F) * 0.75F;
+                this.volume = 0.0F + MathHelper.clamp(f, 0.0F, 1) * 0.75F;
             } else {
                 this.volume = 0.0F;
             }

@@ -301,7 +301,7 @@ public class MPXFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.AimpointCompM2, (player, stack) -> {
-                    GL11.glTranslatef(-0.12F, -1.0F, -1F);
+                    GL11.glTranslatef(-0.12F, -1, -1F);
                     GL11.glScaled(1F, 1F, 1F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {

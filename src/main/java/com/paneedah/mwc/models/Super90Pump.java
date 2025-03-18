@@ -57,7 +57,7 @@ public class Super90Pump extends ModelWithAttachments {
         pump.addChild(pump17_r1);
         setRotationAngle(pump17_r1, 0.0F, 0.0F, 2.4166F);
         pump17_r1.cubeList.add(new ModelBox(pump17_r1, 0, 0, -1.7F, -23.9F, -37.5F, 1, 1, 15, 0.0F, true));
-        pump17_r1.cubeList.add(new ModelBox(pump17_r1, 0, 0, -1.0F, -23.9F, -37.5F, 1, 1, 15, 0.0F, true));
+        pump17_r1.cubeList.add(new ModelBox(pump17_r1, 0, 0, -1, -23.9F, -37.5F, 1, 1, 15, 0.0F, true));
 
         pump16_r1 = new ModelRenderer(this);
         pump16_r1.setRotationPoint(34.9463F, -27.2075F, 0.0F);

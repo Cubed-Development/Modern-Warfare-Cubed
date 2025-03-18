@@ -30,7 +30,7 @@ public class AudiS4Wheel extends ModelBase {
         wheel5.cubeList.add(new ModelBox(wheel5, 150, 121, -3.6429F, -10.9286F, -5.0F, 7, 4, 10, 0.0F, false));
         wheel5.cubeList.add(new ModelBox(wheel5, 0, 73, -1.6429F, -6.9286F, -7.0F, 3, 14, 14, 0.0F, false));
         wheel5.cubeList.add(new ModelBox(wheel5, 323, 279, -3.6429F, -4.9286F, 7.0F, 7, 10, 4, 0.0F, false));
-        wheel5.cubeList.add(new ModelBox(wheel5, 46, 317, -3.6429F, -4.9286F, -11.0F, 7, 10, 4, 0.0F, false));
+        wheel5.cubeList.add(new ModelBox(wheel5, 46, 317, -3.6429F, -4.9286F, -11, 7, 10, 4, 0.0F, false));
         wheel5.cubeList.add(new ModelBox(wheel5, 49, 93, -3.6429F, 7.0714F, -5.0F, 7, 4, 10, 0.0F, false));
 
         bone6 = new ModelRenderer(this);

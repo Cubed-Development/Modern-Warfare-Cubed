@@ -91,25 +91,25 @@ public class Kedr extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 134, -3.901F, -35.0F, -27.0F, 4, 3, 15, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 70, -3.901F, -36.0F, -12.0F, 4, 4, 6, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 16, -0.901F, -36.0F, -6.0F, 1, 2, 5, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 36, 53, -3.901F, -36.0F, -1.0F, 4, 4, 6, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 36, 53, -3.901F, -36.0F, -1, 4, 4, 6, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 14, 70, -3.0F, -36.1F, -27.501F, 3, 3, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 22, 70, -2.7F, -36.3F, -27.499F, 3, 3, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 70, 34, -3.0F, -36.6F, -27.499F, 3, 3, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 104, 33, -1.3F, -35.35F, -40.0F, 1, 1, 30, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.3F, -36.501F, -14.5F, 1, 1, 15, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 0, 35, -3.101F, -31.4F, -11.0F, 4, 1, 10, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 35, -3.101F, -31.4F, -11, 4, 1, 10, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 62, 0, -0.301F, -33.2F, -3.25F, 1, 2, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 61, 42, -3.701F, -33.2F, -3.25F, 1, 2, 2, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 72, 70, -3.95F, -32.65F, -2.75F, 1, 1, 1, -0.1F, false));
         gun.cubeList.add(new ModelBox(gun, 72, 68, -0.05F, -32.65F, -2.75F, 1, 1, 1, -0.1F, false));
-        gun.cubeList.add(new ModelBox(gun, 36, 35, -3.101F, -32.4F, -11.0F, 4, 1, 8, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 70, 34, -3.902F, -32.4F, -11.0F, 1, 1, 8, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 36, 35, -3.101F, -32.4F, -11, 4, 1, 8, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 70, 34, -3.902F, -32.4F, -11, 1, 1, 8, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 30, -3.102F, -33.9F, -4.0F, 4, 1, 3, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 60, 16, -3.902F, -33.9F, -4.0F, 1, 1, 3, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 0, 53, -3.101F, -33.4F, -1.5F, 4, 2, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 64, 21, -3.903F, -33.4F, -1.5F, 1, 2, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 64, 28, -0.351F, -32.4F, -1.0F, 1, 2, 1, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 70, 10, -3.651F, -32.4F, -1.0F, 1, 2, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 64, 28, -0.351F, -32.4F, -1, 1, 2, 1, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 70, 10, -3.651F, -32.4F, -1, 1, 2, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 45, 132, -3.4F, -37.7F, -11.999F, 3, 2, 17, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 57, 77, -2.5F, -38.5F, -2.599F, 2, 1, 4, -0.4F, false));
         gun.cubeList.add(new ModelBox(gun, 52, 44, -2.5F, -39.4F, 4.301F, 1, 2, 1, -0.4F, false));
@@ -138,7 +138,7 @@ public class Kedr extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 60, 12, -3.9F, -34.5F, -6.001F, 1, 1, 3, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 36, 44, -3.1F, -34.5F, -3.001F, 4, 1, 8, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 50, 12, -3.9F, -34.5F, -3.001F, 1, 1, 8, 0.0F, false));
-        gun.cubeList.add(new ModelBox(gun, 0, 46, -3.899F, -31.401F, -11.0F, 1, 1, 10, 0.0F, false));
+        gun.cubeList.add(new ModelBox(gun, 0, 46, -3.899F, -31.401F, -11, 1, 1, 10, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 70, 0, -3.499F, -32.2F, -19.3F, 4, 4, 6, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 70, 38, -3.3F, -36.3F, -27.5F, 3, 3, 1, 0.0F, false));
         gun.cubeList.add(new ModelBox(gun, 104, 64, -2.7F, -35.35F, -40.0F, 1, 1, 30, 0.0F, false));
@@ -169,7 +169,7 @@ public class Kedr extends ModelWithAttachments {
         gun10_r1.setRotationPoint(-3.5F, -32.1F, -19.5F);
         gun.addChild(gun10_r1);
         setRotationAngle(gun10_r1, -1.2485F, 0.0F, 0.0F);
-        gun10_r1.cubeList.add(new ModelBox(gun10_r1, 72, 75, 0.0F, -1.0F, -1.3F, 4, 2, 5, 0.0F, false));
+        gun10_r1.cubeList.add(new ModelBox(gun10_r1, 72, 75, 0.0F, -1, -1.3F, 4, 2, 5, 0.0F, false));
 
         gun19_r1 = new ModelRenderer(this);
         gun19_r1.setRotationPoint(-3.5F, -34.0F, -26.0F);
@@ -181,19 +181,19 @@ public class Kedr extends ModelWithAttachments {
         gun34_r1.setRotationPoint(0.801F, -29.5F, -14.602F);
         gun.addChild(gun34_r1);
         setRotationAngle(gun34_r1, 0.0F, 0.0873F, 0.0F);
-        gun34_r1.cubeList.add(new ModelBox(gun34_r1, 70, 65, -1.0F, -1.001F, 0.0F, 1, 1, 1, -0.1F, false));
+        gun34_r1.cubeList.add(new ModelBox(gun34_r1, 70, 65, -1, -1.001F, 0.0F, 1, 1, 1, -0.1F, false));
 
         gun36_r1 = new ModelRenderer(this);
         gun36_r1.setRotationPoint(-4.301F, -34.7F, 3.898F);
         gun.addChild(gun36_r1);
         setRotationAngle(gun36_r1, 0.0F, 0.0F, -0.1222F);
-        gun36_r1.cubeList.add(new ModelBox(gun36_r1, 70, 28, 0.0F, -1.0F, 0.001F, 1, 1, 1, -0.1F, false));
+        gun36_r1.cubeList.add(new ModelBox(gun36_r1, 70, 28, 0.0F, -1, 0.001F, 1, 1, 1, -0.1F, false));
 
         gun35_r1 = new ModelRenderer(this);
         gun35_r1.setRotationPoint(1.301F, -34.7F, 3.898F);
         gun.addChild(gun35_r1);
         setRotationAngle(gun35_r1, 0.0F, 0.0F, 0.1222F);
-        gun35_r1.cubeList.add(new ModelBox(gun35_r1, 70, 45, -1.0F, -1.0F, 0.001F, 1, 1, 1, -0.1F, false));
+        gun35_r1.cubeList.add(new ModelBox(gun35_r1, 70, 45, -1, -1, 0.001F, 1, 1, 1, -0.1F, false));
 
         gun37_r1 = new ModelRenderer(this);
         gun37_r1.setRotationPoint(-2.1F, -38.1F, 1.001F);
@@ -256,18 +256,18 @@ public class Kedr extends ModelWithAttachments {
         gun36_r2.cubeList.add(new ModelBox(gun36_r2, 11, 30, -0.001F, 0.0F, 0.0F, 4, 1, 2, 0.0F, false));
 
         gun40_r3 = new ModelRenderer(this);
-        gun40_r3.setRotationPoint(-1.901F, -30.4F, -11.0F);
+        gun40_r3.setRotationPoint(-1.901F, -30.4F, -11);
         gun.addChild(gun40_r3);
         setRotationAngle(gun40_r3, -0.3665F, 0.0F, 0.0F);
         gun40_r3.cubeList.add(new ModelBox(gun40_r3, 52, 35, -1.999F, -2.0F, -5.0F, 2, 2, 5, 0.0F, false));
         gun40_r3.cubeList.add(new ModelBox(gun40_r3, 52, 44, 0.801F, -2.0F, -5.0F, 2, 2, 5, 0.0F, false));
 
         gun40_r4 = new ModelRenderer(this);
-        gun40_r4.setRotationPoint(-1.901F, -30.4F, -1.0F);
+        gun40_r4.setRotationPoint(-1.901F, -30.4F, -1);
         gun.addChild(gun40_r4);
         setRotationAngle(gun40_r4, 0.8901F, 0.0F, 0.0F);
-        gun40_r4.cubeList.add(new ModelBox(gun40_r4, 0, 40, -1.997F, -1.0F, 0.0F, 2, 1, 3, 0.0F, false));
-        gun40_r4.cubeList.add(new ModelBox(gun40_r4, 18, 40, 0.799F, -1.0F, 0.0F, 2, 1, 3, 0.0F, false));
+        gun40_r4.cubeList.add(new ModelBox(gun40_r4, 0, 40, -1.997F, -1, 0.0F, 2, 1, 3, 0.0F, false));
+        gun40_r4.cubeList.add(new ModelBox(gun40_r4, 18, 40, 0.799F, -1, 0.0F, 2, 1, 3, 0.0F, false));
 
         gun40_r5 = new ModelRenderer(this);
         gun40_r5.setRotationPoint(-2.651F, -30.4F, 0.0F);
@@ -281,7 +281,7 @@ public class Kedr extends ModelWithAttachments {
         gun.addChild(gun41_r2);
         setRotationAngle(gun41_r2, 0.7854F, 0.0F, 0.0F);
         gun41_r2.cubeList.add(new ModelBox(gun41_r2, 78, 65, -0.998F, -0.001F, -1.4F, 1, 1, 1, 0.0F, false));
-        gun41_r2.cubeList.add(new ModelBox(gun41_r2, 57, 79, -0.999F, 0.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        gun41_r2.cubeList.add(new ModelBox(gun41_r2, 57, 79, -0.999F, 0.0F, -1, 1, 1, 1, 0.0F, false));
 
         gun51_r1 = new ModelRenderer(this);
         gun51_r1.setRotationPoint(0.4F, -37.7F, -27.0F);
@@ -336,14 +336,14 @@ public class Kedr extends ModelWithAttachments {
         gun64_r1.setRotationPoint(-2.699F, -29.7F, -13.901F);
         gun.addChild(gun64_r1);
         setRotationAngle(gun64_r1, -0.4363F, 0.0F, 0.0F);
-        gun64_r1.cubeList.add(new ModelBox(gun64_r1, 70, 13, -1.5F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun64_r1.cubeList.add(new ModelBox(gun64_r1, 70, 13, -1.5F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun67_r1 = new ModelRenderer(this);
         gun67_r1.setRotationPoint(-4.199F, -31.45F, -10.201F);
         gun.addChild(gun67_r1);
         setRotationAngle(gun67_r1, -0.6807F, 0.0F, 0.0F);
         gun67_r1.cubeList.add(new ModelBox(gun67_r1, 63, 55, -0.001F, -2.0F, -1.5F, 1, 2, 1, 0.0F, false));
-        gun67_r1.cubeList.add(new ModelBox(gun67_r1, 0, 23, 0.002F, -3.0F, -1.0F, 1, 3, 1, 0.0F, false));
+        gun67_r1.cubeList.add(new ModelBox(gun67_r1, 0, 23, 0.002F, -3.0F, -1, 1, 3, 1, 0.0F, false));
 
         gun67_r2 = new ModelRenderer(this);
         gun67_r2.setRotationPoint(-4.199F, -34.45F, -8.001F);
@@ -368,36 +368,36 @@ public class Kedr extends ModelWithAttachments {
         gun63_r1.setRotationPoint(-3.099F, -32.7F, -17.501F);
         gun.addChild(gun63_r1);
         setRotationAngle(gun63_r1, -0.4363F, 0.0F, 0.0F);
-        gun63_r1.cubeList.add(new ModelBox(gun63_r1, 74, 65, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        gun63_r1.cubeList.add(new ModelBox(gun63_r1, 65, 77, 3.2F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        gun63_r1.cubeList.add(new ModelBox(gun63_r1, 74, 65, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        gun63_r1.cubeList.add(new ModelBox(gun63_r1, 65, 77, 3.2F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         gun65_r3 = new ModelRenderer(this);
         gun65_r3.setRotationPoint(-3.099F, -32.4F, 2.999F);
         gun.addChild(gun65_r3);
         setRotationAngle(gun65_r3, -0.4363F, 0.0F, 0.0F);
-        gun65_r3.cubeList.add(new ModelBox(gun65_r3, 0, 74, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        gun65_r3.cubeList.add(new ModelBox(gun65_r3, 14, 74, 3.2F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        gun65_r3.cubeList.add(new ModelBox(gun65_r3, 0, 74, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        gun65_r3.cubeList.add(new ModelBox(gun65_r3, 14, 74, 3.2F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         gun64_r2 = new ModelRenderer(this);
         gun64_r2.setRotationPoint(-3.099F, -33.6F, 2.999F);
         gun.addChild(gun64_r2);
         setRotationAngle(gun64_r2, -0.4363F, 0.0F, 0.0F);
-        gun64_r2.cubeList.add(new ModelBox(gun64_r2, 64, 73, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        gun64_r2.cubeList.add(new ModelBox(gun64_r2, 74, 28, 3.2F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        gun64_r2.cubeList.add(new ModelBox(gun64_r2, 64, 73, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        gun64_r2.cubeList.add(new ModelBox(gun64_r2, 74, 28, 3.2F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         gun62_r2 = new ModelRenderer(this);
         gun62_r2.setRotationPoint(-3.099F, -32.7F, -22.001F);
         gun.addChild(gun62_r2);
         setRotationAngle(gun62_r2, -0.4363F, 0.0F, 0.0F);
-        gun62_r2.cubeList.add(new ModelBox(gun62_r2, 57, 77, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        gun62_r2.cubeList.add(new ModelBox(gun62_r2, 72, 77, 3.2F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        gun62_r2.cubeList.add(new ModelBox(gun62_r2, 57, 77, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        gun62_r2.cubeList.add(new ModelBox(gun62_r2, 72, 77, 3.2F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         gun61_r3 = new ModelRenderer(this);
         gun61_r3.setRotationPoint(-3.099F, -33.7F, -23.401F);
         gun.addChild(gun61_r3);
         setRotationAngle(gun61_r3, -0.4363F, 0.0F, 0.0F);
-        gun61_r3.cubeList.add(new ModelBox(gun61_r3, 72, 75, -1.0F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
-        gun61_r3.cubeList.add(new ModelBox(gun61_r3, 78, 28, 3.2F, -1.0F, 0.0F, 1, 1, 1, -0.1F, false));
+        gun61_r3.cubeList.add(new ModelBox(gun61_r3, 72, 75, -1, -1, 0.0F, 1, 1, 1, -0.1F, false));
+        gun61_r3.cubeList.add(new ModelBox(gun61_r3, 78, 28, 3.2F, -1, 0.0F, 1, 1, 1, -0.1F, false));
 
         gun75_r1 = new ModelRenderer(this);
         gun75_r1.setRotationPoint(-3.5F, -29.9F, -13.3F);
@@ -450,7 +450,7 @@ public class Kedr extends ModelWithAttachments {
         gun97_r1.cubeList.add(new ModelBox(gun97_r1, 63, 51, -0.801F, -0.201F, -3.2F, 1, 2, 1, -0.2F, false));
         gun97_r1.cubeList.add(new ModelBox(gun97_r1, 36, 35, -0.8F, -0.2F, -2.8F, 1, 2, 3, -0.2F, false));
         gun97_r1.cubeList.add(new ModelBox(gun97_r1, 29, 53, 0.999F, -0.201F, -3.2F, 1, 2, 1, -0.2F, false));
-        gun97_r1.cubeList.add(new ModelBox(gun97_r1, 36, 44, 1.0F, -0.2F, -2.8F, 1, 2, 3, -0.2F, false));
+        gun97_r1.cubeList.add(new ModelBox(gun97_r1, 36, 44, 1, -0.2F, -2.8F, 1, 2, 3, -0.2F, false));
 
         grip = new ModelRenderer(this);
         grip.setRotationPoint(-3.5F, -28.5F, -1.8F);

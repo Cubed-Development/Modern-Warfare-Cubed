@@ -184,7 +184,7 @@ public class P90Factory implements GunFactory {
                 })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
                     GL11.glTranslatef(-0.24F, -2.25F, -2.6F);
-                    GL11.glScaled(1.0F, 1.0F, 1.0F);
+                    GL11.glScaled(1, 1, 1);
                 }, (model) -> {
                     if (model instanceof JPUreticle) {
                         GL11.glTranslatef(0.12F, -0.2F, 2.49F);

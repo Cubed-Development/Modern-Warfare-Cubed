@@ -356,37 +356,37 @@ public class RPK16handguard extends ModelBase {
         gun520.cubeList.add(new ModelBox(gun520, 0, 40, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun521 = new ModelRenderer(this);
-        gun521.setRotationPoint(-1.0F, -7.4F, -58.5F);
+        gun521.setRotationPoint(-1, -7.4F, -58.5F);
         setRotationAngle(gun521, 0.0F, 0.0F, -1.7846F);
         gun521.cubeList.add(new ModelBox(gun521, 0, 6, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         gun522 = new ModelRenderer(this);
-        gun522.setRotationPoint(-1.0F, -7.4F, -53.5F);
+        gun522.setRotationPoint(-1, -7.4F, -53.5F);
         setRotationAngle(gun522, 0.0F, 0.0F, -1.7846F);
         gun522.cubeList.add(new ModelBox(gun522, 18, 39, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun523 = new ModelRenderer(this);
-        gun523.setRotationPoint(-1.0F, -7.4F, -50.5F);
+        gun523.setRotationPoint(-1, -7.4F, -50.5F);
         setRotationAngle(gun523, 0.0F, 0.0F, -1.7846F);
         gun523.cubeList.add(new ModelBox(gun523, 38, 28, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun524 = new ModelRenderer(this);
-        gun524.setRotationPoint(-1.0F, -7.4F, -47.5F);
+        gun524.setRotationPoint(-1, -7.4F, -47.5F);
         setRotationAngle(gun524, 0.0F, 0.0F, -1.7846F);
         gun524.cubeList.add(new ModelBox(gun524, 28, 38, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun525 = new ModelRenderer(this);
-        gun525.setRotationPoint(-1.0F, -7.4F, -49.0F);
+        gun525.setRotationPoint(-1, -7.4F, -49.0F);
         setRotationAngle(gun525, 0.0F, 0.0F, -1.7846F);
         gun525.cubeList.add(new ModelBox(gun525, 38, 26, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun526 = new ModelRenderer(this);
-        gun526.setRotationPoint(-1.0F, -7.4F, -52.0F);
+        gun526.setRotationPoint(-1, -7.4F, -52.0F);
         setRotationAngle(gun526, 0.0F, 0.0F, -1.7846F);
         gun526.cubeList.add(new ModelBox(gun526, 34, 37, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun527 = new ModelRenderer(this);
-        gun527.setRotationPoint(-1.0F, -7.4F, -55.0F);
+        gun527.setRotationPoint(-1, -7.4F, -55.0F);
         setRotationAngle(gun527, 0.0F, 0.0F, -1.7846F);
         gun527.cubeList.add(new ModelBox(gun527, 25, 37, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
@@ -577,12 +577,12 @@ public class RPK16handguard extends ModelBase {
         gun644.cubeList.add(new ModelBox(gun644, 31, 4, 0.0F, 0.0F, -0.001F, 2, 1, 1, 0.0F, false));
 
         gun645 = new ModelRenderer(this);
-        gun645.setRotationPoint(0.3F, -14.3F, -51.0F);
+        gun645.setRotationPoint(0.3F, -14.3F, -51);
         setRotationAngle(gun645, 0.0F, 0.0F, 0.7808F);
         gun645.cubeList.add(new ModelBox(gun645, 0, 11, -1.8F, -0.001F, 0.0F, 1, 1, 10, 0.0F, false));
 
         gun646 = new ModelRenderer(this);
-        gun646.setRotationPoint(-3.3F, -14.3F, -51.0F);
+        gun646.setRotationPoint(-3.3F, -14.3F, -51);
         setRotationAngle(gun646, 0.0F, 0.0F, -0.7808F);
         gun646.cubeList.add(new ModelBox(gun646, 0, 0, 0.8F, -0.001F, 0.0F, 1, 1, 10, 0.0F, false));
 
@@ -594,22 +594,22 @@ public class RPK16handguard extends ModelBase {
         gun648 = new ModelRenderer(this);
         gun648.setRotationPoint(-3.3F, -13.0F, -58.5F);
         setRotationAngle(gun648, 0.0F, 0.0F, -2.5653F);
-        gun648.cubeList.add(new ModelBox(gun648, 12, 11, -1.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun648.cubeList.add(new ModelBox(gun648, 12, 11, -1, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun649 = new ModelRenderer(this);
         gun649.setRotationPoint(-3.8F, -11.5F, -41.5F);
         setRotationAngle(gun649, 0.0F, 0.0F, -2.5653F);
-        gun649.cubeList.add(new ModelBox(gun649, 50, 34, -1.0F, 0.0F, -0.001F, 1, 1, 6, 0.0F, false));
+        gun649.cubeList.add(new ModelBox(gun649, 50, 34, -1, 0.0F, -0.001F, 1, 1, 6, 0.0F, false));
 
         gun650 = new ModelRenderer(this);
         gun650.setRotationPoint(-3.8F, -11.5F, -49.0F);
         setRotationAngle(gun650, 0.0F, 0.0F, -2.5653F);
-        gun650.cubeList.add(new ModelBox(gun650, 12, 5, -1.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun650.cubeList.add(new ModelBox(gun650, 12, 5, -1, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
         gun651 = new ModelRenderer(this);
         gun651.setRotationPoint(-3.8F, -11.5F, -58.5F);
         setRotationAngle(gun651, 0.0F, 0.0F, -2.5653F);
-        gun651.cubeList.add(new ModelBox(gun651, 34, 33, -1.0F, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
+        gun651.cubeList.add(new ModelBox(gun651, 34, 33, -1, 0.0F, 0.0F, 1, 1, 6, 0.0F, false));
 
         gun652 = new ModelRenderer(this);
         gun652.setRotationPoint(-3.8F, -11.5F, -49.0F);
@@ -659,12 +659,12 @@ public class RPK16handguard extends ModelBase {
         gun661.cubeList.add(new ModelBox(gun661, 0, 36, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun662 = new ModelRenderer(this);
-        gun662.setRotationPoint(-1.0F, -7.4F, -44.5F);
+        gun662.setRotationPoint(-1, -7.4F, -44.5F);
         setRotationAngle(gun662, 0.0F, 0.0F, -1.7846F);
         gun662.cubeList.add(new ModelBox(gun662, 31, 16, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         gun663 = new ModelRenderer(this);
-        gun663.setRotationPoint(-1.0F, -7.4F, -46.0F);
+        gun663.setRotationPoint(-1, -7.4F, -46.0F);
         setRotationAngle(gun663, 0.0F, 0.0F, -1.7846F);
         gun663.cubeList.add(new ModelBox(gun663, 31, 14, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 

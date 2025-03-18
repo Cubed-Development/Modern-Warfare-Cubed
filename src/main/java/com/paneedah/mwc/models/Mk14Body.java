@@ -148,7 +148,7 @@ public class Mk14Body extends ModelBase {
         gun354_r1.setRotationPoint(-4.8F, -35.1F, -60.1F);
         mk14body.addChild(gun354_r1);
         setRotationAngle(gun354_r1, 0.0F, 0.0F, -2.6908F);
-        gun354_r1.cubeList.add(new ModelBox(gun354_r1, 200, 94, -1.0F, 0.0F, 0.0F, 1, 1, 17, -0.001F, false));
+        gun354_r1.cubeList.add(new ModelBox(gun354_r1, 200, 94, -1, 0.0F, 0.0F, 1, 1, 17, -0.001F, false));
 
         gun353_r1 = new ModelRenderer(this);
         gun353_r1.setRotationPoint(1.8F, -35.1F, -60.1F);
@@ -335,13 +335,13 @@ public class Mk14Body extends ModelBase {
         straight_pieces.setRotationPoint(0.0F, -39.3F, -73.0F);
         mk14body.addChild(straight_pieces);
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 39, 145, -4.0F, 0.0F, 0.0F, 5, 1, 30, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 12, 68, -3.99F, 1.0F, 0.0F, 5, 1, 1, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 0, 68, -3.99F, 1.0F, 3.0F, 5, 1, 1, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 61, 26, -3.99F, 1.0F, 6.0F, 5, 1, 1, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 41, 26, -3.99F, 1.0F, 9.0F, 5, 1, 1, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 41, 31, -3.99F, 1.0F, 12.0F, 5, 1, 3, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 12, 68, -3.99F, 1, 0.0F, 5, 1, 1, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 0, 68, -3.99F, 1, 3.0F, 5, 1, 1, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 61, 26, -3.99F, 1, 6.0F, 5, 1, 1, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 41, 26, -3.99F, 1, 9.0F, 5, 1, 1, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 41, 31, -3.99F, 1, 12.0F, 5, 1, 3, 0.0F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 51, 81, -3.7F, -0.3F, -1.01F, 4, 2, 1, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 19, 36, -0.3F, -0.3F, -1.0F, 1, 2, 1, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 19, 36, -0.3F, -0.3F, -1, 1, 2, 1, 0.0F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 27, 12, 0.1F, 4.0F, -1.1F, 1, 1, 2, 0.0F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 78, 145, -0.9F, 5.0F, -1.1F, 2, 1, 31, 0.0F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 19, 61, -4.1F, 4.0F, -1.101F, 5, 1, 2, 0.0F, false));
@@ -373,21 +373,21 @@ public class Mk14Body extends ModelBase {
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 124, 170, -3.8F, 6.7F, 12.9F, 4, 1, 20, 0.0F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 116, 191, -0.2F, 6.7F, 12.9F, 1, 1, 20, 0.001F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 74, 110, -3.0F, 6.0F, -0.5F, 3, 1, 31, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 0, 36, -2.7F, -1.4F, -1.0F, 2, 1, 35, 0.001F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 39, 37, -1.3F, -1.4F, -1.0F, 1, 1, 35, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 0, 36, -2.7F, -1.4F, -1, 2, 1, 35, 0.001F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 39, 37, -1.3F, -1.4F, -1, 1, 1, 35, 0.0F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 154, 32, -4.0F, 3.3F, 35.0F, 1, 2, 22, 0.0F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 0, 97, -4.0F, 8.6F, 64.0F, 5, 1, 7, 0.0F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 90, 10, -3.5F, 5.6F, 64.0F, 4, 3, 7, 0.002F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 51, 73, -2.5F, 3.6F, 64.0F, 2, 1, 7, 0.0F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 37, 98, -3.5F, 4.6F, 64.0F, 4, 1, 7, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 41, 1, 0.7F, 6.2F, 51.0F, 1, 1, 35, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 0, 72, 1.1F, 6.2F, 51.0F, 1, 1, 35, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 37, 73, -4.7F, 6.2F, 51.0F, 1, 1, 35, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 74, 74, -5.1F, 6.2F, 51.0F, 1, 1, 35, 0.0F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 76, 38, 0.9F, 6.0F, 51.0F, 1, 1, 35, 0.001F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 78, 0, 0.9F, 6.4F, 51.0F, 1, 1, 35, 0.002F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 0, 108, -4.9F, 6.0F, 51.0F, 1, 1, 35, 0.001F, false));
-        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 37, 109, -4.9F, 6.4F, 51.0F, 1, 1, 35, 0.002F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 41, 1, 0.7F, 6.2F, 51, 1, 1, 35, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 0, 72, 1.1F, 6.2F, 51, 1, 1, 35, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 37, 73, -4.7F, 6.2F, 51, 1, 1, 35, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 74, 74, -5.1F, 6.2F, 51, 1, 1, 35, 0.0F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 76, 38, 0.9F, 6.0F, 51, 1, 1, 35, 0.001F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 78, 0, 0.9F, 6.4F, 51, 1, 1, 35, 0.002F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 0, 108, -4.9F, 6.0F, 51, 1, 1, 35, 0.001F, false));
+        straight_pieces.cubeList.add(new ModelBox(straight_pieces, 37, 109, -4.9F, 6.4F, 51, 1, 1, 35, 0.002F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 88, 74, -5.31F, 5.8F, 64.0F, 2, 1, 7, 0.0F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 90, 37, -5.3F, 6.6F, 64.0F, 2, 1, 7, 0.001F, false));
         straight_pieces.cubeList.add(new ModelBox(straight_pieces, 90, 50, 0.31F, 5.8F, 64.0F, 2, 1, 7, 0.0F, false));
@@ -420,7 +420,7 @@ public class Mk14Body extends ModelBase {
         gun374.cubeList.add(new ModelBox(gun374, 0, 17, 0.0F, 0.0F, 0.0F, 1, 2, 7, -0.001F, false));
 
         gun369 = new ModelRenderer(this);
-        gun369.setRotationPoint(-3.5F, -30.2F, -11.0F);
+        gun369.setRotationPoint(-3.5F, -30.2F, -11);
         mk14body.addChild(gun369);
         setRotationAngle(gun369, -0.1115F, 0.0F, 0.0F);
         gun369.cubeList.add(new ModelBox(gun369, 39, 45, 0.01F, 0.0F, 0.0F, 4, 4, 3, 0.0F, false));
@@ -507,13 +507,13 @@ public class Mk14Body extends ModelBase {
         gun342.setRotationPoint(1.8F, -37.1F, -43.1F);
         mk14body.addChild(gun342);
         setRotationAngle(gun342, 0.0F, 0.0F, 2.3562F);
-        gun342.cubeList.add(new ModelBox(gun342, 61, 87, 0.0F, 0.0F, -1.0F, 1, 1, 4, -0.001F, false));
+        gun342.cubeList.add(new ModelBox(gun342, 61, 87, 0.0F, 0.0F, -1, 1, 1, 4, -0.001F, false));
 
         gun341 = new ModelRenderer(this);
         gun341.setRotationPoint(-4.8F, -37.1F, -43.1F);
         mk14body.addChild(gun341);
         setRotationAngle(gun341, 0.0F, 0.0F, -0.7854F);
-        gun341.cubeList.add(new ModelBox(gun341, 49, 86, 0.0F, 0.0F, -1.0F, 1, 1, 4, -0.001F, false));
+        gun341.cubeList.add(new ModelBox(gun341, 49, 86, 0.0F, 0.0F, -1, 1, 1, 4, -0.001F, false));
 
         gun339 = new ModelRenderer(this);
         gun339.setRotationPoint(0.4F, -38.1F, -59.1F);
@@ -572,7 +572,7 @@ public class Mk14Body extends ModelBase {
         gun288.cubeList.add(new ModelBox(gun288, 111, 74, 0.0F, 0.0F, 0.0F, 1, 1, 34, 0.0F, false));
 
         gun287 = new ModelRenderer(this);
-        gun287.setRotationPoint(1.0F, -39.3F, -73.0F);
+        gun287.setRotationPoint(1, -39.3F, -73.0F);
         mk14body.addChild(gun287);
         setRotationAngle(gun287, 0.0F, 0.0F, 2.3562F);
         gun287.cubeList.add(new ModelBox(gun287, 109, 110, 0.0F, 0.0F, 0.0F, 1, 1, 34, 0.0F, false));
@@ -590,7 +590,7 @@ public class Mk14Body extends ModelBase {
         gun284.cubeList.add(new ModelBox(gun284, 0, 0, 0.0F, 0.0F, 0.0F, 3, 1, 35, 0.002F, false));
 
         gun283 = new ModelRenderer(this);
-        gun283.setRotationPoint(1.0F, -35.7F, -32.0F);
+        gun283.setRotationPoint(1, -35.7F, -32.0F);
         mk14body.addChild(gun283);
         setRotationAngle(gun283, 0.0F, 0.0F, 2.3562F);
         gun283.cubeList.add(new ModelBox(gun283, 41, 7, 0.0F, 0.0F, -2.0F, 1, 1, 6, 0.0F, false));
@@ -601,19 +601,19 @@ public class Mk14Body extends ModelBase {
 
 
         gun281 = new ModelRenderer(this);
-        gun281.setRotationPoint(1.0F, -34.8F, -30.0F);
+        gun281.setRotationPoint(1, -34.8F, -30.0F);
         mk14body.addChild(gun281);
         setRotationAngle(gun281, 0.0F, 0.0F, 2.3562F);
 
 
         gun280 = new ModelRenderer(this);
-        gun280.setRotationPoint(1.0F, -35.7F, -22.0F);
+        gun280.setRotationPoint(1, -35.7F, -22.0F);
         mk14body.addChild(gun280);
         setRotationAngle(gun280, 0.0F, 0.0F, 2.3562F);
         gun280.cubeList.add(new ModelBox(gun280, 74, 74, 0.0F, 0.0F, 0.0F, 1, 1, 12, 0.0F, false));
 
         gun279 = new ModelRenderer(this);
-        gun279.setRotationPoint(1.0F, -34.8F, -22.0F);
+        gun279.setRotationPoint(1, -34.8F, -22.0F);
         mk14body.addChild(gun279);
         setRotationAngle(gun279, 0.0F, 0.0F, 2.3562F);
         gun279.cubeList.add(new ModelBox(gun279, 156, 0, 0.2121F, -0.2121F, -10.0F, 1, 1, 22, 0.0F, false));
@@ -643,13 +643,13 @@ public class Mk14Body extends ModelBase {
         gun275.cubeList.add(new ModelBox(gun275, 51, 67, 0.0F, 0.0F, 0.0F, 5, 3, 1, 0.0F, false));
 
         gun274 = new ModelRenderer(this);
-        gun274.setRotationPoint(1.0F, -33.5F, -27.0F);
+        gun274.setRotationPoint(1, -33.5F, -27.0F);
         mk14body.addChild(gun274);
         setRotationAngle(gun274, 0.0F, 0.0F, 2.3562F);
         gun274.cubeList.add(new ModelBox(gun274, 178, 98, 0.0F, 0.0F, -2.0F, 1, 1, 20, 0.0F, false));
 
         gun273 = new ModelRenderer(this);
-        gun273.setRotationPoint(1.0F, -31.7F, -27.0F);
+        gun273.setRotationPoint(1, -31.7F, -27.0F);
         mk14body.addChild(gun273);
         setRotationAngle(gun273, 0.0F, 0.0F, 2.3562F);
         gun273.cubeList.add(new ModelBox(gun273, 0, 0, 0.0F, 0.0F, 2.0F, 1, 1, 16, 0.0F, false));
@@ -709,7 +709,7 @@ public class Mk14Body extends ModelBase {
         gun267_r1.setRotationPoint(4.99F, 1.1F, -3.65F);
         gun25.addChild(gun267_r1);
         setRotationAngle(gun267_r1, 0.0F, -0.7854F, 0.0F);
-        gun267_r1.cubeList.add(new ModelBox(gun267_r1, 18, 27, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun267_r1.cubeList.add(new ModelBox(gun267_r1, 18, 27, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun268_r1 = new ModelRenderer(this);
         gun268_r1.setRotationPoint(4.99F, 2.3F, -3.55F);
@@ -729,7 +729,7 @@ public class Mk14Body extends ModelBase {
         gun266_r2.setRotationPoint(4.99F, 0.0F, -2.0F);
         gun25.addChild(gun266_r2);
         setRotationAngle(gun266_r2, -1.1258F, -0.4065F, 0.6922F);
-        gun266_r2.cubeList.add(new ModelBox(gun266_r2, 30, 27, -1.0F, 0.0F, 0.0F, 1, 2, 1, -0.001F, false));
+        gun266_r2.cubeList.add(new ModelBox(gun266_r2, 30, 27, -1, 0.0F, 0.0F, 1, 2, 1, -0.001F, false));
 
         gun263 = new ModelRenderer(this);
         gun263.setRotationPoint(-3.0F, -35.5F, -37.6F);
@@ -787,7 +787,7 @@ public class Mk14Body extends ModelBase {
         gun41.cubeList.add(new ModelBox(gun41, 41, 7, 0.0F, 0.0F, 0.0F, 1, 1, 1, -0.003F, false));
 
         gun42 = new ModelRenderer(this);
-        gun42.setRotationPoint(1.0F, -35.8F, -27.0F);
+        gun42.setRotationPoint(1, -35.8F, -27.0F);
         mk14body.addChild(gun42);
         setRotationAngle(gun42, 0.0F, 0.0F, 2.8256F);
         gun42.cubeList.add(new ModelBox(gun42, 27, 65, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
@@ -826,10 +826,10 @@ public class Mk14Body extends ModelBase {
         gun64.cubeList.add(new ModelBox(gun64, 27, 0, -0.3F, 0.0F, 0.6F, 1, 1, 3, 0.0F, false));
 
         gun40_r1 = new ModelRenderer(this);
-        gun40_r1.setRotationPoint(-0.3F, 1.8F, 1.0F);
+        gun40_r1.setRotationPoint(-0.3F, 1.8F, 1);
         gun64.addChild(gun40_r1);
         setRotationAngle(gun40_r1, 0.4363F, 0.0F, 0.0F);
-        gun40_r1.cubeList.add(new ModelBox(gun40_r1, 9, 0, 0.0F, -1.0F, 0.0F, 1, 1, 2, -0.001F, false));
+        gun40_r1.cubeList.add(new ModelBox(gun40_r1, 9, 0, 0.0F, -1, 0.0F, 1, 1, 2, -0.001F, false));
 
         gun65 = new ModelRenderer(this);
         gun65.setRotationPoint(-3.0F, -36.3F, -38.0F);
@@ -867,7 +867,7 @@ public class Mk14Body extends ModelBase {
         gun80 = new ModelRenderer(this);
         gun80.setRotationPoint(-3.5F, -17.1F, -5.7F);
         mk14body.addChild(gun80);
-        gun80.cubeList.add(new ModelBox(gun80, 19, 44, 0.0F, -1.0F, 0.0F, 4, 2, 4, -0.001F, false));
+        gun80.cubeList.add(new ModelBox(gun80, 19, 44, 0.0F, -1, 0.0F, 4, 2, 4, -0.001F, false));
 
         gun82 = new ModelRenderer(this);
         gun82.setRotationPoint(-3.5F, -22.2F, -0.2F);
@@ -914,7 +914,7 @@ public class Mk14Body extends ModelBase {
         gun98.setRotationPoint(-3.5F, -32.5F, -5.2F);
         mk14body.addChild(gun98);
         setRotationAngle(gun98, -1.1897F, 0.0F, 0.0F);
-        gun98.cubeList.add(new ModelBox(gun98, 197, 44, 0.0F, 0.0F, 1.0F, 4, 6, 15, 0.001F, false));
+        gun98.cubeList.add(new ModelBox(gun98, 197, 44, 0.0F, 0.0F, 1, 4, 6, 15, 0.001F, false));
 
         mk14barrel = new ModelRenderer(this);
         mk14barrel.setRotationPoint(0.0F, 24.0F, 9.0F);

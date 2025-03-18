@@ -245,7 +245,7 @@ public class FMG9Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
-                    GL11.glTranslatef(-0.165F, -1.0F, -4.7F);
+                    GL11.glTranslatef(-0.165F, -1, -4.7F);
                     GL11.glScaled(1F, 1F, 1F);
                 })
                 .withTextureNames("fmg9")

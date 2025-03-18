@@ -81,10 +81,10 @@ public class ACRWEMSKHandguard extends ModelBase {
         bone10_r1.setRotationPoint(1.5348F, 61.3273F, -3.3268F);
         Wemsk_Handguard.addChild(bone10_r1);
         setRotationAngle(bone10_r1, -0.7854F, 0.0F, 0.0F);
-        bone10_r1.cubeList.add(new ModelBox(bone10_r1, 0, 156, -4.8F, -39.1F, -51.0F, 1, 1, 1, 0.0F, false));
-        bone10_r1.cubeList.add(new ModelBox(bone10_r1, 8, 156, -4.8F, -38.7F, -51.0F, 1, 1, 1, 0.0F, false));
-        bone10_r1.cubeList.add(new ModelBox(bone10_r1, 69, 156, 0.8F, -39.1F, -51.0F, 1, 1, 1, 0.0F, false));
-        bone10_r1.cubeList.add(new ModelBox(bone10_r1, 11, 157, 0.8F, -38.7F, -51.0F, 1, 1, 1, 0.0F, false));
+        bone10_r1.cubeList.add(new ModelBox(bone10_r1, 0, 156, -4.8F, -39.1F, -51, 1, 1, 1, 0.0F, false));
+        bone10_r1.cubeList.add(new ModelBox(bone10_r1, 8, 156, -4.8F, -38.7F, -51, 1, 1, 1, 0.0F, false));
+        bone10_r1.cubeList.add(new ModelBox(bone10_r1, 69, 156, 0.8F, -39.1F, -51, 1, 1, 1, 0.0F, false));
+        bone10_r1.cubeList.add(new ModelBox(bone10_r1, 11, 157, 0.8F, -38.7F, -51, 1, 1, 1, 0.0F, false));
 
         bone2_r1 = new ModelRenderer(this);
         bone2_r1.setRotationPoint(25.988F, 29.5369F, 39.2587F);

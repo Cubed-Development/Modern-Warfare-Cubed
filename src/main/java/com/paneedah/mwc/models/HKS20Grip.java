@@ -46,7 +46,7 @@ public class HKS20Grip extends ModelWithAttachments {
 
         grip = new ModelRenderer(this);
         grip.setRotationPoint(0.0F, 24.0F, 0.0F);
-        grip.cubeList.add(new ModelBox(grip, 0, 0, -1.0F, -33.5F, 2.0F, 2, 1, 12, 0.0F, true));
+        grip.cubeList.add(new ModelBox(grip, 0, 0, -1, -33.5F, 2.0F, 2, 1, 12, 0.0F, true));
         grip.cubeList.add(new ModelBox(grip, 0, 0, -3.5F, -30.0F, 7.9F, 4, 9, 9, 0.0F, true));
         grip.cubeList.add(new ModelBox(grip, 0, 0, -3.5F, -33.0F, -1.1F, 4, 3, 15, 0.0F, true));
         grip.cubeList.add(new ModelBox(grip, 0, 0, -4.0F, -33.5F, 2.0F, 2, 1, 12, 0.0F, true));
@@ -223,7 +223,7 @@ public class HKS20Grip extends ModelWithAttachments {
         grip56_r1.setRotationPoint(0.0F, -44.0154F, 30.9322F);
         grip.addChild(grip56_r1);
         setRotationAngle(grip56_r1, -3.0115F, 0.0F, 0.0F);
-        grip56_r1.cubeList.add(new ModelBox(grip56_r1, 0, 0, -3.5F, -21.0F, 16.9F, 4, 2, 9, 0.0F, true));
+        grip56_r1.cubeList.add(new ModelBox(grip56_r1, 0, 0, -3.5F, -21, 16.9F, 4, 2, 9, 0.0F, true));
 
         grip55_r1 = new ModelRenderer(this);
         grip55_r1.setRotationPoint(0.0F, -12.1094F, 23.4687F);

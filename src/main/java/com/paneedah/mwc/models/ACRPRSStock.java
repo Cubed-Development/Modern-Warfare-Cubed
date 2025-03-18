@@ -82,22 +82,22 @@ public class ACRPRSStock extends ModelBase {
         bone17_r1.setRotationPoint(25.6286F, 27.8344F, -13.8114F);
         PRSStock.addChild(bone17_r1);
         setRotationAngle(bone17_r1, 0.0F, 0.0F, -0.6458F);
-        bone17_r1.cubeList.add(new ModelBox(bone17_r1, 188, 211, -1.0F, -40.15F, 11.0F, 1, 1, 13, 0.0F, false));
+        bone17_r1.cubeList.add(new ModelBox(bone17_r1, 188, 211, -1, -40.15F, 11, 1, 1, 13, 0.0F, false));
 
         bone18_r1 = new ModelRenderer(this);
         bone18_r1.setRotationPoint(-23.3031F, 29.6399F, -13.8114F);
         PRSStock.addChild(bone18_r1);
         setRotationAngle(bone18_r1, 0.0F, 0.0F, 0.6458F);
-        bone18_r1.cubeList.add(new ModelBox(bone18_r1, 214, 0, -3.0F, -40.15F, 11.0F, 1, 1, 13, 0.0F, false));
+        bone18_r1.cubeList.add(new ModelBox(bone18_r1, 214, 0, -3.0F, -40.15F, 11, 1, 1, 13, 0.0F, false));
 
         bone19_r1 = new ModelRenderer(this);
         bone19_r1.setRotationPoint(1.4648F, 9.8949F, -40.7564F);
         PRSStock.addChild(bone19_r1);
         setRotationAngle(bone19_r1, -0.9774F, 0.0F, 0.0F);
-        bone19_r1.cubeList.add(new ModelBox(bone19_r1, 116, 98, -0.39F, -39.35F, 11.0F, 1, 1, 2, 0.0F, false));
+        bone19_r1.cubeList.add(new ModelBox(bone19_r1, 116, 98, -0.39F, -39.35F, 11, 1, 1, 2, 0.0F, false));
         bone19_r1.cubeList.add(new ModelBox(bone19_r1, 125, 126, -0.4F, -41.35F, 13.0F, 1, 3, 6, 0.0F, false));
         bone19_r1.cubeList.add(new ModelBox(bone19_r1, 138, 140, -3.6F, -41.35F, 13.0F, 1, 3, 6, 0.0F, false));
-        bone19_r1.cubeList.add(new ModelBox(bone19_r1, 119, 40, -3.61F, -39.35F, 11.0F, 1, 1, 2, 0.0F, false));
+        bone19_r1.cubeList.add(new ModelBox(bone19_r1, 119, 40, -3.61F, -39.35F, 11, 1, 1, 2, 0.0F, false));
 
         bone20_r1 = new ModelRenderer(this);
         bone20_r1.setRotationPoint(1.4648F, -30.8779F, 45.366F);

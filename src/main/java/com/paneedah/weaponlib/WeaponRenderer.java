@@ -2948,11 +2948,11 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
             //Vec3d iP  = MWCUtil.getInterpolatedPlayerPos();
-            //PostProcessPipeline.getLightManager().addLight((float) iP.x, (float) iP.y, (float) iP.z, 1.0f, 0.623f, 0.262f, 0.1f, 0.009f, 0.032f);
+            //PostProcessPipeline.getLightManager().addLight((float) iP.x, (float) iP.y, (float) iP.z, 1, 0.623f, 0.262f, 0.1f, 0.009f, 0.032f);
 
             MuzzleFlashRenderer.renderFlash(renderContext.getPlayer().getEntityId(), weaponItemStack, false);
 
-            //Vec3d distortPos = new Vec3d(0, 0, 1).rotateYaw((float) -Math.toRadians(MC.player.rotationYaw)).add(MC.player.getPositionEyes(1.0f));
+            //Vec3d distortPos = new Vec3d(0, 0, 1).rotateYaw((float) -Math.toRadians(MC.player.rotationYaw)).add(MC.player.getPositionEyes(1));
 
             //PostProcessPipeline.createDistortionPoint((float) distortPos.x, (float) distortPos.y, (float) distortPos.z, 1f, 300);
 
@@ -3450,7 +3450,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                             float mu = ClientValueRepo.slidePumpValue.getLerpedFloat();
 
 
-                            mu = Math.min(mu, 1.0f);
+                            mu = Math.min(mu, 1);
 
 
                             Transform transform = renderContext.getWeaponInstance().getWeapon().getRenderer().getBuilder().actionPieceTransform;
@@ -4051,7 +4051,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			// (ClientValueRepo.gunPow-30f)/5f : 0f;
 			// System.out.println(shoting);
 
-			float aimMultiplier = renderContext.getWeaponInstance().isAimed() ? 0.1f : 1.0f;
+			float aimMultiplier = renderContext.getWeaponInstance().isAimed() ? 0.1f : 1;
 
 			float strafe = (float) ClientValueRepo.strafe * aimMultiplier * 0.7f;
 
@@ -4116,7 +4116,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 						(float) ClientValueRepo.xInertia + fight + xWiggle + (forwardMov * 10));
 
 				if (!isPistol)
-					applyRotationAtPoint(0.0f, 0.0f, -1.0f, -muzzleRiser, 0.0f, 0.0f);
+					applyRotationAtPoint(0.0f, 0.0f, -1, -muzzleRiser, 0.0f, 0.0f);
 
 				float limitedShoting = Math.min(shoting, (float) ClientValueRepo.recoilStop / 1.5f);
 
@@ -4305,7 +4305,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
                 AnimationModeProcessor.getInstance().currentPartMatrix = MatrixHelper.captureMatrix();
-                AnimationModeProcessor.getInstance().renderTransformIndicator(1.0f);
+                AnimationModeProcessor.getInstance().renderTransformIndicator(1);
                 GlStateManager.popMatrix();
             }
         }
@@ -4341,7 +4341,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             GlStateManager.disableTexture2D();
             GlStateManager.disableLighting();
 
-            AnimationModeProcessor.getInstance().renderTransformIndicator(1.0f);
+            AnimationModeProcessor.getInstance().renderTransformIndicator(1);
 
             GL11.glPopMatrix();
         }
@@ -4360,7 +4360,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             }
             // System.out.println(OpenGLSelectionHelper.selectID);
             Shaders.selectedge.uniform1i("idSelected", OpenGLSelectionHelper.selectID);
-            Shaders.selectedge.uniform2f("fragSize", 1.0f / MC.displayWidth, 1.0f / MC.displayHeight);
+            Shaders.selectedge.uniform2f("fragSize", 1 / MC.displayWidth, 1 / MC.displayHeight);
             GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 
 
@@ -4480,9 +4480,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             GlStateManager.enableAlpha();
             GlStateManager.disableLighting();
 
-            GL11.glTranslatef(0.0F, 1.0F, 0.5F);
+            GL11.glTranslatef(0.0F, 1, 0.5F);
             GL11.glScalef(0.004F, 0.004F, 0.004F);
-            GL11.glScalef(1.0F, -1.0F, 1F);
+            GL11.glScalef(1, -1, 1F);
             GlStateManager.translate(-8.0F, -8.0F, 0.0F);
 
             MC.getTextureManager().bindTexture(GUN_ICON_SHEET);
@@ -4539,9 +4539,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             //GlStateManager.disableTexture2D();
 
 
-            GL11.glTranslatef(0.0F, 1.0F, 0.5F);
+            GL11.glTranslatef(0.0F, 1, 0.5F);
             GL11.glScalef(0.004F, 0.004F, 0.004F);
-            GL11.glScalef(1.0F, -1.0F, 1F);
+            GL11.glScalef(1, -1, 1F);
             GlStateManager.translate(-8.0F, -8.0F, 0.0F);
 
 
@@ -4799,7 +4799,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     }
 
     public static void renderRightArm(ModelBiped modelPlayer, AbstractClientPlayer clientPlayer) {
-        float f = 1.0F;
+        float f = 1;
         GlStateManager.color(f, f, f);
 
         // Set the model visibilities
@@ -4946,7 +4946,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     public static AbstractClientPlayer acp;
 
     public static void renderLeftArm(ModelBiped modelplayer, AbstractClientPlayer clientPlayer) {
-        // GlStateManager.color(1.0F, 1.0F, 1.0F);
+        // GlStateManager.color(1, 1, 1);
 
 		/*
 		if(acp == null || acp != clientPlayer) {
@@ -5012,7 +5012,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     }
 
     public static void renderVehicleRightArm(ModelBiped modelplayer, AbstractClientPlayer clientPlayer) {
-        GlStateManager.color(1.0F, 1.0F, 1.0F);
+        GlStateManager.color(1, 1, 1);
         setModelVisibilities(modelplayer, clientPlayer);
 
         GlStateManager.enableBlend();
@@ -5027,7 +5027,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     }
 
     public static void renderLeftVehicleArm(ModelBiped modelplayer, AbstractClientPlayer clientPlayer) {
-        GlStateManager.color(1.0F, 1.0F, 1.0F);
+        GlStateManager.color(1, 1, 1);
         setModelVisibilities(modelplayer, clientPlayer);
 
         GlStateManager.enableBlend();

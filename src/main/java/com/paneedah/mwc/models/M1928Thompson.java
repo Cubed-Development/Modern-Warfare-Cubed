@@ -140,8 +140,8 @@ public class M1928Thompson extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, -3.0F, -33.5F, -7.5F, 4, 3, 32, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.1F, -30.5F, -7.5F, 1, 1, 32, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -3.1F, -30.5F, -7.5F, 1, 1, 32, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, 0.1F, -31.0F, -2.5F, 1, 1, 27, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.1F, -31.0F, -2.5F, 1, 1, 27, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, 0.1F, -31, -2.5F, 1, 1, 27, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.1F, -31, -2.5F, 1, 1, 27, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.5F, -34.0F, -15.5F, 1, 2, 8, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -3.0F, -34.0F, -7.5F, 1, 1, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -3.0F, -34.0F, 9.5F, 1, 1, 15, 0.0F, true));
@@ -178,7 +178,7 @@ public class M1928Thompson extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -34.2F, -7.5F, 1, 1, 32, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.5F, -34.2F, -15.5F, 1, 1, 9, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -34.2F, -19.5F, 2, 1, 5, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -34.2F, -19.5F, 1, 1, 13, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -34.2F, -19.5F, 1, 1, 13, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 250, 0, -2.5F, -29.5F, 13.5F, 3, 3, 10, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.4F, -28.0F, 18.5F, 1, 2, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.6F, -28.0F, 18.5F, 1, 2, 2, 0.0F, true));
@@ -187,9 +187,9 @@ public class M1928Thompson extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.8F, -34.0F, 24.5F, 1, 4, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.6F, -30.5F, 24.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.4F, -30.5F, 24.5F, 2, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.1F, -31.0F, -2.5F, 1, 1, 27, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -2.4F, -31.0F, 24.5F, 2, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -0.6F, -31.0F, 24.5F, 1, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -3.1F, -31, -2.5F, 1, 1, 27, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -2.4F, -31, 24.5F, 2, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -0.6F, -31, 24.5F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.5F, -33.5F, 24.8F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.0F, -32.5F, -15.5F, 1, 1, 8, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.0F, -34.0F, -7.5F, 1, 1, 32, 0.0F, true));
@@ -359,20 +359,20 @@ public class M1928Thompson extends ModelWithAttachments {
         gun208_r1.setRotationPoint(-8.15F, -63.7014F, 0.0F);
         gun.addChild(gun208_r1);
         setRotationAngle(gun208_r1, 0.0F, 0.0F, 2.8256F);
-        gun208_r1.cubeList.add(new ModelBox(gun208_r1, 0, 0, 1.0F, -32.5F, -15.5F, 1, 1, 8, 0.0F, true));
+        gun208_r1.cubeList.add(new ModelBox(gun208_r1, 0, 0, 1, -32.5F, -15.5F, 1, 1, 8, 0.0F, true));
 
         gun203_r1 = new ModelRenderer(this);
         gun203_r1.setRotationPoint(-18.2321F, 0.0F, 4.9839F);
         gun.addChild(gun203_r1);
         setRotationAngle(gun203_r1, 0.0F, 0.7854F, 0.0F);
-        gun203_r1.cubeList.add(new ModelBox(gun203_r1, 0, 0, -3.1F, -31.0F, 24.5F, 1, 1, 1, 0.0F, true));
+        gun203_r1.cubeList.add(new ModelBox(gun203_r1, 0, 0, -3.1F, -31, 24.5F, 1, 1, 1, 0.0F, true));
         gun203_r1.cubeList.add(new ModelBox(gun203_r1, 0, 0, -3.1F, -30.5F, 24.5F, 1, 1, 1, 0.0F, true));
 
         gun200_r1 = new ModelRenderer(this);
         gun200_r1.setRotationPoint(19.2019F, 0.0F, 41.0463F);
         gun.addChild(gun200_r1);
         setRotationAngle(gun200_r1, -3.1416F, -0.7854F, 3.1416F);
-        gun200_r1.cubeList.add(new ModelBox(gun200_r1, 0, 0, 1.1F, -31.0F, 24.5F, 1, 1, 1, 0.0F, true));
+        gun200_r1.cubeList.add(new ModelBox(gun200_r1, 0, 0, 1.1F, -31, 24.5F, 1, 1, 1, 0.0F, true));
 
         gun199_r1 = new ModelRenderer(this);
         gun199_r1.setRotationPoint(19.2019F, 0.0F, 41.0463F);
@@ -384,7 +384,7 @@ public class M1928Thompson extends ModelWithAttachments {
         gun198_r1.setRotationPoint(19.0312F, 0.0F, 41.117F);
         gun.addChild(gun198_r1);
         setRotationAngle(gun198_r1, -3.1416F, -0.7854F, 3.1416F);
-        gun198_r1.cubeList.add(new ModelBox(gun198_r1, 0, 0, 1.0F, -33.5F, 24.5F, 1, 3, 1, 0.0F, true));
+        gun198_r1.cubeList.add(new ModelBox(gun198_r1, 0, 0, 1, -33.5F, 24.5F, 1, 3, 1, 0.0F, true));
 
         gun197_r1 = new ModelRenderer(this);
         gun197_r1.setRotationPoint(-18.2028F, 0.0F, 5.0546F);
@@ -481,7 +481,7 @@ public class M1928Thompson extends ModelWithAttachments {
         gun133_r1.setRotationPoint(-9.2531F, 0.0F, -27.1673F);
         gun.addChild(gun133_r1);
         setRotationAngle(gun133_r1, -3.1416F, -0.7854F, 3.1416F);
-        gun133_r1.cubeList.add(new ModelBox(gun133_r1, 0, 0, 1.0F, -32.5F, -15.5F, 1, 3, 2, 0.0F, true));
+        gun133_r1.cubeList.add(new ModelBox(gun133_r1, 0, 0, 1, -32.5F, -15.5F, 1, 3, 2, 0.0F, true));
 
         gun120_r1 = new ModelRenderer(this);
         gun120_r1.setRotationPoint(0.0F, -5.0455F, -60.2856F);
@@ -553,7 +553,7 @@ public class M1928Thompson extends ModelWithAttachments {
         gun83_r1.setRotationPoint(0.0F, -10.0797F, -22.3345F);
         gun.addChild(gun83_r1);
         setRotationAngle(gun83_r1, -0.7854F, 0.0F, 0.0F);
-        gun83_r1.cubeList.add(new ModelBox(gun83_r1, 0, 0, -2.5F, -32.0F, 1.0F, 1, 1, 1, 0.0F, true));
+        gun83_r1.cubeList.add(new ModelBox(gun83_r1, 0, 0, -2.5F, -32.0F, 1, 1, 1, 1, 0.0F, true));
 
         gun70_r1 = new ModelRenderer(this);
         gun70_r1.setRotationPoint(-20.7182F, -8.5818F, 0.0F);
@@ -687,8 +687,8 @@ public class M1928Thompson extends ModelWithAttachments {
         gun20_r1.setRotationPoint(0.0F, -2.8799F, 12.0589F);
         gun.addChild(gun20_r1);
         setRotationAngle(gun20_r1, 0.5577F, 0.0F, 0.0F);
-        gun20_r1.cubeList.add(new ModelBox(gun20_r1, 250, 0, -0.3F, -22.5F, 1.0F, 1, 10, 5, 0.0F, true));
-        gun20_r1.cubeList.add(new ModelBox(gun20_r1, 250, 0, -2.7F, -22.5F, 1.0F, 3, 10, 5, 0.0F, true));
+        gun20_r1.cubeList.add(new ModelBox(gun20_r1, 250, 0, -0.3F, -22.5F, 1, 1, 10, 5, 0.0F, true));
+        gun20_r1.cubeList.add(new ModelBox(gun20_r1, 250, 0, -2.7F, -22.5F, 1, 3, 10, 5, 0.0F, true));
 
         gun18_r1 = new ModelRenderer(this);
         gun18_r1.setRotationPoint(0.0F, -7.1152F, 18.1777F);

@@ -69,7 +69,7 @@ public class M18 extends ModelBase {
         frag.cubeList.add(new ModelBox(frag, 0, 0, -3.617F, -46.0F, 7.9127F, 1, 1, 1, 0.0F, true));
         frag.cubeList.add(new ModelBox(frag, 0, 0, -0.217F, -46.5F, 5.9127F, 1, 1, 2, 0.0F, true));
         frag.cubeList.add(new ModelBox(frag, 0, 0, -3.617F, -46.5F, 5.9127F, 1, 1, 2, 0.0F, true));
-        frag.cubeList.add(new ModelBox(frag, 50, 0, -3.917F, -41.0F, 4.9127F, 5, 2, 2, 0.0F, true));
+        frag.cubeList.add(new ModelBox(frag, 50, 0, -3.917F, -41, 4.9127F, 5, 2, 2, 0.0F, true));
         frag.cubeList.add(new ModelBox(frag, 0, 0, -6.917F, -39.5F, 4.9127F, 11, 25, 2, 0.0F, true));
         frag.cubeList.add(new ModelBox(frag, 0, 0, -2.417F, -39.5F, 0.4127F, 2, 25, 11, 0.0F, true));
         frag.cubeList.add(new ModelBox(frag, 0, 0, -0.217F, -35.9F, 13.9127F, 1, 7, 1, 0.0F, true));
@@ -209,37 +209,37 @@ public class M18 extends ModelBase {
         Frag37_r1.setRotationPoint(-9.2405F, -80.6916F, 4.4127F);
         frag.addChild(Frag37_r1);
         setRotationAngle(Frag37_r1, 0.0F, 0.0F, 2.8628F);
-        Frag37_r1.cubeList.add(new ModelBox(Frag37_r1, 50, 0, 1.0F, -41.0F, 0.5F, 1, 2, 2, 0.0F, true));
+        Frag37_r1.cubeList.add(new ModelBox(Frag37_r1, 50, 0, 1, -41, 0.5F, 1, 2, 2, 0.0F, true));
 
         Frag36_r1 = new ModelRenderer(this);
         Frag36_r1.setRotationPoint(36.3771F, -32.4339F, 4.4127F);
         frag.addChild(Frag36_r1);
         setRotationAngle(Frag36_r1, 0.0F, 0.0F, -1.2641F);
-        Frag36_r1.cubeList.add(new ModelBox(Frag36_r1, 50, 0, -4.0F, -41.0F, 0.5F, 2, 1, 2, 0.0F, true));
+        Frag36_r1.cubeList.add(new ModelBox(Frag36_r1, 50, 0, -4.0F, -41, 0.5F, 2, 1, 2, 0.0F, true));
 
         Frag35_r1 = new ModelRenderer(this);
         Frag35_r1.setRotationPoint(3.5724F, 0.0F, 7.9388F);
         frag.addChild(Frag35_r1);
         setRotationAngle(Frag35_r1, -3.1416F, -0.7993F, 3.1416F);
-        Frag35_r1.cubeList.add(new ModelBox(Frag35_r1, 50, 0, 1.0F, -41.0F, 2.5F, 2, 2, 2, 0.0F, true));
+        Frag35_r1.cubeList.add(new ModelBox(Frag35_r1, 50, 0, 1, -41, 2.5F, 2, 2, 2, 0.0F, true));
 
         Frag34_r1 = new ModelRenderer(this);
         Frag34_r1.setRotationPoint(-2.835F, 0.0F, 2.3215F);
         frag.addChild(Frag34_r1);
         setRotationAngle(Frag34_r1, 0.0F, 0.7808F, 0.0F);
-        Frag34_r1.cubeList.add(new ModelBox(Frag34_r1, 50, 0, -4.0F, -41.0F, 2.5F, 2, 2, 2, 0.0F, true));
+        Frag34_r1.cubeList.add(new ModelBox(Frag34_r1, 50, 0, -4.0F, -41, 2.5F, 2, 2, 2, 0.0F, true));
 
         Frag33_r1 = new ModelRenderer(this);
         Frag33_r1.setRotationPoint(-1.4274F, 0.0F, 1.7423F);
         frag.addChild(Frag33_r1);
         setRotationAngle(Frag33_r1, 0.0F, 0.7808F, 0.0F);
-        Frag33_r1.cubeList.add(new ModelBox(Frag33_r1, 50, 0, -4.0F, -41.0F, 0.5F, 2, 2, 2, 0.0F, true));
+        Frag33_r1.cubeList.add(new ModelBox(Frag33_r1, 50, 0, -4.0F, -41, 0.5F, 2, 2, 2, 0.0F, true));
 
         Frag32_r1 = new ModelRenderer(this);
         Frag32_r1.setRotationPoint(-0.7657F, 0.0F, 4.475F);
         frag.addChild(Frag32_r1);
         setRotationAngle(Frag32_r1, 0.0F, -0.7808F, 0.0F);
-        Frag32_r1.cubeList.add(new ModelBox(Frag32_r1, 50, 0, -0.5F, -41.0F, -1.0F, 2, 2, 2, 0.0F, true));
+        Frag32_r1.cubeList.add(new ModelBox(Frag32_r1, 50, 0, -0.5F, -41, -1, 2, 2, 2, 0.0F, true));
 
         Frag30_r1 = new ModelRenderer(this);
         Frag30_r1.setRotationPoint(0.083F, -64.9349F, 47.0805F);

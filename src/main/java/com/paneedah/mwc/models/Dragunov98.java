@@ -41,7 +41,7 @@ public class Dragunov98 extends ModelBase {
 
         dustcover = new ModelRenderer(this);
         dustcover.setRotationPoint(0.0F, -15.0F, 0.0F);
-        dustcover.cubeList.add(new ModelBox(dustcover, 179, 220, -2.5F, -1.0F, -43.0F, 2, 1, 43, 0.0F, false));
+        dustcover.cubeList.add(new ModelBox(dustcover, 179, 220, -2.5F, -1, -43.0F, 2, 1, 43, 0.0F, false));
         dustcover.cubeList.add(new ModelBox(dustcover, 75, 7, -0.1F, 2.8F, -2.0F, 1, 1, 5, 0.0F, false));
         dustcover.cubeList.add(new ModelBox(dustcover, 53, 71, -1.1F, 2.8F, 0.0F, 2, 1, 3, 0.1F, false));
         dustcover.cubeList.add(new ModelBox(dustcover, 13, 18, -3.9F, 2.8F, 0.0F, 3, 1, 3, 0.101F, false));
@@ -57,7 +57,7 @@ public class Dragunov98 extends ModelBase {
         dustcover.cubeList.add(new ModelBox(dustcover, 0, 39, -4.1F, 1.6F, -25.2F, 1, 1, 11, -0.201F, false));
 
         cube_r1 = new ModelRenderer(this);
-        cube_r1.setRotationPoint(-0.15F, -0.5F, 1.0F);
+        cube_r1.setRotationPoint(-0.15F, -0.5F, 1);
         dustcover.addChild(cube_r1);
         setRotationAngle(cube_r1, -1.0472F, 0.0F, 0.0F);
         cube_r1.cubeList.add(new ModelBox(cube_r1, 36, 67, -2.35F, 0.0F, 0.0F, 2, 1, 2, 0.0F, false));
@@ -66,16 +66,16 @@ public class Dragunov98 extends ModelBase {
         cube_r2.setRotationPoint(-3.8F, 1.8F, 2.5F);
         dustcover.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.4538F, 0.0F, 0.0F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 88, 31, -0.1F, 0.1F, -1.0F, 1, 1, 1, -0.002F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 88, 29, -0.1F, 0.0F, -1.0F, 1, 1, 1, -0.001F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 52, 49, 0.7F, 0.1F, -1.0F, 4, 1, 1, -0.003F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 52, 60, 0.7F, 0.0F, -1.0F, 4, 1, 1, 0.001F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 88, 31, -0.1F, 0.1F, -1, 1, 1, 1, -0.002F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 88, 29, -0.1F, 0.0F, -1, 1, 1, 1, -0.001F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 52, 49, 0.7F, 0.1F, -1, 4, 1, 1, -0.003F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 52, 60, 0.7F, 0.0F, -1, 4, 1, 1, 0.001F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(0.0F, 1.8F, 2.5F);
         dustcover.addChild(cube_r3);
         setRotationAngle(cube_r3, -0.9076F, 0.0F, 0.0F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 36, 71, -3.0F, 0.0F, -1.0F, 3, 1, 1, -0.001F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 36, 71, -3.0F, 0.0F, -1, 3, 1, 1, -0.001F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(-3.9F, 1.8F, 1.75F);
@@ -103,7 +103,7 @@ public class Dragunov98 extends ModelBase {
         cube_r7.setRotationPoint(0.9F, 1.8F, 1.75F);
         dustcover.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.0F, 0.0F, 1.117F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 79, 59, -1.0F, 0.0F, -2.0F, 1, 1, 2, -0.001F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 79, 59, -1, 0.0F, -2.0F, 1, 1, 2, -0.001F, false));
         cube_r7.cubeList.add(new ModelBox(cube_r7, 54, 64, -3.0F, 0.0F, -4.25F, 2, 1, 2, 0.0F, false));
         cube_r7.cubeList.add(new ModelBox(cube_r7, 11, 71, -3.0F, 0.0F, -2.25F, 3, 1, 1, 0.0F, false));
         cube_r7.cubeList.add(new ModelBox(cube_r7, 38, 56, 0.0F, 0.0F, -28.75F, 2, 1, 5, 0.001F, false));
@@ -114,7 +114,7 @@ public class Dragunov98 extends ModelBase {
         cube_r8.setRotationPoint(-3.9F, 1.8F, -42.0F);
         dustcover.addChild(cube_r8);
         setRotationAngle(cube_r8, 0.0F, 0.2269F, -1.117F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 0, 32, 1.0F, 0.0F, 0.0F, 1, 1, 4, -0.001F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 0, 32, 1, 0.0F, 0.0F, 1, 1, 4, -0.001F, false));
 
         cube_r9 = new ModelRenderer(this);
         cube_r9.setRotationPoint(-3.9F, 1.8F, -42.0F);
@@ -126,37 +126,37 @@ public class Dragunov98 extends ModelBase {
         cube_r10.setRotationPoint(1.65F, 3.3F, -18.8F);
         dustcover.addChild(cube_r10);
         setRotationAngle(cube_r10, 0.0F, -0.576F, 0.0F);
-        cube_r10.cubeList.add(new ModelBox(cube_r10, 0, 27, -1.0F, 0.0F, 0.0F, 1, 3, 1, 0.002F, false));
+        cube_r10.cubeList.add(new ModelBox(cube_r10, 0, 27, -1, 0.0F, 0.0F, 1, 3, 1, 0.002F, false));
 
         cube_r11 = new ModelRenderer(this);
         cube_r11.setRotationPoint(1.65F, 3.3F, -20.2F);
         dustcover.addChild(cube_r11);
         setRotationAngle(cube_r11, 0.0F, -0.576F, 0.0F);
-        cube_r11.cubeList.add(new ModelBox(cube_r11, 6, 27, -1.0F, 0.0F, 0.0F, 1, 3, 1, 0.002F, false));
+        cube_r11.cubeList.add(new ModelBox(cube_r11, 6, 27, -1, 0.0F, 0.0F, 1, 3, 1, 0.002F, false));
 
         cube_r12 = new ModelRenderer(this);
         cube_r12.setRotationPoint(1.65F, 3.3F, -21.6F);
         dustcover.addChild(cube_r12);
         setRotationAngle(cube_r12, 0.0F, -0.576F, 0.0F);
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 28, 27, -1.0F, 0.0F, 0.0F, 1, 3, 1, 0.002F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 28, 27, -1, 0.0F, 0.0F, 1, 3, 1, 0.002F, false));
 
         cube_r13 = new ModelRenderer(this);
         cube_r13.setRotationPoint(1.9F, 4.5F, -25.8F);
         dustcover.addChild(cube_r13);
         setRotationAngle(cube_r13, -0.3491F, 0.0F, 0.0F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 87, 83, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.002F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 87, 83, -1, 0.0F, 0.0F, 1, 1, 1, 0.002F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(0.9F, 2.8F, -0.95F);
         dustcover.addChild(cube_r14);
         setRotationAngle(cube_r14, 0.7854F, 0.0F, 0.0F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 88, 14, -1.0F, 0.0F, 0.0F, 1, 1, 1, -0.001F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 88, 14, -1, 0.0F, 0.0F, 1, 1, 1, -0.001F, false));
 
         cube_r15 = new ModelRenderer(this);
         cube_r15.setRotationPoint(0.9F, 2.8F, -1.55F);
         dustcover.addChild(cube_r15);
         setRotationAngle(cube_r15, -0.7854F, 0.0F, 0.0F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 15, 88, -1.0F, 0.0F, -1.0F, 1, 1, 1, -0.001F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 15, 88, -1, 0.0F, -1, 1, 1, 1, -0.001F, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(0.7F, 2.8F, -0.5F);
@@ -168,10 +168,10 @@ public class Dragunov98 extends ModelBase {
         cube_r17.setRotationPoint(1.1F, 2.8F, 2.1F);
         dustcover.addChild(cube_r17);
         setRotationAngle(cube_r17, -0.5061F, 0.0F, 0.0F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 87, 87, -1.0F, 0.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 87, 87, -1, 0.0F, -1, 1, 1, 1, 0.0F, false));
 
         cube_r18 = new ModelRenderer(this);
-        cube_r18.setRotationPoint(-2.5F, -1.0F, 0.0F);
+        cube_r18.setRotationPoint(-2.5F, -1, 0.0F);
         dustcover.addChild(cube_r18);
         setRotationAngle(cube_r18, -0.4712F, 0.0F, 0.0F);
         cube_r18.cubeList.add(new ModelBox(cube_r18, 65, 83, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));

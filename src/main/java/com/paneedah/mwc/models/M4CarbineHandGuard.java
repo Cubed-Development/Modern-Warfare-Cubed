@@ -128,7 +128,7 @@ public class M4CarbineHandGuard extends ModelBase {
         handguard243_r3.cubeList.add(new ModelBox(handguard243_r3, 23, 47, -0.8F, -1.009F, -18.001F, 1, 1, 21, 0.0F, false));
 
         handguard242_r2 = new ModelRenderer(this);
-        handguard242_r2.setRotationPoint(-1.0F, -34.9F, -28.0F);
+        handguard242_r2.setRotationPoint(-1, -34.9F, -28.0F);
         handguard_carbine.addChild(handguard242_r2);
         setRotationAngle(handguard242_r2, 0.0F, 0.0F, -0.4363F);
         handguard242_r2.cubeList.add(new ModelBox(handguard242_r2, 4, 33, 0.58F, -1.011F, 1.998F, 1, 1, 1, 0.0F, false));
@@ -158,7 +158,7 @@ public class M4CarbineHandGuard extends ModelBase {
         handguard242_r3.cubeList.add(new ModelBox(handguard242_r3, 48, 22, -0.8F, 0.009F, -18.001F, 1, 1, 21, 0.0F, false));
 
         handguard241_r1 = new ModelRenderer(this);
-        handguard241_r1.setRotationPoint(-1.0F, -40.1F, -28.0F);
+        handguard241_r1.setRotationPoint(-1, -40.1F, -28.0F);
         handguard_carbine.addChild(handguard241_r1);
         setRotationAngle(handguard241_r1, 0.0F, 0.0F, 0.4363F);
         handguard241_r1.cubeList.add(new ModelBox(handguard241_r1, 34, 19, 0.58F, 0.011F, 1.998F, 1, 1, 1, 0.0F, false));
@@ -188,19 +188,19 @@ public class M4CarbineHandGuard extends ModelBase {
         handguard203_r1.setRotationPoint(-3.6F, -38.0F, -26.0F);
         handguard_carbine.addChild(handguard203_r1);
         setRotationAngle(handguard203_r1, -0.0436F, -0.096F, 0.4538F);
-        handguard203_r1.cubeList.add(new ModelBox(handguard203_r1, 10, 0, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard203_r1.cubeList.add(new ModelBox(handguard203_r1, 10, 0, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard202_r2 = new ModelRenderer(this);
         handguard202_r2.setRotationPoint(-3.6F, -37.0F, -26.0F);
         handguard_carbine.addChild(handguard202_r2);
         setRotationAngle(handguard202_r2, 0.0F, -0.1047F, 0.0F);
-        handguard202_r2.cubeList.add(new ModelBox(handguard202_r2, 10, 8, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard202_r2.cubeList.add(new ModelBox(handguard202_r2, 10, 8, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard203_r2 = new ModelRenderer(this);
         handguard203_r2.setRotationPoint(-2.0F, -35.4F, -26.0F);
         handguard_carbine.addChild(handguard203_r2);
         setRotationAngle(handguard203_r2, -0.0925F, -0.0349F, 0.4538F);
-        handguard203_r2.cubeList.add(new ModelBox(handguard203_r2, 0, 16, -1.2F, -1.0F, 0.05F, 1, 1, 3, 0.0F, false));
+        handguard203_r2.cubeList.add(new ModelBox(handguard203_r2, 0, 16, -1.2F, -1, 0.05F, 1, 1, 3, 0.0F, false));
 
         handguard204_r2 = new ModelRenderer(this);
         handguard204_r2.setRotationPoint(-3.6F, -37.0F, -26.0F);
@@ -212,7 +212,7 @@ public class M4CarbineHandGuard extends ModelBase {
         handguard202_r3.setRotationPoint(-2.0F, -35.4F, -26.0F);
         handguard_carbine.addChild(handguard202_r3);
         setRotationAngle(handguard202_r3, -0.0925F, 0.0524F, 0.4538F);
-        handguard202_r3.cubeList.add(new ModelBox(handguard202_r3, 8, 22, -1.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard202_r3.cubeList.add(new ModelBox(handguard202_r3, 8, 22, -1, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard205_r1 = new ModelRenderer(this);
         handguard205_r1.setRotationPoint(-3.6F, -37.0F, -26.0F);
@@ -224,19 +224,19 @@ public class M4CarbineHandGuard extends ModelBase {
         handguard200_r1.setRotationPoint(-2.0F, -35.4F, -26.0F);
         handguard_carbine.addChild(handguard200_r1);
         setRotationAngle(handguard200_r1, -0.1047F, 0.0F, 0.0F);
-        handguard200_r1.cubeList.add(new ModelBox(handguard200_r1, 10, 12, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard200_r1.cubeList.add(new ModelBox(handguard200_r1, 10, 12, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard204_r3 = new ModelRenderer(this);
-        handguard204_r3.setRotationPoint(-1.0F, -35.4F, -26.0F);
+        handguard204_r3.setRotationPoint(-1, -35.4F, -26.0F);
         handguard_carbine.addChild(handguard204_r3);
         setRotationAngle(handguard204_r3, -0.0925F, 0.0349F, -0.4538F);
-        handguard204_r3.cubeList.add(new ModelBox(handguard204_r3, 5, 13, 0.2F, -1.0F, 0.05F, 1, 1, 3, 0.0F, false));
+        handguard204_r3.cubeList.add(new ModelBox(handguard204_r3, 5, 13, 0.2F, -1, 0.05F, 1, 1, 3, 0.0F, false));
 
         handguard203_r3 = new ModelRenderer(this);
-        handguard203_r3.setRotationPoint(-1.0F, -35.4F, -26.0F);
+        handguard203_r3.setRotationPoint(-1, -35.4F, -26.0F);
         handguard_carbine.addChild(handguard203_r3);
         setRotationAngle(handguard203_r3, -0.0925F, -0.0524F, -0.4538F);
-        handguard203_r3.cubeList.add(new ModelBox(handguard203_r3, 0, 22, 0.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard203_r3.cubeList.add(new ModelBox(handguard203_r3, 0, 22, 0.0F, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard206_r1 = new ModelRenderer(this);
         handguard206_r1.setRotationPoint(0.6F, -37.0F, -26.0F);
@@ -248,13 +248,13 @@ public class M4CarbineHandGuard extends ModelBase {
         handguard205_r2.setRotationPoint(0.6F, -37.0F, -26.0F);
         handguard_carbine.addChild(handguard205_r2);
         setRotationAngle(handguard205_r2, 0.0436F, 0.096F, 0.4538F);
-        handguard205_r2.cubeList.add(new ModelBox(handguard205_r2, 0, 8, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard205_r2.cubeList.add(new ModelBox(handguard205_r2, 0, 8, -1, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard201_r1 = new ModelRenderer(this);
         handguard201_r1.setRotationPoint(0.6F, -37.0F, -26.0F);
         handguard_carbine.addChild(handguard201_r1);
         setRotationAngle(handguard201_r1, 0.0F, 0.1047F, 0.0F);
-        handguard201_r1.cubeList.add(new ModelBox(handguard201_r1, 0, 12, -1.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard201_r1.cubeList.add(new ModelBox(handguard201_r1, 0, 12, -1, -1, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard199_r1 = new ModelRenderer(this);
         handguard199_r1.setRotationPoint(-2.0F, -39.6F, -26.0F);
@@ -266,16 +266,16 @@ public class M4CarbineHandGuard extends ModelBase {
         handguard201_r2.setRotationPoint(-2.0F, -39.6F, -26.0F);
         handguard_carbine.addChild(handguard201_r2);
         setRotationAngle(handguard201_r2, 0.0925F, 0.0524F, -0.4538F);
-        handguard201_r2.cubeList.add(new ModelBox(handguard201_r2, 13, 23, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard201_r2.cubeList.add(new ModelBox(handguard201_r2, 13, 23, -1, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard200_r2 = new ModelRenderer(this);
-        handguard200_r2.setRotationPoint(-1.0F, -39.6F, -26.0F);
+        handguard200_r2.setRotationPoint(-1, -39.6F, -26.0F);
         handguard_carbine.addChild(handguard200_r2);
         setRotationAngle(handguard200_r2, 0.0925F, -0.0524F, 0.4538F);
         handguard200_r2.cubeList.add(new ModelBox(handguard200_r2, 25, 0, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
         handguard201_r3 = new ModelRenderer(this);
-        handguard201_r3.setRotationPoint(-1.0F, -39.6F, -26.0F);
+        handguard201_r3.setRotationPoint(-1, -39.6F, -26.0F);
         handguard_carbine.addChild(handguard201_r3);
         setRotationAngle(handguard201_r3, 0.0925F, 0.0349F, 0.4538F);
         handguard201_r3.cubeList.add(new ModelBox(handguard201_r3, 5, 17, 0.2F, 0.0F, 0.05F, 1, 1, 3, 0.0F, false));
@@ -290,7 +290,7 @@ public class M4CarbineHandGuard extends ModelBase {
         handguard202_r4.setRotationPoint(0.6F, -38.0F, -26.0F);
         handguard_carbine.addChild(handguard202_r4);
         setRotationAngle(handguard202_r4, -0.0436F, 0.096F, -0.4538F);
-        handguard202_r4.cubeList.add(new ModelBox(handguard202_r4, 10, 4, -1.0F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        handguard202_r4.cubeList.add(new ModelBox(handguard202_r4, 10, 4, -1, -1, 0.0F, 1, 1, 3, 0.0F, false));
     }
 
     @Override

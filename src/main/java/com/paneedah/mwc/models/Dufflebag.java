@@ -45,7 +45,7 @@ public class Dufflebag extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 36, 36, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 36, 36, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         rightleg = new ModelRenderer(this);
         rightleg.setRotationPoint(-2.0F, 12.0F, 0.0F);
@@ -64,8 +64,8 @@ public class Dufflebag extends ModelBiped {
         cube_r1.setRotationPoint(3.0F, 9.0F, -2.0F);
         dufflebag.addChild(cube_r1);
         setRotationAngle(cube_r1, 0.0F, 0.0F, 0.8727F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 0, -10.5F, -1.0F, -0.001F, 1, 1, 1, 0.1F, false));
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 20, 16, -10.0F, -1.0F, -0.002F, 10, 1, 1, 0.1F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 0, -10.5F, -1, -0.001F, 1, 1, 1, 0.1F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 20, 16, -10.0F, -1, -0.002F, 10, 1, 1, 0.1F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(5.75F, 10.0F, 7.75F);
@@ -100,13 +100,13 @@ public class Dufflebag extends ModelBiped {
         cube_r5.cubeList.add(new ModelBox(cube_r5, 32, 52, -2.0F, -13.0F, 0.0F, 2, 13, 3, 0.0F, false));
 
         cube_r6 = new ModelRenderer(this);
-        cube_r6.setRotationPoint(-2.5F, 0.0F, 1.0F);
+        cube_r6.setRotationPoint(-2.5F, 0.0F, 1);
         bone.addChild(cube_r6);
         setRotationAngle(cube_r6, 0.0F, 0.3927F, 0.0F);
         cube_r6.cubeList.add(new ModelBox(cube_r6, 49, 49, 0.0F, -13.0F, -3.0F, 3, 13, 3, 0.0F, false));
 
         cube_r7 = new ModelRenderer(this);
-        cube_r7.setRotationPoint(-2.5F, 0.0F, 1.0F);
+        cube_r7.setRotationPoint(-2.5F, 0.0F, 1);
         bone.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.0F, -0.3927F, 0.0F);
         cube_r7.cubeList.add(new ModelBox(cube_r7, 52, 29, -3.0F, -13.0F, -2.0F, 3, 13, 2, 0.0F, false));

@@ -232,7 +232,7 @@ public class GUIButtonCustom extends GuiButton {
 
         this.hovered = mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;
 
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color(1, 1, 1, 1);
         GlStateManager.enableTexture2D();
         MC.getTextureManager().bindTexture(this.loc);
 
@@ -275,6 +275,6 @@ public class GUIButtonCustom extends GuiButton {
             return;
         }
 
-        soundHandlerIn.playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+        soundHandlerIn.playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1));
     }
 }

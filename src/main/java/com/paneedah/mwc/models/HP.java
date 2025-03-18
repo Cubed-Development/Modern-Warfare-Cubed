@@ -70,7 +70,7 @@ public class HP extends ModelBase {
         sight.cubeList.add(new ModelBox(sight, 0, 0, 5.5F, -29.3F, 4.9F, 1, 3, 10, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, 1.5F, -25.4F, 4.9F, 3, 1, 10, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, -0.5F, -29.3F, 4.9F, 1, 3, 10, 0.0F, true));
-        sight.cubeList.add(new ModelBox(sight, 0, 0, -1.0F, -28.8F, 4.9F, 1, 2, 10, 0.0F, true));
+        sight.cubeList.add(new ModelBox(sight, 0, 0, -1, -28.8F, 4.9F, 1, 2, 10, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, 6.0F, -28.8F, 4.9F, 1, 2, 10, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, 1.5F, -23.0F, -12.0F, 1, 1, 2, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, 1.5F, -25.3F, -12.1F, 3, 2, 2, 0.0F, true));
@@ -85,7 +85,7 @@ public class HP extends ModelBase {
         sight.cubeList.add(new ModelBox(sight, 0, 0, 5.5F, -29.3F, -27.1F, 1, 3, 8, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, -0.5F, -29.3F, -27.1F, 1, 3, 8, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, 6.0F, -28.8F, -27.1F, 1, 2, 8, 0.0F, true));
-        sight.cubeList.add(new ModelBox(sight, 0, 0, -1.0F, -28.8F, -27.1F, 1, 2, 8, 0.0F, true));
+        sight.cubeList.add(new ModelBox(sight, 0, 0, -1, -28.8F, -27.1F, 1, 2, 8, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, 1.5F, -31.3F, -27.1F, 3, 1, 8, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, 5.0F, -29.3F, -8.1F, 1, 3, 2, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, 1.5F, -25.8F, -8.1F, 3, 1, 2, 0.0F, true));
@@ -296,13 +296,13 @@ public class HP extends ModelBase {
         gun500_r1.setRotationPoint(5.5536F, 0.0F, -1.1317F);
         sight.addChild(gun500_r1);
         setRotationAngle(gun500_r1, 0.0F, 0.2974F, 0.0F);
-        gun500_r1.cubeList.add(new ModelBox(gun500_r1, 0, 0, -1.0F, -28.8F, -19.1F, 1, 2, 4, 0.0F, true));
+        gun500_r1.cubeList.add(new ModelBox(gun500_r1, 0, 0, -1, -28.8F, -19.1F, 1, 2, 4, 0.0F, true));
 
         sight20_r1 = new ModelRenderer(this);
         sight20_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         sight.addChild(sight20_r1);
         setRotationAngle(sight20_r1, 0.0F, 1.4128F, 0.0F);
-        sight20_r1.cubeList.add(new ModelBox(sight20_r1, 0, 0, -1.0F, -28.8F, 4.9F, 7, 2, 1, 0.0F, true));
+        sight20_r1.cubeList.add(new ModelBox(sight20_r1, 0, 0, -1, -28.8F, 4.9F, 7, 2, 1, 0.0F, true));
 
         sight19_r1 = new ModelRenderer(this);
         sight19_r1.setRotationPoint(14.7182F, 0.0F, 8.5659F);

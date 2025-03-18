@@ -43,7 +43,7 @@ public class AACHoneyBadgerHandguard extends ModelWithAttachments {
         setRotationAngle(bone5_r1, 0.0F, 0.0F, 0.8727F);
         bone5_r1.cubeList.add(new ModelBox(bone5_r1, 6, 36, -4.0F, -40.5F, -42.7F, 1, 1, 1, 0.0F, false));
         bone5_r1.cubeList.add(new ModelBox(bone5_r1, 80, 25, -4.0F, -39.5F, -42.7F, 1, 1, 20, 0.0F, false));
-        bone5_r1.cubeList.add(new ModelBox(bone5_r1, 80, 0, -4.01F, -41.0F, -42.7F, 1, 1, 20, 0.0F, false));
+        bone5_r1.cubeList.add(new ModelBox(bone5_r1, 80, 0, -4.01F, -41, -42.7F, 1, 1, 20, 0.0F, false));
         bone5_r1.cubeList.add(new ModelBox(bone5_r1, 54, 37, -4.0F, -40.5F, -37.7F, 1, 1, 2, 0.0F, false));
         bone5_r1.cubeList.add(new ModelBox(bone5_r1, 38, 122, -3.5F, -40.5F, -36.7F, 1, 1, 12, 0.0F, false));
         bone5_r1.cubeList.add(new ModelBox(bone5_r1, 18, 53, -4.0F, -40.5F, -30.7F, 1, 1, 2, 0.0F, false));
@@ -61,7 +61,7 @@ public class AACHoneyBadgerHandguard extends ModelWithAttachments {
         handguard.addChild(bone4_r1);
         setRotationAngle(bone4_r1, 0.0F, 0.0F, -0.8727F);
         bone4_r1.cubeList.add(new ModelBox(bone4_r1, 39, 3, 0.0F, -40.5F, -42.7F, 1, 1, 1, 0.0F, false));
-        bone4_r1.cubeList.add(new ModelBox(bone4_r1, 0, 100, 0.01F, -41.0F, -42.7F, 1, 1, 20, 0.0F, false));
+        bone4_r1.cubeList.add(new ModelBox(bone4_r1, 0, 100, 0.01F, -41, -42.7F, 1, 1, 20, 0.0F, false));
         bone4_r1.cubeList.add(new ModelBox(bone4_r1, 17, 58, 0.0F, -40.5F, -37.7F, 1, 1, 2, 0.0F, false));
         bone4_r1.cubeList.add(new ModelBox(bone4_r1, 44, 101, -0.5F, -40.5F, -35.7F, 1, 1, 12, 0.0F, false));
         bone4_r1.cubeList.add(new ModelBox(bone4_r1, 56, 56, 0.0F, -40.5F, -30.7F, 1, 1, 2, 0.0F, false));

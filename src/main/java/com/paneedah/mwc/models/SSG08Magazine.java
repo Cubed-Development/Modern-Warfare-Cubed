@@ -28,7 +28,7 @@ public class SSG08Magazine extends ModelBase {
         Magazine.cubeList.add(new ModelBox(Magazine, 57, 60, -1.61F, -29.0F, -18.0F, 2, 8, 1, 0.0F, false));
 
         bone224 = new ModelRenderer(this);
-        bone224.setRotationPoint(-1.0F, -28.0F, -24.5F);
+        bone224.setRotationPoint(-1, -28.0F, -24.5F);
         Magazine.addChild(bone224);
         setRotationAngle(bone224, -0.0873F, 0.0F, 0.0F);
         bone224.cubeList.add(new ModelBox(bone224, 39, 60, -1.7F, 6.063F, -5.7657F, 2, 1, 14, 0.0F, false));

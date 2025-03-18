@@ -58,7 +58,7 @@ public class BulletHoleRenderer {
         MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/entity/bullethole.png"));
 
         //GL14.glBlendEquation(GL14.GL_FUNC_ADD);
-        GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1, 1);
         GlStateManager.enableBlend();
         final double size = 0.05;
         final double lift = 0.01;

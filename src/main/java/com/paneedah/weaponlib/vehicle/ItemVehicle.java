@@ -37,7 +37,7 @@ public class ItemVehicle extends Item {
      */
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
-        float f = 1.0F;
+        float f = 1;
         float f1 = playerIn.prevRotationPitch + (playerIn.rotationPitch - playerIn.prevRotationPitch);
         float f2 = playerIn.prevRotationYaw + (playerIn.rotationYaw - playerIn.prevRotationYaw);
         double d0 = playerIn.prevPosX + (playerIn.posX - playerIn.prevPosX);
@@ -57,7 +57,7 @@ public class ItemVehicle extends Item {
         if (raytraceresult == null) {
             return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
         } else {
-            Vec3d vec3d2 = playerIn.getLook(1.0F);
+            Vec3d vec3d2 = playerIn.getLook(1);
             boolean flag = false;
             List<Entity> list = worldIn.getEntitiesWithinAABBExcludingEntity(playerIn, playerIn.getEntityBoundingBox().expand(vec3d2.x * 5.0D, vec3d2.y * 5.0D, vec3d2.z * 5.0D).grow(1.0D));
 

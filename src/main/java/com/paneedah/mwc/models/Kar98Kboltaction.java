@@ -44,7 +44,7 @@ public class Kar98Kboltaction extends ModelBase {
         boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.4F, -40.9F, -17.0F, 1, 1, 4, 0.0F, true));
         boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -1.8F, -40.8F, -14.0F, 2, 1, 2, 0.0F, true));
         boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -5.3F, -39.5F, -16.5F, 3, 1, 1, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -41.0F, -17.0F, 1, 1, 4, 0.0F, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -41, -17.0F, 1, 1, 4, 0.0F, true));
         boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -40.8F, -13.5F, 1, 1, 1, 0.0F, true));
         boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.6F, -40.9F, -17.0F, 1, 1, 4, 0.0F, true));
         boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -40.8F, -13.0F, 1, 1, 1, 0.0F, true));

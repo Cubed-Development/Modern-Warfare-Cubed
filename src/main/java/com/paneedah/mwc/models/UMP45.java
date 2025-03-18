@@ -38,7 +38,7 @@ public class UMP45 extends ModelWithAttachments {
         gun240_r1.setRotationPoint(-1.1075F, -4.1851F, -7.0398F);
         grip.addChild(gun240_r1);
         setRotationAngle(gun240_r1, -0.3054F, 0.0F, 0.0F);
-        gun240_r1.cubeList.add(new ModelBox(gun240_r1, 0, 74, -0.499F, -1.0F, -0.5F, 1, 2, 1, 0.0F, false));
+        gun240_r1.cubeList.add(new ModelBox(gun240_r1, 0, 74, -0.499F, -1, -0.5F, 1, 2, 1, 0.0F, false));
 
         gun239_r1 = new ModelRenderer(this);
         gun239_r1.setRotationPoint(-1.1075F, -5.9532F, -6.9352F);
@@ -75,7 +75,7 @@ public class UMP45 extends ModelWithAttachments {
         bone.addChild(gun240_r2);
         setRotationAngle(gun240_r2, 0.3054F, 0.0F, 0.0F);
         gun240_r2.cubeList.add(new ModelBox(gun240_r2, 54, 21, -2.002F, -7.5F, 0.175F, 4, 14, 3, 0.001F, false));
-        gun240_r2.cubeList.add(new ModelBox(gun240_r2, 96, 76, -1.0F, -7.5F, -0.5F, 2, 14, 2, 0.0F, false));
+        gun240_r2.cubeList.add(new ModelBox(gun240_r2, 96, 76, -1, -7.5F, -0.5F, 2, 14, 2, 0.0F, false));
 
         gun242_r1 = new ModelRenderer(this);
         gun242_r1.setRotationPoint(-1.3876F, -0.247F, 0.7834F);
@@ -87,7 +87,7 @@ public class UMP45 extends ModelWithAttachments {
         gun240_r3.setRotationPoint(0.0F, 0.4256F, 5.8394F);
         bone.addChild(gun240_r3);
         setRotationAngle(gun240_r3, 0.4363F, 0.0F, 0.0F);
-        gun240_r3.cubeList.add(new ModelBox(gun240_r3, 96, 57, -1.0F, -6.0F, -1.5F, 2, 10, 2, 0.0F, false));
+        gun240_r3.cubeList.add(new ModelBox(gun240_r3, 96, 57, -1, -6.0F, -1.5F, 2, 10, 2, 0.0F, false));
 
         gun241_r1 = new ModelRenderer(this);
         gun241_r1.setRotationPoint(0.0F, 1.2708F, 4.0268F);
@@ -105,7 +105,7 @@ public class UMP45 extends ModelWithAttachments {
         gun241_r2.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone6.addChild(gun241_r2);
         setRotationAngle(gun241_r2, 0.4363F, 0.0F, 0.0F);
-        gun241_r2.cubeList.add(new ModelBox(gun241_r2, 16, 15, -1.0F, -8.0F, -0.5F, 2, 4, 1, 0.0F, false));
+        gun241_r2.cubeList.add(new ModelBox(gun241_r2, 16, 15, -1, -8.0F, -0.5F, 2, 4, 1, 0.0F, false));
 
         gun242_r2 = new ModelRenderer(this);
         gun242_r2.setRotationPoint(0.0F, 0.8452F, -1.8126F);

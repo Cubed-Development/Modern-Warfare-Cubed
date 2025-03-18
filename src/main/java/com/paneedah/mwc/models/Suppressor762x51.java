@@ -27,11 +27,11 @@ public class Suppressor762x51 extends ModelBase {
 
         suppressor = new ModelRenderer(this);
         suppressor.setRotationPoint(0.0F, 24.0F, 0.0F);
-        suppressor.cubeList.add(new ModelBox(suppressor, 100, 0, -1.0F, -22.5F, 20.0F, 4, 1, 2, 0.0F, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 100, 0, -1, -22.5F, 20.0F, 4, 1, 2, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -24.0F, -2.0F, 2, 3, 22, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 2.0F, -23.0F, -2.0F, 1, 2, 22, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -1.0F, -23.0F, -2.0F, 1, 2, 22, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -21.0F, -2.0F, 2, 1, 22, 0.0F, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -1, -23.0F, -2.0F, 1, 2, 22, 0.0F, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -21, -2.0F, 2, 1, 22, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 100, 0, -0.5F, -23.5F, 20.0F, 3, 3, 2, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 100, 0, 0.5F, -24.0F, 20.0F, 1, 4, 2, 0.0F, true));
 
@@ -51,8 +51,8 @@ public class Suppressor762x51 extends ModelBase {
         gun11_r1.setRotationPoint(-13.8109F, -36.4664F, 0.0F);
         suppressor.addChild(gun11_r1);
         setRotationAngle(gun11_r1, 0.0F, 0.0F, 2.3794F);
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21.0F, 0.0F, 1, 1, 20, 0.0F, true));
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21.0F, -2.0F, 1, 1, 22, 0.0F, true));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21, 0.0F, 1, 1, 20, 0.0F, true));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21, -2.0F, 1, 1, 22, 0.0F, true));
 
         gun9_r1 = new ModelRenderer(this);
         gun9_r1.setRotationPoint(-15.0616F, -6.1978F, 0.0F);
@@ -76,7 +76,7 @@ public class Suppressor762x51 extends ModelBase {
         gun6_r1.setRotationPoint(-9.3302F, -38.2617F, 0.0F);
         suppressor.addChild(gun6_r1);
         setRotationAngle(gun6_r1, 0.0F, 0.0F, 2.3794F);
-        gun6_r1.cubeList.add(new ModelBox(gun6_r1, 0, 0, 3.0F, -21.0F, -2.0F, 1, 1, 22, 0.0F, true));
+        gun6_r1.cubeList.add(new ModelBox(gun6_r1, 0, 0, 3.0F, -21, -2.0F, 1, 1, 22, 0.0F, true));
 
         gun5_r1 = new ModelRenderer(this);
         gun5_r1.setRotationPoint(-10.7112F, -41.7084F, 0.0F);

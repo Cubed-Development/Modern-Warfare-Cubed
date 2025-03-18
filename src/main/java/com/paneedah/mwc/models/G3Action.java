@@ -26,22 +26,22 @@ public class G3Action extends ModelWithAttachments {
         action.cubeList.add(new ModelBox(action, 121, 70, 0.4F, 0.75F, 0.0F, 1, 1, 8, 0.0F, false));
 
         gun9_r5 = new ModelRenderer(this);
-        gun9_r5.setRotationPoint(0.2F, 1.0F, 1.0F);
+        gun9_r5.setRotationPoint(0.2F, 1, 1);
         action.addChild(gun9_r5);
         setRotationAngle(gun9_r5, 0.0F, 0.0F, -0.7854F);
-        gun9_r5.cubeList.add(new ModelBox(gun9_r5, 121, 82, 0.0F, 0.0F, -1.0F, 1, 1, 8, 0.0F, false));
+        gun9_r5.cubeList.add(new ModelBox(gun9_r5, 121, 82, 0.0F, 0.0F, -1, 1, 1, 8, 0.0F, false));
 
         gun9_r6 = new ModelRenderer(this);
-        gun9_r6.setRotationPoint(-0.2F, 2.0F, 1.0F);
+        gun9_r6.setRotationPoint(-0.2F, 2.0F, 1);
         action.addChild(gun9_r6);
         setRotationAngle(gun9_r6, 0.0F, 0.0F, -0.7854F);
-        gun9_r6.cubeList.add(new ModelBox(gun9_r6, 36, 121, 0.0F, 0.0F, -1.0F, 1, 1, 8, 0.0F, false));
+        gun9_r6.cubeList.add(new ModelBox(gun9_r6, 36, 121, 0.0F, 0.0F, -1, 1, 1, 8, 0.0F, false));
 
         gun8_r6 = new ModelRenderer(this);
-        gun8_r6.setRotationPoint(0.2F, 0.0F, 1.0F);
+        gun8_r6.setRotationPoint(0.2F, 0.0F, 1);
         action.addChild(gun8_r6);
         setRotationAngle(gun8_r6, 0.0F, 0.0F, -0.7854F);
-        gun8_r6.cubeList.add(new ModelBox(gun8_r6, 122, 55, 0.0F, 0.0F, -1.0F, 1, 1, 8, 0.0F, false));
+        gun8_r6.cubeList.add(new ModelBox(gun8_r6, 122, 55, 0.0F, 0.0F, -1, 1, 1, 8, 0.0F, false));
     }
 
     @Override

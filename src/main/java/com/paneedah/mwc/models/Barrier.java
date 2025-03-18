@@ -22,12 +22,12 @@ public class Barrier extends ModelBase {
         textureHeight = 90;
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(4.5F, 21.0F, 0.0F);
+        bone3.setRotationPoint(4.5F, 21, 0.0F);
         setRotationAngle(bone3, 0.0F, 0.0F, 0.6981F);
         bone3.cubeList.add(new ModelBox(bone3, 44, 44, -3.4421F, -0.8409F, -7.999F, 6, 3, 16, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
-        bone5.setRotationPoint(4.5F, 21.0F, 0.0F);
+        bone5.setRotationPoint(4.5F, 21, 0.0F);
         setRotationAngle(bone5, 0.0F, 0.0F, -0.6981F);
         bone5.cubeList.add(new ModelBox(bone5, 40, 0, -9.4523F, -6.626F, -7.999F, 6, 3, 16, 0.0F, false));
 

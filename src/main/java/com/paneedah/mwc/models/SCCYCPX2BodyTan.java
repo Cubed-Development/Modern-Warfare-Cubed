@@ -318,20 +318,20 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun174_r1.setRotationPoint(-3.501F, -32.15F, -24.5F);
         body.addChild(gun174_r1);
         setRotationAngle(gun174_r1, -0.1146F, 0.0799F, 0.6063F);
-        gun174_r1.cubeList.add(new ModelBox(gun174_r1, 106, 94, 0.0F, -1.0F, 0.2F, 1, 1, 10, 0.001F, false));
+        gun174_r1.cubeList.add(new ModelBox(gun174_r1, 106, 94, 0.0F, -1, 0.2F, 1, 1, 10, 0.001F, false));
 
         gun172_r1 = new ModelRenderer(this);
         gun172_r1.setRotationPoint(-3.701F, -30.15F, -14.5F);
         body.addChild(gun172_r1);
         setRotationAngle(gun172_r1, -0.1396F, 0.0F, 0.0F);
-        gun172_r1.cubeList.add(new ModelBox(gun172_r1, 45, 95, 1.0F, -2.0F, -10.0F, 2, 2, 10, 0.0F, false));
+        gun172_r1.cubeList.add(new ModelBox(gun172_r1, 45, 95, 1, -2.0F, -10.0F, 2, 2, 10, 0.0F, false));
         gun172_r1.cubeList.add(new ModelBox(gun172_r1, 8, 98, 2.402F, -2.0F, -10.0F, 1, 2, 10, 0.001F, false));
 
         gun173_r2 = new ModelRenderer(this);
         gun173_r2.setRotationPoint(0.501F, -32.15F, -24.5F);
         body.addChild(gun173_r2);
         setRotationAngle(gun173_r2, -0.1146F, -0.0799F, -0.6063F);
-        gun173_r2.cubeList.add(new ModelBox(gun173_r2, 106, 105, -1.0F, -1.0F, 0.2F, 1, 1, 10, 0.001F, false));
+        gun173_r2.cubeList.add(new ModelBox(gun173_r2, 106, 105, -1, -1, 0.2F, 1, 1, 10, 0.001F, false));
 
         gun177_r1 = new ModelRenderer(this);
         gun177_r1.setRotationPoint(-3.501F, -32.45F, -24.5F);
@@ -363,25 +363,25 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun291_r1.setRotationPoint(-3.5F, -16.7F, 3.2F);
         body.addChild(gun291_r1);
         setRotationAngle(gun291_r1, -1.0647F, 0.0F, 0.0F);
-        gun291_r1.cubeList.add(new ModelBox(gun291_r1, 98, 53, 0.001F, 0.0F, -1.0F, 4, 2, 1, -0.001F, false));
+        gun291_r1.cubeList.add(new ModelBox(gun291_r1, 98, 53, 0.001F, 0.0F, -1, 4, 2, 1, -0.001F, false));
 
         gun307_r1 = new ModelRenderer(this);
         gun307_r1.setRotationPoint(-2.0F, -37.2F, -15.2F);
         body.addChild(gun307_r1);
         setRotationAngle(gun307_r1, 0.0F, 0.0F, -0.4712F);
-        gun307_r1.cubeList.add(new ModelBox(gun307_r1, 109, 135, -1.0F, 0.0F, -1.0F, 1, 1, 6, 0.0F, false));
+        gun307_r1.cubeList.add(new ModelBox(gun307_r1, 109, 135, -1, 0.0F, -1, 1, 1, 6, 0.0F, false));
 
         gun306_r1 = new ModelRenderer(this);
-        gun306_r1.setRotationPoint(-1.0F, -37.2F, -15.2F);
+        gun306_r1.setRotationPoint(-1, -37.2F, -15.2F);
         body.addChild(gun306_r1);
         setRotationAngle(gun306_r1, 0.0F, 0.0F, 0.4712F);
-        gun306_r1.cubeList.add(new ModelBox(gun306_r1, 0, 136, 0.0F, 0.0F, -1.0F, 1, 1, 6, 0.0F, false));
+        gun306_r1.cubeList.add(new ModelBox(gun306_r1, 0, 136, 0.0F, 0.0F, -1, 1, 1, 6, 0.0F, false));
 
         gun271_r1 = new ModelRenderer(this);
         gun271_r1.setRotationPoint(1.6F, -31.8F, -6.3F);
         body.addChild(gun271_r1);
         setRotationAngle(gun271_r1, 0.0F, 0.5411F, 0.0F);
-        gun271_r1.cubeList.add(new ModelBox(gun271_r1, 66, 116, -1.0F, -1.0F, -1.0F, 1, 1, 1, -0.001F, false));
+        gun271_r1.cubeList.add(new ModelBox(gun271_r1, 66, 116, -1, -1, -1, 1, 1, 1, -0.001F, false));
 
         gun306 = new ModelRenderer(this);
         gun306.setRotationPoint(-2.0F, -33.5F, -29.5F);
@@ -389,7 +389,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun306.cubeList.add(new ModelBox(gun306, 96, 1, 0.0F, 0.0F, 4.5F, 1, 1, 11, 0.0F, false));
 
         gun302 = new ModelRenderer(this);
-        gun302.setRotationPoint(-3.5F, -31.0F, 2.45F);
+        gun302.setRotationPoint(-3.5F, -31, 2.45F);
         body.addChild(gun302);
         setRotationAngle(gun302, 2.038F, 0.0F, 0.0F);
         gun302.cubeList.add(new ModelBox(gun302, 44, 25, 0.0F, -2.3F, 0.0F, 4, 3, 3, 0.0F, false));
@@ -404,10 +404,10 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun295.setRotationPoint(-3.0F, -30.7F, 2.55F);
         body.addChild(gun295);
         setRotationAngle(gun295, 2.0206F, 0.0F, 0.0F);
-        gun295.cubeList.add(new ModelBox(gun295, 20, 101, 0.0F, 0.0F, 1.0F, 1, 1, 2, 0.0F, false));
+        gun295.cubeList.add(new ModelBox(gun295, 20, 101, 0.0F, 0.0F, 1, 1, 1, 2, 0.0F, false));
         gun295.cubeList.add(new ModelBox(gun295, 83, 114, 0.0F, 0.0F, 2.8F, 1, 1, 1, -0.001F, false));
-        gun295.cubeList.add(new ModelBox(gun295, 78, 3, 1.0F, 0.0F, 1.0F, 1, 1, 2, 0.0F, false));
-        gun295.cubeList.add(new ModelBox(gun295, 78, 6, 2.0F, 0.0F, 1.0F, 1, 1, 2, 0.0F, false));
+        gun295.cubeList.add(new ModelBox(gun295, 78, 3, 1, 0.0F, 1, 1, 1, 2, 0.0F, false));
+        gun295.cubeList.add(new ModelBox(gun295, 78, 6, 2.0F, 0.0F, 1, 1, 1, 2, 0.0F, false));
         gun295.cubeList.add(new ModelBox(gun295, 95, 114, 2.0F, 0.0F, 2.5F, 1, 1, 1, -0.001F, false));
         gun295.cubeList.add(new ModelBox(gun295, 87, 114, 2.2F, 0.2F, 3.1F, 1, 1, 1, -0.2F, false));
 
@@ -468,26 +468,26 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun257 = new ModelRenderer(this);
         gun257.setRotationPoint(-0.3F, -32.1F, -14.5F);
         body.addChild(gun257);
-        gun257.cubeList.add(new ModelBox(gun257, 84, 109, 0.0F, -1.0F, 4.0F, 1, 3, 9, 0.0F, false));
+        gun257.cubeList.add(new ModelBox(gun257, 84, 109, 0.0F, -1, 4.0F, 1, 3, 9, 0.0F, false));
 
         gun255 = new ModelRenderer(this);
         gun255.setRotationPoint(-0.3F, -33.1F, -27.0F);
         body.addChild(gun255);
-        gun255.cubeList.add(new ModelBox(gun255, 50, 42, 0.001F, -0.3F, 11.0F, 1, 1, 3, 0.0F, false));
+        gun255.cubeList.add(new ModelBox(gun255, 50, 42, 0.001F, -0.3F, 11, 1, 1, 3, 0.0F, false));
         gun255.cubeList.add(new ModelBox(gun255, 113, 81, 0.001F, -0.3F, 16.5F, 1, 1, 9, 0.001F, false));
-        gun255.cubeList.add(new ModelBox(gun255, 135, 16, 0.001F, 0.7F, 11.0F, 1, 1, 6, 0.0F, false));
-        gun255.cubeList.add(new ModelBox(gun255, 134, 76, 0.001F, 0.5F, 11.0F, 1, 1, 6, -0.001F, false));
-        gun255.cubeList.add(new ModelBox(gun255, 134, 127, -3.401F, 0.7F, 11.0F, 1, 1, 6, 0.0F, false));
+        gun255.cubeList.add(new ModelBox(gun255, 135, 16, 0.001F, 0.7F, 11, 1, 1, 6, 0.0F, false));
+        gun255.cubeList.add(new ModelBox(gun255, 134, 76, 0.001F, 0.5F, 11, 1, 1, 6, -0.001F, false));
+        gun255.cubeList.add(new ModelBox(gun255, 134, 127, -3.401F, 0.7F, 11, 1, 1, 6, 0.0F, false));
 
         gun261_r1 = new ModelRenderer(this);
-        gun261_r1.setRotationPoint(-3.401F, 0.8F, 11.0F);
+        gun261_r1.setRotationPoint(-3.401F, 0.8F, 11);
         gun255.addChild(gun261_r1);
         setRotationAngle(gun261_r1, 0.4712F, -0.0873F, 0.0F);
         gun261_r1.cubeList.add(new ModelBox(gun261_r1, 35, 114, -0.2F, -0.2F, -1.2F, 1, 1, 1, -0.201F, false));
         gun261_r1.cubeList.add(new ModelBox(gun261_r1, 31, 114, -0.1F, -0.1F, -0.9F, 1, 1, 1, -0.1F, false));
 
         gun260_r1 = new ModelRenderer(this);
-        gun260_r1.setRotationPoint(-3.401F, 1.9F, 11.0F);
+        gun260_r1.setRotationPoint(-3.401F, 1.9F, 11);
         gun255.addChild(gun260_r1);
         setRotationAngle(gun260_r1, 0.0F, -0.0873F, 0.0F);
         gun260_r1.cubeList.add(new ModelBox(gun260_r1, 40, 42, -0.2F, -0.95F, -2.8F, 1, 1, 3, -0.202F, false));
@@ -495,39 +495,39 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun260_r1.cubeList.add(new ModelBox(gun260_r1, 20, 42, -0.3F, -2.35F, -2.7F, 1, 1, 3, -0.301F, false));
 
         gun259_r1 = new ModelRenderer(this);
-        gun259_r1.setRotationPoint(-3.401F, 1.9F, 11.0F);
+        gun259_r1.setRotationPoint(-3.401F, 1.9F, 11);
         gun255.addChild(gun259_r1);
         setRotationAngle(gun259_r1, -0.0524F, -0.0873F, 0.0F);
         gun259_r1.cubeList.add(new ModelBox(gun259_r1, 30, 42, -0.2F, -0.8F, -2.8F, 1, 1, 3, -0.199F, false));
 
         gun261_r2 = new ModelRenderer(this);
-        gun261_r2.setRotationPoint(-3.401F, 0.5F, 11.0F);
+        gun261_r2.setRotationPoint(-3.401F, 0.5F, 11);
         gun255.addChild(gun261_r2);
         setRotationAngle(gun261_r2, -0.4712F, -0.0873F, 0.0F);
         gun261_r2.cubeList.add(new ModelBox(gun261_r2, 114, 19, -0.2F, -0.8F, -0.8F, 1, 1, 1, -0.2F, false));
 
         gun258_r1 = new ModelRenderer(this);
-        gun258_r1.setRotationPoint(-3.401F, 1.9F, 11.0F);
+        gun258_r1.setRotationPoint(-3.401F, 1.9F, 11);
         gun255.addChild(gun258_r1);
         setRotationAngle(gun258_r1, -0.1396F, 0.0F, 0.0F);
-        gun258_r1.cubeList.add(new ModelBox(gun258_r1, 101, 134, 0.0F, -1.0F, 0.0F, 1, 1, 6, -0.002F, false));
-        gun258_r1.cubeList.add(new ModelBox(gun258_r1, 133, 134, 3.402F, -1.0F, 0.0F, 1, 1, 6, -0.002F, false));
+        gun258_r1.cubeList.add(new ModelBox(gun258_r1, 101, 134, 0.0F, -1, 0.0F, 1, 1, 6, -0.002F, false));
+        gun258_r1.cubeList.add(new ModelBox(gun258_r1, 133, 134, 3.402F, -1, 0.0F, 1, 1, 6, -0.002F, false));
 
         gun260_r2 = new ModelRenderer(this);
-        gun260_r2.setRotationPoint(1.001F, 0.8F, 11.0F);
+        gun260_r2.setRotationPoint(1.001F, 0.8F, 11);
         gun255.addChild(gun260_r2);
         setRotationAngle(gun260_r2, 0.4712F, 0.0873F, 0.0F);
         gun260_r2.cubeList.add(new ModelBox(gun260_r2, 46, 114, -0.8F, -0.2F, -1.2F, 1, 1, 1, -0.201F, false));
         gun260_r2.cubeList.add(new ModelBox(gun260_r2, 54, 114, -0.9F, -0.1F, -0.9F, 1, 1, 1, -0.1F, false));
 
         gun260_r3 = new ModelRenderer(this);
-        gun260_r3.setRotationPoint(1.001F, 0.5F, 11.0F);
+        gun260_r3.setRotationPoint(1.001F, 0.5F, 11);
         gun255.addChild(gun260_r3);
         setRotationAngle(gun260_r3, -0.4712F, 0.0873F, 0.0F);
         gun260_r3.cubeList.add(new ModelBox(gun260_r3, 42, 114, -0.8F, -0.8F, -0.8F, 1, 1, 1, -0.2F, false));
 
         gun261_r3 = new ModelRenderer(this);
-        gun261_r3.setRotationPoint(1.001F, 0.5F, 11.0F);
+        gun261_r3.setRotationPoint(1.001F, 0.5F, 11);
         gun255.addChild(gun261_r3);
         setRotationAngle(gun261_r3, 0.0F, 0.0873F, 0.0F);
         gun261_r3.cubeList.add(new ModelBox(gun261_r3, 78, 0, -0.7F, -1.1F, -1.7F, 1, 1, 2, -0.302F, false));
@@ -535,7 +535,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun261_r3.cubeList.add(new ModelBox(gun261_r3, 10, 45, -0.8F, 0.45F, -2.8F, 1, 1, 3, -0.202F, false));
 
         gun258_r2 = new ModelRenderer(this);
-        gun258_r2.setRotationPoint(1.001F, 1.9F, 11.0F);
+        gun258_r2.setRotationPoint(1.001F, 1.9F, 11);
         gun255.addChild(gun258_r2);
         setRotationAngle(gun258_r2, -0.0524F, 0.0873F, 0.0F);
         gun258_r2.cubeList.add(new ModelBox(gun258_r2, 40, 47, -0.8F, -0.8F, -2.8F, 1, 1, 3, -0.199F, false));
@@ -544,38 +544,38 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun258_r3.setRotationPoint(1.001F, 0.7F, 25.5F);
         gun255.addChild(gun258_r3);
         setRotationAngle(gun258_r3, 0.0F, -0.1047F, 0.0F);
-        gun258_r3.cubeList.add(new ModelBox(gun258_r3, 25, 18, -1.0F, -1.0F, 0.0F, 1, 3, 2, 0.001F, false));
+        gun258_r3.cubeList.add(new ModelBox(gun258_r3, 25, 18, -1, -1, 0.0F, 1, 3, 2, 0.001F, false));
 
         gun257_r1 = new ModelRenderer(this);
         gun257_r1.setRotationPoint(-3.401F, 0.7F, 25.5F);
         gun255.addChild(gun257_r1);
         setRotationAngle(gun257_r1, 0.0F, 0.1047F, 0.0F);
-        gun257_r1.cubeList.add(new ModelBox(gun257_r1, 0, 27, 0.0F, -1.0F, 0.0F, 1, 3, 2, 0.001F, false));
+        gun257_r1.cubeList.add(new ModelBox(gun257_r1, 0, 27, 0.0F, -1, 0.0F, 1, 3, 2, 0.001F, false));
 
         gun257_r2 = new ModelRenderer(this);
         gun257_r2.setRotationPoint(1.001F, -0.3F, 16.5F);
         gun255.addChild(gun257_r2);
         setRotationAngle(gun257_r2, -0.3316F, 0.0F, 0.0F);
-        gun257_r2.cubeList.add(new ModelBox(gun257_r2, 103, 56, -1.0F, 0.0F, 0.0F, 1, 2, 1, -0.003F, false));
+        gun257_r2.cubeList.add(new ModelBox(gun257_r2, 103, 56, -1, 0.0F, 0.0F, 1, 2, 1, -0.003F, false));
 
         gun256_r1 = new ModelRenderer(this);
         gun256_r1.setRotationPoint(1.001F, -0.3F, 14.0F);
         gun255.addChild(gun256_r1);
         setRotationAngle(gun256_r1, 0.3316F, 0.0F, 0.0F);
-        gun256_r1.cubeList.add(new ModelBox(gun256_r1, 103, 61, -1.0F, 0.0F, -1.0F, 1, 2, 1, -0.003F, false));
+        gun256_r1.cubeList.add(new ModelBox(gun256_r1, 103, 61, -1, 0.0F, -1, 1, 2, 1, -0.003F, false));
 
         gun256_r2 = new ModelRenderer(this);
         gun256_r2.setRotationPoint(1.201F, -0.4F, 16.3F);
         gun255.addChild(gun256_r2);
         setRotationAngle(gun256_r2, 0.0F, 0.0F, 0.2443F);
-        gun256_r2.cubeList.add(new ModelBox(gun256_r2, 77, 57, -1.0F, 0.0F, -2.05F, 1, 1, 2, -0.1F, false));
+        gun256_r2.cubeList.add(new ModelBox(gun256_r2, 77, 57, -1, 0.0F, -2.05F, 1, 1, 2, -0.1F, false));
 
         gun251 = new ModelRenderer(this);
         gun251.setRotationPoint(-0.9F, -26.0F, -7.2F);
         body.addChild(gun251);
         setRotationAngle(gun251, 0.195F, 0.0F, 0.0F);
-        gun251.cubeList.add(new ModelBox(gun251, 25, 110, 1.0F, -1.201F, -0.001F, 1, 2, 1, 0.0F, false));
-        gun251.cubeList.add(new ModelBox(gun251, 21, 110, 1.0F, -1.201F, 0.399F, 1, 2, 1, -0.001F, false));
+        gun251.cubeList.add(new ModelBox(gun251, 25, 110, 1, -1.201F, -0.001F, 1, 2, 1, 0.0F, false));
+        gun251.cubeList.add(new ModelBox(gun251, 21, 110, 1, -1.201F, 0.399F, 1, 2, 1, -0.001F, false));
         gun251.cubeList.add(new ModelBox(gun251, 25, 103, -2.7F, -1.201F, -0.101F, 1, 2, 1, 0.0F, false));
         gun251.cubeList.add(new ModelBox(gun251, 40, 51, -3.2F, -1.201F, 0.599F, 1, 2, 2, -0.001F, false));
 
@@ -594,13 +594,13 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun205 = new ModelRenderer(this);
         gun205.setRotationPoint(-3.7F, -33.1F, -27.0F);
         body.addChild(gun205);
-        gun205.cubeList.add(new ModelBox(gun205, 62, 1, 0.0F, -0.3F, 11.0F, 1, 1, 14, 0.001F, false));
+        gun205.cubeList.add(new ModelBox(gun205, 62, 1, 0.0F, -0.3F, 11, 1, 1, 14, 0.001F, false));
         gun205.cubeList.add(new ModelBox(gun205, 88, 12, 0.0F, -0.3F, 24.5F, 1, 1, 1, -0.001F, false));
 
         gun203 = new ModelRenderer(this);
         gun203.setRotationPoint(-4.0F, -18.7F, -5.0F);
         body.addChild(gun203);
-        gun203.cubeList.add(new ModelBox(gun203, 124, 62, 0.0F, 0.0F, 1.0F, 5, 2, 5, 0.0F, false));
+        gun203.cubeList.add(new ModelBox(gun203, 124, 62, 0.0F, 0.0F, 1, 5, 2, 5, 0.0F, false));
 
         gun202 = new ModelRenderer(this);
         gun202.setRotationPoint(-4.0F, -24.5F, 0.7F);
@@ -628,8 +628,8 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         setRotationAngle(gun142, 1.2641F, 0.0F, 0.0F);
         gun142.cubeList.add(new ModelBox(gun142, 48, 128, -0.5F, 1.8703F, -3.9181F, 4, 2, 3, -0.001F, false));
         gun142.cubeList.add(new ModelBox(gun142, 77, 45, -0.5F, 3.7851F, -6.9831F, 4, 2, 3, -0.001F, false));
-        gun142.cubeList.add(new ModelBox(gun142, 97, 25, -1.0F, 2.5122F, -3.2953F, 5, 2, 3, -0.001F, false));
-        gun142.cubeList.add(new ModelBox(gun142, 134, 56, -1.0F, 4.427F, -6.3602F, 5, 2, 3, -0.001F, false));
+        gun142.cubeList.add(new ModelBox(gun142, 97, 25, -1, 2.5122F, -3.2953F, 5, 2, 3, -0.001F, false));
+        gun142.cubeList.add(new ModelBox(gun142, 134, 56, -1, 4.427F, -6.3602F, 5, 2, 3, -0.001F, false));
 
         gun108 = new ModelRenderer(this);
         gun108.setRotationPoint(-4.01F, -24.5F, 0.7F);
@@ -646,20 +646,20 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun17.setRotationPoint(-3.7F, -32.1F, -14.5F);
         body.addChild(gun17);
         gun17.cubeList.add(new ModelBox(gun17, 80, 28, 0.0F, -1.001F, 4.0F, 4, 3, 9, 0.0F, false));
-        gun17.cubeList.add(new ModelBox(gun17, 24, 139, 1.0F, -1.001F, 0.0F, 2, 3, 4, 0.0F, false));
+        gun17.cubeList.add(new ModelBox(gun17, 24, 139, 1, -1.001F, 0.0F, 2, 3, 4, 0.0F, false));
         gun17.cubeList.add(new ModelBox(gun17, 65, 16, 2.4F, -1.001F, 0.0F, 1, 3, 4, 0.001F, false));
 
         gun21_r1 = new ModelRenderer(this);
-        gun21_r1.setRotationPoint(1.0F, 1.999F, 0.0F);
+        gun21_r1.setRotationPoint(1, 1.999F, 0.0F);
         gun17.addChild(gun21_r1);
         setRotationAngle(gun21_r1, 0.0F, 0.0F, -0.8901F);
-        gun21_r1.cubeList.add(new ModelBox(gun21_r1, 93, 95, 0.0F, -1.0F, 0.0F, 1, 1, 4, 0.001F, false));
+        gun21_r1.cubeList.add(new ModelBox(gun21_r1, 93, 95, 0.0F, -1, 0.0F, 1, 1, 4, 0.001F, false));
 
         gun20_r1 = new ModelRenderer(this);
         gun20_r1.setRotationPoint(3.4F, 1.999F, 0.0F);
         gun17.addChild(gun20_r1);
         setRotationAngle(gun20_r1, 0.0F, 0.0F, 0.8901F);
-        gun20_r1.cubeList.add(new ModelBox(gun20_r1, 96, 13, -1.0F, -1.0F, 0.0F, 1, 1, 4, 0.001F, false));
+        gun20_r1.cubeList.add(new ModelBox(gun20_r1, 96, 13, -1, -1, 0.0F, 1, 1, 4, 0.001F, false));
 
         gun13 = new ModelRenderer(this);
         gun13.setRotationPoint(-4.0F, -26.5F, -6.6F);
@@ -682,19 +682,19 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun16_r1.setRotationPoint(0.0F, -24.45F, -11.3F);
         trigger_guard.addChild(gun16_r1);
         setRotationAngle(gun16_r1, 0.3142F, 0.0F, 0.0F);
-        gun16_r1.cubeList.add(new ModelBox(gun16_r1, 132, 43, -3.0F, -1.0F, 0.0F, 3, 1, 5, -0.001F, false));
+        gun16_r1.cubeList.add(new ModelBox(gun16_r1, 132, 43, -3.0F, -1, 0.0F, 3, 1, 5, -0.001F, false));
 
         gun15_r1 = new ModelRenderer(this);
         gun15_r1.setRotationPoint(0.0F, -24.8F, -16.3F);
         trigger_guard.addChild(gun15_r1);
         setRotationAngle(gun15_r1, -0.0698F, 0.0F, 0.0F);
-        gun15_r1.cubeList.add(new ModelBox(gun15_r1, 132, 88, -3.0F, -1.0F, 0.0F, 3, 1, 5, 0.0F, false));
+        gun15_r1.cubeList.add(new ModelBox(gun15_r1, 132, 88, -3.0F, -1, 0.0F, 3, 1, 5, 0.0F, false));
 
         gun16_r2 = new ModelRenderer(this);
         gun16_r2.setRotationPoint(0.0F, -24.8F, -16.3F);
         trigger_guard.addChild(gun16_r2);
         setRotationAngle(gun16_r2, -0.7854F, 0.0F, 0.0F);
-        gun16_r2.cubeList.add(new ModelBox(gun16_r2, 96, 18, -3.0F, -1.0F, -2.0F, 3, 1, 2, 0.001F, false));
+        gun16_r2.cubeList.add(new ModelBox(gun16_r2, 96, 18, -3.0F, -1, -2.0F, 3, 1, 2, 0.001F, false));
 
         gun16_r3 = new ModelRenderer(this);
         gun16_r3.setRotationPoint(0.0F, -26.2F, -17.7F);
@@ -734,20 +734,20 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun175_r2.setRotationPoint(-3.501F, -32.15F, -24.5F);
         body_tan.addChild(gun175_r2);
         setRotationAngle(gun175_r2, -0.1146F, 0.0799F, 0.6063F);
-        gun175_r2.cubeList.add(new ModelBox(gun175_r2, 98, 42, 0.0F, -1.0F, 0.2F, 1, 1, 10, 0.001F, false));
+        gun175_r2.cubeList.add(new ModelBox(gun175_r2, 98, 42, 0.0F, -1, 0.2F, 1, 1, 10, 0.001F, false));
 
         gun173_r3 = new ModelRenderer(this);
         gun173_r3.setRotationPoint(-3.701F, -30.15F, -14.5F);
         body_tan.addChild(gun173_r3);
         setRotationAngle(gun173_r3, -0.1396F, 0.0F, 0.0F);
-        gun173_r3.cubeList.add(new ModelBox(gun173_r3, 82, 40, 1.0F, -2.0F, -10.0F, 2, 2, 10, 0.0F, false));
+        gun173_r3.cubeList.add(new ModelBox(gun173_r3, 82, 40, 1, -2.0F, -10.0F, 2, 2, 10, 0.0F, false));
         gun173_r3.cubeList.add(new ModelBox(gun173_r3, 94, 97, 2.402F, -2.0F, -10.0F, 1, 2, 10, 0.001F, false));
 
         gun174_r4 = new ModelRenderer(this);
         gun174_r4.setRotationPoint(0.501F, -32.15F, -24.5F);
         body_tan.addChild(gun174_r4);
         setRotationAngle(gun174_r4, -0.1146F, -0.0799F, -0.6063F);
-        gun174_r4.cubeList.add(new ModelBox(gun174_r4, 30, 99, -1.0F, -1.0F, 0.2F, 1, 1, 10, 0.001F, false));
+        gun174_r4.cubeList.add(new ModelBox(gun174_r4, 30, 99, -1, -1, 0.2F, 1, 1, 10, 0.001F, false));
 
         gun178_r1 = new ModelRenderer(this);
         gun178_r1.setRotationPoint(-3.501F, -32.45F, -24.5F);
@@ -779,25 +779,25 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun292_r1.setRotationPoint(-3.5F, -16.7F, 3.2F);
         body_tan.addChild(gun292_r1);
         setRotationAngle(gun292_r1, -1.0647F, 0.0F, 0.0F);
-        gun292_r1.cubeList.add(new ModelBox(gun292_r1, 77, 52, 0.001F, 0.0F, -1.0F, 4, 2, 1, -0.001F, false));
+        gun292_r1.cubeList.add(new ModelBox(gun292_r1, 77, 52, 0.001F, 0.0F, -1, 4, 2, 1, -0.001F, false));
 
         gun308_r1 = new ModelRenderer(this);
         gun308_r1.setRotationPoint(-2.0F, -37.2F, -15.2F);
         body_tan.addChild(gun308_r1);
         setRotationAngle(gun308_r1, 0.0F, 0.0F, -0.4712F);
-        gun308_r1.cubeList.add(new ModelBox(gun308_r1, 132, 101, -1.0F, 0.0F, -1.0F, 1, 1, 6, 0.0F, false));
+        gun308_r1.cubeList.add(new ModelBox(gun308_r1, 132, 101, -1, 0.0F, -1, 1, 1, 6, 0.0F, false));
 
         gun307_r2 = new ModelRenderer(this);
-        gun307_r2.setRotationPoint(-1.0F, -37.2F, -15.2F);
+        gun307_r2.setRotationPoint(-1, -37.2F, -15.2F);
         body_tan.addChild(gun307_r2);
         setRotationAngle(gun307_r2, 0.0F, 0.0F, 0.4712F);
-        gun307_r2.cubeList.add(new ModelBox(gun307_r2, 133, 69, 0.0F, 0.0F, -1.0F, 1, 1, 6, 0.0F, false));
+        gun307_r2.cubeList.add(new ModelBox(gun307_r2, 133, 69, 0.0F, 0.0F, -1, 1, 1, 6, 0.0F, false));
 
         gun272_r1 = new ModelRenderer(this);
         gun272_r1.setRotationPoint(1.6F, -31.8F, -6.3F);
         body_tan.addChild(gun272_r1);
         setRotationAngle(gun272_r1, 0.0F, 0.5411F, 0.0F);
-        gun272_r1.cubeList.add(new ModelBox(gun272_r1, 84, 31, -1.0F, -1.0F, -1.0F, 1, 1, 1, -0.001F, false));
+        gun272_r1.cubeList.add(new ModelBox(gun272_r1, 84, 31, -1, -1, -1, 1, 1, 1, -0.001F, false));
 
         gun3 = new ModelRenderer(this);
         gun3.setRotationPoint(-2.0F, -33.5F, -29.5F);
@@ -805,7 +805,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun3.cubeList.add(new ModelBox(gun3, 18, 86, 0.0F, 0.0F, 4.5F, 1, 1, 11, 0.0F, false));
 
         gun4 = new ModelRenderer(this);
-        gun4.setRotationPoint(-3.5F, -31.0F, 2.45F);
+        gun4.setRotationPoint(-3.5F, -31, 2.45F);
         body_tan.addChild(gun4);
         setRotationAngle(gun4, 2.038F, 0.0F, 0.0F);
         gun4.cubeList.add(new ModelBox(gun4, 25, 9, 0.0F, -2.3F, 0.0F, 4, 3, 3, 0.0F, false));
@@ -820,10 +820,10 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun6.setRotationPoint(-3.0F, -30.7F, 2.55F);
         body_tan.addChild(gun6);
         setRotationAngle(gun6, 2.0206F, 0.0F, 0.0F);
-        gun6.cubeList.add(new ModelBox(gun6, 30, 57, 0.0F, 0.0F, 1.0F, 1, 1, 2, 0.0F, false));
+        gun6.cubeList.add(new ModelBox(gun6, 30, 57, 0.0F, 0.0F, 1, 1, 1, 2, 0.0F, false));
         gun6.cubeList.add(new ModelBox(gun6, 77, 50, 0.0F, 0.0F, 2.8F, 1, 1, 1, -0.001F, false));
-        gun6.cubeList.add(new ModelBox(gun6, 56, 32, 1.0F, 0.0F, 1.0F, 1, 1, 2, 0.0F, false));
-        gun6.cubeList.add(new ModelBox(gun6, 9, 56, 2.0F, 0.0F, 1.0F, 1, 1, 2, 0.0F, false));
+        gun6.cubeList.add(new ModelBox(gun6, 56, 32, 1, 0.0F, 1, 1, 1, 2, 0.0F, false));
+        gun6.cubeList.add(new ModelBox(gun6, 9, 56, 2.0F, 0.0F, 1, 1, 1, 2, 0.0F, false));
         gun6.cubeList.add(new ModelBox(gun6, 75, 28, 2.0F, 0.0F, 2.5F, 1, 1, 1, -0.001F, false));
         gun6.cubeList.add(new ModelBox(gun6, 64, 74, 2.2F, 0.2F, 3.1F, 1, 1, 1, -0.2F, false));
 
@@ -884,26 +884,26 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun14 = new ModelRenderer(this);
         gun14.setRotationPoint(-0.3F, -32.1F, -14.5F);
         body_tan.addChild(gun14);
-        gun14.cubeList.add(new ModelBox(gun14, 109, 0, 0.0F, -1.0F, 4.0F, 1, 3, 9, 0.0F, false));
+        gun14.cubeList.add(new ModelBox(gun14, 109, 0, 0.0F, -1, 4.0F, 1, 3, 9, 0.0F, false));
 
         gun15 = new ModelRenderer(this);
         gun15.setRotationPoint(-0.3F, -33.1F, -27.0F);
         body_tan.addChild(gun15);
-        gun15.cubeList.add(new ModelBox(gun15, 30, 38, 0.001F, -0.3F, 11.0F, 1, 1, 3, 0.0F, false));
+        gun15.cubeList.add(new ModelBox(gun15, 30, 38, 0.001F, -0.3F, 11, 1, 1, 3, 0.0F, false));
         gun15.cubeList.add(new ModelBox(gun15, 95, 112, 0.001F, -0.3F, 16.5F, 1, 1, 9, 0.001F, false));
-        gun15.cubeList.add(new ModelBox(gun15, 132, 94, 0.001F, 0.7F, 11.0F, 1, 1, 6, 0.0F, false));
-        gun15.cubeList.add(new ModelBox(gun15, 54, 107, 0.001F, 0.5F, 11.0F, 1, 1, 6, -0.001F, false));
-        gun15.cubeList.add(new ModelBox(gun15, 56, 32, -3.401F, 0.7F, 11.0F, 1, 1, 6, 0.0F, false));
+        gun15.cubeList.add(new ModelBox(gun15, 132, 94, 0.001F, 0.7F, 11, 1, 1, 6, 0.0F, false));
+        gun15.cubeList.add(new ModelBox(gun15, 54, 107, 0.001F, 0.5F, 11, 1, 1, 6, -0.001F, false));
+        gun15.cubeList.add(new ModelBox(gun15, 56, 32, -3.401F, 0.7F, 11, 1, 1, 6, 0.0F, false));
 
         gun262_r1 = new ModelRenderer(this);
-        gun262_r1.setRotationPoint(-3.401F, 0.8F, 11.0F);
+        gun262_r1.setRotationPoint(-3.401F, 0.8F, 11);
         gun15.addChild(gun262_r1);
         setRotationAngle(gun262_r1, 0.4712F, -0.0873F, 0.0F);
         gun262_r1.cubeList.add(new ModelBox(gun262_r1, 42, 16, -0.2F, -0.2F, -1.2F, 1, 1, 1, -0.201F, false));
         gun262_r1.cubeList.add(new ModelBox(gun262_r1, 44, 51, -0.1F, -0.1F, -0.9F, 1, 1, 1, -0.1F, false));
 
         gun261_r4 = new ModelRenderer(this);
-        gun261_r4.setRotationPoint(-3.401F, 1.9F, 11.0F);
+        gun261_r4.setRotationPoint(-3.401F, 1.9F, 11);
         gun15.addChild(gun261_r4);
         setRotationAngle(gun261_r4, 0.0F, -0.0873F, 0.0F);
         gun261_r4.cubeList.add(new ModelBox(gun261_r4, 9, 27, -0.2F, -0.95F, -2.8F, 1, 1, 3, -0.202F, false));
@@ -911,39 +911,39 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun261_r4.cubeList.add(new ModelBox(gun261_r4, 34, 27, -0.3F, -2.35F, -2.7F, 1, 1, 3, -0.301F, false));
 
         gun260_r4 = new ModelRenderer(this);
-        gun260_r4.setRotationPoint(-3.401F, 1.9F, 11.0F);
+        gun260_r4.setRotationPoint(-3.401F, 1.9F, 11);
         gun15.addChild(gun260_r4);
         setRotationAngle(gun260_r4, -0.0524F, -0.0873F, 0.0F);
         gun260_r4.cubeList.add(new ModelBox(gun260_r4, 34, 18, -0.2F, -0.8F, -2.8F, 1, 1, 3, -0.199F, false));
 
         gun262_r2 = new ModelRenderer(this);
-        gun262_r2.setRotationPoint(-3.401F, 0.5F, 11.0F);
+        gun262_r2.setRotationPoint(-3.401F, 0.5F, 11);
         gun15.addChild(gun262_r2);
         setRotationAngle(gun262_r2, -0.4712F, -0.0873F, 0.0F);
         gun262_r2.cubeList.add(new ModelBox(gun262_r2, 54, 47, -0.2F, -0.8F, -0.8F, 1, 1, 1, -0.2F, false));
 
         gun259_r2 = new ModelRenderer(this);
-        gun259_r2.setRotationPoint(-3.401F, 1.9F, 11.0F);
+        gun259_r2.setRotationPoint(-3.401F, 1.9F, 11);
         gun15.addChild(gun259_r2);
         setRotationAngle(gun259_r2, -0.1396F, 0.0F, 0.0F);
-        gun259_r2.cubeList.add(new ModelBox(gun259_r2, 0, 64, 0.0F, -1.0F, 0.0F, 1, 1, 6, -0.002F, false));
-        gun259_r2.cubeList.add(new ModelBox(gun259_r2, 21, 65, 3.402F, -1.0F, 0.0F, 1, 1, 6, -0.002F, false));
+        gun259_r2.cubeList.add(new ModelBox(gun259_r2, 0, 64, 0.0F, -1, 0.0F, 1, 1, 6, -0.002F, false));
+        gun259_r2.cubeList.add(new ModelBox(gun259_r2, 21, 65, 3.402F, -1, 0.0F, 1, 1, 6, -0.002F, false));
 
         gun261_r5 = new ModelRenderer(this);
-        gun261_r5.setRotationPoint(1.001F, 0.8F, 11.0F);
+        gun261_r5.setRotationPoint(1.001F, 0.8F, 11);
         gun15.addChild(gun261_r5);
         setRotationAngle(gun261_r5, 0.4712F, 0.0873F, 0.0F);
         gun261_r5.cubeList.add(new ModelBox(gun261_r5, 54, 51, -0.8F, -0.2F, -1.2F, 1, 1, 1, -0.201F, false));
         gun261_r5.cubeList.add(new ModelBox(gun261_r5, 68, 35, -0.9F, -0.1F, -0.9F, 1, 1, 1, -0.1F, false));
 
         gun261_r6 = new ModelRenderer(this);
-        gun261_r6.setRotationPoint(1.001F, 0.5F, 11.0F);
+        gun261_r6.setRotationPoint(1.001F, 0.5F, 11);
         gun15.addChild(gun261_r6);
         setRotationAngle(gun261_r6, -0.4712F, 0.0873F, 0.0F);
         gun261_r6.cubeList.add(new ModelBox(gun261_r6, 68, 32, -0.8F, -0.8F, -0.8F, 1, 1, 1, -0.2F, false));
 
         gun262_r3 = new ModelRenderer(this);
-        gun262_r3.setRotationPoint(1.001F, 0.5F, 11.0F);
+        gun262_r3.setRotationPoint(1.001F, 0.5F, 11);
         gun15.addChild(gun262_r3);
         setRotationAngle(gun262_r3, 0.0F, 0.0873F, 0.0F);
         gun262_r3.cubeList.add(new ModelBox(gun262_r3, 54, 0, -0.7F, -1.1F, -1.7F, 1, 1, 2, -0.302F, false));
@@ -951,7 +951,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun262_r3.cubeList.add(new ModelBox(gun262_r3, 10, 36, -0.8F, 0.45F, -2.8F, 1, 1, 3, -0.202F, false));
 
         gun259_r3 = new ModelRenderer(this);
-        gun259_r3.setRotationPoint(1.001F, 1.9F, 11.0F);
+        gun259_r3.setRotationPoint(1.001F, 1.9F, 11);
         gun15.addChild(gun259_r3);
         setRotationAngle(gun259_r3, -0.0524F, 0.0873F, 0.0F);
         gun259_r3.cubeList.add(new ModelBox(gun259_r3, 20, 38, -0.8F, -0.8F, -2.8F, 1, 1, 3, -0.199F, false));
@@ -960,38 +960,38 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun259_r4.setRotationPoint(1.001F, 0.7F, 25.5F);
         gun15.addChild(gun259_r4);
         setRotationAngle(gun259_r4, 0.0F, -0.1047F, 0.0F);
-        gun259_r4.cubeList.add(new ModelBox(gun259_r4, 0, 9, -1.0F, -1.0F, 0.0F, 1, 3, 2, 0.001F, false));
+        gun259_r4.cubeList.add(new ModelBox(gun259_r4, 0, 9, -1, -1, 0.0F, 1, 3, 2, 0.001F, false));
 
         gun258_r4 = new ModelRenderer(this);
         gun258_r4.setRotationPoint(-3.401F, 0.7F, 25.5F);
         gun15.addChild(gun258_r4);
         setRotationAngle(gun258_r4, 0.0F, 0.1047F, 0.0F);
-        gun258_r4.cubeList.add(new ModelBox(gun258_r4, 0, 18, 0.0F, -1.0F, 0.0F, 1, 3, 2, 0.001F, false));
+        gun258_r4.cubeList.add(new ModelBox(gun258_r4, 0, 18, 0.0F, -1, 0.0F, 1, 3, 2, 0.001F, false));
 
         gun258_r5 = new ModelRenderer(this);
         gun258_r5.setRotationPoint(1.001F, -0.3F, 16.5F);
         gun15.addChild(gun258_r5);
         setRotationAngle(gun258_r5, -0.3316F, 0.0F, 0.0F);
-        gun258_r5.cubeList.add(new ModelBox(gun258_r5, 72, 23, -1.0F, 0.0F, 0.0F, 1, 2, 1, -0.003F, false));
+        gun258_r5.cubeList.add(new ModelBox(gun258_r5, 72, 23, -1, 0.0F, 0.0F, 1, 2, 1, -0.003F, false));
 
         gun257_r3 = new ModelRenderer(this);
         gun257_r3.setRotationPoint(1.001F, -0.3F, 14.0F);
         gun15.addChild(gun257_r3);
         setRotationAngle(gun257_r3, 0.3316F, 0.0F, 0.0F);
-        gun257_r3.cubeList.add(new ModelBox(gun257_r3, 41, 79, -1.0F, 0.0F, -1.0F, 1, 2, 1, -0.003F, false));
+        gun257_r3.cubeList.add(new ModelBox(gun257_r3, 41, 79, -1, 0.0F, -1, 1, 2, 1, -0.003F, false));
 
         gun257_r4 = new ModelRenderer(this);
         gun257_r4.setRotationPoint(1.201F, -0.4F, 16.3F);
         gun15.addChild(gun257_r4);
         setRotationAngle(gun257_r4, 0.0F, 0.0F, 0.2443F);
-        gun257_r4.cubeList.add(new ModelBox(gun257_r4, 54, 3, -1.0F, 0.0F, -2.05F, 1, 1, 2, -0.1F, false));
+        gun257_r4.cubeList.add(new ModelBox(gun257_r4, 54, 3, -1, 0.0F, -2.05F, 1, 1, 2, -0.1F, false));
 
         gun16 = new ModelRenderer(this);
         gun16.setRotationPoint(-0.9F, -26.0F, -7.2F);
         body_tan.addChild(gun16);
         setRotationAngle(gun16, 0.195F, 0.0F, 0.0F);
-        gun16.cubeList.add(new ModelBox(gun16, 67, 52, 1.0F, -1.201F, -0.001F, 1, 2, 1, 0.0F, false));
-        gun16.cubeList.add(new ModelBox(gun16, 55, 25, 1.0F, -1.201F, 0.399F, 1, 2, 1, -0.001F, false));
+        gun16.cubeList.add(new ModelBox(gun16, 67, 52, 1, -1.201F, -0.001F, 1, 2, 1, 0.0F, false));
+        gun16.cubeList.add(new ModelBox(gun16, 55, 25, 1, -1.201F, 0.399F, 1, 2, 1, -0.001F, false));
         gun16.cubeList.add(new ModelBox(gun16, 36, 9, -2.7F, -1.201F, -0.101F, 1, 2, 1, 0.0F, false));
         gun16.cubeList.add(new ModelBox(gun16, 46, 0, -3.2F, -1.201F, 0.599F, 1, 2, 2, -0.001F, false));
 
@@ -1010,13 +1010,13 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun20 = new ModelRenderer(this);
         gun20.setRotationPoint(-3.7F, -33.1F, -27.0F);
         body_tan.addChild(gun20);
-        gun20.cubeList.add(new ModelBox(gun20, 46, 0, 0.0F, -0.3F, 11.0F, 1, 1, 14, 0.001F, false));
+        gun20.cubeList.add(new ModelBox(gun20, 46, 0, 0.0F, -0.3F, 11, 1, 1, 14, 0.001F, false));
         gun20.cubeList.add(new ModelBox(gun20, 20, 36, 0.0F, -0.3F, 24.5F, 1, 1, 1, -0.001F, false));
 
         gun21 = new ModelRenderer(this);
         gun21.setRotationPoint(-4.0F, -18.7F, -5.0F);
         body_tan.addChild(gun21);
-        gun21.cubeList.add(new ModelBox(gun21, 62, 58, 0.0F, 0.0F, 1.0F, 5, 2, 5, 0.0F, false));
+        gun21.cubeList.add(new ModelBox(gun21, 62, 58, 0.0F, 0.0F, 1, 5, 2, 5, 0.0F, false));
 
         gun22 = new ModelRenderer(this);
         gun22.setRotationPoint(-4.0F, -24.5F, 0.7F);
@@ -1044,8 +1044,8 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         setRotationAngle(gun25, 1.2641F, 0.0F, 0.0F);
         gun25.cubeList.add(new ModelBox(gun25, 62, 8, -0.5F, 1.8703F, -3.9181F, 4, 2, 3, -0.001F, false));
         gun25.cubeList.add(new ModelBox(gun25, 46, 8, -0.5F, 3.7851F, -6.9831F, 4, 2, 3, -0.001F, false));
-        gun25.cubeList.add(new ModelBox(gun25, 12, 86, -1.0F, 2.5122F, -3.2953F, 5, 2, 3, -0.001F, false));
-        gun25.cubeList.add(new ModelBox(gun25, 34, 74, -1.0F, 4.427F, -6.3602F, 5, 2, 3, -0.001F, false));
+        gun25.cubeList.add(new ModelBox(gun25, 12, 86, -1, 2.5122F, -3.2953F, 5, 2, 3, -0.001F, false));
+        gun25.cubeList.add(new ModelBox(gun25, 34, 74, -1, 4.427F, -6.3602F, 5, 2, 3, -0.001F, false));
 
         gun26 = new ModelRenderer(this);
         gun26.setRotationPoint(-4.01F, -24.5F, 0.7F);
@@ -1062,20 +1062,20 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun28.setRotationPoint(-3.7F, -32.1F, -14.5F);
         body_tan.addChild(gun28);
         gun28.cubeList.add(new ModelBox(gun28, 78, 0, 0.0F, -1.001F, 4.0F, 4, 3, 9, 0.0F, false));
-        gun28.cubeList.add(new ModelBox(gun28, 137, 110, 1.0F, -1.001F, 0.0F, 2, 3, 4, 0.0F, false));
+        gun28.cubeList.add(new ModelBox(gun28, 137, 110, 1, -1.001F, 0.0F, 2, 3, 4, 0.0F, false));
         gun28.cubeList.add(new ModelBox(gun28, 60, 45, 2.4F, -1.001F, 0.0F, 1, 3, 4, 0.001F, false));
 
         gun22_r1 = new ModelRenderer(this);
-        gun22_r1.setRotationPoint(1.0F, 1.999F, 0.0F);
+        gun22_r1.setRotationPoint(1, 1.999F, 0.0F);
         gun28.addChild(gun22_r1);
         setRotationAngle(gun22_r1, 0.0F, 0.0F, -0.8901F);
-        gun22_r1.cubeList.add(new ModelBox(gun22_r1, 0, 73, 0.0F, -1.0F, 0.0F, 1, 1, 4, 0.001F, false));
+        gun22_r1.cubeList.add(new ModelBox(gun22_r1, 0, 73, 0.0F, -1, 0.0F, 1, 1, 4, 0.001F, false));
 
         gun21_r2 = new ModelRenderer(this);
         gun21_r2.setRotationPoint(3.4F, 1.999F, 0.0F);
         gun28.addChild(gun21_r2);
         setRotationAngle(gun21_r2, 0.0F, 0.0F, 0.8901F);
-        gun21_r2.cubeList.add(new ModelBox(gun21_r2, 17, 74, -1.0F, -1.0F, 0.0F, 1, 1, 4, 0.001F, false));
+        gun21_r2.cubeList.add(new ModelBox(gun21_r2, 17, 74, -1, -1, 0.0F, 1, 1, 4, 0.001F, false));
 
         gun29 = new ModelRenderer(this);
         gun29.setRotationPoint(-4.0F, -26.5F, -6.6F);
@@ -1098,19 +1098,19 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun17_r2.setRotationPoint(0.0F, -24.45F, -11.3F);
         trigger_guard2.addChild(gun17_r2);
         setRotationAngle(gun17_r2, 0.3142F, 0.0F, 0.0F);
-        gun17_r2.cubeList.add(new ModelBox(gun17_r2, 20, 47, -3.0F, -1.0F, 0.0F, 3, 1, 5, -0.001F, false));
+        gun17_r2.cubeList.add(new ModelBox(gun17_r2, 20, 47, -3.0F, -1, 0.0F, 3, 1, 5, -0.001F, false));
 
         gun16_r4 = new ModelRenderer(this);
         gun16_r4.setRotationPoint(0.0F, -24.8F, -16.3F);
         trigger_guard2.addChild(gun16_r4);
         setRotationAngle(gun16_r4, -0.0698F, 0.0F, 0.0F);
-        gun16_r4.cubeList.add(new ModelBox(gun16_r4, 110, 34, -3.0F, -1.0F, 0.0F, 3, 1, 5, 0.0F, false));
+        gun16_r4.cubeList.add(new ModelBox(gun16_r4, 110, 34, -3.0F, -1, 0.0F, 3, 1, 5, 0.0F, false));
 
         gun17_r3 = new ModelRenderer(this);
         gun17_r3.setRotationPoint(0.0F, -24.8F, -16.3F);
         trigger_guard2.addChild(gun17_r3);
         setRotationAngle(gun17_r3, -0.7854F, 0.0F, 0.0F);
-        gun17_r3.cubeList.add(new ModelBox(gun17_r3, 57, 71, -3.0F, -1.0F, -2.0F, 3, 1, 2, 0.001F, false));
+        gun17_r3.cubeList.add(new ModelBox(gun17_r3, 57, 71, -3.0F, -1, -2.0F, 3, 1, 2, 0.001F, false));
 
         gun17_r4 = new ModelRenderer(this);
         gun17_r4.setRotationPoint(0.0F, -26.2F, -17.7F);
@@ -1126,23 +1126,23 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 
         slide = new ModelRenderer(this);
         slide.setRotationPoint(0.6F, -9.6F, -5.0F);
-        slide.cubeList.add(new ModelBox(slide, 15, 110, -1.0F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
-        slide.cubeList.add(new ModelBox(slide, 120, 121, -1.0F, -1.0F, -0.6F, 1, 1, 1, -0.001F, false));
+        slide.cubeList.add(new ModelBox(slide, 15, 110, -1, -2.0F, -1, 1, 2, 1, 0.0F, false));
+        slide.cubeList.add(new ModelBox(slide, 120, 121, -1, -1, -0.6F, 1, 1, 1, -0.001F, false));
         slide.cubeList.add(new ModelBox(slide, 60, 121, -0.8F, -3.2F, -1.23F, 1, 1, 1, -0.199F, false));
-        slide.cubeList.add(new ModelBox(slide, 31, 99, -1.0F, -2.0F, -2.5F, 1, 1, 2, -0.001F, false));
-        slide.cubeList.add(new ModelBox(slide, 71, 105, -1.0F, -1.0F, -19.0F, 1, 1, 4, 0.0F, false));
-        slide.cubeList.add(new ModelBox(slide, 50, 38, -1.0F, -1.0F, -13.0F, 1, 1, 3, 0.0F, false));
-        slide.cubeList.add(new ModelBox(slide, 128, 114, -1.0F, -1.0F, -8.0F, 1, 1, 7, 0.0F, false));
+        slide.cubeList.add(new ModelBox(slide, 31, 99, -1, -2.0F, -2.5F, 1, 1, 2, -0.001F, false));
+        slide.cubeList.add(new ModelBox(slide, 71, 105, -1, -1, -19.0F, 1, 1, 4, 0.0F, false));
+        slide.cubeList.add(new ModelBox(slide, 50, 38, -1, -1, -13.0F, 1, 1, 3, 0.0F, false));
+        slide.cubeList.add(new ModelBox(slide, 128, 114, -1, -1, -8.0F, 1, 1, 7, 0.0F, false));
         slide.cubeList.add(new ModelBox(slide, 10, 49, -0.8F, -1.2F, -10.2F, 1, 1, 3, -0.201F, false));
         slide.cubeList.add(new ModelBox(slide, 0, 49, -0.7F, -1.3F, -15.3F, 1, 1, 3, -0.301F, false));
         slide.cubeList.add(new ModelBox(slide, 55, 126, -1.099F, -2.0F, -1.301F, 1, 2, 7, 0.0F, false));
         slide.cubeList.add(new ModelBox(slide, 64, 128, -1.099F, -2.9F, -1.701F, 1, 1, 7, 0.001F, false));
         slide.cubeList.add(new ModelBox(slide, 39, 128, -4.101F, -2.9F, -1.701F, 1, 1, 7, 0.001F, false));
         slide.cubeList.add(new ModelBox(slide, 25, 18, -4.101F, -2.0F, -1.301F, 1, 2, 7, 0.0F, false));
-        slide.cubeList.add(new ModelBox(slide, 108, 19, -4.2F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
-        slide.cubeList.add(new ModelBox(slide, 40, 39, -4.2F, -1.0F, -19.0F, 1, 1, 18, 0.0F, false));
+        slide.cubeList.add(new ModelBox(slide, 108, 19, -4.2F, -2.0F, -1, 1, 2, 1, 0.0F, false));
+        slide.cubeList.add(new ModelBox(slide, 40, 39, -4.2F, -1, -19.0F, 1, 1, 18, 0.0F, false));
         slide.cubeList.add(new ModelBox(slide, 97, 30, -4.2F, -2.0F, -2.5F, 1, 1, 2, -0.001F, false));
-        slide.cubeList.add(new ModelBox(slide, 120, 0, -4.2F, -1.0F, -0.6F, 1, 1, 1, -0.001F, false));
+        slide.cubeList.add(new ModelBox(slide, 120, 0, -4.2F, -1, -0.6F, 1, 1, 1, -0.001F, false));
         slide.cubeList.add(new ModelBox(slide, 120, 14, -4.4F, -3.2F, -1.23F, 1, 1, 1, -0.199F, false));
         slide.cubeList.add(new ModelBox(slide, 42, 107, -2.6F, -3.8F, -4.7F, 1, 1, 10, 0.0F, false));
         slide.cubeList.add(new ModelBox(slide, 4, 116, -2.6F, -3.8F, -5.2F, 1, 1, 1, -0.001F, false));
@@ -1155,8 +1155,8 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r1.setRotationPoint(-2.6F, -3.8F, -19.9F);
         slide.addChild(cube_r1);
         setRotationAngle(cube_r1, 0.0F, 0.0F, 1.0996F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 87, 122, 0.0F, 0.15F, 1.0F, 1, 1, 8, -0.001F, false));
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 28, 122, 0.0F, 0.0F, 1.0F, 1, 1, 8, 0.0F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 87, 122, 0.0F, 0.15F, 1, 1, 1, 8, -0.001F, false));
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 28, 122, 0.0F, 0.0F, 1, 1, 1, 8, 0.0F, false));
         cube_r1.cubeList.add(new ModelBox(cube_r1, 59, 94, -0.2F, -0.2F, -0.2F, 1, 1, 2, -0.201F, false));
         cube_r1.cubeList.add(new ModelBox(cube_r1, 120, 119, 0.0F, 0.8F, 18.9F, 1, 1, 1, -0.003F, false));
         cube_r1.cubeList.add(new ModelBox(cube_r1, 14, 136, 0.0F, 0.8F, 19.2F, 1, 1, 6, -0.002F, false));
@@ -1168,34 +1168,34 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r2.setRotationPoint(-1.6F, -3.8F, -19.9F);
         slide.addChild(cube_r2);
         setRotationAngle(cube_r2, 0.0F, 0.0F, -1.0996F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 122, 44, -1.0F, 0.15F, 1.0F, 1, 1, 8, -0.001F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 122, 44, -1, 0.15F, 1, 1, 1, 8, -0.001F, false));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 69, 94, -0.8F, -0.2F, -0.2F, 1, 1, 2, -0.201F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 77, 121, -1.0F, 0.0F, 1.0F, 1, 1, 8, 0.0F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 121, -1.0F, 0.8F, 18.9F, 1, 1, 1, -0.003F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 37, 136, -1.0F, 0.8F, 19.2F, 1, 1, 6, -0.002F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 77, 121, -1, 0.0F, 1, 1, 1, 8, 0.0F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 121, -1, 0.8F, 18.9F, 1, 1, 1, -0.003F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 37, 136, -1, 0.8F, 19.2F, 1, 1, 6, -0.002F, false));
         cube_r2.cubeList.add(new ModelBox(cube_r2, 80, 95, -0.9F, 0.25F, 14.1F, 1, 1, 11, -0.101F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 116, -1.0F, 0.0F, 14.7F, 1, 1, 1, 0.001F, false));
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 108, 13, -1.0F, 0.0F, 15.2F, 1, 1, 10, 0.0F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 116, -1, 0.0F, 14.7F, 1, 1, 1, 0.001F, false));
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 108, 13, -1, 0.0F, 15.2F, 1, 1, 10, 0.0F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(-4.2F, 0.0F, -19.0F);
         slide.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, 1.0821F, 0.0F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 118, 105, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 118, 105, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r4 = new ModelRenderer(this);
-        cube_r4.setRotationPoint(-4.2F, -1.0F, -19.0F);
+        cube_r4.setRotationPoint(-4.2F, -1, -19.0F);
         slide.addChild(cube_r4);
         setRotationAngle(cube_r4, -0.0209F, 1.097F, 0.2243F);
         cube_r4.cubeList.add(new ModelBox(cube_r4, 4, 106, 0.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
         cube_r4.cubeList.add(new ModelBox(cube_r4, 70, 118, 0.0F, -2.3F, 0.0F, 1, 1, 1, -0.001F, false));
 
         cube_r5 = new ModelRenderer(this);
-        cube_r5.setRotationPoint(-4.2F, -1.0F, -19.0F);
+        cube_r5.setRotationPoint(-4.2F, -1, -19.0F);
         slide.addChild(cube_r5);
         setRotationAngle(cube_r5, -0.557F, 1.0035F, -0.3882F);
         cube_r5.cubeList.add(new ModelBox(cube_r5, 118, 94, 0.5F, -2.4F, -0.2F, 1, 1, 1, -0.202F, false));
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 77, 118, 1.0F, -2.5F, -0.3F, 1, 1, 1, -0.3F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 77, 118, 1, -2.5F, -0.3F, 1, 1, 1, -0.3F, false));
 
         cube_r6 = new ModelRenderer(this);
         cube_r6.setRotationPoint(-2.6F, -3.8F, -19.9F);
@@ -1222,8 +1222,8 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r9.setRotationPoint(-0.95F, 0.0F, -19.9F);
         slide.addChild(cube_r9);
         setRotationAngle(cube_r9, 0.0F, 0.0F, 0.4014F);
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 116, 62, -1.0F, 0.6F, 0.0F, 1, 1, 1, -0.003F, false));
-        cube_r9.cubeList.add(new ModelBox(cube_r9, 116, 64, -1.0F, 0.0F, 0.0F, 1, 1, 1, -0.002F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 116, 62, -1, 0.6F, 0.0F, 1, 1, 1, -0.003F, false));
+        cube_r9.cubeList.add(new ModelBox(cube_r9, 116, 64, -1, 0.0F, 0.0F, 1, 1, 1, -0.002F, false));
 
         cube_r10 = new ModelRenderer(this);
         cube_r10.setRotationPoint(-3.7F, -3.0F, -19.0F);
@@ -1277,7 +1277,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r16.setRotationPoint(-0.35F, -3.8F, 5.3F);
         slide.addChild(cube_r16);
         setRotationAngle(cube_r16, -1.0297F, 0.0F, 0.0F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 116, 81, -1.0F, 0.0F, 2.2F, 1, 1, 1, 0.0F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 116, 81, -1, 0.0F, 2.2F, 1, 1, 1, 0.0F, false));
         cube_r16.cubeList.add(new ModelBox(cube_r16, 116, 68, -1.1F, 0.1F, 1.35F, 1, 1, 1, 0.101F, false));
         cube_r16.cubeList.add(new ModelBox(cube_r16, 99, 116, -1.1F, 0.1F, 0.85F, 1, 1, 1, 0.1F, false));
         cube_r16.cubeList.add(new ModelBox(cube_r16, 116, 66, -3.4F, 0.1F, 2.1F, 1, 1, 1, 0.101F, false));
@@ -1395,25 +1395,25 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r29.cubeList.add(new ModelBox(cube_r29, 91, 121, 3.4F, -0.8F, -0.8F, 1, 1, 1, -0.2F, false));
 
         cube_r30 = new ModelRenderer(this);
-        cube_r30.setRotationPoint(-4.2F, -3.0F, -1.0F);
+        cube_r30.setRotationPoint(-4.2F, -3.0F, -1);
         slide.addChild(cube_r30);
         setRotationAngle(cube_r30, -1.0123F, 0.0F, 0.0F);
         cube_r30.cubeList.add(new ModelBox(cube_r30, 0, 109, 0.0F, 0.0F, 0.0F, 1, 2, 1, -0.002F, false));
         cube_r30.cubeList.add(new ModelBox(cube_r30, 0, 56, 3.2F, 0.0F, 0.0F, 1, 4, 1, -0.002F, false));
 
         cube_r31 = new ModelRenderer(this);
-        cube_r31.setRotationPoint(-4.2F, -3.0F, -1.0F);
+        cube_r31.setRotationPoint(-4.2F, -3.0F, -1);
         slide.addChild(cube_r31);
         setRotationAngle(cube_r31, -1.3034F, 0.4964F, -1.0489F);
         cube_r31.cubeList.add(new ModelBox(cube_r31, 106, 95, -0.4F, 0.4F, -0.4F, 1, 2, 1, -0.401F, false));
         cube_r31.cubeList.add(new ModelBox(cube_r31, 54, 107, -0.4F, -0.1F, -0.4F, 1, 2, 1, -0.4F, false));
 
         cube_r32 = new ModelRenderer(this);
-        cube_r32.setRotationPoint(0.0F, -3.0F, -1.0F);
+        cube_r32.setRotationPoint(0.0F, -3.0F, -1);
         slide.addChild(cube_r32);
         setRotationAngle(cube_r32, -1.3034F, -0.4964F, 1.0489F);
         cube_r32.cubeList.add(new ModelBox(cube_r32, 89, 107, -0.6F, -0.1F, -0.4F, 1, 2, 1, -0.4F, false));
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 6, 78, -1.0F, 1.1F, 0.0F, 1, 3, 1, -0.002F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 6, 78, -1, 1.1F, 0.0F, 1, 3, 1, -0.002F, false));
 
         cube_r33 = new ModelRenderer(this);
         cube_r33.setRotationPoint(-3.7F, -3.0F, -19.0F);
@@ -1477,7 +1477,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r41.setRotationPoint(-1.6F, -3.8F, -4.0F);
         slide.addChild(cube_r41);
         setRotationAngle(cube_r41, 1.309F, 0.0F, -1.0996F);
-        cube_r41.cubeList.add(new ModelBox(cube_r41, 23, 79, -1.0F, 0.35F, -0.95F, 1, 3, 1, -0.004F, false));
+        cube_r41.cubeList.add(new ModelBox(cube_r41, 23, 79, -1, 0.35F, -0.95F, 1, 3, 1, -0.004F, false));
 
         cube_r42 = new ModelRenderer(this);
         cube_r42.setRotationPoint(-1.6F, -3.8F, 5.3F);
@@ -1493,24 +1493,24 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r43.cubeList.add(new ModelBox(cube_r43, 11, 115, -0.8F, -0.8F, -0.2F, 1, 1, 1, -0.202F, false));
 
         cube_r44 = new ModelRenderer(this);
-        cube_r44.setRotationPoint(0.0F, -1.0F, -19.0F);
+        cube_r44.setRotationPoint(0.0F, -1, -19.0F);
         slide.addChild(cube_r44);
         setRotationAngle(cube_r44, -0.557F, -1.0035F, 0.3882F);
         cube_r44.cubeList.add(new ModelBox(cube_r44, 118, 107, -1.5F, -2.4F, -0.2F, 1, 1, 1, -0.202F, false));
         cube_r44.cubeList.add(new ModelBox(cube_r44, 118, 109, -2.0F, -2.5F, -0.3F, 1, 1, 1, -0.3F, false));
 
         cube_r45 = new ModelRenderer(this);
-        cube_r45.setRotationPoint(0.0F, -1.0F, -19.0F);
+        cube_r45.setRotationPoint(0.0F, -1, -19.0F);
         slide.addChild(cube_r45);
         setRotationAngle(cube_r45, -0.0209F, -1.097F, -0.2243F);
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 106, 118, -1.0F, -2.3F, 0.0F, 1, 1, 1, -0.001F, false));
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 42, 106, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 106, 118, -1, -2.3F, 0.0F, 1, 1, 1, -0.001F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 42, 106, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         cube_r46 = new ModelRenderer(this);
         cube_r46.setRotationPoint(0.0F, 0.0F, -19.0F);
         slide.addChild(cube_r46);
         setRotationAngle(cube_r46, 0.0F, -1.0821F, 0.0F);
-        cube_r46.cubeList.add(new ModelBox(cube_r46, 60, 119, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r46.cubeList.add(new ModelBox(cube_r46, 60, 119, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r47 = new ModelRenderer(this);
         cube_r47.setRotationPoint(-3.6F, -0.1F, 6.2F);
@@ -1532,23 +1532,23 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 
         slide_with_mount = new ModelRenderer(this);
         slide_with_mount.setRotationPoint(0.6F, -9.6F, -5.0F);
-        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 103, 0, -1.0F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
-        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 0, 114, -1.0F, -1.0F, -0.6F, 1, 1, 1, -0.001F, false));
+        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 103, 0, -1, -2.0F, -1, 1, 2, 1, 0.0F, false));
+        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 0, 114, -1, -1, -0.6F, 1, 1, 1, -0.001F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 113, 85, -0.8F, -3.2F, -1.23F, 1, 1, 1, -0.199F, false));
-        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 70, 0, -1.0F, -2.0F, -2.5F, 1, 1, 2, -0.001F, false));
-        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 80, 93, -1.0F, -1.0F, -19.0F, 1, 1, 4, 0.0F, false));
-        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 40, 38, -1.0F, -1.0F, -13.0F, 1, 1, 3, 0.0F, false));
-        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 97, 122, -1.0F, -1.0F, -8.0F, 1, 1, 7, 0.0F, false));
+        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 70, 0, -1, -2.0F, -2.5F, 1, 1, 2, -0.001F, false));
+        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 80, 93, -1, -1, -19.0F, 1, 1, 4, 0.0F, false));
+        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 40, 38, -1, -1, -13.0F, 1, 1, 3, 0.0F, false));
+        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 97, 122, -1, -1, -8.0F, 1, 1, 7, 0.0F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 10, 40, -0.8F, -1.2F, -10.2F, 1, 1, 3, -0.201F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 0, 40, -0.7F, -1.3F, -15.3F, 1, 1, 3, -0.301F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 0, 18, -1.099F, -2.0F, -1.301F, 1, 2, 7, 0.0F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 10, 121, -1.099F, -2.9F, -1.701F, 1, 1, 7, 0.001F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 25, 27, -4.101F, -2.9F, -1.701F, 1, 1, 7, 0.001F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 0, 0, -4.101F, -2.0F, -1.301F, 1, 2, 7, 0.0F, false));
-        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 31, 91, -4.2F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
-        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 20, 38, -4.2F, -1.0F, -19.0F, 1, 1, 18, 0.0F, false));
+        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 31, 91, -4.2F, -2.0F, -1, 1, 2, 1, 0.0F, false));
+        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 20, 38, -4.2F, -1, -19.0F, 1, 1, 18, 0.0F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 29, 68, -4.2F, -2.0F, -2.5F, 1, 1, 2, -0.001F, false));
-        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 35, 112, -4.2F, -1.0F, -0.6F, 1, 1, 1, -0.001F, false));
+        slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 35, 112, -4.2F, -1, -0.6F, 1, 1, 1, -0.001F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 4, 112, -4.4F, -3.2F, -1.23F, 1, 1, 1, -0.199F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 101, 83, -2.6F, -3.8F, -4.7F, 1, 1, 10, 0.0F, false));
         slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 71, 110, -2.6F, -3.8F, -5.2F, 1, 1, 1, -0.001F, false));
@@ -1561,8 +1561,8 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r49.setRotationPoint(-2.6F, -3.8F, -19.9F);
         slide_with_mount.addChild(cube_r49);
         setRotationAngle(cube_r49, 0.0F, 0.0F, 1.0996F);
-        cube_r49.cubeList.add(new ModelBox(cube_r49, 40, 38, 0.0F, 0.15F, 1.0F, 1, 1, 8, -0.001F, false));
-        cube_r49.cubeList.add(new ModelBox(cube_r49, 40, 47, 0.0F, 0.0F, 1.0F, 1, 1, 8, 0.0F, false));
+        cube_r49.cubeList.add(new ModelBox(cube_r49, 40, 38, 0.0F, 0.15F, 1, 1, 1, 8, -0.001F, false));
+        cube_r49.cubeList.add(new ModelBox(cube_r49, 40, 47, 0.0F, 0.0F, 1, 1, 1, 8, 0.0F, false));
         cube_r49.cubeList.add(new ModelBox(cube_r49, 0, 64, -0.2F, -0.2F, -0.2F, 1, 1, 2, -0.201F, false));
         cube_r49.cubeList.add(new ModelBox(cube_r49, 110, 34, 0.0F, 0.8F, 18.9F, 1, 1, 1, -0.003F, false));
         cube_r49.cubeList.add(new ModelBox(cube_r49, 134, 9, 0.0F, 0.8F, 19.2F, 1, 1, 6, -0.002F, false));
@@ -1574,34 +1574,34 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r50.setRotationPoint(-1.6F, -3.8F, -19.9F);
         slide_with_mount.addChild(cube_r50);
         setRotationAngle(cube_r50, 0.0F, 0.0F, -1.0996F);
-        cube_r50.cubeList.add(new ModelBox(cube_r50, 0, 45, -1.0F, 0.15F, 1.0F, 1, 1, 8, -0.001F, false));
+        cube_r50.cubeList.add(new ModelBox(cube_r50, 0, 45, -1, 0.15F, 1, 1, 1, 8, -0.001F, false));
         cube_r50.cubeList.add(new ModelBox(cube_r50, 8, 64, -0.8F, -0.2F, -0.2F, 1, 1, 2, -0.201F, false));
-        cube_r50.cubeList.add(new ModelBox(cube_r50, 59, 94, -1.0F, 0.0F, 1.0F, 1, 1, 8, 0.0F, false));
-        cube_r50.cubeList.add(new ModelBox(cube_r50, 75, 112, -1.0F, 0.8F, 18.9F, 1, 1, 1, -0.003F, false));
-        cube_r50.cubeList.add(new ModelBox(cube_r50, 134, 49, -1.0F, 0.8F, 19.2F, 1, 1, 6, -0.002F, false));
+        cube_r50.cubeList.add(new ModelBox(cube_r50, 59, 94, -1, 0.0F, 1, 1, 1, 8, 0.0F, false));
+        cube_r50.cubeList.add(new ModelBox(cube_r50, 75, 112, -1, 0.8F, 18.9F, 1, 1, 1, -0.003F, false));
+        cube_r50.cubeList.add(new ModelBox(cube_r50, 134, 49, -1, 0.8F, 19.2F, 1, 1, 6, -0.002F, false));
         cube_r50.cubeList.add(new ModelBox(cube_r50, 88, 71, -0.9F, 0.25F, 14.1F, 1, 1, 11, -0.101F, false));
-        cube_r50.cubeList.add(new ModelBox(cube_r50, 83, 112, -1.0F, 0.0F, 14.7F, 1, 1, 1, 0.001F, false));
-        cube_r50.cubeList.add(new ModelBox(cube_r50, 59, 105, -1.0F, 0.0F, 15.2F, 1, 1, 10, 0.0F, false));
+        cube_r50.cubeList.add(new ModelBox(cube_r50, 83, 112, -1, 0.0F, 14.7F, 1, 1, 1, 0.001F, false));
+        cube_r50.cubeList.add(new ModelBox(cube_r50, 59, 105, -1, 0.0F, 15.2F, 1, 1, 10, 0.0F, false));
 
         cube_r51 = new ModelRenderer(this);
         cube_r51.setRotationPoint(-4.2F, 0.0F, -19.0F);
         slide_with_mount.addChild(cube_r51);
         setRotationAngle(cube_r51, 0.0F, 1.0821F, 0.0F);
-        cube_r51.cubeList.add(new ModelBox(cube_r51, 35, 99, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r51.cubeList.add(new ModelBox(cube_r51, 35, 99, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r52 = new ModelRenderer(this);
-        cube_r52.setRotationPoint(-4.2F, -1.0F, -19.0F);
+        cube_r52.setRotationPoint(-4.2F, -1, -19.0F);
         slide_with_mount.addChild(cube_r52);
         setRotationAngle(cube_r52, -0.0209F, 1.097F, 0.2243F);
         cube_r52.cubeList.add(new ModelBox(cube_r52, 83, 2, 0.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
         cube_r52.cubeList.add(new ModelBox(cube_r52, 101, 30, 0.0F, -2.3F, 0.0F, 1, 1, 1, -0.001F, false));
 
         cube_r53 = new ModelRenderer(this);
-        cube_r53.setRotationPoint(-4.2F, -1.0F, -19.0F);
+        cube_r53.setRotationPoint(-4.2F, -1, -19.0F);
         slide_with_mount.addChild(cube_r53);
         setRotationAngle(cube_r53, -0.557F, 1.0035F, -0.3882F);
         cube_r53.cubeList.add(new ModelBox(cube_r53, 99, 97, 0.5F, -2.4F, -0.2F, 1, 1, 1, -0.202F, false));
-        cube_r53.cubeList.add(new ModelBox(cube_r53, 69, 100, 1.0F, -2.5F, -0.3F, 1, 1, 1, -0.3F, false));
+        cube_r53.cubeList.add(new ModelBox(cube_r53, 69, 100, 1, -2.5F, -0.3F, 1, 1, 1, -0.3F, false));
 
         cube_r54 = new ModelRenderer(this);
         cube_r54.setRotationPoint(-2.6F, -3.8F, -19.9F);
@@ -1628,8 +1628,8 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r57.setRotationPoint(-0.95F, 0.0F, -19.9F);
         slide_with_mount.addChild(cube_r57);
         setRotationAngle(cube_r57, 0.0F, 0.0F, 0.4014F);
-        cube_r57.cubeList.add(new ModelBox(cube_r57, 46, 107, -1.0F, 0.6F, 0.0F, 1, 1, 1, -0.003F, false));
-        cube_r57.cubeList.add(new ModelBox(cube_r57, 110, 25, -1.0F, 0.0F, 0.0F, 1, 1, 1, -0.002F, false));
+        cube_r57.cubeList.add(new ModelBox(cube_r57, 46, 107, -1, 0.6F, 0.0F, 1, 1, 1, -0.003F, false));
+        cube_r57.cubeList.add(new ModelBox(cube_r57, 110, 25, -1, 0.0F, 0.0F, 1, 1, 1, -0.002F, false));
 
         cube_r58 = new ModelRenderer(this);
         cube_r58.setRotationPoint(-3.7F, -3.0F, -19.0F);
@@ -1683,7 +1683,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r64.setRotationPoint(-0.35F, -3.8F, 5.3F);
         slide_with_mount.addChild(cube_r64);
         setRotationAngle(cube_r64, -1.0297F, 0.0F, 0.0F);
-        cube_r64.cubeList.add(new ModelBox(cube_r64, 110, 42, -1.0F, 0.0F, 2.2F, 1, 1, 1, 0.0F, false));
+        cube_r64.cubeList.add(new ModelBox(cube_r64, 110, 42, -1, 0.0F, 2.2F, 1, 1, 1, 0.0F, false));
         cube_r64.cubeList.add(new ModelBox(cube_r64, 43, 110, -1.1F, 0.1F, 1.35F, 1, 1, 1, 0.101F, false));
         cube_r64.cubeList.add(new ModelBox(cube_r64, 110, 44, -1.1F, 0.1F, 0.85F, 1, 1, 1, 0.1F, false));
         cube_r64.cubeList.add(new ModelBox(cube_r64, 110, 46, -3.4F, 0.1F, 2.1F, 1, 1, 1, 0.101F, false));
@@ -1801,25 +1801,25 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r77.cubeList.add(new ModelBox(cube_r77, 109, 113, 3.4F, -0.8F, -0.8F, 1, 1, 1, -0.2F, false));
 
         cube_r78 = new ModelRenderer(this);
-        cube_r78.setRotationPoint(-4.2F, -3.0F, -1.0F);
+        cube_r78.setRotationPoint(-4.2F, -3.0F, -1);
         slide_with_mount.addChild(cube_r78);
         setRotationAngle(cube_r78, -1.0123F, 0.0F, 0.0F);
         cube_r78.cubeList.add(new ModelBox(cube_r78, 24, 91, 0.0F, 0.0F, 0.0F, 1, 2, 1, -0.002F, false));
         cube_r78.cubeList.add(new ModelBox(cube_r78, 20, 47, 3.2F, 0.0F, 0.0F, 1, 4, 1, -0.002F, false));
 
         cube_r79 = new ModelRenderer(this);
-        cube_r79.setRotationPoint(-4.2F, -3.0F, -1.0F);
+        cube_r79.setRotationPoint(-4.2F, -3.0F, -1);
         slide_with_mount.addChild(cube_r79);
         setRotationAngle(cube_r79, -1.3034F, 0.4964F, -1.0489F);
         cube_r79.cubeList.add(new ModelBox(cube_r79, 37, 91, -0.4F, 0.4F, -0.4F, 1, 2, 1, -0.401F, false));
         cube_r79.cubeList.add(new ModelBox(cube_r79, 44, 93, -0.4F, -0.1F, -0.4F, 1, 2, 1, -0.4F, false));
 
         cube_r80 = new ModelRenderer(this);
-        cube_r80.setRotationPoint(0.0F, -3.0F, -1.0F);
+        cube_r80.setRotationPoint(0.0F, -3.0F, -1);
         slide_with_mount.addChild(cube_r80);
         setRotationAngle(cube_r80, -1.3034F, -0.4964F, 1.0489F);
         cube_r80.cubeList.add(new ModelBox(cube_r80, 50, 93, -0.6F, -0.1F, -0.4F, 1, 2, 1, -0.4F, false));
-        cube_r80.cubeList.add(new ModelBox(cube_r80, 66, 45, -1.0F, 1.1F, 0.0F, 1, 3, 1, -0.002F, false));
+        cube_r80.cubeList.add(new ModelBox(cube_r80, 66, 45, -1, 1.1F, 0.0F, 1, 3, 1, -0.002F, false));
 
         cube_r81 = new ModelRenderer(this);
         cube_r81.setRotationPoint(-3.7F, -3.0F, -19.0F);
@@ -1883,7 +1883,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r89.setRotationPoint(-1.6F, -3.8F, -4.0F);
         slide_with_mount.addChild(cube_r89);
         setRotationAngle(cube_r89, 1.309F, 0.0F, -1.0996F);
-        cube_r89.cubeList.add(new ModelBox(cube_r89, 0, 73, -1.0F, 0.35F, -0.95F, 1, 3, 1, -0.004F, false));
+        cube_r89.cubeList.add(new ModelBox(cube_r89, 0, 73, -1, 0.35F, -0.95F, 1, 3, 1, -0.004F, false));
 
         cube_r90 = new ModelRenderer(this);
         cube_r90.setRotationPoint(-1.6F, -3.8F, 5.3F);
@@ -1899,24 +1899,24 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r91.cubeList.add(new ModelBox(cube_r91, 112, 94, -0.8F, -0.8F, -0.2F, 1, 1, 1, -0.202F, false));
 
         cube_r92 = new ModelRenderer(this);
-        cube_r92.setRotationPoint(0.0F, -1.0F, -19.0F);
+        cube_r92.setRotationPoint(0.0F, -1, -19.0F);
         slide_with_mount.addChild(cube_r92);
         setRotationAngle(cube_r92, -0.557F, -1.0035F, 0.3882F);
         cube_r92.cubeList.add(new ModelBox(cube_r92, 95, 112, -1.5F, -2.4F, -0.2F, 1, 1, 1, -0.202F, false));
         cube_r92.cubeList.add(new ModelBox(cube_r92, 112, 96, -2.0F, -2.5F, -0.3F, 1, 1, 1, -0.3F, false));
 
         cube_r93 = new ModelRenderer(this);
-        cube_r93.setRotationPoint(0.0F, -1.0F, -19.0F);
+        cube_r93.setRotationPoint(0.0F, -1, -19.0F);
         slide_with_mount.addChild(cube_r93);
         setRotationAngle(cube_r93, -0.0209F, -1.097F, -0.2243F);
-        cube_r93.cubeList.add(new ModelBox(cube_r93, 99, 112, -1.0F, -2.3F, 0.0F, 1, 1, 1, -0.001F, false));
-        cube_r93.cubeList.add(new ModelBox(cube_r93, 25, 100, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        cube_r93.cubeList.add(new ModelBox(cube_r93, 99, 112, -1, -2.3F, 0.0F, 1, 1, 1, -0.001F, false));
+        cube_r93.cubeList.add(new ModelBox(cube_r93, 25, 100, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         cube_r94 = new ModelRenderer(this);
         cube_r94.setRotationPoint(0.0F, 0.0F, -19.0F);
         slide_with_mount.addChild(cube_r94);
         setRotationAngle(cube_r94, 0.0F, -1.0821F, 0.0F);
-        cube_r94.cubeList.add(new ModelBox(cube_r94, 106, 112, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r94.cubeList.add(new ModelBox(cube_r94, 106, 112, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r95 = new ModelRenderer(this);
         cube_r95.setRotationPoint(-3.6F, -0.1F, 6.2F);
@@ -1946,13 +1946,13 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         slide16_r1.setRotationPoint(-0.5F, 0.7F, -2.6F);
         bone.addChild(slide16_r1);
         setRotationAngle(slide16_r1, 0.0F, -1.2043F, 0.0F);
-        slide16_r1.cubeList.add(new ModelBox(slide16_r1, 0, 32, 0.0F, 0.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        slide16_r1.cubeList.add(new ModelBox(slide16_r1, 0, 32, 0.0F, 0.0F, -1, 2, 1, 1, 0.0F, false));
 
         slide17_r1 = new ModelRenderer(this);
         slide17_r1.setRotationPoint(3.5F, 0.7F, -2.6F);
         bone.addChild(slide17_r1);
         setRotationAngle(slide17_r1, 0.0F, 1.2043F, 0.0F);
-        slide17_r1.cubeList.add(new ModelBox(slide17_r1, 25, 32, -2.0F, 0.0F, -1.0F, 2, 1, 1, 0.0F, false));
+        slide17_r1.cubeList.add(new ModelBox(slide17_r1, 25, 32, -2.0F, 0.0F, -1, 2, 1, 1, 0.0F, false));
 
         slide16_r2 = new ModelRenderer(this);
         slide16_r2.setRotationPoint(2.5F, 0.6F, -3.8F);
@@ -1970,7 +1970,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         slide15_r2.setRotationPoint(0.5F, 0.6F, -3.8F);
         bone.addChild(slide15_r2);
         setRotationAngle(slide15_r2, 0.0F, 0.5411F, 0.0F);
-        slide15_r2.cubeList.add(new ModelBox(slide15_r2, 114, 16, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide15_r2.cubeList.add(new ModelBox(slide15_r2, 114, 16, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide18_r1 = new ModelRenderer(this);
         slide18_r1.setRotationPoint(3.5F, 0.7F, -3.6F);
@@ -1992,7 +1992,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         mag3.setRotationPoint(-3.5F, -16.9F, -4.8F);
         mag.addChild(mag3);
         setRotationAngle(mag3, 0.0744F, 0.0F, 0.0F);
-        mag3.cubeList.add(new ModelBox(mag3, 77, 28, 0.001F, 1.0F, -1.3F, 4, 1, 2, 0.0F, false));
+        mag3.cubeList.add(new ModelBox(mag3, 77, 28, 0.001F, 1, -1.3F, 4, 1, 2, 0.0F, false));
 
         mag5_r1 = new ModelRenderer(this);
         mag5_r1.setRotationPoint(3.5F, 16.9F, 4.8F);
@@ -2016,7 +2016,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         mag2.setRotationPoint(-3.0F, -16.9F, -4.8F);
         mag.addChild(mag2);
         setRotationAngle(mag2, 0.0744F, 0.0F, 0.0F);
-        mag2.cubeList.add(new ModelBox(mag2, 34, 22, 0.0F, 0.0F, -1.0F, 3, 2, 1, 0.0F, false));
+        mag2.cubeList.add(new ModelBox(mag2, 34, 22, 0.0F, 0.0F, -1, 3, 2, 1, 0.0F, false));
 
         mag_extended = new ModelRenderer(this);
         mag_extended.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -2043,7 +2043,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         mag7.setRotationPoint(-3.5F, -16.9F, -4.8F);
         bone2.addChild(mag7);
         setRotationAngle(mag7, 0.0744F, 0.0F, 0.0F);
-        mag7.cubeList.add(new ModelBox(mag7, 42, 67, 0.001F, 1.0F, -1.3F, 4, 1, 2, 0.0F, false));
+        mag7.cubeList.add(new ModelBox(mag7, 42, 67, 0.001F, 1, -1.3F, 4, 1, 2, 0.0F, false));
 
         mag6_r1 = new ModelRenderer(this);
         mag6_r1.setRotationPoint(3.5F, 16.9F, 4.8F);
@@ -2061,22 +2061,22 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         mag9.setRotationPoint(-3.0F, -16.9F, -4.8F);
         bone2.addChild(mag9);
         setRotationAngle(mag9, 0.0744F, 0.0F, 0.0F);
-        mag9.cubeList.add(new ModelBox(mag9, 9, 31, 0.0F, 0.0F, -1.0F, 3, 2, 1, 0.0F, false));
+        mag9.cubeList.add(new ModelBox(mag9, 9, 31, 0.0F, 0.0F, -1, 3, 2, 1, 0.0F, false));
 
         laser = new ModelRenderer(this);
         laser.setRotationPoint(0.0F, 24.0F, 0.0F);
         laser.cubeList.add(new ModelBox(laser, 31, 86, -3.0F, -32.7F, -17.5F, 3, 3, 2, 0.101F, false));
         laser.cubeList.add(new ModelBox(laser, 21, 57, -1.75F, -31.7F, -22.5F, 2, 3, 5, 0.001F, false));
         laser.cubeList.add(new ModelBox(laser, 62, 3, -2.5F, -30.9F, -22.85F, 2, 2, 1, -0.2F, false));
-        laser.cubeList.add(new ModelBox(laser, 95, 0, -1.75F, -31.1F, -21.0F, 2, 5, 4, 0.0F, false));
-        laser.cubeList.add(new ModelBox(laser, 86, 71, -3.25F, -31.1F, -21.0F, 2, 5, 4, -0.001F, false));
+        laser.cubeList.add(new ModelBox(laser, 95, 0, -1.75F, -31.1F, -21, 2, 5, 4, 0.0F, false));
+        laser.cubeList.add(new ModelBox(laser, 86, 71, -3.25F, -31.1F, -21, 2, 5, 4, -0.001F, false));
         laser.cubeList.add(new ModelBox(laser, 0, 56, -3.25F, -31.7F, -22.5F, 2, 3, 5, 0.0F, false));
 
         gun19_r1 = new ModelRenderer(this);
         gun19_r1.setRotationPoint(0.0F, -29.7F, -15.5F);
         laser.addChild(gun19_r1);
         setRotationAngle(gun19_r1, 0.576F, 0.0F, 0.0F);
-        gun19_r1.cubeList.add(new ModelBox(gun19_r1, 9, 5, -3.0F, -1.0F, -1.1F, 3, 1, 1, 0.099F, false));
+        gun19_r1.cubeList.add(new ModelBox(gun19_r1, 9, 5, -3.0F, -1, -1.1F, 3, 1, 1, 0.099F, false));
 
         gun21_r3 = new ModelRenderer(this);
         gun21_r3.setRotationPoint(-1.25F, -28.7F, -22.5F);
@@ -2089,41 +2089,41 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun21_r4.setRotationPoint(-2.35F, -27.7F, -21.3F);
         laser.addChild(gun21_r4);
         setRotationAngle(gun21_r4, -0.6807F, 0.0F, 0.0F);
-        gun21_r4.cubeList.add(new ModelBox(gun21_r4, 31, 47, -1.0F, -2.0F, 0.0F, 1, 2, 2, -0.001F, false));
+        gun21_r4.cubeList.add(new ModelBox(gun21_r4, 31, 47, -1, -2.0F, 0.0F, 1, 2, 2, -0.001F, false));
         gun21_r4.cubeList.add(new ModelBox(gun21_r4, 50, 47, 1.7F, -2.0F, 0.0F, 1, 2, 2, -0.001F, false));
 
         gun24_r1 = new ModelRenderer(this);
         gun24_r1.setRotationPoint(-3.55F, -25.7F, -20.5F);
         laser.addChild(gun24_r1);
         setRotationAngle(gun24_r1, -0.6807F, 0.0F, 0.0F);
-        gun24_r1.cubeList.add(new ModelBox(gun24_r1, 94, 80, 0.05F, -3.0F, 1.0F, 1, 1, 1, -0.2F, false));
-        gun24_r1.cubeList.add(new ModelBox(gun24_r1, 86, 95, 3.05F, -3.0F, 1.0F, 1, 1, 1, -0.2F, false));
+        gun24_r1.cubeList.add(new ModelBox(gun24_r1, 94, 80, 0.05F, -3.0F, 1, 1, 1, 1, -0.2F, false));
+        gun24_r1.cubeList.add(new ModelBox(gun24_r1, 86, 95, 3.05F, -3.0F, 1, 1, 1, 1, -0.2F, false));
 
         gun22_r2 = new ModelRenderer(this);
         gun22_r2.setRotationPoint(-3.55F, -27.9F, -21.9F);
         laser.addChild(gun22_r2);
         setRotationAngle(gun22_r2, -0.6807F, 0.0F, 0.0F);
-        gun22_r2.cubeList.add(new ModelBox(gun22_r2, 73, 94, 0.05F, -3.0F, 1.0F, 1, 1, 1, -0.2F, false));
-        gun22_r2.cubeList.add(new ModelBox(gun22_r2, 24, 98, 3.05F, -3.0F, 1.0F, 1, 1, 1, -0.2F, false));
+        gun22_r2.cubeList.add(new ModelBox(gun22_r2, 73, 94, 0.05F, -3.0F, 1, 1, 1, 1, -0.2F, false));
+        gun22_r2.cubeList.add(new ModelBox(gun22_r2, 24, 98, 3.05F, -3.0F, 1, 1, 1, 1, -0.2F, false));
 
         gun23_r1 = new ModelRenderer(this);
         gun23_r1.setRotationPoint(-3.55F, -29.1F, -24.6F);
         laser.addChild(gun23_r1);
         setRotationAngle(gun23_r1, -0.6807F, 0.0F, 0.0F);
-        gun23_r1.cubeList.add(new ModelBox(gun23_r1, 63, 94, 0.05F, -3.0F, 1.0F, 1, 1, 1, -0.2F, false));
-        gun23_r1.cubeList.add(new ModelBox(gun23_r1, 63, 97, 3.05F, -3.0F, 1.0F, 1, 1, 1, -0.2F, false));
+        gun23_r1.cubeList.add(new ModelBox(gun23_r1, 63, 94, 0.05F, -3.0F, 1, 1, 1, 1, -0.2F, false));
+        gun23_r1.cubeList.add(new ModelBox(gun23_r1, 63, 97, 3.05F, -3.0F, 1, 1, 1, 1, -0.2F, false));
 
         gun16_r5 = new ModelRenderer(this);
         gun16_r5.setRotationPoint(0.0F, -24.8F, -16.3F);
         laser.addChild(gun16_r5);
         setRotationAngle(gun16_r5, -0.0524F, 0.0F, 0.0F);
-        gun16_r5.cubeList.add(new ModelBox(gun16_r5, 27, 131, -3.0F, -1.0F, 0.0F, 3, 1, 5, 0.1F, false));
+        gun16_r5.cubeList.add(new ModelBox(gun16_r5, 27, 131, -3.0F, -1, 0.0F, 3, 1, 5, 0.1F, false));
 
         gun17_r5 = new ModelRenderer(this);
         gun17_r5.setRotationPoint(0.0F, -24.8F, -16.3F);
         laser.addChild(gun17_r5);
         setRotationAngle(gun17_r5, -0.7854F, 0.0F, 0.0F);
-        gun17_r5.cubeList.add(new ModelBox(gun17_r5, 88, 88, -3.0F, -1.0F, -2.1F, 3, 1, 2, 0.099F, false));
+        gun17_r5.cubeList.add(new ModelBox(gun17_r5, 88, 88, -3.0F, -1, -2.1F, 3, 1, 2, 0.099F, false));
 
         gun17_r6 = new ModelRenderer(this);
         gun17_r6.setRotationPoint(0.0F, -26.2F, -17.7F);
@@ -2132,7 +2132,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         gun17_r6.cubeList.add(new ModelBox(gun17_r6, 9, 9, -3.0F, -4.0F, 0.0F, 3, 4, 1, 0.1F, false));
 
         grip_tape = new ModelRenderer(this);
-        grip_tape.setRotationPoint(5.0F, -1.0F, 0.0F);
+        grip_tape.setRotationPoint(5.0F, -1, 0.0F);
 
 
         cube_r97 = new ModelRenderer(this);
@@ -2169,7 +2169,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r102.setRotationPoint(-3.9F, 6.1F, -6.4F);
         grip_tape.addChild(cube_r102);
         setRotationAngle(cube_r102, 0.5359F, -0.0198F, 0.0308F);
-        cube_r102.cubeList.add(new ModelBox(cube_r102, 29, 147, -1.0F, 0.0F, 0.0F, 1, 2, 9, 0.0F, false));
+        cube_r102.cubeList.add(new ModelBox(cube_r102, 29, 147, -1, 0.0F, 0.0F, 1, 2, 9, 0.0F, false));
 
         cube_r103 = new ModelRenderer(this);
         cube_r103.setRotationPoint(-3.8F, 2.7F, -6.5F);
@@ -2226,7 +2226,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r111.cubeList.add(new ModelBox(cube_r111, 86, 152, -4.0F, 0.0F, 0.0F, 4, 3, 2, 0.05F, false));
 
         cube_r112 = new ModelRenderer(this);
-        cube_r112.setRotationPoint(-4.5F, -3.2F, -1.0F);
+        cube_r112.setRotationPoint(-4.5F, -3.2F, -1);
         grip_tape.addChild(cube_r112);
         setRotationAngle(cube_r112, 0.2095F, 0.0171F, 0.0033F);
         cube_r112.cubeList.add(new ModelBox(cube_r112, 71, 151, -4.0F, 0.0F, 0.0F, 4, 2, 2, 0.05F, false));
@@ -2235,7 +2235,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
         cube_r113.setRotationPoint(-3.8F, 0.5F, -7.4F);
         grip_tape.addChild(cube_r113);
         setRotationAngle(cube_r113, 0.5062F, 0.0171F, 0.0033F);
-        cube_r113.cubeList.add(new ModelBox(cube_r113, 0, 148, -1.0F, 0.0F, 0.0F, 1, 2, 8, 0.0F, false));
+        cube_r113.cubeList.add(new ModelBox(cube_r113, 0, 148, -1, 0.0F, 0.0F, 1, 2, 8, 0.0F, false));
     }
 
     @Override

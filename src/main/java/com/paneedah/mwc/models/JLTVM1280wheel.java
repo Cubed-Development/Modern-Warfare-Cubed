@@ -23,7 +23,7 @@ public class JLTVM1280wheel extends ModelBase {
 
         wheel5 = new ModelRenderer(this);
         wheel5.setRotationPoint(25.0F, 24.0F, 0.0F);
-        wheel5.cubeList.add(new ModelBox(wheel5, 0, 0, 1.0F, -26.0F, -10.5F, 8, 21, 21, 0.0F, true));
+        wheel5.cubeList.add(new ModelBox(wheel5, 0, 0, 1, -26.0F, -10.5F, 8, 21, 21, 0.0F, true));
         wheel5.cubeList.add(new ModelBox(wheel5, 287, 427, 0.0F, -22.4853F, 9.4853F, 10, 14, 6, 0.0F, true));
         wheel5.cubeList.add(new ModelBox(wheel5, 248, 216, 0.0F, -22.4853F, -15.4853F, 10, 14, 6, 0.0F, true));
         wheel5.cubeList.add(new ModelBox(wheel5, 119, 399, 0.0F, -6.0F, -7.0F, 10, 6, 14, 0.0F, true));

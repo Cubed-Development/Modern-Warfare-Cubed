@@ -125,7 +125,7 @@ public class AK101Grip extends ModelBase {
         gun5.cubeList.add(new ModelBox(gun5, 30, 21, 0.0F, 0.0F, 0.0F, 4, 12, 1, 0.0F, false));
 
         gun4 = new ModelRenderer(this);
-        gun4.setRotationPoint(-3.5F, -17.5F, -1.0F);
+        gun4.setRotationPoint(-3.5F, -17.5F, -1);
         grip.addChild(gun4);
         gun4.cubeList.add(new ModelBox(gun4, 17, 0, 0.001F, 0.0F, 0.0F, 4, 2, 4, 0.0F, false));
 
@@ -142,7 +142,7 @@ public class AK101Grip extends ModelBase {
         gun2.cubeList.add(new ModelBox(gun2, 0, 10, 0.0F, 0.0F, 0.0F, 4, 12, 5, 0.0F, false));
 
         gun1 = new ModelRenderer(this);
-        gun1.setRotationPoint(-3.5F, -31.0F, -7.0F);
+        gun1.setRotationPoint(-3.5F, -31, -7.0F);
         grip.addChild(gun1);
         gun1.cubeList.add(new ModelBox(gun1, 0, 0, 0.0F, 0.0F, 0.0F, 4, 1, 9, 0.0F, false));
     }

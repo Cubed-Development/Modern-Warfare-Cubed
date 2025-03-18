@@ -257,97 +257,97 @@ public class Bullet556 extends ModelBase {
         bullet_r24.setRotationPoint(1.5055F, -13.0888F, 2.0915F);
         casing.addChild(bullet_r24);
         setRotationAngle(bullet_r24, 1.5708F, -1.1606F, -1.5708F);
-        bullet_r24.cubeList.add(new ModelBox(bullet_r24, 39, 39, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r24.cubeList.add(new ModelBox(bullet_r24, 39, 39, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r25 = new ModelRenderer(this);
         bullet_r25.setRotationPoint(0.9423F, -13.0888F, 0.1728F);
         casing.addChild(bullet_r25);
         setRotationAngle(bullet_r25, -0.9017F, -1.0646F, 0.9657F);
-        bullet_r25.cubeList.add(new ModelBox(bullet_r25, 0, 38, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r25.cubeList.add(new ModelBox(bullet_r25, 0, 38, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r26 = new ModelRenderer(this);
         bullet_r26.setRotationPoint(0.7432F, -13.0888F, 0.3264F);
         casing.addChild(bullet_r26);
         setRotationAngle(bullet_r26, -0.3794F, -0.7056F, 0.5513F);
-        bullet_r26.cubeList.add(new ModelBox(bullet_r26, 36, 37, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r26.cubeList.add(new ModelBox(bullet_r26, 36, 37, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r27 = new ModelRenderer(this);
         bullet_r27.setRotationPoint(0.5784F, -13.0888F, 0.598F);
         casing.addChild(bullet_r27);
         setRotationAngle(bullet_r27, -0.1251F, -0.2794F, 0.4278F);
-        bullet_r27.cubeList.add(new ModelBox(bullet_r27, 27, 37, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r27.cubeList.add(new ModelBox(bullet_r27, 27, 37, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r28 = new ModelRenderer(this);
         bullet_r28.setRotationPoint(0.5029F, -13.0888F, 1.0888F);
         casing.addChild(bullet_r28);
         setRotationAngle(bullet_r28, 0.0F, 0.0F, 0.4102F);
-        bullet_r28.cubeList.add(new ModelBox(bullet_r28, 23, 37, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r28.cubeList.add(new ModelBox(bullet_r28, 23, 37, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r29 = new ModelRenderer(this);
         bullet_r29.setRotationPoint(0.5784F, -13.0888F, 1.5796F);
         casing.addChild(bullet_r29);
         setRotationAngle(bullet_r29, 0.1251F, 0.2794F, 0.4278F);
-        bullet_r29.cubeList.add(new ModelBox(bullet_r29, 19, 37, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r29.cubeList.add(new ModelBox(bullet_r29, 19, 37, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r30 = new ModelRenderer(this);
         bullet_r30.setRotationPoint(0.7432F, -13.0888F, 1.8512F);
         casing.addChild(bullet_r30);
         setRotationAngle(bullet_r30, 0.3794F, 0.7056F, 0.5513F);
-        bullet_r30.cubeList.add(new ModelBox(bullet_r30, 15, 37, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r30.cubeList.add(new ModelBox(bullet_r30, 15, 37, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r31 = new ModelRenderer(this);
         bullet_r31.setRotationPoint(0.9423F, -13.0888F, 2.0048F);
         casing.addChild(bullet_r31);
         setRotationAngle(bullet_r31, 0.9017F, 1.0646F, 0.9657F);
-        bullet_r31.cubeList.add(new ModelBox(bullet_r31, 36, 34, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r31.cubeList.add(new ModelBox(bullet_r31, 36, 34, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r32 = new ModelRenderer(this);
         bullet_r32.setRotationPoint(2.0688F, -13.0846F, 2.0048F);
         casing.addChild(bullet_r32);
         setRotationAngle(bullet_r32, 0.9017F, -1.0646F, -0.9657F);
-        bullet_r32.cubeList.add(new ModelBox(bullet_r32, 12, 39, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r32.cubeList.add(new ModelBox(bullet_r32, 12, 39, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r33 = new ModelRenderer(this);
         bullet_r33.setRotationPoint(2.2679F, -13.0888F, 1.8512F);
         casing.addChild(bullet_r33);
         setRotationAngle(bullet_r33, 0.3794F, -0.7056F, -0.5513F);
-        bullet_r33.cubeList.add(new ModelBox(bullet_r33, 8, 38, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r33.cubeList.add(new ModelBox(bullet_r33, 8, 38, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r34 = new ModelRenderer(this);
         bullet_r34.setRotationPoint(2.4327F, -13.0888F, 1.5796F);
         casing.addChild(bullet_r34);
         setRotationAngle(bullet_r34, 0.1251F, -0.2794F, -0.4278F);
-        bullet_r34.cubeList.add(new ModelBox(bullet_r34, 4, 38, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r34.cubeList.add(new ModelBox(bullet_r34, 4, 38, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r35 = new ModelRenderer(this);
         bullet_r35.setRotationPoint(2.4327F, -13.0888F, 0.598F);
         casing.addChild(bullet_r35);
         setRotationAngle(bullet_r35, -0.1251F, 0.2794F, -0.4278F);
-        bullet_r35.cubeList.add(new ModelBox(bullet_r35, 40, 6, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r35.cubeList.add(new ModelBox(bullet_r35, 40, 6, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r36 = new ModelRenderer(this);
         bullet_r36.setRotationPoint(1.5055F, -13.0888F, 0.0861F);
         casing.addChild(bullet_r36);
         setRotationAngle(bullet_r36, -1.5708F, 1.1606F, -1.5708F);
-        bullet_r36.cubeList.add(new ModelBox(bullet_r36, 40, 0, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r36.cubeList.add(new ModelBox(bullet_r36, 40, 0, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r37 = new ModelRenderer(this);
         bullet_r37.setRotationPoint(2.0688F, -13.0888F, 0.1728F);
         casing.addChild(bullet_r37);
         setRotationAngle(bullet_r37, -0.9017F, 1.0646F, -0.9657F);
-        bullet_r37.cubeList.add(new ModelBox(bullet_r37, 40, 3, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r37.cubeList.add(new ModelBox(bullet_r37, 40, 3, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r38 = new ModelRenderer(this);
         bullet_r38.setRotationPoint(2.2679F, -13.0888F, 0.3264F);
         casing.addChild(bullet_r38);
         setRotationAngle(bullet_r38, -0.3794F, 0.7056F, -0.5513F);
-        bullet_r38.cubeList.add(new ModelBox(bullet_r38, 40, 9, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r38.cubeList.add(new ModelBox(bullet_r38, 40, 9, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r39 = new ModelRenderer(this);
         bullet_r39.setRotationPoint(2.5082F, -13.0888F, 1.0888F);
         casing.addChild(bullet_r39);
         setRotationAngle(bullet_r39, 0.0F, 0.0F, -0.4102F);
-        bullet_r39.cubeList.add(new ModelBox(bullet_r39, 40, 12, -0.5F, -1.0F, -0.5F, 1, 2, 1, -0.1F, false));
+        bullet_r39.cubeList.add(new ModelBox(bullet_r39, 40, 12, -0.5F, -1, -0.5F, 1, 2, 1, -0.1F, false));
 
         bullet_r40 = new ModelRenderer(this);
         bullet_r40.setRotationPoint(3.0679F, 0.982F, 1.0888F);
@@ -600,13 +600,13 @@ public class Bullet556 extends ModelBase {
         bullet_r79.setRotationPoint(-0.8167F, 5.1682F, 29.8532F);
         bullet556bottom.addChild(bullet_r79);
         setRotationAngle(bullet_r79, 0.0F, 0.0F, 1.1345F);
-        bullet_r79.cubeList.add(new ModelBox(bullet_r79, 42, 27, 0.4F, -1.0F, -0.5F, 1, 1, 1, -0.1F, false));
+        bullet_r79.cubeList.add(new ModelBox(bullet_r79, 42, 27, 0.4F, -1, -0.5F, 1, 1, 1, -0.1F, false));
 
         bullet_r80 = new ModelRenderer(this);
         bullet_r80.setRotationPoint(3.7256F, 5.1682F, 29.8532F);
         bullet556bottom.addChild(bullet_r80);
         setRotationAngle(bullet_r80, 0.0F, 0.0F, -1.1345F);
-        bullet_r80.cubeList.add(new ModelBox(bullet_r80, 11, 44, -1.4F, -1.0F, -0.5F, 1, 1, 1, -0.1F, false));
+        bullet_r80.cubeList.add(new ModelBox(bullet_r80, 11, 44, -1.4F, -1, -0.5F, 1, 1, 1, -0.1F, false));
 
         bullet556 = new ModelRenderer(this);
         bullet556.setRotationPoint(-3.0511F, -12.39F, 0.5218F);

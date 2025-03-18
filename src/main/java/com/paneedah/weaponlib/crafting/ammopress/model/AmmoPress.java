@@ -80,10 +80,10 @@ public class AmmoPress extends ModelBase {
 
         bone13 = new ModelRenderer(this);
         bone13.setRotationPoint(0.0F, 24.0F, -6.75F);
-        bone13.cubeList.add(new ModelBox(bone13, 40, 48, -1.0F, -9.25F, -0.15F, 2, 7, 2, 0.0F, false));
-        bone13.cubeList.add(new ModelBox(bone13, 48, 5, -1.0F, -2.0F, -3.15F, 2, 2, 4, 0.0F, false));
+        bone13.cubeList.add(new ModelBox(bone13, 40, 48, -1, -9.25F, -0.15F, 2, 7, 2, 0.0F, false));
+        bone13.cubeList.add(new ModelBox(bone13, 48, 5, -1, -2.0F, -3.15F, 2, 2, 4, 0.0F, false));
         bone13.cubeList.add(new ModelBox(bone13, 20, 49, -2.0F, -4.0F, -2.9F, 1, 4, 1, 0.0F, false));
-        bone13.cubeList.add(new ModelBox(bone13, 0, 49, -1.0F, -3.25F, -2.15F, 2, 2, 3, -0.2F, false));
+        bone13.cubeList.add(new ModelBox(bone13, 0, 49, -1, -3.25F, -2.15F, 2, 2, 3, -0.2F, false));
         bone13.cubeList.add(new ModelBox(bone13, 10, 49, 2.0F, -8.75F, 0.35F, 1, 7, 2, 0.0F, false));
 
         cube_r1 = new ModelRenderer(this);
@@ -99,7 +99,7 @@ public class AmmoPress extends ModelBase {
         cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 0, -8.0F, -6.0F, 0.0F, 8, 6, 7, 0.0F, false));
 
         cube_r3 = new ModelRenderer(this);
-        cube_r3.setRotationPoint(3.15F, -1.0F, 5.35F);
+        cube_r3.setRotationPoint(3.15F, -1, 5.35F);
         bone13.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, -0.3665F, 0.0F);
         cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 13, -5.0F, -6.25F, 0.0F, 5, 6, 5, -0.2F, false));
@@ -188,7 +188,7 @@ public class AmmoPress extends ModelBase {
         cube_r12.setRotationPoint(0.0F, 0.0F, 0.0F);
         Presser.addChild(cube_r12);
         setRotationAngle(cube_r12, -0.2443F, 0.0F, 0.0F);
-        cube_r12.cubeList.add(new ModelBox(cube_r12, 48, 48, -1.0F, -2.5756F, -1.4567F, 1, 5, 3, 0.0F, false));
+        cube_r12.cubeList.add(new ModelBox(cube_r12, 48, 48, -1, -2.5756F, -1.4567F, 1, 5, 3, 0.0F, false));
 
         TopRotor = new ModelRenderer(this);
         TopRotor.setRotationPoint(0.0F, 0.0F, 6.75F);
@@ -199,7 +199,7 @@ public class AmmoPress extends ModelBase {
         TopRotor.cubeList.add(new ModelBox(TopRotor, 30, 7, 2.5F, -11.75F, -3.15F, 1, 4, 1, 0.0F, false));
 
         bone12 = new ModelRenderer(this);
-        bone12.setRotationPoint(0.0F, -11.0F, -5.25F);
+        bone12.setRotationPoint(0.0F, -11, -5.25F);
         TopRotor.addChild(bone12);
 
 
@@ -207,16 +207,16 @@ public class AmmoPress extends ModelBase {
         cube_r13.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone12.addChild(cube_r13);
         setRotationAngle(cube_r13, 0.0F, -0.4189F, 0.0F);
-        cube_r13.cubeList.add(new ModelBox(cube_r13, 34, 16, 0.0F, -1.0F, 0.0F, 4, 1, 4, 0.001F, false));
+        cube_r13.cubeList.add(new ModelBox(cube_r13, 34, 16, 0.0F, -1, 0.0F, 4, 1, 4, 0.001F, false));
 
         cube_r14 = new ModelRenderer(this);
         cube_r14.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone12.addChild(cube_r14);
         setRotationAngle(cube_r14, 0.0F, 0.4189F, 0.0F);
-        cube_r14.cubeList.add(new ModelBox(cube_r14, 18, 34, -4.0F, -1.0F, 0.0F, 4, 1, 4, 0.0F, false));
+        cube_r14.cubeList.add(new ModelBox(cube_r14, 18, 34, -4.0F, -1, 0.0F, 4, 1, 4, 0.0F, false));
 
         bone11 = new ModelRenderer(this);
-        bone11.setRotationPoint(0.0F, -11.0F, 5.25F);
+        bone11.setRotationPoint(0.0F, -11, 5.25F);
         TopRotor.addChild(bone11);
         setRotationAngle(bone11, 0.0F, 3.1416F, 0.0F);
 
@@ -225,16 +225,16 @@ public class AmmoPress extends ModelBase {
         cube_r15.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone11.addChild(cube_r15);
         setRotationAngle(cube_r15, 0.0F, -0.4189F, 0.0F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 34, 23, 0.0F, -1.0F, 0.0F, 4, 1, 4, 0.001F, false));
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 34, 23, 0.0F, -1, 0.0F, 4, 1, 4, 0.001F, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone11.addChild(cube_r16);
         setRotationAngle(cube_r16, 0.0F, 0.4189F, 0.0F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 30, 37, -4.0F, -1.0F, 0.0F, 4, 1, 4, 0.0F, false));
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 30, 37, -4.0F, -1, 0.0F, 4, 1, 4, 0.0F, false));
 
         bone10 = new ModelRenderer(this);
-        bone10.setRotationPoint(-5.25F, -11.0F, 0.0F);
+        bone10.setRotationPoint(-5.25F, -11, 0.0F);
         TopRotor.addChild(bone10);
         setRotationAngle(bone10, 0.0F, 1.5708F, 0.0F);
 
@@ -243,16 +243,16 @@ public class AmmoPress extends ModelBase {
         cube_r17.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone10.addChild(cube_r17);
         setRotationAngle(cube_r17, 0.0F, -0.4189F, 0.0F);
-        cube_r17.cubeList.add(new ModelBox(cube_r17, 0, 39, 0.0F, -1.0F, 0.0F, 4, 1, 4, 0.002F, false));
+        cube_r17.cubeList.add(new ModelBox(cube_r17, 0, 39, 0.0F, -1, 0.0F, 4, 1, 4, 0.002F, false));
 
         cube_r18 = new ModelRenderer(this);
         cube_r18.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone10.addChild(cube_r18);
         setRotationAngle(cube_r18, 0.0F, 0.4189F, 0.0F);
-        cube_r18.cubeList.add(new ModelBox(cube_r18, 16, 39, -4.0F, -1.0F, 0.0F, 4, 1, 4, 0.0F, false));
+        cube_r18.cubeList.add(new ModelBox(cube_r18, 16, 39, -4.0F, -1, 0.0F, 4, 1, 4, 0.0F, false));
 
         bone9 = new ModelRenderer(this);
-        bone9.setRotationPoint(5.25F, -11.0F, 0.0F);
+        bone9.setRotationPoint(5.25F, -11, 0.0F);
         TopRotor.addChild(bone9);
         setRotationAngle(bone9, 0.0F, -1.5708F, 0.0F);
 
@@ -261,13 +261,13 @@ public class AmmoPress extends ModelBase {
         cube_r19.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone9.addChild(cube_r19);
         setRotationAngle(cube_r19, 0.0F, -0.4189F, 0.0F);
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 41, 0, 0.0F, -1.0F, 0.0F, 4, 1, 4, 0.002F, false));
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 41, 0, 0.0F, -1, 0.0F, 4, 1, 4, 0.002F, false));
 
         cube_r20 = new ModelRenderer(this);
         cube_r20.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone9.addChild(cube_r20);
         setRotationAngle(cube_r20, 0.0F, 0.4189F, 0.0F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 28, 42, -4.0F, -1.0F, 0.0F, 4, 1, 4, 0.0F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 28, 42, -4.0F, -1, 0.0F, 4, 1, 4, 0.0F, false));
 
         bone8 = new ModelRenderer(this);
         bone8.setRotationPoint(-5.25F, -7.0F, 0.0F);
@@ -279,13 +279,13 @@ public class AmmoPress extends ModelBase {
         cube_r21.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone8.addChild(cube_r21);
         setRotationAngle(cube_r21, 0.0F, -0.4189F, 0.0F);
-        cube_r21.cubeList.add(new ModelBox(cube_r21, 42, 38, 0.0F, -1.0F, 0.0F, 4, 1, 4, 0.002F, false));
+        cube_r21.cubeList.add(new ModelBox(cube_r21, 42, 38, 0.0F, -1, 0.0F, 4, 1, 4, 0.002F, false));
 
         cube_r22 = new ModelRenderer(this);
         cube_r22.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone8.addChild(cube_r22);
         setRotationAngle(cube_r22, 0.0F, 0.4189F, 0.0F);
-        cube_r22.cubeList.add(new ModelBox(cube_r22, 40, 43, -4.0F, -1.0F, 0.0F, 4, 1, 4, 0.0F, false));
+        cube_r22.cubeList.add(new ModelBox(cube_r22, 40, 43, -4.0F, -1, 0.0F, 4, 1, 4, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(5.25F, -7.0F, 0.0F);
@@ -297,13 +297,13 @@ public class AmmoPress extends ModelBase {
         cube_r23.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone7.addChild(cube_r23);
         setRotationAngle(cube_r23, 0.0F, -0.4189F, 0.0F);
-        cube_r23.cubeList.add(new ModelBox(cube_r23, 0, 44, 0.0F, -1.0F, 0.0F, 4, 1, 4, 0.002F, false));
+        cube_r23.cubeList.add(new ModelBox(cube_r23, 0, 44, 0.0F, -1, 0.0F, 4, 1, 4, 0.002F, false));
 
         cube_r24 = new ModelRenderer(this);
         cube_r24.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone7.addChild(cube_r24);
         setRotationAngle(cube_r24, 0.0F, 0.4189F, 0.0F);
-        cube_r24.cubeList.add(new ModelBox(cube_r24, 16, 44, -4.0F, -1.0F, 0.0F, 4, 1, 4, 0.0F, false));
+        cube_r24.cubeList.add(new ModelBox(cube_r24, 16, 44, -4.0F, -1, 0.0F, 4, 1, 4, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
         bone6.setRotationPoint(0.0F, -7.0F, 5.25F);
@@ -315,13 +315,13 @@ public class AmmoPress extends ModelBase {
         cube_r25.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone6.addChild(cube_r25);
         setRotationAngle(cube_r25, 0.0F, -0.4189F, 0.0F);
-        cube_r25.cubeList.add(new ModelBox(cube_r25, 46, 14, 0.0F, -1.0F, 0.0F, 4, 1, 4, 0.001F, false));
+        cube_r25.cubeList.add(new ModelBox(cube_r25, 46, 14, 0.0F, -1, 0.0F, 4, 1, 4, 0.001F, false));
 
         cube_r26 = new ModelRenderer(this);
         cube_r26.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone6.addChild(cube_r26);
         setRotationAngle(cube_r26, 0.0F, 0.4189F, 0.0F);
-        cube_r26.cubeList.add(new ModelBox(cube_r26, 46, 19, -4.0F, -1.0F, 0.0F, 4, 1, 4, 0.0F, false));
+        cube_r26.cubeList.add(new ModelBox(cube_r26, 46, 19, -4.0F, -1, 0.0F, 4, 1, 4, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(0.0F, -7.0F, -5.25F);
@@ -332,18 +332,18 @@ public class AmmoPress extends ModelBase {
         cube_r27.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone5.addChild(cube_r27);
         setRotationAngle(cube_r27, 0.0F, -0.4189F, 0.0F);
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 46, 24, 0.0F, -1.0F, 0.0F, 4, 1, 4, 0.001F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 46, 24, 0.0F, -1, 0.0F, 4, 1, 4, 0.001F, false));
 
         cube_r28 = new ModelRenderer(this);
         cube_r28.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone5.addChild(cube_r28);
         setRotationAngle(cube_r28, 0.0F, 0.4189F, 0.0F);
-        cube_r28.cubeList.add(new ModelBox(cube_r28, 46, 29, -4.0F, -1.0F, 0.0F, 4, 1, 4, 0.0F, false));
+        cube_r28.cubeList.add(new ModelBox(cube_r28, 46, 29, -4.0F, -1, 0.0F, 4, 1, 4, 0.0F, false));
 
         MainPiston = new ModelRenderer(this);
         MainPiston.setRotationPoint(3.8F, -7.75F, 1.05F);
         TopRotor.addChild(MainPiston);
-        MainPiston.cubeList.add(new ModelBox(MainPiston, 16, 49, -1.0F, -4.0F, 0.0F, 1, 7, 1, 0.0F, false));
+        MainPiston.cubeList.add(new ModelBox(MainPiston, 16, 49, -1, -4.0F, 0.0F, 1, 7, 1, 0.0F, false));
 
         Arrays.fill(bulletStatus, -1);
     }
@@ -458,7 +458,7 @@ public class AmmoPress extends ModelBase {
         //if(BottomRotor.rotateAngleY >= 2*Math.PI) BottomRotor.rotateAngleY = 0.0f;
 
 
-        //MainPiston.offsetY = (1.0f-proximity)/100.0f;
+        //MainPiston.offsetY = (1-proximity)/100.0f;
 
 
         // Performs the press animation

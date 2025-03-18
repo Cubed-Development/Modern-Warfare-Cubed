@@ -62,12 +62,12 @@ public class gasgrenade extends ModelBase {
         grenade.cubeList.add(new ModelBox(grenade, 100, 0, -3.55F, -34.7414F, -24.4233F, 1, 1, 2, 0.0F, true));
         grenade.cubeList.add(new ModelBox(grenade, 0, 0, 0.0F, -34.4914F, -27.4233F, 1, 1, 5, 0.0F, true));
         grenade.cubeList.add(new ModelBox(grenade, 0, 0, -2.0F, -34.4914F, -27.4233F, 1, 1, 5, 0.0F, true));
-        grenade.cubeList.add(new ModelBox(grenade, 0, 0, -1.0F, -34.4914F, -27.4233F, 1, 1, 1, 0.0F, true));
-        grenade.cubeList.add(new ModelBox(grenade, 0, 0, -1.0F, -34.4914F, -23.4233F, 1, 1, 1, 0.0F, true));
+        grenade.cubeList.add(new ModelBox(grenade, 0, 0, -1, -34.4914F, -27.4233F, 1, 1, 1, 0.0F, true));
+        grenade.cubeList.add(new ModelBox(grenade, 0, 0, -1, -34.4914F, -23.4233F, 1, 1, 1, 0.0F, true));
         grenade.cubeList.add(new ModelBox(grenade, 0, 0, 1.5F, -25.1914F, -28.4233F, 3, 6, 5, 0.0F, true));
         grenade.cubeList.add(new ModelBox(grenade, 0, 0, 1.5F, -27.1914F, -28.4233F, 3, 2, 3, 0.0F, true));
-        grenade.cubeList.add(new ModelBox(grenade, 0, 0, 1.0F, -25.1914F, -29.4233F, 3, 6, 1, 0.0F, true));
-        grenade.cubeList.add(new ModelBox(grenade, 0, 0, 1.0F, -27.1914F, -29.2233F, 3, 2, 1, 0.0F, true));
+        grenade.cubeList.add(new ModelBox(grenade, 0, 0, 1, -25.1914F, -29.4233F, 3, 6, 1, 0.0F, true));
+        grenade.cubeList.add(new ModelBox(grenade, 0, 0, 1, -27.1914F, -29.2233F, 3, 2, 1, 0.0F, true));
         grenade.cubeList.add(new ModelBox(grenade, 0, 0, 3.8F, -24.1914F, -28.2233F, 1, 4, 3, 0.0F, true));
         grenade.cubeList.add(new ModelBox(grenade, 0, 0, 3.8F, -26.1914F, -28.2233F, 1, 2, 2, 0.0F, true));
         grenade.cubeList.add(new ModelBox(grenade, 0, 50, 2.2F, -25.1914F, -23.4233F, 1, 5, 1, 0.0F, true));
@@ -189,14 +189,14 @@ public class gasgrenade extends ModelBase {
         grenade42_r1.setRotationPoint(0.0F, -46.6029F, -45.1126F);
         grenade.addChild(grenade42_r1);
         setRotationAngle(grenade42_r1, -2.1935F, 0.0F, 0.0F);
-        grenade42_r1.cubeList.add(new ModelBox(grenade42_r1, 0, 50, 2.3F, -31.0F, 4.1F, 1, 4, 1, 0.0F, true));
+        grenade42_r1.cubeList.add(new ModelBox(grenade42_r1, 0, 50, 2.3F, -31, 4.1F, 1, 4, 1, 0.0F, true));
 
         grenade38_r1 = new ModelRenderer(this);
         grenade38_r1.setRotationPoint(0.0F, -46.5217F, -45.271F);
         grenade.addChild(grenade38_r1);
         setRotationAngle(grenade38_r1, -2.1935F, 0.0F, 0.0F);
-        grenade38_r1.cubeList.add(new ModelBox(grenade38_r1, 0, 50, 2.4F, -31.0F, 4.0F, 1, 4, 1, 0.0F, true));
-        grenade38_r1.cubeList.add(new ModelBox(grenade38_r1, 0, 50, 2.2F, -31.0F, 4.0F, 1, 4, 1, 0.0F, true));
+        grenade38_r1.cubeList.add(new ModelBox(grenade38_r1, 0, 50, 2.4F, -31, 4.0F, 1, 4, 1, 0.0F, true));
+        grenade38_r1.cubeList.add(new ModelBox(grenade38_r1, 0, 50, 2.2F, -31, 4.0F, 1, 4, 1, 0.0F, true));
 
         grenade34_r1 = new ModelRenderer(this);
         grenade34_r1.setRotationPoint(0.0F, -45.967F, -45.8935F);
@@ -208,19 +208,19 @@ public class gasgrenade extends ModelBase {
         grenade31_r1.setRotationPoint(0.0F, -42.0113F, -49.6357F);
         grenade.addChild(grenade31_r1);
         setRotationAngle(grenade31_r1, -2.0448F, 0.0F, 0.0F);
-        grenade31_r1.cubeList.add(new ModelBox(grenade31_r1, 0, 0, 1.5F, -31.0F, 3.0F, 3, 2, 1, 0.0F, true));
+        grenade31_r1.cubeList.add(new ModelBox(grenade31_r1, 0, 0, 1.5F, -31, 3.0F, 3, 2, 1, 0.0F, true));
 
         grenade30_r1 = new ModelRenderer(this);
         grenade30_r1.setRotationPoint(0.0F, -14.8437F, -56.0424F);
         grenade.addChild(grenade30_r1);
         setRotationAngle(grenade30_r1, -1.1572F, 0.0F, 0.0F);
-        grenade30_r1.cubeList.add(new ModelBox(grenade30_r1, 0, 0, 1.5F, -33.0F, 1.0F, 3, 1, 3, 0.0F, true));
+        grenade30_r1.cubeList.add(new ModelBox(grenade30_r1, 0, 0, 1.5F, -33.0F, 1, 3, 1, 3, 0.0F, true));
 
         grenade20_r1 = new ModelRenderer(this);
         grenade20_r1.setRotationPoint(-30.163F, -3.3716F, -26.4233F);
         grenade.addChild(grenade20_r1);
         setRotationAngle(grenade20_r1, 0.0F, 0.0F, 0.7854F);
-        grenade20_r1.cubeList.add(new ModelBox(grenade20_r1, 100, 0, -4.0F, -41.0F, -2.1F, 2, 2, 2, 0.0F, true));
+        grenade20_r1.cubeList.add(new ModelBox(grenade20_r1, 100, 0, -4.0F, -41, -2.1F, 2, 2, 2, 0.0F, true));
 
         grenade19_r1 = new ModelRenderer(this);
         grenade19_r1.setRotationPoint(-30.8701F, -3.6645F, -26.4233F);
@@ -232,7 +232,7 @@ public class gasgrenade extends ModelBase {
         grenade16_r1.setRotationPoint(19.5772F, -8.9279F, -26.4233F);
         grenade.addChild(grenade16_r1);
         setRotationAngle(grenade16_r1, 0.0F, 0.0F, -0.7854F);
-        grenade16_r1.cubeList.add(new ModelBox(grenade16_r1, 0, 0, -8.0F, -31.0F, -0.5F, 2, 4, 2, 0.0F, true));
+        grenade16_r1.cubeList.add(new ModelBox(grenade16_r1, 0, 0, -8.0F, -31, -0.5F, 2, 4, 2, 0.0F, true));
 
         grenade15_r1 = new ModelRenderer(this);
         grenade15_r1.setRotationPoint(23.8271F, -11.5625F, -26.4233F);

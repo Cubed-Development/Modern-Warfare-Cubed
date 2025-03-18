@@ -74,7 +74,7 @@ public class MP7RearSightFlipped extends ModelBase {
 
 
         rearsight27 = new ModelRenderer(this);
-        rearsight27.setRotationPoint(-11.0F, -21.5F, 4.0F);
+        rearsight27.setRotationPoint(-11, -21.5F, 4.0F);
         rearsight.addChild(rearsight27);
         setRotationAngle(rearsight27, -0.2974F, 0.0F, 0.0F);
         rearsight27.cubeList.add(new ModelBox(rearsight27, 96, 59, 0.0F, 0.0F, 0.0F, 5, 8, 8, 0.0F, false));
@@ -113,7 +113,7 @@ public class MP7RearSightFlipped extends ModelBase {
         rearsight13.cubeList.add(new ModelBox(rearsight13, 0, 7, 0.0F, 0.0F, 0.0F, 4, 5, 5, 0.0F, false));
 
         rearsight12 = new ModelRenderer(this);
-        rearsight12.setRotationPoint(-7.01F, -17.5F, 1.0F);
+        rearsight12.setRotationPoint(-7.01F, -17.5F, 1);
         rearsight.addChild(rearsight12);
         rearsight12.cubeList.add(new ModelBox(rearsight12, 84, 39, 0.0F, 0.0F, 0.0F, 3, 4, 13, 0.0F, false));
 
@@ -156,7 +156,7 @@ public class MP7RearSightFlipped extends ModelBase {
         rearsight2.cubeList.add(new ModelBox(rearsight2, 0, 39, 0.0F, 0.0F, 0.0F, 3, 2, 4, 0.0F, false));
 
         rearsight3 = new ModelRenderer(this);
-        rearsight3.setRotationPoint(1.0F, -5.5F, -9.0F);
+        rearsight3.setRotationPoint(1, -5.5F, -9.0F);
         flippable2.addChild(rearsight3);
         rearsight3.cubeList.add(new ModelBox(rearsight3, 10, 35, 0.0F, 0.0F, 0.0F, 3, 2, 4, 0.0F, false));
 
@@ -183,7 +183,7 @@ public class MP7RearSightFlipped extends ModelBase {
         rearsight7.cubeList.add(new ModelBox(rearsight7, 0, 31, 0.0F, 0.0F, 0.0F, 3, 4, 4, 0.0F, false));
 
         rearsight18 = new ModelRenderer(this);
-        rearsight18.setRotationPoint(-3.0F, -0.5F, -21.0F);
+        rearsight18.setRotationPoint(-3.0F, -0.5F, -21);
         flippable2.addChild(rearsight18);
         rearsight18.cubeList.add(new ModelBox(rearsight18, 79, 81, 0.0F, 0.0F, 7.0F, 6, 2, 16, 0.0F, false));
 
@@ -244,7 +244,7 @@ public class MP7RearSightFlipped extends ModelBase {
         frontsight11 = new ModelRenderer(this);
         frontsight11.setRotationPoint(4.0F, -19.5F, -48.0F);
         frontsight.addChild(frontsight11);
-        frontsight11.cubeList.add(new ModelBox(frontsight11, 26, 92, 0.0F, 0.0F, -1.0F, 2, 7, 14, 0.0F, false));
+        frontsight11.cubeList.add(new ModelBox(frontsight11, 26, 92, 0.0F, 0.0F, -1, 2, 7, 14, 0.0F, false));
 
         frontsight6 = new ModelRenderer(this);
         frontsight6.setRotationPoint(-7.01F, -17.5F, -52.0F);
@@ -286,29 +286,29 @@ public class MP7RearSightFlipped extends ModelBase {
 
 
         frontsight10 = new ModelRenderer(this);
-        frontsight10.setRotationPoint(-4.0F, -1.0F, 10.0F);
+        frontsight10.setRotationPoint(-4.0F, -1, 10.0F);
         flippable.addChild(frontsight10);
         frontsight10.cubeList.add(new ModelBox(frontsight10, 13, 12, 0.0F, 0.0F, 3.9F, 1, 5, 5, 0.001F, false));
         frontsight10.cubeList.add(new ModelBox(frontsight10, 13, 7, 3.5F, 1.75F, 2.9F, 1, 1, 4, 0.0F, false));
 
         frontsight9 = new ModelRenderer(this);
-        frontsight9.setRotationPoint(3.0F, -1.0F, 10.0F);
+        frontsight9.setRotationPoint(3.0F, -1, 10.0F);
         flippable.addChild(frontsight9);
         frontsight9.cubeList.add(new ModelBox(frontsight9, 29, 11, 0.0F, 0.0F, 3.9F, 1, 5, 5, 0.001F, false));
 
         frontsight8 = new ModelRenderer(this);
-        frontsight8.setRotationPoint(-4.0F, -1.0F, -3.0F);
+        frontsight8.setRotationPoint(-4.0F, -1, -3.0F);
         flippable.addChild(frontsight8);
         frontsight8.cubeList.add(new ModelBox(frontsight8, 63, 59, 0.0F, 0.0F, 0.0F, 8, 5, 17, 0.0F, false));
 
         frontsight13 = new ModelRenderer(this);
-        frontsight13.setRotationPoint(-1.0F, -6.5F, 7.5F);
+        frontsight13.setRotationPoint(-1, -6.5F, 7.5F);
         flippable.addChild(frontsight13);
         setRotationAngle(frontsight13, -1.321F, 0.0F, 0.0F);
         frontsight13.cubeList.add(new ModelBox(frontsight13, 29, 0, 0.0F, 0.0F, 0.0F, 2, 5, 6, 0.0F, false));
 
         frontsight14 = new ModelRenderer(this);
-        frontsight14.setRotationPoint(-1.0F, -5.2F, 2.6F);
+        frontsight14.setRotationPoint(-1, -5.2F, 2.6F);
         flippable.addChild(frontsight14);
         setRotationAngle(frontsight14, -0.4461F, 0.0F, 0.0F);
         frontsight14.cubeList.add(new ModelBox(frontsight14, 40, 39, 0.0F, 0.0F, 0.0F, 2, 5, 3, -0.001F, false));

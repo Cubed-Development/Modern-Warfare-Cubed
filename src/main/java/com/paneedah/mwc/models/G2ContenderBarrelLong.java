@@ -103,7 +103,7 @@ public class G2ContenderBarrelLong extends ModelWithAttachments {
         cube_r45.cubeList.add(new ModelBox(cube_r45, 70, 30, 7.119F, 3.7195F, -26.1952F, 2, 1, 29, 0.0F, false));
 
         cube_r46 = new ModelRenderer(this);
-        cube_r46.setRotationPoint(1.0F, -0.2123F, 9.0776F);
+        cube_r46.setRotationPoint(1, -0.2123F, 9.0776F);
         bone28.addChild(cube_r46);
         setRotationAngle(cube_r46, 0.0436F, 0.0F, 0.0F);
         cube_r46.cubeList.add(new ModelBox(cube_r46, 0, 31, 6.5F, 0.9946F, -20.1635F, 4, 3, 29, 0.0F, false));
@@ -142,7 +142,7 @@ public class G2ContenderBarrelLong extends ModelWithAttachments {
         cube_r49.setRotationPoint(0.0F, 0.3945F, 8.0658F);
         bone31.addChild(cube_r49);
         setRotationAngle(cube_r49, 0.1309F, 0.0F, 0.0F);
-        cube_r49.cubeList.add(new ModelBox(cube_r49, 10, 87, 6.5F, 11.0F, -4.5F, 4, 1, 1, 0.0F, false));
+        cube_r49.cubeList.add(new ModelBox(cube_r49, 10, 87, 6.5F, 11, -4.5F, 4, 1, 1, 0.0F, false));
 
         bone32 = new ModelRenderer(this);
         bone32.setRotationPoint(1.5F, -31.4472F, 15.9696F);
@@ -154,7 +154,7 @@ public class G2ContenderBarrelLong extends ModelWithAttachments {
         cube_r50.setRotationPoint(0.0F, 0.3945F, 8.0658F);
         bone32.addChild(cube_r50);
         setRotationAngle(cube_r50, 0.1309F, 0.0F, 0.0F);
-        cube_r50.cubeList.add(new ModelBox(cube_r50, 0, 87, 6.5F, 11.0F, -4.5F, 4, 1, 1, 0.0F, false));
+        cube_r50.cubeList.add(new ModelBox(cube_r50, 0, 87, 6.5F, 11, -4.5F, 4, 1, 1, 0.0F, false));
 
         bone33 = new ModelRenderer(this);
         bone33.setRotationPoint(1.5F, -31.4472F, 15.9696F);

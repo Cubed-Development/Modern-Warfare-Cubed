@@ -32,18 +32,18 @@ public class DuelFloodLight extends ModelBase {
         bone10 = new ModelRenderer(this);
         bone10.setRotationPoint(0.5F, -9.25F, 0.0F);
         bone11.addChild(bone10);
-        bone10.cubeList.add(new ModelBox(bone10, 28, 58, -1.0F, -12.0F, 0.0F, 1, 1, 1, 0.2F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 40, 0, -1.0F, -14.25F, 0.0F, 1, 22, 1, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 28, 58, -1, -12.0F, 0.0F, 1, 1, 1, 0.2F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 40, 0, -1, -14.25F, 0.0F, 1, 22, 1, 0.0F, false));
         bone10.cubeList.add(new ModelBox(bone10, 0, 0, -10.0F, -15.25F, 0.0F, 19, 1, 1, 0.0F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 16, 48, -8.0F, -15.5F, -1.0F, 1, 1, 3, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 16, 48, -8.0F, -15.5F, -1, 1, 1, 3, 0.0F, false));
         bone10.cubeList.add(new ModelBox(bone10, 12, 58, -8.0F, -18.25F, 0.0F, 1, 3, 1, 0.0F, false));
         bone10.cubeList.add(new ModelBox(bone10, 8, 58, 6.0F, -18.25F, 0.0F, 1, 3, 1, 0.0F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 4, 58, 1.0F, -19.25F, 0.0F, 1, 4, 1, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 4, 58, 1, -19.25F, 0.0F, 1, 4, 1, 0.0F, false));
         bone10.cubeList.add(new ModelBox(bone10, 0, 58, -3.0F, -19.25F, 0.0F, 1, 4, 1, 0.0F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 8, 52, 6.0F, -15.5F, -1.0F, 1, 1, 3, 0.0F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 8, 48, -1.0F, -15.5F, -1.0F, 1, 1, 3, 0.0F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 4, 63, -1.0F, 4.0F, 0.0F, 1, 1, 1, 0.2F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 0, 63, -1.0F, -2.0F, 0.0F, 1, 1, 1, 0.2F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 8, 52, 6.0F, -15.5F, -1, 1, 1, 3, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 8, 48, -1, -15.5F, -1, 1, 1, 3, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 4, 63, -1, 4.0F, 0.0F, 1, 1, 1, 0.2F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 0, 63, -1, -2.0F, 0.0F, 1, 1, 1, 0.2F, false));
 
         bone9 = new ModelRenderer(this);
         bone9.setRotationPoint(0.0F, -23.0F, 1.75F);

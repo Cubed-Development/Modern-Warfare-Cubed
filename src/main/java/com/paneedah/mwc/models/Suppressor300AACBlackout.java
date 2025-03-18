@@ -40,8 +40,8 @@ public class Suppressor300AACBlackout extends ModelBase {
         suppressor.setRotationPoint(0.0F, 24.0F, 0.0F);
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -24.0F, -2.0F, 2, 3, 22, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 2.0F, -23.0F, -2.0F, 1, 2, 22, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -1.0F, -23.0F, -2.0F, 1, 2, 22, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -21.0F, -2.0F, 2, 1, 22, 0.0F, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -1, -23.0F, -2.0F, 1, 2, 22, 0.0F, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -21, -2.0F, 2, 1, 22, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -24.1F, 8.0F, 2, 1, 12, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 2.1F, -23.0F, 8.0F, 1, 2, 12, 0.0F, true));
         suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -1.1F, -23.0F, 8.0F, 1, 2, 12, 0.0F, true));
@@ -87,7 +87,7 @@ public class Suppressor300AACBlackout extends ModelBase {
         gun35_r1.setRotationPoint(-13.9832F, -36.3974F, 0.0F);
         suppressor.addChild(gun35_r1);
         setRotationAngle(gun35_r1, 0.0F, 0.0F, 2.3794F);
-        gun35_r1.cubeList.add(new ModelBox(gun35_r1, 0, 0, 0.3F, -21.0F, 8.0F, 1, 1, 12, 0.0F, true));
+        gun35_r1.cubeList.add(new ModelBox(gun35_r1, 0, 0, 0.3F, -21, 8.0F, 1, 1, 12, 0.0F, true));
 
         gun33_r1 = new ModelRenderer(this);
         gun33_r1.setRotationPoint(-15.3642F, -39.8441F, 0.0F);
@@ -111,7 +111,7 @@ public class Suppressor300AACBlackout extends ModelBase {
         gun30_r1.setRotationPoint(-9.1579F, -38.3308F, 0.0F);
         suppressor.addChild(gun30_r1);
         setRotationAngle(gun30_r1, 0.0F, 0.0F, 2.3794F);
-        gun30_r1.cubeList.add(new ModelBox(gun30_r1, 0, 0, 3.1F, -21.0F, 8.0F, 1, 1, 12, 0.0F, true));
+        gun30_r1.cubeList.add(new ModelBox(gun30_r1, 0, 0, 3.1F, -21, 8.0F, 1, 1, 12, 0.0F, true));
 
         gun28_r1 = new ModelRenderer(this);
         gun28_r1.setRotationPoint(-10.5388F, -41.7774F, 0.0F);
@@ -135,8 +135,8 @@ public class Suppressor300AACBlackout extends ModelBase {
         gun11_r1.setRotationPoint(-13.8109F, -36.4664F, 0.0F);
         suppressor.addChild(gun11_r1);
         setRotationAngle(gun11_r1, 0.0F, 0.0F, 2.3794F);
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21.0F, 0.0F, 1, 1, 20, 0.0F, true));
-        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21.0F, -2.0F, 1, 1, 22, 0.0F, true));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21, 0.0F, 1, 1, 20, 0.0F, true));
+        gun11_r1.cubeList.add(new ModelBox(gun11_r1, 0, 0, 0.4F, -21, -2.0F, 1, 1, 22, 0.0F, true));
 
         gun9_r1 = new ModelRenderer(this);
         gun9_r1.setRotationPoint(-15.0616F, -6.1978F, 0.0F);
@@ -160,7 +160,7 @@ public class Suppressor300AACBlackout extends ModelBase {
         gun6_r1.setRotationPoint(-9.3302F, -38.2617F, 0.0F);
         suppressor.addChild(gun6_r1);
         setRotationAngle(gun6_r1, 0.0F, 0.0F, 2.3794F);
-        gun6_r1.cubeList.add(new ModelBox(gun6_r1, 0, 0, 3.0F, -21.0F, -2.0F, 1, 1, 22, 0.0F, true));
+        gun6_r1.cubeList.add(new ModelBox(gun6_r1, 0, 0, 3.0F, -21, -2.0F, 1, 1, 22, 0.0F, true));
 
         gun5_r1 = new ModelRenderer(this);
         gun5_r1.setRotationPoint(-10.7112F, -41.7084F, 0.0F);

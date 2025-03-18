@@ -24,8 +24,8 @@ public class M4GripTan extends ModelBase {
 
         grip = new ModelRenderer(this);
         grip.setRotationPoint(0.0F, 24.0F, 0.0F);
-        grip.cubeList.add(new ModelBox(grip, 0, 0, -3.0F, -31.0F, -1.0F, 3, 5, 1, 0.0F, false));
-        grip.cubeList.add(new ModelBox(grip, 20, 0, -3.499F, -31.0F, -6.0F, 4, 5, 5, 0.0F, false));
+        grip.cubeList.add(new ModelBox(grip, 0, 0, -3.0F, -31, -1, 3, 5, 1, 0.0F, false));
+        grip.cubeList.add(new ModelBox(grip, 20, 0, -3.499F, -31, -6.0F, 4, 5, 5, 0.0F, false));
 
         grip3_r1 = new ModelRenderer(this);
         grip3_r1.setRotationPoint(-3.5F, -26.0F, -5.5F);
@@ -35,11 +35,11 @@ public class M4GripTan extends ModelBase {
         grip3_r1.cubeList.add(new ModelBox(grip3_r1, 26, 24, 0.0F, -0.5F, 0.0F, 4, 11, 4, 0.0F, false));
 
         grip3_r2 = new ModelRenderer(this);
-        grip3_r2.setRotationPoint(-3.5F, -29.0F, -1.0F);
+        grip3_r2.setRotationPoint(-3.5F, -29.0F, -1);
         grip.addChild(grip3_r2);
         setRotationAngle(grip3_r2, -1.0782F, 0.0F, 0.0F);
         grip3_r2.cubeList.add(new ModelBox(grip3_r2, 0, 0, -0.001F, 0.0F, 0.0F, 4, 3, 12, 0.0F, false));
-        grip3_r2.cubeList.add(new ModelBox(grip3_r2, 0, 15, 0.499F, -1.0F, 0.0F, 3, 1, 12, 0.0F, false));
+        grip3_r2.cubeList.add(new ModelBox(grip3_r2, 0, 15, 0.499F, -1, 0.0F, 3, 1, 12, 0.0F, false));
 
         grip4_r1 = new ModelRenderer(this);
         grip4_r1.setRotationPoint(-3.5F, -16.8F, -2.6F);
@@ -60,8 +60,8 @@ public class M4GripTan extends ModelBase {
         grip13_r1.setRotationPoint(-3.6F, -26.0F, -5.5F);
         grip.addChild(grip13_r1);
         setRotationAngle(grip13_r1, 0.3665F, 0.0F, 0.0F);
-        grip13_r1.cubeList.add(new ModelBox(grip13_r1, 0, 28, 3.2F, 0.5F, 1.0F, 1, 9, 4, 0.0F, false));
-        grip13_r1.cubeList.add(new ModelBox(grip13_r1, 10, 28, 0.0F, 0.5F, 1.0F, 1, 9, 4, 0.0F, false));
+        grip13_r1.cubeList.add(new ModelBox(grip13_r1, 0, 28, 3.2F, 0.5F, 1, 1, 9, 4, 0.0F, false));
+        grip13_r1.cubeList.add(new ModelBox(grip13_r1, 10, 28, 0.0F, 0.5F, 1, 1, 9, 4, 0.0F, false));
     }
 
     @Override

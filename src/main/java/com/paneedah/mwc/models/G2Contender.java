@@ -452,7 +452,7 @@ public class G2Contender extends ModelWithAttachments {
 
 
         cube_r8 = new ModelRenderer(this);
-        cube_r8.setRotationPoint(0.0F, 1.0F, 0.0F);
+        cube_r8.setRotationPoint(0.0F, 1, 0.0F);
         bone55.addChild(cube_r8);
         setRotationAngle(cube_r8, -0.4363F, 0.0F, 0.0F);
         cube_r8.cubeList.add(new ModelBox(cube_r8, 52, 40, 7.5F, 9.613F, -1.7349F, 2, 3, 1, 0.0F, false));
@@ -574,13 +574,13 @@ public class G2Contender extends ModelWithAttachments {
         cube_r17.cubeList.add(new ModelBox(cube_r17, 13, 10, 8.0F, -2.2053F, -12.6553F, 1, 2, 1, 0.0F, false));
 
         bone66 = new ModelRenderer(this);
-        bone66.setRotationPoint(0.0F, -1.0F, -0.25F);
+        bone66.setRotationPoint(0.0F, -1, -0.25F);
         bone64.addChild(bone66);
         setRotationAngle(bone66, -0.9599F, 0.0F, 0.0F);
 
 
         cube_r18 = new ModelRenderer(this);
-        cube_r18.setRotationPoint(0.0F, 1.0F, 1.0F);
+        cube_r18.setRotationPoint(0.0F, 1, 1);
         bone66.addChild(cube_r18);
         setRotationAngle(cube_r18, 0.3927F, 0.0F, 0.0F);
         cube_r18.cubeList.add(new ModelBox(cube_r18, 38, 19, 8.0F, 8.0525F, -9.0498F, 1, 1, 1, 0.0F, false));

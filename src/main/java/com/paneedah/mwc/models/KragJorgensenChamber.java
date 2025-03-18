@@ -46,7 +46,7 @@ public class KragJorgensenChamber extends ModelWithAttachments {
         chamber2_r1.setRotationPoint(0.0F, -67.1682F, 51.5638F);
         chamber.addChild(chamber2_r1);
         setRotationAngle(chamber2_r1, 1.5243F, 0.0F, 0.0F);
-        chamber2_r1.cubeList.add(new ModelBox(chamber2_r1, 200, 0, -6.2F, -33.8F, -31.0F, 1, 9, 1, 0.0F, true));
+        chamber2_r1.cubeList.add(new ModelBox(chamber2_r1, 200, 0, -6.2F, -33.8F, -31, 1, 9, 1, 0.0F, true));
     }
 
     @Override

@@ -54,9 +54,9 @@ public class TornZombie extends ModelBiped {
         this.textureWidth = p_i1149_3_;
         this.textureHeight = p_i1149_4_;
 //        this.bipedCloak = new ModelRenderer(this, 0, 0);
-//        this.bipedCloak.addBox(-5.0F, 0.0F, -1.0F, 10, 16, 1, p_i1149_1_);
+//        this.bipedCloak.addBox(-5.0F, 0.0F, -1, 10, 16, 1, p_i1149_1_);
 //        this.bipedEars = new ModelRenderer(this, 24, 0);
-//        this.bipedEars.addBox(-3.0F, -6.0F, -1.0F, 6, 6, 1, p_i1149_1_);
+//        this.bipedEars.addBox(-3.0F, -6.0F, -1, 6, 6, 1, p_i1149_1_);
 
         bipedHead = new ModelRenderer(this, 0, 0);
         bipedHead.addBox(-4F, -8F, -4F, 5, 5, 8);
@@ -223,7 +223,7 @@ public class TornZombie extends ModelBiped {
             this.bipedHead.render(p_78088_7_);
             GL11.glPopMatrix();
             GL11.glPushMatrix();
-            GL11.glScalef(1.0F / f6, 1.0F / f6, 1.0F / f6);
+            GL11.glScalef(1 / f6, 1 / f6, 1 / f6);
             GL11.glTranslatef(0.0F, 24.0F * p_78088_7_, 0.0F);
             this.bipedBody.render(p_78088_7_);
             this.bipedRightArm.render(p_78088_7_);
@@ -295,10 +295,10 @@ public class TornZombie extends ModelBiped {
 //          this.bipedRightArm.rotateAngleY += this.bipedBody.rotateAngleY;
 //          this.bipedLeftArm.rotateAngleY += this.bipedBody.rotateAngleY;
 //          this.bipedLeftArm.rotateAngleX += this.bipedBody.rotateAngleY;
-//          f6 = 1.0F - this.onGround;
+//          f6 = 1 - this.onGround;
 //          f6 *= f6;
 //          f6 *= f6;
-//          f6 = 1.0F - f6;
+//          f6 = 1 - f6;
 //          f7 = MathHelper.sin(f6 * (float)Math.PI);
 //          float f8 = MathHelper.sin(this.onGround * (float)Math.PI) * -(this.bipedHead.rotateAngleX - 0.7F) * 0.75F;
 //          this.bipedRightArm.rotateAngleX = (float)((double)this.bipedRightArm.rotateAngleX - ((double)f7 * 1.2D + (double)f8));
@@ -314,8 +314,8 @@ public class TornZombie extends ModelBiped {
             this.bipedLeftLeg.rotationPointZ = 4.0F;
             this.bipedRightLeg.rotationPointY = 9.0F;
             this.bipedLeftLeg.rotationPointY = 9.0F;
-            this.bipedHead.rotationPointY = 1.0F;
-            this.bipedHeadwear.rotationPointY = 1.0F;
+            this.bipedHead.rotationPointY = 1;
+            this.bipedHeadwear.rotationPointY = 1;
         } else {
             this.bipedBody.rotateAngleX = 0.2230717F;
             this.bipedRightLeg.rotationPointZ = 0.1F;

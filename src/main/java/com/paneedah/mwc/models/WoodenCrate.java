@@ -46,12 +46,12 @@ public class WoodenCrate extends ModelBase {
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(0.0F, 9.0F, 0.0F);
         setRotationAngle(bone5, 0.0F, -0.7854F, 0.0F);
-        bone5.cubeList.add(new ModelBox(bone5, 22, 70, -1.0F, -1.75F, -9.0F, 2, 2, 18, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 22, 70, -1, -1.75F, -9.0F, 2, 2, 18, 0.0F, false));
 
         bone6 = new ModelRenderer(this);
         bone6.setRotationPoint(0.0F, 9.0F, 0.0F);
         setRotationAngle(bone6, 0.0F, 0.7854F, 0.0F);
-        bone6.cubeList.add(new ModelBox(bone6, 0, 68, -1.0F, -1.76F, -9.0F, 2, 2, 18, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 0, 68, -1, -1.76F, -9.0F, 2, 2, 18, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -67,7 +67,7 @@ public class WoodenCrate extends ModelBase {
         bone7.cubeList.add(new ModelBox(bone7, 0, 20, 6.0F, -17.0F, -8.0F, 2, 14, 2, 0.0F, false));
         bone7.cubeList.add(new ModelBox(bone7, 8, 0, 6.0F, -17.0F, 6.0F, 2, 14, 2, 0.0F, false));
         bone7.cubeList.add(new ModelBox(bone7, 62, 70, 6.0F, -3.0F, -8.0F, 2, 3, 16, 0.0F, false));
-        bone7.cubeList.add(new ModelBox(bone7, 82, 82, -1.0F, -1.0F, -8.0F, 2, 1, 16, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 82, 82, -1, -1, -8.0F, 2, 1, 16, 0.0F, false));
     }
 
     @Override

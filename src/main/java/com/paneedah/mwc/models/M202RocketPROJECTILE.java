@@ -18,7 +18,7 @@ public class M202RocketPROJECTILE extends ModelWithAttachments {
         textureHeight = 256;
 
         proyectile = new ModelRenderer(this);
-        proyectile.setRotationPoint(-0.5F, -1.5F, 1.0F);
+        proyectile.setRotationPoint(-0.5F, -1.5F, 1);
         setRotationAngle(proyectile, -1.5708F, 0.0F, 0.0F);
         proyectile.cubeList.add(new ModelBox(proyectile, 0, 0, -2.5F, -3.0F, -8.0F, 5, 1, 42, 0.0F, true));
         proyectile.cubeList.add(new ModelBox(proyectile, 0, 0, -2.5F, 2.0F, -8.0F, 5, 1, 42, 0.0F, true));

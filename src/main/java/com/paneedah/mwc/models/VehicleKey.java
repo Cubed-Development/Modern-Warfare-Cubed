@@ -22,15 +22,15 @@ public class VehicleKey extends ModelBase {
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(0.0F, 24.0F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 0, 2, -5.0F, -1.0F, -8.0F, 1, 1, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 2, -5.0F, -1, -8.0F, 1, 1, 1, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 18, 18, -6.0F, -3.0F, -7.03F, 10, 5, 8, 0.001F, false));
-        bone.cubeList.add(new ModelBox(bone, 36, 12, -5.0F, -1.0F, -9.0F, 8, 1, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 4, 2.0F, -1.0F, -8.0F, 1, 1, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 36, 12, -5.0F, -1, -9.0F, 8, 1, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 4, 2.0F, -1, -8.0F, 1, 1, 1, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 18, 1, -1.5F, 0.5F, 7.9F, 1, 1, 16, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 27, 31, -6.0F, -2.0F, 0.9F, 10, 4, 7, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 7, -1.5F, -1.85F, 7.9F, 1, 1, 5, -0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 17, -1.5F, -1.5F, 7.9F, 1, 1, 16, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5F, -1.0F, 7.9F, 1, 1, 16, 0.001F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5F, -1, 7.9F, 1, 1, 16, 0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5F, -0.5F, 7.9F, 1, 1, 6, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5F, 0.25F, 15.9F, 1, 1, 1, -0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 17, -1.5F, 0.25F, 19.4F, 1, 1, 4, -0.001F, false));
@@ -39,7 +39,7 @@ public class VehicleKey extends ModelBase {
         KEY3_r1.setRotationPoint(4.0F, -3.0F, 7.9F);
         bone.addChild(KEY3_r1);
         setRotationAngle(KEY3_r1, -0.1396F, 0.0F, 0.0F);
-        KEY3_r1.cubeList.add(new ModelBox(KEY3_r1, 0, 35, -10.0F, 1.0F, -7.0F, 10, 1, 7, -0.001F, false));
+        KEY3_r1.cubeList.add(new ModelBox(KEY3_r1, 0, 35, -10.0F, 1, -7.0F, 10, 1, 7, -0.001F, false));
 
         KEY6_r1 = new ModelRenderer(this);
         KEY6_r1.setRotationPoint(3.0F, -4.2F, 0.3F);

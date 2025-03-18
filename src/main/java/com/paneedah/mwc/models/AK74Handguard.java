@@ -84,7 +84,7 @@ public class AK74Handguard extends ModelBase {
         handguard.cubeList.add(new ModelBox(handguard, 61, 36, -4.5F, -35.0F, -52.5F, 6, 1, 11, 0.0F, false));
 
         gun153_r1 = new ModelRenderer(this);
-        gun153_r1.setRotationPoint(0.0F, -31.0F, -36.5F);
+        gun153_r1.setRotationPoint(0.0F, -31, -36.5F);
         handguard.addChild(gun153_r1);
         setRotationAngle(gun153_r1, 0.0F, 0.0F, -2.3423F);
         gun153_r1.cubeList.add(new ModelBox(gun153_r1, 30, 1, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -102,7 +102,7 @@ public class AK74Handguard extends ModelBase {
         gun155_r1.cubeList.add(new ModelBox(gun155_r1, 29, 25, 0.0F, 0.0F, -0.001F, 1, 1, 1, 0.0F, false));
 
         gun156_r1 = new ModelRenderer(this);
-        gun156_r1.setRotationPoint(-3.0F, -31.0F, -36.5F);
+        gun156_r1.setRotationPoint(-3.0F, -31, -36.5F);
         handguard.addChild(gun156_r1);
         setRotationAngle(gun156_r1, 0.0F, 0.0F, -2.4166F);
         gun156_r1.cubeList.add(new ModelBox(gun156_r1, 29, 22, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
@@ -144,7 +144,7 @@ public class AK74Handguard extends ModelBase {
         gun186_r1.cubeList.add(new ModelBox(gun186_r1, 78, 1, 0.0F, -0.001F, -0.001F, 1, 1, 13, 0.0F, false));
 
         gun187_r1 = new ModelRenderer(this);
-        gun187_r1.setRotationPoint(1.0F, -38.9F, -53.5F);
+        gun187_r1.setRotationPoint(1, -38.9F, -53.5F);
         handguard.addChild(gun187_r1);
         setRotationAngle(gun187_r1, 0.0F, 0.0F, 2.3051F);
         gun187_r1.cubeList.add(new ModelBox(gun187_r1, 17, 70, 0.0F, 0.0F, 0.0F, 1, 1, 13, 0.0F, false));
@@ -228,7 +228,7 @@ public class AK74Handguard extends ModelBase {
         gun230_r1.cubeList.add(new ModelBox(gun230_r1, 86, 78, 0.0F, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
 
         gun231_r1 = new ModelRenderer(this);
-        gun231_r1.setRotationPoint(1.0F, -34.0F, -53.5F);
+        gun231_r1.setRotationPoint(1, -34.0F, -53.5F);
         handguard.addChild(gun231_r1);
         setRotationAngle(gun231_r1, 0.0F, 0.0F, 2.3794F);
         gun231_r1.cubeList.add(new ModelBox(gun231_r1, 73, 81, 0.0F, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
@@ -255,13 +255,13 @@ public class AK74Handguard extends ModelBase {
         gun236_r1.setRotationPoint(1.5F, -34.0F, -52.5F);
         handguard.addChild(gun236_r1);
         setRotationAngle(gun236_r1, 0.0F, 0.0F, 0.7854F);
-        gun236_r1.cubeList.add(new ModelBox(gun236_r1, 80, 48, -1.0F, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
+        gun236_r1.cubeList.add(new ModelBox(gun236_r1, 80, 48, -1, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
 
         gun237_r1 = new ModelRenderer(this);
         gun237_r1.setRotationPoint(1.5F, -35.0F, -52.5F);
         handguard.addChild(gun237_r1);
         setRotationAngle(gun237_r1, 0.0F, 0.0F, 0.7854F);
-        gun237_r1.cubeList.add(new ModelBox(gun237_r1, 47, 79, -1.0F, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
+        gun237_r1.cubeList.add(new ModelBox(gun237_r1, 47, 79, -1, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
 
         gun238_r1 = new ModelRenderer(this);
         gun238_r1.setRotationPoint(-4.5F, -35.0F, -52.5F);

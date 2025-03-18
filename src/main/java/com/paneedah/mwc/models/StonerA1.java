@@ -71,7 +71,7 @@ public class StonerA1 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, 2.5F, -28.6321F, 44.0147F, 2, 1, 8, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.7F, -31.6321F, 38.5147F, 1, 4, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.0F, -27.6321F, 52.0147F, 2, 1, 26, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, 1.0F, -27.6321F, 52.0147F, 2, 1, 26, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, 1, -27.6321F, 52.0147F, 2, 1, 26, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.5F, -31.6321F, 38.0147F, 4, 9, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -22.1321F, 44.0147F, 2, 1, 8, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.5F, -23.1321F, 44.0147F, 2, 1, 8, 0.0F, true));
@@ -100,21 +100,21 @@ public class StonerA1 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 27, 120, 3.2F, -27.1321F, 61.0147F, 1, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 27, 120, 3.2F, -27.1321F, 53.0147F, 1, 1, 7, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.2F, -29.6321F, 53.0147F, 6, 1, 23, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -31.9321F, 55.0147F, 3, 1, 21, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -29.9321F, 53.0147F, 3, 1, 23, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -30.9321F, 57.0147F, 3, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -30.9321F, 60.0147F, 3, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -30.9321F, 63.0147F, 3, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -30.9321F, 66.0147F, 3, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -30.9321F, 69.0147F, 3, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -31.1321F, 72.0147F, 3, 2, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -31.1321F, 75.0147F, 3, 2, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -29.6321F, 31.0147F, 3, 3, 7, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -31.9321F, 55.0147F, 3, 1, 21, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -29.9321F, 53.0147F, 3, 1, 23, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -30.9321F, 57.0147F, 3, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -30.9321F, 60.0147F, 3, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -30.9321F, 63.0147F, 3, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -30.9321F, 66.0147F, 3, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -30.9321F, 69.0147F, 3, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -31.1321F, 72.0147F, 3, 2, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -31.1321F, 75.0147F, 3, 2, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -29.6321F, 31.0147F, 3, 3, 7, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -28.1321F, 31.0147F, 6, 2, 7, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.0F, -22.6321F, 31.0147F, 5, 2, 7, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -22.6321F, 31.0147F, 6, 1, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.5F, -31.6321F, 36.0147F, 4, 1, 2, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -31.6321F, 35.0147F, 3, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -31.6321F, 35.0147F, 3, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 120, 0.0F, -32.1321F, 36.0147F, 1, 3, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 3.5F, -28.6321F, 41.0147F, 1, 2, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 3.5F, -22.6321F, 41.0147F, 1, 2, 1, 0.0F, true));
@@ -123,7 +123,7 @@ public class StonerA1 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 27, 120, 3.5F, -26.6321F, 44.0147F, 1, 1, 7, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 27, 120, 3.5F, -26.6321F, 42.0147F, 1, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 27, 120, 3.5F, -23.6321F, 42.0147F, 1, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -20.6321F, 31.0147F, 3, 1, 22, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -20.6321F, 31.0147F, 3, 1, 22, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.0F, -20.6321F, 38.0147F, 5, 2, 6, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -20.6321F, 36.0147F, 6, 1, 17, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -19.6321F, 38.0147F, 6, 1, 3, 0.0F, true));
@@ -135,24 +135,24 @@ public class StonerA1 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, -2.5F, -24.1321F, 44.0147F, 1, 2, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 27, 120, 2.5F, -28.1321F, 30.0147F, 1, 7, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 27, 120, -2.5F, -28.1321F, 30.0147F, 1, 7, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 27, 120, -1.0F, -29.6321F, 30.0147F, 3, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 27, 120, -1.0F, -20.6321F, 30.0147F, 3, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 27, 120, -1, -29.6321F, 30.0147F, 3, 1, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 27, 120, -1, -20.6321F, 30.0147F, 3, 1, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 27, 120, 3.2F, -27.6321F, 60.0147F, 1, 1, 10, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.0F, -27.1321F, -14.9853F, 1, 1, 46, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.0F, -29.1321F, -14.9853F, 1, 1, 46, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, 1.0F, -28.1321F, -14.9853F, 1, 1, 46, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -28.1321F, -14.9853F, 1, 1, 46, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, 1, -28.1321F, -14.9853F, 1, 1, 46, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -28.1321F, -14.9853F, 1, 1, 46, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 1.3F, -28.1321F, -12.4853F, 1, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.0F, -29.4321F, -12.4853F, 1, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.0F, -26.8321F, -12.4853F, 1, 1, 2, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.3F, -28.1321F, -12.4853F, 1, 1, 2, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -1.0F, -24.1321F, 0.0147F, 3, 2, 32, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -1, -24.1321F, 0.0147F, 3, 2, 32, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.5F, -24.6321F, 0.0147F, 2, 3, 32, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -0.5F, -24.1321F, -0.4853F, 2, 2, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.0F, -26.1321F, 3.0147F, 1, 2, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -1.5F, -21.1321F, 75.0147F, 4, 2, 2, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 100, -1.0F, -15.1321F, 55.5147F, 3, 1, 8, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 200, 100, -1.0F, -19.6321F, 55.5147F, 3, 5, 1, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 100, -1, -15.1321F, 55.5147F, 3, 1, 8, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 200, 100, -1, -19.6321F, 55.5147F, 3, 5, 1, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 100, -1.5F, -19.1321F, 64.0147F, 4, 1, 10, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 200, 100, -1.5F, -20.6321F, 52.0147F, 4, 2, 23, 0.0F, true));
 
@@ -185,37 +185,37 @@ public class StonerA1 extends ModelWithAttachments {
         Grip13_r1.setRotationPoint(0.0F, -0.466F, 0.2735F);
         gun.addChild(Grip13_r1);
         setRotationAngle(Grip13_r1, -0.0372F, 0.0F, 0.0F);
-        Grip13_r1.cubeList.add(new ModelBox(Grip13_r1, 200, 100, -1.0F, -21.1F, 62.4F, 3, 5, 2, 0.0F, true));
+        Grip13_r1.cubeList.add(new ModelBox(Grip13_r1, 200, 100, -1, -21.1F, 62.4F, 3, 5, 2, 0.0F, true));
 
         Grip12_r1 = new ModelRenderer(this);
         Grip12_r1.setRotationPoint(0.0F, 29.0295F, 111.2356F);
         gun.addChild(Grip12_r1);
         setRotationAngle(Grip12_r1, 2.1564F, 0.0F, 0.0F);
-        Grip12_r1.cubeList.add(new ModelBox(Grip12_r1, 200, 100, -1.0F, -16.0F, 62.4F, 3, 1, 1, 0.0F, true));
+        Grip12_r1.cubeList.add(new ModelBox(Grip12_r1, 200, 100, -1, -16.0F, 62.4F, 3, 1, 1, 0.0F, true));
 
         Barrel5_r1 = new ModelRenderer(this);
         Barrel5_r1.setRotationPoint(-21.6274F, -7.9188F, 1.0147F);
         gun.addChild(Barrel5_r1);
         setRotationAngle(Barrel5_r1, 0.0F, 0.0F, 0.7854F);
-        Barrel5_r1.cubeList.add(new ModelBox(Barrel5_r1, 0, 0, 1.0F, -31.0F, -16.0F, 1, 1, 46, 0.0F, true));
+        Barrel5_r1.cubeList.add(new ModelBox(Barrel5_r1, 0, 0, 1, -31, -16.0F, 1, 1, 46, 0.0F, true));
 
         Barrel6_r1 = new ModelRenderer(this);
         Barrel6_r1.setRotationPoint(-21.9203F, -7.2117F, 1.0147F);
         gun.addChild(Barrel6_r1);
         setRotationAngle(Barrel6_r1, 0.0F, 0.0F, 0.7854F);
-        Barrel6_r1.cubeList.add(new ModelBox(Barrel6_r1, 0, 0, 0.0F, -31.0F, -16.0F, 1, 1, 46, 0.0F, true));
+        Barrel6_r1.cubeList.add(new ModelBox(Barrel6_r1, 0, 0, 0.0F, -31, -16.0F, 1, 1, 46, 0.0F, true));
 
         Barrel7_r1 = new ModelRenderer(this);
         Barrel7_r1.setRotationPoint(20.9203F, -7.626F, 1.0147F);
         gun.addChild(Barrel7_r1);
         setRotationAngle(Barrel7_r1, 0.0F, 0.0F, -0.7854F);
-        Barrel7_r1.cubeList.add(new ModelBox(Barrel7_r1, 0, 0, -1.0F, -30.0F, -16.0F, 1, 1, 46, 0.0F, true));
+        Barrel7_r1.cubeList.add(new ModelBox(Barrel7_r1, 0, 0, -1, -30.0F, -16.0F, 1, 1, 46, 0.0F, true));
 
         Barrel8_r1 = new ModelRenderer(this);
         Barrel8_r1.setRotationPoint(20.2132F, -7.3331F, 1.0147F);
         gun.addChild(Barrel8_r1);
         setRotationAngle(Barrel8_r1, 0.0F, 0.0F, -0.7854F);
-        Barrel8_r1.cubeList.add(new ModelBox(Barrel8_r1, 0, 0, -1.0F, -29.0F, -16.0F, 1, 1, 46, 0.0F, true));
+        Barrel8_r1.cubeList.add(new ModelBox(Barrel8_r1, 0, 0, -1, -29.0F, -16.0F, 1, 1, 46, 0.0F, true));
 
         Barrel9_r1 = new ModelRenderer(this);
         Barrel9_r1.setRotationPoint(-17.799F, -50.7595F, 1.0147F);
@@ -239,13 +239,13 @@ public class StonerA1 extends ModelWithAttachments {
         Barrel12_r1.setRotationPoint(21.5061F, -45.2239F, 1.0147F);
         gun.addChild(Barrel12_r1);
         setRotationAngle(Barrel12_r1, 0.0F, 0.0F, -2.3562F);
-        Barrel12_r1.cubeList.add(new ModelBox(Barrel12_r1, 0, 0, 1.0F, -28.0F, -16.0F, 1, 1, 46, 0.0F, true));
+        Barrel12_r1.cubeList.add(new ModelBox(Barrel12_r1, 0, 0, 1, -28.0F, -16.0F, 1, 1, 46, 0.0F, true));
 
         Barrel13_r1 = new ModelRenderer(this);
         Barrel13_r1.setRotationPoint(-21.8395F, -8.0067F, 1.0147F);
         gun.addChild(Barrel13_r1);
         setRotationAngle(Barrel13_r1, 0.0F, 0.0F, 0.7854F);
-        Barrel13_r1.cubeList.add(new ModelBox(Barrel13_r1, 0, 0, 1.0F, -31.3F, -13.5F, 1, 1, 2, 0.0F, true));
+        Barrel13_r1.cubeList.add(new ModelBox(Barrel13_r1, 0, 0, 1, -31.3F, -13.5F, 1, 1, 2, 0.0F, true));
 
         Barrel14_r1 = new ModelRenderer(this);
         Barrel14_r1.setRotationPoint(-22.1324F, -7.2996F, 1.0147F);
@@ -287,7 +287,7 @@ public class StonerA1 extends ModelWithAttachments {
         Barrel20_r1.setRotationPoint(21.294F, -44.7118F, 1.0147F);
         gun.addChild(Barrel20_r1);
         setRotationAngle(Barrel20_r1, 0.0F, 0.0F, -2.3562F);
-        Barrel20_r1.cubeList.add(new ModelBox(Barrel20_r1, 0, 0, 1.0F, -27.7F, -13.5F, 1, 1, 2, 0.0F, true));
+        Barrel20_r1.cubeList.add(new ModelBox(Barrel20_r1, 0, 0, 1, -27.7F, -13.5F, 1, 1, 2, 0.0F, true));
 
         MainNEW65_r1 = new ModelRenderer(this);
         MainNEW65_r1.setRotationPoint(-16.0919F, -7.2828F, 1.0147F);
@@ -306,14 +306,14 @@ public class StonerA1 extends ModelWithAttachments {
         MainNEW63_r1.setRotationPoint(-22.5668F, -6.6511F, 1.0147F);
         gun.addChild(MainNEW63_r1);
         setRotationAngle(MainNEW63_r1, 0.0F, 0.0F, 0.7854F);
-        MainNEW63_r1.cubeList.add(new ModelBox(MainNEW63_r1, 27, 120, -1.0F, -31.5F, 29.0F, 1, 2, 1, 0.0F, true));
-        MainNEW63_r1.cubeList.add(new ModelBox(MainNEW63_r1, 0, 0, -1.0F, -31.5F, 30.0F, 1, 2, 7, 0.0F, true));
+        MainNEW63_r1.cubeList.add(new ModelBox(MainNEW63_r1, 27, 120, -1, -31.5F, 29.0F, 1, 2, 1, 0.0F, true));
+        MainNEW63_r1.cubeList.add(new ModelBox(MainNEW63_r1, 0, 0, -1, -31.5F, 30.0F, 1, 2, 7, 0.0F, true));
 
         MainNEW49_r1 = new ModelRenderer(this);
         MainNEW49_r1.setRotationPoint(0.0F, 19.7351F, 13.1948F);
         gun.addChild(MainNEW49_r1);
         setRotationAngle(MainNEW49_r1, 0.4014F, 0.0F, 0.0F);
-        MainNEW49_r1.cubeList.add(new ModelBox(MainNEW49_r1, 0, 0, -2.5F, -21.0F, 50.0F, 6, 1, 2, 0.0F, true));
+        MainNEW49_r1.cubeList.add(new ModelBox(MainNEW49_r1, 0, 0, -2.5F, -21, 50.0F, 6, 1, 2, 0.0F, true));
 
         MainNEW47_r1 = new ModelRenderer(this);
         MainNEW47_r1.setRotationPoint(-16.5563F, -4.1615F, 1.0147F);
@@ -374,7 +374,7 @@ public class StonerA1 extends ModelWithAttachments {
         Main113_r1.setRotationPoint(-20.6023F, -10.3937F, 1.0147F);
         gun.addChild(Main113_r1);
         setRotationAngle(Main113_r1, 0.0F, 0.0F, 0.7854F);
-        Main113_r1.cubeList.add(new ModelBox(Main113_r1, 0, 0, 1.5F, -31.0F, 75.0F, 3, 2, 2, 0.0F, true));
+        Main113_r1.cubeList.add(new ModelBox(Main113_r1, 0, 0, 1.5F, -31, 75.0F, 3, 2, 2, 0.0F, true));
 
         Main112_r1 = new ModelRenderer(this);
         Main112_r1.setRotationPoint(18.7739F, -8.8079F, 1.0147F);
@@ -386,7 +386,7 @@ public class StonerA1 extends ModelWithAttachments {
         Main111_r1.setRotationPoint(20.8952F, -9.6866F, 1.0147F);
         gun.addChild(Main111_r1);
         setRotationAngle(Main111_r1, 0.0F, 0.0F, -0.7854F);
-        Main111_r1.cubeList.add(new ModelBox(Main111_r1, 0, 0, -3.5F, -31.0F, 75.0F, 3, 2, 2, 0.0F, true));
+        Main111_r1.cubeList.add(new ModelBox(Main111_r1, 0, 0, -3.5F, -31, 75.0F, 3, 2, 2, 0.0F, true));
 
         Main154_r1 = new ModelRenderer(this);
         Main154_r1.setRotationPoint(0.0F, -12.2505F, -2.2425F);

@@ -182,7 +182,7 @@ public class FNFALHandguard extends ModelWithAttachments {
         bone93.setRotationPoint(0.001F, -4.0028F, -33.8815F);
         stock.addChild(bone93);
         setRotationAngle(bone93, 0.0F, 0.0F, -0.4538F);
-        bone93.cubeList.add(new ModelBox(bone93, 27, 46, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        bone93.cubeList.add(new ModelBox(bone93, 27, 46, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
         bone93.cubeList.add(new ModelBox(bone93, 10, 46, -1.001F, 0.0F, -0.4F, 1, 1, 1, 0.0F, false));
 
         bone94 = new ModelRenderer(this);
@@ -196,7 +196,7 @@ public class FNFALHandguard extends ModelWithAttachments {
         bone97.setRotationPoint(0.0F, -1.5537F, -28.1804F);
         stock.addChild(bone97);
         setRotationAngle(bone97, 0.0F, 0.0F, -0.4538F);
-        bone97.cubeList.add(new ModelBox(bone97, 63, 96, -1.0F, 0.0F, 0.0F, 1, 1, 27, 0.0F, false));
+        bone97.cubeList.add(new ModelBox(bone97, 63, 96, -1, 0.0F, 0.0F, 1, 1, 27, 0.0F, false));
 
         bone98 = new ModelRenderer(this);
         bone98.setRotationPoint(-3.0F, -1.5537F, -28.1804F);
@@ -210,16 +210,16 @@ public class FNFALHandguard extends ModelWithAttachments {
         setRotationAngle(bone12, -0.3927F, 0.0F, 0.0F);
         bone12.cubeList.add(new ModelBox(bone12, 101, 0, -3.5F, 0.4076F, 1.9617F, 4, 5, 6, 0.0F, false));
         bone12.cubeList.add(new ModelBox(bone12, 0, 28, -3.5F, 0.4076F, 0.9617F, 4, 2, 1, 0.0F, false));
-        bone12.cubeList.add(new ModelBox(bone12, 101, 11, -3.0F, -0.5F, 1.0F, 3, 3, 7, 0.0F, false));
+        bone12.cubeList.add(new ModelBox(bone12, 101, 11, -3.0F, -0.5F, 1, 3, 3, 7, 0.0F, false));
 
         bone95 = new ModelRenderer(this);
-        bone95.setRotationPoint(0.0F, -0.5F, 1.0F);
+        bone95.setRotationPoint(0.0F, -0.5F, 1);
         bone12.addChild(bone95);
         setRotationAngle(bone95, 0.0F, 0.0F, -0.4538F);
-        bone95.cubeList.add(new ModelBox(bone95, 33, 42, -1.0F, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
+        bone95.cubeList.add(new ModelBox(bone95, 33, 42, -1, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
 
         bone96 = new ModelRenderer(this);
-        bone96.setRotationPoint(-3.0F, -0.5F, 1.0F);
+        bone96.setRotationPoint(-3.0F, -0.5F, 1);
         bone12.addChild(bone96);
         setRotationAngle(bone96, 0.0F, 0.0F, 0.4538F);
         bone96.cubeList.add(new ModelBox(bone96, 33, 34, 0.0F, 0.0F, 0.0F, 1, 1, 7, 0.0F, false));
@@ -281,7 +281,7 @@ public class FNFALHandguard extends ModelWithAttachments {
         grip11.setRotationPoint(-3.5F, -27.5F, -5.5F);
         grip9.addChild(grip11);
         setRotationAngle(grip11, 0.2603F, 0.0F, 0.0F);
-        grip11.cubeList.add(new ModelBox(grip11, 76, 53, 0.0F, 9.0F, -1.0F, 3, 1, 1, 0.0F, false));
+        grip11.cubeList.add(new ModelBox(grip11, 76, 53, 0.0F, 9.0F, -1, 3, 1, 1, 0.0F, false));
 
         grip8 = new ModelRenderer(this);
         grip8.setRotationPoint(-3.5F, -27.5F, -7.0F);
@@ -340,7 +340,7 @@ public class FNFALHandguard extends ModelWithAttachments {
         grip10.setRotationPoint(-3.5F, -27.5F, -5.5F);
         grip7.addChild(grip10);
         setRotationAngle(grip10, 0.2603F, 0.0F, 0.0F);
-        grip10.cubeList.add(new ModelBox(grip10, 69, 60, 2.3F, 9.0F, -1.0F, 1, 1, 1, 0.0F, false));
+        grip10.cubeList.add(new ModelBox(grip10, 69, 60, 2.3F, 9.0F, -1, 1, 1, 1, 0.0F, false));
 
         grip13 = new ModelRenderer(this);
         grip13.setRotationPoint(-3.5F, -27.5F, -7.0F);
@@ -413,20 +413,20 @@ public class FNFALHandguard extends ModelWithAttachments {
         bone9.setRotationPoint(2.3F, -36.6F, -28.85F);
         action.addChild(bone9);
         setRotationAngle(bone9, 0.0F, -0.5585F, 0.0F);
-        bone9.cubeList.add(new ModelBox(bone9, 70, 68, -1.6359F, -1.0F, -0.546F, 1, 1, 1, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 70, 68, -1.6359F, -1, -0.546F, 1, 1, 1, 0.0F, false));
         bone9.cubeList.add(new ModelBox(bone9, 69, 62, -1.6349F, -0.4F, -0.546F, 1, 1, 1, 0.0F, false));
 
         bone74 = new ModelRenderer(this);
         bone74.setRotationPoint(-3.0F, -39.3F, -29.7F);
         action.addChild(bone74);
         setRotationAngle(bone74, 0.0F, 0.0F, 0.3142F);
-        bone74.cubeList.add(new ModelBox(bone74, 98, 44, 0.0F, -0.05F, 1.0F, 1, 2, 9, 0.0F, false));
+        bone74.cubeList.add(new ModelBox(bone74, 98, 44, 0.0F, -0.05F, 1, 1, 2, 9, 0.0F, false));
 
         bone92 = new ModelRenderer(this);
         bone92.setRotationPoint(-0.3F, -40.0F, -29.75F);
         action.addChild(bone92);
         setRotationAngle(bone92, 0.0F, 0.0F, 0.7854F);
-        bone92.cubeList.add(new ModelBox(bone92, 37, 116, -1.4293F, 1.3435F, 1.0F, 1, 1, 9, 0.0F, false));
+        bone92.cubeList.add(new ModelBox(bone92, 37, 116, -1.4293F, 1.3435F, 1, 1, 1, 9, 0.0F, false));
 
         gun = new ModelRenderer(this);
         gun.setRotationPoint(0.25F, -15.75F, 15.5F);
@@ -498,13 +498,13 @@ public class FNFALHandguard extends ModelWithAttachments {
         bone85.setRotationPoint(1.085F, 3.9454F, -48.1436F);
         gun.addChild(bone85);
         setRotationAngle(bone85, 0.0F, 0.0F, -0.5934F);
-        bone85.cubeList.add(new ModelBox(bone85, 98, 153, -1.0F, -1.0F, 0.0F, 1, 1, 18, 0.0F, false));
+        bone85.cubeList.add(new ModelBox(bone85, 98, 153, -1, -1, 0.0F, 1, 1, 18, 0.0F, false));
 
         bone88 = new ModelRenderer(this);
         bone88.setRotationPoint(0.485F, 2.7454F, -48.1436F);
         gun.addChild(bone88);
         setRotationAngle(bone88, 0.0F, 0.0F, 0.7505F);
-        bone88.cubeList.add(new ModelBox(bone88, 130, 23, -1.0F, -1.0F, 0.0F, 1, 1, 20, 0.0F, false));
+        bone88.cubeList.add(new ModelBox(bone88, 130, 23, -1, -1, 0.0F, 1, 1, 20, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(-0.25F, 8.298F, -30.8533F);
@@ -543,25 +543,25 @@ public class FNFALHandguard extends ModelWithAttachments {
         bone83.setRotationPoint(0.6F, 4.9532F, 16.8439F);
         bone71.addChild(bone83);
         setRotationAngle(bone83, 1.693F, 0.0F, 0.0F);
-        bone83.cubeList.add(new ModelBox(bone83, 33, 59, -0.999F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        bone83.cubeList.add(new ModelBox(bone83, 33, 59, -0.999F, -1, 0.0F, 1, 1, 4, 0.0F, false));
 
         bone72 = new ModelRenderer(this);
         bone72.setRotationPoint(0.3F, 1.2752F, 14.3117F);
         bone71.addChild(bone72);
         setRotationAngle(bone72, 0.0F, 0.0F, -0.925F);
-        bone72.cubeList.add(new ModelBox(bone72, 63, 75, -1.0F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        bone72.cubeList.add(new ModelBox(bone72, 63, 75, -1, -1, 0.0F, 1, 1, 4, 0.0F, false));
 
         bone81 = new ModelRenderer(this);
         bone81.setRotationPoint(-3.3F, 1.2752F, 14.3117F);
         bone71.addChild(bone81);
         setRotationAngle(bone81, 0.0F, 0.0F, 0.925F);
-        bone81.cubeList.add(new ModelBox(bone81, 69, 6, 0.0F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        bone81.cubeList.add(new ModelBox(bone81, 69, 6, 0.0F, -1, 0.0F, 1, 1, 4, 0.0F, false));
 
         bone19 = new ModelRenderer(this);
         bone19.setRotationPoint(-0.25F, 7.4924F, -11.5F);
         gun.addChild(bone19);
         setRotationAngle(bone19, 0.0785F, 0.0F, 0.0F);
-        bone19.cubeList.add(new ModelBox(bone19, 130, 0, -3.5F, -4.5F, -21.0F, 4, 5, 18, 0.0F, false));
+        bone19.cubeList.add(new ModelBox(bone19, 130, 0, -3.5F, -4.5F, -21, 4, 5, 18, 0.0F, false));
         bone19.cubeList.add(new ModelBox(bone19, 0, 34, -2.699F, -3.5F, -3.0F, 3, 4, 4, 0.0F, false));
         bone19.cubeList.add(new ModelBox(bone19, 16, 49, -3.299F, -3.5F, -3.0F, 1, 4, 4, 0.0F, false));
 
@@ -582,13 +582,13 @@ public class FNFALHandguard extends ModelWithAttachments {
         bone90.setRotationPoint(0.297F, 3.4707F, -16.9871F);
         bone62.addChild(bone90);
         setRotationAngle(bone90, -0.6109F, 0.0F, 0.0F);
-        bone90.cubeList.add(new ModelBox(bone90, 33, 0, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        bone90.cubeList.add(new ModelBox(bone90, 33, 0, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         bone91 = new ModelRenderer(this);
         bone91.setRotationPoint(0.297F, 3.4707F, -13.9871F);
         bone62.addChild(bone91);
         setRotationAngle(bone91, 0.6109F, 0.0F, 0.0F);
-        bone91.cubeList.add(new ModelBox(bone91, 26, 0, -1.0F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        bone91.cubeList.add(new ModelBox(bone91, 26, 0, -1, -2.0F, -1, 1, 2, 1, 0.0F, false));
 
         bone66 = new ModelRenderer(this);
         bone66.setRotationPoint(-1.1332F, -0.5729F, -46.6436F);
@@ -696,7 +696,7 @@ public class FNFALHandguard extends ModelWithAttachments {
         bone22.setRotationPoint(-1.25F, -30.702F, -18.5524F);
         trigger.addChild(bone22);
         setRotationAngle(bone22, 0.0F, 0.0F, -0.2182F);
-        bone22.cubeList.add(new ModelBox(bone22, 61, 11, -1.0F, -1.5F, -0.5F, 2, 3, 1, 0.0F, false));
+        bone22.cubeList.add(new ModelBox(bone22, 61, 11, -1, -1.5F, -0.5F, 2, 3, 1, 0.0F, false));
 
         bone24 = new ModelRenderer(this);
         bone24.setRotationPoint(-0.25F, -30.702F, -19.0524F);
@@ -745,38 +745,38 @@ public class FNFALHandguard extends ModelWithAttachments {
         barrel.cubeList.add(new ModelBox(barrel, 0, 130, -0.5F, -1.5F, -10.0F, 1, 1, 50, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 126, 60, -0.25F, -1.25F, -22.0F, 1, 1, 58, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 0, 68, -1.25F, -1.25F, -23.0F, 1, 1, 61, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 104, 177, -0.5F, -1.0F, -22.0F, 1, 1, 38, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 104, 177, -0.5F, -1, -22.0F, 1, 1, 38, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 0, 0, -0.75F, -1.75F, -22.0F, 1, 1, 67, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 186, 89, -0.75F, -2.0F, -31.0F, 1, 1, 22, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 186, 89, -0.75F, -2.0F, -31, 1, 1, 22, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 33, 18, -1.25F, -3.25F, 36.0F, 2, 1, 12, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 83, 68, -0.75F, -2.0F, 0.5F, 1, 1, 2, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 165, 119, -0.25F, -1.75F, -31.0F, 1, 1, 22, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 165, 119, -0.25F, -1.75F, -31, 1, 1, 22, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 33, 51, 0.25F, -2.75F, 35.0F, 1, 1, 13, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 83, 74, -0.25F, -1.75F, 0.5F, 1, 1, 2, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 0, 153, 0.0F, -1.25F, -31.0F, 1, 1, 22, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 0, 153, 0.0F, -1.25F, -31, 1, 1, 22, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 69, 0, 0.5F, -2.25F, 37.0F, 1, 3, 11, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 75, 84, 0.0F, -1.25F, 0.5F, 1, 1, 2, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 126, 83, -0.75F, -0.5F, -31.0F, 1, 1, 22, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 126, 83, -0.75F, -0.5F, -31, 1, 1, 22, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 69, 14, -1.25F, 0.5F, 42.0F, 2, 1, 9, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 82, 14, -0.75F, -0.5F, 0.5F, 1, 1, 2, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 77, 74, -0.75F, -0.25F, 1.0F, 1, 1, 1, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 77, 74, -0.75F, -0.25F, 1, 1, 1, 1, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 22, 49, -0.75F, -0.25F, -12.0F, 1, 1, 3, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 69, 6, -0.75F, -2.5F, -10.0F, 1, 2, 1, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 126, 60, -1.25F, -0.75F, -31.0F, 1, 1, 22, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 126, 60, -1.25F, -0.75F, -31, 1, 1, 22, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 104, 177, -1.75F, 0.25F, 34.0F, 1, 1, 15, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 82, 17, -1.25F, -0.75F, 0.5F, 1, 1, 2, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 0, 99, -0.25F, -0.75F, -31.0F, 1, 1, 22, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 0, 99, -0.25F, -0.75F, -31, 1, 1, 22, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 63, 68, 0.25F, 0.25F, 37.0F, 1, 1, 12, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 82, 6, -0.25F, -0.75F, 0.5F, 1, 1, 2, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 0, 130, -1.5F, -1.25F, -31.0F, 1, 1, 22, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 0, 130, -1.5F, -1.25F, -31, 1, 1, 22, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 96, 68, -2.0F, -2.25F, 35.0F, 1, 3, 13, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 82, 20, -1.5F, -1.25F, 0.5F, 1, 1, 2, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 63, 69, -0.75F, -0.75F, -23.0F, 1, 1, 61, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 69, 0, -1.0F, -1.5F, -22.0F, 1, 1, 59, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 45, 181, -1.25F, -1.75F, -31.0F, 1, 1, 22, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 69, 0, -1, -1.5F, -22.0F, 1, 1, 59, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 45, 181, -1.25F, -1.75F, -31, 1, 1, 22, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 96, 84, -1.75F, -2.75F, 38.0F, 1, 1, 10, 0.0F, false));
         barrel.cubeList.add(new ModelBox(barrel, 82, 53, -1.25F, -1.75F, 0.5F, 1, 1, 2, 0.0F, false));
-        barrel.cubeList.add(new ModelBox(barrel, 147, 189, -1.0F, -1.0F, -23.0F, 1, 1, 35, 0.0F, false));
+        barrel.cubeList.add(new ModelBox(barrel, 147, 189, -1, -1, -23.0F, 1, 1, 35, 0.0F, false));
 
         mainbarrel2 = new ModelRenderer(this);
         mainbarrel2.setRotationPoint(0.0F, -3.5F, 36.0F);
@@ -786,14 +786,14 @@ public class FNFALHandguard extends ModelWithAttachments {
         barrel2 = new ModelRenderer(this);
         barrel2.setRotationPoint(0.0F, -0.25F, 0.0F);
         mainbarrel2.addChild(barrel2);
-        barrel2.cubeList.add(new ModelBox(barrel2, 58, 177, -0.5F, -1.5F, -31.0F, 1, 1, 44, 0.0F, false));
-        barrel2.cubeList.add(new ModelBox(barrel2, 176, 1, -0.35F, -1.25F, -31.0F, 1, 1, 44, 0.0F, false));
-        barrel2.cubeList.add(new ModelBox(barrel2, 144, 144, -1.15F, -1.25F, -31.0F, 1, 1, 44, 0.0F, false));
-        barrel2.cubeList.add(new ModelBox(barrel2, 98, 132, -0.5F, -1.0F, -31.0F, 1, 1, 44, 0.0F, false));
-        barrel2.cubeList.add(new ModelBox(barrel2, 186, 46, -0.75F, -1.65F, -31.0F, 1, 1, 42, 0.0F, false));
-        barrel2.cubeList.add(new ModelBox(barrel2, 52, 131, -0.75F, -0.85F, -31.0F, 1, 1, 44, 0.0F, false));
-        barrel2.cubeList.add(new ModelBox(barrel2, 130, 0, -1.0F, -1.5F, -31.0F, 1, 1, 44, 0.0F, false));
-        barrel2.cubeList.add(new ModelBox(barrel2, 0, 181, -1.0F, -1.0F, -31.0F, 1, 1, 43, 0.0F, false));
+        barrel2.cubeList.add(new ModelBox(barrel2, 58, 177, -0.5F, -1.5F, -31, 1, 1, 44, 0.0F, false));
+        barrel2.cubeList.add(new ModelBox(barrel2, 176, 1, -0.35F, -1.25F, -31, 1, 1, 44, 0.0F, false));
+        barrel2.cubeList.add(new ModelBox(barrel2, 144, 144, -1.15F, -1.25F, -31, 1, 1, 44, 0.0F, false));
+        barrel2.cubeList.add(new ModelBox(barrel2, 98, 132, -0.5F, -1, -31, 1, 1, 44, 0.0F, false));
+        barrel2.cubeList.add(new ModelBox(barrel2, 186, 46, -0.75F, -1.65F, -31, 1, 1, 42, 0.0F, false));
+        barrel2.cubeList.add(new ModelBox(barrel2, 52, 131, -0.75F, -0.85F, -31, 1, 1, 44, 0.0F, false));
+        barrel2.cubeList.add(new ModelBox(barrel2, 130, 0, -1, -1.5F, -31, 1, 1, 44, 0.0F, false));
+        barrel2.cubeList.add(new ModelBox(barrel2, 0, 181, -1, -1, -31, 1, 1, 43, 0.0F, false));
 
         dustcover = new ModelRenderer(this);
         dustcover.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -802,7 +802,7 @@ public class FNFALHandguard extends ModelWithAttachments {
         dustcover.cubeList.add(new ModelBox(dustcover, 34, 256, -2.7F, -40.4087F, -29.647F, 1, 1, 30, 0.0F, false));
 
         bone60 = new ModelRenderer(this);
-        bone60.setRotationPoint(-1.0F, -41.1F, -29.6F);
+        bone60.setRotationPoint(-1, -41.1F, -29.6F);
         dustcover.addChild(bone60);
         setRotationAngle(bone60, 0.0F, 0.0F, 0.7854F);
         bone60.cubeList.add(new ModelBox(bone60, 126, 258, 0.0F, 0.0F, 0.0F, 1, 1, 30, 0.0F, false));
@@ -814,7 +814,7 @@ public class FNFALHandguard extends ModelWithAttachments {
         setRotationAngle(bone61, 0.0F, 0.0F, 0.7854F);
         bone61.cubeList.add(new ModelBox(bone61, 254, 219, 0.0F, 0.0F, 0.0F, 1, 1, 30, 0.0F, false));
         bone61.cubeList.add(new ModelBox(bone61, 52, 153, -1.4293F, 1.3435F, 10.0F, 1, 1, 20, 0.0F, false));
-        bone61.cubeList.add(new ModelBox(bone61, 92, 113, -1.4293F, 0.85F, 1.0F, 1, 1, 9, 0.0F, false));
+        bone61.cubeList.add(new ModelBox(bone61, 92, 113, -1.4293F, 0.85F, 1, 1, 1, 9, 0.0F, false));
 
         bone89 = new ModelRenderer(this);
         bone89.setRotationPoint(-0.4293F, 2.3435F, 10.0F);
@@ -826,7 +826,7 @@ public class FNFALHandguard extends ModelWithAttachments {
         bone63.setRotationPoint(0.2F, -39.3F, -29.7F);
         dustcover.addChild(bone63);
         setRotationAngle(bone63, 0.0F, 0.0F, -0.3142F);
-        bone63.cubeList.add(new ModelBox(bone63, 228, 253, -1.0F, 0.0F, 0.0F, 1, 1, 30, 0.0F, false));
+        bone63.cubeList.add(new ModelBox(bone63, 228, 253, -1, 0.0F, 0.0F, 1, 1, 30, 0.0F, false));
 
         bone64 = new ModelRenderer(this);
         bone64.setRotationPoint(-3.2F, -39.3F, -29.7F);
@@ -844,7 +844,7 @@ public class FNFALHandguard extends ModelWithAttachments {
         handguard.cubeList.add(new ModelBox(handguard, 79, 60, -3.5F, -39.5777F, -73.3147F, 4, 4, 1, 0.0F, false));
 
         bone31 = new ModelRenderer(this);
-        bone31.setRotationPoint(-11.0F, -50.7087F, -54.0436F);
+        bone31.setRotationPoint(-11, -50.7087F, -54.0436F);
         handguard.addChild(bone31);
         setRotationAngle(bone31, 0.0F, 0.0F, -0.2182F);
         bone31.cubeList.add(new ModelBox(bone31, 0, 0, 7.5447F, 14.4443F, -12.5F, 1, 3, 31, 0.0F, false));
@@ -1046,7 +1046,7 @@ public class FNFALHandguard extends ModelWithAttachments {
         bone59.cubeList.add(new ModelBox(bone59, 7, 76, -4.0F, -1.0395F, 0.021F, 1, 1, 1, 0.0F, false));
 
         bone34 = new ModelRenderer(this);
-        bone34.setRotationPoint(1.0F, -25.9494F, -69.2533F);
+        bone34.setRotationPoint(1, -25.9494F, -69.2533F);
         handguard.addChild(bone34);
         setRotationAngle(bone34, 0.0F, 0.0F, 0.7854F);
         bone34.cubeList.add(new ModelBox(bone34, 49, 18, -8.1618F, -6.4547F, -4.0614F, 1, 1, 8, 0.0F, false));

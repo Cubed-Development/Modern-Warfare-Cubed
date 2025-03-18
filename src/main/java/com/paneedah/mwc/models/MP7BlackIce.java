@@ -102,7 +102,7 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main9 = new ModelRenderer(this);
         Main9.setRotationPoint(-4.0F, 1.5F, 5.6F);
         setRotationAngle(Main9, 0.7679F, 0.0F, 0.0F);
-        Main9.cubeList.add(new ModelBox(Main9, 0, 69, 0.01F, -1.0F, 0.0F, 8, 3, 2, 0.0F, false));
+        Main9.cubeList.add(new ModelBox(Main9, 0, 69, 0.01F, -1, 0.0F, 8, 3, 2, 0.0F, false));
 
         Main12 = new ModelRenderer(this);
         Main12.setRotationPoint(-2.0F, 2.0F, -4.0F);
@@ -110,12 +110,12 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main12.cubeList.add(new ModelBox(Main12, 15, 38, 0.0F, 0.1302F, 0.7386F, 4, 6, 1, 0.0F, false));
 
         Main14 = new ModelRenderer(this);
-        Main14.setRotationPoint(-2.0F, 1.0F, -32.0F);
+        Main14.setRotationPoint(-2.0F, 1, -32.0F);
         setRotationAngle(Main14, 1.3264F, 0.0F, 0.0F);
         Main14.cubeList.add(new ModelBox(Main14, 59, 84, 0.0F, 0.0F, -3.0F, 4, 1, 3, 0.0F, false));
 
         Main26 = new ModelRenderer(this);
-        Main26.setRotationPoint(-2.0F, 1.0F, -32.0F);
+        Main26.setRotationPoint(-2.0F, 1, -32.0F);
         setRotationAngle(Main26, 1.3264F, 0.0F, 0.0F);
         Main26.cubeList.add(new ModelBox(Main26, 55, 28, 0.0F, 0.0F, 7.3F, 4, 1, 4, 0.0F, false));
 
@@ -127,7 +127,7 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main29 = new ModelRenderer(this);
         Main29.setRotationPoint(1.2F, -8.5F, -29.0F);
         setRotationAngle(Main29, 0.0F, 0.0F, -0.5934F);
-        Main29.cubeList.add(new ModelBox(Main29, 92, 41, -1.0F, 0.0F, 0.0F, 2, 3, 6, 0.0F, false));
+        Main29.cubeList.add(new ModelBox(Main29, 92, 41, -1, 0.0F, 0.0F, 2, 3, 6, 0.0F, false));
 
         Main30 = new ModelRenderer(this);
         Main30.setRotationPoint(-2.0F, -10.0F, 8.0F);
@@ -137,7 +137,7 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main31 = new ModelRenderer(this);
         Main31.setRotationPoint(1.2F, -9.4F, 8.0F);
         setRotationAngle(Main31, 0.0F, 0.0F, -0.6283F);
-        Main31.cubeList.add(new ModelBox(Main31, 0, 0, -1.0F, 0.0F, 0.0F, 2, 5, 33, 0.0F, false));
+        Main31.cubeList.add(new ModelBox(Main31, 0, 0, -1, 0.0F, 0.0F, 2, 5, 33, 0.0F, false));
 
         Main32 = new ModelRenderer(this);
         Main32.setRotationPoint(-5.0F, -4.0F, 5.0F);
@@ -162,7 +162,7 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main40 = new ModelRenderer(this);
         Main40.setRotationPoint(-2.0F, -10.0F, 7.0F);
         setRotationAngle(Main40, 0.0F, 0.0F, 0.6283F);
-        Main40.cubeList.add(new ModelBox(Main40, 20, 0, 0.0F, 1.0F, 0.0F, 2, 4, 1, 0.0F, false));
+        Main40.cubeList.add(new ModelBox(Main40, 20, 0, 0.0F, 1, 0.0F, 2, 4, 1, 0.0F, false));
 
         Main41 = new ModelRenderer(this);
         Main41.setRotationPoint(-2.0F, -10.0F, 6.0F);
@@ -177,20 +177,20 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main44 = new ModelRenderer(this);
         Main44.setRotationPoint(1.2F, -9.4F, 7.0F);
         setRotationAngle(Main44, 0.0F, 0.0F, -0.6283F);
-        Main44.cubeList.add(new ModelBox(Main44, 0, 0, -1.0F, 1.0F, 0.0F, 2, 4, 1, 0.0F, false));
+        Main44.cubeList.add(new ModelBox(Main44, 0, 0, -1, 1, 0.0F, 2, 4, 1, 0.0F, false));
 
         Main45 = new ModelRenderer(this);
         Main45.setRotationPoint(1.2F, -9.4F, 6.0F);
         setRotationAngle(Main45, 0.0F, 0.0F, -0.6283F);
-        Main45.cubeList.add(new ModelBox(Main45, 0, 24, -1.0F, 2.0F, 0.0F, 2, 3, 1, 0.0F, false));
+        Main45.cubeList.add(new ModelBox(Main45, 0, 24, -1, 2.0F, 0.0F, 2, 3, 1, 0.0F, false));
 
         Main46 = new ModelRenderer(this);
         Main46.setRotationPoint(1.2F, -9.4F, 5.0F);
         setRotationAngle(Main46, 0.0F, 0.0F, -0.6283F);
-        Main46.cubeList.add(new ModelBox(Main46, 46, 0, -1.0F, 3.0F, 0.0F, 2, 2, 1, 0.0F, false));
+        Main46.cubeList.add(new ModelBox(Main46, 46, 0, -1, 3.0F, 0.0F, 2, 2, 1, 0.0F, false));
 
         Main48 = new ModelRenderer(this);
-        Main48.setRotationPoint(-4.0F, 1.0F, -32.0F);
+        Main48.setRotationPoint(-4.0F, 1, -32.0F);
         setRotationAngle(Main48, 1.3264F, 0.0F, 0.0F);
         Main48.cubeList.add(new ModelBox(Main48, 42, 42, 0.01F, -0.0059F, 0.0484F, 8, 2, 8, 0.0F, false));
 
@@ -210,9 +210,9 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main54.cubeList.add(new ModelBox(Main54, 42, 38, 0.5F, 0.0F, 0.0F, 9, 2, 2, 0.0F, false));
 
         Main56 = new ModelRenderer(this);
-        Main56.setRotationPoint(-2.0F, -11.0F, 38.0F);
+        Main56.setRotationPoint(-2.0F, -11, 38.0F);
         setRotationAngle(Main56, -0.8203F, 0.0F, 0.0F);
-        Main56.cubeList.add(new ModelBox(Main56, 66, 11, 0.0F, 0.0F, -1.0F, 1, 2, 3, 0.0F, false));
+        Main56.cubeList.add(new ModelBox(Main56, 66, 11, 0.0F, 0.0F, -1, 1, 2, 3, 0.0F, false));
 
         Main79MUZZLE = new ModelRenderer(this);
         Main79MUZZLE.setRotationPoint(1.2F, -1.7F, -40.0F);
@@ -255,34 +255,34 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main86MUZZLE.cubeList.add(new ModelBox(Main86MUZZLE, 69, 8, 0.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         Main88 = new ModelRenderer(this);
-        Main88.setRotationPoint(-2.0F, -11.0F, -24.9F);
+        Main88.setRotationPoint(-2.0F, -11, -24.9F);
         setRotationAngle(Main88, 0.5411F, 0.0F, 0.0F);
         Main88.cubeList.add(new ModelBox(Main88, 76, 105, -0.01F, -0.8789F, -3.574F, 4, 2, 4, 0.0F, false));
 
         Main98Safety = new ModelRenderer(this);
         Main98Safety.setRotationPoint(-5.7F, 0.5F, 8.0F);
         setRotationAngle(Main98Safety, -0.1396F, 0.1047F, 0.0F);
-        Main98Safety.cubeList.add(new ModelBox(Main98Safety, 90, 84, 9.0F, -1.0F, 0.0F, 1, 2, 6, 0.0F, false));
+        Main98Safety.cubeList.add(new ModelBox(Main98Safety, 90, 84, 9.0F, -1, 0.0F, 1, 2, 6, 0.0F, false));
 
         Main102 = new ModelRenderer(this);
         Main102.setRotationPoint(0.0F, -8.0F, 39.5F);
         setRotationAngle(Main102, 0.0F, 0.0F, -0.6283F);
-        Main102.cubeList.add(new ModelBox(Main102, 22, 49, 2.5F, 1.0F, 0.0F, 1, 3, 1, 0.0F, false));
+        Main102.cubeList.add(new ModelBox(Main102, 22, 49, 2.5F, 1, 0.0F, 1, 3, 1, 0.0F, false));
 
         Main103 = new ModelRenderer(this);
         Main103.setRotationPoint(-3.0F, -10.0F, 39.5F);
         setRotationAngle(Main103, 0.0F, 0.0F, 0.6283F);
-        Main103.cubeList.add(new ModelBox(Main103, 22, 45, 0.1F, 1.0F, 0.0F, 1, 3, 1, 0.0F, false));
+        Main103.cubeList.add(new ModelBox(Main103, 22, 45, 0.1F, 1, 0.0F, 1, 3, 1, 0.0F, false));
 
         Main111GripFront = new ModelRenderer(this);
-        Main111GripFront.setRotationPoint(-1.0F, 5.0F, -26.0F);
+        Main111GripFront.setRotationPoint(-1, 5.0F, -26.0F);
         setRotationAngle(Main111GripFront, -0.6632F, 0.0F, 0.0F);
         Main111GripFront.cubeList.add(new ModelBox(Main111GripFront, 0, 104, 0.0F, -1.9F, 0.0F, 2, 2, 3, 0.0F, false));
 
         Main112GripFront = new ModelRenderer(this);
-        Main112GripFront.setRotationPoint(-1.0F, 4.0F, -20.8F);
+        Main112GripFront.setRotationPoint(-1, 4.0F, -20.8F);
         setRotationAngle(Main112GripFront, -0.6632F, 0.0F, 0.0F);
-        Main112GripFront.cubeList.add(new ModelBox(Main112GripFront, 0, 42, 0.0F, 1.0F, -0.5F, 2, 2, 1, 0.0F, false));
+        Main112GripFront.cubeList.add(new ModelBox(Main112GripFront, 0, 42, 0.0F, 1, -0.5F, 2, 2, 1, 0.0F, false));
 
         Main115GripFront = new ModelRenderer(this);
         Main115GripFront.setRotationPoint(-2.0F, 8.0F, -26.0F);
@@ -291,12 +291,12 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main126GripMain = new ModelRenderer(this);
         Main126GripMain.setRotationPoint(-3.0F, 6.0F, 16.0F);
         setRotationAngle(Main126GripMain, 0.4014F, 0.0F, 0.0F);
-        Main126GripMain.cubeList.add(new ModelBox(Main126GripMain, 92, 0, -0.49F, -3.0F, -1.0F, 7, 6, 3, 0.0F, false));
+        Main126GripMain.cubeList.add(new ModelBox(Main126GripMain, 92, 0, -0.49F, -3.0F, -1, 7, 6, 3, 0.0F, false));
 
         Main127GripMain = new ModelRenderer(this);
-        Main127GripMain.setRotationPoint(-3.0F, 1.0F, 20.0F);
+        Main127GripMain.setRotationPoint(-3.0F, 1, 20.0F);
         setRotationAngle(Main127GripMain, -1.0472F, 0.0F, 0.0F);
-        Main127GripMain.cubeList.add(new ModelBox(Main127GripMain, 92, 26, -0.5F, 0.0F, -1.0F, 7, 5, 3, 0.0F, false));
+        Main127GripMain.cubeList.add(new ModelBox(Main127GripMain, 92, 26, -0.5F, 0.0F, -1, 7, 5, 3, 0.0F, false));
 
         Main128GripMain = new ModelRenderer(this);
         Main128GripMain.setRotationPoint(-3.0F, 18.2F, 17.1F);
@@ -305,37 +305,37 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main128GripMain.cubeList.add(new ModelBox(Main128GripMain, 37, 76, -0.49F, -4.2686F, -8.7882F, 7, 10, 4, 0.0F, false));
 
         Main134Trigger = new ModelRenderer(this);
-        Main134Trigger.setRotationPoint(-1.0F, 4.0F, 4.2F);
+        Main134Trigger.setRotationPoint(-1, 4.0F, 4.2F);
         setRotationAngle(Main134Trigger, -0.4887F, 0.0F, 0.0F);
         Main134Trigger.cubeList.add(new ModelBox(Main134Trigger, 42, 42, 0.0F, -3.1183F, -0.5255F, 2, 5, 2, 0.0F, false));
 
         Main140Stock = new ModelRenderer(this);
-        Main140Stock.setRotationPoint(-1.0F, 3.0F, 41.0F);
+        Main140Stock.setRotationPoint(-1, 3.0F, 41);
         setRotationAngle(Main140Stock, 0.2443F, 0.0F, 0.0F);
         Main140Stock.cubeList.add(new ModelBox(Main140Stock, 21, 87, -0.5F, 0.0F, 0.0F, 3, 11, 3, 0.0F, false));
 
         Main141Stock = new ModelRenderer(this);
-        Main141Stock.setRotationPoint(-3.0F, 1.0F, 44.0F);
+        Main141Stock.setRotationPoint(-3.0F, 1, 44.0F);
         setRotationAngle(Main141Stock, 0.0F, 0.0F, -0.1571F);
         Main141Stock.cubeList.add(new ModelBox(Main141Stock, 57, 0, -0.6239F, 2.1037F, 0.0F, 3, 11, 3, 0.0F, false));
 
         Main143Stock = new ModelRenderer(this);
-        Main143Stock.setRotationPoint(-4.0F, -7.0F, 41.0F);
+        Main143Stock.setRotationPoint(-4.0F, -7.0F, 41);
         setRotationAngle(Main143Stock, 0.0F, 0.0F, 0.6283F);
         Main143Stock.cubeList.add(new ModelBox(Main143Stock, 102, 44, -0.1F, 0.2F, -0.01F, 1, 1, 6, 0.0F, false));
 
         Main144Stock = new ModelRenderer(this);
-        Main144Stock.setRotationPoint(4.0F, -7.0F, 41.0F);
+        Main144Stock.setRotationPoint(4.0F, -7.0F, 41);
         setRotationAngle(Main144Stock, 0.0F, 0.0F, -0.6283F);
-        Main144Stock.cubeList.add(new ModelBox(Main144Stock, 49, 100, -1.0F, 0.2F, -0.01F, 1, 1, 6, 0.0F, false));
+        Main144Stock.cubeList.add(new ModelBox(Main144Stock, 49, 100, -1, 0.2F, -0.01F, 1, 1, 6, 0.0F, false));
 
         Main145Stock = new ModelRenderer(this);
-        Main145Stock.setRotationPoint(-5.0F, -4.0F, 41.0F);
+        Main145Stock.setRotationPoint(-5.0F, -4.0F, 41);
         setRotationAngle(Main145Stock, 0.0F, 0.0F, -0.2269F);
         Main145Stock.cubeList.add(new ModelBox(Main145Stock, 0, 76, -0.03F, 0.0F, 0.01F, 6, 8, 6, 0.0F, false));
 
         Main146Stock = new ModelRenderer(this);
-        Main146Stock.setRotationPoint(5.0F, -4.0F, 41.0F);
+        Main146Stock.setRotationPoint(5.0F, -4.0F, 41);
         setRotationAngle(Main146Stock, 0.0F, 0.0F, 0.2269F);
         Main146Stock.cubeList.add(new ModelBox(Main146Stock, 76, 76, -4.0F, 0.0F, -0.01F, 4, 8, 6, 0.0F, false));
 
@@ -345,9 +345,9 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main147Stock.cubeList.add(new ModelBox(Main147Stock, 37, 0, -0.4436F, 2.3169F, 0.02F, 3, 11, 3, 0.0F, false));
 
         Main192 = new ModelRenderer(this);
-        Main192.setRotationPoint(1.0F, -11.0F, 38.0F);
+        Main192.setRotationPoint(1, -11, 38.0F);
         setRotationAngle(Main192, -0.8203F, 0.0F, 0.0F);
-        Main192.cubeList.add(new ModelBox(Main192, 65, 18, 0.0F, 0.0F, -1.0F, 1, 2, 3, 0.0F, false));
+        Main192.cubeList.add(new ModelBox(Main192, 65, 18, 0.0F, 0.0F, -1, 1, 2, 3, 0.0F, false));
 
         Main192Stock = new ModelRenderer(this);
         Main192Stock.setRotationPoint(4.0F, -6.5F, -28.0F);
@@ -375,7 +375,7 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main195.cubeList.add(new ModelBox(Main195, 102, 41, 0.0F, 0.0F, 0.0F, 4, 1, 1, 0.0F, false));
 
         Main196 = new ModelRenderer(this);
-        Main196.setRotationPoint(-2.0F, -9.4F, -11.0F);
+        Main196.setRotationPoint(-2.0F, -9.4F, -11);
         setRotationAngle(Main196, -0.7854F, 0.0F, 0.0F);
         Main196.cubeList.add(new ModelBox(Main196, 102, 18, 0.0F, 0.0F, 0.0F, 4, 1, 1, 0.0F, false));
 
@@ -420,7 +420,7 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main204.cubeList.add(new ModelBox(Main204, 20, 31, 0.01F, 0.0F, 0.0F, 4, 1, 1, 0.0F, false));
 
         Main205 = new ModelRenderer(this);
-        Main205.setRotationPoint(-2.0F, -9.6F, -11.0F);
+        Main205.setRotationPoint(-2.0F, -9.6F, -11);
         setRotationAngle(Main205, 2.3562F, 0.0F, 0.0F);
         Main205.cubeList.add(new ModelBox(Main205, 10, 31, 0.01F, 0.0F, 0.0F, 4, 1, 1, 0.0F, false));
 
@@ -442,7 +442,7 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main209 = new ModelRenderer(this);
         Main209.setRotationPoint(3.5F, -9.3F, -27.0F);
         setRotationAngle(Main209, 0.0F, 0.0F, -0.5949F);
-        Main209.cubeList.add(new ModelBox(Main209, 69, 2, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        Main209.cubeList.add(new ModelBox(Main209, 69, 2, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         Main210 = new ModelRenderer(this);
         Main210.setRotationPoint(3.5F, -9.3F, -27.0F);
@@ -452,7 +452,7 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main211 = new ModelRenderer(this);
         Main211.setRotationPoint(4.6F, -7.6F, -27.0F);
         setRotationAngle(Main211, 0.0F, 0.0F, 0.5205F);
-        Main211.cubeList.add(new ModelBox(Main211, 68, 64, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        Main211.cubeList.add(new ModelBox(Main211, 68, 64, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         Main212 = new ModelRenderer(this);
         Main212.setRotationPoint(-3.8F, -9.6F, 34.0F);
@@ -472,7 +472,7 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main215 = new ModelRenderer(this);
         Main215.setRotationPoint(3.8F, -9.6F, 34.0F);
         setRotationAngle(Main215, 0.0F, 0.0F, -0.5949F);
-        Main215.cubeList.add(new ModelBox(Main215, 22, 53, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        Main215.cubeList.add(new ModelBox(Main215, 22, 53, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         Main216 = new ModelRenderer(this);
         Main216.setRotationPoint(3.8F, -9.6F, 34.0F);
@@ -482,17 +482,17 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main217 = new ModelRenderer(this);
         Main217.setRotationPoint(4.9F, -7.9F, 34.0F);
         setRotationAngle(Main217, 0.0F, 0.0F, 0.5205F);
-        Main217.cubeList.add(new ModelBox(Main217, 49, 9, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        Main217.cubeList.add(new ModelBox(Main217, 49, 9, -1, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         Main218 = new ModelRenderer(this);
         Main218.setRotationPoint(1.2F, -8.5F, -17.0F);
         setRotationAngle(Main218, 0.0F, 0.0F, -0.5934F);
-        Main218.cubeList.add(new ModelBox(Main218, 76, 105, -1.0F, 0.0F, 0.0F, 2, 3, 25, 0.0F, false));
+        Main218.cubeList.add(new ModelBox(Main218, 76, 105, -1, 0.0F, 0.0F, 2, 3, 25, 0.0F, false));
 
         Main219 = new ModelRenderer(this);
         Main219.setRotationPoint(1.2F, -8.5F, -23.0F);
         setRotationAngle(Main219, 0.0F, 0.0F, -0.5934F);
-        Main219.cubeList.add(new ModelBox(Main219, 14, 101, -1.0F, 0.0F, 0.0F, 2, 2, 6, 0.0F, false));
+        Main219.cubeList.add(new ModelBox(Main219, 14, 101, -1, 0.0F, 0.0F, 2, 2, 6, 0.0F, false));
 
         Main221 = new ModelRenderer(this);
         Main221.setRotationPoint(-2.0F, -9.0F, -17.0F);
@@ -505,24 +505,24 @@ public class MP7BlackIce extends ModelWithAttachments {
         Main222.cubeList.add(new ModelBox(Main222, 59, 76, 0.0F, 0.0F, 0.0F, 1, 2, 6, 0.0F, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(-1.0F, 20.0F, -26.15F);
+        bone2.setRotationPoint(-1, 20.0F, -26.15F);
         setRotationAngle(bone2, 0.1745F, 0.0F, 0.0F);
-        bone2.cubeList.add(new ModelBox(bone2, 37, 100, -1.0F, 0.0F, -0.05F, 4, 1, 5, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 37, 100, -1, 0.0F, -0.05F, 4, 1, 5, 0.0F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(0.0F, 24.0F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 64, 69, -1.8F, -34.0F, -11.0F, 1, 1, 4, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 92, 60, 0.8F, -34.0F, -11.0F, 1, 1, 4, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 64, 69, -1.8F, -34.0F, -11, 1, 1, 4, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 92, 60, 0.8F, -34.0F, -11, 1, 1, 4, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -4.5F, -29.75F, -28.0F, 9, 2, 74, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 92, 0, -5.5F, -27.1F, -29.0F, 11, 4, 22, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 151, -2.0F, -36.0F, -25.0F, 4, 2, 62, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 22, 26, -1.5F, -34.5F, 37.0F, 3, 2, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 24, -4.0F, -31.0F, 41.0F, 8, 1, 6, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 24, -4.0F, -31, 41, 8, 1, 6, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 90, -3.5F, -16.0F, 16.0F, 7, 11, 3, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 20, 69, -3.5F, -3.0F, 16.0F, 7, 1, 2, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -3.5F, -21.4F, 10.0F, 7, 18, 6, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 57, 88, -3.0F, -21.0F, 8.5F, 6, 15, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 38, -2.0F, -21.0F, -26.2F, 4, 11, 7, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 57, 88, -3.0F, -21, 8.5F, 6, 15, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 38, -2.0F, -21, -26.2F, 4, 11, 7, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 76, 90, -2.0F, -10.0F, -26.2F, 4, 6, 5, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 42, 52, -1.5F, -10.25F, -21.45F, 3, 6, 2, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 54, 69, -2.5F, -19.6F, -23.7F, 5, 2, 2, 0.0F, false));
@@ -532,17 +532,17 @@ public class MP7BlackIce extends ModelWithAttachments {
         bone.cubeList.add(new ModelBox(bone, 26, 0, -2.1F, -16.0F, -23.3F, 1, 11, 2, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 37, 90, -1.5F, -22.0F, -26.0F, 3, 3, 7, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 121, 26, -4.0F, -28.0F, -4.0F, 8, 6, 11, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 37, 0, -1.0F, -34.2F, 26.01F, 2, 2, 16, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 61, 52, -4.5F, -34.5F, 41.0F, 4, 3, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 61, 57, 0.5F, -34.5F, 41.0F, 4, 3, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 37, 0, -1, -34.2F, 26.01F, 2, 2, 16, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 61, 52, -4.5F, -34.5F, 41, 4, 3, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 61, 57, 0.5F, -34.5F, 41, 4, 3, 2, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 42, 60, -1.99F, -35.8F, 36.3F, 4, 2, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 37, 18, -1.0F, -28.0F, 41.0F, 2, 6, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 38, 69, -3.0F, -31.0F, 39.0F, 6, 3, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 86, 105, 1.0F, -26.0F, -40.0F, 1, 1, 6, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 37, 18, -1, -28.0F, 41, 2, 6, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 38, 69, -3.0F, -31, 39.0F, 6, 3, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 86, 105, 1, -26.0F, -40.0F, 1, 1, 6, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 76, 111, -2.0F, -26.0F, -40.0F, 1, 1, 6, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 105, 111, -0.5F, -27.5F, -40.0F, 1, 1, 6, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 84, 112, -0.5F, -24.5F, -40.0F, 1, 1, 6, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 105, 105, -4.0F, -26.0F, -21.0F, 3, 1, 5, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 105, 105, -4.0F, -26.0F, -21, 3, 1, 5, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 92, 34, -4.0F, -26.0F, -30.0F, 3, 1, 6, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 127, 152, -1.5F, -27.0F, -34.0F, 3, 3, 40, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 37, 28, -4.5F, -32.0F, 36.0F, 9, 2, 2, 0.0F, false));

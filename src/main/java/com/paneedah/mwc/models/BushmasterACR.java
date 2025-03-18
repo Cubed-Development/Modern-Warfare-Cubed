@@ -236,38 +236,38 @@ public class BushmasterACR extends ModelWithAttachments {
         ACR126_r1.setRotationPoint(-20.063F, -36.3392F, 27.7487F);
         gun.addChild(ACR126_r1);
         setRotationAngle(ACR126_r1, 0.0F, 0.0F, 2.5133F);
-        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 92, 148, 1.0F, -39.8F, -45.0F, 1, 1, 2, 0.0F, false));
-        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 101, 148, 1.0F, -39.8F, -42.0F, 1, 1, 2, 0.0F, false));
-        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 220, 232, 1.0F, -39.8F, -36.0F, 1, 1, 14, 0.0F, false));
-        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 131, 0, 1.0F, -39.8F, -40.0F, 1, 3, 4, 0.0F, false));
-        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 81, 39, 1.0F, -39.8F, -43.0F, 1, 3, 1, 0.0F, false));
-        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 63, 156, 1.0F, -39.8F, -49.0F, 1, 3, 4, 0.0F, false));
-        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 138, 149, 1.0F, -39.8F, 2.0F, 1, 2, 1, 0.0F, false));
-        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 213, 287, 1.0F, -39.8023F, -22.0F, 1, 3, 24, 0.0F, false));
+        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 92, 148, 1, -39.8F, -45.0F, 1, 1, 2, 0.0F, false));
+        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 101, 148, 1, -39.8F, -42.0F, 1, 1, 2, 0.0F, false));
+        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 220, 232, 1, -39.8F, -36.0F, 1, 1, 14, 0.0F, false));
+        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 131, 0, 1, -39.8F, -40.0F, 1, 3, 4, 0.0F, false));
+        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 81, 39, 1, -39.8F, -43.0F, 1, 3, 1, 0.0F, false));
+        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 63, 156, 1, -39.8F, -49.0F, 1, 3, 4, 0.0F, false));
+        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 138, 149, 1, -39.8F, 2.0F, 1, 2, 1, 0.0F, false));
+        ACR126_r1.cubeList.add(new ModelBox(ACR126_r1, 213, 287, 1, -39.8023F, -22.0F, 1, 3, 24, 0.0F, false));
 
         ACR274_r1 = new ModelRenderer(this);
         ACR274_r1.setRotationPoint(1.5218F, -37.2661F, -113.568F);
         gun.addChild(ACR274_r1);
         setRotationAngle(ACR274_r1, 3.123F, 0.0F, 0.0F);
-        ACR274_r1.cubeList.add(new ModelBox(ACR274_r1, 143, 7, -2.0F, -36.1F, -71.0F, 1, 1, 6, 0.0F, false));
+        ACR274_r1.cubeList.add(new ModelBox(ACR274_r1, 143, 7, -2.0F, -36.1F, -71, 1, 1, 6, 0.0F, false));
 
         ACR273_r1 = new ModelRenderer(this);
         ACR273_r1.setRotationPoint(69.8706F, 36.2474F, -42.6499F);
         gun.addChild(ACR273_r1);
         setRotationAngle(ACR273_r1, 0.0F, 1.5243F, 0.0F);
-        ACR273_r1.cubeList.add(new ModelBox(ACR273_r1, 0, 43, -2.7F, -37.75F, -71.0F, 6, 1, 1, 0.0F, false));
+        ACR273_r1.cubeList.add(new ModelBox(ACR273_r1, 0, 43, -2.7F, -37.75F, -71, 6, 1, 1, 0.0F, false));
 
         ACR272_r1 = new ModelRenderer(this);
         ACR272_r1.setRotationPoint(-1.717F, 36.2474F, -114.1911F);
         gun.addChild(ACR272_r1);
         setRotationAngle(ACR272_r1, -3.1416F, -0.0372F, 3.1416F);
-        ACR272_r1.cubeList.add(new ModelBox(ACR272_r1, 143, 17, -0.3F, -37.75F, -71.0F, 1, 1, 6, 0.0F, false));
+        ACR272_r1.cubeList.add(new ModelBox(ACR272_r1, 143, 17, -0.3F, -37.75F, -71, 1, 1, 6, 0.0F, false));
 
         ACR271_r1 = new ModelRenderer(this);
         ACR271_r1.setRotationPoint(1.5218F, 70.4593F, -78.4113F);
         gun.addChild(ACR271_r1);
         setRotationAngle(ACR271_r1, -1.5243F, 0.0F, 0.0F);
-        ACR271_r1.cubeList.add(new ModelBox(ACR271_r1, 88, 105, -2.0F, -38.5F, -71.0F, 1, 6, 1, 0.0F, false));
+        ACR271_r1.cubeList.add(new ModelBox(ACR271_r1, 88, 105, -2.0F, -38.5F, -71, 1, 6, 1, 0.0F, false));
 
         ACR4_r1 = new ModelRenderer(this);
         ACR4_r1.setRotationPoint(1.5218F, 23.5196F, 43.1526F);
@@ -330,7 +330,7 @@ public class BushmasterACR extends ModelWithAttachments {
         ACR85_r1.setRotationPoint(-26.7287F, -25.5161F, 27.7487F);
         gun.addChild(ACR85_r1);
         setRotationAngle(ACR85_r1, 0.0F, 0.0F, 2.2307F);
-        ACR85_r1.cubeList.add(new ModelBox(ACR85_r1, 87, 249, 1.0F, -37.8F, -24.0F, 1, 1, 27, 0.0F, false));
+        ACR85_r1.cubeList.add(new ModelBox(ACR85_r1, 87, 249, 1, -37.8F, -24.0F, 1, 1, 27, 0.0F, false));
 
         ACR81_r1 = new ModelRenderer(this);
         ACR81_r1.setRotationPoint(1.5218F, 31.6258F, -5.9138F);
@@ -348,7 +348,7 @@ public class BushmasterACR extends ModelWithAttachments {
         ACR75_r1.setRotationPoint(-1.0558F, 36.2474F, 22.9459F);
         gun.addChild(ACR75_r1);
         setRotationAngle(ACR75_r1, 0.0F, 1.4871F, 0.0F);
-        ACR75_r1.cubeList.add(new ModelBox(ACR75_r1, 113, 88, -3.9F, -36.8F, -1.0F, 2, 1, 1, 0.0F, false));
+        ACR75_r1.cubeList.add(new ModelBox(ACR75_r1, 113, 88, -3.9F, -36.8F, -1, 2, 1, 1, 0.0F, false));
 
         ACR70_r1 = new ModelRenderer(this);
         ACR70_r1.setRotationPoint(1.5218F, 21.3981F, 50.6109F);

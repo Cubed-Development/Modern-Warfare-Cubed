@@ -34,7 +34,7 @@ public class NinthSinRegulatorRotator extends ModelWithAttachments {
         cube_r60.setRotationPoint(-0.5F, 0.85F, 2.25F);
         regulator_rotator_EXTRA5.addChild(cube_r60);
         setRotationAngle(cube_r60, -0.8727F, 0.0F, 0.0F);
-        cube_r60.cubeList.add(new ModelBox(cube_r60, 19, 41, -0.999F, 0.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        cube_r60.cubeList.add(new ModelBox(cube_r60, 19, 41, -0.999F, 0.0F, -1, 1, 2, 1, 0.0F, false));
     }
 
     @Override

@@ -43,7 +43,7 @@ public class Kobra extends ModelBase {
         sight.cubeList.add(new ModelBox(sight, 0, 0, -17.4262F, -23.2724F, -12.0F, 1, 1, 12, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, -17.4262F, -23.9724F, 0.0F, 5, 2, 6, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, -17.9262F, -23.6724F, 0.0F, 6, 2, 6, 0.0F, true));
-        sight.cubeList.add(new ModelBox(sight, 0, 0, -15.4262F, -24.4724F, 1.0F, 3, 1, 3, 0.0F, true));
+        sight.cubeList.add(new ModelBox(sight, 0, 0, -15.4262F, -24.4724F, 1, 3, 1, 3, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, -14.9262F, -24.4724F, 0.8F, 2, 1, 1, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, -14.9262F, -24.4724F, 3.2F, 2, 1, 1, 0.0F, true));
         sight.cubeList.add(new ModelBox(sight, 0, 0, -15.6262F, -24.4724F, 1.5F, 1, 1, 2, 0.0F, true));

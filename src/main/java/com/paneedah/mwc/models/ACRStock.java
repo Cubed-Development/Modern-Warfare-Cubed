@@ -254,7 +254,7 @@ public class ACRStock extends ModelWithAttachments {
         ACR219_r1.setRotationPoint(1.5485F, 8.6604F, 39.4517F);
         stock.addChild(ACR219_r1);
         setRotationAngle(ACR219_r1, 1.9705F, 0.0F, 0.0F);
-        ACR219_r1.cubeList.add(new ModelBox(ACR219_r1, 157, 38, -3.0F, -31.0F, 17.1F, 3, 3, 4, 0.0F, false));
+        ACR219_r1.cubeList.add(new ModelBox(ACR219_r1, 157, 38, -3.0F, -31, 17.1F, 3, 3, 4, 0.0F, false));
 
         ACR218_r1 = new ModelRenderer(this);
         ACR218_r1.setRotationPoint(1.5485F, 12.5484F, 37.4734F);

@@ -315,14 +315,14 @@ public class ScarReceiver extends ModelBase {
         cube_r9.cubeList.add(new ModelBox(cube_r9, 159, 75, 2.1F, -0.2F, -0.2F, 1, 1, 1, -0.202F, false));
 
         cube_r10 = new ModelRenderer(this);
-        cube_r10.setRotationPoint(-3.6F, -3.8F, 11.0F);
+        cube_r10.setRotationPoint(-3.6F, -3.8F, 11);
         upperreceiver.addChild(cube_r10);
         setRotationAngle(cube_r10, -0.7854F, 0.0F, 0.0F);
         cube_r10.cubeList.add(new ModelBox(cube_r10, 153, 94, -0.2F, -0.2F, -0.2F, 1, 1, 1, -0.202F, false));
         cube_r10.cubeList.add(new ModelBox(cube_r10, 77, 159, 2.1F, -0.2F, -0.2F, 1, 1, 1, -0.202F, false));
 
         cube_r11 = new ModelRenderer(this);
-        cube_r11.setRotationPoint(-3.6F, -4.2F, 11.0F);
+        cube_r11.setRotationPoint(-3.6F, -4.2F, 11);
         upperreceiver.addChild(cube_r11);
         setRotationAngle(cube_r11, 0.7854F, 0.0F, 0.0F);
         cube_r11.cubeList.add(new ModelBox(cube_r11, 153, 86, -0.2F, -0.8F, -0.2F, 1, 1, 1, -0.202F, false));
@@ -388,21 +388,21 @@ public class ScarReceiver extends ModelBase {
         cube_r20.setRotationPoint(-0.7F, -5.4F, 0.0F);
         upperreceiver.addChild(cube_r20);
         setRotationAngle(cube_r20, 0.0F, 0.0F, 0.4014F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 53, 55, -1.0F, 0.0F, 0.0F, 1, 1, 51, 0.0F, false));
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 53, 55, -1, 0.0F, 0.0F, 1, 1, 51, 0.0F, false));
 
         cube_r21 = new ModelRenderer(this);
         cube_r21.setRotationPoint(-4.45F, -2.0F, 0.0F);
         upperreceiver.addChild(cube_r21);
         setRotationAngle(cube_r21, 0.0F, 0.0F, 0.6283F);
-        cube_r21.cubeList.add(new ModelBox(cube_r21, 106, 56, 0.0F, -1.0F, 0.0F, 1, 1, 51, 0.001F, false));
+        cube_r21.cubeList.add(new ModelBox(cube_r21, 106, 56, 0.0F, -1, 0.0F, 1, 1, 51, 0.001F, false));
         cube_r21.cubeList.add(new ModelBox(cube_r21, 0, 106, 0.0F, -1.58F, 0.0F, 1, 1, 51, -0.001F, false));
 
         cube_r22 = new ModelRenderer(this);
         cube_r22.setRotationPoint(0.15F, -2.0F, 0.0F);
         upperreceiver.addChild(cube_r22);
         setRotationAngle(cube_r22, 0.0F, 0.0F, -0.6283F);
-        cube_r22.cubeList.add(new ModelBox(cube_r22, 53, 107, -1.0F, -1.0F, 0.0F, 1, 1, 51, 0.001F, false));
-        cube_r22.cubeList.add(new ModelBox(cube_r22, 108, 0, -1.0F, -1.58F, 0.0F, 1, 1, 51, -0.001F, false));
+        cube_r22.cubeList.add(new ModelBox(cube_r22, 53, 107, -1, -1, 0.0F, 1, 1, 51, 0.001F, false));
+        cube_r22.cubeList.add(new ModelBox(cube_r22, 108, 0, -1, -1.58F, 0.0F, 1, 1, 51, -0.001F, false));
 
         cube_r23 = new ModelRenderer(this);
         cube_r23.setRotationPoint(-5.75F, -1.6F, 35.2F);
@@ -432,14 +432,14 @@ public class ScarReceiver extends ModelBase {
         cube_r27.setRotationPoint(0.65F, -1.4F, 24.5F);
         upperreceiver.addChild(cube_r27);
         setRotationAngle(cube_r27, 0.0F, -1.117F, 0.0F);
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 122, 153, -1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        cube_r27.cubeList.add(new ModelBox(cube_r27, 118, 153, -1.0F, 0.3F, 0.0F, 1, 1, 1, 0.001F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 122, 153, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r27.cubeList.add(new ModelBox(cube_r27, 118, 153, -1, 0.3F, 0.0F, 1, 1, 1, 0.001F, false));
 
         cube_r28 = new ModelRenderer(this);
         cube_r28.setRotationPoint(0.65F, -1.4F, 21.5F);
         upperreceiver.addChild(cube_r28);
         setRotationAngle(cube_r28, 0.0F, 0.0F, 0.4189F);
-        cube_r28.cubeList.add(new ModelBox(cube_r28, 10, 121, -1.0F, 0.0F, -1.0F, 1, 1, 4, -0.001F, false));
+        cube_r28.cubeList.add(new ModelBox(cube_r28, 10, 121, -1, 0.0F, -1, 1, 1, 4, -0.001F, false));
 
         cube_r29 = new ModelRenderer(this);
         cube_r29.setRotationPoint(0.95F, -1.4F, 23.7F);
@@ -466,26 +466,26 @@ public class ScarReceiver extends ModelBase {
         cube_r32.setRotationPoint(0.65F, -0.1F, 21.5F);
         upperreceiver.addChild(cube_r32);
         setRotationAngle(cube_r32, 0.0F, 0.0F, -0.4189F);
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 118, 12, -1.0F, -1.0F, -1.0F, 1, 1, 4, -0.001F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 118, 12, -1, -1, -1, 1, 1, 4, -0.001F, false));
 
         cube_r33 = new ModelRenderer(this);
         cube_r33.setRotationPoint(0.65F, -0.1F, 20.5F);
         upperreceiver.addChild(cube_r33);
         setRotationAngle(cube_r33, -0.1011F, 0.2228F, -0.4302F);
-        cube_r33.cubeList.add(new ModelBox(cube_r33, 0, 135, -1.0F, -1.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r33.cubeList.add(new ModelBox(cube_r33, 0, 135, -1, -1, -2.0F, 1, 1, 2, 0.0F, false));
 
         cube_r34 = new ModelRenderer(this);
         cube_r34.setRotationPoint(0.65F, -1.1F, 20.5F);
         upperreceiver.addChild(cube_r34);
         setRotationAngle(cube_r34, 0.0F, 0.2443F, 0.0F);
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 134, 133, -1.0F, 0.0F, -2.0F, 1, 1, 2, 0.001F, false));
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 134, 130, -1.0F, -0.3F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 134, 133, -1, 0.0F, -2.0F, 1, 1, 2, 0.001F, false));
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 134, 130, -1, -0.3F, -2.0F, 1, 1, 2, 0.0F, false));
 
         cube_r35 = new ModelRenderer(this);
         cube_r35.setRotationPoint(0.65F, -1.4F, 20.5F);
         upperreceiver.addChild(cube_r35);
         setRotationAngle(cube_r35, 0.1011F, 0.2228F, 0.4302F);
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 130, 134, -1.0F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 130, 134, -1, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
 
         cube_r36 = new ModelRenderer(this);
         cube_r36.setRotationPoint(0.25F, -1.1F, 50.0F);
@@ -549,7 +549,7 @@ public class ScarReceiver extends ModelBase {
         cube_r45.setRotationPoint(-4.95F, -0.1F, 20.5F);
         upperreceiver.addChild(cube_r45);
         setRotationAngle(cube_r45, -0.1011F, -0.2228F, 0.4302F);
-        cube_r45.cubeList.add(new ModelBox(cube_r45, 135, 1, 0.0F, -1.0F, -2.0F, 1, 1, 2, 0.0F, false));
+        cube_r45.cubeList.add(new ModelBox(cube_r45, 135, 1, 0.0F, -1, -2.0F, 1, 1, 2, 0.0F, false));
 
         cube_r46 = new ModelRenderer(this);
         cube_r46.setRotationPoint(-4.95F, -1.4F, 20.5F);
@@ -561,13 +561,13 @@ public class ScarReceiver extends ModelBase {
         cube_r47.setRotationPoint(-4.95F, -0.1F, 21.5F);
         upperreceiver.addChild(cube_r47);
         setRotationAngle(cube_r47, 0.0F, 0.0F, 0.4189F);
-        cube_r47.cubeList.add(new ModelBox(cube_r47, 61, 121, 0.0F, -1.0F, -1.0F, 1, 1, 4, -0.001F, false));
+        cube_r47.cubeList.add(new ModelBox(cube_r47, 61, 121, 0.0F, -1, -1, 1, 1, 4, -0.001F, false));
 
         cube_r48 = new ModelRenderer(this);
         cube_r48.setRotationPoint(-4.95F, -1.4F, 21.5F);
         upperreceiver.addChild(cube_r48);
         setRotationAngle(cube_r48, 0.0F, 0.0F, -0.4189F);
-        cube_r48.cubeList.add(new ModelBox(cube_r48, 8, 128, 0.0F, 0.0F, -1.0F, 1, 1, 4, -0.001F, false));
+        cube_r48.cubeList.add(new ModelBox(cube_r48, 8, 128, 0.0F, 0.0F, -1, 1, 1, 4, -0.001F, false));
 
         cube_r49 = new ModelRenderer(this);
         cube_r49.setRotationPoint(-4.95F, -1.1F, 24.5F);
@@ -716,7 +716,7 @@ public class ScarReceiver extends ModelBase {
 
         action = new ModelRenderer(this);
         action.setRotationPoint(-0.25F, -15.7F, -45.0F);
-        action.cubeList.add(new ModelBox(action, 248, 179, -1.0F, -2.0F, 0.0F, 1, 2, 29, 0.0F, false));
+        action.cubeList.add(new ModelBox(action, 248, 179, -1, -2.0F, 0.0F, 1, 2, 29, 0.0F, false));
         action.cubeList.add(new ModelBox(action, 26, 6, -0.5F, -1.35F, 11.8F, 3, 1, 1, -0.05F, false));
         action.cubeList.add(new ModelBox(action, 40, 150, -0.5F, -1.35F, 11.8F, 1, 1, 1, 0.05F, false));
         action.cubeList.add(new ModelBox(action, 61, 150, 1.9F, -0.95F, 11.4F, 1, 1, 1, -0.3F, false));
@@ -728,14 +728,14 @@ public class ScarReceiver extends ModelBase {
         action.cubeList.add(new ModelBox(action, 150, 45, 1.9F, -1.35F, 12.2F, 1, 1, 1, -0.3F, false));
         action.cubeList.add(new ModelBox(action, 150, 41, 1.9F, -1.35F, 11.4F, 1, 1, 1, -0.3F, false));
         action.cubeList.add(new ModelBox(action, 157, 248, -2.5F, -2.0F, 0.0F, 1, 2, 29, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 0, 24, -3.3F, 1.5F, 21.0F, 1, 2, 10, 0.0F, false));
+        action.cubeList.add(new ModelBox(action, 0, 24, -3.3F, 1.5F, 21, 1, 2, 10, 0.0F, false));
 
         stock = new ModelRenderer(this);
         stock.setRotationPoint(0.1F, -16.5F, 2.0F);
         stock.cubeList.add(new ModelBox(stock, 98, 77, -1.3F, -1.55F, 0.6F, 2, 4, 1, 0.0F, false));
         stock.cubeList.add(new ModelBox(stock, 87, 90, -1.2F, -1.55F, 1.1F, 1, 4, 1, -0.001F, false));
         stock.cubeList.add(new ModelBox(stock, 0, 36, -1.5F, 0.65F, 0.6F, 2, 7, 2, 0.0F, false));
-        stock.cubeList.add(new ModelBox(stock, 13, 36, -3.9F, -1.0F, 0.6F, 2, 8, 1, 0.0F, false));
+        stock.cubeList.add(new ModelBox(stock, 13, 36, -3.9F, -1, 0.6F, 2, 8, 1, 0.0F, false));
         stock.cubeList.add(new ModelBox(stock, 24, 101, -1.5F, 6.9F, 0.6F, 2, 1, 2, -0.001F, false));
         stock.cubeList.add(new ModelBox(stock, 129, 77, -2.1F, 6.9F, 0.3F, 2, 2, 3, 0.0F, false));
         stock.cubeList.add(new ModelBox(stock, 61, 129, -3.1F, 6.9F, 0.3F, 2, 2, 3, -0.001F, false));
@@ -790,15 +790,15 @@ public class ScarReceiver extends ModelBase {
         cube_r56.setRotationPoint(-2.6F, -2.15F, 2.5F);
         stock.addChild(cube_r56);
         setRotationAngle(cube_r56, 0.0F, 0.0F, 0.5236F);
-        cube_r56.cubeList.add(new ModelBox(cube_r56, 114, 115, 0.0F, 0.0F, 1.0F, 1, 2, 1, 0.0F, false));
+        cube_r56.cubeList.add(new ModelBox(cube_r56, 114, 115, 0.0F, 0.0F, 1, 1, 2, 1, 0.0F, false));
         cube_r56.cubeList.add(new ModelBox(cube_r56, 16, 150, 0.0F, 0.4F, 0.0F, 1, 1, 1, -0.001F, false));
-        cube_r56.cubeList.add(new ModelBox(cube_r56, 150, 15, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r56.cubeList.add(new ModelBox(cube_r56, 150, 15, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r57 = new ModelRenderer(this);
         cube_r57.setRotationPoint(-0.6F, -0.68F, 17.25F);
         stock.addChild(cube_r57);
         setRotationAngle(cube_r57, -0.228F, -0.1298F, -0.5087F);
-        cube_r57.cubeList.add(new ModelBox(cube_r57, 65, 24, -1.0F, 0.0F, 0.0F, 1, 2, 4, 0.0F, false));
+        cube_r57.cubeList.add(new ModelBox(cube_r57, 65, 24, -1, 0.0F, 0.0F, 1, 2, 4, 0.0F, false));
 
         cube_r58 = new ModelRenderer(this);
         cube_r58.setRotationPoint(-0.6F, -0.68F, 17.25F);
@@ -816,7 +816,7 @@ public class ScarReceiver extends ModelBase {
         cube_r60.setRotationPoint(-0.6F, -1.65F, 6.3F);
         stock.addChild(cube_r60);
         setRotationAngle(cube_r60, -0.0756F, -0.0436F, -0.5219F);
-        cube_r60.cubeList.add(new ModelBox(cube_r60, 77, 55, -1.0F, 0.0F, 0.0F, 1, 2, 11, 0.0F, false));
+        cube_r60.cubeList.add(new ModelBox(cube_r60, 77, 55, -1, 0.0F, 0.0F, 1, 2, 11, 0.0F, false));
 
         cube_r61 = new ModelRenderer(this);
         cube_r61.setRotationPoint(-0.6F, -1.65F, 6.3F);
@@ -834,7 +834,7 @@ public class ScarReceiver extends ModelBase {
         cube_r63.setRotationPoint(-0.6F, -2.15F, 4.5F);
         stock.addChild(cube_r63);
         setRotationAngle(cube_r63, -0.1973F, -0.1127F, -0.5124F);
-        cube_r63.cubeList.add(new ModelBox(cube_r63, 77, 36, -1.0F, 0.0F, 0.0F, 1, 2, 3, 0.0F, false));
+        cube_r63.cubeList.add(new ModelBox(cube_r63, 77, 36, -1, 0.0F, 0.0F, 1, 2, 3, 0.0F, false));
 
         cube_r64 = new ModelRenderer(this);
         cube_r64.setRotationPoint(-0.6F, -2.15F, 4.5F);
@@ -846,7 +846,7 @@ public class ScarReceiver extends ModelBase {
         cube_r65.setRotationPoint(0.4F, 4.35F, 4.5F);
         stock.addChild(cube_r65);
         setRotationAngle(cube_r65, 0.8203F, 0.0F, 0.0F);
-        cube_r65.cubeList.add(new ModelBox(cube_r65, 69, 115, -1.0F, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
+        cube_r65.cubeList.add(new ModelBox(cube_r65, 69, 115, -1, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
 
         cube_r66 = new ModelRenderer(this);
         cube_r66.setRotationPoint(-3.35F, 3.35F, 20.1F);
@@ -865,19 +865,19 @@ public class ScarReceiver extends ModelBase {
         cube_r68.setRotationPoint(0.6F, 0.45F, 5.0F);
         stock.addChild(cube_r68);
         setRotationAngle(cube_r68, 0.0479F, -0.1124F, -0.4041F);
-        cube_r68.cubeList.add(new ModelBox(cube_r68, 131, 18, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        cube_r68.cubeList.add(new ModelBox(cube_r68, 131, 18, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         cube_r69 = new ModelRenderer(this);
         cube_r69.setRotationPoint(0.6F, 0.45F, 5.0F);
         stock.addChild(cube_r69);
         setRotationAngle(cube_r69, 0.0F, -0.1222F, 0.0F);
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 108, 22, -1.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 108, 22, -1, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         cube_r70 = new ModelRenderer(this);
         cube_r70.setRotationPoint(0.6F, 0.45F, 3.0F);
         stock.addChild(cube_r70);
         setRotationAngle(cube_r70, 0.0F, 0.0F, -0.4014F);
-        cube_r70.cubeList.add(new ModelBox(cube_r70, 131, 22, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        cube_r70.cubeList.add(new ModelBox(cube_r70, 131, 22, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         cube_r71 = new ModelRenderer(this);
         cube_r71.setRotationPoint(-2.6F, -2.15F, 3.5F);
@@ -889,15 +889,15 @@ public class ScarReceiver extends ModelBase {
         cube_r72.setRotationPoint(-0.6F, -2.15F, 3.5F);
         stock.addChild(cube_r72);
         setRotationAngle(cube_r72, -1.117F, 0.0F, -0.5236F);
-        cube_r72.cubeList.add(new ModelBox(cube_r72, 20, 150, -1.0F, 0.0F, 0.0F, 1, 1, 1, -0.002F, false));
+        cube_r72.cubeList.add(new ModelBox(cube_r72, 20, 150, -1, 0.0F, 0.0F, 1, 1, 1, -0.002F, false));
 
         cube_r73 = new ModelRenderer(this);
         cube_r73.setRotationPoint(-0.6F, -2.15F, 2.5F);
         stock.addChild(cube_r73);
         setRotationAngle(cube_r73, 0.0F, 0.0F, -0.5236F);
-        cube_r73.cubeList.add(new ModelBox(cube_r73, 24, 150, -1.0F, 0.4F, 0.0F, 1, 1, 1, -0.001F, false));
-        cube_r73.cubeList.add(new ModelBox(cube_r73, 28, 150, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        cube_r73.cubeList.add(new ModelBox(cube_r73, 116, 7, -1.0F, 0.0F, 1.0F, 1, 2, 1, 0.0F, false));
+        cube_r73.cubeList.add(new ModelBox(cube_r73, 24, 150, -1, 0.4F, 0.0F, 1, 1, 1, -0.001F, false));
+        cube_r73.cubeList.add(new ModelBox(cube_r73, 28, 150, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r73.cubeList.add(new ModelBox(cube_r73, 116, 7, -1, 0.0F, 1, 1, 2, 1, 0.0F, false));
 
         cube_r74 = new ModelRenderer(this);
         cube_r74.setRotationPoint(-2.5F, -2.05F, 2.5F);
@@ -941,27 +941,27 @@ public class ScarReceiver extends ModelBase {
         cube_r79.setRotationPoint(0.4F, 5.55F, 21.25F);
         stock.addChild(cube_r79);
         setRotationAngle(cube_r79, 0.0F, 0.0F, -0.2618F);
-        cube_r79.cubeList.add(new ModelBox(cube_r79, 69, 112, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.002F, false));
-        cube_r79.cubeList.add(new ModelBox(cube_r79, 82, 112, -1.0F, -2.0F, 4.0F, 1, 2, 1, 0.002F, false));
+        cube_r79.cubeList.add(new ModelBox(cube_r79, 69, 112, -1, -2.0F, 0.0F, 1, 2, 1, 0.002F, false));
+        cube_r79.cubeList.add(new ModelBox(cube_r79, 82, 112, -1, -2.0F, 4.0F, 1, 2, 1, 0.002F, false));
 
         cube_r80 = new ModelRenderer(this);
         cube_r80.setRotationPoint(0.4F, 5.55F, 21.25F);
         stock.addChild(cube_r80);
         setRotationAngle(cube_r80, 0.0F, 0.0F, 0.2618F);
-        cube_r80.cubeList.add(new ModelBox(cube_r80, 38, 111, -1.0F, 0.0F, 0.0F, 1, 2, 1, 0.002F, false));
-        cube_r80.cubeList.add(new ModelBox(cube_r80, 76, 112, -1.0F, 0.0F, 4.0F, 1, 2, 1, 0.002F, false));
+        cube_r80.cubeList.add(new ModelBox(cube_r80, 38, 111, -1, 0.0F, 0.0F, 1, 2, 1, 0.002F, false));
+        cube_r80.cubeList.add(new ModelBox(cube_r80, 76, 112, -1, 0.0F, 4.0F, 1, 2, 1, 0.002F, false));
 
         cube_r81 = new ModelRenderer(this);
         cube_r81.setRotationPoint(0.6F, 5.55F, 22.25F);
         stock.addChild(cube_r81);
         setRotationAngle(cube_r81, 0.0F, 0.0F, 0.4538F);
-        cube_r81.cubeList.add(new ModelBox(cube_r81, 13, 64, -1.0F, 0.0F, 0.0F, 1, 2, 3, 0.001F, false));
+        cube_r81.cubeList.add(new ModelBox(cube_r81, 13, 64, -1, 0.0F, 0.0F, 1, 2, 3, 0.001F, false));
 
         cube_r82 = new ModelRenderer(this);
         cube_r82.setRotationPoint(0.6F, 5.55F, 22.25F);
         stock.addChild(cube_r82);
         setRotationAngle(cube_r82, 0.0F, 0.0F, -0.384F);
-        cube_r82.cubeList.add(new ModelBox(cube_r82, 61, 65, -1.0F, -2.0F, 0.0F, 1, 2, 3, 0.002F, false));
+        cube_r82.cubeList.add(new ModelBox(cube_r82, 61, 65, -1, -2.0F, 0.0F, 1, 2, 3, 0.002F, false));
 
         cube_r83 = new ModelRenderer(this);
         cube_r83.setRotationPoint(0.15F, 2.0F, 26.5F);
@@ -979,7 +979,7 @@ public class ScarReceiver extends ModelBase {
         cube_r85.setRotationPoint(-0.6F, 19.25F, 26.5F);
         stock.addChild(cube_r85);
         setRotationAngle(cube_r85, -0.1222F, 0.0F, 0.0F);
-        cube_r85.cubeList.add(new ModelBox(cube_r85, 77, 95, -2.0F, -1.0F, 0.0F, 2, 1, 2, 0.0F, false));
+        cube_r85.cubeList.add(new ModelBox(cube_r85, 77, 95, -2.0F, -1, 0.0F, 2, 1, 2, 0.0F, false));
 
         cube_r86 = new ModelRenderer(this);
         cube_r86.setRotationPoint(-0.6F, 0.15F, 26.5F);
@@ -1000,17 +1000,17 @@ public class ScarReceiver extends ModelBase {
         cube_r88.cubeList.add(new ModelBox(cube_r88, 116, 22, 0.0F, 0.0F, 0.0F, 1, 2, 1, -0.003F, false));
 
         cube_r89 = new ModelRenderer(this);
-        cube_r89.setRotationPoint(-3.9F, -1.0F, 1.8F);
+        cube_r89.setRotationPoint(-3.9F, -1, 1.8F);
         stock.addChild(cube_r89);
         setRotationAngle(cube_r89, 0.0873F, 0.0F, 0.0F);
-        cube_r89.cubeList.add(new ModelBox(cube_r89, 159, 104, 0.0F, 8.8F, -1.0F, 1, 1, 1, -0.002F, false));
-        cube_r89.cubeList.add(new ModelBox(cube_r89, 77, 24, 0.0F, 0.0F, -1.0F, 2, 9, 1, -0.001F, false));
+        cube_r89.cubeList.add(new ModelBox(cube_r89, 159, 104, 0.0F, 8.8F, -1, 1, 1, 1, -0.002F, false));
+        cube_r89.cubeList.add(new ModelBox(cube_r89, 77, 24, 0.0F, 0.0F, -1, 2, 9, 1, -0.001F, false));
 
         cube_r90 = new ModelRenderer(this);
         cube_r90.setRotationPoint(0.7F, -1.55F, 1.6F);
         stock.addChild(cube_r90);
         setRotationAngle(cube_r90, 0.0F, -1.0472F, 0.0F);
-        cube_r90.cubeList.add(new ModelBox(cube_r90, 92, 24, -1.0F, 0.0F, 0.0F, 1, 4, 1, -0.002F, false));
+        cube_r90.cubeList.add(new ModelBox(cube_r90, 92, 24, -1, 0.0F, 0.0F, 1, 4, 1, -0.002F, false));
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(-4.05F, -1.05F, 0.0F);
@@ -1029,7 +1029,7 @@ public class ScarReceiver extends ModelBase {
         bone.cubeList.add(new ModelBox(bone, 159, 110, 4.55F, 3.7F, -0.2F, 1, 1, 1, -0.201F, false));
         bone.cubeList.add(new ModelBox(bone, 116, 36, 4.85F, 3.7F, -0.2F, 1, 2, 1, -0.199F, false));
         bone.cubeList.add(new ModelBox(bone, 77, 55, -0.1F, -0.2F, -0.2F, 2, 9, 1, -0.2F, false));
-        bone.cubeList.add(new ModelBox(bone, 23, 136, 0.0F, 0.3F, -1.0F, 1, 1, 2, -0.2F, false));
+        bone.cubeList.add(new ModelBox(bone, 23, 136, 0.0F, 0.3F, -1, 1, 1, 2, -0.2F, false));
         bone.cubeList.add(new ModelBox(bone, 90, 55, 2.72F, -1.12F, 0.0F, 1, 4, 2, 0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 92, 0, 2.72F, -1.12F, 1.5F, 1, 4, 1, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 36, 150, 2.25F, -1.5F, 1.5F, 1, 1, 1, -0.001F, false));
@@ -1040,7 +1040,7 @@ public class ScarReceiver extends ModelBase {
         bone.cubeList.add(new ModelBox(bone, 34, 90, 1.18F, -1.12F, 0.0F, 1, 4, 2, 0.001F, false));
 
         cube_r91 = new ModelRenderer(this);
-        cube_r91.setRotationPoint(1.65F, -1.5F, -1.0F);
+        cube_r91.setRotationPoint(1.65F, -1.5F, -1);
         bone.addChild(cube_r91);
         setRotationAngle(cube_r91, 0.0F, 0.0F, 0.8901F);
         cube_r91.cubeList.add(new ModelBox(cube_r91, 131, 28, -0.2F, -0.2F, 0.8F, 1, 1, 2, -0.198F, false));
@@ -1087,10 +1087,10 @@ public class ScarReceiver extends ModelBase {
         bone2.setRotationPoint(-4.4F, -0.3F, 3.3F);
         stock.addChild(bone2);
         setRotationAngle(bone2, 0.0873F, 0.0F, 0.0F);
-        bone2.cubeList.add(new ModelBox(bone2, 77, 0, 0.1F, 0.0F, -1.0F, 2, 9, 1, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 77, 0, 0.1F, 0.0F, -1, 2, 9, 1, 0.0F, false));
 
         cube_r98 = new ModelRenderer(this);
-        cube_r98.setRotationPoint(0.0F, 0.0F, -1.0F);
+        cube_r98.setRotationPoint(0.0F, 0.0F, -1);
         bone2.addChild(cube_r98);
         setRotationAngle(cube_r98, 0.0F, -0.733F, 0.0F);
         cube_r98.cubeList.add(new ModelBox(cube_r98, 39, 54, 0.0743F, 0.0F, -2.0669F, 2, 9, 2, -0.001F, false));
@@ -1103,7 +1103,7 @@ public class ScarReceiver extends ModelBase {
 
         stock_short = new ModelRenderer(this);
         stock_short.setRotationPoint(0.1F, -16.5F, 2.0F);
-        stock_short.cubeList.add(new ModelBox(stock_short, 24, 54, -3.9F, -1.0F, 0.5F, 2, 9, 2, 0.0F, false));
+        stock_short.cubeList.add(new ModelBox(stock_short, 24, 54, -3.9F, -1, 0.5F, 2, 9, 2, 0.0F, false));
         stock_short.cubeList.add(new ModelBox(stock_short, 38, 66, -4.9F, 3.0F, 2.5F, 2, 2, 4, 0.0F, false));
         stock_short.cubeList.add(new ModelBox(stock_short, 108, 22, -4.9F, 3.0F, -14.8F, 1, 1, 21, -0.1F, false));
         stock_short.cubeList.add(new ModelBox(stock_short, 53, 107, -4.9F, 3.5F, -14.8F, 1, 1, 21, -0.2F, false));
@@ -1118,7 +1118,7 @@ public class ScarReceiver extends ModelBase {
         stock_short.cubeList.add(new ModelBox(stock_short, 106, 77, 0.7F, 4.0F, -14.8F, 1, 1, 21, -0.1F, false));
         stock_short.cubeList.add(new ModelBox(stock_short, 45, 47, 0.7F, 3.5F, -4.8F, 1, 1, 2, -0.101F, false));
         stock_short.cubeList.add(new ModelBox(stock_short, 77, 83, 0.7F, 3.5F, -14.8F, 1, 1, 4, -0.101F, false));
-        stock_short.cubeList.add(new ModelBox(stock_short, 39, 24, -1.3F, -1.0F, 0.5F, 2, 9, 2, 0.0F, false));
+        stock_short.cubeList.add(new ModelBox(stock_short, 39, 24, -1.3F, -1, 0.5F, 2, 9, 2, 0.0F, false));
         stock_short.cubeList.add(new ModelBox(stock_short, 53, 24, -2.1F, 4.9F, 0.3F, 2, 4, 3, 0.0F, false));
         stock_short.cubeList.add(new ModelBox(stock_short, 0, 24, -3.1F, 1.9F, 0.3F, 2, 7, 3, -0.001F, false));
         stock_short.cubeList.add(new ModelBox(stock_short, 87, 36, -3.1F, 2.4F, 3.3F, 3, 3, 5, -0.001F, false));
@@ -1144,9 +1144,9 @@ public class ScarReceiver extends ModelBase {
         cube_r100.setRotationPoint(-2.6F, -2.15F, 2.5F);
         stock_short.addChild(cube_r100);
         setRotationAngle(cube_r100, 0.0F, 0.0F, 0.5236F);
-        cube_r100.cubeList.add(new ModelBox(cube_r100, 92, 30, 0.0F, 0.0F, 1.0F, 1, 2, 1, 0.0F, false));
+        cube_r100.cubeList.add(new ModelBox(cube_r100, 92, 30, 0.0F, 0.0F, 1, 1, 2, 1, 0.0F, false));
         cube_r100.cubeList.add(new ModelBox(cube_r100, 17, 120, 0.0F, 0.4F, 0.0F, 1, 1, 1, -0.001F, false));
-        cube_r100.cubeList.add(new ModelBox(cube_r100, 61, 121, 0.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r100.cubeList.add(new ModelBox(cube_r100, 61, 121, 0.0F, 1, 0.0F, 1, 1, 1, 0.0F, false));
 
         cube_r101 = new ModelRenderer(this);
         cube_r101.setRotationPoint(0.4F, 0.68F, 10.77F);
@@ -1173,7 +1173,7 @@ public class ScarReceiver extends ModelBase {
         cube_r104.setRotationPoint(-2.6F, -2.15F, 4.5F);
         stock_short.addChild(cube_r104);
         setRotationAngle(cube_r104, -0.3838F, 0.2129F, 0.4821F);
-        cube_r104.cubeList.add(new ModelBox(cube_r104, 83, 83, 0.0F, 0.0F, 1.0F, 1, 2, 1, 0.0F, false));
+        cube_r104.cubeList.add(new ModelBox(cube_r104, 83, 83, 0.0F, 0.0F, 1, 1, 2, 1, 0.0F, false));
         cube_r104.cubeList.add(new ModelBox(cube_r104, 46, 72, 0.0F, 0.0F, 0.6F, 1, 2, 1, -0.001F, false));
 
         cube_r105 = new ModelRenderer(this);
@@ -1192,7 +1192,7 @@ public class ScarReceiver extends ModelBase {
         cube_r107.setRotationPoint(-0.6F, -1.12F, 10.77F);
         stock_short.addChild(cube_r107);
         setRotationAngle(cube_r107, -0.3239F, -0.1746F, -0.4775F);
-        cube_r107.cubeList.add(new ModelBox(cube_r107, 67, 101, -1.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
+        cube_r107.cubeList.add(new ModelBox(cube_r107, 67, 101, -1, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
         cube_r108 = new ModelRenderer(this);
         cube_r108.setRotationPoint(-0.6F, -1.12F, 10.77F);
@@ -1216,7 +1216,7 @@ public class ScarReceiver extends ModelBase {
         cube_r111.setRotationPoint(-0.6F, -1.65F, 4.8F);
         stock_short.addChild(cube_r111);
         setRotationAngle(cube_r111, -0.0764F, -0.0423F, -0.5045F);
-        cube_r111.cubeList.add(new ModelBox(cube_r111, 108, 7, -1.0F, 0.0F, 0.0F, 1, 2, 6, 0.0F, false));
+        cube_r111.cubeList.add(new ModelBox(cube_r111, 108, 7, -1, 0.0F, 0.0F, 1, 2, 6, 0.0F, false));
 
         cube_r112 = new ModelRenderer(this);
         cube_r112.setRotationPoint(-0.6F, -1.65F, 4.8F);
@@ -1234,8 +1234,8 @@ public class ScarReceiver extends ModelBase {
         cube_r114.setRotationPoint(-0.6F, -2.15F, 4.5F);
         stock_short.addChild(cube_r114);
         setRotationAngle(cube_r114, -0.2093F, -0.2129F, -0.4821F);
-        cube_r114.cubeList.add(new ModelBox(cube_r114, 117, 101, -1.0F, 0.7F, 0.1F, 1, 1, 1, -0.003F, false));
-        cube_r114.cubeList.add(new ModelBox(cube_r114, 84, 119, -1.0F, 0.2F, 0.1F, 1, 1, 1, -0.002F, false));
+        cube_r114.cubeList.add(new ModelBox(cube_r114, 117, 101, -1, 0.7F, 0.1F, 1, 1, 1, -0.003F, false));
+        cube_r114.cubeList.add(new ModelBox(cube_r114, 84, 119, -1, 0.2F, 0.1F, 1, 1, 1, -0.002F, false));
 
         cube_r115 = new ModelRenderer(this);
         cube_r115.setRotationPoint(-0.6F, -2.15F, 4.5F);
@@ -1247,8 +1247,8 @@ public class ScarReceiver extends ModelBase {
         cube_r116.setRotationPoint(-0.6F, -2.15F, 4.5F);
         stock_short.addChild(cube_r116);
         setRotationAngle(cube_r116, -0.3838F, -0.2129F, -0.4821F);
-        cube_r116.cubeList.add(new ModelBox(cube_r116, 84, 78, -1.0F, 0.0F, 0.6F, 1, 2, 1, -0.001F, false));
-        cube_r116.cubeList.add(new ModelBox(cube_r116, 92, 6, -1.0F, 0.0F, 1.0F, 1, 2, 1, 0.0F, false));
+        cube_r116.cubeList.add(new ModelBox(cube_r116, 84, 78, -1, 0.0F, 0.6F, 1, 2, 1, -0.001F, false));
+        cube_r116.cubeList.add(new ModelBox(cube_r116, 92, 6, -1, 0.0F, 1, 1, 2, 1, 0.0F, false));
 
         cube_r117 = new ModelRenderer(this);
         cube_r117.setRotationPoint(-0.6F, -2.15F, 4.5F);
@@ -1266,15 +1266,15 @@ public class ScarReceiver extends ModelBase {
         cube_r119.setRotationPoint(-0.6F, -2.15F, 3.5F);
         stock_short.addChild(cube_r119);
         setRotationAngle(cube_r119, -1.117F, 0.0F, -0.5236F);
-        cube_r119.cubeList.add(new ModelBox(cube_r119, 16, 122, -1.0F, 0.0F, 0.0F, 1, 1, 1, -0.002F, false));
+        cube_r119.cubeList.add(new ModelBox(cube_r119, 16, 122, -1, 0.0F, 0.0F, 1, 1, 1, -0.002F, false));
 
         cube_r120 = new ModelRenderer(this);
         cube_r120.setRotationPoint(-0.6F, -2.15F, 2.5F);
         stock_short.addChild(cube_r120);
         setRotationAngle(cube_r120, 0.0F, 0.0F, -0.5236F);
-        cube_r120.cubeList.add(new ModelBox(cube_r120, 122, 120, -1.0F, 0.4F, 0.0F, 1, 1, 1, -0.001F, false));
-        cube_r120.cubeList.add(new ModelBox(cube_r120, 122, 122, -1.0F, 1.0F, 0.0F, 1, 1, 1, 0.0F, false));
-        cube_r120.cubeList.add(new ModelBox(cube_r120, 99, 25, -1.0F, 0.0F, 1.0F, 1, 2, 1, 0.0F, false));
+        cube_r120.cubeList.add(new ModelBox(cube_r120, 122, 120, -1, 0.4F, 0.0F, 1, 1, 1, -0.001F, false));
+        cube_r120.cubeList.add(new ModelBox(cube_r120, 122, 122, -1, 1, 0.0F, 1, 1, 1, 0.0F, false));
+        cube_r120.cubeList.add(new ModelBox(cube_r120, 99, 25, -1, 0.0F, 1, 1, 2, 1, 0.0F, false));
 
         cube_r121 = new ModelRenderer(this);
         cube_r121.setRotationPoint(-2.5F, -2.05F, 2.5F);
@@ -1304,7 +1304,7 @@ public class ScarReceiver extends ModelBase {
         cube_r125.setRotationPoint(-0.6F, 10.07F, 7.25F);
         stock_short.addChild(cube_r125);
         setRotationAngle(cube_r125, 0.0F, 0.0F, 0.2618F);
-        cube_r125.cubeList.add(new ModelBox(cube_r125, 90, 55, -1.0F, 0.0F, 0.0F, 1, 2, 6, 0.0F, false));
+        cube_r125.cubeList.add(new ModelBox(cube_r125, 90, 55, -1, 0.0F, 0.0F, 1, 2, 6, 0.0F, false));
 
         cube_r126 = new ModelRenderer(this);
         cube_r126.setRotationPoint(-0.1F, 6.1F, 7.25F);
@@ -1323,9 +1323,9 @@ public class ScarReceiver extends ModelBase {
         stock_short.addChild(cube_r128);
         setRotationAngle(cube_r128, 0.0F, 0.0F, 0.3142F);
         cube_r128.cubeList.add(new ModelBox(cube_r128, 46, 97, -0.7F, -0.3F, -0.7F, 1, 1, 1, -0.301F, false));
-        cube_r128.cubeList.add(new ModelBox(cube_r128, 76, 112, -1.0F, 2.0F, -0.2F, 1, 1, 4, 0.0F, false));
-        cube_r128.cubeList.add(new ModelBox(cube_r128, 47, 16, -1.0F, 0.0F, -1.2F, 1, 3, 1, -0.001F, false));
-        cube_r128.cubeList.add(new ModelBox(cube_r128, 46, 37, -1.0F, 0.0F, 3.8F, 1, 3, 1, -0.001F, false));
+        cube_r128.cubeList.add(new ModelBox(cube_r128, 76, 112, -1, 2.0F, -0.2F, 1, 1, 4, 0.0F, false));
+        cube_r128.cubeList.add(new ModelBox(cube_r128, 47, 16, -1, 0.0F, -1.2F, 1, 3, 1, -0.001F, false));
+        cube_r128.cubeList.add(new ModelBox(cube_r128, 46, 37, -1, 0.0F, 3.8F, 1, 3, 1, -0.001F, false));
 
         cube_r129 = new ModelRenderer(this);
         cube_r129.setRotationPoint(-0.1F, 10.07F, 8.7F);
@@ -1346,7 +1346,7 @@ public class ScarReceiver extends ModelBase {
         cube_r131.setRotationPoint(-0.1F, 10.07F, 7.0F);
         stock_short.addChild(cube_r131);
         setRotationAngle(cube_r131, 0.6632F, 0.0F, 0.3142F);
-        cube_r131.cubeList.add(new ModelBox(cube_r131, 106, 67, -1.0F, 4.0F, 1.6F, 1, 1, 2, -0.002F, false));
+        cube_r131.cubeList.add(new ModelBox(cube_r131, 106, 67, -1, 4.0F, 1.6F, 1, 1, 2, -0.002F, false));
 
         cube_r132 = new ModelRenderer(this);
         cube_r132.setRotationPoint(0.4F, 6.1F, 7.0F);
@@ -1354,26 +1354,26 @@ public class ScarReceiver extends ModelBase {
         setRotationAngle(cube_r132, 0.0F, 0.0F, 0.1222F);
         cube_r132.cubeList.add(new ModelBox(cube_r132, 94, 20, -0.7F, 3.3F, 3.3F, 1, 1, 1, -0.3F, false));
         cube_r132.cubeList.add(new ModelBox(cube_r132, 106, 59, -0.9F, 3.1F, 3.9F, 1, 1, 2, -0.1F, false));
-        cube_r132.cubeList.add(new ModelBox(cube_r132, 47, 63, -1.0F, 3.0F, 0.7F, 1, 1, 1, -0.003F, false));
+        cube_r132.cubeList.add(new ModelBox(cube_r132, 47, 63, -1, 3.0F, 0.7F, 1, 1, 1, -0.003F, false));
         cube_r132.cubeList.add(new ModelBox(cube_r132, 30, 54, -0.8F, -0.2F, 1.3F, 1, 1, 1, -0.201F, false));
-        cube_r132.cubeList.add(new ModelBox(cube_r132, 47, 44, -1.0F, 0.0F, 0.6F, 1, 1, 1, -0.002F, false));
-        cube_r132.cubeList.add(new ModelBox(cube_r132, 10, 78, -1.0F, 0.0F, 0.0F, 1, 4, 1, -0.001F, false));
-        cube_r132.cubeList.add(new ModelBox(cube_r132, 26, 16, -1.0F, 0.0F, 5.0F, 1, 4, 1, -0.001F, false));
+        cube_r132.cubeList.add(new ModelBox(cube_r132, 47, 44, -1, 0.0F, 0.6F, 1, 1, 1, -0.002F, false));
+        cube_r132.cubeList.add(new ModelBox(cube_r132, 10, 78, -1, 0.0F, 0.0F, 1, 4, 1, -0.001F, false));
+        cube_r132.cubeList.add(new ModelBox(cube_r132, 26, 16, -1, 0.0F, 5.0F, 1, 4, 1, -0.001F, false));
 
         cube_r133 = new ModelRenderer(this);
         cube_r133.setRotationPoint(0.4F, 8.5F, 12.0F);
         stock_short.addChild(cube_r133);
         setRotationAngle(cube_r133, 0.6807F, 0.0F, 0.1222F);
-        cube_r133.cubeList.add(new ModelBox(cube_r133, 81, 90, -1.0F, -0.3F, -2.5F, 1, 1, 1, -0.3F, false));
+        cube_r133.cubeList.add(new ModelBox(cube_r133, 81, 90, -1, -0.3F, -2.5F, 1, 1, 1, -0.3F, false));
         cube_r133.cubeList.add(new ModelBox(cube_r133, 70, 90, -1.1F, -0.2F, -2.1F, 1, 1, 1, -0.2F, false));
         cube_r133.cubeList.add(new ModelBox(cube_r133, 8, 72, -1.3F, 0.0F, -1.3F, 1, 1, 1, -0.003F, false));
-        cube_r133.cubeList.add(new ModelBox(cube_r133, 67, 55, -1.3F, 0.0F, -1.0F, 1, 1, 1, -0.002F, false));
+        cube_r133.cubeList.add(new ModelBox(cube_r133, 67, 55, -1.3F, 0.0F, -1, 1, 1, 1, -0.002F, false));
 
         cube_r134 = new ModelRenderer(this);
         cube_r134.setRotationPoint(0.4F, 6.1F, 12.0F);
         stock_short.addChild(cube_r134);
         setRotationAngle(cube_r134, 0.6807F, 0.0F, 0.1222F);
-        cube_r134.cubeList.add(new ModelBox(cube_r134, 10, 78, -1.0F, 0.0F, -5.0F, 1, 1, 5, -0.002F, false));
+        cube_r134.cubeList.add(new ModelBox(cube_r134, 10, 78, -1, 0.0F, -5.0F, 1, 1, 5, -0.002F, false));
 
         cube_r135 = new ModelRenderer(this);
         cube_r135.setRotationPoint(0.4F, 6.1F, 10.0F);
@@ -1385,8 +1385,8 @@ public class ScarReceiver extends ModelBase {
         cube_r136.setRotationPoint(0.4F, 3.1F, 12.0F);
         stock_short.addChild(cube_r136);
         setRotationAngle(cube_r136, -0.8552F, 0.0F, 0.0F);
-        cube_r136.cubeList.add(new ModelBox(cube_r136, 36, 47, -1.0F, 2.5F, 0.0F, 1, 1, 1, -0.003F, false));
-        cube_r136.cubeList.add(new ModelBox(cube_r136, 11, 54, -1.0F, 0.0F, 0.0F, 1, 3, 1, -0.002F, false));
+        cube_r136.cubeList.add(new ModelBox(cube_r136, 36, 47, -1, 2.5F, 0.0F, 1, 1, 1, -0.003F, false));
+        cube_r136.cubeList.add(new ModelBox(cube_r136, 11, 54, -1, 0.0F, 0.0F, 1, 3, 1, -0.002F, false));
         cube_r136.cubeList.add(new ModelBox(cube_r136, 42, 116, -4.0F, 2.5F, 0.0F, 1, 1, 1, -0.003F, false));
         cube_r136.cubeList.add(new ModelBox(cube_r136, 71, 6, -4.0F, 0.0F, 0.0F, 1, 3, 1, -0.002F, false));
 
@@ -1394,16 +1394,16 @@ public class ScarReceiver extends ModelBase {
         cube_r137.setRotationPoint(0.4F, 3.1F, 8.0F);
         stock_short.addChild(cube_r137);
         setRotationAngle(cube_r137, 0.0F, 0.0F, -0.3316F);
-        cube_r137.cubeList.add(new ModelBox(cube_r137, 17, 54, -1.0F, -3.0F, 1.8F, 1, 3, 1, -0.002F, false));
-        cube_r137.cubeList.add(new ModelBox(cube_r137, 77, 90, -1.0F, -3.0F, 0.0F, 1, 3, 2, -0.001F, false));
-        cube_r137.cubeList.add(new ModelBox(cube_r137, 39, 16, -1.0F, -3.0F, 4.0F, 1, 3, 1, -0.001F, false));
+        cube_r137.cubeList.add(new ModelBox(cube_r137, 17, 54, -1, -3.0F, 1.8F, 1, 3, 1, -0.002F, false));
+        cube_r137.cubeList.add(new ModelBox(cube_r137, 77, 90, -1, -3.0F, 0.0F, 1, 3, 2, -0.001F, false));
+        cube_r137.cubeList.add(new ModelBox(cube_r137, 39, 16, -1, -3.0F, 4.0F, 1, 3, 1, -0.001F, false));
 
         cube_r138 = new ModelRenderer(this);
         cube_r138.setRotationPoint(0.4F, 3.1F, 9.5F);
         stock_short.addChild(cube_r138);
         setRotationAngle(cube_r138, -0.8552F, 0.0F, 0.0F);
         cube_r138.cubeList.add(new ModelBox(cube_r138, 47, 32, -0.8F, -0.8F, 0.2F, 1, 2, 1, -0.201F, false));
-        cube_r138.cubeList.add(new ModelBox(cube_r138, 11, 47, -1.0F, 0.8F, 0.0F, 1, 1, 1, -0.002F, false));
+        cube_r138.cubeList.add(new ModelBox(cube_r138, 11, 47, -1, 0.8F, 0.0F, 1, 1, 1, -0.002F, false));
         cube_r138.cubeList.add(new ModelBox(cube_r138, 117, 79, -4.0F, 0.8F, 0.0F, 1, 1, 1, -0.002F, false));
         cube_r138.cubeList.add(new ModelBox(cube_r138, 18, 64, -4.2F, -0.8F, 0.2F, 1, 2, 1, -0.201F, false));
 
@@ -1456,7 +1456,7 @@ public class ScarReceiver extends ModelBase {
         cube_r145.cubeList.add(new ModelBox(cube_r145, 99, 115, -0.2F, -0.2F, 0.3F, 1, 1, 1, -0.201F, false));
         cube_r145.cubeList.add(new ModelBox(cube_r145, 27, 116, 0.0F, 0.0F, -0.4F, 1, 1, 1, -0.002F, false));
         cube_r145.cubeList.add(new ModelBox(cube_r145, 93, 115, 0.0F, 3.0F, -0.3F, 1, 1, 1, -0.003F, false));
-        cube_r145.cubeList.add(new ModelBox(cube_r145, 17, 78, 0.0F, 0.0F, -1.0F, 1, 4, 1, -0.001F, false));
+        cube_r145.cubeList.add(new ModelBox(cube_r145, 17, 78, 0.0F, 0.0F, -1, 1, 4, 1, -0.001F, false));
         cube_r145.cubeList.add(new ModelBox(cube_r145, 89, 101, -0.3F, 3.3F, 2.3F, 1, 1, 1, -0.3F, false));
         cube_r145.cubeList.add(new ModelBox(cube_r145, 95, 115, -0.1F, 3.1F, 2.9F, 1, 1, 2, -0.1F, false));
         cube_r145.cubeList.add(new ModelBox(cube_r145, 63, 78, 0.0F, 0.0F, 4.0F, 1, 4, 1, -0.001F, false));
@@ -1468,7 +1468,7 @@ public class ScarReceiver extends ModelBase {
         cube_r146.cubeList.add(new ModelBox(cube_r146, 47, 103, 0.0F, -0.3F, -2.5F, 1, 1, 1, -0.3F, false));
         cube_r146.cubeList.add(new ModelBox(cube_r146, 106, 102, 0.1F, -0.2F, -2.1F, 1, 1, 1, -0.2F, false));
         cube_r146.cubeList.add(new ModelBox(cube_r146, 57, 107, 0.3F, 0.0F, -1.3F, 1, 1, 1, -0.003F, false));
-        cube_r146.cubeList.add(new ModelBox(cube_r146, 108, 2, 0.3F, 0.0F, -1.0F, 1, 1, 1, -0.002F, false));
+        cube_r146.cubeList.add(new ModelBox(cube_r146, 108, 2, 0.3F, 0.0F, -1, 1, 1, 1, -0.002F, false));
 
         cube_r147 = new ModelRenderer(this);
         cube_r147.setRotationPoint(-3.6F, 6.1F, 12.0F);
@@ -1506,7 +1506,7 @@ public class ScarReceiver extends ModelBase {
         cube_r152.setRotationPoint(1.7F, 5.0F, 2.5F);
         stock_short.addChild(cube_r152);
         setRotationAngle(cube_r152, 0.0F, 0.0F, -0.192F);
-        cube_r152.cubeList.add(new ModelBox(cube_r152, 92, 6, -2.0F, -1.0F, 0.0F, 2, 1, 4, -0.001F, false));
+        cube_r152.cubeList.add(new ModelBox(cube_r152, 92, 6, -2.0F, -1, 0.0F, 2, 1, 4, -0.001F, false));
 
         cube_r153 = new ModelRenderer(this);
         cube_r153.setRotationPoint(1.7F, 3.0F, 2.5F);
@@ -1518,7 +1518,7 @@ public class ScarReceiver extends ModelBase {
         cube_r154.setRotationPoint(-4.9F, 5.0F, 2.5F);
         stock_short.addChild(cube_r154);
         setRotationAngle(cube_r154, 0.0F, 0.0F, 0.192F);
-        cube_r154.cubeList.add(new ModelBox(cube_r154, 92, 30, 0.0F, -1.0F, 0.0F, 2, 1, 4, -0.001F, false));
+        cube_r154.cubeList.add(new ModelBox(cube_r154, 92, 30, 0.0F, -1, 0.0F, 2, 1, 4, -0.001F, false));
 
         cube_r155 = new ModelRenderer(this);
         cube_r155.setRotationPoint(-4.9F, 3.0F, 2.5F);
@@ -1539,7 +1539,7 @@ public class ScarReceiver extends ModelBase {
         bone13.cubeList.add(new ModelBox(bone13, 100, 6, 4.85F, 0.7F, -0.2F, 1, 2, 1, -0.2F, false));
         bone13.cubeList.add(new ModelBox(bone13, 47, 99, 4.85F, 0.3F, -0.2F, 1, 2, 1, -0.199F, false));
         bone13.cubeList.add(new ModelBox(bone13, 53, 35, -0.1F, -0.2F, -0.2F, 2, 9, 1, -0.2F, false));
-        bone13.cubeList.add(new ModelBox(bone13, 120, 116, 0.0F, 0.3F, -1.0F, 1, 1, 2, -0.2F, false));
+        bone13.cubeList.add(new ModelBox(bone13, 120, 116, 0.0F, 0.3F, -1, 1, 1, 2, -0.2F, false));
         bone13.cubeList.add(new ModelBox(bone13, 0, 64, 2.72F, -1.12F, 0.0F, 1, 4, 2, 0.001F, false));
         bone13.cubeList.add(new ModelBox(bone13, 17, 86, 2.72F, -1.12F, 1.5F, 1, 4, 1, 0.0F, false));
         bone13.cubeList.add(new ModelBox(bone13, 33, 123, 2.25F, -1.5F, 1.5F, 1, 1, 1, -0.001F, false));
@@ -1550,7 +1550,7 @@ public class ScarReceiver extends ModelBase {
         bone13.cubeList.add(new ModelBox(bone13, 15, 13, 1.18F, -1.12F, 0.0F, 1, 4, 2, 0.001F, false));
 
         cube_r156 = new ModelRenderer(this);
-        cube_r156.setRotationPoint(1.65F, -1.5F, -1.0F);
+        cube_r156.setRotationPoint(1.65F, -1.5F, -1);
         bone13.addChild(cube_r156);
         setRotationAngle(cube_r156, 0.0F, 0.0F, 0.8901F);
         cube_r156.cubeList.add(new ModelBox(cube_r156, 117, 93, -0.2F, -0.2F, 0.8F, 1, 1, 2, -0.198F, false));
@@ -1596,8 +1596,8 @@ public class ScarReceiver extends ModelBase {
         stock_adapter = new ModelRenderer(this);
         stock_adapter.setRotationPoint(0.0F, 24.0F, 0.0F);
         stock_adapter.cubeList.add(new ModelBox(stock_adapter, 0, 54, -0.5F, -41.6F, 4.5F, 1, 8, 1, 0.0F, false));
-        stock_adapter.cubeList.add(new ModelBox(stock_adapter, 83, 24, -0.7F, -41.0F, 3.5F, 1, 5, 1, -0.001F, false));
-        stock_adapter.cubeList.add(new ModelBox(stock_adapter, 83, 0, -3.3F, -41.0F, 3.5F, 1, 5, 1, -0.001F, false));
+        stock_adapter.cubeList.add(new ModelBox(stock_adapter, 83, 24, -0.7F, -41, 3.5F, 1, 5, 1, -0.001F, false));
+        stock_adapter.cubeList.add(new ModelBox(stock_adapter, 83, 0, -3.3F, -41, 3.5F, 1, 5, 1, -0.001F, false));
         stock_adapter.cubeList.add(new ModelBox(stock_adapter, 53, 31, -3.5F, -36.0F, 3.5F, 4, 2, 1, 0.0F, false));
         stock_adapter.cubeList.add(new ModelBox(stock_adapter, 26, 24, -3.5F, -41.6F, 2.5F, 4, 9, 1, 0.0F, false));
         stock_adapter.cubeList.add(new ModelBox(stock_adapter, 30, 78, -0.1F, -38.1F, 2.2F, 1, 5, 1, -0.1F, false));
@@ -1632,15 +1632,15 @@ public class ScarReceiver extends ModelBase {
         cube_r166.setRotationPoint(-3.7F, -39.7F, 4.8F);
         stock_adapter.addChild(cube_r166);
         setRotationAngle(cube_r166, 0.4189F, 0.0F, 0.0F);
-        cube_r166.cubeList.add(new ModelBox(cube_r166, 149, 29, 0.0F, -1.0F, -1.0F, 1, 1, 1, -0.25F, false));
-        cube_r166.cubeList.add(new ModelBox(cube_r166, 149, 37, 3.4F, -1.0F, -1.0F, 1, 1, 1, -0.25F, false));
+        cube_r166.cubeList.add(new ModelBox(cube_r166, 149, 29, 0.0F, -1, -1, 1, 1, 1, -0.25F, false));
+        cube_r166.cubeList.add(new ModelBox(cube_r166, 149, 37, 3.4F, -1, -1, 1, 1, 1, -0.25F, false));
 
         cube_r167 = new ModelRenderer(this);
         cube_r167.setRotationPoint(-3.7F, -37.1F, 4.8F);
         stock_adapter.addChild(cube_r167);
         setRotationAngle(cube_r167, 0.4189F, 0.0F, 0.0F);
-        cube_r167.cubeList.add(new ModelBox(cube_r167, 149, 27, 0.0F, -1.0F, -1.0F, 1, 1, 1, -0.25F, false));
-        cube_r167.cubeList.add(new ModelBox(cube_r167, 149, 39, 3.4F, -1.0F, -1.0F, 1, 1, 1, -0.25F, false));
+        cube_r167.cubeList.add(new ModelBox(cube_r167, 149, 27, 0.0F, -1, -1, 1, 1, 1, -0.25F, false));
+        cube_r167.cubeList.add(new ModelBox(cube_r167, 149, 39, 3.4F, -1, -1, 1, 1, 1, -0.25F, false));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(-3.95F, -41.55F, 2.0F);
@@ -1659,7 +1659,7 @@ public class ScarReceiver extends ModelBase {
         bone7.cubeList.add(new ModelBox(bone7, 149, 76, 4.55F, 3.7F, -0.2F, 1, 1, 1, -0.201F, false));
         bone7.cubeList.add(new ModelBox(bone7, 69, 109, 4.85F, 3.7F, -0.2F, 1, 2, 1, -0.199F, false));
         bone7.cubeList.add(new ModelBox(bone7, 65, 0, -0.1F, -0.2F, -0.2F, 2, 9, 1, -0.2F, false));
-        bone7.cubeList.add(new ModelBox(bone7, 106, 130, 0.0F, 0.3F, -1.0F, 1, 1, 2, -0.2F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 106, 130, 0.0F, 0.3F, -1, 1, 1, 2, -0.2F, false));
         bone7.cubeList.add(new ModelBox(bone7, 45, 76, 3.22F, -0.72F, 0.0F, 1, 4, 2, 0.001F, false));
         bone7.cubeList.add(new ModelBox(bone7, 87, 36, 3.22F, -0.72F, 1.5F, 1, 4, 1, 0.0F, false));
         bone7.cubeList.add(new ModelBox(bone7, 71, 84, 2.25F, -1.5F, 1.5F, 1, 5, 1, -0.001F, false));
@@ -1734,14 +1734,14 @@ public class ScarReceiver extends ModelBase {
         bone8.addChild(receiver16_r2);
         setRotationAngle(receiver16_r2, 0.0F, 0.0F, -0.4014F);
         receiver16_r2.cubeList.add(new ModelBox(receiver16_r2, 45, 124, -1.35F, -0.001F, 0.001F, 1, 1, 2, 0.0F, false));
-        receiver16_r2.cubeList.add(new ModelBox(receiver16_r2, 106, 125, -1.0F, 0.0F, 0.002F, 1, 1, 2, 0.0F, false));
+        receiver16_r2.cubeList.add(new ModelBox(receiver16_r2, 106, 125, -1, 0.0F, 0.002F, 1, 1, 2, 0.0F, false));
 
         receiver15_r1 = new ModelRenderer(this);
         receiver15_r1.setRotationPoint(-1.75F, 1.75F, -0.1F);
         bone8.addChild(receiver15_r1);
         setRotationAngle(receiver15_r1, 0.0F, 0.0F, 0.4014F);
         receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 114, 125, -0.001F, -1.35F, -0.0001F, 1, 1, 2, 0.0F, false));
-        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 120, 125, 0.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver15_r1.cubeList.add(new ModelBox(receiver15_r1, 120, 125, 0.0F, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         receiver15_r2 = new ModelRenderer(this);
         receiver15_r2.setRotationPoint(-1.75F, 1.75F, -0.1F);
@@ -1755,27 +1755,27 @@ public class ScarReceiver extends ModelBase {
         bone8.addChild(receiver17_r1);
         setRotationAngle(receiver17_r1, 0.0F, 0.0F, 0.4014F);
         receiver17_r1.cubeList.add(new ModelBox(receiver17_r1, 0, 128, -1.35F, -0.999F, 0.001F, 1, 1, 2, 0.0F, false));
-        receiver17_r1.cubeList.add(new ModelBox(receiver17_r1, 36, 128, -1.0F, -1.0F, 0.002F, 1, 1, 2, 0.0F, false));
+        receiver17_r1.cubeList.add(new ModelBox(receiver17_r1, 36, 128, -1, -1, 0.002F, 1, 1, 2, 0.0F, false));
 
         receiver17_r2 = new ModelRenderer(this);
         receiver17_r2.setRotationPoint(0.0F, 3.5F, -0.1F);
         bone8.addChild(receiver17_r2);
         setRotationAngle(receiver17_r2, 0.0F, 0.0F, -0.4014F);
-        receiver17_r2.cubeList.add(new ModelBox(receiver17_r2, 14, 128, 0.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver17_r2.cubeList.add(new ModelBox(receiver17_r2, 14, 128, 0.0F, -1, 0.0F, 1, 1, 2, 0.0F, false));
         receiver17_r2.cubeList.add(new ModelBox(receiver17_r2, 53, 129, 0.35F, -0.999F, 0.001F, 1, 1, 2, 0.0F, false));
 
         receiver16_r3 = new ModelRenderer(this);
         receiver16_r3.setRotationPoint(1.75F, 1.75F, -0.1F);
         bone8.addChild(receiver16_r3);
         setRotationAngle(receiver16_r3, 0.0F, 0.0F, 0.4014F);
-        receiver16_r3.cubeList.add(new ModelBox(receiver16_r3, 129, 67, -1.0F, 0.0F, 0.002F, 1, 1, 2, 0.0F, false));
+        receiver16_r3.cubeList.add(new ModelBox(receiver16_r3, 129, 67, -1, 0.0F, 0.002F, 1, 1, 2, 0.0F, false));
         receiver16_r3.cubeList.add(new ModelBox(receiver16_r3, 129, 70, -0.999F, 0.3F, 0.0F, 1, 1, 2, 0.0F, false));
 
         receiver15_r3 = new ModelRenderer(this);
         receiver15_r3.setRotationPoint(1.75F, 1.75F, -0.1F);
         bone8.addChild(receiver15_r3);
         setRotationAngle(receiver15_r3, 0.0F, 0.0F, -0.4014F);
-        receiver15_r3.cubeList.add(new ModelBox(receiver15_r3, 73, 129, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        receiver15_r3.cubeList.add(new ModelBox(receiver15_r3, 73, 129, -1, -1, 0.0F, 1, 1, 2, 0.0F, false));
         receiver15_r3.cubeList.add(new ModelBox(receiver15_r3, 81, 129, -0.999F, -1.35F, -0.0001F, 1, 1, 2, 0.0F, false));
     }
 

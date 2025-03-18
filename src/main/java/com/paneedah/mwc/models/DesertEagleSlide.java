@@ -86,8 +86,8 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide29_r1.setRotationPoint(-3.89F, -34.8F, -23.2F);
         slide.addChild(slide29_r1);
         setRotationAngle(slide29_r1, 0.0F, 0.0F, -2.714F);
-        slide29_r1.cubeList.add(new ModelBox(slide29_r1, 17, 47, -1.0F, 0.4F, 0.0F, 1, 1, 15, 0.0F, false));
-        slide29_r1.cubeList.add(new ModelBox(slide29_r1, 0, 46, -1.0F, 0.0F, 0.0F, 1, 1, 15, 0.001F, false));
+        slide29_r1.cubeList.add(new ModelBox(slide29_r1, 17, 47, -1, 0.4F, 0.0F, 1, 1, 15, 0.0F, false));
+        slide29_r1.cubeList.add(new ModelBox(slide29_r1, 0, 46, -1, 0.0F, 0.0F, 1, 1, 15, 0.001F, false));
 
         slide22_r1 = new ModelRenderer(this);
         slide22_r1.setRotationPoint(-3.89F, -35.8F, -8.5F);
@@ -100,10 +100,10 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide27_r1.setRotationPoint(-4.09F, -32.7F, 1.55F);
         slide.addChild(slide27_r1);
         setRotationAngle(slide27_r1, 0.2443F, 0.0F, 0.0F);
-        slide27_r1.cubeList.add(new ModelBox(slide27_r1, 6, 0, 0.0F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
-        slide27_r1.cubeList.add(new ModelBox(slide27_r1, 6, 70, 0.0F, -3.5F, -1.0F, 1, 1, 1, -0.199F, false));
-        slide27_r1.cubeList.add(new ModelBox(slide27_r1, 15, 75, 4.18F, -3.5F, -1.0F, 1, 1, 1, -0.199F, false));
-        slide27_r1.cubeList.add(new ModelBox(slide27_r1, 20, 32, 4.18F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
+        slide27_r1.cubeList.add(new ModelBox(slide27_r1, 6, 0, 0.0F, -3.1F, -1, 1, 3, 1, -0.2F, false));
+        slide27_r1.cubeList.add(new ModelBox(slide27_r1, 6, 70, 0.0F, -3.5F, -1, 1, 1, 1, -0.199F, false));
+        slide27_r1.cubeList.add(new ModelBox(slide27_r1, 15, 75, 4.18F, -3.5F, -1, 1, 1, 1, -0.199F, false));
+        slide27_r1.cubeList.add(new ModelBox(slide27_r1, 20, 32, 4.18F, -3.1F, -1, 1, 3, 1, -0.2F, false));
 
         slide6_r1 = new ModelRenderer(this);
         slide6_r1.setRotationPoint(-3.25F, -38.3F, 0.3F);
@@ -114,7 +114,7 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide6_r1.cubeList.add(new ModelBox(slide6_r1, 64, 71, -2.6F, 0.0F, -8.8F, 1, 1, 1, 0.001F, false));
         slide6_r1.cubeList.add(new ModelBox(slide6_r1, 66, 6, -1.5F, 0.0F, -7.8F, 1, 1, 4, 0.001F, false));
         slide6_r1.cubeList.add(new ModelBox(slide6_r1, 28, 38, -2.0F, 0.0F, -8.8F, 2, 1, 1, 0.002F, false));
-        slide6_r1.cubeList.add(new ModelBox(slide6_r1, 40, 74, -1.0F, 0.0F, -7.8F, 1, 1, 8, 0.002F, false));
+        slide6_r1.cubeList.add(new ModelBox(slide6_r1, 40, 74, -1, 0.0F, -7.8F, 1, 1, 8, 0.002F, false));
 
         slide28_r1 = new ModelRenderer(this);
         slide28_r1.setRotationPoint(-3.89F, -35.8F, 0.55F);
@@ -126,20 +126,20 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide21_r1.setRotationPoint(-3.89F, -32.8F, -6.2F);
         slide.addChild(slide21_r1);
         setRotationAngle(slide21_r1, 0.2443F, 0.0F, 0.0F);
-        slide21_r1.cubeList.add(new ModelBox(slide21_r1, 0, 13, 0.0F, -3.1F, -1.0F, 1, 3, 1, 0.001F, false));
-        slide21_r1.cubeList.add(new ModelBox(slide21_r1, 49, 6, 3.78F, -3.1F, -1.0F, 1, 3, 1, 0.001F, false));
+        slide21_r1.cubeList.add(new ModelBox(slide21_r1, 0, 13, 0.0F, -3.1F, -1, 1, 3, 1, 0.001F, false));
+        slide21_r1.cubeList.add(new ModelBox(slide21_r1, 49, 6, 3.78F, -3.1F, -1, 1, 3, 1, 0.001F, false));
 
         slide22_r2 = new ModelRenderer(this);
         slide22_r2.setRotationPoint(-3.89F, -35.7F, -6.9F);
         slide.addChild(slide22_r2);
         setRotationAngle(slide22_r2, 0.2364F, -0.0036F, 0.2339F);
-        slide22_r2.cubeList.add(new ModelBox(slide22_r2, 0, 52, 0.0F, -2.1F, -1.0F, 1, 2, 1, 0.001F, false));
+        slide22_r2.cubeList.add(new ModelBox(slide22_r2, 0, 52, 0.0F, -2.1F, -1, 1, 2, 1, 0.001F, false));
 
         slide21_r2 = new ModelRenderer(this);
         slide21_r2.setRotationPoint(0.89F, -35.7F, -6.9F);
         slide.addChild(slide21_r2);
         setRotationAngle(slide21_r2, 0.2364F, 0.0036F, -0.2339F);
-        slide21_r2.cubeList.add(new ModelBox(slide21_r2, 62, 44, -1.0F, -2.1F, -1.0F, 1, 2, 1, 0.001F, false));
+        slide21_r2.cubeList.add(new ModelBox(slide21_r2, 62, 44, -1, -2.1F, -1, 1, 2, 1, 0.001F, false));
 
         slide27_r2 = new ModelRenderer(this);
         slide27_r2.setRotationPoint(0.89F, -35.8F, 0.55F);
@@ -158,44 +158,44 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide27_r3.setRotationPoint(-4.09F, -32.7F, 0.3F);
         slide.addChild(slide27_r3);
         setRotationAngle(slide27_r3, 0.2443F, 0.0F, 0.0F);
-        slide27_r3.cubeList.add(new ModelBox(slide27_r3, 74, 62, 0.0F, -3.5F, -1.0F, 1, 1, 1, -0.199F, false));
-        slide27_r3.cubeList.add(new ModelBox(slide27_r3, 0, 32, 0.0F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
-        slide27_r3.cubeList.add(new ModelBox(slide27_r3, 43, 0, 4.18F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
-        slide27_r3.cubeList.add(new ModelBox(slide27_r3, 21, 75, 4.18F, -3.5F, -1.0F, 1, 1, 1, -0.199F, false));
+        slide27_r3.cubeList.add(new ModelBox(slide27_r3, 74, 62, 0.0F, -3.5F, -1, 1, 1, 1, -0.199F, false));
+        slide27_r3.cubeList.add(new ModelBox(slide27_r3, 0, 32, 0.0F, -3.1F, -1, 1, 3, 1, -0.2F, false));
+        slide27_r3.cubeList.add(new ModelBox(slide27_r3, 43, 0, 4.18F, -3.1F, -1, 1, 3, 1, -0.2F, false));
+        slide27_r3.cubeList.add(new ModelBox(slide27_r3, 21, 75, 4.18F, -3.5F, -1, 1, 1, 1, -0.199F, false));
 
         slide25_r1 = new ModelRenderer(this);
         slide25_r1.setRotationPoint(-4.09F, -32.7F, -0.95F);
         slide.addChild(slide25_r1);
         setRotationAngle(slide25_r1, 0.2443F, 0.0F, 0.0F);
-        slide25_r1.cubeList.add(new ModelBox(slide25_r1, 31, 9, 0.0F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
-        slide25_r1.cubeList.add(new ModelBox(slide25_r1, 43, 18, 4.18F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
+        slide25_r1.cubeList.add(new ModelBox(slide25_r1, 31, 9, 0.0F, -3.1F, -1, 1, 3, 1, -0.2F, false));
+        slide25_r1.cubeList.add(new ModelBox(slide25_r1, 43, 18, 4.18F, -3.1F, -1, 1, 3, 1, -0.2F, false));
 
         slide24_r1 = new ModelRenderer(this);
         slide24_r1.setRotationPoint(-4.09F, -32.7F, -2.2F);
         slide.addChild(slide24_r1);
         setRotationAngle(slide24_r1, 0.2443F, 0.0F, 0.0F);
-        slide24_r1.cubeList.add(new ModelBox(slide24_r1, 31, 0, 0.0F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
-        slide24_r1.cubeList.add(new ModelBox(slide24_r1, 72, 8, 0.0F, -3.5F, -1.0F, 1, 1, 1, -0.199F, false));
-        slide24_r1.cubeList.add(new ModelBox(slide24_r1, 0, 46, 4.18F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
-        slide24_r1.cubeList.add(new ModelBox(slide24_r1, 27, 75, 4.18F, -3.5F, -1.0F, 1, 1, 1, -0.199F, false));
+        slide24_r1.cubeList.add(new ModelBox(slide24_r1, 31, 0, 0.0F, -3.1F, -1, 1, 3, 1, -0.2F, false));
+        slide24_r1.cubeList.add(new ModelBox(slide24_r1, 72, 8, 0.0F, -3.5F, -1, 1, 1, 1, -0.199F, false));
+        slide24_r1.cubeList.add(new ModelBox(slide24_r1, 0, 46, 4.18F, -3.1F, -1, 1, 3, 1, -0.2F, false));
+        slide24_r1.cubeList.add(new ModelBox(slide24_r1, 27, 75, 4.18F, -3.5F, -1, 1, 1, 1, -0.199F, false));
 
         slide23_r1 = new ModelRenderer(this);
         slide23_r1.setRotationPoint(-4.09F, -32.7F, -3.45F);
         slide.addChild(slide23_r1);
         setRotationAngle(slide23_r1, 0.2443F, 0.0F, 0.0F);
-        slide23_r1.cubeList.add(new ModelBox(slide23_r1, 9, 26, 0.0F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
-        slide23_r1.cubeList.add(new ModelBox(slide23_r1, 73, 19, 0.0F, -3.5F, -1.0F, 1, 1, 1, -0.199F, false));
-        slide23_r1.cubeList.add(new ModelBox(slide23_r1, 17, 47, 4.18F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
-        slide23_r1.cubeList.add(new ModelBox(slide23_r1, 38, 75, 4.18F, -3.5F, -1.0F, 1, 1, 1, -0.199F, false));
+        slide23_r1.cubeList.add(new ModelBox(slide23_r1, 9, 26, 0.0F, -3.1F, -1, 1, 3, 1, -0.2F, false));
+        slide23_r1.cubeList.add(new ModelBox(slide23_r1, 73, 19, 0.0F, -3.5F, -1, 1, 1, 1, -0.199F, false));
+        slide23_r1.cubeList.add(new ModelBox(slide23_r1, 17, 47, 4.18F, -3.1F, -1, 1, 3, 1, -0.2F, false));
+        slide23_r1.cubeList.add(new ModelBox(slide23_r1, 38, 75, 4.18F, -3.5F, -1, 1, 1, 1, -0.199F, false));
 
         slide22_r3 = new ModelRenderer(this);
         slide22_r3.setRotationPoint(-4.09F, -32.7F, -4.7F);
         slide.addChild(slide22_r3);
         setRotationAngle(slide22_r3, 0.2443F, 0.0F, 0.0F);
-        slide22_r3.cubeList.add(new ModelBox(slide22_r3, 6, 13, 0.0F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
-        slide22_r3.cubeList.add(new ModelBox(slide22_r3, 50, 74, 0.0F, -3.5F, -1.0F, 1, 1, 1, -0.199F, false));
-        slide22_r3.cubeList.add(new ModelBox(slide22_r3, 44, 75, 4.18F, -3.5F, -1.0F, 1, 1, 1, -0.199F, false));
-        slide22_r3.cubeList.add(new ModelBox(slide22_r3, 49, 0, 4.18F, -3.1F, -1.0F, 1, 3, 1, -0.2F, false));
+        slide22_r3.cubeList.add(new ModelBox(slide22_r3, 6, 13, 0.0F, -3.1F, -1, 1, 3, 1, -0.2F, false));
+        slide22_r3.cubeList.add(new ModelBox(slide22_r3, 50, 74, 0.0F, -3.5F, -1, 1, 1, 1, -0.199F, false));
+        slide22_r3.cubeList.add(new ModelBox(slide22_r3, 44, 75, 4.18F, -3.5F, -1, 1, 1, 1, -0.199F, false));
+        slide22_r3.cubeList.add(new ModelBox(slide22_r3, 49, 0, 4.18F, -3.1F, -1, 1, 3, 1, -0.2F, false));
 
         slide23_r2 = new ModelRenderer(this);
         slide23_r2.setRotationPoint(-3.89F, -35.8F, -5.7F);
@@ -219,8 +219,8 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide11_r1.setRotationPoint(-3.72F, -36.6F, -3.3F);
         slide.addChild(slide11_r1);
         setRotationAngle(slide11_r1, -0.4363F, 0.0F, 0.0F);
-        slide11_r1.cubeList.add(new ModelBox(slide11_r1, 66, 12, 0.0F, -1.0F, 0.0F, 1, 1, 2, -0.001F, false));
-        slide11_r1.cubeList.add(new ModelBox(slide11_r1, 26, 66, 3.44F, -1.0F, 0.0F, 1, 1, 2, -0.001F, false));
+        slide11_r1.cubeList.add(new ModelBox(slide11_r1, 66, 12, 0.0F, -1, 0.0F, 1, 1, 2, -0.001F, false));
+        slide11_r1.cubeList.add(new ModelBox(slide11_r1, 26, 66, 3.44F, -1, 0.0F, 1, 1, 2, -0.001F, false));
 
         slide13_r1 = new ModelRenderer(this);
         slide13_r1.setRotationPoint(-3.72F, -36.5F, -3.2F);
@@ -240,8 +240,8 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide12_r1.setRotationPoint(-3.72F, -36.6F, -3.3F);
         slide.addChild(slide12_r1);
         setRotationAngle(slide12_r1, 0.0349F, 0.0F, 0.0F);
-        slide12_r1.cubeList.add(new ModelBox(slide12_r1, 65, 23, 0.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
-        slide12_r1.cubeList.add(new ModelBox(slide12_r1, 13, 66, 3.44F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
+        slide12_r1.cubeList.add(new ModelBox(slide12_r1, 65, 23, 0.0F, -1, 0.0F, 1, 1, 2, 0.0F, false));
+        slide12_r1.cubeList.add(new ModelBox(slide12_r1, 13, 66, 3.44F, -1, 0.0F, 1, 1, 2, 0.0F, false));
 
         slide10_r1 = new ModelRenderer(this);
         slide10_r1.setRotationPoint(-3.72F, -36.9F, -2.2F);
@@ -254,7 +254,7 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide13_r2.setRotationPoint(-3.92F, -36.7F, -3.3F);
         slide.addChild(slide13_r2);
         setRotationAngle(slide13_r2, -0.0584F, -0.1449F, 0.4538F);
-        slide13_r2.cubeList.add(new ModelBox(slide13_r2, 72, 0, 0.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide13_r2.cubeList.add(new ModelBox(slide13_r2, 72, 0, 0.0F, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide24_r3 = new ModelRenderer(this);
         slide24_r3.setRotationPoint(0.89F, -35.8F, -3.2F);
@@ -278,7 +278,7 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide6_r2.setRotationPoint(0.25F, -38.3F, 0.3F);
         slide.addChild(slide6_r2);
         setRotationAngle(slide6_r2, 0.0F, 0.0F, 1.3177F);
-        slide6_r2.cubeList.add(new ModelBox(slide6_r2, 70, 69, 1.0F, 0.0F, -0.3F, 1, 1, 1, 0.002F, false));
+        slide6_r2.cubeList.add(new ModelBox(slide6_r2, 70, 69, 1, 0.0F, -0.3F, 1, 1, 1, 0.002F, false));
         slide6_r2.cubeList.add(new ModelBox(slide6_r2, 0, 75, 1.6F, 0.0F, 0.0F, 1, 1, 1, 0.001F, false));
         slide6_r2.cubeList.add(new ModelBox(slide6_r2, 9, 77, 1.6F, 0.0F, -8.8F, 1, 1, 1, 0.001F, false));
         slide6_r2.cubeList.add(new ModelBox(slide6_r2, 51, 67, 0.5F, 0.0F, -7.8F, 1, 1, 4, 0.001F, false));
@@ -289,13 +289,13 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide5_r1.setRotationPoint(-3.25F, -38.3F, 0.5F);
         slide.addChild(slide5_r1);
         setRotationAngle(slide5_r1, 0.0175F, -0.8727F, -1.3177F);
-        slide5_r1.cubeList.add(new ModelBox(slide5_r1, 37, 69, -1.0F, 0.0F, 0.0F, 1, 1, 2, 0.002F, false));
+        slide5_r1.cubeList.add(new ModelBox(slide5_r1, 37, 69, -1, 0.0F, 0.0F, 1, 1, 2, 0.002F, false));
 
         slide100_r1 = new ModelRenderer(this);
         slide100_r1.setRotationPoint(-3.69F, -36.6F, 1.9F);
         slide.addChild(slide100_r1);
         setRotationAngle(slide100_r1, -0.9294F, -0.056F, 0.1837F);
-        slide100_r1.cubeList.add(new ModelBox(slide100_r1, 76, 12, 0.0F, 0.0F, -1.0F, 1, 1, 1, 0.001F, false));
+        slide100_r1.cubeList.add(new ModelBox(slide100_r1, 76, 12, 0.0F, 0.0F, -1, 1, 1, 1, 0.001F, false));
 
         slide93_r1 = new ModelRenderer(this);
         slide93_r1.setRotationPoint(-3.25F, -38.3F, 0.5F);
@@ -313,21 +313,21 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide12_r2.setRotationPoint(0.92F, -36.7F, -3.3F);
         slide.addChild(slide12_r2);
         setRotationAngle(slide12_r2, -0.0584F, 0.1449F, -0.4538F);
-        slide12_r2.cubeList.add(new ModelBox(slide12_r2, 64, 74, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide12_r2.cubeList.add(new ModelBox(slide12_r2, 64, 74, -1, -1, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide5_r2 = new ModelRenderer(this);
         slide5_r2.setRotationPoint(-3.25F, -38.3F, -8.5F);
         slide.addChild(slide5_r2);
         setRotationAngle(slide5_r2, 0.0F, 0.0F, 1.3265F);
         slide5_r2.cubeList.add(new ModelBox(slide5_r2, 0, 32, 0.0F, -1.8F, 0.0F, 1, 1, 5, 0.001F, false));
-        slide5_r2.cubeList.add(new ModelBox(slide5_r2, 20, 32, 0.0F, -1.0F, 0.0F, 1, 1, 5, 0.0F, false));
+        slide5_r2.cubeList.add(new ModelBox(slide5_r2, 20, 32, 0.0F, -1, 0.0F, 1, 1, 5, 0.0F, false));
 
         slide4_r2 = new ModelRenderer(this);
         slide4_r2.setRotationPoint(0.25F, -38.3F, -8.5F);
         slide.addChild(slide4_r2);
         setRotationAngle(slide4_r2, 0.0F, 0.0F, -1.3265F);
-        slide4_r2.cubeList.add(new ModelBox(slide4_r2, 31, 9, -1.0F, -1.8F, 0.0F, 1, 1, 5, 0.0F, false));
-        slide4_r2.cubeList.add(new ModelBox(slide4_r2, 38, 26, -1.0F, -1.0F, 0.0F, 1, 1, 5, -0.001F, false));
+        slide4_r2.cubeList.add(new ModelBox(slide4_r2, 31, 9, -1, -1.8F, 0.0F, 1, 1, 5, 0.0F, false));
+        slide4_r2.cubeList.add(new ModelBox(slide4_r2, 38, 26, -1, -1, 0.0F, 1, 1, 5, -0.001F, false));
 
         slide19_r1 = new ModelRenderer(this);
         slide19_r1.setRotationPoint(0.89F, -34.8F, -23.2F);
@@ -344,32 +344,32 @@ public class DesertEagleSlide extends ModelWithAttachments {
         slide90_r2.cubeList.add(new ModelBox(slide90_r2, 70, 76, 2.0F, 0.0F, 1.3F, 1, 1, 1, -0.001F, false));
         slide90_r2.cubeList.add(new ModelBox(slide90_r2, 73, 26, 2.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
         slide90_r2.cubeList.add(new ModelBox(slide90_r2, 73, 38, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
-        slide90_r2.cubeList.add(new ModelBox(slide90_r2, 78, 62, 1.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        slide90_r2.cubeList.add(new ModelBox(slide90_r2, 78, 62, 1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
         slide92_r1 = new ModelRenderer(this);
         slide92_r1.setRotationPoint(0.25F, -38.3F, 0.5F);
         slide.addChild(slide92_r1);
         setRotationAngle(slide92_r1, -0.8727F, 0.1379F, -0.157F);
-        slide92_r1.cubeList.add(new ModelBox(slide92_r1, 69, 37, -1.0F, 0.0F, 0.0F, 1, 1, 2, -0.001F, false));
+        slide92_r1.cubeList.add(new ModelBox(slide92_r1, 69, 37, -1, 0.0F, 0.0F, 1, 1, 2, -0.001F, false));
 
         slide99_r1 = new ModelRenderer(this);
         slide99_r1.setRotationPoint(0.69F, -36.6F, 1.9F);
         slide.addChild(slide99_r1);
         setRotationAngle(slide99_r1, -0.9294F, 0.056F, -0.1837F);
-        slide99_r1.cubeList.add(new ModelBox(slide99_r1, 50, 76, -1.0F, 0.0F, -1.0F, 1, 1, 1, 0.001F, false));
+        slide99_r1.cubeList.add(new ModelBox(slide99_r1, 50, 76, -1, 0.0F, -1, 1, 1, 1, 0.001F, false));
 
         slide99_r2 = new ModelRenderer(this);
         slide99_r2.setRotationPoint(-3.89F, -35.7F, 2.2F);
         slide.addChild(slide99_r2);
         setRotationAngle(slide99_r2, -1.2784F, -0.056F, 0.1837F);
-        slide99_r2.cubeList.add(new ModelBox(slide99_r2, 75, 51, 0.0F, 0.0F, -1.0F, 1, 1, 1, 0.001F, false));
+        slide99_r2.cubeList.add(new ModelBox(slide99_r2, 75, 51, 0.0F, 0.0F, -1, 1, 1, 1, 0.001F, false));
 
         slide99_r3 = new ModelRenderer(this);
         slide99_r3.setRotationPoint(0.89F, -35.7F, 2.2F);
         slide.addChild(slide99_r3);
         setRotationAngle(slide99_r3, -1.2784F, 0.056F, -0.1837F);
-        slide99_r3.cubeList.add(new ModelBox(slide99_r3, 13, 69, -1.0F, 0.6F, -2.0F, 1, 1, 2, 0.002F, false));
-        slide99_r3.cubeList.add(new ModelBox(slide99_r3, 64, 76, -1.0F, 0.0F, -1.0F, 1, 1, 1, 0.001F, false));
+        slide99_r3.cubeList.add(new ModelBox(slide99_r3, 13, 69, -1, 0.6F, -2.0F, 1, 1, 2, 0.002F, false));
+        slide99_r3.cubeList.add(new ModelBox(slide99_r3, 64, 76, -1, 0.0F, -1, 1, 1, 1, 0.001F, false));
 
         slide98_r1 = new ModelRenderer(this);
         slide98_r1.setRotationPoint(-4.09F, -35.7F, 2.2F);

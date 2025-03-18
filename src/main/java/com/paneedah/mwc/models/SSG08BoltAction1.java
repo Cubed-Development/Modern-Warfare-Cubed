@@ -62,7 +62,7 @@ public class SSG08BoltAction1 extends ModelBase {
         textureHeight = 310;
 
         bolt_action_1 = new ModelRenderer(this);
-        bolt_action_1.setRotationPoint(1.0F, -14.25F, -37.0F);
+        bolt_action_1.setRotationPoint(1, -14.25F, -37.0F);
 
 
         Innerslide = new ModelRenderer(this);
@@ -71,11 +71,11 @@ public class SSG08BoltAction1 extends ModelBase {
         Innerslide.cubeList.add(new ModelBox(Innerslide, 200, 21, -4.0F, -0.5F, -13.0F, 3, 1, 17, 0.0F, false));
 
         bone147 = new ModelRenderer(this);
-        bone147.setRotationPoint(-1.0F, -0.5F, -13.0F);
+        bone147.setRotationPoint(-1, -0.5F, -13.0F);
         Innerslide.addChild(bone147);
         setRotationAngle(bone147, 0.0F, 0.0F, -0.7854F);
         bone147.cubeList.add(new ModelBox(bone147, 88, 38, -2.1213F, -2.1213F, 0.0F, 1, 1, 16, 0.0F, false));
-        bone147.cubeList.add(new ModelBox(bone147, 0, 86, -1.0F, -1.0F, 0.0F, 1, 1, 17, 0.0F, false));
+        bone147.cubeList.add(new ModelBox(bone147, 0, 86, -1, -1, 0.0F, 1, 1, 17, 0.0F, false));
         bone147.cubeList.add(new ModelBox(bone147, 88, 18, -1.7F, -2.121F, 0.0F, 1, 1, 16, 0.0F, false));
         bone147.cubeList.add(new ModelBox(bone147, 0, 57, -0.9929F, -1.4139F, 0.0F, 1, 1, 17, 0.0F, false));
 
@@ -85,7 +85,7 @@ public class SSG08BoltAction1 extends ModelBase {
 
 
         thebackpart = new ModelRenderer(this);
-        thebackpart.setRotationPoint(0.75F, -1.0F, 15.75F);
+        thebackpart.setRotationPoint(0.75F, -1, 15.75F);
         the_part_you_grab.addChild(thebackpart);
 
 
@@ -167,7 +167,7 @@ public class SSG08BoltAction1 extends ModelBase {
         bone214.cubeList.add(new ModelBox(bone214, 75, 5, 19.6F, 6.6067F, 3.9847F, 1, 1, 1, 0.0F, false));
 
         bone164 = new ModelRenderer(this);
-        bone164.setRotationPoint(-1.0F, 19.5F, -14.625F);
+        bone164.setRotationPoint(-1, 19.5F, -14.625F);
         thebackpart.addChild(bone164);
         setRotationAngle(bone164, 0.0F, 0.0F, 0.3927F);
 

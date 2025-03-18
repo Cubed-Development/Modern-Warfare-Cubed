@@ -50,7 +50,7 @@ public class M43AChestHarness extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         rightleg = new ModelRenderer(this);
         rightleg.setRotationPoint(-2.0F, 12.0F, 0.0F);
@@ -102,27 +102,27 @@ public class M43AChestHarness extends ModelBiped {
         bone6.setRotationPoint(3.9F, 0.45F, 2.55F);
         chestharness.addChild(bone6);
         setRotationAngle(bone6, -0.0524F, 0.0F, 0.2793F);
-        bone6.cubeList.add(new ModelBox(bone6, 18, 32, -2.0F, 0.0F, -1.0F, 2, 3, 1, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 18, 32, -2.0F, 0.0F, -1, 2, 3, 1, 0.0F, false));
 
         bone8 = new ModelRenderer(this);
         bone8.setRotationPoint(2.9F, 3.05F, 2.35F);
         chestharness.addChild(bone8);
         setRotationAngle(bone8, 0.0F, 0.0F, 0.8727F);
-        bone8.cubeList.add(new ModelBox(bone8, 0, 48, -1.0F, 0.0F, -0.97F, 1, 8, 1, 0.0F, false));
-        bone8.cubeList.add(new ModelBox(bone8, 24, 26, -1.0F, 7.75F, -1.0F, 1, 1, 1, 0.0F, false));
+        bone8.cubeList.add(new ModelBox(bone8, 0, 48, -1, 0.0F, -0.97F, 1, 8, 1, 0.0F, false));
+        bone8.cubeList.add(new ModelBox(bone8, 24, 26, -1, 7.75F, -1, 1, 1, 1, 0.0F, false));
 
         bone9 = new ModelRenderer(this);
         bone9.setRotationPoint(-2.9F, 3.05F, 2.35F);
         chestharness.addChild(bone9);
         setRotationAngle(bone9, 0.0F, 0.0F, -0.8727F);
-        bone9.cubeList.add(new ModelBox(bone9, 32, 47, 0.0F, 0.0F, -1.0F, 1, 8, 1, 0.0F, false));
-        bone9.cubeList.add(new ModelBox(bone9, 24, 24, 0.0F, 7.75F, -1.0F, 1, 1, 1, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 32, 47, 0.0F, 0.0F, -1, 1, 8, 1, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 24, 24, 0.0F, 7.75F, -1, 1, 1, 1, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(-3.9F, 0.45F, 2.55F);
         chestharness.addChild(bone7);
         setRotationAngle(bone7, -0.0524F, 0.0F, -0.2793F);
-        bone7.cubeList.add(new ModelBox(bone7, 12, 32, 0.0F, 0.0F, -1.0F, 2, 3, 1, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 12, 32, 0.0F, 0.0F, -1, 2, 3, 1, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(3.9F, 3.25F, -2.75F);

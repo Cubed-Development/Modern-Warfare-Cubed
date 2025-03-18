@@ -102,31 +102,31 @@ public class HK417Receiver extends ModelWithAttachments {
         cube_r3.setRotationPoint(-1.2F, -0.6F, -0.05F);
         receiver.addChild(cube_r3);
         setRotationAngle(cube_r3, 0.0F, 0.0F, -0.8727F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 33, 121, -1.0F, -2.0F, -1.75F, 1, 2, 26, 0.0F, false));
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 33, 121, -1, -2.0F, -1.75F, 1, 2, 26, 0.0F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(-5.8F, 0.4F, 11.2F);
         receiver.addChild(cube_r4);
         setRotationAngle(cube_r4, 0.0F, 0.0F, 0.9076F);
-        cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 88, 0.0F, -1.0F, 0.0F, 1, 1, 13, 0.0F, false));
+        cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 88, 0.0F, -1, 0.0F, 1, 1, 13, 0.0F, false));
 
         cube_r5 = new ModelRenderer(this);
         cube_r5.setRotationPoint(-1.2F, 0.4F, 11.2F);
         receiver.addChild(cube_r5);
         setRotationAngle(cube_r5, 0.0F, 0.0F, -0.9076F);
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 35, 89, -1.0F, -1.0F, 0.0F, 1, 1, 13, 0.0F, false));
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 35, 89, -1, -1, 0.0F, 1, 1, 13, 0.0F, false));
 
         cube_r6 = new ModelRenderer(this);
         cube_r6.setRotationPoint(-1.7F, -0.15F, 1.95F);
         receiver.addChild(cube_r6);
         setRotationAngle(cube_r6, 0.0F, 0.8727F, 0.0F);
-        cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 62, -1.0F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
+        cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 62, -1, -2.0F, -1, 1, 2, 1, 0.0F, false));
 
         cube_r7 = new ModelRenderer(this);
         cube_r7.setRotationPoint(-1.7F, -0.15F, 2.95F);
         receiver.addChild(cube_r7);
         setRotationAngle(cube_r7, 0.0F, -0.8727F, 0.0F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 6, 62, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 6, 62, -1, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
         gun264 = new ModelRenderer(this);
         gun264.setRotationPoint(-6.2F, -0.4F, 2.7F);
@@ -141,7 +141,7 @@ public class HK417Receiver extends ModelWithAttachments {
         gun170.setRotationPoint(-5.9F, -2.2F, 12.7F);
         receiver.addChild(gun170);
         setRotationAngle(gun170, 0.0F, 0.0F, -0.192F);
-        gun170.cubeList.add(new ModelBox(gun170, 90, 28, -1.3573F, 0.2945F, -1.0F, 3, 2, 1, 0.0F, false));
+        gun170.cubeList.add(new ModelBox(gun170, 90, 28, -1.3573F, 0.2945F, -1, 3, 2, 1, 0.0F, false));
 
         gun249 = new ModelRenderer(this);
         gun249.setRotationPoint(-1.3F, 2.0F, 0.0F);

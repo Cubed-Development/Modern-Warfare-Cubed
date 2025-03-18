@@ -33,7 +33,7 @@ public class M4A1Mag extends ModelBase {
         textureHeight = 64;
 
         gun1 = new ModelRenderer(this);
-        gun1.setRotationPoint(1.0F, -12.0F, -4.5F);
+        gun1.setRotationPoint(1, -12.0F, -4.5F);
         gun1.cubeList.add(new ModelBox(gun1, 42, 42, -0.001F, -0.001F, -0.101F, 3, 7, 5, 0.0F, false));
         gun1.cubeList.add(new ModelBox(gun1, 0, 26, 1.998F, -0.501F, 2.849F, 1, 1, 3, 0.0F, false));
         gun1.cubeList.add(new ModelBox(gun1, 22, 0, -0.002F, -0.501F, 2.849F, 1, 1, 3, 0.0F, false));
@@ -41,7 +41,7 @@ public class M4A1Mag extends ModelBase {
         gun1.cubeList.add(new ModelBox(gun1, 16, 16, 0.5F, 0.999F, 4.999F, 2, 6, 1, 0.0F, false));
 
         gun2 = new ModelRenderer(this);
-        gun2.setRotationPoint(1.0F, -5.0F, 1.5F);
+        gun2.setRotationPoint(1, -5.0F, 1.5F);
         setRotationAngle(gun2, -1.7846F, 0.0F, 0.0F);
         gun2.cubeList.add(new ModelBox(gun2, 0, 0, 0.001F, 1.001F, 0.001F, 3, 5, 10, 0.0F, false));
         gun2.cubeList.add(new ModelBox(gun2, 0, 15, 0.002F, 0.251F, 0.0F, 3, 1, 10, 0.0F, false));
@@ -64,10 +64,10 @@ public class M4A1Mag extends ModelBase {
         gun4.cubeList.add(new ModelBox(gun4, 30, 13, 0.102F, -0.499F, -0.101F, 1, 1, 1, 0.0F, false));
         gun4.cubeList.add(new ModelBox(gun4, 6, 15, 0.1F, 0.0F, -0.6F, 1, 7, 1, 0.0F, false));
         gun4.cubeList.add(new ModelBox(gun4, 30, 11, 0.101F, -0.5F, -0.6F, 1, 1, 1, 0.0F, false));
-        gun4.cubeList.add(new ModelBox(gun4, 16, 0, -0.8F, -0.2F, 1.0F, 2, 7, 1, -0.2F, false));
+        gun4.cubeList.add(new ModelBox(gun4, 16, 0, -0.8F, -0.2F, 1, 2, 7, 1, -0.2F, false));
         gun4.cubeList.add(new ModelBox(gun4, 30, 8, 0.201F, -0.7F, 1.001F, 1, 1, 1, -0.2F, false));
         gun4.cubeList.add(new ModelBox(gun4, 0, 23, -0.799F, 6.3F, 1.001F, 2, 1, 1, -0.2F, false));
-        gun4.cubeList.add(new ModelBox(gun4, 0, 15, -2.6F, -0.2F, 1.0F, 2, 7, 1, -0.2F, false));
+        gun4.cubeList.add(new ModelBox(gun4, 0, 15, -2.6F, -0.2F, 1, 2, 7, 1, -0.2F, false));
         gun4.cubeList.add(new ModelBox(gun4, 4, 30, -2.599F, -0.7F, 1.001F, 1, 1, 1, -0.2F, false));
         gun4.cubeList.add(new ModelBox(gun4, 16, 23, -2.599F, 6.3F, 1.001F, 2, 1, 1, -0.2F, false));
 
@@ -88,9 +88,9 @@ public class M4A1Mag extends ModelBase {
         gun6.cubeList.add(new ModelBox(gun6, 16, 8, -2.599F, -0.003F, 9.2212F, 2, 1, 1, -0.2F, false));
 
         gun7 = new ModelRenderer(this);
-        gun7.setRotationPoint(3.2F, -5.0F, -1.0F);
+        gun7.setRotationPoint(3.2F, -5.0F, -1);
         setRotationAngle(gun7, -1.7846F, 0.0F, 0.0F);
-        gun7.cubeList.add(new ModelBox(gun7, 42, 0, 0.001F, 1.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        gun7.cubeList.add(new ModelBox(gun7, 42, 0, 0.001F, 1, 0.0F, 1, 1, 9, 0.0F, false));
         gun7.cubeList.add(new ModelBox(gun7, 0, 37, 0.002F, 0.5F, 0.0F, 1, 1, 9, 0.0F, false));
 
         gun8 = new ModelRenderer(this);
@@ -113,9 +113,9 @@ public class M4A1Mag extends ModelBase {
         gun11.cubeList.add(new ModelBox(gun11, 30, 0, 0.0F, 0.0F, 0.0F, 1, 7, 1, 0.0F, false));
 
         gun12 = new ModelRenderer(this);
-        gun12.setRotationPoint(0.8F, -5.0F, -1.0F);
+        gun12.setRotationPoint(0.8F, -5.0F, -1);
         setRotationAngle(gun12, -1.7846F, 0.0F, 0.0F);
-        gun12.cubeList.add(new ModelBox(gun12, 22, 39, 0.001F, 1.0F, 0.0F, 1, 1, 9, 0.0F, false));
+        gun12.cubeList.add(new ModelBox(gun12, 22, 39, 0.001F, 1, 0.0F, 1, 1, 9, 0.0F, false));
         gun12.cubeList.add(new ModelBox(gun12, 11, 38, 0.002F, 0.5F, 0.0F, 1, 1, 9, 0.0F, false));
 
         gun13 = new ModelRenderer(this);

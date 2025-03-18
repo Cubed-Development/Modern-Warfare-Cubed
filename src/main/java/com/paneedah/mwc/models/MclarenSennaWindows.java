@@ -292,7 +292,7 @@ public class MclarenSennaWindows extends ModelBase {
         wheel5.cubeList.add(new ModelBox(wheel5, 362, 305, 0.0F, -22.0F, -5.0F, 7, 4, 10, 0.0F, true));
         wheel5.cubeList.add(new ModelBox(wheel5, 147, 343, 2.0F, -18.0F, -7.0F, 3, 14, 14, 0.0F, true));
         wheel5.cubeList.add(new ModelBox(wheel5, 56, 381, 0.0F, -16.0F, 7.0F, 7, 10, 4, 0.0F, true));
-        wheel5.cubeList.add(new ModelBox(wheel5, 127, 380, 0.0F, -16.0F, -11.0F, 7, 10, 4, 0.0F, true));
+        wheel5.cubeList.add(new ModelBox(wheel5, 127, 380, 0.0F, -16.0F, -11, 7, 10, 4, 0.0F, true));
         wheel5.cubeList.add(new ModelBox(wheel5, 355, 0, 0.0F, -4.0F, -5.0F, 7, 4, 10, 0.0F, true));
 
         bone46 = new ModelRenderer(this);
@@ -311,7 +311,7 @@ public class MclarenSennaWindows extends ModelBase {
         bone47.cubeList.add(new ModelBox(bone47, 289, 170, 0.5F, 2.1213F, 9.1924F, 6, 4, 4, 0.0F, true));
 
         windows = new ModelRenderer(this);
-        windows.setRotationPoint(-31.0F, -3.8F, 12.0F);
+        windows.setRotationPoint(-31, -3.8F, 12.0F);
         windows.cubeList.add(new ModelBox(windows, 76, 467, 28.65F, 6.0F, 4.0F, 0, 18, 30, 0.0F, false));
         windows.cubeList.add(new ModelBox(windows, 77, 444, -28.65F, 6.0F, 4.0F, 0, 18, 30, 0.0F, true));
 
@@ -346,7 +346,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r5.cubeList.add(new ModelBox(cube_r5, 218, 424, -20.0F, 0.0F, -18.0F, 23, 0, 18, 0.0F, false));
 
         steering_wheel = new ModelRenderer(this);
-        steering_wheel.setRotationPoint(-1.0F, 26.0F, -20.0F);
+        steering_wheel.setRotationPoint(-1, 26.0F, -20.0F);
         setRotationAngle(steering_wheel, -0.1309F, 0.0F, 0.0F);
 
 
@@ -426,12 +426,12 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r8.setRotationPoint(-0.5F, -2.0524F, 2.0007F);
         bone109.addChild(cube_r8);
         setRotationAngle(cube_r8, 0.2618F, 0.0F, 0.0F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 209, 152, -1.5F, 1.0F, -1.0F, 3, 6, 2, 0.0F, false));
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 89, 119, -1.5F, -2.0F, 1.0F, 3, 4, 1, 0.0F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 209, 152, -1.5F, 1, -1, 3, 6, 2, 0.0F, false));
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 89, 119, -1.5F, -2.0F, 1, 3, 4, 1, 0.0F, false));
         cube_r8.cubeList.add(new ModelBox(cube_r8, 33, 168, -2.5F, -2.0F, -2.0F, 5, 3, 3, 0.0F, false));
 
         car = new ModelRenderer(this);
-        car.setRotationPoint(-31.0F, 24.0F, 0.0F);
+        car.setRotationPoint(-31, 24.0F, 0.0F);
 
 
         interior = new ModelRenderer(this);
@@ -526,13 +526,13 @@ public class MclarenSennaWindows extends ModelBase {
         lower_chair.cubeList.add(new ModelBox(lower_chair, 201, 336, -5.0F, -2.7654F, -7.0F, 10, 4, 14, 0.0F, false));
 
         cube_r15 = new ModelRenderer(this);
-        cube_r15.setRotationPoint(0.0F, -0.7654F, -1.0F);
+        cube_r15.setRotationPoint(0.0F, -0.7654F, -1);
         lower_chair.addChild(cube_r15);
         setRotationAngle(cube_r15, 0.0F, 0.0F, -0.3927F);
         cube_r15.cubeList.add(new ModelBox(cube_r15, 289, 368, 4.7716F, -0.8519F, -6.0F, 3, 4, 14, 0.0F, false));
 
         cube_r16 = new ModelRenderer(this);
-        cube_r16.setRotationPoint(0.0F, -0.7654F, -1.0F);
+        cube_r16.setRotationPoint(0.0F, -0.7654F, -1);
         lower_chair.addChild(cube_r16);
         setRotationAngle(cube_r16, 0.0F, 0.0F, 0.3927F);
         cube_r16.cubeList.add(new ModelBox(cube_r16, 367, 341, -7.7716F, -0.8519F, -6.0F, 3, 4, 14, 0.0F, false));
@@ -619,13 +619,13 @@ public class MclarenSennaWindows extends ModelBase {
         lower_chair2.cubeList.add(new ModelBox(lower_chair2, 38, 336, -5.0F, -2.7654F, -7.0F, 10, 4, 14, 0.0F, false));
 
         cube_r23 = new ModelRenderer(this);
-        cube_r23.setRotationPoint(0.0F, -0.7654F, -1.0F);
+        cube_r23.setRotationPoint(0.0F, -0.7654F, -1);
         lower_chair2.addChild(cube_r23);
         setRotationAngle(cube_r23, 0.0F, 0.0F, -0.3927F);
         cube_r23.cubeList.add(new ModelBox(cube_r23, 367, 367, 4.7716F, -0.8519F, -6.0F, 3, 4, 14, 0.0F, false));
 
         cube_r24 = new ModelRenderer(this);
-        cube_r24.setRotationPoint(0.0F, -0.7654F, -1.0F);
+        cube_r24.setRotationPoint(0.0F, -0.7654F, -1);
         lower_chair2.addChild(cube_r24);
         setRotationAngle(cube_r24, 0.0F, 0.0F, 0.3927F);
         cube_r24.cubeList.add(new ModelBox(cube_r24, 367, 252, -7.7716F, -0.8519F, -6.0F, 3, 4, 14, 0.0F, false));
@@ -639,7 +639,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r25.setRotationPoint(0.0769F, -3.6949F, -6.7601F);
         backseats.addChild(cube_r25);
         setRotationAngle(cube_r25, -0.2182F, 0.0F, 0.0F);
-        cube_r25.cubeList.add(new ModelBox(cube_r25, 270, 243, -24.0F, -9.5F, -1.0F, 48, 21, 2, 0.0F, false));
+        cube_r25.cubeList.add(new ModelBox(cube_r25, 270, 243, -24.0F, -9.5F, -1, 48, 21, 2, 0.0F, false));
 
         detailing = new ModelRenderer(this);
         detailing.setRotationPoint(-4.0922F, -15.5947F, 17.0426F);
@@ -656,8 +656,8 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r26.setRotationPoint(4.75F, 3.5204F, 20.9435F);
         bone76.addChild(cube_r26);
         setRotationAngle(cube_r26, -1.1345F, 0.0F, 0.0F);
-        cube_r26.cubeList.add(new ModelBox(cube_r26, 41, 301, -7.5F, -1.0F, -9.5F, 8, 2, 19, 0.0F, false));
-        cube_r26.cubeList.add(new ModelBox(cube_r26, 161, 322, 48.0F, -1.0F, -9.5F, 8, 2, 19, 0.0F, false));
+        cube_r26.cubeList.add(new ModelBox(cube_r26, 41, 301, -7.5F, -1, -9.5F, 8, 2, 19, 0.0F, false));
+        cube_r26.cubeList.add(new ModelBox(cube_r26, 161, 322, 48.0F, -1, -9.5F, 8, 2, 19, 0.0F, false));
 
         cube_r27 = new ModelRenderer(this);
         cube_r27.setRotationPoint(29.0F, -2.5039F, 16.6929F);
@@ -674,13 +674,13 @@ public class MclarenSennaWindows extends ModelBase {
 
 
         bone93 = new ModelRenderer(this);
-        bone93.setRotationPoint(5.0F, -1.0F, 14.0F);
+        bone93.setRotationPoint(5.0F, -1, 14.0F);
         bone80.addChild(bone93);
         setRotationAngle(bone93, 0.0F, 1.3788F, 0.0F);
 
 
         bone94 = new ModelRenderer(this);
-        bone94.setRotationPoint(-5.0F, -1.0F, 14.0F);
+        bone94.setRotationPoint(-5.0F, -1, 14.0F);
         bone80.addChild(bone94);
         setRotationAngle(bone94, 0.0F, -1.3788F, 0.0F);
 
@@ -713,7 +713,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r30.setRotationPoint(0.125F, 1.2445F, 0.1251F);
         bone3.addChild(cube_r30);
         setRotationAngle(cube_r30, 0.0873F, 0.0F, 0.0F);
-        cube_r30.cubeList.add(new ModelBox(cube_r30, 202, 183, -1.0F, -0.0029F, -1.0303F, 2, 3, 8, 0.0F, false));
+        cube_r30.cubeList.add(new ModelBox(cube_r30, 202, 183, -1, -0.0029F, -1.0303F, 2, 3, 8, 0.0F, false));
 
         body_Senna = new ModelRenderer(this);
         body_Senna.setRotationPoint(0.9257F, -16.6271F, 18.9366F);
@@ -737,13 +737,13 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r31.setRotationPoint(-27.011F, 9.5298F, 19.6776F);
         body_Senna.addChild(cube_r31);
         setRotationAngle(cube_r31, 0.0F, 0.0F, 0.7854F);
-        cube_r31.cubeList.add(new ModelBox(cube_r31, 233, 144, -2.5F, -1.0F, -26.0F, 5, 1, 46, 0.0F, false));
+        cube_r31.cubeList.add(new ModelBox(cube_r31, 233, 144, -2.5F, -1, -26.0F, 5, 1, 46, 0.0F, false));
 
         cube_r32 = new ModelRenderer(this);
         cube_r32.setRotationPoint(25.1595F, 9.5298F, 19.6776F);
         body_Senna.addChild(cube_r32);
         setRotationAngle(cube_r32, 0.0F, 0.0F, -0.7854F);
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 0, 241, -2.5F, -1.0F, -26.0F, 5, 1, 46, 0.0F, false));
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 0, 241, -2.5F, -1, -26.0F, 5, 1, 46, 0.0F, false));
 
         cube_r33 = new ModelRenderer(this);
         cube_r33.setRotationPoint(-0.9257F, 13.1271F, 76.0634F);
@@ -779,13 +779,13 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r38.setRotationPoint(-30.9257F, -7.3304F, 80.244F);
         body_Senna.addChild(cube_r38);
         setRotationAngle(cube_r38, 1.2217F, -0.2618F, 0.2618F);
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 21, 73, -1.0F, -3.5F, -1.5F, 2, 7, 3, 0.0F, true));
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 21, 73, -1, -3.5F, -1.5F, 2, 7, 3, 0.0F, true));
 
         cube_r39 = new ModelRenderer(this);
         cube_r39.setRotationPoint(29.0743F, -7.3304F, 80.244F);
         body_Senna.addChild(cube_r39);
         setRotationAngle(cube_r39, 1.2217F, 0.2618F, -0.2618F);
-        cube_r39.cubeList.add(new ModelBox(cube_r39, 21, 73, -1.0F, -3.5F, -1.5F, 2, 7, 3, 0.0F, false));
+        cube_r39.cubeList.add(new ModelBox(cube_r39, 21, 73, -1, -3.5F, -1.5F, 2, 7, 3, 0.0F, false));
 
         cube_r40 = new ModelRenderer(this);
         cube_r40.setRotationPoint(29.0743F, -3.4484F, 87.4453F);
@@ -798,25 +798,25 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r41.setRotationPoint(28.8243F, 1.467F, 95.3837F);
         body_Senna.addChild(cube_r41);
         setRotationAngle(cube_r41, 0.0436F, -0.1745F, -1.0908F);
-        cube_r41.cubeList.add(new ModelBox(cube_r41, 206, 73, -1.0F, -1.5F, -3.0F, 2, 4, 7, 0.0F, true));
+        cube_r41.cubeList.add(new ModelBox(cube_r41, 206, 73, -1, -1.5F, -3.0F, 2, 4, 7, 0.0F, true));
 
         cube_r42 = new ModelRenderer(this);
         cube_r42.setRotationPoint(-30.6757F, 1.467F, 95.3837F);
         body_Senna.addChild(cube_r42);
         setRotationAngle(cube_r42, 0.0436F, 0.1745F, 1.0908F);
-        cube_r42.cubeList.add(new ModelBox(cube_r42, 206, 73, -1.0F, -1.5F, -3.0F, 2, 4, 7, 0.0F, false));
+        cube_r42.cubeList.add(new ModelBox(cube_r42, 206, 73, -1, -1.5F, -3.0F, 2, 4, 7, 0.0F, false));
 
         cube_r43 = new ModelRenderer(this);
         cube_r43.setRotationPoint(30.5743F, 3.467F, 95.3837F);
         body_Senna.addChild(cube_r43);
         setRotationAngle(cube_r43, -0.1309F, -0.1745F, 0.0F);
-        cube_r43.cubeList.add(new ModelBox(cube_r43, 33, 156, -1.0F, -1.5F, -3.0F, 2, 5, 7, 0.0F, true));
+        cube_r43.cubeList.add(new ModelBox(cube_r43, 33, 156, -1, -1.5F, -3.0F, 2, 5, 7, 0.0F, true));
 
         cube_r44 = new ModelRenderer(this);
         cube_r44.setRotationPoint(-32.4257F, 3.467F, 95.3837F);
         body_Senna.addChild(cube_r44);
         setRotationAngle(cube_r44, -0.1309F, 0.1745F, 0.0F);
-        cube_r44.cubeList.add(new ModelBox(cube_r44, 33, 156, -1.0F, -1.5F, -3.0F, 2, 5, 7, 0.0F, false));
+        cube_r44.cubeList.add(new ModelBox(cube_r44, 33, 156, -1, -1.5F, -3.0F, 2, 5, 7, 0.0F, false));
 
         cube_r45 = new ModelRenderer(this);
         cube_r45.setRotationPoint(30.7382F, 6.027F, 94.5265F);
@@ -847,7 +847,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r49.setRotationPoint(-24.4257F, 2.6271F, -42.4366F);
         body_Senna.addChild(cube_r49);
         setRotationAngle(cube_r49, 0.1745F, 0.7854F, 0.0F);
-        cube_r49.cubeList.add(new ModelBox(cube_r49, 322, 205, -6.5F, -1.0F, -4.0F, 22, 2, 8, 0.0F, false));
+        cube_r49.cubeList.add(new ModelBox(cube_r49, 322, 205, -6.5F, -1, -4.0F, 22, 2, 8, 0.0F, false));
 
         cube_r50 = new ModelRenderer(this);
         cube_r50.setRotationPoint(-25.4257F, 3.3771F, -36.6866F);
@@ -865,7 +865,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r52.setRotationPoint(22.5743F, 2.6271F, -42.4366F);
         body_Senna.addChild(cube_r52);
         setRotationAngle(cube_r52, 0.1745F, -0.7854F, 0.0F);
-        cube_r52.cubeList.add(new ModelBox(cube_r52, 68, 326, -15.5F, -1.0F, -4.0F, 22, 2, 8, 0.0F, false));
+        cube_r52.cubeList.add(new ModelBox(cube_r52, 68, 326, -15.5F, -1, -4.0F, 22, 2, 8, 0.0F, false));
 
         cube_r53 = new ModelRenderer(this);
         cube_r53.setRotationPoint(-23.6757F, 13.6171F, -48.9366F);
@@ -907,13 +907,13 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r59.setRotationPoint(-30.9257F, 5.6271F, -34.9366F);
         body_Senna.addChild(cube_r59);
         setRotationAngle(cube_r59, -0.1745F, 0.0F, 0.1309F);
-        cube_r59.cubeList.add(new ModelBox(cube_r59, 277, 339, -1.0F, -11.0F, -4.0F, 10, 18, 8, 0.0F, false));
+        cube_r59.cubeList.add(new ModelBox(cube_r59, 277, 339, -1, -11, -4.0F, 10, 18, 8, 0.0F, false));
 
         cube_r60 = new ModelRenderer(this);
         cube_r60.setRotationPoint(29.0743F, 5.6271F, -34.9366F);
         body_Senna.addChild(cube_r60);
         setRotationAngle(cube_r60, -0.1745F, 0.0F, -0.1309F);
-        cube_r60.cubeList.add(new ModelBox(cube_r60, 0, 343, -9.0F, -11.0F, -4.0F, 10, 18, 8, 0.0F, false));
+        cube_r60.cubeList.add(new ModelBox(cube_r60, 0, 343, -9.0F, -11, -4.0F, 10, 18, 8, 0.0F, false));
 
         cube_r61 = new ModelRenderer(this);
         cube_r61.setRotationPoint(-12.0505F, -14.4289F, 60.7873F);
@@ -949,13 +949,13 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r66.setRotationPoint(-22.6757F, -14.3862F, 37.7584F);
         body_Senna.addChild(cube_r66);
         setRotationAngle(cube_r66, -0.1309F, 0.2618F, 0.5672F);
-        cube_r66.cubeList.add(new ModelBox(cube_r66, 33, 0, -1.0F, -8.0F, -2.0F, 2, 13, 17, 0.0F, false));
+        cube_r66.cubeList.add(new ModelBox(cube_r66, 33, 0, -1, -8.0F, -2.0F, 2, 13, 17, 0.0F, false));
 
         cube_r67 = new ModelRenderer(this);
         cube_r67.setRotationPoint(20.8243F, -14.3862F, 37.7584F);
         body_Senna.addChild(cube_r67);
         setRotationAngle(cube_r67, -0.1309F, -0.2618F, -0.5672F);
-        cube_r67.cubeList.add(new ModelBox(cube_r67, 33, 119, -1.0F, -8.0F, -2.0F, 2, 13, 17, 0.0F, false));
+        cube_r67.cubeList.add(new ModelBox(cube_r67, 33, 119, -1, -8.0F, -2.0F, 2, 13, 17, 0.0F, false));
 
         cube_r68 = new ModelRenderer(this);
         cube_r68.setRotationPoint(-0.9257F, -21.8729F, 25.5634F);
@@ -1041,13 +1041,13 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r81.setRotationPoint(27.0743F, -8.8729F, 84.8134F);
         body_Senna.addChild(cube_r81);
         setRotationAngle(cube_r81, -0.2618F, 0.0F, -0.1309F);
-        cube_r81.cubeList.add(new ModelBox(cube_r81, 246, 286, -1.0F, -3.0F, -1.5F, 2, 8, 16, 0.0F, true));
+        cube_r81.cubeList.add(new ModelBox(cube_r81, 246, 286, -1, -3.0F, -1.5F, 2, 8, 16, 0.0F, true));
 
         cube_r82 = new ModelRenderer(this);
         cube_r82.setRotationPoint(-28.9257F, -8.8729F, 84.8134F);
         body_Senna.addChild(cube_r82);
         setRotationAngle(cube_r82, -0.2618F, 0.0F, 0.1309F);
-        cube_r82.cubeList.add(new ModelBox(cube_r82, 246, 286, -1.0F, -3.0F, -1.5F, 2, 8, 16, 0.0F, false));
+        cube_r82.cubeList.add(new ModelBox(cube_r82, 246, 286, -1, -3.0F, -1.5F, 2, 8, 16, 0.0F, false));
 
         cube_r83 = new ModelRenderer(this);
         cube_r83.setRotationPoint(21.9609F, -10.1229F, 58.2152F);
@@ -1059,14 +1059,14 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r84.setRotationPoint(-23.8123F, -10.1229F, 58.2152F);
         body_Senna.addChild(cube_r84);
         setRotationAngle(cube_r84, -0.1745F, -0.8727F, 0.0F);
-        cube_r84.cubeList.add(new ModelBox(cube_r84, 33, 37, -1.0F, -3.0F, -12.5F, 1, 8, 18, 0.0F, false));
+        cube_r84.cubeList.add(new ModelBox(cube_r84, 33, 37, -1, -3.0F, -12.5F, 1, 8, 18, 0.0F, false));
 
         cube_r85 = new ModelRenderer(this);
         cube_r85.setRotationPoint(-28.4257F, 5.8771F, 19.0634F);
         body_Senna.addChild(cube_r85);
         setRotationAngle(cube_r85, 0.0873F, 0.0F, 0.0F);
-        cube_r85.cubeList.add(new ModelBox(cube_r85, 0, 37, -1.5F, -1.0F, -24.0F, 3, 2, 27, 0.0F, false));
-        cube_r85.cubeList.add(new ModelBox(cube_r85, 0, 156, 53.5F, -1.0F, -24.0F, 3, 2, 27, 0.0F, false));
+        cube_r85.cubeList.add(new ModelBox(cube_r85, 0, 37, -1.5F, -1, -24.0F, 3, 2, 27, 0.0F, false));
+        cube_r85.cubeList.add(new ModelBox(cube_r85, 0, 156, 53.5F, -1, -24.0F, 3, 2, 27, 0.0F, false));
 
         cube_r86 = new ModelRenderer(this);
         cube_r86.setRotationPoint(-30.1911F, 12.4748F, 28.5634F);
@@ -1084,7 +1084,7 @@ public class MclarenSennaWindows extends ModelBase {
         bone11.setRotationPoint(30.3243F, 3.6271F, 53.0634F);
         body_Senna.addChild(bone11);
         setRotationAngle(bone11, 0.0F, 0.0F, 0.0436F);
-        bone11.cubeList.add(new ModelBox(bone11, 212, 226, 0.5F, -12.0F, -11.0F, 1, 18, 22, 0.0F, false));
+        bone11.cubeList.add(new ModelBox(bone11, 212, 226, 0.5F, -12.0F, -11, 1, 18, 22, 0.0F, false));
         bone11.cubeList.add(new ModelBox(bone11, 188, 96, 0.5F, 6.0F, -6.0F, 1, 3, 17, 0.0F, false));
 
         cube_r88 = new ModelRenderer(this);
@@ -1097,7 +1097,7 @@ public class MclarenSennaWindows extends ModelBase {
         bone19.setRotationPoint(-32.1757F, 3.6271F, 53.0634F);
         body_Senna.addChild(bone19);
         setRotationAngle(bone19, 0.0F, 0.0F, -0.0436F);
-        bone19.cubeList.add(new ModelBox(bone19, 159, 73, -1.5F, -12.0F, -11.0F, 1, 18, 22, 0.0F, false));
+        bone19.cubeList.add(new ModelBox(bone19, 159, 73, -1.5F, -12.0F, -11, 1, 18, 22, 0.0F, false));
         bone19.cubeList.add(new ModelBox(bone19, 112, 119, -1.5F, 6.0F, -6.0F, 1, 3, 17, 0.0F, false));
 
         cube_r89 = new ModelRenderer(this);
@@ -1134,7 +1134,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r92.setRotationPoint(0.0F, -0.5F, 0.0F);
         bone13.addChild(cube_r92);
         setRotationAngle(cube_r92, -0.0873F, 0.0F, 0.0F);
-        cube_r92.cubeList.add(new ModelBox(cube_r92, 203, 0, -0.5F, 1.0F, -4.5F, 1, 9, 4, 0.0F, false));
+        cube_r92.cubeList.add(new ModelBox(cube_r92, 203, 0, -0.5F, 1, -4.5F, 1, 9, 4, 0.0F, false));
 
         cube_r93 = new ModelRenderer(this);
         cube_r93.setRotationPoint(0.0F, -0.5F, 0.0F);
@@ -1158,7 +1158,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r95.setRotationPoint(0.0F, -0.5F, 0.0F);
         bone18.addChild(cube_r95);
         setRotationAngle(cube_r95, -0.0873F, 0.0F, 0.0F);
-        cube_r95.cubeList.add(new ModelBox(cube_r95, 189, 152, -0.5F, 1.0F, -4.5F, 1, 9, 4, 0.0F, false));
+        cube_r95.cubeList.add(new ModelBox(cube_r95, 189, 152, -0.5F, 1, -4.5F, 1, 9, 4, 0.0F, false));
 
         cube_r96 = new ModelRenderer(this);
         cube_r96.setRotationPoint(0.0F, -0.5F, 0.0F);
@@ -1371,8 +1371,8 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r123.setRotationPoint(21.5F, -2.2309F, -14.047F);
         bone12.addChild(cube_r123);
         setRotationAngle(cube_r123, 0.1745F, 0.0F, 0.0F);
-        cube_r123.cubeList.add(new ModelBox(cube_r123, 99, 372, -51.5F, -1.0F, -2.0F, 7, 1, 9, 0.0F, false));
-        cube_r123.cubeList.add(new ModelBox(cube_r123, 373, 206, 1.5F, -1.0F, -2.0F, 7, 1, 9, 0.0F, false));
+        cube_r123.cubeList.add(new ModelBox(cube_r123, 99, 372, -51.5F, -1, -2.0F, 7, 1, 9, 0.0F, false));
+        cube_r123.cubeList.add(new ModelBox(cube_r123, 373, 206, 1.5F, -1, -2.0F, 7, 1, 9, 0.0F, false));
 
         cube_r124 = new ModelRenderer(this);
         cube_r124.setRotationPoint(0.0F, 2.2109F, -22.1577F);
@@ -1422,20 +1422,20 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r131.setRotationPoint(-29.7544F, -3.0385F, 4.173F);
         bone12.addChild(cube_r131);
         setRotationAngle(cube_r131, 0.0F, 0.0F, 0.6109F);
-        cube_r131.cubeList.add(new ModelBox(cube_r131, 232, 73, -1.0F, -1.0F, -10.5F, 2, 3, 22, 0.0F, false));
+        cube_r131.cubeList.add(new ModelBox(cube_r131, 232, 73, -1, -1, -10.5F, 2, 3, 22, 0.0F, false));
 
         cube_r132 = new ModelRenderer(this);
         cube_r132.setRotationPoint(29.7544F, -3.0385F, 4.173F);
         bone12.addChild(cube_r132);
         setRotationAngle(cube_r132, 0.0F, 0.0F, -0.6109F);
-        cube_r132.cubeList.add(new ModelBox(cube_r132, 324, 283, -1.0F, -1.0F, -10.5F, 2, 3, 22, 0.0F, false));
+        cube_r132.cubeList.add(new ModelBox(cube_r132, 324, 283, -1, -1, -10.5F, 2, 3, 22, 0.0F, false));
 
         cube_r133 = new ModelRenderer(this);
         cube_r133.setRotationPoint(-28.0F, -2.6469F, 20.1388F);
         bone12.addChild(cube_r133);
         setRotationAngle(cube_r133, -0.1745F, 0.0F, 0.0F);
-        cube_r133.cubeList.add(new ModelBox(cube_r133, 0, 21, -2.75F, -1.0F, -4.5F, 5, 1, 9, 0.0F, false));
-        cube_r133.cubeList.add(new ModelBox(cube_r133, 0, 140, 53.75F, -1.0F, -4.5F, 5, 1, 9, 0.0F, false));
+        cube_r133.cubeList.add(new ModelBox(cube_r133, 0, 21, -2.75F, -1, -4.5F, 5, 1, 9, 0.0F, false));
+        cube_r133.cubeList.add(new ModelBox(cube_r133, 0, 140, 53.75F, -1, -4.5F, 5, 1, 9, 0.0F, false));
 
         cube_r134 = new ModelRenderer(this);
         cube_r134.setRotationPoint(29.25F, -5.0917F, 23.5276F);
@@ -1465,7 +1465,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r137.setRotationPoint(51.0088F, 1.7855F, -1.5F);
         bone16.addChild(cube_r137);
         setRotationAngle(cube_r137, 0.0F, 0.0F, -0.6109F);
-        cube_r137.cubeList.add(new ModelBox(cube_r137, 321, 54, 1.0F, -2.0F, -0.5F, 1, 5, 10, 0.0F, false));
+        cube_r137.cubeList.add(new ModelBox(cube_r137, 321, 54, 1, -2.0F, -0.5F, 1, 5, 10, 0.0F, false));
 
         bone45 = new ModelRenderer(this);
         bone45.setRotationPoint(14.0743F, 9.3771F, 96.5634F);
@@ -1476,7 +1476,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r138.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone45.addChild(cube_r138);
         setRotationAngle(cube_r138, 0.2182F, 0.1309F, 0.0F);
-        cube_r138.cubeList.add(new ModelBox(cube_r138, 154, 119, -9.0F, -1.0F, -6.5F, 23, 1, 11, 0.0F, false));
+        cube_r138.cubeList.add(new ModelBox(cube_r138, 154, 119, -9.0F, -1, -6.5F, 23, 1, 11, 0.0F, false));
 
         cube_r139 = new ModelRenderer(this);
         cube_r139.setRotationPoint(-15.0F, -0.0717F, -1.0845F);
@@ -1488,7 +1488,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r140.setRotationPoint(-30.0F, 0.0F, 0.0F);
         bone45.addChild(cube_r140);
         setRotationAngle(cube_r140, 0.2182F, -0.1309F, 0.0F);
-        cube_r140.cubeList.add(new ModelBox(cube_r140, 154, 131, -14.0F, -1.0F, -6.5F, 23, 1, 11, 0.0F, false));
+        cube_r140.cubeList.add(new ModelBox(cube_r140, 154, 131, -14.0F, -1, -6.5F, 23, 1, 11, 0.0F, false));
 
         bone41 = new ModelRenderer(this);
         bone41.setRotationPoint(-17.4257F, 8.9028F, 94.046F);
@@ -1638,7 +1638,7 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r159.setRotationPoint(-19.8391F, 0.0541F, 6.4303F);
         bone20.addChild(cube_r159);
         setRotationAngle(cube_r159, 0.0F, -0.2182F, 0.0F);
-        cube_r159.cubeList.add(new ModelBox(cube_r159, 293, 286, -10.5F, -1.0F, -2.5F, 21, 2, 5, 0.0F, false));
+        cube_r159.cubeList.add(new ModelBox(cube_r159, 293, 286, -10.5F, -1, -2.5F, 21, 2, 5, 0.0F, false));
 
         cube_r160 = new ModelRenderer(this);
         cube_r160.setRotationPoint(-11.0244F, -0.4874F, 3.9257F);
@@ -1675,25 +1675,25 @@ public class MclarenSennaWindows extends ModelBase {
         bone20.addChild(cube_r165);
         setRotationAngle(cube_r165, 0.0F, 0.2182F, 0.0F);
         cube_r165.cubeList.add(new ModelBox(cube_r165, 0, 68, -7.5094F, 0.999F, 1.5426F, 18, 1, 1, 0.0F, false));
-        cube_r165.cubeList.add(new ModelBox(cube_r165, 338, 81, -10.5F, -1.0F, -2.5F, 21, 2, 5, 0.0F, false));
+        cube_r165.cubeList.add(new ModelBox(cube_r165, 338, 81, -10.5F, -1, -2.5F, 21, 2, 5, 0.0F, false));
 
         cube_r166 = new ModelRenderer(this);
         cube_r166.setRotationPoint(-11.3735F, -4.9098F, -22.3321F);
         bone20.addChild(cube_r166);
         setRotationAngle(cube_r166, -0.2618F, 0.2618F, -0.2618F);
-        cube_r166.cubeList.add(new ModelBox(cube_r166, 118, 283, -4.5F, -1.0F, -15.5F, 8, 2, 34, 0.0F, false));
+        cube_r166.cubeList.add(new ModelBox(cube_r166, 118, 283, -4.5F, -1, -15.5F, 8, 2, 34, 0.0F, false));
 
         cube_r167 = new ModelRenderer(this);
         cube_r167.setRotationPoint(11.3735F, -4.9098F, -22.3321F);
         bone20.addChild(cube_r167);
         setRotationAngle(cube_r167, -0.2618F, -0.2618F, 0.2618F);
-        cube_r167.cubeList.add(new ModelBox(cube_r167, 168, 286, -3.5F, -1.0F, -15.5F, 8, 2, 34, 0.0F, false));
+        cube_r167.cubeList.add(new ModelBox(cube_r167, 168, 286, -3.5F, -1, -15.5F, 8, 2, 34, 0.0F, false));
 
         cube_r168 = new ModelRenderer(this);
         cube_r168.setRotationPoint(0.0F, -7.4392F, -19.4533F);
         bone20.addChild(cube_r168);
         setRotationAngle(cube_r168, -0.6981F, 0.0F, 0.0F);
-        cube_r168.cubeList.add(new ModelBox(cube_r168, 0, 329, -11.0F, -0.2627F, -1.3244F, 22, 10, 4, 0.0F, false));
+        cube_r168.cubeList.add(new ModelBox(cube_r168, 0, 329, -11, -0.2627F, -1.3244F, 22, 10, 4, 0.0F, false));
 
         cube_r169 = new ModelRenderer(this);
         cube_r169.setRotationPoint(0.0F, -3.3114F, -14.4925F);
@@ -1737,13 +1737,13 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r174.setRotationPoint(10.8646F, -1.2393F, -2.5978F);
         bone30.addChild(cube_r174);
         setRotationAngle(cube_r174, -0.1309F, 0.4363F, -0.0873F);
-        cube_r174.cubeList.add(new ModelBox(cube_r174, 294, 327, -9.0F, -1.0F, -4.0F, 9, 1, 8, 0.0F, false));
+        cube_r174.cubeList.add(new ModelBox(cube_r174, 294, 327, -9.0F, -1, -4.0F, 9, 1, 8, 0.0F, false));
 
         cube_r175 = new ModelRenderer(this);
         cube_r175.setRotationPoint(0.0F, -0.6775F, 0.2044F);
         bone30.addChild(cube_r175);
         setRotationAngle(cube_r175, -0.1309F, -0.1309F, 0.0F);
-        cube_r175.cubeList.add(new ModelBox(cube_r175, 0, 107, -9.0F, -1.0F, -4.0F, 14, 1, 8, 0.0F, false));
+        cube_r175.cubeList.add(new ModelBox(cube_r175, 0, 107, -9.0F, -1, -4.0F, 14, 1, 8, 0.0F, false));
 
         bone33 = new ModelRenderer(this);
         bone33.setRotationPoint(19.0F, 0.0827F, -2.7189F);
@@ -1755,13 +1755,13 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r176.setRotationPoint(-10.8646F, -1.2393F, -2.5978F);
         bone33.addChild(cube_r176);
         setRotationAngle(cube_r176, -0.1309F, -0.4363F, 0.0873F);
-        cube_r176.cubeList.add(new ModelBox(cube_r176, 294, 327, 0.0F, -1.0F, -4.0F, 9, 1, 8, 0.0F, true));
+        cube_r176.cubeList.add(new ModelBox(cube_r176, 294, 327, 0.0F, -1, -4.0F, 9, 1, 8, 0.0F, true));
 
         cube_r177 = new ModelRenderer(this);
         cube_r177.setRotationPoint(0.0F, -0.6775F, 0.2044F);
         bone33.addChild(cube_r177);
         setRotationAngle(cube_r177, -0.1309F, 0.1309F, 0.0F);
-        cube_r177.cubeList.add(new ModelBox(cube_r177, 0, 107, -5.0F, -1.0F, -4.0F, 14, 1, 8, 0.0F, true));
+        cube_r177.cubeList.add(new ModelBox(cube_r177, 0, 107, -5.0F, -1, -4.0F, 14, 1, 8, 0.0F, true));
 
         bone29 = new ModelRenderer(this);
         bone29.setRotationPoint(-19.0F, -0.8171F, -10.7658F);
@@ -1773,13 +1773,13 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r178.setRotationPoint(10.8646F, -1.2393F, -2.5978F);
         bone29.addChild(cube_r178);
         setRotationAngle(cube_r178, -0.1309F, 0.4363F, -0.0873F);
-        cube_r178.cubeList.add(new ModelBox(cube_r178, 126, 344, -9.0F, -1.0F, -4.0F, 9, 1, 8, 0.0F, false));
+        cube_r178.cubeList.add(new ModelBox(cube_r178, 126, 344, -9.0F, -1, -4.0F, 9, 1, 8, 0.0F, false));
 
         cube_r179 = new ModelRenderer(this);
         cube_r179.setRotationPoint(0.0F, -0.6775F, 0.2044F);
         bone29.addChild(cube_r179);
         setRotationAngle(cube_r179, -0.1309F, -0.1309F, 0.0F);
-        cube_r179.cubeList.add(new ModelBox(cube_r179, 0, 271, -9.0F, -1.0F, -4.0F, 14, 1, 8, 0.0F, false));
+        cube_r179.cubeList.add(new ModelBox(cube_r179, 0, 271, -9.0F, -1, -4.0F, 14, 1, 8, 0.0F, false));
 
         bone21 = new ModelRenderer(this);
         bone21.setRotationPoint(19.0F, -0.8171F, -10.7658F);
@@ -1791,13 +1791,13 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r180.setRotationPoint(-10.8646F, -1.2393F, -2.5978F);
         bone21.addChild(cube_r180);
         setRotationAngle(cube_r180, -0.1309F, -0.4363F, 0.0873F);
-        cube_r180.cubeList.add(new ModelBox(cube_r180, 126, 344, 0.0F, -1.0F, -4.0F, 9, 1, 8, 0.0F, true));
+        cube_r180.cubeList.add(new ModelBox(cube_r180, 126, 344, 0.0F, -1, -4.0F, 9, 1, 8, 0.0F, true));
 
         cube_r181 = new ModelRenderer(this);
         cube_r181.setRotationPoint(0.0F, -0.6775F, 0.2044F);
         bone21.addChild(cube_r181);
         setRotationAngle(cube_r181, -0.1309F, 0.1309F, 0.0F);
-        cube_r181.cubeList.add(new ModelBox(cube_r181, 0, 271, -5.0F, -1.0F, -4.0F, 14, 1, 8, 0.0F, true));
+        cube_r181.cubeList.add(new ModelBox(cube_r181, 0, 271, -5.0F, -1, -4.0F, 14, 1, 8, 0.0F, true));
 
         bone26 = new ModelRenderer(this);
         bone26.setRotationPoint(-19.0F, -1.9667F, -18.8236F);
@@ -1809,13 +1809,13 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r182.setRotationPoint(10.8646F, -1.2393F, -2.5978F);
         bone26.addChild(cube_r182);
         setRotationAngle(cube_r182, -0.1309F, 0.4363F, -0.0873F);
-        cube_r182.cubeList.add(new ModelBox(cube_r182, 262, 310, -9.0F, -1.0F, -4.0F, 2, 1, 8, 0.0F, false));
+        cube_r182.cubeList.add(new ModelBox(cube_r182, 262, 310, -9.0F, -1, -4.0F, 2, 1, 8, 0.0F, false));
 
         cube_r183 = new ModelRenderer(this);
         cube_r183.setRotationPoint(0.0F, -0.6775F, 0.2044F);
         bone26.addChild(cube_r183);
         setRotationAngle(cube_r183, -0.1309F, -0.1309F, 0.0F);
-        cube_r183.cubeList.add(new ModelBox(cube_r183, 107, 301, -9.0F, -1.0F, -4.0F, 14, 1, 8, 0.0F, false));
+        cube_r183.cubeList.add(new ModelBox(cube_r183, 107, 301, -9.0F, -1, -4.0F, 14, 1, 8, 0.0F, false));
 
         bone22 = new ModelRenderer(this);
         bone22.setRotationPoint(19.0F, -1.9667F, -18.8236F);
@@ -1827,30 +1827,30 @@ public class MclarenSennaWindows extends ModelBase {
         cube_r184.setRotationPoint(-10.8646F, -1.2393F, -2.5978F);
         bone22.addChild(cube_r184);
         setRotationAngle(cube_r184, -0.1309F, -0.4363F, 0.0873F);
-        cube_r184.cubeList.add(new ModelBox(cube_r184, 262, 310, 7.0F, -1.0F, -4.0F, 2, 1, 8, 0.0F, true));
+        cube_r184.cubeList.add(new ModelBox(cube_r184, 262, 310, 7.0F, -1, -4.0F, 2, 1, 8, 0.0F, true));
 
         cube_r185 = new ModelRenderer(this);
         cube_r185.setRotationPoint(0.0F, -0.6775F, 0.2044F);
         bone22.addChild(cube_r185);
         setRotationAngle(cube_r185, -0.1309F, 0.1309F, 0.0F);
-        cube_r185.cubeList.add(new ModelBox(cube_r185, 107, 301, -5.0F, -1.0F, -4.0F, 14, 1, 8, 0.0F, true));
+        cube_r185.cubeList.add(new ModelBox(cube_r185, 107, 301, -5.0F, -1, -4.0F, 14, 1, 8, 0.0F, true));
 
         bone40 = new ModelRenderer(this);
         bone40.setRotationPoint(-0.9257F, 1.3771F, 99.5634F);
         body_Senna.addChild(bone40);
-        bone40.cubeList.add(new ModelBox(bone40, 154, 214, -11.0F, -0.99F, -6.5F, 22, 1, 10, 0.0F, false));
+        bone40.cubeList.add(new ModelBox(bone40, 154, 214, -11, -0.99F, -6.5F, 22, 1, 10, 0.0F, false));
 
         cube_r186 = new ModelRenderer(this);
-        cube_r186.setRotationPoint(-19.75F, 0.0F, -1.0F);
+        cube_r186.setRotationPoint(-19.75F, 0.0F, -1);
         bone40.addChild(cube_r186);
         setRotationAngle(cube_r186, 0.0F, -0.2618F, 0.0F);
-        cube_r186.cubeList.add(new ModelBox(cube_r186, 246, 327, -9.0F, -1.0F, -7.5F, 19, 2, 10, 0.0F, true));
+        cube_r186.cubeList.add(new ModelBox(cube_r186, 246, 327, -9.0F, -1, -7.5F, 19, 2, 10, 0.0F, true));
 
         cube_r187 = new ModelRenderer(this);
-        cube_r187.setRotationPoint(19.75F, 0.0F, -1.0F);
+        cube_r187.setRotationPoint(19.75F, 0.0F, -1);
         bone40.addChild(cube_r187);
         setRotationAngle(cube_r187, 0.0F, 0.2618F, 0.0F);
-        cube_r187.cubeList.add(new ModelBox(cube_r187, 246, 327, -10.0F, -1.0F, -7.5F, 19, 2, 10, 0.0F, false));
+        cube_r187.cubeList.add(new ModelBox(cube_r187, 246, 327, -10.0F, -1, -7.5F, 19, 2, 10, 0.0F, false));
 
         spoiler = new ModelRenderer(this);
         spoiler.setRotationPoint(15.0F, -39.7267F, 109.6503F);
@@ -1860,7 +1860,7 @@ public class MclarenSennaWindows extends ModelBase {
         bone32 = new ModelRenderer(this);
         bone32.setRotationPoint(0.0F, 2.0864F, -7.6663F);
         spoiler.addChild(bone32);
-        bone32.cubeList.add(new ModelBox(bone32, 290, 46, -31.0F, 0.1797F, -2.183F, 32, 1, 7, 0.0F, false));
+        bone32.cubeList.add(new ModelBox(bone32, 290, 46, -31, 0.1797F, -2.183F, 32, 1, 7, 0.0F, false));
 
         cube_r188 = new ModelRenderer(this);
         cube_r188.setRotationPoint(2.6018F, -0.8274F, 0.5595F);
@@ -1890,7 +1890,7 @@ public class MclarenSennaWindows extends ModelBase {
         bone31.setRotationPoint(0.0F, 0.0F, 0.0F);
         spoiler.addChild(bone31);
         setRotationAngle(bone31, 0.1745F, 0.0F, 0.0F);
-        bone31.cubeList.add(new ModelBox(bone31, 232, 138, -31.0F, 0.1797F, -2.183F, 32, 1, 4, 0.0F, false));
+        bone31.cubeList.add(new ModelBox(bone31, 232, 138, -31, 0.1797F, -2.183F, 32, 1, 4, 0.0F, false));
         bone31.cubeList.add(new ModelBox(bone31, 357, 321, -47.0F, -3.8174F, -13.3139F, 2, 5, 15, 0.0F, false));
         bone31.cubeList.add(new ModelBox(bone31, 357, 321, 15.0F, -3.8174F, -13.3139F, 2, 5, 15, 0.0F, true));
 

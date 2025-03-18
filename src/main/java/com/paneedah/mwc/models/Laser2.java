@@ -36,7 +36,7 @@ public class Laser2 extends ModelBase {
         laser.cubeList.add(new ModelBox(laser, 100, 0, 3.8F, -24.5F, -1.5F, 1, 1, 12, 0.0F, true));
         laser.cubeList.add(new ModelBox(laser, 0, 0, 4.05F, -24.2F, 0.5F, 1, 3, 2, 0.0F, true));
         laser.cubeList.add(new ModelBox(laser, 100, 0, 4.1F, -25.4F, 3.5F, 1, 1, 1, 0.0F, true));
-        laser.cubeList.add(new ModelBox(laser, 100, 0, 4.1F, -21.0F, 3.5F, 1, 1, 1, 0.0F, true));
+        laser.cubeList.add(new ModelBox(laser, 100, 0, 4.1F, -21, 3.5F, 1, 1, 1, 0.0F, true));
         laser.cubeList.add(new ModelBox(laser, 0, 0, 3.0F, -20.4F, 3.5F, 1, 1, 1, 0.0F, true));
         laser.cubeList.add(new ModelBox(laser, 0, 0, 4.0F, -22.6F, 9.2F, 1, 3, 1, 0.0F, true));
         laser.cubeList.add(new ModelBox(laser, 0, 0, 4.0F, -21.6F, 3.2F, 1, 2, 6, 0.0F, true));
@@ -44,13 +44,13 @@ public class Laser2 extends ModelBase {
         laser.cubeList.add(new ModelBox(laser, 0, 0, 3.0F, -25.6F, 3.5F, 1, 1, 1, 0.0F, true));
         laser.cubeList.add(new ModelBox(laser, 0, 0, 3.4F, -20.2F, 0.5F, 1, 1, 1, 0.0F, true));
         laser.cubeList.add(new ModelBox(laser, 0, 0, 2.9F, -20.2F, 0.5F, 1, 1, 1, 0.0F, true));
-        laser.cubeList.add(new ModelBox(laser, 0, 0, 2.9F, -20.2F, 1.0F, 1, 1, 1, 0.0F, true));
+        laser.cubeList.add(new ModelBox(laser, 0, 0, 2.9F, -20.2F, 1, 1, 1, 1, 0.0F, true));
 
         laser28_r1 = new ModelRenderer(this);
         laser28_r1.setRotationPoint(0.0F, 0.0144F, 0.3527F);
         laser.addChild(laser28_r1);
         setRotationAngle(laser28_r1, 0.0175F, 0.0F, 0.0F);
-        laser28_r1.cubeList.add(new ModelBox(laser28_r1, 0, 0, 3.4F, -20.2F, 1.0F, 1, 1, 1, 0.0F, true));
+        laser28_r1.cubeList.add(new ModelBox(laser28_r1, 0, 0, 3.4F, -20.2F, 1, 1, 1, 1, 0.0F, true));
 
         laser26_r1 = new ModelRenderer(this);
         laser26_r1.setRotationPoint(-13.3005F, -32.4495F, 0.0F);
@@ -58,8 +58,8 @@ public class Laser2 extends ModelBase {
         setRotationAngle(laser26_r1, 0.0F, 0.0F, 1.8961F);
         laser26_r1.cubeList.add(new ModelBox(laser26_r1, 0, 0, 5.7F, -21.2F, 0.8F, 1, 1, 1, 0.0F, true));
         laser26_r1.cubeList.add(new ModelBox(laser26_r1, 0, 0, 5.0F, -21.2F, 0.8F, 1, 1, 1, 0.0F, true));
-        laser26_r1.cubeList.add(new ModelBox(laser26_r1, 0, 0, 5.5F, -21.0F, 0.2F, 1, 1, 3, 0.0F, true));
-        laser26_r1.cubeList.add(new ModelBox(laser26_r1, 0, 0, 5.0F, -21.0F, 0.2F, 1, 1, 3, 0.0F, true));
+        laser26_r1.cubeList.add(new ModelBox(laser26_r1, 0, 0, 5.5F, -21, 0.2F, 1, 1, 3, 0.0F, true));
+        laser26_r1.cubeList.add(new ModelBox(laser26_r1, 0, 0, 5.0F, -21, 0.2F, 1, 1, 3, 0.0F, true));
 
         laser22_r1 = new ModelRenderer(this);
         laser22_r1.setRotationPoint(0.0F, -30.3576F, 19.8935F);
@@ -71,7 +71,7 @@ public class Laser2 extends ModelBase {
         laser13_r1.setRotationPoint(-4.1978F, -41.6705F, 0.0F);
         laser.addChild(laser13_r1);
         setRotationAngle(laser13_r1, 0.0F, 0.0F, 2.5281F);
-        laser13_r1.cubeList.add(new ModelBox(laser13_r1, 100, 0, 4.5F, -21.5F, -1.0F, 2, 1, 1, 0.0F, true));
+        laser13_r1.cubeList.add(new ModelBox(laser13_r1, 100, 0, 4.5F, -21.5F, -1, 2, 1, 1, 0.0F, true));
     }
 
     @Override

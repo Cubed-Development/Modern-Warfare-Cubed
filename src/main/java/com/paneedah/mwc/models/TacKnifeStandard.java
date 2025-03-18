@@ -65,37 +65,37 @@ public class TacKnifeStandard extends ModelWithAttachments {
         Knife.cubeList.add(new ModelBox(Knife, 50, 0, 0.9F, 49.9084F, 3.7247F, 1, 4, 1, 0.0F, true));
         Knife.cubeList.add(new ModelBox(Knife, 50, 0, 1.1F, 40.9084F, 3.2247F, 1, 9, 2, 0.0F, true));
         Knife.cubeList.add(new ModelBox(Knife, 50, 0, 0.9F, 40.9084F, 3.2247F, 1, 9, 2, 0.0F, true));
-        Knife.cubeList.add(new ModelBox(Knife, 50, 0, 1.0F, 49.9084F, 3.3247F, 1, 4, 1, 0.0F, true));
+        Knife.cubeList.add(new ModelBox(Knife, 50, 0, 1, 49.9084F, 3.3247F, 1, 4, 1, 0.0F, true));
         Knife.cubeList.add(new ModelBox(Knife, 50, 0, 1.1F, 40.9084F, 4.7247F, 1, 10, 1, 0.0F, true));
         Knife.cubeList.add(new ModelBox(Knife, 50, 0, 0.9F, 40.9084F, 4.7247F, 1, 10, 1, 0.0F, true));
         Knife.cubeList.add(new ModelBox(Knife, 50, 0, 1.1F, 41.9084F, 5.7247F, 1, 3, 1, 0.0F, true));
         Knife.cubeList.add(new ModelBox(Knife, 50, 0, 0.9F, 41.9084F, 5.7247F, 1, 3, 1, 0.0F, true));
-        Knife.cubeList.add(new ModelBox(Knife, 50, 0, 1.0F, 44.9084F, 5.6247F, 1, 6, 1, 0.0F, true));
+        Knife.cubeList.add(new ModelBox(Knife, 50, 0, 1, 44.9084F, 5.6247F, 1, 6, 1, 0.0F, true));
         Knife.cubeList.add(new ModelBox(Knife, 50, 0, 0.9F, 37.9084F, 4.7247F, 1, 3, 1, 0.0F, true));
 
         Knife52_r1 = new ModelRenderer(this);
         Knife52_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         Knife.addChild(Knife52_r1);
         setRotationAngle(Knife52_r1, -2.8999F, 0.0F, 0.0F);
-        Knife52_r1.cubeList.add(new ModelBox(Knife52_r1, 50, 0, 1.0F, -42.3F, 3.5F, 1, 1, 1, 0.0F, true));
+        Knife52_r1.cubeList.add(new ModelBox(Knife52_r1, 50, 0, 1, -42.3F, 3.5F, 1, 1, 1, 0.0F, true));
 
         Knife51_r1 = new ModelRenderer(this);
         Knife51_r1.setRotationPoint(0.0F, 61.3864F, 41.3763F);
         Knife.addChild(Knife51_r1);
         setRotationAngle(Knife51_r1, 1.0782F, 0.0F, 0.0F);
-        Knife51_r1.cubeList.add(new ModelBox(Knife51_r1, 50, 0, 1.0F, -43.3F, 0.0F, 1, 2, 2, 0.0F, true));
+        Knife51_r1.cubeList.add(new ModelBox(Knife51_r1, 50, 0, 1, -43.3F, 0.0F, 1, 2, 2, 0.0F, true));
 
         Knife50_r1 = new ModelRenderer(this);
         Knife50_r1.setRotationPoint(0.0F, 79.0293F, -16.6064F);
         Knife.addChild(Knife50_r1);
         setRotationAngle(Knife50_r1, -0.4461F, 0.0F, 0.0F);
-        Knife50_r1.cubeList.add(new ModelBox(Knife50_r1, 50, 0, 1.0F, -46.3F, 1.5F, 1, 2, 1, 0.0F, true));
+        Knife50_r1.cubeList.add(new ModelBox(Knife50_r1, 50, 0, 1, -46.3F, 1.5F, 1, 2, 1, 0.0F, true));
 
         Knife49_r1 = new ModelRenderer(this);
         Knife49_r1.setRotationPoint(0.0F, 46.1376F, -39.9066F);
         Knife.addChild(Knife49_r1);
         setRotationAngle(Knife49_r1, -1.3384F, 0.0F, 0.0F);
-        Knife49_r1.cubeList.add(new ModelBox(Knife49_r1, 50, 0, 1.0F, -46.3F, 2.5F, 1, 1, 4, 0.0F, true));
+        Knife49_r1.cubeList.add(new ModelBox(Knife49_r1, 50, 0, 1, -46.3F, 2.5F, 1, 1, 4, 0.0F, true));
 
         Knife31_r1 = new ModelRenderer(this);
         Knife31_r1.setRotationPoint(7.9103F, 84.2084F, 5.6865F);

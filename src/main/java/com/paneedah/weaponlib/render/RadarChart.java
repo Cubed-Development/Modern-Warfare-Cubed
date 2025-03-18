@@ -131,7 +131,7 @@ public class RadarChart {
 
 
         // Draw hexagonal grid pattern
-        GL11.glLineWidth(1.0f);
+        GL11.glLineWidth(1);
         bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
         for (double m = 0; m <= 1; m += 0.2) {
             for (double a = 0; a <= 2 * Math.PI; a += increment) {
@@ -140,7 +140,7 @@ public class RadarChart {
         }
         t.draw();
 
-        GL11.glLineWidth(1.0f);
+        GL11.glLineWidth(1);
         bb.begin(GL11.GL_LINES, DefaultVertexFormats.POSITION_COLOR);
         for (double a = 0; a <= 2 * Math.PI; a += increment) {
             bb.pos(0, 0, 0).color(1, 1, 1, color[3]).endVertex();

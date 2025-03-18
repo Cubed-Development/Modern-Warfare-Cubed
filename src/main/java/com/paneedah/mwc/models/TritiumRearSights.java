@@ -29,13 +29,13 @@ public class TritiumRearSights extends ModelBase {
         textureHeight = 64;
 
         sight23 = new ModelRenderer(this);
-        sight23.setRotationPoint(3.0F, -4.0F, -1.0F);
+        sight23.setRotationPoint(3.0F, -4.0F, -1);
         setRotationAngle(sight23, 0.0F, 0.0F, 2.3562F);
         sight23.cubeList.add(new ModelBox(sight23, 0, 20, -0.7071F, 0.0F, 0.0F, 1, 1, 2, 0.0F, true));
         sight23.cubeList.add(new ModelBox(sight23, 0, 20, -0.7071F, 0.4F, 0.0F, 1, 1, 2, 0.0F, true));
 
         sight26 = new ModelRenderer(this);
-        sight26.setRotationPoint(0.0F, -4.0F, -1.0F);
+        sight26.setRotationPoint(0.0F, -4.0F, -1);
         setRotationAngle(sight26, 0.0F, 0.0F, -0.7854F);
         sight26.cubeList.add(new ModelBox(sight26, 0, 20, 0.0F, -0.7071F, 0.0F, 1, 1, 2, 0.0F, true));
         sight26.cubeList.add(new ModelBox(sight26, 0, 20, 0.4F, -0.7071F, 0.0F, 1, 1, 2, 0.0F, true));
@@ -59,22 +59,22 @@ public class TritiumRearSights extends ModelBase {
         bone.setRotationPoint(0.0F, 24.0F, 0.0F);
         bone.cubeList.add(new ModelBox(bone, 0, 0, -3.7F, -17.5F, -7.3F, 8, 3, 3, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, 4.2F, -18.3F, -6.3F, 2, 3, 4, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.8F, -18.5F, -1.0F, 6, 2, 2, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.8F, -18.5F, -1, 6, 2, 2, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, 3.7F, -19.0F, -2.3F, 2, 3, 4, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -3.7F, -17.0F, -4.3F, 3, 3, 8, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -3.7F, -19.0F, -2.3F, 3, 2, 4, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -0.5F, -23.2F, -2.0F, 4, 7, 4, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -2.5F, -26.7F, -2.0F, 1, 3, 4, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, 4.5F, -26.7F, -2.0F, 1, 3, 4, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -2.5F, -28.7F, 1.0F, 1, 2, 1, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, 4.5F, -28.7F, 1.0F, 1, 2, 1, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -2.5F, -28.7F, 1, 1, 2, 1, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, 4.5F, -28.7F, 1, 1, 2, 1, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -2.511F, -29.4F, -0.7F, 1, 3, 2, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, 4.489F, -29.4F, -0.7F, 1, 3, 2, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, 0.5F, -26.5F, -1.0F, 2, 3, 2, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, 0.5F, -26.5F, -1, 2, 3, 2, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -3.7F, -19.0F, -4.3F, 8, 2, 2, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 20, 0.5F, -29.5F, -1.0F, 2, 1, 2, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 20, 2.5F, -28.5F, -1.0F, 1, 5, 2, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 20, -0.5F, -28.5F, -1.0F, 1, 5, 2, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 20, 0.5F, -29.5F, -1, 2, 1, 2, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 20, 2.5F, -28.5F, -1, 1, 5, 2, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 20, -0.5F, -28.5F, -1, 1, 5, 2, 0.0F, true));
 
         bone2 = new ModelRenderer(this);
         bone2.setRotationPoint(-2.5F, -27.2F, -2.0F);
@@ -87,14 +87,14 @@ public class TritiumRearSights extends ModelBase {
         bone3.setRotationPoint(-1.5F, -29.9F, 1.3F);
         bone.addChild(bone3);
         setRotationAngle(bone3, -2.3562F, 0.0F, 0.0F);
-        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -1.0F, -1.3536F, 0.3536F, 1, 1, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -1, -1.3536F, 0.3536F, 1, 1, 1, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 0, 0, 6.0F, -1.3536F, 0.3536F, 1, 1, 1, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(5.5F, -23.7F, -2.0F);
         bone.addChild(bone5);
         setRotationAngle(bone5, 0.0F, 0.0F, 0.8203F);
-        bone5.cubeList.add(new ModelBox(bone5, 0, 0, -1.0F, 0.0F, 0.0F, 1, 3, 4, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 0, 0, -1, 0.0F, 0.0F, 1, 3, 4, 0.0F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(-2.5F, -23.7F, -2.0F);
@@ -106,8 +106,8 @@ public class TritiumRearSights extends ModelBase {
         bone6.setRotationPoint(0.5F, -24.9F, 0.7F);
         bone.addChild(bone6);
         setRotationAngle(bone6, 0.7854F, 0.0F, 0.0F);
-        bone6.cubeList.add(new ModelBox(bone6, 0, 0, -0.99F, -1.0F, -1.0F, 4, 2, 2, 0.0F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 0, 0, -1.99F, -1.0F, -1.0F, 6, 1, 1, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 0, 0, -0.99F, -1, -1, 4, 2, 2, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 0, 0, -1.99F, -1, -1, 6, 1, 1, 0.0F, false));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(-2.6F, -0.8F, -0.4F);

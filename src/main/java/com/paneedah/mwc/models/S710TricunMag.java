@@ -25,8 +25,8 @@ public class S710TricunMag extends ModelWithAttachments {
 
         magazine = new ModelRenderer(this);
         magazine.setRotationPoint(-2.0F, -9.0F, -18.5F);
-        magazine.cubeList.add(new ModelBox(magazine, 79, 33, -0.75F, 21.0F, 4.2F, 3, 2, 5, 0.0F, false));
-        magazine.cubeList.add(new ModelBox(magazine, 36, 39, -1.25F, 21.0F, 4.199F, 1, 2, 5, 0.0F, false));
+        magazine.cubeList.add(new ModelBox(magazine, 79, 33, -0.75F, 21, 4.2F, 3, 2, 5, 0.0F, false));
+        magazine.cubeList.add(new ModelBox(magazine, 36, 39, -1.25F, 21, 4.199F, 1, 2, 5, 0.0F, false));
 
         cube_r27 = new ModelRenderer(this);
         cube_r27.setRotationPoint(1.5F, 0.0F, 0.0F);
@@ -46,7 +46,7 @@ public class S710TricunMag extends ModelWithAttachments {
         cube_r28.cubeList.add(new ModelBox(cube_r28, 0, 85, -0.52F, 0.0F, 0.0F, 3, 1, 5, 0.0F, false));
 
         cube_r29 = new ModelRenderer(this);
-        cube_r29.setRotationPoint(-1.0F, 3.9F, 0.86F);
+        cube_r29.setRotationPoint(-1, 3.9F, 0.86F);
         magazine.addChild(cube_r29);
         setRotationAngle(cube_r29, 0.2182F, -0.0262F, 0.1222F);
         cube_r29.cubeList.add(new ModelBox(cube_r29, 26, 26, 0.0F, -4.0F, 0.0F, 1, 4, 4, 0.0F, false));
@@ -55,13 +55,13 @@ public class S710TricunMag extends ModelWithAttachments {
         cube_r30.setRotationPoint(2.0F, 3.9F, 0.86F);
         magazine.addChild(cube_r30);
         setRotationAngle(cube_r30, 0.2182F, 0.0262F, -0.1222F);
-        cube_r30.cubeList.add(new ModelBox(cube_r30, 26, 0, -1.0F, -4.0F, 0.0F, 1, 4, 4, 0.0F, false));
+        cube_r30.cubeList.add(new ModelBox(cube_r30, 26, 0, -1, -4.0F, 0.0F, 1, 4, 4, 0.0F, false));
 
         cube_r31 = new ModelRenderer(this);
         cube_r31.setRotationPoint(0.3F, -1.15F, 1.05F);
         magazine.addChild(cube_r31);
         setRotationAngle(cube_r31, -0.0436F, 0.0F, 0.0F);
-        cube_r31.cubeList.add(new ModelBox(cube_r31, 52, 52, -1.0F, 0.0F, 0.0F, 1, 2, 3, -0.2F, false));
+        cube_r31.cubeList.add(new ModelBox(cube_r31, 52, 52, -1, 0.0F, 0.0F, 1, 2, 3, -0.2F, false));
         cube_r31.cubeList.add(new ModelBox(cube_r31, 56, 25, 0.4F, 0.0F, 0.0F, 1, 2, 3, -0.2F, false));
 
         cube_r32 = new ModelRenderer(this);

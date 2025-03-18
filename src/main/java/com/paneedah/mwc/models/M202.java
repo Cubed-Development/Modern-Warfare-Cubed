@@ -103,17 +103,17 @@ public class M202 extends ModelWithAttachments {
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.5619F, -35.3726F, -42.0F, 1, 16, 74, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -16.4381F, -35.3726F, -42.0F, 1, 16, 74, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 0.5619F, -38.3726F, 0.0F, 3, 14, 6, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -8.9381F, -37.9726F, -41.0F, 3, 1, 6, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -8.9381F, -37.9726F, -41, 3, 1, 6, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -9.4381F, -38.3726F, 26.0F, 4, 1, 6, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -8.4381F, -40.3726F, 27.0F, 2, 2, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -8.4381F, -39.3726F, -39.0F, 2, 2, 3, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -9.4381F, -17.3726F, -39.0F, 4, 1, 6, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -9.4381F, -17.3726F, 21.0F, 4, 1, 10, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -9.4381F, -17.3726F, 21, 4, 1, 10, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -6.4381F, -39.1726F, -38.0F, 1, 1, 8, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -9.4381F, -39.1726F, -38.0F, 1, 1, 8, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -8.9381F, -39.1726F, -30.5F, 3, 1, 1, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -6.4381F, -39.8726F, 21.0F, 1, 1, 8, 0.0F, true));
-        gun.cubeList.add(new ModelBox(gun, 0, 0, -9.4381F, -39.8726F, 21.0F, 1, 1, 8, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -6.4381F, -39.8726F, 21, 1, 1, 8, 0.0F, true));
+        gun.cubeList.add(new ModelBox(gun, 0, 0, -9.4381F, -39.8726F, 21, 1, 1, 8, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, -7.4381F, -38.3726F, 0.0F, 8, 2, 6, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 3.0619F, -37.3726F, 1.5F, 1, 5, 4, 0.0F, true));
         gun.cubeList.add(new ModelBox(gun, 0, 0, 4.0619F, -36.8726F, 2.0F, 2, 3, 3, 0.0F, true));
@@ -246,8 +246,8 @@ public class M202 extends ModelWithAttachments {
         gun.addChild(Main33_r1);
         setRotationAngle(Main33_r1, 0.0F, 0.0F, 1.501F);
         Main33_r1.cubeList.add(new ModelBox(Main33_r1, 0, 0, -1.5F, -17.1F, -42.0F, 1, 2, 74, 0.0F, true));
-        Main33_r1.cubeList.add(new ModelBox(Main33_r1, 0, 0, -1.0F, -17.1F, 29.0F, 1, 2, 3, 0.0F, true));
-        Main33_r1.cubeList.add(new ModelBox(Main33_r1, 0, 0, -1.0F, -17.1F, -43.0F, 1, 2, 3, 0.0F, true));
+        Main33_r1.cubeList.add(new ModelBox(Main33_r1, 0, 0, -1, -17.1F, 29.0F, 1, 2, 3, 0.0F, true));
+        Main33_r1.cubeList.add(new ModelBox(Main33_r1, 0, 0, -1, -17.1F, -43.0F, 1, 2, 3, 0.0F, true));
 
         Main32_r1 = new ModelRenderer(this);
         Main32_r1.setRotationPoint(-1.9458F, -1.6795F, 0.0F);
@@ -360,7 +360,7 @@ public class M202 extends ModelWithAttachments {
         Main17_r1.setRotationPoint(-18.53F, -8.8665F, 0.0F);
         gun.addChild(Main17_r1);
         setRotationAngle(Main17_r1, 0.0F, 0.0F, 0.7854F);
-        Main17_r1.cubeList.add(new ModelBox(Main17_r1, 0, 0, -1.0F, -28.0F, -24.0F, 1, 2, 56, 0.0F, true));
+        Main17_r1.cubeList.add(new ModelBox(Main17_r1, 0, 0, -1, -28.0F, -24.0F, 1, 2, 56, 0.0F, true));
 
         Main16_r1 = new ModelRenderer(this);
         Main16_r1.setRotationPoint(-14.8021F, 0.1335F, 0.0F);
@@ -486,8 +486,8 @@ public class M202 extends ModelWithAttachments {
         MAIN2DOT25_r1.setRotationPoint(12.3946F, 9.2248F, 0.0F);
         Dot.addChild(MAIN2DOT25_r1);
         setRotationAngle(MAIN2DOT25_r1, 0.0F, 0.0F, 1.501F);
-        MAIN2DOT25_r1.cubeList.add(new ModelBox(MAIN2DOT25_r1, 0, 0, -1.0F, 3.9F, 27.0F, 1, 2, 3, 0.0F, true));
-        MAIN2DOT25_r1.cubeList.add(new ModelBox(MAIN2DOT25_r1, 0, 0, -1.0F, 3.9F, -40.0F, 1, 2, 2, 0.0F, true));
+        MAIN2DOT25_r1.cubeList.add(new ModelBox(MAIN2DOT25_r1, 0, 0, -1, 3.9F, 27.0F, 1, 2, 3, 0.0F, true));
+        MAIN2DOT25_r1.cubeList.add(new ModelBox(MAIN2DOT25_r1, 0, 0, -1, 3.9F, -40.0F, 1, 2, 2, 0.0F, true));
 
         MAIN2DOT24_r1 = new ModelRenderer(this);
         MAIN2DOT24_r1.setRotationPoint(10.0384F, 4.1127F, 0.0F);

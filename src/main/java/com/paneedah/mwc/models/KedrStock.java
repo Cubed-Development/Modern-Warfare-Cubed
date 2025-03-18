@@ -34,7 +34,7 @@ public class KedrStock extends ModelBase {
         stock.cubeList.add(new ModelBox(stock, 36, 21, 1.2F, -1.3F, -33.9F, 1, 8, 1, 0.0F, false));
         stock.cubeList.add(new ModelBox(stock, 0, 103, -1.7F, -2.55F, -31.9F, 1, 1, 30, 0.0F, false));
         stock.cubeList.add(new ModelBox(stock, 36, 101, 0.7F, -2.55F, -31.9F, 1, 1, 30, 0.0F, false));
-        stock.cubeList.add(new ModelBox(stock, 70, 34, -1.0F, -2.45F, -31.901F, 2, 1, 30, 0.0F, false));
+        stock.cubeList.add(new ModelBox(stock, 70, 34, -1, -2.45F, -31.901F, 2, 1, 30, 0.0F, false));
         stock.cubeList.add(new ModelBox(stock, 0, 35, 1.2F, -2.3F, -33.9F, 1, 1, 34, 0.0F, false));
 
         gun78_r1_r1 = new ModelRenderer(this);

@@ -36,7 +36,7 @@ public class G11HandguardK1 extends ModelWithAttachments {
         textureHeight = 256;
 
         handguard_K1 = new ModelRenderer(this);
-        handguard_K1.setRotationPoint(0.8457F, -11.0F, -22.8456F);
+        handguard_K1.setRotationPoint(0.8457F, -11, -22.8456F);
         handguard_K1.cubeList.add(new ModelBox(handguard_K1, 48, 17, -0.4967F, -2.5F, 2.2706F, 1, 5, 3, 0.0F, false));
         handguard_K1.cubeList.add(new ModelBox(handguard_K1, 57, 76, -5.3467F, -3.5F, 5.2706F, 6, 6, 2, 0.0F, false));
         handguard_K1.cubeList.add(new ModelBox(handguard_K1, 41, 76, -5.3467F, -3.5F, 0.2706F, 6, 6, 2, 0.0F, false));
@@ -109,7 +109,7 @@ public class G11HandguardK1 extends ModelWithAttachments {
         cube_r52.setRotationPoint(-3.8478F, -3.999F, -13.7325F);
         handguard_K1.addChild(cube_r52);
         setRotationAngle(cube_r52, 0.0F, -0.3927F, 0.0F);
-        cube_r52.cubeList.add(new ModelBox(cube_r52, 0, 74, -1.0F, -0.5F, -1.5F, 1, 1, 3, 0.0F, false));
+        cube_r52.cubeList.add(new ModelBox(cube_r52, 0, 74, -1, -0.5F, -1.5F, 1, 1, 3, 0.0F, false));
 
         cube_r53 = new ModelRenderer(this);
         cube_r53.setRotationPoint(-3.6386F, -1.25F, -28.2294F);

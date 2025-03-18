@@ -52,7 +52,7 @@ public class AR15Action extends ModelBase {
         Action4.cubeList.add(new ModelBox(Action4, 6, 16, -0.199F, 1.199F, 1.2F, 1, 1, 1, -0.2F, false));
 
         Action5 = new ModelRenderer(this);
-        Action5.setRotationPoint(-1.0F, -0.5F, 14.0F);
+        Action5.setRotationPoint(-1, -0.5F, 14.0F);
         Action5.cubeList.add(new ModelBox(Action5, 0, 0, 0.0F, 0.001F, 0.0F, 4, 2, 1, 0.0F, false));
 
         Action6 = new ModelRenderer(this);
@@ -78,8 +78,8 @@ public class AR15Action extends ModelBase {
         Action9_r1.setRotationPoint(1.9F, 0.152F, 2.8F);
         bone.addChild(Action9_r1);
         setRotationAngle(Action9_r1, 0.0F, -1.0297F, 0.0F);
-        Action9_r1.cubeList.add(new ModelBox(Action9_r1, 5, 18, -1.0F, -1.1F, -1.6F, 1, 1, 1, 0.0F, false));
-        Action9_r1.cubeList.add(new ModelBox(Action9_r1, 9, 18, -1.001F, -1.101F, -1.0F, 1, 1, 1, 0.0F, false));
+        Action9_r1.cubeList.add(new ModelBox(Action9_r1, 5, 18, -1, -1.1F, -1.6F, 1, 1, 1, 0.0F, false));
+        Action9_r1.cubeList.add(new ModelBox(Action9_r1, 9, 18, -1.001F, -1.101F, -1, 1, 1, 1, 0.0F, false));
         Action9_r1.cubeList.add(new ModelBox(Action9_r1, 17, 16, -0.998F, -1.401F, -1.599F, 1, 1, 1, 0.0F, false));
         Action9_r1.cubeList.add(new ModelBox(Action9_r1, 17, 18, -0.999F, -1.4F, -0.999F, 1, 1, 1, 0.0F, false));
     }

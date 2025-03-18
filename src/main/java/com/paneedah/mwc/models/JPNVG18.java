@@ -52,7 +52,7 @@ public class JPNVG18 extends ModelBiped {
 
         leftarm = new ModelRenderer(this);
         leftarm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
         rightleg = new ModelRenderer(this);
         rightleg.setRotationPoint(-2.0F, 12.0F, 0.0F);
@@ -83,7 +83,7 @@ public class JPNVG18 extends ModelBiped {
         helmet4.setRotationPoint(0.0F, 0.0F, 0.0F);
         setRotationAngle(helmet4, -0.4014F, 0.0F, 0.0F);
         helmet4.cubeList.add(new ModelBox(helmet4, 53, 53, -1.5F, -6.2841F, -7.2271F, 3, 3, 1, 0.0F, false));
-        helmet4.cubeList.add(new ModelBox(helmet4, 0, 5, -1.0F, -5.5881F, -7.7907F, 2, 2, 1, 0.0F, false));
+        helmet4.cubeList.add(new ModelBox(helmet4, 0, 5, -1, -5.5881F, -7.7907F, 2, 2, 1, 0.0F, false));
 
         helmet5 = new ModelRenderer(this);
         helmet5.setRotationPoint(0.0F, 0.0F, 0.0F);
