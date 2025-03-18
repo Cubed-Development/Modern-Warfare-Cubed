@@ -19,28 +19,28 @@ public class StonerA1HATCH extends ModelWithAttachments {
         textureHeight = 256;
 
         hatch = new ModelRenderer(this);
-        hatch.setRotationPoint(-14.2791F, 18.9461F, 0.0F);
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -27.9461F, 38.0F, 7, 1, 1, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -27.9461F, 38.0F, 5, 1, 4, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -27.4461F, 40.0F, 5, 1, 3, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -26.4461F, 41, 5, 1, 2, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.7791F, -28.9461F, 37.0F, 1, 3, 4, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 16.7791F, -28.9461F, 37.0F, 1, 3, 4, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 13.2791F, -28.7461F, 52.0F, 3, 2, 2, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 17.2791F, -28.9461F, 42.0F, 1, 2, 10, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.1791F, -27.9461F, 39.5F, 1, 1, 1, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -28.9461F, 40.0F, 5, 1, 12, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -28.4461F, 45.0F, 1, 2, 7, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -26.4461F, 45.0F, 1, 1, 1, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -26.4461F, 50.0F, 1, 1, 2, 0.0F, true));
-        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -28.4461F, 41, 1, 3, 4, 0.0F, true));
+        hatch.setRotationPoint(-14.2791F, 18.9461F, 0);
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -27.9461F, 38, 7, 1, 1, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -27.9461F, 38, 5, 1, 4, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -27.4461F, 40, 5, 1, 3, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -26.4461F, 41, 5, 1, 2, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.7791F, -28.9461F, 37, 1, 3, 4, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 16.7791F, -28.9461F, 37, 1, 3, 4, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 13.2791F, -28.7461F, 52, 3, 2, 2, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 17.2791F, -28.9461F, 42, 1, 2, 10, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.1791F, -27.9461F, 39.5F, 1, 1, 1, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 12.2791F, -28.9461F, 40, 5, 1, 12, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -28.4461F, 45, 1, 2, 7, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -26.4461F, 45, 1, 1, 1, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -26.4461F, 50, 1, 1, 2, 0, true));
+        hatch.cubeList.add(new ModelBox(hatch, 0, 0, 11.2791F, -28.4461F, 41, 1, 3, 4, 0, true));
 
         Hatch11_r1 = new ModelRenderer(this);
-        Hatch11_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+        Hatch11_r1.setRotationPoint(0, 0, 0);
         hatch.addChild(Hatch11_r1);
-        setRotationAngle(Hatch11_r1, 0.0F, 0.0F, 0.4461F);
-        Hatch11_r1.cubeList.add(new ModelBox(Hatch11_r1, 0, 0, 4.4F, -34.0F, 42.0F, 1, 1, 10, 0.0F, true));
-        Hatch11_r1.cubeList.add(new ModelBox(Hatch11_r1, 0, 0, 4.0F, -34.0F, 42.0F, 1, 1, 10, 0.0F, true));
+        setRotationAngle(Hatch11_r1, 0, 0, 0.4461F);
+        Hatch11_r1.cubeList.add(new ModelBox(Hatch11_r1, 0, 0, 4.4F, -34, 42, 1, 1, 10, 0, true));
+        Hatch11_r1.cubeList.add(new ModelBox(Hatch11_r1, 0, 0, 4, -34, 42, 1, 1, 10, 0, true));
     }
 
     @Override

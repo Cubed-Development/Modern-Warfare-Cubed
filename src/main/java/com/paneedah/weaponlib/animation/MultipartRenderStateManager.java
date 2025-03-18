@@ -407,7 +407,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
             LOGGER.trace("Applying position for part {}", part);
 
-            //progress = 0.0f;
+            //progress = 0;
 
 
             // progress = (float) interp.ACCELERATION.interpolate(progress);
@@ -501,7 +501,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
             deltaMatrix.m32 = (float) trans.z;
 
 
-            //deltaMatrix.m30 = 0.0f;
+            //deltaMatrix.m30 = 0;
 		    /*
 			Matrix4f m1 = MatrixHelper.interpolateMatrix(beforeMatrix, 1 - progress); //start * (1 - progress)
 			Matrix4f m2 = MatrixHelper.interpolateMatrix(afterMatrix, progress);

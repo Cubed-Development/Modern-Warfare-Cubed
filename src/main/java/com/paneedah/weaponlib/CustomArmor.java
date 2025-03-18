@@ -560,7 +560,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
                     nbt.setLong("StartRunningTimestamp", System.currentTimeMillis());
                 }
                 long runningDuration = System.currentTimeMillis() - startRunningTimestamp;
-                float runningProgress = ClampUtil.clampMaxFirst(((float)runningDuration) / 5000, 0.0f, 1);
+                float runningProgress = ClampUtil.clampMaxFirst(((float)runningDuration) / 5000, 0, 1);
                 breathingPeriodMillis = 2000L - (long)(runningProgress * 1500);
                 System.out.println("Breathing period: " + breathingPeriodMillis);
             } else {

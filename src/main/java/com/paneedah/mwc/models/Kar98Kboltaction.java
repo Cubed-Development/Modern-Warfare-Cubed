@@ -34,121 +34,121 @@ public class Kar98Kboltaction extends ModelBase {
         textureHeight = 256;
 
         boltaction = new ModelRenderer(this);
-        boltaction.setRotationPoint(0.0F, 24.0F, 0.0F);
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.7F, -39.6F, -12.8F, 1, 1, 4, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -40.7F, -31.5F, 1, 3, 14, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -3.5F, -39.7F, -31.5F, 3, 1, 16, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -3.0F, -40.65F, -17.5F, 2, 1, 3, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -3.4F, -39.7F, -15.5F, 1, 1, 4, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -1.6F, -39.7F, -15.5F, 1, 1, 2, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.4F, -40.9F, -17.0F, 1, 1, 4, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -1.8F, -40.8F, -14.0F, 2, 1, 2, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -5.3F, -39.5F, -16.5F, 3, 1, 1, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -41, -17.0F, 1, 1, 4, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -40.8F, -13.5F, 1, 1, 1, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.6F, -40.9F, -17.0F, 1, 1, 4, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -40.8F, -13.0F, 1, 1, 1, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -39.1F, -13.5F, 1, 1, 2, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -1.2F, -39.6F, -17.6F, 1, 1, 6, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -39.8F, -12.8F, 1, 1, 4, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -39.4F, -12.8F, 1, 1, 4, 0.0F, true));
-        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.3F, -39.6F, -12.8F, 1, 1, 4, 0.0F, true));
+        boltaction.setRotationPoint(0, 24, 0);
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.7F, -39.6F, -12.8F, 1, 1, 4, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -40.7F, -31.5F, 1, 3, 14, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -3.5F, -39.7F, -31.5F, 3, 1, 16, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -3, -40.65F, -17.5F, 2, 1, 3, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -3.4F, -39.7F, -15.5F, 1, 1, 4, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -1.6F, -39.7F, -15.5F, 1, 1, 2, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.4F, -40.9F, -17, 1, 1, 4, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -1.8F, -40.8F, -14, 2, 1, 2, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -5.3F, -39.5F, -16.5F, 3, 1, 1, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -41, -17, 1, 1, 4, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -40.8F, -13.5F, 1, 1, 1, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.6F, -40.9F, -17, 1, 1, 4, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -40.8F, -13, 1, 1, 1, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -39.1F, -13.5F, 1, 1, 2, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -1.2F, -39.6F, -17.6F, 1, 1, 6, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -39.8F, -12.8F, 1, 1, 4, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.5F, -39.4F, -12.8F, 1, 1, 4, 0, true));
+        boltaction.cubeList.add(new ModelBox(boltaction, 200, 0, -2.3F, -39.6F, -12.8F, 1, 1, 4, 0, true));
 
         action36_r1 = new ModelRenderer(this);
-        action36_r1.setRotationPoint(-7.9974F, 0.6051F, 0.0F);
+        action36_r1.setRotationPoint(-7.9974F, 0.6051F, 0);
         boltaction.addChild(action36_r1);
-        setRotationAngle(action36_r1, 0.0F, 0.0F, 0.2231F);
-        action36_r1.cubeList.add(new ModelBox(action36_r1, 200, 0, -6.7F, -35.4F, -17.0F, 2, 2, 2, 0.0F, true));
+        setRotationAngle(action36_r1, 0, 0, 0.2231F);
+        action36_r1.cubeList.add(new ModelBox(action36_r1, 200, 0, -6.7F, -35.4F, -17, 2, 2, 2, 0, true));
 
         action32_r1 = new ModelRenderer(this);
-        action32_r1.setRotationPoint(32.6126F, -22.707F, 0.0F);
+        action32_r1.setRotationPoint(32.6126F, -22.707F, 0);
         boltaction.addChild(action32_r1);
-        setRotationAngle(action32_r1, 0.0F, 0.0F, -1.041F);
-        action32_r1.cubeList.add(new ModelBox(action32_r1, 200, 0, -3.5F, -39.8F, -17.5F, 1, 1, 2, 0.0F, true));
+        setRotationAngle(action32_r1, 0, 0, -1.041F);
+        action32_r1.cubeList.add(new ModelBox(action32_r1, 200, 0, -3.5F, -39.8F, -17.5F, 1, 1, 2, 0, true));
 
         action29_r1 = new ModelRenderer(this);
-        action29_r1.setRotationPoint(12.8489F, -3.3183F, 0.0F);
+        action29_r1.setRotationPoint(12.8489F, -3.3183F, 0);
         boltaction.addChild(action29_r1);
-        setRotationAngle(action29_r1, 0.0F, 0.0F, -0.3346F);
-        action29_r1.cubeList.add(new ModelBox(action29_r1, 200, 0, -3.4F, -39.7F, -15.5F, 1, 1, 4, 0.0F, true));
+        setRotationAngle(action29_r1, 0, 0, -0.3346F);
+        action29_r1.cubeList.add(new ModelBox(action29_r1, 200, 0, -3.4F, -39.7F, -15.5F, 1, 1, 4, 0, true));
 
         action27_r1 = new ModelRenderer(this);
-        action27_r1.setRotationPoint(-21.3606F, -73.6987F, 0.0F);
+        action27_r1.setRotationPoint(-21.3606F, -73.6987F, 0);
         boltaction.addChild(action27_r1);
-        setRotationAngle(action27_r1, 0.0F, 0.0F, 2.6025F);
-        action27_r1.cubeList.add(new ModelBox(action27_r1, 200, 0, -0.5F, -39.8F, -17.5F, 1, 1, 3, 0.0F, true));
+        setRotationAngle(action27_r1, 0, 0, 2.6025F);
+        action27_r1.cubeList.add(new ModelBox(action27_r1, 200, 0, -0.5F, -39.8F, -17.5F, 1, 1, 3, 0, true));
 
         action22_r1 = new ModelRenderer(this);
-        action22_r1.setRotationPoint(32.8508F, -24.731F, 0.0F);
+        action22_r1.setRotationPoint(32.8508F, -24.731F, 0);
         boltaction.addChild(action22_r1);
-        setRotationAngle(action22_r1, 0.0F, 0.0F, -1.1154F);
-        action22_r1.cubeList.add(new ModelBox(action22_r1, 200, 0, -3.4F, -38.7F, -15.5F, 1, 1, 4, 0.0F, true));
+        setRotationAngle(action22_r1, 0, 0, -1.1154F);
+        action22_r1.cubeList.add(new ModelBox(action22_r1, 200, 0, -3.4F, -38.7F, -15.5F, 1, 1, 4, 0, true));
 
         action19_r1 = new ModelRenderer(this);
-        action19_r1.setRotationPoint(-8.8698F, 0.1938F, 0.0F);
+        action19_r1.setRotationPoint(-8.8698F, 0.1938F, 0);
         boltaction.addChild(action19_r1);
-        setRotationAngle(action19_r1, 0.0F, 0.0F, 0.2231F);
-        action19_r1.cubeList.add(new ModelBox(action19_r1, 200, 0, -5.3F, -39.5F, -16.5F, 1, 5, 1, 0.0F, true));
+        setRotationAngle(action19_r1, 0, 0, 0.2231F);
+        action19_r1.cubeList.add(new ModelBox(action19_r1, 200, 0, -5.3F, -39.5F, -16.5F, 1, 5, 1, 0, true));
 
         action17_r1 = new ModelRenderer(this);
-        action17_r1.setRotationPoint(-37.8394F, -53.0814F, 0.0F);
+        action17_r1.setRotationPoint(-37.8394F, -53.0814F, 0);
         boltaction.addChild(action17_r1);
-        setRotationAngle(action17_r1, 0.0F, 0.0F, 1.9333F);
-        action17_r1.cubeList.add(new ModelBox(action17_r1, 200, 0, -0.6F, -39.6F, -17.6F, 1, 1, 6, 0.0F, true));
+        setRotationAngle(action17_r1, 0, 0, 1.9333F);
+        action17_r1.cubeList.add(new ModelBox(action17_r1, 200, 0, -0.6F, -39.6F, -17.6F, 1, 1, 6, 0, true));
 
         action14_r1 = new ModelRenderer(this);
-        action14_r1.setRotationPoint(-13.1666F, -75.1021F, 0.0F);
+        action14_r1.setRotationPoint(-13.1666F, -75.1021F, 0);
         boltaction.addChild(action14_r1);
-        setRotationAngle(action14_r1, 0.0F, 0.0F, 2.8256F);
-        action14_r1.cubeList.add(new ModelBox(action14_r1, 200, 0, -0.6F, -38.6F, -17.6F, 2, 1, 6, 0.0F, true));
+        setRotationAngle(action14_r1, 0, 0, 2.8256F);
+        action14_r1.cubeList.add(new ModelBox(action14_r1, 200, 0, -0.6F, -38.6F, -17.6F, 2, 1, 6, 0, true));
 
         action10_r1 = new ModelRenderer(this);
-        action10_r1.setRotationPoint(24.168F, -65.5893F, 0.0F);
+        action10_r1.setRotationPoint(24.168F, -65.5893F, 0);
         boltaction.addChild(action10_r1);
-        setRotationAngle(action10_r1, 0.0F, 0.0F, -2.3562F);
-        action10_r1.cubeList.add(new ModelBox(action10_r1, 200, 0, -1.5F, -37.8F, -31.5F, 1, 1, 16, 0.0F, true));
+        setRotationAngle(action10_r1, 0, 0, -2.3562F);
+        action10_r1.cubeList.add(new ModelBox(action10_r1, 200, 0, -1.5F, -37.8F, -31.5F, 1, 1, 16, 0, true));
 
         action9_r1 = new ModelRenderer(this);
-        action9_r1.setRotationPoint(22.4609F, -66.2964F, 0.0F);
+        action9_r1.setRotationPoint(22.4609F, -66.2964F, 0);
         boltaction.addChild(action9_r1);
-        setRotationAngle(action9_r1, 0.0F, 0.0F, -2.3562F);
-        action9_r1.cubeList.add(new ModelBox(action9_r1, 200, 0, -2.5F, -37.8F, -31.5F, 1, 1, 16, 0.0F, true));
+        setRotationAngle(action9_r1, 0, 0, -2.3562F);
+        action9_r1.cubeList.add(new ModelBox(action9_r1, 200, 0, -2.5F, -37.8F, -31.5F, 1, 1, 16, 0, true));
 
         action8_r1 = new ModelRenderer(this);
-        action8_r1.setRotationPoint(-28.2186F, -65.7115F, 0.0F);
+        action8_r1.setRotationPoint(-28.2186F, -65.7115F, 0);
         boltaction.addChild(action8_r1);
-        setRotationAngle(action8_r1, 0.0F, 0.0F, 2.3562F);
-        action8_r1.cubeList.add(new ModelBox(action8_r1, 200, 0, -0.5F, -38.7F, -31.5F, 1, 1, 16, 0.0F, true));
+        setRotationAngle(action8_r1, 0, 0, 2.3562F);
+        action8_r1.cubeList.add(new ModelBox(action8_r1, 200, 0, -0.5F, -38.7F, -31.5F, 1, 1, 16, 0, true));
 
         action7_r1 = new ModelRenderer(this);
-        action7_r1.setRotationPoint(-28.9257F, -67.4186F, 0.0F);
+        action7_r1.setRotationPoint(-28.9257F, -67.4186F, 0);
         boltaction.addChild(action7_r1);
-        setRotationAngle(action7_r1, 0.0F, 0.0F, 2.3562F);
-        action7_r1.cubeList.add(new ModelBox(action7_r1, 200, 0, -0.5F, -39.7F, -31.5F, 1, 1, 14, 0.0F, true));
+        setRotationAngle(action7_r1, 0, 0, 2.3562F);
+        action7_r1.cubeList.add(new ModelBox(action7_r1, 200, 0, -0.5F, -39.7F, -31.5F, 1, 1, 14, 0, true));
 
         action6_r1 = new ModelRenderer(this);
-        action6_r1.setRotationPoint(26.4106F, -13.8391F, 0.0F);
+        action6_r1.setRotationPoint(26.4106F, -13.8391F, 0);
         boltaction.addChild(action6_r1);
-        setRotationAngle(action6_r1, 0.0F, 0.0F, -0.7854F);
-        action6_r1.cubeList.add(new ModelBox(action6_r1, 200, 0, -3.5F, -38.8F, -31.5F, 1, 1, 16, 0.0F, true));
+        setRotationAngle(action6_r1, 0, 0, -0.7854F);
+        action6_r1.cubeList.add(new ModelBox(action6_r1, 200, 0, -3.5F, -38.8F, -31.5F, 1, 1, 16, 0, true));
 
         action5_r1 = new ModelRenderer(this);
-        action5_r1.setRotationPoint(27.047F, -14.1027F, 0.0F);
+        action5_r1.setRotationPoint(27.047F, -14.1027F, 0);
         boltaction.addChild(action5_r1);
-        setRotationAngle(action5_r1, 0.0F, 0.0F, -0.7854F);
-        action5_r1.cubeList.add(new ModelBox(action5_r1, 200, 0, -3.5F, -39.7F, -31.5F, 1, 1, 14, 0.0F, true));
+        setRotationAngle(action5_r1, 0, 0, -0.7854F);
+        action5_r1.cubeList.add(new ModelBox(action5_r1, 200, 0, -3.5F, -39.7F, -31.5F, 1, 1, 14, 0, true));
 
         action4_r1 = new ModelRenderer(this);
-        action4_r1.setRotationPoint(-29.5115F, -10.153F, 0.0F);
+        action4_r1.setRotationPoint(-29.5115F, -10.153F, 0);
         boltaction.addChild(action4_r1);
-        setRotationAngle(action4_r1, 0.0F, 0.0F, 0.7854F);
-        action4_r1.cubeList.add(new ModelBox(action4_r1, 200, 0, -2.5F, -40.7F, -31.5F, 1, 1, 14, 0.0F, true));
+        setRotationAngle(action4_r1, 0, 0, 0.7854F);
+        action4_r1.cubeList.add(new ModelBox(action4_r1, 200, 0, -2.5F, -40.7F, -31.5F, 1, 1, 14, 0, true));
 
         action3_r1 = new ModelRenderer(this);
-        action3_r1.setRotationPoint(-29.2186F, -10.8601F, 0.0F);
+        action3_r1.setRotationPoint(-29.2186F, -10.8601F, 0);
         boltaction.addChild(action3_r1);
-        setRotationAngle(action3_r1, 0.0F, 0.0F, 0.7854F);
-        action3_r1.cubeList.add(new ModelBox(action3_r1, 200, 0, -1.5F, -40.7F, -31.5F, 1, 1, 14, 0.0F, true));
+        setRotationAngle(action3_r1, 0, 0, 0.7854F);
+        action3_r1.cubeList.add(new ModelBox(action3_r1, 200, 0, -1.5F, -40.7F, -31.5F, 1, 1, 14, 0, true));
     }
 
     @Override

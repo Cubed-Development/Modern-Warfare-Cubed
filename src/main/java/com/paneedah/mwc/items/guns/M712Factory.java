@@ -133,7 +133,7 @@ public class M712Factory implements GunFactory {
                             GL11.glScaled(1F, 1F, 1F);
                             GL11.glRotatef(45F, 0f, 1f, 0f);
                             GL11.glRotatef(14F, 0f, 0f, 1f);
-                            GL11.glTranslatef(-0.3f, 0.8f, -2.0f);
+                            GL11.glTranslatef(-0.3f, 0.8f, -2);
 
 //                GL11.glScaled(1F, 1F, 1F);
 //                GL11.glRotatef(-14.000000f, 1f, 0f, 0f);

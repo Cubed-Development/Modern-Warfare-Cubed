@@ -118,7 +118,7 @@ public class OpenGLSelectionHelper {
 
         GL20.glUseProgram(0);
         // Maybe needed?
-        //GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+        //GL11.glClearColor(0, 0, 0, 0);
 
         // GlStateManager.enableDepth();
         // GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
@@ -168,7 +168,7 @@ public class OpenGLSelectionHelper {
         buf.rewind();
 
         GL20.glUseProgram(0);
-        GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+        GL11.glClearColor(0, 0, 0, 0);
 
         GL11.glPixelStoref(GL11.GL_UNPACK_ALIGNMENT, 1);
         GL11.glReadBuffer(GL30.GL_COLOR_ATTACHMENT0);

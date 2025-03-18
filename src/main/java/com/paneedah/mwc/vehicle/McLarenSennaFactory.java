@@ -47,7 +47,7 @@ public class McLarenSennaFactory implements VehicleFactory {
 
                         Positioners.position(
                                 1, (float) (-1.500000f - entityVehicle.rideOffset), -2.700000f,
-                                0.0f, 0.0f, -0.0f,
+                                0, 0, -0,
                                 0.000000f, 0.000000f, 0.000000f,
                                 1.000000f, 1.000000f, 1.000000f
                         );

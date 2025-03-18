@@ -20,11 +20,11 @@ public class F2000Action extends ModelWithAttachments {
         action3_r1 = new ModelRenderer(this);
         action3_r1.setRotationPoint(12.3525F, 26.173F, 14.05F);
         action.addChild(action3_r1);
-        setRotationAngle(action3_r1, 0.0F, 0.0F, -0.5205F);
-        action3_r1.cubeList.add(new ModelBox(action3_r1, 86, 16, 1.9F, -29.8F, -14.2F, 1, 1, 2, 0.0F, false));
-        action3_r1.cubeList.add(new ModelBox(action3_r1, 53, 32, 1.7F, -29.6F, -17.4F, 1, 1, 5, 0.0F, false));
-        action3_r1.cubeList.add(new ModelBox(action3_r1, 0, 70, 1.6983F, -29.1F, -17.4F, 1, 1, 5, 0.0F, false));
-        action3_r1.cubeList.add(new ModelBox(action3_r1, 14, 86, 1.9F, -28.9F, -14.2F, 1, 1, 2, 0.0F, false));
+        setRotationAngle(action3_r1, 0, 0, -0.5205F);
+        action3_r1.cubeList.add(new ModelBox(action3_r1, 86, 16, 1.9F, -29.8F, -14.2F, 1, 1, 2, 0, false));
+        action3_r1.cubeList.add(new ModelBox(action3_r1, 53, 32, 1.7F, -29.6F, -17.4F, 1, 1, 5, 0, false));
+        action3_r1.cubeList.add(new ModelBox(action3_r1, 0, 70, 1.6983F, -29.1F, -17.4F, 1, 1, 5, 0, false));
+        action3_r1.cubeList.add(new ModelBox(action3_r1, 14, 86, 1.9F, -28.9F, -14.2F, 1, 1, 2, 0, false));
     }
 
     @Override

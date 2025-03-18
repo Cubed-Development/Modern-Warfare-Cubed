@@ -25,9 +25,9 @@ public class ScreenRenderer {
         GlStateManager.translate((float) posX, (float) posY, (float) posZ);
         
         /*
-        GlStateManager.rotate((float) roll, 0.0f, 0.0f, 1);
-        GlStateManager.rotate((float) pitch, 1, 0.0f, 0.0f);
-        GlStateManager.rotate((float) yaw, 0.0f, 1, 0.0f);
+        GlStateManager.rotate((float) roll, 0, 0, 1);
+        GlStateManager.rotate((float) pitch, 1, 0, 0);
+        GlStateManager.rotate((float) yaw, 0, 1, 0);
         */
 
         GL11.glScaled(scalef, scalef, scalef);
@@ -39,7 +39,7 @@ public class ScreenRenderer {
         MC.renderEngine.bindTexture(loc);
 
 
-        model.render(null, (float) roll, (float) pitch, (float) yaw, 0.0f, 0.0f, scale);
+        model.render(null, (float) roll, (float) pitch, (float) yaw, 0, 0, scale);
 
 
         GlStateManager.popMatrix();

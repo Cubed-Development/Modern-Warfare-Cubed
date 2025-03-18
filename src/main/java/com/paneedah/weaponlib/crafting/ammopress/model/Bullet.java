@@ -24,46 +24,46 @@ public class Bullet extends ModelBase {
         textureHeight = 32;
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(0.0F, 24.0F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -0.5F, -6.0F, -1, 1, 6, 2, 0.001F, false));
-        bone.cubeList.add(new ModelBox(bone, 6, 0, -1, -6.0F, -0.5F, 2, 6, 1, 0.002F, false));
+        bone.setRotationPoint(0, 24, 0);
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -0.5F, -6, -1, 1, 6, 2, 0.001F, false));
+        bone.cubeList.add(new ModelBox(bone, 6, 0, -1, -6, -0.5F, 2, 6, 1, 0.002F, false));
 
         cube_r1 = new ModelRenderer(this);
-        cube_r1.setRotationPoint(1, 0.0F, -0.5F);
+        cube_r1.setRotationPoint(1, 0, -0.5F);
         bone.addChild(cube_r1);
-        setRotationAngle(cube_r1, 0.0F, -0.7854F, 0.0F);
+        setRotationAngle(cube_r1, 0, -0.7854F, 0);
         cube_r1.cubeList.add(new ModelBox(cube_r1, 5, 7, -1.5F, -6.1F, 0.56F, 1, 6, 1, -0.1F, false));
         cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 8, -0.2F, -6.1F, 0.56F, 1, 6, 1, -0.1F, false));
         cube_r1.cubeList.add(new ModelBox(cube_r1, 9, 7, -0.85F, -6.1F, 1.2F, 1, 6, 1, -0.1F, false));
         cube_r1.cubeList.add(new ModelBox(cube_r1, 12, 0, -0.85F, -6.1F, -0.09F, 1, 6, 1, -0.1F, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(0.5F, 18.0F, 0.8F);
+        bone2.setRotationPoint(0.5F, 18, 0.8F);
 
 
         cube_r2 = new ModelRenderer(this);
-        cube_r2.setRotationPoint(0.0F, 0.0F, 0.0F);
+        cube_r2.setRotationPoint(0, 0, 0);
         bone2.addChild(cube_r2);
-        setRotationAngle(cube_r2, 0.1047F, 0.0F, 0.0F);
-        cube_r2.cubeList.add(new ModelBox(cube_r2, 3, 14, -1, -3.0F, -1, 1, 3, 1, 0.002F, false));
+        setRotationAngle(cube_r2, 0.1047F, 0, 0);
+        cube_r2.cubeList.add(new ModelBox(cube_r2, 3, 14, -1, -3, -1, 1, 3, 1, 0.002F, false));
 
         cube_r3 = new ModelRenderer(this);
-        cube_r3.setRotationPoint(-1.3F, 0.0F, -0.3F);
+        cube_r3.setRotationPoint(-1.3F, 0, -0.3F);
         bone2.addChild(cube_r3);
-        setRotationAngle(cube_r3, 0.0F, 0.0F, 0.1047F);
-        cube_r3.cubeList.add(new ModelBox(cube_r3, 13, 7, 0.0F, -3.0F, -1, 1, 3, 1, 0.002F, false));
+        setRotationAngle(cube_r3, 0, 0, 0.1047F);
+        cube_r3.cubeList.add(new ModelBox(cube_r3, 13, 7, 0, -3, -1, 1, 3, 1, 0.002F, false));
 
         cube_r4 = new ModelRenderer(this);
-        cube_r4.setRotationPoint(0.0F, 0.0F, -1.6F);
+        cube_r4.setRotationPoint(0, 0, -1.6F);
         bone2.addChild(cube_r4);
-        setRotationAngle(cube_r4, -0.1047F, 0.0F, 0.0F);
-        cube_r4.cubeList.add(new ModelBox(cube_r4, 7, 14, -1, -3.0F, 0.0F, 1, 3, 1, 0.002F, false));
+        setRotationAngle(cube_r4, -0.1047F, 0, 0);
+        cube_r4.cubeList.add(new ModelBox(cube_r4, 7, 14, -1, -3, 0, 1, 3, 1, 0.002F, false));
 
         cube_r5 = new ModelRenderer(this);
-        cube_r5.setRotationPoint(0.3F, 0.0F, -0.3F);
+        cube_r5.setRotationPoint(0.3F, 0, -0.3F);
         bone2.addChild(cube_r5);
-        setRotationAngle(cube_r5, 0.0F, 0.0F, -0.1047F);
-        cube_r5.cubeList.add(new ModelBox(cube_r5, 13, 11, -1, -3.0F, -1, 1, 3, 1, 0.002F, false));
+        setRotationAngle(cube_r5, 0, 0, -0.1047F);
+        cube_r5.cubeList.add(new ModelBox(cube_r5, 13, 11, -1, -3, -1, 1, 3, 1, 0.002F, false));
     }
 
     @Override

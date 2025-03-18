@@ -35,7 +35,7 @@ public class WirelessCameraRenderer extends Render<Entity> {
                     bindTexture(textureLocation);
                 }
                 GL11.glTranslated(x, y, z);
-                model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
+                model.render(entity, 0, 0, 0, 0, 0, 0.0625F);
                 GL11.glPopMatrix();
             }
         }

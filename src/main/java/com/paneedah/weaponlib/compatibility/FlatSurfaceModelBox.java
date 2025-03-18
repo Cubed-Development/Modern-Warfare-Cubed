@@ -99,10 +99,10 @@ public class FlatSurfaceModelBox extends ModelBox {
             posX1 = f7;
         }
 
-        PositionTextureVertex backLowerLeft = new PositionTextureVertex(posX1, posY1, adjZ2, 0.0F, 0.0F); // back lower left
-        PositionTextureVertex backLowerRight = new PositionTextureVertex(adjX2, posY1, adjZ2, 0.0F, 8.0F); // back lower right
-        PositionTextureVertex backUpperRight = new PositionTextureVertex(adjX2, adjY2, adjZ2, 8.0F, 8.0F); // back upper right
-        PositionTextureVertex backUpperLeft = new PositionTextureVertex(posX1, adjY2, adjZ2, 8.0F, 0.0F); // back upper left
+        PositionTextureVertex backLowerLeft = new PositionTextureVertex(posX1, posY1, adjZ2, 0, 0); // back lower left
+        PositionTextureVertex backLowerRight = new PositionTextureVertex(adjX2, posY1, adjZ2, 0, 8); // back lower right
+        PositionTextureVertex backUpperRight = new PositionTextureVertex(adjX2, adjY2, adjZ2, 8, 8); // back upper right
+        PositionTextureVertex backUpperLeft = new PositionTextureVertex(posX1, adjY2, adjZ2, 8, 0); // back upper left
 
         this.vertexPositions[4] = backLowerLeft;
         this.vertexPositions[5] = backLowerRight;

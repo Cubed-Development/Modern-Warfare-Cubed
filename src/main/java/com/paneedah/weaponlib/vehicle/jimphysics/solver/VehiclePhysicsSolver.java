@@ -200,7 +200,7 @@ public class VehiclePhysicsSolver {
             Vec3d uVec = getOreintationVector();
 
 
-            //System.out.println(Vec3d.fromPitchYaw(0.0f, vehicle.rotationYaw) + " | " + uVec);
+            //System.out.println(Vec3d.fromPitchYaw(0, vehicle.rotationYaw) + " | " + uVec);
 
 
             Vector2d u2D = new Vector2d(uVec.x, uVec.z);
@@ -595,7 +595,7 @@ public class VehiclePhysicsSolver {
         double totalAxelTorque = torqueContributionFront + torqueContributionRear + collisionTorque;
 
         Matrix3f inertia = getPhysConf().getVehicleMassObject().inertia;
-        //Matrix3f inertia = InertiaKit.inertiaTensorCube(1660, 1.6f, 3.0f, 6.0f);
+        //Matrix3f inertia = InertiaKit.inertiaTensorCube(1660, 1.6f, 3, 6);
 
 
         // add roll impulse

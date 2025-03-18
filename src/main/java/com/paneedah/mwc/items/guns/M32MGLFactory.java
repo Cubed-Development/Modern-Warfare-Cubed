@@ -1230,7 +1230,7 @@ public class M32MGLFactory implements GunFactory {
                             GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
                             GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                             GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
-                            GL11.glTranslatef(-2f, 0.000000f, -2.0f);
+                            GL11.glTranslatef(-2f, 0.000000f, -2);
                         })
                         .withFirstPersonHandPositioning(
                                 (renderContext) -> {

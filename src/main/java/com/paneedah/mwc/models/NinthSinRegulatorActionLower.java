@@ -18,10 +18,10 @@ public class NinthSinRegulatorActionLower extends ModelWithAttachments {
         textureHeight = 128;
 
         regulatorlower_lower_EXTRA7 = new ModelRenderer(this);
-        regulatorlower_lower_EXTRA7.setRotationPoint(7.0F, 10.1F, -18.5F);
-        setRotationAngle(regulatorlower_lower_EXTRA7, 0.6632F, 0.0F, 0.0F);
-        regulatorlower_lower_EXTRA7.cubeList.add(new ModelBox(regulatorlower_lower_EXTRA7, 100, 64, -1, -1, -4.0F, 1, 1, 4, -0.1F, false));
-        regulatorlower_lower_EXTRA7.cubeList.add(new ModelBox(regulatorlower_lower_EXTRA7, 100, 59, -1, -2.0F, -4.0F, 1, 1, 4, -0.1F, false));
+        regulatorlower_lower_EXTRA7.setRotationPoint(7, 10.1F, -18.5F);
+        setRotationAngle(regulatorlower_lower_EXTRA7, 0.6632F, 0, 0);
+        regulatorlower_lower_EXTRA7.cubeList.add(new ModelBox(regulatorlower_lower_EXTRA7, 100, 64, -1, -1, -4, 1, 1, 4, -0.1F, false));
+        regulatorlower_lower_EXTRA7.cubeList.add(new ModelBox(regulatorlower_lower_EXTRA7, 100, 59, -1, -2, -4, 1, 1, 4, -0.1F, false));
     }
 
     @Override

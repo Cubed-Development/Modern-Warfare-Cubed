@@ -68,10 +68,10 @@ public class VehicleCustomGUI extends Gui {
      * @param prevAngle
      */
     public void renderNeedle(Color c, double x, double y, double length, double width, float startAngle, float angle, float prevAngle) {
-        float red = c.getRed() / 255.0f;
-        float blue = c.getBlue() / 255.0f;
-        float green = c.getGreen() / 255.0f;
-        float alpha = c.getAlpha() / 255.0f;
+        float red = c.getRed() / 255;
+        float blue = c.getBlue() / 255;
+        float green = c.getGreen() / 255;
+        float alpha = c.getAlpha() / 255;
 
         double tW = width / 2.0;
 
@@ -121,10 +121,10 @@ public class VehicleCustomGUI extends Gui {
     public void renderHalfCircle(Color c, double x, double y, int outerRadius, int innerRadius, double beginAngle, double finishAngle) {
 
 
-        float red = c.getRed() / 255.0f;
-        float blue = c.getBlue() / 255.0f;
-        float green = c.getGreen() / 255.0f;
-        float alpha = c.getAlpha() / 255.0f;
+        float red = c.getRed() / 255;
+        float blue = c.getBlue() / 255;
+        float green = c.getGreen() / 255;
+        float alpha = c.getAlpha() / 255;
 
         GL11.glPushMatrix();
 
@@ -179,7 +179,7 @@ public class VehicleCustomGUI extends Gui {
         GL11.glPopMatrix();
     }
 
-    public float prevRPMAngle = 0.0f;
+    public float prevRPMAngle = 0;
     public SimpleAnimationTimer sat = null;
     public int oldPOV = 0;
 
@@ -426,7 +426,7 @@ public class VehicleCustomGUI extends Gui {
         Vec3d iR = keyAnimator.getInterpolatedRotation();
         Vec3d iP = keyAnimator.getInterpolatedPosition();
 
-        lockModel.setLivingAnimations(null, (float) iR.x, 0.0f, 0.0f);
+        lockModel.setLivingAnimations(null, (float) iR.x, 0, 0);
         ScreenRenderer.renderModelOnScreen(0.0, 0.0, 0.0, 30, 0f, 0f, 0f, lockModel, keyTex);
 
 

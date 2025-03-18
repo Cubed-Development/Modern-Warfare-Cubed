@@ -3782,7 +3782,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.UMP45Receiver(), "ump45.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Receiver) {
-                        GL11.glTranslatef(-0.6F, 0.0F, -0.1F);
+                        GL11.glTranslatef(-0.6F, 0, -0.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
@@ -3817,7 +3817,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.UMP45Receiver(), "ump45.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Receiver) {
-                        GL11.glTranslatef(-0.6F, 0.0F, -0.1F);
+                        GL11.glTranslatef(-0.6F, 0, -0.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
@@ -9923,7 +9923,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7Stock) {
-                        GL11.glTranslatef(-0.6F, -0.0F, 1.3F);
+                        GL11.glTranslatef(-0.6F, -0, 1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
@@ -9964,7 +9964,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7MilSpecStock) {
-                        GL11.glTranslatef(-0.5F, 0.0F, 1.7F);
+                        GL11.glTranslatef(-0.5F, 0, 1.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);

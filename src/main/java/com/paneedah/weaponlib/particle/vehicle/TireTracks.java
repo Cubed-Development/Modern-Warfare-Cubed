@@ -38,7 +38,7 @@ public class TireTracks extends ParticleFootStep {
                                float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
         float f = ((float) this.footstepAge + partialTicks) / (float) this.footstepMaxAge;
         f = f * f;
-        float f1 = 2.0F - f * 2.0F;
+        float f1 = 2 - f * 2;
 
         if (f1 > 1) {
             f1 = 1;
@@ -53,13 +53,13 @@ public class TireTracks extends ParticleFootStep {
 
 
         GL11.glTranslated((this.posX - interpPosX), (this.posY - interpPosY), (this.posZ - interpPosZ));
-        GL11.glRotated(angle, 0.0f, 1, 0.0f);
+        GL11.glRotated(angle, 0, 1, 0);
         float f2 = 0.125F;
 
 
-        float f3 = 0.0f;
-        float f4 = 0.0f;
-        float f5 = 0.0f;
+        float f3 = 0;
+        float f4 = 0;
+        float f5 = 0;
         
         /*
         float f3 = (float)(this.posX - interpPosX);

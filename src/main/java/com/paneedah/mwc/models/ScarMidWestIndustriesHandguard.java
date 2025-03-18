@@ -66,11 +66,11 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         textureHeight = 360;
 
         handguard = new ModelRenderer(this);
-        handguard.setRotationPoint(-3.8F, -11.2F, -49.0F);
-        handguard.cubeList.add(new ModelBox(handguard, 53, 0, 2.5F, -0.6F, 0.0F, 1, 2, 22, 0.001F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 78, 3.5F, -1, 0.0F, 1, 1, 22, -0.001F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 1.1F, -0.6F, 0.0F, 2, 2, 22, 0.002F, false));
-        handguard.cubeList.add(new ModelBox(handguard, 53, 78, 0.1F, -1, 0.0F, 1, 1, 22, -0.001F, false));
+        handguard.setRotationPoint(-3.8F, -11.2F, -49);
+        handguard.cubeList.add(new ModelBox(handguard, 53, 0, 2.5F, -0.6F, 0, 1, 2, 22, 0.001F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 78, 3.5F, -1, 0, 1, 1, 22, -0.001F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 0, 0, 1.1F, -0.6F, 0, 2, 2, 22, 0.002F, false));
+        handguard.cubeList.add(new ModelBox(handguard, 53, 78, 0.1F, -1, 0, 1, 1, 22, -0.001F, false));
         handguard.cubeList.add(new ModelBox(handguard, 159, 56, 4.075F, -6.33F, -0.3F, 1, 1, 1, -0.2F, false));
         handguard.cubeList.add(new ModelBox(handguard, 50, 158, 4.075F, -5.93F, -0.3F, 1, 1, 1, -0.198F, false));
         handguard.cubeList.add(new ModelBox(handguard, 53, 159, 3.65F, -5.5F, -0.3F, 1, 1, 1, -0.199F, false));
@@ -89,55 +89,55 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r1 = new ModelRenderer(this);
         cube_r1.setRotationPoint(-0.1F, -3.35F, -0.1F);
         handguard.addChild(cube_r1);
-        setRotationAngle(cube_r1, 0.0F, 0.0F, -0.9076F);
+        setRotationAngle(cube_r1, 0, 0, -0.9076F);
         cube_r1.cubeList.add(new ModelBox(cube_r1, 42, 135, -0.2F, -0.2F, -0.2F, 2, 2, 1, -0.202F, false));
 
         cube_r2 = new ModelRenderer(this);
         cube_r2.setRotationPoint(4.7F, -3.35F, -0.1F);
         handguard.addChild(cube_r2);
-        setRotationAngle(cube_r2, 0.0F, 0.0F, 0.9076F);
+        setRotationAngle(cube_r2, 0, 0, 0.9076F);
         cube_r2.cubeList.add(new ModelBox(cube_r2, 12, 136, -1.8F, -0.2F, -0.2F, 2, 2, 1, -0.202F, false));
 
         cube_r3 = new ModelRenderer(this);
         cube_r3.setRotationPoint(0.15F, -4.7F, -0.1F);
         handguard.addChild(cube_r3);
-        setRotationAngle(cube_r3, 0.0F, 0.0F, -0.7854F);
+        setRotationAngle(cube_r3, 0, 0, -0.7854F);
         cube_r3.cubeList.add(new ModelBox(cube_r3, 35, 158, -0.2F, -0.8F, -0.2F, 1, 1, 1, -0.201F, false));
 
         cube_r4 = new ModelRenderer(this);
         cube_r4.setRotationPoint(0.15F, -6.55F, -0.1F);
         handguard.addChild(cube_r4);
-        setRotationAngle(cube_r4, 0.0F, 0.0F, 0.7854F);
+        setRotationAngle(cube_r4, 0, 0, 0.7854F);
         cube_r4.cubeList.add(new ModelBox(cube_r4, 27, 158, -0.2F, -0.2F, -0.2F, 1, 1, 1, -0.201F, false));
 
         cube_r5 = new ModelRenderer(this);
         cube_r5.setRotationPoint(4.45F, -6.55F, -0.1F);
         handguard.addChild(cube_r5);
-        setRotationAngle(cube_r5, 0.0F, 0.0F, -0.7854F);
+        setRotationAngle(cube_r5, 0, 0, -0.7854F);
         cube_r5.cubeList.add(new ModelBox(cube_r5, 57, 159, -0.8F, -0.2F, -0.2F, 1, 1, 1, -0.201F, false));
 
         cube_r6 = new ModelRenderer(this);
         cube_r6.setRotationPoint(4.45F, -4.7F, -0.1F);
         handguard.addChild(cube_r6);
-        setRotationAngle(cube_r6, 0.0F, 0.0F, 0.7854F);
+        setRotationAngle(cube_r6, 0, 0, 0.7854F);
         cube_r6.cubeList.add(new ModelBox(cube_r6, 158, 54, -0.8F, -0.8F, -0.2F, 1, 1, 1, -0.201F, false));
 
         cube_r7 = new ModelRenderer(this);
-        cube_r7.setRotationPoint(0.1F, 0.0F, 0.0F);
+        cube_r7.setRotationPoint(0.1F, 0, 0);
         handguard.addChild(cube_r7);
-        setRotationAngle(cube_r7, 0.0F, 0.0F, -0.8552F);
-        cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 54, 0.0F, 0.0F, 0.0F, 1, 2, 22, -0.002F, false));
+        setRotationAngle(cube_r7, 0, 0, -0.8552F);
+        cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 54, 0, 0, 0, 1, 2, 22, -0.002F, false));
 
         cube_r8 = new ModelRenderer(this);
-        cube_r8.setRotationPoint(4.5F, 0.0F, 0.0F);
+        cube_r8.setRotationPoint(4.5F, 0, 0);
         handguard.addChild(cube_r8);
-        setRotationAngle(cube_r8, 0.0F, 0.0F, 0.8552F);
-        cube_r8.cubeList.add(new ModelBox(cube_r8, 53, 24, -1, 0.0F, 0.0F, 1, 2, 22, -0.002F, false));
+        setRotationAngle(cube_r8, 0, 0, 0.8552F);
+        cube_r8.cubeList.add(new ModelBox(cube_r8, 53, 24, -1, 0, 0, 1, 2, 22, -0.002F, false));
 
         bone4 = new ModelRenderer(this);
         bone4.setRotationPoint(5.3F, -14.9F, 1.25F);
         handguard.addChild(bone4);
-        setRotationAngle(bone4, 0.0F, 0.0F, 1.5708F);
+        setRotationAngle(bone4, 0, 0, 1.5708F);
         bone4.cubeList.add(new ModelBox(bone4, 142, 63, 12.2F, -0.2F, 0.8F, 2, 1, 1, -0.199F, false));
         bone4.cubeList.add(new ModelBox(bone4, 142, 61, 12.2F, -0.2F, 2.05F, 2, 1, 1, -0.199F, false));
         bone4.cubeList.add(new ModelBox(bone4, 142, 59, 12.2F, -0.2F, 3.3F, 2, 1, 1, -0.199F, false));
@@ -148,14 +148,14 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone4.cubeList.add(new ModelBox(bone4, 35, 142, 12.2F, -0.2F, 9.55F, 2, 1, 1, -0.199F, false));
         bone4.cubeList.add(new ModelBox(bone4, 77, 24, 12.3F, 0.4F, -1.25F, 2, 1, 11, -0.001F, false));
         bone4.cubeList.add(new ModelBox(bone4, 29, 142, 12.3F, 0.4F, 9.35F, 2, 1, 1, -0.002F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 23, 128, 12.1F, 0.4F, -1.25F, 1, 1, 11, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 23, 128, 12.1F, 0.4F, -1.25F, 1, 1, 11, 0, false));
         bone4.cubeList.add(new ModelBox(bone4, 152, 26, 12.1F, 0.4F, 9.35F, 1, 1, 1, -0.003F, false));
         bone4.cubeList.add(new ModelBox(bone4, 40, 97, 12.2F, -0.2F, -1.45F, 2, 1, 2, -0.199F, false));
 
         cube_r9 = new ModelRenderer(this);
-        cube_r9.setRotationPoint(-1.6F, 0.0F, -1.25F);
+        cube_r9.setRotationPoint(-1.6F, 0, -1.25F);
         bone4.addChild(cube_r9);
-        setRotationAngle(cube_r9, 0.0F, 0.0F, 0.8901F);
+        setRotationAngle(cube_r9, 0, 0, 0.8901F);
         cube_r9.cubeList.add(new ModelBox(cube_r9, 133, 109, 8.6105F, -11.08F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 129, 55, 8.5605F, -10.93F, 0.4F, 1, 1, 11, -0.35F, false));
         cube_r9.cubeList.add(new ModelBox(cube_r9, 152, 28, 8.6105F, -11.08F, 10.8F, 1, 1, 1, -0.198F, false));
@@ -168,9 +168,9 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r9.cubeList.add(new ModelBox(cube_r9, 152, 75, 8.6105F, -11.08F, 2.05F, 1, 1, 1, -0.198F, false));
 
         cube_r10 = new ModelRenderer(this);
-        cube_r10.setRotationPoint(0.0F, 0.0F, -1.25F);
+        cube_r10.setRotationPoint(0, 0, -1.25F);
         bone4.addChild(cube_r10);
-        setRotationAngle(cube_r10, 0.0F, 0.0F, -0.8901F);
+        setRotationAngle(cube_r10, 0, 0, -0.8901F);
         cube_r10.cubeList.add(new ModelBox(cube_r10, 112, 133, 8.0105F, 10.68F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r10.cubeList.add(new ModelBox(cube_r10, 129, 77, 8.0605F, 10.83F, 0.4F, 1, 1, 11, -0.35F, false));
         cube_r10.cubeList.add(new ModelBox(cube_r10, 28, 152, 8.0105F, 10.68F, 10.8F, 1, 1, 1, -0.198F, false));
@@ -185,7 +185,7 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone6 = new ModelRenderer(this);
         bone6.setRotationPoint(15.5F, 2.2F, 1.25F);
         handguard.addChild(bone6);
-        setRotationAngle(bone6, 0.0F, 0.0F, -3.1416F);
+        setRotationAngle(bone6, 0, 0, -3.1416F);
         bone6.cubeList.add(new ModelBox(bone6, 79, 141, 12.2F, -0.2F, 0.8F, 2, 1, 1, -0.199F, false));
         bone6.cubeList.add(new ModelBox(bone6, 141, 74, 12.2F, -0.2F, 2.05F, 2, 1, 1, -0.199F, false));
         bone6.cubeList.add(new ModelBox(bone6, 73, 141, 12.2F, -0.2F, 3.3F, 2, 1, 1, -0.199F, false));
@@ -204,13 +204,13 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone6.cubeList.add(new ModelBox(bone6, 29, 140, 12.2F, -0.2F, 19.95F, 2, 1, 1, -0.198F, false));
         bone6.cubeList.add(new ModelBox(bone6, 41, 140, 12.2F, -0.2F, 18.3F, 2, 1, 1, -0.199F, false));
         bone6.cubeList.add(new ModelBox(bone6, 0, 24, 12.3F, 0.4F, -1.25F, 2, 1, 22, -0.001F, false));
-        bone6.cubeList.add(new ModelBox(bone6, 53, 55, 12.1F, 0.4F, -1.25F, 1, 1, 22, 0.0F, false));
+        bone6.cubeList.add(new ModelBox(bone6, 53, 55, 12.1F, 0.4F, -1.25F, 1, 1, 22, 0, false));
         bone6.cubeList.add(new ModelBox(bone6, 53, 96, 12.2F, -0.2F, -1.45F, 2, 1, 2, -0.199F, false));
 
         cube_r11 = new ModelRenderer(this);
-        cube_r11.setRotationPoint(-1.6F, 0.0F, -1.25F);
+        cube_r11.setRotationPoint(-1.6F, 0, -1.25F);
         bone6.addChild(cube_r11);
-        setRotationAngle(cube_r11, 0.0F, 0.0F, 0.8901F);
+        setRotationAngle(cube_r11, 0, 0, 0.8901F);
         cube_r11.cubeList.add(new ModelBox(cube_r11, 12, 133, 8.6105F, -11.08F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r11.cubeList.add(new ModelBox(cube_r11, 106, 108, 8.5605F, -10.93F, 0.4F, 1, 1, 21, -0.35F, false));
         cube_r11.cubeList.add(new ModelBox(cube_r11, 150, 100, 8.6105F, -11.08F, 19.55F, 1, 1, 1, -0.198F, false));
@@ -232,9 +232,9 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r11.cubeList.add(new ModelBox(cube_r11, 114, 151, 8.6105F, -11.08F, 2.05F, 1, 1, 1, -0.198F, false));
 
         cube_r12 = new ModelRenderer(this);
-        cube_r12.setRotationPoint(0.0F, 0.0F, -1.25F);
+        cube_r12.setRotationPoint(0, 0, -1.25F);
         bone6.addChild(cube_r12);
-        setRotationAngle(cube_r12, 0.0F, 0.0F, -0.8901F);
+        setRotationAngle(cube_r12, 0, 0, -0.8901F);
         cube_r12.cubeList.add(new ModelBox(cube_r12, 23, 133, 8.0105F, 10.68F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 128, 8.0605F, 10.83F, 0.4F, 1, 1, 21, -0.35F, false));
         cube_r12.cubeList.add(new ModelBox(cube_r12, 150, 108, 8.0105F, 10.68F, 19.55F, 1, 1, 1, -0.198F, false));
@@ -258,7 +258,7 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(-0.7F, -14.9F, 1.25F);
         handguard.addChild(bone5);
-        setRotationAngle(bone5, 0.0F, 0.0F, -1.5708F);
+        setRotationAngle(bone5, 0, 0, -1.5708F);
         bone5.cubeList.add(new ModelBox(bone5, 23, 142, -14.2F, -0.2F, 0.8F, 2, 1, 1, -0.199F, false));
         bone5.cubeList.add(new ModelBox(bone5, 142, 18, -14.2F, -0.2F, 2.05F, 2, 1, 1, -0.199F, false));
         bone5.cubeList.add(new ModelBox(bone5, 6, 142, -14.2F, -0.2F, 3.3F, 2, 1, 1, -0.199F, false));
@@ -269,14 +269,14 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone5.cubeList.add(new ModelBox(bone5, 141, 96, -14.2F, -0.2F, 9.55F, 2, 1, 1, -0.199F, false));
         bone5.cubeList.add(new ModelBox(bone5, 77, 0, -14.3F, 0.4F, -1.25F, 2, 1, 11, -0.001F, false));
         bone5.cubeList.add(new ModelBox(bone5, 89, 141, -14.3F, 0.4F, 9.35F, 2, 1, 1, -0.002F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 24, 78, -13.1F, 0.4F, -1.25F, 1, 1, 11, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 24, 78, -13.1F, 0.4F, -1.25F, 1, 1, 11, 0, false));
         bone5.cubeList.add(new ModelBox(bone5, 146, 151, -13.1F, 0.4F, 9.35F, 1, 1, 1, -0.003F, false));
         bone5.cubeList.add(new ModelBox(bone5, 61, 96, -14.2F, -0.2F, -1.45F, 2, 1, 2, -0.199F, false));
 
         cube_r13 = new ModelRenderer(this);
-        cube_r13.setRotationPoint(1.6F, 0.0F, -1.25F);
+        cube_r13.setRotationPoint(1.6F, 0, -1.25F);
         bone5.addChild(cube_r13);
-        setRotationAngle(cube_r13, 0.0F, 0.0F, -0.8901F);
+        setRotationAngle(cube_r13, 0, 0, -0.8901F);
         cube_r13.cubeList.add(new ModelBox(cube_r13, 133, 83, -9.6105F, -11.08F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r13.cubeList.add(new ModelBox(cube_r13, 77, 78, -9.5605F, -10.93F, 0.4F, 1, 1, 11, -0.35F, false));
         cube_r13.cubeList.add(new ModelBox(cube_r13, 151, 148, -9.6105F, -11.08F, 10.8F, 1, 1, 1, -0.198F, false));
@@ -289,9 +289,9 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r13.cubeList.add(new ModelBox(cube_r13, 152, 24, -9.6105F, -11.08F, 2.05F, 1, 1, 1, -0.198F, false));
 
         cube_r14 = new ModelRenderer(this);
-        cube_r14.setRotationPoint(0.0F, 0.0F, -1.25F);
+        cube_r14.setRotationPoint(0, 0, -1.25F);
         bone5.addChild(cube_r14);
-        setRotationAngle(cube_r14, 0.0F, 0.0F, 0.8901F);
+        setRotationAngle(cube_r14, 0, 0, 0.8901F);
         cube_r14.cubeList.add(new ModelBox(cube_r14, 106, 133, -9.0105F, 10.68F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r14.cubeList.add(new ModelBox(cube_r14, 76, 107, -9.0605F, 10.83F, 0.4F, 1, 1, 11, -0.35F, false));
         cube_r14.cubeList.add(new ModelBox(cube_r14, 151, 146, -9.0105F, 10.68F, 10.8F, 1, 1, 1, -0.198F, false));
@@ -304,11 +304,11 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r14.cubeList.add(new ModelBox(cube_r14, 24, 152, -9.0105F, 10.68F, 2.05F, 1, 1, 1, -0.198F, false));
 
         handguard_midwest_industries = new ModelRenderer(this);
-        handguard_midwest_industries.setRotationPoint(-3.8F, -11.2F, -65.0F);
-        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 208, 100, 2.5F, -0.6F, 0.0F, 1, 2, 38, 0.001F, false));
-        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 0, 246, 3.5F, -1, 0.0F, 1, 1, 38, -0.001F, false));
-        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 100, 160, 1.1F, -0.6F, 0.0F, 2, 2, 38, 0.002F, false));
-        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 240, 235, 0.1F, -1, 0.0F, 1, 1, 38, -0.001F, false));
+        handguard_midwest_industries.setRotationPoint(-3.8F, -11.2F, -65);
+        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 208, 100, 2.5F, -0.6F, 0, 1, 2, 38, 0.001F, false));
+        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 0, 246, 3.5F, -1, 0, 1, 1, 38, -0.001F, false));
+        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 100, 160, 1.1F, -0.6F, 0, 2, 2, 38, 0.002F, false));
+        handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 240, 235, 0.1F, -1, 0, 1, 1, 38, -0.001F, false));
         handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 159, 108, 3.9F, -1.05F, -0.3F, 1, 1, 17, -0.202F, false));
         handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 50, 159, -0.3F, -4.05F, -0.3F, 1, 3, 17, -0.2F, false));
         handguard_midwest_industries.cubeList.add(new ModelBox(handguard_midwest_industries, 0, 158, 3.9F, -4.05F, -0.3F, 1, 3, 17, -0.2F, false));
@@ -317,7 +317,7 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r15 = new ModelRenderer(this);
         cube_r15.setRotationPoint(4.7F, -3.85F, -0.1F);
         handguard_midwest_industries.addChild(cube_r15);
-        setRotationAngle(cube_r15, 0.0F, 0.0F, -0.384F);
+        setRotationAngle(cube_r15, 0, 0, -0.384F);
         cube_r15.cubeList.add(new ModelBox(cube_r15, 53, 24, -0.8F, -0.8F, -0.2F, 1, 1, 10, -0.201F, false));
         cube_r15.cubeList.add(new ModelBox(cube_r15, 23, 128, -0.8F, -1.4F, 7.4F, 1, 1, 1, -0.201F, false));
         cube_r15.cubeList.add(new ModelBox(cube_r15, 122, 27, -0.8F, -1.4F, 7.8F, 1, 1, 2, -0.2F, false));
@@ -329,7 +329,7 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(-0.1F, -3.85F, -0.1F);
         handguard_midwest_industries.addChild(cube_r16);
-        setRotationAngle(cube_r16, 0.0F, 0.0F, 0.384F);
+        setRotationAngle(cube_r16, 0, 0, 0.384F);
         cube_r16.cubeList.add(new ModelBox(cube_r16, 123, 90, -0.2F, -1.4F, -0.2F, 1, 1, 1, -0.201F, false));
         cube_r16.cubeList.add(new ModelBox(cube_r16, 123, 86, -0.2F, -1.4F, 0.2F, 1, 1, 1, -0.2F, false));
         cube_r16.cubeList.add(new ModelBox(cube_r16, 123, 84, -0.2F, -1.4F, 3.65F, 1, 1, 1, -0.201F, false));
@@ -341,7 +341,7 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r17 = new ModelRenderer(this);
         cube_r17.setRotationPoint(1.85F, -5.6F, -0.1F);
         handguard_midwest_industries.addChild(cube_r17);
-        setRotationAngle(cube_r17, 0.0F, 0.0F, -0.384F);
+        setRotationAngle(cube_r17, 0, 0, -0.384F);
         cube_r17.cubeList.add(new ModelBox(cube_r17, 124, 3, -1.83F, -0.17F, 0.2F, 1, 1, 1, -0.203F, false));
         cube_r17.cubeList.add(new ModelBox(cube_r17, 122, 17, -1.83F, -0.17F, 7.8F, 1, 1, 2, -0.203F, false));
         cube_r17.cubeList.add(new ModelBox(cube_r17, 124, 0, -1.83F, -0.17F, 7.4F, 1, 1, 1, -0.202F, false));
@@ -353,7 +353,7 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r18 = new ModelRenderer(this);
         cube_r18.setRotationPoint(2.75F, -5.6F, -0.1F);
         handguard_midwest_industries.addChild(cube_r18);
-        setRotationAngle(cube_r18, 0.0F, 0.0F, 0.384F);
+        setRotationAngle(cube_r18, 0, 0, 0.384F);
         cube_r18.cubeList.add(new ModelBox(cube_r18, 124, 14, 0.83F, -0.17F, 3.65F, 1, 1, 1, -0.202F, false));
         cube_r18.cubeList.add(new ModelBox(cube_r18, 124, 12, 0.83F, -0.17F, 4.05F, 1, 1, 1, -0.203F, false));
         cube_r18.cubeList.add(new ModelBox(cube_r18, 118, 125, 0.83F, -0.17F, 7.4F, 1, 1, 1, -0.202F, false));
@@ -363,21 +363,21 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r18.cubeList.add(new ModelBox(cube_r18, 53, 11, 0.43F, -0.17F, -0.2F, 1, 1, 10, -0.2F, false));
 
         cube_r19 = new ModelRenderer(this);
-        cube_r19.setRotationPoint(0.1F, 0.0F, 0.0F);
+        cube_r19.setRotationPoint(0.1F, 0, 0);
         handguard_midwest_industries.addChild(cube_r19);
-        setRotationAngle(cube_r19, 0.0F, 0.0F, -0.8552F);
-        cube_r19.cubeList.add(new ModelBox(cube_r19, 42, 208, 0.0F, 0.0F, 0.0F, 1, 2, 38, -0.002F, false));
+        setRotationAngle(cube_r19, 0, 0, -0.8552F);
+        cube_r19.cubeList.add(new ModelBox(cube_r19, 42, 208, 0, 0, 0, 1, 2, 38, -0.002F, false));
 
         cube_r20 = new ModelRenderer(this);
-        cube_r20.setRotationPoint(4.5F, 0.0F, 0.0F);
+        cube_r20.setRotationPoint(4.5F, 0, 0);
         handguard_midwest_industries.addChild(cube_r20);
-        setRotationAngle(cube_r20, 0.0F, 0.0F, 0.8552F);
-        cube_r20.cubeList.add(new ModelBox(cube_r20, 208, 48, -1, 0.0F, 0.0F, 1, 2, 38, -0.002F, false));
+        setRotationAngle(cube_r20, 0, 0, 0.8552F);
+        cube_r20.cubeList.add(new ModelBox(cube_r20, 208, 48, -1, 0, 0, 1, 2, 38, -0.002F, false));
 
         bone9 = new ModelRenderer(this);
         bone9.setRotationPoint(5.3F, -14.9F, 1.25F);
         handguard_midwest_industries.addChild(bone9);
-        setRotationAngle(bone9, 0.0F, 0.0F, 1.5708F);
+        setRotationAngle(bone9, 0, 0, 1.5708F);
         bone9.cubeList.add(new ModelBox(bone9, 79, 139, 12.2F, -0.2F, 0.8F, 2, 1, 1, -0.199F, false));
         bone9.cubeList.add(new ModelBox(bone9, 73, 139, 12.2F, -0.2F, 2.05F, 2, 1, 1, -0.199F, false));
         bone9.cubeList.add(new ModelBox(bone9, 65, 139, 12.2F, -0.2F, 3.3F, 2, 1, 1, -0.199F, false));
@@ -398,13 +398,13 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone9.cubeList.add(new ModelBox(bone9, 108, 52, 12.2F, -0.2F, 22.05F, 2, 1, 1, -0.199F, false));
         bone9.cubeList.add(new ModelBox(bone9, 65, 30, 12.2F, -0.2F, 23.3F, 2, 1, 3, -0.199F, false));
         bone9.cubeList.add(new ModelBox(bone9, 190, 273, 12.3F, 0.4F, -1.25F, 2, 1, 27, -0.001F, false));
-        bone9.cubeList.add(new ModelBox(bone9, 279, 150, 12.1F, 0.4F, -1.25F, 1, 1, 27, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 279, 150, 12.1F, 0.4F, -1.25F, 1, 1, 27, 0, false));
         bone9.cubeList.add(new ModelBox(bone9, 53, 91, 12.2F, -0.2F, -1.45F, 2, 1, 2, -0.199F, false));
 
         cube_r21 = new ModelRenderer(this);
-        cube_r21.setRotationPoint(-1.6F, 0.0F, -1.25F);
+        cube_r21.setRotationPoint(-1.6F, 0, -1.25F);
         bone9.addChild(cube_r21);
-        setRotationAngle(cube_r21, 0.0F, 0.0F, 0.8901F);
+        setRotationAngle(cube_r21, 0, 0, 0.8901F);
         cube_r21.cubeList.add(new ModelBox(cube_r21, 35, 123, 8.6105F, -11.08F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r21.cubeList.add(new ModelBox(cube_r21, 280, 210, 8.5605F, -10.93F, 0.4F, 1, 1, 25, -0.35F, false));
         cube_r21.cubeList.add(new ModelBox(cube_r21, 136, 77, 8.6105F, -11.08F, 22.05F, 1, 1, 1, -0.198F, false));
@@ -428,9 +428,9 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r21.cubeList.add(new ModelBox(cube_r21, 149, 25, 8.6105F, -11.08F, 2.05F, 1, 1, 1, -0.198F, false));
 
         cube_r22 = new ModelRenderer(this);
-        cube_r22.setRotationPoint(0.0F, 0.0F, -1.25F);
+        cube_r22.setRotationPoint(0, 0, -1.25F);
         bone9.addChild(cube_r22);
-        setRotationAngle(cube_r22, 0.0F, 0.0F, -0.8901F);
+        setRotationAngle(cube_r22, 0, 0, -0.8901F);
         cube_r22.cubeList.add(new ModelBox(cube_r22, 41, 123, 8.0105F, 10.68F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r22.cubeList.add(new ModelBox(cube_r22, 280, 236, 8.0605F, 10.83F, 0.4F, 1, 1, 25, -0.35F, false));
         cube_r22.cubeList.add(new ModelBox(cube_r22, 47, 137, 8.0105F, 10.68F, 22.05F, 1, 1, 1, -0.198F, false));
@@ -466,9 +466,9 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone12.cubeList.add(new ModelBox(bone12, 77, 41, 12.2F, -0.2F, -1.45F, 2, 1, 2, -0.199F, false));
 
         cube_r23 = new ModelRenderer(this);
-        cube_r23.setRotationPoint(-1.6F, 0.0F, -1.25F);
+        cube_r23.setRotationPoint(-1.6F, 0, -1.25F);
         bone12.addChild(cube_r23);
-        setRotationAngle(cube_r23, 0.0F, 0.0F, 0.8901F);
+        setRotationAngle(cube_r23, 0, 0, 0.8901F);
         cube_r23.cubeList.add(new ModelBox(cube_r23, 122, 34, 8.6105F, -11.08F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r23.cubeList.add(new ModelBox(cube_r23, 77, 68, 8.5605F, -10.93F, 0.4F, 1, 1, 8, -0.35F, false));
         cube_r23.cubeList.add(new ModelBox(cube_r23, 23, 130, 8.6105F, -11.08F, 7.8F, 1, 1, 1, -0.198F, false));
@@ -480,9 +480,9 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r23.cubeList.add(new ModelBox(cube_r23, 135, 28, 8.6105F, -11.08F, 2.05F, 1, 1, 1, -0.198F, false));
 
         cube_r24 = new ModelRenderer(this);
-        cube_r24.setRotationPoint(0.0F, 0.0F, -1.25F);
+        cube_r24.setRotationPoint(0, 0, -1.25F);
         bone12.addChild(cube_r24);
-        setRotationAngle(cube_r24, 0.0F, 0.0F, -0.8901F);
+        setRotationAngle(cube_r24, 0, 0, -0.8901F);
         cube_r24.cubeList.add(new ModelBox(cube_r24, 122, 37, 8.0105F, 10.68F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r24.cubeList.add(new ModelBox(cube_r24, 0, 78, 8.0605F, 10.83F, 0.4F, 1, 1, 8, -0.35F, false));
         cube_r24.cubeList.add(new ModelBox(cube_r24, 8, 130, 8.0105F, 10.68F, 7.8F, 1, 1, 1, -0.198F, false));
@@ -496,7 +496,7 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone10 = new ModelRenderer(this);
         bone10.setRotationPoint(15.5F, 2.2F, 1.25F);
         handguard_midwest_industries.addChild(bone10);
-        setRotationAngle(bone10, 0.0F, 0.0F, -3.1416F);
+        setRotationAngle(bone10, 0, 0, -3.1416F);
         bone10.cubeList.add(new ModelBox(bone10, 139, 12, 12.2F, -0.2F, 0.8F, 2, 1, 1, -0.199F, false));
         bone10.cubeList.add(new ModelBox(bone10, 11, 139, 12.2F, -0.2F, 2.05F, 2, 1, 1, -0.199F, false));
         bone10.cubeList.add(new ModelBox(bone10, 118, 138, 12.2F, -0.2F, 3.3F, 2, 1, 1, -0.199F, false));
@@ -527,25 +527,25 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone10.cubeList.add(new ModelBox(bone10, 8, 123, 12.2F, -0.2F, 33.3F, 2, 1, 1, -0.199F, false));
         bone10.cubeList.add(new ModelBox(bone10, 90, 63, 12.2F, -0.2F, 34.55F, 2, 1, 2, -0.199F, false));
         bone10.cubeList.add(new ModelBox(bone10, 0, 207, 12.3F, 0.4F, -1.25F, 2, 1, 38, -0.001F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 239, 140, 12.1F, 0.4F, -1.25F, 1, 1, 38, 0.0F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 26, 37, 12.3F, 6.7F, -1.35F, 2, 1, 8, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 239, 140, 12.1F, 0.4F, -1.25F, 1, 1, 38, 0, false));
+        bone10.cubeList.add(new ModelBox(bone10, 26, 37, 12.3F, 6.7F, -1.35F, 2, 1, 8, 0, false));
         bone10.cubeList.add(new ModelBox(bone10, 53, 78, 12.1F, 6.7F, -1.35F, 1, 1, 8, 0.001F, false));
         bone10.cubeList.add(new ModelBox(bone10, 10, 87, 12.1F, 5.7F, 6.25F, 1, 4, 1, 0.003F, false));
         bone10.cubeList.add(new ModelBox(bone10, 129, 60, 12.1F, 7.7F, 2.5F, 1, 1, 1, 0.002F, false));
         bone10.cubeList.add(new ModelBox(bone10, 63, 93, 12.3F, 7.7F, 2.5F, 2, 1, 1, 0.003F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 98, 12, 12.3F, 5.7F, 6.25F, 2, 4, 1, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 98, 12, 12.3F, 5.7F, 6.25F, 2, 4, 1, 0, false));
         bone10.cubeList.add(new ModelBox(bone10, 87, 68, 12.1F, 8.7F, -0.75F, 1, 1, 7, 0.003F, false));
         bone10.cubeList.add(new ModelBox(bone10, 106, 55, 12.3F, 8.7F, -0.75F, 2, 1, 7, 0.001F, false));
         bone10.cubeList.add(new ModelBox(bone10, 0, 36, 12.3F, 6.9F, -0.75F, 2, 1, 9, 0.001F, false));
         bone10.cubeList.add(new ModelBox(bone10, 0, 54, 12.1F, 6.9F, -0.75F, 1, 1, 9, 0.005F, false));
         bone10.cubeList.add(new ModelBox(bone10, 108, 15, 12.1F, 7.7F, -1.35F, 1, 2, 1, 0.004F, false));
-        bone10.cubeList.add(new ModelBox(bone10, 122, 30, 12.3F, 7.7F, -1.35F, 2, 2, 1, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 122, 30, 12.3F, 7.7F, -1.35F, 2, 2, 1, 0, false));
         bone10.cubeList.add(new ModelBox(bone10, 0, 91, 12.2F, -0.2F, -1.45F, 2, 1, 2, -0.199F, false));
 
         cube_r25 = new ModelRenderer(this);
-        cube_r25.setRotationPoint(-1.6F, 0.0F, -1.25F);
+        cube_r25.setRotationPoint(-1.6F, 0, -1.25F);
         bone10.addChild(cube_r25);
-        setRotationAngle(cube_r25, 0.0F, 0.0F, 0.8901F);
+        setRotationAngle(cube_r25, 0, 0, 0.8901F);
         cube_r25.cubeList.add(new ModelBox(cube_r25, 23, 123, 8.6105F, -11.08F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r25.cubeList.add(new ModelBox(cube_r25, 82, 208, 8.5605F, -10.93F, 0.4F, 1, 1, 36, -0.35F, false));
         cube_r25.cubeList.add(new ModelBox(cube_r25, 122, 44, 8.6105F, -11.08F, 35.8F, 1, 1, 2, -0.198F, false));
@@ -579,9 +579,9 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r25.cubeList.add(new ModelBox(cube_r25, 148, 52, 8.6105F, -11.08F, 2.05F, 1, 1, 1, -0.198F, false));
 
         cube_r26 = new ModelRenderer(this);
-        cube_r26.setRotationPoint(0.0F, 0.0F, -1.25F);
+        cube_r26.setRotationPoint(0, 0, -1.25F);
         bone10.addChild(cube_r26);
-        setRotationAngle(cube_r26, 0.0F, 0.0F, -0.8901F);
+        setRotationAngle(cube_r26, 0, 0, -0.8901F);
         cube_r26.cubeList.add(new ModelBox(cube_r26, 29, 123, 8.0105F, 10.68F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r26.cubeList.add(new ModelBox(cube_r26, 84, 247, 8.0605F, 10.83F, 0.4F, 1, 1, 36, -0.35F, false));
         cube_r26.cubeList.add(new ModelBox(cube_r26, 67, 122, 8.0105F, 10.68F, 35.8F, 1, 1, 2, -0.198F, false));
@@ -617,7 +617,7 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone11 = new ModelRenderer(this);
         bone11.setRotationPoint(-0.7F, -14.9F, 1.25F);
         handguard_midwest_industries.addChild(bone11);
-        setRotationAngle(bone11, 0.0F, 0.0F, -1.5708F);
+        setRotationAngle(bone11, 0, 0, -1.5708F);
         bone11.cubeList.add(new ModelBox(bone11, 137, 67, -14.2F, -0.2F, 0.8F, 2, 1, 1, -0.199F, false));
         bone11.cubeList.add(new ModelBox(bone11, 65, 137, -14.2F, -0.2F, 2.05F, 2, 1, 1, -0.199F, false));
         bone11.cubeList.add(new ModelBox(bone11, 137, 19, -14.2F, -0.2F, 3.3F, 2, 1, 1, -0.199F, false));
@@ -638,13 +638,13 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         bone11.cubeList.add(new ModelBox(bone11, 108, 33, -14.2F, -0.2F, 22.05F, 2, 1, 1, -0.199F, false));
         bone11.cubeList.add(new ModelBox(bone11, 108, 40, -14.2F, -0.2F, 20.8F, 2, 1, 1, -0.199F, false));
         bone11.cubeList.add(new ModelBox(bone11, 250, 0, -14.3F, 0.4F, -1.25F, 2, 1, 27, -0.001F, false));
-        bone11.cubeList.add(new ModelBox(bone11, 279, 122, -13.1F, 0.4F, -1.25F, 1, 1, 27, 0.0F, false));
+        bone11.cubeList.add(new ModelBox(bone11, 279, 122, -13.1F, 0.4F, -1.25F, 1, 1, 27, 0, false));
         bone11.cubeList.add(new ModelBox(bone11, 90, 86, -14.2F, -0.2F, -1.45F, 2, 1, 2, -0.199F, false));
 
         cube_r27 = new ModelRenderer(this);
-        cube_r27.setRotationPoint(1.6F, 0.0F, -1.25F);
+        cube_r27.setRotationPoint(1.6F, 0, -1.25F);
         bone11.addChild(cube_r27);
-        setRotationAngle(cube_r27, 0.0F, 0.0F, -0.8901F);
+        setRotationAngle(cube_r27, 0, 0, -0.8901F);
         cube_r27.cubeList.add(new ModelBox(cube_r27, 106, 122, -9.6105F, -11.08F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r27.cubeList.add(new ModelBox(cube_r27, 142, 160, -9.5605F, -10.93F, 0.4F, 1, 1, 25, -0.35F, false));
         cube_r27.cubeList.add(new ModelBox(cube_r27, 135, 62, -9.6105F, -11.08F, 22.05F, 1, 1, 1, -0.198F, false));
@@ -668,9 +668,9 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r27.cubeList.add(new ModelBox(cube_r27, 147, 60, -9.6105F, -11.08F, 2.05F, 1, 1, 1, -0.198F, false));
 
         cube_r28 = new ModelRenderer(this);
-        cube_r28.setRotationPoint(0.0F, 0.0F, -1.25F);
+        cube_r28.setRotationPoint(0, 0, -1.25F);
         bone11.addChild(cube_r28);
-        setRotationAngle(cube_r28, 0.0F, 0.0F, 0.8901F);
+        setRotationAngle(cube_r28, 0, 0, 0.8901F);
         cube_r28.cubeList.add(new ModelBox(cube_r28, 0, 123, -9.0105F, 10.68F, -0.2F, 1, 1, 2, -0.198F, false));
         cube_r28.cubeList.add(new ModelBox(cube_r28, 279, 179, -9.0605F, 10.83F, 0.4F, 1, 1, 25, -0.35F, false));
         cube_r28.cubeList.add(new ModelBox(cube_r28, 135, 86, -9.0105F, 10.68F, 22.05F, 1, 1, 1, -0.198F, false));
@@ -694,115 +694,115 @@ public class ScarMidWestIndustriesHandguard extends ModelBase {
         cube_r28.cubeList.add(new ModelBox(cube_r28, 147, 58, -9.0105F, 10.68F, 2.05F, 1, 1, 1, -0.198F, false));
 
         handguard_mlok = new ModelRenderer(this);
-        handguard_mlok.setRotationPoint(1.1F, -14.0F, -68.0F);
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 248, 88, -1, 0.0F, 3.0F, 1, 1, 33, 0.0F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 108, 29, -2.4F, -2.1F, 3.0F, 1, 1, 6, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 57, -1.8F, -2.3F, 9.0F, 1, 1, 1, 0.0F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 14, 6, -4.4F, -2.3F, 9.0F, 3, 1, 1, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 108, 22, -3.8F, -2.1F, 3.0F, 1, 1, 6, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 160, 209, -2.7F, 2.9F, 3.0F, 1, 1, 38, 0.0F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 61, 123, -3.1F, -2.1F, 3.0F, 1, 1, 1, -0.002F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 60, -3.1F, -2.1F, 8.0F, 1, 1, 1, -0.002F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 120, 208, -3.5F, 2.9F, 3.0F, 1, 1, 38, 0.001F, false));
+        handguard_mlok.setRotationPoint(1.1F, -14, -68);
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 248, 88, -1, 0, 3, 1, 1, 33, 0, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 108, 29, -2.4F, -2.1F, 3, 1, 1, 6, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 57, -1.8F, -2.3F, 9, 1, 1, 1, 0, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 14, 6, -4.4F, -2.3F, 9, 3, 1, 1, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 108, 22, -3.8F, -2.1F, 3, 1, 1, 6, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 160, 209, -2.7F, 2.9F, 3, 1, 1, 38, 0, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 61, 123, -3.1F, -2.1F, 3, 1, 1, 1, -0.002F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 60, -3.1F, -2.1F, 8, 1, 1, 1, -0.002F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 120, 208, -3.5F, 2.9F, 3, 1, 1, 38, 0.001F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 126, 130, -0.75F, 0.15F, 22.3F, 1, 1, 14, -0.1F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 42, 208, -0.75F, 1.65F, 22.3F, 1, 1, 15, -0.1F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 83, 107, -0.75F, 0.45F, 21.9F, 1, 2, 1, -0.099F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 106, 77, -0.75F, 0.45F, 25.9F, 1, 2, 2, -0.101F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 106, 63, -0.75F, 0.45F, 30.9F, 1, 2, 2, -0.101F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 80, 7, -0.75F, 0.85F, 33.8F, 1, 1, 3, -0.102F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 77, -1, 0.9F, 3.0F, 1, 1, 1, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 74, -1, 0.9F, 7.0F, 1, 1, 1, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 77, -1, 0.9F, 3, 1, 1, 1, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 74, -1, 0.9F, 7, 1, 1, 1, -0.001F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 117, 55, -1, 0.9F, 11, 1, 1, 4, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 70, -1, 0.9F, 16.0F, 1, 1, 1, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 116, 44, -1, 0.9F, 18.0F, 1, 1, 4, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 200, 234, -1, 1.8F, 3.0F, 1, 1, 38, 0.0F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 210, 0, -5.2F, 1.8F, 3.0F, 1, 1, 38, 0.0F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 40, 248, -5.2F, 0.0F, 3.0F, 1, 1, 33, 0.0F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 70, -1, 0.9F, 16, 1, 1, 1, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 116, 44, -1, 0.9F, 18, 1, 1, 4, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 200, 234, -1, 1.8F, 3, 1, 1, 38, 0, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 210, 0, -5.2F, 1.8F, 3, 1, 1, 38, 0, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 40, 248, -5.2F, 0, 3, 1, 1, 33, 0, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 73, 129, -5.45F, 0.15F, 22.3F, 1, 1, 14, -0.1F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 0, 207, -5.45F, 1.65F, 22.3F, 1, 1, 15, -0.1F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 106, 99, -5.45F, 0.45F, 21.9F, 1, 2, 1, -0.099F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 0, 106, -5.45F, 0.45F, 30.9F, 1, 2, 2, -0.101F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 106, 55, -5.45F, 0.45F, 25.9F, 1, 2, 2, -0.101F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 0, 78, -5.45F, 0.85F, 33.8F, 1, 1, 3, -0.102F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 62, -5.2F, 0.9F, 3.0F, 1, 1, 1, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 64, -5.2F, 0.9F, 7.0F, 1, 1, 1, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 62, -5.2F, 0.9F, 3, 1, 1, 1, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 64, -5.2F, 0.9F, 7, 1, 1, 1, -0.001F, false));
         handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 116, 29, -5.2F, 0.9F, 11, 1, 1, 4, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 68, -5.2F, 0.9F, 16.0F, 1, 1, 1, -0.001F, false));
-        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 116, 36, -5.2F, 0.9F, 18.0F, 1, 1, 4, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 123, 68, -5.2F, 0.9F, 16, 1, 1, 1, -0.001F, false));
+        handguard_mlok.cubeList.add(new ModelBox(handguard_mlok, 116, 36, -5.2F, 0.9F, 18, 1, 1, 4, -0.001F, false));
 
         cube_r29 = new ModelRenderer(this);
         cube_r29.setRotationPoint(-5.4F, 0.1F, 36.2F);
         handguard_mlok.addChild(cube_r29);
-        setRotationAngle(cube_r29, -0.7505F, 0.0F, 0.0F);
-        cube_r29.cubeList.add(new ModelBox(cube_r29, 121, 94, -0.05F, 0.0F, 0.0F, 1, 1, 2, -0.101F, false));
-        cube_r29.cubeList.add(new ModelBox(cube_r29, 122, 5, 4.65F, 0.0F, 0.0F, 1, 1, 2, -0.101F, false));
+        setRotationAngle(cube_r29, -0.7505F, 0, 0);
+        cube_r29.cubeList.add(new ModelBox(cube_r29, 121, 94, -0.05F, 0, 0, 1, 1, 2, -0.101F, false));
+        cube_r29.cubeList.add(new ModelBox(cube_r29, 122, 5, 4.65F, 0, 0, 1, 1, 2, -0.101F, false));
 
         cube_r30 = new ModelRenderer(this);
-        cube_r30.setRotationPoint(-5.2F, 0.0F, 36.0F);
+        cube_r30.setRotationPoint(-5.2F, 0, 36);
         handguard_mlok.addChild(cube_r30);
-        setRotationAngle(cube_r30, -0.7505F, 0.0F, 0.0F);
-        cube_r30.cubeList.add(new ModelBox(cube_r30, 53, 78, 0.0F, 0.0F, 0.0F, 1, 1, 3, -0.001F, false));
-        cube_r30.cubeList.add(new ModelBox(cube_r30, 80, 31, 4.2F, 0.0F, 0.0F, 1, 1, 3, -0.001F, false));
+        setRotationAngle(cube_r30, -0.7505F, 0, 0);
+        cube_r30.cubeList.add(new ModelBox(cube_r30, 53, 78, 0, 0, 0, 1, 1, 3, -0.001F, false));
+        cube_r30.cubeList.add(new ModelBox(cube_r30, 80, 31, 4.2F, 0, 0, 1, 1, 3, -0.001F, false));
 
         cube_r31 = new ModelRenderer(this);
-        cube_r31.setRotationPoint(-5.2F, 0.0F, 3.0F);
+        cube_r31.setRotationPoint(-5.2F, 0, 3);
         handguard_mlok.addChild(cube_r31);
-        setRotationAngle(cube_r31, 0.0F, 0.0F, -0.3142F);
-        cube_r31.cubeList.add(new ModelBox(cube_r31, 122, 247, 0.0F, 0.0F, 0.0F, 1, 1, 33, -0.001F, false));
+        setRotationAngle(cube_r31, 0, 0, -0.3142F);
+        cube_r31.cubeList.add(new ModelBox(cube_r31, 122, 247, 0, 0, 0, 1, 1, 33, -0.001F, false));
 
         cube_r32 = new ModelRenderer(this);
-        cube_r32.setRotationPoint(-5.2F, 2.8F, 3.0F);
+        cube_r32.setRotationPoint(-5.2F, 2.8F, 3);
         handguard_mlok.addChild(cube_r32);
-        setRotationAngle(cube_r32, 0.0F, 0.0F, 0.576F);
-        cube_r32.cubeList.add(new ModelBox(cube_r32, 197, 156, 0.0F, -1, 0.0F, 2, 1, 38, -0.001F, false));
+        setRotationAngle(cube_r32, 0, 0, 0.576F);
+        cube_r32.cubeList.add(new ModelBox(cube_r32, 197, 156, 0, -1, 0, 2, 1, 38, -0.001F, false));
 
         cube_r33 = new ModelRenderer(this);
-        cube_r33.setRotationPoint(0.0F, 2.8F, 3.0F);
+        cube_r33.setRotationPoint(0, 2.8F, 3);
         handguard_mlok.addChild(cube_r33);
-        setRotationAngle(cube_r33, 0.0F, 0.0F, -0.576F);
-        cube_r33.cubeList.add(new ModelBox(cube_r33, 206, 195, -2.0F, -1, 0.0F, 2, 1, 38, -0.001F, false));
+        setRotationAngle(cube_r33, 0, 0, -0.576F);
+        cube_r33.cubeList.add(new ModelBox(cube_r33, 206, 195, -2, -1, 0, 2, 1, 38, -0.001F, false));
 
         cube_r34 = new ModelRenderer(this);
-        cube_r34.setRotationPoint(0.0F, 0.0F, 3.0F);
+        cube_r34.setRotationPoint(0, 0, 3);
         handguard_mlok.addChild(cube_r34);
-        setRotationAngle(cube_r34, 0.0F, 0.0F, 0.3142F);
-        cube_r34.cubeList.add(new ModelBox(cube_r34, 248, 39, -1, 0.0F, 0.0F, 1, 1, 33, -0.001F, false));
+        setRotationAngle(cube_r34, 0, 0, 0.3142F);
+        cube_r34.cubeList.add(new ModelBox(cube_r34, 248, 39, -1, 0, 0, 1, 1, 33, -0.001F, false));
 
         cube_r35 = new ModelRenderer(this);
-        cube_r35.setRotationPoint(-4.9F, 0.7F, 3.0F);
+        cube_r35.setRotationPoint(-4.9F, 0.7F, 3);
         handguard_mlok.addChild(cube_r35);
-        setRotationAngle(cube_r35, 0.0F, 0.0F, 0.1396F);
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 31, 106, 0.0F, -2.0F, 13.0F, 1, 2, 1, -0.002F, false));
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 85, 101, 0.0F, -2.0F, 6.0F, 1, 2, 2, -0.002F, false));
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 77, 12, 0.0F, -3.0F, 6.0F, 1, 1, 8, -0.002F, false));
-        cube_r35.cubeList.add(new ModelBox(cube_r35, 10, 87, 0.0F, -1.2F, 8.0F, 1, 1, 5, -0.002F, false));
+        setRotationAngle(cube_r35, 0, 0, 0.1396F);
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 31, 106, 0, -2, 13, 1, 2, 1, -0.002F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 85, 101, 0, -2, 6, 1, 2, 2, -0.002F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 77, 12, 0, -3, 6, 1, 1, 8, -0.002F, false));
+        cube_r35.cubeList.add(new ModelBox(cube_r35, 10, 87, 0, -1.2F, 8, 1, 1, 5, -0.002F, false));
 
         cube_r36 = new ModelRenderer(this);
-        cube_r36.setRotationPoint(-0.3F, 0.7F, 3.0F);
+        cube_r36.setRotationPoint(-0.3F, 0.7F, 3);
         handguard_mlok.addChild(cube_r36);
-        setRotationAngle(cube_r36, 0.0F, 0.0F, -0.1396F);
-        cube_r36.cubeList.add(new ModelBox(cube_r36, 63, 87, -1, -1.2F, 8.0F, 1, 1, 5, -0.002F, false));
-        cube_r36.cubeList.add(new ModelBox(cube_r36, 91, 101, -1, -2.0F, 6.0F, 1, 2, 2, -0.002F, false));
-        cube_r36.cubeList.add(new ModelBox(cube_r36, 106, 71, -1, -2.0F, 13.0F, 1, 2, 1, -0.002F, false));
-        cube_r36.cubeList.add(new ModelBox(cube_r36, 77, 36, -1, -3.0F, 6.0F, 1, 1, 8, -0.002F, false));
+        setRotationAngle(cube_r36, 0, 0, -0.1396F);
+        cube_r36.cubeList.add(new ModelBox(cube_r36, 63, 87, -1, -1.2F, 8, 1, 1, 5, -0.002F, false));
+        cube_r36.cubeList.add(new ModelBox(cube_r36, 91, 101, -1, -2, 6, 1, 2, 2, -0.002F, false));
+        cube_r36.cubeList.add(new ModelBox(cube_r36, 106, 71, -1, -2, 13, 1, 2, 1, -0.002F, false));
+        cube_r36.cubeList.add(new ModelBox(cube_r36, 77, 36, -1, -3, 6, 1, 1, 8, -0.002F, false));
 
         cube_r37 = new ModelRenderer(this);
-        cube_r37.setRotationPoint(-4.9F, 0.7F, 3.0F);
+        cube_r37.setRotationPoint(-4.9F, 0.7F, 3);
         handguard_mlok.addChild(cube_r37);
-        setRotationAngle(cube_r37, 0.0F, 0.0F, 0.3665F);
-        cube_r37.cubeList.add(new ModelBox(cube_r37, 10, 106, 0.0F, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
-        cube_r37.cubeList.add(new ModelBox(cube_r37, 100, 30, 0.0F, -2.0F, 5.0F, 1, 2, 1, -0.002F, false));
-        cube_r37.cubeList.add(new ModelBox(cube_r37, 108, 36, 0.0F, -3.0F, 0.0F, 1, 1, 6, -0.002F, false));
-        cube_r37.cubeList.add(new ModelBox(cube_r37, 8, 116, 0.0F, -1.25F, 1, 1, 1, 4, -0.002F, false));
+        setRotationAngle(cube_r37, 0, 0, 0.3665F);
+        cube_r37.cubeList.add(new ModelBox(cube_r37, 10, 106, 0, -2, 0, 1, 2, 1, -0.002F, false));
+        cube_r37.cubeList.add(new ModelBox(cube_r37, 100, 30, 0, -2, 5, 1, 2, 1, -0.002F, false));
+        cube_r37.cubeList.add(new ModelBox(cube_r37, 108, 36, 0, -3, 0, 1, 1, 6, -0.002F, false));
+        cube_r37.cubeList.add(new ModelBox(cube_r37, 8, 116, 0, -1.25F, 1, 1, 1, 4, -0.002F, false));
 
         cube_r38 = new ModelRenderer(this);
-        cube_r38.setRotationPoint(-0.3F, 0.7F, 8.0F);
+        cube_r38.setRotationPoint(-0.3F, 0.7F, 8);
         handguard_mlok.addChild(cube_r38);
-        setRotationAngle(cube_r38, 0.0F, 0.0F, -0.3665F);
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 16, 106, -1, -2.0F, 0.0F, 1, 2, 1, -0.002F, false));
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 116, 22, -1, -1.25F, -4.0F, 1, 1, 4, -0.002F, false));
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 23, 106, -1, -2.0F, -5.0F, 1, 2, 1, -0.002F, false));
-        cube_r38.cubeList.add(new ModelBox(cube_r38, 108, 44, -1, -3.0F, -5.0F, 1, 1, 6, -0.002F, false));
+        setRotationAngle(cube_r38, 0, 0, -0.3665F);
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 16, 106, -1, -2, 0, 1, 2, 1, -0.002F, false));
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 116, 22, -1, -1.25F, -4, 1, 1, 4, -0.002F, false));
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 23, 106, -1, -2, -5, 1, 2, 1, -0.002F, false));
+        cube_r38.cubeList.add(new ModelBox(cube_r38, 108, 44, -1, -3, -5, 1, 1, 6, -0.002F, false));
     }
 
     @Override

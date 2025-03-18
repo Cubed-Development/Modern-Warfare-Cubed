@@ -321,7 +321,7 @@ public class UMP45Factory implements GunFactory {
                                         .withPosition(-1.625000f, 4.745000f, -4.245000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -0.940000f, 0.060000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -330,7 +330,7 @@ public class UMP45Factory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.370000f, 0.345000f, -0.380000f)
                                         .withBBRotation(-10.558F, -28.6459F, 58.5348F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -338,7 +338,7 @@ public class UMP45Factory implements GunFactory {
                                 new Transform()
                                         .withPosition(-0.200000f, 0.140000f, 1.680000f)
                                         .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                                         .withPivotPoint(0, 0, 0)
 
                         )
@@ -536,7 +536,7 @@ public class UMP45Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

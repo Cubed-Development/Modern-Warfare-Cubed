@@ -44,8 +44,8 @@ public class InventoryTab extends GuiButton {
             itemRenderer = MC.getRenderItem();
 
             RenderHelper.enableGUIStandardItemLighting();
-            this.zLevel = 100.0F;
-            this.itemRenderer.zLevel = 100.0F;
+            this.zLevel = 100;
+            this.itemRenderer.zLevel = 100;
             GL11.glEnable(GL11.GL_LIGHTING);
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             final ItemStack itemStack = getItemStack();
@@ -53,8 +53,8 @@ public class InventoryTab extends GuiButton {
             this.itemRenderer.renderItemOverlays(MC.fontRenderer, itemStack, x + 6, y + 8);
             GL11.glDisable(GL11.GL_LIGHTING);
             GL11.glEnable(GL11.GL_BLEND);
-            this.itemRenderer.zLevel = 0.0F;
-            this.zLevel = 0.0F;
+            this.itemRenderer.zLevel = 0;
+            this.zLevel = 0;
             RenderHelper.disableStandardItemLighting();
         }
     }

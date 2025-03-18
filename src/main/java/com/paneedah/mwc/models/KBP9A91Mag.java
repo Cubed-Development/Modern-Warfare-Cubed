@@ -21,23 +21,23 @@ public class KBP9A91Mag extends ModelWithAttachments {
         textureHeight = 220;
 
         mag = new ModelRenderer(this);
-        mag.setRotationPoint(0.0F, 24.0F, 0.0F);
+        mag.setRotationPoint(0, 24, 0);
 
 
         mag3 = new ModelRenderer(this);
-        mag3.setRotationPoint(-0.7F, -30.0F, -25.0F);
+        mag3.setRotationPoint(-0.7F, -30, -25);
         mag.addChild(mag3);
-        mag3.cubeList.add(new ModelBox(mag3, 38, 172, 0.0F, 0.0F, 0.0F, 1, 18, 6, 0.0F, false));
+        mag3.cubeList.add(new ModelBox(mag3, 38, 172, 0, 0, 0, 1, 18, 6, 0, false));
 
         mag2 = new ModelRenderer(this);
-        mag2.setRotationPoint(-3.3F, -30.0F, -25.0F);
+        mag2.setRotationPoint(-3.3F, -30, -25);
         mag.addChild(mag2);
-        mag2.cubeList.add(new ModelBox(mag2, 118, 0, 0.0F, 0.001F, -0.001F, 3, 18, 6, 0.0F, false));
+        mag2.cubeList.add(new ModelBox(mag2, 118, 0, 0, 0.001F, -0.001F, 3, 18, 6, 0, false));
 
         mag1 = new ModelRenderer(this);
-        mag1.setRotationPoint(-3.0F, -30.0F, -28.7F);
+        mag1.setRotationPoint(-3, -30, -28.7F);
         mag.addChild(mag1);
-        mag1.cubeList.add(new ModelBox(mag1, 152, 62, 0.0F, 0.0F, 0.0F, 3, 18, 4, -0.001F, false));
+        mag1.cubeList.add(new ModelBox(mag1, 152, 62, 0, 0, 0, 3, 18, 4, -0.001F, false));
     }
 
     @Override

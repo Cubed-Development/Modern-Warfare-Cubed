@@ -117,7 +117,7 @@ public class CZ805BrenFactory implements GunFactory {
                 })
                 .withCompatibleAttachment(Attachments.HK416RearSights, true, (model) -> {
                     if (model instanceof G95_upright_rearsights) {
-                        GL11.glTranslatef(-0.155F, -1.57F, 0.0F);
+                        GL11.glTranslatef(-0.155F, -1.57F, 0);
                         GL11.glScaled(0.29F, 0.29F, 0.29F);
                     }
                 })
@@ -136,7 +136,7 @@ public class CZ805BrenFactory implements GunFactory {
                     }
                 }, (model) -> {
                     if (model instanceof G95_upright_frontsights) {
-                        GL11.glTranslatef(-0.155F, -1.6F, -3.0F);
+                        GL11.glTranslatef(-0.155F, -1.6F, -3);
                         GL11.glScaled(0.29F, 0.29F, 0.29F);
                     }
                 }, true, false)
@@ -355,7 +355,7 @@ public class CZ805BrenFactory implements GunFactory {
                                         .withPosition(-1.425000f, 3.985000f, -3.765000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -364,7 +364,7 @@ public class CZ805BrenFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.090000f, 0.225000f, -0.340000f)
                                         .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -452,7 +452,7 @@ public class CZ805BrenFactory implements GunFactory {
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0.0F, -0.0f, 0f);
+                                GL11.glTranslatef(0, -0, 0f);
                             }
 
                             // Standard Iron Sight Zoom
@@ -476,7 +476,7 @@ public class CZ805BrenFactory implements GunFactory {
                             // HP Zoomw
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0.0F, -0.012f, 0.15f);
+                                GL11.glTranslatef(0, -0.012f, 0.15f);
                             }
 
                             // Reflex Zoom
@@ -579,7 +579,7 @@ public class CZ805BrenFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

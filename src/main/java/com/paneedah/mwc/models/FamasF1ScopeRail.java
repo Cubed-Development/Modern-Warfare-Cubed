@@ -18,10 +18,10 @@ public class FamasF1ScopeRail extends ModelWithAttachments {
         textureHeight = 256;
 
         scope_rail = new ModelRenderer(this);
-        scope_rail.setRotationPoint(-0.5F, -23.0F, -36.2F);
-        scope_rail.cubeList.add(new ModelBox(scope_rail, 95, 0, -2.001F, -3.0F, -0.001F, 2, 3, 38, 0.0F, false));
-        scope_rail.cubeList.add(new ModelBox(scope_rail, 0, 104, -2.0F, -3.3F, 0.0F, 2, 1, 38, 0.0F, false));
-        scope_rail.cubeList.add(new ModelBox(scope_rail, 90, 95, -2.0F, -0.8F, 37.0F, 2, 1, 1, 0.0F, false));
+        scope_rail.setRotationPoint(-0.5F, -23, -36.2F);
+        scope_rail.cubeList.add(new ModelBox(scope_rail, 95, 0, -2.001F, -3, -0.001F, 2, 3, 38, 0, false));
+        scope_rail.cubeList.add(new ModelBox(scope_rail, 0, 104, -2, -3.3F, 0, 2, 1, 38, 0, false));
+        scope_rail.cubeList.add(new ModelBox(scope_rail, 90, 95, -2, -0.8F, 37, 2, 1, 1, 0, false));
     }
 
     @Override

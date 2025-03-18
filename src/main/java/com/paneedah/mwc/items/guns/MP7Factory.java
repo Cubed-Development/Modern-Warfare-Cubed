@@ -109,11 +109,11 @@ public class MP7Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Magazines.MP7Mag, (model) -> {
-//            GL11.glTranslatef(0.0F, 1.8F, 0.8F);
+//            GL11.glTranslatef(0, 1.8F, 0.8F);
 //            GL11.glRotatef(15F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Magazines.MP7Mag20, (model) -> {
-//          GL11.glTranslatef(0.0F, 1.8F, 0.8F);
+//          GL11.glTranslatef(0, 1.8F, 0.8F);
 //          GL11.glRotatef(15F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.MP7IronSights, true, (model) -> {
@@ -289,12 +289,12 @@ public class MP7Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
-                    GL11.glTranslatef(-0.0F, -0.55F, -2F);
+                    GL11.glTranslatef(-0, -0.55F, -2F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
 //            GL11.glRotatef(-180F, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
-                    GL11.glTranslatef(-0.0F, -0.55F, -2F);
+                    GL11.glTranslatef(-0, -0.55F, -2F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
                 })
                 .withCompatibleAttachment(Attachments.SilencerMP7, (model) -> {
@@ -330,7 +330,7 @@ public class MP7Factory implements GunFactory {
                                         .withPosition(-1.105000f, 2.785000f, -5.045000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -0.900000f, 0.700000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -339,7 +339,7 @@ public class MP7Factory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.090000f, 0.865000f, 0.860000f)
                                         .withBBRotation(-18.3277F, -19.993F, 76.7174F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -572,7 +572,7 @@ public class MP7Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(3.690000f, 0.025000f, 0.860000f)
                                             .withRotation(82.522854f, 31.220711f, 8.301319f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

@@ -97,16 +97,16 @@ public class MalyukFactory implements GunFactory {
                 })
                 .withCompatibleAttachment(Magazines.AK50Mag, (model) -> {
                     GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
-                    GL11.glTranslatef(0f, 0.35f, 3.0f);
+                    GL11.glTranslatef(0f, 0.35f, 3);
                 })
                 .withCompatibleAttachment(Magazines.AK75Mag, (model) -> {
                     GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-                    GL11.glTranslatef(0f, 0.35f, 3.0f);
+                    GL11.glTranslatef(0f, 0.35f, 3);
                     GL11.glScaled(1.2F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(Magazines.AK100Mag, (model) -> {
                     GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
-                    GL11.glTranslatef(0f, 0.35f, 3.0f);
+                    GL11.glTranslatef(0f, 0.35f, 3);
                 })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
                     GL11.glTranslatef(-0.21F, -1.4F, -1.2F);
@@ -118,7 +118,7 @@ public class MalyukFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
-                    GL11.glTranslatef(-0.32F, -1.4F, -0.0F);
+                    GL11.glTranslatef(-0.32F, -1.4F, -0);
                     GL11.glScaled(0.83F, 0.83F, 0.83F);
                 }, (model) -> {
                     if (model instanceof AcogScope2) {
@@ -284,7 +284,7 @@ public class MalyukFactory implements GunFactory {
                     GL11.glScaled(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.VGrip, (model) -> {
-                    GL11.glTranslatef(-0.2F, -0.1F, -2.0F);
+                    GL11.glTranslatef(-0.2F, -0.1F, -2);
                     GL11.glScaled(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.JunoGrip, (model) -> {
@@ -326,7 +326,7 @@ public class MalyukFactory implements GunFactory {
                                         .withPosition(-1.425000f, 3.985000f, -4.965000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -335,7 +335,7 @@ public class MalyukFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.250000f, 0.545000f, 0.260000f)
                                         .withBBRotation(-7.1415F, -27.3003F, 52.6433F)
-                                        .withScale(2.8F, 2.8F, 4.0F)
+                                        .withScale(2.8F, 2.8F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -494,49 +494,49 @@ public class MalyukFactory implements GunFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.22f, 0.0f);
+                                GL11.glTranslatef(0F, 0.22f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.25f, 0.0f);
+                                GL11.glTranslatef(0F, 0.25f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.25f, 0.0f);
+                                GL11.glTranslatef(0F, 0.25f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.2f, 0.0f);
+                                GL11.glTranslatef(0F, 0.2f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.19f, 0.0f);
+                                GL11.glTranslatef(0F, 0.19f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.26f, 0.0f);
+                                GL11.glTranslatef(0F, 0.26f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.26f, 0.0f);
+                                GL11.glTranslatef(0F, 0.26f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.28f, 0.0f);
+                                GL11.glTranslatef(0F, 0.28f, 0);
                             }
 
                             // ACOG Zoom
@@ -592,7 +592,7 @@ public class MalyukFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

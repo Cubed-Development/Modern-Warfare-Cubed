@@ -66,19 +66,19 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         this.setSize(0.3F, 0.3F);
         this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(), thrower.posZ,
                 thrower.rotationYaw, thrower.rotationPitch);
-        this.posX -= FastMath.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
+        this.posX -= FastMath.cos(this.rotationYaw / 180 * (float) Math.PI) * 0.16F;
         this.posY -= 0.10000000149011612D;
-        this.posZ -= FastMath.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
+        this.posZ -= FastMath.sin(this.rotationYaw / 180 * (float) Math.PI) * 0.16F;
         this.setPosition(this.posX, this.posY, this.posZ);
-        //this.yOffset = 0.0F;
+        //this.yOffset = 0;
         float f = 0.4F;
-        this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f;
-        this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f;
-        this.motionY = -MathHelper.sin((this.rotationPitch + 0 /*this.func_70183_g()*/) / 180.0F * (float) Math.PI) * f;
+        this.motionX = -MathHelper.sin(this.rotationYaw / 180 * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180 * (float) Math.PI) * f;
+        this.motionZ = MathHelper.cos(this.rotationYaw / 180 * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180 * (float) Math.PI) * f;
+        this.motionY = -MathHelper.sin((this.rotationPitch + 0 /*this.func_70183_g()*/) / 180 * (float) Math.PI) * f;
 
         this.initialYaw = this.rotationYaw;
         this.initialPitch = this.rotationPitch;
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity /*1.3f*/, 10.0F); // TODO: make inaccuracy configurable parameter
+        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity /*1.3f*/, 10); // TODO: make inaccuracy configurable parameter
 
         ProjectConstants.LOGGER.debug("Throwing with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
                 posX, posY, posZ,
@@ -272,19 +272,19 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
         this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
-        for (this.rotationPitch = (float) (Math.atan2(this.motionY, motionSquared) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
+        for (this.rotationPitch = (float) (Math.atan2(this.motionY, motionSquared) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180; this.prevRotationPitch -= 360) {
         }
 
-        while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
-            this.prevRotationPitch += 360.0F;
+        while (this.rotationPitch - this.prevRotationPitch >= 180) {
+            this.prevRotationPitch += 360;
         }
 
-        while (this.rotationYaw - this.prevRotationYaw < -180.0F) {
-            this.prevRotationYaw -= 360.0F;
+        while (this.rotationYaw - this.prevRotationYaw < -180) {
+            this.prevRotationYaw -= 360;
         }
 
-        while (this.rotationYaw - this.prevRotationYaw >= 180.0F) {
-            this.prevRotationYaw += 360.0F;
+        while (this.rotationYaw - this.prevRotationYaw >= 180) {
+            this.prevRotationYaw += 360;
         }
 
         this.rotationPitch = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * 0.2F;

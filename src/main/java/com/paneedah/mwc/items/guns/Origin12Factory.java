@@ -88,31 +88,31 @@ public class Origin12Factory implements GunFactory {
 //          GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
-                    GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
+                    GL11.glTranslatef(-0.008f, -0, 0.1f);
                     GL11.glScaled(0.95F, 0.95F, 0.95F);
                 })
                 .withCompatibleAttachment(Attachments.MagpulCTRStock, (model) -> {
-                    GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
+                    GL11.glTranslatef(-0.008f, -0, 0.1f);
                     GL11.glScaled(0.95F, 0.95F, 0.95F);
                 })
                 .withCompatibleAttachment(Attachments.MilSpecStock, (model) -> {
-                    GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
+                    GL11.glTranslatef(-0.008f, -0, 0.1f);
                     GL11.glScaled(0.95F, 0.95F, 0.95F);
                 })
                 .withCompatibleAttachment(Attachments.HK416Stock, (model) -> {
-                    GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
+                    GL11.glTranslatef(-0.008f, -0, 0.1f);
                     GL11.glScaled(0.95F, 0.95F, 0.95F);
                 })
                 .withCompatibleAttachment(Attachments.MagpulCTRStockTan, (model) -> {
-                    GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
+                    GL11.glTranslatef(-0.008f, -0, 0.1f);
                     GL11.glScaled(0.95F, 0.95F, 0.95F);
                 })
                 .withCompatibleAttachment(Attachments.MilSpecStockTan, (model) -> {
-                    GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
+                    GL11.glTranslatef(-0.008f, -0, 0.1f);
                     GL11.glScaled(0.95F, 0.95F, 0.95F);
                 })
                 .withCompatibleAttachment(Attachments.HK416StockTan, (model) -> {
-                    GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
+                    GL11.glTranslatef(-0.008f, -0, 0.1f);
                     GL11.glScaled(0.95F, 0.95F, 0.95F);
                 })
                 .withCompatibleAttachment(Attachments.Origin12Handguard, true, (model) -> {
@@ -385,7 +385,7 @@ public class Origin12Factory implements GunFactory {
                                         .withPosition(-1.545000f, 4.665000f, -2.605000f)
                                         .withRotation(0.000000f, 1.000000f, 9.911787f)
                                         .withPivotPoint(-0.470000f, -1.260000f, 0.220000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -394,7 +394,7 @@ public class Origin12Factory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.370000f, 0.705000f, -0.980000f)
                                         .withBBRotation(-9.3558F, -36.5488F, 60.0121F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -522,7 +522,7 @@ public class Origin12Factory implements GunFactory {
                         .withFirstPersonPositioningZooming((renderContext) -> {
 //                GL11.glRotatef(45F, 0f, 1f, 0f);
                             GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                            GL11.glTranslatef(0.14f, 1.26f, 0.0f);
+                            GL11.glTranslatef(0.14f, 1.26f, 0);
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
@@ -637,7 +637,7 @@ public class Origin12Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(4.370000f, 0.705000f, 2.100000f)
                                             .withRotation(77.474485f, 36.548800f, 14.076018f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

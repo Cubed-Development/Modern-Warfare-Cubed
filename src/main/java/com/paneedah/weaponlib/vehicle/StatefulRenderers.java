@@ -64,8 +64,8 @@ public class StatefulRenderers {
 
 
                     model.isSneak = false;
-//                    model.onGround = 0.0F;
-                    model.setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, entity);
+//                    model.onGround = 0;
+                    model.setRotationAngles(0, 0, 0, 0, 0, 0.0625F, entity);
                     model.bipedLeftArm.rotateAngleX = model.bipedLeftArm.rotateAngleY = model.bipedLeftArm.rotateAngleZ = 0f;
                     model.bipedLeftArm.render(0.0625F);
 
@@ -118,10 +118,10 @@ public class StatefulRenderers {
 
                     model.isRiding = false;
                     model.isSneak = false;
-//                    model.onGround = 0.0F;
+//                    model.onGround = 0;
 //                    model.heldItemLeft = 0;
 //                    model.aimedBow = false;
-                    model.setRotationAngles(0.0F, 0.3F, 0.0F, 0.0F, 0.0F, 0.0625F, entity);
+                    model.setRotationAngles(0, 0.3F, 0, 0, 0, 0.0625F, entity);
                     model.bipedRightArm.rotateAngleX = model.bipedRightArm.rotateAngleY = model.bipedRightArm.rotateAngleZ = 0f;
                     model.bipedRightArm.render(0.0625F);
 

@@ -124,7 +124,7 @@ public class MAC10Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
-                    GL11.glTranslatef(-0.22F, -1.28F, -0.0F);
+                    GL11.glTranslatef(-0.22F, -1.28F, -0);
                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                 }, (model) -> {
                     if (model instanceof Acog2) {
@@ -307,7 +307,7 @@ public class MAC10Factory implements GunFactory {
                                         .withPosition(-2.065000f, 5.145000f, -6.925000f)
                                         .withRotation(0.000000f, 1.000000f, 10.681469f)
                                         .withPivotPoint(-0.280000f, -1.600000f, 0.040000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -559,7 +559,7 @@ public class MAC10Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.770000f, 1.225000f, 0.140000f)
                                             .withRotation(73.670132f, -70.659155f, 41.991085f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },
@@ -577,7 +577,7 @@ public class MAC10Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.770000f, 1.225000f, 0.140000f)
                                             .withRotation(73.670132f, -70.659155f, 41.991085f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

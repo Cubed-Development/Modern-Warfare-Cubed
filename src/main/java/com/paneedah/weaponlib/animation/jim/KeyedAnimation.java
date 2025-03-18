@@ -14,9 +14,9 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public class KeyedAnimation {
 
     public TreeMap<Float, BlockbenchTransition> bbMap = new TreeMap<>();
-    public float prevTimer = 0.0f;
-    public float timer = 0.0f;
-    public float max = 2.0f;
+    public float prevTimer = 0;
+    public float timer = 0;
+    public float max = 2;
 
 
     public KeyedAnimation(float max) {
@@ -63,7 +63,7 @@ public class KeyedAnimation {
         // Find previous key
         float bottomKey = bbMap.floorEntry(time).getKey();
 
-        float topKey = 0.0f;
+        float topKey = 0;
         try {
             topKey = bbMap.ceilingKey(time);
         } catch (Exception e) {
@@ -90,7 +90,7 @@ public class KeyedAnimation {
 
         float leDelta = (time - bottomKey) / (topKey - bottomKey);
         if (Double.isNaN(leDelta)) {
-            leDelta = 0.0f;
+            leDelta = 0;
         }
 
 

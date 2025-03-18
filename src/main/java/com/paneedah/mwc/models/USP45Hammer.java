@@ -20,20 +20,20 @@ public class USP45Hammer extends ModelWithAttachments {
         textureHeight = 128;
 
         hammer = new ModelRenderer(this);
-        hammer.setRotationPoint(0.0F, 24.0F, 0.0F);
+        hammer.setRotationPoint(0, 24, 0);
 
 
         gun234 = new ModelRenderer(this);
-        gun234.setRotationPoint(-2.0F, -34.7F, 1.5F);
+        gun234.setRotationPoint(-2, -34.7F, 1.5F);
         hammer.addChild(gun234);
-        setRotationAngle(gun234, 0.2603F, 0.0F, 0.0F);
-        gun234.cubeList.add(new ModelBox(gun234, 23, 0, -0.001F, 0.0F, 0.0F, 1, 2, 2, 0.0F, false));
+        setRotationAngle(gun234, 0.2603F, 0, 0);
+        gun234.cubeList.add(new ModelBox(gun234, 23, 0, -0.001F, 0, 0, 1, 2, 2, 0, false));
 
         gun294 = new ModelRenderer(this);
-        gun294.setRotationPoint(-2.0F, -33.7F, 1.5F);
+        gun294.setRotationPoint(-2, -33.7F, 1.5F);
         hammer.addChild(gun294);
-        setRotationAngle(gun294, 0.1487F, 0.0F, 0.0F);
-        gun294.cubeList.add(new ModelBox(gun294, 72, 72, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        setRotationAngle(gun294, 0.1487F, 0, 0);
+        gun294.cubeList.add(new ModelBox(gun294, 72, 72, 0, 0, 0, 1, 1, 3, 0, false));
     }
 
     @Override

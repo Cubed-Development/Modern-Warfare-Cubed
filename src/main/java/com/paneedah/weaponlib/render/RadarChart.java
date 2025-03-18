@@ -163,7 +163,7 @@ public class RadarChart {
 
 
         // Render background grid lines
-        GL11.glLineWidth(3.0f);
+        GL11.glLineWidth(3);
         bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
         for (double a = 0; a < TWO_PI; a += increment) {
             double point = getPointRadius(a);

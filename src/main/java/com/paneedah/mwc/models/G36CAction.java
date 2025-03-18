@@ -18,12 +18,12 @@ public class G36CAction extends ModelWithAttachments {
         textureHeight = 220;
 
         action = new ModelRenderer(this);
-        action.setRotationPoint(0.0F, 24.0F, 0.0F);
-        action.cubeList.add(new ModelBox(action, 71, 31, -2.5F, -40.5F, -36.5F, 2, 1, 5, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 110, 82, -2.5F, -40.3F, -31.5F, 2, 1, 2, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 72, 47, -3.0F, -40.3F, -29.5F, 3, 2, 6, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 116, 127, -3.0F, -40.5F, -23.5F, 3, 2, 11, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 94, 56, -3.3F, -36.9F, -24.5F, 2, 3, 13, 0.0F, false));
+        action.setRotationPoint(0, 24, 0);
+        action.cubeList.add(new ModelBox(action, 71, 31, -2.5F, -40.5F, -36.5F, 2, 1, 5, 0, false));
+        action.cubeList.add(new ModelBox(action, 110, 82, -2.5F, -40.3F, -31.5F, 2, 1, 2, 0, false));
+        action.cubeList.add(new ModelBox(action, 72, 47, -3, -40.3F, -29.5F, 3, 2, 6, 0, false));
+        action.cubeList.add(new ModelBox(action, 116, 127, -3, -40.5F, -23.5F, 3, 2, 11, 0, false));
+        action.cubeList.add(new ModelBox(action, 94, 56, -3.3F, -36.9F, -24.5F, 2, 3, 13, 0, false));
     }
 
     @Override

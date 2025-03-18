@@ -315,7 +315,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         recoilAmount *= BalancePackManager.getGroupRecoilMultiplier(weapon.getConfigurationGroup());
 
         player.rotationPitch = player.rotationPitch - recoilAmount * 0.7f;
-        float rotationYawFactor = -1 + random.nextFloat() * 2.0f;
+        float rotationYawFactor = -1 + random.nextFloat() * 2;
 
         player.rotationYaw = player.rotationYaw + recoilAmount * rotationYawFactor * 0.4f;
 
@@ -452,7 +452,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             // System.out.println(weapon.getName() + " | " + spawnEntityRocketParticles);
 
             WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, player.world, player, weapon.getSpawnEntityVelocity(),
-                    weapon.getSpawnEntityGravityVelocity(), BalancePackManager.getInaccuracy(weapon) + (isAimed ? 0.0f : (float) hipFireSpread), (float) damage, weapon.getSpawnEntityExplosionRadius(),
+                    weapon.getSpawnEntityGravityVelocity(), BalancePackManager.getInaccuracy(weapon) + (isAimed ? 0 : (float) hipFireSpread), (float) damage, weapon.getSpawnEntityExplosionRadius(),
                     weapon.isDestroyingBlocks(), weapon.hasRocketParticles(), weapon.getParticleAgeCoefficient(), weapon.getSmokeParticleAgeCoefficient(),
                     weapon.getExplosionScaleCoefficient(), weapon.getSmokeParticleScaleCoefficient(),
                     0,

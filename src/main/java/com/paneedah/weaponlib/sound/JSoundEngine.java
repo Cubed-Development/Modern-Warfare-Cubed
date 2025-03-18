@@ -42,7 +42,7 @@ public class JSoundEngine {
     /**
      * Position of the source sound.
      */
-    FloatBuffer sourcePos = BufferUtils.createFloatBuffer(3).put(new float[]{0.0f, 0.0f, 0.0f});
+    FloatBuffer sourcePos = BufferUtils.createFloatBuffer(3).put(new float[]{0, 0, 0});
 
     /*
      * These are 3D cartesian vector coordinates. A structure or class would be a
@@ -55,23 +55,23 @@ public class JSoundEngine {
     /**
      * Velocity of the source sound.
      */
-    FloatBuffer sourceVel = BufferUtils.createFloatBuffer(3).put(new float[]{0.0f, 0.0f, 0.0f});
+    FloatBuffer sourceVel = BufferUtils.createFloatBuffer(3).put(new float[]{0, 0, 0});
 
     /**
      * Position of the listener.
      */
-    FloatBuffer listenerPos = BufferUtils.createFloatBuffer(3).put(new float[]{0.0f, 0.0f, 0.0f});
+    FloatBuffer listenerPos = BufferUtils.createFloatBuffer(3).put(new float[]{0, 0, 0});
 
     /**
      * Velocity of the listener.
      */
-    FloatBuffer listenerVel = BufferUtils.createFloatBuffer(3).put(new float[]{0.0f, 0.0f, 0.0f});
+    FloatBuffer listenerVel = BufferUtils.createFloatBuffer(3).put(new float[]{0, 0, 0});
 
     /**
      * Orientation of the listener. (first 3 elements are "at", second 3 are "up")
      * Also note that these should be units of '1'.
      */
-    FloatBuffer listenerOri = BufferUtils.createFloatBuffer(6).put(new float[]{0.0f, 0.0f, -1, 0.0f, 1, 0.0f});
+    FloatBuffer listenerOri = BufferUtils.createFloatBuffer(6).put(new float[]{0, 0, -1, 0, 1, 0});
 
     public static JSoundEngine instance;
 
@@ -153,7 +153,7 @@ public class JSoundEngine {
 			// System.out.println("Error generating source!");
 			return AL10.AL_FALSE;
 		}
-		FloatBuffer sourcesad = BufferUtils.createFloatBuffer(3).put(new float[] { 100.0f, 0.0f, 0.0f });
+		FloatBuffer sourcesad = BufferUtils.createFloatBuffer(3).put(new float[] { 100, 0, 0 });
 
 		AL10.alSourcei(source.get(0), AL10.AL_BUFFER, buffer.get(0));
 		AL10.alSourcef(source.get(0), AL10.AL_PITCH, 1);
@@ -301,7 +301,7 @@ public class JSoundEngine {
         AL10.alDeleteBuffers(buffer);
     }
 
-    public static float velo = 0.0f;
+    public static float velo = 0;
     public static long time = System.currentTimeMillis();
 
     public static boolean loaded = false;

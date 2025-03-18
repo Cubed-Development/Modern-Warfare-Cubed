@@ -193,7 +193,7 @@ public class SVDDragunovFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
-                    GL11.glTranslatef(-0.055F, -1.16F, -2.0F);
+                    GL11.glTranslatef(-0.055F, -1.16F, -2);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -341,7 +341,7 @@ public class SVDDragunovFactory implements GunFactory {
                                         .withPosition(-1.225000f, 3.825000f, -1.605000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -1.780000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -350,7 +350,7 @@ public class SVDDragunovFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.170000f, 0.265000f, -1.300000f)
                                         .withBBRotation(-7.1415F, -27.3003F, 52.6433F)
-                                        .withScale(2.8F, 2.8F, 4.0F)
+                                        .withScale(2.8F, 2.8F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -617,7 +617,7 @@ public class SVDDragunovFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

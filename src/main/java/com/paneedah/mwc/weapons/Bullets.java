@@ -703,7 +703,7 @@ public class Bullets {
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
                     GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.0F, 2.8F, 2.0f);
+                    GL11.glScaled(2, 2.8F, 2);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -1033,7 +1033,7 @@ public class Bullets {
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4.0F, 0.7F);
+                    GL11.glTranslatef(-0.8F, -4, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
                     GL11.glRotatef(0F, 0f, 0f, 1f);

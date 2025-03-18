@@ -52,7 +52,7 @@ public class GearShiftPattern {
         GL11.glTranslated(x, y, 0);
         GL11.glScaled(scale, scale, scale);
 
-        fontRendererIn.drawStringWithShadow(text, (float) (-fontRendererIn.getStringWidth(text) / 2), 0.0f, color);
+        fontRendererIn.drawStringWithShadow(text, (float) (-fontRendererIn.getStringWidth(text) / 2), 0, color);
         GL11.glPopMatrix();
     }
 
@@ -61,12 +61,12 @@ public class GearShiftPattern {
 
 
         GL11.glPushMatrix();
-        float red = c.getRed() / 255.0f;
-        float blue = c.getBlue() / 255.0f;
-        float green = c.getGreen() / 255.0f;
-        float alpha = c.getAlpha() / 255.0f;
+        float red = c.getRed() / 255;
+        float blue = c.getBlue() / 255;
+        float green = c.getGreen() / 255;
+        float alpha = c.getAlpha() / 255;
 
-        GL11.glLineWidth(3.0f);
+        GL11.glLineWidth(3);
         Tessellator t = Tessellator.getInstance();
         BufferBuilder bb = t.getBuffer();
         bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);

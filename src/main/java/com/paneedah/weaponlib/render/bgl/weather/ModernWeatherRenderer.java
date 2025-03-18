@@ -125,7 +125,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
                 // If it can't snow or rain, don't put it there
                 Biome biome = MC.world.getBiome(rainPosition);
                 if ((rainStatus && !biome.canRain()) || (!rainStatus && !biome.getEnableSnow())) {
-                    rainPositions[count] = new float[]{0.0f, 0f, 0f, 0f, 0f};
+                    rainPositions[count] = new float[]{0, 0f, 0f, 0f, 0f};
                     return;
                 }
 

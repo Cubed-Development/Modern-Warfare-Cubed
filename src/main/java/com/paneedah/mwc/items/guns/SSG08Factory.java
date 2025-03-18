@@ -274,7 +274,7 @@ public class SSG08Factory implements GunFactory {
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.SSG08BoltAction1.getRenderablePart(), (renderContext) -> {
-//            	 GL11.glTranslatef(0.0f, 0.0f, 0.8f);
+//            	 GL11.glTranslatef(0, 0, 0.8f);
                         })
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.SSG08BoltAction2.getRenderablePart(), (renderContext) -> {
@@ -438,13 +438,13 @@ public class SSG08Factory implements GunFactory {
                                 new Transition((renderContext) -> { // Reload position
                                 }, 250, 300),
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glTranslatef(0.0f, 0.0f, 0.8f);
+                                    GL11.glTranslatef(0, 0, 0.8f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glTranslatef(0.0f, 0.0f, 0.8f);
+                                    GL11.glTranslatef(0, 0, 0.8f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glTranslatef(0.0f, 0.0f, 0.8f);
+                                    GL11.glTranslatef(0, 0, 0.8f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
 
@@ -497,13 +497,13 @@ public class SSG08Factory implements GunFactory {
                                 new Transition((renderContext) -> { // Reload position
                                 }, 250, 300),
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glTranslatef(0.0f, 0.0f, 0.8f);
+                                    GL11.glTranslatef(0, 0, 0.8f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glTranslatef(0.0f, 0.0f, 0.8f);
+                                    GL11.glTranslatef(0, 0, 0.8f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glTranslatef(0.0f, 0.0f, 0.8f);
+                                    GL11.glTranslatef(0, 0, 0.8f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
 
@@ -785,13 +785,13 @@ public class SSG08Factory implements GunFactory {
                                 new Transition((renderContext) -> { // Reload position
                                 }, 250, 300),
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glTranslatef(0.0f, 0.0f, 0.8f);
+                                    GL11.glTranslatef(0, 0, 0.8f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glTranslatef(0.0f, 0.0f, 0.8f);
+                                    GL11.glTranslatef(0, 0, 0.8f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glTranslatef(0.0f, 0.0f, 0.8f);
+                                    GL11.glTranslatef(0, 0, 0.8f);
                                 }, 250, 50),
                                 new Transition((renderContext) -> { // Reload position
 

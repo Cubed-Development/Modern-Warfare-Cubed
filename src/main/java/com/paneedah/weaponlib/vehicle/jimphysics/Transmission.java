@@ -11,8 +11,8 @@ public class Transmission {
     /**
      * Constant ratios
      */
-    public float differentialRatio = 0.0F;
-    public float reverseGearRatio = 0.0F;
+    public float differentialRatio = 0;
+    public float reverseGearRatio = 0;
 
 
     /**
@@ -380,7 +380,7 @@ public class Transmission {
 
 
     class Gear {
-        public float gearRatio = 0.0F;
+        public float gearRatio = 0;
 
         public Gear(float gR) {
             gearRatio = gR;

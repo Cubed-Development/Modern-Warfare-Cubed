@@ -69,7 +69,7 @@ public class LightManager {
         if (lights.size() < 1) {
             //System.out.println("yo");
 
-            float lightlevel = 0.0f;
+            float lightlevel = 0;
 
             lightlevel = MC.world.getLight(new BlockPos(x, y, z)) * MC.world.getSunBrightness(1);
             //System.out.println(lightlevel);

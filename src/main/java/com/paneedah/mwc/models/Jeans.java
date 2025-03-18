@@ -24,36 +24,36 @@ public class Jeans extends ModelBiped {
         textureHeight = 64;
 
         bipedHead = new ModelRenderer(this);
-        bipedHead.setRotationPoint(0.0F, 0.0F, 0.0F);
-        bipedHead.cubeList.add(new ModelBox(bipedHead, 0, 0, -4.0F, -8.0F, -4.0F, 8, 8, 8, 0.0F, false));
+        bipedHead.setRotationPoint(0, 0, 0);
+        bipedHead.cubeList.add(new ModelBox(bipedHead, 0, 0, -4, -8, -4, 8, 8, 8, 0, false));
 
         bipedBody = new ModelRenderer(this);
-        bipedBody.setRotationPoint(0.0F, 0.0F, 0.0F);
-        bipedBody.cubeList.add(new ModelBox(bipedBody, 0, 16, -4.0F, 0.0F, -2.0F, 8, 12, 4, 0.0F, false));
+        bipedBody.setRotationPoint(0, 0, 0);
+        bipedBody.cubeList.add(new ModelBox(bipedBody, 0, 16, -4, 0, -2, 8, 12, 4, 0, false));
 
         bipedRightArm = new ModelRenderer(this);
-        bipedRightArm.setRotationPoint(-5.0F, 2.0F, 0.0F);
-        bipedRightArm.cubeList.add(new ModelBox(bipedRightArm, 36, 36, -3.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        bipedRightArm.setRotationPoint(-5, 2, 0);
+        bipedRightArm.cubeList.add(new ModelBox(bipedRightArm, 36, 36, -3, -2, -2, 4, 12, 4, 0, false));
 
         bipedLeftArm = new ModelRenderer(this);
-        bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 32, 0, -1, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        bipedLeftArm.setRotationPoint(5, 2, 0);
+        bipedLeftArm.cubeList.add(new ModelBox(bipedLeftArm, 32, 0, -1, -2, -2, 4, 12, 4, 0, false));
 
         bipedRightLeg = new ModelRenderer(this);
-        bipedRightLeg.setRotationPoint(-2.0F, 12.0F, 0.0F);
-        bipedRightLeg.cubeList.add(new ModelBox(bipedRightLeg, 0, 32, -2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        bipedRightLeg.setRotationPoint(-2, 12, 0);
+        bipedRightLeg.cubeList.add(new ModelBox(bipedRightLeg, 0, 32, -2, 0, -2, 4, 12, 4, 0, false));
 
         bipedLeftLeg = new ModelRenderer(this);
-        bipedLeftLeg.setRotationPoint(2.0F, 12.0F, 0.0F);
-        bipedLeftLeg.cubeList.add(new ModelBox(bipedLeftLeg, 24, 24, -2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        bipedLeftLeg.setRotationPoint(2, 12, 0);
+        bipedLeftLeg.cubeList.add(new ModelBox(bipedLeftLeg, 24, 24, -2, 0, -2, 4, 12, 4, 0, false));
 
         rightleg = new ModelRenderer(this);
-        rightleg.setRotationPoint(0.0F, 0.0F, 0.0F);
-        rightleg.cubeList.add(new ModelBox(rightleg, 0, 32, -2.0F, 0.0F, -2.0F, 4, 12, 4, 0.11F, false));
+        rightleg.setRotationPoint(0, 0, 0);
+        rightleg.cubeList.add(new ModelBox(rightleg, 0, 32, -2, 0, -2, 4, 12, 4, 0.11F, false));
 
         leftleg = new ModelRenderer(this);
-        leftleg.setRotationPoint(0.0F, 0.0F, 0.0F);
-        leftleg.cubeList.add(new ModelBox(leftleg, 24, 24, -2.0F, 0.0F, -2.0F, 4, 12, 4, 0.11F, false));
+        leftleg.setRotationPoint(0, 0, 0);
+        leftleg.cubeList.add(new ModelBox(leftleg, 24, 24, -2, 0, -2, 4, 12, 4, 0.11F, false));
 
         this.bipedLeftLeg.addChild(leftleg);
         this.bipedRightLeg.addChild(rightleg);

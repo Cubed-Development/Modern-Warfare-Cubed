@@ -226,7 +226,7 @@ public class MultisampledFBO extends Framebuffer {
             GlStateManager.ortho(0.0D, width, height, 0.0D, 1000.0D, 3000.0D);
             GlStateManager.matrixMode(5888);
             GlStateManager.loadIdentity();
-            GlStateManager.translate(0.0F, 0.0F, -2000.0F);
+            GlStateManager.translate(0, 0, -2000);
             GlStateManager.viewport(0, 0, width, height);
             GlStateManager.enableTexture2D();
             GlStateManager.disableLighting();

@@ -41,96 +41,96 @@ public class Remington870PoliceMagnumStock extends ModelWithAttachments {
         textureHeight = 410;
 
         stockPoliceMagnum = new ModelRenderer(this);
-        stockPoliceMagnum.setRotationPoint(0.0F, 13.2677F, -10.0133F);
+        stockPoliceMagnum.setRotationPoint(0, 13.2677F, -10.0133F);
 
 
         gun463_r1 = new ModelRenderer(this);
-        gun463_r1.setRotationPoint(0.0F, 1.6429F, -0.855F);
+        gun463_r1.setRotationPoint(0, 1.6429F, -0.855F);
         stockPoliceMagnum.addChild(gun463_r1);
-        setRotationAngle(gun463_r1, -0.4461F, 0.0F, 0.0F);
-        gun463_r1.cubeList.add(new ModelBox(gun463_r1, 10, 67, -2.9F, -28.5F, 13.6F, 1, 1, 6, 0.0F, false));
-        gun463_r1.cubeList.add(new ModelBox(gun463_r1, 71, 35, -0.1F, -28.5F, 13.6F, 1, 1, 6, 0.0F, false));
+        setRotationAngle(gun463_r1, -0.4461F, 0, 0);
+        gun463_r1.cubeList.add(new ModelBox(gun463_r1, 10, 67, -2.9F, -28.5F, 13.6F, 1, 1, 6, 0, false));
+        gun463_r1.cubeList.add(new ModelBox(gun463_r1, 71, 35, -0.1F, -28.5F, 13.6F, 1, 1, 6, 0, false));
 
         stock33_r1 = new ModelRenderer(this);
-        stock33_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+        stock33_r1.setRotationPoint(0, 0, 0);
         stockPoliceMagnum.addChild(stock33_r1);
-        setRotationAngle(stock33_r1, -0.5949F, 0.0F, 0.0F);
+        setRotationAngle(stock33_r1, -0.5949F, 0, 0);
         stock33_r1.cubeList.add(new ModelBox(stock33_r1, 84, 79, -2.5F, -21.7F, 13.5F, 3, 1, 2, 0.01F, false));
 
         stock32_r1 = new ModelRenderer(this);
-        stock32_r1.setRotationPoint(0.0F, 9.4857F, 7.6824F);
+        stock32_r1.setRotationPoint(0, 9.4857F, 7.6824F);
         stockPoliceMagnum.addChild(stock32_r1);
-        setRotationAngle(stock32_r1, -0.1115F, 0.0F, 0.0F);
-        stock32_r1.cubeList.add(new ModelBox(stock32_r1, 57, 77, -2.5F, -21.5F, 10.0F, 3, 1, 4, 0.0F, false));
+        setRotationAngle(stock32_r1, -0.1115F, 0, 0);
+        stock32_r1.cubeList.add(new ModelBox(stock32_r1, 57, 77, -2.5F, -21.5F, 10, 3, 1, 4, 0, false));
 
         stock31_r1 = new ModelRenderer(this);
-        stock31_r1.setRotationPoint(0.0F, 17.5375F, 29.6372F);
+        stock31_r1.setRotationPoint(0, 17.5375F, 29.6372F);
         stockPoliceMagnum.addChild(stock31_r1);
-        setRotationAngle(stock31_r1, 1.0782F, 0.0F, 0.0F);
-        stock31_r1.cubeList.add(new ModelBox(stock31_r1, 0, 23, -2.5F, -13.0F, 15.5F, 3, 1, 1, 0.0F, false));
+        setRotationAngle(stock31_r1, 1.0782F, 0, 0);
+        stock31_r1.cubeList.add(new ModelBox(stock31_r1, 0, 23, -2.5F, -13, 15.5F, 3, 1, 1, 0, false));
 
         stock30_r1 = new ModelRenderer(this);
-        stock30_r1.setRotationPoint(0.0F, -33.8279F, 38.1028F);
+        stock30_r1.setRotationPoint(0, -33.8279F, 38.1028F);
         stockPoliceMagnum.addChild(stock30_r1);
-        setRotationAngle(stock30_r1, -2.6025F, 0.0F, 0.0F);
-        stock30_r1.cubeList.add(new ModelBox(stock30_r1, 114, 71, -2.5F, -18.4F, 20.2F, 3, 4, 1, 0.0F, false));
+        setRotationAngle(stock30_r1, -2.6025F, 0, 0);
+        stock30_r1.cubeList.add(new ModelBox(stock30_r1, 114, 71, -2.5F, -18.4F, 20.2F, 3, 4, 1, 0, false));
 
         stock29_r1 = new ModelRenderer(this);
-        stock29_r1.setRotationPoint(0.0F, -21.2178F, 49.1339F);
+        stock29_r1.setRotationPoint(0, -21.2178F, 49.1339F);
         stockPoliceMagnum.addChild(stock29_r1);
-        setRotationAngle(stock29_r1, -2.8999F, 0.0F, 0.0F);
-        stock29_r1.cubeList.add(new ModelBox(stock29_r1, 99, 57, -2.5F, -13.6F, 21.5F, 3, 5, 2, 0.0F, false));
+        setRotationAngle(stock29_r1, -2.8999F, 0, 0);
+        stock29_r1.cubeList.add(new ModelBox(stock29_r1, 99, 57, -2.5F, -13.6F, 21.5F, 3, 5, 2, 0, false));
 
         stock28_r1 = new ModelRenderer(this);
-        stock28_r1.setRotationPoint(0.0F, 12.3768F, 11.5566F);
+        stock28_r1.setRotationPoint(0, 12.3768F, 11.5566F);
         stockPoliceMagnum.addChild(stock28_r1);
-        setRotationAngle(stock28_r1, 0.1115F, 0.0F, 0.0F);
-        stock28_r1.cubeList.add(new ModelBox(stock28_r1, 65, 44, -2.5F, -13.0F, 15.5F, 3, 1, 6, 0.0F, false));
+        setRotationAngle(stock28_r1, 0.1115F, 0, 0);
+        stock28_r1.cubeList.add(new ModelBox(stock28_r1, 65, 44, -2.5F, -13, 15.5F, 3, 1, 6, 0, false));
 
         stock27_r1 = new ModelRenderer(this);
-        stock27_r1.setRotationPoint(0.0F, 13.7666F, 16.7604F);
+        stock27_r1.setRotationPoint(0, 13.7666F, 16.7604F);
         stockPoliceMagnum.addChild(stock27_r1);
-        setRotationAngle(stock27_r1, 0.2974F, 0.0F, 0.0F);
+        setRotationAngle(stock27_r1, 0.2974F, 0, 0);
         stock27_r1.cubeList.add(new ModelBox(stock27_r1, 114, 57, -2.5F, -21, 13.5F, 3, 9, 5, -0.01F, false));
 
         stock26_r1 = new ModelRenderer(this);
-        stock26_r1.setRotationPoint(0.0F, 9.4639F, 7.2929F);
+        stock26_r1.setRotationPoint(0, 9.4639F, 7.2929F);
         stockPoliceMagnum.addChild(stock26_r1);
-        setRotationAngle(stock26_r1, -0.1115F, 0.0F, 0.0F);
-        stock26_r1.cubeList.add(new ModelBox(stock26_r1, 0, 114, -2.5F, -26.0F, 10.0F, 3, 5, 9, 0.0F, false));
+        setRotationAngle(stock26_r1, -0.1115F, 0, 0);
+        stock26_r1.cubeList.add(new ModelBox(stock26_r1, 0, 114, -2.5F, -26, 10, 3, 5, 9, 0, false));
 
         stock25_r1 = new ModelRenderer(this);
-        stock25_r1.setRotationPoint(0.0F, -38.8977F, 50.3797F);
+        stock25_r1.setRotationPoint(0, -38.8977F, 50.3797F);
         stockPoliceMagnum.addChild(stock25_r1);
-        setRotationAngle(stock25_r1, -3.0115F, 0.0F, 0.0F);
-        stock25_r1.cubeList.add(new ModelBox(stock25_r1, 77, 22, -2.0F, -23.5F, 21.8F, 2, 1, 2, 0.0F, false));
+        setRotationAngle(stock25_r1, -3.0115F, 0, 0);
+        stock25_r1.cubeList.add(new ModelBox(stock25_r1, 77, 22, -2, -23.5F, 21.8F, 2, 1, 2, 0, false));
 
         stock24_r1 = new ModelRenderer(this);
-        stock24_r1.setRotationPoint(0.0F, -11.3602F, 59.9291F);
+        stock24_r1.setRotationPoint(0, -11.3602F, 59.9291F);
         stockPoliceMagnum.addChild(stock24_r1);
-        setRotationAngle(stock24_r1, 2.2679F, 0.0F, 0.0F);
-        stock24_r1.cubeList.add(new ModelBox(stock24_r1, 73, 18, -2.0F, -22.7F, 19.8F, 2, 2, 1, 0.0F, false));
+        setRotationAngle(stock24_r1, 2.2679F, 0, 0);
+        stock24_r1.cubeList.add(new ModelBox(stock24_r1, 73, 18, -2, -22.7F, 19.8F, 2, 2, 1, 0, false));
 
         stock23_r1 = new ModelRenderer(this);
-        stock23_r1.setRotationPoint(0.0F, 4.0648F, 47.3394F);
+        stock23_r1.setRotationPoint(0, 4.0648F, 47.3394F);
         stockPoliceMagnum.addChild(stock23_r1);
-        setRotationAngle(stock23_r1, 1.45F, 0.0F, 0.0F);
-        stock23_r1.cubeList.add(new ModelBox(stock23_r1, 37, 71, -2.89F, -24.4F, 14.9F, 2, 7, 1, 0.0F, false));
-        stock23_r1.cubeList.add(new ModelBox(stock23_r1, 79, 33, -1.1F, -24.4F, 14.9F, 2, 7, 1, 0.0F, false));
+        setRotationAngle(stock23_r1, 1.45F, 0, 0);
+        stock23_r1.cubeList.add(new ModelBox(stock23_r1, 37, 71, -2.89F, -24.4F, 14.9F, 2, 7, 1, 0, false));
+        stock23_r1.cubeList.add(new ModelBox(stock23_r1, 79, 33, -1.1F, -24.4F, 14.9F, 2, 7, 1, 0, false));
 
         stock21_r1 = new ModelRenderer(this);
-        stock21_r1.setRotationPoint(0.0F, 5.5309F, 4.7719F);
+        stock21_r1.setRotationPoint(0, 5.5309F, 4.7719F);
         stockPoliceMagnum.addChild(stock21_r1);
-        setRotationAngle(stock21_r1, -0.2231F, 0.0F, 0.0F);
-        stock21_r1.cubeList.add(new ModelBox(stock21_r1, 118, 9, -2.9F, -26.0F, 15.6F, 2, 2, 7, 0.0F, false));
-        stock21_r1.cubeList.add(new ModelBox(stock21_r1, 84, 97, -1.11F, -26.0F, 14.6F, 2, 2, 8, 0.0F, false));
+        setRotationAngle(stock21_r1, -0.2231F, 0, 0);
+        stock21_r1.cubeList.add(new ModelBox(stock21_r1, 118, 9, -2.9F, -26, 15.6F, 2, 2, 7, 0, false));
+        stock21_r1.cubeList.add(new ModelBox(stock21_r1, 84, 97, -1.11F, -26, 14.6F, 2, 2, 8, 0, false));
 
         stock13_r1 = new ModelRenderer(this);
-        stock13_r1.setRotationPoint(0.0F, 5.9361F, 4.3905F);
+        stock13_r1.setRotationPoint(0, 5.9361F, 4.3905F);
         stockPoliceMagnum.addChild(stock13_r1);
-        setRotationAngle(stock13_r1, -0.2231F, 0.0F, 0.0F);
-        stock13_r1.cubeList.add(new ModelBox(stock13_r1, 42, 83, -1.9F, -27.5F, 17.6F, 1, 2, 5, 0.0F, false));
-        stock13_r1.cubeList.add(new ModelBox(stock13_r1, 84, 57, -1.1F, -27.5F, 17.6F, 1, 2, 5, 0.0F, false));
+        setRotationAngle(stock13_r1, -0.2231F, 0, 0);
+        stock13_r1.cubeList.add(new ModelBox(stock13_r1, 42, 83, -1.9F, -27.5F, 17.6F, 1, 2, 5, 0, false));
+        stock13_r1.cubeList.add(new ModelBox(stock13_r1, 84, 57, -1.1F, -27.5F, 17.6F, 1, 2, 5, 0, false));
 
         stock12_r1 = new ModelRenderer(this);
         stock12_r1.setRotationPoint(0.4F, -15.9482F, 29.9656F);
@@ -139,16 +139,16 @@ public class Remington870PoliceMagnumStock extends ModelWithAttachments {
         stock12_r1.cubeList.add(new ModelBox(stock12_r1, 13, 74, -0.5F, 0.2F, -2.5F, 1, 1, 5, 0.1F, false));
 
         stock5_r1 = new ModelRenderer(this);
-        stock5_r1.setRotationPoint(0.0F, 6.4836F, 40.2927F);
+        stock5_r1.setRotationPoint(0, 6.4836F, 40.2927F);
         stockPoliceMagnum.addChild(stock5_r1);
-        setRotationAngle(stock5_r1, 1.1897F, 0.0F, 0.0F);
-        stock5_r1.cubeList.add(new ModelBox(stock5_r1, 77, 42, -2.0F, -25.5F, 12.0F, 2, 4, 2, 0.0F, false));
+        setRotationAngle(stock5_r1, 1.1897F, 0, 0);
+        stock5_r1.cubeList.add(new ModelBox(stock5_r1, 77, 42, -2, -25.5F, 12, 2, 4, 2, 0, false));
 
         stock2_r1 = new ModelRenderer(this);
         stock2_r1.setRotationPoint(-2.4F, -17.2636F, 26.2496F);
         stockPoliceMagnum.addChild(stock2_r1);
         setRotationAngle(stock2_r1, -0.3249F, -0.2529F, -0.639F);
-        stock2_r1.cubeList.add(new ModelBox(stock2_r1, 67, 57, -0.4F, 0.0F, -3.0F, 1, 1, 6, 0.1F, false));
+        stock2_r1.cubeList.add(new ModelBox(stock2_r1, 67, 57, -0.4F, 0, -3, 1, 1, 6, 0.1F, false));
 
         stock12_r2 = new ModelRenderer(this);
         stock12_r2.setRotationPoint(-2.4F, -15.9482F, 29.9656F);
@@ -160,32 +160,32 @@ public class Remington870PoliceMagnumStock extends ModelWithAttachments {
         stock2_r2.setRotationPoint(0.4F, -17.2636F, 26.2496F);
         stockPoliceMagnum.addChild(stock2_r2);
         setRotationAngle(stock2_r2, -0.3249F, 0.2529F, 0.639F);
-        stock2_r2.cubeList.add(new ModelBox(stock2_r2, 67, 68, -0.6F, 0.0F, -3.0F, 1, 1, 6, 0.1F, false));
+        stock2_r2.cubeList.add(new ModelBox(stock2_r2, 67, 68, -0.6F, 0, -3, 1, 1, 6, 0.1F, false));
 
         stock2_r3 = new ModelRenderer(this);
-        stock2_r3.setRotationPoint(0.0F, 2.5143F, -0.4142F);
+        stock2_r3.setRotationPoint(0, 2.5143F, -0.4142F);
         stockPoliceMagnum.addChild(stock2_r3);
-        setRotationAngle(stock2_r3, -0.409F, 0.0F, 0.0F);
-        stock2_r3.cubeList.add(new ModelBox(stock2_r3, 71, 9, -1.1F, -29.25F, 13.6F, 1, 1, 6, 0.0F, false));
-        stock2_r3.cubeList.add(new ModelBox(stock2_r3, 71, 26, -1.9F, -29.25F, 13.6F, 1, 1, 6, 0.0F, false));
+        setRotationAngle(stock2_r3, -0.409F, 0, 0);
+        stock2_r3.cubeList.add(new ModelBox(stock2_r3, 71, 9, -1.1F, -29.25F, 13.6F, 1, 1, 6, 0, false));
+        stock2_r3.cubeList.add(new ModelBox(stock2_r3, 71, 26, -1.9F, -29.25F, 13.6F, 1, 1, 6, 0, false));
 
         stock4_r1 = new ModelRenderer(this);
-        stock4_r1.setRotationPoint(0.0F, 6.9722F, 41.5706F);
+        stock4_r1.setRotationPoint(0, 6.9722F, 41.5706F);
         stockPoliceMagnum.addChild(stock4_r1);
-        setRotationAngle(stock4_r1, 1.1897F, 0.0F, 0.0F);
-        stock4_r1.cubeList.add(new ModelBox(stock4_r1, 93, 33, -0.1F, -26.2F, 13.0F, 1, 3, 3, 0.0F, false));
+        setRotationAngle(stock4_r1, 1.1897F, 0, 0);
+        stock4_r1.cubeList.add(new ModelBox(stock4_r1, 93, 33, -0.1F, -26.2F, 13, 1, 3, 3, 0, false));
 
         stock7_r1 = new ModelRenderer(this);
-        stock7_r1.setRotationPoint(0.0F, 6.8466F, 41.7562F);
+        stock7_r1.setRotationPoint(0, 6.8466F, 41.7562F);
         stockPoliceMagnum.addChild(stock7_r1);
-        setRotationAngle(stock7_r1, 1.1897F, 0.0F, 0.0F);
-        stock7_r1.cubeList.add(new ModelBox(stock7_r1, 84, 97, -2.9F, -26.4F, 13.0F, 1, 3, 3, 0.0F, false));
+        setRotationAngle(stock7_r1, 1.1897F, 0, 0);
+        stock7_r1.cubeList.add(new ModelBox(stock7_r1, 84, 97, -2.9F, -26.4F, 13, 1, 3, 3, 0, false));
 
         stock6_r1 = new ModelRenderer(this);
-        stock6_r1.setRotationPoint(0.0F, 4.845F, 46.2588F);
+        stock6_r1.setRotationPoint(0, 4.845F, 46.2588F);
         stockPoliceMagnum.addChild(stock6_r1);
-        setRotationAngle(stock6_r1, 1.45F, 0.0F, 0.0F);
-        stock6_r1.cubeList.add(new ModelBox(stock6_r1, 27, 71, -2.0F, -23.4F, 14.8F, 2, 5, 2, 0.0F, false));
+        setRotationAngle(stock6_r1, 1.45F, 0, 0);
+        stock6_r1.cubeList.add(new ModelBox(stock6_r1, 27, 71, -2, -23.4F, 14.8F, 2, 5, 2, 0, false));
     }
 
     @Override

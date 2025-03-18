@@ -20,20 +20,20 @@ public class S710TricunActionEjector extends ModelWithAttachments {
         textureHeight = 200;
 
         action_ejector = new ModelRenderer(this);
-        action_ejector.setRotationPoint(0.0F, 24.0F, 0.0F);
+        action_ejector.setRotationPoint(0, 24, 0);
 
 
         cube_r47 = new ModelRenderer(this);
-        cube_r47.setRotationPoint(-3.4F, -37.95F, -20.0F);
+        cube_r47.setRotationPoint(-3.4F, -37.95F, -20);
         action_ejector.addChild(cube_r47);
-        setRotationAngle(cube_r47, 0.0F, 0.0F, 0.1745F);
-        cube_r47.cubeList.add(new ModelBox(cube_r47, 6, 41, 0.0F, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        setRotationAngle(cube_r47, 0, 0, 0.1745F);
+        cube_r47.cubeList.add(new ModelBox(cube_r47, 6, 41, 0, 0, 0, 1, 1, 8, 0, false));
 
         cube_r48 = new ModelRenderer(this);
-        cube_r48.setRotationPoint(-3.4F, -37.95F, -20.0F);
+        cube_r48.setRotationPoint(-3.4F, -37.95F, -20);
         action_ejector.addChild(cube_r48);
-        setRotationAngle(cube_r48, 0.0F, 0.0F, -0.7418F);
-        cube_r48.cubeList.add(new ModelBox(cube_r48, 26, 39, 0.0F, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
+        setRotationAngle(cube_r48, 0, 0, -0.7418F);
+        cube_r48.cubeList.add(new ModelBox(cube_r48, 26, 39, 0, 0, 0, 1, 1, 8, 0, false));
     }
 
     @Override

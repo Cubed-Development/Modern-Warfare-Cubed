@@ -19,20 +19,20 @@ public class SSG08Magazine extends ModelBase {
         textureHeight = 512;
 
         Magazine = new ModelRenderer(this);
-        Magazine.setRotationPoint(-0.5F, 17.0F, 0.0F);
-        Magazine.cubeList.add(new ModelBox(Magazine, 88, 55, -2.4F, -29.0F, -30.5F, 2, 7, 13, 0.0F, false));
-        Magazine.cubeList.add(new ModelBox(Magazine, 86, 125, -0.6F, -29.0F, -30.5F, 1, 7, 13, 0.0F, false));
-        Magazine.cubeList.add(new ModelBox(Magazine, 39, 95, -2.4F, -22.25F, -25.5F, 1, 1, 8, 0.0F, false));
-        Magazine.cubeList.add(new ModelBox(Magazine, 39, 86, -0.601F, -22.25F, -25.5F, 1, 1, 8, 0.0F, false));
-        Magazine.cubeList.add(new ModelBox(Magazine, 60, 21, -2.4F, -29.0F, -18.01F, 2, 8, 1, 0.0F, false));
-        Magazine.cubeList.add(new ModelBox(Magazine, 57, 60, -1.61F, -29.0F, -18.0F, 2, 8, 1, 0.0F, false));
+        Magazine.setRotationPoint(-0.5F, 17, 0);
+        Magazine.cubeList.add(new ModelBox(Magazine, 88, 55, -2.4F, -29, -30.5F, 2, 7, 13, 0, false));
+        Magazine.cubeList.add(new ModelBox(Magazine, 86, 125, -0.6F, -29, -30.5F, 1, 7, 13, 0, false));
+        Magazine.cubeList.add(new ModelBox(Magazine, 39, 95, -2.4F, -22.25F, -25.5F, 1, 1, 8, 0, false));
+        Magazine.cubeList.add(new ModelBox(Magazine, 39, 86, -0.601F, -22.25F, -25.5F, 1, 1, 8, 0, false));
+        Magazine.cubeList.add(new ModelBox(Magazine, 60, 21, -2.4F, -29, -18.01F, 2, 8, 1, 0, false));
+        Magazine.cubeList.add(new ModelBox(Magazine, 57, 60, -1.61F, -29, -18, 2, 8, 1, 0, false));
 
         bone224 = new ModelRenderer(this);
-        bone224.setRotationPoint(-1, -28.0F, -24.5F);
+        bone224.setRotationPoint(-1, -28, -24.5F);
         Magazine.addChild(bone224);
-        setRotationAngle(bone224, -0.0873F, 0.0F, 0.0F);
-        bone224.cubeList.add(new ModelBox(bone224, 39, 60, -1.7F, 6.063F, -5.7657F, 2, 1, 14, 0.0F, false));
-        bone224.cubeList.add(new ModelBox(bone224, 0, 22, -0.3F, 6.063F, -5.7657F, 2, 1, 14, 0.0F, false));
+        setRotationAngle(bone224, -0.0873F, 0, 0);
+        bone224.cubeList.add(new ModelBox(bone224, 39, 60, -1.7F, 6.063F, -5.7657F, 2, 1, 14, 0, false));
+        bone224.cubeList.add(new ModelBox(bone224, 0, 22, -0.3F, 6.063F, -5.7657F, 2, 1, 14, 0, false));
     }
 
     @Override

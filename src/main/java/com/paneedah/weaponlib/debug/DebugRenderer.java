@@ -26,7 +26,7 @@ public class DebugRenderer {
     }
 
     public static void renderPoint(Vec3d vec, Vec3d color) {
-        //GL11.glPointSize(5.0F);
+        //GL11.glPointSize(5);
         GlStateManager.color((float) color.x, (float) color.y, (float) color.z);
         GL11.glBegin(GL11.GL_POINTS);
         GL11.glVertex3d(vec.x, vec.y, vec.z);

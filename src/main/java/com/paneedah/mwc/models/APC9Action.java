@@ -19,15 +19,15 @@ public class APC9Action extends ModelBase {
         textureHeight = 16;
 
         bone41 = new ModelRenderer(this);
-        bone41.setRotationPoint(1, -15.0F, -10.5F);
-        bone41.cubeList.add(new ModelBox(bone41, 20, 64, -2.0F, -2.7189F, -10.2321F, 1, 2, 9, 0.0F, false));
-        bone41.cubeList.add(new ModelBox(bone41, 22, 0, -4.0F, -2.7189F, -10.2321F, 1, 2, 9, 0.0F, false));
+        bone41.setRotationPoint(1, -15, -10.5F);
+        bone41.cubeList.add(new ModelBox(bone41, 20, 64, -2, -2.7189F, -10.2321F, 1, 2, 9, 0, false));
+        bone41.cubeList.add(new ModelBox(bone41, 22, 0, -4, -2.7189F, -10.2321F, 1, 2, 9, 0, false));
 
         cube_r1 = new ModelRenderer(this);
         cube_r1.setRotationPoint(-0.25F, -2.2189F, -9.7321F);
         bone41.addChild(cube_r1);
-        setRotationAngle(cube_r1, 0.0F, -0.1745F, 0.0F);
-        cube_r1.cubeList.add(new ModelBox(cube_r1, 77, 44, -1.4566F, -0.5F, -0.2538F, 3, 1, 1, 0.0F, false));
+        setRotationAngle(cube_r1, 0, -0.1745F, 0);
+        cube_r1.cubeList.add(new ModelBox(cube_r1, 77, 44, -1.4566F, -0.5F, -0.2538F, 3, 1, 1, 0, false));
     }
 
     @Override

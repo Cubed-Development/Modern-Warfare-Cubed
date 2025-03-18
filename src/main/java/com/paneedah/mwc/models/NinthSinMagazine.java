@@ -20,21 +20,21 @@ public class NinthSinMagazine extends ModelWithAttachments {
         textureHeight = 128;
 
         energy_cell_MAGAZINE = new ModelRenderer(this);
-        energy_cell_MAGAZINE.setRotationPoint(-7.5F, 8.75F, -4.0F);
-        energy_cell_MAGAZINE.cubeList.add(new ModelBox(energy_cell_MAGAZINE, 0, 75, 0.0F, -1, 0.0F, 1, 4, 12, 0.0F, false));
-        energy_cell_MAGAZINE.cubeList.add(new ModelBox(energy_cell_MAGAZINE, 26, 75, -1, -0.5F, 0.0F, 1, 3, 12, 0.0F, false));
+        energy_cell_MAGAZINE.setRotationPoint(-7.5F, 8.75F, -4);
+        energy_cell_MAGAZINE.cubeList.add(new ModelBox(energy_cell_MAGAZINE, 0, 75, 0, -1, 0, 1, 4, 12, 0, false));
+        energy_cell_MAGAZINE.cubeList.add(new ModelBox(energy_cell_MAGAZINE, 26, 75, -1, -0.5F, 0, 1, 3, 12, 0, false));
 
         cube_r70 = new ModelRenderer(this);
-        cube_r70.setRotationPoint(0.0F, 3.0F, 0.0F);
+        cube_r70.setRotationPoint(0, 3, 0);
         energy_cell_MAGAZINE.addChild(cube_r70);
-        setRotationAngle(cube_r70, 0.0F, 0.0F, -0.7854F);
-        cube_r70.cubeList.add(new ModelBox(cube_r70, 78, 0, 0.0F, -1, 0.0F, 1, 1, 12, 0.0F, false));
+        setRotationAngle(cube_r70, 0, 0, -0.7854F);
+        cube_r70.cubeList.add(new ModelBox(cube_r70, 78, 0, 0, -1, 0, 1, 1, 12, 0, false));
 
         cube_r71 = new ModelRenderer(this);
-        cube_r71.setRotationPoint(0.0F, -1, 0.0F);
+        cube_r71.setRotationPoint(0, -1, 0);
         energy_cell_MAGAZINE.addChild(cube_r71);
-        setRotationAngle(cube_r71, 0.0F, 0.0F, 0.7854F);
-        cube_r71.cubeList.add(new ModelBox(cube_r71, 80, 80, 0.0F, 0.0F, 0.0F, 1, 1, 12, 0.0F, false));
+        setRotationAngle(cube_r71, 0, 0, 0.7854F);
+        cube_r71.cubeList.add(new ModelBox(cube_r71, 80, 80, 0, 0, 0, 1, 1, 12, 0, false));
     }
 
     @Override

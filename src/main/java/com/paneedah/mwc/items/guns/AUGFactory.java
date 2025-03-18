@@ -522,7 +522,7 @@ public class AUGFactory implements GunFactory {
                                         .withPosition(-1.425000f, 3.325000f, -4.725000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -531,7 +531,7 @@ public class AUGFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.250000f, 0.545000f, 0.260000f)
                                         .withBBRotation(-7.1415F, -27.3003F, 52.6433F)
-                                        .withScale(2.8F, 2.8F, 4.0F)
+                                        .withScale(2.8F, 2.8F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -554,7 +554,7 @@ public class AUGFactory implements GunFactory {
                                 Magazines.SOCOM_Mag,
                                 Magazines.AUG9mmMag)
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.AUGAction.getRenderablePart(), (renderContext) -> {
-                            GL11.glTranslatef(0f, 0f, 0.0f);
+                            GL11.glTranslatef(0f, 0f, 0);
                         })
 
                         .withThirdPersonPositioningReloading(
@@ -673,9 +673,9 @@ public class AUGFactory implements GunFactory {
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                         AttachmentCategory.GUARD, rc.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
-                                    GL11.glTranslatef(0F, 0.56f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.56f, 0);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.25f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.25f, 0);
                                 }
                             }
 
@@ -685,9 +685,9 @@ public class AUGFactory implements GunFactory {
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                         AttachmentCategory.GUARD, rc.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
-                                    GL11.glTranslatef(0F, 0.56f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.56f, 0);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.25f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.25f, 0);
                                 }
                             }
 
@@ -697,9 +697,9 @@ public class AUGFactory implements GunFactory {
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                         AttachmentCategory.GUARD, rc.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
-                                    GL11.glTranslatef(0F, 0.52f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.52f, 0);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.22f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.22f, 0);
                                 }
                             }
 
@@ -709,9 +709,9 @@ public class AUGFactory implements GunFactory {
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                         AttachmentCategory.GUARD, rc.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
-                                    GL11.glTranslatef(0F, 0.496f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.496f, 0);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.22f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.22f, 0);
                                 }
                             }
 
@@ -721,9 +721,9 @@ public class AUGFactory implements GunFactory {
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                         AttachmentCategory.GUARD, rc.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
-                                    GL11.glTranslatef(0F, 0.56f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.56f, 0);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.26f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.26f, 0);
                                 }
                             }
 
@@ -733,9 +733,9 @@ public class AUGFactory implements GunFactory {
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                         AttachmentCategory.GUARD, rc.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
-                                    GL11.glTranslatef(0F, 0.56f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.56f, 0);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.26f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.26f, 0);
                                 }
                             }
 
@@ -747,7 +747,7 @@ public class AUGFactory implements GunFactory {
                                 if (activeAttachment == Attachments.AUGA2handguard) {
                                     GL11.glTranslatef(0F, 0.57f, 0.4f);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.25f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.25f, 0);
                                 }
                             }
 
@@ -775,7 +775,7 @@ public class AUGFactory implements GunFactory {
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                         AttachmentCategory.GUARD, rc.getWeaponInstance());
                                 if (activeAttachment == Attachments.AUGA2handguard) {
-                                    GL11.glTranslatef(0F, 0.47f, 0.0f);
+                                    GL11.glTranslatef(0F, 0.47f, 0);
                                 } else {
                                     GL11.glTranslatef(0F, 0.165f, 0f);
                                 }
@@ -816,7 +816,7 @@ public class AUGFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

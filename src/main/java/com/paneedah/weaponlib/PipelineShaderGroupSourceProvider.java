@@ -35,18 +35,18 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     final DynamicShaderGroupSource source = new DynamicShaderGroupSource(UUID.randomUUID(),
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/post-processing-pipeline.json"))
             .withUniform("NightVisionEnabled", context -> nightVisionEnabled ? 1 : 0)
-            .withUniform("BlurEnabled", context -> blurEnabled ? 1 : 0.0f)
-            .withUniform("BlurVignetteRadius", context -> 0.0f)
-            .withUniform("Radius", context -> 10f)
-            .withUniform("sussus", context -> 10f)
+            .withUniform("BlurEnabled", context -> blurEnabled ? 1 : 0)
+            .withUniform("BlurVignetteRadius", context -> 0)
+            .withUniform("Radius", context -> 10)
+            .withUniform("sussus", context -> 10)
             .withUniform("Progress", context -> spreadableExposureProgress)
-            .withUniform("VignetteEnabled", context -> vignetteEnabled ? 1 : 0.0f)
+            .withUniform("VignetteEnabled", context -> vignetteEnabled ? 1 : 0)
             .withUniform("VignetteRadius", context -> vignetteRadius)
             .withUniform("Brightness", context -> brightness)
             .withUniform("SepiaRatio", context -> sepiaRatio)
             .withUniform("SepiaColor", context -> new float[]{colorImpairmentR, colorImpairmentG, colorImpairmentB})
-            .withUniform("IntensityAdjust", context -> 40f - MC.gameSettings.gammaSetting * 38)
-            .withUniform("NoiseAmplification", context -> 2f + 3f * MC.gameSettings.gammaSetting);
+            .withUniform("IntensityAdjust", context -> 40 - MC.gameSettings.gammaSetting * 38)
+            .withUniform("NoiseAmplification", context -> 2 + 3 * MC.gameSettings.gammaSetting);
 
     @Override
     public DynamicShaderGroupSource getShaderSource(DynamicShaderPhase phase) {

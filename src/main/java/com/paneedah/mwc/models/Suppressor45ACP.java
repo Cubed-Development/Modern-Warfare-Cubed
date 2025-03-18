@@ -22,36 +22,36 @@ public class Suppressor45ACP extends ModelBase {
         textureHeight = 128;
 
         suppressor = new ModelRenderer(this);
-        suppressor.setRotationPoint(20.0017F, 11.4369F, 0.0F);
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -20.0017F, -11.4369F, -2.0F, 2, 3, 22, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -18.5017F, -10.4369F, -2.0F, 1, 2, 22, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -20.5017F, -10.4369F, -2.0F, 1, 2, 22, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -20.0017F, -8.4369F, -2.0F, 2, 1, 22, 0.0F, true));
-        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -20.5017F, -8.7369F, -2.0F, 3, 1, 22, 0.0F, true));
+        suppressor.setRotationPoint(20.0017F, 11.4369F, 0);
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -20.0017F, -11.4369F, -2, 2, 3, 22, 0, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -18.5017F, -10.4369F, -2, 1, 2, 22, 0, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -20.5017F, -10.4369F, -2, 1, 2, 22, 0, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -20.0017F, -8.4369F, -2, 2, 1, 22, 0, true));
+        suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -20.5017F, -8.7369F, -2, 3, 1, 22, 0, true));
 
         gun8_r1 = new ModelRenderer(this);
-        gun8_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+        gun8_r1.setRotationPoint(0, 0, 0);
         suppressor.addChild(gun8_r1);
-        setRotationAngle(gun8_r1, 0.0F, 0.0F, -1.0782F);
-        gun8_r1.cubeList.add(new ModelBox(gun8_r1, 0, 0, -0.5F, -23.0F, -2.0F, 1, 1, 22, 0.0F, true));
+        setRotationAngle(gun8_r1, 0, 0, -1.0782F);
+        gun8_r1.cubeList.add(new ModelBox(gun8_r1, 0, 0, -0.5F, -23, -2, 1, 1, 22, 0, true));
 
         gun7_r1 = new ModelRenderer(this);
-        gun7_r1.setRotationPoint(-31.1551F, 9.814F, 0.0F);
+        gun7_r1.setRotationPoint(-31.1551F, 9.814F, 0);
         suppressor.addChild(gun7_r1);
-        setRotationAngle(gun7_r1, 0.0F, 0.0F, 0.4833F);
-        gun7_r1.cubeList.add(new ModelBox(gun7_r1, 0, 0, 0.0F, -24.0F, -2.0F, 1, 1, 22, 0.0F, true));
+        setRotationAngle(gun7_r1, 0, 0, 0.4833F);
+        gun7_r1.cubeList.add(new ModelBox(gun7_r1, 0, 0, 0, -24, -2, 1, 1, 22, 0, true));
 
         gun5_r1 = new ModelRenderer(this);
-        gun5_r1.setRotationPoint(-40.094F, -1.8487F, 0.0F);
+        gun5_r1.setRotationPoint(-40.094F, -1.8487F, 0);
         suppressor.addChild(gun5_r1);
-        setRotationAngle(gun5_r1, 0.0F, 0.0F, 1.0782F);
-        gun5_r1.cubeList.add(new ModelBox(gun5_r1, 0, 0, 2.0F, -24.0F, -2.0F, 1, 1, 22, 0.0F, true));
+        setRotationAngle(gun5_r1, 0, 0, 1.0782F);
+        gun5_r1.cubeList.add(new ModelBox(gun5_r1, 0, 0, 2, -24, -2, 1, 1, 22, 0, true));
 
         gun9_r1 = new ModelRenderer(this);
-        gun9_r1.setRotationPoint(-25.5751F, -32.118F, 0.0F);
+        gun9_r1.setRotationPoint(-25.5751F, -32.118F, 0);
         suppressor.addChild(gun9_r1);
-        setRotationAngle(gun9_r1, 0.0F, 0.0F, 2.6769F);
-        gun9_r1.cubeList.add(new ModelBox(gun9_r1, 0, 0, 2.5F, -23.0F, -2.0F, 1, 1, 22, 0.0F, true));
+        setRotationAngle(gun9_r1, 0, 0, 2.6769F);
+        gun9_r1.cubeList.add(new ModelBox(gun9_r1, 0, 0, 2.5F, -23, -2, 1, 1, 22, 0, true));
     }
 
     @Override

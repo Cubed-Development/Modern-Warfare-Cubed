@@ -303,7 +303,7 @@ public class WheelSolver {
 		
 
 	/*
-		if(solver.getVelocityVector().lengthSquared() > 3 && solver.getVelocityVector().dotProduct(Vec3d.fromPitchYaw(0.0f, solver.vehicle.rotationYaw)) < 0) {
+		if(solver.getVelocityVector().lengthSquared() > 3 && solver.getVelocityVector().dotProduct(Vec3d.fromPitchYaw(0, solver.vehicle.rotationYaw)) < 0) {
 			 
 			solver.velocity = solver.velocity.scale(0.03);
 			}

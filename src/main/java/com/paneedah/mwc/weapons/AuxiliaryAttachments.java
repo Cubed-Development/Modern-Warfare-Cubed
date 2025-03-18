@@ -821,7 +821,7 @@ public class AuxiliaryAttachments {
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new com.paneedah.mwc.models.G3ChargingHandle(), "G3.png")
                 .withName("G3Bolt")
-                .withPivotPoint(0.0F, -1.0800000321865084F, -4.120000122785571F)
+                .withPivotPoint(0, -1.0800000321865084F, -4.120000122785571F)
                 .withRenderablePart()
 
                 .withTextureName("Dummy.png").build(modContext);

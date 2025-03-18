@@ -21,29 +21,29 @@ public class UziRelease extends ModelWithAttachments {
         textureHeight = 256;
 
         release = new ModelRenderer(this);
-        release.setRotationPoint(19.9106F, 24.0F, -25.928F);
-        release.cubeList.add(new ModelBox(release, 0, 0, -21.8106F, -39.6F, 3.428F, 1, 1, 14, 0.0F, true));
-        release.cubeList.add(new ModelBox(release, 0, 0, -22.0106F, -39.6F, 3.428F, 1, 1, 14, 0.0F, true));
-        release.cubeList.add(new ModelBox(release, 0, 0, -21.8106F, -40.3F, 3.628F, 1, 1, 1, 0.0F, true));
-        release.cubeList.add(new ModelBox(release, 0, 0, -22.0106F, -40.3F, 3.628F, 1, 1, 1, 0.0F, true));
+        release.setRotationPoint(19.9106F, 24, -25.928F);
+        release.cubeList.add(new ModelBox(release, 0, 0, -21.8106F, -39.6F, 3.428F, 1, 1, 14, 0, true));
+        release.cubeList.add(new ModelBox(release, 0, 0, -22.0106F, -39.6F, 3.428F, 1, 1, 14, 0, true));
+        release.cubeList.add(new ModelBox(release, 0, 0, -21.8106F, -40.3F, 3.628F, 1, 1, 1, 0, true));
+        release.cubeList.add(new ModelBox(release, 0, 0, -22.0106F, -40.3F, 3.628F, 1, 1, 1, 0, true));
 
         Release7_r1 = new ModelRenderer(this);
-        Release7_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+        Release7_r1.setRotationPoint(0, 0, 0);
         release.addChild(Release7_r1);
         setRotationAngle(Release7_r1, -3.1416F, 1.3942F, 3.1416F);
-        Release7_r1.cubeList.add(new ModelBox(Release7_r1, 0, 0, -0.9F, -40.3F, -21.3F, 1, 1, 3, 0.0F, true));
+        Release7_r1.cubeList.add(new ModelBox(Release7_r1, 0, 0, -0.9F, -40.3F, -21.3F, 1, 1, 3, 0, true));
 
         Release4_r1 = new ModelRenderer(this);
         Release4_r1.setRotationPoint(-48.5271F, -10.1136F, 25.928F);
         release.addChild(Release4_r1);
-        setRotationAngle(Release4_r1, 0.0F, 0.0F, 0.7854F);
-        Release4_r1.cubeList.add(new ModelBox(Release4_r1, 0, 0, -2.1F, -39.6F, -22.5F, 1, 1, 14, 0.0F, true));
+        setRotationAngle(Release4_r1, 0, 0, 0.7854F);
+        Release4_r1.cubeList.add(new ModelBox(Release4_r1, 0, 0, -2.1F, -39.6F, -22.5F, 1, 1, 14, 0, true));
 
         Release3_r1 = new ModelRenderer(this);
         Release3_r1.setRotationPoint(-48.1756F, -10.9622F, 25.928F);
         release.addChild(Release3_r1);
-        setRotationAngle(Release3_r1, 0.0F, 0.0F, 0.7854F);
-        Release3_r1.cubeList.add(new ModelBox(Release3_r1, 0, 0, -0.9F, -39.6F, -22.5F, 1, 1, 14, 0.0F, true));
+        setRotationAngle(Release3_r1, 0, 0, 0.7854F);
+        Release3_r1.cubeList.add(new ModelBox(Release3_r1, 0, 0, -0.9F, -39.6F, -22.5F, 1, 1, 14, 0, true));
     }
 
     @Override

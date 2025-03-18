@@ -365,7 +365,7 @@ public class VSSVintorezFactory implements GunFactory {
                                         .withPosition(-1.305000f, 3.785000f, -2.525000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -374,7 +374,7 @@ public class VSSVintorezFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.210000f, 0.145000f, -0.380000f)
                                         .withBBRotation(-10.1474F, -26.3974F, 59.2926F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -587,25 +587,25 @@ public class VSSVintorezFactory implements GunFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.32f, 0.0f);
+                                GL11.glTranslatef(0F, 0.32f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.32f, 0.0f);
+                                GL11.glTranslatef(0F, 0.32f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.32f, 0.0f);
+                                GL11.glTranslatef(0F, 0.32f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
                                 //System.out.println("Position me for Acog");
-                                GL11.glTranslatef(0F, 0.31f, 0.0f);
+                                GL11.glTranslatef(0F, 0.31f, 0);
                             }
 
                             // ACOG Zoom
@@ -649,7 +649,7 @@ public class VSSVintorezFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

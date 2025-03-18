@@ -24,43 +24,43 @@ public class Sandbag extends ModelBase {
         textureHeight = 64;
 
         Sandbag = new ModelRenderer(this);
-        Sandbag.setRotationPoint(0.0F, 24.0F, 0.0F);
-        Sandbag.cubeList.add(new ModelBox(Sandbag, 0, 0, -8.0F, -4.9F, -4.5F, 16, 4, 8, 0.0F, false));
+        Sandbag.setRotationPoint(0, 24, 0);
+        Sandbag.cubeList.add(new ModelBox(Sandbag, 0, 0, -8, -4.9F, -4.5F, 16, 4, 8, 0, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(0.0F, -6.3F, -0.5F);
+        bone2.setRotationPoint(0, -6.3F, -0.5F);
         Sandbag.addChild(bone2);
-        setRotationAngle(bone2, -0.1222F, 0.0F, 0.0873F);
-        bone2.cubeList.add(new ModelBox(bone2, 28, 30, 0.0396F, 0.0F, 0.0F, 8, 2, 4, -0.001F, false));
+        setRotationAngle(bone2, -0.1222F, 0, 0.0873F);
+        bone2.cubeList.add(new ModelBox(bone2, 28, 30, 0.0396F, 0, 0, 8, 2, 4, -0.001F, false));
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(0.0F, -6.3F, -0.5F);
+        bone4.setRotationPoint(0, -6.3F, -0.5F);
         Sandbag.addChild(bone4);
-        setRotationAngle(bone4, 0.1222F, 0.0F, 0.0873F);
-        bone4.cubeList.add(new ModelBox(bone4, 28, 18, 0.0396F, 0.0F, -4.0F, 8, 2, 4, -0.001F, false));
+        setRotationAngle(bone4, 0.1222F, 0, 0.0873F);
+        bone4.cubeList.add(new ModelBox(bone4, 28, 18, 0.0396F, 0, -4, 8, 2, 4, -0.001F, false));
 
         bone5 = new ModelRenderer(this);
-        bone5.setRotationPoint(0.0F, -6.3F, -0.5F);
+        bone5.setRotationPoint(0, -6.3F, -0.5F);
         Sandbag.addChild(bone5);
-        setRotationAngle(bone5, 0.1222F, 0.0F, -0.0873F);
-        bone5.cubeList.add(new ModelBox(bone5, 24, 12, -7.9604F, 0.0F, -4.0F, 8, 2, 4, -0.001F, false));
+        setRotationAngle(bone5, 0.1222F, 0, -0.0873F);
+        bone5.cubeList.add(new ModelBox(bone5, 24, 12, -7.9604F, 0, -4, 8, 2, 4, -0.001F, false));
 
         bone6 = new ModelRenderer(this);
-        bone6.setRotationPoint(0.0F, -6.3F, -0.5F);
+        bone6.setRotationPoint(0, -6.3F, -0.5F);
         Sandbag.addChild(bone6);
-        setRotationAngle(bone6, -0.1222F, 0.0F, -0.0873F);
-        bone6.cubeList.add(new ModelBox(bone6, 24, 24, -7.9604F, 0.0F, 0.0F, 8, 2, 4, -0.001F, false));
+        setRotationAngle(bone6, -0.1222F, 0, -0.0873F);
+        bone6.cubeList.add(new ModelBox(bone6, 24, 24, -7.9604F, 0, 0, 8, 2, 4, -0.001F, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(0.1F, -8.0F, -1);
+        bone3.setRotationPoint(0.1F, -8, -1);
         Sandbag.addChild(bone3);
-        setRotationAngle(bone3, 0.0F, 0.0F, 0.0873F);
+        setRotationAngle(bone3, 0, 0, 0.0873F);
         bone3.cubeList.add(new ModelBox(bone3, 0, 22, -7.403F, 6.1725F, -3.5F, 8, 2, 8, -0.001F, false));
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(0.0F, -7.0F, 0.0F);
+        bone.setRotationPoint(0, -7, 0);
         Sandbag.addChild(bone);
-        setRotationAngle(bone, 0.0F, 0.0F, -0.0873F);
+        setRotationAngle(bone, 0, 0, -0.0873F);
         bone.cubeList.add(new ModelBox(bone, 0, 12, -0.6576F, 5.1672F, -4.5F, 8, 2, 8, -0.001F, false));
     }
 

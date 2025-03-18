@@ -21,33 +21,33 @@ public class ARX160Action extends ModelWithAttachments {
         textureHeight = 200;
 
         action = new ModelRenderer(this);
-        action.setRotationPoint(0.0F, 20.0F, 0.0F);
-        action.cubeList.add(new ModelBox(action, 151, 20, -0.75F, -38.3341F, -25.2473F, 1, 1, 16, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 52, 52, -0.76F, -37.5841F, -24.4973F, 1, 1, 9, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 141, 121, -3.25F, -38.3341F, -25.2473F, 1, 1, 16, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 3, 36, -3.24F, -37.5841F, -24.4973F, 1, 1, 9, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 60, 78, -0.75F, -36.9F, -22.6179F, 1, 1, 6, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 77, 60, -3.25F, -36.9F, -22.6179F, 1, 1, 6, 0.0F, false));
+        action.setRotationPoint(0, 20, 0);
+        action.cubeList.add(new ModelBox(action, 151, 20, -0.75F, -38.3341F, -25.2473F, 1, 1, 16, 0, false));
+        action.cubeList.add(new ModelBox(action, 52, 52, -0.76F, -37.5841F, -24.4973F, 1, 1, 9, 0, false));
+        action.cubeList.add(new ModelBox(action, 141, 121, -3.25F, -38.3341F, -25.2473F, 1, 1, 16, 0, false));
+        action.cubeList.add(new ModelBox(action, 3, 36, -3.24F, -37.5841F, -24.4973F, 1, 1, 9, 0, false));
+        action.cubeList.add(new ModelBox(action, 60, 78, -0.75F, -36.9F, -22.6179F, 1, 1, 6, 0, false));
+        action.cubeList.add(new ModelBox(action, 77, 60, -3.25F, -36.9F, -22.6179F, 1, 1, 6, 0, false));
 
         cube_r250 = new ModelRenderer(this);
         cube_r250.setRotationPoint(-2.75F, -36.7119F, -16.6134F);
         action.addChild(cube_r250);
-        setRotationAngle(cube_r250, 0.3491F, 0.0F, 0.0F);
-        cube_r250.cubeList.add(new ModelBox(cube_r250, 95, 88, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
-        cube_r250.cubeList.add(new ModelBox(cube_r250, 96, 67, 2.0F, -0.5F, -1, 1, 1, 2, 0.0F, false));
+        setRotationAngle(cube_r250, 0.3491F, 0, 0);
+        cube_r250.cubeList.add(new ModelBox(cube_r250, 95, 88, -0.5F, -0.5F, -1, 1, 1, 2, 0, false));
+        cube_r250.cubeList.add(new ModelBox(cube_r250, 96, 67, 2, -0.5F, -1, 1, 1, 2, 0, false));
 
         cube_r251 = new ModelRenderer(this);
         cube_r251.setRotationPoint(-2.75F, -36.7119F, -23.3866F);
         action.addChild(cube_r251);
-        setRotationAngle(cube_r251, -0.3491F, 0.0F, 0.0F);
-        cube_r251.cubeList.add(new ModelBox(cube_r251, 96, 37, -0.5F, -0.5F, -1, 1, 1, 2, 0.0F, false));
-        cube_r251.cubeList.add(new ModelBox(cube_r251, 44, 97, 2.0F, -0.5F, -1, 1, 1, 2, 0.0F, false));
+        setRotationAngle(cube_r251, -0.3491F, 0, 0);
+        cube_r251.cubeList.add(new ModelBox(cube_r251, 96, 37, -0.5F, -0.5F, -1, 1, 1, 2, 0, false));
+        cube_r251.cubeList.add(new ModelBox(cube_r251, 44, 97, 2, -0.5F, -1, 1, 1, 2, 0, false));
 
         cube_r252 = new ModelRenderer(this);
         cube_r252.setRotationPoint(1.5F, -37.8341F, -24.2473F);
         action.addChild(cube_r252);
-        setRotationAngle(cube_r252, 0.0F, -0.1309F, 0.0F);
-        cube_r252.cubeList.add(new ModelBox(cube_r252, 25, 57, -1.5F, -0.5F, -0.5F, 3, 1, 1, 0.0F, false));
+        setRotationAngle(cube_r252, 0, -0.1309F, 0);
+        cube_r252.cubeList.add(new ModelBox(cube_r252, 25, 57, -1.5F, -0.5F, -0.5F, 3, 1, 1, 0, false));
     }
 
     @Override

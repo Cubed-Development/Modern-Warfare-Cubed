@@ -20,21 +20,21 @@ public class NinthSinCycleBackLeft extends ModelWithAttachments {
         textureHeight = 128;
 
         cycler_back_left_FRONTSIGHT = new ModelRenderer(this);
-        cycler_back_left_FRONTSIGHT.setRotationPoint(0.0F, 24.0F, 0.0F);
+        cycler_back_left_FRONTSIGHT.setRotationPoint(0, 24, 0);
 
 
         cube_r65 = new ModelRenderer(this);
-        cube_r65.setRotationPoint(-1, -25.5F, -5.0F);
+        cube_r65.setRotationPoint(-1, -25.5F, -5);
         cycler_back_left_FRONTSIGHT.addChild(cube_r65);
-        setRotationAngle(cube_r65, -0.0873F, 0.0F, 0.0F);
-        cube_r65.cubeList.add(new ModelBox(cube_r65, 51, 98, 1, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
+        setRotationAngle(cube_r65, -0.0873F, 0, 0);
+        cube_r65.cubeList.add(new ModelBox(cube_r65, 51, 98, 1, 0, 0, 1, 1, 11, 0, false));
 
         cube_r66 = new ModelRenderer(this);
-        cube_r66.setRotationPoint(1, -25.5F, -5.0F);
+        cube_r66.setRotationPoint(1, -25.5F, -5);
         cycler_back_left_FRONTSIGHT.addChild(cube_r66);
         setRotationAngle(cube_r66, -0.0681F, -0.0541F, -0.6981F);
-        cube_r66.cubeList.add(new ModelBox(cube_r66, 74, 36, -1, 1, 0.0F, 1, 1, 3, 0.0F, false));
-        cube_r66.cubeList.add(new ModelBox(cube_r66, 94, 71, -1, 0.0F, 0.0F, 1, 1, 11, 0.0F, false));
+        cube_r66.cubeList.add(new ModelBox(cube_r66, 74, 36, -1, 1, 0, 1, 1, 3, 0, false));
+        cube_r66.cubeList.add(new ModelBox(cube_r66, 94, 71, -1, 0, 0, 1, 1, 11, 0, false));
     }
 
     @Override

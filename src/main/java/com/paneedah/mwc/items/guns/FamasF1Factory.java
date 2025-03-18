@@ -313,7 +313,7 @@ public class FamasF1Factory implements GunFactory {
                                         .withPosition(-1.425000f, 5.185000f, -4.205000f)
                                         .withRotation(0.000000f, 1.000000f, 6.821898f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -322,7 +322,7 @@ public class FamasF1Factory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.170000f, 0.025000f, 0.060000f)
                                         .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -578,7 +578,7 @@ public class FamasF1Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(3.690000f, 0.025000f, -0.220000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

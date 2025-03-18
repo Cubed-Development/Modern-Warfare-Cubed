@@ -35,110 +35,110 @@ public class StonerA1BELT extends ModelWithAttachments {
         textureHeight = 256;
 
         belt = new ModelRenderer(this);
-        belt.setRotationPoint(-23.221F, 11.9609F, 0.0F);
-        belt.cubeList.add(new ModelBox(belt, 0, 200, 25.421F, -19.6609F, 43.5F, 1, 1, 7, 0.0F, true));
+        belt.setRotationPoint(-23.221F, 11.9609F, 0);
+        belt.cubeList.add(new ModelBox(belt, 0, 200, 25.421F, -19.6609F, 43.5F, 1, 1, 7, 0, true));
 
         Belt18_r1 = new ModelRenderer(this);
-        Belt18_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+        Belt18_r1.setRotationPoint(0, 0, 0);
         belt.addChild(Belt18_r1);
-        setRotationAngle(Belt18_r1, 0.0F, 0.0F, 0.8551F);
-        Belt18_r1.cubeList.add(new ModelBox(Belt18_r1, 0, 130, 1.6F, -31.5F, 45.5F, 1, 2, 4, 0.0F, true));
+        setRotationAngle(Belt18_r1, 0, 0, 0.8551F);
+        Belt18_r1.cubeList.add(new ModelBox(Belt18_r1, 0, 130, 1.6F, -31.5F, 45.5F, 1, 2, 4, 0, true));
 
         Belt17_r1 = new ModelRenderer(this);
-        Belt17_r1.setRotationPoint(-5.4308F, -17.0899F, 0.0F);
+        Belt17_r1.setRotationPoint(-5.4308F, -17.0899F, 0);
         belt.addChild(Belt17_r1);
-        setRotationAngle(Belt17_r1, 0.0F, 0.0F, 1.3756F);
-        Belt17_r1.cubeList.add(new ModelBox(Belt17_r1, 0, 130, 3.4F, -32.0F, 45.5F, 1, 2, 4, 0.0F, true));
+        setRotationAngle(Belt17_r1, 0, 0, 1.3756F);
+        Belt17_r1.cubeList.add(new ModelBox(Belt17_r1, 0, 130, 3.4F, -32, 45.5F, 1, 2, 4, 0, true));
 
         Belt16_r1 = new ModelRenderer(this);
-        Belt16_r1.setRotationPoint(1.3016F, -34.1955F, 0.0F);
+        Belt16_r1.setRotationPoint(1.3016F, -34.1955F, 0);
         belt.addChild(Belt16_r1);
-        setRotationAngle(Belt16_r1, 0.0F, 0.0F, 1.8589F);
-        Belt16_r1.cubeList.add(new ModelBox(Belt16_r1, 0, 130, 6.3F, -31.3F, 45.5F, 1, 3, 4, 0.0F, true));
+        setRotationAngle(Belt16_r1, 0, 0, 1.8589F);
+        Belt16_r1.cubeList.add(new ModelBox(Belt16_r1, 0, 130, 6.3F, -31.3F, 45.5F, 1, 3, 4, 0, true));
 
         Belt15_r1 = new ModelRenderer(this);
-        Belt15_r1.setRotationPoint(20.381F, -45.0029F, 0.0F);
+        Belt15_r1.setRotationPoint(20.381F, -45.0029F, 0);
         belt.addChild(Belt15_r1);
-        setRotationAngle(Belt15_r1, 0.0F, 0.0F, 2.491F);
-        Belt15_r1.cubeList.add(new ModelBox(Belt15_r1, 0, 130, 8.2F, -29.0F, 45.5F, 1, 3, 4, 0.0F, true));
+        setRotationAngle(Belt15_r1, 0, 0, 2.491F);
+        Belt15_r1.cubeList.add(new ModelBox(Belt15_r1, 0, 130, 8.2F, -29, 45.5F, 1, 3, 4, 0, true));
 
         Belt14_r1 = new ModelRenderer(this);
-        Belt14_r1.setRotationPoint(32.5396F, -42.4457F, 0.0F);
+        Belt14_r1.setRotationPoint(32.5396F, -42.4457F, 0);
         belt.addChild(Belt14_r1);
-        setRotationAngle(Belt14_r1, 0.0F, 0.0F, 2.8256F);
-        Belt14_r1.cubeList.add(new ModelBox(Belt14_r1, 0, 130, 9.0F, -26.5F, 45.5F, 1, 3, 4, 0.0F, true));
+        setRotationAngle(Belt14_r1, 0, 0, 2.8256F);
+        Belt14_r1.cubeList.add(new ModelBox(Belt14_r1, 0, 130, 9, -26.5F, 45.5F, 1, 3, 4, 0, true));
 
         Belt13_r1 = new ModelRenderer(this);
-        Belt13_r1.setRotationPoint(33.7066F, -37.6316F, 0.0F);
+        Belt13_r1.setRotationPoint(33.7066F, -37.6316F, 0);
         belt.addChild(Belt13_r1);
-        setRotationAngle(Belt13_r1, 0.0F, 0.0F, 2.8256F);
-        Belt13_r1.cubeList.add(new ModelBox(Belt13_r1, 0, 130, 9.2F, -24.0F, 45.5F, 1, 3, 4, 0.0F, true));
+        setRotationAngle(Belt13_r1, 0, 0, 2.8256F);
+        Belt13_r1.cubeList.add(new ModelBox(Belt13_r1, 0, 130, 9.2F, -24, 45.5F, 1, 3, 4, 0, true));
 
         Belt12_r1 = new ModelRenderer(this);
-        Belt12_r1.setRotationPoint(38.6469F, -32.5436F, 0.0F);
+        Belt12_r1.setRotationPoint(38.6469F, -32.5436F, 0);
         belt.addChild(Belt12_r1);
-        setRotationAngle(Belt12_r1, 0.0F, 0.0F, 2.9371F);
-        Belt12_r1.cubeList.add(new ModelBox(Belt12_r1, 0, 130, 10.0F, -21.5F, 45.5F, 1, 3, 4, 0.0F, true));
+        setRotationAngle(Belt12_r1, 0, 0, 2.9371F);
+        Belt12_r1.cubeList.add(new ModelBox(Belt12_r1, 0, 130, 10, -21.5F, 45.5F, 1, 3, 4, 0, true));
 
         Belt11_r1 = new ModelRenderer(this);
-        Belt11_r1.setRotationPoint(13.3038F, 10.1616F, 0.0F);
+        Belt11_r1.setRotationPoint(13.3038F, 10.1616F, 0);
         belt.addChild(Belt11_r1);
-        setRotationAngle(Belt11_r1, 0.0F, 0.0F, 0.3346F);
-        Belt11_r1.cubeList.add(new ModelBox(Belt11_r1, 0, 200, 0.6F, -30.3F, 43.5F, 1, 1, 7, 0.0F, true));
+        setRotationAngle(Belt11_r1, 0, 0, 0.3346F);
+        Belt11_r1.cubeList.add(new ModelBox(Belt11_r1, 0, 200, 0.6F, -30.3F, 43.5F, 1, 1, 7, 0, true));
 
         Belt10_r1 = new ModelRenderer(this);
-        Belt10_r1.setRotationPoint(-1.2169F, -1.8173F, 0.0F);
+        Belt10_r1.setRotationPoint(-1.2169F, -1.8173F, 0);
         belt.addChild(Belt10_r1);
-        setRotationAngle(Belt10_r1, 0.0F, 0.0F, 0.9295F);
-        Belt10_r1.cubeList.add(new ModelBox(Belt10_r1, 0, 200, 1.6F, -31.3F, 43.5F, 1, 1, 7, 0.0F, true));
+        setRotationAngle(Belt10_r1, 0, 0, 0.9295F);
+        Belt10_r1.cubeList.add(new ModelBox(Belt10_r1, 0, 200, 1.6F, -31.3F, 43.5F, 1, 1, 7, 0, true));
 
         Belt8_r1 = new ModelRenderer(this);
-        Belt8_r1.setRotationPoint(-2.924F, -27.561F, 0.0F);
+        Belt8_r1.setRotationPoint(-2.924F, -27.561F, 0);
         belt.addChild(Belt8_r1);
-        setRotationAngle(Belt8_r1, 0.0F, 0.0F, 1.673F);
-        Belt8_r1.cubeList.add(new ModelBox(Belt8_r1, 0, 200, 4.8F, -31.6F, 43.5F, 1, 1, 7, 0.0F, true));
+        setRotationAngle(Belt8_r1, 0, 0, 1.673F);
+        Belt8_r1.cubeList.add(new ModelBox(Belt8_r1, 0, 200, 4.8F, -31.6F, 43.5F, 1, 1, 7, 0, true));
 
         Belt7_r1 = new ModelRenderer(this);
-        Belt7_r1.setRotationPoint(7.2507F, -41.1888F, 0.0F);
+        Belt7_r1.setRotationPoint(7.2507F, -41.1888F, 0);
         belt.addChild(Belt7_r1);
-        setRotationAngle(Belt7_r1, 0.0F, 0.0F, 2.1564F);
-        Belt7_r1.cubeList.add(new ModelBox(Belt7_r1, 0, 200, 6.3F, -30.9F, 43.5F, 1, 1, 7, 0.0F, true));
+        setRotationAngle(Belt7_r1, 0, 0, 2.1564F);
+        Belt7_r1.cubeList.add(new ModelBox(Belt7_r1, 0, 200, 6.3F, -30.9F, 43.5F, 1, 1, 7, 0, true));
 
         Belt6_r1 = new ModelRenderer(this);
-        Belt6_r1.setRotationPoint(9.5535F, -40.6248F, 0.0F);
+        Belt6_r1.setRotationPoint(9.5535F, -40.6248F, 0);
         belt.addChild(Belt6_r1);
-        setRotationAngle(Belt6_r1, 0.0F, 0.0F, 2.1564F);
-        Belt6_r1.cubeList.add(new ModelBox(Belt6_r1, 0, 200, 7.3F, -30.0F, 43.5F, 1, 1, 7, 0.0F, true));
+        setRotationAngle(Belt6_r1, 0, 0, 2.1564F);
+        Belt6_r1.cubeList.add(new ModelBox(Belt6_r1, 0, 200, 7.3F, -30, 43.5F, 1, 1, 7, 0, true));
 
         Belt5_r1 = new ModelRenderer(this);
-        Belt5_r1.setRotationPoint(23.6416F, -45.0771F, 0.0F);
+        Belt5_r1.setRotationPoint(23.6416F, -45.0771F, 0);
         belt.addChild(Belt5_r1);
-        setRotationAngle(Belt5_r1, 0.0F, 0.0F, 2.6025F);
-        Belt5_r1.cubeList.add(new ModelBox(Belt5_r1, 0, 200, 8.1F, -28.5F, 43.5F, 1, 1, 7, 0.0F, true));
+        setRotationAngle(Belt5_r1, 0, 0, 2.6025F);
+        Belt5_r1.cubeList.add(new ModelBox(Belt5_r1, 0, 200, 8.1F, -28.5F, 43.5F, 1, 1, 7, 0, true));
 
         Belt4_r1 = new ModelRenderer(this);
-        Belt4_r1.setRotationPoint(25.7124F, -42.6492F, 0.0F);
+        Belt4_r1.setRotationPoint(25.7124F, -42.6492F, 0);
         belt.addChild(Belt4_r1);
-        setRotationAngle(Belt4_r1, 0.0F, 0.0F, 2.6025F);
-        Belt4_r1.cubeList.add(new ModelBox(Belt4_r1, 0, 200, 8.8F, -27.0F, 43.5F, 1, 1, 7, 0.0F, true));
+        setRotationAngle(Belt4_r1, 0, 0, 2.6025F);
+        Belt4_r1.cubeList.add(new ModelBox(Belt4_r1, 0, 200, 8.8F, -27, 43.5F, 1, 1, 7, 0, true));
 
         Belt3_r1 = new ModelRenderer(this);
-        Belt3_r1.setRotationPoint(30.8759F, -40.327F, 0.0F);
+        Belt3_r1.setRotationPoint(30.8759F, -40.327F, 0);
         belt.addChild(Belt3_r1);
-        setRotationAngle(Belt3_r1, 0.0F, 0.0F, 2.7884F);
-        Belt3_r1.cubeList.add(new ModelBox(Belt3_r1, 0, 200, 8.5F, -25.5F, 43.5F, 1, 1, 7, 0.0F, true));
+        setRotationAngle(Belt3_r1, 0, 0, 2.7884F);
+        Belt3_r1.cubeList.add(new ModelBox(Belt3_r1, 0, 200, 8.5F, -25.5F, 43.5F, 1, 1, 7, 0, true));
 
         Belt2_r1 = new ModelRenderer(this);
-        Belt2_r1.setRotationPoint(29.5101F, -37.4491F, 0.0F);
+        Belt2_r1.setRotationPoint(29.5101F, -37.4491F, 0);
         belt.addChild(Belt2_r1);
-        setRotationAngle(Belt2_r1, 0.0F, 0.0F, 2.6769F);
-        Belt2_r1.cubeList.add(new ModelBox(Belt2_r1, 0, 200, 9.0F, -24.0F, 43.5F, 1, 1, 7, 0.0F, true));
+        setRotationAngle(Belt2_r1, 0, 0, 2.6769F);
+        Belt2_r1.cubeList.add(new ModelBox(Belt2_r1, 0, 200, 9, -24, 43.5F, 1, 1, 7, 0, true));
 
         Belt1_r1 = new ModelRenderer(this);
-        Belt1_r1.setRotationPoint(33.8519F, -34.858F, 0.0F);
+        Belt1_r1.setRotationPoint(33.8519F, -34.858F, 0);
         belt.addChild(Belt1_r1);
-        setRotationAngle(Belt1_r1, 0.0F, 0.0F, 2.7884F);
-        Belt1_r1.cubeList.add(new ModelBox(Belt1_r1, 0, 200, 9.5F, -22.5F, 43.5F, 1, 1, 7, 0.0F, true));
+        setRotationAngle(Belt1_r1, 0, 0, 2.7884F);
+        Belt1_r1.cubeList.add(new ModelBox(Belt1_r1, 0, 200, 9.5F, -22.5F, 43.5F, 1, 1, 7, 0, true));
     }
 
     @Override

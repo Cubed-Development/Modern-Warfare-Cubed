@@ -116,9 +116,9 @@ public class Explosion {
             for (int k = 0; k < 16; ++k) {
                 for (int l = 0; l < 16; ++l) {
                     if (j == 0 || j == 15 || k == 0 || k == 15 || l == 0 || l == 15) {
-                        double d0 = (j / 15.0F * 2.0F - 1);
-                        double d1 = (k / 15.0F * 2.0F - 1);
-                        double d2 = (l / 15.0F * 2.0F - 1);
+                        double d0 = (j / 15 * 2 - 1);
+                        double d1 = (k / 15 * 2 - 1);
+                        double d2 = (l / 15 * 2 - 1);
                         double d3 = Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
                         d0 = d0 / d3;
                         d1 = d1 / d3;
@@ -128,7 +128,7 @@ public class Explosion {
                         double d6 = position.y;
                         double d8 = position.z;
 
-                        for (/* f1* = 0.3F */; f > 0.0F; f -= 0.22500001F) {
+                        for (/* f1* = 0.3F */; f > 0; f -= 0.22500001F) {
                             BlockPos blockpos = new BlockPos((int) d4, (int) d6, (int) d8);
                             // IBlockState iblockstate =
                             // this.worldObj.getBlockState(blockpos);
@@ -139,7 +139,7 @@ public class Explosion {
                                 f -= (f2 + 0.3F) * 0.3F;
                             }
 
-                            if (f > 0.0F && (this.exploder == null || exploder.canExplosionDestroyBlock(new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true), this.world, blockpos, iBlockState, f))) { // compatibility.verifyExplosion(this.world, this.exploder, this, blockpos, iBlockState, f))) {
+                            if (f > 0 && (this.exploder == null || exploder.canExplosionDestroyBlock(new net.minecraft.world.Explosion(world, exploder, position.x, position.y, position.z, explosionStrength, false, true), this.world, blockpos, iBlockState, f))) { // compatibility.verifyExplosion(this.world, this.exploder, this, blockpos, iBlockState, f))) {
                                 set.add(blockpos);
                             }
 

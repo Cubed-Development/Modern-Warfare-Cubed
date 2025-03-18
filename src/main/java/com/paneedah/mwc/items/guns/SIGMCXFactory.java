@@ -564,7 +564,7 @@ public class SIGMCXFactory implements GunFactory {
                                         .withPosition(-1.265000f, 4.985000f, -2.645000f)
                                         .withRotation(0.000000f, 1.000000f, 7.115748f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -573,7 +573,7 @@ public class SIGMCXFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.490000f, -0.095000f, -0.780000f)
                                         .withBBRotation(-0.6713F, -37.4683F, 37.504F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -676,7 +676,7 @@ public class SIGMCXFactory implements GunFactory {
 
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                GL11.glTranslatef(0F, 0.0f, 0f);
+                                GL11.glTranslatef(0F, 0, 0f);
                             }
 
                             // Standard Iron Sight Zoom
@@ -701,7 +701,7 @@ public class SIGMCXFactory implements GunFactory {
 
                             // HP Zoomw
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                GL11.glTranslatef(0.001F, -0.0f, 0.2f);
+                                GL11.glTranslatef(0.001F, -0, 0.2f);
                             }
 
                             // Reflex Zoom
@@ -782,7 +782,7 @@ public class SIGMCXFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.330000f, 0.065000f, 0.140000f)
                                             .withRotation(78.544055f, 23.699100f, 18.430633f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

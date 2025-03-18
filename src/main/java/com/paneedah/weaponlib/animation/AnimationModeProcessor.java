@@ -487,7 +487,7 @@ public class AnimationModeProcessor {
         //System.out.println(mat);
         modifiedView.rewind();
 
-        GL11.glLineWidth(2.0f);
+        GL11.glLineWidth(2);
         GlStateManager.multMatrix(modifiedView);
         GlStateManager.disableDepth();
         renderLightAxisRing(Vec3d.ZERO, Color.GRAY.brighter(), 0f, size * 5.5f, false, false);
@@ -823,10 +823,10 @@ public class AnimationModeProcessor {
 
         // System.out.println("fuck");
 
-        float red = c.getRed() / 255.0f;
-        float blue = c.getBlue() / 255.0f;
-        float green = c.getGreen() / 255.0f;
-        // float alpha = c.getAlpha()/255.0f;
+        float red = c.getRed() / 255;
+        float blue = c.getBlue() / 255;
+        float green = c.getGreen() / 255;
+        // float alpha = c.getAlpha()/255;
 
         GL11.glPushMatrix();
 

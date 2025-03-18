@@ -35,97 +35,97 @@ public class AcogReticle extends ModelBase {
         textureHeight = 64;
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(-1, 26.25F, 0.0F);
+        bone.setRotationPoint(-1, 26.25F, 0);
 
 
         reticle16 = new ModelRenderer(this);
-        reticle16.setRotationPoint(14.0F, -60.0F, 0.0F);
+        reticle16.setRotationPoint(14, -60, 0);
         bone.addChild(reticle16);
-        reticle16.cubeList.add(new ModelBox(reticle16, 2, 8, 0.0F, 0.0F, 0.0F, 1, 5, 0, 0.0F, false));
+        reticle16.cubeList.add(new ModelBox(reticle16, 2, 8, 0, 0, 0, 1, 5, 0, 0, false));
 
         reticle15 = new ModelRenderer(this);
-        reticle15.setRotationPoint(24.0F, -60.0F, 0.0F);
+        reticle15.setRotationPoint(24, -60, 0);
         bone.addChild(reticle15);
-        reticle15.cubeList.add(new ModelBox(reticle15, 4, 8, 0.0F, 0.0F, 0.0F, 1, 5, 0, 0.0F, false));
+        reticle15.cubeList.add(new ModelBox(reticle15, 4, 8, 0, 0, 0, 1, 5, 0, 0, false));
 
         reticle14 = new ModelRenderer(this);
-        reticle14.setRotationPoint(34.0F, -60.0F, 0.0F);
+        reticle14.setRotationPoint(34, -60, 0);
         bone.addChild(reticle14);
-        reticle14.cubeList.add(new ModelBox(reticle14, 6, 8, 0.0F, 0.0F, 0.0F, 1, 5, 0, 0.0F, false));
+        reticle14.cubeList.add(new ModelBox(reticle14, 6, 8, 0, 0, 0, 1, 5, 0, 0, false));
 
         reticle13 = new ModelRenderer(this);
-        reticle13.setRotationPoint(-14.0F, -60.0F, 0.0F);
+        reticle13.setRotationPoint(-14, -60, 0);
         bone.addChild(reticle13);
-        reticle13.cubeList.add(new ModelBox(reticle13, 8, 8, 0.0F, 0.0F, 0.0F, 1, 5, 0, 0.0F, false));
+        reticle13.cubeList.add(new ModelBox(reticle13, 8, 8, 0, 0, 0, 1, 5, 0, 0, false));
 
         reticle12 = new ModelRenderer(this);
-        reticle12.setRotationPoint(-24.0F, -60.0F, 0.0F);
+        reticle12.setRotationPoint(-24, -60, 0);
         bone.addChild(reticle12);
-        reticle12.cubeList.add(new ModelBox(reticle12, 10, 10, 0.0F, 0.0F, 0.0F, 1, 5, 0, 0.0F, false));
+        reticle12.cubeList.add(new ModelBox(reticle12, 10, 10, 0, 0, 0, 1, 5, 0, 0, false));
 
         reticle11 = new ModelRenderer(this);
-        reticle11.setRotationPoint(-34.0F, -60.0F, 0.0F);
+        reticle11.setRotationPoint(-34, -60, 0);
         bone.addChild(reticle11);
-        reticle11.cubeList.add(new ModelBox(reticle11, 12, 12, 0.0F, 0.0F, 0.0F, 1, 5, 0, 0.0F, false));
+        reticle11.cubeList.add(new ModelBox(reticle11, 12, 12, 0, 0, 0, 1, 5, 0, 0, false));
 
         reticle10 = new ModelRenderer(this);
-        reticle10.setRotationPoint(-1.5F, -22.0F, 0.0F);
+        reticle10.setRotationPoint(-1.5F, -22, 0);
         bone.addChild(reticle10);
-        reticle10.cubeList.add(new ModelBox(reticle10, 2, 6, 0.0F, 0.0F, 0.0F, 4, 1, 0, 0.0F, false));
+        reticle10.cubeList.add(new ModelBox(reticle10, 2, 6, 0, 0, 0, 4, 1, 0, 0, false));
 
         reticle9 = new ModelRenderer(this);
-        reticle9.setRotationPoint(-2.0F, -32.0F, 0.0F);
+        reticle9.setRotationPoint(-2, -32, 0);
         bone.addChild(reticle9);
-        reticle9.cubeList.add(new ModelBox(reticle9, 2, 4, 0.0F, 0.0F, 0.0F, 5, 1, 0, 0.0F, false));
+        reticle9.cubeList.add(new ModelBox(reticle9, 2, 4, 0, 0, 0, 5, 1, 0, 0, false));
 
         reticle8 = new ModelRenderer(this);
-        reticle8.setRotationPoint(-2.5F, -41, 0.0F);
+        reticle8.setRotationPoint(-2.5F, -41, 0);
         bone.addChild(reticle8);
-        reticle8.cubeList.add(new ModelBox(reticle8, 2, 3, 0.0F, 0.0F, 0.0F, 6, 1, 0, 0.0F, false));
+        reticle8.cubeList.add(new ModelBox(reticle8, 2, 3, 0, 0, 0, 6, 1, 0, 0, false));
 
         reticle6 = new ModelRenderer(this);
-        reticle6.setRotationPoint(0.9F, -57.0F, 0.0F);
+        reticle6.setRotationPoint(0.9F, -57, 0);
         bone.addChild(reticle6);
-        setRotationAngle(reticle6, 0.0F, 0.0F, 0.7854F);
-        reticle6.cubeList.add(new ModelBox(reticle6, 2, 7, 0.0F, 0.0F, 0.0F, 4, 1, 0, 0.0F, false));
+        setRotationAngle(reticle6, 0, 0, 0.7854F);
+        reticle6.cubeList.add(new ModelBox(reticle6, 2, 7, 0, 0, 0, 4, 1, 0, 0, false));
 
         reticle7 = new ModelRenderer(this);
-        reticle7.setRotationPoint(-3.5F, -47.0F, 0.0F);
+        reticle7.setRotationPoint(-3.5F, -47, 0);
         bone.addChild(reticle7);
-        reticle7.cubeList.add(new ModelBox(reticle7, 2, 2, 0.0F, 0.0F, 0.0F, 8, 1, 0, 0.0F, false));
+        reticle7.cubeList.add(new ModelBox(reticle7, 2, 2, 0, 0, 0, 8, 1, 0, 0, false));
 
         reticle55 = new ModelRenderer(this);
-        reticle55.setRotationPoint(0.1F, -57.0F, 0.0F);
+        reticle55.setRotationPoint(0.1F, -57, 0);
         bone.addChild(reticle55);
-        setRotationAngle(reticle55, 0.0F, 0.0F, 0.7854F);
-        reticle55.cubeList.add(new ModelBox(reticle55, 10, 6, 0.0F, 0.0F, 0.0F, 1, 4, 0, 0.0F, false));
+        setRotationAngle(reticle55, 0, 0, 0.7854F);
+        reticle55.cubeList.add(new ModelBox(reticle55, 10, 6, 0, 0, 0, 1, 4, 0, 0, false));
 
         reticle5 = new ModelRenderer(this);
-        reticle5.setRotationPoint(0.5F, -58.0F, 0.0F);
+        reticle5.setRotationPoint(0.5F, -58, 0);
         bone.addChild(reticle5);
-        setRotationAngle(reticle5, 0.0F, 0.0F, 0.7854F);
-        reticle5.cubeList.add(new ModelBox(reticle5, 12, 4, 0.0F, 0.0F, 0.0F, 1, 5, 0, 0.0F, false));
+        setRotationAngle(reticle5, 0, 0, 0.7854F);
+        reticle5.cubeList.add(new ModelBox(reticle5, 12, 4, 0, 0, 0, 1, 5, 0, 0, false));
 
         reticle4 = new ModelRenderer(this);
-        reticle4.setRotationPoint(0.5F, -58.0F, 0.0F);
+        reticle4.setRotationPoint(0.5F, -58, 0);
         bone.addChild(reticle4);
-        setRotationAngle(reticle4, 0.0F, 0.0F, 0.7854F);
-        reticle4.cubeList.add(new ModelBox(reticle4, 2, 5, 0.0F, 0.0F, 0.0F, 5, 1, 0, 0.0F, false));
+        setRotationAngle(reticle4, 0, 0, 0.7854F);
+        reticle4.cubeList.add(new ModelBox(reticle4, 2, 5, 0, 0, 0, 5, 1, 0, 0, false));
 
         reticle3 = new ModelRenderer(this);
-        reticle3.setRotationPoint(-34.0F, -58.0F, 0.0F);
+        reticle3.setRotationPoint(-34, -58, 0);
         bone.addChild(reticle3);
-        reticle3.cubeList.add(new ModelBox(reticle3, 0, 0, 0.0F, 0.0F, 0.0F, 30, 1, 0, 0.0F, false));
+        reticle3.cubeList.add(new ModelBox(reticle3, 0, 0, 0, 0, 0, 30, 1, 0, 0, false));
 
         reticle2 = new ModelRenderer(this);
-        reticle2.setRotationPoint(5.0F, -58.0F, 0.0F);
+        reticle2.setRotationPoint(5, -58, 0);
         bone.addChild(reticle2);
-        reticle2.cubeList.add(new ModelBox(reticle2, 0, 1, 0.0F, 0.0F, 0.0F, 30, 1, 0, 0.0F, false));
+        reticle2.cubeList.add(new ModelBox(reticle2, 0, 1, 0, 0, 0, 30, 1, 0, 0, false));
 
         reticle1 = new ModelRenderer(this);
-        reticle1.setRotationPoint(0.0F, -54.0F, 0.0F);
+        reticle1.setRotationPoint(0, -54, 0);
         bone.addChild(reticle1);
-        reticle1.cubeList.add(new ModelBox(reticle1, 0, 2, 0.0F, 0.0F, 0.0F, 1, 41, 0, 0.0F, false));
+        reticle1.cubeList.add(new ModelBox(reticle1, 0, 2, 0, 0, 0, 1, 41, 0, 0, false));
     }
 
     @Override

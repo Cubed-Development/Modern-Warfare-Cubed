@@ -20,20 +20,20 @@ public class Beowulf50CalAction extends ModelWithAttachments {
         textureHeight = 256;
 
         action = new ModelRenderer(this);
-        action.setRotationPoint(-2.6F, -13.0F, -20.75F);
-        action.cubeList.add(new ModelBox(action, 40, 40, -1, -1.1F, 0.0F, 1, 1, 15, 0.0F, false));
+        action.setRotationPoint(-2.6F, -13, -20.75F);
+        action.cubeList.add(new ModelBox(action, 40, 40, -1, -1.1F, 0, 1, 1, 15, 0, false));
 
         cube_r15 = new ModelRenderer(this);
-        cube_r15.setRotationPoint(-1, -1.1F, 0.0F);
+        cube_r15.setRotationPoint(-1, -1.1F, 0);
         action.addChild(cube_r15);
-        setRotationAngle(cube_r15, 0.0F, 0.0F, -0.6109F);
-        cube_r15.cubeList.add(new ModelBox(cube_r15, 0, 39, 0.0F, 0.0F, 0.0F, 1, 1, 15, 0.0F, false));
+        setRotationAngle(cube_r15, 0, 0, -0.6109F);
+        cube_r15.cubeList.add(new ModelBox(cube_r15, 0, 39, 0, 0, 0, 1, 1, 15, 0, false));
 
         cube_r16 = new ModelRenderer(this);
         cube_r16.setRotationPoint(-1.5F, -0.6F, 0.75F);
         action.addChild(cube_r16);
-        setRotationAngle(cube_r16, -0.2618F, 0.0F, 0.0F);
-        cube_r16.cubeList.add(new ModelBox(cube_r16, 19, 17, -1, -1, 0.0F, 3, 1, 1, 0.0F, false));
+        setRotationAngle(cube_r16, -0.2618F, 0, 0);
+        cube_r16.cubeList.add(new ModelBox(cube_r16, 19, 17, -1, -1, 0, 3, 1, 1, 0, false));
     }
 
     @Override

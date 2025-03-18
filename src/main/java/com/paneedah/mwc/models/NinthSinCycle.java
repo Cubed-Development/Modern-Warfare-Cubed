@@ -23,22 +23,22 @@ public class NinthSinCycle extends ModelWithAttachments {
 
 
         cube_r69 = new ModelRenderer(this);
-        cube_r69.setRotationPoint(-1, 0.0F, 0.0F);
+        cube_r69.setRotationPoint(-1, 0, 0);
         cycler_GUARD.addChild(cube_r69);
-        setRotationAngle(cube_r69, -1.3788F, 0.0F, 0.0F);
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 3, 54, -1.001F, -9.001F, 0.499F, 1, 1, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 62, 54, 0.001F, -9.001F, 0.499F, 1, 1, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 48, 52, -1.001F, -7.0F, 0.5F, 1, 1, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 65, 10, 0.001F, -7.0F, 0.5F, 1, 1, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 14, 37, -1.001F, -5.0F, 0.5F, 1, 1, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 65, 40, 0.001F, -5.0F, 0.5F, 1, 1, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 34, 37, -1.001F, -3.0F, 0.5F, 1, 1, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 65, 42, 0.001F, -3.0F, 0.5F, 1, 1, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 18, 61, -1.001F, -1, 0.5F, 1, 1, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 65, 55, 0.001F, -1, 0.5F, 1, 1, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 34, 27, -0.5F, -9.0F, 0.0F, 1, 9, 1, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 14, 75, -1, -9.0F, 1, 2, 9, 2, 0.0F, false));
-        cube_r69.cubeList.add(new ModelBox(cube_r69, 27, 0, -1, -9.0F, 0.0F, 2, 9, 3, -0.1F, false));
+        setRotationAngle(cube_r69, -1.3788F, 0, 0);
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 3, 54, -1.001F, -9.001F, 0.499F, 1, 1, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 62, 54, 0.001F, -9.001F, 0.499F, 1, 1, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 48, 52, -1.001F, -7, 0.5F, 1, 1, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 65, 10, 0.001F, -7, 0.5F, 1, 1, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 14, 37, -1.001F, -5, 0.5F, 1, 1, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 65, 40, 0.001F, -5, 0.5F, 1, 1, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 34, 37, -1.001F, -3, 0.5F, 1, 1, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 65, 42, 0.001F, -3, 0.5F, 1, 1, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 18, 61, -1.001F, -1, 0.5F, 1, 1, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 65, 55, 0.001F, -1, 0.5F, 1, 1, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 34, 27, -0.5F, -9, 0, 1, 9, 1, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 14, 75, -1, -9, 1, 2, 9, 2, 0, false));
+        cube_r69.cubeList.add(new ModelBox(cube_r69, 27, 0, -1, -9, 0, 2, 9, 3, -0.1F, false));
     }
 
     @Override

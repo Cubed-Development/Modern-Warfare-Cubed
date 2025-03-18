@@ -19,21 +19,21 @@ public class AS50mag extends ModelWithAttachments {
         textureHeight = 352;
 
         mag = new ModelRenderer(this);
-        mag.setRotationPoint(0.0F, 24.0F, 0.0F);
-        mag.cubeList.add(new ModelBox(mag, 84, 37, 0.0F, -43.3F, -30.0F, 4, 11, 10, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 0, 125, -0.5F, -43.3F, -37.0F, 5, 10, 7, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 84, 116, -0.5F, -43.28F, -28.5F, 5, 11, 7, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 64, 117, 2.9F, -45.3F, -27.8F, 1, 2, 8, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 119, 37, -0.1F, -44.3F, -35.8F, 1, 1, 8, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 119, 46, 2.9F, -44.3F, -35.8F, 1, 1, 8, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 119, 0, -0.1F, -45.3F, -27.8F, 1, 2, 8, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 0, 35, -0.5F, -43.3F, -20.0F, 5, 12, 1, 0.0F, false));
+        mag.setRotationPoint(0, 24, 0);
+        mag.cubeList.add(new ModelBox(mag, 84, 37, 0, -43.3F, -30, 4, 11, 10, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 0, 125, -0.5F, -43.3F, -37, 5, 10, 7, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 84, 116, -0.5F, -43.28F, -28.5F, 5, 11, 7, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 64, 117, 2.9F, -45.3F, -27.8F, 1, 2, 8, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 119, 37, -0.1F, -44.3F, -35.8F, 1, 1, 8, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 119, 46, 2.9F, -44.3F, -35.8F, 1, 1, 8, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 119, 0, -0.1F, -45.3F, -27.8F, 1, 2, 8, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 0, 35, -0.5F, -43.3F, -20, 5, 12, 1, 0, false));
 
         Mag1_r1 = new ModelRenderer(this);
-        Mag1_r1.setRotationPoint(0.0F, 6.0924F, -5.9886F);
+        Mag1_r1.setRotationPoint(0, 6.0924F, -5.9886F);
         mag.addChild(Mag1_r1);
-        setRotationAngle(Mag1_r1, -0.1571F, 0.0F, 0.0F);
-        Mag1_r1.cubeList.add(new ModelBox(Mag1_r1, 84, 145, -0.5F, -36.0F, -36.7F, 5, 2, 18, 0.1F, false));
+        setRotationAngle(Mag1_r1, -0.1571F, 0, 0);
+        Mag1_r1.cubeList.add(new ModelBox(Mag1_r1, 84, 145, -0.5F, -36, -36.7F, 5, 2, 18, 0.1F, false));
     }
 
     @Override

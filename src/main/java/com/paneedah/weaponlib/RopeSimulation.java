@@ -196,7 +196,7 @@ public class RopeSimulation {
 		RopeSimulation.Stick stick2 = new Stick();
 		stick2.pointA = two;
 		stick2.pointB = three;
-		stick2.length = 2.0f;
+		stick2.length = 2;
 		
 		simulation.points.add(one);
 		simulation.points.add(two);

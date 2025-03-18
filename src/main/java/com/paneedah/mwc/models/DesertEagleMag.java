@@ -21,28 +21,28 @@ public class DesertEagleMag extends ModelWithAttachments {
         textureHeight = 150;
 
         magazine = new ModelRenderer(this);
-        magazine.setRotationPoint(0.0F, 24.0F, 0.0F);
+        magazine.setRotationPoint(0, 24, 0);
         magazine.cubeList.add(new ModelBox(magazine, 57, 12, -2.5F, -18.9F, -5.8F, 2, 1, 1, 0.001F, false));
-        magazine.cubeList.add(new ModelBox(magazine, 31, 18, -3.0F, -18.9F, -4.8F, 3, 1, 6, 0.001F, false));
+        magazine.cubeList.add(new ModelBox(magazine, 31, 18, -3, -18.9F, -4.8F, 3, 1, 6, 0.001F, false));
 
         mag2_r1 = new ModelRenderer(this);
         mag2_r1.setRotationPoint(-2.8F, -18.8F, 1);
         magazine.addChild(mag2_r1);
-        setRotationAngle(mag2_r1, -2.9845F, 0.0F, 0.0F);
-        mag2_r1.cubeList.add(new ModelBox(mag2_r1, 0, 75, 0.0F, 0.0F, 0.0F, 2, 12, 5, 0.0F, false));
-        mag2_r1.cubeList.add(new ModelBox(mag2_r1, 14, 75, 1.6F, 0.0F, 0.0F, 1, 12, 5, 0.001F, false));
+        setRotationAngle(mag2_r1, -2.9845F, 0, 0);
+        mag2_r1.cubeList.add(new ModelBox(mag2_r1, 0, 75, 0, 0, 0, 2, 12, 5, 0, false));
+        mag2_r1.cubeList.add(new ModelBox(mag2_r1, 14, 75, 1.6F, 0, 0, 1, 12, 5, 0.001F, false));
 
         mag6_r1 = new ModelRenderer(this);
         mag6_r1.setRotationPoint(-0.5F, -18.9F, -5.8F);
         magazine.addChild(mag6_r1);
-        setRotationAngle(mag6_r1, 0.0F, 0.4636F, 0.0F);
-        mag6_r1.cubeList.add(new ModelBox(mag6_r1, 77, 37, -1, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        setRotationAngle(mag6_r1, 0, 0.4636F, 0);
+        mag6_r1.cubeList.add(new ModelBox(mag6_r1, 77, 37, -1, 0, 0, 1, 1, 1, 0, false));
 
         mag5_r1 = new ModelRenderer(this);
         mag5_r1.setRotationPoint(-2.5F, -18.9F, -5.8F);
         magazine.addChild(mag5_r1);
-        setRotationAngle(mag5_r1, 0.0F, -0.4461F, 0.0F);
-        mag5_r1.cubeList.add(new ModelBox(mag5_r1, 38, 77, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        setRotationAngle(mag5_r1, 0, -0.4461F, 0);
+        mag5_r1.cubeList.add(new ModelBox(mag5_r1, 38, 77, 0, 0, 0, 1, 1, 1, 0, false));
     }
 
     @Override

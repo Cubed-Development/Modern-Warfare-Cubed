@@ -428,10 +428,10 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
     public void render3DItemInGUI(Item item, int x, int y, int mouseX, int mouseY) {
         GlStateManager.pushMatrix();
 
-        GlStateManager.translate(x, y, 100.0F);
-        GlStateManager.translate(8.0F, 8.0F, 0.0F);
+        GlStateManager.translate(x, y, 100);
+        GlStateManager.translate(8, 8, 0);
         GlStateManager.scale(1, -1, 1);
-        GlStateManager.scale(20.0F, 20.0F, 20.0F);
+        GlStateManager.scale(20, 20, 20);
 
         GlStateManager.rotate(15 + mouseY * 0.01f, 1, 0, 0);
         GlStateManager.rotate(120 + mouseX * 0.01f, 0, 1, 0);

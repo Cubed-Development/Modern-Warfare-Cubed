@@ -42,7 +42,7 @@ public class AudiS4Factory implements VehicleFactory {
 
                         Positioners.position(
                                 1, (float) (-1.500000f - entityVehicle.rideOffset), -2.700000f,
-                                0.0f, 0f, 0.0f,
+                                0, 0f, 0,
                                 0.000000f, 0.000000f, 0.000000f,
                                 1.000000f, 1.000000f, 1.000000f
                         );
@@ -145,7 +145,7 @@ public class AudiS4Factory implements VehicleFactory {
                         WheelSolver ws = entityVehicle.getSolver().frontAxel.leftWheel;
 
                         Positioners.position(
-                                0.000000f, /*vertical*/ 0.0f, 0.000000f,
+                                0.000000f, /*vertical*/ 0, 0.000000f,
                                 (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
                                 0.000000f, 0.750000f, -0.000000f,
                                 1.000000f, 1.000000f, 1.000000f
@@ -159,7 +159,7 @@ public class AudiS4Factory implements VehicleFactory {
                         float steer = (float) Math.toDegrees(context.getSymmetricProgress());
 
                         Positioners.position(
-                                -3.899998f, /*vertical*/0.0f, 0.000000f,
+                                -3.899998f, /*vertical*/0, 0.000000f,
                                 (float) ws.getInterpolatedWheelRotation(), 0f, 0.000000f,
                                 -0.650000f, 0.750000f, 0.010000f,
                                 1.000000f, 1.000000f, 1.000000f
@@ -172,7 +172,7 @@ public class AudiS4Factory implements VehicleFactory {
                         float vertical = (float) entityVehicle.getSolver().rearAxel.leftWheel.getRenderRideHeight();
 
                         Positioners.position(
-                                0.000000f, /*vertical*/0.0f, 5.724997f,
+                                0.000000f, /*vertical*/0, 5.724997f,
                                 (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
                                 0.000000f, 0.740000f, 0.000000f,
                                 1.000000f, 1.000000f, 1.000000f
@@ -186,7 +186,7 @@ public class AudiS4Factory implements VehicleFactory {
                         float vertical = (float) ws.getRenderRideHeight();
 
                         Positioners.position(
-                                -3.799999f, /*vertical*/0.0f, 5.720000f,
+                                -3.799999f, /*vertical*/0, 5.720000f,
                                 (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
                                 0.000000f, 0.749999f, 0.000000f,
                                 1.000000f, 1.000000f, 1.000000f

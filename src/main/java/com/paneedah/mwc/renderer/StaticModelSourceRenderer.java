@@ -72,14 +72,14 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 //        float pivotOffsetY = 0f;
 //        float pivotOffsetZ = 0f;
 //        GL11.glTranslatef(pivotOffsetX, pivotOffsetY, pivotOffsetZ);
-        GL11.glRotatef(180f, 0.001f, 0.0f, 0.0f);
+        GL11.glRotatef(180f, 0.001f, 0, 0);
 //        GL11.glTranslatef(-pivotOffsetX, -pivotOffsetY, -pivotOffsetZ);
 
 
         GL11.glTranslatef(-0.5f, 0.5f, 0.5f);
 
         transforms.getCustomEquippedPositioning().run();
-        renderModelSource(renderContext, itemStack, null, 0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
+        renderModelSource(renderContext, itemStack, null, 0, 0, -0.4f, 0, 0, 0.08f);
 
         GL11.glPopMatrix();
     }
@@ -110,7 +110,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
                 if (transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND) {
 
                     if (owner.isSneaking()) {
-                        GlStateManager.translate(0.0F, -0.2F, 0.0F);
+                        GlStateManager.translate(0, -0.2F, 0);
                     }
                 }
             }

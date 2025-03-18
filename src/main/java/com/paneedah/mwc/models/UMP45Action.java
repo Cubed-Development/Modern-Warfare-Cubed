@@ -22,21 +22,21 @@ public class UMP45Action extends ModelWithAttachments {
 
         action = new ModelRenderer(this);
         action.setRotationPoint(0.25F, -16.05F, -40.5F);
-        action.cubeList.add(new ModelBox(action, 26, 90, -1, -1.1F, 0.0F, 1, 1, 12, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 40, 43, 1.3F, -1.1F, 0.0F, 1, 1, 1, 0.01F, false));
+        action.cubeList.add(new ModelBox(action, 26, 90, -1, -1.1F, 0, 1, 1, 12, 0, false));
+        action.cubeList.add(new ModelBox(action, 40, 43, 1.3F, -1.1F, 0, 1, 1, 1, 0.01F, false));
         action.cubeList.add(new ModelBox(action, 24, 36, -0.65F, -1.1F, 0.2F, 2, 1, 1, -0.1F, false));
 
         cube_r78 = new ModelRenderer(this);
-        cube_r78.setRotationPoint(0.0F, -1.1F, 9.0F);
+        cube_r78.setRotationPoint(0, -1.1F, 9);
         action.addChild(cube_r78);
-        setRotationAngle(cube_r78, 0.0F, 0.0F, -0.7854F);
-        cube_r78.cubeList.add(new ModelBox(cube_r78, 89, 101, -1, -1, 0.0F, 1, 1, 3, 0.0F, false));
+        setRotationAngle(cube_r78, 0, 0, -0.7854F);
+        cube_r78.cubeList.add(new ModelBox(cube_r78, 89, 101, -1, -1, 0, 1, 1, 3, 0, false));
 
         cube_r79 = new ModelRenderer(this);
-        cube_r79.setRotationPoint(2.3F, -0.1F, 0.0F);
+        cube_r79.setRotationPoint(2.3F, -0.1F, 0);
         action.addChild(cube_r79);
-        setRotationAngle(cube_r79, 0.0F, 0.2094F, 0.0F);
-        cube_r79.cubeList.add(new ModelBox(cube_r79, 30, 36, -2.0F, -1, 0.0F, 2, 1, 1, 0.0F, false));
+        setRotationAngle(cube_r79, 0, 0.2094F, 0);
+        cube_r79.cubeList.add(new ModelBox(cube_r79, 30, 36, -2, -1, 0, 2, 1, 1, 0, false));
     }
 
     @Override

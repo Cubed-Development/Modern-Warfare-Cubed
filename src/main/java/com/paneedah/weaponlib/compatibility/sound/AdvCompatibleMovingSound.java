@@ -40,7 +40,7 @@ public class AdvCompatibleMovingSound extends MovingSound {
     }
 
     public void fadeIn() {
-        this.volume = 0.0F;
+        this.volume = 0;
         fadeTimer = 0;
         isFadeIn = true;
         isFade = true;
@@ -125,10 +125,10 @@ public class AdvCompatibleMovingSound extends MovingSound {
             this.zPosF = (float) position.z;
 
 
-            //this.volume = (float) (vehicle.solver.currentRPM/24000.0F);
+            //this.volume = (float) (vehicle.solver.currentRPM/24000);
 
 
-            // this.pitch = 1 + ((float) (vehicle.solver.currentRPM/7000.0F)*0.1F);
+            // this.pitch = 1 + ((float) (vehicle.solver.currentRPM/7000)*0.1F);
 
             //this.pitch = 1 + this.volume * this.volume;
         }

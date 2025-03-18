@@ -1201,7 +1201,7 @@ public class DSR1Factory implements GunFactory {
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.01f, 0.0f);
+                                GL11.glTranslatef(0F, 0.01f, 0);
                             }
 
                             // HP Zoom

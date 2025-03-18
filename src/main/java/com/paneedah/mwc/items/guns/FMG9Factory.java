@@ -162,7 +162,7 @@ public class FMG9Factory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
-                    GL11.glTranslatef(-0.0F, -1.25F, -0.7F);
+                    GL11.glTranslatef(-0, -1.25F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -172,7 +172,7 @@ public class FMG9Factory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
-                    GL11.glTranslatef(-0.0F, -1.25F, -0.7F);
+                    GL11.glTranslatef(-0, -1.25F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -182,7 +182,7 @@ public class FMG9Factory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
-                    GL11.glTranslatef(-0.0F, -1.25F, -1.2F);
+                    GL11.glTranslatef(-0, -1.25F, -1.2F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof EotechScopeRing) {
@@ -275,7 +275,7 @@ public class FMG9Factory implements GunFactory {
                                         .withPosition(-1.425000f, 4.265000f, -4.485000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -383,12 +383,12 @@ public class FMG9Factory implements GunFactory {
 
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                GL11.glTranslatef(0F, 0.0f, 0.1f);
+                                GL11.glTranslatef(0F, 0, 0.1f);
                             }
 
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, 0.0f, 0f);
+                                GL11.glTranslatef(0F, 0, 0f);
                             }
 
                             // ACOG Zoom
@@ -443,12 +443,12 @@ public class FMG9Factory implements GunFactory {
 
                             // Reflex Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                GL11.glTranslatef(0F, 0.0f, 0.4f);
+                                GL11.glTranslatef(0F, 0, 0.4f);
                             }
 
                             // Reflex Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                GL11.glTranslatef(0F, 0.0f, 0.4f);
+                                GL11.glTranslatef(0F, 0, 0.4f);
                             }
 
                             // Everything else
@@ -480,7 +480,7 @@ public class FMG9Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

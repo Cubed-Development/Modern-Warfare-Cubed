@@ -911,7 +911,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             if (player != null) {
                 if (transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND) {
                     if (player.isSneaking()) {
-                        GlStateManager.translate(0.0F, -0.2F, 0.0F);
+                        GlStateManager.translate(0, -0.2F, 0);
                     }
                 }
             }
@@ -944,7 +944,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
 
         //float limbSwing, float flimbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale
-        //0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
+        //0, 0, -0.4f, 0, 0, 0.08f);
         renderContext.setAgeInTicks(-0.4f);
         renderContext.setScale(0.08f);
         renderContext.setCompatibleTransformType(transformType);

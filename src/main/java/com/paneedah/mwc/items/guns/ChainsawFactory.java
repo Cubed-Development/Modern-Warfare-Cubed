@@ -33,7 +33,7 @@ public class ChainsawFactory implements GunFactory {
                 .withFlashScale(() -> 0f)
                 .withFlashOffsetX(() -> 0.1f)
                 .withFlashOffsetY(() -> 0.2f)
-                .withBleedingCoefficient(40.0F)
+                .withBleedingCoefficient(40)
                 .withSmoke(false)
                 .withShellCasingEjectEnabled(false)
                 .withSpawnEntityBlockImpactHandler((p1, p2, p3, p4) -> {})

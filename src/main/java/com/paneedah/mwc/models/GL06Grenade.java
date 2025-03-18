@@ -26,57 +26,57 @@ public class GL06Grenade extends ModelBase {
         textureHeight = 256;
 
         grenade = new ModelRenderer(this);
-        grenade.setRotationPoint(20.481F, -37.5165F, 0.0F);
-        grenade.cubeList.add(new ModelBox(grenade, 0, 50, -22.981F, 23.5165F, -8.5F, 2, 3, 6, 0.0F, true));
-        grenade.cubeList.add(new ModelBox(grenade, 0, 50, -23.481F, 24.0165F, -8.5F, 3, 2, 6, 0.0F, true));
+        grenade.setRotationPoint(20.481F, -37.5165F, 0);
+        grenade.cubeList.add(new ModelBox(grenade, 0, 50, -22.981F, 23.5165F, -8.5F, 2, 3, 6, 0, true));
+        grenade.cubeList.add(new ModelBox(grenade, 0, 50, -23.481F, 24.0165F, -8.5F, 3, 2, 6, 0, true));
 
         grenade9_r1 = new ModelRenderer(this);
-        grenade9_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+        grenade9_r1.setRotationPoint(0, 0, 0);
         grenade.addChild(grenade9_r1);
-        setRotationAngle(grenade9_r1, 0.0F, 0.0F, -2.3562F);
-        grenade9_r1.cubeList.add(new ModelBox(grenade9_r1, 0, 50, -2.5F, -35.0F, -8.5F, 1, 1, 6, 0.0F, true));
+        setRotationAngle(grenade9_r1, 0, 0, -2.3562F);
+        grenade9_r1.cubeList.add(new ModelBox(grenade9_r1, 0, 50, -2.5F, -35, -8.5F, 1, 1, 6, 0, true));
 
         grenade8_r1 = new ModelRenderer(this);
-        grenade8_r1.setRotationPoint(-45.5833F, 0.9142F, 0.0F);
+        grenade8_r1.setRotationPoint(-45.5833F, 0.9142F, 0);
         grenade.addChild(grenade8_r1);
-        setRotationAngle(grenade8_r1, 0.0F, 0.0F, 2.3562F);
-        grenade8_r1.cubeList.add(new ModelBox(grenade8_r1, 0, 50, 0.0F, -35.5F, -8.5F, 1, 1, 6, 0.0F, true));
+        setRotationAngle(grenade8_r1, 0, 0, 2.3562F);
+        grenade8_r1.cubeList.add(new ModelBox(grenade8_r1, 0, 50, 0, -35.5F, -8.5F, 1, 1, 6, 0, true));
 
         grenade7_r1 = new ModelRenderer(this);
-        grenade7_r1.setRotationPoint(-46.9975F, -2.5F, 0.0F);
+        grenade7_r1.setRotationPoint(-46.9975F, -2.5F, 0);
         grenade.addChild(grenade7_r1);
-        setRotationAngle(grenade7_r1, 0.0F, 0.0F, 2.3562F);
-        grenade7_r1.cubeList.add(new ModelBox(grenade7_r1, 0, 50, 0.0F, -37.5F, -8.5F, 1, 1, 6, 0.0F, true));
+        setRotationAngle(grenade7_r1, 0, 0, 2.3562F);
+        grenade7_r1.cubeList.add(new ModelBox(grenade7_r1, 0, 50, 0, -37.5F, -8.5F, 1, 1, 6, 0, true));
 
         grenade6_r1 = new ModelRenderer(this);
-        grenade6_r1.setRotationPoint(-47.4975F, 50.7401F, 0.0F);
+        grenade6_r1.setRotationPoint(-47.4975F, 50.7401F, 0);
         grenade.addChild(grenade6_r1);
-        setRotationAngle(grenade6_r1, 0.0F, 0.0F, 0.7854F);
-        grenade6_r1.cubeList.add(new ModelBox(grenade6_r1, 0, 50, -0.5F, -38.0F, -8.5F, 1, 1, 6, 0.0F, true));
+        setRotationAngle(grenade6_r1, 0, 0, 0.7854F);
+        grenade6_r1.cubeList.add(new ModelBox(grenade6_r1, 0, 50, -0.5F, -38, -8.5F, 1, 1, 6, 0, true));
 
         grenade5_r1 = new ModelRenderer(this);
-        grenade5_r1.setRotationPoint(-48.0833F, 52.1543F, 0.0F);
+        grenade5_r1.setRotationPoint(-48.0833F, 52.1543F, 0);
         grenade.addChild(grenade5_r1);
-        setRotationAngle(grenade5_r1, 0.0F, 0.0F, 0.7854F);
-        grenade5_r1.cubeList.add(new ModelBox(grenade5_r1, 0, 50, -2.5F, -38.0F, -8.5F, 1, 1, 6, 0.0F, true));
+        setRotationAngle(grenade5_r1, 0, 0, 0.7854F);
+        grenade5_r1.cubeList.add(new ModelBox(grenade5_r1, 0, 50, -2.5F, -38, -8.5F, 1, 1, 6, 0, true));
 
         grenade4_r1 = new ModelRenderer(this);
-        grenade4_r1.setRotationPoint(3.7426F, 48.9975F, 0.0F);
+        grenade4_r1.setRotationPoint(3.7426F, 48.9975F, 0);
         grenade.addChild(grenade4_r1);
-        setRotationAngle(grenade4_r1, 0.0F, 0.0F, -0.7854F);
-        grenade4_r1.cubeList.add(new ModelBox(grenade4_r1, 0, 50, -3.0F, -35.5F, -8.5F, 1, 1, 6, 0.0F, true));
+        setRotationAngle(grenade4_r1, 0, 0, -0.7854F);
+        grenade4_r1.cubeList.add(new ModelBox(grenade4_r1, 0, 50, -3, -35.5F, -8.5F, 1, 1, 6, 0, true));
 
         grenade3_r1 = new ModelRenderer(this);
-        grenade3_r1.setRotationPoint(5.1568F, 48.4117F, 0.0F);
+        grenade3_r1.setRotationPoint(5.1568F, 48.4117F, 0);
         grenade.addChild(grenade3_r1);
-        setRotationAngle(grenade3_r1, 0.0F, 0.0F, -0.7854F);
-        grenade3_r1.cubeList.add(new ModelBox(grenade3_r1, 0, 50, -3.0F, -37.5F, -8.5F, 1, 1, 6, 0.0F, true));
+        setRotationAngle(grenade3_r1, 0, 0, -0.7854F);
+        grenade3_r1.cubeList.add(new ModelBox(grenade3_r1, 0, 50, -3, -37.5F, -8.5F, 1, 1, 6, 0, true));
 
         grenade10_r1 = new ModelRenderer(this);
-        grenade10_r1.setRotationPoint(3.4142F, 1.4142F, 0.0F);
+        grenade10_r1.setRotationPoint(3.4142F, 1.4142F, 0);
         grenade.addChild(grenade10_r1);
-        setRotationAngle(grenade10_r1, 0.0F, 0.0F, -2.3562F);
-        grenade10_r1.cubeList.add(new ModelBox(grenade10_r1, 0, 50, -0.5F, -35.0F, -8.5F, 1, 1, 6, 0.0F, true));
+        setRotationAngle(grenade10_r1, 0, 0, -2.3562F);
+        grenade10_r1.cubeList.add(new ModelBox(grenade10_r1, 0, 50, -0.5F, -35, -8.5F, 1, 1, 6, 0, true));
     }
 
     @Override

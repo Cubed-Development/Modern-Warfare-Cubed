@@ -28,7 +28,7 @@ public class ExplosionParticleFX extends Particle {
         this.motionY = motionY;
         this.motionZ = motionZ;
 
-        if (motionX == 0.0F) {
+        if (motionX == 0) {
             motionX = 1;
         }
 

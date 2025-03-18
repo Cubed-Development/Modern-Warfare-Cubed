@@ -254,13 +254,13 @@ public class RenderVehicle2 extends Render<Entity> {
 
 
         // debug
-        GL11.glRotatef(180.0F - rotationYaw, 0.0F, 1, 0.0F);
+        GL11.glRotatef(180 - rotationYaw, 0, 1, 0);
 
 
         if (MC.gameSettings.thirdPersonView == 0) {
-            GL11.glRotatef(roll, 0.0f, 0.0f, 1);
+            GL11.glRotatef(roll, 0, 0, 1);
         } else {
-            GL11.glRotatef(roll, 0.0f, 0.0f, 1);
+            GL11.glRotatef(roll, 0, 0, 1);
         }
 		
 		
@@ -281,14 +281,14 @@ public class RenderVehicle2 extends Render<Entity> {
 
         // debug DD
         if (MC.gameSettings.thirdPersonView != 0) {
-            GL11.glRotatef(interpPitch, 1, 0.0F, 0.0F);
+            GL11.glRotatef(interpPitch, 1, 0, 0);
         } else {
 
-            GL11.glRotatef(interpPitch, 1, 0.0F, 0.0F);
+            GL11.glRotatef(interpPitch, 1, 0, 0);
 
 
         }
-        //GL11.glRotatef(interpPitch, 1, 0.0F, 0.0F);
+        //GL11.glRotatef(interpPitch, 1, 0, 0);
 		
 
 		/* wtf does this even do???
@@ -336,7 +336,7 @@ public class RenderVehicle2 extends Render<Entity> {
 
         }
 
-        //GL11.glRotatef(MathHelper.wrapAngleTo180_float(par1HCEntityMongoose.getRotateWheelSpeed()*100F), 1, 0.0F, 0.0F);
+        //GL11.glRotatef(MathHelper.wrapAngleTo180_float(par1HCEntityMongoose.getRotateWheelSpeed()*100F), 1, 0, 0);
 
 
         //if(entityVehicle.rotationPitch > 5) {
@@ -511,7 +511,7 @@ public class RenderVehicle2 extends Render<Entity> {
 			GL11.glRotated(0, 1.0, 0.0, 0.0);
 			GL11.glScaled(1.0, 0.25 + (w.getSuspension().getStretch()*-1)*0.3, 1.0);
 			GL11.glTranslated(0.0, -1.5, 0.0);
-			(new SuspensionModel()).renderer(entityVehicle, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+			(new SuspensionModel()).renderer(entityVehicle, 0, 0, 0, 0, 0, 0.0625f);
 			GL11.glPopMatrix();
 			
 		}
@@ -553,7 +553,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		GL11.glScaled(1.0, 1.0 + (susSolve.getStretch()*-1), 1.0);
 		GL11.glTranslated(0.0, -1.5, 0.0);
 		
-		(new SuspensionModel()).renderer(entityVehicle, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+		(new SuspensionModel()).renderer(entityVehicle, 0, 0, 0, 0, 0, 0.0625f);
 		*/
 
         //DebugRenderer.destructBasicRender();
@@ -651,8 +651,8 @@ public class RenderVehicle2 extends Render<Entity> {
 //	        GL11.glDisable(GL11.GL_CULL_FACE);
 //	        GL11.glDisable(GL11.GL_BLEND);
 //	        
-//	        GL11.glColor4f(0.0F, 0.0F, 0.0F, 0.4F);
-//	        GL11.glLineWidth(2.0F);
+//	        GL11.glColor4f(0, 0, 0, 0.4F);
+//	        GL11.glLineWidth(2);
 //	        
 //	        //AxisAlignedBB fbb = entityVehicle.getFrontBoundingBox().copy();
 //
@@ -680,11 +680,11 @@ public class RenderVehicle2 extends Render<Entity> {
     @Override
     public void doRenderShadowAndFire(Entity entityIn, double x, double y, double z, float yaw, float partialTicks) {
         if (this.renderManager.options != null) {
-            if (this.renderManager.options.entityShadows && this.shadowSize > 0.0F && !entityIn.isInvisible() && this.renderManager.isRenderShadow()) {
+            if (this.renderManager.options.entityShadows && this.shadowSize > 0 && !entityIn.isInvisible() && this.renderManager.isRenderShadow()) {
                 double d0 = this.renderManager.getDistanceToCamera(entityIn.posX, entityIn.posY, entityIn.posZ);
                 float f = (float) ((1.0D - d0 / 256.0D) * (double) this.shadowOpaque);
 
-                if (f > 0.0F) {
+                if (f > 0) {
                     this.renderShadow(entityIn, x, y, z, f, partialTicks);
                 }
             }
@@ -736,7 +736,7 @@ public class RenderVehicle2 extends Render<Entity> {
         }
 
 
-        //  GlStateManager.rotate(-entityIn.rotationYaw, 0.0f, 1, 0.0f);
+        //  GlStateManager.rotate(-entityIn.rotationYaw, 0, 1, 0);
         tessellator.draw();
         GlStateManager.color(1, 1, 1, 1);
         GlStateManager.disableBlend();
@@ -787,9 +787,9 @@ public class RenderVehicle2 extends Render<Entity> {
                 // System.out.println(axisalignedbb);
 
 
-                float f = 0.0f;
+                float f = 0;
                 float f1 = 1;
-                float f2 = 0.0f;
+                float f2 = 0;
                 float f3 = 1;
 
 

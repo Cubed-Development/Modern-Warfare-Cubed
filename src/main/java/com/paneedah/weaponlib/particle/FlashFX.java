@@ -31,15 +31,15 @@ public class FlashFX extends Particle {
         this.motionY = motionY;
         this.motionZ = motionZ;
 
-        if (motionX == 0.0F) {
+        if (motionX == 0) {
             motionX = 0.01F;
         }
 
-        if (motionZ == 0.0F) {
+        if (motionZ == 0) {
             motionZ = 0.01F;
         }
 
-        if (motionY == 0.0F) {
+        if (motionY == 0) {
             motionY = 0.01F;
         }
 

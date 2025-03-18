@@ -19,11 +19,11 @@ public class MP40Action extends ModelWithAttachments {
 
         action = new ModelRenderer(this);
         action.setRotationPoint(1.9F, -12.5F, -28.6F);
-        action.cubeList.add(new ModelBox(action, 69, 47, -2.1F, -0.5F, -1.4F, 1, 1, 10, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 25, 66, -1.1F, -0.6F, -1.4F, 3, 1, 1, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 26, 37, -1.1F, -0.4F, -1.4F, 3, 1, 1, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 31, 7, -1.1F, -0.5F, -1.5F, 3, 1, 1, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 20, 7, -1.1F, -0.5F, -1.3F, 3, 1, 1, 0.0F, false));
+        action.cubeList.add(new ModelBox(action, 69, 47, -2.1F, -0.5F, -1.4F, 1, 1, 10, 0, false));
+        action.cubeList.add(new ModelBox(action, 25, 66, -1.1F, -0.6F, -1.4F, 3, 1, 1, 0, false));
+        action.cubeList.add(new ModelBox(action, 26, 37, -1.1F, -0.4F, -1.4F, 3, 1, 1, 0, false));
+        action.cubeList.add(new ModelBox(action, 31, 7, -1.1F, -0.5F, -1.5F, 3, 1, 1, 0, false));
+        action.cubeList.add(new ModelBox(action, 20, 7, -1.1F, -0.5F, -1.3F, 3, 1, 1, 0, false));
     }
 
     @Override

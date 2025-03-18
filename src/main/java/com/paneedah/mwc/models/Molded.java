@@ -266,20 +266,20 @@ public class Molded extends ModelBiped {
     public boolean aimedBow;
 
     public Molded() {
-        this(0.0F);
+        this(0);
     }
 
     public Molded(float p_i1148_1_) {
-        this(p_i1148_1_, 0.0F, 256, 256);
+        this(p_i1148_1_, 0, 256, 256);
     }
 
     public Molded(float p_i1149_1_, float p_i1149_2_, int p_i1149_3_, int p_i1149_4_) {
         this.textureWidth = p_i1149_3_;
         this.textureHeight = p_i1149_4_;
 //        this.bipedCloak = new ModelRenderer(this, 0, 0);
-//        this.bipedCloak.addBox(-5.0F, 0.0F, -1, 10, 16, 1, p_i1149_1_);
+//        this.bipedCloak.addBox(-5, 0, -1, 10, 16, 1, p_i1149_1_);
 //        this.bipedEars = new ModelRenderer(this, 24, 0);
-//        this.bipedEars.addBox(-3.0F, -6.0F, -1, 6, 6, 1, p_i1149_1_);
+//        this.bipedEars.addBox(-3, -6, -1, 6, 6, 1, p_i1149_1_);
 
         rightarm1 = new ModelRenderer(this, 40, 16);
         rightarm1.addBox(-3F, 0F, -1.2F, 3, 5, 4);
@@ -1699,28 +1699,28 @@ public class Molded extends ModelBiped {
         setRotation(head60, 0.4461433F, 0F, 0F);
 
         this.bipedRightArm = new ModelRenderer(this, 40, 16);
-        this.bipedRightArm.addBox(-3.0F, -2.0F, -2.0F, 0, 0, 0, p_i1149_1_);
-        this.bipedRightArm.setRotationPoint(-5.0F, -1, 0.0F);
+        this.bipedRightArm.addBox(-3, -2, -2, 0, 0, 0, p_i1149_1_);
+        this.bipedRightArm.setRotationPoint(-5, -1, 0);
         this.bipedLeftArm = new ModelRenderer(this, 40, 16);
         this.bipedLeftArm.mirror = true;
-        this.bipedLeftArm.addBox(-1, -2.0F, -2.0F, 0, 0, 0, p_i1149_1_);
-        this.bipedLeftArm.setRotationPoint(5.0F, -1, 0.0F);
+        this.bipedLeftArm.addBox(-1, -2, -2, 0, 0, 0, p_i1149_1_);
+        this.bipedLeftArm.setRotationPoint(5, -1, 0);
         this.bipedRightLeg = new ModelRenderer(this, 0, 16);
-        this.bipedRightLeg.addBox(-2.0F, 0.0F, -2.0F, 0, 0, 0, p_i1149_1_);
-        this.bipedRightLeg.setRotationPoint(-2.0F, 8.0F, 0.0F);
+        this.bipedRightLeg.addBox(-2, 0, -2, 0, 0, 0, p_i1149_1_);
+        this.bipedRightLeg.setRotationPoint(-2, 8, 0);
         this.bipedLeftLeg = new ModelRenderer(this, 0, 16);
         this.bipedLeftLeg.mirror = true;
-        this.bipedLeftLeg.addBox(-2.0F, 0.0F, -2.0F, 0, 0, 0, p_i1149_1_);
-        this.bipedLeftLeg.setRotationPoint(2.0F, 8.0F, 0.0F);
+        this.bipedLeftLeg.addBox(-2, 0, -2, 0, 0, 0, p_i1149_1_);
+        this.bipedLeftLeg.setRotationPoint(2, 8, 0);
         this.bipedHead = new ModelRenderer(this, 0, 0);
-        this.bipedHead.addBox(-4.0F, -8.0F, -4.0F, 0, 0, 0, p_i1149_1_);
-        this.bipedHead.setRotationPoint(0.0F, -4.0F + p_i1149_2_, 0.0F);
+        this.bipedHead.addBox(-4, -8, -4, 0, 0, 0, p_i1149_1_);
+        this.bipedHead.setRotationPoint(0, -4 + p_i1149_2_, 0);
         this.bipedBody = new ModelRenderer(this, 16, 16);
-        this.bipedBody.addBox(-4.0F, 0.0F, -2.0F, 0, 0, 0, p_i1149_1_);
-        this.bipedBody.setRotationPoint(0.0F, -4.0F + p_i1149_2_, 0.0F);
+        this.bipedBody.addBox(-4, 0, -2, 0, 0, 0, p_i1149_1_);
+        this.bipedBody.setRotationPoint(0, -4 + p_i1149_2_, 0);
         this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-        this.bipedHeadwear.addBox(-4.0F, -8.0F, -4.0F, 0, 0, 0, p_i1149_1_ + 0.0F);
-        this.bipedHeadwear.setRotationPoint(0.0F, -4.0F + p_i1149_2_, 0.0F);
+        this.bipedHeadwear.addBox(-4, -8, -4, 0, 0, 0, p_i1149_1_ + 0);
+        this.bipedHeadwear.setRotationPoint(0, -4 + p_i1149_2_, 0);
 
         this.bipedRightArm.addChild(rightarm);
         this.bipedRightArm.addChild(rightarm1);
@@ -1969,12 +1969,12 @@ public class Molded extends ModelBiped {
         this.bipedHead.rotateAngleX = p_78087_5_ / (180F / (float) Math.PI);
         this.bipedRightArm.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.4662F + (float) Math.PI) * 1.5F * p_78087_2_ * 0.4F;
         this.bipedLeftArm.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.4662F) * 1.5F * p_78087_2_ * 0.4F;
-        this.bipedRightArm.rotateAngleZ = 0.0F;
-        this.bipedLeftArm.rotateAngleZ = 0.0F;
+        this.bipedRightArm.rotateAngleZ = 0;
+        this.bipedLeftArm.rotateAngleZ = 0;
         this.bipedRightLeg.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.4662F) * 1.4F * p_78087_2_ * 0.4f;
         this.bipedLeftLeg.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.4662F + (float) Math.PI) * 1.4F * p_78087_2_ * 0.4f;
-        this.bipedRightLeg.rotateAngleY = 0.0F;
-        this.bipedLeftLeg.rotateAngleY = 0.0F;
+        this.bipedRightLeg.rotateAngleY = 0;
+        this.bipedLeftLeg.rotateAngleY = 0;
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z) {

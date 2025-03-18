@@ -74,7 +74,7 @@ public class ExplosionSmokeFX extends Particle {
         this.motionY = motionY;
         this.motionZ = motionZ;
 
-        if (motionX == 0.0F) {
+        if (motionX == 0) {
             motionX = 1;
         }
 
@@ -83,7 +83,7 @@ public class ExplosionSmokeFX extends Particle {
         this.particleRed = 1;
         this.particleGreen = 1;
         this.particleBlue = 1;
-        this.particleAlpha = 0.0F;
+        this.particleAlpha = 0;
 //		this.particleScale *= scale;
         this.scale = scale;
         this.particleMaxAge = particleMaxAge == 0 ? 50 + (int) (rand.nextFloat() * 30) : particleMaxAge;

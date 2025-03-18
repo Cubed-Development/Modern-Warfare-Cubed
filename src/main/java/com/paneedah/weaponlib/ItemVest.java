@@ -296,7 +296,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraft
     public void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage, int slot) {
 
         //double absorb = damage * percentDamageBlocked;
-        //int itemDamage = (int)(absorb / 25.0 < 1 ? 1 : absorb / 25.0F);
+        //int itemDamage = (int)(absorb / 25.0 < 1 ? 1 : absorb / 25);
         //stack.damageItem(itemDamage, entity);
     }
 

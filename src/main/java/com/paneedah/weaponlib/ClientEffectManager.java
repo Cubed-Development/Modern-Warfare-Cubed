@@ -32,9 +32,9 @@ final class ClientEffectManager implements EffectManager {
         float scale = 5f * 1; // TODO: check why scale multiplier was set to 2.0 in 1.7.10
         float positionRandomizationFactor = 0.01f;
 
-        double posX = player.posX + (look.x * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.z * xOffset);
-        double posY = player.posY + (look.y * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor - yOffset;
-        double posZ = player.posZ + (look.z * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (look.x * xOffset);
+        double posX = player.posX + (look.x * distance) + (MC.world.rand.nextFloat() * 2 - 1) * positionRandomizationFactor + (-look.z * xOffset);
+        double posY = player.posY + (look.y * distance) + (MC.world.rand.nextFloat() * 2 - 1) * positionRandomizationFactor - yOffset;
+        double posZ = player.posZ + (look.z * distance) + (MC.world.rand.nextFloat() * 2 - 1) * positionRandomizationFactor + (look.x * xOffset);
 
 		/*
 		Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();
@@ -60,7 +60,7 @@ final class ClientEffectManager implements EffectManager {
         float distance = 1;
 
         //float scale = 0.8f * flashScale;
-        float positionRandomizationFactor = 0.0f;
+        float positionRandomizationFactor = 0;
 
         Vector3F look = VectorUtil.convertToVector3F(player.getLookVec());
 
@@ -69,16 +69,16 @@ final class ClientEffectManager implements EffectManager {
 		float motionY = (float)MC.world.rand.nextGaussian() * 0.003f;
 		float motionZ = (float)MC.world.rand.nextGaussian() * 0.003f;
 
-		motionX = 0.0f;
+		motionX = 0;
 		motionY = 0f;
 		motionZ = 0f;
 		
 		xOffset = -.05f;
 		*/
 
-        double posX = player.posX + (look.x * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.z * xOffset);
-        double posY = player.posY + (look.y * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor - yOffset;
-        double posZ = player.posZ + (look.z * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (look.x * xOffset);
+        double posX = player.posX + (look.x * distance) + (MC.world.rand.nextFloat() * 2 - 1) * positionRandomizationFactor + (-look.z * xOffset);
+        double posY = player.posY + (look.y * distance) + (MC.world.rand.nextFloat() * 2 - 1) * positionRandomizationFactor - yOffset;
+        double posZ = player.posZ + (look.z * distance) + (MC.world.rand.nextFloat() * 2 - 1) * positionRandomizationFactor + (look.x * xOffset);
 
         Vec3d thirdPersonPosition = new Vec3d(-0.13, 0, 2.0).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw)).add(player.getPositionVector()).add(0, 1.5, 0);
 
