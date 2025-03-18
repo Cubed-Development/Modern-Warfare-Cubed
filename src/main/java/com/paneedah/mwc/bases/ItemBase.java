@@ -1,14 +1,16 @@
 package com.paneedah.mwc.bases;
 
 import com.paneedah.mwc.MWC;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.item.Item;
 
 import java.util.Arrays;
 
 public class ItemBase extends Item {
 
-    int stackSize = 64;
-    String[] oreDictKeys;
+    @Setter int stackSize = 64;
+    @Getter String[] oreDictKeys;
 
     public ItemBase(String registryName) {
         setRegistryName(registryName);
@@ -17,10 +19,6 @@ public class ItemBase extends Item {
         setMaxStackSize(stackSize);
         // Might want to change that?
         setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
-    }
-
-    public void setStackSize(int stackSize) {
-        this.stackSize = stackSize;
     }
 
     /*
@@ -43,7 +41,4 @@ public class ItemBase extends Item {
         this.oreDictKeys = newArray;
     }
 
-    public String[] getOreDictKeys() {
-        return oreDictKeys;
-    }
 }

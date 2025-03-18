@@ -1,5 +1,7 @@
 package com.paneedah.mwc.asm;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,8 +52,8 @@ public class ClassInfo {
         }
     }
 
-    private final String notchClassName;
-    private final String mcpClassName;
+    @Getter private final String notchClassName;
+    @Getter private final String mcpClassName;
     private final Map<MethodSignature, String> notchMethodInfoMap = new HashMap<>();
     private final Map<MethodSignature, String> notchSignatureMap = new HashMap<>();
 
@@ -140,14 +142,6 @@ public class ClassInfo {
 
         String notchMethodName = notchMethodInfoMap.get(new MethodSignature(expectedMcpMethodName, expectedMcpMethodSignature));
         return methodName.equals(notchMethodName);
-    }
-
-    public String getNotchClassName() {
-        return notchClassName;
-    }
-
-    public String getMcpClassName() {
-        return mcpClassName;
     }
 
     public String getNotchMethodName(String mcpMethodName, String signature) {
