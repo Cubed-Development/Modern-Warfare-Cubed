@@ -9,7 +9,7 @@ import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.ICraftingRecipe;
 import com.paneedah.weaponlib.render.IHasModel;
-import com.paneedah.weaponlib.render.modelrepo.ServerGearModelHookRegistry;
+import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
@@ -174,7 +174,6 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraft
             ItemVest item = new ItemVest(modContext, percentDamageBlocked, durability);
 
             // Register model and texture for the item
-            ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
             item.modelFileString = this.modelFileString;
             item.textureName = this.properTextureName;
             item.setTranslationKey(ID + "_" + name);
@@ -235,16 +234,8 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraft
 
 
     public ModelBiped model;
-    public String modelFileString;
-    public String textureName;
-
-    public String getModelFileString() {
-        return this.modelFileString;
-    }
-
-    public String getTextureName() {
-        return this.textureName;
-    }
+    @Getter public String modelFileString;
+    @Getter public String textureName;
 
 
     public ItemVest(ModContext context, double percentDamageBlocked, int durability) {

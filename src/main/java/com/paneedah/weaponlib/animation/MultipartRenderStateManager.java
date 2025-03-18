@@ -319,7 +319,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
                     boolean revertFlag = (toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING);
 
-                    boolean cancelBeizer = (context instanceof RenderContext<?>) && ((RenderContext<?>) context).getCancelBeizer();
+                    boolean cancelBeizer = (context instanceof RenderContext<?>) && ((RenderContext<?>) context).isCancelBeizer();
 
                     if (!cancelBeizer && MC.gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
                             && ((toState == RenderableState.ZOOMING && fromState == RenderableState.NORMAL) ||

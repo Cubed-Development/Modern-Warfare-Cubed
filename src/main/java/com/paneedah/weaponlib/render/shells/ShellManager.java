@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.render.shells;
 
 import com.paneedah.weaponlib.compatibility.ShellRenderer;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -14,17 +15,13 @@ public class ShellManager {
 
     private final ShellParticleSimulator shellParticleSimulator = new ShellParticleSimulator();
 
-    private final ArrayList<Shell> shells = new ArrayList<Shell>();
-    private final LinkedBlockingQueue<Shell> shellQueue = new LinkedBlockingQueue<Shell>();
+    @Getter private final ArrayList<Shell> shells = new ArrayList<>();
+    private final LinkedBlockingQueue<Shell> shellQueue = new LinkedBlockingQueue<>();
 
     public void enqueueShell(Shell shell) {
 
         shellQueue.add(shell);
 
-    }
-
-    public ArrayList<Shell> getShells() {
-        return this.shells;
     }
 
     public void update(double dt) {

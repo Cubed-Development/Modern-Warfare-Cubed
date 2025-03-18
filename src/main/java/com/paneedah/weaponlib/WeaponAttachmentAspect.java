@@ -10,12 +10,14 @@ import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
 import com.paneedah.weaponlib.state.StateManager;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 
 import java.util.*;
@@ -31,33 +33,27 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
         boolean isCreative;
     }
 
+    @NoArgsConstructor
     public static class EnterAttachmentModePermit extends Permit<WeaponState> {
-
-        public EnterAttachmentModePermit() {
-        }
 
         public EnterAttachmentModePermit(WeaponState state) {
             super(state);
         }
     }
 
+    @NoArgsConstructor
     public static class ExitAttachmentModePermit extends Permit<WeaponState> {
-
-        public ExitAttachmentModePermit() {
-        }
 
         public ExitAttachmentModePermit(WeaponState state) {
             super(state);
         }
     }
 
+    @NoArgsConstructor
     public static class ChangeAttachmentPermit extends Permit<WeaponState> {
 
         AttachmentCategory attachmentCategory;
         ItemStack attachment;
-
-        public ChangeAttachmentPermit() {
-        }
 
         public ChangeAttachmentPermit(AttachmentCategory attachmentCategory) {
             super(WeaponState.NEXT_ATTACHMENT);
@@ -239,25 +235,13 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 
     public static class FlaggedAttachment {
 
-        private final ItemAttachment<Weapon> attachment;
-        private final ItemStack stack;
-        private ArrayList<ItemAttachment<Weapon>> requiredParts;
+        @Getter private final ItemAttachment<Weapon> attachment;
+        @Getter private final ItemStack itemStack;
+        @Getter @Setter private ArrayList<ItemAttachment<Weapon>> requiredParts;
 
         public FlaggedAttachment(ItemStack stack, ItemAttachment<Weapon> attachment) {
-            this.stack = stack;
+            this.itemStack = stack;
             this.attachment = attachment;
-        }
-
-        public void setRequiredParts(ArrayList<ItemAttachment<Weapon>> list) {
-            this.requiredParts = list;
-        }
-
-        public ItemStack getItemStack() {
-            return stack;
-        }
-
-        public ArrayList<ItemAttachment<Weapon>> getRequiredParts() {
-            return requiredParts;
         }
 
         public boolean requiresAnyParts() {
@@ -267,16 +251,11 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
             return !requiredParts.isEmpty();
         }
 
-        public ItemAttachment<Weapon> getAttachment() {
-            return attachment;
-        }
-
     }
 
     public ArrayList<FlaggedAttachment> getInventoryAttachments(AttachmentCategory category,
                                                                 PlayerWeaponInstance weaponInstance) {
         EntityPlayer player = (EntityPlayer) weaponInstance.getPlayer();
-        Weapon weapon = weaponInstance.getWeapon();
         // weapon.getCompatibleAttachments(categories)
 
         ArrayList<FlaggedAttachment> attachmentList = new ArrayList<>();

@@ -110,7 +110,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
         private String textureName;
 
-        private String iconName;
         private ArmorMaterial material;
         private String unlocalizedName;
         private ModelBiped bootsModel;

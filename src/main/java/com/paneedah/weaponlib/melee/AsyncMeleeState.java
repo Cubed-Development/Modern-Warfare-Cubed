@@ -1,5 +1,8 @@
 package com.paneedah.weaponlib.melee;
 
+import lombok.Getter;
+
+@Getter
 public class AsyncMeleeState {
 
     private final MeleeState state;
@@ -18,22 +21,6 @@ public class AsyncMeleeState {
         this.state = state;
         this.timestamp = timestamp;
         this.duration = duration;
-    }
-
-    public MeleeState getState() {
-        return state;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public long getDuration() {
-        return duration;
-    }
-
-    public boolean isInfinite() {
-        return isInfinite;
     }
 
 }

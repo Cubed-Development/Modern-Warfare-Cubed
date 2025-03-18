@@ -1,8 +1,9 @@
 package com.paneedah.weaponlib.render.shells;
 
-import com.paneedah.weaponlib.model.Bullet556;
 import dev.redstudio.redcore.math.vectors.Vector3D;
 import dev.redstudio.redcore.math.vectors.Vector3F;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -16,13 +17,8 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ShellParticleSimulator {
 
-    public static final double CHUNK_SIZE = 1.5;
 
     private static final int SHELL_LIFE = 1024;
-    private static final double RESTITUTION = 0.3;
-
-    public static Bullet556 bulletModel = new Bullet556();
-
 
     public static class Shell {
 
@@ -32,11 +28,11 @@ public class ShellParticleSimulator {
             PISTOL
         }
 
-        private boolean sleeping;
-        private Type type;
-        public int age = 0;
+        @Getter private boolean sleeping;
+        @Getter @Setter private Type type;
+        @Getter public int age = 0;
         public boolean onGround = false;
-        public boolean shouldDie = false;
+        @Setter public boolean shouldDie = false;
         public Vector3d pos = new Vector3d(0, 0, 0);
         public Vector3d prevPos = new Vector3d(0, 0, 0);
         public Vector3d velocity = new Vector3d(0, 0, 0);
@@ -45,7 +41,7 @@ public class ShellParticleSimulator {
         public Vector3d prevRot = new Vector3d(0, 0, 0);
         public Vector3d rot = new Vector3d(0, 0, 0);
 
-        private double height;
+        @Getter @Setter private double height;
 
 
         public Shell(Type type, Vector3D pos, Vector3F rot, Vector3F velocity) {
@@ -73,14 +69,6 @@ public class ShellParticleSimulator {
             this.prevRot = new Vector3d(Math.random() * 100, Math.random() * 100, Math.random() * 100);
         }
 
-        public Type getType() {
-            return this.type;
-        }
-
-        public boolean isSleeping() {
-            return this.sleeping;
-        }
-
         public void sleep() {
             this.sleeping = true;
         }
@@ -89,26 +77,9 @@ public class ShellParticleSimulator {
             this.sleeping = false;
         }
 
-        public void setType(Type type) {
-            this.type = type;
-        }
-
         public void ageShell() {
             this.age++;
         }
-
-        public int getAge() {
-            return this.age;
-        }
-
-        public void setHeight(double height) {
-            this.height = height;
-        }
-
-        public double getHeight() {
-            return this.height;
-        }
-
 
         public boolean shouldDie() {
             return this.shouldDie;
@@ -116,10 +87,6 @@ public class ShellParticleSimulator {
 
         public void kill() {
             setShouldDie(true);
-        }
-
-        public void setShouldDie(boolean state) {
-            this.shouldDie = state;
         }
 
     }
@@ -131,7 +98,7 @@ public class ShellParticleSimulator {
 
 
         // Removes old shells that were marked for death
-        shells.removeIf((s) -> s.shouldDie());
+        shells.removeIf(Shell::shouldDie);
 
 
         //dt = 1;
@@ -140,10 +107,7 @@ public class ShellParticleSimulator {
         // modification errors
 
         //System.out.println(shells.size());
-        for (int i = 0; i < shells.size(); ++i) {
-
-
-            Shell sh = shells.get(i);
+        for (Shell sh : shells) {
 
 
             if (sh.getAge() > SHELL_LIFE) {
@@ -183,9 +147,6 @@ public class ShellParticleSimulator {
             boolean bounceY = false;
             boolean bounceHorizontal = false;
 
-            Vec3d next = new Vec3d(sh.pos.x + (sh.pos.x - sh.prevPos.x) * 0.5,
-                    sh.pos.y + (sh.pos.y - sh.prevPos.y) * 0.5,
-                    sh.pos.z + (sh.pos.z - sh.prevPos.z) * 0.5);
 			
 			/*
 			RayTraceResult rtr = MC.world.rayTraceBlocks(new Vec3d(sh.pos.x, sh.pos.y+0.1, sh.pos.z),
@@ -259,8 +220,6 @@ public class ShellParticleSimulator {
 
             List<AxisAlignedBB> list = MC.world.getCollisionBoxes(null, box);
 
-            Vec3d separationVector = Vec3d.ZERO;
-            double penetrationDepth = Double.MIN_VALUE;
             double zOffset = sh.pos.z;
             double xOffset = sh.pos.x;
             for (AxisAlignedBB b : list) {
@@ -296,8 +255,6 @@ public class ShellParticleSimulator {
                     double verticalVelocity = sh.pos.y - sh.prevPos.y;
                     if (Math.abs(verticalVelocity) < 2) {
 
-                        double in = 0.1;
-						
 						/*
 						if(Math.abs(90-sh.rot.x) > Math.abs(-90-sh.rot.x)) {
 							sh.rot.x = sh.rot.x + (90-sh.rot.x)*in;
@@ -338,9 +295,5 @@ public class ShellParticleSimulator {
 
 
         }
-
-
     }
-
-
 }

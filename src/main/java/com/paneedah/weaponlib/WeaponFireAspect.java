@@ -81,11 +81,9 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
     private static final Predicate<PlayerWeaponInstance> ejectSpentRoundTimeoutExpired = instance -> {
 
-        boolean time = System.currentTimeMillis() >= instance.getWeapon().builder.pumpTimeoutMilliseconds + instance.getStateUpdateTimestamp();
-
         // HERE
 
-        return time;
+        return System.currentTimeMillis() >= instance.getWeapon().builder.pumpTimeoutMilliseconds + instance.getStateUpdateTimestamp();
 
     };
 
@@ -480,7 +478,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
 
 
-        SoundEvent shootSound = null;
+        SoundEvent shootSound;
 
         boolean silencerOn = playerWeaponInstance != null && modContext.getAttachmentAspect().isSilencerOn(playerWeaponInstance);
         if (isBurst && weapon.builder.isOneClickBurstAllowed) {

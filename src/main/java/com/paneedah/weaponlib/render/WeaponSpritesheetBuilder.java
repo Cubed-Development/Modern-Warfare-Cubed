@@ -32,7 +32,6 @@ public class WeaponSpritesheetBuilder {
 
     public static boolean hasSpriteID(Object obj) {
 
-
         return weaponSprites.containsKey(obj);
     }
 

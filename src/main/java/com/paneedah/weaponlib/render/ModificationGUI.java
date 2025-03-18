@@ -8,6 +8,8 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.jim.util.LangTools;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +35,7 @@ public class ModificationGUI {
     // ! TODO: The difference between attachements, modifications, and skins (customizations) are not really a thing right now and it creates a real mess, create a real separation - Luna Lage (Desoroxxx) 2024-05-23
 
     // Static variables
-    public static ModificationGUI instance = new ModificationGUI();
+    @Getter public static ModificationGUI instance = new ModificationGUI();
 
     // Tabs are constant b/w weapons
     private static final ArrayList<ModificationTab> tabList = new ArrayList<>();
@@ -54,13 +56,8 @@ public class ModificationGUI {
 
     private static final int SHEET_SIZE = 768;
 
-
-
-
-    private static final int[][] DEFAULT_POSITION = new int[][]{{-50, 50}, {120, 75}, {150, 0}, {100, -50},
-            {145, 0}, {120, 50}, {-50, 50}, {0, -50}, {-100, -50}, {50, 100}, {50, 100}};
-
     // Attachments tabs
+    // TODO: Use I18n for tabs
     private static final ModificationTab SCOPE_TAB = new ModificationTab(0, "Sight", AttachmentCategory.SCOPE, -50, 50,
             ModificationGroup.ATTACHMENT);
     private static final ModificationTab BARREL_TAB = new ModificationTab(1, "Muzzle", AttachmentCategory.SILENCER, 120, 75, ModificationGroup.ATTACHMENT);
@@ -172,14 +169,6 @@ public class ModificationGUI {
 
 
     /**
-     * Returns instance of the {@link ModificationGUI}
-     */
-    public static ModificationGUI getInstance() {
-        return instance;
-    }
-
-
-    /**
      * Modification group enumerable, serves
      * to provide easy string formatting capabilities
      */
@@ -237,16 +226,8 @@ public class ModificationGUI {
      */
     public static class TooltipBuilder {
         private final StringBuilder sb = new StringBuilder();
-        private int color;
 
-        /**
-         * Sets tooltip builder's color
-         *
-         * @param color The color code
-         */
-        public void setColor(int color) {
-            this.color = color;
-        }
+        @Getter @Setter private int color;
 
         /**
          * Adds a line with a bullet point in front of it
@@ -264,15 +245,6 @@ public class ModificationGUI {
          */
         public void addLine(String line) {
             sb.append(line + "\n");
-        }
-
-        /**
-         * Returns color as hexadecimal integer
-         *
-         * @return Hex color
-         */
-        public int getColor() {
-            return this.color;
         }
 
         /**
@@ -881,7 +853,7 @@ public class ModificationGUI {
         }
 
         //
-        if (inventory.size() > 0) {
+        if (!inventory.isEmpty()) {
             MORE_ITEMS_ALERT_ELEMENT.render();
         }
 

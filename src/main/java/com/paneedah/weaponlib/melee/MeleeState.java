@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.melee;
 
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 
 public enum MeleeState implements ManagedState<MeleeState> {
 
@@ -36,7 +36,7 @@ public enum MeleeState implements ManagedState<MeleeState> {
 
     private final boolean isTransient;
 
-    private int priority = DEFAULT_PRIORITY;
+    @Getter private final int priority;
 
     MeleeState() {
         this(null, null, null, true);
@@ -87,10 +87,6 @@ public enum MeleeState implements ManagedState<MeleeState> {
     @Override
     public MeleeState commitPhase() {
         return commitPhase;
-    }
-
-    public int getPriority() {
-        return priority;
     }
 
     @Override

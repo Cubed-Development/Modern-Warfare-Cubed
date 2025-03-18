@@ -22,8 +22,6 @@ import org.lwjgl.opengl.GL11;
 import java.util.*;
 import java.util.Map.Entry;
 
-import static com.paneedah.mwc.ProjectConstants.LOGGER;
-
 public class AnimationData {
 
     @Getter @Setter private TreeMap<Float, BlockbenchTransition> bbTransition = new TreeMap<>();
@@ -458,12 +456,13 @@ public class AnimationData {
 
     }
 
+    @Getter @Setter
     public static class BlockbenchTransition {
 
-        @Getter @Setter private float timestamp;
-        @Getter @Setter private Vec3d rotation;
-        @Getter @Setter private Vec3d translation;
-        @Getter @Setter private SoundEvent soundEvent;
+        private float timestamp;
+        private Vec3d rotation;
+        private Vec3d translation;
+        private SoundEvent soundEvent;
 
         public BlockbenchTransition(float timestamp, Vec3d rotation, Vec3d translation) {
             this.timestamp = timestamp;
