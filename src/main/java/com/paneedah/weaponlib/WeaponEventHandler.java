@@ -31,7 +31,7 @@ public class WeaponEventHandler {
         this.modContext = modContext;
     }
 
-    @SubscribeEvent(priority = EventPriority.LOW)
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public void zoom(FOVUpdateEvent event) {
         /*
          * TODO: if optical zoom is on then
