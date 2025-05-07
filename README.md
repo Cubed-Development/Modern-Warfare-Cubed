@@ -21,7 +21,7 @@ These weapons are modeled after real-life firearms and come complete with authen
 
 Our weaponry is heavily customizable with a highly advanced attachment system made up of 3 main parts; **Customization**, **Modification** and **Attachments**.
 
-Each weapon has its own unique shaderAttributes, such as rate of fire, accuracy, and damage.
+Each weapon has its own unique attributes, such as rate of fire, accuracy, and damage.
 Some weapons have specialized attachments that can be added, like scopes, suppressors, and more, to further enhance their performance.
 
 Here's a sneak-peak into what it looks like in-game!

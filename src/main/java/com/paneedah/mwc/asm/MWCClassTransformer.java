@@ -104,8 +104,8 @@ public class MWCClassTransformer implements IClassTransformer {
 
 
         	mv.visitMethodInsn(Opcodes.INVOKESTATIC,
-        			ReticleType.getInternalName(MWCClassTransformer.class), other.getName(),
-        			ReticleType.getMethodDescriptor(other), false);
+        			Type.getInternalName(MWCClassTransformer.class), other.getName(),
+        			Type.getMethodDescriptor(other), false);
         			*/
 
         }
@@ -211,12 +211,12 @@ public class MWCClassTransformer implements IClassTransformer {
 						e.printStackTrace();
 					}
 
-    				System.out.println("Payload intl. name: " + ReticleType.getInternalName(getClass()));
-    				System.out.println("Payload method descriptor: " + ReticleType.getMethodDescriptor(other));
+    				System.out.println("Payload intl. name: " + Type.getInternalName(getClass()));
+    				System.out.println("Payload method descriptor: " + Type.getMethodDescriptor(other));
 
     				payload.add(new MethodInsnNode(Opcodes.INVOKESTATIC,
-    						ReticleType.getInternalName(getClass()), other.getName(),
-    						ReticleType.getMethodDescriptor(other), false));
+    						Type.getInternalName(getClass()), other.getName(),
+    						Type.getMethodDescriptor(other), false));
     				//payload.add(new VarInsnNode(Opcodes.ASTORE, 1));
 
 
