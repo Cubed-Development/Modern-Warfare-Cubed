@@ -201,7 +201,7 @@ public class CommonModContext implements ModContext {
 //        compatibility.registerModEntity(EntityCustomMob.class, "CustomMob" + modEntityID, modEntityID++, mod, 64, 3, true);
 //
 //        EntityRegistry.addSpawn(EntityCustomMob.class, 1, 1, 3, EnumCreatureType.MONSTER, 
-//                BiomeDictionary.getBiomesForType(Type.PLAINS));
+//                BiomeDictionary.getBiomesForType(ReticleType.PLAINS));
 
 //        Instance inventoryChangeTriggerInstance = new InventoryChangeTrigger.Instance(
 //                MinMaxBounds.UNBOUNDED, 

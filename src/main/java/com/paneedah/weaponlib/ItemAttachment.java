@@ -187,7 +187,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRec
 
         // Info
         if (category != null) {
-            tooltipLines.add(green + "Type: " + grey + category);
+            tooltipLines.add(green + "ReticleType: " + grey + category);
         }
 
         // Compatible weapons and attachments

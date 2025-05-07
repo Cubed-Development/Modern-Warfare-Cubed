@@ -31,7 +31,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
      *   -> { enabled, posX, posY, posZ, type }
      *        [0]      [1]   [2]   [3]   [4]
      *
-     *  Type = 1 if rain; type = 0 if snow.
+     *  ReticleType = 1 if rain; type = 0 if snow.
      *
      */
     private final float[][] rainPositions = new float[(2 * RAIN_SEARCH_AREA) * (2 * RAIN_SEARCH_AREA)][5];

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.jim.util;
 
+import com.paneedah.mwc.utils.VectorUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.RayTraceResult;
@@ -26,10 +27,6 @@ public class HitUtil {
 
     }
 
-    public static Vec3d rotateVector(Vec3d toRot, Vec3d toOrigin, float pitch, float yaw) {
-        return toRot.subtract(toOrigin).rotatePitch(pitch).rotateYaw(yaw).add(toOrigin);
-    }
-
     public static EnumFacing getDirectionHitMelee(Entity player, Entity hurt) {
         Vec3d startVec = player.getPositionEyes(1.0F);
         Vec3d endVec = startVec.add(player.getLookVec().scale(5));
@@ -38,10 +35,9 @@ public class HitUtil {
         float pitch = (float) Math.toRadians(hurt.rotationPitch);
         float yaw = (float) Math.toRadians(hurt.rotationYaw + 180);
 
-        startVec = rotateVector(startVec, hurt.getPositionVector(), pitch, yaw);
-        endVec = rotateVector(endVec, hurt.getPositionVector(), pitch, yaw);
+        startVec = VectorUtil.rotateVec3d(startVec, hurt.getPositionVector(), pitch, yaw);
+        endVec = VectorUtil.rotateVec3d(endVec, hurt.getPositionVector(), pitch, yaw);
 
-        Vec3d zpV = hurt.getPositionVector().add(0, hurt.getEyeHeight(), 0);
         RayTraceResult result = hurt.getEntityBoundingBox().calculateIntercept(startVec, endVec);
         if (result != null) {
             return result.sideHit;

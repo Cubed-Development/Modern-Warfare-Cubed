@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ParticleFancyRain;
 import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.DepthTexture;
-import com.paneedah.weaponlib.render.HDRFramebuffer;
+import com.paneedah.weaponlib.render.framebuffer.HDRFramebuffer;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.bgl.weather.ModernWeatherRenderer;
 import net.minecraft.client.gui.ScaledResolution;

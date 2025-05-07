@@ -6,6 +6,7 @@ import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.skins.CustomSkin;
+import com.paneedah.mwc.utils.SpriteSheetTools;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
@@ -19,7 +20,8 @@ import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.*;
-import com.paneedah.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.render.wavefront.WavefrontModel;
+import com.paneedah.weaponlib.shader.Shader;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import lombok.Getter;
 import lombok.Setter;
@@ -3739,7 +3741,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
                 inventoryTextureInitializationPhaseOn = true;
                 framebuffer = new Framebuffer(INVENTORY_TEXTURE_WIDTH, INVENTORY_TEXTURE_HEIGHT, true);
-                //framebuffer = new MultisampledFBO(INVENTORY_TEXTURE_WIDTH, INVENTORY_TEXTURE_HEIGHT, true);
+                //framebuffer = new MultisampledFramebuffer(INVENTORY_TEXTURE_WIDTH, INVENTORY_TEXTURE_HEIGHT, true);
 
 
                 framebuffer.bindFramebuffer(true);

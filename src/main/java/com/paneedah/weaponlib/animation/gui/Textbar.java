@@ -9,6 +9,7 @@ import org.lwjgl.opengl.GL11;
 import java.awt.*;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.SHUTTLE_GREY;
 
 public class Textbar {
 
@@ -69,7 +70,7 @@ public class Textbar {
     }
 
     public void renderBoxFlag(String str, int x, int y, int w, int h, Color flagCol) {
-        AnimationGUI.renderRect(new Color(0x576574), x, y, w, h);
+        AnimationGUI.renderRect(new Color(SHUTTLE_GREY), x, y, w, h);
 
 
         float r = (float) flagCol.getRed() / 255f;

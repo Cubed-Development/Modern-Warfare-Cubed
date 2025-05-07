@@ -1,8 +1,10 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.utils.ImageCaptureUtil;
+import com.paneedah.mwc.utils.SpriteSheetTools;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.render.SpriteSheetTools.Sprite;
+import com.paneedah.mwc.utils.SpriteSheetTools.Sprite;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;

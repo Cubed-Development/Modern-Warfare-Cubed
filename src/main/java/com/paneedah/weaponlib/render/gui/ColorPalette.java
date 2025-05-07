@@ -59,6 +59,7 @@ public class ColorPalette {
 
     //MWC Pallet
     public static final int GRAY = 0x7B7B7B;
+    public static final int SHUTTLE_GREY = 0x576574;
     public static final int RED = 0xA95E5F;
     public static final int GOLD = 0xFDF17C;
     public static final int BLUE = 0x8FC5E3;

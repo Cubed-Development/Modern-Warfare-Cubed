@@ -1158,7 +1158,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         // Info
         tooltipLines.add(green + "Weapon System Version: " + grey + (builder.newSys ? "2" : red + "1"));
-        tooltipLines.add(green + "Type: " + grey + builder.gunType);
+        tooltipLines.add(green + "ReticleType: " + grey + builder.gunType);
 
         // Stats
         tooltipLines.add(green + "Base Damage: " + grey + DecimalUtils.truncateDecimalPlaces(BalancePackManager.getNetGunDamage(this), 2));
