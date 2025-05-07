@@ -167,7 +167,7 @@ public class ModificationGUI {
 
 
     // Radar chart
-    public RadarChart radarChart = new RadarChart("3", 0x1abc9c, 0.5f, 50, 5)
+    public RadarChart radarChart = new RadarChart("Weapon Stats", TURQUOISE, 0.5f, 50, 5)
             .withTitles(new String[]{"Damage", "Recoil", "Inaccuracy", "Firerate", "Velocity"});
 
 
@@ -565,9 +565,8 @@ public class ModificationGUI {
         GlStateManager.scale(SIDEBAR_SCALE, SIDEBAR_SCALE, SIDEBAR_SCALE);
         GlStateManager.disableTexture2D();
         GlStateManager.enableBlend();
+
         // Draws background rectangles
-
-
         GUIRenderHelper.drawColoredRectangle(20, 20, 115, 175, SIDEBAR_ALPHA, BLACK);
         GUIRenderHelper.drawColoredRectangle(140.5, 20, 7.5, 175, SIDEBAR_ALPHA, BLACK);
         GUIRenderHelper.drawColoredRectangle(20, 200, 128, 125, SIDEBAR_ALPHA, BLACK);
@@ -577,11 +576,11 @@ public class ModificationGUI {
         float inaccuracy = weaponInstance.getWeapon().getInaccuracy() / 10f;
         float damage = weaponInstance.getWeapon().getSpawnEntityDamage() / 20;
         float recoil = weaponInstance.getRecoil() / 10f;
-
+        float velocity = weaponInstance.getWeapon().getSpawnEntityVelocity() / 200f;
         damage = Math.min(damage, 1.0f);
 
         // Update chart
-        radarChart.uploadSet(new float[]{damage, recoil, inaccuracy, firerate, 0.14f});
+        radarChart.updateSet(new float[]{damage, recoil, inaccuracy, firerate, velocity});
 
 
         // Render radar chart on screen
