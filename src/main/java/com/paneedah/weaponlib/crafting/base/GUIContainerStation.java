@@ -30,6 +30,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.oredict.OreDictionary;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
+import org.lwjgl.util.glu.Project;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -202,31 +203,24 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
         }
 
         hasRequiredItems = true;
-        for (CraftingEntry is : modernRecipe) {
-            if (is.isOreDictionary()) {
-                final NonNullList<ItemStack> list = OreDictionary.getOres(is.getOreDictionaryEntry());
-                boolean foundSomething = false;
-                for (ItemStack toTest : list) {
-                    if (counter.containsKey(toTest) && toTest.getCount() <= counter.get(toTest)) {
-                        foundSomething = true;
-                        hasAvailableMaterials.put(is.getIngredient(), true);
-                        break;
-                    } else {
-                        hasRequiredItems = false;
+        for (CraftingEntry ingredient : modernRecipe) {
+            if (ingredient.isOreDictionary()) {
+                final NonNullList<ItemStack> list = OreDictionary.getOres(ingredient.getOreDictionaryEntry());
+                int finalCount = 0;
+                for (ItemStack itemStack : counter.keySet()) {
+                    for (ItemStack oreEntry : list) {
+                        if (OreDictionary.itemMatches(oreEntry, itemStack, false)) {
+                            finalCount += counter.get(itemStack);
+                            break;
+                        }
                     }
                 }
 
-                if (!foundSomething || notEnoughIngredients(is, counter)) {
-                    hasRequiredItems = false;
-                    hasAvailableMaterials.put(is.getIngredient(), false);
-                }
+                hasRequiredItems = ingredient.getCount() <= finalCount;
+                hasAvailableMaterials.put(ingredient.getIngredient(), ingredient.getCount() <= finalCount);
             } else {
-                if (notEnoughIngredients(is, counter)) {
-                    hasRequiredItems = false;
-                    hasAvailableMaterials.put(is.getIngredient(), false);
-                } else {
-                    hasAvailableMaterials.put(is.getIngredient(), true);
-                }
+                hasRequiredItems = EnoughIngredients(ingredient, counter);
+                hasAvailableMaterials.put(ingredient.getIngredient(), EnoughIngredients(ingredient, counter));
             }
         }
 
@@ -237,13 +231,13 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
         }
     }
 
-    public static boolean notEnoughIngredients(CraftingEntry ingredient, HashMap<ItemStack, Integer> counter) {
+    public static boolean EnoughIngredients(CraftingEntry ingredient, HashMap<ItemStack, Integer> counter) {
         int finalcount = 0;
         for (ItemStack stack : counter.keySet())
             if (ingredient.getIngredient().test(stack)) {
                 finalcount += counter.get(stack);
             }
-        return ingredient.getCount() > finalcount;
+        return ingredient.getCount() <= finalcount;
     }
 
     public void setPageRange(int min, int max) {
