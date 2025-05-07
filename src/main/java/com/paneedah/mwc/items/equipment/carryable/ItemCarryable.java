@@ -63,7 +63,7 @@ public class ItemCarryable extends Item implements ICraftingRecipe {
          * This Predicate can be tailored based on item type or specific items, enabling fine-grained control over what can be carried.
          *
          * <p>
-         * <b>ReticleType-based Filtering:</b> Can be used to filter items based on their types.
+         * <b>Type-based Filtering:</b> Can be used to filter items based on their types.
          *
          * <ul>
          * <li> Allow a specific type: {@code item -> item instanceof SpecificType}
