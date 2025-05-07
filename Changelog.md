@@ -96,6 +96,9 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - SMG -> SUBMACHINE_GUN, RIFLES -> RIFLE, SIDEARM / REVOLVER -> HANDGUN 
 - Improved and cleaned up Blood particles (Now supports arbitrary sizes like 64x64)
 - Soldiers now are neutral to the player until they are attacked  
+- Improved the Modification GUI's Radar Chart
+  - Properly display's the velocity of a gun
+  - Renamed variables and methods for better understanding.
 
 ### Fixed
 
