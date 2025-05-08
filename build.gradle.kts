@@ -157,7 +157,7 @@ tasks {
         options.encoding = "UTF-8"
 
         options.isFork = true
-        options.forkOptions.jvmArgs = listOf("-Xmx4G", "-XX:+UseStringDeduplication", "-XX:+UseZGC")
+        options.forkOptions.jvmArgs = listOf("-Xmx4G", "-XX:+UseStringDeduplication")
     }
 }
 
