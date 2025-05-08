@@ -4,6 +4,7 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
 import com.paneedah.mwc.utils.LangUtil;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
+import com.paneedah.mwc.utils.QuickResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -12,7 +13,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
-import static com.paneedah.mwc.ProjectConstants.ID;
 
 /**
  * @author Luna Lage (Desoroxxx)
@@ -31,7 +31,7 @@ public class ItemBelt extends ItemCarryable {
         public ItemBelt build() {
             validateInput();
 
-            ResourceLocation guiTexture = new ResourceLocation(ID, "textures/gui/inventory/carryable/" + size + "slots.png");
+            ResourceLocation guiTexture = QuickResourceLocation.quickLoc("gui/inventory/carryable", size + "slots");
 
             ItemBelt itemBelt = new ItemBelt(size, validItemPredicate, guiTexture, this.guiTextureWidth, modelName, textureName);
 

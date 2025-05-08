@@ -1,7 +1,9 @@
 package com.paneedah.weaponlib.render;
 
-import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderLoader;
+import com.paneedah.weaponlib.render.vao.VAOData;
+import com.paneedah.weaponlib.render.vao.VAOLoader;
+import com.paneedah.weaponlib.shader.Shader;
+import com.paneedah.weaponlib.shader.ShaderLoader;
 import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;

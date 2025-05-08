@@ -10,7 +10,7 @@ import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.mwc.instancing.PlayerTabletInstance;
 import com.paneedah.weaponlib.inventory.GuiHandler;
-import com.paneedah.weaponlib.render.ModificationGUI;
+import com.paneedah.weaponlib.render.gui.ModificationGUI;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;

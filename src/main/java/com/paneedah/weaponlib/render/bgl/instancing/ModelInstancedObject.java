@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.render.bgl.instancing;
 
-import com.paneedah.weaponlib.render.VAOData;
-import com.paneedah.weaponlib.render.WavefrontModel;
+import com.paneedah.weaponlib.render.vao.VAOData;
+import com.paneedah.weaponlib.render.wavefront.WavefrontModel;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
-import com.paneedah.weaponlib.shader.jim.Attribute;
-import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderLoader;
+import com.paneedah.weaponlib.shader.ShaderAttribute;
+import com.paneedah.weaponlib.shader.Shader;
+import com.paneedah.weaponlib.shader.ShaderLoader;
 import org.lwjgl.opengl.GL11;
 
 public class ModelInstancedObject<K> extends BasicInstancedObject<K> {
@@ -50,12 +50,12 @@ public class ModelInstancedObject<K> extends BasicInstancedObject<K> {
 
 
         int pointer = 0;
-        Attribute[] array = new Attribute[3 + getAttribs().length];
-        array[pointer++] = new Attribute("aPos", 0);
-        array[pointer++] = new Attribute("aNormal", 1);
-        array[pointer++] = new Attribute("aTexCoord", 2);
+        ShaderAttribute[] array = new ShaderAttribute[3 + getAttribs().length];
+        array[pointer++] = new ShaderAttribute("aPos", 0);
+        array[pointer++] = new ShaderAttribute("aNormal", 1);
+        array[pointer++] = new ShaderAttribute("aTexCoord", 2);
         for (InstancedAttribute ia : getAttribs()) {
-            array[pointer++] = new Attribute(ia.getAttributeName(), ia.getAttributeID());
+            array[pointer++] = new ShaderAttribute(ia.getAttributeName(), ia.getAttributeID());
         }
 
 

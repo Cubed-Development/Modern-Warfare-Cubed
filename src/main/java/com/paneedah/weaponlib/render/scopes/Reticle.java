@@ -1,55 +1,43 @@
 package com.paneedah.weaponlib.render.scopes;
 
+import com.paneedah.mwc.utils.VectorUtil;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
-import java.awt.*;
-
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.SHUTTLE_GREY;
 
+@Getter @Setter
 public class Reticle {
 
-    private static final int DEFAULT_TINT = 0x576574;
 
-    @Getter @Setter private ResourceLocation reticleTexture;
-    private Type reticleType;
+    private ResourceLocation reticleTexture;
+    private ReticleType reticleType;
 
-    @Getter @Setter private float textureScale;
-    @Getter @Setter private Vec3d backgroundColor;
+    private float textureScale;
+    private Vec3d backgroundColor;
 
-    public enum Type {
+    public enum ReticleType {
         HOLOGRAPHIC,
         SNIPER
     }
 
     public Reticle(String textureName) {
-        this(textureName, 1f, DEFAULT_TINT);
-        this.reticleType = Type.SNIPER;
+        this(textureName, 1f, SHUTTLE_GREY);
+        this.reticleType = ReticleType.SNIPER;
     }
 
-    public Reticle(String textureName, float textureScale, int background) {
-        this.reticleType = Type.HOLOGRAPHIC;
+    public Reticle(String textureName, float textureScale, int backgroundColor) {
+        this.reticleType = ReticleType.HOLOGRAPHIC;
         this.reticleTexture = new ResourceLocation(ID + ":textures/crosshairs/" + textureName + ".png");
         this.textureScale = textureScale;
-        this.backgroundColor = extractColorFromHex(background);
+        this.backgroundColor = VectorUtil.extractColorVec3d(backgroundColor);
     }
 
     public Reticle(String textureName, float textureScale) {
-        this(textureName, textureScale, DEFAULT_TINT);
-        this.reticleType = Type.HOLOGRAPHIC;
+        this(textureName, textureScale, SHUTTLE_GREY);
+        this.reticleType = ReticleType.HOLOGRAPHIC;
     }
-
-    private static Vec3d extractColorFromHex(int color) {
-        Color col = new Color(color);
-        return new Vec3d(col.getRed() / 255f, col.getBlue() / 255f, col.getGreen() / 255f);
-    }
-
-
-    public static int getDefaultTint() {
-        return DEFAULT_TINT;
-    }
-
-
 }

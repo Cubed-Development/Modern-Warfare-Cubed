@@ -1,5 +1,6 @@
 package com.paneedah.mwc.skins;
 
+import com.paneedah.mwc.utils.QuickResourceLocation;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.util.ResourceLocation;
 
@@ -16,7 +17,7 @@ public class CustomSkin {
 
     public CustomSkin(final String name, final File file) {
         try {
-            resourceLocation = new ResourceLocation(ID, "customskin_" + name.toLowerCase());
+            resourceLocation = QuickResourceLocation.quickLoc("skins", "customskin_" + name.toLowerCase());
             MC.getTextureManager().loadTexture(resourceLocation, new DynamicTexture(ImageIO.read(file)));
             MC.getTextureManager().bindTexture(resourceLocation);
         } catch (Exception e) {

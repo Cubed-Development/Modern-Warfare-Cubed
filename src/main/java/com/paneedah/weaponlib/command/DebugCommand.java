@@ -6,7 +6,7 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
-import com.paneedah.weaponlib.render.ModificationGUI;
+import com.paneedah.weaponlib.render.gui.ModificationGUI;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.vehicle.VehiclePart;
 import lombok.Getter;

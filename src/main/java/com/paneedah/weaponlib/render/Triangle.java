@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render;
 
+import lombok.AllArgsConstructor;
 import net.minecraft.util.math.Vec3d;
 
 public class Triangle {
@@ -18,7 +19,7 @@ public class Triangle {
         this.p3 = new TexVertex(p3, texCoords[4], texCoords[5]);
     }
 
-
+    @AllArgsConstructor
     public static class TexVertex {
         public Vec3d pos;
         public float texX, texY;
@@ -29,12 +30,5 @@ public class Triangle {
             texY = 0;
 
         }
-
-        public TexVertex(Vec3d pos, float x, float y) {
-            this.pos = pos;
-            texX = x;
-            texY = y;
-        }
     }
-
 }

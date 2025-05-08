@@ -1,10 +1,12 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.utils.QuickResourceLocation;
+import com.paneedah.mwc.utils.SpriteSheetTools;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.render.SpriteSheetTools.Sprite;
+import com.paneedah.mwc.utils.SpriteSheetTools.Sprite;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -20,7 +22,7 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class MuzzleFlashRenderer {
 
-    public static ResourceLocation FLASH_SHEET = new ResourceLocation(ID + ":textures/flashes/sheet.png");
+    public static final ResourceLocation FLASH_SHEET = QuickResourceLocation.quickLoc("flashes", "sheet");
 
     private static boolean assignedParameters = false;
 

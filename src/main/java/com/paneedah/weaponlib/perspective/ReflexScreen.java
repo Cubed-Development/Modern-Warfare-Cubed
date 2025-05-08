@@ -12,7 +12,7 @@ import com.paneedah.weaponlib.model.ScreenModel;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.scopes.CyclicList;
 import com.paneedah.weaponlib.render.scopes.Reticle;
-import com.paneedah.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.shader.Shader;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
