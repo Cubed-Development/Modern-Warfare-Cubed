@@ -9,7 +9,11 @@ import org.lwjgl.opengl.GL11;
 import java.util.LinkedList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.WHITE;
 
+/**
+ * Radar Chart UI for visualising gun stats
+ */
 public class RadarChart {
 
     private static final double TRANSITION_TIME = 200;
@@ -34,13 +38,14 @@ public class RadarChart {
 
     private long lastStateStamp = System.nanoTime();
     private final LinkedList<float[]> states = new LinkedList<>();
-    private double mu = 1.0;
+    private double transitionProgress = 1.0;
 
     public RadarChart(String name, int chartColor, float chartAlpha, float radius, int sides) {
         this.name = name;
 
         float r = (float) (((chartColor & 0xFF0000) >> 16) / 255.0);
-        float g = (float) (((chartColor & 0xFF00) >> 8) / 255.0);
+        float g = (float) (((chartColor & 0xFF00)
+                >> 8) / 255.0);
         float b = (float) ((chartColor & 0xFF) / 255.0);
 
         color = new float[]{r, g, b, chartAlpha};
@@ -51,12 +56,18 @@ public class RadarChart {
         rotation = increment * (1.0 / 4.0);
     }
 
+    /**
+     * Sets the names for the Radar chart
+     */
     public RadarChart withTitles(String[] list) {
         this.titleList = list;
         return this;
     }
 
-    public void uploadSet(float[] set) {
+    /**
+     * Updates the radar chart's stats. Data positions correlate with the names set in {@link RadarChart#withTitles}
+     */
+    public void updateSet(float[] set) {
         if (states.size() == 1) {
             lastStateStamp = System.currentTimeMillis();
         }
@@ -64,13 +75,11 @@ public class RadarChart {
             states.removeLast();
         }
 
-        //states.clear();
-        //System.out.println(states.size());
         states.add(set);
     }
 
     public void randomizeData() {
-        uploadSet(new float[]{(float) Math.random(), (float) Math.random(), (float) Math.random(), (float) Math.random(), (float) Math.random()});
+        updateSet(new float[]{(float) Math.random(), (float) Math.random(), (float) Math.random(), (float) Math.random(), (float) Math.random()});
     }
 
 
@@ -90,7 +99,7 @@ public class RadarChart {
             float current = states.get(1)[index];
             float previous = states.peek()[index];
 
-            float alpha = (float) ((mu * mu) * (3 - 2 * mu));
+            float alpha = (float) ((transitionProgress  * transitionProgress ) * (3 - 2 * transitionProgress ));
 
             value = previous + (current - previous) * alpha;
 
@@ -106,19 +115,17 @@ public class RadarChart {
 
     public void render(double x, double y, int mouseX, int mouseY, double scale) {
 
-
         // Update chart
         if (states.size() > 1) {
 
-            mu = (System.currentTimeMillis() - lastStateStamp) / 250.0;
-            if (mu >= 1) {
-                //System.out.println("pop");
+            transitionProgress  = (System.currentTimeMillis() - lastStateStamp) / TRANSITION_TIME;
+            if (transitionProgress  >= 1) {
                 lastStateStamp = System.currentTimeMillis();
                 states.pop();
-                mu = 0;
+                transitionProgress  = 0;
             }
         } else {
-            mu = 1.0;
+            transitionProgress  = 1.0;
         }
 
         GlStateManager.pushMatrix();
@@ -126,52 +133,52 @@ public class RadarChart {
         GlStateManager.rotate((float) -Math.toDegrees(2 * Math.PI / (5 * 4)), 0, 0, 1);
 
 
-        Tessellator t = Tessellator.getInstance();
-        BufferBuilder bb = t.getBuffer();
+        Tessellator tessellator = Tessellator.getInstance();
+        BufferBuilder bufferBuilder = tessellator.getBuffer();
 
 
         // Draw hexagonal grid pattern
         GL11.glLineWidth(1.0f);
-        bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
+        bufferBuilder.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
         for (double m = 0; m <= 1; m += 0.2) {
             for (double a = 0; a <= 2 * Math.PI; a += increment) {
-                bb.pos(Math.cos(a) * radius * m, Math.sin(a) * radius * m, 0).color(1, 1, 1, color[3]).endVertex();
+                bufferBuilder.pos(Math.cos(a) * radius * m, Math.sin(a) * radius * m, 0).color(1, 1, 1, color[3]).endVertex();
             }
         }
-        t.draw();
+        tessellator.draw();
 
         GL11.glLineWidth(1.0f);
-        bb.begin(GL11.GL_LINES, DefaultVertexFormats.POSITION_COLOR);
+        bufferBuilder.begin(GL11.GL_LINES, DefaultVertexFormats.POSITION_COLOR);
         for (double a = 0; a <= 2 * Math.PI; a += increment) {
-            bb.pos(0, 0, 0).color(1, 1, 1, color[3]).endVertex();
-            bb.pos(Math.cos(a) * radius, Math.sin(a) * radius, 0).color(1, 1, 1, color[3]).endVertex();
+            bufferBuilder.pos(0, 0, 0).color(1, 1, 1, color[3]).endVertex();
+            bufferBuilder.pos(Math.cos(a) * radius, Math.sin(a) * radius, 0).color(1, 1, 1, color[3]).endVertex();
         }
-        t.draw();
+        tessellator.draw();
 
 
         GlStateManager.enableBlend();
         GlStateManager.disableTexture2D();
-        bb.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);
-        bb.pos(0, 0, 0).color(color[0], color[1], color[2], color[3]).endVertex();
+        bufferBuilder.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);
+        bufferBuilder.pos(0, 0, 0).color(color[0], color[1], color[2], color[3]).endVertex();
         for (double a = 0; a < 2 * Math.PI; a += increment) {
             double point = getPointRadius(a);
-            bb.pos(Math.cos(a) * radius * point, Math.sin(a) * radius * point, 0).color(color[0], color[1], color[2], color[3]).endVertex();
+            bufferBuilder.pos(Math.cos(a) * radius * point, Math.sin(a) * radius * point, 0).color(color[0], color[1], color[2], color[3]).endVertex();
         }
-        bb.pos(radius * getPointRadius(0), 0, 0).color(color[0], color[1], color[2], color[3]).endVertex();
+        bufferBuilder.pos(radius * getPointRadius(0), 0, 0).color(color[0], color[1], color[2], color[3]).endVertex();
 
-        t.draw();
+        tessellator.draw();
 
 
         // Render background grid lines
         GL11.glLineWidth(3.0f);
-        bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
+        bufferBuilder.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
         for (double a = 0; a < TWO_PI; a += increment) {
             double point = getPointRadius(a);
-            bb.pos(Math.cos(a) * radius * point, Math.sin(a) * radius * point, 0).color(color[0], color[1], color[2], color[3]).endVertex();
+            bufferBuilder.pos(Math.cos(a) * radius * point, Math.sin(a) * radius * point, 0).color(color[0], color[1], color[2], color[3]).endVertex();
         }
         double point = getPointRadius(0);
-        bb.pos(radius * point, 0, 0).color(color[0], color[1], color[2], color[3]).endVertex();
-        t.draw();
+        bufferBuilder.pos(radius * point, 0, 0).color(color[0], color[1], color[2], color[3]).endVertex();
+        tessellator.draw();
 
 
         GlStateManager.popMatrix();
@@ -211,9 +218,9 @@ public class RadarChart {
 
 
             double angle = a - rotation;
-            double textCenter = MC.fontRenderer.getStringWidth(text) / 2;
+            double textCenter = (double) MC.fontRenderer.getStringWidth(text) / 2;
             double centerHeight = MC.fontRenderer.FONT_HEIGHT / 2.0;
-            MC.fontRenderer.drawStringWithShadow(text, (float) (Math.cos(angle) * textRadius + x - textCenter), (float) (Math.sin(angle) * textRadius + y - centerHeight), 0xffffff);
+            MC.fontRenderer.drawStringWithShadow(text, (float) (Math.cos(angle) * textRadius + x - textCenter), (float) (Math.sin(angle) * textRadius + y - centerHeight), WHITE);
         }
 
 
