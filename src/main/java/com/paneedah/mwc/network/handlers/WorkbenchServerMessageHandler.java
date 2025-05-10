@@ -32,8 +32,6 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 @NoArgsConstructor
 public final class WorkbenchServerMessageHandler implements IMessageHandler<WorkbenchServerMessage, IMessage> {
 
-    // TODO: OREDICT needs to take be remade for oredict support
-
     @Override
     public IMessage onMessage(final WorkbenchServerMessage workbenchServerMessage, final MessageContext messageContext) {
         NetworkUtil.processMessage(messageContext, () -> {
@@ -65,7 +63,8 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     }
 
                     final CraftingEntry[] modernRecipe = CraftingRegistry.getModernCrafting(workbenchServerMessage.getCraftingGroup(), workbenchServerMessage.getCraftingName()).getCraftingRecipe();
-                    if (modernRecipe == null) return;
+                    if (modernRecipe == null)
+                        return;
 
                     final HashMap<Ingredient, HashMap<ItemStack, Integer>> removalList = new HashMap<>();
 
@@ -80,23 +79,31 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
 
                         for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
                             final ItemStack iS = station.mainInventory.getStackInSlot(i);
-                            if (iS.isEmpty()) continue;
+                            if (iS.isEmpty())
+                                continue;
 
                             boolean matches;
-                            if (isOreDict) matches = oreDictList.stream().anyMatch(oreEntry -> OreDictionary.itemMatches(oreEntry, iS, false));
-                            else matches = stackItem.test(iS);
+                            if (isOreDict) {
+                                matches = oreDictList.stream().anyMatch(oreEntry -> OreDictionary.itemMatches(oreEntry, iS, false));
+                            } else {
+                                matches = stackItem.test(iS);
+                            }
 
-                            if (!matches) continue;
+                            if (!matches)
+                                continue;
 
                             final int existingCount = removalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum();
-                            if (existingCount >= requiredCount) break;
+                            if (existingCount >= requiredCount)
+                                break;
 
                             final int iSCount = iS.getCount();
                             final int needed = requiredCount - existingCount;
                             if (iSCount >= needed) {
                                 removalList.get(stackItem).put(iS, needed);
                                 break;
-                            } else removalList.get(stackItem).put(iS, iSCount);
+                            } else {
+                                removalList.get(stackItem).put(iS, iSCount);
+                            }
                         }
                     }
 
@@ -106,7 +113,8 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                         final int requiredCount = stack.getCount();
 
                         if (!stack.isOreDictionary()) {
-                            if (!removalList.containsKey(ingredient)) return;
+                            if (!removalList.containsKey(ingredient))
+                                return;
 
                             int collected = removalList.get(ingredient)
                                     .values()
@@ -114,7 +122,8 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                                     .mapToInt(Integer::intValue)
                                     .sum();
 
-                            if (collected < requiredCount) return;
+                            if (collected < requiredCount)
+                                return;
                         } else {
                             final NonNullList<ItemStack> oreList = OreDictionary.getOres(stack.getOreDictionaryEntry());
                             int matchedCount = 0;
@@ -130,10 +139,10 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                                 }
                             }
 
-                            if (matchedCount < requiredCount) return;
+                            if (matchedCount < requiredCount)
+                                return;
                         }
                     }
-
 
                     // Remove the items
                     for (Ingredient i : removalList.keySet())
@@ -151,9 +160,8 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     CHANNEL.sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 20));
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.DISMANTLE) {
                     for (int i = 9; i < 13; ++i) {
-                        if (station.mainInventory.getStackInSlot(i).isEmpty()) {
+                        if (station.mainInventory.getStackInSlot(i).isEmpty())
                             continue;
-                        }
 
                         final ItemStack stack = station.mainInventory.getStackInSlot(i);
                         if (stack.getItem() instanceof ICraftingRecipe && ((ICraftingRecipe) stack.getItem()).getCraftingRecipe() != null && (station.dismantleStatus[i - 9] == -1 || station.dismantleStatus[i - 9] > station.dismantleDuration[i - 9])) {
@@ -165,14 +173,12 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.MOVE_OUTPUT) {
                     ((EntityPlayer) world.getEntityByID(workbenchServerMessage.getPlayerID())).addItemStackToInventory(station.mainInventory.getStackInSlot(workbenchServerMessage.getSlotToMove()));
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.POP_FROM_QUEUE) {
-                    if (!(tileEntity instanceof TileEntityAmmoPress)) {
+                    if (!(tileEntity instanceof TileEntityAmmoPress))
                         return;
-                    }
 
                     final TileEntityAmmoPress teAmmoPress = (TileEntityAmmoPress) tileEntity;
-                    if (teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > workbenchServerMessage.getSlotToMove()) {
+                    if (teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > workbenchServerMessage.getSlotToMove())
                         teAmmoPress.getCraftingQueue().remove(workbenchServerMessage.getSlotToMove());
-                    }
                     CHANNEL.sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 25));
                 }
             }

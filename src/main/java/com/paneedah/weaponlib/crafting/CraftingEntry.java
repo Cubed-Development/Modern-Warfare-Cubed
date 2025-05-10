@@ -91,7 +91,9 @@ public class CraftingEntry {
         return this.oreDictionary;
     }
 
-    public boolean isOreDictionary() { return this.oreDictionary != null && !this.oreDictionary.isEmpty(); }
+    public boolean isOreDictionary() {
+        return this.oreDictionary != null && !this.oreDictionary.isEmpty();
+    }
 
     @Override
     public String toString() {
