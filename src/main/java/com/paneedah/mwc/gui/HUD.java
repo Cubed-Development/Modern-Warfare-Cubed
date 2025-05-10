@@ -245,10 +245,6 @@ public final class HUD extends Gui {
         if (!(item instanceof ItemMagazine) && !(item instanceof Weapon))
             return;
 
-        final PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
-        if (isInAltModifyingState(weaponInstance) || isInModifyingState(weaponInstance))
-            return;
-
         final ScaledResolution scaledResolution = renderGameOverlayEvent.getResolution();
         final int width = scaledResolution.getScaledWidth();
         final int height = scaledResolution.getScaledHeight();
@@ -278,6 +274,9 @@ public final class HUD extends Gui {
             totalCapacity = ((ItemMagazine) item).getCapacity();
             currentAmmo = Tags.getAmmo(itemStack);
         } else if (item instanceof Weapon) {
+            final PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
+            if (isInAltModifyingState(weaponInstance) || isInModifyingState(weaponInstance))
+                return;
             final ItemMagazine itemMagazine = (ItemMagazine) WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 
             // ! FIRE_MODE TODO: Once it's an enum, this can become much simpler - Luna Mira Lage (Desoroxxx) 2024-11-25
