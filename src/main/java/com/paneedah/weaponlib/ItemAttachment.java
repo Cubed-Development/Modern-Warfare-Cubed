@@ -6,6 +6,8 @@ import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.ICraftingRecipe;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import dev.redstudio.redcore.math.vectors.Vector3F;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -14,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,18 +25,18 @@ import java.util.function.Function;
 
 public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRecipe {
 
-    private final AttachmentCategory category;
-    private final ApplyHandler<T> apply;
-    private final ApplyHandler<T> remove;
-    protected ApplyHandler2<T> apply2;
+    @Getter private final AttachmentCategory category;
+    @Getter private final ApplyHandler<T> apply;
+    @Getter private final ApplyHandler<T> remove;
+    @Getter protected ApplyHandler2<T> apply2;
     protected ApplyHandler2<T> remove2;
-    protected MeleeWeaponApplyHandler<T> apply3;
-    protected MeleeWeaponApplyHandler<T> remove3;
-    private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
-    private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
-    private CustomRenderer<?> preRenderer;
-    private Part renderablePart;
-    private String name;
+    @Getter protected MeleeWeaponApplyHandler<T> apply3;
+    @Getter protected MeleeWeaponApplyHandler<T> remove3;
+    @Getter private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    @Setter private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
+    @Getter @Setter private CustomRenderer<?> preRenderer;
+    @Getter private Part renderablePart;
+    @Setter private String name;
     private Function<ItemStack, String> informationProvider;
     protected int maxStackSize = 1;
 
@@ -44,7 +47,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRec
 
     private final List<Weapon> compatibleWeapons = new ArrayList<>();
 
-    private List<ItemAttachment<T>> requiredAttachments = new ArrayList<>();
+    @Getter private List<ItemAttachment<T>> requiredAttachments = new ArrayList<>();
 
     protected String textureName;
 
@@ -104,11 +107,6 @@ public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRec
         this.modernRecipe = is;
     }
 
-
-    public Part getRenderablePart() {
-        return renderablePart;
-    }
-
     protected void setRenderablePart(Part renderablePart) {
         this.renderablePart = renderablePart;
     }
@@ -126,10 +124,6 @@ public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRec
         this.requiredAttachments = Collections.unmodifiableList(requiredAttachments);
     }
 
-    public List<ItemAttachment<T>> getRequiredAttachments() {
-        return requiredAttachments;
-    }
-
     @Deprecated
     public ItemAttachment<T> addModel(ModelBase model, String textureName) {
         texturedModels.add(new Tuple<>(model, textureName));
@@ -144,14 +138,6 @@ public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRec
         this(category, attachment, textureName, (a, w, p) -> {}, (a, w, p) -> {});
     }
 
-    public AttachmentCategory getCategory() {
-        return category;
-    }
-
-    public List<Tuple<ModelBase, String>> getTexturedModels() {
-        return texturedModels;
-    }
-
     /**
      * For use with the "magic mag"
      *
@@ -159,14 +145,6 @@ public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRec
      */
     public void setFirstModel(ItemAttachment<Weapon> model) {
         texturedModels.set(0, model.getTexturedModels().get(0));
-    }
-
-    public ApplyHandler<T> getApply() {
-        return apply;
-    }
-
-    public ApplyHandler<T> getRemove() {
-        return remove;
     }
 
     public void addCompatibleWeapon(Weapon weapon) {
@@ -193,27 +171,26 @@ public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRec
         // Compatible weapons and attachments
         if (category != AttachmentCategory.SKIN) {
             if (!compatibleWeapons.isEmpty()) {
-                tooltipLines.add(green + "Compatible Weapons:");
-                compatibleWeapons.forEach(weapon -> tooltipLines.add(grey + (I18n.format(weapon.getTranslationKey() + ".name"))));
+                if (compatibleWeapons.size() > 10 && !Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+                    tooltipLines.add(TextFormatting.YELLOW + "Press left shift to see compatible weapons");
+                } else {
+                    tooltipLines.add(green + "Compatible Weapons:");
+                    compatibleWeapons.forEach(weapon ->
+                            tooltipLines.add(grey + I18n.format(weapon.getTranslationKey() + ".name"))
+                    );
+                }
             }
 
             if (!attachments.isEmpty()) {
                 tooltipLines.add(green + "Attachments:");
-                attachments.forEach(compatibleAttachment -> tooltipLines.add(grey + (I18n.format(compatibleAttachment.getAttachment().getTranslationKey() + ".name"))));
+                attachments.forEach(compatibleAttachment ->
+                        tooltipLines.add(grey + I18n.format(compatibleAttachment.getAttachment().getTranslationKey() + ".name"))
+                );
             }
         }
 
         tooltip.addAll(tooltipLines);
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPostRenderers(List<CustomRenderer<?>> postRenderer) {
-        postRenderer = postRenderer;
-    }
-
 
     @Override
     public CustomRenderer<?> getPostRenderer() {
@@ -222,14 +199,6 @@ public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRec
 
     public List<CustomRenderer<?>> getAllPostRenderers() {
         return postRenderer;
-    }
-
-    public CustomRenderer<?> getPreRenderer() {
-        return preRenderer;
-    }
-
-    public void setPreRenderer(CustomRenderer<?> preRenderer) {
-        this.preRenderer = preRenderer;
     }
 
     protected void addCompatibleAttachment(CompatibleAttachment<T> attachment) {
@@ -245,25 +214,8 @@ public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRec
         return name != null ? "Attachment [" + name + "]" : super.toString();
     }
 
-    public ApplyHandler2<T> getApply2() {
-        return apply2;
-    }
-
     protected ApplyHandler2<T> getRemove2() {
         return remove2;
-    }
-
-    public MeleeWeaponApplyHandler<T> getApply3() {
-        return apply3;
-    }
-
-    public MeleeWeaponApplyHandler<T> getRemove3() {
-        return remove3;
-    }
-
-    public void setPostRenderer(List<CustomRenderer<?>> postRenderer2) {
-        this.postRenderer = postRenderer2;
-
     }
 
     @Override
