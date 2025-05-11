@@ -18,6 +18,9 @@ import java.util.*;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 
+/**
+ * The Main Command for MWC, "/mwc"
+ */
 public class MainCommand extends CommandBase {
 
     private static final String SHOW_OPTION_RECIPE = "recipe";
@@ -41,7 +44,7 @@ public class MainCommand extends CommandBase {
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "/" + mainCommandName + "<options>";
+        return "/" + mainCommandName + " <option>";
     }
 
     private String getSubCommandShowUsage() {
@@ -50,17 +53,15 @@ public class MainCommand extends CommandBase {
 
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-
-
-        if (args[0].equals("nosway")) {
-            ClientEventHandler.cancelSway = !ClientEventHandler.cancelSway;
-
-        }
-
         if (args.length > 0) {
-            if (ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
+            if (args[0].equals("togglesway")) {
+                ClientEventHandler.cancelSway = !ClientEventHandler.cancelSway;
+                MC.player.sendMessage(new TextComponentString("Toggled weapon spawn to: " + ClientEventHandler.cancelSway));
+            }
+            else if (ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
                 processShowSubCommand(args);
-            } else {
+            }
+            else {
                 MC.player.sendMessage(new TextComponentString(getUsage(sender)));
             }
         } else {
@@ -75,7 +76,7 @@ public class MainCommand extends CommandBase {
         }
 
         if (SHOW_OPTION_RECIPE.indexOf(args[1].toLowerCase()) == 0) {
-            showRecipe();
+            showRecipes();
         } else if (SHOW_OPTION_ATTACHMENTS.indexOf(args[1].toLowerCase()) == 0) {
             int page = 1;
             if (args.length == 3) {
@@ -87,6 +88,11 @@ public class MainCommand extends CommandBase {
         }
     }
 
+    /**
+     * Shows all attachments for the held item
+     *
+     * @param page What page should be shown
+     */
     private void showAttachments(int page) {
         ItemStack itemStack = MC.player.getHeldItemMainhand();
         Item item = itemStack.getItem();
@@ -101,18 +107,21 @@ public class MainCommand extends CommandBase {
                     AttachmentCategory.SILENCER,
                     AttachmentCategory.SKIN);
             List<CompatibleAttachment<? extends AttachmentContainer>> sorted = new ArrayList<>(compatibleAttachments);
-            sorted.sort((c1, c2) -> c1.getAttachment().getTranslationKey().compareTo(c2.getAttachment().getTranslationKey()));
+            sorted.sort(Comparator.comparing(c -> c.getAttachment().getTranslationKey()));
             int pageSize = 8;
             int offset = pageSize * (page - 1);
             if (page < 1) {
                 MC.player.sendMessage(new TextComponentString("Invalid page"));
-            } else if (sorted.size() == 0) {
+            } else if (sorted.isEmpty()) {
                 MC.player.sendMessage(new TextComponentString("No attachments found for "
                         + item.getItemStackDisplayName(itemStack)));
             } else if (offset < sorted.size()) {
-                MC.player.sendMessage(new TextComponentString("Attachments for "
-                        + item.getItemStackDisplayName(itemStack) + ", page " + page + " of "
-                        + (int) Math.ceil((double) sorted.size() / pageSize)));
+                MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + "-- Attachments for "
+                        + TextFormatting.GRAY + item.getItemStackDisplayName(itemStack)
+                        + ", page " + TextFormatting.GREEN + page + TextFormatting.GRAY + " of "
+                        + TextFormatting.GREEN + (int) Math.ceil((double) sorted.size() / pageSize)
+                        +  TextFormatting.GOLD + " --"
+                        ));
 
                 for (int i = offset; i < offset + pageSize; i++) {
                     if (i < 0 || i >= sorted.size()) {
@@ -132,14 +141,14 @@ public class MainCommand extends CommandBase {
         return 0;
     }
 
-    private void showRecipe() {
+    /**
+     * Shows the recipe for the held item
+     */
+    private void showRecipes() {
         ItemStack itemStack = MC.player.getHeldItemMainhand();
         Item item = itemStack.getItem();
-        showRecipe(item);
-    }
 
-    private void showRecipe(Item item) {
-        if (item != null && (item instanceof Weapon)) {
+        if (item instanceof Weapon) {
             MC.player.sendMessage(new TextComponentString(TextFormatting.GOLD + "-- Recipe for " + TextFormatting.GRAY + item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--"));
 
             CraftingEntry[] modernRecipe = ((Weapon) item).getCraftingRecipe();
@@ -165,7 +174,7 @@ public class MainCommand extends CommandBase {
         }
     }
 
-    private String formatRecipe(List<Object> recipe) {
+    private String formatRecipe(List<Object> recipe) { //TODO Use/remove this? -smeagle
         String output = "";
         Map<Character, Object> decoder = new HashMap<>();
 
