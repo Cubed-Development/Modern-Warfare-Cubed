@@ -26,6 +26,9 @@ public class CommonProxy {
     public void preInit(final MWC mod) {
         MWC.modContext.preInit(mod);
 
+        UniversalSoundRegistry.init();
+        UniversalSoundLookup.initialize(MWC.modContext);
+
         // Forcing Item Initialization here, at the very least the variables, before they get registered normally on the init() (@SubscribeEvent) phase.
         MWCItems.init();
 
@@ -61,9 +64,6 @@ public class CommonProxy {
 
     public void init(final MWC mod) {
         MWC.modContext.init(mod);
-
-        UniversalSoundRegistry.init();
-        UniversalSoundLookup.initialize(MWC.modContext);
 
         TurretBaseFactory.createTileEntity(MWC.modContext);
         TileEntities.createTileEntity(MWC.modContext);
