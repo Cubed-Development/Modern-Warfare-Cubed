@@ -26,12 +26,10 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class DynamicShaderGroupManager {
 
-    private static final String PATH_RESOURCES = "/com/paneedah/weaponlib/resources/";
-    private static final String PATH_SHADER_PROGRAMS = PATH_RESOURCES + "shaders/programs/";
+    private static final String PATH_SHADER_PROGRAM = "shaders/post/program/";
 
-    private static final String RESOURCE_DOMAIN_WEAPONLIB = "weaponlib";
-    private static final String RESOURCE_DOMAIN_TEXTURES_EFFECT_WEAPONLIB = "textures/effect/" + RESOURCE_DOMAIN_WEAPONLIB;
-    private static final String RESOURCE_DOMAIN_SHADERS_PROGRAM_WEAPONLIB = "shaders/program/" + RESOURCE_DOMAIN_WEAPONLIB;
+    private static final String RESOURCE_DOMAIN_MWC = "mwc";
+    private static final String RESOURCE_DOMAIN_SHADERS_PROGRAM = "shaders/post/program/" + RESOURCE_DOMAIN_MWC;
 
     private static class LoadedShaderGroup {
         DynamicShaderGroup group;
@@ -171,21 +169,15 @@ public class DynamicShaderGroupManager {
         ResourceLocation result;
 
         switch (resourceLocation.getNamespace()) {
-            case RESOURCE_DOMAIN_WEAPONLIB:
+            case RESOURCE_DOMAIN_MWC:
                 if (resourceLocation.getPath().startsWith("shaders/program/")) {
-                    result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_SHADER_PROGRAMS
-                            + resourceLocation.getPath().substring(16));
+                    result = new ResourceLocation(RESOURCE_DOMAIN_MWC, PATH_SHADER_PROGRAM + resourceLocation.getPath().substring(16));
                 } else {
                     result = resourceLocation;
                 }
-
                 break;
-            case RESOURCE_DOMAIN_SHADERS_PROGRAM_WEAPONLIB:
-                result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_SHADER_PROGRAMS
-                        + resourceLocation.getPath());
-                break;
-            case RESOURCE_DOMAIN_TEXTURES_EFFECT_WEAPONLIB:
-                result = new ResourceLocation(RESOURCE_DOMAIN_WEAPONLIB, PATH_RESOURCES + resourceLocation.getPath());
+	        case RESOURCE_DOMAIN_SHADERS_PROGRAM:
+                result = new ResourceLocation(RESOURCE_DOMAIN_MWC, PATH_SHADER_PROGRAM + resourceLocation.getPath());
                 break;
             default:
                 result = resourceLocation;

@@ -25,8 +25,7 @@ public class DynamicShaderGroup extends ShaderGroup {
     }
 
     @Override
-    public Shader addShader(String name, Framebuffer framebufferIn, Framebuffer framebufferOut)
-            throws JsonException /*, IOException*/ {
+    public Shader addShader(String name, Framebuffer framebufferIn, Framebuffer framebufferOut) {
         IResourceManager resourceManager = getResourceManager(this);
         DynamicShader shader;
         try {

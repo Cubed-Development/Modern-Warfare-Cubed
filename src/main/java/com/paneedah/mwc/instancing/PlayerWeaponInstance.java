@@ -63,15 +63,15 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     private static final UUID VIGNETTE_SOURCE_UUID = UUID.randomUUID();
     private static final UUID BLUR_SOURCE_UUID = UUID.randomUUID();
 
-    public final DynamicShaderGroupSource blurSource = new DynamicShaderGroupSource(BLUR_SOURCE_UUID, new ResourceLocation("weaponlib", "blur.json"))
+    public final DynamicShaderGroupSource blurSource = new DynamicShaderGroupSource(BLUR_SOURCE_UUID, new ResourceLocation(ID, "shaders/post/blur.json"))
             .withUniform("Radius", context -> hasOpticalScope() ? 10 : 5)
             .withUniform("Progress", context -> getAimChangeProgress());
 
-    public final DynamicShaderGroupSource nightVisionSource = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID, new ResourceLocation("weaponlib", "night-vision.json"))
+    public final DynamicShaderGroupSource nightVisionSource = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID, new ResourceLocation(ID, "night-vision.json"))
             .withUniform("IntensityAdjust", context -> 40 - MC.gameSettings.gammaSetting * 38)
             .withUniform("NoiseAmplification", context -> 2 + 3 * MC.gameSettings.gammaSetting);
 
-    public final DynamicShaderGroupSource vignetteSource = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID, new ResourceLocation("weaponlib", "vignette.json"))
+    public final DynamicShaderGroupSource vignetteSource = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID, new ResourceLocation(ID, "vignette.json"))
             .withUniform("Radius", context -> getOpticalScopeVignetteRadius(context.getPartialTicks()))
             // .withUniform("Velocity", context -> new float[]{ClientEventHandler.scopeVelX, ClientEventHandler.scopeVelY})
             .withUniform("Reticle", context -> {

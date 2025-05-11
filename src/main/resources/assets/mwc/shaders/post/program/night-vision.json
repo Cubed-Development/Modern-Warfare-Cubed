@@ -4,8 +4,8 @@
     "srcrgb": "srcalpha",
     "dstrgb": "1-srcalpha"
   },
-  "vertex": "weaponlib:blit",
-  "fragment": "weaponlib:night-vision",
+  "vertex": "mwc:blit",
+  "fragment": "mwc:night-vision",
   "attributes": [
     "Position"
   ],

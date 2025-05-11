@@ -4,7 +4,7 @@
   ],
   "passes": [
     {
-      "name": "weaponlib:blur2",
+      "name": "mwc:blur2",
       "intarget": "minecraft:main",
       "outtarget": "swap",
       "uniforms": [
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "name": "weaponlib:blur2",
+      "name": "mwc:blur2",
       "intarget": "swap",
       "outtarget": "minecraft:main",
       "uniforms": [

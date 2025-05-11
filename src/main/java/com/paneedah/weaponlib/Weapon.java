@@ -82,7 +82,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         private static final float DEFAULT_SPAWN_ENTITY_SPEED = 150f;
         private static final float DEFAULT_INACCURACY = 0f;
-        private static final String DEFAULT_SHELL_CASING_TEXTURE_NAME = "weaponlib:/com/paneedah/weaponlib/resources/shell.png";
+        private static final String DEFAULT_SHELL_CASING_TEXTURE_NAME = "mwc:textures/maps/shell.png";
         private static final float DEFAULT_SHELL_CASING_VELOCITY = 0.1f;
         private static final float DEFAULT_SHELL_CASING_GRAVITY_VELOCITY = 0.05f;
         private static final float DEFAULT_SHELL_CASING_INACCURACY = 20f;

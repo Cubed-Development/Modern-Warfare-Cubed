@@ -132,11 +132,6 @@ tasks {
             if (!exclusions.any { path.endsWith(it) })
                 expand(expandProperties)
         }
-
-        // TODO: Move all of that to assets and remove this
-        from("src/main/java") {
-            include("**/*.png", "**/*.json", "**/*.vsh", "**/*.fsh")
-        }
     }
 
     withType<Jar>  {

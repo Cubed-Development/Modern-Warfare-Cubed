@@ -20,8 +20,8 @@ import java.util.Random;
 @AllArgsConstructor
 public final class SpawnParticleMessageHandler implements IMessageHandler<SpawnParticleMessage, IMessage> {
 
-    private static final String REGULAR_SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-smoke.png";
-    private static final String YELLOW_SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-yellow-smoke.png";
+    private static final String REGULAR_SMOKE_TEXTURE = "mwc:textures/smokes/large-smoke.png";
+    private static final String YELLOW_SMOKE_TEXTURE = "mwc:textures/smokes/large-yellow-smoke.png";
 
     private static final Random RANDOM = new Random();
 

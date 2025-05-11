@@ -15,7 +15,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ExplosionParticleFX extends Particle {
 
-    private static final String DEFAULT_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/explosion-particles.png";
+    private static final String DEFAULT_TEXTURE = "mwc:textures/maps/explosion-particles.png";
     private static final int columnCount = 5;
     private static final int rowCount = 5; //4;
     private final int imageIndex;

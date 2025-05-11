@@ -14,6 +14,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.UUID;
 
+import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvider {
@@ -33,7 +34,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     private float colorImpairmentB;
 
     final DynamicShaderGroupSource source = new DynamicShaderGroupSource(UUID.randomUUID(),
-            new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/post-processing-pipeline.json"))
+            new ResourceLocation(ID, "shaders/post/post-processing-pipeline.json"))
             .withUniform("NightVisionEnabled", context -> nightVisionEnabled ? 1.0f : 0.0f)
             .withUniform("BlurEnabled", context -> blurEnabled ? 1.0f : 0.0f)
             .withUniform("BlurVignetteRadius", context -> 0.0f)

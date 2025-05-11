@@ -4,8 +4,8 @@
     "srcrgb": "srcalpha",
     "dstrgb": "1-srcalpha"
   },
-  "vertex": "sobel",
-  "fragment": "weaponlib:blur2",
+  "vertex": "mwc:vignette",
+  "fragment": "mwc:vignette",
   "attributes": [
     "Position"
   ],
@@ -15,14 +15,6 @@
     }
   ],
   "uniforms": [
-    {
-      "name": "BlurEnabled",
-      "type": "float",
-      "count": 1,
-      "values": [
-        1.0
-      ]
-    },
     {
       "name": "ProjMat",
       "type": "matrix4x4",
@@ -65,36 +57,20 @@
       ]
     },
     {
-      "name": "BlurDir",
-      "type": "float",
-      "count": 2,
-      "values": [
-        1.0,
-        1.0
-      ]
-    },
-    {
       "name": "Radius",
       "type": "float",
       "count": 1,
       "values": [
-        5.0
+        0.55
       ]
     },
     {
-      "name": "Progress",
+      "name": "Velocity",
       "type": "float",
-      "count": 1,
+      "count": 2,
       "values": [
+        0.0,
         0.0
-      ]
-    },
-    {
-      "name": "BlurVignetteRadius",
-      "type": "float",
-      "count": 1,
-      "values": [
-        0.35
       ]
     }
   ]
