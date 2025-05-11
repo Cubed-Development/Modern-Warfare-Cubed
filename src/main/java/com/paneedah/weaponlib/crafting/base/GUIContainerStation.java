@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.crafting.base;
 
 import com.paneedah.mwc.ProjectConstants;
-import com.paneedah.mwc.network.messages.WorkbenchServerMessage;
+import com.paneedah.mwc.network.messages.CraftingStationServerMessage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -30,7 +30,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.oredict.OreDictionary;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
-import org.lwjgl.util.glu.Project;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -153,7 +152,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
         super.actionPerformed(button);
 
         if (button == dismantleButton) {
-            CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
+            CHANNEL.sendToServer(new CraftingStationServerMessage(CraftingStationServerMessage.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
         } else if (button == leftArrow) {
             setPage(getPage() - 1);
         } else if (button == rightArrow) {
@@ -334,7 +333,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
         if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40, this.guiTop + 219, 176, 20)) {
             final int boxId = (mouseX - (this.guiLeft + 40)) / 20;
-            CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.MOVE_OUTPUT, tileEntity.getPos(), MC.player.getEntityId(), boxId));
+            CHANNEL.sendToServer(new CraftingStationServerMessage(CraftingStationServerMessage.MOVE_OUTPUT, tileEntity.getPos(), MC.player.getEntityId(), boxId));
         }
 
         int c = (int) Math.floor(filteredCraftingList.size() * scrollBarProgress / 7) * 7;

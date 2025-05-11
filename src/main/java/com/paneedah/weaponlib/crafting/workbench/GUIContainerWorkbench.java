@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.crafting.workbench;
 
-import com.paneedah.mwc.network.messages.WorkbenchServerMessage;
+import com.paneedah.mwc.network.messages.CraftingStationServerMessage;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -108,7 +108,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
         if (button == craftButton) {
             if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1 && !this.craftButton.isDisabled()) {
                 final int craftingTime = getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME;
-                CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, craftingTime, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getOutput().getTranslationKey()));
+                CHANNEL.sendToServer(new CraftingStationServerMessage(CraftingStationServerMessage.CRAFT, tileEntity.getPos(), 0, craftingTime, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getOutput().getTranslationKey()));
             }
 
         } else if (button == assaultSelector) {

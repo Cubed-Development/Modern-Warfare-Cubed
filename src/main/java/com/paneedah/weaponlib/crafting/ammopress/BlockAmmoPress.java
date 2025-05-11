@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.crafting.ammopress;
 
-import com.paneedah.mwc.network.messages.WorkbenchClientMessage;
+import com.paneedah.mwc.network.messages.CraftingStationClientMessage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.base.BlockStation;
 import com.paneedah.weaponlib.inventory.GuiHandler;
@@ -51,7 +51,7 @@ public class BlockAmmoPress extends BlockStation {
             playerIn.swingArm(hand);
 
             if (!worldIn.isRemote) {
-                CHANNEL.sendTo(new WorkbenchClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
+                CHANNEL.sendTo(new CraftingStationClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
             }
         }
 

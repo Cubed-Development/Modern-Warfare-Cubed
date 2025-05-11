@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Getter
 @NoArgsConstructor
-public final class WorkbenchClientMessage implements IMessage {
+public final class CraftingStationClientMessage implements IMessage {
 
     /**
      * This only exists on the server end, this variable will be null on the client end.
@@ -28,7 +28,7 @@ public final class WorkbenchClientMessage implements IMessage {
     @SideOnly(Side.CLIENT)
     private ByteBuf buffer;
 
-    public WorkbenchClientMessage(final World world, final BlockPos position) {
+    public CraftingStationClientMessage(final World world, final BlockPos position) {
         this.world = world;
         this.position = position;
     }
