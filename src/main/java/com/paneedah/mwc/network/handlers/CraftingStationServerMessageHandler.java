@@ -1,5 +1,6 @@
 package com.paneedah.mwc.network.handlers;
 
+import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.network.messages.CraftingStationClientMessage;
 import com.paneedah.mwc.network.messages.CraftingStationServerMessage;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -13,9 +14,7 @@ import dev.redstudio.redcore.utils.NetworkUtil;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -66,88 +65,48 @@ public final class CraftingStationServerMessageHandler implements IMessageHandle
                 if (modernRecipe == null)
                     return;
 
-                final HashMap<Ingredient, HashMap<ItemStack, Integer>> removalList = new HashMap<>();
+                Map<CraftingEntry, Map<ItemStack, Integer>> ingredientsToConsume = new HashMap<>();
 
-                for (CraftingEntry stack : modernRecipe) {
-                    final Ingredient stackItem = stack.getIngredient();
-                    final int requiredCount = stack.getCount();
-                    final boolean isOreDict = stack.isOreDictionary();
+                // Gets all the items necessary to remove
+                for (CraftingEntry entry : modernRecipe) {
+                    Map<ItemStack, Integer> itemsForIngredient = new HashMap<>();
+                    ingredientsToConsume.put(entry, itemsForIngredient);
 
-                    removalList.computeIfAbsent(stackItem, k -> new HashMap<>());
+                    int remainingNeeded = entry.getCount();
+                    List<ItemStack> oreDictMatches = entry.isOreDictionary()
+                            ? OreDictionary.getOres(entry.getOreDictionaryEntry())
+                            : Collections.emptyList();
 
-                    final List<ItemStack> oreDictList = isOreDict ? OreDictionary.getOres(stack.getOreDictionaryEntry()) : Collections.emptyList();
+                    for (int i = 23; i < station.mainInventory.getSlots() && remainingNeeded > 0; ++i) {
+                        ItemStack invStack = station.mainInventory.getStackInSlot(i);
+                        if (invStack.isEmpty()) continue;
 
-                    for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
-                        final ItemStack iS = station.mainInventory.getStackInSlot(i);
-                        if (iS.isEmpty())
-                            continue;
+                        boolean isMatch = entry.isOreDictionary()
+                                ? oreDictMatches.stream().anyMatch(ore -> OreDictionary.itemMatches(ore, invStack, false))
+                                : entry.getIngredient().test(invStack);
 
-                        boolean matches;
-                        if (isOreDict) {
-                            matches = oreDictList.stream().anyMatch(oreEntry -> OreDictionary.itemMatches(oreEntry, iS, false));
-                        } else {
-                            matches = stackItem.test(iS);
-                        }
+                        if (!isMatch) continue;
 
-                        if (!matches)
-                            continue;
+                        int toTake = Math.min(remainingNeeded, invStack.getCount());
+                        itemsForIngredient.put(invStack, toTake);
+                        remainingNeeded -= toTake;
 
-                        final int existingCount = removalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum();
-                        if (existingCount >= requiredCount)
-                            break;
-
-                        final int iSCount = iS.getCount();
-                        final int needed = requiredCount - existingCount;
-                        if (iSCount >= needed) {
-                            removalList.get(stackItem).put(iS, needed);
-                            break;
-                        } else {
-                            removalList.get(stackItem).put(iS, iSCount);
-                        }
+                        if (remainingNeeded <= 0) break;
                     }
                 }
 
-                // Verify
-                for (CraftingEntry stack : modernRecipe) {
-                    final Ingredient ingredient = stack.getIngredient();
-                    final int requiredCount = stack.getCount();
+                // Verifies that the amount is not above what it should be.
+                for (CraftingEntry entry : modernRecipe) {
+                    int totalFound = ingredientsToConsume.get(entry).values().stream()
+                            .mapToInt(Integer::intValue)
+                            .sum();
 
-                    if (!stack.isOreDictionary()) {
-                        if (!removalList.containsKey(ingredient))
-                            return;
-
-                        int collected = removalList.get(ingredient)
-                                .values()
-                                .stream()
-                                .mapToInt(Integer::intValue)
-                                .sum();
-
-                        if (collected < requiredCount)
-                            return;
-                    } else {
-                        final NonNullList<ItemStack> oreList = OreDictionary.getOres(stack.getOreDictionaryEntry());
-                        int matchedCount = 0;
-
-                        for (Map.Entry<Ingredient, HashMap<ItemStack, Integer>> entry : removalList.entrySet()) {
-                            for (ItemStack candidate : entry.getValue().keySet()) {
-                                for (ItemStack oreEntry : oreList) {
-                                    if (OreDictionary.itemMatches(oreEntry, candidate, false)) {
-                                        matchedCount += entry.getValue().get(candidate);
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-
-                        if (matchedCount < requiredCount)
-                            return;
-                    }
+                    if (totalFound < entry.getCount())
+                        return;
                 }
 
-                // Remove the items
-                for (Ingredient i : removalList.keySet())
-                    for (ItemStack iS : removalList.get(i).keySet())
-                        iS.shrink(removalList.get(i).get(iS));
+                // Consumes the item's from the workbench inventory
+                ingredientsToConsume.values().forEach(itemMap -> itemMap.forEach(ItemStack::shrink));
 
                 if (station instanceof TileEntityWorkbench) {
                     final TileEntityWorkbench workbench = (TileEntityWorkbench) station;

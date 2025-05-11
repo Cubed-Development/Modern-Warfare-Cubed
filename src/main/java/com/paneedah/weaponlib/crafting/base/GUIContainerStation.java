@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
@@ -186,57 +187,82 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
     public void onSelectNewCrafting(ICraftingRecipe crafting) {
         final CraftingEntry[] modernRecipe = crafting.getCraftingRecipe();
-        final HashMap<ItemStack, Integer> counter = new HashMap<>();
+        final Map<ItemStack, Integer> availableItems = countInventoryItems();
+
+        hasRequiredItems = true;
+        hasAvailableMaterials.clear();
+
+        for (CraftingEntry ingredient : modernRecipe) {
+            boolean hasEnough = hasEnoughOfIngredient(ingredient, availableItems);
+
+            if (!hasEnough) {
+                hasRequiredItems = false;
+            }
+
+            hasAvailableMaterials.put(ingredient.getIngredient(), hasEnough);
+        }
+
+        updateCraftButtonState();
+    }
+
+    private boolean hasEnoughOfIngredient(CraftingEntry ingredient, Map<ItemStack, Integer> availableItems) {
+        return ingredient.isOreDictionary()
+                ? hasEnoughOreDictionary(ingredient, availableItems)
+                : hasEnoughSpecificIngredient(ingredient, availableItems);
+    }
+
+    private boolean hasEnoughSpecificIngredient(CraftingEntry ingredient, Map<ItemStack, Integer> availableItems) {
+        int total = 0;
+
+        for (Map.Entry<ItemStack, Integer> entry : availableItems.entrySet()) {
+            if (ingredient.getIngredient().test(entry.getKey())) {
+                total += entry.getValue();
+
+                if (total >= ingredient.getCount()) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean hasEnoughOreDictionary(CraftingEntry ingredient, Map<ItemStack, Integer> availableItems) {
+        final NonNullList<ItemStack> oreList = OreDictionary.getOres(ingredient.getOreDictionaryEntry());
+        int totalMatching = 0;
+
+        for (Map.Entry<ItemStack, Integer> entry : availableItems.entrySet()) {
+            for (ItemStack oreEntry : oreList) {
+                if (OreDictionary.itemMatches(oreEntry, entry.getKey(), false)) {
+                    totalMatching += entry.getValue();
+
+                    if (totalMatching >= ingredient.getCount()) {
+                        return true;
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private Map<ItemStack, Integer> countInventoryItems() {
+        final Map<ItemStack, Integer> counter = new HashMap<>();
 
         for (int i = 22; i < tileEntity.mainInventory.getSlots(); ++i) {
             final ItemStack stack = tileEntity.mainInventory.getStackInSlot(i);
-            if (stack.isEmpty()) {
-                continue;
-            }
-
-            if (!counter.containsKey(stack)) {
-                counter.put(stack, stack.getCount());
-            } else {
-                counter.compute(stack, (k, existingcount) -> existingcount + stack.getCount());
+            if (!stack.isEmpty()) {
+                counter.merge(stack, stack.getCount(), Integer::sum);
             }
         }
 
-        hasRequiredItems = true;
-        for (CraftingEntry ingredient : modernRecipe) {
-            if (ingredient.isOreDictionary()) {
-                final NonNullList<ItemStack> list = OreDictionary.getOres(ingredient.getOreDictionaryEntry());
-                int finalCount = 0;
-                for (ItemStack itemStack : counter.keySet()) {
-                    for (ItemStack oreEntry : list) {
-                        if (OreDictionary.itemMatches(oreEntry, itemStack, false)) {
-                            finalCount += counter.get(itemStack);
-                            break;
-                        }
-                    }
-                }
-
-                hasRequiredItems = ingredient.getCount() <= finalCount;
-                hasAvailableMaterials.put(ingredient.getIngredient(), ingredient.getCount() <= finalCount);
-            } else {
-                hasRequiredItems = EnoughIngredients(ingredient, counter);
-                hasAvailableMaterials.put(ingredient.getIngredient(), EnoughIngredients(ingredient, counter));
-            }
-        }
-
-        if (requiresMaterialsToSubmitCraftRequest()) {
-            this.craftButton.setErrored(!hasRequiredItems);
-        } else {
-            this.craftButton.setErrored(false);
-        }
+        return counter;
     }
 
-    public static boolean EnoughIngredients(CraftingEntry ingredient, HashMap<ItemStack, Integer> counter) {
-        int finalcount = 0;
-        for (ItemStack stack : counter.keySet())
-            if (ingredient.getIngredient().test(stack)) {
-                finalcount += counter.get(stack);
-            }
-        return ingredient.getCount() <= finalcount;
+    private void updateCraftButtonState() {
+        this.craftButton.setErrored(requiresMaterialsToSubmitCraftRequest() && !hasRequiredItems);
     }
 
     public void setPageRange(int min, int max) {

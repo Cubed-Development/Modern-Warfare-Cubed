@@ -14,9 +14,11 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * Parent class for the workbench and ammo press tile entities.
@@ -186,55 +188,65 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
         //System.out.println(mainInventory.serializeNBT());
     }
 
-    public boolean inventoryContainsEnoughItems(Ingredient item, int quantity, int start, int end) {
+    public boolean inventoryContainsEnoughItems(CraftingEntry entry, int start, int end) {
         int count = 0;
         for (int i = start; i <= end; ++i) {
             final ItemStack slotStack = mainInventory.getStackInSlot(i);
 
-            if (item.test(slotStack)) {
+            if(entry.isOreDictionary()) {
+                final NonNullList<ItemStack> list = OreDictionary.getOres(entry.getOreDictionaryEntry());
+                for (ItemStack oreEntry : list) {
+                    if (OreDictionary.itemMatches(oreEntry, slotStack, false)) {
+                        count += slotStack.getCount();
+                        break;
+                    }
+                }
+
+                if(count >= entry.getCount())
+                    return true;
+                continue;
+            }
+
+            if (entry.getIngredient().test(slotStack)) {
                 count += slotStack.getCount();
-                if (count >= quantity) {
+                if (count >= entry.getCount()) {
                     return true;
                 }
             }
         }
 
-        return count >= quantity;
+        return count >= entry.getCount();
     }
 
-    public boolean consumeFromInventory(Ingredient item, int quantity, int start, int end) {
-        final LinkedList<ItemStack> stackQueue = new LinkedList<>();
-        int consumedSimulated = 0;
+    public void consumeFromInventory(CraftingEntry entry, int start, int end) {
+        final Ingredient ingredient = entry.getIngredient();
+        final int requiredCount = entry.getCount();
+        final List<ItemStack> oreDictList = entry.isOreDictionary()
+                ? OreDictionary.getOres(entry.getOreDictionaryEntry())
+                : Collections.emptyList();
 
-        for (int i = start; i <= end; ++i) {
+        final Map<ItemStack, Integer> toConsume = new HashMap<>();
+        int collectedCount = 0;
+
+        for (int i = start; i <= end && collectedCount < requiredCount; ++i) {
             final ItemStack slotStack = mainInventory.getStackInSlot(i);
+            if (slotStack.isEmpty()) continue;
 
-            if (item.test(slotStack)) {
-                stackQueue.add(slotStack);
-                consumedSimulated += slotStack.getCount();
-                if (consumedSimulated >= quantity) {
-                    break;
-                }
-            }
+            boolean matches = entry.isOreDictionary() ? oreDictList.stream().anyMatch(ore -> OreDictionary.itemMatches(ore, slotStack, false)) : ingredient.test(slotStack);
+
+            if (!matches) continue; // We could make this into one line. (Could, not should)
+
+            final int needed = requiredCount - collectedCount;
+            final int available = slotStack.getCount();
+            final int toTake = Math.min(needed, available);
+
+            toConsume.put(slotStack, toTake);
+            collectedCount += toTake;
         }
 
-        if (consumedSimulated >= quantity) {
-            for (ItemStack s : stackQueue) {
-                final int toConsume = Math.min(quantity, s.getCount());
-                s.shrink(toConsume);
-                quantity -= toConsume;
+        if (collectedCount < requiredCount) return;
 
-                if (quantity == 0) {
-                    return true;
-                }
-            }
-
-        } else {
-            // Failed
-            return false;
-        }
-
-        return tileEntityInvalid;
+        toConsume.forEach(ItemStack::shrink);
     }
 
     public void addStackToInventoryRange(ItemStack stack, int start, int end) {
