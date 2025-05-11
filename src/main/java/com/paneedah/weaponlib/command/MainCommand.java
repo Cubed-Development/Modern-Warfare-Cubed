@@ -76,7 +76,7 @@ public class MainCommand extends CommandBase {
         }
 
         if (SHOW_OPTION_RECIPE.indexOf(args[1].toLowerCase()) == 0) {
-            showRecipes();
+            showRecipe();
         } else if (SHOW_OPTION_ATTACHMENTS.indexOf(args[1].toLowerCase()) == 0) {
             int page = 1;
             if (args.length == 3) {
@@ -144,7 +144,7 @@ public class MainCommand extends CommandBase {
     /**
      * Shows the recipe for the held item
      */
-    private void showRecipes() {
+    private void showRecipe() {
         ItemStack itemStack = MC.player.getHeldItemMainhand();
         Item item = itemStack.getItem();
 
