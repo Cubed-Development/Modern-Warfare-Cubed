@@ -29,11 +29,6 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
     }
 
     @Override
-    protected int getSerialVersion() {
-        return 1;
-    }
-
-    @Override
     public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
         return WirelessCameraPerspective.class;
     }

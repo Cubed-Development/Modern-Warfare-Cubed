@@ -212,7 +212,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
                 action.execute(safeCast(updatedState), fromState, toState, processedPermit);
             }
 
-            // Below T O D O is a today from VMW crew, I have no idea why it is here, using it breaks unloading behavior. - Luna Lage (Desoroxxx)
+            // Below TO DO is a to do from VMW crew, I have no idea why it is here, using it breaks unloading behavior. - Luna Lage (Desoroxxx)
             // TODO: changeState(aspect, updatedState);
         }
     }

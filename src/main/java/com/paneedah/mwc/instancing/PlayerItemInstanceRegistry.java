@@ -158,9 +158,6 @@ public final class PlayerItemInstanceRegistry {
         }
 
         if (result != null) {
-            if (result.shouldHaveInstanceTags())
-                Tags.setInstanceUuid(itemStack, result.getUuid());
-
             slotInstances.put(slot, result);
             syncManager.watch(result);
 
@@ -294,7 +291,7 @@ public final class PlayerItemInstanceRegistry {
      * @return {@code true} if the item stack matches the item instance, {@code false} otherwise
      */
     private boolean itemStackMatchesInstance(final ItemStack itemStack, final PlayerItemInstance<?> instance) {
-        return itemStack.getItem() == instance.getItem() && instance.getUuid().equals(Tags.getInstanceUuid(itemStack));
+        return itemStack.getItem() == instance.getItem();
     }
 
     /**

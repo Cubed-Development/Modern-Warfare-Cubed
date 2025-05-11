@@ -245,11 +245,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     // region Getters
 
-    @Override
-    protected int getSerialVersion() {
-        return 9;
-    }
-
     public Weapon getWeapon() {
         return (Weapon) item;
     }
