@@ -2,10 +2,10 @@ package com.paneedah.weaponlib.command;
 
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
+import lombok.NoArgsConstructor;
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,21 +21,12 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 /**
  * The Main Command for MWC, "/mwc"
  */
+@NoArgsConstructor
 public class MainCommand extends CommandBase {
 
-    private static final String SHOW_OPTION_RECIPE = "recipe";
-
-    private static final String SHOW_OPTION_ATTACHMENTS = "attachments";
-
     private static final String ARG_SHOW = "show";
-
-    private final String mainCommandName;
-    private final ModContext modContext;
-
-    public MainCommand(ModContext modContext) {
-        this.modContext = modContext;
-        this.mainCommandName = ID;
-    }
+    private static final String ARG_SHOW_OPTION_RECIPE = "recipe";
+    private static final String ARG_SHOW_OPTION_ATTACHMENTS = "attachments";
 
     @Override
     public String getName() {
@@ -44,15 +35,15 @@ public class MainCommand extends CommandBase {
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "/" + mainCommandName + " <option>";
+        return "/" + ID + " <options>";
     }
 
     private String getSubCommandShowUsage() {
-        return String.format("/%s %s recipe|attachments", mainCommandName, ARG_SHOW);
+        return String.format("/%s %s recipe|attachments", ID, ARG_SHOW);
     }
 
     @Override
-    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) {
         if (args.length > 0) {
             if (args[0].equals("togglesway")) {
                 ClientEventHandler.cancelSway = !ClientEventHandler.cancelSway;
@@ -75,9 +66,9 @@ public class MainCommand extends CommandBase {
             return;
         }
 
-        if (SHOW_OPTION_RECIPE.indexOf(args[1].toLowerCase()) == 0) {
+        if (ARG_SHOW_OPTION_RECIPE.indexOf(args[1].toLowerCase()) == 0) {
             showRecipe();
-        } else if (SHOW_OPTION_ATTACHMENTS.indexOf(args[1].toLowerCase()) == 0) {
+        } else if (ARG_SHOW_OPTION_ATTACHMENTS.indexOf(args[1].toLowerCase()) == 0) {
             int page = 1;
             if (args.length == 3) {
                 page = Integer.parseInt(args[2]);
