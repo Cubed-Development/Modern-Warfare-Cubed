@@ -202,11 +202,10 @@ public class CommonEventHandler {
             final EquipmentInventory inventory = EquipmentCapability.getInventory(entity);
             for (int slotIndex = 0; slotIndex < inventory.getSizeInventory(); slotIndex++) {
                 final ItemStack stackInSlot = inventory.getStackInSlot(slotIndex);
-                if (stackInSlot == null) {
+                if (stackInSlot.isEmpty())
                     continue;
-                }
                 ((EntityPlayer) entity).dropItem(stackInSlot, true, false);
-                inventory.setInventorySlotContents(slotIndex, null);
+                inventory.setInventorySlotContents(slotIndex, new ItemStack(Items.AIR));
             }
         }
     }
