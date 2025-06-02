@@ -47,7 +47,7 @@ public class MainCommand extends CommandBase {
         if (args.length > 0) {
             if (args[0].equals("togglesway")) {
                 ClientEventHandler.cancelSway = !ClientEventHandler.cancelSway;
-                MC.player.sendMessage(new TextComponentString("Toggled weapon spawn to: " + ClientEventHandler.cancelSway));
+                MC.player.sendMessage(new TextComponentString("Toggled weapon sway to: " + ClientEventHandler.cancelSway));
             }
             else if (ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
                 processShowSubCommand(args);
