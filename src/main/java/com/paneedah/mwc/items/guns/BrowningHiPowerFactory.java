@@ -28,7 +28,7 @@ public class BrowningHiPowerFactory implements GunFactory {
                 .withFireRate(0.65f)
                 .withRecoil(4f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SIDEARM)
+                .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1)
                 .withShootSound("hi_power")

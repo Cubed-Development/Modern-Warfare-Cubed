@@ -25,7 +25,7 @@ public class G2ContenderFactory implements GunFactory {
                 .withFireRate(0.3f)
                 .withRecoil(9f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SIDEARM)
+                .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withMaxShots(1)
                 .withShootSound("g2contender")
                 .withSilencedShootSound("ShotgunSilenced")

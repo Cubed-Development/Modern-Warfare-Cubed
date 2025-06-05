@@ -50,7 +50,7 @@ public abstract class JSONDatabaseManager {
             LOGGER.error("Could not find file {}", f);
             LOGGER.catching(e);
         } catch (IOException e) {
-            LOGGER.error("Could not read file {}", f);
+            LOGGER.error("Could not readVector3D file {}", f);
             LOGGER.catching(e);
         }
 

@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ParticleFancyRain;
 import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.DepthTexture;
-import com.paneedah.weaponlib.render.HDRFramebuffer;
+import com.paneedah.weaponlib.render.framebuffer.HDRFramebuffer;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.bgl.weather.ModernWeatherRenderer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -323,7 +323,7 @@ public class PostProcessPipeline {
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_DRAW_BUFFER) {
 				log.error("Depth framebuffer creation returned an incomplete draw buffer error.");
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_READ_BUFFER) {
-				log.error("Depth framebuffer creation returned an incomplete read buffer error.");
+				log.error("Depth framebuffer creation returned an incomplete readVector3D buffer error.");
 			} else {
 				log.error("Depth framebuffer creation returned an unknown status");
 			}

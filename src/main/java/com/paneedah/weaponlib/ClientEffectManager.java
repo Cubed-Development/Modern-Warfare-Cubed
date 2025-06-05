@@ -1,10 +1,12 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.ClientEventHandler.MuzzleFlash;
 import com.paneedah.weaponlib.particle.BetterMuzzleSmoke;
 import com.paneedah.weaponlib.particle.ExplosionParticleFX;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3F;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;
@@ -20,7 +22,7 @@ final class ClientEffectManager implements EffectManager {
 
     @Override
     public void spawnSmokeParticle(EntityLivingBase player, float xOffset, float yOffset) {
-        Vector3D look = new Vector3D(player.getLookVec());
+        Vector3F look = VectorUtil.convertToVector3F(player.getLookVec());
 
         double motionX = MC.world.rand.nextGaussian() * 0.0003;
         double motionY = MC.world.rand.nextGaussian() * 0.0003;
@@ -60,7 +62,7 @@ final class ClientEffectManager implements EffectManager {
         //float scale = 0.8f * flashScale;
         float positionRandomizationFactor = 0.0f;
 
-        Vector3D look = new Vector3D(player.getLookVec());
+        Vector3F look = VectorUtil.convertToVector3F(player.getLookVec());
 
 		/*
 		float motionX = (float)MC.world.rand.nextGaussian() * 0.003f;

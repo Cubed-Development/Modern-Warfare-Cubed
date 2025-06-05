@@ -684,7 +684,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineItemStack.getItem(), weaponInstance);
                 player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0f, 1.0F);
             }
-            // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, ReloadMessage.Type.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
+            // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, ReloadMessage.ReticleType.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
             weaponInstance.setAmmo(ammo);
         } else if (!compatibleBullets.isEmpty() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(compatibleBullets, Math.min(weapon.getMaxBulletsPerReload(), weapon.getAmmoCapacity() - weaponInstance.getAmmo()), player)) != 0) {
             int ammo = weaponInstance.getAmmo() + consumedAmount;

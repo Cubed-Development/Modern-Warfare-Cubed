@@ -13,7 +13,7 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-public class M1928ThompsonFactory {
+public class M1928ThompsonFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -23,7 +23,7 @@ public class M1928ThompsonFactory {
                 .withFireRate(0.75f)
                 .withRecoil(1.8f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SMG)
+                .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1, Integer.MAX_VALUE)
                 //.withMaxShots(5)

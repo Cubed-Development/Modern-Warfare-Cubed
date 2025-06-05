@@ -28,7 +28,7 @@ public class SpringfieldFactory implements GunFactory {
                 .withEjectSpentRoundSound("springfield_boltaction")
                 .withRecoil(6f)
                 .withZoom(0.8f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMaxShots(1)
                 .withShootSound("springfield")
                 .withPumpTimeout(950)

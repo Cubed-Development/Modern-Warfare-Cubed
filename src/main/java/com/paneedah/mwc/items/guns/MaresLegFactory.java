@@ -31,7 +31,7 @@ public class MaresLegFactory implements GunFactory {
                 .withFireRate(0.1f)
                 .withRecoil(9f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMaxShots(1)
                 .withPumpTimeout(700)
                 .withShootSound("mares_leg")

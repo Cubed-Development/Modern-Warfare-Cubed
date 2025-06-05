@@ -26,7 +26,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
                 .withFireRate(0.2f)
                 .withRecoil(7f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.REVOLVER)
+                .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withMaxShots(1)
                 .withShootSound("magnum44")
 //		.withIteratedLoad()

@@ -73,7 +73,7 @@ public interface VehiclePart extends PartContainer<VehiclePart> {
 
     VehiclePart FRONT_LEFT_CONTROL_ARM = new VehiclePart() {
 
-        private final List<VehiclePart> parts = Collections.unmodifiableList(Collections.singletonList(FRONT_LEFT_WHEEL));
+        private final List<VehiclePart> parts = Collections.singletonList(FRONT_LEFT_WHEEL);
 
         @Override
         public List<VehiclePart> getChildParts() {
@@ -87,7 +87,7 @@ public interface VehiclePart extends PartContainer<VehiclePart> {
 
     VehiclePart FRONT_RIGHT_CONTROL_ARM = new VehiclePart() {
 
-        private final List<VehiclePart> parts = Collections.unmodifiableList(Collections.singletonList(FRONT_RIGHT_WHEEL));
+        private final List<VehiclePart> parts = Collections.singletonList(FRONT_RIGHT_WHEEL);
 
         @Override
         public List<VehiclePart> getChildParts() {
@@ -101,16 +101,12 @@ public interface VehiclePart extends PartContainer<VehiclePart> {
 
     VehiclePart MAIN = new VehiclePart() {
         private final List<VehiclePart> parts = Collections.unmodifiableList(Arrays.asList(
-                STEERING_WHEEL, FRONT_LEFT_CONTROL_ARM, FRONT_RIGHT_CONTROL_ARM, REAR_LEFT_WHEEL, REAR_RIGHT_WHEEL, WINDOWS));
+                STEERING_WHEEL, FRONT_LEFT_CONTROL_ARM, FRONT_RIGHT_CONTROL_ARM, REAR_LEFT_WHEEL, REAR_RIGHT_WHEEL, WINDOWS, LEFT_HAND, RIGHT_HAND));
 
         @Override
         public List<VehiclePart> getChildParts() {
 
-
-            return Collections.unmodifiableList(Arrays.asList(
-                    STEERING_WHEEL, FRONT_LEFT_CONTROL_ARM, FRONT_RIGHT_CONTROL_ARM, REAR_LEFT_WHEEL, REAR_RIGHT_WHEEL, WINDOWS, LEFT_HAND, RIGHT_HAND));
-
-            //return parts;
+            return parts;
         }
 
         public String toString() {

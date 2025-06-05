@@ -23,31 +23,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 
-    /*
-    public static Item ElectronicCircuitBoard;
-    public static Item OpticGlass;
-    public static Item Cloth;
-    public static Item TanCloth;
-    public static Item GreenCloth;
-    public static Item Inductor;
-    public static Item Transistor;
-    public static Item Resistor;
-    public static Item Diode;
-    public static Item Capacitor;
-    public static Item CopperWiring;
-    public static Item Piston;
-    public static Item LaserPointer;
-    public static Item AluminumPlate;
-    public static Item SteelPlate;
-    public static Item BigSteelPlate;
-    public static Item MiniSteelPlate;
-    public static Item MetalComponents;
-    public static Item Plastic;
-    public static Item Backpack;
-    */
-
-
-    // I cannot figure out for the life of me why moving the init classes to the init() instead of the preInit() makes the game die, but I have no choice but to leave it here for now.
     public void preInit(final MWC mod) {
         MWC.modContext.preInit(mod);
 
@@ -61,26 +36,23 @@ public class CommonProxy {
         DataSerializers.registerSerializer(VehicleDataSerializer.SERIALIZER);
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
-        // Special object initialization
-        SpecialAttachments.init(mod, MWC.modContext);
+        // Special object initialization (Magic Mag)
+        SpecialAttachments.init(MWC.modContext);
 
         Backpacks.createEquipment(MWC.modContext);
         Belts.createEquipment(MWC.modContext);
         Vests.createEquipment(MWC.modContext);
         Armors.createEquipment(MWC.modContext);
 
-        Attachments.init(mod);
-        AuxiliaryAttachments.init(mod);
-        GunSkins.init(mod);
-        Bullets.init(mod);
-        Magazines.init(mod);
-        Guns.init(mod, this);
+        Attachments.init(MWC.modContext);
+        AuxiliaryAttachments.init(MWC.modContext);
+        GunSkins.init(MWC.modContext);
+        Bullets.init(MWC.modContext);
+        Magazines.init(MWC.modContext);
+        Guns.init(this);
         Electronics.createEquipment(MWC.modContext);
-        Grenades.init(mod, this);
-        CustomSpawnEggs.init(mod, this);
-
-        TurretBaseFactory.createTileEntity(MWC.modContext);
-        TileEntities.createTileEntity(MWC.modContext);
+        Grenades.init(this);
+        CustomSpawnEggs.init(this);
 
         new TacticalTomahawkFactory().createMelee(this);
         new BaseballBatFactory().createMelee(this);
@@ -93,8 +65,11 @@ public class CommonProxy {
     public void init(final MWC mod) {
         MWC.modContext.init(mod);
 
-        Entities.init(this);
-        Vehicles.init(this);
+        TurretBaseFactory.createTileEntity(MWC.modContext);
+        TileEntities.createTileEntity(MWC.modContext);
+
+        Entities.init(MWC.modContext);
+        Vehicles.init(MWC.modContext);
 
         GameRegistry.registerWorldGenerator(new ModernWorldGenerator(), 0);
     }

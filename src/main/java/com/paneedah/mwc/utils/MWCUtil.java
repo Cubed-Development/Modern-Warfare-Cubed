@@ -3,7 +3,7 @@ package com.paneedah.mwc.utils;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -201,31 +201,40 @@ public class MWCUtil {
 
             if (factorX < factorY && factorX < factorZ) {
                 direction = endX > startX ? EnumFacing.WEST : EnumFacing.EAST;
-                startPos.set(nextX, startPos.y + diffY * factorX, startPos.z + diffZ * factorX);
+
+                startPos.x = nextX;
+                startPos.y = startPos.y + diffY * factorX;
+                startPos.z = startPos.z + diffZ * factorX;
+
                 startX = FastMath.floorToInt(startPos.x);
-                if (direction == EnumFacing.EAST) {
+                if (direction == EnumFacing.EAST)
                     startX--;
-                }
             } else if (factorY < factorZ) {
                 direction = endY > startY ? EnumFacing.DOWN : EnumFacing.UP;
-                startPos.set(startPos.x + diffX * factorY, nextY, startPos.z + diffZ * factorY);
+
+                startPos.x = startPos.x + diffX * factorY;
+                startPos.y = nextY;
+                startPos.z = startPos.z + diffZ * factorY;
+
                 startY = FastMath.floorToInt(startPos.y);
-                if (direction == EnumFacing.UP) {
+                if (direction == EnumFacing.UP)
                     startY--;
-                }
             } else {
                 direction = endZ > startZ ? EnumFacing.NORTH : EnumFacing.SOUTH;
-                startPos.set(startPos.x + diffX * factorZ, startPos.y + diffY * factorZ, nextZ);
+
+                startPos.x = startPos.x + diffX * factorZ;
+                startPos.y = startPos.y + diffY * factorZ;
+                startPos.z = nextZ;
+
                 startZ = FastMath.floorToInt(startPos.z);
-                if (direction == EnumFacing.SOUTH) {
+                if (direction == EnumFacing.SOUTH)
                     startZ--;
-                }
             }
 
             blockPos.setPos(startX, startY, startZ);
             iBlockState = world.getBlockState(blockPos);
             if (isCollidable.test(iBlockState.getBlock(), iBlockState)) {
-                final RayTraceResult rayTraceResult = iBlockState.collisionRayTrace(world, blockPos, startPos.toVec3d(), endPos.toVec3d());
+                final RayTraceResult rayTraceResult = iBlockState.collisionRayTrace(world, blockPos, VectorUtil.convertToVec3d(startPos), VectorUtil.convertToVec3d(endPos));
                 if (rayTraceResult != null) {
                     return rayTraceResult;
                 }

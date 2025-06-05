@@ -29,7 +29,7 @@ public class ScarLFactory implements GunFactory {
                 .withFireRate(0.6f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .hasFlashPedals()
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("scar_l")

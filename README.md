@@ -89,10 +89,9 @@ We wouldn't be where we are now without the support from you all!
 
 ### Official Development Team
 
-- [Luna Lage (Desoroxxx)](https://github.com/JustDesoroxxx) - Head Developer
-- [Paneedah](https://github.com/Paneedah) - Lead Developer
-- [BurnhamR](https://github.com/BurnhamR) - Lead Developer
+- [Luna Mira Lage (Desoroxxx)](https://github.com/Desoroxxx) - Head Developer
 - [SticksDev](https://github.com/SticksDeveloper) - Developer
+- [strubium](https://github.com/strubium) - Developer
 - [Koud-Wind](https://github.com/Koud-Wind) - Developer
 - [Azurae](https://github.com/azuraerae) - Developer
 

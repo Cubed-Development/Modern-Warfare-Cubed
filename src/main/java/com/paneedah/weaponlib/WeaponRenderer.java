@@ -6,6 +6,7 @@ import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.skins.CustomSkin;
+import com.paneedah.mwc.utils.SpriteSheetTools;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
@@ -19,7 +20,8 @@ import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.*;
-import com.paneedah.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.render.wavefront.WavefrontModel;
+import com.paneedah.weaponlib.shader.Shader;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import lombok.Getter;
 import lombok.Setter;
@@ -156,7 +158,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
     private final ItemOverrideList itemOverrideList = new WeaponItemOverrideList(Collections.emptyList());
 
-    ItemCameraTransforms.TransformType transformType;
+    @Setter ItemCameraTransforms.TransformType transformType;
 
     public static class Builder {
 
@@ -1035,8 +1037,14 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         private String animationFileName;
 
+        /**
+         * Configures modern animations for a weapon based on the provided animation file.
+         *
+         * @param animationFile      The name of the animation file to load. (Usually the weapon name)
+         * @param parts   A list of weapon parts associated with the animations.
+         *
+         */
         public Builder setupModernMagazineAnimations(String animationFile, Part... parts) {
-            // .withFirstPersonCustomPositioningReloading(Magazines.M38Mag,
 
             this.setAnimationFileName(animationFile);
 
@@ -1106,12 +1114,15 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         }
 
-        public static boolean isOnServer() {
-            return FMLCommonHandler.instance().getMinecraftServerInstance().getServerOwner() != null;
-        }
-
-
-        public Builder setupModernAnimations(String animationFile, ItemAttachment<Weapon> aR15Action) {
+        /**
+         * Configures modern animations for a weapon based on the provided animation file.
+         *
+         * @param animationFile      The name of the animation file to load. (Usually the weapon name)
+         * @param actionAttachment   The weapon attachment associated with the action animations.
+         *
+         * <p>Note: This method has no effect if executed on the server side.</p>
+         */
+        public Builder setupModernAnimations(String animationFile, ItemAttachment<Weapon> actionAttachment) {
             if (FMLCommonHandler.instance().getSide().isServer()) {
                 return this;
             }
@@ -1121,8 +1132,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             final String rightBoneName = "righthand";
 
             // Makes sure the file is loaded
-
-            AnimationSet set = BBLoader.getAnimationSet(animationFile);
+            AnimationSet animationSet = BBLoader.getAnimationSet(animationFile);
 
 
 
@@ -1133,44 +1143,44 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
              * ==============
              */
 
-            if (set.containsKey(BBLoader.KEY_LOAD_EMPTY)) {
+            if (animationSet.containsKey(BBLoader.KEY_LOAD_EMPTY)) {
                 hasLoadEmpty = true;
             }
-            if (set.containsKey(BBLoader.KEY_UNLOAD_EMPTY)) {
+            if (animationSet.containsKey(BBLoader.KEY_UNLOAD_EMPTY)) {
                 hasUnloadEmpty = true;
             }
-            if (set.containsKey(BBLoader.KEY_TACTICAL_RELOAD)) {
+            if (animationSet.containsKey(BBLoader.KEY_TACTICAL_RELOAD)) {
                 hasTacticalReload = true;
             }
-            if (set.containsKey(BBLoader.KEY_COMPOUND_RELOAD)) {
+            if (animationSet.containsKey(BBLoader.KEY_COMPOUND_RELOAD)) {
                 hasCompoundReload = true;
             }
-            if (set.containsKey(BBLoader.KEY_COMPOUND_RELOAD_EMPTY)) {
+            if (animationSet.containsKey(BBLoader.KEY_COMPOUND_RELOAD_EMPTY)) {
                 hasCompoundReloadEmpty = true;
             }
-            if (set.containsKey(BBLoader.KEY_INSPECT)) {
+            if (animationSet.containsKey(BBLoader.KEY_INSPECT)) {
                 hasInspect = true;
             }
-            if (set.containsKey(BBLoader.KEY_DRAW)) {
+            if (animationSet.containsKey(BBLoader.KEY_DRAW)) {
                 hasDraw = true;
             }
-            if (set.containsKey(BBLoader.KEY_LOAD)) {
+            if (animationSet.containsKey(BBLoader.KEY_LOAD)) {
                 hasLoad = true;
             }
-            if (set.containsKey(BBLoader.KEY_UNLOAD)) {
+            if (animationSet.containsKey(BBLoader.KEY_UNLOAD)) {
                 hasUnload = true;
             }
 
-            if (set.containsKey(BBLoader.KEY_EJECT_SPENT_ROUND)) {
+            if (animationSet.containsKey(BBLoader.KEY_EJECT_SPENT_ROUND)) {
                 hasEjectSpentRound = true;
             }
 
-            if (set.containsKey(BBLoader.KEY_EJECT_SPENT_ROUND_AIMED)) {
+            if (animationSet.containsKey(BBLoader.KEY_EJECT_SPENT_ROUND_AIMED)) {
                 hasEjectSpentRoundAimed = true;
             }
 
             // Check if compound & compound empty should use tactical functionality
-            SingleAnimation compound = set.getSingleAnimation(BBLoader.KEY_COMPOUND_RELOAD);
+            SingleAnimation compound = animationSet.getSingleAnimation(BBLoader.KEY_COMPOUND_RELOAD);
             if (compound != null) {
                 if (compound.hasBone(BBLoader.KEY_MAGIC_MAGAZINE)) {
                     if (compound.getBone(BBLoader.KEY_MAGIC_MAGAZINE).getBbTransition().size() > 1) {
@@ -1179,7 +1189,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                 }
             }
 
-            SingleAnimation compoundEmpty = set.getSingleAnimation(BBLoader.KEY_COMPOUND_RELOAD_EMPTY);
+            SingleAnimation compoundEmpty = animationSet.getSingleAnimation(BBLoader.KEY_COMPOUND_RELOAD_EMPTY);
             if (compoundEmpty != null) {
                 if (compoundEmpty.hasBone(BBLoader.KEY_MAGIC_MAGAZINE)) {
                     if (compoundEmpty.getBone(BBLoader.KEY_MAGIC_MAGAZINE).getBbTransition().size() > 1) {
@@ -1229,7 +1239,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                 setupModernEjectSpentRoundAimedAnimation(animationFile);
             }
 
-            setupCustomKeyedPart(aR15Action, animationFile, BBLoader.KEY_ACTION);
+            setupCustomKeyedPart(actionAttachment, animationFile, BBLoader.KEY_ACTION);
 
             return this;
         }
@@ -3687,14 +3697,10 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         GL11.glTranslatef(xOffset, yOffset, zOffset);
     }
 
-    public static WeaponRotationHandler wrh = new WeaponRotationHandler();
+    public static WeaponRotationHandler weaponRotationHandler = new WeaponRotationHandler();
 
     public static void captureAtlasPosition() {
         GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, atlasMatrix);
-    }
-
-    public void setTransformType(ItemCameraTransforms.TransformType type) {
-        this.transformType = type;
     }
 
     @SideOnly(Side.CLIENT)
@@ -3735,7 +3741,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
                 inventoryTextureInitializationPhaseOn = true;
                 framebuffer = new Framebuffer(INVENTORY_TEXTURE_WIDTH, INVENTORY_TEXTURE_HEIGHT, true);
-                //framebuffer = new MultisampledFBO(INVENTORY_TEXTURE_WIDTH, INVENTORY_TEXTURE_HEIGHT, true);
+                //framebuffer = new MultisampledFramebuffer(INVENTORY_TEXTURE_WIDTH, INVENTORY_TEXTURE_HEIGHT, true);
 
 
                 framebuffer.bindFramebuffer(true);
@@ -3914,25 +3920,26 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                 if (!OpenGLSelectionHelper.isInSelectionPass && AnimationModeProcessor.getInstance().getFPSMode()) {
 
                     GlStateManager.pushMatrix();
-                    ResourceLocation loc = new ResourceLocation(ID + ":textures/hud/grid.png");
+                    ResourceLocation gridImage = new ResourceLocation(ID + ":textures/hud/grid.png");
 
                     Shader grid = Shaders.grid;
-                    // GlStateManager.rotate(45f, 0, 1, 0);
-                    // GlStateManager.disableTexture2D();
-                    //MC.getTextureManager().bindTexture(loc);
-                    // GlStateManager.disableDepth();
+                    GlStateManager.rotate(180f, 0, 1, 0);
+                    GlStateManager.rotate(90f, 1, 0, 0);
+                    GlStateManager.disableTexture2D();
+                    MC.getTextureManager().bindTexture(gridImage);
+                    GlStateManager.disableDepth();
                     grid.use();
                     GlStateManager.disableCull();
-                    Tessellator t = Tessellator.getInstance();
-                    BufferBuilder bb = t.getBuffer();
-                    bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+                    Tessellator tessellator = Tessellator.getInstance();
+                    BufferBuilder tessellatorBuffer = tessellator.getBuffer();
+                    tessellatorBuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
                     double sL = 30.0;
                     double y = 10;
-                    bb.pos(-1 * sL, y, -1 * sL).tex(1, 0).endVertex();
-                    bb.pos(1 * sL, y, -1 * sL).tex(1, 1).endVertex();
-                    bb.pos(1 * sL, y, 1 * sL).tex(0, 1).endVertex();
-                    bb.pos(-1 * sL, y, 1 * sL).tex(1, 1).endVertex();
-                    t.draw();
+                    tessellatorBuffer.pos(-1 * sL, y, -1 * sL).tex(1, 0).endVertex();
+                    tessellatorBuffer.pos(1 * sL, y, -1 * sL).tex(1, 1).endVertex();
+                    tessellatorBuffer.pos(1 * sL, y, 1 * sL).tex(0, 1).endVertex();
+                    tessellatorBuffer.pos(-1 * sL, y, 1 * sL).tex(1, 1).endVertex();
+                    tessellator.draw();
 
                     GlStateManager.enableDepth();
                     GlStateManager.popMatrix();
@@ -4122,7 +4129,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 			}*/
 
-                wrh.run(renderContext, stateDescriptor);
+                weaponRotationHandler.run(renderContext, stateDescriptor);
                 //ads.applyTransformations();
                 // AnimationModeProcessor.instance.applyCameraTransforms();
                 if (DebugPositioner.isDebugModeEnabled()) {

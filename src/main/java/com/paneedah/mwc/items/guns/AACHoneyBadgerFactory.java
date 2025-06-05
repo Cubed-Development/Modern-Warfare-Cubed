@@ -29,7 +29,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withFireRate(0.80f) // Fire rate in rounds per minute
                 .withRecoil(3f) // Recoil in degrees
                 .withZoom(0.9f) // Zoom factor
-                .withConfigGroup(GunConfigurationGroup.RIFLES) // Config group
+                .withConfigGroup(GunConfigurationGroup.RIFLE) // Config group
                 .withMaxShots(1, Integer.MAX_VALUE) // Max shots per reload
                 .withShootSound("aac_honeybadger") // Shoot sound
                 .withSilencedShootSound("aac_honeybadger") // Silenced shoot sound

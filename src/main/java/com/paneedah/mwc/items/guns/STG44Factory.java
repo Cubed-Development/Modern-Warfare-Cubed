@@ -14,7 +14,7 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-public class STG44Factory {
+public class STG44Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -23,7 +23,7 @@ public class STG44Factory {
                 .withFireRate(0.6f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMaxShots(1, Integer.MAX_VALUE)
                 //.withMaxShots(5)
                 .withShootSound("stg44")

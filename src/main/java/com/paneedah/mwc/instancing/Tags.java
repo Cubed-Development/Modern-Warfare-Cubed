@@ -8,7 +8,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
@@ -25,7 +24,6 @@ public final class Tags {
 
     private static final String INSTANCE_CLASS_TAG = "InstanceClass";
     private static final String DEFAULT_TIMER_TAG = "DefaultTimer";
-    private static final String INSTANCE_UUID_TAG = "IUuid";
     private static final String ATTACHMENT_ID_TAG = "AtId";
     private static final String AMMO_TAG = "Ammo";
 
@@ -37,7 +35,7 @@ public final class Tags {
         for (final String key : tagCompound.getKeySet())
             tags.add(key + ":" + tagCompound.getTag(key));
 
-        RED_LOGGER.logFramed("Tags (Size: " + tagCompound.getSize() + ") for item: " + itemStack, INFO, tags.toArray(new String[0]));
+        RED_LOGGER.framed("Tags (Size: " + tagCompound.getSize() + ") for item: " + itemStack, INFO, tags.toArray(new String[0]));
     }
 
     // region Getters
@@ -88,20 +86,6 @@ public final class Tags {
         }
     }
 
-    public static UUID getInstanceUuid(final ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null || !itemStack.getTagCompound().hasKey(ID))
-            return null;
-
-        final NBTTagCompound tagCompound = getTagCompound(itemStack);
-
-        final UUID uuid = new UUID(tagCompound.getLong(INSTANCE_UUID_TAG + "Most"), tagCompound.getLong(INSTANCE_UUID_TAG + "Least"));
-
-        if (uuid.getMostSignificantBits() == 0 && uuid.getLeastSignificantBits() == 0)
-            return null;
-
-        return uuid;
-    }
-
     public static int getAmmo(final ItemStack itemStack) {
         return getTagCompound(itemStack).getInteger(AMMO_TAG);
     }
@@ -127,29 +111,16 @@ public final class Tags {
     }
 
     public static void setInstance(final ItemStack itemStack, final PlayerItemInstance<?> instance) {
+        if (!instance.shouldHaveInstanceTags())
+            return;
+
         final NBTTagCompound tagCompound = getTagCompound(itemStack);
 
         if (instance != null) {
             tagCompound.setString(INSTANCE_CLASS_TAG, instance.getClass().getName());
 
             instance.writeInstanceToNBT(tagCompound);
-
-            final UUID uuid = instance.getUuid();
-
-            tagCompound.setLong(INSTANCE_UUID_TAG + "Most", uuid.getMostSignificantBits());
-            tagCompound.setLong(INSTANCE_UUID_TAG + "Least", uuid.getLeastSignificantBits());
-        } else {
-            tagCompound.removeTag(INSTANCE_UUID_TAG);
         }
-
-        setTagCompound(itemStack, tagCompound);
-    }
-
-    public static void setInstanceUuid(final ItemStack itemStack, final UUID uuid) {
-        final NBTTagCompound tagCompound = getTagCompound(itemStack);
-
-        tagCompound.setLong(INSTANCE_UUID_TAG + "Most", uuid.getMostSignificantBits());
-        tagCompound.setLong(INSTANCE_UUID_TAG + "Least", uuid.getLeastSignificantBits());
 
         setTagCompound(itemStack, tagCompound);
     }

@@ -332,7 +332,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
         } catch (JsonIOException e1) {
             LOGGER.error("GSON had troubles reading from the Input Stream ({})", io.toString());
-            LOGGER.error("Check your directory permissions and ensure the system can read the file.");
+            LOGGER.error("Check your directory permissions and ensure the system can readVector3D the file.");
             LOGGER.catching(e1);
             return -1;
         } catch (JsonSyntaxException e2) {
@@ -386,7 +386,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
             } catch (FileNotFoundException e) {
                 LOGGER.error("Was testing hashes against cache directory, could not find {}!", f.toString());
-                LOGGER.error("Does your system have permissions set to read that directory?");
+                LOGGER.error("Does your system have permissions set to readVector3D that directory?");
             } catch (IOException e) {
                 LOGGER.error("Was unable to reset InputStream for {}", f.toString());
                 LOGGER.catching(e);

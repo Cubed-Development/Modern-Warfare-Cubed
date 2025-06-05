@@ -32,7 +32,7 @@ public class APSFactory implements GunFactory {
                 .withFireRate(0.6f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SIDEARM)
+                .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("aps")

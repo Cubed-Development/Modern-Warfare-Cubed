@@ -4,10 +4,10 @@ import org.jetbrains.gradle.ext.settings
 import org.jetbrains.gradle.ext.Gradle
 
 plugins {
-    id("com.gtnewhorizons.retrofuturagradle") version "1.4.2"
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.9"
-    id("com.github.gmazzo.buildconfig") version "5.5.1"
-    id("io.freefair.lombok") version "8.11"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.10"
+    id("com.gtnewhorizons.retrofuturagradle") version "1.4.5"
+    id("com.github.gmazzo.buildconfig") version "5.6.5"
+    id("io.freefair.lombok") version "8.13.1"
 }
 
 group = "com.paneedah"
@@ -16,27 +16,34 @@ version = "0.2-Dev-4" // Versioning must follow Ragnarök versioning convention:
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
-val redCoreVersion = "MC-1.8-1.12-" + "0.6-Dev-8"
+val redCoreVersion = "1.8-1.12-" + "0.6"
 
-val groovyScriptVersion = "1.2.0-hotfix1"
-val mixinBooterVersion = "10.2"
+val groovyScriptVersion = "1.2.3"
+val mixinBooterVersion = "10.6"
 
 minecraft {
     mcVersion = "1.12.2"
     username = "Desoroxxx"
-    extraRunJvmArguments = listOf("-Dforge.logging.console.level=debug", "-Dfml.coreMods.load=${plugin}", "-Dmixin.hotSwap=true", "-Dmixin.checks.mixininterfaces=true", "-Dmixin.debug.export=true")
+    extraRunJvmArguments = listOf("-Dforge.logging.console.level=debug", "-Dfml.coreMods.load=${plugin}", "-Dmixin.hotSwap=true", "-Dmixin.checks.mixininterfaces=true", "-Dmixin.debug.export=true -XX:+UseStringDeduplication")
 }
 
 repositories {
-    maven {
-        name = "Cleanroom"
-        url = uri("https://repo.cleanroommc.com/releases")
+    arrayOf("Release", "Beta", "Dev").forEach { repoType ->
+        maven {
+            name = "Red Studio - $repoType"
+            url = uri("https://repo.redstudio.dev/${repoType.lowercase()}")
+            content {
+                includeGroup("dev.redstudio")
+            }
+        }
     }
 
-    listOf("release", "beta", "dev").forEach { repoType ->
-        maven {
-            name = "Red Studio - ${repoType.replaceFirstChar { it.uppercase() }}"
-            url = uri("https://repo.redstudio.dev/$repoType")
+    maven {
+        name = "Cleanroom"
+        url = uri("https://maven.cleanroommc.com")
+        content {
+            includeGroup("zone.rong")
+            includeGroup("com.cleanroommc")
         }
     }
 
@@ -54,7 +61,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.redstudio", "Red-Core", redCoreVersion)
+    implementation("dev.redstudio", "Red-Core-MC", redCoreVersion)
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
     compileOnly("com.cleanroommc", "groovyscript", groovyScriptVersion) {
@@ -78,11 +85,14 @@ buildConfig {
     packageName("${project.group}.${id}")
     className("ProjectConstants")
     documentation.set("This class defines constants for ${project.name}.\n<p>\nThey are automatically updated by Gradle.")
-
     useJavaOutput()
+
+    // Details
     buildConfigField("ID", id)
     buildConfigField("NAME", project.name)
     buildConfigField("VERSION", project.version.toString())
+
+    // Loggers
     buildConfigField("org.apache.logging.log4j.Logger", "LOGGER", "org.apache.logging.log4j.LogManager.getLogger(NAME)")
     buildConfigField("dev.redstudio.redcore.logging.RedLogger", "RED_LOGGER", """new RedLogger(NAME, "https://linkify.cz/MWCBugReport", LOGGER)""")
 }
@@ -93,11 +103,16 @@ java {
         languageVersion.set(JavaLanguageVersion.of(8))
         vendor.set(JvmVendorSpec.ADOPTIUM)
     }
-    withSourcesJar() // Generate sources jar
+    if (!project.version.toString().contains("Dev"))
+        withSourcesJar() // Generate sources jar, for releases
+}
+
+lombok {
+    version = "1.18.38"
 }
 
 tasks {
-    listOf(deobfuscateMergedJarToSrg, srgifyBinpatchedJar).forEach {
+    arrayOf(deobfuscateMergedJarToSrg, srgifyBinpatchedJar).forEach {
         it.configure {
             accessTransformerFiles.from(project.files("src/main/resources/META-INF/${id}_at.cfg"))
         }
@@ -117,14 +132,9 @@ tasks {
             if (!exclusions.any { path.endsWith(it) })
                 expand(expandProperties)
         }
-
-        // TODO: Move all of that to assets and remove this
-        from("src/main/java") {
-            include("**/*.png", "**/*.json", "**/*.vsh", "**/*.fsh")
-        }
     }
 
-    named<Jar>("jar") {
+    withType<Jar>  {
         manifest {
             attributes(
                 "ModSide" to "BOTH",
@@ -134,14 +144,13 @@ tasks {
                 "ForceLoadAsMod" to "true"
             )
         }
-    }
 
-    withType<Jar>().configureEach {
         archiveBaseName.set(archiveBaseName.get().replace(" ", "-"))
     }
 
-    withType<JavaCompile>().configureEach {
+    withType<JavaCompile>{
         options.encoding = "UTF-8"
+
         options.isFork = true
         options.forkOptions.jvmArgs = listOf("-Xmx4G", "-XX:+UseStringDeduplication")
     }

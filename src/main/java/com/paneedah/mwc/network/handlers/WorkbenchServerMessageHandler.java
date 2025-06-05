@@ -8,7 +8,8 @@ import com.paneedah.weaponlib.crafting.ICraftingRecipe;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
-import io.redstudioragnarok.redcore.utils.MathUtil;
+import dev.redstudio.redcore.math.ClampUtil;
+import dev.redstudio.redcore.math.MathUtil;
 import dev.redstudio.redcore.utils.NetworkUtil;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
@@ -49,7 +50,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                         if (press.hasStack()) {
                             final ItemStack topQueue = press.getCraftingQueue().getLast();
                             if (ItemStack.areItemsEqualIgnoreDurability(topQueue, newStack)) {
-                                topQueue.setCount(MathUtil.clampMaxFirst(topQueue.getCount() + workbenchServerMessage.getQuantity(), 1, 999));
+                                topQueue.setCount(ClampUtil.clampMaxFirst(topQueue.getCount() + workbenchServerMessage.getQuantity(), 1, 999));
                             } else {
                                 press.addStack(newStack);
                             }

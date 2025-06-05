@@ -24,7 +24,7 @@ public class M1GarandFactory implements GunFactory {
                 .withFireRate(0.2f)
                 .withRecoil(3.5f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMaxShots(1)
                 .withShootSound("m1garand")
 //        .withSilencedShootSound("m4a1_silenced")

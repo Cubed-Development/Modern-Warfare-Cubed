@@ -75,7 +75,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
         public void read(ByteBuf byteBuf) {
             super.read(byteBuf);
             attachmentCategory = AttachmentCategory.values()[byteBuf.readInt()];
-            // If it is forced read out the itemstack
+            // If it is forced readVector3D out the itemstack
             if (byteBuf.readBoolean()) {
                 attachment = ByteBufUtils.readItemStack(byteBuf);
             }

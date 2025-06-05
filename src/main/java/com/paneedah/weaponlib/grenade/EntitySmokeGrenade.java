@@ -3,8 +3,9 @@ package com.paneedah.weaponlib.grenade;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage.ParticleType;
 import com.paneedah.weaponlib.ModContext;
+import dev.redstudio.redcore.math.vectors.Vector3D;
 import io.netty.buffer.ByteBuf;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.math.vectors.Vector3F;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -154,7 +155,7 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
                     if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
                         ParticleType particleType = ParticleType.SMOKE_GRENADE_SMOKE;
                         double movement = bounceCount > 0 ? 0.1 : 0.005;
-                        CHANNEL.sendTo(new SpawnParticleMessage(particleType, 2, new Vector3F((float) (posX + rand.nextGaussian() / 7), (float) (posY + rand.nextGaussian() / 10), (float) (posZ + rand.nextGaussian() / 7)), new Vector3F((float) (rand.nextGaussian() * movement), (float) (rand.nextGaussian() * movement / 4), (float) (rand.nextGaussian() * movement))), (EntityPlayerMP) player);
+                        CHANNEL.sendTo(new SpawnParticleMessage(particleType, 2, new Vector3D(posX + rand.nextGaussian() / 7, posY + rand.nextGaussian() / 10, posZ + rand.nextGaussian() / 7), new Vector3F((float) (rand.nextGaussian() * movement), (float) (rand.nextGaussian() * movement / 4), (float) (rand.nextGaussian() * movement))), (EntityPlayerMP) player);
                     }
                 }
             }

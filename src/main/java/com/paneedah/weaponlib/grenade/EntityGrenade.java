@@ -2,11 +2,12 @@ package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.utils.MWCUtil;
+import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -14,6 +15,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -175,15 +177,15 @@ public class EntityGrenade extends AbstractEntityGrenade {
             final Vector3D cvec1 = new Vector3D(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
 
             // Vectors are mutable, need to create a copy to preserve the original
-            final Vector3D cvec10 = new Vector3D(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
+            final Vec3d cvec10 = new Vec3d(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
 
-            Vector3D cvec2 = new Vector3D(this.posX + x * k, this.posY + y * k, this.posZ + z * k);
+            Vec3d cvec2 = new Vec3d(this.posX + x * k, this.posY + y * k, this.posZ + z * k);
 
             BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> block.canCollideCheck(blockMetadata, false);
-            RayTraceResult rayTraceResult = MWCUtil.rayTraceBlocks(world, cvec1, cvec2, isCollidable);
+            RayTraceResult rayTraceResult = MWCUtil.rayTraceBlocks(world, cvec1, VectorUtil.convertToVector3D(cvec2), isCollidable);
 
             if (rayTraceResult != null) {
-                cvec2 = new Vector3D(rayTraceResult.hitVec);
+                cvec2 = new Vec3d(rayTraceResult.hitVec.x, rayTraceResult.hitVec.y, rayTraceResult.hitVec.z);
             }
 
             for (Object nearbyEntityObject : nearbyEntities) {
@@ -191,11 +193,11 @@ public class EntityGrenade extends AbstractEntityGrenade {
                 if (nearbyEntity.canBeCollidedWith()) {
                     float f = 0.5f;
                     AxisAlignedBB axisalignedbb = nearbyEntity.getEntityBoundingBox().expand(f, f, f);
-                    RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(cvec10.toVec3d(), cvec2.toVec3d());
+                    RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(cvec10, cvec2);
 
                     if (movingobjectposition1 != null) {
 
-                        double distanceToEntity = cvec10.distanceTo(new Vector3D(movingobjectposition1.hitVec));
+                        double distanceToEntity = cvec10.distanceTo(movingobjectposition1.hitVec);
                         float damageDistanceReductionFactor = (float) Math.abs(1 - distanceToEntity / effectiveRadius);
 
                         ProjectConstants.LOGGER.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,

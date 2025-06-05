@@ -171,12 +171,12 @@ public class ItemCarryable extends Item implements ICraftingRecipe {
 
         protected void validateInput() {
             if (name == null) {
-                RED_LOGGER.printFramedError("Carryable Item", "Carryable Item has no name set", "Non critical exception falling back to 'missing_name'", "At:" + new Throwable().getStackTrace()[3].toString());
+                RED_LOGGER.framedError("Carryable Item", "Carryable Item has no name set", "Non critical exception falling back to 'missing_name'", "At:" + new Throwable().getStackTrace()[3].toString());
                 name = "missing_name";
             }
 
             if (size <= 0) {
-                RED_LOGGER.printFramedError("Carryable Item", name + " size was not greater than 0", "Non critical exception falling back to a size of 8", "At:" + new Throwable().getStackTrace()[3].toString());
+                RED_LOGGER.framedError("Carryable Item", name + " size was not greater than 0", "Non critical exception falling back to a size of 8", "At:" + new Throwable().getStackTrace()[3].toString());
                 size = 8;
             }
         }

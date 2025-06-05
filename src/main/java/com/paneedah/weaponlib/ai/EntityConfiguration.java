@@ -2,12 +2,15 @@ package com.paneedah.weaponlib.ai;
 
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.config.ModernConfigManager;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.EnumDifficulty;
@@ -60,18 +63,12 @@ public class EntityConfiguration {
 
     public static class Builder {
 
+        @AllArgsConstructor
         private static class Spawn {
             int weightedProb;
             int min;
             int max;
             BiomeDictionary.Type[] biomeTypes;
-
-            public Spawn(int weightedProb, int min, int max, BiomeDictionary.Type[] biomeTypes) {
-                this.weightedProb = weightedProb;
-                this.min = min;
-                this.max = max;
-                this.biomeTypes = biomeTypes;
-            }
         }
 
         private static class EquipmentValue {
@@ -178,7 +175,7 @@ public class EntityConfiguration {
         private boolean spawnEgg;
         private int primaryEggColor;
         private int secondaryEggColor;
-        private final Map<EntityEquipmentSlot, CustomArmor> armor = new HashMap<>();
+        private final Map<EntityEquipmentSlot, ItemArmor> armor = new HashMap<>();
 
         private float primaryEquipmentDropChance = DEFAULT_PRIMARY_EQUIPMENT_DROP_CHANCE;
         private float secondaryEquipmentDropChance = DEFAULT_SECONDARY_EQUIPMENT_DROP_CHANCE;
@@ -275,8 +272,8 @@ public class EntityConfiguration {
             return this;
         }
 
-        public Builder withArmor(CustomArmor armor) {
-            this.armor.put(armor.getCompatibleEquipmentSlot(), armor);
+        public Builder withArmor(ItemArmor armor) {
+            this.armor.put(armor.getEquipmentSlot(), armor);
             return this;
         }
 
@@ -605,74 +602,50 @@ public class EntityConfiguration {
         }
     }
 
-    private WeightedOptions<EnumDifficulty, Equipment> equipmentOptions;
-    private WeightedOptions<EnumDifficulty, Equipment> secondaryEquipmentOptions;
+    @Getter private WeightedOptions<EnumDifficulty, Equipment> equipmentOptions;
+    @Getter private WeightedOptions<EnumDifficulty, Equipment> secondaryEquipmentOptions;
 
     private List<AiTask> aiTasks;
     private List<AiTask> aiTargetTasks;
-    private SoundEvent ambientSound;
-    private SoundEvent hurtSound;
-    private SoundEvent deathSound;
-    private SoundEvent stepSound;
-    private ResourceLocation lootTable;
-    private double maxHealth;
-    private Predicate<Entity> canSpawnHere;
+    @Getter private SoundEvent ambientSound;
+    @Getter private SoundEvent hurtSound;
+    @Getter private SoundEvent deathSound;
+    @Getter private SoundEvent stepSound;
+    @Getter private ResourceLocation lootTable;
+    @Getter private double maxHealth;
+    @Getter private Predicate<Entity> canSpawnHere;
     private Predicate<Entity> isValidLightLevel;
-    private EnumCreatureAttribute creatureAttribute;
-    private float maxTolerableLightBrightness;
-    private double maxSpeed;
-    private List<TexturedModel> texturedModelVariants;
-    private double followRange;
-    private double collisionAttackDamage;
+    @Getter private EnumCreatureAttribute creatureAttribute;
+    @Getter private float maxTolerableLightBrightness;
+    @Getter private double maxSpeed;
+    @Getter private List<TexturedModel> texturedModelVariants;
+    @Getter private double followRange;
+    @Getter private double collisionAttackDamage;
 
     private boolean isPushable;
     private boolean isInvulnerable;
     private boolean isCollidable;
     private boolean isDespawnable;
 
-    public float lookHeightMultiplier;
+    @Getter public float lookHeightMultiplier;
 
-    public float sizeWidth, sizeHeight;
+    @Getter public float sizeWidth, sizeHeight;
 
-    private Map<EntityEquipmentSlot, CustomArmor> armor;
-    private float primaryEquipmentDropChance;
-    private float secondaryEquipmentDropChance;
-    private float armorDropChance;
-    private int maxAmmo;
+    private Map<EntityEquipmentSlot, ItemArmor> armor;
+    @Getter private float primaryEquipmentDropChance;
+    @Getter private float secondaryEquipmentDropChance;
+    @Getter private float armorDropChance;
+    @Getter private int maxAmmo;
 
-    private CustomMobAttack collisionAttack;
-    private CustomMobAttack delayedAttack;
+    @Getter private CustomMobAttack collisionAttack;
+    @Getter private CustomMobAttack delayedAttack;
 
-    private String mobName;
+    @Getter private String mobName;
 
 
-    private int pickupItemID = -1;
+    @Getter private int pickupItemID = -1;
 
     protected EntityConfiguration() {}
-
-    public String getMobName() {
-        return this.mobName;
-    }
-
-    public WeightedOptions<EnumDifficulty, Equipment> getEquipmentOptions() {
-        return equipmentOptions;
-    }
-
-    public WeightedOptions<EnumDifficulty, Equipment> getSecondaryEquipmentOptions() {
-        return secondaryEquipmentOptions;
-    }
-
-    public float getSizeWidth() {
-        return this.sizeWidth;
-    }
-
-    public float getSizeHeight() {
-        return this.sizeHeight;
-    }
-
-    public int getPickupItemID() {
-        return this.pickupItemID;
-    }
 
     public void addAiTasks(EntityLiving e, EntityAITasks tasks) {
         aiTasks.stream().forEach(t -> tasks.addTask(t.priority, t.taskSupplier.apply(e)));
@@ -682,92 +655,12 @@ public class EntityConfiguration {
         aiTargetTasks.stream().forEach(t -> tasks.addTask(t.priority, t.taskSupplier.apply(e)));
     }
 
-    public float getLookHeightMultiplier() {
-        return this.lookHeightMultiplier;
-    }
-
-    public SoundEvent getAmbientSound() {
-        return ambientSound;
-    }
-
-    public SoundEvent getHurtSound() {
-        return hurtSound;
-    }
-
-    public SoundEvent getDeathSound() {
-        return deathSound;
-    }
-
-    public SoundEvent getStepSound() {
-        return stepSound;
-    }
-
-    public ResourceLocation getLootTable() {
-        return lootTable;
-    }
-
-    public double getMaxHealth() {
-        return maxHealth;
-    }
-
-    public Predicate<Entity> getCanSpawnHere() {
-        return canSpawnHere;
-    }
-
     public Predicate<Entity> isValidLightLevel() {
         return isValidLightLevel;
     }
 
-    public EnumCreatureAttribute getCreatureAttribute() {
-        return creatureAttribute;
-    }
-
-    public float getMaxTolerableLightBrightness() {
-        return maxTolerableLightBrightness;
-    }
-
-    public double getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public double getFollowRange() {
-        return followRange;
-    }
-
-    public List<TexturedModel> getTexturedModelVariants() {
-        return texturedModelVariants;
-    }
-
-    public Collection<CustomArmor> getArmorSet() {
+    public Collection<ItemArmor> getArmorSet() {
         return armor.values();
-    }
-
-    public float getPrimaryEquipmentDropChance() {
-        return primaryEquipmentDropChance;
-    }
-
-    public float getSecondaryEquipmentDropChance() {
-        return secondaryEquipmentDropChance;
-    }
-
-    public float getArmorDropChance() {
-        return armorDropChance;
-    }
-
-    public int getMaxAmmo() {
-        return maxAmmo;
-    }
-
-    public CustomMobAttack getCollisionAttack() {
-        return collisionAttack;
-    }
-
-    public CustomMobAttack getDelayedAttack() {
-        return delayedAttack;
-    }
-
-    public double getCollisionAttackDamage() {
-        return collisionAttackDamage;
     }
 
     public boolean isPushable() {

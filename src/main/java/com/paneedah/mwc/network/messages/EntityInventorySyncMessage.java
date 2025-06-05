@@ -37,7 +37,7 @@ public final class EntityInventorySyncMessage implements IMessage {
         try {
             inventoryCompound = packetBuf.readCompoundTag();
         } catch (IOException ioException) {
-            RED_LOGGER.printFramedError("Networking", "Failed to read equipment inventory from message", "Equipment inventory won't be synced", ioException.getMessage());
+            RED_LOGGER.framedError("Networking", "Failed to readVector3D equipment inventory from message", "Equipment inventory won't be synced", ioException.getMessage());
         }
     }
 

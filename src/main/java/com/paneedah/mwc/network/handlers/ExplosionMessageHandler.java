@@ -1,8 +1,9 @@
 package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.ExplosionMessage;
+import dev.redstudio.redcore.math.vectors.Vector3F;
 import dev.redstudio.redcore.utils.NetworkUtil;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3D;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -21,7 +22,7 @@ public final class ExplosionMessageHandler implements IMessageHandler<ExplosionM
     public IMessage onMessage(final ExplosionMessage explosionMessage, final MessageContext messageContext) {
         NetworkUtil.processMessage(messageContext, () -> {
             final EntityPlayer player = MC.player;
-            final Vector3D velocity = explosionMessage.getVelocity();
+            final Vector3F velocity = explosionMessage.getVelocity();
             final float strength = explosionMessage.getStrength();
 
             player.motionX += velocity.x * strength;

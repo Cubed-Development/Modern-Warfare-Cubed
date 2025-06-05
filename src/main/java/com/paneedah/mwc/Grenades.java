@@ -18,7 +18,7 @@ public class Grenades {
     public static ItemAttachment<ItemGrenade> GrenadeSafetyPin;
 
 
-    public static void init(Object mod, CommonProxy commonProxy) {
+    public static void init(CommonProxy commonProxy) {
         GrenadeSafetyPin = new AttachmentBuilder<ItemGrenade>().withCategory(AttachmentCategory.EXTRA).withModel(new com.paneedah.mwc.models.Pin(), "gun.png").withName("GrenadeSafetyPin").withRenderablePart().withTextureName("Dummy.png").build(MWC.modContext);
 
         FuseGrenade = new FuseGrenadeFactory().createGrenade(commonProxy);

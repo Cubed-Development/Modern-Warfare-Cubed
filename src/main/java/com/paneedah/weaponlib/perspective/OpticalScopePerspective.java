@@ -2,9 +2,9 @@ package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderLoader;
-import com.paneedah.weaponlib.shader.jim.Uniform;
+import com.paneedah.weaponlib.shader.Shader;
+import com.paneedah.weaponlib.shader.ShaderLoader;
+import com.paneedah.weaponlib.shader.Uniform;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.GL11;

@@ -9,9 +9,9 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
 import com.paneedah.weaponlib.perspective.Perspective;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
-import com.paneedah.weaponlib.shader.DynamicShaderPhase;
+import com.paneedah.weaponlib.shader.dynamic.DynamicShaderGroupSource;
+import com.paneedah.weaponlib.shader.dynamic.DynamicShaderGroupSourceProvider;
+import com.paneedah.weaponlib.shader.dynamic.DynamicShaderPhase;
 import dev.redstudio.redcore.math.ClampUtil;
 import io.netty.buffer.ByteBuf;
 import lombok.Getter;
@@ -63,15 +63,15 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     private static final UUID VIGNETTE_SOURCE_UUID = UUID.randomUUID();
     private static final UUID BLUR_SOURCE_UUID = UUID.randomUUID();
 
-    @SideOnly(CLIENT) public final DynamicShaderGroupSource blurSource = new DynamicShaderGroupSource(BLUR_SOURCE_UUID, new ResourceLocation("weaponlib", "blur.json"))
+    public final DynamicShaderGroupSource blurSource = new DynamicShaderGroupSource(BLUR_SOURCE_UUID, new ResourceLocation(ID, "shaders/post/blur.json"))
             .withUniform("Radius", context -> hasOpticalScope() ? 10 : 5)
             .withUniform("Progress", context -> getAimChangeProgress());
 
-    @SideOnly(CLIENT) public final DynamicShaderGroupSource nightVisionSource = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID, new ResourceLocation("weaponlib", "night-vision.json"))
+    public final DynamicShaderGroupSource nightVisionSource = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID, new ResourceLocation(ID, "night-vision.json"))
             .withUniform("IntensityAdjust", context -> 40 - MC.gameSettings.gammaSetting * 38)
             .withUniform("NoiseAmplification", context -> 2 + 3 * MC.gameSettings.gammaSetting);
 
-    @SideOnly(CLIENT) public final DynamicShaderGroupSource vignetteSource = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID, new ResourceLocation("weaponlib", "vignette.json"))
+    public final DynamicShaderGroupSource vignetteSource = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID, new ResourceLocation(ID, "vignette.json"))
             .withUniform("Radius", context -> getOpticalScopeVignetteRadius(context.getPartialTicks()))
             // .withUniform("Velocity", context -> new float[]{ClientEventHandler.scopeVelX, ClientEventHandler.scopeVelY})
             .withUniform("Reticle", context -> {
@@ -244,11 +244,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     }
 
     // region Getters
-
-    @Override
-    protected int getSerialVersion() {
-        return 9;
-    }
 
     public Weapon getWeapon() {
         return (Weapon) item;

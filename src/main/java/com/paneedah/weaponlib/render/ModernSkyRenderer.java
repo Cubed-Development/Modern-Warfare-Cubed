@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.render;
 
-import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderLoader;
+import com.paneedah.weaponlib.shader.Shader;
+import com.paneedah.weaponlib.shader.ShaderLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -116,7 +116,7 @@ public class ModernSkyRenderer extends IRenderHandler {
             return buf;
 
         } catch (IOException e) {
-            System.err.println("Failed to read out cubemap texture!");
+            System.err.println("Failed to readVector3D out cubemap texture!");
             e.printStackTrace();
         }
 

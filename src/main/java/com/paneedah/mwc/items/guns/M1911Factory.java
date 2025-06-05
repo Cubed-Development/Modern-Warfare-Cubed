@@ -24,7 +24,7 @@ public class M1911Factory implements GunFactory {
                 .withFireRate(0.5f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SIDEARM)
+                .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1)
                 .withShootSound("colt_m45a1")

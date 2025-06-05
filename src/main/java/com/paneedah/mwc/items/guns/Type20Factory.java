@@ -27,7 +27,7 @@ public class Type20Factory implements GunFactory {
                 .withFireRate(0.65f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMuzzlePosition(new Vec3d(0.0, -1.076000002264977, -6.227999991893772))
                 .hasFlashPedals()
                 .withMaxShots(1, 3, Integer.MAX_VALUE)

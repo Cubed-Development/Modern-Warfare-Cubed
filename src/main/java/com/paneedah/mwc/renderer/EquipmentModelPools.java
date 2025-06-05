@@ -45,7 +45,7 @@ public final class EquipmentModelPools {
             try {
                 pool.put(name, (ModelBiped) Class.forName(name).getDeclaredConstructor().newInstance());
             } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException exception) {
-                RED_LOGGER.printFramedError("Equipment Pool", "Failed to load equipment model: " + name, "Non critical exception, model will not be loaded", exception.getMessage());
+                RED_LOGGER.framedError("Equipment Pool", "Failed to load equipment model: " + name, "Non critical exception, model will not be loaded", exception.getMessage());
             }
         }
 

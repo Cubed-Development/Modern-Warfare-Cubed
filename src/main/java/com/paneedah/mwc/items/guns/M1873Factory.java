@@ -30,7 +30,7 @@ public class M1873Factory implements GunFactory {
                 .withFireRate(0.1f)
                 .withRecoil(9f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMaxShots(1)
                 .withPumpTimeout(800)
                 .withShootSound("m1873")

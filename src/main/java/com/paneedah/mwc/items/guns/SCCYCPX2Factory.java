@@ -31,7 +31,7 @@ public class SCCYCPX2Factory implements GunFactory {
                 .withFireRate(0.5f)
                 .withRecoil(2f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SIDEARM)
+                .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1)
                 .withShootSound("m9a1")

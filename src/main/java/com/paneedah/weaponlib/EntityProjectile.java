@@ -2,10 +2,10 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.messages.BlockHitMessage;
 import com.paneedah.mwc.utils.MWCUtil;
+import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -206,7 +206,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
                         this.world.destroyBlock(rtr.getBlockPos(), true);
                     }
 
-                    CHANNEL.sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), new Vector3F(rtr.hitVec), rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
+                    CHANNEL.sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), VectorUtil.convertToVector3D(rtr.hitVec), rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
                 }
             }
         }
@@ -215,7 +215,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
         if (movingobjectposition != null) {
-            vec31 = new Vector3D(movingobjectposition.hitVec);
+            vec31 = VectorUtil.convertToVector3D(movingobjectposition.hitVec);
         }
 
         if (!world.isRemote) {
@@ -296,19 +296,21 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
             if (flag && entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                 float f1 = 0.15F, f2 = -0.15f;
                 AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand(f1, f1, f1);
-                RayTraceResult movingobjectposition = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
+                Vec3d vec3d = VectorUtil.convertToVec3d(vec3);
+                Vec3d vec3d1 = VectorUtil.convertToVec3d(vec31);
+                RayTraceResult movingobjectposition = axisalignedbb.calculateIntercept(vec3d, vec3d1);
                 AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand(f2, f2, f2);
-                RayTraceResult movingobjectposition1 = axisalignedbb1.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
+                RayTraceResult movingobjectposition1 = axisalignedbb1.calculateIntercept(vec3d, vec3d1);
 
                 if (movingobjectposition != null) {
-                    double d1 = vec3.distanceTo(new Vector3D(movingobjectposition.hitVec));
+                    double d1 = vec3d.distanceTo(movingobjectposition.hitVec);
 
                     if (d1 < d0 || d0 == 0.0D) {
                         entity = entity1;
                         d0 = d1;
                     }
                 } else if (movingobjectposition1 != null) {
-                    double d1 = vec3.distanceTo(new Vector3D(movingobjectposition1.hitVec));
+                    double d1 = vec3d.distanceTo(movingobjectposition1.hitVec);
 
                     if (d1 < d0 || d0 == 0.0D) {
                         entity = entity1;
@@ -348,7 +350,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
     }
 
     /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
+     * (abstract) Protected helper method to readVector3D subclass entity data from NBT.
      */
     public void readEntityFromNBT(NBTTagCompound tagCompound) {
 

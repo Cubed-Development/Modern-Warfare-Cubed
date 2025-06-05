@@ -3,10 +3,11 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.network.messages.BloodClientMessage;
 import com.paneedah.mwc.utils.MWCUtil;
+import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.HitUtil;
 import io.netty.buffer.ByteBuf;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.math.vectors.Vector3F;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -106,7 +107,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
                 final RayTraceResult rayTraceResult = HitUtil.traceProjectilehit(this, position.entityHit);
 
                 if (rayTraceResult != null && rayTraceResult.typeOfHit == Type.BLOCK) {
-                    CHANNEL.sendToAllAround(new BloodClientMessage(new Vector3F(rayTraceResult.hitVec), new Vector3F((float) motionX, (float) motionY, (float) motionZ)), point);
+                    CHANNEL.sendToAllAround(new BloodClientMessage(VectorUtil.convertToVector3D(rayTraceResult.hitVec), new Vector3F((float) motionX, (float) motionY, (float) motionZ)), point);
                 }
             }
         }

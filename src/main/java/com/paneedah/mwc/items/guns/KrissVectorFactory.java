@@ -19,7 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-public class KrissVectorFactory {
+public class KrissVectorFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -28,7 +28,7 @@ public class KrissVectorFactory {
                 .withFireRate(0.999f)
                 .withRecoil(2.5f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SMG)
+                .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withMuzzlePosition(new Vec3d(-0.09600000286102293, -0.13599997425079366, -4.6919999461174))

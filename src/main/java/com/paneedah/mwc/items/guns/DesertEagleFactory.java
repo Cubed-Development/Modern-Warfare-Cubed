@@ -26,7 +26,7 @@ public class DesertEagleFactory implements GunFactory {
                 .withFireRate(0.2f)
                 .withRecoil(5f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SIDEARM)
+                .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withMuzzlePosition(new Vec3d(-0.14400000429153445, -0.8639999959468836, -2.355999876499175))
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1)

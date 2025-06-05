@@ -32,7 +32,7 @@ public class ACRFactory implements GunFactory {
                 .withFireRate(0.65f) // Fire rate in rounds per minute
                 .withRecoil(3f) // Recoil in degrees
                 .withZoom(0.9f) // Zoom factor
-                .withConfigGroup(GunConfigurationGroup.RIFLES) // Config group
+                .withConfigGroup(GunConfigurationGroup.RIFLE) // Config group
                 .withMuzzlePosition(new Vec3d(0.0, -1.076000002264977, -6.227999991893772)) // Muzzle position
                 .hasFlashPedals() // Has flash pedals
                 .withMaxShots(1, 3, Integer.MAX_VALUE) // Max shots

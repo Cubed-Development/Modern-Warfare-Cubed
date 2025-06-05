@@ -20,7 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-public class AK101Factory {
+public class AK101Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -30,7 +30,7 @@ public class AK101Factory {
                 .withFireRate(0.6f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .hasFlashPedals()
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withMuzzlePosition(new Vec3d(-0.16400000488758082, -1.0, -6.5))

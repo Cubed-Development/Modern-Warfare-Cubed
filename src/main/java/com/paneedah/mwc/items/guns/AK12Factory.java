@@ -19,7 +19,7 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-public class AK12Factory {
+public class AK12Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -28,7 +28,7 @@ public class AK12Factory {
                 .withFireRate(0.7f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .hasFlashPedals()
                 .withMaxShots(1, Integer.MAX_VALUE)
                 //.withMaxShots(5)

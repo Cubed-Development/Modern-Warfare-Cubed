@@ -17,6 +17,12 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
+
+/**
+ * The {@code BBLoader} class is responsible for loading and managing JSON animation files
+ * for a Weapon System 2 (WS2). It provides functionality to retrieve,
+ * cache, and parse animation data used in rendering the guns.
+ */
 public class BBLoader {
 
     public static String directory = ID + ":animations/";
@@ -119,7 +125,7 @@ public class BBLoader {
             AnimationSet set = loadAnimationFile(animation + animationSuffix);
 
             if (set == null) {
-                LOGGER.error("Could not load animation set for animation name {}", animation);
+                LOGGER.error("Could not load null set for animation name {}", animation);
                 return null;
             } else {
                 actualAnimations.put(animation, set);
@@ -152,13 +158,12 @@ public class BBLoader {
 
         // Do a basic check to make sure this is valid: has a version key, and the version key
         // lines up. Alert the user if it's a different version so the developer can make adjustments.
-        if (!masterJSON.has("format_version")) {
+        if (!masterJSON.has(KEY_VERSION)) {
 
-            LOGGER.error("Could not locate \"format_version\" key, cannot read file {} ", fileName);
+            LOGGER.error("Could not locate \"format_version\" key, cannot readVector3D file {} ", fileName);
             return null;
-        } else if (!masterJSON.get("format_version").getAsString().equals(version)) {
-            LOGGER.error("Warning, this file is running version {}, and this version of VMW is looking for {}", masterJSON.get("format_version").getAsString(), version);
-            //System.err.printf("Warning, this file is running version {}, and this version of VMW is looking for {}", masterJSON.get("format_version").getAsString(), version);
+        } else if (!masterJSON.get(KEY_VERSION).getAsString().equals(version)) {
+            LOGGER.error("Warning, this file is running version {}, and this version of MWC is looking for {}", masterJSON.get(KEY_VERSION).getAsString(), version);
         }
 
 
@@ -175,7 +180,7 @@ public class BBLoader {
 
             // load all the bone data into the single animation
 
-            float appointedDuration = singleAnimJSON.get("animation_length").getAsFloat();
+            float appointedDuration = singleAnimJSON.get(KEY_ANIMATION_LENGTH).getAsFloat();
             //System.out.println("APPOINTED DURATION: " + appointedDuration);
 
 
@@ -208,7 +213,6 @@ public class BBLoader {
 
             // Add to set
             animationSet.addSingleAnimation(anim);
-
 
         }
 

@@ -4,6 +4,7 @@ import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
+import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
@@ -16,7 +17,6 @@ import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import dev.redstudio.redcore.utils.DecimalUtils;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
 import lombok.Getter;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -82,7 +82,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         private static final float DEFAULT_SPAWN_ENTITY_SPEED = 150f;
         private static final float DEFAULT_INACCURACY = 0f;
-        private static final String DEFAULT_SHELL_CASING_TEXTURE_NAME = "weaponlib:/com/paneedah/weaponlib/resources/shell.png";
+        private static final String DEFAULT_SHELL_CASING_TEXTURE_NAME = "mwc:textures/maps/shell.png";
         private static final float DEFAULT_SHELL_CASING_VELOCITY = 0.1f;
         private static final float DEFAULT_SHELL_CASING_GRAVITY_VELOCITY = 0.05f;
         private static final float DEFAULT_SHELL_CASING_INACCURACY = 20f;
@@ -847,7 +847,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                     if (ModernConfigManager.bulletBreakGlass && iBlockState.getMaterial() == Material.GLASS) {
                         world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), true);
                     } else {
-                        CHANNEL.sendToAllAround(new BlockHitMessage(position.getBlockPos(), new Vector3F(position.hitVec), position.sideHit), new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100));
+                        CHANNEL.sendToAllAround(new BlockHitMessage(position.getBlockPos(), VectorUtil.convertToVector3D(position.hitVec), position.sideHit), new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100));
 
                         MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(iBlockState, entity);
                         if (materialImpactSound != null) {

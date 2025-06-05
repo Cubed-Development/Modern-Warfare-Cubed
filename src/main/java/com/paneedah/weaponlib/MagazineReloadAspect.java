@@ -50,7 +50,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
 
 
     private static final Predicate<PlayerMagazineInstance> reloadAnimationCompleted = es ->
-            System.currentTimeMillis() >= es.getStateUpdateTimestamp() + reloadAnimationDuration; // TODO: read reload animation duration from the state itself
+            System.currentTimeMillis() >= es.getStateUpdateTimestamp() + reloadAnimationDuration; // TODO: readVector3D reload animation duration from the state itself
 
     private final ModContext modContext;
 

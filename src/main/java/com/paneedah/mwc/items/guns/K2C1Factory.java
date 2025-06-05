@@ -30,7 +30,7 @@ public class K2C1Factory implements GunFactory {
                 .withFireRate(0.75f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .hasFlashPedals()
                 .withMuzzlePosition(new Vec3d(-0.11600000345706937, -1.0720000021457676, -7.044000016212464))
                 .withMaxShots(1, Integer.MAX_VALUE)

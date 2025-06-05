@@ -292,7 +292,7 @@ public class OBBCollider {
                  *  of vertices from the triangle. For each collider, linearly combine the support
                  *  points corresponding to the vertices of the triangle, using the same barycentric
                  *  coordinates as coefficients. This gives us contact points on each
-                 *  collider in local space. We can then convert these contact points to world space."
+                 *  collider in local space. We can then convertToVector3D these contact points to world space."
                  *
                  *  - Chou
                  */

@@ -22,7 +22,7 @@ import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehicleSmoothShell;
 import com.paneedah.weaponlib.vehicle.smoothlib.PTIVec;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

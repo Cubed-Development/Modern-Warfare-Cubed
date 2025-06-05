@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.render;
 
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
+import lombok.Getter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.shader.Framebuffer;
@@ -18,6 +19,7 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
  * @author Homer Riva-Cambrin
  * @version October 2nd, 2022
  */
+@Getter
 public class DepthTexture {
 
     private int buffer = -1;
@@ -108,29 +110,13 @@ public class DepthTexture {
             } else if (status == OpenGlHelper.GL_FB_INCOMPLETE_DRAW_BUFFER) {
                 LOGGER.error("Depth framebuffer creation returned an incomplete draw buffer error.");
             } else if (status == OpenGlHelper.GL_FB_INCOMPLETE_READ_BUFFER) {
-                LOGGER.error("Depth framebuffer creation returned an incomplete read buffer error.");
+                LOGGER.error("Depth framebuffer creation returned an incomplete readVector3D buffer error.");
             } else {
                 LOGGER.error("Depth framebuffer creation returned an unknown status");
             }
         } else {
             LOGGER.debug("Succesfully created depth buffer.");
         }
-    }
-
-    public int getTexture() {
-        return texture;
-    }
-
-    public int getBuffer() {
-        return buffer;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
     }
 
 }

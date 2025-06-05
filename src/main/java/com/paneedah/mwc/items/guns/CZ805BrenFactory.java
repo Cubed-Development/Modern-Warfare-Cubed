@@ -27,7 +27,7 @@ public class CZ805BrenFactory implements GunFactory {
                 .withFireRate(0.8f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("cz805_bren")
                 .withSilencedShootSound("m4a1_silenced")

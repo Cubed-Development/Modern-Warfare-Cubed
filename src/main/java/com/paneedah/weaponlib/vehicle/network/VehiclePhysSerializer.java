@@ -1,7 +1,8 @@
 package com.paneedah.weaponlib.vehicle.network;
 
+import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3D;
 import lombok.Setter;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.datasync.DataParameter;
@@ -44,9 +45,7 @@ public class VehiclePhysSerializer {
             VehiclePhysicsSolver s = value.solver;
             buf.writeDouble(s.synthAccelFor);
             buf.writeDouble(s.synthAccelSide);
-            new Vector3D(s.getVelocityVector()).write(buf);
-
-
+            VectorUtil.Networking.write(buf, s.getVelocityVector());
         }
 
         @Override
@@ -57,10 +56,9 @@ public class VehiclePhysSerializer {
 
             double synthAccelFor = buf.readDouble();
             double synthAccelSide = buf.readDouble();
-            Vector3D v = new Vector3D();
-            v.read(buf);
+            Vec3d velocity = VectorUtil.Networking.read(buf);
 
-            vps.setData(synthAccelFor, synthAccelSide, v.toVec3d());
+            vps.setData(synthAccelFor, synthAccelSide, velocity);
 
 
             return vps;

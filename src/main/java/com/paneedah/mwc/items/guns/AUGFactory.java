@@ -24,7 +24,7 @@ public class AUGFactory implements GunFactory {
                 .withFireRate(0.75f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("aug")
                 .withSilencedShootSound("m4a1_silenced")

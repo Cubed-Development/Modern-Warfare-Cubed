@@ -1,10 +1,13 @@
 package com.paneedah.weaponlib.vehicle.network;
 
+import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
 import io.netty.buffer.ByteBuf;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.minecraft.util.math.Vec3d;
+
+import java.util.Vector;
 
 public class VehicleDataContainer {
 
@@ -124,10 +127,9 @@ public class VehicleDataContainer {
 
         buf.writeInt(1);
 
-        new Vector3D(v.getPositionVector()).write(buf);
-        new Vector3D(this.velocity).write(buf);
+        VectorUtil.Networking.write(buf, v.getPositionVector());
+        VectorUtil.Networking.write(buf, velocity);
 
-        //System.out.println(v.getPositionVector());
         buf.writeDouble(v.throttle);
         buf.writeDouble(v.driftTuner);
         buf.writeBoolean(v.isBraking);
@@ -158,12 +160,8 @@ public class VehicleDataContainer {
             return ds;
         }
 
-        Vector3D vector = new Vector3D();
-        vector.read(buf);
-        ds.position = vector.toVec3d();
-        vector.read(buf);
-        ds.velocity = vector.toVec3d();
-
+        ds.position = VectorUtil.Networking.read(buf);
+        ds.velocity = VectorUtil.Networking.read(buf);
 
         ds.throttle = buf.readDouble();
         ds.driftTuner = buf.readDouble();

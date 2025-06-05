@@ -7,7 +7,8 @@ import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.StateManager;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.math.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3F;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -210,7 +211,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         int count = getParticleCount(damage);
         LOGGER.debug("Generating {} particle(s) per damage {}", count, damage);
 
-        CHANNEL.sendToAllAround(new BloodClientMessage(new Vector3F((float) (entity.posX - motionX / 2), (float) (entity.posY - motionY / 2) + 1, (float) (entity.posZ - motionZ / 2)), new Vector3F((float) motionX / 16, (float) motionY / 16, (float) motionZ / 16)), point);
+        CHANNEL.sendToAllAround(new BloodClientMessage(new Vector3D(entity.posX - motionX / 2, (entity.posY - motionY / 2) + 1, (entity.posZ - motionZ / 2)), new Vector3F((float) motionX / 16, (float) motionY / 16, (float) motionZ / 16)), point);
     }
 
     int getParticleCount(float damage) {

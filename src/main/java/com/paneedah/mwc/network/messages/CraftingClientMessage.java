@@ -25,7 +25,7 @@ public final class CraftingClientMessage implements IMessage {
         try {
             byteBuf.readBytes(fileStream, size);
         } catch (IOException ioException) {
-            RED_LOGGER.printFramedError("Networking", "Failed to read file stream for craft mappings", "Bad things will happen", ioException.getMessage());
+            RED_LOGGER.framedError("Networking", "Failed to readVector3D file stream for craft mappings", "Bad things will happen", ioException.getMessage());
         }
     }
 

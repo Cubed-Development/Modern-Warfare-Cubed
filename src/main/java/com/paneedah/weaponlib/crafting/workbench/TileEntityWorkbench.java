@@ -61,7 +61,7 @@ public class TileEntityWorkbench extends TileEntityStation {
     @Override
     public void readBytesFromClientSync(ByteBuf buf) {
         super.readBytesFromClientSync(buf);
-        //System.out.println("Starting read from client sync...");
+        //System.out.println("Starting readVector3D from client sync...");
 
         if (buf.readBoolean()) {
             this.craftingTargetName = ByteBufUtils.readUTF8String(buf);

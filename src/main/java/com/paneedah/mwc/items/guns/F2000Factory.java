@@ -20,7 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-public class F2000Factory {
+public class F2000Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -29,7 +29,7 @@ public class F2000Factory {
                 .withFireRate(0.85f)
                 .withRecoil(1.5f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .hasFlashPedals()
                 .withMuzzlePosition(new Vec3d(0.0, -0.4239999917745591, -2.823999881505966))
                 .withMaxShots(1, Integer.MAX_VALUE)

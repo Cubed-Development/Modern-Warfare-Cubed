@@ -24,7 +24,7 @@ public class M712Factory implements GunFactory {
                 .withFireRate(0.75f)
                 .withRecoil(4f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SIDEARM)
+                .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("m712")

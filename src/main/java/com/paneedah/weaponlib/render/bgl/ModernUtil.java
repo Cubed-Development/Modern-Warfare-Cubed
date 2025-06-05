@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.render.bgl;
 
-import com.paneedah.weaponlib.compatibility.ShellRenderer;
+import com.paneedah.weaponlib.render.shells.ShellRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;

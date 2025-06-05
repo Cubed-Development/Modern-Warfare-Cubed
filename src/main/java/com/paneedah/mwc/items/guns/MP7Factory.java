@@ -21,7 +21,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-public class MP7Factory {
+public class MP7Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -30,7 +30,7 @@ public class MP7Factory {
                 .withFireRate(0.9f)
                 .withRecoil(1f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SMG)
+                .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)
                 .hasFlashPedals()
                 .withMuzzlePosition(new Vec3d(-0.15600000464916233, -0.7239999917745591, -2.523999881505966))

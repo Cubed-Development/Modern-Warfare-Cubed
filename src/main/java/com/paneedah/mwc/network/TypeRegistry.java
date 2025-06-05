@@ -65,7 +65,7 @@ public final class TypeRegistry {
         final String className = object.getClass().getName();
 
         if (!typeRegistry.containsKey(className)) {
-            RED_LOGGER.printFramedError("Networking", "Failed to write object because its class is not registered", "", "Object: " + object, "Class: " + object.getClass());
+            RED_LOGGER.framedError("Networking", "Failed to write object because its class is not registered", "", "Object: " + object, "Class: " + object.getClass());
             throw new IllegalStateException("Failed to write object because its class is not registered");
         }
 
@@ -80,21 +80,21 @@ public final class TypeRegistry {
         }
     }
 
-    public static <T extends ISerializable> T read(final ByteBuf byteBuf) {
+    public static <T extends ISerializable> T read(final ByteBuf byteBuf) throws IllegalStateException {
         final byte[] classNameBytes = new byte[byteBuf.readInt()];
         byteBuf.readBytes(classNameBytes);
         final String className = new String(classNameBytes, StandardCharsets.UTF_8);
 
         if (!typeRegistry.containsKey(className)) {
-            RED_LOGGER.printFramedError("Networking", "Failed to deserialize object because its class is not registered", "Weapon will probably reset to it's default state");
-            return null;
+            RED_LOGGER.framedError("Networking", "Failed to deserialize object because its class is not registered", "Weapon will probably reset to it's default state");
+            throw new IllegalStateException("Failed to deserialize object because its class is not registered");
         }
 
         final Class<T> targetClass = (Class<T>) typeRegistry.get(className);
 
         if (targetClass == null) {
-            RED_LOGGER.printFramedError("Networking", "Failed to deserialize object", "Weapon will probably reset to it's default state");
-            return null;
+            RED_LOGGER.framedError("Networking", "Failed to deserialize object", "Weapon will probably reset to it's default state");
+            throw new IllegalStateException("Failed to deserialize object");
         }
 
         T instance;
@@ -104,9 +104,12 @@ public final class TypeRegistry {
         } else {
             try {
                 instance = targetClass.getDeclaredConstructor().newInstance();
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException exception) {
-                RED_LOGGER.printFramedError("Networking", "Failed to create instance", "Weapon will probably reset to it's default state", exception.getMessage(), exception.getStackTrace()[3].toString());
-                return null;
+            } catch (InvocationTargetException invocationTargetException) {
+                RED_LOGGER.framedError("Networking", "Failed to create instance", "Weapon will probably reset to it's default state", invocationTargetException.getCause().toString(), targetClass.getName());
+                throw new IllegalStateException("Failed to create instance", invocationTargetException.getCause());
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException exception) {
+                RED_LOGGER.framedError("Networking", "Failed to create instance", "Weapon will probably reset to it's default state", exception.toString(), targetClass.getName());
+                throw new IllegalStateException("Failed to create instance");
             }
 
             instance.read(byteBuf);

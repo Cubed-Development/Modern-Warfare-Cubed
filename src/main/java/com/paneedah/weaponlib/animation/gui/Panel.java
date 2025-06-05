@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.animation.gui;
 
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
-import io.redstudioragnarok.redcore.vectors.Vector2D;
+import dev.redstudio.redcore.math.vectors.Vector2D;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;

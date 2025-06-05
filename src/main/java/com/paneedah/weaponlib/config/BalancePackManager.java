@@ -471,7 +471,7 @@ public class BalancePackManager {
         }
 
         if (reader == null) {
-            LOGGER.error("Failed to read file {} from the disk!", file.getName());
+            LOGGER.error("Failed to readVector3D file {} from the disk!", file.getName());
             return null;
         }
         JsonObject object;

@@ -28,7 +28,7 @@ public class ScarHFactory implements GunFactory {
                 .withFireRate(0.55f)
                 .withRecoil(4f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("scar_h")
                 .withSilencedShootSound("m4a1_silenced")

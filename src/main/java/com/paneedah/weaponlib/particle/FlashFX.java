@@ -19,7 +19,7 @@ public class FlashFX extends Particle {
 
     private static final double FLASH_SCALE_FACTOR = 0.1f;
 
-    private static final String FLASH_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/flashes.png";
+    private static final String FLASH_TEXTURE = "mwc:textures/flashes/flashes.png";
     private static final int imagesPerRow = 8;
     private final int imageIndex;
     private final String texture;

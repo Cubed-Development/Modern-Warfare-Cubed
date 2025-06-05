@@ -15,11 +15,9 @@ import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
-import com.paneedah.weaponlib.config.ModernConfigManager;
-import io.redstudioragnarok.redcore.RedCore;
+import dev.redstudio.redcore.utils.OptiNotFine;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -45,7 +43,7 @@ import static com.paneedah.mwc.ProjectConstants.VERSION;
 //  | $$\  $ | $$| $$  | $$| $$  | $$| $$_____/| $$      | $$  | $$      | $$$/ \  $$$ /$$__  $$| $$      | $$     /$$__  $$| $$      | $$_____/      | $$    $$| $$  | $$| $$  | $$| $$_____/| $$  | $$
 //  | $$ \/  | $$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$  | $$      | $$/   \  $$|  $$$$$$$| $$      | $$    |  $$$$$$$| $$      |  $$$$$$$      |  $$$$$$/|  $$$$$$/| $$$$$$$/|  $$$$$$$|  $$$$$$$
 //  |__/     |__/ \______/  \_______/ \_______/|__/      |__/  |__/      |__/     \__/ \_______/|__/      |__/     \_______/|__/       \_______/       \______/  \______/ |_______/  \_______/ \_______/
-@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:mixinbooter@[9.4,);required-after:redcore@[0.6,)", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://forge.curseupdate.com/836353/mwc")
+@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:mixinbooter@[10.5,);required-after:redcore@[0.6,);after:groovyscript@[1.2,)", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://forge.curseupdate.com/836353/mwc")
 public final class MWC {
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
@@ -149,7 +147,7 @@ public final class MWC {
     @Mod.EventHandler
     @SideOnly(Side.CLIENT)
     public void postInitClient(FMLPostInitializationEvent postInitializationEvent) {
-        RedCore.forceOptiFineFastRenderOff();
+        OptiNotFine.forceOptiFineFastRenderOff();
     }
 
     @Mod.EventHandler

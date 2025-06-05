@@ -21,7 +21,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-public class MP5A5Factory {
+public class MP5A5Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -30,7 +30,7 @@ public class MP5A5Factory {
                 .withFireRate(0.8f)
                 .withRecoil(1.5f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SMG)
+                .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1, Integer.MAX_VALUE)
                 //.withMaxShots(5)

@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.render.cam;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.WeaponState;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
+import lombok.NoArgsConstructor;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.util.vector.Matrix4f;
@@ -10,6 +11,7 @@ import org.lwjgl.util.vector.Quaternion;
 
 import java.util.LinkedList;
 
+@NoArgsConstructor
 public class NaturalCamera {
 
     private double x, y, z, xr, yr, zr;
@@ -36,10 +38,6 @@ public class NaturalCamera {
         this.previousMatrix = this.currentMatrix;
         this.currentMatrix = food;
         // System.out.println("Received " + food);
-    }
-
-    public NaturalCamera() {
-
     }
 
     public void update() {

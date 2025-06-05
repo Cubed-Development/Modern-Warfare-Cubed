@@ -12,7 +12,7 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-public class M1CarbineFactory {
+public class M1CarbineFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -21,7 +21,7 @@ public class M1CarbineFactory {
                 .withFireRate(0.55f)
                 .withRecoil(4.5f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMaxShots(1)
                 //.withMaxShots(5)
                 .withShootSound("m1carbine")

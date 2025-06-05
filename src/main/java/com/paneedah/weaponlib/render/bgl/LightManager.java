@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.render.bgl;
 
 import com.paneedah.weaponlib.ClientEventHandler;
-import com.paneedah.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.shader.Shader;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;

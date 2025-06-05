@@ -21,7 +21,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-public class KBP9A91Factory {
+public class KBP9A91Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -30,7 +30,7 @@ public class KBP9A91Factory {
                 .withFireRate(0.7f)
                 .withRecoil(2f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withShellType(Type.PISTOL)
                 .hasFlashPedals()
                 .withMaxShots(1, Integer.MAX_VALUE)

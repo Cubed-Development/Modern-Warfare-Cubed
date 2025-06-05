@@ -19,7 +19,7 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-public class FamasF1Factory {
+public class FamasF1Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -28,7 +28,7 @@ public class FamasF1Factory {
                 .withFireRate(0.8f)
                 .withRecoil(2.5f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .hasFlashPedals()
                 .withMaxShots(1, 3, Integer.MAX_VALUE)
                 //.withMaxShots(5)

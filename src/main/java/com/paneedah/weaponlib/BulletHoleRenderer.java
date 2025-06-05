@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -19,7 +19,6 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 public class BulletHoleRenderer {
 
     private final LinkedBlockingQueue<BulletHole> holeQueue = new LinkedBlockingQueue<>();
-    private final ArrayList<BulletHole> bulletHoles = new ArrayList<>();
 
     public static class BulletHole {
         private final Vector3D pos;

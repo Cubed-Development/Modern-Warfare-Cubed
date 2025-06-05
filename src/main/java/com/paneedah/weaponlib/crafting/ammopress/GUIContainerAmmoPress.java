@@ -8,7 +8,8 @@ import com.paneedah.weaponlib.crafting.base.GUIContainerStation;
 import com.paneedah.weaponlib.crafting.workbench.CustomSearchTextField;
 import com.paneedah.weaponlib.crafting.workbench.GUIButtonCustom;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
-import io.redstudioragnarok.redcore.utils.MathUtil;
+import dev.redstudio.redcore.math.ClampUtil;
+import dev.redstudio.redcore.math.MathUtil;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -254,7 +255,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
             return 0;
         }
 
-        return MathUtil.clampMaxFirst(Integer.parseInt(quantityBox.getText()), 1, 999);
+        return ClampUtil.clampMaxFirst(Integer.parseInt(quantityBox.getText()), 1, 999);
     }
 
     @Override

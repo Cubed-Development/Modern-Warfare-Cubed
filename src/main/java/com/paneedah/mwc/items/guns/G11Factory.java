@@ -15,7 +15,7 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-public class G11Factory {
+public class G11Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -24,7 +24,7 @@ public class G11Factory {
                 .withFireRate(0.9f)
                 .withRecoil(1f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMaxShots(1, 3, Integer.MAX_VALUE)
                 //.withMaxShots(5)
                 .withShootSound("g11")

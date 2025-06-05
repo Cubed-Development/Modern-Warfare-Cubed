@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.network.UniversalObject;
+import com.paneedah.mwc.network.ISerializable;
 import io.netty.buffer.ByteBuf;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 @NoArgsConstructor
-public class LightExposure extends UniversalObject implements Exposure {
+public class LightExposure implements ISerializable, Exposure {
 
     private long lastExposureTimestamp;
     private long maxDuration;
@@ -38,14 +38,12 @@ public class LightExposure extends UniversalObject implements Exposure {
 
     @Override
     public void write(ByteBuf byteBuf) {
-        super.write(byteBuf);
         byteBuf.writeLong(lastExposureTimestamp);
         byteBuf.writeFloat(totalDose);
     }
 
     @Override
     public void read(ByteBuf byteBuf) {
-        super.read(byteBuf);
         lastExposureTimestamp = byteBuf.readLong();
         totalDose = byteBuf.readFloat();
     }

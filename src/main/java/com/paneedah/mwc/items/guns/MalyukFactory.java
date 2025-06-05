@@ -20,7 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-public class MalyukFactory {
+public class MalyukFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
@@ -29,7 +29,7 @@ public class MalyukFactory {
                 .withFireRate(0.6f)
                 .withRecoil(3.5f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.RIFLES)
+                .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .hasFlashPedals()
                 .withMuzzlePosition(new Vec3d(-0.12000000357627887, -0.7399999922513956, -3.7999999195337324))
                 .withMaxShots(1, Integer.MAX_VALUE)

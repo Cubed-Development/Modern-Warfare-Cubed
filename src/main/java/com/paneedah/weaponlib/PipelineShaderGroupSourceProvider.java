@@ -3,9 +3,9 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.network.handlers.NightVisionToggleMessageHandler;
 import com.paneedah.weaponlib.SpreadableExposure.Blackout;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
-import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
-import com.paneedah.weaponlib.shader.DynamicShaderPhase;
+import com.paneedah.weaponlib.shader.dynamic.DynamicShaderGroupSource;
+import com.paneedah.weaponlib.shader.dynamic.DynamicShaderGroupSourceProvider;
+import com.paneedah.weaponlib.shader.dynamic.DynamicShaderPhase;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -14,6 +14,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.UUID;
 
+import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvider {
@@ -33,7 +34,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     private float colorImpairmentB;
 
     final DynamicShaderGroupSource source = new DynamicShaderGroupSource(UUID.randomUUID(),
-            new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/post-processing-pipeline.json"))
+            new ResourceLocation(ID, "shaders/post/post-processing-pipeline.json"))
             .withUniform("NightVisionEnabled", context -> nightVisionEnabled ? 1.0f : 0.0f)
             .withUniform("BlurEnabled", context -> blurEnabled ? 1.0f : 0.0f)
             .withUniform("BlurVignetteRadius", context -> 0.0f)

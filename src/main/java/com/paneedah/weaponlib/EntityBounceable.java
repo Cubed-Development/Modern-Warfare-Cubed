@@ -2,8 +2,9 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.utils.MWCUtil;
+import com.paneedah.mwc.utils.VectorUtil;
 import io.netty.buffer.ByteBuf;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -13,10 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.common.registry.IThrowableEntity;
@@ -155,16 +153,16 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
             return;
         }
 
-        Vector3D vec3 = new Vector3D(this.posX, this.posY, this.posZ);
-        Vector3D vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+        Vec3d vec3 = new Vec3d(this.posX, this.posY, this.posZ);
+        Vec3d vec31 = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
-        RayTraceResult movingobjectposition = MWCUtil.rayTraceBlocks(world, vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
+        RayTraceResult movingobjectposition = MWCUtil.rayTraceBlocks(world, VectorUtil.convertToVector3D(vec3), VectorUtil.convertToVector3D(vec31), (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
 
-        vec3 = new Vector3D(this.posX, this.posY, this.posZ);
-        vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+        vec3 = new Vec3d(this.posX, this.posY, this.posZ);
+        vec31 = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
         if (movingobjectposition != null) {
-            vec31.copy(new Vector3D(movingobjectposition.hitVec));
+            vec31 = new Vec3d(movingobjectposition.hitVec.x, movingobjectposition.hitVec.y, movingobjectposition.hitVec.z);
         }
 
         if (thrower != null) { //if(!this.worldObj.isRemote)
@@ -180,10 +178,10 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
                 if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                     float f = 0.3F;
                     AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand(f, f, f);
-                    RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
+                    RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
 
                     if (movingobjectposition1 != null) {
-                        double d1 = vec3.distanceTo(new Vector3D(movingobjectposition1.hitVec)); //hitVec
+                        double d1 = vec3.distanceTo(movingobjectposition1.hitVec); //hitVec
 
                         if (d1 < d0 || d0 == 0.0D) {
                             entity = entity1;
@@ -384,9 +382,9 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         AxisAlignedBB axisalignedbb = movingobjectposition.entityHit.getEntityBoundingBox().expand(f, f, f);
         RayTraceResult intercept = movingobjectposition;
         for (int i = 0; i < 10; i++) {
-            Vector3D currentPos = new Vector3D(this.posX + dX * i, this.posY + dY * i, this.posZ + dY * i);
-            Vector3D projectedPos = new Vector3D(this.posX + dX * (i + 1), this.posY + dY * (i + 1), this.posZ + dZ * (i + 1));
-            intercept = axisalignedbb.calculateIntercept(currentPos.toVec3d(), projectedPos.toVec3d());
+            Vec3d currentPos = new Vec3d(this.posX + dX * i, this.posY + dY * i, this.posZ + dY * i);
+            Vec3d projectedPos = new Vec3d(this.posX + dX * (i + 1), this.posY + dY * (i + 1), this.posZ + dZ * (i + 1));
+            intercept = axisalignedbb.calculateIntercept(currentPos, projectedPos);
             if (intercept == null) {
                 //log.debug("Found no-intercept after bounce with offsets {}, {}, {}", dX, dY, dZ);
 

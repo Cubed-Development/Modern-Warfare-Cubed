@@ -26,7 +26,7 @@ public class ChiappaRhinoFactory implements GunFactory {
                 .withFireRate(0.2f)
                 .withRecoil(6f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.REVOLVER)
+                .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withMaxShots(1)
                 .withShootSound("chiapparhino")
                 //.withSilencedShootSound("M9silenced")

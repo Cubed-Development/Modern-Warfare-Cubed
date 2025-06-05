@@ -6,13 +6,15 @@ import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.network.messages.MuzzleFlashMessage;
 import com.paneedah.mwc.network.messages.ShellMessageClient;
 import com.paneedah.mwc.network.messages.TryFireMessage;
+import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.StateManager;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3D;
+import dev.redstudio.redcore.math.vectors.Vector3F;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
@@ -35,8 +37,8 @@ import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 
 /*
@@ -212,7 +214,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         if (weaponInstance.getAmmo() == 0 || Tags.getAmmo(weaponInstance.getItemStack()) == 0) {
             String message;
 
-            if(ModernConfigManager.enableStatusMessages){
+            if (ModernConfigManager.enableStatusMessages) {
                 if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
                     message = I18n.format("gui.noMagazine");
                 } else {
@@ -337,22 +339,17 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
 
         if (weapon.isShellCasingEjectEnabled()) {
+            float fovMult = MC.gameSettings.fovSetting < 70 ? (MC.gameSettings.fovSetting / 50) : -(MC.gameSettings.fovSetting / 200);
+            final Vector3F weaponDir = VectorUtil.convertToVector3F(new Vec3d(0, -0.1, 1 + fovMult).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw)));
+            final Vector3D position = new Vector3D(player.posX, player.posY + player.getEyeHeight(), player.posZ).add(weaponDir);
+            final Vector3F velocity = VectorUtil.convertToVector3F(new Vec3d(-0.3, 0.1, 0.0).rotateYaw((float) Math.toRadians(-player.rotationYaw)));
 
-            float fovMult = MC.gameSettings.fovSetting < 70f ? (MC.gameSettings.fovSetting / 50) : -(MC.gameSettings.fovSetting / 200f);
-
-            // Panda: Replaced this with the above line, undo if it breaks anything for whatever reason.
-            //if (MC.gameSettings.fovSetting < 70f) fovMult = (MC.gameSettings.fovSetting/50);
-            //else fovMult = -(MC.gameSettings.fovSetting/200f);
-
-            Vec3d pos = player.getPositionEyes(1.0f);
-            Vec3d weaponDir = new Vec3d(0, -0.1, 1.0 + fovMult).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw));
-
-            Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
-            velocity = velocity.rotateYaw((float) Math.toRadians(-player.rotationYaw));
-            Shell shell = new Shell(weapon.getShellType(), pos.add(weaponDir), new Vec3d(-90, 0, 180 + player.rotationYaw), velocity);
+            final Shell shell = new Shell(weapon.getShellType(), position.add(weaponDir), new Vector3F(-90, 0, 180 + player.rotationYaw), velocity);
             ClientEventHandler.SHELL_MANAGER.enqueueShell(shell);
 
             //Shell
+
+            // ! TODO: What? - Luna Mira Lage (Desoroxxx) 2025-02-05
         	
         	/*
         	// Change the raw position
@@ -475,12 +472,11 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         PlayerWeaponInstance playerWeaponInstance = Tags.getInstance(itemStack, PlayerWeaponInstance.class);
 
         if (playerWeaponInstance != null) {
-            Vec3d pos = new Vec3d(player.posX, player.posY + player.getEyeHeight(), player.posZ);
-            Vec3d weaponDir = new Vec3d(0, -0.1, 1).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw));
+            final Vector3F weaponDir = VectorUtil.convertToVector3F(new Vec3d(0, -0.1, 1).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw)));
+            final Vector3D position = new Vector3D(player.posX, player.posY + player.getEyeHeight(), player.posZ).add(weaponDir);
+            final Vector3F velocity = VectorUtil.convertToVector3F(new Vec3d(-0.3, 0.1, 0.0).rotateYaw((float) Math.toRadians(-player.rotationYaw)));
 
-            Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
-            velocity = velocity.rotateYaw((float) Math.toRadians(-player.rotationYaw));
-            CHANNEL.sendToAllAround(new ShellMessageClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), new Vector3D(pos.add(weaponDir)), new Vector3D(velocity)), tp);
+            CHANNEL.sendToAllAround(new ShellMessageClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), position, velocity), tp);
         }
 
 

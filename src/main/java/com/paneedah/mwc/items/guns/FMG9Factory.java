@@ -31,7 +31,7 @@ public class FMG9Factory implements GunFactory {
                 .withFireRate(0.8f)
                 .withRecoil(1f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SMG)
+                .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)
                 .hasFlashPedals()
                 .withMaxShots(1, 3, Integer.MAX_VALUE)
