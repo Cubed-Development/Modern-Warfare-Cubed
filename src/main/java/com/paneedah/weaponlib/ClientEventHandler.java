@@ -485,7 +485,7 @@ public class ClientEventHandler {
         carParticles = event.getMap().registerSprite(new ResourceLocation(ID + ":particle/carparticle"));
 
 	if (event.getMap().getBasePath().equals("textures")) {
-            event.getMap().registerSprite(BLOOD_PARTICLE_TEXTURE);
+            event.getMap().registerSprite(new ResourceLocation(ID + ":particle/blood"));
         }
     }
 
