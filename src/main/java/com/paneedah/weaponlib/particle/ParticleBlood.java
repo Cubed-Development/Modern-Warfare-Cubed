@@ -28,7 +28,7 @@ public class ParticleBlood extends Particle {
         this.particleTextureIndexX = (int) Math.floor(Math.random() * 3);
         this.particleTextureIndexY = (int) Math.floor(Math.random() * 3);
 
-        setParticleTexture(MC.getTextureMapBlocks().getAtlasSprite("mwc:particle/blood"));
+        setParticleTexture(MC.getTextureMapBlocks().getAtlasSprite(ID + ":" + texture));
     }
 
     public ParticleBlood(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
