@@ -28,7 +28,7 @@ public class ParticleBlood extends Particle {
         this.particleTextureIndexX = (int) Math.floor(Math.random() * 3);
         this.particleTextureIndexY = (int) Math.floor(Math.random() * 3);
 
-        setParticleTexture(MC.getTextureMapBlocks().getAtlasSprite(new ResourceLocation(ID, texture).toString()));
+        setParticleTexture(MC.getTextureMapBlocks().getAtlasSprite("mwc:particle/blood"));
     }
 
     public ParticleBlood(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
@@ -37,8 +37,6 @@ public class ParticleBlood extends Particle {
         this.motionY = ySpeedIn;
         this.motionZ = zSpeedIn;
     }
-
-
 
     /**
      * Retrieve what effect layer (what texture) the particle should be rendered
