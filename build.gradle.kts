@@ -7,7 +7,7 @@ plugins {
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.10"
     id("com.gtnewhorizons.retrofuturagradle") version "1.4.5"
     id("com.github.gmazzo.buildconfig") version "5.6.5"
-    id("io.freefair.lombok") version "8.13.1"
+    id("io.freefair.lombok") version "8.14"
 }
 
 group = "com.paneedah"
