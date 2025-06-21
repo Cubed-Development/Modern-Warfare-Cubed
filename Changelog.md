@@ -67,7 +67,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 
 - Now requires:
   - Red Core 0.6 and up
-  - MixinBooter 10.5 and up
+  - MixinBooter 10.6 and up
   - GroovyScript 1.2 and up (optional)
 - Fire mode hint ("Press [B] to change fire mode") now only appears when the weapon has multiple fire modes
 - Magazines now use the same ammunition counter as weapons, instead of a white text in the top-right corner
