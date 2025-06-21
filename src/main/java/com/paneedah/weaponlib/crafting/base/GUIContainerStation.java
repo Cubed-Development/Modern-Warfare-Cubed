@@ -39,8 +39,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.weaponlib.render.gui.ColorPalette.*;
 
 public abstract class GUIContainerStation<T extends TileEntityStation> extends GuiContainer {
@@ -496,7 +496,6 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             GUIRenderHelper.drawScaledString("WORKBENCH", this.guiLeft + 10, this.guiTop + 5, 1.2, BLUE);
             GUIRenderHelper.drawScaledString("CRAFTING", this.guiLeft + 250, this.guiTop + 5, 1.1, BLUE);
             GUIRenderHelper.drawScaledString("Inventory", this.guiLeft + 21, this.guiTop + 115, 1.0, LIGHT_GREY);
-
         } else if (getPage() == 2) {
             GlStateManager.color(1f, 1f, 1f, 1f);
             GlStateManager.pushMatrix();
@@ -562,12 +561,10 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
                         if (filteredCraftingList.get(c) == getSelectedCraftingPiece()) {
                             drawModalRectWithCustomSizedTexture(this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 97f - 44, 262f, 22, 22, 480, 370);
-
                         } else {
                             final boolean selected = GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 22, 22);
                             if (!selected) {
                                 drawModalRectWithCustomSizedTexture(this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 97f - 22, 262f, 22, 22, 480, 370);
-
                             } else {
                                 setItemRenderTooltip(filteredCraftingList.get(c).getOutput());
                                 drawModalRectWithCustomSizedTexture(this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 97f, 262f, 22, 22, 480, 370);
@@ -590,7 +587,6 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 // Implemented in order to allow the workbench to use
                 // special rendering for displaying guns.
                 doCraftingModeOneRender(partialTicks, mouseX, mouseY);
-
             } else if (hasSelectedCraftingPiece()) {
                 GuiRenderUtil.drawScaledString(fontRenderer, format(getSelectedCraftingPiece().getOutput().getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 0.9, GOLD);
                 GlStateManager.pushMatrix();
@@ -720,5 +716,4 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
         return itemStacks[itemIndex];
     }
-
 }

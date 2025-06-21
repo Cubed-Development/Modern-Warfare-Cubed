@@ -18,7 +18,10 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Parent class for the workbench and ammo press tile entities.
@@ -67,7 +70,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
     public TileEntityStation() {}
 
     public void sendUpdate() {
-        this.shouldUpdate = true;
+        shouldUpdate = true;
     }
 
     public double getProgress() {
@@ -87,7 +90,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 
     @Override
     public NBTTagCompound getUpdateTag() {
-        return this.writeToNBT(new NBTTagCompound());
+        return writeToNBT(new NBTTagCompound());
     }
 
     @Override
@@ -117,9 +120,9 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
     }
 
     public void setDismantling(int[] instant, int[] lengths) {
-        this.previousDismantleStatus = instant.clone();
-        this.dismantleStatus = instant;
-        this.dismantleDuration = lengths;
+        previousDismantleStatus = instant.clone();
+        dismantleStatus = instant;
+        dismantleDuration = lengths;
     }
 
     @Override
@@ -172,7 +175,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
             }
         }
 
-        // System.out.println(this.world.isRemote + " | " + this.mainInventory.serializeNBT());
+        // System.out.println(world.isRemote + " | " + mainInventory.serializeNBT());
 
         //if(!world.isRemote) System.out.println(mainInventory.serializeNBT());
 
@@ -193,7 +196,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
         for (int i = start; i <= end; ++i) {
             final ItemStack slotStack = mainInventory.getStackInSlot(i);
 
-            if(entry.isOreDictionary()) {
+            if (entry.isOreDictionary()) {
                 final NonNullList<ItemStack> list = OreDictionary.getOres(entry.getOreDictionaryEntry());
                 for (ItemStack oreEntry : list) {
                     if (OreDictionary.itemMatches(oreEntry, slotStack, false)) {
@@ -202,7 +205,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
                     }
                 }
 
-                if(count >= entry.getCount())
+                if (count >= entry.getCount())
                     return true;
                 continue;
             }
@@ -230,11 +233,13 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 
         for (int i = start; i <= end && collectedCount < requiredCount; ++i) {
             final ItemStack slotStack = mainInventory.getStackInSlot(i);
-            if (slotStack.isEmpty()) continue;
+            if (slotStack.isEmpty())
+                continue;
 
             boolean matches = entry.isOreDictionary() ? oreDictList.stream().anyMatch(ore -> OreDictionary.itemMatches(ore, slotStack, false)) : ingredient.test(slotStack);
 
-            if (!matches) continue; // We could make this into one line. (Could, not should)
+            if (!matches)
+                continue; // We could make this into one line. (Could, not should)
 
             final int needed = requiredCount - collectedCount;
             final int available = slotStack.getCount();
@@ -244,7 +249,8 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
             collectedCount += toTake;
         }
 
-        if (collectedCount < requiredCount) return;
+        if (collectedCount < requiredCount)
+            return;
 
         toConsume.forEach(ItemStack::shrink);
     }
@@ -277,15 +283,14 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
         }
     }
 
-
     /**
      * Happens on the client
      *
      * @param buf
      */
     public void readBytesFromClientSync(ByteBuf buf) {
-        this.craftingTimer = buf.readInt();
-        this.craftingDuration = buf.readInt();
+        craftingTimer = buf.readInt();
+        craftingDuration = buf.readInt();
         for (int i = 0; i < dismantleStatus.length; ++i) {
             int time = buf.readInt();
             previousDismantleStatus[i] = time;
@@ -296,7 +301,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 		
 		/*
 		int inventorySize = buf.readInt();
-		for(int i = 0; i < inventorySize; ++i) this.mainInventory.setStackInSlot(i, ByteBufUtils.readItemStack(buf));
+		for(int i = 0; i < inventorySize; ++i) mainInventory.setStackInSlot(i, ByteBufUtils.readItemStack(buf));
 		
 		System.out.println("ON CLIENT: " + mainInventory.serializeNBT().toString());
 		*/
@@ -309,12 +314,12 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
      * @param buf
      */
     public void writeBytesForClientSync(ByteBuf buf) {
-        buf.writeInt(this.craftingTimer);
-        buf.writeInt(this.craftingDuration);
-        for (int i = 0; i < dismantleStatus.length; ++i)
-            buf.writeInt(dismantleStatus[i]);
-        for (int i = 0; i < dismantleDuration.length; ++i)
-            buf.writeInt(dismantleDuration[i]);
+        buf.writeInt(craftingTimer);
+        buf.writeInt(craftingDuration);
+        for (int status : dismantleStatus)
+            buf.writeInt(status);
+        for (int duration : dismantleDuration)
+            buf.writeInt(duration);
 
         // Write inventory
 		/*
@@ -322,7 +327,6 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 		for(int i = 0; i < mainInventory.getSlots(); ++i) {
 			ByteBufUtils.writeItemStack(buf, mainInventory.getStackInSlot(i));
 		}*/
-
 
     }
 
@@ -339,13 +343,12 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
         if (compound.hasKey("mainInventory")) {
-            this.mainInventory.deserializeNBT((NBTTagCompound) compound.getTag("mainInventory"));
+            mainInventory.deserializeNBT((NBTTagCompound) compound.getTag("mainInventory"));
         }
         if (compound.hasKey("craftingTimer") && compound.hasKey("craftingDuration")) {
-            this.craftingTimer = compound.getInteger("craftingTimer");
-            this.craftingDuration = compound.getInteger("craftingDuration");
+            craftingTimer = compound.getInteger("craftingTimer");
+            craftingDuration = compound.getInteger("craftingDuration");
         }
-
     }
 
     /*
@@ -452,7 +455,6 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
         } else {
             return new int[]{23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49};
         }
-
     }
 
     @Override
@@ -464,6 +466,4 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
     public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
         return true;
     }
-
-
 }

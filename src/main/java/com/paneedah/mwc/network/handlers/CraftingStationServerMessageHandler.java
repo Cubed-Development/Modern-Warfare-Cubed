@@ -1,6 +1,5 @@
 package com.paneedah.mwc.network.handlers;
 
-import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.network.messages.CraftingStationClientMessage;
 import com.paneedah.mwc.network.messages.CraftingStationServerMessage;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -22,7 +21,10 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 
@@ -79,19 +81,22 @@ public final class CraftingStationServerMessageHandler implements IMessageHandle
 
                     for (int i = 23; i < station.mainInventory.getSlots() && remainingNeeded > 0; ++i) {
                         ItemStack invStack = station.mainInventory.getStackInSlot(i);
-                        if (invStack.isEmpty()) continue;
+                        if (invStack.isEmpty())
+                            continue;
 
                         boolean isMatch = entry.isOreDictionary()
                                 ? oreDictMatches.stream().anyMatch(ore -> OreDictionary.itemMatches(ore, invStack, false))
                                 : entry.getIngredient().test(invStack);
 
-                        if (!isMatch) continue;
+                        if (!isMatch)
+                            continue;
 
                         int toTake = Math.min(remainingNeeded, invStack.getCount());
                         itemsForIngredient.put(invStack, toTake);
                         remainingNeeded -= toTake;
 
-                        if (remainingNeeded <= 0) break;
+                        if (remainingNeeded <= 0)
+                            break;
                     }
                 }
 
