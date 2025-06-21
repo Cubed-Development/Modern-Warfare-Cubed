@@ -61,16 +61,16 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.redstudio", "Red-Core-MC", redCoreVersion)
+    implementation("dev.redstudio:Red-Core-MC:$redCoreVersion")
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
-    compileOnly("com.cleanroommc", "groovyscript", groovyScriptVersion) {
+    compileOnly("com.cleanroommc:groovyscript:$groovyScriptVersion") {
         isTransitive = false
     }
 
-    annotationProcessor("org.ow2.asm", "asm-debug-all", "5.2")
-    annotationProcessor("com.google.guava", "guava", "32.1.2-jre")
-    annotationProcessor("com.google.code.gson", "gson", "2.8.9")
+    annotationProcessor("org.ow2.asm:asm-debug-all:5.2")
+    annotationProcessor("com.google.guava:guava:32.1.2-jre")
+    annotationProcessor("com.google.code.gson:gson:2.8.9")
 
     val mixinBooter: String = modUtils.enableMixins("zone.rong:mixinbooter:$mixinBooterVersion", "mixins.${id}.refmap.json") as String
     api(mixinBooter) {
