@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.crafting.base;
 
 import com.paneedah.mwc.ProjectConstants;
-import com.paneedah.mwc.network.messages.WorkbenchServerMessage;
+import com.paneedah.mwc.network.messages.CraftingStationServerMessage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -35,11 +35,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.weaponlib.render.gui.ColorPalette.*;
 
 public abstract class GUIContainerStation<T extends TileEntityStation> extends GuiContainer {
@@ -152,7 +153,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
         super.actionPerformed(button);
 
         if (button == dismantleButton) {
-            CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
+            CHANNEL.sendToServer(new CraftingStationServerMessage(CraftingStationServerMessage.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
         } else if (button == leftArrow) {
             setPage(getPage() - 1);
         } else if (button == rightArrow) {
@@ -186,64 +187,82 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
     public void onSelectNewCrafting(ICraftingRecipe crafting) {
         final CraftingEntry[] modernRecipe = crafting.getCraftingRecipe();
-        final HashMap<ItemStack, Integer> counter = new HashMap<>();
+        final Map<ItemStack, Integer> availableItems = countInventoryItems();
+
+        hasRequiredItems = true;
+        hasAvailableMaterials.clear();
+
+        for (CraftingEntry ingredient : modernRecipe) {
+            boolean hasEnough = hasEnoughOfIngredient(ingredient, availableItems);
+
+            if (!hasEnough) {
+                hasRequiredItems = false;
+            }
+
+            hasAvailableMaterials.put(ingredient.getIngredient(), hasEnough);
+        }
+
+        updateCraftButtonState();
+    }
+
+    private boolean hasEnoughOfIngredient(CraftingEntry ingredient, Map<ItemStack, Integer> availableItems) {
+        return ingredient.isOreDictionary()
+                ? hasEnoughOreDictionary(ingredient, availableItems)
+                : hasEnoughSpecificIngredient(ingredient, availableItems);
+    }
+
+    private boolean hasEnoughSpecificIngredient(CraftingEntry ingredient, Map<ItemStack, Integer> availableItems) {
+        int total = 0;
+
+        for (Map.Entry<ItemStack, Integer> entry : availableItems.entrySet()) {
+            if (ingredient.getIngredient().test(entry.getKey())) {
+                total += entry.getValue();
+
+                if (total >= ingredient.getCount()) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean hasEnoughOreDictionary(CraftingEntry ingredient, Map<ItemStack, Integer> availableItems) {
+        final NonNullList<ItemStack> oreList = OreDictionary.getOres(ingredient.getOreDictionaryEntry());
+        int totalMatching = 0;
+
+        for (Map.Entry<ItemStack, Integer> entry : availableItems.entrySet()) {
+            for (ItemStack oreEntry : oreList) {
+                if (OreDictionary.itemMatches(oreEntry, entry.getKey(), false)) {
+                    totalMatching += entry.getValue();
+
+                    if (totalMatching >= ingredient.getCount()) {
+                        return true;
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private Map<ItemStack, Integer> countInventoryItems() {
+        final Map<ItemStack, Integer> counter = new HashMap<>();
 
         for (int i = 22; i < tileEntity.mainInventory.getSlots(); ++i) {
             final ItemStack stack = tileEntity.mainInventory.getStackInSlot(i);
-            if (stack.isEmpty()) {
-                continue;
-            }
-
-            if (!counter.containsKey(stack)) {
-                counter.put(stack, stack.getCount());
-            } else {
-                counter.compute(stack, (k, existingcount) -> existingcount + stack.getCount());
+            if (!stack.isEmpty()) {
+                counter.merge(stack, stack.getCount(), Integer::sum);
             }
         }
 
-        hasRequiredItems = true;
-        for (CraftingEntry is : modernRecipe) {
-            if (is.isOreDictionary()) {
-                final NonNullList<ItemStack> list = OreDictionary.getOres(is.getOreDictionaryEntry());
-                boolean foundSomething = false;
-                for (ItemStack toTest : list) {
-                    if (counter.containsKey(toTest) && toTest.getCount() <= counter.get(toTest)) {
-                        foundSomething = true;
-                        hasAvailableMaterials.put(is.getIngredient(), true);
-                        break;
-                    } else {
-                        hasRequiredItems = false;
-                    }
-                }
-
-                if (!foundSomething || notEnoughIngredients(is, counter)) {
-                    hasRequiredItems = false;
-                    hasAvailableMaterials.put(is.getIngredient(), false);
-                }
-            } else {
-                if (notEnoughIngredients(is, counter)) {
-                    hasRequiredItems = false;
-                    hasAvailableMaterials.put(is.getIngredient(), false);
-                } else {
-                    hasAvailableMaterials.put(is.getIngredient(), true);
-                }
-            }
-        }
-
-        if (requiresMaterialsToSubmitCraftRequest()) {
-            this.craftButton.setErrored(!hasRequiredItems);
-        } else {
-            this.craftButton.setErrored(false);
-        }
+        return counter;
     }
 
-    public static boolean notEnoughIngredients(CraftingEntry ingredient, HashMap<ItemStack, Integer> counter) {
-        int finalcount = 0;
-        for (ItemStack stack : counter.keySet())
-            if (ingredient.getIngredient().test(stack)) {
-                finalcount += counter.get(stack);
-            }
-        return ingredient.getCount() > finalcount;
+    private void updateCraftButtonState() {
+        this.craftButton.setErrored(requiresMaterialsToSubmitCraftRequest() && !hasRequiredItems);
     }
 
     public void setPageRange(int min, int max) {
@@ -340,7 +359,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
         if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40, this.guiTop + 219, 176, 20)) {
             final int boxId = (mouseX - (this.guiLeft + 40)) / 20;
-            CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.MOVE_OUTPUT, tileEntity.getPos(), MC.player.getEntityId(), boxId));
+            CHANNEL.sendToServer(new CraftingStationServerMessage(CraftingStationServerMessage.MOVE_OUTPUT, tileEntity.getPos(), MC.player.getEntityId(), boxId));
         }
 
         int c = (int) Math.floor(filteredCraftingList.size() * scrollBarProgress / 7) * 7;
@@ -477,7 +496,6 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             GUIRenderHelper.drawScaledString("WORKBENCH", this.guiLeft + 10, this.guiTop + 5, 1.2, BLUE);
             GUIRenderHelper.drawScaledString("CRAFTING", this.guiLeft + 250, this.guiTop + 5, 1.1, BLUE);
             GUIRenderHelper.drawScaledString("Inventory", this.guiLeft + 21, this.guiTop + 115, 1.0, LIGHT_GREY);
-
         } else if (getPage() == 2) {
             GlStateManager.color(1f, 1f, 1f, 1f);
             GlStateManager.pushMatrix();
@@ -543,12 +561,10 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
                         if (filteredCraftingList.get(c) == getSelectedCraftingPiece()) {
                             drawModalRectWithCustomSizedTexture(this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 97f - 44, 262f, 22, 22, 480, 370);
-
                         } else {
                             final boolean selected = GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 22, 22);
                             if (!selected) {
                                 drawModalRectWithCustomSizedTexture(this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 97f - 22, 262f, 22, 22, 480, 370);
-
                             } else {
                                 setItemRenderTooltip(filteredCraftingList.get(c).getOutput());
                                 drawModalRectWithCustomSizedTexture(this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 97f, 262f, 22, 22, 480, 370);
@@ -571,7 +587,6 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 // Implemented in order to allow the workbench to use
                 // special rendering for displaying guns.
                 doCraftingModeOneRender(partialTicks, mouseX, mouseY);
-
             } else if (hasSelectedCraftingPiece()) {
                 GuiRenderUtil.drawScaledString(fontRenderer, format(getSelectedCraftingPiece().getOutput().getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 0.9, GOLD);
                 GlStateManager.pushMatrix();
@@ -701,5 +716,4 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
         return itemStacks[itemIndex];
     }
-
 }

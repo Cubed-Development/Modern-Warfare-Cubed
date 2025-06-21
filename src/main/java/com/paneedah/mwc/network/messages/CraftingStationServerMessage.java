@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 @Getter
 @NoArgsConstructor
-public final class WorkbenchServerMessage implements IMessage {
+public final class CraftingStationServerMessage implements IMessage {
 
     public static final int CRAFT = 1;
     public static final int DISMANTLE = 2;
@@ -27,14 +27,14 @@ public final class WorkbenchServerMessage implements IMessage {
     private int slotToMove;
     private int quantity = -1;
 
-    public WorkbenchServerMessage(final int type, final BlockPos location, final int playerID, final int slotToMove) {
+    public CraftingStationServerMessage(final int type, final BlockPos location, final int playerID, final int slotToMove) {
         opCode = type;
         teLocation = location;
         this.playerID = playerID;
         this.slotToMove = slotToMove;
     }
 
-    public WorkbenchServerMessage(final int type, final BlockPos location, final String nameToCraft, final CraftingGroup group, final int quantity) {
+    public CraftingStationServerMessage(final int type, final BlockPos location, final String nameToCraft, final CraftingGroup group, final int quantity) {
         opCode = type;
         teLocation = location;
         craftingName = nameToCraft;
@@ -42,7 +42,7 @@ public final class WorkbenchServerMessage implements IMessage {
         this.quantity = quantity;
     }
 
-    public WorkbenchServerMessage(final int type, final BlockPos location, final int craftingTimer, final int craftingDuration, final CraftingGroup group, final String nameToCraft) {
+    public CraftingStationServerMessage(final int type, final BlockPos location, final int craftingTimer, final int craftingDuration, final CraftingGroup group, final String nameToCraft) {
         opCode = type;
         teLocation = location;
         this.craftingTimer = craftingTimer;
