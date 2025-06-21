@@ -103,10 +103,9 @@ public final class PlayerItemInstanceRegistry {
 
         final ItemStack itemStack = player.inventory.getStackInSlot(slot);
 
-        if (result == null)
-            return createItemInstance(player, slotInstances, slot);
-
-        if (!itemStackMatchesInstance(itemStack, result)) {
+		if (result == null) {
+			result = createItemInstance(player, slotInstances, slot);
+		} else if (!itemStackMatchesInstance(itemStack, result)) {
             syncManager.unwatch(result);
 
             result = createItemInstance(player, slotInstances, slot);
