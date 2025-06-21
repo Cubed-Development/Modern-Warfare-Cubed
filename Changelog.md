@@ -62,6 +62,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - Added wiki
   - Added helper methods to avoid typing enums strings
   - Added more validations
+- Added support for the ore dictionary
 
 ### Changed
 
