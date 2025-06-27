@@ -5,9 +5,9 @@ import org.jetbrains.gradle.ext.Gradle
 
 plugins {
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.10"
-    id("com.gtnewhorizons.retrofuturagradle") version "1.4.5"
-    id("com.github.gmazzo.buildconfig") version "5.6.5"
-    id("io.freefair.lombok") version "8.13.1"
+    id("com.gtnewhorizons.retrofuturagradle") version "1.4.6"
+    id("com.github.gmazzo.buildconfig") version "5.6.6"
+    id("io.freefair.lombok") version "8.14"
 }
 
 group = "com.paneedah"
@@ -18,7 +18,7 @@ val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
 val redCoreVersion = "1.8-1.12-" + "0.6"
 
-val groovyScriptVersion = "1.2.3"
+val groovyScriptVersion = "1.2.4"
 val mixinBooterVersion = "10.6"
 
 minecraft {
@@ -173,6 +173,8 @@ idea {
                         val prefix = name.substringBefore(" ").let { if (it == "Obfuscated") "Obf" else it }
                         val suffix = name.substringAfter(" ").takeIf { it != prefix } ?: ""
                         taskNames = setOf("run$prefix$suffix")
+
+	                    jvmArgs = "-XX:+UseStringDeduplication"
                     }
                 }
             }
