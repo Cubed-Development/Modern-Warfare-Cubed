@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.jim.util;
+package com.paneedah.mwc.utils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

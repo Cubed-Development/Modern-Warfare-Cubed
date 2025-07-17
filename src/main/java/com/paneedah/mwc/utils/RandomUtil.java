@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.jim.util;
+package com.paneedah.mwc.utils;
 
 public class RandomUtil {
 

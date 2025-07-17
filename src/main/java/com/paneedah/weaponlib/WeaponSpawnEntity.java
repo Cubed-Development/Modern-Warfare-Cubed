@@ -2,10 +2,10 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.network.messages.BloodClientMessage;
+import com.paneedah.mwc.utils.HitUtil;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.jim.util.HitUtil;
 import io.netty.buffer.ByteBuf;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import net.minecraft.block.Block;
