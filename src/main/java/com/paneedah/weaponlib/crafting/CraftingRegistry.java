@@ -22,8 +22,6 @@ public class CraftingRegistry {
     // Stores a map of a map of each group under their unlocalized names respectively
     private static final HashMap<CraftingGroup, HashMap<String, ICraftingRecipe>> categoricalLookup = new HashMap<>(50, 0.7f);
 
-    protected static HashMap<String, CraftingEntry[]> recipeMap = new HashMap<>();
-
     private static final HashMap<Item, ICraftingRecipe> hookMap = new HashMap<>();
 
     static {

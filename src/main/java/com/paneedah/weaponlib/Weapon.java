@@ -5,6 +5,7 @@ import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
 import com.paneedah.mwc.utils.VectorUtil;
+import com.paneedah.mwc.weapons.AbstractItemBuilder;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
@@ -76,7 +77,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
     }
 
-    public static class Builder {
+    public static class Builder extends AbstractItemBuilder<Builder> {
 
         public static int noRecipe = 0;
 
@@ -88,7 +89,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private static final float DEFAULT_SHELL_CASING_INACCURACY = 20f;
 
 
-        String name;
         List<String> textureNames = new ArrayList<>();
         int ammoCapacity = 0;
         float recoil = 1.0F;
@@ -115,7 +115,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         private String exceededMaxShotsSound;
         float fireRate = Weapon.DEFAULT_FIRE_RATE;
-        private CreativeTabs creativeTab;
         private WeaponRenderer renderer;
         //float zoom = Weapon.DEFAULT_ZOOM;
         @Getter List<Integer> maxShots = new ArrayList<>(); // FIRE_MODE ! TODO: This is despicable
@@ -174,10 +173,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private boolean ejectSpentRoundRequired;
 
         public int maxBulletsPerReload;
-
-        private CraftingComplexity craftingComplexity;
-
-        private Object[] craftingMaterials;
 
         private String gunType = "LAUNCHER";
 
@@ -440,7 +435,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
         public Builder withCreativeTab(CreativeTabs creativeTab) {
-            this.creativeTab = creativeTab;
+            this.tab = creativeTab;
             return this;
         }
 
@@ -890,7 +885,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 weapon.ejectSpentRoundSound = modContext.registerSound(this.ejectSpentRoundSound);
             }
 
-            weapon.setCreativeTab(creativeTab);
+            weapon.setCreativeTab(tab);
             weapon.setTranslationKey(name);
 
             // Add the magic mag
@@ -919,7 +914,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(weapon, weapon.getName(), optionsMetadata);
 
-                if (optionsMetadata.hasOres()) {
+                if (optionsMetadata.isHasOres()) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
                 } else {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
@@ -1001,9 +996,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     public String getName() {
-        return builder.name;
+        return builder.getName();
     }
-
 
     @Override
     public CraftingGroup getCraftingGroup() {

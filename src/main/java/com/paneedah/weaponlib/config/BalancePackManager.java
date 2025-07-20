@@ -63,15 +63,7 @@ public class BalancePackManager {
         SUBMACHINE_GUN,
 
         @Deprecated
-        SIDEARM,
-        @Deprecated
-        REVOLVER,
-        @Deprecated
-        SMG,
-        @Deprecated
         DMR,
-        @Deprecated
-        RIFLES,
         @Deprecated
         LONG_RANGE_RIFLES,
         @Deprecated

@@ -1,5 +1,8 @@
 package com.paneedah.weaponlib.grenade;
 
+import lombok.Getter;
+
+@Getter
 public class AsyncGrenadeState {
 
     private final GrenadeState state;
@@ -18,22 +21,6 @@ public class AsyncGrenadeState {
         this.state = state;
         this.timestamp = timestamp;
         this.duration = duration;
-    }
-
-    public GrenadeState getState() {
-        return state;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public long getDuration() {
-        return duration;
-    }
-
-    public boolean isInfinite() {
-        return isInfinite;
     }
 
 }

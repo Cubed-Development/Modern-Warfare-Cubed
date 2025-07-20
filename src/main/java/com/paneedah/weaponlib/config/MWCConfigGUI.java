@@ -18,13 +18,13 @@ import java.util.Map.Entry;
 
 import static com.paneedah.mwc.ProjectConstants.ID;
 
-public class VMWModConfigGUI extends GuiConfig {
+public class MWCConfigGUI extends GuiConfig {
 
     private static final HierarchialTree<IConfigElement> configTree = new HierarchialTree<>();
     private static final List<IConfigElement> cachedList = new ArrayList<>();
     private static boolean shouldUpdateCache = true;
 
-    public VMWModConfigGUI(GuiScreen parentScreen) {
+    public MWCConfigGUI(GuiScreen parentScreen) {
         super(parentScreen, getElements(), ID, false, false, "Finally... a config!");
     }
 

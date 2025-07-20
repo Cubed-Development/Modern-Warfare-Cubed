@@ -41,9 +41,6 @@ public class ChainsawFactory implements GunFactory {
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
-//         .withCrafting(CraftingComplexity.MEDIUM,
-//                Ores.PlasticPlate,
-//                MwItems.gunmetalPlate)
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         1f, // x
