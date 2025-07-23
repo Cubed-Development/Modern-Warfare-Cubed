@@ -12,7 +12,6 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -64,10 +63,6 @@ public class ARX160Factory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.gunmetalIngot,
-                        MWCItems.gunmetalPlate)
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         0.5f, // x

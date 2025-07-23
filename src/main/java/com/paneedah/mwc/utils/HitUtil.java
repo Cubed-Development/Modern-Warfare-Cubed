@@ -1,6 +1,5 @@
-package com.paneedah.weaponlib.jim.util;
+package com.paneedah.mwc.utils;
 
-import com.paneedah.mwc.utils.VectorUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.RayTraceResult;

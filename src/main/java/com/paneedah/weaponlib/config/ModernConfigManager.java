@@ -274,7 +274,7 @@ public class ModernConfigManager {
 
             if (!FMLCommonHandler.instance().getSide().isServer()) {
                 // Submits field to be organized within the tree
-                VMWModConfigGUI.submitField(annotation, f);
+                MWCConfigGUI.submitField(annotation, f);
             }
         }
 

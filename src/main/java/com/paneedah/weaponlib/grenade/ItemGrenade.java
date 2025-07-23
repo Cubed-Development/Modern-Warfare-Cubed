@@ -2,11 +2,11 @@ package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
+import com.paneedah.mwc.weapons.AbstractItemBuilder;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.*;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -71,10 +71,8 @@ public class ItemGrenade extends Item implements
         REGULAR, SMOKE, GAS, FLASH
     }
 
-    public static class Builder {
+    public static class Builder extends AbstractItemBuilder<Builder> {
 
-        protected String name;
-        protected ModelBase model;
         protected String textureName;
         protected Consumer<ItemStack> entityPositioning;
         protected Consumer<ItemStack> inventoryPositioning;
@@ -94,16 +92,8 @@ public class ItemGrenade extends Item implements
         private Supplier<Float> farVelocity = () -> DEFAULT_FAR_VELOCITY;
         private Supplier<Float> gravityVelocity = () -> DEFAULT_GRAVITY_VELOCITY;
 
-        private int maxStackSize = 1;
-
         private int explosionTimeout = DEFAULT_FUSE_TIMEOUT;
         private float explosionStrength = DEFAULT_EXPLOSION_STRENTH;
-
-        protected CreativeTabs tab;
-
-        private CraftingComplexity craftingComplexity;
-        private Object[] craftingMaterials;
-        private int craftingCount = 1;
 
         private GrenadeRenderer renderer;
         List<String> textureNames = new ArrayList<>();
@@ -118,7 +108,7 @@ public class ItemGrenade extends Item implements
         private float effectiveRadius = DEFAULT_EFFECTIVE_RADIUS;
         private float fragmentDamage = DEFAULT_FRAGMENT_DAMAGE;
         private int fragmentCount = DEFAULT_FRAGMENT_COUNT;
-        //private boolean smokeOnly;
+
         private Type type = Type.REGULAR;
         private long activeDuration;
         private Object[] craftingRecipe;
@@ -126,24 +116,16 @@ public class ItemGrenade extends Item implements
         private CraftingEntry[] modernRecipe;
         private CraftingGroup craftingGroup;
 
-        public Builder withModernRecipe(CraftingGroup group, CraftingEntry... is) {
-            this.modernRecipe = is;
-            this.craftingGroup = group;
+
+        public Builder withTextureNames(String... textureNames) {
+            for (String textureName : textureNames) {
+                this.textureNames.add(textureName.toLowerCase() + ".png");
+            }
             return this;
         }
 
-        public Builder withName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Builder withCreativeTab(CreativeTabs tab) {
-            this.tab = tab;
-            return this;
-        }
-
-        public Builder withModel(ModelBase model) {
-            this.model = model;
+        public Builder withCompatibleAttachment(ItemAttachment<ItemGrenade> attachment, BiConsumer<EntityLivingBase, ItemStack> positioning) {
+            compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, null, true));
             return this;
         }
 
@@ -187,30 +169,8 @@ public class ItemGrenade extends Item implements
             return this;
         }
 
-//        public Builder withSmokeOnly() {
-//            this.smokeOnly = true;
-//            return this;
-//        }
-
         public Builder withType(Type type) {
             this.type = type;
-            return this;
-        }
-
-        public Builder withTextureNames(String... textureNames) {
-            for (String textureName : textureNames) {
-                this.textureNames.add(textureName.toLowerCase() + ".png");
-            }
-            return this;
-        }
-
-        public Builder withCompatibleAttachment(ItemAttachment<ItemGrenade> attachment, BiConsumer<EntityLivingBase, ItemStack> positioning) {
-            compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, null, true));
-            return this;
-        }
-
-        public Builder withMaxStackSize(int maxStackSize) {
-            this.maxStackSize = maxStackSize;
             return this;
         }
 
@@ -267,23 +227,9 @@ public class ItemGrenade extends Item implements
             return this;
         }
 
-        public Builder withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
-            return withCrafting(1, craftingComplexity, craftingMaterials);
-        }
-
-        public Builder withCrafting(int craftingCount, CraftingComplexity craftingComplexity, Object... craftingMaterials) {
-            if (craftingComplexity == null) {
-                throw new IllegalArgumentException("Crafting complexity not set");
-            }
-            if (craftingMaterials.length < 2) {
-                throw new IllegalArgumentException("2 or more materials required for crafting");
-            }
-            if (craftingCount == 0) {
-                throw new IllegalArgumentException("Invalid item count");
-            }
-            this.craftingComplexity = craftingComplexity;
-            this.craftingMaterials = craftingMaterials;
-            this.craftingCount = craftingCount;
+        public Builder withModernRecipe(CraftingGroup group, CraftingEntry... is) {
+            this.modernRecipe = is;
+            this.craftingGroup = group;
             return this;
         }
 
@@ -317,7 +263,7 @@ public class ItemGrenade extends Item implements
             return this;
         }
 
-        public Builder withStopAfterThrowingSond(String sound) {
+        public Builder withStopAfterThrowingSound(String sound) {
             this.stopAfterThrowingSound = sound != null ? sound.toLowerCase() : null;
             return this;
         }
@@ -342,6 +288,7 @@ public class ItemGrenade extends Item implements
             return this;
         }
 
+        @Override
         public ItemGrenade build(ModContext modContext) {
             ItemGrenade grenade = new ItemGrenade(this, modContext);
             grenade.setTranslationKey(ID + "_" + name);
@@ -390,26 +337,18 @@ public class ItemGrenade extends Item implements
 
                 ItemStack itemStack = new ItemStack(grenade);
                 itemStack.setCount(craftingCount);
-                if (optionsMetadata.hasOres()) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                if (optionsMetadata.isHasOres()) {
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray())
+                            .setMirrored(false)
+                            .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray())
+                            .setMirrored(false)
+                            .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
-            } else {
-                //throw new IllegalStateException("No recipe defined for attachment " + name);
-                //System.err.println("!!!No recipe defined for grenade " + name);
             }
 
             return grenade;
-        }
-
-
-        static String addFileExtension(String s, String ext) {
-            return s != null && !s.endsWith(ext) ? s + ext : s;
-        }
-
-        protected static String stripFileExtension(String str, String extension) {
-            return str.endsWith(extension) ? str.substring(0, str.length() - extension.length()) : str;
         }
     }
 
@@ -451,7 +390,7 @@ public class ItemGrenade extends Item implements
     }
 
     public String getName() {
-        return builder.name;
+        return builder.getName();
     }
 
     @Override

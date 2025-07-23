@@ -54,7 +54,6 @@ public class ItemMelee extends Item implements
         Map<ItemAttachment<ItemMelee>, CompatibleAttachment<ItemMelee>> compatibleAttachments = new HashMap<>();
 
         private Class<? extends WeaponSpawnEntity> spawnEntityClass;
-        ImpactHandler blockImpactHandler;
 
         private CraftingComplexity craftingComplexity;
 

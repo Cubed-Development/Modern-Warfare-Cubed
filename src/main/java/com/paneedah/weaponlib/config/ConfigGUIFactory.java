@@ -19,7 +19,7 @@ public class ConfigGUIFactory implements IModGuiFactory {
 
     @Override
     public GuiScreen createConfigGui(GuiScreen parentScreen) {
-        return new VMWModConfigGUI(parentScreen);
+        return new MWCConfigGUI(parentScreen);
     }
 
     @Override
