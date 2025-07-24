@@ -103,6 +103,12 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Improved the Modification GUI's Radar Chart
   - Properly display's the velocity of a gun
   - Renamed variables and methods for better understanding.
+- Improved `/mwc`
+  - Renames `nosway` to `togglesway` because its a toggle
+  - Send in chat what you toggled sway to
+  - Fix it always sending the commands usage when togglesway is ran
+  - Have showRecipe work like showAttachments (no overload)
+  - Improve the text formatting/color of showAttachments
 
 ### Fixed
 

@@ -28,22 +28,20 @@ public class WeaponSpritesheetBuilder {
         modContext = context;
     }
 
-    public static int getTotalRegistries() {
+    public static int getTotalWeaponSprites() {
         return weaponSprites.size();
     }
 
+    public static int getTotalImageMappings() {
+        return imageMappings.size();
+    }
+
     public static boolean hasSpriteID(Object obj) {
-
-
         return weaponSprites.containsKey(obj);
     }
 
     public static int getSpriteID(Object obj) {
         return weaponSprites.get(obj);
-    }
-
-    public static int getTotalImagesProcessed() {
-        return imageMappings.size();
     }
 
     public static void registerSprite(String name) {

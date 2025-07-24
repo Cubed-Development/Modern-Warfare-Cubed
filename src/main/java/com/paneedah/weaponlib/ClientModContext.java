@@ -61,7 +61,7 @@ public class ClientModContext extends CommonModContext {
 
         ClientCommandHandler.instance.registerCommand(new DebugCommand());
 
-        ClientCommandHandler.instance.registerCommand(new MainCommand(this));
+        ClientCommandHandler.instance.registerCommand(new MainCommand());
 
         rendererRegistry = new CompatibleRenderingRegistry();
 
