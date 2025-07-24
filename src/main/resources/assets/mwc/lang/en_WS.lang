@@ -1,0 +1,125 @@
+item.m40gasmask_helmet.name=Breath’d Visor of M40
+item.JPNVG18_helmet.name=Helm of GPNVG-18, Seer of the Night
+
+item.audis4.name=Chariot of Ye Audi S4
+item.MClaren_senna.name=Steed of McLaren, Called Senna
+item.ae86trueno.name=Toyota AE86 Trueno, Stallion of Speed
+item.atv_polaris_sportsman_850_2019.name=Polaris Sportsman 850 of the Year Two-Thousand and Nineteen
+
+entity.${id}_terrorist.name=Rogue of the Eastern Lands
+entity.${id}_soldier.name=Knight of Iron Will
+
+item.${id}_gas-detector.name=Sniffer of Foul Vapours
+item.${id}_GasGrenade.name=Orb of Poison’d Mist
+
+item.Marine_helmet.name=Helm of Tan’d Valor
+item.Marine_chest.name=Jerkin of Battle (Tan)
+item.Marine_boots.name=Boots of Marching (Tan)
+
+item.Spec_Ops_helmet.name=Helm of Shadow’d Valor
+item.Spec_Ops_chest.name=Jerkin of Battle (Black)
+item.Spec_Ops_boots.name=Boots of Marching (Black)
+
+item.Spetznaz_helmet.name=Helm of Green’d Might
+item.Spetznaz_chest.name=Jerkin of Battle (Forest)
+item.Spetznaz_boots.name=Boots of Marching (Forest)
+
+item.Urban_helmet.name=Helm of Concrete’d Courage
+item.Urban_chest.name=Jerkin of Battle (Urban)
+item.Urban_boots.name=Boots of Marching (Urban)
+
+item.ghillie_helmet.name=Hood of the Hidden Hunter
+item.ghillie_chest.name=Fatigues of the Hidden Hunter
+item.ghillie_boots.name=Boots of Moss'd Path
+
+item.blackcamo_chest.name=Shirt of Nightshade’d Threads
+item.forest_chest.name=Garb of Woodland Might
+
+item.blackjeans_boots.name=Britches Black with Boots Bold
+item.khakijeans_boots.name=Britches of Sand and Boots of Night
+
+item.Swat_helmet.name=Helm of the Order’s Embrace
+item.Swat_chest.name=Plate of Order’s Embrace
+item.Swat_boots.name=Boots of Lawful Pursuit
+
+item.Tactical_helmet.name=Visionary Goggles of the Night
+
+item.Nazisanta_helmet.name=Cap of the Wicked Claus
+item.Nazisanta_chest.name=Robes of the Wicked Claus
+item.Nazisanta_boots.name=Boots of the Wicked Claus
+
+item.Santa_helmet.name=Beret of Father Christmas
+item.Santa_chest.name=Robes of Father Christmas
+item.Santa_boots.name=Boots of Father Christmas
+
+item.Juggernaut_helmet.name=Helm of the Jugger’d Beast
+item.Juggernaut_chest.name=Breastplate of the Jugger’d Beast
+item.Juggernaut_boots.name=Boots of the Jugger’d Beast
+
+item.Astronaut_helmet.name=Helm of the Skyward Seeker
+item.Astronaut_chest.name=Chestplate of Skyward Seeker
+item.Astronaut_boots.name=Boots of the Skyward Seeker
+
+item.SCPGuard_helmet.name=Helm of the SCP Ward
+item.SCPGuard_chest.name=Chestguard of SCP Ward
+item.SCPGuard_boots.name=Boots of SCP Ward
+
+item.Dclass_chest.name=Jerkin of the D-Class Wretch
+item.Dclass_boots.name=Boots of the Doomed Servant
+
+item.${id}_combat_sustainment_backpack_tan.name=Pack of Sustenance (Tan’d)
+item.${id}_combat_sustainment_backpack_black.name=Pack of Sustenance (Of the Blackened Hide)
+item.${id}_combat_sustainment_backpack_forest.name=Pack of Sustenance (Camouflaged in Leaves)
+
+item.${id}_assault_backpack_tan.name=Pack of the Assault’d Vanguard (Tan’d)
+item.${id}_assault_backpack_black.name=Pack of the Assault’d Vanguard (Of the Blackened HideOf the Blackened Hide)
+item.${id}_assault_backpack_forest.name=Pack of the Assault’d Vanguard (Camouflaged in Leaves)
+
+item.${id}_tru_spec_cordura_backpack_tan.name=Satchel of Tru-Spec'd Hide (Tan)
+item.${id}_tru_spec_cordura_backpack_black.name=Satchel of Tru-Spec'd Hide (Dark)
+item.${id}_tru_spec_cordura_backpack_forest.name=Satchel of Tru-Spec'd Hide (Forest Dwelt)
+
+item.${id}_f5_switchblade_backpack.name=Pack of F5, the Blade that Foldeth
+
+item.${id}_duffle_bag.name=Sack of Many Things
+
+item.${id}_flyye_field_compact_plate_carrier.name=Raiment of Molle, The Compact’d Shield
+item.${id}_molle_black.name=Raiment of Molle (Of the Night’s Cloth)
+item.${id}_molle_green.name=Raiment of Molle (Leaf'd Like)
+item.${id}_molle_urban.name=Raiment of Molle (Stonelike Urban)
+
+item.${id}_fort_armor.name=Armor of 6B43 6A, the Bastion Strong
+
+item.${id}_usMC_vest.name=Vest of Force Reconnaissance
+item.${id}_usMC_vest_black.name=Vest of Force Reconnaissance (Of the Black Legion)
+item.${id}_usMC_vest_green.name=Vest of Force Reconnaissance (Forest Borne)
+item.${id}_usMC_vest_urban.name=Vest of Force Reconnaissance (Urban Campaign)
+
+item.${id}_swat_vest.name=Vest of UTG-547, Tactical and True
+
+item.${id}_m43a_chest_harness.name=Harness of the M43A Order
+
+item.tactical_tomahawk.name=Hatchet of Tactical Deeds
+item.baseball_bat.name=Club of Ye Ballgame
+item.baseball_bat_nails.name=Club of Nails and Wrath
+item.night_stick.name=Rod of the Watchman
+
+item.${id}_wcam.name=Machina of Still’d Sight
+item.${id}_tablet.name=Tablet of Arcane Light
+
+item.${id}_M67Frag.name=Grenado of M67, Fragment’d
+item.${id}_ImpactGrenade.name=Orb of Sudden Blasting
+item.${id}_M18White.name=Orb Vapour of M18 (Snow-Hued)
+item.${id}_Flash.name=Orb of Blinding Radiance
+
+death.attack.gun=%s wast smitten by %s with %s
+death.attack.gun.noshooter=%s wast smitten unto death with %s
+
+itemGroup.weapons=Instruments of War
+itemGroup.props=Stage Properties
+itemGroup.ammunitionAndMagazines=Shot & Scrolls of Powder
+itemGroup.attachments=Accoutrements
+itemGroup.equipment=Regalia of Battle
+itemGroup.throwables=Hurlèd Missives
+itemGroup.blocksAndIngots=Bricks & Bars of Ore
+
