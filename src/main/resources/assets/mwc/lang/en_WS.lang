@@ -72,7 +72,7 @@ item.${id}_combat_sustainment_backpack_black.name=Pack of Sustenance (Of the Bla
 item.${id}_combat_sustainment_backpack_forest.name=Pack of Sustenance (Camouflaged in Leaves)
 
 item.${id}_assault_backpack_tan.name=Pack of the Assault’d Vanguard (Tan’d)
-item.${id}_assault_backpack_black.name=Pack of the Assault’d Vanguard (Of the Blackened HideOf the Blackened Hide)
+item.${id}_assault_backpack_black.name=Pack of the Assault’d Vanguard (Of the Blackened Hide)
 item.${id}_assault_backpack_forest.name=Pack of the Assault’d Vanguard (Camouflaged in Leaves)
 
 item.${id}_tru_spec_cordura_backpack_tan.name=Satchel of Tru-Spec'd Hide (Tan)
