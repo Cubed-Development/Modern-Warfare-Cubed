@@ -63,6 +63,9 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - Added helper methods to avoid typing enums strings
   - Added more validations
 - Added support for the ore dictionary
+- Added language translation for:
+  - Pirate Speak (The Seven Seas)
+  - Shakespearean English (Kingdom of England)
 
 ### Changed
 
