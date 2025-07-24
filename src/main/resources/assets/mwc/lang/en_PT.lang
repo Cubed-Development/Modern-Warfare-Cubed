@@ -1,0 +1,116 @@
+item.m40gasmask_helmet.name=Breather o’ the M40 Deep
+item.JPNVG18_helmet.name=Night-Seer’s Helm o’ GPNVG-18
+
+item.audis4.name=Audi S4, Me Land-Sharkin’ Carriage
+item.MClaren_senna.name=McLaren’s Thunderin’ Steed, Aye, Senna!
+item.ae86trueno.name=AE86 Trueno, Fleet Chariot o’ the East Winds
+item.atv_polaris_sportsman_850_2019.name=Polaris 850 ‘O Nineteen Past Twenty Hundred
+
+entity.${id}_terrorist.name=Scurvy Dog from the East
+entity.${id}_soldier.name=Ironclad Matey o’ War
+
+item.${id}_gas-detector.name=Sniffer o’ the Stinkin’ Fog
+item.${id}_GasGrenade.name=Stinkbomb o’ Deathly Breeze
+
+item.Marine_helmet.name=Helm o’ the Tan Marines
+item.Marine_chest.name=Mail o’ the Tan Marines
+item.Marine_boots.name=Boots o’ the Tan Marines
+
+item.Spec_Ops_helmet.name=Helm o’ the Black Shadows
+item.Spec_Ops_chest.name=Mail o’ the Black Shadows
+item.Spec_Ops_boots.name=Boots o’ the Black Shadows
+
+item.Spetznaz_helmet.name=Helm o’ the Forest Crew
+item.Spetznaz_chest.name=Mail o’ the Forest Crew
+item.Spetznaz_boots.name=Boots o’ the Forest Crew
+
+item.Urban_helmet.name=Helm o’ the Concrete Raiders
+item.Urban_chest.name=Mail o’ the Concrete Raiders
+item.Urban_boots.name=Boots o’ the Concrete Raiders
+
+item.ghillie_helmet.name=Helm o’ the Mossy Sneak
+item.ghillie_chest.name=Mail o’ the Mossy Sneak
+item.ghillie_boots.name=Boots o’ the Mossy Sneak
+
+item.Swat_helmet.name=Helm o’ the Lawmen
+item.Swat_chest.name=Mail o’ the Lawmen
+item.Swat_boots.name=Boots o’ the Lawmen
+
+item.Nazisanta_helmet.name=Helm o’ the Cursèd Claus
+item.Nazisanta_chest.name=Mail o’ the Cursèd Claus
+item.Nazisanta_boots.name=Boots o’ the Cursèd Claus
+
+item.Santa_helmet.name=Helm o’ Cap’n Kringle
+item.Santa_chest.name=Mail o’ Cap’n Kringle
+item.Santa_boots.name=Boots o’ Cap’n Kringle
+
+item.Juggernaut_helmet.name=Helm o’ the Steel Juggernaut
+item.Juggernaut_chest.name=Mail o’ the Steel Juggernaut
+item.Juggernaut_boots.name=Boots o’ the Steel Juggernaut
+
+item.Astronaut_helmet.name=Helm o’ the Sky Rover
+item.Astronaut_chest.name=Mail o’ the Sky Rover
+item.Astronaut_boots.name=Boots o’ the Sky Rover
+
+item.SCPGuard_helmet.name=Helm o’ the Watcher Guard
+item.SCPGuard_chest.name=Mail o’ the Watcher Guard
+item.SCPGuard_boots.name=Boots o’ the Watcher Guard
+
+item.Dclass_chest.name=Mail o’ the Doomed Deckhand
+item.Dclass_boots.name=Boots o’ the Doomed Deckhand
+
+item.${id}_combat_sustainment_backpack_tan.name=Tan Sack o’ Lastin’ Rations
+item.${id}_combat_sustainment_backpack_black.name=Black Sack o’ Long-Haulin’
+item.${id}_combat_sustainment_backpack_forest.name=Camouflage’d Sack o’ Bush Survival
+
+item.${id}_assault_backpack_tan.name=Tan Ruck o’ Rushin’ Glory
+item.${id}_assault_backpack_black.name=Dark Bag o’ Sudden Mayhem
+item.${id}_assault_backpack_forest.name=Forest-Fleck’d Bag o’ Raidin’
+
+item.${id}_tru_spec_cordura_backpack_tan.name=Tan Satchel o’ Cordura’d Craftin’
+item.${id}_tru_spec_cordura_backpack_black.name=Pitch-Hued Satchel o’ Tough Hide
+item.${id}_tru_spec_cordura_backpack_forest.name=Satchel Blended with Leaf ‘n’ Earth
+
+item.${id}_f5_switchblade_backpack.name=Pack o’ F5, Blade That Folds Like a Flag
+
+item.${id}_duffle_bag.name=Sailor’s Sack o’ Many Plunders
+
+item.${id}_flyye_field_compact_plate_carrier.name=Molle’s Buckler o’ the Tight Fit
+item.${id}_molle_black.name=Molle’s Gear (Dark as Davy Jones’ Locker)
+item.${id}_molle_green.name=Molle’s Vest (Like a Mossy Mast)
+item.${id}_molle_urban.name=Molle’s Vest (Grey like a Stormy Dock)
+
+item.${id}_fort_armor.name=Iron Shell o’ 6B43 6A, Mightier than the Kraken’s Grip
+
+item.${id}_usMC_vest.name=Vest o’ the Recon Raiders
+item.${id}_usMC_vest_black.name=Vest o’ the Black-Booted Marines
+item.${id}_usMC_vest_green.name=Vest from the Jungle’d Coasts
+item.${id}_usMC_vest_urban.name=Vest o’ the Cobblestone Battles
+
+item.${id}_swat_vest.name=Battle Gear UTG-547, Trusty as a Ship’s Wheel
+
+item.${id}_m43a_chest_harness.name=Harness of M43A, Strapped and Ready
+
+item.tactical_tomahawk.name=Boardin’ Axe o’ Tactics
+item.baseball_bat.name=Club o’ Ye Sportin’ Sort
+item.baseball_bat_nails.name=Spiky Club Fer Skull-Bustin’
+item.night_stick.name=Blackjack o’ the Night Watch
+
+item.${id}_wcam.name=Lookin’-Glass o’ Memories Froze
+item.${id}_tablet.name=Glowin’ Slab o’ Pirate Wisdom
+
+item.${id}_M67Frag.name=Blast Bomb o’ M67
+item.${id}_ImpactGrenade.name=Kaboom Orb o’ Sudden Doom
+item.${id}_M18White.name=Fog Orb o’ M18 (White as a Ghost Ship)
+item.${id}_Flash.name=Blindin’ Bomb o’ the Devil’s Light
+
+death.attack.gun=%s took a shot from %s usin’ %s
+death.attack.gun.noshooter=%s got blown to bits by %s
+
+itemGroup.weapons=Tools o’ Plunder
+itemGroup.props=Props Fer Actin’
+itemGroup.ammunitionAndMagazines=Boom-Sticks & Shot Rolls
+itemGroup.attachments=Add-Ons o’ Mayhem
+itemGroup.equipment=Gear o’ the Bold Buccaneer
+itemGroup.throwables=Tossables o’ Chaos
+itemGroup.blocksAndIngots=Plundered Blocks & Bars o’ Booty
