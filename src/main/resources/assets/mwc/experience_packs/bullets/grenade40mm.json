@@ -1,0 +1,16 @@
+{
+  "name": "Grenade40mm",
+  "maxStackSize": 16,
+  "textureName": "Dummy.png",
+
+  "model": {
+    "class": "com.paneedah.mwc.models.GL06Grenade",
+    "texture": "GL06.png"
+  },
+
+  "positions": {
+    "firstPerson": [0.1, -1.2, 0.4, 30, 0, 1, 0, 0, 0, 0],
+    "thirdPerson": [-0.9, -0.29, 0.8, -50, 0, 1, 0, 80, 1, 0],
+    "inventory": [-0.8, 1.0, 2.1, 10, 0, 1, 0, 2.0, 2.0, 2.0]
+  }
+}

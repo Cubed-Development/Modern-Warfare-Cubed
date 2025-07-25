@@ -1,6 +1,7 @@
 package com.paneedah.mwc.weapons;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.UMP45mag;
 import com.paneedah.mwc.models.UMP9Mag;
 import com.paneedah.weaponlib.ItemMagazine;
@@ -406,7 +407,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
-        Magazines.AUG9mmMag = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("AUG9mmMag")
+        Magazines.AUG9mmMag = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm")).withName("AUG9mmMag")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.AUG9mmMag(), "aug.png")
                 .withRequiredAttachments(Attachments.AUGParaConversion)
@@ -1282,7 +1283,7 @@ public class Magazines {
 
         Magazines.M9A1Mag = new ItemMagazine.Builder()
                 .withCapacity(15)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("M9Mag_2")
                 .withPivotPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
 
@@ -1310,7 +1311,7 @@ public class Magazines {
 
         Magazines.FiveSevenMag = new ItemMagazine.Builder()
                 .withCapacity(20)
-                .withCompatibleBullet(Bullets.Bullet57x28mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet57x28mm"))
                 .withName("FiveSevenMag")
                 .withPivotPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
 
@@ -1361,7 +1362,7 @@ public class Magazines {
 
         Magazines.SCCYCPX2Mag = new ItemMagazine.Builder()
                 .withCapacity(10)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("sccycpx2mag")
                 .withPivotPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
 
@@ -1389,7 +1390,7 @@ public class Magazines {
 
         Magazines.SCCYCPX2MagExt = new ItemMagazine.Builder()
                 .withCapacity(15)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("sccycpx2magext")
                 .withPivotPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
 
@@ -1443,7 +1444,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
-        Magazines.M9Mag30 = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("M9Mag30")
+        Magazines.M9Mag30 = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm")).withName("M9Mag30")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.M9Mag30(), "gun.png")
 
@@ -1466,7 +1467,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
-        Magazines.M9DrumMag = new ItemMagazine.Builder().withCapacity(65).withCompatibleBullet(Bullets.Bullet9x19mm).withName("M9DrumMag")
+        Magazines.M9DrumMag = new ItemMagazine.Builder().withCapacity(65).withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm")).withName("M9DrumMag")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.M9DrumMag(), "gun.png")
 
@@ -1491,7 +1492,7 @@ public class Magazines {
 
         Magazines.MP443Mag = new ItemMagazine.Builder()
                 .withCapacity(18)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("MP443Mag_2")
                 .withPivotPoint(-0.20000000596046452F, 0.48000001430511485F, 0.040000001192092904F)
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -1589,7 +1590,7 @@ public class Magazines {
 
         Magazines.M17Mag = new ItemMagazine.Builder()
                 .withCapacity(17)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("M17Mag")
                 .withPivotPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -1614,7 +1615,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
         Magazines.MakarovMag = new ItemMagazine.Builder().withCapacity(8)
-                .withCompatibleBullet(Bullets.Bullet9x18mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x18mm"))
                 .withName("MakarovMag")
                 .withRequiredAttachments(Attachments.MakarovSlide, Attachments.MakarovPBBody)
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -1660,7 +1661,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
-        Magazines.HiPowerMag = new ItemMagazine.Builder().withCapacity(13).withCompatibleBullet(Bullets.Bullet9x19mm).withName("HiPowerMag")
+        Magazines.HiPowerMag = new ItemMagazine.Builder().withCapacity(13).withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm")).withName("HiPowerMag")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.GlockMagazine(), "gun.png")
 
@@ -1708,7 +1709,7 @@ public class Magazines {
 
         Magazines.APSMag = new ItemMagazine.Builder()
                 .withCapacity(20)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("APSMag_2")
                 .withPivotPoint(-0.12000000357627871F, 0.48000001430511485F, 0.0F)
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -1733,7 +1734,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
-        Magazines.GlockMag13 = new ItemMagazine.Builder().withCapacity(13).withCompatibleBullet(Bullets.Bullet9x19mm).withName("GlockMag13")
+        Magazines.GlockMag13 = new ItemMagazine.Builder().withCapacity(13).withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm")).withName("GlockMag13")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.Glock13rndMagazine(), "glock18c.png")
 
@@ -1756,7 +1757,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
-        Magazines.Glock18CMag = new ItemMagazine.Builder().withCapacity(20).withCompatibleBullet(Bullets.Bullet9x19mm).withName("Glock18Cmag_2")
+        Magazines.Glock18CMag = new ItemMagazine.Builder().withCapacity(20).withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm")).withName("Glock18Cmag_2")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.Glock18Cmag(), "glock18c.png")
 
@@ -1779,7 +1780,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
-        Magazines.GlockMag50 = new ItemMagazine.Builder().withCapacity(50).withCompatibleBullet(Bullets.Bullet9x19mm).withName("GlockMag50")
+        Magazines.GlockMag50 = new ItemMagazine.Builder().withCapacity(50).withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm")).withName("GlockMag50")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.M9DrumMag(), "gun.png")
 
@@ -1878,7 +1879,7 @@ public class Magazines {
 
         Magazines.KBP9A91Mag = new ItemMagazine.Builder()
                 .withCapacity(20)
-                .withCompatibleBullet(Bullets.Bullet9x39mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x39mm"))
                 .withName("KBP9A91Mag_2")
                 .withPivotPoint(-0.12000000357627871F, 0.36000001072883614F, -1.9600000584125523F)
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -1903,7 +1904,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
-        Magazines.KedrMag = new ItemMagazine.Builder().withCapacity(20).withCompatibleBullet(Bullets.Bullet9x19mm).withName("KedrMag_2")
+        Magazines.KedrMag = new ItemMagazine.Builder().withCapacity(20).withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm")).withName("KedrMag_2")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.KedrMag(), "kedr.png")
 
@@ -2436,7 +2437,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
-        Magazines.MP40Mag = new ItemMagazine.Builder().withCapacity(32).withCompatibleBullet(Bullets.Bullet9x19mm).withName("MP40Mag_2")
+        Magazines.MP40Mag = new ItemMagazine.Builder().withCapacity(32).withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm")).withName("MP40Mag_2")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.MP40MagACTUAL(), "mp40.png")
 
@@ -2461,7 +2462,7 @@ public class Magazines {
 
         Magazines.MP5A5Mag = new ItemMagazine.Builder()
                 .withCapacity(30)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("MP5A5Mag")
                 .withPivotPoint(0.0F, 0.20000000596046452F, -1.5600000464916233F)
 
@@ -2489,7 +2490,7 @@ public class Magazines {
 
         Magazines.HK50Drum = new ItemMagazine.Builder()
                 .withCapacity(50)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("HK50Drum")
                 .withPivotPoint(0.0F, 0.20000000596046452F, -1.5600000464916233F)
 
@@ -2517,7 +2518,7 @@ public class Magazines {
 
         Magazines.MP7Mag = new ItemMagazine.Builder()
                 .withCapacity(40)
-                .withCompatibleBullet(Bullets.Bullet46x30mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet46x30mm"))
                 .withName("MP7Mag")
                 .withPivotPoint(-0.12000000357627871F, 0.6400000190734865F, -0.08000000238418581F)
 
@@ -2545,7 +2546,7 @@ public class Magazines {
 
         Magazines.MP7Mag20 = new ItemMagazine.Builder()
                 .withCapacity(20)
-                .withCompatibleBullet(Bullets.Bullet46x30mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet46x30mm"))
                 .withName("MP7Mag20")
                 .withPivotPoint(-0.12000000357627871F, 0.6400000190734865F, -0.08000000238418581F)
 
@@ -2601,7 +2602,7 @@ public class Magazines {
 
         Magazines.UMP9Mag = new ItemMagazine.Builder()
                 .withCapacity(30)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("UMP9Mag")
                 .withPivotPoint(-0.12000000357627871F, 0.32000000953674324F, -1.280000038146973F)
                 .withRequiredAttachments(Attachments.UMP9Receiver)
@@ -2629,7 +2630,7 @@ public class Magazines {
 
         Magazines.MPXMag = new ItemMagazine.Builder()
                 .withCapacity(30)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("MPXMag")
                 .withPivotPoint(-0.040000001192092904F, 0.44000001311302195F, -1.24000003695488F)
 
@@ -2656,7 +2657,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
         Magazines.APC9Mag = new ItemMagazine.Builder().withCapacity(30)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("APC9Mag")
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -2682,7 +2683,7 @@ public class Magazines {
 
         Magazines.ScorpionMag = new ItemMagazine.Builder()
                 .withCapacity(30)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("ScorpionMag")
                 .withPivotPoint(-0.12000000357627871F, 1.0000000298023226F, -1.680000050067902F)
 
@@ -2710,7 +2711,7 @@ public class Magazines {
 
         Magazines.P90Mag = new ItemMagazine.Builder()
                 .withCapacity(50)
-                .withCompatibleBullet(Bullets.Bullet57x28mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet57x28mm"))
                 .withName("P90Mag")
                 .withPivotPoint(-0.12000000357627871F, -1.1200000333786013F, 1.8400000548362736F)
 
@@ -2736,7 +2737,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
-        Magazines.P90TerminatorMag = new ItemMagazine.Builder().withCapacity(65).withCompatibleBullet(Bullets.Bullet46x30mm)
+        Magazines.P90TerminatorMag = new ItemMagazine.Builder().withCapacity(65).withCompatibleBullet(BulletRegistry.getBullet("Bullet46x30mm"))
                 .withName("P90TerminatorMag")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.M4A1Mag(), "M4A1Mag.png")
@@ -2787,7 +2788,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
 
         Magazines.G11Mag = new ItemMagazine.Builder().withCapacity(50)
-                .withCompatibleBullet(Bullets.Bullet473x33mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet473x33mm"))
                 .withName("G11Mag")
                 .withPivotPoint(-0.12000000357627871F, -1.5200000452995304F, -3.8800001156330115F)
 
@@ -2898,7 +2899,7 @@ public class Magazines {
 
         Magazines.VSSVintorezMag = new ItemMagazine.Builder()
                 .withCapacity(10)
-                .withCompatibleBullet(Bullets.Bullet9x39mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x39mm"))
                 .withName("VSSVintorezMag_2")
                 .withPivotPoint(-0.040000001192092904F, -0.28000000834465033F, -1.3600000405311587F)
 
@@ -2926,7 +2927,7 @@ public class Magazines {
 
         Magazines.ASValMag = new ItemMagazine.Builder()
                 .withCapacity(20)
-                .withCompatibleBullet(Bullets.Bullet9x39mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x39mm"))
                 .withName("ASValMag")
                 .withPivotPoint(-0.040000001192092904F, -0.28000000834465033F, -1.3600000405311587F)
 
@@ -3023,7 +3024,7 @@ public class Magazines {
 
         Magazines.UziMag = new ItemMagazine.Builder()
                 .withCapacity(32)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("UziMag_2")
                 .withPivotPoint(-0.040000001192092904F, 0.7200000214576723F, -0.40000001192092904F)
 
@@ -3051,7 +3052,7 @@ public class Magazines {
 
         Magazines.VP70Mag = new ItemMagazine.Builder()
                 .withCapacity(18)
-                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet9x19mm"))
                 .withName("VP70mag_2")
                 .withPivotPoint(-0.12000000357627871F, 0.24000000715255743F, 0.08000000238418581F)
 

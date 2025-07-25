@@ -1,6 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -50,7 +51,7 @@ public class M32MGLFactory implements GunFactory {
 
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
-                .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
+                .withCompatibleAttachment(BulletRegistry.getBullet("grenade40mm"), (model) -> {})
                 .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
                     GL11.glTranslatef(0.01f, -0.19f, -0.4f);
                     GL11.glScaled(0F, 0F, 0F);

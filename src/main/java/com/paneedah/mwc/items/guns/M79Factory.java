@@ -1,6 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.M79;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -43,7 +44,7 @@ public class M79Factory implements GunFactory {
                         2f) // z
 
 
-                .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
+                .withCompatibleAttachment(BulletRegistry.getBullet("grenade40mm"), (model) -> {})
 
                 .withCompatibleAttachment(AuxiliaryAttachments.M79grenade, true, (model) -> {
                 })

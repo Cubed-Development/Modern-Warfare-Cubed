@@ -3,6 +3,7 @@ package com.paneedah.mwc.proxies;
 import com.paneedah.mwc.*;
 import com.paneedah.mwc.entities.Entities;
 import com.paneedah.mwc.equipment.*;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.items.melee.BaseballBatFactory;
 import com.paneedah.mwc.items.melee.BaseballBatNailsFactory;
@@ -47,6 +48,7 @@ public class CommonProxy {
         Attachments.init(MWC.modContext);
         AuxiliaryAttachments.init(MWC.modContext);
         GunSkins.init(MWC.modContext);
+        BulletRegistry.loadAllBullets(MWC.modContext);
         Bullets.init(MWC.modContext);
         Magazines.init(MWC.modContext);
         Guns.init(this);
