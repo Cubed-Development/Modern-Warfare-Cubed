@@ -1,12 +1,13 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Bullets;
+
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -292,7 +293,7 @@ public class Remington870Factory implements GunFactory {
                     GL11.glTranslatef(-0.155F, 0.45F, -2.5F);
                     GL11.glScaled(0.9F, 0.9F, 0.9F);
                 })
-                .withCompatibleBullet(Bullets.Shotgun12Guage, (model) -> {})
+                .withCompatibleBullet(BulletRegistry.getBullet("Shotgun12Gauge"), (model) -> {})
                 .withTextureNames("remington870")
                 .withRenderer(new WeaponRenderer.Builder()
 

@@ -49,7 +49,6 @@ public class CommonProxy {
         AuxiliaryAttachments.init(MWC.modContext);
         GunSkins.init(MWC.modContext);
         BulletRegistry.loadAllBullets(MWC.modContext);
-        Bullets.init(MWC.modContext);
         Magazines.init(MWC.modContext);
         Guns.init(this);
         Electronics.createEquipment(MWC.modContext);

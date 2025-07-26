@@ -1,11 +1,12 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Bullets;
+
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -84,7 +85,7 @@ public class KragJorgensenFactory implements GunFactory {
 //                GL11.glRotatef(5f, 0f, 1f, 0f);
                     }
                 })
-                .withCompatibleBullet(Bullets.Bullet8x58, (model) -> {})
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet8x58"), (model) -> {})
                 .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
                     if (model instanceof M4Iron1) {
                         GL11.glTranslatef(0.17F, -1.42F, 0.43F);

@@ -16,6 +16,7 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.jar.JarFile;
 
 public class BulletRegistry {
@@ -23,47 +24,63 @@ public class BulletRegistry {
     private static final Gson GSON = new Gson();
     private static final String BULLET_PATH = "assets/mwc/experience_packs/bullets";
     private static final File CONFIG_BULLET_DIR = new File("config/mwc/experience_packs/bullets");
-    private static final Map<String, ItemBullet> BULLETS = new HashMap<>();
+    private static final Map<String, ItemBullet> BULLETS = new ConcurrentHashMap<>(); // Thread-safe map
+
+    private static final ExecutorService BULLET_LOADER_POOL =
+            Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
     public static void loadAllBullets(ModContext modContext) {
         try {
-            // Ensure config directory exists
             if (!CONFIG_BULLET_DIR.exists()) {
                 CONFIG_BULLET_DIR.mkdirs();
             }
 
-            // Extract bullet JSON files to config if they do not exist
             extractBulletFilesToConfig();
 
-            // Load bullet JSONs from config directory
             File[] bulletFiles = CONFIG_BULLET_DIR.listFiles((dir, name) -> name.endsWith(".json"));
             if (bulletFiles == null) return;
 
-            for (File file : bulletFiles) {
-                String jsonName = file.getName().replace(".json", "");
-                try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
-                    JsonObject json = GSON.fromJson(reader, JsonObject.class);
-                    ItemBullet bullet = buildBulletFromJson(json, modContext);
-                    BULLETS.put(jsonName, bullet);
+            List<Future<?>> tasks = new ArrayList<>();
 
-                    System.out.println("[MWC] Loaded bullet: " + jsonName);
-                } catch (Exception ex) {
-                    System.err.println("[MWC] Failed to load bullet json: " + file.getAbsolutePath());
-                    ex.printStackTrace();
+            for (File file : bulletFiles) {
+                tasks.add(BULLET_LOADER_POOL.submit(() -> {
+                    String jsonName = file.getName().replace(".json", "");
+                    try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
+                        JsonObject json = GSON.fromJson(reader, JsonObject.class);
+                        ItemBullet bullet = buildBulletFromJson(json, modContext);
+                        BULLETS.put(jsonName, bullet);
+
+                        System.out.println("[MWC] Loaded bullet: " + jsonName);
+                    } catch (Exception ex) {
+                        System.err.println("[MWC] Failed to load bullet json: " + file.getAbsolutePath());
+                        ex.printStackTrace();
+                    }
+                }));
+            }
+
+            // Wait for all tasks to finish
+            for (Future<?> task : tasks) {
+                try {
+                    task.get();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static ItemBullet getBullet(String name) {
-        return BULLETS.get(name);
+        ItemBullet bullet = BULLETS.get(name);
+        if (bullet != null) return bullet;
+        throw new RuntimeException("Null Bullet: " + name);
     }
 
     private static void extractBulletFilesToConfig() {
         try {
-            List<String> jarBulletFiles = getBulletFiles(); // Get JSONs from assets
+            List<String> jarBulletFiles = getBulletFiles();
             for (String path : jarBulletFiles) {
                 String fileName = path.substring(path.lastIndexOf('/') + 1);
                 File outFile = new File(CONFIG_BULLET_DIR, fileName);
@@ -83,7 +100,6 @@ public class BulletRegistry {
 
     private static List<String> getBulletFiles() throws Exception {
         List<String> files = new ArrayList<>();
-
         URL dirURL = BulletRegistry.class.getClassLoader().getResource(BULLET_PATH);
         if (dirURL == null) {
             System.err.println("[MWC] Bullet folder not found: " + BULLET_PATH);
@@ -91,7 +107,6 @@ public class BulletRegistry {
         }
 
         if ("file".equals(dirURL.getProtocol())) {
-            // Dev environment
             File directory = new File(dirURL.toURI());
             for (File file : Objects.requireNonNull(directory.listFiles())) {
                 if (file.getName().endsWith(".json")) {
@@ -99,7 +114,6 @@ public class BulletRegistry {
                 }
             }
         } else if ("jar".equals(dirURL.getProtocol())) {
-            // Inside jar
             String jarPath = dirURL.getPath().substring(5, dirURL.getPath().indexOf("!"));
             try (JarFile jar = new JarFile(URLDecoder.decode(jarPath, "UTF-8"))) {
                 Enumeration<java.util.jar.JarEntry> entries = jar.entries();
@@ -111,7 +125,6 @@ public class BulletRegistry {
                 }
             }
         }
-
         return files;
     }
 
@@ -120,13 +133,11 @@ public class BulletRegistry {
         int maxStackSize = json.get("maxStackSize").getAsInt();
         String textureName = json.get("textureName").getAsString();
 
-        // Model
         JsonObject modelObj = json.getAsJsonObject("model");
         String modelClass = modelObj.get("class").getAsString();
         String modelTexture = modelObj.get("texture").getAsString();
         Object modelInstance = Class.forName(modelClass).getDeclaredConstructor().newInstance();
 
-        // Build bullet with base properties
         ItemBullet.Builder builder = (ItemBullet.Builder) new ItemBullet.Builder()
                 .withName(name)
                 .withMaxStackSize(maxStackSize)
@@ -140,7 +151,6 @@ public class BulletRegistry {
                         applyTransform(json.getAsJsonObject("positions").getAsJsonArray("inventory")))
                 .withTextureName(textureName);
 
-        // Optional crafting section
         if (json.has("crafting")) {
             JsonObject crafting = json.getAsJsonObject("crafting");
             int craftingAmount = crafting.get("amount").getAsInt();
@@ -155,29 +165,18 @@ public class BulletRegistry {
         return builder.build(modContext, ItemBullet.class);
     }
 
-    /**
-     * Accepts:
-     *  - "ingotCopper" (OreDict)
-     *  - "minecraft:gunpowder" (registry item)
-     *  - { "ore": "plateSteel" }
-     *  - { "item": "minecraft:gunpowder", "meta": 0, "count": 2 }
-     */
     private static Object[] parseIngredients(JsonArray array) {
         List<Object> list = new ArrayList<>();
         for (JsonElement el : array) {
             Object ingredient = parseIngredient(el);
-            if (ingredient != null) {
-                list.add(ingredient);
-            } else {
-                System.err.println("[MWC] Skipping null ingredient from JSON: " + el.toString());
-            }
+            if (ingredient != null) list.add(ingredient);
+            else System.err.println("[MWC] Skipping null ingredient from JSON: " + el.toString());
         }
         return list.toArray(new Object[0]);
     }
 
     private static Object parseIngredient(JsonElement el) {
         if (el.isJsonPrimitive()) {
-            // Could be ore name or registry name
             String val = el.getAsString();
             if (val.contains(":")) {
                 Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(val));
@@ -187,13 +186,11 @@ public class BulletRegistry {
                 }
                 return item;
             } else {
-                return val; // OreDict name
+                return val;
             }
         } else if (el.isJsonObject()) {
             JsonObject obj = el.getAsJsonObject();
-            if (obj.has("ore")) {
-                return obj.get("ore").getAsString();
-            }
+            if (obj.has("ore")) return obj.get("ore").getAsString();
             if (obj.has("item")) {
                 String rl = obj.get("item").getAsString();
                 int meta = obj.has("meta") ? obj.get("meta").getAsInt() : 0;
@@ -206,16 +203,14 @@ public class BulletRegistry {
                 }
                 return new ItemStack(item, count, meta);
             }
-
             System.err.println("[MWC] Ingredient object missing 'ore' or 'item': " + obj);
             return null;
         }
-
         System.err.println("[MWC] Unsupported ingredient element: " + el);
         return null;
     }
 
-    private static void applyTransform(com.google.gson.JsonArray array) {
+    private static void applyTransform(JsonArray array) {
         float tx = array.get(0).getAsFloat();
         float ty = array.get(1).getAsFloat();
         float tz = array.get(2).getAsFloat();

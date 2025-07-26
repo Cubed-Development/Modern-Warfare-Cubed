@@ -1,11 +1,12 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Bullets;
+
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -99,7 +100,7 @@ public class M1873Factory implements GunFactory {
 //            GL11.glRotatef(-50f, 1f, 0f, 0f);
 //            GL11.glTranslatef(0f, -0.43f, -0.5f);
                 })
-                .withCompatibleBullet(Bullets.Bullet4440, (model) -> {})
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet4440"), (model) -> {})
                 .withTextureNames("M1873")
                 .withRenderer(new WeaponRenderer.Builder()
 

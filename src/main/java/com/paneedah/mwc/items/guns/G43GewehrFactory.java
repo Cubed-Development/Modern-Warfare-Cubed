@@ -45,7 +45,7 @@ public class G43GewehrFactory implements GunFactory {
                         2f, // y
                         6f) // z
 
-//        .withCompatibleBullet(Bullets.Bullet792x57, (model) -> {})
+//        .withCompatibleBullet(BulletRegistry.getBullet("Bullet792x57"), (model) -> {})
                 .withCompatibleAttachment(AuxiliaryAttachments.G43GewehrAction, true, (model) -> {
 
                 })

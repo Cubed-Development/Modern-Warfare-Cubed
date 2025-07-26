@@ -1,6 +1,6 @@
 package com.paneedah.mwc.creativetab;
 
-import com.paneedah.mwc.weapons.Bullets;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
@@ -15,6 +15,6 @@ public class AmmoTab extends CreativeTabs {
     @Override
     @SideOnly(Side.CLIENT)
     public ItemStack createIcon() {
-        return new ItemStack(Bullets.Bullet556x45);
+        return new ItemStack(BulletRegistry.getBullet("Bullet556x45"));
     }
 }

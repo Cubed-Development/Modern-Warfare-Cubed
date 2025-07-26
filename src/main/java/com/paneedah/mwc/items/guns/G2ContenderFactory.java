@@ -1,11 +1,12 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Bullets;
+
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
@@ -100,7 +101,7 @@ public class G2ContenderFactory implements GunFactory {
                         GL11.glScaled(0.04F, 0.04F, 0.04F);
                     }
                 })
-                .withCompatibleBullet(Bullets.Bullet4570, (model) -> {})
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet4570"), (model) -> {})
                 .withTextureNames("g2contender")
                 .withRenderer(new WeaponRenderer.Builder()
 

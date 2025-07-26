@@ -1,0 +1,11 @@
+{
+  "name": "Bullet4440",
+  "maxStackSize": 64,
+  "textureName": "Dummy.png",
+  "model": { "class": "com.paneedah.mwc.models.BulletSmall", "texture": "bullet765x21.png" },
+  "positions": {
+    "firstPerson": [0.2, -1.9, 0.5, 30, 0, 1, 0, 0.55, 0.55, 0.55],
+    "thirdPerson": [-0.2, -0.3, 0.4, -50, 0, 1, 0, 0.45, 0.45, 0.45],
+    "inventory": [-0.8, -4.0, 0.7, 10, 0, 1, 0, 2.4, 2.4, 2.4]
+  }
+}

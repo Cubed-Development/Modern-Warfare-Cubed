@@ -3,10 +3,11 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.RPG7;
 import com.paneedah.mwc.models.RPG7rocketPROJECTILE;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Bullets;
+
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -44,7 +45,7 @@ public class RPG7Factory implements GunFactory {
                         8f) // z
 
 
-                .withCompatibleAttachment(Bullets.RPGRocket, (model) -> {})
+                .withCompatibleAttachment(BulletRegistry.getBullet("RPGRocket"), (model) -> {})
                 .withCompatibleAttachment(AuxiliaryAttachments.RPG7rocket, true, (model) -> {
                 })
                 .withTextureNames("rpg7")

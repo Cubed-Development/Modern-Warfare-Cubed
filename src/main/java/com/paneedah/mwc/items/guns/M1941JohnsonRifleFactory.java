@@ -1,11 +1,12 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Bullets;
+
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -48,7 +49,7 @@ public class M1941JohnsonRifleFactory implements GunFactory {
                         2f, // y
                         6f) // z
 
-                .withCompatibleBullet(Bullets.Bullet3006Springfield, (model) -> {})
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet3006Springfield"), (model) -> {})
                 .withCompatibleAttachment(AuxiliaryAttachments.JohnsonRifleACTION, true, (model) -> {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.StripperClip, true, (model) -> {

@@ -1,0 +1,19 @@
+{
+  "name": "EnergyCase",
+  "maxStackSize": 64,
+  "textureName": "Dummy.png",
+  "model": {
+    "class": "com.paneedah.mwc.models.EnergyCase",
+    "texture": "gun.png"
+  },
+  "positions": {
+    "firstPerson": [0.1, -1, 0.4, 30, 0, 1, 0, 0.4, 0.4, 0.4],
+    "thirdPerson": [-0.7, -0.29, 0.7, -50, 0, 1, 0, 0.5, 0.5, 0.5],
+    "inventory": [-0.8, -1.1, 0.6, 10, 0, 1, 0, 1.4, 1.4, 1.4]
+  },
+  "crafting": {
+    "amount": 8,
+    "complexity": "LOW",
+    "ingredients": ["ingotCopper", "Items.GUNPOWDER"]
+  }
+}

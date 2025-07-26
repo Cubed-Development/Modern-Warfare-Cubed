@@ -45,7 +45,7 @@ public class M1CarbineFactory implements GunFactory {
 
                 .withUnremovableAttachmentCategories(AttachmentCategory.STOCK)
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
-//        .withCompatibleBullet(Bullets.Bullet792x57, (model) -> {})
+//        .withCompatibleBullet(BulletRegistry.getBullet("Bullet792x57"), (model) -> {})
                 .withCompatibleAttachment(AuxiliaryAttachments.M1CarbineAction, true, (model) -> {
                     GL11.glTranslatef(0F, 0.04F, 0F);
                 })

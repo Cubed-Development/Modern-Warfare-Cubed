@@ -1,0 +1,11 @@
+{
+  "name": "Shotgun12Gauge",
+  "maxStackSize": 64,
+  "textureName": "Dummy.png",
+  "model": { "class": "com.paneedah.mwc.models.Shotgun12Gauge", "texture": "Shotgun12Gauge.png" },
+  "positions": {
+    "firstPerson": [0.1, -1.0, 0.4, 30, 0, 1, 0, 0.4, 0.4, 0.4],
+    "thirdPerson": [-0.7, -0.29, 0.7, -50, 0, 1, 0, 0.5, 0.5, 0.5],
+    "inventory": [-0.8, -0.45, 0.4, 10, 0, 1, 0, 1.4, 1.4, 1.4]
+  }
+}

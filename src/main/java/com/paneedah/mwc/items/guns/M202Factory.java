@@ -1,12 +1,12 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.M202;
 import com.paneedah.mwc.models.M202RocketPROJECTILE;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
@@ -46,7 +46,7 @@ public class M202Factory implements GunFactory {
 
                 .withUnremovableAttachmentCategories(AttachmentCategory.SCOPE)
 
-                .withCompatibleAttachment(Bullets.M202Rocket, (model) -> {})
+                .withCompatibleAttachment(BulletRegistry.getBullet("M202Rocket"), (model) -> {})
                 .withCompatibleAttachment(AuxiliaryAttachments.M202rockets, true, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.M202scope, true, (model) -> {

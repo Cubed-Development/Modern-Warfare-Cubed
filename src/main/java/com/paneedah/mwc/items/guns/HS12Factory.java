@@ -1,11 +1,12 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Bullets;
+
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
@@ -166,7 +167,7 @@ public class HS12Factory implements GunFactory {
                     GL11.glTranslatef(-0.19F, -0.6F, -8F);
                     GL11.glScaled(1.4F, 1.4F, 1.4F);
                 })
-                .withCompatibleBullet(Bullets.Shotgun12Guage, (model) -> {})
+                .withCompatibleBullet(BulletRegistry.getBullet("Shotgun12Gauge"), (model) -> {})
                 .withTextureNames("gun")
                 .withRenderer(new WeaponRenderer.Builder()
 
