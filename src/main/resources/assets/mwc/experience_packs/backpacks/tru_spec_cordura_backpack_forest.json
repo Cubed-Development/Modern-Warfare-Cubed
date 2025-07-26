@@ -1,0 +1,8 @@
+{
+  "name": "tru_spec_cordura_backpack_forest",
+  "size": 20,
+  "model": {
+    "class": "com.paneedah.mwc.models.TruSpecCorduraBackpack",
+    "texture": "equipment/carryable/backpacks/tru_spec_cordura_backpack_forest"
+  }
+}

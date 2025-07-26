@@ -1,0 +1,8 @@
+{
+  "name": "f5_switchblade_backpack",
+  "size": 16,
+  "model": {
+    "class": "com.paneedah.mwc.models.F5SwitchbladeBackpack",
+    "texture": "equipment/carryable/backpacks/f5_switchblade_backpack"
+  }
+}

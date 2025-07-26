@@ -2,7 +2,6 @@ package com.paneedah.mwc.experience_packs;
 
 import com.google.gson.*;
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.weaponlib.ItemBullet;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
@@ -128,11 +127,11 @@ public class BulletRegistry {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel((ModelBase) modelInstance, modelTexture)
                 .withFirstPersonPositioning(() ->
-                        applyTransform(json.getAsJsonObject("positions").getAsJsonArray("firstPerson")))
+                        RegUtil.applyTransform(json.getAsJsonObject("positions").getAsJsonArray("firstPerson")))
                 .withThirdPersonPositioning(() ->
-                        applyTransform(json.getAsJsonObject("positions").getAsJsonArray("thirdPerson")))
+                        RegUtil.applyTransform(json.getAsJsonObject("positions").getAsJsonArray("thirdPerson")))
                 .withInventoryPositioning(() ->
-                        applyTransform(json.getAsJsonObject("positions").getAsJsonArray("inventory")))
+                        RegUtil.applyTransform(json.getAsJsonObject("positions").getAsJsonArray("inventory")))
                 .withTextureName(textureName);
 
         if (json.has("crafting")) {
@@ -194,20 +193,5 @@ public class BulletRegistry {
         return null;
     }
 
-    private static void applyTransform(JsonArray array) {
-        float tx = array.get(0).getAsFloat();
-        float ty = array.get(1).getAsFloat();
-        float tz = array.get(2).getAsFloat();
-        float rAngle = array.get(3).getAsFloat();
-        float rx = array.get(4).getAsFloat();
-        float ry = array.get(5).getAsFloat();
-        float rz = array.get(6).getAsFloat();
-        float sx = array.get(7).getAsFloat();
-        float sy = array.get(8).getAsFloat();
-        float sz = array.get(9).getAsFloat();
 
-        GL11.glTranslatef(tx, ty, tz);
-        GL11.glRotatef(rAngle, rx, ry, rz);
-        GL11.glScalef(sx, sy, sz);
-    }
 }

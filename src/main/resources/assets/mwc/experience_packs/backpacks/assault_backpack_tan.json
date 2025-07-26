@@ -1,0 +1,8 @@
+{
+  "name": "assault_backpack_tan",
+  "size": 16,
+  "model": {
+    "class": "com.paneedah.mwc.models.AssaultBackpack",
+    "texture": "equipment/carryable/backpacks/assault_backpack_tan"
+  }
+}

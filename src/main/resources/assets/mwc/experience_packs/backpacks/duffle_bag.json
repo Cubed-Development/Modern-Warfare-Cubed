@@ -1,0 +1,12 @@
+{
+  "name": "duffle_bag",
+  "size": 24,
+  "model": {
+    "class": "com.paneedah.mwc.models.Dufflebag",
+    "texture": "equipment/carryable/backpacks/duffle_bag"
+  },
+  "positions": {
+    "inventory": [-0.15, -3.65, 0.35, 18, -50, 0, 0, 2.4, 2.4, 2.4],
+    "entity": [-0.5, -1.9, 0.5, 0, 0, 0, 0, 1, 1, 1]
+  }
+}

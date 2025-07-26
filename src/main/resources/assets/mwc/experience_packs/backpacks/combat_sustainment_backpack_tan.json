@@ -1,0 +1,12 @@
+{
+  "name": "combat_sustainment_backpack_tan",
+  "size": 10,
+  "model": {
+    "class": "com.paneedah.mwc.models.CombatSustainmentBackpack",
+    "texture": "equipment/carryable/backpacks/combat_sustainment_backpack_tan"
+  },
+  "positions": {
+    "inventory": [-0.15, -4.6, 0.35, 18, -50, 0, 0, 3.3, 3.3, 3.3],
+    "firstPerson": [-64.0, -0.20, -1.25, 0, 0, 0, 0, 16, 16, 16]
+  }
+}

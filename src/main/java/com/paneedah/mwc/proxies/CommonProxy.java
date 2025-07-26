@@ -3,6 +3,7 @@ package com.paneedah.mwc.proxies;
 import com.paneedah.mwc.*;
 import com.paneedah.mwc.entities.Entities;
 import com.paneedah.mwc.equipment.*;
+import com.paneedah.mwc.experience_packs.BackpackRegistry;
 import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.items.melee.BaseballBatFactory;
@@ -40,7 +41,7 @@ public class CommonProxy {
         // Special object initialization (Magic Mag)
         SpecialAttachments.init(MWC.modContext);
 
-        Backpacks.createEquipment(MWC.modContext);
+        BackpackRegistry.loadAllBackpacks(MWC.modContext);
         Belts.createEquipment(MWC.modContext);
         Vests.createEquipment(MWC.modContext);
         Armors.createEquipment(MWC.modContext);
