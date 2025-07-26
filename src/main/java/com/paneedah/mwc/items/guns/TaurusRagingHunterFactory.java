@@ -1,6 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.Reflex2;
 import com.paneedah.mwc.models.TaurusRagingHunter;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -104,7 +105,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleBullet(Bullets.Bullet44, (model) -> {})
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet44"), (model) -> {})
                 .withTextureNames("taurusraginghunter")
                 .withRenderer(new WeaponRenderer.Builder()
 

@@ -1,6 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.Python;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -80,7 +81,7 @@ public class PythonFactory implements GunFactory {
                     GL11.glScaled(0.9F, 0.9F, 0.9F);
 //            GL11.glRotatef(-90F, 0f, 0f, -4f);
                 })
-                .withCompatibleBullet(Bullets.Bullet357, (model) -> {})
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet357"), (model) -> {})
                 .withTextureNames("Python")
                 .withRenderer(new WeaponRenderer.Builder()
 

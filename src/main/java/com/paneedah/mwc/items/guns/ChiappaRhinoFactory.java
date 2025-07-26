@@ -1,6 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.experience_packs.BulletRegistry;
 import com.paneedah.mwc.models.ChiappaRhino;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -65,7 +66,7 @@ public class ChiappaRhinoFactory implements GunFactory {
 //			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
 //            GL11.glRotatef(25F, 0f, 0f, 1f);
                 })
-                .withCompatibleBullet(Bullets.Bullet357, (model) -> {})
+                .withCompatibleBullet(BulletRegistry.getBullet("Bullet357"), (model) -> {})
                 .withTextureNames("chiapparhino")
                 .withRenderer(new WeaponRenderer.Builder()
 

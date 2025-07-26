@@ -10,40 +10,45 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.*;
 import java.util.jar.JarFile;
-import java.io.File;
-import java.util.Enumeration;
 
 public class BulletRegistry {
 
     private static final Gson GSON = new Gson();
     private static final String BULLET_PATH = "assets/mwc/experience_packs/bullets";
+    private static final File CONFIG_BULLET_DIR = new File("config/mwc/experience_packs/bullets");
     private static final Map<String, ItemBullet> BULLETS = new HashMap<>();
 
     public static void loadAllBullets(ModContext modContext) {
         try {
-            List<String> bulletFiles = getBulletFiles();
-            for (String fileName : bulletFiles) {
-                String jsonName = fileName.substring(fileName.lastIndexOf('/') + 1);
-                jsonName = jsonName.replace(".json", "");
+            // Ensure config directory exists
+            if (!CONFIG_BULLET_DIR.exists()) {
+                CONFIG_BULLET_DIR.mkdirs();
+            }
 
-                try (InputStreamReader reader = new InputStreamReader(
-                        BulletRegistry.class.getClassLoader().getResourceAsStream(fileName))) {
+            // Extract bullet JSON files to config if they do not exist
+            extractBulletFilesToConfig();
 
+            // Load bullet JSONs from config directory
+            File[] bulletFiles = CONFIG_BULLET_DIR.listFiles((dir, name) -> name.endsWith(".json"));
+            if (bulletFiles == null) return;
+
+            for (File file : bulletFiles) {
+                String jsonName = file.getName().replace(".json", "");
+                try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
                     JsonObject json = GSON.fromJson(reader, JsonObject.class);
                     ItemBullet bullet = buildBulletFromJson(json, modContext);
                     BULLETS.put(jsonName, bullet);
 
                     System.out.println("[MWC] Loaded bullet: " + jsonName);
                 } catch (Exception ex) {
-                    System.err.println("[MWC] Failed to load bullet json: " + fileName);
+                    System.err.println("[MWC] Failed to load bullet json: " + file.getAbsolutePath());
                     ex.printStackTrace();
                 }
             }
@@ -54,6 +59,26 @@ public class BulletRegistry {
 
     public static ItemBullet getBullet(String name) {
         return BULLETS.get(name);
+    }
+
+    private static void extractBulletFilesToConfig() {
+        try {
+            List<String> jarBulletFiles = getBulletFiles(); // Get JSONs from assets
+            for (String path : jarBulletFiles) {
+                String fileName = path.substring(path.lastIndexOf('/') + 1);
+                File outFile = new File(CONFIG_BULLET_DIR, fileName);
+
+                if (!outFile.exists()) {
+                    try (InputStream in = BulletRegistry.class.getClassLoader().getResourceAsStream(path)) {
+                        if (in == null) continue;
+                        java.nio.file.Files.copy(in, outFile.toPath());
+                        System.out.println("[MWC] Extracted bullet JSON: " + outFile.getAbsolutePath());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static List<String> getBulletFiles() throws Exception {
@@ -130,7 +155,6 @@ public class BulletRegistry {
         return builder.build(modContext, ItemBullet.class);
     }
 
-
     /**
      * Accepts:
      *  - "ingotCopper" (OreDict)
@@ -155,18 +179,15 @@ public class BulletRegistry {
         if (el.isJsonPrimitive()) {
             // Could be ore name or registry name
             String val = el.getAsString();
-            // Heuristic: if it has a colon, assume registry name. Else -> OreDict
             if (val.contains(":")) {
                 Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(val));
                 if (item == null) {
                     System.err.println("[MWC] Unknown item registry name: " + val);
                     return null;
                 }
-                // Most WeaponLib crafting apis accept Item or ItemStack or String (ore)
                 return item;
             } else {
-                // OreDict name
-                return val;
+                return val; // OreDict name
             }
         } else if (el.isJsonObject()) {
             JsonObject obj = el.getAsJsonObject();
