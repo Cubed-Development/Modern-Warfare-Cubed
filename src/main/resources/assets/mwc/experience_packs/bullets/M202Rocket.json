@@ -10,10 +10,5 @@
     "firstPerson": [0.1, -1.2, 0.4, 30, 0, 1, 0, 0, 0, 0],
     "thirdPerson": [-0.9, -0.29, 0.8, -50, 0, 1, 0, 0, 0, 0],
     "inventory": [-0.8, -0.8, -0.2, 10, 0, 1, 0, 0.4, 0.4, 0.4]
-  },
-  "crafting": {
-    "amount": 8,
-    "complexity": "MEDIUM",
-    "ingredients": ["ingotCopper", "mwc:gunmetal_plate", "mwc:gunmetal_ingot"]
   }
 }

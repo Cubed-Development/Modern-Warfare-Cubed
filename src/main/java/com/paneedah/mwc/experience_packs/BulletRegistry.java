@@ -2,6 +2,7 @@ package com.paneedah.mwc.experience_packs;
 
 import com.google.gson.*;
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.weaponlib.ItemBullet;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
@@ -9,14 +10,13 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import org.lwjgl.opengl.GL11;
 
 import java.io.*;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.*;
-import java.util.concurrent.*;
 import java.util.jar.JarFile;
 
 public class BulletRegistry {
@@ -24,10 +24,7 @@ public class BulletRegistry {
     private static final Gson GSON = new Gson();
     private static final String BULLET_PATH = "assets/mwc/experience_packs/bullets";
     private static final File CONFIG_BULLET_DIR = new File("config/mwc/experience_packs/bullets");
-    private static final Map<String, ItemBullet> BULLETS = new ConcurrentHashMap<>(); // Thread-safe map
-
-    private static final ExecutorService BULLET_LOADER_POOL =
-            Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    private static final Map<String, ItemBullet> BULLETS = new HashMap<>();
 
     public static void loadAllBullets(ModContext modContext) {
         try {
@@ -40,30 +37,17 @@ public class BulletRegistry {
             File[] bulletFiles = CONFIG_BULLET_DIR.listFiles((dir, name) -> name.endsWith(".json"));
             if (bulletFiles == null) return;
 
-            List<Future<?>> tasks = new ArrayList<>();
-
             for (File file : bulletFiles) {
-                tasks.add(BULLET_LOADER_POOL.submit(() -> {
-                    String jsonName = file.getName().replace(".json", "");
-                    try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
-                        JsonObject json = GSON.fromJson(reader, JsonObject.class);
-                        ItemBullet bullet = buildBulletFromJson(json, modContext);
-                        BULLETS.put(jsonName, bullet);
+                String jsonName = file.getName().replace(".json", "");
+                try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
+                    JsonObject json = GSON.fromJson(reader, JsonObject.class);
+                    ItemBullet bullet = buildBulletFromJson(json, modContext);
+                    BULLETS.put(jsonName, bullet);
 
-                        System.out.println("[MWC] Loaded bullet: " + jsonName);
-                    } catch (Exception ex) {
-                        System.err.println("[MWC] Failed to load bullet json: " + file.getAbsolutePath());
-                        ex.printStackTrace();
-                    }
-                }));
-            }
-
-            // Wait for all tasks to finish
-            for (Future<?> task : tasks) {
-                try {
-                    task.get();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    System.out.println("[MWC] Loaded bullet: " + jsonName);
+                } catch (Exception ex) {
+                    System.err.println("[MWC] Failed to load bullet json: " + file.getAbsolutePath());
+                    ex.printStackTrace();
                 }
             }
 
