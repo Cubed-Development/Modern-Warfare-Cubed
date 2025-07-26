@@ -18,14 +18,14 @@ import java.net.URLDecoder;
 import java.util.*;
 import java.util.jar.JarFile;
 
-public class BulletRegistry {
+public class BulletRegistry implements IExpPackRegistry {
 
     private static final Gson GSON = new Gson();
     private static final String BULLET_PATH = "assets/mwc/experience_packs/bullets";
     private static final File CONFIG_BULLET_DIR = new File("config/mwc/experience_packs/bullets");
     private static final Map<String, ItemBullet> BULLETS = new HashMap<>();
 
-    public static void loadAllBullets(ModContext modContext) {
+    public static void loadAll(ModContext modContext) {
         try {
             if (!CONFIG_BULLET_DIR.exists()) {
                 CONFIG_BULLET_DIR.mkdirs();

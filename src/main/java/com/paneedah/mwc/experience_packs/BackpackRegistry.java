@@ -10,14 +10,14 @@ import java.net.URLDecoder;
 import java.util.*;
 import java.util.jar.JarFile;
 
-public class BackpackRegistry {
+public class BackpackRegistry implements IExpPackRegistry {
 
     private static final Gson GSON = new Gson();
     private static final String BACKPACK_PATH = "assets/mwc/experience_packs/backpacks";
     private static final File CONFIG_BACKPACK_DIR = new File("config/mwc/experience_packs/backpacks");
     private static final Map<String, ItemBackpack> BACKPACKS = new HashMap<>();
 
-    public static void loadAllBackpacks(ModContext modContext) {
+    public static void loadAll(ModContext modContext) {
         try {
             if (!CONFIG_BACKPACK_DIR.exists()) CONFIG_BACKPACK_DIR.mkdirs();
 

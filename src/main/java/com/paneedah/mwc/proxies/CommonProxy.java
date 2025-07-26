@@ -41,7 +41,7 @@ public class CommonProxy {
         // Special object initialization (Magic Mag)
         SpecialAttachments.init(MWC.modContext);
 
-        BackpackRegistry.loadAllBackpacks(MWC.modContext);
+        BackpackRegistry.loadAll(MWC.modContext);
         Belts.createEquipment(MWC.modContext);
         Vests.createEquipment(MWC.modContext);
         Armors.createEquipment(MWC.modContext);
@@ -49,7 +49,7 @@ public class CommonProxy {
         Attachments.init(MWC.modContext);
         AuxiliaryAttachments.init(MWC.modContext);
         GunSkins.init(MWC.modContext);
-        BulletRegistry.loadAllBullets(MWC.modContext);
+        BulletRegistry.loadAll(MWC.modContext);
         Magazines.init(MWC.modContext);
         Guns.init(this);
         Electronics.createEquipment(MWC.modContext);
