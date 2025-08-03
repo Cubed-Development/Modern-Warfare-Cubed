@@ -4,7 +4,6 @@ profile:
   name: qodana.recommended
 fixesStrategy: none
 bootstrap: |+
-  set -eu
   bash gradlew setupDecompWorkspace
   bash gradlew generateBuildConfig
 include:
