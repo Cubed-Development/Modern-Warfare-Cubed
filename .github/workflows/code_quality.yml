@@ -8,6 +8,10 @@ on:
       - next
       - release
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   qodana:
     runs-on: blacksmith-4vcpu-ubuntu-2404
