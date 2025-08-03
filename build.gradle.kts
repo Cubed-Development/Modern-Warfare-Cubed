@@ -107,10 +107,6 @@ java {
         withSourcesJar() // Generate sources jar, for releases
 }
 
-lombok {
-    version = "1.18.38"
-}
-
 tasks {
     arrayOf(deobfuscateMergedJarToSrg, srgifyBinpatchedJar).forEach {
         it.configure {
