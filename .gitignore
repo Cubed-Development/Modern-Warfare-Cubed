@@ -1,31 +1,18 @@
-# Eclipse
-eclipse
-bin
-*.launch
-.settings
-.metadata
-.classpath
-.project
-
-# IntelliJ Idea
-out
-*.ipr
-*.iws
-*.iml
-.idea
-
-# Gradle
-build
-.gradle
-
-# Forge
-run
-
-# Windows
+### Windows ###
 desktop.ini
 
-# macOS
+### macOS ###
 .DS_Store
 
-# other
-*.log
+### Gradle ###
+.gradle
+build
+
+### IntelliJ IDEA ###
+.idea/*
+!.idea/fileColors.xml
+!.idea/scopes/
+!.idea/scopes/*
+
+### Project ###
+run
