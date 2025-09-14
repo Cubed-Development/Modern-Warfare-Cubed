@@ -1,12 +1,10 @@
 name: Qodana
 
 on:
-  workflow_dispatch:
-  pull_request:
-  push:
-    branches:
-      - next
-      - release
+  workflow_run:
+    workflows: ["Gradle Build"]
+    types:
+      - completed
 
 concurrency:
   group: ${{ github.ref }}
@@ -14,6 +12,7 @@ concurrency:
 
 jobs:
   qodana:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: blacksmith-4vcpu-ubuntu-2404
     permissions:
       contents: write
