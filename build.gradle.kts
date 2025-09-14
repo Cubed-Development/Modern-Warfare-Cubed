@@ -4,10 +4,10 @@ import org.jetbrains.gradle.ext.settings
 import org.jetbrains.gradle.ext.Gradle
 
 plugins {
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.2"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.3"
     id("com.gtnewhorizons.retrofuturagradle") version "1.4.6"
-    id("com.github.gmazzo.buildconfig") version "5.6.7"
-    id("io.freefair.lombok") version "8.14"
+    id("com.github.gmazzo.buildconfig") version "5.6.8"
+    id("io.freefair.lombok") version "8.14.2"
 }
 
 group = "com.paneedah"
