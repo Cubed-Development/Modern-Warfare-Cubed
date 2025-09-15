@@ -1,4 +1,6 @@
 name: Gradle Build
+permissions:
+  contents: read
 
 on:
   push:
