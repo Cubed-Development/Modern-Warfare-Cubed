@@ -345,6 +345,6 @@ public class GasGrenadeFactory implements GrenadeFactory {
 
                                 .build())
 
-                .build(MWC.modContext);
+                .build();
     }
 }

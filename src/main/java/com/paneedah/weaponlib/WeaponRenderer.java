@@ -21,7 +21,9 @@ import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.render.*;
+import com.paneedah.weaponlib.render.MuzzleFlashRenderer;
+import com.paneedah.weaponlib.render.Shaders;
+import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.wavefront.WavefrontModel;
 import com.paneedah.weaponlib.shader.Shader;
 import dev.redstudio.redcore.math.vectors.Vector3F;
@@ -78,16 +80,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WeaponRenderer extends ModelSource implements IBakedModel {
 
@@ -1703,7 +1705,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				firstPersonPositioning = (renderContext) -> {
 					GL11.glRotatef(45F, 0f, 1f, 0f);
 
-					if(renderer.getClientModContext() != null) {
+					if(MWC.modContext != null) {
 						PlayerWeaponInstance instance = renderer.getClientModContext().getMainHeldWeapon();
 						if(instance != null && instance.isAimed()) {
 							GL11.glTranslatef(xOffsetZoom, yOffsetZoom, weaponProximity);
@@ -4463,13 +4465,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
     private void renderCachedInventoryTexture(RenderContext<RenderableState> renderContext, Integer inventoryTexture) {
-
-
-        if (getClientModContext() != null) {
-            WeaponSpritesheetBuilder.provideModContext(getClientModContext());
-        }
-
-
         if (!DebugCommand.isForceLiveRenderGUI()) {
 
             PlayerWeaponInstance pwi = renderContext.getWeaponInstance();

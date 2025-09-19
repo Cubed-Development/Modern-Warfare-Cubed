@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.crafting.ammopress;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.network.messages.CraftingStationClientMessage;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.base.BlockStation;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import net.minecraft.block.material.Material;
@@ -30,13 +30,12 @@ public class BlockAmmoPress extends BlockStation {
     public static AxisAlignedBB COLLISION_BOX_BOTTOM = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.2D, 0.9D);
     public static AxisAlignedBB COLLISION_BOX_TOP = new AxisAlignedBB(0.2D, 0.0D, 0.2D, 0.8D, 0.8D, 0.8D);
 
-    public BlockAmmoPress(ModContext context, String name, Material materialIn) {
-        super(context, name, materialIn);
+    public BlockAmmoPress(String name, Material materialIn) {
+        super(name, materialIn);
     }
 
     @Override
-    public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox,
-                                      List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_) {
+    public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_) {
         addCollisionBoxToList(pos, entityBox, collidingBoxes, COLLISION_BOX_BOTTOM);
         addCollisionBoxToList(pos, entityBox, collidingBoxes, COLLISION_BOX_TOP);
     }
@@ -44,7 +43,7 @@ public class BlockAmmoPress extends BlockStation {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
                                     EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        playerIn.openGui(modContext.getMod(), GuiHandler.AMMOPRESS_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+        playerIn.openGui(MWC.modContext.getMod(), GuiHandler.AMMOPRESS_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
 
         if (hand == EnumHand.MAIN_HAND) {
 

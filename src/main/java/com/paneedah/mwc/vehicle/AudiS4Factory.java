@@ -2,7 +2,6 @@ package com.paneedah.mwc.vehicle;
 
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.vehicle.engines.AudiS4Engine;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
 import com.paneedah.weaponlib.vehicle.jimphysics.*;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.WheelAxel;
@@ -14,7 +13,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class AudiS4Factory implements VehicleFactory {
 
     @Override
-    public void createVehicle(ModContext modContext) {
+    public void createVehicle() {
         StatefulRenderer<VehicleRenderableState> renderer = null;
 
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
@@ -192,7 +191,7 @@ public class AudiS4Factory implements VehicleFactory {
                                 1.000000f, 1.000000f, 1.000000f
                         );
 
-                    }).build(modContext, VehiclePart.MAIN);
+                    }).build(VehiclePart.MAIN);
         }
 
         new EntityVehicleConfiguration.Builder()
@@ -241,7 +240,7 @@ public class AudiS4Factory implements VehicleFactory {
                 .withSeat(new Vec3d(0.0, -0.2, 0.0))
                 .withSeat(new Vec3d(0.5, -0.2, 0.0))
                 .withRenderer(renderer)
-                .build(modContext);
+                .build();
     }
 
 }

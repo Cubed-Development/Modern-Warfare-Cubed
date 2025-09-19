@@ -2,13 +2,12 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Python;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
@@ -16,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 public class PythonFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("Python")
@@ -33,9 +32,9 @@ public class PythonFactory implements GunFactory {
                 .withAllReloadIterationsCompletedSound("revolver_load_complete")
                 .withReloadingTime(25)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.1f)
+                .withFlashOffsetY(0.15f)
                 .withInaccuracy(2)
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -214,6 +213,6 @@ public class PythonFactory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.016f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

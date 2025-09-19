@@ -1,12 +1,10 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.ATV;
 import com.paneedah.mwc.models.ATVSteering;
 import com.paneedah.mwc.models.ATVWheel;
 import com.paneedah.mwc.models.SampleVehicleControlArm;
 import com.paneedah.mwc.vehicle.engines.PolarisATVEngine;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
 import com.paneedah.weaponlib.vehicle.jimphysics.Chassis;
 import com.paneedah.weaponlib.vehicle.jimphysics.Dimensions;
@@ -22,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 public class ATVFactory implements VehicleFactory {
 
     @Override
-    public void createVehicle(ModContext modContext) {
+    public void createVehicle() {
         StatefulRenderer<VehicleRenderableState> renderer = null;
 
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
@@ -206,7 +204,7 @@ public class ATVFactory implements VehicleFactory {
                     })
 
 
-                    .build(modContext, VehiclePart.MAIN);
+                    .build(VehiclePart.MAIN);
 
         }
         // https://www.car.info/en-se/audi/a4/s4-6627162/specs
@@ -261,7 +259,7 @@ public class ATVFactory implements VehicleFactory {
                 .withOBBDimensions(1, 1, 1)
                 .withSeat(new Vec3d(-0.5, 0.2, -0.3))
                 .withRenderer(renderer)
-                .build(modContext);
+                .build();
     }
 
 }

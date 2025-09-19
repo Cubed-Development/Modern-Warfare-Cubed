@@ -17,8 +17,8 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class VehicleCustomGUI extends Gui {
 

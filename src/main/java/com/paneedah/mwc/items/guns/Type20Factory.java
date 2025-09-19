@@ -4,12 +4,11 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -20,7 +19,7 @@ import org.lwjgl.opengl.GL11;
 
 public class Type20Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("type20")
@@ -29,7 +28,7 @@ public class Type20Factory implements GunFactory {
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.RIFLE)
                 .withMuzzlePosition(new Vec3d(0.0, -1.076000002264977, -6.227999991893772))
-                .hasFlashPedals()
+                .hasFlashPetals()
                 .withMaxShots(1, 3, Integer.MAX_VALUE)
                 //.withMaxShots(5)
                 .withShootSound("acr")
@@ -39,9 +38,9 @@ public class Type20Factory implements GunFactory {
                 .withDrawSound("acr_draw")
                 .withReloadingTime(30)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.14f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.14f)
+                .withFlashOffsetY(0.16f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -756,6 +755,6 @@ public class Type20Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.0118f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

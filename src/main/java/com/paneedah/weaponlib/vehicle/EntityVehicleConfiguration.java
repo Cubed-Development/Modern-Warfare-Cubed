@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.vehicle;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.EntityClassFactory;
 import com.paneedah.weaponlib.EntityConfiguration;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import lombok.Getter;
@@ -300,20 +300,20 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             return this;
         }
 
-        public EntityVehicleConfiguration build(ModContext context) {
+        public EntityVehicleConfiguration build() {
             int modEntityId = entityIdSupplier.get();
             String entityName = name != null ? name : baseClass.getSimpleName() + "Ext" + modEntityId;
 
             EntityVehicleConfiguration configuration = new EntityVehicleConfiguration(this);
 
-            configuration.enterSound = context.registerSound(enterSound);
-            configuration.exitSound = context.registerSound(exitSound);
-            configuration.idleSound = context.registerSound(idleSound);
-            configuration.runSound = context.registerSound(runSound);
-            configuration.constantRevSound = context.registerSound(constantRevSound);
+            configuration.enterSound = MWC.modContext.registerSound(enterSound);
+            configuration.exitSound = MWC.modContext.registerSound(exitSound);
+            configuration.idleSound = MWC.modContext.registerSound(idleSound);
+            configuration.runSound = MWC.modContext.registerSound(runSound);
+            configuration.constantRevSound = MWC.modContext.registerSound(constantRevSound);
 
-            configuration.backfireSound = context.registerSound(backfireSound);
-            configuration.gearshiftSound = context.registerSound(gearshiftSound);
+            configuration.backfireSound = MWC.modContext.registerSound(backfireSound);
+            configuration.gearshiftSound = MWC.modContext.registerSound(gearshiftSound);
 
 
             configuration.shiftRight = this.shiftWRight;
@@ -329,19 +329,19 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             configuration.obbWidth = this.obbWidth;
             configuration.obbHeight = this.obbHeight;
 
-            configuration.rev1 = context.registerSound(rev1);
-            configuration.rev2 = context.registerSound(rev2);
-            configuration.rev3 = context.registerSound(rev3);
-            configuration.rev4 = context.registerSound(rev4);
-            configuration.rev5 = context.registerSound(rev5);
-            configuration.rev6 = context.registerSound(rev6);
+            configuration.rev1 = MWC.modContext.registerSound(rev1);
+            configuration.rev2 = MWC.modContext.registerSound(rev2);
+            configuration.rev3 = MWC.modContext.registerSound(rev3);
+            configuration.rev4 = MWC.modContext.registerSound(rev4);
+            configuration.rev5 = MWC.modContext.registerSound(rev5);
+            configuration.rev6 = MWC.modContext.registerSound(rev6);
 
             // configuration.pattern = this.shiftPattern;
 
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance()
                     .generateEntitySubclass(baseClass, modEntityId, configuration);
 
-            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, entityName, modEntityId, MWC.modContext.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
             ItemVehicle vehicleItem = new ItemVehicle(entityName, entityClass);
 
@@ -356,12 +356,12 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             // System.out.println("VEHICLE REGISTRY NAME: " + vehicleItem.getRegistryName());
             //
 //            if(spawnEgg) {
-//                compatibility.registerEgg(context, entityClass, entityName, primaryEggColor, secondaryEggColor);
+//                compatibility.registerEgg(MWC.modContext, entityClass, entityName, primaryEggColor, secondaryEggColor);
 //            }
 
-            if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-                RendererRegistration.registerRenderableEntity(context, entityClass, renderer);
-            }
+            if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+                RendererRegistration.registerRenderableEntity(entityClass, renderer);
+
             return new EntityVehicleConfiguration(this);
         }
 
@@ -369,10 +369,8 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             /*
              * This method is wrapped into a static class to facilitate conditional client-side only loading
              */
-            private static void registerRenderableEntity(ModContext modContext,
-                                                         Class<? extends Entity> entityClass,
-                                                         StatefulRenderer<VehicleRenderableState> renderer) {
-                modContext.registerRenderableEntity(entityClass, new RenderVehicle2(renderer));
+            private static void registerRenderableEntity(Class<? extends Entity> entityClass, StatefulRenderer<VehicleRenderableState> renderer) {
+                MWC.modContext.registerRenderableEntity(entityClass, new RenderVehicle2(renderer));
             }
         }
 

@@ -7,9 +7,9 @@ import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ParticleFancyRain;
 import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.DepthTexture;
-import com.paneedah.weaponlib.render.framebuffer.HDRFramebuffer;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.bgl.weather.ModernWeatherRenderer;
+import com.paneedah.weaponlib.render.framebuffer.HDRFramebuffer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.particle.ParticleRain;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -34,8 +34,8 @@ import org.lwjgl.util.vector.Matrix4f;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /**
  * Post-processing pipeline enabling modern post effects to be applied in

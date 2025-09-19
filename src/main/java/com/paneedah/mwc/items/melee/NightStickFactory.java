@@ -187,6 +187,6 @@ public class NightStickFactory implements MeleeFactory {
 
                                 .build())
 
-                .build(MWC.modContext);
+                .build();
     }
 }

@@ -4,12 +4,11 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -21,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 
 public class AK47Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("ak47")
@@ -29,7 +28,7 @@ public class AK47Factory implements GunFactory {
                 .withRecoil(4f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.RIFLE)
-                .hasFlashPedals()
+                .hasFlashPetals()
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withMuzzlePosition(new Vec3d(-0.16400000488758082, -1.0, -6.5))
                 //.withMaxShots(5)
@@ -42,9 +41,9 @@ public class AK47Factory implements GunFactory {
                 .withDrawSound("ak_draw")
                 .withReloadingTime(45)
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(0.5f)
+                .withFlashOffsetX(0.12f)
+                .withFlashOffsetY(0.16f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -958,7 +957,7 @@ public class AK47Factory implements GunFactory {
                 .withSpawnEntityDamage(6.6f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
-                .build(MWC.modContext);
+                .build();
     }
 }
 

@@ -164,6 +164,6 @@ public class BaseballBatFactory implements MeleeFactory {
 
                                 .build())
 
-                .build(MWC.modContext);
+                .build();
     }
 }

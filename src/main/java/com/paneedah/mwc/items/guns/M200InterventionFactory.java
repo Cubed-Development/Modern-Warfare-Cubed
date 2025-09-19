@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -17,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 
 public class M200InterventionFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("m200_intervention")
@@ -37,9 +36,9 @@ public class M200InterventionFactory implements GunFactory {
                 .withDrawSound("noaction_draw")
                 .withReloadingTime(40)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.11f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.08f)
+                .withFlashOffsetY(0.11f)
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -2353,6 +2352,6 @@ public class M200InterventionFactory implements GunFactory {
 //        .withSpawnEntitySpeed(80f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

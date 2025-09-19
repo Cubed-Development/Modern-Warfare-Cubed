@@ -1,13 +1,13 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.Explosion;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import io.netty.buffer.ByteBuf;
 import dev.redstudio.redcore.math.vectors.Vector3D;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -86,9 +86,9 @@ public class EntityGrenade extends AbstractEntityGrenade {
             return this;
         }
 
-        public EntityGrenade build(ModContext modContext) {
-            EntityGrenade entityGrenade = new EntityGrenade(modContext, itemGrenade, thrower, velocity,
-                    gravityVelocity, rotationSlowdownFactor);
+        public EntityGrenade build() {
+            final EntityGrenade entityGrenade = new EntityGrenade(itemGrenade, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
+
             entityGrenade.activationTimestamp = activationTimestamp;
             entityGrenade.explosionTimeout = explosionTimeout;
             entityGrenade.explosionStrength = explosionStrength;
@@ -100,9 +100,8 @@ public class EntityGrenade extends AbstractEntityGrenade {
 
     }
 
-    private EntityGrenade(ModContext modContext, ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
-        super(modContext, itemGrenade, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
-
+    private EntityGrenade(ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
+        super(itemGrenade, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
     }
 
     public EntityGrenade(World world) {
@@ -151,7 +150,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
 
         Explosion.createServerSideExplosion(world, this.getThrower(), this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null,
-                modContext.getExplosionSound());
+                MWC.modContext.getExplosionSound());
 
         List<?> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this,
                 this.getEntityBoundingBox().expand(5, 5, 5));

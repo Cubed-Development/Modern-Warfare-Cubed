@@ -1,14 +1,13 @@
 package com.paneedah.mwc.tileentities;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
 import net.minecraft.block.material.Material;
 import org.lwjgl.opengl.GL11;
 
 public class TurretBaseFactory {
 
-    public static void createTileEntity(ModContext modContext) {
+    public static void createTileEntity() {
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("turret_base")
@@ -21,6 +20,6 @@ public class TurretBaseFactory {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
 //            GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(modContext);
+                .build();
     }
 }

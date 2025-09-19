@@ -3,7 +3,6 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.M202;
 import com.paneedah.mwc.models.M202RocketPROJECTILE;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
@@ -17,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 
 public class M202Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("m202")
@@ -32,9 +31,9 @@ public class M202Factory implements GunFactory {
                 .withReloadSound("rpg7_reload")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.7f)
-                .withFlashScale(() -> 2f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(2f)
+                .withFlashOffsetX(0.1f)
+                .withFlashOffsetY(0.14f)
                 .withShellCasingEjectEnabled(false)
                 .withDestroyingBlocks(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -674,6 +673,6 @@ public class M202Factory implements GunFactory {
                 .withSpawnEntityParticleAgeCoefficient(0.2F)
                 .withSpawnEntityModel(new M202RocketPROJECTILE())
                 .withSpawnEntityModelTexture("gun")
-                .build(MWC.modContext);
+                .build();
     }
 }

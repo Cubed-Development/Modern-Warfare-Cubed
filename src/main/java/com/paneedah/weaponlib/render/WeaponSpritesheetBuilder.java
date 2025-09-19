@@ -1,10 +1,11 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.utils.ImageCaptureUtil;
 import com.paneedah.mwc.utils.SpriteSheetTools;
+import com.paneedah.mwc.utils.SpriteSheetTools.Sprite;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.utils.SpriteSheetTools.Sprite;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -17,16 +18,10 @@ import java.util.Map.Entry;
 
 public class WeaponSpritesheetBuilder {
 
-    private static ClientModContext modContext;
     private static int lastInt = 0;
     private static final HashMap<String, Integer> weaponSprites = new HashMap<>();
 
     private static final HashMap<Object, BufferedImage> imageMappings = new HashMap<>();
-
-
-    public static void provideModContext(ClientModContext context) {
-        modContext = context;
-    }
 
     public static int getTotalWeaponSprites() {
         return weaponSprites.size();
@@ -57,17 +52,15 @@ public class WeaponSpritesheetBuilder {
     }
 
     public static void build() {
-        if (modContext == null) {
+        if (MWC.modContext == null)
             return;
-        }
-
 
         AffineTransform at = new AffineTransform();
         at.concatenate(AffineTransform.getScaleInstance(1, -1));
         at.concatenate(AffineTransform.getTranslateInstance(0, -128));
 
 
-        Map<Object, Integer> mappings = modContext.getInventoryTextureMap();
+        Map<Object, Integer> mappings = ((ClientModContext) MWC.modContext).getInventoryTextureMap();
 
         int bestSize = (int) Math.round(Math.sqrt(mappings.size()));
         BufferedImage master = new BufferedImage(bestSize * 128, bestSize * 128, BufferedImage.TYPE_INT_ARGB);

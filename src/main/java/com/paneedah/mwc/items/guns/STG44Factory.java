@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -16,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 public class STG44Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("stg44")
@@ -34,9 +33,9 @@ public class STG44Factory implements GunFactory {
                 .withDrawSound("ak_draw")
                 .withReloadingTime(45)
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.12f)
+                .withFlashOffsetY(0.14f)
                 .withInaccuracy(1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -1415,7 +1414,7 @@ public class STG44Factory implements GunFactory {
                 .withSpawnEntityDamage(7.7f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
-                .build(MWC.modContext);
+                .build();
     }
 }
 

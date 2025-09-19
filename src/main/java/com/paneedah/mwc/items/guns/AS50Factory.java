@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -17,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 
 public class AS50Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("as50")
@@ -35,9 +34,9 @@ public class AS50Factory implements GunFactory {
                 .withDrawSound("as50_draw")
                 .withReloadingTime(40)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.11f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.08f)
+                .withFlashOffsetY(0.11f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
 
@@ -2032,6 +2031,6 @@ public class AS50Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

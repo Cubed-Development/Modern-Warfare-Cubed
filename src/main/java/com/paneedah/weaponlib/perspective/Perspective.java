@@ -12,11 +12,11 @@ import net.minecraft.client.shader.Framebuffer;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.ARBFramebufferObject;
 
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public abstract class Perspective<S> {
 
-    protected ClientModContext modContext;
     protected Framebuffer framebuffer;
 
     protected int width;
@@ -26,18 +26,17 @@ public abstract class Perspective<S> {
     protected MWCParticleManager effectRenderer;
     protected DynamicShaderGroupManager shaderGroupManager;
 
-    public void activate(ClientModContext modContext, PerspectiveManager manager) {
-        this.modContext = modContext;
+    public void activate(PerspectiveManager manager) {
         if (framebuffer == null) {
             framebuffer = new Framebuffer(width, height, true);
             framebuffer.setFramebufferColor(0.0F, 0.0F, 0.0F, 0.0F);
         }
-        this.entityRenderer = manager.getEntityRenderer();
-        this.effectRenderer = manager.getEffectRenderer();
-        this.shaderGroupManager = new DynamicShaderGroupManager(); //manager.getShaderGroupManager();
-        if (this.shaderGroupManager.hasActiveGroups()) {
-            System.err.println("!!! Active shader groups found !!!");
-        }
+        entityRenderer = manager.getEntityRenderer();
+        effectRenderer = manager.getEffectRenderer();
+        shaderGroupManager = new DynamicShaderGroupManager(); //manager.getShaderGroupManager();
+
+        if (shaderGroupManager.hasActiveGroups())
+            LOGGER.error("!!! Active shader groups found !!!");
     }
 
     public void deactivate(ClientModContext modContext) {

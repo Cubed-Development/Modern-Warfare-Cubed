@@ -2,7 +2,9 @@ package com.paneedah.weaponlib.render.framebuffer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.shader.Framebuffer;
-import org.lwjgl.opengl.*;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL30;
+import org.lwjgl.opengl.GL32;
 
 public class MSAAFramebuffer extends Framebuffer {
 

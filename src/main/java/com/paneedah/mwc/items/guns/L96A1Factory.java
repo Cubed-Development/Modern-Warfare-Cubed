@@ -3,7 +3,6 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -15,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 
 public class L96A1Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("l96a1")
@@ -35,9 +34,9 @@ public class L96A1Factory implements GunFactory {
                 .withDrawSound("noaction_draw")
                 .withReloadingTime(40)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.08f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.08f)
+                .withFlashOffsetY(0.08f)
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -2198,6 +2197,6 @@ public class L96A1Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

@@ -2,7 +2,6 @@ package com.paneedah.mwc.entities;
 
 import com.paneedah.mwc.weapons.Guns;
 import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.ai.BetterAINearestAttackableTarget;
 import com.paneedah.weaponlib.ai.EntityAIAttackRangedWeapon;
 import com.paneedah.weaponlib.ai.EntityConfiguration;
@@ -19,8 +18,7 @@ import net.minecraftforge.common.BiomeDictionary;
 
 public class Entities {
 
-    public static void init(ModContext modContext) {
-
+    public static void init() {
         new EntityConfiguration.Builder()
                 .withName("terrorist")
                 .withBaseClass(EntityCustomMob.class)
@@ -74,7 +72,7 @@ public class Entities {
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
-                .register(modContext);
+                .register();
 
         new EntityConfiguration.Builder()
                 .withName("soldier")
@@ -124,7 +122,7 @@ public class Entities {
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
-                .register(modContext);
+                .register();
 
         new EntityConfiguration.Builder()
                 .withName("turret")
@@ -174,7 +172,7 @@ public class Entities {
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
-                .register(modContext);
+                .register();
 
         new EntityConfiguration.Builder()
                 .withName("turretupgraded")
@@ -224,7 +222,7 @@ public class Entities {
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
-                .register(modContext);
+                .register();
 
         new EntityConfiguration.Builder()
                 .withName("turretsilenced")
@@ -274,6 +272,6 @@ public class Entities {
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
-                .register(modContext);
+                .register();
     }
 }

@@ -348,6 +348,6 @@ public class FuseGrenadeFactory implements GrenadeFactory {
 
                                 .build())
 
-                .build(MWC.modContext);
+                .build();
     }
 }

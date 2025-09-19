@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage.ParticleType;
-import com.paneedah.weaponlib.ModContext;
 import dev.redstudio.redcore.math.vectors.Vector3D;
-import io.netty.buffer.ByteBuf;
 import dev.redstudio.redcore.math.vectors.Vector3F;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -81,19 +81,20 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
             return this;
         }
 
-        public EntitySmokeGrenade build(ModContext modContext) {
-            EntitySmokeGrenade entityGrenade = new EntitySmokeGrenade(modContext, itemGrenade, thrower, velocity,
-                    gravityVelocity, rotationSlowdownFactor);
+        public EntitySmokeGrenade build() {
+            final EntitySmokeGrenade entityGrenade = new EntitySmokeGrenade(itemGrenade, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
+
             entityGrenade.activationTimestamp = activationTimestamp;
             entityGrenade.activationDelay = activationDelay;
             entityGrenade.smokeAmount = smokeAmount;
             entityGrenade.activeDuration = activeDuration;
+
             return entityGrenade;
         }
     }
 
-    private EntitySmokeGrenade(ModContext modContext, ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
-        super(modContext, itemGrenade, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
+    private EntitySmokeGrenade(ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
+        super(itemGrenade, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
     }
 
     public EntitySmokeGrenade(World world) {
@@ -138,9 +139,9 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onGrenadeUpdate() {
-        if (modContext == null) {
+        if (MWC.modContext == null)
             return;
-        }
+
         long timeRemaining = activationTimestamp + activationDelay + activeDuration - System.currentTimeMillis();
         if (activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
             // Do nothing

@@ -1,6 +1,9 @@
 package com.paneedah.weaponlib.ai;
 
-import com.paneedah.weaponlib.*;
+import com.paneedah.mwc.MWC;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.SecondaryEntityRegistry;
+import com.paneedah.weaponlib.WeightedOptions;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -408,7 +411,7 @@ public class EntityConfiguration {
             return this;
         }
 
-        public void register(ModContext context) {
+        public void register() {
             EntityConfiguration configuration = new EntityConfiguration();
             configuration.creatureAttribute = creatureAttribute;
             configuration.aiTasks = aiTasks;
@@ -506,10 +509,10 @@ public class EntityConfiguration {
             secondaryEquipmentOptions.forEach((key, value) -> secondaryEquipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
 
             configuration.secondaryEquipmentOptions = secondaryEquipmentOptionsBuilder.build();
-            configuration.ambientSound = context.registerSound(ambientSound);
-            configuration.hurtSound = context.registerSound(hurtSound);
-            configuration.deathSound = context.registerSound(deathSound);
-            configuration.stepSound = context.registerSound(stepSound);
+            configuration.ambientSound = MWC.modContext.registerSound(ambientSound);
+            configuration.hurtSound = MWC.modContext.registerSound(hurtSound);
+            configuration.deathSound = MWC.modContext.registerSound(deathSound);
+            configuration.stepSound = MWC.modContext.registerSound(stepSound);
             configuration.lootTable = lootTable;
             configuration.maxHealth = maxHealth;
             configuration.maxSpeed = maxSpeed;
@@ -530,18 +533,17 @@ public class EntityConfiguration {
             configuration.isDespawnable = isDespawnable;
             configuration.lookHeightMultiplier = lookHeightMultiplier;
             configuration.pickupItemID = pickupItemID;
-            configuration.sizeHeight = this.sizeHeight;
-            configuration.sizeWidth = this.sizeWidth;
+            configuration.sizeHeight = sizeHeight;
+            configuration.sizeWidth = sizeWidth;
 
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance().generateEntitySubclass(baseClass, modEntityId, configuration);
 
             SecondaryEntityRegistry.map.put(name, entityClass);
 
-            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, ID + "_" + entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, ID + "_" + entityName, modEntityId, MWC.modContext.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
-            if (spawnEgg) {
+            if (spawnEgg)
                 EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
-            }
 
             for (Spawn spawn : spawns) {
                 int weightedProb = spawn.weightedProb;
@@ -577,7 +579,7 @@ public class EntityConfiguration {
                     }
                 }
 
-                RendererRegistration.registerRenderableEntity(context, entityClass, texturedModelVariants);
+                RendererRegistration.registerRenderableEntity(entityClass, texturedModelVariants);
             }
         }
 
@@ -585,10 +587,10 @@ public class EntityConfiguration {
             /*
              * This method is wrapped into a static class to facilitate conditional client-side only loading
              */
-            private static void registerRenderableEntity(ModContext context, Class<? extends Entity> entityClass, List<TexturedModel> texturedModelVariants) {
+            private static void registerRenderableEntity(Class<? extends Entity> entityClass, List<TexturedModel> texturedModelVariants) {
                 try {
-                    ModelBiped model = (ModelBiped) Class.forName(texturedModelVariants.get(0).modelClassName).newInstance();
-                    context.registerRenderableEntity(entityClass, new RenderCustomMob(model));
+                    final ModelBiped model = (ModelBiped) Class.forName(texturedModelVariants.get(0).modelClassName).newInstance();
+                    MWC.modContext.registerRenderableEntity(entityClass, new RenderCustomMob(model));
                 } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
                     e.printStackTrace();
 

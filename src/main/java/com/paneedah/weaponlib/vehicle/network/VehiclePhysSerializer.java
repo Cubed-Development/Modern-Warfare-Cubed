@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.vehicle.network;
 
 import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
-import dev.redstudio.redcore.math.vectors.Vector3D;
 import lombok.Setter;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.datasync.DataParameter;

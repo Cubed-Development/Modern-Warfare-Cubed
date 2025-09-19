@@ -348,6 +348,6 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
 
                                 .build())
 
-                .build(MWC.modContext);
+                .build();
     }
 }

@@ -3,7 +3,9 @@ package com.paneedah.weaponlib.vehicle;
 import com.google.common.collect.Lists;
 import com.paneedah.mwc.gui.HUD;
 import com.paneedah.mwc.network.messages.VehicleControlMessage;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.Configurable;
+import com.paneedah.weaponlib.EntityClassFactory;
+import com.paneedah.weaponlib.KeyBindings;
 import com.paneedah.weaponlib.animation.Randomizer;
 import com.paneedah.weaponlib.compatibility.sound.EngineMovingSound;
 import com.paneedah.weaponlib.particle.DriftSmokeFX;
@@ -41,8 +43,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.*;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.*;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -69,7 +71,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
  */
 
 public class EntityVehicle extends Entity implements Configurable<EntityVehicleConfiguration>,
-        ExtendedState<VehicleState>, IDynamicCollision, Contextual {
+        ExtendedState<VehicleState>, IDynamicCollision {
 
     private enum DriverInteractionEvent {
         NONE, ENTER, EXIT, DRIVING, OUT
@@ -98,12 +100,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     private double boatYaw;
     private double lerpXRot;
 
-    public static final DataParameter<VehicleDataSerializer> VEHICLE_DAT = EntityDataManager
-            .createKey(EntityVehicle.class, VehicleDataSerializer.SERIALIZER);
-    public static final DataParameter<VehiclePhysSerializer> SOLVER_DAT = EntityDataManager
-            .createKey(EntityVehicle.class, VehiclePhysSerializer.SERIALIZER);
-
-    public ModContext context;
+    public static final DataParameter<VehicleDataSerializer> VEHICLE_DAT = EntityDataManager.createKey(EntityVehicle.class, VehicleDataSerializer.SERIALIZER);
+    public static final DataParameter<VehiclePhysSerializer> SOLVER_DAT = EntityDataManager.createKey(EntityVehicle.class, VehiclePhysSerializer.SERIALIZER);
 
     public float prevLiftOffset = 0.0f;
     public float liftOffset = 0.0f;
@@ -2852,12 +2850,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             }
         } catch (Exception e) {
         }
-
-    }
-
-    @Override
-    public void setContext(ModContext modContext) {
-        this.context = modContext;
 
     }
 

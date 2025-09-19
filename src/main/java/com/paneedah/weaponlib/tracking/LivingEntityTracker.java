@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 import java.util.*;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class LivingEntityTracker {
 

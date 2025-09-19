@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerMagazineInstance;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.NetworkPermitManager;
@@ -52,25 +53,13 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     private static final Predicate<PlayerMagazineInstance> reloadAnimationCompleted = es ->
             System.currentTimeMillis() >= es.getStateUpdateTimestamp() + reloadAnimationDuration; // TODO: readVector3D reload animation duration from the state itself
 
-    private final ModContext modContext;
-
     private NetworkPermitManager permitManager;
 
     private StateManager<MagazineState, ? super PlayerMagazineInstance> stateManager;
 
-    private final Predicate<PlayerMagazineInstance> notFull = instance -> {
-        boolean result = Tags.getAmmo(instance.getItemStack()) < instance.getMagazine().getCapacity();
-        return result;
-    };
+    private final Predicate<PlayerMagazineInstance> notFull = instance -> Tags.getAmmo(instance.getItemStack()) < instance.getMagazine().getCapacity();
 
-    private final Predicate<PlayerMagazineInstance> notEmpty = instance -> {
-        boolean result = Tags.getAmmo(instance.getItemStack()) != 0;
-        return result;
-    };
-
-    public MagazineReloadAspect(ModContext modContext) {
-        this.modContext = modContext;
-    }
+    private final Predicate<PlayerMagazineInstance> notEmpty = instance -> Tags.getAmmo(instance.getItemStack()) != 0;
 
     @Override
     public void setStateManager(StateManager<MagazineState, ? super PlayerMagazineInstance> stateManager) {
@@ -85,7 +74,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
                 .change(MagazineState.READY).to(MagazineState.LOAD)
                 .when(notFull)
                 .withPermit((s, es) -> new LoadPermit(s),
-                        modContext.getPlayerItemInstanceRegistry()::update,
+                        MWC.modContext.getPlayerItemInstanceRegistry()::update,
                         permitManager)
                 .withAction((c, f, t, p) -> doPermittedLoad(c, (LoadPermit) p))
                 .manual()
@@ -99,7 +88,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
                 .change(MagazineState.READY).to(MagazineState.UNLOAD)
                 .when(notEmpty)
                 .withPermit((s, es) -> new UnloadPermit(s),
-                        modContext.getPlayerItemInstanceRegistry()::update,
+                        MWC.modContext.getPlayerItemInstanceRegistry()::update,
                         permitManager)
                 .withAction((c, f, t, p) -> doPermittedUnload(c, (UnloadPermit) p))
                 .manual()
@@ -121,20 +110,22 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     }
 
     public void reloadMainHeldItem(EntityPlayer player) {
-        PlayerMagazineInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMagazineInstance.class);
+        final PlayerMagazineInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMagazineInstance.class);
+
         stateManager.changeState(this, instance, MagazineState.LOAD);
     }
 
     public void unloadMainHeldItem(EntityPlayer player) {
-        PlayerMagazineInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMagazineInstance.class);
+        final PlayerMagazineInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMagazineInstance.class);
+
         stateManager.changeState(this, instance, MagazineState.UNLOAD);
     }
 
     void updateMainHeldItem(EntityPlayer player) {
-        PlayerMagazineInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMagazineInstance.class);
-        if (instance != null) {
+        final PlayerMagazineInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMagazineInstance.class);
+
+        if (instance != null)
             stateManager.changeStateFromAnyOf(this, instance, allowedUpdateFromStates); // no target state specified, will trigger auto-transitions
-        }
     }
 
 

@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.tile;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ItemAttachment;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.WeightedOptions;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
@@ -167,19 +167,17 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
     }
 
     @Override
-    public void build(ModContext modContext) {
+    public void build() {
         WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
 
-        equipmentOptions.forEach((key, value) -> {
-            equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
-        });
+        equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
 
         builtEquipmentOptions = equipmentOptionsBuilder.build();
 
-        dispenseCompatibleSound = modContext.registerSound(dispenseSound);
-        equipmentNotAvailableCompatibleSound = modContext.registerSound(equipmentNotAvailableSound);
+        dispenseCompatibleSound = MWC.modContext.registerSound(dispenseSound);
+        equipmentNotAvailableCompatibleSound = MWC.modContext.registerSound(equipmentNotAvailableSound);
 
-        super.build(modContext);
+        super.build();
     }
 
     public WeightedOptions<EnumDifficulty, Equipment> getEquipmentOptions() {

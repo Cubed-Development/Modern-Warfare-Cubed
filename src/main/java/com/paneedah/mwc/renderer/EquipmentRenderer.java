@@ -16,11 +16,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 
+import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.BACKPACK_SLOT;
 import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.BELT_SLOT;
 import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.VEST_SLOT;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.ProjectConstants.ID;
 
 @SideOnly(Side.CLIENT)
 public final class EquipmentRenderer implements LayerRenderer<EntityPlayer> {

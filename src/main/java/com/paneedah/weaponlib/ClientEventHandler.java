@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.asm.Interceptors;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
@@ -17,10 +18,10 @@ import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ParticleBlood;
 import com.paneedah.weaponlib.perspective.Perspective;
-import com.paneedah.weaponlib.render.framebuffer.HDRFramebuffer;
 import com.paneedah.weaponlib.render.IHasModel;
 import com.paneedah.weaponlib.render.MWCFrameTimer;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
+import com.paneedah.weaponlib.render.framebuffer.HDRFramebuffer;
 import com.paneedah.weaponlib.render.shells.ShellManager;
 import com.paneedah.weaponlib.shader.dynamic.DynamicShaderContext;
 import com.paneedah.weaponlib.shader.dynamic.DynamicShaderGroupManager;
@@ -56,9 +57,9 @@ import java.lang.reflect.Field;
 import java.util.*;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /**
  * Handles the client events, and apparently was my testing playground?
@@ -109,18 +110,12 @@ public class ClientEventHandler {
 
     public static Stack<MuzzleFlash> muzzleFlashStack = new Stack<>();
 
-    private final ClientModContext modContext;
     private final DynamicShaderGroupManager shaderGroupManager;
     private final PipelineShaderGroupSourceProvider pipelineShaderGroupSourceProvider = new PipelineShaderGroupSourceProvider();
 
     private int currentSlotIndex;
 
-    protected ModContext getModContext() {
-        return modContext;
-    }
-
-    public ClientEventHandler(ClientModContext modContext /*, ReloadAspect reloadAspect*/) {
-        this.modContext = modContext;
+    public ClientEventHandler(/*, ReloadAspect reloadAspect*/) {
         this.shaderGroupManager = new DynamicShaderGroupManager();
         //this.reloadAspect = reloadAspect;
     }
@@ -150,7 +145,7 @@ public class ClientEventHandler {
             updateOnStartTick();
         } else if (event.phase == TickEvent.ClientTickEvent.Phase.END) {
             update();
-            modContext.getSyncManager().run();
+            ((ClientModContext) MWC.modContext).getSyncManager().run();
 
             LivingEntityTracker tracker = LivingEntityTracker.getTracker(MC.player);
             if (tracker != null) {
@@ -189,10 +184,10 @@ public class ClientEventHandler {
         }
 
 
-        if (getModContext() != null) {
-            ClientValueRepo.update(getModContext());
+        if (MWC.modContext != null) {
+            ClientValueRepo.update();
 
-            if (getModContext().getMainHeldWeapon() != null) {
+            if (MWC.modContext.getMainHeldWeapon() != null) {
                 WeaponRotationHandler.STRAFING_ANIMATION.update(0.08f);
                 WeaponRotationHandler.RUNNING_ANIMATION.update(0.08f);
                 WeaponRotationHandler.WALKING_ANIMATION.update(0.08f);
@@ -201,14 +196,13 @@ public class ClientEventHandler {
 
         int ticksRequired = (int) Math.round(AnimationGUI.getInstance().debugFireRate.getValue());
 
-        if (DebugCommand.isWorkingOnScreenShake() && MC.player.ticksExisted % 20 == 0 && getModContext().getMainHeldWeapon() != null) {
+        if (DebugCommand.isWorkingOnScreenShake() && MC.player.ticksExisted % 20 == 0 && MWC.modContext.getMainHeldWeapon() != null) {
             uploadFlash(MC.player.getEntityId());
-            ClientValueRepo.fireWeapon(getModContext().getMainHeldWeapon());
+            ClientValueRepo.fireWeapon(MWC.modContext.getMainHeldWeapon());
         }
 
-        if (MC.player.ticksExisted % ticksRequired == 0 && AnimationModeProcessor.getInstance().getFPSMode() && !AnimationGUI.getInstance().isPanelClosed("Recoil")) {
-            ClientValueRepo.fireWeapon(getModContext().getMainHeldWeapon());
-        }
+        if (MC.player.ticksExisted % ticksRequired == 0 && AnimationModeProcessor.getInstance().getFPSMode() && !AnimationGUI.getInstance().isPanelClosed("Recoil"))
+            ClientValueRepo.fireWeapon(MWC.modContext.getMainHeldWeapon());
 
         ClientValueRepo.TICKER.update(MC.player.ticksExisted);
 
@@ -222,7 +216,7 @@ public class ClientEventHandler {
             if (currentSlotIndex != newSlotIndex) {
                 //modContext.getWeaponReloadAspect().updateMainHeldItem(player);
                 currentSlotIndex = newSlotIndex;
-                modContext.getWeaponReloadAspect().drawMainHeldItem(player);
+                MWC.modContext.getWeaponReloadAspect().drawMainHeldItem(player);
             }
         }
     }
@@ -233,8 +227,8 @@ public class ClientEventHandler {
             return;
         }
 
-        modContext.getPlayerItemInstanceRegistry().update(player);
-        final PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
+        MWC.modContext.getPlayerItemInstanceRegistry().update(player);
+        final PlayerWeaponInstance mainHandHeldWeaponInstance = MWC.modContext.getMainHeldWeapon();
 
         if (mainHandHeldWeaponInstance != null) {
             if (player.isSprinting()) {
@@ -283,27 +277,24 @@ public class ClientEventHandler {
         final EntityPlayer clientPlayer = MC.player;
 
         if (event.phase == TickEvent.RenderTickEvent.Phase.START) {
-            ClientModContext.currentContext = modContext;
+            if (clientPlayer == null)
+                return;
 
-            if (clientPlayer != null) {
-                final PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(clientPlayer);
+            final PlayerItemInstance<?> instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(clientPlayer);
 
-                //if(minecraft.gameSettings.thirdPersonView == 0) {
-                final DynamicShaderGroupSource source = pipelineShaderGroupSourceProvider.getShaderSource(shaderContext.getPhase());
-                if (source != null) {
-                    shaderGroupManager.loadFromSource(shaderContext, source);
-                    //shaderGroupManager.removeAllShaders(shaderContext);
-                }
-                //}
-
-                if (instance != null) {
-                    final Perspective<?> view = modContext.getViewManager().getPerspective(instance, true);
-                    if (view != null) {
-                        view.update(event);
-                    }
-                }
+            //if(minecraft.gameSettings.thirdPersonView == 0) {
+            final DynamicShaderGroupSource source = pipelineShaderGroupSourceProvider.getShaderSource(shaderContext.getPhase());
+            if (source != null) {
+                shaderGroupManager.loadFromSource(shaderContext, source);
+                //shaderGroupManager.removeAllShaders(shaderContext);
             }
+            //}
 
+            if (instance != null) {
+                final Perspective<?> view = ((ClientModContext) MWC.modContext).getViewManager().getPerspective(instance, true);
+                if (view != null)
+                    view.update(event);
+            }
         } else if (event.phase == TickEvent.RenderTickEvent.Phase.END) {
             ClientProxy.renderingPhase = null;
             shaderGroupManager.removeStaleShaders(shaderContext);
@@ -334,8 +325,8 @@ public class ClientEventHandler {
         BULLET_HOLE_RENDERER.render();
 
         // What is this and is it necessary
-        if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
-            final PlayerWeaponInstance pwi = ClientModContext.getContext().getMainHeldWeapon();
+        if (MWC.modContext != null && MWC.modContext.getMainHeldWeapon() != null) {
+            final PlayerWeaponInstance pwi = MWC.modContext.getMainHeldWeapon();
 
             if (pwi.getState() == WeaponState.READY) {
                 pwi.setDelayCompoundEnd(true);
@@ -353,9 +344,8 @@ public class ClientEventHandler {
             }
         }
 
-        if (getModContext() != null) {
-            AnimationModeProcessor.getInstance().legacyMode = getModContext().getMainHeldWeapon() == null || !getModContext().getMainHeldWeapon().getWeapon().builder.isUsingNewSystem();
-        }
+        if (MWC.modContext != null)
+            AnimationModeProcessor.getInstance().legacyMode = MWC.modContext.getMainHeldWeapon() == null || !MWC.modContext.getMainHeldWeapon().getWeapon().builder.isUsingNewSystem();
 
         final RenderingPhase phase = ClientProxy.renderingPhase;
 
@@ -389,8 +379,6 @@ public class ClientEventHandler {
         if (event.getEntityPlayer().isRiding() && event.getEntityPlayer().getRidingEntity() instanceof EntityVehicle && event.getEntityPlayer().limbSwing != 39) {
             event.setCanceled(true);
         }
-
-        final ClientModContext modContext = (ClientModContext) getModContext();
 
         if (ClientProxy.renderingPhase == RenderingPhase.RENDER_PERSPECTIVE && event.getEntityPlayer() instanceof EntityPlayerSP) {
             /*
@@ -481,7 +469,7 @@ public class ClientEventHandler {
 
     @SubscribeEvent
     public void onTextureStitchEvent(TextureStitchEvent.Pre event) {
-        event.getMap().registerSprite(getModContext().getNamedResource(ParticleBlood.texture));
+        event.getMap().registerSprite(MWC.modContext.getNamedResource(ParticleBlood.texture));
         carParticles = event.getMap().registerSprite(new ResourceLocation(ID + ":particle/carparticle"));
     }
 

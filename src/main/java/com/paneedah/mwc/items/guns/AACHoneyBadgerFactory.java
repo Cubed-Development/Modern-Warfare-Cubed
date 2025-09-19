@@ -6,12 +6,11 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -22,7 +21,7 @@ import org.lwjgl.opengl.GL11;
 
 public class AACHoneyBadgerFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("aac_honey_badger") // Name of the item and model
@@ -40,9 +39,9 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withDrawSound("m4_draw") // Draw sound
                 .withReloadingTime(50)  // Reloading time in ticks
                 .withFlashIntensity(0.5f) // Flash intensity
-                .withFlashScale(() -> 0.6f) // Flash scale
-                .withFlashOffsetX(() -> 0.13f) // Flash offset X
-                .withFlashOffsetY(() -> 0.17f) // Flash offset Y
+                .withFlashScale(0.6f) // Flash scale
+                .withFlashOffsetX(0.13f) // Flash offset X
+                .withFlashOffsetY(0.17f) // Flash offset Y
 //        .withShootSoundVolume(1f)
                 .withShellCasingForwardOffset(0.1f) // Shell casing forward offset
                 .withShellCasingVerticalOffset(-0.05f) // Shell casing vertical offset
@@ -993,6 +992,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.0118f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

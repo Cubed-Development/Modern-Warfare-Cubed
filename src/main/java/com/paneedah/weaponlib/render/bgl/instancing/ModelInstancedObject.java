@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.render.bgl.instancing;
 
+import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import com.paneedah.weaponlib.render.vao.VAOData;
 import com.paneedah.weaponlib.render.wavefront.WavefrontModel;
-import com.paneedah.weaponlib.render.bgl.GLCompatible;
-import com.paneedah.weaponlib.shader.ShaderAttribute;
 import com.paneedah.weaponlib.shader.Shader;
+import com.paneedah.weaponlib.shader.ShaderAttribute;
 import com.paneedah.weaponlib.shader.ShaderLoader;
 import org.lwjgl.opengl.GL11;
 

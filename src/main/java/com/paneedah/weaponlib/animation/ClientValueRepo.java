@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.animation;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.asm.Interceptors;
-import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.Pair;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
+import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.numerical.LerpedValue;
 import com.paneedah.weaponlib.numerical.RandomVector;
@@ -140,7 +140,7 @@ public class ClientValueRepo {
 
     }
 
-    public static void update(ModContext context) {
+    public static void update() {
         // Update all of our lerped values' previous
         // values before we assign new values.
         RUNNING.updatePrevious();
@@ -158,7 +158,7 @@ public class ClientValueRepo {
 
         EntityPlayer player = MC.player;
 
-        PlayerWeaponInstance pwi = context.getMainHeldWeapon();
+        PlayerWeaponInstance pwi = MWC.modContext.getMainHeldWeapon();
 
         // Add the ticker increment to the ticker every tick (say that
         // ten times fast!)

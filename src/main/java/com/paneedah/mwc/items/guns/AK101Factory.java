@@ -3,7 +3,7 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -11,7 +11,6 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -22,7 +21,7 @@ import org.lwjgl.opengl.GL11;
 
 public class AK101Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("ak101")
@@ -31,7 +30,7 @@ public class AK101Factory implements GunFactory {
                 .withRecoil(3f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.RIFLE)
-                .hasFlashPedals()
+                .hasFlashPetals()
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withMuzzlePosition(new Vec3d(-0.16400000488758082, -1.0, -6.5))
                 .withShootSound("ak101")
@@ -43,9 +42,9 @@ public class AK101Factory implements GunFactory {
                 .withEndOfShootSound("gun_click")
                 .withReloadingTime(45)
                 .withFlashIntensity(0.3f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(0.5f)
+                .withFlashOffsetX(0.12f)
+                .withFlashOffsetY(0.16f)
                 .withShellCasingVerticalOffset(-0.05f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -941,7 +940,7 @@ public class AK101Factory implements GunFactory {
                 .withSpawnEntityDamage(6f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
-                .build(MWC.modContext);
+                .build();
     }
 }
 

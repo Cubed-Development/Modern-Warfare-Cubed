@@ -32,9 +32,11 @@ public class ItemBullet extends ItemAttachment<Weapon> {
         }
 
         @Override
-        protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
-            ItemBullet bullet = new ItemBullet(AttachmentCategory.BULLET, getModel(), getTextureName(), null, null);
+        protected ItemAttachment<Weapon> createAttachment() {
+            final ItemBullet bullet = new ItemBullet(AttachmentCategory.BULLET, getModel(), getTextureName(), null, null);
+
             bullet.compatibleMagazines = compatibleMagazines;
+
             return bullet;
         }
     }

@@ -3,7 +3,6 @@ package com.paneedah.weaponlib.melee;
 import com.paneedah.weaponlib.AttachmentBuilder;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ItemAttachment;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.model.FlatModel;
 import net.minecraft.client.model.ModelBase;
 import org.lwjgl.opengl.GL11;
@@ -24,14 +23,16 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
         }
 
         @Override
-        protected ItemAttachment<ItemMelee> createAttachment(ModContext modContext) {
-            MeleeSkin skin = new MeleeSkin(AttachmentCategory.SKIN, getModel(), getTextureName(), null, null);
-            skin.textureVariants = this.textureVariants;
+        protected ItemAttachment<ItemMelee> createAttachment() {
+            final MeleeSkin skin = new MeleeSkin(AttachmentCategory.SKIN, getModel(), getTextureName(), null, null);
+
+            skin.textureVariants = textureVariants;
+
             return skin;
         }
 
         @Override
-        public <V extends ItemAttachment<ItemMelee>> V build(ModContext modContext, Class<V> target) {
+        public <V extends ItemAttachment<ItemMelee>> V build(Class<V> target) {
             this.model = new FlatModel();
             if (textureVariants.isEmpty()) {
                 textureVariants.add(getTextureName());
@@ -47,7 +48,7 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
                     GL11.glScaled(15F, 15F, 15f);
                 });
             }
-            return super.build(modContext, target);
+            return super.build(target);
         }
     }
 

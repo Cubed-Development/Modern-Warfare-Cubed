@@ -2,7 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -10,7 +10,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
-import com.paneedah.weaponlib.animation.load.BBLoader;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
@@ -19,7 +19,7 @@ import org.lwjgl.opengl.GL11;
 
 public class M40A6Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("m40a6")
@@ -40,9 +40,9 @@ public class M40A6Factory implements GunFactory {
                 .withDrawSound("noaction_draw")
                 .withReloadingTime(40)
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.10f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.08f)
+                .withFlashOffsetY(0.10f)
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -485,6 +485,6 @@ public class M40A6Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

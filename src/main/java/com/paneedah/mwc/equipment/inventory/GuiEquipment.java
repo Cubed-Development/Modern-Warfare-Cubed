@@ -11,8 +11,8 @@ import net.minecraft.util.ResourceLocation;
 
 import java.io.IOException;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class GuiEquipment extends InventoryEffectRenderer {
 

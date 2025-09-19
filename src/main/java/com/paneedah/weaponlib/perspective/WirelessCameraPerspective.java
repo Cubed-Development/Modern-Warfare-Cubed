@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.perspective;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.instancing.PlayerTabletInstance;
 import com.paneedah.weaponlib.electronics.SignalQuality;
@@ -18,8 +19,8 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
@@ -50,8 +51,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 //        if(true) return;
 
         EntityPlayer entityPlayer = MC.player;
-        PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
-                .getMainHandItemInstance(entityPlayer);
+        PlayerItemInstance<?> instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(entityPlayer);
 
         if (!(instance instanceof PlayerTabletInstance)) {
             return;

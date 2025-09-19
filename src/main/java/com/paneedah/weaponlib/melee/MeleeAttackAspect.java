@@ -1,10 +1,9 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.network.messages.BloodClientMessage;
 import com.paneedah.mwc.network.messages.MeleeAttackMessage;
-import com.paneedah.weaponlib.CommonModContext;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.StateManager;
 import dev.redstudio.redcore.math.vectors.Vector3D;
@@ -28,8 +27,8 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /*
  * On a client side this class is used from within a separate client "ticker" thread
@@ -75,14 +74,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
             Arrays.asList(MeleeState.ATTACKING, MeleeState.HEAVY_ATTACKING,
                     MeleeState.ATTACKING_STABBING, MeleeState.HEAVY_ATTACKING_STABBING, MeleeState.ALERT));
 
-
-    private final ModContext modContext;
-
     private StateManager<MeleeState, ? super PlayerMeleeInstance> stateManager;
-
-    public MeleeAttackAspect(CommonModContext modContext) {
-        this.modContext = modContext;
-    }
 
     @Override
     public void setPermitManager(NetworkPermitManager permitManager) {}
@@ -133,24 +125,24 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
     }
 
     void onAttackButtonClick(EntityPlayer player) {
-        PlayerMeleeInstance weaponInstance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMeleeInstance.class);
-        if (weaponInstance != null) {
+        final PlayerMeleeInstance weaponInstance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMeleeInstance.class);
+
+        if (weaponInstance != null)
             stateManager.changeStateFromAnyOf(this, weaponInstance, allowedAttackFromStates, MeleeState.ATTACKING, MeleeState.ALERT);
-        }
     }
 
     void onHeavyAttackButtonClick(EntityPlayer player) {
-        PlayerMeleeInstance weaponInstance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMeleeInstance.class);
-        if (weaponInstance != null) {
+        final PlayerMeleeInstance weaponInstance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMeleeInstance.class);
+
+        if (weaponInstance != null)
             stateManager.changeStateFromAnyOf(this, weaponInstance, allowedAttackFromStates, MeleeState.HEAVY_ATTACKING, MeleeState.ALERT);
-        }
     }
 
     void onUpdate(EntityPlayer player) {
-        PlayerMeleeInstance weaponInstance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMeleeInstance.class);
-        if (weaponInstance != null) {
+        final PlayerMeleeInstance weaponInstance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMeleeInstance.class);
+
+        if (weaponInstance != null)
             stateManager.changeStateFromAnyOf(this, weaponInstance, allowedUpdateFromStates);
-        }
     }
 
 
@@ -159,7 +151,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
             ((EntityPlayer) meleeInstance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.coolingDown")), true);
         }
 
-        meleeInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);
+        meleeInstance.getPlayer().playSound(MWC.modContext.getNoAmmoSound(), 1, 1);
     }
 
     private void attack(PlayerMeleeInstance meleeInstance, boolean isHeavyAttack) {

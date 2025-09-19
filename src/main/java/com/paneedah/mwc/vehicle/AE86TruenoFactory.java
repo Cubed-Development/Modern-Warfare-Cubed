@@ -1,9 +1,7 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.vehicle.engines.AE86TruenoEngine;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
 import com.paneedah.weaponlib.vehicle.jimphysics.*;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.WheelAxel;
@@ -16,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 public class AE86TruenoFactory implements VehicleFactory {
 
     @Override
-    public void createVehicle(ModContext modContext) {
+    public void createVehicle() {
         StatefulRenderer<VehicleRenderableState> renderer = null;
 
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
@@ -225,7 +223,7 @@ public class AE86TruenoFactory implements VehicleFactory {
                     })
 
 
-                    .build(modContext, VehiclePart.MAIN);
+                    .build(VehiclePart.MAIN);
 
         }
         // https://www.car.info/en-se/audi/a4/s4-6627162/specs
@@ -280,7 +278,7 @@ public class AE86TruenoFactory implements VehicleFactory {
                 .withOBBDimensions(3.3, 2.5, 1.75)
                 .withSeat(new Vec3d(-0.89, -0.2, 0.0))
                 .withRenderer(renderer)
-                .build(modContext);
+                .build();
     }
 
 }

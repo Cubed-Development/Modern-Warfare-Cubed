@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class EntitySpreadable extends Entity implements Contextual, Spreadable {
+public class EntitySpreadable extends Entity implements Spreadable {
 
     private static final String TAG_SPREAD_MAP = "spreadMap";
 
@@ -55,15 +55,8 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
 
     private float concentrationDecayFactor = DEFAULT_CONCENTRATION_DECAY_FACTOR;
 
-
-    private ModContext modContext;
-
     public EntitySpreadable(World worldIn) {
         super(worldIn);
-    }
-
-    public void setContext(ModContext modContext) {
-        this.modContext = modContext;
     }
 
     EntitySpreadable setConcentrationSpreadUpFactor(float concentrationSpreadUpFactor) {

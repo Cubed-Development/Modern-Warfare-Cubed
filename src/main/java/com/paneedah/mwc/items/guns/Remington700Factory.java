@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -18,7 +17,7 @@ import org.lwjgl.opengl.GL11;
 public class Remington700Factory implements GunFactory {
 
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("remington_700")
@@ -38,9 +37,9 @@ public class Remington700Factory implements GunFactory {
                 .withDrawSound("ax50_draw")
                 .withReloadingTime(40)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.8f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(0.8f)
+                .withFlashOffsetX(0.1f)
+                .withFlashOffsetY(0.14f)
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -2104,6 +2103,6 @@ public class Remington700Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

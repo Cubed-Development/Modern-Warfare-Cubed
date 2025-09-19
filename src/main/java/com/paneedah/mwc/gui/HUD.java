@@ -11,8 +11,8 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
-import com.paneedah.weaponlib.render.gui.ModificationGUI;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
+import com.paneedah.weaponlib.render.gui.ModificationGUI;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.VehicleCustomGUI;
 import net.minecraft.block.BlockDoor;
@@ -134,7 +134,7 @@ public final class HUD extends Gui {
         handleOpenDoorHUD(renderGameOverlayEvent);
 
         if (renderGameOverlayEvent.getType() == HOTBAR && (isInAltModifyingState(weaponInstance) || isInModifyingState(weaponInstance)))
-            ModificationGUI.getInstance().render(modContext);
+            ModificationGUI.getInstance().render();
     }
 
     // region Helmet HUD

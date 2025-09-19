@@ -3,13 +3,12 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Glock18C;
 import com.paneedah.mwc.models.Reflex2;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
@@ -19,7 +18,7 @@ import org.lwjgl.opengl.GL11;
 
 public class DesertEagleFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("desert_eagle")
@@ -38,9 +37,9 @@ public class DesertEagleFactory implements GunFactory {
                 .withDrawSound("handgun_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.7f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(0.7f)
+                .withFlashOffsetX(0.13f)
+                .withFlashOffsetY(0.14f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
@@ -249,6 +248,6 @@ public class DesertEagleFactory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.02f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

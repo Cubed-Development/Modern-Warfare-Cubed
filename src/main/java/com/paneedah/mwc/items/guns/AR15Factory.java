@@ -4,12 +4,11 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -19,7 +18,7 @@ import org.lwjgl.opengl.GL11;
 
 public class AR15Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("ar15")
@@ -28,7 +27,7 @@ public class AR15Factory implements GunFactory {
                 .withRecoil(4f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.RIFLE)
-                .hasFlashPedals()
+                .hasFlashPetals()
                 .withMaxShots(1)
                 .withShootSound("m4a1")
                 .withSilencedShootSound("m4a1_silenced")
@@ -39,9 +38,9 @@ public class AR15Factory implements GunFactory {
                 .withDrawSound("m4_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.11f)
+                .withFlashOffsetY(0.16f)
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -1145,6 +1144,6 @@ public class AR15Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.0118f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

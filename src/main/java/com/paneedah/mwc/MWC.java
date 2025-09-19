@@ -9,7 +9,6 @@ import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.network.handlers.*;
 import com.paneedah.mwc.network.messages.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
@@ -108,9 +107,9 @@ public final class MWC {
         modContext.setMaterialImpactSounds(Material.CRAFTED_SNOW, 1.5f, "bullet_14_snow");
 
         // Register channels for networking
-        CHANNEL.registerMessage(new PermitMessageClientHandler((CommonModContext) modContext), PermitMessage.class, -1, Side.CLIENT);
+        CHANNEL.registerMessage(new PermitMessageClientHandler(), PermitMessage.class, -1, Side.CLIENT);
         CHANNEL.registerMessage(new LivingEntityTrackerMessageMessageHandler(), LivingEntityTrackerMessage.class, -2, Side.CLIENT);
-        CHANNEL.registerMessage(new SpawnParticleMessageHandler(modContext), SpawnParticleMessage.class, -3, Side.CLIENT);
+        CHANNEL.registerMessage(new SpawnParticleMessageHandler(), SpawnParticleMessage.class, -3, Side.CLIENT);
         CHANNEL.registerMessage(new BlockHitMessageHandler(), BlockHitMessage.class, -4, Side.CLIENT);
         CHANNEL.registerMessage(new ExplosionMessageHandler(), ExplosionMessage.class, -5, Side.CLIENT);
         CHANNEL.registerMessage(new SpreadableExposureMessageHandler(), SpreadableExposureMessage.class, -6, Side.CLIENT);
@@ -121,15 +120,15 @@ public final class MWC {
         CHANNEL.registerMessage(new BalancePackClientMessageHandler(), BalancePackClientMessage.class, -11, Side.CLIENT);
         CHANNEL.registerMessage(new BloodClientMessageHandler(), BloodClientMessage.class, -12, Side.CLIENT);
         CHANNEL.registerMessage(new VehicleClientMessageHandler(), VehicleClientMessage.class, -13, Side.CLIENT);
-        CHANNEL.registerMessage(new EntityInventorySyncMessageClientHandler(modContext), EntityInventorySyncMessage.class, -14, Side.CLIENT);
+        CHANNEL.registerMessage(new EntityInventorySyncMessageClientHandler(), EntityInventorySyncMessage.class, -14, Side.CLIENT);
         CHANNEL.registerMessage(new ExposureMessageHandler(), ExposureMessage.class, -15, Side.CLIENT);
 
         CHANNEL.registerMessage(new TryFireMessageHandler(modContext.getWeaponFireAspect()), TryFireMessage.class, 1, Side.SERVER);
-        CHANNEL.registerMessage(new PermitMessageServerHandler((CommonModContext) modContext), PermitMessage.class, 2, Side.SERVER);
+        CHANNEL.registerMessage(new PermitMessageServerHandler(), PermitMessage.class, 2, Side.SERVER);
         CHANNEL.registerMessage(new MeleeAttackMessageHandler(modContext.getMeleeAttackAspect()), MeleeAttackMessage.class, 3, Side.SERVER);
-        CHANNEL.registerMessage(new GrenadeMessageHandler(modContext.getGrenadeAttackAspect()), GrenadeMessage.class, 4, Side.SERVER);
+        CHANNEL.registerMessage(new GrenadeMessageHandler(), GrenadeMessage.class, 4, Side.SERVER);
         CHANNEL.registerMessage(new NightVisionToggleMessageHandler(), NightVisionToggleMessage.class, 5, Side.SERVER);
-        CHANNEL.registerMessage(new EntityInventorySyncMessageServerHandler(modContext), EntityInventorySyncMessage.class, 6, Side.SERVER);
+        CHANNEL.registerMessage(new EntityInventorySyncMessageServerHandler(), EntityInventorySyncMessage.class, 6, Side.SERVER);
         CHANNEL.registerMessage(new OpenCustomPlayerInventoryGuiMessageHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 7, Side.SERVER);
         CHANNEL.registerMessage(new VehicleControlMessageHandler(), VehicleControlMessage.class, 8, Side.SERVER);
         CHANNEL.registerMessage(new VehicleInteractMessageHandler(), VehicleInteractMessage.class, 9, Side.SERVER);

@@ -15,7 +15,7 @@ import com.paneedah.weaponlib.crafting.ammopress.BlockAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
 import com.paneedah.weaponlib.crafting.workbench.WorkbenchBlock;
-import com.paneedah.weaponlib.electronics.*;
+import com.paneedah.weaponlib.electronics.EntityWirelessCamera;
 import com.paneedah.weaponlib.grenade.*;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.melee.*;
@@ -125,30 +125,27 @@ public class CommonModContext implements ModContext {
 
     private int registeredTextureCounter;
 
-    protected static ModContext currentContext;
-
-
     @Override
     public void preInit(Object mod) {
         this.mod = mod;
 
-        this.weaponReloadAspect = new WeaponReloadAspect(this);
-        this.magazineReloadAspect = new MagazineReloadAspect(this);
-        this.weaponFireAspect = new WeaponFireAspect(this);
-        this.weaponAttachmentAspect = new WeaponAttachmentAspect(this);
+        weaponReloadAspect = new WeaponReloadAspect();
+        magazineReloadAspect = new MagazineReloadAspect();
+        weaponFireAspect = new WeaponFireAspect();
+        weaponAttachmentAspect = new WeaponAttachmentAspect();
 
-        this.meleeAttackAspect = new MeleeAttackAspect(this);
-        this.meleeAttachmentAspect = new MeleeAttachmentAspect(this);
+        meleeAttackAspect = new MeleeAttackAspect();
+        meleeAttachmentAspect = new MeleeAttachmentAspect();
 
-        this.grenadeAttackAspect = new GrenadeAttackAspect(this);
+        grenadeAttackAspect = new GrenadeAttackAspect();
         StateManager<GrenadeState, PlayerGrenadeInstance> grenadeStateManager = new StateManager<>((s1, s2) -> s1 == s2);
         grenadeAttackAspect.setStateManager(grenadeStateManager);
 
-        this.permitManager = new NetworkPermitManager();
+        permitManager = new NetworkPermitManager();
 
-        this.syncManager = new SyncManager<>(permitManager);
+        syncManager = new SyncManager<>(permitManager);
 
-        this.playerItemInstanceRegistry = new PlayerItemInstanceRegistry(syncManager);
+        playerItemInstanceRegistry = new PlayerItemInstanceRegistry(syncManager);
 
         StateManager<WeaponState, PlayerWeaponInstance> weaponStateManager = new StateManager<>((s1, s2) -> s1 == s2);
         weaponReloadAspect.setPermitManager(permitManager);
@@ -175,15 +172,15 @@ public class CommonModContext implements ModContext {
         // Initiate config
         ModernConfigManager.init();
 
-        CommonEventHandler serverHandler = new CommonEventHandler(this);
+        CommonEventHandler serverHandler = new CommonEventHandler();
         MinecraftForge.EVENT_BUS.register(serverHandler);
         MinecraftForge.EVENT_BUS.register(serverHandler);
 
-        MinecraftForge.EVENT_BUS.register(new WeaponKeyInputHandler(this, this::getPlayer, weaponAttachmentAspect));
+        MinecraftForge.EVENT_BUS.register(new WeaponKeyInputHandler(this::getPlayer));
 
-        CompatiblePlayerEntityTrackerProvider.register(this);
+        CompatiblePlayerEntityTrackerProvider.register();
         //CompatibleEntityPropertyProvider.register(this);
-        CompatibleExposureCapability.register(this);
+        CompatibleExposureCapability.register();
         EquipmentCapability.register();
 
         net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
@@ -232,7 +229,7 @@ public class CommonModContext implements ModContext {
     public void preInitEnd(Object mod) {
         // Workbench
         GameRegistry.registerTileEntity(TileEntityWorkbench.class, ID + ":tileworkbench");
-        Block workbenchblock = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
+        Block workbenchblock = new WorkbenchBlock("weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
         if (workbenchblock.getRegistryName() == null) {
             if (workbenchblock.getTranslationKey().length() < ID.length() + 2 + 5) {
                 throw new IllegalArgumentException("Unlocalize block name too short " + workbenchblock.getTranslationKey());
@@ -248,7 +245,7 @@ public class CommonModContext implements ModContext {
 
         // Ammo press
         GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ID + ":tileammopress");
-        Block ammopressblock = new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
+        Block ammopressblock = new BlockAmmoPress("ammo_press", Material.IRON).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
 
         if (ammopressblock.getRegistryName() == null) {
             if (ammopressblock.getTranslationKey().length() < ID.length() + 2 + 5) {
@@ -268,10 +265,6 @@ public class CommonModContext implements ModContext {
     public void init(Object mod) {
 
         NetworkRegistry.INSTANCE.registerGuiHandler(mod, new GuiHandler());
-    }
-
-    public static ModContext getContext() {
-        return currentContext;
     }
 
     @Override

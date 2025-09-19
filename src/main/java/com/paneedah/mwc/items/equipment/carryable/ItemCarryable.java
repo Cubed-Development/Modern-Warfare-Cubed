@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.equipment.carryable;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.weaponlib.Weapon;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;

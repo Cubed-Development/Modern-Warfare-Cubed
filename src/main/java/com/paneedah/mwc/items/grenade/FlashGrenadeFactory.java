@@ -349,6 +349,6 @@ public class FlashGrenadeFactory implements GrenadeFactory {
 
                                 .build())
 
-                .build(MWC.modContext);
+                .build();
     }
 }

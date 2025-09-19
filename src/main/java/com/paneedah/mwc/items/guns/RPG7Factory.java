@@ -3,7 +3,6 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.RPG7;
 import com.paneedah.mwc.models.RPG7rocketPROJECTILE;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
@@ -16,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 public class RPG7Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("rpg7")
@@ -31,9 +30,9 @@ public class RPG7Factory implements GunFactory {
                 .withReloadSound("rpg7_reload")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.7f)
-                .withFlashScale(() -> 2f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(2f)
+                .withFlashOffsetX(0.1f)
+                .withFlashOffsetY(0.14f)
                 .withShellCasingEjectEnabled(false)
                 .withDestroyingBlocks(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -960,6 +959,6 @@ public class RPG7Factory implements GunFactory {
                 .withSpawnEntityExplosionRadius(4f)
                 .withSpawnEntityModel(new RPG7rocketPROJECTILE())
                 .withSpawnEntityModelTexture("rpg7")
-                .build(MWC.modContext);
+                .build();
     }
 }

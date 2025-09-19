@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.NetworkPermitManager;
@@ -101,13 +102,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             Arrays.asList(WeaponState.EJECTING, WeaponState.PAUSED, WeaponState.FIRING,
                     WeaponState.RECOILED, WeaponState.PAUSED, WeaponState.ALERT));
 
-    private final ModContext modContext;
-
     private StateManager<WeaponState, ? super PlayerWeaponInstance> stateManager;
-
-    public WeaponFireAspect(CommonModContext modContext) {
-        this.modContext = modContext;
-    }
 
     @Override
     public void setPermitManager(NetworkPermitManager permitManager) {}
@@ -188,15 +183,15 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     }
 
     void onFireButtonDown(EntityPlayer player) {
-        PlayerWeaponInstance weaponInstance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-        if (weaponInstance != null) {
+        final PlayerWeaponInstance weaponInstance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
 
+        if (weaponInstance != null)
             stateManager.changeStateFromAnyOf(this, weaponInstance, allowedFireOrEjectFromStates, WeaponState.FIRING, WeaponState.EJECTING, WeaponState.ALERT);
-        }
     }
 
     void onFireButtonRelease(EntityPlayer player) {
-        PlayerWeaponInstance weaponInstance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+        final PlayerWeaponInstance weaponInstance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+
         if (weaponInstance != null) {
             weaponInstance.setSeriesResetAllowed(true);
             stateManager.changeState(this, weaponInstance, WeaponState.EJECT_REQUIRED, WeaponState.READY);
@@ -204,10 +199,10 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     }
 
     void onUpdate(EntityPlayer player) {
-        PlayerWeaponInstance weaponInstance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-        if (weaponInstance != null) {
+        final PlayerWeaponInstance weaponInstance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+
+        if (weaponInstance != null)
             stateManager.changeStateFromAnyOf(this, weaponInstance, allowedUpdateFromStates); // triggers "auto" state transitions
-        }
     }
 
     private void cannotFire(PlayerWeaponInstance weaponInstance) {
@@ -215,7 +210,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             String message;
 
             if (ModernConfigManager.enableStatusMessages) {
-                if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
+                if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && MWC.modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
                     message = I18n.format("gui.noMagazine");
                 } else {
                     message = I18n.format("gui.noAmmo");
@@ -227,7 +222,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             }
 
             if (weaponInstance.getPlayer() instanceof EntityPlayer) {
-                weaponInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);
+                weaponInstance.getPlayer().playSound(MWC.modContext.getNoAmmoSound(), 1, 1);
             }
         }
     }
@@ -248,7 +243,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         CHANNEL.sendToServer(new TryFireMessage(oneClickBurstEnabled.test(weaponInstance) && weaponInstance.getSeriesShotCount() == 0, weaponInstance.isAimed()));
 
 
-        boolean silencerOn = modContext.getAttachmentAspect().isSilencerOn(weaponInstance);
+        boolean silencerOn = MWC.modContext.getAttachmentAspect().isSilencerOn(weaponInstance);
 
 
         SoundEvent shootSound = null;
@@ -325,18 +320,17 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
 
         if (ModernConfigManager.enableMuzzleEffects && weapon.builder.flashIntensity > 0) {
-            modContext.getEffectManager().spawnFlashParticle(player, weapon.builder.flashIntensity, weapon.builder.flashScale.get(),
-                    weaponInstance.isAimed() ? FLASH_X_OFFSET_ZOOMED : -0.1f + weapon.builder.flashOffsetX.get(),
-                    weaponInstance.isAimed() ? -1.55f : -1.7f + weapon.builder.flashOffsetY.get(), weapon.builder.flashTexture);
+            MWC.modContext.getEffectManager().spawnFlashParticle(player, weapon.builder.flashIntensity, weapon.builder.flashScale,
+                    weaponInstance.isAimed() ? FLASH_X_OFFSET_ZOOMED : -0.1f + weapon.builder.flashOffsetX,
+                    weaponInstance.isAimed() ? -1.55f : -1.7f + weapon.builder.flashOffsetY, weapon.builder.flashTexture);
         }
 
 
         //ClientValueRepo.gunPow.prevPosition = ClientValueRepo.gunPow.position;
         ClientValueRepo.fireWeapon(weaponInstance);
 
-        if (weapon.isSmokeEnabled()) {
-            modContext.getEffectManager().spawnSmokeParticle(player, -0.1f + weapon.builder.smokeOffsetX.get(), -1.7f + weapon.builder.smokeOffsetY.get() + 0.3f);
-        }
+        if (weapon.isSmokeEnabled())
+            MWC.modContext.getEffectManager().spawnSmokeParticle(player, -0.1f, -1.4f);
 
         if (weapon.isShellCasingEjectEnabled()) {
             float fovMult = MC.gameSettings.fovSetting < 70 ? (MC.gameSettings.fovSetting / 50) : -(MC.gameSettings.fovSetting / 200);
@@ -482,7 +476,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
         SoundEvent shootSound = null;
 
-        boolean silencerOn = playerWeaponInstance != null && modContext.getAttachmentAspect().isSilencerOn(playerWeaponInstance);
+        boolean silencerOn = playerWeaponInstance != null && MWC.modContext.getAttachmentAspect().isSilencerOn(playerWeaponInstance);
         if (isBurst && weapon.builder.isOneClickBurstAllowed) {
 
             SoundEvent burstShootSound = null;

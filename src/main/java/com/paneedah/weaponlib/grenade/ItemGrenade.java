@@ -1,10 +1,11 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.weapons.AbstractItemBuilder;
-import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.crafting.*;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
@@ -289,8 +290,8 @@ public class ItemGrenade extends Item implements
         }
 
         @Override
-        public ItemGrenade build(ModContext modContext) {
-            ItemGrenade grenade = new ItemGrenade(this, modContext);
+        public ItemGrenade build() {
+            ItemGrenade grenade = new ItemGrenade(this);
             grenade.setTranslationKey(ID + "_" + name);
             grenade.setCreativeTab(tab);
             grenade.maxStackSize = maxStackSize;
@@ -300,40 +301,34 @@ public class ItemGrenade extends Item implements
 
             CraftingRegistry.registerHook(grenade);
 
-            if (this.bounceHardSound != null) {
-                grenade.bounceHardSound = modContext.registerSound(this.bounceHardSound);
-            }
+            if (bounceHardSound != null)
+                grenade.bounceHardSound = MWC.modContext.registerSound(bounceHardSound);
 
-            if (this.bounceSoftSound != null) {
-                grenade.bounceSoftSound = modContext.registerSound(this.bounceSoftSound);
-            }
+            if (bounceSoftSound != null)
+                grenade.bounceSoftSound = MWC.modContext.registerSound(bounceSoftSound);
 
-            if (this.explosionSound != null) {
-                grenade.explosionSound = modContext.registerSound(this.explosionSound);
-            }
+            if (explosionSound != null)
+                grenade.explosionSound = MWC.modContext.registerSound(explosionSound);
 
-            if (this.safetyPinOffSound != null) {
-                grenade.safetyPinOffSound = modContext.registerSound(this.safetyPinOffSound);
-            }
+            if (safetyPinOffSound != null)
+                grenade.safetyPinOffSound = MWC.modContext.registerSound(safetyPinOffSound);
 
-            if (this.throwSound != null) {
-                grenade.throwSound = modContext.registerSound(this.throwSound);
-            }
+            if (throwSound != null)
+                grenade.throwSound = MWC.modContext.registerSound(throwSound);
 
-            if (this.stopAfterThrowingSound != null) {
-                grenade.stopAfterThrowingSound = modContext.registerSound(this.stopAfterThrowingSound);
-            }
+            if (stopAfterThrowingSound != null)
+                grenade.stopAfterThrowingSound = MWC.modContext.registerSound(stopAfterThrowingSound);
 
-            modContext.registerGrenadeWeapon(name, grenade, renderer);
+            MWC.modContext.registerGrenadeWeapon(name, grenade, renderer);
 
             if (craftingRecipe != null && craftingRecipe.length >= 2) {
-                modContext.getRecipeManager().registerShapedRecipe(grenade, craftingRecipe);
+                MWC.modContext.getRecipeManager().registerShapedRecipe(grenade, craftingRecipe);
             } else if (craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                         .withSlotCount(9)
                         .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
 
-                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(grenade, name, optionsMetadata);
+                List<Object> shape = MWC.modContext.getRecipeManager().createShapedRecipe(grenade, name, optionsMetadata);
 
                 ItemStack itemStack = new ItemStack(grenade);
                 itemStack.setCount(craftingCount);
@@ -353,7 +348,6 @@ public class ItemGrenade extends Item implements
     }
 
     Builder builder;
-    private final ModContext modContext;
     private SoundEvent bounceHardSound;
     private SoundEvent bounceSoftSound;
     private SoundEvent explosionSound;
@@ -361,9 +355,8 @@ public class ItemGrenade extends Item implements
     private SoundEvent throwSound;
     private SoundEvent stopAfterThrowingSound;
 
-    public ItemGrenade(Builder builder, ModContext modContext) {
+    public ItemGrenade(Builder builder) {
         this.builder = builder;
-        this.modContext = modContext;
         this.maxStackSize = 16;
     }
 
@@ -403,17 +396,16 @@ public class ItemGrenade extends Item implements
     }
 
     public void attack(EntityPlayer player, boolean throwingFar) {
-        modContext.getGrenadeAttackAspect().onAttackButtonClick(player, throwingFar);
+        MWC.modContext.getGrenadeAttackAspect().onAttackButtonClick(player, throwingFar);
     }
 
-
     public void attackUp(EntityPlayer player, boolean throwingFar) {
-        modContext.getGrenadeAttackAspect().onAttackButtonUp(player, throwingFar);
+        MWC.modContext.getGrenadeAttackAspect().onAttackButtonUp(player, throwingFar);
     }
 
     @Override
     public void update(EntityPlayer player) {
-        modContext.getGrenadeAttackAspect().onUpdate(player);
+        MWC.modContext.getGrenadeAttackAspect().onUpdate(player);
     }
 
     public float getExplosionStrength() {

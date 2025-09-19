@@ -27,7 +27,7 @@ public class CommonProxy {
         MWC.modContext.preInit(mod);
 
         UniversalSoundRegistry.init();
-        UniversalSoundLookup.initialize(MWC.modContext);
+        UniversalSoundLookup.initialize();
 
         // Forcing Item Initialization here, at the very least the variables, before they get registered normally on the init() (@SubscribeEvent) phase.
         MWCItems.init();
@@ -37,20 +37,20 @@ public class CommonProxy {
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
         // Special object initialization (Magic Mag)
-        SpecialAttachments.init(MWC.modContext);
+        SpecialAttachments.init();
 
-        Backpacks.createEquipment(MWC.modContext);
-        Belts.createEquipment(MWC.modContext);
-        Vests.createEquipment(MWC.modContext);
-        Armors.createEquipment(MWC.modContext);
+        Backpacks.createEquipment();
+        Belts.createEquipment();
+        Vests.createEquipment();
+        Armors.createEquipment();
 
-        Attachments.init(MWC.modContext);
-        AuxiliaryAttachments.init(MWC.modContext);
-        GunSkins.init(MWC.modContext);
-        Bullets.init(MWC.modContext);
-        Magazines.init(MWC.modContext);
+        Attachments.init();
+        AuxiliaryAttachments.init();
+        GunSkins.init();
+        Bullets.init();
+        Magazines.init();
         Guns.init(this);
-        Electronics.createEquipment(MWC.modContext);
+        Electronics.createEquipment();
         Grenades.init(this);
         CustomSpawnEggs.init(this);
 
@@ -65,11 +65,11 @@ public class CommonProxy {
     public void init(final MWC mod) {
         MWC.modContext.init(mod);
 
-        TurretBaseFactory.createTileEntity(MWC.modContext);
-        TileEntities.createTileEntity(MWC.modContext);
+        TurretBaseFactory.createTileEntity();
+        TileEntities.createTileEntity();
 
-        Entities.init(MWC.modContext);
-        Vehicles.init(MWC.modContext);
+        Entities.init();
+        Vehicles.init();
 
         GameRegistry.registerWorldGenerator(new ModernWorldGenerator(), 0);
     }

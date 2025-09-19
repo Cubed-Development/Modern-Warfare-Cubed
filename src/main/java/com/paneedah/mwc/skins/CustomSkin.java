@@ -7,9 +7,8 @@ import net.minecraft.util.ResourceLocation;
 import javax.imageio.ImageIO;
 import java.io.File;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.RED_LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class CustomSkin {
 

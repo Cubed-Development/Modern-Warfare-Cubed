@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
@@ -16,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 public class M1897Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("M1897")
@@ -45,9 +44,9 @@ public class M1897Factory implements GunFactory {
                 .withInaccuracy(18)
                 .withPellets(10)
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.8f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.13f)
+                .withFlashScale(0.8f)
+                .withFlashOffsetX(0.08f)
+                .withFlashOffsetY(0.13f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
                 .withScreenShaking(RenderableState.SHOOTING,
@@ -1381,6 +1380,6 @@ public class M1897Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.8f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

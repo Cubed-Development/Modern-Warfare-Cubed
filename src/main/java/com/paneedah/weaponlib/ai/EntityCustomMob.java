@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.ai;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.*;
 import com.paneedah.mwc.network.messages.EntityPickupMessage;
 import com.paneedah.weaponlib.*;
@@ -40,7 +41,7 @@ import java.util.function.Predicate;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 
-public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Contextual, Configurable<EntityConfiguration> {
+public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Configurable<EntityConfiguration> {
 
     private static final float FLAT_WORLD_SPAWN_CHANCE = 0.01f;
     private static final CompatibleDataManager.Key VARIANT = CompatibleDataManager.createKey(EntityCustomMob.class, int.class);
@@ -49,8 +50,6 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     private static final CompatibleDataManager.Key DELAYED_ATTACK_STARTED = CompatibleDataManager.createKey(EntityCustomMob.class, boolean.class);
 
     protected CompatibleDataManager compatibleDataManager;
-
-    private ModContext modContext;
 
     private EntityConfiguration configuration;
 
@@ -384,14 +383,13 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
      * 1.0
      */
     public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
-        if (modContext == null) {
+        if (MWC.modContext == null)
             return;
-        }
 
         ItemStack itemStack = this.getHeldItemMainhand();
 
         if (itemStack.getItem() instanceof Weapon) {
-            WeaponFireAspect fireAspect = modContext.getWeaponFireAspect();
+            WeaponFireAspect fireAspect = MWC.modContext.getWeaponFireAspect();
 
             BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith = (weapon, player) -> {
                 int difficultyId = world.getDifficulty().getId();
@@ -414,15 +412,14 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             float rotationPitchAdjustment = 20f;
             this.rotationPitch -= rotationPitchAdjustment;
             PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) Tags.getInstance(itemStack);
-            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance);
+            GrenadeAttackAspect.serverThrowGrenade(this, grenadeInstance);
             this.rotationPitch += rotationPitchAdjustment;
         }
     }
 
     void attackWithSecondaryEquipment(EntityLivingBase target, float distanceFactor) {
-        if (modContext == null) {
+        if (MWC.modContext == null)
             return;
-        }
 
         if (secondaryEquipment == null
             /*
@@ -436,7 +433,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             float rotationPitchAdjustment = 20f;
             this.rotationPitch -= rotationPitchAdjustment;
             PlayerGrenadeInstance grenadeInstance = (PlayerGrenadeInstance) Tags.getInstance(secondaryEquipment);
-            GrenadeAttackAspect.serverThrowGrenade(modContext, this, grenadeInstance);
+            GrenadeAttackAspect.serverThrowGrenade(this, grenadeInstance);
             this.rotationPitch += rotationPitchAdjustment;
         }
     }
@@ -563,11 +560,6 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
                 || rand.nextFloat() > (1f - FLAT_WORLD_SPAWN_CHANCE);
         Predicate<Entity> predicate = getConfiguration().getCanSpawnHere();
         return canSpawn && (predicate != null ? predicate.test(this) : super.getCanSpawnHere());
-    }
-
-    @Override
-    public void setContext(ModContext modContext) {
-        this.modContext = modContext;
     }
 
     public void setDelayedAttackTimerIncrement(int increment) {

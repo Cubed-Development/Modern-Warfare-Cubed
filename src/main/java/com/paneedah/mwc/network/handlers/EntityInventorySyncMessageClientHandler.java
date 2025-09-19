@@ -3,9 +3,7 @@ package com.paneedah.mwc.network.handlers;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.network.messages.EntityInventorySyncMessage;
-import com.paneedah.weaponlib.ModContext;
 import dev.redstudio.redcore.utils.NetworkUtil;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,10 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @NoArgsConstructor
-@AllArgsConstructor
 public final class EntityInventorySyncMessageClientHandler implements IMessageHandler<EntityInventorySyncMessage, IMessage> {
-
-    private ModContext modContext;
 
     @Override
     @SideOnly(Side.CLIENT)
@@ -34,7 +29,6 @@ public final class EntityInventorySyncMessageClientHandler implements IMessageHa
             if (targetEntity != player || !entityInventorySyncMessage.isExcludeEntity()) {
                 final EquipmentInventory inventory = entityInventorySyncMessage.getInventory();
 
-                inventory.setContext(modContext);
                 inventory.setOwner((EntityPlayer) targetEntity);
                 EquipmentCapability.setInventory((EntityLivingBase) targetEntity, inventory);
             }

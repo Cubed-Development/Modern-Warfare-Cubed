@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.compatibility;
 
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTBase;
@@ -17,9 +16,8 @@ import java.util.function.Function;
 
 public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySerializable<NBTBase> {
 
-    public static void register(ModContext modContext) {
-        CapabilityManager.INSTANCE.register(PlayerEntityTrackerContainer.class, new PlayerEntityTrackerStorage(),
-                PlayerEntityTrackerContainerImpl.class);
+    public static void register() {
+        CapabilityManager.INSTANCE.register(PlayerEntityTrackerContainer.class, new PlayerEntityTrackerStorage(), PlayerEntityTrackerContainerImpl.class);
     }
 
     public interface PlayerEntityTrackerContainer {

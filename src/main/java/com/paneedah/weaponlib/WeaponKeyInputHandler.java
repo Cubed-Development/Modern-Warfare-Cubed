@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.instancing.PlayerTabletInstance;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.network.handlers.NightVisionToggleMessageHandler;
 import com.paneedah.mwc.network.messages.NightVisionToggleMessage;
@@ -8,7 +10,6 @@ import com.paneedah.mwc.network.messages.OpenCustomPlayerInventoryGuiMessage;
 import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
-import com.paneedah.mwc.instancing.PlayerTabletInstance;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.render.gui.ModificationGUI;
 import net.minecraft.block.BlockDoor;
@@ -34,10 +35,8 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public class WeaponKeyInputHandler {
 
     private final Function<MessageContext, EntityPlayer> entityPlayerSupplier;
-    private final ModContext modContext;
 
-    public WeaponKeyInputHandler(ModContext modContext, Function<MessageContext, EntityPlayer> entityPlayerSupplier, WeaponAttachmentAspect attachmentAspect) {
-        this.modContext = modContext;
+    public WeaponKeyInputHandler(Function<MessageContext, EntityPlayer> entityPlayerSupplier) {
         this.entityPlayerSupplier = entityPlayerSupplier;
     }
 
@@ -189,7 +188,7 @@ public class WeaponKeyInputHandler {
                 ((Reloadable) item).unloadMainHeldItemForPlayer(player);
             }
         } else if (KeyBindings.inspectKey.isPressed()) {
-            PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+            PlayerWeaponInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
             Item item = itemStack.getItem();
             if (item instanceof Inspectable) {
                 ((Inspectable) item).inspectMainHeldItemForPlayer(player);
@@ -205,7 +204,7 @@ public class WeaponKeyInputHandler {
             }
             */
         } else if (KeyBindings.laserSwitchKey.isPressed()) {
-            PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+            PlayerWeaponInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
             if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.MODIFYING)) {
                 instance.setLaserOn(!instance.isLaserOn());
             }
@@ -216,9 +215,9 @@ public class WeaponKeyInputHandler {
                 CHANNEL.sendToServer(new NightVisionToggleMessage());
                 NBTTagCompound tagCompound = helmetStack.getTagCompound();
                 boolean nightVisionOn = tagCompound != null && tagCompound.getBoolean(NightVisionToggleMessageHandler.TAG_NIGHT_VISION_STATE);
-                MC.player.playSound(nightVisionOn ? modContext.getNightVisionOffSound() : modContext.getNightVisionOnSound(), 1, 1);
+                MC.player.playSound(nightVisionOn ? MWC.modContext.getNightVisionOffSound() : MWC.modContext.getNightVisionOnSound(), 1, 1);
             } else {
-                PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+                PlayerWeaponInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
                 if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.MODIFYING || instance.getState() == WeaponState.EJECT_REQUIRED)) {
                     instance.setNightVisionOn(!instance.isNightVisionOn());
                 }
@@ -228,12 +227,12 @@ public class WeaponKeyInputHandler {
             if (itemStack.getItem() instanceof Modifiable /* && itemStack.getItem() instanceof Weapon*/) {
                 ((Modifiable) itemStack.getItem()).toggleClientAttachmentSelectionMode(player);
 
-                if (modContext.getMainHeldWeapon() != null) {
-                    if ((modContext.getMainHeldWeapon().getState() == WeaponState.MODIFYING)
-                            || modContext.getMainHeldWeapon().getState() == WeaponState.MODIFYING_REQUESTED
-                            || modContext.getMainHeldWeapon().getState() == WeaponState.NEXT_ATTACHMENT
-                            || modContext.getMainHeldWeapon().getState() == WeaponState.NEXT_ATTACHMENT_REQUESTED) {
-                        ModificationGUI.getInstance().setupForWeapon(modContext.getMainHeldWeapon());
+                if (MWC.modContext.getMainHeldWeapon() != null) {
+                    if ((MWC.modContext.getMainHeldWeapon().getState() == WeaponState.MODIFYING)
+                            || MWC.modContext.getMainHeldWeapon().getState() == WeaponState.MODIFYING_REQUESTED
+                            || MWC.modContext.getMainHeldWeapon().getState() == WeaponState.NEXT_ATTACHMENT
+                            || MWC.modContext.getMainHeldWeapon().getState() == WeaponState.NEXT_ATTACHMENT_REQUESTED) {
+                        ModificationGUI.getInstance().setupForWeapon(MWC.modContext.getMainHeldWeapon());
                     }
                 }
 
@@ -305,34 +304,34 @@ public class WeaponKeyInputHandler {
             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
             if(instance instanceof PlayerWeaponInstance && instance.getState() == WeaponState.MODIFYING  && ((PlayerWeaponInstance) instance).isAltModificationModeEnabled()) {
                 AttachmentCategory category = AttachmentCategory.FRONTSIGHT;
-                modContext.getAttachmentAspect().changeAttachment(category, (PlayerWeaponInstance) instance);
+                MWC.modContext.getAttachmentAspect().changeAttachment(category, (PlayerWeaponInstance) instance);
             }
         }*/
 
         else if (KeyBindings.leftArrowKey.isPressed()) {
-            PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
+            PlayerItemInstance<?> instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
             if (instance instanceof PlayerTabletInstance) {
                 PlayerTabletInstance playerTabletInstance = (PlayerTabletInstance) instance;
                 playerTabletInstance.previousActiveWatchIndex();
             }
         } else if (KeyBindings.rightArrowKey.isPressed()) {
-            PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
+            PlayerItemInstance<?> instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
             if (instance instanceof PlayerTabletInstance) {
                 PlayerTabletInstance playerTabletInstance = (PlayerTabletInstance) instance;
                 playerTabletInstance.nextActiveWatchIndex();
             }
         } else if (KeyBindings.fireModeKey.isPressed()) {
-            PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+            PlayerWeaponInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
             if (instance != null && instance.getState() == WeaponState.READY) {
                 instance.getWeapon().changeFireMode(instance);
             }
         } else if (KeyBindings.addKey.isPressed()) {
-            PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+            PlayerWeaponInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
             if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED)) {
                 instance.getWeapon().incrementZoom(instance);
             }
         } else if (KeyBindings.subtractKey.isPressed()) {
-            PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+            PlayerWeaponInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
             if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED)) {
                 instance.getWeapon().decrementZoom(instance);
             }

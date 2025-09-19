@@ -545,8 +545,7 @@ public class Attachments {
 
     public static ItemAttachment<Weapon> MAC10Action;
 
-    public static void init(ModContext modContext) {
-
+    public static void init() {
         G11HandguardK1 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.G11HandguardK1(), "g11.png")
@@ -580,7 +579,7 @@ public class Attachments {
                     }
                 })
                 .withName("G11HandguardK1").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G11HandguardK2 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -615,7 +614,7 @@ public class Attachments {
                     }
                 })
                 .withName("G11HandguardK2").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
 
         FABDefenseMount = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
@@ -654,7 +653,7 @@ public class Attachments {
                     }
                 })
                 .withName("FABDefenseMount").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MAS21Mount = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -694,7 +693,7 @@ public class Attachments {
                     }
                 })
                 .withName("MAS21Mount").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         P90Swordfish = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -737,7 +736,7 @@ public class Attachments {
                     }
                 })
                 .withName("P90swordfish").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         P90DefaultKit = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -772,7 +771,7 @@ public class Attachments {
                     }
                 })
                 .withName("P90DefaultKit").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         P90Terminator = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -807,7 +806,7 @@ public class Attachments {
                     }
                 })
                 .withName("P90Terminator").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScarHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -845,7 +844,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScarHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScarHHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -883,7 +882,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScarHHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScarMidWestIndustriesHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -924,7 +923,7 @@ public class Attachments {
                 .withName("ScarMidWestIndustriesHandGuard")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScarMLOKHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -964,7 +963,7 @@ public class Attachments {
                 .withName("ScarMLOKHandguard")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SIG556Handguard = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.GUARD)
@@ -1005,7 +1004,7 @@ public class Attachments {
                 .withName("SIG556Handguard")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SIG556HandguardRailed = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.GUARD)
@@ -1047,7 +1046,7 @@ public class Attachments {
                 .withName("SIG556HandguardRailed")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SIG556HandguardKA = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.GUARD)
@@ -1089,7 +1088,7 @@ public class Attachments {
                 .withName("SIG556HandguardKA")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SIG556Grip = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -1130,7 +1129,7 @@ public class Attachments {
                 .withName("SIG556Grip")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScarLReceiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1168,7 +1167,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScarLReceiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KrissVectorReceiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1206,7 +1205,7 @@ public class Attachments {
                     }
                 })
                 .withName("KrissVectorReceiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Vector556Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1247,7 +1246,7 @@ public class Attachments {
                     }
                 })
                 .withName("KrissVector556Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VectorMk1ModularHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1286,7 +1285,7 @@ public class Attachments {
                     }
                 })
                 .withName("VectorMk1ModularHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VectorCarbineHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1325,7 +1324,7 @@ public class Attachments {
                     }
                 })
                 .withName("VectorCarbineHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VectorTapedGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1365,7 +1364,7 @@ public class Attachments {
                     }
                 })
                 .withName("VectorTapedGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Origin12Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1406,7 +1405,7 @@ public class Attachments {
                     }
                 })
                 .withName("Origin12Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HKS20Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1443,7 +1442,7 @@ public class Attachments {
                     }
                 })
                 .withName("HKS20Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington700Chassis = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1478,7 +1477,7 @@ public class Attachments {
                     }
                 })
                 .withName("Remington700Chassis").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington700APACChassis = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1513,7 +1512,7 @@ public class Attachments {
                     }
                 })
                 .withName("Remington700APACChassis").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington700MDTXRSChassis = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1548,7 +1547,7 @@ public class Attachments {
                     }
                 })
                 .withName("Remington700MDTXRSChassis").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SSG08Chassis = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1584,7 +1583,7 @@ public class Attachments {
                     }
                 })
                 .withName("SSG08Chassis").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ARX160Chassis = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1623,7 +1622,7 @@ public class Attachments {
                     }
                 })
                 .withName("ARX160Chassis").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G2ContenderBarrelShort = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1661,7 +1660,7 @@ public class Attachments {
                     }
                 })
                 .withName("G2ContenderBarrelShort").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G2ContenderBarrelLong = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1700,7 +1699,7 @@ public class Attachments {
                     }
                 })
                 .withName("G2ContenderBarrelLong").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G2ContenderGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1736,7 +1735,7 @@ public class Attachments {
                     }
                 })
                 .withName("G2ContenderGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G2ContenderStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1772,7 +1771,7 @@ public class Attachments {
                     }
                 })
                 .withName("G2ContenderStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Origin12Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1811,7 +1810,7 @@ public class Attachments {
                     }
                 })
                 .withName("Origin12Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HKS20Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1846,7 +1845,7 @@ public class Attachments {
                     }
                 })
                 .withName("HKS20Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Origin12Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1886,7 +1885,7 @@ public class Attachments {
                     }
                 })
                 .withName("Origin12Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HKS20Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1922,7 +1921,7 @@ public class Attachments {
                     }
                 })
                 .withName("HKS20Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1963,7 +1962,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRHandGuardBlack = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2005,7 +2004,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRHandGuardBlack").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRWEMSKHandGuardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2044,7 +2043,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRWEMSKHandguardTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRPrecisionHandGuardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2082,7 +2081,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRPrecisionHandGuardTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRSBRHandGuardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2120,7 +2119,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRSBRHandGuardTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRPolymerHandGuardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2158,7 +2157,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRPolymerHandguardTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRSquareDropHandguardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2196,7 +2195,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRSquareDropHandguardTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Type20Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2234,7 +2233,7 @@ public class Attachments {
                     }
                 })
                 .withName("Type20Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HoneyBadgerHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2272,7 +2271,7 @@ public class Attachments {
                     }
                 })
                 .withName("HoneyBadgerHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HoneyBadgerMatrixArmsHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2310,7 +2309,7 @@ public class Attachments {
                     }
                 })
                 .withName("HoneyBadgerMatrixArmsHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M60HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2345,7 +2344,7 @@ public class Attachments {
                     }
                 })
                 .withName("M60HandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M60E4HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2383,7 +2382,7 @@ public class Attachments {
                     }
                 })
                 .withName("M60E4Guard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M249HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2418,7 +2417,7 @@ public class Attachments {
                     }
                 })
                 .withName("M249HandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Mk48HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2454,7 +2453,7 @@ public class Attachments {
                     }
                 })
                 .withName("Mk48HandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M249UpperHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2489,7 +2488,7 @@ public class Attachments {
                     }
                 })
                 .withName("M249UpperHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Mk48UpperHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2527,7 +2526,7 @@ public class Attachments {
                     }
                 })
                 .withName("Mk48UpperHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         StonerHANDGUARD = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2564,7 +2563,7 @@ public class Attachments {
                     }
                 })
                 .withName("StonerHANDGUARD").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AUGA1handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2599,7 +2598,7 @@ public class Attachments {
                     }
                 })
                 .withName("AUGA1").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AUGA2handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2635,7 +2634,7 @@ public class Attachments {
                     }
                 })
                 .withName("AUGA2handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AUGA3handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2671,7 +2670,7 @@ public class Attachments {
                     }
                 })
                 .withName("AUGA3handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         EF88Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2707,7 +2706,7 @@ public class Attachments {
                     }
                 })
                 .withName("EF88Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AUGDefaultKit = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2742,7 +2741,7 @@ public class Attachments {
                     }
                 })
                 .withName("AUGDefaultKit").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AUGParaConversion = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2777,7 +2776,7 @@ public class Attachments {
                     }
                 })
                 .withName("AUGParaConversion").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AUGA3extGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2817,7 +2816,7 @@ public class Attachments {
                     }
                 })
                 .withName("AUGA3extGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1CarbineBody = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2852,7 +2851,7 @@ public class Attachments {
                     }
                 })
                 .withName("M1CarbineBody").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1A1CarbineBody = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2887,7 +2886,7 @@ public class Attachments {
                     }
                 })
                 .withName("M1A1CarbineBody").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1CarbineHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2922,7 +2921,7 @@ public class Attachments {
                     }
                 })
                 .withName("M1CarbineHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1CarbineVentilatedHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2957,7 +2956,7 @@ public class Attachments {
                     }
                 })
                 .withName("M1CarbineVentilatedHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1CarbineScoutHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -2993,7 +2992,7 @@ public class Attachments {
                     }
                 })
                 .withName("M1ScoutCarbineHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G3A1Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3032,7 +3031,7 @@ public class Attachments {
                     }
                 })
                 .withName("G3A1Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G3HandguardRailed = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3074,7 +3073,7 @@ public class Attachments {
                     }
                 })
                 .withName("G3HandguardRailed").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DSR1Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3109,7 +3108,7 @@ public class Attachments {
                     }
                 })
                 .withName("DSR1Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DSR1HandguardRailed = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3144,7 +3143,7 @@ public class Attachments {
                     }
                 })
                 .withName("DSR1HandguardRailed").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DSR1Barrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3179,7 +3178,7 @@ public class Attachments {
                     }
                 })
                 .withName("DSR1Barrel").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DSR1BarrelLong = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3214,7 +3213,7 @@ public class Attachments {
                     }
                 })
                 .withName("DSR1BarrelLong").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M14Body = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3254,7 +3253,7 @@ public class Attachments {
                     }
                 })
                 .withName("M14Body").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M14SOCOMChassis = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3295,7 +3294,7 @@ public class Attachments {
                     }
                 })
                 .withName("M14DMRSocomChassis").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Mk14TanBody = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3336,7 +3335,7 @@ public class Attachments {
                     }
                 })
                 .withName("Mk14TanBody").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Mk14SnowBody = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3377,7 +3376,7 @@ public class Attachments {
                     }
                 })
                 .withName("Mk14SnowBody").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Mk14BlackBody = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3418,7 +3417,7 @@ public class Attachments {
                     }
                 })
                 .withName("Mk14BlackBody").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M14Cover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3458,7 +3457,7 @@ public class Attachments {
                     }
                 })
                 .withName("M14Cover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M14TriRailCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3501,7 +3500,7 @@ public class Attachments {
                     }
                 })
                 .withName("M14TriRailCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M14Rail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3540,7 +3539,7 @@ public class Attachments {
                     }
                 })
                 .withName("M14Rail").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScarStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3578,7 +3577,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScarStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScarRetractableStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3616,7 +3615,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScarRetractableStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScarAdapterStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3658,7 +3657,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScarAdapterStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScarHStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3696,7 +3695,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScarHStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VectorStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3735,7 +3734,7 @@ public class Attachments {
                     }
                 })
                 .withName("VectorStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VectorStockAdapter = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3775,7 +3774,7 @@ public class Attachments {
                     }
                 })
                 .withName("VectorStockAdapter").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         UMP45Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3810,7 +3809,7 @@ public class Attachments {
                     }
                 })
                 .withName("UMP45Receiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         UMP9Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3845,7 +3844,7 @@ public class Attachments {
                     }
                 })
                 .withName("UMP9Receiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         UMP45Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3880,7 +3879,7 @@ public class Attachments {
                     }
                 })
                 .withName("UMP45Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MAC10Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3918,7 +3917,7 @@ public class Attachments {
                     }
                 })
                 .withName("MAC10Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MAC21Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3957,7 +3956,7 @@ public class Attachments {
                     }
                 })
                 .withName("MAC21Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -3995,7 +3994,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRStockBlack = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4033,7 +4032,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRStockBlack").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRFixedStockTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4071,7 +4070,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRFixedStockTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRPRSStockTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4109,7 +4108,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRPRSStockTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRLongRangeStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4148,7 +4147,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRLongRangeStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRPDWStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4186,7 +4185,7 @@ public class Attachments {
                     }
                 })
                 .withName("ACRPDWStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1014Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4221,7 +4220,7 @@ public class Attachments {
                     }
                 })
                 .withName("M1014Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1014Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4256,7 +4255,7 @@ public class Attachments {
                     }
                 })
                 .withName("M1014Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M4BenelliStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4291,7 +4290,7 @@ public class Attachments {
                     }
                 })
                 .withName("M4BenelliStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Spas12Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4326,7 +4325,7 @@ public class Attachments {
                     }
                 })
                 .withName("Spas12Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M249Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4361,7 +4360,7 @@ public class Attachments {
                     }
                 })
                 .withName("M249Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M249ParaStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4396,7 +4395,7 @@ public class Attachments {
                     }
                 })
                 .withName("M249ParaStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M249MilspecStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4434,7 +4433,7 @@ public class Attachments {
                     }
                 })
                 .withName("M249MilspecStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M249HK416Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4472,7 +4471,7 @@ public class Attachments {
                     }
                 })
                 .withName("M249Hk416Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         UTGTriRailHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4514,7 +4513,7 @@ public class Attachments {
                     }
                 })
                 .withName("UTGTriRailHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP5BMHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4556,7 +4555,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP5BMHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MIMP5MHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4594,7 +4593,7 @@ public class Attachments {
                     }
                 })
                 .withName("MIMP5MHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScorpionHandguardShort = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4636,7 +4635,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScorpionEVO3A1HandguardShort").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScorpionHandguardLong = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4675,7 +4674,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScorpionEVO3A1HandguardLong").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MIMP5TRRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4714,7 +4713,7 @@ public class Attachments {
                     }
                 })
                 .withName("MIMP5TRRail").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MIMP5MRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4753,7 +4752,7 @@ public class Attachments {
                     }
                 })
                 .withName("MIMP5MRail").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ShotgunRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4789,7 +4788,7 @@ public class Attachments {
                     }
                 })
                 .withName("ShotgunRail").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Kar98Krail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4825,7 +4824,7 @@ public class Attachments {
                     }
                 })
                 .withName("Kar98Krail").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M60Rail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4861,7 +4860,7 @@ public class Attachments {
                     }
                 })
                 .withName("M60Rail").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M16A1ScopeMount = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4901,7 +4900,7 @@ public class Attachments {
                     }
                 })
                 .withName("M16A1ScopeMount").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FamasF1ScopeMount = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4941,7 +4940,7 @@ public class Attachments {
                     }
                 })
                 .withName("FamasF1ScopeMount").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M16A1PicatinnyRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -4981,7 +4980,7 @@ public class Attachments {
                     }
                 })
                 .withName("M16A1PicatinnyRail").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FamasF1PicatinnyRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -5023,7 +5022,7 @@ public class Attachments {
                     }
                 })
                 .withName("FamasF1PicatinnyRail").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         NGSWRRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -5059,7 +5058,7 @@ public class Attachments {
                     }
                 })
                 .withName("NGSWRRail").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         RailRiser = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -5096,7 +5095,7 @@ public class Attachments {
                     }
                 })
                 .withName("RailRiser").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1911Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -5135,7 +5134,7 @@ public class Attachments {
                 })
                 .withName("M1911Slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1911Body = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5172,7 +5171,7 @@ public class Attachments {
                 })
                 .withName("M1911Body")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M191144MagSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -5211,7 +5210,7 @@ public class Attachments {
                 })
                 .withName("M191144MagSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M191144MagBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5248,7 +5247,7 @@ public class Attachments {
                 })
                 .withName("M191144MagBody")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M9A1Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -5290,7 +5289,7 @@ public class Attachments {
                 })
                 .withName("M9A1Slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M9A1Body = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5330,7 +5329,7 @@ public class Attachments {
                 })
                 .withName("M9A1Body")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SamuraiEdgeSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -5373,7 +5372,7 @@ public class Attachments {
                 })
                 .withName("SamuraiEdgeSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SamuraiEdgeBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5414,7 +5413,7 @@ public class Attachments {
                 })
                 .withName("SamuraiEdgeBody")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SamuraiEdgeMount = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.GUARD)
@@ -5452,7 +5451,7 @@ public class Attachments {
                 })
                 .withName("SamuraiEdgeMount")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DesertEagleSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -5488,7 +5487,7 @@ public class Attachments {
                 })
                 .withName("DesertEagleSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DesertEagleBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5525,7 +5524,7 @@ public class Attachments {
                 })
                 .withName("DesertEagleBody")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DesertEagleLongBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5562,7 +5561,7 @@ public class Attachments {
                 })
                 .withName("DesertEagleLongBody")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DesertEagleBodyGolden = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5599,7 +5598,7 @@ public class Attachments {
                 })
                 .withName("DesertEagleBodyGolden")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DesertEagleSlideGolden = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -5635,7 +5634,7 @@ public class Attachments {
                 })
                 .withName("DesertEagleSlideGolden")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DesertEagleBodyBlack = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5672,7 +5671,7 @@ public class Attachments {
                 })
                 .withName("DesertEagleBodyBlack")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DesertEagleSlideBlack = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -5708,7 +5707,7 @@ public class Attachments {
                 })
                 .withName("DesertEagleSlideBlack")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Glock19Body = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5748,7 +5747,7 @@ public class Attachments {
                 })
                 .withName("Glock19Body")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
 //        Glock18CBody = new AttachmentBuilder<Weapon>()
 //                .withCategory(AttachmentCategory.BACKGRIP)
@@ -5785,7 +5784,7 @@ public class Attachments {
 //                })
 //                .withName("Glock18CBody")
 //                .withRenderablePart().withTextureName("Dummy.png")
-//                .build(modContext);
+//                .build();
 
         Glock19XBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5825,7 +5824,7 @@ public class Attachments {
                 })
                 .withName("Glock19XBody")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Glock19RazorbackBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -5865,7 +5864,7 @@ public class Attachments {
                 })
                 .withName("GlockRazorbackBody")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Glock19Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -5907,7 +5906,7 @@ public class Attachments {
                 })
                 .withName("Glock19Slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Glock18CSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -5949,7 +5948,7 @@ public class Attachments {
                 })
                 .withName("Glock18CSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Glock18CCNCSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -5991,7 +5990,7 @@ public class Attachments {
                 })
                 .withName("Glock18CCNCslide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Glock19XSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6033,7 +6032,7 @@ public class Attachments {
                 })
                 .withName("Glock19XSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Glock19RazorbackSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6075,7 +6074,7 @@ public class Attachments {
                 })
                 .withName("GlockRazorbackSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Glock19RockSlideOlive = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6117,7 +6116,7 @@ public class Attachments {
                 })
                 .withName("Glock19RockslideOlive")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Glock19GhostPrecisionSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6159,7 +6158,7 @@ public class Attachments {
                 })
                 .withName("Glock19GhostPrecisionSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SCCYCPX2Body = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -6199,7 +6198,7 @@ public class Attachments {
                 })
                 .withName("SCCYCPX2Body")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SCCYCPX2BodyTan = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -6239,7 +6238,7 @@ public class Attachments {
                 })
                 .withName("SCCYCPX2BodyTan")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SCCYCPX2GripTape = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.GUARD)
@@ -6280,7 +6279,7 @@ public class Attachments {
                 })
                 .withName("SCCYCPX2GripTape")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SCCYCPX2Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6322,7 +6321,7 @@ public class Attachments {
                 })
                 .withName("SCCYCPX2Slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SCCYCPX2BSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6364,7 +6363,7 @@ public class Attachments {
                 })
                 .withName("SCCYCPX2BSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         P226Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6406,7 +6405,7 @@ public class Attachments {
                 })
                 .withName("P226Slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FiveSevenSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6445,7 +6444,7 @@ public class Attachments {
                 })
                 .withName("FiveSevenSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MakarovBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -6485,7 +6484,7 @@ public class Attachments {
                 })
                 .withName("MakarovBody")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MakarovSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6527,7 +6526,7 @@ public class Attachments {
                 })
                 .withName("MakarovPMSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MakarovPBSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6569,7 +6568,7 @@ public class Attachments {
                 })
                 .withName("MakarovPBSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP443Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6609,7 +6608,7 @@ public class Attachments {
                 })
                 .withName("MP443Slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MakarovPBBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -6652,7 +6651,7 @@ public class Attachments {
                 })
                 .withName("MakarovPBBody")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MAC10Body = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -6690,7 +6689,7 @@ public class Attachments {
                     }
                 })
                 .withName("MAC10Body").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MAC10Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -6731,7 +6730,7 @@ public class Attachments {
                 })
                 .withName("MAC10Action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP5NavyHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -6769,7 +6768,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP5NavyHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP5A5HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -6807,7 +6806,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP5A5HandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP5SDHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -6846,7 +6845,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP5SDHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP5HOGUEGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -6884,7 +6883,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP5HOGUEGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         GlockHOGUEGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -6919,7 +6918,7 @@ public class Attachments {
                     }
                 })
                 .withName("GlockHogueGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         GlockHOGUEGripTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -6957,7 +6956,7 @@ public class Attachments {
                     }
                 })
                 .withName("GlockHogueGripTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         APSGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -6996,7 +6995,7 @@ public class Attachments {
                     }
                 })
                 .withName("APSGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         APSStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7035,7 +7034,7 @@ public class Attachments {
                     }
                 })
                 .withName("APSStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MAC10Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7073,7 +7072,7 @@ public class Attachments {
                     }
                 })
                 .withName("MAC10Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP5Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7111,7 +7110,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP5Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP5A3Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7149,7 +7148,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP5A3Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP5A4Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7187,7 +7186,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP5A4Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP5MilspecStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7231,7 +7230,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP5StockAdapter").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         LVOAVHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7273,7 +7272,7 @@ public class Attachments {
                     }
                 })
                 .withName("LVOAVHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AR15HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7313,7 +7312,7 @@ public class Attachments {
                     }
                 })
                 .withName("AR15FN15Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M38HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7355,7 +7354,7 @@ public class Attachments {
                     }
                 })
                 .withName("M38HandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK416HandGuardBlackAndTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7397,7 +7396,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK416HandGuardBlackAndTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK417Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7436,7 +7435,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK417Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK417HandguardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7475,7 +7474,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK417HandguardTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Mk18HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7517,7 +7516,7 @@ public class Attachments {
                     }
                 })
                 .withName("Mk18HandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Mk18HandGuardBlack = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7559,7 +7558,7 @@ public class Attachments {
                     }
                 })
                 .withName("Mk18HandGuardBlack").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Block2SOCOMHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7602,7 +7601,7 @@ public class Attachments {
                     }
                 })
                 .withName("Block2SOCOMHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FSSTacLiteHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7644,7 +7643,7 @@ public class Attachments {
                     }
                 })
                 .withName("FSSTacLiteHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M4MagpulHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7682,7 +7681,7 @@ public class Attachments {
                     }
                 })
                 .withName("M4MagpulHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M4MagpulHandGuardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7720,7 +7719,7 @@ public class Attachments {
                     }
                 })
                 .withName("M4MagpulHandGuardTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M4Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7759,7 +7758,7 @@ public class Attachments {
                     }
                 })
                 .withName("M4Receiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK416Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7798,7 +7797,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK416Receiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         C8SFWReceiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7834,7 +7833,7 @@ public class Attachments {
                     }
                 })
                 .withName("C8SFWReceiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VLTORReceiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7873,7 +7872,7 @@ public class Attachments {
                     }
                 })
                 .withName("VLTORReceiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AR57Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7909,7 +7908,7 @@ public class Attachments {
                     }
                 })
                 .withName("AR57Receiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK417Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7945,7 +7944,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK417Receiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK417ReceiverTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7981,7 +7980,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK417ReceiverTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M110Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8020,7 +8019,7 @@ public class Attachments {
                     }
                 })
                 .withName("M110Receiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Z10Receiver = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.RECEIVER)
@@ -8058,7 +8057,7 @@ public class Attachments {
                     }
                 })
                 .withName("Z10Receiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Beowulf50CalReceiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8098,7 +8097,7 @@ public class Attachments {
                     }
                 })
                 .withName("Beowulf50CalReceiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         S710Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8133,7 +8132,7 @@ public class Attachments {
                     }
                 })
                 .withName("S710Receiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         CZ805BrenReceiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8171,7 +8170,7 @@ public class Attachments {
                     }
                 })
                 .withName("CZ805BrenReceiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HoneyBadgerReceiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8207,7 +8206,7 @@ public class Attachments {
                     }
                 })
                 .withName("HoneyBadgerReceiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HoneyBadgerReceiverBlack = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8243,7 +8242,7 @@ public class Attachments {
                     }
                 })
                 .withName("HoneyBadgerReceiverBlack").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HoneyBadgerKnightsReceiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8279,7 +8278,7 @@ public class Attachments {
                     }
                 })
                 .withName("HoneyBadgerKnightsReceiver").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HoneyBadgerKnightsReceiverBlack = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8315,7 +8314,7 @@ public class Attachments {
                     }
                 })
                 .withName("HoneyBadgerKnightsReceiverBlack").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Placeholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
@@ -8337,7 +8336,7 @@ public class Attachments {
                     }
                 })
                 .withName("Placeholder").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FamasPlaceholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
@@ -8359,7 +8358,7 @@ public class Attachments {
                     }
                 })
                 .withName("FamasPlaceholder").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         APC9Placeholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
@@ -8381,7 +8380,7 @@ public class Attachments {
                     }
                 })
                 .withName("APC9Placeholder").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         P90Placeholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
@@ -8403,7 +8402,7 @@ public class Attachments {
                     }
                 })
                 .withName("P90Placeholder").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         PistolPlaceholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
@@ -8425,7 +8424,7 @@ public class Attachments {
                     }
                 })
                 .withName("PistolPlaceholder").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         GripPlaceholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
@@ -8447,7 +8446,7 @@ public class Attachments {
                     }
                 })
                 .withName("GripPlaceholder").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M40A6GripPlaceholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
@@ -8469,7 +8468,7 @@ public class Attachments {
                     }
                 })
                 .withName("M40A6GripPlaceholder").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         LaserPlaceholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
@@ -8491,7 +8490,7 @@ public class Attachments {
                     }
                 })
                 .withName("LaserPlaceholder").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M4HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8529,7 +8528,7 @@ public class Attachments {
                     }
                 })
                 .withName("M4HandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AR57Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8568,7 +8567,7 @@ public class Attachments {
                     }
                 })
                 .withName("AR57Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         NTW20HandguardRAIL = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8604,7 +8603,7 @@ public class Attachments {
                     }
                 })
                 .withName("NTW20Guard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M16HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8642,7 +8641,7 @@ public class Attachments {
                     }
                 })
                 .withName("M16HandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M16A1Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8680,7 +8679,7 @@ public class Attachments {
                     }
                 })
                 .withName("M16A1Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M4CarbineHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8722,7 +8721,7 @@ public class Attachments {
                     }
                 })
                 .withName("M4CarbineHandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M16A4HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8764,7 +8763,7 @@ public class Attachments {
                     }
                 })
                 .withName("M16A4HandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M110Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8806,7 +8805,7 @@ public class Attachments {
                     }
                 })
                 .withName("M110Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Z10Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8846,7 +8845,7 @@ public class Attachments {
                     }
                 })
                 .withName("Z10Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AR10SuperSASSHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8888,7 +8887,7 @@ public class Attachments {
                     }
                 })
                 .withName("AR10SuperSASSHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         S710Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -8923,7 +8922,7 @@ public class Attachments {
                     }
                 })
                 .withName("S710Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
         SIGMCXHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.SIGMCXHandguard(), "sigmcx.png")
@@ -8963,7 +8962,7 @@ public class Attachments {
                     }
                 })
                 .withName("SIGMCXHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SIGMCXHandguardShort = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9001,7 +9000,7 @@ public class Attachments {
                     }
                 })
                 .withName("SIGMCXHandguardShort").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MPXHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9040,7 +9039,7 @@ public class Attachments {
                     }
                 })
                 .withName("MPXHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MPXHandguardExtended = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9079,7 +9078,7 @@ public class Attachments {
                     }
                 })
                 .withName("MPXHandguardExtended").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MPXHandguardRailed = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9118,7 +9117,7 @@ public class Attachments {
                     }
                 })
                 .withName("MPXHandguardRailed").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         K2C1Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9158,7 +9157,7 @@ public class Attachments {
                     }
                 })
                 .withName("K2C1Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HeraArmsGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9196,7 +9195,7 @@ public class Attachments {
                     }
                 })
                 .withName("HeraArmsGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M4Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9234,7 +9233,7 @@ public class Attachments {
                     }
                 })
                 .withName("M4Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M4GripTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9272,7 +9271,7 @@ public class Attachments {
                     }
                 })
                 .withName("M4GripTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SOCOM_Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
 //                .withCreativeTab(MWC.AttachmentsTab)
@@ -9307,7 +9306,7 @@ public class Attachments {
                     }
                 })
                 .withName("SOCOM_Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M4GripGray = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9345,7 +9344,7 @@ public class Attachments {
                     }
                 })
                 .withName("M4GripGray").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK416Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9383,7 +9382,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK416Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK416GripTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9421,7 +9420,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK416GripTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M110Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9459,7 +9458,7 @@ public class Attachments {
                     }
                 })
                 .withName("M110Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         S710TricunGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9494,7 +9493,7 @@ public class Attachments {
                     }
                 })
                 .withName("S710TricunGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         K2C1Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9532,7 +9531,7 @@ public class Attachments {
                     }
                 })
                 .withName("K2C1Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK47Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9571,7 +9570,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK47Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK101Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9609,7 +9608,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK101Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AKErgoGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9647,7 +9646,7 @@ public class Attachments {
                     }
                 })
                 .withName("AKErgoGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AKErgoGripGreen = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9685,7 +9684,7 @@ public class Attachments {
                     }
                 })
                 .withName("AKErgoGripGreen").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AKErgoGripTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9723,7 +9722,7 @@ public class Attachments {
                     }
                 })
                 .withName("AKErgoGripTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9761,7 +9760,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK12Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12ErgoGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9799,7 +9798,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK12ErgoGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HoneyBadgerStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9835,7 +9834,7 @@ public class Attachments {
                     }
                 })
                 .withName("HoneyBadgerStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HoneyBadgerStockBlack = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9871,7 +9870,7 @@ public class Attachments {
                     }
                 })
                 .withName("HoneyBadgerStockBlack").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G3Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9911,7 +9910,7 @@ public class Attachments {
                     }
                 })
                 .withName("G3Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP7Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9951,7 +9950,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP7Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP7MilSpecStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -9996,7 +9995,7 @@ public class Attachments {
                     }
                 })
                 .withName("MP7MilSpecStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK47Stock = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.STOCK)
@@ -10040,7 +10039,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK47stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DragunovGripStock = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.STOCK)
@@ -10084,7 +10083,7 @@ public class Attachments {
                     }
                 })
                 .withName("DragunovGripStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Dragunov98Stock = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.STOCK)
@@ -10127,7 +10126,7 @@ public class Attachments {
                     }
                 })
                 .withName("Dragunov98Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         RPKStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10162,7 +10161,7 @@ public class Attachments {
                     }
                 })
                 .withName("RPKstock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK101Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10200,7 +10199,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK101Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK74Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10238,7 +10237,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK74Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10276,7 +10275,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK12Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12ZenitcoStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10314,7 +10313,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK12ZenitcoStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VSSVintorezStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10353,7 +10352,7 @@ public class Attachments {
                     }
                 })
                 .withName("VSSVintorezStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ASValStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10392,7 +10391,7 @@ public class Attachments {
                     }
                 })
                 .withName("ASValStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VSSVintorezMilspecStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10436,7 +10435,7 @@ public class Attachments {
                     }
                 })
                 .withName("VSSVintorezMilspecStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         CollapsableMOEStock = new AttachmentBuilder<Weapon>()
                 .withRenderablePart()
@@ -10476,7 +10475,7 @@ public class Attachments {
                     }
                 })
                 .withName("CollapsableMOEStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         CollapsableMOEStockGreen = new AttachmentBuilder<Weapon>()
                 .withRenderablePart()
@@ -10516,7 +10515,7 @@ public class Attachments {
                     }
                 })
                 .withName("CollapsableMOEStockGreen").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MagpulCTRStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10555,7 +10554,7 @@ public class Attachments {
                     }
                 })
                 .withName("MagpulCTRStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MagpulCTRStockTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10594,7 +10593,7 @@ public class Attachments {
                     }
                 })
                 .withName("MagpulCTRStockTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MilSpecStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10633,7 +10632,7 @@ public class Attachments {
                     }
                 })
                 .withName("MilSpecStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         CZ805BrenStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10672,7 +10671,7 @@ public class Attachments {
                     }
                 })
                 .withName("CZ805BrenStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SIGMCXStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10711,7 +10710,7 @@ public class Attachments {
                     }
                 })
                 .withName("SIGMCXStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         C8Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
 //                .withCreativeTab(MWC.AttachmentsTab)
@@ -10747,7 +10746,7 @@ public class Attachments {
                     }
                 })
                 .withName("C8Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MilSpecStockTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10786,7 +10785,7 @@ public class Attachments {
                     }
                 })
                 .withName("MilSpecStockTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HeraArmsStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10825,7 +10824,7 @@ public class Attachments {
                     }
                 })
                 .withName("HeraArmsStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK416Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10864,7 +10863,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK416Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SOCOM_Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
 //                .withCreativeTab(MWC.AttachmentsTab)
@@ -10900,7 +10899,7 @@ public class Attachments {
                     }
                 })
                 .withName("SOCOM_Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M16Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10938,7 +10937,7 @@ public class Attachments {
                     }
                 })
                 .withName("M16Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK416StockTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -10977,7 +10976,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK416StockTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M110Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11016,7 +11015,7 @@ public class Attachments {
                     }
                 })
                 .withName("M110Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         PRSPrecisionStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11055,7 +11054,7 @@ public class Attachments {
                     }
                 })
                 .withName("ARPRSPrecisionStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK47HandleGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11094,7 +11093,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK47HandleGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DragunovHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11135,7 +11134,7 @@ public class Attachments {
                     }
                 })
                 .withName("DragunovHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Dragunov98Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11174,7 +11173,7 @@ public class Attachments {
                     }
                 })
                 .withName("Dragunov98Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK101HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11212,7 +11211,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK101HandGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK74Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11250,7 +11249,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK74Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AKMagpulHandleGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11288,7 +11287,7 @@ public class Attachments {
                     }
                 })
                 .withName("AKMagpulHandleGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AKMagpulHandleGuardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11326,7 +11325,7 @@ public class Attachments {
                     }
                 })
                 .withName("AKMagpulHandleGuardTan").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MLOKHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11366,7 +11365,7 @@ public class Attachments {
                     }
                 })
                 .withName("MLOKHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MLOKExtendedHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11406,7 +11405,7 @@ public class Attachments {
                     }
                 })
                 .withName("MLOKExtendedHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK15HandleGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11445,7 +11444,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK15HandleGuard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12kalHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11484,7 +11483,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK12kalHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         RPK16Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11523,7 +11522,7 @@ public class Attachments {
                     }
                 })
                 .withName("RPK16handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11561,7 +11560,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK12Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12BHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11599,7 +11598,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK12BHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KBP9A91Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11637,7 +11636,7 @@ public class Attachments {
                     }
                 })
                 .withName("KBP9A91Handguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KBP9A91CompactHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11675,7 +11674,7 @@ public class Attachments {
                     }
                 })
                 .withName("KBP9A91CompactHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KBP9A91KulaTacHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11713,7 +11712,7 @@ public class Attachments {
                     }
                 })
                 .withName("KBP9A91KulaTacHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VSSVintorezHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11752,7 +11751,7 @@ public class Attachments {
                     }
                 })
                 .withName("VSSVintorezHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ASValHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11790,7 +11789,7 @@ public class Attachments {
                     }
                 })
                 .withName("ASValHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VSSVintorezTriRailMount = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11828,7 +11827,7 @@ public class Attachments {
                     }
                 })
                 .withName("VSSVintorezTriRailMount").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK47DustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11866,7 +11865,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK47Dustcover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DragunovDustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11904,7 +11903,7 @@ public class Attachments {
                     }
                 })
                 .withName("DragunovDustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Dragunov98DustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11942,7 +11941,7 @@ public class Attachments {
                     }
                 })
                 .withName("Dragunov98DustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AKMDustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -11980,7 +11979,7 @@ public class Attachments {
                     }
                 })
                 .withName("AKMDustcover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK101DustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12018,7 +12017,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK101DustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VeprDustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12057,7 +12056,7 @@ public class Attachments {
                     }
                 })
                 .withName("VeprDustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK15DustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12096,7 +12095,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK15DustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12DustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12134,7 +12133,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK12DustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12BDustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12172,7 +12171,7 @@ public class Attachments {
                     }
                 })
                 .withName("AK12BDustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VSSVintorezDustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12210,7 +12209,7 @@ public class Attachments {
                     }
                 })
                 .withName("VSSVintorezDustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VSSMDustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12248,7 +12247,7 @@ public class Attachments {
                     }
                 })
                 .withName("VSSMDustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FNFALDustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12283,7 +12282,7 @@ public class Attachments {
                     }
                 })
                 .withName("FNFALDustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SA58DustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12319,7 +12318,7 @@ public class Attachments {
                     }
                 })
                 .withName("SA58DustCover").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FNFALGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12354,7 +12353,7 @@ public class Attachments {
                     }
                 })
                 .withName("FNFALGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FNFALStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12389,7 +12388,7 @@ public class Attachments {
                     }
                 })
                 .withName("FNFALStock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FNFALHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12424,7 +12423,7 @@ public class Attachments {
                     }
                 })
                 .withName("FNFALHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FNFALPARAHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12460,7 +12459,7 @@ public class Attachments {
                     }
                 })
                 .withName("FNFALPARAHandguard").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M4FrontSight = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12502,7 +12501,7 @@ public class Attachments {
                     }
                 })
                 .withName("M4FrontSight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M60FrontSight = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12537,7 +12536,7 @@ public class Attachments {
                     }
                 })
                 .withName("M60FrontSight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M38FrontSight = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12577,7 +12576,7 @@ public class Attachments {
                     }
                 })
                 .withName("M38FrontSight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK416FrontSight = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12625,7 +12624,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK416FrontSight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MBUSFrontSight = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -12674,7 +12673,7 @@ public class Attachments {
                     }
                 })
                 .withName("MBUSFrontSight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         LeupoldScope = new ItemScope.Builder()
                 .withOpticalZoom()
@@ -12732,7 +12731,7 @@ public class Attachments {
                     }
                 })
                 .withName("Leupold")
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         PSO1 = new ItemScope.Builder()
                 .withSniperReticle(Reticles.RETICLE_PSO1)
@@ -12795,7 +12794,7 @@ public class Attachments {
                     }
                 })
                 .withName("PSO1")
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         OKP7 = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.OKP)
@@ -12851,7 +12850,7 @@ public class Attachments {
                     }
                 })
                 .withName("okp7").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FMG9Sight = new ItemScope.Builder()
                 .withCategory(AttachmentCategory.SCOPE)
@@ -12901,7 +12900,7 @@ public class Attachments {
                     }
                 })
                 .withName("fmg9carryhandle").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Reflex = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.REFLEX)
@@ -12970,7 +12969,7 @@ public class Attachments {
                     }
                 })
                 .withName("Reflex").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         BijiaReflex = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.BIJIA)
@@ -13038,7 +13037,7 @@ public class Attachments {
                     }
                 })
                 .withName("BijiaReflex").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MicroReflex = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.MICROREFLEX)
@@ -13113,7 +13112,7 @@ public class Attachments {
                     }
                 })
                 .withName("MicroReflex").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACOG = new ItemScope.Builder()
                 .withSniperReticle(Reticles.RETICLE_ACOG)
@@ -13199,7 +13198,7 @@ public class Attachments {
                 .withPivotPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Specter = new ItemScope.Builder()
                 .withSniperReticle(Reticles.RETICLE_SPECTRE)
@@ -13270,7 +13269,7 @@ public class Attachments {
                 })
                 .withName("Specter").withTextureName("Dummy.png")
                 .withPivotPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
-                .build(modContext);
+                .build();
 
         Holographic = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.HOLO_ONE)
@@ -13341,7 +13340,7 @@ public class Attachments {
                 })
                 .withName("Holographic2").withTextureName("Dummy.png")
                 .withPivotPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
-                .build(modContext);
+                .build();
 
         HolographicAlt = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.HOLO_ONE)
@@ -13411,7 +13410,7 @@ public class Attachments {
                     }
                 })
                 .withName("HolographicAlt").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         EotechHybrid2 = new ItemScope.Builder()
                 .withSniperReticle(Reticles.RETICLE_HOLO)
@@ -13489,7 +13488,7 @@ public class Attachments {
                     }
                 })
                 .withName("EotechHybrid2").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VortexRedux = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.VORTEX)
@@ -13558,7 +13557,7 @@ public class Attachments {
                     }
                 })
                 .withName("VortexSight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MicroT1 = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.REFLEX)
@@ -13628,7 +13627,7 @@ public class Attachments {
                     }
                 })
                 .withName("MicroT1").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AimpointCompM2 = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.REFLEX)
@@ -13699,7 +13698,7 @@ public class Attachments {
                 })
                 .withName("AimpointCompM2").withTextureName("Dummy.png")
                 .withPivotPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
-                .build(modContext);
+                .build();
 
         AimpointCompM5 = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.REFLEX)
@@ -13769,7 +13768,7 @@ public class Attachments {
                     }
                 })
                 .withName("AimpointCompM5").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         RMR = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.RMR)
@@ -13833,7 +13832,7 @@ public class Attachments {
                     }
                 })
                 .withName("RMRsight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Kobra = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.KOBRA)
@@ -13903,7 +13902,7 @@ public class Attachments {
                     }
                 })
                 .withName("Kobra").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KobraGen3 = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.KOBRA)
@@ -13973,7 +13972,7 @@ public class Attachments {
                     }
                 })
                 .withName("KobraGen3").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KobraMount = new ItemScope.Builder()
                 .withHolographicReticles(Reticles.KOBRA)
@@ -14029,7 +14028,7 @@ public class Attachments {
                     }
                 })
                 .withName("KobraMount").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HP = new ItemScope.Builder()
 //                .withNightVision()
@@ -14082,7 +14081,7 @@ public class Attachments {
                     }
                 })
                 .withName("HPScope").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         LeupoldRailScope = new ItemScope.Builder()
                 .withSniperReticle(Reticles.RETICLE_1)
@@ -14150,7 +14149,7 @@ public class Attachments {
                 })
                 .withName("LeupoldRailScope")
                 .withPivotPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         NightRaider = new ItemScope.Builder()
                 .withNightVision()
@@ -14218,7 +14217,7 @@ public class Attachments {
                 .withName("NightRaiderScope")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M2A1sight = new ItemScope.Builder()
                 .withOpticalZoom()
@@ -14271,7 +14270,7 @@ public class Attachments {
                     }
                 })
                 .withName("m2a1_sight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         F2000Scope = new ItemScope.Builder()
                 .withOpticalZoom()
@@ -14333,7 +14332,7 @@ public class Attachments {
                 .withName("F2000Scope")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M202scope = new ItemScope.Builder()
                 .withOpticalZoom()
@@ -14371,7 +14370,7 @@ public class Attachments {
                 .withName("M202scope")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AUGscope = new ItemScope.Builder()
                 .withOpticalZoom()
@@ -14433,7 +14432,7 @@ public class Attachments {
                 .withName("AUGscope")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer556x45 = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.SILENCER)
@@ -14474,7 +14473,7 @@ public class Attachments {
                     }
                 })
                 .withName("Silencer556x45").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer545x39 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14514,7 +14513,7 @@ public class Attachments {
                     }
                 })
                 .withName("Silencer545x39").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer762x39 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14554,7 +14553,7 @@ public class Attachments {
                     }
                 })
                 .withName("Silencer762x39").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M32Barrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14591,7 +14590,7 @@ public class Attachments {
                 }).withName("M32Barrel")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870Pump = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14628,7 +14627,7 @@ public class Attachments {
                 }).withName("Remington870Pump")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870MagpulPump = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14665,7 +14664,7 @@ public class Attachments {
                 }).withName("Remington870MagpulPump")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870PoliceMagnumPump = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14702,7 +14701,7 @@ public class Attachments {
                 }).withName("Remington870PoliceMagnumPump")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870FABDefensePump = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14748,7 +14747,7 @@ public class Attachments {
                 }).withName("Remington870FABDefensePump")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14784,7 +14783,7 @@ public class Attachments {
                 }).withName("Remington870Stock")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870PoliceMagnumStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14820,7 +14819,7 @@ public class Attachments {
                 }).withName("Remington870PoliceMagnumStock")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870MilspecStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14869,7 +14868,7 @@ public class Attachments {
                 }).withName("Remington870MilSpecStock")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870HK416Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14918,7 +14917,7 @@ public class Attachments {
                 }).withName("Remington870HK416StockStock")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870SawedGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14954,7 +14953,7 @@ public class Attachments {
                 }).withName("Remington870SawedGrip")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870Barrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -14999,7 +14998,7 @@ public class Attachments {
                 }).withName("Remington870Barrel")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870PoliceMagnumBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15044,7 +15043,7 @@ public class Attachments {
                 }).withName("Remington870PoliceMagnumBarrel")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington870SawedOffBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15089,7 +15088,7 @@ public class Attachments {
                 }).withName("Remington870SawedBarrel")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KS23Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15125,7 +15124,7 @@ public class Attachments {
                 }).withName("KS23Stock")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KS23RaptorGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15161,7 +15160,7 @@ public class Attachments {
                 }).withName("KS23RaptorGrip")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KS23MStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15197,7 +15196,7 @@ public class Attachments {
                 }).withName("KS23MStock")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KS23Barrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15234,7 +15233,7 @@ public class Attachments {
                 }).withName("KS23Barrel")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KS23ExtendedBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15271,7 +15270,7 @@ public class Attachments {
                 }).withName("KS23ExtendedBarrel")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         RPKBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15317,7 +15316,7 @@ public class Attachments {
                 }).withName("RPKbarrel")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AKIron = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15355,7 +15354,7 @@ public class Attachments {
                 }).withName("AKIron")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12Iron = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15393,7 +15392,7 @@ public class Attachments {
                 }).withName("AK12Iron")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SilencerPBS = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15435,7 +15434,7 @@ public class Attachments {
                 }).withName("SilencerPBS")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer9mm = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15479,7 +15478,7 @@ public class Attachments {
                 }).withName("Silencer9mm")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SamuraiEdgeSuppressor = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15521,7 +15520,7 @@ public class Attachments {
                 }).withName("SamuraiEdgeSuppressor")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer9x39mm = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15562,7 +15561,7 @@ public class Attachments {
                 }).withName("Silencer9x39mm")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SuppressorKBP9A91 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15603,7 +15602,7 @@ public class Attachments {
                 }).withName("KBP9A91Suppressor")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer45ACP = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15643,7 +15642,7 @@ public class Attachments {
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 }).withName("Silencer45ACP").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SilencerEABH = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15678,7 +15677,7 @@ public class Attachments {
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 }).withName("silencer_eabh").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer762x54 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15718,7 +15717,7 @@ public class Attachments {
                     }
                 })
                 .withName("Silencer762x54").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer762x51 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15758,7 +15757,7 @@ public class Attachments {
                     }
                 })
                 .withName("Silencer762x51").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer50BMG = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -15798,7 +15797,7 @@ public class Attachments {
                     }
                 })
                 .withName("Silencer50BMG").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
 
         Silencer556x39 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
@@ -15839,7 +15838,7 @@ public class Attachments {
                     }
                 })
                 .withName("Silencer556x39").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
 
         AKMIron = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SCOPE)
@@ -15890,7 +15889,7 @@ public class Attachments {
                     }
                 })
                 .withName("AKMIron").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         TritiumRearSights = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.SCOPE)
@@ -15937,7 +15936,7 @@ public class Attachments {
                     }
                 })
                 .withName("TritiumRearSights").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MBUSRearSights = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.SCOPE)
@@ -15985,7 +15984,7 @@ public class Attachments {
                     }
                 })
                 .withName("MBUSRearSights").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HK416RearSights = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.SCOPE)
@@ -16032,7 +16031,7 @@ public class Attachments {
                     }
                 })
                 .withName("HK416RearSights").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FNFALRearSights = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.SCOPE)
@@ -16068,7 +16067,7 @@ public class Attachments {
                     }
                 })
                 .withName("FNFALRearSights").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M16A1RearSights = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -16103,7 +16102,7 @@ public class Attachments {
                     }
                 })
                 .withName("M16A1RearSight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         K2C1RearSights = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.SCOPE)
@@ -16141,7 +16140,7 @@ public class Attachments {
                     }
                 })
                 .withName("K2C1RearSight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScorpionRearSight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.SCOPE)
@@ -16177,7 +16176,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScorpionRearSight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ScorpionFrontSight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -16213,7 +16212,7 @@ public class Attachments {
                     }
                 })
                 .withName("ScorpionFrontSight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP7IronSights = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -16252,7 +16251,7 @@ public class Attachments {
                 })
                 .withName("MP7IronSights")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP7IronSightsStanding = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -16291,7 +16290,7 @@ public class Attachments {
                 })
                 .withName("MP7IronSightsStanding")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Kar98Ksight = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -16326,7 +16325,7 @@ public class Attachments {
                     }
                 })
                 .withName("Kar98Ksight").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK15ironsight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.SCOPE)
@@ -16365,7 +16364,7 @@ public class Attachments {
                 })
                 .withName("AK15ironsight")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12ironsight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
@@ -16404,7 +16403,7 @@ public class Attachments {
                 })
                 .withName("AK12ironsight")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SilencerMP7 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -16443,7 +16442,7 @@ public class Attachments {
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 }).withName("SilencerMP7").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer357 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -16478,7 +16477,7 @@ public class Attachments {
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 }).withName("Silencer357").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer57x38 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -16517,7 +16516,7 @@ public class Attachments {
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 }).withName("Silencer57x38").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
 
         Silencer12Gauge = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
@@ -16557,7 +16556,7 @@ public class Attachments {
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 }).withName("Silencer12Gauge").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
 
         Silencer300AACBlackout = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
@@ -16598,7 +16597,7 @@ public class Attachments {
                     }
                 })
                 .withName("Silencer300AACBlackout").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HoneyBadgerSilencer = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withModel(new com.paneedah.mwc.models.AACHoneyBadgerSilencer(), "gun.png")
@@ -16633,7 +16632,7 @@ public class Attachments {
                     }
                 })
                 .withName("HoneyBadgerSilencer").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Silencer65x39 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -16673,7 +16672,7 @@ public class Attachments {
                     }
                 })
                 .withName("Silencer65x39").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Laser = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.LASER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -16740,7 +16739,7 @@ public class Attachments {
                 })
                 .withRenderablePart()
                 .withName("Laser").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Laser2 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.LASER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -16797,7 +16796,7 @@ public class Attachments {
                 })
                 .withRenderablePart()
                 .withName("Laser2").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SCCYCPX2Laser = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.LASER)
@@ -16849,7 +16848,7 @@ public class Attachments {
                 .withName("SCCYCPX2Laser")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DanWessonLaser = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.LASER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -16897,7 +16896,7 @@ public class Attachments {
                 })
                 .withRenderablePart()
                 .withName("DanWessonLaser").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1928Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -16935,7 +16934,7 @@ public class Attachments {
                     }
                 })
                 .withName("M1928Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1A1Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -16973,7 +16972,7 @@ public class Attachments {
                     }
                 })
                 .withName("M1A1Grip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Grip2 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -17032,7 +17031,7 @@ public class Attachments {
                     }
                 })
                 .withName("Grip2").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         JunoGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -17081,7 +17080,7 @@ public class Attachments {
                     }
                 })
                 .withName("JunoGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         GlockStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withRenderablePart()
@@ -17122,7 +17121,7 @@ public class Attachments {
                     }
                 })
                 .withName("Glock18Cstock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VP70Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withRenderablePart()
@@ -17164,7 +17163,7 @@ public class Attachments {
                     }
                 })
                 .withName("VP70Stock").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AngledGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -17222,7 +17221,7 @@ public class Attachments {
                 })
                 .withRenderablePart()
                 .withName("AngledGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         StubbyGrip = new AttachmentBuilder<Weapon>()
                 .withRenderablePart()
@@ -17288,7 +17287,7 @@ public class Attachments {
                     }
                 })
                 .withName("StubbyGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -17349,7 +17348,7 @@ public class Attachments {
                 })
                 .withRenderablePart()
                 .withName("VGrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Bipod = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB).withModel(new com.paneedah.mwc.models.Bipod(), "bipod.png")
@@ -17403,7 +17402,7 @@ public class Attachments {
                     }
                 })
                 .withName("Bipod").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AUGgrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -17443,7 +17442,7 @@ public class Attachments {
                 })
                 .withRenderablePart()
                 .withName("AUGgrip").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         USPMatchCompensator = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -17483,7 +17482,6 @@ public class Attachments {
                 })
                 .withRenderablePart()
                 .withName("USPMatchCompensator").withTextureName("Dummy.png")
-                .build(modContext);
-
+                .build();
     }
 }

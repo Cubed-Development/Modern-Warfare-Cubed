@@ -186,6 +186,6 @@ public class ImpactGrenadeFactory implements GrenadeFactory {
 
                         .build())
 
-                .build(MWC.modContext);
+                .build();
     }
 }

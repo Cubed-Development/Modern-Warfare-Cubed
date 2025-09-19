@@ -5,7 +5,6 @@ import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import dev.redstudio.redcore.utils.NetworkUtil;
-import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;

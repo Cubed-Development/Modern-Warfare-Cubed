@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import net.minecraft.util.SoundEvent;
 
 import java.util.HashMap;
@@ -9,8 +10,8 @@ public class UniversalSoundLookup {
     private static final HashMap<String, SoundEvent> registry = new HashMap<>();
 
 
-    public static void initialize(ModContext context) {
-        registry.replaceAll((k, v) -> context.registerSound(k));
+    public static void initialize() {
+        registry.replaceAll((k, v) -> MWC.modContext.registerSound(k));
     }
 
     public static boolean hasSound(String name) {

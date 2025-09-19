@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.render;
 
-import com.paneedah.weaponlib.render.wavefront.WavefrontModel.Vertex;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
+import com.paneedah.weaponlib.render.wavefront.WavefrontModel.Vertex;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL15;
 

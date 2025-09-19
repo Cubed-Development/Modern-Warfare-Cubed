@@ -1,11 +1,11 @@
 package com.paneedah.mwc.network.handlers;
 
-import com.paneedah.mwc.network.messages.PermitMessage;
-import com.paneedah.weaponlib.CommonModContext;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
+import com.paneedah.mwc.network.messages.PermitMessage;
+import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.state.Permit;
 import dev.redstudio.redcore.utils.NetworkUtil;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -17,10 +17,7 @@ import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 @NoArgsConstructor
-@AllArgsConstructor
 public final class PermitMessageServerHandler implements IMessageHandler<PermitMessage, IMessage> {
-
-    private CommonModContext commonModContext;
 
     @Override
     public IMessage onMessage(final PermitMessage permitMessage, final MessageContext messageContext) {
@@ -30,7 +27,7 @@ public final class PermitMessageServerHandler implements IMessageHandler<PermitM
 
             playerItemInstance.setPlayer(messageContext.getServerHandler().player);
 
-            final BiConsumer<Permit<?>, PlayerItemInstance<?>> evaluator = commonModContext.getPermitManager().getPermitEvaluators().get(permit.getClass());
+            final BiConsumer<Permit<?>, PlayerItemInstance<?>> evaluator = ((ClientModContext) MWC.modContext).getPermitManager().getPermitEvaluators().get(permit.getClass());
             if (evaluator != null) {
                 evaluator.accept(permit, playerItemInstance);
             } else {

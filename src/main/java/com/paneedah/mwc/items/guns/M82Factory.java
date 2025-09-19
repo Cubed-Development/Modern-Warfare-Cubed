@@ -3,7 +3,7 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -11,7 +11,6 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -22,7 +21,7 @@ import org.lwjgl.opengl.GL11;
 
 public class M82Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("m82_barrett")
@@ -31,7 +30,7 @@ public class M82Factory implements GunFactory {
                 .withZoom(0.8f)
                 .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
                 .withMuzzlePosition(new Vec3d(-0.1480000044107437, -1.0880000026226049, -10.836000129222878))
-                .hasFlashPedals()
+                .hasFlashPetals()
                 .withMaxShots(1)
                 .withShootSound("m82")
                 .withPumpTimeout(1000)
@@ -42,9 +41,9 @@ public class M82Factory implements GunFactory {
                 .withDrawSound("as50_draw")
                 .withReloadingTime(40)
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.08f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.08f)
+                .withFlashOffsetY(0.08f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -719,6 +718,6 @@ public class M82Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

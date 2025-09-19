@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.render.bgl.instancing;
 
-import com.paneedah.weaponlib.render.vao.VAOData;
-import com.paneedah.weaponlib.render.vao.VAOLoader;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import com.paneedah.weaponlib.render.bgl.ModernUtil;
+import com.paneedah.weaponlib.render.vao.VAOData;
+import com.paneedah.weaponlib.render.vao.VAOLoader;
 import com.paneedah.weaponlib.shader.Shader;
 import lombok.Getter;
 import lombok.Setter;

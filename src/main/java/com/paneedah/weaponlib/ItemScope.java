@@ -97,7 +97,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
         }
 
         @Override
-        protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
+        protected ItemAttachment<Weapon> createAttachment() {
             if (isOpticalZoom) {
                 if (viewfinderPositioning == null) {
                     viewfinderPositioning = () -> {
@@ -109,31 +109,21 @@ public class ItemScope extends ItemAttachment<Weapon> {
             }
 
             if (!reticles.isEmpty()) {
-                this.screen = new ReflexScreen(reticlePositioning, radialCut, reticles);
-                withPostRender(this.screen);
+                screen = new ReflexScreen(reticlePositioning, radialCut, reticles);
+                withPostRender(screen);
             }
 
-            ItemScope itemScope = new ItemScope(this);
-            itemScope.modContext = modContext;
-
-            return itemScope;
+            return new ItemScope(this);
         }
 
         @Override
-        public ItemAttachment<Weapon> build(ModContext modContext) {
-            this.apply2 = (a, instance) -> {
-                float zoom = minZoom + (maxZoom - minZoom) / 2f;
-                instance.setZoom(zoom);
-            };
-            this.remove2 = (a, instance) -> {
-                instance.setZoom(1);
-            };
-            return super.build(modContext);
+        public ItemAttachment<Weapon> build() {
+            apply2 = (a, instance) -> instance.setZoom(minZoom + (maxZoom - minZoom) / 2);
+            remove2 = (a, instance) -> instance.setZoom(1);
+            return super.build();
         }
     }
 
-
-    private ModContext modContext;
     private final Builder builder;
 
     private ItemScope(Builder builder) {

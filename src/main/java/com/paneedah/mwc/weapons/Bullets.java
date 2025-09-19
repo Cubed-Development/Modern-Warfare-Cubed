@@ -3,7 +3,6 @@ package com.paneedah.mwc.weapons;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.weaponlib.ItemBullet;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import net.minecraft.init.Items;
 import org.lwjgl.opengl.GL11;
@@ -53,7 +52,7 @@ public class Bullets {
     public static ItemBullet EnergyCase;
     public static ItemBullet PlasmaCapsule;
 
-    public static void init(ModContext modContext) {
+    public static void init() {
         Grenade40mm = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Grenade40mm").withMaxStackSize(16)
                 .withModel(new com.paneedah.mwc.models.GL06Grenade(), "GL06.png")
@@ -74,7 +73,7 @@ public class Bullets {
                     GL11.glRotatef(0F, 0f, 0f, 1f);
                     GL11.glScaled(2F, 2F, 2f);
                 }).withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         M202Rocket = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("m202rocket").withMaxStackSize(4)
@@ -96,7 +95,7 @@ public class Bullets {
                     GL11.glRotatef(0F, 0f, 0f, 1f);
                     GL11.glScaled(0.4F, 0.4F, 0.4f);
                 }).withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         RPGRocket = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("rpg7_rocket").withMaxStackSize(2)
@@ -118,7 +117,7 @@ public class Bullets {
                     GL11.glRotatef(0F, 0f, 0f, 1f);
                     GL11.glScaled(0.4F, 0.4F, 0.4f);
                 }).withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         EnergyCase = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("EnergyCase")
@@ -140,7 +139,7 @@ public class Bullets {
                     GL11.glRotatef(2F, 1f, 0f, 0f);
                     GL11.glRotatef(20F, 0f, 0f, 1f);
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
-                }).withTextureName("Dummy.png").build(modContext, ItemBullet.class);
+                }).withTextureName("Dummy.png").build(ItemBullet.class);
 
         PlasmaCapsule = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("PlasmaCapsule")
@@ -163,7 +162,7 @@ public class Bullets {
                     GL11.glRotatef(-15F, 0f, 0f, 1f);
                     GL11.glScaled(1F, 1F, 1f);
                 })
-                .withTextureName("Dummy.png").build(modContext, ItemBullet.class);
+                .withTextureName("Dummy.png").build(ItemBullet.class);
 
         Bullet3006Springfield = new ItemBullet.Builder()
 
@@ -187,7 +186,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.6F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet8x58 = new ItemBullet.Builder()
 
@@ -211,7 +210,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.4F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet792x33Kurz = new ItemBullet.Builder()
 
@@ -235,7 +234,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.35F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet50BMG = new ItemBullet.Builder()
 
@@ -259,7 +258,7 @@ public class Bullets {
                     GL11.glScaled(1.7F, 1.6F, 1.7f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet20x82mm = new ItemBullet.Builder()
 
@@ -283,7 +282,7 @@ public class Bullets {
                     GL11.glScaled(1.7F, 1.6F, 1.7f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet408CT = new ItemBullet.Builder()
 
@@ -307,7 +306,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.6F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet308Winchester = new ItemBullet.Builder()
 
@@ -331,7 +330,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.5F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet277 = new ItemBullet.Builder()
 
@@ -355,7 +354,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.5F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet792x57 = new ItemBullet.Builder()
 
@@ -379,7 +378,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.6F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet762x54 = new ItemBullet.Builder()
 
@@ -403,7 +402,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.6F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet762x51 = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -426,7 +425,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.6F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Shotgun12Guage = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Shotgun12Gauge")
@@ -446,7 +445,7 @@ public class Bullets {
                     GL11.glRotatef(2F, 1f, 0f, 0f);
                     GL11.glRotatef(0F, 0f, 0f, 1f);
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
-                }).withTextureName("Dummy.png").build(modContext, ItemBullet.class);
+                }).withTextureName("Dummy.png").build(ItemBullet.class);
 
         Shotgun4G = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Shotgun4G")
@@ -466,7 +465,7 @@ public class Bullets {
                     GL11.glRotatef(2F, 1f, 0f, 0f);
                     GL11.glRotatef(0F, 0f, 0f, 1f);
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
-                }).withTextureName("Dummy.png").build(modContext, ItemBullet.class);
+                }).withTextureName("Dummy.png").build(ItemBullet.class);
 
         Bullet762x35 = new ItemBullet.Builder()
 
@@ -490,7 +489,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.4F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet765x21 = new ItemBullet.Builder()
 
@@ -514,7 +513,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 2.2F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet762x39 = new ItemBullet.Builder()
 
@@ -538,7 +537,7 @@ public class Bullets {
                     GL11.glScaled(1.6F, 1.5F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet556x45 = new ItemBullet.Builder()
 
@@ -562,7 +561,7 @@ public class Bullets {
                     GL11.glScaled(1.4F, 1.55F, 1.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet65 = new ItemBullet.Builder()
 
@@ -586,7 +585,7 @@ public class Bullets {
                     GL11.glScaled(1.4F, 1.55F, 1.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet545x39 = new ItemBullet.Builder()
 
@@ -610,7 +609,7 @@ public class Bullets {
                     GL11.glScaled(1.5F, 1.55F, 1.5f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet4570 = new ItemBullet.Builder()
 
@@ -634,7 +633,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 3F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet4440 = new ItemBullet.Builder()
 
@@ -658,7 +657,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet45ACP = new ItemBullet.Builder()
 
@@ -682,7 +681,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet357 = new ItemBullet.Builder()
 
@@ -706,7 +705,7 @@ public class Bullets {
                     GL11.glScaled(2.0F, 2.8F, 2.0f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet44 = new ItemBullet.Builder()
 
@@ -730,7 +729,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 3F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet40SW = new ItemBullet.Builder()
 
@@ -754,7 +753,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet50AE = new ItemBullet.Builder()
 
@@ -778,7 +777,7 @@ public class Bullets {
                     GL11.glScaled(2.8F, 3F, 2.8f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet50Beowulf = new ItemBullet.Builder()
 
@@ -802,7 +801,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 3F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet500 = new ItemBullet.Builder()
 
@@ -826,7 +825,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 3F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet380ACP = new ItemBullet.Builder()
 
@@ -850,7 +849,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet763x25 = new ItemBullet.Builder()
 
@@ -873,7 +872,7 @@ public class Bullets {
                     GL11.glRotatef(0F, 0f, 0f, 1f);
                     GL11.glScaled(2.4F, 2.4F, 2.4f);
                 }).withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet9x39mm = new ItemBullet.Builder()
 
@@ -897,7 +896,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet9x19mm = new ItemBullet.Builder()
 
@@ -921,7 +920,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet9x18mm = new ItemBullet.Builder()
 
@@ -945,7 +944,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet57x28mm = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
@@ -968,7 +967,7 @@ public class Bullets {
                     GL11.glScaled(1.3F, 1.2F, 1.3f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet46x30mm = new ItemBullet.Builder()
 
@@ -992,7 +991,7 @@ public class Bullets {
                     GL11.glScaled(1.3F, 1.2F, 1.3f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet10mm = new ItemBullet.Builder()
 
@@ -1016,7 +1015,7 @@ public class Bullets {
                     GL11.glScaled(2.4F, 2.8F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
 
         Bullet473x33mm = new ItemBullet.Builder()
 
@@ -1040,7 +1039,7 @@ public class Bullets {
                     GL11.glScaled(1.7F, 2F, 1.7f);
                 })
                 .withTextureName("Dummy.png")
-                .build(modContext, ItemBullet.class);
+                .build(ItemBullet.class);
     }
 
 }

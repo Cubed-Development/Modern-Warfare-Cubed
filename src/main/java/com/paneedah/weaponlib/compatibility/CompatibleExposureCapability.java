@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.Exposure;
-import com.paneedah.weaponlib.ModContext;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.entity.Entity;
@@ -23,9 +22,8 @@ import java.util.stream.Collectors;
 
 public class CompatibleExposureCapability implements ICapabilitySerializable<NBTBase> {
 
-    public static void register(ModContext modContext) {
-        CapabilityManager.INSTANCE.register(ExposureContainer.class, new ExposureContainerStorage(),
-                ExposureContainerImpl.class);
+    public static void register() {
+        CapabilityManager.INSTANCE.register(ExposureContainer.class, new ExposureContainerStorage(), ExposureContainerImpl.class);
     }
 
     public interface ExposureContainer {

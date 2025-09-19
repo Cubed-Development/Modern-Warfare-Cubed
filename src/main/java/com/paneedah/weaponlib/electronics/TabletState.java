@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.electronics;
 
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
 

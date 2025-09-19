@@ -3,7 +3,7 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -11,7 +11,6 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -22,7 +21,7 @@ import org.lwjgl.opengl.GL11;
 
 public class MalyukFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("malyuk")
@@ -30,7 +29,7 @@ public class MalyukFactory implements GunFactory {
                 .withRecoil(3.5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.RIFLE)
-                .hasFlashPedals()
+                .hasFlashPetals()
                 .withMuzzlePosition(new Vec3d(-0.12000000357627887, -0.7399999922513956, -3.7999999195337324))
                 .withMaxShots(1, Integer.MAX_VALUE)
                 //.withMaxShots(5)
@@ -42,9 +41,9 @@ public class MalyukFactory implements GunFactory {
                 .withDrawSound("ak_draw")
                 .withReloadingTime(45)
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(0.5f)
+                .withFlashOffsetX(0.12f)
+                .withFlashOffsetY(0.16f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -774,7 +773,7 @@ public class MalyukFactory implements GunFactory {
                 .withSpawnEntityDamage(6.6f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
-                .build(MWC.modContext);
+                .build();
     }
 }
 

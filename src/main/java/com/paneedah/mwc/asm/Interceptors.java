@@ -1,5 +1,6 @@
 package com.paneedah.mwc.asm;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.gui.HUD;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.*;
@@ -338,35 +339,25 @@ public class Interceptors {
         }
 
         nsm.applyWorld();
-    	
-    	/*
-    	if(weaponInstance != null) {
-      		   ClientModContext context = (ClientModContext) weaponInstance.getWeapon().getModContext();
-              MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager = weaponInstance.getWeapon().getRenderer().getStateManager(player);
-             
-              ScreenShakingAnimationManager yawPitchAnimationManager = context.getPlayerRawPitchAnimationManager();
-              yawPitchAnimationManager.update(player, weaponInstance, stateManager != null ? stateManager.getLastState() : null);
-         }
-    		*/
 
-
+//    	if (weaponInstance != null) {
+//              final MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager = weaponInstance.getWeapon().getRenderer().getStateManager(player);
+//              final ScreenShakingAnimationManager yawPitchAnimationManager = ((ClientModContext) MWC.modContext).getPlayerRawPitchAnimationManager();
+//
+//              yawPitchAnimationManager.update(player, weaponInstance, stateManager != null ? stateManager.getLastState() : null);
+//         }
     }
 
     private static PlayerWeaponInstance getPlayerWeaponInstance() {
-        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
-        ItemStack itemStack = player.getHeldItemMainhand();
-        PlayerWeaponInstance weaponInstance = null;
-        Item item = itemStack.getItem();
-        if (item != null && item instanceof Weapon) {
-            Weapon weapon = (Weapon) item;
-            ClientModContext context = (ClientModContext) weapon.getModContext();
-            weaponInstance = context.getMainHeldWeapon();
-        }
-        return weaponInstance;
+        final EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
+
+        if (player.getHeldItemMainhand().getItem() instanceof Weapon)
+            return MWC.modContext.getMainHeldWeapon();
+
+        return null;
     }
 
     public static boolean setupViewBobbing(float partialTicks) {
-    	
     	/*
     	GlStateManager.translate(2.0, 0.0, 0.0);
     	GlStateManager.rotate(45f, 0, 1, 0);
@@ -377,13 +368,10 @@ public class Interceptors {
         }
 
 
-        if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
-            PlayerWeaponInstance pwi = ClientModContext.getContext().getMainHeldWeapon();
-
+        if (MWC.modContext != null && MWC.modContext.getMainHeldWeapon() != null) {
+            PlayerWeaponInstance pwi = MWC.modContext.getMainHeldWeapon(); // ! TODO: what???
 
             nc.update();
-
-            //System.out.println(ClientModContext.getContext());
         }
 
 
@@ -414,7 +402,7 @@ public class Interceptors {
         //ClientValueRepo.forward += MC.player.moveForward/25f;
 
 
-        PlayerWeaponInstance pwi = ClientModContext.getContext().getMainHeldWeapon();
+        PlayerWeaponInstance pwi = MWC.modContext.getMainHeldWeapon();
 
 
         if (pwi == null || !pwi.isAimed()) {
@@ -739,8 +727,8 @@ public class Interceptors {
     public static void turn(EntityPlayer player, float yawDelta, float pitchDelta) {
         //if(1+1==2) return;'
 
-        if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
-            PlayerWeaponInstance pwi = ClientModContext.getContext().getMainHeldWeapon();
+        if (MWC.modContext != null && MWC.modContext.getMainHeldWeapon() != null) {
+            PlayerWeaponInstance pwi = MWC.modContext.getMainHeldWeapon();
             if (HUD.isInModifyingState(pwi) || HUD.isInAltModifyingState(pwi)) {
                 yawDelta *= 0.01f;
                 pitchDelta *= 0.01f;
@@ -795,7 +783,7 @@ public class Interceptors {
 
 
         // Scope sensitivity adjustment
-        PlayerWeaponInstance weaponInstance = ClientModContext.getContext().getMainHeldWeapon();
+        PlayerWeaponInstance weaponInstance = MWC.modContext.getMainHeldWeapon();
         if (weaponInstance != null && weaponInstance.isAimed() && weaponInstance.getScope() != null && weaponInstance.getScope().isOptical()) {
 
             //System.out.println(weaponInstance.getZoom());

@@ -19,7 +19,7 @@ import net.minecraft.util.SoundEvent;
 
 public interface ModContext {
 
-    boolean isClient();
+    boolean isClient(); // ! TODO: Remove
 
     void preInitEnd(Object mod);
 

@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.crafting.workbench;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.network.messages.CraftingStationClientMessage;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.base.BlockStation;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import net.minecraft.block.material.Material;
@@ -52,13 +52,13 @@ public class WorkbenchBlock extends BlockStation {
     );
 
 
-    public WorkbenchBlock(ModContext context, String name, Material materialIn) {
-        super(context, name, materialIn);
+    public WorkbenchBlock(String name, Material materialIn) {
+        super(name, materialIn);
     }
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        playerIn.openGui(modContext.getMod(), GuiHandler.WORKBENCH_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+        playerIn.openGui(MWC.modContext.getMod(), GuiHandler.WORKBENCH_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
         if (hand == EnumHand.MAIN_HAND) {
             playerIn.swingArm(hand);
             if (!worldIn.isRemote) {

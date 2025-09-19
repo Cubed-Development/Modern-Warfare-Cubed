@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
@@ -29,8 +30,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 
 public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraftingRecipe, IHasModel {
 
@@ -166,12 +167,11 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraft
             return this;
         }
 
-        public ItemVest build(ModContext modContext) {
-            if (name == null) {
+        public ItemVest build() {
+            if (name == null)
                 throw new IllegalStateException("ItemVest name not set");
-            }
 
-            ItemVest item = new ItemVest(modContext, percentDamageBlocked, durability);
+            ItemVest item = new ItemVest(percentDamageBlocked, durability);
 
             // Register model and texture for the item
             ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
@@ -205,16 +205,14 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraft
             }
 
             // Register the item with the mod context as renderable
-            modContext.registerRenderableItem(
+            MWC.modContext.registerRenderableItem(
                     name,
                     item,
                     FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null
             );
 
-            // Queue item for client-side processing if on client side
-            if (FMLCommonHandler.instance().getSide().isClient()) {
+            if (FMLCommonHandler.instance().getSide().isClient())
                 COOKING_QUEUE.add(item);
-            }
 
             return item;
         }
@@ -247,7 +245,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraft
     }
 
 
-    public ItemVest(ModContext context, double percentDamageBlocked, int durability) {
+    public ItemVest(double percentDamageBlocked, int durability) {
         this.percentDamageBlocked = percentDamageBlocked;
         this.damageReduceAmount = 1;
         this.durability = durability;

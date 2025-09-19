@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
@@ -16,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 public class Kar98KFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("Kar98K")
@@ -41,9 +40,9 @@ public class Kar98KFactory implements GunFactory {
 //        .withReloadIterationSound("loadshell")
                 .withReloadingTime(500)
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 1f)
-                .withFlashOffsetX(() -> 0.08f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(1f)
+                .withFlashOffsetX(0.08f)
+                .withFlashOffsetY(0.16f)
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
@@ -2215,6 +2214,6 @@ public class Kar98KFactory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

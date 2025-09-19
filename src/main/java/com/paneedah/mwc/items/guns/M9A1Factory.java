@@ -3,7 +3,7 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -11,7 +11,6 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -23,7 +22,7 @@ import org.lwjgl.opengl.GL11;
 
 public class M9A1Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("m9a1")
@@ -42,9 +41,9 @@ public class M9A1Factory implements GunFactory {
                 .withDrawSound("handgun_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.13f)
+                .withFlashOffsetY(0.14f)
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -582,6 +581,6 @@ public class M9A1Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.02f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

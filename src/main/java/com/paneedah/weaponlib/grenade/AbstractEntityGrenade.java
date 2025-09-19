@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.weaponlib.EntityBounceable;
-import com.paneedah.weaponlib.ModContext;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,8 +18,8 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
 
     protected ItemGrenade itemGrenade;
 
-    protected AbstractEntityGrenade(ModContext modContext, ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
-        super(modContext, thrower.world, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
+    protected AbstractEntityGrenade(ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
+        super(thrower.world, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
         this.itemGrenade = itemGrenade;
     }
 

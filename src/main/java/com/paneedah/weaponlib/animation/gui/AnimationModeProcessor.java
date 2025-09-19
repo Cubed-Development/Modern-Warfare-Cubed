@@ -1,8 +1,12 @@
 package com.paneedah.weaponlib.animation.gui;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.rendering.Transform;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.ClientEventHandler;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.Part;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.MatrixHelper;
@@ -186,7 +190,7 @@ public class AnimationModeProcessor {
     public Matrix4f currentPartMatrix = new Matrix4f();
 
     public Builder getCurrentWeaponRenderBuilder() {
-        return ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder();
+        return MWC.modContext.getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder();
     }
 
     public Transform slideTransform = Transform.getZero();
@@ -213,10 +217,10 @@ public class AnimationModeProcessor {
         //this.transformMode = 1;
 
         // Check for valid context and main held weapon
-        if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
-            if (this.pwi == null || pwi != ClientModContext.getContext().getMainHeldWeapon()) {
+        if (MWC.modContext != null && MWC.modContext.getMainHeldWeapon() != null) {
+            if (this.pwi == null || pwi != MWC.modContext.getMainHeldWeapon()) {
                 Builder builder = getCurrentWeaponRenderBuilder();
-                pwi = ClientModContext.getContext().getMainHeldWeapon();
+                pwi = MWC.modContext.getMainHeldWeapon();
                 backupFP = builder.firstPersonTransform.duplicate();
                 backupFPL = builder.firstPersonLeftHandTransform.duplicate();
                 backupFPR = builder.firstPersonRightHandTransform.duplicate();

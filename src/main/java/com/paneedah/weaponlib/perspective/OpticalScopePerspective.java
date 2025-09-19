@@ -1,7 +1,10 @@
 package com.paneedah.weaponlib.perspective;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.ItemScope;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.shader.Shader;
 import com.paneedah.weaponlib.shader.ShaderLoader;
 import com.paneedah.weaponlib.shader.Uniform;
@@ -24,15 +27,17 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
     }
 
     @Override
-    public void activate(ClientModContext modContext, PerspectiveManager manager) {
-        PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
+    public void activate(PerspectiveManager manager) {
+        final PlayerWeaponInstance instance = MWC.modContext.getMainHeldWeapon();
+
         if (instance != null) {
-            ItemScope scope = instance.getScope();
-            if (scope.isOptical()) {
+            final ItemScope scope = instance.getScope();
+
+            if (scope.isOptical())
                 setSize(scope.getWidth(), scope.getHeight());
-            }
         }
-        super.activate(modContext, manager);
+
+        super.activate(manager);
     }
 
     @Override
@@ -66,17 +71,14 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
 
     @Override
     public void update(TickEvent.RenderTickEvent event) {
+        final PlayerWeaponInstance instance = MWC.modContext.getMainHeldWeapon();
 
-        PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
         if (instance != null && instance.isAimed()) {
-            ItemScope scope = instance.getScope();
-
+            final ItemScope scope = instance.getScope();
 
             if (scope.isOptical()) {
                 //setSize(1920, DEFAULT_HEIGHT);
-
                 setSize(scope.getWidth(), scope.getHeight());
-
             }
 
             super.update(event);

@@ -1,9 +1,7 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.vehicle.engines.McLarenSennaEngine;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
 import com.paneedah.weaponlib.vehicle.jimphysics.Chassis;
 import com.paneedah.weaponlib.vehicle.jimphysics.Dimensions;
@@ -20,7 +18,7 @@ import org.lwjgl.opengl.GL11;
 public class McLarenSennaFactory implements VehicleFactory {
 
     @Override
-    public void createVehicle(ModContext modContext) {
+    public void createVehicle() {
         StatefulRenderer<VehicleRenderableState> renderer = null;
 
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
@@ -188,7 +186,7 @@ public class McLarenSennaFactory implements VehicleFactory {
                                 1.000000f, 1.000000f, 1.000000f
                         );
 
-                    }).build(modContext, VehiclePart.MAIN);
+                    }).build(VehiclePart.MAIN);
         }
 
         new EntityVehicleConfiguration.Builder()
@@ -236,7 +234,7 @@ public class McLarenSennaFactory implements VehicleFactory {
                 .withOBBDimensions(3.5, 2.5, 1.75)
                 .withSeat(new Vec3d(-0.15, -0.4, 0.5))
                 .withRenderer(renderer)
-                .build(modContext);
+                .build();
     }
 
 }

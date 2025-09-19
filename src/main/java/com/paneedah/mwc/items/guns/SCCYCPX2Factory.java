@@ -6,14 +6,13 @@ import com.paneedah.mwc.models.Glock18C;
 import com.paneedah.mwc.models.M9A1frontsight;
 import com.paneedah.mwc.models.M9A1rearsight;
 import com.paneedah.mwc.models.SCCYCPX2Slide;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -24,7 +23,7 @@ import org.lwjgl.opengl.GL11;
 
 public class SCCYCPX2Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("sccy_cpx_2")
@@ -42,9 +41,9 @@ public class SCCYCPX2Factory implements GunFactory {
                 .withDrawSound("handgun_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.18f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.13f)
+                .withFlashOffsetY(0.18f)
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -494,6 +493,6 @@ public class SCCYCPX2Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.02f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.instancing.PlayerMagazineInstance;
 import com.paneedah.mwc.instancing.Tags;
@@ -45,28 +46,22 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
         }
 
         @Override
-        protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
+        protected ItemAttachment<Weapon> createAttachment() {
             final ItemMagazine magazine = new ItemMagazine(getModel(), getTextureName(), capacity);
 
             magazine.compatibleBullets = compatibleBullets;
 
-            if (reloadSound != null) {
-                magazine.reloadSound = modContext.registerSound(reloadSound);
-            }
+            if (reloadSound != null)
+                magazine.reloadSound = MWC.modContext.registerSound(reloadSound);
 
-            if (unloadSound != null) {
-                magazine.unloadSound = modContext.registerSound(unloadSound);
-            }
-
-            magazine.modContext = modContext;
+            if (unloadSound != null)
+                magazine.unloadSound = MWC.modContext.registerSound(unloadSound);
 
             informationProvider = stack -> TextFormatting.GREEN + "Ammunition: " + TextFormatting.GRAY + Tags.getAmmo(stack) + "/" + capacity;
 
             return magazine;
         }
     }
-
-    private ModContext modContext;
 
     @Getter private final int capacity;
     @Getter private List<ItemBullet> compatibleBullets;
@@ -123,16 +118,16 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
 
     @Override
     public void update(EntityPlayer player) {
-        modContext.getMagazineReloadAspect().updateMainHeldItem(player);
+        MWC.modContext.getMagazineReloadAspect().updateMainHeldItem(player);
     }
 
     @Override
     public void reloadMainHeldItemForPlayer(EntityPlayer player) {
-        modContext.getMagazineReloadAspect().reloadMainHeldItem(player);
+        MWC.modContext.getMagazineReloadAspect().reloadMainHeldItem(player);
     }
 
     @Override
     public void unloadMainHeldItemForPlayer(EntityPlayer player) {
-        modContext.getMagazineReloadAspect().unloadMainHeldItem(player);
+        MWC.modContext.getMagazineReloadAspect().unloadMainHeldItem(player);
     }
 }

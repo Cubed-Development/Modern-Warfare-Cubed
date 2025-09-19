@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.render.shells;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
-import com.paneedah.weaponlib.render.wavefront.WavefrontModel;
 import com.paneedah.weaponlib.render.bgl.instancing.InstancedAttribute;
 import com.paneedah.weaponlib.render.bgl.instancing.ModelInstancedObject;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import com.paneedah.weaponlib.render.wavefront.WavefrontModel;
 import com.paneedah.weaponlib.shader.Uniform;
 import net.minecraft.util.math.BlockPos;
 import org.lwjgl.opengl.GL20;

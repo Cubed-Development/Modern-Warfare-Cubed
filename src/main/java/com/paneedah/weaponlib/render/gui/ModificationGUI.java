@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render.gui;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.utils.LangUtil;
 import com.paneedah.weaponlib.*;
@@ -19,8 +20,8 @@ import org.lwjgl.input.Mouse;
 
 import java.util.ArrayList;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.weaponlib.render.gui.ColorPalette.*;
 
 /**
@@ -53,8 +54,6 @@ public class ModificationGUI {
 
 
     private static final int SHEET_SIZE = 768;
-
-
 
 
     private static final int[][] DEFAULT_POSITION = new int[][]{{-50, 50}, {120, 75}, {150, 0}, {100, -50},
@@ -513,16 +512,12 @@ public class ModificationGUI {
 
     }
 
-    public void render(ModContext modContext) {
+    public void render() {
+        if (!hasBeenSetup)
+            setupForWeapon(MWC.modContext.getMainHeldWeapon());
 
-
-        if (!hasBeenSetup) {
-            setupForWeapon(modContext.getMainHeldWeapon());
-        }
-
-
-        PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
-        Weapon weapon = weaponInstance.getWeapon();
+        final PlayerWeaponInstance weaponInstance = MWC.modContext.getMainHeldWeapon();
+        final Weapon weapon = weaponInstance.getWeapon();
 
         // Gets scaled screen coordinates and mouse coordinaties
         ScaledResolution scaledresolution = new ScaledResolution(MC);
@@ -550,15 +545,13 @@ public class ModificationGUI {
             tabList.add(activeTab);
         }
 
-
         // Draws all the tabs
         for (ModificationTab mt : tabList) {
             if (mt.group != currentGroup || mt.hidden) {
                 continue;
             }
-            drawModificationTab(scaledresolution, mt, mouseX, mouseY, modContext.getMainHeldWeapon(), modContext);
+            drawModificationTab(scaledresolution, mt, mouseX, mouseY, MWC.modContext.getMainHeldWeapon());
         }
-
 
         GlStateManager.popMatrix();
         GlStateManager.pushMatrix();
@@ -571,7 +564,6 @@ public class ModificationGUI {
         GUIRenderHelper.drawColoredRectangle(140.5, 20, 7.5, 175, SIDEBAR_ALPHA, BLACK);
         GUIRenderHelper.drawColoredRectangle(20, 200, 128, 125, SIDEBAR_ALPHA, BLACK);
 
-
         float firerate = weaponInstance.getFireRate();
         float inaccuracy = weaponInstance.getWeapon().getInaccuracy() / 10f;
         float damage = weaponInstance.getWeapon().getSpawnEntityDamage() / 20;
@@ -582,30 +574,18 @@ public class ModificationGUI {
         // Update chart
         radarChart.updateSet(new float[]{damage, recoil, inaccuracy, firerate, velocity});
 
-
         // Render radar chart on screen
         GlStateManager.disableTexture2D();
         radarChart.render(84, 275.5, mouseX, mouseY, SIDEBAR_SCALE);
         GlStateManager.enableTexture2D();
 
         // Write titles in
-        GUIRenderHelper.drawScaledString(
-                TextFormatting.GOLD + "Weapon Stats",
-                30, 205, 1.0, WHITE);
-
-        GUIRenderHelper.drawScaledString(
-                TextFormatting.GOLD + LangUtil.formatTranslationKey(weapon.getTranslationKey()),
-                30, 30, 1.0, WHITE);
-        GUIRenderHelper.drawScaledString(
-                "Damage :: " + TextFormatting.GOLD + String.format("%.2f", (BalancePackManager.getNetGunDamage(weapon))),
-                30, 60, 1, WHITE);
-        GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + String.format("%.2f", (weaponInstance.getRecoil())),
-                30, 75, 1, WHITE);
-        GUIRenderHelper.drawScaledString("Firerate :: " + TextFormatting.GOLD + weaponInstance.getFireRate(), 30, 90, 1,
-                WHITE);
-        GUIRenderHelper.drawScaledString(
-                "Inaccuracy :: " + TextFormatting.GOLD + String.format("%.1f", (weaponInstance.getInaccuracy())), 30,
-                105, 1, WHITE);
+        GUIRenderHelper.drawScaledString(TextFormatting.GOLD + "Weapon Stats", 30, 205, 1.0, WHITE);
+        GUIRenderHelper.drawScaledString(TextFormatting.GOLD + LangUtil.formatTranslationKey(weapon.getTranslationKey()), 30, 30, 1.0, WHITE);
+        GUIRenderHelper.drawScaledString("Damage :: " + TextFormatting.GOLD + String.format("%.2f", (BalancePackManager.getNetGunDamage(weapon))), 30, 60, 1, WHITE);
+        GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + String.format("%.2f", (weaponInstance.getRecoil())), 30, 75, 1, WHITE);
+        GUIRenderHelper.drawScaledString("Firerate :: " + TextFormatting.GOLD + weaponInstance.getFireRate(), 30, 90, 1, WHITE);
+        GUIRenderHelper.drawScaledString("Inaccuracy :: " + TextFormatting.GOLD + String.format("%.1f", (weaponInstance.getInaccuracy())), 30, 105, 1, WHITE);
 
         GlStateManager.popMatrix();
 
@@ -637,55 +617,38 @@ public class ModificationGUI {
 
 
             if (groupSelector.checkBounding(0, 0, mouseX, mouseY, 1.0) || (tabHovered == -1 && ModificationGroup.fromID(groupID) == currentGroup)) {
-
-
-                TexturedRect groupSelector2 = new TexturedRect(scaledresolution.getScaledWidth_double() - 13,
-                        scaledresolution.getScaledHeight_double() - 73.5 - (18 * groupID), 413, 402, 46, 46, 768, 768,
-                        0.25);
-
+                TexturedRect groupSelector2 = new TexturedRect(scaledresolution.getScaledWidth_double() - 13, scaledresolution.getScaledHeight_double() - 73.5 - (18 * groupID), 413, 402, 46, 46, 768, 768, 0.25);
                 groupSelector2.render();
                 String text = ModificationGroup.getName(groupID) + " Mode";
                 setAlpha(0.5f);
                 GUIRenderHelper.drawTexturedScaledRect(scaledresolution.getScaledWidth_double() - 134, scaledresolution.getScaledHeight_double() - 74.5 - (18 * groupID), 90, 624, 390, 45, 768, 768, 0.3);
                 setAlpha(1.0f);
 
-
                 GUIRenderHelper.drawAlignedString(text, StringAlignment.RIGHT, true, scaledresolution.getScaledWidth_double() - 18, scaledresolution.getScaledHeight_double() - 75 - (18 * groupID), SIDEBAR_SCALE, WHITE);
-
-                //System.out.println("hi ");
 
                 if (isInClick && groupSelector.checkBounding(0, 0, mouseX, mouseY, 1.0)) {
                     // Click on a certain group
                     currentGroup = ModificationGroup.fromID(groupID);
-
                     weaponInstance.setAltModificationModeEnabled(currentGroup == ModificationGroup.MODIFICATION);
-
                     activeTab = null;
                 }
             }
         }
-        if (!nullHoverTab) {
+
+        if (!nullHoverTab)
             tabHovered = -1;
-        }
 
-
-        // Reset click detection
-        // (Rememeber they stay persistent)
+        // Reset click detection (Rememeber they stay persistent)
         isInClick = false;
 
         GlStateManager.enableTexture2D();
     }
 
-
-    public void drawModificationTab(ScaledResolution sr, ModificationTab tab, int mouseX, int mouseY,
-                                    PlayerWeaponInstance pwi, ModContext modcontext) {
-
-
+    public void drawModificationTab(ScaledResolution sr, ModificationTab tab, int mouseX, int mouseY, PlayerWeaponInstance pwi) {
         // Set transparency value
         float guiTransparency = TAB_ALPHA;
-        if (activeTab != null && tab != activeTab) {
+        if (activeTab != null && tab != activeTab)
             guiTransparency = TAB_TRANSPARENT_ALPHA;
-        }
 
         double scale = TAB_SCALE;
         double x = sr.getScaledWidth_double() / 2 - tab.x;
@@ -704,11 +667,10 @@ public class ModificationGUI {
 
         ArrayList<FlaggedAttachment> inventory;
         if (!creativeMode) {
-            inventory = modcontext.getAttachmentAspect().getInventoryAttachments(category,
-                    pwi);
+            inventory = MWC.modContext.getAttachmentAspect().getInventoryAttachments(category, pwi);
         } else {
             inventory = new ArrayList<>();
-            for (CompatibleAttachment<? extends AttachmentContainer> compat : modcontext.getMainHeldWeapon().getWeapon().getCompatibleAttachments(category)) {
+            for (CompatibleAttachment<? extends AttachmentContainer> compat : MWC.modContext.getMainHeldWeapon().getWeapon().getCompatibleAttachments(category)) {
 
                 FlaggedAttachment flaggedAttachment = new FlaggedAttachment(new ItemStack(compat.getAttachment()), (ItemAttachment<Weapon>) compat.getAttachment());
 
@@ -720,15 +682,15 @@ public class ModificationGUI {
 
                 // If this is not a compatible attachment,
                 // we do not care either
-                if (!modcontext.getAttachmentAspect().isCompatibleAttachment((ItemAttachment<Weapon>) compat.getAttachment(), pwi)) {
+                if (!MWC.modContext.getAttachmentAspect().isCompatibleAttachment((ItemAttachment<Weapon>) compat.getAttachment(), pwi)) {
                     continue;
                 }
 
-                modcontext.getAttachmentAspect();
+                MWC.modContext.getAttachmentAspect();
                 // We do want to display if it is a potential attachment
                 // but there are conditions to be met
                 if (!WeaponAttachmentAspect.hasRequiredAttachments((ItemAttachment<Weapon>) compat.getAttachment(), pwi)) {
-                    flaggedAttachment.setRequiredParts(modcontext.getAttachmentAspect().getRequiredParts((ItemAttachment<Weapon>) compat.getAttachment(), pwi));
+                    flaggedAttachment.setRequiredParts(MWC.modContext.getAttachmentAspect().getRequiredParts((ItemAttachment<Weapon>) compat.getAttachment(), pwi));
                 }
 
                 inventory.add(flaggedAttachment);
@@ -816,7 +778,7 @@ public class ModificationGUI {
 
 
         // Does something require this attachment?
-        boolean lockOutState = WeaponAttachmentAspect.isRequired(primaryAttachment, modcontext.getMainHeldWeapon());
+        boolean lockOutState = WeaponAttachmentAspect.isRequired(primaryAttachment, MWC.modContext.getMainHeldWeapon());
 
 
         //	System.out.println(dropdownCancel);
@@ -833,8 +795,7 @@ public class ModificationGUI {
                     new TextComponentTranslation(primaryAttachment.getTranslationKey() + ".name").getFormattedText());
 
             if (lockOutState) {
-                ArrayList<ItemAttachment<Weapon>> requirees = WeaponAttachmentAspect.whatRequiredFor(primaryAttachment,
-                        pwi);
+                ArrayList<ItemAttachment<Weapon>> requirees = WeaponAttachmentAspect.whatRequiredFor(primaryAttachment, pwi);
                 tooltip.addLine(TextFormatting.BOLD + "Is Required By:");
                 for (ItemAttachment<Weapon> req : requirees)
                     tooltip.addBulletPoint(LangUtil.formatTranslationKey(req.getTranslationKey()));
@@ -843,9 +804,7 @@ public class ModificationGUI {
             if (isInClick) {
                 MC.player.playSound(UniversalSoundLookup.lookupSound("attachmentoff"), 10, 1);
 
-                modcontext.getAttachmentAspect().forceAttachment(category, modcontext.getMainHeldWeapon(),
-                        ItemStack.EMPTY);
-
+                MWC.modContext.getAttachmentAspect().forceAttachment(category, MWC.modContext.getMainHeldWeapon(), ItemStack.EMPTY);
             }
             setAlpha(guiTransparency);
 
@@ -1021,8 +980,7 @@ public class ModificationGUI {
                         if (isInClick) {
                             MC.player.playSound(UniversalSoundLookup.lookupSound("attachmenton"), 10, 1);
 
-                            modcontext.getAttachmentAspect().forceAttachment(category, modcontext.getMainHeldWeapon(),
-                                    flag.getItemStack());
+                            MWC.modContext.getAttachmentAspect().forceAttachment(category, MWC.modContext.getMainHeldWeapon(), flag.getItemStack());
                         }
                     }
                 }

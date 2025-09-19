@@ -1,7 +1,7 @@
 package com.paneedah.mwc.utils;
 
-import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.mwc.instancing.Tags;
+import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.jafama.FastMath;

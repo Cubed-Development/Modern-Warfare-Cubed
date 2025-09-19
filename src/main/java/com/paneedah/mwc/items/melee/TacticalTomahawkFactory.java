@@ -231,6 +231,6 @@ public class TacticalTomahawkFactory implements MeleeFactory {
 
                                 .build())
 
-                .build(MWC.modContext);
+                .build();
     }
 }

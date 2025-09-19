@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.tile;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ClientEventHandler;
-import com.paneedah.weaponlib.ModContext;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -105,14 +105,13 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
                 getBaseClass(), modEntityId, this);
     }
 
-    public void build(ModContext modContext) {
+    public void build() {
 
         Class<? extends TileEntity> tileEntityClass = createTileEntityClass();
 
         CustomTileEntityBlock tileEntityBlock = new CustomTileEntityBlock(material, tileEntityClass);
-        if (!FMLCommonHandler.instance().getSide().isServer()) {
+        if (!FMLCommonHandler.instance().getSide().isServer())
             ClientEventHandler.BLANKMAPPED_LIST.add(tileEntityBlock);
-        }
         tileEntityBlock.setTranslationKey(ID + "_" + name);
         tileEntityBlock.setHardness(hardness);
         tileEntityBlock.setResistance(resistance);
@@ -124,9 +123,8 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         //System.out.println("RUNNING!");
 
         if (tileEntityBlock.getRegistryName() == null) {
-            if (tileEntityBlock.getTranslationKey().length() < ID.length() + 2 + 5) {
+            if (tileEntityBlock.getTranslationKey().length() < ID.length() + 2 + 5)
                 throw new IllegalArgumentException("Unlocalize block name too short " + tileEntityBlock.getTranslationKey());
-            }
             String unlocalizedName = tileEntityBlock.getTranslationKey().toLowerCase();
             String registryName = unlocalizedName.substring(5 + ID.length() + 1);
             tileEntityBlock.setRegistryName(ID, registryName);
@@ -134,25 +132,21 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
 
         ForgeRegistries.BLOCKS.register(tileEntityBlock);
         ItemBlock itemBlock = new ItemBlock(tileEntityBlock);
+
         // TODO: introduce registerItem()
 
-        modContext.registerRenderableItem(tileEntityBlock.getRegistryName(), itemBlock, null);
+        MWC.modContext.registerRenderableItem(tileEntityBlock.getRegistryName(), itemBlock, null);
 
-        if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-            RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, modelClassName,
-                    textureResource, positioning, tileEntityBlock);
-        }
+        if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+            RendererRegistration.registerRenderableEntity(name, tileEntityClass, modelClassName, textureResource, positioning, tileEntityBlock);
     }
 
     private static class RendererRegistration {
         /*
          * This method is wrapped into a static class to facilitate conditional client-side only loading
          */
-        private static <T extends CustomTileEntityConfiguration<T>> void registerRenderableEntity(
-                ModContext context, String name, Class<? extends TileEntity> tileEntityClass, String modelClassName,
-                ResourceLocation textureResource, Consumer<TileEntity> positioning, CustomTileEntityBlock tileEntityBlock) {
+        private static <T extends CustomTileEntityConfiguration<T>> void registerRenderableEntity(String name, Class<? extends TileEntity> tileEntityClass, String modelClassName, ResourceLocation textureResource, Consumer<TileEntity> positioning, CustomTileEntityBlock tileEntityBlock) {
             try {
-
 //                MC.getRenderItem().getItemModelMesher()
 //                    .register(Item.getItemFromBlock(tileEntityBlock), 0,
 //                        new ModelResourceLocation(ID + ":" + name, "inventory"));

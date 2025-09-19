@@ -5,8 +5,6 @@ import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakingAnimatio
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
-import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
-import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
 import com.paneedah.weaponlib.electronics.EntityWirelessCamera;
 import com.paneedah.weaponlib.electronics.WirelessCameraRenderer;
 import com.paneedah.weaponlib.grenade.*;
@@ -32,7 +30,6 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ClientModContext extends CommonModContext {
 
-    protected static ClientModContext currentContext;
     private ClientEventHandler clientEventHandler;
     private CompatibleRenderingRegistry rendererRegistry;
 
@@ -47,15 +44,9 @@ public class ClientModContext extends CommonModContext {
 
     @Getter private ScreenShakingAnimationManager playerRawPitchAnimationManager;
 
-    public static ClientModContext getContext() {
-        return currentContext;
-    }
-
     @Override
     public void preInit(Object mod) {
         super.preInit(mod);
-
-        currentContext = new ClientModContext();
 
         aspectRatio = (float) MC.displayWidth / MC.displayHeight;
 
@@ -67,11 +58,11 @@ public class ClientModContext extends CommonModContext {
 
         rendererRegistry.preInit();
 
-        MinecraftForge.EVENT_BUS.register(new WeaponEventHandler(this));
+        MinecraftForge.EVENT_BUS.register(new WeaponEventHandler());
 
         KeyBindings.init();
 
-        clientEventHandler = new ClientEventHandler(this);
+        clientEventHandler = new ClientEventHandler();
         MinecraftForge.EVENT_BUS.register(clientEventHandler);
 
         MinecraftForge.EVENT_BUS.register(InventoryTabs.getInstance());
@@ -84,9 +75,6 @@ public class ClientModContext extends CommonModContext {
         this.effectManager = new ClientEffectManager();
 
         this.playerRawPitchAnimationManager = new ScreenShakingAnimationManager();
-
-        GUIContainerWorkbench.setModContext(this);
-        GUIContainerAmmoPress.setModContext(this);
     }
 
     @Override

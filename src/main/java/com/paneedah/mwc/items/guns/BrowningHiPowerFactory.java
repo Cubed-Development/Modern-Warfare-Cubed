@@ -5,7 +5,6 @@ import com.paneedah.mwc.models.BrowningHiPower;
 import com.paneedah.mwc.models.Emp1911Slide;
 import com.paneedah.mwc.models.M1911frontsight;
 import com.paneedah.mwc.models.makarovrearsight;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -21,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 
 public class BrowningHiPowerFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("browning_hi_power")
@@ -39,9 +38,9 @@ public class BrowningHiPowerFactory implements GunFactory {
                 .withDrawSound("handgun_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.13f)
-                .withFlashOffsetY(() -> 0.12f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.13f)
+                .withFlashOffsetY(0.12f)
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -1353,6 +1352,6 @@ public class BrowningHiPowerFactory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.02f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

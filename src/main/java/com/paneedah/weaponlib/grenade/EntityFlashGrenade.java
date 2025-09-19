@@ -1,15 +1,14 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.LightExposure;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import dev.redstudio.redcore.math.ClampUtil;
-import io.netty.buffer.ByteBuf;
-import dev.redstudio.redcore.math.MathUtil;
 import dev.redstudio.redcore.math.vectors.Vector3D;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -97,9 +96,9 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
             return this;
         }
 
-        public EntityFlashGrenade build(ModContext modContext) {
-            EntityFlashGrenade entityGrenade = new EntityFlashGrenade(modContext, itemGrenade, thrower, velocity,
-                    gravityVelocity, rotationSlowdownFactor);
+        public EntityFlashGrenade build() {
+            final EntityFlashGrenade entityGrenade = new EntityFlashGrenade(itemGrenade, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
+
             entityGrenade.activationTimestamp = activationTimestamp;
             entityGrenade.explosionTimeout = explosionTimeout;
             entityGrenade.explosionStrength = explosionStrength;
@@ -112,8 +111,8 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 
     }
 
-    private EntityFlashGrenade(ModContext modContext, ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
-        super(modContext, itemGrenade, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
+    private EntityFlashGrenade(ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
+        super(itemGrenade, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
     }
 
     public EntityFlashGrenade(World world) {
@@ -160,7 +159,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 
         explosionStrength = 0.3F;
 
-        Explosion.createOldServerSideExplosion(world, getThrower(), this, new Vector3D(posX, posY, posZ), explosionStrength, false, true, false, 1F, 0.75F, 1.5F, 0.3F, null, null, modContext.getFlashExplosionSound());
+        Explosion.createOldServerSideExplosion(world, getThrower(), this, new Vector3D(posX, posY, posZ), explosionStrength, false, true, false, 1F, 0.75F, 1.5F, 0.3F, null, null, MWC.modContext.getFlashExplosionSound());
 
         final List<Entity> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().expand(effectiveDistance, effectiveDistance, effectiveDistance).expand(-effectiveDistance, -effectiveDistance, -effectiveDistance));
         for (Entity nearbyEntity : nearbyEntities) {

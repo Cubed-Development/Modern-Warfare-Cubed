@@ -2,11 +2,11 @@ package com.paneedah.weaponlib.render;
 
 import com.paneedah.mwc.utils.QuickResourceLocation;
 import com.paneedah.mwc.utils.SpriteSheetTools;
+import com.paneedah.mwc.utils.SpriteSheetTools.Sprite;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.mwc.utils.SpriteSheetTools.Sprite;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -17,8 +17,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class MuzzleFlashRenderer {
 
@@ -46,7 +46,7 @@ public class MuzzleFlashRenderer {
         EntityPlayer player = (EntityPlayer) MC.world.getEntityByID(entityID);
 
 
-        boolean isPetalFlash = weapon.hasFlashPedals();
+        boolean isPetalFlash = weapon.hasFlashPetals();
         boolean isSuppressedFlash = false;
 
         for (CompatibleAttachment<? extends AttachmentContainer> c : weapon.getActiveAttachments(player, weaponItemStack)) {

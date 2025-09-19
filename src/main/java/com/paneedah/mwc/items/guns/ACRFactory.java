@@ -7,12 +7,11 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -25,7 +24,7 @@ import org.lwjgl.opengl.GL11;
 
 public class ACRFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("acr") // Name of the item and model
@@ -34,7 +33,7 @@ public class ACRFactory implements GunFactory {
                 .withZoom(0.9f) // Zoom factor
                 .withConfigGroup(GunConfigurationGroup.RIFLE) // Config group
                 .withMuzzlePosition(new Vec3d(0.0, -1.076000002264977, -6.227999991893772)) // Muzzle position
-                .hasFlashPedals() // Has flash pedals
+                .hasFlashPetals() // Has flash pedals
                 .withMaxShots(1, 3, Integer.MAX_VALUE) // Max shots
                 //.withMaxShots(5)
                 .withShootSound("acr") // Shoot sound
@@ -45,9 +44,9 @@ public class ACRFactory implements GunFactory {
                 .withInspectSound("m4a1_inspection") // Inspect sound
                 .withReloadingTime(30) // Reloading time in ticks
                 .withFlashIntensity(0.5f) // Flash intensity
-                .withFlashScale(() -> 0.6f) // Flash scale
-                .withFlashOffsetX(() -> 0.14f) // Flash offset X
-                .withFlashOffsetY(() -> 0.16f) // Flash offset Y
+                .withFlashScale(0.6f) // Flash scale
+                .withFlashOffsetX(0.14f) // Flash offset X
+                .withFlashOffsetY(0.16f) // Flash offset Y
                 .withCreativeTab(MWC.WEAPONS_TAB) // Creative tab
                 .useNewSystem() // Use new system
                 .withRecoilParam(new RecoilParam( // Recoil param
@@ -1070,7 +1069,7 @@ public class ACRFactory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.0118f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 
 }

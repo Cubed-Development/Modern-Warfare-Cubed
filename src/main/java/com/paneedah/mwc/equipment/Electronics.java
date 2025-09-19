@@ -3,7 +3,6 @@ package com.paneedah.mwc.equipment;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.GasDetector;
 import com.paneedah.weaponlib.ItemAttachment;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.electronics.ItemTablet;
 import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
@@ -16,11 +15,11 @@ public class Electronics {
 
     public static ItemAttachment<Object> Tablet;
 
-    public static void createEquipment(ModContext modContext) {
+    public static void createEquipment() {
         Tablet = new ItemTablet.Builder<>()
                 .withViewfinderPositioning(() -> {
                     float scale = 5.9f;
-                    GL11.glScalef(scale, scale / modContext.getAspectRatio(), scale);
+                    GL11.glScalef(scale, scale / MWC.modContext.getAspectRatio(), scale);
                     GL11.glTranslatef(-0.12f, 0.56f, 0.01f);
                 })
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
@@ -77,7 +76,7 @@ public class Electronics {
                 .withName("tablet")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         new ItemWirelessCamera.Builder()
 
@@ -135,14 +134,14 @@ public class Electronics {
                         }
                 )
 
-                .build(modContext);
+                .build();
 
 
         new ItemHandheld.Builder<>()
                 .withScreenPerspectiveType(GasDetectorScreenPerspective.class)
                 .withScreenPositioning(() -> {
                     float scale = 1.9f;
-                    GL11.glScalef(scale, scale / modContext.getAspectRatio(), scale);
+                    GL11.glScalef(scale, scale / MWC.modContext.getAspectRatio(), scale);
                     GL11.glTranslatef(0.017f, 0.16f, 0.17f);
                 })
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
@@ -204,6 +203,6 @@ public class Electronics {
                 .withName("gas-detector")
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     }
 }

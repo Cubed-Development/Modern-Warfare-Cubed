@@ -4,7 +4,6 @@ import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import com.paneedah.mwc.network.messages.OpenCustomPlayerInventoryGuiMessage;
-import com.paneedah.weaponlib.ModContext;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.client.FMLClientHandler;
 
@@ -12,11 +11,8 @@ import static com.paneedah.mwc.MWC.CHANNEL;
 
 public class BackpackInventoryTab extends InventoryTab {
 
-    private final ModContext clientModContext;
-
-    public BackpackInventoryTab(ModContext clientModContext) {
+    public BackpackInventoryTab() {
         super(0, 0, 0);
-        this.clientModContext = clientModContext;
     }
 
     @Override

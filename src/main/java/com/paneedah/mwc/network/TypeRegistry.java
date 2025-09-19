@@ -12,7 +12,6 @@ import com.paneedah.weaponlib.state.Permit;
 import io.netty.buffer.ByteBuf;
 import lombok.NoArgsConstructor;
 
-import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
@@ -104,12 +103,9 @@ public final class TypeRegistry {
         } else {
             try {
                 instance = targetClass.getDeclaredConstructor().newInstance();
-            } catch (InvocationTargetException invocationTargetException) {
-                RED_LOGGER.framedError("Networking", "Failed to create instance", "Weapon will probably reset to it's default state", invocationTargetException.getCause().toString(), targetClass.getName());
-                throw new IllegalStateException("Failed to create instance", invocationTargetException.getCause());
-            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException exception) {
+            } catch (final Exception exception) {
                 RED_LOGGER.framedError("Networking", "Failed to create instance", "Weapon will probably reset to it's default state", exception.toString(), targetClass.getName());
-                throw new IllegalStateException("Failed to create instance");
+                throw new IllegalStateException("Failed to create instance", exception.getCause());
             }
 
             instance.read(byteBuf);

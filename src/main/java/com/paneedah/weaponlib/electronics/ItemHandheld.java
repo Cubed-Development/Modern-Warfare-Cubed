@@ -2,7 +2,10 @@ package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.instancing.PlayerHandheldInstance;
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.AttachmentBuilder;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.Updatable;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
 import net.minecraft.entity.EntityLivingBase;
@@ -30,24 +33,13 @@ public class ItemHandheld<T> extends ItemAttachment<T>
         }
 
         @Override
-        protected ItemAttachment<T> createAttachment(ModContext modContext) {
-
+        protected ItemAttachment<T> createAttachment() {
             withPostRender(new PerspectiveRenderer(screenPositioning));
 
-            ItemHandheld<T> itemHandheld = new ItemHandheld<>(this);
-            itemHandheld.modContext = modContext;
-
-            return itemHandheld;
-        }
-
-        @Override
-        public ItemAttachment<T> build(ModContext modContext) {
-            return super.build(modContext);
+            return new ItemHandheld<>(this);
         }
     }
 
-
-    private ModContext modContext;
     private final Builder<T> builder;
 
     private ItemHandheld(Builder<T> builder) {

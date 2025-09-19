@@ -9,8 +9,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.ArrayList;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.VERSION;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class DebugHandler {
 

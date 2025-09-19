@@ -32,7 +32,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Arrays;
@@ -40,9 +39,9 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.network.handlers.CraftingClientMessageHandler.RECEIVE_HASH;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.network.handlers.CraftingClientMessageHandler.RECEIVE_HASH;
 
 /**
  * Handles server events
@@ -54,19 +53,6 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 // Todo: Cleanup this mess
 @Getter
 public class CommonEventHandler {
-
-    private final ModContext modContext;
-
-    public CommonEventHandler(ModContext modContext) {
-        this.modContext = modContext;
-    }
-
-    @SubscribeEvent
-    public void onTick(TickEvent.ServerTickEvent event) {
-        if (event.phase == TickEvent.Phase.START) {
-            CommonModContext.currentContext = modContext;
-        }
-    }
 
     @SubscribeEvent
     protected void onCompatibleLivingUpdateEvent(LivingEvent.LivingUpdateEvent livingUpdateEvent) {
@@ -141,19 +127,14 @@ public class CommonEventHandler {
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
         final Entity entity = event.getEntity();
 
-        if (entity instanceof Contextual) {
-            ((Contextual) entity).setContext(modContext);
-        }
-
         if (entity instanceof EntityPlayerMP && !event.getWorld().isRemote) {
             LOGGER.debug("Player {} joined the world", event.getEntity());
 
             final EntityPlayer player = (EntityPlayer) entity;
             final LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
 
-            if (tracker != null) {
+            if (tracker != null)
                 CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, null), (EntityPlayerMP) entity);
-            }
 
             CHANNEL.sendToAll(new EntityInventorySyncMessage(entity, false, EquipmentCapability.getInventory(player)));
         }
@@ -248,7 +229,6 @@ public class CommonEventHandler {
         }
 
         EquipmentCapability.setInventory(event.getEntityPlayer(), originalInventory);
-        originalInventory.setContext(modContext);
         originalInventory.setOwner(event.getEntityPlayer());
         //CHANNEL.sendToAll(new EntityInventorySyncMessage(playerCloneEvent.getPlayer(), originalInventory, false));
     }

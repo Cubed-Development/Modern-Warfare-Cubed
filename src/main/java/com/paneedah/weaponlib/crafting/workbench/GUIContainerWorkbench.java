@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.weaponlib.render.gui.ColorPalette.*;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.WHITE;
 
 /**
  * GUI class for the Workbench Block

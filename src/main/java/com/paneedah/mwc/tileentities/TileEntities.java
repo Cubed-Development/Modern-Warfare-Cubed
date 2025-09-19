@@ -1,10 +1,9 @@
 package com.paneedah.mwc.tileentities;
 
-import dev.redstudio.redcore.utils.AABBUtil;
 import com.paneedah.mwc.MWC;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.tile.CustomTileEntityBlock;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
+import dev.redstudio.redcore.utils.AABBUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -12,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 public class TileEntities {
 
-    public static void createTileEntity(ModContext modContext) {
+    public static void createTileEntity() {
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("weapons_case")
@@ -30,7 +29,7 @@ public class TileEntities {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.7f, 1.1f, 0.5f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -49,7 +48,7 @@ public class TileEntities {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.8f, 1.1f, 0.8f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -68,7 +67,7 @@ public class TileEntities {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.8f, 1.15f, 0.75f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -87,7 +86,7 @@ public class TileEntities {
                     GL11.glScalef(0.4f, 0.4f, 0.4f);
                     GL11.glTranslatef(1.2f, 2.5f, 1.1f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -100,7 +99,7 @@ public class TileEntities {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.4f, 1.15f, 0.6f);
                 })
-                .build(MWC.modContext);
+                .build();
 
 
         new LootBoxConfiguration()
@@ -120,7 +119,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.55f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -139,7 +138,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.55f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -153,7 +152,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.55f, 0.6f, 0.55f);
                     GL11.glRotatef(90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -167,7 +166,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.2f, 1.63f, 1.7f);
                     GL11.glRotatef(90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -186,7 +185,7 @@ public class TileEntities {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.7f, 1.13f, 0.5f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -205,7 +204,7 @@ public class TileEntities {
                     GL11.glScalef(0.5f, 0.5f, 0.5f);
                     GL11.glTranslatef(0.7f, 1.85f, 1f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -225,7 +224,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0.45f, 0.6f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
 
         new LootBoxConfiguration()
@@ -239,7 +238,7 @@ public class TileEntities {
                     GL11.glScalef(0.9f, 0.8f, 0.9f);
                     GL11.glTranslatef(0.55f, 0.4f, 0.55f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -252,7 +251,7 @@ public class TileEntities {
                     GL11.glScalef(0.9f, 0.8f, 0.9f);
                     GL11.glTranslatef(0.55f, 0.4f, 0.55f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -265,7 +264,7 @@ public class TileEntities {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.7f, 0.25f, 0.6f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -284,7 +283,7 @@ public class TileEntities {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
                     GL11.glTranslatef(0.5f, 0.71f, 0.6f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -297,7 +296,7 @@ public class TileEntities {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.7f, 0.25f, 0.6f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -311,7 +310,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -325,7 +324,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -339,7 +338,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -353,7 +352,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -373,7 +372,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -393,7 +392,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -407,7 +406,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0.4f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -420,7 +419,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.6f, 0.4f, 0.7f);
                     GL11.glRotatef(-135F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -440,7 +439,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -460,7 +459,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -473,7 +472,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -486,7 +485,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -499,7 +498,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -512,7 +511,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -525,7 +524,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -538,7 +537,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -551,7 +550,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -564,7 +563,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -583,7 +582,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -596,7 +595,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -615,7 +614,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -628,7 +627,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -640,7 +639,7 @@ public class TileEntities {
                     GL11.glScalef(1.1f, 1.2f, 1f);
                     GL11.glTranslatef(0.42f, -0.25f, 0.5f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -653,7 +652,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.42f, -0.25f, 0.5f);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -666,7 +665,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, -0.9f, 0.55f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -685,7 +684,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 1.8f, 0.55f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -704,7 +703,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0.2f, 0.55f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -724,7 +723,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.6f, 0.2f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -737,7 +736,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0.085f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -750,7 +749,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -763,7 +762,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -776,7 +775,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -789,7 +788,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, -0.5f, 0.5f);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -802,7 +801,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -815,7 +814,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -828,7 +827,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 1.8f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -841,7 +840,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, -0.2f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -854,7 +853,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -867,7 +866,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 1f, 1.5f);
                     GL11.glRotatef(-90F, 1f, 0f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -880,7 +879,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -893,7 +892,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 1f, 1.5f);
                     GL11.glRotatef(-90F, 1f, 0f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -906,7 +905,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 1f, -0.5f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -919,7 +918,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -932,7 +931,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -945,7 +944,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -964,7 +963,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -977,7 +976,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -990,7 +989,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -1003,7 +1002,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.6f, 0.45f, 0.6f);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1016,7 +1015,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0.8f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1029,7 +1028,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0.8f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -1048,7 +1047,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -1061,7 +1060,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -1074,7 +1073,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -1087,7 +1086,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1106,7 +1105,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.55f, 0.4f, 0.62f);
                     GL11.glRotatef(180F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1119,7 +1118,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1132,7 +1131,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1145,7 +1144,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1158,7 +1157,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1171,7 +1170,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1184,7 +1183,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1197,7 +1196,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1210,7 +1209,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1229,7 +1228,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1248,7 +1247,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1266,7 +1265,7 @@ public class TileEntities {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.6f, 0.35f, 0.6f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1284,7 +1283,7 @@ public class TileEntities {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.6f, 0.175f, 0.6f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1297,7 +1296,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.65f, 0.58f, 0.7f);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1315,7 +1314,7 @@ public class TileEntities {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
                     GL11.glTranslatef(0.65f, 0.58f, 0.6f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1329,7 +1328,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0.05f, 0.6f);
                     GL11.glRotatef(90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1348,7 +1347,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.85f, 1f, 0.85f);
                     GL11.glRotatef(90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1361,7 +1360,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.3f, 0f, 0.5f);
                     GL11.glRotatef(90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.SAND)
@@ -1381,7 +1380,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.SAND)
@@ -1395,7 +1394,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -1408,7 +1407,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -1421,7 +1420,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -1434,7 +1433,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -1447,7 +1446,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
@@ -1460,7 +1459,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -1474,7 +1473,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.CLOTH)
@@ -1487,7 +1486,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 1.05f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.CLOTH)
@@ -1500,7 +1499,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 1.05f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.CLOTH)
@@ -1513,7 +1512,7 @@ public class TileEntities {
                     GL11.glTranslatef(0.5f, 1.05f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 })
-                .build(MWC.modContext);
+                .build();
 
         new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1525,6 +1524,6 @@ public class TileEntities {
                     GL11.glScalef(1.5f, 1.5f, 1.5f);
                     GL11.glTranslatef(0.3f, -0.45f, -1f);
                 })
-                .build(MWC.modContext);
+                .build();
     }
 }

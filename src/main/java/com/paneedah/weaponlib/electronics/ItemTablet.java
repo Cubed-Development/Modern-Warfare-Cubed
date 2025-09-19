@@ -3,8 +3,11 @@ package com.paneedah.weaponlib.electronics;
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.instancing.PlayerTabletInstance;
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.weaponlib.AttachmentBuilder;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.Updatable;
 import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -38,29 +41,19 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
         }
 
         @Override
-        protected ItemAttachment<T> createAttachment(ModContext modContext) {
+        protected ItemAttachment<T> createAttachment() {
             if (viewfinderPositioning == null) {
                 viewfinderPositioning = () -> {
                     GL11.glScalef(3f, 3f, 3f);
                     GL11.glTranslatef(0.1f, 0.5f, 0.1f);
                 };
             }
+
             withPostRender(new PerspectiveRenderer(viewfinderPositioning));
 
-            ItemTablet<T> itemTablet = new ItemTablet<>(this);
-            itemTablet.modContext = modContext;
-
-            return itemTablet;
-        }
-
-        @Override
-        public ItemAttachment<T> build(ModContext modContext) {
-            return super.build(modContext);
+            return new ItemTablet<>(this);
         }
     }
-
-
-    private ModContext modContext;
 
     private ItemTablet(Builder<T> builder) {
         super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null, null);

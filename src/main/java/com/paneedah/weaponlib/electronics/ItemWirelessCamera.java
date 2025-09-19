@@ -1,10 +1,14 @@
 package com.paneedah.weaponlib.electronics;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
-import com.paneedah.mwc.weapons.AbstractItemBuilder;
-import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.mwc.weapons.AbstractItemBuilder;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.CustomRenderer;
+import com.paneedah.weaponlib.ModelSource;
+import com.paneedah.weaponlib.Tuple;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -111,30 +115,26 @@ public class ItemWirelessCamera extends Item implements ModelSource {
         }
 
         @Override
-        public ItemWirelessCamera build(ModContext modContext) {
-
-            ItemWirelessCamera camera = new ItemWirelessCamera(this, modContext);
+        public ItemWirelessCamera build() {
+            ItemWirelessCamera camera = new ItemWirelessCamera(this);
             camera.setTranslationKey(ID + "_" + name);
             camera.setCreativeTab(tab);
             camera.maxStackSize = maxStackSize;
 
             texturedModels.forEach(tm -> camera.texturedModels.add(new Tuple<>(tm.getU(), addFileExtension(tm.getV(), ".png"))));
 
-            if (model != null) {
+            if (model != null)
                 texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
-            }
 
-            if (model != null || !texturedModels.isEmpty()) {
-                modContext.registerRenderableItem(name, camera,
-                        FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
-            }
+            if (model != null || !texturedModels.isEmpty())
+                MWC.modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
             if (craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                         .withSlotCount(9)
                         .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
 
-                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(camera, name, optionsMetadata);
+                List<Object> shape = MWC.modContext.getRecipeManager().createShapedRecipe(camera, name, optionsMetadata);
 
                 ItemStack itemStack = new ItemStack(camera);
                 itemStack.setCount(craftingCount);
@@ -154,26 +154,22 @@ public class ItemWirelessCamera extends Item implements ModelSource {
     }
 
     private final Builder builder;
-    private final ModContext modContext;
     private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
 
-    public ItemWirelessCamera(Builder builder, ModContext modContext) {
+    public ItemWirelessCamera(Builder builder) {
         this.builder = builder;
-        this.modContext = modContext;
         this.maxStackSize = 16;
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-        ItemStack itemStack = player.getHeldItem(hand);
+        final ItemStack itemStack = player.getHeldItem(hand);
 
         itemStack.setCount(itemStack.getCount() - 1);
 
-        if (!world.isRemote) {
-            if (player != null) {
-                player.world.spawnEntity(new EntityWirelessCamera(modContext, world, player, this, builder.duration));
-            }
-        }
+        if (!world.isRemote)
+            if (player != null)
+                player.world.spawnEntity(new EntityWirelessCamera(world, player, this, builder.duration));
 
         return new ActionResult<>(EnumActionResult.SUCCESS, itemStack);
     }

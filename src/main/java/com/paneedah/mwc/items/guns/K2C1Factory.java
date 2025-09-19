@@ -3,7 +3,7 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -11,7 +11,6 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -22,7 +21,7 @@ import org.lwjgl.opengl.GL11;
 
 public class K2C1Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("k2c1")
@@ -31,7 +30,7 @@ public class K2C1Factory implements GunFactory {
                 .withRecoil(3f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.RIFLE)
-                .hasFlashPedals()
+                .hasFlashPetals()
                 .withMuzzlePosition(new Vec3d(-0.11600000345706937, -1.0720000021457676, -7.044000016212464))
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("k2c1")
@@ -43,9 +42,9 @@ public class K2C1Factory implements GunFactory {
                 .withDrawSound("noaction_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.14f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.11f)
+                .withFlashOffsetY(0.14f)
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
@@ -789,6 +788,6 @@ public class K2C1Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.0118f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

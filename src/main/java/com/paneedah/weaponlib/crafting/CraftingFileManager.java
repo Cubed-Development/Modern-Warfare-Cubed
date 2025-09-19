@@ -16,9 +16,9 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class CraftingFileManager extends JSONDatabaseManager {
 

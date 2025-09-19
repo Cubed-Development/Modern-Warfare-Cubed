@@ -2,8 +2,8 @@ package com.paneedah.mwc.network.messages;
 
 import com.paneedah.mwc.utils.VectorUtil;
 import dev.redstudio.redcore.math.vectors.Vector3D;
-import io.netty.buffer.ByteBuf;
 import dev.redstudio.redcore.math.vectors.Vector3F;
+import io.netty.buffer.ByteBuf;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

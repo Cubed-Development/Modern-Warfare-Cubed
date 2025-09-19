@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.crafting.base;
 
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.network.messages.CraftingStationServerMessage;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.ICraftingRecipe;
@@ -66,9 +65,6 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
     // Current item to have a tooltip renderer.
     private final ArrayList<String> tooltipRenderItem = new ArrayList<>();
-
-    // Mod context
-    @Setter protected static ModContext modContext;
 
     // Currently selected crafting piece
     @Getter @Setter private ICraftingRecipe selectedCraftingPiece = null;

@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
@@ -16,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 public class M1941JohnsonRifleFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("m1941_johnson_rifle")
@@ -35,9 +34,9 @@ public class M1941JohnsonRifleFactory implements GunFactory {
                 .withDrawSound("ak_draw")
                 .withReloadingTime(45)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.12f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.12f)
+                .withFlashOffsetY(0.12f)
 //        .withShellCasingSideOffset(0f)
                 .withShellCasingVerticalOffset(-0.1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -991,7 +990,7 @@ public class M1941JohnsonRifleFactory implements GunFactory {
                 .withSpawnEntityDamage(15f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
-                .build(MWC.modContext);
+                .build();
     }
 }
 

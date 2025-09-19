@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.crafting.base;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ClientEventHandler;
-import com.paneedah.weaponlib.ModContext;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
@@ -23,22 +23,19 @@ import net.minecraft.world.World;
 
 public abstract class BlockStation extends Block {
 
-    protected ModContext modContext;
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
-    public BlockStation(ModContext context, String name, Material materialIn) {
+    public BlockStation(String name, Material materialIn) {
         super(materialIn);
-        this.modContext = context;
 
-        if (context.isClient()) {
+        if (MWC.modContext.isClient())
             ClientEventHandler.BLANKMAPPED_LIST.add(this);
-        }
 
-        setHardness(2.0f);
+        setHardness(2);
         setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.MISC);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 
     /**
@@ -50,9 +47,8 @@ public abstract class BlockStation extends Block {
     }
 
     private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state) {
-        if (worldIn.isRemote) {
+        if (worldIn.isRemote)
             return;
-        }
 
         final IBlockState iblockstate = worldIn.getBlockState(pos.north());
         final IBlockState iblockstate1 = worldIn.getBlockState(pos.south());

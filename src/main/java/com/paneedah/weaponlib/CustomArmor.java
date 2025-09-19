@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.QuickResourceLocation;
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -37,9 +37,9 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class CustomArmor extends ItemArmor implements ExposureProtection, ISpecialArmor, ICraftingRecipe {
 
@@ -243,10 +243,9 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         }
 
 
-        public CustomArmor buildHelmet(ModContext context) {
-            if (context.isClient() && helmetModel == null) {
+        public CustomArmor buildHelmet() {
+            if (MWC.modContext.isClient() && helmetModel == null)
                 helmetModel = HelmetModelFactory.create(modelClassName);
-            }
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
             CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.HEAD, unlocalizedHelmetName, textureName, helmetModel, hudTextureName);
@@ -255,28 +254,24 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
             armorHelmet.hasNightVision = nightVision;
             armorHelmet.vignetteEnabled = vignetteEnabled;
-            armorHelmet.exposureReductionFactor = this.exposureReductionFactor;
+            armorHelmet.exposureReductionFactor = exposureReductionFactor;
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
-            armorHelmet.breathingSound = context.registerSound(breathingSound);
+            armorHelmet.breathingSound = MWC.modContext.registerSound(breathingSound);
             armorHelmet.setRegistryName(ID, unlocalizedHelmetName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorHelmet);
 
-            if (creativeTab != null) {
+            if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
-            }
 
-            if (FMLCommonHandler.instance().getSide().isClient()) {
+            if (FMLCommonHandler.instance().getSide().isClient())
                 COOKING_QUEUE.add(armorHelmet);
-            }
 
             return armorHelmet;
         }
 
-        public CustomArmor buildChest(boolean isClient) {
-
-            if (isClient && chestModel == null) {
+        public CustomArmor buildChest() {
+            if (MWC.modContext.isClient() && chestModel == null)
                 chestModel = ChestModelFactory.createModel(modelClassName);
-            }
 
             String unlocalizedChestName = unlocalizedName + "_chest";
             CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.CHEST,
@@ -285,9 +280,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             CraftingRegistry.registerHook(armorChest);
 
 
-            if (creativeTab != null) {
+            if (creativeTab != null)
                 armorChest.setCreativeTab(creativeTab);
-            }
 
             armorChest.setTranslationKey(unlocalizedChestName);
             armorChest.setRegistryName(ID, unlocalizedChestName.toLowerCase()); // temporary hack
@@ -300,10 +294,9 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             return armorChest;
         }
 
-        public CustomArmor buildBoots(boolean isClient) {
-            if (isClient && bootsModel == null) {
+        public CustomArmor buildBoots() {
+            if (MWC.modContext.isClient() && bootsModel == null)
                 bootsModel = BootsModelFactory.createModel(modelClassName);
-            }
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
             CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.FEET,

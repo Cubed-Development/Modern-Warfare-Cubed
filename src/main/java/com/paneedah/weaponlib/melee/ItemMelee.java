@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.instancing.Tags;
@@ -180,34 +181,29 @@ public class ItemMelee extends Item implements
             return this;
         }
 
-        public ItemMelee build(ModContext modContext) {
-
-            if (name == null) {
+        public ItemMelee build() {
+            if (name == null)
                 throw new IllegalStateException("Item name not provided");
-            }
 
-            if (heavyAttackSound == null) {
+            if (heavyAttackSound == null)
                 heavyAttackSound = attackSound;
-            }
 
-            if (spawnEntityClass == null) {
+            if (spawnEntityClass == null)
                 spawnEntityClass = WeaponSpawnEntity.class;
-            }
 
+            ItemMelee itemMelee = new ItemMelee(this);
 
-            ItemMelee itemMelee = new ItemMelee(this, modContext);
-
-            itemMelee.attackSound = this.attackSound != null ? modContext.registerSound(this.attackSound) : SoundEvents.AMBIENT_CAVE;
-            itemMelee.heavyAttackSound = this.heavyAttackSound != null ? modContext.registerSound(this.heavyAttackSound) : SoundEvents.AMBIENT_CAVE;
+            itemMelee.attackSound = this.attackSound != null ? MWC.modContext.registerSound(this.attackSound) : SoundEvents.AMBIENT_CAVE;
+            itemMelee.heavyAttackSound = this.heavyAttackSound != null ? MWC.modContext.registerSound(this.heavyAttackSound) : SoundEvents.AMBIENT_CAVE;
 
             itemMelee.setCreativeTab(creativeTab);
             itemMelee.setTranslationKey(name);
 
-            modContext.registerMeleeWeapon(name, itemMelee, renderer);
+            MWC.modContext.registerMeleeWeapon(name, itemMelee, renderer);
 
             if (craftingRecipe != null && craftingRecipe.length >= 2) {
                 ItemStack itemStack = new ItemStack(itemMelee);
-                List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(itemMelee, craftingRecipe);
+                List<Object> registeredRecipe = MWC.modContext.getRecipeManager().registerShapedRecipe(itemMelee, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
                 if (hasOres) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
@@ -219,7 +215,7 @@ public class ItemMelee extends Item implements
                         .withSlotCount(9)
                         .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
 
-                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(itemMelee, itemMelee.getName(), optionsMetadata);
+                List<Object> shape = MWC.modContext.getRecipeManager().createShapedRecipe(itemMelee, itemMelee.getName(), optionsMetadata);
 
                 ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(itemMelee), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(itemMelee).getItem().getTranslationKey() + "_recipe"));
 
@@ -236,8 +232,6 @@ public class ItemMelee extends Item implements
 
     Builder builder;
 
-    private final ModContext modContext;
-
     private SoundEvent attackSound;
     private SoundEvent silencedShootSound;
     private SoundEvent heavyAttackSound;
@@ -246,9 +240,8 @@ public class ItemMelee extends Item implements
 
     public enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
 
-    ItemMelee(Builder builder, ModContext modContext) {
+    ItemMelee(Builder builder) {
         this.builder = builder;
-        this.modContext = modContext;
         setMaxStackSize(1);
     }
 
@@ -302,7 +295,7 @@ public class ItemMelee extends Item implements
 
     @Override
     public List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
-        return modContext.getMeleeAttachmentAspect().getActiveAttachments(player, itemStack);
+        return MWC.modContext.getMeleeAttachmentAspect().getActiveAttachments(player, itemStack);
     }
 
     public MeleeRenderer getRenderer() {
@@ -346,17 +339,17 @@ public class ItemMelee extends Item implements
 
     @Override
     public void update(EntityPlayer player) {
-        modContext.getMeleeAttackAspect().onUpdate(player);
-        modContext.getMeleeAttachmentAspect().onUpdate(player);
-//        modContext.getAttachmentAspect().updateMainHeldItem(player);
+        MWC.modContext.getMeleeAttackAspect().onUpdate(player);
+        MWC.modContext.getMeleeAttachmentAspect().onUpdate(player);
+//        MWC.modContext.getAttachmentAspect().updateMainHeldItem(player);
     }
 
 //    public void tryFire(EntityPlayer player) {
-//        modContext.getWeaponFireAspect().onFireButtonClick(player);
+//        MWC.modContext.getWeaponFireAspect().onFireButtonClick(player);
 //    }
 //
 //    public void tryStopFire(EntityPlayer player) {
-//        modContext.getWeaponFireAspect().onFireButtonRelease(player);
+//        MWC.modContext.getWeaponFireAspect().onFireButtonRelease(player);
 //    }
 
     @Override
@@ -377,7 +370,7 @@ public class ItemMelee extends Item implements
 
     @Override
     public void toggleClientAttachmentSelectionMode(EntityPlayer player) {
-        modContext.getMeleeAttachmentAspect().toggleClientAttachmentSelectionMode(player);
+        MWC.modContext.getMeleeAttachmentAspect().toggleClientAttachmentSelectionMode(player);
     }
 
 //    @Override
@@ -398,9 +391,9 @@ public class ItemMelee extends Item implements
 
     public void attack(final EntityPlayer player, final boolean heavy) {
         if (heavy) {
-            modContext.getMeleeAttackAspect().onHeavyAttackButtonClick(player);
+            MWC.modContext.getMeleeAttackAspect().onHeavyAttackButtonClick(player);
         } else {
-            modContext.getMeleeAttackAspect().onAttackButtonClick(player);
+            MWC.modContext.getMeleeAttackAspect().onAttackButtonClick(player);
         }
     }
 

@@ -4,12 +4,11 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -21,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 
 public class SVDDragunovFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("svd_dragunov")
@@ -30,7 +29,7 @@ public class SVDDragunovFactory implements GunFactory {
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
                 .withMuzzlePosition(new Vec3d(-0.1480000044107437, -1.0880000026226049, -10.836000129222878))
-                .hasFlashPedals()
+                .hasFlashPetals()
                 .withMaxShots(1)
                 .withShootSound("ak47")
                 .withSilencedShootSound("ak15_silenced")
@@ -40,9 +39,9 @@ public class SVDDragunovFactory implements GunFactory {
                 .withDrawSound("ak_draw")
                 .withReloadingTime(45)
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 0.5f)
-                .withFlashOffsetX(() -> 0.12f)
-                .withFlashOffsetY(() -> 0.16f)
+                .withFlashScale(0.5f)
+                .withFlashOffsetX(0.12f)
+                .withFlashOffsetY(0.16f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -799,7 +798,7 @@ public class SVDDragunovFactory implements GunFactory {
                 .withSpawnEntityDamage(14f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
-                .build(MWC.modContext);
+                .build();
     }
 }
 

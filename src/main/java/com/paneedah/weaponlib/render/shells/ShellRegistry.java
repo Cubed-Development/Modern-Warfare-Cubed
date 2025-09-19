@@ -2,10 +2,10 @@ package com.paneedah.weaponlib.render.shells;
 
 import com.paneedah.mwc.utils.QuickResourceLocation;
 import com.paneedah.weaponlib.Pair;
-import com.paneedah.weaponlib.render.wavefront.WavefrontLoader;
-import com.paneedah.weaponlib.render.wavefront.WavefrontModel;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import com.paneedah.weaponlib.render.wavefront.WavefrontLoader;
+import com.paneedah.weaponlib.render.wavefront.WavefrontModel;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.HashMap;

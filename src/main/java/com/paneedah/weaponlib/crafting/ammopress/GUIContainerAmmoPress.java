@@ -23,9 +23,11 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
-import static com.paneedah.weaponlib.render.gui.ColorPalette.*;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.GOLD;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.GREEN;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.WHITE;
 
 /**
  * GUIContainer for the Workbench Block

@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.NinthSin;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -15,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 
 public class NinthSinFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("ninth_sin")
@@ -32,9 +31,9 @@ public class NinthSinFactory implements GunFactory {
                 .withDrawSound("m4_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.6f)
-                .withFlashScale(() -> 0.7f)
-                .withFlashOffsetX(() -> 0.18f)
-                .withFlashOffsetY(() -> 0.2f)
+                .withFlashScale(0.7f)
+                .withFlashOffsetX(0.18f)
+                .withFlashOffsetY(0.2f)
                 .withShellCasingForwardOffset(-0.02f)
                 .withShellCasingVerticalOffset(-0.05f)
 //        .withBleedingCoefficient(10f)
@@ -2414,6 +2413,6 @@ public class NinthSinFactory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.0118f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

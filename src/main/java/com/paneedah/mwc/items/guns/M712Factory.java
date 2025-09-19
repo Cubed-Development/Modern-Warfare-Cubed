@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -17,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 
 public class M712Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("m712")
@@ -35,9 +34,9 @@ public class M712Factory implements GunFactory {
                 .withDrawSound("noaction_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.4f)
-                .withFlashScale(() -> 1f)
-                .withFlashOffsetX(() -> 0.17f)
-                .withFlashOffsetY(() -> 0.18f)
+                .withFlashScale(1f)
+                .withFlashOffsetX(0.17f)
+                .withFlashOffsetY(0.18f)
 //      .withShellCasingForwardOffset(0.001f)
                 .withInaccuracy(1)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -1294,6 +1293,6 @@ public class M712Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.02f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

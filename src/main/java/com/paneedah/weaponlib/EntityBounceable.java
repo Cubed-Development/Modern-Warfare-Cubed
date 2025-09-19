@@ -3,8 +3,8 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.utils.VectorUtil;
-import io.netty.buffer.ByteBuf;
 import dev.redstudio.redcore.math.vectors.Vector3D;
+import io.netty.buffer.ByteBuf;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -23,15 +23,13 @@ import java.util.ArrayDeque;
 import java.util.List;
 import java.util.Queue;
 
-public class EntityBounceable extends Entity implements Contextual, IThrowableEntity, IEntityAdditionalSpawnData {
+public class EntityBounceable extends Entity implements IThrowableEntity, IEntityAdditionalSpawnData {
 
     private static final int VELOCITY_HISTORY_SIZE = 10;
 
     private static final double STOP_THRESHOLD = 0.001;
 
     private static final int MAX_TICKS = 2000;
-
-    protected ModContext modContext;
 
     private float gravityVelocity;
 
@@ -57,9 +55,8 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
     private final Queue<Double> velocityHistory = new ArrayDeque<>(VELOCITY_HISTORY_SIZE);
 
-    public EntityBounceable(ModContext modContext, World world, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
+    public EntityBounceable(World world, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
         super(world);
-        this.modContext = modContext;
         this.thrower = thrower;
         this.gravityVelocity = gravityVelocity;
         this.rotationSlowdownFactor = rotationSlowdownFactor;
@@ -497,12 +494,4 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
             velocityHistory.poll();
         }
     }
-
-    @Override
-    public void setContext(ModContext modContext) {
-        if (this.modContext == null) {
-            this.modContext = modContext;
-        }
-    }
-
 }

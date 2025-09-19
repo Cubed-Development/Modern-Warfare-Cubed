@@ -11,8 +11,8 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 
 public class ItemBackpack extends ItemCarryable {
 

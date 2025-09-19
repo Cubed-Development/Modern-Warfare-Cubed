@@ -2,12 +2,8 @@ package com.paneedah.weaponlib.vehicle.network;
 
 import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
-import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
 import io.netty.buffer.ByteBuf;
-import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.minecraft.util.math.Vec3d;
-
-import java.util.Vector;
 
 public class VehicleDataContainer {
 

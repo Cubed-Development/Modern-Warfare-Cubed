@@ -1,16 +1,19 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
-import com.paneedah.weaponlib.ItemAttachment.ApplyHandler;
-import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.AbstractItemBuilder;
-import com.paneedah.weaponlib.crafting.*;
+import com.paneedah.weaponlib.ItemAttachment.ApplyHandler;
+import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
+import com.paneedah.weaponlib.crafting.CraftingEntry;
+import com.paneedah.weaponlib.crafting.CraftingGroup;
+import com.paneedah.weaponlib.crafting.CraftingRegistry;
+import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -21,8 +24,8 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
 
 public class AttachmentBuilder<T> extends AbstractItemBuilder<AttachmentBuilder<T>> {
 
@@ -173,13 +176,13 @@ public class AttachmentBuilder<T> extends AbstractItemBuilder<AttachmentBuilder<
         return this;
     }
 
-    protected ItemAttachment<T> createAttachment(ModContext modContext) {
+    protected ItemAttachment<T> createAttachment() {
         return new ItemAttachment<>(attachmentCategory, apply, remove);
     }
 
     @Override
-    public ItemAttachment<T> build(ModContext modContext) {
-        ItemAttachment<T> attachment = createAttachment(modContext);
+    public ItemAttachment<T> build() {
+        ItemAttachment<T> attachment = createAttachment();
         attachment.setTranslationKey(ID + "_" + name);
         attachment.setCreativeTab(tab);
         attachment.setPostRenderer(postRenderer);
@@ -222,18 +225,17 @@ public class AttachmentBuilder<T> extends AbstractItemBuilder<AttachmentBuilder<
         texturedModels.forEach(tm -> attachment.addModel(tm.getU(), addFileExtension(tm.getV(), ".png")));
         compatibleAttachments.values().forEach(a -> attachment.addCompatibleAttachment(a));
 
-        if ((model != null || !texturedModels.isEmpty())) {
-            modContext.registerRenderableItem(name, attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
-        }
+        if ((model != null || !texturedModels.isEmpty()))
+            MWC.modContext.registerRenderableItem(name, attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
         if (craftingRecipe != null && craftingRecipe.length >= 2) {
-            modContext.getRecipeManager().registerShapedRecipe(attachment, craftingRecipe);
+            MWC.modContext.getRecipeManager().registerShapedRecipe(attachment, craftingRecipe);
         } else if (craftingComplexity != null) {
             OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                     .withSlotCount(9)
                     .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
 
-            List<Object> shape = modContext.getRecipeManager().createShapedRecipe(attachment, name, optionsMetadata);
+            List<Object> shape = MWC.modContext.getRecipeManager().createShapedRecipe(attachment, name, optionsMetadata);
 
             ItemStack itemStack = new ItemStack(attachment);
             itemStack.setCount(craftingCount);
@@ -250,14 +252,13 @@ public class AttachmentBuilder<T> extends AbstractItemBuilder<AttachmentBuilder<
             noRecipe += 1;
         }
 
-        if (modContext.isClient()) {
+        if (MWC.modContext.isClient())
             COOKING_QUEUE.add(attachment);
-        }
 
         return attachment;
     }
 
-    public <V extends ItemAttachment<T>> V build(ModContext modContext, Class<V> target) {
-        return target.cast(build(modContext));
+    public <V extends ItemAttachment<T>> V build(Class<V> target) {
+        return target.cast(build());
     }
 }

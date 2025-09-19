@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.network.messages.LivingEntityTrackerMessage;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import com.paneedah.weaponlib.tracking.TrackableEntity;
 import io.netty.buffer.ByteBuf;
@@ -30,17 +29,14 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
 
     static final float DEFAULT_INACCURACY = 1f;
     private int ticksInAir;
-
-    private ModContext modContext;
     private ItemWirelessCamera itemWirelessCamera;
     private long timestamp;
     private long duration;
 
-    public EntityWirelessCamera(ModContext modContext, World world, EntityPlayer player, ItemWirelessCamera itemWirelessCamera, long duration) {
+    public EntityWirelessCamera(World world, EntityPlayer player, ItemWirelessCamera itemWirelessCamera, long duration) {
         super(world, player);
         this.timestamp = world.getWorldTime(); //System.currentTimeMillis();
         this.duration = (long) ((float) duration / 50f);
-        this.modContext = modContext;
         this.itemWirelessCamera = itemWirelessCamera;
 
         this.setSize(0.25F, 0.25F);

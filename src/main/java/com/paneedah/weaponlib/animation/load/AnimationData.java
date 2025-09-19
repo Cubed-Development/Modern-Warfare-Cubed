@@ -3,12 +3,13 @@ package com.paneedah.weaponlib.animation.load;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.MatrixHelper;
-import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.EulerAngle;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.Format;
@@ -514,7 +515,7 @@ public class AnimationData {
                 double rotYMult = 1.0;
                 double rotZMult = 1.0;
 
-                if (ClientModContext.getContext().getMainHeldWeapon().isAimed()) {
+                if (MWC.modContext.getMainHeldWeapon().isAimed()) {
                     rotXMult = 0.1;
                     rotYMult = 0.1;
                     rotZMult = 0.5;
@@ -583,7 +584,7 @@ public class AnimationData {
                 double rotZMult = 1.0;
 				
 				/*
-				if(ClientModContext.getContext().getMainHeldWeapon().isAimed()) {
+				if(MWC.modContext.getMainHeldWeapon().isAimed()) {
 					rotXMult = 0.1;
 					rotYMult = 0.1;
 					rotZMult = 0.5;

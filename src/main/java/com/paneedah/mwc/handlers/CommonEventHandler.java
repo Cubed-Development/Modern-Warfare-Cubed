@@ -1,7 +1,6 @@
 package com.paneedah.mwc.handlers;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.instancing.PlayerItemInstanceRegistry;
 import net.minecraft.world.GameRules;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

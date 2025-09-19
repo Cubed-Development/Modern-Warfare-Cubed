@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render.cam;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.WeaponState;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
@@ -126,7 +127,7 @@ public class NaturalCamera {
         // System.out.println(currentMatrix.m03);
 
         // xr = 0.01;
-        if (ClientModContext.getContext().getMainHeldWeapon().getState() == WeaponState.READY) {
+        if (MWC.modContext.getMainHeldWeapon().getState() == WeaponState.READY) {
             yr *= 0.98;
         } else {
             yr += 0.01;

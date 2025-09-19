@@ -11,8 +11,8 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.Arrays;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 // Made with Blockbench 4.3.1
 // Exported for Minecraft version 1.7 - 1.12

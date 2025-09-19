@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
@@ -15,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GL06Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("gl06")
@@ -30,9 +29,9 @@ public class GL06Factory implements GunFactory {
                 .withReloadSound("m79_reload")
                 .withReloadingTime(50)
                 .withFlashIntensity(0f)
-                .withFlashScale(() -> 0f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.101f)
+                .withFlashScale(0f)
+                .withFlashOffsetX(0.1f)
+                .withFlashOffsetY(0.101f)
                 .withShellCasingEjectEnabled(false)
                 .withDestroyingBlocks(false)
 
@@ -1074,6 +1073,6 @@ public class GL06Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.3f)
                 .withSpawnEntitySpeed(5f)
                 .withSpawnEntityExplosionRadius(4f)
-                .build(MWC.modContext);
+                .build();
     }
 }

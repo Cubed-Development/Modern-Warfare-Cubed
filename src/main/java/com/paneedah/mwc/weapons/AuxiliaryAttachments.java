@@ -2,7 +2,10 @@ package com.paneedah.mwc.weapons;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.AttachmentBuilder;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.Weapon;
 import org.lwjgl.opengl.GL11;
 
 public class AuxiliaryAttachments {
@@ -221,7 +224,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> ChainA;
     public static ItemAttachment<Weapon> ChainB;
 
-    public static void init(ModContext modContext) {
+    public static void init() {
         
 /*
     	PanelUpper = new AttachmentBuilder<Weapon>()
@@ -230,7 +233,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinPanelUpper(), "ninthsin.png")
                 .withName("PanelUpper")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	PanelLower = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -238,7 +241,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinPanelLower(), "ninthsin.png")
                 .withName("PanelLower")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	RegulatorUpper = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -246,7 +249,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorUpper(), "ninthsin.png")
                 .withName("RegulatorUpper")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	RegulatorLower = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -254,7 +257,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorLower(), "ninthsin.png")
                 .withName("RegulatorLower")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	RegulatorRotator = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA5)
@@ -262,7 +265,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorRotator(), "ninthsin.png")
                 .withName("RegulatorRotator")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	RegulatorActionUpper = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA6)
@@ -270,7 +273,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorActionUpper(), "ninthsin.png")
                 .withName("RegulatorActionUpper")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	RegulatorActionLower = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA7)
@@ -278,7 +281,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorActionLower(), "ninthsin.png")
                 .withName("RegulatorActionLower")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	RegulatorAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA8)
@@ -286,7 +289,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorAction(), "ninthsin.png")
                 .withName("RegulatorAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	CyclerFront = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA9)
@@ -294,7 +297,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinCycleFront(), "ninthsin.png")
                 .withName("CyclerFront")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	CyclerBackLeft = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA10)
@@ -302,7 +305,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinCycleBackLeft(), "ninthsin.png")
                 .withName("CyclerBackLeft")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	CyclerBackRight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA11)
@@ -310,7 +313,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinCycleBackRight(), "ninthsin.png")
                 .withName("CyclerBackRight")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
     	
     	Cycler = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA12)
@@ -318,7 +321,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinCycle(), "ninthsin.png")
                 .withName("Cycler")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 */
         ChainB = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -326,7 +329,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.ChainsawChainB(), "chainsaw.png")
                 .withName("ChainB")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ChainA = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -334,7 +337,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.ChainsawChainA(), "chainsaw.png")
                 .withName("ChainA")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Chain = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -342,7 +345,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.ChainsawChain(), "chainsaw.png")
                 .withName("Chain")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G95IronSights = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -351,7 +354,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.G95_rearsights(), "gun.png")
                 .withName("G95IronSights")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G95UprightIronSights = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -360,7 +363,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.G95_upright_rearsights(), "gun.png")
                 .withName("G95UprightIronSights")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Origin12Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -368,7 +371,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.Origin12Action(), "origin12.png")
                 .withName("Origin12Action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         P90Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -376,7 +379,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.P90Action(), "p90.png")
                 .withName("P90Action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1CarbineAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -384,7 +387,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.M1CarbineAction(), "gun.png")
                 .withName("M1CarbineAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         G11Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -393,7 +396,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.G11Action(), "gun.png")
                 .withName("G11Action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AUGAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -401,7 +404,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.AUGaction(), "aug.png")
                 .withName("AUGAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MAS21Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -413,7 +416,7 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MAS21Barrel = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -423,7 +426,7 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MAS21Part = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -433,7 +436,7 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M32Main1B = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -442,7 +445,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.Suppressor(), "gun.png")
                 .withName("M32Main1B")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M134Barrels = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -450,21 +453,21 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.M134Barrels(), "gun.png")
                 .withName("M134Barrels")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         BrowningAuto5Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new com.paneedah.mwc.models.BrowningAuto5Action(), "gun.png").withName("BrowningAuto5Action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1GarandAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new com.paneedah.mwc.models.M1GarandAction(), "gun.png").withName("M1GarandAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1GarandMag = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -473,21 +476,21 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.M1GarandMag2(), "M1GarandMag.png")
                 .withName("M1GarandMag")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M1897Pump = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new com.paneedah.mwc.models.M1897Pump(), "m1897.png").withName("M1897pump")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Super90Pump = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new com.paneedah.mwc.models.Super90Pump(), "gun.png").withName("Super90Pump")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
 //        P226Slide = new AttachmentBuilder<Weapon>()
 //                .withCategory(AttachmentCategory.EXTRA)
@@ -497,7 +500,7 @@ public class AuxiliaryAttachments {
 //                .withModel(new com.paneedah.mwc.models.P226frontsight(), "p226frontsight.png")
 //                .withName("P226Slide")
 //                .withRenderablePart().withTextureName("Dummy.png")
-//                .build(modContext);
+//                .build();
 
         PythonChamber = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -506,7 +509,7 @@ public class AuxiliaryAttachments {
                 .withName("PythonChamber")
                 .withPivotPoint(-0.11759999474287039F, -0.9064000131249434F, -0.8943999600172051F)
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         RevolverSpeedLoader = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -515,7 +518,7 @@ public class AuxiliaryAttachments {
                 .withName("RevolverSpeedloader")
                 .withPivotPoint(-0.11759999474287039F, 0.07280001164674715F, 0.8548000601351243F)
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         RevolverSpeedLoaderBullets = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -524,7 +527,7 @@ public class AuxiliaryAttachments {
                 .withName("RevolverSpeedloaderBullets")
                 .withPivotPoint(-0.11759999474287039F, -0.9064000131249434F, -0.8943999600172051F)
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MagnumChamber = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -533,35 +536,35 @@ public class AuxiliaryAttachments {
                 .withName("MagnumChamber")
                 .withPivotPoint(-0.11759999474287039F, -0.9064000131249434F, -0.8943999600172051F)
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         RhinoChamber = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new ChiappoRhinoChamber(), "chiapparhino.png").withName("RhinoChamber")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ACRAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.ACRAction(), "ACR.png")
                 .withModel(new com.paneedah.mwc.models.ACRAction2(), "gun.png")
                 .withName("ACRAction").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M1014Action = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.M1014action(), "m1014.png")
                 .withName("M1014Action").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         ShotgunInsertion = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new com.paneedah.mwc.models.ShotgunInsertion(), "ShotgunInsertion.png")
                 .withName("ShotgunInsertion").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         SupernovaPump = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new com.paneedah.mwc.models.SupernovaPump(), "supernova.png")
                 .withName("SupernovaPump").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         ACRRails = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
                 .withModel(new com.paneedah.mwc.models.AKRail(), "acrrail.png")
@@ -570,56 +573,56 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.AKRail4(), "acrrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail5(), "acrrail.png")
                 .withName("ACRRails").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         RPG7rocket = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new com.paneedah.mwc.models.RPG7rocket(), "rpg7.png")
                 .withRenderablePart()
                 .withName("RPG7rocket")
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M202rockets = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new com.paneedah.mwc.models.M202Rockets(), "gun.png")
                 .withRenderablePart()
                 .withName("m202rockets")
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         GLgrenade = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA6)
                 .withModel(new GL06Grenade(), "GL06.png")
                 .withRenderablePart()
                 .withName("GLgrenade")
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M79grenade = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA6)
                 .withModel(new com.paneedah.mwc.models.M79grenade(), "gun.png")
                 .withRenderablePart()
                 .withName("M79grenade")
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         GL06Cartridge = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new com.paneedah.mwc.models.GL06Cartridge(), "GL06.png")
                 .withRenderablePart()
                 .withName("GL06Cartridge")
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M79Cartridge = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new com.paneedah.mwc.models.M79Cartridge(), "m79.png")
                 .withRenderablePart()
                 .withName("M79Cartridge")
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M32Cartridge = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new com.paneedah.mwc.models.M32Cartridge(), "gun.png")
                 .withRenderablePart()
                 .withName("M32Cartridge")
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M41AMag = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -628,7 +631,7 @@ public class AuxiliaryAttachments {
                 .withName("M41AMag")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MP43Edoublebarrel = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -637,7 +640,7 @@ public class AuxiliaryAttachments {
                 .withName("MP43Edoublebarrel")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         HS12Barrels = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -649,7 +652,7 @@ public class AuxiliaryAttachments {
                 .withName("HS12Barrels")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M1873action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -658,7 +661,7 @@ public class AuxiliaryAttachments {
                 .withName("M1873action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         F2000Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -667,7 +670,7 @@ public class AuxiliaryAttachments {
                 .withName("F2000Action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         G36CAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -676,7 +679,7 @@ public class AuxiliaryAttachments {
                 .withName("G36CAction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         ARX160Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -685,7 +688,7 @@ public class AuxiliaryAttachments {
                 .withName("ARX160Action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M1A1ThompsonAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -694,7 +697,7 @@ public class AuxiliaryAttachments {
                 .withName("M1A1ThompsonAction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         KedrAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -703,7 +706,7 @@ public class AuxiliaryAttachments {
                 .withName("KedrAction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         KedrStock = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -712,7 +715,7 @@ public class AuxiliaryAttachments {
                 .withName("KedrStock")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MP7Grip = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -722,7 +725,7 @@ public class AuxiliaryAttachments {
                 .withPivotPoint(-0.12000000357627871F, -0.20000000596046452F, -1.6000000476837126F)
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M1928ThompsonAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -731,7 +734,7 @@ public class AuxiliaryAttachments {
                 .withName("M1928ThompsonAction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M1A1Sight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -740,7 +743,7 @@ public class AuxiliaryAttachments {
                 .withName("M1A1ThompsonSight")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M1928Sight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -749,7 +752,7 @@ public class AuxiliaryAttachments {
                 .withName("M1928Sight")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         R870part = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -758,7 +761,7 @@ public class AuxiliaryAttachments {
                 .withName("R870part")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M82Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -767,7 +770,7 @@ public class AuxiliaryAttachments {
                 .withName("m82action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MP40action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -776,7 +779,7 @@ public class AuxiliaryAttachments {
                 .withName("MP40action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MP5boltaction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -786,7 +789,7 @@ public class AuxiliaryAttachments {
                 .withPivotPoint(-0.12000000357627871F, -1.1200000333786013F, -2.320000069141389F)
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         UMP45action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -796,7 +799,7 @@ public class AuxiliaryAttachments {
                 .withPivotPoint(-0.12000000357627871F, -1.1200000333786013F, -2.320000069141389F)
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MP5action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -805,7 +808,7 @@ public class AuxiliaryAttachments {
                 .withName("MP5action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MP7action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -814,7 +817,7 @@ public class AuxiliaryAttachments {
                 .withName("MP7action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         G3Bolt = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -824,7 +827,7 @@ public class AuxiliaryAttachments {
                 .withPivotPoint(0.0F, -1.0800000321865084F, -4.120000122785571F)
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         G3Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -833,7 +836,7 @@ public class AuxiliaryAttachments {
                 .withName("G3Action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MG42Belt = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -842,7 +845,7 @@ public class AuxiliaryAttachments {
                 .withName("mg42belt")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MG42latch = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -851,7 +854,7 @@ public class AuxiliaryAttachments {
                 .withName("mg42latch")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MG34latch = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -860,7 +863,7 @@ public class AuxiliaryAttachments {
                 .withName("mg34latch")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M60Belt = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -869,7 +872,7 @@ public class AuxiliaryAttachments {
                 .withName("M60Belt")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         StonerHATCH = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -879,7 +882,7 @@ public class AuxiliaryAttachments {
                 .withName("StonerHATCH")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         StonerBELT = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -888,7 +891,7 @@ public class AuxiliaryAttachments {
                 .withName("StonerBELT")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         JohnsonACTION = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -897,7 +900,7 @@ public class AuxiliaryAttachments {
                 .withName("JohnsonLMGACTION")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         JohnsonRifleACTION = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -906,7 +909,7 @@ public class AuxiliaryAttachments {
                 .withName("JohnsonRifleAction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         JohnsonRifleSight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -915,7 +918,7 @@ public class AuxiliaryAttachments {
                 .withName("JohnsonRifleSight")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         StripperClip = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -924,7 +927,7 @@ public class AuxiliaryAttachments {
                 .withName("StripperClip")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         StripperClipBullets = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -933,7 +936,7 @@ public class AuxiliaryAttachments {
                 .withName("StripperClipBullets")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         NTW20Barrel = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -942,7 +945,7 @@ public class AuxiliaryAttachments {
                 .withName("NTW20Barrel")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         NTW20Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -951,7 +954,7 @@ public class AuxiliaryAttachments {
                 .withName("NTW20Action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M60Hatch = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -960,7 +963,7 @@ public class AuxiliaryAttachments {
                 .withName("M60Hatch")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M249Belt = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -969,7 +972,7 @@ public class AuxiliaryAttachments {
                 .withName("M249Belt")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M249Hatch = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -981,7 +984,7 @@ public class AuxiliaryAttachments {
                 .withName("M249Hatch")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M249Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -990,7 +993,7 @@ public class AuxiliaryAttachments {
                 .withName("M249Action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MG42action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -999,7 +1002,7 @@ public class AuxiliaryAttachments {
                 .withName("mg42action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         ScarAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1008,7 +1011,7 @@ public class AuxiliaryAttachments {
                 .withName("ScarAction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         ScarHAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1017,7 +1020,7 @@ public class AuxiliaryAttachments {
                 .withName("ScarHAction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         Mk14EBRaction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -1026,7 +1029,7 @@ public class AuxiliaryAttachments {
                 .withName("Mk14EBRaction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         Mk14EBRsight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1035,7 +1038,7 @@ public class AuxiliaryAttachments {
                 .withName("Mk14EBRsight")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M14DMRRail = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1044,7 +1047,7 @@ public class AuxiliaryAttachments {
                 .withName("M14DMRRail")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         STG44action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -1053,7 +1056,7 @@ public class AuxiliaryAttachments {
                 .withName("STG44action")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         STG44actionCover = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -1062,7 +1065,7 @@ public class AuxiliaryAttachments {
                 .withName("STG44actioncover")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         G43GewehrAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -1071,7 +1074,7 @@ public class AuxiliaryAttachments {
                 .withName("G43GewehrAction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         SpringfieldRearSight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1079,7 +1082,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.SpringfieldRearSight(), "gun.png")
                 .withName("SpringfieldRearSight")
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         SpringfieldAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA7)
@@ -1088,7 +1091,7 @@ public class AuxiliaryAttachments {
                 .withName("SpringfieldAction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         Kar98Kaction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA7)
@@ -1097,7 +1100,7 @@ public class AuxiliaryAttachments {
                 .withName("Kar98Kaction")
                 .withRenderablePart()
 
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         VP70slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1107,7 +1110,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.GlockRearSight(), "glockrearsight")
                 .withName("VP70slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         APSslide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1117,7 +1120,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.APSrearsight(), "gun")
                 .withName("APSslide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         APShammer = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1125,7 +1128,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.APShammer(), "APS.png")
                 .withName("APShammer")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         USP45hammer = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1133,7 +1136,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.USP45Hammer(), "usp45.png")
                 .withName("USP45hammer")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         P226hammer = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1141,7 +1144,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.P226Hammer(), "p226.png")
                 .withName("P226hammer")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M9A1hammer = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1149,7 +1152,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.M9hammer(), "m9a1.png")
                 .withName("M9A1hammer")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         MP443hammer = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1157,7 +1160,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.MP443Hammer(), "mp443.png")
                 .withName("MP443hammer")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M712action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1165,7 +1168,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.M712action(), "m712.png")
                 .withName("M712action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M45A1slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1175,7 +1178,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.M1911rearsight(), "m1911rearsight")
                 .withName("M45A1slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M17_Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1185,7 +1188,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.M9A1rearsight(), "M9A1rearsight")
                 .withName("m17_slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Makarov_Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1195,7 +1198,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.makarovfrontsight(), "gun.png")
                 .withName("Makarov_Slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         P12_Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1205,7 +1208,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.P2000rearsight(), "m1911frontsight.png")
                 .withName("P12_Slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         BrowningHiPowerSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1215,7 +1218,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.makarovrearsight(), "gun")
                 .withName("BrowningHiPowerSlide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         VSSVintorezAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1223,7 +1226,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.VSSVintorezAction(), "vssvintorez.png")
                 .withName("VSSVintorezAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AKaction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1231,7 +1234,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.AK47Action(), "ak47.png")
                 .withName("AKaction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DragunovAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1239,7 +1242,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.DragunovAction(), "dragunov.png")
                 .withName("DragunovAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Malyukaction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1247,7 +1250,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.MalyukAction(), "malyuk.png")
                 .withName("Malyukaction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK15action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1255,7 +1258,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.AK15Action(), "ak15.png")
                 .withName("AK15action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KBP9A91action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1263,7 +1266,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.KBP9A91Action(), "KBP9A91.png")
                 .withName("KBP9A91action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FNFALActionLever = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1271,7 +1274,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.FNFALActionLever(), "FNFAL.png")
                 .withName("FNFALActionLever")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FNFALAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1279,7 +1282,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.FNFALAction(), "FNFAL.png")
                 .withName("FNFALAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         FamasF1Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1287,7 +1290,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.FamasF1Action(), "famasf1.png")
                 .withName("FamasF1Action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AK12action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1295,14 +1298,14 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.AK12action(), "ak12kal.png")
                 .withName("AK12action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Saiga12action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new com.paneedah.mwc.models.Saiga12action(), "gun.png").withName("Saiga12action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Saiga12sights = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1311,7 +1314,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.makarovfrontsight(), "gun.png")
                 .withName("Saiga12sights")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AS50Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1319,7 +1322,7 @@ public class AuxiliaryAttachments {
                 .withModel(new AS50action(), "as50.png")
                 .withName("AS50Action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Albert01Rslide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1329,7 +1332,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.M9A1rearsight(), "M9A1rearsight")
                 .withName("albert01R_slide")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         UziAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1337,7 +1340,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.UziAction(), "gun.png")
                 .withName("UziAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         UziRelease = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1345,7 +1348,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.UziRelease(), "gun.png")
                 .withName("UziRelease")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         UziIronSight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -1354,7 +1357,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.UziRearSight(), "gun.png")
                 .withName("UziIronSight")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         P10frontsight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -1364,7 +1367,7 @@ public class AuxiliaryAttachments {
 //                .withModel(new com.paneedah.mwc.models.M9A1rearsight(), "M9A1rearsight")
                 .withName("P10frontsight")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M40A6BoltAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1372,7 +1375,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.GunwerksHAMRboltaction(), "gunwerkshamr")
                 .withName("M40A6BoltAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M40A6BoltActionPrime = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1380,7 +1383,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.GunwerksHAMRboltactionPrime(), "gunwerkshamr")
                 .withName("M40A6BoltActionPrime")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SSG08BoltAction1 = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -1388,7 +1391,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.SSG08BoltAction1(), "SSG08_2")
                 .withName("SSG08BoltAction1")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SSG08BoltAction2 = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1396,7 +1399,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.SSG08BoltAction2(), "SSG08")
                 .withName("SSG08")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington700BoltAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -1404,7 +1407,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.R700action(), "remington700")
                 .withName("Remington700BoltAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Remington700BoltActionMain = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1412,7 +1415,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.R700actionMain(), "remington700")
                 .withName("Remington700BoltActionMain")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         SV98BoltAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1420,21 +1423,21 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.SV98Action(), "sv98")
                 .withName("SV98BoltAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         L115Bolt1 = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new com.paneedah.mwc.models.L96Action(), "L96Action.png").withName("L96Action")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         L115Bolt2 = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new com.paneedah.mwc.models.L115Bolt2(), "gun.png").withName("LP115Bolt2")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DSR1BoltAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1442,7 +1445,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.DSR1BoltAction(), "dsr1.png")
                 .withName("DSR1BoltAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         DSR1BoltActionMain = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -1450,7 +1453,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.DSR1BoltActionMain(), "dsr1.png")
                 .withName("DSR1BoltActionMain")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         InterventionBoltAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -1458,14 +1461,14 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.InterventionBoltAction(), "intervention.png")
                 .withName("InterventionBoltAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         L115Mag = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new com.paneedah.mwc.models.L115Mag(), "gun.png").withName("L115Mag")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         M500A2pump = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1473,7 +1476,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.M500A2pump(), "gun")
                 .withName("M500A2pump")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         HESCSpump = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1481,7 +1484,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.HEShotgunPump(), "spas12")
                 .withName("HESCSpump")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KS23pump = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1489,7 +1492,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.KS23pump(), "ks23")
                 .withName("KS23pump")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KragAction1 = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1497,7 +1500,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.KragJorgensenAction1(), "KragJorgensen")
                 .withName("KragAction1")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KragAction2 = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -1505,7 +1508,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.KragJorgensenAction2(), "KragJorgensen")
                 .withName("KragAction2")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         KragChamber = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -1513,7 +1516,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.KragJorgensenChamber(), "KragJorgensen")
                 .withName("KragChamber")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ShotgunShell = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1521,7 +1524,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge(), "shotgun12gauge")
                 .withName("ShotgunShell")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         ShotgunShellDouble = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -1530,7 +1533,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge2(), "shotgun12gauge")
                 .withName("ShotgunShellDouble")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Shotgun4Gauge = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1538,7 +1541,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge(), "Shotgun4Gauge")
                 .withName("Shotgun4Gauge")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Bullet = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1548,7 +1551,7 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         BulletSmall = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
@@ -1558,7 +1561,7 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
 
                 .withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         LaserProjectile = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -1566,72 +1569,72 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.LaserProjectile(), "Laser")
                 .withName("LaserProjectile")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         AR15Action = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.AR15Action(), "ar15action.png")
                 .withName("AR15Action").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M4EjectorAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA)
                 .withModel(new com.paneedah.mwc.models.M4A1Action(), "m4a1.png")
                 .withName("M4EjectorAction").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         SIG556Action = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA)
                 .withModel(new com.paneedah.mwc.models.SIG556Action(), "sig556.png")
                 .withName("SIG556Action").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         SIGMCXAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA)
                 .withModel(new com.paneedah.mwc.models.SIGMCXAction(), "sigMCx.png")
                 .withName("SIGMCXAction").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M110EjectorAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA)
                 .withModel(new com.paneedah.mwc.models.M110Action(), "m110.png")
                 .withName("M110EjectorAction").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         BeowulfAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA)
                 .withModel(new com.paneedah.mwc.models.Beowulf50CalAction(), "beowulf50cal.png")
                 .withName("BeowulfAction").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         S710TricunActionPully = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.S710TricunActionPully(), "s710tricun.png")
                 .withName("S710TricunActionPully").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         S710TricunActionEjector = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new com.paneedah.mwc.models.S710TricunActionEjector(), "s710tricun.png")
                 .withName("S710TricunActionEjector").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         K2C1Action = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.K2C1Action(), "k2c1.png")
                 .withName("K2C1Action").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         ScorpionAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.ScorpionEVO3A1Action(), "ScorpionEVO3A1.png")
                 .withName("ScorpionAction").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         APC9Action = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.APC9Action(), "gun.png")
                 .withName("APC9Action").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         BrenAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.CZ805BrenAction(), "cz805bren.png")
                 .withName("BrenAction").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M110Action = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.AR15Action(), "M110action.png")
                 .withName("M110Action").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         AR15Iron = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SCOPE)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -1671,7 +1674,7 @@ public class AuxiliaryAttachments {
                     }
                 })
                 .withName("AR15Iron").withTextureName("Dummy.png")
-                .build(modContext);
+                .build();
 
         Extra = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA6)
@@ -1684,7 +1687,7 @@ public class AuxiliaryAttachments {
                 .withModel(new FALIron(), "gun.png").withModel(new M14Iron(), "gun.png")
                 .withModel(new MP5Iron(), "gun.png")
                 .withName("Extra")
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M4Rail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
@@ -1693,27 +1696,27 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.AKRail4(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail5(), "akrail.png")
                 .withName("M4Rail").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M4AsiimovRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
                 .withModel(new com.paneedah.mwc.models.AKRail(), "m4asiimovrail.png")
                 .withName("M4AsiimovRail").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         MagnumRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
                 .withModel(new com.paneedah.mwc.models.AKRail(), "magnumrail.png")
                 .withName("MagnumRail").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         RailAlt = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new com.paneedah.mwc.models.RailAlt(), "gun.png")
                 .withName("RailAlt").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         AACRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
                 .withModel(new com.paneedah.mwc.models.AKRail(), "aacrail_main.png")
                 .withName("AACRail").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         M110Rail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
                 .withModel(new com.paneedah.mwc.models.AKRail(), "M110.png")
@@ -1722,17 +1725,17 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.AKRail4(), "M110.png")
                 .withModel(new com.paneedah.mwc.models.AKRail5(), "M110.png")
                 .withName("M110Rail").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         AKpart = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
                 .withModel(new com.paneedah.mwc.models.AKpart(), "gun")
                 .withName("AKpart").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
 
         AKMuzzle = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new com.paneedah.mwc.models.Suppressor(), "gun")
                 .withName("AKmuzzle").withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
+                .withTextureName("Dummy.png").build();
     }
 
 }

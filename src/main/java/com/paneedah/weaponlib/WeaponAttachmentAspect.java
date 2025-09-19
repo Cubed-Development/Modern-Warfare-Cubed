@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.instancing.Tags;
@@ -93,7 +94,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
         }
     }
 
-    private final ModContext modContext;
     private NetworkPermitManager permitManager;
     private StateManager<WeaponState, ? super PlayerWeaponInstance> stateManager;
 
@@ -108,10 +108,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
     private final Collection<WeaponState> allowedUpdateFromStates = Collections.singletonList(WeaponState.MODIFYING_REQUESTED);
     private static final int INVENTORY_SIZE = 36;
 
-    WeaponAttachmentAspect(ModContext modContext) {
-        this.modContext = modContext;
-    }
-
     @Override
     public void setStateManager(StateManager<WeaponState, ? super PlayerWeaponInstance> stateManager) {
 
@@ -122,8 +118,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
         this.stateManager = stateManager
 
                 .in(this).change(WeaponState.READY).to(WeaponState.MODIFYING).when(clickSpammingPreventer)
-                .withPermit((s, es) -> new EnterAttachmentModePermit(s),
-                        modContext.getPlayerItemInstanceRegistry()::update, permitManager)
+                .withPermit((s, es) -> new EnterAttachmentModePermit(s), MWC.modContext.getPlayerItemInstanceRegistry()::update, permitManager)
                 .manual()
 
                 .in(this).change(WeaponState.MODIFYING).to(WeaponState.READY).when(clickSpammingPreventer2)
@@ -134,7 +129,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
                 }).manual()
 
                 .in(this).change(WeaponState.MODIFYING).to(WeaponState.NEXT_ATTACHMENT).when(clickSpammingPreventer)
-                .withPermit(null, modContext.getPlayerItemInstanceRegistry()::update, permitManager).manual()
+                .withPermit(null, MWC.modContext.getPlayerItemInstanceRegistry()::update, permitManager).manual()
 
                 .in(this).change(WeaponState.NEXT_ATTACHMENT).to(WeaponState.MODIFYING).automatic();
     }
@@ -151,21 +146,17 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
     }
 
     public void toggleClientAttachmentSelectionMode(EntityPlayer player) {
+        final PlayerWeaponInstance weaponInstance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
 
-        PlayerWeaponInstance weaponInstance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player,
-                PlayerWeaponInstance.class);
-        if (weaponInstance != null) {
+        if (weaponInstance != null)
             stateManager.changeState(this, weaponInstance, WeaponState.MODIFYING, WeaponState.READY);
-        }
     }
 
     void updateMainHeldItem(EntityPlayer player) {
-        PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player,
-                PlayerWeaponInstance.class);
-        if (instance != null) {
-            stateManager.changeStateFromAnyOf(this, instance, allowedUpdateFromStates); // no target state specified,
-            // will trigger auto-transitions
-        }
+        final PlayerWeaponInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
+
+        if (instance != null)
+            stateManager.changeStateFromAnyOf(this, instance, allowedUpdateFromStates); // no target state specified, will trigger auto-transitions
     }
 
     private void enterAttachmentSelectionMode(EnterAttachmentModePermit permit, PlayerWeaponInstance weaponInstance) {
@@ -187,8 +178,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
     List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
         List<CompatibleAttachment<? extends AttachmentContainer>> activeAttachments = new ArrayList<>();
 
-        PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player,
-                itemStack);
+        final PlayerItemInstance<?> itemInstance = MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
 
         int[] activeAttachmentsIds;
         if (!(itemInstance instanceof PlayerWeaponInstance)) {
@@ -282,9 +272,8 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
                     continue;
                 }
 
-                // We do want to display if it is a potential attachment
-                // but there are conditions to be met
-                modContext.getAttachmentAspect();
+                // We do want to display if it is a potential attachment but there are conditions to be met
+                MWC.modContext.getAttachmentAspect();
                 if (!WeaponAttachmentAspect.hasRequiredAttachments(potentialAttachment, weaponInstance)) {
                     flaggedAttachment.setRequiredParts(getRequiredParts(potentialAttachment, weaponInstance));
                 }

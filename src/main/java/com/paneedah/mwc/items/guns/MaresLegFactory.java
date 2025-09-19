@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
@@ -17,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 public class MaresLegFactory implements GunFactory {
 
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("mares_leg")
@@ -42,9 +41,9 @@ public class MaresLegFactory implements GunFactory {
                 .withReloadingTime(15)
                 .withShellCasingEjectEnabled(false)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.11f)
-                .withFlashOffsetY(() -> 0.13f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.11f)
+                .withFlashOffsetY(0.13f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
 
 
@@ -929,6 +928,6 @@ public class MaresLegFactory implements GunFactory {
                 .withSpawnEntityDamage(5.5f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

@@ -3,7 +3,6 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
@@ -15,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 
 public class Remington870Factory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("remington870")
@@ -44,9 +43,9 @@ public class Remington870Factory implements GunFactory {
                 .withInaccuracy(10)
                 .withPellets(10)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.7f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.11f)
+                .withFlashScale(0.7f)
+                .withFlashOffsetX(0.1f)
+                .withFlashOffsetY(0.11f)
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         5f, // x
@@ -2330,6 +2329,6 @@ public class Remington870Factory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.8f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

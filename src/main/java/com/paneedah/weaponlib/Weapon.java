@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.instancing.Tags;
@@ -50,14 +51,13 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
-import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.handlers.ClientEventHandler.COOKING_QUEUE;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, ICraftingRecipe {
 
@@ -92,7 +92,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         int ammoCapacity = 0;
         float recoil = 1.0F;
 
-        private boolean hasFlashPedals = false;
+        private boolean hasFlashPetals = false;
 
         private String shootSound;
         private String silencedShootSound;
@@ -111,10 +111,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         private Vec3d muzzlePosition = new Vec3d(-.3, -1.0, -5.3);
 
-
-        private String exceededMaxShotsSound;
         float fireRate = Weapon.DEFAULT_FIRE_RATE;
-        private WeaponRenderer renderer;
+        private WeaponRenderer renderer = new WeaponRenderer.Builder().build();
         //float zoom = Weapon.DEFAULT_ZOOM;
         @Getter List<Integer> maxShots = new ArrayList<>(); // FIRE_MODE ! TODO: This is despicable
         BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith;
@@ -157,15 +155,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         float flashIntensity = 0.2f;
 
-        Supplier<Float> flashScale = () -> 1f;
+        float flashScale = 1f;
 
-        Supplier<Float> flashOffsetX = () -> 0f;
+        float flashOffsetX = 0f;
 
-        Supplier<Float> flashOffsetY = () -> 0f;
-
-        Supplier<Float> smokeOffsetX = () -> 0f;
-
-        Supplier<Float> smokeOffsetY = () -> 0f;
+        float flashOffsetY = 0f;
 
         long unloadingTimeout = Weapon.DEFAULT_UNLOADING_TIMEOUT_TICKS;
 
@@ -250,8 +244,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this.fireRate;
         }
 
-        public Builder hasFlashPedals() {
-            this.hasFlashPedals = true;
+        public Builder hasFlashPetals() {
+            this.hasFlashPetals = true;
             return this;
         }
 
@@ -425,11 +419,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         public Builder withSilenceShootSoundVolume(float volume) {
             this.silencedShootSoundVolume = volume;
-            return this;
-        }
-
-        public Builder withExceededMaxShotsSound(String shootSound) {
-            this.exceededMaxShotsSound = shootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
 
@@ -636,36 +625,20 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
-        public Builder withFlashScale(Supplier<Float> flashScale) {
+        public Builder withFlashScale(float flashScale) {
             this.flashScale = flashScale;
             return this;
         }
 
-        public Builder withFlashOffsetX(Supplier<Float> flashOffsetX) {
+        public Builder withFlashOffsetX(float flashOffsetX) {
             this.flashOffsetX = flashOffsetX;
             return this;
         }
 
-        public Builder withFlashOffsetY(Supplier<Float> flashOffsetY) {
+        public Builder withFlashOffsetY(float flashOffsetY) {
             this.flashOffsetY = flashOffsetY;
             return this;
         }
-
-        public Builder withFlashTexture(String flashTexture) {
-            this.flashTexture = ID + ":textures/particle/" + flashTexture.toLowerCase() + ".png";
-            return this;
-        }
-
-        public Builder withSmokeOffsetX(Supplier<Float> smokeOffsetX) {
-            this.smokeOffsetX = smokeOffsetX;
-            return this;
-        }
-
-        public Builder withSmokeOffsetY(Supplier<Float> smokeOffsetY) {
-            this.smokeOffsetY = smokeOffsetY;
-            return this;
-        }
-
 
         @Deprecated
         public Builder withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
@@ -746,7 +719,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
-        public Weapon build(ModContext modContext) {
+        public Weapon build() {
 
             if (name == null) {
                 throw new IllegalStateException("Weapon name not provided");
@@ -781,8 +754,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             if (spawnEntityWith == null) {
 
 
-                int explosionParticleTextureId = modContext.registerTexture(explosionParticleTexture);
-                int smokeParticleTextureId = modContext.registerTexture(smokeParticleTexture);
+                int explosionParticleTextureId = MWC.modContext.registerTexture(explosionParticleTexture);
+                int smokeParticleTextureId = MWC.modContext.registerTexture(smokeParticleTexture);
 
 
                 spawnEntityWith = (weapon, player) -> {
@@ -810,7 +783,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 };
             }
 
-            if ((FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)) {
+            if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) {
                 // Register in spritesheet builder
                 WeaponSpritesheetBuilder.registerSprite(this.name);
                 this.renderer.name = this.name;
@@ -843,7 +816,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                     } else {
                         CHANNEL.sendToAllAround(new BlockHitMessage(position.getBlockPos(), VectorUtil.convertToVector3D(position.hitVec), position.sideHit), new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100));
 
-                        MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(iBlockState, entity);
+                        MaterialImpactSound materialImpactSound = MWC.modContext.getMaterialImpactSound(iBlockState, entity);
                         if (materialImpactSound != null) {
                             world.playSound(null, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), materialImpactSound.getSound(), SoundCategory.BLOCKS, materialImpactSound.getVolume(), 1f);
                         }
@@ -859,29 +832,28 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 maxShots.add(Integer.MAX_VALUE);
             }
 
-            Weapon weapon = new Weapon(this, modContext);
+            Weapon weapon = new Weapon(this);
 
-            weapon.shootSound = modContext.registerSound(this.shootSound);
-            if (this.endOfShootSound != null) {
-                weapon.endOfShootSound = modContext.registerSound(this.endOfShootSound);
-            }
+            weapon.shootSound = MWC.modContext.registerSound(this.shootSound);
+            if (this.endOfShootSound != null)
+                weapon.endOfShootSound = MWC.modContext.registerSound(this.endOfShootSound);
 
             weapon.muzzlePosition = this.muzzlePosition;
 
-            weapon.burstShootSound = modContext.registerSound(this.burstShootSound);
-            weapon.silencedBurstShootSound = modContext.registerSound(this.silencedBurstShootSound);
+            weapon.burstShootSound = MWC.modContext.registerSound(this.burstShootSound);
+            weapon.silencedBurstShootSound = MWC.modContext.registerSound(this.silencedBurstShootSound);
 
-            weapon.reloadSound = modContext.registerSound(this.reloadSound);
-            weapon.reloadIterationSound = modContext.registerSound(this.reloadIterationSound);
-            weapon.inspectSound = modContext.registerSound(this.inspectSound);
-            weapon.drawSound = modContext.registerSound(this.drawSound);
+            weapon.reloadSound = MWC.modContext.registerSound(this.reloadSound);
+            weapon.reloadIterationSound = MWC.modContext.registerSound(this.reloadIterationSound);
+            weapon.inspectSound = MWC.modContext.registerSound(this.inspectSound);
+            weapon.drawSound = MWC.modContext.registerSound(this.drawSound);
 
-            weapon.allReloadIterationsCompletedSound = modContext.registerSound(this.allReloadIterationsCompletedSound);
-            weapon.unloadSound = modContext.registerSound(this.unloadSound);
-            weapon.silencedShootSound = modContext.registerSound(this.silencedShootSound);
+            weapon.allReloadIterationsCompletedSound = MWC.modContext.registerSound(this.allReloadIterationsCompletedSound);
+            weapon.unloadSound = MWC.modContext.registerSound(this.unloadSound);
+            weapon.silencedShootSound = MWC.modContext.registerSound(this.silencedShootSound);
 
             if (ejectSpentRoundSound != null) {
-                weapon.ejectSpentRoundSound = modContext.registerSound(this.ejectSpentRoundSound);
+                weapon.ejectSpentRoundSound = MWC.modContext.registerSound(this.ejectSpentRoundSound);
             }
 
             weapon.setCreativeTab(tab);
@@ -895,11 +867,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 attachment.addCompatibleWeapon(weapon);
             }
 
-            modContext.registerWeapon(name, weapon, renderer);
+            MWC.modContext.registerWeapon(name, weapon, renderer);
 
             if (craftingRecipe != null && craftingRecipe.length >= 2) {
                 ItemStack itemStack = new ItemStack(weapon);
-                List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(weapon, craftingRecipe);
+                List<Object> registeredRecipe = MWC.modContext.getRecipeManager().registerShapedRecipe(weapon, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
                 if (hasOres) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
@@ -911,7 +883,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                         .withSlotCount(9)
                         .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
 
-                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(weapon, weapon.getName(), optionsMetadata);
+                List<Object> shape = MWC.modContext.getRecipeManager().createShapedRecipe(weapon, weapon.getName(), optionsMetadata);
 
                 if (optionsMetadata.isHasOres()) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
@@ -967,8 +939,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public Builder builder;
 
-    @Getter private final ModContext modContext;
-
     @Getter private Vec3d muzzlePosition;
 
     private CraftingEntry[] modernRecipe;
@@ -988,9 +958,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
 
-    Weapon(Builder builder, ModContext modContext) {
+    Weapon(Builder builder) {
         this.builder = builder;
-        this.modContext = modContext;
         setMaxStackSize(1);
     }
 
@@ -1021,8 +990,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     public void toggleAiming() {
-
-        PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
+        final PlayerWeaponInstance mainHandHeldWeaponInstance = MWC.modContext.getMainHeldWeapon();
 
         if (mainHandHeldWeaponInstance != null
                 && (mainHandHeldWeaponInstance.getState() == WeaponState.READY
@@ -1038,12 +1006,14 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     public void changeRecoil(EntityLivingBase player, float factor) {
-        PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
-        if (instance != null) {
-            float recoil = instance.getWeapon().builder.recoil * factor;
-            LOGGER.debug("Changing recoil to {} for instance {}", recoil, instance);
-            instance.setRecoil(recoil);
-        }
+        final PlayerWeaponInstance instance = MWC.modContext.getMainHeldWeapon();
+
+        if (instance == null)
+            return;
+
+        final float recoil = instance.getWeapon().builder.recoil * factor;
+        LOGGER.debug("Changing recoil to {} for instance {}", recoil, instance);
+        instance.setRecoil(recoil);
     }
 
     public Map<ItemAttachment<Weapon>, CompatibleAttachment<Weapon>> getCompatibleAttachments() {
@@ -1066,9 +1036,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     public int getCurrentAmmo(EntityPlayer player) {
-        PlayerWeaponInstance state = modContext.getMainHeldWeapon();
-        return state.getAmmo();
-
+        return MWC.modContext.getMainHeldWeapon().getAmmo();
     }
 
     public int getAmmoCapacity() {
@@ -1108,7 +1076,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     @Override
     public List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
-        return modContext.getAttachmentAspect().getActiveAttachments(player, itemStack);
+        return MWC.modContext.getAttachmentAspect().getActiveAttachments(player, itemStack);
     }
 
     long getUnloadTimeoutTicks() {
@@ -1254,32 +1222,32 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     @Override
     public void reloadMainHeldItemForPlayer(EntityPlayer player) {
-        modContext.getWeaponReloadAspect().reloadMainHeldItem(player);
+        MWC.modContext.getWeaponReloadAspect().reloadMainHeldItem(player);
     }
 
     @Override
     public void unloadMainHeldItemForPlayer(EntityPlayer player) {
-        modContext.getWeaponReloadAspect().unloadMainHeldItem(player);
+        MWC.modContext.getWeaponReloadAspect().unloadMainHeldItem(player);
     }
 
     @Override
     public void inspectMainHeldItemForPlayer(EntityPlayer player) {
-        modContext.getWeaponReloadAspect().inspectMainHeldItem(player);
+        MWC.modContext.getWeaponReloadAspect().inspectMainHeldItem(player);
     }
 
     @Override
     public void update(EntityPlayer player) {
-        modContext.getWeaponReloadAspect().updateMainHeldItem(player);
-        modContext.getWeaponFireAspect().onUpdate(player);
-        modContext.getAttachmentAspect().updateMainHeldItem(player);
+        MWC.modContext.getWeaponReloadAspect().updateMainHeldItem(player);
+        MWC.modContext.getWeaponFireAspect().onUpdate(player);
+        MWC.modContext.getAttachmentAspect().updateMainHeldItem(player);
     }
 
     public void tryFire(EntityPlayer player) {
-        modContext.getWeaponFireAspect().onFireButtonDown(player);
+        MWC.modContext.getWeaponFireAspect().onFireButtonDown(player);
     }
 
     public void tryStopFire(EntityPlayer player) {
-        modContext.getWeaponFireAspect().onFireButtonRelease(player);
+        MWC.modContext.getWeaponFireAspect().onFireButtonRelease(player);
     }
 
     @Override
@@ -1303,7 +1271,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     @Override
     public void toggleClientAttachmentSelectionMode(EntityPlayer player) {
-        modContext.getAttachmentAspect().toggleClientAttachmentSelectionMode(player);
+        MWC.modContext.getAttachmentAspect().toggleClientAttachmentSelectionMode(player);
     }
 
     @Override
@@ -1351,7 +1319,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
 
 
-        instance.getPlayer().playSound(modContext.getChangeFireModeSound(), 1, 1);
+        instance.getPlayer().playSound(MWC.modContext.getChangeFireModeSound(), 1, 1);
     }
 
 
@@ -1423,7 +1391,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 }
             }
 
-            instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
+            instance.getPlayer().playSound(MWC.modContext.getZoomSound(), 1, 1);
             LOGGER.debug("Changed optical zoom to {}", instance.getZoom());
         } else {
             LOGGER.debug("Cannot change non-optical zoom");
@@ -1451,7 +1419,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 }
             }
 
-            instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
+            instance.getPlayer().playSound(MWC.modContext.getZoomSound(), 1, 1);
             LOGGER.debug("Changed optical zoom to {}", zoom);
         } else {
             LOGGER.debug("Cannot change non-optical zoom");
@@ -1476,6 +1444,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     public String getTextureName() {
+        if (builder.textureNames.isEmpty())
+            return null;
         return builder.textureNames.get(0);
     }
 
@@ -1519,8 +1489,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return builder.shootSoundVolume;
     }
 
-    public boolean hasFlashPedals() {
-        return builder.hasFlashPedals;
+    public boolean hasFlashPetals() {
+        return builder.hasFlashPetals;
     }
 
     public GunConfigurationGroup getConfigurationGroup() {

@@ -1,6 +1,5 @@
 package com.paneedah.mwc.weapons;
 
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
@@ -76,5 +75,5 @@ public abstract class AbstractItemBuilder<T extends AbstractItemBuilder<T>> {
     }
 
     // Abstract build method to be implemented by subclasses
-    public abstract Object build(ModContext modContext);
+    public abstract Object build();
 }

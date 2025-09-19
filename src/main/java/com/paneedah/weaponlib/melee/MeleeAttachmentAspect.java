@@ -1,8 +1,12 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.network.NetworkPermitManager;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.AttachmentContainer;
+import com.paneedah.weaponlib.CompatibleAttachment;
+import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
@@ -68,7 +72,6 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
         }
     }
 
-    private final ModContext modContext;
     private NetworkPermitManager permitManager;
     private StateManager<MeleeState, ? super PlayerMeleeInstance> stateManager;
 
@@ -78,10 +81,6 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
             System.currentTimeMillis() >= es.getStateUpdateTimestamp() + clickSpammingTimeout;
 
     private final Collection<MeleeState> allowedUpdateFromStates = Collections.singletonList(MeleeState.MODIFYING_REQUESTED);
-
-    public MeleeAttachmentAspect(ModContext modContext) {
-        this.modContext = modContext;
-    }
 
     @Override
     public void setStateManager(StateManager<MeleeState, ? super PlayerMeleeInstance> stateManager) {
@@ -96,7 +95,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
                 .change(MeleeState.READY).to(MeleeState.MODIFYING)
                 .when(clickSpammingPreventer)
                 .withPermit((s, es) -> new EnterAttachmentModePermit(s),
-                        modContext.getPlayerItemInstanceRegistry()::update,
+                        MWC.modContext.getPlayerItemInstanceRegistry()::update,
                         permitManager)
                 .manual()
 
@@ -113,7 +112,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
                 .change(MeleeState.MODIFYING).to(MeleeState.NEXT_ATTACHMENT)
                 .when(clickSpammingPreventer)
                 .withPermit(null,
-                        modContext.getPlayerItemInstanceRegistry()::update,
+                        MWC.modContext.getPlayerItemInstanceRegistry()::update,
                         permitManager)
                 .manual()
 
@@ -136,18 +135,17 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
     }
 
     public void toggleClientAttachmentSelectionMode(EntityPlayer player) {
+        final PlayerMeleeInstance weaponInstance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMeleeInstance.class);
 
-        PlayerMeleeInstance weaponInstance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMeleeInstance.class);
-        if (weaponInstance != null) {
+        if (weaponInstance != null)
             stateManager.changeState(this, weaponInstance, MeleeState.MODIFYING, MeleeState.READY);
-        }
     }
 
     public void onUpdate(EntityPlayer player) {
-        PlayerMeleeInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMeleeInstance.class);
-        if (instance != null) {
+        final PlayerMeleeInstance instance = MWC.modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerMeleeInstance.class);
+
+        if (instance != null)
             stateManager.changeStateFromAnyOf(this, instance, allowedUpdateFromStates); // no target state specified, will trigger auto-transitions
-        }
     }
 
 
@@ -170,9 +168,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
     List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
         List<CompatibleAttachment<? extends AttachmentContainer>> activeAttachments = new ArrayList<>();
 
-        PlayerItemInstance<?> itemInstance = modContext.getPlayerItemInstanceRegistry()
-                .getCachedItemInstance(player, itemStack);
-
+        final PlayerItemInstance<?> itemInstance = MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
 
         int[] activeAttachmentsIds;
         if (!(itemInstance instanceof PlayerMeleeInstance)) {
@@ -205,17 +201,14 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
     }
 
     public void changeAttachment(AttachmentCategory attachmentCategory, PlayerMeleeInstance weaponInstance) {
-        if (weaponInstance != null) {
-            stateManager.changeState(this, weaponInstance, new ChangeAttachmentPermit(attachmentCategory),
-                    MeleeState.NEXT_ATTACHMENT);
-        }
+        if (weaponInstance != null)
+            stateManager.changeState(this, weaponInstance, new ChangeAttachmentPermit(attachmentCategory), MeleeState.NEXT_ATTACHMENT);
     }
 
 
     private void changeAttachment(ChangeAttachmentPermit permit, PlayerMeleeInstance weaponInstance) {
-        if (!(weaponInstance.getPlayer() instanceof EntityPlayer)) {
+        if (!(weaponInstance.getPlayer() instanceof EntityPlayer))
             return;
-        }
 
         EntityPlayer player = (EntityPlayer) weaponInstance.getPlayer();
 
@@ -232,12 +225,10 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 
         if (currentAttachment != null) {
             // Need to apply removal functions first before applying addition functions
-            if (currentAttachment.getRemove() != null) {
+            if (currentAttachment.getRemove() != null)
                 currentAttachment.getRemove().apply(currentAttachment, weaponInstance.getMelee(), player);
-            }
-            if (currentAttachment.getRemove3() != null) {
+            if (currentAttachment.getRemove3() != null)
                 currentAttachment.getRemove3().apply(currentAttachment, weaponInstance);
-            }
         }
 
         if (lookupResult.index >= 0) {

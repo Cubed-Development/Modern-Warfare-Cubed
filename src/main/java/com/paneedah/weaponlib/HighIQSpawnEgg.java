@@ -26,7 +26,8 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.ProjectConstants.*;
+import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 @NoArgsConstructor
 public class HighIQSpawnEgg extends Item implements ICraftingRecipe {

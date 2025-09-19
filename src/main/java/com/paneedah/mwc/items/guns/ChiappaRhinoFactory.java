@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.ChiappaRhino;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
@@ -17,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 public class ChiappaRhinoFactory implements GunFactory {
 
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("chiappa_rhino")
@@ -36,9 +35,9 @@ public class ChiappaRhinoFactory implements GunFactory {
                 .withAllReloadIterationsCompletedSound("revolver_load_complete")
                 .withReloadingTime(25)
                 .withFlashIntensity(0.5f)
-                .withFlashScale(() -> 0.6f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.15f)
+                .withFlashScale(0.6f)
+                .withFlashOffsetX(0.1f)
+                .withFlashOffsetY(0.15f)
                 .withInaccuracy(3)
                 .withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -1849,6 +1848,6 @@ public class ChiappaRhinoFactory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.016f)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

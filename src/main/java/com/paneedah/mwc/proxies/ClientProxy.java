@@ -43,8 +43,8 @@ public class ClientProxy extends CommonProxy {
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
         inventoryTabs.registerTab(new StandardPlayerInventoryTab());
-        inventoryTabs.registerTab(new CustomPlayerInventoryTab(MWC.modContext, MWCItems.vestRender));
-        inventoryTabs.registerTab(new BackpackInventoryTab(MWC.modContext));
+        inventoryTabs.registerTab(new CustomPlayerInventoryTab(MWCItems.vestRender));
+        inventoryTabs.registerTab(new BackpackInventoryTab());
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench.class, new TESRWorkbench(new Workbench(), new ResourceLocation(ID + ":textures/blocks/workbench.png")));
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAmmoPress.class, new TESRAmmoPress(new AmmoPress(), new ResourceLocation(ID + ":textures/blocks/ammo_press.png")));

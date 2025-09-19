@@ -2,7 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Chainsaw;
-import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -15,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 
 public class ChainsawFactory implements GunFactory {
 
-    public Item createGun(CommonProxy commonProxy) {
+    public Item createGun() {
         return new Weapon.Builder()
 
                 .withName("chainsaw")
@@ -30,9 +29,9 @@ public class ChainsawFactory implements GunFactory {
                 .withDrawSound("m4_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0f)
-                .withFlashScale(() -> 0f)
-                .withFlashOffsetX(() -> 0.1f)
-                .withFlashOffsetY(() -> 0.2f)
+                .withFlashScale(0f)
+                .withFlashOffsetX(0.1f)
+                .withFlashOffsetY(0.2f)
                 .withBleedingCoefficient(40.0F)
                 .withSmoke(false)
                 .withShellCasingEjectEnabled(false)
@@ -527,6 +526,6 @@ public class ChainsawFactory implements GunFactory {
                 .withSpawnEntitySpeed(1.9F)
 
 
-                .build(MWC.modContext);
+                .build();
     }
 }

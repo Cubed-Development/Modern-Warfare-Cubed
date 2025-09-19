@@ -1,17 +1,15 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.ATV;
 import com.paneedah.mwc.models.SampleVehicleControlArm;
 import com.paneedah.mwc.models.SampleVehicleSteeringWheel;
 import com.paneedah.mwc.models.Wheel;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
 
 public class SampleVehicleFactory implements VehicleFactory {
 
     @Override
-    public void createVehicle(ModContext modContext) {
+    public void createVehicle() {
 
         StatefulRenderer<VehicleRenderableState> renderer = new VehicleRendererBuilder()
 
@@ -194,7 +192,7 @@ public class SampleVehicleFactory implements VehicleFactory {
 //                            );
                 })
 
-                .build(modContext, VehiclePart.MAIN);
+                .build(VehiclePart.MAIN);
 
         new EntityVehicleConfiguration.Builder()
                 .withName("vehicle")
@@ -209,7 +207,7 @@ public class SampleVehicleFactory implements VehicleFactory {
 //                .withAccelerationIncrement(0.015)
 //                .withForwardDeccelerationFactor(0.97)
                 .withRenderer(renderer)
-                .build(modContext);
+                .build();
     }
 
 }

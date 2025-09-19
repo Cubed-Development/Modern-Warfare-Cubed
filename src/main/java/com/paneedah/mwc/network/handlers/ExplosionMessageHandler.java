@@ -3,7 +3,6 @@ package com.paneedah.mwc.network.handlers;
 import com.paneedah.mwc.network.messages.ExplosionMessage;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import dev.redstudio.redcore.utils.NetworkUtil;
-import dev.redstudio.redcore.math.vectors.Vector3D;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
