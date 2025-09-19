@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib;
+package com.paneedah.mwc.context;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
@@ -7,6 +7,7 @@ import com.paneedah.mwc.instancing.PlayerItemInstanceRegistry;
 import com.paneedah.mwc.instancing.PlayerMagazineInstance;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.network.NetworkPermitManager;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.ModernConfigManager;

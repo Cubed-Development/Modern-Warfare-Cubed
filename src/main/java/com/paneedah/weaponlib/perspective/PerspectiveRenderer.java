@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.context.ClientModContext;
 import com.paneedah.weaponlib.*;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.ITextureObject;

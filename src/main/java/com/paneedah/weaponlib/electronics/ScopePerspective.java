@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.mwc.context.ClientModContext;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.perspective.Perspective;

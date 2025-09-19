@@ -4,7 +4,7 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.utils.ImageCaptureUtil;
 import com.paneedah.mwc.utils.SpriteSheetTools;
 import com.paneedah.mwc.utils.SpriteSheetTools.Sprite;
-import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.mwc.context.ClientModContext;
 import com.paneedah.weaponlib.WeaponRenderer;
 
 import java.awt.*;

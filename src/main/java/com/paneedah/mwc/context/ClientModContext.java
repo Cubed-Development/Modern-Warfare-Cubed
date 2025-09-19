@@ -1,7 +1,8 @@
-package com.paneedah.weaponlib;
+package com.paneedah.mwc.context;
 
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
-import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakingAnimationManager;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
@@ -122,7 +123,7 @@ public final class ClientModContext extends CommonModContext {
         return MC.player;
     }
 
-    protected SyncManager<?> getSyncManager() {
+    public SyncManager<?> getSyncManager() {
         return syncManager;
     }
 

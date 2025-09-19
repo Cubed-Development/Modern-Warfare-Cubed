@@ -9,7 +9,7 @@ import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.network.handlers.*;
 import com.paneedah.mwc.network.messages.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.weaponlib.ModContext;
+import com.paneedah.mwc.context.ModContext;
 import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
 import com.paneedah.weaponlib.command.DebugCommand;
@@ -58,7 +58,7 @@ public final class MWC {
     // Todo: Make this configurable via the future YAML config system from FBP, or Valkyrie integration, the later would be best.
     public static int bulletHitParticleMult = 6;
 
-    @SidedProxy(serverSide = "com.paneedah.weaponlib.CommonModContext", clientSide = "com.paneedah.weaponlib.ClientModContext")
+    @SidedProxy(serverSide = "com.paneedah.mwc.context.CommonModContext", clientSide = "com.paneedah.mwc.context.ClientModContext")
     public static ModContext modContext;
 
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")

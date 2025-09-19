@@ -15,9 +15,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @SideOnly(Side.CLIENT)
-final class ClientEffectManager implements EffectManager {
-
-    ClientEffectManager() {}
+public final class ClientEffectManager implements EffectManager {
 
     @Override
     public void spawnSmokeParticle(EntityLivingBase player, float xOffset, float yOffset) {

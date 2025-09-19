@@ -2,6 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.google.common.collect.Maps;
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.context.ClientModContext;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.renderer.ModelSource;

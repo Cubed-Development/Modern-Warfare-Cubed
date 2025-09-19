@@ -12,7 +12,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class SpawnEntityRenderer extends Render<Entity> {
 
-    protected SpawnEntityRenderer() {
+    public SpawnEntityRenderer() {
         super(MC.getRenderManager());
     }
 

@@ -10,7 +10,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ShellCasingRenderer extends Render<Entity> {
 
-    protected ShellCasingRenderer() {
+    public ShellCasingRenderer() {
         super(MC.getRenderManager());
     }
 

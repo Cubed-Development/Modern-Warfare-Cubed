@@ -8,7 +8,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class InvisibleEntityRenderer extends Render<Entity> {
 
-    protected InvisibleEntityRenderer() {
+    public InvisibleEntityRenderer() {
         super(MC.getRenderManager());
     }
 

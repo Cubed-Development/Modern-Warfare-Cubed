@@ -1,7 +1,8 @@
-package com.paneedah.weaponlib;
+package com.paneedah.mwc.context;
 
 import com.paneedah.mwc.instancing.PlayerItemInstanceRegistry;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;
