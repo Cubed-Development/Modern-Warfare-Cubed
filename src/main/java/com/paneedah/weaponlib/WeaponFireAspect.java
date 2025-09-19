@@ -210,7 +210,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             String message;
 
             if (ModernConfigManager.enableStatusMessages) {
-                if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && MWC.modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
+                if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && MWC.modContext.getWeaponAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
                     message = I18n.format("gui.noMagazine");
                 } else {
                     message = I18n.format("gui.noAmmo");
@@ -243,7 +243,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         CHANNEL.sendToServer(new TryFireMessage(oneClickBurstEnabled.test(weaponInstance) && weaponInstance.getSeriesShotCount() == 0, weaponInstance.isAimed()));
 
 
-        boolean silencerOn = MWC.modContext.getAttachmentAspect().isSilencerOn(weaponInstance);
+        boolean silencerOn = MWC.modContext.getWeaponAttachmentAspect().isSilencerOn(weaponInstance);
 
 
         SoundEvent shootSound = null;
@@ -476,7 +476,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
         SoundEvent shootSound = null;
 
-        boolean silencerOn = playerWeaponInstance != null && MWC.modContext.getAttachmentAspect().isSilencerOn(playerWeaponInstance);
+        boolean silencerOn = playerWeaponInstance != null && MWC.modContext.getWeaponAttachmentAspect().isSilencerOn(playerWeaponInstance);
         if (isBurst && weapon.builder.isOneClickBurstAllowed) {
 
             SoundEvent burstShootSound = null;

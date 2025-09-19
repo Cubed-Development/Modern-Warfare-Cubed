@@ -46,6 +46,7 @@ public class RecipeManager {
         } else {
             ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, recipeAslist.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
         }
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
 
         if (recipes.put(itemStack.getItem(), recipeAslist) != null) {
             LOGGER.warn("Duplicate recipe registered for item {}", itemStack.getItem());

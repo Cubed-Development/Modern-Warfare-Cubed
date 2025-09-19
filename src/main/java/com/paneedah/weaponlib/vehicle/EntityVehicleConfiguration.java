@@ -347,6 +347,7 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
 
             vehicleItem.setRegistryName(ID, entityName); // temporary hack
             ForgeRegistries.ITEMS.register(vehicleItem);
+            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
             //System.out.println("Renderer Registrar: " + (ID + ":"  + entityName));
             //ModelLoader.setCustomModelResourceLocation(vehicleItem, 0, new net.minecraft.client.renderer.block.model.ModelResourceLocation(ID + ":"  + entityName, "inventory"));
 

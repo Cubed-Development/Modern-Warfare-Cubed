@@ -441,7 +441,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             instance.setLoadAfterUnloadEnabled(false);
 
 
-            ItemAttachment<Weapon> currentMagazine = MWC.modContext.getAttachmentAspect().getActiveAttachment(instance, AttachmentCategory.MAGAZINE);
+            ItemAttachment<Weapon> currentMagazine = MWC.modContext.getWeaponAttachmentAspect().getActiveAttachment(instance, AttachmentCategory.MAGAZINE);
             if (instance.getWeapon().getRenderer().getBuilder().isHasUnloadEmpty() && currentMagazine != null && instance.getAmmo() == 0) {
                 instance.getWeapon().getRenderer().setShouldDoEmptyVariant(true);
             }
@@ -592,7 +592,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
         // Unload weapon
 
-        ItemAttachment<Weapon> attachment = MWC.modContext.getAttachmentAspect().removeAttachment(AttachmentCategory.MAGAZINE, instance);
+        ItemAttachment<Weapon> attachment = MWC.modContext.getWeaponAttachmentAspect().removeAttachment(AttachmentCategory.MAGAZINE, instance);
 
         //	processUnloadPermit(new UnloadPermit(p.getState()), instance);
 
@@ -716,7 +716,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
         Weapon weapon = (Weapon) weaponItemStack.getItem();
         if (weaponItemStack.getTagCompound() != null) {
-            ItemAttachment<Weapon> attachment = MWC.modContext.getAttachmentAspect().removeAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
+            ItemAttachment<Weapon> attachment = MWC.modContext.getWeaponAttachmentAspect().removeAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
             if (attachment == null) {
                 // Attachment can be null if it's in use and cannot be removed
                 p.setStatus(Status.DENIED);

@@ -667,7 +667,7 @@ public class ModificationGUI {
 
         ArrayList<FlaggedAttachment> inventory;
         if (!creativeMode) {
-            inventory = MWC.modContext.getAttachmentAspect().getInventoryAttachments(category, pwi);
+            inventory = MWC.modContext.getWeaponAttachmentAspect().getInventoryAttachments(category, pwi);
         } else {
             inventory = new ArrayList<>();
             for (CompatibleAttachment<? extends AttachmentContainer> compat : MWC.modContext.getMainHeldWeapon().getWeapon().getCompatibleAttachments(category)) {
@@ -682,15 +682,15 @@ public class ModificationGUI {
 
                 // If this is not a compatible attachment,
                 // we do not care either
-                if (!MWC.modContext.getAttachmentAspect().isCompatibleAttachment((ItemAttachment<Weapon>) compat.getAttachment(), pwi)) {
+                if (!MWC.modContext.getWeaponAttachmentAspect().isCompatibleAttachment((ItemAttachment<Weapon>) compat.getAttachment(), pwi)) {
                     continue;
                 }
 
-                MWC.modContext.getAttachmentAspect();
+                MWC.modContext.getWeaponAttachmentAspect();
                 // We do want to display if it is a potential attachment
                 // but there are conditions to be met
                 if (!WeaponAttachmentAspect.hasRequiredAttachments((ItemAttachment<Weapon>) compat.getAttachment(), pwi)) {
-                    flaggedAttachment.setRequiredParts(MWC.modContext.getAttachmentAspect().getRequiredParts((ItemAttachment<Weapon>) compat.getAttachment(), pwi));
+                    flaggedAttachment.setRequiredParts(MWC.modContext.getWeaponAttachmentAspect().getRequiredParts((ItemAttachment<Weapon>) compat.getAttachment(), pwi));
                 }
 
                 inventory.add(flaggedAttachment);
@@ -804,7 +804,7 @@ public class ModificationGUI {
             if (isInClick) {
                 MC.player.playSound(UniversalSoundLookup.lookupSound("attachmentoff"), 10, 1);
 
-                MWC.modContext.getAttachmentAspect().forceAttachment(category, MWC.modContext.getMainHeldWeapon(), ItemStack.EMPTY);
+                MWC.modContext.getWeaponAttachmentAspect().forceAttachment(category, MWC.modContext.getMainHeldWeapon(), ItemStack.EMPTY);
             }
             setAlpha(guiTransparency);
 
@@ -980,7 +980,7 @@ public class ModificationGUI {
                         if (isInClick) {
                             MC.player.playSound(UniversalSoundLookup.lookupSound("attachmenton"), 10, 1);
 
-                            MWC.modContext.getAttachmentAspect().forceAttachment(category, MWC.modContext.getMainHeldWeapon(), flag.getItemStack());
+                            MWC.modContext.getWeaponAttachmentAspect().forceAttachment(category, MWC.modContext.getMainHeldWeapon(), flag.getItemStack());
                         }
                     }
                 }

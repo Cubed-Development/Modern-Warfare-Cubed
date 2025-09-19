@@ -89,7 +89,7 @@ public final class MWC {
         }
 
         // Set the sounds
-        modContext.setChangeZoomSound("OpticZoom");
+        modContext.setZoomSound("OpticZoom");
         modContext.setNightVisionOnSound("nightvision_on");
         modContext.setNightVisionOffSound("nightvision_off");
         modContext.setChangeFireModeSound("firerate_toggle");
@@ -97,14 +97,14 @@ public final class MWC {
         modContext.setExplosionSound("grenadeexplosion");
         modContext.setFlashExplosionSound("flashbang");
 
-        modContext.setMaterialImpactSounds(Material.ROCK, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone");
-        modContext.setMaterialImpactSounds(Material.WOOD, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone", "bullet_10_snap");
-        modContext.setMaterialImpactSounds(Material.GRASS, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        modContext.setMaterialImpactSounds(Material.GROUND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        modContext.setMaterialImpactSounds(Material.SAND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        modContext.setMaterialImpactSounds(Material.IRON, 1.5f, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
-        modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_14_snow");
-        modContext.setMaterialImpactSounds(Material.CRAFTED_SNOW, 1.5f, "bullet_14_snow");
+        modContext.setMaterialImpactSounds(Material.ROCK, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone");
+        modContext.setMaterialImpactSounds(Material.WOOD, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone", "bullet_10_snap");
+        modContext.setMaterialImpactSounds(Material.GRASS, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        modContext.setMaterialImpactSounds(Material.GROUND, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        modContext.setMaterialImpactSounds(Material.SAND, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        modContext.setMaterialImpactSounds(Material.IRON, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
+        modContext.setMaterialImpactSounds(Material.SNOW, "bullet_14_snow");
+        modContext.setMaterialImpactSounds(Material.CRAFTED_SNOW, "bullet_14_snow");
 
         // Register channels for networking
         CHANNEL.registerMessage(new PermitMessageClientHandler(), PermitMessage.class, -1, Side.CLIENT);

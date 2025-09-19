@@ -243,6 +243,7 @@ public class AttachmentBuilder<T> extends AbstractItemBuilder<AttachmentBuilder<
 
             ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false)
                     .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
         } else if (attachment.getCategory() == AttachmentCategory.GRIP
                 || attachment.getCategory() == AttachmentCategory.SCOPE
                 || attachment.getCategory() == AttachmentCategory.MAGAZINE

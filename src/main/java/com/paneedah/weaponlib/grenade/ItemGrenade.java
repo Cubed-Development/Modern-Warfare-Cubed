@@ -341,6 +341,7 @@ public class ItemGrenade extends Item implements
                             .setMirrored(false)
                             .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
+                // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
             }
 
             return grenade;

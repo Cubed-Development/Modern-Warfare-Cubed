@@ -273,7 +273,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
                 }
 
                 // We do want to display if it is a potential attachment but there are conditions to be met
-                MWC.modContext.getAttachmentAspect();
+                MWC.modContext.getWeaponAttachmentAspect();
                 if (!WeaponAttachmentAspect.hasRequiredAttachments(potentialAttachment, weaponInstance)) {
                     flaggedAttachment.setRequiredParts(getRequiredParts(potentialAttachment, weaponInstance));
                 }

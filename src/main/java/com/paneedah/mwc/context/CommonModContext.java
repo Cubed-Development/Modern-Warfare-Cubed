@@ -21,10 +21,10 @@ import com.paneedah.weaponlib.grenade.*;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.melee.*;
 import com.paneedah.weaponlib.state.StateManager;
+import dev.redstudio.redcore.utils.Case;
 import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -37,90 +37,54 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Optional;
 
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class CommonModContext implements ModContext {
 
-    static class BulletImpactSoundKey {
-        private final Material material;
+    @Getter protected Object mod;
 
-        public BulletImpactSoundKey(Material material) {
-            this.material = material;
-        }
+    @Getter protected WeaponReloadAspect weaponReloadAspect;
+    @Getter protected WeaponAttachmentAspect weaponAttachmentAspect;
+    @Getter protected WeaponFireAspect weaponFireAspect;
 
-        @Override
-        public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + ((material == null) ? 0 : material.hashCode());
-            return result;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-
-            if (obj == null || getClass() != obj.getClass()) {
-                return false;
-            }
-
-            BulletImpactSoundKey other = (BulletImpactSoundKey) obj;
-
-            if (material == null) {
-                return other.material == null;
-            }
-
-            return material.equals(other.material);
-        }
-    }
-
-    protected Object mod;
-
-    protected WeaponReloadAspect weaponReloadAspect;
-    protected WeaponAttachmentAspect weaponAttachmentAspect;
-    protected WeaponFireAspect weaponFireAspect;
-
-    protected MeleeAttachmentAspect meleeAttachmentAspect;
-    protected MeleeAttackAspect meleeAttackAspect;
+    @Getter protected MeleeAttachmentAspect meleeAttachmentAspect;
+    @Getter protected MeleeAttackAspect meleeAttackAspect;
 
     protected SyncManager<?> syncManager;
 
-    protected MagazineReloadAspect magazineReloadAspect;
+    @Getter protected MagazineReloadAspect magazineReloadAspect;
 
     @Getter protected NetworkPermitManager networkPermitManager;
 
-    protected PlayerItemInstanceRegistry playerItemInstanceRegistry;
+    @Getter protected PlayerItemInstanceRegistry playerItemInstanceRegistry;
 
     private final Map<ResourceLocation, SoundEvent> registeredSounds = new HashMap<>();
 
-    private RecipeManager recipeManager;
+    @Getter private RecipeManager recipeManager;
 
-    private SoundEvent changeZoomSound;
+    @Getter private SoundEvent zoomSound;
 
-    private SoundEvent changeFireModeSound;
+    @Getter private SoundEvent changeFireModeSound;
 
-    private SoundEvent noAmmoSound;
+    @Getter private SoundEvent noAmmoSound;
 
-    private SoundEvent explosionSound;
+    @Getter private SoundEvent explosionSound;
 
-    private SoundEvent flashExplosionSound;
+    @Getter private SoundEvent flashExplosionSound;
 
-    private SoundEvent nightVisionOnSound;
+    @Getter private SoundEvent nightVisionOnSound;
 
-    private SoundEvent nightVisionOffSound;
+    @Getter private SoundEvent nightVisionOffSound;
 
-    private final Map<BulletImpactSoundKey, MaterialImpactSound> bulletImpactSoundEntries = new HashMap<>();
+    private final Map<Material, MaterialImpactSound> bulletImpactSoundEntries = new HashMap<>();
 
     private int modEntityID = 256;
 
-    private GrenadeAttackAspect grenadeAttackAspect;
+    @Getter private GrenadeAttackAspect grenadeAttackAspect;
 
     private final Map<Integer, String> registeredTextureNames = new HashMap<>();
 
@@ -241,6 +205,7 @@ public class CommonModContext implements ModContext {
         }
 
         ForgeRegistries.BLOCKS.register(workbenchblock);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
         ItemBlock workbenchItemBlock = new ItemBlock(workbenchblock);
         this.registerRenderableItem(workbenchblock.getRegistryName(), workbenchItemBlock, null);
 
@@ -258,6 +223,7 @@ public class CommonModContext implements ModContext {
         }
 
         ForgeRegistries.BLOCKS.register(ammopressblock);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
         ItemBlock ammoItemBlock = new ItemBlock(ammopressblock);
         this.registerRenderableItem(ammopressblock.getRegistryName(), ammoItemBlock, null);
     }
@@ -273,29 +239,40 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public SoundEvent registerSound(String sound) {
-        if (sound == null) {
+    public SoundEvent registerSound(final String path) {
+        if (path == null) {
+            LOGGER.warn("Attempted to register null sound.");
             return null;
         }
-        ResourceLocation soundResourceLocation = new ResourceLocation(ID, sound);
-        return registerSound(soundResourceLocation);
-    }
 
-    protected SoundEvent registerSound(ResourceLocation soundResourceLocation) {
-        SoundEvent result = registeredSounds.get(soundResourceLocation);
-        if (result == null) {
-            result = new SoundEvent(soundResourceLocation);
-            registeredSounds.put(soundResourceLocation, result);
-            result.setRegistryName(soundResourceLocation);
-            ForgeRegistries.SOUND_EVENTS.register(result);
+        if (path.isEmpty())
+            throw new IllegalArgumentException("Path cannot be empty.");
+
+        if (!Case.LOWER_SNAKE_CASE.check(path))
+            LOGGER.warn("Registering sound with wrong casing: {}", path);
+
+        final ResourceLocation soundResourceLocation = new ResourceLocation(ID, path);
+
+        if (registeredSounds.containsKey(soundResourceLocation)) {
+            LOGGER.warn("Attempted to re-register sound: {}", soundResourceLocation);
+            return (registeredSounds.get(soundResourceLocation));
         }
+
+        final SoundEvent result = new SoundEvent(soundResourceLocation);
+        registeredSounds.put(soundResourceLocation, result);
+
+        result.setRegistryName(soundResourceLocation);
+        ForgeRegistries.SOUND_EVENTS.register(result);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+
         return result;
     }
 
     @Override
     public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
-        weapon.setRegistryName(ID, name); // temporary hack
+        weapon.setRegistryName(ID, name);
         ForgeRegistries.ITEMS.register(weapon);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     private EntityPlayer getServerPlayer(MessageContext ctx) {
@@ -310,47 +287,14 @@ public class CommonModContext implements ModContext {
     public void registerRenderableItem(String name, Item item, Object renderer) {
         item.setRegistryName(ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(item);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     @Override
     public void registerRenderableItem(ResourceLocation name, Item item, Object renderer) {
         item.setRegistryName(name); // temporary hack
         ForgeRegistries.ITEMS.register(item);
-    }
-
-    @Override
-    public PlayerItemInstanceRegistry getPlayerItemInstanceRegistry() {
-        return playerItemInstanceRegistry;
-    }
-
-    @Override
-    public WeaponReloadAspect getWeaponReloadAspect() {
-        return weaponReloadAspect;
-    }
-
-    @Override
-    public WeaponFireAspect getWeaponFireAspect() {
-        return weaponFireAspect;
-    }
-
-    @Override
-    public WeaponAttachmentAspect getAttachmentAspect() {
-        return weaponAttachmentAspect;
-    }
-
-    @Override
-    public MagazineReloadAspect getMagazineReloadAspect() {
-        return magazineReloadAspect;
-    }
-
-    @Override
-    public MeleeAttackAspect getMeleeAttackAspect() {
-        return meleeAttackAspect;
-    }
-
-    @Override
-    public MeleeAttachmentAspect getMeleeAttachmentAspect() {
-        return meleeAttachmentAspect;
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     @Override
@@ -358,117 +302,63 @@ public class CommonModContext implements ModContext {
         throw new IllegalStateException();
     }
 
-
     @Override
-    public RecipeManager getRecipeManager() {
-        return recipeManager;
+    public void setZoomSound(final String path) {
+        zoomSound = registerSound(path.toLowerCase());
     }
 
     @Override
-    public void setChangeZoomSound(String sound) {
-        this.changeZoomSound = registerSound(sound.toLowerCase());
+    public void setChangeFireModeSound(final String path) {
+        changeFireModeSound = registerSound(path.toLowerCase());
     }
 
     @Override
-    public SoundEvent getZoomSound() {
-        return changeZoomSound;
+    public void setNoAmmoSound(final String path) {
+        noAmmoSound = registerSound(path.toLowerCase());
     }
 
     @Override
-    public SoundEvent getChangeFireModeSound() {
-        return changeFireModeSound;
+    public void setExplosionSound(final String path) {
+        explosionSound = registerSound(path.toLowerCase());
     }
 
     @Override
-    public void setChangeFireModeSound(String sound) {
-        this.changeFireModeSound = registerSound(sound.toLowerCase());
+    public void setFlashExplosionSound(final String path) {
+        flashExplosionSound = registerSound(path);
     }
 
     @Override
-    public void setNoAmmoSound(String sound) {
-        this.noAmmoSound = registerSound(sound.toLowerCase());
+    public void setNightVisionOnSound(final String path) {
+        nightVisionOnSound = registerSound(path.toLowerCase());
     }
 
     @Override
-    public SoundEvent getNoAmmoSound() {
-        return noAmmoSound;
-    }
-
-    @Override
-    public void setExplosionSound(String sound) {
-        this.explosionSound = registerSound(sound.toLowerCase());
-    }
-
-    @Override
-    public SoundEvent getExplosionSound() {
-        return explosionSound;
-    }
-
-    @Override
-    public SoundEvent getFlashExplosionSound() {
-        return flashExplosionSound;
-    }
-
-    @Override
-    public void setFlashExplosionSound(String sound) {
-        this.flashExplosionSound = registerSound(sound);
-    }
-
-    @Override
-    public void setNightVisionOnSound(String sound) {
-        this.nightVisionOnSound = registerSound(sound.toLowerCase());
-    }
-
-    @Override
-    public SoundEvent getNightVisionOnSound() {
-        return nightVisionOnSound;
-    }
-
-    @Override
-    public void setNightVisionOffSound(String sound) {
-        this.nightVisionOffSound = registerSound(sound.toLowerCase());
-    }
-
-    @Override
-    public SoundEvent getNightVisionOffSound() {
-        return nightVisionOffSound;
+    public void setNightVisionOffSound(final String path) {
+        nightVisionOffSound = registerSound(path.toLowerCase());
     }
 
     @Override
     public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
         itemMelee.setRegistryName(ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(itemMelee);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     @Override
     public void registerGrenadeWeapon(String name, ItemGrenade itemMelee, GrenadeRenderer renderer) {
-        itemMelee.setRegistryName(ID, name); // temporary hack
+        itemMelee.setRegistryName(ID, name);
         ForgeRegistries.ITEMS.register(itemMelee);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     @Override
-    public ResourceLocation getNamedResource(String name) {
-        return new ResourceLocation(ID, name);
+    public ResourceLocation getNamedResource(final String path) {
+        return new ResourceLocation(ID, path);
     }
 
     @Override
     public float getAspectRatio() {
-        return 1f;
-    }
-
-    @Override
-    public AttachmentContainer getGrenadeAttachmentAspect() {
-        throw new UnsupportedOperationException("Not implemented");
-    }
-
-    @Override
-    public GrenadeAttackAspect getGrenadeAttackAspect() {
-        return grenadeAttackAspect;
-    }
-
-    @Override
-    public Object getMod() {
-        return mod;
+        throw new IllegalStateException();
     }
 
     @Override
@@ -480,42 +370,18 @@ public class CommonModContext implements ModContext {
     public void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer) {}
 
     @Override
-    public CommonModContext setMaterialImpactSound(String sound, float volume, Material material) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(volume));
-        materialImpactSound.addSound(registerSound(sound.toLowerCase()));
-        return this;
+    public MaterialImpactSound getMaterialImpactSound(Material material) {
+        return bulletImpactSoundEntries.get(material);
     }
 
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, float volume, Material... materials) {
-        for (Material material : materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(volume));
-            materialImpactSound.addSound(registerSound(sound.toLowerCase()));
+    public void setMaterialImpactSounds(Material material, String... paths) {
+        for (final String path : paths) {
+            if (!bulletImpactSoundEntries.containsKey(material))
+                bulletImpactSoundEntries.put(material, new MaterialImpactSound(1.5F));
+
+            bulletImpactSoundEntries.get(material).addSound(registerSound(path));
         }
-        return this;
-    }
-
-    @Override
-    public CommonModContext setMaterialsImpactSound(String sound, Material... materials) {
-        for (Material material : materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(1f));
-            materialImpactSound.addSound(registerSound(sound.toLowerCase()));
-        }
-        return this;
-    }
-
-    @Override
-    public MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity) {
-        return bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial()));
-    }
-
-
-    @Override
-    public CommonModContext setMaterialImpactSounds(Material material, float volume, String... sounds) {
-        for (String sound : sounds) {
-            setMaterialImpactSound(sound, volume, material);
-        }
-        return this;
     }
 
     @Override

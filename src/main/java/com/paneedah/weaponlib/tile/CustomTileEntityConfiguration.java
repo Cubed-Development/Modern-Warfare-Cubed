@@ -131,6 +131,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         }
 
         ForgeRegistries.BLOCKS.register(tileEntityBlock);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
         ItemBlock itemBlock = new ItemBlock(tileEntityBlock);
 
         // TODO: introduce registerItem()

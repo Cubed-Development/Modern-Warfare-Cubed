@@ -816,7 +816,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                     } else {
                         CHANNEL.sendToAllAround(new BlockHitMessage(position.getBlockPos(), VectorUtil.convertToVector3D(position.hitVec), position.sideHit), new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100));
 
-                        MaterialImpactSound materialImpactSound = MWC.modContext.getMaterialImpactSound(iBlockState, entity);
+                        MaterialImpactSound materialImpactSound = MWC.modContext.getMaterialImpactSound(iBlockState.getMaterial());
                         if (materialImpactSound != null) {
                             world.playSound(null, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), materialImpactSound.getSound(), SoundCategory.BLOCKS, materialImpactSound.getVolume(), 1f);
                         }
@@ -878,6 +878,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 } else {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
+                // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
             } else if (craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                         .withSlotCount(9)
@@ -890,7 +891,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 } else {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
                 }
-
+                // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
             } else {
                 noRecipe += 1;
                 //System.err.println("!!!No recipe defined for weapon " + name);
@@ -1076,7 +1077,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     @Override
     public List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
-        return MWC.modContext.getAttachmentAspect().getActiveAttachments(player, itemStack);
+        return MWC.modContext.getWeaponAttachmentAspect().getActiveAttachments(player, itemStack);
     }
 
     long getUnloadTimeoutTicks() {
@@ -1239,7 +1240,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public void update(EntityPlayer player) {
         MWC.modContext.getWeaponReloadAspect().updateMainHeldItem(player);
         MWC.modContext.getWeaponFireAspect().onUpdate(player);
-        MWC.modContext.getAttachmentAspect().updateMainHeldItem(player);
+        MWC.modContext.getWeaponAttachmentAspect().updateMainHeldItem(player);
     }
 
     public void tryFire(EntityPlayer player) {
@@ -1271,7 +1272,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     @Override
     public void toggleClientAttachmentSelectionMode(EntityPlayer player) {
-        MWC.modContext.getAttachmentAspect().toggleClientAttachmentSelectionMode(player);
+        MWC.modContext.getWeaponAttachmentAspect().toggleClientAttachmentSelectionMode(player);
     }
 
     @Override
