@@ -17,6 +17,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
@@ -252,7 +253,7 @@ public class AttachmentBuilder<T> extends AbstractItemBuilder<AttachmentBuilder<
             noRecipe += 1;
         }
 
-        if (MWC.modContext.isClient())
+        if (FMLLaunchHandler.side().isClient())
             COOKING_QUEUE.add(attachment);
 
         return attachment;

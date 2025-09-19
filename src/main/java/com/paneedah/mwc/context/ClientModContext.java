@@ -96,11 +96,6 @@ public final class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public boolean isClient() {
-        return true;
-    }
-
-    @Override
     public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
         super.registerWeapon(name, weapon, renderer);
         rendererRegistry.register(weapon, weapon.getName(), weapon.getRenderer());

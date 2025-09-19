@@ -30,6 +30,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -244,7 +245,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
 
         public CustomArmor buildHelmet() {
-            if (MWC.modContext.isClient() && helmetModel == null)
+            if (FMLLaunchHandler.side().isClient() && helmetModel == null)
                 helmetModel = HelmetModelFactory.create(modelClassName);
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
@@ -270,7 +271,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         }
 
         public CustomArmor buildChest() {
-            if (MWC.modContext.isClient() && chestModel == null)
+            if (FMLLaunchHandler.side().isClient() && chestModel == null)
                 chestModel = ChestModelFactory.createModel(modelClassName);
 
             String unlocalizedChestName = unlocalizedName + "_chest";
@@ -295,7 +296,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
         }
 
         public CustomArmor buildBoots() {
-            if (MWC.modContext.isClient() && bootsModel == null)
+            if (FMLLaunchHandler.side().isClient() && bootsModel == null)
                 bootsModel = BootsModelFactory.createModel(modelClassName);
 
             String unlocalizedBootsName = unlocalizedName + "_boots";

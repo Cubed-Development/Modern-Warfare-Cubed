@@ -268,11 +268,6 @@ public class CommonModContext implements ModContext {
         NetworkRegistry.INSTANCE.registerGuiHandler(mod, new GuiHandler());
     }
 
-    @Override
-    public boolean isClient() {
-        return false;
-    }
-
     public void registerServerSideOnly() {
 
     }

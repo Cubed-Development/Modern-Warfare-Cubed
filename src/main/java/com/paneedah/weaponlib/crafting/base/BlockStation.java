@@ -20,6 +20,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 
 public abstract class BlockStation extends Block {
 
@@ -28,7 +29,7 @@ public abstract class BlockStation extends Block {
     public BlockStation(String name, Material materialIn) {
         super(materialIn);
 
-        if (MWC.modContext.isClient())
+        if (FMLLaunchHandler.side().isClient())
             ClientEventHandler.BLANKMAPPED_LIST.add(this);
 
         setHardness(2);
