@@ -29,7 +29,8 @@ public final class PermitMessageClientHandler implements IMessageHandler<PermitM
             final PlayerItemInstance<?> playerItemInstance = permitMessage.getPlayerItemInstance();
 
             playerItemInstance.setPlayer(MC.player);
-            final BiConsumer<Permit<?>, PlayerItemInstance<?>> callback = ((ClientModContext) MWC.modContext).getPermitManager().getPermitCallbacks().remove(permit.getUuid());
+
+            final BiConsumer<Permit<?>, PlayerItemInstance<?>> callback = MWC.modContext.getNetworkPermitManager().getPermitCallbacks().remove(permit.getUuid());
             if (callback != null) {
                 callback.accept(permit, playerItemInstance);
             } else {

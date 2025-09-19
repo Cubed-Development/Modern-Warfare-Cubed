@@ -27,7 +27,7 @@ public final class PermitMessageServerHandler implements IMessageHandler<PermitM
 
             playerItemInstance.setPlayer(messageContext.getServerHandler().player);
 
-            final BiConsumer<Permit<?>, PlayerItemInstance<?>> evaluator = ((ClientModContext) MWC.modContext).getPermitManager().getPermitEvaluators().get(permit.getClass());
+            final BiConsumer<Permit<?>, PlayerItemInstance<?>> evaluator = MWC.modContext.getNetworkPermitManager().getPermitEvaluators().get(permit.getClass());
             if (evaluator != null) {
                 evaluator.accept(permit, playerItemInstance);
             } else {

@@ -2,6 +2,7 @@ package com.paneedah.mwc.context;
 
 import com.paneedah.mwc.instancing.PlayerItemInstanceRegistry;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
@@ -115,4 +116,5 @@ public interface ModContext {
 
     String getRegisteredTexture(int particleTextureId);
 
+    NetworkPermitManager getNetworkPermitManager();
 }

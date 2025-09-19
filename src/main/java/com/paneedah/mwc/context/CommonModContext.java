@@ -94,7 +94,7 @@ public class CommonModContext implements ModContext {
 
     protected MagazineReloadAspect magazineReloadAspect;
 
-    @Getter protected NetworkPermitManager permitManager;
+    @Getter protected NetworkPermitManager networkPermitManager;
 
     protected PlayerItemInstanceRegistry playerItemInstanceRegistry;
 
@@ -142,30 +142,30 @@ public class CommonModContext implements ModContext {
         StateManager<GrenadeState, PlayerGrenadeInstance> grenadeStateManager = new StateManager<>((s1, s2) -> s1 == s2);
         grenadeAttackAspect.setStateManager(grenadeStateManager);
 
-        permitManager = new NetworkPermitManager();
+        networkPermitManager = new NetworkPermitManager();
 
-        syncManager = new SyncManager<>(permitManager);
+        syncManager = new SyncManager<>(networkPermitManager);
 
         playerItemInstanceRegistry = new PlayerItemInstanceRegistry(syncManager);
 
         StateManager<WeaponState, PlayerWeaponInstance> weaponStateManager = new StateManager<>((s1, s2) -> s1 == s2);
-        weaponReloadAspect.setPermitManager(permitManager);
+        weaponReloadAspect.setPermitManager(networkPermitManager);
         weaponReloadAspect.setStateManager(weaponStateManager);
 
-        weaponFireAspect.setPermitManager(permitManager);
+        weaponFireAspect.setPermitManager(networkPermitManager);
         weaponFireAspect.setStateManager(weaponStateManager);
 
-        weaponAttachmentAspect.setPermitManager(permitManager);
+        weaponAttachmentAspect.setPermitManager(networkPermitManager);
         weaponAttachmentAspect.setStateManager(weaponStateManager);
 
         StateManager<MeleeState, PlayerMeleeInstance> meleeStateManager = new StateManager<>((s1, s2) -> s1 == s2);
         meleeAttackAspect.setStateManager(meleeStateManager);
-        meleeAttachmentAspect.setPermitManager(permitManager);
+        meleeAttachmentAspect.setPermitManager(networkPermitManager);
         meleeAttachmentAspect.setStateManager(meleeStateManager);
 
         StateManager<MagazineState, PlayerMagazineInstance> magazineStateManager = new StateManager<>((s1, s2) -> s1 == s2);
 
-        magazineReloadAspect.setPermitManager(permitManager);
+        magazineReloadAspect.setPermitManager(networkPermitManager);
         magazineReloadAspect.setStateManager(magazineStateManager);
 
         this.recipeManager = new RecipeManager();
