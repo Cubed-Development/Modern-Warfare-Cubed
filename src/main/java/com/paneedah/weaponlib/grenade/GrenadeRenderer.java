@@ -1,9 +1,13 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.renderer.ModelSource;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.DefaultPart;
+import com.paneedah.weaponlib.Part;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.multipart.MultipartPositioning;
@@ -12,7 +16,6 @@ import com.paneedah.weaponlib.animation.multipart.MultipartRenderStateManager;
 import com.paneedah.weaponlib.animation.multipart.MultipartTransition;
 import com.paneedah.weaponlib.animation.multipart.MultipartTransitionProvider;
 import lombok.Getter;
-import lombok.Setter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -565,8 +568,6 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
     private final MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> weaponTransitionProvider;
 
-    @Setter protected ClientModContext clientModContext;
-
     private GrenadeRenderer(Builder builder) {
         this.builder = builder;
         this.textureManager = MC.getTextureManager();
@@ -583,11 +584,6 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
     protected long getTotalThrowingDuration() {
         return builder.totalThrowingDuration;
     }
-
-    protected ClientModContext getClientModContext() {
-        return clientModContext;
-    }
-
 
     private static class StateManagerKey {
         EntityLivingBase player;
@@ -636,12 +632,11 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         float rate = builder.normalRandomizingRate;
         RenderableState currentState = null;
 
-        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
+        PlayerItemInstance<?> playerItemInstance = MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerGrenadeInstance playerGrenadeInstance = null;
-        if (playerItemInstance == null || !(playerItemInstance instanceof PlayerGrenadeInstance)
-                || playerItemInstance.getItem() != itemStack.getItem()) {
+        if (playerItemInstance == null || !(playerItemInstance instanceof PlayerGrenadeInstance) || playerItemInstance.getItem() != itemStack.getItem()) {
             LOGGER.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
         } else {
             playerGrenadeInstance = (PlayerGrenadeInstance) playerItemInstance;

@@ -1,6 +1,5 @@
 package com.paneedah.mwc.equipment.inventory;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.network.messages.EntityInventorySyncMessage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -116,11 +115,9 @@ public class EquipmentInventory implements IInventory {
             }
         }
 
-        if (MWC.modContext != null && owner != null && owner.world.isRemote) {
-            CHANNEL.sendToServer(new EntityInventorySyncMessage(owner,
-                    true, this));
-//            CHANNEL.sendToAll(
-//                    new EntityInventorySyncMessage(owner, this, true));
+        if (owner != null && owner.world.isRemote) {
+            CHANNEL.sendToServer(new EntityInventorySyncMessage(owner, true, this));
+//            CHANNEL.sendToAll(new EntityInventorySyncMessage(owner, this, true));
         }
     }
 

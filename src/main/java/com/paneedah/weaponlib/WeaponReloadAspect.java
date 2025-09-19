@@ -173,7 +173,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 //.withAction(this::clientCompoundReload)
 
                 /*
-                .withPermit((s, es) -> new LoadPermit(s), modContext.getPlayerItemInstanceRegistry()::update, permitManager)
+                .withPermit((s, es) -> new LoadPermit(s), MWC.modContext.getPlayerItemInstanceRegistry()::update, permitManager)
                 .withAction((c, f, t, p) -> completeClientLoad(c, (LoadPermit)p))
                 */
                 .manual()

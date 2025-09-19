@@ -28,7 +28,7 @@ import java.util.Map;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
-public class ClientModContext extends CommonModContext {
+public final class ClientModContext extends CommonModContext {
 
     private ClientEventHandler clientEventHandler;
     private CompatibleRenderingRegistry rendererRegistry;
@@ -69,12 +69,12 @@ public class ClientModContext extends CommonModContext {
 
         MinecraftForge.EVENT_BUS.register(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
 
-        this.viewManager = new PerspectiveManager(this);
-        this.inventoryTextureMap = new HashMap<>();
+        viewManager = new PerspectiveManager();
+        inventoryTextureMap = new HashMap<>();
 
-        this.effectManager = new ClientEffectManager();
+        effectManager = new ClientEffectManager();
 
-        this.playerRawPitchAnimationManager = new ScreenShakingAnimationManager();
+        playerRawPitchAnimationManager = new ScreenShakingAnimationManager();
     }
 
     @Override
@@ -103,7 +103,6 @@ public class ClientModContext extends CommonModContext {
     public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
         super.registerWeapon(name, weapon, renderer);
         rendererRegistry.register(weapon, weapon.getName(), weapon.getRenderer());
-        renderer.setClientModContext(this);
     }
 
     @Override
@@ -129,27 +128,23 @@ public class ClientModContext extends CommonModContext {
 
     @Override
     public PlayerWeaponInstance getMainHeldWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player,
-                PlayerWeaponInstance.class);
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerWeaponInstance.class);
     }
 
     public PlayerMeleeInstance getMainHeldMeleeWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player,
-                PlayerMeleeInstance.class);
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerMeleeInstance.class);
     }
 
     @Override
     public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
         super.registerMeleeWeapon(name, itemMelee, renderer);
         rendererRegistry.register(itemMelee, itemMelee.getName(), itemMelee.getRenderer());
-        renderer.setClientModContext(this);
     }
 
     @Override
     public void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer) {
         super.registerGrenadeWeapon(name, itemGrenade, renderer);
         rendererRegistry.register(itemGrenade, itemGrenade.getName(), itemGrenade.getRenderer());
-        renderer.setClientModContext(this);
     }
 
     @Override

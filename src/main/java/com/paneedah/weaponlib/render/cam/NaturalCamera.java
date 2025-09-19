@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.render.cam;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.WeaponState;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
 import com.paneedah.weaponlib.numerical.SpringVector;

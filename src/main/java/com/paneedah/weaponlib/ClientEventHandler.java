@@ -184,14 +184,12 @@ public class ClientEventHandler {
         }
 
 
-        if (MWC.modContext != null) {
-            ClientValueRepo.update();
+        ClientValueRepo.update();
 
-            if (MWC.modContext.getMainHeldWeapon() != null) {
-                WeaponRotationHandler.STRAFING_ANIMATION.update(0.08f);
-                WeaponRotationHandler.RUNNING_ANIMATION.update(0.08f);
-                WeaponRotationHandler.WALKING_ANIMATION.update(0.08f);
-            }
+        if (MWC.modContext.getMainHeldWeapon() != null) {
+            WeaponRotationHandler.STRAFING_ANIMATION.update(0.08f);
+            WeaponRotationHandler.RUNNING_ANIMATION.update(0.08f);
+            WeaponRotationHandler.WALKING_ANIMATION.update(0.08f);
         }
 
         int ticksRequired = (int) Math.round(AnimationGUI.getInstance().debugFireRate.getValue());
@@ -325,17 +323,13 @@ public class ClientEventHandler {
         BULLET_HOLE_RENDERER.render();
 
         // What is this and is it necessary
-        if (MWC.modContext != null && MWC.modContext.getMainHeldWeapon() != null) {
-            final PlayerWeaponInstance pwi = MWC.modContext.getMainHeldWeapon();
-
-            if (pwi.getState() == WeaponState.READY) {
-                pwi.setDelayCompoundEnd(true);
-                pwi.getWeapon().getRenderer().setShouldDoEmptyVariant(false);
-            }
+        final PlayerWeaponInstance instance = MWC.modContext.getMainHeldWeapon();
+        if (instance != null && instance.getState() == WeaponState.READY) {
+            instance.setDelayCompoundEnd(true);
+            instance.getWeapon().getRenderer().setShouldDoEmptyVariant(false);
         }
 
         // Hot swaps the Minecraft frame-buffer for an HDR one.
-
         if (ModernConfigManager.enableHDRFramebuffer) {
             final Framebuffer current = MC.getFramebuffer();
             if (!(current instanceof HDRFramebuffer)) {
@@ -344,8 +338,7 @@ public class ClientEventHandler {
             }
         }
 
-        if (MWC.modContext != null)
-            AnimationModeProcessor.getInstance().legacyMode = MWC.modContext.getMainHeldWeapon() == null || !MWC.modContext.getMainHeldWeapon().getWeapon().builder.isUsingNewSystem();
+        AnimationModeProcessor.getInstance().legacyMode = instance == null || !instance.getWeapon().builder.isUsingNewSystem();
 
         final RenderingPhase phase = ClientProxy.renderingPhase;
 

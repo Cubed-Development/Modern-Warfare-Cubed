@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.mwc.instancing.PlayerItemInstance;
-import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -12,13 +11,11 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public class PerspectiveManager {
 
     private Perspective<?> currentPerspective;
-    private final ClientModContext clientModContext;
     private CompatibleWorldRenderer entityRenderer;
     private MWCParticleManager effectRenderer;
     //private DynamicShaderGroupManager shaderGroupManager;
 
-    public PerspectiveManager(ClientModContext clientModContext) {
-        this.clientModContext = clientModContext;
+    public PerspectiveManager() {
         //this.shaderGroupManager = new DynamicShaderGroupManager();
     }
 
@@ -34,12 +31,12 @@ public class PerspectiveManager {
             if (currentPerspective == null) {
                 currentPerspective = createActivePerspective(perspectiveClass);
             } else if (!perspectiveClass.isInstance(currentPerspective)) {
-                currentPerspective.deactivate(clientModContext);
+                currentPerspective.deactivate();
                 currentPerspective = createActivePerspective(perspectiveClass);
             }
         } else if (currentPerspective != null) {
             if (init) {
-                currentPerspective.deactivate(clientModContext);
+                currentPerspective.deactivate();
                 currentPerspective = null;
             }
 

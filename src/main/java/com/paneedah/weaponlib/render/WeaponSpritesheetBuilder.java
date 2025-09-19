@@ -52,9 +52,6 @@ public class WeaponSpritesheetBuilder {
     }
 
     public static void build() {
-        if (MWC.modContext == null)
-            return;
-
         AffineTransform at = new AffineTransform();
         at.concatenate(AffineTransform.getScaleInstance(1, -1));
         at.concatenate(AffineTransform.getTranslateInstance(0, -128));

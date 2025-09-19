@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.google.common.collect.Maps;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.renderer.ModelSource;
@@ -1700,23 +1701,18 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
             WeaponRenderer renderer = new WeaponRenderer(this);
 
-			/*
-			if(firstPersonPositioning == null) {
-				firstPersonPositioning = (renderContext) -> {
-					GL11.glRotatef(45F, 0f, 1f, 0f);
-
-					if(MWC.modContext != null) {
-						PlayerWeaponInstance instance = renderer.getClientModContext().getMainHeldWeapon();
-						if(instance != null && instance.isAimed()) {
-							GL11.glTranslatef(xOffsetZoom, yOffsetZoom, weaponProximity);
-						} else {
-							GL11.glTranslatef(0F, -1.2F, 0F);
-						}
-					}
-
-				};
-			}
-			*/
+//			if(firstPersonPositioning == null) {
+//				firstPersonPositioning = (renderContext) -> {
+//					GL11.glRotatef(45F, 0f, 1f, 0f);
+//
+//                    PlayerWeaponInstance instance = MWC.modContext.getMainHeldWeapon();
+//                    if(instance != null && instance.isAimed()) {
+//                        GL11.glTranslatef(xOffsetZoom, yOffsetZoom, weaponProximity);
+//                    } else {
+//                        GL11.glTranslatef(0F, -1.2F, 0F);
+//                    }
+//                };
+//			}
 
             if (firstPersonPositioningZooming == null) {
                 firstPersonPositioningZooming = firstPersonPositioning;
@@ -2178,9 +2174,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     private long magicAnimationTimer;
     private WeaponState magicState = WeaponState.READY;
 
-
-    protected ClientModContext clientModContext;
-
     private WeaponRenderer(Builder builder) {
         this.setBuilder(builder);
         this.firstPersonStateManagers = new HashMap<>();
@@ -2211,14 +2204,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         return getBuilder().totalDrawingDuration;
     }
 
-    protected ClientModContext getClientModContext() {
-        return clientModContext;
-    }
-
-    protected void setClientModContext(ClientModContext clientModContext) {
-        this.clientModContext = clientModContext;
-    }
-
     public boolean isCompoundReloadTactical() {
         return getBuilder().compoundReloadUsesTactical;
     }
@@ -2247,7 +2232,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         float rate = getBuilder().normalRandomizingRate;
         RenderableState currentState = null;
 
-        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
+        PlayerItemInstance<?> playerItemInstance = MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerWeaponInstance playerWeaponInstance = null;
@@ -2463,7 +2448,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         float rate = getBuilder().normalRandomizingRate;
         RenderableState currentState = null;
 
-        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
+        PlayerItemInstance<?> playerItemInstance = MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerWeaponInstance playerWeaponInstance = null;
@@ -2997,7 +2982,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			CompatibleAttachment<?> compatibleSkin = attachments.stream()
 					.filter(ca -> ca.getAttachment() instanceof ItemSkin).findAny().orElse(null);
 			if(compatibleSkin != null) {
-				PlayerItemInstance<?> itemInstance = getClientModContext().getPlayerItemInstanceRegistry()
+				PlayerItemInstance<?> itemInstance = MWC.modContext.getPlayerItemInstanceRegistry()
 						.getCachedItemInstance(renderContext.getPlayer(), weaponItemStack);
 				if(itemInstance instanceof PlayerWeaponInstance) {
 					int textureIndex = ((PlayerWeaponInstance) itemInstance).getActiveTextureIndex();
@@ -3609,7 +3594,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
 					/*
-					if (player.isSneaking() && (getClientModContext() != null && getClientModContext().getMainHeldWeapon() != null && getClientModContext().getMainHeldWeapon().isAimed())) {
+					if (player.isSneaking() && (MWC.modContext.getMainHeldWeapon() != null && MWC.modContext.getMainHeldWeapon().isAimed())) {
 						//GlStateManager.translate(0.0F, 0.2F, 0.0F);
 					}*/
 
@@ -3731,7 +3716,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
             Object textureMapKey = this; // weapon ? weaponItemStack : this;
-            inventoryTexture = getClientModContext().getInventoryTextureMap().get(textureMapKey);
+            inventoryTexture = ((ClientModContext) MWC.modContext).getInventoryTextureMap().get(textureMapKey);
 
             //MC.getFramebuffer()
 
@@ -3771,15 +3756,11 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
                 inventoryTexture = framebuffer.framebufferTexture;
 
-                getClientModContext().getInventoryTextureMap().put(textureMapKey, inventoryTexture);
+                ((ClientModContext) MWC.modContext).getInventoryTextureMap().put(textureMapKey, inventoryTexture);
 
                 setupInventoryRendering(INVENTORY_TEXTURE_WIDTH, INVENTORY_TEXTURE_HEIGHT);
-
-
             }
-
         }
-
 
         RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
 

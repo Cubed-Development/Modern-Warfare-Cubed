@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage.ParticleType;
 import com.paneedah.weaponlib.EntitySpreadable;
@@ -141,9 +140,6 @@ public class EntityGasGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onGrenadeUpdate() {
-        if (MWC.modContext == null)
-            return;
-
         long timeRemaining = activationTimestamp + activationDelay + activeDuration - System.currentTimeMillis();
         if (activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
             // Do nothing

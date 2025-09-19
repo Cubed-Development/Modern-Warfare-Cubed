@@ -368,7 +368,7 @@ public class Interceptors {
         }
 
 
-        if (MWC.modContext != null && MWC.modContext.getMainHeldWeapon() != null) {
+        if (MWC.modContext.getMainHeldWeapon() != null) {
             PlayerWeaponInstance pwi = MWC.modContext.getMainHeldWeapon(); // ! TODO: what???
 
             nc.update();
@@ -727,7 +727,7 @@ public class Interceptors {
     public static void turn(EntityPlayer player, float yawDelta, float pitchDelta) {
         //if(1+1==2) return;'
 
-        if (MWC.modContext != null && MWC.modContext.getMainHeldWeapon() != null) {
+        if (MWC.modContext.getMainHeldWeapon() != null) {
             PlayerWeaponInstance pwi = MWC.modContext.getMainHeldWeapon();
             if (HUD.isInModifyingState(pwi) || HUD.isInAltModifyingState(pwi)) {
                 yawDelta *= 0.01f;

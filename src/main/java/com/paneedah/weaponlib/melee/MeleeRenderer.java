@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.weaponlib.*;
@@ -11,7 +12,6 @@ import com.paneedah.weaponlib.animation.multipart.MultipartRenderStateManager;
 import com.paneedah.weaponlib.animation.multipart.MultipartTransition;
 import com.paneedah.weaponlib.animation.multipart.MultipartTransitionProvider;
 import lombok.Getter;
-import lombok.Setter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -480,8 +480,6 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
 
     private final MultipartTransitionProvider<RenderableState, Part, RenderContext<RenderableState>> weaponTransitionProvider;
 
-    @Setter protected ClientModContext clientModContext;
-
     private MeleeRenderer(Builder builder) {
         this.builder = builder;
         this.firstPersonStateManagers = new HashMap<>();
@@ -498,16 +496,12 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
         return builder.totalHeavyAttackingDuration;
     }
 
-    protected ClientModContext getClientModContext() {
-        return clientModContext;
-    }
-
     protected StateDescriptor getStateDescriptor(EntityPlayer player, ItemStack itemStack) {
         float amplitude = builder.normalRandomizingAmplitude;
         float rate = builder.normalRandomizingRate;
         RenderableState currentState = null;
 
-        PlayerItemInstance<?> playerItemInstance = clientModContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
+        PlayerItemInstance<?> playerItemInstance = MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
         //.getMainHandItemInstance(player, PlayerWeaponInstance.class); // TODO: cannot be always main hand, need to which hand from context
 
         PlayerMeleeInstance playerMeleeInstance = null;
@@ -699,13 +693,12 @@ public class MeleeRenderer extends ModelSource implements IBakedModel {
             CompatibleAttachment<?> compatibleSkin = attachments.stream()
                     .filter(ca -> ca.getAttachment() instanceof MeleeSkin).findAny().orElse(null);
             if (compatibleSkin != null) {
-                PlayerItemInstance<?> itemInstance = getClientModContext().getPlayerItemInstanceRegistry()
+                PlayerItemInstance<?> itemInstance = MWC.modContext.getPlayerItemInstanceRegistry()
                         .getCachedItemInstance(renderContext.getPlayer(), weaponItemStack);
                 if (itemInstance instanceof PlayerMeleeInstance) {
                     int textureIndex = ((PlayerMeleeInstance) itemInstance).getActiveTextureIndex();
                     if (textureIndex >= 0) {
-                        textureName = ((MeleeSkin) compatibleSkin.getAttachment()).getTextureVariant(textureIndex)
-                                + ".png";
+                        textureName = ((MeleeSkin) compatibleSkin.getAttachment()).getTextureVariant(textureIndex) + ".png";
                     }
                 }
             }

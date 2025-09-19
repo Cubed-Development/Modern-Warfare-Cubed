@@ -43,6 +43,7 @@ public interface ModContext {
 
     MagazineReloadAspect getMagazineReloadAspect();
 
+    /// @apiNote This method is expensive, store the result instead of calling multiple times in a row.
     PlayerWeaponInstance getMainHeldWeapon();
 
     RecipeManager getRecipeManager();

@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.perspective;
 
-import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
@@ -39,12 +38,12 @@ public abstract class Perspective<S> {
             LOGGER.error("!!! Active shader groups found !!!");
     }
 
-    public void deactivate(ClientModContext modContext) {
+    public void deactivate() {
         //framebuffer.framebufferClear();
         int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
 
         framebuffer.deleteFramebuffer();
-        this.shaderGroupManager.removeAllShaders(new DynamicShaderContext(null, entityRenderer, null, 0f));
+        shaderGroupManager.removeAllShaders(new DynamicShaderContext(null, entityRenderer, null, 0f));
         if (OpenGlHelper.isFramebufferEnabled()) {
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
             GlStateManager.viewport(0, 0, MC.getFramebuffer().framebufferWidth, MC.getFramebuffer().framebufferHeight);

@@ -25,19 +25,12 @@ public class ScopePerspective extends PerspectiveRenderer {
 
     @Override
     public void render(RenderContext<RenderableState> renderContext) {
-
-        if (renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND && renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND) {
+        if (renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND && renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND)
             return;
-        }
 
-        ClientModContext clientModContext = (ClientModContext) MWC.modContext;
-
-
-        Perspective<RenderableState> perspective = (Perspective<RenderableState>) clientModContext.getViewManager().getPerspective(renderContext.getPlayerItemInstance(), false);
-        if (perspective == null) {
+        Perspective<RenderableState> perspective = (Perspective<RenderableState>) ((ClientModContext) MWC.modContext).getViewManager().getPerspective(renderContext.getPlayerItemInstance(), false);
+        if (perspective == null)
             perspective = STATIC_TEXTURE_PERSPECTIVE;
-        }
-
 
         float brightness = perspective.getBrightness(renderContext);
         GL11.glPushMatrix();

@@ -5,7 +5,6 @@ import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ClientEventHandler;
-import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.Part;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.DebugPositioner;
@@ -217,14 +216,15 @@ public class AnimationModeProcessor {
         //this.transformMode = 1;
 
         // Check for valid context and main held weapon
-        if (MWC.modContext != null && MWC.modContext.getMainHeldWeapon() != null) {
-            if (this.pwi == null || pwi != MWC.modContext.getMainHeldWeapon()) {
-                Builder builder = getCurrentWeaponRenderBuilder();
-                pwi = MWC.modContext.getMainHeldWeapon();
-                backupFP = builder.firstPersonTransform.duplicate();
-                backupFPL = builder.firstPersonLeftHandTransform.duplicate();
-                backupFPR = builder.firstPersonRightHandTransform.duplicate();
-            }
+        final PlayerWeaponInstance instance = MWC.modContext.getMainHeldWeapon();
+        if (instance != null && (pwi == null || pwi != instance)) {
+            final Builder builder = getCurrentWeaponRenderBuilder();
+
+            pwi = instance;
+
+            backupFP = builder.firstPersonTransform.duplicate();
+            backupFPL = builder.firstPersonLeftHandTransform.duplicate();
+            backupFPR = builder.firstPersonRightHandTransform.duplicate();
         }
 
         // Handle muzzle positioner

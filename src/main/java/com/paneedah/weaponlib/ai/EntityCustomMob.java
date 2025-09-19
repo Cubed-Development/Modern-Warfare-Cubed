@@ -383,9 +383,6 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Conf
      * 1.0
      */
     public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
-        if (MWC.modContext == null)
-            return;
-
         ItemStack itemStack = this.getHeldItemMainhand();
 
         if (itemStack.getItem() instanceof Weapon) {
@@ -418,9 +415,6 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Conf
     }
 
     void attackWithSecondaryEquipment(EntityLivingBase target, float distanceFactor) {
-        if (MWC.modContext == null)
-            return;
-
         if (secondaryEquipment == null
             /*
              * || this.rand.nextFloat() >=

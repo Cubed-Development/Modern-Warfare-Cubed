@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.render;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.numerical.RandomVector;
@@ -43,11 +43,9 @@ public class NewScreenshakingManager {
     public void applyWorld() {
         //float pt = MC.getRenderPartialTicks();
         //double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
-
-
-        if (MWC.modContext != null && MWC.modContext.getMainHeldWeapon() != null) {
-
-            Pair<Double, Double> param = MWC.modContext.getMainHeldWeapon().getScreenShakeParameters();
+        final PlayerWeaponInstance instance = MWC.modContext.getMainHeldWeapon();
+        if (instance != null) {
+            Pair<Double, Double> param = instance.getScreenShakeParameters();
             springVector.setXSpringParam(2, 3000 * param.getSecond(), 200 * param.getSecond());
             springVector.setZSpringParam(4, 9000 * param.getSecond(), 75 * param.getSecond());
         } else {
