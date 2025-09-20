@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -127,7 +128,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
                 texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
 
             if (model != null || !texturedModels.isEmpty())
-                MWC.modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+                MWC.modContext.registerRenderableItem(new ResourceLocation(ID, name), camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
             if (craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
@@ -138,6 +139,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
 
                 ItemStack itemStack = new ItemStack(camera);
                 itemStack.setCount(craftingCount);
+                // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
                 if (optionsMetadata.isHasOres()) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray())
                             .setMirrored(false)
@@ -147,7 +149,6 @@ public class ItemWirelessCamera extends Item implements ModelSource {
                             .setMirrored(false)
                             .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
-                // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
             }
 
             return camera;

@@ -20,13 +20,11 @@ import net.minecraft.util.SoundEvent;
 
 public interface ModContext {
 
-    void registerTileEntities(Object mod);
+    void registerTileEntities();
 
-    void preInit(Object mod);
+    void preInit();
 
     void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
-
-    void registerRenderableItem(String name, Item weapon, Object renderer);
 
     void registerRenderableItem(ResourceLocation name, Item weapon, Object renderer);
 
@@ -77,7 +75,7 @@ public interface ModContext {
 
     void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer);
 
-    void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer);
+    void registerGrenade(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer);
 
     MeleeAttackAspect getMeleeAttackAspect();
 
@@ -85,23 +83,17 @@ public interface ModContext {
 
     ResourceLocation getNamedResource(final String path);
 
-    float getAspectRatio();
-
     GrenadeAttackAspect getGrenadeAttackAspect();
 
     EffectManager getEffectManager();
 
-    Object getMod();
-
     void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer);
 
-    void init(Object mod);
+    void init();
 
     MaterialImpactSound getMaterialImpactSound(Material material);
 
     void setMaterialImpactSounds(Material material, String... sounds);
-
-    int getRegisteredTextureId(String textureName);
 
     int registerTexture(String explosionParticleTextureName);
 

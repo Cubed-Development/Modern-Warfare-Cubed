@@ -15,6 +15,7 @@ import dev.redstudio.redcore.math.vectors.Vector3F;
 import lombok.Getter;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
@@ -227,7 +228,7 @@ public class AttachmentBuilder<T> extends AbstractItemBuilder<AttachmentBuilder<
         compatibleAttachments.values().forEach(a -> attachment.addCompatibleAttachment(a));
 
         if ((model != null || !texturedModels.isEmpty()))
-            MWC.modContext.registerRenderableItem(name, attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+            MWC.modContext.registerRenderableItem(new ResourceLocation(ID, name), attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
         if (craftingRecipe != null && craftingRecipe.length >= 2) {
             MWC.modContext.getRecipeManager().registerShapedRecipe(attachment, craftingRecipe);
@@ -241,9 +242,7 @@ public class AttachmentBuilder<T> extends AbstractItemBuilder<AttachmentBuilder<
             ItemStack itemStack = new ItemStack(attachment);
             itemStack.setCount(craftingCount);
 
-            ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false)
-                    .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
-            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+            ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe")); // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
         } else if (attachment.getCategory() == AttachmentCategory.GRIP
                 || attachment.getCategory() == AttachmentCategory.SCOPE
                 || attachment.getCategory() == AttachmentCategory.MAGAZINE

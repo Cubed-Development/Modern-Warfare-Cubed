@@ -223,7 +223,7 @@ public class ItemCarryable extends Item implements ICraftingRecipe {
 //        if (!world.isRemote) {
 //            // If player not sneaking, open the inventory gui
 //            if (!player.isSneaking()) {
-//                player.openGui(context.getMod(), GuiHandler.STORAGE_ITEM_INVENTORY_GUI_ID, world, 0, 0, 0);
+//                player.openGui(MWC.class, GuiHandler.STORAGE_ITEM_INVENTORY_GUI_ID, world, 0, 0, 0);
 //            }
 //        }
 //        return itemStack;

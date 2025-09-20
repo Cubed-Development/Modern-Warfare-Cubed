@@ -41,17 +41,15 @@ public class BlockAmmoPress extends BlockStation {
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-                                    EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        playerIn.openGui(MWC.modContext.getMod(), GuiHandler.AMMOPRESS_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        playerIn.openGui(MWC.class, GuiHandler.AMMOPRESS_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
 
         if (hand == EnumHand.MAIN_HAND) {
 
             playerIn.swingArm(hand);
 
-            if (!worldIn.isRemote) {
+            if (!worldIn.isRemote)
                 CHANNEL.sendTo(new CraftingStationClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
-            }
         }
 
         return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);

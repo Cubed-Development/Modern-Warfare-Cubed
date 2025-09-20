@@ -70,7 +70,7 @@ public final class MWC {
             MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
         }
 
-        commonProxy.preInit(this);
+        commonProxy.preInit();
     }
 
     @Mod.EventHandler
@@ -78,7 +78,7 @@ public final class MWC {
         MinecraftForge.EVENT_BUS.register(CommonEventHandler.class);
 
         MWCRecipes.register();
-        commonProxy.init(this);
+        commonProxy.init();
 
         if (initializationEvent.getSide().isClient()) {
             Runtime.getRuntime().addShutdownHook(new Thread(ClientTickerController::stop));

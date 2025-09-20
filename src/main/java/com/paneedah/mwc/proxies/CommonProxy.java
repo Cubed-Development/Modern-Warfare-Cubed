@@ -23,8 +23,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 
-    public void preInit(final MWC mod) {
-        MWC.modContext.preInit(mod);
+    public void preInit() {
+        MWC.modContext.preInit();
 
         UniversalSoundRegistry.init();
         UniversalSoundLookup.initialize();
@@ -59,11 +59,11 @@ public class CommonProxy {
         new BaseballBatNailsFactory().createMelee(this);
         new NightStickFactory().createMelee(this);
 
-        MWC.modContext.registerTileEntities(mod);
+        MWC.modContext.registerTileEntities();
     }
 
-    public void init(final MWC mod) {
-        MWC.modContext.init(mod);
+    public void init() {
+        MWC.modContext.init();
 
         TurretBaseFactory.createTileEntity();
         TileEntities.createTileEntity();

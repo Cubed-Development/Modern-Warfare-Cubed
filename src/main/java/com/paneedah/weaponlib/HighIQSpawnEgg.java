@@ -78,8 +78,7 @@ public class HighIQSpawnEgg extends Item implements ICraftingRecipe {
 
             CraftingRegistry.registerHook(egg);
 
-            ForgeRegistries.ITEMS.register(egg);
-            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+            ForgeRegistries.ITEMS.register(egg);  // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
 
             ModelRegistryServerInterchange.ITEM_MODEL_REG.add(egg);
 
