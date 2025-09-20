@@ -20,7 +20,7 @@ import net.minecraft.util.SoundEvent;
 
 public interface ModContext {
 
-    void preInitEnd(Object mod);
+    void registerTileEntities(Object mod);
 
     void preInit(Object mod);
 

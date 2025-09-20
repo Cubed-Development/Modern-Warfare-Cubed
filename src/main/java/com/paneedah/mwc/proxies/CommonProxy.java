@@ -59,7 +59,7 @@ public class CommonProxy {
         new BaseballBatNailsFactory().createMelee(this);
         new NightStickFactory().createMelee(this);
 
-        MWC.modContext.preInitEnd(mod);
+        MWC.modContext.registerTileEntities(mod);
     }
 
     public void init(final MWC mod) {

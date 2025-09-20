@@ -191,41 +191,16 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public void preInitEnd(Object mod) {
-        // Workbench
-        GameRegistry.registerTileEntity(TileEntityWorkbench.class, ID + ":tileworkbench");
-        Block workbenchblock = new WorkbenchBlock("weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
-        if (workbenchblock.getRegistryName() == null) {
-            if (workbenchblock.getTranslationKey().length() < ID.length() + 2 + 5) {
-                throw new IllegalArgumentException("Unlocalize block name too short " + workbenchblock.getTranslationKey());
-            }
-            String unlocalizedName = workbenchblock.getTranslationKey().toLowerCase();
-            String registryName = unlocalizedName.substring(5 + ID.length() + 1);
-            workbenchblock.setRegistryName(ID, registryName);
-        }
+    public void registerTileEntities(Object mod) {
+        GameRegistry.registerTileEntity(TileEntityWorkbench.class, new ResourceLocation(ID, "tileworkbench"));
+        final Block workbenchblock = new WorkbenchBlock("weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
+        ForgeRegistries.BLOCKS.register(workbenchblock); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        registerRenderableItem(workbenchblock.getRegistryName(), new ItemBlock(workbenchblock), null);
 
-        ForgeRegistries.BLOCKS.register(workbenchblock);
-        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
-        ItemBlock workbenchItemBlock = new ItemBlock(workbenchblock);
-        this.registerRenderableItem(workbenchblock.getRegistryName(), workbenchItemBlock, null);
-
-        // Ammo press
-        GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ID + ":tileammopress");
-        Block ammopressblock = new BlockAmmoPress("ammo_press", Material.IRON).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
-
-        if (ammopressblock.getRegistryName() == null) {
-            if (ammopressblock.getTranslationKey().length() < ID.length() + 2 + 5) {
-                throw new IllegalArgumentException("Unlocalize block name too short " + ammopressblock.getTranslationKey());
-            }
-            String unlocalizedName = ammopressblock.getTranslationKey().toLowerCase();
-            String registryName = unlocalizedName.substring(5 + ID.length() + 1);
-            ammopressblock.setRegistryName(ID, registryName);
-        }
-
-        ForgeRegistries.BLOCKS.register(ammopressblock);
-        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
-        ItemBlock ammoItemBlock = new ItemBlock(ammopressblock);
-        this.registerRenderableItem(ammopressblock.getRegistryName(), ammoItemBlock, null);
+        GameRegistry.registerTileEntity(TileEntityAmmoPress.class, new ResourceLocation(ID, "tileammopress"));
+        final Block ammopressblock = new BlockAmmoPress("ammo_press", Material.IRON).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
+        ForgeRegistries.BLOCKS.register(ammopressblock); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        registerRenderableItem(ammopressblock.getRegistryName(), new ItemBlock(ammopressblock), null);
     }
 
     @Override
