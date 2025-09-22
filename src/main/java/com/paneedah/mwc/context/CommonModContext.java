@@ -26,13 +26,14 @@ import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -44,6 +45,8 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class CommonModContext implements ModContext {
 
+    @Getter protected Object mod;
+
     @Getter protected WeaponReloadAspect weaponReloadAspect;
     @Getter protected WeaponAttachmentAspect weaponAttachmentAspect;
     @Getter protected WeaponFireAspect weaponFireAspect;
@@ -51,7 +54,7 @@ public class CommonModContext implements ModContext {
     @Getter protected MeleeAttachmentAspect meleeAttachmentAspect;
     @Getter protected MeleeAttackAspect meleeAttackAspect;
 
-    @Getter protected SyncManager<?> syncManager;
+    protected SyncManager<?> syncManager;
 
     @Getter protected MagazineReloadAspect magazineReloadAspect;
 
@@ -88,7 +91,9 @@ public class CommonModContext implements ModContext {
     private int registeredTextureCounter;
 
     @Override
-    public void preInit() {
+    public void preInit(Object mod) {
+        this.mod = mod;
+
         weaponReloadAspect = new WeaponReloadAspect();
         magazineReloadAspect = new MagazineReloadAspect();
         weaponFireAspect = new WeaponFireAspect();
@@ -136,24 +141,26 @@ public class CommonModContext implements ModContext {
         MinecraftForge.EVENT_BUS.register(serverHandler);
         MinecraftForge.EVENT_BUS.register(serverHandler);
 
+        MinecraftForge.EVENT_BUS.register(new WeaponKeyInputHandler(this::getPlayer));
+
         CompatiblePlayerEntityTrackerProvider.register();
         //CompatibleEntityPropertyProvider.register(this);
         CompatibleExposureCapability.register();
         EquipmentCapability.register();
 
-        EntityRegistry.registerModEntity(new ResourceLocation(ID, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, MWC.class, 64, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(ID, "wcam" + modEntityID), EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, MWC.class, 200, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(ID, "ShellCasing" + modEntityID), EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, MWC.class, 64, 500, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(ID, "Grenade" + modEntityID), EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, MWC.class, 64, 10000, false);
-        EntityRegistry.registerModEntity(new ResourceLocation(ID, "SmokeGrenade" + modEntityID), EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, MWC.class, 64, 10000, false);
-        EntityRegistry.registerModEntity(new ResourceLocation(ID, "GasGrenade" + modEntityID), EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, MWC.class, 64, 10000, false);
-        EntityRegistry.registerModEntity(new ResourceLocation(ID, "FlashGrenade" + modEntityID), EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, MWC.class, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "wcam" + modEntityID), EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "ShellCasing" + modEntityID), EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, mod, 64, 500, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "Grenade" + modEntityID), EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "SmokeGrenade" + modEntityID), EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "GasGrenade" + modEntityID), EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "FlashGrenade" + modEntityID), EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
 
-        EntityRegistry.registerModEntity(new ResourceLocation(ID, "EntitySpreadable" + modEntityID), EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, MWC.class, 64, 3, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "EntitySpreadable" + modEntityID), EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, 64, 3, false);
 
-        //compatibility.registerModEntity(EntityVehicle.class, "EntityVehicle" + modEntityID, modEntityID++, MWC.class, 64, 3, false);
+        //compatibility.registerModEntity(EntityVehicle.class, "EntityVehicle" + modEntityID, modEntityID++, mod, 64, 3, false);
 
-//        compatibility.registerModEntity(EntityCustomMob.class, "CustomMob" + modEntityID, modEntityID++, MWC.class, 64, 3, true);
+//        compatibility.registerModEntity(EntityCustomMob.class, "CustomMob" + modEntityID, modEntityID++, mod, 64, 3, true);
 //
 //        EntityRegistry.addSpawn(EntityCustomMob.class, 1, 1, 3, EnumCreatureType.MONSTER, 
 //                BiomeDictionary.getBiomesForType(Type.PLAINS));
@@ -184,21 +191,26 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public void registerTileEntities() {
+    public void registerTileEntities(Object mod) {
         GameRegistry.registerTileEntity(TileEntityWorkbench.class, new ResourceLocation(ID, "tileworkbench"));
         final Block workbenchblock = new WorkbenchBlock("weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
-        ForgeRegistries.BLOCKS.register(workbenchblock);  // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        ForgeRegistries.BLOCKS.register(workbenchblock); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
         registerRenderableItem(workbenchblock.getRegistryName(), new ItemBlock(workbenchblock), null);
 
         GameRegistry.registerTileEntity(TileEntityAmmoPress.class, new ResourceLocation(ID, "tileammopress"));
         final Block ammopressblock = new BlockAmmoPress("ammo_press", Material.IRON).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
-        ForgeRegistries.BLOCKS.register(ammopressblock);  // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        ForgeRegistries.BLOCKS.register(ammopressblock); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
         registerRenderableItem(ammopressblock.getRegistryName(), new ItemBlock(ammopressblock), null);
     }
 
     @Override
-    public void init() {
-        NetworkRegistry.INSTANCE.registerGuiHandler(MWC.class, new GuiHandler());
+    public void init(Object mod) {
+
+        NetworkRegistry.INSTANCE.registerGuiHandler(mod, new GuiHandler());
+    }
+
+    public void registerServerSideOnly() {
+
     }
 
     @Override
@@ -225,7 +237,8 @@ public class CommonModContext implements ModContext {
         registeredSounds.put(soundResourceLocation, result);
 
         result.setRegistryName(soundResourceLocation);
-        ForgeRegistries.SOUND_EVENTS.register(result);  // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        ForgeRegistries.SOUND_EVENTS.register(result);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
 
         return result;
     }
@@ -233,25 +246,30 @@ public class CommonModContext implements ModContext {
     @Override
     public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
         weapon.setRegistryName(ID, name);
-        ForgeRegistries.ITEMS.register(weapon);  // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        ForgeRegistries.ITEMS.register(weapon);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+    }
+
+    private EntityPlayer getServerPlayer(MessageContext ctx) {
+        return ctx != null ? ctx.getServerHandler().player : null;
+    }
+
+    protected EntityPlayer getPlayer(MessageContext ctx) {
+        return getServerPlayer(ctx);
     }
 
     @Override
-    public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
-        itemMelee.setRegistryName(ID, name);
-        ForgeRegistries.ITEMS.register(itemMelee); // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
-    }
-
-    @Override
-    public void registerGrenade(String name, ItemGrenade itemMelee, GrenadeRenderer renderer) {
-        itemMelee.setRegistryName(ID, name);
-        ForgeRegistries.ITEMS.register(itemMelee); // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+    public void registerRenderableItem(String name, Item item, Object renderer) {
+        item.setRegistryName(ID, name); // temporary hack
+        ForgeRegistries.ITEMS.register(item);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     @Override
     public void registerRenderableItem(ResourceLocation name, Item item, Object renderer) {
-        item.setRegistryName(name);
-        ForgeRegistries.ITEMS.register(item); // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        item.setRegistryName(name); // temporary hack
+        ForgeRegistries.ITEMS.register(item);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     @Override
@@ -295,8 +313,27 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
+    public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
+        itemMelee.setRegistryName(ID, name); // temporary hack
+        ForgeRegistries.ITEMS.register(itemMelee);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+    }
+
+    @Override
+    public void registerGrenadeWeapon(String name, ItemGrenade itemMelee, GrenadeRenderer renderer) {
+        itemMelee.setRegistryName(ID, name);
+        ForgeRegistries.ITEMS.register(itemMelee);
+        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+    }
+
+    @Override
     public ResourceLocation getNamedResource(final String path) {
         return new ResourceLocation(ID, path);
+    }
+
+    @Override
+    public float getAspectRatio() {
+        throw new IllegalStateException();
     }
 
     @Override
@@ -323,6 +360,19 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
+    public int getRegisteredTextureId(String textureName) {
+        if (textureName == null) {
+            return -1;
+        }
+        Optional<Entry<Integer, String>> existingEntry = registeredTextureNames
+                .entrySet()
+                .stream()
+                .filter(e -> textureName.equals(e.getValue()))
+                .findFirst();
+        return existingEntry.isPresent() ? existingEntry.get().getKey() : -1;
+    }
+
+    @Override
     public String getRegisteredTexture(int textureId) {
         return registeredTextureNames.get(textureId);
     }
@@ -330,15 +380,12 @@ public class CommonModContext implements ModContext {
     @Override
     public int registerTexture(String textureName) {
         if (textureName == null) {
-            LOGGER.warn("Attempted to register null texture.");
             return -1;
         }
-
-        // ! TODO: The fuck - Luna Mira Lage (Desoroxxx) 2025-09-20
-        Optional<Entry<Integer, String>> existingEntry = registeredTextureNames.entrySet().stream().filter(e -> textureName.equals(e.getValue())).findFirst();
+        Optional<Entry<Integer, String>> existingEntry = registeredTextureNames.entrySet().stream().filter(e -> textureName.equals(e.getValue()))
+                .findFirst();
         int id;
         if (existingEntry.isPresent()) {
-            LOGGER.warn("Attempted to re-register texture: {}", textureName);
             id = existingEntry.get().getKey();
         } else {
             id = registeredTextureCounter++;

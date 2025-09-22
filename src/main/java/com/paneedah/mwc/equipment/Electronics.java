@@ -11,8 +11,6 @@ import com.paneedah.weaponlib.model.TabletModel;
 import com.paneedah.weaponlib.perspective.GasDetectorScreenPerspective;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
-
 public class Electronics {
 
     public static ItemAttachment<Object> Tablet;
@@ -21,7 +19,7 @@ public class Electronics {
         Tablet = new ItemTablet.Builder<>()
                 .withViewfinderPositioning(() -> {
                     float scale = 5.9f;
-                    GL11.glScalef(scale, scale / ((float) MC.displayWidth / MC.displayHeight), scale);
+                    GL11.glScalef(scale, scale / MWC.modContext.getAspectRatio(), scale);
                     GL11.glTranslatef(-0.12f, 0.56f, 0.01f);
                 })
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
@@ -143,7 +141,7 @@ public class Electronics {
                 .withScreenPerspectiveType(GasDetectorScreenPerspective.class)
                 .withScreenPositioning(() -> {
                     float scale = 1.9f;
-                    GL11.glScalef(scale, scale / ((float) MC.displayWidth / MC.displayHeight), scale);
+                    GL11.glScalef(scale, scale / MWC.modContext.getAspectRatio(), scale);
                     GL11.glTranslatef(0.017f, 0.16f, 0.17f);
                 })
                 .withCreativeTab(MWC.EQUIPMENT_TAB)

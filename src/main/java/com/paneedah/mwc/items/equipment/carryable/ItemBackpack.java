@@ -36,7 +36,7 @@ public class ItemBackpack extends ItemCarryable {
             // Register hook
             CraftingRegistry.registerHook(itemBackpack);
 
-            MWC.modContext.registerRenderableItem(new ResourceLocation(ID, name), itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+            MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
             if (FMLCommonHandler.instance().getSide().isClient()) {
                 COOKING_QUEUE.add(itemBackpack);

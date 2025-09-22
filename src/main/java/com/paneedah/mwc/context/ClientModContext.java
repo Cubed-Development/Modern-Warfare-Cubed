@@ -12,13 +12,17 @@ import com.paneedah.weaponlib.grenade.*;
 import com.paneedah.weaponlib.inventory.InventoryTabs;
 import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
+import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.perspective.PerspectiveManager;
 import lombok.Getter;
+import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,15 +36,20 @@ public final class ClientModContext extends CommonModContext {
 
     @Getter private PerspectiveManager viewManager;
 
+    private float aspectRatio;
+    private Framebuffer inventoryFramebuffer;
+
     @Getter private Map<Object, Integer> inventoryTextureMap;
 
-    @Getter private EffectManager effectManager;
+    private EffectManager effectManager;
 
     @Getter private ScreenShakingAnimationManager playerRawPitchAnimationManager;
 
     @Override
-    public void preInit() {
-        super.preInit();
+    public void preInit(Object mod) {
+        super.preInit(mod);
+
+        aspectRatio = (float) MC.displayWidth / MC.displayHeight;
 
         ClientCommandHandler.instance.registerCommand(new DebugCommand());
 
@@ -51,7 +60,6 @@ public final class ClientModContext extends CommonModContext {
         rendererRegistry.preInit();
 
         MinecraftForge.EVENT_BUS.register(new WeaponEventHandler());
-        MinecraftForge.EVENT_BUS.register(new WeaponKeyInputHandler());
 
         KeyBindings.init();
 
@@ -71,8 +79,8 @@ public final class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public void init() {
-        super.init();
+    public void init(Object mod) {
+        super.init(mod);
 
         rendererRegistry.registerEntityRenderingHandler(WeaponSpawnEntity.class, new SpawnEntityRenderer());
         rendererRegistry.registerEntityRenderingHandler(EntityWirelessCamera.class, new WirelessCameraRenderer());
@@ -94,14 +102,33 @@ public final class ClientModContext extends CommonModContext {
     }
 
     @Override
+    public void registerRenderableItem(String name, Item item, Object renderer) {
+        super.registerRenderableItem(name, item, renderer);
+        rendererRegistry.register(item, name, renderer);
+    }
+
+    @Override
     public void registerRenderableItem(ResourceLocation name, Item item, Object renderer) {
         super.registerRenderableItem(name, item, renderer);
         rendererRegistry.register(item, name, renderer);
     }
 
     @Override
+    protected EntityPlayer getPlayer(MessageContext ctx) {
+        return MC.player;
+    }
+
+    public SyncManager<?> getSyncManager() {
+        return syncManager;
+    }
+
+    @Override
     public PlayerWeaponInstance getMainHeldWeapon() {
         return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerWeaponInstance.class);
+    }
+
+    public PlayerMeleeInstance getMainHeldMeleeWeapon() {
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerMeleeInstance.class);
     }
 
     @Override
@@ -111,13 +138,32 @@ public final class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public void registerGrenade(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer) {
-        super.registerGrenade(name, itemGrenade, renderer);
+    public void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer) {
+        super.registerGrenadeWeapon(name, itemGrenade, renderer);
         rendererRegistry.register(itemGrenade, itemGrenade.getName(), itemGrenade.getRenderer());
+    }
+
+    @Override
+    public float getAspectRatio() {
+        return aspectRatio;
+    }
+
+    public Framebuffer getInventoryFramebuffer() {
+        if (inventoryFramebuffer == null) {
+            inventoryFramebuffer = new Framebuffer(256, 256, true);
+            inventoryFramebuffer.setFramebufferColor(0.0F, 0.0F, 0.0F, 0.0F);
+        }
+        return inventoryFramebuffer;
+    }
+
+    @Override
+    public EffectManager getEffectManager() {
+        return effectManager;
     }
 
     @Override
     public void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer) {
         rendererRegistry.registerEntityRenderingHandler(entityClass, renderer);
     }
+
 }

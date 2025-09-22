@@ -20,7 +20,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
@@ -194,13 +193,23 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraft
                 }
             }
 
-            if (model != null)
+            // Add additional model if specified
+            if (model != null) {
                 item.texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
+            }
 
-            if (tab != null)
+
+            // Set creative tab if provided
+            if (tab != null) {
                 item.setCreativeTab(tab);
+            }
 
-            MWC.modContext.registerRenderableItem(new ResourceLocation(ID, name), item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+            // Register the item with the mod context as renderable
+            MWC.modContext.registerRenderableItem(
+                    name,
+                    item,
+                    FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null
+            );
 
             if (FMLCommonHandler.instance().getSide().isClient())
                 COOKING_QUEUE.add(item);

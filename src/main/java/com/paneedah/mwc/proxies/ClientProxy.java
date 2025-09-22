@@ -37,8 +37,8 @@ public class ClientProxy extends CommonProxy {
     public static RenderingPhase renderingPhase;
 
     @Override
-    public void preInit() {
-        super.preInit();
+    public void preInit(final MWC mod) {
+        super.preInit(mod);
 
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
@@ -51,8 +51,8 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void init() {
-        super.init();
+    public void init(final MWC mod) {
+        super.init(mod);
 
         final ItemModelMesher modelMesher = MC.getRenderItem().getItemModelMesher();
 

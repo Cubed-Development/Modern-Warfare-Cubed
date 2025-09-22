@@ -319,7 +319,7 @@ public class ItemGrenade extends Item implements
             if (stopAfterThrowingSound != null)
                 grenade.stopAfterThrowingSound = MWC.modContext.registerSound(stopAfterThrowingSound);
 
-            MWC.modContext.registerGrenade(name, grenade, renderer);
+            MWC.modContext.registerGrenadeWeapon(name, grenade, renderer);
 
             if (craftingRecipe != null && craftingRecipe.length >= 2) {
                 MWC.modContext.getRecipeManager().registerShapedRecipe(grenade, craftingRecipe);
@@ -332,7 +332,6 @@ public class ItemGrenade extends Item implements
 
                 ItemStack itemStack = new ItemStack(grenade);
                 itemStack.setCount(craftingCount);
-                // ! TODO: Temporary hack, use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
                 if (optionsMetadata.isHasOres()) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray())
                             .setMirrored(false)
@@ -342,6 +341,7 @@ public class ItemGrenade extends Item implements
                             .setMirrored(false)
                             .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
+                // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
             }
 
             return grenade;

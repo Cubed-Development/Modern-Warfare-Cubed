@@ -24,20 +24,26 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import org.lwjgl.input.Keyboard;
+
+import java.util.function.Function;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
-@SideOnly(Side.CLIENT)
 public class WeaponKeyInputHandler {
+
+    private final Function<MessageContext, EntityPlayer> entityPlayerSupplier;
+
+    public WeaponKeyInputHandler(Function<MessageContext, EntityPlayer> entityPlayerSupplier) {
+        this.entityPlayerSupplier = entityPlayerSupplier;
+    }
 
     @SubscribeEvent
     public final void onKeyInput(InputEvent.KeyInputEvent event) {
 
-        EntityPlayer player = MC.player;
+        EntityPlayer player = entityPlayerSupplier.apply(null);
         ItemStack itemStack = player.getHeldItemMainhand();
 
         boolean altMode = false;
@@ -45,12 +51,16 @@ public class WeaponKeyInputHandler {
             altMode = Keyboard.isKeyDown(KeyBindings.altModeDebugKey.getKeyCode());
         }
 
+
+//	    System.out.println("Alt mode: " + altMode);
+
 //	    if(DebugPositioner.isDebugModeEnabled()) {
 //	        KeyBindings.bindDebugKeys();
 //        }
 	    
 	    /*
 	    try {
+	    	//System.out.println(KeyBindings.jDebugKey);
 	    	if(ClientEventHandler.muzzlePositioner) {
 		    	double incr = 0.1;
 		    	if(KeyBindings.upArrowKey.isPressed()) {
@@ -80,13 +90,16 @@ public class WeaponKeyInputHandler {
 
         if (AnimationModeProcessor.getInstance().getFPSMode()) {
             if (Keyboard.isKeyDown(Keyboard.KEY_COMMA)) {
+                System.out.println("hello");
                 AnimationModeProcessor.getInstance().transformMode = 1;
             } else if (Keyboard.isKeyDown(Keyboard.KEY_PERIOD)) {
+                System.out.println("hello");
                 AnimationModeProcessor.getInstance().transformMode = 2;
             } else if (Keyboard.isKeyDown(Keyboard.KEY_END)) {
                 OpenGLSelectionHelper.ballBuf.framebufferClear();
                 AnimationModeProcessor.getInstance().transformMode = 3;
             }
+
         }
 
 
@@ -112,51 +125,54 @@ public class WeaponKeyInputHandler {
 
             }
         }
-
-
-//	    if(!AnimationGUI.getInstance().magEdit.isState()) {
-//	    	if(DebugPositioner.isDebugModeEnabled() && KeyBindings.upArrowKey.isPressed()) {
-//	            DebugPositioner.incrementXRotation(5);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.downArrowKey.isPressed()) {
-//	            DebugPositioner.incrementXRotation(-5);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.leftArrowKey.isPressed()) {
-//	            DebugPositioner.incrementYRotation(5);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.rightArrowKey.isPressed()) {
-//	            DebugPositioner.incrementYRotation(-5);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.jDebugKey.isKeyDown()) {
-//	            DebugPositioner.incrementZRotation(5);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.kDebugKey.isKeyDown()) {
-//	            DebugPositioner.incrementZRotation(-5);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.minusDebugKey.isKeyDown()) {
-//	            DebugPositioner.incrementXPosition(-1f, altMode);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.equalsDebugKey.isKeyDown()) {
-//	            DebugPositioner.incrementXPosition(1f, altMode);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.lBracketDebugKey.isKeyDown()) {
-//	            DebugPositioner.incrementYPosition(-1f, altMode);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.rBracketDebugKey.isKeyDown()) {
-//	            DebugPositioner.incrementYPosition(1f, altMode);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.semicolonDebugKey.isKeyDown()) {
-//	            DebugPositioner.incrementZPosition(-1f, altMode);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.apostropheDebugKey.isKeyDown()) {
-//	            DebugPositioner.incrementZPosition(1f, altMode);
-//	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.deleteDebugKey.isKeyDown()) {
-//	            DebugPositioner.reset();
-//	        }
-//	    } else {
-//	    	if(KeyBindings.upArrowKey.isKeyDown()) {
-//	    		ClientEventHandler.magRotPositioner = ClientEventHandler.magRotPositioner.add(0, 0.1, 0);
-//	    	} else if(KeyBindings.leftArrowKey.isKeyDown()) {
-//	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(-0.1, 0, 0);
-//	    	} else if(KeyBindings.rightArrowKey.isKeyDown()) {
-//	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0.1, 0, 0);
-//	    	} else if(KeyBindings.downArrowKey.isKeyDown()) {
-//	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, -0.1, 0);
-//	    	} else if(KeyBindings.jDebugKey.isKeyDown()) {
-//	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, 0, 0.1);
-//	    	} else if(KeyBindings.kDebugKey.isKeyDown()) {
-//	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, 0, -0.1);
-//	    	}
-//	    }
+	    
+	    
+	    /*
+	    if(!AnimationGUI.getInstance().magEdit.isState()) {
+	    	if(DebugPositioner.isDebugModeEnabled() && KeyBindings.upArrowKey.isPressed()) {
+	            DebugPositioner.incrementXRotation(5);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.downArrowKey.isPressed()) {
+	            DebugPositioner.incrementXRotation(-5);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.leftArrowKey.isPressed()) {
+	            DebugPositioner.incrementYRotation(5);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.rightArrowKey.isPressed()) {
+	            DebugPositioner.incrementYRotation(-5);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.jDebugKey.isKeyDown()) {
+	        //	System.out.println("yo");
+	            DebugPositioner.incrementZRotation(5);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.kDebugKey.isKeyDown()) {
+	            DebugPositioner.incrementZRotation(-5);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.minusDebugKey.isKeyDown()) {
+	        
+	            DebugPositioner.incrementXPosition(-1f, altMode);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.equalsDebugKey.isKeyDown()) {
+	            DebugPositioner.incrementXPosition(1f, altMode);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.lBracketDebugKey.isKeyDown()) {
+	            DebugPositioner.incrementYPosition(-1f, altMode);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.rBracketDebugKey.isKeyDown()) {
+	            DebugPositioner.incrementYPosition(1f, altMode);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.semicolonDebugKey.isKeyDown()) {
+	            DebugPositioner.incrementZPosition(-1f, altMode);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.apostropheDebugKey.isKeyDown()) {
+	            DebugPositioner.incrementZPosition(1f, altMode);
+	        } else if(DebugPositioner.isDebugModeEnabled() && KeyBindings.deleteDebugKey.isKeyDown()) {
+	            DebugPositioner.reset();
+	        }
+	    } else {
+	    	if(KeyBindings.upArrowKey.isKeyDown()) {
+	    		ClientEventHandler.magRotPositioner = ClientEventHandler.magRotPositioner.add(0, 0.1, 0);
+	    	} else if(KeyBindings.leftArrowKey.isKeyDown()) {
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(-0.1, 0, 0);
+	    	} else if(KeyBindings.rightArrowKey.isKeyDown()) {
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0.1, 0, 0);
+	    	} else if(KeyBindings.downArrowKey.isKeyDown()) {
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, -0.1, 0);
+	    	} else if(KeyBindings.jDebugKey.isKeyDown()) {
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, 0, 0.1);
+	    	} else if(KeyBindings.kDebugKey.isKeyDown()) {
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, 0, -0.1);
+	    	}
+	    }*/
 
 
         if (KeyBindings.reloadKey.isPressed()) {
