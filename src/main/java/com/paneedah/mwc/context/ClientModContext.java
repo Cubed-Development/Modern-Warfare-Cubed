@@ -1,5 +1,6 @@
 package com.paneedah.mwc.context;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
@@ -15,7 +16,6 @@ import com.paneedah.weaponlib.melee.MeleeRenderer;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.perspective.PerspectiveManager;
 import lombok.Getter;
-import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -37,7 +37,6 @@ public final class ClientModContext extends CommonModContext {
     @Getter private PerspectiveManager viewManager;
 
     private float aspectRatio;
-    private Framebuffer inventoryFramebuffer;
 
     @Getter private Map<Object, Integer> inventoryTextureMap;
 
@@ -46,8 +45,8 @@ public final class ClientModContext extends CommonModContext {
     @Getter private ScreenShakingAnimationManager playerRawPitchAnimationManager;
 
     @Override
-    public void preInit(Object mod) {
-        super.preInit(mod);
+    public void preInit() {
+        super.preInit();
 
         aspectRatio = (float) MC.displayWidth / MC.displayHeight;
 
@@ -79,8 +78,8 @@ public final class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public void init(Object mod) {
-        super.init(mod);
+    public void init() {
+        super.init();
 
         rendererRegistry.registerEntityRenderingHandler(WeaponSpawnEntity.class, new SpawnEntityRenderer());
         rendererRegistry.registerEntityRenderingHandler(EntityWirelessCamera.class, new WirelessCameraRenderer());
@@ -146,14 +145,6 @@ public final class ClientModContext extends CommonModContext {
     @Override
     public float getAspectRatio() {
         return aspectRatio;
-    }
-
-    public Framebuffer getInventoryFramebuffer() {
-        if (inventoryFramebuffer == null) {
-            inventoryFramebuffer = new Framebuffer(256, 256, true);
-            inventoryFramebuffer.setFramebufferColor(0.0F, 0.0F, 0.0F, 0.0F);
-        }
-        return inventoryFramebuffer;
     }
 
     @Override

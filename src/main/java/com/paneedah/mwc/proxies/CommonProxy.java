@@ -23,14 +23,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 
-    public void preInit(final MWC mod) {
-        MWC.modContext.preInit(mod);
+    public void preInit() {
+        MWC.modContext.preInit();
 
         UniversalSoundRegistry.init();
         UniversalSoundLookup.initialize();
-
-        // Forcing Item Initialization here, at the very least the variables, before they get registered normally on the init() (@SubscribeEvent) phase.
-        MWCItems.init();
 
         // Idk? Deprecated too.
         DataSerializers.registerSerializer(VehicleDataSerializer.SERIALIZER);
@@ -59,11 +56,11 @@ public class CommonProxy {
         new BaseballBatNailsFactory().createMelee(this);
         new NightStickFactory().createMelee(this);
 
-        MWC.modContext.registerTileEntities(mod);
+        MWC.modContext.registerTileEntities();
     }
 
-    public void init(final MWC mod) {
-        MWC.modContext.init(mod);
+    public void init() {
+        MWC.modContext.init();
 
         TurretBaseFactory.createTileEntity();
         TileEntities.createTileEntity();

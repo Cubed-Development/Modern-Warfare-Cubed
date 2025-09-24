@@ -44,7 +44,7 @@ public class MWCItems {
 
     public static ItemBase[] items;
 
-    public static void init() {
+    static {
         copperIngot = new ItemBase("copper_ingot");
         copperIngot.setOreDict("ingotCopper");
 

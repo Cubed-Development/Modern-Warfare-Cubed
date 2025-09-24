@@ -58,7 +58,7 @@ public class WorkbenchBlock extends BlockStation {
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        playerIn.openGui(MWC.modContext.getMod(), GuiHandler.WORKBENCH_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+        playerIn.openGui(MWC.instance, GuiHandler.WORKBENCH_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
         if (hand == EnumHand.MAIN_HAND) {
             playerIn.swingArm(hand);
             if (!worldIn.isRemote) {

@@ -540,7 +540,7 @@ public class EntityConfiguration {
 
             SecondaryEntityRegistry.map.put(name, entityClass);
 
-            EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, ID + "_" + entityName, modEntityId, MWC.modContext.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, ID + "_" + entityName, modEntityId, MWC.instance, trackingRange, updateFrequency, sendVelocityUpdates);
 
             if (spawnEgg)
                 EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);

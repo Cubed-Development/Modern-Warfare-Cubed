@@ -1,5 +1,6 @@
 package com.paneedah.mwc;
 
+import com.paneedah.mwc.context.ModContext;
 import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.gui.HUD;
 import com.paneedah.mwc.handlers.ClientEventHandler;
@@ -9,15 +10,30 @@ import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.network.handlers.*;
 import com.paneedah.mwc.network.messages.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.context.ModContext;
+import com.paneedah.weaponlib.EntityShellCasing;
+import com.paneedah.weaponlib.EntitySpreadable;
+import com.paneedah.weaponlib.WeaponSpawnEntity;
 import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.crafting.ammopress.BlockAmmoPress;
+import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
+import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
+import com.paneedah.weaponlib.crafting.workbench.WorkbenchBlock;
+import com.paneedah.weaponlib.electronics.EntityWirelessCamera;
+import com.paneedah.weaponlib.grenade.EntityFlashGrenade;
+import com.paneedah.weaponlib.grenade.EntityGasGrenade;
+import com.paneedah.weaponlib.grenade.EntityGrenade;
+import com.paneedah.weaponlib.grenade.EntitySmokeGrenade;
 import dev.redstudio.redcore.utils.OptiNotFine;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -26,9 +42,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.common.registry.EntityEntry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.registries.IForgeRegistry;
 
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.NAME;
@@ -58,6 +77,9 @@ public final class MWC {
     // Todo: Make this configurable via the future YAML config system from FBP, or Valkyrie integration, the later would be best.
     public static int bulletHitParticleMult = 6;
 
+    @Mod.Instance(ID)
+    public static MWC instance;
+
     @SidedProxy(serverSide = "com.paneedah.mwc.context.CommonModContext", clientSide = "com.paneedah.mwc.context.ClientModContext")
     public static ModContext modContext;
 
@@ -65,38 +87,28 @@ public final class MWC {
     public static CommonProxy commonProxy;
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent preInitializationEvent) {
-        if (preInitializationEvent.getSide().isClient()) {
-            MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
-        }
-
-        commonProxy.preInit(this);
+    public void preInit(final FMLPreInitializationEvent preInitializationEvent) {
+        commonProxy.preInit();
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent initializationEvent) {
+    @SideOnly(Side.CLIENT)
+    public void preInitClient(final FMLPreInitializationEvent preInitializationEvent) {
+        MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
+    }
+
+    @Mod.EventHandler
+    public void init(final FMLInitializationEvent initializationEvent) {
         MinecraftForge.EVENT_BUS.register(CommonEventHandler.class);
 
         MWCRecipes.register();
-        commonProxy.init(this);
+        commonProxy.init();
 
-        if (initializationEvent.getSide().isClient()) {
-            Runtime.getRuntime().addShutdownHook(new Thread(ClientTickerController::stop));
+        initImpactSounds();
+        initNetworking();
+    }
 
-            updateDebugHandler();
-
-            MinecraftForge.EVENT_BUS.register(new HUD());
-        }
-
-        // Set the sounds
-        modContext.setZoomSound("OpticZoom");
-        modContext.setNightVisionOnSound("nightvision_on");
-        modContext.setNightVisionOffSound("nightvision_off");
-        modContext.setChangeFireModeSound("firerate_toggle");
-        modContext.setNoAmmoSound("dry_fire");
-        modContext.setExplosionSound("grenadeexplosion");
-        modContext.setFlashExplosionSound("flashbang");
-
+    private static void initImpactSounds() {
         modContext.setMaterialImpactSounds(Material.ROCK, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone");
         modContext.setMaterialImpactSounds(Material.WOOD, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone", "bullet_10_snap");
         modContext.setMaterialImpactSounds(Material.GRASS, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
@@ -105,8 +117,9 @@ public final class MWC {
         modContext.setMaterialImpactSounds(Material.IRON, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
         modContext.setMaterialImpactSounds(Material.SNOW, "bullet_14_snow");
         modContext.setMaterialImpactSounds(Material.CRAFTED_SNOW, "bullet_14_snow");
+    }
 
-        // Register channels for networking
+    private static void initNetworking() {
         CHANNEL.registerMessage(new PermitMessageClientHandler(), PermitMessage.class, -1, Side.CLIENT);
         CHANNEL.registerMessage(new LivingEntityTrackerMessageMessageHandler(), LivingEntityTrackerMessage.class, -2, Side.CLIENT);
         CHANNEL.registerMessage(new SpawnParticleMessageHandler(), SpawnParticleMessage.class, -3, Side.CLIENT);
@@ -129,7 +142,7 @@ public final class MWC {
         CHANNEL.registerMessage(new GrenadeMessageHandler(), GrenadeMessage.class, 4, Side.SERVER);
         CHANNEL.registerMessage(new NightVisionToggleMessageHandler(), NightVisionToggleMessage.class, 5, Side.SERVER);
         CHANNEL.registerMessage(new EntityInventorySyncMessageServerHandler(), EntityInventorySyncMessage.class, 6, Side.SERVER);
-        CHANNEL.registerMessage(new OpenCustomPlayerInventoryGuiMessageHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 7, Side.SERVER);
+        CHANNEL.registerMessage(new OpenCustomPlayerInventoryGuiMessageHandler(), OpenCustomPlayerInventoryGuiMessage.class, 7, Side.SERVER);
         CHANNEL.registerMessage(new VehicleControlMessageHandler(), VehicleControlMessage.class, 8, Side.SERVER);
         CHANNEL.registerMessage(new VehicleInteractMessageHandler(), VehicleInteractMessage.class, 9, Side.SERVER);
         CHANNEL.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 10, Side.SERVER);
@@ -139,18 +152,57 @@ public final class MWC {
     }
 
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent postInitializationEvent) {
+    @SideOnly(Side.CLIENT)
+    public void initClient(final FMLInitializationEvent initializationEvent) {
+        Runtime.getRuntime().addShutdownHook(new Thread(ClientTickerController::stop));
+
+        updateDebugHandler();
+
+        MinecraftForge.EVENT_BUS.register(new HUD());
+    }
+
+    @Mod.EventHandler
+    public void postInit(final FMLPostInitializationEvent postInitializationEvent) {
         commonProxy.postInit(this, postInitializationEvent);
     }
 
     @Mod.EventHandler
     @SideOnly(Side.CLIENT)
-    public void postInitClient(FMLPostInitializationEvent postInitializationEvent) {
+    public void postInitClient(final FMLPostInitializationEvent postInitializationEvent) {
         OptiNotFine.forceOptiFineFastRenderOff();
     }
 
     @Mod.EventHandler
-    public void serverStarting(FMLServerStartingEvent serverStartingEvent) {
+    public void onRegisterBlocks(final RegistryEvent.Register<Block> registerEvent) {
+        final IForgeRegistry<Block> registry = registerEvent.getRegistry();
+
+        GameRegistry.registerTileEntity(TileEntityWorkbench.class, new ResourceLocation(ID, "tileworkbench"));
+        final Block workbenchblock = new WorkbenchBlock("weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
+        registry.register(workbenchblock);
+        modContext.registerRenderableItem(workbenchblock.getRegistryName(), new ItemBlock(workbenchblock), null);
+
+        GameRegistry.registerTileEntity(TileEntityAmmoPress.class, new ResourceLocation(ID, "tileammopress"));
+        final Block ammopressblock = new BlockAmmoPress("ammo_press", Material.IRON).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
+        registry.register(ammopressblock);
+        modContext.registerRenderableItem(ammopressblock.getRegistryName(), new ItemBlock(ammopressblock), null);
+    }
+
+    @Mod.EventHandler
+    public void onRegisterEntities(final RegistryEvent.Register<EntityEntry> registerEvent) {
+        final IForgeRegistry<EntityEntry> registry = registerEvent.getRegistry();
+
+        registry.register(new EntityEntry(WeaponSpawnEntity.class, "Bullet"));
+        registry.register(new EntityEntry(EntityWirelessCamera.class, "Camera"));
+        registry.register(new EntityEntry(EntityShellCasing.class, "ShellCasing"));
+        registry.register(new EntityEntry(EntityGrenade.class, "Grenade"));
+        registry.register(new EntityEntry(EntitySmokeGrenade.class, "SmokeGrenade"));
+        registry.register(new EntityEntry(EntityGasGrenade.class, "GasGrenade"));
+        registry.register(new EntityEntry(EntityFlashGrenade.class, "FlashGrenade"));
+        registry.register(new EntityEntry(EntitySpreadable.class, "EntitySpreadable"));
+    }
+
+    @Mod.EventHandler
+    public void serverStarting(final FMLServerStartingEvent serverStartingEvent) {
         serverStartingEvent.registerServerCommand(new BalancePackCommand());
         serverStartingEvent.registerServerCommand(new CraftingFileCommand());
         BalancePackManager.loadDirectory();

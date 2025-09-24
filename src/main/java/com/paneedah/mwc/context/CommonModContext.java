@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.crafting.ammopress.BlockAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
 import com.paneedah.weaponlib.crafting.workbench.WorkbenchBlock;
-import com.paneedah.weaponlib.electronics.EntityWirelessCamera;
 import com.paneedah.weaponlib.grenade.*;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.melee.*;
@@ -45,8 +44,6 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class CommonModContext implements ModContext {
 
-    @Getter protected Object mod;
-
     @Getter protected WeaponReloadAspect weaponReloadAspect;
     @Getter protected WeaponAttachmentAspect weaponAttachmentAspect;
     @Getter protected WeaponFireAspect weaponFireAspect;
@@ -66,23 +63,19 @@ public class CommonModContext implements ModContext {
 
     @Getter private RecipeManager recipeManager;
 
-    @Getter private SoundEvent zoomSound;
+    @Getter private final SoundEvent changeFireModeSound = registerSound("firerate_toggle");
 
-    @Getter private SoundEvent changeFireModeSound;
+    @Getter private final SoundEvent noAmmoSound = registerSound("dry_fire");
 
-    @Getter private SoundEvent noAmmoSound;
+    @Getter private final SoundEvent explosionSound = registerSound("grenadeexplosion");
 
-    @Getter private SoundEvent explosionSound;
+    @Getter private final SoundEvent flashExplosionSound = registerSound("flashbang");
 
-    @Getter private SoundEvent flashExplosionSound;
+    @Getter private final SoundEvent nightVisionOnSound = registerSound("nightvision_on");
 
-    @Getter private SoundEvent nightVisionOnSound;
-
-    @Getter private SoundEvent nightVisionOffSound;
+    @Getter private final SoundEvent nightVisionOffSound = registerSound("nightvision_off");
 
     private final Map<Material, MaterialImpactSound> bulletImpactSoundEntries = new HashMap<>();
-
-    private int modEntityID = 256;
 
     @Getter private GrenadeAttackAspect grenadeAttackAspect;
 
@@ -91,9 +84,7 @@ public class CommonModContext implements ModContext {
     private int registeredTextureCounter;
 
     @Override
-    public void preInit(Object mod) {
-        this.mod = mod;
-
+    public void preInit() {
         weaponReloadAspect = new WeaponReloadAspect();
         magazineReloadAspect = new MagazineReloadAspect();
         weaponFireAspect = new WeaponFireAspect();
@@ -147,51 +138,10 @@ public class CommonModContext implements ModContext {
         //CompatibleEntityPropertyProvider.register(this);
         CompatibleExposureCapability.register();
         EquipmentCapability.register();
-
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "wcam" + modEntityID), EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "ShellCasing" + modEntityID), EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, mod, 64, 500, true);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "Grenade" + modEntityID), EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "SmokeGrenade" + modEntityID), EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "GasGrenade" + modEntityID), EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "FlashGrenade" + modEntityID), EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "EntitySpreadable" + modEntityID), EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, 64, 3, false);
-
-        //compatibility.registerModEntity(EntityVehicle.class, "EntityVehicle" + modEntityID, modEntityID++, mod, 64, 3, false);
-
-//        compatibility.registerModEntity(EntityCustomMob.class, "CustomMob" + modEntityID, modEntityID++, mod, 64, 3, true);
-//
-//        EntityRegistry.addSpawn(EntityCustomMob.class, 1, 1, 3, EnumCreatureType.MONSTER, 
-//                BiomeDictionary.getBiomesForType(Type.PLAINS));
-
-//        Instance inventoryChangeTriggerInstance = new InventoryChangeTrigger.Instance(
-//                MinMaxBounds.UNBOUNDED, 
-//                MinMaxBounds.UNBOUNDED, 
-//                MinMaxBounds.UNBOUNDED, 
-//                new ItemPredicate[] {new ItemPredicate(
-//                        Items.APPLE, 
-//                        null, 
-//                        MinMaxBounds.UNBOUNDED,
-//                        MinMaxBounds.UNBOUNDED,
-//                        new EnchantmentPredicate[0],
-//                        null,
-//                        NBTPredicate.ANY)});
-//
-//        CriteriaTriggers.INVENTORY_CHANGED.addListener(
-//                null, new ICriterionTrigger.Listener(inventoryChangeTriggerInstance, null, "Custom inventory change"));
-
-        //   File missionsDir = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mwc"), "missions");
-        // File entityMissionFile = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mwc"), "entity_mission_offerings.json");
-
-
-        // compatibility.registerBlock(this, new WorkbenchBlock("workbench", Material.ROCK), "workbench");
-
-        // this.missionManager = new MissionManager(missionsDir, entityMissionFile);
     }
 
     @Override
-    public void registerTileEntities(Object mod) {
+    public void registerTileEntities() {
         GameRegistry.registerTileEntity(TileEntityWorkbench.class, new ResourceLocation(ID, "tileworkbench"));
         final Block workbenchblock = new WorkbenchBlock("weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
         ForgeRegistries.BLOCKS.register(workbenchblock); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
@@ -204,13 +154,8 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public void init(Object mod) {
-
-        NetworkRegistry.INSTANCE.registerGuiHandler(mod, new GuiHandler());
-    }
-
-    public void registerServerSideOnly() {
-
+    public void init() {
+        NetworkRegistry.INSTANCE.registerGuiHandler(MWC.instance, new GuiHandler());
     }
 
     @Override
@@ -278,41 +223,6 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public void setZoomSound(final String path) {
-        zoomSound = registerSound(path.toLowerCase());
-    }
-
-    @Override
-    public void setChangeFireModeSound(final String path) {
-        changeFireModeSound = registerSound(path.toLowerCase());
-    }
-
-    @Override
-    public void setNoAmmoSound(final String path) {
-        noAmmoSound = registerSound(path.toLowerCase());
-    }
-
-    @Override
-    public void setExplosionSound(final String path) {
-        explosionSound = registerSound(path.toLowerCase());
-    }
-
-    @Override
-    public void setFlashExplosionSound(final String path) {
-        flashExplosionSound = registerSound(path);
-    }
-
-    @Override
-    public void setNightVisionOnSound(final String path) {
-        nightVisionOnSound = registerSound(path.toLowerCase());
-    }
-
-    @Override
-    public void setNightVisionOffSound(final String path) {
-        nightVisionOffSound = registerSound(path.toLowerCase());
-    }
-
-    @Override
     public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
         itemMelee.setRegistryName(ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(itemMelee);
@@ -357,19 +267,6 @@ public class CommonModContext implements ModContext {
 
             bulletImpactSoundEntries.get(material).addSound(registerSound(path));
         }
-    }
-
-    @Override
-    public int getRegisteredTextureId(String textureName) {
-        if (textureName == null) {
-            return -1;
-        }
-        Optional<Entry<Integer, String>> existingEntry = registeredTextureNames
-                .entrySet()
-                .stream()
-                .filter(e -> textureName.equals(e.getValue()))
-                .findFirst();
-        return existingEntry.isPresent() ? existingEntry.get().getKey() : -1;
     }
 
     @Override

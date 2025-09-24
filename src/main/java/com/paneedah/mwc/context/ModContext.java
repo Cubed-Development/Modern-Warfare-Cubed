@@ -20,9 +20,9 @@ import net.minecraft.util.SoundEvent;
 
 public interface ModContext {
 
-    void registerTileEntities(Object mod);
+    void registerTileEntities();
 
-    void preInit(Object mod);
+    void preInit();
 
     void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
 
@@ -47,31 +47,15 @@ public interface ModContext {
 
     RecipeManager getRecipeManager();
 
-    SoundEvent getZoomSound();
-
-    void setZoomSound(final String path);
-
     SoundEvent getChangeFireModeSound();
-
-    void setChangeFireModeSound(final String path);
 
     SoundEvent getNoAmmoSound();
 
-    void setNoAmmoSound(final String path);
-
     SoundEvent getExplosionSound();
-
-    void setExplosionSound(final String path);
 
     SoundEvent getFlashExplosionSound();
 
-    void setFlashExplosionSound(final String path);
-
-    void setNightVisionOnSound(final String path);
-
     SoundEvent getNightVisionOnSound();
-
-    void setNightVisionOffSound(final String path);
 
     SoundEvent getNightVisionOffSound();
 
@@ -91,17 +75,13 @@ public interface ModContext {
 
     EffectManager getEffectManager();
 
-    Object getMod();
-
     void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer);
 
-    void init(Object mod);
+    void init();
 
     MaterialImpactSound getMaterialImpactSound(Material material);
 
     void setMaterialImpactSounds(Material material, String... sounds);
-
-    int getRegisteredTextureId(String textureName);
 
     int registerTexture(String explosionParticleTextureName);
 

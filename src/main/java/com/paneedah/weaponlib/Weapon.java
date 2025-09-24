@@ -61,6 +61,8 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, ICraftingRecipe {
 
+    private static final SoundEvent ZOOM_SOUND = MWC.modContext.registerSound("opticzoom");
+
     public enum ShellCasingEjectDirection {LEFT, RIGHT}
 
     public static class ScreenShaking {
@@ -1392,7 +1394,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 }
             }
 
-            instance.getPlayer().playSound(MWC.modContext.getZoomSound(), 1, 1);
+            instance.getPlayer().playSound(ZOOM_SOUND, 1, 1);
             LOGGER.debug("Changed optical zoom to {}", instance.getZoom());
         } else {
             LOGGER.debug("Cannot change non-optical zoom");
@@ -1420,7 +1422,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 }
             }
 
-            instance.getPlayer().playSound(MWC.modContext.getZoomSound(), 1, 1);
+            instance.getPlayer().playSound(ZOOM_SOUND, 1, 1);
             LOGGER.debug("Changed optical zoom to {}", zoom);
         } else {
             LOGGER.debug("Cannot change non-optical zoom");

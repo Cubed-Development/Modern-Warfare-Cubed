@@ -341,7 +341,7 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance()
                     .generateEntitySubclass(baseClass, modEntityId, configuration);
 
-            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, entityName, modEntityId, MWC.modContext.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName), entityClass, entityName, modEntityId, MWC.instance, trackingRange, updateFrequency, sendVelocityUpdates);
 
             ItemVehicle vehicleItem = new ItemVehicle(entityName, entityClass);
 
