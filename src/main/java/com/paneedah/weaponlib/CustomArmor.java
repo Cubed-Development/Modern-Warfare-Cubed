@@ -217,9 +217,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             }
 
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
-            armorHelmet.setRegistryName(ID, unlocalizedHelmetName.toLowerCase()); // temporary hack
-            ForgeRegistries.ITEMS.register(armorHelmet);
-            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+            armorHelmet.setRegistryName(ID, unlocalizedHelmetName.toLowerCase());
+            ForgeRegistries.ITEMS.register(armorHelmet); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
 
             String unlocalizedChestName = unlocalizedName + "_chest";
             CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.CHEST,
@@ -228,9 +227,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
                 armorChest.setCreativeTab(creativeTab);
             }
             armorChest.setTranslationKey(unlocalizedChestName);
-            armorChest.setRegistryName(ID, unlocalizedChestName.toLowerCase()); // temporary hack
-            ForgeRegistries.ITEMS.register(armorChest);
-            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+            armorChest.setRegistryName(ID, unlocalizedChestName.toLowerCase());
+            ForgeRegistries.ITEMS.register(armorChest); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
             CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.FEET,
@@ -241,11 +239,9 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             }
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
-            armorBoots.setRegistryName(ID, unlocalizedBootsName.toLowerCase()); // temporary hack
-            ForgeRegistries.ITEMS.register(armorBoots);
-            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+            armorBoots.setRegistryName(ID, unlocalizedBootsName.toLowerCase());
+            ForgeRegistries.ITEMS.register(armorBoots); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
         }
-
 
         public CustomArmor buildHelmet() {
             if (FMLLaunchHandler.side().isClient() && helmetModel == null)
@@ -261,9 +257,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             armorHelmet.exposureReductionFactor = exposureReductionFactor;
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
             armorHelmet.breathingSound = MWC.modContext.registerSound(breathingSound);
-            armorHelmet.setRegistryName(ID, unlocalizedHelmetName.toLowerCase()); // temporary hack
-            ForgeRegistries.ITEMS.register(armorHelmet);
-            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+            armorHelmet.setRegistryName(ID, unlocalizedHelmetName.toLowerCase());
+            ForgeRegistries.ITEMS.register(armorHelmet); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
 
             if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
@@ -289,9 +284,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
                 armorChest.setCreativeTab(creativeTab);
 
             armorChest.setTranslationKey(unlocalizedChestName);
-            armorChest.setRegistryName(ID, unlocalizedChestName.toLowerCase()); // temporary hack
-            ForgeRegistries.ITEMS.register(armorChest);
-            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+            armorChest.setRegistryName(ID, unlocalizedChestName.toLowerCase());
+            ForgeRegistries.ITEMS.register(armorChest); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
 
             if (FMLCommonHandler.instance().getSide().isClient()) {
                 COOKING_QUEUE.add(armorChest);
@@ -315,9 +309,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
             }
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
-            armorBoots.setRegistryName(ID, unlocalizedBootsName.toLowerCase()); // temporary hack
-            ForgeRegistries.ITEMS.register(armorBoots);
-            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+            armorBoots.setRegistryName(ID, unlocalizedBootsName.toLowerCase());
+            ForgeRegistries.ITEMS.register(armorBoots); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
 
             if (FMLCommonHandler.instance().getSide().isClient()) {
                 COOKING_QUEUE.add(armorBoots);

@@ -130,8 +130,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
             tileEntityBlock.setRegistryName(ID, registryName);
         }
 
-        ForgeRegistries.BLOCKS.register(tileEntityBlock);
-        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        ForgeRegistries.BLOCKS.register(tileEntityBlock); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
         ItemBlock itemBlock = new ItemBlock(tileEntityBlock);
 
         // TODO: introduce registerItem()

@@ -345,9 +345,8 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
 
             ItemVehicle vehicleItem = new ItemVehicle(entityName, entityClass);
 
-            vehicleItem.setRegistryName(ID, entityName); // temporary hack
-            ForgeRegistries.ITEMS.register(vehicleItem);
-            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+            vehicleItem.setRegistryName(ID, entityName);
+            ForgeRegistries.ITEMS.register(vehicleItem); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
             //System.out.println("Renderer Registrar: " + (ID + ":"  + entityName));
             //ModelLoader.setCustomModelResourceLocation(vehicleItem, 0, new net.minecraft.client.renderer.block.model.ModelResourceLocation(ID + ":"  + entityName, "inventory"));
 

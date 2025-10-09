@@ -241,9 +241,8 @@ public class AttachmentBuilder<T> extends AbstractItemBuilder<AttachmentBuilder<
             ItemStack itemStack = new ItemStack(attachment);
             itemStack.setCount(craftingCount);
 
-            ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false)
+            ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false) // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
                     .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
-            // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
         } else if (attachment.getCategory() == AttachmentCategory.GRIP
                 || attachment.getCategory() == AttachmentCategory.SCOPE
                 || attachment.getCategory() == AttachmentCategory.MAGAZINE

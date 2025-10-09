@@ -182,8 +182,7 @@ public class CommonModContext implements ModContext {
         registeredSounds.put(soundResourceLocation, result);
 
         result.setRegistryName(soundResourceLocation);
-        ForgeRegistries.SOUND_EVENTS.register(result);
-        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        ForgeRegistries.SOUND_EVENTS.register(result); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
 
         return result;
     }
@@ -191,8 +190,7 @@ public class CommonModContext implements ModContext {
     @Override
     public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
         weapon.setRegistryName(ID, name);
-        ForgeRegistries.ITEMS.register(weapon);
-        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        ForgeRegistries.ITEMS.register(weapon); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     private EntityPlayer getServerPlayer(MessageContext ctx) {
@@ -205,16 +203,14 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void registerRenderableItem(String name, Item item, Object renderer) {
-        item.setRegistryName(ID, name); // temporary hack
-        ForgeRegistries.ITEMS.register(item);
-        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        item.setRegistryName(ID, name);
+        ForgeRegistries.ITEMS.register(item); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     @Override
     public void registerRenderableItem(ResourceLocation name, Item item, Object renderer) {
-        item.setRegistryName(name); // temporary hack
-        ForgeRegistries.ITEMS.register(item);
-        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        item.setRegistryName(name);
+        ForgeRegistries.ITEMS.register(item); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     @Override
@@ -224,16 +220,14 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
-        itemMelee.setRegistryName(ID, name); // temporary hack
-        ForgeRegistries.ITEMS.register(itemMelee);
-        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        itemMelee.setRegistryName(ID, name);
+        ForgeRegistries.ITEMS.register(itemMelee); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     @Override
     public void registerGrenadeWeapon(String name, ItemGrenade itemMelee, GrenadeRenderer renderer) {
         itemMelee.setRegistryName(ID, name);
-        ForgeRegistries.ITEMS.register(itemMelee);
-        // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+        ForgeRegistries.ITEMS.register(itemMelee); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
     }
 
     @Override

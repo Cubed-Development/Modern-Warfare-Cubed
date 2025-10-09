@@ -206,11 +206,10 @@ public class ItemMelee extends Item implements
                 List<Object> registeredRecipe = MWC.modContext.getRecipeManager().registerShapedRecipe(itemMelee, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
                 if (hasOres) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe")); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe")); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
                 }
-                // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
             } else if (craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                         .withSlotCount(9)
@@ -218,8 +217,7 @@ public class ItemMelee extends Item implements
 
                 List<Object> shape = MWC.modContext.getRecipeManager().createShapedRecipe(itemMelee, itemMelee.getName(), optionsMetadata);
 
-                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(itemMelee), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(itemMelee).getItem().getTranslationKey() + "_recipe"));
-                // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
+                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(itemMelee), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(itemMelee).getItem().getTranslationKey() + "_recipe")); // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
             } else {
                 //throw new IllegalStateException("No recipe defined for attachment " + name);
                 //System.err.println("!!!No recipe defined for melee weapon " + name);

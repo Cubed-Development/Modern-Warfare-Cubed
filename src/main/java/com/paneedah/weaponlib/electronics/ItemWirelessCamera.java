@@ -139,15 +139,14 @@ public class ItemWirelessCamera extends Item implements ModelSource {
                 ItemStack itemStack = new ItemStack(camera);
                 itemStack.setCount(craftingCount);
                 if (optionsMetadata.isHasOres()) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray())
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()) // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
                             .setMirrored(false)
                             .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray())
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()) // ! TODO: Temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
                             .setMirrored(false)
                             .setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
-                // ! TODO: The above is a temporary hack because we should use the registry event instead - Luna Mira Lage (Desoroxxx) 2025-09-19
             }
 
             return camera;
