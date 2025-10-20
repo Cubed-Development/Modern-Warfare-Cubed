@@ -195,46 +195,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 //	    }
 //    }
 
-    @Override
-    public void reconcile() {
-        if (!player.world.getGameRules().getBoolean("reconcileAmmunition") && !player.world.getGameRules().getBoolean("reconcileAttachment"))
-            return;
-
-        final ItemStack itemStack = getItemStack();
-
-        if (player.world.getGameRules().getBoolean("reconcileAmmunition"))
-            reconcileAmmunition(itemStack);
-
-        if (player.world.getGameRules().getBoolean("reconcileAttachments"))
-            reconcileAttachments(itemStack);
-    }
-
-    private void reconcileAmmunition(final ItemStack itemStack) {
-        final int expectedStackAmmo = Tags.getAmmo(itemStack);
-
-        if (ammo == expectedStackAmmo)
-            return;
-
-        LOGGER.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
-
-        ammo = expectedStackAmmo;
-
-        updateTimestamp = System.currentTimeMillis();
-    }
-
-    private void reconcileAttachments(final ItemStack itemStack) {
-        final int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
-
-        if (Arrays.equals(expectedAttachmentIds, activeAttachmentIds))
-            return;
-
-        LOGGER.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
-
-        activeAttachmentIds = expectedAttachmentIds;
-
-        updateTimestamp = System.currentTimeMillis();
-    }
-
     public void startedCompoundMagSwapping() {
         compoundMagSwapping = true;
     }

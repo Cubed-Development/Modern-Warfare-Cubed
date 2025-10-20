@@ -23,9 +23,6 @@ public final class Tags {
     private static final HashMap<String, Class<?>> TYPE_REGISTRY_COPY = TypeRegistry.getTypeRegistryCopy();
 
     private static final String INSTANCE_CLASS_TAG = "InstanceClass";
-    private static final String DEFAULT_TIMER_TAG = "DefaultTimer";
-    private static final String ATTACHMENT_ID_TAG = "AtId";
-    private static final String AMMO_TAG = "Ammo";
 
     public static void printTags(final ItemStack itemStack) {
         final NBTTagCompound tagCompound = getTagCompound(itemStack);
@@ -86,18 +83,6 @@ public final class Tags {
         }
     }
 
-    public static int getAmmo(final ItemStack itemStack) {
-        return getTagCompound(itemStack).getInteger(AMMO_TAG);
-    }
-
-    public static int[] getAttachmentIds(final ItemStack itemStack) {
-        return getTagCompound(itemStack).getIntArray(ATTACHMENT_ID_TAG);
-    }
-
-    public static long getDefaultTimer(final ItemStack itemStack) {
-        return getTagCompound(itemStack).getLong(DEFAULT_TIMER_TAG);
-    }
-
     // endregion
 
     // region Setters
@@ -111,9 +96,6 @@ public final class Tags {
     }
 
     public static void setInstance(final ItemStack itemStack, final PlayerItemInstance<?> instance) {
-        if (!instance.shouldHaveInstanceTags())
-            return;
-
         final NBTTagCompound tagCompound = getTagCompound(itemStack);
 
         if (instance != null) {
@@ -121,30 +103,6 @@ public final class Tags {
 
             instance.writeInstanceToNBT(tagCompound);
         }
-
-        setTagCompound(itemStack, tagCompound);
-    }
-
-    public static void setAmmo(final ItemStack itemStack, int ammo) {
-        final NBTTagCompound tagCompound = getTagCompound(itemStack);
-
-        tagCompound.setInteger(AMMO_TAG, ammo);
-
-        setTagCompound(itemStack, tagCompound);
-    }
-
-    public static void setAttachmentIds(final ItemStack itemStack, int[] attachmentIds) {
-        final NBTTagCompound tagCompound = getTagCompound(itemStack);
-
-        tagCompound.setIntArray(ATTACHMENT_ID_TAG, attachmentIds);
-
-        setTagCompound(itemStack, tagCompound);
-    }
-
-    public static void setDefaultTimer(final ItemStack itemStack, long ammo) {
-        final NBTTagCompound tagCompound = getTagCompound(itemStack);
-
-        tagCompound.setLong(DEFAULT_TIMER_TAG, ammo);
 
         setTagCompound(itemStack, tagCompound);
     }

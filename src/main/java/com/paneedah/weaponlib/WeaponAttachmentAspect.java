@@ -455,9 +455,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
                 player.inventory.mainInventory.set(lookupResult.index, new ItemStack(currentAttachment));
             }
         }
-
-        Tags.setAttachmentIds(weaponInstance.getItemStack(), activeAttachmentIds);
-        weaponInstance.setActiveAttachmentIds(activeAttachmentIds);
     }
 
     private AttachmentLookupResult findForcedAttach(ItemStack stack, Item currentAttachment,

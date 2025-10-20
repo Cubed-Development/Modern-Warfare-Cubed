@@ -3,6 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.equipment.inventory.carryable.backpack.BackpackInventory;
+import com.paneedah.mwc.instancing.PlayerMagazineInstance;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.NetworkPermitManager;
@@ -15,14 +16,13 @@ import com.paneedah.weaponlib.state.StateManager;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.BELT_SLOT;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.equipment.inventory.EquipmentInventory.BELT_SLOT;
 
 public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
 
@@ -401,9 +401,9 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             } else {
                 if (WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, instance) == null) {
                     ItemStack nextAttachment = getNextBestMagazineStack(instance);
-                    if (instance.getWeapon().getRenderer().getBuilder().isHasLoadEmpty() && nextAttachment != null && Tags.getAmmo(nextAttachment) == 0) {
+                    PlayerMagazineInstance magazineInstance = (PlayerMagazineInstance) Tags.getInstance(nextAttachment);
+                    if (instance.getWeapon().getRenderer().getBuilder().isHasLoadEmpty() && magazineInstance != null && magazineInstance.getAmmo() == 0)
                         instance.getWeapon().getRenderer().setShouldDoEmptyVariant(true);
-                    }
 
                     stateManager.changeState(this, instance, WeaponState.AWAIT_FURTHER_LOAD_INSTRUCTIONS, WeaponState.READY);
                 } else {
@@ -491,7 +491,15 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         }
 
         Comparator<ItemStack> comparator;
-        comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
+        comparator = (stack1, stack2) -> {
+            final PlayerMagazineInstance instance1 = (PlayerMagazineInstance) Tags.getInstance(stack1);
+            final PlayerMagazineInstance instance2 = (PlayerMagazineInstance) Tags.getInstance(stack2);
+
+            if (instance1 == null || instance2 == null)
+                return 0;
+
+            return Short.compare(instance1.getAmmo(), instance2.getAmmo());
+        };
 
         int maxItemIndex = -1;
         ItemStack maxStack = null;
@@ -544,7 +552,15 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         }
 
         Comparator<ItemStack> comparator;
-        comparator = Comparator.comparingInt(Tags::getAmmo);
+        comparator = (stack1, stack2) -> {
+            final PlayerMagazineInstance instance1 = (PlayerMagazineInstance) Tags.getInstance(stack1);
+            final PlayerMagazineInstance instance2 = (PlayerMagazineInstance) Tags.getInstance(stack2);
+
+            if (instance1 == null || instance2 == null)
+                return 0;
+
+            return Short.compare(instance1.getAmmo(), instance2.getAmmo());
+        };
 
         int maxItemIndex = -1;
         ItemStack maxStack = null;
@@ -583,13 +599,15 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
         ItemStack magazineItemStack = player.inventory.getStackInSlot(i).copy();
 
-        if (!player.isCreative()){
-            magazineItemStack = magazineItemStack.splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
-        } else {
-            Tags.setAmmo(magazineItemStack, ((ItemMagazine) magazineItemStack.getItem()).getCapacity());
+        if (player.isCreative()) {
+            final PlayerMagazineInstance instance = (PlayerMagazineInstance) Tags.getInstance(magazineItemStack);
+            if (instance != null)
+                instance.setAmmo(instance.getCapacity());
+
+            return magazineItemStack;
         }
 
-        return magazineItemStack;
+        return magazineItemStack.splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
     }
 
     private void processActualCompoundPermit(CompoundPermit p, PlayerWeaponInstance instance) {
@@ -613,24 +631,31 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             return;
         }
 
-        ItemStack magazineStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, Comparator.comparingInt(Tags::getAmmo), player);
+        ItemStack magazineStack = MWCUtil.consumeMagazinesFromPlayerInventory(compatibleMagazines, (stack1, stack2) -> {
+            final PlayerMagazineInstance instance1 = (PlayerMagazineInstance) Tags.getInstance(stack1);
+            final PlayerMagazineInstance instance2 = (PlayerMagazineInstance) Tags.getInstance(stack2);
 
-        if (magazineStack == null) {
+            if (instance1 == null || instance2 == null)
+                return 0;
+
+            return Short.compare(instance1.getAmmo(), instance2.getAmmo());
+        }, player);
+
+        if (magazineStack == null)
             return;
-        }
 
-        //ItemStack magazineStack = ItemStack.EMPTY;
-        int ammo = Tags.getAmmo(magazineStack);
-        Tags.setAmmo(weaponItemStack, ammo);
-        WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineStack.getItem(), instance);
-        instance.setAmmo(ammo);
+        final PlayerMagazineInstance magazineInstance = (PlayerMagazineInstance) Tags.getInstance(magazineStack);
+        if (magazineInstance == null)
+            return;
+        instance.setAmmo(magazineInstance.getAmmo());
+        WeaponAttachmentAspect.addAttachment(magazineInstance.getMagazine(), instance);
 
         p.setStatus(Status.GRANTED);
 
         if (attachment == null) {
             p.setStatus(Status.DENIED);
         } else if (attachment instanceof ItemMagazine && !player.isCreative()) {
-            ItemStack attachmentItemStack = ((ItemMagazine) attachment).create(originalAmmo);
+            ItemStack attachmentItemStack = ((ItemMagazine) attachment).create((short) originalAmmo);
             if (!player.inventory.addItemStackToInventory(attachmentItemStack)) {
                 player.dropItem(attachmentItemStack, false);
             }
@@ -638,73 +663,44 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         }
     }
 
-    private void processLoadPermit(LoadPermit p, PlayerWeaponInstance weaponInstance) {
-        LOGGER.debug("Processing load permit on server for {}", weaponInstance);
+    private void processLoadPermit(LoadPermit permit, PlayerWeaponInstance instance) {
+        permit.setStatus(Status.DENIED);
 
-        ItemStack weaponItemStack = weaponInstance.getItemStack();
+        final ItemStack weaponItemStack = instance.getItemStack();
 
-        if (!(weaponInstance.getPlayer() instanceof EntityPlayer)) {
-            // Since reload request was sent for an item, the item was removed from the original slot
-            // Also if instance is not owner by entity player , do not allow load
-            return;
-        }
+        final EntityPlayer player = (EntityPlayer) instance.getPlayer();
 
-        EntityPlayer player = (EntityPlayer) weaponInstance.getPlayer();
-        Status status = Status.GRANTED;
-        weaponInstance.setLoadIterationCount(0); // TODO: review if this is really necessary
-        Weapon weapon = (Weapon) weaponInstance.getItem();
-
-        if (weaponItemStack.getTagCompound() == null) {
-            weaponItemStack.setTagCompound(new NBTTagCompound());
-        }
-
-        List<ItemMagazine> compatibleMagazines = weapon.getCompatibleMagazines().stream().filter(compatibleMagazine -> WeaponAttachmentAspect.hasRequiredAttachments(compatibleMagazine, weaponInstance)).collect(Collectors.toList());
-        List<ItemAttachment<Weapon>> compatibleBullets = weapon.getCompatibleAttachments(ItemBullet.class);
+        final List<ItemMagazine> compatibleMagazines = instance.getWeapon().getCompatibleMagazines().stream().filter(compatibleMagazine -> WeaponAttachmentAspect.hasRequiredAttachments(compatibleMagazine, instance)).collect(Collectors.toList());
+        final List<ItemAttachment<Weapon>> compatibleBullets = instance.getWeapon().getCompatibleAttachments(ItemBullet.class);
         int consumedAmount;
 
-        boolean consumed = false;
-
         if (!compatibleMagazines.isEmpty()) {
-            ItemAttachment<Weapon> existingMagazine = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
-            int ammo = Tags.getAmmo(weaponItemStack);
-            if (existingMagazine == null) {
-                ammo = 0;
+            final ItemStack magazineItemStack = MWCUtil.consumeMagazinesFromPlayerInventory(compatibleMagazines, (stack1, stack2) -> {
+                final PlayerMagazineInstance instance1 = (PlayerMagazineInstance) Tags.getInstance(stack1);
+                final PlayerMagazineInstance instance2 = (PlayerMagazineInstance) Tags.getInstance(stack2);
 
-                ItemStack magazineItemStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, Comparator.comparingInt(Tags::getAmmo), player);
+                if (instance1 == null || instance2 == null)
+                    return 0;
 
-                ammo = Tags.getAmmo(magazineItemStack);
-                Tags.setAmmo(weaponItemStack, ammo);
-                LOGGER.debug("Setting server side ammo for {} to {}", weaponInstance, ammo);
-                WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineItemStack.getItem(), weaponInstance);
-                player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0f, 1.0F);
-            }
-            // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, ReloadMessage.ReticleType.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
-            weaponInstance.setAmmo(ammo);
-        } else if (!compatibleBullets.isEmpty() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(compatibleBullets, Math.min(weapon.getMaxBulletsPerReload(), weapon.getAmmoCapacity() - weaponInstance.getAmmo()), player)) != 0) {
-            int ammo = weaponInstance.getAmmo() + consumedAmount;
-            Tags.setAmmo(weaponItemStack, ammo);
-            // Update permit instead CHANNEL.sendTo(new ReloadMessage(weapon, ammo), (EntityPlayerMP) player);
-            weaponInstance.setAmmo(ammo);
-            if (weapon.hasIteratedLoad()) {
-                weaponInstance.setLoadIterationCount(consumedAmount);
-            }
-            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
-        } else if (consumed) {
-            Tags.setAmmo(weaponItemStack, weapon.builder.ammoCapacity);
-            // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, weapon.builder.ammoCapacity), (EntityPlayerMP) player);
-            weaponInstance.setAmmo(weapon.builder.ammoCapacity);
-            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
-        } else {
-            LOGGER.debug("No suitable ammo found for {}. Permit denied.", weaponInstance);
-            //Tags.setAmmo(weaponItemStack, 0);
-            //weaponInstance.setAmmo(0);
-            status = Status.DENIED;
-            // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, 0), (EntityPlayerMP) player);
+                return Short.compare(instance1.getAmmo(), instance2.getAmmo());
+            }, player);
+
+            final PlayerMagazineInstance magazineInstance = (PlayerMagazineInstance) Tags.getInstance(magazineItemStack);
+            if (magazineInstance == null)
+                return;
+
+            instance.setAmmo(magazineInstance.getAmmo());
+            WeaponAttachmentAspect.addAttachment(magazineInstance.getMagazine(), instance);
+        } else if (!compatibleBullets.isEmpty() && (consumedAmount = MWCUtil.consumeMagazinesFromPlayerInventory(compatibleBullets, Math.min(instance.getWeapon().getMaxBulletsPerReload(), instance.getWeapon().getAmmoCapacity() - instance.getAmmo()), player)) != 0) {
+            instance.setAmmo(instance.getAmmo() + consumedAmount);
+
+            if (instance.getWeapon().hasIteratedLoad())
+                instance.setLoadIterationCount(consumedAmount);
         }
 
-        //Tags.setInstance(weaponItemStack, weaponInstance);
+        player.playSound(instance.getWeapon().getReloadSound(), 1, 1);
 
-        p.setStatus(status);
+        permit.setStatus(Status.GRANTED);
     }
 
 
@@ -734,13 +730,12 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
             if (attachment instanceof ItemMagazine && !player.isCreative()) {
                 previousMagazine = attachment;
-                ItemStack attachmentItemStack = ((ItemMagazine) attachment).create(Tags.getAmmo(weaponItemStack));
+                ItemStack attachmentItemStack = ((ItemMagazine) attachment).create((short) weaponInstance.getAmmo());
                 if (!player.inventory.addItemStackToInventory(attachmentItemStack)) {
                     player.dropItem(attachmentItemStack, false);
                 }
             }
 
-            Tags.setAmmo(weaponItemStack, 0);
             weaponInstance.setAmmo(0);
             player.world.playSound(player, player.posX, player.posY, player.posZ, weapon.getUnloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
 

@@ -1,5 +1,6 @@
 package com.paneedah.mwc.utils;
 
+import com.paneedah.mwc.instancing.PlayerMagazineInstance;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -81,7 +82,7 @@ public class MWCUtil {
      *
      * @author Desoroxx
      */
-    public static int consumeItemsFromPlayerInventory(final List<? extends Item> items, final int amount, final EntityPlayer player) {
+    public static int consumeMagazinesFromPlayerInventory(final List<? extends Item> items, final int amount, final EntityPlayer player) {
         if (amount <= 0) {
             return 0;
         }
@@ -127,28 +128,29 @@ public class MWCUtil {
      *
      * @author Desoroxx
      */
-    public static ItemStack consumeItemsFromPlayerInventory(final List<? extends ItemMagazine> items, final Comparator<ItemStack> comparator, final EntityPlayer player) {
-        ItemStack maxStack = null;
+    public static ItemStack consumeMagazinesFromPlayerInventory(final List<? extends ItemMagazine> items, final Comparator<ItemStack> comparator, final EntityPlayer player) {
+        ItemStack maxStack = ItemStack.EMPTY;
 
         for (final ItemStack currentStack : player.inventory.mainInventory)
-            if (items.contains(currentStack.getItem()) && (maxStack == null || comparator.compare(currentStack, maxStack) > 0)) {
+            if (currentStack.getItem() instanceof ItemMagazine && items.contains(currentStack.getItem()) && (maxStack == ItemStack.EMPTY || comparator.compare(currentStack, maxStack) > 0))
                 maxStack = currentStack;
-            }
 
-        if (maxStack == null || maxStack.isEmpty()) {
+        if (maxStack.isEmpty()) {
             if (player.isCreative())
                 return items.stream().map(ItemMagazine::create).max(comparator).orElse(null);
 
-            return null;
+            return ItemStack.EMPTY;
         }
 
-        if (!player.isCreative()) {
-            maxStack = maxStack.splitStack(1);
-        } else {
-            Tags.setAmmo(maxStack, ((ItemMagazine) maxStack.getItem()).getCapacity());
+        if (player.isCreative()) {
+            final PlayerMagazineInstance instance = (PlayerMagazineInstance) Tags.getInstance(maxStack);
+            if (instance != null)
+                instance.setAmmo(instance.getCapacity());
+
+            return maxStack;
         }
 
-        return maxStack;
+        return maxStack.splitStack(1);
     }
 
     /**

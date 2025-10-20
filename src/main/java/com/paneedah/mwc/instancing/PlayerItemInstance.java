@@ -38,7 +38,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> implements ISerializa
 
     @Getter @Setter protected int itemInventoryIndex;
 
-    public long syncStartTimestamp; // ? This needs to be 0 for #reconcile to be called by the ClientEventHandler
+    public long syncStartTimestamp;
     @Getter protected long updateTimestamp;
     @Getter protected long stateUpdateTimestamp = System.currentTimeMillis();
     @Getter private long updateId; // ? If 0 the instance is newly created and should be synced to the server
@@ -74,11 +74,6 @@ public class PlayerItemInstance<S extends ManagedState<S>> implements ISerializa
         return null;
     }
 
-    public void reconcile() {
-        // Currently no op in this class, mainly meant to be implemented in subclasses
-        // Meant to be used to reconcile instances between server and client
-    }
-
     @Override
     public String toString() {
         return item.getRegistryName() + "instance";
@@ -97,10 +92,6 @@ public class PlayerItemInstance<S extends ManagedState<S>> implements ISerializa
 
     public ItemStack getItemStack() {
         return player instanceof EntityPlayer ? ((EntityPlayer) player).inventory.getStackInSlot(itemInventoryIndex) : null;
-    }
-
-    public boolean shouldHaveInstanceTags() {
-        return true;
     }
 
     // endregion

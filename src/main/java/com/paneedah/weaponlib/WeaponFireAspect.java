@@ -74,8 +74,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
     private static final Predicate<PlayerWeaponInstance> seriesResetAllowed = PlayerWeaponInstance::isSeriesResetAllowed;
 
-    private static final Predicate<PlayerWeaponInstance> hasAmmo = instance -> instance.getAmmo() > 0
-            && Tags.getAmmo(instance.getItemStack()) > 0;
+    private static final Predicate<PlayerWeaponInstance> hasAmmo = instance -> instance.getAmmo() > 0;
 
     private static final Predicate<PlayerWeaponInstance> ejectSpentRoundRequired = instance -> instance.getWeapon().ejectSpentRoundRequired();
 
@@ -211,7 +210,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     }
 
     private void cannotFire(PlayerWeaponInstance weaponInstance) {
-        if (weaponInstance.getAmmo() == 0 || Tags.getAmmo(weaponInstance.getItemStack()) == 0) {
+        if (weaponInstance.getAmmo() == 0) {
             String message;
 
             if (ModernConfigManager.enableStatusMessages) {
@@ -400,20 +399,23 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             return;
         }
 
+        PlayerWeaponInstance playerWeaponInstance = Tags.getInstance(itemStack, PlayerWeaponInstance.class);
+
+        if (playerWeaponInstance == null) {
+            LOGGER.error("Can't shoot without instance");
+            return;
+        }
+
+        if (playerWeaponInstance.getAmmo() <= 0) {
+            LOGGER.warn("Can't shoot with no ammunition");
+            return;
+        }
+
         TargetPoint tp = new TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 100);
         CHANNEL.sendToAllAround(new MuzzleFlashMessage(player.getEntityId()), tp);
 
 
         Weapon weapon = (Weapon) itemStack.getItem();
-
-        int currentServerAmmo = Tags.getAmmo(itemStack);
-
-        if (currentServerAmmo <= 0) {
-            LOGGER.error("No server ammo");
-            return;
-        }
-
-        Tags.setAmmo(itemStack, --currentServerAmmo);
 
         if (spawnEntityWith == null) {
             spawnEntityWith = weapon.builder.spawnEntityWith;
@@ -435,7 +437,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         PlayerWeaponInstance pwi = new PlayerWeaponInstance(itemIndex, player, itemStack);
         System.out.println(pwi.isAimed());
             	*/
-
 
         for (int i = 0; i < weapon.builder.pellets; i++) {
             double damage = weapon.getSpawnEntityDamage(), hipFireSpread = 2.6;
@@ -468,8 +469,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
                 player.world.spawnEntity(spawnEntity);*/
 
         }
-
-        PlayerWeaponInstance playerWeaponInstance = Tags.getInstance(itemStack, PlayerWeaponInstance.class);
 
         if (playerWeaponInstance != null) {
             final Vector3F weaponDir = VectorUtil.convertToVector3F(new Vec3d(0, -0.1, 1).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw)));

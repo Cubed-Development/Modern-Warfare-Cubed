@@ -8,10 +8,8 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +17,13 @@ import java.util.List;
 public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemInstanceFactory<PlayerMagazineInstance, MagazineState>, Reloadable, Updatable, Part {
 
     public static final class Builder extends AttachmentBuilder<Weapon> {
-        private int capacity;
+        private short capacity;
         private final List<ItemBullet> compatibleBullets = new ArrayList<>();
         private String reloadSound;
         private String unloadSound;
 
         public Builder withCapacity(int capacity) {
-            this.capacity = capacity;
+            this.capacity = (short) capacity;
             return this;
         }
 
@@ -60,7 +58,14 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
 
             magazine.modContext = modContext;
 
-            informationProvider = stack -> TextFormatting.GREEN + "Ammunition: " + TextFormatting.GRAY + Tags.getAmmo(stack) + "/" + capacity;
+            informationProvider = stack -> {
+                final PlayerMagazineInstance instance = (PlayerMagazineInstance) Tags.getInstance(stack);
+
+                if (instance == null)
+                    return "borken";
+
+                return TextFormatting.GREEN + "Ammunition: " + TextFormatting.GRAY + instance.getAmmo() + "/" + capacity;
+            };
 
             return magazine;
         }
@@ -68,43 +73,32 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
 
     private ModContext modContext;
 
-    @Getter private final int capacity;
+    @Getter private final short capacity;
     @Getter private List<ItemBullet> compatibleBullets;
     @Getter private SoundEvent reloadSound;
     @Getter private SoundEvent unloadSound;
 
-    ItemMagazine(ModelBase model, String textureName, int capacity) {
+    ItemMagazine(ModelBase model, String textureName, short capacity) {
         this(model, textureName, capacity, null, null);
     }
 
-    ItemMagazine(ModelBase model, String textureName, int capacity, ApplyHandler<Weapon> apply, ApplyHandler<Weapon> remove) {
+    ItemMagazine(ModelBase model, String textureName, short capacity, ApplyHandler<Weapon> apply, ApplyHandler<Weapon> remove) {
         super(AttachmentCategory.MAGAZINE, model, textureName, apply, remove);
         this.capacity = capacity;
         setMaxStackSize(1);
     }
 
-    public ItemStack create(int ammunition) {
+    public ItemStack create() {
+        return create(capacity);
+    }
+
+    public ItemStack create(final short ammunition) {
         final ItemStack itemStack = new ItemStack(this);
 
-        initializeTag(itemStack, ammunition);
+        final PlayerMagazineInstance magazineInstance = createItemInstance(null, itemStack, 0);
+        magazineInstance.setAmmo(ammunition);
 
         return itemStack;
-    }
-
-    public ItemStack create() {
-        return this.create(capacity);
-    }
-
-    private void initializeTag(ItemStack itemStack, int initialAmmo) {
-        if (itemStack.getTagCompound() == null) {
-            itemStack.setTagCompound(new NBTTagCompound());
-            Tags.setAmmo(itemStack, initialAmmo);
-        }
-    }
-
-    @Override
-    public void onCreated(ItemStack stack, World world, EntityPlayer player) {
-        initializeTag(stack, 0);
     }
 
     @Override
@@ -117,6 +111,7 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
         final PlayerMagazineInstance instance = new PlayerMagazineInstance(slot, entityLivingBase, itemStack);
 
         instance.setState(MagazineState.READY);
+        instance.setAmmo((short) 0);
 
         return instance;
     }

@@ -37,7 +37,6 @@ public class SyncManager<S extends ManagedState<S>> {
             return;
         }
 
-        instance.reconcile();
         Tags.setInstance(itemStack, instance);
         LOGGER.debug("Stored instance {} of {} in stack {}", instance, instance.getItem(), itemStack);
     }

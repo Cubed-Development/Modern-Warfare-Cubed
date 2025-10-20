@@ -1,24 +1,23 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.instancing.PlayerMagazineInstance;
-import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
-import com.paneedah.weaponlib.state.Permit.Status;
 import com.paneedah.weaponlib.state.StateManager;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundEvent;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.weaponlib.state.Permit.Status.DENIED;
+import static com.paneedah.weaponlib.state.Permit.Status.GRANTED;
 
 public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazineInstance> {
 
@@ -58,15 +57,9 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
 
     private StateManager<MagazineState, ? super PlayerMagazineInstance> stateManager;
 
-    private final Predicate<PlayerMagazineInstance> notFull = instance -> {
-        boolean result = Tags.getAmmo(instance.getItemStack()) < instance.getMagazine().getCapacity();
-        return result;
-    };
+    private final Predicate<PlayerMagazineInstance> notFull = instance -> instance.getAmmo() < instance.getMagazine().getCapacity();
 
-    private final Predicate<PlayerMagazineInstance> notEmpty = instance -> {
-        boolean result = Tags.getAmmo(instance.getItemStack()) != 0;
-        return result;
-    };
+    private final Predicate<PlayerMagazineInstance> notEmpty = instance -> instance.getAmmo() != 0;
 
     public MagazineReloadAspect(ModContext modContext) {
         this.modContext = modContext;
@@ -138,136 +131,64 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     }
 
 
-    private void evaluateUnload(UnloadPermit p, PlayerMagazineInstance magazineInstance) {
-        if (!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
-            LOGGER.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect unload");
+    private void evaluateUnload(final UnloadPermit permit, final PlayerMagazineInstance instance) {
+        permit.setStatus(DENIED);
+
+        final ItemStack itemStack = instance.getItemStack();
+
+        if (!(itemStack.getItem() instanceof ItemMagazine))
             return;
+
+        final EntityPlayer player = (EntityPlayer) instance.getPlayer();
+
+        final ItemStack bulletStack = new ItemStack(instance.getCompatibleBullets().get(0), instance.getAmmo());
+        if (!player.addItemStackToInventory(bulletStack))
+            player.dropItem(bulletStack, false);
+
+        if (itemStack.getCount() > 1) {
+            itemStack.shrink(1);
+            player.inventory.addItemStackToInventory(instance.getMagazine().create((short) 0));
+        } else {
+            instance.setAmmo((short) 0);
         }
 
-        ItemStack magazineStack = magazineInstance.getItemStack();
+        final SoundEvent unloadSound = instance.getMagazine().getUnloadSound();
+        if (unloadSound != null)
+            instance.getPlayer().playSound(unloadSound, 1, 1);
 
-        Status status = Status.DENIED;
-        if (magazineStack.getItem() instanceof ItemMagazine) {
-            ItemStack magazineItemStack = magazineStack;
-
-            EntityPlayer player = (EntityPlayer) magazineInstance.getPlayer();
-            boolean originalFlag = true;
-            if (magazineItemStack.getCount() > 1) {
-                magazineItemStack.shrink(1);
-
-                ItemStack copyOfStack = magazineItemStack.copy();
-                copyOfStack.setCount(1);
-
-                magazineItemStack = copyOfStack;
-                originalFlag = false;
-            }
-
-
-            ItemMagazine magazine = (ItemMagazine) magazineItemStack.getItem();
-            List<ItemBullet> compatibleBullets = magazine.getCompatibleBullets();
-            int currentAmmo = originalFlag ? Tags.getAmmo(magazineStack) : Tags.getAmmo(magazineItemStack);
-
-
-            ItemStack stack = new ItemStack(compatibleBullets.get(0));
-            stack.setCount(currentAmmo);
-
-            if (!player.addItemStackToInventory(stack)) {
-                player.dropItem(stack, false);
-            }
-
-            if (originalFlag) {
-                Tags.setAmmo(magazineStack, 0);
-            } else {
-                Tags.setAmmo(magazineItemStack, 0);
-            }
-
-
-            if (!originalFlag) {
-                player.inventory.addItemStackToInventory(magazineItemStack);
-            }
-
-
-            if (magazine.getUnloadSound() != null) {
-                magazineInstance.getPlayer().playSound(magazine.getUnloadSound(), 1, 1);
-            }
-
-            /*
-            ItemStack consumedStack;
-            if((consumedStack = compatibility.tryConsumingItem(compatibleBullets, magazine.getAmmo() - currentAmmo,
-                    (EntityPlayer)magazineInstance.getPlayer(), i -> true)) != null) {
-                
-                ItemStack remainingStack = null;
-                if(shouldSplitStack) {
-                    remainingStack = magazineStack.splitStack(magazineStack.getCount() - 1);
-                }
-                
-                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + consumedStack.getCount());
-                
-                if(remainingStack != null) {
-                    player.inventory.addItemStackToInventory(remainingStack);
-                }
-                
-                if(magazine.getReloadSound() != null) {
-                    magazineInstance.getPlayer().playSound(magazine.getReloadSound(), 1, 1);
-                }
-                status = Status.GRANTED;
-            }*/
-            status = Status.GRANTED;
-        }
-
-        p.setStatus(status);
+        permit.setStatus(GRANTED);
     }
 
 
-    private void evaluateLoad(LoadPermit p, PlayerMagazineInstance magazineInstance) {
+    private void evaluateLoad(final LoadPermit permit, final PlayerMagazineInstance instance) {
+        permit.setStatus(DENIED);
 
-        if (!(magazineInstance.getPlayer() instanceof EntityPlayer)) {
-            LOGGER.warn("Player is not an instance of EntityPlayer - MagazineReloadAspect load");
+        final ItemStack itemStack = instance.getItemStack();
+
+        if (!(itemStack.getItem() instanceof ItemMagazine))
             return;
+
+        final EntityPlayer player = (EntityPlayer) instance.getPlayer();
+
+        if (instance.getAmmo() >= instance.getCapacity())
+            return;
+
+        short consumedAmount;
+        if ((consumedAmount = (short) MWCUtil.consumeMagazinesFromPlayerInventory(instance.getCompatibleBullets(), instance.getCapacity() - instance.getAmmo(), player)) == 0)
+            return;
+
+        if (itemStack.getCount() > 1) {
+            itemStack.shrink(1);
+            player.inventory.addItemStackToInventory(instance.getMagazine().create((short) (instance.getAmmo() + consumedAmount)));
+        } else {
+            instance.setAmmo((short) (instance.getAmmo() + consumedAmount));
         }
 
-        ItemStack magazineStack = magazineInstance.getItemStack();
+        final SoundEvent reloadSound = instance.getMagazine().getReloadSound();
+        if (reloadSound != null)
+            instance.getPlayer().playSound(reloadSound, 1, 1);
 
-        Status status = Status.DENIED;
-        if (magazineStack.getItem() instanceof ItemMagazine) {
-            ItemStack magazineItemStack = magazineStack;
-
-            EntityPlayer player = (EntityPlayer) magazineInstance.getPlayer();
-
-            boolean shouldSplitStack = false;
-            if (magazineItemStack.getCount() > 1) {
-                shouldSplitStack = true;
-                if (player.inventory.getFirstEmptyStack() < 0) {
-                    p.setStatus(status);
-                    return;
-                }
-            }
-
-            ItemMagazine magazine = (ItemMagazine) magazineItemStack.getItem();
-            List<ItemBullet> bullets = magazine.getCompatibleBullets();
-            int currentAmmo = Tags.getAmmo(magazineStack);
-            int consumedAmount;
-            if (currentAmmo < magazine.getCapacity() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(bullets, magazine.getCapacity() - currentAmmo, (EntityPlayer) magazineInstance.getPlayer())) != 0) {
-
-                ItemStack remainingStack = null;
-                if (shouldSplitStack) {
-                    remainingStack = magazineStack.splitStack(magazineStack.getCount() - 1);
-                }
-
-                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + consumedAmount);
-
-                if (remainingStack != null) {
-                    player.inventory.addItemStackToInventory(remainingStack);
-                }
-
-                if (magazine.getReloadSound() != null) {
-                    magazineInstance.getPlayer().playSound(magazine.getReloadSound(), 1, 1);
-                }
-                status = Status.GRANTED;
-            }
-        }
-
-        p.setStatus(status);
+        permit.setStatus(GRANTED);
     }
 
     private void doPermittedUnload(PlayerMagazineInstance weaponInstance, UnloadPermit permit) {

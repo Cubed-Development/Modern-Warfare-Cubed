@@ -1,5 +1,6 @@
 package com.paneedah.mwc.gui;
 
+import com.paneedah.mwc.instancing.PlayerMagazineInstance;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.utils.LangUtil;
@@ -11,8 +12,8 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
-import com.paneedah.weaponlib.render.gui.ModificationGUI;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
+import com.paneedah.weaponlib.render.gui.ModificationGUI;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.VehicleCustomGUI;
 import net.minecraft.block.BlockDoor;
@@ -276,7 +277,10 @@ public final class HUD extends Gui {
 
         if (item instanceof ItemMagazine) {
             totalCapacity = ((ItemMagazine) item).getCapacity();
-            currentAmmo = Tags.getAmmo(itemStack);
+
+            final PlayerMagazineInstance instance = (PlayerMagazineInstance) Tags.getInstance(itemStack);
+            if (instance != null)
+                currentAmmo = instance.getAmmo();
         } else if (item instanceof Weapon) {
             final ItemMagazine itemMagazine = (ItemMagazine) WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 

@@ -3,7 +3,11 @@ package com.paneedah.mwc.instancing;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.util.concurrent.UncheckedExecutionException;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.SyncManager;
+import com.paneedah.weaponlib.Weapon;
+import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.state.ManagedState;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -14,10 +18,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
@@ -96,16 +97,16 @@ public final class PlayerItemInstanceRegistry {
      * @return The item instance in the specified slot, or {@code null} if not found
      */
     public PlayerItemInstance<?> getItemInstance(final EntityPlayer player, final int slot) {
-        final Int2ObjectMap<PlayerItemInstance<?>> slotInstances = registry.computeIfAbsent(player.getPersistentID(), uuid -> new Int2ObjectOpenHashMap<>());
+        final Int2ObjectMap<PlayerItemInstance<?>> slotInstances = registry.dcomputeIfAbsent(player.getPersistentID(), uuid -> new Int2ObjectOpenHashMap<>());
         PlayerItemInstance<?> result = slotInstances.get(slot);
 
 //        log.debug("Slot {} contains {}", slot, result);
 
         final ItemStack itemStack = player.inventory.getStackInSlot(slot);
 
-		if (result == null) {
-			result = createItemInstance(player, slotInstances, slot);
-		} else if (!itemStackMatchesInstance(itemStack, result)) {
+        if (result == null) {
+            result = createItemInstance(player, slotInstances, slot);
+        } else if (!itemStackMatchesInstance(itemStack, result)) {
             syncManager.unwatch(result);
 
             result = createItemInstance(player, slotInstances, slot);
@@ -140,17 +141,14 @@ public final class PlayerItemInstanceRegistry {
         PlayerItemInstance<?> result = null;
 
         if (itemStack.getItem() instanceof PlayerItemInstanceFactory) {
-            LOGGER.debug("Deserializing instance for slot {} from stack {}", slot, itemStack);
             result = Tags.getInstance(itemStack);
-            LOGGER.debug("Deserialized instance {} for slot {} from stack {}", result, slot, itemStack);
 
             if (result == null) {
-                LOGGER.debug("Creating instance for slot {} from stack {}", slot, itemStack);
+                LOGGER.debug("Creating default instance for slot {} from stack {}", slot, itemStack);
                 result = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(player, itemStack, slot);
                 result.markClean();
-
-                result.setItemInventoryIndex(slot);
                 result.setPlayer(player);
+                result.setItemInventoryIndex(slot);
 
                 Tags.setInstance(itemStack, result);
             }
@@ -290,7 +288,41 @@ public final class PlayerItemInstanceRegistry {
      * @return {@code true} if the item stack matches the item instance, {@code false} otherwise
      */
     private boolean itemStackMatchesInstance(final ItemStack itemStack, final PlayerItemInstance<?> instance) {
-        return itemStack.getItem() == instance.getItem();
+        if (itemStack.getItem() != instance.getItem())
+            return false;
+
+        PlayerItemInstance<?> itemInstance = Tags.getInstance(itemStack);
+
+        if (itemInstance == null)
+            return false;
+
+        if (itemInstance.getClass() != instance.getClass())
+            return false;
+
+        if (instance instanceof PlayerMeleeInstance) {
+            return Arrays.equals(((PlayerMeleeInstance) itemInstance).getActiveAttachmentIds(), ((PlayerMeleeInstance) instance).getActiveAttachmentIds());
+        } else if (instance instanceof PlayerWeaponInstance) {
+            final PlayerWeaponInstance itemWeaponInstance = (PlayerWeaponInstance) itemInstance;
+            final PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) instance;
+
+            for (AttachmentCategory category : AttachmentCategory.values()) {
+                if (category == AttachmentCategory.BULLET || category == AttachmentCategory.MAGAZINE)
+                    continue;
+
+                final ItemAttachment<Weapon> itemAttachment = itemWeaponInstance.getAttachmentItemByCategory(category);
+                final ItemAttachment<Weapon> attachment = weaponInstance.getAttachmentItemByCategory(category);
+
+                if (itemAttachment == null && attachment == null)
+                    continue;
+                if (itemAttachment != null && itemAttachment.equals(attachment))
+                    continue;
+
+                LOGGER.error("LOUD INCORRECT BUZZER");
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**

@@ -234,7 +234,6 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             if (maxAmmo > 0) {
                 int ammo = rand.nextInt(maxAmmo);
                 weaponInstance.setAmmo(ammo);
-                Tags.setAmmo(itemStack, ammo);
                 Tags.setInstance(itemStack, weaponInstance);
             }
         }
@@ -317,18 +316,15 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
 
     private void initWeaponWithAttachments(Equipment equipment, ItemStack itemStack) {
-        if (equipment.attachments != null && equipment.item instanceof Weapon
-                && equipment.item instanceof PlayerItemInstanceFactory) {
-            PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) ((PlayerItemInstanceFactory<?, ?>) equipment.item)
-                    .createItemInstance(this, new ItemStack(equipment.item), 0);
+        if (equipment.attachments != null && equipment.item instanceof Weapon && equipment.item instanceof PlayerItemInstanceFactory) {
+            PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) ((PlayerItemInstanceFactory<?, ?>) equipment.item).createItemInstance(this, new ItemStack(equipment.item), 0);
             for (ItemAttachment<?> attachment : equipment.attachments) {
-                Set<ItemAttachment<Weapon>> compatibleAttachments = weaponInstance.getWeapon()
-                        .getCompatibleAttachments().keySet();
+                Set<ItemAttachment<Weapon>> compatibleAttachments = weaponInstance.getWeapon().getCompatibleAttachments().keySet();
                 compatibleAttachments.contains(attachment);
                 WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) attachment, weaponInstance);
             }
+            weaponInstance.setAmmo(getConfiguration().getMaxAmmo());
             Tags.setInstance(itemStack, weaponInstance);
-            Tags.setAmmo(itemStack, getConfiguration().getMaxAmmo());
         }
     }
 
