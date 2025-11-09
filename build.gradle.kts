@@ -155,7 +155,7 @@ tasks {
 idea {
     module {
         inheritOutputDirs = true
-        excludeDirs.addAll(setOf(".github", ".gradle", ".idea", "build", "gradle", "run", "gradlew", "gradlew.bat", "desktop.ini").map(::file))
+        excludeDirs.addAll(setOf(".github", ".gradle", ".idea", "build", "gradle", "run", "gradlew", "gradlew.bat", "desktop.ini", "qodana.sarif.json").map(::file))
     }
 
     project {
