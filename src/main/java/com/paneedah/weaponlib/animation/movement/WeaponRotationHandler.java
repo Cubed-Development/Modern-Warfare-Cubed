@@ -152,7 +152,7 @@ public class WeaponRotationHandler {
                 walkingSwayAmplitude *= 0.33f;
             }
 
-            divisorMultiplier /= params.getADSSimilarity();
+            divisorMultiplier /= params.getAdsSimilarity();
 
             // The spring is more obvious in first person
             // so, by increasing the damping we can make
