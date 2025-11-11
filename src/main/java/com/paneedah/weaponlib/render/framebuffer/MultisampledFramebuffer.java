@@ -133,18 +133,6 @@ public class MultisampledFramebuffer extends Framebuffer {
         }
     }
 
-    public void setFramebufferFilter(int framebufferFilterIn) {
-        if (OpenGlHelper.isFramebufferEnabled()) {
-            this.framebufferFilter = framebufferFilterIn;
-            GlStateManager.bindTexture(this.framebufferTexture);
-            GlStateManager.glTexParameteri(3553, 10241, framebufferFilterIn);
-            GlStateManager.glTexParameteri(3553, 10240, framebufferFilterIn);
-            GlStateManager.glTexParameteri(3553, 10242, 10496);
-            GlStateManager.glTexParameteri(3553, 10243, 10496);
-            GlStateManager.bindTexture(0);
-        }
-    }
-
     public void checkFramebufferComplete() {
         int i = OpenGlHelper.glCheckFramebufferStatus(OpenGlHelper.GL_FRAMEBUFFER);
 
@@ -185,31 +173,6 @@ public class MultisampledFramebuffer extends Framebuffer {
 			GlStateManager.bindTexture(0);
 		}
 		*/
-    }
-
-    public void bindFramebuffer(boolean p_147610_1_) {
-        if (OpenGlHelper.isFramebufferEnabled()) {
-
-
-            OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, this.framebufferObject);
-
-            if (p_147610_1_) {
-                GlStateManager.viewport(0, 0, this.framebufferWidth, this.framebufferHeight);
-            }
-        }
-    }
-
-    public void unbindFramebuffer() {
-        if (OpenGlHelper.isFramebufferEnabled()) {
-            OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, 0);
-        }
-    }
-
-    public void setFramebufferColor(float red, float green, float blue, float alpha) {
-        this.framebufferColor[0] = red;
-        this.framebufferColor[1] = green;
-        this.framebufferColor[2] = blue;
-        this.framebufferColor[3] = alpha;
     }
 
     public void framebufferRender(int width, int height) {
@@ -257,21 +220,6 @@ public class MultisampledFramebuffer extends Framebuffer {
             GlStateManager.depthMask(true);
             GlStateManager.colorMask(true, true, true, true);
         }
-    }
-
-    public void framebufferClear() {
-        this.bindFramebuffer(true);
-        GlStateManager.clearColor(this.framebufferColor[0], this.framebufferColor[1], this.framebufferColor[2],
-                this.framebufferColor[3]);
-        int i = 16384;
-
-        if (this.useDepth) {
-            GlStateManager.clearDepth(1.0D);
-            i |= 256;
-        }
-
-        GlStateManager.clear(i);
-        this.unbindFramebuffer();
     }
 
 }
