@@ -588,7 +588,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                 // special rendering for displaying guns.
                 doCraftingModeOneRender(partialTicks, mouseX, mouseY);
             } else if (hasSelectedCraftingPiece()) {
-                GuiRenderUtil.drawScaledString(fontRenderer, format(getSelectedCraftingPiece().getOutput().getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 0.9, GOLD);
+                GuiRenderUtil.drawScaledString(format(getSelectedCraftingPiece().getOutput().getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 0.9, GOLD);
                 GlStateManager.pushMatrix();
                 RenderHelper.enableGUIStandardItemLighting();
                 GlStateManager.translate(this.guiLeft + 275, this.guiTop + 45, 0);
@@ -602,11 +602,11 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             GlStateManager.enableBlend();
 
             // Draw all the text within the GUI
-            GuiRenderUtil.drawScaledString(fontRenderer, "CRAFTING", this.guiLeft + 11, this.guiTop + 5, 1.2, BLUE);
-            GuiRenderUtil.drawScaledString(fontRenderer, "Progress", this.guiLeft + 326, this.guiTop + 175, 0.8, WHITE);
-            GuiRenderUtil.drawScaledString(fontRenderer, "Output:", this.guiLeft + 5, this.guiTop + 223, 0.9, WHITE);
-            GuiRenderUtil.drawScaledString(fontRenderer, "CRAFT", this.guiLeft + 222, this.guiTop + 184, 1.0, 0xB06061);
-            GuiRenderUtil.drawScaledString(fontRenderer, "Results: " + TextFormatting.YELLOW + filteredCraftingList.size(), this.guiLeft + 12, this.guiTop + 191, 0.8, WHITE);
+            GuiRenderUtil.drawScaledString("CRAFTING", this.guiLeft + 11, this.guiTop + 5, 1.2, BLUE);
+            GuiRenderUtil.drawScaledString("Progress", this.guiLeft + 326, this.guiTop + 175, 0.8, WHITE);
+            GuiRenderUtil.drawScaledString("Output:", this.guiLeft + 5, this.guiTop + 223, 0.9, WHITE);
+            GuiRenderUtil.drawScaledString("CRAFT", this.guiLeft + 222, this.guiTop + 184, 1.0, 0xB06061);
+            GuiRenderUtil.drawScaledString("Results: " + TextFormatting.YELLOW + filteredCraftingList.size(), this.guiLeft + 12, this.guiTop + 191, 0.8, WHITE);
 
             if (hasSelectedCraftingPiece()) {
                 final ICraftingRecipe weapon = getSelectedCraftingPiece();

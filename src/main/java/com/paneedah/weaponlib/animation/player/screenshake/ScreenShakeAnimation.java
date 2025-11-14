@@ -1,7 +1,8 @@
-package com.paneedah.weaponlib.animation;
+package com.paneedah.weaponlib.animation.player.screenshake;
 
 import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager.State;
+import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakingAnimationManager.State;
+import com.paneedah.weaponlib.animation.player.PlayerAnimation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.MathHelper;
 import org.lwjgl.opengl.GL11;

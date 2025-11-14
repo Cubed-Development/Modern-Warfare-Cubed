@@ -6,7 +6,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
@@ -25,9 +24,7 @@ public class KeyedAnimation {
 
     public KeyedAnimation(AnimationData data) {
         // Copy keys
-        for (Entry<Float, BlockbenchTransition> entry : data.getBbTransition().entrySet()) {
-            bbMap.put(entry.getKey(), entry.getValue());
-        }
+        bbMap.putAll(data.getBbTransition());
 
         this.max = data.getAppointedDuration();
     }
@@ -63,7 +60,7 @@ public class KeyedAnimation {
         // Find previous key
         float bottomKey = bbMap.floorEntry(time).getKey();
 
-        float topKey = 0.0f;
+        float topKey;
         try {
             topKey = bbMap.ceilingKey(time);
         } catch (Exception e) {

@@ -14,7 +14,7 @@ import com.paneedah.mwc.tileentities.TurretBaseFactory;
 import com.paneedah.mwc.vehicle.Vehicles;
 import com.paneedah.mwc.weapons.*;
 import com.paneedah.weaponlib.UniversalSoundLookup;
-import com.paneedah.weaponlib.animation.SpecialAttachments;
+import com.paneedah.weaponlib.SpecialAttachments;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
 import net.minecraft.network.datasync.DataSerializers;

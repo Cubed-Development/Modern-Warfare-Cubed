@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.render.bgl;
 
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ParticleFancyRain;

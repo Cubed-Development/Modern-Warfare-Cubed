@@ -1,10 +1,12 @@
-package com.paneedah.weaponlib.animation;
+package com.paneedah.weaponlib.animation.gui;
 
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
-import com.paneedah.weaponlib.animation.gui.AnimationGUI;
+import com.paneedah.weaponlib.animation.DebugPositioner;
+import com.paneedah.weaponlib.animation.MatrixHelper;
+import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.render.Shaders;
 import dev.redstudio.redcore.math.vectors.Vector3F;
@@ -316,7 +318,7 @@ public class AnimationModeProcessor {
                     break;
             }
 
-            float m = (float) -dy * 0.35f;
+            float m = -dy * 0.35f;
             boolean modernMode = true;
 
             ScaledResolution scaledResolution = new ScaledResolution(MC);

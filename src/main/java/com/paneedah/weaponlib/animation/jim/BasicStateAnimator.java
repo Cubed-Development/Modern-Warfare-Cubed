@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.animation.jim;
 
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import lombok.NoArgsConstructor;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
@@ -8,12 +9,12 @@ import java.util.LinkedList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
+@NoArgsConstructor
 public class BasicStateAnimator {
 
     public double time = 0.0;
 
-
-    public LinkedList<Transition> callList = new LinkedList<BasicStateAnimator.Transition>();
+    public LinkedList<Transition> callList = new LinkedList<>();
 
     public Transition goingTransition;
     public Transition currentTransition;
@@ -27,17 +28,7 @@ public class BasicStateAnimator {
 
     public static final Transition ZERO_TRANSITION = new BasicStateAnimator.Transition(Vec3d.ZERO, Vec3d.ZERO, 0.0);
 
-
-    public boolean isInAction = false;
-
-
     //public static final
-
-
-    public void BasicStateAnimator() {
-
-    }
-
 
     public Vec3d getInterpolatedRotation() {
         double mu = MC.getRenderPartialTicks();

@@ -1,7 +1,7 @@
 package com.paneedah.mwc.instancing;
 
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.RecoilParam;

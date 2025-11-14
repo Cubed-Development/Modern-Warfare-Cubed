@@ -1,9 +1,11 @@
-package com.paneedah.weaponlib.animation;
+package com.paneedah.weaponlib.animation.player.screenshake;
 
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.animation.ScreenShakeAnimation.Builder;
+import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakeAnimation.Builder;
+import com.paneedah.weaponlib.animation.player.PlayerAnimation;
+import com.paneedah.weaponlib.animation.player.PlayerRawPitchAnimation;
 import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.HashMap;

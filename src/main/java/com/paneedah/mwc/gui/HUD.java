@@ -5,7 +5,7 @@ import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.utils.LangUtil;
 import com.paneedah.mwc.utils.QuickResourceLocation;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;

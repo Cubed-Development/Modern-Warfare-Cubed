@@ -22,8 +22,6 @@ import org.lwjgl.opengl.GL11;
 import java.util.*;
 import java.util.Map.Entry;
 
-import static com.paneedah.mwc.ProjectConstants.LOGGER;
-
 public class AnimationData {
 
     @Getter @Setter private TreeMap<Float, BlockbenchTransition> bbTransition = new TreeMap<>();

@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.paneedah.mwc.rendering.Transform;
+import lombok.Getter;
 import net.minecraft.util.ResourceLocation;
 
 import java.io.BufferedReader;
@@ -25,9 +26,9 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
  */
 public class BBLoader {
 
-    public static String directory = ID + ":animations/";
-    public static Gson gson = (new GsonBuilder()).create();
-    public static String version = "1.8.0";
+    @Getter public static String directory = ID + ":animations/";
+    @Getter public static Gson gson = (new GsonBuilder()).create();
+    @Getter public final static String VERSION = "1.8.0";
 
 
     public static double HANDDIVISOR = 12.6;
@@ -64,9 +65,11 @@ public class BBLoader {
             .withPivotPoint(-0.1F, 1.0F, 0.0F);
 
 
+    @Getter
     private static String animationSuffix = ".animation.json";
 
     // Stores actual animation files
+    @Getter
     private static HashMap<String, AnimationSet> actualAnimations = new HashMap<>();
 
 
@@ -144,7 +147,7 @@ public class BBLoader {
         AnimationSet animationSet = new AnimationSet();
 
         // Initialize our buffered reader object
-        BufferedReader br = null;
+        BufferedReader br;
         try {
             ResourceLocation loc = new ResourceLocation(directory + fileName);
             br = new BufferedReader(new InputStreamReader(MC.getResourceManager().getResource(loc).getInputStream()));
@@ -162,8 +165,8 @@ public class BBLoader {
 
             LOGGER.error("Could not locate \"format_version\" key, cannot readVector3D file {} ", fileName);
             return null;
-        } else if (!masterJSON.get(KEY_VERSION).getAsString().equals(version)) {
-            LOGGER.error("Warning, this file is running version {}, and this version of MWC is looking for {}", masterJSON.get(KEY_VERSION).getAsString(), version);
+        } else if (!masterJSON.get(KEY_VERSION).getAsString().equals(VERSION)) {
+            LOGGER.error("Warning, this file is running version {}, and this version of MWC is looking for {}", masterJSON.get(KEY_VERSION).getAsString(), VERSION);
         }
 
 
@@ -221,71 +224,16 @@ public class BBLoader {
 
     }
 
-
-    public static AnimationData loadAnimationData(String fileName, String animationName, String realBone) {
-
-        ResourceLocation loc = new ResourceLocation(directory + fileName);
-
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new InputStreamReader(MC.getResourceManager().getResource(loc).getInputStream()));
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        JsonObject obj = gson.fromJson(br, JsonObject.class);
-        JsonObject anims = obj.get("animations").getAsJsonObject();
-
-        //String animationName = "animation.HKgrip.reload";
-        String boneName = "bones";
-
-        AnimationData dat = new AnimationData(extractPath(anims, animationName, "bones", realBone));
-
-        return dat;
-        //bbT.showDebugCode();
-        //System.out.println(anims.get(animationName).getAsJsonObject().get(boneName).getAsJsonObject());
-
-        //System.out.println(obj.get(animationName).getAsJsonObject().get(boneName));
-
-        //System.out.println(anims);
-        //System.out.println(obj.get("animations").getAsJsonArray());
-    }
-
-    public static String getDirectory() {
-        return directory;
-    }
-
     public static void setDirectory(String directory) {
         BBLoader.directory = directory;
-    }
-
-    public static Gson getGson() {
-        return gson;
     }
 
     public static void setGson(Gson gson) {
         BBLoader.gson = gson;
     }
 
-    public static String getVersion() {
-        return version;
-    }
-
-    public static void setVersion(String version) {
-        BBLoader.version = version;
-    }
-
-    public static String getAnimationSuffix() {
-        return animationSuffix;
-    }
-
     public static void setAnimationSuffix(String animationSuffix) {
         BBLoader.animationSuffix = animationSuffix;
-    }
-
-    public static HashMap<String, AnimationSet> getActualAnimations() {
-        return actualAnimations;
     }
 
     public static void setActualAnimations(HashMap<String, AnimationSet> actualAnimations) {

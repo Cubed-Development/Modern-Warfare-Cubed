@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.animation;
+package com.paneedah.weaponlib.animation.gui;
 
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.math.Vec3d;
@@ -22,11 +22,7 @@ public class Arcball {
         Vec3d grabPoint = project(grabX, grabY);
         Vec3d current = project(mouseX, mouseY);
 
-
-        Quaternion quat = fromBetweenVectors(grabPoint, current);
-
-        //System.out.println(quat);
-        return quat;
+        return fromBetweenVectors(grabPoint, current);
     }
 
     public static Vec3d project(int mouseX, int mouseY) {

@@ -4,6 +4,7 @@ import com.paneedah.mwc.asm.Interceptors;
 import com.paneedah.weaponlib.DefaultPart;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;

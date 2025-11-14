@@ -162,7 +162,7 @@ public class ClientValueRepo {
 
         // Add the ticker increment to the ticker every tick (say that
         // ten times fast!)
-        TICKER.currentValue += TICKER_INCREMENT;
+        TICKER.add(TICKER_INCREMENT);
 
 
         if (!player.capabilities.isFlying && player.onGround) {

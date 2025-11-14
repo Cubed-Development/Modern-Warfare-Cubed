@@ -1,6 +1,6 @@
-package com.paneedah.weaponlib.animation;
+package com.paneedah.weaponlib.animation.player;
 
-import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager.State;
+import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakingAnimationManager.State;
 import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.Random;
@@ -37,22 +37,22 @@ public class PlayerRawPitchAnimation implements PlayerAnimation {
         this.state = state;
     }
 
-    PlayerRawPitchAnimation setMaxYaw(float maxYaw) {
+    public PlayerRawPitchAnimation setMaxYaw(float maxYaw) {
         this.maxYaw = maxYaw;
         return this;
     }
 
-    PlayerRawPitchAnimation setMaxPitch(float maxPitch) {
+    public PlayerRawPitchAnimation setMaxPitch(float maxPitch) {
         this.maxPitch = maxPitch;
         return this;
     }
 
-    PlayerRawPitchAnimation setTransitionDuration(long transitionDuration) {
+    public PlayerRawPitchAnimation setTransitionDuration(long transitionDuration) {
         this.transitionDuration = transitionDuration;
         return this;
     }
 
-    PlayerRawPitchAnimation setPlayer(EntityPlayer clientPlayer) {
+    public PlayerRawPitchAnimation setPlayer(EntityPlayer clientPlayer) {
         this.clientPlayer = clientPlayer;
         return this;
     }

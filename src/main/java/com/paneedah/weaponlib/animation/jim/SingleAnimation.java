@@ -1,45 +1,32 @@
 package com.paneedah.weaponlib.animation.jim;
 
 import com.google.gson.JsonObject;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+@Getter
 public class SingleAnimation {
 
-    private String animationName;
-    private HashMap<String, AnimationData> dataMap = new HashMap<>();
-    private int timestampCount = 0;
+
+    @Setter private String animationName;
+    @Setter private HashMap<String, AnimationData> dataMap = new HashMap<>();
     private ArrayList<Float> timestamps;
     private final HashMap<Float, String> sounds = new HashMap<>();
 
-    private float duration;
+    @Setter private float duration;
 
     public SingleAnimation(String name) {
         this.animationName = name;
     }
 
 
-    public float getDuration() {
-        return duration;
-    }
-
-    public void setDuration(float duration) {
-        this.duration = duration;
-    }
-
     public void registerSound(float time, String name) {
         this.sounds.put(time, name);
-    }
-
-    public HashMap<Float, String> getSoundMap() {
-        return this.sounds;
-    }
-
-    public ArrayList<Float> getTimestamps() {
-        return this.timestamps;
     }
 
     public boolean hasBone(String name) {
@@ -68,7 +55,6 @@ public class SingleAnimation {
         }
         Collections.sort(timestamps);
         //System.out.println("[" + this.animationName + "] Created animation w/ " + timestamps.size() + " keyframes.");
-        this.timestampCount = timestamps.size();
 
         // Bake keyframes
         for (Entry<String, AnimationData> i : dataMap.entrySet()) {
@@ -137,24 +123,5 @@ public class SingleAnimation {
 
     }
 
-
-    public String getAnimationName() {
-        return animationName;
-    }
-
-
-    public void setAnimationName(String animationName) {
-        this.animationName = animationName;
-    }
-
-
-    public HashMap<String, AnimationData> getDataMap() {
-        return dataMap;
-    }
-
-
-    public void setDataMap(HashMap<String, AnimationData> dataMap) {
-        this.dataMap = dataMap;
-    }
 
 }

@@ -1,7 +1,6 @@
-package com.paneedah.weaponlib.animation;
+package com.paneedah.weaponlib;
 
 
-import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.model.Bullet556;
 
 public class SpecialAttachments {

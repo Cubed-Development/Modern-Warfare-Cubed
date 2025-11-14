@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.render;
 import com.paneedah.mwc.utils.QuickResourceLocation;
 import com.paneedah.mwc.utils.SpriteSheetTools;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.mwc.utils.SpriteSheetTools.Sprite;

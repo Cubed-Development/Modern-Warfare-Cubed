@@ -11,6 +11,7 @@ import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.jim.AnimationData;
 import com.paneedah.weaponlib.animation.jim.AnimationSet;
 import com.paneedah.weaponlib.animation.jim.BBLoader;

@@ -7,7 +7,7 @@ import com.paneedah.mwc.network.messages.VehicleInteractMessage;
 import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.utils.PlayerUtil;
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;

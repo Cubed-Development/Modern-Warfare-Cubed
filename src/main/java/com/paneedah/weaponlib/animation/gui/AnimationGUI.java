@@ -4,7 +4,6 @@ import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.DebugPositioner.Position;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
@@ -14,16 +13,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.network.NetworkPlayerInfo;
-import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 import java.lang.reflect.Field;
@@ -33,7 +27,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.ProjectConstants.ID;
 
 public class AnimationGUI {
 
@@ -173,9 +166,9 @@ public class AnimationGUI {
 
         if (but != null) {
 
-            AnimationGUI.renderRect(new Color(0x222f3e).darker().darker().darker(), mouseX, mouseY, MC.fontRenderer.getStringWidth(but.tooltip) * 0.8f, 10);
+            GuiRenderUtil.renderRect(new Color(0x222f3e).darker().darker().darker(), mouseX, mouseY, MC.fontRenderer.getStringWidth(but.tooltip) * 0.8f, 10);
             GlStateManager.enableTexture2D();
-            AnimationGUI.renderScaledString(but.tooltip, mouseX + 2.5, mouseY + 2, 0.9f);
+            GuiRenderUtil.drawScaledString(but.tooltip, mouseX + 2.5, mouseY + 2, 0.9f, 0xffffff);
             GlStateManager.disableTexture2D();
         }
 
@@ -207,9 +200,9 @@ public class AnimationGUI {
 
         GlStateManager.enableTexture2D();
         String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("h:mm a"));
-        renderScaledString(time, sr.getScaledWidth_double() - 40, 5, 1);
+        GuiRenderUtil.drawScaledString(time, sr.getScaledWidth_double() - 40, 5, 1, 0xffffff);
         String fps = "FPS: " + Minecraft.getDebugFPS();
-        renderScaledString(fps, sr.getScaledWidth_double() - 45, 15, 1);
+        GuiRenderUtil.drawScaledString(fps, sr.getScaledWidth_double() - 45, 15, 1, 0xffffff);
 
 
         String itemPos = "";
@@ -230,7 +223,7 @@ public class AnimationGUI {
 
         String currentlyPositioning = TextFormatting.WHITE + "Positioning " + TextFormatting.GOLD + itemPos;
 
-        renderScaledString(currentlyPositioning, 5, 5, 0.5);
+        GuiRenderUtil.drawScaledString(currentlyPositioning, 5, 5, 0.5,0xffffff);
 
 
         GlStateManager.color(1, 1, 1);
@@ -410,77 +403,5 @@ public class AnimationGUI {
 
         WeaponRenderer.acp = null;
     }
-
-    public static void renderScaledString(String str, double x, double y, double scale) {
-        GlStateManager.pushMatrix();
-        GlStateManager.translate(x, y, 0);
-        GlStateManager.scale(scale, scale, scale);
-
-        MC.fontRenderer.drawStringWithShadow(str, 0, 0, 0xffffff);
-
-        GlStateManager.popMatrix();
-    }
-
-
-    // tools
-
-    public static void renderRect(Color c, double x, double y, double w, double h) {
-
-        float r = (float) c.getRed() / 255f;
-
-        float g = (float) c.getGreen() / 255f;
-        float b = (float) c.getBlue() / 255f;
-
-        Tessellator t = Tessellator.getInstance();
-        BufferBuilder bb = t.getBuffer();
-
-        bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
-
-        float grad = 0.8f;
-        GlStateManager.shadeModel(GL11.GL_SMOOTH);
-        bb.pos(x, y, 0).color(r, g, b, 1).endVertex();
-        bb.pos(x, y + h, 0).color(r * grad, g * grad, b * grad, 1).endVertex();
-        bb.pos(x + w, y + h, 0).color(r * grad, g * grad, b * grad, 1).endVertex();
-        bb.pos(x + w, y, 0).color(r, g, b, 1).endVertex();
-
-
-        t.draw();
-    }
-
-    public static void renderTexturedRect(int id, double x, double y, double w, double h) {
-        MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/animguio.png"));
-
-        GlStateManager.enableAlpha();
-        GlStateManager.enableBlend();
-        Tessellator t = Tessellator.getInstance();
-        BufferBuilder bb = t.getBuffer();
-
-        bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
-
-        float width = 64;
-        float icoSize = 16;
-        float height = 64;
-
-
-        float u = ((id * icoSize) % width) / width;
-        float v = (float) (Math.floor((id * icoSize) / width)) * icoSize / height;
-        float m = icoSize / width;
-        float n = icoSize / height;
-
-
-        bb.pos(x, y, 0).tex(u, v).endVertex();
-        bb.pos(x, y + h, 0).tex(u, v + n).endVertex();
-        bb.pos(x + w, y + h, 0).tex(u + m, v + n).endVertex();
-        bb.pos(x + w, y, 0).tex(u + m, v).endVertex();
-
-
-        t.draw();
-
-        GlStateManager.disableAlpha();
-        GlStateManager.disableBlend();
-        GlStateManager.disableTexture2D();
-
-    }
-
 
 }

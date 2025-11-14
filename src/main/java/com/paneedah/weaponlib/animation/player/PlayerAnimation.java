@@ -1,6 +1,6 @@
-package com.paneedah.weaponlib.animation;
+package com.paneedah.weaponlib.animation.player;
 
-import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager.State;
+import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakingAnimationManager.State;
 import net.minecraft.entity.player.EntityPlayer;
 
 public interface PlayerAnimation {

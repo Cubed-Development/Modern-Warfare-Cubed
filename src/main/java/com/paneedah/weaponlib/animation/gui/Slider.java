@@ -82,13 +82,13 @@ public class Slider implements IElement {
         }
 
 
-        AnimationGUI.renderRect(Color.yellow, offsetX, offsetY, width, 1.5);
+        GuiRenderUtil.renderRect(Color.yellow, offsetX, offsetY, width, 1.5);
 
         if (!centered) {
-            AnimationGUI.renderRect(Color.green, offsetX, offsetY, width * progress, 1.5);
+            GuiRenderUtil.renderRect(Color.green, offsetX, offsetY, width * progress, 1.5);
 
         } else {
-            AnimationGUI.renderRect(Color.green, offsetX + (width * 0.5), offsetY, width * (progress - 0.5), 1.5);
+            GuiRenderUtil.renderRect(Color.green, offsetX + (width * 0.5), offsetY, width * (progress - 0.5), 1.5);
 
         }
 
@@ -99,7 +99,7 @@ public class Slider implements IElement {
         }
 
 
-        AnimationGUI.renderRect(sliderColor, offsetX + sliderBarOffset, offsetY - 1.75, 2.5, 5);
+        GuiRenderUtil.renderRect(sliderColor, offsetX + sliderBarOffset, offsetY - 1.75, 2.5, 5);
 
 
         double cleanValue = getValue() * Math.pow(10, 2);
@@ -109,8 +109,8 @@ public class Slider implements IElement {
         String proText = TextFormatting.GOLD + "" + cleanValue;
 
         GlStateManager.enableTexture2D();
-        AnimationGUI.renderScaledString(name, offsetX, offsetY - 6, 0.5);
-        AnimationGUI.renderScaledString(proText, offsetX + width - MC.fontRenderer.getStringWidth(proText) * 0.5, offsetY - 6, 0.5);
+        GuiRenderUtil.drawScaledString(name, offsetX, offsetY - 6, 0.5, 0xffffff);
+        GuiRenderUtil.drawScaledString(proText, offsetX + width - MC.fontRenderer.getStringWidth(proText) * 0.5, offsetY - 6, 0.5, 0xffffff);
         GlStateManager.disableTexture2D();
     }
 

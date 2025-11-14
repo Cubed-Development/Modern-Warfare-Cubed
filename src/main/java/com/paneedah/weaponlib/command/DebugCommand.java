@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.command;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;

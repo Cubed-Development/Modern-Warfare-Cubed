@@ -28,13 +28,11 @@ class ContinousPositioning2<State, Part, Context extends PartPositionProvider> i
             float mark = totalDuration * currentProgress;
             long endOfSegment = 0;
             long startOfSegment = 0;
-            int segmentIndex = -1;
             MultipartTransition<Part, Context> targetTransition = null;
             for (int i = 0; i < toPositioning.size(); i++, startOfSegment = endOfSegment) {
                 MultipartTransition<Part, Context> transition = toPositioning.get(i);
                 endOfSegment += transition.getDuration() + transition.getPause();
                 if (mark <= endOfSegment) {
-                    segmentIndex = i;
                     targetTransition = transition;
                     break;
                 }
