@@ -27,7 +27,6 @@ public class WirelessCameraRenderer extends Render<Entity> {
             String textureName = camera.getTextureName();
             ResourceLocation textureLocation = textureName != null ?
                     new ResourceLocation(ID + ":textures/models/" + textureName) : null;
-            //System.out.println("Rendering entity at " + x + ", " + y + ", " + z);
             GL11.glPushMatrix();
             GL11.glTranslatef(0f, 0f, 0f);
             if (textureLocation != null) {
