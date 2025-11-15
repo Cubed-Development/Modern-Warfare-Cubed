@@ -239,8 +239,6 @@ public class DebugPositioner {
 //        }
 
 
-        boolean legacy = false;
-
         if (!debugParts.contains(part)) {
             return;
         }
@@ -366,22 +364,6 @@ public class DebugPositioner {
                     -partPosition.rOffsetY, -partPosition.rOffsetZ));
             LOGGER.debug("Generated positioning code: \n" + result);
             System.out.println("\n" + result);
-
-            /*
-             * legacy StringBuilder result = new StringBuilder();
-             * result.append(String.format("GL11.glScalef(%ff, %ff, %ff);\n",
-             * partPosition.scale, partPosition.scale, partPosition.scale));
-             * result.append(String.format("GL11.glRotatef(%ff, 1f, 0f, 0f);\n",
-             * partPosition.xRotation));
-             * result.append(String.format("GL11.glRotatef(%ff, 0f, 1f, 0f);\n",
-             * partPosition.yRotation));
-             * result.append(String.format("GL11.glRotatef(%ff, 0f, 0f, 1f);\n",
-             * partPosition.zRotation));
-             * result.append(String.format("GL11.glTranslatef(%ff, %ff, %ff);",
-             * partPosition.x, partPosition.y, partPosition.z));
-             * log.debug("Generated positioning code: \n" + result);
-             * System.out.println("\n" + result);
-             */
         }
 
     }

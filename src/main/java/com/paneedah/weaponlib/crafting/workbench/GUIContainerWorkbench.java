@@ -201,8 +201,8 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
         }
 
         final Weapon weapon = (Weapon) getSelectedCraftingPiece().getOutput().getItem();
-        GuiRenderUtil.drawScaledString(fontRenderer, format(weapon.getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 1.2, 0xFDF17C);
-        GuiRenderUtil.drawScaledString(fontRenderer, weapon.builder.getWeaponType(), this.guiLeft + 214, this.guiTop + 43, 0.75, 0xC8C49C);
+        GuiRenderUtil.drawScaledString(format(weapon.getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 1.2, 0xFDF17C);
+        GuiRenderUtil.drawScaledString(weapon.builder.getWeaponType(), this.guiLeft + 214, this.guiTop + 43, 0.75, 0xC8C49C);
 
         render3DItemInGUI(weapon, this.guiLeft + 300, this.guiTop + 55, mouseX, mouseY);
     }

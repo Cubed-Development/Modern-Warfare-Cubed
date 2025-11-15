@@ -1,5 +1,8 @@
 package com.paneedah.weaponlib.animation;
 
+import com.paneedah.weaponlib.animation.multipart.MultipartPositioning;
+import com.paneedah.weaponlib.animation.multipart.MultipartTransition;
+import com.paneedah.weaponlib.animation.multipart.MultipartTransitionProvider;
 import org.lwjgl.util.vector.Matrix4f;
 
 import java.util.ArrayList;
@@ -9,7 +12,7 @@ import java.util.Queue;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-class ContinousPositioning2<State, Part, Context extends PartPositionProvider> implements MultipartPositioning<Part, Context> {
+public class ContinousPositioning2<State, Part, Context extends PartPositionProvider> implements MultipartPositioning<Part, Context> {
 
     private final class PositionerImpl implements Positioner<Part, Context> {
 
@@ -84,9 +87,9 @@ class ContinousPositioning2<State, Part, Context extends PartPositionProvider> i
     private final State toState;
     private final boolean fromAnchored;
 
-    ContinousPositioning2(MultipartTransitionProvider<State, Part, Context> transitionProvider,
-                          Function<Context, Float> currentProgressProvider, Randomizer randomizer,
-                          State fromState, State toState, boolean fromAnchored, Map<Part, Matrix4f> lastApplied) {
+    public ContinousPositioning2(MultipartTransitionProvider<State, Part, Context> transitionProvider,
+                                 Function<Context, Float> currentProgressProvider, Randomizer randomizer,
+                                 State fromState, State toState, boolean fromAnchored, Map<Part, Matrix4f> lastApplied) {
         this.currentProgressProvider = currentProgressProvider;
         this.randomizer = randomizer;
         this.fromState = fromState;

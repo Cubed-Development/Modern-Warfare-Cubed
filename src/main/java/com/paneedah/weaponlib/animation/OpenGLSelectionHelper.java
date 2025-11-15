@@ -11,7 +11,6 @@ import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
 import java.nio.ByteBuffer;
-import java.nio.IntBuffer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -23,8 +22,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
  */
 public class OpenGLSelectionHelper {
 
-    private static final ByteBuffer resultBuffer = BufferUtils.createByteBuffer(4);
-    private static final IntBuffer VIEWPORT = BufferUtils.createIntBuffer(16);
+    private static final ByteBuffer RESULT_BUFFER = BufferUtils.createByteBuffer(4);
 
     public static boolean isInSelectionPass = false;
 
@@ -101,15 +99,15 @@ public class OpenGLSelectionHelper {
         // Flip Y because OpenGL origin is bottom-left
         mouseY = MC.displayHeight - mouseY - 1;
 
-        resultBuffer.rewind();
+        RESULT_BUFFER.rewind();
 
         GL20.glUseProgram(0);
         GL11.glReadBuffer(GL30.GL_COLOR_ATTACHMENT0);
 
-        GL11.glReadPixels(mouseX, mouseY, 1, 1, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, resultBuffer);
-        resultBuffer.rewind();
+        GL11.glReadPixels(mouseX, mouseY, 1, 1, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, RESULT_BUFFER);
+        RESULT_BUFFER.rewind();
 
-        return resultBuffer;
+        return RESULT_BUFFER;
     }
 
 

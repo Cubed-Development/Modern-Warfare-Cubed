@@ -25,9 +25,8 @@ public class ClientValueRepo {
     // 20 ticks/s -> 1/20 = 0.05
     private static final double DELTA_T = 0.05;
 
-    // This value is added to the "TICKER" every tick.
-    // Don't touch this as it will mess with how things
-    // look.
+    /**This value is added to the "TICKER" every tick.
+     * Don't touch this as it will mess with how things look.*/
     private static final double TICKER_INCREMENT = 0.01;
 
     // Movement dampening values. Essentially how fast
@@ -72,7 +71,7 @@ public class ClientValueRepo {
 
 
     /*
-     * LERPED VALUES Values that are only updated every tick. Do not require high
+     * LERPED VALUES: Values that are only updated every tick. Do not require high
      * precision. Typically for slower movements.
      */
 

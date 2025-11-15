@@ -1,12 +1,12 @@
-package com.paneedah.weaponlib.animation;
+package com.paneedah.weaponlib.animation.multipart;
 
 import com.paneedah.mwc.asm.Interceptors;
 import com.paneedah.weaponlib.DefaultPart;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.Vec3d;
@@ -208,12 +208,6 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
 
             }
-
-
-            if (currentTime - currentStartTime < 10) {
-
-            }
-
             if (currentStartTime == 0) {
 
                 currentStartTime = currentTime;
@@ -359,174 +353,6 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
             };
         }
 
-        private void applyOnce(Part part, Context context, Matrix4f beforeMatrix, Matrix4f afterMatrix,
-                               Part attachedTo, float progress, Interpolation interp) {
-
-            LOGGER.trace("Applying position for part {}", part);
-
-
-
-
-            /*
-             *
-             * progress = (endTime - startTime) / duration
-             *
-             * current = start + (end - start) * progress = start * (1 - progress)  + end * progress;
-             */
-
-            Matrix4f currentMatrix = null;
-
-            if (attachedTo != null) {
-                currentMatrix = context.getPartPosition(attachedTo);
-
-            }
-
-            /*
-             * Otherwise capture current position
-             */
-            if (currentMatrix == null) {
-                //currentMatrix = new Matrix4f();
-                currentMatrix = MatrixHelper.captureMatrix();
-            }
-
-
-            Matrix4f m1 = MatrixHelper.interpolateMatrix(beforeMatrix, 1 - progress, interp); //start * (1 - progress)
-            Matrix4f m2 = MatrixHelper.interpolateMatrix(afterMatrix, progress, interp);
-
-
-            Matrix4f deltaMatrix = Matrix4f.add(m1, m2, null);
-
-            lastApplied.put(part, deltaMatrix);
-
-            Matrix4f composite = Matrix4f.mul(currentMatrix, deltaMatrix, null);
-
-            MatrixHelper.loadMatrix(composite);
-        }
-
-        private void applyOnceCom(Part part, Context context, Matrix4f beforeMatrix, Matrix4f afterMatrix,
-                                  Part attachedTo, float progress, Vec3d beizer, boolean accel, Interpolation interp) {
-
-            LOGGER.trace("Applying position for part {}", part);
-
-            //progress = 0.0f;
-
-
-            // progress = (float) interp.ACCELERATION.interpolate(progress);
-            /*
-             *
-             * progress = (endTime - startTime) / duration
-             *
-             * current = start + (end - start) * progress = start * (1 - progress)  + end * progress;
-             */
-
-            Matrix4f currentMatrix = null;
-
-            if (attachedTo != null) {
-                currentMatrix = context.getPartPosition(attachedTo);
-            }
-
-            /*
-             * Otherwise capture current position
-             */
-            if (currentMatrix == null) {
-                currentMatrix = MatrixHelper.captureMatrix();
-            }
-
-
-            FloatBuffer auxGLMatrix = GLAllocation.createDirectFloatBuffer(16);
-            auxGLMatrix.rewind();
-
-            Vec3d beezer = new Vec3d(0, 3.5, -1);
-
-            float fastProgress = 0f;
-            if (!accel) {
-                fastProgress = 1 - ((1 - progress) * (1 - progress));
-            } else {
-                fastProgress = 1 - ((1 - progress) * (1 - progress));
-                //fastProgress =  progress*progress*(3-(2*progress));
-            }
-
-            float newX = MatrixHelper.solveBeizer(beforeMatrix.m30, (float) beizer.x, afterMatrix.m30, fastProgress);
-            float newY = MatrixHelper.solveBeizer(beforeMatrix.m31, (float) beizer.y, afterMatrix.m31, fastProgress);
-            float newZ = MatrixHelper.solveBeizer(beforeMatrix.m32, (float) beizer.z, afterMatrix.m32, fastProgress);
-            //  Vec3d trans = MatrixHelper.lerpVectors(new Vec3d(beforeMatrix.m30, beforeMatrix.m31, beforeMatrix.m32),
-            // 									   new Vec3d(afterMatrix.m30, afterMatrix.m31, afterMatrix.m32),
-            // 		progress);
-
-            Vec3d trans = new Vec3d(newX, newY, newZ);
-
-            Vec3d scaleBefore = MatrixHelper.extractScale(beforeMatrix);
-            Vec3d scaleAfter = MatrixHelper.extractScale(afterMatrix);
-
-
-            Quaternion q = new Quaternion();
-            Quaternion.setFromMatrix(beforeMatrix, q);
-
-            Quaternion q2 = new Quaternion();
-            Quaternion.setFromMatrix(afterMatrix, q2);
-
-            MatrixHelper.restoreScale(beforeMatrix, scaleBefore);
-            MatrixHelper.restoreScale(afterMatrix, scaleAfter);
-
-
-            GlStateManager.quatToGlMatrix(auxGLMatrix, MatrixHelper.slerp(q, q2, progress));
-
-
-            MatrixHelper.scaleFloatBuffer(auxGLMatrix, MatrixHelper.lerpVectors(scaleBefore, scaleAfter, progress));
-
-            auxGLMatrix.put(12, (float) trans.x);
-            auxGLMatrix.put(13, (float) trans.y);
-            auxGLMatrix.put(14, (float) trans.z);
-
-
-            //System.out.println("Jim's Method: " + deltaMatrix);
-
-
-            //	deltaMatrix = Matrix4f.add(m1, m2, null);
-            //System.out.println("Vic's Method: " + deltaMatrix);
-
-
-            Matrix4f deltaMatrix = new Matrix4f();
-
-            deltaMatrix.load(auxGLMatrix);
-            deltaMatrix = deltaMatrix.rotate((float) Math.toRadians(90), new Vector3f(0, 1, 0));
-
-            Matrix4f m1 = MatrixHelper.interpolateMatrix(beforeMatrix, 1 - progress, interp); //start * (1 - progress)
-            Matrix4f m2 = MatrixHelper.interpolateMatrix(afterMatrix, progress, interp);
-
-            deltaMatrix = Matrix4f.add(m1, m2, null);
-
-
-            deltaMatrix.m30 = (float) trans.x;
-            deltaMatrix.m31 = (float) trans.y;
-            deltaMatrix.m32 = (float) trans.z;
-
-
-            //deltaMatrix.m30 = 0.0f;
-		    /*
-			Matrix4f m1 = MatrixHelper.interpolateMatrix(beforeMatrix, 1 - progress); //start * (1 - progress)
-			Matrix4f m2 = MatrixHelper.interpolateMatrix(afterMatrix, progress);
-
-			Matrix4f deltaMatrix = Matrix4f.add(m1, m2, null);
-			*/
-
-
-            //Matrix4f deltaMatrix = MatrixHelper.beizerInterpolation(beforeMatrix,
-            //		MatrixHelper.buildTranslation(0.5f, 0.5f, 0), afterMatrix, progress, true);
-
-
-            //Matrix4f deltaMatrix = Matrix4f.add(m1, m2, null);
-
-            lastApplied.put(part, deltaMatrix);
-
-            Matrix4f composite = Matrix4f.mul(currentMatrix, deltaMatrix, null);
-
-            ///	Matrix4f comp2 = MatrixHelper.beizerInterpolation(beforeMatrix, new Matrix4f(), afterMatrix, progress);
-
-
-            MatrixHelper.loadMatrix(composite);
-        }
-
         private void applyOnceNewBeizer(Part part, Context context, Matrix4f beforeMatrix, Matrix4f afterMatrix,
                                         Part attachedTo, float progress, Vec3d beizer, boolean accel, Interpolation interp) {
 
@@ -663,7 +489,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
             // extract scales
 
-            Vec3d scaleBefore = null;
+            Vec3d scaleBefore;
             if (AnimationModeProcessor.getInstance().isLegacyMode()) {
                 scaleBefore = MatrixHelper.extractScaleOld(copiedBefore);
             } else {
@@ -671,7 +497,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
             }
 
 
-            Vec3d scaleAfter = null;
+            Vec3d scaleAfter;
             if (AnimationModeProcessor.getInstance().isLegacyMode()) {
                 scaleAfter = MatrixHelper.extractScaleOld(copiedAfter);
             } else {
@@ -820,7 +646,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
                 addedState = new StateContainer<>(cycleState, false);
 
                 positioningQueue.add(new TransitionedPositioning(currentStateContainer.state, addedState.state, false));
-                positioningQueue.add(new StaticPositioning<State, Part, Context>(transitionProvider, randomizer, addedState.state, lastApplied));
+                positioningQueue.add(new StaticPositioning<>(transitionProvider, randomizer, addedState.state, lastApplied));
             }
 
             currentStateContainer = addedState; //new StateContainer<>(addedState.state);
@@ -849,11 +675,11 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
                     currentStateContainer.state : null, newState, fromAnchored));
         }
 
-        positioningQueue.add(new StaticPositioning<State, Part, Context>(transitionProvider, randomizer, newState, lastApplied));
+        positioningQueue.add(new StaticPositioning<>(transitionProvider, randomizer, newState, lastApplied));
         currentStateContainer = new StateContainer<>(newState);
     }
 
-    public void setContinousState(State newState, boolean animated, boolean immediate, boolean fromAnchored) {
+    public void setContinuousState(State newState, boolean animated, boolean immediate, boolean fromAnchored) {
         if (newState == null) {
             throw new IllegalArgumentException("State cannot be null");
         }
@@ -867,12 +693,12 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
         }
 
         if (animated) {
-            positioningQueue.add(new ContinousPositioning2<State, Part, Context>(transitionProvider,
+            positioningQueue.add(new ContinousPositioning2<>(transitionProvider,
                     currentProgressProvider, randomizer, currentStateContainer != null ?
                     currentStateContainer.state : null, newState, fromAnchored, lastApplied));
         }
 
-        positioningQueue.add(new StaticPositioning<State, Part, Context>(transitionProvider, randomizer, newState, lastApplied));
+        positioningQueue.add(new StaticPositioning<>(transitionProvider, randomizer, newState, lastApplied));
         currentStateContainer = new StateContainer<>(newState);
     }
 

@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
-import com.paneedah.weaponlib.animation.MultipartRenderStateManager;
+import com.paneedah.weaponlib.animation.multipart.MultipartRenderStateManager;
 import com.paneedah.weaponlib.vehicle.HierarchicalPartRenderer.SinglePart;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class VehicleRendererBuilder extends HierarchicalRendererBuilder<VehicleP
 
     private static final BiConsumer<MultipartRenderStateManager<VehicleRenderableState, SinglePart, PartRenderContext<VehicleRenderableState>>, PartRenderContext<VehicleRenderableState>> DEFAULT_CONTINOUS_STATE_SETTER = (
             stateManager, renderContext) -> {
-        stateManager.setContinousState(renderContext.getState(), true, false, false);
+        stateManager.setContinuousState(renderContext.getState(), true, false, false);
     };
 /*
 	private static Function<PartRenderContext<VehicleRenderableState>, Float> DEFAULT_TURN_PROGRESS_PROVIDER = context -> 0.5f

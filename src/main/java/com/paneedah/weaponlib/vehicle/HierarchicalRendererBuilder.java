@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.animation.MultipartRenderStateManager;
-import com.paneedah.weaponlib.animation.MultipartTransition;
-import com.paneedah.weaponlib.animation.MultipartTransitionProvider;
+import com.paneedah.weaponlib.animation.multipart.MultipartRenderStateManager;
+import com.paneedah.weaponlib.animation.multipart.MultipartTransition;
+import com.paneedah.weaponlib.animation.multipart.MultipartTransitionProvider;
 import com.paneedah.weaponlib.vehicle.HierarchicalPartRenderer.SinglePart;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.util.ResourceLocation;
@@ -44,7 +44,7 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
                 (stateManager, renderContext) -> {
                     State state = renderContext.getState();
                     if (state.isContinous()) {
-                        stateManager.setContinousState(state, true, false, false);
+                        stateManager.setContinuousState(state, true, false, false);
                     } else {
                         stateManager.setState(state, true, false, true);
                     }

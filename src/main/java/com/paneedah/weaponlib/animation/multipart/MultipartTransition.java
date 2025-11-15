@@ -1,5 +1,6 @@
-package com.paneedah.weaponlib.animation;
+package com.paneedah.weaponlib.animation.multipart;
 
+import com.paneedah.weaponlib.animation.Interpolation;
 import lombok.Getter;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;

@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.animation;
+package com.paneedah.weaponlib.animation.multipart;
 
 import java.util.Queue;
 

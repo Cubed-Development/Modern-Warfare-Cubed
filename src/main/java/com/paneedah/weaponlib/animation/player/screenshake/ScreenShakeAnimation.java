@@ -11,19 +11,20 @@ public class ScreenShakeAnimation implements PlayerAnimation {
 
     static class CirclePointGenerator {
 
-        private final float startingRadius;
+        private final float STARTING_RADIUS;
+        private final float ATTENUATION;
+        private final float ALPHA;
         private float nextRadius;
-        private final float alpha;
         private float nextAngle;
-        private final float attenuation;
+
         private float cumulativeAttenuation = 1f;
 
         public CirclePointGenerator(float radius, float startAngle, float alpha, float attenuation) {
-            this.startingRadius = radius;
+            this.STARTING_RADIUS = radius;
             this.nextRadius = radius;
-            this.alpha = alpha;
+            this.ALPHA = alpha;
             this.nextAngle = startAngle;
-            this.attenuation = attenuation;
+            this.ATTENUATION = attenuation;
         }
 
         public float[] next() {
@@ -31,16 +32,16 @@ public class ScreenShakeAnimation implements PlayerAnimation {
             float currentY = nextRadius * MathHelper.sin(nextAngle);
             float currentRadius = nextRadius;
 
-            nextAngle += 2 * Math.PI - 2 * alpha;
-            nextAngle %= 2 * Math.PI;
+            nextAngle += (float) (2 * Math.PI - 2 * ALPHA);
+            nextAngle %= (float) (2 * Math.PI);
 
-            nextRadius *= attenuation;
-            cumulativeAttenuation *= attenuation;
+            nextRadius *= ATTENUATION;
+            cumulativeAttenuation *= ATTENUATION;
             return new float[]{currentRadius, currentX, currentY};
         }
 
         public void reset() {
-            nextRadius = startingRadius;
+            nextRadius = STARTING_RADIUS;
             cumulativeAttenuation = 1f;
         }
     }
