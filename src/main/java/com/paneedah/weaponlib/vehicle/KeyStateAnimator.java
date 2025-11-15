@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
-import com.paneedah.weaponlib.animation.jim.BasicStateAnimator;
+import com.paneedah.weaponlib.animation.load.BasicStateAnimator;
 import net.minecraft.util.math.Vec3d;
 
 public class KeyStateAnimator extends BasicStateAnimator {

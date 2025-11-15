@@ -10,7 +10,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
-import com.paneedah.weaponlib.animation.jim.BBLoader;
+import com.paneedah.weaponlib.animation.load.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;

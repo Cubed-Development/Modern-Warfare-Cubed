@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.animation.jim;
+package com.paneedah.weaponlib.animation.load;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.mwc.rendering.Transform;
-import com.paneedah.weaponlib.animation.jim.BBLoader;
+import com.paneedah.weaponlib.animation.load.BBLoader;
 import com.paneedah.weaponlib.render.gui.ModificationGUI;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.vehicle.VehiclePart;

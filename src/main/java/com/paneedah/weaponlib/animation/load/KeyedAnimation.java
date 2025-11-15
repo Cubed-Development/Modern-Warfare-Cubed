@@ -1,7 +1,7 @@
-package com.paneedah.weaponlib.animation.jim;
+package com.paneedah.weaponlib.animation.load;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
-import com.paneedah.weaponlib.animation.jim.AnimationData.BlockbenchTransition;
+import com.paneedah.weaponlib.animation.load.AnimationData.BlockbenchTransition;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
