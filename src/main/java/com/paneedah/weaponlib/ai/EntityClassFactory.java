@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.ai;
 
+import lombok.Getter;
 import net.minecraft.entity.Entity;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Label;
@@ -31,11 +32,7 @@ public class EntityClassFactory implements Opcodes {
         }
     }
 
-    private static final EntityClassFactory instance = new EntityClassFactory();
-
-    public static EntityClassFactory getInstance() {
-        return instance;
-    }
+    @Getter private static final EntityClassFactory instance = new EntityClassFactory();
 
     private final Map<Class<?>, EntityConfiguration> entityConfigurations = new HashMap<>();
 

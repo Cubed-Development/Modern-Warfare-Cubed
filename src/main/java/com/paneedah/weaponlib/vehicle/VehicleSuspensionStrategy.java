@@ -1,7 +1,10 @@
 package com.paneedah.weaponlib.vehicle;
 
+import lombok.Getter;
+
 import java.util.Arrays;
 
+@Getter
 public abstract class VehicleSuspensionStrategy {
 
     public static class StepSuspensionStrategy extends VehicleSuspensionStrategy {
@@ -37,10 +40,10 @@ public abstract class VehicleSuspensionStrategy {
         public void update(double speed, double yawDelta) {
             this.amplitude = 0f;
             this.rate = 0f;
-            for (int i = 0; i < thresholds.length; i++) {
-                if (speed > thresholds[i].speed) {
-                    this.rate = thresholds[i].rate;
-                    this.amplitude = thresholds[i].amplitude;
+            for (Threshold threshold : thresholds) {
+                if (speed > threshold.speed) {
+                    this.rate = threshold.rate;
+                    this.amplitude = threshold.amplitude;
                 } else {
                     break;
                 }
@@ -53,11 +56,4 @@ public abstract class VehicleSuspensionStrategy {
 
     public abstract void update(double speed, double yawDelta);
 
-    public float getRate() {
-        return rate;
-    }
-
-    public float getAmplitude() {
-        return amplitude;
-    }
 }

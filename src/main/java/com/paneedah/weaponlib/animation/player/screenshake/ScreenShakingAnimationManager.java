@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakeAnimation.Builder;
 import com.paneedah.weaponlib.animation.player.PlayerAnimation;
 import com.paneedah.weaponlib.animation.player.PlayerRawPitchAnimation;
+import lombok.Getter;
 import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.HashMap;
@@ -14,23 +15,18 @@ import java.util.UUID;
 
 public class ScreenShakingAnimationManager {
 
+    @Getter
     public enum State {
         SHOOTING(0, 0.1f), RELOADING(-5, 0f), AIMING(-10, 0f), DEFAULT(Integer.MIN_VALUE, 0f);
 
         private final int priority;
-        private float stepAdjustement;
+        private final float stepAdjustement;
 
         State(int priority, float stepAdjustement) {
             this.priority = priority;
+            this.stepAdjustement = stepAdjustement;
         }
 
-        int getPriority() {
-            return priority;
-        }
-
-        public float getStepAdjustement() {
-            return stepAdjustement;
-        }
     }
 
     private static class Key {

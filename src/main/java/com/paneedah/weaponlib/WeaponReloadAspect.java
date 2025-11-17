@@ -544,7 +544,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         }
 
         Comparator<ItemStack> comparator;
-        comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
+        comparator = Comparator.comparingInt(Tags::getAmmo);
 
         int maxItemIndex = -1;
         ItemStack maxStack = null;
@@ -613,7 +613,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             return;
         }
 
-        ItemStack magazineStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
+        ItemStack magazineStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, Comparator.comparingInt(Tags::getAmmo), player);
 
         if (magazineStack == null) {
             return;
@@ -670,7 +670,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             if (existingMagazine == null) {
                 ammo = 0;
 
-                ItemStack magazineItemStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
+                ItemStack magazineItemStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, Comparator.comparingInt(Tags::getAmmo), player);
 
                 ammo = Tags.getAmmo(magazineItemStack);
                 Tags.setAmmo(weaponItemStack, ammo);

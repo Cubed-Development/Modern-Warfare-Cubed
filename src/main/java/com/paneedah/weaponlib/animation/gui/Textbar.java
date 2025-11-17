@@ -53,7 +53,7 @@ public class Textbar {
 
         };
 
-        GuiRenderUtil.renderRect(new Color(0x3d3d3d).darker(), x - 5, y - 10, w + 5, h + 15);
+        GuiRenderUtil.renderRect(c, x - 5, y - 10, w + 5, h + 15);
         GlStateManager.enableTexture2D();
 
         GuiRenderUtil.drawScaledString(this.name, x, y - 7, 0.6, 0xffffff);
