@@ -2,11 +2,9 @@ package com.paneedah.mwc.items.melee;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
-import com.paneedah.weaponlib.melee.RenderableState;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -21,8 +19,8 @@ public class BaseballBatFactory implements MeleeFactory {
                 .withTextureNames("bat")
                 .withAttackDamage(3f)
                 .withHeavyAttackDamage(7f)
-                .withPrepareStubTimeout(() -> 00)
-                .withPrepareHeavyStubTimeout(() -> 00)
+                .withPrepareStubTimeout(() -> 0)
+                .withPrepareHeavyStubTimeout(() -> 0)
                 .withAttackCooldownTimeout(() -> 0)
                 .withHeavyAttackCooldownTimeout(() -> 0)
                 .withAttackSound("swoosh")
@@ -83,7 +81,7 @@ public class BaseballBatFactory implements MeleeFactory {
                                         })
 
                                 .withFirstPersonPositioningHeavyAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                                             GL11.glRotatef(15.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(15.000000f, 0f, 1f, 0f);
@@ -92,7 +90,7 @@ public class BaseballBatFactory implements MeleeFactory {
                                         }, 60, 0))
 
                                 .withFirstPersonLeftHandPositioningHeavyAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(5f, 5f, 5f);
                                             GL11.glRotatef(0.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(-25.000000f, 0f, 1f, 0f);
@@ -102,7 +100,7 @@ public class BaseballBatFactory implements MeleeFactory {
                                 )
 
                                 .withFirstPersonRightHandPositioningHeavyAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(5f, 5f, 5f);
                                             GL11.glRotatef(0.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -112,7 +110,7 @@ public class BaseballBatFactory implements MeleeFactory {
                                 )
 
                                 .withFirstPersonPositioningAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                                             GL11.glRotatef(0.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -121,7 +119,7 @@ public class BaseballBatFactory implements MeleeFactory {
                                         }, 60, 0))
 
                                 .withFirstPersonLeftHandPositioningAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(5f, 5f, 5f);
                                             GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(-30.000000f, 0f, 1f, 0f);
@@ -130,7 +128,7 @@ public class BaseballBatFactory implements MeleeFactory {
                                         }, 70, 0))
 
                                 .withFirstPersonRightHandPositioningAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(5f, 5f, 5f);
                                             GL11.glRotatef(-120.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(0.000000f, 0f, 1f, 0f);

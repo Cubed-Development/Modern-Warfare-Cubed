@@ -21,8 +21,8 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                 .withTextureNames("bat_nails")
                 .withAttackDamage(4f)
                 .withHeavyAttackDamage(12f)
-                .withPrepareStubTimeout(() -> 00)
-                .withPrepareHeavyStubTimeout(() -> 00)
+                .withPrepareStubTimeout(() -> 0)
+                .withPrepareHeavyStubTimeout(() -> 0)
                 .withAttackCooldownTimeout(() -> 0)
                 .withHeavyAttackCooldownTimeout(() -> 0)
                 .withAttackSound("swoosh")
@@ -83,7 +83,7 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                                         })
 
                                 .withFirstPersonPositioningHeavyAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                                             GL11.glRotatef(15.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(15.000000f, 0f, 1f, 0f);
@@ -92,7 +92,7 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                                         }, 60, 0))
 
                                 .withFirstPersonLeftHandPositioningHeavyAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(5f, 5f, 5f);
                                             GL11.glRotatef(0.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(-25.000000f, 0f, 1f, 0f);
@@ -102,7 +102,7 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                                 )
 
                                 .withFirstPersonRightHandPositioningHeavyAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(5f, 5f, 5f);
                                             GL11.glRotatef(0.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -112,7 +112,7 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                                 )
 
                                 .withFirstPersonPositioningAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                                             GL11.glRotatef(0.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -121,7 +121,7 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                                         }, 60, 0))
 
                                 .withFirstPersonLeftHandPositioningAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(5f, 5f, 5f);
                                             GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(-30.000000f, 0f, 1f, 0f);
@@ -130,7 +130,7 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                                         }, 70, 0))
 
                                 .withFirstPersonRightHandPositioningAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<>(renderContext -> {
                                             GL11.glScalef(5f, 5f, 5f);
                                             GL11.glRotatef(-120.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(0.000000f, 0f, 1f, 0f);
