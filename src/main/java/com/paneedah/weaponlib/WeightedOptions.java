@@ -17,7 +17,7 @@ public class WeightedOptions<Category, T> {
 
     private static class OptionsByCategory<Category, T> {
         NavigableSet<Option<Category, T>> options = new TreeSet<>(
-                (o1, o2) -> ((Float) o1.rangeStart).compareTo(o2.rangeStart));
+                (o1, o2) -> Float.compare(o1.rangeStart, o2.rangeStart));
         float totalWeight;
     }
 
