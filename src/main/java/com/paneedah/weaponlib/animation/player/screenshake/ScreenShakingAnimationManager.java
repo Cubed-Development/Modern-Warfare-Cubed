@@ -3,12 +3,11 @@ package com.paneedah.weaponlib.animation.player.screenshake;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.animation.ScreenShakeAnimation.Builder;
 import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakeAnimation.Builder;
 import com.paneedah.weaponlib.animation.player.PlayerAnimation;
 import com.paneedah.weaponlib.animation.player.PlayerRawPitchAnimation;
-import net.minecraft.entity.player.EntityPlayer;
 import lombok.Getter;
+import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +24,9 @@ public class ScreenShakingAnimationManager {
 
         State(int priority, float stepAdjustement) {
             this.priority = priority;
+            this.stepAdjustement = stepAdjustement;
         }
+
     }
 
     private static class Key {
