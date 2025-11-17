@@ -97,7 +97,7 @@ public final class PlayerItemInstanceRegistry {
      * @return The item instance in the specified slot, or {@code null} if not found
      */
     public PlayerItemInstance<?> getItemInstance(final EntityPlayer player, final int slot) {
-        final Int2ObjectMap<PlayerItemInstance<?>> slotInstances = registry.dcomputeIfAbsent(player.getPersistentID(), uuid -> new Int2ObjectOpenHashMap<>());
+        final Int2ObjectMap<PlayerItemInstance<?>> slotInstances = registry.computeIfAbsent(player.getPersistentID(), uuid -> new Int2ObjectOpenHashMap<>());
         PlayerItemInstance<?> result = slotInstances.get(slot);
 
 //        log.debug("Slot {} contains {}", slot, result);
