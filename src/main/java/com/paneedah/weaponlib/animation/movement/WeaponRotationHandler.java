@@ -120,9 +120,9 @@ public class WeaponRotationHandler {
         RecoilParam params = pwi.getRecoilParameters();
 
         // Handle the basic animations
-        float forwardMagnitude = ClientValueRepo.forward.getLerpedFloat();
-        float strafeMagnitude = ClientValueRepo.strafe.getLerpedFloat();
-        float runningMagnitude = ClientValueRepo.running.getLerpedFloat();
+        float forwardMagnitude = ClientValueRepo.FORWARD_LERPED.getLerpedFloat();
+        float strafeMagnitude = ClientValueRepo.STRAFE_LERPED.getLerpedFloat();
+        float runningMagnitude = ClientValueRepo.RUNNING_LERPED.getLerpedFloat();
 
 
         // Sway & walk
@@ -131,7 +131,7 @@ public class WeaponRotationHandler {
                 + forwardMagnitude * WALKING_SWAY_COMPONENT_DIVISOR;
 
         // Recoil
-        float recoilAmplitude = ClientValueRepo.gunPow.getLerpedFloat();
+        float recoilAmplitude = ClientValueRepo.GUN_POW_LERPED.getLerpedFloat();
 
         float weaponRecoveryAmplitude = ClientValueRepo.weaponRecovery.getLerpedFloat() / 15f;
         float muzzleClimbDivisor = (float) params.getMuzzleClimbDivisor();

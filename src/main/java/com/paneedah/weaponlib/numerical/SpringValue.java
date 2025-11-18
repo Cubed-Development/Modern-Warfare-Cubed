@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib.numerical;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
+import lombok.Getter;
+import lombok.Setter;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -12,6 +14,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
  * @author Homer Riva-Cambrin
  * @since October 23rd, 2022
  */
+@Getter @Setter
 public class SpringValue {
 
     /**
@@ -92,46 +95,10 @@ public class SpringValue {
         this.waitingForce = 0;
     }
 
-    public double getSpringConstant() {
-        return springConstant;
-    }
-
     public void configure(double k, double mass, double dampening) {
         this.springConstant = k;
         this.mass = mass;
         this.damping = dampening;
-    }
-
-    public void setSpringConstant(double springConstant) {
-        this.springConstant = springConstant;
-    }
-
-    public double getMass() {
-        return mass;
-    }
-
-    public void setMass(double mass) {
-        this.mass = mass;
-    }
-
-    public double getDamping() {
-        return damping;
-    }
-
-    public void setDamping(double damping) {
-        this.damping = damping;
-    }
-
-    public double getVelocity() {
-        return velocity;
-    }
-
-    public void setVelocity(double velocity) {
-        this.velocity = velocity;
-    }
-
-    public double getPosition() {
-        return position;
     }
 
     public double getLerpedPosition() {
@@ -145,10 +112,6 @@ public class SpringValue {
 
     public float getLerpedFloat() {
         return (float) getLerpedPosition();
-    }
-
-    public void setPosition(double position) {
-        this.position = position;
     }
 
 }

@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.render.cam;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.WeaponState;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
+import com.paneedah.weaponlib.numerical.SpringVector;
 import lombok.NoArgsConstructor;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
@@ -16,7 +17,7 @@ public class NaturalCamera {
 
     private double x, y, z, xr, yr, zr;
 
-    private ShockVector shockVector = new ShockVector();
+    private SpringVector shockVector = new SpringVector();
 
     private Matrix4f currentMatrix;
     private Matrix4f previousMatrix;
@@ -44,8 +45,8 @@ public class NaturalCamera {
         if (true) {
             return;
         }
-        if (Double.isNaN(shockVector.getShockVector().x)) {
-            shockVector = new ShockVector();
+        if (Double.isNaN(shockVector.getPosition().x)) {
+            shockVector = new SpringVector();
         }
         // shockVector = new ShockVector();
         if (matrixStack.size() > 1) {
@@ -100,13 +101,13 @@ public class NaturalCamera {
             if (Math.abs(current.m32 - previous.m32) > thres) {
                 forceZ = (current.m31 - previous.m31) * scale;
             }
-            shockVector.applyForce(forceX, forceY, forceZ);
+            shockVector.addVelocity(forceX, forceY, forceZ);
 
         }
 
         shockVector.configure(500, 800, 50);
         shockVector.update(0.05);
-        Vec3d sv = shockVector.getShockVector();
+        Vec3d sv = shockVector.getPosition();
         // System.out.println(sv);
 
 
