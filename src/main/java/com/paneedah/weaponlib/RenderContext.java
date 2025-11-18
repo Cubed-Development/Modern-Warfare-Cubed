@@ -18,74 +18,74 @@ import java.util.Map;
 
 public class RenderContext<RS> implements PartPositionProvider {
 
-    @Getter private EntityLivingBase player;
-    private ItemStack itemStack;
-    @Getter @Setter private float limbSwing;
-    @Getter @Setter private float flimbSwingAmount;
-    @Getter @Setter private float ageInTicks;
-    @Getter @Setter private float netHeadYaw;
-    @Getter @Setter private float headPitch;
-    @Getter @Setter private float scale;
-    @Getter @Setter private float transitionProgress;
-    @Getter private ItemCameraTransforms.TransformType transformType;
-    @Getter @Setter private RS fromState;
-    @Getter @Setter private RS toState;
-    @Getter @Setter private PlayerItemInstance<?> playerItemInstance;
-    private boolean cancelBeizer;
+	@Getter private EntityLivingBase player;
+	private ItemStack itemStack;
+	@Getter @Setter private float limbSwing;
+	@Getter @Setter private float flimbSwingAmount;
+	@Getter @Setter private float ageInTicks;
+	@Getter @Setter private float netHeadYaw;
+	@Getter @Setter private float headPitch;
+	@Getter @Setter private float scale;
+	@Getter @Setter private float transitionProgress;
+	@Getter private ItemCameraTransforms.TransformType transformType;
+	@Getter @Setter private RS fromState;
+	@Getter @Setter private RS toState;
+	@Getter @Setter private PlayerItemInstance<?> playerItemInstance;
+	private boolean cancelBeizer;
 
-    private final Map<Part, Matrix4f> attachablePartPositions;
+	private final Map<Part, Matrix4f> attachablePartPositions;
 
-    public RenderContext(EntityLivingBase player, ItemStack itemStack) {
-        this.player = player;
-        this.itemStack = itemStack;
-        this.attachablePartPositions = new HashMap<>();
-    }
+	public RenderContext(EntityLivingBase player, ItemStack itemStack) {
+		this.player = player;
+		this.itemStack = itemStack;
+		this.attachablePartPositions = new HashMap<>();
+	}
 
-    public void setCancelBeizer() {
-        cancelBeizer = true;
-    }
+	public void setCancelBeizer() {
+		cancelBeizer = true;
+	}
 
-    public boolean getCancelBeizer() {
-        return cancelBeizer;
-    }
+	public boolean getCancelBeizer() {
+		return cancelBeizer;
+	}
 
-    public void setPlayer(EntityPlayer player) {
-        this.player = player;
-    }
+	public void setPlayer(EntityPlayer player) {
+		this.player = player;
+	}
 
-    public void setWeapon(ItemStack weapon) {
-        this.itemStack = weapon;
-    }
+	public void setWeapon(ItemStack weapon) {
+		this.itemStack = weapon;
+	}
 
-    public ItemStack getWeapon() {
-        return itemStack;
-    }
+	public ItemStack getWeapon() {
+		return itemStack;
+	}
 
-    public void setCompatibleTransformType(ItemCameraTransforms.TransformType transformType) {
-        this.transformType = transformType;
-    }
+	public void setCompatibleTransformType(ItemCameraTransforms.TransformType transformType) {
+		this.transformType = transformType;
+	}
 
-    public PlayerWeaponInstance getWeaponInstance() {
-        if (playerItemInstance instanceof PlayerWeaponInstance) {
-            return (PlayerWeaponInstance) playerItemInstance;
-        }
-        PlayerItemInstance<?> itemInstance = MWC.modContext.getPlayerItemInstanceRegistry()
-                .getCachedItemInstance(player, itemStack);
-        if (itemInstance instanceof PlayerWeaponInstance) {
-            return (PlayerWeaponInstance) itemInstance;
-        }
-        return null;
-    }
+	public PlayerWeaponInstance getWeaponInstance() {
+		if (playerItemInstance instanceof PlayerWeaponInstance)
+			return (PlayerWeaponInstance) playerItemInstance;
 
-    public void capturePartPosition(Part part) {
-        attachablePartPositions.put(part, MatrixHelper.captureMatrix());
-    }
+		PlayerItemInstance<?> itemInstance = MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(player, itemStack);
 
-    @Override
-    public Matrix4f getPartPosition(Object part) {
-        if (part == null) {
-            part = Part.MAIN_ITEM;
-        }
-        return attachablePartPositions.get(part);
-    }
+		if (itemInstance instanceof PlayerWeaponInstance)
+			return (PlayerWeaponInstance) itemInstance;
+
+		return null;
+	}
+
+	public void capturePartPosition(Part part) {
+		attachablePartPositions.put(part, MatrixHelper.captureMatrix());
+	}
+
+	@Override
+	public Matrix4f getPartPosition(Object part) {
+		if (part == null) {
+			part = Part.MAIN_ITEM;
+		}
+		return attachablePartPositions.get(part);
+	}
 }

@@ -447,7 +447,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             instance.setLoadAfterUnloadEnabled(false);
 
 
-            ItemAttachment<Weapon> currentMagazine = modContext.getAttachmentAspect().getActiveAttachment(instance, AttachmentCategory.MAGAZINE);
+            ItemAttachment<Weapon> currentMagazine = instance.getAttachmentItemByCategory(AttachmentCategory.MAGAZINE);
             if (instance.getWeapon().getRenderer().getBuilder().isHasUnloadEmpty() && currentMagazine != null && instance.getAmmo() == 0) {
                 instance.getWeapon().getRenderer().setShouldDoEmptyVariant(true);
             }
@@ -547,9 +547,8 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
         List<ItemMagazine> compatibleMagazines = weapon.getCompatibleMagazines().stream().filter(compatibleMagazine -> WeaponAttachmentAspect.hasRequiredAttachments(compatibleMagazine, weaponInstance)).collect(Collectors.toList());
 
-        if (compatibleMagazines.isEmpty()) {
-            return null;
-        }
+        if (compatibleMagazines.isEmpty())
+            return ItemStack.EMPTY;
 
         Comparator<ItemStack> comparator;
         comparator = (stack1, stack2) -> {
@@ -594,7 +593,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             if (player.isCreative())
                 return compatibleMagazines.stream().map(ItemMagazine::create).max(comparator).orElse(null);
 
-            return null;
+            return ItemStack.EMPTY;
         }
 
         ItemStack magazineItemStack = player.inventory.getStackInSlot(i).copy();

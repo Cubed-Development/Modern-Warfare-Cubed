@@ -82,6 +82,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> implements ISerializa
     protected void markDirty() {
         updateId++;
         updateTimestamp = System.currentTimeMillis();
+        Tags.setInstance(getItemStack(), this);
     }
 
     protected void markClean() {
@@ -91,7 +92,10 @@ public class PlayerItemInstance<S extends ManagedState<S>> implements ISerializa
     // region Getters
 
     public ItemStack getItemStack() {
-        return player instanceof EntityPlayer ? ((EntityPlayer) player).inventory.getStackInSlot(itemInventoryIndex) : null;
+        if (itemInventoryIndex < 0)
+            return ItemStack.EMPTY;
+
+        return player instanceof EntityPlayer ? ((EntityPlayer) player).inventory.getStackInSlot(itemInventoryIndex) : ItemStack.EMPTY;
     }
 
     // endregion

@@ -704,8 +704,7 @@ public class ModificationGUI {
 
         ArrayList<FlaggedAttachment> inventory;
         if (!creativeMode) {
-            inventory = modcontext.getAttachmentAspect().getInventoryAttachments(category,
-                    pwi);
+            inventory = modcontext.getAttachmentAspect().getInventoryAttachments(category, pwi);
         } else {
             inventory = new ArrayList<>();
             for (CompatibleAttachment<? extends AttachmentContainer> compat : modcontext.getMainHeldWeapon().getWeapon().getCompatibleAttachments(category)) {

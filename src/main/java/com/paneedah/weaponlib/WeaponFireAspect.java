@@ -214,7 +214,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             String message;
 
             if (ModernConfigManager.enableStatusMessages) {
-                if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
+                if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && weaponInstance.getAttachmentItemByCategory(AttachmentCategory.MAGAZINE) == null) {
                     message = I18n.format("gui.noMagazine");
                 } else {
                     message = I18n.format("gui.noAmmo");

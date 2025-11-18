@@ -287,6 +287,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         if (activeAttachmentIds == null || activeAttachmentIds.length != AttachmentCategory.values.length) {
             activeAttachmentIds = new int[AttachmentCategory.values.length];
 
+            LOGGER.debug("Settings defaults attachement for {}", this);
             for (final CompatibleAttachment<Weapon> attachment : getWeapon().getCompatibleAttachments().values())
                 if (attachment.isDefault())
                     activeAttachmentIds[attachment.getAttachment().getCategory().ordinal()] = Item.getIdFromItem(attachment.getAttachment());
@@ -296,10 +297,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     }
 
     public ItemAttachment<Weapon> getAttachmentItemByCategory(final AttachmentCategory category) {
-        if (activeAttachmentIds == null || activeAttachmentIds.length <= category.ordinal())
-            return null;
-
-        final Item activeAttachment = Item.getItemById(activeAttachmentIds[category.ordinal()]);
+        final Item activeAttachment = Item.getItemById(getActiveAttachmentIds()[category.ordinal()]);
 
         if (activeAttachment instanceof ItemAttachment)
             return (ItemAttachment<Weapon>) activeAttachment;
@@ -359,6 +357,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         return result;
     }
 
+    // ! EXTAIN: Maybe use `getActiveAttachmentIds()`
     public void setActiveAttachmentIds(final int[] activeAttachmentIds) {
         if (Arrays.equals(this.activeAttachmentIds, activeAttachmentIds))
             return;
@@ -559,7 +558,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
         writeByteArray(byteBuf, selectedAttachmentIndexes);
 
-        writeIntArray(byteBuf, activeAttachmentIds);
+        writeIntArray(byteBuf, getActiveAttachmentIds());
     }
 
     // endregion
