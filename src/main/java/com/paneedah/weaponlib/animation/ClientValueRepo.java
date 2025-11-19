@@ -77,18 +77,19 @@ public class ClientValueRepo {
 
     public static final LerpedValue TICKER = new LerpedValue();
 
-    public static LerpedValue strafe = new LerpedValue();
-    public static LerpedValue forward = new LerpedValue();
-    public static LerpedValue running = new LerpedValue();
+    // Movement
+    public static final LerpedValue STRAFE = new LerpedValue();
+    public static final LerpedValue FORWARD = new LerpedValue();
+    public static final LerpedValue RUNNING = new LerpedValue();
 
     // Recoil
-    public static LerpedValue gunPow = new LerpedValue();
+    public static final LerpedValue GUN_POW = new LerpedValue();
 
-    // scope
-    public static LerpedValue scopeX = new LerpedValue();
-    public static LerpedValue scopeY = new LerpedValue();
+    // Scope
+    public static final LerpedValue SCOPE_X = new LerpedValue();
+    public static final LerpedValue SCOPE_Y = new LerpedValue();
 
-    public static LerpedValue slidePumpValue = new LerpedValue();
+    public static final LerpedValue SLIDE_PUMP = new LerpedValue();
 
     public static float scopeXScreen;
     public static float scopeYScreen;
@@ -118,10 +119,10 @@ public class ClientValueRepo {
 
         double power = params.getWeaponPower();
 
-        if (gunPow.getCurrentValue() < INITIAL_GUN_POWER_CUTOFF) {
+        if (GUN_POW.getCurrentValue() < INITIAL_GUN_POWER_CUTOFF) {
             Interceptors.nsm.impulse(screenShakeParam.getFirst());
             power *= INITIAL_GUN_POWER_MULTIPLIER;
-        } else if (gunPow.getCurrentValue() > params.getStockLength()) {
+        } else if (GUN_POW.getCurrentValue() > params.getStockLength()) {
             power *= GUN_POWER_PAST_STOCK_DIVISOR;
             Interceptors.nsm.impulse(screenShakeParam.getFirst() * GUN_POWER_PAST_STOCK_DIVISOR);
         } else {
@@ -130,29 +131,29 @@ public class ClientValueRepo {
 
         weaponRecovery.velocity += power * WEAPON_RECOVERY_VELOCITY_POWER;
 
-        gunPow.add(power);
+        GUN_POW.add(power);
 
         stressVec.callRandom(pwi.isAimed() ? 0.05 : 0.2);
         recoilRotationVector.callRandom(15);
 
-        slidePumpValue.add(1.0);
+        SLIDE_PUMP.add(1.0);
 
     }
 
     public static void update(ModContext context) {
         // Update all of our lerped values' previous
         // values before we assign new values.
-        running.updatePrevious();
-        strafe.updatePrevious();
-        scopeX.updatePrevious();
-        scopeY.updatePrevious();
-        gunPow.updatePrevious();
-        forward.updatePrevious();
+        RUNNING.updatePrevious();
+        STRAFE.updatePrevious();
+        SCOPE_X.updatePrevious();
+        SCOPE_Y.updatePrevious();
+        GUN_POW.updatePrevious();
+        FORWARD.updatePrevious();
         TICKER.updatePrevious();
-        slidePumpValue.updatePrevious();
+        SLIDE_PUMP.updatePrevious();
 
 
-        slidePumpValue.dampen(0.0001);
+        SLIDE_PUMP.dampen(0.0001);
 
 
         EntityPlayer player = MC.player;
@@ -170,33 +171,33 @@ public class ClientValueRepo {
                 jumpingSpring.velocity += MC.player.motionY * JUMP_VELOCITY_MULTIPLIER;
             }
             if (player.moveForward < 0) {
-                strafe.add(player.moveForward * FORWARD_MOVEMENT_DIVISOR);
+                STRAFE.add(player.moveForward * FORWARD_MOVEMENT_DIVISOR);
             } else if (!player.isElytraFlying() && !player.capabilities.isFlying) {
-                forward.add(player.moveForward * FORWARD_MOVEMENT_DIVISOR);
+                FORWARD.add(player.moveForward * FORWARD_MOVEMENT_DIVISOR);
             }
-            strafe.add(player.moveStrafing * STRAFE_MOVEMENT_DIVISOR);
+            STRAFE.add(player.moveStrafing * STRAFE_MOVEMENT_DIVISOR);
         }
-        xInertia.velocity += strafe.getCurrentValue();
+        xInertia.velocity += STRAFE.getCurrentValue();
 
         // Update running value. Adds the running speed to
         // it if we are sprinting.
         if (player.isSprinting()) {
-            running.add(RUNNING_SPEED_VALUE);
+            RUNNING.add(RUNNING_SPEED_VALUE);
         }
 
 
-        strafe.dampen(STRAFE_MOVEMENT_DAMPEN_VALUE);
-        forward.dampen(FORWARD_MOVEMENT_DAMPEN_VALUE);
-        running.dampen(RUNNING_DAMPEN_VALUE);
+        STRAFE.dampen(STRAFE_MOVEMENT_DAMPEN_VALUE);
+        FORWARD.dampen(FORWARD_MOVEMENT_DAMPEN_VALUE);
+        RUNNING.dampen(RUNNING_DAMPEN_VALUE);
 
         if (pwi != null) {
             // Recoil constants
             RecoilParam recoilParameters = pwi.getRecoilParameters();
 
-            if (gunPow.getCurrentValue() > recoilParameters.getStockLength()) {
-                gunPow.dampen(recoilParameters.getPowerRecoveryStockRate());
+            if (GUN_POW.getCurrentValue() > recoilParameters.getStockLength()) {
+                GUN_POW.dampen(recoilParameters.getPowerRecoveryStockRate());
             } else {
-                gunPow.dampen(recoilParameters.getPowerRecoveryNormalRate());
+                GUN_POW.dampen(recoilParameters.getPowerRecoveryNormalRate());
             }
         }
 
@@ -210,19 +211,19 @@ public class ClientValueRepo {
                 scopeYScreen = 0.5F;
 
                 // Handle scope values
-                scopeX.dampen(SCOPE_INTERIA_DAMPENING);
-                scopeY.dampen(SCOPE_INTERIA_DAMPENING);
+                SCOPE_X.dampen(SCOPE_INTERIA_DAMPENING);
+                SCOPE_Y.dampen(SCOPE_INTERIA_DAMPENING);
             } else {
                 scopeXScreen = 0.15F;
                 scopeYScreen = 0.35F;
 
                 // Makes scope shadow go bye bye if gun is
                 // at resting position.
-                if (scopeX.getCurrentValue() > -20) {
-                    scopeX.add(-0.5);
+                if (SCOPE_X.getCurrentValue() > -20) {
+                    SCOPE_X.add(-0.5);
                 }
-                if (scopeY.getCurrentValue() < 20) {
-                    scopeY.add(0.5);
+                if (SCOPE_Y.getCurrentValue() < 20) {
+                    SCOPE_Y.add(0.5);
                 }
             }
         }

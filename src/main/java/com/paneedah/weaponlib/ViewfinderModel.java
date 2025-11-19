@@ -144,7 +144,7 @@ public class ViewfinderModel extends ModelBase {
         if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
             float pwi = ClientModContext.getContext().getMainHeldWeapon().getZoom();
             if (ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.READY && ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.PAUSED && ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.EJECT_REQUIRED && ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.ALERT) {
-                ClientValueRepo.scopeY.setCurrentValue(1);
+                ClientValueRepo.SCOPE_Y.setCurrentValue(1);
             }
             scopeShader.uniform1f("reticleZoom", (pwi + 0.86f));
             scopeShader.uniform1f("actualZoom", (1.0f - pwi) - 0.80f);

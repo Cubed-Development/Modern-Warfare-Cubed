@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib.numerical;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.util.math.Vec3d;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
@@ -16,11 +18,11 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public class RandomVector {
 
     private double dirX, dirY, dirZ;
-    private double x, y, z;
+    @Getter private double x, y, z;
     private double prevX, prevY, prevZ;
 
     // value between 0.0-1.0
-    private double agressiveness = 0.2;
+    @Setter private double aggressiveness = 0.2;
 
 
     public void update(double speed, double dampening) {
@@ -41,26 +43,10 @@ public class RandomVector {
         z *= dampening;
     }
 
-    public double getX() {
-        return this.x;
-    }
-
-    public void setAgressiveness(double agr) {
-        this.agressiveness = agr;
-    }
-
-    public double getY() {
-        return this.y;
-    }
-
-    public double getZ() {
-        return this.z;
-    }
-
     public void callRandom(double mag) {
         double halfMag = mag / 2;
 
-        if (Math.random() < agressiveness) {
+        if (Math.random() < aggressiveness) {
             this.dirX = Math.random() * mag - halfMag;
             this.dirY = Math.random() * mag - halfMag;
             this.dirZ = Math.random() * mag - halfMag;
