@@ -36,11 +36,6 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
         super(itemInventoryIndex, player, itemStack);
     }
 
-    @Override
-    protected int getSerialVersion() {
-        return 11;
-    }
-
     public ItemGrenade getGrenade() {
         return (ItemGrenade) item;
     }

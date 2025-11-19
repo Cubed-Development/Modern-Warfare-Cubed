@@ -1,7 +1,7 @@
 package com.paneedah.mwc.instancing;
 
+import com.paneedah.mwc.network.ISerializable;
 import com.paneedah.mwc.network.TypeRegistry;
-import com.paneedah.mwc.network.UniversalObject;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
@@ -26,7 +26,7 @@ import static net.minecraftforge.fml.relauncher.Side.CLIENT;
  * @since 0.2
  */
 @NoArgsConstructor
-public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S> {
+public class PlayerItemInstance<S extends ManagedState<S>> implements ISerializable, ExtendedState<S> {
 
     private static final HashMap<String, Class<?>> TYPE_REGISTRY_COPY = TypeRegistry.getTypeRegistryCopy();
 
@@ -81,7 +81,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
     @Override
     public String toString() {
-        return item.getRegistryName() + "[" + getUuid() + "]";
+        return item.getRegistryName() + "instance";
     }
 
     protected void markDirty() {
@@ -175,8 +175,6 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
     @Override
     public void read(final ByteBuf byteBuf) {
-        super.read(byteBuf);
-
         item = Item.getItemById(byteBuf.readInt());
         itemInventoryIndex = byteBuf.readInt();
 
@@ -187,8 +185,6 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
     @Override
     public void write(final ByteBuf byteBuf) {
-        super.write(byteBuf);
-
         byteBuf.writeInt(Item.getIdFromItem(item));
         byteBuf.writeInt(itemInventoryIndex);
 

@@ -25,9 +25,8 @@ public class ClientValueRepo {
     // 20 ticks/s -> 1/20 = 0.05
     private static final double DELTA_T = 0.05;
 
-    // This value is added to the "TICKER" every tick.
-    // Don't touch this as it will mess with how things
-    // look.
+    /**This value is added to the "TICKER" every tick.
+     * Don't touch this as it will mess with how things look.*/
     private static final double TICKER_INCREMENT = 0.01;
 
     // Movement dampening values. Essentially how fast
@@ -72,7 +71,7 @@ public class ClientValueRepo {
 
 
     /*
-     * LERPED VALUES Values that are only updated every tick. Do not require high
+     * LERPED VALUES: Values that are only updated every tick. Do not require high
      * precision. Typically for slower movements.
      */
 
@@ -119,10 +118,10 @@ public class ClientValueRepo {
 
         double power = params.getWeaponPower();
 
-        if (gunPow.currentValue < INITIAL_GUN_POWER_CUTOFF) {
+        if (gunPow.getCurrentValue() < INITIAL_GUN_POWER_CUTOFF) {
             Interceptors.nsm.impulse(screenShakeParam.getFirst());
             power *= INITIAL_GUN_POWER_MULTIPLIER;
-        } else if (gunPow.currentValue > params.getStockLength()) {
+        } else if (gunPow.getCurrentValue() > params.getStockLength()) {
             power *= GUN_POWER_PAST_STOCK_DIVISOR;
             Interceptors.nsm.impulse(screenShakeParam.getFirst() * GUN_POWER_PAST_STOCK_DIVISOR);
         } else {
@@ -131,12 +130,12 @@ public class ClientValueRepo {
 
         weaponRecovery.velocity += power * WEAPON_RECOVERY_VELOCITY_POWER;
 
-        gunPow.currentValue += power;
+        gunPow.add(power);
 
         stressVec.callRandom(pwi.isAimed() ? 0.05 : 0.2);
         recoilRotationVector.callRandom(15);
 
-        slidePumpValue.currentValue += 1.0;
+        slidePumpValue.add(1.0);
 
     }
 
@@ -162,7 +161,7 @@ public class ClientValueRepo {
 
         // Add the ticker increment to the ticker every tick (say that
         // ten times fast!)
-        TICKER.currentValue += TICKER_INCREMENT;
+        TICKER.add(TICKER_INCREMENT);
 
 
         if (!player.capabilities.isFlying && player.onGround) {
@@ -177,7 +176,7 @@ public class ClientValueRepo {
             }
             strafe.add(player.moveStrafing * STRAFE_MOVEMENT_DIVISOR);
         }
-        xInertia.velocity += strafe.currentValue;
+        xInertia.velocity += strafe.getCurrentValue();
 
         // Update running value. Adds the running speed to
         // it if we are sprinting.
@@ -194,7 +193,7 @@ public class ClientValueRepo {
             // Recoil constants
             RecoilParam recoilParameters = pwi.getRecoilParameters();
 
-            if (gunPow.currentValue > recoilParameters.getStockLength()) {
+            if (gunPow.getCurrentValue() > recoilParameters.getStockLength()) {
                 gunPow.dampen(recoilParameters.getPowerRecoveryStockRate());
             } else {
                 gunPow.dampen(recoilParameters.getPowerRecoveryNormalRate());
@@ -211,18 +210,18 @@ public class ClientValueRepo {
                 scopeYScreen = 0.5F;
 
                 // Handle scope values
-                scopeX.currentValue *= SCOPE_INTERIA_DAMPENING;
-                scopeY.currentValue *= SCOPE_INTERIA_DAMPENING;
+                scopeX.dampen(SCOPE_INTERIA_DAMPENING);
+                scopeY.dampen(SCOPE_INTERIA_DAMPENING);
             } else {
                 scopeXScreen = 0.15F;
                 scopeYScreen = 0.35F;
 
                 // Makes scope shadow go bye bye if gun is
                 // at resting position.
-                if (scopeX.getValue() > -20) {
+                if (scopeX.getCurrentValue() > -20) {
                     scopeX.add(-0.5);
                 }
-                if (scopeY.getValue() < 20) {
+                if (scopeY.getCurrentValue() < 20) {
                     scopeY.add(0.5);
                 }
             }

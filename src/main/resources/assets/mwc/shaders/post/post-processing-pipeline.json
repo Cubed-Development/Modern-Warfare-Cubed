@@ -1,0 +1,69 @@
+{
+  "targets": [
+    "swap",
+    "swap2"
+  ],
+  "passes": [
+    {
+      "name": "mwc:night-vision",
+      "intarget": "minecraft:main",
+      "outtarget": "swap",
+      "auxtargets": [
+        {
+          "name": "NoiseSampler",
+          "id": "mwc:noise",
+          "width": 512,
+          "height": 512,
+          "bilinear": false
+        }
+      ],
+      "uniforms": [
+      ]
+    },
+    {
+      "name": "mwc:blur2",
+      "intarget": "swap",
+      "outtarget": "swap2",
+      "uniforms": [
+        {
+          "name": "BlurDir",
+          "values": [
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Radius",
+          "values": [
+            5.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mwc:blur2",
+      "intarget": "swap2",
+      "outtarget": "swap",
+      "uniforms": [
+        {
+          "name": "BlurDir",
+          "values": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "name": "Radius",
+          "values": [
+            5.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "blit",
+      "intarget": "swap",
+      "outtarget": "minecraft:main"
+    }
+  ]
+}

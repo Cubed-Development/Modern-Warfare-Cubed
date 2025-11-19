@@ -6,7 +6,7 @@ import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import com.paneedah.weaponlib.render.scopes.Reticle;
-import com.paneedah.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.shader.Shader;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -144,7 +144,7 @@ public class ViewfinderModel extends ModelBase {
         if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
             float pwi = ClientModContext.getContext().getMainHeldWeapon().getZoom();
             if (ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.READY && ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.PAUSED && ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.EJECT_REQUIRED && ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.ALERT) {
-                ClientValueRepo.scopeY.currentValue = 1;
+                ClientValueRepo.scopeY.setCurrentValue(1);
             }
             scopeShader.uniform1f("reticleZoom", (pwi + 0.86f));
             scopeShader.uniform1f("actualZoom", (1.0f - pwi) - 0.80f);

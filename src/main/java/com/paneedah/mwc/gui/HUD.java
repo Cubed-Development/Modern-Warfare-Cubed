@@ -2,15 +2,16 @@ package com.paneedah.mwc.gui;
 
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.instancing.Tags;
+import com.paneedah.mwc.utils.LangUtil;
+import com.paneedah.mwc.utils.QuickResourceLocation;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
-import com.paneedah.weaponlib.jim.util.LangTools;
-import com.paneedah.weaponlib.render.ModificationGUI;
+import com.paneedah.weaponlib.render.gui.ModificationGUI;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.VehicleCustomGUI;
@@ -37,7 +38,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.MWC.modContext;
-import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.weaponlib.render.gui.ColorPalette.BRIGHT_YARROW;
 import static com.paneedah.weaponlib.render.gui.ColorPalette.POMEGRANATE;
@@ -108,7 +108,7 @@ public final class HUD extends Gui {
     private static final double OPEN_DOOR_PERCENT_HEIGHT_POS = 0.6;
 
     public static final VehicleCustomGUI VEHICLE_GUI_OVERLAY = new VehicleCustomGUI();
-    private static final ResourceLocation AMMUNITION_COUNTER_TEXTURES = new ResourceLocation(ID, "textures/gui/hud.png");
+    private static final ResourceLocation AMMUNITION_COUNTER_TEXTURES = QuickResourceLocation.quickLoc("gui", "hud");
 
     private boolean playerLookingAtDoor;
 
@@ -246,7 +246,7 @@ public final class HUD extends Gui {
             return;
 
         final PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
-        if (isInAltModifyingState(weaponInstance) || isInModifyingState(weaponInstance))
+        if (item instanceof Weapon && (weaponInstance == null || (isInAltModifyingState(weaponInstance) || isInModifyingState(weaponInstance))))
             return;
 
         final ScaledResolution scaledResolution = renderGameOverlayEvent.getResolution();
@@ -322,7 +322,7 @@ public final class HUD extends Gui {
             currentAmmoString = String.valueOf((currentAmmo == 0 && item instanceof Weapon ? "-" : currentAmmo));
         }
 
-        final String weaponName = new TextComponentTranslation(LangTools.formatName(item.getTranslationKey())).getFormattedText();
+        final String weaponName = new TextComponentTranslation(LangUtil.formatTranslationKey(item.getTranslationKey())).getFormattedText();
         final String ammunitionCount = String.format("  %s  | %s%s", TextFormatting.GRAY, TextFormatting.WHITE, totalCapacityString);
 
         double totalLength = 0;
@@ -369,7 +369,7 @@ public final class HUD extends Gui {
         final int openDoorY = (int) (scaledResolution.getScaledHeight_double() * OPEN_DOOR_PERCENT_HEIGHT_POS);
 
         drawCenteredString(MC.fontRenderer, encaseInBrackets(KeyBindings.openDoor.getDisplayName()), openDoorX, openDoorY, BRIGHT_YARROW);
-        drawCenteredString(MC.fontRenderer, LangTools.formatName("overlay.opendoor"), openDoorX, openDoorY + OPEN_DOOR_KEY_Y_OFFSET, WHITE);
+        drawCenteredString(MC.fontRenderer, LangUtil.formatTranslationKey("overlay.opendoor"), openDoorX, openDoorY + OPEN_DOOR_KEY_Y_OFFSET, WHITE);
     }
 
     private boolean isPlayerTargetingDoor() {

@@ -1,10 +1,9 @@
 version: "1.0"
-linter: jetbrains/qodana-jvm:2024.3
+linter: jetbrains/qodana-jvm:2025.2
 profile:
   name: qodana.recommended
 fixesStrategy: none
 bootstrap: |+
-  set -eu
   bash gradlew setupDecompWorkspace
   bash gradlew generateBuildConfig
 include:

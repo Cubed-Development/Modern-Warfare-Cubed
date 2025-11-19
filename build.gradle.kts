@@ -4,27 +4,27 @@ import org.jetbrains.gradle.ext.settings
 import org.jetbrains.gradle.ext.Gradle
 
 plugins {
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.10"
-    id("com.gtnewhorizons.retrofuturagradle") version "1.4.3"
-    id("com.github.gmazzo.buildconfig") version "5.5.1"
-    id("io.freefair.lombok") version "8.12.2"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.3"
+    id("com.gtnewhorizons.retrofuturagradle") version "2.0.0"
+    id("com.github.gmazzo.buildconfig") version "5.7.1"
+    id("io.freefair.lombok") version "9.1.0"
 }
 
 group = "com.paneedah"
-version = "0.2-Dev-4" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
+version = "0.2-Dev-5" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
 
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
 val redCoreVersion = "1.8-1.12-" + "0.6"
 
-val groovyScriptVersion = "1.2.0-hotfix1"
-val mixinBooterVersion = "10.5"
+val groovyScriptVersion = "1.3.1"
+val mixinBooterVersion = "10.7"
 
 minecraft {
     mcVersion = "1.12.2"
     username = "Desoroxxx"
-    extraRunJvmArguments = listOf("-Dforge.logging.console.level=debug", "-Dfml.coreMods.load=${plugin}", "-Dmixin.hotSwap=true", "-Dmixin.checks.mixininterfaces=true", "-Dmixin.debug.export=true")
+    extraRunJvmArguments = listOf("-Dforge.logging.console.level=debug", "-Dfml.coreMods.load=${plugin}", "-Dmixin.hotSwap=true", "-Dmixin.checks.mixininterfaces=true", "-Dmixin.debug.export=true -XX:+UseStringDeduplication")
 }
 
 repositories {
@@ -61,16 +61,16 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.redstudio", "Red-Core-MC", redCoreVersion)
+    implementation("dev.redstudio:Red-Core-MC:$redCoreVersion")
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
-    compileOnly("com.cleanroommc", "groovyscript", groovyScriptVersion) {
+    compileOnly("com.cleanroommc:groovyscript:$groovyScriptVersion") {
         isTransitive = false
     }
 
-    annotationProcessor("org.ow2.asm", "asm-debug-all", "5.2")
-    annotationProcessor("com.google.guava", "guava", "32.1.2-jre")
-    annotationProcessor("com.google.code.gson", "gson", "2.8.9")
+    annotationProcessor("org.ow2.asm:asm-debug-all:5.2")
+    annotationProcessor("com.google.guava:guava:32.1.2-jre")
+    annotationProcessor("com.google.code.gson:gson:2.8.9")
 
     val mixinBooter: String = modUtils.enableMixins("zone.rong:mixinbooter:$mixinBooterVersion", "mixins.${id}.refmap.json") as String
     api(mixinBooter) {
@@ -128,11 +128,6 @@ tasks {
             if (!exclusions.any { path.endsWith(it) })
                 expand(expandProperties)
         }
-
-        // TODO: Move all of that to assets and remove this
-        from("src/main/java") {
-            include("**/*.png", "**/*.json", "**/*.vsh", "**/*.fsh")
-        }
     }
 
     withType<Jar>  {
@@ -160,7 +155,7 @@ tasks {
 idea {
     module {
         inheritOutputDirs = true
-        excludeDirs.addAll(setOf(".github", ".gradle", ".idea", "build", "gradle", "run").map(::file))
+        excludeDirs.addAll(setOf(".github", ".gradle", ".idea", "build", "gradle", "run", "gradlew", "gradlew.bat", "desktop.ini", "qodana.sarif.json").map(::file))
     }
 
     project {
@@ -175,7 +170,7 @@ idea {
                         val suffix = name.substringAfter(" ").takeIf { it != prefix } ?: ""
                         taskNames = setOf("run$prefix$suffix")
 
-                        jvmArgs = "-XX:+UseStringDeduplication"
+	                    jvmArgs = "-XX:+UseStringDeduplication"
                     }
                 }
             }

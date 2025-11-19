@@ -88,11 +88,6 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
     // region Getters
 
-    @Override
-    protected int getSerialVersion() {
-        return 7;
-    }
-
     public ItemMelee getMelee() {
         return (ItemMelee) item;
     }

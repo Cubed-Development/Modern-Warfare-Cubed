@@ -9,6 +9,7 @@ import org.lwjgl.opengl.GL11;
 import java.awt.*;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.weaponlib.render.gui.ColorPalette.SHUTTLE_GREY;
 
 public class Textbar {
 
@@ -52,10 +53,10 @@ public class Textbar {
 
         };
 
-        AnimationGUI.renderRect(new Color(0x3d3d3d).darker(), x - 5, y - 10, w + 5, h + 15);
+        GuiRenderUtil.renderRect(c, x - 5, y - 10, w + 5, h + 15);
         GlStateManager.enableTexture2D();
 
-        AnimationGUI.renderScaledString(this.name, x, y - 7, 0.6);
+        GuiRenderUtil.drawScaledString(this.name, x, y - 7, 0.6, 0xffffff);
         //MC.fontRenderer.drawStringWithShadow("Position", x, y-5, 0xffffff);
         GlStateManager.disableTexture2D();
 
@@ -69,7 +70,7 @@ public class Textbar {
     }
 
     public void renderBoxFlag(String str, int x, int y, int w, int h, Color flagCol) {
-        AnimationGUI.renderRect(new Color(0x576574), x, y, w, h);
+        GuiRenderUtil.renderRect(new Color(SHUTTLE_GREY), x, y, w, h);
 
 
         float r = (float) flagCol.getRed() / 255f;

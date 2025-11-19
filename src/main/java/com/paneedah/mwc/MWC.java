@@ -43,7 +43,7 @@ import static com.paneedah.mwc.ProjectConstants.VERSION;
 //  | $$\  $ | $$| $$  | $$| $$  | $$| $$_____/| $$      | $$  | $$      | $$$/ \  $$$ /$$__  $$| $$      | $$     /$$__  $$| $$      | $$_____/      | $$    $$| $$  | $$| $$  | $$| $$_____/| $$  | $$
 //  | $$ \/  | $$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$  | $$      | $$/   \  $$|  $$$$$$$| $$      | $$    |  $$$$$$$| $$      |  $$$$$$$      |  $$$$$$/|  $$$$$$/| $$$$$$$/|  $$$$$$$|  $$$$$$$
 //  |__/     |__/ \______/  \_______/ \_______/|__/      |__/  |__/      |__/     \__/ \_______/|__/      |__/     \_______/|__/       \_______/       \______/  \______/ |_______/  \_______/ \_______/
-@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:mixinbooter@[10.5,);required-after:redcore@[0.6,);after:groovyscript@[1.2,)", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://forge.curseupdate.com/836353/mwc")
+@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:mixinbooter@[10.7,);required-after:redcore@[0.6,);after:groovyscript@[1.2,)", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://forge.curseupdate.com/836353/mwc")
 public final class MWC {
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
@@ -114,7 +114,7 @@ public final class MWC {
         CHANNEL.registerMessage(new BlockHitMessageHandler(), BlockHitMessage.class, -4, Side.CLIENT);
         CHANNEL.registerMessage(new ExplosionMessageHandler(), ExplosionMessage.class, -5, Side.CLIENT);
         CHANNEL.registerMessage(new SpreadableExposureMessageHandler(), SpreadableExposureMessage.class, -6, Side.CLIENT);
-        CHANNEL.registerMessage(new WorkbenchClientMessageHandler(), WorkbenchClientMessage.class, -7, Side.CLIENT);
+        CHANNEL.registerMessage(new WorkbenchClientMessageHandler(), CraftingStationClientMessage.class, -7, Side.CLIENT);
         CHANNEL.registerMessage(new CraftingClientMessageHandler(), CraftingClientMessage.class, -8, Side.CLIENT);
         CHANNEL.registerMessage(new MuzzleFlashMessageHandler(), MuzzleFlashMessage.class, -9, Side.CLIENT);
         CHANNEL.registerMessage(new ShellMessageHandler(), ShellMessageClient.class, -10, Side.CLIENT);
@@ -134,7 +134,7 @@ public final class MWC {
         CHANNEL.registerMessage(new VehicleControlMessageHandler(), VehicleControlMessage.class, 8, Side.SERVER);
         CHANNEL.registerMessage(new VehicleInteractMessageHandler(), VehicleInteractMessage.class, 9, Side.SERVER);
         CHANNEL.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 10, Side.SERVER);
-        CHANNEL.registerMessage(new WorkbenchServerMessageHandler(), WorkbenchServerMessage.class, 11, Side.SERVER);
+        CHANNEL.registerMessage(new CraftingStationServerMessageHandler(), CraftingStationServerMessage.class, 11, Side.SERVER);
         CHANNEL.registerMessage(new CraftingServerMessageHandler(), CraftingServerMessage.class, 12, Side.SERVER);
         CHANNEL.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 13, Side.SERVER);
     }

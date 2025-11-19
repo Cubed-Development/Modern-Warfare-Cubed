@@ -15,7 +15,7 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class LivingEntityTracker {
 
-    public static final LivingEntityTracker getTracker(EntityLivingBase player) {
+    public static LivingEntityTracker getTracker(EntityLivingBase player) {
         return CompatiblePlayerEntityTrackerProvider.getTracker(player);
     }
 

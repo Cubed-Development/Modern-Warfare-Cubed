@@ -1,6 +1,9 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.Transition;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.minecraft.client.renderer.GlStateManager;
 
 import java.util.Collections;
@@ -8,16 +11,16 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
+@NoArgsConstructor
 public class TransitionContainer {
 
-    private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> custom = new LinkedHashMap<>();
-    private List<Transition<RenderContext<RenderableState>>> firstPerson;
-    private List<Transition<RenderContext<RenderableState>>> leftHand;
-    private List<Transition<RenderContext<RenderableState>>> rightHand;
+    @Setter private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> custom = new LinkedHashMap<>();
+    @Setter private List<Transition<RenderContext<RenderableState>>> firstPerson;
+    @Setter private List<Transition<RenderContext<RenderableState>>> leftHand;
+    @Setter private List<Transition<RenderContext<RenderableState>>> rightHand;
 
     private long duration;
-
-    public TransitionContainer() {}
 
     public TransitionContainer(LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> custom,
                                List<Transition<RenderContext<RenderableState>>> fps, List<Transition<RenderContext<RenderableState>>> left,
@@ -39,10 +42,10 @@ public class TransitionContainer {
 
         // Define duration
 
-        for (Transition<RenderContext<RenderableState>> t : firstPerson) {
+        //for (Transition<RenderContext<RenderableState>> t : firstPerson) {
             //duration += t.getDuration();
             //	duration += 0;
-        }
+        //}
 
 
         GlStateManager.pushMatrix();
@@ -75,42 +78,6 @@ public class TransitionContainer {
             }
         });
 
-    }
-
-    public LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> getCustom() {
-        return custom;
-    }
-
-    public void setCustom(LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> custom) {
-        this.custom = custom;
-    }
-
-    public List<Transition<RenderContext<RenderableState>>> getFirstPerson() {
-        return firstPerson;
-    }
-
-    public void setFirstPerson(List<Transition<RenderContext<RenderableState>>> firstPerson) {
-        this.firstPerson = firstPerson;
-    }
-
-    public List<Transition<RenderContext<RenderableState>>> getLeftHand() {
-        return leftHand;
-    }
-
-    public void setLeftHand(List<Transition<RenderContext<RenderableState>>> leftHand) {
-        this.leftHand = leftHand;
-    }
-
-    public List<Transition<RenderContext<RenderableState>>> getRightHand() {
-        return rightHand;
-    }
-
-    public void setRightHand(List<Transition<RenderContext<RenderableState>>> rightHand) {
-        this.rightHand = rightHand;
-    }
-
-    public long getDuration() {
-        return duration;
     }
 
     public void setDuration() {

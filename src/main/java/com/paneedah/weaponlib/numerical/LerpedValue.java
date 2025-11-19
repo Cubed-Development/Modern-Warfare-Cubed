@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.numerical;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -10,36 +11,47 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 @NoArgsConstructor
 public class LerpedValue {
 
-    public double previousValue;
-    public double currentValue;
+    private double previousValue;
+    @Setter private double currentValue;
 
     /**
-     * Called before changes are made, sets the previous value to the
+     * Call before changes are made, sets the previous value to the
      * current one.
      */
     public void updatePrevious() {
         previousValue = currentValue;
     }
 
+    /**
+     * Update the lerped value, this calls updatePrevious
+     *
+     * @param newValue the new currentValue
+     */
     public void update(double newValue) {
-        this.previousValue = this.currentValue;
-        this.currentValue = newValue;
+        updatePrevious();
+        currentValue = newValue;
     }
 
+    /**
+     * Add something the lerped value, this DOES NOT call updatePrevious
+     *
+     * @param value the amount to add to currentValue
+     */
     public void add(double value) {
-        this.currentValue += value;
+        currentValue += value;
     }
 
+    /**
+     * Dampen the lerped value, this DOES NOT call updatePrevious
+     *
+     * @param damper the amount to dampen the currentValue
+     */
     public void dampen(double damper) {
-        this.currentValue *= damper;
-    }
-
-    public double getValue() {
-        return this.currentValue;
+        currentValue *= damper;
     }
 
     public double getLerped() {
-        return MatrixHelper.solveLerp(this.previousValue, this.currentValue, MC.getRenderPartialTicks());
+        return MatrixHelper.solveLerp(previousValue, currentValue, MC.getRenderPartialTicks());
     }
 
     public float getLerpedFloat() {

@@ -15,7 +15,6 @@ import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -66,9 +65,6 @@ public class F2000Factory implements GunFactory {
                         1.0
                 ))
 
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.gunmetalIngot,
-                        MWCItems.gunmetalPlate)
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         1f, // x

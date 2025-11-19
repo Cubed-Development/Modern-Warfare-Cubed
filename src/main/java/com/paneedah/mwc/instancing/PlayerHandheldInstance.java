@@ -19,11 +19,6 @@ public class PlayerHandheldInstance extends PlayerItemInstance<HandheldState> {
     }
 
     @Override
-    protected int getSerialVersion() {
-        return 1;
-    }
-
-    @Override
     public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
         return item != null ? ((ItemHandheld<?>) item).getRequiredPespectiveType() : null;
     }

@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 
 public enum MagazineState implements ManagedState<MagazineState> {
 
@@ -22,7 +22,7 @@ public enum MagazineState implements ManagedState<MagazineState> {
 
     private final boolean isTransient;
 
-    private int priority = DEFAULT_PRIORITY;
+    @Getter private final int priority;
 
     MagazineState() {
         this(null, null, null, true);
@@ -73,10 +73,6 @@ public enum MagazineState implements ManagedState<MagazineState> {
     @Override
     public MagazineState commitPhase() {
         return commitPhase;
-    }
-
-    public int getPriority() {
-        return priority;
     }
 
     @Override

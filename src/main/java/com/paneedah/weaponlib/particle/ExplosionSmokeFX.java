@@ -15,8 +15,8 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ExplosionSmokeFX extends Particle {
 
-    //private static final String SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-yellow-smoke.png";
-    private static final String DEFAULT_SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-smoke.png";
+    //private static final String SMOKE_TEXTURE = "mwc:textures/smokes/large-yellow-smoke.png";
+    private static final String DEFAULT_SMOKE_TEXTURE = "mwc:textures/smokes/large-smoke.png";
     private static final int columnCount = 4;
     private static final int rowCount = 4;
 

@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 
 public enum WeaponState implements ManagedState<WeaponState> {
 
@@ -57,7 +57,7 @@ public enum WeaponState implements ManagedState<WeaponState> {
     private final WeaponState permitRequestedPhase;
     private final WeaponState commitPhase;
     private final boolean isTransient;
-    private int priority = DEFAULT_PRIORITY;
+    @Getter private final int priority;
 
     WeaponState() {
         this(null, null, null, true);
@@ -103,10 +103,6 @@ public enum WeaponState implements ManagedState<WeaponState> {
     @Override
     public WeaponState commitPhase() {
         return commitPhase;
-    }
-
-    public int getPriority() {
-        return priority;
     }
 
     @Override

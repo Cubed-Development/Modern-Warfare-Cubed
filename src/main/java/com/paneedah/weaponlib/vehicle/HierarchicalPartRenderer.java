@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.paneedah.weaponlib.animation.DebugPositioner;
-import com.paneedah.weaponlib.animation.MultipartPositioning;
-import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
-import com.paneedah.weaponlib.animation.MultipartRenderStateManager;
+import com.paneedah.weaponlib.animation.multipart.MultipartPositioning;
+import com.paneedah.weaponlib.animation.multipart.MultipartPositioning.Positioner;
+import com.paneedah.weaponlib.animation.multipart.MultipartRenderStateManager;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;

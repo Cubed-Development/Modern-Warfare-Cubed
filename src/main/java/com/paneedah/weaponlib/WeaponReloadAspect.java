@@ -7,11 +7,12 @@ import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
 import com.paneedah.weaponlib.state.StateManager;
+import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -50,10 +51,8 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             WeaponState.DRAWING
     ));
 
+    @NoArgsConstructor
     public static class CompoundPermit extends Permit<WeaponState> {
-
-        public CompoundPermit() {
-        }
 
         public CompoundPermit(WeaponState state) {
             super(state);
@@ -61,21 +60,16 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
     }
 
-
+    @NoArgsConstructor
     public static class UnloadPermit extends Permit<WeaponState> {
-
-        public UnloadPermit() {
-        }
 
         public UnloadPermit(WeaponState state) {
             super(state);
         }
     }
 
+    @NoArgsConstructor
     public static class LoadPermit extends Permit<WeaponState> {
-
-        public LoadPermit() {
-        }
 
         public LoadPermit(WeaponState state) {
             super(state);
@@ -250,20 +244,20 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 .in(this)
                 .change(WeaponState.TACTICAL_RELOAD).to(WeaponState.COMPOUND_RELOAD_FINISH)
                 .when(reloadAnimationCompleted.and(hasNextLoadIteration.negate()))
-                .withAction((c, f, t, p) -> obamaCorporation(c))
+                .withAction((c, f, t, p) -> finishCompoundReload(c))
                 .automatic()
 
                 .in(this)
 
                 .change(WeaponState.COMPOUND_RELOAD).to(WeaponState.COMPOUND_RELOAD_FINISH)
                 .when(reloadAnimationCompleted.and(hasNextLoadIteration.negate()))
-                .withAction((c, f, t, p) -> obamaCorporation(c))
+                .withAction((c, f, t, p) -> finishCompoundReload(c))
                 .automatic()
 
                 .in(this)
                 .change(WeaponState.COMPOUND_RELOAD_EMPTY).to(WeaponState.COMPOUND_RELOAD_FINISH)
                 .when(reloadAnimationCompleted.and(hasNextLoadIteration.negate()))
-                .withAction((c, f, t, p) -> obamaCorporation(c))
+                .withAction((c, f, t, p) -> finishCompoundReload(c))
                 .automatic()
 
                 .in(this)
@@ -367,7 +361,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     }
 
 
-    public void obamaCorporation(PlayerWeaponInstance instance) {
+    public void finishCompoundReload(PlayerWeaponInstance instance) {
         stateManager.changeState(this, instance, WeaponState.COMPOUND_RELOAD_FINISHED);
     }
 
@@ -550,7 +544,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         }
 
         Comparator<ItemStack> comparator;
-        comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
+        comparator = Comparator.comparingInt(Tags::getAmmo);
 
         int maxItemIndex = -1;
         ItemStack maxStack = null;
@@ -619,7 +613,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             return;
         }
 
-        ItemStack magazineStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
+        ItemStack magazineStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, Comparator.comparingInt(Tags::getAmmo), player);
 
         if (magazineStack == null) {
             return;
@@ -676,7 +670,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             if (existingMagazine == null) {
                 ammo = 0;
 
-                ItemStack magazineItemStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
+                ItemStack magazineItemStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, Comparator.comparingInt(Tags::getAmmo), player);
 
                 ammo = Tags.getAmmo(magazineItemStack);
                 Tags.setAmmo(weaponItemStack, ammo);
@@ -684,7 +678,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineItemStack.getItem(), weaponInstance);
                 player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0f, 1.0F);
             }
-            // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, ReloadMessage.Type.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
+            // Update permit instead: CHANNEL.sendTo(new ReloadMessage(weapon, ReloadMessage.ReticleType.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
             weaponInstance.setAmmo(ammo);
         } else if (!compatibleBullets.isEmpty() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(compatibleBullets, Math.min(weapon.getMaxBulletsPerReload(), weapon.getAmmoCapacity() - weaponInstance.getAmmo()), player)) != 0) {
             int ammo = weaponInstance.getAmmo() + consumedAmount;
@@ -748,7 +742,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
             Tags.setAmmo(weaponItemStack, 0);
             weaponInstance.setAmmo(0);
-            player.world.playSound(player instanceof EntityPlayer ? player : null, player.posX, player.posY, player.posZ, weapon.getUnloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
+            player.world.playSound(player, player.posX, player.posY, player.posZ, weapon.getUnloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
 
             p.setStatus(Status.GRANTED);
         } else {

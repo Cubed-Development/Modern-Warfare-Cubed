@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.animation;
 
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Matrix4f;

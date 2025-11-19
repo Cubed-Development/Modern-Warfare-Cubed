@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.render;
 
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
-import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderLoader;
+import com.paneedah.weaponlib.shader.Shader;
+import com.paneedah.weaponlib.shader.ShaderLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;

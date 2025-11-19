@@ -4,12 +4,12 @@ import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import com.paneedah.mwc.network.messages.*;
+import com.paneedah.mwc.utils.ByteArrayUtils;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
-import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import lombok.Getter;
 import net.minecraft.entity.Entity;
@@ -202,11 +202,10 @@ public class CommonEventHandler {
             final EquipmentInventory inventory = EquipmentCapability.getInventory(entity);
             for (int slotIndex = 0; slotIndex < inventory.getSizeInventory(); slotIndex++) {
                 final ItemStack stackInSlot = inventory.getStackInSlot(slotIndex);
-                if (stackInSlot == null) {
+                if (stackInSlot.isEmpty())
                     continue;
-                }
                 ((EntityPlayer) entity).dropItem(stackInSlot, true, false);
-                inventory.setInventorySlotContents(slotIndex, null);
+                inventory.setInventorySlotContents(slotIndex, new ItemStack(Items.AIR));
             }
         }
     }

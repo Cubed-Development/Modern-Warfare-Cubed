@@ -8,8 +8,6 @@ import com.paneedah.weaponlib.numerical.SpringVector;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
-
 public class NewScreenshakingManager {
 
     public RandomVector randomVec = new RandomVector();
@@ -21,20 +19,6 @@ public class NewScreenshakingManager {
 
     private double prevX, prevY, prevZ, prevRotX, prevRotY, prevRotZ;
     private double x, y, z, rotX, rotY, rotZ;
-
-
-    private double getRandom(double min, double max) {
-        return Math.random() * (max - min + 1) + min;
-    }
-
-    private double getRandomWithNegative(double min, double max) {
-        double random = Math.random() * (max - min + 1) + min;
-        if (Math.random() < 0.5) {
-            random *= -1;
-        }
-        return random;
-
-    }
 
     public void impulse(double mag) {
 
@@ -49,15 +33,14 @@ public class NewScreenshakingManager {
 
         x = -10 * mag;
         z = 2 * mag;
-        //z = 0;
-        //springVector.addPosition(x, 0, z);
+        //y = 0;
         springVector.addVelocity(x, y, z);
 
     }
 
 
     public void applyWorld() {
-        float pt = MC.getRenderPartialTicks();
+        //float pt = MC.getRenderPartialTicks();
         //double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
 
 
@@ -83,13 +66,9 @@ public class NewScreenshakingManager {
 
     public void applyHead() {
 
-        float pt = MC.getRenderPartialTicks();
-        double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
-		
-		
+        //float pt = MC.getRenderPartialTicks();
+        //double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
 
-		
-		
 		/*
 		GlStateManager.translate(i*MatrixHelper.solveLerp(prevX, x, pt),
 				i*MatrixHelper.solveLerp(prevY, y, pt),

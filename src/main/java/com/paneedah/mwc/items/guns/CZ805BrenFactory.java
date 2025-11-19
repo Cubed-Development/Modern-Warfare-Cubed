@@ -13,7 +13,6 @@ import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
@@ -63,9 +62,6 @@ public class CZ805BrenFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.gunmetalIngot,
-                        MWCItems.gunmetalPlate)
 
 
                 .withScreenShaking(RenderableState.SHOOTING,

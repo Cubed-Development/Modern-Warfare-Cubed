@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.crafting;
 
+import lombok.Getter;
+
 import java.util.LinkedHashMap;
 
 public class OptionsMetadata {
@@ -109,21 +111,12 @@ public class OptionsMetadata {
         }
     }
 
-    private final OptionMetadata[] metadata;
-    private final boolean hasOres;
+    @Getter private final OptionMetadata[] metadata;
+    @Getter private final boolean hasOres;
 
     private OptionsMetadata(OptionMetadata[] metadata, boolean hasOres) {
         this.metadata = metadata;
         this.hasOres = hasOres;
     }
-
-    public OptionMetadata[] getMetadata() {
-        return metadata;
-    }
-
-    public boolean hasOres() {
-        return hasOres;
-    }
-
 
 }

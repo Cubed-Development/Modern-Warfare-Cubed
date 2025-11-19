@@ -1,12 +1,10 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.gui.HUD;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
-import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
+import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
 import com.paneedah.weaponlib.electronics.EntityWirelessCamera;
@@ -17,11 +15,7 @@ import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.perspective.PerspectiveManager;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.IReloadableResourceManager;
-import net.minecraft.client.resources.IResourceManager;
-import net.minecraft.client.resources.IResourcePack;
-import net.minecraft.client.resources.SimpleReloadableResourceManager;
+import lombok.Getter;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,11 +23,9 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
@@ -44,16 +36,16 @@ public class ClientModContext extends CommonModContext {
     private ClientEventHandler clientEventHandler;
     private CompatibleRenderingRegistry rendererRegistry;
 
-    private PerspectiveManager viewManager;
+    @Getter private PerspectiveManager viewManager;
 
     private float aspectRatio;
     private Framebuffer inventoryFramebuffer;
 
-    private Map<Object, Integer> inventoryTextureMap;
+    @Getter private Map<Object, Integer> inventoryTextureMap;
 
     private EffectManager effectManager;
 
-    private ScreenShakingAnimationManager playerRawPitchAnimationManager;
+    @Getter private ScreenShakingAnimationManager playerRawPitchAnimationManager;
 
     public static ClientModContext getContext() {
         return currentContext;
@@ -69,7 +61,7 @@ public class ClientModContext extends CommonModContext {
 
         ClientCommandHandler.instance.registerCommand(new DebugCommand());
 
-        ClientCommandHandler.instance.registerCommand(new MainCommand(this));
+        ClientCommandHandler.instance.registerCommand(new MainCommand());
 
         rendererRegistry = new CompatibleRenderingRegistry();
 
@@ -117,10 +109,6 @@ public class ClientModContext extends CommonModContext {
     @Override
     public boolean isClient() {
         return true;
-    }
-
-    public PerspectiveManager getViewManager() {
-        return viewManager;
     }
 
     @Override
@@ -189,17 +177,9 @@ public class ClientModContext extends CommonModContext {
         return inventoryFramebuffer;
     }
 
-    public Map<Object, Integer> getInventoryTextureMap() {
-        return inventoryTextureMap;
-    }
-
     @Override
     public EffectManager getEffectManager() {
         return effectManager;
-    }
-
-    public ScreenShakingAnimationManager getPlayerRawPitchAnimationManager() {
-        return playerRawPitchAnimationManager;
     }
 
     @Override

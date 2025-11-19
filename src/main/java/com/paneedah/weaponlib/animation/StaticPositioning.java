@@ -1,12 +1,15 @@
 package com.paneedah.weaponlib.animation;
 
+import com.paneedah.weaponlib.animation.multipart.MultipartPositioning;
+import com.paneedah.weaponlib.animation.multipart.MultipartTransition;
+import com.paneedah.weaponlib.animation.multipart.MultipartTransitionProvider;
 import org.lwjgl.util.vector.Matrix4f;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-class StaticPositioning<State, Part, Context extends PartPositionProvider> implements MultipartPositioning<Part, Context> {
+public class StaticPositioning<State, Part, Context extends PartPositionProvider> implements MultipartPositioning<Part, Context> {
 
     private final State state;
     private final Randomizer randomizer;

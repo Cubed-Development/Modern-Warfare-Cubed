@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.animation.gui;
 
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import dev.redstudio.redcore.math.vectors.Vector2D;
 import lombok.Getter;
 import lombok.Setter;
@@ -142,10 +141,10 @@ public class Panel {
 
 
         if (!this.closed) {
-            AnimationGUI.renderRect(new Color(0x222f3e).darker(), this.positionX, this.positionY, this.width, this.height);
+            GuiRenderUtil.renderRect(new Color(0x222f3e).darker(), this.positionX, this.positionY, this.width, this.height);
 
         } else {
-            AnimationGUI.renderRect(new Color(0x222f3e).darker(), this.positionX, this.positionY, this.width, 10);
+            GuiRenderUtil.renderRect(new Color(0x222f3e).darker(), this.positionX, this.positionY, this.width, 10);
 
         }
 
@@ -155,7 +154,7 @@ public class Panel {
             button = button.darker();
         }
 
-        AnimationGUI.renderRect(button, this.positionX + 2, this.positionY + 2, 6, 6);
+        GuiRenderUtil.renderRect(button, this.positionX + 2, this.positionY + 2, 6, 6);
 
 
         if (!this.closed) {
@@ -174,7 +173,7 @@ public class Panel {
 
         // Render title
         GlStateManager.enableTexture2D();
-        AnimationGUI.renderScaledString(this.title, this.positionX + 10, this.positionY + 2, 0.75);
+        GuiRenderUtil.drawScaledString(this.title, this.positionX + 10, this.positionY + 2, 0.75,0xffffff);
         GlStateManager.disableTexture2D();
 
     }

@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.network.UniversalObject;
+import com.paneedah.mwc.network.ISerializable;
 import dev.redstudio.redcore.math.ClampUtil;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import java.util.*;
 import java.util.function.Function;
 
-public class SpreadableExposure extends UniversalObject implements Exposure {
+public class SpreadableExposure implements ISerializable, Exposure {
 
     public interface Listener {
         void onUpdate(SpreadableExposure exposure);
@@ -189,7 +189,6 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
 
     @Override
     public void read(ByteBuf byteBuf) {
-        super.read(byteBuf);
         firstExposureImpactDelay = byteBuf.readLong();
         firstExposureTimestamp = byteBuf.readLong();
         totalDose = byteBuf.readFloat();
@@ -201,7 +200,6 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
 
     @Override
     public void write(ByteBuf byteBuf) {
-        super.write(byteBuf);
         byteBuf.writeLong(firstExposureImpactDelay);
         byteBuf.writeLong(firstExposureTimestamp);
         byteBuf.writeFloat(totalDose);

@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.render.shells;
 
-import com.paneedah.weaponlib.model.Bullet556;
 import dev.redstudio.redcore.math.vectors.Vector3D;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import net.minecraft.util.EnumFacing;
@@ -20,9 +19,6 @@ public class ShellParticleSimulator {
 
     private static final int SHELL_LIFE = 1024;
     private static final double RESTITUTION = 0.3;
-
-    public static Bullet556 bulletModel = new Bullet556();
-
 
     public static class Shell {
 
@@ -140,11 +136,7 @@ public class ShellParticleSimulator {
         // modification errors
 
         //System.out.println(shells.size());
-        for (int i = 0; i < shells.size(); ++i) {
-
-
-            Shell sh = shells.get(i);
-
+        for (Shell sh : shells) {
 
             if (sh.getAge() > SHELL_LIFE) {
                 sh.kill();
@@ -157,10 +149,6 @@ public class ShellParticleSimulator {
             if (sh.isSleeping()) {
                 continue;
             }
-
-
-            //System.out.println(shells.size());
-
 
             Vector3d tempPos = (Vector3d) sh.pos.clone();
             Vector3d tempRot = (Vector3d) sh.rot.clone();
@@ -259,8 +247,6 @@ public class ShellParticleSimulator {
 
             List<AxisAlignedBB> list = MC.world.getCollisionBoxes(null, box);
 
-            Vec3d separationVector = Vec3d.ZERO;
-            double penetrationDepth = Double.MIN_VALUE;
             double zOffset = sh.pos.z;
             double xOffset = sh.pos.x;
             for (AxisAlignedBB b : list) {

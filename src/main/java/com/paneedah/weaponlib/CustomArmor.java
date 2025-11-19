@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.QuickResourceLocation;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -12,6 +13,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,6 +25,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -110,7 +113,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
         private String textureName;
 
-        private String iconName;
         private ArmorMaterial material;
         private String unlocalizedName;
         private ModelBiped bootsModel;
@@ -337,7 +339,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     private SoundEvent breathingSound;
     private final EntityEquipmentSlot compatibleEquipmentType;
 
-    private final String unlocalizedArmorSetName;
+    @Getter private final String unlocalizedArmorSetName;
+
     // Modern crafting setup
     private CraftingEntry[] modernRecipe;
     private CraftingGroup craftGroup;
@@ -402,11 +405,6 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
         return ID + ":textures/models/" + textureName + ".png";
     }
-
-    public String getUnlocalizedArmorSetName() {
-        return unlocalizedArmorSetName;
-    }
-
 
     public void changeAttachment(AttachmentCategory attachmentCategory, ItemStack itemStack, EntityPlayer player) {
         if (itemStack.getTagCompound() == null) {
@@ -535,6 +533,13 @@ public class CustomArmor extends ItemArmor implements ExposureProtection, ISpeci
 
     public boolean hasNightVision() {
         return hasNightVision;
+    }
+
+    @Override
+    public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        if(this.hasNightVision){
+            tooltip.add(TextFormatting.GREEN + "Has Night Vision");
+        }
     }
 
     @Override

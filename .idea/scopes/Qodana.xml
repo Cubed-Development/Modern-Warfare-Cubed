@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Qodana" pattern="file:qodana*" />
+</component>

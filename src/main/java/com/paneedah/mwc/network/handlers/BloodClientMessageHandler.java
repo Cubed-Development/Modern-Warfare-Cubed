@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.BloodClientMessage;
-import com.paneedah.weaponlib.jim.util.RandomUtil;
+import com.paneedah.mwc.utils.RandomUtil;
 import com.paneedah.weaponlib.particle.ParticleBlood;
 import dev.redstudio.redcore.math.vectors.Vector3D;
 import dev.redstudio.redcore.utils.NetworkUtil;

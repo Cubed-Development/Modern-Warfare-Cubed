@@ -51,16 +51,17 @@ public class Button {
         }
 
 
-        AnimationGUI.renderRect(c, x, y, size, size);
+        GuiRenderUtil.renderRect(c, x, y, size, size);
 
         GlStateManager.enableTexture2D();
 
 
-        AnimationGUI.renderTexturedRect(iconID, x + (size * 0.2), y + size * 0.1, size * 0.6, size * 0.6);
+        GuiRenderUtil.renderTexturedRect(iconID, x + (size * 0.2), y + size * 0.1, size * 0.6, size * 0.6);
+        GlStateManager.disableTexture2D();
 
         if (isToggle()) {
             Color col = isState() ? new Color(0xfeca57) : c.darker();
-            AnimationGUI.renderRect(col, x + (size * 0.2), y + (size * 0.7), size * 0.6, size * 0.2);
+            GuiRenderUtil.renderRect(col, x + (size * 0.2), y + (size * 0.7), size * 0.6, size * 0.2);
 
         }
 

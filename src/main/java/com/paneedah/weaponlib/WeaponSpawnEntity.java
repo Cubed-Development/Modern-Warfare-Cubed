@@ -2,12 +2,13 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.network.messages.BloodClientMessage;
+import com.paneedah.mwc.utils.HitUtil;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.utils.VectorUtil;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.jim.util.HitUtil;
 import io.netty.buffer.ByteBuf;
 import dev.redstudio.redcore.math.vectors.Vector3F;
+import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -54,7 +55,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
     private float explosionParticleScaleCoefficient;
     private float smokeParticleScaleCoefficient;
 
-    private Weapon weapon;
+    @Getter private Weapon weapon;
 
     public WeaponSpawnEntity(final World world) {
         super(world);
@@ -186,10 +187,6 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
     @Override
     public void shoot(final double x, final double y, final double z, final float velocity, final float inaccuracy) {
-    }
-
-    public Weapon getWeapon() {
-        return weapon;
     }
 
     // TODO: Rename `gunName` to `weaponName`

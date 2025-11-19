@@ -3,7 +3,7 @@ package com.paneedah.mwc;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.Updatable;
 import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;

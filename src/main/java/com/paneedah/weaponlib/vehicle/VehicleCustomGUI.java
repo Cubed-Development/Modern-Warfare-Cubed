@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.paneedah.weaponlib.KeyBindings;
-import com.paneedah.weaponlib.animation.jim.KeyStateAnimator;
 import com.paneedah.weaponlib.render.ScreenRenderer;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;

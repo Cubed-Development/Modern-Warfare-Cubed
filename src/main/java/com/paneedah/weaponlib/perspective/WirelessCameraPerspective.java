@@ -23,8 +23,8 @@ import static com.paneedah.mwc.ProjectConstants.LOGGER;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
-    private static final String STATIC_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/static.png";
-    public static final String DARK_SCREEN_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/dark-screen.png";
+    private static final String STATIC_TEXTURE = "mwc:textures/maps/static.png";
+    public static final String DARK_SCREEN_TEXTURE = "mwc:textures/maps/dark-screen.png";
 
 
     private static final int STATIC_IMAGES_PER_ROW = 8;
