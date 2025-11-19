@@ -3451,7 +3451,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                         if (compatibleAttachment.getAttachment() == part) {
 
 
-                            float mu = ClientValueRepo.SLIDE_PUMP_LERPED.getLerpedFloat();
+                            float mu = ClientValueRepo.SLIDE_PUMP.getLerpedFloat();
 
 
                             mu = Math.min(mu, 1.0f);
