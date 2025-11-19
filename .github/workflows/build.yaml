@@ -47,4 +47,4 @@ jobs:
       uses: actions/upload-artifact@v5
       with:
         name: gradle-build-artifacts
-        path: ./build/lib/
+        path: ./build/libs/
