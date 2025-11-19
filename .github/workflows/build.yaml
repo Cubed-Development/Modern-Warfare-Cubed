@@ -44,7 +44,15 @@ jobs:
       run: ./gradlew build
     
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v5
-      with:
-        name: gradle-build-artifacts
-        path: ./build/libs/
+      run: |
+        for file in build/libs/*; do
+          if [ -f "$file" ]; then
+            filename=$(basename "$file")
+            artifact_name="${filename%.*}"
+            echo "Uploading $file as artifact: $artifact_name"
+            gh run upload-artifact "$file" --name "$artifact_name"
+          fi
+        done
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      continue-on-error: true
