@@ -1,6 +1,7 @@
 package com.paneedah.mwc.renderer;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.items.equipment.carryable.ItemCarryable;
 import com.paneedah.mwc.skins.CustomSkin;
 import com.paneedah.weaponlib.*;
@@ -260,7 +261,8 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
         CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) modelSource.getPostRenderer();
 
-        if (postRenderer != null) {
+        // * As far as I know, we only post render stuff that have an instance, so I added that check, this may be incorrect - Luna Mira Lage (Desoroxxx) 2025-11-19
+        if (postRenderer != null && itemStack.getItem() instanceof PlayerItemInstanceFactory) {
             renderContext.setAgeInTicks(-0.4f);
             renderContext.setScale(0.08f);
             renderContext.setCompatibleTransformType(transformType);
