@@ -18,7 +18,7 @@ public class PlayerHandheldInstance extends PlayerItemInstance<HandheldState> {
         super(itemInventoryIndex, player, itemStack);
     }
 
-    @Override
+	@Override
     public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
         return item != null ? ((ItemHandheld<?>) item).getRequiredPespectiveType() : null;
     }
