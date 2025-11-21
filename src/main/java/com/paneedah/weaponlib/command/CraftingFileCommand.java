@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import net.minecraft.command.ICommandSender;
 
-public class CraftingFileCommand extends TidyCompatibleCommand {
+public class CraftingFileCommand extends TidyCommand {
 
     private static final String RELOAD_KEY = "reload";
     private static final String STATUS_KEY = "status";

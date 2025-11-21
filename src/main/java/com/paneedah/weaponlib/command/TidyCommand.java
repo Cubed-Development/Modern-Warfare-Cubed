@@ -5,12 +5,12 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import javax.annotation.Nullable;
+import java.util.*;
 import java.util.Map.Entry;
 
 /**
@@ -25,20 +25,19 @@ import java.util.Map.Entry;
  *
  * @author Homer Riva-Cambrin, 2022
  */
-public abstract class TidyCompatibleCommand extends CommandBase {
+public abstract class TidyCommand extends CommandBase {
 
     private final String name;
     private String usage;
     private final String displayName;
     private String[] help;
 
-    private static final TextFormatting ERROR_COLOR = TextFormatting.RED;
-
     protected static final String HELP_KEY = "help";
 
     private final TextFormatting primaryColor = TextFormatting.GOLD;
     private final TextFormatting secondaryColor = TextFormatting.GRAY;
     private final TextFormatting displayColor = TextFormatting.YELLOW;
+    private static final TextFormatting ERROR_COLOR = TextFormatting.RED;
 
 
     private final HashMap<String, Pair<CommandInfo, ArrayList<Pair<String, CommandInfo>>>> tree = new HashMap<>();
@@ -57,7 +56,7 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 
     }
 
-    public TidyCompatibleCommand(String name, String displayName) {
+    public TidyCommand(String name, String displayName) {
         this.name = name;
         this.displayName = displayName;
         addMainOption(HELP_KEY, "provides help");
@@ -83,7 +82,7 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 
         // Generate usage
         this.usage = ERROR_COLOR + "/" + name + " ";
-        if (tree.size() != 0) {
+        if (!tree.isEmpty()) {
             this.usage += "<";
             Iterator<String> itr = tree.keySet().iterator();
             while (itr.hasNext()) {
@@ -123,7 +122,7 @@ public abstract class TidyCompatibleCommand extends CommandBase {
         }
         CommandInfo comInfo = new CommandInfo(main, descriptor, args);
         if (!tree.containsKey(main)) {
-            tree.put(main, new Pair<TidyCompatibleCommand.CommandInfo, ArrayList<Pair<String, CommandInfo>>>(comInfo, new ArrayList<>()));
+            tree.put(main, new Pair<>(comInfo, new ArrayList<>()));
         }
     }
 
@@ -132,8 +131,29 @@ public abstract class TidyCompatibleCommand extends CommandBase {
             return;
         }
         CommandInfo comInfo = new CommandInfo(subOption, description, args);
-        tree.get(mainOption).getSecond().add(new Pair<String, CommandInfo>(subOption, comInfo));
+        tree.get(mainOption).getSecond().add(new Pair<>(subOption, comInfo));
     }
+
+    @Override
+    public List<String> getTabCompletions(
+            MinecraftServer server, ICommandSender sender,
+            String[] args, @Nullable BlockPos pos) {
+
+        if (args.length == 1) {
+            return getListOfStringsMatchingLastWord(args, tree.keySet());
+        }
+
+        if (args.length == 2 && tree.containsKey(args[0])) {
+            List<String> subs = new ArrayList<>();
+            for (Pair<String, CommandInfo> pair : tree.get(args[0]).getSecond()) {
+                subs.add(pair.getFirst());
+            }
+            return getListOfStringsMatchingLastWord(args, subs);
+        }
+
+        return Collections.emptyList();
+    }
+
 
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
@@ -145,31 +165,27 @@ public abstract class TidyCompatibleCommand extends CommandBase {
         }
 
 
-        if (args.length > 0) {
-
-
-            if (args.length == 1 && !this.tree.containsKey(args[0])) {
-                sender.sendMessage(new TextComponentString(getUsage(sender)));
-                return;
-            }
-
-
-            if (args[0].equals(HELP_KEY)) {
-                sendHelp(sender);
-                return;
-            }
-
-
-            String[] truncatedArray = null;
-            if (args.length <= 2) {
-                truncatedArray = new String[0];
-            } else {
-                truncatedArray = new String[args.length - 2];
-                System.arraycopy(args, 1, truncatedArray, 0, truncatedArray.length);
-            }
-
-            executeTidyCommand(sender, args[0], args.length > 1 ? args[1] : "", truncatedArray);
+        if (args.length == 1 && !this.tree.containsKey(args[0])) {
+            sender.sendMessage(new TextComponentString(getUsage(sender)));
+            return;
         }
+
+
+        if (args[0].equals(HELP_KEY)) {
+            sendHelp(sender);
+            return;
+        }
+
+
+        String[] truncatedArray = null;
+        if (args.length <= 2) {
+            truncatedArray = new String[0];
+        } else {
+            truncatedArray = new String[args.length - 2];
+            System.arraycopy(args, 1, truncatedArray, 0, truncatedArray.length);
+        }
+
+        executeTidyCommand(sender, args[0], args.length > 1 ? args[1] : "", truncatedArray);
 
     }
 
@@ -215,13 +231,13 @@ public abstract class TidyCompatibleCommand extends CommandBase {
         sendFormattedMessage(sender, "For command " + option);
         for (Pair<String, CommandInfo> pair : result) {
 
-            String string = this.primaryColor + pair.getFirst();
+            StringBuilder stringBuilder = new StringBuilder(this.primaryColor + pair.getFirst());
             for (String arg : pair.getSecond().arguments) {
-                string += this.primaryColor + " [" + arg + "]";
+                stringBuilder.append(this.primaryColor).append(" [").append(arg).append("]");
             }
-            string += " - " + this.secondaryColor + pair.getSecond().description;
+            stringBuilder.append(" - ").append(this.secondaryColor).append(pair.getSecond().description);
 
-            sender.sendMessage(new TextComponentString(string));
+            sender.sendMessage(new TextComponentString(stringBuilder.toString()));
         }
 
     }

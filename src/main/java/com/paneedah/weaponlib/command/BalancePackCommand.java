@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 
-public class BalancePackCommand extends TidyCompatibleCommand {
+public class BalancePackCommand extends TidyCommand {
 
     private static final String PASTEBIN_LINK_START = "https://pastebin.com/raw/";
 
