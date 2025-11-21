@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.UUID;
 import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
@@ -31,11 +30,10 @@ public final class PermitMessageClientHandler implements IMessageHandler<PermitM
         NetworkUtil.processMessage(messageContext, () -> {
             final Permit<?> permit = permitMessage.getPermit();
             final PlayerItemInstance<?> playerItemInstance = permitMessage.getPlayerItemInstance();
-            final UUID callbackUUID = permitMessage.getCallbackUUID();
 
             playerItemInstance.setPlayer(MC.player);
 
-            final BiConsumer<Permit<?>, PlayerItemInstance<?>> callback = commonModContext.getPermitManager().getPermitCallbacks().remove(callbackUUID);
+            final BiConsumer<Permit<?>, PlayerItemInstance<?>> callback = commonModContext.getPermitManager().getPermitCallbacks().remove(permit.getUuid());
             if (callback != null) {
                 callback.accept(permit, playerItemInstance);
             } else {

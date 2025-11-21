@@ -88,7 +88,7 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
     // region Getters
 
-    public ItemMelee getMelee() {
+	public ItemMelee getMelee() {
         return (ItemMelee) item;
     }
 

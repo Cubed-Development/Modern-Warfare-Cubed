@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-import java.util.UUID;
 import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
@@ -28,7 +27,6 @@ public final class PermitMessageServerHandler implements IMessageHandler<PermitM
         NetworkUtil.processMessage(messageContext, () -> {
             final Permit<?> permit = permitMessage.getPermit();
             final PlayerItemInstance<?> playerItemInstance = permitMessage.getPlayerItemInstance();
-            final UUID callbackUUID = permitMessage.getCallbackUUID();
 
             playerItemInstance.setPlayer(messageContext.getServerHandler().player);
 
@@ -39,7 +37,7 @@ public final class PermitMessageServerHandler implements IMessageHandler<PermitM
                 LOGGER.warn("No evaluator registered for permit {}", permit);
             }
 
-            final PermitMessage message = new PermitMessage(permit, playerItemInstance, callbackUUID);
+            final PermitMessage message = new PermitMessage(permit, playerItemInstance);
             CHANNEL.sendTo(message, messageContext.getServerHandler().player);
         });
 

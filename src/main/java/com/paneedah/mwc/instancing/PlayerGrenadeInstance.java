@@ -36,7 +36,7 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
         super(itemInventoryIndex, player, itemStack);
     }
 
-    public ItemGrenade getGrenade() {
+	public ItemGrenade getGrenade() {
         return (ItemGrenade) item;
     }
 

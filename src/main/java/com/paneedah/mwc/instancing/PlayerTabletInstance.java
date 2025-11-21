@@ -28,7 +28,7 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
         super(itemInventoryIndex, player, itemStack);
     }
 
-    @Override
+	@Override
     public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
         return WirelessCameraPerspective.class;
     }

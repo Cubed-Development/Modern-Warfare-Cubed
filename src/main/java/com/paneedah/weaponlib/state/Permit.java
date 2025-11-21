@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.state;
 
-import com.paneedah.mwc.network.ISerializable;
 import com.paneedah.mwc.network.TypeRegistry;
+import com.paneedah.mwc.network.UniversalObject;
 import io.netty.buffer.ByteBuf;
 
-public class Permit<S extends ManagedState<S>> implements ISerializable {
+public class Permit<S extends ManagedState<S>> extends UniversalObject {
 
     public enum Status {REQUESTED, GRANTED, DENIED, UNKNOWN}
 
@@ -40,6 +40,7 @@ public class Permit<S extends ManagedState<S>> implements ISerializable {
 
     @Override
     public void read(ByteBuf byteBuf) {
+        super.read(byteBuf);
         timestamp = byteBuf.readLong();
         status = Status.values()[byteBuf.readInt()];
         state = TypeRegistry.read(byteBuf);
@@ -47,6 +48,7 @@ public class Permit<S extends ManagedState<S>> implements ISerializable {
 
     @Override
     public void write(ByteBuf byteBuf) {
+        super.write(byteBuf);
         byteBuf.writeLong(timestamp);
         byteBuf.writeInt(status.ordinal());
         TypeRegistry.write(byteBuf, state);
