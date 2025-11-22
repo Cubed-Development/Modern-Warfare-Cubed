@@ -209,8 +209,7 @@ public final class PlayerItemInstanceRegistry {
         } catch (final ExecutionException exception) {
             throw new RuntimeException(exception);
         }
-
-
+        
         return ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(entityLiving, itemStack, -1);
     }
 
