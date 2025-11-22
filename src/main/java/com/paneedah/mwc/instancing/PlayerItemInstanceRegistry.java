@@ -186,7 +186,6 @@ public final class PlayerItemInstanceRegistry {
     public PlayerItemInstance<?> getCachedItemInstance(final EntityLivingBase entityLiving, final ItemStack itemStack) {
         try {
             final Optional<PlayerItemInstance<?>> result = itemStackInstanceCache.get(itemStack, () -> {
-                LOGGER.debug("ItemStack {} not found in cache, initializing...", itemStack);
                 PlayerItemInstance<?> instance = null;
 
                 if (MC.player != null && MC.player == entityLiving) { // For current player, the latest instance is available locally
@@ -211,7 +210,7 @@ public final class PlayerItemInstanceRegistry {
             throw new RuntimeException(exception);
         }
 
-        LOGGER.debug("Creating temporary item stack instance {}", itemStack.getItem());
+
         return ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(entityLiving, itemStack, -1);
     }
 
