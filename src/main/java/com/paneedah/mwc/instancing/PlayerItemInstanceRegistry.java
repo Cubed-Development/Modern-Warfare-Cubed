@@ -170,55 +170,49 @@ public final class PlayerItemInstanceRegistry {
         return result;
     }
 
-    /**
-     * Retrieves a cached {@link PlayerItemInstance} associated with the given {@link ItemStack} for rendering purposes.
-     * <p>
-     * This method should be used only on the client side during rendering.
-     *
-     * @param entityLiving The entity holding the item stack
-     * @param itemStack The item stack whose associated item instance is to be retrieved
-     *
-     * @return The cached item instance, or {@code null} if not found
-     */
+    /// Retrieves a cached [PlayerItemInstance] associated with the given [ItemStack] for rendering purposes.
+    ///
+    /// It will attempt to retrieve the instance from the cache or load a new one if not found.
+    /// If for some reason the instance cannot be loaded, a temporary instance will be returned.
+    ///
+    /// This method should be used only on the client side during rendering.
+    /// **Warning:** This may give an outdated instance.
+    ///
+    /// @param entityLiving The entity holding the [ItemStack]
+    /// @param itemStack The [ItemStack] whose associated [PlayerItemInstance] is to be retrieved
+    ///
+    /// @return The cached [PlayerItemInstance], or a temporary [PlayerItemInstance] if not found
     @SideOnly(CLIENT)
     public PlayerItemInstance<?> getCachedItemInstance(final EntityLivingBase entityLiving, final ItemStack itemStack) {
-        Optional<PlayerItemInstance<?>> result = Optional.empty();
-
         try {
-            result = itemStackInstanceCache.get(itemStack, () -> {
+            final Optional<PlayerItemInstance<?>> result = itemStackInstanceCache.get(itemStack, () -> {
                 LOGGER.debug("ItemStack {} not found in cache, initializing...", itemStack);
-
                 PlayerItemInstance<?> instance = null;
 
                 if (MC.player != null && MC.player == entityLiving) { // For current player, the latest instance is available locally
                     for (int slot = 0; slot < ((EntityPlayer) entityLiving).inventory.getSizeInventory(); slot++) {
-                        if (((EntityPlayer) entityLiving).inventory.getStackInSlot(slot) == itemStack) {
-                            instance = getItemInstance((EntityPlayer) entityLiving, slot);
-                            LOGGER.debug("Resolved item stack instance {} in slot {}", instance, slot);
-                            break;
-                        }
+                        if (((EntityPlayer) entityLiving).inventory.getStackInSlot(slot) != itemStack)
+                            continue;
+
+                        instance = getItemInstance((EntityPlayer) entityLiving, slot);
+                        break;
                     }
                 }
 
-                if (instance == null || instance.getItem() != itemStack.getItem()) {
-                    LOGGER.debug("Deserializing instance from stack {}", itemStack);
+                if (instance == null || instance.getItem() != itemStack.getItem())
                     instance = Tags.getInstance(itemStack);
-                    LOGGER.debug("Deserialized instance {} from stack {}", instance, itemStack);
-
-                    if (itemStack.getItem() instanceof PlayerItemInstanceFactory) {
-                        LOGGER.debug("Creating temporary item stack instance {}", instance);
-                        instance = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(entityLiving, itemStack, -1);
-                        instance.setPlayer(entityLiving);
-                    }
-                }
 
                 return Optional.ofNullable(instance);
             });
-        } catch (UncheckedExecutionException | ExecutionException exception) {
-            LOGGER.error("Failed to initialize cache instance from {}", itemStack, exception);
+
+            if (result.isPresent())
+                return result.get();
+        } catch (final ExecutionException exception) {
+            throw new RuntimeException(exception);
         }
 
-        return result.orElse(null);
+        LOGGER.debug("Creating temporary item stack instance {}", itemStack.getItem());
+        return ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(entityLiving, itemStack, -1);
     }
 
     /**
