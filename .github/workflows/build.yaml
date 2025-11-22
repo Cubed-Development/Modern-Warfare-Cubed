@@ -36,8 +36,8 @@ jobs:
       run: ./gradlew setupDecompWorkspace
       continue-on-error: true
 
-    - name: Run generateBuildConfig
-      run: ./gradlew generateBuildConfig
+    - name: Run generateBuildConfigClasses
+      run: ./gradlew generateBuildConfigClasses
       continue-on-error: true
 
     - name: Build with Gradle
