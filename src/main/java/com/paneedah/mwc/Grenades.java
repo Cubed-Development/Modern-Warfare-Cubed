@@ -19,7 +19,7 @@ public class Grenades {
 
 
     public static void init(CommonProxy commonProxy) {
-        GrenadeSafetyPin = new AttachmentBuilder<ItemGrenade>().withCategory(AttachmentCategory.EXTRA).withModel(new com.paneedah.mwc.models.Pin(), "gun.png").withName("GrenadeSafetyPin").withRenderablePart().withTextureName("Dummy.png").build(MWC.modContext);
+        GrenadeSafetyPin = new AttachmentBuilder<ItemGrenade>().withCategory(AttachmentCategory.EXTRA).withModel(new com.paneedah.mwc.models.weapons.Pin(), "gun.png").withName("GrenadeSafetyPin").withRenderablePart().withTextureName("Dummy.png").build(MWC.modContext);
 
         FuseGrenade = new FuseGrenadeFactory().createGrenade(commonProxy);
         ImpactGrenade = new ImpactGrenadeFactory().createGrenade(commonProxy);

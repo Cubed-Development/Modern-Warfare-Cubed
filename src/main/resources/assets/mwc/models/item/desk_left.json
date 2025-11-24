@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "${id}:items/desk_left"
+        "layer0": "${id}:items/props/desks/desk_left"
     },
     "display": {
 		"thirdperson_righthand": {

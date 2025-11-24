@@ -1,49 +1,41 @@
 package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.Configurable;
-import lombok.Getter;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
-public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extends TileEntity implements Configurable<T> {
-
+public class CustomTileEntity extends TileEntity implements Configurable<CustomTileEntityConfiguration> {
+    
     private static final String TAG_SIDE = "side";
 
-    protected CustomTileEntityConfiguration<?> configuration;
-
-    @Getter private int side;
-
-
-    private T safeCast(Object input) {
-        return (T) input;
-    }
+    protected CustomTileEntityConfiguration configuration;
+    
+    private int side;
 
     @Override
-    public T getConfiguration() {
-        if (configuration == null) {
+    public CustomTileEntityConfiguration getConfiguration() {
+        if(configuration == null) {
             configuration = CustomTileEntityClassFactory.getInstance().getConfiguration(getClass());
         }
-        return safeCast(configuration);
+        return configuration;
     }
-
+    
     protected void setSide(int side) {
         this.side = side;
     }
-
-    public void onEntityBlockActivated(World world, BlockPos pos, EntityPlayer player) {
+    
+    public int getSide() {
+        return side;
     }
-
+    
     @Override
     public void readFromNBT(NBTTagCompound tagCompound) {
         super.readFromNBT(tagCompound);
         side = tagCompound.getInteger(TAG_SIDE);
     }
-
+    
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);
@@ -69,7 +61,7 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
         writeToNBT(tagCompound);
         return tagCompound;
     }
-
+    
 //    @Override
 //    public Packet<?> getCompatibleUpdatePacket() {
 //        NBTTagCompound tagCompound = new NBTTagCompound();

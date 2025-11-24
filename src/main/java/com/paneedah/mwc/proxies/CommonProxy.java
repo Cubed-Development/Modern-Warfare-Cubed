@@ -53,6 +53,7 @@ public class CommonProxy {
         Electronics.createEquipment(MWC.modContext);
         Grenades.init(this);
         CustomSpawnEggs.init(this);
+        TileEntities.init();
 
         new TacticalTomahawkFactory().createMelee(this);
         new BaseballBatFactory().createMelee(this);
@@ -64,9 +65,6 @@ public class CommonProxy {
 
     public void init(final MWC mod) {
         MWC.modContext.init(mod);
-
-        TurretBaseFactory.createTileEntity(MWC.modContext);
-        TileEntities.createTileEntity(MWC.modContext);
 
         Entities.init(MWC.modContext);
         Vehicles.init(MWC.modContext);

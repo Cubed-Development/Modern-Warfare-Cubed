@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "${id}:items/barrier"
+        "layer0": "${id}:items/props/barrier"
     },
     "display": {
 		"thirdperson_righthand": {

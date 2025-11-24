@@ -66,6 +66,28 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Added language translation for:
   - Pirate Speak (The Seven Seas)
   - Shakespearean English (Kingdom of England)
+- Added loading bar for props building
+- Added non-rotated versions of the forklift prop and its variants (Existing forklifts will become non-rotated)
+- Added non-rotated versions of the duel floodlight prop (Existing duel floodlight will become non-rotated)
+- Added non-rotated versions of the floodlight prop (Existing floodlight will become non-rotated)
+- Added non-rotated versions of the camera prop (Existing camera will become non-rotated)
+- Added non-rotated versions of the trash bin prop (Existing trash bin will become non-rotated)
+- Added icons for the following props:
+  - Gravestone
+  - Gravestone Skull
+  - Gravestone Cross
+  - Gravestone Cross (ALT 1)
+  - Gravestone Cross (ALT 2)
+  - Sandbag
+  - Sandbag Wall
+  - Spooky Ghost
+  - Spooky Ghost (ALT 1)
+  - Spooky Ghost (ALT 2)
+  - Towable Floodlight
+  - Swat Truck
+  - Server Rack Left (ALT 3)
+  - Scarecrow
+  - Propane Tank
 
 ### Changed
 
@@ -109,6 +131,9 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - Fix it always sending the commands usage when togglesway is ran
   - Have showRecipe work like showAttachments (no overload)
   - Improve the text formatting/color of showAttachments
+- Moved the turret base from the `Props` creative tab to `Blocks & Ingots` creative tab
+- Changed the icon of the `Props` creative tab to the barrel
+- Made naming of props consistent
 
 ### Fixed
 
@@ -131,6 +156,61 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Fixed Grid shader
 - Fixed positions of many things in the mod being glitchy when getting far away from world origin
 - Fixed incompatibility with some mods that modify FOV (By [AnasDevO](https://github.com/AnasDevO) in [#583](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/583))
+- Fixed prop hitboxes not lining up with their models:
+  - Fridge (open/closed)
+  - Locker
+  - SCP Locker
+  - Dumpster
+  - Sandbag
+  - Duel Floodlight
+  - Single Floodlight
+  - Shelf Top
+  - Server Rack Top Left
+  - Server Rack Top Right
+  - Laptop
+  - Desk Shelf
+  - Desk Shelf (ALT 2)
+  - Impaled Body
+  - Hanging Body
+  - Office Chair
+  - Office Chair 2
+  - White Desk Middle
+  - Medical Create
+  - Barrel
+  - Explosive Barrel
+  - Weapon Case
+  - Operating Table
+  - Operating Table (ALT 1)
+  - Trusses
+  - Ceiling Lamp
+  - Outdoor Chair
+  - Outdoor Chair (Rotated)
+  - Home Chair
+  - Home Chair (Rotated)
+  - Vending Machine
+  - Weapons Locker
+  - Fridge (Open)
+  - Fridge (Closed)
+  - Artillery
+  - Supply Drop
+  - Trash Bin
+  - Trash Bin (Rotated)
+  - Wooden Crate
+  - Wooden Crate (Opened)
+- Fixed props registration
+- Fixed rotated version of the ceiling tv prop being rotated the wrong way
+- Fixed duel floodlight prop not being centered
+- Fixed floodlight prop not being centered
+- Fixed body bag prop positioning
+- Fixed rotated version of the radio prop being rotated the wrong way
+- Fixed radio prop being rotated the wrong way
+- Fixed radio prop positioning
+- Fixed swat truck prop being rotated the wrong way
+- Fixed swat truck prop positioning
+- Fixed rotated camera prop not being rotated
+- Fixed barrel & variants prop positioning
+- Fixed barrel & variants prop sizing
+- Fixed being able to interact with props
 
 ### Removed
 
@@ -144,6 +224,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 
 - Clear player item instance registry after rendering every weapon once on first world load and when leaving a world
 - Invalidate player item instance registry itemstack instance cache after rendering every weapon once on first world load
+- Optimized all props models
 
 ### Internal
 
@@ -168,6 +249,11 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - Updated to [MixinBooter](https://www.curseforge.com/minecraft/mc-mods/mixin-booter) 10.7
   - Updated to [Red Core](https://www.curseforge.com/minecraft/mc-mods/red-core) 0.6
   - Updated to [Gradle](https://gradle.org) 9.2.1
+- Separated props models from the rest of the models
+- Separated props textures from the rest of the textures
+- Cleaned up props models
+- Generally organized the project structure
+- Made props id's consistent
 
 ## Modern Warfare Cubed Version 0.1.9 Changelog - 2024-11-25
 

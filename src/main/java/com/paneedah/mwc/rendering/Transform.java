@@ -1,144 +1,129 @@
 package com.paneedah.mwc.rendering;
 
-import dev.redstudio.redcore.math.ClampUtil;
-import dev.redstudio.redcore.math.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
+import io.redstudioragnarok.redcore.utils.MathUtil;
 import net.minecraft.client.renderer.GlStateManager;
 
-import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static dev.redstudio.redcore.ProjectConstants.LOGGER;
 
 /**
- * Represents a 3D transformation containing position, pivot point, rotation, and scale.
+ * Represents a 3D transformation containing position, rotation, scale, and rotation pivot point.
+ * <p>
+ * This class allows the manipulation of 3D transformations typically used for graphics.
+ * The transformations can be applied to objects in a 3D space, providing capabilities to move, rotate, and scale them.
  * <p>
  * All operations are directly performed on the transform.
  *
- * @author Luna Mira Lage (Desoroxxx)
- * @version 0.2
+ * @author Luna Lage (Desoroxxx)
+ * @version 0.1
  */
 public final class Transform {
 
     /**
-     * The position vector of the transform.
+     * @deprecated This is very error prone, and doesn't have any benefits at all, use the new getter instead.
+     */
+    @Deprecated // Todo: Make private and convert every existing use
+    public static final Transform ZERO = new Transform().withScale(1, 1, 1);
+
+    /**
+     * Position vector of the transform.
      */
     public final Vector3F position = new Vector3F();
     /**
-     * The pivot point vector of the transform.
+     * Point around which the rotation occurs.
      */
     public final Vector3F pivotPoint = new Vector3F();
     /**
-     * The rotation vector of the transform.
+     * Euler angles representing the rotation in the XYZ order.
+     * Which are applied in the ZYX order.
      * <p>
-     * Using Euler angles in the XYZ order.
-     * They are applied in the ZYX order.
+     * See {@link #applyTransformations()} to see how rotations are applied and how to use them.
      *
-     * @see #applyTransformations() #applyTransformations() to see how rotations are applied and how to use them.
      * @see <a href="https://en.wikipedia.org/wiki/Euler_angles">Euler Angles <a/>
      */
     public final Vector3F rotation = new Vector3F();
     /**
-     * The scale vector of the transform.
+     * Scale vector of the transform.
      */
     public final Vector3F scale = new Vector3F();
 
     /**
-     * @return A new fully zero transform with a scale of 1
-     */
-    public static Transform getZero() {
-        return new Transform().withScale(1, 1, 1);
-    }
-
-    /**
      * Sets the position of the transform in the 3D space.
      * <p>
-     * This method updates the x, y, and z values of the position vector.
+     * This method updates the x, y, and z coordinates for the position.
      * <p>
      * Remember that Y is flipped.
      *
-     * @param x The X-coordinate of the position
-     * @param y The Y-coordinate of the position
-     * @param z The Z-coordinate of the position
+     * @param x The X-coordinate of the position.
+     * @param y The Y-coordinate of the position.
+     * @param z The Z-coordinate of the position.
      *
-     * @return This transform
+     * @return The updated transform with the new position.
      */
     public Transform withPosition(final float x, final float y, final float z) {
-        position.x = x;
-        position.y = y;
-        position.z = z;
-
+        position.set(x, y, z);
         return this;
     }
 
     /**
-     * Sets the pivot point of the transform in 3D space.
+     * Updates the pivot point of the transform in 3D space.
      * <p>
-     * This method updates the x, y, and z values of the pivot point vector.
+     * This method modifies the x, y, and z coordinates for the pivot point.
      *
-     * @param x The X-coordinate of the pivot point
-     * @param y The Y-coordinate of the pivot point
-     * @param z The Z-coordinate of the pivot point
+     * @param x The X-coordinate of the pivot point.
+     * @param y The Y-coordinate of the pivot point.
+     * @param z The Z-coordinate of the pivot point.
      *
-     * @return This transform
+     * @return The updated transform with the new pivot point.
      */
     public Transform withPivotPoint(final float x, final float y, final float z) {
-        pivotPoint.x = x;
-        pivotPoint.y = y;
-        pivotPoint.z = z;
-
+        pivotPoint.set(x, y, z);
         return this;
     }
 
     /**
      * Sets the rotation of the transform in the 3D space.
      * <p>
-     * This method updates the x, y, and z values of the rotation vector.
-     * <p>
      * Ensures rotation values are within the range of -360 to 360 degrees.
      *
-     * @param x The -X rotation in degrees (tilt clockwise when looking straight at the screen)
-     * @param y The -Y rotation in degrees (turn to the right)
-     * @param z The +Z rotation in degrees (tilt head downwards)
+     * @param x -X rotation in degrees (tilt clockwise when looking straight at the screen).
+     * @param y -Y rotation in degrees (turn to the right).
+     * @param z +Z rotation in degrees (tilt head downwards).
      *
-     * @return This transform
-     *
-     * @see #applyTransformations() #applyTransformations() to see how rotations are applied and how to use them.
-     * @see <a href="https://en.wikipedia.org/wiki/Euler_angles">Euler Angles <a/>
+     * @return The updated transform with the specified rotation.
      */
     public Transform withRotation(final float x, final float y, final float z) {
         if (x < -360 || x > 360 || y < -360 || y > 360 || z < -360 || z > 360) {
-            LOGGER.warn("Something is setting rotation values exceeding the allowed range.\nClamping to the range of -360 to 360.\nThis will cause visual issues.\nRotation Values: X: {}, Y: {}, Z: {}", x, y, z, new IllegalArgumentException("Rotation Out of Range for Transform"));
+            LOGGER.warn(String.format("Something is setting rotation values exceeding the allowed range.%nClamping to the range of -360 to 360.%nThis will cause visual issues.%nRotation Values: X: %s, Y: %s, Z: %s", x, y, z), new IllegalArgumentException("Rotation Out of Range for Transform"));
 
-            rotation.x = ClampUtil.clampMaxFirst(x, -360, 360);
-            rotation.y = ClampUtil.clampMaxFirst(y, -360, 360);
-            rotation.z = ClampUtil.clampMaxFirst(z, -360, 360);
-        } else {
-            rotation.x = x;
-            rotation.y = y;
-            rotation.z = z;
-        }
+            rotation.set(MathUtil.clampMaxFirst(x, -360, 360), MathUtil.clampMaxFirst(y, -360, 360), MathUtil.clampMaxFirst(z, -360, 360));
+        } else
+            rotation.set(x, y, z);
 
         return this;
     }
 
     /**
-     * Sets the rotation of the transform in the 3D space.
-     * <p>
-     * This method updates the x, y, and z values of the rotation vector.
-     * <p>
-     * Ensures rotation values are within the range of -360 to 360 degrees.
-     * <p>
      * Converts Blockbench rotations to the game's and/or render's (still haven't figured it out) rotation system and updates the transform.
-     * Specifically, this method inverts the X and Y rotations.
+     * <p>
+     * Specifically, this method inverts the X and Y rotations and ensures the values are within the allowed range.
      *
-     * @param x The +X rotation in degrees (once converted tilt clockwise when looking straight at the screen)
-     * @param y The +Y rotation in degrees (once converted turn to the right)
-     * @param z The +Z rotation in degrees (tilt head downwards)
+     * @param x X rotation in degrees.
+     * @param y Y rotation in degrees.
+     * @param z Z rotation in degrees.
      *
-     * @return This transform
-     *
-     * @see #applyTransformations() #applyTransformations() to see how rotations are applied and how to use them.
-     * @see <a href="https://en.wikipedia.org/wiki/Euler_angles">Euler Angles <a/>
+     * @return The updated transform with the converted rotations.
      */
     public Transform withBBRotation(final float x, final float y, final float z) {
-        withRotation(-x, -y, z);
+        final float negativeX = -x;
+        final float negativeY = -y;
+
+        if (negativeX < -360 || negativeX > 360 || negativeY < -360 || negativeY > 360 || z < -360 || z > 360) {
+            LOGGER.warn(String.format("Something is setting rotation values exceeding the allowed range.%nClamping to the range of -360 to 360.%nThis will cause visual issues.%nRotation Values: X: %s, Y: %s, Z: %s%nBlockbench Rotation Values: X: %s, Y: %s, Z: %s", negativeX, negativeY, z, x, y, z), new IllegalArgumentException("Rotation Out of Range for Transform"));
+
+            rotation.set(MathUtil.clampMaxFirst(negativeX, -360, 360), MathUtil.clampMaxFirst(negativeY, -360, 360), MathUtil.clampMaxFirst(z, -360, 360));
+        } else
+            rotation.set(negativeX, negativeY, z);
 
         return this;
     }
@@ -146,74 +131,72 @@ public final class Transform {
     /**
      * Sets the scale of the transform in the 3D space.
      * <p>
-     * This method updates the x, y, and z values of the scale vector.
-     * <p>
      * Ensures that the scale values are non-negative.
      *
-     * @param x The X scale
-     * @param y The Y scale
-     * @param z The Z scale
+     * @param x X scale.
+     * @param y Y scale.
+     * @param z Z scale.
      *
-     * @return This transform
+     * @return The updated transform with the specified scale.
      */
     public Transform withScale(final float x, final float y, final float z) {
         if (x < 0 || y < 0 || z < 0) {
-            LOGGER.warn("Something is setting one or more negative scale values to a transform.\nClamping to the range of 0 to biggest float.\nThis will cause visual issues.\nScale Values: X: {}, Y: {}, Z: {}", x, y, z, new IllegalArgumentException("Negative Scale for Transform"));
+            LOGGER.warn(String.format("Something is setting a negative scale value to a transform.%nClamping to the range of 0 to biggest float.%nThis will cause visual issues.%nTransform Scale: X: %s, Y: %s, Z: %s", x, y, z), new IllegalArgumentException("Negative Scale for Transform"));
 
-            scale.x = ClampUtil.clampMinFirst(x, 0, Float.MAX_VALUE);
-            scale.y = ClampUtil.clampMinFirst(y, 0, Float.MAX_VALUE);
-            scale.z = ClampUtil.clampMinFirst(z, 0, Float.MAX_VALUE);
-        } else {
-            scale.x = x;
-            scale.y = y;
-            scale.z = z;
-        }
+            scale.set(MathUtil.clampMinFirst(x, 0, Float.MAX_VALUE), MathUtil.clampMinFirst(y, 0, Float.MAX_VALUE), MathUtil.clampMinFirst(z, 0, Float.MAX_VALUE));
+        } else
+            scale.set(x, y, z);
 
         return this;
     }
 
     /**
-     * Copies the values of the vectors from the given transform into this transform vectors.
+     * Copies the values from the given transform into this transform.
      *
      * @param transform The source transform to set from
-     *
-     * @return This transform
      */
-    public Transform copy(final Transform transform) {
+    public void copy(final Transform transform) {
         position.copy(transform.position);
         pivotPoint.copy(transform.pivotPoint);
         rotation.copy(transform.rotation);
         scale.copy(transform.scale);
-
-        return this;
     }
 
     /**
-     * @return A new, identical copy of this transform
+     * Creates a set of this transform and returns it.
+     *
+     * @return A new Transform object that is a set of this transform
      */
     public Transform duplicate() {
-        return new Transform().copy(this);
+        final Transform transformCopy = new Transform();
+
+        transformCopy.position.copy(position);
+        transformCopy.pivotPoint.copy(pivotPoint);
+        transformCopy.rotation.copy(rotation);
+        transformCopy.scale.copy(scale);
+
+        return transformCopy;
     }
 
     /**
-     * Applies the transform's position, rotation using the pivot point, and scale to the current OpenGL state using {@link GlStateManager}.
+     * Applies a series of transformations to the current OpenGL state using {@link GlStateManager}.
      * <p>
-     * The transformations are applied in the following order:
+     * The transformations occur in the following order:
      * <ol>
-     *     <li>Translate to the position vector</li>
-     *     <li>Translate by the pivot point vector to set the rotation origin</li>
-     *     <li>Rotate around the Z-axis (tilt clockwise when looking straight at the screen)</li>
-     *     <li>Rotate around the Y-axis (turn to the right)</li>
-     *     <li>Rotate around the X-axis (tilt head downwards)</li>
-     *     <li>Translate by the pivot point vector to restore the original origin</li>
-     *     <li>Scale according to the scale vector</li>
+     *     <li>Translation to the specified position.</li>
+     *     <li>Move the pivot point to a specified location.</li>
+     *     <li>Rotation about the Z-axis (tilt clockwise when looking straight at the screen).</li>
+     *     <li>Rotation about the Y-axis (turn to the right).</li>
+     *     <li>Rotation about the X-axis (tilt head downwards).</li>
+     *     <li>Return the pivot point back to its original location.</li>
+     *     <li>Scaling as per specified dimensions.</li>
      * </ol>
-     * <b>Note:</b> Adjusting the pivot point is essential for ensuring that rotations occur around the desired location.
+     * </p>
+     * Note: The pivot point movement is crucial for ensuring rotations occur around the desired location.
      *
      * @see GlStateManager#translate(float, float, float)
      * @see GlStateManager#rotate(float, float, float, float)
      * @see GlStateManager#scale(float, float, float)
-     * @see <a href="https://en.wikipedia.org/wiki/Euler_angles">Euler Angles <a/>
      */
     public void applyTransformations() {
         GlStateManager.translate(position.x, position.y, position.z);
@@ -240,19 +223,28 @@ public final class Transform {
      * Example output:
      * <pre>
      *  new Transform()
-     *          .withPosition(1.0f, 2.0f, 3.0f)
-     *          .withPivotPoint(1.0f, 1.0f, 1.0f)
-     *          .withRotation(45.0f, 90.0f, 180.0f)
-     *          .withScale(1.0f, 2.0f, 2.0f);
+     * .withPosition(1.0f, 2.0f, 3.0f)
+     * .withPivotPoint(1.0f, 1.0f, 1.0f)
+     * .withRotation(45.0f, 90.0f, 180.0f)
+     * .withScale(1.0f, 2.0f, 2.0f);
      * </pre>
      */
     public void printTransformCreationCode() {
         final String result = String.format("%n new Transform()") +
-                String.format("%n        .withPosition(%ff, %ff, %ff)", position.x, position.y, position.z) +
-                String.format("%n        .withPivotPoint(%ff, %ff, %ff)", pivotPoint.x, pivotPoint.y, pivotPoint.z) +
-                String.format("%n        .withRotation(%ff, %ff, %ff)", rotation.x, rotation.y, rotation.z) +
-                String.format("%n        .withScale(%ff, %ff, %ff)", scale.x, scale.y, scale.z);
+                String.format("%n.withPosition(%ff, %ff, %ff)", position.x, position.y, position.z) +
+                String.format("%n.withPivotPoint(%ff, %ff, %ff)", pivotPoint.x, pivotPoint.y, pivotPoint.z) +
+                String.format("%n.withRotation(%ff, %ff, %ff)", rotation.x, rotation.y, rotation.z) +
+                String.format("%n.withScale(%ff, %ff, %ff)", scale.x, scale.y, scale.z);
 
         LOGGER.info(result);
+    }
+
+    /**
+     * Get a duplicate of the ZERO transform.
+     *
+     * @return New duplicate of the ZERO transform.
+     */
+    public static Transform getZero() {
+        return ZERO.duplicate();
     }
 }

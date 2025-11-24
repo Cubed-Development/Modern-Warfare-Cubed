@@ -122,7 +122,7 @@ public class Bullets {
 
         EnergyCase = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("EnergyCase")
-                .withModel(new com.paneedah.mwc.models.EnergyCase(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.weapons.EnergyCase(), "gun.png")
                 .withMaxStackSize(64)
                 .withCrafting(8, CraftingComplexity.LOW, "ingotCopper", Items.GUNPOWDER)
                 .withFirstPersonPositioning(() -> {
