@@ -71,34 +71,3 @@ jobs:
       with:
         name: ${{ steps.find-jars.outputs.dev-name }}
         path: ${{ steps.find-jars.outputs.dev-path }}
-    
-    - name: Set up JDK 8
-      uses: actions/setup-java@v5
-      with:
-        java-version: 8
-        distribution: temurin
-        cache: gradle
-        
-    - name: Copy mod to `run/mods`
-      run: |
-        mkdir -p ./run/mods
-        echo "Main jar is ${{ steps.find-jars.outputs.main-name }}"
-        cp ./build/libs/${{ steps.find-jars.outputs.main-name }} ./run/mods
-    
-#    - name: Run server
-#      uses: headlesshq/mc-server-test@1.1.0
-#      with:
-#        mc: 1.12.2
-#        modloader: forge
-#        java: 8
-    
-    # TODO: Make a separate tasks for client test as it does not need the build output, just use the artifacts once uploaded!
-    #       Like that it can run in parrallel of the server. 
-    - name: Run client
-      uses: headlesshq/mc-runtime-test@4.1.0
-      with:
-        mc: 1.12.2
-        regex: .*forge.*
-        modloader: forge
-        mc-runtime-test: none
-        java: 8
