@@ -82,6 +82,7 @@ jobs:
     - name: Copy mod to `run/mods`
       run: |
         mkdir -p run/mods
+        echo "Main jar is ${{ steps.find-jars.outputs.main-name }}"
         cp build/libs/${{ steps.find-jars.outputs.main-name }} run/mods
     
     - name: Run server
