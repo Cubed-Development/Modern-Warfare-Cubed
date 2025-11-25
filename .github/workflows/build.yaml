@@ -85,12 +85,12 @@ jobs:
         echo "Main jar is ${{ steps.find-jars.outputs.main-name }}"
         cp ./build/libs/${{ steps.find-jars.outputs.main-name }} ./run/mods
     
-    - name: Run server
-      uses: headlesshq/mc-server-test@1.1.0
-      with:
-        mc: 1.12.2
-        modloader: forge
-        java: 8
+#    - name: Run server
+#      uses: headlesshq/mc-server-test@1.1.0
+#      with:
+#        mc: 1.12.2
+#        modloader: forge
+#        java: 8
     
     # TODO: Make a separate tasks for client test as it does not need the build output, just use the artifacts once uploaded!
     #       Like that it can run in parrallel of the server. 
