@@ -159,7 +159,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Props now use Red Core `AABBUtil`
 - Lombokified most of the codebase
 - Updated dependencies:
-  - Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 6.0.1
+  - Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 6.0.4
   - Updated to [gradle-idea-ext-plugin](https://github.com/JetBrains/gradle-idea-ext-plugin) 1.3
   - Updated to [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok) 9.1.0
   - Updated to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 2.0.0
