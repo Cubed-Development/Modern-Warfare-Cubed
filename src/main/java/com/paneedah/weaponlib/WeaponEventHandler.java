@@ -21,15 +21,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import static com.paneedah.mwc.MWC.modContext;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WeaponEventHandler {
-
-    private final ModContext modContext;
-
-    public WeaponEventHandler(ModContext modContext) {
-        this.modContext = modContext;
-    }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void zoom(FOVUpdateEvent event) {
@@ -93,14 +88,12 @@ public class WeaponEventHandler {
     }
 
     @SubscribeEvent
-    public void onMouse(MouseEvent event) {
-
+    public void onMouse(final MouseEvent event) {
         if (event.getButton() == 0 || event.getButton() == 1) {
             // If the current player holds the weapon in their main hand, cancel default minecraft mouse processing
             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player);
             //PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
-            if (instance instanceof PlayerWeaponInstance || instance instanceof PlayerMeleeInstance
-                    || instance instanceof PlayerGrenadeInstance) { // TODO: introduce common action handler interface and check instanceof ActionHandler instead
+            if (instance instanceof PlayerWeaponInstance || instance instanceof PlayerMeleeInstance || instance instanceof PlayerGrenadeInstance) { // TODO: introduce common action handler interface and check instanceof ActionHandler instead
                 event.setCanceled(true);
             }
         }
@@ -108,9 +101,8 @@ public class WeaponEventHandler {
 
     @SubscribeEvent
     public void onRenderLivingEvent(RenderLivingEvent.Pre event) {
-        if ((event.isCanceled()) || (!(event.getEntity() instanceof EntityPlayer))) {
+        if ((event.isCanceled()) || (!(event.getEntity() instanceof EntityPlayer)))
             return;
-        }
 
         ItemStack itemStack = event.getEntity().getHeldItemMainhand();
         if (itemStack.getItem() instanceof Weapon) {
@@ -132,22 +124,10 @@ public class WeaponEventHandler {
         }
     }
 
+    @SubscribeEvent
     @SideOnly(Side.CLIENT)
-    @SubscribeEvent
-    public final void onRenderItemEvent(RenderHandEvent event) {
-        if (MC.player.getRidingEntity() instanceof EntityVehicle) {
+    public final void onRenderItemEvent(final RenderHandEvent event) {
+        if (MC.player.getRidingEntity() instanceof EntityVehicle)
             event.setCanceled(true);
-        }
-    }
-
-    @SubscribeEvent
-    public void onEntityJoinedWorldEvent(EntityJoinWorldEvent entityJoinWorldEvent) {
-        if (entityJoinWorldEvent.getEntity() instanceof Contextual) {
-            ((Contextual) entityJoinWorldEvent.getEntity()).setContext(modContext);
-        }
-    }
-
-    protected ModContext getModContext() {
-        return modContext;
     }
 }

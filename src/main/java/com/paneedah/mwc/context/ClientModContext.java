@@ -1,9 +1,8 @@
 package com.paneedah.mwc.context;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
+import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
@@ -13,7 +12,6 @@ import com.paneedah.weaponlib.grenade.*;
 import com.paneedah.weaponlib.inventory.InventoryTabs;
 import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
-import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.perspective.PerspectiveManager;
 import lombok.Getter;
 import net.minecraft.entity.Entity;
@@ -23,16 +21,18 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
+@SideOnly(Side.CLIENT)
 public final class ClientModContext extends CommonModContext {
 
-    private ClientEventHandler clientEventHandler;
-    private CompatibleRenderingRegistry rendererRegistry;
+	private CompatibleRenderingRegistry rendererRegistry;
 
     @Getter private PerspectiveManager viewManager;
 
@@ -58,12 +58,10 @@ public final class ClientModContext extends CommonModContext {
 
         KeyBindings.init();
 
-        clientEventHandler = new ClientEventHandler();
+	    final ClientEventHandler clientEventHandler = new ClientEventHandler();
         MinecraftForge.EVENT_BUS.register(clientEventHandler);
 
         MinecraftForge.EVENT_BUS.register(InventoryTabs.getInstance());
-
-        MinecraftForge.EVENT_BUS.register(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
 
         viewManager = new PerspectiveManager();
         inventoryTextureMap = new HashMap<>();
@@ -122,10 +120,6 @@ public final class ClientModContext extends CommonModContext {
         return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerWeaponInstance.class);
     }
 
-    public PlayerMeleeInstance getMainHeldMeleeWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerMeleeInstance.class);
-    }
-
     @Override
     public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
         super.registerMeleeWeapon(name, itemMelee, renderer);
@@ -147,5 +141,4 @@ public final class ClientModContext extends CommonModContext {
     public void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer) {
         rendererRegistry.registerEntityRenderingHandler(entityClass, renderer);
     }
-
 }
