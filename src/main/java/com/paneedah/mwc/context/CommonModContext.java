@@ -236,11 +236,6 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public float getAspectRatio() {
-        throw new IllegalStateException();
-    }
-
-    @Override
     public EffectManager getEffectManager() {
         throw new IllegalStateException();
     }

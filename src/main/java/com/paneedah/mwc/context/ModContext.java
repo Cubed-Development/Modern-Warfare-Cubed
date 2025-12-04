@@ -69,8 +69,6 @@ public interface ModContext {
 
     ResourceLocation getNamedResource(final String path);
 
-    float getAspectRatio();
-
     GrenadeAttackAspect getGrenadeAttackAspect();
 
     EffectManager getEffectManager();

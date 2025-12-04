@@ -36,8 +36,6 @@ public final class ClientModContext extends CommonModContext {
 
     @Getter private PerspectiveManager viewManager;
 
-    private float aspectRatio;
-
     @Getter private Map<Object, Integer> inventoryTextureMap;
 
     private EffectManager effectManager;
@@ -47,8 +45,6 @@ public final class ClientModContext extends CommonModContext {
     @Override
     public void preInit() {
         super.preInit();
-
-        aspectRatio = (float) MC.displayWidth / MC.displayHeight;
 
         ClientCommandHandler.instance.registerCommand(new DebugCommand());
 
@@ -140,11 +136,6 @@ public final class ClientModContext extends CommonModContext {
     public void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer) {
         super.registerGrenadeWeapon(name, itemGrenade, renderer);
         rendererRegistry.register(itemGrenade, itemGrenade.getName(), itemGrenade.getRenderer());
-    }
-
-    @Override
-    public float getAspectRatio() {
-        return aspectRatio;
     }
 
     @Override
