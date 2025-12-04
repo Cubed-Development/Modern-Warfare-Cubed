@@ -24,7 +24,7 @@ val mixinBooterVersion = "10.7"
 minecraft {
     mcVersion = "1.12.2"
     username = "Desoroxxx"
-    extraRunJvmArguments = listOf("-Dforge.logging.console.level=debug", "-Dfml.coreMods.load=${plugin}", "-Dmixin.hotSwap=true", "-Dmixin.checks.mixininterfaces=true", "-Dmixin.debug.export=true -XX:+UseStringDeduplication")
+    extraRunJvmArguments = listOf("-Dforge.logging.console.level=debug", "-Dfml.coreMods.load=${plugin}", "-Dmixin.checks.mixininterfaces=true", "-Dmixin.debug.export=true",  "-XX:+UseStringDeduplication")
 }
 
 repositories {
