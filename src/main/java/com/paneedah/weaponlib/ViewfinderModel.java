@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.context.ClientModContext;
+import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.FlatSurfaceModelBox;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -15,6 +17,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 
+import static com.paneedah.mwc.MWC.modContext;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 
@@ -140,12 +143,12 @@ public class ViewfinderModel extends ModelBase {
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 		*/
 
-
-        if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
-            float pwi = ClientModContext.getContext().getMainHeldWeapon().getZoom();
-            if (ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.READY && ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.PAUSED && ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.EJECT_REQUIRED && ClientModContext.getContext().getMainHeldWeapon().getState() != WeaponState.ALERT) {
+        final PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
+        if (instance != null) {
+            if (instance.getState() != WeaponState.READY && instance.getState() != WeaponState.PAUSED && instance.getState() != WeaponState.EJECT_REQUIRED && instance.getState() != WeaponState.ALERT)
                 ClientValueRepo.SCOPE_Y.setCurrentValue(1);
-            }
+
+            final float pwi = instance.getZoom();
             scopeShader.uniform1f("reticleZoom", (pwi + 0.86f));
             scopeShader.uniform1f("actualZoom", (1.0f - pwi) - 0.80f);
         }

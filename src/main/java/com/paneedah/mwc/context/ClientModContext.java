@@ -29,6 +29,7 @@ import java.util.Map;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
+@Deprecated
 @SideOnly(Side.CLIENT)
 public final class ClientModContext extends CommonModContext {
 
@@ -38,9 +39,7 @@ public final class ClientModContext extends CommonModContext {
 
     @Getter private Map<Object, Integer> inventoryTextureMap;
 
-    private EffectManager effectManager;
-
-    @Getter private ScreenShakingAnimationManager playerRawPitchAnimationManager;
+    @Getter private EffectManager effectManager;
 
     @Override
     public void preInit() {
@@ -67,8 +66,6 @@ public final class ClientModContext extends CommonModContext {
         inventoryTextureMap = new HashMap<>();
 
         effectManager = new ClientEffectManager();
-
-        playerRawPitchAnimationManager = new ScreenShakingAnimationManager();
     }
 
     @Override
@@ -107,7 +104,7 @@ public final class ClientModContext extends CommonModContext {
     }
 
     @Override
-    protected EntityPlayer getPlayer(MessageContext ctx) {
+    protected EntityPlayer getPlayer(MessageContext messageContext) {
         return MC.player;
     }
 
@@ -130,11 +127,6 @@ public final class ClientModContext extends CommonModContext {
     public void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer) {
         super.registerGrenadeWeapon(name, itemGrenade, renderer);
         rendererRegistry.register(itemGrenade, itemGrenade.getName(), itemGrenade.getRenderer());
-    }
-
-    @Override
-    public EffectManager getEffectManager() {
-        return effectManager;
     }
 
     @Override

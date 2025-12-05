@@ -1,25 +1,14 @@
 package com.paneedah.weaponlib;
 
+public final class SpecialAttachments {
 
-import com.paneedah.weaponlib.model.Bullet556;
+    public static ItemAttachment<Weapon> magicMag;
 
-public class SpecialAttachments {
-    public static ItemAttachment<Weapon> MagicMag;
-
-    public static void init(ModContext modContext) {
-
-        MagicMag = new AttachmentBuilder<Weapon>()
+    public static void init() {
+        magicMag = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.MAGICMAG)
-
-                // This model serves as a placeholder
-                .withModel(new Bullet556(), "tan.png")
-
-
                 .withName("magazine_extra")
                 .withRenderablePart()
-                .withTextureName("Dummy.png").build(modContext);
-
-
+                .build();
     }
-
 }

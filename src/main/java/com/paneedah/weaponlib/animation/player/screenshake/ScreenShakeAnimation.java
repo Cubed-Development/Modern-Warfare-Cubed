@@ -213,7 +213,7 @@ public class ScreenShakeAnimation implements PlayerAnimation {
             targetRotateX = 1f;
             targetRotateY = 1f;
             targetRotateZ = 1f;
-            totalAdjustment += state.getStepAdjustement();
+            totalAdjustment += state.getStepAdjustment();
 
             initialized = true;
         } else if (progress == 0f) {
@@ -239,7 +239,7 @@ public class ScreenShakeAnimation implements PlayerAnimation {
             targetRotateY = -targetRotateY * rotationAttenuation;
             targetRotateZ = -targetRotateZ * rotationAttenuation;
 
-            totalAdjustment += state.getStepAdjustement();
+            totalAdjustment += state.getStepAdjustment();
         }
 
         float adjustedProgress = MathHelper.sin(progress * (float) Math.PI / 2f);

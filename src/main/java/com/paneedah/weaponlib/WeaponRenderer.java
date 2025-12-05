@@ -1106,12 +1106,12 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
             // Now time to do magic magazine things
             if (hasCompoundReloadEmpty && compoundReloadEmptyUsesTactical) {
-                withFPSCustomCompoundReloadingEmpty(SpecialAttachments.MagicMag.getRenderablePart(),
+                withFPSCustomCompoundReloadingEmpty(SpecialAttachments.magicMag.getRenderablePart(),
                         BBLoader.getAnimation(animationFile, BBLoader.KEY_COMPOUND_RELOAD_EMPTY, BBLoader.KEY_MAGIC_MAGAZINE)
                                 .getTransitionList(Transform.getZero(), BBLoader.HANDDIVISOR));
             }
             if (hasCompoundReload && compoundReloadUsesTactical) {
-                withFirstPersonCustomPositioningCompoundReloading(SpecialAttachments.MagicMag.getRenderablePart(),
+                withFirstPersonCustomPositioningCompoundReloading(SpecialAttachments.magicMag.getRenderablePart(),
                         BBLoader.getAnimation(animationFile, BBLoader.KEY_COMPOUND_RELOAD, BBLoader.KEY_MAGIC_MAGAZINE)
                                 .getTransitionList(Transform.getZero(), BBLoader.HANDDIVISOR));
             }
@@ -3191,7 +3191,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         Vector3F magRotationPoint = weapon.pivotPoint;
 
         if (getBuilder().isHasTacticalReload() && nextState == WeaponState.TACTICAL_RELOAD) {
-            getWeaponRendererBuilder().tacticalReloadContainer.getCustom().put(SpecialAttachments.MagicMag.getRenderablePart(),
+            getWeaponRendererBuilder().tacticalReloadContainer.getCustom().put(SpecialAttachments.magicMag.getRenderablePart(),
                     BBLoader.getAnimation(getBuilder().getAnimationFileName(), BBLoader.KEY_TACTICAL_RELOAD, BBLoader.KEY_MAGIC_MAGAZINE)
                             .getTransitionList(Transform.getZero().withPivotPoint(magRotationPoint.x, magRotationPoint.y, magRotationPoint.z).duplicate(), BBLoader.HANDDIVISOR));
 
@@ -3201,7 +3201,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             // Log
             LOGGER.debug("Creating a compound empty animation using the magic magazine system");
 
-            getWeaponRendererBuilder().compoundReloadEmptyContainer.getCustom().put(SpecialAttachments.MagicMag.getRenderablePart(),
+            getWeaponRendererBuilder().compoundReloadEmptyContainer.getCustom().put(SpecialAttachments.magicMag.getRenderablePart(),
                     BBLoader.getAnimation(getBuilder().getAnimationFileName(), BBLoader.KEY_COMPOUND_RELOAD_EMPTY, BBLoader.KEY_MAGIC_MAGAZINE)
                             .getTransitionList(Transform.getZero().withPivotPoint(magRotationPoint.x, magRotationPoint.y, magRotationPoint.z).duplicate(), BBLoader.HANDDIVISOR));
         } else if (isCompoundReloadTactical() && nextState == WeaponState.COMPOUND_RELOAD) {
@@ -3209,7 +3209,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             // Log
             LOGGER.debug("Creating a standard compound animation using the magic magazine system");
 
-            getWeaponRendererBuilder().compoundReloadContainer.getCustom().put(SpecialAttachments.MagicMag.getRenderablePart(),
+            getWeaponRendererBuilder().compoundReloadContainer.getCustom().put(SpecialAttachments.magicMag.getRenderablePart(),
                     BBLoader.getAnimation(getBuilder().getAnimationFileName(), BBLoader.KEY_COMPOUND_RELOAD, BBLoader.KEY_MAGIC_MAGAZINE)
                             .getTransitionList(Transform.getZero().withPivotPoint(magRotationPoint.x, magRotationPoint.y, magRotationPoint.z).duplicate(), BBLoader.HANDDIVISOR));
         }
@@ -3303,7 +3303,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             }
 
 
-            //ItemAttachment<Weapon> exp = renderContext.getModContext().getAttachmentAspect().getActiveAttachment(renderContext.getWeaponInstance(), AttachmentCategory.MAGAZINE);
+            //ItemAttachment<Weapon> exp = modContext.getAttachmentAspect().getActiveAttachment(renderContext.getWeaponInstance(), AttachmentCategory.MAGAZINE);
             if (currentMagazine != null) {
                 //compatibleAttachment.getModelPositioning().accept(texturedModel.getU());
 

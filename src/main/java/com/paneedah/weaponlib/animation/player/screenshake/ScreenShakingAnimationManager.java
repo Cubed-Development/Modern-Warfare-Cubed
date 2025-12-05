@@ -3,203 +3,115 @@ package com.paneedah.weaponlib.animation.player.screenshake;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakeAnimation.Builder;
 import com.paneedah.weaponlib.animation.player.PlayerAnimation;
 import com.paneedah.weaponlib.animation.player.PlayerRawPitchAnimation;
-import lombok.Getter;
+import lombok.*;
 import net.minecraft.entity.player.EntityPlayer;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
-public class ScreenShakingAnimationManager {
+public final class ScreenShakingAnimationManager {
 
-    @Getter
-    public enum State {
-        SHOOTING(0, 0.1f), RELOADING(-5, 0f), AIMING(-10, 0f), DEFAULT(Integer.MIN_VALUE, 0f);
+	private static final long TRANSITION_DURATION = 2000;
 
-        private final int priority;
-        private final float stepAdjustement;
+	private static final float MAX_YAW = 2f;
+	private static final float MAX_PITCH = 2f;
 
-        State(int priority, float stepAdjustement) {
-            this.priority = priority;
-            this.stepAdjustement = stepAdjustement;
-        }
+	private static final Map<Key, PlayerAnimation> ALL_PLAYER_ANIMATIONS = new HashMap<>();
+	private static final Map<EntityPlayer, PlayerAnimation> ACTIVE_ANIMATIONS = new HashMap<>();
 
-    }
+	private static State lastTargetState;
 
-    private static class Key {
-        UUID playerId;
-        State state;
-        Weapon weapon;
+	public static void update(final EntityPlayer player, final PlayerWeaponInstance instance, final RenderableState state) {
+		final State targetState = toManagedState(state);
 
-        public Key(EntityPlayer player, State state, Weapon weapon) {
-            this.playerId = player.getPersistentID();
-            this.state = state;
-            this.weapon = weapon;
-        }
+		PlayerAnimation activeAnimation = ACTIVE_ANIMATIONS.get(player);
+		if (activeAnimation == null) {
+			activeAnimation = getAnimationForManagedState(player, instance, targetState);
 
-        @Override
-        public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + ((playerId == null) ? 0 : playerId.hashCode());
-            result = prime * result + ((state == null) ? 0 : state.hashCode());
-            result = prime * result + ((weapon == null) ? 0 : weapon.hashCode());
-            return result;
-        }
+			ACTIVE_ANIMATIONS.put(player, activeAnimation);
+		} else {
+			final State currentAnimationState = activeAnimation.getState();
 
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null) {
-                return false;
-            }
-            if (getClass() != obj.getClass()) {
-                return false;
-            }
-            Key other = (Key) obj;
-            if (playerId == null) {
-                if (other.playerId != null) {
-                    return false;
-                }
-            } else if (!playerId.equals(other.playerId)) {
-                return false;
-            }
-            if (state != other.state) {
-                return false;
-            }
-            if (weapon == null) {
-                return other.weapon == null;
-            } else
-                return weapon.equals(other.weapon);
-        }
+			if (currentAnimationState == targetState) {
+				if (targetState != lastTargetState)
+					activeAnimation.reset(player, false);
+			} else if (currentAnimationState.getPriority() < targetState.getPriority() || activeAnimation.isCompleted()) {
+				activeAnimation = getAnimationForManagedState(player, instance, targetState);
 
+				activeAnimation.reset(player, true);
 
-    }
+				ACTIVE_ANIMATIONS.put(player, activeAnimation);
+			}
+		}
 
-    private final Map<Key, PlayerAnimation> allPlayerAnimations = new HashMap<>();
-    private final Map<EntityPlayer, PlayerAnimation> activeAnimations = new HashMap<>();
-    private float maxYaw = 2f;
-    private float maxPitch = 2f;
-    private long transitionDuration = 2000;
-    private State lastTargetState;
+		activeAnimation.update(player, true);
+		lastTargetState = targetState;
+	}
 
-    public ScreenShakingAnimationManager setMaxYaw(float maxYaw) {
-        this.maxYaw = maxYaw;
-        return this;
-    }
+	public static State toManagedState(final RenderableState state) {
+		if (state == null)
+			return State.DEFAULT;
 
-    public ScreenShakingAnimationManager setMaxPitch(float maxPitch) {
-        this.maxPitch = maxPitch;
-        return this;
-    }
+		switch (state) {
+			case SHOOTING:
+			case ZOOMING_SHOOTING: //case RECOILED: case ZOOMING_RECOILED:
+				return State.SHOOTING;
+			case RELOADING:
+				return State.RELOADING;
+			case ZOOMING:
+				return State.AIMING;
+			default:
+				return State.DEFAULT;
+		}
+	}
 
-    public ScreenShakingAnimationManager setTransitionDuration(long transitionDuration) {
-        this.transitionDuration = transitionDuration;
-        return this;
-    }
-
-    public void update(EntityPlayer player, PlayerWeaponInstance weaponInstance, RenderableState weaponState) {
-        State targetState = toManagedState(weaponState);
-
-//        System.out.println("Target state: " + targetState + ", renderer state: " + weaponState);
-        PlayerAnimation activeAnimation = activeAnimations.get(player);
-//        activeAnimations.clear();
-//        allPlayerAnimations.clear();
-        boolean fadeOut = true;
-        if (activeAnimation == null) {
-            activeAnimation = getAnimationForManagedState(player, weaponInstance, targetState);
-            activeAnimations.put(player, activeAnimation);
-        } else {
-            State currentAnimationState = activeAnimation.getState();
-//            System.out.println("Current state: " + currentState);
-
-            // System.out.println(currentAnimationState.getPriority() + " | " + targetState.getPriority());
-
-
-            if (currentAnimationState == targetState) {
-
-                if (targetState != lastTargetState) {
-//                    System.out.println("Target state: " + targetState + ", last: " + lastTargetState + ", resetting...");
-                    activeAnimation.reset(player, false);
-                }
-            } else if (currentAnimationState.getPriority() < targetState.getPriority() || activeAnimation.isCompleted()) {
-
-                activeAnimation = getAnimationForManagedState(player, weaponInstance, targetState);
-                activeAnimation.reset(player, true);
-                activeAnimations.put(player, activeAnimation);
-            }
-        }
-
-        activeAnimation.update(player, fadeOut);
-        lastTargetState = targetState;
-    }
-
-    public void reset(EntityPlayer player, RenderableState weaponState) {
-//        PlayerAnimation activeAnimation = getActiveAnimation(player, weaponState);
-//        activeAnimation.reset(player);
-    }
-
-    public static State toManagedState(RenderableState weaponState) {
-        if (weaponState == null) {
-            return State.DEFAULT;
-        }
-        State managedState;
-        switch (weaponState) {
-            case SHOOTING:
-            case ZOOMING_SHOOTING: //case RECOILED: case ZOOMING_RECOILED:
-                managedState = State.SHOOTING;
-                break;
-            case RELOADING:
-                managedState = State.RELOADING;
-                break;
-            case ZOOMING:
-                managedState = State.AIMING;
-                break;
-            default:
-                managedState = State.DEFAULT;
-        }
-        return managedState;
-    }
-
-    private PlayerAnimation createAnimationForManagedState(EntityPlayer player, State managedState, Weapon weapon) {
-
-        PlayerAnimation animation;
-        switch (managedState) {
-            case AIMING:
-                animation = new PlayerRawPitchAnimation(managedState)
-                        .setMaxPitch(maxPitch)
-                        .setMaxYaw(maxYaw)
-                        .setPlayer(player)
-                        .setTransitionDuration(transitionDuration);
-                break;
-            case SHOOTING:
-                Builder builder = weapon.getScreenShakeAnimationBuilder(RenderableState.SHOOTING);
-//            ScreenShaking weaponScreenShaking = weapon.getScreenShaking(RenderableState.SHOOTING);
-//            animation = new ScreenShakeAnimation.Builder()
+	private static PlayerAnimation createAnimationForManagedState(EntityPlayer player, State managedState, Weapon weapon) {
+		switch (managedState) {
+			case AIMING:
+				return new PlayerRawPitchAnimation(managedState)
+						.setMaxPitch(MAX_PITCH)
+						.setMaxYaw(MAX_YAW)
+						.setPlayer(player)
+						.setTransitionDuration(TRANSITION_DURATION);
+			case SHOOTING:
+				return weapon.getScreenShakeAnimationBuilder(RenderableState.SHOOTING).build();
+//            final ScreenShaking weaponScreenShaking = weapon.getScreenShaking(RenderableState.SHOOTING);
+//            return new ScreenShakeAnimation.Builder()
 //                    .withState(managedState)
 //                    .withRotationAttenuation(0.5f)
 //                    .withTranslationAttenuation(0.05f)
 //                    .withZRotationCoefficient(weaponScreenShaking != null ? weaponScreenShaking.getZRotationCoefficient(): 2f)
 //                    .withTransitionDuration(50)
-//                    .build();
-                animation = builder.build();
-                break;
-            case DEFAULT:
-            default:
-                animation = PlayerAnimation.NO_ANIMATION;
-                break;
-        }
-        return animation;
-    }
+//		            .build();
+			default:
+				return PlayerAnimation.NO_ANIMATION;
+		}
+	}
 
-    private PlayerAnimation getAnimationForManagedState(EntityPlayer player, PlayerWeaponInstance instance, State managedState) {
-        return allPlayerAnimations.computeIfAbsent(new Key(player, managedState, instance.getWeapon()),
-                k -> createAnimationForManagedState(player, k.state, instance.getWeapon()));
-    }
+	private static PlayerAnimation getAnimationForManagedState(final EntityPlayer player, final PlayerWeaponInstance instance, State state) {
+		return ALL_PLAYER_ANIMATIONS.computeIfAbsent(new Key(player.getPersistentID(), state, instance.getWeapon()), key -> createAnimationForManagedState(player, key.state, instance.getWeapon()));
+	}
 
+	@Getter
+	@RequiredArgsConstructor
+	public enum State {
+
+		SHOOTING(0, 0.1F),
+		RELOADING(-5, 0),
+		AIMING(-10, 0),
+		DEFAULT(Integer.MIN_VALUE, 0);
+
+		private final int priority;
+		private final float stepAdjustment;
+	}
+
+	@EqualsAndHashCode
+	@RequiredArgsConstructor
+	private static class Key {
+
+		private final UUID playerUUID;
+		private final State state;
+		private final Weapon weapon;
+	}
 }

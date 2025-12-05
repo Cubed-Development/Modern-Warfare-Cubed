@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.vehicle;
 
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.multipart.MultipartRenderStateManager;
 import com.paneedah.weaponlib.animation.multipart.MultipartTransition;
 import com.paneedah.weaponlib.animation.multipart.MultipartTransitionProvider;
@@ -162,7 +161,7 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
     protected void prebuild() {}
 
 
-    public StatefulRenderer<State> build(ModContext modContext, Part mainPart) {
+    public StatefulRenderer<State> build(Part mainPart) {
 
         prebuild();
 

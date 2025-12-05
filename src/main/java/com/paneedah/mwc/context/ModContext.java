@@ -18,6 +18,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 
+@Deprecated
 public interface ModContext {
 
     void registerTileEntities();
@@ -66,8 +67,6 @@ public interface ModContext {
     MeleeAttackAspect getMeleeAttackAspect();
 
     MeleeAttachmentAspect getMeleeAttachmentAspect();
-
-    ResourceLocation getNamedResource(final String path);
 
     GrenadeAttackAspect getGrenadeAttackAspect();
 

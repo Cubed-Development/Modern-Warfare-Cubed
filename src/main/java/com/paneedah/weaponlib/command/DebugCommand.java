@@ -18,6 +18,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
+import static com.paneedah.mwc.MWC.modContext;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 
@@ -280,7 +281,7 @@ public class DebugCommand extends CommandBase {
                 final float x = Float.parseFloat(args[2]);
                 final float y = Float.parseFloat(args[3]);
                 final float z = Float.parseFloat(args[4]);
-                ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder().firstPersonLeftHandTransform.withScale(x, y, z);
+                modContext.getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder().firstPersonLeftHandTransform.withScale(x, y, z);
                 break;
         }
     }

@@ -27,6 +27,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import java.util.List;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
+import static com.paneedah.mwc.MWC.modContext;
 
 public class WeaponSpawnEntity extends EntityProjectile {
 
@@ -91,7 +92,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
         if (explosionRadius > 0) {
             //PostProcessPipeline.createDistortionPoint((float) position.hitVec.x,(float)  position.hitVec.y, (float) position.hitVec.z, 2f, 3000);
-            Explosion.createServerSideExplosion(world, this.getThrower(), this, position.hitVec.x, position.hitVec.y, position.hitVec.z, explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), weapon.getModContext().getRegisteredTexture(smokeParticleTextureId), weapon.getModContext().getExplosionSound());
+            Explosion.createServerSideExplosion(world, this.getThrower(), this, position.hitVec.x, position.hitVec.y, position.hitVec.z, explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, modContext.getRegisteredTexture(explosionParticleTextureId), modContext.getRegisteredTexture(smokeParticleTextureId), modContext.getExplosionSound());
         } else if (position.entityHit != null) {
             position.entityHit.attackEntityFrom(new ProjectileDamageSource("gun", weapon.getName(), this, this.getThrower()), damage); // TODO: Change damage type from `gun` to `bullet` or `weapon`
 

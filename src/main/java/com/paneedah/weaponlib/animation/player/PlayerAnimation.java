@@ -5,28 +5,23 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public interface PlayerAnimation {
 
-    /**
-     * Returns true if the animation cycle is in progress, otherwise false
-     *
-     * @param player
-     *
-     * @return
-     */
-    void update(EntityPlayer player, boolean fadeOut);
+    void update(final EntityPlayer player, final boolean fadeOut);
 
-    void reset(EntityPlayer player, boolean force);
+    void reset(final EntityPlayer player, final boolean force);
 
     boolean isCompleted();
+
+    State getState();
 
     PlayerAnimation NO_ANIMATION = new PlayerAnimation() {
 
         @Override
-        public void update(EntityPlayer player, boolean fadeOut) {
+        public void update(final EntityPlayer player, final boolean fadeOut) {
 
         }
 
         @Override
-        public void reset(EntityPlayer player, boolean force) {
+        public void reset(final EntityPlayer player, final boolean force) {
         }
 
         @Override
@@ -39,7 +34,4 @@ public interface PlayerAnimation {
             return State.DEFAULT;
         }
     };
-
-    State getState();
-
 }

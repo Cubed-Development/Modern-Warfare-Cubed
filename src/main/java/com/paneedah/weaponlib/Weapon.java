@@ -862,7 +862,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             weapon.setTranslationKey(name);
 
             // Add the magic mag
-            withCompatibleAttachment(SpecialAttachments.MagicMag, true, (model) -> {});
+            withCompatibleAttachment(SpecialAttachments.magicMag, true, (model) -> {});
 
             for (ItemAttachment<Weapon> attachment : this.compatibleAttachments.keySet()) {
 

@@ -26,6 +26,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import static com.paneedah.mwc.MWC.modContext;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class AnimationGUI {
@@ -312,11 +313,9 @@ public class AnimationGUI {
             }
 
             int selectID = OpenGLSelectionHelper.selectID;
-            if (ClientModContext.getContext() == null || ClientModContext.getContext().getMainHeldWeapon() == null) {
-
+            if (modContext.getMainHeldWeapon() == null)
                 return;
-            }
-            Builder i = ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder();
+            Builder i = modContext.getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder();
             switch (selectID) {
                 case 1:
                     i.firstPersonLeftHandTransform.printTransformCreationCode();
@@ -333,7 +332,7 @@ public class AnimationGUI {
 
             }
 
-            PlayerWeaponInstance instance = ClientModContext.getContext().getMainHeldWeapon();
+            PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
             instance.getWeapon().setRecoilParameters(getRecoilParams());
 
             if (!isPanelClosed("Recoil")) {
@@ -359,25 +358,20 @@ public class AnimationGUI {
             }
 
         } else if (id == switchScopes) {
-            PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerWeaponInstance.class);
-            ClientModContext.getContext().getAttachmentAspect().tryChange(new ChangeAttachmentPermit(AttachmentCategory.SCOPE), instance);
-
+            final PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerWeaponInstance.class);
+            modContext.getWeaponAttachmentAspect().tryChange(new ChangeAttachmentPermit(AttachmentCategory.SCOPE), instance);
         } else if (id == editRotButton) {
-            if (editRotButton.isState()) {
+            if (editRotButton.isState())
                 moveForward.setState(false);
-            }
         } else if (id == forceFlash) {
             ClientEventHandler.muzzlePositioner = forceFlash.isState();
         } else if (id == magEdit) {
             DebugPositioner.setDebugMode(true);
         } else if (id == forceADS) {
-            PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerWeaponInstance.class);
+            final PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerWeaponInstance.class);
 
             instance.setAimed(id.isState());
-
         }
-
-
     }
 
 

@@ -463,8 +463,8 @@ public class ClientEventHandler {
 
     @SubscribeEvent
     public void onTextureStitchEvent(TextureStitchEvent.Pre event) {
-        event.getMap().registerSprite(MWC.modContext.getNamedResource(ParticleBlood.texture));
-        carParticles = event.getMap().registerSprite(new ResourceLocation(ID + ":particle/carparticle"));
+        event.getMap().registerSprite(new ResourceLocation(ID, ParticleBlood.texture));
+        carParticles = event.getMap().registerSprite(new ResourceLocation(ID, "particle/carparticle"));
     }
 
     @SubscribeEvent
