@@ -42,32 +42,8 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
-      
-    - name: Find and export JAR filenames
-      id: find-jars
-      run: |
-        # Find and export main JAR
-        MAIN_JAR_PATH=$(find ./build/libs -name "Modern-Warfare-Cubed-*.jar" ! -name "*-dev.jar" | head -n 1)
-        if [ -z "$MAIN_JAR_PATH" ]; then echo "Main JAR not found"; exit 1; fi
-        MAIN_JAR_NAME=$(basename "$MAIN_JAR_PATH")
-        echo "main-path=$MAIN_JAR_PATH" >> $GITHUB_OUTPUT
-        echo "main-name=$MAIN_JAR_NAME" >> $GITHUB_OUTPUT
 
-        # Find and export dev JAR
-        DEV_JAR_PATH=$(find ./build/libs -name "Modern-Warfare-Cubed-*-dev.jar" | head -n 1)
-        if [ -z "$DEV_JAR_PATH" ]; then echo "Dev JAR not found"; exit 1; fi
-        DEV_JAR_NAME=$(basename "$DEV_JAR_PATH")
-        echo "dev-path=$DEV_JAR_PATH" >> $GITHUB_OUTPUT
-        echo "dev-name=$DEV_JAR_NAME" >> $GITHUB_OUTPUT
-
-    - name: Upload Main JAR
+    - name: Upload artifact
       uses: actions/upload-artifact@v5
       with:
-        name: ${{ steps.find-jars.outputs.main-name }}
-        path: ${{ steps.find-jars.outputs.main-path }}
-
-    - name: Upload Dev JAR
-      uses: actions/upload-artifact@v5
-      with:
-        name: ${{ steps.find-jars.outputs.dev-name }}
-        path: ${{ steps.find-jars.outputs.dev-path }}
+        path: build/libs
