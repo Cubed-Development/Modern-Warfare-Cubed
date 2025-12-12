@@ -828,13 +828,14 @@ public class BalancePackManager {
         return getActiveBalancePack().getGlobalHipFireSpread();
     }
 
-    public static double getNetGunDamage(Weapon weapon) {
+    public static double getNetGunDamage(final Weapon weapon) {
         double dmg = weapon.getSpawnEntityDamage();
-        if (shouldChangeWeaponDamage(weapon)) {
+
+        if (shouldChangeWeaponDamage(weapon))
             dmg = getNewWeaponDamage(weapon);
-        }
+
+        dmg *= getGroupDamageMultiplier(weapon.getConfigurationGroup());
         dmg *= getGlobalDamageMultiplier();
         return dmg;
     }
-
 }

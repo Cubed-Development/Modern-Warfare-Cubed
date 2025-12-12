@@ -786,26 +786,17 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
 
                 spawnEntityWith = (weapon, player) -> {
+                    final double damage = BalancePackManager.getNetGunDamage(weapon);
 
-
-                    double damage = spawnEntityDamage;
-                    if (BalancePackManager.hasActiveBalancePack()) {
-                        if (BalancePackManager.shouldChangeWeaponDamage(weapon)) {
-                            damage = BalancePackManager.getNewWeaponDamage(weapon);
-                        }
-                        damage *= BalancePackManager.getGroupDamageMultiplier(weapon.getConfigurationGroup());
-                        damage *= BalancePackManager.getGlobalDamageMultiplier();
-                    }
-
-                    // System.out.println(weapon.getName() + " | " + spawnEntityRocketParticles);
-
-                    WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, player.world, player, spawnEntitySpeed,
+                    final WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, player.world, player, spawnEntitySpeed,
                             spawnEntityGravityVelocity, inaccuracy, (float) damage, spawnEntityExplosionRadius,
                             isDestroyingBlocks, spawnEntityRocketParticles, spawnEntityParticleAgeCoefficient, spawnEntitySmokeParticleAgeCoefficient,
                             spawnEntityExplosionParticleScaleCoefficient, spawnEntitySmokeParticleScaleCoefficient,
                             explosionParticleTextureId,
                             smokeParticleTextureId);
+
                     bullet.setPositionAndDirection(true);
+
                     return bullet;
                 };
             }
