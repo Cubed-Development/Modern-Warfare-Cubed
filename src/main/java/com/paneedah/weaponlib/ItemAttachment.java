@@ -174,10 +174,23 @@ public class ItemAttachment<T> extends Item implements ModelSource, ICraftingRec
                 if (compatibleWeapons.size() > 10 && !Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
                     tooltipLines.add(TextFormatting.YELLOW + "Press left shift to see compatible weapons");
                 } else {
-                    tooltipLines.add(green + "Compatible Weapons:");
-                    compatibleWeapons.forEach(weapon ->
-                            tooltipLines.add(grey + I18n.format(weapon.getTranslationKey() + ".name"))
-                    );
+                    final int perLine = 5;
+                    for (int i = 0; i < compatibleWeapons.size(); i += perLine) {
+                        int batchSize = Math.min(perLine, compatibleWeapons.size() - i);
+                        StringBuilder line = new StringBuilder(String.valueOf(grey));
+
+                        for (int j = 0; j < batchSize; j++) {
+                            if (j > 0)
+                                line.append(", ");
+
+                            line.append(I18n.format(compatibleWeapons.get(i + j).getTranslationKey() + ".name"));
+                        }
+
+                        if (batchSize > 1 && i + batchSize < compatibleWeapons.size())
+                            line.append(",");
+
+                        tooltipLines.add(line.toString());
+                    }
                 }
             }
 
