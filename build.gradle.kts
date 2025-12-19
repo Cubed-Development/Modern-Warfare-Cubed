@@ -16,7 +16,7 @@ version = "0.2-Dev-7" // Versioning must follow Ragnarök versioning convention:
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
-val redCoreVersion = "1.8-1.12-" + "0.6"
+val redCoreVersion = "0.6"
 
 val groovyScriptVersion = "1.3.1"
 val mixinBooterVersion = "10.7"
@@ -61,7 +61,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.redstudio:Red-Core-MC:$redCoreVersion")
+    implementation("dev.redstudio:Red-Core-MC:1.8-1.12-$redCoreVersion")
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
     compileOnly("com.cleanroommc:groovyscript:$groovyScriptVersion") {
