@@ -11,12 +11,12 @@ plugins {
 }
 
 group = "com.paneedah"
-version = "0.2-Dev-6" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
+version = "0.2-Dev-7" // Versioning must follow Ragnarök versioning convention: https://github.com/Red-Studio-Ragnarok/Commons/blob/main/Ragnar%C3%B6k%20Versioning%20Convention.md
 
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
-val redCoreVersion = "1.8-1.12-" + "0.6"
+val redCoreVersion = "0.6"
 
 val groovyScriptVersion = "1.3.1"
 val mixinBooterVersion = "10.7"
@@ -61,7 +61,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.redstudio:Red-Core-MC:$redCoreVersion")
+    implementation("dev.redstudio:Red-Core-MC:1.8-1.12-$redCoreVersion")
 
     compileOnly(rfg.deobf("curse.maven:techguns-244201:2958103"))
     compileOnly("com.cleanroommc:groovyscript:$groovyScriptVersion") {
@@ -91,6 +91,11 @@ buildConfig {
     buildConfigField("ID", id)
     buildConfigField("NAME", project.name)
     buildConfigField("VERSION", project.version.toString())
+
+    // Versions
+    buildConfigField("RED_CORE_VERSION", redCoreVersion)
+    buildConfigField("GROOVY_SCRIPT_VERSION", groovyScriptVersion)
+    buildConfigField("MIXIN_BOOTER_VERSION", mixinBooterVersion)
 
     // Loggers
     buildConfigField("org.apache.logging.log4j.Logger", "LOGGER", "org.apache.logging.log4j.LogManager.getLogger(NAME)")

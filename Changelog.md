@@ -158,6 +158,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
 - Switched from [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) tags to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin)
 - Props now use Red Core `AABBUtil`
 - Lombokified most of the codebase
+- Dependencies are now fully updated by Gradle
 - Updated dependencies:
   - Updated to [gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin) 6.0.4
   - Updated to [gradle-idea-ext-plugin](https://github.com/JetBrains/gradle-idea-ext-plugin) 1.3

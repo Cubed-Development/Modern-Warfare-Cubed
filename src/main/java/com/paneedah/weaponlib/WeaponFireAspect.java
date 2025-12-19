@@ -432,13 +432,8 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
 
         for (int i = 0; i < weapon.builder.pellets; i++) {
-            double damage = weapon.getSpawnEntityDamage(), hipFireSpread = 2.6;
+            double damage = BalancePackManager.getNetGunDamage(weapon), hipFireSpread = 2.6;
             if (BalancePackManager.hasActiveBalancePack()) {
-                if (BalancePackManager.shouldChangeWeaponDamage(weapon)) {
-                    damage = BalancePackManager.getNewWeaponDamage(weapon);
-                }
-                damage *= BalancePackManager.getGroupDamageMultiplier(weapon.getConfigurationGroup());
-                damage *= BalancePackManager.getGlobalDamageMultiplier();
                 hipFireSpread = BalancePackManager.getGlobalHipFireSpread();
                 hipFireSpread *= BalancePackManager.getGroupHipFireSpread(weapon.getConfigurationGroup());
             }
