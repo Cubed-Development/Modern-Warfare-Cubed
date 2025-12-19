@@ -92,6 +92,11 @@ buildConfig {
     buildConfigField("NAME", project.name)
     buildConfigField("VERSION", project.version.toString())
 
+    // Versions
+    buildConfigField("RED_CORE_VERSION", redCoreVersion)
+    buildConfigField("GROOVY_SCRIPT_VERSION", groovyScriptVersion)
+    buildConfigField("MIXIN_BOOTER_VERSION", mixinBooterVersion)
+
     // Loggers
     buildConfigField("org.apache.logging.log4j.Logger", "LOGGER", "org.apache.logging.log4j.LogManager.getLogger(NAME)")
     buildConfigField("dev.redstudio.redcore.logging.RedLogger", "RED_LOGGER", """new RedLogger(NAME, "https://linkify.cz/MWCBugReport", LOGGER)""")
