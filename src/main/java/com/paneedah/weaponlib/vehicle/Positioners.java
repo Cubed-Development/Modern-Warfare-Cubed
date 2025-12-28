@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 public class Positioners {
 
@@ -14,16 +14,16 @@ public class Positioners {
             float rOffsetX, float rOffsetY, float rOffsetZ,
             float scaleX, float scaleY, float scaleZ) {
 
-        GL11.glScalef(scaleX, scaleY, scaleZ);
-        GL11.glTranslatef(posX, posY, posZ);
+        GlStateManager.scale(scaleX, scaleY, scaleZ);
+        GlStateManager.translate(posX, posY, posZ);
 
-        GL11.glTranslatef(rOffsetX, rOffsetY, rOffsetZ);
+        GlStateManager.translate(rOffsetX, rOffsetY, rOffsetZ);
 
-        GL11.glRotatef(rotationZ, 0f, 0f, 1f);
-        GL11.glRotatef(rotationY, 0f, 1f, 0f);
-        GL11.glRotatef(rotationX, 1f, 0f, 0f);
+        GlStateManager.rotate(rotationZ, 0f, 0f, 1f);
+        GlStateManager.rotate(rotationY, 0f, 1f, 0f);
+        GlStateManager.rotate(rotationX, 1f, 0f, 0f);
 
-        GL11.glTranslatef(-rOffsetX, -rOffsetY, -rOffsetZ);
+        GlStateManager.translate(-rOffsetX, -rOffsetY, -rOffsetZ);
     }
 
 }

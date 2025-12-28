@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib.particle.vehicle;
 
 import net.minecraft.client.particle.ParticleFootStep;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
@@ -48,12 +46,12 @@ public class TireTracks extends ParticleFootStep {
 
 
         GlStateManager.disableLighting();
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
         float a = 0.325f;
 
 
-        GL11.glTranslated((this.posX - interpPosX), (this.posY - interpPosY), (this.posZ - interpPosZ));
-        GL11.glRotated(angle, 0.0f, 1.0f, 0.0f);
+        GlStateManager.translate((this.posX - interpPosX), (this.posY - interpPosY), (this.posZ - interpPosZ));
+        GlStateManager.rotate((float) angle, 0, 1, 0);
         float f2 = 0.125F;
 
 
@@ -77,7 +75,7 @@ public class TireTracks extends ParticleFootStep {
         Tessellator.getInstance().draw();
         GlStateManager.disableBlend();
         GlStateManager.enableLighting();
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
     @Override

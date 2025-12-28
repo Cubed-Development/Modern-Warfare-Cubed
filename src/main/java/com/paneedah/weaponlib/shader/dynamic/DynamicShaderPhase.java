@@ -1,8 +1,7 @@
 package com.paneedah.weaponlib.shader.dynamic;
 
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.shader.ShaderGroup;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.lwjgl.opengl.GL11;
@@ -23,17 +22,17 @@ public interface DynamicShaderPhase {
         public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup) {
 
             if (OpenGlHelper.shadersSupported) {
-                int originalMatrixMode = GL11.glGetInteger(GL11.GL_MATRIX_MODE);
+                int originalMatrixMode = GlStateManager.glGetInteger(GL11.GL_MATRIX_MODE);
 
-                GL11.glMatrixMode(5890);
-                GL11.glPushMatrix();
-                GL11.glLoadIdentity();
+                GlStateManager.matrixMode(5890);
+                GlStateManager.pushMatrix();
+                GlStateManager.loadIdentity();
 
-                GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
+                GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
                 shaderGroup.render(context.getPartialTicks());
-                GL11.glPopAttrib();
-                GL11.glPopMatrix();
-                GL11.glMatrixMode(originalMatrixMode);
+                GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+                GlStateManager.popMatrix();
+                GlStateManager.matrixMode(originalMatrixMode);
 
             }
         }

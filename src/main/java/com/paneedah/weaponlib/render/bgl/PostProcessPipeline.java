@@ -278,7 +278,7 @@ public class PostProcessPipeline {
 
 		// Generate depth texture
 		if (depthTexture == -1)
-			depthTexture = GL11.glGenTextures();
+			depthTexture = GlStateManager.generateTexture();
 
 		
 
@@ -287,7 +287,7 @@ public class PostProcessPipeline {
 		OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, depthBuffer);
 
 		GlStateManager.bindTexture(depthTexture);
-		GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_DEPTH_COMPONENT24, width, height, 0,
+		GlStateManager.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_DEPTH_COMPONENT24, width, height, 0,
 				GL11.GL_DEPTH_COMPONENT, GL11.GL_FLOAT, (FloatBuffer) null);
 		GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
 		GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
@@ -300,7 +300,7 @@ public class PostProcessPipeline {
         // for older computers
 
 
-        // GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL11.GL_RGB, width, height, 0,
+        // GlStateManager.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL11.GL_RGB, width, height, 0,
         // GL11.GL_RGB,
         // GL11.GL_UNSIGNED_BYTE, (IntBuffer) null);
 
@@ -502,8 +502,8 @@ public class PostProcessPipeline {
         modelViewBuffer.rewind();
         projectionBuffer.rewind();
 
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, modelViewBuffer);
-        GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX, projectionBuffer);
+        GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, modelViewBuffer);
+        GlStateManager.getFloat(GL11.GL_PROJECTION_MATRIX, projectionBuffer);
 
         modelViewBuffer.rewind();
         projectionBuffer.rewind();
@@ -555,16 +555,14 @@ public class PostProcessPipeline {
         GlStateManager.popMatrix();
 
         Shaders.billboard.release();
-
     }
 
     public static void captureMatricesIntoBuffers() {
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, MODELVIEW_MATRIX_BUFFER);
-        GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX, PROJECTION_MATRIX_BUFFER);
+        GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, MODELVIEW_MATRIX_BUFFER);
+        GlStateManager.getFloat(GL11.GL_PROJECTION_MATRIX, PROJECTION_MATRIX_BUFFER);
 
         PROJECTION_MATRIX_BUFFER.rewind();
         MODELVIEW_MATRIX_BUFFER.rewind();
-
     }
 
     public static float getFogIntensity() {
@@ -645,7 +643,7 @@ public class PostProcessPipeline {
         // Rebind the MC Framebuffer
         MC.getFramebuffer().bindFramebuffer(false);
 
-        GL11.glEnable(GL11.GL_DEPTH_TEST);
+        GlStateManager.enableDepth();
 
         if (ModernConfigManager.enableAllShaders && ModernConfigManager.onScreenRainAndSnow) {
             drawRainBuffer();
@@ -750,8 +748,8 @@ public class PostProcessPipeline {
          * ResourceLocation res = new ResourceLocation("mw" + ":" +
          * "textures/maps/snowflake.png");
          *
-         * GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER,
-         * GL11.GL_LINEAR); GL11.glTexParameteri(GL11.GL_TEXTURE_2D,
+         * GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER,
+         * GL11.GL_LINEAR); GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D,
          * GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
          */
 
@@ -935,7 +933,7 @@ public class PostProcessPipeline {
         // Heat distortion texture
         GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
         MC.getTextureManager().bindTexture(HEAT_DISTORTION);
-        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
+        GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 
         // Return to default texture unit
         GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);

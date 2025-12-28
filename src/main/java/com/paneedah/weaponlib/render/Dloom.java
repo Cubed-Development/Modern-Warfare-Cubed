@@ -40,20 +40,19 @@ public class Dloom {
             height = Minecraft.getMinecraft().displayHeight;
             width = Minecraft.getMinecraft().displayWidth;
 
-
-            GL11.glDeleteTextures(depthTexture);
+            GlStateManager.deleteTexture(depthTexture);
             OpenGlHelper.glDeleteFramebuffers(depthFrameBuffer);
 
 
             depthFrameBuffer = OpenGlHelper.glGenFramebuffers();
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, depthFrameBuffer);
-            depthTexture = GL11.glGenTextures();
+            depthTexture = GlStateManager.generateTexture();
             GlStateManager.bindTexture(depthTexture);
-            GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL14.GL_DEPTH_COMPONENT24, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight, 0, GL11.GL_DEPTH_COMPONENT, GL11.GL_FLOAT, (FloatBuffer) null);
-            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
-            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
-            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
-            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
+            GlStateManager.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL14.GL_DEPTH_COMPONENT24, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight, 0, GL11.GL_DEPTH_COMPONENT, GL11.GL_FLOAT, null);
+            GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
+            GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
+            GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
+            GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
             OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_DEPTH_ATTACHMENT, GL11.GL_TEXTURE_2D, depthTexture, 0);
             int bruh = OpenGlHelper.glCheckFramebufferStatus(OpenGlHelper.GL_FRAMEBUFFER);
             if (bruh != OpenGlHelper.GL_FRAMEBUFFER_COMPLETE) {
@@ -134,7 +133,7 @@ public class Dloom {
         }
         bloomData = new Framebuffer(width, height, true);
         bloomData.bindFramebufferTexture();
-        GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL30.GL_RGBA16F, width, height, 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_SHORT, (IntBuffer) null);
+        GlStateManager.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL30.GL_RGBA16F, width, height, 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_SHORT, (IntBuffer) null);
         bloomData.bindFramebuffer(false);
         OpenGlHelper.glBindRenderbuffer(GL30.GL_RENDERBUFFER, Minecraft.getMinecraft().getFramebuffer().depthBuffer);
         OpenGlHelper.glFramebufferRenderbuffer(GL30.GL_FRAMEBUFFER, GL30.GL_DEPTH_ATTACHMENT, GL30.GL_RENDERBUFFER, Minecraft.getMinecraft().getFramebuffer().depthBuffer);
@@ -149,9 +148,9 @@ public class Dloom {
             bloomBuffers[i * 2] = new Framebuffer((int) bloomW, (int) bloomH, false);
             bloomBuffers[i * 2 + 1] = new Framebuffer((int) bloomW, (int) bloomH, false);
             bloomBuffers[i * 2].bindFramebufferTexture();
-            GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL30.GL_RGBA16F, (int) bloomW, (int) bloomH, 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_SHORT, (IntBuffer) null);
+            GlStateManager.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL30.GL_RGBA16F, (int) bloomW, (int) bloomH, 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_SHORT, (IntBuffer) null);
             bloomBuffers[i * 2 + 1].bindFramebufferTexture();
-            GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL30.GL_RGBA16F, (int) bloomW, (int) bloomH, 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_SHORT, (IntBuffer) null);
+            GlStateManager.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL30.GL_RGBA16F, (int) bloomW, (int) bloomH, 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_SHORT, (IntBuffer) null);
             bloomBuffers[i * 2].setFramebufferFilter(GL11.GL_LINEAR);
             bloomBuffers[i * 2 + 1].setFramebufferFilter(GL11.GL_LINEAR);
             bloomBuffers[i * 2].setFramebufferColor(0, 0, 0, 0);

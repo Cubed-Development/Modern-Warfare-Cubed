@@ -2,8 +2,8 @@ package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.model.WrappableModel;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-import org.lwjgl.opengl.GL11;
 
 public class M40GasMask extends WrappableModel {
 
@@ -963,9 +963,9 @@ public class M40GasMask extends WrappableModel {
 
     @Override
     public void render(float scale) {
-        GL11.glPushMatrix();
-        GL11.glScalef(0.5f, 0.5f, 0.5f);
+        GlStateManager.pushMatrix();
+        GlStateManager.scale(0.5f, 0.5f, 0.5f);
         render(null, 0f, 0f, 0f, 0f, 0f, scale);
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 }

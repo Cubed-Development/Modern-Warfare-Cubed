@@ -114,15 +114,15 @@ public class KeyedAnimation {
         double mul = 1 / 17.0;
 
         // Animation translation
-        GL11.glTranslated(translation.x * mul, -translation.y * mul, translation.z * mul);
+        GlStateManager.translate(translation.x * mul, -translation.y * mul, translation.z * mul);
 
         // Offset rotation point
         GlStateManager.translate(rotationPoint.x, rotationPoint.y, rotationPoint.z);
 
         // Original object rotation (+Z, -Y, -X)
-        GL11.glRotated(rotation.z, 0, 0, 1);
-        GL11.glRotated(rotation.y, 0, 1, 0);
-        GL11.glRotated(rotation.x, 1, 0, 0);
+        GlStateManager.rotate((float) rotation.z, 0, 0, 1);
+        GlStateManager.rotate((float) rotation.y, 0, 1, 0);
+        GlStateManager.rotate((float) rotation.x, 1, 0, 0);
 
         GlStateManager.translate(-rotationPoint.x, -rotationPoint.y, -rotationPoint.z);
         //GlStateManager.scale(t.getScaleX(), t.getScaleY(), t.getScaleZ());

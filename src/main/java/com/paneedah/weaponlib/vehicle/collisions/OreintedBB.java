@@ -1,15 +1,12 @@
 package com.paneedah.weaponlib.vehicle.collisions;
 
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderGlobal;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import org.lwjgl.opengl.GL11;
 
-import javax.vecmath.Matrix3d;
-import javax.vecmath.Matrix3f;
-import javax.vecmath.Vector3d;
+import javax.vecmath.*;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -108,28 +105,28 @@ public class OreintedBB {
 
         //updateInverse();
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
         Vector3d eulerRotations = matrixToEuler(this.axis);
 
         // shitty debug line plz remove later
-        //GL11.glTranslated(0.0, -5.0, 0.0);
+        //GlStateManager.translate(0.0, -5.0, 0.0);
 
 
-        //GL11.glTranslated(c.x, c.y, c.z);
+        //GlStateManager.translate(c.x, c.y, c.z);
 
         float t = MC.getRenderPartialTicks();
 
-        GL11.glRotated(Math.toDegrees(eulerRotations.x), 1, 0, 0);
-        GL11.glRotated(Math.toDegrees(eulerRotations.y), 0, 1, 0);
-        GL11.glRotated(Math.toDegrees(eulerRotations.z), 0, 0, 1);
+        GlStateManager.rotate((float) Math.toDegrees(eulerRotations.x), 1, 0, 0);
+        GlStateManager.rotate((float) Math.toDegrees(eulerRotations.y), 0, 1, 0);
+        GlStateManager.rotate((float) Math.toDegrees(eulerRotations.z), 0, 0, 1);
 
         this.previousEuler = eulerRotations;
-        GL11.glLineWidth(2.0f);
+        GlStateManager.glLineWidth(2.0f);
         RenderGlobal.drawBoundingBox(aabb.minX, aabb.minY, aabb.minZ, aabb.maxX, aabb.maxY, aabb.maxZ, 1.0f, 0.0f, 0.0f, 1.0f);
 
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
 

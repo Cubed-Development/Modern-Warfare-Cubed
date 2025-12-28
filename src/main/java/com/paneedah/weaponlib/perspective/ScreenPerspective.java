@@ -21,8 +21,8 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
         //if(true) return;
         int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
 
-        GL11.glPushMatrix();
-        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
+        GlStateManager.pushMatrix();
+        GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
         //MC.entityRenderer.disableLightmap();
         enable2DRenderingMode(427, 240);
 
@@ -34,8 +34,8 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
         restoreRenderingMode();
 
         //MC.entityRenderer.enableLightmap();
-        GL11.glPopAttrib();
-        GL11.glPopMatrix();
+        GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+        GlStateManager.popMatrix();
 
         if (OpenGlHelper.isFramebufferEnabled()) {
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
@@ -47,22 +47,22 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
 
 
     private void enable2DRenderingMode(double projectionWidth, double projectionHeight) {
-        //GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
-        GL11.glMatrixMode(GL11.GL_PROJECTION);
-        GL11.glPushMatrix();
-        GL11.glLoadIdentity();
-        GL11.glOrtho(0.0D, projectionWidth, projectionHeight, 0, -1, 1); //0.0D, 1000.0D, 3000.0D);
-        GL11.glMatrixMode(GL11.GL_MODELVIEW);
-        GL11.glPushMatrix();
-        GL11.glLoadIdentity();
-        //GL11.glTranslatef(0.0F, 0.0F, -2000.0F);
+        //GlStateManager.clear(GL11.GL_DEPTH_BUFFER_BIT);
+        GlStateManager.matrixMode(GL11.GL_PROJECTION);
+        GlStateManager.pushMatrix();
+        GlStateManager.loadIdentity();
+        GlStateManager.ortho(0.0D, projectionWidth, projectionHeight, 0, -1, 1); //0.0D, 1000.0D, 3000.0D);
+        GlStateManager.matrixMode(GL11.GL_MODELVIEW);
+        GlStateManager.pushMatrix();
+        GlStateManager.loadIdentity();
+        //GlStateManager.translate(0.0F, 0.0F, -2000.0F);
     }
 
     private void restoreRenderingMode() {
-        GL11.glMatrixMode(GL11.GL_PROJECTION);
-        GL11.glPopMatrix();
-        GL11.glMatrixMode(GL11.GL_MODELVIEW);
-        GL11.glPopMatrix();
+        GlStateManager.matrixMode(GL11.GL_PROJECTION);
+        GlStateManager.popMatrix();
+        GlStateManager.matrixMode(GL11.GL_MODELVIEW);
+        GlStateManager.popMatrix();
 
     }
 }

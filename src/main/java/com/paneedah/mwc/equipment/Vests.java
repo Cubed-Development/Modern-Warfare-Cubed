@@ -1,10 +1,10 @@
 package com.paneedah.mwc.equipment;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.ItemVest;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.mwc.rendering.Transform;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 public class Vests {
 
@@ -17,9 +17,9 @@ public class Vests {
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.M43AChestHarness", "m43achestharness.png")
 //        .withCustomEquippedPositioning(() -> {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//            GlStateManager.scale(0.8f, 0.8f, 0.8f);
+//            GlStateManager.translate(0f, 0f, 0f);
+//            GlStateManager.rotate(0F, 0f, 0f, 1f);
 //        })
                 .withInventoryPositioning(() -> {
                     new Transform()
@@ -37,9 +37,9 @@ public class Vests {
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier.png")
 //        .withCustomEquippedPositioning(() -> {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//            GlStateManager.scale(0.8f, 0.8f, 0.8f);
+//            GlStateManager.translate(0f, 0f, 0f);
+//            GlStateManager.rotate(0F, 0f, 0f, 1f);
 //        })
                 .withInventoryPositioning(() -> {
                     new Transform()
@@ -57,9 +57,9 @@ public class Vests {
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_black.png")
 //        .withCustomEquippedPositioning(() -> {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//            GlStateManager.scale(0.8f, 0.8f, 0.8f);
+//            GlStateManager.translate(0f, 0f, 0f);
+//            GlStateManager.rotate(0F, 0f, 0f, 1f);
 //        })
                 .withInventoryPositioning(() -> {
                     new Transform()
@@ -77,9 +77,9 @@ public class Vests {
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_green.png")
 //        .withCustomEquippedPositioning(() -> {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//            GlStateManager.scale(0.8f, 0.8f, 0.8f);
+//            GlStateManager.translate(0f, 0f, 0f);
+//            GlStateManager.rotate(0F, 0f, 0f, 1f);
 //        })
                 .withInventoryPositioning(() -> {
                     new Transform()
@@ -97,9 +97,9 @@ public class Vests {
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_urban.png")
 //        .withCustomEquippedPositioning(() -> {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//            GlStateManager.scale(0.8f, 0.8f, 0.8f);
+//            GlStateManager.translate(0f, 0f, 0f);
+//            GlStateManager.rotate(0F, 0f, 0f, 1f);
 //        })
                 .withInventoryPositioning(() -> {
                     new Transform()
@@ -117,9 +117,9 @@ public class Vests {
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.UTG547Vest", "utg547vest.png")
                 .withCustomEquippedPositioning(() -> {
-                    GL11.glScalef(0.8f, 0.8f, 0.8f);
-                    GL11.glTranslatef(0f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8f, 0.8f, 0.8f);
+                    GlStateManager.translate(0f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
                 })
                 .withInventoryPositioning(() -> {
                     new Transform()
@@ -138,9 +138,9 @@ public class Vests {
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "usMC.png")
 //        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning(() -> {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//            GlStateManager.scale(0.8f, 0.8f, 0.8f);
+//            GlStateManager.translate(0f, 0f, 0f);
+//            GlStateManager.rotate(0F, 0f, 0f, 1f);
 //        })
                 .withEntityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.9F, 0.5F)
@@ -164,9 +164,9 @@ public class Vests {
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "usMCvestblack.png")
 //        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning(() -> {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//            GlStateManager.scale(0.8f, 0.8f, 0.8f);
+//            GlStateManager.translate(0f, 0f, 0f);
+//            GlStateManager.rotate(0F, 0f, 0f, 1f);
 //        })
                 .withEntityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.9F, 0.5F)
@@ -190,9 +190,9 @@ public class Vests {
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformforest.png")
 //        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning(() -> {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//            GlStateManager.scale(0.8f, 0.8f, 0.8f);
+//            GlStateManager.translate(0f, 0f, 0f);
+//            GlStateManager.rotate(0F, 0f, 0f, 1f);
 //        })
                 .withEntityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.9F, 0.5F)
@@ -216,9 +216,9 @@ public class Vests {
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformurban.png")
 //        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning(() -> {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//            GlStateManager.scale(0.8f, 0.8f, 0.8f);
+//            GlStateManager.translate(0f, 0f, 0f);
+//            GlStateManager.rotate(0F, 0f, 0f, 1f);
 //        })
                 .withEntityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.9F, 0.5F)

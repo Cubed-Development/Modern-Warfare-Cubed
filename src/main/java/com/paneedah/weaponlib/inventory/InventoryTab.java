@@ -2,8 +2,7 @@ package com.paneedah.weaponlib.inventory;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.client.renderer.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -31,7 +30,7 @@ public class InventoryTab extends GuiButton {
     @Override
     public void drawButton(Minecraft MC, int mouseX, int mouseY, float partialTicks) {
         if (this.visible) {
-            GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 
             int yTexPos = this.enabled ? 3 : 32;
             int ySize = this.enabled ? 25 : 32;
@@ -46,13 +45,13 @@ public class InventoryTab extends GuiButton {
             RenderHelper.enableGUIStandardItemLighting();
             this.zLevel = 100.0F;
             this.itemRenderer.zLevel = 100.0F;
-            GL11.glEnable(GL11.GL_LIGHTING);
-            GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+            GlStateManager.enableLighting();
+            GlStateManager.enableRescaleNormal();
             final ItemStack itemStack = getItemStack();
             this.itemRenderer.renderItemAndEffectIntoGUI(itemStack, x + 6, y + 8);
             this.itemRenderer.renderItemOverlays(MC.fontRenderer, itemStack, x + 6, y + 8);
-            GL11.glDisable(GL11.GL_LIGHTING);
-            GL11.glEnable(GL11.GL_BLEND);
+            GlStateManager.disableLighting();
+            GlStateManager.enableBlend();
             this.itemRenderer.zLevel = 0.0F;
             this.zLevel = 0.0F;
             RenderHelper.disableStandardItemLighting();

@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -25,13 +26,13 @@ public class ShellCasingRenderer extends Render<Entity> {
         if (model != null) {
             String shellCasingTextureName = weapon.getShellCasingTextureName();
             ResourceLocation textureLocation = shellCasingTextureName != null ? new ResourceLocation(shellCasingTextureName) : null;
-            GL11.glPushMatrix();
+            GlStateManager.pushMatrix();
 
             if (textureLocation != null) {
                 bindTexture(textureLocation);
             }
 
-            GL11.glTranslated(x, y, z);
+            GlStateManager.translate(x, y, z);
             float fov = MC.gameSettings.fovSetting;
 
             /*
@@ -49,15 +50,15 @@ public class ShellCasingRenderer extends Render<Entity> {
              */
 
             float scale = (fov * 0.001f - 0.02f) * 0.3f;
-            GL11.glScalef(scale, scale, scale);
-            GL11.glRotatef(entityShellCasing.getXRotation(), 1f, 0f, 0f);
-            GL11.glRotatef(entityShellCasing.getYRotation(), 0f, 1f, 0f);
-            GL11.glRotatef(entityShellCasing.getZRotation(), 0f, 0f, 1f);
-            GL11.glRotatef(90, 0f, 0f, 1f);
+            GlStateManager.scale(scale, scale, scale);
+            GlStateManager.rotate(entityShellCasing.getXRotation(), 1f, 0f, 0f);
+            GlStateManager.rotate(entityShellCasing.getYRotation(), 0f, 1f, 0f);
+            GlStateManager.rotate(entityShellCasing.getZRotation(), 0f, 0f, 1f);
+            GlStateManager.rotate(90, 0f, 0f, 1f);
 
             //Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
             model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
-            GL11.glPopMatrix();
+            GlStateManager.popMatrix();
         }
     }
 

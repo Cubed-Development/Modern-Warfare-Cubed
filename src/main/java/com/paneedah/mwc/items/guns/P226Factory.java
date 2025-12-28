@@ -4,22 +4,17 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weapons.Attachments;
-import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.mwc.weapons.*;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
-import org.lwjgl.opengl.GL11;
 
 public class P226Factory implements GunFactory {
 
@@ -81,63 +76,63 @@ public class P226Factory implements GunFactory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
                 .withCompatibleAttachment(Attachments.PistolPlaceholder, true, (model) -> {
-                    GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(0.01f, -0.19f, -0.4f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.P226Slide, true, (model) -> {
                     if (model instanceof P226Slide) {
-                        GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
+                        GlStateManager.scale(1F, 1F, 1F);
+//                GlStateManager.translate(0F, 0F, 0.5F);
                     } else if (model instanceof P226rearsight) {
-                        GL11.glTranslatef(-0.15F, -1.175F, -0.15F);
-                        GL11.glScaled(0.25F, 0.25F, 0.25F);
+                        GlStateManager.translate(-0.15F, -1.175F, -0.15F);
+                        GlStateManager.scale(0.25F, 0.25F, 0.25F);
                     } else if (model instanceof P226frontsight) {
-                        GL11.glTranslatef(-0.145F, -1.175F, -2.1F);
-                        GL11.glScaled(0.22F, 0.22F, 0.22F);
+                        GlStateManager.translate(-0.145F, -1.175F, -2.1F);
+                        GlStateManager.scale(0.22F, 0.22F, 0.22F);
                     }
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.P226hammer, true, (model) -> {
-//          GL11.glTranslatef(-0F, -0.17F, 0.53F);
-//        	GL11.glRotatef(45F, 1f, 0f, 0f);
+//          GlStateManager.translate(-0F, -0.17F, 0.53F);
+//        	GlStateManager.rotate(45F, 1f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Magazines.M9A1Mag, (model) -> {
-                    GL11.glTranslatef(0F, 0.02F, 0.02F);
+                    GlStateManager.translate(0F, 0.02F, 0.02F);
                 })
                 .withCompatibleAttachment(Magazines.M9Mag30, (model) -> {
-                    GL11.glTranslatef(0F, 0.02F, 0.02F);
+                    GlStateManager.translate(0F, 0.02F, 0.02F);
                 })
                 .withCompatibleAttachment(Magazines.M9DrumMag, (model) -> {
-                    GL11.glTranslatef(0F, 0.02F, 0.02F);
+                    GlStateManager.translate(0F, 0.02F, 0.02F);
                 })
                 .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
-                    GL11.glTranslatef(0.01F, -0.65F, -2.1F);
-                    GL11.glScaled(1.1F, 1.1F, 1.1F);
-                    GL11.glRotatef(-90F, 0f, 0f, -4f);
+                    GlStateManager.translate(0.01F, -0.65F, -2.1F);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1F);
+                    GlStateManager.rotate(-90F, 0f, 0f, -4f);
                 })
                 .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
-                    GL11.glTranslatef(-0.22F, -1.16F, -4.5F);
-                    GL11.glScaled(1.3F, 1.3F, 1.3F);
+                    GlStateManager.translate(-0.22F, -1.16F, -4.5F);
+                    GlStateManager.scale(1.3F, 1.3F, 1.3F);
                 })
                 .withCompatibleAttachment(Attachments.FABDefenseMount, (model) -> {
-                    GL11.glTranslatef(-0.23f, -0.53f, -1.9f);
-                    GL11.glScaled(0.7F, 0.6F, 0.7F);
+                    GlStateManager.translate(-0.23f, -0.53f, -1.9f);
+                    GlStateManager.scale(0.7F, 0.6F, 0.7F);
                 })
                 .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
-                    GL11.glTranslatef(-0.175F, -1.35F, -1.1F);
-                    GL11.glScaled(0.36F, 0.36F, 0.36F);
+                    GlStateManager.translate(-0.175F, -1.35F, -1.1F);
+                    GlStateManager.scale(0.36F, 0.36F, 0.36F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(0.155F, -0.1F, -0.5F);
-                        GL11.glScaled(0.2F, 0.2F, 0.2F);
+                        GlStateManager.translate(0.155F, -0.1F, -0.5F);
+                        GlStateManager.scale(0.2F, 0.2F, 0.2F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
-                    GL11.glTranslatef(-0.05F, -1.1F, -1.4F);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(-0.05F, -1.1F, -1.4F);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(-0.125F, -0.68F, -0.4F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                        GlStateManager.translate(-0.125F, -0.68F, -0.4F);
+                        GlStateManager.scale(0.15F, 0.15F, 0.15F);
                     }
                 })
                 .withTextureNames("p226")
@@ -151,19 +146,19 @@ public class P226Factory implements GunFactory {
                         //.withWeaponProximity(0.99F)
                         //.withYOffsetZoom(5F)
                         .withEntityPositioning(itemStack -> {
-                            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                            GL11.glRotatef(-90F, 0f, 0f, 4f);
+                            GlStateManager.scale(0.4F, 0.4F, 0.4F);
+                            GlStateManager.rotate(-90F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
-                            GL11.glScaled(0.35F, 0.35F, 0.35F);
-                            GL11.glTranslatef(0, 0.8f, 0);
-                            GL11.glRotatef(-120F, -0.5f, 7f, 3f);
+                            GlStateManager.scale(0.35F, 0.35F, 0.35F);
+                            GlStateManager.translate(0, 0.8f, 0);
+                            GlStateManager.rotate(-120F, -0.5f, 7f, 3f);
                         })
                         .withThirdPersonPositioning((renderContext) -> {
-                            GL11.glScaled(0.5F, 0.5F, 0.5F);
-                            GL11.glTranslatef(-1.8F, -1F, 2F);
-                            GL11.glRotatef(-45F, 0f, 1f, 0f);
-                            GL11.glRotatef(70F, 1f, 0f, 0f);
+                            GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                            GlStateManager.translate(-1.8F, -1F, 2F);
+                            GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                            GlStateManager.rotate(70F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonPositioning(
@@ -201,66 +196,66 @@ public class P226Factory implements GunFactory {
 
                         .withFirstPersonCustomPositioning(Attachments.P226Slide.getRenderablePart(), (renderContext) -> {
                             if (renderContext.getWeaponInstance().getAmmo() == 0) {
-                                GL11.glTranslatef(0F, 0F, 0.6F);
+                                GlStateManager.translate(0F, 0F, 0.6F);
                             }
                         })
 
                         .withThirdPersonPositioningReloading(
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-                                    GL11.glTranslatef(-2.3F, -1F, 3F);
-                                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                                    GL11.glRotatef(90F, 1f, 0f, 0f);
+                                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                                    GlStateManager.translate(-2.3F, -1F, 3F);
+                                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                                    GlStateManager.rotate(90F, 1f, 0f, 0f);
                                 }, 200, 0),
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-                                    GL11.glTranslatef(-2.3F, -1F, 3F);
-                                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                                    GL11.glRotatef(90F, 1f, 0f, 0f);
+                                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                                    GlStateManager.translate(-2.3F, -1F, 3F);
+                                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                                    GlStateManager.rotate(90F, 1f, 0f, 0f);
                                 }, 250, 0),
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-                                    GL11.glTranslatef(-2.3F, -1F, 3F);
-                                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                                    GL11.glRotatef(90F, 1f, 0f, 0f);
+                                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                                    GlStateManager.translate(-2.3F, -1F, 3F);
+                                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                                    GlStateManager.rotate(90F, 1f, 0f, 0f);
                                 }, 130, 10),
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-                                    GL11.glTranslatef(-2.3F, -1F, 3F);
-                                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                                    GL11.glRotatef(90F, 1f, 0f, 0f);
+                                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                                    GlStateManager.translate(-2.3F, -1F, 3F);
+                                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                                    GlStateManager.rotate(90F, 1f, 0f, 0f);
                                 }, 300, 100),
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-                                    GL11.glTranslatef(-2.3F, -1F, 3F);
-                                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                                    GL11.glRotatef(90F, 1f, 0f, 0f);
+                                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                                    GlStateManager.translate(-2.3F, -1F, 3F);
+                                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                                    GlStateManager.rotate(90F, 1f, 0f, 0f);
                                 }, 200, 0),
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-                                    GL11.glTranslatef(-2.3F, -1F, 3F);
-                                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                                    GL11.glRotatef(90F, 1f, 0f, 0f);
+                                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                                    GlStateManager.translate(-2.3F, -1F, 3F);
+                                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                                    GlStateManager.rotate(90F, 1f, 0f, 0f);
                                 }, 200, 0),
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-                                    GL11.glTranslatef(-2.3F, -1F, 3F);
-                                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                                    GL11.glRotatef(90F, 1f, 0f, 0f);
+                                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                                    GlStateManager.translate(-2.3F, -1F, 3F);
+                                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                                    GlStateManager.rotate(90F, 1f, 0f, 0f);
                                 }, 270, 50),
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-                                    GL11.glTranslatef(-2.3F, -1F, 3F);
-                                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                                    GL11.glRotatef(90F, 1f, 0f, 0f);
+                                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                                    GlStateManager.translate(-2.3F, -1F, 3F);
+                                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                                    GlStateManager.rotate(90F, 1f, 0f, 0f);
                                 }, 70, 50)
                         )
 
@@ -269,40 +264,40 @@ public class P226Factory implements GunFactory {
                                 new Transition((renderContext) -> {
                                 }, 250, 1000),
                                 new Transition((renderContext) -> {
-                                    GL11.glTranslatef(0F, 0F, 0.5F);
+                                    GlStateManager.translate(0F, 0F, 0.5F);
                                 }, 250, 1000),
                                 new Transition((renderContext) -> {
-                                    GL11.glTranslatef(0F, 0F, 0.5F);
+                                    GlStateManager.translate(0F, 0F, 0.5F);
                                 }, 250, 1000),
                                 new Transition((renderContext) -> {
-                                    GL11.glTranslatef(0F, 0F, 0.5F);
+                                    GlStateManager.translate(0F, 0F, 0.5F);
                                 }, 250, 1000),
                                 new Transition((renderContext) -> {
-                                    GL11.glTranslatef(0F, 0F, 0.5F);
+                                    GlStateManager.translate(0F, 0F, 0.5F);
                                 }, 250, 1000),
                                 new Transition((renderContext) -> {
-                                    GL11.glTranslatef(0F, 0F, 0.5F);
+                                    GlStateManager.translate(0F, 0F, 0.5F);
                                 }, 250, 1000),
                                 new Transition((renderContext) -> {
-                                    GL11.glTranslatef(0F, 0F, 0.5F);
+                                    GlStateManager.translate(0F, 0F, 0.5F);
                                 }, 250, 1000),
                                 new Transition((renderContext) -> {
-                                    GL11.glTranslatef(0F, 0F, 0F);
+                                    GlStateManager.translate(0F, 0F, 0F);
                                 }, 250, 1000)
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glScaled(3F, 3F, 3F);
-                            GL11.glTranslatef(0.145f, 0.66f, -1.9f);
+                            GlStateManager.scale(3F, 3F, 3F);
+                            GlStateManager.translate(0.145f, 0.66f, -1.9f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                                 //System.out.println("Position me for Holo");
-                                GL11.glTranslatef(0f, 0.22f, 0f);
+                                GlStateManager.translate(0f, 0.22f, 0f);
                             }
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                                 //System.out.println("Position me for Holo");
-                                GL11.glTranslatef(0f, 0.32f, 0f);
+                                GlStateManager.translate(0f, 0.32f, 0f);
                             }
 
                             // Everything else

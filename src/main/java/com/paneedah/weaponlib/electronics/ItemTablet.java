@@ -3,13 +3,13 @@ package com.paneedah.weaponlib.electronics;
 import com.paneedah.mwc.instancing.PlayerItemInstanceFactory;
 import com.paneedah.mwc.instancing.PlayerTabletInstance;
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import org.lwjgl.opengl.GL11;
 
 public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstanceFactory<PlayerTabletInstance, TabletState>, Updatable {
 
@@ -41,8 +41,8 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
         protected ItemAttachment<T> createAttachment(ModContext modContext) {
             if (viewfinderPositioning == null) {
                 viewfinderPositioning = () -> {
-                    GL11.glScalef(3f, 3f, 3f);
-                    GL11.glTranslatef(0.1f, 0.5f, 0.1f);
+                    GlStateManager.scale(3f, 3f, 3f);
+                    GlStateManager.translate(0.1f, 0.5f, 0.1f);
                 };
             }
             withPostRender(new PerspectiveRenderer(viewfinderPositioning));

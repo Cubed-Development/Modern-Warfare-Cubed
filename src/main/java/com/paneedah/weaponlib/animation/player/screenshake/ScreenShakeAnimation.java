@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.animation.player.screenshake;
 
 import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakingAnimationManager.State;
 import com.paneedah.weaponlib.animation.player.PlayerAnimation;
+import com.paneedah.weaponlib.animation.player.screenshake.ScreenShakingAnimationManager.State;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.MathHelper;
-import org.lwjgl.opengl.GL11;
 
 public class ScreenShakeAnimation implements PlayerAnimation {
 
@@ -247,16 +247,16 @@ public class ScreenShakeAnimation implements PlayerAnimation {
         float currentY = startY + (targetY - startY) * adjustedProgress;
         float currentZ = startZ + (targetZ - startZ) * adjustedProgress;
 
-        GL11.glTranslatef(currentX, currentY, currentZ);
+        GlStateManager.translate(currentX, currentY, currentZ);
 
         float currentRotateX = startRotateX + (targetRotateX - startRotateX) * adjustedProgress;
-        GL11.glRotatef(currentRotateX * xRotationCoefficient, 1f, 0f, 0f);
+        GlStateManager.rotate(currentRotateX * xRotationCoefficient, 1f, 0f, 0f);
 
         float currentRotateY = startRotateY + (targetRotateY - startRotateY) * adjustedProgress;
-        GL11.glRotatef(currentRotateY * yRotationCoefficient, 0f, 1f, 0f);
+        GlStateManager.rotate(currentRotateY * yRotationCoefficient, 0f, 1f, 0f);
 
         float currentRotateZ = startRotateZ + (targetRotateZ - startRotateZ) * adjustedProgress;
-        GL11.glRotatef(currentRotateZ * zRotationCoefficient, 0f, 0f, 1f);
+        GlStateManager.rotate(currentRotateZ * zRotationCoefficient, 0f, 0f, 1f);
 
         cumulativeAttenuation *= rotationAttenuation;
     }

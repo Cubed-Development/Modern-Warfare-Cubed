@@ -1,21 +1,17 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.vehicle.engines.McLarenSennaEngine;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
-import com.paneedah.weaponlib.vehicle.jimphysics.Chassis;
-import com.paneedah.weaponlib.vehicle.jimphysics.Dimensions;
-import com.paneedah.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
-import com.paneedah.weaponlib.vehicle.jimphysics.TyreSize;
+import com.paneedah.weaponlib.vehicle.jimphysics.*;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.WheelAxel;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.WheelSolver;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.aero.AeroWing;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
-import org.lwjgl.opengl.GL11;
 
 public class McLarenSennaFactory implements VehicleFactory {
 
@@ -68,17 +64,17 @@ public class McLarenSennaFactory implements VehicleFactory {
                     })
 
                     .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.IDLE, context -> {
-                        GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-1.200000f, -0.100000f, 2.300000f);
+                        GlStateManager.rotate(0.000000f, 1f, 0f, 0f);
+                        GlStateManager.rotate(0.000000f, 0f, 1f, 0f);
+                        GlStateManager.rotate(0.000000f, 0f, 0f, 1f);
+                        GlStateManager.translate(-1.200000f, -0.100000f, 2.300000f);
                     })
 
                     .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.DRIVING, context -> {
-                        GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-1.050000f, -1.975000f, 0.675000f);
+                        GlStateManager.rotate(-85.000000f, 1f, 0f, 0f);
+                        GlStateManager.rotate(-20.000000f, 0f, 1f, 0f);
+                        GlStateManager.rotate(0.000000f, 0f, 0f, 1f);
+                        GlStateManager.translate(-1.050000f, -1.975000f, 0.675000f);
                     })
 
 //                    .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.SHIFTING, context -> {
@@ -100,17 +96,17 @@ public class McLarenSennaFactory implements VehicleFactory {
 //                    }, 50)
 
                     .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.IDLE, context -> {
-                        GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-1.200000f, -0.100000f, 2.300000f);
+                        GlStateManager.rotate(0.000000f, 1f, 0f, 0f);
+                        GlStateManager.rotate(0.000000f, 0f, 1f, 0f);
+                        GlStateManager.rotate(0.000000f, 0f, 0f, 1f);
+                        GlStateManager.translate(-1.200000f, -0.100000f, 2.300000f);
                     })
 
                     .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.DRIVING, context -> {
-                        GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-30.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-0.850000f, -2.250000f, 0.550000f);
+                        GlStateManager.rotate(-105.000000f, 1f, 0f, 0f);
+                        GlStateManager.rotate(-30.000000f, 0f, 1f, 0f);
+                        GlStateManager.rotate(-15.000000f, 0f, 0f, 1f);
+                        GlStateManager.translate(-0.850000f, -2.250000f, 0.550000f);
                     })
 
                     .withPartPosition(VehiclePart.FRONT_LEFT_CONTROL_ARM, context -> {

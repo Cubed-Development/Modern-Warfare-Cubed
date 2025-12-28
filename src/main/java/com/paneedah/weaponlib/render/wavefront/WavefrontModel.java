@@ -147,13 +147,11 @@ public class WavefrontModel {
 
         GL20.glEnableVertexAttribArray(2);
         GL20.glVertexAttribPointer(2, 2, GL11.GL_FLOAT, false, vS, 12);
-				
-				
 
 				/*
-				GL11.glVertexPointer(3, GL11.GL_FLOAT, vS, 0);
+				GlStateManager.glVertexPointer(3, GL11.GL_FLOAT, vS, 0);
 				GL11.glNormalPointer(GL11.GL_FLOAT, vS, 20);
-				GL11.glTexCoordPointer(2, GL11.GL_FLOAT, vS, 12);
+				GlStateManager.glTexCoordPointer(2, GL11.GL_FLOAT, vS, 12);
 			*/
         //GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, 0);
         GLCompatible.glBindVertexArray(0);
@@ -181,9 +179,9 @@ public class WavefrontModel {
 
         int vS = (3 + 3 + 2) * 4;
 
-        GL11.glVertexPointer(3, GL11.GL_FLOAT, vS, 0);
+        GlStateManager.glVertexPointer(3, GL11.GL_FLOAT, vS, 0);
         GL11.glNormalPointer(GL11.GL_FLOAT, vS, 20);
-        GL11.glTexCoordPointer(2, GL11.GL_FLOAT, vS, 12);
+        GlStateManager.glTexCoordPointer(2, GL11.GL_FLOAT, vS, 12);
 
 
         GL11.glDrawElements(GL11.GL_TRIANGLES, indexBuffer.size(), GL11.GL_UNSIGNED_INT, 0);

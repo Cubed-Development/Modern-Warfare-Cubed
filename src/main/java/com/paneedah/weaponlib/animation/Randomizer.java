@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.animation;
 
 import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
+import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Matrix4f;
@@ -68,30 +69,30 @@ public final class Randomizer {
             float yRotation = maxAngle * amplitude * ((random.nextFloat() - 0.5f) * 2 + ybias);
             float zRotation = maxAngle * amplitude * ((random.nextFloat() - 0.5f) * 2 + zbias) * 3;
 
-            GL11.glRotatef(xRotation, 1f, 0f, 0f);
-            GL11.glRotatef(yRotation, 0f, 1f, 0f);
-            GL11.glRotatef(zRotation, 0f, 0f, 1f);
+            GlStateManager.rotate(xRotation, 1f, 0f, 0f);
+            GlStateManager.rotate(yRotation, 0f, 1f, 0f);
+            GlStateManager.rotate(zRotation, 0f, 0f, 1f);
 
             float xRandomOffset = amplitude * ((random.nextFloat() - 0.5f) * 2 + xbias);
             float yRandomOffset = amplitude * ((random.nextFloat() - 0.5f) * 2 + ybias);
             float zRandomOffset = amplitude * ((random.nextFloat() - 0.5f) * 2 + zbias) / 3;
-            GL11.glTranslatef(xRandomOffset, yRandomOffset, zRandomOffset);
+            GlStateManager.translate(xRandomOffset, yRandomOffset, zRandomOffset);
 
         };
         return getMatrixForPositioning(c);
     }
 
     private Matrix4f getMatrixForPositioning(Runnable position) {
-        GL11.glPushMatrix();
-        GL11.glMatrixMode(GL11.GL_MODELVIEW);
-        GL11.glLoadIdentity();
+        GlStateManager.pushMatrix();
+        GlStateManager.matrixMode(GL11.GL_MODELVIEW);
+        GlStateManager.loadIdentity();
         FloatBuffer buf = BufferUtils.createFloatBuffer(16);
         position.run();
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, buf);
+        GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, buf);
         buf.rewind();
         Matrix4f matrix = new Matrix4f();
         matrix.load(buf);
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
         return matrix;
     }
 

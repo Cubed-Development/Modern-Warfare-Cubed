@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib.animation.movement;
 
-import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
-import com.paneedah.weaponlib.RenderContext;
-import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponRenderer.StateDescriptor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.animation.load.BBLoader;
@@ -13,7 +11,6 @@ import com.paneedah.weaponlib.numerical.LissajousCurve;
 import com.paneedah.weaponlib.numerical.SpringValue;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
-import org.lwjgl.opengl.GL11;
 
 /**
  * Class that handles weapon rotations, handles recoil animations, walking
@@ -79,11 +76,11 @@ public class WeaponRotationHandler {
      */
     public static void applyRotationAtPoint(float xOffset, float yOffset, float zOffset, float xRotation,
                                             float yRotation, float zRotation) {
-        GL11.glTranslatef(-xOffset, -yOffset, -zOffset);
-        GL11.glRotatef(xRotation, 1f, 0f, 0f);
-        GL11.glRotatef(yRotation, 0f, 1f, 0f);
-        GL11.glRotatef(zRotation, 0f, 0f, 1f);
-        GL11.glTranslatef(xOffset, yOffset, zOffset);
+        GlStateManager.translate(-xOffset, -yOffset, -zOffset);
+        GlStateManager.rotate(xRotation, 1f, 0f, 0f);
+        GlStateManager.rotate(yRotation, 0f, 1f, 0f);
+        GlStateManager.rotate(zRotation, 0f, 0f, 1f);
+        GlStateManager.translate(xOffset, yOffset, zOffset);
     }
 
     public static void applyRotationAtPoint(Vec3d offset, float x, float y, float z) {

@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.perspective;
 
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -15,7 +15,7 @@ public class GasDetectorScreenPerspective extends ScreenPerspective {
         FontRenderer fontRender = MC.fontRenderer;
         int color = 0xAAAA07;
 
-        GL11.glScalef(fontScale, fontScale, fontScale);
+        GlStateManager.scale(fontScale, fontScale, fontScale);
 
         String message = getMessage();
         fontRender.drawString(message, 5 + (int) (10f / fontScale), 5 + (int) ((10f) / fontScale), color, false);

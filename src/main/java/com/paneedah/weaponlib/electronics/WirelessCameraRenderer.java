@@ -1,13 +1,14 @@
 package com.paneedah.weaponlib.electronics;
 
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WirelessCameraRenderer extends Render<Entity> {
 
@@ -27,14 +28,14 @@ public class WirelessCameraRenderer extends Render<Entity> {
             String textureName = camera.getTextureName();
             ResourceLocation textureLocation = textureName != null ?
                     new ResourceLocation(ID + ":textures/models/" + textureName) : null;
-            GL11.glPushMatrix();
-            GL11.glTranslatef(0f, 0f, 0f);
+            GlStateManager.pushMatrix();
+            GlStateManager.translate(0f, 0f, 0f);
             if (textureLocation != null) {
                 bindTexture(textureLocation);
             }
-            GL11.glTranslated(x, y, z);
+            GlStateManager.translate(x, y, z);
             model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
-            GL11.glPopMatrix();
+            GlStateManager.popMatrix();
         }
     }
 

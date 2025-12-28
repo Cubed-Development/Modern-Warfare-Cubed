@@ -3,9 +3,7 @@ package com.paneedah.weaponlib.vehicle;
 import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -47,26 +45,26 @@ public class GearShiftPattern {
     }
 
     public void drawCenteredString(FontRenderer fontRendererIn, String text, double x, double y, int color, double scale) {
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
-        GL11.glTranslated(x, y, 0);
-        GL11.glScaled(scale, scale, scale);
+        GlStateManager.translate(x, y, 0);
+        GlStateManager.scale(scale, scale, scale);
 
         fontRendererIn.drawStringWithShadow(text, (float) (-fontRendererIn.getStringWidth(text) / 2), 0.0f, color);
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
 
     public void renderPattern(Color c, double x, double y) {
 
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
         float red = c.getRed() / 255.0f;
         float blue = c.getBlue() / 255.0f;
         float green = c.getGreen() / 255.0f;
         float alpha = c.getAlpha() / 255.0f;
 
-        GL11.glLineWidth(3.0f);
+        GlStateManager.glLineWidth(3.0f);
         Tessellator t = Tessellator.getInstance();
         BufferBuilder bb = t.getBuffer();
         bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
@@ -86,7 +84,7 @@ public class GearShiftPattern {
 
 
         t.draw();
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
 		
 		/*
 		for(Branch b : pattern) {

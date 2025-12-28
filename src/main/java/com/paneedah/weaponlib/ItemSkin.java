@@ -2,7 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.model.FlatModel;
 import net.minecraft.client.model.ModelBase;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,11 +43,11 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 					*/
 
 
-                    GL11.glRotatef(30F, 1f, 0f, 0f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glTranslatef(-0.75f, -0.6f, 0F);
-                    GL11.glScaled(15f, 15f, 15f);
+                    GlStateManager.rotate(30F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.translate(-0.75f, -0.6f, 0F);
+                    GlStateManager.scale(15f, 15f, 15f);
 
                 });
             }

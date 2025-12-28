@@ -1,14 +1,14 @@
 package com.paneedah.mwc.tileentities;
 
-import dev.redstudio.redcore.utils.AABBUtil;
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.tile.CustomTileEntityBlock;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
+import dev.redstudio.redcore.utils.AABBUtil;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
-import org.lwjgl.opengl.GL11;
 
 public class TileEntities {
 
@@ -27,8 +27,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.6f, 0.6f, 0.6f);
-                    GL11.glTranslatef(0.7f, 1.1f, 0.5f);
+                    GlStateManager.scale(0.6f, 0.6f, 0.6f);
+                    GlStateManager.translate(0.7f, 1.1f, 0.5f);
                 })
                 .build(MWC.modContext);
 
@@ -46,8 +46,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.6f, 0.6f, 0.6f);
-                    GL11.glTranslatef(0.8f, 1.1f, 0.8f);
+                    GlStateManager.scale(0.6f, 0.6f, 0.6f);
+                    GlStateManager.translate(0.8f, 1.1f, 0.8f);
                 })
                 .build(MWC.modContext);
 
@@ -65,8 +65,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.6f, 0.6f, 0.6f);
-                    GL11.glTranslatef(0.8f, 1.15f, 0.75f);
+                    GlStateManager.scale(0.6f, 0.6f, 0.6f);
+                    GlStateManager.translate(0.8f, 1.15f, 0.75f);
                 })
                 .build(MWC.modContext);
 
@@ -84,8 +84,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.4f, 0.4f, 0.4f);
-                    GL11.glTranslatef(1.2f, 2.5f, 1.1f);
+                    GlStateManager.scale(0.4f, 0.4f, 0.4f);
+                    GlStateManager.translate(1.2f, 2.5f, 1.1f);
                 })
                 .build(MWC.modContext);
 
@@ -97,8 +97,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.6f, 0.6f, 0.6f);
-                    GL11.glTranslatef(0.4f, 1.15f, 0.6f);
+                    GlStateManager.scale(0.6f, 0.6f, 0.6f);
+                    GlStateManager.translate(0.4f, 1.15f, 0.6f);
                 })
                 .build(MWC.modContext);
 
@@ -117,8 +117,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glTranslatef(0.55f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.translate(0.55f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -136,8 +136,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glTranslatef(0.55f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.translate(0.55f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -149,9 +149,9 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.8f, 0.8f, 0.8f);
-                    GL11.glTranslatef(0.55f, 0.6f, 0.55f);
-                    GL11.glRotatef(90F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.8f, 0.8f, 0.8f);
+                    GlStateManager.translate(0.55f, 0.6f, 0.55f);
+                    GlStateManager.rotate(90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -163,9 +163,9 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.5f, 0.5f, 0.5f);
-                    GL11.glTranslatef(0.2f, 1.63f, 1.7f);
-                    GL11.glRotatef(90F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.5f, 0.5f, 0.5f);
+                    GlStateManager.translate(0.2f, 1.63f, 1.7f);
+                    GlStateManager.rotate(90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -183,8 +183,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.6f, 0.6f, 0.6f);
-                    GL11.glTranslatef(0.7f, 1.13f, 0.5f);
+                    GlStateManager.scale(0.6f, 0.6f, 0.6f);
+                    GlStateManager.translate(0.7f, 1.13f, 0.5f);
                 })
                 .build(MWC.modContext);
 
@@ -202,8 +202,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.5f, 0.5f, 0.5f);
-                    GL11.glTranslatef(0.7f, 1.85f, 1f);
+                    GlStateManager.scale(0.5f, 0.5f, 0.5f);
+                    GlStateManager.translate(0.7f, 1.85f, 1f);
                 })
                 .build(MWC.modContext);
 
@@ -221,9 +221,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.8f, 0.8f, 0.8f);
-                    GL11.glTranslatef(0.5f, 0.45f, 0.6f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.8f, 0.8f, 0.8f);
+                    GlStateManager.translate(0.5f, 0.45f, 0.6f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -236,8 +236,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.8f, 0.9f);
-                    GL11.glTranslatef(0.55f, 0.4f, 0.55f);
+                    GlStateManager.scale(0.9f, 0.8f, 0.9f);
+                    GlStateManager.translate(0.55f, 0.4f, 0.55f);
                 })
                 .build(MWC.modContext);
 
@@ -249,8 +249,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.8f, 0.9f);
-                    GL11.glTranslatef(0.55f, 0.4f, 0.55f);
+                    GlStateManager.scale(0.9f, 0.8f, 0.9f);
+                    GlStateManager.translate(0.55f, 0.4f, 0.55f);
                 })
                 .build(MWC.modContext);
 
@@ -262,8 +262,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(5)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.7f, 0.25f, 0.6f);
+                    GlStateManager.scale(0.9f, 0.9f, 0.9f);
+                    GlStateManager.translate(0.7f, 0.25f, 0.6f);
                 })
                 .build(MWC.modContext);
 
@@ -281,8 +281,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.7f, 0.7f, 0.7f);
-                    GL11.glTranslatef(0.5f, 0.71f, 0.6f);
+                    GlStateManager.scale(0.7f, 0.7f, 0.7f);
+                    GlStateManager.translate(0.5f, 0.71f, 0.6f);
                 })
                 .build(MWC.modContext);
 
@@ -294,8 +294,8 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(5)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.7f, 0.25f, 0.6f);
+                    GlStateManager.scale(0.9f, 0.9f, 0.9f);
+                    GlStateManager.translate(0.7f, 0.25f, 0.6f);
                 })
                 .build(MWC.modContext);
 
@@ -307,9 +307,9 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -321,9 +321,9 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(22.5f)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -335,9 +335,9 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(2)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -349,9 +349,9 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(2)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -369,9 +369,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -389,9 +389,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -403,9 +403,9 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(5)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0.4f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0.4f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -416,9 +416,9 @@ public class TileEntities {
                 .withTextureName("textures/models/ceilingtv.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.6f, 0.4f, 0.7f);
-                    GL11.glRotatef(-135F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.6f, 0.4f, 0.7f);
+                    GlStateManager.rotate(-135F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -436,9 +436,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -456,9 +456,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -469,9 +469,9 @@ public class TileEntities {
                 .withTextureName("textures/models/desk.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1.07f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1.07f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -482,9 +482,9 @@ public class TileEntities {
                 .withTextureName("textures/models/desk.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1.07f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1.07f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -495,9 +495,9 @@ public class TileEntities {
                 .withTextureName("textures/models/desk.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -508,9 +508,9 @@ public class TileEntities {
                 .withTextureName("textures/models/desk.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -521,9 +521,9 @@ public class TileEntities {
                 .withTextureName("textures/models/desk.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -534,9 +534,9 @@ public class TileEntities {
                 .withTextureName("textures/models/deskmiddlealt1.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -547,9 +547,9 @@ public class TileEntities {
                 .withTextureName("textures/models/desk.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -560,9 +560,9 @@ public class TileEntities {
                 .withTextureName("textures/models/desk.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -579,9 +579,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -592,9 +592,9 @@ public class TileEntities {
                 .withTextureName("textures/models/deskshelfalt1.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -611,9 +611,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -624,9 +624,9 @@ public class TileEntities {
                 .withTextureName("textures/models/deskshelfalt4.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -637,8 +637,8 @@ public class TileEntities {
                 .withTextureName("textures/models/barrier.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1.1f, 1.2f, 1f);
-                    GL11.glTranslatef(0.42f, -0.25f, 0.5f);
+                    GlStateManager.scale(1.1f, 1.2f, 1f);
+                    GlStateManager.translate(0.42f, -0.25f, 0.5f);
                 })
                 .build(MWC.modContext);
 
@@ -649,9 +649,9 @@ public class TileEntities {
                 .withTextureName("textures/models/barrier.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1.1f, 1.2f, 1.1f);
-                    GL11.glTranslatef(0.42f, -0.25f, 0.5f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                    GlStateManager.scale(1.1f, 1.2f, 1.1f);
+                    GlStateManager.translate(0.42f, -0.25f, 0.5f);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -662,9 +662,9 @@ public class TileEntities {
                 .withTextureName("textures/models/bodybag.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.5f, -0.9f, 0.55f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.9f, 0.9f, 0.9f);
+                    GlStateManager.translate(0.5f, -0.9f, 0.55f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -681,9 +681,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.5f, 1.8f, 0.55f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.9f, 0.9f, 0.9f);
+                    GlStateManager.translate(0.5f, 1.8f, 0.55f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -700,9 +700,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.5f, 0.2f, 0.55f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.9f, 0.9f, 0.9f);
+                    GlStateManager.translate(0.5f, 0.2f, 0.55f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -720,9 +720,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.6f, 0.2f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.9f, 0.9f, 0.9f);
+                    GlStateManager.translate(0.6f, 0.2f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -733,9 +733,9 @@ public class TileEntities {
                 .withTextureName("textures/models/woodencrate.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 0.95f, 1f);
-                    GL11.glTranslatef(0.5f, 0.085f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 0.95f, 1f);
+                    GlStateManager.translate(0.5f, 0.085f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -746,9 +746,9 @@ public class TileEntities {
                 .withTextureName("textures/models/woodencrateopened.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -759,9 +759,9 @@ public class TileEntities {
                 .withTextureName("textures/models/operatingtable.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -772,9 +772,9 @@ public class TileEntities {
                 .withTextureName("textures/models/operatingtable.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -785,9 +785,9 @@ public class TileEntities {
                 .withTextureName("textures/models/forklift.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1.5f, 1.5f, 1.5f);
-                    GL11.glTranslatef(0.5f, -0.5f, 0.5f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                    GlStateManager.scale(1.5f, 1.5f, 1.5f);
+                    GlStateManager.translate(0.5f, -0.5f, 0.5f);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -798,9 +798,9 @@ public class TileEntities {
                 .withTextureName("textures/models/forkliftalt.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -811,9 +811,9 @@ public class TileEntities {
                 .withTextureName("textures/models/trusses.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -824,9 +824,9 @@ public class TileEntities {
                 .withTextureName("textures/models/ceilinglamp.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 1.8f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 1.8f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -837,9 +837,9 @@ public class TileEntities {
                 .withTextureName("textures/models/ceilinglampalt.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, -0.2f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, -0.2f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -850,9 +850,9 @@ public class TileEntities {
                 .withTextureName("textures/models/vent.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -863,9 +863,9 @@ public class TileEntities {
                 .withTextureName("textures/models/vent.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 1f, 1.5f);
-                    GL11.glRotatef(-90F, 1f, 0f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 1f, 1.5f);
+                    GlStateManager.rotate(-90F, 1f, 0f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -876,9 +876,9 @@ public class TileEntities {
                 .withTextureName("textures/models/vent.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -889,9 +889,9 @@ public class TileEntities {
                 .withTextureName("textures/models/vent.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 1f, 1.5f);
-                    GL11.glRotatef(-90F, 1f, 0f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 1f, 1.5f);
+                    GlStateManager.rotate(-90F, 1f, 0f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -902,9 +902,9 @@ public class TileEntities {
                 .withTextureName("textures/models/vent.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 1f, -0.5f);
-                    GL11.glRotatef(90F, 1f, 0f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 1f, -0.5f);
+                    GlStateManager.rotate(90F, 1f, 0f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -915,9 +915,9 @@ public class TileEntities {
                 .withTextureName("textures/models/vent.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -928,9 +928,9 @@ public class TileEntities {
                 .withTextureName("textures/models/vent.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -941,9 +941,9 @@ public class TileEntities {
                 .withTextureName("textures/models/shelf.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -960,9 +960,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -973,9 +973,9 @@ public class TileEntities {
                 .withTextureName("textures/models/shelf.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -986,9 +986,9 @@ public class TileEntities {
                 .withTextureName("textures/models/trashbin.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -999,9 +999,9 @@ public class TileEntities {
                 .withTextureName("textures/models/cautionsign.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.8f, 0.8f, 0.8f);
-                    GL11.glTranslatef(0.6f, 0.45f, 0.6f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.8f, 0.8f, 0.8f);
+                    GlStateManager.translate(0.6f, 0.45f, 0.6f);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1012,9 +1012,9 @@ public class TileEntities {
                 .withTextureName("textures/models/electricbox.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0.8f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0.8f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1025,9 +1025,9 @@ public class TileEntities {
                 .withTextureName("textures/models/electricboxopened.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0.8f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0.8f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1044,9 +1044,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1057,9 +1057,9 @@ public class TileEntities {
                 .withTextureName("textures/models/outdoorchair.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1070,9 +1070,9 @@ public class TileEntities {
                 .withTextureName("textures/models/homechair.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1083,9 +1083,9 @@ public class TileEntities {
                 .withTextureName("textures/models/outdoorchair.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1102,9 +1102,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.8f, 0.8f, 0.8f);
-                    GL11.glTranslatef(0.55f, 0.4f, 0.62f);
-                    GL11.glRotatef(180F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.8f, 0.8f, 0.8f);
+                    GlStateManager.translate(0.55f, 0.4f, 0.62f);
+                    GlStateManager.rotate(180F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1115,9 +1115,9 @@ public class TileEntities {
                 .withTextureName("textures/models/serverrackleft.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1128,9 +1128,9 @@ public class TileEntities {
                 .withTextureName("textures/models/serverrackemptyright.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1141,9 +1141,9 @@ public class TileEntities {
                 .withTextureName("textures/models/serverrackleftalt.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1154,9 +1154,9 @@ public class TileEntities {
                 .withTextureName("textures/models/serverrackleftalt2.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1167,9 +1167,9 @@ public class TileEntities {
                 .withTextureName("textures/models/serverrackleftalt3.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1180,9 +1180,9 @@ public class TileEntities {
                 .withTextureName("textures/models/serverrackemptyright.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1193,9 +1193,9 @@ public class TileEntities {
                 .withTextureName("textures/models/serverrackright.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1206,9 +1206,9 @@ public class TileEntities {
                 .withTextureName("textures/models/serverrackrightalt.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1225,9 +1225,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1244,9 +1244,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1263,8 +1263,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.8f, 0.8f, 0.8f);
-                    GL11.glTranslatef(0.6f, 0.35f, 0.6f);
+                    GlStateManager.scale(0.8f, 0.8f, 0.8f);
+                    GlStateManager.translate(0.6f, 0.35f, 0.6f);
                 })
                 .build(MWC.modContext);
 
@@ -1281,8 +1281,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.6f, 0.175f, 0.6f);
+                    GlStateManager.scale(0.9f, 0.9f, 0.9f);
+                    GlStateManager.translate(0.6f, 0.175f, 0.6f);
                 })
                 .build(MWC.modContext);
 
@@ -1293,9 +1293,9 @@ public class TileEntities {
                 .withTextureName("textures/models/radio.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.7f, 0.7f, 0.7f);
-                    GL11.glTranslatef(0.65f, 0.58f, 0.7f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7f, 0.7f, 0.7f);
+                    GlStateManager.translate(0.65f, 0.58f, 0.7f);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1312,8 +1312,8 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.7f, 0.7f, 0.7f);
-                    GL11.glTranslatef(0.65f, 0.58f, 0.6f);
+                    GlStateManager.scale(0.7f, 0.7f, 0.7f);
+                    GlStateManager.translate(0.65f, 0.58f, 0.6f);
                 })
                 .build(MWC.modContext);
 
@@ -1325,9 +1325,9 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(0, 0, 0, 1, 0.8, 1)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0.05f, 0.6f);
-                    GL11.glRotatef(90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0.05f, 0.6f);
+                    GlStateManager.rotate(90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1344,9 +1344,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.6f, 0.6f, 0.6f);
-                    GL11.glTranslatef(0.85f, 1f, 0.85f);
-                    GL11.glRotatef(90F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6f, 0.6f, 0.6f);
+                    GlStateManager.translate(0.85f, 1f, 0.85f);
+                    GlStateManager.rotate(90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1357,9 +1357,9 @@ public class TileEntities {
                 .withTextureName("textures/models/towablefloodlight.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.3f, 0f, 0.5f);
-                    GL11.glRotatef(90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.3f, 0f, 0.5f);
+                    GlStateManager.rotate(90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1377,9 +1377,9 @@ public class TileEntities {
                         }
                 )
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1391,9 +1391,9 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withHardness(1)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1404,9 +1404,9 @@ public class TileEntities {
                 .withTextureName("textures/models/crossgravestone.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1417,9 +1417,9 @@ public class TileEntities {
                 .withTextureName("textures/models/crossgravestone2.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1430,9 +1430,9 @@ public class TileEntities {
                 .withTextureName("textures/models/crossgravestone3.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1443,9 +1443,9 @@ public class TileEntities {
                 .withTextureName("textures/models/gravestoneskull.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1456,9 +1456,9 @@ public class TileEntities {
                 .withTextureName("textures/models/gravestone.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1470,9 +1470,9 @@ public class TileEntities {
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withBoundingBox(0.3, 0, 0.3, 0.7, 3.5, 0.7)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 0f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1483,9 +1483,9 @@ public class TileEntities {
                 .withTextureName("textures/models/spookyghost.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 1.05f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 1.05f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1496,9 +1496,9 @@ public class TileEntities {
                 .withTextureName("textures/models/spookyghost2.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 1.05f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 1.05f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1509,9 +1509,9 @@ public class TileEntities {
                 .withTextureName("textures/models/spookyghost3.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 1.05f, 0.5f);
-                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                    GlStateManager.scale(1f, 1f, 1f);
+                    GlStateManager.translate(0.5f, 1.05f, 0.5f);
+                    GlStateManager.rotate(-90F, 0f, 1f, 0f);
                 })
                 .build(MWC.modContext);
 
@@ -1522,8 +1522,8 @@ public class TileEntities {
                 .withTextureName("textures/models/swattruck.png")
                 .withCreativeTab(MWC.PROPS_TAB)
                 .withPositioning(tileEntity -> {
-                    GL11.glScalef(1.5f, 1.5f, 1.5f);
-                    GL11.glTranslatef(0.3f, -0.45f, -1f);
+                    GlStateManager.scale(1.5f, 1.5f, 1.5f);
+                    GlStateManager.translate(0.3f, -0.45f, -1f);
                 })
                 .build(MWC.modContext);
     }

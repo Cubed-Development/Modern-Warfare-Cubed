@@ -53,7 +53,7 @@ public class DepthTexture {
         }
 
         if (texture == -1) {
-            texture = GL11.glGenTextures();
+            texture = GlStateManager.generateTexture();
         }
 
         // Bind the scope's depth buffer
@@ -62,14 +62,12 @@ public class DepthTexture {
 
         // Bind the scope depth texture to the buffer with appropriate parameters
         GlStateManager.bindTexture(texture);
-        GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_DEPTH_COMPONENT24, this.width, this.height, 0,
-                GL11.GL_DEPTH_COMPONENT, GL11.GL_FLOAT, (FloatBuffer) null);
+        GlStateManager.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_DEPTH_COMPONENT24, this.width, this.height, 0, GL11.GL_DEPTH_COMPONENT, GL11.GL_FLOAT, null);
         GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
         GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
         GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
         GlStateManager.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
-        OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_DEPTH_ATTACHMENT,
-                GL11.GL_TEXTURE_2D, texture, 0);
+        OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_DEPTH_ATTACHMENT, GL11.GL_TEXTURE_2D, texture, 0);
 
         // Check status
         checkFramebufferStatus();

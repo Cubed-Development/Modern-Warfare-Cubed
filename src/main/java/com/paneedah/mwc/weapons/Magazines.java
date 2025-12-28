@@ -5,7 +5,7 @@ import com.paneedah.mwc.models.UMP45mag;
 import com.paneedah.mwc.models.UMP9Mag;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.ModContext;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 public class Magazines {
 
@@ -135,20 +135,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.ChainsawFuel(), "ChainsawFuel.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5F, -0F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 0.5F, -0F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -161,20 +161,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.NinthSinMagazine(), "ninthsin.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5F, -0F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 0.5F, -0F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
 //                .withCrafting(CraftingComplexity.MEDIUM,
@@ -191,20 +191,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.BrenMkIIMag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1F, 0.3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 1F, 0.3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -217,20 +217,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.JohnsonLMGMAG(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -1.4F, 1.1F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(10F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, -1.4F, 1.1F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(10F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -245,20 +245,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.KrissVectorMagazine(), "krissvector.png")
                 .withRequiredAttachments(Attachments.KrissVectorReceiver)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.7F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.7F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-1F, -1.3F, 0.8F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-1F, -1.3F, 0.8F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, 0F, -1.3F);
-                    GL11.glRotatef(-130F, 0f, 1f, 0f);
-                    GL11.glRotatef(20F, 1f, 0f, 0f);
-                    GL11.glRotatef(-30F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(-0.2F, 0F, -1.3F);
+                    GlStateManager.rotate(-130F, 0f, 1f, 0f);
+                    GlStateManager.rotate(20F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-30F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(5)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -273,20 +273,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.KrissVectorMagazineDrum(), "krissvector.png")
                 .withRequiredAttachments(Attachments.KrissVectorReceiver)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.7F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.7F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-1F, -1.3F, 0.8F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-1F, -1.3F, 0.8F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, 0F, -1.3F);
-                    GL11.glRotatef(-130F, 0f, 1f, 0f);
-                    GL11.glRotatef(20F, 1f, 0f, 0f);
-                    GL11.glRotatef(-30F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(-0.2F, 0F, -1.3F);
+                    GlStateManager.rotate(-130F, 0f, 1f, 0f);
+                    GlStateManager.rotate(20F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-30F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(5)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -304,20 +304,20 @@ public class Magazines {
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
                         Attachments.ScarLReceiver, Attachments.SIG556Grip)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.6F, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, 0.6F, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -331,20 +331,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.NGSWRMag(), "ngswr.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.3F, -2.8F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.3F, -2.8F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -359,20 +359,20 @@ public class Magazines {
                 .withRequiredAttachments(Attachments.FamasPlaceholder, Attachments.Vector556Handguard)
                 .withModel(new com.paneedah.mwc.models.FamasF1Mag(), "famasf1.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -0.2F, 1.1F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, -0.2F, 1.1F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -388,20 +388,20 @@ public class Magazines {
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard, Attachments.M4AsiimovStock,
                         Attachments.M16A1RearSights, Attachments.Beowulf50CalReceiver)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.9F, -2.5F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.9F, -2.5F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -411,20 +411,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AUG9mmMag(), "aug.png")
                 .withRequiredAttachments(Attachments.AUGParaConversion)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -0.8F, 1F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, -0.8F, 1F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -437,20 +437,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.S710TricunMag(), "S710Tricun.png")
                 .withRequiredAttachments(Attachments.S710Receiver)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.6F, -1.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.6F, -1.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -460,20 +460,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M134Mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -0.5F, -0F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, -0.5F, -0F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -483,20 +483,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M60Mag(), "m60.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -2.9F, 4F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, -2.9F, 4F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -511,20 +511,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M249Mag(), "m249.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.95F, -2.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 0.95F, -2.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -534,20 +534,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.StonerA1MAG(), "m249.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -2.2F, 3.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, -2.2F, 3.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -562,20 +562,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M4A1Mag(), "M4A1Mag.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.6F, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, 0.6F, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -595,20 +595,20 @@ public class Magazines {
                         Attachments.HK416Receiver, Attachments.ScarLReceiver,
                         Attachments.SIGMCXHandguardShort, Attachments.SIG556Grip)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.6F, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, 0.6F, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -625,20 +625,20 @@ public class Magazines {
                         Attachments.HK416Receiver, Attachments.ScarLReceiver,
                         Attachments.SIGMCXHandguardShort, Attachments.SIG556Grip)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.6F, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, 0.6F, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -651,20 +651,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.HK417Mag(), "HK417mag.png")
                 .withRequiredAttachments(Attachments.HK417Receiver, Attachments.HK417ReceiverTan)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2F, -3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, 1.2F, -3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -675,20 +675,20 @@ public class Magazines {
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver,
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard, Attachments.C8SFWReceiver)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.6F, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, 0.6F, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -706,20 +706,20 @@ public class Magazines {
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
                         Attachments.ScarLReceiver, Attachments.SIG556Grip)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2F, -2.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.2F, -2.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -737,20 +737,20 @@ public class Magazines {
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
                         Attachments.ScarLReceiver, Attachments.SIG556Grip)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2F, -2.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.2F, -2.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -767,20 +767,20 @@ public class Magazines {
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
                         Attachments.ScarLReceiver, Attachments.SIG556Grip)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2F, -0.6F);
-                    GL11.glRotatef(-160F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.2F, 1.2F, 1.2f);
+                    GlStateManager.translate(0.3F, 1.2F, -0.6F);
+                    GlStateManager.rotate(-160F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.2F, 1.2F, 1.2f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -795,20 +795,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.G36CMag(), "g36c.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1F, -2.5F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 1F, -2.5F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -823,20 +823,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AK101Mag(), "ak101mag.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7F, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 0.7F, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -851,20 +851,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AK74Mag(), "ak74mag.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7F, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 0.7F, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -879,20 +879,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AK60Mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5F, -2.4F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6f);
+                    GlStateManager.translate(0.3F, 0.5F, -2.4F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -907,20 +907,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AK60Mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5F, -2.4F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6f);
+                    GlStateManager.translate(0.3F, 0.5F, -2.4F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -935,20 +935,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AK15Mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.7f, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -963,20 +963,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AK15Mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.7f, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -990,20 +990,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.Mag75rnd(), "gun.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2f, -3.2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.2f, -3.2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1017,20 +1017,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AK12Magazine(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.9f, -2.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.9f, -2.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1045,20 +1045,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AK15Mag(), "tan.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.7f, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1073,20 +1073,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Magazine762x39(), "ak47mag.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.7f, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1101,20 +1101,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Drum50AK(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.8f, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.8f, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1128,20 +1128,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.Mag75rnd(), "gun.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2f, -3.2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.2f, -3.2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1156,20 +1156,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AKDrum100(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.6f, -2.4F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 0.6f, -2.4F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1184,20 +1184,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.DragunovMag(), "dragunov.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.7f, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png")
@@ -1208,20 +1208,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Saiga12mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.7f, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1235,20 +1235,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Origin12Mag(), "Origin12.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.7f, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1262,20 +1262,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Origin12DrumMag(), "Origin12DrumMag.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.7f, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1290,20 +1290,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M9A1mag(), "m9a1.png")
                 .withRequiredAttachments(Attachments.M9A1Body, Attachments.P226Slide)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5f, -1F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.5f, -1F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1317,20 +1317,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.FiveSevenMagazine(), "fiveseven.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5f, -1F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.5f, -1F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1341,20 +1341,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M9A1mag(), "m9a1.png")
                 .withRequiredAttachments(Attachments.SamuraiEdgeBody)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5f, -1F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.5f, -1F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1369,20 +1369,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.SCCYCPX2Mag(), "sccycpx2.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5f, -1F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.5f, -1F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1397,20 +1397,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.SCCYCPX2MagExt(), "sccycpx2.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5f, -1F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.5f, -1F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1425,20 +1425,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.DesertEagleMag(), "deagle.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5f, -1F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.5f, -1F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1448,20 +1448,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M9Mag30(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -0.1f, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.75F, 0.75F, 0.75f);
+                    GlStateManager.translate(0.3F, -0.1f, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.75F, 0.75F, 0.75f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1471,20 +1471,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M9DrumMag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -0.1f, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.75F, 0.75F, 0.75f);
+                    GlStateManager.translate(0.3F, -0.1f, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.75F, 0.75F, 0.75f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1498,20 +1498,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.MP443Magazine(), "MP443.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.4f, -0F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.4f, -0F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1521,20 +1521,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.GlockMagazine(), "gun.png")
                 .withRequiredAttachments(Attachments.M1911Body)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -0.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.7f, -0.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1545,20 +1545,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.GlockMagazine(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -0.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.7f, -0.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1568,20 +1568,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M9Mag30(), "gun.png")
                 .withRequiredAttachments(Attachments.M1911Body)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -0.1f, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.75F, 0.75F, 0.75f);
+                    GlStateManager.translate(0.3F, -0.1f, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.75F, 0.75F, 0.75f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1595,20 +1595,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.M17Mag(), "m17.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -0.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.7f, -0.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1620,20 +1620,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.MakarovMag(), "makarovmag.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -0.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.7f, -0.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1642,20 +1642,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.USP45Mag(), "USP45.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -0.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.7f, -0.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1665,20 +1665,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.GlockMagazine(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7f, -0.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.7f, -0.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1688,20 +1688,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M9A1mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5f, -0.8F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 0.5f, -0.8F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1715,20 +1715,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.APSmag(), "aps.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5f, -0.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 0.5f, -0.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1738,20 +1738,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Glock13rndMagazine(), "glock18c.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.3f, -0.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 0.3f, -0.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1761,20 +1761,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Glock18Cmag(), "glock18c.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.1f, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6f);
+                    GlStateManager.translate(0.3F, 0.1f, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1784,20 +1784,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M9DrumMag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -0.1f, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.75F, 0.75F, 0.75f);
+                    GlStateManager.translate(0.3F, -0.1f, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.75F, 0.75F, 0.75f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1807,20 +1807,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.AS50mag(), "M4A1Mag.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.8f, -3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 1.8f, -3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1835,20 +1835,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M82Mag(), "m82.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.3f, -3.3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.3f, -3.3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1858,20 +1858,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.NTW20MAG(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -1.2f, 3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, -1.2f, 3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1885,20 +1885,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.KBP9A91Mag(), "kbp9a91.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.8f, -2.8F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 0.8f, -2.8F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1908,20 +1908,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.KedrMag(), "kedr.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.8f, -2.2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 0.8f, -2.2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1931,20 +1931,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.L115Mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.3f, -0.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1.4F, 1.4F, 1.4f);
+                    GlStateManager.translate(0.3F, 1.3f, -0.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.4F, 1.4F, 1.4f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1958,20 +1958,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.DSR1Mag(), "dsr1.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.3f, 1.3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1.4F, 1.4F, 1.4f);
+                    GlStateManager.translate(0.3F, 0.3f, 1.3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.4F, 1.4F, 1.4f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -1985,20 +1985,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.DSR1MagExt(), "dsr1.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.1f, 1.3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1.4F, 1.4F, 1.4f);
+                    GlStateManager.translate(0.3F, 0.1f, 1.3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.4F, 1.4F, 1.4f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2011,20 +2011,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.InterventionMag(), "Intervention.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.5f, -1.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, 1.5f, -1.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2038,20 +2038,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M40A6Mag(), "gunwerkshamr.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.4f, -1.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, 1.4f, -1.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2061,20 +2061,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Remington700Mag(), "remington700.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0f, -0.8F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1.5F, 1.5F, 1.5f);
+                    GlStateManager.translate(0.3F, 0f, -0.8F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.5F, 1.5F, 1.5f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2084,20 +2084,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Remington700Mag10rnd(), "remington700.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0f, -0.8F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1.5F, 1.5F, 1.5f);
+                    GlStateManager.translate(0.3F, 0f, -0.8F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.5F, 1.5F, 1.5f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2110,20 +2110,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.SSG08Magazine(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 2.6f, -4.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(1.5F, 1.5F, 1.5f);
+                    GlStateManager.translate(0.3F, 2.6f, -4.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.5F, 1.5F, 1.5f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2136,20 +2136,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.M110Mag(), "m110.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2F, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.2F, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2163,20 +2163,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.Z10Mag(), "z10.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2F, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.2F, -2.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2186,20 +2186,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M1928ThompsonMag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5F, -1.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.5F, -1.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2210,20 +2210,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M1A1mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5F, -1.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 0.5F, -1.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2233,20 +2233,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M712mag(), "m712.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1F, -2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6f);
+                    GlStateManager.translate(0.3F, 1F, -2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2256,20 +2256,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.MG42mag(), "mg42mag.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1F, -0.5F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1F, -0.5F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2279,20 +2279,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.DP28Mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7F, -1.3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-50F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.7F, -1.3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-50F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2306,20 +2306,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Mk14EBRmag(), "m14dmr.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.7F, -4.2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.7F, -4.2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2334,20 +2334,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.FNFALMag(), "fnfal.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.4F, -3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 1.4F, -3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2362,20 +2362,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.G3Mag(), "G3.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.4F, -3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    GlStateManager.translate(0.3F, 1.4F, -3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2390,20 +2390,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Mk14EBRmag(), "m14dmr.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.7F, -4.2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.7F, -4.2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2418,20 +2418,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M14Drum50(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2F, -3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.2F, 1.2F, 1.2f);
+                    GlStateManager.translate(0.3F, 1.2F, -3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.2F, 1.2F, 1.2f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2441,20 +2441,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.MP40MagACTUAL(), "mp40.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.8F, -2.2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.8F, -2.2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2469,20 +2469,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.HKMP5Mag(), "mp5.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.9F, -2.2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.9F, -2.2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2497,20 +2497,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.HK50Drum(), "mp5.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.9F, -2.9F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.9F, -2.9F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2525,20 +2525,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.MP7Mag(), "mp7.png")
 //                .withRequiredAttachments(Attachments.VeprDustCover)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -0.2F, -0.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, -0.2F, -0.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2553,20 +2553,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.MP7Mag20(), "mp7.png")
 //                .withRequiredAttachments(Attachments.VeprDustCover)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, -0.0F, -0.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, -0.0F, -0.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2581,20 +2581,20 @@ public class Magazines {
                 .withModel(new UMP45mag(), "ump45.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.9F, -2.2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.9F, -2.2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2609,20 +2609,20 @@ public class Magazines {
                 .withModel(new UMP9Mag(), "ump45.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.9F, -2.2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.9F, -2.2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2637,20 +2637,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.MPXMag(), "mpx.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.8F, -2.5F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.8F, -2.5F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2662,20 +2662,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.APC9Mag(), "apc9.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.8F, -2.5F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.8F, -2.5F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2690,20 +2690,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.ScorpionEVO3A1Magazine(), "scorpionevo3a1.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.9F, -2.2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.9F, -2.2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2718,20 +2718,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.P90Mag(), "p90.png")
                 .withRequiredAttachments(Attachments.P90DefaultKit, Attachments.AR57Receiver)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.8F, -0.3F);
-                    GL11.glRotatef(-160F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glRotatef(5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.5F, 0.5F, 0.5f);
+                    GlStateManager.translate(0.3F, 0.8F, -0.3F);
+                    GlStateManager.rotate(-160F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.rotate(5F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2742,20 +2742,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.M4A1Mag(), "M4A1Mag.png")
                 .withRequiredAttachments(Attachments.P90Terminator)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.6F, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, 0.6F, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2768,20 +2768,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.MAC10Mag(), "mac10.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.2F, -1F);
-                    GL11.glRotatef(-160F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glRotatef(5F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 0.2F, -1F);
+                    GlStateManager.rotate(-160F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.rotate(5F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2794,20 +2794,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.G11Mag(), "gun.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.8F, -2.3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.5F, 0.5F, 0.5f);
+                    GlStateManager.translate(0.3F, 1.8F, -2.3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2822,20 +2822,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.ScarHMag(), "scarh.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.3F, -3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.0F, 1.0F, 1.0f);
+                    GlStateManager.translate(0.3F, 1.3F, -3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.0F, 1.0F, 1.0f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2850,20 +2850,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Scar40Mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.6F, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
+                    GlStateManager.translate(0.3F, 0.6F, -0.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2878,20 +2878,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.Stanag50(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2F, -2.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 1.2F, -2.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2906,20 +2906,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.VSSVintorezMag(), "vssvintorez.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 1.2F, -2.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.75F, 0.75F, 0.75f);
+                    GlStateManager.translate(0.3F, 1.2F, -2.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.75F, 0.75F, 0.75f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2934,20 +2934,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.ASValMag(), "vssvintorez.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.8F, -2.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.75F, 0.75F, 0.75f);
+                    GlStateManager.translate(0.3F, 0.8F, -2.6F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.75F, 0.75F, 0.75f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2957,20 +2957,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.STG44Mag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.7F, -2.3F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6f);
+                    GlStateManager.translate(0.3F, 0.7F, -2.3F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -2980,20 +2980,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.G43GewehrMag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.9F, -2F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.4F, 1.4F, 1.4f);
+                    GlStateManager.translate(0.3F, 0.9F, -2F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.4F, 1.4F, 1.4f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -3003,20 +3003,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.SV98Mag(), "sv98.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 2.2F, -3.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.2F, 1.2F, 1.2f);
+                    GlStateManager.translate(0.3F, 2.2F, -3.7F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.2F, 1.2F, 1.2f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -3031,20 +3031,20 @@ public class Magazines {
                 .withModel(new com.paneedah.mwc.models.UziMag(), "gun.png")
 
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.3F, -0.8F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    GlStateManager.translate(0.3F, 0.3F, -0.8F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);
@@ -3058,20 +3058,20 @@ public class Magazines {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.VP70mag(), "gun.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5F, -0.8F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7f);
+                    GlStateManager.translate(0.3F, 0.5F, -0.8F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);

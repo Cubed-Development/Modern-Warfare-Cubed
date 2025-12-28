@@ -4,20 +4,16 @@ import com.paneedah.mwc.instancing.PlayerGrenadeInstance;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.*;
+import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
-import com.paneedah.weaponlib.animation.multipart.MultipartPositioning;
+import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.animation.multipart.*;
 import com.paneedah.weaponlib.animation.multipart.MultipartPositioning.Positioner;
-import com.paneedah.weaponlib.animation.multipart.MultipartRenderStateManager;
-import com.paneedah.weaponlib.animation.multipart.MultipartTransition;
-import com.paneedah.weaponlib.animation.multipart.MultipartTransitionProvider;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.model.*;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureManager;
@@ -40,9 +36,9 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
@@ -357,7 +353,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
             }
 
             if (inventoryPositioning == null) {
-                inventoryPositioning = itemStack -> {GL11.glTranslatef(0, 0.12f, 0);};
+                inventoryPositioning = itemStack -> {GlStateManager.translate(0, 0.12f, 0);};
             }
 
             if (entityPositioning == null) {
@@ -419,9 +415,9 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
             if (thirdPersonPositioning == null) {
                 thirdPersonPositioning = (context) -> {
-                    GL11.glTranslatef(-0.4F, 0.2F, 0.4F);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                    GL11.glRotatef(70F, 1f, 0f, 0f);
+                    GlStateManager.translate(-0.4F, 0.2F, 0.4F);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                    GlStateManager.rotate(70F, 1f, 0f, 0f);
                 };
             }
 
@@ -943,7 +939,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
     @SideOnly(Side.CLIENT)
     public void renderItem() {
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
         RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
 
@@ -956,33 +952,33 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
         Positioner<Part, RenderContext<RenderableState>> positioner = null;
         switch (transformType) {
             case GROUND:
-                GL11.glScaled(-1F, -1F, 1F);
-                GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glTranslatef(-0.7f, -1f, -0.1f);
-                GL11.glRotatef(0F, 1f, 0f, 0f);
-                //GL11.glRotatef(150F, 0f, 1f, 0f);
-                GL11.glRotatef(90F, 0f, 0f, 1f);
+                GlStateManager.scale(-1F, -1F, 1F);
+                GlStateManager.scale(0.35F, 0.35F, 0.35F);
+                GlStateManager.translate(-0.7f, -1f, -0.1f);
+                GlStateManager.rotate(0F, 1f, 0f, 0f);
+                //GlStateManager.rotate(150F, 0f, 1f, 0f);
+                GlStateManager.rotate(90F, 0f, 0f, 1f);
                 builder.getEntityPositioning().accept(itemStack);
                 break;
 
             case GUI:
-                GL11.glScaled(-1F, -1F, 1F);
-                GL11.glScaled(0.6F, 0.6F, 0.6F);
-                GL11.glTranslatef(-0.7f, -0.8f, -0.1f);
-                GL11.glRotatef(-30F, 1f, 0f, 0f);
-                GL11.glRotatef(40F, 0f, 1f, 0f);
-                GL11.glRotatef(0F, 0f, 0f, 1f);
+                GlStateManager.scale(-1F, -1F, 1F);
+                GlStateManager.scale(0.6F, 0.6F, 0.6F);
+                GlStateManager.translate(-0.7f, -0.8f, -0.1f);
+                GlStateManager.rotate(-30F, 1f, 0f, 0f);
+                GlStateManager.rotate(40F, 0f, 1f, 0f);
+                GlStateManager.rotate(0F, 0f, 0f, 1f);
                 builder.getInventoryPositioning().accept(itemStack);
                 break;
 
             case THIRD_PERSON_RIGHT_HAND:
             case THIRD_PERSON_LEFT_HAND:
-                GL11.glScaled(-1F, -1F, 1F);
-                GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glTranslatef(-1.5f, -2.4f, 1.3f);
-                GL11.glRotatef(-100F, 1f, 0f, 0f);
-                GL11.glRotatef(50F, 0f, 1f, 0f);
-                GL11.glRotatef(0F, 0f, 0f, 1f);
+                GlStateManager.scale(-1F, -1F, 1F);
+                GlStateManager.scale(0.4F, 0.4F, 0.4F);
+                GlStateManager.translate(-1.5f, -2.4f, 1.3f);
+                GlStateManager.rotate(-100F, 1f, 0f, 0f);
+                GlStateManager.rotate(50F, 0f, 1f, 0f);
+                GlStateManager.rotate(0F, 0f, 0f, 1f);
                 builder.getThirdPersonPositioning().accept(renderContext);
                 break;
 
@@ -992,7 +988,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
                 WeaponRenderer.fixVersionSpecificFirstPersonPositioning(transformType);
 
-                GL11.glScaled(-1F, -1F, 1F);
+                GlStateManager.scale(-1F, -1F, 1F);
 
                 StateDescriptor stateDescriptor = getStateDescriptor(player, itemStack);
 
@@ -1031,7 +1027,7 @@ public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
         renderItem(itemStack, renderContext, positioner);
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
     protected boolean onGround() {

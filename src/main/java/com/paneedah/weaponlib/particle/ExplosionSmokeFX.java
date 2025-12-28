@@ -2,9 +2,7 @@ package com.paneedah.weaponlib.particle;
 
 import com.paneedah.mwc.renderer.ParticleRenderer;
 import net.minecraft.client.particle.Particle;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -124,14 +122,14 @@ public class ExplosionSmokeFX extends Particle {
     public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
         MC.getTextureManager().bindTexture(new ResourceLocation(particleTexture));
 
-        GL11.glPushMatrix();
-        GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
+        GlStateManager.pushMatrix();
+        GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        GL11.glDepthMask(false);
-        GL11.glEnable(GL11.GL_BLEND);
-        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GL11.glAlphaFunc(GL11.GL_GREATER, 0.003921569F);
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.depthMask(false);
+        GlStateManager.enableBlend();
+        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        GlStateManager.alphaFunc(GL11.GL_GREATER, 0.003921569F);
 
         RenderHelper.disableStandardItemLighting();
 
@@ -174,8 +172,8 @@ public class ExplosionSmokeFX extends Particle {
 
         RenderHelper.enableStandardItemLighting();
 
-        GL11.glPopAttrib();
-        GL11.glPopMatrix();
+        GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+        GlStateManager.popMatrix();
     }
 
     public enum Behavior {

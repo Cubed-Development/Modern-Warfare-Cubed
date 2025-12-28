@@ -4,23 +4,19 @@ import org.lwjgl.opengl.GL30;
 
 public class ModernModel {
 
-
     public int vao;
-    public int vertices;
+    public int size;
 
-
-    public ModernModel(int vao, int size) {
+    public ModernModel(final int vao, final int size) {
         this.vao = vao;
-        this.vertices = size;
-
+        this.size = size;
     }
 
     public void render() {
-        //GL11.glEnableClientState(GL11.GL_VERTEX_ARRAY);
+        //GlStateManager.glEnableClientState(GL11.GL_VERTEX_ARRAY);
         GL30.glBindVertexArray(vao);
-        //GL11.glDrawArrays(GL11.GL_TRIANGLES, 0, vertices);
+        //GlStateManager.glDrawArrays(GL11.GL_TRIANGLES, 0, vertices);
         GL30.glBindVertexArray(0);
-        //GL11.glDisableClientState(GL11.GL_VERTEX_ARRAY);
+        //GlStateManager.glDisableClientState(GL11.GL_VERTEX_ARRAY);
     }
-
 }

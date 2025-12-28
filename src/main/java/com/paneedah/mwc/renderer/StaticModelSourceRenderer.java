@@ -8,9 +8,7 @@ import com.paneedah.weaponlib.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.model.*;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -29,8 +27,9 @@ import javax.vecmath.Matrix4f;
 import java.util.Collections;
 import java.util.List;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @SideOnly(Side.CLIENT)
 public class StaticModelSourceRenderer extends ModelSource implements IBakedModel {
@@ -65,24 +64,24 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
     public void renderCustomEquipped(EntityPlayer player, ItemStack itemStack) {
         RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
-        GL11.glScalef(0.33f, 0.33f, 0.33f);
+        GlStateManager.scale(0.33f, 0.33f, 0.33f);
 
 //        float pivotOffsetX = 0f;
 //        float pivotOffsetY = 0f;
 //        float pivotOffsetZ = 0f;
-//        GL11.glTranslatef(pivotOffsetX, pivotOffsetY, pivotOffsetZ);
-        GL11.glRotatef(180f, 0.001f, 0.0f, 0.0f);
-//        GL11.glTranslatef(-pivotOffsetX, -pivotOffsetY, -pivotOffsetZ);
+//        GlStateManager.translate(pivotOffsetX, pivotOffsetY, pivotOffsetZ);
+        GlStateManager.rotate(180f, 0.001f, 0.0f, 0.0f);
+//        GlStateManager.translate(-pivotOffsetX, -pivotOffsetY, -pivotOffsetZ);
 
 
-        GL11.glTranslatef(-0.5f, 0.5f, 0.5f);
+        GlStateManager.translate(-0.5f, 0.5f, 0.5f);
 
         transforms.getCustomEquippedPositioning().run();
         renderModelSource(renderContext, itemStack, null, 0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
     @Override
@@ -124,7 +123,9 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
                 renderItem();
             }
 
+            // TODO: What the fuck is this piss of shit - Luna Mira Lage (Desoroxxx) 2025-12-28
             if (currentTextureId != 0) {
+	            LOGGER.debug("Binding texture: {}", currentTextureId);
                 GlStateManager.bindTexture(currentTextureId);
             }
 
@@ -162,9 +163,9 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
     @SideOnly(Side.CLIENT)
     public void renderItem() {
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
-        GL11.glScaled(-1, -1, 1);
+        GlStateManager.scale(-1, -1, 1);
 
         final EntityPlayer player = MC.player;
         final RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
@@ -174,27 +175,27 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
                 transforms.getEntityPositioning().run();
                 break;
             case GUI:
-                GL11.glScaled(0.6F, 0.6F, 0.6F);
-                GL11.glTranslatef(-0.7F, -0.8F, -0.1F);
-                GL11.glRotatef(-30F, 1, 0, 0);
-                GL11.glRotatef(40F, 0, 1, 0);
-                GL11.glRotatef(0, 0, 0, 1);
+                GlStateManager.scale(0.6F, 0.6F, 0.6F);
+                GlStateManager.translate(-0.7F, -0.8F, -0.1F);
+                GlStateManager.rotate(-30F, 1, 0, 0);
+                GlStateManager.rotate(40F, 0, 1, 0);
+                GlStateManager.rotate(0, 0, 0, 1);
                 transforms.getInventoryPositioning().run();
                 break;
             case THIRD_PERSON_RIGHT_HAND:
             case THIRD_PERSON_LEFT_HAND:
-                GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glTranslatef(-1.5f, -2.4f, 1.3f);
-                GL11.glRotatef(-100F, 1f, 0f, 0f);
-                GL11.glRotatef(50F, 0f, 1f, 0f);
-                GL11.glRotatef(0F, 0f, 0f, 1f);
+                GlStateManager.scale(0.4F, 0.4F, 0.4F);
+                GlStateManager.translate(-1.5f, -2.4f, 1.3f);
+                GlStateManager.rotate(-100F, 1f, 0f, 0f);
+                GlStateManager.rotate(50F, 0f, 1f, 0f);
+                GlStateManager.rotate(0F, 0f, 0f, 1f);
                 transforms.getThirdPersonPositioning().run();
                 break;
             case FIRST_PERSON_RIGHT_HAND:
             case FIRST_PERSON_LEFT_HAND:
-                GL11.glScaled(0.6F, 0.6F, 0.6F);
-                GL11.glRotatef(-45F, 0f, 1f, 0f);
-                GL11.glTranslatef(-0.3f, -0.855f, 0.5f);
+                GlStateManager.scale(0.6F, 0.6F, 0.6F);
+                GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                GlStateManager.translate(-0.3f, -0.855f, 0.5f);
                 transforms.getFirstPersonPositioning().run();
                 WeaponRenderer.renderLeftArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonLeftHandPositioning().run());
                 WeaponRenderer.renderRightArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonRightHandPositioning().run());
@@ -205,7 +206,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
         renderModelSource(renderContext, itemStack, transformType, 0, 0, -0.4F, 0, 0, 0.08F);
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
 
@@ -219,7 +220,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
             throw new IllegalArgumentException();
         }
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
         com.paneedah.weaponlib.ModelSource modelSource = (com.paneedah.weaponlib.ModelSource) itemStack.getItem();
 
@@ -229,8 +230,9 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
             } else {
                 MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
             }
-            GL11.glPushMatrix();
-            GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
+            GlStateManager.pushMatrix();
+            GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
+
             ModelBase model = texturedModel.getU();
 
             if (transformType != null) {
@@ -254,8 +256,9 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
             }
 
             model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-            GL11.glPopAttrib();
-            GL11.glPopMatrix();
+
+            GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+            GlStateManager.popMatrix();
         }
 
 
@@ -269,14 +272,15 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
             renderContext.setPlayerItemInstance(MWC.modContext.getPlayerItemInstanceRegistry().getCachedItemInstance(renderContext.getPlayer(), itemStack));
 
-            GL11.glPushMatrix();
-            GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
+            GlStateManager.pushMatrix();
+            GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
             postRenderer.render(renderContext);
-            GL11.glPopAttrib();
-            GL11.glPopMatrix();
+
+            GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+            GlStateManager.popMatrix();
         }
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
     protected void renderModelSourceCarryableItem(ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {

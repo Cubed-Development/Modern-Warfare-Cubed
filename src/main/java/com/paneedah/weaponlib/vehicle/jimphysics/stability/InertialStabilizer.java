@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.vehicle.jimphysics.stability;
 
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import lombok.Setter;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
@@ -39,7 +40,7 @@ public class InertialStabilizer {
      */
 
     public void applyVectorGLTranslation(Vec3d position) {
-        GL11.glTranslated(position.x, position.y, position.z);
+        GlStateManager.translate(position.x, position.y, position.z);
     }
 
 
@@ -48,9 +49,9 @@ public class InertialStabilizer {
     }
 
     public void applyVectorGLRotation(double yaw, double pitch, double roll) {
-        GL11.glRotated(position.z, 0.0, 0.0, roll);
-        GL11.glRotated(position.y, 0.0, pitch, 0.0);
-        GL11.glRotated(position.x, yaw, 0.0, 0.0);
+        GlStateManager.rotate((float) position.z, 0, 0, (float) roll);
+        GlStateManager.rotate((float) position.y, 0, (float) pitch, 0);
+        GlStateManager.rotate((float) position.x, (float) yaw, 0, 0);
     }
 
     /*
@@ -74,7 +75,7 @@ public class InertialStabilizer {
 
         //double iy = InterpolationKit.interpolateValue(prevRotationRoll, rotationRoll, MC.getRenderPartialTicks());
 
-        GL11.glTranslated(0.0, rotationPitch, 0.0);
+        GlStateManager.translate(0.0, rotationPitch, 0.0);
 
 
         //System.out.println("Change in Height: " + changeInHeight + "m");

@@ -60,7 +60,7 @@ public class StatefulRenderers {
 
                     ModelBiped model = render.getMainModel();
 
-                    GL11.glColor3f(1F, 1F, 1F);
+                    GlStateManager.color(1F, 1F, 1F);
 
 
                     model.isSneak = false;
@@ -113,7 +113,7 @@ public class StatefulRenderers {
 
                     ModelBiped model = render.getMainModel();
 
-                    GL11.glColor3f(1F, 1F, 1F);
+                    GlStateManager.color(1F, 1F, 1F);
 
 
                     model.isRiding = false;

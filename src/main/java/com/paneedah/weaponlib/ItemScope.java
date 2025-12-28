@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.electronics.ScopePerspective;
 import com.paneedah.weaponlib.perspective.ReflexScreen;
 import com.paneedah.weaponlib.render.scopes.CyclicList;
 import com.paneedah.weaponlib.render.scopes.Reticle;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 import java.util.Arrays;
 
@@ -101,8 +101,8 @@ public class ItemScope extends ItemAttachment<Weapon> {
             if (isOpticalZoom) {
                 if (viewfinderPositioning == null) {
                     viewfinderPositioning = () -> {
-                        GL11.glScalef(1.1f, 1.1f, 1.1f);
-                        GL11.glTranslatef(0.1f, 0.4f, 0.6f);
+                        GlStateManager.scale(1.1f, 1.1f, 1.1f);
+                        GlStateManager.translate(0.1f, 0.4f, 0.6f);
                     };
                 }
                 withPostRender(new ScopePerspective(viewfinderPositioning, sniperReticle));

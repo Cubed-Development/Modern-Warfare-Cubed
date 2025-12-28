@@ -1,11 +1,8 @@
 package com.paneedah.weaponlib.render;
 
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.*;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -30,7 +27,7 @@ public class ScreenRenderer {
         GlStateManager.rotate((float) yaw, 0.0f, 1.0f, 0.0f);
         */
 
-        GL11.glScaled(scalef, scalef, scalef);
+        GlStateManager.scale(scalef, scalef, scalef);
 
 
         RenderHelper.enableGUIStandardItemLighting();

@@ -1,12 +1,9 @@
 package com.paneedah.weaponlib.melee;
 
-import com.paneedah.weaponlib.AttachmentBuilder;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.ItemAttachment;
-import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.model.FlatModel;
 import net.minecraft.client.model.ModelBase;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +37,11 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
             }
             if (transforms.getInventoryPositioning() == null) {
                 withInventoryPositioning(() -> {
-                    GL11.glRotatef(20F, 1f, 0f, 0f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glTranslatef(-0.6f, -0.6f, 0F);
-                    GL11.glScaled(15F, 15F, 15f);
+                    GlStateManager.rotate(20F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.translate(-0.6f, -0.6f, 0F);
+                    GlStateManager.scale(15F, 15F, 15f);
                 });
             }
             return super.build(modContext, target);

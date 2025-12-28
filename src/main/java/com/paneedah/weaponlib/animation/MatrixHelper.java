@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.animation;
 
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
@@ -356,8 +357,8 @@ public class MatrixHelper {
         FloatBuffer buf = BufferUtils.createFloatBuffer(16);
         m.store(buf);
         buf.rewind();
-        GL11.glMatrixMode(GL11.GL_MODELVIEW);
-        GL11.glMultMatrix(buf);
+        GlStateManager.matrixMode(GL11.GL_MODELVIEW);
+        GlStateManager.multMatrix(buf);
     }
 
     public static void loadMatrix(Matrix4f m) {
@@ -367,24 +368,24 @@ public class MatrixHelper {
         FloatBuffer buf = BufferUtils.createFloatBuffer(16);
         m.store(buf);
         buf.rewind();
-        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+        GlStateManager.matrixMode(GL11.GL_MODELVIEW);
         GL11.glLoadMatrix(buf);
     }
 
     public static Matrix4f captureMatrix() {
         Matrix4f matrix;
         FloatBuffer buf = BufferUtils.createFloatBuffer(16);
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, buf);
+        GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, buf);
         buf.rewind();
         matrix = new Matrix4f();
-        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+        GlStateManager.matrixMode(GL11.GL_MODELVIEW);
         matrix.load(buf);
         return matrix;
     }
 
     public static FloatBuffer getModelViewMatrixBuffer() {
         FloatBuffer buf = BufferUtils.createFloatBuffer(16);
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, buf);
+        GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, buf);
         buf.rewind();
         return buf;
     }

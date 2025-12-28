@@ -12,9 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiConsumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -79,7 +77,7 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
         }
 
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
         try {
 
@@ -104,11 +102,11 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
 
                 if (part == VehiclePart.MAIN) {
 
-                    GL11.glRotated(susRoll, 0, 0, 1);
-                    GL11.glRotated(susPitch, 1, 0, 0);
+                    GlStateManager.rotate((float) susRoll, 0, 0, 1);
+                    GlStateManager.rotate((float) susPitch, 1, 0, 0);
                     modelRenderer.render(context);
-                    GL11.glRotated(-susPitch, 1, 0, 0);
-                    GL11.glRotated(-susRoll, 0, 0, 1);
+                    GlStateManager.rotate((float) -susPitch, 1, 0, 0);
+                    GlStateManager.rotate((float) -susRoll, 0, 0, 1);
 
                 } else {
                     modelRenderer.render(context);
@@ -187,7 +185,7 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
                 }
             }
         } finally {
-            GL11.glPopMatrix();
+            GlStateManager.popMatrix();
         }
 
     }

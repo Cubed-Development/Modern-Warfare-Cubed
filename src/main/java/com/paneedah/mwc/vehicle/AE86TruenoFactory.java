@@ -1,6 +1,5 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.vehicle.engines.AE86TruenoEngine;
 import com.paneedah.weaponlib.ModContext;
@@ -8,10 +7,10 @@ import com.paneedah.weaponlib.vehicle.*;
 import com.paneedah.weaponlib.vehicle.jimphysics.*;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.WheelAxel;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.WheelSolver;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
-import org.lwjgl.opengl.GL11;
 
 public class AE86TruenoFactory implements VehicleFactory {
 
@@ -74,19 +73,19 @@ public class AE86TruenoFactory implements VehicleFactory {
                     })
 
                     .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.IDLE, context -> {
-                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
-                        GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-2.450000f, -0.525000f, 2.874999f);
+                        GlStateManager.scale(1.000000f, 1.000000f, 1.000000f);
+                        GlStateManager.rotate(0.000000f, 1f, 0f, 0f);
+                        GlStateManager.rotate(0.000000f, 0f, 1f, 0f);
+                        GlStateManager.rotate(0.000000f, 0f, 0f, 1f);
+                        GlStateManager.translate(-2.450000f, -0.525000f, 2.874999f);
                     })
 
                     .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.DRIVING, context -> {
-                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
-                        GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-80.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(20.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-0.400000f, -2.620000f, 2.280000f);
+                        GlStateManager.scale(1.000000f, 1.000000f, 1.000000f);
+                        GlStateManager.rotate(-55.000000f, 1f, 0f, 0f);
+                        GlStateManager.rotate(-80.000000f, 0f, 1f, 0f);
+                        GlStateManager.rotate(20.000000f, 0f, 0f, 1f);
+                        GlStateManager.translate(-0.400000f, -2.620000f, 2.280000f);
                     })
 
                     .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.SHIFTING, context -> {
@@ -109,19 +108,19 @@ public class AE86TruenoFactory implements VehicleFactory {
 
                     .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.IDLE, context -> {
 
-                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
-                        GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-2.600000f, -0.500000f, 2.824999f);
+                        GlStateManager.scale(1.000000f, 1.000000f, 1.000000f);
+                        GlStateManager.rotate(0.000000f, 1f, 0f, 0f);
+                        GlStateManager.rotate(0.000000f, 0f, 1f, 0f);
+                        GlStateManager.rotate(0.000000f, 0f, 0f, 1f);
+                        GlStateManager.translate(-2.600000f, -0.500000f, 2.824999f);
                     })
 
                     .withPartPosition(VehiclePart.RIGHT_HAND, VehicleRenderableState.DRIVING, context -> {
-                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
-                        GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(75.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(-0.200000f, -2.750000f, -2.949999f);
+                        GlStateManager.scale(1.000000f, 1.000000f, 1.000000f);
+                        GlStateManager.rotate(-90.000000f, 1f, 0f, 0f);
+                        GlStateManager.rotate(75.000000f, 0f, 1f, 0f);
+                        GlStateManager.rotate(0.000000f, 0f, 0f, 1f);
+                        GlStateManager.translate(-0.200000f, -2.750000f, -2.949999f);
                     })
 
                     .withPartPosition(VehiclePart.FRONT_LEFT_CONTROL_ARM, context -> {

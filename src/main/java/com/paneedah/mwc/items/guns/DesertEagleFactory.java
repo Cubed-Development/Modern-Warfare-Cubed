@@ -4,18 +4,16 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Glock18C;
 import com.paneedah.mwc.models.Reflex2;
 import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
-import org.lwjgl.opengl.GL11;
 
 public class DesertEagleFactory implements GunFactory {
 
@@ -68,8 +66,8 @@ public class DesertEagleFactory implements GunFactory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
                 .withCompatibleAttachment(Attachments.PistolPlaceholder, true, (model) -> {
-                    GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(0.01f, -0.19f, -0.4f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.DesertEagleBody, true, (model) -> {
                 })
@@ -88,30 +86,30 @@ public class DesertEagleFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.DesertEagleSlideBlack, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
-                    GL11.glTranslatef(0.01F, -0.76F, -2.1F);
-                    GL11.glScaled(1.1F, 1.1F, 1.1F);
-                    GL11.glRotatef(-90F, 0f, 0f, -4f);
+                    GlStateManager.translate(0.01F, -0.76F, -2.1F);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1F);
+                    GlStateManager.rotate(-90F, 0f, 0f, -4f);
                 })
 //        .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
-//            GL11.glTranslatef(-0.22F, -1.18F, -4.2F);
-//            GL11.glScaled(1.3F, 1.3F, 1.3F);
+//            GlStateManager.translate(-0.22F, -1.18F, -4.2F);
+//            GlStateManager.scale(1.3F, 1.3F, 1.3F);
 //        })
                 .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
-                    GL11.glTranslatef(-0.19F, -1.3F, -1.25F);
-                    GL11.glScaled(0.46F, 0.46F, 0.46F);
+                    GlStateManager.translate(-0.19F, -1.3F, -1.25F);
+                    GlStateManager.scale(0.46F, 0.46F, 0.46F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(0.155F, -0.1F, -0.5F);
-                        GL11.glScaled(0.2F, 0.2F, 0.2F);
+                        GlStateManager.translate(0.155F, -0.1F, -0.5F);
+                        GlStateManager.scale(0.2F, 0.2F, 0.2F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
-                    GL11.glTranslatef(-0.05F, -1F, -1.6F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GlStateManager.translate(-0.05F, -1F, -1.6F);
+                    GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(-0.125F, -0.68F, -0.4F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                        GlStateManager.translate(-0.125F, -0.68F, -0.4F);
+                        GlStateManager.scale(0.15F, 0.15F, 0.15F);
                     }
                 })
                 .withTextureNames("deagle")
@@ -119,19 +117,19 @@ public class DesertEagleFactory implements GunFactory {
 
                         .withModel(new Glock18C())
                         .withEntityPositioning(itemStack -> {
-                            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                            GL11.glRotatef(-90F, 0f, 0f, 4f);
+                            GlStateManager.scale(0.4F, 0.4F, 0.4F);
+                            GlStateManager.rotate(-90F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
-                            GL11.glScaled(0.35F, 0.35F, 0.35F);
-                            GL11.glTranslatef(0, 0.8f, 0);
-                            GL11.glRotatef(-120F, -0.5f, 7f, 3f);
+                            GlStateManager.scale(0.35F, 0.35F, 0.35F);
+                            GlStateManager.translate(0, 0.8f, 0);
+                            GlStateManager.rotate(-120F, -0.5f, 7f, 3f);
                         })
                         .withThirdPersonPositioning((renderContext) -> {
-                            GL11.glScaled(0.6F, 0.6F, 0.6F);
-                            GL11.glTranslatef(-1.6F, -1F, 1.8F);
-                            GL11.glRotatef(-45F, 0f, 1f, 0f);
-                            GL11.glRotatef(70F, 1f, 0f, 0f);
+                            GlStateManager.scale(0.6F, 0.6F, 0.6F);
+                            GlStateManager.translate(-1.6F, -1F, 1.8F);
+                            GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                            GlStateManager.rotate(70F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonPositioning(
@@ -166,22 +164,22 @@ public class DesertEagleFactory implements GunFactory {
 
                         .withFirstPersonCustomPositioning(Attachments.DesertEagleSlide.getRenderablePart(), (renderContext) -> {
                             if (renderContext.getWeaponInstance().getAmmo() == 0) {
-                                GL11.glTranslatef(0F, 0F, 0.5F);
+                                GlStateManager.translate(0F, 0F, 0.5F);
                             }
                         })
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glScaled(3F, 3F, 3F);
-                            GL11.glTranslatef(0.14f, 0.7f, -2.3f);
+                            GlStateManager.scale(3F, 3F, 3F);
+                            GlStateManager.translate(0.14f, 0.7f, -2.3f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                                 //System.out.println("Position me for Holo");
-                                GL11.glTranslatef(0f, 0.21f, 0.24f);
+                                GlStateManager.translate(0f, 0.21f, 0.24f);
                             }
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                                 //System.out.println("Position me for Holo");
-                                GL11.glTranslatef(0f, 0.26f, 0.24f);
+                                GlStateManager.translate(0f, 0.26f, 0.24f);
                             }
 
                             // Everything else

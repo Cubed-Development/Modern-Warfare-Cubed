@@ -156,17 +156,17 @@ public final class HUD extends Gui {
         final int screenWidth = scaledResolution.getScaledWidth();
         final int screenHeight = scaledResolution.getScaledHeight();
 
-        GL11.glPushAttrib(GL11.GL_ALL_ATTRIB_BITS);
+        GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
 
-        GL11.glColor4f(1, 1, 1, 1);
-        GL11.glDisable(GL11.GL_LIGHTING);
-        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GL11.glEnable(GL11.GL_BLEND);
+        GlStateManager.color(1, 1, 1, 1);
+        GlStateManager.disableLighting();
+        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        GlStateManager.enableBlend();
 
         MC.renderEngine.bindTexture(new ResourceLocation(hudTexture));
         drawFullScreenQuad(screenWidth, screenHeight);
 
-        GL11.glPopAttrib();
+        GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
     }
 
     private static void drawFullScreenQuad(final double width, final double height) {

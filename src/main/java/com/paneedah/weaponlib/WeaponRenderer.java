@@ -9,15 +9,12 @@ import com.paneedah.mwc.skins.CustomSkin;
 import com.paneedah.mwc.utils.SpriteSheetTools;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
-import com.paneedah.weaponlib.animation.multipart.*;
-import com.paneedah.weaponlib.animation.multipart.MultipartPositioning.Positioner;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
-import com.paneedah.weaponlib.animation.load.AnimationData;
-import com.paneedah.weaponlib.animation.load.AnimationSet;
-import com.paneedah.weaponlib.animation.load.BBLoader;
-import com.paneedah.weaponlib.animation.load.SingleAnimation;
+import com.paneedah.weaponlib.animation.load.*;
 import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;
+import com.paneedah.weaponlib.animation.multipart.*;
+import com.paneedah.weaponlib.animation.multipart.MultipartPositioning.Positioner;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -30,14 +27,8 @@ import lombok.Setter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelPlayer;
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.model.*;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.model.*;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderPlayer;
@@ -50,12 +41,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EnumPlayerModelParts;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHandSide;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.item.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeModContainer;
@@ -64,10 +51,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.ARBFramebufferObject;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL20;
+import org.lwjgl.opengl.*;
 
 import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
@@ -78,16 +62,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WeaponRenderer extends ModelSource implements IBakedModel {
 
@@ -1687,7 +1671,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             }
 
             if (inventoryPositioning == null) {
-                inventoryPositioning = itemStack -> {GL11.glTranslatef(0, 0.12f, 0);};
+                inventoryPositioning = itemStack -> {GlStateManager.translate(0, 0.12f, 0);};
             }
 
             if (entityPositioning == null) {
@@ -1701,14 +1685,14 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			/*
 			if(firstPersonPositioning == null) {
 				firstPersonPositioning = (renderContext) -> {
-					GL11.glRotatef(45F, 0f, 1f, 0f);
+					GlStateManager.rotate(45F, 0f, 1f, 0f);
 
 					if(renderer.getClientModContext() != null) {
 						PlayerWeaponInstance instance = renderer.getClientModContext().getMainHeldWeapon();
 						if(instance != null && instance.isAimed()) {
-							GL11.glTranslatef(xOffsetZoom, yOffsetZoom, weaponProximity);
+							GlStateManager.translate(xOffsetZoom, yOffsetZoom, weaponProximity);
 						} else {
-							GL11.glTranslatef(0F, -1.2F, 0F);
+							GlStateManager.translate(0F, -1.2F, 0F);
 						}
 					}
 
@@ -1795,16 +1779,16 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                     float zRotation = random.nextFloat() * maxAngle;
 
 
-                    GL11.glRotatef(xRotation, 1f, 0f, 0f);
-                    GL11.glRotatef(yRotation, 0f, 1f, 0f);
-                    GL11.glRotatef(zRotation, 0f, 0f, 1f);
+                    GlStateManager.rotate(xRotation, 1f, 0f, 0f);
+                    GlStateManager.rotate(yRotation, 0f, 1f, 0f);
+                    GlStateManager.rotate(zRotation, 0f, 0f, 1f);
 
                     float amplitude = 0f;
 
                     float xRandomOffset = random.nextFloat() * amplitude;
                     float yRandomOffset = random.nextFloat() * amplitude;
                     float zRandomOffset = random.nextFloat() * amplitude;
-                    GL11.glTranslatef(xRandomOffset, yRandomOffset, zRandomOffset);
+                    GlStateManager.translate(xRandomOffset, yRandomOffset, zRandomOffset);
 
                     firstPersonPositioningRecoiledOrig.accept(renderContext);
                 };
@@ -1851,9 +1835,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
             if (thirdPersonPositioning == null) {
                 thirdPersonPositioning = (context) -> {
-                    GL11.glTranslatef(-0.4F, 0.2F, 0.4F);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-                    GL11.glRotatef(70F, 1f, 0f, 0f);
+                    GlStateManager.translate(-0.4F, 0.2F, 0.4F);
+                    GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                    GlStateManager.rotate(70F, 1f, 0f, 0f);
                 };
             }
 
@@ -2909,8 +2893,8 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 //                            //
 //                        },
 //                        context -> {
-////                            GL11.glTranslatef(0f, 0.5f, 0f);
-////                            GL11.glRotatef(30f, 0f, 0f, 1f);
+////                            GlStateManager.translate(0f, 0.5f, 0f);
+////                            GlStateManager.rotate(30f, 0f, 0f, 1f);
 //                        },
 //                        new LinkedHashMap<>(),
 //                        DEFAULT_ANIMATION_DURATION);
@@ -2970,9 +2954,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         //ClientEventHandler.uploadFlash(MC.player.getEntityId());
 
 		/*
-		 GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, MODELVIEW);
-	        GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX, PROJECTION);
-	        GL11.glGetInteger(GL11.GL_VIEWPORT, VIEWPORT);
+		 GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, MODELVIEW);
+	        GlStateManager.getFloat(GL11.GL_PROJECTION_MATRIX, PROJECTION);
+	        GlStateManager.glGetInteger(GL11.GL_VIEWPORT, VIEWPORT);
 			Project.gluProject(-0.2f, -1.4f, 0, MODELVIEW, PROJECTION, VIEWPORT, POSITION);
 		      */
 
@@ -3152,11 +3136,11 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 	        CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) compatibleAttachment.getAttachment().getPostRenderer();
 			if(postRenderer != null) {
 
-				GL11.glPushMatrix();
-				GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
+				GlStateManager.pushMatrix();
+				GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 				postRenderer.renderer(renderContext);
-				GL11.glPopAttrib();
-				GL11.glPopMatrix();
+				GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+				GlStateManager.popMatrix();
 
 			}
 		}
@@ -3341,8 +3325,8 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
             GlStateManager.popMatrix();
         }
-        GL11.glPushMatrix();
-        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
+        GlStateManager.pushMatrix();
+        GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
         if (compatibleAttachment.getPositioning() instanceof BiConsumer) {
             ((BiConsumer) compatibleAttachment.getPositioning()).accept(renderContext.getPlayer(), renderContext.getWeapon());
@@ -3376,8 +3360,8 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         for (Tuple<ModelBase, String> texturedModel : compatibleAttachment.getAttachment().getTexturedModels()) {
             MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
-            GL11.glPushMatrix();
-            GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
+            GlStateManager.pushMatrix();
+            GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
 
             //System.out.println(compatibleAttachment.getAttachment().getCategory());
@@ -3495,8 +3479,8 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             //}
 
 
-            GL11.glPopAttrib();
-            GL11.glPopMatrix();
+            GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+            GlStateManager.popMatrix();
         }
 
 
@@ -3521,13 +3505,13 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             renderCompatibleAttachment(childAttachment, positioner, renderContext);
         }
 
-        GL11.glPopAttrib();
-        GL11.glPopMatrix();
+        GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+        GlStateManager.popMatrix();
     }
 
     public FloatBuffer captureCurrentModelViewMatrix() {
         FloatBuffer buf = BufferUtils.createFloatBuffer(16);
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, buf);
+        GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, buf);
         buf.rewind();
         return buf;
     }
@@ -3536,14 +3520,14 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
         for (Pair<FloatBuffer, CustomRenderer<RenderableState>> pair : this.deferredPost) {
-            GL11.glPushMatrix();
+            GlStateManager.pushMatrix();
 
             GL11.glLoadMatrix(pair.getFirst());
 
-            GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
+            GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
             pair.getSecond().render(renderContext);
-            GL11.glPopAttrib();
-            GL11.glPopMatrix();
+            GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+            GlStateManager.popMatrix();
         }
 
     }
@@ -3690,19 +3674,19 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
     public static void applyRotationAtPoint(float xOffset, float yOffset, float zOffset, float xRotation,
                                             float yRotation, float zRotation) {
-        GL11.glTranslatef(-xOffset, -yOffset, -zOffset);
+        GlStateManager.translate(-xOffset, -yOffset, -zOffset);
 
-        GL11.glRotatef(xRotation, 1f, 0f, 0f);
-        GL11.glRotatef(yRotation, 0f, 1f, 0f);
-        GL11.glRotatef(zRotation, 0f, 0f, 1f);
+        GlStateManager.rotate(xRotation, 1f, 0f, 0f);
+        GlStateManager.rotate(yRotation, 0f, 1f, 0f);
+        GlStateManager.rotate(zRotation, 0f, 0f, 1f);
 
-        GL11.glTranslatef(xOffset, yOffset, zOffset);
+        GlStateManager.translate(xOffset, yOffset, zOffset);
     }
 
     public static WeaponRotationHandler weaponRotationHandler = new WeaponRotationHandler();
 
     public static void captureAtlasPosition() {
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, atlasMatrix);
+        GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, atlasMatrix);
     }
 
     @SideOnly(Side.CLIENT)
@@ -3713,7 +3697,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         // System.out.println(BBLoader.loadAnimationData("HKgrip.animation.json",
         // "animation.HKgrip.reload2", "bone4").bbTransition);
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
         // Framebuffer originalFramebuffer = MC.getFramebuffer();
         Framebuffer framebuffer = null;
@@ -3754,7 +3738,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				/*
 				multisampleFBO  = GLCompatible.glGenFramebuffers();
 				GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, multisampleFBO);
-				multiampleTexFBO = GL11.glGenTextures();
+				multiampleTexFBO = GlStateManager.generateTexture();
 
 				int width = MC.displayWidth;
 				int height = MC.displayHeight;
@@ -3792,12 +3776,12 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         boolean forceMSAA = false;
         switch (transformType) {
             case GROUND:
-                GL11.glScaled(-1F, -1F, 1F);
-                GL11.glScaled(0.45F, 0.45F, 0.45F);
-                GL11.glTranslatef(-1.1f, -0.9f, 0f);
-                GL11.glRotatef(0F, 1f, 0f, 0f);
-                GL11.glRotatef(0F, 0f, 1f, 0f);
-                GL11.glRotatef(0F, 0f, 0f, 1f);
+                GlStateManager.scale(-1F, -1F, 1F);
+                GlStateManager.scale(0.45F, 0.45F, 0.45F);
+                GlStateManager.translate(-1.1f, -0.9f, 0f);
+                GlStateManager.rotate(0F, 1f, 0f, 0f);
+                GlStateManager.rotate(0F, 0f, 1f, 0f);
+                GlStateManager.rotate(0F, 0f, 0f, 1f);
                 builder.getEntityPositioning().accept(itemStack);
                 break;
             case GUI:
@@ -3806,7 +3790,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
                 float inventoryScale = 30;
 
-                GL11.glScaled(1, -1, 1);
+                GlStateManager.scale(1, -1, 1);
 
                 // RenderHelper.enableStandardItemLighting();
 
@@ -3816,7 +3800,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			GlStateManager.rotate(120f, 0, 1, 0);
 			GlStateManager.rotate(-20f, 1, 0, 0);
 
-			GL11.glTranslatef(-150.0f, -40f, 0f);
+			GlStateManager.translate(-150.0f, -40f, 0f);
 			*/
 
 			 /*
@@ -3855,12 +3839,12 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
             case THIRD_PERSON_LEFT_HAND:
                 //System.out.println("yo");
-                GL11.glScaled(-1F, -1F, 1F);
-                GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glTranslatef(-1.25f, -2.1f, 0.6f);
-                GL11.glRotatef(110F, 1f, 0f, 0f);
-                GL11.glRotatef(135F, 0f, 1f, 0f);
-                GL11.glRotatef(-180F, 0f, 0f, 1f);
+                GlStateManager.scale(-1F, -1F, 1F);
+                GlStateManager.scale(0.4F, 0.4F, 0.4F);
+                GlStateManager.translate(-1.25f, -2.1f, 0.6f);
+                GlStateManager.rotate(110F, 1f, 0f, 0f);
+                GlStateManager.rotate(135F, 0f, 1f, 0f);
+                GlStateManager.rotate(-180F, 0f, 0f, 1f);
                 if (player instanceof EntityPlayer) {
                     StateDescriptor thirdPersonStateDescriptor = getThirdPersonStateDescriptor(player, itemStack);
 
@@ -3901,7 +3885,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
                 }
 
-                GL11.glScaled(-1F, -1F, 1F);
+                GlStateManager.scale(-1F, -1F, 1F);
 
                 StateDescriptor stateDescriptor = getFirstPersonStateDescriptor(player, itemStack);
                 renderContext.setPlayerItemInstance(stateDescriptor.instance);
@@ -3977,9 +3961,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 	        }*/
 
 	        /*
-	        GL11.glRotated(-23.0522f, 0, 0, 1);
-			GL11.glRotated(-4.2163f, 0, 1, 0);
-			GL11.glRotated(-3.6519f, 1, 0, 0);
+	        GlStateManager.rotate(-23.0522f, 0, 0, 1);
+			GlStateManager.rotate(-4.2163f, 0, 1, 0);
+			GlStateManager.rotate(-3.6519f, 1, 0, 0);
 			*/
 
 			/*
@@ -4251,9 +4235,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             } else {
 
                 if (forceMSAA) {
-                    //System.out.println(framebuffer.framebufferObject);
                     //GlStateManager.scale(20, 20, 20);
-                    //System.out.println(GL11.glGetError());
                     //	msaaBuffer.bindMSAABuffer(MC.getFramebuffer().framebufferObject);
                     GlStateManager.enableBlend();
                     GlStateManager.enableAlpha();
@@ -4277,7 +4259,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
                 if (AnimationGUI.getInstance().magEdit.isState() && AnimationModeProcessor.getInstance().getFPSMode()) {
-                    GL11.glPushMatrix();
+                    GlStateManager.pushMatrix();
                     AnimationModeProcessor.getInstance().deferredMatrix.rewind();
                     GL11.glLoadMatrix(AnimationModeProcessor.getInstance().deferredMatrix);
                     //GlStateManager.disableCull();
@@ -4288,7 +4270,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
                     AnimationModeProcessor.getInstance().renderCross();
                     GlStateManager.enableLighting();
 
-                    GL11.glPopMatrix();
+                    GlStateManager.popMatrix();
                 }
 
 
@@ -4325,7 +4307,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         }
 
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
 
         if (originalFramebufferId >= 0) {
             if (OpenGlHelper.isFramebufferEnabled()) {
@@ -4340,14 +4322,14 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 
         if (!AnimationModeProcessor.getInstance().editRotationPointMode && AnimationModeProcessor.getInstance().getFPSMode() && !OpenGLSelectionHelper.isInSelectionPass) {
-            GL11.glPushMatrix();
+            GlStateManager.pushMatrix();
             GL11.glLoadMatrix(atlasMatrix);
             GlStateManager.disableTexture2D();
             GlStateManager.disableLighting();
 
             AnimationModeProcessor.getInstance().renderTransformIndicator(1.0f);
 
-            GL11.glPopMatrix();
+            GlStateManager.popMatrix();
         }
 
 
@@ -4359,7 +4341,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             if (OpenGLSelectionHelper.fbo != null) {
 
                 GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 5);
-                GL11.glBindTexture(GL11.GL_TEXTURE_2D, OpenGLSelectionHelper.fbo.framebufferTexture);
+                GlStateManager.bindTexture(OpenGLSelectionHelper.fbo.framebufferTexture);
                 Shaders.selectedge.uniform1i("select", 5);
             }
             // System.out.println(OpenGLSelectionHelper.selectID);
@@ -4412,44 +4394,43 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
     public static void fixVersionSpecificFirstPersonPositioning(ItemCameraTransforms.TransformType transformType) {
         int i = transformType == ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND ? 1 : -1;
 
-        GL11.glTranslatef(0.5f, 0.5f, 0.5f); // untranslate 1.9.4
+        GlStateManager.translate(0.5f, 0.5f, 0.5f); // untranslate 1.9.4
 
         i = -i;
-        GL11.glTranslatef((float) i * 0.56F, 0.52F + /* p_187459_2_ * */ +0.6F, 0.72F); // untranslate 1.9.4
+        GlStateManager.translate((float) i * 0.56F, 0.52F + /* p_187459_2_ * */ +0.6F, 0.72F); // untranslate 1.9.4
 
         if (transformType == ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND) {
             // mirror everything if left hand
-            GL11.glScalef(-1f, 1f, 1f);
+            GlStateManager.scale(-1f, 1f, 1f);
         }
 
         i = 1; // Draw everything as if for the right hand, assuming mirroring is already in
         // place
-        GL11.glTranslatef((float) i * 0.56F, -0.52F + /* p_187459_2_ * */ -0.6F, -0.72F); // re-translate 1.9.4
+        GlStateManager.translate((float) i * 0.56F, -0.52F + /* p_187459_2_ * */ -0.6F, -0.72F); // re-translate 1.9.4
 
-        GL11.glTranslatef(0f, 0.6f, 0f); // -0.6 y-offset is set somewhere upstream in 1.9.4, so adjusting it
+        GlStateManager.translate(0f, 0.6f, 0f); // -0.6 y-offset is set somewhere upstream in 1.9.4, so adjusting it
 
-        GL11.glRotatef(45f, 0f, 1f, 0f); // rotate as per 1.8.9 transformFirstPersonItem
+        GlStateManager.rotate(45f, 0f, 1f, 0f); // rotate as per 1.8.9 transformFirstPersonItem
 
-        GL11.glScalef(0.4F, 0.4F, 0.4F); // scale as per 1.8.9 transformFirstPersonItem
-        GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
+        GlStateManager.scale(0.4F, 0.4F, 0.4F); // scale as per 1.8.9 transformFirstPersonItem
+        GlStateManager.translate(-0.5f, -0.5f, -0.5f);
     }
 
     private void setupInventoryRendering(double projectionWidth, double projectionHeight) {
-        GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
-        GL11.glMatrixMode(GL11.GL_PROJECTION);
-        GL11.glLoadIdentity();
-        GL11.glOrtho(0.0D, projectionWidth, projectionHeight, 0.0D, 1000.0D, 3000.0D);
-        GL11.glMatrixMode(GL11.GL_MODELVIEW);
-        GL11.glLoadIdentity();
-        GL11.glTranslatef(0.0F, 0.0F, -2000.0F);
+        GlStateManager.clear(GL11.GL_DEPTH_BUFFER_BIT);
+        GlStateManager.matrixMode(GL11.GL_PROJECTION);
+        GlStateManager.loadIdentity();
+        GlStateManager.ortho(0.0D, projectionWidth, projectionHeight, 0.0D, 1000.0D, 3000.0D);
+        GlStateManager.matrixMode(GL11.GL_MODELVIEW);
+        GlStateManager.loadIdentity();
+        GlStateManager.translate(0.0F, 0.0F, -2000.0F);
     }
 
     private void restoreInventoryRendering(final ScaledResolution scaledresolution) {
-        GL11.glMatrixMode(GL11.GL_PROJECTION);
-        GL11.glLoadIdentity();
-        GL11.glOrtho(0.0D, scaledresolution.getScaledWidth_double(), scaledresolution.getScaledHeight_double(), 0.0D,
-                1000.0D, 3000.0D);
-        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+        GlStateManager.matrixMode(GL11.GL_PROJECTION);
+        GlStateManager.loadIdentity();
+        GlStateManager.ortho(0.0D, scaledresolution.getScaledWidth_double(), scaledresolution.getScaledHeight_double(), 0.0D, 1000.0D, 3000.0D);
+        GlStateManager.matrixMode(GL11.GL_MODELVIEW);
 
 
 //        GlStateManager.loadIdentity();
@@ -4479,14 +4460,14 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             }
 
             GlStateManager.pushMatrix();
-            GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
+            GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
             GlStateManager.enableBlend();
             GlStateManager.enableAlpha();
             GlStateManager.disableLighting();
 
-            GL11.glTranslatef(0.0F, 1.0F, 0.5F);
-            GL11.glScalef(0.004F, 0.004F, 0.004F);
-            GL11.glScalef(1.0F, -1.0F, 1F);
+            GlStateManager.translate(0.0F, 1.0F, 0.5F);
+            GlStateManager.scale(0.004F, 0.004F, 0.004F);
+            GlStateManager.scale(1.0F, -1.0F, 1F);
             GlStateManager.translate(-8.0F, -8.0F, 0.0F);
 
             MC.getTextureManager().bindTexture(GUN_ICON_SHEET);
@@ -4529,13 +4510,13 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
             tessellator.draw();
 
-            GL11.glPopAttrib();
+            GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
             GlStateManager.enableLighting();
             GlStateManager.popMatrix();
             GlStateManager.enableTexture2D();
         } else {
-            GL11.glPushMatrix();
-            GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
+            GlStateManager.pushMatrix();
+            GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
 
             GlStateManager.enableBlend();
@@ -4543,9 +4524,9 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             //GlStateManager.disableTexture2D();
 
 
-            GL11.glTranslatef(0.0F, 1.0F, 0.5F);
-            GL11.glScalef(0.004F, 0.004F, 0.004F);
-            GL11.glScalef(1.0F, -1.0F, 1F);
+            GlStateManager.translate(0.0F, 1.0F, 0.5F);
+            GlStateManager.scale(0.004F, 0.004F, 0.004F);
+            GlStateManager.scale(1.0F, -1.0F, 1F);
             GlStateManager.translate(-8.0F, -8.0F, 0.0F);
 
 
@@ -4554,10 +4535,10 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             drawTexturedQuadFit(0, 0, 256, 256, 0);
 
 
-            GL11.glPopAttrib();
+            GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
 
 
-            GL11.glPopMatrix();
+            GlStateManager.popMatrix();
 
         }
 
@@ -4601,15 +4582,15 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         RenderPlayer render = (RenderPlayer) entityRenderObject;
         MC.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
-        GL11.glPushMatrix();
-        // GL11.glTranslatef(0.5f, 0f, 0.0f);
+        GlStateManager.pushMatrix();
+        // GlStateManager.translate(0.5f, 0f, 0.0f);
 
         if (AnimationModeProcessor.getInstance().isLegacyMode()) {
-            GL11.glScaled(1F, 1F, 1F);
-            GL11.glTranslatef(-0.25f, 0f, 0.2f);
-            GL11.glRotatef(5F, 1f, 0f, 0f);
-            GL11.glRotatef(25F, 0f, 1f, 0f);
-            GL11.glRotatef(0F, 0f, 0f, 1f);
+            GlStateManager.scale(1F, 1F, 1F);
+            GlStateManager.translate(-0.25f, 0f, 0.2f);
+            GlStateManager.rotate(5F, 1f, 0f, 0f);
+            GlStateManager.rotate(25F, 0f, 1f, 0f);
+            GlStateManager.rotate(0F, 0f, 0f, 1f);
         }
 
         positioner.position(Part.RIGHT_HAND, renderContext);
@@ -4630,7 +4611,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         if (!AnimationModeProcessor.getInstance().isLegacyMode()) {
 
-            GL11.glTranslatef(0.35f, -0.15f, -0.1f);
+            GlStateManager.translate(0.35f, -0.15f, -0.1f);
         }
         // GlStateManager.rotate(-45, 1, 0, 0);
 
@@ -4648,7 +4629,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             }
         }
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
     static <T> void renderSpecialLeftArm(EntityLivingBase player, RenderContext<T> renderContext,
@@ -4659,7 +4640,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         RenderPlayer render = (RenderPlayer) entityRenderObject;
         MC.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
 
         //GlStateManager.translate(0,-0, -70);
@@ -4721,7 +4702,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         if (!AnimationModeProcessor.getInstance().isLegacyMode()) {
 
-            //GL11.glTranslatef(-0.38f, -0.12f, -0.13f);
+            //GlStateManager.translate(-0.38f, -0.12f, -0.13f);
         }
 
 
@@ -4745,7 +4726,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
         // GlStateManager.enableTexture2D();
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
 
@@ -4761,14 +4742,14 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
         // Bind the player skin texture
         MC.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
         // Apply transformations based on the animation mode
         if (AnimationModeProcessor.getInstance().isLegacyMode()) {
-            GL11.glTranslatef(0f, -1f, 0f);
-            GL11.glRotatef(-10F, 1f, 0f, 0f);
-            GL11.glRotatef(0F, 0f, 1f, 0f);
-            GL11.glRotatef(10F, 0f, 0f, 1f);
+            GlStateManager.translate(0f, -1f, 0f);
+            GlStateManager.rotate(-10F, 1f, 0f, 0f);
+            GlStateManager.rotate(0F, 0f, 1f, 0f);
+            GlStateManager.rotate(10F, 0f, 0f, 1f);
         }
 
         // Position the left hand
@@ -4799,7 +4780,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
             }
         }
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
     public static void renderRightArm(ModelBiped modelPlayer, AbstractClientPlayer clientPlayer) {

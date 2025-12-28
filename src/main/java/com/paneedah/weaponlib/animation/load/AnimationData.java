@@ -1,14 +1,9 @@
 package com.paneedah.weaponlib.animation.load;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.paneedah.weaponlib.ClientModContext;
-import com.paneedah.weaponlib.RenderContext;
-import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.UniversalSoundLookup;
-import com.paneedah.weaponlib.animation.MatrixHelper;
+import com.google.gson.*;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.EulerAngle;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.Format;
@@ -325,12 +320,12 @@ public class AnimationData {
     }
 
     /*
-     * GL11.glScalef(3.5f, 3.5f, 4.5f);
+     * GlStateManager.scale(3.5f, 3.5f, 4.5f);
      *
      * GlStateManager.translate(0.2, 0.05, -0.1);
      *
-     * GL11.glRotated(57.7232f, 0, 0, 1); GL11.glRotated(26.1991f, 0, 1, 0);
-     * GL11.glRotated(0f, 1, 0, 0);
+     * GlStateManager.rotate(57.7232f, 0, 0, 1); GlStateManager.rotate(26.1991f, 0, 1, 0);
+     * GlStateManager.rotate(0f, 1, 0, 0);
      */
 
 
@@ -470,29 +465,29 @@ public class AnimationData {
         }
 
         public void directTransform() {
-            GL11.glTranslated(translation.x / 25f, translation.y / 25f, translation.z / 25f);
+            GlStateManager.translate(translation.x / 25f, translation.y / 25f, translation.z / 25f);
 
             // Z, Y, X
 
-            GL11.glRotated(rotation.x, 1, 0, 0);
+            GlStateManager.rotate((float) rotation.x, 1, 0, 0);
 
-            GL11.glRotated(rotation.y, 0, 1, 0);
-            GL11.glRotated(rotation.z, 0, 0, 1);
+            GlStateManager.rotate((float) rotation.y, 0, 1, 0);
+            GlStateManager.rotate((float) rotation.z, 0, 0, 1);
 
-            GL11.glScaled(1, 1, 1);
+            GlStateManager.scale(1, 1, 1);
         }
 
         public Transition<?> createVMWTransition() {
             return new Transition<>((rc) -> {
 
                 double mul = 0.01;
-                GL11.glTranslated(-translation.x * mul, -translation.y * mul, translation.z * mul);
+                GlStateManager.translate(-translation.x * mul, -translation.y * mul, translation.z * mul);
 
                 // +Z, -Y, -X
 
-                GL11.glRotated(rotation.z, 0, 0, 1);
-                GL11.glRotated(rotation.y, 0, 1, 0);
-                GL11.glRotated(rotation.x, 1, 0, 0);
+                GlStateManager.rotate((float) rotation.z, 0, 0, 1);
+                GlStateManager.rotate((float) rotation.y, 0, 1, 0);
+                GlStateManager.rotate((float) rotation.x, 1, 0, 0);
             }, (int) timestamp);
 
         }
@@ -537,20 +532,20 @@ public class AnimationData {
                 GlStateManager.translate(normal.position.x, normal.position.y, normal.position.z);
 
                 // Animation translation
-                GL11.glTranslated(translation.x * mul, -translation.y * mul, translation.z * mul);
+                GlStateManager.translate(translation.x * mul, -translation.y * mul, translation.z * mul);
 
                 // Offset rotation point
                 GlStateManager.translate(normal.pivotPoint.x, normal.pivotPoint.y, normal.pivotPoint.z);
 
                 // Original object rotation (+Z, -Y, -X)
-                GL11.glRotated(normal.rotation.z, 0, 0, 1);
-                GL11.glRotated(rotation.z * rotZMult, 0, 0, 1);
+                GlStateManager.rotate(normal.rotation.z, 0, 0, 1);
+                GlStateManager.rotate((float) (rotation.z * rotZMult), 0, 0, 1);
 
-                GL11.glRotated(normal.rotation.y, 0, 1, 0);
-                GL11.glRotated(rotation.y * rotYMult, 0, 1, 0);
+                GlStateManager.rotate(normal.rotation.y, 0, 1, 0);
+                GlStateManager.rotate((float) (rotation.y * rotYMult), 0, 1, 0);
 
-                GL11.glRotated(normal.rotation.x, 1, 0, 0);
-                GL11.glRotated(rotation.x * rotXMult, 1, 0, 0);
+                GlStateManager.rotate(normal.rotation.x, 1, 0, 0);
+                GlStateManager.rotate((float) (rotation.x * rotXMult), 1, 0, 0);
 
                 GlStateManager.translate(-normal.pivotPoint.x, -normal.pivotPoint.y, -normal.pivotPoint.z);
                 GlStateManager.scale(normal.scale.x, normal.scale.y, normal.scale.z);
@@ -612,28 +607,25 @@ public class AnimationData {
                 GlStateManager.translate(t.position.x, t.position.y, t.position.z);
 
                 // Animation translation
-                GL11.glTranslated(translation.x * mul, -translation.y * mul, translation.z * mul);
+                GlStateManager.translate(translation.x * mul, -translation.y * mul, translation.z * mul);
 
                 // Offset rotation point
                 GlStateManager.translate(t.pivotPoint.x, t.pivotPoint.y, t.pivotPoint.z);
 
                 // Original object rotation (+Z, -Y, -X)
-                GL11.glRotated(t.rotation.z, 0, 0, 1);
-                GL11.glRotated(rotation.z * rotZMult, 0, 0, 1);
+                GlStateManager.rotate(t.rotation.z, 0, 0, 1);
+                GlStateManager.rotate((float) (rotation.z * rotZMult), 0, 0, 1);
 
-                GL11.glRotated(t.rotation.y, 0, 1, 0);
-                GL11.glRotated(rotation.y * rotYMult, 0, 1, 0);
+                GlStateManager.rotate(t.rotation.y, 0, 1, 0);
+                GlStateManager.rotate((float) (rotation.y * rotYMult), 0, 1, 0);
 
-                GL11.glRotated(t.rotation.x, 1, 0, 0);
-                GL11.glRotated(rotation.x * rotXMult, 1, 0, 0);
-
+                GlStateManager.rotate(t.rotation.x, 1, 0, 0);
+                GlStateManager.rotate((float) (rotation.x * rotXMult), 1, 0, 0);
 
                 // Animation rotation
 
-
                 // Revert rotation point
                 GlStateManager.translate(-t.pivotPoint.x, -t.pivotPoint.y, -t.pivotPoint.z);
-
 
                 // Original object scale
                 GlStateManager.scale(t.scale.x, t.scale.y, t.scale.z);
@@ -648,11 +640,11 @@ public class AnimationData {
 
         public void showDebugCode() {
             System.out
-                    .println("GL11.glTranslated(" + translation.x + ", " + translation.y + ", " + translation.z + ");");
-            System.out.println("GL11.glRotated(" + rotation.z + ", 0, 0, 1);");
-            System.out.println("GL11.glRotated(" + rotation.y + ", 0, 1, 0);");
-            System.out.println("GL11.glRotated(" + rotation.x + ", 1, 0, 0);");
-            System.out.println("GL11.glScaled(1, 1, 1);");
+                    .println("GlStateManager.translate(" + translation.x + ", " + translation.y + ", " + translation.z + ");");
+            System.out.println("GlStateManager.rotate(" + rotation.z + ", 0, 0, 1);");
+            System.out.println("GlStateManager.rotate(" + rotation.y + ", 0, 1, 0);");
+            System.out.println("GlStateManager.rotate(" + rotation.x + ", 1, 0, 0);");
+            System.out.println("GlStateManager.scale(1, 1, 1);");
         }
 
         @Override

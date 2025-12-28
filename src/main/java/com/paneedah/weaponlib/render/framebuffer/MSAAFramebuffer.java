@@ -1,8 +1,11 @@
 package com.paneedah.weaponlib.render.framebuffer;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.shader.Framebuffer;
 import org.lwjgl.opengl.*;
+
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class MSAAFramebuffer extends Framebuffer {
 
@@ -27,7 +30,7 @@ public class MSAAFramebuffer extends Framebuffer {
         GL30.glBindFramebuffer(GL30.GL_FRAMEBUFFER, framebufferObject);
 
         // Create multisampled color texture
-        msaaColorTex = GL11.glGenTextures();
+        msaaColorTex = GlStateManager.generateTexture();
         GL11.glBindTexture(GL32.GL_TEXTURE_2D_MULTISAMPLE, msaaColorTex);
         GL32.glTexImage2DMultisample(GL32.GL_TEXTURE_2D_MULTISAMPLE, samples, GL11.GL_RGBA8, width, height, true);
         GL30.glFramebufferTexture2D(GL30.GL_FRAMEBUFFER, GL30.GL_COLOR_ATTACHMENT0, GL32.GL_TEXTURE_2D_MULTISAMPLE, msaaColorTex, 0);
@@ -49,11 +52,11 @@ public class MSAAFramebuffer extends Framebuffer {
 
     public void bindFramebuffer() {
         GL30.glBindFramebuffer(GL30.GL_FRAMEBUFFER, framebufferObject);
-        GL11.glViewport(0, 0, framebufferTextureWidth, framebufferTextureHeight);
+        GlStateManager.viewport(0, 0, framebufferTextureWidth, framebufferTextureHeight);
     }
 
     public void unbindAndResolve() {
-        int mainFbo = Minecraft.getMinecraft().getFramebuffer().framebufferObject;
+        int mainFbo = MC.getFramebuffer().framebufferObject;
 
         GL30.glBindFramebuffer(GL30.GL_READ_FRAMEBUFFER, framebufferObject);
         GL30.glBindFramebuffer(GL30.GL_DRAW_FRAMEBUFFER, mainFbo);
@@ -75,7 +78,7 @@ public class MSAAFramebuffer extends Framebuffer {
         }
 
         if (msaaColorTex >= 0) {
-            GL11.glDeleteTextures(msaaColorTex);
+            GlStateManager.deleteTexture(msaaColorTex);
             msaaColorTex = -1;
         }
 

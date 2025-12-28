@@ -7,9 +7,7 @@ import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
@@ -17,8 +15,8 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class VehicleCustomGUI extends Gui {
 
@@ -75,7 +73,7 @@ public class VehicleCustomGUI extends Gui {
         double tW = width / 2.0;
 
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
         GlStateManager.disableTexture2D();
         GlStateManager.disableDepth();
         GlStateManager.enableAlpha();
@@ -113,7 +111,7 @@ public class VehicleCustomGUI extends Gui {
         GlStateManager.enableTexture2D();
         GlStateManager.disableBlend();
         GlStateManager.enableDepth();
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
 
     }
 
@@ -125,19 +123,19 @@ public class VehicleCustomGUI extends Gui {
         float green = c.getGreen() / 255.0f;
         float alpha = c.getAlpha() / 255.0f;
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
         GlStateManager.disableTexture2D();
         GlStateManager.disableDepth();
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
-        //GL11.glBlendFunc(GL11.GL_SRC_ALPHA_SATURATE, GL11.GL_ONE);
+        //GlStateManager.blendFunc(GL11.GL_SRC_ALPHA_SATURATE, GL11.GL_ONE);
 
         //GL11.glEnable(GL11.GL_POLYGON_SMOOTH);
 		/*
 		GL11.glEnable(GL13.GL_MULTISAMPLE);
 		GL11.glHint(NVMultisampleFilterHint.GL_MULTISAMPLE_FILTER_HINT_NV, GL11.GL_NICEST);
-		System.out.println(GL11.glGetInteger(GL13.GL_SAMPLE_BUFFERS)); */
+		System.out.println(GlStateManager.glGetInteger(GL13.GL_SAMPLE_BUFFERS)); */
         GlStateManager.color(1.0f, 1.0f, 1.0f);
         Tessellator t = Tessellator.getInstance();
         BufferBuilder bb = t.getBuffer();
@@ -175,7 +173,7 @@ public class VehicleCustomGUI extends Gui {
         GlStateManager.enableTexture2D();
         GlStateManager.disableBlend();
         GlStateManager.enableDepth();
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
     public float prevRPMAngle = 0.0f;
@@ -194,7 +192,7 @@ public class VehicleCustomGUI extends Gui {
         //System.out.println(pattern + " | " + transmission + " | " + transmission.shiftTimer + " | " + transmission.maxShiftTime + " | " + transmission.startGear + " | " + transmission.targetGear);
 
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
         GlStateManager.enableAlpha();
 
         int old = 0;
@@ -214,18 +212,18 @@ public class VehicleCustomGUI extends Gui {
 
         // renderer pattern
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
         GlStateManager.disableTexture2D();
         GlStateManager.disableDepth();
         GlStateManager.color(1.0f, 1.0f, 1.0f);
-        GL11.glTranslated(x + 6.5, y + 6.5, 0.0);
-        GL11.glScaled(30.5, 30.5, 30.5);
+        GlStateManager.translate(x + 6.5, y + 6.5, 0.0);
+        GlStateManager.scale(30.5, 30.5, 30.5);
 
         pattern.renderPattern(Color.decode("#d2dae2"), x, y);
 
         GlStateManager.enableTexture2D();
         GlStateManager.enableDepth();
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
 
         // enmd
 
@@ -233,19 +231,19 @@ public class VehicleCustomGUI extends Gui {
         ResourceLocation loc = new ResourceLocation(ID + ":textures/gui/caricons.png");
         MC.getTextureManager().bindTexture(loc);
         GlStateManager.color(1.0f, 1.0f, 1.0f);
-        GL11.glTranslated(x + nX, y + nZ, 0);
-        GL11.glScaled(0.8, 0.8, 0.8);
+        GlStateManager.translate(x + nX, y + nZ, 0);
+        GlStateManager.scale(0.8, 0.8, 0.8);
         drawTexturedModalRect(0, 0, 0, 0, 17, 17);
 
 
         GlStateManager.disableAlpha();
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
     public void drawSpeedometer(EntityVehicle vehicle, double x, double y, int maxRPM, int gear, double rpm, double speed, double ratio) {
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
         double scale = (new ScaledResolution(MC)).getScaledWidth() / 640.0;
-        //GL11.glScaled(scale, scale, scale);
+        //GlStateManager.scale(scale, scale, scale);
         //x /= scale;
         //y /= scale;
 
@@ -286,13 +284,13 @@ public class VehicleCustomGUI extends Gui {
         GL11.glHint(GL11.GL_POLYGON_SMOOTH_HINT, GL11.GL_DONT_CARE);
 
         GL11.glDisable(GL11.GL_POLYGON_SMOOTH);
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
 
-        GL11.glTranslated(x, y, 0);
+        GlStateManager.translate(x, y, 0);
 
 
-        GL11.glScaled(0.85, 0.85, 0.85);
+        GlStateManager.scale(0.85, 0.85, 0.85);
 
 
         int thousands = maxRPM / 1000;
@@ -315,7 +313,7 @@ public class VehicleCustomGUI extends Gui {
             drawCenteredString(MC.fontRenderer, "" + n, (int) cos, (int) sin - 4, color);
         }
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
         GL11.glEnable(GL11.GL_POLYGON_SMOOTH);
 
         renderHalfCircle(Color.decode("#FFFFFF"), x, y, 50, 48, lowestAng, sat.smoothInterpDouble(-45, 133));
@@ -337,12 +335,12 @@ public class VehicleCustomGUI extends Gui {
         //
 		
 		/*
-		GL11.glPushMatrix();
-		GL11.glScaled(1.0, 1.0, 1.0);
+		GlStateManager.pushMatrix();
+		GlStateManager.scale(1.0, 1.0, 1.0);
 			GL11.glDisable(GL11.GL_POLYGON_SMOOTH);
 			drawShiftPattern(vehicle, x-125, y);
 			GL11.glEnable(GL11.GL_POLYGON_SMOOTH);
-		GL11.glPopMatrix();
+		GlStateManager.popMatrix();
 		*/
 
 
@@ -353,9 +351,9 @@ public class VehicleCustomGUI extends Gui {
         GL11.glDisable(GL11.GL_POLYGON_SMOOTH);
 
 
-        GL11.glPushMatrix();
-        GL11.glTranslated(x, y, 0);
-        GL11.glScaled(1.5, 1.5, 1.5);
+        GlStateManager.pushMatrix();
+        GlStateManager.translate(x, y, 0);
+        GlStateManager.scale(1.5, 1.5, 1.5);
 
 
         if (transmission.isReverseGear) {
@@ -371,25 +369,25 @@ public class VehicleCustomGUI extends Gui {
         //drawCenteredString(MC.fontRenderer, "" + valie, 0, -48, 0x4cd137);
 
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
-        GL11.glTranslated(x, y, 0);
-        GL11.glScaled(2.0, 2.0, 2.0);
+        GlStateManager.translate(x, y, 0);
+        GlStateManager.scale(2.0, 2.0, 2.0);
         int fixedSpeed = (int) Math.round(speed * 3.6);
         drawCenteredString(MC.fontRenderer, "" + fixedSpeed, 20, 2, 0xc8d6e5);
 
-        GL11.glPushMatrix();
-        GL11.glScaled(0.4, 0.4, 0.4);
+        GlStateManager.pushMatrix();
+        GlStateManager.scale(0.4, 0.4, 0.4);
         drawCenteredString(MC.fontRenderer, "km/h", 53, 25, 0xc8d6e5);
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
 
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
 
 
         this.prevRPMAngle = newRPMAngle;
@@ -399,7 +397,7 @@ public class VehicleCustomGUI extends Gui {
 
     public void renderKeyAndLock(EntityVehicle vehicle, double x, double y, double ratio) {
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
         double pM = Math.sin(vehicle.ticksExisted / 2) * 3;
         double ppM = Math.sin((vehicle.ticksExisted - 1) / 2) * 3;
@@ -413,13 +411,13 @@ public class VehicleCustomGUI extends Gui {
         //		  new Vec3d(00.0, 0, 30), 200.0);
 
 
-        GL11.glTranslated(x, y, 0.0);
+        GlStateManager.translate(x, y, 0.0);
 
-        //GL11.glRotated(90, 0, 1, 0);
-        GL11.glRotated(-150, 0.0, 1.0, 0.0);
-        GL11.glRotated(25, 1.0, 0.0, 0.0);
-        //GL11.glRotated(25, 0.0, 0.0, 1.0);
-        GL11.glScaled(0.9, 0.9, 0.9);
+        //GlStateManager.rotate(90, 0, 1, 0);
+        GlStateManager.rotate(-150, 0, 1, 0);
+        GlStateManager.rotate(25, 1, 0, 0);
+        //GlStateManager.rotate(25, 0.0, 0.0, 1.0);
+        GlStateManager.scale(0.9, 0.9, 0.9);
 
 
         Vec3d iR = keyAnimator.getInterpolatedRotation();
@@ -436,13 +434,13 @@ public class VehicleCustomGUI extends Gui {
             add = iPM;
         }
 
-        //GL11.glRotated(45, 1, 0, 0);
+        //GlStateManager.rotate(45, 1, 0, 0);
         ScreenRenderer.renderModelOnScreen(0.0 + iP.x, -24.0 + iP.y, -50.0 + iP.z + add, 30, 0f + iR.x, 0f + iR.y, 0f + iR.z, keyModel, lockTex);
 
 
         //GuiInventory.drawEntityOnScreen(320, 169, 30, 30, 30, MC.player);
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
 
@@ -460,14 +458,14 @@ public class VehicleCustomGUI extends Gui {
         //System.out.println(width + " | " + height);
 
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
 
         double ratio = (width * height) / (640 * 339);
         //System.out.println(ratio);
 
 
-        GL11.glScaled(ratio, ratio, ratio);
+        GlStateManager.scale(ratio, ratio, ratio);
         x /= ratio;
         y /= ratio;
 
@@ -486,7 +484,7 @@ public class VehicleCustomGUI extends Gui {
 
         drawSpeedometer(vehicle, x, y, vehicle.solver.configuration.getEngine().getMaxRPM(), vehicle.solver.transmission.getCurrentGear(), vehicle.solver.getCurrentRPM(), vehicle.getRealSpeed(), ratio);
         //renderKeyAndLock(vehicle, 1, 1);
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
 }

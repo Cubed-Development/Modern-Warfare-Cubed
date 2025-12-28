@@ -1,9 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.JLTVM1280;
-import com.paneedah.mwc.models.JLTVM1280wheel;
-import com.paneedah.mwc.models.SampleVehicleControlArm;
+import com.paneedah.mwc.models.*;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
 
@@ -25,7 +22,7 @@ public class JLTVM1280Factory implements VehicleFactory {
                 // part positions
 
                 .withPartPosition(VehiclePart.MAIN, c -> {
-//                    GL11.glTranslatef(0.000000f, -1.449999f, 0f);
+//                    GlStateManager.translate(0.000000f, -1.449999f, 0f);
                     Positioners.position(
                             1.0000f, -1.250000f, -2.700000f,
                             0.000000f, 0.000000f, 0.000000f,

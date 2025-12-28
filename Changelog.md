@@ -110,6 +110,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - Have showRecipe work like showAttachments (no overload)
   - Improve the text formatting/color of showAttachments
 - Updated `mcmod.info`
+- Transitioned to using the `GlStateManager`
 
 ### Fixed
 

@@ -4,24 +4,20 @@ import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
-import com.paneedah.weaponlib.animation.DebugPositioner;
-import com.paneedah.weaponlib.animation.MatrixHelper;
-import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
+import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.render.Shaders;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.*;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Quaternion;
 
@@ -111,7 +107,7 @@ public class AnimationModeProcessor {
 
     public void captureDeferral() {
         deferredMatrix.rewind();
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, deferredMatrix);
+        GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, deferredMatrix);
         deferredMatrix.rewind();
     }
 
@@ -457,7 +453,7 @@ public class AnimationModeProcessor {
 
     public void renderRotAxis(float scalar) {
         GlStateManager.color(1, 1, 1);
-        GL11.glLineWidth(5f);
+        GlStateManager.glLineWidth(5f);
         GlStateManager.disableTexture2D();
         GlStateManager.disableLighting();
 
@@ -468,7 +464,7 @@ public class AnimationModeProcessor {
         //GlStateManager.disableDepth();
 
         VIEW_BUFFER.rewind();
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, VIEW_BUFFER);
+        GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, VIEW_BUFFER);
 
         FloatBuffer modifiedView = BufferUtils.createFloatBuffer(16);
 
@@ -489,7 +485,7 @@ public class AnimationModeProcessor {
         //System.out.println(mat);
         modifiedView.rewind();
 
-        GL11.glLineWidth(2.0f);
+        GlStateManager.glLineWidth(2.0f);
         GlStateManager.multMatrix(modifiedView);
         GlStateManager.disableDepth();
         renderLightAxisRing(Vec3d.ZERO, Color.GRAY.brighter(), 0f, size * 5.5f, false, false);
@@ -531,7 +527,7 @@ public class AnimationModeProcessor {
         MC.getFramebuffer().bindFramebuffer(false);
 
         //GlStateManager.disableDepth();
-        GL11.glLineWidth(1.5f);
+        GlStateManager.glLineWidth(1.5f);
 
         Shaders.axis.use();
 
@@ -664,7 +660,7 @@ public class AnimationModeProcessor {
         GlStateManager.enableBlend();
 
         GlStateManager.disableDepth();
-        GL11.glLineWidth((float) Math.abs(1 / pan.z) * 50);
+        GlStateManager.glLineWidth((float) Math.abs(1 / pan.z) * 50);
         OpenGLSelectionHelper.ballBuf.framebufferClear();
         OpenGLSelectionHelper.ballBuf.bindFramebuffer(false);
         drawArrow(new Vec3d(1, 0, 0), Color.RED, 1, 1, (colorSelected == -1 || colorSelected == 1),
@@ -674,7 +670,7 @@ public class AnimationModeProcessor {
         drawArrow(new Vec3d(0, 0, 1), Color.BLUE, 1, 1, (colorSelected == -1 || colorSelected == 3),
                 false);
 
-        GL11.glLineWidth((float) Math.abs(1 / pan.z) * 15);
+        GlStateManager.glLineWidth((float) Math.abs(1 / pan.z) * 15);
 
 
         MC.getFramebuffer().bindFramebuffer(false);
@@ -804,10 +800,10 @@ public class AnimationModeProcessor {
 
     public void applyCameraTransforms() {
 
-        GL11.glTranslated(pan.x, pan.y, pan.z);
-        GL11.glRotatef((float) rot.x, 1f, 0f, 0f);
-        GL11.glRotatef((float) rot.y, 0f, 1f, 0f);
-        GL11.glRotatef((float) rot.z, 0f, 0f, 1f);
+        GlStateManager.translate(pan.x, pan.y, pan.z);
+        GlStateManager.rotate((float) rot.x, 1f, 0f, 0f);
+        GlStateManager.rotate((float) rot.y, 0f, 1f, 0f);
+        GlStateManager.rotate((float) rot.z, 0f, 0f, 1f);
 
     }
 
@@ -830,21 +826,18 @@ public class AnimationModeProcessor {
         float green = c.getGreen() / 255.0f;
         // float alpha = c.getAlpha()/255.0f;
 
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
 
         GlStateManager.disableTexture2D();
         //GlStateManager.disableDepth();
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
-        // GL11.glBlendFunc(GL11.GL_SRC_ALPHA_SATURATE, GL11.GL_ONE);
+        // GlStateManager.blendFunc(GL11.GL_SRC_ALPHA_SATURATE, GL11.GL_ONE);
 
-        // GL11.glEnable(GL11.GL_POLYGON_SMOOTH);
-        /*
-         * GL11.glEnable(GL13.GL_MULTISAMPLE);
-         * GL11.glHint(NVMultisampleFilterHint.GL_MULTISAMPLE_FILTER_HINT_NV,
-         * GL11.GL_NICEST);
-         * System.out.println(GL11.glGetInteger(GL13.GL_SAMPLE_BUFFERS));
-         */
+//        GL11.glEnable(GL11.GL_POLYGON_SMOOTH);
+//        GL11.glEnable(GL13.GL_MULTISAMPLE);
+//        GL11.glHint(NVMultisampleFilterHint.GL_MULTISAMPLE_FILTER_HINT_NV, GL11.GL_NICEST);
+//        System.out.println(GlStateManager.glGetInteger(GL13.GL_SAMPLE_BUFFERS));
         GlStateManager.color(1.0f, 1.0f, 1.0f);
         Tessellator t = Tessellator.getInstance();
         BufferBuilder bb = t.getBuffer();
@@ -871,7 +864,7 @@ public class AnimationModeProcessor {
         GlStateManager.enableTexture2D();
         GlStateManager.disableBlend();
         GlStateManager.enableDepth();
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
 }

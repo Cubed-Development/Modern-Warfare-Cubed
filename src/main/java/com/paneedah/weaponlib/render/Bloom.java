@@ -114,7 +114,7 @@ public class Bloom {
 
         data = new Framebuffer(width, height, true);
         data.bindFramebufferTexture();
-        GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_RGBA16F, width, height, 0, GL11.GL_RGBA,
+        GlStateManager.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_RGBA16F, width, height, 0, GL11.GL_RGBA,
                 GL11.GL_UNSIGNED_SHORT, (IntBuffer) null);
         data.bindFramebuffer(false);
 
@@ -136,7 +136,7 @@ public class Bloom {
 
             buffers[i] = new Framebuffer((int) bW, (int) bH, false);
             buffers[i].bindFramebufferTexture();
-            GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_RGBA16F, (int) bW, (int) bH, 0, GL11.GL_RGBA,
+            GlStateManager.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GLCompatible.GL_RGBA16F, (int) bW, (int) bH, 0, GL11.GL_RGBA,
                     GL11.GL_UNSIGNED_SHORT, (IntBuffer) null);
             buffers[i].setFramebufferFilter(GL11.GL_LINEAR);
             buffers[i].setFramebufferColor(0, 0, 0, 0);
@@ -367,32 +367,24 @@ public class Bloom {
 
         multisampleFBO = GLCompatible.glGenFramebuffers();
         GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, multisampleFBO);
-        multiampleTexFBO = GL11.glGenTextures();
+        multiampleTexFBO = GlStateManager.generateTexture();
 
         int width = MC.displayWidth;
         int height = MC.displayHeight;
 
         GL11.glBindTexture(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, multiampleTexFBO);
-        GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL11.GL_RGBA8, width, height,
-                false);
-        GLCompatible.glFramebufferTexture2D(GLCompatible.GL_FRAMEBUFFER, GLCompatible.GL_COLOR_ATTACHMENT0,
-                GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, multiampleTexFBO, 0);
+        GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL11.GL_RGBA8, width, height, false);
+        GLCompatible.glFramebufferTexture2D(GLCompatible.GL_FRAMEBUFFER, GLCompatible.GL_COLOR_ATTACHMENT0, GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, multiampleTexFBO, 0);
 
         GlStateManager.enableDepth();
 
         // depth
 
-        msaaDepthTex = GL11.glGenTextures();
+        msaaDepthTex = GlStateManager.generateTexture();
         GL11.glBindTexture(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, msaaDepthTex);
-        GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL14.GL_DEPTH_COMPONENT24,
-                width, height, false);
-        GLCompatible.glFramebufferTexture2D(GLCompatible.GL_FRAMEBUFFER, GL30.GL_DEPTH_ATTACHMENT,
-                GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, msaaDepthTex, 0);
-
-        // System.out.println(GL11.glGetError());
-
+        GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL14.GL_DEPTH_COMPONENT24, width, height, false);
+        GLCompatible.glFramebufferTexture2D(GLCompatible.GL_FRAMEBUFFER, GL30.GL_DEPTH_ATTACHMENT, GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, msaaDepthTex, 0);
         multisample = true;
-
     }
 
     public static void initializeMultisample(Framebuffer initial) {

@@ -3,9 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.instancing.PlayerItemInstance;
 import com.paneedah.mwc.instancing.PlayerWeaponInstance;
 import com.paneedah.weaponlib.render.Shaders;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
@@ -38,25 +36,25 @@ public class LaserBeamRenderer implements CustomRenderer {
         if (instance instanceof PlayerWeaponInstance && ((PlayerWeaponInstance) instance).isLaserOn() && (type == ItemCameraTransforms.TransformType.THIRD_PERSON_LEFT_HAND || type == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND || type == ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND || type == ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND || type == ItemCameraTransforms.TransformType.GROUND)) {
 
 
-            GL11.glPushAttrib(GL11.GL_ALL_ATTRIB_BITS);
+            GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
 
             GlStateManager.disableTexture2D();
 
 
-            //GL11.glPopAttrib();
+            //GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
 
-            GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+            GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
-            GL11.glPushMatrix();
+            GlStateManager.pushMatrix();
             //GlStateManager.color(1.0f, 0.0f, 0.0f, 1.0f);
 
             GlStateManager.enableBlend();
             GlStateManager.enableAlpha();
 
 
-            GL11.glLineWidth(1.0f);
-            GL11.glColor4f(1f, 0f, 0f, 1.0f);
-            //GL11.glDepthMask(false);
+            GlStateManager.glLineWidth(1.0f);
+            GlStateManager.color(1f, 0f, 0f, 1.0f);
+            //GlStateManager.depthMask(false);
 
 
             GlStateManager.shadeModel(GL11.GL_SMOOTH);
@@ -93,26 +91,22 @@ public class LaserBeamRenderer implements CustomRenderer {
             GlStateManager.enableLighting();
             GlStateManager.enableTexture2D();
             GlStateManager.disableBlend();
-            GL11.glPopMatrix();
-            GL11.glPopAttrib();
-			
-			
-			
-			
-		
-			/*
-			GL11.glPushMatrix();
-		
-			GL11.glPushAttrib(GL11.GL_ALL_ATTRIB_BITS);
-			//GL11.glDisable(GL11.GL_CULL_FACE);
-			//GL11.glDisable(GL11.GL_LIGHTING);
-			//GL11.glDisable(GL11.GL_TEXTURE_2D);
+            GlStateManager.popMatrix();
+            GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
 
-			GL11.glEnable(GL11.GL_BLEND);
-			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-			GL11.glColor4f(1f, 0f, 0f, 0.5f); 
-			GL11.glLineWidth(10.5F);
-			//GL11.glDepthMask(false);
+			/*
+			GlStateManager.pushMatrix();
+
+			GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28                                 
+			//GlStateManager.disableCull();
+			//GlStateManager.disableLighting();
+			//GlStateManager.disableTexture2D();
+
+			GlStateManager.enableBlend();
+			GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+			GlStateManager.color(1f, 0f, 0f, 0.5f); 
+			GlStateManager.glLineWidth(10.5F);
+			//GlStateManager.depthMask(false);
 
 			if(positioning != null) {
 			    positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
@@ -143,11 +137,11 @@ public class LaserBeamRenderer implements CustomRenderer {
 
 			tessellator.draw();
 			
-			GL11.glDepthMask(true);// do we need this?
+			GlStateManager.depthMask(true);// do we need this?
 			
-			GL11.glPopAttrib();
+			GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
 
-			GL11.glPopMatrix();
+			GlStateManager.popMatrix();
 			*/
         }
     }

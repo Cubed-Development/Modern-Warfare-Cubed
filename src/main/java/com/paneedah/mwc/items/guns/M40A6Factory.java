@@ -3,19 +3,15 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weapons.Attachments;
-import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.mwc.weapons.*;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.load.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
-import org.lwjgl.opengl.GL11;
 
 public class M40A6Factory implements GunFactory {
 
@@ -68,205 +64,205 @@ public class M40A6Factory implements GunFactory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
                 .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
                 .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
-                    GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(0.01f, -0.19f, -0.4f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.M40A6GripPlaceholder, true, (model) -> {
-                    GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(0.01f, -0.19f, -0.4f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 })
 //        .withCompatibleBullet(Bullets.Bullet308Winchester, (model) -> {})
 ////        .withCompatibleAttachment(AuxiliaryAttachments.M40A6Mag, true, (model) -> {
-////            GL11.glTranslatef(0.05F, 2.2F, -1F);
-////            GL11.glRotatef(-30f, 1f, 0f, 0f);
+////            GlStateManager.translate(0.05F, 2.2F, -1F);
+////            GlStateManager.rotate(-30f, 1f, 0f, 0f);
 ////        })
                 .withCompatibleAttachment(Magazines.M40A6Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 1.3F, 0.3F);
-//        	GL11.glRotatef(-10f, 1f, 0f, 0f);
-//        	GL11.glRotatef(-15f, 0f, 0f, 1f);
+//        	GlStateManager.translate(0F, 1.3F, 0.3F);
+//        	GlStateManager.rotate(-10f, 1f, 0f, 0f);
+//        	GlStateManager.rotate(-15f, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M40A6BoltAction, true, (model) -> {
-//            GL11.glTranslatef(-1.39f, -1.13f, 1.5f);
-//            GL11.glRotatef(70f, 0f, 0f, 1f);
+//            GlStateManager.translate(-1.39f, -1.13f, 1.5f);
+//            GlStateManager.rotate(70f, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M40A6BoltActionPrime, true, (model) -> {
-//          GL11.glTranslatef(-1.39f, -1.13f, 1.5f);
-//          GL11.glRotatef(70f, 0f, 0f, 1f);
+//          GlStateManager.translate(-1.39f, -1.13f, 1.5f);
+//          GlStateManager.rotate(70f, 0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.MBUSFrontSight, true, (model) -> {
-                    GL11.glTranslatef(0.08F, -2.16F, -4.5F);
-                    GL11.glScaled(0.35F, 0.35F, 0.35F);
+                    GlStateManager.translate(0.08F, -2.16F, -4.5F);
+                    GlStateManager.scale(0.35F, 0.35F, 0.35F);
                 })
                 .withCompatibleAttachment(Attachments.MBUSRearSights, true, (model) -> {
                     if (model instanceof MBUSRearSight) {
-                        GL11.glTranslatef(0.08F, -2.16F, -0.1F);
-                        GL11.glScaled(0.35F, 0.35F, 0.35F);
+                        GlStateManager.translate(0.08F, -2.16F, -0.1F);
+                        GlStateManager.scale(0.35F, 0.35F, 0.35F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
-                    GL11.glTranslatef(0.03F, -2.06F, -1.5F);
-                    GL11.glScaled(0.75F, 0.75F, 0.75F);
+                    GlStateManager.translate(0.03F, -2.06F, -1.5F);
+                    GlStateManager.scale(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
                     if (model instanceof JPUreticle) {
-                        GL11.glTranslatef(0.12F, -0.2F, 2.49F);
-                        GL11.glScaled(0.03F, 0.03F, 0.03F);
+                        GlStateManager.translate(0.12F, -0.2F, 2.49F);
+                        GlStateManager.scale(0.03F, 0.03F, 0.03F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
-                    GL11.glTranslatef(-0.07F, -2.05F, -0.3F);
-                    GL11.glScaled(0.8F, 0.8F, 0.8F);
+                    GlStateManager.translate(-0.07F, -2.05F, -0.3F);
+                    GlStateManager.scale(0.8F, 0.8F, 0.8F);
                 }, (model) -> {
                     if (model instanceof AcogScope2) {
-                        GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
-                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                        GlStateManager.translate(-0.018F, -0.25F, 0.13F);
+                        GlStateManager.scale(0.5F, 0.5F, 0.5F);
                     } else if (model instanceof AcogReticle) {
-                        GL11.glTranslatef(0.243F, -0.23F, 0.68f);
-                        GL11.glScaled(0.03F, 0.03F, 0.03F);
+                        GlStateManager.translate(0.243F, -0.23F, 0.68f);
+                        GlStateManager.scale(0.03F, 0.03F, 0.03F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
-                    GL11.glTranslatef(0.06F, -1.75F, -0.7F);
-                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+                    GlStateManager.translate(0.06F, -1.75F, -0.7F);
+                    GlStateManager.scale(0.4F, 0.4F, 0.4F);
                 }, (model) -> {
                     if (model instanceof Acog2) {
-                        GL11.glTranslatef(0.15F, -1.035F, 1.513F);
-                        GL11.glScaled(0.1F, 0.1F, 0.1F);
+                        GlStateManager.translate(0.15F, -1.035F, 1.513F);
+                        GlStateManager.scale(0.1F, 0.1F, 0.1F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
-                    GL11.glTranslatef(0.081F, -1.88F, -2F);
-                    GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    GlStateManager.translate(0.081F, -1.88F, -2F);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
                 }, (model) -> {
                     if (model instanceof JPUreticle) {
-                        GL11.glTranslatef(0.076F, -0.67F, 4.0251F);
-                        GL11.glScaled(0.04F, 0.04F, 0.04F);
+                        GlStateManager.translate(0.076F, -0.67F, 4.0251F);
+                        GlStateManager.scale(0.04F, 0.04F, 0.04F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
-                    GL11.glTranslatef(0.09F, -2.56F, -1.2F);
-                    GL11.glScaled(0.35F, 0.35F, 0.35F);
+                    GlStateManager.translate(0.09F, -2.56F, -1.2F);
+                    GlStateManager.scale(0.35F, 0.35F, 0.35F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(0.08F, 0.97F, -0.4F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                        GlStateManager.translate(0.08F, 0.97F, -0.4F);
+                        GlStateManager.scale(0.15F, 0.15F, 0.15F);
                     } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
+                        //        	GlStateManager.translate(-0.15F, -1.82F, -1F);
+                        //            GlStateManager.scale(0.4F, 0.4F, 0.4F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
-                    GL11.glTranslatef(0.175F, -1.85F, -0.9F);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(0.175F, -1.85F, -0.9F);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(-0.125F, -0.7F, -0.4F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                        GlStateManager.translate(-0.125F, -0.7F, -0.4F);
+                        GlStateManager.scale(0.15F, 0.15F, 0.15F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
-                    GL11.glTranslatef(0.18F, -1.82F, -1.3F);
-                    GL11.glScaled(0.49F, 0.49F, 0.49F);
+                    GlStateManager.translate(0.18F, -1.82F, -1.3F);
+                    GlStateManager.scale(0.49F, 0.49F, 0.49F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(-0.125F, -0.68F, -0.4F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                        GlStateManager.translate(-0.125F, -0.68F, -0.4F);
+                        GlStateManager.scale(0.15F, 0.15F, 0.15F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
-                    GL11.glTranslatef(0.2F, -1.9F, -0.7F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GlStateManager.translate(0.2F, -1.9F, -0.7F);
+                    GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
-                        GL11.glTranslatef(-0.125F, -0.5F, -0.1F);
-                        GL11.glScaled(0.1F, 0.1F, 0.1F);
+                        GlStateManager.translate(-0.125F, -0.5F, -0.1F);
+                        GlStateManager.scale(0.1F, 0.1F, 0.1F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
-                    GL11.glTranslatef(0.2F, -1.9F, -0.7F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GlStateManager.translate(0.2F, -1.9F, -0.7F);
+                    GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
-                        GL11.glTranslatef(-0.125F, -0.5F, -0.1F);
-                        GL11.glScaled(0.1F, 0.1F, 0.1F);
+                        GlStateManager.translate(-0.125F, -0.5F, -0.1F);
+                        GlStateManager.scale(0.1F, 0.1F, 0.1F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
-                    GL11.glTranslatef(0.2F, -1.9F, -0.7F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GlStateManager.translate(0.2F, -1.9F, -0.7F);
+                    GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof EotechScopeRing) {
-                        GL11.glTranslatef(-0.2F, -0.41F, 1.8F);
-                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                        GlStateManager.translate(-0.2F, -0.41F, 1.8F);
+                        GlStateManager.scale(0.5F, 0.5F, 0.5F);
                     }
                     if (model instanceof Holo2) {
-                        GL11.glTranslatef(-0.118F, -0.535F, 1.9F);
-                        GL11.glScaled(0.05F, 0.05F, 0.05F);
+                        GlStateManager.translate(-0.118F, -0.535F, 1.9F);
+                        GlStateManager.scale(0.05F, 0.05F, 0.05F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
-                    GL11.glTranslatef(0.2F, -1.9F, -0.5F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GlStateManager.translate(0.2F, -1.9F, -0.5F);
+                    GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                        GlStateManager.translate(-0.125F, -0.45F, -0.85F);
+                        GlStateManager.scale(0.15F, 0.15F, 0.15F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
-                    GL11.glTranslatef(0.2F, -1.9F, -0.5F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GlStateManager.translate(0.2F, -1.9F, -0.5F);
+                    GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                        GlStateManager.translate(-0.125F, -0.45F, -0.85F);
+                        GlStateManager.scale(0.15F, 0.15F, 0.15F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
-                    GL11.glTranslatef(-0.06F, -2.1F, -1.1F);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.06F, -2.1F, -1.1F);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
-                        GL11.glTranslatef(0.395F, -0.33F, -0.1F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                        GlStateManager.translate(0.395F, -0.33F, -0.1F);
+                        GlStateManager.scale(0.15F, 0.15F, 0.15F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
-                    GL11.glTranslatef(0.06F, -2.05F, -0.5F);
-                    GL11.glScaled(0.38F, 0.38F, 0.38F);
+                    GlStateManager.translate(0.06F, -2.05F, -0.5F);
+                    GlStateManager.scale(0.38F, 0.38F, 0.38F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(0.155F, -0.4F, -0.5F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                        GlStateManager.translate(0.155F, -0.4F, -0.5F);
+                        GlStateManager.scale(0.15F, 0.15F, 0.15F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
-                    GL11.glTranslatef(0.06F, -2.05F, -0.5F);
-                    GL11.glScaled(0.38F, 0.38F, 0.38F);
+                    GlStateManager.translate(0.06F, -2.05F, -0.5F);
+                    GlStateManager.scale(0.38F, 0.38F, 0.38F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(0.155F, -0.4F, -0.5F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                        GlStateManager.translate(0.155F, -0.4F, -0.5F);
+                        GlStateManager.scale(0.15F, 0.15F, 0.15F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.Grip2, (model) -> {
-                    GL11.glTranslatef(-0.05F, -0.8F, -3.5F);
-                    GL11.glScaled(1.1F, 1.1F, 1.1F);
+                    GlStateManager.translate(-0.05F, -0.8F, -3.5F);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1F);
                 })
                 .withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
-                    GL11.glTranslatef(-0.05F, -0.8F, -3.5F);
-                    GL11.glScaled(1.2F, 1.2F, 1.2F);
+                    GlStateManager.translate(-0.05F, -0.8F, -3.5F);
+                    GlStateManager.scale(1.2F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(Attachments.VGrip, (model) -> {
-                    GL11.glTranslatef(-0.05F, -0.8F, -3.5F);
-                    GL11.glScaled(1.2F, 1.2F, 1.2F);
+                    GlStateManager.translate(-0.05F, -0.8F, -3.5F);
+                    GlStateManager.scale(1.2F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(Attachments.Bipod, (model) -> {
-                    GL11.glTranslatef(0F, -0.7F, -4.3F);
-                    GL11.glScaled(1F, 1F, 1F);
+                    GlStateManager.translate(0F, -0.7F, -4.3F);
+                    GlStateManager.scale(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.Silencer762x51, (model) -> {
-                    GL11.glTranslatef(0.035F, -1.8F, -9.6F);
-                    GL11.glScaled(1.1F, 1.1F, 1.1F);
+                    GlStateManager.translate(0.035F, -1.8F, -9.6F);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1F);
                 })
                 .withTextureNames("gunwerkshamr")
                 .withRenderer(new WeaponRenderer.Builder()
@@ -277,19 +273,19 @@ public class M40A6Factory implements GunFactory {
                         //.withWeaponProximity(0.99F)
                         //.withYOffsetZoom(5F)
                         .withEntityPositioning(itemStack -> {
-                            GL11.glScaled(0.35F, 0.35F, 0.35F);
-                            GL11.glRotatef(-90F, 0f, 0f, 4f);
+                            GlStateManager.scale(0.35F, 0.35F, 0.35F);
+                            GlStateManager.rotate(-90F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
-                            GL11.glScaled(0.28F, 0.28F, 0.28F);
-                            GL11.glTranslatef(1, 2f, -1.2f);
-                            GL11.glRotatef(-120F, -0.5f, 7f, 3f);
+                            GlStateManager.scale(0.28F, 0.28F, 0.28F);
+                            GlStateManager.translate(1, 2f, -1.2f);
+                            GlStateManager.rotate(-120F, -0.5f, 7f, 3f);
                         })
                         .withThirdPersonPositioning((renderContext) -> {
-                            GL11.glScaled(0.52F, 0.52F, 0.52F);
-                            GL11.glTranslatef(-2F, 0.3F, 1.9F);
-                            GL11.glRotatef(-45F, 0f, 1f, 0f);
-                            GL11.glRotatef(70F, 1f, 0f, 0f);
+                            GlStateManager.scale(0.52F, 0.52F, 0.52F);
+                            GlStateManager.translate(-2F, 0.3F, 1.9F);
+                            GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                            GlStateManager.rotate(70F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonPositioning(
@@ -326,98 +322,98 @@ public class M40A6Factory implements GunFactory {
                                 Magazines.M40A6Mag)
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-                            GL11.glTranslatef(-0.1f, 1.455f, -1.2f);
+                            GlStateManager.scale(3.000000f, 3.000000f, 3.000000f);
+//                GlStateManager.rotate(45F, 0f, 1f, 0f);
+                            GlStateManager.translate(-0.1f, 1.455f, -1.2f);
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MBUSRearSights)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.26f, 0.4f);
+                                GlStateManager.translate(0F, 0.26f, 0.4f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.28f, 0.65f);
+                                GlStateManager.translate(0F, 0.28f, 0.65f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.28f, 1.15f);
+                                GlStateManager.translate(0F, 0.28f, 1.15f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.3f, 1.1f);
+                                GlStateManager.translate(0F, 0.3f, 1.1f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.2f, 1.3f);
+                                GlStateManager.translate(0F, 0.2f, 1.3f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.25f, 1.4f);
+                                GlStateManager.translate(0F, 0.25f, 1.4f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.25f, 1.4f);
+                                GlStateManager.translate(0F, 0.25f, 1.4f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.26f, 1.3f);
+                                GlStateManager.translate(0F, 0.26f, 1.3f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.22f, 1.3f);
+                                GlStateManager.translate(0F, 0.22f, 1.3f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.22f, 1.3f);
+                                GlStateManager.translate(0F, 0.22f, 1.3f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.275f, 1.2f);
+                                GlStateManager.translate(0F, 0.275f, 1.2f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.275f, 1.2f);
+                                GlStateManager.translate(0F, 0.275f, 1.2f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.275f, 0.7f);
+                                GlStateManager.translate(0F, 0.275f, 0.7f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.305f, 1.2f);
+                                GlStateManager.translate(0F, 0.305f, 1.2f);
                             }
 
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
                                 //System.out.println("Position me for Scope");
-                                GL11.glTranslatef(0F, 0.27f, 1f);
+                                GlStateManager.translate(0F, 0.27f, 1f);
                             }
 
                             // Everything else

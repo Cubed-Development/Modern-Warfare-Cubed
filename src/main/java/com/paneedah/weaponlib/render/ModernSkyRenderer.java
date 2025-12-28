@@ -19,8 +19,7 @@ import org.lwjgl.opengl.GL13;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.FloatBuffer;
+import java.nio.*;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.ID;
@@ -70,21 +69,20 @@ public class ModernSkyRenderer extends IRenderHandler {
 
     private static final String str = ID + ":textures/sky/hd/";
 
-    public static ByteBuffer readByteBuffer3(BufferedImage image) {
+    public static IntBuffer readByteBuffer3(BufferedImage image) {
 
 
         int[] pixels = new int[image.getWidth() * image.getHeight()];
         image.getRGB(0, 0, image.getWidth(), image.getHeight(), pixels, 0, image.getWidth());
-        ByteBuffer buffer = ByteBuffer.allocateDirect(image.getWidth() * image.getHeight() * 3);
+        IntBuffer buffer = BufferUtils.createIntBuffer(image.getWidth() * image.getHeight());
 
         for (int h = 0; h < image.getHeight(); h++) {
             for (int w = 0; w < image.getWidth(); w++) {
                 int pixel = pixels[h * image.getWidth() + w];
 
 
-                buffer.put((byte) ((pixel >> 16) & 0xFF));
-                buffer.put((byte) ((pixel >> 8) & 0xFF));
-                buffer.put((byte) (pixel & 0xFF));
+                int rgb = (((pixel >> 16) & 0xFF) << 16) | (((pixel >> 8) & 0xFF) << 8) | (pixel & 0xFF);
+                buffer.put(rgb);
                 // buffer.put((byte) ((pixel >> 24) & 0xFF));
             }
         }
@@ -98,7 +96,7 @@ public class ModernSkyRenderer extends IRenderHandler {
     }
 
 
-    public ByteBuffer readImageFromFile(ResourceLocation location) {
+    public IntBuffer readImageFromFile(ResourceLocation location) {
         IResource resource = null;
         try {
             resource = MC.getResourceManager().getResource(location);
@@ -106,12 +104,11 @@ public class ModernSkyRenderer extends IRenderHandler {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-        ByteBuffer buf = null;
+        IntBuffer buf = null;
         try {
             BufferedImage image = ImageIO.read(resource.getInputStream());
-            buf = ByteBuffer.allocateDirect(image.getWidth() * image.getHeight() * 3);
+            buf = readByteBuffer3(image);
 
-            buf.put(readByteBuffer3(image));
             buf.rewind();
             return buf;
 
@@ -144,17 +141,18 @@ public class ModernSkyRenderer extends IRenderHandler {
         };
 
         for (int i = 0; i < faces.length; ++i) {
-            ByteBuffer buffer = readImageFromFile(new ResourceLocation(str + faces[i]));
-            GL11.glTexImage2D(GL13.GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL11.GL_RGB, 2048, 2048, 0, GL11.GL_RGB, GL11.GL_UNSIGNED_BYTE, buffer);
+            IntBuffer buffer = readImageFromFile(new ResourceLocation(str + faces[i]));
+
+            GlStateManager.glTexImage2D(GL13.GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL11.GL_RGB, 2048, 2048, 0, GL11.GL_RGB, GL12.GL_UNSIGNED_INT_8_8_8_8, buffer);
         }
 
         System.out.println("Cubemap succesfully created!");
 
-        GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
-        GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
-        GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
-        GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
-        GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL12.GL_TEXTURE_WRAP_R, GL12.GL_CLAMP_TO_EDGE);
+        GlStateManager.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
+        GlStateManager.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
+        GlStateManager.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
+        GlStateManager.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
+        GlStateManager.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL12.GL_TEXTURE_WRAP_R, GL12.GL_CLAMP_TO_EDGE);
 
     }
 
@@ -176,8 +174,8 @@ public class ModernSkyRenderer extends IRenderHandler {
         FloatBuffer viewMatrix = BufferUtils.createFloatBuffer(16);
         FloatBuffer projectionMatrix = BufferUtils.createFloatBuffer(16);
 
-        GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX, projectionMatrix);
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, viewMatrix);
+        GlStateManager.getFloat(GL11.GL_PROJECTION_MATRIX, projectionMatrix);
+        GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, viewMatrix);
 
         viewMatrix.rewind();
         projectionMatrix.rewind();
@@ -220,9 +218,7 @@ public class ModernSkyRenderer extends IRenderHandler {
         skyShader.release();
         GlStateManager.depthMask(true);
         GlStateManager.enableCull();
-        //GL11.glBindTexture(GL11.GL_TEXTURE_2D, GL13.GL_TEXTURE0);
+        //GlStateManager.bindTexture(GL13.GL_TEXTURE0);
         GL11.glDisable(GL13.GL_TEXTURE_CUBE_MAP);
-
     }
-
 }

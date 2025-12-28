@@ -6,8 +6,7 @@ import com.paneedah.weaponlib.electronics.SignalQuality;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import com.paneedah.weaponlib.tracking.TrackableEntity;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,8 +17,8 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
@@ -157,7 +156,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         FontRenderer fontRender = MC.fontRenderer;
 
         float scale = 2f;
-        GL11.glScalef(scale, scale, scale);
+        GlStateManager.scale(scale, scale, scale);
 
         fontRender.drawString(message, (int) (40f / scale), (int) ((this.height - 30) / scale), color, false);
 

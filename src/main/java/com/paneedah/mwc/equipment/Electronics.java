@@ -4,13 +4,11 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.GasDetector;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.electronics.ItemHandheld;
-import com.paneedah.weaponlib.electronics.ItemTablet;
-import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
+import com.paneedah.weaponlib.electronics.*;
 import com.paneedah.weaponlib.model.CameraModel;
 import com.paneedah.weaponlib.model.TabletModel;
 import com.paneedah.weaponlib.perspective.GasDetectorScreenPerspective;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 public class Electronics {
 
@@ -20,59 +18,59 @@ public class Electronics {
         Tablet = new ItemTablet.Builder<>()
                 .withViewfinderPositioning(() -> {
                     float scale = 5.9f;
-                    GL11.glScalef(scale, scale / modContext.getAspectRatio(), scale);
-                    GL11.glTranslatef(-0.12f, 0.56f, 0.01f);
+                    GlStateManager.scale(scale, scale / modContext.getAspectRatio(), scale);
+                    GlStateManager.translate(-0.12f, 0.56f, 0.01f);
                 })
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
                 .withModel(new TabletModel(), "IPad.png")
                 //.withModel(new com.paneedah.mwc.models.LPscope(), "HP2.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glRotatef(25.000000f, 1f, 0f, 0f);
-                    GL11.glRotatef(50.000000f, 0f, 1f, 0f);
-                    GL11.glRotatef(-20.000000f, 0f, 0f, 1f);
-                    GL11.glTranslatef(1.000000f, 0.100000f, -4.399998f);
-                    GL11.glScaled(5F, 5F, 5F);
+                    GlStateManager.rotate(25.000000f, 1f, 0f, 0f);
+                    GlStateManager.rotate(50.000000f, 0f, 1f, 0f);
+                    GlStateManager.rotate(-20.000000f, 0f, 0f, 1f);
+                    GlStateManager.translate(1.000000f, 0.100000f, -4.399998f);
+                    GlStateManager.scale(5F, 5F, 5F);
                 })
                 .withThirdPersonModelPositioning(model -> {
                     if (model instanceof TabletModel) {
-                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
-                        GL11.glRotatef(-45F, 0f, 1f, 0f);
-                        GL11.glRotatef(80F, 1f, 0f, 0f);
-                        GL11.glScaled(1F, 1F, 1F);
+                        GlStateManager.translate(-0.8F, -0.5F, 0.8F);
+                        GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                        GlStateManager.rotate(80F, 1f, 0f, 0f);
+                        GlStateManager.scale(1F, 1F, 1F);
                     }
                 }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
-                        GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.65F, 0.65F, 0.65f);
+                        GlStateManager.translate(-0.6F, -0.6F, 0.6F);
+                        GlStateManager.rotate(10F, 1f, 0f, 0f);
+                        GlStateManager.rotate(-190F, 0f, 1f, 0f);
+                        GlStateManager.rotate(0F, 0f, 0f, 1f);
+                        GlStateManager.scale(0.65F, 0.65F, 0.65f);
                     } else if (model instanceof com.paneedah.mwc.models.LPscope) {
-                        GL11.glScaled(0F, 0F, 0F);
+                        GlStateManager.scale(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
-                        GL11.glTranslatef(0.1F, 0.2F, 0.4F);
-                        GL11.glRotatef(90F, 0f, 0f, 1f);
-                        GL11.glScaled(0.4F, 0.4F, 0.4F);
+                        GlStateManager.translate(0.1F, 0.2F, 0.4F);
+                        GlStateManager.rotate(90F, 0f, 0f, 1f);
+                        GlStateManager.scale(0.4F, 0.4F, 0.4F);
                     } else if (model instanceof com.paneedah.mwc.models.LPscope) {
-                        GL11.glScaled(0F, 0F, 0F);
+                        GlStateManager.scale(0F, 0F, 0F);
                     }
                 })
                 .withFirstPersonHandPositioning(
                         () -> {
-                            GL11.glScaled(2F, 2F, 2F);
-                            GL11.glRotatef(-145.000000f, 1f, 0f, 0f);
-                            GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
-                            GL11.glRotatef(20.000000f, 0f, 0f, 1f);
-                            GL11.glTranslatef(-0.025000f, -1.149999f, -0.100000f);
+                            GlStateManager.scale(2F, 2F, 2F);
+                            GlStateManager.rotate(-145.000000f, 1f, 0f, 0f);
+                            GlStateManager.rotate(-35.000000f, 0f, 1f, 0f);
+                            GlStateManager.rotate(20.000000f, 0f, 0f, 1f);
+                            GlStateManager.translate(-0.025000f, -1.149999f, -0.100000f);
                         },
                         () -> {
-                            GL11.glScaled(2F, 2F, 2F);
-                            GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
-                            GL11.glRotatef(40.000000f, 0f, 1f, 0f);
-                            GL11.glRotatef(-35.000000f, 0f, 0f, 1f);
-                            GL11.glTranslatef(0.040000f, -0.575000f, 0.125000f);
+                            GlStateManager.scale(2F, 2F, 2F);
+                            GlStateManager.rotate(-135.000000f, 1f, 0f, 0f);
+                            GlStateManager.rotate(40.000000f, 0f, 1f, 0f);
+                            GlStateManager.rotate(-35.000000f, 0f, 0f, 1f);
+                            GlStateManager.translate(0.040000f, -0.575000f, 0.125000f);
                         })
                 .withName("tablet")
 
@@ -85,53 +83,53 @@ public class Electronics {
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
                 .withModel(new CameraModel(), "gun")
                 .withFirstPersonPositioning(() -> {
-                    // GL11.glTranslatef(0.5F, -1.5F, -0.7F);
-                    GL11.glRotatef(55F, 0f, 1f, 0f);
-                    // GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glTranslatef(-0.1F, -1.6F, 1F);
-                    GL11.glScaled(1F, 1F, 1F);
+                    // GlStateManager.translate(0.5F, -1.5F, -0.7F);
+                    GlStateManager.rotate(55F, 0f, 1f, 0f);
+                    // GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.translate(-0.1F, -1.6F, 1F);
+                    GlStateManager.scale(1F, 1F, 1F);
                 })
                 .withThirdPersonModelPositioning(model -> {
                     if (model instanceof CameraModel) {
-                        GL11.glTranslatef(-0.9F, -0.8F, 0.5F);
-                        GL11.glRotatef(-50F, 0f, 1f, 0f);
-                        GL11.glRotatef(80F, 1f, 0f, 0f);
-                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                        GlStateManager.translate(-0.9F, -0.8F, 0.5F);
+                        GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                        GlStateManager.rotate(80F, 1f, 0f, 0f);
+                        GlStateManager.scale(0.5F, 0.5F, 0.5F);
                     }
                 }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
-                        GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.65F, 0.65F, 0.65f);
+                        GlStateManager.translate(-0.6F, -0.6F, 0.6F);
+                        GlStateManager.rotate(10F, 1f, 0f, 0f);
+                        GlStateManager.rotate(-190F, 0f, 1f, 0f);
+                        GlStateManager.rotate(0F, 0f, 0f, 1f);
+                        GlStateManager.scale(0.65F, 0.65F, 0.65f);
                     } else if (model instanceof com.paneedah.mwc.models.LPscope) {
-                        GL11.glScaled(0F, 0F, 0F);
+                        GlStateManager.scale(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
-                        GL11.glTranslatef(0.1F, 0.2F, 0.4F);
-                        GL11.glRotatef(90F, 0f, 0f, 1f);
-                        GL11.glScaled(0.4F, 0.4F, 0.4F);
+                        GlStateManager.translate(0.1F, 0.2F, 0.4F);
+                        GlStateManager.rotate(90F, 0f, 0f, 1f);
+                        GlStateManager.scale(0.4F, 0.4F, 0.4F);
                     } else if (model instanceof com.paneedah.mwc.models.LPscope) {
-                        GL11.glScaled(0F, 0F, 0F);
+                        GlStateManager.scale(0F, 0F, 0F);
                     }
                 })
 
                 .withFirstPersonHandPositioning(
                         () -> {
-                            GL11.glScalef(0F, 0F, 0F);
-                            // GL11.glRotatef(190F, 1f, 0f, 0f);
-                            // GL11.glRotatef(10F, 0f, 1f, 0f);
-                            // GL11.glRotatef(30F, 0f, 0f, 1f);
-                            // GL11.glTranslatef(0.1F, -1.75F, 0F);
+                            GlStateManager.scale(0F, 0F, 0F);
+                            // GlStateManager.rotate(190F, 1f, 0f, 0f);
+                            // GlStateManager.rotate(10F, 0f, 1f, 0f);
+                            // GlStateManager.rotate(30F, 0f, 0f, 1f);
+                            // GlStateManager.translate(0.1F, -1.75F, 0F);
                         },
                         () -> {
-                            GL11.glScalef(0F, 0F, 0F);
-                            // GL11.glRotatef(190F, 1f, 0f, 0f);
-                            // GL11.glRotatef(0F, 0f, 1f, 0f);
-                            // GL11.glRotatef(-10F, 0f, 0f, 1f);
-                            // GL11.glTranslatef(-0.15F, -0.4F, 0.4F);
+                            GlStateManager.scale(0F, 0F, 0F);
+                            // GlStateManager.rotate(190F, 1f, 0f, 0f);
+                            // GlStateManager.rotate(0F, 0f, 1f, 0f);
+                            // GlStateManager.rotate(-10F, 0f, 0f, 1f);
+                            // GlStateManager.translate(-0.15F, -0.4F, 0.4F);
                         }
                 )
 
@@ -142,64 +140,64 @@ public class Electronics {
                 .withScreenPerspectiveType(GasDetectorScreenPerspective.class)
                 .withScreenPositioning(() -> {
                     float scale = 1.9f;
-                    GL11.glScalef(scale, scale / modContext.getAspectRatio(), scale);
-                    GL11.glTranslatef(0.017f, 0.16f, 0.17f);
+                    GlStateManager.scale(scale, scale / modContext.getAspectRatio(), scale);
+                    GlStateManager.translate(0.017f, 0.16f, 0.17f);
                 })
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
                 .withModel(new GasDetector(), "gasdetector.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glScalef(4f, 4f, 4f);
-                    GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-                    GL11.glRotatef(70.000000f, 0f, 1f, 0f);
-                    GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
-                    GL11.glTranslatef(-0.2f, 0.4f, -1.8f);
-//            GL11.glTranslatef(-6.500000f, 1.575000f, -2.000000f);
-//            GL11.glRotatef(15.000000f, 1f, 0f, 0f);
-//            GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//            GL11.glRotatef(-5.000000f, 0f, 0f, 1f);
-//            GL11.glTranslatef(-0.8f, 0.2f, -1.5f);
+                    GlStateManager.scale(4f, 4f, 4f);
+                    GlStateManager.rotate(0.000000f, 1f, 0f, 0f);
+                    GlStateManager.rotate(70.000000f, 0f, 1f, 0f);
+                    GlStateManager.rotate(-15.000000f, 0f, 0f, 1f);
+                    GlStateManager.translate(-0.2f, 0.4f, -1.8f);
+//            GlStateManager.translate(-6.500000f, 1.575000f, -2.000000f);
+//            GlStateManager.rotate(15.000000f, 1f, 0f, 0f);
+//            GlStateManager.rotate(45.000000f, 0f, 1f, 0f);
+//            GlStateManager.rotate(-5.000000f, 0f, 0f, 1f);
+//            GlStateManager.translate(-0.8f, 0.2f, -1.5f);
                 })
                 .withThirdPersonModelPositioning(model -> {
                     if (model instanceof TabletModel) {
-                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
-                        GL11.glRotatef(-45F, 0f, 1f, 0f);
-                        GL11.glRotatef(80F, 1f, 0f, 0f);
-                        GL11.glScaled(0.6F, 0.6F, 0.6F);
+                        GlStateManager.translate(-0.8F, -0.5F, 0.8F);
+                        GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                        GlStateManager.rotate(80F, 1f, 0f, 0f);
+                        GlStateManager.scale(0.6F, 0.6F, 0.6F);
                     }
                 }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
-                        GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.65F, 0.65F, 0.65f);
+                        GlStateManager.translate(-0.6F, -0.6F, 0.6F);
+                        GlStateManager.rotate(10F, 1f, 0f, 0f);
+                        GlStateManager.rotate(-190F, 0f, 1f, 0f);
+                        GlStateManager.rotate(0F, 0f, 0f, 1f);
+                        GlStateManager.scale(0.65F, 0.65F, 0.65f);
                     } else if (model instanceof com.paneedah.mwc.models.LPscope) {
-                        GL11.glScaled(0F, 0F, 0F);
+                        GlStateManager.scale(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
-                        GL11.glTranslatef(0.1F, 0.2F, 0.4F);
-                        GL11.glRotatef(90F, 0f, 0f, 1f);
-                        GL11.glScaled(0.4F, 0.4F, 0.4F);
+                        GlStateManager.translate(0.1F, 0.2F, 0.4F);
+                        GlStateManager.rotate(90F, 0f, 0f, 1f);
+                        GlStateManager.scale(0.4F, 0.4F, 0.4F);
                     } else if (model instanceof com.paneedah.mwc.models.LPscope) {
-                        GL11.glScaled(0F, 0F, 0F);
+                        GlStateManager.scale(0F, 0F, 0F);
                     }
                 })
                 .withFirstPersonHandPositioning(
                         () -> {
 
-                            GL11.glScaled(0f, 0f, 0f);
+                            GlStateManager.scale(0f, 0f, 0f);
                         },
                         () -> {
-                            GL11.glScalef(3.3f, 3.3f, 3.3f);
-                            GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-                            GL11.glRotatef(5.000000f, 0f, 1f, 0f);
-                            GL11.glRotatef(-105.000000f, 0f, 0f, 1f);
-                            GL11.glTranslatef(0.275000f, -0.425000f, 0.050000f);
-//                    GL11.glRotatef(-180.000000f, 1f, 0f, 0f);
-//                    GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
-//                    GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
-//                    GL11.glTranslatef(0f, -0.1f, 0.8f);
+                            GlStateManager.scale(3.3f, 3.3f, 3.3f);
+                            GlStateManager.rotate(-100.000000f, 1f, 0f, 0f);
+                            GlStateManager.rotate(5.000000f, 0f, 1f, 0f);
+                            GlStateManager.rotate(-105.000000f, 0f, 0f, 1f);
+                            GlStateManager.translate(0.275000f, -0.425000f, 0.050000f);
+//                    GlStateManager.rotate(-180.000000f, 1f, 0f, 0f);
+//                    GlStateManager.rotate(-60.000000f, 0f, 1f, 0f);
+//                    GlStateManager.rotate(-15.000000f, 0f, 0f, 1f);
+//                    GlStateManager.translate(0f, -0.1f, 0.8f);
                         })
                 .withName("gas-detector")
 

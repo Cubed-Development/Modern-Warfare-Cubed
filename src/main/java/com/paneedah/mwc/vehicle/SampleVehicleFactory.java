@@ -1,10 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.ATV;
-import com.paneedah.mwc.models.SampleVehicleControlArm;
-import com.paneedah.mwc.models.SampleVehicleSteeringWheel;
-import com.paneedah.mwc.models.Wheel;
+import com.paneedah.mwc.models.*;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
 
@@ -27,7 +23,7 @@ public class SampleVehicleFactory implements VehicleFactory {
                 // part positions
 
                 .withPartPosition(VehiclePart.MAIN, c -> {
-//                    GL11.glTranslatef(0.000000f, -1.449999f, 0f);
+//                    GlStateManager.translate(0.000000f, -1.449999f, 0f);
                     Positioners.position(
                             0.000000f, -1.500000f, -1.600000f,
                             0.000000f, 0.000000f, 0.000000f,
@@ -168,7 +164,7 @@ public class SampleVehicleFactory implements VehicleFactory {
                             -0.100000f, 0.965000f, 0.025000f,
                             1.000000f, 1.000000f, 1.000000f
                     );
-//                    GL11.glScalef(0f, 0f, 0f);
+//                    GlStateManager.scale(0f, 0f, 0f);
 //                    Positioners.position(
 //                            -0.090000f, -0.030000f, 2.200000f,
 //                            context.getProgress() * 360f, 0.000000f, 0.000000f,
@@ -185,7 +181,7 @@ public class SampleVehicleFactory implements VehicleFactory {
                             -0.100000f, 0.965000f, 0.025000f,
                             1.000000f, 1.000000f, 1.000000f
                     );
-//                    GL11.glScalef(0f, 0f, 0f);
+//                    GlStateManager.scale(0f, 0f, 0f);
 //                    Positioners.position(
 //                            0.3000f, -0.030000f, 2.200000f,
 //                            -context.getProgress() * 360f, 180.000000f, 0.000000f,

@@ -2,11 +2,11 @@ package com.paneedah.mwc.models;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class ZombieBlistered extends ModelBiped {
@@ -234,21 +234,21 @@ public class ZombieBlistered extends ModelBiped {
 
         if (this.isChild) {
             float f6 = 2.0F;
-            GL11.glPushMatrix();
-            GL11.glScalef(1.5F / f6, 1.5F / f6, 1.5F / f6);
-            GL11.glTranslatef(0.0F, 16.0F * p_78088_7_, 0.0F);
+            GlStateManager.pushMatrix();
+            GlStateManager.scale(1.5F / f6, 1.5F / f6, 1.5F / f6);
+            GlStateManager.translate(0.0F, 16.0F * p_78088_7_, 0.0F);
             this.bipedHead.render(p_78088_7_);
-            GL11.glPopMatrix();
-            GL11.glPushMatrix();
-            GL11.glScalef(1.0F / f6, 1.0F / f6, 1.0F / f6);
-            GL11.glTranslatef(0.0F, 24.0F * p_78088_7_, 0.0F);
+            GlStateManager.popMatrix();
+            GlStateManager.pushMatrix();
+            GlStateManager.scale(1.0F / f6, 1.0F / f6, 1.0F / f6);
+            GlStateManager.translate(0.0F, 24.0F * p_78088_7_, 0.0F);
             this.bipedBody.render(p_78088_7_);
             this.bipedRightArm.render(p_78088_7_);
             this.bipedLeftArm.render(p_78088_7_);
             this.bipedRightLeg.render(p_78088_7_);
             this.bipedLeftLeg.render(p_78088_7_);
             this.bipedHeadwear.render(p_78088_7_);
-            GL11.glPopMatrix();
+            GlStateManager.popMatrix();
         } else {
             this.bipedHead.render(p_78088_7_);
             this.bipedBody.render(p_78088_7_);

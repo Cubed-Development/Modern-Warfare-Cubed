@@ -4,18 +4,15 @@ import com.paneedah.weaponlib.KeyBindings;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import lombok.Getter;
 import lombok.Setter;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.text.TextComponentString;
-import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Matrix4f;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class DebugPositioner {
 
@@ -251,50 +248,50 @@ public class DebugPositioner {
         // reset();
 
         updateAutoIncrements(partPosition);
-        GL11.glScalef(partPosition.scale, partPosition.scale, partPosition.scale);
+        GlStateManager.scale(partPosition.scale, partPosition.scale, partPosition.scale);
 
         if (isAdjustRotationMode) {
 
-            GL11.glTranslatef(partPosition.rOffsetX, partPosition.rOffsetY, partPosition.rOffsetZ);
-            GL11.glTranslatef(partPosition.x, partPosition.y, partPosition.z);
-            GL11.glRotatef(partPosition.zRotation, 0f, 0f, 1f);
-            GL11.glRotatef(partPosition.yRotation, 0f, 1f, 0f);
-            GL11.glRotatef(partPosition.xRotation, 1f, 0f, 0f);
-            GL11.glTranslatef(-partPosition.rOffsetX, -partPosition.rOffsetY, -partPosition.rOffsetZ);
+            GlStateManager.translate(partPosition.rOffsetX, partPosition.rOffsetY, partPosition.rOffsetZ);
+            GlStateManager.translate(partPosition.x, partPosition.y, partPosition.z);
+            GlStateManager.rotate(partPosition.zRotation, 0f, 0f, 1f);
+            GlStateManager.rotate(partPosition.yRotation, 0f, 1f, 0f);
+            GlStateManager.rotate(partPosition.xRotation, 1f, 0f, 0f);
+            GlStateManager.translate(-partPosition.rOffsetX, -partPosition.rOffsetY, -partPosition.rOffsetZ);
         } else {
 
 
-            GL11.glTranslatef(partPosition.x, partPosition.y, partPosition.z);
+            GlStateManager.translate(partPosition.x, partPosition.y, partPosition.z);
 
-            GL11.glTranslatef(partPosition.rOffsetX, partPosition.rOffsetY, partPosition.rOffsetZ);
+            GlStateManager.translate(partPosition.rOffsetX, partPosition.rOffsetY, partPosition.rOffsetZ);
 
-            GL11.glRotatef(partPosition.zRotation, 0f, 0f, 1f);
-            GL11.glRotatef(partPosition.xRotation, 1f, 0f, 0f);
+            GlStateManager.rotate(partPosition.zRotation, 0f, 0f, 1f);
+            GlStateManager.rotate(partPosition.xRotation, 1f, 0f, 0f);
 
-            GL11.glRotatef(partPosition.yRotation, 0f, 1f, 0f);
+            GlStateManager.rotate(partPosition.yRotation, 0f, 1f, 0f);
 
-            GL11.glTranslatef(-partPosition.rOffsetX, -partPosition.rOffsetY, -partPosition.rOffsetZ);
+            GlStateManager.translate(-partPosition.rOffsetX, -partPosition.rOffsetY, -partPosition.rOffsetZ);
 			
 			
 			
 			
 			/*
-			GL11.glTranslatef(partPosition.rOffsetX, partPosition.rOffsetY, partPosition.rOffsetZ);
+			GlStateManager.translate(partPosition.rOffsetX, partPosition.rOffsetY, partPosition.rOffsetZ);
 
 			
-			GL11.glRotatef(partPosition.xRotation, 1f, 0f, 0f);
+			GlStateManager.rotate(partPosition.xRotation, 1f, 0f, 0f);
 
-			GL11.glRotatef(partPosition.yRotation, 0f, 1f, 0f);
-			GL11.glRotatef(partPosition.zRotation, 0f, 0f, 1f);
-			GL11.glTranslatef(-partPosition.rOffsetX, -partPosition.rOffsetY, -partPosition.rOffsetZ);
-			GL11.glTranslatef(partPosition.x, partPosition.y, partPosition.z);
+			GlStateManager.rotate(partPosition.yRotation, 0f, 1f, 0f);
+			GlStateManager.rotate(partPosition.zRotation, 0f, 0f, 1f);
+			GlStateManager.translate(-partPosition.rOffsetX, -partPosition.rOffsetY, -partPosition.rOffsetZ);
+			GlStateManager.translate(partPosition.x, partPosition.y, partPosition.z);
 			*/
 
             /*
-             * GL11.glRotatef(partPosition.xRotation, 1f, 0f, 0f);
-             * GL11.glRotatef(partPosition.yRotation, 0f, 1f, 0f);
-             * GL11.glRotatef(partPosition.zRotation, 0f, 0f, 1f);
-             * GL11.glTranslatef(partPosition.x, partPosition.y, partPosition.z);
+             * GlStateManager.rotate(partPosition.xRotation, 1f, 0f, 0f);
+             * GlStateManager.rotate(partPosition.yRotation, 0f, 1f, 0f);
+             * GlStateManager.rotate(partPosition.zRotation, 0f, 0f, 1f);
+             * GlStateManager.translate(partPosition.x, partPosition.y, partPosition.z);
              */
         }
 
@@ -350,17 +347,17 @@ public class DebugPositioner {
             System.out.println(MC.player.getHeldItemMainhand());
 
             StringBuilder result = new StringBuilder();
-            result.append(String.format("GL11.glScalef(%ff, %ff, %ff);\n", partPosition.scale, partPosition.scale,
+            result.append(String.format("GlStateManager.scale(%ff, %ff, %ff);\n", partPosition.scale, partPosition.scale,
                     partPosition.scale));
-            result.append(String.format("GL11.glTranslatef(%ff, %ff, %ff);\n", partPosition.x, partPosition.y,
+            result.append(String.format("GlStateManager.translate(%ff, %ff, %ff);\n", partPosition.x, partPosition.y,
                     partPosition.z));
 
-            result.append(String.format("GL11.glTranslatef(%ff, %ff, %ff);\n", partPosition.rOffsetX,
+            result.append(String.format("GlStateManager.translate(%ff, %ff, %ff);\n", partPosition.rOffsetX,
                     partPosition.rOffsetY, partPosition.rOffsetZ));
-            result.append(String.format("GL11.glRotatef(%ff, 0f, 0f, 1f);\n", partPosition.zRotation));
-            result.append(String.format("GL11.glRotatef(%ff, 1f, 0f, 0f);\n", partPosition.xRotation));
-            result.append(String.format("GL11.glRotatef(%ff, 0f, 1f, 0f);\n", partPosition.yRotation));
-            result.append(String.format("GL11.glTranslatef(%ff, %ff, %ff);", -partPosition.rOffsetX,
+            result.append(String.format("GlStateManager.rotate(%ff, 0f, 0f, 1f);\n", partPosition.zRotation));
+            result.append(String.format("GlStateManager.rotate(%ff, 1f, 0f, 0f);\n", partPosition.xRotation));
+            result.append(String.format("GlStateManager.rotate(%ff, 0f, 1f, 0f);\n", partPosition.yRotation));
+            result.append(String.format("GlStateManager.translate(%ff, %ff, %ff);", -partPosition.rOffsetX,
                     -partPosition.rOffsetY, -partPosition.rOffsetZ));
             LOGGER.debug("Generated positioning code: \n" + result);
             System.out.println("\n" + result);

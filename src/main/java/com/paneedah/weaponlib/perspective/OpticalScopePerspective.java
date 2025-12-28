@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.shader.Shader;
 import com.paneedah.weaponlib.shader.ShaderLoader;
 import com.paneedah.weaponlib.shader.Uniform;
 import net.minecraft.client.renderer.GLAllocation;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
@@ -87,7 +88,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
 
 
     public static final Uniform PROJECTION_MATRIX = shader -> {
-        GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX, AUX_GL_BUFFER);
+        GlStateManager.getFloat(GL11.GL_PROJECTION_MATRIX, AUX_GL_BUFFER);
         AUX_GL_BUFFER.rewind();
 
         GL20.glUniformMatrix4(GL20.glGetUniformLocation(shader, "projection"), false, AUX_GL_BUFFER);

@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.weaponlib.ClientModContext;
-import com.paneedah.weaponlib.RenderContext;
-import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
 import com.paneedah.weaponlib.render.scopes.Reticle;
@@ -40,26 +38,26 @@ public class ScopePerspective extends PerspectiveRenderer {
 
 
         float brightness = perspective.getBrightness(renderContext);
-        GL11.glPushMatrix();
-        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
+        GlStateManager.pushMatrix();
+        GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
         positioning.run();
-        //GL11.glBindTexture(GL11.GL_TEXTURE_2D, framebuffer.framebufferTexture);
-        GL11.glBindTexture(GL11.GL_TEXTURE_2D, perspective.getTexture(renderContext));
+        //GlStateManager.bindTexture(framebuffer.framebufferTexture);
+        GlStateManager.bindTexture(perspective.getTexture(renderContext));
         MC.entityRenderer.disableLightmap();
         GlStateManager.enableDepth();
-        //GL11.glDepthMask(true);
-        //GL11.glDisable(GL11.GL_LIGHTING);
-        //GL11.glDisable(GL11.GL_ALPHA_TEST);
-        //GL11.glDisable(GL11.GL_BLEND);
+        //GlStateManager.depthMask(true);
+        //GlStateManager.disableLighting();
+        //GlStateManager.disableAlpha();
+        //GlStateManager.disableBlend();
 
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
-        GL11.glColor4f(brightness, brightness, brightness, 1f);
+        GlStateManager.color(brightness, brightness, brightness, 1f);
         model.render(this.reticle, renderContext, renderContext.getPlayer(), renderContext.getScale());
 
         MC.entityRenderer.enableLightmap();
-        GL11.glPopAttrib();
-        GL11.glPopMatrix();
+        GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+        GlStateManager.popMatrix();
     }
 }

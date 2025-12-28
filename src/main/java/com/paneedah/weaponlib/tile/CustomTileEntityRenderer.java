@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.tile;
 
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -45,7 +46,7 @@ public class CustomTileEntityRenderer<T extends CustomTileEntity<?>>
     @Override
     public void render(T tileEntity, double posX, double posY, double posZ,
                        float partialTicks, int destroyStage, float alpha) {
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
         bindTexture(textureResource);
         setupRenderingTransformations(tileEntity, posX, posY, posZ);
 
@@ -55,7 +56,7 @@ public class CustomTileEntityRenderer<T extends CustomTileEntity<?>>
         // Render the model
         model.render(null, 0f, 0f, 0f, 0f, 0f, MODEL_RENDER_SCALE);
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 
     /**
@@ -67,16 +68,16 @@ public class CustomTileEntityRenderer<T extends CustomTileEntity<?>>
      * @param posZ      The z position for rendering.
      */
     private void setupRenderingTransformations(T tileEntity, double posX, double posY, double posZ) {
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        GL11.glTranslatef((float) posX, (float) posY + TRANSLATE_Y, (float) posZ + TRANSLATE_Y);
-        GL11.glScalef(SCALE_FACTOR, -SCALE_FACTOR, -SCALE_FACTOR);
-        GL11.glTranslatef(0.5F, 0.5F, 0.5F);
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.translate((float) posX, (float) posY + TRANSLATE_Y, (float) posZ + TRANSLATE_Y);
+        GlStateManager.scale(SCALE_FACTOR, -SCALE_FACTOR, -SCALE_FACTOR);
+        GlStateManager.translate(0.5F, 0.5F, 0.5F);
 
         // Rotate based on the side of the tile entity
-        GL11.glRotatef(ROTATION_ANGLE * tileEntity.getSide(), 0, 1f, 0);
-        GL11.glRotatef(-ROTATION_ANGLE, 0, 1f, 0);
+        GlStateManager.rotate(ROTATION_ANGLE * tileEntity.getSide(), 0, 1f, 0);
+        GlStateManager.rotate(-ROTATION_ANGLE, 0, 1f, 0);
 
-        GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-        GL11.glTranslatef(0F, -0.5F, 0F);
+        GlStateManager.translate(-0.5F, -0.5F, -0.5F);
+        GlStateManager.translate(0F, -0.5F, 0F);
     }
 }

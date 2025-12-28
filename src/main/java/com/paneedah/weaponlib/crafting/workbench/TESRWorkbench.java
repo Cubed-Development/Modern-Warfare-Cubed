@@ -29,13 +29,13 @@ public class TESRWorkbench extends TESRStation<TileEntityWorkbench> {
         // Set initial state
         GlStateManager.enableTexture2D();
         GlStateManager.enableRescaleNormal();
-        GL11.glPushMatrix();
+        GlStateManager.pushMatrix();
         this.bindTexture(this.location);
 
         // Set-up initial parameters
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        GL11.glTranslatef((float) x + MODEL_X_OFFSET, (float) y + MODEL_Y_OFFSET, (float) z + MODEL_Z_OFFSET);
-        GL11.glScalef(1.0F, -1.0F, -1.0F);
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.translate((float) x + MODEL_X_OFFSET, (float) y + MODEL_Y_OFFSET, (float) z + MODEL_Z_OFFSET);
+        GlStateManager.scale(1.0F, -1.0F, -1.0F);
 
         // Set rotation
         float blockRotation = 0f;
@@ -66,6 +66,6 @@ public class TESRWorkbench extends TESRStation<TileEntityWorkbench> {
 
         // Undo block state
         GlStateManager.disableRescaleNormal();
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
     }
 }

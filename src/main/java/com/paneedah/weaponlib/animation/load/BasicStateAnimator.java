@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.animation.load;
 
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import lombok.NoArgsConstructor;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
@@ -46,11 +47,10 @@ public class BasicStateAnimator {
 
         Vec3d iP = getInterpolatedPosition();
         Vec3d iR = getInterpolatedRotation();
-        GL11.glTranslated(iP.x, iP.y, iP.z);
-        GL11.glRotated(iR.x, 0.0, 0.0, 1.0);
-        GL11.glRotated(iR.y, 0.0, 1.0, 0.0);
-        GL11.glRotated(iR.z, 1.0, 0.0, 0.0);
-
+        GlStateManager.translate(iP.x, iP.y, iP.z);
+        GlStateManager.rotate((float) iR.x, 0, 0, 1);
+        GlStateManager.rotate((float) iR.y, 0, 1, 0);
+        GlStateManager.rotate((float) iR.z, 1, 0, 0);
     }
 
     public void addPause(double time) {

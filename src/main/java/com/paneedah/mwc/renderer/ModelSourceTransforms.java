@@ -1,10 +1,8 @@
 package com.paneedah.mwc.renderer;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import net.minecraft.client.model.ModelBase;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 import java.util.function.Consumer;
 
@@ -34,6 +32,6 @@ public final class ModelSourceTransforms {
 
     // Todo: Make this empty by making hand rendering a boolean somewhere than weapons and everything can call instead of spending time doing useless OGL calls
     // Unlike the rest, these two aren't empty it's because by default hands shouldn't be rendered
-    @Builder.Default private Runnable firstPersonLeftHandPositioning = () -> GL11.glScalef(0, 0, 0);
-    @Builder.Default private Runnable firstPersonRightHandPositioning = () -> GL11.glScalef(0, 0, 0);
+    @Builder.Default private Runnable firstPersonLeftHandPositioning = () -> GlStateManager.scale(0, 0, 0);
+    @Builder.Default private Runnable firstPersonRightHandPositioning = () -> GlStateManager.scale(0, 0, 0);
 }

@@ -3,7 +3,7 @@ package com.paneedah.mwc.weapons;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.weaponlib.*;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 public class AuxiliaryAttachments {
 
@@ -1643,31 +1643,31 @@ public class AuxiliaryAttachments {
                         Attachments.HoneyBadgerReceiverBlack)
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARCarryHandle) {
-                        GL11.glTranslatef(-0.6F, -0.7F, -0.25F);
-                        GL11.glRotatef(10F, 1f, 0f, 0f);
-                        GL11.glRotatef(-190F, 0f, 1f, 0f);
-                        GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(0.45F, 0.45F, 0.45f);
+                        GlStateManager.translate(-0.6F, -0.7F, -0.25F);
+                        GlStateManager.rotate(10F, 1f, 0f, 0f);
+                        GlStateManager.rotate(-190F, 0f, 1f, 0f);
+                        GlStateManager.rotate(0F, 0f, 0f, 1f);
+                        GlStateManager.scale(0.45F, 0.45F, 0.45f);
                     } else {
-                        GL11.glScalef(0f, 0f, 0f);
+                        GlStateManager.scale(0f, 0f, 0f);
                     }
                 }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARCarryHandle) {
-                        GL11.glTranslatef(0.1F, 0F, 0.4F);
-                        GL11.glRotatef(30F, 0f, 1f, 0f);
-                        GL11.glScaled(0.5F, 0.7F, 0.7F);
+                        GlStateManager.translate(0.1F, 0F, 0.4F);
+                        GlStateManager.rotate(30F, 0f, 1f, 0f);
+                        GlStateManager.scale(0.5F, 0.7F, 0.7F);
                     } else {
-                        GL11.glScaled(0F, 0F, 0F);
+                        GlStateManager.scale(0F, 0F, 0F);
                     }
 
                 }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARCarryHandle) {
-                        GL11.glTranslatef(-1.6F, -0.5F, 1.2F);
-                        GL11.glRotatef(-50F, 0f, 1f, 0f);
-                        GL11.glRotatef(80F, 1f, 0f, 0f);
-                        GL11.glScaled(0.3F, 0.5F, 0.5F);
+                        GlStateManager.translate(-1.6F, -0.5F, 1.2F);
+                        GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                        GlStateManager.rotate(80F, 1f, 0f, 0f);
+                        GlStateManager.scale(0.3F, 0.5F, 0.5F);
                     } else {
-                        GL11.glScaled(0F, 0F, 0F);
+                        GlStateManager.scale(0F, 0F, 0F);
                     }
                 })
                 .withName("AR15Iron").withTextureName("Dummy.png")

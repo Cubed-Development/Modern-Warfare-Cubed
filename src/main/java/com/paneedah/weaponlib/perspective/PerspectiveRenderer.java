@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.*;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.util.ResourceLocation;
@@ -66,24 +67,24 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
         }
 
         float brightness = perspective.getBrightness(renderContext);
-        GL11.glPushMatrix();
-        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
+        GlStateManager.pushMatrix();
+        GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
 
         positioning.run();
 
 
-        //GL11.glBindTexture(GL11.GL_TEXTURE_2D, framebuffer.framebufferTexture);
-        GL11.glBindTexture(GL11.GL_TEXTURE_2D, perspective.getTexture(renderContext));
+        //GlStateManager.bindTexture(framebuffer.framebufferTexture);
+        GlStateManager.bindTexture(perspective.getTexture(renderContext));
         MC.entityRenderer.disableLightmap();
-        GL11.glEnable(GL11.GL_DEPTH_TEST);
-        //GL11.glDepthMask(true);
-        GL11.glDisable(GL11.GL_LIGHTING);
-        GL11.glDisable(GL11.GL_ALPHA_TEST);
-        GL11.glDisable(GL11.GL_BLEND);
+        GlStateManager.enableDepth();
+        //GlStateManager.depthMask(true);
+        GlStateManager.disableLighting();
+        GlStateManager.disableAlpha();
+        GlStateManager.disableBlend();
 
 
-        GL11.glColor4f(brightness, brightness, brightness, 1f);
+        GlStateManager.color(brightness, brightness, brightness, 1f);
 
 
         model.render(renderContext.getPlayer(),
@@ -96,7 +97,7 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 
 
         MC.entityRenderer.enableLightmap();
-        GL11.glPopAttrib();
-        GL11.glPopMatrix();
+        GlStateManager.popAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28
+        GlStateManager.popMatrix();
     }
 }

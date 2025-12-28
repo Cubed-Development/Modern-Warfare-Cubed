@@ -4,21 +4,16 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weapons.Attachments;
-import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.mwc.weapons.*;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
-import org.lwjgl.opengl.GL11;
 
 public class M17Factory implements GunFactory {
 
@@ -80,46 +75,46 @@ public class M17Factory implements GunFactory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
                 .withCompatibleAttachment(Attachments.PistolPlaceholder, true, (model) -> {
-                    GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(0.01f, -0.19f, -0.4f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.APC9Placeholder, true, (model) -> {
-                    GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(0.01f, -0.19f, -0.4f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M17_Slide, true, (model) -> {
                     if (model instanceof M17Slide) {
-                        GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
+                        GlStateManager.scale(1F, 1F, 1F);
+//                GlStateManager.translate(0F, 0F, 0.5F);
                     } else if (model instanceof M9A1rearsight) {
-                        GL11.glTranslatef(-0.153F, -1.2F, -0.03F);
-                        GL11.glScaled(0.28F, 0.2F, 0.7F);
+                        GlStateManager.translate(-0.153F, -1.2F, -0.03F);
+                        GlStateManager.scale(0.28F, 0.2F, 0.7F);
                     } else if (model instanceof M1911frontsight) {
-                        GL11.glTranslatef(-0.142F, -1.2F, -2F);
-                        GL11.glScaled(0.2F, 0.2F, 0.2F);
+                        GlStateManager.translate(-0.142F, -1.2F, -2F);
+                        GlStateManager.scale(0.2F, 0.2F, 0.2F);
                     }
                 })
                 .withCompatibleAttachment(Magazines.M17Mag, (model) -> {
-//            GL11.glRotatef(-5F, 1f, 0f, 0f);
-//            GL11.glTranslatef(0F, 0.8F, 0.2F);
+//            GlStateManager.rotate(-5F, 1f, 0f, 0f);
+//            GlStateManager.translate(0F, 0.8F, 0.2F);
                 })
 
                 .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
-                    GL11.glTranslatef(0.01F, -0.72F, -2.1F);
-                    GL11.glScaled(1.1F, 1.1F, 1.1F);
-                    GL11.glRotatef(-90F, 0f, 0f, -4f);
+                    GlStateManager.translate(0.01F, -0.72F, -2.1F);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1F);
+                    GlStateManager.rotate(-90F, 0f, 0f, -4f);
                 })
                 .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
-                    GL11.glTranslatef(-0.21F, -1.21F, -3.93F);
-                    GL11.glScaled(1.1F, 1.1F, 1.1F);
+                    GlStateManager.translate(-0.21F, -1.21F, -3.93F);
+                    GlStateManager.scale(1.1F, 1.1F, 1.1F);
                 })
                 .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
-                    GL11.glTranslatef(-0.175F, -1.35F, -0.3F);
-                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+                    GlStateManager.translate(-0.175F, -1.35F, -0.3F);
+                    GlStateManager.scale(0.4F, 0.4F, 0.4F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(0.155F, -0.1F, -0.5F);
-                        GL11.glScaled(0.2F, 0.2F, 0.2F);
+                        GlStateManager.translate(0.155F, -0.1F, -0.5F);
+                        GlStateManager.scale(0.2F, 0.2F, 0.2F);
                     }
                 })
                 .withTextureNames("m17")
@@ -134,19 +129,19 @@ public class M17Factory implements GunFactory {
                         //.withWeaponProximity(0.99F)
                         //.withYOffsetZoom(5F)
                         .withEntityPositioning(itemStack -> {
-                            GL11.glScaled(0.4F, 0.4F, 0.4F);
-                            GL11.glRotatef(-90F, 0f, 0f, 4f);
+                            GlStateManager.scale(0.4F, 0.4F, 0.4F);
+                            GlStateManager.rotate(-90F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
-                            GL11.glScaled(0.35F, 0.35F, 0.35F);
-                            GL11.glTranslatef(0, 0.8f, 0);
-                            GL11.glRotatef(-120F, -0.5f, 7f, 3f);
+                            GlStateManager.scale(0.35F, 0.35F, 0.35F);
+                            GlStateManager.translate(0, 0.8f, 0);
+                            GlStateManager.rotate(-120F, -0.5f, 7f, 3f);
                         })
                         .withThirdPersonPositioning((renderContext) -> {
-                            GL11.glScaled(0.5F, 0.5F, 0.5F);
-                            GL11.glTranslatef(-1.8F, -1F, 2F);
-                            GL11.glRotatef(-45F, 0f, 1f, 0f);
-                            GL11.glRotatef(70F, 1f, 0f, 0f);
+                            GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                            GlStateManager.translate(-1.8F, -1F, 2F);
+                            GlStateManager.rotate(-45F, 0f, 1f, 0f);
+                            GlStateManager.rotate(70F, 1f, 0f, 0f);
                         })
 
                         .withFirstPersonPositioning(
@@ -181,18 +176,18 @@ public class M17Factory implements GunFactory {
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.M17_Slide.getRenderablePart(), (renderContext) -> {
                             if (renderContext.getWeaponInstance().getAmmo() == 0) {
-                                GL11.glTranslatef(0F, 0F, 0.5F);
+                                GlStateManager.translate(0F, 0F, 0.5F);
                             }
                         })
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-                            GL11.glScaled(3F, 3F, 3F);
-                            GL11.glTranslatef(0.14f, 0.7f, -2.3f);
+//                GlStateManager.rotate(45F, 0f, 1f, 0f);
+                            GlStateManager.scale(3F, 3F, 3F);
+                            GlStateManager.translate(0.14f, 0.7f, -2.3f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                                 //System.out.println("Position me for Holo");
-                                GL11.glTranslatef(0f, 0.23f, 0f);
+                                GlStateManager.translate(0f, 0.23f, 0f);
                             }
 
                             // Everything else

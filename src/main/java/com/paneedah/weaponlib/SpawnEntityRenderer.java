@@ -37,7 +37,7 @@ public class SpawnEntityRenderer extends Render<Entity> {
             String ammoModelTextureName = weapon.getAmmoModelTextureName();
             ResourceLocation textureLocation = ammoModelTextureName != null ? new ResourceLocation(ammoModelTextureName) : null;
             	/*
-				GL11.glPushMatrix();
+				GlStateManager.pushMatrix();
 				if(textureLocation != null) {
 					bindTexture(textureLocation);
 				}
@@ -48,16 +48,16 @@ public class SpawnEntityRenderer extends Render<Entity> {
 				double zOffset = xxofset * Math.cos(entity.rotationYaw / 180.0F * (float) Math.PI);
 				double xOffset = xxofset * Math.sin(entity.rotationYaw / 180.0F * (float) Math.PI);
 				//System.out.println("Xoffset: " + xOffset + ", zoffset: " + zOffset);
-				GL11.glTranslated(x + xOffset, y, z + zOffset);
-//            		GL11.glRotatef(90, 1f, 0f, 0f);
-//            		GL11.glRotatef(90, 0f, 0f, 1f);
-//            		GL11.glRotatef(45, 0f, 1f, 0f);
-				GL11.glRotatef(0f, 1f, 0f, 0f);
-				GL11.glRotatef(entity.rotationYaw - 90 + (float)(angle * 180 / Math.PI), 0f, 1f, 0f);
-				GL11.glRotatef(90f + entity.rotationPitch, 0f, 0f, 1f);
-				GL11.glScalef(2f, 2f, 2f);
+				GlStateManager.translate(x + xOffset, y, z + zOffset);
+//            		GlStateManager.rotate(90, 1f, 0f, 0f);
+//            		GlStateManager.rotate(90, 0f, 0f, 1f);
+//            		GlStateManager.rotate(45, 0f, 1f, 0f);
+				GlStateManager.rotate(0f, 1f, 0f, 0f);
+				GlStateManager.rotate(entity.rotationYaw - 90 + (float)(angle * 180 / Math.PI), 0f, 1f, 0f);
+				GlStateManager.rotate(90f + entity.rotationPitch, 0f, 0f, 1f);
+				GlStateManager.scale(2f, 2f, 2f);
 				model.renderer(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
-				GL11.glPopMatrix();
+				GlStateManager.popMatrix();
 				*/
 
             if (textureLocation != null) {

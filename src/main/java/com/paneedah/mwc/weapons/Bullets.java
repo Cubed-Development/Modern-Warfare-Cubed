@@ -5,8 +5,8 @@ import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.weaponlib.ItemBullet;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.init.Items;
-import org.lwjgl.opengl.GL11;
 
 public class Bullets {
 
@@ -59,20 +59,20 @@ public class Bullets {
                 .withModel(new com.paneedah.mwc.models.GL06Grenade(), "GL06.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", Items.GUNPOWDER)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -1.2F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(0.1F, -1.2F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.9F, -0.29F, 0.8F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(-0.9F, -0.29F, 0.8F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, 1F, 2.1F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2F, 2F, 2f);
+                    GlStateManager.translate(-0.8F, 1F, 2.1F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2F, 2F, 2f);
                 }).withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
 
@@ -81,20 +81,20 @@ public class Bullets {
                 .withModel(new com.paneedah.mwc.models.M202Rocket(), "gun.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MWCItems.gunmetalPlate, MWCItems.gunmetalIngot)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -1.2F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(0.1F, -1.2F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.9F, -0.29F, 0.8F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(-0.9F, -0.29F, 0.8F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -0.8F, -0.2F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(0.4F, 0.4F, 0.4f);
+                    GlStateManager.translate(-0.8F, -0.8F, -0.2F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.4F, 0.4F, 0.4f);
                 }).withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
 
@@ -103,20 +103,20 @@ public class Bullets {
                 .withModel(new com.paneedah.mwc.models.RPG7rocketPROJECTILE(), "rpg7.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MWCItems.gunmetalPlate, MWCItems.gunmetalIngot)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -1.2F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(0.1F, -1.2F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.9F, -0.29F, 0.8F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0F, 0F, 0F);
+                    GlStateManager.translate(-0.9F, -0.29F, 0.8F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0F, 0F, 0F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -1F, 0.5F);
-                    GL11.glRotatef(-180F, 0f, 1f, 0f);
-                    GL11.glRotatef(-90F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(0.4F, 0.4F, 0.4f);
+                    GlStateManager.translate(-0.8F, -1F, 0.5F);
+                    GlStateManager.rotate(-180F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-90F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(0.4F, 0.4F, 0.4f);
                 }).withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
 
@@ -126,20 +126,20 @@ public class Bullets {
                 .withMaxStackSize(64)
                 .withCrafting(8, CraftingComplexity.LOW, "ingotCopper", Items.GUNPOWDER)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -1F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+                    GlStateManager.translate(0.1F, -1F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.4F, 0.4F, 0.4F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    GlStateManager.translate(-0.7F, -0.29F, 0.7F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -1.1F, 0.6F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(20F, 0f, 0f, 1f);
-                    GL11.glScaled(1.4F, 1.4F, 1.4f);
+                    GlStateManager.translate(-0.8F, -1.1F, 0.6F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(20F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.4F, 1.4F, 1.4f);
                 }).withTextureName("Dummy.png").build(modContext, ItemBullet.class);
 
         PlasmaCapsule = new ItemBullet.Builder()
@@ -148,20 +148,20 @@ public class Bullets {
                 .withMaxStackSize(64)
                 //.withCrafting(8, CraftingComplexity.LOW, "ingotCopper", CompatibleItems.GUNPOWDER)
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(0.1F, -0.3F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    GlStateManager.translate(-0.3F, 0.5F, 0.1F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(10F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(0.3F, 0.5F, -0F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1F, 1F, 1f);
+                    GlStateManager.translate(0.3F, 0.5F, -0F);
+                    GlStateManager.rotate(-150F, 0f, 1f, 0f);
+                    GlStateManager.rotate(-6F, 1f, 0f, 0f);
+                    GlStateManager.rotate(-15F, 0f, 0f, 1f);
+                    GlStateManager.scale(1F, 1F, 1f);
                 })
                 .withTextureName("Dummy.png").build(modContext, ItemBullet.class);
 
@@ -171,20 +171,20 @@ public class Bullets {
                 .withName("Bullet3006Springfield")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletspringfield.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -3F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.6F, 1.6f);
+                    GlStateManager.translate(-0.8F, -3F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.6F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -195,20 +195,20 @@ public class Bullets {
                 .withName("Bullet8x58")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet8x58.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.55F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.55F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.45F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.45F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.75F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.4F, 1.6f);
+                    GlStateManager.translate(-0.8F, -2.75F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.4F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -219,20 +219,20 @@ public class Bullets {
                 .withName("Bullet792x33Kurz")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.5F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.5F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.45F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.45F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.7F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.35F, 1.6f);
+                    GlStateManager.translate(-0.8F, -2.7F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.35F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -243,20 +243,20 @@ public class Bullets {
                 .withName("Bullet50BMG")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.6F, 0.7F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.6F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.6F, 0.5F, 0.6F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.6F, 0.5F, 0.6F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -3F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.7F, 1.6F, 1.7f);
+                    GlStateManager.translate(-0.8F, -3F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.7F, 1.6F, 1.7f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -267,20 +267,20 @@ public class Bullets {
                 .withName("Bullet20x82mm")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet20x82.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.6F, 0.7F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.7F, 0.6F, 0.7F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.6F, 0.5F, 0.6F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.6F, 0.5F, 0.6F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -3F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.7F, 1.6F, 1.7f);
+                    GlStateManager.translate(-0.8F, -3F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.7F, 1.6F, 1.7f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -291,20 +291,20 @@ public class Bullets {
                 .withName("Bullet408CT")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -3F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.6F, 1.6f);
+                    GlStateManager.translate(-0.8F, -3F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.6F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -315,20 +315,20 @@ public class Bullets {
                 .withName("Bullet308Winchester")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletspringfield.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.4F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.4F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.5F, 1.6f);
+                    GlStateManager.translate(-0.8F, -2.9F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.5F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -339,20 +339,20 @@ public class Bullets {
                 .withName("bullet_277")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet277.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.4F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.4F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.5F, 1.6f);
+                    GlStateManager.translate(-0.8F, -2.9F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.5F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -363,20 +363,20 @@ public class Bullets {
                 .withName("Bullet792x57")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet8x58.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -3F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.6F, 1.6f);
+                    GlStateManager.translate(-0.8F, -3F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.6F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -387,20 +387,20 @@ public class Bullets {
                 .withName("Bullet762x54")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet762x54.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -3F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.6F, 1.6f);
+                    GlStateManager.translate(-0.8F, -3F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.6F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -410,20 +410,20 @@ public class Bullets {
                 .withName("Bullet762x51")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.6F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.6F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -3F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.6F, 1.6f);
+                    GlStateManager.translate(-0.8F, -3F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.6F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -432,40 +432,40 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Shotgun12Gauge")
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge(), "Shotgun12Gauge.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -1F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+                    GlStateManager.translate(0.1F, -1F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.4F, 0.4F, 0.4F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    GlStateManager.translate(-0.7F, -0.29F, 0.7F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.4F, 1.4F, 1.4f);
+                    GlStateManager.translate(-0.8F, -0.45F, 0.4F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.4F, 1.4F, 1.4f);
                 }).withTextureName("Dummy.png").build(modContext, ItemBullet.class);
 
         Shotgun4G = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Shotgun4G")
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge(), "Shotgun4Gauge.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.1F, -1F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+                    GlStateManager.translate(0.1F, -1F, 0.4F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.4F, 0.4F, 0.4F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    GlStateManager.translate(-0.7F, -0.29F, 0.7F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.5F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.4F, 1.4F, 1.4f);
+                    GlStateManager.translate(-0.8F, -0.45F, 0.4F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.4F, 1.4F, 1.4f);
                 }).withTextureName("Dummy.png").build(modContext, ItemBullet.class);
 
         Bullet762x35 = new ItemBullet.Builder()
@@ -474,20 +474,20 @@ public class Bullets {
                 .withName("Bullet762x35")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.5F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.5F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.4F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.4F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.75F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.4F, 1.6f);
+                    GlStateManager.translate(-0.8F, -2.75F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.4F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -498,20 +498,20 @@ public class Bullets {
                 .withName("Bullet765x21")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet765x21.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.5F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.5F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.4F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.4F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -3.7F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 2.2F, 2.4f);
+                    GlStateManager.translate(-0.8F, -3.7F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 2.2F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -522,20 +522,20 @@ public class Bullets {
                 .withName("Bullet762x39")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet762x39.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.6F, 0.55F, 0.6F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.6F, 0.55F, 0.6F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.5F, 0.45F, 0.5F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.5F, 0.45F, 0.5F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.84F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.6F, 1.5F, 1.6f);
+                    GlStateManager.translate(-0.8F, -2.84F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.6F, 1.5F, 1.6f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -546,20 +546,20 @@ public class Bullets {
                 .withName("Bullet556x45")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.5F, 0.65F, 0.5F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.5F, 0.65F, 0.5F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.4F, 0.55F, 0.4F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.4F, 0.55F, 0.4F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.4F, 1.55F, 1.4f);
+                    GlStateManager.translate(-0.8F, -2.9F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.4F, 1.55F, 1.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -570,20 +570,20 @@ public class Bullets {
                 .withName("Bullet65")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.5F, 0.65F, 0.5F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.5F, 0.65F, 0.5F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.4F, 0.55F, 0.4F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.4F, 0.55F, 0.4F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.4F, 1.55F, 1.4f);
+                    GlStateManager.translate(-0.8F, -2.9F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.4F, 1.55F, 1.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -594,20 +594,20 @@ public class Bullets {
                 .withName("Bullet545x39")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet545x39.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.65F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.65F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.55F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.55F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.5F, 1.55F, 1.5f);
+                    GlStateManager.translate(-0.8F, -2.9F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.5F, 1.55F, 1.5f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -618,20 +618,20 @@ public class Bullets {
                 .withName("Bullet4570")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet765x21.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.75F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.75F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.75F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.75F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4.8F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 3F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4.8F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 3F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -642,20 +642,20 @@ public class Bullets {
                 .withName("Bullet4440")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet765x21.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 2.4F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -666,20 +666,20 @@ public class Bullets {
                 .withName("Bullet45ACP")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 2.4F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -690,20 +690,20 @@ public class Bullets {
                 .withName("Bullet357")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -2.1F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.45F, 0.85F, 0.45F);
+                    GlStateManager.translate(0.2F, -2.1F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.45F, 0.85F, 0.45F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.35F, 0.75F, 0.35F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.35F, 0.75F, 0.35F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4.5F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.0F, 2.8F, 2.0f);
+                    GlStateManager.translate(-0.8F, -4.5F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.0F, 2.8F, 2.0f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -714,20 +714,20 @@ public class Bullets {
                 .withName("Bullet44")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4.8F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 3F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4.8F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 3F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -738,20 +738,20 @@ public class Bullets {
                 .withName("Bullet40SW")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 2.4F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -762,20 +762,20 @@ public class Bullets {
                 .withName("Bullet50AE")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet50ae.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4.8F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.8F, 3F, 2.8f);
+                    GlStateManager.translate(-0.8F, -4.8F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.8F, 3F, 2.8f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -786,20 +786,20 @@ public class Bullets {
                 .withName("Bullet50Beowulf")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4.8F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 3F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4.8F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 3F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -810,20 +810,20 @@ public class Bullets {
                 .withName("Bullet500")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4.8F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 3F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4.8F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 3F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -834,20 +834,20 @@ public class Bullets {
                 .withName("Bullet380ACP")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 2.4F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -858,20 +858,20 @@ public class Bullets {
                 .withName("Bullet763x25")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 2.4F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 2.4F, 2.4f);
                 }).withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
 
@@ -881,20 +881,20 @@ public class Bullets {
                 .withName("Bullet9x39mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet50ae.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 2.4F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -905,20 +905,20 @@ public class Bullets {
                 .withName("Bullet9x19mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 2.4F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -929,20 +929,20 @@ public class Bullets {
                 .withName("Bullet9x18mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet9x18.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 2.4F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 2.4F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -952,20 +952,20 @@ public class Bullets {
                 .withName("Bullet57x28mm")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.5F, 0.45F, 0.5F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.5F, 0.45F, 0.5F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.4F, 0.35F, 0.4F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.4F, 0.35F, 0.4F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.45F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.3F, 1.2F, 1.3f);
+                    GlStateManager.translate(-0.8F, -2.45F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.3F, 1.2F, 1.3f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -976,20 +976,20 @@ public class Bullets {
                 .withName("Bullet46x30mm")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.5F, 0.45F, 0.5F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.5F, 0.45F, 0.5F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.4F, 0.35F, 0.4F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.4F, 0.35F, 0.4F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -2.45F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.3F, 1.2F, 1.3f);
+                    GlStateManager.translate(-0.8F, -2.45F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.3F, 1.2F, 1.3f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -1000,20 +1000,20 @@ public class Bullets {
                 .withName("Bullet10mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4.5F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(2.4F, 2.8F, 2.4f);
+                    GlStateManager.translate(-0.8F, -4.5F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(2.4F, 2.8F, 2.4f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -1024,20 +1024,20 @@ public class Bullets {
                 .withName("Bullet473x33mm")
                 .withModel(new com.paneedah.mwc.models.Bulletcaseless(), "bulletcaseless.png")
                 .withFirstPersonPositioning(() -> {
-                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.55F, 0.55F, 0.55F);
+                    GlStateManager.translate(0.2F, -1.9F, 0.5F);
+                    GlStateManager.rotate(30F, 0f, 1f, 0f);
+                    GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }).withThirdPersonPositioning(() -> {
-                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(80F, 1f, 0f, 0f);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GlStateManager.translate(-0.2F, -0.3F, 0.4F);
+                    GlStateManager.rotate(-50F, 0f, 1f, 0f);
+                    GlStateManager.rotate(80F, 1f, 0f, 0f);
+                    GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GL11.glTranslatef(-0.8F, -4.0F, 0.7F);
-                    GL11.glRotatef(10F, 0f, 1f, 0f);
-                    GL11.glRotatef(2F, 1f, 0f, 0f);
-                    GL11.glRotatef(0F, 0f, 0f, 1f);
-                    GL11.glScaled(1.7F, 2F, 1.7f);
+                    GlStateManager.translate(-0.8F, -4.0F, 0.7F);
+                    GlStateManager.rotate(10F, 0f, 1f, 0f);
+                    GlStateManager.rotate(2F, 1f, 0f, 0f);
+                    GlStateManager.rotate(0F, 0f, 0f, 1f);
+                    GlStateManager.scale(1.7F, 2F, 1.7f);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);

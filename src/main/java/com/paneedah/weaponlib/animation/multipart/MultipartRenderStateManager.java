@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib.animation.multipart;
 
 import com.paneedah.mwc.asm.Interceptors;
-import com.paneedah.weaponlib.DefaultPart;
-import com.paneedah.weaponlib.RenderContext;
-import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -12,17 +10,15 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.vector.Matrix4f;
-import org.lwjgl.util.vector.Quaternion;
-import org.lwjgl.util.vector.Vector3f;
+import org.lwjgl.util.vector.*;
 
 import java.nio.FloatBuffer;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.ProjectConstants.LOGGER;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 
 public class MultipartRenderStateManager<State, Part, Context extends PartPositionProvider> {
@@ -558,16 +554,16 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
         }
 
         private Matrix4f getMatrixForPositioning(MultipartTransition<Part, Context> transition, Part part, Context context) {
-            GL11.glPushMatrix();
-            GL11.glMatrixMode(GL11.GL_MODELVIEW);
-            GL11.glLoadIdentity();
+            GlStateManager.pushMatrix();
+            GlStateManager.matrixMode(GL11.GL_MODELVIEW);
+            GlStateManager.loadIdentity();
             FloatBuffer buf = BufferUtils.createFloatBuffer(16);
             transition.position(part, context);
-            GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, buf);
+            GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, buf);
             buf.rewind();
             Matrix4f matrix = new Matrix4f();
             matrix.load(buf);
-            GL11.glPopMatrix();
+            GlStateManager.popMatrix();
             return matrix;
         }
     }

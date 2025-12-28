@@ -28,18 +28,18 @@ public class DebugRenderer {
     public static void renderPoint(Vec3d vec, Vec3d color) {
         //GL11.glPointSize(5.0F);
         GlStateManager.color((float) color.x, (float) color.y, (float) color.z);
-        GL11.glBegin(GL11.GL_POINTS);
-        GL11.glVertex3d(vec.x, vec.y, vec.z);
-        GL11.glEnd();
+        GlStateManager.glBegin(GL11.GL_POINTS);
+        GlStateManager.glVertex3f((float) vec.x, (float) vec.y, (float) vec.z); // Was `glVertex3d` before transition to `GlStateManager` - Luna Mira Lage (Desoroxxx) 2025-12-28
+        GlStateManager.glEnd();
     }
 
     public static void renderLine(Vec3d start, Vec3d line, Vec3d color) {
         GlStateManager.color((float) color.x, (float) color.y, (float) color.z);
-        GL11.glBegin(GL11.GL_LINE_STRIP);
-        GL11.glVertex3d(start.x, start.y, start.z);
-        GL11.glVertex3d(line.x, line.y, line.z);
+        GlStateManager.glBegin(GL11.GL_LINE_STRIP);
+        GlStateManager.glVertex3f((float) start.x, (float) start.y, (float) start.z);
+        GlStateManager.glVertex3f((float) line.x, (float) line.y, (float) line.z);
 
-        GL11.glEnd();
+        GlStateManager.glEnd();
     }
 
 }

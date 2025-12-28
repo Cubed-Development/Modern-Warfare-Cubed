@@ -104,7 +104,7 @@ public class OpenGLSelectionHelper {
         GL20.glUseProgram(0);
         GL11.glReadBuffer(GL30.GL_COLOR_ATTACHMENT0);
 
-        GL11.glReadPixels(mouseX, mouseY, 1, 1, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, RESULT_BUFFER);
+        GlStateManager.glReadPixels(mouseX, mouseY, 1, 1, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, RESULT_BUFFER.asIntBuffer());
         RESULT_BUFFER.rewind();
 
         return RESULT_BUFFER;
@@ -132,7 +132,7 @@ public class OpenGLSelectionHelper {
         GL20.glUseProgram(0);
         GL11.glReadBuffer(GL30.GL_COLOR_ATTACHMENT0);
 
-        GL11.glReadPixels(mouseX - 5, mouseY - 5, 10, 10, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, buf);
+        GlStateManager.glReadPixels(mouseX - 5, mouseY - 5, 10, 10, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, buf.asIntBuffer());
         buf.rewind();
 
         return buf;
