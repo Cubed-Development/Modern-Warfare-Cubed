@@ -109,6 +109,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - Fix it always sending the commands usage when togglesway is ran
   - Have showRecipe work like showAttachments (no overload)
   - Improve the text formatting/color of showAttachments
+- Updated `mcmod.info`
 
 ### Fixed
 
