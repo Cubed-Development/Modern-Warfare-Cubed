@@ -85,7 +85,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         addButton(magazineSelector);
         addButton(grenadeSelector);
 
-        setPage(4);
+        setPage(2);
     }
 
     /**
