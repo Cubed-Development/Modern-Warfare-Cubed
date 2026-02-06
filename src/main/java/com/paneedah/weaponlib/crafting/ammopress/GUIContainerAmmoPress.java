@@ -67,23 +67,23 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
         this.quantityBox.setVisible(true);
         this.quantityBox.setTextColor(16777215);
 
-        bulletSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 3, this.guiLeft + 107, this.guiTop + 29, 19, 20, 256, 256, "")
+        this.bulletSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 3, this.guiLeft + 107, this.guiTop + 29, 19, 20, 256, 256, "")
                 .withStandardState(WHITE, 0, 0).withHoveredState(WHITE, 19, 0)
                 .withToggledState(WHITE, 38, 0).withPageRestriction(2).makeToggleButton();
 
-        magazineSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 4, this.guiLeft + 130, this.guiTop + 29, 19, 20, 256, 256, "")
+        this.magazineSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 4, this.guiLeft + 130, this.guiTop + 29, 19, 20, 256, 256, "")
                 .withStandardState(WHITE, 0, 20).withHoveredState(WHITE, 19, 20)
                 .withToggledState(WHITE, 38, 20).withPageRestriction(2).makeToggleButton();
 
-        grenadeSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 5, this.guiLeft + 153, this.guiTop + 29, 19, 20, 256, 256, "")
+        this.grenadeSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 5, this.guiLeft + 153, this.guiTop + 29, 19, 20, 256, 256, "")
                 .withStandardState(WHITE, 0, 40).withHoveredState(WHITE, 19, 40)
                 .withToggledState(WHITE, 38, 40).withPageRestriction(2).makeToggleButton();
 
-        bulletSelector.toggleOn();
+        this.bulletSelector.toggleOn();
 
-        addButton(bulletSelector);
-        addButton(magazineSelector);
-        addButton(grenadeSelector);
+        addButton(this.bulletSelector);
+        addButton(this.magazineSelector);
+        addButton(this.grenadeSelector);
 
         setPage(1);
     }
