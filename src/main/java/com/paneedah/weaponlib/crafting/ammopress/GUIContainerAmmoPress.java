@@ -103,7 +103,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
     * Note to future editors: Whatever crafting tab is supposed to be seen by default
     * when opening the AmmoPress must also be valid for getCraftingMode() == 1
     * so that the initialized value defined in GUIContainerStation.java is a valid argument.
-    * Otherwise, the default tab will not be displayed until its corisponding gui button is clicked.
+    * Otherwise, the default tab will not be displayed until its corresponding gui button is clicked.
     */
     @Override
     public void fillFilteredList() {
