@@ -102,11 +102,11 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
     @Override
     public void fillFilteredList() {
         filteredCraftingList.clear();
-        if (getCraftingMode() == 1) {
+        if (getCraftingMode() == CraftingGroup.BULLET.getID()) {
             filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.BULLET));
-        } else if (getCraftingMode() == 2) {
+        } else if (getCraftingMode() == CraftingGroup.MAGAZINE.getID()) {
             filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.MAGAZINE));
-        } else if (getCraftingMode() == 3) {
+        } else if (getCraftingMode() == CraftingGroup.GRENADE.getID()) {
             filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.GRENADE));
         }
     }
