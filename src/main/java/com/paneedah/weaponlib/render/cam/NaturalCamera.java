@@ -41,6 +41,7 @@ public class NaturalCamera {
         // System.out.println("Received " + food);
     }
 
+    //! TODO this update method always returns early
     public void update() {
         if (true) {
             return;

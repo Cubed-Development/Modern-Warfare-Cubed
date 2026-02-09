@@ -3,117 +3,94 @@ package com.paneedah.weaponlib.render;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.animation.MatrixHelper;
-import com.paneedah.weaponlib.numerical.RandomVector;
 import com.paneedah.weaponlib.numerical.SpringVector;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 
+/**
+ * Manages smooth, spring-based screen shake for weapons or events.
+ * Uses partialTicks from Minecraft's render tick events to interpolate
+ * between physics updates for smooth FPS-independent movement.
+ */
 public class NewScreenshakingManager {
 
-    public RandomVector randomVec = new RandomVector();
-
-    public double prevIntensity, intensity;
-
-
+    // Spring vector controlling shake
     public SpringVector springVector = new SpringVector(1, 2, 2);
 
-    private double prevX, prevY, prevZ, prevRotX, prevRotY, prevRotZ;
-    private double x, y, z, rotX, rotY, rotZ;
-
-    public void impulse(double mag) {
-
-        //mag *= 1000;
-
-        intensity += mag;
-
-
-        //	x = Math.random()*mag - (mag/2);
-        //	y = -Math.random()*mag;
-
-
-        x = -10 * mag;
-        z = 2 * mag;
-        //y = 0;
-        springVector.addVelocity(x, y, z);
-
-    }
-
-
-    public void applyWorld() {
-        //float pt = MC.getRenderPartialTicks();
-        //double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
-
-
-        if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
-
-            Pair<Double, Double> param = ClientModContext.getContext().getMainHeldWeapon().getScreenShakeParameters();
-            springVector.setXSpringParam(2, 3000 * param.getSecond(), 200 * param.getSecond());
-            springVector.setZSpringParam(4, 9000 * param.getSecond(), 75 * param.getSecond());
-        } else {
-            springVector.setXSpringParam(2, 3000, 200);
-            springVector.setZSpringParam(4, 9000, 75);
-        }
-
-
-        //System.out.println("yo " + (accumulator/dt));
-        Vec3d rotVec = interpolated;
-        GlStateManager.rotate((float) rotVec.z, 0, 0, 1);
-        //GlStateManager.rotate((float) rotVec.y, 0, 1, 0);
-        GlStateManager.rotate((float) rotVec.x, 1, 0, 0);
-
-
-    }
-
-    public void applyHead() {
-
-        //float pt = MC.getRenderPartialTicks();
-        //double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
-
-		/*
-		GlStateManager.translate(i*MatrixHelper.solveLerp(prevX, x, pt),
-				i*MatrixHelper.solveLerp(prevY, y, pt),
-				i*MatrixHelper.solveLerp(prevZ, z, pt));
-		
-		float iRZ = (float) MatrixHelper.solveLerp(prevRotZ, rotZ, pt);
-		//GlStateManager.rotate((float) (5f*i*iRZ), 0, 0, 1);
-		
-		*/
-
-        //System.out.println(intensity);
-        //	GlStateManager.scale(1, 1, 1+(intensity*0.2));
-    }
-
-    public double dt = 1 / 20;
-    public long currentTime = System.currentTimeMillis();
-    public double accumulator;
+    // Current interpolated position for rendering
     public Vec3d interpolated = Vec3d.ZERO;
 
 
-    public void update() {
-        dt = 1 / 120.0;
+    public double dt = 1.0 / 120.0;
+    public long lastUpdateTime = System.currentTimeMillis();
+    public double accumulator = 0;
 
-        long newTime = System.currentTimeMillis();
-        double frameTime = (newTime - currentTime) / 1000.0;
-        currentTime = newTime;
+    /**
+     * Apply an impulse to the spring based on the magnitude of an event
+     * (e.g., firing a weapon).
+     *
+     * @param mag The magnitude of the impulse
+     */
+    public void impulse(double mag) {
+        // Apply directional velocity to spring (you can tweak these multipliers)
+        double x = -1.1 * mag;
+        double z = 1.03 * mag;
+        double y = 0;
+        springVector.addVelocity(x, y, z);
+    }
 
-        // Prevents massive timesteps from accumuating
-        if (frameTime > 0.25) {
-            frameTime = 0.25;
-        }
+    /**
+     * Update the spring simulation with a fixed timestep and interpolate
+     * using partialTicks.
+     *
+     * @param partialTicks Fraction of the current tick elapsed
+     */
+    public void update(float partialTicks) {
+        // Calculate frame time
+        long now = System.currentTimeMillis();
+        double frameTime = (now - lastUpdateTime) / 1000.0;
+        lastUpdateTime = now;
 
+        // Clamp to avoid huge jumps
+        if (frameTime > 0.25) frameTime = 0.25;
         accumulator += frameTime;
-
 
         Vec3d prev = springVector.getPosition();
 
+        // Step the spring fixed timestep until we catch up
         while (accumulator >= dt) {
             springVector.update(dt);
             accumulator -= dt;
         }
 
-        interpolated = MatrixHelper.lerpVectors(prev, springVector.getPosition(), (float) (accumulator / dt));
-
-
+        // Interpolate within this frame using partialTicks
+        interpolated = MatrixHelper.lerpVectors(prev, springVector.getPosition(), partialTicks);
     }
 
+
+    /**
+     * Apply shake to the world (rotational shake).
+     */
+    public void applyWorld() {
+        if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
+            Pair<Double, Double> params = ClientModContext.getContext().getMainHeldWeapon().getScreenShakeParameters();
+            springVector.setXSpringParam(2, 3000 * params.getSecond(), 200 * params.getSecond());
+            springVector.setZSpringParam(4, 9000 * params.getSecond(), 75 * params.getSecond());
+        } else {
+            springVector.setXSpringParam(2, 3000, 200);
+            springVector.setZSpringParam(4, 9000, 75);
+        }
+
+        // Apply rotations using the interpolated vector
+        GlStateManager.rotate((float) interpolated.z, 0, 0, 1);
+        GlStateManager.rotate((float) interpolated.x, 1, 0, 0);
+    }
+
+    /**
+     * Apply shake to the camera/head (translational shake).
+     */
+    public void applyHead() {
+        // Optionally translate head/camera using interpolated vector
+        GlStateManager.translate(interpolated.x, interpolated.y, interpolated.z);
+    }
 }

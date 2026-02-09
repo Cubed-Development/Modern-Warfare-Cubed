@@ -572,11 +572,7 @@ public class Interceptors {
         return false;
     }
 
-    public static void renderLastEvent() {
-
-    }
-
-    public static NewScreenshakingManager nsm = new NewScreenshakingManager();
+    public static final NewScreenshakingManager nsm = new NewScreenshakingManager();
 
     public static boolean hurtCameraEffect(float partialTicks) {
 //	    if(1+1==2) return false;  

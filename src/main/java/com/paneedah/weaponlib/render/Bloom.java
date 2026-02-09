@@ -72,7 +72,7 @@ public class Bloom {
 
     }
 
-    public static boolean bloomNotAvaliable() {
+    public static boolean bloomNotAvailable() {
         return data == null;
     }
 
@@ -90,7 +90,7 @@ public class Bloom {
          * if(data == null) { width = mc.displayWidth; height = mc.displayHeight;
          * recreateFramebuffers(); }
          */
-        if (bloomNotAvaliable()) {
+        if (bloomNotAvailable()) {
             return;
         }
 

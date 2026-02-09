@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.paneedah.weaponlib.KeyBindings;
-import com.paneedah.weaponlib.render.ScreenRenderer;
+import com.paneedah.weaponlib.render.ScreenModelRenderer;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.client.gui.Gui;
@@ -424,7 +424,7 @@ public class VehicleCustomGUI extends Gui {
         Vec3d iP = keyAnimator.getInterpolatedPosition();
 
         lockModel.setLivingAnimations(null, (float) iR.x, 0.0f, 0.0f);
-        ScreenRenderer.renderModelOnScreen(0.0, 0.0, 0.0, 30, 0f, 0f, 0f, lockModel, keyTex);
+        ScreenModelRenderer.renderModelOnScreen(0.0, 0.0, 0.0, 30, 0f, 0f, 0f, lockModel, keyTex);
 
 
         double add = 0.0;
@@ -435,7 +435,7 @@ public class VehicleCustomGUI extends Gui {
         }
 
         //GlStateManager.rotate(45, 1, 0, 0);
-        ScreenRenderer.renderModelOnScreen(0.0 + iP.x, -24.0 + iP.y, -50.0 + iP.z + add, 30, 0f + iR.x, 0f + iR.y, 0f + iR.z, keyModel, lockTex);
+        ScreenModelRenderer.renderModelOnScreen(0.0 + iP.x, -24.0 + iP.y, -50.0 + iP.z + add, 30, 0f + iR.x, 0f + iR.y, 0f + iR.z, keyModel, lockTex);
 
 
         //GuiInventory.drawEntityOnScreen(320, 169, 30, 30, 30, MC.player);
