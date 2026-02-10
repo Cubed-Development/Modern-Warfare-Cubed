@@ -83,6 +83,9 @@ public abstract class BasicInstancedObject<K> {
         GLCompatible.glBindVertexArray(0);
     }
 
+    /**
+     * Ran before we render everything, sets up to render
+     */
     protected void preRender() {
 
         renderShader.use();
@@ -90,13 +93,18 @@ public abstract class BasicInstancedObject<K> {
         ModernUtil.enableVertexAttribRange(0, this.largestAttribute);
     }
 
+    /**
+     * Ran after we render everything, resets it back to how it was before
+     */
     protected void postRender() {
         ModernUtil.disableVertexAttribRange(0, this.largestAttribute);
         GLCompatible.glBindVertexArray(0);
         renderShader.release();
     }
 
-    // This is where you'd fill the buffer with the necessary data
+    /**
+     * This is where you'd fill the buffer with the necessary data
+     */
     public abstract void updateData(K obj);
 
     public void render(int primCount) {

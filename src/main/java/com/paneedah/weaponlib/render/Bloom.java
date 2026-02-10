@@ -21,7 +21,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /**
  * Bloom implementation based on
- * https://github.com/Drillgon200/Hbm-s-Nuclear-Tech-GIT/blob/30df900f4f7f3827133bc58fb26f922da5f3d909/src/main/java/com/hbm/handler/HbmShaderManager2.java#L285
+ * <a href="https://github.com/Drillgon200/Hbm-s-Nuclear-Tech-GIT/blob/30df900f4f7f3827133bc58fb26f922da5f3d909/src/main/java/com/hbm/handler/HbmShaderManager2.java#L285">HBM's</a>
  * using the techniques used in COD (Next Generation Post Processing by Jorge
  * Jiminez)
  *
@@ -356,7 +356,7 @@ public class Bloom {
     }
 
     public static void setupMultisampleBuffer() {
-        if (GLCompatible.isLoaded && GLCompatible.multisampleType == -1) {
+        if (!GLCompatible.doesSupportMultisample()) {
             return;
         }
         if (multisample && getWidthTimesHeight() == mRes) {
@@ -388,7 +388,7 @@ public class Bloom {
     }
 
     public static void initializeMultisample(Framebuffer initial) {
-        if (GLCompatible.isLoaded && GLCompatible.multisampleType == -1) {
+        if (!GLCompatible.doesSupportMultisample()) {
             return;
         }
         int gWidth = initial.framebufferWidth;
@@ -418,7 +418,7 @@ public class Bloom {
     }
 
     public static void unapplyMultisample(Framebuffer initial) {
-        if (GLCompatible.isLoaded && GLCompatible.multisampleType == -1) {
+        if (!GLCompatible.doesSupportMultisample()) {
             return;
         }
 

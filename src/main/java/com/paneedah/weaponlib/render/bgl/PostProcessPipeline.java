@@ -78,8 +78,6 @@ public class PostProcessPipeline {
 	private static int depthTexture = -1;
 	*/
 
-    private static final int fauxColorTexture = -1;
-
 
     private static DepthTexture scopeDepthTexture;
     private static DepthTexture normalDepthTexture;
