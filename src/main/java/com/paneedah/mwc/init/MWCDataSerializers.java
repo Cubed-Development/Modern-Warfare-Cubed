@@ -7,7 +7,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.DataSerializerEntry;
 
-@Mod.EventBusSubscriber
+import static com.paneedah.mwc.ProjectConstants.ID;
+
+@Mod.EventBusSubscriber(modid = ID)
 public class MWCDataSerializers {
 
     @SubscribeEvent

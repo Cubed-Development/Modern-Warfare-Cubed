@@ -20,7 +20,7 @@ public class ModelInstancedObject<K> extends BasicInstancedObject<K> {
         this.model = model;
 
         if (!model.usesVAO()) {
-            LOGGER.error("ModelInstancedObject does not support VAOs!");
+            LOGGER.error("ModelInstancedObject requires a model with VAO support, but the provided model does not use VAOs!");
         }
 
         VAOData vaoData = new VAOData(model.getVAOID(), model.vertices.size());
