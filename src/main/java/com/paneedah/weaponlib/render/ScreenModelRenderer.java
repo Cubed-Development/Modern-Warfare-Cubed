@@ -15,7 +15,6 @@ public class ScreenModelRenderer {
     public static void renderModelOnScreen(double posX, double posY, double posZ, int scale, double yaw, double pitch, double roll, ModelBase model, ResourceLocation loc) {
 
 
-        //float bruh = (float) ((MC.player.ticksExisted%200)/200.0);
         float scalef = 0.0625f;
 
         GlStateManager.enableColorMaterial();
