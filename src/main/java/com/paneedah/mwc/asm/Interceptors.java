@@ -371,10 +371,7 @@ public class Interceptors {
         if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
             PlayerWeaponInstance pwi = ClientModContext.getContext().getMainHeldWeapon();
 
-
-            nc.update();
-
-            //System.out.println(ClientModContext.getContext());
+            nc.update(pwi);
         }
 
 

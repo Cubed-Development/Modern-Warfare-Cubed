@@ -92,6 +92,9 @@ public class ModernConfigManager {
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the ammo counter")
     public static boolean enableAmmoCounter = true;
 
+    @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the natural camera")
+    public static boolean enableNaturalCamera = false;
+
     @ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the status messages in the action bar")
     public static boolean enableStatusMessages = true;
 
