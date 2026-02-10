@@ -320,7 +320,7 @@ public class ClientEventHandler {
         PostProcessPipeline.setWorldElements();
 
         // Todo: Optimize this
-        Interceptors.nsm.update(event.getPartialTicks());
+        Interceptors.SCREENSHAKING_MANAGER.update(event.getPartialTicks());
 
         BULLET_HOLE_RENDERER.render();
 

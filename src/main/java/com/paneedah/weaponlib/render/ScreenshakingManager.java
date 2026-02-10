@@ -8,11 +8,9 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 
 /**
- * Manages smooth, spring-based screen shake for weapons or events.
- * Uses partialTicks from Minecraft's render tick events to interpolate
- * between physics updates for smooth FPS-independent movement.
+ * Manages smooth, spring-based screen shake for weapons.
  */
-public class NewScreenshakingManager {
+public class ScreenshakingManager {
 
     // Spring vector controlling shake
     public SpringVector springVector = new SpringVector(1, 2, 2);

@@ -8,7 +8,7 @@ import com.paneedah.weaponlib.animation.gui.AnimationModeProcessor;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
-import com.paneedah.weaponlib.render.NewScreenshakingManager;
+import com.paneedah.weaponlib.render.ScreenshakingManager;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import com.paneedah.weaponlib.render.cam.NaturalCamera;
 import com.paneedah.weaponlib.vehicle.*;
@@ -328,7 +328,7 @@ public class Interceptors {
             //nc.update();
         }
 
-        nsm.applyWorld();
+        SCREENSHAKING_MANAGER.applyWorld();
     	
     	/*
     	if(weaponInstance != null) {
@@ -563,7 +563,7 @@ public class Interceptors {
         return false;
     }
 
-    public static final NewScreenshakingManager nsm = new NewScreenshakingManager();
+    public static final ScreenshakingManager SCREENSHAKING_MANAGER = new ScreenshakingManager();
 
     public static boolean hurtCameraEffect(float partialTicks) {
 //	    if(1+1==2) return false;  
