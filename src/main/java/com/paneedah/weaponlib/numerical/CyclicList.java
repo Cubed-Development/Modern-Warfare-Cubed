@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.render.scopes;
+package com.paneedah.weaponlib.numerical;
 
 import java.util.LinkedList;
 

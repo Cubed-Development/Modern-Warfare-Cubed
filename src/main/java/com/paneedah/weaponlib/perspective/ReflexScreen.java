@@ -10,7 +10,7 @@ import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.model.ScreenModel;
 import com.paneedah.weaponlib.render.Shaders;
-import com.paneedah.weaponlib.render.scopes.CyclicList;
+import com.paneedah.weaponlib.numerical.CyclicList;
 import com.paneedah.weaponlib.render.scopes.Reticle;
 import com.paneedah.weaponlib.shader.Shader;
 import net.minecraft.client.model.ModelBase;
