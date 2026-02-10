@@ -549,14 +549,6 @@ public class Interceptors {
             RenderVehicle2.captureCameraTransform(null);
         }
 
-
-        nsm.applyHead();
-        //nsm.update();
-
-
-        // if(true) return false;
-
-
         if (ModernConfigManager.enableAllShaders && ModernConfigManager.enableScreenShaders) {
             GlStateManager.disableLighting();
             GlStateManager.disableBlend();
@@ -568,7 +560,6 @@ public class Interceptors {
             GlStateManager.enableDepth();
         }
 
-        //  System.out.println("hi");
         return false;
     }
 

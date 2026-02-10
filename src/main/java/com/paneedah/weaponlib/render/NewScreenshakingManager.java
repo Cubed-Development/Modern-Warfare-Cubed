@@ -32,9 +32,9 @@ public class NewScreenshakingManager {
      * @param mag The magnitude of the impulse
      */
     public void impulse(double mag) {
-        // Apply directional velocity to spring (you can tweak these multipliers)
-        double x = -1.1 * mag;
-        double z = 1.03 * mag;
+        // Apply directional velocity to spring
+        double x = -1 * mag;
+        double z = 1.05 * mag;
         double y = 0;
         springVector.addVelocity(x, y, z);
     }
@@ -84,13 +84,5 @@ public class NewScreenshakingManager {
         // Apply rotations using the interpolated vector
         GlStateManager.rotate((float) interpolated.z, 0, 0, 1);
         GlStateManager.rotate((float) interpolated.x, 1, 0, 0);
-    }
-
-    /**
-     * Apply shake to the camera/head (translational shake).
-     */
-    public void applyHead() {
-        // Optionally translate head/camera using interpolated vector
-        GlStateManager.translate(interpolated.x, interpolated.y, interpolated.z);
     }
 }
