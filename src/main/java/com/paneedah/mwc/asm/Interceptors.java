@@ -52,7 +52,7 @@ public class Interceptors {
         return item instanceof ItemBlock;
     }
 
-    public static NaturalCamera nc = new NaturalCamera();
+    public static final NaturalCamera NATURAL_CAMERA = new NaturalCamera();
 
     public static void setupCameraTransformAfterHurtCameraEffect(float partialTicks) {
         //if(1+1==2) return;
@@ -371,7 +371,7 @@ public class Interceptors {
         if (ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
             PlayerWeaponInstance pwi = ClientModContext.getContext().getMainHeldWeapon();
 
-            nc.update(pwi);
+            NATURAL_CAMERA.update(pwi);
         }
 
 

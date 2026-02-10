@@ -24,7 +24,9 @@ public class NaturalCamera {
     private static final LinkedList<Matrix4f> matrixStack = new LinkedList<>();
 
     public void addToMatrixStack(Matrix4f mat) {
-        matrixStack.push(mat);
+        if(ModernConfigManager.enableNaturalCamera) {
+            matrixStack.push(mat);
+        }
     }
 
     public void update(PlayerWeaponInstance playerWeaponInstance) {
