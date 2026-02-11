@@ -63,19 +63,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     public enum ShellCasingEjectDirection {LEFT, RIGHT}
 
-    public static class ScreenShaking {
-
-        private final float zRotationCoefficient;
-
-        public ScreenShaking(float zRotationCoefficient) {
-            this.zRotationCoefficient = zRotationCoefficient;
-        }
-
-        public float getZRotationCoefficient() {
-            return zRotationCoefficient;
-        }
-    }
-
     public static class Builder extends AbstractItemBuilder<Builder> {
 
         public static int noRecipe = 0;
