@@ -23,7 +23,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -419,12 +418,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.exceededMaxShotsSound = shootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
-
-        public Builder withCreativeTab(CreativeTabs creativeTab) {
-            this.tab = creativeTab;
-            return this;
-        }
-
 
         public Builder withSpawnEntityRocketParticles() {
             this.spawnEntityRocketParticles = true;
