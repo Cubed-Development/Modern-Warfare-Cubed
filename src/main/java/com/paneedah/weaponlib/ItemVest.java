@@ -4,12 +4,12 @@ import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.mwc.weapons.AbstractItemBuilder;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.ICraftingRecipe;
 import com.paneedah.weaponlib.render.IHasModel;
-import com.paneedah.weaponlib.render.modelrepo.ServerGearModelHookRegistry;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
@@ -35,11 +35,8 @@ import static com.paneedah.mwc.ProjectConstants.ID;
 public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraftingRecipe, IHasModel {
 
 
-    public static class Builder {
+    public static class Builder extends AbstractItemBuilder<Builder> {
 
-        private String name;
-        private CreativeTabs tab;
-        private ModelBase model;
         private String textureName;
         private final ModelSourceTransforms transforms = ModelSourceTransforms.builder()
                 .entityPositioning(() -> new Transform()
@@ -60,11 +57,6 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraft
         private int damageReduceAmount;
         private double percentDamageBlocked;
 
-        public Builder withName(String name) {
-            this.name = name;
-            return this;
-        }
-
         public Builder withDamageReduceAmount(int damageReduceAmount) {
             this.damageReduceAmount = damageReduceAmount;
             return this;
@@ -80,23 +72,12 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraft
             return this;
         }
 
-        public Builder withTab(CreativeTabs tab) {
-            this.tab = tab;
-            return this;
-        }
-
-
         public Builder withProperModel(String elModel, String properTextureName) {
 
             modelFileString = elModel;
             this.properTextureName = properTextureName;
 
 
-            return this;
-        }
-
-        public Builder withModel(ModelBase model) {
-            this.model = model;
             return this;
         }
 
@@ -174,7 +155,6 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, ICraft
             ItemVest item = new ItemVest(modContext, percentDamageBlocked, durability);
 
             // Register model and texture for the item
-            ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
             item.modelFileString = this.modelFileString;
             item.textureName = this.properTextureName;
             item.setTranslationKey(ID + "_" + name);
