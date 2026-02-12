@@ -72,6 +72,6 @@ public class InventoryTab extends GuiButton {
     }
 
     public boolean shouldAddToList() {
-        return false;
+        return true;
     }
 }

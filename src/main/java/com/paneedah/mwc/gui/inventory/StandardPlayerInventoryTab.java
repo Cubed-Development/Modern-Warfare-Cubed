@@ -15,9 +15,4 @@ public class StandardPlayerInventoryTab extends InventoryTab {
     public void onTabClicked() {
         InventoryTabHandler.getInstance().openInventoryGui();
     }
-
-    @Override
-    public boolean shouldAddToList() {
-        return true;
-    }
 }

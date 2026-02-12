@@ -23,9 +23,4 @@ public class CustomPlayerInventoryTab extends InventoryTab {
         CHANNEL.sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
 
     }
-
-    @Override
-    public boolean shouldAddToList() {
-        return true;
-    }
 }
