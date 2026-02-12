@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.inventory;
+package com.paneedah.mwc.gui.inventory;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -10,9 +10,7 @@ import org.lwjgl.opengl.GL12;
 
 public class InventoryTab extends GuiButton {
     private final ResourceLocation texture = new ResourceLocation("textures/gui/container/creative_inventory/tabs.png");
-    //private ItemStack renderStack;
     private ItemStack itemStack;
-    private RenderItem itemRenderer;
 
     public InventoryTab(int id, int posX, int posY, ItemStack itemStack) {
         super(id, posX, posY, 28, 32, "");
@@ -40,19 +38,19 @@ public class InventoryTab extends GuiButton {
             MC.renderEngine.bindTexture(this.texture);
             this.drawTexturedModalRect(this.x, yPos, xOffset * 28, yTexPos, 28, ySize);
 
-            itemRenderer = MC.getRenderItem();
+            RenderItem itemRenderer = MC.getRenderItem();
 
             RenderHelper.enableGUIStandardItemLighting();
             this.zLevel = 100.0F;
-            this.itemRenderer.zLevel = 100.0F;
+            itemRenderer.zLevel = 100.0F;
             GlStateManager.enableLighting();
             GlStateManager.enableRescaleNormal();
             final ItemStack itemStack = getItemStack();
-            this.itemRenderer.renderItemAndEffectIntoGUI(itemStack, x + 6, y + 8);
-            this.itemRenderer.renderItemOverlays(MC.fontRenderer, itemStack, x + 6, y + 8);
+            itemRenderer.renderItemAndEffectIntoGUI(itemStack, x + 6, y + 8);
+            itemRenderer.renderItemOverlays(MC.fontRenderer, itemStack, x + 6, y + 8);
             GlStateManager.disableLighting();
             GlStateManager.enableBlend();
-            this.itemRenderer.zLevel = 0.0F;
+            itemRenderer.zLevel = 0.0F;
             this.zLevel = 0.0F;
             RenderHelper.disableStandardItemLighting();
         }
