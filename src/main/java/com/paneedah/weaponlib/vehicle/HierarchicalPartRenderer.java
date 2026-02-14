@@ -4,11 +4,10 @@ import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.multipart.MultipartPositioning;
 import com.paneedah.weaponlib.animation.multipart.MultipartPositioning.Positioner;
 import com.paneedah.weaponlib.animation.multipart.MultipartRenderStateManager;
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -94,8 +93,8 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
             int pass = net.minecraftforge.client.MinecraftForgeClient.getRenderPass();
 
 
-            double susRoll = InterpolationKit.interpolateValue(v.getSolver().prevSuspensionRoll, v.getSolver().suspensionRoll, MC.getRenderPartialTicks());
-            double susPitch = InterpolationKit.interpolateValue(v.getSolver().prevSuspensionPitch, v.getSolver().suspensionPitch, MC.getRenderPartialTicks());
+            double susRoll = InterpolationUtil.interpolateValue(v.getSolver().prevSuspensionRoll, v.getSolver().suspensionRoll, MC.getRenderPartialTicks());
+            double susPitch = InterpolationUtil.interpolateValue(v.getSolver().prevSuspensionPitch, v.getSolver().suspensionPitch, MC.getRenderPartialTicks());
 
             // System.out.println(susPitch);
             if (pass == 0 && part != VehiclePart.WINDOWS) {

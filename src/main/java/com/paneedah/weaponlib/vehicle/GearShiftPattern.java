@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.paneedah.weaponlib.Pair;
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import lombok.NoArgsConstructor;
 import net.minecraft.client.gui.FontRenderer;
@@ -166,7 +166,7 @@ public class GearShiftPattern {
 
         double step = (globalStep - fB) / (sB - fB);
 
-        return InterpolationKit.interpolateVector(f, s, step);
+        return InterpolationUtil.interpolateVector(f, s, step);
 		
 		
 		/*

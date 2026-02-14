@@ -10,7 +10,7 @@ import com.paneedah.weaponlib.crafting.workbench.CustomSearchTextField;
 import com.paneedah.weaponlib.crafting.workbench.GUIButtonCustom;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.gui.GuiButton;
@@ -488,7 +488,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
                     continue;
                 }
 
-                final double progress = InterpolationKit.interpolateValue(tileEntity.previousDismantleStatus[i], tileEntity.dismantleStatus[i], MC.getRenderPartialTicks()) / (double) tileEntity.dismantleDuration[i];
+                final double progress = InterpolationUtil.interpolateValue(tileEntity.previousDismantleStatus[i], tileEntity.dismantleStatus[i], MC.getRenderPartialTicks()) / (double) tileEntity.dismantleDuration[i];
                 drawModalRectWithCustomSizedTexture(this.guiLeft + 261 + i * 31, this.guiTop + 57, 81, 232, 29, 7, 480, 370);
                 drawModalRectWithCustomSizedTexture(this.guiLeft + 261 + i * 31, this.guiTop + 57, 81, 239, (int) (29 * progress), 7, 480, 370);
             }
@@ -513,7 +513,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
             // forty notches, therefore 1/40.0 = 0.025
             final double prevProgress = (Math.max(tileEntity.prevCraftingTimer, 0)) / (double) tileEntity.craftingDuration;
             final double currProgress = (Math.max(tileEntity.craftingTimer, 0)) / (double) tileEntity.craftingDuration;
-            final double intpProgress = InterpolationKit.interpolateValue(prevProgress, currProgress, MC.getRenderPartialTicks());
+            final double intpProgress = InterpolationUtil.interpolateValue(prevProgress, currProgress, MC.getRenderPartialTicks());
             final double progress = (0.025) * (Math.round(intpProgress / (0.025)));
 
             drawModalRectWithCustomSizedTexture(this.guiLeft + 304, this.guiTop + 185, 53f, 240f, 81, 11, 480, 370);

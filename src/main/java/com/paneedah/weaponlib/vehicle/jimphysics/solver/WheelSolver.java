@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
 import com.paneedah.weaponlib.KeyBindings;
 import com.paneedah.weaponlib.vehicle.collisions.InertiaKit;
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.mwc.utils.InterpolationUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.TyreSize;
 import com.paneedah.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.stability.numerical.vehicle.WheelSolutionVector;
@@ -124,7 +124,7 @@ public class WheelSolver {
     }
 
     public double getInterpolatedWheelRotation() {
-        return Math.toDegrees(InterpolationKit.interpolateValue(prevWheelRot, wheelRot, MC.getRenderPartialTicks()));
+        return Math.toDegrees(InterpolationUtil.interpolateValue(prevWheelRot, wheelRot, MC.getRenderPartialTicks()));
     }
 
     public Vec3d getSuspensionPosition() {

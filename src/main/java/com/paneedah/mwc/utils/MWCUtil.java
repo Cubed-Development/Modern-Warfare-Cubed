@@ -3,7 +3,6 @@ package com.paneedah.mwc.utils;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.mwc.instancing.Tags;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
@@ -251,6 +250,6 @@ public class MWCUtil {
      */
     @SideOnly(Side.CLIENT)
     public static Vec3d getInterpolatedPlayerPos() {
-        return InterpolationKit.interpolatedEntityPosition(MC.player);
+        return InterpolationUtil.interpolatedEntityPosition(MC.player);
     }
 }
