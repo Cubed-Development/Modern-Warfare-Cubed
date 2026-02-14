@@ -202,10 +202,9 @@ public class VehicleCustomGUI extends Gui {
 
         Vec3d on2 = pattern.doAnimation(old, transmission.maxShiftTime, transmission.startGear, transmission.targetGear).scale(30.25);
 
-
         Vec3d oN = pattern.doAnimation(transmission.shiftTimer, transmission.maxShiftTime, transmission.startGear, transmission.targetGear).scale(30.25);
 
-        oN = GearShiftPattern.interpVec3d(on2, oN, MC.getRenderPartialTicks());
+        oN = InterpolationKit.interpolateVector(on2, oN, MC.getRenderPartialTicks());
         double nX = oN.z;
         double nZ = -oN.x;
 

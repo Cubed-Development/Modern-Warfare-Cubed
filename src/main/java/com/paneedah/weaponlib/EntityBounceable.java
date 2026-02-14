@@ -3,6 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.ProjectConstants;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.utils.VectorUtil;
+import dev.redstudio.redcore.math.vectors.Vector3F;
 import io.netty.buffer.ByteBuf;
 import dev.redstudio.redcore.math.vectors.Vector3D;
 import net.jafama.FastMath;
@@ -43,15 +44,11 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
     private float initialYaw;
     private float initialPitch;
-    private float xRotation;
-    private float yRotation;
-    private float zRotation;
-    private float xRotationChange;
-    private float yRotationChange;
-    private float zRotationChange;
+    private final Vector3F ROTATION = new Vector3F();
+    private final Vector3F ROTATION_CHANGE = new Vector3F();
 
     private float rotationSlowdownFactor = 0.99f;
-    private final float maxRotationChange = 20f;
+    private final float MAX_ROTATION_CHANGE = 20f;
 
     protected boolean stopped;
 
@@ -111,9 +108,9 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     }
 
     private void setRotations() {
-        xRotationChange = maxRotationChange * (float) rand.nextGaussian();
-        yRotationChange = maxRotationChange * (float) rand.nextGaussian();
-        zRotationChange = maxRotationChange * (float) rand.nextGaussian();
+        ROTATION_CHANGE.x = MAX_ROTATION_CHANGE * (float) rand.nextGaussian();
+        ROTATION_CHANGE.y = MAX_ROTATION_CHANGE * (float) rand.nextGaussian();
+        ROTATION_CHANGE.z = MAX_ROTATION_CHANGE * (float) rand.nextGaussian();
     }
 
     @Override
@@ -134,13 +131,9 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
             return;
         }
 
-        xRotation += xRotationChange;
-        yRotation += yRotationChange;
-        zRotation += zRotationChange;
+        ROTATION.add(ROTATION_CHANGE);
 
-        xRotationChange *= rotationSlowdownFactor;
-        yRotationChange *= rotationSlowdownFactor;
-        zRotationChange *= rotationSlowdownFactor;
+        ROTATION_CHANGE.multiply(rotationSlowdownFactor);
 
         this.lastTickPosX = this.posX;
         this.lastTickPosY = this.posY;
@@ -172,8 +165,8 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
             EntityLivingBase entitylivingbase = this.getThrower();
 
             RayTraceResult entityMovingObjectPosition = null;
-            for (int j = 0; j < list.size(); ++j) {
-                Entity entity1 = (Entity) list.get(j);
+            for (Object o : list) {
+                Entity entity1 = (Entity) o;
 
                 if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                     float f = 0.3F;
@@ -268,12 +261,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
         setPosition(this.posX, this.posY, this.posZ);
 
-        float motionSquared = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
-
         this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
-
-        for (this.rotationPitch = (float) (Math.atan2(this.motionY, motionSquared) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
-        }
 
         while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
             this.prevRotationPitch += 360.0F;
@@ -316,7 +304,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
         recordVelocityHistory();
 
-        if (!velocityHistory.stream().anyMatch(v -> v > STOP_THRESHOLD)) {
+        if (velocityHistory.stream().noneMatch(v -> v > STOP_THRESHOLD)) {
             motionX = motionY = motionZ = 0.0;
             stopped = true;
             ProjectConstants.LOGGER.trace("Stopping {}", this);
@@ -475,15 +463,15 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     }
 
     public float getXRotation() {
-        return xRotation;
+        return ROTATION.x;
     }
 
     public float getYRotation() {
-        return yRotation - initialYaw - 90f;
+        return ROTATION.y - initialYaw - 90f;
     }
 
     public float getZRotation() {
-        return zRotation;
+        return ROTATION.z;
     }
 
     public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
