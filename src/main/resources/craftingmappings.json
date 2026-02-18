@@ -4613,7 +4613,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4643,7 +4643,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4685,7 +4685,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4715,7 +4715,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4745,7 +4745,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4775,7 +4775,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4805,7 +4805,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4835,7 +4835,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4865,7 +4865,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4895,7 +4895,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4925,7 +4925,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4955,7 +4955,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -4985,7 +4985,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -5015,7 +5015,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -5045,7 +5045,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -5075,7 +5075,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -5105,7 +5105,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -5135,7 +5135,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -5165,7 +5165,7 @@
           "count": 1
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -5195,7 +5195,7 @@
           "count": 2
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 1
@@ -8158,7 +8158,7 @@
           "count": 4
         },
         {
-          "entryName": "glass",
+          "entryName": "blockGlass",
           "defaultItem": "minecraft:glass",
           "isOreDictionary": true,
           "count": 3
