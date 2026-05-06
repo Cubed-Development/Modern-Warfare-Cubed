@@ -82,7 +82,6 @@ public class PlayerItemInstance<S extends ManagedState<S>> implements ISerializa
     protected void markDirty() {
         updateId++;
         updateTimestamp = System.currentTimeMillis();
-        Tags.setInstance(getItemStack(), this);
     }
 
     protected void markClean() {
