@@ -106,7 +106,6 @@ public class ClientEventHandler {
     public static Stack<MuzzleFlash> muzzleFlashStack = new Stack<>();
 
     private final ClientModContext modContext;
-    private final PipelineShaderGroupSourceProvider pipelineShaderGroupSourceProvider = new PipelineShaderGroupSourceProvider();
 
     private int currentSlotIndex;
 
