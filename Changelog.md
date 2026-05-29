@@ -170,7 +170,7 @@ like knowing which weapon is better or whether an attachment will be useful to y
   - Updated to [GroovyScript](https://www.curseforge.com/minecraft/mc-mods/groovyscript) 1.3.1
   - Updated to [MixinBooter](https://www.curseforge.com/minecraft/mc-mods/mixin-booter) 10.7
   - Updated to [Red Core](https://www.curseforge.com/minecraft/mc-mods/red-core) 0.6
-  - Updated to [Gradle](https://gradle.org) 9.2.1
+  - Updated to [Gradle](https://gradle.org) 9.5.1
 
 ## Modern Warfare Cubed Version 0.1.9 Changelog - 2024-11-25
 
