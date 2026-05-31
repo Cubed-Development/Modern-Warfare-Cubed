@@ -16,7 +16,7 @@ version = "0.2-Dev-8" // Versioning must follow Ragnarök versioning convention:
 val id = "mwc"
 val plugin = "${project.group}.${id}.asm.MWCPlugin"
 
-val redCoreVersion = "0.7"
+val redCoreVersion = "0.7.1"
 
 val groovyScriptVersion = "1.3.1"
 val mixinBooterVersion = "10.7"
