@@ -1,7 +1,7 @@
 package com.paneedah.mwc.equipment.inventory;
 
-import com.paneedah.weaponlib.inventory.CustomPlayerInventoryTab;
-import com.paneedah.weaponlib.inventory.InventoryTabs;
+import com.paneedah.mwc.gui.inventory.CustomPlayerInventoryTab;
+import com.paneedah.mwc.gui.inventory.InventoryTabHandler;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.InventoryEffectRenderer;
@@ -33,10 +33,10 @@ public class GuiEquipment extends InventoryEffectRenderer {
 
         guiLeft = (width - xSize) / 2;
 
-        final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
+        final InventoryTabHandler inventoryTabHandler = InventoryTabHandler.getInstance();
 
-        inventoryTabs.updateTabValues(guiLeft, guiTop, CustomPlayerInventoryTab.class);
-        inventoryTabs.addTabsToList(buttonList);
+        inventoryTabHandler.updateTabValues(guiLeft, guiTop, CustomPlayerInventoryTab.class);
+        inventoryTabHandler.addTabsToList(buttonList);
     }
 
     @Override

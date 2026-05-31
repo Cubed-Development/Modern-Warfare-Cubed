@@ -11,10 +11,10 @@ import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.model.AmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.TESRWorkbench;
 import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
-import com.paneedah.weaponlib.inventory.BackpackInventoryTab;
-import com.paneedah.weaponlib.inventory.CustomPlayerInventoryTab;
-import com.paneedah.weaponlib.inventory.InventoryTabs;
-import com.paneedah.weaponlib.inventory.StandardPlayerInventoryTab;
+import com.paneedah.mwc.gui.inventory.BackpackInventoryTab;
+import com.paneedah.mwc.gui.inventory.CustomPlayerInventoryTab;
+import com.paneedah.mwc.gui.inventory.InventoryTabHandler;
+import com.paneedah.mwc.gui.inventory.StandardPlayerInventoryTab;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -40,11 +40,11 @@ public class ClientProxy extends CommonProxy {
     public void preInit(final MWC mod) {
         super.preInit(mod);
 
-        final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
+        final InventoryTabHandler inventoryTabHandler = InventoryTabHandler.getInstance();
 
-        inventoryTabs.registerTab(new StandardPlayerInventoryTab());
-        inventoryTabs.registerTab(new CustomPlayerInventoryTab(MWC.modContext, MWCItems.vestRender));
-        inventoryTabs.registerTab(new BackpackInventoryTab(MWC.modContext));
+        inventoryTabHandler.registerTab(new StandardPlayerInventoryTab());
+        inventoryTabHandler.registerTab(new CustomPlayerInventoryTab(MWCItems.vestRender));
+        inventoryTabHandler.registerTab(new BackpackInventoryTab());
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench.class, new TESRWorkbench(new Workbench(), new ResourceLocation(ID + ":textures/blocks/workbench.png")));
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAmmoPress.class, new TESRAmmoPress(new AmmoPress(), new ResourceLocation(ID + ":textures/blocks/ammo_press.png")));

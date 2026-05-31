@@ -17,7 +17,7 @@ import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
 import com.paneedah.weaponlib.crafting.workbench.WorkbenchBlock;
 import com.paneedah.weaponlib.electronics.*;
 import com.paneedah.weaponlib.grenade.*;
-import com.paneedah.weaponlib.inventory.GuiHandler;
+import com.paneedah.mwc.gui.GuiHandler;
 import com.paneedah.weaponlib.melee.*;
 import com.paneedah.weaponlib.state.StateManager;
 import lombok.Getter;

@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.crafting.ammopress;
 import com.paneedah.mwc.network.messages.CraftingStationClientMessage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.base.BlockStation;
-import com.paneedah.weaponlib.inventory.GuiHandler;
+import com.paneedah.mwc.gui.GuiHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
