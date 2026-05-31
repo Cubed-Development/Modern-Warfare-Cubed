@@ -6,6 +6,7 @@ import com.paneedah.mwc.utils.VectorUtil;
 import dev.redstudio.redcore.math.vectors.Vector3F;
 import io.netty.buffer.ByteBuf;
 import dev.redstudio.redcore.math.vectors.Vector3D;
+import lombok.Getter;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -42,13 +43,14 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     private EntityLivingBase thrower;
     protected int bounceCount;
 
-    private float initialYaw;
+    @Getter private float initialYaw;
     private float initialPitch;
-    private final Vector3F ROTATION = new Vector3F();
-    private final Vector3F ROTATION_CHANGE = new Vector3F();
+
+    @Getter private final Vector3F rotation = new Vector3F();
+    private final Vector3F rotationChange = new Vector3F();
 
     private float rotationSlowdownFactor = 0.99f;
-    private final float MAX_ROTATION_CHANGE = 20f;
+    private final float maxRotationChange = 20f;
 
     protected boolean stopped;
 
@@ -108,9 +110,9 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     }
 
     private void setRotations() {
-        ROTATION_CHANGE.x = MAX_ROTATION_CHANGE * (float) rand.nextGaussian();
-        ROTATION_CHANGE.y = MAX_ROTATION_CHANGE * (float) rand.nextGaussian();
-        ROTATION_CHANGE.z = MAX_ROTATION_CHANGE * (float) rand.nextGaussian();
+        rotationChange.x = maxRotationChange * (float) rand.nextGaussian();
+        rotationChange.y = maxRotationChange * (float) rand.nextGaussian();
+        rotationChange.z = maxRotationChange * (float) rand.nextGaussian();
     }
 
     @Override
@@ -131,9 +133,9 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
             return;
         }
 
-        ROTATION.add(ROTATION_CHANGE);
+        rotation.add(rotationChange);
 
-        ROTATION_CHANGE.multiply(rotationSlowdownFactor);
+        rotationChange.multiply(rotationSlowdownFactor);
 
         this.lastTickPosX = this.posX;
         this.lastTickPosY = this.posY;
@@ -460,18 +462,6 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
                 posX, posY, posZ,
                 this.rotationPitch,
                 this.motionX, this.motionY, this.motionZ);
-    }
-
-    public float getXRotation() {
-        return ROTATION.x;
-    }
-
-    public float getYRotation() {
-        return ROTATION.y - initialYaw - 90f;
-    }
-
-    public float getZRotation() {
-        return ROTATION.z;
     }
 
     public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
