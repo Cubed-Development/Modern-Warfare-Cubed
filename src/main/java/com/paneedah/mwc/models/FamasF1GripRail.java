@@ -20,23 +20,23 @@ public class FamasF1GripRail extends ModelWithAttachments {
         textureHeight = 256;
 
         grip_rail = new ModelRenderer(this);
-        grip_rail.setRotationPoint(0.0F, -7.7F, -36.0F);
-        grip_rail.cubeList.add(new ModelBox(grip_rail, 133, 41, -3.0F, -1.0F, 0.0F, 3, 1, 11, 0.0F, false));
-        grip_rail.cubeList.add(new ModelBox(grip_rail, 130, 127, -0.8F, -1.4F, -0.001F, 3, 1, 11, 0.0F, false));
-        grip_rail.cubeList.add(new ModelBox(grip_rail, 85, 127, -5.2F, -1.4F, -0.001F, 3, 1, 11, 0.0F, false));
-        grip_rail.cubeList.add(new ModelBox(grip_rail, 168, 169, -6.0F, -4.4F, 0.0F, 9, 2, 14, 0.0F, false));
+        grip_rail.setRotationPoint(0, -7.7F, -36);
+        grip_rail.cubeList.add(new ModelBox(grip_rail, 133, 41, -3, -1, 0, 3, 1, 11, 0, false));
+        grip_rail.cubeList.add(new ModelBox(grip_rail, 130, 127, -0.8F, -1.4F, -0.001F, 3, 1, 11, 0, false));
+        grip_rail.cubeList.add(new ModelBox(grip_rail, 85, 127, -5.2F, -1.4F, -0.001F, 3, 1, 11, 0, false));
+        grip_rail.cubeList.add(new ModelBox(grip_rail, 168, 169, -6, -4.4F, 0, 9, 2, 14, 0, false));
 
         cube_r163 = new ModelRenderer(this);
-        cube_r163.setRotationPoint(-5.6F, -2.4F, 0.0F);
+        cube_r163.setRotationPoint(-5.6F, -2.4F, 0);
         grip_rail.addChild(cube_r163);
-        setRotationAngle(cube_r163, 0.0F, 0.0F, -0.1745F);
-        cube_r163.cubeList.add(new ModelBox(cube_r163, 65, 52, 0.0F, 0.0F, 0.0F, 1, 2, 11, 0.0F, false));
+        setRotationAngle(cube_r163, 0, 0, -0.1745F);
+        cube_r163.cubeList.add(new ModelBox(cube_r163, 65, 52, 0, 0, 0, 1, 2, 11, 0, false));
 
         cube_r164 = new ModelRenderer(this);
-        cube_r164.setRotationPoint(2.6F, -2.4F, 0.0F);
+        cube_r164.setRotationPoint(2.6F, -2.4F, 0);
         grip_rail.addChild(cube_r164);
-        setRotationAngle(cube_r164, 0.0F, 0.0F, 0.1745F);
-        cube_r164.cubeList.add(new ModelBox(cube_r164, 69, 20, -1.0F, 0.0F, 0.0F, 1, 2, 11, 0.0F, false));
+        setRotationAngle(cube_r164, 0, 0, 0.1745F);
+        cube_r164.cubeList.add(new ModelBox(cube_r164, 69, 20, -1, 0, 0, 1, 2, 11, 0, false));
     }
 
     @Override

@@ -90,7 +90,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         List<String> textureNames = new ArrayList<>();
         int ammoCapacity = 0;
-        float recoil = 1.0F;
+        float recoil = 1;
 
         private boolean hasFlashPedals = false;
 
@@ -946,7 +946,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     private static final long DEFAULT_BURST_TIMEOUT_MILLISECONDS = 150;
 
     public static final float DEFAULT_SHELL_CASING_FORWARD_OFFSET = 0.1f;
-    public static final float DEFAULT_SHELL_CASING_VERTICAL_OFFSET = 0.0f;
+    public static final float DEFAULT_SHELL_CASING_VERTICAL_OFFSET = 0;
     public static final float DEFAULT_SHELL_CASING_SIDE_OFFSET = 0.15f;
     public static final float DEFAULT_SHELL_CASING_SIDE_OFFSET_AIMED = 0.05f;
 

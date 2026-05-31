@@ -21,31 +21,31 @@ public class M82Action extends ModelWithAttachments {
         textureHeight = 410;
 
         action = new ModelRenderer(this);
-        action.setRotationPoint(0.0F, 24.0F, 0.0F);
-        action.cubeList.add(new ModelBox(action, 0, 157, -4.8F, -38.5F, -33.0F, 1, 1, 32, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 59, 18, -4.9F, -38.5F, -8.0F, 1, 1, 1, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 59, 12, -4.9F, -38.5F, -6.0F, 1, 1, 1, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 47, 22, -4.9F, -38.5F, -4.0F, 1, 1, 1, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 0, 28, -4.9F, -38.5F, -2.0F, 1, 1, 1, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 30, 31, -7.3F, -38.5F, -33.0F, 3, 1, 1, 0.0F, false));
+        action.setRotationPoint(0, 24, 0);
+        action.cubeList.add(new ModelBox(action, 0, 157, -4.8F, -38.5F, -33, 1, 1, 32, 0, false));
+        action.cubeList.add(new ModelBox(action, 59, 18, -4.9F, -38.5F, -8, 1, 1, 1, 0, false));
+        action.cubeList.add(new ModelBox(action, 59, 12, -4.9F, -38.5F, -6, 1, 1, 1, 0, false));
+        action.cubeList.add(new ModelBox(action, 47, 22, -4.9F, -38.5F, -4, 1, 1, 1, 0, false));
+        action.cubeList.add(new ModelBox(action, 0, 28, -4.9F, -38.5F, -2, 1, 1, 1, 0, false));
+        action.cubeList.add(new ModelBox(action, 30, 31, -7.3F, -38.5F, -33, 3, 1, 1, 0, false));
 
         action10_r1 = new ModelRenderer(this);
-        action10_r1.setRotationPoint(-7.3F, -37.5F, -33.0F);
+        action10_r1.setRotationPoint(-7.3F, -37.5F, -33);
         action.addChild(action10_r1);
-        setRotationAngle(action10_r1, 1.9333F, 0.0F, 0.0F);
-        action10_r1.cubeList.add(new ModelBox(action10_r1, 44, 52, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.001F, false));
+        setRotationAngle(action10_r1, 1.9333F, 0, 0);
+        action10_r1.cubeList.add(new ModelBox(action10_r1, 44, 52, 0, 0, 0, 1, 1, 2, 0.001F, false));
 
         action2_r1 = new ModelRenderer(this);
-        action2_r1.setRotationPoint(-4.8F, -38.5F, -33.0F);
+        action2_r1.setRotationPoint(-4.8F, -38.5F, -33);
         action.addChild(action2_r1);
-        setRotationAngle(action2_r1, 0.0F, 0.0F, -1.041F);
-        action2_r1.cubeList.add(new ModelBox(action2_r1, 52, 52, 0.0F, 0.0F, 0.0F, 2, 1, 24, 0.0F, false));
+        setRotationAngle(action2_r1, 0, 0, -1.041F);
+        action2_r1.cubeList.add(new ModelBox(action2_r1, 52, 52, 0, 0, 0, 2, 1, 24, 0, false));
 
         action14_r1 = new ModelRenderer(this);
-        action14_r1.setRotationPoint(-9.3F, -39.0F, -33.55F);
+        action14_r1.setRotationPoint(-9.3F, -39, -33.55F);
         action.addChild(action14_r1);
-        setRotationAngle(action14_r1, 1.9333F, 0.0F, 0.0F);
-        action14_r1.cubeList.add(new ModelBox(action14_r1, 43, 38, 0.0F, 0.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        setRotationAngle(action14_r1, 1.9333F, 0, 0);
+        action14_r1.cubeList.add(new ModelBox(action14_r1, 43, 38, 0, 0, 0, 3, 1, 1, 0, false));
     }
 
     @Override

@@ -25,7 +25,7 @@ public class WeaponRotationHandler {
 
 
     // One half of PI
-    private static final float HALF_PI = (float) (Math.PI / 2.0f);
+    private static final float HALF_PI = (float) (Math.PI / 2);
 
 
     // animations

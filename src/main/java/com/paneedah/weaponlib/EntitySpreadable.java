@@ -51,7 +51,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
 
     private long lastSpreadTimestamp;
 
-    private float concentrationDecayAdjustment = 1.0f;
+    private float concentrationDecayAdjustment = 1;
 
     private float concentrationDecayFactor = DEFAULT_CONCENTRATION_DECAY_FACTOR;
 

@@ -703,7 +703,7 @@ public class Bullets {
                     GlStateManager.rotate(10F, 0f, 1f, 0f);
                     GlStateManager.rotate(2F, 1f, 0f, 0f);
                     GlStateManager.rotate(0F, 0f, 0f, 1f);
-                    GlStateManager.scale(2.0F, 2.8F, 2.0f);
+                    GlStateManager.scale(2, 2.8F, 2);
                 })
                 .withTextureName("Dummy.png")
                 .build(modContext, ItemBullet.class);
@@ -1033,7 +1033,7 @@ public class Bullets {
                     GlStateManager.rotate(80F, 1f, 0f, 0f);
                     GlStateManager.scale(0.45F, 0.45F, 0.45F);
                 }).withInventoryPositioning(() -> {
-                    GlStateManager.translate(-0.8F, -4.0F, 0.7F);
+                    GlStateManager.translate(-0.8F, -4, 0.7F);
                     GlStateManager.rotate(10F, 0f, 1f, 0f);
                     GlStateManager.rotate(2F, 1f, 0f, 0f);
                     GlStateManager.rotate(0F, 0f, 0f, 1f);

@@ -19,8 +19,8 @@ public class Gunpowder extends ModelBase {
         textureHeight = 16;
 
         bb_main = new ModelRenderer(this);
-        bb_main.setRotationPoint(0.0F, 0.0F, 0.0F);
-        bb_main.cubeList.add(new ModelBox(bb_main, 0, 0, -1.5F, -1.5F, -1.5F, 3, 3, 3, 0.0F, false));
+        bb_main.setRotationPoint(0, 0, 0);
+        bb_main.cubeList.add(new ModelBox(bb_main, 0, 0, -1.5F, -1.5F, -1.5F, 3, 3, 3, 0, false));
     }
 
     @Override

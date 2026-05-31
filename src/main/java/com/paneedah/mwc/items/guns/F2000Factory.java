@@ -375,7 +375,7 @@ public class F2000Factory implements GunFactory {
                                         .withPosition(-1.425000f, 1.905000f, -5.685000f)
                                         .withRotation(0.000000f, 1.000000f, 3.924788f)
                                         .withPivotPoint(0.050000f, -0.460000f, 1.780000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -384,7 +384,7 @@ public class F2000Factory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.170000f, 0.905000f, 0.980000f)
                                         .withBBRotation(-9.9086F, -23.0693F, 62.027F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -613,7 +613,7 @@ public class F2000Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.610000f, 0.905000f, 1.700000f)
                                             .withRotation(99.332817f, 23.069300f, 22.719554f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

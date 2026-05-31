@@ -28,26 +28,26 @@ public class AUGaction extends ModelWithAttachments {
         action3_r1 = new ModelRenderer(this);
         action3_r1.setRotationPoint(24.623F, 22.3055F, 17.3F);
         action.addChild(action3_r1);
-        setRotationAngle(action3_r1, 0.0F, 0.0F, -0.887F);
-        action3_r1.cubeList.add(new ModelBox(action3_r1, 32, 87, 1.1F, -33.5F, -20.5F, 1, 1, 3, 0.0F, false));
+        setRotationAngle(action3_r1, 0, 0, -0.887F);
+        action3_r1.cubeList.add(new ModelBox(action3_r1, 32, 87, 1.1F, -33.5F, -20.5F, 1, 1, 3, 0, false));
 
         action2_r1 = new ModelRenderer(this);
         action2_r1.setRotationPoint(24.8407F, 22.3636F, 17.3F);
         action.addChild(action2_r1);
-        setRotationAngle(action2_r1, 0.0F, 0.0F, -0.887F);
-        action2_r1.cubeList.add(new ModelBox(action2_r1, 47, 47, 1.27F, -33.7F, -20.0F, 1, 1, 1, 0.0F, false));
+        setRotationAngle(action2_r1, 0, 0, -0.887F);
+        action2_r1.cubeList.add(new ModelBox(action2_r1, 47, 47, 1.27F, -33.7F, -20, 1, 1, 1, 0, false));
 
         action1_r1 = new ModelRenderer(this);
         action1_r1.setRotationPoint(25.1764F, 22.4702F, 17.3F);
         action.addChild(action1_r1);
-        setRotationAngle(action1_r1, 0.0F, 0.0F, -0.887F);
-        action1_r1.cubeList.add(new ModelBox(action1_r1, 67, 45, 1.55F, -34.03F, -19.5F, 2, 1, 2, 0.0F, false));
+        setRotationAngle(action1_r1, 0, 0, -0.887F);
+        action1_r1.cubeList.add(new ModelBox(action1_r1, 67, 45, 1.55F, -34.03F, -19.5F, 2, 1, 2, 0, false));
 
         action4_r1 = new ModelRenderer(this);
         action4_r1.setRotationPoint(-28.3225F, -17.037F, 17.3F);
         action.addChild(action4_r1);
-        setRotationAngle(action4_r1, 0.0F, 0.0F, 2.0702F);
-        action4_r1.cubeList.add(new ModelBox(action4_r1, 118, 81, 1.8F, -33.3F, -19.7F, 1, 2, 15, 0.0F, false));
+        setRotationAngle(action4_r1, 0, 0, 2.0702F);
+        action4_r1.cubeList.add(new ModelBox(action4_r1, 118, 81, 1.8F, -33.3F, -19.7F, 1, 2, 15, 0, false));
     }
 
     @Override

@@ -186,7 +186,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
                 if (targetState.sound != null) {
                     //System.out.println(targetState.sound.getResourceLocation());
 
-                    PositionedSoundRecord psr = new PositionedSoundRecord(targetState.sound, SoundCategory.PLAYERS, 1.0F, 1.0F, MC.player.getPosition().up(5));
+                    PositionedSoundRecord psr = new PositionedSoundRecord(targetState.sound, SoundCategory.PLAYERS, 1, 1, MC.player.getPosition().up(5));
                     MC.getSoundHandler().playSound(psr);
                 }
             }
@@ -294,7 +294,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 					/*
 					 * try {
 						if(targetState.sound != null) {
-							MC.getSoundHandler().laySound(PositionedSoundRecord.getMasterRecord(targetState.sound, 1.0f));
+							MC.getSoundHandler().laySound(PositionedSoundRecord.getMasterRecord(targetState.sound, 1));
 							
 						}
 					} catch(Exception e) {

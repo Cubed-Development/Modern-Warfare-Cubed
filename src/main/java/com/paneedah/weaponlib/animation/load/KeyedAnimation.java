@@ -13,9 +13,9 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 public class KeyedAnimation {
 
     public TreeMap<Float, BlockbenchTransition> bbMap = new TreeMap<>();
-    public float prevTimer = 0.0f;
-    public float timer = 0.0f;
-    public float max = 2.0f;
+    public float prevTimer = 0;
+    public float timer = 0;
+    public float max = 2;
 
 
     public KeyedAnimation(float max) {
@@ -30,7 +30,7 @@ public class KeyedAnimation {
     }
 
     public void doPositioning(float speed) {
-        doPositioning(1.0f, Vec3d.ZERO);
+        doPositioning(1, Vec3d.ZERO);
     }
 
     public void update(float speed) {
@@ -87,7 +87,7 @@ public class KeyedAnimation {
 
         float leDelta = (time - bottomKey) / (topKey - bottomKey);
         if (Double.isNaN(leDelta)) {
-            leDelta = 0.0f;
+            leDelta = 0;
         }
 
 

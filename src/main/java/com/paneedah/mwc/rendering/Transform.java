@@ -240,10 +240,10 @@ public final class Transform {
      * Example output:
      * <pre>
      *  new Transform()
-     *          .withPosition(1.0f, 2.0f, 3.0f)
-     *          .withPivotPoint(1.0f, 1.0f, 1.0f)
-     *          .withRotation(45.0f, 90.0f, 180.0f)
-     *          .withScale(1.0f, 2.0f, 2.0f);
+     *          .withPosition(1, 2, 3)
+     *          .withPivotPoint(1, 1, 1)
+     *          .withRotation(45, 90, 180)
+     *          .withScale(1, 2, 2);
      * </pre>
      */
     public void printTransformCreationCode() {

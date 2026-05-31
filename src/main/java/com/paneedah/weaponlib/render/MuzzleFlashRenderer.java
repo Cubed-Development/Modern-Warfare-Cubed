@@ -96,7 +96,7 @@ public class MuzzleFlashRenderer {
 
         // Changing the alpha function in order to prevent
         // edge artifacts.
-        GlStateManager.alphaFunc(GL11.GL_GREATER, 0.0F);
+        GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
 
 
         // Adds a random element to the size

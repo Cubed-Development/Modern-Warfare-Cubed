@@ -72,16 +72,16 @@ public class ExplosionSmokeFX extends Particle {
         this.motionY = motionY;
         this.motionZ = motionZ;
 
-        if (motionX == 0.0F) {
-            motionX = 1.0F;
+        if (motionX == 0) {
+            motionX = 1;
         }
 
         this.behavior = behavior;
 
-        this.particleRed = 1.0F;
-        this.particleGreen = 1.0F;
-        this.particleBlue = 1.0F;
-        this.particleAlpha = 0.0F;
+        this.particleRed = 1;
+        this.particleGreen = 1;
+        this.particleBlue = 1;
+        this.particleAlpha = 0;
 //		this.particleScale *= scale;
         this.scale = scale;
         this.particleMaxAge = particleMaxAge == 0 ? 50 + (int) (rand.nextFloat() * 30) : particleMaxAge;
@@ -125,7 +125,7 @@ public class ExplosionSmokeFX extends Particle {
         GlStateManager.pushMatrix();
         GlStateManager.pushAttrib(); // TODO: This fucks up the GlStateManager - Luna Mira Lage (Desoroxxx) 2025-12-28 // Before the transition to GlStateManager it used `GL11.GL_ENABLE_BIT`, but GlStateManager don't allow mask so maybe we just don't at all? - Luna Mira Lage (Desoroxxx) - 2025-12-28
 
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color(1, 1, 1, 1);
         GlStateManager.depthMask(false);
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);

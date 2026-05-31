@@ -21,49 +21,49 @@ public class VehicleKey extends ModelBase {
         textureHeight = 64;
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(0.0F, 24.0F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 0, 2, -5.0F, -1.0F, -8.0F, 1, 1, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 18, 18, -6.0F, -3.0F, -7.03F, 10, 5, 8, 0.001F, false));
-        bone.cubeList.add(new ModelBox(bone, 36, 12, -5.0F, -1.0F, -9.0F, 8, 1, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 4, 2.0F, -1.0F, -8.0F, 1, 1, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 18, 1, -1.5F, 0.5F, 7.9F, 1, 1, 16, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 27, 31, -6.0F, -2.0F, 0.9F, 10, 4, 7, 0.0F, false));
+        bone.setRotationPoint(0, 24, 0);
+        bone.cubeList.add(new ModelBox(bone, 0, 2, -5, -1, -8, 1, 1, 1, 0, false));
+        bone.cubeList.add(new ModelBox(bone, 18, 18, -6, -3, -7.03F, 10, 5, 8, 0.001F, false));
+        bone.cubeList.add(new ModelBox(bone, 36, 12, -5, -1, -9, 8, 1, 1, 0, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 4, 2, -1, -8, 1, 1, 1, 0, false));
+        bone.cubeList.add(new ModelBox(bone, 18, 1, -1.5F, 0.5F, 7.9F, 1, 1, 16, 0, false));
+        bone.cubeList.add(new ModelBox(bone, 27, 31, -6, -2, 0.9F, 10, 4, 7, 0, false));
         bone.cubeList.add(new ModelBox(bone, 0, 7, -1.5F, -1.85F, 7.9F, 1, 1, 5, -0.001F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 17, -1.5F, -1.5F, 7.9F, 1, 1, 16, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5F, -1.0F, 7.9F, 1, 1, 16, 0.001F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5F, -0.5F, 7.9F, 1, 1, 6, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 17, -1.5F, -1.5F, 7.9F, 1, 1, 16, 0, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5F, -1, 7.9F, 1, 1, 16, 0.001F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5F, -0.5F, 7.9F, 1, 1, 6, 0, false));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5F, 0.25F, 15.9F, 1, 1, 1, -0.001F, false));
         bone.cubeList.add(new ModelBox(bone, 0, 17, -1.5F, 0.25F, 19.4F, 1, 1, 4, -0.001F, false));
 
         KEY3_r1 = new ModelRenderer(this);
-        KEY3_r1.setRotationPoint(4.0F, -3.0F, 7.9F);
+        KEY3_r1.setRotationPoint(4, -3, 7.9F);
         bone.addChild(KEY3_r1);
-        setRotationAngle(KEY3_r1, -0.1396F, 0.0F, 0.0F);
-        KEY3_r1.cubeList.add(new ModelBox(KEY3_r1, 0, 35, -10.0F, 1.0F, -7.0F, 10, 1, 7, -0.001F, false));
+        setRotationAngle(KEY3_r1, -0.1396F, 0, 0);
+        KEY3_r1.cubeList.add(new ModelBox(KEY3_r1, 0, 35, -10, 1, -7, 10, 1, 7, -0.001F, false));
 
         KEY6_r1 = new ModelRenderer(this);
-        KEY6_r1.setRotationPoint(3.0F, -4.2F, 0.3F);
+        KEY6_r1.setRotationPoint(3, -4.2F, 0.3F);
         bone.addChild(KEY6_r1);
-        setRotationAngle(KEY6_r1, 0.0873F, 0.0F, 0.0F);
-        KEY6_r1.cubeList.add(new ModelBox(KEY6_r1, 36, 0, -8.0F, 0.6F, -7.0F, 8, 1, 3, 0.0F, false));
+        setRotationAngle(KEY6_r1, 0.0873F, 0, 0);
+        KEY6_r1.cubeList.add(new ModelBox(KEY6_r1, 36, 0, -8, 0.6F, -7, 8, 1, 3, 0, false));
 
         KEY5_r1 = new ModelRenderer(this);
-        KEY5_r1.setRotationPoint(3.0F, -4.2F, -0.15F);
+        KEY5_r1.setRotationPoint(3, -4.2F, -0.15F);
         bone.addChild(KEY5_r1);
-        setRotationAngle(KEY5_r1, 0.0873F, 0.0F, 0.0F);
-        KEY5_r1.cubeList.add(new ModelBox(KEY5_r1, 36, 4, -8.0F, 0.6F, -3.0F, 8, 1, 3, 0.0F, false));
+        setRotationAngle(KEY5_r1, 0.0873F, 0, 0);
+        KEY5_r1.cubeList.add(new ModelBox(KEY5_r1, 36, 4, -8, 0.6F, -3, 8, 1, 3, 0, false));
 
         KEY4_r1 = new ModelRenderer(this);
-        KEY4_r1.setRotationPoint(3.0F, -4.2F, 0.4F);
+        KEY4_r1.setRotationPoint(3, -4.2F, 0.4F);
         bone.addChild(KEY4_r1);
-        setRotationAngle(KEY4_r1, -0.1571F, 0.0F, 0.0F);
-        KEY4_r1.cubeList.add(new ModelBox(KEY4_r1, 36, 8, -8.0F, 0.6F, 0.0F, 8, 1, 3, 0.0F, false));
+        setRotationAngle(KEY4_r1, -0.1571F, 0, 0);
+        KEY4_r1.cubeList.add(new ModelBox(KEY4_r1, 36, 8, -8, 0.6F, 0, 8, 1, 3, 0, false));
 
         KEY2_r1 = new ModelRenderer(this);
-        KEY2_r1.setRotationPoint(2.8F, 12.0F, 9.2F);
+        KEY2_r1.setRotationPoint(2.8F, 12, 9.2F);
         bone.addChild(KEY2_r1);
-        setRotationAngle(KEY2_r1, 0.0F, -0.3316F, 0.0F);
-        KEY2_r1.cubeList.add(new ModelBox(KEY2_r1, 7, 7, -8.0F, -15.0F, -2.0F, 2, 1, 2, 0.0F, false));
+        setRotationAngle(KEY2_r1, 0, -0.3316F, 0);
+        KEY2_r1.cubeList.add(new ModelBox(KEY2_r1, 7, 7, -8, -15, -2, 2, 1, 2, 0, false));
     }
 
     @Override

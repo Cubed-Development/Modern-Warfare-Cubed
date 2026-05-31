@@ -20,19 +20,19 @@ public class DSR1BoltAction extends ModelWithAttachments {
         textureHeight = 400;
 
         boltaction = new ModelRenderer(this);
-        boltaction.setRotationPoint(0.1F, 24.25F, -12.0F);
+        boltaction.setRotationPoint(0.1F, 24.25F, -12);
         boltaction.cubeList.add(new ModelBox(boltaction, 0, 31, -3.3F, -35.6F, 18.5F, 1, 3, 13, -0.1F, false));
 
         cube_r125_r1 = new ModelRenderer(this);
-        cube_r125_r1.setRotationPoint(29.6159F, -22.2604F, 12.0F);
+        cube_r125_r1.setRotationPoint(29.6159F, -22.2604F, 12);
         boltaction.addChild(cube_r125_r1);
-        setRotationAngle(cube_r125_r1, 0.0F, 0.0F, -1.0996F);
+        setRotationAngle(cube_r125_r1, 0, 0, -1.0996F);
         cube_r125_r1.cubeList.add(new ModelBox(cube_r125_r1, 32, 31, -3.2F, -35.35F, 6.5F, 1, 1, 13, -0.1F, false));
 
         cube_r124_r1 = new ModelRenderer(this);
-        cube_r124_r1.setRotationPoint(-33.7936F, -18.5697F, 12.0F);
+        cube_r124_r1.setRotationPoint(-33.7936F, -18.5697F, 12);
         boltaction.addChild(cube_r124_r1);
-        setRotationAngle(cube_r124_r1, 0.0F, 0.0F, 1.0996F);
+        setRotationAngle(cube_r124_r1, 0, 0, 1.0996F);
         cube_r124_r1.cubeList.add(new ModelBox(cube_r124_r1, 32, 45, -1.77F, -36.5F, 6.5F, 1, 1, 13, -0.101F, false));
     }
 

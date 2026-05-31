@@ -53,14 +53,14 @@ void main(){
 	//lightmapTexCoord = (gl_TextureMatrix[1]*vec4(inLightmapCoords.x/255, inLightmapCoords.y/255, 0, 0));
 	//lightmapTexCoord = (gl_TextureMatrix[1] * gl_MultiTexCoord1).xy;
 	vec3 normal = (gl_NormalMatrix * aNormal).xyz;
-	vec4 totalLight = vec4(0.0F);
+	vec4 totalLight = vec4(0);
 	for (int i = 0; i < gl_MaxLights; i ++){
-			vec4 diffuse = gl_FrontLightProduct[i].diffuse * max(dot(normal,gl_LightSource[i].position.xyz), 0.0f);
-			diffuse = clamp(diffuse, 0.0F, 1.0F);
+			vec4 diffuse = gl_FrontLightProduct[i].diffuse * max(dot(normal,gl_LightSource[i].position.xyz), 0);
+			diffuse = clamp(diffuse, 0, 1);
 
 			totalLight += diffuse + gl_FrontLightProduct[i].ambient;
 	}
-	lightSum = clamp((totalLight + gl_LightModel.ambient).rgb, 0.0F, 1.0F);
+	lightSum = clamp((totalLight + gl_LightModel.ambient).rgb, 0, 1);
 
 
 	// Convert the attribute position to 4D vector

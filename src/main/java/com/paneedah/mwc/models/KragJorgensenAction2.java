@@ -19,21 +19,21 @@ public class KragJorgensenAction2 extends ModelWithAttachments {
         textureHeight = 256;
 
         action2 = new ModelRenderer(this);
-        action2.setRotationPoint(0.0F, 24.0F, 0.0F);
-        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.5F, -41.3F, -21.2F, 1, 2, 1, 0.0F, true));
-        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.4F, -40.9F, -31.5F, 1, 1, 17, 0.0F, true));
-        action2.cubeList.add(new ModelBox(action2, 200, 0, -1.8F, -40.8F, -14.0F, 2, 1, 2, 0.0F, true));
-        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.5F, -41.0F, -31.5F, 1, 1, 10, 0.0F, true));
-        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.6F, -40.9F, -31.5F, 1, 1, 17, 0.0F, true));
-        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.5F, -40.9F, -14.0F, 1, 1, 2, 0.0F, true));
-        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.7F, -41.2F, -21.5F, 1, 2, 8, 0.0F, true));
-        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.3F, -41.2F, -21.5F, 1, 2, 8, 0.0F, true));
+        action2.setRotationPoint(0, 24, 0);
+        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.5F, -41.3F, -21.2F, 1, 2, 1, 0, true));
+        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.4F, -40.9F, -31.5F, 1, 1, 17, 0, true));
+        action2.cubeList.add(new ModelBox(action2, 200, 0, -1.8F, -40.8F, -14, 2, 1, 2, 0, true));
+        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.5F, -41, -31.5F, 1, 1, 10, 0, true));
+        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.6F, -40.9F, -31.5F, 1, 1, 17, 0, true));
+        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.5F, -40.9F, -14, 1, 1, 2, 0, true));
+        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.7F, -41.2F, -21.5F, 1, 2, 8, 0, true));
+        action2.cubeList.add(new ModelBox(action2, 200, 0, -2.3F, -41.2F, -21.5F, 1, 2, 8, 0, true));
 
         ACTION51_r1 = new ModelRenderer(this);
-        ACTION51_r1.setRotationPoint(0.0F, 3.9903F, -6.4356F);
+        ACTION51_r1.setRotationPoint(0, 3.9903F, -6.4356F);
         action2.addChild(ACTION51_r1);
-        setRotationAngle(ACTION51_r1, -0.1487F, 0.0F, 0.0F);
-        ACTION51_r1.cubeList.add(new ModelBox(ACTION51_r1, 200, 0, -2.5F, -41.2F, -30.0F, 1, 1, 1, 0.0F, true));
+        setRotationAngle(ACTION51_r1, -0.1487F, 0, 0);
+        ACTION51_r1.cubeList.add(new ModelBox(ACTION51_r1, 200, 0, -2.5F, -41.2F, -30, 1, 1, 1, 0, true));
     }
 
     @Override

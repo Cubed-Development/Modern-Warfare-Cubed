@@ -24,48 +24,48 @@ public class Gravestone extends ModelBase {
         textureHeight = 64;
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(0.0F, 24.0F, -3.5F);
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -6.0F, -2.0F, 0.0F, 12, 2, 7, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 22, 22, -5.0F, -3.0F, 0.5F, 10, 1, 6, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 28, 9, -3.5F, -17.75F, 1.5F, 7, 1, 4, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 9, -5.0F, -15.9F, 1.5F, 10, 14, 4, -0.2F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 27, -4.0F, -17.1F, 1.499F, 8, 2, 4, -0.2F, false));
+        bone.setRotationPoint(0, 24, -3.5F);
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -6, -2, 0, 12, 2, 7, 0, false));
+        bone.cubeList.add(new ModelBox(bone, 22, 22, -5, -3, 0.5F, 10, 1, 6, 0, false));
+        bone.cubeList.add(new ModelBox(bone, 28, 9, -3.5F, -17.75F, 1.5F, 7, 1, 4, 0, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 9, -5, -15.9F, 1.5F, 10, 14, 4, -0.2F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 27, -4, -17.1F, 1.499F, 8, 2, 4, -0.2F, false));
 
         bone6 = new ModelRenderer(this);
         bone6.setRotationPoint(-3.5F, -17.75F, 1.5F);
         bone.addChild(bone6);
-        setRotationAngle(bone6, 0.0F, 0.0F, -1.0647F);
-        bone6.cubeList.add(new ModelBox(bone6, 31, 0, -2.0F, 0.0F, -0.001F, 2, 1, 4, 0.0F, false));
+        setRotationAngle(bone6, 0, 0, -1.0647F);
+        bone6.cubeList.add(new ModelBox(bone6, 31, 0, -2, 0, -0.001F, 2, 1, 4, 0, false));
 
         bone7 = new ModelRenderer(this);
         bone7.setRotationPoint(3.5F, -17.75F, 1.5F);
         bone.addChild(bone7);
-        setRotationAngle(bone7, 0.0F, 0.0F, 1.0647F);
-        bone7.cubeList.add(new ModelBox(bone7, 28, 14, 0.0F, 0.0F, -0.001F, 2, 1, 4, 0.0F, false));
+        setRotationAngle(bone7, 0, 0, 1.0647F);
+        bone7.cubeList.add(new ModelBox(bone7, 28, 14, 0, 0, -0.001F, 2, 1, 4, 0, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(-5.75F, -15.0F, 1.0F);
+        bone2.setRotationPoint(-5.75F, -15, 1);
         bone.addChild(bone2);
-        setRotationAngle(bone2, 0.0F, 0.0F, -0.0698F);
-        bone2.cubeList.add(new ModelBox(bone2, 30, 30, 0.0F, 0.0F, 0.5F, 1, 13, 4, 0.0F, false));
+        setRotationAngle(bone2, 0, 0, -0.0698F);
+        bone2.cubeList.add(new ModelBox(bone2, 30, 30, 0, 0, 0.5F, 1, 13, 4, 0, false));
 
         bone5 = new ModelRenderer(this);
-        bone5.setRotationPoint(-5.75F, -15.0F, 1.0F);
+        bone5.setRotationPoint(-5.75F, -15, 1);
         bone.addChild(bone5);
-        setRotationAngle(bone5, 0.0F, 0.0F, -0.6981F);
-        bone5.cubeList.add(new ModelBox(bone5, 0, 33, 0.0F, 0.0F, 0.501F, 2, 1, 4, 0.0F, false));
+        setRotationAngle(bone5, 0, 0, -0.6981F);
+        bone5.cubeList.add(new ModelBox(bone5, 0, 33, 0, 0, 0.501F, 2, 1, 4, 0, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(5.75F, -15.0F, 1.0F);
+        bone3.setRotationPoint(5.75F, -15, 1);
         bone.addChild(bone3);
-        setRotationAngle(bone3, 0.0F, 0.0F, 0.0698F);
-        bone3.cubeList.add(new ModelBox(bone3, 20, 29, -1.0F, 0.0F, 0.5F, 1, 13, 4, 0.0F, false));
+        setRotationAngle(bone3, 0, 0, 0.0698F);
+        bone3.cubeList.add(new ModelBox(bone3, 20, 29, -1, 0, 0.5F, 1, 13, 4, 0, false));
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(5.75F, -15.0F, 1.0F);
+        bone4.setRotationPoint(5.75F, -15, 1);
         bone.addChild(bone4);
-        setRotationAngle(bone4, 0.0F, 0.0F, 0.6981F);
-        bone4.cubeList.add(new ModelBox(bone4, 8, 34, -2.0F, 0.0F, 0.501F, 2, 1, 4, 0.0F, false));
+        setRotationAngle(bone4, 0, 0, 0.6981F);
+        bone4.cubeList.add(new ModelBox(bone4, 8, 34, -2, 0, 0.501F, 2, 1, 4, 0, false));
     }
 
     @Override

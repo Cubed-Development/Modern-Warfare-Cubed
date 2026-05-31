@@ -22,32 +22,32 @@ public class USP45Mag extends ModelWithAttachments {
         textureHeight = 128;
 
         mag = new ModelRenderer(this);
-        mag.setRotationPoint(0.0F, 24.0F, 0.0F);
+        mag.setRotationPoint(0, 24, 0);
 
 
         mag4 = new ModelRenderer(this);
-        mag4.setRotationPoint(-3.0F, -16.9F, -5.0F);
+        mag4.setRotationPoint(-3, -16.9F, -5);
         mag.addChild(mag4);
-        setRotationAngle(mag4, 0.1859F, 0.0F, 0.0F);
-        mag4.cubeList.add(new ModelBox(mag4, 0, 32, 0.0F, -14.0F, 0.0F, 3, 15, 6, 0.0F, false));
+        setRotationAngle(mag4, 0.1859F, 0, 0);
+        mag4.cubeList.add(new ModelBox(mag4, 0, 32, 0, -14, 0, 3, 15, 6, 0, false));
 
         mag3 = new ModelRenderer(this);
         mag3.setRotationPoint(-3.5F, -16.9F, -4.8F);
         mag.addChild(mag3);
-        setRotationAngle(mag3, 0.0744F, 0.0F, 0.0F);
-        mag3.cubeList.add(new ModelBox(mag3, 63, 63, 0.001F, 1.0F, -1.3F, 4, 1, 2, 0.0F, false));
+        setRotationAngle(mag3, 0.0744F, 0, 0);
+        mag3.cubeList.add(new ModelBox(mag3, 63, 63, 0.001F, 1, -1.3F, 4, 1, 2, 0, false));
 
         mag1 = new ModelRenderer(this);
         mag1.setRotationPoint(-3.5F, -16.9F, -4.8F);
         mag.addChild(mag1);
-        setRotationAngle(mag1, 0.0744F, 0.0F, 0.0F);
-        mag1.cubeList.add(new ModelBox(mag1, 98, 88, 0.0F, 0.0F, 0.0F, 4, 2, 6, 0.0F, false));
+        setRotationAngle(mag1, 0.0744F, 0, 0);
+        mag1.cubeList.add(new ModelBox(mag1, 98, 88, 0, 0, 0, 4, 2, 6, 0, false));
 
         mag2 = new ModelRenderer(this);
-        mag2.setRotationPoint(-3.0F, -16.9F, -4.8F);
+        mag2.setRotationPoint(-3, -16.9F, -4.8F);
         mag.addChild(mag2);
-        setRotationAngle(mag2, 0.0744F, 0.0F, 0.0F);
-        mag2.cubeList.add(new ModelBox(mag2, 58, 11, 0.0F, 0.0F, -1.0F, 3, 2, 1, 0.0F, false));
+        setRotationAngle(mag2, 0.0744F, 0, 0);
+        mag2.cubeList.add(new ModelBox(mag2, 58, 11, 0, 0, -1, 3, 2, 1, 0, false));
     }
 
     @Override

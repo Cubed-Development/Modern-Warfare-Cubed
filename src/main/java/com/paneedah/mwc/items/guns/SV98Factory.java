@@ -998,7 +998,7 @@ public class SV98Factory implements GunFactory {
                             GlStateManager.rotate(15.000000f, 1f, 0f, 0f);
                             GlStateManager.rotate(5.000000f, 0f, 1f, 0f);
                             GlStateManager.rotate(30.000000f, 0f, 0f, 1f);
-                            GlStateManager.translate(-0.300000f, 1.4f, -0.0f);
+                            GlStateManager.translate(-0.300000f, 1.4f, -0);
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

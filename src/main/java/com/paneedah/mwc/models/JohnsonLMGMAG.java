@@ -22,48 +22,48 @@ public class JohnsonLMGMAG extends ModelWithAttachments {
         textureHeight = 256;
 
         magazine = new ModelRenderer(this);
-        magazine.setRotationPoint(-0.5536F, 24.0F, 15.0695F);
-        magazine.cubeList.add(new ModelBox(magazine, 0, 100, 4.5536F, -20.5F, -4.0695F, 12, 2, 9, 0.0F, true));
-        magazine.cubeList.add(new ModelBox(magazine, 0, 100, 4.5536F, -20.8F, -0.0695F, 12, 1, 4, 0.0F, true));
-        magazine.cubeList.add(new ModelBox(magazine, 0, 100, 4.5536F, -19.2F, -0.0695F, 12, 1, 4, 0.0F, true));
-        magazine.cubeList.add(new ModelBox(magazine, 0, 100, 4.5536F, -20.8F, -3.7695F, 12, 1, 3, 0.0F, true));
-        magazine.cubeList.add(new ModelBox(magazine, 0, 100, 4.5536F, -19.2F, -3.7695F, 12, 1, 3, 0.0F, true));
+        magazine.setRotationPoint(-0.5536F, 24, 15.0695F);
+        magazine.cubeList.add(new ModelBox(magazine, 0, 100, 4.5536F, -20.5F, -4.0695F, 12, 2, 9, 0, true));
+        magazine.cubeList.add(new ModelBox(magazine, 0, 100, 4.5536F, -20.8F, -0.0695F, 12, 1, 4, 0, true));
+        magazine.cubeList.add(new ModelBox(magazine, 0, 100, 4.5536F, -19.2F, -0.0695F, 12, 1, 4, 0, true));
+        magazine.cubeList.add(new ModelBox(magazine, 0, 100, 4.5536F, -20.8F, -3.7695F, 12, 1, 3, 0, true));
+        magazine.cubeList.add(new ModelBox(magazine, 0, 100, 4.5536F, -19.2F, -3.7695F, 12, 1, 3, 0, true));
 
         MAG20_r1 = new ModelRenderer(this);
-        MAG20_r1.setRotationPoint(-1.8809F, 0.0F, -7.2047F);
+        MAG20_r1.setRotationPoint(-1.8809F, 0, -7.2047F);
         magazine.addChild(MAG20_r1);
-        setRotationAngle(MAG20_r1, 0.0F, 0.3665F, 0.0F);
-        MAG20_r1.cubeList.add(new ModelBox(MAG20_r1, 0, 100, 20.0F, -19.2F, 10.8F, 8, 1, 3, 0.0F, true));
-        MAG20_r1.cubeList.add(new ModelBox(MAG20_r1, 0, 100, 20.0F, -20.8F, 10.8F, 8, 1, 3, 0.0F, true));
-        MAG20_r1.cubeList.add(new ModelBox(MAG20_r1, 0, 100, 20.0F, -19.2F, 14.5F, 8, 1, 4, 0.0F, true));
-        MAG20_r1.cubeList.add(new ModelBox(MAG20_r1, 0, 100, 20.0F, -20.8F, 14.5F, 8, 1, 4, 0.0F, true));
-        MAG20_r1.cubeList.add(new ModelBox(MAG20_r1, 0, 100, 20.0F, -20.5F, 10.5F, 8, 2, 9, 0.0F, true));
+        setRotationAngle(MAG20_r1, 0, 0.3665F, 0);
+        MAG20_r1.cubeList.add(new ModelBox(MAG20_r1, 0, 100, 20, -19.2F, 10.8F, 8, 1, 3, 0, true));
+        MAG20_r1.cubeList.add(new ModelBox(MAG20_r1, 0, 100, 20, -20.8F, 10.8F, 8, 1, 3, 0, true));
+        MAG20_r1.cubeList.add(new ModelBox(MAG20_r1, 0, 100, 20, -19.2F, 14.5F, 8, 1, 4, 0, true));
+        MAG20_r1.cubeList.add(new ModelBox(MAG20_r1, 0, 100, 20, -20.8F, 14.5F, 8, 1, 4, 0, true));
+        MAG20_r1.cubeList.add(new ModelBox(MAG20_r1, 0, 100, 20, -20.5F, 10.5F, 8, 2, 9, 0, true));
 
         MAG19_r1 = new ModelRenderer(this);
-        MAG19_r1.setRotationPoint(-1.0261F, 0.0F, -12.7415F);
+        MAG19_r1.setRotationPoint(-1.0261F, 0, -12.7415F);
         magazine.addChild(MAG19_r1);
-        setRotationAngle(MAG19_r1, 0.0F, 0.1571F, 0.0F);
-        MAG19_r1.cubeList.add(new ModelBox(MAG19_r1, 0, 100, 14.0F, -19.2F, 11.5F, 8, 1, 3, 0.0F, true));
-        MAG19_r1.cubeList.add(new ModelBox(MAG19_r1, 0, 100, 14.0F, -20.8F, 11.5F, 8, 1, 3, 0.0F, true));
-        MAG19_r1.cubeList.add(new ModelBox(MAG19_r1, 0, 100, 14.0F, -19.2F, 15.2F, 8, 1, 4, 0.0F, true));
-        MAG19_r1.cubeList.add(new ModelBox(MAG19_r1, 0, 100, 14.0F, -20.8F, 15.2F, 8, 1, 4, 0.0F, true));
-        MAG19_r1.cubeList.add(new ModelBox(MAG19_r1, 0, 100, 14.0F, -20.5F, 11.2F, 8, 2, 9, 0.0F, true));
+        setRotationAngle(MAG19_r1, 0, 0.1571F, 0);
+        MAG19_r1.cubeList.add(new ModelBox(MAG19_r1, 0, 100, 14, -19.2F, 11.5F, 8, 1, 3, 0, true));
+        MAG19_r1.cubeList.add(new ModelBox(MAG19_r1, 0, 100, 14, -20.8F, 11.5F, 8, 1, 3, 0, true));
+        MAG19_r1.cubeList.add(new ModelBox(MAG19_r1, 0, 100, 14, -19.2F, 15.2F, 8, 1, 4, 0, true));
+        MAG19_r1.cubeList.add(new ModelBox(MAG19_r1, 0, 100, 14, -20.8F, 15.2F, 8, 1, 4, 0, true));
+        MAG19_r1.cubeList.add(new ModelBox(MAG19_r1, 0, 100, 14, -20.5F, 11.2F, 8, 2, 9, 0, true));
 
         MAG17_r1 = new ModelRenderer(this);
-        MAG17_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+        MAG17_r1.setRotationPoint(0, 0, 0);
         magazine.addChild(MAG17_r1);
-        setRotationAngle(MAG17_r1, 0.0F, 0.5585F, 0.0F);
-        MAG17_r1.cubeList.add(new ModelBox(MAG17_r1, 0, 100, 26.1F, -20.8F, 8.8F, 4, 1, 3, 0.0F, true));
-        MAG17_r1.cubeList.add(new ModelBox(MAG17_r1, 0, 100, 26.1F, -19.2F, 12.5F, 4, 1, 4, 0.0F, true));
-        MAG17_r1.cubeList.add(new ModelBox(MAG17_r1, 0, 100, 26.1F, -20.8F, 12.5F, 4, 1, 4, 0.0F, true));
-        MAG17_r1.cubeList.add(new ModelBox(MAG17_r1, 0, 100, 26.1F, -19.2F, 8.8F, 4, 1, 3, 0.0F, true));
-        MAG17_r1.cubeList.add(new ModelBox(MAG17_r1, 0, 100, 26.0F, -20.5F, 8.5F, 4, 2, 9, 0.0F, true));
+        setRotationAngle(MAG17_r1, 0, 0.5585F, 0);
+        MAG17_r1.cubeList.add(new ModelBox(MAG17_r1, 0, 100, 26.1F, -20.8F, 8.8F, 4, 1, 3, 0, true));
+        MAG17_r1.cubeList.add(new ModelBox(MAG17_r1, 0, 100, 26.1F, -19.2F, 12.5F, 4, 1, 4, 0, true));
+        MAG17_r1.cubeList.add(new ModelBox(MAG17_r1, 0, 100, 26.1F, -20.8F, 12.5F, 4, 1, 4, 0, true));
+        MAG17_r1.cubeList.add(new ModelBox(MAG17_r1, 0, 100, 26.1F, -19.2F, 8.8F, 4, 1, 3, 0, true));
+        MAG17_r1.cubeList.add(new ModelBox(MAG17_r1, 0, 100, 26, -20.5F, 8.5F, 4, 2, 9, 0, true));
 
         MAG2_r1 = new ModelRenderer(this);
         MAG2_r1.setRotationPoint(-2.051F, -1.0156F, -15.0695F);
         magazine.addChild(MAG2_r1);
-        setRotationAngle(MAG2_r1, 0.0F, 0.0F, 0.1222F);
-        MAG2_r1.cubeList.add(new ModelBox(MAG2_r1, 0, 100, 7.0F, -21.8F, 14.5F, 6, 1, 3, 0.0F, true));
+        setRotationAngle(MAG2_r1, 0, 0, 0.1222F);
+        MAG2_r1.cubeList.add(new ModelBox(MAG2_r1, 0, 100, 7, -21.8F, 14.5F, 6, 1, 3, 0, true));
     }
 
     @Override

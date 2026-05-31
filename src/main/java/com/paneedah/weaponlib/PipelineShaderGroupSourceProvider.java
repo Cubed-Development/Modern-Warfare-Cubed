@@ -35,13 +35,13 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
 
     final DynamicShaderGroupSource source = new DynamicShaderGroupSource(UUID.randomUUID(),
             new ResourceLocation(ID, "shaders/post/post-processing-pipeline.json"))
-            .withUniform("NightVisionEnabled", context -> nightVisionEnabled ? 1.0f : 0.0f)
-            .withUniform("BlurEnabled", context -> blurEnabled ? 1.0f : 0.0f)
-            .withUniform("BlurVignetteRadius", context -> 0.0f)
+            .withUniform("NightVisionEnabled", context -> nightVisionEnabled ? 1 : 0)
+            .withUniform("BlurEnabled", context -> blurEnabled ? 1 : 0)
+            .withUniform("BlurVignetteRadius", context -> 0)
             .withUniform("Radius", context -> 10f)
             .withUniform("sussus", context -> 10f)
             .withUniform("Progress", context -> spreadableExposureProgress)
-            .withUniform("VignetteEnabled", context -> vignetteEnabled ? 1.0f : 0.0f)
+            .withUniform("VignetteEnabled", context -> vignetteEnabled ? 1 : 0)
             .withUniform("VignetteRadius", context -> vignetteRadius)
             .withUniform("Brightness", context -> brightness)
             .withUniform("SepiaRatio", context -> sepiaRatio)

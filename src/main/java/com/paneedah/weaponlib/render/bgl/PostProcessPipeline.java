@@ -123,7 +123,7 @@ public class PostProcessPipeline {
         }
 
         public void update() {
-            this.alpha = 1.0f - (System.currentTimeMillis() - creationTime) / life;
+            this.alpha = 1 - (System.currentTimeMillis() - creationTime) / life;
 
         }
 
@@ -491,7 +491,7 @@ public class PostProcessPipeline {
         GlStateManager.enableTexture2D();
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
-        GlStateManager.alphaFunc(GL11.GL_GREATER, 0.0F);
+        GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
         GlStateManager.blendFunc(SourceFactor.ONE, DestFactor.ONE_MINUS_SRC_ALPHA);
         MC.getTextureManager().bindTexture(CLOUD_SPRITE);
 
@@ -567,7 +567,7 @@ public class PostProcessPipeline {
 
     public static float getFogIntensity() {
         if (MC.world == null) {
-            return 0.0f;
+            return 0;
         }
         return BASE_FOG_INTENSITY * MC.world.getRainStrength(MC.getRenderPartialTicks());
     }
@@ -614,13 +614,13 @@ public class PostProcessPipeline {
         Shaders.postWorld.uniform1f("fogIntensity", getFogIntensity());
         Shaders.postWorld.uniform3f("baseFogColor", getBaseFogColor()[0], getBaseFogColor()[1], getBaseFogColor()[2]);
         // Shaders.postWorld.uniform1f("help", 0.2f);
-        // Shaders.postWorld.uniform1f("joe[0]", 1.0f);
+        // Shaders.postWorld.uniform1f("joe[0]", 1);
 
         // GL20.glUniform1f(GL20.getloc, v0);
 
         // Shaders.post.uniform3f("fk3f[0]", 5f, 0f, 0f);
 
-        // Shaders.post.uniform1f("help", 0.0f);
+        // Shaders.post.uniform1f("help", 0);
         // Send light data to the shader and
         // update the light manager
         lightManager.updateUniforms(Shaders.postWorld);
@@ -665,10 +665,10 @@ public class PostProcessPipeline {
         GlStateManager.ortho(0.0D, scaledresolution.getScaledWidth_double(), scaledresolution.getScaledHeight_double(), 0.0D, 1000.0D, 3000.0D);
         GlStateManager.matrixMode(5888);
         GlStateManager.loadIdentity();
-        GlStateManager.translate(0.0F, 0.0F, -2000.0F);
+        GlStateManager.translate(0, 0, -2000);
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
-        GlStateManager.alphaFunc(GL11.GL_GREATER, 0.0f);
+        GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
 
     }
 
@@ -802,7 +802,7 @@ public class PostProcessPipeline {
             // Fade
             float alphaFade = 1f;
             if (raindrop[6] > raindrop[7] / 2) {
-                alphaFade = 1.0f - (raindrop[6] - raindrop[7] / 2.0f) / (raindrop[7] / 2);
+                alphaFade = 1 - (raindrop[6] - raindrop[7] / 2) / (raindrop[7] / 2);
             }
 
             drawRaindrop(raindrop[0], raindrop[1], raindrop[4], raindrop[8], alphaFade);
@@ -831,7 +831,7 @@ public class PostProcessPipeline {
         GlStateManager.disableCull();
         double halfSize = size / 2;
 
-        GlStateManager.color(1.0f, 1.0f, 1.0f, alpha);
+        GlStateManager.color(1, 1, 1, alpha);
 
         bb.begin(GL11.GL_TRIANGLE_STRIP, DefaultVertexFormats.POSITION_TEX);
 
@@ -866,14 +866,14 @@ public class PostProcessPipeline {
 
         float fovModValue = MC.entityRenderer.getFOVModifier(MC.getRenderPartialTicks(), false);
 
-        Project.gluPerspective(fovModValue, (float) MC.displayWidth / (float) MC.displayHeight, 0.05F, fpt * 2.0F);
+        Project.gluPerspective(fovModValue, (float) MC.displayWidth / (float) MC.displayHeight, 0.05F, fpt * 2);
 
         // Project.gluPerspective(fovModValue, (float) MC.displayWidth / (float)
         // MC.displayHeight, 0.05F, fpt * MathHelper.SQRT_2);
 
         // Project.gluPerspective(MC.gameSettings.fovSetting, (float) MC.displayWidth /
         // (float) MC.displayHeight, 0.05F,
-        // fpt * 2.0f);
+        // fpt * 2);
 
         // Project.gluPerspective(this.getFOVModifier(partialTicks, true),
         // (float)this.MC.displayWidth / (float)this.MC.displayHeight, 0.05F,
@@ -947,7 +947,7 @@ public class PostProcessPipeline {
         Shaders.post.uniform1i("distortionBuffer", 5);
 
         // Send variables as uniforms
-        Shaders.post.uniform2f("windowSize", 1.0f / MC.displayWidth, 1.0f / MC.displayHeight);
+        Shaders.post.uniform2f("windowSize", 1 / MC.displayWidth, 1 / MC.displayHeight);
         Shaders.post.boolean1b("isSnow", !isRain);
         Shaders.post.uniform1f("timer", ClientValueRepo.TICKER.getLerpedFloat());
 

@@ -202,7 +202,7 @@ public class M1897Factory implements GunFactory {
                                     GlStateManager.rotate(7F, 0f, 0f, 1f);
                                     GlStateManager.rotate(-4F, 1f, 0f, 0f);
                                     GlStateManager.scale(4.000000f, 4.000000f, 4.000000f);
-                                    GlStateManager.translate(-0.18f, 0.5f, -1.0f);
+                                    GlStateManager.translate(-0.18f, 0.5f, -1);
                                 }, 110, 0),
 
                                 new Transition((renderContext) -> { // Reload position
@@ -283,7 +283,7 @@ public class M1897Factory implements GunFactory {
                                     GlStateManager.rotate(7F, 0f, 0f, 1f);
                                     GlStateManager.rotate(-4F, 1f, 0f, 0f);
                                     GlStateManager.scale(4.000000f, 4.000000f, 4.000000f);
-                                    GlStateManager.translate(0.25f, 0.25f, -1.0f);
+                                    GlStateManager.translate(0.25f, 0.25f, -1);
                                 }, 110, 0),
 
                                 new Transition((renderContext) -> { // Reload position

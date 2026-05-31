@@ -55,7 +55,7 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
         GlStateManager.matrixMode(GL11.GL_MODELVIEW);
         GlStateManager.pushMatrix();
         GlStateManager.loadIdentity();
-        //GlStateManager.translate(0.0F, 0.0F, -2000.0F);
+        //GlStateManager.translate(0, 0, -2000);
     }
 
     private void restoreRenderingMode() {

@@ -39,135 +39,135 @@ public class F5SwitchbladeBackpack extends ModelBiped {
         textureHeight = 64;
 
         head = new ModelRenderer(this);
-        head.setRotationPoint(0.0F, 0.0F, 0.0F);
-        head.cubeList.add(new ModelBox(head, 0, 0, -4.0F, -8.0F, -4.0F, 8, 8, 8, 0.0F, false));
+        head.setRotationPoint(0, 0, 0);
+        head.cubeList.add(new ModelBox(head, 0, 0, -4, -8, -4, 8, 8, 8, 0, false));
 
         body = new ModelRenderer(this);
-        body.setRotationPoint(0.0F, 0.0F, 0.0F);
-        body.cubeList.add(new ModelBox(body, 0, 16, -4.0F, 0.0F, -2.0F, 8, 12, 4, 0.0F, false));
+        body.setRotationPoint(0, 0, 0);
+        body.cubeList.add(new ModelBox(body, 0, 16, -4, 0, -2, 8, 12, 4, 0, false));
 
         rightarm = new ModelRenderer(this);
-        rightarm.setRotationPoint(-5.0F, 2.0F, 0.0F);
-        rightarm.cubeList.add(new ModelBox(rightarm, 36, 36, -3.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        rightarm.setRotationPoint(-5, 2, 0);
+        rightarm.cubeList.add(new ModelBox(rightarm, 36, 36, -3, -2, -2, 4, 12, 4, 0, false));
 
         leftarm = new ModelRenderer(this);
-        leftarm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftarm.setRotationPoint(5, 2, 0);
+        leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1, -2, -2, 4, 12, 4, 0, false));
 
         rightleg = new ModelRenderer(this);
-        rightleg.setRotationPoint(-2.0F, 12.0F, 0.0F);
-        rightleg.cubeList.add(new ModelBox(rightleg, 0, 32, -2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        rightleg.setRotationPoint(-2, 12, 0);
+        rightleg.cubeList.add(new ModelBox(rightleg, 0, 32, -2, 0, -2, 4, 12, 4, 0, false));
 
         leftleg = new ModelRenderer(this);
-        leftleg.setRotationPoint(2.0F, 12.0F, 0.0F);
-        leftleg.cubeList.add(new ModelBox(leftleg, 24, 24, -2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F, false));
+        leftleg.setRotationPoint(2, 12, 0);
+        leftleg.cubeList.add(new ModelBox(leftleg, 24, 24, -2, 0, -2, 4, 12, 4, 0, false));
 
         backpack = new ModelRenderer(this);
-        backpack.setRotationPoint(0.0F, 0.0F, 0.0F);
-        backpack.cubeList.add(new ModelBox(backpack, 16, 40, -3.0F, 1.0F, 2.0F, 6, 5, 3, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 4, 53, 2.35F, 0.0F, 1.25F, 1, 5, 1, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 0, 53, -3.35F, 0.0F, 1.25F, 1, 5, 1, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 48, 48, -3.35F, -0.25F, -2.0F, 1, 1, 4, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 12, 48, 2.35F, -0.25F, -2.0F, 1, 1, 4, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 4, 6, 2.35F, 0.0F, -2.25F, 1, 1, 1, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 0, 6, -3.35F, 0.0F, -2.25F, 1, 1, 1, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 40, 52, -3.85F, 0.75F, -2.401F, 2, 5, 1, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 24, 22, -2.0F, 4.3F, -2.5F, 4, 1, 1, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 48, 8, 1.85F, 0.75F, -2.401F, 2, 5, 1, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 40, 26, -3.0F, 6.0F, 3.75F, 6, 4, 1, 0.0F, false));
-        backpack.cubeList.add(new ModelBox(backpack, 36, 16, -3.5F, 2.0F, 2.0F, 7, 8, 2, 0.0F, false));
+        backpack.setRotationPoint(0, 0, 0);
+        backpack.cubeList.add(new ModelBox(backpack, 16, 40, -3, 1, 2, 6, 5, 3, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 4, 53, 2.35F, 0, 1.25F, 1, 5, 1, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 0, 53, -3.35F, 0, 1.25F, 1, 5, 1, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 48, 48, -3.35F, -0.25F, -2, 1, 1, 4, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 12, 48, 2.35F, -0.25F, -2, 1, 1, 4, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 4, 6, 2.35F, 0, -2.25F, 1, 1, 1, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 0, 6, -3.35F, 0, -2.25F, 1, 1, 1, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 40, 52, -3.85F, 0.75F, -2.401F, 2, 5, 1, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 24, 22, -2, 4.3F, -2.5F, 4, 1, 1, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 48, 8, 1.85F, 0.75F, -2.401F, 2, 5, 1, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 40, 26, -3, 6, 3.75F, 6, 4, 1, 0, false));
+        backpack.cubeList.add(new ModelBox(backpack, 36, 16, -3.5F, 2, 2, 7, 8, 2, 0, false));
 
         bone14 = new ModelRenderer(this);
         bone14.setRotationPoint(1.85F, 5.75F, -2.4F);
         backpack.addChild(bone14);
-        setRotationAngle(bone14, 0.0F, 0.0F, -0.4014F);
-        bone14.cubeList.add(new ModelBox(bone14, 9, 48, 0.0F, 0.0F, 0.0F, 2, 2, 1, 0.0F, false));
-        bone14.cubeList.add(new ModelBox(bone14, 29, 47, 0.5745F, 1.3626F, 0.05F, 1, 1, 5, 0.0F, false));
+        setRotationAngle(bone14, 0, 0, -0.4014F);
+        bone14.cubeList.add(new ModelBox(bone14, 9, 48, 0, 0, 0, 2, 2, 1, 0, false));
+        bone14.cubeList.add(new ModelBox(bone14, 29, 47, 0.5745F, 1.3626F, 0.05F, 1, 1, 5, 0, false));
 
         bone15 = new ModelRenderer(this);
         bone15.setRotationPoint(-1.85F, 5.75F, -2.4F);
         backpack.addChild(bone15);
-        setRotationAngle(bone15, 0.0F, 0.0F, 0.4014F);
-        bone15.cubeList.add(new ModelBox(bone15, 12, 32, -2.0F, 0.0F, 0.0F, 2, 2, 1, 0.0F, false));
-        bone15.cubeList.add(new ModelBox(bone15, 24, 16, -1.6722F, 1.1324F, 0.05F, 1, 1, 5, 0.0F, false));
+        setRotationAngle(bone15, 0, 0, 0.4014F);
+        bone15.cubeList.add(new ModelBox(bone15, 12, 32, -2, 0, 0, 2, 2, 1, 0, false));
+        bone15.cubeList.add(new ModelBox(bone15, 24, 16, -1.6722F, 1.1324F, 0.05F, 1, 1, 5, 0, false));
 
         bone11 = new ModelRenderer(this);
         bone11.setRotationPoint(2.9F, 10.25F, 4.75F);
         backpack.addChild(bone11);
-        setRotationAngle(bone11, -0.2443F, 0.0F, 1.3614F);
-        bone11.cubeList.add(new ModelBox(bone11, 16, 32, -1.0F, 0.0F, -3.0F, 1, 3, 3, 0.0F, false));
+        setRotationAngle(bone11, -0.2443F, 0, 1.3614F);
+        bone11.cubeList.add(new ModelBox(bone11, 16, 32, -1, 0, -3, 1, 3, 3, 0, false));
 
         bone12 = new ModelRenderer(this);
         bone12.setRotationPoint(-2.9F, 10.25F, 4.75F);
         backpack.addChild(bone12);
-        setRotationAngle(bone12, -0.2443F, 0.0F, -1.3614F);
-        bone12.cubeList.add(new ModelBox(bone12, 0, 0, 0.0F, 0.0F, -3.0F, 1, 3, 3, 0.0F, false));
+        setRotationAngle(bone12, -0.2443F, 0, -1.3614F);
+        bone12.cubeList.add(new ModelBox(bone12, 0, 0, 0, 0, -3, 1, 3, 3, 0, false));
 
         bone13 = new ModelRenderer(this);
-        bone13.setRotationPoint(-1.0F, 10.85F, 4.3F);
+        bone13.setRotationPoint(-1, 10.85F, 4.3F);
         backpack.addChild(bone13);
-        setRotationAngle(bone13, 0.0524F, 0.0F, 0.0F);
-        bone13.cubeList.add(new ModelBox(bone13, 24, 0, 0.0F, -1.0F, -3.0F, 2, 1, 3, 0.0F, false));
+        setRotationAngle(bone13, 0.0524F, 0, 0);
+        bone13.cubeList.add(new ModelBox(bone13, 24, 0, 0, -1, -3, 2, 1, 3, 0, false));
 
         bone5 = new ModelRenderer(this);
-        bone5.setRotationPoint(4.1F, 6.0F, 2.5F);
+        bone5.setRotationPoint(4.1F, 6, 2.5F);
         backpack.addChild(bone5);
-        setRotationAngle(bone5, 0.0F, -0.1571F, 0.0873F);
-        bone5.cubeList.add(new ModelBox(bone5, 52, 12, -1.0F, 0.0F, 0.0F, 1, 4, 2, 0.0F, false));
+        setRotationAngle(bone5, 0, -0.1571F, 0.0873F);
+        bone5.cubeList.add(new ModelBox(bone5, 52, 12, -1, 0, 0, 1, 4, 2, 0, false));
 
         bone7 = new ModelRenderer(this);
-        bone7.setRotationPoint(3.9F, 6.0F, 1.8F);
+        bone7.setRotationPoint(3.9F, 6, 1.8F);
         backpack.addChild(bone7);
         setRotationAngle(bone7, -0.0873F, -0.1571F, 0.8029F);
-        bone7.cubeList.add(new ModelBox(bone7, 24, 4, -1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        bone7.cubeList.add(new ModelBox(bone7, 24, 4, -1, 0, 0, 1, 1, 3, 0, false));
 
         bone8 = new ModelRenderer(this);
-        bone8.setRotationPoint(-3.9F, 6.0F, 1.8F);
+        bone8.setRotationPoint(-3.9F, 6, 1.8F);
         backpack.addChild(bone8);
         setRotationAngle(bone8, -0.0873F, 0.1571F, -0.8029F);
-        bone8.cubeList.add(new ModelBox(bone8, 20, 16, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        bone8.cubeList.add(new ModelBox(bone8, 20, 16, 0, 0, 0, 1, 1, 3, 0, false));
 
         bone6 = new ModelRenderer(this);
-        bone6.setRotationPoint(-4.1F, 6.0F, 2.5F);
+        bone6.setRotationPoint(-4.1F, 6, 2.5F);
         backpack.addChild(bone6);
-        setRotationAngle(bone6, 0.0F, 0.1571F, -0.0873F);
-        bone6.cubeList.add(new ModelBox(bone6, 50, 34, 0.0F, 0.0F, 0.0F, 1, 4, 2, 0.0F, false));
+        setRotationAngle(bone6, 0, 0.1571F, -0.0873F);
+        bone6.cubeList.add(new ModelBox(bone6, 50, 34, 0, 0, 0, 1, 4, 2, 0, false));
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(0.0F, 0.4F, 4.9F);
+        bone.setRotationPoint(0, 0.4F, 4.9F);
         backpack.addChild(bone);
         setRotationAngle(bone, -0.1745F, 0.0524F, 0.2094F);
-        bone.cubeList.add(new ModelBox(bone, 0, 48, 0.0F, 0.0F, -3.0F, 3, 2, 3, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 48, 0, 0, -3, 3, 2, 3, 0, false));
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(0.0F, 0.75F, 5.4F);
+        bone4.setRotationPoint(0, 0.75F, 5.4F);
         backpack.addChild(bone4);
         setRotationAngle(bone4, 0.1222F, -0.1047F, -0.0873F);
-        bone4.cubeList.add(new ModelBox(bone4, 52, 40, -3.0F, 0.0F, -1.0F, 3, 2, 1, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 52, 40, -3, 0, -1, 3, 2, 1, 0, false));
 
         bone9 = new ModelRenderer(this);
-        bone9.setRotationPoint(0.0F, 2.7F, 5.6F);
+        bone9.setRotationPoint(0, 2.7F, 5.6F);
         backpack.addChild(bone9);
         setRotationAngle(bone9, -0.0524F, -0.1047F, -0.0349F);
-        bone9.cubeList.add(new ModelBox(bone9, 48, 0, -2.0F, 0.0F, -1.0F, 2, 7, 1, 0.0F, false));
+        bone9.cubeList.add(new ModelBox(bone9, 48, 0, -2, 0, -1, 2, 7, 1, 0, false));
 
         bone10 = new ModelRenderer(this);
-        bone10.setRotationPoint(0.0F, 2.7F, 5.6F);
+        bone10.setRotationPoint(0, 2.7F, 5.6F);
         backpack.addChild(bone10);
         setRotationAngle(bone10, -0.0524F, 0.1047F, 0.0349F);
-        bone10.cubeList.add(new ModelBox(bone10, 22, 48, 0.0F, 0.0F, -1.0F, 2, 7, 1, 0.0F, false));
+        bone10.cubeList.add(new ModelBox(bone10, 22, 48, 0, 0, -1, 2, 7, 1, 0, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(0.0F, 0.75F, 5.4F);
+        bone3.setRotationPoint(0, 0.75F, 5.4F);
         backpack.addChild(bone3);
         setRotationAngle(bone3, 0.1222F, 0.1047F, 0.0873F);
-        bone3.cubeList.add(new ModelBox(bone3, 49, 31, 0.0F, 0.0F, -1.0F, 3, 2, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 49, 31, 0, 0, -1, 3, 2, 1, 0, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(0.0F, 0.4F, 4.9F);
+        bone2.setRotationPoint(0, 0.4F, 4.9F);
         backpack.addChild(bone2);
         setRotationAngle(bone2, -0.1745F, -0.0349F, -0.2269F);
-        bone2.cubeList.add(new ModelBox(bone2, 40, 31, -3.0F, 0.0F, -3.0F, 3, 2, 3, 0.0F, false));
+        bone2.cubeList.add(new ModelBox(bone2, 40, 31, -3, 0, -3, 3, 2, 3, 0, false));
 
         bipedLeftArm.isHidden = true;
         bipedRightArm.isHidden = true;

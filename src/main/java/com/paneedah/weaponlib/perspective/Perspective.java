@@ -30,7 +30,7 @@ public abstract class Perspective<S> {
         this.modContext = modContext;
         if (framebuffer == null) {
             framebuffer = new Framebuffer(width, height, true);
-            framebuffer.setFramebufferColor(0.0F, 0.0F, 0.0F, 0.0F);
+            framebuffer.setFramebufferColor(0, 0, 0, 0);
         }
         this.entityRenderer = manager.getEntityRenderer();
         this.effectRenderer = manager.getEffectRenderer();

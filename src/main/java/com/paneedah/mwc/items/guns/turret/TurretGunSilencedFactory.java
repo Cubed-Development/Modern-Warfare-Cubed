@@ -81,7 +81,7 @@ public class TurretGunSilencedFactory implements GunFactory {
                                         .withPosition(-1.265000f, 4.625000f, -3.765000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -90,7 +90,7 @@ public class TurretGunSilencedFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.050000f, 0.065000f, -0.500000f)
                                         .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -123,7 +123,7 @@ public class TurretGunSilencedFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.330000f, 0.065000f, 0.140000f)
                                             .withRotation(78.544055f, 23.699100f, 18.430633f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

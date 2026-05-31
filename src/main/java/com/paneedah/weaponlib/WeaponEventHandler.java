@@ -51,7 +51,7 @@ public class WeaponEventHandler {
         if (instance == null) {
             SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
             if (spreadableExposure != null && spreadableExposure.getTotalDose() > 0f) {
-                float fov = MC.player.capabilities.isFlying ? 1.1f : 1.0f;
+                float fov = MC.player.capabilities.isFlying ? 1.1f : 1;
                 event.setNewfov(fov);
             }
             return;
@@ -62,14 +62,14 @@ public class WeaponEventHandler {
             if (ClientProxy.renderingPhase == RenderingPhase.RENDER_PERSPECTIVE) {
                 fov = instance.getZoom();
             } else {
-                fov = clientPlayer.capabilities.isFlying ? 1.1f : 1.0f;
+                fov = clientPlayer.capabilities.isFlying ? 1.1f : 1;
             }
 
         } else {
-            fov = MC.player.capabilities.isFlying ? 1.1f : 1.0f;
+            fov = MC.player.capabilities.isFlying ? 1.1f : 1;
         }
         //fov = instance.isAimed() ? instance.getZoom() : 1f;
-        //fov = compatibility.isFlying(MC.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
+        //fov = compatibility.isFlying(MC.player) ? 1.1f : 1; //instance.isAimed() ? instance.getZoom() : 1f;
 
         final WeaponState state = instance.getState();
 

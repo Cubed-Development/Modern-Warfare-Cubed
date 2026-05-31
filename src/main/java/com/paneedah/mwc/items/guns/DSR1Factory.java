@@ -127,7 +127,7 @@ public class DSR1Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
-                    GlStateManager.translate(-0.072F, -1.03F, -1.0F);
+                    GlStateManager.translate(-0.072F, -1.03F, -1);
                     GlStateManager.scale(0.4F, 0.4F, 0.4F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -136,7 +136,7 @@ public class DSR1Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
-                    GlStateManager.translate(-0.072F, -1.03F, -1.0F);
+                    GlStateManager.translate(-0.072F, -1.03F, -1);
                     GlStateManager.scale(0.4F, 0.4F, 0.4F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -203,7 +203,7 @@ public class DSR1Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
-                    GlStateManager.translate(-0.175F, -1.23F, -1.0F);
+                    GlStateManager.translate(-0.175F, -1.23F, -1);
                     GlStateManager.scale(0.35F, 0.35F, 0.35F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -212,7 +212,7 @@ public class DSR1Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
-                    GlStateManager.translate(-0.175F, -1.23F, -1.0F);
+                    GlStateManager.translate(-0.175F, -1.23F, -1);
                     GlStateManager.scale(0.35F, 0.35F, 0.35F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -1196,7 +1196,7 @@ public class DSR1Factory implements GunFactory {
                             // HP Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                                 //System.out.println("Position me for Scope");
-                                GlStateManager.translate(0F, 0.01f, 0.0f);
+                                GlStateManager.translate(0F, 0.01f, 0);
                             }
 
                             // HP Zoom

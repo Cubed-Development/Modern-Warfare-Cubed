@@ -18,8 +18,8 @@ public class ScarHAction extends ModelWithAttachments {
         textureHeight = 300;
 
         action = new ModelRenderer(this);
-        action.setRotationPoint(-0.25F, -15.7F, -45.0F);
-        action.cubeList.add(new ModelBox(action, 197, 160, -1.0F, -2.0F, -2.0F, 1, 2, 31, 0.0F, false));
+        action.setRotationPoint(-0.25F, -15.7F, -45);
+        action.cubeList.add(new ModelBox(action, 197, 160, -1, -2, -2, 1, 2, 31, 0, false));
         action.cubeList.add(new ModelBox(action, 90, 76, -0.5F, -1.35F, 11.8F, 3, 1, 1, -0.05F, false));
         action.cubeList.add(new ModelBox(action, 96, 73, -0.5F, -1.35F, 11.8F, 1, 1, 1, 0.05F, false));
         action.cubeList.add(new ModelBox(action, 34, 103, 1.9F, -0.95F, 11.4F, 1, 1, 1, -0.3F, false));
@@ -30,8 +30,8 @@ public class ScarHAction extends ModelWithAttachments {
         action.cubeList.add(new ModelBox(action, 16, 103, 1.9F, -1.75F, 12.2F, 1, 1, 1, -0.3F, false));
         action.cubeList.add(new ModelBox(action, 49, 98, 1.9F, -1.35F, 12.2F, 1, 1, 1, -0.3F, false));
         action.cubeList.add(new ModelBox(action, 97, 77, 1.9F, -1.35F, 11.4F, 1, 1, 1, -0.3F, false));
-        action.cubeList.add(new ModelBox(action, 100, 166, -2.5F, -2.0F, -2.0F, 1, 2, 31, 0.0F, false));
-        action.cubeList.add(new ModelBox(action, 26, 0, -3.3F, 1.5F, 19.0F, 1, 2, 12, 0.0F, false));
+        action.cubeList.add(new ModelBox(action, 100, 166, -2.5F, -2, -2, 1, 2, 31, 0, false));
+        action.cubeList.add(new ModelBox(action, 26, 0, -3.3F, 1.5F, 19, 1, 2, 12, 0, false));
     }
 
     @Override

@@ -671,7 +671,7 @@ public class BalancePackManager {
 
     public static void createDefaultBalancePack() {
         BalancePack defaultPack = new BalancePack("default", "1.0", 1.0, 1.0, 7.5);
-        defaultPack.addWeaponConfig(new GunBalanceConfiguration("exampleWeapon", true, 8.0, 1.0, 0.5f, 0.0f));
+        defaultPack.addWeaponConfig(new GunBalanceConfiguration("exampleWeapon", true, 8.0, 1.0, 0.5f, 0));
         for (GunConfigurationGroup i : GunConfigurationGroup.values()) {
             defaultPack.addBalancingCategory(new GunCategoryBalanceConfiguration(i, 1.0, 1.0, 1.0));
         }

@@ -21,32 +21,32 @@ public class KragJorgensenChamber extends ModelWithAttachments {
         textureHeight = 256;
 
         chamber = new ModelRenderer(this);
-        chamber.setRotationPoint(0.0F, 27.9719F, -47.3601F);
-        chamber.cubeList.add(new ModelBox(chamber, 200, 0, -6.2F, -40.7719F, 16.3601F, 1, 3, 9, 0.0F, true));
-        chamber.cubeList.add(new ModelBox(chamber, 200, 0, -6.0F, -41.1719F, 16.3601F, 1, 1, 9, 0.0F, true));
-        chamber.cubeList.add(new ModelBox(chamber, 200, 0, -5.1F, -41.1719F, 16.3601F, 1, 1, 9, 0.0F, true));
-        chamber.cubeList.add(new ModelBox(chamber, 200, 0, -6.0F, -41.5719F, 20.3601F, 1, 1, 3, 0.0F, true));
-        chamber.cubeList.add(new ModelBox(chamber, 200, 0, -5.4F, -41.5719F, 20.3601F, 1, 1, 3, 0.0F, true));
+        chamber.setRotationPoint(0, 27.9719F, -47.3601F);
+        chamber.cubeList.add(new ModelBox(chamber, 200, 0, -6.2F, -40.7719F, 16.3601F, 1, 3, 9, 0, true));
+        chamber.cubeList.add(new ModelBox(chamber, 200, 0, -6, -41.1719F, 16.3601F, 1, 1, 9, 0, true));
+        chamber.cubeList.add(new ModelBox(chamber, 200, 0, -5.1F, -41.1719F, 16.3601F, 1, 1, 9, 0, true));
+        chamber.cubeList.add(new ModelBox(chamber, 200, 0, -6, -41.5719F, 20.3601F, 1, 1, 3, 0, true));
+        chamber.cubeList.add(new ModelBox(chamber, 200, 0, -5.4F, -41.5719F, 20.3601F, 1, 1, 3, 0, true));
 
         chamber10_r1 = new ModelRenderer(this);
-        chamber10_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+        chamber10_r1.setRotationPoint(0, 0, 0);
         chamber.addChild(chamber10_r1);
-        setRotationAngle(chamber10_r1, -1.0782F, 0.0F, 0.0F);
-        chamber10_r1.cubeList.add(new ModelBox(chamber10_r1, 200, 0, -5.4F, -37.6F, -27.0F, 1, 1, 1, 0.0F, true));
-        chamber10_r1.cubeList.add(new ModelBox(chamber10_r1, 200, 0, -6.0F, -37.6F, -27.0F, 1, 1, 1, 0.0F, true));
+        setRotationAngle(chamber10_r1, -1.0782F, 0, 0);
+        chamber10_r1.cubeList.add(new ModelBox(chamber10_r1, 200, 0, -5.4F, -37.6F, -27, 1, 1, 1, 0, true));
+        chamber10_r1.cubeList.add(new ModelBox(chamber10_r1, 200, 0, -6, -37.6F, -27, 1, 1, 1, 0, true));
 
         chamber8_r1 = new ModelRenderer(this);
-        chamber8_r1.setRotationPoint(0.0F, 2.8746F, 27.1375F);
+        chamber8_r1.setRotationPoint(0, 2.8746F, 27.1375F);
         chamber.addChild(chamber8_r1);
-        setRotationAngle(chamber8_r1, -0.4833F, 0.0F, 0.0F);
-        chamber8_r1.cubeList.add(new ModelBox(chamber8_r1, 200, 0, -5.4F, -37.6F, -24.0F, 1, 1, 1, 0.0F, true));
-        chamber8_r1.cubeList.add(new ModelBox(chamber8_r1, 200, 0, -6.0F, -37.6F, -24.0F, 1, 1, 1, 0.0F, true));
+        setRotationAngle(chamber8_r1, -0.4833F, 0, 0);
+        chamber8_r1.cubeList.add(new ModelBox(chamber8_r1, 200, 0, -5.4F, -37.6F, -24, 1, 1, 1, 0, true));
+        chamber8_r1.cubeList.add(new ModelBox(chamber8_r1, 200, 0, -6, -37.6F, -24, 1, 1, 1, 0, true));
 
         chamber2_r1 = new ModelRenderer(this);
-        chamber2_r1.setRotationPoint(0.0F, -67.1682F, 51.5638F);
+        chamber2_r1.setRotationPoint(0, -67.1682F, 51.5638F);
         chamber.addChild(chamber2_r1);
-        setRotationAngle(chamber2_r1, 1.5243F, 0.0F, 0.0F);
-        chamber2_r1.cubeList.add(new ModelBox(chamber2_r1, 200, 0, -6.2F, -33.8F, -31.0F, 1, 9, 1, 0.0F, true));
+        setRotationAngle(chamber2_r1, 1.5243F, 0, 0);
+        chamber2_r1.cubeList.add(new ModelBox(chamber2_r1, 200, 0, -6.2F, -33.8F, -31, 1, 9, 1, 0, true));
     }
 
     @Override

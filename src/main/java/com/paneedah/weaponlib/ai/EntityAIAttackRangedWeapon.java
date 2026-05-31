@@ -168,9 +168,9 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase {
             float forward = this.strafingBackwards ? -0.5F : 0.5F;
             float strafe = this.strafingClockwise ? 0.5F : -0.5F;
             this.entity.getMoveHelper().strafe(forward, strafe);
-            this.entity.faceEntity(this.entity.getAttackTarget(), 30.0F, 30.0F);
+            this.entity.faceEntity(this.entity.getAttackTarget(), 30, 30);
         } else {
-            this.entity.getLookHelper().setLookPositionWithEntity(this.entity.getAttackTarget(), 30.0F, 30.0F);
+            this.entity.getLookHelper().setLookPositionWithEntity(this.entity.getAttackTarget(), 30, 30);
         }
     }
 

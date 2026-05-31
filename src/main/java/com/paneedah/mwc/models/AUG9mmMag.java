@@ -26,17 +26,17 @@ public class AUG9mmMag extends ModelBase {
         mag5_r1 = new ModelRenderer(this);
         mag5_r1.setRotationPoint(1.5F, 14.678F, -14.3755F);
         magazine9mm.addChild(mag5_r1);
-        setRotationAngle(mag5_r1, -0.0372F, 0.0F, 0.0F);
-        mag5_r1.cubeList.add(new ModelBox(mag5_r1, 86, 29, -1.4F, -12.1F, 11.4F, 1, 1, 5, 0.0F, false));
-        mag5_r1.cubeList.add(new ModelBox(mag5_r1, 72, 96, -2.6F, -12.1F, 11.4F, 1, 1, 5, 0.0F, false));
+        setRotationAngle(mag5_r1, -0.0372F, 0, 0);
+        mag5_r1.cubeList.add(new ModelBox(mag5_r1, 86, 29, -1.4F, -12.1F, 11.4F, 1, 1, 5, 0, false));
+        mag5_r1.cubeList.add(new ModelBox(mag5_r1, 72, 96, -2.6F, -12.1F, 11.4F, 1, 1, 5, 0, false));
 
         mag3_r1 = new ModelRenderer(this);
         mag3_r1.setRotationPoint(1.5F, 14.6743F, -14.3754F);
         magazine9mm.addChild(mag3_r1);
-        setRotationAngle(mag3_r1, -0.0372F, 0.0F, 0.0F);
-        mag3_r1.cubeList.add(new ModelBox(mag3_r1, 18, 60, -2.0F, -24.1F, 11.3F, 1, 13, 1, 0.0F, false));
-        mag3_r1.cubeList.add(new ModelBox(mag3_r1, 50, 27, -2.5F, -24.1F, 15.5F, 2, 13, 1, 0.0F, false));
-        mag3_r1.cubeList.add(new ModelBox(mag3_r1, 67, 0, -2.5F, -24.1F, 11.5F, 2, 13, 4, 0.0F, false));
+        setRotationAngle(mag3_r1, -0.0372F, 0, 0);
+        mag3_r1.cubeList.add(new ModelBox(mag3_r1, 18, 60, -2, -24.1F, 11.3F, 1, 13, 1, 0, false));
+        mag3_r1.cubeList.add(new ModelBox(mag3_r1, 50, 27, -2.5F, -24.1F, 15.5F, 2, 13, 1, 0, false));
+        mag3_r1.cubeList.add(new ModelBox(mag3_r1, 67, 0, -2.5F, -24.1F, 11.5F, 2, 13, 4, 0, false));
     }
 
     @Override

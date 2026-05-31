@@ -20,25 +20,25 @@ public class BrowningAuto5Action extends ModelWithAttachments {
         textureHeight = 256;
 
         action = new ModelRenderer(this);
-        action.setRotationPoint(0.0F, 24.0F, 0.0F);
-        action.cubeList.add(new ModelBox(action, 0, 0, -1.1F, -29.5F, 3.0F, 1, 1, 11, 0.0F, true));
-        action.cubeList.add(new ModelBox(action, 0, 0, -2.1F, -29.5F, 3.3F, 1, 1, 1, 0.0F, true));
-        action.cubeList.add(new ModelBox(action, 0, 0, -1.7F, -29.5F, 3.5F, 1, 1, 1, 0.0F, true));
-        action.cubeList.add(new ModelBox(action, 0, 0, -4.0F, -29.8F, 2.9F, 1, 1, 1, 0.0F, true));
-        action.cubeList.add(new ModelBox(action, 0, 0, -4.0F, -29.4F, 2.9F, 1, 1, 1, 0.0F, true));
+        action.setRotationPoint(0, 24, 0);
+        action.cubeList.add(new ModelBox(action, 0, 0, -1.1F, -29.5F, 3, 1, 1, 11, 0, true));
+        action.cubeList.add(new ModelBox(action, 0, 0, -2.1F, -29.5F, 3.3F, 1, 1, 1, 0, true));
+        action.cubeList.add(new ModelBox(action, 0, 0, -1.7F, -29.5F, 3.5F, 1, 1, 1, 0, true));
+        action.cubeList.add(new ModelBox(action, 0, 0, -4, -29.8F, 2.9F, 1, 1, 1, 0, true));
+        action.cubeList.add(new ModelBox(action, 0, 0, -4, -29.4F, 2.9F, 1, 1, 1, 0, true));
 
         action6_r1 = new ModelRenderer(this);
-        action6_r1.setRotationPoint(0.616F, 0.0F, 1.0255F);
+        action6_r1.setRotationPoint(0.616F, 0, 1.0255F);
         action.addChild(action6_r1);
-        setRotationAngle(action6_r1, 0.0F, -0.2677F, 0.0F);
-        action6_r1.cubeList.add(new ModelBox(action6_r1, 0, 0, -3.5F, -29.4F, 2.8F, 2, 1, 1, 0.0F, true));
-        action6_r1.cubeList.add(new ModelBox(action6_r1, 0, 0, -3.5F, -29.8F, 2.8F, 2, 1, 1, 0.0F, true));
+        setRotationAngle(action6_r1, 0, -0.2677F, 0);
+        action6_r1.cubeList.add(new ModelBox(action6_r1, 0, 0, -3.5F, -29.4F, 2.8F, 2, 1, 1, 0, true));
+        action6_r1.cubeList.add(new ModelBox(action6_r1, 0, 0, -3.5F, -29.8F, 2.8F, 2, 1, 1, 0, true));
 
         action2_r1 = new ModelRenderer(this);
-        action2_r1.setRotationPoint(27.6775F, -22.9184F, 0.0F);
+        action2_r1.setRotationPoint(27.6775F, -22.9184F, 0);
         action.addChild(action2_r1);
-        setRotationAngle(action2_r1, 0.0F, 0.0F, -1.3087F);
-        action2_r1.cubeList.add(new ModelBox(action2_r1, 0, 0, -1.1F, -29.5F, 3.0F, 1, 1, 11, 0.0F, true));
+        setRotationAngle(action2_r1, 0, 0, -1.3087F);
+        action2_r1.cubeList.add(new ModelBox(action2_r1, 0, 0, -1.1F, -29.5F, 3, 1, 1, 11, 0, true));
     }
 
     @Override

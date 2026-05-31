@@ -131,7 +131,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         this.motionY = mY;
         this.motionZ = mZ;
 
-        if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
+        if (this.prevRotationPitch == 0 && this.prevRotationYaw == 0) {
             float f = MathHelper.sqrt(mX * mX + mZ * mZ);
             this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(mX, mZ) * 180.0D / Math.PI);
             this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(mY, f) * 180.0D
@@ -237,19 +237,19 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
         for (this.rotationPitch = (float) (Math.atan2(this.motionY, f1) * 180.0D / Math.PI);
-             this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F)
+             this.rotationPitch - this.prevRotationPitch < -180; this.prevRotationPitch -= 360)
             ;
 
-        while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
-            this.prevRotationPitch += 360.0F;
+        while (this.rotationPitch - this.prevRotationPitch >= 180) {
+            this.prevRotationPitch += 360;
         }
 
-        while (this.rotationYaw - this.prevRotationYaw < -180.0F) {
-            this.prevRotationYaw -= 360.0F;
+        while (this.rotationYaw - this.prevRotationYaw < -180) {
+            this.prevRotationYaw -= 360;
         }
 
-        while (this.rotationYaw - this.prevRotationYaw >= 180.0F) {
-            this.prevRotationYaw += 360.0F;
+        while (this.rotationYaw - this.prevRotationYaw >= 180) {
+            this.prevRotationYaw += 360;
         }
 
         this.rotationPitch = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * 0.2F;
@@ -388,7 +388,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 
     // @SideOnly(Side.CLIENT)
     public float getShadowSize() {
-        return 0.0F;
+        return 0;
     }
 
     public double getAimTan() {

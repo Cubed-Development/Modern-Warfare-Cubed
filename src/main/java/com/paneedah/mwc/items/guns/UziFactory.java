@@ -163,7 +163,7 @@ public class UziFactory implements GunFactory {
                                         .withPosition(-1.265000f, 4.225000f, -5.765000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -172,7 +172,7 @@ public class UziFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.210000f, 0.505000f, 0.620000f)
                                         .withBBRotation(-7.2749F, -30.8463F, 56.4758F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -324,7 +324,7 @@ public class UziFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.770000f, 1.225000f, 0.140000f)
                                             .withRotation(73.670132f, -70.659155f, 41.991085f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },
@@ -342,7 +342,7 @@ public class UziFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.770000f, 1.225000f, 0.140000f)
                                             .withRotation(73.670132f, -70.659155f, 41.991085f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

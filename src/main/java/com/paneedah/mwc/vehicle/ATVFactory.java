@@ -43,7 +43,7 @@ public class ATVFactory implements VehicleFactory {
 
                         Positioners.position(
                                 -0.7f, (float) (-1.500000f - entityVehicle.rideOffset), -1.100000f,
-                                0.0f, 0f, 0f,
+                                0, 0f, 0f,
                                 0.000000f, 0.000000f, 0f,
                                 1.20000f, 1.20000f, 1.20000f
                         );

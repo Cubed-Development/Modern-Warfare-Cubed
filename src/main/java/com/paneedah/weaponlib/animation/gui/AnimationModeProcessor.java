@@ -442,7 +442,7 @@ public class AnimationModeProcessor {
 
         bb.pos(0, 0, -1).endVertex();
         bb.pos(0, 0, 1).endVertex();
-        GlStateManager.color(1.0f, 1f, 1f);
+        GlStateManager.color(1, 1f, 1f);
         GlStateManager.enableTexture2D();
         //DebugRenderer.destructBasicRender();
         t.draw();
@@ -485,7 +485,7 @@ public class AnimationModeProcessor {
         //System.out.println(mat);
         modifiedView.rewind();
 
-        GlStateManager.glLineWidth(2.0f);
+        GlStateManager.glLineWidth(2);
         GlStateManager.multMatrix(modifiedView);
         GlStateManager.disableDepth();
         renderLightAxisRing(Vec3d.ZERO, Color.GRAY.brighter(), 0f, size * 5.5f, false, false);
@@ -596,7 +596,7 @@ public class AnimationModeProcessor {
         float b = c.getBlue() / 255f;
         float g = c.getGreen() / 255f;
 
-        float al = 1.0f;
+        float al = 1;
         if (!held) {
             al = 0.5f;
         }
@@ -633,7 +633,7 @@ public class AnimationModeProcessor {
         float b = c.getBlue() / 255f;
         float g = c.getGreen() / 255f;
 
-        float al = 1.0f;
+        float al = 1;
         if (!held) {
             al = 0.5f;
         }
@@ -756,7 +756,7 @@ public class AnimationModeProcessor {
         float b = c.getBlue() / 255f;
         float g = c.getGreen() / 255f;
 
-        float al = 1.0f;
+        float al = 1;
         if (!held) {
             al = 0.5f;
         }
@@ -821,10 +821,10 @@ public class AnimationModeProcessor {
 
         // System.out.println("fuck");
 
-        float red = c.getRed() / 255.0f;
-        float blue = c.getBlue() / 255.0f;
-        float green = c.getGreen() / 255.0f;
-        // float alpha = c.getAlpha()/255.0f;
+        float red = c.getRed() / 255;
+        float blue = c.getBlue() / 255;
+        float green = c.getGreen() / 255;
+        // float alpha = c.getAlpha()/255;
 
         GlStateManager.pushMatrix();
 
@@ -838,7 +838,7 @@ public class AnimationModeProcessor {
 //        GL11.glEnable(GL13.GL_MULTISAMPLE);
 //        GL11.glHint(NVMultisampleFilterHint.GL_MULTISAMPLE_FILTER_HINT_NV, GL11.GL_NICEST);
 //        System.out.println(GlStateManager.glGetInteger(GL13.GL_SAMPLE_BUFFERS));
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
         Tessellator t = Tessellator.getInstance();
         BufferBuilder bb = t.getBuffer();
         double endAng = 0;

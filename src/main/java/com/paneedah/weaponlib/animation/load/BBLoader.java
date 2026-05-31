@@ -60,8 +60,8 @@ public class BBLoader {
     public static Transform test = new Transform()
             .withPosition(-2, 3, -2)
             .withRotation(0, 0, -0)
-            .withScale(3.0F, 3.0F, 3.0F)
-            .withPivotPoint(-0.1F, 1.0F, 0.0F);
+            .withScale(3, 3, 3)
+            .withPivotPoint(-0.1F, 1, 0);
 
 
     @Getter

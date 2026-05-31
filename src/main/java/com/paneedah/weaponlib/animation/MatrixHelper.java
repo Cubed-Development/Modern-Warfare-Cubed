@@ -189,7 +189,7 @@ public class MatrixHelper {
         return build(1f, 0f, 0f, x,
                 0f, 1f, 0f, y,
                 0f, 0f, 1f, z,
-                0f, 0f, 0f, 1.0f);
+                0f, 0f, 0f, 1);
     }
 
     public static Matrix4f build(float m00, float m10, float m20, float m30,
@@ -247,7 +247,7 @@ public class MatrixHelper {
         // the shorter path. Note that v1 and -v1 are equivalent when
         // the negation is applied to all four components. Fix by
         // reversing one quaternion.
-        if (dot < 0.0f) {
+        if (dot < 0) {
             v1 = new Quaternion(-v1.x, -v1.y, -v1.z, -v1.w);
             dot = -dot;
         }

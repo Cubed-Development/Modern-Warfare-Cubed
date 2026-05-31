@@ -37,7 +37,7 @@ public class DriftMovingSound extends AdvCompatibleMovingSound {
         //System.out.println("fortnite: " + ((float) Math.abs(vehicle.getSolver().getSideSlipAngle())*2.0));
         //System.out.println(this.donePlaying);
         if (!isDonePlaying()) {
-            this.volume = 0.0f;
+            this.volume = 0;
             if (vehicle.getRealSpeed() >= 9) {
                 double sideSlipAngle = Math.abs(Math.toDegrees(vehicle.getSolver().getSideSlipAngle()));
                 if (Double.isNaN(sideSlipAngle)) {

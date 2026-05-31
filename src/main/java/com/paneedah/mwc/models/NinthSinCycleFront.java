@@ -20,32 +20,32 @@ public class NinthSinCycleFront extends ModelWithAttachments {
         textureHeight = 128;
 
         cycler_front_RECEIVER = new ModelRenderer(this);
-        cycler_front_RECEIVER.setRotationPoint(0.0F, -2.0F, -10.0F);
-        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 40, 19, -0.25F, 0.498F, -4.0F, 1, 1, 7, 0.0F, false));
-        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 52, 91, -1.0F, 0.5F, -2.0F, 2, 1, 4, 0.0F, false));
-        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 0, 49, -0.75F, 0.499F, -4.0F, 1, 1, 7, 0.0F, false));
-        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 61, 37, -1.0F, 0.5F, -5.0F, 2, 1, 1, 0.0F, false));
-        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 42, 52, -1.0F, 0.5F, 3.0F, 2, 1, 2, 0.0F, false));
-        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 80, 107, 1.5F, 1.5F, -5.0F, 1, 1, 8, 0.0F, false));
-        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 106, 35, -2.5F, 1.5F, -5.0F, 1, 1, 8, 0.0F, false));
+        cycler_front_RECEIVER.setRotationPoint(0, -2, -10);
+        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 40, 19, -0.25F, 0.498F, -4, 1, 1, 7, 0, false));
+        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 52, 91, -1, 0.5F, -2, 2, 1, 4, 0, false));
+        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 0, 49, -0.75F, 0.499F, -4, 1, 1, 7, 0, false));
+        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 61, 37, -1, 0.5F, -5, 2, 1, 1, 0, false));
+        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 42, 52, -1, 0.5F, 3, 2, 1, 2, 0, false));
+        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 80, 107, 1.5F, 1.5F, -5, 1, 1, 8, 0, false));
+        cycler_front_RECEIVER.cubeList.add(new ModelBox(cycler_front_RECEIVER, 106, 35, -2.5F, 1.5F, -5, 1, 1, 8, 0, false));
 
         cube_r63 = new ModelRenderer(this);
-        cube_r63.setRotationPoint(1.0F, 0.5F, 3.0F);
+        cube_r63.setRotationPoint(1, 0.5F, 3);
         cycler_front_RECEIVER.addChild(cube_r63);
-        setRotationAngle(cube_r63, 0.0F, 0.0F, -0.6981F);
-        cube_r63.cubeList.add(new ModelBox(cube_r63, 49, 19, -1.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
-        cube_r63.cubeList.add(new ModelBox(cube_r63, 100, 59, -0.999F, 0.5F, -8.0F, 1, 1, 10, 0.0F, false));
-        cube_r63.cubeList.add(new ModelBox(cube_r63, 46, 67, -1.0F, 0.0F, -8.0F, 1, 1, 1, 0.0F, false));
-        cube_r63.cubeList.add(new ModelBox(cube_r63, 36, 91, -1.0F, 0.0F, -5.0F, 1, 1, 4, 0.0F, false));
+        setRotationAngle(cube_r63, 0, 0, -0.6981F);
+        cube_r63.cubeList.add(new ModelBox(cube_r63, 49, 19, -1, 0, 0, 1, 1, 2, 0, false));
+        cube_r63.cubeList.add(new ModelBox(cube_r63, 100, 59, -0.999F, 0.5F, -8, 1, 1, 10, 0, false));
+        cube_r63.cubeList.add(new ModelBox(cube_r63, 46, 67, -1, 0, -8, 1, 1, 1, 0, false));
+        cube_r63.cubeList.add(new ModelBox(cube_r63, 36, 91, -1, 0, -5, 1, 1, 4, 0, false));
 
         cube_r64 = new ModelRenderer(this);
-        cube_r64.setRotationPoint(-1.0F, 0.5F, 3.0F);
+        cube_r64.setRotationPoint(-1, 0.5F, 3);
         cycler_front_RECEIVER.addChild(cube_r64);
-        setRotationAngle(cube_r64, 0.0F, 0.0F, 0.6981F);
-        cube_r64.cubeList.add(new ModelBox(cube_r64, 49, 22, 0.0F, 0.0F, 0.0F, 1, 1, 2, 0.0F, false));
-        cube_r64.cubeList.add(new ModelBox(cube_r64, 0, 100, -0.001F, 0.5F, -8.0F, 1, 1, 10, 0.0F, false));
-        cube_r64.cubeList.add(new ModelBox(cube_r64, 92, 19, 0.0F, 0.0F, -5.0F, 1, 1, 4, 0.0F, false));
-        cube_r64.cubeList.add(new ModelBox(cube_r64, 67, 5, 0.0F, 0.0F, -8.0F, 1, 1, 1, 0.0F, false));
+        setRotationAngle(cube_r64, 0, 0, 0.6981F);
+        cube_r64.cubeList.add(new ModelBox(cube_r64, 49, 22, 0, 0, 0, 1, 1, 2, 0, false));
+        cube_r64.cubeList.add(new ModelBox(cube_r64, 0, 100, -0.001F, 0.5F, -8, 1, 1, 10, 0, false));
+        cube_r64.cubeList.add(new ModelBox(cube_r64, 92, 19, 0, 0, -5, 1, 1, 4, 0, false));
+        cube_r64.cubeList.add(new ModelBox(cube_r64, 67, 5, 0, 0, -8, 1, 1, 1, 0, false));
     }
 
     @Override

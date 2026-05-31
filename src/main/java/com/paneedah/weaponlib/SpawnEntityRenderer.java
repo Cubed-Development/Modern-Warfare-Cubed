@@ -45,8 +45,8 @@ public class SpawnEntityRenderer extends Render<Entity> {
 				double xxofset = 0.4 - entity.distanceWalkedModified * weaponSpawnEntity.getAimTan();
 				double angle = Math.atan(weaponSpawnEntity.getAimTan());
 				// 360 -> 2p, x -> angle, x = 360 * angle / 2pi = 180 * angle /pi
-				double zOffset = xxofset * Math.cos(entity.rotationYaw / 180.0F * (float) Math.PI);
-				double xOffset = xxofset * Math.sin(entity.rotationYaw / 180.0F * (float) Math.PI);
+				double zOffset = xxofset * Math.cos(entity.rotationYaw / 180 * (float) Math.PI);
+				double xOffset = xxofset * Math.sin(entity.rotationYaw / 180 * (float) Math.PI);
 				//System.out.println("Xoffset: " + xOffset + ", zoffset: " + zOffset);
 				GlStateManager.translate(x + xOffset, y, z + zOffset);
 //            		GlStateManager.rotate(90, 1f, 0f, 0f);
@@ -56,7 +56,7 @@ public class SpawnEntityRenderer extends Render<Entity> {
 				GlStateManager.rotate(entity.rotationYaw - 90 + (float)(angle * 180 / Math.PI), 0f, 1f, 0f);
 				GlStateManager.rotate(90f + entity.rotationPitch, 0f, 0f, 1f);
 				GlStateManager.scale(2f, 2f, 2f);
-				model.renderer(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
+				model.renderer(entity, 0, 0, 0, 0, 0, 0.0625F);
 				GlStateManager.popMatrix();
 				*/
 
@@ -67,8 +67,8 @@ public class SpawnEntityRenderer extends Render<Entity> {
             // Panda: I don't know why this is here, but we don't need this.
             //double xxofset = 0.4 - entity.distanceWalkedModified * weaponSpawnEntity.getAimTan();
             //double angle = Math.atan(weaponSpawnEntity.getAimTan());
-            //double zOffset = xxofset * Math.cos(entity.rotationYaw / 180.0F * (float) Math.PI);
-            //double xOffset = xxofset * Math.sin(entity.rotationYaw / 180.0F * (float) Math.PI);
+            //double zOffset = xxofset * Math.cos(entity.rotationYaw / 180 * (float) Math.PI);
+            //double xOffset = xxofset * Math.sin(entity.rotationYaw / 180 * (float) Math.PI);
 
             if (weaponSpawnEntity.world.isRemote && weaponSpawnEntity.spawnRocketParticles) {
                 BetterMuzzleSmoke smokeParticle = new BetterMuzzleSmoke(
@@ -96,7 +96,7 @@ public class SpawnEntityRenderer extends Render<Entity> {
                     .applyTransformations();
 
 
-            model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
+            model.render(entity, 0, 0, 0, 0, 0, 0.0625F);
 
             GlStateManager.popMatrix();
         }

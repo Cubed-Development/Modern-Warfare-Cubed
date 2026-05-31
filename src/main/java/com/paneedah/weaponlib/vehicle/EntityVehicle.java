@@ -86,7 +86,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     private final DriverInteractionEvent driverInteractionEvent = DriverInteractionEvent.NONE;
     private long stateUpdateTimestamp;
     private Randomizer randomizer;
-    public float outOfControlTicks = 0.0F;
+    public float outOfControlTicks = 0;
     private int lerpSteps;
 
     public float deltaRotation;
@@ -105,8 +105,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
     public ModContext context;
 
-    public float prevLiftOffset = 0.0f;
-    public float liftOffset = 0.0f;
+    public float prevLiftOffset = 0;
+    public float liftOffset = 0;
 
     /*
      * SOUND DECLARATIONS/VARIABLES
@@ -115,7 +115,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     private final Supplier<Vector3D> soundPositionProvider = () -> new Vector3D(posX, posY, posZ);
     private final Supplier<Boolean> donePlayingSoundProvider = () -> isDead;
     private final Supplier<Boolean> isDorifto = () -> !getSolver().isDrifting;
-    private final Supplier<Float> doriftoSoundProvider = () -> 1.0f;
+    private final Supplier<Float> doriftoSoundProvider = () -> 1;
 
     /*
      * Key Inputs
@@ -151,11 +151,11 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
     public double rideOffset = 0.0;
 
-    public float rotationRoll = 0.0f;
-    public float prevRotationRoll = 0.0f;
+    public float rotationRoll = 0;
+    public float prevRotationRoll = 0;
 
-    public float rotationRollH = 0.0f;
-    public float prevRotationRollH = 0.0f;
+    public float rotationRollH = 0;
+    public float prevRotationRollH = 0;
 
     public double prevLastYawDelta = 0.0;
     public double lastYawDelta = 0.0;
@@ -329,7 +329,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             if (passenger.motionY == 0) {
                 passenger.motionY = 0.00001;
             }
-            float f = 0.0F;
+            float f = 0;
             float f1 = (float) ((this.isDead ? 0.009999999776482582D : this.getMountedYOffset())
                     + passenger.getYOffset());
 
@@ -379,7 +379,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
              * System.out.println(rotationYaw-130);
              *
              * //Vec3d apr = new Vec3d(aPRX/2, aPRY, aPRX); Vec3d apr = new Vec3d(-aPRX,
-             * aPRY, 10.0); if(aPRX == 1.0f || aPRX == -1.0f) aPRX = 0.0f;
+             * aPRY, 10.0); if(aPRX == 1 || aPRX == -1) aPRX = 0;
              */
 
             float mu = (float) ((1 - Math.cos(0.5f * Math.PI)) / 2f);
@@ -398,7 +398,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
             // this.rotationPitch = 10f;
 
-            // this.rotationPitch = (float) (45.0f*((ticksExisted%200)/200.0));
+            // this.rotationPitch = (float) (45*((ticksExisted%200)/200.0));
 
             float nin = (float) Math.toRadians(90);
             Vec3d tBro = new Vec3d(seatOffset.x, seatOffset.y, seatOffset.z).rotatePitch((float) Math.toRadians(iPitch))
@@ -440,7 +440,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
     protected void applyYawToEntity(Entity entityToUpdate) {
         entityToUpdate.setRenderYawOffset(this.rotationYaw);
         float f = MathHelper.wrapDegrees(entityToUpdate.rotationYaw - this.rotationYaw);
-        float f1 = MathHelper.clamp(f, -105.0F, 105.0F);
+        float f1 = MathHelper.clamp(f, -105, 105);
         entityToUpdate.prevRotationYaw += f1 - f;
         entityToUpdate.rotationYaw += f1 - f;
         entityToUpdate.setRotationYawHead(entityToUpdate.rotationYaw);
@@ -472,7 +472,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         if (player.isSneaking()) {
             return false;
         } else {
-            if (!this.world.isRemote && this.outOfControlTicks < 60.0F && canFitPassenger(player)) {
+            if (!this.world.isRemote && this.outOfControlTicks < 60 && canFitPassenger(player)) {
                 player.startRiding(this);
             }
 
@@ -620,11 +620,11 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             angle += sensitivity;
         }
 
-        if (angle < -45.0F) {
-            angle = -45.0F;
+        if (angle < -45) {
+            angle = -45;
         }
-        if (angle > 45.0F) {
-            angle = 45.0F;
+        if (angle > 45) {
+            angle = 45;
         }
 
         steerangle = Math.toRadians(angle);
@@ -640,12 +640,12 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         float yaw = driver.rotationYaw;
         float pitch = driver.rotationPitch;
 
-        float f = 1.0f;
-        double motionX = -MathHelper.sin(yaw / 180.0F * (float) Math.PI)
-                * MathHelper.cos(pitch / 180.0F * (float) Math.PI) * f;
-        double motionZ = MathHelper.cos(yaw / 180.0F * (float) Math.PI)
-                * MathHelper.cos(pitch / 180.0F * (float) Math.PI) * f;
-        double motionY = -MathHelper.sin((pitch) / 180.0F * (float) Math.PI) * f;
+        float f = 1;
+        double motionX = -MathHelper.sin(yaw / 180 * (float) Math.PI)
+                * MathHelper.cos(pitch / 180 * (float) Math.PI) * f;
+        double motionZ = MathHelper.cos(yaw / 180 * (float) Math.PI)
+                * MathHelper.cos(pitch / 180 * (float) Math.PI) * f;
+        double motionY = -MathHelper.sin((pitch) / 180 * (float) Math.PI) * f;
         Vec3d dirVec = new Vec3d(motionX, 0, motionZ);
         Vec3d oreintVec = Vec3d.fromPitchYaw(this.rotationPitch, this.rotationYaw);
 
@@ -659,11 +659,11 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         Vector3d ore = new Vector3d(oreintVec.x, oreintVec.y, oreintVec.z);
         double aT = Math.toDegrees(dir.angle(ore)) / 2;
         double steeringAngle = aT * det * -1;
-        if (aT < -45.0F) {
-            aT = -45.0F;
+        if (aT < -45) {
+            aT = -45;
         }
-        if (aT > 45.0F) {
-            aT = 45.0F;
+        if (aT > 45) {
+            aT = 45;
         }
         steerangle = Math.toRadians(-steeringAngle);
 
@@ -842,7 +842,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         prevWheelRotationAngle = wheelRotationAngle;
         double angVel = getRealSpeed();
-        wheelRotationAngle += angVel % 360; // wheelRotationAngle = 0.0f;
+        wheelRotationAngle += angVel % 360; // wheelRotationAngle = 0;
         // wheelRotationAngle -= (float) solver.velocity.length();
 
     }
@@ -1055,7 +1055,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                         //	MC.getConnection().sendPacket(new CPacketPlayer.PositionRotation(this.motionX, -999.0D, this.motionZ, this.rotationYaw, this.rotationPitch, true));
                         //player.onGround = true;
 
-                        //player.fallDistance = 0.0f;
+                        //player.fallDistance = 0;
 
 
                         if (!player.onGround) {
@@ -1257,7 +1257,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
             boolean flag = this.onGround || d3 != y && d3 < 0.0D;
 
-            if (this.stepHeight > 0.0F && flag && (d2 != x || d4 != z)) {
+            if (this.stepHeight > 0 && flag && (d2 != x || d4 != z)) {
                 double d14 = x;
                 double d6 = y;
                 double d7 = z;
@@ -1420,12 +1420,12 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                                         + entity.motionZ * entity.motionZ * 0.20000000298023224D)
                                 * f;
 
-                        if (f1 > 1.0F) {
-                            f1 = 1.0F;
+                        if (f1 > 1) {
+                            f1 = 1;
                         }
 
                         this.playSound(this.getSwimSound(), f1,
-                                1.0F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.4F);
+                                1 + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.4F);
                     } else {
                         this.playStepSound(blockpos, block);
                     }
@@ -1478,10 +1478,10 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
     public void oldHC() {
 
-        float targetDown = 0.0f;
-        float targetUp = 0.0f;
+        float targetDown = 0;
+        float targetUp = 0;
 
-        double dist = 0.0f;
+        double dist = 0;
         double forwardNess = 2.0;
         Vec3d sDown = new Vec3d(-0.5, 0.0, forwardNess).rotateYaw((float) Math.toRadians(-rotationYaw))
                 .add(getPositionVector());
@@ -1563,7 +1563,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
             }
 
             //System.out.println("sped" + getSpeed());
-            float t = 1.0f;
+            float t = 1;
             float mu2 = (float) ((1 - Math.cos(t * Math.PI)) / 2f);
             Vec3d lift = new Vec3d(0.0, upMag + 0.2, 0.7 + liftPush).rotateYaw((float) Math.toRadians(-rotationYaw))
                     .scale(mu2);
@@ -1600,13 +1600,13 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
          * PITCH SMOOTHING
          */
 
-        float adjT = 0.0f;
+        float adjT = 0;
         if (targetDown == 0.0) {
             adjT = targetUp;
         } else if (targetUp == 0.0) {
             adjT = targetDown;
         } else {
-            adjT = (targetDown + targetUp) / 2.0f;
+            adjT = (targetDown + targetUp) / 2;
         }
 
         // calculate difference from current pitch
@@ -1834,15 +1834,15 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
          * END ROLL HANDLER
          */
 
-        float targetDown = 0.0f;
-        float targetUp = 0.0f;
+        float targetDown = 0;
+        float targetUp = 0;
 
         /*
          * DOWNWARDS HILL HANDLING
          */
 
         /*
-         * double dist = 0.0f; double forwardNess = 2.0; Vec3d sDown = new Vec3d(-0.5,
+         * double dist = 0; double forwardNess = 2.0; Vec3d sDown = new Vec3d(-0.5,
          * 0.0, forwardNess).rotateYaw((float)
          * Math.toRadians(-rotationYaw)).add(getPositionVector()); Vec3d eDown = new
          * Vec3d(-0.5, -10, forwardNess).rotateYaw((float)
@@ -1855,7 +1855,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         // roll
 
-        double dist = 0.0f;
+        double dist = 0;
         double forwardNess = 2.0;
         Vec3d sDown = new Vec3d(-0.5, 0.0, forwardNess).rotateYaw((float) Math.toRadians(-rotationYaw))
                 .add(getPositionVector());
@@ -2025,7 +2025,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
                 opp = heightRay.hitVec.y - getPositionVector().y;
                 adj = heightRay.hitVec.subtract(ray.hitVec).length();
             }
-            float t = 1.0f;
+            float t = 1;
             float mu2 = (float) ((1 - Math.cos(t * Math.PI)) / 2f);
 
             Vec3d lift = new Vec3d(0.0, upMag + 0.55, 0.05 + liftPush).rotateYaw((float) Math.toRadians(-rotationYaw))
@@ -2086,13 +2086,13 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
          * Calculates the pitch target by blending the up & down targets
          */
 
-        float adjT = 0.0f;
+        float adjT = 0;
         if (targetDown == 0.0) {
             adjT = targetUp;
         } else if (targetUp == 0.0) {
             adjT = targetDown;
         } else {
-            adjT = (targetDown + targetUp) / 2.0f;
+            adjT = (targetDown + targetUp) / 2;
         }
 
         // DEBUG //
@@ -2315,12 +2315,12 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
         int ran = (int) Math.floor(Math.random() * (max - min + 1) + min);
         if (ran < 1) {
 
-            PositionedSound ps = new PositionedSoundRecord(getConfiguration().getBackfireSound(), SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
+            PositionedSound ps = new PositionedSoundRecord(getConfiguration().getBackfireSound(), SoundCategory.MASTER, 1.5f, 1, (float) posX, (float) posY, (float) posZ);
             MC.getSoundHandler().playSound(ps);
 
             for (int x = 0; x < 20 + (solver.synthAccelFor); ++x) {
                 // Vec3d pE =
-                // posExhaust.subtract(getPositionVector()).scale(1.0f+(Math.random()*0.5)).add(getPositionVector());
+                // posExhaust.subtract(getPositionVector()).scale(1+(Math.random()*0.5)).add(getPositionVector());
                 Vec3d pE = posExhaust;
                 MC.effectRenderer.addEffect(new VehicleExhaustFlameParticle(this.world, pE.x, pE.y, pE.z, partDirExhaust2.x * mult, 0, partDirExhaust2.z * mult));
 
@@ -2736,7 +2736,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
         // PLAY SHIFTING SOUND
         if (isInShift()) {
-            PositionedSound ps = new PositionedSoundRecord(getConfiguration().getGearshiftSound(), SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
+            PositionedSound ps = new PositionedSoundRecord(getConfiguration().getGearshiftSound(), SoundCategory.MASTER, 1.5f, 1, (float) posX, (float) posY, (float) posZ);
             MC.getSoundHandler().playSound(ps);
         }
 

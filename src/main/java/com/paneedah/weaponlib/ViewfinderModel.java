@@ -30,7 +30,7 @@ public class ViewfinderModel extends ModelBase {
         textureHeight = 64;
 
         surfaceRenderer = new ModelRenderer(this, 0, 0);
-        box = new FlatSurfaceModelBox(surfaceRenderer, 0, 0, 0f, 0f, 0f, 3, 3, 0, 0.0F);
+        box = new FlatSurfaceModelBox(surfaceRenderer, 0, 0, 0f, 0f, 0f, 3, 3, 0, 0);
         surfaceRenderer.cubeList.add(box);
         surfaceRenderer.mirror = true;
         surfaceRenderer.setRotationPoint(0F, -10F, 0F);
@@ -147,7 +147,7 @@ public class ViewfinderModel extends ModelBase {
                 ClientValueRepo.SCOPE_Y.setCurrentValue(1);
             }
             scopeShader.uniform1f("reticleZoom", (pwi + 0.86f));
-            scopeShader.uniform1f("actualZoom", (1.0f - pwi) - 0.80f);
+            scopeShader.uniform1f("actualZoom", (1 - pwi) - 0.80f);
         }
 
 

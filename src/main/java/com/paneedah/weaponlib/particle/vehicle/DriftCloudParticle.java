@@ -20,7 +20,7 @@ public class DriftCloudParticle extends TurbulentSmokeParticle {
     @Override
     public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX,
                                float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-        this.particleAlpha = 1.0f - ((this.particleAge / (float) this.particleMaxAge));
+        this.particleAlpha = 1 - ((this.particleAge / (float) this.particleMaxAge));
         this.particleScale = ((this.particleAge / (float) this.particleMaxAge)) + 0.5f;
         super.renderParticle(buffer, entityIn, partialTicks, rotationX, rotationZ, rotationYZ, rotationXY, rotationXZ);
     }

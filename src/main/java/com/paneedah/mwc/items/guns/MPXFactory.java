@@ -299,7 +299,7 @@ public class MPXFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.AimpointCompM2, (player, stack) -> {
-                    GlStateManager.translate(-0.12F, -1.0F, -1F);
+                    GlStateManager.translate(-0.12F, -1, -1F);
                     GlStateManager.scale(1F, 1F, 1F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -316,7 +316,7 @@ public class MPXFactory implements GunFactory {
                     GlStateManager.scale(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.AngledGrip, (model) -> {
-                    GlStateManager.translate(-0.2F, -0.23F, -3.0F);
+                    GlStateManager.translate(-0.2F, -0.23F, -3);
                     GlStateManager.scale(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.VGrip, (model) -> {
@@ -378,7 +378,7 @@ public class MPXFactory implements GunFactory {
                                         .withPosition(-1.585000f, 4.865000f, -3.685000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.940000f, 0.020000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -387,7 +387,7 @@ public class MPXFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.170000f, 0.025000f, -0.380000f)
                                         .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -395,7 +395,7 @@ public class MPXFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(-0.200000f, 0.100000f, 1.480000f)
                                         .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                                         .withPivotPoint(0, 0, 0)
 
                         )
@@ -581,7 +581,7 @@ public class MPXFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

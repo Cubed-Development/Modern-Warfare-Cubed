@@ -176,7 +176,7 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
     public void onStop() {
         if (!world.isRemote && itemGrenade != null) {
             world.playSound(null, posX, posY, posZ, itemGrenade.getStopAfterThrowingSound(), SoundCategory.BLOCKS, 2f,
-                    (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
+                    (1 + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
         }
 
     }

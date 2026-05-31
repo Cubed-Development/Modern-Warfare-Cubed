@@ -344,7 +344,7 @@ public class Type20Factory implements GunFactory {
                                         .withPosition(-1.425000f, 4.265000f, -3.085000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -353,7 +353,7 @@ public class Type20Factory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.130000f, 0.105000f, -0.580000f)
                                         .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -447,7 +447,7 @@ public class Type20Factory implements GunFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MBUSRearSights)) {
                                 //System.out.println("Position me for Acog");
-                                GlStateManager.translate(0F, 0.0f, 0f);
+                                GlStateManager.translate(0F, 0, 0f);
                             }
 
                             // ACOG Zoom
@@ -477,7 +477,7 @@ public class Type20Factory implements GunFactory {
                             // Reflex Zoom
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                                 //System.out.println("Position me for Reflex");
-                                GlStateManager.translate(-0F, 0.0f, 0.6f);
+                                GlStateManager.translate(-0F, 0, 0.6f);
                             }
 
                             // Reflex Zoom
@@ -574,7 +574,7 @@ public class Type20Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

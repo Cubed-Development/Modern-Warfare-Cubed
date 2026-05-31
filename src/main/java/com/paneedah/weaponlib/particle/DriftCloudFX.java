@@ -43,7 +43,7 @@ public class DriftCloudFX extends ParticleCloud {
 
         //this.particleTextureIndexX = (int) Math.floor(8*(this.particleAge/this.particleMaxAge));
 
-        //this.particleAlpha = (float) ((float) 1.0f - ((double) this.particleAge/(double) this.particleMaxAge));
+        //this.particleAlpha = (float) ((float) 1 - ((double) this.particleAge/(double) this.particleMaxAge));
 
 
         this.particleRed = this.particleGreen = this.particleBlue = urandom.nextFloat() * 0.5F + 0.4F;

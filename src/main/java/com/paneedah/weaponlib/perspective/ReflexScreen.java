@@ -59,8 +59,8 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
         this.positioning = pos;
 
         bb_main = new ModelRenderer(this);
-        bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
-        bb_main.cubeList.add(new ModelBox(bb_main, 0, 0, -3.0F, -2.0F, 0.0F, 5, 4, 0, 0.0F, false));
+        bb_main.setRotationPoint(0, 24, 0);
+        bb_main.cubeList.add(new ModelBox(bb_main, 0, 0, -3, -2, 0, 5, 4, 0, 0, false));
     }
 
     //https://vazgriz.com/158/reflex-sight-shader-in-unity3d/
@@ -109,7 +109,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		/* reflex
 		bb_main.offsetY = -2.60f;
 		bb_main.offsetX = -0.05f;
-		bb_main.offsetZ = 0.0f;
+		bb_main.offsetZ = 0;
 		*/
 
 
@@ -213,8 +213,8 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 			textureHeight = textureWidth;
 
 			ModelRenderer bb2 = new ModelRenderer(this);
-			bb2.setRotationPoint(0.0F, 24.0F, 0.0F);
-			bb2.cubeList.add(new ModelBox(bb2, 0, 0, -3.0F, -2.0F, 0.0F, 5, 4, 0, 0.0F, false));
+			bb2.setRotationPoint(0, 24, 0);
+			bb2.cubeList.add(new ModelBox(bb2, 0, 0, -3, -2, 0, 5, 4, 0, 0, false));
 			
 			bb2.renderer(0.065f);
 			*/
@@ -259,7 +259,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 			double iTS = -1;
 			
 			
-			//GlStateManager.color(10.0f, 10.0f, 10.0f, 2f);
+			//GlStateManager.color(10, 10, 10, 2f);
 			bb.pos(-1*sizeW + x, -1*sizeH + y, 0).tex(iTS, iTS).endVertex();
 			bb.pos(1*sizeW + x, -1*sizeH + y, 0).tex(texScale, iTS).endVertex();
 			bb.pos(1*sizeW + x, 1*sizeH + y, 0).tex(texScale, texScale).endVertex();

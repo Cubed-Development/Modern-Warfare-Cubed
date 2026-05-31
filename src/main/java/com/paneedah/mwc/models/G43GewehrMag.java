@@ -19,35 +19,35 @@ public class G43GewehrMag extends ModelWithAttachments {
         textureHeight = 256;
 
         magazine = new ModelRenderer(this);
-        magazine.setRotationPoint(0.0F, -23.8788F, 2.4088F);
+        magazine.setRotationPoint(0, -23.8788F, 2.4088F);
 
 
         mag22_r1 = new ModelRenderer(this);
-        mag22_r1.setRotationPoint(0.0F, 7.1392F, -9.1592F);
+        mag22_r1.setRotationPoint(0, 7.1392F, -9.1592F);
         magazine.addChild(mag22_r1);
-        setRotationAngle(mag22_r1, 3.0411F, 0.0F, 0.0F);
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.1F, -19.2F, 2.6F, 1, 6, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.9F, -19.2F, 2.6F, 1, 6, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.9F, -19.2F, -2.4F, 1, 6, 2, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.1F, -19.2F, -2.4F, 1, 6, 2, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.19F, -20.4F, 3.5F, 1, 7, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.79F, -20.4F, 3.5F, 1, 7, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.99F, -19.7F, 2.6F, 2, 1, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.99F, -20.2F, 3.3F, 2, 7, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2.0F, -20.2F, 3.1F, 2, 7, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.99F, -19.7F, -2.4F, 2, 1, 3, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2.0F, -19.2F, -0.4F, 2, 6, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2.0F, -19.2F, -1.9F, 2, 6, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.2F, -20.2F, 0.6F, 1, 7, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.8F, -20.2F, 0.6F, 1, 7, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2.0F, -20.2F, 1.6F, 2, 7, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.2F, -20.2F, -4.4F, 1, 7, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.8F, -20.2F, -4.4F, 1, 7, 1, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2.1F, -20.5F, 2.1F, 1, 1, 2, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -0.9F, -20.5F, 2.1F, 1, 1, 2, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -0.8F, -20.5F, -2.4F, 1, 1, 5, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2.2F, -20.5F, -2.4F, 1, 1, 5, 0.0F, true));
-        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2.0F, -20.2F, -3.4F, 2, 7, 1, 0.0F, true));
+        setRotationAngle(mag22_r1, 3.0411F, 0, 0);
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.1F, -19.2F, 2.6F, 1, 6, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.9F, -19.2F, 2.6F, 1, 6, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.9F, -19.2F, -2.4F, 1, 6, 2, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.1F, -19.2F, -2.4F, 1, 6, 2, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.19F, -20.4F, 3.5F, 1, 7, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.79F, -20.4F, 3.5F, 1, 7, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.99F, -19.7F, 2.6F, 2, 1, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.99F, -20.2F, 3.3F, 2, 7, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2, -20.2F, 3.1F, 2, 7, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.99F, -19.7F, -2.4F, 2, 1, 3, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2, -19.2F, -0.4F, 2, 6, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2, -19.2F, -1.9F, 2, 6, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.2F, -20.2F, 0.6F, 1, 7, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.8F, -20.2F, 0.6F, 1, 7, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2, -20.2F, 1.6F, 2, 7, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.2F, -20.2F, -4.4F, 1, 7, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -1.8F, -20.2F, -4.4F, 1, 7, 1, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2.1F, -20.5F, 2.1F, 1, 1, 2, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -0.9F, -20.5F, 2.1F, 1, 1, 2, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -0.8F, -20.5F, -2.4F, 1, 1, 5, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2.2F, -20.5F, -2.4F, 1, 1, 5, 0, true));
+        mag22_r1.cubeList.add(new ModelBox(mag22_r1, 250, 0, -2, -20.2F, -3.4F, 2, 7, 1, 0, true));
     }
 
     @Override

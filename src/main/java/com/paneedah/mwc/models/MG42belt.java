@@ -21,26 +21,26 @@ public class MG42belt extends ModelWithAttachments {
         textureHeight = 128;
 
         belt = new ModelRenderer(this);
-        belt.setRotationPoint(-25.2056F, 9.2517F, 0.0F);
-        belt.cubeList.add(new ModelBox(belt, 100, 0, 27.7056F, -22.5517F, -5.0F, 6, 1, 5, 0.0F, true));
+        belt.setRotationPoint(-25.2056F, 9.2517F, 0);
+        belt.cubeList.add(new ModelBox(belt, 100, 0, 27.7056F, -22.5517F, -5, 6, 1, 5, 0, true));
 
         belt3_r1 = new ModelRenderer(this);
-        belt3_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+        belt3_r1.setRotationPoint(0, 0, 0);
         belt.addChild(belt3_r1);
-        setRotationAngle(belt3_r1, 0.0F, 0.0F, 0.7854F);
-        belt3_r1.cubeList.add(new ModelBox(belt3_r1, 0, 50, 5.2F, -37.8F, -7.2F, 1, 1, 8, 0.0F, true));
+        setRotationAngle(belt3_r1, 0, 0, 0.7854F);
+        belt3_r1.cubeList.add(new ModelBox(belt3_r1, 0, 50, 5.2F, -37.8F, -7.2F, 1, 1, 8, 0, true));
 
         belt2_r1 = new ModelRenderer(this);
-        belt2_r1.setRotationPoint(0.5272F, -1.2728F, 0.0F);
+        belt2_r1.setRotationPoint(0.5272F, -1.2728F, 0);
         belt.addChild(belt2_r1);
-        setRotationAngle(belt2_r1, 0.0F, 0.0F, 0.7854F);
-        belt2_r1.cubeList.add(new ModelBox(belt2_r1, 0, 50, 7.0F, -37.8F, -7.2F, 1, 1, 8, 0.0F, true));
+        setRotationAngle(belt2_r1, 0, 0, 0.7854F);
+        belt2_r1.cubeList.add(new ModelBox(belt2_r1, 0, 50, 7, -37.8F, -7.2F, 1, 1, 8, 0, true));
 
         belt4_r1 = new ModelRenderer(this);
-        belt4_r1.setRotationPoint(-0.5272F, 1.2728F, 0.0F);
+        belt4_r1.setRotationPoint(-0.5272F, 1.2728F, 0);
         belt.addChild(belt4_r1);
-        setRotationAngle(belt4_r1, 0.0F, 0.0F, 0.7854F);
-        belt4_r1.cubeList.add(new ModelBox(belt4_r1, 0, 50, 3.4F, -37.8F, -7.2F, 1, 1, 8, 0.0F, true));
+        setRotationAngle(belt4_r1, 0, 0, 0.7854F);
+        belt4_r1.cubeList.add(new ModelBox(belt4_r1, 0, 50, 3.4F, -37.8F, -7.2F, 1, 1, 8, 0, true));
     }
 
     @Override

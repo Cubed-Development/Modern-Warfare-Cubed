@@ -59,7 +59,7 @@ public class LightManager {
                 }
 
                 EntityPlayer player = (EntityPlayer) entity;
-                addLight((float) player.posX, (float) player.posY + 0.6f, (float) player.posZ, 1.0f, 0.623f, 0.262f, 0.05f, 0.009f, 0.032f);
+                addLight((float) player.posX, (float) player.posY + 0.6f, (float) player.posZ, 1, 0.623f, 0.262f, 0.05f, 0.009f, 0.032f);
             }
         }
     }
@@ -69,9 +69,9 @@ public class LightManager {
         if (lights.size() < 1) {
             //System.out.println("yo");
 
-            float lightlevel = 0.0f;
+            float lightlevel = 0;
 
-            lightlevel = MC.world.getLight(new BlockPos(x, y, z)) * MC.world.getSunBrightness(1.0f);
+            lightlevel = MC.world.getLight(new BlockPos(x, y, z)) * MC.world.getSunBrightness(1);
             //System.out.println(lightlevel);
             if (lightlevel > 8) {
                 return;
@@ -82,9 +82,9 @@ public class LightManager {
             // bad correction maths
 
             //	System.out.println(lightlevel);
-            float mult = 1.0f / (4 * lightlevel);
+            float mult = 1 / (4 * lightlevel);
             if (Double.isInfinite(mult)) {
-                mult = 1.0f;
+                mult = 1;
             }
             //System.out.println(lightlevel + " | " + mult);
             constant /= mult;

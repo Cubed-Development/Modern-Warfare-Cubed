@@ -57,7 +57,7 @@ public class ShellCasingRenderer extends Render<Entity> {
             GlStateManager.rotate(90, 0f, 0f, 1f);
 
             //Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
-            model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
+            model.render(entity, 0, 0, 0, 0, 0, 0.0625F);
             GlStateManager.popMatrix();
         }
     }

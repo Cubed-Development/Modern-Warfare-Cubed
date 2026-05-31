@@ -32,72 +32,72 @@ public class G95_upright_frontsights extends ModelBase {
         textureHeight = 128;
 
         sight1 = new ModelRenderer(this);
-        sight1.setRotationPoint(5.0F, 8.0F, -9.0F);
-        sight1.cubeList.add(new ModelBox(sight1, 0, 0, 0.0F, 0.0F, 0.0F, 2, 4, 17, 0.0F, true));
+        sight1.setRotationPoint(5, 8, -9);
+        sight1.cubeList.add(new ModelBox(sight1, 0, 0, 0, 0, 0, 2, 4, 17, 0, true));
 
         sight2 = new ModelRenderer(this);
-        sight2.setRotationPoint(-4.0F, 8.0F, -9.0F);
-        sight2.cubeList.add(new ModelBox(sight2, 0, 0, 0.0F, 0.0F, 0.0F, 2, 4, 17, 0.0F, true));
+        sight2.setRotationPoint(-4, 8, -9);
+        sight2.cubeList.add(new ModelBox(sight2, 0, 0, 0, 0, 0, 2, 4, 17, 0, true));
 
         sight3 = new ModelRenderer(this);
-        sight3.setRotationPoint(5.0F, 7.0F, -9.0F);
-        sight3.cubeList.add(new ModelBox(sight3, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 7, 0.0F, true));
+        sight3.setRotationPoint(5, 7, -9);
+        sight3.cubeList.add(new ModelBox(sight3, 0, 0, 0, 0, 0, 2, 1, 7, 0, true));
 
         sight4 = new ModelRenderer(this);
-        sight4.setRotationPoint(-4.0F, 7.0F, -9.0F);
-        sight4.cubeList.add(new ModelBox(sight4, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 7, 0.0F, true));
+        sight4.setRotationPoint(-4, 7, -9);
+        sight4.cubeList.add(new ModelBox(sight4, 0, 0, 0, 0, 0, 2, 1, 7, 0, true));
 
         sight5 = new ModelRenderer(this);
-        sight5.setRotationPoint(-4.0F, 7.5F, -11.0F);
-        sight5.cubeList.add(new ModelBox(sight5, 0, 0, 0.0F, 0.0F, 0.0F, 11, 5, 2, 0.0F, true));
+        sight5.setRotationPoint(-4, 7.5F, -11);
+        sight5.cubeList.add(new ModelBox(sight5, 0, 0, 0, 0, 0, 11, 5, 2, 0, true));
 
         sight6 = new ModelRenderer(this);
-        sight6.setRotationPoint(-4.0F, 8.5F, -16.0F);
-        sight6.cubeList.add(new ModelBox(sight6, 0, 0, 0.0F, 0.0F, 0.0F, 11, 4, 5, 0.0F, true));
+        sight6.setRotationPoint(-4, 8.5F, -16);
+        sight6.cubeList.add(new ModelBox(sight6, 0, 0, 0, 0, 0, 11, 4, 5, 0, true));
 
         sight7 = new ModelRenderer(this);
-        sight7.setRotationPoint(-4.0F, 7.5F, -11.0F);
-        setRotationAngle(sight7, -1.3756F, 0.0F, 0.0F);
-        sight7.cubeList.add(new ModelBox(sight7, 0, 0, 0.0F, 0.0F, 0.0F, 11, 5, 1, 0.0F, true));
+        sight7.setRotationPoint(-4, 7.5F, -11);
+        setRotationAngle(sight7, -1.3756F, 0, 0);
+        sight7.cubeList.add(new ModelBox(sight7, 0, 0, 0, 0, 0, 11, 5, 1, 0, true));
 
         sight8 = new ModelRenderer(this);
-        sight8.setRotationPoint(-2.0F, 6.5F, -7.0F);
-        setRotationAngle(sight8, -0.409F, 0.0F, 0.0F);
-        sight8.cubeList.add(new ModelBox(sight8, 0, 0, 0.0F, 0.0F, 0.0F, 7, 4, 4, 0.0F, true));
+        sight8.setRotationPoint(-2, 6.5F, -7);
+        setRotationAngle(sight8, -0.409F, 0, 0);
+        sight8.cubeList.add(new ModelBox(sight8, 0, 0, 0, 0, 0, 7, 4, 4, 0, true));
 
         sight9 = new ModelRenderer(this);
-        sight9.setRotationPoint(0.0F, 7.0F, -7.0F);
-        sight9.cubeList.add(new ModelBox(sight9, 0, 0, 0.0F, -8.0F, 0.0F, 3, 11, 3, 0.0F, true));
+        sight9.setRotationPoint(0, 7, -7);
+        sight9.cubeList.add(new ModelBox(sight9, 0, 0, 0, -8, 0, 3, 11, 3, 0, true));
 
         sight13 = new ModelRenderer(this);
-        sight13.setRotationPoint(-6.0F, 8.5F, -13.0F);
-        setRotationAngle(sight13, -0.5577F, 0.0F, 0.0F);
-        sight13.cubeList.add(new ModelBox(sight13, 0, 0, 0.0F, 0.0F, 0.0F, 15, 3, 3, 0.0F, true));
+        sight13.setRotationPoint(-6, 8.5F, -13);
+        setRotationAngle(sight13, -0.5577F, 0, 0);
+        sight13.cubeList.add(new ModelBox(sight13, 0, 0, 0, 0, 0, 15, 3, 3, 0, true));
 
         sight14 = new ModelRenderer(this);
-        sight14.setRotationPoint(-4.5F, 7.5F, -6.0F);
-        setRotationAngle(sight14, -0.5577F, 0.0F, 0.0F);
-        sight14.cubeList.add(new ModelBox(sight14, 0, 0, 0.0F, 0.0F, 0.0F, 12, 2, 2, 0.0F, true));
+        sight14.setRotationPoint(-4.5F, 7.5F, -6);
+        setRotationAngle(sight14, -0.5577F, 0, 0);
+        sight14.cubeList.add(new ModelBox(sight14, 0, 0, 0, 0, 0, 12, 2, 2, 0, true));
 
         sight15 = new ModelRenderer(this);
-        sight15.setRotationPoint(-2.0F, 9.5F, -9.0F);
-        sight15.cubeList.add(new ModelBox(sight15, 0, 0, 0.0F, 0.0F, 0.0F, 7, 2, 16, 0.0F, true));
+        sight15.setRotationPoint(-2, 9.5F, -9);
+        sight15.cubeList.add(new ModelBox(sight15, 0, 0, 0, 0, 0, 7, 2, 16, 0, true));
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(2.0F, -1.0F, -6.0F);
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        bone.setRotationPoint(2, -1, -6);
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1, -2, 0, 1, 2, 1, 0, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(-2.0F, 0.5F, 0.0F);
+        bone2.setRotationPoint(-2, 0.5F, 0);
         bone.addChild(bone2);
-        setRotationAngle(bone2, 0.0F, 0.0F, -0.4014F);
-        bone2.cubeList.add(new ModelBox(bone2, 0, 0, 0.0F, -3.0F, -1.0F, 1, 3, 3, 0.0F, false));
+        setRotationAngle(bone2, 0, 0, -0.4014F);
+        bone2.cubeList.add(new ModelBox(bone2, 0, 0, 0, -3, -1, 1, 3, 3, 0, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(1.0F, 0.5F, 0.0F);
+        bone3.setRotationPoint(1, 0.5F, 0);
         bone.addChild(bone3);
-        setRotationAngle(bone3, 0.0F, 0.0F, 0.4014F);
-        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -1.0F, -3.0F, -1.0F, 1, 3, 3, 0.0F, false));
+        setRotationAngle(bone3, 0, 0, 0.4014F);
+        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -1, -3, -1, 1, 3, 3, 0, false));
     }
 
     @Override

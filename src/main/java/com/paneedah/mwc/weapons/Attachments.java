@@ -3781,7 +3781,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.UMP45Receiver(), "ump45.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Receiver) {
-                        GlStateManager.translate(-0.6F, 0.0F, -0.1F);
+                        GlStateManager.translate(-0.6F, 0, -0.1F);
                         GlStateManager.rotate(10F, 1f, 0f, 0f);
                         GlStateManager.rotate(-190F, 0f, 1f, 0f);
                         GlStateManager.rotate(0F, 0f, 0f, 1f);
@@ -3816,7 +3816,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.UMP45Receiver(), "ump45.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Receiver) {
-                        GlStateManager.translate(-0.6F, 0.0F, -0.1F);
+                        GlStateManager.translate(-0.6F, 0, -0.1F);
                         GlStateManager.rotate(10F, 1f, 0f, 0f);
                         GlStateManager.rotate(-190F, 0f, 1f, 0f);
                         GlStateManager.rotate(0F, 0f, 0f, 1f);
@@ -9922,7 +9922,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7Stock) {
-                        GlStateManager.translate(-0.6F, -0.0F, 1.3F);
+                        GlStateManager.translate(-0.6F, -0, 1.3F);
                         GlStateManager.rotate(10F, 1f, 0f, 0f);
                         GlStateManager.rotate(-190F, 0f, 1f, 0f);
                         GlStateManager.rotate(0F, 0f, 0f, 1f);
@@ -9963,7 +9963,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7MilSpecStock) {
-                        GlStateManager.translate(-0.5F, 0.0F, 1.7F);
+                        GlStateManager.translate(-0.5F, 0, 1.7F);
                         GlStateManager.rotate(10F, 1f, 0f, 0f);
                         GlStateManager.rotate(-190F, 0f, 1f, 0f);
                         GlStateManager.rotate(0F, 0f, 0f, 1f);

@@ -18,10 +18,10 @@ public class NinthSinRegulatorActionUpper extends ModelWithAttachments {
         textureHeight = 128;
 
         regulatorlower_upper_EXTRA6 = new ModelRenderer(this);
-        regulatorlower_upper_EXTRA6.setRotationPoint(7.0F, 10.1F, -18.5F);
-        setRotationAngle(regulatorlower_upper_EXTRA6, 0.6632F, 0.0F, 0.0F);
-        regulatorlower_upper_EXTRA6.cubeList.add(new ModelBox(regulatorlower_upper_EXTRA6, 64, 103, -1.0F, -1.0F, 0.0F, 1, 1, 4, -0.1F, false));
-        regulatorlower_upper_EXTRA6.cubeList.add(new ModelBox(regulatorlower_upper_EXTRA6, 0, 102, -1.0F, -2.0F, 0.0F, 1, 1, 4, -0.1F, false));
+        regulatorlower_upper_EXTRA6.setRotationPoint(7, 10.1F, -18.5F);
+        setRotationAngle(regulatorlower_upper_EXTRA6, 0.6632F, 0, 0);
+        regulatorlower_upper_EXTRA6.cubeList.add(new ModelBox(regulatorlower_upper_EXTRA6, 64, 103, -1, -1, 0, 1, 1, 4, -0.1F, false));
+        regulatorlower_upper_EXTRA6.cubeList.add(new ModelBox(regulatorlower_upper_EXTRA6, 0, 102, -1, -2, 0, 1, 1, 4, -0.1F, false));
     }
 
     @Override

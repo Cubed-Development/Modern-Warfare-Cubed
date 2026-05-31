@@ -20,25 +20,25 @@ public class SpookyGhost extends ModelBase {
         textureHeight = 64;
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(8.5F, 7.75F, 0.0F);
-        setRotationAngle(bone, 0.0F, 0.0F, 0.6981F);
-        bone.cubeList.add(new ModelBox(bone, 40, 40, -6.2856F, -6.5321F, -2.0F, 5, 10, 4, 0.0F, false));
+        bone.setRotationPoint(8.5F, 7.75F, 0);
+        setRotationAngle(bone, 0, 0, 0.6981F);
+        bone.cubeList.add(new ModelBox(bone, 40, 40, -6.2856F, -6.5321F, -2, 5, 10, 4, 0, false));
 
         bone2 = new ModelRenderer(this);
-        bone2.setRotationPoint(-8.5F, 7.75F, 0.0F);
-        setRotationAngle(bone2, 0.0F, 0.0F, -0.6981F);
-        bone2.cubeList.add(new ModelBox(bone2, 40, 0, 0.0F, -5.0F, -2.0F, 5, 10, 4, 0.0F, false));
+        bone2.setRotationPoint(-8.5F, 7.75F, 0);
+        setRotationAngle(bone2, 0, 0, -0.6981F);
+        bone2.cubeList.add(new ModelBox(bone2, 40, 0, 0, -5, -2, 5, 10, 4, 0, false));
 
         bone3 = new ModelRenderer(this);
-        bone3.setRotationPoint(0.0F, 24.0F, 0.0F);
-        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -0.5F, -33.0F, -0.5F, 1, 7, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 40, 14, -11.0F, -21.0F, 0.0F, 6, 14, 0, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 0, 48, 5.0F, -23.0F, 0.0F, 6, 14, 0, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -5.0F, -26.0F, -5.0F, 10, 2, 10, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 20, 38, -5.0F, -24.0F, -5.0F, 10, 18, 0, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 0, 20, 5.0F, -24.0F, -5.0F, 0, 18, 10, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 0, 2, -5.0F, -24.0F, -5.0F, 0, 18, 10, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 20, 20, -5.0F, -24.0F, 5.0F, 10, 18, 0, 0.0F, false));
+        bone3.setRotationPoint(0, 24, 0);
+        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -0.5F, -33, -0.5F, 1, 7, 1, 0, false));
+        bone3.cubeList.add(new ModelBox(bone3, 40, 14, -11, -21, 0, 6, 14, 0, 0, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 48, 5, -23, 0, 6, 14, 0, 0, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 0, -5, -26, -5, 10, 2, 10, 0, false));
+        bone3.cubeList.add(new ModelBox(bone3, 20, 38, -5, -24, -5, 10, 18, 0, 0, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 20, 5, -24, -5, 0, 18, 10, 0, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 2, -5, -24, -5, 0, 18, 10, 0, false));
+        bone3.cubeList.add(new ModelBox(bone3, 20, 20, -5, -24, 5, 10, 18, 0, 0, false));
     }
 
     @Override

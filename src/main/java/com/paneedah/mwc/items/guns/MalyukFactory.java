@@ -92,16 +92,16 @@ public class MalyukFactory implements GunFactory {
                 })
                 .withCompatibleAttachment(Magazines.AK50Mag, (model) -> {
                     GlStateManager.rotate(-20.000000f, 1f, 0f, 0f);
-                    GlStateManager.translate(0f, 0.35f, 3.0f);
+                    GlStateManager.translate(0f, 0.35f, 3);
                 })
                 .withCompatibleAttachment(Magazines.AK75Mag, (model) -> {
                     GlStateManager.rotate(-10.000000f, 1f, 0f, 0f);
-                    GlStateManager.translate(0f, 0.35f, 3.0f);
+                    GlStateManager.translate(0f, 0.35f, 3);
                     GlStateManager.scale(1.2F, 1.2F, 1.2F);
                 })
                 .withCompatibleAttachment(Magazines.AK100Mag, (model) -> {
                     GlStateManager.rotate(-20.000000f, 1f, 0f, 0f);
-                    GlStateManager.translate(0f, 0.35f, 3.0f);
+                    GlStateManager.translate(0f, 0.35f, 3);
                 })
                 .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
                     GlStateManager.translate(-0.21F, -1.4F, -1.2F);
@@ -113,7 +113,7 @@ public class MalyukFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
-                    GlStateManager.translate(-0.32F, -1.4F, -0.0F);
+                    GlStateManager.translate(-0.32F, -1.4F, -0);
                     GlStateManager.scale(0.83F, 0.83F, 0.83F);
                 }, (model) -> {
                     if (model instanceof AcogScope2) {
@@ -177,7 +177,7 @@ public class MalyukFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
-                    GlStateManager.translate(-0.06F, -1.18F, -1.0F);
+                    GlStateManager.translate(-0.06F, -1.18F, -1);
                     GlStateManager.scale(0.52F, 0.52F, 0.52F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -186,7 +186,7 @@ public class MalyukFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
-                    GlStateManager.translate(-0.055F, -1.16F, -1.0F);
+                    GlStateManager.translate(-0.055F, -1.16F, -1);
                     GlStateManager.scale(0.55F, 0.55F, 0.55F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -195,7 +195,7 @@ public class MalyukFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
-                    GlStateManager.translate(-0.035F, -1.25F, -1.0F);
+                    GlStateManager.translate(-0.035F, -1.25F, -1);
                     GlStateManager.scale(0.73F, 0.73F, 0.73F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -204,7 +204,7 @@ public class MalyukFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
-                    GlStateManager.translate(-0.035F, -1.25F, -1.0F);
+                    GlStateManager.translate(-0.035F, -1.25F, -1);
                     GlStateManager.scale(0.73F, 0.73F, 0.73F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -228,7 +228,7 @@ public class MalyukFactory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
-                    GlStateManager.translate(-0.33F, -1.44F, -1.0F);
+                    GlStateManager.translate(-0.33F, -1.44F, -1);
                     GlStateManager.scale(0.52F, 0.52F, 0.52F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -279,7 +279,7 @@ public class MalyukFactory implements GunFactory {
                     GlStateManager.scale(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.VGrip, (model) -> {
-                    GlStateManager.translate(-0.2F, -0.1F, -2.0F);
+                    GlStateManager.translate(-0.2F, -0.1F, -2);
                     GlStateManager.scale(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.JunoGrip, (model) -> {
@@ -321,7 +321,7 @@ public class MalyukFactory implements GunFactory {
                                         .withPosition(-1.425000f, 3.985000f, -4.965000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -330,7 +330,7 @@ public class MalyukFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.250000f, 0.545000f, 0.260000f)
                                         .withBBRotation(-7.1415F, -27.3003F, 52.6433F)
-                                        .withScale(2.8F, 2.8F, 4.0F)
+                                        .withScale(2.8F, 2.8F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -489,49 +489,49 @@ public class MalyukFactory implements GunFactory {
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                                 //System.out.println("Position me for Acog");
-                                GlStateManager.translate(0F, 0.22f, 0.0f);
+                                GlStateManager.translate(0F, 0.22f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
                                 //System.out.println("Position me for Acog");
-                                GlStateManager.translate(0F, 0.25f, 0.0f);
+                                GlStateManager.translate(0F, 0.25f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                                 //System.out.println("Position me for Acog");
-                                GlStateManager.translate(0F, 0.25f, 0.0f);
+                                GlStateManager.translate(0F, 0.25f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
                                 //System.out.println("Position me for Acog");
-                                GlStateManager.translate(0F, 0.2f, 0.0f);
+                                GlStateManager.translate(0F, 0.2f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                                 //System.out.println("Position me for Acog");
-                                GlStateManager.translate(0F, 0.19f, 0.0f);
+                                GlStateManager.translate(0F, 0.19f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
                                 //System.out.println("Position me for Acog");
-                                GlStateManager.translate(0F, 0.26f, 0.0f);
+                                GlStateManager.translate(0F, 0.26f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
                                 //System.out.println("Position me for Acog");
-                                GlStateManager.translate(0F, 0.26f, 0.0f);
+                                GlStateManager.translate(0F, 0.26f, 0);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
                                 //System.out.println("Position me for Acog");
-                                GlStateManager.translate(0F, 0.28f, 0.0f);
+                                GlStateManager.translate(0F, 0.28f, 0);
                             }
 
                             // ACOG Zoom
@@ -587,7 +587,7 @@ public class MalyukFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

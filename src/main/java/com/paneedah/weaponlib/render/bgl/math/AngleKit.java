@@ -328,7 +328,7 @@ public class AngleKit {
         // the shorter path. Note that v1 and -v1 are equivalent when
         // the negation is applied to all four components. Fix by
         // reversing one quaternion.
-        if (dot < 0.0f) {
+        if (dot < 0) {
             v1 = new Quaternion(-v1.x, -v1.y, -v1.z, -v1.w);
             dot = -dot;
         }

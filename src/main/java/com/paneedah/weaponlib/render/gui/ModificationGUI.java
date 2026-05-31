@@ -439,7 +439,7 @@ public class ModificationGUI {
     /**
      * Allows the class to update things like alpha without losing track of the initial color
      */
-    private final float[] persistentColorState = new float[]{1.0f, 1.0f, 1.0f, 1.0f};
+    private final float[] persistentColorState = new float[]{1, 1, 1, 1};
 
     private void setRGB(float r, float g, float b) {
         persistentColorState[0] = r;
@@ -453,7 +453,7 @@ public class ModificationGUI {
     }
 
     private void clearRGB() {
-        setRGB(1.0f, 1.0f, 1.0f);
+        setRGB(1, 1, 1);
         callPersistentState();
     }
 
@@ -577,7 +577,7 @@ public class ModificationGUI {
         float damage = weaponInstance.getWeapon().getSpawnEntityDamage() / 20;
         float recoil = weaponInstance.getRecoil() / 10f;
         float velocity = weaponInstance.getWeapon().getSpawnEntityVelocity() / 200f;
-        damage = Math.min(damage, 1.0f);
+        damage = Math.min(damage, 1);
 
         // Update chart
         radarChart.updateSet(new float[]{damage, recoil, inaccuracy, firerate, velocity});
@@ -616,7 +616,7 @@ public class ModificationGUI {
         boolean nullHoverTab = false;
 
         clearRGB();
-        setAlpha(1.0f);
+        setAlpha(1);
         for (int groupID = 0; groupID < 3; ++groupID) {
             GlStateManager.disableTexture2D();
             GUIRenderHelper.drawColoredRectangle(scaledresolution.getScaledWidth_double() - 15,
@@ -647,7 +647,7 @@ public class ModificationGUI {
                 String text = ModificationGroup.getName(groupID) + " Mode";
                 setAlpha(0.5f);
                 GUIRenderHelper.drawTexturedScaledRect(scaledresolution.getScaledWidth_double() - 134, scaledresolution.getScaledHeight_double() - 74.5 - (18 * groupID), 90, 624, 390, 45, 768, 768, 0.3);
-                setAlpha(1.0f);
+                setAlpha(1);
 
 
                 GUIRenderHelper.drawAlignedString(text, StringAlignment.RIGHT, true, scaledresolution.getScaledWidth_double() - 18, scaledresolution.getScaledHeight_double() - 75 - (18 * groupID), SIDEBAR_SCALE, WHITE);
@@ -921,7 +921,7 @@ public class ModificationGUI {
 
 
             LEFT_ARROW_ELEMENT.render();
-            setAlpha(1.0f);
+            setAlpha(1);
 
             if (RIGHT_ARROW_ELEMENT.checkBounding(x, y, mouseX, mouseY, scale)) {
                 if (isInClick) {
@@ -931,14 +931,14 @@ public class ModificationGUI {
             }
 
             RIGHT_ARROW_ELEMENT.render();
-            setAlpha(1.0f);
+            setAlpha(1);
 
             GUIRenderHelper.drawScaledString("Pg. " + (tab.page + 1), 188.5, 256.5, 2.5, WHITE);
 
         }
 
         GlStateManager.enableBlend();
-        //	setRGB(0.5f, 1.0f, 1.0f);
+        //	setRGB(0.5f, 1, 1);
         setAlpha(0.3f);
 
         if (dropdownHovered) {
@@ -952,7 +952,7 @@ public class ModificationGUI {
 
         if (current != null) {
             clearRGB();
-            setAlpha(1.0f);
+            setAlpha(1);
 
 
             GlStateManager.pushMatrix();
@@ -1077,7 +1077,7 @@ public class ModificationGUI {
                 space += 10;
             }
 
-            setAlpha(1.0f);
+            setAlpha(1);
             clearRGB();
             GlStateManager.popMatrix();
         }

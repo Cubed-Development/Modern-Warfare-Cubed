@@ -81,11 +81,11 @@ public class InstancedRender {
         float[] vboData = new float[testNum * INSTANCE_DATA_LENGTH];
         for (int i = 0; i < testNum; ++i) {
             storeMatrixData(new Matrix4f(), vboData);
-            vboData[pointer++] = 0.0f;
-            vboData[pointer++] = 0.0f;
-            vboData[pointer++] = 0.0f;
-            vboData[pointer++] = 0.0f;
-            vboData[pointer++] = 0.0f;
+            vboData[pointer++] = 0;
+            vboData[pointer++] = 0;
+            vboData[pointer++] = 0;
+            vboData[pointer++] = 0;
+            vboData[pointer++] = 0;
         }
         VAOLoader.updateVBO(vbo, vboData, buffer);
 

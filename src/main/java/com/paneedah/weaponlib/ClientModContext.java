@@ -172,7 +172,7 @@ public class ClientModContext extends CommonModContext {
     public Framebuffer getInventoryFramebuffer() {
         if (inventoryFramebuffer == null) {
             inventoryFramebuffer = new Framebuffer(256, 256, true);
-            inventoryFramebuffer.setFramebufferColor(0.0F, 0.0F, 0.0F, 0.0F);
+            inventoryFramebuffer.setFramebufferColor(0, 0, 0, 0);
         }
         return inventoryFramebuffer;
     }

@@ -138,7 +138,7 @@ public class RadarChart {
 
 
         // Draw hexagonal grid pattern
-        GlStateManager.glLineWidth(1.0f);
+        GlStateManager.glLineWidth(1);
         bufferBuilder.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
         for (double m = 0; m <= 1; m += 0.2) {
             for (double a = 0; a <= 2 * Math.PI; a += increment) {
@@ -147,7 +147,7 @@ public class RadarChart {
         }
         tessellator.draw();
 
-        GlStateManager.glLineWidth(1.0f);
+        GlStateManager.glLineWidth(1);
         bufferBuilder.begin(GL11.GL_LINES, DefaultVertexFormats.POSITION_COLOR);
         for (double a = 0; a <= 2 * Math.PI; a += increment) {
             bufferBuilder.pos(0, 0, 0).color(1, 1, 1, color[3]).endVertex();
@@ -170,7 +170,7 @@ public class RadarChart {
 
 
         // Render background grid lines
-        GlStateManager.glLineWidth(3.0f);
+        GlStateManager.glLineWidth(3);
         bufferBuilder.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
         for (double a = 0; a < TWO_PI; a += increment) {
             double point = getPointRadius(a);

@@ -22,32 +22,32 @@ public class G3ChargingHandle extends ModelWithAttachments {
         textureHeight = 300;
 
         charginghandle = new ModelRenderer(this);
-        charginghandle.setRotationPoint(0.0F, -13.65F, -51.5F);
-        charginghandle.cubeList.add(new ModelBox(charginghandle, 0, 224, -1.2F, -1.0F, 3.0F, 1, 1, 17, 0.0F, false));
+        charginghandle.setRotationPoint(0, -13.65F, -51.5F);
+        charginghandle.cubeList.add(new ModelBox(charginghandle, 0, 224, -1.2F, -1, 3, 1, 1, 17, 0, false));
 
         gun8_r8 = new ModelRenderer(this);
-        gun8_r8.setRotationPoint(-0.2F, -1.0F, 17.0F);
+        gun8_r8.setRotationPoint(-0.2F, -1, 17);
         charginghandle.addChild(gun8_r8);
-        setRotationAngle(gun8_r8, 0.0F, 0.0F, -0.7941F);
-        gun8_r8.cubeList.add(new ModelBox(gun8_r8, 106, 110, -1.0F, -1.0F, -14.0F, 1, 1, 17, 0.0F, false));
+        setRotationAngle(gun8_r8, 0, 0, -0.7941F);
+        gun8_r8.cubeList.add(new ModelBox(gun8_r8, 106, 110, -1, -1, -14, 1, 1, 17, 0, false));
 
         gun9_r9 = new ModelRenderer(this);
-        gun9_r9.setRotationPoint(2.05F, 0.0F, 0.9F);
+        gun9_r9.setRotationPoint(2.05F, 0, 0.9F);
         charginghandle.addChild(gun9_r9);
-        setRotationAngle(gun9_r9, 0.0F, -0.3491F, 0.0F);
-        gun9_r9.cubeList.add(new ModelBox(gun9_r9, 13, 107, -1.05F, -1.0F, 0.0F, 1, 1, 3, -0.2F, false));
+        setRotationAngle(gun9_r9, 0, -0.3491F, 0);
+        gun9_r9.cubeList.add(new ModelBox(gun9_r9, 13, 107, -1.05F, -1, 0, 1, 1, 3, -0.2F, false));
 
         gun9_r10 = new ModelRenderer(this);
-        gun9_r10.setRotationPoint(2.85F, 0.0F, -1.3F);
+        gun9_r10.setRotationPoint(2.85F, 0, -1.3F);
         charginghandle.addChild(gun9_r10);
-        setRotationAngle(gun9_r10, 0.0F, -0.2967F, 0.0F);
-        gun9_r10.cubeList.add(new ModelBox(gun9_r10, 0, 107, -1.05F, -1.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        setRotationAngle(gun9_r10, 0, -0.2967F, 0);
+        gun9_r10.cubeList.add(new ModelBox(gun9_r10, 0, 107, -1.05F, -1, 0, 1, 1, 3, 0, false));
 
         gun8_r9 = new ModelRenderer(this);
-        gun8_r9.setRotationPoint(0.85F, 0.0F, 2.7F);
+        gun8_r9.setRotationPoint(0.85F, 0, 2.7F);
         charginghandle.addChild(gun8_r9);
-        setRotationAngle(gun8_r9, 0.0F, 0.3142F, 0.0F);
-        gun8_r9.cubeList.add(new ModelBox(gun8_r9, 55, 60, -2.05F, -1.0F, 0.0F, 2, 1, 1, -0.2F, false));
+        setRotationAngle(gun8_r9, 0, 0.3142F, 0);
+        gun8_r9.cubeList.add(new ModelBox(gun8_r9, 55, 60, -2.05F, -1, 0, 2, 1, 1, -0.2F, false));
     }
 
     @Override

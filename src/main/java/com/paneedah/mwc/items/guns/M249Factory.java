@@ -74,13 +74,13 @@ public class M249Factory implements GunFactory {
                 })
                 .withCompatibleAttachment(Attachments.M249MilspecStock, (model) -> {
                     if (model instanceof MilSpecStock) {
-                        GlStateManager.translate(0.0f, 0.0f, 0.6f);
+                        GlStateManager.translate(0, 0, 0.6f);
                         GlStateManager.scale(1.2F, 1.2F, 1.2F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.M249HK416Stock, (model) -> {
                     if (model instanceof HK416Stock) {
-                        GlStateManager.translate(0.0f, 0.0f, 0.6f);
+                        GlStateManager.translate(0, 0, 0.6f);
                         GlStateManager.scale(1.2F, 1.2F, 1.2F);
                     }
                 })
@@ -89,7 +89,7 @@ public class M249Factory implements GunFactory {
                         GlStateManager.translate(-0.15f, -0.75f, -5.6f);
                     }
                     if (model instanceof AKRail) {
-                        GlStateManager.translate(0.0F, -0.4F, -4.0F);
+                        GlStateManager.translate(0, -0.4F, -4);
                         GlStateManager.scale(0.9F, 0.9F, 0.6F);
                         GlStateManager.rotate(180F, 0f, 0f, 1f);
                     }
@@ -231,7 +231,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
-                    GlStateManager.translate(-0.05F, -1.66F, -1.0F);
+                    GlStateManager.translate(-0.05F, -1.66F, -1);
                     GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -240,7 +240,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
-                    GlStateManager.translate(-0.05F, -1.66F, -1.0F);
+                    GlStateManager.translate(-0.05F, -1.66F, -1);
                     GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -249,7 +249,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
-                    GlStateManager.translate(-0.05F, -1.66F, -1.0F);
+                    GlStateManager.translate(-0.05F, -1.66F, -1);
                     GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof EotechScopeRing) {
@@ -271,7 +271,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
-                    GlStateManager.translate(-0.04F, -1.65F, -1.0F);
+                    GlStateManager.translate(-0.04F, -1.65F, -1);
                     GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -280,7 +280,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
-                    GlStateManager.translate(-0.04F, -1.65F, -1.0F);
+                    GlStateManager.translate(-0.04F, -1.65F, -1);
                     GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -289,7 +289,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
-                    GlStateManager.translate(-0.2F, -1.86F, -1.0F);
+                    GlStateManager.translate(-0.2F, -1.86F, -1);
                     GlStateManager.scale(0.48F, 0.48F, 0.48F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -298,7 +298,7 @@ public class M249Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
-                    GlStateManager.translate(-0.2F, -1.86F, -1.0F);
+                    GlStateManager.translate(-0.2F, -1.86F, -1);
                     GlStateManager.scale(0.48F, 0.48F, 0.48F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -327,11 +327,11 @@ public class M249Factory implements GunFactory {
                     GlStateManager.scale(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
-                    GlStateManager.translate(0.1F, -1.47F, -4.0F);
+                    GlStateManager.translate(0.1F, -1.47F, -4);
                     GlStateManager.scale(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
-                    GlStateManager.translate(0.1F, -1.47F, -4.0F);
+                    GlStateManager.translate(0.1F, -1.47F, -4);
                     GlStateManager.scale(1F, 1F, 1F);
                 })
                 .withTextureNames("m249")
@@ -362,7 +362,7 @@ public class M249Factory implements GunFactory {
                                         .withPosition(-1.825000f, 5.665000f, -5.605000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -371,7 +371,7 @@ public class M249Factory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.730000f, 0.865000f, -1.146400f)
                                         .withBBRotation(-15.4928F, -45.7685F, 66.3639F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -521,7 +521,7 @@ public class M249Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

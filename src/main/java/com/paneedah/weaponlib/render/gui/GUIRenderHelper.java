@@ -68,8 +68,8 @@ public class GUIRenderHelper {
     }
 
     public static void drawTexturedRect(double x, double y, float u, float v, double width, double height, double textureWidth, double textureHeight) {
-        final float f = (float) (1.0F / textureWidth);
-        final float f1 = (float) (1.0F / textureHeight);
+        final float f = (float) (1 / textureWidth);
+        final float f1 = (float) (1 / textureHeight);
         final Tessellator tessellator = Tessellator.getInstance();
         final BufferBuilder bufferbuilder = tessellator.getBuffer();
         bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
@@ -96,8 +96,8 @@ public class GUIRenderHelper {
     }
 
     public static void drawTexturedScaledRect(double x, double y, float u, float v, double width, double height, double textureWidth, double textureHeight, double scale) {
-        final float f = (float) (1.0F / textureWidth);
-        final float f1 = (float) (1.0F / textureHeight);
+        final float f = (float) (1 / textureWidth);
+        final float f1 = (float) (1 / textureHeight);
         final Tessellator tessellator = Tessellator.getInstance();
         final BufferBuilder bufferbuilder = tessellator.getBuffer();
         bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);

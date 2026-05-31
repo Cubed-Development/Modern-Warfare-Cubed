@@ -34,7 +34,7 @@ public class WirelessCameraRenderer extends Render<Entity> {
                 bindTexture(textureLocation);
             }
             GlStateManager.translate(x, y, z);
-            model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
+            model.render(entity, 0, 0, 0, 0, 0, 0.0625F);
             GlStateManager.popMatrix();
         }
     }

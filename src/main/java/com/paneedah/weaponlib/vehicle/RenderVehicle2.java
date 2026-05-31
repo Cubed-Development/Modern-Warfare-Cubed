@@ -204,7 +204,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		DebugRenderer.renderLine(Vec3d.ZERO, ve.scale(0.1), new Vec3d(1, 0, 0));
 		DebugRenderer.renderLine(Vec3d.ZERO, ov.scale(2), new Vec3d(0, 1, 0));
 		
-		GlStateManager.color(1.0f, 1.0f, 1.0f);
+		GlStateManager.color(1, 1, 1);
 		DebugRenderer.destructBasicRender();
 		GlStateManager.popMatrix();
 		*/
@@ -217,7 +217,7 @@ public class RenderVehicle2 extends Render<Entity> {
         double sr = entityVehicle.getSolver().rearAxel.leftWheel.slipRatio;
 
         //DebugRenderer.renderLine(Vec3d.ZERO.add(0, 3, 0), Vec3d.ZERO.add(0, -sr*100, 0), new Vec3d(1, 0, 0));
-        GlStateManager.color(1.0f, 1f, 1f);
+        GlStateManager.color(1, 1f, 1f);
         if (MC.getRenderManager().isDebugBoundingBox()) {
             entityVehicle.oreintedBoundingBox.renderOBB();
         }
@@ -250,13 +250,13 @@ public class RenderVehicle2 extends Render<Entity> {
 
 
         // debug
-        GlStateManager.rotate(180.0F - rotationYaw, 0.0F, 1.0F, 0.0F);
+        GlStateManager.rotate(180 - rotationYaw, 0, 1, 0);
 
 
         if (MC.gameSettings.thirdPersonView == 0) {
-            GlStateManager.rotate(roll, 0.0f, 0.0f, 1.0f);
+            GlStateManager.rotate(roll, 0, 0, 1);
         } else {
-            GlStateManager.rotate(roll, 0.0f, 0.0f, 1.0f);
+            GlStateManager.rotate(roll, 0, 0, 1);
         }
 		
 		
@@ -277,14 +277,14 @@ public class RenderVehicle2 extends Render<Entity> {
 
         // debug DD
         if (MC.gameSettings.thirdPersonView != 0) {
-            GlStateManager.rotate(interpPitch, 1.0F, 0.0F, 0.0F);
+            GlStateManager.rotate(interpPitch, 1, 0, 0);
         } else {
 
-            GlStateManager.rotate(interpPitch, 1.0F, 0.0F, 0.0F);
+            GlStateManager.rotate(interpPitch, 1, 0, 0);
 
 
         }
-        //GlStateManager.rotate(interpPitch, 1.0F, 0.0F, 0.0F);
+        //GlStateManager.rotate(interpPitch, 1, 0, 0);
 		
 
 		/* wtf does this even do???
@@ -332,7 +332,7 @@ public class RenderVehicle2 extends Render<Entity> {
 
         }
 
-        //GlStateManager.rotate(MathHelper.wrapAngleTo180_float(par1HCEntityMongoose.getRotateWheelSpeed()*100F), 1.0F, 0.0F, 0.0F);
+        //GlStateManager.rotate(MathHelper.wrapAngleTo180_float(par1HCEntityMongoose.getRotateWheelSpeed()*100F), 1, 0, 0);
 
 
         //if(entityVehicle.rotationPitch > 5) {
@@ -414,7 +414,7 @@ public class RenderVehicle2 extends Render<Entity> {
         GlStateManager.scale(f4, f4, f4);
         GlStateManager.scale(0.6F / f4, 0.6F / f4, 0.6F / f4);
         //this.bindEntityTexture(entityVehicle);
-        GlStateManager.scale(-1.0F, -1.0F, 1.0F);
+        GlStateManager.scale(-1, -1, 1);
         //this.model.renderer(entityVehicle, 0.0625F);
 
         VehicleRenderableState renderState = null;
@@ -507,7 +507,7 @@ public class RenderVehicle2 extends Render<Entity> {
 			GlStateManager.rotate(0, 1.0, 0.0, 0.0);
 			GlStateManager.scale(1.0, 0.25 + (w.getSuspension().getStretch()*-1)*0.3, 1.0);
 			GlStateManager.translate(0.0, -1.5, 0.0);
-			(new SuspensionModel()).renderer(entityVehicle, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+			(new SuspensionModel()).renderer(entityVehicle, 0, 0, 0, 0, 0, 0.0625f);
 			GlStateManager.popMatrix();
 			
 		}
@@ -549,7 +549,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		GlStateManager.scale(1.0, 1.0 + (susSolve.getStretch()*-1), 1.0);
 		GlStateManager.translate(0.0, -1.5, 0.0);
 		
-		(new SuspensionModel()).renderer(entityVehicle, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+		(new SuspensionModel()).renderer(entityVehicle, 0, 0, 0, 0, 0, 0.0625f);
 		*/
 
         //DebugRenderer.destructBasicRender();
@@ -647,8 +647,8 @@ public class RenderVehicle2 extends Render<Entity> {
 //	        GlStateManager.disableCull();
 //	        GlStateManager.disableBlend();
 //	        
-//	        GlStateManager.color(0.0F, 0.0F, 0.0F, 0.4F);
-//	        GlStateManager.glLineWidth(2.0F);
+//	        GlStateManager.color(0, 0, 0, 0.4F);
+//	        GlStateManager.glLineWidth(2);
 //	        
 //	        //AxisAlignedBB fbb = entityVehicle.getFrontBoundingBox().copy();
 //
@@ -675,11 +675,11 @@ public class RenderVehicle2 extends Render<Entity> {
     @Override
     public void doRenderShadowAndFire(Entity entityIn, double x, double y, double z, float yaw, float partialTicks) {
         if (this.renderManager.options != null) {
-            if (this.renderManager.options.entityShadows && this.shadowSize > 0.0F && !entityIn.isInvisible() && this.renderManager.isRenderShadow()) {
+            if (this.renderManager.options.entityShadows && this.shadowSize > 0 && !entityIn.isInvisible() && this.renderManager.isRenderShadow()) {
                 double d0 = this.renderManager.getDistanceToCamera(entityIn.posX, entityIn.posY, entityIn.posZ);
                 float f = (float) ((1.0D - d0 / 256.0D) * (double) this.shadowOpaque);
 
-                if (f > 0.0F) {
+                if (f > 0) {
                     this.renderShadow(entityIn, x, y, z, f, partialTicks);
                 }
             }
@@ -731,9 +731,9 @@ public class RenderVehicle2 extends Render<Entity> {
         }
 
 
-        //  GlStateManager.rotate(-entityIn.rotationYaw, 0.0f, 1.0f, 0.0f);
+        //  GlStateManager.rotate(-entityIn.rotationYaw, 0, 1, 0);
         tessellator.draw();
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color(1, 1, 1, 1);
         GlStateManager.disableBlend();
         GlStateManager.depthMask(true);
         GlStateManager.popMatrix();
@@ -745,7 +745,7 @@ public class RenderVehicle2 extends Render<Entity> {
         }
         GlStateManager.disableBlend();
         GlStateManager.disableAlpha();
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
         if (state.isFullCube()) {
             Tessellator tessellator = Tessellator.getInstance();
             BufferBuilder bufferbuilder = tessellator.getBuffer();
@@ -782,10 +782,10 @@ public class RenderVehicle2 extends Render<Entity> {
                 // System.out.println(axisalignedbb);
 
 
-                float f = 0.0f;
-                float f1 = 1.0f;
-                float f2 = 0.0f;
-                float f3 = 1.0f;
+                float f = 0;
+                float f1 = 1;
+                float f2 = 0;
+                float f3 = 1;
 
 
                 //   System.out.println(d1 + " | " + d2 + " | " + d3 + " | " + d4 + " | " + d5);
@@ -794,10 +794,10 @@ public class RenderVehicle2 extends Render<Entity> {
                 // GlStateManager.rotate(30, 0.0, 1, 0.0);
                 // System.out.println(p_188299_11_ + " | " + p_188299_13_ + " | " + p_188299_15_);
 
-                bufferbuilder.pos(d1, d3, d4).tex(f, f2).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d1, d3, d5).tex(f, f3).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d2, d3, d5).tex(f1, f3).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
-                bufferbuilder.pos(d2, d3, d4).tex(f1, f2).color(1.0F, 1.0F, 1.0F, (float) d0).endVertex();
+                bufferbuilder.pos(d1, d3, d4).tex(f, f2).color(1, 1, 1, (float) d0).endVertex();
+                bufferbuilder.pos(d1, d3, d5).tex(f, f3).color(1, 1, 1, (float) d0).endVertex();
+                bufferbuilder.pos(d2, d3, d5).tex(f1, f3).color(1, 1, 1, (float) d0).endVertex();
+                bufferbuilder.pos(d2, d3, d4).tex(f1, f2).color(1, 1, 1, (float) d0).endVertex();
 
                 GlStateManager.translate(pos.getX(), pos.getY(), pos.getZ());
                 GlStateManager.translate(p_188299_11_, p_188299_13_, p_188299_15_);

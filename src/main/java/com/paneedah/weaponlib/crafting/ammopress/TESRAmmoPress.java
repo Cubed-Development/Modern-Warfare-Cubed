@@ -43,9 +43,9 @@ public class TESRAmmoPress extends TESRStation<TileEntityAmmoPress> {
         this.bindTexture(this.location);
 
         // Set-up initial parameters
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color(1, 1, 1, 1);
         GlStateManager.translate((float) x + MODEL_X_OFFSET, (float) y + MODEL_Y_OFFSET, (float) z + MODEL_Z_OFFSET);
-        GlStateManager.scale(1.0F, -1.0F, -1.0F);
+        GlStateManager.scale(1, -1, -1);
 
 
         // Set rotation

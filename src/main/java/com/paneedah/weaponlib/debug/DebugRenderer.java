@@ -26,7 +26,7 @@ public class DebugRenderer {
     }
 
     public static void renderPoint(Vec3d vec, Vec3d color) {
-        //GL11.glPointSize(5.0F);
+        //GL11.glPointSize(5);
         GlStateManager.color((float) color.x, (float) color.y, (float) color.z);
         GlStateManager.glBegin(GL11.GL_POINTS);
         GlStateManager.glVertex3f((float) vec.x, (float) vec.y, (float) vec.z); // Was `glVertex3d` before transition to `GlStateManager` - Luna Mira Lage (Desoroxxx) 2025-12-28

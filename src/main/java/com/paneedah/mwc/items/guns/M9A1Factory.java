@@ -205,7 +205,7 @@ public class M9A1Factory implements GunFactory {
                                         .withPosition(-0.945000f, 4.065000f, -7.845000f)
                                         .withRotation(0.000000f, 1.000000f, 10.681469f)
                                         .withPivotPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -411,7 +411,7 @@ public class M9A1Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.770000f, 1.225000f, 0.140000f)
                                             .withRotation(73.670132f, -70.659155f, 41.991085f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },
@@ -429,7 +429,7 @@ public class M9A1Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.770000f, 1.225000f, 0.140000f)
                                             .withRotation(73.670132f, -70.659155f, 41.991085f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

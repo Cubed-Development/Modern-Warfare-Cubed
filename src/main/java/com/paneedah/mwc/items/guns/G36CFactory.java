@@ -317,7 +317,7 @@ public class G36CFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(1.090000f, 0.185000f, -0.340000f)
                                         .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
-                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withScale(2.6F, 2.6F, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
@@ -509,7 +509,7 @@ public class G36CFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.330000f, 0.065000f, 0.140000f)
                                             .withRotation(78.544055f, 23.699100f, 18.430633f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

@@ -18,17 +18,17 @@ public class APC9Mag extends ModelWithAttachments {
         textureHeight = 256;
 
         mag = new ModelRenderer(this);
-        mag.setRotationPoint(0.0F, 13.5F, -19.95F);
-        setRotationAngle(mag, -0.0873F, 0.0F, 0.0F);
-        mag.cubeList.add(new ModelBox(mag, 179, 38, -3.0F, -24.0F, -4.0F, 3, 24, 5, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 108, 42, -0.9F, -24.9346F, -2.3F, 1, 24, 3, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 34, 44, -3.15F, -24.9346F, -2.3F, 1, 24, 3, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 45, 26, -2.75F, -1.0F, -4.0F, 3, 1, 5, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 77, 48, -2.75F, -1.0654F, -4.2529F, 3, 1, 1, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 77, 46, -2.75F, -0.9595F, 0.2736F, 3, 1, 1, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 84, 90, -3.25F, -0.9595F, 0.2736F, 1, 1, 1, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 92, 44, -3.25F, -1.0654F, -4.2529F, 1, 1, 1, 0.0F, false));
-        mag.cubeList.add(new ModelBox(mag, 0, 14, -3.25F, -1.0F, -4.0F, 3, 1, 5, 0.0F, false));
+        mag.setRotationPoint(0, 13.5F, -19.95F);
+        setRotationAngle(mag, -0.0873F, 0, 0);
+        mag.cubeList.add(new ModelBox(mag, 179, 38, -3, -24, -4, 3, 24, 5, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 108, 42, -0.9F, -24.9346F, -2.3F, 1, 24, 3, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 34, 44, -3.15F, -24.9346F, -2.3F, 1, 24, 3, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 45, 26, -2.75F, -1, -4, 3, 1, 5, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 77, 48, -2.75F, -1.0654F, -4.2529F, 3, 1, 1, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 77, 46, -2.75F, -0.9595F, 0.2736F, 3, 1, 1, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 84, 90, -3.25F, -0.9595F, 0.2736F, 1, 1, 1, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 92, 44, -3.25F, -1.0654F, -4.2529F, 1, 1, 1, 0, false));
+        mag.cubeList.add(new ModelBox(mag, 0, 14, -3.25F, -1, -4, 3, 1, 5, 0, false));
     }
 
     @Override

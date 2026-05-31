@@ -16,7 +16,7 @@ public class NinthSinFactory implements GunFactory {
 
                 .withName("ninth_sin")
                 .withFireRate(0.9999999f)
-                .withRecoil(0.0f)
+                .withRecoil(0)
                 .withZoom(0.9f)
                 .withMaxShots(Integer.MAX_VALUE)
                 .withShootSound("m134")

@@ -26,10 +26,10 @@ public class RK4Integrator {
 
         calculateDerivatives(x, k4);
 
-        state.add(dt / 6.0f, k1);
-        state.add(dt / 3.0f, k2);
-        state.add(dt / 3.0f, k3);
-        state.add(dt / 6.0f, k4);
+        state.add(dt / 6, k1);
+        state.add(dt / 3, k2);
+        state.add(dt / 3, k3);
+        state.add(dt / 6, k4);
 
 
     }

@@ -67,9 +67,9 @@ public class Interceptors {
         EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
 
 
-        if (authenticFOV != 0.0f && MC.gameSettings.fovSetting == 80.0f) {
+        if (authenticFOV != 0 && MC.gameSettings.fovSetting == 80) {
             MC.gameSettings.fovSetting = authenticFOV;
-            authenticFOV = 0.0f;
+            authenticFOV = 0;
         }
 
 
@@ -85,9 +85,9 @@ public class Interceptors {
 
             if (MC.gameSettings.thirdPersonView == 0) {
 
-                if (MC.gameSettings.fovSetting != 80.0f) {
+                if (MC.gameSettings.fovSetting != 80) {
                     authenticFOV = MC.gameSettings.fovSetting;
-                    MC.gameSettings.fovSetting = 80.0f;
+                    MC.gameSettings.fovSetting = 80;
                 }
 
 
@@ -143,7 +143,7 @@ public class Interceptors {
 
                 GlStateManager.translate(roll * 0.025, 0.0, 0.0);
 
-                GlStateManager.rotate(-roll, 0.0f, 0.0f, 1.0f);
+                GlStateManager.rotate(-roll, 0, 0, 1);
 
 
                 double iSL = QPTI.pti(vehicle.prevSideLean, vehicle.sideLean);
@@ -182,7 +182,7 @@ public class Interceptors {
             //Vec3d vcv = vehicle.getSolver().getVelocityVector().scale(0.1);
             //GlStateManager.translate(vcv.x, vcv.y, vcv.z);
 
-            //MC.gameSettings.fovSetting = (float) (70f + ((vehicle.getSolver().currentRPM)/500.0f) + (vehicle.getRealSpeed()/2));
+            //MC.gameSettings.fovSetting = (float) (70f + ((vehicle.getSolver().currentRPM)/500) + (vehicle.getRealSpeed()/2));
             Vec3d pV = player.getPositionVector();
             //GlStateManager.translate(-pV.x, -pV.y, -pV.z);
 
@@ -385,7 +385,7 @@ public class Interceptors {
             return true;
         }
 
-        float scalar = 0.0f;
+        float scalar = 0;
      
         /*
         if(ClientValueRepo.gunPow > 30) {
@@ -411,7 +411,7 @@ public class Interceptors {
         if (pwi == null || !pwi.isAimed()) {
 
 
-            float sMult = 1.0f;
+            float sMult = 1;
             float speed = sMult;
 
             float f = entityplayer.distanceWalkedModified - entityplayer.prevDistanceWalkedModified;
@@ -421,10 +421,10 @@ public class Interceptors {
 
             float xWiggle = LissajousCurve.getXOffsetOnCurve(3, 1, 2, Math.PI, f1);
 
-            GlStateManager.translate(MathHelper.sin(f1 * (float) Math.PI * speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float) Math.PI) * f2) * 0.5f, 0.0F);
-            GlStateManager.rotate(MathHelper.sin(f1 * (float) Math.PI * speed) * f2 * 3.0F * sMult, 0.0F, 0.0F, 1.0F);
-            GlStateManager.rotate(Math.abs(MathHelper.cos((f1 * (float) Math.PI - 0.2F) * speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
-            GlStateManager.rotate(f3 * sMult, 1.0F, 0.0F, 0.0F);
+            GlStateManager.translate(MathHelper.sin(f1 * (float) Math.PI * speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float) Math.PI) * f2) * 0.5f, 0);
+            GlStateManager.rotate(MathHelper.sin(f1 * (float) Math.PI * speed) * f2 * 3 * sMult, 0, 0, 1);
+            GlStateManager.rotate(Math.abs(MathHelper.cos((f1 * (float) Math.PI - 0.2F) * speed) * f2) * 5, 1, 0, 0);
+            GlStateManager.rotate(f3 * sMult, 1, 0, 0);
         	
         	/*
             float f =entityplayer.distanceWalkedModified - entityplayer.prevDistanceWalkedModified;
@@ -434,10 +434,10 @@ public class Interceptors {
             
             float xWiggle = (float) LissajousCurve.getXOffsetOnCurve(3, 1, 2, Math.PI, f1);
             
-            GlStateManager.translate(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
-            GlStateManager.rotate(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
-            GlStateManager.rotate(Math.abs(MathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
-            GlStateManager.rotate(f3*sMult, 1.0F, 0.0F, 0.0F);
+            GlStateManager.translate(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0);
+            GlStateManager.rotate(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3*sMult, 0, 0, 1);
+            GlStateManager.rotate(Math.abs(MathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5, 1, 0, 0);
+            GlStateManager.rotate(f3*sMult, 1, 0, 0);
             */
         } else {
 
@@ -446,11 +446,11 @@ public class Interceptors {
             float f1 = -(entityplayer.distanceWalkedModified + f * partialTicks);
             float f2 = entityplayer.prevCameraYaw + (entityplayer.cameraYaw - entityplayer.prevCameraYaw) * partialTicks;
             float f3 = entityplayer.prevCameraPitch + (entityplayer.cameraPitch - entityplayer.prevCameraPitch) * partialTicks;
-            GlStateManager.translate(MathHelper.sin(f1 * (float) Math.PI) * f2 * 0.2F, -Math.abs(MathHelper.cos(f1 * (float) Math.PI) * f2) * 0.2f, 0.0F);
-            GlStateManager.rotate(MathHelper.sin(f1 * (float) Math.PI) * f2 * 3.0F, 0.0F, 0.0F, 1.0F);
-            GlStateManager.rotate(Math.abs(MathHelper.cos(f1 * (float) Math.PI - 0.2F) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
+            GlStateManager.translate(MathHelper.sin(f1 * (float) Math.PI) * f2 * 0.2F, -Math.abs(MathHelper.cos(f1 * (float) Math.PI) * f2) * 0.2f, 0);
+            GlStateManager.rotate(MathHelper.sin(f1 * (float) Math.PI) * f2 * 3, 0, 0, 1);
+            GlStateManager.rotate(Math.abs(MathHelper.cos(f1 * (float) Math.PI - 0.2F) * f2) * 5, 1, 0, 0);
 
-            GlStateManager.rotate(f3, 1.0F, 0.0F, 0.0F);
+            GlStateManager.rotate(f3, 1, 0, 0);
 
 
         }
@@ -470,9 +470,9 @@ public class Interceptors {
 
                 float f2 = 5f / (f1 * f1 + 5f) - f1 * 0.01F;
                 f2 = f2 * f2;
-                GlStateManager.rotate(((float) spreadableExposure.getTickCount() + partialTicks) * speed, 0.0F, 1.0F, 1.0F);
-                GlStateManager.scale(1.0F / f2, 1.0F, 1.0F);
-                GlStateManager.rotate(-((float) spreadableExposure.getTickCount() + partialTicks) * speed, 0.0F, 1.0F, 1.0F);
+                GlStateManager.rotate(((float) spreadableExposure.getTickCount() + partialTicks) * speed, 0, 1, 1);
+                GlStateManager.scale(1 / f2, 1, 1);
+                GlStateManager.rotate(-((float) spreadableExposure.getTickCount() + partialTicks) * speed, 0, 1, 1);
                 spreadableExposure.incrementTickCount();
             }
         }
@@ -512,7 +512,7 @@ public class Interceptors {
 
             }
 
-            float appliedAmplitude = 0.0f;
+            float appliedAmplitude = 0;
             if (MC.gameSettings.thirdPersonView != 0) {
                 appliedAmplitude = amplitude;
             } else {
@@ -542,7 +542,7 @@ public class Interceptors {
 
 
             if (Math.abs(lastYawDelta) > 0.3) {
-                //  GlStateManager.rotate(-(float)lastYawDelta * 2f, 0.0F, 1.0f, 0.0f);
+                //  GlStateManager.rotate(-(float)lastYawDelta * 2f, 0, 1, 0);
             }
         } else {
 
@@ -590,29 +590,29 @@ public class Interceptors {
         EntityPlayer entitylivingbase = (EntityPlayer) MC.getRenderViewEntity();
         float f = (float) entitylivingbase.hurtTime - partialTicks;
 
-        if (entitylivingbase.getHealth() <= 0.0F) {
+        if (entitylivingbase.getHealth() <= 0) {
             float f1 = (float) entitylivingbase.deathTime + partialTicks;
-            GlStateManager.rotate(40.0F - 8000.0F / (f1 + 200.0F), 0.0F, 0.0F, 1.0F);
+            GlStateManager.rotate(40 - 8000 / (f1 + 200), 0, 0, 1);
         }
 
-        if (f < 0.0F) {
+        if (f < 0) {
             return allowDefaultEffect;
         }
 
         f = f / (float) entitylivingbase.maxHurtTime;
         f = MathHelper.sin(f * f * f * f * (float) Math.PI);
         float f2 = entitylivingbase.attackedAtYaw;
-        GlStateManager.rotate(-f2, 0.0F, 1.0F, 0.0F);
+        GlStateManager.rotate(-f2, 0, 1, 0);
         SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(entitylivingbase, SpreadableExposure.class);
 
         if (spreadableExposure != null) {
-            GlStateManager.rotate(-f * 4.0F, 1.0F, 0.0F, 0.0F);
-            GlStateManager.rotate(-f, 0.0F, 0.0F, 1.0F);
+            GlStateManager.rotate(-f * 4, 1, 0, 0);
+            GlStateManager.rotate(-f, 0, 0, 1);
         } else {
-            GlStateManager.rotate(-f * 14.0F, 0.0F, 0.0F, 1.0F);
+            GlStateManager.rotate(-f * 14, 0, 0, 1);
         }
 
-        GlStateManager.rotate(f2, 0.0F, 1.0F, 0.0F);
+        GlStateManager.rotate(f2, 0, 1, 0);
 
 
         return allowDefaultEffect;
@@ -625,11 +625,11 @@ public class Interceptors {
 //
 //        int i = 1;
 //
-//        float f2 = 5.0F / (f1 * f1 + 5.0F) - f1 * 0.04F;
+//        float f2 = 5 / (f1 * f1 + 5) - f1 * 0.04F;
 //        f2 = f2 * f2;
-//        GlStateManager.rotate(((float)rendererUpdateCount + partialTicks) * (float)i, 0.0F, 1.0F, 1.0F);
-//        GlStateManager.scale(1.0F / f2, 1.0F, 1.0F);
-//        GlStateManager.rotate(-((float)rendererUpdateCount + partialTicks) * (float)i, 0.0F, 1.0F, 1.0F);
+//        GlStateManager.rotate(((float)rendererUpdateCount + partialTicks) * (float)i, 0, 1, 1);
+//        GlStateManager.scale(1 / f2, 1, 1);
+//        GlStateManager.rotate(-((float)rendererUpdateCount + partialTicks) * (float)i, 0, 1, 1);
 
         //rendererUpdateCount++;
         return allowDefaultEffect;

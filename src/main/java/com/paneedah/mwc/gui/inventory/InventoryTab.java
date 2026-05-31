@@ -28,7 +28,7 @@ public class InventoryTab extends GuiButton {
     @Override
     public void drawButton(Minecraft MC, int mouseX, int mouseY, float partialTicks) {
         if (this.visible) {
-            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+            GlStateManager.color(1, 1, 1, 1);
 
             int yTexPos = this.enabled ? 3 : 32;
             int ySize = this.enabled ? 25 : 32;
@@ -41,8 +41,8 @@ public class InventoryTab extends GuiButton {
             RenderItem itemRenderer = MC.getRenderItem();
 
             RenderHelper.enableGUIStandardItemLighting();
-            this.zLevel = 100.0F;
-            itemRenderer.zLevel = 100.0F;
+            this.zLevel = 100;
+            itemRenderer.zLevel = 100;
             GlStateManager.enableLighting();
             GlStateManager.enableRescaleNormal();
             final ItemStack itemStack = getItemStack();
@@ -50,8 +50,8 @@ public class InventoryTab extends GuiButton {
             itemRenderer.renderItemOverlays(MC.fontRenderer, itemStack, x + 6, y + 8);
             GlStateManager.disableLighting();
             GlStateManager.enableBlend();
-            itemRenderer.zLevel = 0.0F;
-            this.zLevel = 0.0F;
+            itemRenderer.zLevel = 0;
+            this.zLevel = 0;
             RenderHelper.disableStandardItemLighting();
         }
     }

@@ -55,7 +55,7 @@ public class EntityGrenadeRenderer extends Render<Entity> {
         renderer.getThrownEntityPositioning().run();
 
         GlStateManager.disableCull();
-        model.render(entity, 0.0F, 0.3F, 0.0F, 0.0F, 0.0F, 0.08F);
+        model.render(entity, 0, 0.3F, 0, 0, 0, 0.08F);
 
         GlStateManager.popMatrix();
     }

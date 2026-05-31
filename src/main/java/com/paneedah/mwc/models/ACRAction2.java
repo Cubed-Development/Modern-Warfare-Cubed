@@ -21,20 +21,20 @@ public class ACRAction2 extends ModelWithAttachments {
 
         action2 = new ModelRenderer(this);
         action2.setRotationPoint(-1.1443F, -16.189F, -28.8415F);
-        action2.cubeList.add(new ModelBox(action2, 68, 169, -2.4557F, 1.689F, 6.8415F, 1, 2, 10, 0.0F, false));
-        action2.cubeList.add(new ModelBox(action2, 116, 67, -2.3557F, 0.689F, 6.8415F, 1, 2, 10, 0.0F, false));
+        action2.cubeList.add(new ModelBox(action2, 68, 169, -2.4557F, 1.689F, 6.8415F, 1, 2, 10, 0, false));
+        action2.cubeList.add(new ModelBox(action2, 116, 67, -2.3557F, 0.689F, 6.8415F, 1, 2, 10, 0, false));
 
         ACR140_r1 = new ModelRenderer(this);
         ACR140_r1.setRotationPoint(-22.358F, -33.3746F, 28.8415F);
         action2.addChild(ACR140_r1);
-        setRotationAngle(ACR140_r1, 0.0F, 0.0F, 2.5133F);
-        ACR140_r1.cubeList.add(new ModelBox(ACR140_r1, 32, 184, 0.2F, -40.6F, -36.0F, 1, 1, 14, 0.0F, false));
+        setRotationAngle(ACR140_r1, 0, 0, 2.5133F);
+        ACR140_r1.cubeList.add(new ModelBox(ACR140_r1, 32, 184, 0.2F, -40.6F, -36, 1, 1, 14, 0, false));
 
         ACR139_r1 = new ModelRenderer(this);
         ACR139_r1.setRotationPoint(32.5118F, 21.3543F, 28.8415F);
         action2.addChild(ACR139_r1);
-        setRotationAngle(ACR139_r1, 0.0F, 0.0F, -0.9295F);
-        ACR139_r1.cubeList.add(new ModelBox(ACR139_r1, 32, 184, -3.1F, -40.7F, -36.0F, 1, 1, 14, 0.0F, false));
+        setRotationAngle(ACR139_r1, 0, 0, -0.9295F);
+        ACR139_r1.cubeList.add(new ModelBox(ACR139_r1, 32, 184, -3.1F, -40.7F, -36, 1, 1, 14, 0, false));
     }
 
     @Override

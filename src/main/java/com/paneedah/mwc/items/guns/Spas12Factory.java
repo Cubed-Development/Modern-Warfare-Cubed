@@ -276,7 +276,7 @@ public class Spas12Factory implements GunFactory {
 
                             // inserted
 
-//            	GlStateManager.translate(0.0F, -0.03F, -0.075F);
+//            	GlStateManager.translate(0, -0.03F, -0.075F);
                         })
 
                         .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
@@ -330,15 +330,15 @@ public class Spas12Factory implements GunFactory {
                                 }, 250, 50),
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GlStateManager.translate(0.0F, -0.03F, -0.075F);
+                                    GlStateManager.translate(0, -0.03F, -0.075F);
                                 }, 250, 50),
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GlStateManager.translate(0.0F, -0.05F, -0.075F);
+                                    GlStateManager.translate(0, -0.05F, -0.075F);
                                 }, 250, 50),
 
                                 new Transition((renderContext) -> { // Reload position
-                                    GlStateManager.translate(0.0F, -0.05F, -0.075F);
+                                    GlStateManager.translate(0, -0.05F, -0.075F);
                                 }, 250, 50),
 
                                 new Transition((renderContext) -> { // Reload position

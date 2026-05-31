@@ -65,10 +65,10 @@ public class VehicleCustomGUI extends Gui {
      * @param prevAngle
      */
     public void renderNeedle(Color c, double x, double y, double length, double width, float startAngle, float angle, float prevAngle) {
-        float red = c.getRed() / 255.0f;
-        float blue = c.getBlue() / 255.0f;
-        float green = c.getGreen() / 255.0f;
-        float alpha = c.getAlpha() / 255.0f;
+        float red = c.getRed() / 255;
+        float blue = c.getBlue() / 255;
+        float green = c.getGreen() / 255;
+        float alpha = c.getAlpha() / 255;
 
         double tW = width / 2.0;
 
@@ -78,7 +78,7 @@ public class VehicleCustomGUI extends Gui {
         GlStateManager.disableDepth();
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
 
 
         double interpolatedAng = prevAngle + (angle - prevAngle) * MC.getRenderPartialTicks();
@@ -118,10 +118,10 @@ public class VehicleCustomGUI extends Gui {
     public void renderHalfCircle(Color c, double x, double y, int outerRadius, int innerRadius, double beginAngle, double finishAngle) {
 
 
-        float red = c.getRed() / 255.0f;
-        float blue = c.getBlue() / 255.0f;
-        float green = c.getGreen() / 255.0f;
-        float alpha = c.getAlpha() / 255.0f;
+        float red = c.getRed() / 255;
+        float blue = c.getBlue() / 255;
+        float green = c.getGreen() / 255;
+        float alpha = c.getAlpha() / 255;
 
         GlStateManager.pushMatrix();
 
@@ -136,7 +136,7 @@ public class VehicleCustomGUI extends Gui {
 		GL11.glEnable(GL13.GL_MULTISAMPLE);
 		GL11.glHint(NVMultisampleFilterHint.GL_MULTISAMPLE_FILTER_HINT_NV, GL11.GL_NICEST);
 		System.out.println(GlStateManager.glGetInteger(GL13.GL_SAMPLE_BUFFERS)); */
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
         Tessellator t = Tessellator.getInstance();
         BufferBuilder bb = t.getBuffer();
         double endAng = 0;
@@ -149,7 +149,7 @@ public class VehicleCustomGUI extends Gui {
             double sinI = -Math.sin(Math.toRadians(a)) * innerRadius;
 
             bb.pos(x + cos, y + sin, 0).color(red, green, blue, alpha).endVertex();
-            bb.pos(x + cosI, y + sinI, 0).color(red, green, blue, 1.0f).endVertex();
+            bb.pos(x + cosI, y + sinI, 0).color(red, green, blue, 1).endVertex();
 
             endAng = a;
         }
@@ -162,7 +162,7 @@ public class VehicleCustomGUI extends Gui {
             double sinI = -Math.sin(Math.toRadians(finishAngle)) * innerRadius;
 
             bb.pos(x + cos, y + sin, 0).color(red, green, blue, alpha).endVertex();
-            bb.pos(x + cosI, y + sinI, 0).color(red, green, blue, 1.0f).endVertex();
+            bb.pos(x + cosI, y + sinI, 0).color(red, green, blue, 1).endVertex();
         }
 
 
@@ -176,7 +176,7 @@ public class VehicleCustomGUI extends Gui {
         GlStateManager.popMatrix();
     }
 
-    public float prevRPMAngle = 0.0f;
+    public float prevRPMAngle = 0;
     public SimpleAnimationTimer sat = null;
     public int oldPOV = 0;
 
@@ -214,7 +214,7 @@ public class VehicleCustomGUI extends Gui {
         GlStateManager.pushMatrix();
         GlStateManager.disableTexture2D();
         GlStateManager.disableDepth();
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
         GlStateManager.translate(x + 6.5, y + 6.5, 0.0);
         GlStateManager.scale(30.5, 30.5, 30.5);
 
@@ -229,7 +229,7 @@ public class VehicleCustomGUI extends Gui {
         // renderer knob
         ResourceLocation loc = new ResourceLocation(ID + ":textures/gui/caricons.png");
         MC.getTextureManager().bindTexture(loc);
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
+        GlStateManager.color(1, 1, 1);
         GlStateManager.translate(x + nX, y + nZ, 0);
         GlStateManager.scale(0.8, 0.8, 0.8);
         drawTexturedModalRect(0, 0, 0, 0, 17, 17);
@@ -422,7 +422,7 @@ public class VehicleCustomGUI extends Gui {
         Vec3d iR = keyAnimator.getInterpolatedRotation();
         Vec3d iP = keyAnimator.getInterpolatedPosition();
 
-        lockModel.setLivingAnimations(null, (float) iR.x, 0.0f, 0.0f);
+        lockModel.setLivingAnimations(null, (float) iR.x, 0, 0);
         ScreenRenderer.renderModelOnScreen(0.0, 0.0, 0.0, 30, 0f, 0f, 0f, lockModel, keyTex);
 
 

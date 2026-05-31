@@ -121,8 +121,8 @@ public class OreintedBB {
         GlStateManager.rotate((float) Math.toDegrees(eulerRotations.z), 0, 0, 1);
 
         this.previousEuler = eulerRotations;
-        GlStateManager.glLineWidth(2.0f);
-        RenderGlobal.drawBoundingBox(aabb.minX, aabb.minY, aabb.minZ, aabb.maxX, aabb.maxY, aabb.maxZ, 1.0f, 0.0f, 0.0f, 1.0f);
+        GlStateManager.glLineWidth(2);
+        RenderGlobal.drawBoundingBox(aabb.minX, aabb.minY, aabb.minZ, aabb.maxX, aabb.maxY, aabb.maxZ, 1, 0, 0, 1);
 
 
         GlStateManager.popMatrix();

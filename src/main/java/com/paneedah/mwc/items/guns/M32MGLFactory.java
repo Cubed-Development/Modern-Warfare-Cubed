@@ -1226,7 +1226,7 @@ public class M32MGLFactory implements GunFactory {
                             GlStateManager.rotate(-10.000000f, 1f, 0f, 0f);
                             GlStateManager.rotate(10.000000f, 0f, 1f, 0f);
                             GlStateManager.rotate(-15.000000f, 0f, 0f, 1f);
-                            GlStateManager.translate(-2f, 0.000000f, -2.0f);
+                            GlStateManager.translate(-2f, 0.000000f, -2);
                         })
                         .withFirstPersonHandPositioning(
                                 (renderContext) -> {

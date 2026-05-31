@@ -1710,7 +1710,7 @@ public class Magazines {
                 .withCapacity(20)
                 .withCompatibleBullet(Bullets.Bullet9x19mm)
                 .withName("APSMag_2")
-                .withPivotPoint(-0.12000000357627871F, 0.48000001430511485F, 0.0F)
+                .withPivotPoint(-0.12000000357627871F, 0.48000001430511485F, 0)
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.APSmag(), "aps.png")
 
@@ -2158,7 +2158,7 @@ public class Magazines {
                 .withCapacity(10)
                 .withCompatibleBullet(Bullets.Bullet762x51)
                 .withName("Z10Mag")
-                .withPivotPoint(-0.1F, 0.0F, -1.4000000000000001F)
+                .withPivotPoint(-0.1F, 0, -1.4000000000000001F)
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.Z10Mag(), "z10.png")
@@ -2356,7 +2356,7 @@ public class Magazines {
                 .withCapacity(20)
                 .withCompatibleBullet(Bullets.Bullet762x51)
                 .withName("G3Mag")
-                .withPivotPoint(0.0F, -0.6400000190734865F, -1.4000000417232517F)
+                .withPivotPoint(0, -0.6400000190734865F, -1.4000000417232517F)
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.G3Mag(), "G3.png")
@@ -2463,7 +2463,7 @@ public class Magazines {
                 .withCapacity(30)
                 .withCompatibleBullet(Bullets.Bullet9x19mm)
                 .withName("MP5A5Mag")
-                .withPivotPoint(0.0F, 0.20000000596046452F, -1.5600000464916233F)
+                .withPivotPoint(0, 0.20000000596046452F, -1.5600000464916233F)
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.HKMP5Mag(), "mp5.png")
@@ -2491,7 +2491,7 @@ public class Magazines {
                 .withCapacity(50)
                 .withCompatibleBullet(Bullets.Bullet9x19mm)
                 .withName("HK50Drum")
-                .withPivotPoint(0.0F, 0.20000000596046452F, -1.5600000464916233F)
+                .withPivotPoint(0, 0.20000000596046452F, -1.5600000464916233F)
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withModel(new com.paneedah.mwc.models.HK50Drum(), "mp5.png")
@@ -2562,7 +2562,7 @@ public class Magazines {
                     GlStateManager.rotate(10F, 1f, 0f, 0f);
                     GlStateManager.scale(0.7F, 0.7F, 0.7F);
                 }).withInventoryPositioning(() -> {
-                    GlStateManager.translate(0.3F, -0.0F, -0.7F);
+                    GlStateManager.translate(0.3F, -0, -0.7F);
                     GlStateManager.rotate(-150F, 0f, 1f, 0f);
                     GlStateManager.rotate(-6F, 1f, 0f, 0f);
                     GlStateManager.rotate(-15F, 0f, 0f, 1f);
@@ -2835,7 +2835,7 @@ public class Magazines {
                     GlStateManager.rotate(-150F, 0f, 1f, 0f);
                     GlStateManager.rotate(-6F, 1f, 0f, 0f);
                     GlStateManager.rotate(-15F, 0f, 0f, 1f);
-                    GlStateManager.scale(1.0F, 1.0F, 1.0f);
+                    GlStateManager.scale(1, 1, 1);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(modContext, ItemMagazine.class);

@@ -66,232 +66,232 @@ public class CollapsableMOEStock extends ModelBase {
         textureHeight = 90;
 
         gun365 = new ModelRenderer(this);
-        gun365.setRotationPoint(-2.0F, -11.5F, 3.5F);
-        gun365.cubeList.add(new ModelBox(gun365, 10, 10, 0.0F, 0.0F, 0.0F, 1, 3, 4, 0.0F, false));
+        gun365.setRotationPoint(-2, -11.5F, 3.5F);
+        gun365.cubeList.add(new ModelBox(gun365, 10, 10, 0, 0, 0, 1, 3, 4, 0, false));
 
         gun366 = new ModelRenderer(this);
-        gun366.setRotationPoint(-3.0F, -10.5F, 3.5F);
-        gun366.cubeList.add(new ModelBox(gun366, 0, 14, 0.0F, 0.0F, 0.0F, 3, 1, 4, 0.0F, false));
+        gun366.setRotationPoint(-3, -10.5F, 3.5F);
+        gun366.cubeList.add(new ModelBox(gun366, 0, 14, 0, 0, 0, 3, 1, 4, 0, false));
 
         gun367 = new ModelRenderer(this);
-        gun367.setRotationPoint(-2.0F, -11.7F, 8.0F);
-        gun367.cubeList.add(new ModelBox(gun367, 24, 1, 0.0F, 0.0F, 0.0F, 1, 3, 20, 0.0F, false));
+        gun367.setRotationPoint(-2, -11.7F, 8);
+        gun367.cubeList.add(new ModelBox(gun367, 24, 1, 0, 0, 0, 1, 3, 20, 0, false));
 
         gun369 = new ModelRenderer(this);
         gun369.setRotationPoint(-3.2F, -10.5F, 7.5F);
-        gun369.cubeList.add(new ModelBox(gun369, 0, 21, 0.0F, 0.0F, 0.0F, 2, 1, 20, 0.0F, false));
+        gun369.cubeList.add(new ModelBox(gun369, 0, 21, 0, 0, 0, 2, 1, 20, 0, false));
 
         gun370 = new ModelRenderer(this);
         gun370.setRotationPoint(-1.8F, -10.5F, 7.5F);
-        gun370.cubeList.add(new ModelBox(gun370, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 20, 0.0F, false));
+        gun370.cubeList.add(new ModelBox(gun370, 0, 0, 0, 0, 0, 2, 1, 20, 0, false));
 
         gun371 = new ModelRenderer(this);
-        gun371.setRotationPoint(-1.0F, -11.7F, 7.5F);
-        setRotationAngle(gun371, 0.0F, 0.0F, 0.7854F);
-        gun371.cubeList.add(new ModelBox(gun371, 46, 42, 0.0F, -0.001F, -0.001F, 1, 1, 20, 0.0F, false));
+        gun371.setRotationPoint(-1, -11.7F, 7.5F);
+        setRotationAngle(gun371, 0, 0, 0.7854F);
+        gun371.cubeList.add(new ModelBox(gun371, 46, 42, 0, -0.001F, -0.001F, 1, 1, 20, 0, false));
 
         gun372 = new ModelRenderer(this);
-        gun372.setRotationPoint(-2.0F, -11.7F, 7.5F);
-        setRotationAngle(gun372, 0.0F, 0.0F, 0.7854F);
-        gun372.cubeList.add(new ModelBox(gun372, 46, 21, -0.001F, 0.0F, -0.001F, 1, 1, 20, 0.0F, false));
+        gun372.setRotationPoint(-2, -11.7F, 7.5F);
+        setRotationAngle(gun372, 0, 0, 0.7854F);
+        gun372.cubeList.add(new ModelBox(gun372, 46, 21, -0.001F, 0, -0.001F, 1, 1, 20, 0, false));
 
         gun373 = new ModelRenderer(this);
         gun373.setRotationPoint(-3.2F, -10.5F, 7.5F);
-        setRotationAngle(gun373, 0.0F, 0.0F, -0.7854F);
-        gun373.cubeList.add(new ModelBox(gun373, 46, 0, 0.0F, 0.0F, 0.0F, 1, 1, 20, 0.0F, false));
+        setRotationAngle(gun373, 0, 0, -0.7854F);
+        gun373.cubeList.add(new ModelBox(gun373, 46, 0, 0, 0, 0, 1, 1, 20, 0, false));
 
         gun374 = new ModelRenderer(this);
         gun374.setRotationPoint(-3.2F, -9.5F, 7.5F);
-        setRotationAngle(gun374, 0.0F, 0.0F, -0.7854F);
-        gun374.cubeList.add(new ModelBox(gun374, 22, 45, 0.0F, 0.0F, 0.0F, 1, 1, 20, 0.0F, false));
+        setRotationAngle(gun374, 0, 0, -0.7854F);
+        gun374.cubeList.add(new ModelBox(gun374, 22, 45, 0, 0, 0, 1, 1, 20, 0, false));
 
         gun375 = new ModelRenderer(this);
         gun375.setRotationPoint(0.2F, -10.5F, 7.5F);
-        setRotationAngle(gun375, 0.0F, 0.0F, 2.3562F);
-        gun375.cubeList.add(new ModelBox(gun375, 0, 42, 0.0F, 0.0F, 0.0F, 1, 1, 20, 0.0F, false));
+        setRotationAngle(gun375, 0, 0, 2.3562F);
+        gun375.cubeList.add(new ModelBox(gun375, 0, 42, 0, 0, 0, 1, 1, 20, 0, false));
 
         gun376 = new ModelRenderer(this);
         gun376.setRotationPoint(0.2F, -9.5F, 7.5F);
-        setRotationAngle(gun376, 0.0F, 0.0F, 2.3562F);
-        gun376.cubeList.add(new ModelBox(gun376, 24, 24, 0.0F, 0.0F, 0.0F, 1, 1, 20, 0.0F, false));
+        setRotationAngle(gun376, 0, 0, 2.3562F);
+        gun376.cubeList.add(new ModelBox(gun376, 24, 24, 0, 0, 0, 1, 1, 20, 0, false));
 
         gun377 = new ModelRenderer(this);
         gun377.setRotationPoint(-2.5F, -8.3F, 7.5F);
-        setRotationAngle(gun377, 0.2974F, 0.0F, 0.0F);
-        gun377.cubeList.add(new ModelBox(gun377, 24, 24, -0.001F, 0.0F, 0.0F, 2, 4, 3, 0.0F, false));
+        setRotationAngle(gun377, 0.2974F, 0, 0);
+        gun377.cubeList.add(new ModelBox(gun377, 24, 24, -0.001F, 0, 0, 2, 4, 3, 0, false));
 
         gun378 = new ModelRenderer(this);
         gun378.setRotationPoint(-2.5F, -9.3F, 7.5F);
-        gun378.cubeList.add(new ModelBox(gun378, 24, 16, 0.0F, 0.0F, 0.0F, 2, 1, 3, 0.0F, false));
+        gun378.cubeList.add(new ModelBox(gun378, 24, 16, 0, 0, 0, 2, 1, 3, 0, false));
 
         gun379 = new ModelRenderer(this);
         gun379.setRotationPoint(-2.5F, -4.5F, 8.7F);
-        setRotationAngle(gun379, 1.1897F, 0.0F, 0.0F);
-        gun379.cubeList.add(new ModelBox(gun379, 0, 21, -0.002F, 0.0F, 0.0F, 2, 17, 1, 0.0F, false));
+        setRotationAngle(gun379, 1.1897F, 0, 0);
+        gun379.cubeList.add(new ModelBox(gun379, 0, 21, -0.002F, 0, 0, 2, 17, 1, 0, false));
 
         gun380 = new ModelRenderer(this);
         gun380.setRotationPoint(-2.5F, 0.9F, 24.4F);
-        gun380.cubeList.add(new ModelBox(gun380, 36, 32, 0.0F, 0.0F, 0.0F, 2, 1, 2, 0.0F, false));
+        gun380.cubeList.add(new ModelBox(gun380, 36, 32, 0, 0, 0, 2, 1, 2, 0, false));
 
         gun381 = new ModelRenderer(this);
         gun381.setRotationPoint(-3.3F, -10.9F, 27.5F);
-        setRotationAngle(gun381, -0.1115F, 0.0F, 0.0F);
-        gun381.cubeList.add(new ModelBox(gun381, 6, 21, 0.0F, 0.0F, 0.001F, 3, 12, 1, 0.0F, false));
+        setRotationAngle(gun381, -0.1115F, 0, 0);
+        gun381.cubeList.add(new ModelBox(gun381, 6, 21, 0, 0, 0.001F, 3, 12, 1, 0, false));
 
         gun382 = new ModelRenderer(this);
         gun382.setRotationPoint(-0.7F, -10.9F, 27.5F);
-        setRotationAngle(gun382, -0.1115F, 0.0F, 0.0F);
-        gun382.cubeList.add(new ModelBox(gun382, 14, 21, 0.0F, 0.0F, 0.0F, 1, 12, 1, 0.0F, false));
+        setRotationAngle(gun382, -0.1115F, 0, 0);
+        gun382.cubeList.add(new ModelBox(gun382, 14, 21, 0, 0, 0, 1, 12, 1, 0, false));
 
         gun383 = new ModelRenderer(this);
         gun383.setRotationPoint(-2.5F, -11.8F, 27.6F);
-        setRotationAngle(gun383, -0.1115F, 0.0F, 0.0F);
-        gun383.cubeList.add(new ModelBox(gun383, 31, 24, 0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        setRotationAngle(gun383, -0.1115F, 0, 0);
+        gun383.cubeList.add(new ModelBox(gun383, 31, 24, 0, 0, 0, 2, 1, 1, 0, false));
 
         gun384 = new ModelRenderer(this);
-        gun384.setRotationPoint(-3.0F, -11.4F, 27.55F);
-        setRotationAngle(gun384, -0.1115F, 0.0F, 0.0F);
-        gun384.cubeList.add(new ModelBox(gun384, 35, 5, 0.0F, 0.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        gun384.setRotationPoint(-3, -11.4F, 27.55F);
+        setRotationAngle(gun384, -0.1115F, 0, 0);
+        gun384.cubeList.add(new ModelBox(gun384, 35, 5, 0, 0, 0, 3, 1, 1, 0, false));
 
         gun385 = new ModelRenderer(this);
-        gun385.setRotationPoint(-2.0F, -11.7F, 7.5F);
-        gun385.cubeList.add(new ModelBox(gun385, 0, 8, 0.0F, -0.001F, 0.001F, 1, 3, 1, 0.0F, false));
+        gun385.setRotationPoint(-2, -11.7F, 7.5F);
+        gun385.cubeList.add(new ModelBox(gun385, 0, 8, 0, -0.001F, 0.001F, 1, 3, 1, 0, false));
 
         gun386 = new ModelRenderer(this);
         gun386.setRotationPoint(-2.5F, -9.8F, 10.5F);
-        gun386.cubeList.add(new ModelBox(gun386, 47, 63, 0.0F, 0.0F, 0.0F, 2, 2, 17, 0.0F, false));
+        gun386.cubeList.add(new ModelBox(gun386, 47, 63, 0, 0, 0, 2, 2, 17, 0, false));
 
         gun387 = new ModelRenderer(this);
         gun387.setRotationPoint(-2.5F, -7.9F, 10.5F);
-        gun387.cubeList.add(new ModelBox(gun387, 11, 0, 0.0F, 0.0F, 0.0F, 2, 4, 2, 0.0F, false));
+        gun387.cubeList.add(new ModelBox(gun387, 11, 0, 0, 0, 0, 2, 4, 2, 0, false));
 
         gun388 = new ModelRenderer(this);
-        gun388.setRotationPoint(-2.5F, -5.3F, 10.0F);
+        gun388.setRotationPoint(-2.5F, -5.3F, 10);
 
 
         gun389 = new ModelRenderer(this);
         gun389.setRotationPoint(-2.5F, -7.8F, 23.5F);
-        gun389.cubeList.add(new ModelBox(gun389, 24, 11, 0.0F, 0.0F, 0.0F, 2, 1, 4, 0.0F, false));
+        gun389.cubeList.add(new ModelBox(gun389, 24, 11, 0, 0, 0, 2, 1, 4, 0, false));
 
         gun390 = new ModelRenderer(this);
         gun390.setRotationPoint(-2.5F, -7.3F, 25.1F);
-        setRotationAngle(gun390, -0.1115F, 0.0F, 0.0F);
-        gun390.cubeList.add(new ModelBox(gun390, 6, 42, 0.001F, 0.0F, 0.0F, 2, 7, 1, 0.0F, false));
+        setRotationAngle(gun390, -0.1115F, 0, 0);
+        gun390.cubeList.add(new ModelBox(gun390, 6, 42, 0.001F, 0, 0, 2, 7, 1, 0, false));
 
         gun391 = new ModelRenderer(this);
-        gun391.setRotationPoint(-2.0F, -7.1F, 25.5F);
-        setRotationAngle(gun391, -0.1115F, 0.0F, 0.0F);
-        gun391.cubeList.add(new ModelBox(gun391, 0, 42, 0.0F, 0.0F, 0.0F, 1, 6, 2, 0.0F, false));
+        gun391.setRotationPoint(-2, -7.1F, 25.5F);
+        setRotationAngle(gun391, -0.1115F, 0, 0);
+        gun391.cubeList.add(new ModelBox(gun391, 0, 42, 0, 0, 0, 1, 6, 2, 0, false));
 
         gun392 = new ModelRenderer(this);
         gun392.setRotationPoint(-2.5F, -6.8F, 23.5F);
-        setRotationAngle(gun392, 1.1154F, 0.0F, 0.0F);
-        gun392.cubeList.add(new ModelBox(gun392, 0, 0, -0.002F, 0.0F, 0.0F, 2, 2, 1, 0.0F, false));
+        setRotationAngle(gun392, 1.1154F, 0, 0);
+        gun392.cubeList.add(new ModelBox(gun392, 0, 0, -0.002F, 0, 0, 2, 2, 1, 0, false));
 
         gun393 = new ModelRenderer(this);
         gun393.setRotationPoint(-2.5F, -1.1F, 19.6F);
-        gun393.cubeList.add(new ModelBox(gun393, 0, 0, 0.0F, 0.0F, 0.0F, 2, 1, 7, 0.0F, false));
+        gun393.cubeList.add(new ModelBox(gun393, 0, 0, 0, 0, 0, 2, 1, 7, 0, false));
 
         gun394 = new ModelRenderer(this);
-        gun394.setRotationPoint(-2.5F, 1.0F, 26.2F);
-        setRotationAngle(gun394, -0.1115F, 0.0F, 0.0F);
-        gun394.cubeList.add(new ModelBox(gun394, 0, 5, -0.001F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        gun394.setRotationPoint(-2.5F, 1, 26.2F);
+        setRotationAngle(gun394, -0.1115F, 0, 0);
+        gun394.cubeList.add(new ModelBox(gun394, 0, 5, -0.001F, 0, 0, 2, 1, 1, 0, false));
 
         gun395 = new ModelRenderer(this);
-        gun395.setRotationPoint(-3.0F, 0.5F, 26.25F);
-        setRotationAngle(gun395, -0.1115F, 0.0F, 0.0F);
-        gun395.cubeList.add(new ModelBox(gun395, 10, 8, 0.0F, 0.0F, 0.0F, 3, 1, 1, 0.0F, false));
+        gun395.setRotationPoint(-3, 0.5F, 26.25F);
+        setRotationAngle(gun395, -0.1115F, 0, 0);
+        gun395.cubeList.add(new ModelBox(gun395, 10, 8, 0, 0, 0, 3, 1, 1, 0, false));
 
         gun396 = new ModelRenderer(this);
         gun396.setRotationPoint(-2.5F, -6.8F, 23.5F);
-        setRotationAngle(gun396, 2.082F, 0.0F, 0.0F);
-        gun396.cubeList.add(new ModelBox(gun396, 12, 17, -0.001F, 0.0F, 0.0F, 2, 1, 2, 0.0F, false));
+        setRotationAngle(gun396, 2.082F, 0, 0);
+        gun396.cubeList.add(new ModelBox(gun396, 12, 17, -0.001F, 0, 0, 2, 1, 2, 0, false));
 
         gun397 = new ModelRenderer(this);
-        gun397.setRotationPoint(-3.0F, -8.5F, 11.0F);
-        setRotationAngle(gun397, -0.0744F, 0.0F, 0.0F);
-        gun397.cubeList.add(new ModelBox(gun397, 44, 45, 0.001F, 0.0F, 0.0F, 3, 2, 8, 0.0F, false));
+        gun397.setRotationPoint(-3, -8.5F, 11);
+        setRotationAngle(gun397, -0.0744F, 0, 0);
+        gun397.cubeList.add(new ModelBox(gun397, 44, 45, 0.001F, 0, 0, 3, 2, 8, 0, false));
 
         gun398 = new ModelRenderer(this);
-        gun398.setRotationPoint(-3.0F, -7.9F, 18.95F);
-        setRotationAngle(gun398, -0.2603F, 0.0F, 0.0F);
-        gun398.cubeList.add(new ModelBox(gun398, 24, 6, -0.001F, 0.0F, 0.0F, 3, 2, 3, 0.0F, false));
+        gun398.setRotationPoint(-3, -7.9F, 18.95F);
+        setRotationAngle(gun398, -0.2603F, 0, 0);
+        gun398.cubeList.add(new ModelBox(gun398, 24, 6, -0.001F, 0, 0, 3, 2, 3, 0, false));
 
         gun399 = new ModelRenderer(this);
-        gun399.setRotationPoint(-3.0F, -7.2F, 17.5F);
-        gun399.cubeList.add(new ModelBox(gun399, 0, 8, 0.0F, 0.0F, 0.0F, 3, 2, 4, 0.0F, false));
+        gun399.setRotationPoint(-3, -7.2F, 17.5F);
+        gun399.cubeList.add(new ModelBox(gun399, 0, 8, 0, 0, 0, 3, 2, 4, 0, false));
 
         gun400 = new ModelRenderer(this);
-        gun400.setRotationPoint(-3.0F, -5.2F, 17.5F);
-        setRotationAngle(gun400, 2.3794F, 0.0F, 0.0F);
-        gun400.cubeList.add(new ModelBox(gun400, 34, 17, -0.001F, 0.0F, 0.0F, 3, 1, 2, 0.0F, false));
+        gun400.setRotationPoint(-3, -5.2F, 17.5F);
+        setRotationAngle(gun400, 2.3794F, 0, 0);
+        gun400.cubeList.add(new ModelBox(gun400, 34, 17, -0.001F, 0, 0, 3, 1, 2, 0, false));
 
         gun401 = new ModelRenderer(this);
-        gun401.setRotationPoint(-2.5F, -4.5F, 10.0F);
-        gun401.cubeList.add(new ModelBox(gun401, 36, 24, 0.001F, -1.0F, 0.0F, 2, 3, 2, 0.0F, false));
+        gun401.setRotationPoint(-2.5F, -4.5F, 10);
+        gun401.cubeList.add(new ModelBox(gun401, 36, 24, 0.001F, -1, 0, 2, 3, 2, 0, false));
 
         gun402 = new ModelRenderer(this);
         gun402.setRotationPoint(-2.5F, -1.8F, 24.6F);
-        setRotationAngle(gun402, -0.7854F, 0.0F, 0.0F);
-        gun402.cubeList.add(new ModelBox(gun402, 0, 3, -0.001F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
+        setRotationAngle(gun402, -0.7854F, 0, 0);
+        gun402.cubeList.add(new ModelBox(gun402, 0, 3, -0.001F, 0, 0, 2, 1, 1, 0, false));
 
         gun403 = new ModelRenderer(this);
-        gun403.setRotationPoint(-2.0F, -0.9F, 21.5F);
-        gun403.cubeList.add(new ModelBox(gun403, 24, 0, 0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
+        gun403.setRotationPoint(-2, -0.9F, 21.5F);
+        gun403.cubeList.add(new ModelBox(gun403, 24, 0, 0, 0, 0, 1, 1, 5, 0, false));
 
         gun404 = new ModelRenderer(this);
-        gun404.setRotationPoint(-2.0F, 0.7F, 24.0F);
-        gun404.cubeList.add(new ModelBox(gun404, 12, 34, 0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
+        gun404.setRotationPoint(-2, 0.7F, 24);
+        gun404.cubeList.add(new ModelBox(gun404, 12, 34, 0, 0, 0, 1, 1, 3, 0, false));
 
         gun405 = new ModelRenderer(this);
-        gun405.setRotationPoint(-2.0F, 0.1F, 22.5F);
-        setRotationAngle(gun405, 0.7808F, 0.0F, 0.0F);
-        gun405.cubeList.add(new ModelBox(gun405, 0, 14, 0.0F, 0.0F, 0.0F, 1, 2, 1, 0.0F, false));
+        gun405.setRotationPoint(-2, 0.1F, 22.5F);
+        setRotationAngle(gun405, 0.7808F, 0, 0);
+        gun405.cubeList.add(new ModelBox(gun405, 0, 14, 0, 0, 0, 1, 2, 1, 0, false));
 
         gun406 = new ModelRenderer(this);
-        gun406.setRotationPoint(-2.0F, -0.1F, 26.1F);
-        setRotationAngle(gun406, -0.1487F, 0.0F, 0.0F);
-        gun406.cubeList.add(new ModelBox(gun406, 10, 10, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
+        gun406.setRotationPoint(-2, -0.1F, 26.1F);
+        setRotationAngle(gun406, -0.1487F, 0, 0);
+        gun406.cubeList.add(new ModelBox(gun406, 10, 10, 0, 0, 0, 1, 1, 1, 0, false));
 
         gun407 = new ModelRenderer(this);
-        gun407.setRotationPoint(-1.0F, -11.5F, 3.5F);
-        setRotationAngle(gun407, 0.0F, 0.0F, 0.7854F);
-        gun407.cubeList.add(new ModelBox(gun407, 24, 36, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun407.setRotationPoint(-1, -11.5F, 3.5F);
+        setRotationAngle(gun407, 0, 0, 0.7854F);
+        gun407.cubeList.add(new ModelBox(gun407, 24, 36, 0, 0, 0, 1, 1, 4, 0, false));
 
         gun408 = new ModelRenderer(this);
-        gun408.setRotationPoint(-2.0F, -11.5F, 3.5F);
-        setRotationAngle(gun408, 0.0F, 0.0F, 0.7854F);
-        gun408.cubeList.add(new ModelBox(gun408, 6, 34, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun408.setRotationPoint(-2, -11.5F, 3.5F);
+        setRotationAngle(gun408, 0, 0, 0.7854F);
+        gun408.cubeList.add(new ModelBox(gun408, 6, 34, 0, 0, 0, 1, 1, 4, 0, false));
 
         gun409 = new ModelRenderer(this);
-        gun409.setRotationPoint(-3.0F, -10.5F, 3.5F);
-        setRotationAngle(gun409, 0.0F, 0.0F, -0.7854F);
-        gun409.cubeList.add(new ModelBox(gun409, 30, 32, 0.0F, -0.001F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun409.setRotationPoint(-3, -10.5F, 3.5F);
+        setRotationAngle(gun409, 0, 0, -0.7854F);
+        gun409.cubeList.add(new ModelBox(gun409, 30, 32, 0, -0.001F, 0, 1, 1, 4, 0, false));
 
         gun410 = new ModelRenderer(this);
-        gun410.setRotationPoint(-3.0F, -9.5F, 3.5F);
-        setRotationAngle(gun410, 0.0F, 0.0F, -0.7854F);
-        gun410.cubeList.add(new ModelBox(gun410, 32, 12, -0.001F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun410.setRotationPoint(-3, -9.5F, 3.5F);
+        setRotationAngle(gun410, 0, 0, -0.7854F);
+        gun410.cubeList.add(new ModelBox(gun410, 32, 12, -0.001F, 0, 0, 1, 1, 4, 0, false));
 
         gun411 = new ModelRenderer(this);
-        gun411.setRotationPoint(0.0F, -10.5F, 3.5F);
-        setRotationAngle(gun411, 0.0F, 0.0F, 2.3562F);
-        gun411.cubeList.add(new ModelBox(gun411, 32, 7, 0.001F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun411.setRotationPoint(0, -10.5F, 3.5F);
+        setRotationAngle(gun411, 0, 0, 2.3562F);
+        gun411.cubeList.add(new ModelBox(gun411, 32, 7, 0.001F, 0, 0, 1, 1, 4, 0, false));
 
         gun412 = new ModelRenderer(this);
-        gun412.setRotationPoint(0.0F, -9.5F, 3.5F);
-        setRotationAngle(gun412, 0.0F, 0.0F, 2.3562F);
-        gun412.cubeList.add(new ModelBox(gun412, 24, 31, 0.0F, -0.001F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun412.setRotationPoint(0, -9.5F, 3.5F);
+        setRotationAngle(gun412, 0, 0, 2.3562F);
+        gun412.cubeList.add(new ModelBox(gun412, 24, 31, 0, -0.001F, 0, 1, 1, 4, 0, false));
 
         gun413 = new ModelRenderer(this);
-        gun413.setRotationPoint(-2.0F, -8.5F, 3.5F);
-        setRotationAngle(gun413, 0.0F, 0.0F, -2.3562F);
-        gun413.cubeList.add(new ModelBox(gun413, 31, 0, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun413.setRotationPoint(-2, -8.5F, 3.5F);
+        setRotationAngle(gun413, 0, 0, -2.3562F);
+        gun413.cubeList.add(new ModelBox(gun413, 31, 0, 0, 0, 0, 1, 1, 4, 0, false));
 
         gun414 = new ModelRenderer(this);
-        gun414.setRotationPoint(-1.0F, -8.5F, 3.5F);
-        setRotationAngle(gun414, 0.0F, 0.0F, -2.3562F);
-        gun414.cubeList.add(new ModelBox(gun414, 30, 27, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
+        gun414.setRotationPoint(-1, -8.5F, 3.5F);
+        setRotationAngle(gun414, 0, 0, -2.3562F);
+        gun414.cubeList.add(new ModelBox(gun414, 30, 27, 0, 0, 0, 1, 1, 4, 0, false));
     }
 
     @Override

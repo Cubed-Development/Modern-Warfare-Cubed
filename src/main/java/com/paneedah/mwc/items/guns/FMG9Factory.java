@@ -157,7 +157,7 @@ public class FMG9Factory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
-                    GlStateManager.translate(-0.0F, -1.25F, -0.7F);
+                    GlStateManager.translate(-0, -1.25F, -0.7F);
                     GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -167,7 +167,7 @@ public class FMG9Factory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
-                    GlStateManager.translate(-0.0F, -1.25F, -0.7F);
+                    GlStateManager.translate(-0, -1.25F, -0.7F);
                     GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -177,7 +177,7 @@ public class FMG9Factory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
-                    GlStateManager.translate(-0.0F, -1.25F, -1.2F);
+                    GlStateManager.translate(-0, -1.25F, -1.2F);
                     GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof EotechScopeRing) {
@@ -240,7 +240,7 @@ public class FMG9Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
-                    GlStateManager.translate(-0.165F, -1.0F, -4.7F);
+                    GlStateManager.translate(-0.165F, -1, -4.7F);
                     GlStateManager.scale(1F, 1F, 1F);
                 })
                 .withTextureNames("fmg9")
@@ -270,7 +270,7 @@ public class FMG9Factory implements GunFactory {
                                         .withPosition(-1.425000f, 4.265000f, -4.485000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3, 3, 3)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -378,12 +378,12 @@ public class FMG9Factory implements GunFactory {
 
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                GlStateManager.translate(0F, 0.0f, 0.1f);
+                                GlStateManager.translate(0F, 0, 0.1f);
                             }
 
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GlStateManager.translate(0F, 0.0f, 0f);
+                                GlStateManager.translate(0F, 0, 0f);
                             }
 
                             // ACOG Zoom
@@ -438,12 +438,12 @@ public class FMG9Factory implements GunFactory {
 
                             // Reflex Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                GlStateManager.translate(0F, 0.0f, 0.4f);
+                                GlStateManager.translate(0F, 0, 0.4f);
                             }
 
                             // Reflex Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                GlStateManager.translate(0F, 0.0f, 0.4f);
+                                GlStateManager.translate(0F, 0, 0.4f);
                             }
 
                             // Everything else
@@ -475,7 +475,7 @@ public class FMG9Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withScale(2.6F, 2.6F, 4)
                                             .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                                             .applyTransformations();
                                 },

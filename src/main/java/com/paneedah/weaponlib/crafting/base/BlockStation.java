@@ -34,7 +34,7 @@ public abstract class BlockStation extends Block {
             ClientEventHandler.BLANKMAPPED_LIST.add(this);
         }
 
-        setHardness(2.0f);
+        setHardness(2);
         setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.MISC);

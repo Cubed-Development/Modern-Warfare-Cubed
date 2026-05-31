@@ -129,7 +129,7 @@ public class M712Factory implements GunFactory {
                             GlStateManager.scale(1F, 1F, 1F);
                             GlStateManager.rotate(45F, 0f, 1f, 0f);
                             GlStateManager.rotate(14F, 0f, 0f, 1f);
-                            GlStateManager.translate(-0.3f, 0.8f, -2.0f);
+                            GlStateManager.translate(-0.3f, 0.8f, -2);
 
 //                GlStateManager.scale(1F, 1F, 1F);
 //                GlStateManager.rotate(-14.000000f, 1f, 0f, 0f);

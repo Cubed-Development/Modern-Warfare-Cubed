@@ -14,8 +14,8 @@ public class ScreenModel extends ModelBase {
         textureHeight = 6;
 
         bone = new ModelRenderer(this);
-        bone.setRotationPoint(0.0F, 24.0F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5f, 3.0f, 0.0F, 6, 6, 0, 0.0F, false));
+        bone.setRotationPoint(0, 24, 0);
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -1.5f, 3, 0, 6, 6, 0, 0, false));
     }
 
     @Override
