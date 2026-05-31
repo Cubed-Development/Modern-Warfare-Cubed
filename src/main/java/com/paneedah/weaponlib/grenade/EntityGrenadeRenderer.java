@@ -48,7 +48,7 @@ public class EntityGrenadeRenderer extends Render<Entity> {
 
         GlStateManager.rotate(entityGrenade.getRotation().x, 1f, 0f, 0f);
         GlStateManager.rotate(entityGrenade.getRotation().y - entityGrenade.getInitialYaw() - 90f, 0f, 1f, 0f); // TODO Why do we do initalYaw - 90f?
-        GlStateManager.rotate(entityGrenade.getRotation().y, 0f, 0f, 1f);
+        GlStateManager.rotate(entityGrenade.getRotation().z, 0f, 0f, 1f);
 
         GlStateManager.translate(-rotationOffsetX, -rotationOffsetY, -rotationOffsetZ);
 
